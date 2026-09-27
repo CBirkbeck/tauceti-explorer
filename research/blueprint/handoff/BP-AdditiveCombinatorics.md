@@ -1,488 +1,249 @@
 # Handoff — BP-AdditiveCombinatorics
 
-Issue #1037. Agent: **ChatGPT (GPT-6 Astra Pro)**. Session:
-`gpt6-20260927-qm-7c9e`. Date: 27 September 2026.
-
-## Status and scope of this submission
-
-**Partial checkpoint, not a completed blueprint.** This submission adds this
-handoff and `research/blueprint/suggested/AdditiveCombinatorics.lean`. It does
-not create a packet or replace `data/decompositions/AdditiveCombinatorics.json`.
-The existing reviewed decomposition, its ids, source readings and unresolved
-proof inputs are preserved. No stage coverage status is changed.
-
-The suggested file contains **2 definition signatures, 33 lemma signatures
-and 16 example specifications**. Every body is `sorry`: **51 placeholders**,
-not 51 proved declarations. There are no new packet nodes, packet API items,
-packet tests, planets, requests or sourceIssues. Names below are proposed Lean
-names, not allocated packet ids. Implementation status is **unchecked**.
-
-The mathematical contribution is a finite-abelian Fourier interface with the
-normalizations, comparison maps and elementary proofs made explicit. The
-proofs below use the existing character orthogonality and duality results;
-they do not assume a new Fourier inversion or convolution theorem. The
-suggested file intentionally contains only this part of AC.0, not placeholder
-claims to have completed the other layers.
-
-## Ownership and inputs actually checked
-
-The live issue has six stages, **AC.0–AC.5**, not an enlarged list of topics:
-sumsets and energy; structure and randomness; progressions and removal; Gowers
-norms and nilsequences; transference to primes; linear patterns and
-multiplicative orthogonality.
-
-The accepted RS-03 proposal narrows AC.0 to the missing generality and
-normalization/comparison API for arbitrary finite abelian groups. Built energy,
-convolution and Plunnecke–Ruzsa results must be imported. The proposal also says
-that FF.1 consumes the missing generic Fourier interface from AC.0, while
-field-specific trace and character comparisons stay in FF.1. The accepted
-verdict is recorded in `research/blueprint/reviews/REV-RS-03.md`; the AC.0 and
-FF.1 entries in `research/blueprint/restructure/RS-03.result.json` were read.
-
-The giant `data/library-coverage.json` returned empty Contents API content,
-including range reads. Raw-file access failed, and the Git blob reader returned
-an oversized base64 payload. Instead I read the relevant **accepted source
-audit**, `research/blueprint/audit/AUDIT-16.result.json`, including its AC.0–AC.2
-entries, and the independent `RT-AUDIT-16.md`, which identifies that audit as
-accepted and describes the coverage projection. This is not a claim to have
-read the complete projected coverage file or repeated the audit of both
-libraries. The accepted audit already distinguishes missing character-indexed
-Fourier glue from existing characters, energy, cyclic Fourier analysis and
-Peter–Weyl theory.
-
-I read the opening of the integrated decomposition, including its Szemeredi
-and Gowers-norm entries and its source-reading record. I have **not** independently
-reverified all its sources or read all its entries. Hence it is left untouched,
-not silently replaced by this narrower checkpoint. The area red-team report
-was discovered, but its findings have not been incorporated in this pass.
-The roadmap document, all touching link maps, supplier packets and the extra
-Bennett–Siksek/Rahman source route still need their complete pass before packet
-integration. No comprehensive absence claim about Tau Ceti is made here.
-
-### Pinned source statements read directly
-
-Mathlib pin: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-The Tau Ceti baseline remains `f790474821cf4256814db967cb154e7af3d0c369`,
-but this pass does not add a fresh Tau Ceti declaration citation.
-
-The following are baseline imports, **not work to re-prove**. For generated
-additive declarations, the multiplicative statement and `to_additive` annotation
-were read, rather than claiming to have compiled the generated declaration.
-
-| Module at the Mathlib pin | Statements used or compared |
-|---|---|
-| [FiniteAbelian/PontryaginDuality.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean) | `AddChar.complexBasis`, `AddChar.complexBasis_apply`, `AddChar.sum_apply_eq_ite`, `AddChar.card_eq`, `AddChar.zmod`, `AddChar.zmod_intCast`, `AddChar.zmodAddEquiv`, `AddChar.zmodAddEquiv_apply`. The whole file was read. |
-| [FiniteAbelian/Orthogonality.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean) | `AddChar.wInner_cWeight_eq_boole`, `AddChar.instFintype`; the whole file was read. Character orthogonality already uses probability normalization. |
-| [Fourier/ZMod.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Fourier/ZMod.lean) | `ZMod.dft`, `ZMod.dft_apply`, `ZMod.dft_apply_zero`, `ZMod.dft_dft`; lines 1–185 read. This transform uses ordinary counting measure. |
-| [InfiniteSum/DiscreteConvolution.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Topology/Algebra/InfiniteSum/DiscreteConvolution.lean) | `DiscreteConvolution.addConvolution`, `addRingConvolution`, `addRingConvolution_apply`, `single_addRingConvolution`, the zero/addition/scalar/commutativity interfaces in the ranges read. Lines 1–230 and 310–455 were read, not the entire intervening section. |
-| [Additive/Energy.lean](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Combinatorics/Additive/Energy.lean) | `Finset.addEnergy`, `Finset.addEnergy_eq_sum_sq`, `Finset.le_card_add_mul_addEnergy`, from the multiplicative declarations and their additive annotations; lines 32–165 read. |
-
-The generic finite-sum, finite-fiber, complex-conjugation and basis-coordinate
-lemmas used in the proofs still need declaration-level index matching. The
-suggested file is therefore **not yet a packet with every prerequisite linked
-to a pinned declaration**. The source-paper reading, locator/excerpt work and
-PDF hashes required by PROTOCOL have not been completed in this pass. No new
-paper hash or source-wide closure is claimed.
-
-## Mathematical conventions
-
-Let G be a finite abelian group, written additively, and N = |G|. Its identity
-implies N > 0. Let G-hat be its group of complex-valued characters. Do not pick
-an identification of G with G-hat: none is needed here. Each character has
-absolute value one, sends zero to one, and satisfies
-
-    chi(x+y) = chi(x) chi(y),
-    chi(-x) = conjugate(chi(x)).
-
-For f,g : G -> C define
-
-    F(f)(chi) = (1/N) sum_x f(x) conjugate(chi(x)),
-    C(f,g)(x) = (1/N) sum_y f(y) g(x-y).
-
-Thus G has probability counting measure, while the dual has ordinary counting
-measure. We use `fourier` and `nconv` for F and C in the suggested file. These
-are an API adapter and normalization, not a second character theory or a
-replacement for the general discrete convolution.
-
-The two baseline orthogonality formulas are
-
-    (O1) (1/N) sum_x chi(x) conjugate(psi(x)) = [chi = psi],
-    (O2) sum_chi chi(x-y) = N [x = y].
-
-Here [P] is one when P holds and zero otherwise. O1 follows directly from
-`wInner_cWeight_eq_boole`, with the harmless conjugation/argument order adjusted.
-O2 is `sum_apply_eq_ite` and the additive-group identity x-y=0 iff x=y.
-Neither becomes a new blueprint node.
-
-## Complete elementary proof worksheet
-
-### 1. Definition specifications and linear API
-
-`fourier_apply` and `nconv_apply` are exactly the displayed formulas. A safe
-implementation can use the existing normalized finite average, or the scalar
-multiple of an ordinary finite sum. Its equality with that average must be
-part of the adapter, not an implicit convention.
-
-`fourier_zero`, `fourier_add` and `fourier_smul` follow by distributivity of
-finite sums and complex scalar multiplication. For the point mass delta_a,
-
-    F(c delta_a)(chi) = c conjugate(chi(a))/N.
-
-Only the a term survives, proving `fourier_single`. Applying O1 gives
-
-    F(psi)(chi) = [chi = psi],
-
-which is `fourier_character`. In particular the transform of the constant
-function one is one at the trivial character and zero elsewhere. There is
-no extra factor N in this formula.
-
-### 2. Inversion, coordinates and injectivity
-
-Interchange the two finite sums:
-
-    sum_chi F(f)(chi) chi(x)
-      = (1/N) sum_y f(y) sum_chi chi(x-y)
-      = f(x),
-
-by O2. This proves `fourier_inversion`. Notice that the inverse is a sum,
-**not an average**. The existing basis `AddChar.complexBasis G` has chi as
-its chi-th basis vector. The displayed expansion and uniqueness of basis
-coordinates therefore give `fourier_eq_basis_repr`. Thus the new transform
-is precisely the existing basis-coordinate map expressed as scalar Fourier
-coefficients, not a new choice of basis. Applying inversion pointwise to equal
-transforms proves `fourier_injective`.
-
-### 3. Parseval and Plancherel
-
-Insert the expansions from inversion for f and g into their inner product,
-interchange finite sums, and apply O1:
-
-    (1/N) sum_x f(x) conjugate(g(x))
-      = sum_chi F(f)(chi) conjugate(F(g)(chi)).
-
-This proves `fourier_parseval`. Take g=f, use
-z conjugate(z) = |z|^2, and take real parts to obtain
-`fourier_plancherel`. This is a character-coordinate compatibility theorem.
-It neither declares Peter–Weyl missing nor asks another roadmap to re-prove
-Parseval for compact groups.
-
-### 4. Compare to the existing discrete convolution
-
-For fixed x, the map
-
-    y |-> (y, x-y)
-
-is a bijection from G to the additive fiber {(a,b) : a+b=x}; its inverse is
-first projection. The fiber is finite. Reindex the finite version of the
-existing `addRingConvolution_apply` sum by this bijection. It becomes
-sum_y f(y)g(x-y). Multiplication by 1/N proves
-`nconv_eq_addRingConvolution`.
-
-This comparison, with the existing convolution API, supplies commutativity,
-addition and zero laws. Alternatively, each follows immediately by finite
-sum reindexing and distributivity, which is useful when choosing the smallest
-imports. Explicitly, y -> x-y exchanges the factors for `nconv_comm`;
-distributing either input gives `nconv_add_left` and `nconv_add_right`;
-a zero input makes every summand zero.
-
-For associativity the left side expands to
-
-    N^(-2) sum_{a,b} f(a) g(b) h(x-a-b),
-
-after replacing the outer variable y by a+b. The right side gives the same
-sum after replacing its inner variable by b. All changes of variables are
-bijections with the displayed inverse obtained by subtraction. This proves
-`nconv_assoc` without an analytic Fubini or convergence assumption.
-
-The point-mass calculation gives
-
-    C(c delta_a, d delta_b) = (cd/N) delta_(a+b).
-
-This is `nconv_single`. The unit is **N delta_0**, not delta_0. Substitute
-this point mass into the first input to obtain `nconv_unit_left`; the right
-unit follows by commutativity or the same computation. Conversely
-C(delta_0,delta_0)=delta_0/N, an exact counterexample to the wrong unit
-whenever N>1.
-
-### 5. Fourier transform of convolution
-
-Expand the two normalized sums and put z=x-y:
-
-    F(C(f,g))(chi)
-      = N^(-2) sum_{y,z} f(y)g(z) conjugate(chi(y+z))
-      = ((1/N) sum_y f(y) conjugate(chi(y)))
-        ((1/N) sum_z g(z) conjugate(chi(z))).
-
-The change of variables (x,y) <-> (y,z) is bijective, and multiplicativity
-of chi factors its value. This proves `fourier_nconv`. There is no remaining
-factor N: both definitions have been normalized.
-
-### 6. Translation, modulation, reflection and conjugation
-
-All four identities retain the frequency character, not a chosen cyclic
-coordinate. In the first, translation means f(x-a), not f(x+a).
-
-    F(x |-> f(x-a))(chi) = conjugate(chi(a)) F(f)(chi),
-    F(x |-> psi(x)f(x))(chi) = F(f)(chi/psi),
-    F(x |-> f(-x))(chi) = F(f)(chi^(-1)),
-    F(x |-> conjugate(f(x)))(chi) = conjugate(F(f)(chi^(-1))).
-
-For translation substitute y=x-a and factor chi(y+a). For modulation use
-conjugate((chi/psi)(x)) = conjugate(chi(x)) psi(x), since |psi(x)|=1.
-For reflection substitute y=-x. For conjugation take the conjugate of the
-defining sum and use |chi(x)|=1. These prove the four corresponding API lemmas
-without assuming f is real-valued.
-
-### 7. Equivariance and quotient groups
-
-For an additive equivalence e:G->H, normalized sums are invariant under e:
-the unnormalized sums reindex by a bijection and |G|=|H|. Substitution in the
-definition proves `fourier_equiv` for the pullback character chi composed with e.
-There is no inverse or dual identification hidden in its statement.
-
-For a **surjective** homomorphism q:G->H, put K=ker(q), m=|K|. Each fiber
-q^(-1)(h) is a translate of K: choose x with q(x)=h and use k -> x+k, inverse
-y -> y-x. Thus |G|=m|H| and, for every function u on H,
-
-    (1/|G|) sum_x u(q(x)) = (1/|H|) sum_h u(h).
-
-Apply this to u(h)=f(h)conjugate(chi(h)) to prove `fourier_quotient`.
-Surjectivity must not be erased: otherwise the left side averages over the
-image, not all of H.
-
-For an arbitrary q, suppose a belongs to its kernel and chi(a) is not one.
-The pullback f composed with q is unchanged by translation by a. The translation
-identity gives F(f composed with q)(chi) = conjugate(chi(a)) times itself.
-Because conjugate(chi(a)) is not one, the coefficient is zero. This proves
-`fourier_quotient_zero`; **surjectivity is not needed for this vanishing lemma**.
-These two statements are kept separate instead of hiding the different
-hypotheses in one blanket naturality assertion.
-
-### 8. Cyclic comparison and the sign check
-
-For N>0, `AddChar.zmodAddEquiv r` sends x to exp(2 pi i xr/N), the same
-value as `ZMod.stdAddChar (x*r)`. `zmod_character_comparison` is the adapter
-between these two existing constructions. Prove it by taking integer
-representatives, using the explicit character formulas, and checking
-independence of representatives by the integer periods of the exponential.
-The actual source declarations show that this is a positive-exponent
-character, not its inverse.
-
-Conjugating the character in F then gives the negative-exponent kernel in
-`ZMod.dft_apply`. Hence
-
-    F(f)(AddChar.zmodAddEquiv r) = (1/N) ZMod.dft(f)(r).
-
-This is `fourier_zmod`. On Z/4, f=delta_1 and r=1 give **-i/4**. This one
-value detects both the sign and the missing-normalization errors. The case
-N=1 is included; N=0 is excluded by `[NeZero N]`, not treated as a finite
-cyclic group of size zero.
-
-### 9. Fourier energy is a comparison, not a new energy definition
-
-For finite subsets A,B of G, let r(t) count the pairs (a,b) in A x B with
-a+b=t. The existing `Finset.addEnergy_eq_sum_sq` gives
-
-    E(A,B) = sum_t r(t)^2.
-
-By the definition of normalized convolution,
-C(1_A,1_B)(t)=r(t)/N. Consequently
-
-    (1/N) sum_t |C(1_A,1_B)(t)|^2 = E(A,B)/N^3.
-
-Apply Plancherel and the convolution-product identity to obtain
-
-    E(A,B) = N^3 sum_chi |F(1_A)(chi)|^2 |F(1_B)(chi)|^2.
-
-This proves `fourier_energy` and explains the **third power** of N. It holds
-with either set empty. At A=B=G both sides are N^3; at A=B={0} both sides
-are one. The existing Cauchy–Schwarz energy bound remains an imported theorem;
-this checkpoint does not create another energy definition or re-plan Ruzsa
-calculus.
-
-## Intended uses and API coverage
-
-The following are intended consumers within the current roadmap, not claims
-that their proofs or sources were read in this pass.
-
-For `fourier`: AC.0 needs inversion and the energy comparison; AC.1 needs
-translation/modulation and quotient compatibility for spectra, Bohr sets and
-density increments; AC.3 needs an accurately normalized starting point for the
-U^2/Fourier comparison; FF.1 needs the field-specific character adapter on top
-of this generic interface. Its API therefore includes linearity, point masses,
-character values, inversion/injectivity, basis compatibility, Parseval,
-convolution, symmetry, quotient/equivalence naturality and the cyclic adapter.
-
-For `nconv`: AC.0 needs representation counts and energy; AC.1 needs iterative
-convolution and smoothing; the Fourier-product identity supplies spectral
-calculations; FF.1 can reuse it without a field-specific convolution definition.
-Its API includes the existing-discrete-convolution comparison, commutativity,
-associativity, distributivity, zero, the point-mass formula, the correctly scaled
-two-sided unit and the Fourier-product formula. Each definition has eight
-example specifications in the suggested file, including a degenerate value,
-a computed value and agreement with an existing library notion.
-
-A future packet must promote each consumed API lemma to a node, allocate ids
-without colliding with the existing decomposition or reserved ids, and place
-each edge against its actual prerequisites. This file does not claim that this
-administrative and source-locator work has already been done.
+Issue #1037. Codex session codex-a71f92, 27 September 2026.
+Continuation of ChatGPT (GPT-6 Astra Pro), gpt6-20260927-qm-7c9e, PR3133.
+Claim comment 5852252595 was confirmed by bot comment 5852253359 before work.
+
+## Status: partial checkpoint, no replacement packet
+
+This checkpoint adds the reader, extends the suggested interface and replaces
+the earlier handoff with verified evidence and exact continuation boundaries.
+The original mathematical interface is preserved: none of its 35 declarations
+or 16 tests is deleted. Seven comparison/API lemmas and four tests are added.
+
+The suggested file now has **2 definitions, 40 lemmas and 20 examples**:
+62 deliberate placeholders. It elaborates at both pins with exactly 62 expected
+placeholder warnings and no other diagnostics. Nothing is claimed implemented.
+
+No packet is created. The issue requires all six stages in scope; a narrow
+packet covering them would displace the nine accepted Green–Tao decomposition
+nodes. They have not yet been reconciled to declaration granularity with full
+API/test/closure contracts. Preserving that mathematics takes precedence over
+publishing a superficially complete replacing graph. The new reader explicitly
+retains them. No stage status or accepted decomposition file is changed.
+
+Thus the packet counts remain zero: no allocated nodes, API records, test
+records, planets or requests. The reader has four candidate planet names,
+and the interface has 40 API lemma signatures and 20 example specifications.
+The whole-roadmap blueprint remains incomplete.
+
+## New verified work
+
+- Fully read the projected audit for all six AC layers before planning,
+  plus REV-AUDIT-16, the full RS-03 result/report/review, the campaign document,
+  atlas extract, the complete integrated decomposition, and the inherited
+  handoff/signatures.
+- Read all touching link and overlap entries: coding ACT-O02 and both
+  LieGroups overlap contracts. Screened reserved IDs and all packets for AC.0;
+  read FF.1's exact request and consuming multiplicative-character node.
+- Read the combinatorics red-team report and the relevant verifier decisions,
+  including its rejections: no mandatory latest-bound/PFR programme, no
+  unavoidable AC.2/AC.3 cycle, and no blanket coding prerequisite.
+- Read the upstream EffectiveBounds and ArithmeticDirichletSeries documents
+  completely for conventions, theorem contracts and dependency discipline.
+- Read the primary finite-Fourier passage, including its exercises and the
+  beginning of the Bohr/lattice transition. Checked the conjugation bars and
+  suspect constants on rendered PDF pages, not extracted text alone.
+- Found LeanAPAP's existing cft design through the authors' Zulip discussion.
+  Read its entire compact Fourier source at commit
+  3b79412fbe529449c472f0a5f866ee2e3be88b87. It is not in the pins and was not
+  imported or copied. Read Mathlib PR41258's current definition and review:
+  symmetric normalization differs, and its reviewer points to APAP's API.
+  Any actual source-code port requires the programme's author-coordination
+  step; this checkpoint is an independently specified interface.
+- Added weighted-inner-product, explicit dual reindexing, finite Haar integral,
+  scalar-convolution, indicator-convolution and conjugate-reflection contracts.
+  The Haar signature carries the measurable structure on the multiplicative
+  type-tag explicitly: the corresponding instance is not inherited automatically.
+
+## Pinned baseline statements inspected
+
+Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
+Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
+
+The full finite Pontryagin-duality and character-orthogonality files were read.
+Other ranges are stated rather than implying a full module read.
+
+| Source module | Inputs and scope inspected |
+| --- | --- |
+| Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean | Entire file: complexBasis, its evaluation, card_eq, column sums, cyclic character constructors and zmodAddEquiv. |
+| Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean | Entire file: probability-normalized row orthogonality, character finiteness and independence. |
+| Mathlib/Analysis/RCLike/Inner.lean | Lines 20–135: wInner, cWeight, normalized-average comparison and first-slot conjugation. |
+| Mathlib/LinearAlgebra/Basis/Defs.lean | Basis coordinate and finite sum/repr identities, particularly repr_sum_self. |
+| Mathlib/Analysis/Fourier/ZMod.lean | Lines 1–205: dft, evaluation, inverse, zero-frequency and counting-measure conventions. |
+| Mathlib/Topology/Algebra/InfiniteSum/DiscreteConvolution.lean | Lines 1–240 and 300–end: addition-fibre definition, finite-function ring convolution, zero/unit/distributivity/scalar/commutativity interfaces, including generated additive declarations. |
+| Mathlib/Combinatorics/Additive/Convolution.lean | Lines 22–100: representation multiplicity and support, generated additive version. |
+| Mathlib/Combinatorics/Additive/Energy.lean | Lines 1–185: energy carrier, representation-square formula, empty cases and lower Cauchy–Schwarz inequality. |
+| Mathlib/Combinatorics/Additive/PluenneckeRuzsa.lean | Triangle theorem and Plünnecke–Ruzsa statement/proof ranges, not the whole file. |
+| Mathlib/Combinatorics/Additive/RuzsaCovering.lean | Finset covering statement/proof and opening set variant. |
+| Mathlib/Combinatorics/Additive/Corner/Roth.lean | Finite-group and natural-number Roth statements/proofs and asymptotic corollary, lines 125–203. |
+| TauCeti/GroupTheory/FiniteAbelian/CharacterOrthogonality.lean | Entire file: arbitrary-domain multiplicative column orthogonality; do not duplicate it. |
+| TauCeti/RepresentationTheory/Compact/Finite.lean | Lines 175–290: normalized counting Haar measure and integral_haarProb_eq_inv_mul_sum. |
+| TauCeti/RepresentationTheory/Compact/PeterWeyl.lean | Ambient hypotheses and lines 565–620: polarized and norm-square Parseval, not a new missing theorem. |
+
+Searched both source trees for finite Fourier/character/convolution APIs and
+the declaration index. Broad Fourier searches have many unrelated continuous,
+Gaussian and positive-definite hits; narrower full-tree searches and the
+accepted audit locate the relevant candidates above. This is not a claim
+that every Fourier-related declaration in either library was read.
+The APAP interface is outside the baseline; its existence corrects any
+unqualified claim that no formalization exists anywhere.
 
 ## Checks actually executed
 
-**No Lean executable or Lake executable was found in this environment.** No
-Lean compilation, dependency build or repository packet checker was run. The
-51 `sorry` bodies are explicit planning placeholders, not evidence of compiling
-statements. In particular, the generated additive convolution names, character
-coercions, the basis-coordinate expression and the two cyclic character
-constructors should be compile-checked at the pin before promotion.
+The original 51-signature worksheet first compiled unchanged.
+The expanded 62-signature file then compiled against 8,482 byte-matched reached
+Mathlib source files and 36 Tau Ceti modules built directly from pinned sources.
+Only the 62 expected placeholder warnings remain.
 
-The standard-library Python program below **was executed**. It works in the
-exact cyclotomic algebra Q[z]/(z^4-z^2+1), with conjugation z -> z^(-1), and
-uses Fraction coefficients throughout. Thus it has no floating-point tolerance.
-It checked:
+Separate scratch Lean uses concrete finite-average definitions, not any
+suggested placeholder, and proves 17 general lemmas with zero placeholders
+and zero warnings: zero/addition/scalar, point mass, character evaluation,
+inversion, basis coordinates, injectivity, zero/point-mass/unit convolution,
+weighted-inner-product comparison, polarized Parseval, arbitrary dual
+reindexing, discrete-convolution comparison, commutativity, and Haar integral
+comparison. These probes are validation evidence, not submitted implementation.
+No scratch proof file or build artifact is published.
 
-- **11 groups**, including Z/2 x Z/2, (Z/2)^3, (Z/3)^2 and Z/4 x Z/2;
-- **579 ordered point-mass pairs**, each for inversion and Parseval;
-- **5,589 convolution coefficient identities**;
-- **40 subsets** for the Fourier-energy normalization;
-- **2 quotient-basis tests** for Z/4 -> Z/2, plus the non-real -i/4 sign sentinel.
+The previous exact rational cyclotomic regression was rerun. It checks
+11 groups, including noncyclic examples, 579 ordered point-mass pairs for
+inversion/Parseval, 5,589 convolution coefficients, 40 self-energy subsets,
+the Z/4 to Z/2 quotient basis, and the nonreal sign sentinel.
+The extension checks all 576 ordered pairs of subsets for mixed energy on
+Z/4, (Z/2)^2 and Z/3, plus the new conjugate-reflection, imaginary-scalar and
+multiplicity sentinels. All passed, without floating-point tolerance.
 
-Bilinearity extends the tested point-mass identities to all functions on each
-of those particular finite groups, but this is still a regression program,
-not a Lean proof of the general theorem or a check of the suggested Lean
-elaboration. It is independent of the `sorry` specifications.
+The suggested file still does not constitute proofs of the remaining general
+identities. In particular no general Lean proof of the energy or cyclic
+constructor comparison is claimed by these scratch checks.
 
-```python
-from fractions import Fraction as Q
-from itertools import product
+The packet checker is not applicable to an absent packet; no zero-error
+packet-check claim is made. The source-issue records below also passed validation
+in a scratch errata-v1 envelope. The intake allowlist check reported three files
+and zero problems. A fresh-main overlap check found no changes to the guarded
+inputs or deliverables, and the snapshot comparison found no edits outside
+the three authorized deliverables.
 
-# Exact arithmetic in Q[z]/(z^4-z^2+1), with z a primitive twelfth root.
-Z = (Q(0),) * 4
-ONE = (Q(1), Q(0), Q(0), Q(0))
+## Source provenance and mistakes to carry into the packet
 
-def plus(a, b):
-    return tuple(x + y for x, y in zip(a, b))
+Source ID: tao-254a-notes2-cmu. Terence Tao, Lecture notes 2 for 254A.
+The acquired text is the CMU-hosted compilation, not the published Tao–Vu book.
+Read §6 in full (printed pp.8–11, PDF pp.34–37), Q3–Q4 on printed p.23
+(PDF p.49), and the opening of §7 through the phase-radius comparison on
+printed p.12. PDF pp.35,37,38 were rendered and visually checked.
+No complete Freiman/Bohr proof, other lecture, or book-wide reading is claimed.
 
-def scale(a, c):
-    return tuple(c * x for x in a)
+The sourceVersions and sourceIssues records below are **unreviewed findings**,
+preserved here because there is no replacing packet yet. Copy them, with their
+IDs, into its corresponding fields when that packet is constructed.
+"new" means no correction was found in the listed searches, not author
+confirmation or a claim that nobody has noticed the issue.
+Do not send anything to the author without the maintainer.
 
-def times(a, b):
-    t = [Q(0)] * 7
-    for i in range(4):
-        for j in range(4):
-            t[i+j] += a[i] * b[j]
-    for i in range(6, 3, -1):
-        t[i-2] += t[i]
-        t[i-4] -= t[i]
-    return tuple(t[:4])
-
-def total(xs):
-    s = Z
-    for x in xs:
-        s = plus(s, x)
-    return s
-
-roots = [ONE]
-for j in range(11):
-    roots.append(times(roots[-1], (Q(0), Q(1), Q(0), Q(0))))
-assert times(roots[-1], (Q(0), Q(1), Q(0), Q(0))) == ONE
-
-def conj(a):
-    return total(scale(roots[(-i) % 12], c) for i, c in enumerate(a))
-
-def norm2(a):
-    return times(a, conj(a))
-
-def points(ms):
-    return list(product(*(range(m) for m in ms)))
-
-def add(a, b, ms):
-    return tuple((x+y) % m for x, y, m in zip(a, b, ms))
-
-def char(a, r, ms):
-    return roots[sum((12//m)*x*y for x, y, m in zip(a, r, ms)) % 12]
-
-def ft(f, ms):
-    es = points(ms)
-    n = len(es)
-    return [scale(total(times(v, conj(char(a, r, ms)))
-                        for a, v in zip(es, f)), Q(1, n)) for r in es]
-
-matrix_checks = conv_checks = 0
-for ms in [(), (2,), (3,), (4,), (6,), (2,2), (2,2,2),
-           (3,3), (4,2), (6,2), (4,3)]:
-    es = points(ms)
-    n = len(es)
-    cols = [ft([ONE if x == a else Z for x in es], ms) for a in es]
-    for i, a in enumerate(es):
-        for j, b in enumerate(es):
-            inv = total(times(cols[i][r], char(b, es[r], ms)) for r in range(n))
-            assert inv == (ONE if a == b else Z)
-            ip = total(times(cols[i][r], conj(cols[j][r])) for r in range(n))
-            assert ip == (scale(ONE, Q(1, n)) if a == b else Z)
-            matrix_checks += 1
-            out = es.index(add(a, b, ms))
-            for r in range(n):
-                assert times(cols[i][r], cols[j][r]) == scale(cols[out][r], Q(1, n))
-                conv_checks += 1
-    assert ft([ONE] * n, ms) == [ONE] + [Z] * (n-1)
-    assert all(v == ONE for v in ft([scale(ONE, n)] + [Z] * (n-1), ms))
-
-energy_checks = 0
-for ms in [(4,), (2,2), (3,)]:
-    es = points(ms)
-    n = len(es)
-    for bits in product((0, 1), repeat=n):
-        A = [a for a, b in zip(es, bits) if b]
-        counts = {x: 0 for x in es}
-        for a in A:
-            for b in A:
-                counts[add(a, b, ms)] += 1
-        energy = sum(t*t for t in counts.values())
-        spectrum = ft([scale(ONE, b) for b in bits], ms)
-        spectral = scale(total(times(norm2(v), norm2(v)) for v in spectrum), n**3)
-        assert spectral == scale(ONE, energy)
-        energy_checks += 1
-
-for f in ([ONE, Z], [Z, ONE]):
-    big = ft([f[x % 2] for x in range(4)], (4,))
-    small = ft(f, (2,))
-    assert big == [small[0], Z, small[1], Z]
-assert ft([Z, ONE, Z, Z], (4,))[1] == scale(roots[9], Q(1, 4))
-assert (matrix_checks, conv_checks, energy_checks) == (579, 5589, 40)
-print(matrix_checks, conv_checks, energy_checks)
+```json
+{
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://www.math.cmu.edu/users/af1p/Teaching/AdditiveCombinatorics/Tao.pdf",
+      "citation": "Terence Tao, Lecture notes 2 for 254A, within the undated 118-page compilation hosted by the CMU course. Not identified with Tao–Vu's published book.",
+      "read": "2026-09-27",
+      "sha256": "961b333259ff9db8289e6e8a59c10a7a418d6709694fc99f33252ee91694ffe9"
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "AdditiveCombinatorics/E1",
+      "source": "tao-254a-notes2-cmu",
+      "kind": "misprint",
+      "locator": "Lecture notes 2, §6, printed p.11 (PDF p.37), the two inequalities immediately after (9).",
+      "printed": "Re Σ_{ξ∈Λ} |χ̂_A(ξ)|⁴ e(x,ξ) ≥ (3/4) Σ_{ξ∈Z} |χ̂_A(ξ)|⁴.",
+      "correction": "In these two immediate inequalities put Λ, not Z, in the right-hand sum. Alternatively keep Z and use 9/16 in place of 3/4.",
+      "reason": "The pointwise estimate Re e(x,ξ)>3/4 on Λ yields (3/4) times the mass on Λ. Equation (6) supplies a further factor 3/4 when converting to total mass. The complementary sum is at most one third of the mass on Λ, so the corrected argument still proves the claimed nonvanishing. This identifies the missing step/index in the printed inference; it does not assert a counterexample to every stronger inequality for actual indicator spectra.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Author's 254A course archive https://www.math.ucla.edu/~tao/254a.1.03w/index.html: search index lists corrections to other notes, none to this passage; direct retrieval failed (502/certificate verification).",
+        "Searches for Tao 254A notes2 Bohr 3/4 errata; no correction located.",
+        "Repository source-issues register and blueprint errata screened for this text."
+      ]
+    },
+    {
+      "id": "AdditiveCombinatorics/E2",
+      "source": "tao-254a-notes2-cmu",
+      "kind": "misprint",
+      "locator": "Lecture notes 2, §7 opening, printed p.11 (PDF p.37), displayed phase-distance description of X.",
+      "printed": "X = {x ∈ Z : ||xξ/N|| < δN for all x ∈ Λ}.",
+      "correction": "Use {x ∈ Z/NZ : ||xξ/N|| < δ for every ξ∈Λ}, where ||·|| is distance to the nearest integer and δ is a fixed small phase radius.",
+      "reason": "The quantified frequency must be ξ. Phase distance is dimensionless and at most 1/2. For example N=20 and δ=1/20 makes the printed δN condition automatic, whereas x=10 and ξ=1 give character value −1 and do not satisfy (9). For comparison with the chord-radius set, choose the smaller constant in E3.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Author's 254A course archive search-index result, with direct retrieval failure as in E1.",
+        "Searches for Tao notes2 Bohr phase δN correction; none located.",
+        "Repository source-issues register and blueprint errata screened."
+      ]
+    },
+    {
+      "id": "AdditiveCombinatorics/E3",
+      "source": "tao-254a-notes2-cmu",
+      "kind": "error",
+      "locator": "Lecture notes 2, §7, first paragraph of printed p.12 (PDF p.38), comparison with the chord radius 1/4 of (9).",
+      "printed": "one can shrink X a bit and take δ to be 1/20 for concreteness",
+      "correction": "For the asserted contained phase-distance Bohr set, use δ=1/32 (or any positive δ with 2 sin(πδ)≤1/4).",
+      "reason": "Even after correcting δN to δ, t=1/24 satisfies ||t||<1/20 but |exp(2πit)−1|=sqrt(2−(sqrt(6)+sqrt(2))/2)>1/4. The phase radius 1/20 therefore does not ensure the chord-radius condition. In contrast δ=1/32 gives |exp(2πit)−1|≤2π||t||<π/16<1/4. This changes only a harmless absolute constant, not the existence of the progression.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Author's 254A course archive search-index result; direct text retrieval failed as in E1.",
+        "Searches for Tao 254A notes2 1/20 correction Bohr; no correction located.",
+        "Repository source-issues register and blueprint errata screened."
+      ]
+    }
+  ]
+}
 ```
 
-## Continuation without losing the existing work
 
-1. Complete the required read of the reviewed coverage projection, current
-   roadmap/atlas extract, all touching link maps, reserved ids, supplier packets
-   and the entire integrated decomposition. This is necessary before asserting
-   collision-free ids or a complete baseline audit. The accepted audit is useful
-   evidence but not a substitute for reviewing current supplier interfaces.
-2. Acquire and read the actual finite-abelian Fourier source passages, with
-   verified locators, short excerpts and hashes where obtainable. Match the
-   elementary proof steps above to exact finite-sum and basis declarations.
-   Compile the suggested signatures at Mathlib `082e2d3`; no such check has
-   been done here.
-3. Integrate only genuinely missing normalization/comparison declarations into
-   a packet that preserves the existing good nodes and ids. Do not replace the
-   transference decomposition with just this AC.0 worksheet. Reconcile the
-   upstream-style roadmap document and API/test entries at the same time.
-4. AC.1 remains outside this checkpoint: BSG, source-scoped Freiman theory,
-   Bohr sets and quantitative density/arithmetic-regularity inputs still need
-   their full source and dependency decomposition.
-5. AC.2 must retain the qualitative Roth baseline rather than re-prove it.
-   The added Bennett–Siksek route asks specifically for the stronger **Rahman
-   double-exponential numerical threshold**. Its source edition and proof have
-   not been acquired in this pass; do not substitute the pinned tower threshold
-   or claim that this Fourier interface supplies it. General Szemeredi,
-   Varnavides and the chosen removal/correspondence route remain separate work.
-6. AC.3–AC.4 keep the existing Gowers/transference work and its gaps. Read and
-   resolve the area red-team findings before selecting the general Szemeredi
-   proof route. This checkpoint establishes no higher inverse theorem,
-   nilsequence result, prime majorant, relative Szemeredi theorem or prime-pattern
-   theorem. AC.5 and its multiplicative-orthogonality source routes are untouched.
-7. Only after those integrations run the packet checker with the pinned index,
-   audit proposed planets and API/test coverage, and update stage statuses to
-   precisely the level actually achieved. No layer is declared closed here.
+## Remaining work and exact resume point
+
+1. Preserve all nine existing node IDs. Refine the combined Szemerédi,
+   Gowers, pseudorandomness, majorant and transference nodes only after their
+   sources and full dependency contracts are read. The earlier worker's
+   worksheet and exact regression remain recoverable in PR3133; their
+   mathematical contracts are retained and expanded in the new reader.
+2. Turn the AC.0 specification into declaration-sized nodes with all named
+   non-routine prerequisites. Finish declaration-index matching for quotient
+   fibre cardinalities, the cyclic character comparison, indicator counts,
+   energy and norm conversion. Do not silently use the scratch proofs as
+   baseline declarations. The explicit one-dimensional Peter–Weyl skeleton
+   comparison and coding/ER.4 specialization comparisons are still obligations.
+3. The inspected Tao notes state the elementary Fourier facts as an exercise;
+   the reader supplies the finite-sum argument and the scratch probes verify
+   its core. The Bohr/Freiman continuation needs its full proof and GN.1's
+   precise Minkowski-II contract. Apply all three source corrections above
+   before reusing that transition.
+4. AC.2: acquire Rahman's exact double-exponential proof and edition;
+   PAPER-BENNETT-SIKSEK-20/101 is only a verified route, not the proof.
+   Select the all-length Szemerédi/removal/correspondence route. Preserve
+   existing qualitative Roth; ensure nonzero difference/distinctness.
+5. AC.3: corrected complex Gowers, interval/box interfaces, quantitative
+   inverse inputs and filtered nilsequence data. Follow the verifier's
+   distinction between local BCH, global nilpotent geometry and rational data.
+6. AC.4: preserve the seven accepted nodes and their analytic/unread-source
+   gaps. Reconcile the existing 2008 proof with the separately requested
+   dense-model/relative-counting theorems. Identify actual analytic consumers
+   rather than assuming a Bombieri–Vinogradov dependency.
+7. AC.5: read its separate linear-equations, Möbius–nilsequence and accepted
+   number-field/Kai source branches; request their precise Type I/II, uniform
+   progression and quantitative box inputs from their owners.
+8. The confirmed area findings require changes to other canonical files, but
+   this issue does not authorize editing those files. The reader records the
+   applicable boundaries; no audit, restructuring, source route or campaign
+   file was changed here. In particular, rejected findings do not justify
+   forcing the latest PFR/density bounds or a blanket coding dependency.
+9. When reconciliation is actually complete enough for a packet, set scope to
+   AC.0–AC.5 and part to null, include exact coverage/gaps, definition APIs and
+   tests, keep every implementationStatus unchecked, validate with the pinned
+   declaration index, and align the reader and suggested file. No roadmap
+   closure or complete source coverage is claimed by this checkpoint.

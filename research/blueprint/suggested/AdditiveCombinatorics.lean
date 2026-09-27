@@ -1,11 +1,17 @@
 /-
 AC.0 continuation worksheet for issue #1037.
-Agent: ChatGPT (GPT-6 Astra Pro), gpt6-20260927-qm-7c9e.
+Original interface: ChatGPT (GPT-6 Astra Pro), gpt6-20260927-qm-7c9e.
+Source, baseline, comparison and elaboration continuation: Codex, codex-a71f92.
 Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
+Tau Ceti pin: f790474821cf4256814db967cb154e7af3d0c369.
 
-PLANNING ONLY. Every body is deliberately `sorry`. Not compiled.
+This file is not the roadmap and is not exhaustive. The roadmap document is definitive;
+these suggested forms help contributors and reviewers converge on names and signatures.
+PLANNING ONLY. Every body is deliberately `sorry`; signatures elaborate at the pins.
 This is not a completed blueprint and does not replace the integrated decomposition.
-See handoff/BP-AdditiveCombinatorics.md for proofs, baseline checks, tests and gaps.
+See readmes/AdditiveCombinatorics.md and handoff/BP-AdditiveCombinatorics.md.
+LeanAPAP's cft already uses this mathematical convention outside the baseline.
+Reuse that design and coordinate any code port; these names do not compete with upstream API.
 
 Convention: probability counting measure on G, ordinary counting measure on its dual.
 Do not identify the dual with G except through an explicitly supplied equivalence.
@@ -14,6 +20,8 @@ import Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality
 import Mathlib.Analysis.Fourier.ZMod
 import Mathlib.Topology.Algebra.InfiniteSum.DiscreteConvolution
 import Mathlib.Combinatorics.Additive.Energy
+import Mathlib.Combinatorics.Additive.Convolution
+import TauCeti.RepresentationTheory.Compact.Finite
 
 noncomputable section
 open scoped BigOperators
@@ -58,6 +66,21 @@ lemma fourier_inversion (f : G → ℂ) (x : G) :
 lemma fourier_eq_basis_repr (f : G → ℂ) (χ : AddChar G ℂ) :
     fourier f χ = (AddChar.complexBasis G).repr f χ := by sorry
 
+/-- The input order matters: the library inner product conjugates its first argument. -/
+lemma fourier_eq_wInner (f : G → ℂ) (χ : AddChar G ℂ) :
+    fourier f χ = RCLike.wInner RCLike.cWeight (fun x => χ x) f := by sorry
+
+lemma fourier_inversion_reindex {ι : Type*} [Fintype ι]
+    (e : ι ≃ AddChar G ℂ) (f : G → ℂ) (x : G) :
+    ∑ i, fourier f (e i) * e i x = f x := by sorry
+
+lemma fourier_eq_haarIntegral [TopologicalSpace G] [DiscreteTopology G]
+    [MeasurableSpace (Multiplicative G)] [BorelSpace (Multiplicative G)]
+    (f : G → ℂ) (χ : AddChar G ℂ) :
+    fourier f χ = ∫ x : Multiplicative G,
+      f (Multiplicative.toAdd x) * star (χ (Multiplicative.toAdd x))
+        ∂TauCeti.haarProb (Multiplicative G) := by sorry
+
 lemma fourier_injective : Function.Injective (fourier (G := G)) := by sorry
 
 lemma fourier_parseval (f g : G → ℂ) :
@@ -82,6 +105,17 @@ lemma nconv_add_left (f g h : G → ℂ) :
 
 lemma nconv_add_right (f g h : G → ℂ) :
     nconv f (g + h) = nconv f g + nconv f h := by sorry
+
+lemma nconv_smul_left (c : ℂ) (f g : G → ℂ) :
+    nconv (c • f) g = c • nconv f g := by sorry
+
+lemma nconv_smul_right (c : ℂ) (f g : G → ℂ) :
+    nconv f (c • g) = c • nconv f g := by sorry
+
+lemma nconv_indicator (A B : Finset G) (x : G) :
+    nconv (fun y => if y ∈ A then (1 : ℂ) else 0)
+      (fun y => if y ∈ B then (1 : ℂ) else 0) x =
+        (Fintype.card G : ℂ)⁻¹ * (A.addConvolution B x : ℂ) := by sorry
 
 lemma nconv_zero_left (f : G → ℂ) : nconv 0 f = 0 := by sorry
 
@@ -111,6 +145,9 @@ lemma fourier_neg (f : G → ℂ) (χ : AddChar G ℂ) :
 
 lemma fourier_conj (f : G → ℂ) (χ : AddChar G ℂ) :
     fourier (fun x => star (f x)) χ = star (fourier f χ⁻¹) := by sorry
+
+lemma fourier_reflection (f : G → ℂ) (χ : AddChar G ℂ) :
+    fourier (fun x => star (f (-x))) χ = star (fourier f χ) := by sorry
 
 variable {H : Type*} [AddCommGroup H] [Fintype H]
 
@@ -173,6 +210,20 @@ example (f : G → ℂ) (χ : AddChar G ℂ) :
 example (f : ZMod 3 → ℂ) : fourier f (AddChar.zmodAddEquiv (0 : ZMod 3)) =
     (3 : ℂ)⁻¹ * ZMod.dft f 0 := by sorry
 
+-- F9: an explicitly chosen dual indexing, as required by the finite-field consumer.
+example (f : ZMod 4 → ℂ) (x : ZMod 4) :
+    ∑ r : ZMod 4, fourier f (AddChar.zmodAddEquiv r) *
+      AddChar.zmodAddEquiv r x = f x := by sorry
+
+-- F10: conjugate reflection, not just reflection, conjugates the coefficient.
+example : fourier (fun x : ZMod 4 =>
+    star ((Pi.single (1 : ZMod 4) (1 : ℂ) : ZMod 4 → ℂ) (-x)))
+      (AddChar.zmodAddEquiv (1 : ZMod 4)) = Complex.I / 4 := by sorry
+
+-- F11: the inner product places the character in its conjugate-linear slot.
+example (χ : AddChar G ℂ) :
+    fourier (fun x => Complex.I * χ x) χ = Complex.I := by sorry
+
 -- C1: a unit delta is not the convolution unit under probability measure.
 example : nconv (Pi.single (0 : ZMod 3) (1 : ℂ))
     (Pi.single (0 : ZMod 3) (1 : ℂ)) 0 = 1 / 3 := by sorry
@@ -199,5 +250,10 @@ example (f g : ZMod 3 → ℂ) : nconv f g =
 
 -- C8: convolution on the trivial group is multiplication.
 example (f g : ZMod 1 → ℂ) : nconv f g 0 = f 0 * g 0 := by sorry
+
+-- C9: representation multiplicity is retained, not replaced by sumset membership.
+example : nconv (fun x : ZMod 3 => if x ∈ ({0, 1} : Finset (ZMod 3)) then (1 : ℂ) else 0)
+    (fun x : ZMod 3 => if x ∈ ({0, 1} : Finset (ZMod 3)) then (1 : ℂ) else 0) 1 =
+      2 / 3 := by sorry
 
 end TauCeti.AdditiveFourier
