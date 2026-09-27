@@ -131265,16 +131265,17 @@
   {
    "id": "DiophantineApproximationAndTranscendence/E216",
    "kind": "misprint",
-   "locator": "§7, index definition immediately before (7.1): author preprint p. 63; published p. 290 (PDF page 67), both visually checked.",
+   "locator": "§7, index definition immediately before (7.1): author preprint p. 63; published p. 290 (PDF page 67), both visually checked. The same boundary recurs in (7.11), preprint p. 65 / published p. 292 (physical page 69), visually checked on 2026-09-27.",
    "printed": "The source asserts F_i(x) = 0 whenever i satisfies (i/d) ≤ σ.",
-   "correction": "In the definition by a largest threshold, replace ≤ σ by < σ. The largest threshold is then the least weighted order of a nonzero divided derivative; keep index ∞ for the zero polynomial.",
-   "reason": "For F = X₁₁, d_h = 1 and x = 0, the first nonzero jet has weight 1. The printed condition holds for every σ < 1 but not for σ = 1, so there is no largest threshold. The existing DT.1 weightedIndex and strict-threshold vanishing API already give the corrected convention. A nonzero jet bounds the index by ≤ its weight, not < its weight.",
+   "correction": "In the definition by a largest threshold, replace ≤ σ by < σ. The largest threshold is then the least weighted order of a nonzero divided derivative; keep index ∞ for the zero polynomial. In the Lemma 24 proof, define I in (7.11) by (i/d)<mΘ. An index at least mΘ implies vanishing at precisely these strict-below orders; this still gives (7.13) and the required contradiction with sharp Roth.",
+   "reason": "For F = X₁₁, d_h = 1 and x = 0, the first nonzero jet has weight 1. The printed condition holds for every σ < 1 but not for σ = 1, so there is no largest threshold. The existing DT.1 weightedIndex and strict-threshold vanishing API already give the corrected convention. A nonzero jet bounds the index by ≤ its weight, not < its weight. For the boundary failure in (7.11), F=X^3 at 0 and weight d=5 has index 3/5 but its third Hasse derivative is 1. The printed inference from index≥3/5 to vanishing at order≤3/5 is invalid. The corrected strict version suffices throughout the reduction.",
    "affects": "a stated result",
    "known": "new",
    "searched": [
     "Numdam's record and published PDF for Compositio Math. 101 (1996), 225–311, https://numdam.org/item/CM_1996__101_3_225_0/, checked 2026-09-26; no correction linked there.",
     "The author's 95-subspace.pdf; the same formula is present.",
-    "Web searches on 2026-09-26 for the exact title with erratum, errata, correction and Lemma 25; no matching correction found. This is a bounded search."
+    "Web searches on 2026-09-26 for the exact title with erratum, errata, correction and Lemma 25; no matching correction found. This is a bounded search.",
+    "2026-09-27: reread Numdam record https://numdam.org/item/CM_1996__101_3_225_0/ and the author copy; both PDF hashes agree with sourceVersions. Search for Evertse, the exact article title, erratum/correction and (7.11) found no matching correction. This extends the existing bounded search, not an assertion that no correction exists."
    ],
    "owner": "DiophantineApproximationAndTranscendence",
    "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
