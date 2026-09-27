@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial arithmetic roadmap with 80 unchecked nodes. All 72 preceding node objects survive. Eight L4 declarations assemble the positive Eisenstein coefficients into a native continuous power-series-valued measure, prove uniform coefficient bounds and integral congruences, and compare the whole positive q-expansion through one integer series to the actual p-stabilized modular form. Its zero constant records positive truncation only. The actual A₀ pseudomeasure, completed-algebra comparison and all other incomplete L0–L4 targets remain explicit; no stage is closed.",
+  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -763,6 +763,258 @@
         "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
         "provides": "An injective coefficient ring homomorphism induces an injective map on formal power series.",
         "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:mellin",
+        "kind": "def",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Native unnormalized Mellin integral on the positive real half-line.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:MellinConvergent",
+        "kind": "def",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Integrability of the native Mellin integrand.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Complex.norm_cpow_eq_rpow_re_of_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "For positive real t, the norm of t^s is t^(Re s).",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Asymptotics.IsBigO.of_norm_eventuallyLE",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Asymptotics/Defs.lean",
+        "provides": "An eventual norm bound by a real function gives the corresponding Big-O estimate.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Asymptotics.IsBigO.trans_tendsto",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Asymptotics/Lemmas.lean",
+        "provides": "A Big-O bound by a function tending to zero implies convergence to zero, allowing different normed codomains.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:tendsto_rpow_mul_exp_neg_mul_atTop_nhds_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
+        "provides": "For any real exponent and positive exponential rate, polynomial growth times exponential decay tends to zero.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Complex.continuousAt_cpow_zero_of_re_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Continuity.lean",
+        "provides": "Joint continuity of complex exponentiation at (0,s) when Re s>0.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:hasDerivAt_ofReal_cpow_const",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Deriv.lean",
+        "provides": "For real x≠0 and complex s≠0, the real derivative of t↦t^s is s x^(s−1). This is a root-namespace theorem.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_Ioi_mul_deriv_eq_deriv_mul",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntegralEqImproper.lean",
+        "provides": "Integration by parts on (a,∞), with separate integrability hypotheses and actual endpoint product limits.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
+        "provides": "Smoothness on a unique-differentiability set gives continuity of each derivative of permitted finite order.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:contDiffOn_iff_continuousOn_differentiableOn_deriv",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
+        "provides": "The native smoothness criterion in terms of within derivatives; at infinite order all finite iterated derivatives are differentiable on the set.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:iteratedDerivWithin_succ",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
+        "provides": "The next native within derivative is the within derivative of the preceding one.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:uniqueDiffOn_Ici",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/TangentCone/Real.lean",
+        "provides": "The real closed upper half-line has unique derivatives within it, including its endpoint.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:ContinuousOn.locallyIntegrableOn",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Function/LocallyIntegrable.lean",
+        "provides": "For a measurable set, continuity on that set gives local integrability under a locally finite measure and the stated second-countability hypotheses; these hold for ℝ→ℂ.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto.isBigO_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Asymptotics/Lemmas.lean",
+        "provides": "A function with a finite limit is Big-O of the constant one function.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:mellinConvergent_of_isBigO_rpow_exp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Local integrability, exponential decay at infinity and an O(t^(−b)) bound at zero give Mellin convergence for Re s>b.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:mellin_differentiableAt_of_isBigO_rpow_exp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "The same growth and local-integrability conditions give complex differentiability on the initial Mellin half-plane.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Complex.Gamma_add_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "Γ(s+1)=sΓ(s) for s≠0.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Complex.Gamma_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "Γ(1)=1.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Complex.differentiable_one_div_Gamma",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "provides": "The totalized reciprocal complex Gamma function is entire.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_Ioi_of_hasDerivAt_of_tendsto",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntegralEqImproper.lean",
+        "provides": "FTC on (a,∞): right continuity at a, derivatives on the open half-line, integrability and an actual limit at infinity yield the boundary difference.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Nat.le_ceil",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Order/Floor/Semiring.lean",
+        "provides": "The natural ceiling of a real value bounds it from above, used to choose a positive translated real part.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:DifferentiableAt.congr_of_eventuallyEq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/FDeriv/Congr.lean",
+        "provides": "Differentiability transfers across equality on a neighborhood.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:DifferentiableOn.analyticOnNhd",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/CauchyIntegral.lean",
+        "provides": "Complex differentiability on an open set gives analyticity on a neighborhood at each of its points.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:AnalyticOnNhd.eq_of_eventuallyEq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
+        "provides": "Two analytic functions on a preconnected space that agree on a neighborhood agree everywhere.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:iteratedDerivWithin_congr",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
+        "provides": "Agreement on a set implies agreement there of all native iterated within derivatives.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:iteratedDerivWithin_add",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
+        "provides": "Additivity of the nth within derivative at a point of a unique-differentiability set, under finite-order smoothness of both inputs.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:iteratedDerivWithin_const_smul_field",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
+        "provides": "Compatibility of native iterated within derivatives with scalar multiplication by a division-semiring element, without differentiability hypotheses.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:hasMellin_add",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Additivity of the native Mellin transform when both integrands converge.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:mellin_const_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Native Mellin transforms commute with multiplication by a normed-field scalar.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Complex.GammaIntegral_eq_mellin",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deriv.lean",
+        "provides": "The native complex GammaIntegral is the Mellin transform of the real exponential exp(−t), viewed in ℂ.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Complex.Gamma_eq_integral",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "Γ agrees with its defining integral on Re s>0.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Complex.Gamma_ne_zero_of_re_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Beta.lean",
+        "provides": "Γ(s) is nonzero on Re s>0, allowing exponential normalization in the initial half-plane.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Complex.Gamma_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "The library assigns Γ(0)=0 by totalization; this explains the naive-quotient negative control.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:mellin_cpow_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Multiplication of an input by t^a shifts its native Mellin transform by a.",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:mellin_comp_mul_left",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/MellinTransform.lean",
+        "provides": "Positive real scaling t↦at multiplies the native Mellin transform by a^(−s).",
+        "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
       }
     ]
   },
@@ -785,7 +1037,8 @@
         "Positive-coefficient continuation, 27 September 2026: full published PDF56–62 / printed155–161 read in extraction batches of at most three physical pages. This includes all of §8, Definition8.1, Theorem8.2 and Remark8.3; preceding §7.5 sign was collated. The new nodes decompose positive coefficients; complete source coverage is not claimed.",
         "Classical modular comparison continuation, 27 September 2026: freshly read full published PDF59–62 / printed158–161 and collated full arXiv v2 PDF43–45. The eight new nodes extend the pinned level-one and degeneracy APIs, with exact normalization and a common integer for the positive measure/modular coefficients. Earlier wider readings are retained as predecessor provenance; no source-complete extraction or new source finding is claimed.",
         "27 September2026 finite-coordinate follow-up: printed120–123 / PDF21–24 and printed159–160 / PDF60–61 read in full. The two-index finite coordinate, multiplicity, transition and pairing adapters are worker deductions from Proposition3.16 and Theorem8.2. Published PDF hash matches the recorded source. No complete-source extraction or new finding is claimed.",
-        "Positive-series continuation,27 September2026: freshly downloaded the same published PDF and read physical PDF60–61 in full, containing Definition8.1, Theorem8.2 and Remark8.3(1), with the beginning of Remark8.3(2). The native coefficientwise assembly, bound, congruence and integer-series comparison are worker deductions. No complete-source reading or new source finding is claimed."
+        "Positive-series continuation,27 September2026: freshly downloaded the same published PDF and read physical PDF60–61 in full, containing Definition8.1, Theorem8.2 and Remark8.3(1), with the beginning of Remark8.3(2). The native coefficientwise assembly, bound, congruence and integer-series comparison are worker deductions. No complete-source reading or new source finding is claimed.",
+        "Mellin continuation,27 September2026: fresh full reading of published physical PDF11–13 / printed110–112, including Theorem2.4 and its proof, Remark2.5 and Lemmas2.6–2.7. Theorem2.4 is decomposed here; the actual Bernoulli/smoothing kernel applications remain in the coverage ledger. No fresh full-paper reading or new source finding is claimed."
       ]
     },
     {
@@ -2017,7 +2270,7 @@
       "proofSteps": [
         "Rewrite ζ(−k) by the existing riemannZeta_neg_nat_eq_bernoulli. This statement includes k=0.",
         "The two factors (−1)^k multiply to 1. Use the rational-to-complex ring-map laws to identify the result with the indicated rational image.",
-        "This is only the smoothing and embedding comparison. The baseline special-value theorem is not re-proved; the analytic Mellin argument remains an L0 gap."
+        "This is only the smoothing and embedding comparison. The baseline special-value theorem is not re-proved. The generic normalized Mellin continuation is supplied by the L0 continuation nodes; applying it to the actual Bernoulli and smoothing kernels remains an L0 gap."
       ],
       "prerequisites": [
         "mathlib:riemannZeta_neg_nat_eq_bernoulli"
@@ -4982,6 +5235,576 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/mellin-infinity-boundary",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The Mellin boundary term at infinity",
+      "kind": "lemma",
+      "statement": "For f:ℝ→ℂ, a>0 and f(t)=O(exp(−at)) at +∞, and for every s∈ℂ, f(t)t^s tends to zero at +∞.",
+      "hypotheses": [
+        "f:ℝ→ℂ, a∈ℝ with a>0, f=O(exp(−at)) at +∞; s is any complex number."
+      ],
+      "proofSteps": [
+        "For t>0 use Complex.norm_cpow_eq_rpow_re_of_pos to bound t^s in norm by t^(Re s). Multiply this Big-O estimate by the exponential bound for f.",
+        "The baseline limit tendsto_rpow_mul_exp_neg_mul_atTop_nhds_zero sends t^(Re s)exp(−at) to zero for every real Re s. IsBigO.trans_tendsto then gives the complex-valued limit."
+      ],
+      "prerequisites": [
+        "mathlib:Complex.norm_cpow_eq_rpow_re_of_pos",
+        "mathlib:Asymptotics.IsBigO.of_norm_eventuallyLE",
+        "mathlib:Asymptotics.IsBigO.trans_tendsto",
+        "mathlib:tendsto_rpow_mul_exp_neg_mul_atTop_nhds_zero"
+      ],
+      "acceptance": [
+        "Allow every s, including Re s≤0; the restriction Re s>0 is needed at zero, not at infinity."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "mellin_boundary_atTop"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/mellin-zero-boundary",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The Mellin boundary term at zero",
+      "kind": "lemma",
+      "statement": "If f:ℝ→ℂ is continuous at zero within [0,∞), then f(t)t^s tends to zero as t→0+ for every s with Re s>0.",
+      "hypotheses": [
+        "f:ℝ→ℂ is continuous within [0,∞) at zero; s∈ℂ and Re s>0."
+      ],
+      "proofSteps": [
+        "Restrict right continuity from [0,∞) to (0,∞). Complex.continuousAt_cpow_zero_of_re_pos is joint continuity of (z,w)↦z^w at (0,s); compose it with t↦(t,s).",
+        "Since Re s>0 implies s≠0, the value 0^s is zero. Multiply the two limits to get f(0)·0=0."
+      ],
+      "prerequisites": [
+        "mathlib:Complex.continuousAt_cpow_zero_of_re_pos"
+      ],
+      "acceptance": [
+        "The hypothesis Re s>0 is essential when f(0)≠0; the assertion at s=0 would be false."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "mellin_boundary_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/mellin-derivative-shift",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The unnormalized Mellin derivative shift",
+      "kind": "lemma",
+      "statement": "Let Re s>0. Suppose f is continuous at zero from the right, f has derivative g at every t>0, M(f,s) and M(g,s+1) converge, and f(t)t^s→0 at +∞. Then M(g,s+1)=−s M(f,s).",
+      "hypotheses": [
+        "Exactly the continuity, derivative, convergence, endpoint and Re s>0 hypotheses in the statement; no global smoothness or decay assumption is needed for this general adapter."
+      ],
+      "proofSteps": [
+        "Apply mellin-zero-boundary for the lower endpoint. On (0,∞), hasDerivAt_ofReal_cpow_const differentiates t^s as s t^(s−1); s≠0 follows from Re s>0.",
+        "Use integral_Ioi_mul_deriv_eq_deriv_mul with u(t)=t^s and v(t)=f(t). Its two separate integrability hypotheses are exactly the given Mellin convergence statements, with a constant scalar s on the second integrand.",
+        "Both endpoint products are zero. Pull s outside the remaining integral and unfold only the native definition of mellin to obtain the stated sign and shift."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/mellin-zero-boundary",
+        "mathlib:mellin",
+        "mathlib:MellinConvergent",
+        "mathlib:hasDerivAt_ofReal_cpow_const",
+        "mathlib:MeasureTheory.integral_Ioi_mul_deriv_eq_deriv_mul"
+      ],
+      "acceptance": [
+        "The new exponent is s+1 and the multiplier is −s. The theorem uses right continuity, not differentiability at zero."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "mellin_derivative_shift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/normalized-mellin-derivative-shift",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The Gamma-normalized derivative shift",
+      "kind": "lemma",
+      "statement": "Under the common smoothness and all-derivative decay hypotheses, for every n≥0 and Re s>0, M(D_n f,s)/Γ(s)=−M(D_(n+1) f,s+1)/Γ(s+1).",
+      "hypotheses": [
+        "J=[0,∞)⊆ℝ; f:ℝ→ℂ is smooth within J in the native ContDiffOn sense. Write D_n f for native iteratedDerivWithin n f J, including its right-hand value at zero.",
+        "For every n≥0 there is a real a_n>0 such that D_n f(t)=O(exp(−a_n t)) as t→+∞. The rate may depend on n. No condition is imposed on f on the negative half-line.",
+        "M(f,s) is Mathlib’s unnormalized mellin: the complex integral over t>0 of t^(s−1)f(t). Complex powers use Mathlib’s principal convention; positive real t makes that convention unambiguous. Γ is native Complex.Gamma."
+      ],
+      "proofSteps": [
+        "Native smoothness on J, uniqueDiffOn_Ici and the iterated derivative criterion give continuity of D_n on J and derivative D_(n+1) at each positive point. Continuity gives local integrability and a bounded right germ at zero by Tendsto.isBigO_one.",
+        "Apply mellinConvergent_of_isBigO_rpow_exp with its lower exponent b=0 to D_n at s and D_(n+1) at s+1. This is an application of existing convergence, not a replacement convergence theorem.",
+        "Use mellin-infinity-boundary and mellin-derivative-shift. Combine M(D_(n+1),s+1)=−sM(D_n,s) with Gamma_add_one at s≠0 and cancel s. The result holds on Re s>0, strengthening the source proof’s sufficient Re s>1 domain."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/mellin-infinity-boundary",
+        "DirichletPadicLFunctions:L0/mellin-derivative-shift",
+        "mathlib:Complex.Gamma_add_one",
+        "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
+        "mathlib:contDiffOn_iff_continuousOn_differentiableOn_deriv",
+        "mathlib:iteratedDerivWithin_succ",
+        "mathlib:uniqueDiffOn_Ici",
+        "mathlib:ContinuousOn.locallyIntegrableOn",
+        "mathlib:Filter.Tendsto.isBigO_one",
+        "mathlib:mellinConvergent_of_isBigO_rpow_exp"
+      ],
+      "acceptance": [
+        "Keep the same index n on both input and decay hypotheses. Do not infer a uniform exponential rate over all n."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "normalizedMellin_derivative_shift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/mellin-derivative-at-one",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The endpoint integral of an iterated derivative",
+      "kind": "lemma",
+      "statement": "Under the common hypotheses, M(D_(n+1) f,1)=−D_n f(0) for every n≥0.",
+      "hypotheses": [
+        "J=[0,∞)⊆ℝ; f:ℝ→ℂ is smooth within J in the native ContDiffOn sense. Write D_n f for native iteratedDerivWithin n f J, including its right-hand value at zero.",
+        "For every n≥0 there is a real a_n>0 such that D_n f(t)=O(exp(−a_n t)) as t→+∞. The rate may depend on n. No condition is imposed on f on the negative half-line.",
+        "M(f,s) is Mathlib’s unnormalized mellin: the complex integral over t>0 of t^(s−1)f(t). Complex powers use Mathlib’s principal convention; positive real t makes that convention unambiguous. Γ is native Complex.Gamma."
+      ],
+      "proofSteps": [
+        "Apply the existing exponential Mellin convergence criterion to D_(n+1) at exponent1, using continuity at zero to supply b=0. At exponent1 the weight t^0 is one, so D_(n+1) is integrable on (0,∞).",
+        "Smoothness supplies HasDerivAt(D_n,D_(n+1)) on the open half-line and continuity at zero within J. Mellin-infinity-boundary with s=0 gives D_n(t)→0.",
+        "Use integral_Ioi_of_hasDerivAt_of_tendsto, whose boundary value is 0−D_n(0). Unfold mellin at exponent1 to identify that integral."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/mellin-infinity-boundary",
+        "mathlib:mellin",
+        "mathlib:MeasureTheory.integral_Ioi_of_hasDerivAt_of_tendsto",
+        "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
+        "mathlib:contDiffOn_iff_continuousOn_differentiableOn_deriv",
+        "mathlib:iteratedDerivWithin_succ",
+        "mathlib:uniqueDiffOn_Ici",
+        "mathlib:ContinuousOn.locallyIntegrableOn",
+        "mathlib:Filter.Tendsto.isBigO_one",
+        "mathlib:mellinConvergent_of_isBigO_rpow_exp"
+      ],
+      "acceptance": [
+        "This is the right derivative at zero. No integration over negative t, omitted endpoint limit, or unproved fundamental-theorem hypothesis is used."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "mellin_derivative_at_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/mellin-shift-coherence",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Coherence of translated Mellin formulas",
+      "kind": "lemma",
+      "statement": "Under the common hypotheses, if n,m≥0 and Re(s+n)>0, Re(s+m)>0, then (−1)^n M(D_n f,s+n)/Γ(s+n)=(−1)^m M(D_m f,s+m)/Γ(s+m).",
+      "hypotheses": [
+        "J=[0,∞)⊆ℝ; f:ℝ→ℂ is smooth within J in the native ContDiffOn sense. Write D_n f for native iteratedDerivWithin n f J, including its right-hand value at zero.",
+        "For every n≥0 there is a real a_n>0 such that D_n f(t)=O(exp(−a_n t)) as t→+∞. The rate may depend on n. No condition is imposed on f on the negative half-line.",
+        "M(f,s) is Mathlib’s unnormalized mellin: the complex integral over t>0 of t^(s−1)f(t). Complex powers use Mathlib’s principal convention; positive real t makes that convention unambiguous. Γ is native Complex.Gamma."
+      ],
+      "proofSteps": [
+        "For an admissible n apply normalized-mellin-derivative-shift at s+n. Multiplication by (−1)^n identifies the n formula with the n+1 formula.",
+        "Induct on k to compare n and n+k. Admissibility persists because adding a nonnegative real integer increases the real part. Compare arbitrary n and m by their order, or through max(n,m)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/normalized-mellin-derivative-shift"
+      ],
+      "acceptance": [
+        "The equality only uses integrals inside their positive half-planes; it never divides an undefined integral at a nonpositive integer."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "normalizedMellin_shift_coherence"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/normalized-mellin-continuation",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "The continued normalized Mellin transform",
+      "kind": "construction",
+      "statement": "For f:ℝ→ℂ define a function L_f:ℂ→ℂ by N(s)=ceil(|Re s|)+1 and L_f(s)=(−1)^N(s) M(D_N(s) f,s+N(s))/Γ(s+N(s)). Under the common hypotheses this is the canonical entire continuation of the Gamma-normalized Mellin integral. The definition is total for arbitrary f; the analytic and special-value assertions require those hypotheses.",
+      "hypotheses": [
+        "J=[0,∞)⊆ℝ; f:ℝ→ℂ is smooth within J in the native ContDiffOn sense. Write D_n f for native iteratedDerivWithin n f J, including its right-hand value at zero.",
+        "For every n≥0 there is a real a_n>0 such that D_n f(t)=O(exp(−a_n t)) as t→+∞. The rate may depend on n. No condition is imposed on f on the negative half-line.",
+        "M(f,s) is Mathlib’s unnormalized mellin: the complex integral over t>0 of t^(s−1)f(t). Complex powers use Mathlib’s principal convention; positive real t makes that convention unambiguous. Γ is native Complex.Gamma."
+      ],
+      "proofSteps": [
+        "Choose the explicit natural integer N(s). Nat.le_ceil and Re s≥−|Re s| give Re(s+N(s))≥1>0. Therefore, under the common hypotheses the derivative integral in the formula converges by the existing criterion.",
+        "The displayed expression defines one native complex-valued function. Mellin-shift-coherence shows that any admissible integer choice gives the same value. This is the only new carrier-level construction; no custom smooth-function type, Mellin integral, Gamma function, or growth predicate is introduced.",
+        "The API separates the unconditional defining formula, congruence and scalar identities from the conditional analytic and addition properties. Its four principal analytic evaluations are promoted below so their consumers have exact node prerequisites."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/mellin-shift-coherence",
+        "mathlib:Nat.le_ceil",
+        "mathlib:mellin",
+        "mathlib:iteratedDerivWithin_congr",
+        "mathlib:iteratedDerivWithin_add",
+        "mathlib:iteratedDerivWithin_const_smul_field",
+        "mathlib:hasMellin_add",
+        "mathlib:mellin_const_smul",
+        "mathlib:Complex.GammaIntegral_eq_mellin",
+        "mathlib:Complex.Gamma_eq_integral",
+        "mathlib:Complex.Gamma_ne_zero_of_re_pos",
+        "mathlib:Complex.Gamma_zero",
+        "mathlib:mellin_cpow_smul",
+        "mathlib:mellin_comp_mul_left",
+        "mathlib:DifferentiableOn.analyticOnNhd",
+        "mathlib:AnalyticOnNhd.eq_of_eventuallyEq"
+      ],
+      "acceptance": [
+        "Distinguish this normalized continuation from native unnormalized mellin. The explicit integer-valued N need not vary continuously; entire differentiability comes from replacing it locally by a fixed admissible shift."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "normalizedMellinContinuation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "normalizedMellinContinuation_def",
+          "role": "data",
+          "statement": "For every f and s, the defining formula uses N=ceil(|Re s|)+1 and equals (−1)^N M(D_N f,s+N)/Γ(s+N)."
+        },
+        {
+          "name": "normalizedMellinContinuation_eq_shift",
+          "role": "characterisation",
+          "statement": "Under the common hypotheses the same formula holds for any n≥0 with Re(s+n)>0; promoted to normalized-mellin-admissible-shift."
+        },
+        {
+          "name": "normalizedMellinContinuation_eq_mellin",
+          "role": "compatibility",
+          "statement": "For Re s>0 it equals the native unnormalized mellin(f,s) divided by Γ(s); promoted to normalized-mellin-initial-halfplane."
+        },
+        {
+          "name": "normalizedMellinContinuation_entire",
+          "role": "structure",
+          "statement": "The continuation is complex differentiable at every s under the common hypotheses; promoted to normalized-mellin-entire."
+        },
+        {
+          "name": "normalizedMellinContinuation_neg_nat",
+          "role": "example",
+          "statement": "Its value at −n is (−1)^n D_n f(0), including n=0; promoted to normalized-mellin-negative-values."
+        },
+        {
+          "name": "normalizedMellinContinuation_unique",
+          "role": "universal-property",
+          "statement": "Under the common hypotheses, any entire F:ℂ→ℂ agreeing with M(f,s)/Γ(s) for all Re s>0 equals this continuation."
+        },
+        {
+          "name": "normalizedMellinContinuation_congr",
+          "role": "extensionality",
+          "statement": "For arbitrary f,g:ℝ→ℂ agreeing on J, their continuation formulas define the same function. No smoothness is needed for this congruence."
+        },
+        {
+          "name": "normalizedMellinContinuation_zero",
+          "role": "simp",
+          "statement": "The zero input gives the zero function."
+        },
+        {
+          "name": "normalizedMellinContinuation_add",
+          "role": "simp",
+          "statement": "For f and g each satisfying the common hypotheses, the continuation of f+g is the pointwise sum of their continuations."
+        },
+        {
+          "name": "normalizedMellinContinuation_smul",
+          "role": "simp",
+          "statement": "For every c∈ℂ and every f:ℝ→ℂ, the continuation formula for cf equals c times the formula for f. This uses native within-derivative and Mellin scalar compatibility without extra smoothness assumptions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedMellinContinuationTests.zero_input",
+          "kind": "computation",
+          "statement": "For any s∈ℂ, the zero input gives zero."
+        },
+        {
+          "name": "SuggestedMellinContinuationTests.exponential_normalization",
+          "kind": "characterisation",
+          "statement": "For f(t)=exp(−t), the continuation equals1 at every complex s."
+        },
+        {
+          "name": "SuggestedMellinContinuationTests.linear_exponential",
+          "kind": "computation",
+          "statement": "For f(t)=t exp(−t), the continuation equals s at every complex s; in particular its value at−1 is−1."
+        },
+        {
+          "name": "SuggestedMellinContinuationTests.scaled_exponential",
+          "kind": "computation",
+          "statement": "For f(t)=exp(−2t), the continuation at−3 equals8."
+        },
+        {
+          "name": "SuggestedMellinContinuationTests.naive_quotient_at_zero",
+          "kind": "non-example",
+          "statement": "For f(t)=exp(−t), the continuation at0 is1, whereas the totalized native expression mellin(f,0)/Γ(0) is0 since native Γ(0)=0. The latter cannot define the continuation."
+        },
+        {
+          "name": "SuggestedMellinContinuationTests.nondecaying_constant",
+          "kind": "non-example",
+          "statement": "The constant function1 has no exponential Big-O decay with positive rate at +∞ and is excluded by the hypotheses."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Theorem2.4 and Lemmas2.6–2.7",
+          "how": "Turns a smooth exponentially decreasing half-line kernel into an entire function with prescribed nonpositive-integer values; the actual Bernoulli kernel remains an application to establish."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L0 and RS-14 accepted ownership",
+          "how": "Supplies the analytic foundation retained here after native zeta and Dirichlet L-function results are imported. It does not duplicate general GL1 continuation, the QSeries contour-transfer theorem, or formal generalized Bernoulli arithmetic."
+        }
+      ],
+      "planet": {
+        "name": "Normalized Mellin continuation"
+      }
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/normalized-mellin-admissible-shift",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Evaluation using any admissible shift",
+      "kind": "lemma",
+      "statement": "Under the common hypotheses, for any n≥0 and s∈ℂ with Re(s+n)>0, L_f(s)=(−1)^n M(D_n f,s+n)/Γ(s+n).",
+      "hypotheses": [
+        "J=[0,∞)⊆ℝ; f:ℝ→ℂ is smooth within J in the native ContDiffOn sense. Write D_n f for native iteratedDerivWithin n f J, including its right-hand value at zero.",
+        "For every n≥0 there is a real a_n>0 such that D_n f(t)=O(exp(−a_n t)) as t→+∞. The rate may depend on n. No condition is imposed on f on the negative half-line.",
+        "M(f,s) is Mathlib’s unnormalized mellin: the complex integral over t>0 of t^(s−1)f(t). Complex powers use Mathlib’s principal convention; positive real t makes that convention unambiguous. Γ is native Complex.Gamma."
+      ],
+      "proofSteps": [
+        "Unfold the chosen-shift definition of L_f. Nat.le_ceil makes its N(s) admissible. Apply mellin-shift-coherence to N(s) and n."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/normalized-mellin-continuation",
+        "DirichletPadicLFunctions:L0/mellin-shift-coherence",
+        "mathlib:Nat.le_ceil"
+      ],
+      "acceptance": [
+        "This promoted evaluation is the dependency used in the holomorphic and special-value arguments."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "normalizedMellinContinuation_eq_shift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Agreement on the initial half-plane",
+      "kind": "lemma",
+      "statement": "Under the common hypotheses and Re s>0, L_f(s)=M(f,s)/Γ(s).",
+      "hypotheses": [
+        "J=[0,∞)⊆ℝ; f:ℝ→ℂ is smooth within J in the native ContDiffOn sense. Write D_n f for native iteratedDerivWithin n f J, including its right-hand value at zero.",
+        "For every n≥0 there is a real a_n>0 such that D_n f(t)=O(exp(−a_n t)) as t→+∞. The rate may depend on n. No condition is imposed on f on the negative half-line.",
+        "M(f,s) is Mathlib’s unnormalized mellin: the complex integral over t>0 of t^(s−1)f(t). Complex powers use Mathlib’s principal convention; positive real t makes that convention unambiguous. Γ is native Complex.Gamma."
+      ],
+      "proofSteps": [
+        "Apply normalized-mellin-admissible-shift with n=0. Native zeroth within derivative is f, (−1)^0=1 and s+0=s, so simplification yields the original normalized integral."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/normalized-mellin-admissible-shift"
+      ],
+      "acceptance": [
+        "The comparison is restricted to the convergence half-plane; the formula at zero for exp(−t) is a deliberate negative control."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "normalizedMellinContinuation_eq_mellin"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/normalized-mellin-entire",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Entire continuation of the normalized Mellin transform",
+      "kind": "theorem",
+      "statement": "Under the common hypotheses, L_f is differentiable over ℂ at every point of ℂ.",
+      "hypotheses": [
+        "J=[0,∞)⊆ℝ; f:ℝ→ℂ is smooth within J in the native ContDiffOn sense. Write D_n f for native iteratedDerivWithin n f J, including its right-hand value at zero.",
+        "For every n≥0 there is a real a_n>0 such that D_n f(t)=O(exp(−a_n t)) as t→+∞. The rate may depend on n. No condition is imposed on f on the negative half-line.",
+        "M(f,s) is Mathlib’s unnormalized mellin: the complex integral over t>0 of t^(s−1)f(t). Complex powers use Mathlib’s principal convention; positive real t makes that convention unambiguous. Γ is native Complex.Gamma."
+      ],
+      "proofSteps": [
+        "Fix s₀ and an integer n with Re(s₀+n)>0, for example its defining N. The strict inequality holds throughout an open neighborhood of s₀. On that neighborhood normalized-mellin-admissible-shift identifies L_f with the fixed function (−1)^n M(D_n f,s+n)/Γ(s+n).",
+        "As in normalized-mellin-derivative-shift, smoothness makes D_n locally integrable and bounded near zero; its exponential bound and the existing mellin_differentiableAt_of_isBigO_rpow_exp make M(D_n,·) differentiable on Re z>0.",
+        "Multiply by the entire inverse Gamma function supplied by Complex.differentiable_one_div_Gamma, compose with s↦s+n, and multiply by (−1)^n. DifferentiableAt.congr_of_eventuallyEq transfers differentiability to L_f at s₀. No differentiation of the discontinuous integer choice N(s) is taken."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/normalized-mellin-admissible-shift",
+        "mathlib:Nat.le_ceil",
+        "mathlib:mellin_differentiableAt_of_isBigO_rpow_exp",
+        "mathlib:Complex.differentiable_one_div_Gamma",
+        "mathlib:DifferentiableAt.congr_of_eventuallyEq",
+        "mathlib:ContDiffOn.continuousOn_iteratedDerivWithin",
+        "mathlib:contDiffOn_iff_continuousOn_differentiableOn_deriv",
+        "mathlib:iteratedDerivWithin_succ",
+        "mathlib:uniqueDiffOn_Ici",
+        "mathlib:ContinuousOn.locallyIntegrableOn",
+        "mathlib:Filter.Tendsto.isBigO_one",
+        "mathlib:mellinConvergent_of_isBigO_rpow_exp"
+      ],
+      "acceptance": [
+        "Entire means native Differentiable ℂ on all ℂ. The Gamma inverse is used as its existing entire function; no meromorphic quotient at a pole is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "normalizedMellinContinuation_entire"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/normalized-mellin-negative-values",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Nonpositive-integer values of the Mellin continuation",
+      "kind": "theorem",
+      "statement": "Under the common hypotheses, for every n≥0, L_f(−n)=(−1)^n D_n f(0). In particular L_f(0)=f(0).",
+      "hypotheses": [
+        "J=[0,∞)⊆ℝ; f:ℝ→ℂ is smooth within J in the native ContDiffOn sense. Write D_n f for native iteratedDerivWithin n f J, including its right-hand value at zero.",
+        "For every n≥0 there is a real a_n>0 such that D_n f(t)=O(exp(−a_n t)) as t→+∞. The rate may depend on n. No condition is imposed on f on the negative half-line.",
+        "M(f,s) is Mathlib’s unnormalized mellin: the complex integral over t>0 of t^(s−1)f(t). Complex powers use Mathlib’s principal convention; positive real t makes that convention unambiguous. Γ is native Complex.Gamma."
+      ],
+      "proofSteps": [
+        "At s=−n use normalized-mellin-admissible-shift with shift n+1, so the shifted argument is exactly1 and is admissible.",
+        "Complex.Gamma_one removes the denominator, and mellin-derivative-at-one replaces M(D_(n+1),1) by −D_n(0). Multiplying this minus sign by (−1)^(n+1) gives (−1)^n."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/normalized-mellin-admissible-shift",
+        "DirichletPadicLFunctions:L0/mellin-derivative-at-one",
+        "mathlib:Complex.Gamma_one"
+      ],
+      "acceptance": [
+        "Include n=0. For t exp(−t) at n=1 this gives−1, detecting a missing alternating sign."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/Continuation",
+        "namespace": "DirichletPadic",
+        "declaration": "normalizedMellinContinuation_neg_nat"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Theorem 2.4 and its full proof, printed110–111 / PDF11–12; surrounding application through Lemma2.7 on printed112 read on27 September2026.",
+          "match": "The source states the normalized Mellin continuation and negative values for real-valued functions on the nonnegative half-line. This declaration is a step of that proof. The complex-valued extension, the use of native within derivatives, and the explicit choice of a translated half-plane are worker deductions from the same linear argument, not additional printed claims."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Mellin special values"
+      }
     }
   ],
   "requests": [
@@ -4998,7 +5821,7 @@
       "stageId": "DirichletPadicLFunctions:L0",
       "status": "partial",
       "remaining": [
-        "Source-decompose the actual Mellin continuation and differentiation/decay argument, then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 record source normalization errors.",
+        "Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. Establish the smooth right-hand extension of the actual Bernoulli kernel t/(exp(t)−1), identify all its derivatives at zero, justify the differentiated geometric series and exponential decay of every derivative (Lemma2.6), and prove the sum/integral and normalization comparisons of Lemma2.7 on their valid domains. Treat the actual smoothed kernels and then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections.",
         "Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
       ]
     },
@@ -5008,7 +5831,7 @@
       "remaining": [
         "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons.",
         "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
-        "Complete the source’s analytic Mellin/decay/differentiation route under L0. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures. The supplier now has integral coefficient extension on ℤ_p; instantiate that exact interface for this arithmetic measure and prove the required comparisons. This does not supply an intrinsic-unit-group or completed-algebra comparison."
+        "Apply the supplied L0 normalized continuation to the actual Bernoulli and smoothing kernels, establishing their derivative/decay hypotheses and integral comparisons. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures. The supplier now has integral coefficient extension on ℤ_p; instantiate that exact interface for this arithmetic measure and prove the required comparisons. This does not supply an intrinsic-unit-group or completed-algebra comparison."
       ]
     },
     {
@@ -5038,12 +5861,12 @@
     {
       "title": "L0 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Source-decompose the actual Mellin continuation and differentiation/decay argument, then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 record source normalization errors. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions. Accepted RS-14 retained scope: Own RJW Theorem 2.4's actual Mellin continuation argument, decay and differentiation proofs and its Bernoulli/smoothing application; compare the imported generalized Bernoulli quantities with complex L-values and prove algebraicity through chosen complex and p-adic embeddings. Reuse the already proved zeta(0) and negative-zeta, Gauss-inversion and character/conductor APIs. Own the explicit identification of the existing Dedekind series with AL.1's meromorphic germ, its simple-pole proof and equality of residue with the existing real class-number limit, without repeating the unit-volume calculation. Instantiate the imported rational idele/infinity-type dictionary in RJW 2.9/2.11 and prove normalization commutativity. All original positive and exceptional-conductor tests survive."
+      "detail": "The generic Theorem2.4 continuation chain is now supplied by eleven L0 nodes, and its proof dependencies reach only the baseline. Remaining work: Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. Establish the smooth right-hand extension of the actual Bernoulli kernel t/(exp(t)−1), identify all its derivatives at zero, justify the differentiated geometric series and exponential decay of every derivative (Lemma2.6), and prove the sum/integral and normalization comparisons of Lemma2.7 on their valid domains. Treat the actual smoothed kernels and then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
     },
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. Complete the source’s analytic Mellin/decay/differentiation route under L0. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
+      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. Apply the supplied L0 normalized continuation to the actual Bernoulli and smoothing kernels, establishing their derivative/decay hypotheses and integral comparisons. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -5224,109 +6047,89 @@
     }
   ],
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "All nine findings preserved; errata wrapper passes.",
+    "status": "Partial plan; every implementation status remains unchecked.",
     "validation": {
-      "nodes": 80,
+      "nodes": 91,
       "kinds": {
         "definition": 1,
-        "lemma": 46,
-        "construction": 9,
-        "theorem": 19,
+        "lemma": 54,
+        "construction": 10,
+        "theorem": 21,
         "comparison": 5
       },
-      "api": 79,
-      "definitionConstructionTests": 61,
-      "packetTests": 62,
-      "planets": 12,
-      "baseline": 107,
-      "preservedWholeNodes": 72,
+      "api": 89,
+      "definitionConstructionTests": 67,
+      "packetTests": 68,
+      "planets": 14,
+      "baseline": 143,
+      "preservedWholeNodes": 79,
+      "preservedStatements": 80,
+      "updatedProofStatusNotes": 1,
       "preservedSourceIssues": 9,
-      "newNodes": 8,
-      "newNamedDeclarations": 15,
-      "newTypedTests": 8,
-      "typedExamples": 65,
-      "reachableNodes": 156,
-      "dependencyEdges": 619,
+      "newSourceIssues": 0,
+      "newNodes": 11,
+      "newNamedDeclarations": 17,
+      "newTypedTests": 6,
+      "typedExamples": 71,
+      "reachableNodes": 167,
+      "dependencyEdges": 685,
       "acyclic": true,
-      "baselineLeaves": 177,
-      "openStageLeaves": [
+      "baselineLeaves": 213,
+      "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 164,
-      "supplierWarnings": 339,
+      "compilerWarnings": 187,
       "allWarningsPlaceholders": true,
+      "supplierWarnings": 339,
       "pinnedMathlibModules": 3542,
       "pinnedTauCetiModules": 19,
-      "scratchCompleteTheorems": 5,
-      "scratchCompleteConstruction": 1,
+      "plannedSupplierModules": 1,
+      "scratchCompleteLemmas": 17,
+      "scratchAuxiliaryDefinitions": 2,
+      "scratchMathlibModules": 2566,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "scratchMathlibModules": 1980,
-      "readerWords": 26981,
+      "readerWords": 31278,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
-      "closedStages": 0
+      "closedStages": 0,
+      "blueprintErrors": 0,
+      "blueprintWarnings": 0,
+      "intakeProblems": 0,
+      "errataErrors": 0
     },
-    "arithmetic": {
-      "assertions": 46468,
-      "counts": {
-        "index invariance": 3636,
-        "weight congruence": 10908,
-        "uniform evaluation bound": 6060,
-        "test congruence": 24240,
-        "common integer positive series": 1616,
-        "negative and boundary controls": 8
-      },
-      "primes": [
-        2,
-        3,
-        5,
-        7
-      ],
-      "coefficientIndices": "0–100; p*n for index invariance",
-      "controls": {
-        "positive_prime_survives": true,
-        "correct_weight_shift": true,
-        "tame_precision_insufficient": true,
-        "dyadic_precision": true,
-        "constant_not_zero": true,
-        "uniform_bound_not_cardinality": true,
-        "no_zero_index_substitute": true,
-        "not_multiplicative_in_test": true
-      },
-      "scope": "Exact finite scalar tests, not infinite series equality, topology, or a formalized arithmetic measure."
+    "publication": {
+      "base": "1f6f4916b99708fafd725fc46ed7d6775820e3d6",
+      "unchangedInputs": 52,
+      "unchangedOutputs": 4,
+      "issueAvailable": true,
+      "lastClaimConfirmation": 5853175762,
+      "reviewIssue": 390,
+      "reviewUnclaimed": true
     },
     "lean": {
-      "suggestedFileSha256": "3f9022761dbdedc108689a18a9228e9b47f42cda2940e70cddde803a26afdc81",
+      "suggestedFileSha256": "5f19d57c261d449d303fdd433e2de278865337c2b5985b0d505baeb3fed56f2a",
+      "sourceAuditSha256": "b56b04e77cdde98e08da926efb858aa730f53ff7c3bf185f800ddcce988df1ca",
       "errors": 0,
-      "warnings": 164,
-      "warningsOnlyPlaceholders": true,
+      "warnings": 187,
+      "allWarningsPlaceholders": true,
       "supplierWarnings": 339,
       "mathlibModules": 3542,
       "tauCetiModules": 19,
-      "sourceAuditSha256": "410362c2bcbec014db65c889801061f6093409d6f9253a7ecc6c48ebfdf2e2ef",
-      "scratchProofSha256": "07a97378eb87ac5f1d3dc4b35dbbd416c88fe92293d342290b714e1306762ff7",
-      "scratchCompleteTheorems": 5,
-      "scratchCompleteConstruction": 1,
-      "scratchProofErrors": 0,
-      "scratchProofWarnings": 0,
-      "scratchProofPlaceholders": 0,
-      "scratchSourceModules": 1980
+      "plannedSupplierModules": 1,
+      "scratchProofSha256": "35dbb194a728a162d8bcbd5b0ef68f170647b490d56968f458f89d06e6e985f2",
+      "scratchCompleteLemmas": 17,
+      "scratchAuxiliaryDefinitions": 2,
+      "scratchErrors": 0,
+      "scratchWarnings": 0,
+      "scratchPlaceholders": 0,
+      "scratchMathlibModules": 2566
     },
-    "publication": {
-      "baseCommit": "fb8c3221a5325c5acd1e2ac3830e3286d51058a2",
-      "capturedInputs": 23,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5853175762
-    },
-    "closure": "Partial; five gaps, one request, no closed stages; every implementation status unchecked."
+    "sourceIssues": "All nine predecessor findings and source versions retained. No new finding or review verdict. Fresh reading is restricted to published PDF11–13.",
+    "priorValidation": "Previous finite arithmetic checks remain historical records and were not rerun for the analytic continuation change."
   },
   "provenance": {
     "smoothingFollowup": {
@@ -5693,6 +6496,21 @@
         },
         "closure": "Partial; five gaps, one request, no closed stages; every implementation status unchecked."
       }
+    },
+    "mellinContinuation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5853174773,
+      "winningBot": 5853175762,
+      "submissionBasis": "Own-job follow-up to merged PR3194 under WORKERS, subject to a fresh unclaimed-review guard; no second claim.",
+      "newNodes": 11,
+      "newAPI": 10,
+      "newTypedExamples": 6,
+      "newBaselineDeclarations": 36,
+      "preservation": "All80 predecessor statements, hypotheses, dependencies, APIs and tests;79 complete node objects unchanged. Only the final proof-status sentence of L0/smoothed-value-complex is narrowed to the remaining kernel application.",
+      "sourceScope": "Theorem2.4 and its proof, physical PDF11–12, with surrounding application onPDF13; nine existing findings retained, no independent-review verdict added.",
+      "ownership": "Reviewed AUDIT24 and acceptedRS14 retain this specific Mellin proof atL0. Existing native convergence, zeta and Dirichlet L-values remain baseline. QSeries contour-transfer and incomplete-gamma nodes do not supply this statement."
     }
   },
   "requestResolutions": [
