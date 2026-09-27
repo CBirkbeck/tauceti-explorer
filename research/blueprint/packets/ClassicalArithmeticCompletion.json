@@ -13,11 +13,60 @@
   "ClassicalArithmeticCompletion:CA.6",
   "ClassicalArithmeticCompletion:CA.7"
  ],
- "summary": "Classical arithmetic, sequences, polynomials and reciprocity, continued from the first pass (#2837) under the accepted restructuring RS-03, with the maintainer-added sources Bennett–Siksek (items 72, 152, 81) and Martin (items 1–13) covered. The ten nodes of the first pass are kept, each re-checked against its source and the pins and corrected where needed; 302 nodes are added, for 312 in all. CA.0 stays closed: the pinned libraries contain the layer, and its one node, the existence half of the Chinese remainder theorem at non-coprime integer moduli, is the only missing statement. CA.1 plans the primitive quadratic character of a rational square class with its conductor and the bound v_2(N) ≤ 3, the Hilbert symbol of ℚ at every place read in Mathlib's residue symbols, the n-th power residue symbol at primes and ideals with its Frobenius comparison, the degree-n Hilbert symbol and product formula, and the power, cubic and Eisenstein reciprocity laws, importing the local and global Artin maps from Tau Ceti's ClassFieldTheory. CA.2 plans companion matrices in every rank, Evertse's closed form of complex linear recurrences (DT.2's request), Lucas sequences with strong divisibility, Euler numbers, the formal-to-analytic transfer, p-adic and real digit expansions, automatic sequences with Christol's theorem, and Farey sequences with the Stern–Brocot tree. CA.3 plans the Smith and Hermite normal forms as terminating algorithms with certificates, the rational canonical form, integer-valued polynomials with Pólya's theorem, and the irreducibility criteria of Capelli, Perron, Cohn and Eisenstein–Dumas. CA.4 plans the quartic descent T⁴ + V⁴ = 2U², the Markoff equation with its Vieta moves and tree, Legendre's three-square theorem, Jacobi's two- and four-square counts, the negative and generalised Pell equations with the continued-fraction decision procedure, Ramanujan–Nagell, Levi ben Gershon's theorem, numerical semigroups and Egyptian fractions. CA.5, which RS-03 keeps as a comparison layer, plans the certificates relating class-group relation matrices, regulator bounds, Hermite matrices of ideals, discriminants of sublattices and monogenic presentations to the intrinsic invariants. CA.6 plans Pisot and Salem numbers with their classification, Lehmer's number, and the lower bounds of Smyth, Dobrowolski and Schinzel–Zassenhaus (Dimitrov), citing DT.0 for heights and Mahler measure. CA.7 plans the ring of integers as a Galois module, normal integral bases, Noether's and the Hilbert–Speiser theorems, locally free class groups and Taylor's theorem. Remaining work is listed per layer; eight gaps and nineteen requests name what other owners must supply.",
+ "summary": "Classical arithmetic, sequences, polynomials and reciprocity, continued from the first pass (#2837) under the accepted restructuring RS-03, with the maintainer-added sources Bennett–Siksek (items 72, 152, 81) and Martin (items 1–13) covered. The inherited 312-node plan is extended to 316 nodes by the equality case of Perron's criterion, from Prasolov's complete proof. The boundary-exclusion lemma, symmetric Rouché root count, and shared integral-factor argument isolate its hypotheses. CA.0 stays closed: the pinned libraries contain the layer, and its one node, the existence half of the Chinese remainder theorem at non-coprime integer moduli, is the only missing statement. CA.1 plans the primitive quadratic character of a rational square class with its conductor and the bound v_2(N) ≤ 3, the Hilbert symbol of ℚ at every place read in Mathlib's residue symbols, the n-th power residue symbol at primes and ideals with its Frobenius comparison, the degree-n Hilbert symbol and product formula, and the power, cubic and Eisenstein reciprocity laws, importing the local and global Artin maps from Tau Ceti's ClassFieldTheory. CA.2 plans companion matrices in every rank, Evertse's closed form of complex linear recurrences (DT.2's request), Lucas sequences with strong divisibility, Euler numbers, the formal-to-analytic transfer, p-adic and real digit expansions, automatic sequences with Christol's theorem, and Farey sequences with the Stern–Brocot tree. CA.3 plans the Smith and Hermite normal forms as terminating algorithms with certificates, the rational canonical form, integer-valued polynomials with Pólya's theorem, and the irreducibility criteria of Capelli, Perron, Cohn and Eisenstein–Dumas. CA.4 plans the quartic descent T⁴ + V⁴ = 2U², the Markoff equation with its Vieta moves and tree, Legendre's three-square theorem, Jacobi's two- and four-square counts, the negative and generalised Pell equations with the continued-fraction decision procedure, Ramanujan–Nagell, Levi ben Gershon's theorem, numerical semigroups and Egyptian fractions. CA.5, which RS-03 keeps as a comparison layer, plans the certificates relating class-group relation matrices, regulator bounds, Hermite matrices of ideals, discriminants of sublattices and monogenic presentations to the intrinsic invariants. CA.6 plans Pisot and Salem numbers with their classification, Lehmer's number, and the lower bounds of Smyth, Dobrowolski and Schinzel–Zassenhaus (Dimitrov), citing DT.0 for heights and Mahler measure. CA.7 plans the ring of integers as a Galois module, normal integral bases, Noether's and the Hilbert–Speiser theorems, locally free class groups and Taylor's theorem. Remaining work is listed per layer; eight gaps and nineteen requests name what other owners must supply.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
   "declarations": [
+   {
+    "ref": "tauceti:TauCeti.rouche_symm",
+    "kind": "theorem",
+    "module": "TauCeti/Analysis/Complex/Conformal/Rouche.lean",
+    "provides": "For positive radius and two functions analytic near the closed disc, strict symmetric boundary domination gives equality of analytic-order sums in the open disc.",
+    "checked": "Statement read at the pinned commit, line 268, on 2026-09-27."
+   },
+   {
+    "ref": "mathlib:Polynomial.as_sum_range_C_mul_X_pow",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Polynomial/Degree/Support.lean",
+    "provides": "Finite coefficient expansion through natDegree, used to isolate the two leading monomials.",
+    "checked": "Statement read at the pinned commit, line 97, on 2026-09-27."
+   },
+   {
+    "ref": "mathlib:Complex.normSq_apply",
+    "kind": "theorem",
+    "module": "Mathlib/Basic/Complex/Basic.lean",
+    "provides": "Squared complex norm is re²+im², written as products.",
+    "checked": "Statement read at the pinned commit, line 516, on 2026-09-27."
+   },
+   {
+    "ref": "mathlib:Complex.normSq_eq_norm_sq",
+    "kind": "lemma",
+    "module": "Mathlib/Analysis/Complex/Norm.lean",
+    "provides": "The algebraic squared norm equals the square of the real norm.",
+    "checked": "Statement read at the pinned commit, line 149, on 2026-09-27."
+   },
+   {
+    "ref": "mathlib:Polynomial.roots_mul",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Polynomial/Roots.lean",
+    "provides": "For a nonzero product the root multiset is the sum of the factors' root multisets.",
+    "checked": "Statement read at the pinned commit, line 181, on 2026-09-27."
+   },
+   {
+    "ref": "mathlib:Polynomial.Monic.irreducible_iff_natDegree",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+    "provides": "A monic polynomial is irreducible exactly when it is not one and every monic factorization has a factor of degree zero.",
+    "checked": "Statement read at the pinned commit, line 335, on 2026-09-27."
+   },
+   {
+    "ref": "mathlib:Polynomial.Splits.coeff_zero_eq_prod_roots_of_monic",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Polynomial/Splits.lean",
+    "provides": "The constant term of a splitting monic polynomial is (−1)^natDegree times the product of its roots, with multiplicity.",
+    "checked": "Statement read at the pinned commit, line 410, on 2026-09-27."
+   },
    {
     "ref": "mathlib:AddChar.IsPrimitive",
     "kind": "def",
@@ -3963,6 +4012,19 @@
  },
  "sources": [
   {
+   "id": "prasolov-polynomials-russian-2003",
+   "title": "Многочлены (Polynomials)",
+   "authors": "V. V. Prasolov",
+   "edition": "Third corrected Russian edition, MCCME, Moscow, 2003; title and edition verified from PDF pp. 1–2; read 2026-09-27",
+   "url": "http://prasolov.loegria.net/poly.pdf",
+   "sha256": "a24aa35ab4e5ad6c88274d4653f884f235ed37eda417e6cee42f429a8400d937",
+   "readSections": [
+    "Chapter 2, §7.2, Theorem 7.2(a),(b) and its complete proof, printed/PDF pp. 68–69; page images read because the PDF text font mapping is corrupt. The neighboring criteria and the rest of the book are outside this selected reading."
+   ],
+   "accessDate": "2026-09-27",
+   "provenance": "Public PDF linked by the author's publication list at https://vvprasolov.livejournal.com/127528.html (itself linked from the author's MCCME page). The HTTP mirror served this file; the publisher HTTPS download timed out and is not claimed as an independently read copy."
+  },
+  {
    "id": "SHOUP.V2",
    "title": "A Computational Introduction to Number Theory and Algebra (Version 2)",
    "authors": "Victor Shoup",
@@ -4921,6 +4983,179 @@
   }
  ],
  "nodes": [
+  {
+   "parentStageId": "ClassicalArithmeticCompletion:CA.3",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.3"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Polynomial/Irreducibility",
+    "namespace": "TauCeti.ClassicalArithmetic"
+   },
+   "implementationStatus": "unchecked",
+   "id": "ClassicalArithmeticCompletion:CA.3/perron-unit-circle-exclusion",
+   "title": "No unit-circle zero in Perron's equality case",
+   "kind": "lemma",
+   "statement": "Let f ∈ ℝ[X] be monic of degree n ≥ 2, write a = a_{n−1} and S = Σ_{i=0}^{n−2}|a_i|, and assume 1 + S ≤ |a| and f(1) ≠ 0 ≠ f(−1). For every z ∈ ℂ with |z| = 1, the complexification f_ℂ(z) is nonzero.",
+   "hypotheses": [
+    "All coefficients are real; the complex polynomial is obtained by the canonical embedding ℝ → ℂ.",
+    "The two endpoint exclusions are separate hypotheses. No nonzero-constant assumption is needed for this boundary lemma."
+   ],
+   "proofSteps": [
+    "Expand f_ℂ(z) = z^{n−1}(z+a) + r(z) with r(z) = Σ_{i=0}^{n−2} a_i z^i, using the finite coefficient expansion. On |z|=1, the triangle inequality gives |r(z)| ≤ S.",
+    "If f_ℂ(z)=0, then |z+a| = |r(z)| ≤ S ≤ |a|−1. Put A=|a|≥1. Squaring and using |z|²=1 gives a Re(z) ≤ −A. Since −1≤Re(z)≤1 and a is real with a≠0, this forces Re(z)=−1 when a>0 and Re(z)=1 when a<0.",
+    "In either case |z|²=(Re z)²+(Im z)²=1 forces Im(z)=0. Thus z=−1 or z=1. Evaluation commutes with ℝ→ℂ, contradicting the relevant endpoint hypothesis. This is the real-coefficient equality argument, not a claim for arbitrary complex coefficients."
+   ],
+   "acceptance": [
+    "X²+2X−1 satisfies equality and has f(1)=2, f(−1)=−2; neither root is on the unit circle.",
+    "X²−2X+1 and X²+2X+1 satisfy the coefficient inequality but have a root at 1 or −1 respectively, so deleting either endpoint condition is unsound.",
+    "For (X−i)² ∈ ℂ[X], the same norm inequality and both endpoint exclusions hold but i is a unit-circle root; real coefficients are essential."
+   ],
+   "prerequisites": [
+    "mathlib:Polynomial.as_sum_range_C_mul_X_pow",
+    "mathlib:Complex.normSq_apply",
+    "mathlib:Complex.normSq_eq_norm_sq"
+   ],
+   "sources": [
+    {
+     "sourceId": "prasolov-polynomials-russian-2003",
+     "locator": "Chapter 2, §7.2, Theorem 7.2(b), last paragraph of proof, printed/PDF p. 69",
+     "match": "Isolates the boundary argument in the proof. The source theorem uses integer coefficients; its boundary argument uses only their reality, so this lemma records that precise generalization."
+    }
+   ]
+  },
+  {
+   "parentStageId": "ClassicalArithmeticCompletion:CA.3",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.3"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Polynomial/Irreducibility",
+    "namespace": "TauCeti.ClassicalArithmetic"
+   },
+   "implementationStatus": "unchecked",
+   "id": "ClassicalArithmeticCompletion:CA.3/perron-root-location-of-le",
+   "title": "Root location under the weak Perron inequality",
+   "kind": "lemma",
+   "statement": "Let f ∈ ℝ[X] be monic of degree n ≥ 2 with a_0≠0, 1 + Σ_{i=0}^{n−2}|a_i| ≤ |a_{n−1}|, and f(1)≠0≠f(−1). The multiset of complex roots of f has exactly one member, counted with multiplicity, with norm at least 1. Equivalently, n−1 roots lie in the open unit disc.",
+   "hypotheses": [
+    "Nonzero constant term, monicity, degree at least two, real coefficients, the non-strict coefficient inequality, and both endpoint exclusions."
+   ],
+   "proofSteps": [
+    "Set a=a_{n−1}, S=Σ_{i=0}^{n−2}|a_i| and g(z)=z^{n−1}(z+a). Since n≥2 and a_0≠0, the summand |a_0| is positive, so S>0 and |a|>1.",
+    "On the unit circle, the finite expansion and norm inequalities give |f_ℂ(z)−g(z)|≤S≤|a|−1≤|z+a|=|g(z)|. The boundary-exclusion lemma gives |f_ℂ(z)|>0; hence |f_ℂ(z)−g(z)|<|f_ℂ(z)|+|g(z)|.",
+    "Both functions are entire. Apply the pinned symmetric Rouché theorem at centre 0 and radius 1. No unproved equality-case extension of the ordinary strict Rouché theorem is invoked.",
+    "The comparison polynomial X^{n−1}(X+a) has n−1 zeros at 0 inside and its remaining zero −a outside, since |a|>1. Convert the analytic-order sums to root-multiset counts using CA.3/analytic-order-of-a-polynomial and Polynomial.count_roots. Algebraic closedness of ℂ gives n total roots, so the complement of the n−1 inside roots has cardinality one. The boundary lemma also ensures the remaining root is strictly outside."
+   ],
+   "acceptance": [
+    "For X²+2X−1 the roots −1±√2 have exactly one norm exceeding 1; equality of the coefficient bound is admitted.",
+    "At z=−1 for f=X²+2X−1 and g=X²+2X, |f−g|=|g|=1. Ordinary strict domination fails there, while the symmetric inequality reads 1<3.",
+    "X²+2X has zero constant coefficient and is not an irreducibility input; the root-count theorem deliberately retains a_0≠0 as the source's shared hypothesis."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.3/perron-unit-circle-exclusion",
+    "ClassicalArithmeticCompletion:CA.3/analytic-order-of-a-polynomial",
+    "tauceti:TauCeti.rouche_symm",
+    "mathlib:Polynomial.as_sum_range_C_mul_X_pow",
+    "mathlib:Polynomial.count_roots",
+    "mathlib:Polynomial.roots_mul",
+    "mathlib:IsAlgClosed.card_roots_eq_natDegree",
+    "mathlib:Complex.isAlgClosed"
+   ],
+   "sources": [
+    {
+     "sourceId": "prasolov-polynomials-russian-2003",
+     "locator": "Chapter 2, §7.2, Theorem 7.2(a),(b), proof, printed/PDF pp. 68–69",
+     "match": "The comparison polynomial and symmetric Rouché estimate are the source's proof. As with the boundary step, the analytic part only uses real coefficients, with integer coefficients needed at the final factorization step."
+    }
+   ]
+  },
+  {
+   "parentStageId": "ClassicalArithmeticCompletion:CA.3",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.3"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Polynomial/Irreducibility",
+    "namespace": "TauCeti.ClassicalArithmetic"
+   },
+   "implementationStatus": "unchecked",
+   "id": "ClassicalArithmeticCompletion:CA.3/irreducible-of-single-outer-root",
+   "title": "Irreducibility from one outer root counted with multiplicity",
+   "kind": "theorem",
+   "statement": "Let f ∈ ℤ[X] be monic of positive degree with f(0)≠0. If its complex root multiset contains exactly one root with |z|≥1, counting multiplicity, then f is irreducible in ℤ[X].",
+   "hypotheses": [
+    "Positive degree excludes the unit polynomial; f(0)≠0 excludes a factor X; the hypothesis counts a multiset, not distinct roots."
+   ],
+   "proofSteps": [
+    "Use Polynomial.Monic.irreducible_iff_natDegree. Positive degree gives f≠1. It remains to rule out f=g h with g,h monic integer polynomials both of positive degree.",
+    "The nonzero constant term of f forces both g(0) and h(0) nonzero, and their integer absolute values are at least 1.",
+    "Map the factors to ℂ. Each splits and remains monic with positive degree. The signed product-of-roots formula gives |g(0)|=∏_{α∈roots(g)}|α| and the analogous formula for h. If all roots of g had norm <1, their nonempty finite product of nonnegative norms would be <1, a contradiction. Thus each factor has at least one outer root.",
+    "Polynomial.roots_mul identifies the roots of f with the multiset sum of the roots of g and h. Filtering by |z|≥1 and taking cardinality adds the counts, giving at least two. This contradicts the assumed cardinality one, even if the two selected roots are equal.",
+    "The existing strict Perron criterion and the weak criterion both consume this common algebraic argument. No alternative root carrier or irreducibility predicate is defined."
+   ],
+   "acceptance": [
+    "The degree-one polynomial X−2 has one outer root and is irreducible; no n≥2 restriction belongs on this algebraic adapter.",
+    "X²−2X has exactly one outer root but is reducible: its constant term is zero.",
+    "(X−2)² has one distinct outer root but two with multiplicity and is reducible; replacing the multiset count by a set cardinality is invalid."
+   ],
+   "prerequisites": [
+    "mathlib:Polynomial.Monic.irreducible_iff_natDegree",
+    "mathlib:Polynomial.Splits.coeff_zero_eq_prod_roots_of_monic",
+    "mathlib:IsAlgClosed",
+    "mathlib:IsAlgClosed.card_roots_eq_natDegree",
+    "mathlib:Complex.isAlgClosed",
+    "mathlib:Polynomial.roots_mul"
+   ],
+   "sources": [
+    {
+     "sourceId": "prasolov-polynomials-russian-2003",
+     "locator": "Chapter 2, §7.2, Theorem 7.2(a), factorization argument, printed/PDF p. 69",
+     "match": "Extracts the source's integral-factor argument as a reusable declaration for both Perron variants; only the single-outer-root conclusion of the analytic argument is used."
+    }
+   ]
+  },
+  {
+   "parentStageId": "ClassicalArithmeticCompletion:CA.3",
+   "realises": [
+    "ClassicalArithmeticCompletion:CA.3"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Polynomial/Irreducibility",
+    "namespace": "TauCeti.ClassicalArithmetic"
+   },
+   "implementationStatus": "unchecked",
+   "id": "ClassicalArithmeticCompletion:CA.3/perron-criterion-of-le",
+   "title": "Perron's irreducibility criterion with equality",
+   "kind": "theorem",
+   "statement": "Let f=Xⁿ+a_{n−1}X^{n−1}+⋯+a_0 ∈ ℤ[X] be monic, n≥2, a_0≠0, with |a_{n−1}| ≥ 1+Σ_{i=0}^{n−2}|a_i| and f(1)≠0≠f(−1). Then f is irreducible in ℤ[X], equivalently its image in ℚ[X] is irreducible.",
+   "hypotheses": [
+    "Non-strict coefficient inequality, integer coefficients, monicity, degree at least two, nonzero constant term and both endpoint exclusions."
+   ],
+   "proofSteps": [
+    "Map f to ℝ. Injectivity preserves degree, monicity, the nonzero constant term and endpoint evaluations; integer absolute values and their finite sums transport to real absolute values.",
+    "Apply CA.3/perron-root-location-of-le and identify the subsequent map ℝ→ℂ with the direct map ℤ→ℂ. This gives one outer complex root counted with multiplicity.",
+    "Apply CA.3/irreducible-of-single-outer-root to f. Monicity implies primitivity, and the pinned primitive-integer Gauss lemma gives the stated equivalence with irreducibility over ℚ."
+   ],
+   "acceptance": [
+    "X²+2X−1 and X²−2X−1 satisfy the inequality with equality and are irreducible; this is new coverage beyond the strict criterion.",
+    "(X−1)² and (X+1)² fail the respective endpoint exclusions and must not be accepted.",
+    "X²+2X has equality, f(1)=3 and f(−1)=−1 but a_0=0 and is reducible; the nonzero-constant condition cannot be dropped."
+   ],
+   "prerequisites": [
+    "ClassicalArithmeticCompletion:CA.3/perron-root-location-of-le",
+    "ClassicalArithmeticCompletion:CA.3/irreducible-of-single-outer-root",
+    "mathlib:Polynomial.Monic.isPrimitive",
+    "mathlib:Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast"
+   ],
+   "sources": [
+    {
+     "sourceId": "prasolov-polynomials-russian-2003",
+     "locator": "Chapter 2, §7.2, Theorem 7.2(b), printed/PDF pp. 68–69",
+     "match": "Exactly the weak inequality and f(±1)≠0 variant, with the monic polynomial's degree at least two made explicit. The source writes descending coefficients a₁,…,aₙ; this packet uses a_{n−1},…,a₀."
+    }
+   ]
+  },
   {
    "id": "ClassicalArithmeticCompletion:CA.0/crt-at-non-coprime-moduli-over-the-integers",
    "parentStageId": "ClassicalArithmeticCompletion:CA.0",
@@ -12589,9 +12824,8 @@
    ],
    "proofSteps": [
     "f is monic, hence primitive (Mathlib Polynomial.Monic.isPrimitive), so irreducibility in ℤ[X] and in ℚ[X] agree (Mathlib Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast).",
-    "Suppose f = g h with g, h ∈ ℤ[X] monic of positive degree (a factorisation of a monic integer polynomial can be normalised to monic factors).",
-    "g(0) h(0) = a_0 ≠ 0, so |g(0)| ≥ 1 and |h(0)| ≥ 1; |g(0)| is the product of the absolute values of the roots of g, so g has a root with |z| ≥ 1, and so does h.",
-    "This gives two roots of f, with multiplicity, of absolute value at least 1, contradicting CA.3/perron-root-location."
+    "Map f to ℂ and apply CA.3/perron-root-location; the coefficient inequality transports along the canonical integer embedding.",
+    "Apply CA.3/irreducible-of-single-outer-root. It packages the common integral-factor argument for the strict and weak criteria: nonzero integer constant terms force each nonconstant monic factor to contain an outer root, and multiplicities add."
    ],
    "acceptance": [
     "X³ + 5X² + X + 1 is irreducible over ℚ.",
@@ -12601,7 +12835,8 @@
    "prerequisites": [
     "ClassicalArithmeticCompletion:CA.3/perron-root-location",
     "mathlib:Polynomial.Monic.isPrimitive",
-    "mathlib:Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast"
+    "mathlib:Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast",
+    "ClassicalArithmeticCompletion:CA.3/irreducible-of-single-outer-root"
    ],
    "sources": [
     {
@@ -24384,10 +24619,9 @@
   {
    "stageId": "ClassicalArithmeticCompletion:CA.3",
    "status": "partial",
-   "note": "RS-03 narrows CA.3 to the general Smith, Hermite and rational canonical normal forms with reconstruction, divisibility and termination certificates, plus the integer-valued-polynomial and irreducibility refinements the audit records as missing; existing resultant, discriminant and special-case normal-form results are imported. Planned here: the Smith certificate and a terminating Smith algorithm for rectangular and singular integer matrices with uniqueness, the Smith form over a PID, the cokernel reading, the invariant-factor structure theorem over a PID with uniqueness; the Hermite normal form (predicate, certificate, terminating algorithm, uniqueness, the Hermite basis of a sublattice, the index as the product of pivots); invariant factors of an endomorphism, the rational canonical form and the similarity classification; the ring Int(D), Pólya's theorem, the consecutive-values criterion, non-Noetherianity of Int(ℤ), irreducibility of the binomial polynomials, the characteristic ideals and the regular-basis criterion; Capelli's theorem in all characteristics, Perron's criterion, Cohn's criterion in every base, and Newton polygons with Dumas's theorem, the root-valuation theorem and the Eisenstein–Dumas criterion.",
+   "note": "RS-03 narrows CA.3 to the general Smith, Hermite and rational canonical normal forms with reconstruction, divisibility and termination certificates, plus the integer-valued-polynomial and irreducibility refinements the audit records as missing; existing resultant, discriminant and special-case normal-form results are imported. Planned here: the Smith certificate and a terminating Smith algorithm for rectangular and singular integer matrices with uniqueness, the Smith form over a PID, the cokernel reading, the invariant-factor structure theorem over a PID with uniqueness; the Hermite normal form (predicate, certificate, terminating algorithm, uniqueness, the Hermite basis of a sublattice, the index as the product of pivots); invariant factors of an endomorphism, the rational canonical form and the similarity classification; the ring Int(D), Pólya's theorem, the consecutive-values criterion, non-Noetherianity of Int(ℤ), irreducibility of the binomial polynomials, the characteristic ideals and the regular-basis criterion; Capelli's theorem in all characteristics, Perron's criterion, Cohn's criterion in every base, and Newton polygons with Dumas's theorem, the root-valuation theorem and the Eisenstein–Dumas criterion. Perron's weak/equality variant is decomposed through unit-circle exclusion, the existing symmetric Rouché theorem, and an integral-factor adapter shared with the strict variant.",
    "remaining": [
-    "Int(𝓞_K) beyond the definition and the regular-basis criterion: the local formula for the characteristic ideals, Proposition 31 of Cahen–Chabert (Int(𝓞_K) has a regular basis iff every factorial ideal n!_{𝓞_K} is principal) and the Pólya group. Cahen–Chabert state these without proof, citing their book (Chapter II), which is not freely available; no public source with proofs was obtained.",
-    "The equality case of Perron's criterion (|a_{n−1}| ≥ 1 + |a_{n−2}| + ⋯ + |a_0| together with f(±1) ≠ 0 implies irreducibility). The public sources read state and prove only the strict inequality."
+    "Int(𝓞_K) beyond the definition and the regular-basis criterion: the local formula for the characteristic ideals, Proposition 31 of Cahen–Chabert (Int(𝓞_K) has a regular basis iff every factorial ideal n!_{𝓞_K} is principal) and the Pólya group. Cahen–Chabert state these without proof, citing their book (Chapter II), which is not freely available; no public source with proofs was obtained."
    ]
   },
   {

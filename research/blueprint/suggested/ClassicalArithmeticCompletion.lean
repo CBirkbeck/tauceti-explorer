@@ -2651,6 +2651,73 @@ theorem perron_irreducible {f : ℤ[X]} (hmon : f.Monic) (h2 : 2 ≤ f.natDegree
     Irreducible f := by
   sorry
 
+/-- **Boundary exclusion in Perron's equality case** (CA.3/perron-unit-circle-exclusion).
+Real coefficients are essential: (X - i)^2 is a counterexample over ℂ. -/
+theorem perron_no_unit_circle_root {f : ℝ[X]} (hmon : f.Monic) (h2 : 2 ≤ f.natDegree)
+    (hP : 1 + ∑ i ∈ Finset.range (f.natDegree - 1), |f.coeff i| ≤
+      |f.coeff (f.natDegree - 1)|)
+    (hpos : f.eval 1 ≠ 0) (hneg : f.eval (-1) ≠ 0) :
+    ∀ z : ℂ, ‖z‖ = 1 → (f.map (algebraMap ℝ ℂ)).eval z ≠ 0 := by
+  sorry
+
+/-- **Weak Perron root count** (CA.3/perron-root-location-of-le).
+The proof uses the pinned TauCeti.rouche_symm, not a new Rouché theorem. -/
+theorem perron_card_roots_one_le_norm_of_le {f : ℝ[X]} (hmon : f.Monic)
+    (h2 : 2 ≤ f.natDegree) (h0 : f.coeff 0 ≠ 0)
+    (hP : 1 + ∑ i ∈ Finset.range (f.natDegree - 1), |f.coeff i| ≤
+      |f.coeff (f.natDegree - 1)|)
+    (hpos : f.eval 1 ≠ 0) (hneg : f.eval (-1) ≠ 0) :
+    ((f.map (algebraMap ℝ ℂ)).roots.filter fun z => 1 ≤ ‖z‖).card = 1 := by
+  sorry
+
+/-- **Integral factor adapter** (CA.3/irreducible-of-single-outer-root).
+Count multiplicity; positive degree and the nonzero constant are necessary. -/
+theorem irreducible_of_card_roots_one_le_norm_eq_one {f : ℤ[X]} (hmon : f.Monic)
+    (hdeg : 0 < f.natDegree) (h0 : f.coeff 0 ≠ 0)
+    (hroots : ((f.map (Int.castRingHom ℂ)).roots.filter fun z => 1 ≤ ‖z‖).card = 1) :
+    Irreducible f := by
+  sorry
+
+/-- **Perron's criterion with equality** (CA.3/perron-criterion-of-le). -/
+theorem perron_irreducible_of_le {f : ℤ[X]} (hmon : f.Monic) (h2 : 2 ≤ f.natDegree)
+    (h0 : f.coeff 0 ≠ 0)
+    (hP : 1 + ∑ i ∈ Finset.range (f.natDegree - 1), |f.coeff i| ≤
+      |f.coeff (f.natDegree - 1)|)
+    (hpos : f.eval 1 ≠ 0) (hneg : f.eval (-1) ≠ 0) : Irreducible f := by
+  sorry
+
+-- Equality, not merely the old strict case.
+example : Irreducible (X ^ 2 + C (2 : ℤ) * X - 1) := by sorry
+example : Irreducible (X ^ 2 - C (2 : ℤ) * X - 1) := by sorry
+example : ((X ^ 2 + C (2 : ℂ) * X - 1).roots.filter fun z => 1 ≤ ‖z‖).card = 1 := by
+  sorry
+example (z : ℂ) (hz : ‖z‖ = 1) : (X ^ 2 + C (2 : ℂ) * X - 1).eval z ≠ 0 := by
+  sorry
+
+-- Each endpoint exclusion is needed.
+example : (X ^ 2 - C (2 : ℤ) * X + 1).eval 1 = 0 := by sorry
+example : (X ^ 2 + C (2 : ℤ) * X + 1).eval (-1) = 0 := by sorry
+
+-- Nonzero constant and multiplicity are not cosmetic.
+example : ¬ Irreducible (X ^ 2 + C (2 : ℤ) * X) := by sorry
+example : ((X ^ 2 + C (2 : ℂ) * X).roots.filter fun z => 1 ≤ ‖z‖).card = 1 := by
+  sorry
+example : (((X - C (2 : ℂ)) ^ 2).roots.filter fun z => 1 ≤ ‖z‖).card = 2 := by
+  sorry
+example : Irreducible (X - C (2 : ℤ)) := by sorry
+
+-- Real coefficients cannot be silently replaced by complex ones.
+example : ((X - C Complex.I) ^ 2).eval Complex.I = 0 ∧
+    ((X - C Complex.I) ^ 2).eval 1 ≠ 0 ∧
+    ((X - C Complex.I) ^ 2).eval (-1) ≠ 0 := by sorry
+
+-- Symmetric Rouché can be strict when ordinary domination is not.
+example : ‖(X ^ 2 + C (2 : ℂ) * X - 1).eval (-1) -
+      (X ^ 2 + C (2 : ℂ) * X).eval (-1)‖ = 1 ∧
+    ‖(X ^ 2 + C (2 : ℂ) * X).eval (-1)‖ = 1 ∧
+    1 < ‖(X ^ 2 + C (2 : ℂ) * X - 1).eval (-1)‖ +
+      ‖(X ^ 2 + C (2 : ℂ) * X).eval (-1)‖ := by sorry
+
 end Perron
 
 section Cohn

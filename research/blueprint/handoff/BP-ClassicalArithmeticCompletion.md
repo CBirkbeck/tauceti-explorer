@@ -2,6 +2,38 @@
 
 Job `BP-ClassicalArithmeticCompletion`, issue #1025.
 
+## Continuation — 27 September 2026
+
+Codex, session `codex-a71f92`, continued the merged 312-node checkpoint under the exact claim confirmed by the bot for comment 5851354000. Scope: the named CA.3 Perron equality-case remaining item. This is a partial checkpoint, not an independent review or a claim that the whole roadmap is complete.
+
+### Result
+
+- Added four CA.3 nodes: two lemmas (unit-circle exclusion and weak root location) and two theorems (the reusable single-outer-root irreducibility adapter and Perron's weak criterion).
+- All inherited 312 node IDs and mathematical statements are retained. The strict Perron node's proof outline now consumes the common adapter; its statement is unchanged.
+- Totals: 316 nodes (122 theorems, 110 lemmas, 45 definitions, 27 constructions, 7 applications, 5 comparisons); 501 API items; 279 definition unit tests; 42 planets; 586 baseline declarations. The four additions introduce no definitions, API items or planets. The suggested file adds twelve theorem-acceptance examples.
+- All eight coverage statuses stay unchanged, including CA.3 partial. Only the completed equality-case entry is removed from CA.3's remaining list. The 8 gaps, 19 requests, 50 inherited source issues and 3 restructuring proposals are unchanged.
+
+### Evidence and checks
+
+- Freshly read the reviewed AUDIT-18 records for all eight stages, its review, the applicable accepted RS-03 ownership decisions, the campaign stages, the integrated reviewed decomposition and incident atlas edges, and all matching link/overlap entries in the 29 link packets. Prior source provenance and the other 309 non-Perron nodes are retained, not represented as independently re-reviewed.
+- Source: Prasolov, *Многочлены*, third corrected Russian edition, MCCME, 2003, Chapter 2 §7.2, Theorem 7.2(a),(b) and complete proof, printed/PDF pp. 68–69. Read page images; title/edition pp. 1–2 and contents locator p. 3 checked. Public author-linked PDF: http://prasolov.loegria.net/poly.pdf, SHA-256 a24aa35ab4e5ad6c88274d4653f884f235ed37eda417e6cee42f429a8400d937. Author link: https://vvprasolov.livejournal.com/127528.html. The publisher HTTPS transfer timed out; no claim is made to have read a second copy.
+- Freshly re-read Barbeau's strict Perron proof, printed p. 49; its hash matches the inherited source record. E410 is preserved. No new error was found in the selected Prasolov proof. This is not an errata audit of the rest of either source.
+- Nine relevant library declaration statements were freshly checked at the recorded pins; seven were new baseline entries and two already present. Further existing prerequisites were checked where used. The symmetric Rouché theorem is `TauCeti.rouche_symm` at line 268 of its pinned module; there is no new analytic owner or request.
+- The ordinary strict domination bound can fail at equality. At f=X²+2X−1, g=X²+2X and z=−1, |f−g|=|g|=1, whereas |f−g|<|f|+|g| is 1<3. The plan uses the pinned symmetric theorem.
+- Suggested Lean file, 5,812 lines: compiled against the pinned Mathlib sources with exit 0, exactly 932 expected placeholder warnings and no other warnings. The unchanged starting file was also compiled: exit 0, 916 expected placeholder warnings. All 8,482 transitive Mathlib source files matched the pinned source tree. The suggested file retains individual Mathlib imports; the Tau Ceti theorem is a proof dependency described in the document, not redeclared in the suggested file.
+- Separate scratch Lean check: the real-scalar unit-circle equality argument plus eleven concrete checks compiled with exit 0, no placeholders and no warnings. They check both coefficient signs, both excluded endpoints, a zero constant, a repeated root counted twice, the complex-coefficient counterexample, symmetric versus strict domination, and degree one. These validate the delicate subargument and examples, not a completed formal proof of the four planned declarations.
+- Blueprint checker with the pinned declaration index: 0 errors and 0 warnings.
+
+### Resume here
+
+CA.3's remaining work is Int(𝓞_K): local characteristic-ideal formulas, the factorial-ideal/principal-ideal regular-basis criterion and the Pólya group, with a public proof source still needed. Other stages' exact remaining entries, gaps and supplier requests remain those of the inherited packet. CA.3 has 41 nodes, not 37. Do not add a seventh CA.3 planet. Prasolov's neighboring criteria and the rest of the book have not been newly decomposed.
+
+The earlier handoff below is retained as historical provenance; its 312-node counts and Perron equality-case remaining entry describe the preceding checkpoint and are superseded by this section.
+
+---
+
+## Earlier checkpoint — 24 September 2026
+
 - **This pass:** Claude Code, session `cc-2aeb03`, 24 September 2026. It continues the first pass (Claude Code, session
   `cc-7b31c4`, #2837) as the job instructs: keep what is right, extend what is missing.
 - **Binding restructuring:** RS-03, accepted by REV-RS-03. It is followed as written: CA.1, CA.3, CA.5 and CA.6
