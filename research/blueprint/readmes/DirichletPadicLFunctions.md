@@ -1,4 +1,4 @@
-**Current packet:** 242 unchecked nodes: 1 definition, 26 constructions, 113 lemmas, 70 theorems and 32 comparisons. 251 API entries, 253 packet tests (137 on definitions/constructions), 256 typed examples, 23 planets and 303 baseline references. Five gaps, one L1 request, 15 findings and zero closed stages remain. The final section records the complex tame kernel; earlier checkpoint narratives and validation are historical.
+**Current packet:** 247 unchecked nodes: 1 definition, 26 constructions, 115 lemmas, 71 theorems and 34 comparisons. 255 API entries, 263 packet tests (137 on definitions/constructions), 266 typed examples, 23 planets and 307 baseline references. Five gaps, one L1 request, 15 findings and zero closed stages remain. The final section records the complex Gauss comparison; earlier checkpoint narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -8406,15 +8406,157 @@ For k≥0, normalizedMellinContinuation(f,−k)=(−1)^k b_(η,k).
 
 **Remaining:** The finite-numerator complex tame kernel now has explicit removable-point regularity, Bernoulli derivatives, absolutely convergent exponential expansions, all-derivative decay, an entire normalized Mellin continuation and comparison with the native nonprincipal Dirichlet L-function. Complete the primitive complex Gauss/rational and product-conductor comparisons through the existing modular-forms owner, analytic p-adic branches, even-character logarithmic/degree-zero values, full source extraction and the PMIA L1 actual completed-algebra comparison. These complex-variable results do not construct an analytic p-adic character family.
 
-### Complex tame kernel validation
 
-All 231 predecessor nodes, 298 baseline records, 15 findings and sourceVersions are preserved whole. All 242 node IDs remain in the reader. Twenty named declarations, including the actual kernel definition and its defining equation, and 16 typed examples are added. The indexed blueprint has zero errors and warnings; four-file intake, whitespace, scoped mutation, API/test parity and versioned source-issue checks pass. The graph has 384 reachable nodes, 1774 edges and 403 native leaves, is acyclic and has only the PMIA L1 stage request leaf. Each of the eleven new proof routes has no stage request leaf.
+## The actual complex Gauss expression
 
-The full suggested module elaborates with zero errors and 601 expected placeholder warnings against 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and one verified actual PMIA artifact. The full target uses the verified actual 265-node PMIA artifact. The current 294-node supplier preserves that source in order; the earlier accepted refresh remains its reading provenance. No current-target declaration calls its new unit-coordinate functions. No local compile against the 294-node supplier is claimed. The actual completed-group-algebra/topology request remains open. Source, olean and original compiler-log hashes were rechecked. Existing artifacts were reused; no Mathlib or Tau Ceti build, new Lake project or cache download was run.
+Finite geometric algebra compares the normalized primitive Gauss expression with the actual tame kernel away from zero; real analyticity fills the removable point. The formal comparison identifies derivatives and coefficients without claiming unrestricted formal-series evaluation.
 
-The native probe constructs β from dslope and the actual finite tame kernel, then proves β(0)=1, the exponential divided-difference value at zero, the kernel’s finite origin formula and its modulus-one zero case. Its two definitions and four complete lemmas use only native libraries. The general regularity, decay and Mellin comparisons remain unchecked blueprint declarations. It elaborates against 1900 pinned Mathlib modules with zero errors, warnings or proof holes. Exact rational Taylor division checks 72 origin derivatives and 72 parity identities, and 24 rational exponential substitutions check the positive-series sign. The five genuine characters include the quartic character modulo 5, whose real and imaginary components are computed separately and checked together; 139 multiplication checks verify the finite character tables. The principal-modulo-3 control distinguishes its subtracted kernel −4/7 at log 2 from the incorrectly imported unsmoothed series −6/7. These finite controls do not prove the general analytic statements.
+### Nonvanishing of the real-axis Gauss denominators
 
-No source finding is added. The initial captured register changes contain our already merged E14/E15, which remain awaiting independent review. A subsequent refresh adds three unrelated finite-field source findings, ExponentialSumsAndCircleMethod/E12–E14. All new records and full Markdown differences were read, and all previous register records remain whole. No consumed tame-kernel contract changes. The publication guard at 488fb4f82a18e84919388f40dda6d20d944fd2bb checks 54 inputs, four predecessor outputs, unchanged issue text, the original winning claim and unclaimed review #390.
+`DirichletPadicLFunctions:L2/complex-gauss-denominator` — `DirichletPadic.tameComplexGauss_denominator_ne_zero` (lemma).
 
-Suggested SHA256: `0666e6ca5cdad595112220533183b4d43f5afe6fc2351438c7f12eb0c508a1a9`.
-Native probe SHA256: `1f6f9d4d8fa939daa47af9f05ebfa10612fc8c3701c29ead69335e89550608bf`.
+For every a:ZMod D with a≠0 and every real t, ε^(a.val)exp(t)−1≠0.
+
+**Hypotheses:** D>0, η is the native DirichletCharacter ℂ D, ε∈ℂ and hε:IsPrimitiveRoot ε D. Write e=AddChar.zmodChar D hε.pow_eq_one, G=gaussSum(η⁻¹,e), and Sε(t)=−G⁻¹Σ_(a:ZMod D)η⁻¹(a)/(ε^(a.val)exp(t)−1), a finite expression with native totalized field division. This is notation, not a new function carrier.
+
+**Proof outline:**
+
+1. Use native IsPrimitiveRoot.norm'_eq_one with D≠0 to obtain ‖ε‖=1, hence ‖ε^(a.val)‖=1. This is the complex absolute norm theorem, not the similarly named algebraic field-norm result.
+2. If αexp(t)=1 for α=ε^(a.val), taking complex norms gives exp(t)=1 because the real exponential is positive. Native real exponential injectivity implies t=0.
+3. The equation then gives α=1. Native representative bounds give 0<a.val<D, and primitive-root nontriviality at that exponent contradicts α=1.
+
+**Prerequisites:** `mathlib:IsPrimitiveRoot.norm'_eq_one`, `mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt`, `mathlib:ZMod.val_ne_zero`, `mathlib:ZMod.val_lt`, `mathlib:Real.exp_injective`.
+
+**Tests:**
+
+- `SuggestedComplexGaussTests.imaginary_denominator` (computation): For α=i, αexp(t)−1 is nonzero for every real t.
+- `SuggestedComplexGaussTests.zero_residue_denominator` (non-example): For a=0 and t=0 the denominator is zero, so it must not be cancelled before accounting for its weight.
+
+**Acceptance:** This does not apply to the zero residue: its denominator vanishes at t=0. That term is removed by its zero character weight in the next node. No primitivity or Gauss nonvanishing is needed for the denominator lemma.
+
+**Source:** §5.2, the displayed fη and equation (5-3), and Lemma 5.9, published 144 / PDF 45. Complete published 144–145 / PDF 45–46 freshly reread from the hash-verified version of record; prior edition collation and complete surrounding reading remain in the packet. Worker finite-algebra and real-analytic comparison of the source primitive Gauss expression with the actual finite-numerator complex kernel. The origin/formal comparison makes the source differential-operator identification precise without evaluating an infinite formal series at a nonzero real argument. G=G(η⁻¹) and its explicit nonvanishing remain fixed; existing E12/E13 are preserved without new source findings.
+
+### Regularity of the weighted Gauss expression
+
+`DirichletPadicLFunctions:L2/complex-gauss-regularity` — `DirichletPadic.tameComplexGauss_analyticAt` (theorem).
+
+If D>1, the actual finite expression Sε is real analytic at every real t.
+
+**Hypotheses:** D>0, η is the native DirichletCharacter ℂ D, ε∈ℂ and hε:IsPrimitiveRoot ε D. Write e=AddChar.zmodChar D hε.pow_eq_one, G=gaussSum(η⁻¹,e), and Sε(t)=−G⁻¹Σ_(a:ZMod D)η⁻¹(a)/(ε^(a.val)exp(t)−1), a finite expression with native totalized field division. This is notation, not a new function carrier. Assume D>1.
+
+**Proof outline:**
+
+1. D>1 and native map_zero' imply η⁻¹(0)=0. The zero-residue summand is identically zero under totalized division, even at its denominator zero. Remove it before any inverse-analyticity argument.
+2. For a≠0 the preceding denominator theorem applies on the entire real line. The real exponential included into ℂ is real analytic, by analyticAt_rexp and the native continuous real-linear inclusion. Native analytic division therefore applies to each weighted summand.
+3. A finite sum and the fixed scalar −G⁻¹ preserve real analyticity. Neither η.IsPrimitive nor G≠0 is required here: when G=0, the totalized normalized expression is simply zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/complex-gauss-denominator`, `mathlib:DirichletCharacter.map_zero'`, `mathlib:analyticAt_rexp`, `mathlib:Complex.ofRealCLM`, `mathlib:ContinuousLinearMap.analyticAt`, `mathlib:AnalyticAt.comp`, `mathlib:AnalyticAt.div`.
+
+**Tests:**
+
+- `SuggestedComplexGaussTests.zero_normalization` (degenerate): If G=0 the whole normalized expression is zero for every t; comparison with the nonzero tame kernel still requires G≠0.
+
+**Acceptance:** The result is about real-variable analyticity. It does not assert the absence of poles for complex t or justify cancelling a zero Gauss sum.
+
+**Source:** §5.2, the displayed fη and equation (5-3), and Lemma 5.9, published 144 / PDF 45. Complete published 144–145 / PDF 45–46 freshly reread from the hash-verified version of record; prior edition collation and complete surrounding reading remain in the packet. Worker finite-algebra and real-analytic comparison of the source primitive Gauss expression with the actual finite-numerator complex kernel. The origin/formal comparison makes the source differential-operator identification precise without evaluating an infinite formal series at a nonzero real argument. G=G(η⁻¹) and its explicit nonvanishing remain fixed; existing E12/E13 are preserved without new source findings.
+
+### The finite scalar Gauss equation
+
+`DirichletPadicLFunctions:L2/complex-gauss-generating` — `DirichletPadic.tameComplexGauss_generating` (lemma).
+
+For every real t, (1−exp(Dt))Sε(t)=Σ_(a:ZMod D)η(a)exp(a.val·t).
+
+**Hypotheses:** D>0, η is the native DirichletCharacter ℂ D, ε∈ℂ and hε:IsPrimitiveRoot ε D. Write e=AddChar.zmodChar D hε.pow_eq_one, G=gaussSum(η⁻¹,e), and Sε(t)=−G⁻¹Σ_(a:ZMod D)η⁻¹(a)/(ε^(a.val)exp(t)−1), a finite expression with native totalized field division. This is notation, not a new function carrier. Assume D>1, η.IsPrimitive and explicitly G≠0. Native conductor_one then implies η≠1. Composite-modulus primitive Gauss nonvanishing remains with the existing modular-forms owner; it is not inferred from a finite-field-domain theorem on ZMod D.
+
+**Proof outline:**
+
+1. Native conductor_inv makes η⁻¹ primitive. Apply native gaussSum_mulShift_of_isPrimitive to η⁻¹ and e. Expand the native additive character and Gauss sum to obtain Σ_a η⁻¹(a)ε^(a.val·j)=η(j)G for every j, including nonunit frequencies. This is the general positive-modulus native statement.
+2. Set y=exp(t). For a≠0 put α=ε^(a.val). The preceding denominator theorem makes αy−1 nonzero, and α^D=1. Native finite geometric multiplication gives (1−y^D)/(αy−1)=−Σ_(j<D)(αy)^j. At a=0 the character weight is zero, so both weighted contributions vanish without cancelling its denominator.
+3. Distribute the finite sums and interchange their order. The Fourier identity gives each coefficient η(j)G; cancel G using its explicit hypothesis. The geometric minus sign cancels the normalizing minus sign.
+4. Native exponential addition identifies y^D=exp(Dt) and y^j=exp(jt). Reindex j<D by canonical ZMod representatives. This scalar identity is valid even at t=0, where both sides vanish. It repeats finite algebra; no formal-series evaluation map is invoked.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/complex-gauss-denominator`, `mathlib:DirichletCharacter.map_zero'`, `mathlib:DirichletCharacter.conductor_inv`, `mathlib:gaussSum`, `mathlib:gaussSum_mulShift_of_isPrimitive`, `mathlib:AddChar.zmodChar`, `mathlib:AddChar.zmodChar_apply`, `mathlib:AddChar.map_nsmul_eq_pow`, `mathlib:geom_sum_mul`.
+
+**Tests:**
+
+- `SuggestedComplexGaussTests.quadratic_generating` (compatibility): For the quadratic character modulo 4, the finite numerator is exp(t)−exp(3t).
+
+**Acceptance:** Keep the inverse character inside the Gauss sum and weights. A scalar-field geometric identity is used, not evaluation of the formal series at exp(t)−1.
+
+**Source:** §5.2, the displayed fη and equation (5-3), and Lemma 5.9, published 144 / PDF 45. Complete published 144–145 / PDF 45–46 freshly reread from the hash-verified version of record; prior edition collation and complete surrounding reading remain in the packet. Worker finite-algebra and real-analytic comparison of the source primitive Gauss expression with the actual finite-numerator complex kernel. The origin/formal comparison makes the source differential-operator identification precise without evaluating an infinite formal series at a nonzero real argument. G=G(η⁻¹) and its explicit nonvanishing remain fixed; existing E12/E13 are preserved without new source findings.
+
+### The actual complex Gauss kernel comparison
+
+`DirichletPadicLFunctions:L2/complex-gauss-kernel-comparison` — `DirichletPadic.tameComplexKernel_eq_gauss` (comparison).
+
+For every real t, tameComplexKernel η t=Sε(t).
+
+**Hypotheses:** D>0, η is the native DirichletCharacter ℂ D, ε∈ℂ and hε:IsPrimitiveRoot ε D. Write e=AddChar.zmodChar D hε.pow_eq_one, G=gaussSum(η⁻¹,e), and Sε(t)=−G⁻¹Σ_(a:ZMod D)η⁻¹(a)/(ε^(a.val)exp(t)−1), a finite expression with native totalized field division. This is notation, not a new function carrier. Assume D>1, η.IsPrimitive and explicitly G≠0. Native conductor_one then implies η≠1. Composite-modulus primitive Gauss nonvanishing remains with the existing modular-forms owner; it is not inferred from a finite-field-domain theorem on ZMod D.
+
+**Proof outline:**
+
+1. At t≠0, D>0 gives Dt≠0, so 1−exp(Dt)≠0. Divide the finite scalar Gauss equation by this nonzero complex scalar and apply the preceding nonprincipal finite-numerator formula for tameComplexKernel.
+2. At t=0, both functions are continuous by their established real analyticity. Their equality for t≠0 holds on a punctured neighborhood of zero; taking the limit proves equality at the removable point. Equivalently use density of the complement of the point and continuous extensionality.
+3. Evaluating at zero and substituting the existing tameComplexKernel_zero formula gives −G⁻¹Σ_aη⁻¹(a)/(ε^(a.val)−1)=−D⁻¹Σ_aη(a)a.val. The zero-residue term is zero throughout; no Laurent inverse is assigned there.
+4. For two primitive roots with their own nonzero Gauss normalizations, each actual expression equals the same root-free tame kernel, proving root independence. Equality of these functions also identifies their existing normalizedMellinContinuation with −η(−1)η.LFunction(s) for every s.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/complex-gauss-generating`, `DirichletPadicLFunctions:L2/complex-gauss-regularity`, `DirichletPadicLFunctions:L2/tame-complex-kernel`, `DirichletPadicLFunctions:L2/tame-complex-regularity`, `DirichletPadicLFunctions:L2/tame-complex-mellin-comparison`, `mathlib:DirichletCharacter.conductor_one`, `mathlib:Real.exp_injective`.
+
+**Api:**
+
+- `DirichletPadic.tameComplexGauss_mass` (compatibility): The finite Gauss value at zero equals −D⁻¹Ση(a)a.val.
+- `DirichletPadic.tameComplexGauss_root_independent` (compatibility): Two primitive roots with their respective nonzero Gauss sums give the same actual real-variable function.
+- `DirichletPadic.tameComplexGauss_normalized_eq_LFunction` (compatibility): The normalized Mellin continuation of the actual Gauss expression equals −η(−1)η.LFunction(s) at every complex s.
+
+**Tests:**
+
+- `SuggestedComplexGaussTests.quadratic_gauss_origin` (computation): The quadratic character modulo 3 gives the normalized finite Gauss value 1/3 at zero.
+- `SuggestedComplexGaussTests.quadratic_gauss_log_two` (computation): The quadratic character modulo 4 gives the finite Gauss value 2/5 at log 2.
+- `SuggestedComplexGaussTests.inverse_primitive_root` (compatibility): At modulus 3, replacing ε by ε⁻¹ and recomputing the Gauss normalization leaves the actual function unchanged.
+- `SuggestedComplexGaussTests.even_gauss_negative_value` (computation): For quadratic η modulo 5, the normalized Mellin value of the Gauss expression at −1 is +2/5.
+
+**Acceptance:** The comparison covers the origin by continuity rather than division by 1−exp(Dt). Root independence includes changing the associated additive character and Gauss normalizer together. Generic Gauss nonvanishing is still not supplied here.
+
+**Source:** §5.2, the displayed fη and equation (5-3), and Lemma 5.9, published 144 / PDF 45. Complete published 144–145 / PDF 45–46 freshly reread from the hash-verified version of record; prior edition collation and complete surrounding reading remain in the packet. Worker finite-algebra and real-analytic comparison of the source primitive Gauss expression with the actual finite-numerator complex kernel. The origin/formal comparison makes the source differential-operator identification precise without evaluating an infinite formal series at a nonzero real argument. G=G(η⁻¹) and its explicit nonvanishing remain fixed; existing E12/E13 are preserved without new source findings.
+
+### The formal and analytic tame derivative comparison
+
+`DirichletPadicLFunctions:L2/complex-tame-formal-derivatives` — `DirichletPadic.tameComplexKernel_formal_derivative` (comparison).
+
+For η≠1, hD:IsUnit(D:ℂ) and every k≥0, fη^(k)(0)=constantCoeff(∂^[k](tameSeries η hD)), with the existing native/formal Mahler derivation ∂=(1+X)d/dX.
+
+**Hypotheses:** D>0, η:DirichletCharacter ℂ D with η≠1, hD:IsUnit(D:ℂ), and k≥0. The actual kernel is the preceding real-variable tameComplexKernel. The formal tameSeries and PowerSeries.mahlerDerivation are the existing native/planned objects. All derivatives are over ℝ.
+
+**Proof outline:**
+
+1. Apply the already supplied tame-complex-origin-derivatives theorem. It expresses fη^(k)(0) by the finite Bernoulli sum −D^k/(k+1)Ση(a)B_(k+1)(a.val/D).
+2. Apply the already supplied tame-formal-moments theorem over ℂ with the same character and unit certificate. Its constant coefficient is exactly that same finite sum, so transitivity proves the derivative comparison. No ultrametric coefficient assumption is introduced.
+3. The existing tame-exponential-coefficients theorem gives the formal coefficient with denominator (k+1)!. Using (k+1)!=(k+1)k!, divide the analytic derivative by k! to get coeff_k(tameSeries η hD (exp X−1))=fη^(k)(0)/k!. All factorials are nonzero in ℂ.
+4. This identifies the actual analytic jet with the formal exponential substitution coefficient by coefficient. It makes no assertion that a totalized formal series can be evaluated at every exp(t)−1, nor that its Taylor series has infinite radius.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-origin-derivatives`, `DirichletPadicLFunctions:L2/tame-formal-moments`, `DirichletPadicLFunctions:L2/tame-exponential-coefficients`.
+
+**Api:**
+
+- `DirichletPadic.tameComplexKernel_formal_exponential_coeff` (compatibility): The kth coefficient of the formal substitution exp X−1 equals the actual kth derivative at zero divided by k!.
+
+**Tests:**
+
+- `SuggestedComplexGaussTests.ordinary_derivative_normalization` (compatibility): At quadratic modulus 3 and k=2, the analytic derivative equals the iterated Mahler constant, namely −2/9.
+- `SuggestedComplexGaussTests.exponential_factorial` (computation): For that character the degree-two exponential coefficient is the second derivative divided by 2, namely −1/9.
+
+**Acceptance:** This node only needs D>0 and η≠1, not primitive roots, primitivity or Gauss nonvanishing. The preceding G/ε notation is unused here; it is not an extra hypothesis of the formal/analytic equality.
+
+**Source:** §5.2, the displayed fη and equation (5-3), and Lemma 5.9, published 144 / PDF 45. Complete published 144–145 / PDF 45–46 freshly reread from the hash-verified version of record; prior edition collation and complete surrounding reading remain in the packet. Worker finite-algebra and real-analytic comparison of the source primitive Gauss expression with the actual finite-numerator complex kernel. The origin/formal comparison makes the source differential-operator identification precise without evaluating an infinite formal series at a nonzero real argument. G=G(η⁻¹) and its explicit nonvanishing remain fixed; existing E12/E13 are preserved without new source findings.
+
+**Remaining:** The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, even-character logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed.
+
+### Complex Gauss validation
+
+All 242 predecessor nodes, 303 baseline records, 15 findings and sourceVersions are preserved whole. Nine named declarations and ten typed examples are added. The indexed blueprint, four-file intake, whitespace, scoped mutation, API/test parity and versioned source-issue checks pass. The graph has 389 reachable nodes, 1805 edges and 406 native leaves, is acyclic and has only the PMIA L1 stage request leaf. Each of the five new proof routes has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 620 expected placeholder warnings against 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and one verified actual PMIA artifact. The full target uses the verified actual 265-node PMIA artifact. The current 304-node supplier preserves that source in order. All ten new weak-topology records and their added signatures were read during the 294-to-304 refresh; no new supplier declaration is called here. No local compile against the 304-node supplier is claimed. The requested comparison with the existing completedGroupAlgebra carrier remains open. Source, olean and original compiler-log hashes were rechecked. Existing artifacts were reused; no Mathlib or Tau Ceti build, new Lake project or cache download was run.
+
+Four complete native lemmas prove real-axis denominator nonvanishing, its primitive-root specialization, real analyticity of the reciprocal, and the finite scalar geometric identity. The general Gauss/kernel and formal/analytic comparisons remain unchecked blueprint declarations. The probe elaborates against 2025 pinned Mathlib modules with zero errors, warnings or holes. Exact cyclotomic arithmetic checks 16 Gauss normalizations, 86 finite Fourier identities, 80 kernel values, 112 origin derivatives, 112 factorial identities and 55 root-independence comparisons for five primitive characters. The nonreal quartic character modulo 5 is computed in Q(ζ20), using the actual inverse-character weights. Every computed inverse is verified by multiplication. These finite checks do not prove generic Gauss nonvanishing or real analyticity.
+
+No source finding is added. The register refresh adds four unrelated HigherLocalFieldsAndHigherClassFieldTheory/E1–E4 findings awaiting independent review. All new records and the full Markdown differences were read; all previous records remain whole. No consumed Gauss or tame-kernel contract changes.
