@@ -3,7 +3,7 @@
 ## Scope and library boundary
 
 This document specifies the finite-character normalization interface in AC.0
-and its quantitative large-spectrum continuation into AC.1.
+and its quantitative large-spectrum and Bohr-set continuation into AC.1.
 The roadmap also owns AC.1–AC.5: additive structure, density progressions and
 removal, higher uniformity and nilsequences, transference, and linear patterns
 in primes. Their outstanding mathematical contracts are stated below. This
@@ -359,8 +359,8 @@ For the notes' relative threshold use \(\tau=\varepsilon\rho\).
 Its uses determine the API. Equation (3) counts resonant frequencies;
 equation (6) isolates their fourth moment; equation (7) bounds the number
 of character constraints in the subsequent Bohr-set argument. The present
-contract supplies those precise inputs but does not construct a Bohr set,
-derive its size, or invoke Minkowski's theorem.
+contract supplies those precise inputs to the Bohr-set argument below.
+The Bohr-to-progression step and its Minkowski input remain open.
 
 The six construction-facing API obligations are:
 
@@ -493,39 +493,244 @@ energy, norm and sum machinery is reused. Candidate AC.1 planets are
 Large spectrum and Fourier concentration under small doubling; these remain
 display proposals until the preserving whole-roadmap packet is reconciled.
 
-## Continuation verification
+## Inherited spectrum verification
 
-The inherited two definitions, forty lemmas and twenty examples are unchanged.
-This continuation adds one definition, seventeen lemma signatures and eight
-examples: the file has three definitions, fifty-seven lemmas and twenty-eight
-examples. Its 88 signatures elaborate with exactly the required proof-placeholder
-warnings and no others. All 8,482 reached Mathlib files byte-match the pin;
-the 36 Tau Ceti modules use this session's existing directly pinned builds.
+The preceding [checkpoint PR #3195](https://github.com/CBirkbeck/tauceti-explorer/pull/3195)
+reported complete scratch proofs of 38 general statements and eight spectrum
+examples, with exact cyclotomic and finite-group regressions. Those proof and
+regression results remain predecessor evidence; this checkpoint does not claim
+to have rerun their scripts. Its three definitions, 57 lemma signatures and
+28 examples are retained unchanged and were freshly elaborated at both pins.
 
-Complete scratch proofs now cover 38 general statements, including the four
-previously unproved Plancherel/convolution/indicator/energy interfaces and all
-new spectrum interfaces. The eight new examples also have complete proofs;
-the two inherited source-correction checks remain valid. This is validation
-evidence, not an implementation claim.
+## AC.1: chord-radius Bohr sets
 
-Exact cyclotomic regressions checked 878 subsets, 5,268 indicator threshold
-bounds, 2,610 small-doubling/concentration cases, 1,280 complex-valued functions
-and 7,680 general threshold bounds. All earlier inversion, mixed-energy,
-convolution and sign regressions also passed. No floating-point tolerance
-was used.
+### Definition and uses
 
-The selected source remains Tao's CMU-hosted notes 2, §6 and exercises Q3–Q4;
-the fresh download has the same recorded hash. No additional source finding
-or complete Bohr/Freiman proof is claimed. The inherited E1–E3 records remain
-unchanged, and their corrections still govern the next Bohr/lattice steps.
-The nine integrated Green–Tao nodes remain in place: this partial worksheet
-does not replace them with a narrow packet.
+For a finite frequency set \(\Lambda\subseteq\widehat G\) and any real radius
+\(\delta\), define the finite filter
+\[
+ B(\Lambda,\delta)=\{x\in G:\ |\chi(x)-1|<\delta
+                         \text{ for every }\chi\in\Lambda\}.
+\]
+The proposed name is bohrSet. The radius measures a chord in the complex unit
+circle and the inequality is **strict**. It is not the phase distance to the
+nearest integer. The carrier and characters remain the pinned Finset and
+AddChar types. This construction generalizes the bicharacter presentation in
+Tao notes 2, §6, equation (9), printed p.11 (PDF p.37), without choosing a
+self-duality. Every estimate below uses only the character laws and finite
+Fourier identities, so it applies to arbitrary finite abelian groups.
+
+Equation (9) constrains the resonant frequencies in equation (8); the intended
+consumer is the containment in \(2A-2A\) below. The next source step represents
+cyclic phase constraints as lattice constraints. That use calls for frequency
+restriction, intersection, radius comparison, negation and addition. Pullback
+along a group homomorphism transports constraints through the quotient and
+coordinate presentations already used by AC.0. No lattice theorem is consumed
+by the present containment argument.
+
+### Construction API
+
+Each row is a separate suggested lemma. Here \(\Lambda,\Gamma\) are finite
+frequency sets, \(\delta,\varepsilon\in\mathbb R\), and \(q:G\to H\) is an
+additive homomorphism of finite abelian groups. The trivial character is 1.
+
+| Interface | Exact obligation and proof |
+| --- | --- |
+| mem_bohrSet | Membership is the displayed conjunction; unfold the finite filter. |
+| bohrSet_empty | \(B(\varnothing,\delta)=G\), even when \(\delta\le0\), by vacuity. |
+| bohrSet_of_nonpos | If \(\Lambda\ne\varnothing\) and \(\delta\le0\), then \(B(\Lambda,\delta)=\varnothing\). A member would have a nonnegative norm strictly below zero. |
+| zero_mem_bohrSet_iff | \(0\in B(\Lambda,\delta)\) iff \(\delta>0\) or \(\Lambda=\varnothing\). Use \(\chi(0)=1\) and a frequency witness when the family is nonempty. |
+| bohrSet_mono | \(\delta\le\varepsilon\) implies \(B(\Lambda,\delta)\subseteq B(\Lambda,\varepsilon)\). |
+| bohrSet_antitone | \(\Lambda\subseteq\Gamma\) implies \(B(\Gamma,\delta)\subseteq B(\Lambda,\delta)\). |
+| bohrSet_union | \(B(\Lambda\cup\Gamma,\delta)=B(\Lambda,\delta)\cap B(\Gamma,\delta)\); split the frequency conjunction. |
+| neg_mem_bohrSet | \(-x\in B(\Lambda,\delta)\) iff \(x\in B(\Lambda,\delta)\), since \(\chi(-x)=\overline{\chi(x)}\) preserves chord length. |
+| bohrSet_add_subset | \(B(\Lambda,\delta)+B(\Lambda,\varepsilon)\subseteq B(\Lambda,\delta+\varepsilon)\). Expand \(\chi(a+b)-1=(\chi(a)-1)+\chi(a)(\chi(b)-1)\), use the triangle inequality and \(|\chi(a)|=1\), and add the strict bounds. |
+| bohrSet_sub_subset | The corresponding difference-set containment follows from negation and addition. Neither containment needs positive radii: a witness supplies the strict inequalities; an empty frequency set is vacuous. |
+| bohrSet_erase_one | For \(\delta>0\), deleting the trivial character preserves the set. At \(\delta=0\), deleting the sole trivial character changes the empty set into the whole group, so the hypothesis is necessary. |
+| bohrSet_pullback | \(B(\{\chi\circ q:\chi\in\Lambda\},\delta)=q^{-1}(B(\Lambda,\delta))\). Expand membership and image witnesses. No injectivity or surjectivity is required, and image collisions impose no extra constraint. |
+| bohrSet_eq_univ_of_two_lt | If \(2<\delta\), the set is all of \(G\), since \(|\chi(x)-1|\le2\). Radius 2 itself need not suffice. |
+
+### Fourfold convolution and support
+
+Write \(\widetilde f(y)=\overline{f(-y)}\) and
+\[
+ Q_f=(f*f)*(\widetilde f*\widetilde f),
+\]
+using the existing probability-normalized convolution. This is an expression
+in the existing API, not a separate construction.
+
+fourier_quadconvolution is the coefficient identity
+\[
+ \widehat{Q_f}(\chi)=|\widehat f(\chi)|^4
+ \qquad(f:G\to\mathbb C).
+\]
+Apply fourier_nconv three times, fourier_reflection twice, and rearrange the
+product into \((z\overline z)^2\). Complex.mul_conj' converts it to the fourth
+power of the norm. The conjugation in the reflection is essential for complex
+inputs. This step neither assumes nor asserts that every value of \(Q_f\) is
+real for arbitrary complex \(f\).
+
+fourth_sum_eq_quadconvolution then applies fourier_inversion:
+\[
+ Q_f(x)=\sum_{\chi\in\widehat G}|\widehat f(\chi)|^4\chi(x).
+\]
+This is Tao's equation (8), now with the dual indexing made explicit.
+
+indicator_quadconvolution_eq_count supplies the support argument with its
+normalization and multiplicities:
+\[
+ Q_{1_A}(x)=N^{-3}
+   |\{(a,b,c,d)\in A^4:a+b-c-d=x\}|.
+\]
+The worksheet uses the filter of \((A\times A)\times(A\times A)\).
+Expand the three normalized convolutions. Their three averaging factors give
+\(N^{-3}\). For outer variable \(y\) and inner variables \(z,t\), the
+indicator arguments are \(z,y-z,-t,-x+y+t\). The change of variables
+\[
+ (a,b,c,d)=(z,y-z,-t,-x+y+t)
+\]
+is a bijection onto the quadruples with \(a+b-c-d=x\); its inverse is
+\((y,z,t)=(a+b,a,-c)\). Conjugation fixes indicator values. Thus every
+admissible quadruple contributes once, with no replacement of its count by
+sumset membership. Finite-sum reindexing and Finset.card_filter finish the
+identity. This is a finite algebraic specialization of nconv_apply, with no
+new analytic prerequisite.
+
+indicator_quadconvolution_ne_zero_iff states the exact support equivalence
+\[
+ Q_{1_A}(x)\ne0\quad\Longleftrightarrow\quad x\in(A+A)-(A+A).
+\]
+Because \(N>0\), the scalar is nonzero; the cardinal is nonzero exactly when
+there is a quadruple. Finset.mem_add and Finset.mem_sub translate that witness
+into membership. Conversely, expand the two sumset witnesses and form the
+quadruple. This equivalence includes \(A=\varnothing\).
+
+### Corrected positive real-part argument
+
+For arbitrary nonnegative real weights \(w:\widehat G\to\mathbb R\), set
+\[
+ T=\sum_\chi w_\chi,\qquad H=\sum_{\chi\in\Lambda}w_\chi,
+ \qquad S(x)=\sum_\chi w_\chi\chi(x).
+\]
+weighted_fourier_re_ge_of_bohrSet states, for \(x\in B(\Lambda,\delta)\),
+\[
+ (1-\delta)H-(T-H)\le\operatorname{Re}S(x).
+\]
+For frequencies in \(\Lambda\), the chord bound and
+\(|\operatorname{Re}(\chi(x)-1)|\le|\chi(x)-1|\) give
+\(\operatorname{Re}\chi(x)\ge1-\delta\). Off \(\Lambda\), unit modulus gives
+\(\operatorname{Re}\chi(x)\ge-1\). Multiply by nonnegative weights, sum the
+two inequalities, and use the complementary-sum identity. This statement
+retains the resonant mass \(H\) on the right scale; replacing it by \(T\)
+at this step is the recorded source mistake E1.
+
+weighted_fourier_re_ge_of_concentration specializes to
+\(\delta=1/4\) and \(H\ge3T/4\):
+\[
+ \operatorname{Re}S(x)\ge\frac34 H-(T-H)
+          =\frac74 H-T\ge\frac5{16}T.
+\]
+The source's immediate resonant estimate must be \(3H/4\), or \(9T/16\)
+after concentration. Subtracting at most \(T/4\) gives the displayed bound.
+Positivity additionally needs \(T>0\); the zero weight function is a necessary
+boundary test. These two real-part interfaces have complete independent Lean
+proof checks from the pinned norm and finite-sum facts.
+
+### Containment and exact dependencies
+
+For \(A\ne\varnothing\), \(K>0\) and \(|A+A|\le K|A|\), put
+\[
+ \rho=|A|/N,\qquad
+ \Lambda=\operatorname{Spec}_{\rho/(2\sqrt K)}(1_A).
+\]
+bohrSet_largeSpectrum_subset_double_sub_double states
+\[
+ B(\Lambda,1/4)\subseteq(A+A)-(A+A).
+\]
+Use \(w_\chi=|\widehat{1_A}(\chi)|^4\). The inherited concentration lemma
+supplies \(H\ge3T/4\); its fourth-moment lower bound supplies
+\(T\ge\rho^3/K>0\). For every Bohr point the corrected estimate gives a
+strictly positive real part, hence a nonzero Fourier sum. Substitute
+fourth_sum_eq_quadconvolution and apply the exact support equivalence.
+The inherited cardinal estimate supplies \(|\Lambda|\le4K/\rho\), while
+zero_mem_bohrSet_iff makes this Bohr set nonempty. No positive density or
+inverse-density assertion is made for the empty indicator.
+
+The dependency order is: inherited convolution/reflection identities →
+fourier_quadconvolution → fourth_sum_eq_quadconvolution; nconv_apply and the
+finite representation bijection → indicator_quadconvolution_eq_count →
+indicator_quadconvolution_ne_zero_iff; the Bohr membership API and pinned norms
+→ the general weighted estimate → its concentration specialization. These
+three chains meet the inherited concentration and positive fourth-moment
+lemmas only in the containment theorem. There is no input from AC.2–AC.5,
+Minkowski's theorem, or a choice of cyclic coordinates.
+
+Candidate AC.1 planets are **Bohr set** (the reusable construction) and
+**Bohr containment in the double difference set** (the source endpoint).
+Together with the inherited six proposals there are eight candidate names;
+no packet planets are allocated by this checkpoint.
+
+### Tests, baseline and verification
+
+The ten worksheet tests B1–B10 cover an empty frequency family at radius −1,
+a singleton trivial frequency at radius zero and at positive radius,
+the excluded antipode at radius 2 in \(\mathbb Z/4\), its radius-1/4 identity
+set, the one-element group, the first-coordinate character on
+\((\mathbb Z/2)^2\) with its two-element kernel, the value \(1/27\) of a
+fourfold singleton convolution on \(\mathbb Z/3\), a full indicator, and the
+zero fourth-moment sum. They test the strict cutoff, necessary radius
+hypotheses, genuinely noncyclic transport, multiplicity, normalization and the
+positive-mass condition. The suggested examples are typed specifications.
+
+All new baseline citations were read at Mathlib 082e2d3, including the
+surrounding assumptions. The finite Fourier and energy inputs remain the
+previously specified comparisons; no pinned Bohr-set or Bogolyubov declaration
+was found in either whole library, the declaration index, or existing packets.
+The Bohr-Mollerup Gamma-function hits concern a different notion.
+
+| Indexed declaration | Source file and line | Use |
+| --- | --- | --- |
+| AddChar.map_zero_eq_one / map_add_eq_mul | Algebra/Group/AddChar.lean:110 / 113 | Identity and addition constraints. |
+| AddChar.norm_apply | Analysis/Normed/Ring/Finite.lean:36 | Unit-modulus character values. |
+| AddChar.map_neg_eq_conj | Analysis/RCLike/Basic.lean:1285 | Reflection of constraints. |
+| Complex.abs_re_le_norm | Analysis/Complex/Norm.lean:40 | Resonant and complementary real-part estimates. |
+| Finset.prod_mul_prod_compl | Algebra/BigOperators/Group/Finset/Basic.lean:182 | Indexed multiplicative generator of sum_add_sum_compl, whose additive statement was exercised in Lean. |
+| Complex.mul_conj' | Analysis/Complex/Basic.lean:356 | Fourth-power Fourier coefficient. |
+| Finset.card_filter | Algebra/BigOperators/Group/Finset/Piecewise.lean:278 | Indicator quadruple count. |
+| Finset.card_pos | Data/Finset/Card.lean:78 | Positive count is a witness. |
+| Finset.mem_mul / mem_div | Algebra/Group/Pointwise/Finset/Basic.lean:337 / 556 | Indexed generators of mem_add and mem_sub; the generated additive statements were exercised in Lean. |
+| Complex.ne_zero_of_re_pos | Analysis/Complex/Norm.lean:357 | Positive real part implies nonvanishing. |
+
+The new signatures add one definition, 20 lemmas and ten examples. The full
+suggested file has four definitions, 77 lemmas and 38 examples: 119 expected
+proof-placeholder warnings, zero errors and no other warnings. All 8,482
+reached Mathlib source files byte-match the pin; 36 Tau Ceti dependencies were
+freshly built from their pinned sources.
+
+Temporary complete Lean proofs checked all 13 Bohr API statements and both
+weighted inequalities against an actual finite-filter definition. Separate
+proofs checked the complex fourth-power algebra and the normalized count's
+support equivalence. Their dependency checks contain no proof-placeholder
+axiom. The probes were removed from the deliverable; the suggested worksheet
+remains a planning file. The full Fourier/count identities and containment
+are specified with proof outlines, not claimed as completed Lean proofs.
+
+Exact rational complex arithmetic checked 550 indicator subsets in six groups,
+4,234 quadruple-count/Fourier coefficients, 1,632 small-doubling cases,
+3,771 Bohr nonvanishing/containment points, 648 arbitrary complex-function
+coefficients, and 270 frequency/radius boundary families. An additional exact
+radical calculation in \(\mathbb Z/32\) checks a non-kernel point with positive
+chord length less than 1/4 and the corrected estimate for abstract weights.
+The latter is a check of the weighted inference, not an asserted counterexample
+to a stronger inequality for actual indicator spectra. None of these checks
+uses a floating-point tolerance or establishes the unrestricted theorem alone.
 
 ## AC.1–AC.5: outstanding boundaries
 
 AC.1 needs complete selected proofs for BSG, source-scoped Freiman theorems,
-Bohr sets, regularity and density increments, with ambient-group and torsion
-hypotheses. A Bohr-to-progression proof using Minkowski's second theorem
+Bohr size/regularity, progression extraction and density increments, with
+ambient-group and torsion hypotheses. The finite Fourier containment above
+does not close those targets. A Bohr-to-progression proof using Minkowski's second theorem
 requests the exact statement from GN.1; Minkowski's first theorem does not
 replace it. Apply the handoff's source corrections before using the inspected
 notes' §6–7 transition.
