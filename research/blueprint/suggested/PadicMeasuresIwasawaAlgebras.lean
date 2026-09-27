@@ -2344,3 +2344,84 @@ example : AbstractMeasure.jointFiniteProjection 2 2
       Finsupp.single (PadicInt.unitToZModPow 2 2 1) 1 := sorry
 end UnitDescentTests
 end
+
+/-! ## Ordinary moments over coefficient algebras
+
+The coordinate is the existing pointwise scalar action on the constant-one test.
+Only continuous scalar action is needed here. Formal exponential substitution
+additionally requires a rational algebra; it is not imposed on the p-adic integers.
+-/
+namespace AbstractMeasure
+section AlgebraMoments
+variable {p : ℕ} [Fact p.Prime]
+variable {R : Type*} [NormedCommRing R] [Algebra ℤ_[p] R]
+  [ContinuousSMul ℤ_[p] R]
+local notation "xR" => ((ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p], R)))
+
+theorem id_mul_mahler_algebra (n : ℕ) :
+    xR * ((mahler n : C(ℤ_[p], ℤ_[p])) • (1 : C(ℤ_[p], R))) =
+      (n + 1) • ((mahler (n + 1) : C(ℤ_[p], ℤ_[p])) • (1 : C(ℤ_[p], R))) +
+        n • ((mahler n : C(ℤ_[p], ℤ_[p])) • (1 : C(ℤ_[p], R))) := by sorry
+
+theorem constantCoeff_amiceTransform (μ : D(ℤ_[p], R)) :
+    PowerSeries.constantCoeff μ.amiceTransform = μ 1 := by sorry
+
+theorem amiceTransform_weight_id_algebra (μ : D(ℤ_[p], R)) :
+    (weight xR μ).amiceTransform =
+      PowerSeries.mahlerDerivation R μ.amiceTransform := by sorry
+
+theorem amiceTransform_iterate_weight_id_algebra (μ : D(ℤ_[p], R)) (k : ℕ) :
+    ((weight xR)^[k] μ).amiceTransform =
+      (PowerSeries.mahlerDerivation R)^[k] μ.amiceTransform := by sorry
+
+theorem ordinaryMoment_eq_constantCoeff_algebra (μ : D(ℤ_[p], R)) (k : ℕ) :
+    μ (xR ^ k) =
+      PowerSeries.constantCoeff ((PowerSeries.mahlerDerivation R)^[k] μ.amiceTransform) := by sorry
+
+theorem ordinaryMoment_eq_factorial_coeff_algebra [Algebra ℚ R]
+    (μ : D(ℤ_[p], R)) (k : ℕ) :
+    μ (xR ^ k) = (k.factorial : R) * PowerSeries.coeff k
+      (PowerSeries.subst (PowerSeries.exp R - 1) μ.amiceTransform) := by sorry
+end AlgebraMoments
+end AbstractMeasure
+
+namespace SuggestedTests.AlgebraMoments
+open AbstractMeasure PowerSeries
+-- Same standard norm-action instance used by the earlier rational-coefficient tests.
+local instance (p : ℕ) [Fact p.Prime] : IsBoundedSMul ℤ_[p] ℚ_[p] :=
+  IsBoundedSMul.of_norm_smul_le (by sorry)
+-- AlgebraMomentTests.integral_coordinate: exactly the preceding integral test function.
+example {p : ℕ} [Fact p.Prime] :
+    (ContinuousMap.id ℤ_[p]) • (1 : C(ℤ_[p], ℤ_[p])) = ContinuousMap.id ℤ_[p] := by sorry
+-- AlgebraMomentTests.zeroth_mass: degree zero retains the atom at zero.
+example :
+    let xQ : C(ℤ_[2],ℚ_[2]) := (ContinuousMap.id ℤ_[2]) • 1
+    (dirac ℚ_[2] (0 : ℤ_[2])) (xQ ^ 0) = 1 := by sorry
+-- AlgebraMomentTests.zero_measure: any degree and any coefficient algebra.
+example {p : ℕ} [Fact p.Prime] {R : Type*} [NormedCommRing R]
+    [Algebra ℤ_[p] R] [ContinuousSMul ℤ_[p] R] (k : ℕ) :
+    constantCoeff ((mahlerDerivation R)^[k] (0 : D(ℤ_[p],R)).amiceTransform) = 0 := by sorry
+-- AlgebraMomentTests.scaled_atom: arbitrary coefficient-field scalar.
+example {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+    [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] (c : K) (a : ℤ_[p]) (k : ℕ) :
+    constantCoeff ((mahlerDerivation K)^[k] (c • dirac K a).amiceTransform) =
+      c * (algebraMap ℤ_[p] K a) ^ k := by sorry
+-- AlgebraMomentTests.dyadic_second: ordinary and binomial moments differ.
+example :
+    let μ := dirac ℚ_[2] (2 : ℤ_[2])
+    constantCoeff ((mahlerDerivation ℚ_[2])^[2] μ.amiceTransform) = 4 ∧
+      coeff 2 μ.amiceTransform = 1 := by sorry
+-- AlgebraMomentTests.nonintegral_third: the measure need not take values in Z_3.
+example :
+    let μ : D(ℤ_[3],ℚ_[3]) := (1 / 3 : ℚ_[3]) • dirac ℚ_[3] (2 : ℤ_[3])
+    constantCoeff ((mahlerDerivation ℚ_[3])^[3] μ.amiceTransform) = 8 / 3 ∧
+      coeff 3 μ.amiceTransform = 0 := by sorry
+-- AlgebraMomentTests.factorial: omitting 3! changes 8/3 into 4/9.
+example :
+    let μ : D(ℤ_[3],ℚ_[3]) := (1 / 3 : ℚ_[3]) • dirac ℚ_[3] (2 : ℤ_[3])
+    coeff 3 (subst (exp ℚ_[3] - 1) μ.amiceTransform) = 4 / 9 := by sorry
+-- AlgebraMomentTests.weight_zero_atom: multiplication by the coordinate is not injective.
+example :
+    let xQ : C(ℤ_[2],ℚ_[2]) := (ContinuousMap.id ℤ_[2]) • 1
+    weight xQ (dirac ℚ_[2] (0 : ℤ_[2])) = 0 := by sorry
+end SuggestedTests.AlgebraMoments

@@ -1,3 +1,63 @@
+**Current coefficient-algebra moment checkpoint:** 282 unchecked nodes: 38 constructions, 181 lemmas, 2 definitions, 36 theorems and 25 comparisons; 196 API items, 193 packet tests (142 on definitions/constructions), 204 typed examples, 17 planets and 289 baseline declarations. Eight gaps, no requests, fourteen source findings and zero closed stages remain.
+
+## Ordinary moments over a coefficient algebra
+
+Fix any prime p, including 2. Let R be a normed commutative ℤ_p-algebra whose
+ℤ_p-scalar action is continuous. Write j:ℤ_p→R for its algebra map, x_R(t)=j(t)
+and M_(R,n)(t)=j(mahler_n(t)). Both are existing continuous maps obtained by
+pointwise scalar action on the constant-one R-valued test. Use the native
+AbstractMeasure carrier D(ℤ_p,R), the native Amice transform A, and the
+previously specified weight action and Mahler derivation ∂_R=(1+T)d/dT.
+
+The native transform already has coefficients μ(M_(R,n)) for arbitrary such R.
+Map the preceding integral multiplication recurrence through j to obtain
+x_R M_(R,n)=(n+1)M_(R,n+1)+n M_(R,n). This does not divide by n+1 or n!, and
+requires no binomial-ring structure on R. The weighting law and linearity
+identify the coefficients of A(weight(x_R)μ) with those of ∂_R(Aμ).
+Induction then gives A(weight(x_R)^[k]μ)=∂_R^[k](Aμ) for all k≥0.
+
+The constant coefficient of Aν is ν(1), because the zero-th Mahler function
+is1. Evaluate the iterated weighting on1 to get
+
+μ(x_R^k)=constantCoeff(∂_R^[k](Aμ)).
+
+This is an identity for the original R-valued measure. It needs no inverse
+Amice transform, integral lattice or coefficient-extension construction.
+In particular it applies to the complete nontrivially normed ultrametric
+coefficient fields requested by the Dirichlet roadmap: bounded scalar action
+supplies the continuous action used here. Completeness, ultrametricity and
+characteristic zero are unnecessary for this particular identity.
+
+If R additionally has a rational algebra structure, apply the existing formal
+exp-coefficient theorem on R[[T]] to conclude
+
+μ(x_R^k)=k!·coeff_k(Aμ(exp(T)−1)).
+
+The substitution is formal and permitted by the zero constant coefficient of
+exp(T)−1. No analytic exponential at a p-adic argument or scalar tower from
+ℚ through ℤ_p is part of the statement. The earlier integral moment and
+coefficient-extension interfaces retain their meanings. Their narrower
+statements are specializations of this coefficient-algebra comparison.
+
+For μ=(1/3)δ₂ over ℚ₃, the third ordinary moment is8/3 even though the third
+Amice coefficient is0. The third exponential coefficient is4/9; multiplication
+by3! gives8/3. This measure has mass1/3 and cannot be assumed integral-valued.
+For δ₂ over ℚ₂, the second ordinary moment is4 but the second Amice coefficient
+is1. Degree zero retains δ₀ with mass1; multiplication by x_R kills that atom.
+The tests also retain arbitrary field scalars and the zero measure.
+
+These declarations supply the precise coefficient-field ordinary-moment and
+formal-exponential request consumed by DirichletPadicLFunctions:L2.
+Character values, Bernoulli polynomials and special L-values stay with that
+roadmap. The already existing Mahler derivation, ordinary-moment and weighting
+planets represent this API; no additional planet is necessary. The coefficient-
+general phi/psi, residue restriction, convergent twisting, lattice and completed-
+algebra comparisons remain separate mathematical targets.
+
+## Earlier integral, topological and finite-coordinate interfaces
+
+The mathematical interfaces below remain part of the roadmap. Earlier checkpoint counts and validation paragraphs describe their historical scopes; the current handoff records current validation.
+
 **Current unit-test checkpoint:** 276 unchecked nodes (38 construction, 178 lemma, 2 definition, 34 theorem, 24 comparison), 196 API items, 185 packet tests (142 on definitions/constructions), 196 typed examples, 17 planets and 287 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
 
 Eleven L1 declarations supply concrete finite-test descent and measure separation. Earlier checkpoint counts and validation passages below are historical; current evidence and scope are at the end.
@@ -7770,3 +7830,189 @@ and preceding suggested Lean bytes are preserved. Public bodies stay sorry;
 all implementation statuses stay unchecked.
 
 The actual unit system now supplies arbitrary locally constant and continuous discrete-valued test descent, dense cylinder tests, and measure separation by finite, joint and diagonal coordinates. Construct the inverse from compatible integral finite coordinates: define evaluation on a finite test by its coordinate pairing, prove independence of the chosen level by refinement, establish a uniform bound and extend continuously, then prove the inverse identities. Compare this with the existing ProfiniteProPGroups Layer9 completed group algebra and establish the joint coefficient/group topological equivalence. General adic-coefficient and finite-extension comparisons remain. The Dirichlet request has its specific-unit separation but still needs the actual measure/completed-algebra equivalence. Retain the RS16 coefficient powers together with finite-group kernels ((1+T)^(p^n)−1), including the integral dyadic case. No completed carrier or general uniform-local-constancy theorem is rebuilt.
+
+## Coefficient-algebra declarations
+
+### Mahler recurrence over a coefficient algebra
+
+`PadicMeasuresIwasawaAlgebras:L2/algebra-mahler-recurrence` — `AbstractMeasure.id_mul_mahler_algebra` (lemma).
+
+For every n≥0, x_R M_(R,n)=(n+1)M_(R,n+1)+n M_(R,n) as continuous R-valued functions.
+
+**Hypotheses:** p is any prime, including 2. R is a normed commutative ring with a ℤ_p-algebra structure and continuous ℤ_p-scalar action. Write j:ℤ_p→R for its algebra map, x_R for the continuous function t↦j(t), and M_(R,n) for t↦j(mahler_n(t)). Concretely these are the existing pointwise actions of the integral coordinate and Mahler functions on the constant-one R-valued test. No new function or measure carrier is introduced. μ is a native R-valued AbstractMeasure on ℤ_p; Aμ is its existing native Amice transform. Write ∂_R for the already planned Mahler derivation (1+T)d/dT on R[[T]]. Completeness, ultrametricity, a field structure and characteristic zero are not needed for the weighting and ordinary-moment identities.
+
+**Proof outline:**
+
+1. Evaluate the preceding integral mahler-recurrence at t∈ℤ_p and apply the existing algebra map j to both sides.
+2. The ring homomorphism preserves products, sums and natural scalar multiples. The identity r•1=j(r), from Algebra.smul_def, identifies the resulting functions with x_R and M_(R,n). Continuous-function extensionality finishes.
+3. This transports the integral recurrence rather than reconstructing the binomial functions in R. It uses no division by n+1 or n!, and does not assume that R itself has a binomial-ring structure.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/mahler-recurrence`, `mathlib:Algebra.smul_def`.
+
+**Tests:**
+
+- `AlgebraMomentTests.integral_coordinate` (compatibility): For R=ℤ_p the pointwise action of the integral coordinate on the constant-one test equals ContinuousMap.id ℤ_p.
+
+**Uses:** DirichletPadicLFunctions:L2/tame-ordinary-moments: Supply the requested ordinary-moment identity on the actual K-valued measure, allowing character values outside ℤ_p. The arithmetic tame measure, Bernoulli polynomials and special L-values remain in the consuming roadmap. DirichletPadicLFunctions:L2/tame-zeta-common-special-value: The tame unit and inverse-weighted special-value comparisons use the same coefficient-field ordinary moments through their existing predecessor chain. No reverse prerequisite from this generic supplier to Dirichlet arithmetic is introduced.
+
+**Acceptance:** Includes n=0 and n=p−1; the latter tests the coefficient p without assuming it invertible. At R=ℤ_p the exact earlier integral continuous functions are recovered.
+
+**Sources:** RJW-published, §3.5.1, Lemma3.29 with its full proof and Corollary3.30, printed126/PDF27; coefficient-field context in Remark3.28(1–2), printed125/PDF26. Full published125–127 freshly read. Worker coefficient-algebra generalization of the printed multiplication recurrence and moment argument. The source fixes a p-adic coefficient field and its integers; the displayed more general normed-ring hypotheses are justified directly by the pinned native transform and the existing weighting construction. No scalar-extension, inverse-transform, analytic-exponential or completed-algebra comparison is used.
+
+### Constant Amice coefficient over a coefficient algebra
+
+`PadicMeasuresIwasawaAlgebras:L2/algebra-amice-mass` — `AbstractMeasure.constantCoeff_amiceTransform` (lemma).
+
+constantCoeff(Aμ)=μ(1) in R.
+
+**Hypotheses:** p is any prime, including 2. R is a normed commutative ring with a ℤ_p-algebra structure and continuous ℤ_p-scalar action. Write j:ℤ_p→R for its algebra map, x_R for the continuous function t↦j(t), and M_(R,n) for t↦j(mahler_n(t)). Concretely these are the existing pointwise actions of the integral coordinate and Mahler functions on the constant-one R-valued test. No new function or measure carrier is introduced. μ is a native R-valued AbstractMeasure on ℤ_p; Aμ is its existing native Amice transform. Write ∂_R for the already planned Mahler derivation (1+T)d/dT on R[[T]]. Completeness, ultrametricity, a field structure and characteristic zero are not needed for the weighting and ordinary-moment identities.
+
+**Proof outline:**
+
+1. Use the native equality between coefficient zero and constantCoeff, then coeff_amiceTransform at n=0.
+2. By mahler_apply and Ring.choose_zero_right the integral zero-th Mahler function is identically1. Its pointwise action on the constant-one R-valued test is again1.
+
+**Prerequisites:** `mathlib:PowerSeries.coeff_zero_eq_constantCoeff_apply`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:mahler_apply`, `mathlib:Ring.choose_zero_right`.
+
+**Uses:** DirichletPadicLFunctions:L2/tame-ordinary-moments: Supply the requested ordinary-moment identity on the actual K-valued measure, allowing character values outside ℤ_p. The arithmetic tame measure, Bernoulli polynomials and special L-values remain in the consuming roadmap. DirichletPadicLFunctions:L2/tame-zeta-common-special-value: The tame unit and inverse-weighted special-value comparisons use the same coefficient-field ordinary moments through their existing predecessor chain. No reverse prerequisite from this generic supplier to Dirichlet arithmetic is introduced.
+
+**Acceptance:** This is total mass, including at atoms at zero; it does not require injectivity or surjectivity of the transform.
+
+**Sources:** RJW-published, §3.5.1, Lemma3.29 with its full proof and Corollary3.30, printed126/PDF27; coefficient-field context in Remark3.28(1–2), printed125/PDF26. Full published125–127 freshly read. Worker coefficient-algebra generalization of the printed multiplication recurrence and moment argument. The source fixes a p-adic coefficient field and its integers; the displayed more general normed-ring hypotheses are justified directly by the pinned native transform and the existing weighting construction. No scalar-extension, inverse-transform, analytic-exponential or completed-algebra comparison is used.
+
+### Amice weighting over a coefficient algebra
+
+`PadicMeasuresIwasawaAlgebras:L2/algebra-amice-weight` — `AbstractMeasure.amiceTransform_weight_id_algebra` (theorem).
+
+A(weight(x_R) μ)=∂_R(Aμ) in R[[T]].
+
+**Hypotheses:** p is any prime, including 2. R is a normed commutative ring with a ℤ_p-algebra structure and continuous ℤ_p-scalar action. Write j:ℤ_p→R for its algebra map, x_R for the continuous function t↦j(t), and M_(R,n) for t↦j(mahler_n(t)). Concretely these are the existing pointwise actions of the integral coordinate and Mahler functions on the constant-one R-valued test. No new function or measure carrier is introduced. μ is a native R-valued AbstractMeasure on ℤ_p; Aμ is its existing native Amice transform. Write ∂_R for the already planned Mahler derivation (1+T)d/dT on R[[T]]. Completeness, ultrametricity, a field structure and characteristic zero are not needed for the weighting and ordinary-moment identities.
+
+**Proof outline:**
+
+1. Use native power-series extensionality. At coefficient n the existing native Amice definition gives weight(x_R)μ evaluated on M_(R,n).
+2. Apply the existing weight-evaluation and algebra-mahler-recurrence. Additivity and preservation of natural multiples give (n+1)μ(M_(R,n+1))+nμ(M_(R,n)).
+3. Apply coeff_amiceTransform to each measure value and the already planned mahler-derivation-coefficients over R. The two coefficients are equal at every n.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/algebra-mahler-recurrence`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-coefficients`, `mathlib:AbstractMeasure.amiceTransform`, `mathlib:AbstractMeasure.coeff_amiceTransform`.
+
+**Tests:**
+
+- `AlgebraMomentTests.weight_zero_atom` (non-example): For p=2 and R=ℚ₂, weight(x_R)δ₀=0. Coordinate weighting remains noninjective.
+
+**Uses:** DirichletPadicLFunctions:L2/tame-ordinary-moments: Supply the requested ordinary-moment identity on the actual K-valued measure, allowing character values outside ℤ_p. The arithmetic tame measure, Bernoulli polynomials and special L-values remain in the consuming roadmap. DirichletPadicLFunctions:L2/tame-zeta-common-special-value: The tame unit and inverse-weighted special-value comparisons use the same coefficient-field ordinary moments through their existing predecessor chain. No reverse prerequisite from this generic supplier to Dirichlet arithmetic is introduced.
+
+**Acceptance:** No coefficient embedding of an integral measure is assumed. The statement starts with an arbitrary native R-valued μ.
+
+**Sources:** RJW-published, §3.5.1, Lemma3.29 with its full proof and Corollary3.30, printed126/PDF27; coefficient-field context in Remark3.28(1–2), printed125/PDF26. Full published125–127 freshly read. Worker coefficient-algebra generalization of the printed multiplication recurrence and moment argument. The source fixes a p-adic coefficient field and its integers; the displayed more general normed-ring hypotheses are justified directly by the pinned native transform and the existing weighting construction. No scalar-extension, inverse-transform, analytic-exponential or completed-algebra comparison is used.
+
+### Iterated Amice weighting over a coefficient algebra
+
+`PadicMeasuresIwasawaAlgebras:L2/algebra-amice-iterate-weight` — `AbstractMeasure.amiceTransform_iterate_weight_id_algebra` (lemma).
+
+A(weight(x_R)^[k] μ)=∂_R^[k](Aμ) for every k≥0.
+
+**Hypotheses:** p is any prime, including 2. R is a normed commutative ring with a ℤ_p-algebra structure and continuous ℤ_p-scalar action. Write j:ℤ_p→R for its algebra map, x_R for the continuous function t↦j(t), and M_(R,n) for t↦j(mahler_n(t)). Concretely these are the existing pointwise actions of the integral coordinate and Mahler functions on the constant-one R-valued test. No new function or measure carrier is introduced. μ is a native R-valued AbstractMeasure on ℤ_p; Aμ is its existing native Amice transform. Write ∂_R for the already planned Mahler derivation (1+T)d/dT on R[[T]]. Completeness, ultrametricity, a field structure and characteristic zero are not needed for the weighting and ordinary-moment identities.
+
+**Proof outline:**
+
+1. Induct on k, with μ arbitrary. At k=0 both sides are Aμ.
+2. At k+1, apply algebra-amice-weight to the k-fold weighted measure, then the induction hypothesis. The iterate is of the existing linear operator weight(x_R).
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/algebra-amice-weight`.
+
+**Uses:** DirichletPadicLFunctions:L2/tame-ordinary-moments: Supply the requested ordinary-moment identity on the actual K-valued measure, allowing character values outside ℤ_p. The arithmetic tame measure, Bernoulli polynomials and special L-values remain in the consuming roadmap. DirichletPadicLFunctions:L2/tame-zeta-common-special-value: The tame unit and inverse-weighted special-value comparisons use the same coefficient-field ordinary moments through their existing predecessor chain. No reverse prerequisite from this generic supplier to Dirichlet arithmetic is introduced.
+
+**Acceptance:** The iteration is permitted at degree zero and never requires invertibility of x_R.
+
+**Sources:** RJW-published, §3.5.1, Lemma3.29 with its full proof and Corollary3.30, printed126/PDF27; coefficient-field context in Remark3.28(1–2), printed125/PDF26. Full published125–127 freshly read. Worker coefficient-algebra generalization of the printed multiplication recurrence and moment argument. The source fixes a p-adic coefficient field and its integers; the displayed more general normed-ring hypotheses are justified directly by the pinned native transform and the existing weighting construction. No scalar-extension, inverse-transform, analytic-exponential or completed-algebra comparison is used.
+
+### Ordinary moments over a coefficient algebra
+
+`PadicMeasuresIwasawaAlgebras:L2/algebra-ordinary-moment` — `AbstractMeasure.ordinaryMoment_eq_constantCoeff_algebra` (theorem).
+
+For every k≥0, μ(x_R^k)=constantCoeff(∂_R^[k](Aμ)).
+
+**Hypotheses:** p is any prime, including 2. R is a normed commutative ring with a ℤ_p-algebra structure and continuous ℤ_p-scalar action. Write j:ℤ_p→R for its algebra map, x_R for the continuous function t↦j(t), and M_(R,n) for t↦j(mahler_n(t)). Concretely these are the existing pointwise actions of the integral coordinate and Mahler functions on the constant-one R-valued test. No new function or measure carrier is introduced. μ is a native R-valued AbstractMeasure on ℤ_p; Aμ is its existing native Amice transform. Write ∂_R for the already planned Mahler derivation (1+T)d/dT on R[[T]]. Completeness, ultrametricity, a field structure and characteristic zero are not needed for the weighting and ordinary-moment identities.
+
+**Proof outline:**
+
+1. Apply algebra-amice-mass to ν=weight(x_R)^[k]μ.
+2. The existing general weight-iteration evaluated at the constant-one test gives ν(1)=μ(x_R^k). The preceding algebra-amice-iterate-weight identifies Aν with the iterated Mahler derivative.
+3. For a nontrivially normed field K with bounded ℤ_p-scalar action, the native instance gives continuous scalar action, so this theorem specializes directly to the requested native D(ℤ_p,K). No identification of K-valued measures with integral measures is needed.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/algebra-amice-mass`, `PadicMeasuresIwasawaAlgebras:L2/algebra-amice-iterate-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-iteration`.
+
+**Tests:**
+
+- `AlgebraMomentTests.zeroth_mass` (degenerate): For p=2 and R=ℚ₂, δ₀(x_R^0)=1.
+- `AlgebraMomentTests.zero_measure` (degenerate): For every displayed coefficient algebra and every k, constantCoeff(∂_R^[k](A0))=0.
+- `AlgebraMomentTests.scaled_atom` (compatibility): For any coefficient field K satisfying the requested bounded scalar action, c∈K, a∈ℤ_p and k≥0, constantCoeff(∂_K^[k](A(cδ_a)))=c·j(a)^k.
+- `AlgebraMomentTests.dyadic_second` (computation): For μ=δ₂ over ℚ₂, constantCoeff(∂²Aμ)=4 while coeff₂(Aμ)=1.
+- `AlgebraMomentTests.nonintegral_third` (non-example): For μ=(1/3)δ₂ over ℚ₃, constantCoeff(∂³Aμ)=8/3 while coeff₃(Aμ)=0. This measure is not integral-valued: μ(1)=1/3.
+
+**Uses:** DirichletPadicLFunctions:L2/tame-ordinary-moments: Supply the requested ordinary-moment identity on the actual K-valued measure, allowing character values outside ℤ_p. The arithmetic tame measure, Bernoulli polynomials and special L-values remain in the consuming roadmap. DirichletPadicLFunctions:L2/tame-zeta-common-special-value: The tame unit and inverse-weighted special-value comparisons use the same coefficient-field ordinary moments through their existing predecessor chain. No reverse prerequisite from this generic supplier to Dirichlet arithmetic is introduced.
+
+**Acceptance:** Supplies the exact Dirichlet L2 ordinary-moment request, including p=2 and k=0, under weaker hypotheses. The special field case adds no new carrier or scalar-tower assumption.
+
+**Sources:** RJW-published, §3.5.1, Lemma3.29 with its full proof and Corollary3.30, printed126/PDF27; coefficient-field context in Remark3.28(1–2), printed125/PDF26. Full published125–127 freshly read. Worker coefficient-algebra generalization of the printed multiplication recurrence and moment argument. The source fixes a p-adic coefficient field and its integers; the displayed more general normed-ring hypotheses are justified directly by the pinned native transform and the existing weighting construction. No scalar-extension, inverse-transform, analytic-exponential or completed-algebra comparison is used.
+
+### Exponential moments over a coefficient algebra
+
+`PadicMeasuresIwasawaAlgebras:L2/algebra-ordinary-moment-exp` — `AbstractMeasure.ordinaryMoment_eq_factorial_coeff_algebra` (comparison).
+
+For every k≥0, μ(x_R^k)=k!·coeff_k(Aμ(exp(T)−1)) in R.
+
+**Hypotheses:** p is any prime, including 2. R is a normed commutative ring with a ℤ_p-algebra structure and continuous ℤ_p-scalar action. Write j:ℤ_p→R for its algebra map, x_R for the continuous function t↦j(t), and M_(R,n) for t↦j(mahler_n(t)). Concretely these are the existing pointwise actions of the integral coordinate and Mahler functions on the constant-one R-valued test. No new function or measure carrier is introduced. μ is a native R-valued AbstractMeasure on ℤ_p; Aμ is its existing native Amice transform. Write ∂_R for the already planned Mahler derivation (1+T)d/dT on R[[T]]. Completeness, ultrametricity, a field structure and characteristic zero are not needed for the weighting and ordinary-moment identities. R additionally has a ℚ-algebra structure. This additional structure is used only for the formal exponential comparison; it is never imposed on ℤ_p.
+
+**Proof outline:**
+
+1. Use algebra-ordinary-moment to express the actual measure evaluation as the constant coefficient of ∂_R^[k](Aμ).
+2. Apply the existing formal exp-coefficient theorem to F=Aμ over the displayed rational algebra R. Its substitution is valid because exp(T)−1 has constant coefficient zero.
+3. No extra compatibility tower ℚ→ℤ_p→R is asserted or used: the native Amice coefficients use the displayed ℤ_p-algebra, and the formal power-series theorem uses the displayed ℚ-algebra on the same R. There is no exponential evaluated at a p-adic argument and no analytic convergence claim.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/algebra-ordinary-moment`, `PadicMeasuresIwasawaAlgebras:L2/exp-coefficient`.
+
+**Tests:**
+
+- `AlgebraMomentTests.factorial` (computation): For μ=(1/3)δ₂ over ℚ₃, coeff₃(Aμ(exp(T)−1))=4/9; multiplying by 3!=6 gives the ordinary moment8/3.
+
+**Uses:** DirichletPadicLFunctions:L2/tame-ordinary-moments: Supply the requested ordinary-moment identity on the actual K-valued measure, allowing character values outside ℤ_p. The arithmetic tame measure, Bernoulli polynomials and special L-values remain in the consuming roadmap. DirichletPadicLFunctions:L2/tame-zeta-common-special-value: The tame unit and inverse-weighted special-value comparisons use the same coefficient-field ordinary moments through their existing predecessor chain. No reverse prerequisite from this generic supplier to Dirichlet arithmetic is introduced.
+
+**Acceptance:** The factorial is essential; the statement applies directly to K-valued measures, including those with nonintegral values, and specializes to the existing integral comparison through its already planned coefficient-extension map.
+
+**Sources:** RJW-published, §3.5.1, Lemma3.29 with its full proof and Corollary3.30, printed126/PDF27; coefficient-field context in Remark3.28(1–2), printed125/PDF26. Full published125–127 freshly read. Worker coefficient-algebra generalization of the printed multiplication recurrence and moment argument. The source fixes a p-adic coefficient field and its integers; the displayed more general normed-ring hypotheses are justified directly by the pinned native transform and the existing weighting construction. No scalar-extension, inverse-transform, analytic-exponential or completed-algebra comparison is used.; RJW-published, §4.1, Lemma4.3 and the full proof of Proposition4.6, printed136–137/PDF37–38, freshly read. The source change-of-variable argument is imported through the existing formal exp-coefficient node. The present adapter connects that formal identity to arbitrary coefficient-algebra measures.
+
+The current L2 boundary is: The coordinate-weighting, iterated Mahler derivative, ordinary-moment and formal exponential comparison are now supplied on the actual native coefficient-algebra measure carrier by algebra-amice-weight, algebra-amice-iterate-weight, algebra-ordinary-moment and algebra-ordinary-moment-exp. Only a normed commutative ℤ_p-algebra with continuous scalar action is needed before adding a rational algebra for formal exp. This supplies the Dirichlet coefficient-field moment request. General coefficient-lattice/finite-extension comparisons, convolution and multivariable theory, the remaining coefficient-general phi/psi/roots-of-unity comparisons, residue restrictions and multiplication by z^x with convergence hypotheses remain. The L1 compatible-coordinate inverse and actual completed-algebra comparison remain separate targets.
+
+
+### Coefficient-algebra validation
+
+The complete suggested file compiles at the pins with0 errors and599 warnings,
+all and only placeholder warnings. The source closure audits2813 Mathlib
+modules and2 previously built pinned TauCeti modules. No native library was
+rebuilt, no planned supplier module is imported, and no own compiler remains.
+The shared-machine rules were followed with one persistent checkout and one
+Lean process at a time. Public bodies remain planning placeholders.
+
+The indexed blueprint checker reports0 errors and0 warnings; four-file intake
+reports0 problems. The filename-correct errata wrapper passes. Whole-object
+preservation, reader/signature/test parity and the four-file mutation check
+pass. The reachable graph contains283 nodes,1142 acyclic edges and290 native
+leaves, with no unresolved stage leaves. This graph check does not close the
+eight explicitly recorded source/interface gaps.
+
+Independent exact rational calculations checked48 signed atomic measures
+through degree10:528 ordinary-moment identities,528 formal exponential
+coefficient identities and80 multiplication recurrences. Negative atoms,
+zero atoms and nonintegral rational masses are included. These finite checks
+validate the chosen examples, not the general measure theorem.
+
+
+At publication main 8c7b17ca22e88c0fecd9ca1f08788753578dc321,50 of51 captured input blobs and all
+four predecessor output blobs remain unchanged. The changed Dirichlet packet
+adds six integral tame-zeta nodes (204→210), all read; every204 preceding whole
+node and both requests are unchanged. The exact fresh bot confirmation and
+whole issue body were checked again. Exactly four authorized files are
+published on the worker's own branch. The preceding Coleman PR3274 was
+merged automatically as9a1aaa58a1cc28ee90c1cbb4bcfd4d6fa1a2c28c.
