@@ -7,13 +7,14 @@ LocallyAnalyticDistributions owns the analytic character-coordinate operations. 
 specific arithmetic construction, its values and its normalization comparisons. None of those shared
 carriers is redefined.
 
-**Second partial checkpoint, 26 September 2026.** The five layers L0–L4 remain in scope. The first
-checkpoint's 18 integral smoothing and measure nodes are preserved. Seven new declarations connect
-the smoothing series with the existing Bernoulli generating function, specify its factorial-normalized
-coefficients and ordinary moments, and compare the common rational value with the complex formula.
-The moment proof imports the exact generic comparison at
-`PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp`, supplied by the operator/moment checkpoint.
-No whole layer is closed, and no hypothesis packages a desired moment or interpolation conclusion.
+**Unit/numerator partial checkpoint, 27 September 2026.** All five layers L0–L4 remain in scope.
+The 25 predecessor declarations are preserved verbatim. Twenty new nodes specify the arithmetic
+root-average calculation, the bounded ψ-invariance proof, unit Euler factors and the integral numerator.
+The actual generic operators are imported from the measure roadmap, including its inverse weighting.
+Two precise generic averaging requests remain open there. Their gap propagates to the arithmetic
+ψ-invariance and numerical unit/numerator moments; the numerator construction, support, primitive
+characterization and Amice comparison already have exact supplier nodes. No whole layer is closed,
+and no conclusion is packaged as a hypothesis of its own theorem.
 
 The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. All five reviewed AUDIT-24 entries were read before planning.
@@ -122,10 +123,11 @@ the finite-sum equality as a comparison. There is no reverse prerequisite from t
 
 ## Declaration plan
 
-The packet now has 25 unchecked declarations and 22 API items. The three original definition/construction
-nodes have sixteen tests; the complex comparison adds one more, and the suggested file retains the
-additional nonunit-parameter rejection example. Every original node ID and formula is preserved.
-The moment and smoothed-integrality nodes have an explicit unresolved supplier dependency.
+The packet has 45 unchecked declarations and 38 API entries. Its five definition/construction nodes
+carry 25 tests; one inherited comparison has an additional test. The suggested file contains all
+26 packet tests and two further examples, for 28 typed examples. The ordinary-moment supplier is
+resolved to its exact L2 node. The new averaging requests are the only open cross-roadmap requests
+in this checkpoint. Detailed remaining source obligations follow the declaration plan.
 
 ### Binomial smoothing denominator
 
@@ -679,6 +681,496 @@ Acceptance: For p=2,a=3,k=1 the value is −2/3, which is 2-adically integral al
 
 Source: Rodrigues Jacinto–Williams, Proposition 4.4, Definition 4.5 and Proposition 4.6, printed p. 137 / PDF 38. Immediate arithmetic integrality consequence of the source's integral measure and moment theorem; the claim is explicitly smoothed.
 
+## L1: bounded ψ, unit Euler factors and the arithmetic numerator
+
+Put Z=ℤ_p, B=Z[[T]] and D=D(Z,Z). Write A for the pinned integral Amice equivalence,
+φ for pushforward by x↦px, ψ for its bounded left inverse, E for restriction to units,
+W for weighting by x and J for inverse weighting. Each generic operator is imported from
+PadicMeasuresIwasawaAlgebras:L2 at the exact node IDs below. In particular, J uses the existing
+PadicInt.inv, which is the inverse on units and zero on every nonunit. It is not the field inverse
+at all nonzero p-adic integers. No generic operator is reconstructed in this roadmap.
+
+The source proves ψμ_a=μ_a by calculating ψ(1/T). That intermediate expression is outside B.
+The repair works with the integral F_a=b_a/q_a throughout the operator calculation. In a cyclotomic
+coefficient extension K, set Y=1+T inside Frac(K[[T]]). For a primitive p-th root ζ, finite algebra gives
+
+    Σ_{i<p} [1/(ζⁱY−1) − a/((ζⁱY)^a−1)]
+      = p [1/(Y^p−1) − a/(Y^(pa)−1)].
+
+The consumer combines two instances of the generic partial-fraction identity. For the second,
+ζ^a is primitive because p∤a. Each arithmetic term is the evaluation of the finite polynomial
+quotient P/Q representing F_a. This evaluation is legitimate in the receiving field; it never
+substitutes a nonzero constant into an arbitrary formal power series.
+
+The further identity identifying the left side with p·φψ_B(F_a) is genuinely missing from the
+current supplier blueprint. The exact request below fixes its field, embedding, polynomial
+hypotheses and bounded operator. After it is supplied, cancellation of p in the receiving field
+and injective descent give φψ_B(F_a)=φ(F_a). Applying ψ_Bφ=id gives ψ_B(F_a)=F_a; Amice
+injectivity then gives ψμ_a=μ_a. This open comparison is not hidden in a hypothesis of the Lean
+signature. Source issue E6 records the domain gap, already observed in ColemanPowerSeries/E8.
+
+The arithmetic restriction and numerator themselves have direct definitions:
+
+    ρ_a = Eμ_a,                 ν_a = Jμ_a = Jρ_a.
+
+They are actual elements of the existing ambient integral measure carrier. The exact generic
+identities already imply Eρ_a=ρ_a, Eν_a=ν_a, Wν_a=ρ_a, and uniqueness of ν_a among unit-supported
+solutions of that primitive equation. In particular, support is essential: adding any multiple of
+δ₀ does not change Wν, so uniqueness without support would be false. The Amice comparison is
+Aν_a=inverseMahler(F_a), with the precise inverseMahler supplied by L2. These statements do not
+use the missing root-average input.
+
+Once ψ-invariance is proved, the source's Euler-factor calculation is
+
+    ρ_a = μ_a − φμ_a,
+    ρ_a(x^k) = (1−p^k) μ_a(x^k),                    k≥0,
+    ν_a(x^k) = ρ_a(x^(k−1)),                        k≥1.
+
+With the existing ordinary-moment theorem, the respective rational images are
+(1−p^k)(1−a^(k+1))B_(k+1)/(k+1) and (1−p^(k−1))(1−a^k)B_k/k. Evaluation takes place in Z before
+embedding the value into ℚ_p. At k=1 the numerator moment vanishes because 1−p⁰=0; no assertion
+that ζ(0)=0 and no cancellation of the zero Euler factor is permitted. There is no formula here
+for ν_a(1), the numerator's degree-zero moment.
+
+For p=3,a=2, ρ_a(x)=1/2 while ν_a(x)=0 and ν_a(x²)=1/2. This detects a tempting omission of
+inverse weighting. For p=2,a=3 both ρ_a(x) and ν_a(x²) have value 2/3, integral in ℤ₂. These
+arithmetic constructions cover all primes. They do not choose a topological generator of ℤ₂×,
+prove regularity of [a]−[1], or divide in an unspecified completed group algebra. The actual
+pseudomeasure, smoothing independence, parity and Kummer congruences retain their separate gaps.
+
+### Cyclotomic average of the smoothing fractions
+
+`DirichletPadicLFunctions:L1/smoothing-root-average` — `DirichletPadic.smoothed_rational_average` (lemma).
+
+For a characteristic-zero field K, a primitive p-th root ζ∈K, y∈K with y^p≠1 and y^(pa)≠1, and p∤a, the sum over 0≤i<p of [1/(ζ^i y−1)−a/((ζ^i y)^a−1)] equals p[1/(y^p−1)−a/(y^(pa)−1)].
+
+Hypotheses and conventions: p is prime, K is a field of characteristic zero, ζ is a primitive p-th root, a∈ℕ and p∤a, y^p≠1 and y^(pa)≠1.
+
+Proof/construction:
+
+1. Import the generic finite-root partial-fraction identity requested from L2: Σ_i 1/(ζ^i y−1)=p/(y^p−1). This is a finite identity in K, not an application of ψ to a pole.
+2. From p∤a and primality obtain gcd(a,p)=1. IsPrimitiveRoot.pow_of_coprime makes ζ^a primitive of order p. Apply the same imported identity to ζ^a and y^a. Its denominator is y^(pa)−1 by commutation of natural powers.
+3. Distribute the finite sum across subtraction and the scalar a, and combine the two identities. The displayed nonvanishing hypotheses ensure all denominators at roots are nonzero; no analytic substitution is used.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2`, `mathlib:IsPrimitiveRoot.pow_of_coprime`, `mathlib:Nat.Prime.coprime_iff_not_dvd`.
+
+Acceptance: At p=2,a=3,ζ=−1,y=2 the two summands are 4/7 and 0, agreeing with 2(1/3−3/63)=4/7. At a=1 both sides vanish. The assumption p∤a is essential: at p=2,a=2,y=2 the two sides are −2/3 and 2/5, respectively.
+
+Source: Rodrigues Jacinto–Williams, Lemma 4.7 and its partial-fraction calculation, printed p.137 / PDF38; arXiv v2 p.27. The source computes the unsmoothed partial fractions and then smooths. This node gives only the arithmetic two-term consequence, leaving the generic identity to its owner.
+
+### Frobenius comparison for the smoothed series
+
+`DirichletPadicLFunctions:L1/series-phi-psi-fixed` — `DirichletPadic.phi_psi_smoothedSeries` (lemma).
+
+On B=ℤ_p[[T]], with b=(1+T)^p−1, φ(ψ_B(F_a))=φ(F_a), where φ(F)=F(b) and ψ_B is the exact bounded integral Amice-transported operator.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Use the requested rational-series averaging comparison in a cyclotomic coefficient extension K. Write F_a=P/Q, where P=Σ_{j<a} choose(a,j+2)T^j and Q=Σ_{j<a} choose(a,j+1)T^j. Their series images are b_a and q_a; Q(0)=a is a unit. The existing cancellation equation supplies QF_a=P.
+2. In Frac(K[[T]]) put Y=1+T. The supplier comparison gives p·j(φψ_B F_a)=Σ_i P(ζ^iY−1)/Q(ζ^iY−1). Here polynomial evaluation is finite. It is never PowerSeries.subst at the nonnilpotent constant ζ^i−1.
+3. The binomial identities TQ=Y^a−1 and TP=Q−a turn each quotient into 1/(ζ^iY−1)−a/((ζ^iY)^a−1). All divisors are nonzero: for i=0 the linear coefficient detects nonzero T and aT, while for i≠0 the primitive-root/coprimality conditions give nonzero constants. Equivalently this follows from the nonzero polynomials in the field.
+4. Apply smoothing-root-average with y=Y. Its hypotheses hold because Y^p−1 and Y^(pa)−1 are nonzero polynomials in characteristic zero (p,a>0). The resulting right side is p·j(φF_a), by series-fraction-comparison for the receiving map j∘φ; this map sends T to the nonzero b.
+5. Cancel nonzero p in the field and use the injectivity of the coefficient/series embedding j to descend equality to B. The generic averaging comparison remains an explicit request and gap, so this is a conditional proof plan with an unconditional target signature, not a closed derivation.
+
+Prerequisites: `DirichletPadicLFunctions:L1/smoothing-root-average`, `DirichletPadicLFunctions:L1/series-cancellation`, `DirichletPadicLFunctions:L1/denominator-factorization`, `DirichletPadicLFunctions:L1/series-cleared-equation`, `DirichletPadicLFunctions:L1/series-fraction-comparison`, `PadicMeasuresIwasawaAlgebras:L2/psi-series`, `PadicMeasuresIwasawaAlgebras:L2`.
+
+Acceptance: Both sides are integral series although individual fractions have poles. At a=1 both are zero; no Laurent-series extension of ψ is assumed.
+
+Source: Rodrigues Jacinto–Williams, Lemma 4.7 and its partial-fraction calculation, printed p.137 / PDF38; arXiv v2 p.27. Domain-correct version of the source’s intermediate equality; E6 records the missing domain justification.
+
+### Psi invariance of the smoothing series
+
+`DirichletPadicLFunctions:L1/series-psi-fixed` — `DirichletPadic.psi_smoothedSeries` (theorem).
+
+ψ_B(F_a)=F_a in ℤ_p[[T]].
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Apply the existing planned ψ_B to both sides of series-phi-psi-fixed. Use the exact psi-series-phi law twice: ψ_Bφ=id.
+2. This removes φ without introducing a localization action or an invariance hypothesis. The generic averaging gap propagates from series-phi-psi-fixed.
+
+Prerequisites: `DirichletPadicLFunctions:L1/series-phi-psi-fixed`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-phi`.
+
+Acceptance: Works at p=2 for odd a as well as odd p. For a=1 it agrees with ψ_B(0)=0.
+
+Source: Rodrigues Jacinto–Williams, Lemma 4.7 and its partial-fraction calculation, printed p.137 / PDF38; arXiv v2 p.27. The exact arithmetic fixed-point statement on the bounded carrier. Generic root averaging is a requested dependency.
+
+### Psi invariance of the smoothing measure
+
+`DirichletPadicLFunctions:L1/measure-psi-fixed` — `DirichletPadic.psi_smoothedMeasure` (theorem).
+
+ψ(μ_a)=μ_a in D(ℤ_p,ℤ_p).
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Apply injective_amiceTransform. Rewrite A(ψμ_a) using psi-series-intertwining and Aμ_a=F_a using measure-amice.
+2. Apply series-psi-fixed, then measure-amice in reverse. The p-adic unit certificate is the same norm/unit criterion as in smoothed-measure.
+
+Prerequisites: `DirichletPadicLFunctions:L1/series-psi-fixed`, `DirichletPadicLFunctions:L1/measure-amice`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining`, `mathlib:AbstractMeasure.injective_amiceTransform`, `DirichletPadicLFunctions:L1/smoothed-measure`.
+
+Acceptance: This is ψ-invariance of μ_a, not unit support: ψμ_a=μ_a, whereas a unit-supported measure has ψμ=0. For p=3,a=2 the nonzero total mass 1/2 rules out that confusion.
+
+Source: Rodrigues Jacinto–Williams, Lemma 4.7 and its partial-fraction calculation, printed p.137 / PDF38; arXiv v2 p.27. Lemma 4.7 itself, transported through the exact integral Amice comparison.
+
+### Trivial smoothing measure
+
+`DirichletPadicLFunctions:L1/measure-one` — `DirichletPadic.smoothedMeasure_one` (lemma).
+
+For every prime p, the admissible boundary parameter a=1 gives μ_1=0.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. At a=1 every numerator coefficient choose(1,n+2) vanishes. Unfold the smoothed-series definition and use coefficient extensionality to get F_1=0.
+2. Use measure-amice and injective_amiceTransform to conclude μ_1=0. This boundary test is independent of root averaging.
+
+Prerequisites: `DirichletPadicLFunctions:L1/smoothed-series`, `DirichletPadicLFunctions:L1/measure-amice`, `mathlib:AbstractMeasure.injective_amiceTransform`.
+
+Acceptance: The later denominator θ_1=[1]−[1] is also zero; the zero measure test does not allow division by θ_1.
+
+Source: Rodrigues Jacinto–Williams, Equation (4-3), its following moment identity and Definition 4.10, printed p.138 / PDF39; arXiv v2 pp.27–28. Boundary extension of the source’s arithmetic measure definition, used to test the restriction and numerator constructions.
+
+### Unit restriction of the smoothing measure
+
+`DirichletPadicLFunctions:L1/unit-smoothed-measure` — `DirichletPadic.unitSmoothedMeasure` (construction).
+
+Construct ρ_a=unitSmoothedMeasure p a := Eμ_a in D(ℤ_p,ℤ_p). It is the unit restriction on the ambient carrier.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Apply the existing unitRestriction linear map to the already constructed μ_a. No subtype measure, coefficient extension or new restriction operator is constructed.
+2. The definition requires no ψ-invariance. The separate support, difference and moment nodes prove the arithmetic API; the difference and numerical moments inherit the explicit averaging gap.
+3. The a=1 API uses measure-one and linearity of E; it does not use averaging.
+
+Prerequisites: `DirichletPadicLFunctions:L1/smoothed-measure`, `DirichletPadicLFunctions:L1/measure-one`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction`.
+
+API:
+
+- `DirichletPadic.unitSmoothedMeasure_eq` (characterisation): ρ_a=Eμ_a.
+- `DirichletPadic.unitSmoothedMeasure_supported` (relation): Eρ_a=ρ_a; promoted to unit-smoothed-support.
+- `DirichletPadic.unitSmoothedMeasure_eq_sub_phi` (relation): ρ_a=μ_a−φμ_a; promoted to unit-smoothed-difference.
+- `DirichletPadic.unitSmoothedMeasure_euler` (data): ρ_a(x^k)=(1−p^k)μ_a(x^k); promoted to unit-smoothed-euler.
+- `DirichletPadic.unitSmoothedMeasure_moment` (data): Its embedded moment is (1−p^k)(1−a^(k+1))B_(k+1)/(k+1); promoted to unit-smoothed-moment.
+- `DirichletPadic.unitSmoothedMeasure_mass` (simp): ρ_a(1)=0; promoted to unit-smoothed-mass.
+- `DirichletPadic.unitSmoothedMeasure_one` (simp): At a=1 the measure ρ_1 is zero.
+
+Unit tests:
+
+- `SuggestedTests.unit_smoothing_mass` (degenerate): For p=3,a=2, ρ_a(1)=0.
+- `SuggestedTests.unit_smoothing_first_moment` (computation): For p=3,a=2, the image of ρ_a(x) in ℚ₃ is 1/2.
+- `SuggestedTests.unit_smoothing_dyadic` (computation): For p=2,a=3, the image of ρ_a(x) in ℚ₂ is 2/3.
+- `SuggestedTests.unit_smoothing_one` (degenerate): For p=3,a=1, ρ_a=0.
+
+Uses:
+
+- `RJW Proposition 4.8`: The restriction removes the Euler factor.
+- `RJW equation (4-3) and Definition 4.10`: The numerator is its inverse weighting before any pseudomeasure denominator is inverted.
+
+Acceptance: The integral ambient carrier is retained at p=2. The mass and moment tests depend on the later Euler-factor proof; they are typed target tests, not independently implemented evidence.
+
+Source: Rodrigues Jacinto–Williams, Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27. Arithmetic application of the generic unit restriction already owned by L2.
+
+### Unit support of the restricted smoothing measure
+
+`DirichletPadicLFunctions:L1/unit-smoothed-support` — `DirichletPadic.unitSmoothedMeasure_supported` (lemma).
+
+Eρ_a=ρ_a.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Unfold unit-smoothed-measure and apply the unitRestriction_idem API of the existing generic unit restriction. This is independent of the averaging request.
+
+Prerequisites: `DirichletPadicLFunctions:L1/unit-smoothed-measure`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction`.
+
+Acceptance: Equivalent to ψρ_a=0 by the supplier’s unit-support criterion; this statement does not say ψμ_a=0.
+
+Source: Rodrigues Jacinto–Williams, Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27. The source restricts to units; the ambient formulation records that support exactly.
+
+### Euler projector on the arithmetic measure
+
+`DirichletPadicLFunctions:L1/unit-smoothed-difference` — `DirichletPadic.unitSmoothedMeasure_eq_sub_phi` (lemma).
+
+ρ_a=μ_a−φμ_a.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Use E=id−P from unit-restriction and Pμ=φψμ from phi-psi.
+2. Apply measure-psi-fixed to μ_a. Thus Eμ_a=μ_a−φμ_a. This is where the source’s ψ-invariance is required.
+
+Prerequisites: `DirichletPadicLFunctions:L1/unit-smoothed-measure`, `DirichletPadicLFunctions:L1/measure-psi-fixed`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction`, `PadicMeasuresIwasawaAlgebras:L2/phi-psi`.
+
+Acceptance: Taking total mass gives zero since φ preserves constant test functions. The equality holds on all continuous test functions.
+
+Source: Rodrigues Jacinto–Williams, Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27. The second equality in the proof of Proposition 4.8.
+
+### Euler factor for unit moments
+
+`DirichletPadicLFunctions:L1/unit-smoothed-euler` — `DirichletPadic.unitSmoothedMeasure_euler` (lemma).
+
+For every k≥0, ρ_a(x↦x^k)=(1−p^k)μ_a(x↦x^k) in ℤ_p.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Evaluate unit-smoothed-difference on the continuous polynomial x^k.
+2. Use phi-evaluation to replace (φμ_a)(x^k) by μ_a((px)^k). Pointwise (px)^k=p^k x^k; integral measure linearity extracts p^k. This also holds for k=0, including at x=0.
+
+Prerequisites: `DirichletPadicLFunctions:L1/unit-smoothed-difference`, `PadicMeasuresIwasawaAlgebras:L2/phi-evaluation`.
+
+Acceptance: At k=0 the factor is zero. At p=2,k=1 it is −1, not an inverse of 2.
+
+Source: Rodrigues Jacinto–Williams, Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27. The source’s last equality in the proof of Proposition 4.8.
+
+### Smoothed Bernoulli values on units
+
+`DirichletPadicLFunctions:L1/unit-smoothed-moment` — `DirichletPadic.unitSmoothedMeasure_moment` (theorem).
+
+For k≥0, the image of ρ_a(x^k) in ℚ_p is (1−p^k)(1−a^(k+1))B_(k+1)/(k+1), with rational Bernoulli numbers B₁=−1/2.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Embed unit-smoothed-euler into ℚ_p. Apply measure-ordinary-moment and preservation of rational/natural scalars by the canonical maps.
+2. The result is stated as an equality of two images in ℚ_p, after evaluating the integral measure. It never casts a complex zeta value into a p-adic field.
+
+Prerequisites: `DirichletPadicLFunctions:L1/unit-smoothed-euler`, `DirichletPadicLFunctions:L1/measure-ordinary-moment`.
+
+Acceptance: For p=3,a=2 the moments of degrees 0,1,2,3 are 0,1/2,0,−13/4. For p=2,a=3 the first moment is 2/3.
+
+Source: Rodrigues Jacinto–Williams, Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27. Bernoulli normalization of Proposition 4.8, using the earlier exact rational/complex comparison.
+
+### Zero mass of the unit smoothing measure
+
+`DirichletPadicLFunctions:L1/unit-smoothed-mass` — `DirichletPadic.unitSmoothedMeasure_mass` (lemma).
+
+ρ_a(1)=0 in ℤ_p.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Specialize unit-smoothed-euler to k=0. The continuous function x^0 is 1 everywhere and 1−p^0=0.
+
+Prerequisites: `DirichletPadicLFunctions:L1/unit-smoothed-euler`.
+
+Acceptance: The full μ_a has mass (a−1)/2 in ℚ_p, so zero unit mass is a meaningful restriction test.
+
+Source: Rodrigues Jacinto–Williams, Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27. Weight-zero consequence of Proposition 4.8, required at the k=1 numerator endpoint.
+
+### Integrality of Euler-smoothed Bernoulli values
+
+`DirichletPadicLFunctions:L1/unit-smoothed-integral` — `DirichletPadic.unitSmoothedBernoulli_mem_padicInt` (theorem).
+
+For every k≥0, (1−p^k)(1−a^(k+1))B_(k+1)/(k+1) in ℚ_p lies in the image of ℤ_p.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Take the integral witness ρ_a(x^k). Apply unit-smoothed-moment. This does not assert integrality after cancelling either factor.
+
+Prerequisites: `DirichletPadicLFunctions:L1/unit-smoothed-moment`.
+
+Acceptance: At p=2,a=3,k=1 the value 2/3 is integral. No assertion is made that B₂/2 is integral.
+
+Source: Rodrigues Jacinto–Williams, Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27. Integral consequence of the actual measure; a later Kummer theorem still needs its own denominator and congruence hypotheses.
+
+### Arithmetic numerator measure
+
+`DirichletPadicLFunctions:L1/smoothed-numerator` — `DirichletPadic.smoothedNumerator` (construction).
+
+Construct ν_a=smoothedNumerator p a := Jμ_a in D(ℤ_p,ℤ_p), where J is the exact imported inverseWeight. Since J(Eμ)=Jμ, this is x⁻¹ times the unit-restricted smoothing measure.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Apply the existing inverseWeight to μ_a. Its multiplier is the already existing PadicInt.inv, continuous by the supplier’s proof plan and zero at every nonunit. No new inverse function or generic measure operator is defined.
+2. Use inverse-weight-support to identify Jμ_a with Jρ_a. The inverse-weight-evaluation node supplies the evaluation API. Its support and primitive characterization are proved in the promoted nodes below, independently of ψ-invariance.
+3. The a=1 API follows from measure-one and linearity of J. Numerical moments are proved through the later moment-shift and Euler-factor nodes, not assumed by the construction.
+
+Prerequisites: `DirichletPadicLFunctions:L1/smoothed-measure`, `DirichletPadicLFunctions:L1/unit-smoothed-measure`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation`, `DirichletPadicLFunctions:L1/measure-one`.
+
+API:
+
+- `DirichletPadic.smoothedNumerator_eq_inverse_restriction` (compatibility): ν_a=Jρ_a.
+- `DirichletPadic.smoothedNumerator_apply` (characterisation): ν_a(f)=μ_a(ιf), with ι the continuous existing unit inverse extended by zero.
+- `DirichletPadic.smoothedNumerator_supported` (relation): Eν_a=ν_a; promoted to numerator-support.
+- `DirichletPadic.weight_smoothedNumerator` (relation): Wν_a=ρ_a, where W is weighting by x; promoted to numerator-weight.
+- `DirichletPadic.smoothedNumerator_unique` (universal-property): A unit-supported ν with Wν=ρ_a equals ν_a; promoted to numerator-unique.
+- `DirichletPadic.smoothedNumerator_moment_shift` (data): ν_a(x^(k+1))=ρ_a(x^k) for k≥0; promoted to numerator-moment-shift.
+- `DirichletPadic.smoothedNumerator_moment` (data): For k≥1 its embedded moment is (1−p^(k−1))(1−a^k)B_k/k; promoted to numerator-moment.
+- `DirichletPadic.amice_smoothedNumerator` (compatibility): Aν_a=inverseMahler(F_a); promoted to numerator-amice.
+- `DirichletPadic.smoothedNumerator_one` (simp): ν_1=0.
+
+Unit tests:
+
+- `SuggestedTests.numerator_endpoint` (degenerate): For p=3,a=2, ν_a(x)=0.
+- `SuggestedTests.numerator_second_moment` (computation): For p=3,a=2, the image of ν_a(x²) in ℚ₃ is 1/2.
+- `SuggestedTests.numerator_dyadic` (computation): For p=2,a=3, the image of ν_a(x²) in ℚ₂ is 2/3.
+- `SuggestedTests.numerator_one` (degenerate): For p=3,a=1, ν_a=0.
+- `SuggestedTests.numerator_not_unit_measure` (non-example): For p=3,a=2, ν_a≠ρ_a; their first moments are 0 and 1/2.
+
+Uses:
+
+- `RJW equation (4-3)`: Shifts the exponent so the smoothing factor is a^k−1.
+- `RJW Definition 4.10 and Proposition 4.11`: Supplies the arithmetic numerator whose regularity and division by θ_a remain separate proof obligations.
+- `ColemanPowerSeries:L2 comparison`: Gives an exact arithmetic Amice target; the Coleman owner still proves its normalization and sign comparison.
+
+Acceptance: The definition is meaningful for every prime, including p=2. It constructs the integral numerator only; no completed-group-ring denominator has been inverted.
+
+Source: Rodrigues Jacinto–Williams, Equation (4-3), its following moment identity and Definition 4.10, printed p.138 / PDF39; arXiv v2 pp.27–28. The arithmetic specialization of equation (4-3), using the owner’s now explicit generic operator.
+
+### Unit support of the arithmetic numerator
+
+`DirichletPadicLFunctions:L1/numerator-support` — `DirichletPadic.smoothedNumerator_supported` (lemma).
+
+Eν_a=ν_a.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Apply inverse-weight-support to μ_a and unfold smoothed-numerator. The result is independent of the averaging gap.
+
+Prerequisites: `DirichletPadicLFunctions:L1/smoothed-numerator`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support`.
+
+Acceptance: The equivalent criterion is ψν_a=0. This follows because J vanishes on every nonunit, not by treating all nonzero p-adic integers as units.
+
+Source: Rodrigues Jacinto–Williams, Equation (4-3), its following moment identity and Definition 4.10, printed p.138 / PDF39; arXiv v2 pp.27–28. The source constructs the numerator on units; the shared ambient formulation makes this support explicit.
+
+### Primitive equation for the numerator
+
+`DirichletPadicLFunctions:L1/numerator-weight` — `DirichletPadic.weight_smoothedNumerator` (lemma).
+
+Wν_a=ρ_a, where W is weighting by the identity continuous function x.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Apply the exact generic weight-inverse-weight identity WJμ=Eμ to μ_a. Unfold the two arithmetic constructions.
+
+Prerequisites: `DirichletPadicLFunctions:L1/smoothed-numerator`, `DirichletPadicLFunctions:L1/unit-smoothed-measure`, `PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight`.
+
+Acceptance: The identity is on every continuous test function, including weight zero; it does not invert x at a nonunit.
+
+Source: Rodrigues Jacinto–Williams, Equation (4-3), its following moment identity and Definition 4.10, printed p.138 / PDF39; arXiv v2 pp.27–28. Defining cancellation of multiplication by x and by x⁻¹ on the unit-supported component.
+
+### Unique unit-supported arithmetic primitive
+
+`DirichletPadicLFunctions:L1/numerator-unique` — `DirichletPadic.smoothedNumerator_unique` (theorem).
+
+For ν∈D, if Eν=ν and Wν=ρ_a, then ν=ν_a.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Apply J to Wν=ρ_a. The generic inverse-weight-weight identity gives JWν=Eν=ν.
+2. On the right, inverse-weight-support gives Jρ_a=Jμ_a=ν_a. Thus equality follows. Support is essential, since W kills the mass at zero.
+
+Prerequisites: `DirichletPadicLFunctions:L1/smoothed-numerator`, `DirichletPadicLFunctions:L1/unit-smoothed-measure`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-weight`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support`.
+
+Acceptance: Without unit support, ν_a+cδ₀ has the same W-image for any c. The uniqueness statement therefore tests both required properties.
+
+Source: Rodrigues Jacinto–Williams, Equation (4-3), its following moment identity and Definition 4.10, printed p.138 / PDF39; arXiv v2 pp.27–28. Uniqueness API derived from the source’s inverse weighting, without claiming pseudomeasure independence.
+
+### Moment shift under inverse weighting
+
+`DirichletPadicLFunctions:L1/numerator-moment-shift` — `DirichletPadic.smoothedNumerator_moment_shift` (lemma).
+
+For k≥0, ν_a(x^(k+1))=ρ_a(x^k) in ℤ_p.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Evaluate numerator-weight on x^k. The exact weight-evaluation theorem gives (Wν_a)(x^k)=ν_a(x·x^k). Rewrite pointwise x·x^k=x^(k+1).
+
+Prerequisites: `DirichletPadicLFunctions:L1/numerator-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`.
+
+Acceptance: At k=0 it says ν_a(x)=ρ_a(1); it supplies no formula for the total mass ν_a(1).
+
+Source: Rodrigues Jacinto–Williams, Equation (4-3), its following moment identity and Definition 4.10, printed p.138 / PDF39; arXiv v2 pp.27–28. The exponent shift immediately after equation (4-3).
+
+### Bernoulli moments of the arithmetic numerator
+
+`DirichletPadicLFunctions:L1/numerator-moment` — `DirichletPadic.smoothedNumerator_moment` (theorem).
+
+For every integer k≥1, the image of ν_a(x^k) in ℚ_p equals (1−p^(k−1))(1−a^k)B_k/k.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Write k=(k−1)+1 using k≥1. Apply numerator-moment-shift and unit-smoothed-moment at degree k−1.
+2. Normalize natural exponents and the rational denominator. At k=1 the factor 1−p^0 is zero. Do not cancel it or invoke the false assertion ζ(0)=0; E4 already records the source’s endpoint error.
+
+Prerequisites: `DirichletPadicLFunctions:L1/numerator-moment-shift`, `DirichletPadicLFunctions:L1/unit-smoothed-moment`.
+
+Acceptance: At k=1 the moment is zero for every p,a. At p=3,a=2,k=2 it is 1/2; at p=2,a=3,k=2 it is 2/3. The theorem makes no claim at k=0.
+
+Source: Rodrigues Jacinto–Williams, Equation (4-3), its following moment identity and Definition 4.10, printed p.138 / PDF39; arXiv v2 pp.27–28. Rational Bernoulli form of the source’s numerator interpolation identity; it is not yet a theorem about the pseudomeasure ζ_p.
+
+### Integrality of numerator Bernoulli moments
+
+`DirichletPadicLFunctions:L1/numerator-integral` — `DirichletPadic.smoothedNumeratorBernoulli_mem_padicInt` (theorem).
+
+For k≥1, the rational value (1−p^(k−1))(1−a^k)B_k/k has integral image in ℚ_p.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Take z=ν_a(x^k) in ℤ_p and use numerator-moment. No division by the smoothing factor or Euler factor is licensed.
+
+Prerequisites: `DirichletPadicLFunctions:L1/numerator-moment`.
+
+Acceptance: The k=1 witness is zero. Dyadic p=2,a=3,k=2 gives 2/3, and is integral without an odd-prime hypothesis.
+
+Source: Rodrigues Jacinto–Williams, Equation (4-3), its following moment identity and Definition 4.10, printed p.138 / PDF39; arXiv v2 pp.27–28. Integrality from the concrete arithmetic numerator; later congruences and pseudomeasure division remain separate.
+
+### Amice transform of the arithmetic numerator
+
+`DirichletPadicLFunctions:L1/numerator-amice` — `DirichletPadic.amice_smoothedNumerator` (comparison).
+
+Aν_a=inverseMahler(F_a) in ℤ_p[[T]], using the exact integral inverseMahler supplied by L2.
+
+Hypotheses and conventions: p is prime; a is a natural number with p∤a. Write Z=ℤ_p, D=D(Z,Z), μ_a=smoothedMeasure p a. All measures remain on the existing ambient continuous dual; E, φ, ψ, J and A are the exact imported unitRestriction, phiMeasure, psiMeasure, inverseWeight and Amice maps. All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction.
+
+Proof/construction:
+
+1. Apply inverse-mahler-intertwining to μ_a: A(Jμ_a)=inverseMahler(Aμ_a). Substitute measure-amice and unfold smoothed-numerator.
+2. This comparison is independent of the missing root-average bridge. It connects the arithmetic numerator to the existing generic primitive operator, rather than rebuilding that operator in Dirichlet or Coleman.
+
+Prerequisites: `DirichletPadicLFunctions:L1/smoothed-numerator`, `DirichletPadicLFunctions:L1/measure-amice`, `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining`.
+
+Acceptance: At a=1 both sides vanish. The comparison uses integral series and the existing inverseMahler, not a field-valued Amice inverse.
+
+Source: Rodrigues Jacinto–Williams, Equation (4-3), its following moment identity and Definition 4.10, printed p.138 / PDF39; arXiv v2 pp.27–28. Amice expression of the source’s inverse-weighted numerator, with generic construction imported.
+
+### Exact requests at the supplier boundary
+
+1. Supplier `PadicMeasuresIwasawaAlgebras:L2`: Generic finite-root partial-fraction identity: for a characteristic-zero field K, p prime, ζ∈K primitive of order p and y∈K with y^p≠1, prove every ζ^i y−1 (0≤i<p) is nonzero and Σ_{i<p} 1/(ζ^i y−1)=p/(y^p−1). Supply this generic algebraic ingredient once alongside the L2 root-of-unity averaging comparison, reusing existing root/polynomial APIs; the consumer only forms its arithmetic smoothing combination. Needed by `DirichletPadicLFunctions:L1/smoothing-root-average`.
+
+2. Supplier `PadicMeasuresIwasawaAlgebras:L2`: Rational-series comparison for the actual integral ψ_B: put Z=ℤ_p, B=Z[[T]], b=(1+T)^p−1 and φ(F)=F(b). Supply a cyclotomic coefficient field extension K of ℚ_p with primitive p-th root ζ, its canonical injective coefficient/series map j:B→Frac(K[[T]]), and Y=1+T in that fraction field. For arbitrary P,Q∈Z[T] with Q(0) a unit, and F∈B satisfying Q·F=P (polynomials coerced to series), prove each Q(ζ^iY−1) is nonzero and p·j(φ(ψ_B F))=Σ_{i<p} P(ζ^iY−1)/Q(ζ^iY−1). Polynomial coefficients are embedded canonically in K. The comparison must refer to the bounded Amice-transported psiSeries already defined in L2, not define a second operator or assume this comparison. Prove the root translation/convergence or denominator-cleared trace comparison and coefficient descent; do not substitute ζ−1 into arbitrary formal series. The identity alone suffices for this consumer, with no action of ψ_B on 1/T. Needed by `DirichletPadicLFunctions:L1/series-phi-psi-fixed`.
+
 ## Source corrections
 
 The [published text](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf) was collated with
@@ -698,6 +1190,10 @@ Crossref relations or targeted searches. This is a bounded search, not a claim t
 The packet uses the corrected sign, positive arithmetic parameter and ζ(0)=−1/2 throughout. No author
 contact or independent-review verdict is claimed.
 
+**DirichletPadicLFunctions/E6** (gap; affects the proof), Proof of Lemma4.7, printed p.137 / PDF38; arXiv:2309.15692v2 p.27. The source uses ψ(1/T)=1/T. Justify an extension of ψ and its comparison to the bounded operator before acting on 1/T, or clear the poles and apply the generic rational-series root-average comparison only to the integral smoothed F_a. The latter route is specified by the two L2 requests in this packet. The bounded integral operator acts on ℤ_p[[T]], while 1/T is outside that carrier. Linearity and commutation with dilation cannot be applied to the two pole terms inside the existing domain, even though their smoothed difference is integral. The finite partial-fraction identity is algebraically correct; the missing step is its operator-domain comparison, not a counterexample to Lemma4.7.
+
+This is the same gap previously recorded in ColemanPowerSeries/E8, not a new discovery. Both source versions were freshly collated; a bounded correction search on 27 September 2026 found no published repair. The journal browser route failed and supplies no evidence of absence. “New” in the schema records no identified published correction, without a novelty claim. The five earlier source-issue objects are preserved exactly.
+
 ## Remaining source decomposition and ownership
 
 ### DirichletPadicLFunctions:L0 — partial
@@ -707,11 +1203,10 @@ contact or independent-review verdict is claimed.
 
 ### DirichletPadicLFunctions:L1 — partial
 
-- The ordinary-moment and smoothed-integrality proof plans now use the exact PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp supplier. The source's analytic Mellin, decay and differentiation route remains an independent L0 obligation.
-- Prove ψ-invariance (Lemma 4.7) and unit-restriction Euler factors (Proposition 4.8), obtaining the exact L2 operator contracts and checking the domain of the intermediate 1/T expressions rather than applying integral-series operators outside their domain.
-- Construct x⁻¹ times the restricted measure, verify regularity and smoothing compatibility, and instantiate PadicMeasuresIwasawaAlgebras:L3 pseudomeasures with its exact available node IDs. The new generic evaluation packet does not supply the missing arithmetic regularity or completed-group-ring comparisons.
-- Prove independence of the smoothing parameter, interpolation for every k≥1 including the k=1 zero Euler factor, odd-prime parity/descent, and denominator-qualified Kummer congruences. Retain a separate integral dyadic unit-group construction; this checkpoint proves only dyadic integrality of F_a and μ_a.
-- Prove measure coefficient-extension/descent maps through the shared measure API. The series coefficient-map theorem here alone is not a scalar-extension theorem for measures or analytic families.
+- Fill the two precise L2 requests for the generic finite-root partial fractions and its comparison with the actual bounded integral psiSeries. These are the remaining proof inputs for series-phi-psi-fixed; their gap propagates through psi-invariance to the unit and numerator Bernoulli moment theorems. Do not apply psiSeries to 1/T.
+- The actual integral arithmetic numerator, its unit support, unique primitive equation and inverseMahler comparison now have exact planned supplier nodes. Prove arithmetic smoothing compatibility and regularity of the chosen θ_a=[a]−[1] in the actual completed unit-group algebra, and instantiate L3 pseudomeasures with exact carrier/denominator comparisons.
+- Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), odd-prime parity/descent and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.
+- Complete the source’s analytic Mellin/decay/differentiation route under L0. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures.
 
 ### DirichletPadicLFunctions:L2 — not_read
 
@@ -730,8 +1225,7 @@ for every integral μ and k≥0 it identifies the embedded moment with k! times 
 formal exp−1 substitution. No generic theorem is duplicated and no placeholder carrier is supplied.
 The 18 original nodes and four formal-series nodes have baseline/local inputs, and the complex
 comparison uses the baseline negative-zeta theorem. The ordinary-moment and integrality nodes now
-have the exact external supplier for their proof plans. No whole stage is claimed closed. A continuation constructing unit restriction, generalized coefficient measures or
-pseudomeasures must likewise use precise supplier nodes and request missing statements at their owners. In particular the published L3 pseudomeasure
+have the exact external supplier for their proof plans. No whole stage is claimed closed. The present unit restriction and numerator use precise supplier nodes. Their new averaging comparisons are exact open requests; generalized coefficient measures and pseudomeasures must likewise use their owners’ precise interfaces. In particular the published L3 pseudomeasure
 evaluation checkpoint supplies generic conditional algebra; it does not prove the arithmetic smoothing
 regularity, the completed-group-ring comparison, or the odd-prime/dyadic augmentation arguments.
 
@@ -759,3 +1253,24 @@ PDF 26–27), including the proof of Lemma 3.29 and Corollary 3.30, and rechecks
 was refreshed and still lists v2, 19 December 2024, as the latest version. The new formal comparison
 uses the pinned Bernoulli, exponential and substitution statements listed in the packet; all 8,482
 Mathlib source dependencies of the suggested imports were byte-checked against the pinned sources.
+
+The current checkpoint imports the real repository file
+`research.blueprint.suggested.PadicMeasuresIwasawaAlgebras` in its suggested Lean file, in addition
+to individual pinned Mathlib imports. This types the exact proposed supplier interfaces, including
+inverseWeight and inverseMahler. That imported file contains unchecked prototype statements;
+compilation is a signature check and does not turn either roadmap into a formalized library.
+It is compiled from the captured source before the consumer. No surrogate axioms or copied foreign
+definitions were introduced to imitate the missing averaging comparison. The missing comparison
+itself remains prose in requests because it has no supplier declaration yet.
+
+The current reading freshly covered published §4, PDF37–40 / printed136–139, and v2 PDF26–28.
+Their SHA-256 digests remain those above. All five audit rows, the accepted RS-14 ownership/link
+decisions, the touching link records and the current 69-node measure supplier were checked. The
+new baseline citation IsPrimitiveRoot.pow_of_coprime was read at the pin. The generic partial
+fractions and bounded rational-average comparison were not found in pinned Mathlib/TauCeti or
+other current packets. Later layers retain their existing reading status; this is not a full-paper
+extraction or closure claim.
+
+L1 now has six planets, its permitted maximum: the five predecessor planets plus Unit Euler-factor
+formula. The 45 nodes comprise 1 definition, 4 constructions, 26 lemmas, 12 theorems and 2 comparisons.
+All remain unchecked. The direct arithmetic numerator is a measure, not the already-defined ζ_p.
