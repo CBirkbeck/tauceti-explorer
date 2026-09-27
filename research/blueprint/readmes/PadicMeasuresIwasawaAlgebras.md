@@ -1,3 +1,648 @@
+**Residue averaging checkpoint, 27 September 2026.** The packet now has 209
+unchecked nodes (28 constructions, 134 lemmas, 2 definitions, 26 theorems, 19 comparisons), 163 API entries, 140 packet tests,
+151 typed examples, 13 planets and 205 baseline references. All 191
+predecessor nodes, 185 baseline entries and fourteen source findings are preserved.
+Eighteen new nodes give the residue comparison and the pole-cancelled fixed-error
+argument. Eight gaps remain, with zero requests and zero closed stages. Counts
+and validation reports in earlier checkpoint sections below are historical.
+
+## L0 and L2 continuation: the residue of integral averaging
+
+Write Z=Z_p, k=F_p, B=Z[[T]], B_0=k[[T]] and Y=1+T. Every prime is admitted,
+including 2. These are the existing p-adic integer, residue-ring and power-series
+carriers. The integral operator psi is fixed throughout: it is the existing
+Amice transport of the bounded measure operator that restricts a measure to pZ_p
+and pushes forward by exact division by p. The coefficient map rho:B→B_0 is
+native reduction by PadicInt.toZMod.
+
+The natural basis calculation comes from measures. Amice sends delta_n to Y^n.
+The measure operator sends delta_n to delta_(n/p) when p divides n and to zero
+otherwise. The native residue-map kernel identifies divisibility of a natural
+number in Z_p with its ordinary divisibility in N. Thus psi sends Y^n to Y^(n/p)
+or zero. The exponent really is divided by p; it is not the formula for the
+composite of psi with Frobenius.
+
+The general Cartier extractor already belongs to
+`ClassicalArithmeticCompletion:CA.2/cartier-operators`. Import its restriction
+to k[[T]] at modulus p>0 and indices 0≤i<p. Define the new operator psi_0 as
+the weighted finite sum of those restrictions with weights (−1)^i. In coordinates,
+
+coeff_n(psi_0 F) = c_(pn) − c_(pn+1) + … + (−1)^(p−1)c_(pn+p−1).
+
+This coordinate formula can be prototyped directly using native PowerSeries.mk;
+coefficient extensionality identifies it with the imported Cartier sum. It adds
+no second general Cartier construction. The supplier's unrestricted q=0 and
+r≥q wording is not needed: positivity and the residue range are explicit here.
+The source definition and Proposition 4 supply precisely this valid specialization.
+The current suggested file does not import an unfinished supplier module; it
+states a typed characterization for any native linear family with the exact
+Cartier coefficient interface. Semilinearity in the plan depends on the existing
+supplier, whose implementation is not claimed by this checkpoint.
+
+The monomial rule is psi_0(aT^n)=a(−1)^(n mod p)T^(n div p). At p=3, T maps to
+−1, while at p=2 it maps to 1. This distinguishes psi_0 from the single extractor
+Lambda_0. It is a linear operator, and the dyadic values on Y and Y^2 show that
+it is not multiplicative. Native finite-field expansion identifies F(T^p) with
+F^p. Cartier semilinearity therefore gives psi_0(F(T^p)G)=F psi_0(G).
+
+For r<p, the average of Y^r is the constant alternating binomial sum, which is
+zero for r>0 and one for r=0. Writing n=pq+r now gives the same translated-power
+formula as the actual integral psi. Every integral polynomial P(T) can be written
+as Q(Y), where Q(S)=P(S−1). Finite linearity proves the reduction comparison for
+polynomials. This uses polynomial composition only; it never substitutes a unit
+constant into a general infinite power series.
+
+To pass to all series, the topology matters. Give k its discrete topology and
+both power-series rings their native coefficientwise topologies, using the p-adic
+topology on Z. The residue map Z→k is locally constant: points at distance less
+than one have the same residue. Consequently rho is continuous. Each output
+coefficient of psi_0 depends on a finite block of input coefficients, so psi_0
+is continuous. The integral psi already has its coefficientwise continuity node.
+The two composites agree on integral polynomials, whose inclusion has dense range
+in B. The Hausdorff equalizer theorem then proves
+
+rho(psi(F)) = psi_0(rho(F)) for every F in B.
+
+This is a comparison with the actual measure-derived operator, rather than a
+new definition of it. It gives Coleman consumers the characteristic-p operator
+without creating a reverse dependency from PMIA to the Coleman roadmap.
+
+### The fixed error term without a rational pole
+
+RJW Lemma 12.13 uses the fact that psi fixes Y/T, referring back to Lemma 4.7.
+The bounded operator's domain does not contain this rational function. That
+domain issue is already recorded in `ColemanPowerSeries/E8`; it is not duplicated
+here. The application can be stated and proved entirely in ordinary power series.
+The monomial formula gives psi_0(Y T^(p−1))=Y, including at p=2. Applying the
+Cartier relation to a general H gives
+
+psi_0(Y T^(p−1) H(T^p)) = YH.
+
+The error term in Lemma 12.13 has precisely this form: its coefficients d_m,
+m≥1, determine H=sum_(n≥0) d_(n+1)T^n. This parametrization clears the pole
+before applying psi_0 and avoids any unproved exchange of infinite sums.
+If the error term is fixed, cancellation of the unit Y gives
+H=T^(p−1)H(T^p). A nonzero H of order d would satisfy d=p−1+pd, impossible
+for p>1. Hence H and the error term vanish.
+
+The complete characteristic-p image theorem still requires the logarithmic-
+derivative decomposition and the infinite Euler product in Lemma 12.14, owned
+by ColemanPowerSeries. This checkpoint supplies its residue-operator and final
+fixed-error inputs. It does not claim the full Coleman image, the coefficient-
+general bounded operator comparison, or a completed convolution algebra.
+
+### Local constancy of p-adic reduction
+
+`PadicMeasuresIwasawaAlgebras:L0/residue-map-locally-constant` (lemma); proposed declaration `IwasawaResidue.isLocallyConstant_toZMod`.
+
+The native ring homomorphism PadicInt.toZMod:Z_p→F_p is locally constant.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. At x, use the open ball of radius one. For y in this ball the native norm criterion says p divides y−x.
+2. The kernel of toZMod is the maximal ideal, which is the ideal generated by p. Thus toZMod(y−x)=0 and the two residues agree. Apply the eventual-equality characterization of local constancy.
+
+Prerequisites: `mathlib:PadicInt.norm_lt_one_iff_dvd`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.maximalIdeal_eq_span_p`, `mathlib:IsLocallyConstant.iff_eventually_eq`.
+
+
+Acceptance:
+
+- No new residue field, quotient ring or norm on F_p is defined.
+
+Sources:
+
+- RJW-published, Lemma12.13, printed182–183/PDF83–84, passage to characteristic p. Native-library deduction making the coefficient reduction used in the source continuous. The topology of the finite residue field is stated explicitly.
+
+### Continuity of coefficient reduction
+
+`PadicMeasuresIwasawaAlgebras:L2/series-residue-continuous` (lemma); proposed declaration `IwasawaResidue.continuous_residue_map`.
+
+The actual coefficient reduction rho:B→B_0 is continuous.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+- Use the coefficientwise p-adic topology on B and the coefficientwise discrete topology on B_0; k is given its discrete topology explicitly. The map rho:B→B_0 is the existing coefficient map induced by PadicInt.toZMod.
+
+Proof outline:
+
+1. For each n, the nth coefficient of rho(F) is toZMod(coeff_n(F)), by the native coeff_map formula.
+2. The preceding local-constancy lemma makes toZMod continuous into discrete F_p. Compose with native continuous coefficient evaluation, and use the coefficientwise continuity criterion.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L0/residue-map-locally-constant`, `mathlib:IsLocallyConstant.continuous`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.WithPiTopology.continuous_coeff`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`.
+
+
+Acceptance:
+
+- Continuity is for the displayed product topologies, not an invented norm on all power series.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Averaging a Dirac measure
+
+`PadicMeasuresIwasawaAlgebras:L2/psi-measure-dirac` (lemma); proposed declaration `AbstractMeasure.psiMeasure_dirac`.
+
+For every x in Z_p, psiMeasure(delta_x) is delta_(divideByP(x)) if p divides x in Z_p, and zero otherwise.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+- For this lemma the coefficient ring R is any normed commutative ring, and measures are native D(Z_p,R).
+
+Proof outline:
+
+1. Use the existing evaluation formula for psiMeasure. Applying the Dirac measure evaluates the characteristic function of pZ_p and the divided test at x.
+2. If p divides x the indicator is one, and otherwise it is zero. Native measure extensionality yields the displayed equality. This promotes the already supplied psiMeasure_dirac API item without creating a second signature.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/psi-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/divide-by-p`, `PadicMeasuresIwasawaAlgebras:L2/clopen-pmultiples`, `mathlib:AbstractMeasure.dirac_apply`, `mathlib:LocallyConstant.charFn_eq_one`, `mathlib:LocallyConstant.charFn_eq_zero`.
+
+
+Acceptance:
+
+- The point p is sent to delta_1; a unit point is killed.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Integral averaging on translated powers
+
+`PadicMeasuresIwasawaAlgebras:L2/psi-series-natural-powers` (lemma); proposed declaration `IwasawaResidue.psiSeries_one_add_X_pow`.
+
+For n≥0, psi(Y^n)=Y^(n/p) if p divides n in N, and psi(Y^n)=0 otherwise.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. The existing natural-Dirac Amice identity expresses Y^n as the transform of delta_n. Commute psi with this transform using psi-series-intertwining and apply psi-measure-dirac.
+2. The kernel and maximal-ideal formulas for toZMod, together with natCast_eq_zero_iff, identify divisibility of n by p in Z_p with divisibility in N.
+3. When p divides n, the equality n=p(n/p) and divide-by-p-mul show that the divided point is n/p. Transform the resulting Dirac mass back. When p does not divide n, the transformed measure is zero.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/amice-dirac-natural`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining`, `PadicMeasuresIwasawaAlgebras:L2/psi-measure-dirac`, `PadicMeasuresIwasawaAlgebras:L2/divide-by-p-mul`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.maximalIdeal_eq_span_p`, `mathlib:ZMod.natCast_eq_zero_iff`.
+
+
+Typed tests:
+
+- `ResiduePsiTests.integral_ternary` (computation): The actual integral operator at p=3 sends (1+T)^6 to (1+T)^2.
+
+Acceptance:
+
+- The exponent is divided by p, not left equal to n; n=0 gives psi(1)=1.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Residue averaging operator
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi` (construction); proposed declaration `IwasawaResidue.residuePsi`.
+
+Define the k-linear operator psi_0:B_0→B_0 to be the finite weighted sum of the existing Cartier power-series restrictions, psi_0(F)=sum_(0≤i<p) (−1)^i Lambda_i(F). Equivalently its nth coefficient is sum_(0≤i<p) (−1)^i coeff_(pn+i)(F).
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Import the Cartier supplier only at positive modulus p and residues 0≤i<p. Its power-series restriction is the decimation coeff_n(Lambda_i F)=coeff_(pn+i)(F).
+2. Take the finite weighted sum of these native linear maps. Alternatively construct the same map with PowerSeries.mk and the displayed coefficient formula; linearity is coefficientwise finite-sum algebra and coefficient extensionality identifies the two constructions.
+3. The zero, sum and scalar APIs are linear-map laws. The coefficient characterization and weighted-Cartier characterization expose the construction; the separate monomial and left-inverse nodes provide the generator and Frobenius APIs.
+
+Prerequisites: `ClassicalArithmeticCompletion:CA.2/cartier-operators`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.ext`.
+
+Uses:
+
+- RJW Lemma12.13 and ColemanPowerSeries:L1 characteristic-p image proof: Identifies reduction of the actual integral bounded operator and supplies the pole-cancelled fixed-error calculation.
+- ClassicalArithmeticCompletion:CA.2/cartier-operators: Reuses its power-series restrictions and finite-field semilinearity, with the precise positive-modulus/range boundary.
+- The residue comparison and polynomial-density nodes in this packet: Provides an explicit continuous native operator whose values on translated polynomial powers agree with actual integral averaging after coefficient reduction.
+
+Planning API:
+
+- `IwasawaResidue.coeff_residuePsi` (characterisation): coeff_n(psi_0 F)=sum_(0≤i<p) (−1)^i coeff_(pn+i)(F).
+- `IwasawaResidue.residuePsi_zero` (simp): psi_0(0)=0.
+- `IwasawaResidue.residuePsi_add` (structure): psi_0(F+G)=psi_0(F)+psi_0(G).
+- `IwasawaResidue.residuePsi_smul` (structure): psi_0(aF)=a psi_0(F) for a in F_p.
+- `IwasawaResidue.residuePsi_monomial` (simp): psi_0(aT^n)=a(−1)^(n mod p) T^(n div p).
+- `IwasawaResidue.residuePsi_one` (simp): psi_0(1)=1.
+- `IwasawaResidue.residuePsi_eq_sum_cartier` (compatibility): For any native k-linear family C_i with coeff_n(C_i F)=coeff_(pn+i)(F) for 0≤i<p, psi_0(F)=sum_(0≤i<p) (−1)^i C_i(F). In particular this applies to the imported Cartier restrictions.
+- `IwasawaResidue.residuePsi_expand` (relation): psi_0(F(T^p))=F, using the native PowerSeries.expand map.
+
+Typed tests:
+
+- `ResiduePsiTests.zero` (degenerate): At p=3, psi_0(0)=0.
+- `ResiduePsiTests.ternary_X` (computation): At p=3, psi_0(T)=−1, distinguishing the weighted operator from Lambda_0.
+- `ResiduePsiTests.dyadic_X` (computation): At p=2, psi_0(T)=1; no odd-prime assumption is made.
+- `ResiduePsiTests.native_monomial` (compatibility): At p=3, psi_0 of the native monomial 2T^7 is the native monomial T^2.
+- `ResiduePsiTests.nonmultiplicative` (non-example): At p=2, psi_0((1+T)^2)=1+T differs from psi_0(1+T)^2=0.
+
+Acceptance:
+
+- This is a new weighted bounded-operator specialization, not a second general Cartier extractor or a new series carrier.
+- The map is k-linear and is not multiplicative.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+- rowland-stipulanti-yassawi-bridy-2023, Section3, definition of the Cartier operators and Proposition4, PDF5 (v2); full PDF5–6 read. Use only K=F_p, q=p>0 and 0≤r<p. The generic Cartier construction and power-series restriction are owned by ClassicalArithmeticCompletion:CA.2/cartier-operators. Its finite-field relation supplies the semilinearity of the weighted sum. No q=0 or r≥q power-series claim is consumed.
+
+### Coefficients of residue averaging
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-coefficient` (lemma); proposed declaration `IwasawaResidue.coeff_residuePsi`.
+
+For F in B_0 and n≥0, coeff_n(psi_0 F)=sum_(0≤i<p) (−1)^i coeff_(pn+i)(F).
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Apply coefficient evaluation to the finite weighted Cartier sum. Use the coefficient characterization of each imported restriction and linearity of the native coefficient map.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi`, `ClassicalArithmeticCompletion:CA.2/cartier-operators`.
+
+
+Acceptance:
+
+- For p=3 the nth output coefficient is c_(3n)−c_(3n+1)+c_(3n+2).
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+- rowland-stipulanti-yassawi-bridy-2023, Section3, definition of the Cartier operators and Proposition4, PDF5 (v2); full PDF5–6 read. Use only K=F_p, q=p>0 and 0≤r<p. The generic Cartier construction and power-series restriction are owned by ClassicalArithmeticCompletion:CA.2/cartier-operators. Its finite-field relation supplies the semilinearity of the weighted sum. No q=0 or r≥q power-series claim is consumed.
+
+### Residue averaging on a monomial
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-monomial` (lemma); proposed declaration `IwasawaResidue.residuePsi_monomial`.
+
+For a in F_p and n≥0, psi_0(aT^n)=a(−1)^(n mod p)T^(n div p), expressed using native monomial.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Apply residue-psi-coefficient and the native coefficient-of-monomial formula. Write n=p(n div p)+(n mod p), with 0≤n mod p<p.
+2. Only that residue can contribute, and only at output degree n div p. Coefficient extensionality proves the identity, also when a=0.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi-coefficient`, `mathlib:PowerSeries.coeff_monomial`, `mathlib:PowerSeries.ext`.
+
+
+Acceptance:
+
+- The sign depends on the remainder, not the quotient. In particular psi_0(1)=1 follows with n=0 and a=1.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Continuity of residue averaging
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-continuous` (lemma); proposed declaration `IwasawaResidue.continuous_residuePsi`.
+
+The k-linear map psi_0 is continuous for the coefficientwise discrete topology on B_0.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+- Use the coefficientwise p-adic topology on B and the coefficientwise discrete topology on B_0; k is given its discrete topology explicitly. The map rho:B→B_0 is the existing coefficient map induced by PadicInt.toZMod.
+
+Proof outline:
+
+1. For each output degree n, residue-psi-coefficient writes its value as a finite sum of fixed scalar multiples of input coefficient evaluations.
+2. Every coordinate evaluation is continuous. Finite sums and fixed scalar multiplication in the discrete finite field are continuous. Apply the native coefficientwise continuity criterion.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi-coefficient`, `mathlib:PowerSeries.WithPiTopology.continuous_coeff`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`.
+
+
+Acceptance:
+
+- The argument uses only finitely many input coefficients for each output coordinate.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Cartier semilinearity of residue averaging
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-semilinear` (lemma); proposed declaration `IwasawaResidue.residuePsi_expand_mul`.
+
+For F,G in B_0, psi_0(F(T^p)G)=F psi_0(G). Here F(T^p) is the native expand map.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Native FiniteField.PowerSeries.expand_card identifies F(T^p) with F^p over F_p.
+2. For each imported Cartier restriction with 0≤i<p, its finite-field relation gives Lambda_i(F^p G)=F Lambda_i(G). Multiply by (−1)^i and add the p identities.
+3. Coefficient characterization identifies the weighted sums with psi_0 on each side. No trace division by p is used in characteristic p.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi-coefficient`, `ClassicalArithmeticCompletion:CA.2/cartier-operators`, `mathlib:PowerSeries.expand`, `mathlib:FiniteField.PowerSeries.expand_card`.
+
+
+Acceptance:
+
+- This twisted relation does not make psi_0 a multiplicative map.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+- rowland-stipulanti-yassawi-bridy-2023, Section3, definition of the Cartier operators and Proposition4, PDF5 (v2); full PDF5–6 read. Use only K=F_p, q=p>0 and 0≤r<p. The generic Cartier construction and power-series restriction are owned by ClassicalArithmeticCompletion:CA.2/cartier-operators. Its finite-field relation supplies the semilinearity of the weighted sum. No q=0 or r≥q power-series claim is consumed.
+
+### Residue averaging below degree p
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-small-translated-powers` (lemma); proposed declaration `IwasawaResidue.residuePsi_one_add_X_pow_lt`.
+
+For 0≤r<p, psi_0(Y^r)=1 if r=0 and zero otherwise.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. For any polynomial of degree less than p, the coefficient formula has zero output in every positive degree, and its constant coefficient is the alternating sum of polynomial coefficients.
+2. Apply this to (1+T)^r. The native coefficient/binomial formula and polynomial evaluation at −1 identify the alternating sum with (1−1)^r. Treat r=0 separately, giving one; every positive r gives zero.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi-coefficient`, `mathlib:Polynomial.coeff_one_add_X_pow`, `mathlib:Polynomial.eval_eq_sum_range`, `mathlib:PowerSeries.ext`.
+
+
+Acceptance:
+
+- The zero exponent is included; at p=2 the sole positive case is r=1.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Residue averaging on all translated powers
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-natural-powers` (lemma); proposed declaration `IwasawaResidue.residuePsi_one_add_X_pow`.
+
+For n≥0, psi_0(Y^n)=Y^(n/p) if p divides n, and zero otherwise.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Write n=pq+r with q=n div p and r=n mod p. Native finite-field expansion gives Y^(pq+r)=expand_p(Y^q)Y^r.
+2. Apply residue-psi-semilinear and then residue-psi-small-translated-powers. The remainder is zero exactly when p divides n.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi-semilinear`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi-small-translated-powers`, `mathlib:FiniteField.PowerSeries.expand_card`.
+
+
+Acceptance:
+
+- Both n=0 and n=p agree with the integral natural-power formula.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Reduction of integral averaging on polynomials
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-polynomial-comparison` (comparison); proposed declaration `IwasawaResidue.residue_psiSeries_polynomial`.
+
+For every P in Z_p[T], rho(psi(P))=psi_0(rho(P)), where P is coerced to the native integral power-series ring.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Put Q(S)=P(S−1). The native polynomial composition identity gives P(T)=Q(1+T); finite polynomial expansion therefore writes P as a finite sum of integral scalar multiples of Y^n.
+2. For each Y^n, compare psi-series-natural-powers and residue-psi-natural-powers. The native coefficient map preserves constants, sums and powers.
+3. Use Z_p-linearity of the actual psi, F_p-linearity of psi_0 and scalar reduction to sum the identities. Only finite polynomial composition is used, so substitution of a nonzero constant into an infinite series never occurs.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/psi-series-natural-powers`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi-natural-powers`, `PadicMeasuresIwasawaAlgebras:L2/psi-series`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi`, `mathlib:Polynomial.comp_assoc`, `mathlib:Polynomial.comp_eq_sum_left`, `mathlib:PowerSeries.map`.
+
+
+Acceptance:
+
+- The integral operator is kept fixed; agreement is derived from native measures rather than defining it by the residue formula.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Reduction of the actual integral averaging operator
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-comparison` (comparison); proposed declaration `IwasawaResidue.residue_psiSeries`.
+
+For every integral power series F, rho(psi(F))=psi_0(rho(F)).
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+- Use the coefficientwise p-adic topology on B and the coefficientwise discrete topology on B_0; k is given its discrete topology explicitly. The map rho:B→B_0 is the existing coefficient map induced by PadicInt.toZMod.
+
+Proof outline:
+
+1. The maps rho composed with actual psi and psi_0 composed with rho are continuous by psi-series-continuous, series-residue-continuous and residue-psi-continuous.
+2. They agree on every polynomial by residue-psi-polynomial-comparison. Native denseRange_toPowerSeries makes integral polynomials dense for the coefficientwise p-adic topology.
+3. The residue series ring is Hausdorff because its coefficients are discrete. Apply DenseRange.equalizer to obtain equality on all B.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi-polynomial-comparison`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-continuous`, `PadicMeasuresIwasawaAlgebras:L2/series-residue-continuous`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi-continuous`, `mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries`, `mathlib:DenseRange.equalizer`.
+
+
+Typed tests:
+
+- `ResiduePsiTests.actual_reduction` (compatibility): For every F in Z_2[[T]], reduction of its actual integral psi equals psi_0 of its coefficient reduction.
+
+Acceptance:
+
+- This comparison is available to Coleman consumers without reversing the dependency to the Coleman packet. It makes no completed-group-algebra or finite-extension coefficient claim.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Residue averaging is a left inverse to expansion
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-left-inverse` (lemma); proposed declaration `IwasawaResidue.residuePsi_expand`.
+
+For every F in B_0, psi_0(F(T^p))=F.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Apply residue-psi-semilinear with G=1. The monomial formula at n=0, a=1 gives psi_0(1)=1, and multiplication by one yields the result.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi-semilinear`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi-monomial`.
+
+
+Acceptance:
+
+- This is the residue counterpart of the supplied integral left inverse; expansion is the native algebra map.
+
+Sources:
+
+- RJW-published, §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
+
+### Averaging the polynomial that clears the pole
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-pole-basis` (lemma); proposed declaration `IwasawaResidue.residuePsi_pole_basis`.
+
+In B_0, psi_0(Y T^(p−1))=Y.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Expand the input as T^(p−1)+T^p, using p>1. The monomial formula sends these terms to (−1)^(p−1) and T respectively.
+2. Native ZMod.pow_card_sub_one_eq_one applied to −1 gives (−1)^(p−1)=1 for every prime, including 2. Add the terms.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi-monomial`, `mathlib:PowerSeries.monomial_eq_C_mul_X_pow`, `mathlib:ZMod.pow_card_sub_one_eq_one`.
+
+
+Typed tests:
+
+- `ResiduePsiTests.pole_polynomial` (computation): At p=2, psi_0((1+T)T)=1+T.
+
+Acceptance:
+
+- Both sides are ordinary power series; no value of bounded psi at Y/T is used.
+
+Sources:
+
+- RJW-published, Lemma12.13, printed182–183/PDF83–84, especially the displayed error term b and the appeal to Lemma4.7. Worker replacement of the rational-pole step by a statement entirely inside F_p[[T]]. Existing ColemanPowerSeries/E8 records the bounded-domain problem with Lemma4.7; this is its Lemma12.13 application, not a second source finding. The present statements do not supply Lemma12.14 or the full Coleman image theorem.
+
+### Pole-cancelled residue averaging identity
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-pole-cancelled` (lemma); proposed declaration `IwasawaResidue.residuePsi_pole_cancelled`.
+
+For H in B_0, psi_0(Y T^(p−1) H(T^p))=Y H.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Commute H(T^p) to the first factor and apply residue-psi-semilinear.
+2. The remaining factor is Y T^(p−1), whose average is Y by residue-psi-pole-basis. Commute H and Y to give the stated identity.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi-semilinear`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi-pole-basis`.
+
+
+Acceptance:
+
+- For b=sum_(m≥1) d_m Y T^(pm−1), take H=sum_(n≥0) d_(n+1)T^n. This parametrizes the source error term without introducing a Laurent series or exchanging an unproved infinite sum.
+
+Sources:
+
+- RJW-published, Lemma12.13, printed182–183/PDF83–84, especially the displayed error term b and the appeal to Lemma4.7. Worker replacement of the rational-pole step by a statement entirely inside F_p[[T]]. Existing ColemanPowerSeries/E8 records the bounded-domain problem with Lemma4.7; this is its Lemma12.13 application, not a second source finding. The present statements do not supply Lemma12.14 or the full Coleman image theorem.
+
+### Vanishing of a shifted Frobenius fixed series
+
+`PadicMeasuresIwasawaAlgebras:L2/shifted-expand-fixed-zero` (lemma); proposed declaration `IwasawaResidue.shifted_expand_fixed_zero`.
+
+If H in B_0 satisfies T^(p−1)H(T^p)=H, then H=0.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. Suppose H is nonzero and let d be its finite native power-series order. The order of T^(p−1) is p−1 and the native order_expand formula gives order(H(T^p))=pd.
+2. The native order_mul theorem over the field F_p turns the assumed equality into d=p−1+pd.
+3. Since p>1 and d≥0, the right side is strictly greater than d. This contradiction proves H=0.
+
+Prerequisites: `mathlib:PowerSeries.coe_toNat_order`, `mathlib:PowerSeries.order_mul`, `mathlib:PowerSeries.order_X_pow`, `mathlib:PowerSeries.order_expand`.
+
+
+Acceptance:
+
+- The prime hypothesis supplies p>1. At p=1 the analogous equation would hold for every H, so that case cannot be admitted.
+
+Sources:
+
+- RJW-published, Lemma12.13, printed182–183/PDF83–84, especially the displayed error term b and the appeal to Lemma4.7. Worker replacement of the rational-pole step by a statement entirely inside F_p[[T]]. Existing ColemanPowerSeries/E8 records the bounded-domain problem with Lemma4.7; this is its Lemma12.13 application, not a second source finding. The present statements do not supply Lemma12.14 or the full Coleman image theorem.
+
+### Vanishing of the fixed error term
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-psi-fixed-error-zero` (lemma); proposed declaration `IwasawaResidue.pole_error_fixed_zero`.
+
+If psi_0(Y T^(p−1) H(T^p))=Y T^(p−1) H(T^p), then H=0; consequently the displayed error term is zero.
+
+Hypotheses and conventions:
+
+- p is prime, including p=2. Z=Z_p is the native p-adic integer ring and k=ZMod p. B=Z[[T]] and B_0=k[[T]] are native PowerSeries carriers; Y=1+T. The integral psi is the existing Amice transport of the measure restriction/division operator.
+
+Proof outline:
+
+1. The pole-cancelled identity makes the fixedness equation YH=Y T^(p−1)H(T^p).
+2. The constant coefficient of Y is one, so the native isUnit_iff_constantCoeff criterion makes Y a unit. Cancel it to obtain H=T^(p−1)H(T^p).
+3. Apply shifted-expand-fixed-zero, then substitute H=0 in the error term. This supplies exactly the final fixed-error argument in Lemma12.13.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/residue-psi-pole-cancelled`, `PadicMeasuresIwasawaAlgebras:L2/shifted-expand-fixed-zero`, `mathlib:PowerSeries.isUnit_iff_constantCoeff`.
+
+
+Typed tests:
+
+- `ResiduePsiTests.nonzero_error` (non-example): At p=3, the nonzero error polynomial (1+T)T^2 is not fixed by psi_0.
+
+Acceptance:
+
+- The statement proves the fixed-error step only. The preceding Cartier/logarithmic-derivative decomposition and the Lemma12.14 Euler product remain Coleman-owned inputs; the full image theorem is not claimed.
+
+Sources:
+
+- RJW-published, Lemma12.13, printed182–183/PDF83–84, especially the displayed error term b and the appeal to Lemma4.7. Worker replacement of the rational-pole step by a statement entirely inside F_p[[T]]. Existing ColemanPowerSeries/E8 records the bounded-domain problem with Lemma4.7; this is its Lemma12.13 application, not a second source finding. The present statements do not supply Lemma12.14 or the full Coleman image theorem.
+
+### Reading and validation boundary
+
+Fresh full readings: RJW published printed127–129/PDF28–30 and printed181–184/
+PDF82–85; Rowland–Stipulanti–Yassawi v2 PDF5–6, with PDF3–4 checked to confirm
+the section context. The published RJW and arXiv edition findings are preserved.
+No new source mistake or independent-review verdict is added. All fourteen
+previous findings remain unchanged. The source and baseline entries distinguish
+native inputs, imported planned results and worker deductions.
+
+The full suggested file compiles with zero errors and 442 proof-placeholder
+warnings only. Its import audit reaches 2,793 byte-checked Mathlib sources.
+Separate scratch verification contains one native weighted linear-map construction
+and fourteen lemmas: nine unconditional native lemmas and five conditional adapters.
+Four adapters take the existing Cartier coefficient/semilinearity interface; the
+fifth takes actual-operator continuity and the polynomial comparison to verify
+the density passage. They compile with no errors, warnings or placeholders,
+against 2,072 byte-checked Mathlib sources. They do not implement the imported
+Cartier supplier or the existing Amice operator.
+
+An independent integer-polynomial computation checks reduction of the translated-
+basis integral action against the direct residue coefficient formula. Together
+with generator, semilinearity, pole, fixed-error and nonmultiplicativity controls,
+it passes 2,444 exact assertions for p=2,3,5,7. These finite checks test formulas;
+they are not a proof about arbitrary infinite series.
+
+The eighteen nodes add no planet: the existing thirteen planets continue to name
+the layer's central objects. The coverage ledger remains partial in all eight
+stages. All 191 predecessor nodes and 185 baseline entries are preserved whole.
+
+## Earlier checkpoint material
+
 **Integral unit-domain checkpoint, 27 September2026.** The packet now has191
 unchecked nodes,155 API items,131 packet tests,142 typed examples,13 planets
 and185 baseline references. All179 predecessor nodes from the weak/norm
