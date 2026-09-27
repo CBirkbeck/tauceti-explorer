@@ -11,7 +11,7 @@
     "ProbabilisticAndMetricNumberTheory:PM.5"
   ],
   "status": "partial",
-  "summary": "Partial PM.0-PM.1 checkpoint: finite weighted truncations, divisibility and residue laws, mixed and Gaussian-model moments, prime-cutoff transfer, and the repeated-prime-factor first-moment/tail/CDF interface. All six stages retain explicit source and proof gaps.",
+  "summary": "Partial PM.0-PM.1 checkpoint: finite arithmetic/residue and moment comparisons, prime-cutoff transfer, repeated-factor first moments, the finite counting/CDF/characteristic-function dictionary and conditional omega-to-Omega weak-limit transfer. No Gaussian limit or complete stage is claimed.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -585,6 +585,84 @@
         "module": "Mathlib.MeasureTheory.Measure.Real",
         "provides": "Subadditivity of real-valued measure on two events, used in the arithmetic CDF comparison.",
         "checked": "Source statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27. Generated additive suppliers are identified explicitly."
+      },
+      {
+        "ref": "mathlib:measurable_of_countable",
+        "module": "Mathlib.MeasureTheory.MeasurableSpace.Basic",
+        "provides": "Every function from countable discrete naturals is measurable; no arithmetic measurability carrier is required.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.map_measureReal_apply",
+        "module": "Mathlib.MeasureTheory.Measure.Real",
+        "provides": "Real mass of a measurable pushforward event equals the real mass of its preimage.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:ProbabilityTheory.cdf_eq_real",
+        "module": "Mathlib.Probability.CDF",
+        "provides": "The native probability CDF equals real measure of the inclusive lower half-line.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.charFun_apply_real",
+        "module": "Mathlib.MeasureTheory.Measure.CharacteristicFunction.Basic",
+        "provides": "Native real characteristic function uses exp(i*t*x), with positive sign and no 2*pi factor.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_map",
+        "module": "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "provides": "Integration against a measurable pushforward equals the integral of the composed observation.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.tendstoInDistribution_iff_tendsto_charFun",
+        "module": "Mathlib.MeasureTheory.Measure.LevyConvergence",
+        "provides": "Native Levy criterion in finite-dimensional real inner-product spaces, permitting varying source probability spaces.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:lipschitzWith_iff_dist_le_mul",
+        "module": "Mathlib.Topology.MetricSpace.Lipschitz",
+        "provides": "Native nonnegative Lipschitz constant bounds pointwise distances; its forward alias is LipschitzWith.dist_le_mul.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:tendsto_inv_atTop_zero",
+        "module": "Mathlib.Topology.Algebra.Order.Field",
+        "provides": "Reciprocals tend to zero at positive infinity.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:squeeze_zero'",
+        "module": "Mathlib.Topology.MetricSpace.Pseudo.Lemmas",
+        "provides": "Eventual nonnegative squeezing transfers a zero limit, ignoring initial scales.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:squeeze_zero",
+        "module": "Mathlib.Topology.MetricSpace.Pseudo.Lemmas",
+        "provides": "Pointwise nonnegative squeezing, used after Markov at fixed positive threshold.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.TendstoInDistribution",
+        "module": "Mathlib.MeasureTheory.Function.ConvergenceInDistribution",
+        "provides": "Native convergence of measurable observations through probability-measure pushforwards; varying measures are supported by the definition.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.tendsto_iff_forall_lipschitz_integral_tendsto",
+        "module": "Mathlib.MeasureTheory.Measure.Portmanteau",
+        "provides": "Weak convergence of probability measures is equivalent to convergence against every bounded real Lipschitz test, for countably generated filters.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:tendsto_iff_dist_tendsto_zero",
+        "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
+        "provides": "Convergence in a pseudometric space is equivalent to the distance to the proposed limit tending to zero.",
+        "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
       }
     ]
   },
@@ -747,7 +825,8 @@
       "readSections": [
         "Section 4 opening omega/Omega divisor-sum identities through Remark 45 and Exercise 46, Theorem 47, and Exercise 51(i)-(iv) with its normalization paragraph. The intervening multiplication-table discussion was read for context, not decomposed.",
         "Exercise 46 states the moment bounds as exercises, without a supplied proof. This continuation provides an explicit finite k=1 proof only. Higher moments, the full Hardy-Ramanujan deduction, and the Gaussian-limit exercise remain open.",
-        "Bounded title/Exercise 46 correction search and occurrence screen of the acquired HTML yielded no applicable correction. This is not a source-wide correctness verdict or complete comment-thread collation."
+        "Bounded title/Exercise 46 correction search and occurrence screen of the acquired HTML yielded no applicable correction. This is not a source-wide correctness verdict or complete comment-thread collation.",
+        "27 September limit-transfer continuation: Exercises 46 and 51 and Theorem 47 freshly reread. The conditional omega-to-Omega transfer in Exercise 51(iv) is now decomposed from the existing first moment, without claiming the omega Gaussian convergence in part (iii). Earlier read-scope text records the preceding checkpoint."
       ]
     },
     {
@@ -760,6 +839,32 @@
         "ArithmeticFunction/Misc.lean lines 257-352; Factorization/Defs.lean lines 40-110; Factorization/Basic.lean lines 118-175; PrimeFin.lean lines 1-80; PrimeCounting.lean lines 124-174.",
         "Data/Finset/Card.lean lines 183-218; Order/Interval/Finset/Nat.lean lines 68-92; Algebra/Order/Field/GeomSum.lean complete file; Algebra/Field/GeomSum.lean complete file; BigOperators/Intervals.lean lines 207-236.",
         "Algebra/Order/BigOperators/Group/Finset.lean subset-monotonicity statement and additive attribute; MeasureTheory/Integral/Bochner/Basic.lean lines 1110-1145; MeasureTheory/Measure/Real.lean lines 68-153. Existing empirical-measure file reread in full."
+      ]
+    },
+    {
+      "id": "TAO-CLT-2010",
+      "title": "254A, Notes 2: The central limit theorem",
+      "authors": "Terence Tao",
+      "edition": "Author web exposition dated 5 January 2010; selected passages accessed 27 September 2026.",
+      "url": "https://terrytao.wordpress.com/2010/01/05/254a-notes-2-the-central-limit-theorem/",
+      "accessed": "2026-09-27",
+      "sha256": "ffa97487e6339d8cef52ad1c0609373738520c027b06ba24a89e8af2caad332d",
+      "readSections": [
+        "Section 1 Exercise 5 (linearity of convergence). Section 2 from equation (5), the characteristic-function convention, through Theorem 13 and its complete proof; Exercise 15 and hint inspected to distinguish a supplied probability target from an arbitrary pointwise limit.",
+        "Exercise 11's final derivative display contains the scoped evaluation-at-zero omission recorded as E4. Its Taylor theorem is not a new node of this arithmetic packet.",
+        "Bounded title/Exercise 11 correction search and current author-HTML comment occurrence screen found no applicable correction. No full comment-thread collation, print-edition comparison, or whole-source correctness judgment is claimed."
+      ]
+    },
+    {
+      "id": "ML-ARITHMETIC-LIMITS",
+      "title": "Pinned probability-law and weak-convergence suppliers",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/MeasureTheory/Measure/LevyConvergence.lean",
+      "readSections": [
+        "ConvergenceInDistribution.lean lines 45-225, including varying-domain definition and fixed-measure restriction of its Slutsky helper; LevyConvergence.lean lines 35-53,188-258; Portmanteau.lean lines 675-722.",
+        "Probability/CDF.lean lines 72-87; Measure/CharacteristicFunction/Basic.lean lines 125-143; Measure/Real.lean lines 70-89; Integral/Bochner/Basic.lean lines 252-272,284-294,630-646,930-950,1030-1069.",
+        "MeasurableSpace/Basic.lean lines 280-297; Topology/MetricSpace/Lipschitz.lean lines 42-53; Pseudo/Lemmas.lean lines 25-43; Pseudo/Defs.lean lines 1192-1205; Topology/Algebra/Order/Field.lean lines 62-81. Existing Tau Ceti empirical measure file reread completely."
       ]
     }
   ],
@@ -3464,6 +3569,474 @@
         "module": "TauCeti.NumberTheory.ArithmeticProbability.RepeatedPrimeFactors",
         "namespace": "TauCeti.Probability.Arithmetic"
       }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-count",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Arithmetic observation frequencies",
+      "kind": "lemma",
+      "statement": "For f:N→R and every Borel set B, (map f mu_N).real(B)=#{k in {0,...,m}: f(k+1) in B}/N.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Samples are 1,...,N, never zero. Repeated observation values retain their multiplicities.",
+        "All law, CDF, characteristic-function and convergence objects are native. nu denotes a Borel probability measure on the real line when present; convergence is along natural m tending to infinity."
+      ],
+      "proofSteps": [
+        "Apply native measurability of every map from discrete naturals, then map_measureReal_apply to pull back B.",
+        "Apply empiricalMeasure_apply_toReal on the natural-number preimage. Convert its finite sum of 0/1 indicators to the cardinality of the filtered range and replace inverse multiplication by division. Count indices, not the image set; no injectivity of f is assumed."
+      ],
+      "prerequisites": [
+        "mathlib:measurable_of_countable",
+        "mathlib:MeasureTheory.map_measureReal_apply",
+        "tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal"
+      ],
+      "acceptance": [
+        "A constant observation 7 on N=4 has mass 1 at 7, not 1/4.",
+        "For N=1 and f(n)=n, the law gives mass 1 to {1}, not {0}."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-CLT-2010",
+          "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
+          "excerpt": "converges in distribution",
+          "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.LimitTransfer",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.arithmetic_law_count",
+      "tests": [
+        {
+          "name": "law_constant_retains_multiplicity",
+          "kind": "computation",
+          "statement": "A constant observation 7 on N=4 has mass 1 at 7, not 1/4."
+        },
+        {
+          "name": "law_one_point_samples_one",
+          "kind": "non-example",
+          "statement": "For N=1 and f(n)=n, the law gives mass 1 to {1}, not {0}."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-cdf",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Arithmetic cumulative distribution counts",
+      "kind": "lemma",
+      "statement": "For every f:N→R and x in R, the native cdf of map f mu_N at x equals #{k in {0,...,m}: f(k+1)<=x}/N.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Samples are 1,...,N, never zero. Repeated observation values retain their multiplicities.",
+        "All law, CDF, characteristic-function and convergence objects are native. nu denotes a Borel probability measure on the real line when present; convergence is along natural m tending to infinity."
+      ],
+      "proofSteps": [
+        "Use native cdf_eq_real for the pushforward probability measure.",
+        "Apply arithmetic-law-count to the closed half-line (-infinity,x]. The endpoint is inclusive; no continuity of the finite atomic CDF is assumed."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-count",
+        "mathlib:ProbabilityTheory.cdf_eq_real"
+      ],
+      "acceptance": [
+        "For N=2,f(n)=n,x=1 the CDF is 1/2; a strict endpoint gives 0.",
+        "For N=4,f(n)=n,x=0 the CDF is 0."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-CLT-2010",
+          "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
+          "excerpt": "converges in distribution",
+          "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.LimitTransfer",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.arithmetic_law_cdf",
+      "tests": [
+        {
+          "name": "cdf_inclusive_at_atom",
+          "kind": "computation",
+          "statement": "For N=2,f(n)=n,x=1 the CDF is 1/2; a strict endpoint gives 0."
+        },
+        {
+          "name": "cdf_below_positive_sample",
+          "kind": "non-example",
+          "statement": "For N=4,f(n)=n,x=0 the CDF is 0."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-charfun",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Arithmetic characteristic-function average",
+      "kind": "lemma",
+      "statement": "For every f:N→R and real t, charFun(map f mu_N)(t)=(1/N) sum_{k=0}^m exp(i*t*f(k+1)). The complex division uses the cast of the positive integer N.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Samples are 1,...,N, never zero. Repeated observation values retain their multiplicities.",
+        "All law, CDF, characteristic-function and convergence objects are native. nu denotes a Borel probability measure on the real line when present; convergence is along natural m tending to infinity."
+      ],
+      "proofSteps": [
+        "Expand native charFun_apply_real: its phase is +i*t*x, without a 2*pi factor.",
+        "Use integral_map with the measurable arithmetic observation and continuous complex exponential. Apply the existing complex-valued integral_empiricalMeasure to the composition on naturals.",
+        "Rewrite real scalar multiplication on C as division by the complex cast of N. This identity requires no integrability hypothesis on the infinite observation sequence: only a finite population is integrated."
+      ],
+      "prerequisites": [
+        "mathlib:measurable_of_countable",
+        "mathlib:MeasureTheory.charFun_apply_real",
+        "mathlib:MeasureTheory.integral_map",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "acceptance": [
+        "At t=0 the characteristic function equals 1 for every m and f.",
+        "The constant observation 1 at t=pi/2 has characteristic function i, not -i and not the 2*pi Fourier phase."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-CLT-2010",
+          "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
+          "excerpt": "converges in distribution",
+          "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.LimitTransfer",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.arithmetic_law_charfun",
+      "tests": [
+        {
+          "name": "charfun_zero_normalization",
+          "kind": "computation",
+          "statement": "At t=0 the characteristic function equals 1 for every m and f."
+        },
+        {
+          "name": "charfun_positive_phase",
+          "kind": "non-example",
+          "statement": "The constant observation 1 at t=pi/2 has characteristic function i, not -i and not the 2*pi Fourier phase."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-levy-criterion",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Arithmetic Levy criterion",
+      "kind": "theorem",
+      "statement": "Let f_m:N→R be any sequence and nu a Borel probability measure on R. The native TendstoInDistribution of f_m under mu_(m+1) to the identity observation under nu holds if and only if, for every real t, (1/(m+1)) sum_{k=0}^m exp(i*t*f_m(k+1)) tends to charFun(nu)(t).",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Samples are 1,...,N, never zero. Repeated observation values retain their multiplicities.",
+        "All law, CDF, characteristic-function and convergence objects are native. nu denotes a Borel probability measure on the real line when present; convergence is along natural m tending to infinity."
+      ],
+      "proofSteps": [
+        "Every f_m is measurable because the domain is countable and discrete; the identity observation under nu is measurable.",
+        "Apply the existing tendstoInDistribution_iff_tendsto_charFun, which permits varying source probability measures.",
+        "Substitute arithmetic-law-charfun termwise and map_id on the target. The target is supplied as an actual probability measure; arbitrary pointwise limits are not accepted without the missing continuity/tightness condition."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-charfun",
+        "mathlib:measurable_of_countable",
+        "mathlib:MeasureTheory.tendstoInDistribution_iff_tendsto_charFun"
+      ],
+      "acceptance": [
+        "The observations f_m(n)=c converge to the native Dirac law at c.",
+        "For every m the finite normalized exponential sum at zero is 1; omitting normalization gives m+1."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-CLT-2010",
+          "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
+          "excerpt": "converges in distribution",
+          "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.LimitTransfer",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.arithmetic_levy_criterion",
+      "tests": [
+        {
+          "name": "levy_constant_law",
+          "kind": "computation",
+          "statement": "The observations f_m(n)=c converge to the native Dirac law at c."
+        },
+        {
+          "name": "levy_sum_at_zero_not_zero",
+          "kind": "non-example",
+          "statement": "For every m the finite normalized exponential sum at zero is 1; omitting normalization gives m+1."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-lipschitz-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Lipschitz comparison of prime-factor laws",
+      "kind": "lemma",
+      "statement": "For real b, positive s, and a real-valued L-Lipschitz function g with L>=0, |E_muN[g((Omega-b)/s)]-E_muN[g((omega-b)/s)]| <= L*(1-1/N)/s.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Samples are 1,...,N, never zero. Repeated observation values retain their multiplicities.",
+        "All law, CDF, characteristic-function and convergence objects are native. nu denotes a Borel probability measure on the real line when present; convergence is along natural m tending to infinity.",
+        "Use the existing omega=cardDistinctFactors and Omega=cardFactors, with real casts before subtraction. D=Omega-omega>=0. Put X_m(n)=(omega(n)-b_m)/s_m and Y_m(n)=(Omega(n)-b_m)/s_m with the SAME center and scale. These are local expressions, not new carriers."
+      ],
+      "proofSteps": [
+        "Rewrite both empirical integrals as finite normalized sums. Thus even globally unbounded g is integrable here.",
+        "For every sampled n, the common center cancels and |Y-X|=|D/s|. The native Lipschitz inequality bounds |g(Y)-g(X)| by L*|D/s|.",
+        "Apply the existing finite triangle inequality and termwise sum monotonicity, pull out the nonnegative factor L, and rewrite the resulting average as the empirical integral of |D/s|.",
+        "Apply excess-scaled-l1. The bound is not a pointwise claim D<=1, and requires no independence, differentiability or boundedness of g."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-scaled-l1",
+        "mathlib:lipschitzWith_iff_dist_le_mul",
+        "mathlib:Finset.abs_sum_le_sum_abs",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "acceptance": [
+        "A constant statistic has comparison error zero at every sample size.",
+        "At N=4,b=0,s=1,g=id the signed mean gap is +1/4."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4 Exercise 46(i), k=1, and Exercise 51(iv)",
+          "excerpt": "replaced by",
+          "match": "Worker-derived quantitative comparison and conditional transfer for arbitrary diverging scale and probability target. The source's Gaussian convergence for omega remains an unsupplied hypothesis; higher repeated-factor moments are not inferred."
+        },
+        {
+          "sourceId": "TAO-CLT-2010",
+          "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
+          "excerpt": "converges in distribution",
+          "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.LimitTransfer",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_lipschitz_bound",
+      "tests": [
+        {
+          "name": "lipschitz_constant_statistic",
+          "kind": "computation",
+          "statement": "A constant statistic has comparison error zero at every sample size."
+        },
+        {
+          "name": "lipschitz_identity_signed_gap",
+          "kind": "non-example",
+          "statement": "At N=4,b=0,s=1,g=id the signed mean gap is +1/4."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-l1-limit",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Vanishing normalized repeated-factor mean",
+      "kind": "theorem",
+      "statement": "For any real sequence s_m tending to positive infinity, E_mu(m+1)[|D/s_m|] tends to 0. Finitely many zero or negative scales are allowed by native total division and do not affect the limit.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Samples are 1,...,N, never zero. Repeated observation values retain their multiplicities.",
+        "All law, CDF, characteristic-function and convergence objects are native. nu denotes a Borel probability measure on the real line when present; convergence is along natural m tending to infinity.",
+        "Use the existing omega=cardDistinctFactors and Omega=cardFactors, with real casts before subtraction. D=Omega-omega>=0. Put X_m(n)=(omega(n)-b_m)/s_m and Y_m(n)=(Omega(n)-b_m)/s_m with the SAME center and scale. These are local expressions, not new carriers."
+      ],
+      "proofSteps": [
+        "Divergence of s_m implies s_m>0 eventually, so the existing excess-scaled-l1 applies on that tail.",
+        "The integral is nonnegative and is at most (1-1/N)/s_m<=1/s_m eventually. Here N=m+1>=1 and 1/N>=0.",
+        "Compose tendsto_inv_atTop_zero with the scale limit and use the native eventual squeeze theorem. Do not require positivity at m=0."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-scaled-l1",
+        "mathlib:tendsto_inv_atTop_zero",
+        "mathlib:squeeze_zero'"
+      ],
+      "acceptance": [
+        "The scale s_m=m gives the zero limit although its first term is zero.",
+        "At fixed scale 1 and N=4 the absolute mean is 1/4; scale divergence cannot be dropped from the proof."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4 Exercise 46(i), k=1, and Exercise 51(iv)",
+          "excerpt": "replaced by",
+          "match": "Worker-derived quantitative comparison and conditional transfer for arbitrary diverging scale and probability target. The source's Gaussian convergence for omega remains an unsupplied hypothesis; higher repeated-factor moments are not inferred."
+        },
+        {
+          "sourceId": "TAO-CLT-2010",
+          "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
+          "excerpt": "converges in distribution",
+          "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.LimitTransfer",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_l1_limit",
+      "tests": [
+        {
+          "name": "l1_scale_can_start_at_zero",
+          "kind": "computation",
+          "statement": "The scale s_m=m gives the zero limit although its first term is zero."
+        },
+        {
+          "name": "l1_fixed_scale_not_a_vanishing_bound",
+          "kind": "non-example",
+          "statement": "At fixed scale 1 and N=4 the absolute mean is 1/4; scale divergence cannot be dropped from the proof."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-tail-limit",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Vanishing repeated-factor tail frequencies",
+      "kind": "theorem",
+      "statement": "For s_m tending to positive infinity and every epsilon>0, mu_(m+1).real{n: epsilon<=|D(n)/s_m|} tends to 0. This is a tail-frequency limit for changing measures, not a fixed-measure TendstoInMeasure statement.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Samples are 1,...,N, never zero. Repeated observation values retain their multiplicities.",
+        "All law, CDF, characteristic-function and convergence objects are native. nu denotes a Borel probability measure on the real line when present; convergence is along natural m tending to infinity.",
+        "Use the existing omega=cardDistinctFactors and Omega=cardFactors, with real casts before subtraction. D=Omega-omega>=0. Put X_m(n)=(omega(n)-b_m)/s_m and Y_m(n)=(Omega(n)-b_m)/s_m with the SAME center and scale. These are local expressions, not new carriers."
+      ],
+      "proofSteps": [
+        "For each m the absolute normalized excess is a nonnegative integrable finite-population observation; integrability follows directly from the native finite Dirac sum.",
+        "Apply the native real Markov inequality at epsilon. Divide by epsilon>0 to bound the event mass by E[|D/s_m|]/epsilon.",
+        "Apply excess-l1-limit, continuity of division by the nonzero constant epsilon and the nonnegative squeeze theorem. No assertion about convergence of the observations on one common probability space is needed."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-l1-limit",
+        "mathlib:MeasureTheory.mul_meas_ge_le_integral_of_nonneg",
+        "mathlib:squeeze_zero",
+        "tauceti:TauCeti.Probability.empiricalMeasure"
+      ],
+      "acceptance": [
+        "For s_m=m+1 and threshold epsilon=1, the tail frequency tends to zero.",
+        "At epsilon=0 the event has mass 1 for every m and scale, so a nonnegative threshold premise is insufficient."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4 Exercise 46(i), k=1, and Exercise 51(iv)",
+          "excerpt": "replaced by",
+          "match": "Worker-derived quantitative comparison and conditional transfer for arbitrary diverging scale and probability target. The source's Gaussian convergence for omega remains an unsupplied hypothesis; higher repeated-factor moments are not inferred."
+        },
+        {
+          "sourceId": "TAO-CLT-2010",
+          "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
+          "excerpt": "converges in distribution",
+          "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.LimitTransfer",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_tail_limit",
+      "tests": [
+        {
+          "name": "tail_diverging_integer_scale",
+          "kind": "computation",
+          "statement": "For s_m=m+1 and threshold epsilon=1, the tail frequency tends to zero."
+        },
+        {
+          "name": "tail_zero_threshold_mass_one",
+          "kind": "non-example",
+          "statement": "At epsilon=0 the event has mass 1 for every m and scale, so a nonnegative threshold premise is insufficient."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-distribution-transfer",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Transfer between omega and Omega limit laws",
+      "kind": "theorem",
+      "statement": "For arbitrary real centers b_m, a real scale s_m tending to positive infinity, and any Borel probability measure nu on R, (omega-b_m)/s_m under mu_(m+1) converges in distribution to nu if and only if (Omega-b_m)/s_m does. The limit law need not have a continuous CDF.",
+      "hypotheses": [
+        "m is natural, N=m+1, and mu_N is the existing empiricalMeasure of k mapped to k+1 at index m on discrete naturals. Samples are 1,...,N, never zero. Repeated observation values retain their multiplicities.",
+        "All law, CDF, characteristic-function and convergence objects are native. nu denotes a Borel probability measure on the real line when present; convergence is along natural m tending to infinity.",
+        "Use the existing omega=cardDistinctFactors and Omega=cardFactors, with real casts before subtraction. D=Omega-omega>=0. Put X_m(n)=(omega(n)-b_m)/s_m and Y_m(n)=(Omega(n)-b_m)/s_m with the SAME center and scale. These are local expressions, not new carriers."
+      ],
+      "proofSteps": [
+        "All observations are measurable on discrete naturals; their pushforward laws are native probability measures. Use the existing bounded-Lipschitz integral characterization of weak convergence.",
+        "For each bounded L-Lipschitz test function g, integral_map rewrites integrals against the two laws as the arithmetic expectations. On the eventual positive-scale tail, excess-lipschitz-bound gives their absolute difference at most L/s_m.",
+        "The last bound tends to zero by reciprocal convergence. Apply the eventual squeeze theorem to the absolute difference, then the native metric criterion and addition/subtraction of limits to transfer the limiting integral from either law to the other.",
+        "Apply the reverse direction of the same bounded-Lipschitz characterization. No new Slutsky theorem is planned, and its existing fixed-sampling-measure helper is not misapplied.",
+        "Specializing the center and scale to the log-log Erdős–Kac normalization is valid once their scale divergence and the omega Gaussian-limit premise are supplied. This checkpoint does not supply the latter; it closes only the repeated-factor transfer in Exercise 51(iv)."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-lipschitz-bound",
+        "mathlib:MeasureTheory.TendstoInDistribution",
+        "mathlib:MeasureTheory.tendsto_iff_forall_lipschitz_integral_tendsto",
+        "mathlib:MeasureTheory.integral_map",
+        "mathlib:measurable_of_countable",
+        "mathlib:tendsto_inv_atTop_zero",
+        "mathlib:squeeze_zero'",
+        "mathlib:tendsto_iff_dist_tendsto_zero"
+      ],
+      "acceptance": [
+        "The equivalence holds for s_m=m+1 and arbitrary common b_m and target probability nu.",
+        "At N=4, the unnormalized Omega law assigns mass 1/4 to {2}, whereas the omega law assigns mass 0. Only the stated asymptotic equivalence is claimed."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4 Exercise 46(i), k=1, and Exercise 51(iv)",
+          "excerpt": "replaced by",
+          "match": "Worker-derived quantitative comparison and conditional transfer for arbitrary diverging scale and probability target. The source's Gaussian convergence for omega remains an unsupplied hypothesis; higher repeated-factor moments are not inferred."
+        },
+        {
+          "sourceId": "TAO-CLT-2010",
+          "locator": "Section 1 Exercise 5; Section 2 equation (5), Theorem 13 and its proof",
+          "excerpt": "converges in distribution",
+          "match": "Arithmetic specialization of native probability results, not a new generic Levy or Slutsky theorem. The finite counts and changing empirical-measure proof are explicit worker derivations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.LimitTransfer",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_distribution_transfer",
+      "tests": [
+        {
+          "name": "transfer_arbitrary_common_center",
+          "kind": "computation",
+          "statement": "The equivalence holds for s_m=m+1 and arbitrary common b_m and target probability nu."
+        },
+        {
+          "name": "transfer_does_not_identify_finite_laws",
+          "kind": "non-example",
+          "statement": "At N=4, the unnormalized Omega law assigns mass 1/4 to {2}, whereas the omega law assigns mass 0. Only the stated asymptotic equivalence is claimed."
+        }
+      ]
     }
   ],
   "links": [],
@@ -3473,9 +4046,9 @@
       "stageId": "ProbabilisticAndMetricNumberTheory:PM.0",
       "status": "partial",
       "remaining": [
-        "General additive and strongly additive predicates and their full prime-power representation are still needed. The existing Omega now has a finite repeated-prime-power expansion, exact mean, uniform first-moment bound, tail/L1 bounds and finite omega-to-Omega CDF sandwich. Exercise 46 higher repeated-factor moments and the asymptotic Omega limit-law transfer remain open.",
-        "Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition.",
-        "Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
+        "General additive and strongly additive predicates and their full prime-power representation are still needed. The repeated-factor first moment and conditional omega-to-Omega transfer to any given probability law are decomposed; Exercise 46 higher repeated-factor moments remain open.",
+        "Finite counting/CDF/characteristic-function identities and the arithmetic Levy criterion are decomposed using native probability. The converse criterion phrased only as counting limits at CDF continuity points remains open; no arbitrary pointwise characteristic-function limit is accepted without a probability target or continuity/tightness input.",
+        "Finite Boolean laws and centered mixed/higher-moment comparisons remain preserved. Source-scoped growing-prime comparison beyond these elementary finite bounds still needs decomposition; acquire the exact Kubilius source edition and theorem locators."
       ]
     },
     {
@@ -3526,7 +4099,7 @@
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.0"
       ],
-      "detail": "General additive and strongly additive predicates and their full prime-power representation are still needed. The existing Omega now has a finite repeated-prime-power expansion, exact mean, uniform first-moment bound, tail/L1 bounds and finite omega-to-Omega CDF sandwich. Exercise 46 higher repeated-factor moments and the asymptotic Omega limit-law transfer remain open. Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition. Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph. The full finite residue laws are preserved. The new finite CDF sandwich compares only the existing omega and Omega under a common positive scale; it does not supply the general distribution dictionary."
+      "detail": "General additive and strongly additive predicates and their full prime-power representation are still needed. The repeated-factor first moment and conditional omega-to-Omega transfer to any given probability law are decomposed; Exercise 46 higher repeated-factor moments remain open. Finite counting/CDF/characteristic-function identities and the arithmetic Levy criterion are decomposed using native probability. The converse criterion phrased only as counting limits at CDF continuity points remains open; no arbitrary pointwise characteristic-function limit is accepted without a probability target or continuity/tightness input. Finite Boolean laws and centered mixed/higher-moment comparisons remain preserved. Source-scoped growing-prime comparison beyond these elementary finite bounds still needs decomposition; acquire the exact Kubilius source edition and theorem locators. The limit-transfer statement is conditional in both directions and permits arbitrary common centers and eventually positive diverging scales; it does not discharge the PM.1 omega Gaussian convergence or source-specific normalization."
     },
     {
       "title": "PM.1: source and proof completion",
@@ -3612,15 +4185,30 @@
         "arXiv math/0606039 submission history: only v1 (1 June 2006) listed; corresponding passages retain these slips.",
         "Granville's 2007 publication pages (2007.php and 2007.html), and primary-domain erratum/correction searches on 2026-09-27: no correction for this chapter located."
       ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E4",
+      "source": "TAO-CLT-2010",
+      "kind": "misprint",
+      "locator": "Section 2, Exercise 11, final displayed derivative formula (after the Taylor expansion). Author HTML as accessed 27 September 2026.",
+      "printed": "d^j/dt^j F_X(t) = i^j E X^j",
+      "correction": "Evaluate the derivative at t=0: F_X^(j)(0)=i^j E[X^j]. At general t, the expression is E[(iX)^j exp(itX)] under the stated absolute moment hypothesis.",
+      "reason": "For the deterministic variable X=1, F_X(t)=exp(it). For j=1 its derivative at t=pi is -i, not i. Already j=0 would incorrectly force the characteristic function to be constant 1. The Taylor coefficients in the preceding display are correctly centered at zero.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "The directly acquired author HTML retains the display. Bounded title/Exercise 11 correction searches on 2026-09-27 and an occurrence screen of the current-page comments found no applicable correction.",
+        "No full comment-thread collation or published-book comparison was performed. The finding is restricted to the acquired author HTML and does not assert priority beyond this bounded search."
+      ]
     }
   ],
-  "sourceIssueScope": "Three findings, not independently reviewed. E1 is checked against the published preview. E2-E3 are scoped to the acquired author copy and arXiv v1 because the corresponding published pages were inaccessible. Product notation in (16) is read in its intended conventional scope (G once), not reported as an additional error. This is not a source-wide correctness verdict.",
+  "sourceIssueScope": "Three findings, not independently reviewed. E1 is checked against the published preview. E2-E3 are scoped to the acquired author copy and arXiv v1 because the corresponding published pages were inaccessible. Product notation in (16) is read in its intended conventional scope (G once), not reported as an additional error. This is not a source-wide correctness verdict. Continuation: E4 records a separate author-HTML evaluation-at-zero omission, not independently reviewed. The generic derivative theorem is not replanned here.",
   "checks": {
     "leanCompiled": true,
     "officialCheckerRun": true,
     "officialChecker": "python3 scripts/check_blueprint.py research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json --index <pinned declaration index>: 0 errors, 0 warnings.",
-    "lean": "Lean 4.34.0-rc2: all 59 declaration signatures and 77 examples elaborate with 136 expected proof-placeholder warnings and no other diagnostics. All 8,482 transitive Mathlib sources verified against the pin/cache, and two Tau Ceti modules freshly built from pinned sources.",
-    "proofProbes": "This continuation's separate scratch file proves six general auxiliary statements (factorization difference, nonnegativity, prime-power tail count, finite geometric bound, telescope, CDF event inclusions) and six examples, without placeholders or diagnostics. Two examples check the additive suppliers generated by indexed multiplicative declarations. This is not a full implementation of the eight new nodes.",
+    "lean": "Lean 4.34.0-rc2: 67 declaration signatures and 93 examples elaborate with 160 expected proof-placeholder warnings, no other diagnostics. All 8,482 transitive Mathlib sources verified against pin/cache and two Tau Ceti modules freshly built.",
+    "proofProbes": "Separate scratch file: six general statements (arithmetic law count, CDF, characteristic-function average, arithmetic Levy equivalence, reciprocal squeeze and a changing-measure bounded-Lipschitz weak-transfer bridge) and six examples compile with no placeholders, axioms or diagnostics. This checks the bridge and selected identities, not all eight new nodes or any arithmetic Gaussian limit.",
     "exactRationalRegressions": {
       "divisor": 1000,
       "jointDivisor": 25000,
@@ -3631,7 +4219,7 @@
       "completePeriodPattern": 690,
       "summedAtom": 1920
     },
-    "preservation": "All 51 inherited node objects, 61 inherited examples, 78 baseline entries, 12 source objects and three source findings are preserved. PM.1-PM.5 coverage is unchanged; PM.0 remains partial. Three inherited source-version entries are preserved and one precisely scoped author-HTML record is added.",
+    "preservation": "All 59 inherited node objects, 77 examples, 93 baseline entries, three prior source findings and four prior version records are preserved. Only the Tao 2014 source gains one precise scope entry; PM.1-PM.5 coverage/gaps and the eight planets are unchanged.",
     "localCheck": "Source and baseline references, API targets, intra-packet DAG, official packet checker with the full pinned declaration index, inherited-object preservation, source-version/errata checks, current-main input guard, and four-deliverable intake path/JSON checks.",
     "centeredMomentRegressions": {
       "mixedProduct": 22500,
@@ -3657,6 +4245,16 @@
       "finiteGeometric": 5900,
       "cdfSandwich": 20160,
       "rejectedHypothesisCases": 5
+    },
+    "lawTransferRegressions": {
+      "lawEvents": 4800,
+      "cdfEndpoints": 5400,
+      "exactCharacteristicValues": 10200,
+      "lipschitzStatistics": 17280,
+      "scaledMeanEnvelopes": 540,
+      "tailEnvelopes": 2160,
+      "fixedScaleObstructions": 173,
+      "mutationsRejected": 8
     }
   },
   "provenance": {
@@ -3711,6 +4309,17 @@
         "scope": "Eight PM.0 repeated-factor declarations; all 51 inherited node objects and 61 inherited examples preserved.",
         "ownership": "Native omega/Omega, factorization, finite geometric sums, Markov and real-measure operations are reused. Arithmetic repeated-factor comparison belongs to PM.0; no generic probability or arithmetic-function carrier is replanned.",
         "sourceAcquisition": "Selected Tao Section 4 passages and pinned declarations read; explicit finite k=1 proof supplied by the worker. No higher-moment proof or Gaussian convergence claimed."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-27",
+        "base": "69ab493e4778e308b46c0bad6cae24c1cacb047b",
+        "claimComment": 5854981888,
+        "claimConfirmation": 5854982805,
+        "scope": "Eight PM.0 law/limit-transfer nodes; all 59 inherited node objects preserved.",
+        "ownership": "Native empirical measures, CDF, characteristic functions, Levy and bounded-Lipschitz convergence tests are reused; only arithmetic dictionary and repeated-factor transfer are planned.",
+        "sourceAcquisition": "Selected Tao 2014 exercises reread, selected Tao 2010 Section 1/2 passages read with full Theorem 13 proof; E4 scoped to author HTML."
       }
     ]
   },
@@ -3742,6 +4351,13 @@
       "citation": "Tao author HTML, 23 November 2014 exposition: only the listed Section 4 passages and bounded correction screen, not a full-source reading.",
       "read": "2026-09-27",
       "sha256": "c55a6de8d4c7d9292ea3bc739bd6339f4555a2bd53ec7f5e4f0a62b684a3dba3"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://terrytao.wordpress.com/2010/01/05/254a-notes-2-the-central-limit-theorem/",
+      "citation": "Tao 5 January 2010 author HTML; selected Section 1/2 passages, not a full-source reading. E4 is scoped only to this HTML, with no print-version comparison.",
+      "read": "2026-09-27",
+      "sha256": "ffa97487e6339d8cef52ad1c0609373738520c027b06ba24a89e8af2caad332d"
     }
   ]
 }
