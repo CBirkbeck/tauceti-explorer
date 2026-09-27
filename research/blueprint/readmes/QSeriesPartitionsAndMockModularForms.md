@@ -4404,3 +4404,334 @@ The 24 added baseline citations were read in the pinned source, including the mo
 Whiteman's printed pp.160 and 167–168 were reread and their formulas visually inspected. The uniform phase congruence is an independent decomposition of his conversion, not an additional formula attributed verbatim to the paper. The previously recorded source findings and versions are unchanged. Fischer's [publisher paper](https://msp.org/pjm/1951/1-1/pjm-v1-n1-p08-s.pdf), pp.83–95, has been acquired, but its H-sum proof was not read in this pass and is not used as established evidence.
 
 Independent exact checks cover 64,980 integer phase congruences, 5,640 root bijections and 8,460 odd half-period root checks. Floating comparisons of the two finite sums cover 5,640 cases through k=180, including 69 cases containing the zero root; the maximum difference is below 3.9·10⁻¹⁴. General scratch Lean proofs verify the phase congruence and complex identity, the native character conjugation law and root-sum reality, the Jacobi-three cosine and elementary root congruences without placeholders. Neither these calculations nor compilation of the planning signatures establish the remaining Dedekind-to-Selberg equality.
+
+## Fischer’s finite H-sum reduction
+
+This continuation adds twelve nodes to QM.2 and leaves all 510 inherited
+node objects unchanged. The source is [Fischer’s 1951 publisher paper](https://msp.org/pjm/1951/1-1/pjm-v1-n1-p08-s.pdf).
+The complete extracted text was read for context; p.87 and pp.89–92 were
+visually inspected. The OCR is not reliable enough to call this a complete
+equation collation. Only (3.1)–(3.34) and the comparison with (2.7) are
+decomposed here.
+
+The normalization is H=(1/2) times a 2k-term sum. Its reduction to a k-term
+sum requires γ≡k modulo 2. The three finite partitions then determine
+H(0), H(3), H(2), H(1), in that order. The four ordinary quadratic sums are
+written as explicit native sums, not introduced as a generic new object.
+
+The reviewed audit and current ES/FF packets were checked before planning.
+Mathlib’s standard additive character and finite residue rings are imported.
+Its multiplicative-character Gauss sum over a finite field and the native
+Gauss-square theorem do not supply the phase of a composite-modulus
+quadratic exponential sum. Tau Ceti’s prime-discriminant Gauss construction
+does not supply that missing evaluation either. Generic Gauss evaluations
+must be reconciled with the finite-sum owners before a later decomposition;
+this checkpoint exports only the specialized Fischer scalar and identities.
+
+### Fischer’s specialized quadratic sum
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum` — definition; unchecked.
+
+For k≥1 and h,γ∈ℤ define H_{h,k}(γ)=(1/2)∑_{0≤j<2k} exp(2πih(6j+γ)²/(24k)). This is a complex scalar built from native finite sums and the standard additive character on ZMod (24k). The range 2k and factor 1/2 are part of the definition, including when γ and k have different parity.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. Use the displayed finite range with integer h and γ. The equivalent character expression is (1/2)∑_{j<2k} e_{24k}(h(6j+γ)²), by ZMod.stdAddChar_coe and scalar arithmetic.
+
+2. At h=0 every term is 1, hence H_{0,k}(γ)=k. The promoted phase-periodicity, γ-translation and reflection nodes justify arbitrary residue representatives and the source’s H(−γ)=H(γ)=H(γ+6t) notation.
+
+3. Consumers are the finite H-to-quadratic-sum reductions and, later, Whiteman’s Fourier bridge. No native residue ring, additive character, generic Gauss-sum structure or Kloosterman carrier is recreated.
+
+Prerequisites: `mathlib:ZMod.stdAddChar`, `mathlib:ZMod.stdAddChar_coe`.
+
+Source: Fischer, §3 (3.1), printed p.89; compare §2 (2.7), p.87. The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+Uses:
+
+- `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-half-range`: Recover the earlier k-term sum only when γ≡k mod 2.
+
+- `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-one-reduction`: Reduce the specialized H(1) to ordinary finite quadratic sums with their exact coefficients.
+
+- `QSeriesPartitionsAndMockModularForms:QM.2/rademacher-selberg-formula`: Prepare a specialized input for the still-open finite Fourier bridge; this definition does not close that bridge.
+
+API:
+
+- `fischerHSum_eq_sum` (characterisation): H_{h,k}(γ) equals the displayed half-weighted 2k-term exponential sum.
+
+- `fischerHSum_eq_stdAddChar` (compatibility): H_{h,k}(γ)=(1/2)∑_{j<2k} e_{24k}(h(6j+γ)²), using Mathlib’s standard additive character.
+
+- `fischerHSum_zero_left` (simp): For every k≥1 and γ∈ℤ, H_{0,k}(γ)=k.
+
+- `fischerHSum_add_six_mul` (simp): For every t∈ℤ, H_{h,k}(γ+6t)=H_{h,k}(γ); promoted at fischer-h-periodic.
+
+- `fischerHSum_neg` (simp): H_{h,k}(−γ)=H_{h,k}(γ); promoted at fischer-h-reflection.
+
+Tests:
+
+- `fischerH_zero_test` (degenerate): H_{0,3}(−7)=3, not 6; this detects omission of the factor 1/2.
+
+- `fischerH_parity_test` (non-example): H_{1,1}(0)=0, whereas its first summand alone is 1; the half-range formula is invalid without the parity hypothesis.
+
+- `fischerH_phase_test` (computation): H_{1,1}(1)=exp(πi/12), fixing the sign and denominator of the phase.
+
+- `fischerH_even_test` (computation): H_{1,2}(0)=1−i, testing an even modulus and its complex, non-real value.
+
+- `fischerH_negative_test` (computation): H_{−1,1}(1)=exp(−πi/12), testing the integer numerator and conjugate phase.
+
+### Period of Fischer’s quadratic phase
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-phase-periodic` — lemma; unchecked.
+
+For k≥1 and h,γ,j,t∈ℤ, exp(2πih(6(j+2kt)+γ)²/(24k))=exp(2πih(6j+γ)²/(24k)). Consequently the summand depends on j only modulo 2k.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. Expand the square difference as 24kt(6j+γ+6kt). After division by 24k, the exponential arguments differ by 2πi times the integer ht(6j+γ+6kt).
+
+2. Apply Complex.exp_eq_exp_iff_exists_int. Since k>0, the denominator is nonzero. This argument includes negative j and t and requires no coprimality.
+
+3. For congruent representatives j′ and j, write j′−j=2kt using the native integer congruence/divisibility characterization and apply the displayed identity.
+
+Prerequisites: `mathlib:Complex.exp_eq_exp_iff_exists_int`, `mathlib:Int.modEq_iff_dvd`.
+
+Source: Fischer, §3, printed p.89, (3.1)–(3.34). The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### Six-periodicity of Fischer’s parameter
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-periodic` — lemma; unchecked.
+
+For k≥1 and h,γ,t∈ℤ, H_{h,k}(γ+6t)=H_{h,k}(γ).
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. The term at j for γ+6t is exactly the term at j+t for γ, by expansion before applying the exponential.
+
+2. Translation by t permutes the 2k residue classes. Use the phase-periodicity node to replace each translated integer by its least nonnegative representative; its inverse is translation by −t.
+
+3. Reindex the native finite sum through that bijection and retain its factor 1/2. This yields all integer shifts, not only t=1.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-phase-periodic`, `mathlib:Fintype.prod_equiv`.
+
+Source: Fischer, §3, printed p.89, (3.1)–(3.34). The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### Reflection of Fischer’s parameter
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-reflection` — lemma; unchecked.
+
+For k≥1 and h,γ∈ℤ, H_{h,k}(−γ)=H_{h,k}(γ).
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. The square (6j−γ)² equals (6(−j)+γ)². Negation permutes ZMod (2k) and is its own inverse.
+
+2. Use phase-periodicity to compare the chosen nonnegative representatives, then reindex the finite sum.
+
+3. Together with six-periodicity this gives H(5)=H(1) and H(4)=H(2), the equalities used in the later coefficient elimination.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-phase-periodic`, `mathlib:Fintype.prod_equiv`.
+
+Source: Fischer, §3, printed p.89, (3.1)–(3.34). The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### The parity-compatible half-range sum
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-half-range` — lemma; unchecked.
+
+If k≥1, h,γ∈ℤ and γ−k is even, then H_{h,k}(γ)=∑_{0≤j<k} exp(2πih(6j+γ)²/(24k)). Thus (3.1) agrees with Fischer’s earlier definition (2.7) on its stated domain.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. Write γ=k+2t. Replacing j by j+k changes the exponential argument by 2πi times h(3j+2k+t), since the square difference is 12k(6j+γ+3k).
+
+2. Apply exponential periodicity and split the 2k-term sum into the two length-k blocks using the native sum_range_add lemma; the second block equals the first termwise.
+
+3. Cancel the factor 1/2 against the repeated block. Do not extend this argument to arbitrary γ: at h=k=1 and γ=0 the full H-sum is zero but the one-term sum is one.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum`, `mathlib:Complex.exp_eq_exp_iff_exists_int`, `mathlib:Finset.prod_range_add`.
+
+Source: Fischer, §2 (2.7), printed p.87; §3 (3.1), p.89. The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### The six-residue partition identity
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum-six` — lemma; unchecked.
+
+Here G(a,m) abbreviates the existing finite expression ∑_{0≤r<m} exp(2πiar²/m), not a new generic Gauss-sum declaration. For k≥1 and h∈ℤ, ∑_{γ=0}^{5}H_{h,k}(γ)=G(h,24k)/4.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. The map (j,γ)↦6j+γ bijects 0≤j<2k and 0≤γ<6 with 0≤r<12k; its inverse is (r div 6,r mod 6). Interchange the two finite sums.
+
+2. For the G(h,24k) summand, r↦r+12k changes r² by 24k(r+6k), hence gives the same exponential for every integer h.
+
+3. Split G into its two length-12k blocks. The H-side is one half of one block, and G is twice that block, giving coefficient 1/4.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum`, `mathlib:Complex.exp_eq_exp_iff_exists_int`, `mathlib:Finset.prod_range_add`, `mathlib:Fintype.prod_equiv`.
+
+Source: Fischer, §3, printed p.89, (3.1)–(3.34). The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### The even-residue partition identity
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum-even` — lemma; unchecked.
+
+Here G(a,m) abbreviates the existing finite expression ∑_{0≤r<m} exp(2πiar²/m), not a new generic Gauss-sum declaration. For k≥1 and h∈ℤ, H_{h,k}(0)+H_{h,k}(2)+H_{h,k}(4)=G(h,6k)/2.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. Write the even parameter as γ=2a for a=0,1,2. Then (6j+2a)²/(24k)=(3j+a)²/(6k).
+
+2. The map (j,a)↦3j+a bijects the 2k-by-3 rectangle with the full range 0≤r<6k; use inverse quotient and remainder by 3.
+
+3. Reindex directly. Unlike the six-residue identity, no repeated G-block is discarded here: the remaining coefficient is exactly 1/2.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum`, `mathlib:Fintype.prod_equiv`.
+
+Source: Fischer, §3, printed p.89, (3.1)–(3.34). The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### The zero-and-three partition identity
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-zero-three` — lemma; unchecked.
+
+Here G(a,m) abbreviates the existing finite expression ∑_{0≤r<m} exp(2πiar²/m), not a new generic Gauss-sum declaration. For k≥1 and h∈ℤ, H_{h,k}(0)+H_{h,k}(3)=G(3h,8k)/4.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. Write γ=3a with a=0,1. The exponent becomes 2πi(3h)(2j+a)²/(8k); (j,a)↦2j+a bijects onto 0≤r<4k.
+
+2. In G(3h,8k), replacing r by r+4k changes (3h)r²/(8k) by the integer 3h(r+2k). Thus its two length-4k blocks agree.
+
+3. Apply the range split and the H normalization to obtain 1/4, not 1/2.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum`, `mathlib:Complex.exp_eq_exp_iff_exists_int`, `mathlib:Finset.prod_range_add`, `mathlib:Fintype.prod_equiv`.
+
+Source: Fischer, §3, printed p.89, (3.1)–(3.34). The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### The zero-parameter quadratic-sum reduction
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-zero-reduction` — lemma; unchecked.
+
+Here G(a,m) abbreviates the existing finite expression ∑_{0≤r<m} exp(2πiar²/m), not a new generic Gauss-sum declaration. For k≥1 and h∈ℤ, H_{h,k}(0)=G(3h,2k)/2.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. At γ=0 the exponent 2πih(6j)²/(24k) simplifies to 2πi(3h)j²/(2k).
+
+2. The range already has length 2k, so rewrite each summand and retain the original factor 1/2. No character evaluation or invertibility is involved.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum`.
+
+Source: Fischer, §3 (3.31), printed p.89. The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### The three-parameter quadratic-sum reduction
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-three-reduction` — lemma; unchecked.
+
+Here G(a,m) abbreviates the existing finite expression ∑_{0≤r<m} exp(2πiar²/m), not a new generic Gauss-sum declaration. For k≥1 and h∈ℤ, H_{h,k}(3)=G(3h,8k)/4−G(3h,2k)/2.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. Subtract H(0) from the zero-and-three partition identity.
+
+2. Substitute the zero-parameter reduction and collect scalar coefficients. This is an equality of complex sums, not a bound or a square-root evaluation.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-zero-three`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-zero-reduction`.
+
+Source: Fischer, §3 (3.32), printed p.89. The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### The two-parameter quadratic-sum reduction
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-two-reduction` — lemma; unchecked.
+
+Here G(a,m) abbreviates the existing finite expression ∑_{0≤r<m} exp(2πiar²/m), not a new generic Gauss-sum declaration. For k≥1 and h∈ℤ, H_{h,k}(2)=G(h,6k)/4−G(3h,2k)/4.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. Reflection and six-periodicity identify H(4)=H(−2)=H(2).
+
+2. The even-residue partition identity becomes H(0)+2H(2)=G(h,6k)/2.
+
+3. Substitute H(0)=G(3h,2k)/2 and divide by 2 in ℂ. The two coefficients are both 1/4.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-periodic`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-reflection`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum-even`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-zero-reduction`.
+
+Source: Fischer, §3 (3.33), printed p.89. The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### Fischer’s four-sum reduction
+
+`QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-one-reduction` — theorem; unchecked.
+
+Here G(a,m) abbreviates the existing finite expression ∑_{0≤r<m} exp(2πiar²/m), not a new generic Gauss-sum declaration. For k≥1 and h∈ℤ, H_{h,k}(1)=G(h,24k)/8−G(3h,8k)/8−G(h,6k)/4+G(3h,2k)/4.
+
+Hypotheses: k≥1; h,γ and translation parameters are integers. No coprimality assumption on h and k.
+
+Proof plan:
+
+1. Reflection and six-periodicity give H(5)=H(1) and H(4)=H(2). Hence the six-residue partition identity reads H(0)+2H(1)+2H(2)+H(3)=G(h,24k)/4.
+
+2. Substitute the zero, two and three reductions. Solve the resulting linear identity for H(1); the coefficients are 1/8, −1/8, −1/4, +1/4 in the displayed order.
+
+3. This ends the finite reduction only. Evaluating the remaining G-sums, proving Whiteman’s Fourier identity, and comparing the eta multipliers are separate unresolved inputs; none is inferred from this algebraic relation.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-periodic`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-reflection`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-sum-six`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-zero-reduction`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-three-reduction`, `QSeriesPartitionsAndMockModularForms:QM.2/fischer-h-two-reduction`.
+
+Source: Fischer, §3 (3.34), printed p.89. The finite identity is decomposed here using explicit residue reindexings; no general Gauss evaluation or eta-multiplier identification is imported from the later source formulas.
+
+Acceptance: The formula applies at k=1, at even k, at 3∣k, and at h=0; no unit hypothesis is silently inserted.
+
+### Remaining bridge and evidence boundary
+
+The inherited target A_k(n)=S_k(n) is still unresolved. Nothing in these
+finite reductions proves the Fourier coefficients, the nonunit cancellation,
+the general Gauss evaluations or the Dedekind-to-Jacobi multiplier
+identification. The prior S-to-B phase conversion is unchanged. All fourteen
+gaps, twenty-four supplier requests and forty-two planets remain; only the
+Selberg bridge’s description and QM.2 resume point are refined.
+
+No new source error is asserted. A bounded search of the publisher and
+title-based correction records found no correction relevant to the selected
+formulas; this is not a claim that the paper has no errata. The later §3
+evaluations and §4 multiplier computation are outside this checkpoint’s
+closed proof plan. The 64 inherited findings and previous version records
+are retained without an independent-review claim.

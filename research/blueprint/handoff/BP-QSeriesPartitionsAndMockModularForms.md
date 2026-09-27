@@ -1,3 +1,124 @@
+# Fischer finite-reduction continuation — 27 September 2026
+
+Worker: Codex — codex-a71f92. Issue #1042. Claim comment 5854200840
+(08:27:32 UTC) was confirmed by bot comment 5854201777 (08:27:41).
+The whole issue was read before claiming and after confirmation.
+Snapshot: d9922d5d847ceb8bc082f2ed6ccdd65f609fea74.
+This handoff supersedes the inventory and Fischer resume point below,
+not earlier mathematical work or its source-reading provenance.
+
+## What changed
+
+Twelve QM.2 nodes: one definition, ten lemmas and one theorem.
+They define Fischer’s specialized H-sum; justify its representative period,
+six-periodicity and reflection; recover the parity-compatible k-term sum;
+prove three finite partition identities; and derive the four reductions
+(3.31)–(3.34). The definition has five API items and five discriminating
+tests. Two parameter-symmetry API items are promoted to standalone nodes
+and appear only once in the suggested file.
+
+All 510 inherited node objects are unchanged, including the explicitly
+unresolved Dedekind-to-Selberg target. The only inherited mathematical
+metadata refined are the Selberg gap description and QM.2 coverage/resume
+text. No planet, supplier request, source finding or independent-review
+verdict is added. The earlier continuationAudit object remains historical
+evidence from its original author.
+
+## Inventory
+
+522 nodes: 112 definitions, 17 constructions, 241 lemmas, 149 theorems,
+three comparisons. 758 API items; 512 packet tests, including 505 tests
+of definitions/constructions; 516 typed Lean examples. The inherited
+difference between packet tests and typed examples is not silently repaired.
+QM.2 has 72 nodes. All nodes are unchecked.
+
+42 planets; 403 baseline declarations (one added); 53 sources (one added);
+64 inherited source findings; 14 gaps; 24 requests; ten restructuring
+proposals. QM.0, QM.3 and QM.4 retain source_decomposed; the remaining
+four layers retain partial. There is no formalization or implementation claim.
+
+## Verification and its limits
+
+- Before planning, the reviewed audit for all seven layers was read. The
+  current inputs were compared against the earlier completely read packet:
+  all 510 nodes and all 57 present consulted files were unchanged; six
+  known paths were absent. Binding instruction hashes were unchanged.
+  Two additional finite-sum atlas entries were subsequently read.
+- The new source’s full extracted text was read for context; p.87 and
+  pp.89–92 were visually inspected. This is not a full equation collation.
+  The selected finite identities were checked against the page images.
+- The suggested file compiles at the pinned Mathlib commit with exactly
+  1,437 expected placeholder warnings and no errors or other diagnostics.
+  The 8,482 imported Mathlib source files were byte-verified before cached
+  artifacts were used. There are no Tau Ceti imports. Existing suggested
+  declarations and examples are retained; all new bodies are placeholders.
+- A separate scratch Lean file proves five general identities: full
+  representative periodicity, parity-compatible half-periodicity, parameter
+  translation at the summand level, reflection at the summand level, and
+  compatibility with the native standard additive character. Four additional
+  typed examples check specializations and the generated finite-sum APIs.
+  It has no placeholders and no diagnostics. The whole finite reindexing
+  and reduction chain was not implemented in Lean.
+- Exact coefficient checks in the integral group ring of order 24k pass
+  11,200 partition/reduction identities, 27,200 reflections, 136,000
+  parameter translations, 680,000 representative-phase congruences and
+  13,600 parity half-range comparisons, with 1≤k≤64 and −12≤h≤12.
+  Five value tests use additionally the exact relation z^(12k)=−1.
+  The invalid parity-free half-range formula has a concrete counterexample.
+  These finite regressions are diagnostics, not proofs of the open
+  Fourier or eta-multiplier bridge.
+- Blueprint checker with the pinned declaration index: zero errors and
+  zero warnings. Source-issue/version envelope validation: zero errors.
+  Four-file intake: zero problems. Fresh-main guard: all 65 consulted
+  paths agree with the initial snapshot (59 present, six known absent),
+  with no new packet/link filenames or AGENTS.md. The node dependency
+  graph is acyclic, all 510 inherited node objects are preserved, and
+  exactly the four authorized deliverables differ from the snapshot.
+- Existing ZMod.stdAddChar, exponential periodicity and finite-sum
+  declarations are imported, not recreated. The added baseline entry
+  Fintype.prod_equiv explicitly identifies its generated additive form
+  Fintype.sum_equiv, which was read and checked in scratch Lean.
+  Finset.prod_range_add and its sum form were already in the baseline.
+
+Suggested-file SHA-256:
+2f2ed3ed7cf2569b9ca159b03a6dc527286c80b3ce946595e8e9e206632ce785.
+
+## Sources, ownership and exact resume point
+
+Fischer, On Dedekind’s function η(τ), Pacific J. Math. 1 (1951), 83–95:
+https://msp.org/pjm/1951/1-1/pjm-v1-n1-p08-s.pdf
+SHA-256: 4d76729e008aed5801867d0f4a2be2d26f976ee1e8b83049a8ad01f43bf0dec9.
+Selected scope: (3.1)–(3.34), p.89, and comparison with (2.7), p.87.
+A bounded publisher/title correction search found no correction relevant
+to those formulas. No new source error is asserted; the paper as a whole
+is not certified error-free.
+
+Do not redo either the previous finite Selberg phase conversion or these
+H-sum reductions. The remaining bridge is still A_k(n)=S_k(n) in the
+existing Dedekind normalization. Next isolate the exact generic Gauss
+evaluations used in (3.41)–(3.47), including phase and composite moduli,
+then Fischer’s later H-evaluations, Whiteman’s Fourier coefficients,
+nonunit cancellation and completion of squares, and the eta-multiplier
+congruences/identification. The later displayed formulas are not all
+collated; recheck the original images before extracting them.
+
+Mathlib’s gaussSum is the additive/multiplicative-character sum; its
+gaussSum_sq theorem assumes a finite field, a nontrivial quadratic
+character and a primitive additive character. It does not select the
+positive phase or directly evaluate a composite-modulus quadratic
+polynomial sum. Tau Ceti’s multiquadratic Gauss construction supplies
+square roots of prime discriminants, not that missing evaluation.
+ES.0 and FF.1 remain the generic finite-sum directions; reconcile any
+new generic prerequisite with them instead of creating a duplicate
+carrier in QM.2. This checkpoint requires no new generic evaluation.
+
+The original source records, source issues, requested suppliers and
+restructuring proposals remain. Nothing here independently recertifies
+other workers’ nodes or closes the full seven-layer job.
+
+---
+
+
 # Finite Selberg phase continuation — 27 September 2026
 
 Worker: Codex — codex-a71f92. Issue #1042. Claim comment 5853779008
