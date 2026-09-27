@@ -4751,10 +4751,9 @@ Let G be a commutative group and W a function assigning to every pair (P, α), P
 
 ## U.3 — Determinant, units and SK₁
 
-*Coverage: partial.* For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det (compatible with stabilisation, natural, and different from Mathlib's LinearMap.det on non-free projectives), the section Aˣ → K₁(A) (not injective for non-commutative rings: the upper triangular 2 × 2 matrices over 𝔽_2, checked by computation), SK₁ = ker det, the natural splitting K₁(A) ≅ Aˣ × SK₁(A), SL(A) and SL(A)/E(A) ≅ SK₁(A). Fields: SL_n(F) = E_n(F) from Tau Ceti's closure_range_toSpecialLinearGroup_eq_top_of_field and the stable statement SK₁(F) = 1, E(F) = SL(F) (K3BlochGroups V.2, ArithmeticKTheory N.1, EllipticKTheory). Semilocal rings by explicit elementary reduction through Bass's stable range: the definition (all n, with the K-book and BMS indexings compared; U.4 uses n = 2), transitivity of E_r on unimodular columns, GL_r = E_r·GL_n and surjective stability, stable range one ⇒ SL_r = E_r, the unit lemma by prime avoidance for finitely many maximal ideals, stable range one for commutative semilocal rings, SK₁ = 1 for commutative semilocal and local rings (KTheoryFiniteLocalFields L.3, L.6, L.7). Division rings: elementary reduction and normality of E_n(D), the Dieudonné determinant by Dieudonné's recursion with his properties 1°–3°, multiplicativity, ker Δ_n = E_n(D) for all n ≥ 2 (no exception; sourceIssues), the block triangular formula and stabilisation, [GL_n(D), GL_n(D)] = E_n(D) except (2, 𝔽_2), K₁(D) ≅ Dˣab, and the non-existence of a Dˣ-valued determinant (ℍ). Mathlib's Dieudonné generation theorem is cited and shown insufficient (exceptional elements, conjugated transvections). Non-example: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 1 (K-book Example III.1.5.4), with its topological inputs recorded as a gap. The scheme warning is not a U.3 declaration, since K₁ of schemes belongs to the scheme roadmaps: for a smooth projective curve X over 𝔽_q, geometrically connected, K-book VI.6 (PDF p. 510) gives K₁(X) ≅ 𝔽_q^× × 𝔽_q^× while the global units are H⁰(X, O_X)^× = 𝔽_q^×, so K₁(X) is not the unit group of global functions. The S-integer case of 'K₁ = units' is U.4's (Bass–Milnor–Serre).
+*Coverage: partial.* For commutative A: the stable determinant from Mathlib's GeneralLinearGroup.det (compatible with stabilisation, natural, and different from Mathlib's LinearMap.det on non-free projectives), the section Aˣ → K₁(A) (not injective for non-commutative rings: the upper triangular 2 × 2 matrices over 𝔽_2, checked by computation), SK₁ = ker det, the natural splitting K₁(A) ≅ Aˣ × SK₁(A), SL(A) and SL(A)/E(A) ≅ SK₁(A). Fields: SL_n(F) = E_n(F) from Tau Ceti's closure_range_toSpecialLinearGroup_eq_top_of_field and the stable statement SK₁(F) = 1, E(F) = SL(F) (K3BlochGroups V.2, ArithmeticKTheory N.1, EllipticKTheory). Semilocal rings by explicit elementary reduction through Bass's stable range: the definition (all n, with the K-book and BMS indexings compared; U.4 uses n = 2), transitivity of E_r on unimodular columns, GL_r = E_r·GL_n and surjective stability, stable range one ⇒ SL_r = E_r, the unit lemma by prime avoidance for finitely many maximal ideals, stable range one for commutative semilocal rings, SK₁ = 1 for commutative semilocal and local rings (KTheoryFiniteLocalFields L.3, L.6, L.7). Division rings: elementary reduction and normality of E_n(D), the Dieudonné determinant by Dieudonné's recursion with his properties 1°–3°, multiplicativity, ker Δ_n = E_n(D) for all n ≥ 2 (no exception; sourceIssues), the block triangular formula and stabilisation, [GL_n(D), GL_n(D)] = E_n(D) except (2, 𝔽_2), K₁(D) ≅ Dˣab, and the non-existence of a Dˣ-valued determinant (ℍ). Mathlib's Dieudonné generation theorem is cited and shown insufficient (exceptional elements, conjugated transvections). Non-example: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 1 (K-book Example III.1.5.4), with its topological inputs recorded as a gap. The scheme warning is not a U.3 declaration, since K₁ of schemes belongs to the scheme roadmaps: for a smooth projective curve X over 𝔽_q, geometrically connected, K-book VI.6 (PDF p. 510) gives K₁(X) ≅ 𝔽_q^× × 𝔽_q^× while the global units are H⁰(X, O_X)^× = 𝔽_q^×, so K₁(X) is not the unit group of global functions. The S-integer case of 'K₁ = units' is U.4's (Bass–Milnor–Serre). The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction.
 
 - Remaining: Receive the precise continuous SL_N(ℝ)-to-SO(realCliffordForm N 0) retraction for every N≥2 from LieGroups layer 9; the stabilized Spin coordinate comparison and endpoint-lifting obstruction are now source-decomposed.
-- Remaining: Source and prove the separate Dedekind property of the real circle ring used by the U.4 non-example.
 
 ### The determinant on K₁ of a commutative ring
 
@@ -5908,7 +5907,7 @@ For every N≥2 there is no continuous map H:[0,1]×Circle→SO(realCliffordForm
 
 `U.3/SK1-real-circle-nonzero` · theorem
 
-For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontrivial element of SK₁(A). Thus SK₁(A) is nontrivial and the canonical determinant K₁(A)→Aˣ is not injective. The stronger computation SK₁(A)≅ℤ/2 and an abstract nonisomorphism assertion about K₁(A) and Aˣ are not conclusions of this theorem. The separate Dedekind property needed by the U.4 non-example is a recorded gap.
+For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontrivial element of SK₁(A). Thus SK₁(A) is nontrivial and the canonical determinant K₁(A)→Aˣ is not injective. The stronger computation SK₁(A)≅ℤ/2 and an abstract nonisomorphism assertion about K₁(A) and Aˣ are not conclusions of this theorem. The separate Dedekind property needed by the U.4 non-example is supplied by circle-ring-dedekind; the SL-to-SO retraction remains a requested input to this nontriviality proof.
 
 **Hypotheses.**
 
@@ -5920,13 +5919,13 @@ For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontr
 2. Assume its K₁ class is one. U.3/circle-trivial-class-based-contraction gives a finite N≥2 and a based contraction through real determinant-one matrices of the stabilized positive rotation.
 3. The requested continuous retraction SL_N(ℝ)→SO(realCliffordForm N 0) from LieGroups layer 9 would take this to a based contraction in the precise pinned SO carrier: H(0,z)=1, H(s,1)=1, and the endpoint rotation is fixed. This supplier request remains open.
 4. U.3/circle-no-so-contraction rules out that SO contraction. Its explicit chain is circle-coordinate-frame → circle-spin-coordinates → circle-spin-lift → circle-no-so-contraction. The sign and doubled angle are checked in the coordinate comparison; all covering and lifting machinery is imported from the pins.
-5. Therefore, once the retraction supplier is available, the assumed triviality is impossible. Nothing here computes SK₁(A) or π₁(SO_N), and the separate Dedekind assertion remains an independent gap.
+5. Therefore, once the retraction supplier is available, the assumed triviality is impossible. Nothing here computes SK₁(A) or π₁(SO_N), and the separate Dedekind assertion is supplied independently by circle-ring-dedekind.
 
 **Acceptance.**
 
 - The displayed matrix has determinant one but a nontrivial stable class; the canonical determinant is therefore not injective.
 - The argument must work for every possible stabilization size N≥2.
-- Using this as a counterexample among Dedekind domains additionally requires the separate circle-ring Dedekind fact recorded in gaps.
+- For the Dedekind-domain counterexample, combine this nontriviality result with the independent circle-ring-dedekind theorem.
 
 **Depends on.** `KTheoryLowDegrees:U.3/special-K1`, `KTheoryLowDegrees:U.3/stable-determinant`, `KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction`, `tauceti:CliffordAlgebra.spinRotationPath`, `tauceti:CliffordAlgebra.spinRotationPath_apply`, `tauceti:CliffordAlgebra.instCompactSpaceRealCliffordSpinGroupZero`, `tauceti:CliffordAlgebra.isCoveringMap_realCliffordSpinDoubleCoverZero_rightHom`, `tauceti:CliffordAlgebra.spinGroup.negOne_ne_one`, `tauceti:CliffordAlgebra.ι_spinVectorAction_apply`, `tauceti:CliffordAlgebra.realCliffordSpinDoubleCoverZero_rightHom`, `tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply`, `tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear`, `mathlib:IsCoveringMap.liftPath_apply_one_eq_of_homotopicRel`, `KTheoryLowDegrees:U.3/circle-no-so-contraction`.
 
@@ -5939,13 +5938,12 @@ For A=ℝ[x,y]/(x²+y²−1), the class of M with rows (x,−y),(y,x) is a nontr
 
 ## U.4 — S-integers and the arithmetic theorem
 
-*Coverage: partial.* S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. BMS Theorem 4.1(c) (universality of the SK₁ symbol, Kubota's theorem, §§ 8–10) and the full determination C_q ≅ μ_{r(q)} for totally imaginary A are not on the path to SK₁(O_{F,S}) = 0 and are not planned.
+*Coverage: partial.* S is a finite set of finite places and O_{F,S} = Set.integer S F, as in ArithmeticKTheory N.1 and K2SymbolsBrauer T.5; the rank is r₁ + r₂ + |S| − 1. Targets: SK₁(O_{F,S}) = 0 (U.4/bass-milnor-serre), decomposed as BMS do — stable range of Dedekind domains (U.4/dedekind-stable-range-two, with U.3's stable-range definition and surjective stability), Mennicke symbols and the universal Mennicke group (U.4/mennicke-symbol, universal-mennicke-group, Lemmas 2.1–2.9, the SK₁ symbol of Mennicke's theorem and its surjectivity), and the arithmetic of BMS §3 and the appendix ((A.7), (A.8), (A.10), (A.11), Theorems 3.2, 3.5, 3.6); class-field-theory inputs are requested from Tau Ceti ClassFieldTheory, Chebotarev and GlobalNumberFields with their stated forms; K₁(O_{F,S}) ≅ O_{F,S}^× canonically (K1-S-integers-determinant); Dirichlet's S-unit theorem and fundamental S-units (s-unit-theorem, fundamental-s-units, K1-S-integers-structure); the unit inclusion into K₁(F) and the residue-field and local-ring specialisations. The non-example 'an arbitrary Dedekind-domain SK₁ vanishing theorem is not an acceptable substitute' is U.3/SK1-real-circle-nonzero (K-book III.1.5.4), cited rather than duplicated. BMS Theorem 4.1(c) (universality of the SK₁ symbol, Kubota's theorem, §§ 8–10) and the full determination C_q ≅ μ_{r(q)} for totally imaginary A are not on the path to SK₁(O_{F,S}) = 0 and are not planned. The separate real-circle Dedekind obligation is supplied by eight declarations: Eisenstein irreducibility, domain, stereographic charts and cover, prime-local Dedekindness, integral closure, dimension bound and the final native Dedekind predicate. Its SK₁ nontriviality still needs the LieGroups retraction.
 
 - Remaining: Import the tame formula (A.16), the degree-m product formula (A.19) and the reciprocity law (A.21) once the CA.1 → K2SymbolsBrauer:T.7 cycle is removed (gap; restructure).
 - Remaining: Source and plan BMS (A.17)–(A.18) (Serre, Corps locaux XIV) for the totally imaginary case (gap).
 - Remaining: Receive the requested Tau Ceti inputs: ClassFieldTheory Layers 5, 12, 13; Chebotarev Layers 4, 10; GlobalNumberFields Layers 6, 7.
 
-- Remaining: Prove the real circle ring is Dedekind before using its nontrivial SK₁ to refute general Dedekind-domain vanishing (separate gap).
 
 ### A Dedekind domain has stable range at most two
 
@@ -6085,7 +6083,7 @@ For a commutative ring A and an ideal 𝔮, let C_𝔮 be the group presented (M
 - U.4/sk1-generated-by-mennicke-symbols: SK₁(A) is a quotient of C_A for Dedekind A
 - U.4/mennicke-group-locally-cyclic and U.4/mennicke-group-exponent: the structure of C_𝔮 in the arithmetic case
 
-**Depends on.** this roadmap: `U.4/mennicke-symbol`, `U.4/q-equivalence-smaller-ideal`; libraries: `mathlib:PresentedGroup`.
+**Depends on.** this roadmap: `U.4/mennicke-symbol`, `U.4/q-equivalence-smaller-ideal`; libraries: `mathlib:PresentedGroup`. Additional non-example hypothesis: `U.3/circle-ring-dedekind`.
 
 **Sources.**
 
@@ -6309,7 +6307,7 @@ Let A be a commutative ring, n ≥ 3 and κ : SL_n(A) → C a group homomorphism
 - U.4/sk1-generated-by-mennicke-symbols: its lift C_A → SK₁(A) is onto
 - U.3/SK1-real-circle-nonzero: the symbol [y/x] detects the nontrivial class
 
-**Depends on.** this roadmap: `U.4/mennicke-symbol`, `U.4/q-equivalence-to-base-point`, `U.1/whitehead-lemma`, `U.1/elementary-perfect`, `U.1/signed-transposition`, `U.3/special-linear-mod-elementary`; libraries: `mathlib:IsCoprime.exists_SL2_row`, `tauceti:Matrix.SpecialLinearGroup.diag2nUnit_decompose`, `tauceti:TauCeti.commutatorElement_transvectionUnit`.
+**Depends on.** this roadmap: `U.4/mennicke-symbol`, `U.4/q-equivalence-to-base-point`, `U.1/whitehead-lemma`, `U.1/elementary-perfect`, `U.1/signed-transposition`, `U.3/special-linear-mod-elementary`; libraries: `mathlib:IsCoprime.exists_SL2_row`, `tauceti:Matrix.SpecialLinearGroup.diag2nUnit_decompose`, `tauceti:TauCeti.commutatorElement_transvectionUnit`. Additional non-example hypothesis: `U.3/circle-ring-dedekind`.
 
 **Sources.**
 
@@ -6727,7 +6725,7 @@ Let F be a number field and S a finite set of nonzero primes of 𝓞_F. Then SK�
 - K-book III.1.3.6 states the theorem for integrally closed subrings of number fields.
 - An arbitrary Dedekind domain does not qualify: SK₁(ℝ[x, y]/(x² + y² − 1)) ≠ 0 (U.3/SK1-real-circle-nonzero).
 
-**Depends on.** this roadmap: `U.4/dedekind-stable-range-two`, `U.4/sk1-generated-by-mennicke-symbols`, `U.4/arithmetic-mennicke-symbols-trivial`, `U.3/special-K1`, `U.3/special-linear-mod-elementary`; libraries: `mathlib:Set.integer`.
+**Depends on.** this roadmap: `U.4/dedekind-stable-range-two`, `U.4/sk1-generated-by-mennicke-symbols`, `U.4/arithmetic-mennicke-symbols-trivial`, `U.3/special-K1`, `U.3/special-linear-mod-elementary`; libraries: `mathlib:Set.integer`. Additional non-example hypothesis: `U.3/circle-ring-dedekind`.
 
 **Sources.**
 
@@ -8346,11 +8344,6 @@ The coordinate frame, full stabilized Spin-action comparison, nonclosing once-ar
 
 Needed by: `U.3/SK1-real-circle-nonzero`.
 
-### The real circle ring is Dedekind for the U.4 non-example
-
-Prove that A=ℝ[x,y]/(x²+y²−1) is a Noetherian integrally closed integral domain of dimension at most one, with the exact IsDedekindDomain hypotheses required by the Mennicke and arithmetic non-examples. The SK₁ nontriviality theorem itself uses only the specified commutative quotient ring; its former parenthetical Dedekind assertion was not backed by a prerequisite. This application fact must be sourced and decomposed, potentially via the smooth affine real conic and complex Laurent-polynomial base change with descent. No descent theorem or geometric regularity criterion is asserted as baseline without reading it. Preserve the Dedekind-domain counterexample target in U.4; do not treat it as a proved consequence of SK₁≠1 alone.
-
-Needed by: `KTheoryLowDegrees:U.3/SK1-real-circle-nonzero`, `KTheoryLowDegrees:U.4/sk1-mennicke-symbol`, `KTheoryLowDegrees:U.4/universal-mennicke-group`, `KTheoryLowDegrees:U.4/bass-milnor-serre`.
 
 ### The tame formula, the degree-m Hilbert product formula and the power reciprocity law (BMS (A.16), (A.19)–(A.21))
 
@@ -8508,8 +8501,8 @@ The atlas requirements of each layer:
 
 ## What this blueprint does not claim
 
-- **Remaining source and dependency gaps.** Five gap records retain the following unresolved inputs; their precise statements and cycles are listed above.
-  - The SL-to-SO retraction needed for the real-circle SK₁ obstruction and, separately, the Dedekind property of that ring.
+- **Remaining source and dependency gaps.** Four gap records retain the following unresolved inputs; their precise statements and cycles are listed above.
+  - The SL-to-SO retraction needed for the real-circle SK₁ obstruction with its Dedekind property supplied by the algebraic chart chain below.
   - The class-field-theory inputs of BMS Theorem 3.5: the tame formula, the Hilbert product formula, the power reciprocity law and the local symbols on higher unit groups.
   - The five-lemma comparison of relative K₁ with the homotopy fibre.
 - **SK₁ of general Dedekind domains.** SK₁ = 0 is asserted only for O_{F,S}, with F a number field and S finite. It is not asserted for an arbitrary Dedekind domain.
@@ -8560,9 +8553,9 @@ The application consumes the existing compact Spin cover and its rotation path, 
 - `tauceti:CliffordAlgebra.coe_spinToSpecialOrthogonal_apply`: The underlying linear action of the special orthogonal image is spinVectorAction.
 - `tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear`: For a quadratic map on a finite coordinate space over a topological commutative ring, the faithful coordinate representation of its special orthogonal group is a topological embedding.
 
-The canonical determinant’s noninjectivity is the conclusion needed for this non-example. It does not by itself prove that the underlying abstract groups K₁(A) and Aˣ are nonisomorphic. The additional assertion that A is Dedekind is required for the U.4 counterexample and remains separately identified.
+The canonical determinant’s noninjectivity is the conclusion needed for this non-example. It does not by itself prove that the underlying abstract groups K₁(A) and Aˣ are nonisomorphic. The additional assertion that A is Dedekind is supplied by circle-ring-dedekind below. The topological retraction remains requested.
 
-## Spin comparison provenance and validation
+## Historical Spin comparison provenance and validation
 
 The author-hosted K-book draft (29 August 2013), III.1.5 and III.1.5.1–4, PDF pp.192–193 / printed pp.184–185, was read afresh for this continuation. The displayed matrix on PDF p.193 was also checked visually: it has rows (x,y),(−y,x), the inverse of our positive column rotation. This is a convention translation, not an erratum; all ten inherited source-error records remain unchanged. The SHA-256 remains `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`.
 
@@ -8571,3 +8564,276 @@ The Clifford computation is an explicit proof expansion for this application, de
 All 210 inherited node identifiers survive; 208 inherited node objects are unchanged. Only the rotation convention annotation and the final SK₁ proof chain are revised, and four lemma nodes are added. All nine supplier requests and the four unrelated gaps are unchanged. The source-decomposition statuses and all 44 planets are preserved; no whole stage is closed.
 
 The complete suggested file elaborates against both pins with zero errors and 721 proof-placeholder warnings only, after byte-comparing 8482 reached Mathlib sources and building 106 reached Tau Ceti modules from the pinned sources. Separate scratch proofs verify arbitrary-dimensional coordinate norm and orthogonality, the compact covering instance, and the covering-endpoint contradiction, with no proof placeholders or warnings. Exact Clifford coefficient checks verify both orientations on every coordinate in dimensions 2–16 (270 identities over ℤ[c,s]); 15 deliberately reversed-orientation comparisons fail as expected. These checks are not a formal proof of the whole application or a substitute for the requested retraction.
+
+
+## The real-circle Dedekind proof
+
+This continuation supplies the algebraic hypothesis of the real-circle counterexample using the existing quotient A=ℝ[x,y]/(x²+y²−1). It does not establish the outstanding SL-to-SO retraction. There are now 222 nodes, 437 API items, 230 packet tests, 44 planets and 450 baseline citations. Four gaps and nine supplier requests remain; no whole stage is closed.
+
+The two chart denominators are 1+x and 1−x. Their sum is the unit 2, so every prime lies in at least one chart. Each chart is ℝ[t,(1+t²)⁻¹], with the exact maps and inverse maps below. No claim identifies A itself with a polynomial ring or a PID. The proof uses Eisenstein irreducibility before applying the domain-sensitive localization theorems. At the zero prime the localization is a field; a nonzero maximal ideal is required for a DVR interpretation.
+
+Weibel's author copy, physical pp.191–193 / printed pp.183–185, was freshly read on 27 September 2026. The source provides the arithmetic scope and the real-circle example. The following eight declarations are the worker's detailed algebraic proof of the additional Dedekind assertion, using the cited pinned statements. No new source error is alleged.
+
+### Irreducibility of the real circle relation
+
+`KTheoryLowDegrees:U.3/circle-relation-irreducible` · lemma
+
+X₀²+X₁²−1 is irreducible in MvPolynomial (Fin 2) ℝ.
+
+**Hypotheses.**
+
+- A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital.
+
+**Proof.**
+
+1. Use finSuccEquiv followed by the one-variable equivalence on the coefficient ring: X₀ becomes the outer variable X, and X₁ becomes the coefficient variable Y. The relation becomes X²+(Y²−1) in ℝ[Y][X].
+2. Apply the existing Eisenstein criterion at the prime ideal (Y−1). The leading coefficient is 1, the linear coefficient is 0 and the constant coefficient is (Y−1)(Y+1). The polynomial is monic, hence primitive.
+3. The constant coefficient is not in (Y−1)²: cancellation in ℝ[Y] would imply Y−1 divides Y+1, but evaluation at Y=1 gives 2≠0. This is the essential characteristic restriction in this real application.
+4. Transport irreducibility back through the native polynomial algebra equivalences.
+
+**Acceptance.**
+
+- Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed.
+
+**Depends on.** `mathlib:MvPolynomial.finSuccEquiv`, `mathlib:MvPolynomial.uniqueAlgEquiv`, `mathlib:Polynomial.irreducible_of_eisenstein_criterion`, `mathlib:Polynomial.prime_X_sub_C`, `mathlib:Ideal.span_singleton_prime`, `mathlib:Polynomial.Monic.isPrimitive`.
+
+**Suggested declaration.** `TauCeti.KTheory.circleRelation_irreducible`.
+
+**Source.** Kbook.2013, III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
+
+### The real circle coordinate ring is a domain
+
+`KTheoryLowDegrees:U.3/circle-ring-domain` · lemma
+
+The existing quotient A has IsDomain A.
+
+**Hypotheses.**
+
+- A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital.
+
+**Proof.**
+
+1. Finite-variable polynomials over ℝ have the pinned unique-factorization instance. Therefore the irreducible circle relation is prime by Irreducible.prime.
+2. Its principal ideal is prime by Ideal.span_singleton_prime. Apply the actual Ideal.Quotient.isDomain instance. This also proves that A is nontrivial.
+
+**Acceptance.**
+
+- Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed.
+
+**Depends on.** `KTheoryLowDegrees:U.3/circle-relation-irreducible`, `mathlib:Irreducible.prime`, `mathlib:Ideal.span_singleton_prime`, `mathlib:Ideal.Quotient.isDomain`.
+
+**Suggested declaration.** `TauCeti.KTheory.circleRing_isDomain`.
+
+**Source.** Kbook.2013, III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
+
+### Stereographic charts of the real circle ring
+
+`KTheoryLowDegrees:U.3/circle-stereographic-chart` · construction
+
+For σ∈ℝ with σ²=1 set sσ=1+σx, Aσ=A[sσ⁻¹], B=ℝ[t,(1+t²)⁻¹]. There is an ℝ-algebra equivalence Φσ:Aσ≃B determined by x↦σ(1−t²)/(1+t²), y↦2t/(1+t²), sσ⁻¹↦(1+t²)/2. Its inverse sends t↦y/sσ and (1+t²)⁻¹↦sσ/2. These are equivalences of the specified localizations, not of A itself with a polynomial ring.
+
+**Hypotheses.**
+
+- A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital.
+
+**Proof.**
+
+1. In B use the canonical inverse d⁻¹ of d=1+t². The proposed images satisfy x²+y²=1 because σ²=1 and (1−t²)²+4t²=(1+t²)². Descend substitution through the existing quotient universal property.
+2. The image of 1+σx is 2d⁻¹, with inverse d/2. The localization universal property extends the quotient map to Φσ.
+3. In Aσ, σ²=1 and x²+y²=1 imply sσ²+y²=2sσ. Hence 1+(y/sσ)²=2/sσ, a unit with inverse sσ/2. The polynomial and localization universal properties define the inverse map.
+4. Check both composites on real constants, x,y and sσ⁻¹ on one side, and t,d⁻¹ on the other. In particular 2(y/sσ)/(2/sσ)=y and σ(1−y²/sσ²)/(2/sσ)=x. Quotient and localization extensionality finish the inverse laws.
+
+**Uses.**
+
+- KTheoryLowDegrees:U.3/circle-prime-local-dedekind: Every prime lies in one of these explicit polynomial-localization charts.
+- KTheoryLowDegrees:U.4/bass-milnor-serre: Supplies the separate Dedekind property for its real-circle non-example.
+
+**API.**
+
+- `circleChart_x` (simp): Φσ(x)=σ(1−t²)/(1+t²).
+- `circleChart_y` (simp): Φσ(y)=2t/(1+t²).
+- `circleChart_inv` (simp): Φσ(sσ⁻¹)=(1+t²)/2.
+- `circleChart_symm_t` (simp): Φσ⁻¹(t)=y/sσ.
+- `circleChart_symm_inv` (simp): Φσ⁻¹((1+t²)⁻¹)=sσ/2.
+- `circleChart_C` (compatibility): Φσ fixes every real constant through the canonical algebra maps.
+- `circleChart_ext` (extensionality): Two ℝ-algebra homomorphisms Aσ→B agreeing on the canonical images of x and y are equal; their values on sσ⁻¹ are then forced.
+
+**Tests.**
+
+- `circleChart_zero_test` (degenerate): Evaluation at t=0 after Φ₁ gives (x,y)=(1,0), and after Φ₋₁ gives (−1,0).
+- `circleChart_one_test` (computation): Evaluation at t=1 after Φ₁ gives (x,y)=(0,1), including the factor 2 in the y-coordinate.
+- `circleChart_inverse_test` (compatibility): Φσ⁻¹(Φσ(x+y)) is the canonical image of x+y in Aσ.
+- `circleChart_bad_scale_test` (non-example): Replacing 2t/(1+t²) by t/(1+t²) at t=1 gives (0,1/2), which does not satisfy x²+y²=1.
+
+**Acceptance.**
+
+- Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed.
+
+**Depends on.** `mathlib:MvPolynomial.eval₂Hom`, `mathlib:Ideal.Quotient.lift`, `mathlib:IsLocalization.Away.liftAlgHom`, `mathlib:IsLocalization.Away.invSelf`, `mathlib:IsLocalization.Away.mul_invSelf`, `mathlib:IsLocalization.ringHom_ext`, `mathlib:Polynomial.aeval`.
+
+**Suggested declaration.** `TauCeti.KTheory.circleChart`.
+
+**Source.** Kbook.2013, III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
+
+### The two circle charts cover the prime spectrum
+
+`KTheoryLowDegrees:U.3/circle-chart-cover` · lemma
+
+For every prime ideal 𝔭 of A, either 1+x∉𝔭 or 1−x∉𝔭.
+
+**Hypotheses.**
+
+- A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital.
+
+**Proof.**
+
+1. If both belonged to 𝔭, their sum 2 would belong to 𝔭. Multiplication by the real constant 1/2 then gives 1∈𝔭, contradicting primality.
+2. Thus every prime has a chart sign σ=1 or σ=−1 with sσ outside 𝔭. A single chart need not contain both real poles.
+
+**Acceptance.**
+
+- Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed.
+
+**Depends on.** `mathlib:Ideal.IsPrime`.
+
+**Suggested declaration.** `TauCeti.KTheory.circleChart_cover`.
+
+**Source.** Kbook.2013, III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
+
+### Prime localizations of the real circle ring
+
+`KTheoryLowDegrees:U.3/circle-prime-local-dedekind` · lemma
+
+For every prime ideal 𝔭 of A, Localization.AtPrime 𝔭 is a Dedekind domain.
+
+**Hypotheses.**
+
+- A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital.
+
+**Proof.**
+
+1. Choose σ from circle-chart-cover. Then sσ≠0, and the powers of sσ lie in the prime complement. Since A is a domain, its localization Aσ is a domain and A→Aσ is injective.
+2. The native polynomial ring ℝ[t] is a PID and therefore Dedekind. Its localization B away from the nonzero polynomial 1+t² is Dedekind by IsLocalization.isDedekindDomain. Use circle-stereographic-chart to supply the corresponding localization structure on Aσ and apply the same native theorem there.
+3. Give A𝔭 its canonical Aσ-algebra structure from the inclusion of denominator monoids. IsLocalization.isLocalization_of_submonoid_le identifies A𝔭 as the localization of Aσ at the image of A∖𝔭.
+4. Every element of that image is nonzero: its representative in A is outside 𝔭, and A→Aσ is injective. Thus the image monoid lies in the non-zero-divisors. Apply the existing Dedekind localization theorem again. This includes 𝔭=(0), where the localization is a field; no DVR claim is made at the zero prime.
+
+**Acceptance.**
+
+- Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed.
+
+**Depends on.** `KTheoryLowDegrees:U.3/circle-ring-domain`, `KTheoryLowDegrees:U.3/circle-stereographic-chart`, `KTheoryLowDegrees:U.3/circle-chart-cover`, `mathlib:IsLocalization.Away.isDomain`, `mathlib:IsLocalization.isLocalization_iff_of_ringEquiv`, `mathlib:IsLocalization.isLocalization_of_submonoid_le`, `mathlib:IsLocalization.isDedekindDomain`, `mathlib:IsLocalization.injective`, `mathlib:isDedekindDomain_iff`.
+
+**Suggested declaration.** `TauCeti.KTheory.circleRing_local_dedekind`.
+
+**Source.** Kbook.2013, III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
+
+### Integral closure of the real circle ring
+
+`KTheoryLowDegrees:U.3/circle-integrally-closed` · lemma
+
+The real circle ring A is integrally closed in its fraction field: IsIntegrallyClosed A.
+
+**Hypotheses.**
+
+- A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital.
+
+**Proof.**
+
+1. The domain hypothesis is circle-ring-domain. Every maximal ideal is prime, so circle-prime-local-dedekind supplies integral closure at every maximal localization.
+2. Apply IsIntegrallyClosed.of_isLocalization_maximal to the actual family Localization.AtPrime. No global geometric regularity or faithfully flat descent theorem is assumed.
+
+**Acceptance.**
+
+- Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed.
+
+**Depends on.** `KTheoryLowDegrees:U.3/circle-ring-domain`, `KTheoryLowDegrees:U.3/circle-prime-local-dedekind`, `mathlib:IsIntegrallyClosed.of_isLocalization_maximal`.
+
+**Suggested declaration.** `TauCeti.KTheory.circleRing_integrallyClosed`.
+
+**Source.** Kbook.2013, III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
+
+### Dimension bound for the real circle ring
+
+`KTheoryLowDegrees:U.3/circle-dimension-le-one` · lemma
+
+The real circle ring has Krull dimension at most one: Ring.KrullDimLE 1 A.
+
+**Hypotheses.**
+
+- A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital.
+
+**Proof.**
+
+1. Every maximal localization is Dedekind by circle-prime-local-dedekind and therefore has Krull dimension at most one.
+2. Apply Ring.krullDimLE_of_isLocalization_maximal to the actual maximal-localization family. Retain the native convention at most one, which allows fields among the localizations.
+
+**Acceptance.**
+
+- Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed.
+
+**Depends on.** `KTheoryLowDegrees:U.3/circle-prime-local-dedekind`, `mathlib:Ring.krullDimLE_of_isLocalization_maximal`, `mathlib:IsDedekindDomain`.
+
+**Suggested declaration.** `TauCeti.KTheory.circleRing_dimensionLEOne`.
+
+**Source.** Kbook.2013, III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
+
+### The real circle ring is a Dedekind domain
+
+`KTheoryLowDegrees:U.3/circle-ring-dedekind` · theorem
+
+A=ℝ[x,y]/(x²+y²−1) satisfies the actual IsDedekindDomain predicate.
+
+**Hypotheses.**
+
+- A is the existing real circle ring ℝ[x,y]/(x²+y²−1), with x=[X₀], y=[X₁]. All rings and maps in this chain are commutative and unital.
+
+**Proof.**
+
+1. Use circle-ring-domain and circle-integrally-closed for the domain and normality conditions.
+2. Noetherianity is already supplied by MvPolynomial.isNoetherianRing for the two-variable polynomial ring over ℝ and Ideal.Quotient.isNoetherianRing for its quotient. Do not plan another Noetherianity theorem.
+3. Use circle-dimension-le-one and the native equivalence between the Krull dimension bound and maximality of nonzero prime ideals in a domain. Assemble exactly the IsDedekindDomain fields.
+4. This supplies only the algebraic hypothesis of the U.4 counterexample. Nontrivial SK₁ still depends on the separate SL-to-SO retraction request in SK1-real-circle-nonzero.
+
+**Tests.**
+
+- `circleRing_dedekind_test` (compatibility): The exact IsDedekindDomain instance yields IsNoetherianRing A, IsDomain A and IsIntegrallyClosed A.
+
+**Acceptance.**
+
+- Use the actual polynomial quotient and canonical localization maps; no smoothness or descent hypothesis is assumed.
+
+**Depends on.** `KTheoryLowDegrees:U.3/circle-ring-domain`, `KTheoryLowDegrees:U.3/circle-integrally-closed`, `KTheoryLowDegrees:U.3/circle-dimension-le-one`, `mathlib:MvPolynomial.isNoetherianRing`, `mathlib:Ideal.Quotient.isNoetherianRing`, `mathlib:Ring.krullDimLE_one_iff_of_noZeroDivisors`, `mathlib:IsDedekindDomain`.
+
+**Suggested declaration.** `TauCeti.KTheory.circleRing_dedekind`.
+
+**Source.** Kbook.2013, III.1.5.4, printed p.185 / PDF p.193; III.1.3.6, printed p.183 / PDF p.191. Application-specific algebraic proof supplied by this continuation for the displayed real-circle counterexample. The source identifies the example; it does not print this Eisenstein/stereographic/localization proof.
+
+### Added baseline evidence
+
+- `mathlib:Ideal.IsPrime` (Mathlib/RingTheory/Ideal/Prime.lean, line 41): A proper ideal whose membership test on a product forces membership of a factor; in particular it cannot contain one.
+- `mathlib:Ideal.Quotient.isDomain` (Mathlib/RingTheory/Ideal/Quotient/Basic.lean, line 90): The quotient by a prime ideal is an integral domain, including nontriviality.
+- `mathlib:Ideal.Quotient.isNoetherianRing` (Mathlib/RingTheory/Ideal/Quotient/Noetherian.lean, line 17): A quotient of a commutative Noetherian ring is Noetherian.
+- `mathlib:Ideal.span_singleton_prime` (Mathlib/RingTheory/Ideal/Maximal.lean, line 148): For a nonzero element, its principal ideal is prime exactly when the element is prime.
+- `mathlib:Irreducible.prime` (Mathlib/Algebra/Prime/Defs.lean, line 143): In a decomposition monoid an irreducible element is prime; applied with the native multivariate-polynomial UFD instance.
+- `mathlib:IsIntegrallyClosed.of_isLocalization_maximal` (Mathlib/RingTheory/LocalProperties/IntegrallyClosed.lean, line 91): An integral domain is integrally closed if its actual localizations at all maximal ideals are integrally closed.
+- `mathlib:IsLocalization.Away.invSelf` (Mathlib/RingTheory/Localization/Away/Basic.lean, line 58): The canonical inverse of the image of the element inverted in an away localization.
+- `mathlib:IsLocalization.Away.isDomain` (Mathlib/RingTheory/Localization/Away/Basic.lean, line 334): Localizing an integral domain away from a nonzero element gives a domain.
+- `mathlib:IsLocalization.Away.liftAlgHom` (Mathlib/RingTheory/Localization/Away/Basic.lean, line 169): An algebra map sending the inverted element to a unit extends to an algebra map out of the away localization.
+- `mathlib:IsLocalization.Away.mul_invSelf` (Mathlib/RingTheory/Localization/Away/Basic.lean, line 62): The canonical image of the inverted element times invSelf is one.
+- `mathlib:IsLocalization.injective` (Mathlib/RingTheory/Localization/Defs.lean, line 941): The localization map is injective when the denominator monoid is contained in the non-zero-divisors.
+- `mathlib:IsLocalization.isDedekindDomain` (Mathlib/RingTheory/DedekindDomain/Dvr.lean, line 64): A localization of a Dedekind domain at non-zero-divisors is Dedekind, with the target domain hypothesis explicit.
+- `mathlib:IsLocalization.isLocalization_iff_of_ringEquiv` (Mathlib/RingTheory/Localization/Basic.lean, line 353): Transport the localization property through a ring equivalence using the transported algebra structure.
+- `mathlib:IsLocalization.isLocalization_of_submonoid_le` (Mathlib/RingTheory/Localization/LocalizationLocalization.lean, line 194): For M⊆N, the N-localization is a localization of the M-localization at the image of N, with the specified algebra tower.
+- `mathlib:IsLocalization.ringHom_ext` (Mathlib/RingTheory/Localization/Defs.lean, line 543): Ring homomorphisms out of a localization are equal when their composites with the base-ring map agree.
+- `mathlib:MvPolynomial.finSuccEquiv` (Mathlib/Algebra/MvPolynomial/Equiv.lean, line 649): Separate the zeroth variable as an outer polynomial variable; the successor variables remain in the coefficient ring.
+- `mathlib:MvPolynomial.isNoetherianRing` (Mathlib/RingTheory/Polynomial/Basic.lean, line 934): Finitely many polynomial variables over a Noetherian coefficient ring give a Noetherian ring.
+- `mathlib:MvPolynomial.uniqueAlgEquiv` (Mathlib/Algebra/MvPolynomial/Equiv.lean, line 67): Polynomials in one variable indexed by a unique type are algebra-equivalent to the ordinary polynomial ring.
+- `mathlib:Polynomial.aeval` (Mathlib/Algebra/Polynomial/AlgebraMap.lean, line 257): The algebra homomorphism evaluating the polynomial variable at a specified element of an algebra.
+- `mathlib:Polynomial.irreducible_of_eisenstein_criterion` (Mathlib/RingTheory/Polynomial/Eisenstein/Criterion.lean, line 176): Eisenstein irreducibility from a prime coefficient ideal, primitive polynomial, nonzero degree, leading coefficient outside the ideal, other coefficients inside it, and constant coefficient outside its square.
+- `mathlib:Polynomial.prime_X_sub_C` (Mathlib/Algebra/Polynomial/RingDivision.lean, line 235): The linear polynomial X−C(r) is prime over the stated domain coefficient ring.
+- `mathlib:Ring.krullDimLE_of_isLocalization_maximal` (Mathlib/RingTheory/Ideal/Height.lean, line 567): A uniform Krull dimension bound on all maximal localizations implies that bound on the original ring.
+- `mathlib:Ring.krullDimLE_one_iff_of_noZeroDivisors` (Mathlib/RingTheory/KrullDimension/Basic.lean, line 176): For a ring without zero divisors, Krull dimension at most one is equivalent to maximality of each nonzero prime ideal.
+- `mathlib:isDedekindDomain_iff` (Mathlib/RingTheory/DedekindDomain/Basic.lean, line 161): The exact native domain, Noetherianity, dimension-at-most-one and fraction-field integral-closure conditions for a Dedekind domain.
+- `mathlib:Polynomial.Monic.isPrimitive` (Mathlib/RingTheory/Polynomial/Content.lean, line 55): Monic polynomials meet the primitive-polynomial hypothesis of Eisenstein.
+
+The polynomial Euclidean-domain, PID-to-Dedekind and multivariable unique-factorization instances were also read in their pinned source files. They are native infrastructure, not new roadmap declarations. All 425 prior baseline records and all ten prior source findings remain intact.
