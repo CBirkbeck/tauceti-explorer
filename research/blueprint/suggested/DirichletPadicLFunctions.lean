@@ -1631,3 +1631,137 @@ example : ‖((1-(2:ℚ_[2]))*(1-3^2)*(1/6)/2 -
 example [Fact (Nat.Prime 5)] : IsUnit (1-(2:ℤ_[5])^2) ∧ IsUnit (1-(2:ℤ_[5])^6) ∧
     ‖((1-(5:ℚ_[5]))*(1/6)/2 - (1-5^5)*(1/42)/6)‖ = (5:ℝ)⁻¹ := sorry
 end SuggestedKummerTests
+
+/-! ## Actual p-power character twists
+The lift is defined for every exponent. Its support and level-independence laws
+require positive exponents: modulus one gives a constant function, whereas a
+principal character at positive p-power level gives the unit indicator.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+variable {R : Type*} [NormedCommRing R]
+
+-- DirichletPadicLFunctions:L2/prime-power-character
+noncomputable def primePowerCharacter (n : ℕ) (χ : DirichletCharacter R (p^n)) :
+    C(ℤ_[p],R) := sorry
+
+theorem primePowerCharacter_apply (n : ℕ) (χ : DirichletCharacter R (p^n)) (z : ℤ_[p]) :
+    primePowerCharacter p n χ z = χ (PadicInt.toZModPow n z) := sorry
+theorem primePowerCharacter_natCast (n : ℕ) (χ : DirichletCharacter R (p^n)) (a : ℕ) :
+    primePowerCharacter p n χ a = χ a := sorry
+theorem primePowerCharacter_one (n : ℕ) (χ : DirichletCharacter R (p^n)) :
+    primePowerCharacter p n χ 1 = 1 := sorry
+theorem primePowerCharacter_mul (n : ℕ) (χ : DirichletCharacter R (p^n)) (x y : ℤ_[p]) :
+    primePowerCharacter p n χ (x*y) = primePowerCharacter p n χ x * primePowerCharacter p n χ y := sorry
+theorem primePowerCharacter_mul_char (n : ℕ) (χ ψ : DirichletCharacter R (p^n)) :
+    primePowerCharacter p n (χ*ψ) = primePowerCharacter p n χ * primePowerCharacter p n ψ := sorry
+theorem primePowerCharacter_zero_level (χ : DirichletCharacter R (p^0)) :
+    primePowerCharacter p 0 χ = 1 := sorry
+theorem primePowerCharacter_principal_unit (n : ℕ) (u : (ℤ_[p])ˣ) :
+    primePowerCharacter p n (1 : DirichletCharacter R (p^n)) (u : ℤ_[p]) = 1 := sorry
+
+-- DirichletPadicLFunctions:L2/prime-power-character-support
+theorem primePowerCharacter_nonunit (n : ℕ) (hn : 1 ≤ n)
+    (χ : DirichletCharacter R (p^n)) (z : ℤ_[p]) (hz : ¬ IsUnit z) :
+    primePowerCharacter p n χ z = 0 := sorry
+
+-- DirichletPadicLFunctions:L2/prime-power-character-level
+theorem primePowerCharacter_changeLevel (n m : ℕ) (hn : 1 ≤ n) (h : n ≤ m)
+    (χ : DirichletCharacter R (p^n)) :
+    primePowerCharacter p m (χ.changeLevel (pow_dvd_pow p h)) = primePowerCharacter p n χ := sorry
+
+section ActualTwist
+variable [Algebra ℤ_[p] R] [IsUltrametricDist R] [CompleteSpace R] [IsBoundedSMul ℤ_[p] R]
+
+-- DirichletPadicLFunctions:L2/twisted-smoothed-measure
+noncomputable def twistedSmoothedMeasure (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (a : ℕ) (ha : ¬ p ∣ a) : D(ℤ_[p],R) := sorry
+
+theorem twistedSmoothedMeasure_eq_weight (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (a : ℕ) (ha : ¬ p ∣ a) :
+    twistedSmoothedMeasure p n χ a ha = weight (primePowerCharacter p n χ)
+      (extendIntegralCoefficients (R := R) (smoothedMeasure p a ha)) := sorry
+theorem twistedSmoothedMeasure_apply (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (a : ℕ) (ha : ¬ p ∣ a) (f : C(ℤ_[p],R)) :
+    twistedSmoothedMeasure p n χ a ha f =
+      extendIntegralCoefficients (R := R) (smoothedMeasure p a ha)
+        (primePowerCharacter p n χ * f) := sorry
+theorem twistedSmoothedMeasure_one_parameter (n : ℕ) (χ : DirichletCharacter R (p^n))
+    (h1 : ¬ p ∣ 1) :
+    twistedSmoothedMeasure p n χ 1 h1 = 0 := sorry
+theorem twistedSmoothedMeasure_moment (n k : ℕ) (χ : DirichletCharacter R (p^n))
+    (a : ℕ) (ha : ¬ p ∣ a) :
+    twistedSmoothedMeasure p n χ a ha
+      ((ContinuousMap.id ℤ_[p])^k • (1 : C(ℤ_[p],R))) =
+      extendIntegralCoefficients (R := R) (smoothedMeasure p a ha)
+        (primePowerCharacter p n χ * ((ContinuousMap.id ℤ_[p])^k • (1 : C(ℤ_[p],R)))) := sorry
+theorem twistedSmoothedMeasure_zero_level (χ : DirichletCharacter R (p^0))
+    (a : ℕ) (ha : ¬ p ∣ a) :
+    twistedSmoothedMeasure p 0 χ a ha =
+      extendIntegralCoefficients (R := R) (smoothedMeasure p a ha) := sorry
+
+-- DirichletPadicLFunctions:L2/twisted-smoothed-support
+theorem unitRestriction_twistedSmoothedMeasure (n : ℕ) (hn : 1 ≤ n)
+    (χ : DirichletCharacter R (p^n)) (a : ℕ) (ha : ¬ p ∣ a) :
+    unitRestriction p R (twistedSmoothedMeasure p n χ a ha) =
+      twistedSmoothedMeasure p n χ a ha := sorry
+
+-- DirichletPadicLFunctions:L2/twisted-smoothed-principal
+theorem twistedSmoothedMeasure_principal (n : ℕ) (hn : 1 ≤ n)
+    (a : ℕ) (ha : ¬ p ∣ a) :
+    twistedSmoothedMeasure p n (1 : DirichletCharacter R (p^n)) a ha =
+      extendIntegralCoefficients (R := R) (unitSmoothedMeasure p a ha) := sorry
+
+-- DirichletPadicLFunctions:L2/twisted-smoothed-level
+theorem twistedSmoothedMeasure_changeLevel (n m : ℕ) (hn : 1 ≤ n) (h : n ≤ m)
+    (χ : DirichletCharacter R (p^n)) (a : ℕ) (ha : ¬ p ∣ a) :
+    twistedSmoothedMeasure p m (χ.changeLevel (pow_dvd_pow p h)) a ha =
+      twistedSmoothedMeasure p n χ a ha := sorry
+
+-- DirichletPadicLFunctions:L2/twisted-smoothed-product
+theorem twistedSmoothedMeasure_mul (n : ℕ) (χ ψ : DirichletCharacter R (p^n))
+    (a : ℕ) (ha : ¬ p ∣ a) :
+    twistedSmoothedMeasure p n (χ*ψ) a ha =
+      weight (primePowerCharacter p n χ) (twistedSmoothedMeasure p n ψ a ha) := sorry
+end ActualTwist
+end DirichletPadic
+
+namespace SuggestedCharacterTwistTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+-- SuggestedCharacterTwistTests.positive_level_zero
+example (χ : DirichletCharacter ℚ_[3] (3^2)) : primePowerCharacter 3 2 χ 0 = 0 := sorry
+-- SuggestedCharacterTwistTests.principal_unit_and_nonunit
+example : primePowerCharacter 3 1 (1 : DirichletCharacter ℚ_[3] (3^1)) 1 = 1 ∧
+    primePowerCharacter 3 1 (1 : DirichletCharacter ℚ_[3] (3^1)) 3 = 0 := sorry
+-- SuggestedCharacterTwistTests.zero_level_zero
+example (χ : DirichletCharacter ℚ_[3] (3^0)) : primePowerCharacter 3 0 χ 0 = 1 := sorry
+-- SuggestedCharacterTwistTests.dyadic_sign
+example : primePowerCharacter 2 2 (1 : DirichletCharacter ℚ_[2] (2^2)) (-1) = 1 := sorry
+-- SuggestedCharacterTwistTests.inverse_product_unit
+example (χ : DirichletCharacter ℚ_[3] (3^1)) :
+    primePowerCharacter 3 1 (χ*χ⁻¹) 2 = 1 ∧ primePowerCharacter 3 1 (χ*χ⁻¹) 3 = 0 := sorry
+-- SuggestedCharacterTwistTests.positive_level_change
+example (χ : DirichletCharacter ℚ_[3] (3^1)) :
+    primePowerCharacter 3 2 (χ.changeLevel (by norm_num : 3^1 ∣ 3^2)) =
+      primePowerCharacter 3 1 χ := sorry
+
+variable [IsBoundedSMul ℤ_[3] ℚ_[3]] [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- SuggestedCharacterTwistTests.zero_smoothing
+example (χ : DirichletCharacter ℚ_[3] (3^1)) : twistedSmoothedMeasure 3 1 χ 1 (by norm_num) = 0 := sorry
+-- SuggestedCharacterTwistTests.principal_positive_moment
+example : twistedSmoothedMeasure 3 1 (1 : DirichletCharacter ℚ_[3] (3^1)) 2 (by norm_num)
+    (ContinuousMap.id ℤ_[3] • (1 : C(ℤ_[3],ℚ_[3]))) = 1/2 := sorry
+-- SuggestedCharacterTwistTests.principal_zero_level_moment
+example : twistedSmoothedMeasure 3 0 (1 : DirichletCharacter ℚ_[3] (3^0)) 2 (by norm_num)
+    (ContinuousMap.id ℤ_[3] • (1 : C(ℤ_[3],ℚ_[3]))) = -1/4 := sorry
+-- SuggestedCharacterTwistTests.dyadic_principal_moment
+example : twistedSmoothedMeasure 2 1 (1 : DirichletCharacter ℚ_[2] (2^1)) 3 (by norm_num)
+    (ContinuousMap.id ℤ_[2] • (1 : C(ℤ_[2],ℚ_[2]))) = 2/3 := sorry
+-- SuggestedCharacterTwistTests.inverse_twist_unit_projection
+example (χ : DirichletCharacter ℚ_[3] (3^1)) :
+    weight (primePowerCharacter 3 1 χ⁻¹) (twistedSmoothedMeasure 3 1 χ 2 (by norm_num)) =
+      extendIntegralCoefficients (R := ℚ_[3]) (unitSmoothedMeasure 3 2 (by norm_num)) := sorry
+end SuggestedCharacterTwistTests
