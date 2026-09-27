@@ -1,130 +1,52 @@
-# Handoff — BP-HigherLocalFieldsAndHigherClassFieldTheory (issue #1012)
+# BP-HigherLocalFieldsAndHigherClassFieldTheory — coefficient topology checkpoint
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-hl`.
+Agent: Codex — codex-hjdg0j, 2026-09-27. Refs #1012.
+Claim [5857051132](https://github.com/CBirkbeck/tauceti-explorer/issues/1012#issuecomment-5857051132), winning bot [5857052184](https://github.com/CBirkbeck/tauceti-explorer/issues/1012#issuecomment-5857052184). The whole issue was read before claiming and reread after confirmation. Starting snapshot: 39e309df7a2d7ce7ae4d5947d71e6eeba81831cc.
 
-## Deliverables
+## Delivered and open
 
-- `research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json` — 48
-  nodes (5 definitions, 7 constructions, 28 theorems, 8 applications), 82 API
-  items, 48 unit tests, 18 planets, 30 baseline declarations, 8 gaps, 14
-  requests, 4 structural proposals. `"part": null`, `"status": "partial"`.
-- `research/blueprint/readmes/HigherLocalFieldsAndHigherClassFieldTheory.md` — the
-  roadmap document, 2111 lines, one section per layer with every node's statement,
-  hypotheses, proof outline, API, unit tests, acceptance items, prerequisites and
-  sources.
-- `research/blueprint/suggested/HigherLocalFieldsAndHigherClassFieldTheory.lean` —
-  524 lines of suggested signatures and `example` unit tests.
-- This note.
+The continued packet has 65 nodes: 5 definitions, 10 constructions, 34 theorems, 8 lemmas, 7 applications and 1 comparison. It has 95 API entries, 58 unit-test specifications, 19 planets, 47 pinned baseline declarations, 27 supplier requests and 13 gaps. All eight stages remain partial and every implementation status is unchecked. This is a checkpoint, not a complete extraction of the volume or a claim that a whole stage is closed.
 
-## Checks run
+The new component has 18 declaration nodes, 13 API entries and 9 typed examples, with a dependency graph terminating in the pinned baseline. It constructs coefficient boxes on native Laurent series, a native additive filter basis and its named higher topology. It proves the neighborhood characterization, cofinality of open-subgroup boxes, continuity of coefficients, the topology induced on monomials, Hausdorffness, comparison with the outer topology, equality precisely for discrete coefficients and strictness otherwise. There is no global replacement topology instance.
 
-- `python3 scripts/check_blueprint.py research/blueprint/packets/HigherLocalFieldsAndHigherClassFieldTheory.json --index $TAUCETI_BASELINE/declarations.tsv`
-  → **0 errors, 0 warnings**, with the pinned declaration index in place, so every
-  one of the 30 baseline references was resolved against it and not merely checked
-  for form.
-- `python3 research/blueprint/intake.py check-files` on the four changed paths → 0 problems.
-- `python3 -m unittest discover -s tests` → see the pull request.
+The inherited packet is continued rather than discarded. Two non-declarations were moved to research notes: an import inventory and a description of unproved global work. Their mathematical dependencies are imported directly or recorded as gaps. Forty-six existing mathematical node identifiers are retained, and HL.7 gains a genuine Artin-map comparison obligation. These inherited source inventories still require declaration splitting and typed supplier interfaces. The old suggested file's vacuous propositions were removed; only the new component has actual typed signatures. The reader explicitly describes this open packet/prototype agreement frontier.
 
-**The Lean file was not compiled.** No Lean was run for this job. The Mathlib build
-on this machine is a shared cache that must not be rebuilt, and this working tree
-has no elaborated dependency modules. Nothing in this packet is claimed to be
-formalised and every `implementationStatus` is `unchecked`.
+## Corrections and ownership
 
-## The source, and how it was identified
+The higher coefficient topology is coarser than the outer valued topology, and agrees with it exactly for a discrete coefficient field. On F_q((u))((t)), the constants u^j tend to zero only in the higher topology. The rank-two ideal argument uses an ascending chain. The F{T} coefficient limit is taken towards negative infinity. Mixed-characteristic Teichmüller representatives are not a finite subfield.
 
-Six stage texts name **AE-HLFVOLUME** and two name **AE-HLCFT**, one with the page
-range *pp. 165–195*. **Neither tag is defined anywhere in the repository** — no
-reference register, catalogue or guide has them. Both resolve to *Invitation to
-higher local fields*, Fesenko & Kurihara (eds.), Geometry & Topology Monographs 3
-(2000), <https://msp.org/gtm/2000/03/gtm-2000-03p.pdf>, SHA-256
-`a6c9088000d9b18ded4d2159531d7544683b86d6eecdbb2ab6cc9b743baabe62`, downloaded and
-hashed in this session. It is the volume of the higher local fields conference, and
-**Kato's *Existence theorem for higher local class field theory***, the IHES
-preprint of 1980 never published elsewhere, sits between its two parts at printed
-pages **165–195** — exactly the range the HL.3 stage text gives. A `restructure`
-entry asks that the resolution be recorded where the campaign's source tags are
-kept, so the next worker on any of these layers does not repeat the identification.
+The residue convention places the uniformizer last: {u,t} has iterated residue +1 and {t,u} has −1. Norm and residue commute without an extra ramification factor; restriction has the ramification factor and final degree-zero transfer has the residue degree. Prime-to-final-residue-characteristic duality is separated from wild higher duality. The dimension-one invariant is in degree two, and Kato's differential coefficients are separated from ordinary characteristic-p cohomology.
 
-Printed page *p* is PDF page *p + 12*.
+Further source checks correct the degree-n tame torsion to n copies of Z/(q−1), including two copies in rank two. The reversed free generator in the source has sign (−1)^{n(n−1)/2} under the imported convention. Kummer's formula is a root of unity raised to the residue expression, not a residue valued directly in roots of unity. A convergent principal-unit expansion alone does not give a finite Artin–Schreier–Witt computation. Milnor residue complexes and cohomological Kato complexes are distinct, and square-zero requires codimension-two reciprocity with all branch norms.
 
-**Read in full:** introduction and contents (pp. iii–xi); Part I §1 (Zhukov, pp.
-5–11); Part I §5 (Kurihara, pp. 53–58); Part I §7 (Fesenko, pp. 75–76).
-**Read in part:** §6 to p. 62, §8 to p. 81, §10 on pp. 99–100, Part II §1 on pp.
-199–200.
-**Not read:** Kato's preprint (pp. 165–195), Part I §§2, 4, 9, 11–18, the bodies of
-§§6, 8, 10, and Part II §§2–10. Each omission is a gap with the exact pages to read
-next.
+Accepted RS-28 determines the title Class field theory, Part II: higher local fields and higher reciprocity, with ClassFieldTheory first. All HL.0–HL.7 are retained. Ordinary local arithmetic comes from LocalFieldsRamification; all-degree algebraic Milnor groups, residues and transfers from K2SymbolsBrauer; generic continuous cohomology from ProfiniteCohomology; ordinary local reciprocity from ClassFieldTheory in its specified scopes; de Rham–Witt from CrystallineCohomology CR.4 and differential comparisons from MotivicEtaleKTheory M.5d. The equal-characteristic p-primary existence/completion gap remains here even at dimension one. Number-field and finite-field-curve global suppliers remain separate. No unreviewed supplier packet is described as accepted review.
 
-## The audit was read first, and it changed the plan
+The validator currently parses upstream tauceti roadmap-stage identifiers as library declarations. Following existing packet precedent, exact affected edges remain in unresolvedPrerequisites and supplier requests, with an explicit encoding gap. These are real mathematical dependencies, not removed obligations. The new 18-node component does not use that workaround.
 
-`AUDIT-03` records HL.0 **partly built**, HL.1–HL.6 **not built**, HL.7
-**process**. Two consequences:
+## Reading and source versions
 
-1. **HL.7 gets no nodes.** Its three targets are an export of maps that do not yet
-   exist, a repetition of the acceptance examples of HL.0 and HL.5 (the audit says
-   so itself), and bookkeeping of unproved extensions. A process layer is not
-   mathematics; its removal is the first `restructure` entry, and its coverage
-   record points at the nodes where its two examples are in fact planned.
-2. **HL.1 is almost entirely `K2SymbolsBrauer`'s.** The audit records three
-   duplicates there, and the packets `K2SymbolsBrauer--T.2/T.3/T.4.json` exist and
-   are reviewed. This packet imports `T.2/milnor-k-theory`,
-   `T.2/milnor-alternating`, `T.3/tame-symbol`, `T.3/higher-milnor-residues`,
-   `T.3/transfer-and-norm-residue` and `T.4/milnor-transfer-transitivity` **by node
-   identifier** and defines no Milnor K-theory. What HL.1 keeps is what is specific
-   to a tower: the iterated residue with its sign rule, its compatibility with the
-   norm through the ramification matrix, and the topological K-groups. The second
-   `restructure` entry asks that HL.1's stage text say so, because as written it
-   reads as though the whole of Milnor K-theory were to be built here.
+The worker, blueprint, expansion, upstream and browser instructions, full roadmap and all stage texts, reviewed AUDIT-03 entries and review, accepted RS-28 report/result including owners and links, reserved ids, and all link entries mentioning this roadmap were inspected. Multiquadratic and Completed/EffectiveBounds were previously read in full and verified byte-for-byte unchanged. Local-field/class-field ownership contracts were consulted; their entire upstream documents were not read in full. A fresh-main check discovered the new shared-machine paragraph in WORKERS; the full updated file was read before publication.
 
-`FoundationsAndLibraryIntegration:LI.4`, which four HL.0 nodes would naturally rest
-on, belongs to a **retired** roadmap (`data/roadmap-retirements.json`), so no
-request is filed against it; the carriers are cited from Mathlib directly and the
-convention question — the higher topology is a *second* topology on a field that
-already carries its valuation topology — is recorded in HL.0's `remaining` list.
+The MSP published volume has SHA-256 a6c9088000d9b18ded4d2159531d7544683b86d6eecdbb2ab6cc9b743baabe62. Fresh reading covers Zhukov pp. 5–18 in full; Kurihara pp. 53–58, not all of §5; Fesenko pp. 61–63, 75–76 and 99–100; Vostokov p. 81; Parshin pp. 199–200; introduction iii–vi and contents xi. Each PDF extraction used pymupdf and at most three physical pages. Eighty-eight inherited quotation paraphrases were replaced with checked short literal anchors; formulas are transcribed in mathematical statements. Overview quotations are explicitly not proofs of global obligations.
 
-## What remains
+Four source issues are recorded: Zhukov p. 6 asserts a Teichmüller subfield under an insufficient characteristic hypothesis; Kurihara p. 55 prints degree one for a degree-q lifted symbol; p. 56 drops +1 in the invariant's degree; Fesenko p. 100 prints Gal(L/F) where the absolute reciprocity target is Gal(F^ab/F). The issue-bearing published pages were visually inspected. The author-hosted Part I copy has SHA-256 8f77bc14ef071294573295c7f65a5e08cad0fa26bba592b8fd89f4ae2e556d5a; the same four problems remain on its corresponding pages. Metadata, author/publisher pages and correction searches are recorded per issue. No priority claim or author contact is made. The source also notes a correction to MZ1 on p. 17; MZ1 itself was not acquired, so this is a source lead rather than an independently verified finding against MZ1.
 
-No layer is closed. Eight gaps, each with a *next source action* naming exact
-printed pages. In rough order of how much they block:
+Pinned Mathlib and Tau Ceti statements were read before each of the 47 baseline citations. Searches found no existing higher coefficient-topology construction; native outer Laurent topology, additive filter bases and open additive subgroups are reused. GitHub open-PR searches for “higher topology” and “higher local” returned no matches. The broader LaurentSeries query returned existing algebraic/valuation work, without identifying a replacement for this component. Public Zulip/archive searches found no relevant design thread. These searches do not establish absence of unpublished or private work.
 
-1. **Kato's preprint, pp. 165–195, is unread.** It is the existence theorem the
-   HL.3 stage text points at by page range. The packet takes the existence theorem
-   from Fesenko §10.5 (p. 100) instead, which proves the same statement by a
-   different route, using the topology on the K-groups; Kato characterises the
-   class of open subgroups of finite index *without* that topology. The two
-   statements need comparing.
-2. **The global layer has no source.** The volume is a local source and its
-   introduction says so, referring the reader to Raskind's review. Every statement
-   of HL.6 is recorded as an obligation with its hypotheses, and one node
-   (`what-is-not-proved-globally`) says this in the packet itself. Kato–Saito and
-   Raskind must be acquired with their exact regularity and properness hypotheses.
-3. **§§6.2–6.8, 8.2–8.3 and 10.1–10.4 are unread.** They are the computational
-   heart of HL.1, HL.3 and HL.4: the pairings and structure results for the
-   topological K-groups, Vostokov's formula, and the explicit construction.
-4. **Part II §1 was read for two pages and §2 not at all.** The restricted-product
-   condition is recorded from Parshin's own formulation; Parshin's, Beilinson's and
-   Huber's papers were not obtained and the three formulations are not compared.
-   Osipov's direct images are recorded by role only.
-5. **Epp's theorem** (§17, pp. 143–150) is quoted, not proved; it is used by the
-   classification theorem of HL.0 and by Zhukov's ramification theory in HL.4.
-6. The **isomorphism theorem is sketched** in §5, not proved; the index inequality
-   refers to Serre and to Kato's papers.
+## Validation
 
-## Structural proposals
+Lean 4.34.0-rc2 elaborates the exact suggested file with zero errors and 28 expected proof-placeholder warnings only. File SHA-256: 43fa7cff8101c94579d1e139d17b633180cb2eac35d6e26049a2abb1b3f89823. All 2371 transitive Mathlib source imports were checked against the pinned tree and existing cache; no Tau Ceti module is imported. Only the existing build was used; no Lake project, cache download or library build was made for this component. The run verifies signatures, not proofs.
 
-1. **Remove HL.7** (process layer).
-2. **Rewrite HL.1's stage text** to say that Milnor K-theory, the one-step residues
-   and the transfers come from `K2SymbolsBrauer:T.2–T.4`.
-3. **Record the resolution of AE-HLFVOLUME and AE-HLCFT** with the URL and SHA-256
-   above, since neither tag is defined in the repository.
-4. **Divide HL.6.** Kato complexes and the vanishing of the square of the boundary
-   follow from HL.5's residues and can be built from the sources in hand; the
-   global comparison, its four variants and the Hasse principles need a primary
-   source nobody in this programme has. As one layer HL.6 can never be closed.
+The packet checker passes against the unmodified pinned index with zero errors and warnings. Source-issue/version validation, all 18 new dependency chains, typed API/example coverage, reader agreement and the four-authorized-file audit pass. The four-file intake check is run before publication. The reader is about 39,300 words, including the retained source obligations, requests and gaps.
 
-## Where to resume
+Exact arithmetic checks on rational points in Q_3((T)) cover 3200 subgroup cases, 800 intersections, 7200 monomial cases and 800 tail cases. Eight mutation witnesses detect ignored negative coefficients, reversed tail conditions, strict instead of weak coefficient bounds, a uniform proper constraint wrongly admitted as a basis set, reversed topology comparison, reversed ideal-chain direction, an extra norm ramification factor and a false Teichmüller subfield. These are finite checks supplementing proof outlines, not universal topology proofs.
 
-Read Kato's preprint (pp. 165–195) first: it is the one gap that sits on a node
-already written. Then §§6.2–6.8 for the topological K-groups, then §8 and §10 for
-the explicit formulas. HL.6 is not a reading job but a source-acquisition job, and
-should wait until Kato–Saito is in hand.
+## Resume
+
+Continue HL.0 by splitting the residue tower, classification, parameter lifting, mixed-characteristic and multiplicative/sequential topology obligations into individual declarations with canonical supplier signatures. The new coefficient topology can supply the equal-characteristic branch. It does not supply higher completeness, multiplication, mixed-characteristic lifting or pro-ind comparisons.
+
+Read §§6.3–6.8, the rest of §7, §§8.2–8.3 and §§10.1–10.4 for the topological Milnor quotient, norm subgroups and explicit wild symbols; read the remaining §5 proof and its original references. Read Kato pp. 165–195 and compare the two existence routes without claiming dense image is an isomorphism on the raw Milnor group. Preserve the missing equal-characteristic p-primary scope. Read §17 for Epp and higher ramification, with the exact index conventions.
+
+For HL.5, obtain the primary definitions of all flag branches and restricted adelic products and read Osipov's direct images. For HL.6, acquire the global primary source and select exact regularity, properness, boundary and coefficient hypotheses; prove codimension-two reciprocity before square-zero. For number rings include the archimedean/unramified quotient before comparing with the arithmetic fundamental group. HL.7 must compare actual maps and retain the surface/consumer examples. Restore ordinary upstream stage edges once the resolver accepts them.
+
+The user requested stopping after this job; no next issue will be claimed. After submission, remove this job's source PDFs, extracted pages, images and repository snapshot. Retain only the published four deliverables in final-deliverables, this verification's verification.json, regression-results.json, lean-results.json, lean-import-audit.json, literal-quote-audit.json, check-blueprint.json, intake-check.json, prepublish.json, overlap-search.json, the Lean log, and the publication/intake status records. No source PDF or extracted book text is included in the repository.
