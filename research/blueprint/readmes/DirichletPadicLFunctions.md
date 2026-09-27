@@ -1,4 +1,4 @@
-**Current packet:** 217 unchecked nodes: 1 definition, 24 constructions, 108 lemmas, 57 theorems and 27 comparisons. 226 API entries,213 packet tests (126 on definitions/constructions),216 typed examples,23 planets and293 baseline references. Five gaps,one L1 request,13 findings and zero closed stages remain. The final section records tame character twists; preceding checkpoint narratives and validation are historical.
+**Current packet:** 224 unchecked nodes: 1 definition, 25 constructions, 109 lemmas, 60 theorems and 29 comparisons. 238 API entries,225 packet tests (132 on definitions/constructions),228 typed examples,23 planets and293 baseline references. Five gaps,one L1 request,13 findings and zero closed stages remain. The final section records integral character values; preceding checkpoint narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -7686,41 +7686,222 @@ PMIA supplier refresh at ef2687ade0070151552d31cac1632d7fec022dab: all six new n
 
 The retained source-match descriptions and earlier checkpoint narratives record when the coefficient-field identity was requested. The current proof graph uses `PadicMeasuresIwasawaAlgebras:L2/algebra-ordinary-moment`, and the exact ordinary/exponential contracts are recorded in requestResolutions. This replaces the stage-level leaf; it does not claim a formalized supplier theorem. All210 predecessor statements and hypotheses remain unchanged.206 old node records remain whole; four dependency/proof-status records are updated as specified above. The older suggested Lean body is preserved verbatim.
 
-### Tame character validation
 
-Indexed blueprint: zero errors and warnings. Four-file intake, whitespace,
-API/test parity and scoped mutation checks pass. All210 predecessor statements,
-hypotheses, APIs, tests and source records remain unchanged;206 whole old nodes
-are preserved. Four explicitly recorded old-node changes affect only dependency,
-proof-outline or acceptance text for the supplied moment theorem. All287 baseline
-records,13 findings and sourceVersions remain whole.
+## Integral character values and congruences
 
-Graph:358 reachable nodes,1601 edges,393 baseline leaves,
-acyclic. Only PMIA L1 remains a stage request leaf. All seven new proof chains
-have no stage request leaves, including before the older request was resolved.
+The coefficient ring is the native integer ring of the fixed norm valuation. Character twisting preserves the integral unit-supported zeta measure, including its principal and level-raising laws. Positive values keep their actual product level. The final finite-combination bound carries its pointwise hypothesis explicitly.
 
-The full suggested file elaborates with zero errors and516 expected
-placeholder warnings against3595 pinned Mathlib modules,20 pinned Tau Ceti
-modules and the verified actual265-node PMIA artifact. Its source, olean and
-compile-log hashes were rechecked. The current282-node supplier preserves the
-old source in order. Its six new moment signatures and proof graph were read
-and adopted at planning level; the target does not call those six functions.
-No local compile against that newer supplier revision is claimed. Existing
-pinned artifacts were reused and no Mathlib or Tau Ceti build was run.
+### Integral character twists of tame zeta
 
-Four complete native probe lemmas compile against2835 pinned Mathlib modules
-with zero errors, warnings or proof holes: product nonprincipality, Bernoulli
-increment, the scaled polynomial finite difference and the exact value−2.
-Seventeen character choices supply304 exact telescoped-atom checks,17 mass
-comparisons,187 Bernoulli/recurrence moment comparisons and88 principal-Euler
-comparisons. Positive-level raising and the distinct modulus-one/principal
-masses are checked. These local checks do not prove the full measure identities.
-Suggested SHA256: `b329712c22788fe30722b5c47bbdef23b689712fd5bcc2141e88e23205ca99e3`.
-Native probe SHA256: `ea3f0f2f795bdfdae684eb8acd8f6ab0fece5b198c3ad200a85c4e54d5f8f648`.
+`DirichletPadicLFunctions:L2/integral-tame-character-measure` — `DirichletPadic.integralTwistedTameZetaMeasure` (construction).
 
-The publication guard atef2687ade0070151552d31cac1632d7fec022dab checks53 inputs, four predecessor
-outputs, the unchanged complete issue, exact merged PR3275 head and original
-winning claim5854791937. Review390 remains blocked and unclaimed. One reusable
-worktree and one Lean process at a time were used; all compiler processes have
-ended. The predecessor Lean body is unchanged. No implementation or closed
-stage is claimed.
+Construct νO=weight(gχ)ζO on the actual D(Z_p,O), so νO(f)=ζO(gχ f).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native norm and inclusion ι:O→K. Let n≥0 and χ:DirichletCharacter K(p^n), wχ=primePowerCharacter p n χ, and gχ(x)=⟨wχ(x), norm≤1⟩:O. Write ζO=integralTameZetaMeasure η hD hpD and ζK=tameZetaMeasure η hD hpD. No separately chosen Z_p-algebra on O is assumed.
+
+**Proof outline:**
+
+1. The existing prime-power character test has the pointwise native value χ(red_n x). DirichletCharacter.norm_le_one puts this value in O via Valuation.mem_integer_iff and NormedField.valuation_apply. Native Continuous.subtype_mk lifts its continuity to the O-valued test gχ.
+2. Use the existing general normed-ring weight operation on the actual integral tame zeta measure. Evaluation follows from weight-evaluation, and D=1 gives zero. No field-style operator norm on O-valued measures is introduced.
+3. On every unit, the principal character equals1 at every level. Since ζO is fixed by unitRestriction, principal weighting fixes it for every n≥0. For n≥1, the previously proved positive-level character compatibility gives invariance under raising n to m; the remaining n=0 case follows from the principal-character identity. Thus level invariance here includes0 even though the unweighted character functions differ there.
+4. Pointwise character multiplication and the general weight-multiplication law give the product API. The unit indicator commutes with the character multiplier, so νO remains unit-supported and is killed by psi.
+5. The supremum norm of gχ is at most1 by the native compact-test norm criterion. Combine the product-test norm inequality with integralTameZetaMeasure_bound to obtain ‖νO(f)‖≤‖f‖ on every actual O-valued test.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-zeta-measure`, `DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion`, `DirichletPadicLFunctions:L2/tame-integral-zeta-support`, `DirichletPadicLFunctions:L2/prime-power-character`, `DirichletPadicLFunctions:L2/prime-power-character-level`, `PadicMeasuresIwasawaAlgebras:L2/weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/weight-multiplication`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-support-psi`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:Valuation.mem_integer_iff`, `mathlib:NormedField.valuation_apply`, `mathlib:Continuous.subtype_mk`, `mathlib:ContinuousMap.norm_le`.
+
+**Api:**
+
+- `DirichletPadic.integralTwistedTameZetaMeasure_apply` (characterisation): νO(f)=ζO(gχ f).
+- `DirichletPadic.integralTwistedTameZetaMeasure_one_level` (simp): At D=1 the actual integral character twist is zero.
+- `DirichletPadic.integralTwistedTameZetaMeasure_principal` (simp): For every n≥0, principal character weighting fixes ζO.
+- `DirichletPadic.integralTwistedTameZetaMeasure_changeLevel` (compatibility): For every n≤m, including n=0, the native level-raised character gives the same νO.
+- `DirichletPadic.integralTwistedTameZetaMeasure_mul` (compatibility): At fixed n, twisting by χψ equals weighting the ψ-twist by gχ.
+- `DirichletPadic.unitRestriction_integralTwistedTameZetaMeasure` (relation): E_O νO=νO.
+- `DirichletPadic.psiMeasure_integralTwistedTameZetaMeasure` (relation): ψ_O νO=0.
+- `DirichletPadic.integralTwistedTameZetaMeasure_bound` (compatibility): For every f:C(Z_p,O), ‖νO(f)‖≤‖f‖.
+- `DirichletPadic.coe_integralTwistedTameZetaMeasure_apply` (compatibility): ι(νO(f))=ζK(wχ(ι∘f)); promoted to integral-tame-character-inclusion.
+- `DirichletPadic.inverse_weight_integralTwistedTameZetaMeasure` (relation): Weighting νO by the integral inverse character recovers ζO; promoted to integral-tame-character-inverse.
+- `DirichletPadic.map_amiceTransform_integralTwistedTameZetaMeasure` (compatibility): The mapped native Amice series agrees with that of the actual K-valued character-weighted ζK under the explicitly compatible O-action; promoted to integral-tame-character-amice.
+
+**Tests:**
+
+- `SuggestedIntegralCharacterTests.modulus_one` (degenerate): Every character twist of the D=1 integral tame zeta measure is zero.
+- `SuggestedIntegralCharacterTests.principal_positive_level` (compatibility): At p=2, the principal character modulo4 fixes ζO.
+- `SuggestedIntegralCharacterTests.zero_to_positive_level` (compatibility): The principal twists at level1 and level4 agree on ζO, although the two lifted functions differ off the units.
+- `SuggestedIntegralCharacterTests.nontrivial_twist` (non-example): For quadratic η modulo3 and χ modulo4, the integral character twist differs from ζO: their included second moments are−2 and0.
+- `SuggestedIntegralCharacterTests.second_integral_value` (computation): For these quadratic characters, the included value on a lifted quadratic test is−2.
+- `SuggestedIntegralCharacterTests.integral_support` (compatibility): The same integral character twist is killed by the native general-ring psi operator.
+
+**Uses:**
+
+- RJW Definition5.13, printed146: Realize the character-weighted integral specializations of the actual tame zeta measure.
+- DirichletPadicLFunctions:L2/tame-character-value-integral: Identify the finite Euler–Bernoulli value as the inclusion of an actual integer-ring-valued measure evaluation.
+- DirichletPadicLFunctions:L3: Supply integral finite-character values before separately constructing analytic weight coordinates.
+
+**Acceptance:** Nonprincipality and characteristic zero are not needed to construct, bound or support νO. Principal twisting at any level fixes ζO because of its existing unit support; it does not assert that the character lift is globally constant.
+
+**Source:** Definition5.13 and its character interpolation identity, printed146/PDF47, with the coefficient and twist discussion of Lemmas5.11–5.12 on145–146. Complete published145–147 read in this continuous session from the hash-verified public PDF. Worker integral realization and finite-linear-congruence consequences of the actual tame zeta measure and its product-level character values. The integral coefficient ring is fixed by the native norm valuation. These arithmetic deductions use the preceding all-test comparisons and existing generic weighting, not a new coefficient-extension or character carrier.
+
+### Inclusion of integral character values
+
+`DirichletPadicLFunctions:L2/integral-tame-character-inclusion` — `DirichletPadic.coe_integralTwistedTameZetaMeasure_apply` (comparison).
+
+For every continuous O-valued f, ι(νO(f))=ζK(wχ·(ι∘f)).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native norm and inclusion ι:O→K. Let n≥0 and χ:DirichletCharacter K(p^n), wχ=primePowerCharacter p n χ, and gχ(x)=⟨wχ(x), norm≤1⟩:O. Write ζO=integralTameZetaMeasure η hD hpD and ζK=tameZetaMeasure η hD hpD. No separately chosen Z_p-algebra on O is assumed.
+
+**Proof outline:**
+
+1. Expand the defining general weight evaluation. Apply coe_integralTameZetaMeasure_apply to the actual O-valued product test gχ*f.
+2. The native subtype inclusion preserves multiplication, and the included gχ is pointwise wχ by construction. Continuous-function extensionality identifies the resulting test with wχ*(ι∘f).
+3. The comparison applies to every continuous O-test. It does not extend an arbitrary O-valued measure to arbitrary K-tests or assume a rational structure on O.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-character-measure`, `DirichletPadicLFunctions:L2/tame-integral-zeta-inclusion`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`.
+
+**Tests:**
+
+- `SuggestedIntegralCharacterTests.inclusion_mass` (compatibility): The included integral character mass equals ζK(wχ), with no asserted arithmetic value for that mass.
+
+**Acceptance:** The degree0 character value has this comparison and the norm bound; no L-value or logarithmic formula at degree0 is inferred.
+
+**Source:** Definition5.13 and its character interpolation identity, printed146/PDF47, with the coefficient and twist discussion of Lemmas5.11–5.12 on145–146. Complete published145–147 read in this continuous session from the hash-verified public PDF. Worker integral realization and finite-linear-congruence consequences of the actual tame zeta measure and its product-level character values. The integral coefficient ring is fixed by the native norm valuation. These arithmetic deductions use the preceding all-test comparisons and existing generic weighting, not a new coefficient-extension or character carrier.
+
+### Cancellation of an inverse character on tame zeta
+
+`DirichletPadicLFunctions:L2/integral-tame-character-inverse` — `DirichletPadic.inverse_weight_integralTwistedTameZetaMeasure` (theorem).
+
+weight(g_(χ⁻¹))νO=ζO for every n≥0.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native norm and inclusion ι:O→K. Let n≥0 and χ:DirichletCharacter K(p^n), wχ=primePowerCharacter p n χ, and gχ(x)=⟨wχ(x), norm≤1⟩:O. Write ζO=integralTameZetaMeasure η hD hpD and ζK=tameZetaMeasure η hD hpD. No separately chosen Z_p-algebra on O is assumed.
+
+**Proof outline:**
+
+1. By the general weight-multiplication law the left side is weighting ζO by g_(χ⁻¹)*gχ. Evaluate at a p-adic unit x; native ring reduction maps units to units, and MulChar.mul_apply and MulChar.one_apply turn χ⁻¹χ into1 at red_n x.
+2. Native subtype injectivity lifts this equality to O. Because ζO is unit-supported, multiplying the test by a function that is1 on units leaves its value unchanged, using the existing unit-restriction evaluation law.
+3. Conclude by actual continuous-dual extensionality. At positive level the product character multiplier is zero on nonunits; cancellation holds for this unit-supported measure, not for arbitrary ambient measures.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-character-measure`, `DirichletPadicLFunctions:L2/tame-integral-zeta-support`, `DirichletPadicLFunctions:L2/prime-power-character`, `PadicMeasuresIwasawaAlgebras:L2/weight-multiplication`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `mathlib:MulChar.mul_apply`, `mathlib:MulChar.one_apply`, `mathlib:AbstractMeasure.toCLMEquiv`.
+
+**Tests:**
+
+- `SuggestedIntegralCharacterTests.inverse_character` (compatibility): For χ quadratic modulo4, the product-character twist χχ⁻¹ gives back the actual ζO.
+
+**Acceptance:** The inverse is the existing inverse native Dirichlet character. No generic inverse-weight operator or a field structure on O is defined.
+
+**Source:** Definition5.13 and its character interpolation identity, printed146/PDF47, with the coefficient and twist discussion of Lemmas5.11–5.12 on145–146. Complete published145–147 read in this continuous session from the hash-verified public PDF. Worker integral realization and finite-linear-congruence consequences of the actual tame zeta measure and its product-level character values. The integral coefficient ring is fixed by the native norm valuation. These arithmetic deductions use the preceding all-test comparisons and existing generic weighting, not a new coefficient-extension or character carrier.
+
+### Integrality of character-twisted tame values
+
+`DirichletPadicLFunctions:L2/tame-character-value-integral` — `DirichletPadic.tameCharacterZetaValue_mem_integer` (theorem).
+
+For every k≥1, b_(χ,k) belongs to O. For any f:C(Z_p,O) with ι(f(x))=x_K(x)^k, one has ι(νO(f))=b_(χ,k).
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native norm and inclusion ι:O→K. Let n≥0 and χ:DirichletCharacter K(p^n), wχ=primePowerCharacter p n χ, and gχ(x)=⟨wχ(x), norm≤1⟩:O. Write ζO=integralTameZetaMeasure η hD hpD and ζK=tameZetaMeasure η hD hpD. No separately chosen Z_p-algebra on O is assumed. Assume η≠1, CharZero K and Algebra Q K. Let k≥1, N=D p^n and θ:DirichletCharacter K N be η.changeLevel(D∣N) times χ.changeLevel(p^n∣N). Define the scalar expression b_(χ,k)=(1−θ(p)p^(k−1))·(−N^(k−1)/k)·Σ_(a:ZMod N) θ(a) algebraMap Q K(B_k(a.val/N)). The product level and the rational Bernoulli polynomial are the native ones; this notation is not a new carrier or definition.
+
+**Proof outline:**
+
+1. Use the native norm bound for the image of every p-adic integer to lift x_K to a continuous O-valued coordinate, as in the preceding integral tame zeta construction. Its kth power is an actual O-test with the required inclusion. No chosen Z_p-algebra on O is used.
+2. Apply the all-test inclusion comparison. The preceding tameZetaMeasure_character_moment_shift at degree k−1 identifies its K-value with the unit moment of twistedTameMeasure n χ η.
+3. Use twistedTameMeasure_unit_moment, whose proof combines the actual psi identity with the direct finite-translation/Bernoulli ordinary moment formula. Simplify (k−1)+1=k to obtain exactly b_(χ,k). This uses K arithmetic directly and requires no map K→C.
+4. The O-measure evaluation is already an element of O, so the equality proves membership of the displayed field scalar. The same all-test comparison proves the API for every continuous lift f. Division by k and N is only in K; no claim that these integers are units in O is made.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-character-inclusion`, `DirichletPadicLFunctions:L2/tame-zeta-character-shift`, `DirichletPadicLFunctions:L2/twisted-tame-moments`, `DirichletPadicLFunctions:L2/twisted-tame-psi`, `DirichletPadicLFunctions:L2/tame-integral-zeta-measure`, `mathlib:Continuous.subtype_mk`, `mathlib:Valuation.mem_integer_iff`.
+
+**Api:**
+
+- `DirichletPadic.coe_integralTwistedTameZetaMeasure_moment` (compatibility): For every continuous O-valued lift of x_K^k, its νO evaluation includes to b_(χ,k).
+
+**Tests:**
+
+- `SuggestedIntegralCharacterTests.fourth_integral_value` (computation): For quadratic η modulo3 and χ modulo4 at p=2, the included fourth integral character value is46.
+
+**Acceptance:** Include weights divisible by p and imprimitive χ at its actual displayed level. Keep k≥1; degree0 logarithmic values remain a separate target.
+
+**Source:** Definition5.13 and its character interpolation identity, printed146/PDF47, with the coefficient and twist discussion of Lemmas5.11–5.12 on145–146. Complete published145–147 read in this continuous session from the hash-verified public PDF. Worker integral realization and finite-linear-congruence consequences of the actual tame zeta measure and its product-level character values. The integral coefficient ring is fixed by the native norm valuation. These arithmetic deductions use the preceding all-test comparisons and existing generic weighting, not a new coefficient-extension or character carrier.
+
+### Amice compatibility for integral character twists
+
+`DirichletPadicLFunctions:L2/integral-tame-character-amice` — `DirichletPadic.map_amiceTransform_integralTwistedTameZetaMeasure` (comparison).
+
+map ι(νO.amiceTransform)=(weight(wχ)ζK).amiceTransform under the explicitly compatible continuous Z_p-action on O.
+
+**Hypotheses:** p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. O is exactly Valuation.integer(NormedField.valuation(K)), with its native norm and inclusion ι:O→K. Let n≥0 and χ:DirichletCharacter K(p^n), wχ=primePowerCharacter p n χ, and gχ(x)=⟨wχ(x), norm≤1⟩:O. Write ζO=integralTameZetaMeasure η hD hpD and ζK=tameZetaMeasure η hD hpD. No separately chosen Z_p-algebra on O is assumed. Assume Algebra Z_p O, ContinuousSMul Z_p O and IsScalarTower Z_p O K on the fixed native subring.
+
+**Proof outline:**
+
+1. Use native power-series extensionality and coeff_amiceTransform. Each coefficient is evaluation on the native Mahler function scaled into the coefficient ring.
+2. The explicit scalar tower identifies inclusion of the O-valued Mahler test with the K-valued Mahler test. Apply coe_integralTwistedTameZetaMeasure_apply and the existing weight evaluation formula.
+3. This uses only the transform definition. No injectivity, inverse-transform surjectivity or normed-field structure on O is assumed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/integral-tame-character-inclusion`, `mathlib:AbstractMeasure.amiceTransform`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:PowerSeries.ext`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`.
+
+**Tests:**
+
+- `SuggestedIntegralCharacterTests.amice_constant` (compatibility): The included constant Amice coefficient of νO agrees with that of the actual K-valued character weighting.
+
+**Acceptance:** Only this comparison adds an O-algebra/action/tower. The measure constructor and arithmetic integrality have no such extra assumptions.
+
+**Source:** Definition5.13 and its character interpolation identity, printed146/PDF47, with the coefficient and twist discussion of Lemmas5.11–5.12 on145–146. Complete published145–147 read in this continuous session from the hash-verified public PDF. Worker integral realization and finite-linear-congruence consequences of the actual tame zeta measure and its product-level character values. The integral coefficient ring is fixed by the native norm valuation. These arithmetic deductions use the preceding all-test comparisons and existing generic weighting, not a new coefficient-extension or character carrier.
+
+### Finite linear combinations of tame character values
+
+`DirichletPadicLFunctions:L2/tame-character-finite-values` — `DirichletPadic.tameCharacterValue_finite_sum` (lemma).
+
+ζK(Σ_i c_i • f_i)=Σ_i c_i b_i.
+
+**Hypotheses:** p,K,D,η,hD,hpD and ζK are as above, with η≠1, CharZero K and Algebra Q K. I is a finite type, n,k:I→N with k_i≥1, χ_i:DirichletCharacter K(p^(n_i)), and c_i∈K. For each i let N_i=D p^(n_i), θ_i be the product of the two native level-raised characters at N_i, and b_i=(1−θ_i(p)p^(k_i−1))·(−N_i^(k_i−1)/k_i)·Σ_(a:ZMod N_i)θ_i(a) algebraMap Q K(B_(k_i)(a.val/N_i)). Let f_i=w_(n_i,χ_i) x_K^(k_i). No common p-power level, primitive conductor or coefficient bound on c_i is assumed.
+
+**Proof outline:**
+
+1. For each i use the existing character-moment shift and twisted unit/Bernoulli moment formula at k_i−1. The assumption k_i≥1 makes the resulting value exactly b_i.
+2. Use finite additivity and K-linearity of the actual native measure, or its existing continuous-dual identification, to move the finite sum and scalars through evaluation.
+3. The empty family gives0, and the levels may differ. This is an arithmetic specialization with explicit product-level Bernoulli values, not a new general finite-sum measure theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-zeta-character-shift`, `DirichletPadicLFunctions:L2/twisted-tame-moments`, `DirichletPadicLFunctions:L2/twisted-tame-psi`, `mathlib:AbstractMeasure.toCLMEquiv`.
+
+**Tests:**
+
+- `SuggestedIntegralCharacterTests.character_linear_difference` (computation): At p=2 for quadratic η modulo3 and χ modulo4, ζK(wχ(x²−x⁴))=−48.
+
+**Acceptance:** The scalar formula retains each actual product-level character; dropping its p-depletion changes principal positive-level examples.
+
+**Source:** Definition5.13 and its character interpolation identity, printed146/PDF47, with the coefficient and twist discussion of Lemmas5.11–5.12 on145–146. Complete published145–147 read in this continuous session from the hash-verified public PDF. Worker integral realization and finite-linear-congruence consequences of the actual tame zeta measure and its product-level character values. The integral coefficient ring is fixed by the native norm valuation. These arithmetic deductions use the preceding all-test comparisons and existing generic weighting, not a new coefficient-extension or character carrier.
+
+### Finite character congruences for tame values
+
+`DirichletPadicLFunctions:L2/tame-character-kummer` — `DirichletPadic.tameCharacterValue_kummer_sum` (theorem).
+
+For B≥0, if ‖Σ_i c_i w_(n_i,χ_i)(x) x_K(x)^(k_i)‖≤B for every p-adic unit x, then ‖Σ_i c_i b_i‖≤B.
+
+**Hypotheses:** p,K,D,η,hD,hpD and ζK are as above, with η≠1, CharZero K and Algebra Q K. I is a finite type, n,k:I→N with k_i≥1, χ_i:DirichletCharacter K(p^(n_i)), and c_i∈K. For each i let N_i=D p^(n_i), θ_i be the product of the two native level-raised characters at N_i, and b_i=(1−θ_i(p)p^(k_i−1))·(−N_i^(k_i−1)/k_i)·Σ_(a:ZMod N_i)θ_i(a) algebraMap Q K(B_(k_i)(a.val/N_i)). Let f_i=w_(n_i,χ_i) x_K^(k_i). No common p-power level, primitive conductor or coefficient bound on c_i is assumed. B is a nonnegative real number and the stated bound holds at every unit of Z_p.
+
+**Proof outline:**
+
+1. Let F=Σ_i c_i•f_i be the actual continuous K-test from the finite-value identity. Multiply F by the existing continuous unit indicator e. On units it is F, and on nonunits it is0. The stated pointwise hypothesis and B≥0 imply ‖eF‖≤B by the native compact continuous-map norm criterion.
+2. Since ζK is fixed by unitRestriction, its evaluation on F equals its evaluation on eF. The existing tameZetaMeasure_apply_norm_le gives ‖ζK(eF)‖≤‖eF‖≤B.
+3. Use tameCharacterValue_finite_sum to identify this scalar with Σ_i c_i b_i. For B=0 this gives exact relations; valuation congruences result by choosing an appropriate positive bound, such as ‖(p:K)‖^r.
+4. Do not silently set ‖(p:K)‖=p⁻¹ or assume the Z_p algebra map is isometric. The theorem carries its actual pointwise bound explicitly. It is the character-value arithmetic analogue of the earlier qualified smoothed Kummer result, with no unqualified denominator removal.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-character-finite-values`, `DirichletPadicLFunctions:L2/tame-zeta-support`, `DirichletPadicLFunctions:L2/tame-zeta-norm`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `mathlib:ContinuousMap.norm_le`.
+
+**Tests:**
+
+- `SuggestedIntegralCharacterTests.dyadic_character_congruence` (computation): For quadratic η modulo3 and χ modulo4, the second and fourth zeta character values differ by−48. Their norm is1/16, hence at most1/8, consistent with x²−x⁴ divisible by8 on dyadic units.
+
+**Acceptance:** The hypothesis is uniform on every unit, not merely on a finite set of sampled residues. Finite checks only illustrate the concrete polynomial example. No coefficient-specific divisibility ideal is identified with a norm ball without its own valuation hypotheses.
+
+**Source:** Definition5.13 and its character interpolation identity, printed146/PDF47, with the coefficient and twist discussion of Lemmas5.11–5.12 on145–146. Complete published145–147 read in this continuous session from the hash-verified public PDF. Worker integral realization and finite-linear-congruence consequences of the actual tame zeta measure and its product-level character values. The integral coefficient ring is fixed by the native norm valuation. These arithmetic deductions use the preceding all-test comparisons and existing generic weighting, not a new coefficient-extension or character carrier.
+
+**Remaining:** Integral finite-character specializations now live on the native norm-valuation integer ring, with all-test inclusion, inverse-character cancellation, level independence on the unit-supported zeta measure, positive-value integrality, Amice compatibility and finite-character Kummer bounds. Exact primitive-conductor identification and product Gauss/Fourier comparison remain with the existing modular-forms direction; other integer-ring presentations require a norm-compatible identification. Complete full source extraction, analytic character branches, logarithmic and degree0 values, and the PMIA L1 completed-algebra comparison. The coefficient-field ordinary-moment request was resolved by the exact PMIA supplier nodes; no new request is added.
+
+### Integral character validation
+
+All217 predecessor nodes,293 baseline records,13 findings and sourceVersions are preserved whole. All224 node IDs remain in this reader. There are16 new named declarations and12 new typed tests. Indexed blueprint, four-file intake, scoped mutation, API/test parity and versioned errata checks pass. The graph has365 reachable nodes,1648 edges and393 baseline leaves; it is acyclic, with only the PMIA L1 request as a stage leaf. Each of the seven new proof chains has no stage request leaf. Five gaps and zero closed stages remain.
+
+The full suggested module elaborates with zero errors and544 expected placeholder warnings against3595 pinned Mathlib modules,20 pinned Tau Ceti modules and the actual265-node PMIA artifact. The full target uses the verified actual265-node PMIA artifact. The current282-node supplier preserves the old source in order; its six new coefficient-algebra moment signatures and proof graph were read in the preceding continuation and retained as planning dependencies. The target does not call those six functions. No local compile against the282-node supplier is claimed. No library build was run. Suggested SHA256: `5d9f760512a13ef7ded1e682c6fda79f5c6c165c98b87bda9a9d28a1949bc06b`.
+
+One complete native definition and six complete lemmas check the norm-valuation integer criterion, native character-value integrality, the continuous O-valued character lift, its inclusion and supremum bound, inverse-character cancellation at units, and the zero-level constant character. Reduction continuity is an explicit premise matching the existing PMIA declaration. These local checks do not prove the full measure identities. The native probe compiles against2213 pinned Mathlib modules with zero errors, warnings or proof holes. Native probe SHA256: `66a23fb44cb9650bcc22debe4d5ea2cfbf91479cdd4fa8a37dade280794aa468`.
+
+Thirty finite character choices give300 exact integral-value checks,150 principal-level comparisons,150 nonprincipal-level comparisons and110 inverse products at units. All four unit residues modulo8 satisfy x²−x⁴=0 modulo8, and the odd-integer polynomial identity is checked symbolically. For the quadratic characters modulo3 and4 at p=2, the second and fourth values are−2 and46; their difference−48 has norm1/16≤1/8. These are local controls. The general theorem explicitly requires the bound at every p-adic unit and does not assume a normalized coefficient-field embedding.
+
+The input refresh at9b5a58905b564df16b77149a70e64b1d416ab4d6 preserves all152 old LocallyAnalyticDistributions nodes,206 baseline records and both findings. All ten additions, eight added baseline records and changed source/coverage/gap/check/provenance entries were read. The new L4 scalar-resultant work changes no consumed Dirichlet contract; no independent review verdict is supplied. The publication guard checks53 inputs, four predecessor outputs, the original winning claim and unclaimed review390.
