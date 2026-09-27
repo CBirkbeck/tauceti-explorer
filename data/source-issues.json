@@ -137513,6 +137513,27 @@
    "reviewReason": null
   },
   {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups/E1",
+   "kind": "misprint",
+   "locator": "Author working text, printed p.136 (physical p.148), sentence immediately before Definition 5.2.2",
+   "printed": "i = 1, . . . , r.",
+   "correction": "The polynomial index ranges from 1 to n, not from 1 to r.",
+   "reason": "The page introduces n polynomials P₁,…,Pₙ and r parameter variables. Irreducibility gives positive Y-degree for each of the n polynomials. The displayed Hilbert-set definition on the same page correctly uses n. The index was verified visually, not inferred from OCR.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-27: current author-hosted V2-ArithRevDte-v2.pdf, exact hash in sourceVersions, still prints r.",
+    "2026-09-27: author institutional profile https://pro.univ-lille.fr/pierre-debes/ and indexed author teaching page; no correction for this index found.",
+    "2026-09-27: public search for Pierre Dèbes Arithmétique des revêtements de la droite errata 5.2.2; no matching erratum found. This report is scoped to the author working text, not a publisher edition."
+   ],
+   "owner": "InverseGaloisAndArithmeticFundamentalGroups",
+   "file": "research/blueprint/packets/InverseGaloisAndArithmeticFundamentalGroups.json",
+   "citation": "Pierre Dèbes, Arithmétique des revêtements de la droite, 303-page author-hosted working text V2-ArithRevDte-v2.pdf; PDF creation metadata 2024-05-16; accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "K2SymbolsBrauer/E1",
    "kind": "misprint",
    "locator": "III.5.11, the paragraph after (D1)–(D3), PDF p. 234 (draft p. 226), author-hosted draft of 29 August 2013",
