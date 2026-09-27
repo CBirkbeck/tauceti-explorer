@@ -5446,3 +5446,192 @@ example : (sumAlgEquiv ℚ (Fin 1) (Fin 1)
     (X (.inl 0) * X (.inr 0) - X (.inl 0) * X (.inr 0) + X (.inl 0)^2)).coeff
       (Finsupp.single 0 2) = 1 := by sorry
 end MvPolynomial
+
+
+/-! ## Block homogenization and the affine chart: Evertse 1995, pp. 221–222.
+The triangular Hasse-jet formula corrects the coordinatewise bound in E219.
+The arithmetic intersection proof of sharp Roth remains a packet gap.
+-/
+namespace MvPolynomial
+section BlockHomogenization
+variable {B S R : Type*} [Fintype B] [Fintype S] [DecidableEq B] [DecidableEq S]
+  [CommRing R]
+
+/-- DT.2/block-homogenization. Terms exceeding any block degree are discarded. -/
+noncomputable def blockHomogenize (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) : MvPolynomial (B ⊕ S) R := by
+  classical
+  exact ∑ e ∈ f.support, if ∀ h, (∑ j with b j = h, e j) ≤ d h then
+    monomial (Finsupp.sumElim
+      (Finsupp.equivFunOnFinite.symm fun h => d h - ∑ j with b j = h, e j) e) (f.coeff e)
+    else 0
+
+lemma blockHomogenize_zero (b : S → B) (d : B → ℕ) :
+    blockHomogenize b d (0 : MvPolynomial S R) = 0 := by sorry
+lemma blockHomogenize_add (b : S → B) (d : B → ℕ) (f g : MvPolynomial S R) :
+    blockHomogenize b d (f + g) = blockHomogenize b d f + blockHomogenize b d g := by sorry
+lemma blockHomogenize_smul (b : S → B) (d : B → ℕ) (c : R) (f : MvPolynomial S R) :
+    blockHomogenize b d (c • f) = c • blockHomogenize b d f := by sorry
+lemma blockHomogenize_map {A : Type*} [CommRing A] (φ : R →+* A)
+    (b : S → B) (d : B → ℕ) (f : MvPolynomial S R) :
+    blockHomogenize b d (map φ f) = map φ (blockHomogenize b d f) := by sorry
+lemma blockHomogenize_monomial (b : S → B) (d : B → ℕ) (e : S →₀ ℕ) (c : R) :
+    blockHomogenize b d (monomial e c) =
+      if ∀ h, (∑ j with b j = h, e j) ≤ d h then
+        monomial (Finsupp.sumElim
+          (Finsupp.equivFunOnFinite.symm fun h => d h - ∑ j with b j = h, e j) e) c
+      else 0 := by sorry
+lemma blockHomogenize_C (b : S → B) (d : B → ℕ) (c : R) :
+    blockHomogenize b d (C c) = C c * ∏ h, X (Sum.inl h) ^ d h := by sorry
+lemma blockHomogenize_one (b : S → B) (d : B → ℕ) :
+    blockHomogenize b d (1 : MvPolynomial S R) = ∏ h, X (Sum.inl h) ^ d h := by sorry
+lemma blockHomogenize_degree_zero (b : S → B) (f : MvPolynomial S R) :
+    blockHomogenize b (fun _ => 0) f = C (f.coeff 0) := by sorry
+
+/-- DT.2/block-homogenization-coefficients. -/
+lemma coeff_blockHomogenize (b : S → B) (d : B → ℕ) (f : MvPolynomial S R)
+    (u : B ⊕ S →₀ ℕ) :
+    (blockHomogenize b d f).coeff u =
+      if ∀ h, u (Sum.inl h) + (∑ j with b j = h, u (Sum.inr j)) = d h then
+        f.coeff (Finsupp.equivFunOnFinite.symm fun j => u (Sum.inr j)) else 0 := by sorry
+
+/-- DT.2/block-homogenization-support. -/
+lemma bijOn_support_blockHomogenize (b : S → B) (d : B → ℕ) (f : MvPolynomial S R)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    Set.BijOn (fun e : S →₀ ℕ => Finsupp.sumElim
+      (Finsupp.equivFunOnFinite.symm fun h => d h - ∑ j with b j = h, e j) e)
+      (↑f.support : Set (S →₀ ℕ))
+      (↑(blockHomogenize b d f).support : Set (B ⊕ S →₀ ℕ)) := by sorry
+
+/-- DT.2/block-homogenization-dehomogenization. -/
+lemma aeval_blockHomogenize_one_X (b : S → B) (d : B → ℕ) (f : MvPolynomial S R)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    aeval (Sum.elim (fun _ : B => 1) (X : S → MvPolynomial S R))
+      (blockHomogenize b d f) = f := by sorry
+
+/-- DT.2/block-homogenization-univariate. Native coordinate 0 is affine. -/
+lemma rename_blockHomogenize_unique (n : ℕ) (f : Polynomial R) :
+    rename (Sum.elim (fun _ : Unit => (1 : Fin 2)) (fun _ : Unit => (0 : Fin 2)))
+      (blockHomogenize (id : Unit → Unit) (fun _ => n)
+        ((uniqueAlgEquiv R Unit).symm f)) = f.homogenize n := by sorry
+
+/-- DT.2/block-homogenization-homogeneous. -/
+lemma isWeightedHomogeneous_blockHomogenize (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) (h : B) :
+    IsWeightedHomogeneous
+      (Sum.elim (fun k : B => if k = h then (1 : ℕ) else 0)
+        (fun j : S => if b j = h then (1 : ℕ) else 0))
+      (blockHomogenize b d f) (d h) := by sorry
+
+/-- DT.2/block-homogeneous-reconstruction. -/
+lemma blockHomogenize_aeval_one_X (b : S → B) (d : B → ℕ)
+    (F : MvPolynomial (B ⊕ S) R)
+    (hF : ∀ h, IsWeightedHomogeneous
+      (Sum.elim (fun k : B => if k = h then (1 : ℕ) else 0)
+        (fun j : S => if b j = h then (1 : ℕ) else 0)) F (d h)) :
+    blockHomogenize b d
+      (aeval (Sum.elim (fun _ : B => 1) (X : S → MvPolynomial S R)) F) = F := by sorry
+
+/-- DT.2/block-homogeneous-centered-taylor. A polynomial identity over R. -/
+lemma blockHomogenize_centered_taylor (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) (a : S → R)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    blockHomogenize b d f =
+      ∑ γ ∈ (Finset.Iic (Finsupp.equivFunOnFinite.symm fun j => d (b j))).filter
+        (fun γ => ∀ h, (∑ j with b j = h, γ j) ≤ d h),
+        C (eval a (hasseDeriv γ f)) *
+          (∏ h, X (Sum.inl h) ^ (d h - ∑ j with b j = h, γ j)) *
+          ∏ j, (X (Sum.inr j) - C (a j) * X (Sum.inl (b j))) ^ γ j := by sorry
+
+/-- DT.2/block-homogeneous-hasse-jets. Bounds are total within a block. -/
+lemma eval_hasseDeriv_blockHomogenize (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) (a : S → R) (κ : B →₀ ℕ) (β : S →₀ ℕ)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    eval (Sum.elim (fun _ : B => 1) a)
+      (hasseDeriv (Finsupp.sumElim κ β) (blockHomogenize b d f)) =
+      ∑ γ ∈ (Finset.Iic (Finsupp.equivFunOnFinite.symm fun j => d (b j))).filter
+        (fun γ => (∀ h, (∑ j with b j = h, γ j) ≤ d h) ∧ β ≤ γ ∧
+          ∀ h, (∑ j with b j = h, γ j - β j) ≤ κ h),
+        eval a (hasseDeriv γ f) *
+          (∏ j, (Nat.choose (γ j) (β j) : R) * (-a j) ^ (γ j - β j)) *
+          ∏ h, (Nat.choose (d h - ∑ j with b j = h, γ j)
+            (κ h - ∑ j with b j = h, γ j - β j) : R) := by sorry
+
+/-- DT.2/block-homogeneous-affine-jets. -/
+lemma eval_hasseDeriv_blockHomogenize_inr (b : S → B) (d : B → ℕ)
+    (f : MvPolynomial S R) (a : S → R) (β : S →₀ ℕ)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    eval (Sum.elim (fun _ : B => 1) a)
+      (hasseDeriv (Finsupp.sumElim 0 β) (blockHomogenize b d f)) =
+        eval a (hasseDeriv β f) := by sorry
+
+/-- DT.2/block-homogeneous-strict-vanishing. -/
+lemma blockHomogenize_strict_vanishing_iff (b : S → B) (d : B → ℕ)
+    (hd : ∀ h, 0 < d h) (f : MvPolynomial S R) (a : S → R) (t : ℝ≥0∞)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    (∀ i : B ⊕ S →₀ ℕ,
+      (∑ j ∈ i.support, (i j : ℝ≥0∞) / ((Sum.elim d (fun k => d (b k)) j : ℕ) : ℝ≥0∞)) < t →
+      eval (Sum.elim (fun _ : B => 1) a) (hasseDeriv i (blockHomogenize b d f)) = 0) ↔
+    (∀ γ : S →₀ ℕ, (∑ j ∈ γ.support, (γ j : ℝ≥0∞) / (d (b j) : ℝ≥0∞)) < t →
+      eval a (hasseDeriv γ f) = 0) := by sorry
+
+/-- DT.2/block-homogeneous-weighted-index. Includes the zero polynomial. -/
+theorem weightedIndex_blockHomogenize (b : S → B) (d : B → ℕ)
+    (hd : ∀ h, 0 < d h) (f : MvPolynomial S R) (a : S → R)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    weightedIndex (Sum.elim d (fun j => d (b j))) (Sum.elim (fun _ : B => 1) a)
+      (blockHomogenize b d f) = weightedIndex (fun j => d (b j)) a f := by sorry
+end BlockHomogenization
+end MvPolynomial
+
+namespace DiophantineApproximation
+/-- DT.2/block-homogeneous-coefficient-height. -/
+lemma height2_coeff_blockHomogenize {B S K : Type*} [Fintype B] [Fintype S]
+    [DecidableEq B] [DecidableEq S] [Field K] [NumberField K]
+    (b : S → B) (d : B → ℕ) (f : MvPolynomial S K) (hf0 : f ≠ 0)
+    (hf : ∀ e ∈ f.support, ∀ h, (∑ j with b j = h, e j) ≤ d h) :
+    height2 (fun u : (MvPolynomial.blockHomogenize b d f).support =>
+      (MvPolynomial.blockHomogenize b d f).coeff u) =
+        height2 (fun e : f.support => f.coeff e) := by sorry
+end DiophantineApproximation
+
+namespace MvPolynomial
+/-- MvPolynomial.test_blockHomogenize_quadratic -/
+example : blockHomogenize (id : Fin 1 → Fin 1) (fun _ => 2)
+    (X 0 ^ 2 - X 0 : MvPolynomial (Fin 1) ℚ) =
+      X (Sum.inr 0) ^ 2 - X (Sum.inl 0) * X (Sum.inr 0) := by sorry
+/-- MvPolynomial.test_blockHomogenize_zero -/
+example : blockHomogenize (id : Fin 1 → Fin 1) (fun _ => 2)
+    (0 : MvPolynomial (Fin 1) ℚ) = 0 := by sorry
+/-- MvPolynomial.test_blockHomogenize_truncation -/
+example : blockHomogenize (id : Fin 1 → Fin 1) (fun _ => 1)
+    (X 0 ^ 2 + 1 : MvPolynomial (Fin 1) ℚ) = X (Sum.inl 0) := by sorry
+/-- MvPolynomial.test_blockHomogenize_joint_degree -/
+example : blockHomogenize (fun _ : Fin 2 => (0 : Fin 1)) (fun _ => 1)
+    (X 0 * X 1 : MvPolynomial (Fin 2) ℚ) = 0 := by sorry
+/-- MvPolynomial.test_blockHomogenize_separate_blocks -/
+example : blockHomogenize (id : Fin 2 → Fin 2) (fun _ => 1)
+    (X 0 * X 1 : MvPolynomial (Fin 2) ℚ) = X (Sum.inr 0) * X (Sum.inr 1) := by sorry
+/-- MvPolynomial.test_blockHomogenize_degree_zero -/
+example : blockHomogenize (id : Fin 1 → Fin 1) (fun _ => 0)
+    (X 0 + 3 : MvPolynomial (Fin 1) ℚ) = 3 := by sorry
+/-- MvPolynomial.test_blockHomogenize_empty_affine_block -/
+example : blockHomogenize (Fin.elim0 : Fin 0 → Fin 1) (fun _ => 2)
+    (1 : MvPolynomial (Fin 0) ℚ) = X (Sum.inl 0) ^ 2 := by sorry
+/-- MvPolynomial.test_blockHomogenize_native_orientation -/
+example : rename (Sum.elim (fun _ : Unit => (1 : Fin 2)) (fun _ : Unit => (0 : Fin 2)))
+    (blockHomogenize (id : Unit → Unit) (fun _ => 3)
+      ((uniqueAlgEquiv ℚ Unit).symm (Polynomial.X + 1))) =
+        (Polynomial.X + 1 : Polynomial ℚ).homogenize 3 := by sorry
+/-- MvPolynomial.test_blockHomogenize_cross_jet -/
+example :
+    eval (fun _ : Fin 2 => (1 : ℚ))
+      (hasseDeriv (Finsupp.single 0 1) (X 1 ^ 2 - X 0 * X 1)) = -1 ∧
+    eval (fun _ : Fin 1 => (1 : ℚ)) (X 0 ^ 2 - X 0) = 0 := by sorry
+/-- MvPolynomial.test_blockHomogenize_index_boundary -/
+example : weightedIndex (fun _ : Fin 2 => 2) (fun _ : Fin 2 => (1 : ℚ))
+    (X 1 ^ 2 - X 0 * X 1) = (1 : ℝ≥0∞) / 2 := by sorry
+/-- MvPolynomial.test_blockHomogenize_positive_characteristic -/
+example : eval (fun _ : Fin 1 => (1 : ZMod 2))
+    (hasseDeriv (Finsupp.single 0 2) (X 0 ^ 2 - 1)) = 1 := by sorry
+end MvPolynomial

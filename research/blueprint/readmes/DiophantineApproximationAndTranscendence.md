@@ -2041,6 +2041,335 @@ for unit, Thue and Thue–Mahler equations are DT.4; lattice reduction and enume
 `EffectiveDiophantineMethods:ED.2`; successive minima and Minkowski's theorems over ℝ^n are
 `GeometryOfNumbersAndQuadraticArithmetic:GN.1`.
 
+### Block homogenization and the affine chart
+
+Evertse's affine Remark in §1, published pp. 221–222 of [An explicit version of
+Faltings' Product Theorem](https://matwbn.icm.edu.pl/ksiazki/aa/aa73/aa7332.pdf),
+compares the index of an affine polynomial with that of its block homogenization.
+The comparison below uses native multivariate polynomials, the existing Hasse
+operator and weighted index, and the native weighted-homogeneous predicate.
+There is no new projective-space, polynomial, degree or height carrier. The
+polynomial argument is independent of the arithmetic intersection proof of
+sharp Roth, which remains an explicit gap.
+
+For finite sets B of blocks and S of affine variables, let b:S→B specify the
+block of each variable, and let d:B→ℕ. Put t_h(e)=Σ_{j:b(j)=h}e_j. An affine
+polynomial f is d-bounded when t_h(e)≤d_h for every exponent e in its support.
+Write A_d(e)=(d_h−t_h(e))_h⊕e on B⊕S. Block homogenization H_d retains the
+monomials satisfying every block bound and pads them with the indicated
+homogenizing exponents. This totalization discards overdegree terms, in
+agreement with Mathlib's univariate homogenization. A constant polynomial
+in an empty affine block still acquires the required homogenizing power.
+
+For d-bounded f and a:S→R, the chart point is q=(1,a). In a commutative ring,
+write D^γ for the existing Hasse derivative. The finite Taylor index set is
+Γ_d={γ | ∀h t_h(γ)≤d_h}, contained in the coordinate box γ_j≤d_b(j). The
+centered homogeneous Taylor expansion is
+
+\[
+H_d(f)=\sum_{\gamma\in\Gamma_d}(D^\gamma f)(a)
+ \prod_h X_{h0}^{d_h-t_h(\gamma)}
+ \prod_j(Y_j-a_jX_{b(j),0})^{\gamma_j}.
+\]
+
+Substituting X_h0=1+U_h and Y_j=a_j+V_j turns each centered factor into
+V_j−a_jU_b(j). Thus the coefficient of U^κV^β only uses γ≥β with
+t_h(γ−β)≤κ_h. In particular, its affine jet has block order at most
+κ_h+t_h(β). This is the bound needed for weighted-index equality. The
+paper's stronger coordinatewise bound is false (E219): F=Y²−X₀Y has a
+nonzero X₀ derivative at (1,1), although its dehomogenization vanishes at 1.
+
+No assertion about equality of polynomials is deduced merely from agreement
+on the points of a finite ring. The Taylor argument is applied over a
+polynomial coefficient ring and then combined with homogeneous reconstruction.
+No factorial division is used. The Hasse formulation consequently includes
+positive characteristic; the ordinary-derivative source convention has the
+same vanishing orders in characteristic zero.
+
+#### Block homogenization
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization` (definition).
+
+Define H_d(f)=Σ_{e∈supp(f), ∀h t_h(e)≤d_h} coeff_e(f) X^{A_d(e)} in R[X_h0,Y_j], with variables B⊕S. The operation is total: it discards every monomial exceeding one of the block bounds. Under d-boundedness it is the usual product of X_h0^{d_h} times f(Y_j/X_b(j),0), expressed without localization.
+
+**Construction or proof:**
+
+1. Use the native coefficient support and finite sums, then the native monomial constructor at A_d(e). The inr coordinates recover e, so exponent padding introduces no collisions.
+2. Filter before taking natural subtraction; saturation alone would retain overdegree terms and disagree with Polynomial.homogenize.
+
+**Dependencies:** `mathlib:MvPolynomial.monomial`, `mathlib:MvPolynomial.as_sum`, `mathlib:Finsupp.sumElim`, `mathlib:Finsupp.equivFunOnFinite`, `mathlib:Polynomial.homogenize`.
+
+**API:**
+
+- `MvPolynomial.blockHomogenize_zero` (simp): H_d(0)=0.
+- `MvPolynomial.blockHomogenize_add` (simp): H_d(f+g)=H_d(f)+H_d(g), without degree hypotheses.
+- `MvPolynomial.blockHomogenize_smul` (structure): H_d(c·f)=c·H_d(f) for c∈R.
+- `MvPolynomial.blockHomogenize_map` (functoriality): For a unital ring map φ:R→A, H_d(map φ f)=map φ(H_d(f)). Zero coefficients created by φ are harmless.
+- `MvPolynomial.blockHomogenize_monomial` (simp): H_d(cY^e)=cX^{A_d(e)} if every t_h(e)≤d_h, and 0 otherwise.
+- `MvPolynomial.blockHomogenize_C` (simp): H_d(c)=c∏_h X_h0^{d_h}.
+- `MvPolynomial.blockHomogenize_one` (simp): H_d(1)=∏_h X_h0^{d_h}.
+- `MvPolynomial.blockHomogenize_degree_zero` (characterisation): H_0(f)=coeff_0(f), as a constant polynomial.
+- `MvPolynomial.rename_blockHomogenize_unique` (compatibility): For one block and one affine variable, rename the affine coordinate to 0 and the homogenizing coordinate to 1. Through uniqueAlgEquiv⁻¹, H_n(p) equals Polynomial.homogenize p n for all p and n. The promoted univariate-comparison node supplies this API.
+
+**Unit tests:**
+
+- `MvPolynomial.test_blockHomogenize_quadratic` (computation): Over ℚ, in one block of degree 2, y²−y homogenizes to Y²−X₀Y.
+- `MvPolynomial.test_blockHomogenize_zero` (degenerate): The zero polynomial homogenizes to zero for degree 2.
+- `MvPolynomial.test_blockHomogenize_truncation` (non-example): In one block of degree 1, y²+1 homogenizes to X₀, not Y²+X₀.
+- `MvPolynomial.test_blockHomogenize_joint_degree` (non-example): Two variables in a single block of degree 1: y₁y₂ homogenizes to 0, even though each individual exponent is at most 1.
+- `MvPolynomial.test_blockHomogenize_separate_blocks` (computation): Two variables in separate blocks, both degree 1: y₁y₂ homogenizes to Y₁Y₂.
+- `MvPolynomial.test_blockHomogenize_degree_zero` (degenerate): At degree 0, y+3 homogenizes to the constant 3.
+- `MvPolynomial.test_blockHomogenize_empty_affine_block` (degenerate): One block containing no affine variables, of degree 2: the constant 1 homogenizes to X₀².
+- `MvPolynomial.test_blockHomogenize_native_orientation` (compatibility): For one affine variable and degree 3, y+1 agrees with Polynomial.homogenize after sending inr to native coordinate 0 and inl to native coordinate 1.
+
+#### Coefficients of block homogenization
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients` (lemma).
+
+For every exponent u on B⊕S, coeff_u(H_d(f)) equals coeff_{u|S}(f) if u(inl h)+t_h(u|S)=d_h for all h, and equals 0 otherwise. No degree bound on f is needed.
+
+**Construction or proof:**
+
+1. Expand the finite monomial sum and use coeff_monomial. At most one input exponent contributes, since its affine part must be u|S.
+2. The condition on u is equivalent to admissibility of its affine restriction and equality of its homogenizing part to d−t(u|S); use natural subtraction only after establishing the inequality.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization`, `mathlib:MvPolynomial.coeff_monomial`.
+
+**API:**
+
+- `MvPolynomial.coeff_blockHomogenize` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For every exponent u on B⊕S, coeff_u(H_d(f)) equals coeff_{u|S}(f) if u(inl h)+t_h(u|S)=d_h for all h, and equals 0 otherwise. No degree bound on f is needed.
+
+#### Support bijection for block homogenization
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-support` (lemma).
+
+If f is d-bounded, A_d is a bijection from supp(f) to supp(H_d(f)), preserving each coefficient. The declared theorem is the support bijection; coefficient preservation is supplied by the preceding coefficient node.
+
+**Construction or proof:**
+
+1. Apply the coefficient formula: a nonzero coefficient on either side corresponds to the unique affine restriction e.
+2. A_d is injective by its inr coordinates. The support bound ensures every input coefficient survives. This remains a bijection of empty supports when f=0.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients`.
+
+**API:**
+
+- `MvPolynomial.bijOn_support_blockHomogenize` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If f is d-bounded, A_d is a bijection from supp(f) to supp(H_d(f)), preserving each coefficient. The declared theorem is the support bijection; coefficient preservation is supplied by the preceding coefficient node.
+
+#### Dehomogenizing on the unit chart
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-dehomogenization` (lemma).
+
+If f is d-bounded, substituting X_h0=1 and retaining the affine variables in H_d(f) gives f as a polynomial over R.
+
+**Construction or proof:**
+
+1. Evaluate each monomial in the defining finite sum with aeval. All homogenizing factors become 1.
+2. The degree hypothesis removes the filter; recover f from as_sum. This is a polynomial identity, with no inference from evaluation on a finite coefficient ring.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization`, `mathlib:MvPolynomial.aeval`, `mathlib:MvPolynomial.eval₂_monomial`, `mathlib:MvPolynomial.as_sum`.
+
+**API:**
+
+- `MvPolynomial.aeval_blockHomogenize_one_X` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If f is d-bounded, substituting X_h0=1 and retaining the affine variables in H_d(f) gives f as a polynomial over R.
+
+#### Agreement with univariate homogenization
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-univariate` (lemma).
+
+For B=S=Unit and b=id, send an ordinary polynomial p to the one-variable multivariate polynomial using uniqueAlgEquiv⁻¹. Rename inl to 1 and inr to 0 in H_n(p); the result is the native Polynomial.homogenize p n for every p and n, including n below the degree of p.
+
+**Construction or proof:**
+
+1. Compare coefficients under the bijection sending the affine variable to native coordinate 0 and the homogenizing variable to native coordinate 1.
+2. The block coefficient formula retains exactly the exponents u₀+u₁=n, and coeff_uniqueAlgEquiv_symm identifies the retained coefficient with p.coeff u₀. Polynomial.coeff_homogenize gives the same coefficient on the other side, also when n is below the degree of p. Finish by coefficient extensionality.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients`, `mathlib:MvPolynomial.uniqueAlgEquiv`, `mathlib:MvPolynomial.coeff_uniqueAlgEquiv_symm`, `mathlib:MvPolynomial.rename`, `mathlib:Polynomial.coeff_homogenize`.
+
+**API:**
+
+- `MvPolynomial.rename_blockHomogenize_unique` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For B=S=Unit and b=id, send an ordinary polynomial p to the one-variable multivariate polynomial using uniqueAlgEquiv⁻¹. Rename inl to 1 and inr to 0 in H_n(p); the result is the native Polynomial.homogenize p n for every p and n, including n below the degree of p.
+
+#### Homogeneity in each block
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-homogeneous` (lemma).
+
+For every h, H_d(f) is IsWeightedHomogeneous of degree d_h for the indicator weight that is 1 on inl h and on inr j with b(j)=h, and 0 elsewhere. This holds for all f, since overdegree terms were filtered.
+
+**Construction or proof:**
+
+1. A nonzero output coefficient satisfies the block equality in the coefficient node.
+2. Unfold the native weighted-homogeneous predicate and express its weight as the homogenizing exponent plus the sum of affine exponents in the block.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients`, `mathlib:MvPolynomial.IsWeightedHomogeneous`.
+
+**API:**
+
+- `MvPolynomial.isWeightedHomogeneous_blockHomogenize` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For every h, H_d(f) is IsWeightedHomogeneous of degree d_h for the indicator weight that is 1 on inl h and on inr j with b(j)=h, and 0 elsewhere. This holds for all f, since overdegree terms were filtered.
+
+#### Reconstruction from an affine chart
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-reconstruction` (lemma).
+
+If F on B⊕S is IsWeightedHomogeneous of degree d_h for every block indicator, then H_d(F(1,Y))=F.
+
+**Construction or proof:**
+
+1. For an exponent u with nonzero coefficient in F, homogeneity forces u(inl h)=d_h−t_h(u|S) and t_h(u|S)≤d_h.
+2. Thus the affine restrictions of distinct surviving exponents are distinct. Dehomogenization neither collides nor cancels these coefficients, and all resulting exponents are d-bounded.
+3. The coefficient formula for H_d reconstructs every coefficient of F.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients`, `mathlib:MvPolynomial.IsWeightedHomogeneous`, `mathlib:MvPolynomial.aeval`, `mathlib:MvPolynomial.eval₂_monomial`, `mathlib:MvPolynomial.as_sum`.
+
+**API:**
+
+- `MvPolynomial.blockHomogenize_aeval_one_X` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If F on B⊕S is IsWeightedHomogeneous of degree d_h for every block indicator, then H_d(F(1,Y))=F.
+
+#### Centered homogeneous Taylor expansion
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-centered-taylor` (lemma).
+
+Suppose f is d-bounded and a:S→R. Write Γ_d={γ:S→₀ℕ | ∀h t_h(γ)≤d_h}, a finite set (each γ_j≤d_b(j)). Then H_d(f)=Σ_{γ∈Γ_d} (D^γf)(a) ∏_h X_h0^{d_h−t_h(γ)} ∏_j(Y_j−a_j X_b(j),0)^{γ_j}, as a polynomial over R. D is the inherited Hasse derivative.
+
+**Construction or proof:**
+
+1. The inherited coefficient formula makes D^γf zero outside Γ_d: every coefficient would come from an exponent ν+γ whose block sum exceeds a bound.
+2. Use the inherited Taylor formula in a polynomial coefficient ring, commuting Hasse derivatives with the coefficient map R→R[Y]. Set its center to the constants a and its increment to Y−a, to obtain a polynomial identity for f; pointwise equality over R alone is not used.
+3. Native weighted homogeneity of X and C, followed by sub, mul, pow and sum, proves that every term and the whole displayed expression have degree d_h in block h. Substitution X_h0=1 gives the polynomial Taylor identity. Apply homogeneous reconstruction to this expression and the chart identity of H_d(f).
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-dehomogenization`, `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-homogeneous`, `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-reconstruction`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-taylor-expansion`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-coefficients`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-commutes-with-ring-maps`, `mathlib:Finsupp.instLocallyFiniteOrder`, `mathlib:add_pow`, `mathlib:MvPolynomial.isWeightedHomogeneous_X`, `mathlib:MvPolynomial.isWeightedHomogeneous_C`, `mathlib:MvPolynomial.IsWeightedHomogeneous.sub`, `mathlib:MvPolynomial.IsWeightedHomogeneous.mul`, `mathlib:MvPolynomial.IsWeightedHomogeneous.pow`, `mathlib:MvPolynomial.IsWeightedHomogeneous.sum`.
+
+**API:**
+
+- `MvPolynomial.blockHomogenize_centered_taylor` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Suppose f is d-bounded and a:S→R. Write Γ_d={γ:S→₀ℕ | ∀h t_h(γ)≤d_h}, a finite set (each γ_j≤d_b(j)). Then H_d(f)=Σ_{γ∈Γ_d} (D^γf)(a) ∏_h X_h0^{d_h−t_h(γ)} ∏_j(Y_j−a_j X_b(j),0)^{γ_j}, as a polynomial over R. D is the inherited Hasse derivative.
+
+#### Triangular formula for homogeneous Hasse jets
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-hasse-jets` (lemma).
+
+Suppose f is d-bounded, a:S→R, κ:B→₀ℕ and β:S→₀ℕ. At q=(1,a), D^{κ⊕β}H_d(f)(q) equals the sum over γ∈Γ_d with β≤γ and t_h(γ−β)≤κ_h for every h of (D^γf)(a) times ∏_j binom(γ_j,β_j)(−a_j)^{γ_j−β_j} times ∏_h binom(d_h−t_h(γ), κ_h−t_h(γ−β)). Natural binomial coefficients are mapped to R. Every contributing γ has t_h(γ)≤κ_h+t_h(β).
+
+**Construction or proof:**
+
+1. In centered homogeneous Taylor, substitute X_h0=1+U_h and Y_j=a_j+V_j. The centered linear factors become V_j−a_j U_b(j).
+2. For the coefficient of U^κV^β, choose V_j^{β_j} from each centered factor. This forces β≤γ and contributes binom(γ_j,β_j)(−a_j)^{γ_j−β_j}, together with U_h-exponent t_h(γ−β).
+3. The remaining U_h exponent must be κ_h−t_h(γ−β); choosing it from (1+U_h)^{d_h−t_h(γ)} gives the last binomial. Terms with excessive forced U_h exponent contribute zero and must be excluded before subtraction.
+4. Identify the translated coefficient with the Hasse jet by the inherited polynomial Taylor formula over a polynomial coefficient ring. The total-order inequality follows by summing γ=β+(γ−β).
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-centered-taylor`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-taylor-expansion`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-commutes-with-ring-maps`, `mathlib:MvPolynomial.coeff_mul`, `mathlib:add_pow`.
+
+**API:**
+
+- `MvPolynomial.eval_hasseDeriv_blockHomogenize` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Suppose f is d-bounded, a:S→R, κ:B→₀ℕ and β:S→₀ℕ. At q=(1,a), D^{κ⊕β}H_d(f)(q) equals the sum over γ∈Γ_d with β≤γ and t_h(γ−β)≤κ_h for every h of (D^γf)(a) times ∏_j binom(γ_j,β_j)(−a_j)^{γ_j−β_j} times ∏_h binom(d_h−t_h(γ), κ_h−t_h(γ−β)). Natural binomial coefficients are mapped to R. Every contributing γ has t_h(γ)≤κ_h+t_h(β).
+
+**Unit tests:**
+
+- `MvPolynomial.test_blockHomogenize_cross_jet` (non-example): Over ℚ, F=Y²−X₀Y has ∂F/∂X₀(1,1)=−1 while f(1)=0. Thus the source’s printed restriction to affine order β=0 when the homogeneous order is (1,0) is false.
+
+#### Pure affine jets on the chart
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-affine-jets` (lemma).
+
+For d-bounded f, a:S→R and every β:S→₀ℕ, D^{0⊕β}H_d(f)(1,a)=D^βf(a).
+
+**Construction or proof:**
+
+1. Apply the triangular formula with κ=0. Nonnegative terms and the block partition force γ−β=0, hence γ=β, and all surviving binomial factors equal 1.
+2. If β lies outside Γ_d, the sum is empty and D^βf=0 by the inherited coefficient formula and the support bound.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-hasse-jets`, `DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-coefficients`.
+
+**API:**
+
+- `MvPolynomial.eval_hasseDeriv_blockHomogenize_inr` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. For d-bounded f, a:S→R and every β:S→₀ℕ, D^{0⊕β}H_d(f)(1,a)=D^βf(a).
+
+#### Transport of strict jet thresholds
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-strict-vanishing` (lemma).
+
+Assume every d_h>0, f is d-bounded, a:S→R, and T∈[0,∞]. Homogeneous Hasse jets of H_d(f) at (1,a) vanish for every order i of weight Σ_v i_v/d_block(v)<T if and only if affine Hasse jets of f at a vanish for every γ of weight Σ_j γ_j/d_b(j)<T. Each homogenizing variable has its block’s weight d_h.
+
+**Construction or proof:**
+
+1. For the forward implication use pure affine jets; adding zero homogenizing orders leaves the weight unchanged.
+2. For the converse split i into κ⊕β and use the triangular formula. Each term has t_h(γ)≤κ_h+t_h(β), so its affine weight is no greater than the homogeneous weight and is strictly below T.
+3. The affine vanishing premise kills every term. Positive d_h makes the finite-weight division and block regrouping valid. The argument also works for T=0 and T=∞ and for f=0.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-hasse-jets`, `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-affine-jets`.
+
+**API:**
+
+- `MvPolynomial.blockHomogenize_strict_vanishing_iff` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Assume every d_h>0, f is d-bounded, a:S→R, and T∈[0,∞]. Homogeneous Hasse jets of H_d(f) at (1,a) vanish for every order i of weight Σ_v i_v/d_block(v)<T if and only if affine Hasse jets of f at a vanish for every γ of weight Σ_j γ_j/d_b(j)<T. Each homogenizing variable has its block’s weight d_h.
+
+#### Affine and homogeneous indices agree
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-weighted-index` (theorem).
+
+If every d_h>0 and f is d-bounded, weightedIndex with weights d_h on homogenizing variables and d_b(j) on affine variables at (1,a) of H_d(f) equals weightedIndex with weights d_b(j) at a of f. The zero polynomial has index ∞ on both sides.
+
+**Construction or proof:**
+
+1. Apply the existing weighted-index vanishing characterization on each side at an arbitrary threshold T.
+2. The strict-vanishing transport makes the lower sets of the two indices equal. Specialize to each index and use antisymmetry. No attainment argument, factorial division, or characteristic-zero assumption is needed.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-strict-vanishing`, `DiophantineApproximationAndTranscendence:DT.1/weighted-index-vanishing-characterisation`.
+
+**API:**
+
+- `MvPolynomial.weightedIndex_blockHomogenize` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. If every d_h>0 and f is d-bounded, weightedIndex with weights d_h on homogenizing variables and d_b(j) on affine variables at (1,a) of H_d(f) equals weightedIndex with weights d_b(j) at a of f. The zero polynomial has index ∞ on both sides.
+
+**Unit tests:**
+
+- `MvPolynomial.test_blockHomogenize_index_boundary` (computation): For f=y²−y at a=1 and degree 2 over ℚ, both indices equal 1/2; derivatives of weight exactly 1/2 need not vanish.
+- `MvPolynomial.test_blockHomogenize_positive_characteristic` (non-example): Over 𝔽₂, D²(y²−1)(1)=1, although the ordinary second derivative is 0. Hasse derivatives are necessary for the characteristic-free statement.
+
+#### Coefficient height under homogenization
+
+**Declaration:** `DiophantineApproximationAndTranscendence:DT.2/block-homogeneous-coefficient-height` (lemma).
+
+Let K be a number field in place of R. For nonzero d-bounded f, H₂ of the coefficient vector of H_d(f), indexed by its nonzero coefficient support, equals H₂ of the coefficient vector of f. This is the Euclidean-at-infinite-places coefficient height; no max-height substitution occurs.
+
+**Construction or proof:**
+
+1. The support bijection and coefficient formula identify the two finite nonzero coefficient families by a permutation.
+2. Apply the existing H₂ zero-extension theorem to this bijection. Nonzero f ensures a nonempty source support and nonzero coefficient vector.
+
+**Dependencies:** `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-support`, `DiophantineApproximationAndTranscendence:DT.2/block-homogenization-coefficients`, `DiophantineApproximationAndTranscendence:DT.2/height2-zero-extension`.
+
+**API:**
+
+- `DiophantineApproximation.height2_coeff_blockHomogenize` (other): Let B and S be finite types, b:S→B assign each affine variable to a block, d:B→ℕ, and R be a commutative ring. Put t_h(e)=Σ_{j:b(j)=h}e_j and A_d(e)=(d_h−t_h(e))_h⊕e. Let H_d(f) denote blockHomogenize b d f. A polynomial is d-bounded when t_h(e)≤d_h for every e in its support and every h. Let K be a number field in place of R. For nonzero d-bounded f, H₂ of the coefficient vector of H_d(f), indexed by its nonzero coefficient support, equals H₂ of the coefficient vector of f. This is the Euclidean-at-infinite-places coefficient height; no max-height substitution occurs.
+
+#### Source corrections and acceptance
+
+The author copy and published version are separately hashed in the packet.
+The read scope is author pp. 1–9 and 28–33, and published pp. 217–222, 242,
+244–247. The main parts of §§2–4 are not covered by that reading. These new
+source findings await independent verification:
+
+- **E217**, §1, published pp. 217–218 and 221 (physical pp. 3–4 and 7); author pp. 3–4 and 8: index definition, derivative locus and affine index. In the definition by the largest vanishing threshold and the associated jet equations, use weighted order <σ. Define the zero polynomial’s index to be ∞. For F=X₁₁, d₁=1 and point (1:0), the first nonzero derivative has weight 1. The printed condition holds for every σ<1 and fails at σ=1, so there is no largest admissible threshold. Strict-below vanishing gives index 1 and agrees with the packet’s existing weightedIndex. E216 records this mechanism in a different paper (Evertse 1996), so it does not cover the present source.
+- **E218**, §1, published p. 217 derivative definition and p. 221 affine Remark; author pp. 3 and 8. Start the derivative product at h=1; end the h-th homogeneous variable block at X_h,n_h. The blocks are numbered 1,…,m and the h-th block has n_h+1 variables. Both intended index sets are stated immediately before the misprints.
+- **E219**, §1 Remark, published p. 222 (physical p. 8), first paragraph; author p. 8. Published page visually checked. Replace the coordinatewise affine derivative bound by Σ_{j≥1}k_hj≤Σ_{j≥0}i_hj separately in each block. The triangular Hasse-jet formula in this checkpoint proves this sufficient total-order bound on the chart X_h0=1. In characteristic zero, ordinary derivatives have the same vanishing orders because their factorial factors are nonzero. Take one block, F=X₁²−X₀X₁, f(y)=y²−y, homogeneous order i=(1,0), and point (X₀,X₁)=(1,1). Then ∂F/∂X₀=−1 at the point, whereas the printed bound permits only k=0 and f(1)=0. Coefficients with denominators powers of X₀ are regular at this point and cannot fix the contradiction. The corrected block-total bound permits the needed first affine derivative and proves equality of the indices.
+- **E220**, Corollary, published pp. 219–220 (physical pp. 5–6); author p. 6. Require 0<ε≤M+1. The hypotheses and conclusions contain division by ε, and the proof applies Theorems 1 and 2 with ε′=ε/(M+1)>0. With the corrected strict index convention Z₀ is the whole product, so the proper-product conclusion is not an ε=0 statement. The printed division at ε=0 is undefined; this is not a counterexample satisfying a defined zero-parameter premise.
+- **E221**, §5, proof of Lemma 11, published p. 245 (physical p. 31), first displayed dimension chain proving (5.2); author p. 30. Replace Z′ by Z in this term. Rank-nullity on T gives dim T−dim V_{ {1}∪i}=dim π_{ {1}∪i}(Z). For Z=(ℙ¹)², Z′={Q}×ℙ¹ and i={2}, the printed intermediate equality reads 1=1−1; the corrected one reads 1=2−1. The asserted conclusion (5.2) is unchanged.
+- **E222**, §5, proof of Theorem 3, published pp. 245–246 (physical pp. 31–32); author pp. 31–32. Published p. 246 visually checked. Use the weak ratio bound ≥ stated in (1.11). In the numerical contradiction retain the factor s in (ms/ε′)^s, or bound it by (m²(m+1)/ε)^s using s≤m and ε′=ε/(m+1). The dropped factor is not supplied by ε′=ε/(m+1). Under the stated weak ratio hypothesis the corrected upper bound is (m²(m+1)/ε)^s(2m³/ε)^{−s}=((m+1)/(2m))^s<1 for m≥2 and s≥1. Since 2m³/ε>1 and Ση_i≥s, the ratio-product estimate still gives the contradiction. The theorem’s strict height premise (1.12) is unchanged; this correction does not by itself prove the ≥ height boundary used in Evertse 1996.
+- **E223**, Author copy p. 28 lower bound in proof of Theorem 2, and p. 33 reference [12]; compare published pp. 242 and 247 (physical pp. 28 and 33). Use δ_m and the year 1955. Both are already correct in the published version. The factors in the next line cancel only with δ_m; the published proof prints that index. The published reference [12] dates Roth’s paper 1955, agreeing with the historical discussion in §1. These are findings about the author copy, not about the version of record.
+- **E224**, Proof of Theorem 2, published p. 242 (physical p. 28), binomial coefficient bound preceding (4.12), visually checked; author p. 28. Start the inner sum at j=0. Then the product of all binomial coefficients is at most 2^{Σ_hΣ_{j=0}^{n_h}l_hj}=2^{d₁+⋯+d_m}. With a single block, exponent (l₀,l₁)=(2,0) and derivative order (i₀,i₁)=(1,0), the product of binomial coefficients is 2, while the printed intermediate upper bound is 1. Including j=0 restores the standard binomial bound and leaves the final coefficient-height estimate (4.12) unchanged.
+
+Acceptance requires the exact native univariate comparison, support and H₂
+preservation, polynomial centered Taylor identity, block-total triangular
+jet bound and strict-threshold equality, including the zero polynomial.
+The suggested file contains eleven additional typed examples: eight tests
+of the new definition and three tests of the jet/index conventions. No new
+planet is added; the inherited planet selection and restructuring proposals
+are unchanged.
+
+The remaining sharp-Roth work is the geometric and arithmetic intersection
+proof, including multiplicities, heights and the §5 projection argument.
+The strict height premise in 1995 Theorem 3, (1.12), must also be reconciled
+explicitly with the inherited 1996 signature using a weak height inequality.
+The closed affine comparison supplies no replacement for those inputs.
+
 ## DT.3 — Transcendence and logarithmic forms
 
 This layer proves the classical transcendence theorems about the exponential function and the
