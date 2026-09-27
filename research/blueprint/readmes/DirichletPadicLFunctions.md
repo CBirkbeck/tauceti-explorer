@@ -7,7 +7,7 @@ LocallyAnalyticDistributions owns the analytic character-coordinate operations. 
 specific arithmetic construction, its values and its normalization comparisons. None of those shared
 carriers is redefined.
 
-**Positive Eisenstein coefficient checkpoint, 27 September 2026.** All five layers L0–L4 remain in scope. The 51 predecessor mathematical statements and hypotheses are preserved; the exact averaging dependencies and propagation prose are updated. Seven new L4 nodes construct integral measures on the actual p-adic unit group and specify their evaluation, moments, Euler deletion and weight congruences. Their proof chains use the pinned baseline and local nodes. The constant pseudomeasure, the comparison with completed group algebras and the actual modular-form comparison remain explicit gaps. L0, L1 and L4 are partial; no whole layer is closed.
+**Classical Eisenstein comparison checkpoint, 27 September 2026.** All five layers L0–L4 remain in scope. The 58 predecessor mathematical statements and hypotheses are preserved. One proof-status sentence now points to the new modular comparison. Eight new L4 declarations normalize the existing classical form, construct its actual p-stabilization at Γ₀(p), prove the full q-expansion and compare positive coefficients with integral measure moments through a common integer. The packet has 66 unchecked nodes, 62 API entries, 46 definition/construction tests plus one other test, 50 typed examples, 12 planets and 86 baseline references. Five gaps and no requests remain; no stage is closed.
 
 The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. All five reviewed AUDIT-24 entries were read before planning.
@@ -175,23 +175,21 @@ topological generator of ℤ₂×. At odd p, belonging to the same tame componen
 alone does not give arbitrary precision: for p=5,n=2 the exponents 3 and 7 give 9 and 129;
 the difference 120 is divisible by 5 but not 25. The modulus required at precision 25 is 20.
 
-These are arithmetic measure statements in the native carrier. The common completed-algebra
-comparison remains with PadicMeasuresIwasawaAlgebras. To finish the modular-form statement,
-use the actual pinned constant-one ModularForm.E and its E_qExpansion_coeff, rescale by
-−B_k/(2k), and compare with ζ(1−k)/2. Tau Ceti already supplies levelRaise and its coefficient
-formula; they give the existing machinery for the Γ₀(p) level change and q↦q^p substitution.
-This checkpoint does not construct that rescaled/stabilized bundled form. Those normalization
-and level comparisons, the completed-algebra image of A_n and the constant pseudomeasure
-A₀=xζ_p/2 are the precise remaining L4 comparisons. In particular, integrality of positive
-coefficients at p=2 says nothing about dividing the constant pseudomeasure by 2.
+These are arithmetic measure statements in the native carrier. The new classical comparison
+below constructs the rescaled and stabilized bundled form from the pinned ModularForm.E
+and levelRaise. Its positive coefficients and the measure moments share a common integer.
+The completed-algebra image of A_n and constant pseudomeasure A₀=xζ_p/2 remain required
+comparisons. Integrality of positive coefficients at p=2 says nothing about dividing the
+constant pseudomeasure by2.
 The full tame-character family and constant-term congruences still need their own decomposition.
 Geometric realization and Hida–Coleman control retain the PadicFamilies owner fixed by RS-14.
 
 The [published §8](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), printed pp.158–161,
 was read fully and collated with [arXiv v2](https://arxiv.org/pdf/2309.15692v2), pp.43–45.
 The weight congruence and p-index invariance are derived finite-coefficient consequences;
-they are not presented as separately numbered source results. The three L4 planets are
-Eisenstein coefficient measures, Eisenstein coefficient interpolation, and Eisenstein weight congruences.
+they are not presented as separately numbered source results. The six L4 planets are
+Eisenstein coefficient measures, Eisenstein coefficient interpolation, Eisenstein weight congruences,
+p-stabilized Eisenstein series, Eisenstein divisor-sum coefficients and Eisenstein moment specialization.
 
 ## Declaration plan
 
@@ -1673,7 +1671,7 @@ Proof plan:
 
 - The unit value map is continuous; its e-th power is a continuous ℤ_p-valued test function.
 - Apply positive-eisenstein-evaluation and use IsUnit.unit_spec to identify each evaluation with d^e. Natural cast and power commute.
-- Substitute e=k−1 to identify the arithmetic coefficient in the source. This is the finite coefficient identity; identifying a native modular form and the completed-algebra image remains recorded in the L4 gap.
+- Substitute e=k−1 to identify the arithmetic coefficient in the source. This is the finite coefficient identity; the new positive-eisenstein-modular-comparison node identifies the native modular-form coefficient, while the completed-algebra image remains recorded in the L4 gap.
 
 Acceptance:
 
@@ -1809,7 +1807,6 @@ Source: RJW-published, §8, Definition 8.1 and proof of Theorem 8.2, printed pp.
 
 ### DirichletPadicLFunctions:L4 — partial
 
-- Build the actual even-weight k≥4 Eisenstein modular form in the existing ModularForms carrier. Normalize Mathlib’s constant-one E by −B_k/(2k), compare its Fourier coefficients and ζ(1−k)/2, and apply the existing TauCeti levelRaise to construct E_k−p^(k−1)E_k(pz) at Γ₀(p). The finite coefficient identity alone does not establish this modular-form comparison.
 - Map the intrinsic native unit-group coefficient measures A_n to the completed group algebra through its owner PadicMeasuresIwasawaAlgebras:L1; compare Dirac generators, integrals and products. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor.
 - Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison.
 
@@ -2001,3 +1998,265 @@ E6 preserves the historical request wording as source-finding provenance. Those 
 - [An introduction to p-adic L-functions](https://arxiv.org/pdf/2309.15692v2), Joaquín Rodrigues Jacinto and Chris Williams, arXiv:2309.15692v2, 19 December 2024. SHA-256 `efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4`.
 
 The actual PadicMeasuresIwasawaAlgebras suggested file is imported and compiled before the consumer. It supplies unchecked prototype signatures. The reader and packet remain the mathematical plan, and no implementation is claimed. The final handoff records the compilation, exact source reading, arithmetic checks, counts and publication guard. All five layers remain in scope; no stage is closed.
+
+
+## L4: classical normalization and p-stabilization
+
+Write E_k^lib for the pinned constant-one Eisenstein form. The source's
+arithmetic normalization is Eᵃ_k=−B_k E_k^lib/(2k). For even k≥4 its
+constant coefficient is ζ(1−k)/2 and its positive coefficient at n is
+σ_(k−1)(n). This scalar conversion uses the existing modular form and
+its complete holomorphy and cusp conditions.
+
+The stabilized form lives in the native space at Γ₀(p). Restrict the
+level-one form to Γ₀(p) for the first term, and to Γ₀(1) before applying
+the pinned V_p operator for the second. This avoids any implicit equality
+of two presentations of the level-one group. The existing conjugation
+lemma supplies the exact level-raise hypothesis. Its evaluation is f(pz),
+with no additional scalar.
+
+Consequently its q-expansion is Q_k(q)−p^(k−1)Q_k(q^p). Positive
+coefficients are integers. The constant is the rational number
+−(1−p^(k−1))B_k/(2k), which need not be integral at p. In particular
+the dyadic weight-four constant is −7/240; the q² coefficient is1.
+Stabilization removes divisors divisible by p, not coefficients whose
+indices are multiples of p.
+
+For every n>0 the native measure A_n evaluates on x^(k−1) to the
+p-adic image of the same integer as the complex modular coefficient.
+This common integer supplies the comparison; there is no transport
+of arbitrary complex values to a p-adic field. The completed-algebra
+image, arithmetic A₀=xζ_p/2, its admissible evaluation domain and
+tame-character family remain required work.
+
+### Arithmetic normalization of the classical Eisenstein form
+
+`DirichletPadicLFunctions:L4/normalized-eisenstein` — construction. Proposed declaration: `DirichletPadic.normalizedEisenstein`.
+
+For k≥4 define Eᵃ_k=(−B_k/(2k))·E_k^lib in the existing complex ModularForm(SL₂(ℤ),k), where E_k^lib is the pinned ModularForm.E. This is only a scalar normalization of the existing form. Its arithmetic coefficient formulas below require k even; the constructor itself also makes sense for odd k≥4.
+
+Hypotheses: k is a natural number with k≥4. Evenness is required by the arithmetic coefficient API, not by scalar multiplication in the constructor. The Bernoulli scalar is rational with its usual complex embedding; ModularForm.E is Mathlib’s pinned constant-one form at even weights.
+
+Proof outline:
+
+1. Use k≥4 to obtain the existing constructor’s bound 3≤k. Apply the native complex scalar action to ModularForm.E, with scalar the complex image of −B_k/(2k)∈ℚ. Slash invariance, holomorphy and boundedness at every cusp are supplied by the existing ModularForm module structure.
+2. Do not define a second lattice sum, nebentypus space or q-expansion carrier. The pointwise formula is scalar evaluation, and changing the proof of k≥4 does not change the form by proof irrelevance.
+3. The positive coefficients and the constant zeta comparison are separate promoted API nodes, because p-stabilization consumes both. The restriction k≥4 excludes the exceptional weight-two correction, which belongs to the classical ModularForms owner.
+
+Prerequisites: `mathlib:ModularForm.E`.
+
+Acceptance:
+
+- At even weight4 the constant coefficient is 1/240 and the first positive coefficient is 1; native E₄ has constant1 and first coefficient240.
+- At weight6 the constant is −1/504 and the coefficient at2 is33. The Bernoulli sign and weight exponent are visible in these tests.
+
+Uses:
+
+- RJW Definition8.1: The p-stabilized form must start from the arithmetic normalization with positive coefficients σ_(k−1).
+- RJW Theorem8.2(b): Its constant coefficient is compared with the separately constructed arithmetic pseudomeasure, and its positive coefficients with native integral measures.
+
+API:
+
+- `DirichletPadic.normalizedEisenstein_eq_smul` (constructor): Eᵃ_k=(−B_k/(2k))·E_k^lib in the native level-one modular-form space.
+- `DirichletPadic.normalizedEisenstein_apply` (coercion): For z in the upper half-plane, Eᵃ_k(z)=(−B_k/(2k))E_k^lib(z).
+- `DirichletPadic.normalizedEisenstein_coeff` (data): For even k≥4, the period-one coefficient at0 is −B_k/(2k), and at n>0 is σ_(k−1)(n). Promoted to normalized-eisenstein-coeff.
+- `DirichletPadic.normalizedEisenstein_constant_zeta` (compatibility): For even k≥4, the constant coefficient equals ζ(1−k)/2. Promoted to normalized-eisenstein-zeta-constant.
+
+Tests:
+
+- `SuggestedModularTests.weight_four_normalization` (computation): The weight-four constant is 1/240 and its q coefficient is1.
+- `SuggestedModularTests.weight_six_sign` (computation): The weight-six constant is −1/504 and its q² coefficient is33.
+- `SuggestedModularTests.native_constant_one_rejected` (non-example): The weight-four arithmetic constant is not1; the pinned constant-one E₄ cannot be used unchanged in Theorem8.2.
+
+Source: §8, normalized E_k formula, printed159 / PDF60; arXiv v2 p.43. Arithmetic scalar conversion of the source’s normalization using the existing constant-one Eisenstein form, not a reconstruction of that form.
+
+### Divisor coefficients of the arithmetic normalization
+
+`DirichletPadicLFunctions:L4/normalized-eisenstein-coeff` — lemma. Proposed declaration: `DirichletPadic.normalizedEisenstein_coeff`.
+
+For even k≥4 and n≥0, a_n(Eᵃ_k)=−B_k/(2k) if n=0, and a_n(Eᵃ_k)=σ_(k−1)(n) if n>0, with the rational and natural quantities embedded in ℂ.
+
+Hypotheses: p is any prime, including 2; k is an even natural number with k≥4. B_k is Mathlib’s rational Bernoulli number, with B₁=−1/2. Eᵃ_k denotes normalizedEisenstein in the existing level-one ModularForm carrier; Eᵃ_{k,p} denotes pStabilizedEisenstein at Γ₀(p). All q-expansions have period 1, q=exp(2πiz).
+
+Proof outline:
+
+1. Apply ModularForm.qExpansion_smul with the native period-one certificate one_mem_strictPeriods_SL. The coefficient map is linear. Substitute the exact pinned EisensteinSeries.E_qExpansion_coeff formula, separating n=0 before cancelling any scalar.
+2. Justify B_k≠0 inside this proof: write k=2j with j>0. riemannZeta_ne_zero_of_one_lt_re applies at 2j>1, while riemannZeta_two_mul_nat expresses this nonzero value as a scalar multiple of B_(2j). If B_(2j)=0 the value would vanish. This short specialization uses the existing zeta API, not a new general Bernoulli theory.
+3. For n>0 cancel (−B_k/(2k))(−2k/B_k)=1 using k≠0 and the preceding nonvanishing. For n=0 the original coefficient is1, leaving −B_k/(2k).
+
+Prerequisites: `DirichletPadicLFunctions:L4/normalized-eisenstein`, `mathlib:ModularForm.qExpansion_smul`, `mathlib:one_mem_strictPeriods_SL`, `mathlib:EisensteinSeries.E_qExpansion_coeff`, `mathlib:riemannZeta_two_mul_nat`, `mathlib:riemannZeta_ne_zero_of_one_lt_re`.
+
+Acceptance:
+
+- Positive coefficient1 is1, not −2k/B_k. At k=4,n=2 it is9; at k=6,n=2 it is33.
+- The proof must not cancel B_k at odd k>1, when the required nonvanishing fails.
+
+Source: §8, normalized E_k formula, printed159 / PDF60; arXiv v2 p.43. Rescales the already proved classical coefficient formula. The nonvanishing step is explicitly discharged through baseline zeta declarations.
+
+### The zeta constant term
+
+`DirichletPadicLFunctions:L4/normalized-eisenstein-zeta-constant` — lemma. Proposed declaration: `DirichletPadic.normalizedEisenstein_constant_zeta`.
+
+For even k≥4, a₀(Eᵃ_k)=ζ(1−k)/2 in ℂ. Both equal the complex image of the rational number −B_k/(2k).
+
+Hypotheses: p is any prime, including 2; k is an even natural number with k≥4. B_k is Mathlib’s rational Bernoulli number, with B₁=−1/2. Eᵃ_k denotes normalizedEisenstein in the existing level-one ModularForm carrier; Eᵃ_{k,p} denotes pStabilizedEisenstein at Γ₀(p). All q-expansions have period 1, q=exp(2πiz).
+
+Proof outline:
+
+1. Use normalized-eisenstein-coeff at n=0. Apply the pinned all-index riemannZeta_neg_nat_eq_bernoulli at k−1.
+2. Here k−1 is odd, k−1+1=k and −(k−1)=1−k after casting. Thus (−1)^(k−1)=−1 and the zeta value is −B_k/k. Divide by2 and rearrange in ℂ.
+3. This comparison only uses a rational normalized special value; it defines no map from ℂ to a p-adic field.
+
+Prerequisites: `DirichletPadicLFunctions:L4/normalized-eisenstein-coeff`, `mathlib:riemannZeta_neg_nat_eq_bernoulli`.
+
+Acceptance:
+
+- For k=4 the constant is ζ(−3)/2=1/240. For k=6 it is ζ(−5)/2=−1/504.
+- The k=1 sign exception in the source’s unrestricted negative-value formula never enters: the stated range is even k≥4.
+
+Source: §8, normalized E_k formula, printed159 / PDF60; arXiv v2 p.43. Identifies the source constant through the corrected pinned zeta formula, with the common rational value specified.
+
+### The p-stabilized Eisenstein modular form
+
+`DirichletPadicLFunctions:L4/p-stabilized-eisenstein` — construction. Proposed declaration: `DirichletPadic.pStabilizedEisenstein`.
+
+For every prime p and k≥4 construct Eᵃ_{k,p}=res_(Γ₀(p)) Eᵃ_k−p^(k−1)V_p(res_(Γ₀(1)) Eᵃ_k) in the existing ModularForm(Γ₀(p),k). Here V_p is TauCeti.ModularForm.levelRaise, so pointwise Eᵃ_{k,p}(z)=Eᵃ_k(z)−p^(k−1)Eᵃ_k(pz). Evenness is required for the following coefficient comparisons.
+
+Hypotheses: p is any prime, including2; k≥4. Arithmetic coefficient statements additionally require k even. Γ₀(N) always means its native image (CongruenceSubgroup.Gamma0 N).map(mapGL ℝ); V_p has the pinned evaluation f(pz).
+
+Proof outline:
+
+1. View Γ₀(N) through its image under mapGL ℝ. This image is contained in SL₂(ℤ)’s image by the elementary subgroup-map inclusion, so the existing ModularForm.ofLe restricts Eᵃ_k to Γ₀(p) and Γ₀(1). No equality of differently represented group carriers is assumed.
+2. Prime p is nonzero. Specialize Gamma0_map_le_conjAct_scaleGL at M=1,d=p and simplify p·1=p. This supplies exactly the conjugation hypothesis for the existing levelRaise from Γ₀(1) to Γ₀(p). The determinant-one structure comes from these native congruence subgroups.
+3. Take the difference in that native complex modular-form module. Holomorphy and the conditions at all cusps are inherited from ofLe, levelRaise, scalar multiplication and subtraction; the definition is therefore an actual modular form, not a formal q-series assumed modular.
+4. Use coe_ofLe and levelRaise_apply to get the pointwise API. In this normalization V_p f(z)=f(pz), with no additional p-power from the slash operator. No odd-prime hypothesis or division by p is needed.
+
+Prerequisites: `DirichletPadicLFunctions:L4/normalized-eisenstein`, `tauceti:ModularForm.ofLe`, `tauceti:ModularForm.coe_ofLe`, `tauceti:TauCeti.ModularForm.levelRaise`, `tauceti:TauCeti.ModularForm.levelRaise_apply`, `tauceti:TauCeti.Gamma0_map_le_conjAct_scaleGL`.
+
+Acceptance:
+
+- At p=2,k=4 the form has levelΓ₀(2), constant −7/240 and coefficient at2 equal1.
+- At p=3,k=4 coefficient at2 is9 and at6 is9. The coefficient at p is1: stabilization removes p-divisible divisors, not all coefficients indexed by multiples of p.
+
+Uses:
+
+- RJW Definition8.1: Gives the modular-form side of the arithmetic specialization.
+- RJW Theorem8.2(b): The coefficient measures specialize to the q-expansion of this actual form. Geometric family realization stays with PadicFamilies.
+
+API:
+
+- `DirichletPadic.pStabilizedEisenstein_eq` (constructor): Eᵃ_{k,p} is the stated difference of restriction and the pinned p-level raise in ModularForm(Γ₀(p),k).
+- `DirichletPadic.pStabilizedEisenstein_apply` (coercion): For every z∈ℍ, Eᵃ_{k,p}(z)=Eᵃ_k(z)−p^(k−1)Eᵃ_k(pz).
+- `DirichletPadic.pStabilizedEisenstein_qExpansion` (compatibility): Its full period-one q-expansion is Q_k−p^(k−1)Q_k(q^p), including degree0, where Q_k=qExpansion(Eᵃ_k). Promoted to p-stabilized-q-expansion.
+- `DirichletPadic.pStabilizedEisenstein_coeff_pos` (data): For even k≥4 and n>0, a_n(Eᵃ_{k,p})=Σ_{d∣n,p∤d}d^(k−1) in ℂ. Promoted to p-stabilized-positive-coeff.
+- `DirichletPadic.pStabilizedEisenstein_constant_zeta` (data): For even k≥4, a₀(Eᵃ_{k,p})=(1−p^(k−1))ζ(1−k)/2. Promoted to p-stabilized-zeta-constant.
+
+Tests:
+
+- `SuggestedModularTests.dyadic_stabilized_constant` (computation): At p=2,k=4 the constant is −7/240.
+- `SuggestedModularTests.coefficient_at_p_survives` (non-example): At p=2,k=4 the coefficient at2 is1, hence it is not zero.
+- `SuggestedModularTests.prime_to_p_index` (computation): At p=3,k=4 the coefficient at2 is9.
+- `SuggestedModularTests.multiple_of_p_index` (compatibility): At p=3,k=4 the coefficient at6 is9, equal to the coefficient at2.
+
+Source: Definition8.1 and following q-expansion and level assertion, printed159 / PDF60; arXiv v2 p.44. Instantiates the pinned degeneracy operator and restriction maps to establish the source’s actual modularity and normalization.
+
+### Degeneracy formula for the full q-expansion
+
+`DirichletPadicLFunctions:L4/p-stabilized-q-expansion` — comparison. Proposed declaration: `DirichletPadic.pStabilizedEisenstein_qExpansion`.
+
+For every prime p and k≥4, qExpansion₁(Eᵃ_{k,p})=Q_k−p^(k−1)·expand_p(Q_k) in ℂ[[q]], where Q_k=qExpansion₁(Eᵃ_k) and expand_p substitutes q↦q^p. This equality includes the constant coefficient and does not require k even.
+
+Hypotheses: p is prime and k≥4; no evenness is needed for the level-raise identity. Q_k is the period-one q-expansion of the arithmetic scalar multiple Eᵃ_k.
+
+Proof outline:
+
+1. Apply ModularForm.qExpansion_sub and qExpansion_smul at Γ₀(p). The baseline strictPeriods_Gamma0 identifies the strict periods with ℤ, giving period1 at both Γ₀(p) and Γ₀(1).
+2. Apply the exact TauCeti.ModularForm.qExpansion_levelRaise to the same conjugation certificate used in the constructor. Its result is native PowerSeries.expand p, not an unproved assertion about reindexing an analytic infinite sum.
+3. Restriction does not change the underlying function, by ModularForm.coe_ofLe. Since qExpansion is defined on functions, both remaining restricted q-expansions are definitionally Q_k. This proves the full series identity.
+
+Prerequisites: `DirichletPadicLFunctions:L4/p-stabilized-eisenstein`, `mathlib:ModularForm.qExpansion_sub`, `mathlib:ModularForm.qExpansion_smul`, `mathlib:CongruenceSubgroup.strictPeriods_Gamma0`, `tauceti:ModularForm.coe_ofLe`, `tauceti:TauCeti.ModularForm.qExpansion_levelRaise`.
+
+Acceptance:
+
+- At n=0, expand_p retains a₀, hence the factor1−p^(k−1).
+- At n>0 not divisible by p, expand_p has zero coefficient. At p∣n it contributes a_(n/p), with no extra normalization factor.
+
+Source: Definition8.1 and following q-expansion and level assertion, printed159 / PDF60; arXiv v2 p.44. Makes the source’s easy Fourier check a comparison using the existing modular-form and formal-series APIs.
+
+### Positive Fourier coefficients after stabilization
+
+`DirichletPadicLFunctions:L4/p-stabilized-positive-coeff` — theorem. Proposed declaration: `DirichletPadic.pStabilizedEisenstein_coeff_pos`.
+
+For every prime p, even k≥4 and positive n, a_n(Eᵃ_{k,p}) is the complex image of S_(p,k,n)=Σ_{d∣n,p∤d}d^(k−1)∈ℤ. Equivalently it is σ_(k−1)(n)−p^(k−1)σ_(k−1)(n/p) if p∣n, and σ_(k−1)(n) otherwise.
+
+Hypotheses: p is any prime, including 2; k is an even natural number with k≥4. B_k is Mathlib’s rational Bernoulli number, with B₁=−1/2. Eᵃ_k denotes normalizedEisenstein in the existing level-one ModularForm carrier; Eᵃ_{k,p} denotes pStabilizedEisenstein at Γ₀(p). All q-expansions have period 1, q=exp(2πiz).
+
+Proof outline:
+
+1. Take coefficient n in p-stabilized-q-expansion and use PowerSeries.coeff_expand. Split p∣n. If p∤n the expanded coefficient is0; if p∣n, primality and n>0 give n/p>0, so both source coefficients are positive-index instances of normalized-eisenstein-coeff.
+2. The resulting difference is the complex cast of the integer expression in the existing divisor-sum-euler-deletion node at exponent k−1. Apply that node and distribute the cast across the finite sum. Integer subtraction avoids truncated natural subtraction.
+3. All positivity and divisibility hypotheses are explicit: the n=0 branch uses a different constant-term theorem, not the convention for Nat.divisors 0.
+
+Prerequisites: `DirichletPadicLFunctions:L4/p-stabilized-q-expansion`, `DirichletPadicLFunctions:L4/normalized-eisenstein-coeff`, `DirichletPadicLFunctions:L4/divisor-sum-euler-deletion`, `mathlib:PowerSeries.coeff_expand`.
+
+Acceptance:
+
+- At p=2,k=4,n=6 the coefficient is28=1+3³; at p=3 it is9=1+2³.
+- For n=p the coefficient is1, so the phrase about killing coefficients at p is interpreted as removing p-divisible divisors.
+- For p=3,k=4,n=2 the exponent is3 and the result9; the incorrect exponent4 gives17.
+
+Source: Definition8.1 and following q-expansion and level assertion, printed159 / PDF60; arXiv v2 p.44. Combines the actual modular-form q-expansion with the already planned integer divisor deletion; no duplicate finite-divisor lemma is introduced.
+
+### Euler factor in the stabilized constant term
+
+`DirichletPadicLFunctions:L4/p-stabilized-zeta-constant` — theorem. Proposed declaration: `DirichletPadic.pStabilizedEisenstein_constant_zeta`.
+
+For every prime p and even k≥4, a₀(Eᵃ_{k,p})=(1−p^(k−1))ζ(1−k)/2 in ℂ. It is the complex image of c_(p,k)=−(1−p^(k−1))B_k/(2k)∈ℚ.
+
+Hypotheses: p is any prime, including 2; k is an even natural number with k≥4. B_k is Mathlib’s rational Bernoulli number, with B₁=−1/2. Eᵃ_k denotes normalizedEisenstein in the existing level-one ModularForm carrier; Eᵃ_{k,p} denotes pStabilizedEisenstein at Γ₀(p). All q-expansions have period 1, q=exp(2πiz).
+
+Proof outline:
+
+1. Take coefficient0 in p-stabilized-q-expansion. PowerSeries.coeff_expand has p∣0 and 0/p=0, so the coefficient is (1−p^(k−1))a₀(Eᵃ_k).
+2. Apply normalized-eisenstein-zeta-constant. For the rational representative, use normalized-eisenstein-coeff at0 and commute the rational-to-complex cast with products and division. Here2k≠0.
+3. The rational representative can independently be embedded in ℚ_p, but this does not construct A₀ or supply an integral measure. In particular, dyadic denominators are not dismissed by a division inside ℤ₂.
+
+Prerequisites: `DirichletPadicLFunctions:L4/p-stabilized-q-expansion`, `DirichletPadicLFunctions:L4/normalized-eisenstein-zeta-constant`, `DirichletPadicLFunctions:L4/normalized-eisenstein-coeff`, `mathlib:PowerSeries.coeff_expand`.
+
+Acceptance:
+
+- At p=2,k=4 the constant is −7/240; at p=3,k=4 it is −13/120.
+- At p=2,k=6 it is31/504. These are rational constants, with no claim that they all lie in ℤ_p.
+
+Source: Definition8.1 and following q-expansion and level assertion, printed159 / PDF60; arXiv v2 p.44. Identifies the exact constant needed by Theorem8.2 while retaining the missing arithmetic pseudomeasure as an explicit gap.
+
+### Measure moments and modular Fourier coefficients
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-modular-comparison` — theorem. Proposed declaration: `DirichletPadic.positiveEisensteinMeasure_modular_coeff`.
+
+For every prime p, even k≥4 and n>0, there is a unique integer S such that a_n(Eᵃ_{k,p})=ι_ℂ(S) and A_n(x^(k−1))=ι_ℤp(S), where A_n is the native positiveEisensteinMeasure and S=Σ_{d∣n,p∤d}d^(k−1). This is the positive-index specialization in Theorem8.2 through a common arithmetic coefficient.
+
+Hypotheses: p is any prime, including 2; k is an even natural number with k≥4. B_k is Mathlib’s rational Bernoulli number, with B₁=−1/2. Eᵃ_k denotes normalizedEisenstein in the existing level-one ModularForm carrier; Eᵃ_{k,p} denotes pStabilizedEisenstein at Γ₀(p). All q-expansions have period 1, q=exp(2πiz).
+
+Proof outline:
+
+1. Choose the displayed finite integer sum. p-stabilized-positive-coeff identifies its complex image with the coefficient of the actual stabilized modular form.
+2. Apply the existing positive-eisenstein-moment node at exponent k−1 to identify the integral p-adic moment. The integer cast distributes over powers and the finite divisor sum, giving precisely the same S in ℤ_p.
+3. Uniqueness follows from injectivity of the integer cast into ℂ. No C-to-C_p isomorphism, measure scalar-extension assumption or completion of the group ring appears in this positive-coefficient comparison.
+4. For arbitrary p-adic coefficient extensions one must still use the owner’s measure base-change maps; the joint equality proved here concerns the native ℤ_p-valued measure. The index0 is excluded and remains the separate A₀=xζ_p/2 construction.
+
+Prerequisites: `DirichletPadicLFunctions:L4/p-stabilized-positive-coeff`, `DirichletPadicLFunctions:L4/positive-eisenstein-moment`.
+
+Acceptance:
+
+- At p=2,k=4,n=6 the common integer is28, in both ℂ and ℤ₂.
+- At p=3,k=4,n=2 it is9; exponent k instead of k−1 would give17.
+- At n=p the common integer is1, consistent with A_p=δ₁. The common-integer theorem makes no assertion for A₀.
+
+Source: Theorem8.2(b), positive-index calculation in its proof, printed160 / PDF61; arXiv v2 p.44. Completes only the positive-index comparison with the native classical modular form. The completed-algebra image and the constant pseudomeasure remain distinct missing inputs.
+
+### Remaining L4 boundary
+
+The positive coefficient measures now compare to the actual Γ₀(p) modular form through eight native normalization and p-stabilization declarations. Both the full classical q-expansion and its rational zeta constant are planned from the pinned ModularForm and levelRaise APIs. The remaining full L4 targets are: Map the intrinsic native unit-group coefficient measures A_n to the completed group algebra through its owner PadicMeasuresIwasawaAlgebras:L1; compare Dirac generators, integrals and products. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined.
+
+The suggested file types every new node, all nine new API entries and all seven new construction tests. Both new constructors use the real existing ModularForm type. The shared measure supplier is imported as an unchecked suggested dependency; placeholders do not establish implementations. No new source finding is added, and no review verdict is claimed.
