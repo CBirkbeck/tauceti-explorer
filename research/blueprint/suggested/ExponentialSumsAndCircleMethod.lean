@@ -345,3 +345,92 @@ example : ¬ (3 : ℝ) < 10 * (3 / 64 : ℝ) + 2 := by sorry
 
 example : ((2 : ℝ) ^ (64 : ℕ)) ^ (63 / 64 : ℝ) = 2 ^ (64 : ℕ) / 2 := by sorry
 end TauCeti.ExponentialSumsPlan
+
+/-! ## ES.0: numerical large-conductor saving
+These signatures only close the divisor/threshold arithmetic.
+The analytic character-sum estimate remains an explicit premise.
+-/
+namespace TauCeti.ExponentialSumsPlan
+
+/-- Node bounded-divisor-power. -/
+theorem bounded_divisor_power (q R r : ℕ) (hq : 0 < q) (hR : 1 ≤ R)
+    (hr : r ≤ R) (C : ℝ) (hC : 1 ≤ C)
+    (hτ : (q.divisors.card : ℝ) ≤ C * Real.rpow q (1/(4*(R : ℝ)^2))) :
+    (q.divisors.card : ℝ)^(r^2) ≤ C^(R^2) * Real.rpow q (1/4 : ℝ) := by sorry
+
+/-- Node large-conductor-divisor-saving. -/
+theorem large_conductor_divisor_saving (q R r : ℕ) (hq : 1 < q) (hR : 1 ≤ R)
+    (hr : r ≤ R) (C : ℝ) (hC : 1 ≤ C)
+    (hτ : (q.divisors.card : ℝ) ≤ C * Real.rpow q (1/(4*(R : ℝ)^2)))
+    (hlarge : C^(4*R^2) < (q : ℝ)) :
+    (q.divisors.card : ℝ)^(r^2) < Real.rpow q (1/2 : ℝ) := by sorry
+
+/-- Node large-conductor-explicit-divisor-threshold.
+The AN.5 explicit divisor theorem is consumed, not duplicated. -/
+theorem large_conductor_explicit_divisor_threshold (R r B : ℕ)
+    (hR : 1 ≤ R) (hr : r ≤ R) (hB : Real.exp (4*(R : ℝ)^2) ≤ B)
+    (k : ℝ) (q : ℕ) (hq : 0 < q)
+    (hlarge : max 1 (Real.rpow
+      (((max 1 (((1/(4*(R : ℝ)^2))*Real.log 2)⁻¹))^B)^(4*R^2))
+      (32/7 : ℝ)) < k)
+    (hlower : Real.rpow k (7/32 : ℝ) ≤ q) :
+    (q.divisors.card : ℝ)^(r^2) < Real.rpow q (1/2 : ℝ) := by sorry
+
+/-- Node large-conductor-eventual-divisor-saving. -/
+theorem large_conductor_eventual_divisor_saving (c : ℝ) (hc : 0 < c) :
+    ∃ K : ℕ, 2 ≤ K ∧ ∀ k : ℕ, K ≤ k → ∀ q r : ℕ, 0 < q →
+      (r : ℝ) < 10*c+2 → Real.rpow k (7/32 : ℝ) ≤ q →
+      (q.divisors.card : ℝ)^(r^2) < Real.rpow q (1/2 : ℝ) := by sorry
+
+/-- Node graham-ringrose-saving-kernel; S is a scalar with a stated upper bound. -/
+theorem graham_ringrose_saving_kernel (S k q t : ℝ) (r : ℕ)
+    (hk : 0 ≤ k) (hq : 0 < q) (ht : 0 ≤ t)
+    (hsave : t ≤ Real.rpow q (1/2 : ℝ))
+    (hS : S ≤ 2*k*Real.rpow (t/q) (Real.rpow 2 (-(r : ℝ)))) :
+    S ≤ 2*k / Real.rpow q (Real.rpow 2 (-(r : ℝ)-1)) := by sorry
+
+/-- Node large-conductor-denominator-conversion. -/
+theorem large_conductor_denominator_conversion (S k q : ℝ) (r : ℕ)
+    (hk : 0 < k) (hq : Real.rpow k (7/32 : ℝ) ≤ q)
+    (hS : S ≤ 2*k / Real.rpow q (Real.rpow 2 (-(r : ℝ)-1))) :
+    S ≤ 2*Real.rpow k (1-(7/32 : ℝ)*Real.rpow 2 (-(r : ℝ)-1)) := by sorry
+
+/-- Node large-conductor-exponent-margin. -/
+theorem large_conductor_exponent_margin (c : ℝ) (hc : 0 < c) (r : ℕ)
+    (hr : (r : ℝ) < 10*c+2) :
+    (7/4 : ℝ)*Real.rpow 2 (-10*c-6) <
+      (7/32 : ℝ)*Real.rpow 2 (-(r : ℝ)-1) := by sorry
+
+/-- Node large-conductor-constant-absorption. -/
+theorem large_conductor_constant_absorption (k S d γ : ℝ) (hk : 1 ≤ k)
+    (hγ : 0 < γ) (hd : (7/4 : ℝ)*γ ≤ d)
+    (hlarge : Real.rpow 2 (4/(3*γ)) ≤ k)
+    (hS : S ≤ 2*Real.rpow k (1-d)) :
+    S ≤ Real.rpow k (1-γ) := by sorry
+
+/-- Node large-conductor-numeric-threshold.
+This is not a statement that the analytic-size premise holds for characters. -/
+theorem large_conductor_numeric_threshold (c : ℝ) (hc : 0 < c) :
+    ∃ K : ℕ, 2 ≤ K ∧ ∀ k : ℕ, K ≤ k → ∀ q r : ℕ, 0 < q →
+      (r : ℝ) < 10*c+2 → Real.rpow k (7/32 : ℝ) ≤ q →
+      ∀ S : ℝ,
+        S ≤ 2*(k : ℝ)*Real.rpow ((q.divisors.card : ℝ)^(r^2)/(q : ℝ))
+          (Real.rpow 2 (-(r : ℝ))) →
+        S ≤ Real.rpow k (1-Real.rpow 2 (-10*c-6)) := by sorry
+
+-- Divisor-saving boundary and exponent contracts.
+example (r : ℕ) :
+    ¬ ((1 : ℕ).divisors.card : ℝ)^(r^2) < Real.rpow 1 (1/2 : ℝ) := by sorry
+example : ((2 : ℕ).divisors.card : ℝ)^2 > 2 := by sorry
+example : (32/7 : ℝ)*(7/32) = 1 := by sorry
+example : (1/(4*(1 : ℝ)^2)) = 1/4 := by sorry
+example : Real.rpow 2 (-(1 : ℝ)-1) = 1/4 := by sorry
+example : Real.rpow 2 (-10*(1 : ℝ)-6) = 1/65536 := by sorry
+example : (7/32 : ℝ)*Real.rpow 2 (-(11 : ℝ)-1) = 7/131072 := by sorry
+example : (7/32 : ℝ)*Real.rpow 2 (-(12 : ℝ)-1) =
+    (7/4 : ℝ)*Real.rpow 2 (-10*(1 : ℝ)-6) := by sorry
+example : (2 : ℝ)^(4*(1 : ℕ)^2) = 16 := by sorry
+example : (4 : ℝ)^(1 : ℕ)^2 = Real.rpow 16 (1/2 : ℝ) := by sorry
+example : ¬ (2 : ℝ) ≤ Real.rpow 1 (1-(1/4 : ℝ)) := by sorry
+example : Real.rpow (Real.rpow 2 (16/3 : ℝ)) (3/16 : ℝ) = 2 := by sorry
+end TauCeti.ExponentialSumsPlan

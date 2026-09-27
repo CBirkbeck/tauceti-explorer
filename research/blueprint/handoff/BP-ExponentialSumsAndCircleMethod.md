@@ -1,3 +1,124 @@
+# BP-ExponentialSumsAndCircleMethod — uniform numerical saving
+
+Agent: Codex — codex-a71f92. 27 September 2026. Refs #1040.
+Claim 5854325258 (08:47:01 UTC) was confirmed by bot 5854326494
+at 08:47:10. Whole issue read before claiming and after confirmation.
+Snapshot: 5660edf932b7e6c7e8335a643796e1ba43ce1081.
+The preceding q-series PR #3219 merged at 08:48:53 UTC.
+
+Status remains partial. All 26 inherited node objects and five ES.1–ES.5
+coverage records are unchanged. All nodes are unchecked. This handoff
+supersedes the inventory and numerical resume point below.
+
+## What changed
+
+Nine ES.0 nodes: six lemmas and three theorems. They expose the bounded
+squared divisor factor, its strict saving, the explicit and uniform
+thresholds, the numerical Graham–Ringrose factor, the modulus-to-interval
+power conversion, the exact exponent margin, the absorption of the factor
+two, and a uniform numerical implication retaining the analytic estimate
+as a premise.
+
+The source exponent γ=2^(−10c−6) is preserved. The intermediate saving
+exponent d=(7/32)2^(−r−1) exceeds (7/4)γ under r<10c+2. Thus the
+explicit threshold k≥2^(4/(3γ)) absorbs the factor two. The AN.5 divisor
+bound is imported at ε=1/(4R²) for a fixed natural R≥max(1,10c+2);
+its constant is retained until q>C^(4R²).
+
+This is not full Proposition 8.2. The final scalar premise
+S≤2k(τ(q)^(r²)/q)^(2^(−r)) still has to be proved for the original
+product-character sum using the exact CRT factors and the complete
+Graham–Ringrose proof. No character construction or analytic estimate is
+smuggled into a record field.
+
+## Inventory
+
+35 nodes: 22 lemmas and 13 theorems. No definition/construction nodes, so
+their API and unit-test checker counters remain zero. The 21 inherited
+theorem API items and 42 inherited packet tests remain unchanged.
+Twelve new typed contract examples give 60 examples in the suggested file.
+
+Six planets, all in ES.0; 74 baseline declarations (nine added); three
+source records and three inherited reviewed findings; eight gaps; zero
+requests. All six stages are partial. No independent-review or
+implementation claim is made.
+
+## Reading, ownership and verification
+
+All six reviewed library-audit rows were read before planning. The
+61-path comparison found 57 identical inputs, three known absences and
+only the Sieve supplier changed. That file exactly matches this session’s
+fully read/written merged PR #3210. The prior complete campaign, atlas,
+RS-03/RS-07, 28 related links, extraction/reviews and two upstream-style
+readings therefore remain applicable. Binding instruction hashes are
+unchanged; there is no AGENTS.md.
+
+Freshly reread the complete selected Bennett–Siksek §8.1 argument,
+printed pp.376–379, and visually checked p.378. The published PDF’s
+SHA-256 remains 3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf.
+The source/version records and reviewed E2/E3/E11 are preserved exactly.
+No new source defect is asserted. This is not a reading of the external
+Graham–Ringrose proof or a fresh reading of the whole paper.
+
+The exact current AN.5 local-factor, explicit/uniform divisor,
+constant-absorption and eventual-bound node statements were reread.
+They provide the supplier results; this checkpoint does not recreate
+them. The finite-sum supplier search found no matching squared-factor
+application. Native real powers, ordinary powers, divisor sets and
+Archimedean choice are imported. The nine added baseline statements were
+read with their applicable hypotheses and exercised in scratch Lean.
+
+Checks:
+
+- Pinned-index packet checker: zero errors and zero warnings.
+- Complete suggested Lean: 95 expected placeholder warnings, no errors or
+  other diagnostics. All 8,482 imported Mathlib source files byte-verified;
+  no Tau Ceti imports. All inherited signatures/examples remain verbatim.
+- Scratch Lean: seven complete general numerical proofs and twelve
+  examples; zero placeholders, errors or warnings. The numerical proofs
+  take the relevant pointwise bounds as hypotheses; they do not implement
+  the planned AN.5 theorem or the missing character-sum estimate.
+- Exact regressions: 15,220 bounded squared factors, 13,557 strict divisor
+  savings, 1,950 source exponent margins, 1,950 constant absorptions,
+  60 boundary equalities and 160 modulus-threshold transfers. Four
+  counterchecks detect q=1, a missing size threshold, equality incorrectly
+  promoted to strictness, and dropping the factor-two threshold.
+  These use exact integer powers/rational logarithmic exponents, not
+  floating-point approximations. They are diagnostics, not general proofs.
+- Source-issue/version validation: zero errors. Four-file intake: zero
+  problems. Fresh-main guard: all 68 consulted paths match the working
+  snapshot (65 present, three known absences); no new packet/link filenames
+  or AGENTS.md. The node dependency graph is acyclic. Only the four
+  authorized deliverables differ, and every inherited node object is intact.
+
+Suggested-file SHA-256:
+13d9cb29d0216158a623d9305270743478f8f10243c461e4bab8ba897848b946.
+
+## Exact resume point
+
+1. Preserve all 35 nodes. Do not redo the small-conductor branch, primitive
+   product mask, arithmetic packing, or the uniform numerical saving.
+2. Match the reusable quadratic-conductor classification aQ with a≤8,
+   odd squarefree Q, and the source lower bound/smoothness hypotheses.
+3. Construct and reconstruct primitive/principal characters on the
+   pairwise-coprime packed moduli; prove the distinguished factor primitive
+   and the all-integer product including the exclusion mask. R=1 permits
+   an empty principal family, as accepted in E11.
+4. Read and decompose a legally accessible complete Graham–Ringrose proof.
+   The quotation in Bennett–Siksek is not proof coverage.
+5. Establish the explicit analytic-size premise for the original product
+   sum with real interval length k/2. Apply large-conductor-numeric-threshold,
+   then combine with the preserved small-conductor theorem. Since γ<1/2,
+   the latter square-root bound fits the common endpoint after the same
+   uniform size threshold. Check the exact integer endpoints.
+6. Continue the other ES.0–ES.5 source targets. None is closed here.
+
+For certified R and B the threshold expressions are explicit. Existence
+for an arbitrary abstract positive real c is not an executable algorithm
+on arbitrary real data.
+
+---
+
 # BP-ExponentialSumsAndCircleMethod — bounded-modulus continuation
 
 Agent: Codex — `codex-a71f92`. 27 September 2026. Refs #1040.

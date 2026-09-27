@@ -840,3 +840,294 @@ The complete suggested file elaborates at the pins with exactly 74 expected unpr
 New exact regressions verify 2,763 divisor windows, 952 squarefree packings and 43,912 two-family decompositions. These include 2,960 empty principal families and 11,691 instances with exactly two small blocks. Counterexamples check absent smoothness, absent squarefreeness, an unjustified one-exception count, the strict interval threshold and three exceptional factors. These finite computations complement, and do not replace, the general proof outlines.
 
 The six ES.0 planets are Divisor-weighted character bound, Product-period character bound, Small-conductor cancellation, Primitive character and exclusion mask, Small-conductor product cancellation, and Bounded CRT modulus blocks. No other layer receives a planet from this partial chain.
+
+## Uniform numerical saving in the large-conductor branch
+
+This continuation preserves all 26 inherited node objects and adds nine
+ES.0 nodes. It closes the divisor-factor and constant-absorption arithmetic
+in [Bennett–Siksek §8.1, Case 1](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf),
+printed p.378. The full selected pp.376–379 were reread and the p.378
+formulas visually checked. The reviewed source corrections are unchanged.
+
+The general divisor theorem remains owned by AnalyticNumberTheory:AN.5.
+Here its uniform constant is raised to a bounded squared factor count,
+then absorbed using a threshold that is independent of q and r. The
+remaining factor 2 is absorbed separately. No character carrier, CRT
+constructor or generic divisor-bound proof is introduced.
+
+Notation throughout: τ(q)=card(q.divisors) for positive natural q. Natural
+squares r² and R² are natural exponents where indicated; powers such as
+2^(−r) are real powers with signed real exponents, never natural subtraction.
+The source’s final exponent is γ=2^(−10c−6)>0. Every S below is a real scalar;
+an inequality assumed for S is not an assertion about a character sum until
+the external analytic theorem and character reconstruction have supplied it.
+
+### The bounded squared divisor factor
+
+`ExponentialSumsAndCircleMethod:ES.0/bounded-divisor-power` — lemma; unchecked.
+
+For q>0 and natural 1≤R and r≤R, let C≥1 and suppose τ(q)≤C q^(1/(4R²)), where τ(q)=card(q.divisors). Then τ(q)^(r²)≤C^(R²) q^(1/4). All powers with nonintegral exponents are real powers.
+
+Hypotheses: q is natural and positive; R,r are natural; R≥1; r≤R; C is real and C≥1. The displayed divisor estimate is a hypothesis furnished by AN.5.
+
+Proof plan:
+
+1. The positive integer q satisfies q≥1, so C q^(1/(4R²))≥1. Raise the nonnegative bound for τ(q) to r².
+
+2. Since r²≤R², increase the exponent of the upper bound from r² to R², not the exponent of a base below one.
+
+3. Distribute the ordinary power and use the real-power multiplication law: (q^(1/(4R²)))^(R²)=q^(1/4). R≥1 ensures the denominator is nonzero. This keeps the entire factor C^(R²).
+
+Prerequisites: `mathlib:pow_le_pow_left₀`, `mathlib:pow_le_pow_right₀`, `mathlib:Real.one_le_rpow`, `mathlib:Real.rpow_natCast`, `mathlib:Real.rpow_mul`.
+
+Acceptance:
+
+- At R=1 and r=0 the left side is one, which is still bounded.
+
+- The restriction R≥1 prevents a zero denominator in the selected exponent.
+
+Source: §8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation. Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction.
+
+### Strict saving in the divisor factor
+
+`ExponentialSumsAndCircleMethod:ES.0/large-conductor-divisor-saving` — lemma; unchecked.
+
+Under bounded-divisor-power’s hypotheses, if q>1 and C^(4R²)<q, then τ(q)^(r²)<q^(1/2). The constant and strict threshold cannot be discarded.
+
+Hypotheses: The same q,R,r,C and divisor input as bounded-divisor-power; q>1; C^(4R²)<q.
+
+Proof plan:
+
+1. Raise C^(4R²)<q to the positive real exponent 1/4. Natural-to-real power compatibility gives C^(R²)<q^(1/4).
+
+2. Multiply this strict inequality by q^(1/4)>0 and combine with bounded-divisor-power.
+
+3. Use q^(1/4)q^(1/4)=q^(1/2). A threshold equality gives only a non-strict conclusion from these hypotheses.
+
+Prerequisites: `ExponentialSumsAndCircleMethod:ES.0/bounded-divisor-power`, `mathlib:Real.rpow_lt_rpow`, `mathlib:Real.rpow_mul`, `mathlib:Real.rpow_natCast`, `mathlib:Real.rpow_add`.
+
+Acceptance:
+
+- At q=1 the asserted strict saving would read 1<1 and is false.
+
+- The arithmetic boundary C=2,R=r=1,q=16,t=4 satisfies t=Cq^(1/4), C^4=q and t=q^(1/2); it rules out strict absorption from a non-strict threshold.
+
+Source: §8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation. Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction.
+
+### An explicit large-conductor divisor threshold
+
+`ExponentialSumsAndCircleMethod:ES.0/large-conductor-explicit-divisor-threshold` — theorem; unchecked.
+
+Let R≥1 and r≤R be natural and choose B∈ℕ with exp(4R²)≤B. Put C=max(1,((1/(4R²)) log 2)⁻¹)^B. For real k>max(1,(C^(4R²))^(32/7)) and positive natural q with k^(7/32)≤q, one has τ(q)^(r²)<q^(1/2).
+
+Hypotheses: R,r,B are natural; R≥1; r≤R. The displayed C is a local expression, not a new carrier or unspecified constant.
+
+Proof plan:
+
+1. Take ε=1/(4R²)>0. The existing AN.5 explicit-divisor-subpower-bound, with 1/ε=4R² and the supplied B, gives τ(q)≤Cq^ε and C≥1.
+
+2. From k>(C^(4R²))^(32/7), strict real-power monotonicity at exponent 7/32 gives k^(7/32)>C^(4R²). Compose with the lower bound for q.
+
+3. Since k>1, the same positive power gives q>1. Invoke large-conductor-divisor-saving. B may be any certified natural upper bound.
+
+Prerequisites: `ExponentialSumsAndCircleMethod:ES.0/large-conductor-divisor-saving`, `AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound`, `mathlib:Real.rpow_lt_rpow`, `mathlib:Real.rpow_mul`.
+
+Acceptance:
+
+- For R=1 the AN exponent is 1/4 and the B cutoff is exp 4.
+
+- The reciprocal exponent product (32/7)(7/32)=1 is exact; the lower modulus bound is essential.
+
+Source: §8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation. Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction.
+
+### One divisor threshold for the bounded factor family
+
+`ExponentialSumsAndCircleMethod:ES.0/large-conductor-eventual-divisor-saving` — theorem; unchecked.
+
+For every real c>0 there exists a natural K≥2 such that, for every natural k≥K, positive natural q with k^(7/32)≤q, and natural r with r<10c+2, one has τ(q)^(r²)<q^(1/2). The same K works for all permitted q and r.
+
+Hypotheses: c>0. Natural k,q,r; q>0. The factor-count hypothesis is an inequality after casting r to ℝ.
+
+Proof plan:
+
+1. Choose a natural R≥max(1,10c+2) using exists_nat_ge; then every permitted r satisfies r≤R and R≥1.
+
+2. Choose natural B≥exp(4R²), define C by the explicit threshold node, and choose a natural K strictly larger than max(1,(C^(4R²))^(32/7)).
+
+3. For k≥K all the explicit threshold hypotheses hold. Apply large-conductor-explicit-divisor-threshold; the choices R,B,C,K depend only on c, not on q or r.
+
+4. The arithmetic bounded-factor-count node supplies r<10c+2 in the source application. No squarefreeness is needed for this divisor estimate.
+
+Prerequisites: `ExponentialSumsAndCircleMethod:ES.0/large-conductor-explicit-divisor-threshold`, `ExponentialSumsAndCircleMethod:ES.0/bounded-factor-count`, `mathlib:exists_nat_ge`, `mathlib:exists_nat_gt`.
+
+Acceptance:
+
+- For c=1 one may choose R=12 because r<12 implies r≤12.
+
+- Replacing the family by unbounded r is invalid even at a fixed positive q>1.
+
+Source: §8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation. Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction.
+
+### The numerical Graham–Ringrose saving factor
+
+`ExponentialSumsAndCircleMethod:ES.0/graham-ringrose-saving-kernel` — lemma; unchecked.
+
+For real k≥0, q>0, t≥0 and S, and natural r, if t≤q^(1/2) and S≤2k(t/q)^(2^(−r)), then S≤2k/q^(2^(−r−1)). This is a numerical implication; an analytic estimate for a character sum is not a conclusion.
+
+Hypotheses: k,q,t,S are real; k≥0; q>0; t≥0; r is natural. The nested exponent 2^(−r) is a real power, not natural subtraction.
+
+Proof plan:
+
+1. Divide t≤q^(1/2) by q>0 to get t/q≤q^(−1/2). Both sides are nonnegative.
+
+2. Raise to the positive exponent 2^(−r), then multiply by 2k≥0.
+
+3. Use (−1/2)2^(−r)=−2^(−r−1) and the native negative-real-power law. In the application t=τ(q)^(r²); the antecedent S-bound must still come from the external analytic theorem with interval length k/2.
+
+Prerequisites: `mathlib:Real.rpow_le_rpow`, `mathlib:Real.rpow_pos_of_pos`, `mathlib:Real.rpow_mul`, `mathlib:Real.rpow_sub`, `mathlib:Real.rpow_neg`.
+
+Acceptance:
+
+- At r=1 the resulting denominator exponent is 1/4, not 1/2.
+
+- At k=0 the implication preserves the upper bound S≤0.
+
+Source: §8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation. Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction.
+
+### Converting the modulus saving to the interval scale
+
+`ExponentialSumsAndCircleMethod:ES.0/large-conductor-denominator-conversion` — lemma; unchecked.
+
+For real k>0, q≥k^(7/32), S, and natural r, the bound S≤2k/q^(2^(−r−1)) implies S≤2k^(1−(7/32)2^(−r−1)).
+
+Hypotheses: All bases are positive: k>0 and q≥k^(7/32)>0; r is natural.
+
+Proof plan:
+
+1. Raise q≥k^(7/32) to the positive exponent 2^(−r−1), giving q^(2^(−r−1))≥k^((7/32)2^(−r−1)).
+
+2. Use antitonicity of division by a positive denominator while retaining the nonnegative numerator 2k.
+
+3. Rewrite k/k^d=k^(1−d) with d=(7/32)2^(−r−1). No integer floor is introduced into the real interval length.
+
+Prerequisites: `mathlib:Real.rpow_le_rpow`, `mathlib:Real.rpow_mul`, `mathlib:Real.rpow_sub`.
+
+Acceptance:
+
+- The factor 7/32 remains in the exponent; omitting it gives a stronger unsupported saving.
+
+Source: §8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation. Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction.
+
+### Margin above Bennett–Siksek’s stated exponent
+
+`ExponentialSumsAndCircleMethod:ES.0/large-conductor-exponent-margin` — lemma; unchecked.
+
+For c>0 and natural r<10c+2, put γ=2^(−10c−6) and d=(7/32)2^(−r−1). Then d>(7/4)γ. In particular the exponent margin d−γ exceeds (3/4)γ>0.
+
+Hypotheses: c is real and positive; r is natural with its stated strict real upper bound; γ and d are explicit real expressions.
+
+Proof plan:
+
+1. The bound on r gives −r−1>−10c−3. Strict monotonicity of the base-two real exponential gives 2^(−r−1)>2^(−10c−3).
+
+2. Write 2^(−10c−3)=8·2^(−10c−6)=8γ and multiply by 7/32.
+
+3. Conclude d>(7/4)γ and subtract γ. This identifies the slack needed to absorb the factor 2; it does not suppress that factor.
+
+Prerequisites: `mathlib:Real.rpow_lt_rpow_of_exponent_lt`, `mathlib:Real.rpow_add`, `mathlib:Real.rpow_pos_of_pos`.
+
+Acceptance:
+
+- For c=1 and r=11, γ=2^(−16) and d=7·2^(−17)=(7/2)γ.
+
+- If the excluded boundary r=10c+2 is integral, the displayed comparison becomes equality d=(7/4)γ, so strictness uses the strict factor count.
+
+Source: §8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation. Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction.
+
+### Absorbing the remaining factor two
+
+`ExponentialSumsAndCircleMethod:ES.0/large-conductor-constant-absorption` — lemma; unchecked.
+
+For real k≥1, γ>0, d≥(7/4)γ and S≤2k^(1−d), if k≥2^(4/(3γ)), then S≤k^(1−γ).
+
+Hypotheses: The threshold is non-strict; the bases and exponent γ are positive. No character or modulus hypothesis is needed in this numerical lemma.
+
+Proof plan:
+
+1. Raise k≥2^(4/(3γ)) to exponent 3γ/4 to obtain k^(3γ/4)≥2.
+
+2. Multiply by k^(1−d)>0. The resulting power is k^(1−d+3γ/4).
+
+3. Since d≥7γ/4, its exponent is at most 1−γ; monotonicity in the exponent for k≥1 proves the claim.
+
+Prerequisites: `mathlib:Real.rpow_le_rpow`, `mathlib:Real.rpow_mul`, `mathlib:Real.rpow_add`, `mathlib:Real.rpow_le_rpow_of_exponent_le`.
+
+Acceptance:
+
+- At γ=1/4, d=7/16 and k=2^(16/3), the absorption comparison is equality.
+
+- At k=1 and S=2, the conclusion S≤1 fails if the threshold is removed.
+
+Source: §8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation. Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction.
+
+### Uniform conditional large-conductor cancellation
+
+`ExponentialSumsAndCircleMethod:ES.0/large-conductor-numeric-threshold` — theorem; unchecked.
+
+For every c>0, put γ=2^(−10c−6). There exists a natural K≥2 such that for all natural k≥K, q>0 and r<10c+2 with k^(7/32)≤q, and every real S satisfying S≤2k(τ(q)^(r²)/q)^(2^(−r)), one has S≤k^(1−γ). The analytic inequality for S is an explicit premise, not a proved character-sum estimate.
+
+Hypotheses: Natural k,q,r; c>0; q>0; the displayed lower bound and factor-count bound. S is real; γ is local notation.
+
+Proof plan:
+
+1. Take K₁ from large-conductor-eventual-divisor-saving. Choose a natural K₂≥2^(4/(3γ)), and let K=max(K₁,K₂). Positivity of γ follows from the positive base two.
+
+2. For k≥K, the divisor factor is strictly below q^(1/2). Apply graham-ringrose-saving-kernel to the assumed analytic-size inequality, with t=τ(q)^(r²).
+
+3. Apply large-conductor-denominator-conversion. The source exponent margin gives d≥7γ/4, and large-conductor-constant-absorption removes the factor 2.
+
+4. All threshold choices depend only on c. In the intended application S is the norm of the original product-character sum over k/2<m≤k. Proving its displayed premise still requires the exact CRT character factors and the complete Graham–Ringrose proof; this theorem does not close Proposition 8.2.
+
+Prerequisites: `ExponentialSumsAndCircleMethod:ES.0/large-conductor-eventual-divisor-saving`, `ExponentialSumsAndCircleMethod:ES.0/graham-ringrose-saving-kernel`, `ExponentialSumsAndCircleMethod:ES.0/large-conductor-denominator-conversion`, `ExponentialSumsAndCircleMethod:ES.0/large-conductor-exponent-margin`, `ExponentialSumsAndCircleMethod:ES.0/large-conductor-constant-absorption`, `mathlib:exists_nat_ge`, `mathlib:Real.rpow_pos_of_pos`.
+
+Acceptance:
+
+- The statement keeps q and r universally quantified after K, expressing uniformity.
+
+- There is no assertion that every nonnegative S satisfies the analytic-size premise.
+
+Source: §8.1, Case 1, printed p.378, divisor-factor saving and the final c₃ calculation. Worker decomposition of the numerical argument using the corrected AN.5 divisor supplier. It does not prove or assume away the missing Graham–Ringrose theorem or CRT character reconstruction.
+
+### Scope and remaining obligations
+
+The numerical implication retains S≤2k(τ(q)^(r²)/q)^(2^(−r)) as a
+hypothesis. Establishing that hypothesis for the product-character sum
+still needs the exact primitive/principal CRT factors and a complete
+source decomposition of the Graham–Ringrose estimate. The quadratic
+conductor classification and its bounded 2-part must also be matched
+to their reusable owner. Thus Proposition 8.2 is not declared proved.
+
+For a supplied certified natural bound R≥max(1,10c+2) and
+B≥exp(4R²), the threshold expressions are explicit. Existence for an
+arbitrary abstract positive real c is a mathematical statement, not an
+executable algorithm on arbitrary real inputs. The natural choices are
+uniform in all the characters, q and r allowed by the eventual endpoint.
+
+The six existing ES.0 planets, eight gaps, source records and findings,
+and the five untouched ES.1–ES.5 coverage entries are preserved. No
+supplier request is added because AN.5 already supplies the exact
+divisor statement used by this checkpoint.
+
+### Verification of this continuation
+
+The current packet has 35 nodes (22 lemmas and 13 theorems), 74 baseline
+citations and 60 suggested examples. Its 26 inherited node objects,
+21 theorem API items, 42 packet tests, three source findings and all source
+versions are unchanged. There are no definition/construction nodes.
+
+The complete suggested file compiles at the pins with 95 expected
+unproved-declaration warnings and no other diagnostics. Seven general
+scratch numerical proofs and twelve examples compile without placeholders
+or diagnostics. Exact finite regressions check the squared divisor factors,
+strict thresholds, source exponent margins and factor-two absorption;
+they do not establish the external analytic estimate.
