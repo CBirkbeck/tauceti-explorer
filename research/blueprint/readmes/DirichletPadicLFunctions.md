@@ -1,9 +1,9 @@
-**Current packet:** 166 unchecked nodes: one definition, fifteen constructions,
-91 lemmas, 45 theorems and fourteen comparisons. There are 162 API entries,
-131 packet tests (92 on definitions/constructions), 134 typed examples,
-18 planets and 235 baseline references. Five gaps, one request, twelve findings
-and zero closed stages remain. The final section records the current character
-twists; preceding checkpoint narratives and validation are historical.
+**Current packet:** 175 unchecked nodes: one definition, nineteen constructions,
+94 lemmas,45 theorems and16 comparisons. There are182 API entries,145 packet tests
+(106 on definitions/constructions),148 typed examples,19 planets and240 baseline
+references. Five gaps,one request,13 findings and zero closed stages remain.
+The final section records the current tame kernel; preceding checkpoint narratives
+and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -5741,3 +5741,385 @@ Keep the primitive conductor in the value at p. The other four gaps and the sing
 completed-algebra request remain unchanged.
 
 Final input refresh: at main 5caa734ac277a72540a598a6e2b5800e3c2761e2, the LAD supplier grew from124 to137 nodes. All13 new finite spectral/characteristic-comparison nodes and the changed source, coverage and gap metadata were read in full. Prior124 nodes, source findings, requests and baseline objects remain whole. The20 additional native citations were not independently statement-read by this consumer and none is consumed by this twist slice. This is supplier-packet reading, not a fresh reading of its Coleman source; unrestricted finite-matrix comparison and analytic limits remain supplier gaps. The refreshed packet blob is 11044f94a48906f987b321d79964a42b7a546118. No Lean input changed.
+
+
+## The finite tame kernel and its bounded measure
+
+Let η be the native Dirichlet character modulo D>0 and write Y=1+T.
+The existing smoothing denominator q_a has coefficients binom(a,n+1) and
+satisfies Tq_a=Y^a−1. Define the finite numerator
+
+Q_η=−Σ_(a∈ZMod D) C(η(a))q_(a.val).
+
+This arithmetic expression uses only character values and existing integral
+series. Its coefficient of T^n is −Σ_a η(a)binom(a.val,n+1), so in particular
+Q_η(0)=−Σ_a η(a)a.val. Coefficient extension is native ringHomComp on η.
+
+Over a domain, if η is nonprincipal, the native character sum is zero.
+Multiplying Q_η by T therefore gives −Σ_a η(a)Y^(a.val). If D is a unit,
+define F_η=Q_η·q_D⁻¹ with the native unit-constant inverse. The equation
+q_D F_η=Q_η determines the series uniquely and gives its coefficient recurrence:
+
+D f_n=−Σ_a η(a)binom(a.val,n+1)
+      −Σ_(i<n)binom(D,n−i+1)f_i.
+
+The finite generating identity is then
+
+(1−Y^D)F_η=Σ_a η(a)Y^(a.val).
+
+All these are formal algebraic equations. No infinite expansion in powers of
+Y=1+T is substituted into a T-adic series without a convergence argument.
+The constructions exist for principal characters too, but that last identity
+does not hold for them. For the principal character modulo3, Q=−3−T;
+the purported generating equality would have constant coefficients0 and2.
+At modulus1, Q and F are zero; this is not the trivial Dirichlet generating
+function. These boundary cases are part of the typed tests.
+
+For the quadratic character modulo3, Q=1+T and q_3=3+3T+T². Thus
+F=(1+T)/(3+3T+T²), with coefficients1/3,0,−1/9,1/9 in degrees0–3.
+The alternating sign agrees with the correction E12. At p=2 these coefficients
+are integral. At p=3 the same field-valued series has constant coefficient
+of norm3, showing why tame coprimality matters for the bound.
+
+Now suppose p∤D and K is an ultrametric normed Z_p-algebra field with bounded
+scalar action. The integral inverse q_D⁻¹ exists already in Z_p[[T]]. By the
+unit equations and uniqueness, its coefficient image is the inverse used above.
+Rewrite F as a finite sum of η(a) times images of the integral series q_a/q_D.
+Every image coefficient has norm at most1, and the native character bound gives
+‖η(a)‖≤1. The ultrametric finite-sum inequality then bounds every f_n by1.
+Neither nontriviality nor primitivity is needed for this coefficient bound.
+
+Bundle the coefficient function as the native bounded continuous function c_η
+on the discrete naturals. Its supremum norm is at most1. When K is complete,
+the exact PMIA bounded inverse gives an actual measure μ_η on Z_p with
+A(μ_η)=F_η and mass −D⁻¹Σ_a η(a)a.val. For nontrivially normed K its native
+continuous-dual operator norm is at most1 by the supplier's exact norm equality.
+Any existing measure whose transform satisfies q_D A(μ)=Q_η is this measure.
+The dyadic quadratic-modulo3 tests give mass1/3 and second ordinary moment−2/9.
+The latter is2f_2+f_1, from the actual Amice derivative convention.
+
+This checkpoint constructs the finite rational kernel measure over K. To identify
+it with the paper's primitive Gauss-defined measure, still supply the exact finite
+Fourier identity from the existing ModularForms Layer0/native character APIs,
+clear denominators and retain its sign and primitivity. Also construct the actual
+O_K-valued measure and compare coefficient extension. The psi-eigenrelation,
+Dirichlet special values, primitive-conductor product twists, unit restriction
+and inverse weighting remain separate steps. The current prime-root PMIA operator
+does not automatically supply the p^n-root operator. No interpolation theorem
+or completed-algebra comparison is claimed merely from the measure's existence.
+
+### The source Gauss-scalar correction
+
+The first display for (φ∘ψ)(F_η) in the proof of Lemma5.10 on published145
+prints denominator pG(η)⁻¹. It should be pG(η⁻¹), preserving the coefficient
+−1/G(η⁻¹) in equation(5-3) and the averaging factor1/p. The next displayed
+line already uses the correct Gauss sum of the inverse character. For quadratic
+η modulo3, η⁻¹=η and G(η)²=−3, so substituting G(η)⁻¹ for G(η⁻¹) changes the
+coefficient by−3. This is a proof-display typo, not a failure of the stated
+psi-eigenrelation. E13 records it without an independent-review verdict.
+
+Complete published139–147 pages were read in batches; full arXiv v2 pages33–35
+were collated and published145 visually inspected. The source digests match the
+prior records. The source register was screened by relevant owners/locators.
+Additional bounded correction searches identified no correcting publication.
+One result was an older Warwick lecture-note PDF with metadata dated8February2018;
+its title and full pages23–25 were read, and it contains the same slip in Lemma4.10.
+It is not a newly dated correction and is not substituted for the version of record.
+Existing current-session arXiv/author/journal checks keep their own provenance.
+These checks establish neither priority nor exhaustive absence; no authors contacted.
+
+### Finite numerator for a tame character
+
+`DirichletPadicLFunctions:L2/tame-numerator` — `DirichletPadic.tameNumerator` (construction).
+
+Define Q_η=−Σ_(a∈ZMod D) C(η(a))q_(a.val) in the native R[[T]]. It is a finite polynomial expression in the existing smoothing denominators.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the existing DirichletCharacter R D. Put Y=1+T and q_a=smoothingDenominator R a, the already planned integral binomial quotient (Y^a−1)/T. Every residue a is indexed by the native ZMod D and a.val denotes its canonical natural representative. The algebraic constructors are defined for principal and nonprincipal characters. The pole-cancellation and Dirichlet generating identities require a domain and η≠1. At modulus1 the constructors are zero; they do not represent the trivial Dirichlet generating function.
+
+**Proof outline:**
+
+1. Use the actual native character and the previously planned q_a; take their finite scalar-weighted sum. No Gauss sum, chosen root of unity or generic character/Fourier carrier is introduced.
+2. Apply the existing coefficient formula for q_a. The coefficient of T^n is −Σ_a η(a) binom(a.val,n+1); at n=0 it is −Σ_a η(a)a.val. Thus the finite numerator has degree at most D−2 when D≥2, without needing a new polynomial carrier.
+3. At D=1 the sole representative is0 and q_0=0. Native ringHomComp and the existing coefficient-map comparison for q_a give coefficient extension of Q_η.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/smoothing-denominator`, `mathlib:MulChar.ringHomComp`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PowerSeries.coeff_map`.
+
+**Uses:**
+
+- RJW equation(5-3) and its tame integrality argument: Replaces the chosen-root rational expression by a finite candidate over the field generated by character values, with its source comparison still explicit.
+- DirichletPadicLFunctions:L2 tame-series: Supplies the numerator of a unit-denominator series and the recurrence controlling its coefficients.
+- RJW Lemmas5.9–5.12 and Definition5.13: Supplies arithmetic coefficients before the separate moment, psi-eigenvalue, twist and inverse-weight comparisons.
+
+**API:**
+
+- `DirichletPadic.coeff_tameNumerator` (data): coeff_n(Q_η)=−Σ_a η(a) binom(a.val,n+1).
+- `DirichletPadic.constantCoeff_tameNumerator` (simp): Q_η(0)=−Σ_a η(a)a.val.
+- `DirichletPadic.tameNumerator_one_level` (simp): At modulus1, Q_η=0.
+- `DirichletPadic.tameNumerator_map` (compatibility): Mapping coefficients by a ring homomorphism gives the numerator of native ringHomComp(η).
+- `DirichletPadic.X_mul_tameNumerator` (relation): For a nonprincipal character over a domain, TQ_η=−Σ_a C(η(a))Y^(a.val); promoted.
+
+**Tests:**
+
+- `SuggestedTameTests.quadratic_numerator` (computation): For the quadratic character modulo3 over Q, Q_η=1+T.
+- `SuggestedTameTests.principal_numerator` (non-example): For the principal character modulo3 over Q, Q_1=−3−T; its uncancelled Dirichlet numerator has nonzero value2 at Y=1.
+- `SuggestedTameTests.modulus_one_numerator` (degenerate): The modulus-one numerator is0.
+- `SuggestedTameTests.numerator_field_extension` (compatibility): Mapping a modulo3 numerator from Q to Q_2 equals the numerator of the mapped native character.
+
+**Acceptance:** This is arithmetic numerator data, not a new generalized Bernoulli definition. The principal character is retained to test the exact scope of pole cancellation.
+
+**Sources:** RJW-published, §5.2, equation(5-3), Theorem5.7 and Lemmas5.9–5.12, printed143–146/PDF44–47; downstream definitions5.13,5.18–5.19 on146–147. Full published139–147 read for the current and preceding slice. Worker derivation of the finite pole-cancelled rational kernel and its actual bounded measure. The finite numerator uses the existing smoothing denominators. Identification with the source primitive Gauss expression, integral-ring measure transport and special-value interpolation remain explicitly separate; E12/E13 retain the source sign and Gauss-normalization qualifications.
+
+### Cancellation of the character pole
+
+`DirichletPadicLFunctions:L2/tame-numerator-cancellation` — `DirichletPadic.X_mul_tameNumerator` (lemma).
+
+Over a domain, if η≠1, then TQ_η=−Σ_a C(η(a))Y^(a.val).
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the existing DirichletCharacter R D. Put Y=1+T and q_a=smoothingDenominator R a, the already planned integral binomial quotient (Y^a−1)/T. Every residue a is indexed by the native ZMod D and a.val denotes its canonical natural representative. The algebraic constructors are defined for principal and nonprincipal characters. The pole-cancellation and Dirichlet generating identities require a domain and η≠1. At modulus1 the constructors are zero; they do not represent the trivial Dirichlet generating function.
+
+**Proof outline:**
+
+1. Multiply the finite numerator by T and distribute. The already planned Tq_a=Y^a−1 identifies every summand.
+2. Native MulChar.sum_eq_zero_of_ne_one proves Σ_a η(a)=0. Its image under C cancels the constant contribution. The remaining expression has the stated minus sign.
+3. Equivalently (1−Y)Q_η=Σ_a η(a)Y^a. This finite identity is valid formally; no expansion in powers of Y=1+T is asserted to converge in the T-adic topology.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-numerator`, `DirichletPadicLFunctions:L1/smoothing-denominator`, `mathlib:MulChar.sum_eq_zero_of_ne_one`.
+
+**Acceptance:** The η≠1 and domain hypotheses are necessary for this argument; no pole-free representation of the principal Dirichlet generating series is inferred.
+
+**Sources:** RJW-published, §5.2, equation(5-3), Theorem5.7 and Lemmas5.9–5.12, printed143–146/PDF44–47; downstream definitions5.13,5.18–5.19 on146–147. Full published139–147 read for the current and preceding slice. Worker derivation of the finite pole-cancelled rational kernel and its actual bounded measure. The finite numerator uses the existing smoothing denominators. Identification with the source primitive Gauss expression, integral-ring measure transport and special-value interpolation remain explicitly separate; E12/E13 retain the source sign and Gauss-normalization qualifications.
+
+### The tame unit-denominator series
+
+`DirichletPadicLFunctions:L2/tame-series` — `DirichletPadic.tameSeries` (construction).
+
+For a unit certificate hD:IsUnit(D:R), define F_η=Q_η·invOfUnit(q_D,hD.unit) in native R[[T]].
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the existing DirichletCharacter R D. Put Y=1+T and q_a=smoothingDenominator R a, the already planned integral binomial quotient (Y^a−1)/T. Every residue a is indexed by the native ZMod D and a.val denotes its canonical natural representative. The algebraic constructors are defined for principal and nonprincipal characters. The pole-cancellation and Dirichlet generating identities require a domain and η≠1. At modulus1 the constructors are zero; they do not represent the trivial Dirichlet generating function.
+
+**Proof outline:**
+
+1. The existing constant-coefficient formula gives q_D(0)=D. Native invOfUnit is therefore a genuine inverse, so q_D F_η=Q_η.
+2. Take the nth coefficient of that equation. Isolate its D·f_n term; the remaining terms give D f_n=−Σ_a η(a)binom(a.val,n+1)−Σ_(i<n)binom(D,n−i+1)f_i. This includes n=0 and fixes every sign.
+3. Since q_D is a unit, its equation characterizes F_η uniquely. Use that uniqueness to prove coefficient-map compatibility and independence of the unit proof. At D=1 the numerator is zero, hence so is F_η.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-numerator`, `DirichletPadicLFunctions:L1/smoothing-denominator`, `mathlib:PowerSeries.invOfUnit`, `mathlib:PowerSeries.mul_invOfUnit`, `mathlib:PowerSeries.constantCoeff_invOfUnit`, `mathlib:PowerSeries.coeff_mul`, `mathlib:IsUnit.mul_left_cancel`.
+
+**Uses:**
+
+- RJW equation(5-3): Gives an explicit candidate whose agreement with the primitive Gauss expression reduces to a finite Fourier identity and denominator clearing.
+- DirichletPadicLFunctions:L2 tame-measure: Supplies the bounded coefficient sequence needed by the existing inverse Amice transform.
+- RJW Lemma5.10: Provides an exact rational equation for the future psi-eigenrelation; the source Gauss scalar must be corrected as in E13.
+
+**API:**
+
+- `DirichletPadic.smoothingDenominator_mul_tameSeries` (characterisation): q_D F_η=Q_η.
+- `DirichletPadic.coeff_tameSeries_recurrence` (data): D f_n=−Σ_a η(a)binom(a.val,n+1)−Σ_(i<n)binom(D,n−i+1)f_i.
+- `DirichletPadic.constantCoeff_tameSeries` (simp): F_η(0)=−D⁻¹Σ_a η(a)a.val, using the supplied unit inverse.
+- `DirichletPadic.tameSeries_one_level` (simp): At modulus1, F_η=0.
+- `DirichletPadic.tameSeries_map` (compatibility): Every ring coefficient map carrying the D-unit certificate maps F_η to the series of the mapped native character.
+- `DirichletPadic.tameSeries_unique` (extensionality): Any formal series satisfying q_D F=Q_η equals F_η.
+- `DirichletPadic.tameSeries_generating` (relation): For a nonprincipal character over a domain, (1−Y^D)F_η=Σ_a C(η(a))Y^(a.val); promoted.
+- `DirichletPadic.tameSeries_coeff_norm_le` (relation): Over the eligible p-adic coefficient field with p∤D, every coefficient has norm at most1; promoted.
+
+**Tests:**
+
+- `SuggestedTameTests.quadratic_coefficients` (computation): For quadratic η modulo3, F_η=(1+T)/(3+3T+T²), with coefficients1/3,0,−1/9,1/9 in degrees0,1,2,3.
+- `SuggestedTameTests.principal_generating_failure` (non-example): For the principal character modulo3 over Q, (1−Y³)F_1 is not Y+Y²: evaluate constant coefficients to get0 versus2.
+- `SuggestedTameTests.modulus_one_series` (degenerate): The modulus-one series is0 and does not represent the trivial Dirichlet series.
+- `SuggestedTameTests.wild_norm_failure` (non-example): At p=3 for quadratic η modulo3, the constructor still exists over Q_3 but its constant coefficient1/3 has norm3, so the tame bound fails.
+
+**Acceptance:** The field-valued constructor makes sense even when p divides D, but the integral coefficient bound below then need not hold.
+
+**Sources:** RJW-published, §5.2, equation(5-3), Theorem5.7 and Lemmas5.9–5.12, printed143–146/PDF44–47; downstream definitions5.13,5.18–5.19 on146–147. Full published139–147 read for the current and preceding slice. Worker derivation of the finite pole-cancelled rational kernel and its actual bounded measure. The finite numerator uses the existing smoothing denominators. Identification with the source primitive Gauss expression, integral-ring measure transport and special-value interpolation remain explicitly separate; E12/E13 retain the source sign and Gauss-normalization qualifications.
+
+### Finite Dirichlet generating equation
+
+`DirichletPadicLFunctions:L2/tame-generating-equation` — `DirichletPadic.tameSeries_generating` (comparison).
+
+Over a domain with η≠1 and D a unit, (1−Y^D)F_η=Σ_a C(η(a))Y^(a.val).
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the existing DirichletCharacter R D. Put Y=1+T and q_a=smoothingDenominator R a, the already planned integral binomial quotient (Y^a−1)/T. Every residue a is indexed by the native ZMod D and a.val denotes its canonical natural representative. The algebraic constructors are defined for principal and nonprincipal characters. The pole-cancellation and Dirichlet generating identities require a domain and η≠1. At modulus1 the constructors are zero; they do not represent the trivial Dirichlet generating function.
+
+**Proof outline:**
+
+1. Use the existing identity Y^D−1=Tq_D. Thus the left side is −Tq_D F_η.
+2. Apply the defining unit-denominator equation, followed by tame-numerator-cancellation. The two minus signs cancel.
+3. In a fraction field this identifies F_η with the usual finite periodic Dirichlet generating rational function. This algebraic statement does not evaluate a divergent geometric expansion in Y at T=0 and does not yet identify the normalized Gauss expression.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-series`, `DirichletPadicLFunctions:L2/tame-numerator-cancellation`, `DirichletPadicLFunctions:L1/smoothing-denominator`.
+
+**Acceptance:** No primitive assumption is needed for this finite identity, but η≠1 is essential. The source Gauss comparison additionally needs primitive Fourier normalization.
+
+**Sources:** RJW-published, §5.2, equation(5-3), Theorem5.7 and Lemmas5.9–5.12, printed143–146/PDF44–47; downstream definitions5.13,5.18–5.19 on146–147. Full published139–147 read for the current and preceding slice. Worker derivation of the finite pole-cancelled rational kernel and its actual bounded measure. The finite numerator uses the existing smoothing denominators. Identification with the source primitive Gauss expression, integral-ring measure transport and special-value interpolation remain explicitly separate; E12/E13 retain the source sign and Gauss-normalization qualifications.
+
+### Integral bound for tame coefficients
+
+`DirichletPadicLFunctions:L2/tame-coefficient-bound` — `DirichletPadic.tameSeries_coeff_norm_le` (lemma).
+
+If p∤D, then every coefficient f_n of F_η over an eligible normed field K has norm at most1, for every η including the principal character.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the existing DirichletCharacter R D. Put Y=1+T and q_a=smoothingDenominator R a, the already planned integral binomial quotient (Y^a−1)/T. Every residue a is indexed by the native ZMod D and a.val denotes its canonical natural representative. The algebraic constructors are defined for principal and nonprincipal characters. The pole-cancellation and Dirichlet generating identities require a domain and η≠1. At modulus1 the constructors are zero; they do not represent the trivial Dirichlet generating function. For bounds, p is any prime including2; K is a normed field with a native Z_p-algebra structure, bounded Z_p scalar action and an ultrametric norm. Require p∤D. The supplied certificate hD:IsUnit(D:K) is the image of the integral unit certificate (or any equal certificate). For actual measures K is also complete. The operator-norm assertion uses a nontrivially normed field.
+
+**Proof outline:**
+
+1. Use the native PadicInt norm/unit criteria to make D a unit in Z_p. Form the actual native integral inverse of q_D there. The existing coefficient-map law and the defining inverse equations show that its image in K[[T]] is the inverse used in F_η.
+2. Expand F_η as the finite sum −Σ_a C(η(a))·map(q_(a.val)·q_D⁻¹), with the parenthesized series entirely over Z_p. Every image coefficient has norm at most1 by the exact PMIA integral-coefficient-image-bound node and norm_one in the field.
+3. Native DirichletCharacter.norm_le_one bounds every scalar η(a). Coefficient linearity, the multiplicative norm and the additive form of the existing ultrametric finite-sum bound give the uniform bound1, independent of n and D.
+4. This uses no nonarchimedean norm on an unrestricted formal-series ring and makes no assertion that every K-series is bounded. The wild example at p=3 shows the coprimality hypothesis cannot be dropped.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-series`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-image-bound`.
+
+**Acceptance:** The finite-sum inequality is the generated additive counterpart of the cited native ultrametric product statement; the native scratch proof checks that exact name. Nontriviality and primitivity are not needed for boundedness.
+
+**Sources:** RJW-published, §5.2, equation(5-3), Theorem5.7 and Lemmas5.9–5.12, printed143–146/PDF44–47; downstream definitions5.13,5.18–5.19 on146–147. Full published139–147 read for the current and preceding slice. Worker derivation of the finite pole-cancelled rational kernel and its actual bounded measure. The finite numerator uses the existing smoothing denominators. Identification with the source primitive Gauss expression, integral-ring measure transport and special-value interpolation remain explicitly separate; E12/E13 retain the source sign and Gauss-normalization qualifications.
+
+### Bounded tame coefficient sequence
+
+`DirichletPadicLFunctions:L2/tame-coefficient-sequence` — `DirichletPadic.tameCoefficientSequence` (construction).
+
+Bundle n↦coeff_n(F_η) as the existing BoundedContinuousFunction(N,K), denoted c_η, with supremum norm at most1.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the existing DirichletCharacter R D. Put Y=1+T and q_a=smoothingDenominator R a, the already planned integral binomial quotient (Y^a−1)/T. Every residue a is indexed by the native ZMod D and a.val denotes its canonical natural representative. The algebraic constructors are defined for principal and nonprincipal characters. The pole-cancellation and Dirichlet generating identities require a domain and η≠1. At modulus1 the constructors are zero; they do not represent the trivial Dirichlet generating function. For bounds, p is any prime including2; K is a normed field with a native Z_p-algebra structure, bounded Z_p scalar action and an ultrametric norm. Require p∤D. The supplied certificate hD:IsUnit(D:K) is the image of the integral unit certificate (or any equal certificate). For actual measures K is also complete. The operator-norm assertion uses a nontrivially normed field.
+
+**Proof outline:**
+
+1. The naturals have the native discrete topology. Apply native ofNormedAddCommGroupDiscrete to the actual coefficient function and tame-coefficient-bound, with bound1.
+2. Evaluation is the original coefficient function. The native norm_le criterion gives the supremum norm bound. The construction carries the exact η, D-unit certificate and p∤D hypothesis into the measure constructor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-coefficient-bound`, `mathlib:BoundedContinuousFunction.ofNormedAddCommGroupDiscrete`, `mathlib:BoundedContinuousFunction.norm_le`.
+
+**Uses:**
+
+- PadicMeasuresIwasawaAlgebras:L2/bounded-inverse: Supplies the required bounded native input, rather than an arbitrary formal series.
+- DirichletPadicLFunctions:L2 tame-measure-norm: The sequence norm gives the actual continuous-dual bound.
+
+**API:**
+
+- `DirichletPadic.tameCoefficientSequence_apply` (characterisation): c_η(n)=coeff_n(F_η).
+- `DirichletPadic.tameCoefficientSequence_norm_le` (relation): The native supremum norm of c_η is at most1.
+- `DirichletPadic.tameCoefficientSequence_one_level` (simp): At modulus1 the entire bounded sequence is0.
+
+**Tests:**
+
+- `SuggestedTameTests.dyadic_sequence_value` (computation): For quadratic η modulo3 at p=2, c_η(3)=1/9.
+- `SuggestedTameTests.dyadic_sequence_norm` (compatibility): For every character modulo3 at p=2, the actual sequence norm is at most1.
+- `SuggestedTameTests.modulus_one_sequence` (degenerate): At modulus1 the entire bounded sequence is0.
+
+**Acceptance:** Use the existing bounded-function carrier; no unrestricted K[[T]] inverse Amice transform is invented.
+
+**Sources:** RJW-published, §5.2, equation(5-3), Theorem5.7 and Lemmas5.9–5.12, printed143–146/PDF44–47; downstream definitions5.13,5.18–5.19 on146–147. Full published139–147 read for the current and preceding slice. Worker derivation of the finite pole-cancelled rational kernel and its actual bounded measure. The finite numerator uses the existing smoothing denominators. Identification with the source primitive Gauss expression, integral-ring measure transport and special-value interpolation remain explicitly separate; E12/E13 retain the source sign and Gauss-normalization qualifications.
+
+### Measure of the finite tame kernel
+
+`DirichletPadicLFunctions:L2/tame-measure` — `DirichletPadic.tameMeasure` (construction).
+
+For complete eligible K, define μ_η=boundedInvTransform(c_η) in the existing D(Z_p,K). Its Amice transform is F_η.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the existing DirichletCharacter R D. Put Y=1+T and q_a=smoothingDenominator R a, the already planned integral binomial quotient (Y^a−1)/T. Every residue a is indexed by the native ZMod D and a.val denotes its canonical natural representative. The algebraic constructors are defined for principal and nonprincipal characters. The pole-cancellation and Dirichlet generating identities require a domain and η≠1. At modulus1 the constructors are zero; they do not represent the trivial Dirichlet generating function. For bounds, p is any prime including2; K is a normed field with a native Z_p-algebra structure, bounded Z_p scalar action and an ultrametric norm. Require p∤D. The supplied certificate hD:IsUnit(D:K) is the image of the integral unit certificate (or any equal certificate). For actual measures K is also complete. The operator-norm assertion uses a nontrivially normed field.
+
+**Proof outline:**
+
+1. Apply the exact PMIA bounded-inverse construction to c_η. Its complete ultrametric coefficient-ring and bounded Z_p-action hypotheses are the displayed hypotheses here.
+2. The imported bounded-inverse-amice identity and native power-series coefficient extensionality show A(μ_η)=F_η. Its value on the constant test1 is the zeroth coefficient, namely −D⁻¹Σ_a η(a)a.val.
+3. The uniqueness and norm assertions are promoted below. The object is an actual K-valued measure built from arithmetic coefficients; its equality with the paper’s Gauss-defined measure and its integral-ring coefficient transport remain exact separate comparisons.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-coefficient-sequence`, `DirichletPadicLFunctions:L2/tame-series`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-unique`.
+
+**Uses:**
+
+- RJW Lemma5.9: Provides the actual measure on Z_p before identifying its monomial moments with Dirichlet values.
+- RJW Lemmas5.10–5.12 and Definition5.13: Provides the arithmetic input to the future psi-eigenrelation, positive-level twists, unit restriction and division by x.
+- RJW Definitions5.18–5.19: Supplies the eventual tame measure for branch functions after the remaining normalization and moment comparisons.
+
+**API:**
+
+- `DirichletPadic.amiceTransform_tameMeasure` (compatibility): The existing Amice transform of μ_η equals F_η.
+- `DirichletPadic.tameMeasure_mass` (data): μ_η(1)=−D⁻¹Σ_a η(a)a.val.
+- `DirichletPadic.tameMeasure_norm_le` (relation): The actual native continuous-dual norm of μ_η is at most1; promoted.
+- `DirichletPadic.tameMeasure_unique` (extensionality): A measure whose transform solves q_D A(μ)=Q_η is μ_η; promoted.
+
+**Tests:**
+
+- `SuggestedTameTests.dyadic_measure_mass` (computation): For quadratic η modulo3 at p=2, the actual K=Q_2 measure has mass1/3.
+- `SuggestedTameTests.dyadic_measure_moment_two` (computation): For the same measure, the second ordinary moment is−2/9, obtained as2f_2+f_1 from its Amice coefficients.
+- `SuggestedTameTests.modulus_one_measure` (degenerate): The modulus-one constructor is the zero actual measure.
+
+**Acceptance:** No new measure carrier, generic weighting, Fourier theory or completed algebra is introduced. Special-value interpolation and the unit inverse-weight measure are not inferred just from existence.
+
+**Sources:** RJW-published, §5.2, equation(5-3), Theorem5.7 and Lemmas5.9–5.12, printed143–146/PDF44–47; downstream definitions5.13,5.18–5.19 on146–147. Full published139–147 read for the current and preceding slice. Worker derivation of the finite pole-cancelled rational kernel and its actual bounded measure. The finite numerator uses the existing smoothing denominators. Identification with the source primitive Gauss expression, integral-ring measure transport and special-value interpolation remain explicitly separate; E12/E13 retain the source sign and Gauss-normalization qualifications.
+
+### Norm bound for the tame kernel measure
+
+`DirichletPadicLFunctions:L2/tame-measure-norm` — `DirichletPadic.tameMeasure_norm_le` (lemma).
+
+For nontrivially normed eligible K, the native continuous-dual operator norm of μ_η is at most1.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the existing DirichletCharacter R D. Put Y=1+T and q_a=smoothingDenominator R a, the already planned integral binomial quotient (Y^a−1)/T. Every residue a is indexed by the native ZMod D and a.val denotes its canonical natural representative. The algebraic constructors are defined for principal and nonprincipal characters. The pole-cancellation and Dirichlet generating identities require a domain and η≠1. At modulus1 the constructors are zero; they do not represent the trivial Dirichlet generating function. For bounds, p is any prime including2; K is a normed field with a native Z_p-algebra structure, bounded Z_p scalar action and an ultrametric norm. Require p∤D. The supplied certificate hD:IsUnit(D:K) is the image of the integral unit certificate (or any equal certificate). For actual measures K is also complete. The operator-norm assertion uses a nontrivially normed field.
+
+**Proof outline:**
+
+1. Unfold the actual tameMeasure and apply the exact PMIA norm_boundedInvTransform equality.
+2. Use tameCoefficientSequence_norm_le. The norm is taken only after the native toCLMEquiv; no norm topology on the integral measure carrier is installed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure`, `DirichletPadicLFunctions:L2/tame-coefficient-sequence`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-norm`.
+
+**Acceptance:** This is a coefficient/continuous-dual bound, not a claimed equivalence with an integral completed group algebra.
+
+**Sources:** RJW-published, §5.2, equation(5-3), Theorem5.7 and Lemmas5.9–5.12, printed143–146/PDF44–47; downstream definitions5.13,5.18–5.19 on146–147. Full published139–147 read for the current and preceding slice. Worker derivation of the finite pole-cancelled rational kernel and its actual bounded measure. The finite numerator uses the existing smoothing denominators. Identification with the source primitive Gauss expression, integral-ring measure transport and special-value interpolation remain explicitly separate; E12/E13 retain the source sign and Gauss-normalization qualifications.
+
+### Characterization by the arithmetic denominator
+
+`DirichletPadicLFunctions:L2/tame-measure-unique` — `DirichletPadic.tameMeasure_unique` (comparison).
+
+If an existing K-valued measure μ satisfies q_D A(μ)=Q_η, then μ=μ_η.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the existing DirichletCharacter R D. Put Y=1+T and q_a=smoothingDenominator R a, the already planned integral binomial quotient (Y^a−1)/T. Every residue a is indexed by the native ZMod D and a.val denotes its canonical natural representative. The algebraic constructors are defined for principal and nonprincipal characters. The pole-cancellation and Dirichlet generating identities require a domain and η≠1. At modulus1 the constructors are zero; they do not represent the trivial Dirichlet generating function. For bounds, p is any prime including2; K is a normed field with a native Z_p-algebra structure, bounded Z_p scalar action and an ultrametric norm. Require p∤D. The supplied certificate hD:IsUnit(D:K) is the image of the integral unit certificate (or any equal certificate). For actual measures K is also complete. The operator-norm assertion uses a nontrivially normed field.
+
+**Proof outline:**
+
+1. Apply tameSeries_unique to A(μ), since q_D is a unit.
+2. Use the constructed measure’s Amice identity and the exact imported bounded-inverse uniqueness. The equality is in the existing measure carrier and is determined by the explicit arithmetic denominator equation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure`, `DirichletPadicLFunctions:L2/tame-series`, `PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-unique`.
+
+**Acceptance:** The equation is an effective criterion for a later source-comparison proof; do not assume that the Gauss expression satisfies it without supplying its finite Fourier calculation.
+
+**Sources:** RJW-published, §5.2, equation(5-3), Theorem5.7 and Lemmas5.9–5.12, printed143–146/PDF44–47; downstream definitions5.13,5.18–5.19 on146–147. Full published139–147 read for the current and preceding slice. Worker derivation of the finite pole-cancelled rational kernel and its actual bounded measure. The finite numerator uses the existing smoothing denominators. Identification with the source primitive Gauss expression, integral-ring measure transport and special-value interpolation remain explicitly separate; E12/E13 retain the source sign and Gauss-normalization qualifications.
+
+### Current validation
+
+Indexed blueprint: zero errors and warnings. Four-file intake: zero problems.
+Versioned errata, exact preservation, reader/signature/test parity and scoped
+mutation checks pass. Graph: 304 reachable nodes, 1309 edges and
+339 baseline leaves; acyclic, with only the PMIA L1 request leaf.
+Suggested Lean compiles with zero errors and378 expected placeholder warnings;
+the actual265-node PMIA supplier has569 placeholder warnings. Audit:3,565 byte-
+verified pinned Mathlib modules,20 pinned Tau Ceti modules and1 actual supplier.
+All20 Tau Ceti artifacts reused with source hashes and zero-warning logs checked.
+One complete native finite-numerator definition and15 complete lemmas compile
+against2,810 pinned Mathlib modules with zero errors,warnings or proof holes.
+They check cancellation with its zero-sum premise, finite generating and inverse
+identities, coefficient bounds with exact input bounds, quadratic scalar controls
+and the Gauss-inverse distinction with its square=-3 premise. They do not prove
+the full arithmetic source comparison or special values.
+Suggested-file SHA256: `6cd61fb9878c2dbe91d481e9fb90d9032ac7ba151d18a780d0900f701bcce95a`.
+Native-proof SHA256: `2f461126813cbe3710a508e7e60f126b9e39027e97c26ead24c264875a205eb1`.
+Publication guard at d097b70c4de901f067b9674235ade64cc6e2133d verifies all52 refreshed inputs, four predecessor
+outputs, unchanged issue body, exact merged PR3257 head and the same winning claim.
+Review390 is blocked and unclaimed. Exactly four authorized files are published
+through Git Data REST.
+
+All166 predecessor nodes,235 baseline objects,old Lean bytes and12 findings are
+preserved whole. Five new native statements were fully read and matched to the
+unchanged declaration index. The exact PMIA bounded inverse, transform, uniqueness,
+integral coefficient bound and operator norm nodes were read. The52 initial inputs
+match the preceding refreshed checkpoint except the generated register, whose only
+additions are own E11/E12, read as whole objects. Scope, issue, audit, protocol,
+touching-link and upstream-model reading provenance persists.
+
+Five gaps,one request and zero closed stages remain. Every proposed implementation
+status is unchecked. The current detailed remaining work is stated above and in
+the L2 gap; all other stage coverage and gaps are preserved whole.
+
+Final input refresh at d097b70c4de901f067b9674235ade64cc6e2133d: the generated source register added seven unrelated HeightsRationalPointsAndObstructions findings E1–E7. All seven complete records and every changed generated-reader line were read; prior records remain whole by full-object multiset. No independent verdict or fresh reading of their source is claimed. No Lean input changed.
