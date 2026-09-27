@@ -1,4 +1,10 @@
-**Finite-coordinate checkpoint, 27 September2026.** The packet now has 72 unchecked nodes, 71 API entries, 53 definition/construction tests plus one other test, 57 typed examples, 12 planets and 98 baseline references. Five gaps and one explicit supplier request remain; no stage is closed. Earlier checkpoint totals below are historical.
+**Positive-series checkpoint, 27 September2026.** The packet has 80 unchecked nodes,
+79 API entries, 61 definition/construction tests plus one other test, 65 typed
+examples, 12 planets and 107 baseline references. Five gaps and one supplier
+request remain; no stage is closed. All 72 predecessor node objects and nine
+source findings are preserved. Earlier checkpoint totals below are historical.
+
+**Previous finite-coordinate checkpoint, 27 September2026.** The packet now has 72 unchecked nodes, 71 API entries, 53 definition/construction tests plus one other test, 57 typed examples, 12 planets and 98 baseline references. Five gaps and one explicit supplier request remain; no stage is closed. Earlier checkpoint totals below are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -2441,6 +2447,254 @@ Sources: §3.3, Proposition3.16 and explicit coordinate maps, printed121–123 /
 
 The one current supplier request is: For U=ℤ_p× and every prime p including2, supply the actual ℤ_p-linear integral-measure equivalence D(U,ℤ_p)→ℤ_p[[U]] on the existing ProfiniteProPGroups Layer9 completed-group-algebra anchor, compatible with convolution and Dirac u↦[u]. Supply the projections to (ℤ/p^sℤ)[(ℤ/p^rℤ)×], all r,s≥0, their joint coefficient/group transition laws, projection of [u] to [red_r(u)], and separation by these projections. Identify these quotients through the canonical unit reduction and its open kernel; use the joint adic/finite-quotient topology, not pure T-adic kernels or an integral dyadic eigenspace splitting. This request imports the general comparison; the finite divisor-coordinate arithmetic is already provided by the consuming nodes.
 
-Current L4 gap: The positive coefficient measures now compare to the actual Γ₀(p) modular form through eight native normalization and p-stabilization declarations. Both the full classical q-expansion and its rational zeta constant are planned from the pinned ModularForm and levelRaise APIs. The remaining full L4 targets are: The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. Assemble the full coefficientwise specialization at x^(k−1), prove the constant-term congruences with denominator qualifications, and decompose the tame-character extension. The present congruence concerns only positive rational-field Eisenstein coefficients. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; fix the weight shift recorded in E9 before stating that comparison. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined.
+Current L4 gap: The eight positive-series adapters supply the native coefficientwise assembly and full positive modular comparison through ℤ. They do not set A₀ to zero. Remaining work: The explicit finite coordinates E_(n;r,s), their two independent transition maps and native integral/moment comparisons are now supplied. Instantiate positive-eisenstein-completed-coordinates once the requested PadicMeasuresIwasawaAlgebras:L1 actual integral-measure/completed-algebra map, Dirac projections and separating joint projections are supplied. The generic carrier, topology and convolution are owned there, with its existing ProfiniteProPGroups Layer9 anchor. Construct A₀=xζ_p/2 in the actual localized algebra using L1 arithmetic zeta and PadicMeasuresIwasawaAlgebras:L3, including the admissible evaluation domain and dyadic division by 2. No A₀ is supplied by the positive-index constructor. The positive part now has a native continuous power-series-valued measure, uniform coefficient bounds, test and weight congruences, and whole-series comparison with the actual p-stabilized modular form after removing its constant coefficient. Assemble the full family with the actual A₀ pseudomeasure, prove constant-term congruences with denominator qualifications, and decompose the tame-character extension. Geometric affinoid realization and Hida–Coleman control belong to PadicFamilies; retain the weight shift recorded in E9. Accepted RS-14 retained scope: Use the existing classical Eisenstein modular forms, their generalized Bernoulli/Fourier coefficient API and pinned level-one q-expansion. Own the p-stabilized form E_k-p^(k-1)E_k(pz) for even k>=4, its actual modular-form/q-expansion comparison, coefficient measures A_n=sum_{d|n,p not dividing d}delta_d and A_0=x*zeta_p/2, and coefficientwise specialization at x^(k-1). Own the measure-valued tame-character family and integral coefficient congruences, with exact primitive and p-stabilization normalizations. Full geometric affinoid realization/Hida–Coleman control remains PadicFamilies' separate task; no new classical nebentypus/Eisenstein carrier is defined.
 
-The current full suggested file compiles with zero errors and141 expected proof-placeholder warnings; its actual PMIA import has317. All3541 reached Mathlib source files match the pin, and19 Tau Ceti modules were freshly rebuilt from pinned sources with zero warnings. Ten executable declarations and seven typed examples append to the previous seed. The completed-algebra declaration remains an explicit comment pending its actual supplier API, in accordance with the owner-carrier rule. Six complete finite-coordinate and native-measure scratch lemmas have no placeholders, errors or warnings. The exact finite regression harness passes146,171 assertions over8,400 systems, including75,600 transitions,25,200 test-function pairings and20,160 power moments. These are finite checks, not an implementation of the completed measure algebra or arithmetic pseudomeasure.
+At the previous finite-coordinate checkpoint, the full suggested file compiled with zero errors and141 expected proof-placeholder warnings; its actual PMIA import has317. All3541 reached Mathlib source files match the pin, and19 Tau Ceti modules were freshly rebuilt from pinned sources with zero warnings. Ten executable declarations and seven typed examples append to the previous seed. The completed-algebra declaration remains an explicit comment pending its actual supplier API, in accordance with the owner-carrier rule. Six complete finite-coordinate and native-measure scratch lemmas have no placeholders, errors or warnings. The exact finite regression harness passes146,171 assertions over8,400 systems, including75,600 transitions,25,200 test-function pairings and20,160 power moments. These are finite checks, not an implementation of the completed measure algebra or arithmetic pseudomeasure.
+
+
+## The native positive q-expansion measure
+
+The source first specifies each positive coefficient A_n as the sum of Dirac
+measures at the positive divisors prime to p. The same coefficients can be
+assembled into one native continuous linear map E⁺ from continuous integral
+tests on the unit group to formal power series over ℤ_p. Continuity uses the
+coefficientwise topology: a fixed coefficient is a fixed continuous linear
+functional. This gives a precise positive-part version of the variation in
+Remark8.3(1), without requiring a completed group algebra or an analytic weight
+space before that variation can be stated.
+
+The uniform bound is stronger than separate coefficientwise continuity: every
+coefficient of E⁺(f) has norm at most the supremum norm of f, independent of its
+index. This comes from the ultrametric finite-sum inequality. It does not count
+divisors in the bound and does not turn the product topology on the power-series
+carrier into a supremum-norm topology. Nor is E⁺ multiplicative in the test
+function: for p=2 and index six, the constant test one has coefficient two.
+
+Pointwise divisibility of the difference of two tests passes through every
+finite Dirac sum. Choosing a quotient for each coefficient then gives actual
+divisibility by a constant power series. The same argument turns the preceding
+power-moment congruence into an equality modulo pʳ of the entire positive series.
+The modulus on exponents is p^(r−1)(p−1), and the classical weight exponent
+continues to be k−1. Both the proof and the tests retain the dyadic case.
+
+The comparison with the actual classical modular form is through a single
+integer power series Q. Its images in ℂ[[q]] and ℤ_p[[q]] are respectively the
+positive part of the actual p-stabilized q-expansion and the positive-series
+measure evaluated at x^(k−1). Coefficientwise injectivity of ℤ→ℂ makes Q unique.
+No comparison map from ℂ to a p-adic field is used. The degree-zero subtraction
+is essential: at p=2,k=4 the actual modular constant is −7/240. The zero at
+degree zero in E⁺ is a truncation convention, never the source's A₀.
+
+### Uniform bound for positive Eisenstein integrals
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-evaluation-bound` — `positiveEisensteinMeasure_norm_le` (lemma).
+
+For every n>0 and f∈C(U,Z), |A_n(f)|_p ≤ ‖f‖∞. The constant is one, independently of n and of the number of divisors.
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p and U=Z× with their native topologies. A_n is the already planned positiveEisensteinMeasure for n>0. C(U,Z) has its compact-open topology and supremum norm. Z[[q]] has the existing coefficientwise topology PowerSeries.WithPiTopology; no norm on that power-series carrier is asserted.
+
+**Proof outline:**
+
+1. Use positive-eisenstein-evaluation to write A_n(f) as a finite sum of evaluations at the prime-to-p divisors. Every nonzero summand has norm at most ‖f‖∞ by ContinuousMap.norm_coe_le_norm.
+2. Apply the additive form of the indexed IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg. Its generated norm_sum_le_of_forall_le_of_nonneg handles the finite sum, including zero summands. No division by the cardinality occurs.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/positive-eisenstein-evaluation`, `mathlib:ContinuousMap.norm_coe_le_norm`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`.
+
+**Acceptance:** At n=1 this is the norm bound for evaluation at 1. The dyadic n=6 mass is 2 and has norm 1/2, so equality is not asserted.
+
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+
+### The positive Eisenstein q-expansion measure
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-series` — `positiveEisensteinSeries` (construction).
+
+There is a canonical native AbstractMeasure(U,Z,Z[[q]]), denoted E⁺, given on f∈C(U,Z) by E⁺(f)=Σ_{n≥1} A_n(f)qⁿ. In this formal coefficient description coefficient zero is zero. This is the positive part of the source family, and does not define its missing A₀.
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p and U=Z× with their native topologies. A_n is the already planned positiveEisensteinMeasure for n>0. C(U,Z) has its compact-open topology and supremum norm. Z[[q]] has the existing coefficientwise topology PowerSeries.WithPiTopology; no norm on that power-series carrier is asserted.
+
+**Proof outline:**
+
+1. Use PowerSeries.mk with coefficient zero equal to zero and coefficient n>0 equal to the existing A_n(f). Establish additivity and Z-linearity coefficientwise using native linearity of A_n and PowerSeries.ext.
+2. For each fixed coefficient, the map in f is either zero or the continuous linear functional A_n. The existing coefficientwise convergence criterion gives continuity of the assembled map. This is exactly the native AbstractMeasure carrier; no new definition of a generic measure or completed group algebra is needed.
+3. The projection formulas follow from coeff_mk. Extensionality of power series and of native continuous linear maps proves uniqueness. The algebraic and continuity API comes from this construction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/positive-eisenstein-measure`, `mathlib:AbstractMeasure`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`.
+
+**Uses:**
+
+- RJW Theorem8.2(b): Packages all positive coefficient specializations in one actual continuous linear map, so its equality with the positive modular q-expansion can be stated as a series equality.
+- RJW Remark8.3(1) and DirichletPadicLFunctions:L4: Uniform coefficient bounds and congruences make the positive-coefficient weight variation precise. The constant-term and tame-character extensions remain separate targets.
+
+**API:**
+
+- `positiveEisensteinSeries_coeff` (projection): For n≥0, coefficient n of E⁺(f) is zero when n=0 and A_n(f) when n>0. This item is promoted to positive-eisenstein-series-coeff.
+- `positiveEisensteinSeries_coeff_zero` (simp): Coefficient zero of E⁺(f) is zero for every f.
+- `positiveEisensteinSeries_coeff_pos` (projection): For n>0, coefficient n of E⁺(f) is A_n(f).
+- `positiveEisensteinSeries_zero` (simp): E⁺(0)=0.
+- `positiveEisensteinSeries_add` (simp): E⁺(f+g)=E⁺(f)+E⁺(g).
+- `positiveEisensteinSeries_smul` (simp): E⁺(a f)=a E⁺(f) for a∈Z.
+- `positiveEisensteinSeries_continuous` (structure): E⁺:C(U,Z)→Z[[q]] is continuous for the compact-open and coefficientwise topologies.
+- `positiveEisensteinSeries_unique` (extensionality): Any native Z[[q]]-valued measure M with coefficient zero equal to zero and coefficient n equal to A_n on every test for every n>0 equals E⁺.
+
+**Unit tests:**
+
+- `SuggestedPositiveSeriesTests.zero_input` (computation): At p=2, E⁺(0)=0.
+- `SuggestedPositiveSeriesTests.constant_coefficient` (computation): At p=2 and every f∈C(U,Z), coefficient zero of E⁺(f) is zero.
+- `SuggestedPositiveSeriesTests.first_coefficient` (computation): At p=3, coefficient one of E⁺(f) is f(1).
+- `SuggestedPositiveSeriesTests.prime_coefficient` (computation): At p=3, coefficient three of E⁺(f) is f(1), so it need not vanish.
+- `SuggestedPositiveSeriesTests.dyadic_weight_four` (computation): At p=2, coefficient six of E⁺(x³) is 1³+3³=28.
+- `SuggestedPositiveSeriesTests.dyadic_series_precision` (characterisation): At p=2, the constant series 8 divides E⁺(x⁵)−E⁺(x).
+- `SuggestedPositiveSeriesTests.tame_congruence_insufficient` (non-example): At p=5, the constant series 25 does not divide E⁺(x⁷)−E⁺(x³): coefficient two of the difference is 120.
+- `SuggestedPositiveSeriesTests.omitted_constant_is_nonzero` (non-example): At p=2, the actual weight-four p-stabilized modular form has constant coefficient −7/240 in ℂ, while E⁺(x³) has constant coefficient zero in ℤ₂.
+
+**Acceptance:** Construct the map using the actual native continuous-dual and PowerSeries types. Maintain zero only as the positive truncation boundary; retain the nonzero classical constant in the modular comparison.
+
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+
+### Coefficients of the positive q-expansion
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-series-coeff` — `positiveEisensteinSeries_coeff` (lemma).
+
+For every f∈C(U,Z) and n≥0, coefficient n of E⁺(f) equals zero for n=0, and equals A_n(f) for n>0.
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p and U=Z× with their native topologies. A_n is the already planned positiveEisensteinMeasure for n>0. C(U,Z) has its compact-open topology and supremum norm. Z[[q]] has the existing coefficientwise topology PowerSeries.WithPiTopology; no norm on that power-series carrier is asserted.
+
+**Proof outline:**
+
+1. Unfold only the coefficient assembly and apply PowerSeries.coeff_mk. Split n=0 from n>0. The positive index passed to A_n carries the proof n>0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/positive-eisenstein-series`, `mathlib:PowerSeries.coeff_mk`.
+
+**Acceptance:** Use this promoted projection node in all later coefficient arguments; do not depend on an unlisted API item.
+
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+
+### Uniform bound for all q-coefficients
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-series-bound` — `positiveEisensteinSeries_coeff_norm_le` (lemma).
+
+For every f∈C(U,Z) and n≥0, |coeff_n(E⁺(f))|_p≤‖f‖∞. Thus all positive coefficients are bounded by the same constant.
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p and U=Z× with their native topologies. A_n is the already planned positiveEisensteinMeasure for n>0. C(U,Z) has its compact-open topology and supremum norm. Z[[q]] has the existing coefficientwise topology PowerSeries.WithPiTopology; no norm on that power-series carrier is asserted.
+
+**Proof outline:**
+
+1. Apply positive-eisenstein-series-coeff. At n=0 use nonnegativity of the norm; at n>0 apply positive-eisenstein-evaluation-bound.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/positive-eisenstein-series-coeff`, `DirichletPadicLFunctions:L4/positive-eisenstein-evaluation-bound`.
+
+**Acceptance:** This is a coefficientwise inequality, with no assertion that the coefficientwise topology is a supremum-norm topology.
+
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+
+### Uniform test-function congruences
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-series-test-congruence` — `positiveEisensteinSeries_test_congr` (lemma).
+
+Let r≥0 and f,g∈C(U,Z). If pʳ divides f(u)−g(u) in Z for every u∈U, then the constant series C(pʳ) divides E⁺(f)−E⁺(g) in Z[[q]].
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p and U=Z× with their native topologies. A_n is the already planned positiveEisensteinMeasure for n>0. C(U,Z) has its compact-open topology and supremum norm. Z[[q]] has the existing coefficientwise topology PowerSeries.WithPiTopology; no norm on that power-series carrier is asserted.
+
+**Proof outline:**
+
+1. At positive degree use positive-eisenstein-series-coeff and positive-eisenstein-evaluation. Subtract the two finite sums. Every summand is divisible by pʳ by hypothesis, so Finset.dvd_sum gives divisibility of each coefficient. Degree zero vanishes.
+2. Choose a quotient coefficient b_n for each coefficient difference. Set B=PowerSeries.mk(b_n). PowerSeries.coeff_C_mul and PowerSeries.ext give E⁺(f)−E⁺(g)=C(pʳ)B. This elementary coefficientwise argument requires no continuity or uniform choice for the quotient coefficients.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/positive-eisenstein-series-coeff`, `DirichletPadicLFunctions:L4/positive-eisenstein-evaluation`, `mathlib:Finset.dvd_sum`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PowerSeries.ext`.
+
+**Acceptance:** Allow r=0; then divisibility by one is automatic. The conclusion is in the actual integral power-series ring and has no unmentioned denominator.
+
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+
+### Weight congruences for the positive series
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-series-weight-congruence` — `positiveEisensteinSeries_weight_congr` (theorem).
+
+For r≥1 and e,e′≥0 with e≡e′ modulo p^(r−1)(p−1), C(pʳ) divides E⁺(x^e′)−E⁺(x^e) in Z[[q]]. This includes p=2. A classical weight k uses e=k−1.
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p and U=Z× with their native topologies. A_n is the already planned positiveEisensteinMeasure for n>0. C(U,Z) has its compact-open topology and supremum norm. Z[[q]] has the existing coefficientwise topology PowerSeries.WithPiTopology; no norm on that power-series carrier is asserted.
+
+**Proof outline:**
+
+1. For n>0, the promoted coefficient formula reduces the assertion to positive-eisenstein-weight-congruence. The zero coefficient vanishes.
+2. Assemble quotient coefficients with PowerSeries.mk and conclude by coeff_C_mul and PowerSeries.ext, exactly as in the preceding divisibility argument. This uses the already planned all-prime moment congruence, and does not posit a topological generator of ℤ₂×.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/positive-eisenstein-series-coeff`, `DirichletPadicLFunctions:L4/positive-eisenstein-weight-congruence`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PowerSeries.ext`.
+
+**Acceptance:** At p=2,e=1,e′=5,r=3 obtain divisibility by8. At p=5,e=3,e′=7, coefficient two is120, divisible by5 but not25; congruence modulo p−1 alone cannot give the stronger precision.
+
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+
+### Invariance of coefficients under multiplication by p
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-series-index-invariance` — `positiveEisensteinSeries_coeff_mul_p` (lemma).
+
+For every n≥0 and f∈C(U,Z), coeff_(pn)(E⁺(f))=coeff_n(E⁺(f)).
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p and U=Z× with their native topologies. A_n is the already planned positiveEisensteinMeasure for n>0. C(U,Z) has its compact-open topology and supremum norm. Z[[q]] has the existing coefficientwise topology PowerSeries.WithPiTopology; no norm on that power-series carrier is asserted.
+
+**Proof outline:**
+
+1. At n=0 both sides are the same zero coefficient. At n>0, prime positivity implies pn>0. Apply positive-eisenstein-series-coeff twice and positive-eisenstein-remove-p.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/positive-eisenstein-series-coeff`, `DirichletPadicLFunctions:L4/positive-eisenstein-remove-p`.
+
+**Acceptance:** The q^p coefficient equals f(1), not zero. This coefficient identity introduces no generic U_p or Hecke operator.
+
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+
+### Joint integral series comparison with the modular form
+
+`DirichletPadicLFunctions:L4/positive-eisenstein-series-modular-comparison` — `positiveEisensteinSeries_modular` (comparison).
+
+For even k≥4 there exists a unique Q∈ℤ[[q]] such that its coefficient map to ℂ equals the actual q-expansion of pStabilizedEisenstein(p,k) minus the constant series of that expansion’s constant coefficient, and its coefficient map to Z equals E⁺(x^(k−1)). Explicitly Q₀=0 and Q_n=Σ_{d∣n,p∤d}d^(k−1) for n>0.
+
+**Hypotheses:** p is any prime, including 2; Z=ℤ_p and U=Z× with their native topologies. A_n is the already planned positiveEisensteinMeasure for n>0. C(U,Z) has its compact-open topology and supremum norm. Z[[q]] has the existing coefficientwise topology PowerSeries.WithPiTopology; no norm on that power-series carrier is asserted.
+
+**Proof outline:**
+
+1. For each positive degree take the unique common integer supplied by positive-eisenstein-modular-comparison. Set degree zero to zero and use PowerSeries.mk to assemble these integers into Q. The supplier identifies each positive coefficient with the displayed divisor sum.
+2. For the complex comparison, apply PowerSeries.coeff_map and PowerSeries.ext. At degree zero subtraction of the constant series gives zero; at every positive degree coeff_C_of_ne_zero vanishes and the existing common-integer comparison supplies equality.
+3. For the p-adic comparison, use positive-eisenstein-series-coeff and the other equality from the same integer comparison; again degree zero is zero. Injectivity of the integer embedding into ℂ and PowerSeries.map_injective give uniqueness.
+4. The removed coefficient is the actual rational zeta constant from p-stabilized-zeta-constant. This theorem compares whole positive power series through ℤ; it does not postulate an embedding of ℂ into a p-adic field and does not supply the missing constant pseudomeasure.
+
+**Prerequisites:** `DirichletPadicLFunctions:L4/positive-eisenstein-series-coeff`, `DirichletPadicLFunctions:L4/positive-eisenstein-modular-comparison`, `DirichletPadicLFunctions:L4/p-stabilized-zeta-constant`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_zero_C`, `mathlib:PowerSeries.coeff_C_of_ne_zero`, `mathlib:PowerSeries.map_injective`.
+
+**Acceptance:** At p=2,k=4 the omitted constant is−7/240, while Q₆=28. No equality with the full untruncated modular expansion is asserted.
+
+**Sources:** RJW-published, §8, Definition 8.1, Theorem 8.2 and Remark 8.3(1), printed159–160 / PDF60–61; fresh reading 27 September2026. The positive Dirac coefficients and exponent k−1 are explicit in the source. Their assembly into a native continuous linear map, the uniform coefficient bounds and series divisibility are worker deductions. The actual constant pseudomeasure and the geometric weight family remain outside this positive-part adapter.
+
+### Validation and remaining work
+
+The full suggested file compiles with zero errors and 164 expected placeholder
+warnings. The actual PMIA supplier file is freshly compiled; all reached
+Mathlib sources match the pinned source bytes and the 19 reached Tau Ceti
+modules were rebuilt from the pin without warnings. A separate baseline-only
+scratch file implements the native assembly and proves its coefficient formula,
+uniqueness, constant-series divisibility, ultrametric finite-sum bound and finite
+congruence. Those five proofs and the assembly construction contain no
+placeholders and compile without errors or warnings. They validate the native
+interfaces; none of the 80 roadmap nodes is claimed implemented.
+
+The exact arithmetic harness passes 46,468 assertions for p=2,3,5,7 and
+coefficients through degree100. It tests uniform evaluation bounds, pointwise
+test congruences, weight congruences, index invariance and integer comparison
+with the independently specified classical divisor-sum and p-stabilization
+formulas. Controls retain the nonzero q^p coefficient, weight shift,
+insufficiency of tame congruence for precision25, dyadic precision8 and nonzero
+classical constant. These are finite scalar regressions, not proofs about
+infinite series or topology.
+
+The continuation freshly downloaded the published paper, matching the recorded
+SHA256, and read physical PDF60–61 in full. This covers Definition8.1,
+Theorem8.2, Remark8.3(1) and the beginning of Remark8.3(2); earlier reading scope
+remains historical provenance. The eight new adapters are deductions from the
+positive coefficient formula, not additional named results attributed to the
+paper. All nine source findings are preserved; no new source error is alleged.
+
+Resume with the exact supplier request for the actual integral-measure/completed
+unit-group algebra comparison, or with the arithmetic localization and A₀ after
+that interface is supplied. The admissible evaluation domain and division by2
+at p=2 must be made explicit. Positive-series assembly does not resolve those
+constant-term, tame-character or geometric-family targets. The other L0–L3
+coverage and gap entries remain unchanged.

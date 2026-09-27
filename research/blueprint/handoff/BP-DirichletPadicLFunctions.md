@@ -1,121 +1,102 @@
-# BP-DirichletPadicLFunctions — finite positive coefficient coordinates
+# Dirichlet p-adic L-functions: positive-series checkpoint
 
-Codex — codex-7e92bd. Refs #713. Own-job follow-up to merged PR3179 under
-WORKERS. Claim5852574936 was confirmed by bot5852575669, freshly fetched;
-the whole unchanged issue was reread. No second claim was made.
+Codex — codex-7e92bd; issue #713; 27 September2026.
+Claim comment5853174773 was confirmed by bot5853175762. This is a partial
+checkpoint with five gaps, one supplier request and no closed stage.
 
-Totals: **72 nodes** (1 definition,8 constructions,41 lemmas,18 theorems,
-4 comparisons), **71 API entries**, **54 packet tests** (53 definition/
-construction and one other), **57 typed examples**, **12 planets**, and
-**98 baseline references**. **Five gaps and one supplier request** remain.
-No stage is closed; every implementation status is unchecked.
+## What changed
 
-## Change and boundary
+Eight L4 nodes assemble the existing positive Eisenstein measures into one
+native AbstractMeasure(U,ℤ_p,ℤ_p[[q]]) with coefficientwise target topology.
+They give the uniform evaluation bound, construction and promoted coefficient
+formula, uniform coefficient bound, pointwise-test and weight congruences,
+p-index invariance and whole positive modular comparison through a unique
+integer power series. The actual nonzero constant is subtracted in the complex
+comparison. The positive-series zero constant does not supply A₀.
 
-Six L4 nodes give the explicit coordinate E_(n;r,s) of each positive
-Eisenstein coefficient in (ℤ/p^sℤ)[(ℤ/p^rℤ)×], its residue multiplicities,
-two-level transition formula, native integral comparison and power moments,
-and the exact arithmetic specialization of the requested completed-algebra
-comparison. Group and coefficient precision vary independently, including0.
-At p=2,n=6 the two terms [1]+[3] at r=2 become2[1] at r=1 and then vanish
-modulo2. Replacing the divisor list by its set of distinct residues is wrong.
+All72 predecessor node objects,98 baseline records, nine source findings and
+12 planets survive unchanged. Totals:80 nodes (one definition, nine
+constructions,46 lemmas,19 theorems, five comparisons),79 API items,62 packet
+tests (61 on definitions/constructions),65 typed examples,107 baseline records.
+The new construction has eight API entries and eight tests; its projection is
+promoted before use by later nodes. The fifteen new named signatures and eight
+examples append to the prior Lean seed.
 
-For a continuous test function f and a quotient function g, the integral
-comparison assumes only that f modulo p^s factors through g at level r.
-For power moments a sufficient condition is s≤r. The equality need not hold
-at s>r using the chosen low-level residue representative; a negative control
-checks this. The weight exponent remains k−1.
-
-All66 predecessor node objects,86 baseline records,9 source findings,
-source-version records,12 planets and stage statuses are preserved exactly.
-All preceding executable Lean is preserved verbatim after two new imports;
-ten declarations and seven examples append. Only the L4 gap/remaining list
-is narrowed, and the gap now names the new completed-coordinate comparison.
-
-The new request to PadicMeasuresIwasawaAlgebras:L1 specifies its actual
-integral-measure equivalence, convolution/Dirac compatibility and separating
-joint projections, on the existing ProfiniteProPGroups Layer9 anchor.
-No generic completed carrier or inverse-limit construction is duplicated.
-That declaration is a precise suggested-file comment until the real supplier
-API exists; it is not replaced by a structure assuming its conclusion.
-The finite-coordinate nodes are typed against the actual native carriers.
-Neither A₀ nor the arithmetic ζ_p is constructed by these finite sums.
+The reviewed AUDIT-24 rows and accepted RS14/RS16 ownership constraints are
+retained. The generic completed group algebra stays with PMIA L1 and its
+ProfiniteProPGroups Layer9 anchor. This continuation uses the native measure
+carrier already in Mathlib and makes no new generic measure/topology carrier.
+The six existing L4 planets are retained; no seventh planet is added.
 
 ## Sources and verification
 
-Read all five reviewed AUDIT24 entries, full campaign owner, accepted RS14
-L4 contract and explanatory document, touching LocalFields link, current PMIA
-L1/L2/L3 gaps, exact RS16 L1 ownership, and the ProfiniteProPGroups completed-
-algebra contract. The latter's pure T-adic wording is not imported: the
-accepted RS16 joint coefficient/group topology gate controls this comparison.
-Binding protocols and the LocalFieldsRamification, Multiquadratic and
-JacobianChallenge upstream models byte-match their earlier full session reads.
-The initial61 inputs matched the primary snapshot. Before publication, refreshed
-the PMIA packet/reader/seed and source/errata registers after its25-node clopen
-and intrinsic-unit checkpoint. All preceding supplier statements are unchanged;
-its L1 completed comparison is still missing, so the exact request survives.
-Read the six added PMIA correction/reason records E8–E13. The finite integral
-positive-coefficient comparisons use none of the rejected unrestricted dual,
-noncompact-subset or unsmoothed-pseudomeasure claims. Unrelated Q-series
-register additions were screened separately. No new source finding or independent
-review verdict is asserted.
-
-Read the public [RJW published source](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf),
-printed120–123 / PDF21–24 and printed159–160 / PDF60–61 in full on
-27 September2026: Proposition3.16, its explicit coordinate maps, and
-Theorem8.2. Published PDF SHA256:
+Fresh published RJW physical PDF60–61 / printed159–160 read in full, including
+Definition8.1, Theorem8.2 and Remark8.3(1). PDF SHA256:
 `78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6`.
-The two-level finite-coordinate details are worker deductions. The previous
-full-source extraction and source-version claims remain historical; no new
-source error or complete-paper reading is asserted. Twelve added baseline
-statements were read at the exact Mathlib pin. Inventory screening found no
-existing arithmetic finite-coordinate node supplying this statement.
+Earlier wider readings are predecessor provenance, not a fresh full-paper
+extraction. Nine added baseline declarations had their actual pinned statements
+and surrounding hypotheses read. The additive ultrametric sum lemma is
+generated from the cited indexed multiplicative declaration; the declaration
+index was not edited. No source finding or independent review is added.
 
-The full seed compiles with **0 errors and141 expected placeholder warnings**;
-its real PMIA supplier compiles with317. All **3541 Mathlib sources** match the
-pin/cache; all **19 Tau Ceti imports** were rebuilt from pinned source without
-warnings. Seed SHA256: `a72939d8029ab90a5a81bc3fd4b0337e61c2c0536a6acfe99df71d18d838f2f8`.
-Source-audit SHA256: `689286bca6bb351b8854eb902539ff3484851249d5ecdf448ab3f544b3eaa2a7`.
+The full seed compiles with zero errors and164 expected placeholder warnings.
+The actual refreshed PMIA seed compiles with339 placeholder warnings. All
+reached Mathlib source bytes match the pin;19 Tau Ceti modules were rebuilt
+from pinned source with zero warnings. A separate baseline-only assembly
+construction and five complete lemmas compile with zero errors, warnings or
+placeholders. They cover native continuity, coefficients, uniqueness,
+constant-series divisibility, finite-sum bounds and finite congruence. These
+checks do not implement the arithmetic A_n or any roadmap target.
 
-Six complete scratch lemmas prove unit reduction compatibility, multiplicity
-coefficients, joint transition, finite pairing, reduced power moments and the
-actual native Dirac-sum integral comparison. They have **0 errors,0 warnings
-and0 placeholders**, with1770 pinned Mathlib source modules.
-Scratch SHA256: `60ff59cfcde7b7d49332ee61441318c736bd92d18e2ba4edffe92b0aeacb6e60`.
+Exact finite arithmetic passes46,468 assertions for p=2,3,5,7, coefficients0–100
+and the multiplied indices. It checks the uniform bound, test and weight
+congruences, index invariance and positive modular coefficients. Controls
+exclude a vanished q^p coefficient, exponent k rather than k−1, precision25
+from the tame modulus alone, a zero full modular constant, and multiplicativity
+in the test. The dyadic precision and coefficient28 examples pass. These are
+finite scalar checks, not proofs of infinite series/topology statements.
 
-**146,171 exact assertions** pass over8,400 systems (p=2,3,5,7; positive indices
-1–84; both levels0–4), including75,600 transitions,25,200 test-function pairings
-and20,160 moments. Eleven controls distinguish multiplicity from set membership,
-coefficient from group precision, the surviving q^p coefficient, zero coefficient
-ring, trivial group, the necessary moment precision condition and weight shift.
-These finite checks do not implement the completed algebra or pseudomeasure.
+Unmodified-index blueprint: **zero errors and warnings**. Exact four-file
+intake: **zero problems**. Errata wrapper, preservation, reader/signature/test
+parity and scoped mutation checks pass. The 619-edge reachable dependency graph
+is acyclic:156 planned nodes,177 distinct baseline leaves, and exactly the one
+recorded PMIA L1 stage request. The seed reaches3,542 Mathlib source modules;
+the complete scratch proof reaches1,980.
 
-The unmodified-index blueprint validator reports zero errors and warnings;
-the exact four-file intake reports zero problems. The dependency graph is
-acyclic and reader/signature/test parity passes. Its sole unresolved stage leaf
-is the precise requested PMIA L1 comparison. Fresh main `36392a4ba691d1cc39c6920b3dd4633065a429e9`
-matches all 64 captured inputs and all four predecessor outputs.
-The issue body and own winning confirmation5852575669 are unchanged; #713 is
-available and review #388 is unclaimed. No manual merge or independent review
-was performed.
+Suggested-file SHA256: `3f9022761dbdedc108689a18a9228e9b47f42cda2940e70cddde803a26afdc81`.
+Complete assembly-proof SHA256: `07a97378eb87ac5f1d3dc4b35dbbd416c88fe92293d342290b714e1306762ff7`.
 
-## Continuation
+All 23 captured input blobs and the four predecessor outputs match
+main `fb8c3221a5325c5acd1e2ac3830e3286d51058a2`; the issue body and winning claim are
+unchanged. Refreshed PMIA input exactly equals our merged PR3190 artifacts.
+The source registry retains all7,544 old records and adds one unrelated
+ColemanPowerSeries/E12 leading-term misprint; its full record was read.
+Exactly the four authorized files are published through Git Data REST.
 
-1. Instantiate positive-eisenstein-completed-coordinates when the requested
-   shared comparison exists. The finite formulas and native pairing are supplied;
-   the common topology, convolution and measure equivalence remain their owner’s
-   work. The dyadic branch stays integral, without sign-idempotent splitting.
-2. Construct arithmetic L1 ζ_p in the actual localization: compare the ambient
-   smoothing/cocycle/parity identities through the now supplied PMIA intrinsic
-   unit restriction/kernel equivalence and the multiplicative Dirac maps, prove denominator regularity and parameter
-   independence, retain k=1, and supply the separate dyadic argument. Then form
-   A₀=xζ_p/2 with its admissible evaluation and denominator qualifications.
-3. Assemble full coefficientwise specialization and constant congruences, then
-   the tame-character family. Existing ModularForms owns its classical character
-   Eisenstein/generalized Bernoulli data; PadicFamilies owns geometric realization.
-4. Continue unchanged L0 Mellin/decay/algebraic-value comparisons, L2 twists and
-   coefficient descent, and L3 logarithm/branch/pole calculations.
+## Where to resume
 
-The preceding modular normalization handoff is retained in
-[PR3179](https://github.com/CBirkbeck/tauceti-explorer/pull/3179).
-Only the packet, reader, suggested file and this handoff are submitted.
+1. The positive-coefficient assembly and congruences are now supplied. Start
+   from positive-eisenstein-series-modular-comparison for the actual positive
+   modular q-expansion, retaining degree-zero subtraction. All current L4
+   signatures use the actual power-series and ModularForm carriers.
+2. The one open request is the precise PMIA L1 integral-measure/completed-unit-
+   group-algebra equivalence, including joint finite coefficient/group
+   projections, Dirac compatibility, convolution and separation. PMIA PR3190
+   supplies clopen topology comparisons but does not supply this completed
+   algebra map. Import its eventual exact node; do not duplicate its owner.
+3. Construct arithmetic ζ_p in the actual localized algebra, prove denominator
+   regularity and smoothing independence, then A₀=xζ_p/2. Keep the admissible
+   evaluation domain and dyadic division by2 explicit. Do not infer a dyadic
+   sign-idempotent splitting or a single generator of ℤ₂×.
+4. Glue that A₀ to the positive-series theorem to obtain the full family.
+   Decompose constant-term congruences with their denominators and the tame-
+   character extension. Existing classical nebentypus Eisenstein forms remain
+   upstream ModularForms; geometric affinoid families remain PadicFamilies.
+5. L0 Mellin continuation/algebraicity, L2 tame and p-power twists/descent, and
+   L3 branches/logarithm/pole remain in the unchanged coverage ledger. Review
+   the retained E9 weight shift and other source findings before stating the
+   final comparisons.
+
+The PR publishes only the four issue-authorized deliverables through Git Data
+REST. All implementation statuses remain unchecked. Automatic intake handles
+merge and labels; this worker does not merge or close anything manually.

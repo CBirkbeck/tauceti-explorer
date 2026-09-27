@@ -1,3 +1,4 @@
+import Mathlib.RingTheory.PowerSeries.PiTopology
 import Mathlib.Algebra.MonoidAlgebra.MapDomain
 import Mathlib.Data.ZMod.Units
 import TauCeti.NumberTheory.ModularForms.Degeneracy
@@ -777,3 +778,118 @@ Dirac comparison and separated joint finite projections are not supplied yet. On
 native APIs exist, its statement is: projection at (r,s) of the image of
 positiveEisensteinMeasure p n equals positiveEisensteinFinite p n r s.
 No replacement carrier or theorem assuming that coordinate identity is introduced here. -/
+
+/-!
+The positive q-expansion, with coefficientwise topology on the native PowerSeries.
+Its zero constant coefficient records truncation to the positive part. It is not A₀.
+No topology on a completed group algebra or geometric weight family is introduced.
+-/
+namespace DirichletPadic
+section PositiveSeries
+open scoped PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-evaluation-bound
+ theorem positiveEisensteinMeasure_norm_le (n : ℕ+) (f : C(Zˣ, Z)) :
+    ‖positiveEisensteinMeasure p n f‖ ≤ ‖f‖ := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-series
+/-- The native measure whose values are the positive q-expansions. -/
+def positiveEisensteinSeries : AbstractMeasure Zˣ Z (PowerSeries Z) := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-series-coeff
+ theorem positiveEisensteinSeries_coeff (f : C(Zˣ, Z)) (n : ℕ) :
+    (positiveEisensteinSeries p f).coeff n =
+      if hn : 0 < n then positiveEisensteinMeasure p ⟨n, hn⟩ f else 0 := sorry
+
+theorem positiveEisensteinSeries_coeff_zero (f : C(Zˣ, Z)) :
+    (positiveEisensteinSeries p f).coeff 0 = 0 := sorry
+
+theorem positiveEisensteinSeries_coeff_pos (f : C(Zˣ, Z)) (n : ℕ+) :
+    (positiveEisensteinSeries p f).coeff (n : ℕ) = positiveEisensteinMeasure p n f := sorry
+
+theorem positiveEisensteinSeries_zero : positiveEisensteinSeries p 0 = 0 := sorry
+
+theorem positiveEisensteinSeries_add (f g : C(Zˣ, Z)) :
+    positiveEisensteinSeries p (f + g) =
+      positiveEisensteinSeries p f + positiveEisensteinSeries p g := sorry
+
+theorem positiveEisensteinSeries_smul (a : Z) (f : C(Zˣ, Z)) :
+    positiveEisensteinSeries p (a • f) = a • positiveEisensteinSeries p f := sorry
+
+theorem positiveEisensteinSeries_continuous : Continuous (positiveEisensteinSeries p) := sorry
+
+theorem positiveEisensteinSeries_unique (M : AbstractMeasure Zˣ Z (PowerSeries Z))
+    (h0 : ∀ f, (M f).coeff 0 = 0)
+    (hpos : ∀ f (n : ℕ+), (M f).coeff (n : ℕ) = positiveEisensteinMeasure p n f) :
+    M = positiveEisensteinSeries p := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-series-bound
+ theorem positiveEisensteinSeries_coeff_norm_le (f : C(Zˣ, Z)) (n : ℕ) :
+    ‖(positiveEisensteinSeries p f).coeff n‖ ≤ ‖f‖ := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-series-test-congruence
+ theorem positiveEisensteinSeries_test_congr (f g : C(Zˣ, Z)) (r : ℕ)
+    (h : ∀ u : Zˣ, (p : Z)^r ∣ f u - g u) :
+    PowerSeries.C ((p : Z)^r) ∣ positiveEisensteinSeries p f - positiveEisensteinSeries p g := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-series-weight-congruence
+ theorem positiveEisensteinSeries_weight_congr (r e e' : ℕ)
+    (hr : 0 < r) (he : Nat.ModEq (p^(r-1)*(p-1)) e e') :
+    PowerSeries.C ((p : Z)^r) ∣
+      positiveEisensteinSeries p ⟨fun u : Zˣ => (u : Z)^e', by fun_prop⟩ -
+        positiveEisensteinSeries p ⟨fun u : Zˣ => (u : Z)^e, by fun_prop⟩ := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-series-index-invariance
+ theorem positiveEisensteinSeries_coeff_mul_p (f : C(Zˣ, Z)) (n : ℕ) :
+    (positiveEisensteinSeries p f).coeff (p*n) = (positiveEisensteinSeries p f).coeff n := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-series-modular-comparison
+open UpperHalfPlane in
+ theorem positiveEisensteinSeries_modular (k : ℕ) (hk : 4 ≤ k) (he : Even k) :
+    ∃! Q : PowerSeries ℤ,
+      Q.map (Int.castRingHom ℂ) =
+        qExpansion 1 (pStabilizedEisenstein p k hk) -
+          PowerSeries.C ((qExpansion 1 (pStabilizedEisenstein p k hk)).coeff 0) ∧
+      Q.map (Int.castRingHom Z) =
+        positiveEisensteinSeries p ⟨fun u : Zˣ => (u : Z)^(k-1), by fun_prop⟩ := sorry
+
+end PositiveSeries
+end DirichletPadic
+
+namespace SuggestedPositiveSeriesTests
+open DirichletPadic
+open scoped PowerSeries.WithPiTopology
+
+-- SuggestedPositiveSeriesTests.zero_input
+example : positiveEisensteinSeries 2 0 = 0 := sorry
+
+-- SuggestedPositiveSeriesTests.constant_coefficient
+example (f : C(ℤ_[2]ˣ, ℤ_[2])) : (positiveEisensteinSeries 2 f).coeff 0 = 0 := sorry
+
+-- SuggestedPositiveSeriesTests.first_coefficient
+example (f : C(ℤ_[3]ˣ, ℤ_[3])) : (positiveEisensteinSeries 3 f).coeff 1 = f 1 := sorry
+
+-- SuggestedPositiveSeriesTests.prime_coefficient
+example (f : C(ℤ_[3]ˣ, ℤ_[3])) : (positiveEisensteinSeries 3 f).coeff 3 = f 1 := sorry
+
+-- SuggestedPositiveSeriesTests.dyadic_weight_four
+example : (positiveEisensteinSeries 2
+    ⟨fun u : ℤ_[2]ˣ => (u : ℤ_[2])^3, by fun_prop⟩).coeff 6 = 28 := sorry
+
+-- SuggestedPositiveSeriesTests.dyadic_series_precision
+example : PowerSeries.C (8 : ℤ_[2]) ∣
+    positiveEisensteinSeries 2 ⟨fun u : ℤ_[2]ˣ => (u : ℤ_[2])^5, by fun_prop⟩ -
+      positiveEisensteinSeries 2 ⟨fun u : ℤ_[2]ˣ => (u : ℤ_[2]), by fun_prop⟩ := sorry
+
+-- SuggestedPositiveSeriesTests.tame_congruence_insufficient
+example [Fact (Nat.Prime 5)] : ¬ PowerSeries.C (25 : ℤ_[5]) ∣
+    positiveEisensteinSeries 5 ⟨fun u : ℤ_[5]ˣ => (u : ℤ_[5])^7, by fun_prop⟩ -
+      positiveEisensteinSeries 5 ⟨fun u : ℤ_[5]ˣ => (u : ℤ_[5])^3, by fun_prop⟩ := sorry
+
+-- SuggestedPositiveSeriesTests.omitted_constant_is_nonzero
+example : (UpperHalfPlane.qExpansion 1 (pStabilizedEisenstein 2 4 (by decide))).coeff 0 =
+    (-7/240 : ℂ) ∧ (positiveEisensteinSeries 2
+      ⟨fun u : ℤ_[2]ˣ => (u : ℤ_[2])^3, by fun_prop⟩).coeff 0 = 0 := sorry
+end SuggestedPositiveSeriesTests
