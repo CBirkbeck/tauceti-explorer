@@ -1,3 +1,5 @@
+import research.blueprint.suggested.PadicMeasuresIwasawaAlgebras
+import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.Algebra.Polynomial.Coeff
 import Mathlib.NumberTheory.Padics.Measure.AmiceTransform
@@ -19,6 +21,8 @@ Formal substitution by exp(X)-1 takes place over a Q-algebra, not over Z_p.
 The ordinary-moment proof imports the exact planned comparison at
 PadicMeasuresIwasawaAlgebras:L2/ordinary-moment-exp. It is not a compiled library module:
 these signatures neither assume the comparison as a hypothesis nor claim its implementation.
+The actual supplier suggested file is imported above to type its planned operators.
+It is an unchecked prototype dependency, not a Mathlib module or a completed proof.
 The analytic Mellin proof remains separate L0 work.
 -/
 
@@ -208,4 +212,137 @@ example (h : ¬ 3 ∣ 2) :
 -- SuggestedTests.complex_zero_sign
 example : (1 - (2 : ℂ)) * riemannZeta 0 = 1/2 := sorry
 
+end SuggestedTests
+
+namespace DirichletPadic
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+
+/-- Arithmetic cancellation of the two cyclotomic rational averages. -/
+theorem smoothed_rational_average {K : Type*} [Field K] [CharZero K]
+    (ζ y : K) (hζ : IsPrimitiveRoot ζ p) (a : ℕ) (ha : ¬ p ∣ a)
+    (hy : y ^ p ≠ 1) (hya : y ^ (p * a) ≠ 1) :
+    (∑ i ∈ Finset.range p, (1 / (ζ ^ i * y - 1) -
+      (a : K) / ((ζ ^ i * y) ^ a - 1))) =
+      (p : K) * (1 / (y ^ p - 1) - (a : K) / (y ^ (p * a) - 1)) := sorry
+
+-- The proof plans below require the precise rational-series averaging request in the packet.
+-- No bounded psi operator is applied to 1/X, and psi invariance is not an input hypothesis.
+theorem phi_psi_smoothedSeries (a : ℕ) (ha : ¬ p ∣ a) (hu : IsUnit (a : ℤ_[p])) :
+    (AbstractMeasure.psiSeries p (smoothedSeries ℤ_[p] a hu)).subst
+        ((1 + X : ℤ_[p]⟦X⟧) ^ p - 1) =
+      (smoothedSeries ℤ_[p] a hu).subst ((1 + X : ℤ_[p]⟦X⟧) ^ p - 1) := sorry
+
+theorem psi_smoothedSeries (a : ℕ) (ha : ¬ p ∣ a) (hu : IsUnit (a : ℤ_[p])) :
+    AbstractMeasure.psiSeries p (smoothedSeries ℤ_[p] a hu) =
+      smoothedSeries ℤ_[p] a hu := sorry
+
+theorem psi_smoothedMeasure (a : ℕ) (ha : ¬ p ∣ a) :
+    psiMeasure p ℤ_[p] (smoothedMeasure p a ha) = smoothedMeasure p a ha := sorry
+
+theorem smoothedMeasure_one (ha : ¬ p ∣ 1) : smoothedMeasure p 1 ha = 0 := sorry
+
+/-- The arithmetic smoothing measure restricted to units, on the ambient measure carrier. -/
+def unitSmoothedMeasure (a : ℕ) (ha : ¬ p ∣ a) : D(ℤ_[p], ℤ_[p]) :=
+  unitRestriction p ℤ_[p] (smoothedMeasure p a ha)
+
+theorem unitSmoothedMeasure_eq (a : ℕ) (ha : ¬ p ∣ a) :
+    unitSmoothedMeasure p a ha = unitRestriction p ℤ_[p] (smoothedMeasure p a ha) := sorry
+
+theorem unitSmoothedMeasure_supported (a : ℕ) (ha : ¬ p ∣ a) :
+    unitRestriction p ℤ_[p] (unitSmoothedMeasure p a ha) = unitSmoothedMeasure p a ha := sorry
+
+theorem unitSmoothedMeasure_eq_sub_phi (a : ℕ) (ha : ¬ p ∣ a) :
+    unitSmoothedMeasure p a ha = smoothedMeasure p a ha -
+      phiMeasure p ℤ_[p] (smoothedMeasure p a ha) := sorry
+
+theorem unitSmoothedMeasure_euler (a k : ℕ) (ha : ¬ p ∣ a) :
+    unitSmoothedMeasure p a ha ((ContinuousMap.id ℤ_[p]) ^ k) =
+      (1 - (p : ℤ_[p]) ^ k) * smoothedMeasure p a ha ((ContinuousMap.id ℤ_[p]) ^ k) := sorry
+
+theorem unitSmoothedMeasure_moment (a k : ℕ) (ha : ¬ p ∣ a) :
+    (unitSmoothedMeasure p a ha ((ContinuousMap.id ℤ_[p]) ^ k) : ℚ_[p]) =
+      algebraMap ℚ ℚ_[p] ((1 - (p : ℚ) ^ k) *
+        (1 - (a : ℚ) ^ (k + 1)) * bernoulli (k + 1) / (k + 1)) := sorry
+
+theorem unitSmoothedMeasure_mass (a : ℕ) (ha : ¬ p ∣ a) :
+    unitSmoothedMeasure p a ha 1 = 0 := sorry
+
+theorem unitSmoothedBernoulli_mem_padicInt (a k : ℕ) (ha : ¬ p ∣ a) :
+    ∃ z : ℤ_[p], (z : ℚ_[p]) = algebraMap ℚ ℚ_[p] ((1 - (p : ℚ) ^ k) *
+      (1 - (a : ℚ) ^ (k + 1)) * bernoulli (k + 1) / (k + 1)) := sorry
+
+theorem unitSmoothedMeasure_one (ha : ¬ p ∣ 1) : unitSmoothedMeasure p 1 ha = 0 := sorry
+
+/-- The arithmetic numerator of the source's pseudomeasure, using the shared unit inverse. -/
+def smoothedNumerator (a : ℕ) (ha : ¬ p ∣ a) : D(ℤ_[p], ℤ_[p]) :=
+  inverseWeight p (smoothedMeasure p a ha)
+
+theorem smoothedNumerator_eq_inverse_restriction (a : ℕ) (ha : ¬ p ∣ a) :
+    smoothedNumerator p a ha = inverseWeight p (unitSmoothedMeasure p a ha) := sorry
+
+theorem smoothedNumerator_apply (a : ℕ) (ha : ¬ p ∣ a) (f : C(ℤ_[p], ℤ_[p])) :
+    smoothedNumerator p a ha f = smoothedMeasure p a ha
+      ((⟨PadicInt.inv, PadicInt.continuous_inv⟩ : C(ℤ_[p], ℤ_[p])) * f) := sorry
+
+theorem smoothedNumerator_supported (a : ℕ) (ha : ¬ p ∣ a) :
+    unitRestriction p ℤ_[p] (smoothedNumerator p a ha) = smoothedNumerator p a ha := sorry
+
+theorem weight_smoothedNumerator (a : ℕ) (ha : ¬ p ∣ a) :
+    weight (ContinuousMap.id ℤ_[p]) (smoothedNumerator p a ha) = unitSmoothedMeasure p a ha := sorry
+
+theorem smoothedNumerator_unique (a : ℕ) (ha : ¬ p ∣ a) (ν : D(ℤ_[p], ℤ_[p]))
+    (hν : unitRestriction p ℤ_[p] ν = ν)
+    (hw : weight (ContinuousMap.id ℤ_[p]) ν = unitSmoothedMeasure p a ha) :
+    ν = smoothedNumerator p a ha := sorry
+
+theorem smoothedNumerator_moment_shift (a k : ℕ) (ha : ¬ p ∣ a) :
+    smoothedNumerator p a ha ((ContinuousMap.id ℤ_[p]) ^ (k + 1)) =
+      unitSmoothedMeasure p a ha ((ContinuousMap.id ℤ_[p]) ^ k) := sorry
+
+theorem smoothedNumerator_moment (a k : ℕ) (ha : ¬ p ∣ a) (hk : 1 ≤ k) :
+    (smoothedNumerator p a ha ((ContinuousMap.id ℤ_[p]) ^ k) : ℚ_[p]) =
+      algebraMap ℚ ℚ_[p] ((1 - (p : ℚ) ^ (k - 1)) *
+        (1 - (a : ℚ) ^ k) * bernoulli k / k) := sorry
+
+theorem smoothedNumeratorBernoulli_mem_padicInt (a k : ℕ) (ha : ¬ p ∣ a) (hk : 1 ≤ k) :
+    ∃ z : ℤ_[p], (z : ℚ_[p]) = algebraMap ℚ ℚ_[p] ((1 - (p : ℚ) ^ (k - 1)) *
+      (1 - (a : ℚ) ^ k) * bernoulli k / k) := sorry
+
+theorem amice_smoothedNumerator (a : ℕ) (ha : ¬ p ∣ a) (hu : IsUnit (a : ℤ_[p])) :
+    (smoothedNumerator p a ha).amiceTransform =
+      inverseMahler p (smoothedSeries ℤ_[p] a hu) := sorry
+
+theorem smoothedNumerator_one (ha : ¬ p ∣ 1) : smoothedNumerator p 1 ha = 0 := sorry
+end DirichletPadic
+
+namespace SuggestedTests
+open DirichletPadic AbstractMeasure
+-- SuggestedTests.unit_smoothing_mass
+example (h : ¬ 3 ∣ 2) : unitSmoothedMeasure 3 2 h 1 = 0 := sorry
+-- SuggestedTests.unit_smoothing_first_moment
+example (h : ¬ 3 ∣ 2) :
+    (unitSmoothedMeasure 3 2 h (ContinuousMap.id ℤ_[3]) : ℚ_[3]) = 1/2 := sorry
+-- SuggestedTests.unit_smoothing_dyadic
+example (h : ¬ 2 ∣ 3) :
+    (unitSmoothedMeasure 2 3 h (ContinuousMap.id ℤ_[2]) : ℚ_[2]) = 2/3 := sorry
+-- SuggestedTests.unit_smoothing_one
+example (h : ¬ 3 ∣ 1) : unitSmoothedMeasure 3 1 h = 0 := sorry
+-- SuggestedTests.numerator_endpoint
+example (h : ¬ 3 ∣ 2) : smoothedNumerator 3 2 h (ContinuousMap.id ℤ_[3]) = 0 := sorry
+-- SuggestedTests.numerator_second_moment
+example (h : ¬ 3 ∣ 2) :
+    (smoothedNumerator 3 2 h ((ContinuousMap.id ℤ_[3]) ^ 2) : ℚ_[3]) = 1/2 := sorry
+-- SuggestedTests.numerator_dyadic
+example (h : ¬ 2 ∣ 3) :
+    (smoothedNumerator 2 3 h ((ContinuousMap.id ℤ_[2]) ^ 2) : ℚ_[2]) = 2/3 := sorry
+-- SuggestedTests.numerator_one
+example (h : ¬ 3 ∣ 1) : smoothedNumerator 3 1 h = 0 := sorry
+-- A tempting omission of inverse weighting fails: at p=3,a=2 the unit measure's
+-- first moment is 1/2 whereas the numerator's first moment is zero.
+-- SuggestedTests.numerator_not_unit_measure
+example (h : ¬ 3 ∣ 2) : smoothedNumerator 3 2 h ≠ unitSmoothedMeasure 3 2 h := sorry
+-- Endpoint has zero Euler factor; never cancel it to infer a value for zeta(0).
+-- SuggestedTests.numerator_first_dyadic
+example (h : ¬ 2 ∣ 3) : smoothedNumerator 2 3 h (ContinuousMap.id ℤ_[2]) = 0 := sorry
 end SuggestedTests
