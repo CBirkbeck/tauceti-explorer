@@ -2393,3 +2393,121 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
       (⟨fun x : ℤ_[2] => (x : ℚ_[2])^4, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) = 34/3 := by sorry
 end
 end SuggestedTameMomentTests
+
+/-! The arithmetic tame zeta measure of Definition 5.13.
+The native unit inverse is extended by zero on nonunits before being mapped to K.
+General weighting is imported from PMIA; its integral-only inverseWeight is not
+silently applied to K-valued measures. The special-value comparison retains the
+explicit coefficient-field ordinary-moment request from the preceding section. -/
+namespace DirichletPadic
+noncomputable section
+section TameZeta
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+
+def tameZetaMeasure (η : DirichletCharacter K D) (hD : IsUnit (D : K))
+    (hpD : ¬p ∣ D) : D(ℤ_[p],K) :=
+  AbstractMeasure.weight
+    (⟨fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x),
+      (continuous_algebraMap ℤ_[p] K).comp PadicInt.continuous_inv⟩ : C(ℤ_[p],K))
+    (AbstractMeasure.unitRestriction p K (tameMeasure η hD hpD))
+
+theorem tameZetaMeasure_apply (η : DirichletCharacter K D) (hD : IsUnit (D : K))
+    (hpD : ¬p ∣ D) (f : C(ℤ_[p],K)) :
+    tameZetaMeasure η hD hpD f = AbstractMeasure.unitRestriction p K (tameMeasure η hD hpD)
+      ((⟨fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x),
+        (continuous_algebraMap ℤ_[p] K).comp PadicInt.continuous_inv⟩ : C(ℤ_[p],K)) * f) := by sorry
+
+theorem tameZetaMeasure_one_level (η : DirichletCharacter K 1)
+    (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p ∣ 1) :
+    tameZetaMeasure η hD hpD = 0 := by sorry
+
+theorem tameZetaMeasure_eq_unrestricted_weight (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    tameZetaMeasure η hD hpD = AbstractMeasure.weight
+      (⟨fun x : ℤ_[p] => algebraMap ℤ_[p] K (PadicInt.inv x),
+        (continuous_algebraMap ℤ_[p] K).comp PadicInt.continuous_inv⟩ : C(ℤ_[p],K))
+      (tameMeasure η hD hpD) := by sorry
+
+theorem unitRestriction_tameZetaMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.unitRestriction p K (tameZetaMeasure η hD hpD) = tameZetaMeasure η hD hpD := by sorry
+
+theorem psiMeasure_tameZetaMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.psiMeasure p K (tameZetaMeasure η hD hpD) = 0 := by sorry
+
+theorem weight_id_tameZetaMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.weight
+      (⟨algebraMap ℤ_[p] K, continuous_algebraMap ℤ_[p] K⟩ : C(ℤ_[p],K))
+      (tameZetaMeasure η hD hpD) =
+    AbstractMeasure.unitRestriction p K (tameMeasure η hD hpD) := by sorry
+
+theorem tameZetaMeasure_moment_shift (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (k : ℕ) :
+    tameZetaMeasure η hD hpD
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^(k+1), by fun_prop⟩ : C(ℤ_[p],K)) =
+    AbstractMeasure.unitRestriction p K (tameMeasure η hD hpD)
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := by sorry
+
+theorem tameZetaMeasure_norm_le (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    ‖AbstractMeasure.toCLMEquiv (tameZetaMeasure η hD hpD)‖ ≤ 1 := by sorry
+
+theorem tameZetaMeasure_apply_norm_le (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],K)) :
+    ‖tameZetaMeasure η hD hpD f‖ ≤ ‖f‖ := by sorry
+
+variable [CharZero K] [Algebra ℚ K]
+theorem tameZetaMeasure_common_special_value {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+    (η : DirichletCharacter E D) (hη : η ≠ 1) (ιC : E →+* ℂ) (ιK : E →+* K)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (k : ℕ) (hk : 1 ≤ k) :
+    let b : E := (1-η (p : ZMod D)*(p : E)^(k-1)) *
+      (-(D : E)^(k-1) / k * ∑ a : ZMod D,
+        η a * algebraMap ℚ E ((Polynomial.bernoulli k).eval (a.val / D : ℚ)))
+    ιC b = (1-(η.ringHomComp ιC) (p : ZMod D)*(p : ℂ)^(k-1)) *
+      DirichletCharacter.LFunction (η.ringHomComp ιC) (1-(k : ℂ)) ∧
+    ιK b = tameZetaMeasure (η.ringHomComp ιK) hD hpD
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := by sorry
+end TameZeta
+end
+end DirichletPadic
+
+namespace SuggestedTameZetaTests
+open DirichletPadic
+noncomputable section
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- one_level_zero
+example (η : DirichletCharacter ℚ_[2] 1) (hD : IsUnit (1 : ℚ_[2])) (hpD : ¬2 ∣ 1) :
+    tameZetaMeasure η hD hpD = 0 := by sorry
+-- first_moment
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameZetaMeasure η hD hpD (⟨fun x : ℤ_[2] => (x : ℚ_[2]), by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) = 2/3 := by sorry
+-- omission_of_inverse
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameZetaMeasure η hD hpD ≠ AbstractMeasure.unitRestriction 2 ℚ_[2] (tameMeasure η hD hpD) := by sorry
+-- weight_compatibility
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.weight (⟨fun x : ℤ_[2] => (x : ℚ_[2]), by fun_prop⟩ : C(ℤ_[2],ℚ_[2]))
+      (tameZetaMeasure η hD hpD) (1 : C(ℤ_[2],ℚ_[2])) = 2/3 := by sorry
+-- psi_zero
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.psiMeasure 2 ℚ_[2] (tameZetaMeasure η hD hpD) = 0 := by sorry
+-- third_moment
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameZetaMeasure η hD hpD (⟨fun x : ℤ_[2] => (x : ℚ_[2])^3, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) = -10/9 := by sorry
+-- fifth_moment
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameZetaMeasure η hD hpD (⟨fun x : ℤ_[2] => (x : ℚ_[2])^5, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) = 34/3 := by sorry
+-- norm_bound
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    ‖tameZetaMeasure η hD hpD (1 : C(ℤ_[2],ℚ_[2]))‖ ≤ 1 := by sorry
+end
+end SuggestedTameZetaTests
