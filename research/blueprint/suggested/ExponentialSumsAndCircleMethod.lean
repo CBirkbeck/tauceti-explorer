@@ -1,3 +1,7 @@
+import Mathlib.Data.ZMod.QuotientRing
+import Mathlib.Algebra.BigOperators.Pi
+import Mathlib.Algebra.Group.Pi.Units
+import Mathlib.Algebra.Group.Units.Equiv
 import Mathlib.NumberTheory.DirichletCharacter.Bounds
 import Mathlib.NumberTheory.ArithmeticFunction.Moebius
 import Mathlib.Algebra.Ring.Periodic
@@ -433,4 +437,144 @@ example : (2 : ℝ)^(4*(1 : ℕ)^2) = 16 := by sorry
 example : (4 : ℝ)^(1 : ℕ)^2 = Real.rpow 16 (1/2 : ℝ) := by sorry
 example : ¬ (2 : ℝ) ≤ Real.rpow 1 (1-(1/4 : ℝ)) := by sorry
 example : Real.rpow (Real.rpow 2 (16/3 : ℝ)) (3/16 : ℝ) = 2 := by sorry
+end TauCeti.ExponentialSumsPlan
+
+
+/-! ## ES.0: CRT character factors
+Native CRT and unit-character equivalences are composed. Conductor and
+quadratic-conductor suppliers retain their ClassicalArithmeticCompletion owner.
+-/
+namespace TauCeti.ExponentialSumsPlan
+section CRT
+variable {ι : Type*} [Fintype ι] [DecidableEq ι]
+variable {C : Type*} [CommMonoidWithZero C]
+variable (n : ι → ℕ) (hn : Pairwise (fun i j => Nat.Coprime (n i) (n j)))
+
+/-- ES.0/crt-character-equivalence. No new character carrier. -/
+def crtCharacterEquiv (hn : Pairwise (fun i j => Nat.Coprime (n i) (n j))) : DirichletCharacter C (∏ i, n i) ≃*
+    (∀ i, DirichletCharacter C (n i)) := by sorry
+
+/-- The forward map restricts the character to one CRT unit coordinate. -/
+theorem crtCharacterEquiv_apply_unit
+    (χ : DirichletCharacter C (∏ i, n i)) (i : ι) (u : (ZMod (n i))ˣ) :
+    (crtCharacterEquiv n hn χ i).toUnitHom u =
+      χ.toUnitHom (((Units.mapEquiv (ZMod.prodEquivPi n hn).toMulEquiv).trans
+        MulEquiv.piUnits).symm (Pi.mulSingle i u)) := by sorry
+
+/-- Unit evaluation of the inverse, including the empty index type. -/
+theorem crtCharacterEquiv_symm_unit (φ : ∀ i, DirichletCharacter C (n i))
+    (u : (ZMod (∏ i, n i))ˣ) :
+    (crtCharacterEquiv n hn).symm φ u =
+      ∏ i, φ i (ZMod.unitsMap (Finset.dvd_prod_of_mem n (Finset.mem_univ i)) u) := by sorry
+
+theorem crtCharacterEquiv_one :
+    crtCharacterEquiv (C := C) n hn 1 = 1 := by sorry
+
+theorem crtCharacterEquiv_mul (χ ψ : DirichletCharacter C (∏ i, n i)) :
+    crtCharacterEquiv n hn (χ * ψ) =
+      crtCharacterEquiv n hn χ * crtCharacterEquiv n hn ψ := by sorry
+
+theorem crtCharacterEquiv_ext (χ ψ : DirichletCharacter C (∏ i, n i)) :
+    χ = ψ ↔ ∀ i, crtCharacterEquiv n hn χ i = crtCharacterEquiv n hn ψ i := by sorry
+
+/-- ES.0/crt-inverse-product. Native changeLevel includes nonunit zero extension. -/
+theorem crt_inverse_product (φ : ∀ i, DirichletCharacter C (n i)) :
+    (crtCharacterEquiv n hn).symm φ =
+      ∏ i, DirichletCharacter.changeLevel
+        (Finset.dvd_prod_of_mem n (Finset.mem_univ i)) (φ i) := by sorry
+
+/-- ES.0/crt-integer-evaluation. No unit hypothesis on a. -/
+theorem crt_integer_evaluation (χ : DirichletCharacter C (∏ i, n i)) (a : ℤ) :
+    χ a = ∏ i, crtCharacterEquiv n hn χ i a := by sorry
+
+/-- ES.0/crt-primitive-family. Uses the CA.1 binary primitivity supplier. -/
+theorem crt_primitive_family (hpos : ∀ i, 0 < n i)
+    (φ : ∀ i, DirichletCharacter C (n i)) (hφ : ∀ i, (φ i).IsPrimitive) :
+    ((crtCharacterEquiv n hn).symm φ).IsPrimitive := by sorry
+
+/-- ES.0/crt-product-conductor. -/
+theorem crt_product_conductor (hpos : ∀ i, 0 < n i)
+    (φ : ∀ i, DirichletCharacter C (n i)) :
+    ((crtCharacterEquiv n hn).symm φ).conductor = ∏ i, (φ i).conductor := by sorry
+
+/-- ES.0/crt-component-conductor. -/
+theorem crt_component_conductor (hpos : ∀ i, 0 < n i)
+    (χ : DirichletCharacter C (∏ i, n i)) (i : ι) :
+    (crtCharacterEquiv n hn χ i).conductor = Nat.gcd χ.conductor (n i) := by sorry
+
+/-- ES.0/crt-quadratic-components. Quadraticity is the native predicate. -/
+theorem crt_quadratic_components {χ : DirichletCharacter ℂ (∏ i, n i)}
+    (hχ : χ.IsQuadratic) (i : ι) :
+    (crtCharacterEquiv n hn χ i).IsQuadratic := by sorry
+end CRT
+
+/-- ES.0/change-level-exclusion. Valid even if D and R share primes. -/
+theorem change_level_exclusion {D : ℕ} (η : DirichletCharacter ℂ D)
+    (R : ℕ) (a : ℤ) :
+    DirichletCharacter.changeLevel (Nat.dvd_mul_right D R) η a =
+      if IsCoprime a (R : ℤ) then η a else 0 := by sorry
+
+open Classical in
+/-- ES.0/bounded-crt-character-factors. The source application needs only the
+first factor primitive; remaining factors retain their ambient moduli. -/
+theorem bounded_crt_character_factors (T : ℝ) (hT : 8 ≤ T) (a Q R : ℕ)
+    (ha0 : 0 < a) (ha : a ≤ 8) (hQ : Squarefree Q) (hR : Squarefree R)
+    (hodd : Odd Q) (hQT : T ≤ (Q : ℝ)) (hQR : Nat.Coprime Q R)
+    (haQR : Nat.Coprime a (Q * R))
+    (hsmoothQ : ∀ p : ℕ, p.Prime → p ∣ Q → (p : ℝ) ≤ T ^ 2)
+    (hsmoothR : ∀ p : ℕ, p.Prime → p ∣ R → (p : ℝ) ≤ T ^ 2)
+    (η : DirichletCharacter ℂ (a * Q)) (hη : η.IsPrimitive) :
+    ∃ r : ℕ, ∃ n : Fin (r+1) → ℕ, ∃ φ : ∀ i, DirichletCharacter ℂ (n i),
+      Pairwise (fun i j => Nat.Coprime (n i) (n j)) ∧
+      (∏ i, n i) = a * Q * R ∧
+      n 0 ∣ Q ∧ Odd (n 0) ∧ Squarefree (n 0) ∧ T ≤ (n 0 : ℝ) ∧
+      (∀ i, 1 < n i ∧ (n i : ℝ) ≤ T ^ 2) ∧
+      (Finset.univ.filter (fun i => i ≠ 0 ∧ (n i : ℝ) < T)).card ≤ 2 ∧
+      (φ 0).IsPrimitive ∧
+      (∀ i, (φ i).conductor = Nat.gcd (a * Q) (n i)) ∧
+      (∀ z : ℤ, (if IsCoprime z (R : ℤ) then η z else 0) = ∏ i, φ i z) := by sorry
+
+open Classical in
+/-- ES.0/large-conductor-character-blocks. This supplies factors, not the
+Graham–Ringrose character-sum estimate. M is an ambient modulus. -/
+theorem large_conductor_character_blocks (c : ℝ) (hc : 0 < c)
+    (k : ℕ) (hk : (2 : ℝ)^(64 : ℕ) < k)
+    {M : ℕ} [NeZero M] (σ : DirichletCharacter ℂ M) (hσ : σ.IsQuadratic)
+    (hsize : (M : ℝ) ≤ Real.rpow k (2*c))
+    (hlarge : 8 * Real.rpow k (7/32 : ℝ) ≤ σ.conductor)
+    (hsmooth : ∀ p : ℕ, p.Prime → p ∣ M → (p : ℝ) ≤ Real.rpow k (7/16 : ℝ)) :
+    ∃ r : ℕ, ∃ n : Fin (r+1) → ℕ, ∃ φ : ∀ i, DirichletCharacter ℂ (n i),
+      Pairwise (fun i j => Nat.Coprime (n i) (n j)) ∧
+      (∏ i, n i) ∣ M ∧
+      (∀ i, 1 < n i ∧ (n i : ℝ) ≤ Real.rpow k (7/16 : ℝ)) ∧
+      Odd (n 0) ∧ Squarefree (n 0) ∧ Real.rpow k (7/32 : ℝ) ≤ n 0 ∧
+      (φ 0).IsPrimitive ∧ (∀ i, (φ i).IsQuadratic) ∧
+      (∀ z : ℤ, σ z = ∏ i, φ i z) ∧
+      ((r+1 : ℕ) : ℝ) < 10*c+2 ∧
+      (max (((Finset.univ.erase (0 : Fin (r+1))).sup n : ℕ) : ℝ)
+        (Real.rpow (n 0) (1/4 : ℝ))) * Real.rpow (n 0) (5/4 : ℝ) < (k : ℝ)/2 := by sorry
+
+section CRTTests
+-- Contract test: crt_empty_inverse.
+example (a : ℤ) :
+    (crtCharacterEquiv (C := ℂ) (fun _ : Fin 0 => 2) (by simp [Pairwise])).symm
+      (fun i => Fin.elim0 i) a = 1 := by sorry
+-- Contract test: crt_one_zero.
+example : crtCharacterEquiv (C := ℂ) (fun _ : Fin 1 => 1)
+    (by simp [Pairwise]) 1 0 0 = 1 := by sorry
+-- Contract test: crt_singleton.
+example (χ : DirichletCharacter ℂ (∏ _ : Fin 1, 7)) (a : ℤ) :
+    crtCharacterEquiv (fun _ : Fin 1 => 7) (by simp [Pairwise]) χ 0 a = χ a := by sorry
+-- Contract test: crt_principal_nonunit.
+example : (crtCharacterEquiv (C := ℂ) ![3,4] (by intro i j h; fin_cases i <;> fin_cases j <;> norm_num at *)).symm 1 (2 : ℤ) = 0 := by sorry
+-- Contract test: crt_principal_unit.
+example : (crtCharacterEquiv (C := ℂ) ![3,4] (by intro i j h; fin_cases i <;> fin_cases j <;> norm_num at *)).symm 1 (-1 : ℤ) = 1 := by sorry
+-- Contract test: crt_principal_conductor.
+example : ((crtCharacterEquiv (C := ℂ) ![3,4] (by intro i j h; fin_cases i <;> fin_cases j <;> norm_num at *)).symm 1).conductor = 1 := by sorry
+-- Boundary: distinguished conductor uses gcd, not the whole ambient block.
+example : Nat.gcd 4 3 = 1 ∧ Nat.gcd 4 4 = 4 := by sorry
+-- Empty principal family preserves the primitive character at all integers.
+example (D : ℕ) (η : DirichletCharacter ℂ D) (a : ℤ) :
+    DirichletCharacter.changeLevel (Nat.dvd_mul_right D 1) η a = η a := by sorry
+end CRTTests
 end TauCeti.ExponentialSumsPlan
