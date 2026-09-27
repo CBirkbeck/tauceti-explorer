@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Unit-restriction and arithmetic-numerator checkpoint: preserves all 25 predecessor nodes and adds 20 declaration-sized nodes for the rational smoothing average, bounded psi-invariance proof plan, the unit Euler factor and the inverse-weighted integral numerator, with exact imported operator and inverseWeight/inverseMahler interfaces. Two precise generic averaging requests remain at PadicMeasuresIwasawaAlgebras:L2 and propagate to the numerical unit/numerator moment statements. The arithmetic constructions, support, primitive equation, uniqueness and Amice comparison use existing exact supplier nodes. No stage or implementation is closed; regularity, pseudomeasure division, parameter independence and later layers remain explicit obligations.",
+  "summary": "Unit-restriction and arithmetic-numerator checkpoint: preserves all 25 predecessor nodes and adds 20 declaration-sized nodes for the rational smoothing average, bounded psi-invariance proof plan, the unit Euler factor and the inverse-weighted integral numerator, with exact imported operator and inverseWeight/inverseMahler interfaces. Two precise generic averaging requests remain at PadicMeasuresIwasawaAlgebras:L2 and propagate to the numerical unit/numerator moment statements. The arithmetic constructions, support, primitive equation, uniqueness and Amice comparison use existing exact supplier nodes. No stage or implementation is closed; regularity, pseudomeasure division, parameter independence and later layers remain explicit obligations. Six arithmetic relation nodes now give the smoothing cocycle, cross-smoothing and reflection correction for μ_a, and the scalar-free cocycle, cross-smoothing and evenness for the existing inverse-weighted numerator. Their proof chains avoid both open averaging requests; completed-algebra comparisons, regularity and pseudomeasure independence remain gaps.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -336,6 +336,111 @@
         "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
         "provides": "A coprime power of a primitive k-th root is again primitive of order k; used with k=p and exponent a.",
         "checked": "Statement and commutative-monoid context read at pinned Mathlib 082e2d3, lines191–193; import closure byte-compared to the pin before compilation."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.dirac",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "The existing Dirac measure is evaluation at the chosen point.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 93–96; pinned-source SHA-256 a57b5c37369359b0f68ac7efef6f779d6f50ea0f85a88a165ca1991e0c348507."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.dirac_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Dirac evaluation δ_x(f)=f(x).",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 96; pinned-source SHA-256 a57b5c37369359b0f68ac7efef6f779d6f50ea0f85a88a165ca1991e0c348507."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.map",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Existing R-linear pushforward along a continuous map.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 101–104; pinned-source SHA-256 a57b5c37369359b0f68ac7efef6f779d6f50ea0f85a88a165ca1991e0c348507."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.map_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Pushforward evaluates μ on the pullback of the test function.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 106–108; pinned-source SHA-256 a57b5c37369359b0f68ac7efef6f779d6f50ea0f85a88a165ca1991e0c348507."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.ext_mahler",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "An abstract measure on ℤ_p over a complete ultrametric normed ℤ_p-algebra with bounded scalar multiplication is zero if all Mahler evaluations vanish; applies to ℤ_p coefficients.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 48–58; pinned-source SHA-256 7d4e2f4248a7839579ebf125c75f47a18962cf3a061000f2c6461d7c329d7dfc."
+      },
+      {
+        "ref": "mathlib:mahler_apply",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "The existing nth continuous Mahler function evaluates to Ring.choose x n.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 104–107; pinned-source SHA-256 fee7216cede5fa28e444e63b798a1e8a81c0ed0f4710e1dcf029cfd448a5bf83."
+      },
+      {
+        "ref": "mathlib:Ring.descPochhammer_eq_factorial_smul_choose",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "The descending Pochhammer polynomial evaluated in a binomial ring equals n! times the existing choose function, without dividing by n!.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 390–397; pinned-source SHA-256 3c166133aad0ad483819ce8a9050e1c3378d5cbac88bd2b41808810853d9b6d3."
+      },
+      {
+        "ref": "mathlib:Polynomial.smeval_eq_sum",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Smeval.lean",
+        "provides": "Polynomial scalar evaluation is its finite coefficient sum.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 46–58; pinned-source SHA-256 ca98ebb6bb50b6b0b0cc1db93720a0418a5b3e46deda6258522504f1d520c9d4."
+      },
+      {
+        "ref": "mathlib:Polynomial.smul_pow",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Smeval.lean",
+        "provides": "The summand at degree n with coefficient r is r acting on x^n.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 51–52; pinned-source SHA-256 ca98ebb6bb50b6b0b0cc1db93720a0418a5b3e46deda6258522504f1d520c9d4."
+      },
+      {
+        "ref": "mathlib:Polynomial.sum",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+        "provides": "Polynomial.sum sums over the finite support and coefficient values.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 845–849; pinned-source SHA-256 6cf18c0562bd1ce27fe5a018e1a1a897e7ddaaa1b1f9dbd1d7ff72d50842284a."
+      },
+      {
+        "ref": "mathlib:PadicInt.ext",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "Equality of the images in ℚ_p implies equality of p-adic integers.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 68–76; pinned-source SHA-256 5392888b7e9833f14ab600bd3a3944da1f341366da2f3de95cd9737a19b1ff3b."
+      },
+      {
+        "ref": "mathlib:bernoulli_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "The unprimed Bernoulli convention has B₁=−1/2.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 204–205; pinned-source SHA-256 7cd16e918dc753d602fd46c17817535cafba3a488363a7cc451173ba848494c5."
+      },
+      {
+        "ref": "mathlib:bernoulli_eq_zero_of_odd",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "B_n=0 for odd n>1; the n=1 exclusion is explicit.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 212–213; pinned-source SHA-256 7cd16e918dc753d602fd46c17817535cafba3a488363a7cc451173ba848494c5."
+      },
+      {
+        "ref": "mathlib:Ring.inverse_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/Units/Basic.lean",
+        "provides": "The existing ring unit-inverse extended by zero takes zero to zero.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 133–137; pinned-source SHA-256 7a7b5c40f914ff08c6d363d455aaba017714e7c23ae8d5ecdf898301a02c9429."
+      },
+      {
+        "ref": "mathlib:LocallyConstant.coe_charFn",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Algebra.lean",
+        "provides": "The existing characteristic function of a clopen set is its set indicator with value one; its values are zero or one.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 77–95; pinned-source SHA-256 3343eff12c2fba805e79da1cfc30c6ee3590ce2253baf57f50e99f3af2b3216d."
       }
     ]
   },
@@ -353,7 +458,8 @@
         "PDF 66, printed 165: §10.2, Lemma 10.3 and Propositions 10.4 / Lemma 10.5 with their proofs, to verify the Coleman-series consumer and sign.",
         "PDF 12–13, printed 111–112: the end of Theorem 2.4 and its proof, Bernoulli convention in Remark 2.5, Lemma 2.6 and its proof, Lemma 2.7 and Corollary 2.8. This is a partial reading, not a source-complete extraction of §§2–8.",
         "Second checkpoint: re-read published §4.1 through Proposition 4.6 (printed pp.136–137 / PDF37–38) and §3.4 final paragraphs/§3.5.1 including Lemma 3.29 and Corollary 3.30 (printed pp.125–126 / PDF26–27); this adds the precise generic moment handoff. Existing first-checkpoint reading and source findings are retained, not claimed as a fresh full-paper reading.",
-        "Unit/numerator continuation: fresh full reading and collation of published §4, PDF37–40 / printed136–139, and v2 PDF26–28 on27 September2026. Earlier broader sections remain predecessor reading provenance. E6 is the already recorded Coleman E8 domain gap, not a new discovery."
+        "Unit/numerator continuation: fresh full reading and collation of published §4, PDF37–40 / printed136–139, and v2 PDF26–28 on27 September2026. Earlier broader sections remain predecessor reading provenance. E6 is the already recorded Coleman E8 domain gap, not a new discovery.",
+        "Smoothing/parity follow-up, 27 September 2026: published PDF37–40 / printed136–139 reread and collated with arXiv v2 PDF26–28; additionally published PDF31–32 / printed130–131 read for Lemma3.36 and its complete proof. The six relation formulas are derived consequences, not separately stated source lemmas. No new source finding or independent-review verdict."
       ]
     },
     {
@@ -1191,6 +1297,21 @@
           "name": "DirichletPadic.smoothedBernoulli_mem_padicInt",
           "role": "structure",
           "statement": "The smoothed rational Bernoulli value lies in the image of ℤ_p in ℚ_p; promoted and using the exact generic moment supplier."
+        },
+        {
+          "name": "DirichletPadic.smoothedMeasure_mul",
+          "role": "relation",
+          "statement": "For natural a,b with p∤a and p∤b, μ_(ab)=μ_a+a·σ_a(μ_b) as actual elements of D(Z,Z). The scalar a multiplies the raw pushforward; it is essential. Promoted to measure-smoothing-cocycle."
+        },
+        {
+          "name": "DirichletPadic.smoothedMeasure_cross",
+          "role": "relation",
+          "statement": "For natural a,b prime to p, b·σ_b(μ_a)−μ_a=a·σ_a(μ_b)−μ_b in D(Z,Z). Promoted to measure-cross-smoothing."
+        },
+        {
+          "name": "DirichletPadic.smoothedMeasure_reflection",
+          "role": "relation",
+          "statement": "For every natural a prime to p, μ_a+AbstractMeasure.map ε μ_a=(a−1)·δ₀ in D(Z,Z), with ε(z)=−z and δ₀ the existing Dirac measure at zero. Promoted to measure-reflection."
         }
       ],
       "tests": [
@@ -1228,6 +1349,26 @@
           "name": "SuggestedTests.moment_three_factorial",
           "kind": "computation",
           "statement": "At p=3,a=2 the embedded degree-three ordinary moment is 1/8, not the exponential coefficient 1/48."
+        },
+        {
+          "name": "SuggestedSmoothingTests.measure_product_odd",
+          "kind": "computation",
+          "statement": "At p=3, μ₄=μ₂+2σ₂μ₂."
+        },
+        {
+          "name": "SuggestedSmoothingTests.measure_product_dyadic",
+          "kind": "compatibility",
+          "statement": "At p=2, μ₁₅=μ₃+3σ₃μ₅."
+        },
+        {
+          "name": "SuggestedSmoothingTests.reflection_zero_atom",
+          "kind": "non-example",
+          "statement": "At p=3, μ₂+map(−id)μ₂=δ₀; omitting the zero atom fails."
+        },
+        {
+          "name": "SuggestedSmoothingTests.reflection_dyadic",
+          "kind": "compatibility",
+          "statement": "At p=2, μ₃+map(−id)μ₃=2δ₀, with no division by 2."
         }
       ],
       "uses": [
@@ -1246,6 +1387,10 @@
         {
           "where": "RJW Lemmas 4.2–4.3 and Proposition 4.6; this checkpoint's formal Bernoulli and moment comparisons",
           "how": "Evaluate the same arithmetic object against ordinary polynomial functions; retain the rational scalar and factorial/sign normalization before using complex or p-adic embeddings."
+        },
+        {
+          "where": "RJW Proposition 4.11; DirichletPadicLFunctions:L1 arithmetic smoothing compatibility and parity",
+          "how": "Compare actual smoothing parameters before localization. The unweighted cocycle has scalar a; inverse weighting cancels it. Reflection has a zero-atom correction, killed by the inverse weight. These provide arithmetic identities for the later denominator-qualified independence and parity/descent comparisons."
         }
       ],
       "planet": {
@@ -1924,7 +2069,7 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27.",
+          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.28.",
           "excerpt": "We have",
           "match": "Arithmetic application of the generic unit restriction already owned by L2."
         }
@@ -2014,11 +2159,13 @@
         "All natural smoothing parameters prime to p are positive. The case a=1 is the zero boundary test; a>1 is needed for the later nondegenerate pseudomeasure construction."
       ],
       "proofSteps": [
-        "Unfold unit-smoothed-measure and apply the unitRestriction_idem API of the existing generic unit restriction. This is independent of the averaging request."
+        "Unfold unit-smoothed-measure. At each continuous test function f, apply the exact unit-restriction-evaluation supplier twice: E(Eμ_a)(f)=μ_a((1−χ)((1−χ)f)), where χ is the existing clopen characteristic function of pZ.",
+        "By the pinned LocallyConstant.coe_charFn, χ has value zero or one at each point. Split on membership in pZ; (1−χ)²=1−χ in both cases. Hence the value is μ_a((1−χ)f)=Eμ_a(f). Extensionality concludes, independently of the averaging requests. No unpromoted foreign idempotence API is used."
       ],
       "prerequisites": [
         "DirichletPadicLFunctions:L1/unit-smoothed-measure",
-        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction"
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "mathlib:LocallyConstant.coe_charFn"
       ],
       "acceptance": [
         "Equivalent to ψρ_a=0 by the supplier’s unit-support criterion; this statement does not say ψμ_a=0."
@@ -2031,7 +2178,7 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27.",
+          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.28.",
           "excerpt": "We have",
           "match": "The source restricts to units; the ambient formulation records that support exactly."
         }
@@ -2072,7 +2219,7 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27.",
+          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.28.",
           "excerpt": "We have",
           "match": "The second equality in the proof of Proposition 4.8."
         }
@@ -2111,7 +2258,7 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27.",
+          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.28.",
           "excerpt": "We have",
           "match": "The source’s last equality in the proof of Proposition 4.8."
         }
@@ -2150,7 +2297,7 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27.",
+          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.28.",
           "excerpt": "We have",
           "match": "Bernoulli normalization of Proposition 4.8, using the earlier exact rational/complex comparison."
         }
@@ -2190,7 +2337,7 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27.",
+          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.28.",
           "excerpt": "We have",
           "match": "Weight-zero consequence of Proposition 4.8, required at the k=1 numerator endpoint."
         }
@@ -2227,7 +2374,7 @@
       "sources": [
         {
           "sourceId": "RJW-published",
-          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.27.",
+          "locator": "Proposition 4.8 and proof, printed p.138 / PDF39; arXiv v2 p.28.",
           "excerpt": "We have",
           "match": "Integral consequence of the actual measure; a later Kummer theorem still needs its own denominator and congruence hypotheses."
         }
@@ -2322,6 +2469,21 @@
           "name": "DirichletPadic.smoothedNumerator_one",
           "role": "simp",
           "statement": "ν_1=0."
+        },
+        {
+          "name": "DirichletPadic.smoothedNumerator_mul",
+          "role": "relation",
+          "statement": "For natural a,b prime to p, ν_(ab)=ν_a+σ_a(ν_b), where ν_c=Jμ_c. There is no extra scalar a after inverse weighting. Promoted to numerator-smoothing-cocycle."
+        },
+        {
+          "name": "DirichletPadic.smoothedNumerator_cross",
+          "role": "relation",
+          "statement": "For natural a,b prime to p, σ_b(ν_a)−ν_a=σ_a(ν_b)−ν_b in D(Z,Z). This is the explicit numerator compatibility for the eventual denominators [a]−[1], expressed solely by existing pushforwards. Promoted to numerator-cross-smoothing."
+        },
+        {
+          "name": "DirichletPadic.smoothedNumerator_even",
+          "role": "relation",
+          "statement": "For every natural a prime to p, AbstractMeasure.map ε ν_a=ν_a, with ε(z)=−z and ν_a=Jμ_a. The equality holds integrally also at p=2. Promoted to numerator-even."
         }
       ],
       "tests": [
@@ -2349,6 +2511,21 @@
           "name": "SuggestedTests.numerator_not_unit_measure",
           "kind": "non-example",
           "statement": "For p=3,a=2, ν_a≠ρ_a; their first moments are 0 and 1/2."
+        },
+        {
+          "name": "SuggestedSmoothingTests.numerator_product_scalar",
+          "kind": "compatibility",
+          "statement": "At p=3, Jμ₄=Jμ₂+σ₂Jμ₂, without an extra 2."
+        },
+        {
+          "name": "SuggestedSmoothingTests.cross_smoothing_second_moment",
+          "kind": "computation",
+          "statement": "At p=3, 15·(Jμ₂)(x²)=3·(Jμ₄)(x²), detecting the exponent k in the normalized factors."
+        },
+        {
+          "name": "SuggestedSmoothingTests.even_dyadic_numerator",
+          "kind": "compatibility",
+          "statement": "At p=2, map(−id)(Jμ₃)=Jμ₃."
         }
       ],
       "uses": [
@@ -2363,6 +2540,10 @@
         {
           "where": "ColemanPowerSeries:L2 comparison",
           "how": "Gives an exact arithmetic Amice target; the Coleman owner still proves its normalization and sign comparison."
+        },
+        {
+          "where": "RJW Proposition 4.11; DirichletPadicLFunctions:L1 arithmetic smoothing compatibility and parity",
+          "how": "Compare actual smoothing parameters before localization. The unweighted cocycle has scalar a; inverse weighting cancels it. Reflection has a zero-atom correction, killed by the inverse weight. These provide arithmetic identities for the later denominator-qualified independence and parity/descent comparisons."
         }
       ]
     },
@@ -2637,6 +2818,282 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/measure-smoothing-cocycle",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Multiplication of smoothing parameters",
+      "kind": "lemma",
+      "statement": "For natural a,b with p∤a and p∤b, μ_(ab)=μ_a+a·σ_a(μ_b) as actual elements of D(Z,Z). The scalar a multiplies the raw pushforward; it is essential.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, D=D(Z,Z) is the existing integral abstract-measure carrier. μ_a is the existing arithmetic smoothedMeasure for a∈ℕ with p∤a. Natural a=1 is included as the existing degenerate zero case.",
+        "Write d_c:C(Z,Z) for z↦cz and σ_c=AbstractMeasure.map d_c for the existing raw pushforward. Write ε:C(Z,Z) for z↦−z. This notation introduces no new action, carrier or formal-substitution comparison."
+      ],
+      "proofSteps": [
+        "Primality implies p∤ab, so all three already defined arithmetic measures exist. Any proof certificate gives the same measure.",
+        "Evaluate the difference against x^k for every k≥0. The existing pushforward evaluation gives (σ_a μ_b)(x^k)=a^k μ_b(x^k); pull the constant through the linear functional.",
+        "Embed the evaluated values in ℚ_p and use measure-ordinary-moment. With B=B_(k+1)/(k+1), the rational identity (1−(ab)^(k+1))B=(1−a^(k+1))B+a^(k+1)(1−b^(k+1))B cancels every moment. Ring-map laws and PadicInt.ext return the equality to Z.",
+        "For the difference λ of the two displayed sides, apply the existing AbstractMeasure.ext_mahler. Pointwise, n!·mahler_n is the descending Pochhammer polynomial by mahler_apply and Ring.descPochhammer_eq_factorial_smul_choose. Expand it as the finite sum of integral coefficients times x^k using Polynomial.smeval_eq_sum and Polynomial.sum. Linearity and the just-computed zero ordinary moments give n!·λ(mahler_n)=0. Cancel the nonzero integer n! in the domain Z, then apply ext_mahler. This is a direct finite polynomial expansion inside the arithmetic proof, not a newly asserted generic moment theorem or division by n! in Z."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-ordinary-moment",
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.ext_mahler",
+        "mathlib:mahler_apply",
+        "mathlib:Ring.descPochhammer_eq_factorial_smul_choose",
+        "mathlib:Polynomial.smeval_eq_sum",
+        "mathlib:Polynomial.sum",
+        "mathlib:Polynomial.smul_pow",
+        "mathlib:PadicInt.ext"
+      ],
+      "acceptance": [
+        "At p=3,a=b=2, μ₄=μ₂+2σ₂μ₂. The total masses are 3/2=1/2+2·1/2, detecting omission of a.",
+        "At p=2,a=3,b=5, μ₁₅=μ₃+3σ₃μ₅; all coefficients remain integral. No odd-prime hypothesis or inverse of 2 is used."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothingRelations",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedMeasure_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.6, printed p.137 / PDF38; equation (4-3), Definition 4.10 and Proposition 4.11, printed pp.138–139 / PDF39–40. Moment-determination method: Lemma 3.36(i), printed p.130 / PDF31. §4 collated with arXiv v2 PDF27–28.",
+          "excerpt": "independent of the choice of a",
+          "match": "These arithmetic cocycle/reflection identities are explicit consequences of the source’s smoothed moments and inverse weighting, decomposed here as the compatibility input for its claimed independence. The source does not state these exact formulas as separate lemmas. The proof works in the pinned ambient integral carrier and retains the actual completed-group-algebra and regularity comparisons as gaps. All-prime validity, including the integral dyadic reflection identity without averaging by 1/2, is checked by this argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/measure-cross-smoothing",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Cross-smoothing before inverse weighting",
+      "kind": "lemma",
+      "statement": "For natural a,b prime to p, b·σ_b(μ_a)−μ_a=a·σ_a(μ_b)−μ_b in D(Z,Z).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, D=D(Z,Z) is the existing integral abstract-measure carrier. μ_a is the existing arithmetic smoothedMeasure for a∈ℕ with p∤a. Natural a=1 is included as the existing degenerate zero case.",
+        "Write d_c:C(Z,Z) for z↦cz and σ_c=AbstractMeasure.map d_c for the existing raw pushforward. Write ε:C(Z,Z) for z↦−z. This notation introduces no new action, carrier or formal-substitution comparison."
+      ],
+      "proofSteps": [
+        "Apply measure-smoothing-cocycle to (a,b) and to (b,a). Natural multiplication commutes, and proof irrelevance identifies the same μ_(ab).",
+        "Equate the right sides and rearrange in the additive group. The factors a and b belong to the unweighted arithmetic measures and must remain."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-smoothing-cocycle"
+      ],
+      "acceptance": [
+        "The equality holds for a=1 or b=1 using the already constructed zero measure; it does not license division by [1]−[1]."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothingRelations",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedMeasure_cross"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.6, printed p.137 / PDF38; equation (4-3), Definition 4.10 and Proposition 4.11, printed pp.138–139 / PDF39–40. Moment-determination method: Lemma 3.36(i), printed p.130 / PDF31. §4 collated with arXiv v2 PDF27–28.",
+          "excerpt": "independent of the choice of a",
+          "match": "These arithmetic cocycle/reflection identities are explicit consequences of the source’s smoothed moments and inverse weighting, decomposed here as the compatibility input for its claimed independence. The source does not state these exact formulas as separate lemmas. The proof works in the pinned ambient integral carrier and retains the actual completed-group-algebra and regularity comparisons as gaps. All-prime validity, including the integral dyadic reflection identity without averaging by 1/2, is checked by this argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/measure-reflection",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Reflection with the zero-atom correction",
+      "kind": "lemma",
+      "statement": "For every natural a prime to p, μ_a+AbstractMeasure.map ε μ_a=(a−1)·δ₀ in D(Z,Z), with ε(z)=−z and δ₀ the existing Dirac measure at zero.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, D=D(Z,Z) is the existing integral abstract-measure carrier. μ_a is the existing arithmetic smoothedMeasure for a∈ℕ with p∤a. Natural a=1 is included as the existing degenerate zero case.",
+        "Write d_c:C(Z,Z) for z↦cz and σ_c=AbstractMeasure.map d_c for the existing raw pushforward. Write ε:C(Z,Z) for z↦−z. This notation introduces no new action, carrier or formal-substitution comparison."
+      ],
+      "proofSteps": [
+        "For λ equal to the left side minus the right, pushforward and Dirac evaluation give its kth moment as (1+(−1)^k)μ_a(x^k)−(a−1)0^k.",
+        "At k=0, 0^0=1 and the existing bernoulli_one gives 2μ_a(1)=a−1 after embedding the evaluated scalar in ℚ_p; return via PadicInt.ext. No inverse of 2 in Z is used.",
+        "For odd positive k, 1+(−1)^k=0. For even k>0, k+1 is odd and exceeds 1, so bernoulli_eq_zero_of_odd makes the moment vanish. The Dirac term vanishes whenever k>0.",
+        "For the difference λ of the two displayed sides, apply the existing AbstractMeasure.ext_mahler. Pointwise, n!·mahler_n is the descending Pochhammer polynomial by mahler_apply and Ring.descPochhammer_eq_factorial_smul_choose. Expand it as the finite sum of integral coefficients times x^k using Polynomial.smeval_eq_sum and Polynomial.sum. Linearity and the just-computed zero ordinary moments give n!·λ(mahler_n)=0. Cancel the nonzero integer n! in the domain Z, then apply ext_mahler. This is a direct finite polynomial expansion inside the arithmetic proof, not a newly asserted generic moment theorem or division by n! in Z."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-ordinary-moment",
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.ext_mahler",
+        "mathlib:mahler_apply",
+        "mathlib:Ring.descPochhammer_eq_factorial_smul_choose",
+        "mathlib:Polynomial.smeval_eq_sum",
+        "mathlib:Polynomial.sum",
+        "mathlib:Polynomial.smul_pow",
+        "mathlib:PadicInt.ext",
+        "mathlib:AbstractMeasure.dirac",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:bernoulli_one",
+        "mathlib:bernoulli_eq_zero_of_odd"
+      ],
+      "acceptance": [
+        "At p=3,a=2, the correction is exactly δ₀, not zero. At p=2,a=3 it is 2δ₀, which is nonzero in ℤ₂. Reflection alone therefore does not make μ_a odd on the ambient space."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothingRelations",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedMeasure_reflection"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.6, printed p.137 / PDF38; equation (4-3), Definition 4.10 and Proposition 4.11, printed pp.138–139 / PDF39–40. Moment-determination method: Lemma 3.36(i), printed p.130 / PDF31. §4 collated with arXiv v2 PDF27–28.",
+          "excerpt": "independent of the choice of a",
+          "match": "These arithmetic cocycle/reflection identities are explicit consequences of the source’s smoothed moments and inverse weighting, decomposed here as the compatibility input for its claimed independence. The source does not state these exact formulas as separate lemmas. The proof works in the pinned ambient integral carrier and retains the actual completed-group-algebra and regularity comparisons as gaps. All-prime validity, including the integral dyadic reflection identity without averaging by 1/2, is checked by this argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/numerator-smoothing-cocycle",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Smoothing cocycle for the unit numerator",
+      "kind": "lemma",
+      "statement": "For natural a,b prime to p, ν_(ab)=ν_a+σ_a(ν_b), where ν_c=Jμ_c. There is no extra scalar a after inverse weighting.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, D=D(Z,Z) is the existing integral abstract-measure carrier. μ_a is the existing arithmetic smoothedMeasure for a∈ℕ with p∤a. Natural a=1 is included as the existing degenerate zero case.",
+        "Write d_c:C(Z,Z) for z↦cz and σ_c=AbstractMeasure.map d_c for the existing raw pushforward. Write ε:C(Z,Z) for z↦−z. This notation introduces no new action, carrier or formal-substitution comparison.",
+        "J is the exact supplier inverseWeight p; ν_a is the existing DirichletPadic.smoothedNumerator, defined by ν_a=Jμ_a. The supplier inverse-weight-support gives ν_a=J(unitRestriction μ_a) and its unit support. No intrinsic unit-group measure, completed Iwasawa algebra, denominator regularity or localization is inferred."
+      ],
+      "proofSteps": [
+        "Apply the supplier linear map J to measure-smoothing-cocycle. Linearity gives Jμ_a+a·J(σ_a μ_b).",
+        "The existing prime/coprimality and norm/unit criteria make a a unit of Z. Apply the exact inverse-weight-dilation supplier to this unit: J(σ_a μ_b)=a⁻¹·σ_a(Jμ_b). The forward pushforward direction is unchanged.",
+        "Cancel a·a⁻¹=1 in Z to obtain the formula. The inverse-weight-support supplier identifies each Jμ_c with the inverse-weighted restriction used by the arithmetic numerator. No ψ-invariance or root-averaging theorem is needed for this compatibility identity."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-smoothing-cocycle",
+        "DirichletPadicLFunctions:L1/smoothed-numerator",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-dilation",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.isUnit_iff"
+      ],
+      "acceptance": [
+        "At p=3,a=b=2 the formula is ν₄=ν₂+σ₂ν₂. The scalar 2 from the unweighted formula is cancelled by the supplier’s inverse scalar 1/2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothingRelations",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedNumerator_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.6, printed p.137 / PDF38; equation (4-3), Definition 4.10 and Proposition 4.11, printed pp.138–139 / PDF39–40. Moment-determination method: Lemma 3.36(i), printed p.130 / PDF31. §4 collated with arXiv v2 PDF27–28.",
+          "excerpt": "independent of the choice of a",
+          "match": "These arithmetic cocycle/reflection identities are explicit consequences of the source’s smoothed moments and inverse weighting, decomposed here as the compatibility input for its claimed independence. The source does not state these exact formulas as separate lemmas. The proof works in the pinned ambient integral carrier and retains the actual completed-group-algebra and regularity comparisons as gaps. All-prime validity, including the integral dyadic reflection identity without averaging by 1/2, is checked by this argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/numerator-cross-smoothing",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Cross-smoothing for the unit numerator",
+      "kind": "lemma",
+      "statement": "For natural a,b prime to p, σ_b(ν_a)−ν_a=σ_a(ν_b)−ν_b in D(Z,Z). This is the explicit numerator compatibility for the eventual denominators [a]−[1], expressed solely by existing pushforwards.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, D=D(Z,Z) is the existing integral abstract-measure carrier. μ_a is the existing arithmetic smoothedMeasure for a∈ℕ with p∤a. Natural a=1 is included as the existing degenerate zero case.",
+        "Write d_c:C(Z,Z) for z↦cz and σ_c=AbstractMeasure.map d_c for the existing raw pushforward. Write ε:C(Z,Z) for z↦−z. This notation introduces no new action, carrier or formal-substitution comparison.",
+        "J is the exact supplier inverseWeight p; ν_a is the existing DirichletPadic.smoothedNumerator, defined by ν_a=Jμ_a. The supplier inverse-weight-support gives ν_a=J(unitRestriction μ_a) and its unit support. No intrinsic unit-group measure, completed Iwasawa algebra, denominator regularity or localization is inferred."
+      ],
+      "proofSteps": [
+        "Apply numerator-smoothing-cocycle in both orders. Both left sides are ν_(ab) by commutativity and proof irrelevance.",
+        "Rearrange the equality ν_a+σ_aν_b=ν_b+σ_bν_a.",
+        "Keep this equality in the actual ambient integral carrier. To use it as equality of fractions, the intrinsic unit-support comparison, multiplicative Dirac/convolution interpretation, actual completed-group-ring comparison and denominator regularity remain required. This node neither assumes nor concludes those missing comparisons."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/numerator-smoothing-cocycle"
+      ],
+      "acceptance": [
+        "Evaluation at x^k gives (b^k−1)ν_a(x^k)=(a^k−1)ν_b(x^k). At a=2,b=4,k=2 the coefficients are 15 and 3; using k+1 would give the wrong normalization."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothingRelations",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedNumerator_cross"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.6, printed p.137 / PDF38; equation (4-3), Definition 4.10 and Proposition 4.11, printed pp.138–139 / PDF39–40. Moment-determination method: Lemma 3.36(i), printed p.130 / PDF31. §4 collated with arXiv v2 PDF27–28.",
+          "excerpt": "independent of the choice of a",
+          "match": "These arithmetic cocycle/reflection identities are explicit consequences of the source’s smoothed moments and inverse weighting, decomposed here as the compatibility input for its claimed independence. The source does not state these exact formulas as separate lemmas. The proof works in the pinned ambient integral carrier and retains the actual completed-group-algebra and regularity comparisons as gaps. All-prime validity, including the integral dyadic reflection identity without averaging by 1/2, is checked by this argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/numerator-even",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Evenness of the unit numerator",
+      "kind": "lemma",
+      "statement": "For every natural a prime to p, AbstractMeasure.map ε ν_a=ν_a, with ε(z)=−z and ν_a=Jμ_a. The equality holds integrally also at p=2.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, D=D(Z,Z) is the existing integral abstract-measure carrier. μ_a is the existing arithmetic smoothedMeasure for a∈ℕ with p∤a. Natural a=1 is included as the existing degenerate zero case.",
+        "Write d_c:C(Z,Z) for z↦cz and σ_c=AbstractMeasure.map d_c for the existing raw pushforward. Write ε:C(Z,Z) for z↦−z. This notation introduces no new action, carrier or formal-substitution comparison.",
+        "J is the exact supplier inverseWeight p; ν_a is the existing DirichletPadic.smoothedNumerator, defined by ν_a=Jμ_a. The supplier inverse-weight-support gives ν_a=J(unitRestriction μ_a) and its unit support. No intrinsic unit-group measure, completed Iwasawa algebra, denominator regularity or localization is inferred."
+      ],
+      "proofSteps": [
+        "Apply the linear J to measure-reflection. Use inverse-weight-dilation at the actual unit −1 to identify J(map ε μ_a)=−map ε(Jμ_a).",
+        "The zero-atom term is killed directly: for any f, inverse-weight-evaluation and baseline Dirac evaluation give (Jδ₀)(f)=PadicInt.inv(0)f(0)=0. Use padic-unit-inverse-identification and the baseline Ring.inverse_zero for that last equality; extensionality gives Jδ₀=0 without consuming an unpromoted supplier API item.",
+        "Thus ν_a−map ε ν_a=0, giving the claimed equality. No division by 2, projection (1+ε)/2 or splitting of the dyadic unit group is used. The resulting even numerator is an arithmetic parity input, not already descent in the completed Iwasawa algebra."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/measure-reflection",
+        "DirichletPadicLFunctions:L1/smoothed-numerator",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-dilation",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support",
+        "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:Ring.inverse_zero"
+      ],
+      "acceptance": [
+        "At p=2,a=3 the unweighted reflection retains 2δ₀, but inverse weighting kills precisely that correction and gives an even numerator. Integral C₂-idempotents or dyadic pseudomeasure normalization are not asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/SmoothingRelations",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedNumerator_even"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition 4.6, printed p.137 / PDF38; equation (4-3), Definition 4.10 and Proposition 4.11, printed pp.138–139 / PDF39–40. Moment-determination method: Lemma 3.36(i), printed p.130 / PDF31. §4 collated with arXiv v2 PDF27–28.",
+          "excerpt": "independent of the choice of a",
+          "match": "These arithmetic cocycle/reflection identities are explicit consequences of the source’s smoothed moments and inverse weighting, decomposed here as the compatibility input for its claimed independence. The source does not state these exact formulas as separate lemmas. The proof works in the pinned ambient integral carrier and retains the actual completed-group-algebra and regularity comparisons as gaps. All-prime validity, including the integral dyadic reflection identity without averaging by 1/2, is checked by this argument."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -2669,8 +3126,8 @@
       "status": "partial",
       "remaining": [
         "Fill the two precise L2 requests for the generic finite-root partial fractions and its comparison with the actual bounded integral psiSeries. These are the remaining proof inputs for series-phi-psi-fixed; their gap propagates through psi-invariance to the unit and numerator Bernoulli moment theorems. Do not apply psiSeries to 1/T.",
-        "The actual integral arithmetic numerator, its unit support, unique primitive equation and inverseMahler comparison now have exact planned supplier nodes. Prove arithmetic smoothing compatibility and regularity of the chosen θ_a=[a]−[1] in the actual completed unit-group algebra, and instantiate L3 pseudomeasures with exact carrier/denominator comparisons.",
-        "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), odd-prime parity/descent and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
+        "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons.",
+        "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
         "Complete the source’s analytic Mellin/decay/differentiation route under L0. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
       ]
     },
@@ -2705,7 +3162,7 @@
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual integral arithmetic numerator, its unit support, unique primitive equation and inverseMahler comparison now have exact planned supplier nodes. Prove arithmetic smoothing compatibility and regularity of the chosen θ_a=[a]−[1] in the actual completed unit-group algebra, and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), odd-prime parity/descent and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. Complete the source’s analytic Mellin/decay/differentiation route under L0. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
+      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. Complete the source’s analytic Mellin/decay/differentiation route under L0. Complete measure coefficient-extension/descent maps through the shared measure API; an integral coefficient identity alone is not a scalar-extension theorem for measures."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -2956,5 +3413,83 @@
       "claimConfirmation": 5851844379
     },
     "closure": "Partial: six gaps, two precise L2 averaging requests, no closed stages. Target signatures are unconditional but their numerical moment proof plans retain the stated supplier gap. Imported suggested interfaces remain unchecked, and elaboration proves no placeholder body."
+  },
+  "provenance": {
+    "smoothingFollowup": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "previousPr": 3161,
+      "claimConfirmation": 5851844379,
+      "priorNodes": 45,
+      "newNodes": 6,
+      "newAPI": 6,
+      "newTests": 7,
+      "newBaselineDeclarations": 15,
+      "proofRepairNode": "DirichletPadicLFunctions:L1/unit-smoothed-support",
+      "correctedV2Locators": [
+        "DirichletPadicLFunctions:L1/unit-smoothed-measure",
+        "DirichletPadicLFunctions:L1/unit-smoothed-support",
+        "DirichletPadicLFunctions:L1/unit-smoothed-difference",
+        "DirichletPadicLFunctions:L1/unit-smoothed-euler",
+        "DirichletPadicLFunctions:L1/unit-smoothed-moment",
+        "DirichletPadicLFunctions:L1/unit-smoothed-mass",
+        "DirichletPadicLFunctions:L1/unit-smoothed-integral"
+      ],
+      "standaloneProof": {
+        "sha256": "d9b8b6437bb6ff07b2aad25eba1befb32b485a50680b4dc2ace355bd090b2097",
+        "errors": 0,
+        "warnings": 0,
+        "placeholders": 0,
+        "mathlibImports": 2856
+      },
+      "finiteRegressions": {
+        "counts": {
+          "measureCocycle": 6400,
+          "measureCross": 6400,
+          "measureReflection": 400,
+          "numeratorCocyclePositiveMoments": 18600,
+          "numeratorCrossPositiveMoments": 18600,
+          "numeratorEvenPositiveMoments": 1464,
+          "inverseWeightDilationPointwise": 30087
+        },
+        "totalChecks": 81951,
+        "mutantControls": {
+          "missingScalarUnweighted": true,
+          "extraScalarNumerator": true,
+          "droppedDiracCorrection": true,
+          "dyadicCorrectionNotZero": true,
+          "wrongCrossExponent": true,
+          "weightInverseDirection": true,
+          "nonunitParameterExcluded": true,
+          "k1NotZetaZero": true
+        },
+        "allPassed": true,
+        "scope": "Finite exact scalar checks, not proofs of equality of measures or generic moment determinacy. Numerator scalar tests use the source Euler-factor moment formula only for k>=1; no zeroth numerator moment is assumed. Pointwise inverse checks are in finite residue rings and do not replace the pinned p-adic continuity proof."
+      },
+      "scope": "All earlier statements, hypotheses, findings, requests, planets and statuses are retained. Only the two construction API/test/use lists, the support proof’s exact prerequisites, the v2 Proposition4.8 locators, and L1 remaining/gap prose are updated.",
+      "compiled": {
+        "suggestedFileSha256": "b66bcf6ca9e1acda7e158d8aeba6e4a63582f083ea87bdc00f235acf06c73e39",
+        "errors": 0,
+        "warnings": 88,
+        "supplierErrors": 0,
+        "supplierWarnings": 160,
+        "allWarningsPlaceholders": true,
+        "mathlibModules": 3027,
+        "tauCetiModules": 0,
+        "supplierSourceSha256": "43031ae9f7ec6e6468af9addd67a356f14f36f31af8a82c5076fd1e0748ff0ef",
+        "supplierObjectSha256": "045b9916d0fb6da458f937fac1c8ea809940a0241cf40f334906ecdead19d8f4"
+      },
+      "publicationGuard": {
+        "base": "3fa3504bfe0aa38e8c6f1934daa440b2e6756999",
+        "unchangedInputs": 52,
+        "unchangedOutputs": 4,
+        "issueAvailable": true,
+        "lastClaimConfirmation": 5851844379,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "validation": "Indexed blueprint zero errors/warnings, exact four-file intake zero problems, reader/signature/API/test parity, all prior statements/hypotheses/source findings preserved, and new dependency chains avoid both averaging requests."
+    }
   }
 }
