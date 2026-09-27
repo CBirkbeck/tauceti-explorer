@@ -272,4 +272,126 @@ example :
           (∏ q ∈ ({2, 3} : Finset ℕ) \ S, (1 - 1 / (q : ℝ)))|) = 1 / 3 := by
   sorry
 
+/-! ## Centered mixed products and weighted moments -/
+
+/-- PM.0/centered-product-expansion. Exponent zero is allowed. -/
+theorem centered_prime_product_expansion (m : ℕ) (P : Finset ℕ) (α : ℕ → ℕ)
+    (hP : ∀ p ∈ P, Nat.Prime p) :
+    let v : ℕ → ℝ := fun p => (-(1 / (p : ℝ))) ^ α p
+    let w : ℕ → ℝ := fun p => (1 - 1 / (p : ℝ)) ^ α p - v p
+    (∫ n : ℕ, (∏ p ∈ P,
+      ((if p ∣ n then (1 : ℝ) else 0) - 1 / (p : ℝ)) ^ α p) ∂(uLaw m)) =
+      ∑ D ∈ P.powerset, (∏ p ∈ D, w p) * (∏ p ∈ P \ D, v p) *
+        ((((m + 1) / (∏ p ∈ D, p) : ℕ) : ℝ) / ((m + 1 : ℕ) : ℝ)) := by
+  sorry
+
+/-- PM.0/centered-product-error. The empty subset contributes no remainder. -/
+theorem centered_prime_product_error (m : ℕ) (P : Finset ℕ) (α : ℕ → ℕ)
+    (hP : ∀ p ∈ P, Nat.Prime p) :
+    let v : ℕ → ℝ := fun p => (-(1 / (p : ℝ))) ^ α p
+    let w : ℕ → ℝ := fun p => (1 - 1 / (p : ℝ)) ^ α p - v p
+    |(∫ n : ℕ, (∏ p ∈ P,
+      ((if p ∣ n then (1 : ℝ) else 0) - 1 / (p : ℝ)) ^ α p) ∂(uLaw m)) -
+      ∏ p ∈ P, (v p + w p / (p : ℝ))| ≤
+        ((∏ p ∈ P, (|v p| + |w p|)) - ∏ p ∈ P, |v p|) /
+          ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/centered-product-uniform-error. Uniform in all natural exponents. -/
+theorem centered_prime_product_uniform_error (m : ℕ) (P : Finset ℕ) (α : ℕ → ℕ)
+    (hP : ∀ p ∈ P, Nat.Prime p) :
+    |(∫ n : ℕ, (∏ p ∈ P,
+      ((if p ∣ n then (1 : ℝ) else 0) - 1 / (p : ℝ)) ^ α p) ∂(uLaw m)) -
+      ∏ p ∈ P, ((1 / (p : ℝ)) * (1 - 1 / (p : ℝ)) ^ α p +
+        (1 - 1 / (p : ℝ)) * (-(1 / (p : ℝ))) ^ α p)| ≤
+          (3 / 2 : ℝ) ^ P.card / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/complete-period-centered-product. This is an arithmetic specialization,
+not a new generic independent-product integration theorem. -/
+theorem centered_prime_product_completePeriod (m : ℕ) (P : Finset ℕ) (α : ℕ → ℕ)
+    (hP : ∀ p ∈ P, Nat.Prime p) (hperiod : (∏ p ∈ P, p) ∣ m + 1) :
+    (∫ n : ℕ, (∏ p ∈ P,
+      ((if p ∣ n then (1 : ℝ) else 0) - 1 / (p : ℝ)) ^ α p) ∂(uLaw m)) =
+      ∏ p ∈ P, ((1 / (p : ℝ)) * (1 - 1 / (p : ℝ)) ^ α p +
+        (1 - 1 / (p : ℝ)) * (-(1 / (p : ℝ))) ^ α p) := by
+  sorry
+
+/-- PM.0/weighted-moment-comparison. Each tuple keeps its repeated prime coordinates.
+The product is over its image; alpha records fiber cardinalities. -/
+theorem primeDivisibilitySum_moment_error (m k : ℕ) (P : Finset ℕ) (a : ℕ → ℝ)
+    (hP : ∀ p ∈ P, Nat.Prime p) :
+    let A : ℝ := ∑ p ∈ P, a p / (p : ℝ)
+    let L : ℝ := ∑ p ∈ P, |a p|
+    let G : (Fin k → ℕ) → ℝ := fun t =>
+      ∏ p ∈ Finset.univ.image t,
+        (1 / (p : ℝ)) * (1 - 1 / (p : ℝ)) ^
+          (Finset.univ.filter (fun j => t j = p)).card +
+        (1 - 1 / (p : ℝ)) * (-(1 / (p : ℝ))) ^
+          (Finset.univ.filter (fun j => t j = p)).card
+    |(∫ n, (primeDivisibilitySum P a n - A) ^ k ∂(uLaw m)) -
+      ∑ t ∈ Fintype.piFinset (fun _ : Fin k => P), (∏ j, a (t j)) * G t| ≤
+        (3 / 2 : ℝ) ^ k * L ^ k / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-! ## Centered-moment regression contracts -/
+
+/-- centered_zero_exponents -/
+example (m : ℕ) (P : Finset ℕ) :
+    (∫ n : ℕ, (∏ p ∈ P,
+      ((if p ∣ n then (1 : ℝ) else 0) - 1 / (p : ℝ)) ^ (0 : ℕ)) ∂(uLaw m)) = 1 := by
+  sorry
+
+/-- centered_empty_product -/
+example (m : ℕ) (α : ℕ → ℕ) :
+    (∫ n : ℕ, (∏ p ∈ (∅ : Finset ℕ),
+      ((if p ∣ n then (1 : ℝ) else 0) - 1 / (p : ℝ)) ^ α p) ∂(uLaw m)) = 1 := by
+  sorry
+
+/-- centered_two_square: exact even without a complete period. -/
+example (m : ℕ) :
+    (∫ n : ℕ, ((if 2 ∣ n then (1 : ℝ) else 0) - 1 / 2) ^ 2 ∂(uLaw m)) =
+      1 / 4 := by
+  sorry
+
+/-- centered_two_square_sharp_bound: w=0 gives zero numerator. -/
+example :
+    (|(-(1 / 2 : ℝ)) ^ 2| + |(1 - (1 / 2 : ℝ)) ^ 2 - (-(1 / 2 : ℝ)) ^ 2|) -
+      |(-(1 / 2 : ℝ)) ^ 2| = 0 := by
+  sorry
+
+/-- centered_three_cube: an odd Bernoulli moment need not vanish. -/
+example :
+    (∫ n : ℕ, ((if 3 ∣ n then (1 : ℝ) else 0) - 1 / 3) ^ 3 ∂(uLaw 2)) =
+      2 / 27 := by
+  sorry
+
+/-- centered_incomplete_pair: distinct arithmetic indicators are not independent. -/
+example :
+    (∫ n : ℕ, ((if 2 ∣ n then (1 : ℝ) else 0) - 1 / 2) *
+      ((if 3 ∣ n then (1 : ℝ) else 0) - 1 / 3) ∂(uLaw 4)) = -(1 / 15) := by
+  sorry
+
+/-- centered_complete_pair -/
+example :
+    (∫ n : ℕ, ((if 2 ∣ n then (1 : ℝ) else 0) - 1 / 2) *
+      ((if 3 ∣ n then (1 : ℝ) else 0) - 1 / 3) ∂(uLaw 5)) = 0 := by
+  sorry
+
+/-- weighted_signed_cube: a=-1 at 3, complete period 3. -/
+example :
+    (∫ n, (primeDivisibilitySum {3} (fun _ => -1) n + 1 / 3) ^ 3 ∂(uLaw 2)) =
+      -(2 / 27) := by
+  sorry
+
+/-- weighted_zeroth_moment: 0^0 is 1 in the moment convention. -/
+example (m : ℕ) :
+    (∫ n, (primeDivisibilitySum ∅ (fun _ => 0) n - 0) ^ (0 : ℕ) ∂(uLaw m)) = 1 := by
+  sorry
+
+/-- weighted_empty_positive_moment -/
+example (m : ℕ) (a : ℕ → ℝ) {k : ℕ} (hk : 0 < k) :
+    (∫ n, (primeDivisibilitySum ∅ a n - 0) ^ k ∂(uLaw m)) = 0 := by
+  sorry
+
 end TauCeti.Probability.Arithmetic
