@@ -16365,9 +16365,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #704"
+   "note": "claimed on GitHub issue #704"
   },
   {
    "id": "REV-CrystallineCohomology--CR.0",
@@ -20573,9 +20573,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PerfectoidQuotients.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #971"
+   "note": "released on GitHub issue #971"
   },
   {
    "id": "REV-PerfectoidQuotients",
@@ -23110,7 +23110,7 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
@@ -23118,7 +23118,7 @@
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
    ],
-   "note": "claimed on GitHub issue #1021"
+   "note": "released on GitHub issue #1021"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.0",
@@ -24101,7 +24101,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ExponentialSumsAndCircleMethod.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -24109,7 +24109,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "released on GitHub issue #1040"
+   "note": "claimed on GitHub issue #1040"
   },
   {
    "id": "REV-ExponentialSumsAndCircleMethod",
