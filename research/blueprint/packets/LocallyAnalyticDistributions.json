@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial continuation with67 unchecked nodes. Thirteen L4 declarations supply the missing finite-adjugate and operator-coefficient estimate: native coordinate projections, basis norm detection, finite-coordinate comparison, distinct-output-column bounds, coefficient continuity, the finite-subset limit, a uniform entire-tail estimate and compression through actual (Pr) retractions. All54 predecessor mathematical statements and hypotheses,49 whole node objects,13 reviewed IDs,19 links and six planets are retained. No stage is closed; finite-projective rank/determinant, topology/tensor and all distribution-stage gaps remain explicit.",
+  "summary": "Partial roadmap with the existing adjugate/Hasse/Riesz spine and an explicit eight-node finite-projectivity chain for a complemented root kernel. Geometric inversion, projection of arbitrary finite-A-image approximants, inheritance of (Pr), finite generation and projectivity are separated. Canonical finite-module topology, rank/determinants, actual distribution families and all inherited gaps remain open.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -408,6 +408,69 @@
         "module": "Mathlib/Analysis/Normed/Operator/Basic.lean",
         "provides": "The native operator norm of a composite is bounded by the product of the two norms; applied after restriction to K.",
         "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:geom_sum_mul_neg",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Ring/GeomSum.lean",
+        "provides": "Right finite geometric identity in a noncommutative ring.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; fresh source audit matches the runtime tree."
+      },
+      {
+        "ref": "mathlib:mul_geom_sum",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Ring/GeomSum.lean",
+        "provides": "Left finite geometric identity; changing signs gives the companion used here.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; fresh source audit matches the runtime tree."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.restrict",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Restrict.lean",
+        "provides": "Native continuous restriction to invariant submodules.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; fresh source audit matches the runtime tree."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearEquiv.equivOfInverse",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/Module/Equiv.lean",
+        "provides": "Native continuous equivalence from inverse continuous linear maps.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; fresh source audit matches the runtime tree."
+      },
+      {
+        "ref": "mathlib:Commute.smul_right",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Action/Defs.lean",
+        "provides": "Central scalar multiplication preserves commutation.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; fresh source audit matches the runtime tree."
+      },
+      {
+        "ref": "mathlib:Submodule.projectionOntoL",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/Module/Complement.lean",
+        "provides": "Continuous projection into the submodule itself along a topological complement.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; fresh source audit matches the runtime tree."
+      },
+      {
+        "ref": "mathlib:Submodule.projectionOntoL_apply_left",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Module/Complement.lean",
+        "provides": "The continuous projection fixes each included vector in its target submodule.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; fresh source audit matches the runtime tree."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.completeSpace_ker",
+        "kind": "instance",
+        "module": "Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Basic.lean",
+        "provides": "The native closed kernel in a complete domain is a complete subtype.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; fresh source audit matches the runtime tree."
+      },
+      {
+        "ref": "mathlib:Module.Projective",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Module/Projective.lean",
+        "provides": "The existing algebraic projectivity predicate, defined by a splitting from a free module.",
+        "checked": "Full statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174; fresh source audit matches the runtime tree."
       }
     ]
   },
@@ -425,7 +488,8 @@
         "Codex 2026-09-27: pp. 7-12 (c0, bounded-family extension, operator norm, finite-rank/closure definitions, full Lemma 2.3 and Proposition 2.4); pp. 22-24 (Lemma 3.1 and Proposition 3.2, especially the complete finite-generation paragraph).",
         "Codex codex-7e92bd, 2026-09-27: freshly read full manuscript pp. 22-24, including Hasse definition, root unit argument and Proposition 3.2 proof.",
         "Riesz algebra follow-up, 2026-09-27: full manuscript pp. 23-24 read from the hash-verified public PDF, distinguishing kernel/image uniqueness from finite-projectivity/rank.",
-        "Adjugate continuation,27 September2026: freshly fetched the same public PDF and read the full manuscript p22 for the transfer of Serre Proposition10 to Noetherian Banach algebras and (Pr) modules. Earlier coordinate/source reads are retained as prior provenance."
+        "Adjugate continuation,27 September2026: freshly fetched the same public PDF and read the full manuscript p22 for the transfer of Serre Proposition10 to Noetherian Banach algebras and (Pr) modules. Earlier coordinate/source reads are retained as prior provenance.",
+        "Riesz finiteness follow-up,27 September2026: full manuscript18–20 and23–25 freshly read; geometric inverse and compression of approximants made explicit as worker deductions of Proposition3.2."
       ],
       "note": "Prior readSections retain the predecessor extraction. Codex independently fetched and hash-verified the same 82-page author manuscript, then read physical/manuscript pp. 7-12 and 22-24 for this extension. BGR remains unacquired. This continuation independently fetched the same PDF and rechecked its hash; earlier source reads remain predecessor provenance.",
       "sha256": "0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d",
@@ -444,7 +508,8 @@
         "Section 7: Propositions 11-12 and the projector proof, pp. 80-81",
         "Codex codex-7e92bd, 2026-09-27: fresh full PDF pp. 11-14, printed pp. 78-81; printed p. 81 also rendered to verify the signs, multiplication order and projector formulas.",
         "Riesz algebra follow-up, 2026-09-27: full printed pp. 80-81 (PDF 13-14), especially e, f, complementary projectors, regular inverse and the start of the field-specific dimension count.",
-        "Adjugate continuation,27 September2026: freshly fetched the same published PDF and read full physical PDF11–12 / printed78–79, including all three cases of Lemma3; rendered printed79 to check its cofactor and support formulas. Finite L must range over supersets of the fixed output support and include the tested input coordinate."
+        "Adjugate continuation,27 September2026: freshly fetched the same published PDF and read full physical PDF11–12 / printed78–79, including all three cases of Lemma3; rendered printed79 to check its cofactor and support formulas. Finite L must range over supersets of the fixed output support and include the tested input coordinate.",
+        "Riesz finiteness follow-up,27 September2026: full printed80–82/PDF13–15 freshly read; field-dimension proof not transferred to Banach algebras."
       ],
       "note": "The product identity and Hasse-derivative formulas were also checked in rendered pages. No blanket assertion that field-specific dimension arguments transfer to Banach algebras. This continuation independently fetched and hash-verified the PDF. Coleman source reads remain inherited; the downloaded Coleman PDF was not freshly read for this checkpoint.",
       "sha256": "67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402",
@@ -1812,12 +1877,15 @@
         "LocallyAnalyticDistributions:L4/entire-root-unit",
         "LocallyAnalyticDistributions:L4/riesz-topological-splitting",
         "LocallyAnalyticDistributions:L4/riesz-regular-inverse",
-        "LocallyAnalyticDistributions:L4/riesz-commuting-stability"
+        "LocallyAnalyticDistributions:L4/riesz-commuting-stability",
+        "LocallyAnalyticDistributions:L4/riesz-kernel-finite",
+        "LocallyAnalyticDistributions:L4/riesz-kernel-projective",
+        "LocallyAnalyticDistributions:L4/riesz-kernel-operator-equiv"
       ],
       "proofSteps": [
         "For h>0 apply entire-root-unit to P_u, whose constant coefficient is one. The explicit lower and normalized Hasse-annihilation nodes give v^h(1-vb)=0 with b=c^(-1)z_h. The named formula E=1-(vb)^h and its idempotence and kernel/image lemmas supply N=ker(v^h)=image(E) and F=image(v^h)=ker(E). Order zero gives E=0 and F=M directly from the original resolvent identity.",
         "Use riesz-topological-splitting for closed topological complements and the native projectionL comparison, riesz-regular-inverse for the actual continuous inverse on F, and riesz-projector-closure plus riesz-commuting-stability for the polynomial-closure and invariance assertions. These algebraic/analytic splitting steps do not supply finite generation or rank.",
-        "On N the identity is a polynomial in u without constant term, so it is completely continuous. Apply compact-identity-finite and finite-pr-projective.",
+        "Use riesz-kernel-compact-identity for N=ker(v^h), compressing arbitrary finite-A-image approximants through the actual continuous projection. Then riesz-kernel-finite supplies finite generation, riesz-kernel-pr transfers (Pr), and riesz-kernel-projective invokes the existing finite-pr-projective theorem. Its finite-module-topology gap remains; no rank or determinant equality follows from these three properties alone.",
         "Use direct-sum determinant factorization and fredholm-resolvent on F. Establish rank h at each maximal-ideal fibre before claiming a unit leading coefficient: finite projective modules can have varying rank. On each fibre nilpotence and the exact order h give rank h. With constant rank established, analytic division and polynomial degree then identify P_(u|N) exactly. Equality after residue-field reduction alone is not a valid argument over nonreduced A. The finite-projective determinant and local-rank API is an explicit remaining gap."
       ],
       "acceptance": [
@@ -3616,6 +3684,388 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-geometric-factor",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Finite geometric factor for the root operator",
+      "kind": "lemma",
+      "statement": "For every continuous A-linear u, a∈A and h≥0, the single finite sum B=a Σ_{0≤j<h}(1−au)^j satisfies uB=Bu=1−(1−au)^h.",
+      "hypotheses": [
+        "A is a commutative normed ring; M is a normed additive commutative group with an A-module structure and jointly continuous scalar multiplication. All maps are native continuous A-linear maps.",
+        "Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed."
+      ],
+      "proofSteps": [
+        "The finite geometric identities give (1−v)Σv^j=Σv^j(1−v)=1−v^h in the endomorphism ring. The right identity is the native geom_sum_mul_neg; the left follows from mul_geom_sum by changing the sign, or directly by induction.",
+        "Use 1−v=au and centrality of the A-scalar action to move the scalar a across composition. Both factor identities hold without division by a."
+      ],
+      "prerequisites": [
+        "mathlib:geom_sum_mul_neg",
+        "mathlib:mul_geom_sum"
+      ],
+      "acceptance": [
+        "For h=0 both products and 1−v^0 are zero. For a=1 and u=1+j with j²=0, h=2 gives B=1−j."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "riesz_geometric_factor"
+      },
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
+          "excerpt": "the identity is compact",
+          "match": "The source makes the identity on N a polynomial in u with no constant term. This explicit geometric factor and its generality without a unit parameter are worker deductions of that step."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-kernel-operator-equiv",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Continuous inverse on the root kernel",
+      "kind": "construction",
+      "statement": "Define rieszKernelOperatorEquiv(u,a,h) to be the native continuous A-linear automorphism of N whose forward map is the restriction of u and whose inverse is the restriction of B=a Σ_{j<h}(1−au)^j.",
+      "hypotheses": [
+        "A is a commutative normed ring; M is a normed additive commutative group with an A-module structure and jointly continuous scalar multiplication. All maps are native continuous A-linear maps.",
+        "Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed."
+      ],
+      "proofSteps": [
+        "The endomorphisms u and B commute with v and hence v^h; applying the commutation relation to a vector killed by v^h shows that both preserve N. Use the native ContinuousLinearMap.restrict for these two maps.",
+        "On N, the two products from riesz-geometric-factor are identity because v^h vanishes. Apply ContinuousLinearEquiv.equivOfInverse to the actual continuous restrictions. The inverse uses a finite sum, so it has no convergence hypothesis."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-geometric-factor",
+        "mathlib:ContinuousLinearMap.restrict",
+        "mathlib:ContinuousLinearEquiv.equivOfInverse",
+        "mathlib:Commute.smul_right"
+      ],
+      "acceptance": [
+        "The construction does not replace N by a chosen finite free model and does not assume finite generation, a unit root parameter, a Fredholm series or complete continuity."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "rieszKernelOperatorEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
+          "excerpt": "φ has an inverse on N",
+          "match": "The source uses invertibility on N on p.24. The finite geometric inverse is made explicit here and is valid before any rank or determinant argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Buzzard Proposition3.2, manuscript p.24",
+          "how": "Identify the actual continuous inverse of u on the nilpotent root summand before considering its finite-projective determinant."
+        },
+        {
+          "where": "riesz-compressed-approximation and finite-slope-summands",
+          "how": "The underlying geometric factor gives the left inverse on the included root kernel; the native equivalence records that no inverse of the root parameter is needed."
+        }
+      ],
+      "api": [
+        {
+          "name": "rieszKernelOperatorEquiv_apply",
+          "role": "coercion",
+          "statement": "For x∈N the image under the equivalence, viewed in M, is u(x)."
+        },
+        {
+          "name": "rieszKernelOperatorEquiv_symm_apply",
+          "role": "simp",
+          "statement": "For x∈N the inverse image, viewed in M, is B(x)."
+        },
+        {
+          "name": "rieszKernelOperatorEquiv_subtype",
+          "role": "compatibility",
+          "statement": "Composing the equivalence with the native inclusion i equals u composed with i, as continuous A-linear maps N→M."
+        }
+      ],
+      "tests": [
+        {
+          "name": "riesz_inverse_order_zero",
+          "kind": "degenerate",
+          "statement": "At h=0 every x∈ker(v^0) is zero, and its image under the equivalence is zero."
+        },
+        {
+          "name": "riesz_inverse_zero_parameter",
+          "kind": "degenerate",
+          "statement": "At a=0, for every h, every x∈N is zero and its inverse image is zero."
+        },
+        {
+          "name": "riesz_inverse_identity",
+          "kind": "compatibility",
+          "statement": "For u=identity and a=1, both the equivalence and its inverse fix every element of N, for every h."
+        },
+        {
+          "name": "riesz_inverse_jordan",
+          "kind": "computation",
+          "statement": "If j²=0, u=1+j, a=1 and h=2, the inverse on N acts by 1−j, including in characteristic two."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/pr-continuous-retract",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Property (Pr) under continuous retractions",
+      "kind": "lemma",
+      "statement": "If P has (Pr) and continuous A-linear maps i:M→P and r:P→M satisfy ri=identity, then M has (Pr). This is the existing hasPr_retract API promoted before consumption.",
+      "hypotheses": [
+        "A is a commutative normed ring; M is a normed additive commutative group with an A-module structure and jointly continuous scalar multiplication. All maps are native continuous A-linear maps.",
+        "P is another normed A-module in the same universe as M; no finite-generation hypothesis is needed."
+      ],
+      "proofSteps": [
+        "Choose the defining continuous split inclusion s:P→c_A(I) and retraction t:c_A(I)→P. The composite maps si and rt are continuous and their product is rtsi=ri=identity.",
+        "Reuse the existing HasPr definition and existing hasPr_retract declaration; no second notion of a projective Banach module is introduced."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/projective-banach-modules"
+      ],
+      "acceptance": [
+        "Taking i=r=identity retains the original property. No conclusion of algebraic projectivity is made without the finite-generation hypothesis."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "hasPr_retract"
+      },
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Definition of (Pr), full manuscript pp.18–19, and use of Lemma2.11 on p.23",
+          "excerpt": "direct summand",
+          "match": "The source defines (Pr) by a continuous direct summand of a potentially ONable module. Transitivity of its split inclusion is the existing API proof, now given its own dependency node."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-kernel-pr",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Property (Pr) of the complemented root kernel",
+      "kind": "lemma",
+      "statement": "If M has (Pr) and N=ker((1−au)^h) has a native topological complement F, then N has (Pr).",
+      "hypotheses": [
+        "A is a commutative normed ring; M is a normed additive commutative group with an A-module structure and jointly continuous scalar multiplication. All maps are native continuous A-linear maps.",
+        "Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.",
+        "F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB."
+      ],
+      "proofSteps": [
+        "Use the native inclusion i and projection π onto N along F. The library projectionOntoL_apply_left gives πi=identity on N.",
+        "Apply pr-continuous-retract to this actual continuous retraction. In the Hasse Riesz setting riesz-topological-splitting supplies F=image(v^h) and the required topological complement."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/pr-continuous-retract",
+        "mathlib:Submodule.projectionOntoL",
+        "mathlib:Submodule.projectionOntoL_apply_left"
+      ],
+      "acceptance": [
+        "This does not require u to be completely continuous. At h=0 the kernel is zero and the statement still applies."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "riesz_kernel_hasPr"
+      },
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
+          "excerpt": "the identity is compact",
+          "match": "Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-compressed-approximation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Finite-image approximation of the root identity",
+      "kind": "lemma",
+      "statement": "For any α:M→M with finite A-image, define β=lαi:N→N using l=πB. Then β has finite A-image and ‖identity_N−β‖_K≤D‖u−α‖_K, where D=‖l‖_K‖i‖_K. The map α need not preserve N.",
+      "hypotheses": [
+        "K is a complete nontrivially normed field; A is a nonzero complete Noetherian normed K-algebra with norm one for 1. M is a complete normed K-space and an A-module with compatible scalar tower and continuous A-action. Norms of A-linear maps mean the native K-operator norms after restriction of scalars.",
+        "Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.",
+        "F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB."
+      ],
+      "proofSteps": [
+        "The geometric factor gives Bui=i, because v^h i=0. Apply πi=identity to obtain lui=identity_N. This is a kernel-specific adapter, not a new generic complete-continuity composition theorem.",
+        "If range(α) lies in a finitely generated A-submodule Q of M, range(β) lies in l(Q). The native Submodule.FG.map makes l(Q) finitely generated. Thus α is composed with πB rather than restricted to a submodule it may not preserve.",
+        "Subtract composites to obtain identity_N−β=l(u−α)i. Restrict scalars to K and apply ContinuousLinearMap.opNorm_comp_le twice. Retain both norm factors; the projection need not be contractive."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-geometric-factor",
+        "LocallyAnalyticDistributions:L4/finite-image-range-comparison",
+        "mathlib:Submodule.projectionOntoL",
+        "mathlib:Submodule.projectionOntoL_apply_left",
+        "mathlib:Submodule.FG.map",
+        "mathlib:ContinuousLinearMap.opNorm_comp_le"
+      ],
+      "acceptance": [
+        "On K² with u=diag(1,0), a=1, h=1 and the coordinate complement, an approximant sending e₁ to e₁+εe₂ does not preserve N. Its compression β nevertheless equals identity_N.",
+        "The finite-image condition is over A, not finite K-rank. D may be zero on the zero module; the following tolerance choice includes that case."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "riesz_compressed_approximation"
+      },
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
+          "excerpt": "the identity is compact",
+          "match": "Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-kernel-compact-identity",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Complete continuity of the root identity",
+      "kind": "lemma",
+      "statement": "If u is completely continuous and N=ker((1−au)^h) has a native topological complement F, then identity_N is completely continuous in the imported ordinary complete-continuity sense.",
+      "hypotheses": [
+        "K is a complete nontrivially normed field; A is a nonzero complete Noetherian normed K-algebra with norm one for 1. M is a complete normed K-space and an A-module with compatible scalar tower and continuous A-action. Norms of A-linear maps mean the native K-operator norms after restriction of scalars.",
+        "Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.",
+        "F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB."
+      ],
+      "proofSteps": [
+        "Fix ε>0 and put D=‖πB‖_K‖i‖_K≥0. The existing norm-approximation comparison supplies finite-A-image α with ‖u−α‖_K<ε/(D+1).",
+        "Compress α by riesz-compressed-approximation. Its error is at most D‖u−α‖_K, which is strictly less than ε: bound it by (D+1)‖u−α‖_K and multiply the strict approximation inequality by the positive D+1. This proof also handles D=0.",
+        "Apply completely-continuous-norm-approximation to identity_N. N is complete by the native completeSpace_ker instance. The predicate and its generality remain owned by AdicSpacesPartII:R3; this result is only its Riesz-kernel application."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-compressed-approximation",
+        "LocallyAnalyticDistributions:L4/completely-continuous-norm-approximation",
+        "mathlib:ContinuousLinearMap.completeSpace_ker"
+      ],
+      "acceptance": [
+        "No countable approximating sequence or invariant approximant is assumed. The h=0 and a=0 kernels are zero."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "riesz_kernel_identity_completelyContinuous"
+      },
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
+          "excerpt": "the identity is compact",
+          "match": "Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-kernel-finite",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Finite generation of the root kernel",
+      "kind": "theorem",
+      "statement": "If u is completely continuous and N=ker((1−au)^h) has a native topological complement F, then N is a finite A-module.",
+      "hypotheses": [
+        "K is a complete nontrivially normed field; A is a nonzero complete Noetherian normed K-algebra with norm one for 1. M is a complete normed K-space and an A-module with compatible scalar tower and continuous A-action. Norms of A-linear maps mean the native K-operator norms after restriction of scalars.",
+        "Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.",
+        "F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB."
+      ],
+      "proofSteps": [
+        "Use riesz-kernel-compact-identity and the native completeness of the closed kernel. Apply the already planned compact-identity-finite equivalence.",
+        "This invokes the existing Neumann approximation proof once; do not re-plan it or substitute a real/complex compact-operator theorem. Neither (Pr) nor finite K-dimension is required for this conclusion."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-kernel-compact-identity",
+        "LocallyAnalyticDistributions:L4/compact-identity-finite",
+        "mathlib:ContinuousLinearMap.completeSpace_ker"
+      ],
+      "acceptance": [
+        "The conclusion is Module.Finite over the coefficient ring A; for infinite-dimensional A over K, this does not imply finite-dimensionality over K."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "riesz_kernel_finite"
+      },
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Proposition 3.2, complete proof on manuscript pp.23–24",
+          "excerpt": "the identity is compact",
+          "match": "Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/riesz-kernel-projective",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Projectivity of the finite root kernel",
+      "kind": "theorem",
+      "statement": "If M has (Pr), u is completely continuous and N=ker((1−au)^h) has a native topological complement F, then N is an algebraically projective A-module; together with riesz-kernel-finite it is finite projective.",
+      "hypotheses": [
+        "K is a complete nontrivially normed field; A is a nonzero complete Noetherian normed K-algebra with norm one for 1. M is a complete normed K-space and an A-module with compatible scalar tower and continuous A-action. Norms of A-linear maps mean the native K-operator norms after restriction of scalars.",
+        "Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.",
+        "F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB."
+      ],
+      "proofSteps": [
+        "Apply riesz-kernel-pr and riesz-kernel-finite to N with the given continuous projection. The native closed-kernel instance supplies its completeness.",
+        "Invoke the existing finite-pr-projective theorem, whose proof lifts identity through a continuous finite-free surjection and forgets topology. Its finite-module-topology dependency remains an explicit gap; this checkpoint does not establish that supplier.",
+        "In riesz-root-projectors specialize F to image(v^h) using riesz-topological-splitting. The root order and Hasse conditions are needed to construct that complement, not in the present finite-projectivity adapter."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/riesz-kernel-pr",
+        "LocallyAnalyticDistributions:L4/riesz-kernel-finite",
+        "LocallyAnalyticDistributions:L4/finite-pr-projective",
+        "mathlib:ContinuousLinearMap.completeSpace_ker",
+        "mathlib:Module.Projective"
+      ],
+      "acceptance": [
+        "For A=K×K, u=identity and a=(1,0), h=1 gives N=(1,0)A, a finite projective module with varying component rank. The parameter a is not a unit; no freeness or constant rank follows from this theorem.",
+        "The constant-rank h and exact determinant assertions of the full Fredholm-root theorem require its remaining nonreduced determinant argument."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "riesz_kernel_projective"
+      },
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Lemma2.11, manuscript p.19, and Proposition3.2 proof, pp.23–24",
+          "excerpt": "By Lemma 2.11, N is projective.",
+          "match": "Separates the finite-generation and (Pr) inputs from the remaining rank/determinant proof. The native algebraic projectivity carrier is reused."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -3762,7 +4212,8 @@
         "Prove continuity and complete continuity of the actual modular-symbol/automorphic semigroup operators and scalar-extension compatibility on slope-adapted affinoids. Include positive-order nonmeasure and order-zero/multivariable acceptance tests.",
         "Complete the explicitly omitted signatures, especially completed-tensor base change and the Riesz/slope hypotheses. The present partial suggested file elaborates at the pin; this is not a formalization claim.",
         "Resolve the imported complete-continuity generality request in AdicSpacesPartII:R3 without creating a second predicate or silently importing its strict variant.",
-        "The root projector and canonical topological decomposition are now separately specified. Complete the finite-projective determinant/rank and exact-slope arguments; the continuous regular inverse alone supplies neither rank nor polynomial determinant equality."
+        "The root projector and canonical topological decomposition are now separately specified. Complete the finite-projective determinant/rank and exact-slope arguments; the continuous regular inverse alone supplies neither rank nor polynomial determinant equality.",
+        "The root-kernel geometric inverse and finite-projectivity chain are separately decomposed. Discharge the existing canonical finite-module-topology input, then the constant-rank and determinant argument over nonreduced coefficients; the new adapter does not settle those gaps."
       ]
     }
   ],
@@ -3790,7 +4241,7 @@
     },
     {
       "title": "Remaining analytic helper and API granularity",
-      "detail": "Hasse calculus, Riesz projector algebra and the operator-valued adjugate estimate now have separate nodes and typed signatures. The latter includes distinct-column finite bounds, finite output support, arbitrary finite-subset nets, fixed-degree recurrence continuity and the actual (Pr) compression factor. Remaining helper/API work: finite-free determinant comparison in greater detail, the lifting-converse bounded generating family, polynomial division estimates and finite-projective determinant/rank. These are not closed by the new resolvent estimate."
+      "detail": "Hasse calculus, Riesz projector algebra and the operator-valued adjugate estimate now have separate nodes and typed signatures. The latter includes distinct-column finite bounds, finite output support, arbitrary finite-subset nets, fixed-degree recurrence continuity and the actual (Pr) compression factor. Remaining helper/API work: finite-free determinant comparison in greater detail, the lifting-converse bounded generating family, polynomial division estimates and finite-projective determinant/rank. These are not closed by the new resolvent estimate. The finite-projectivity paragraph now has a finite geometric inverse, actual projection/compression estimate, compact identity, finite generation and (Pr) inheritance nodes; their finite-module-topology dependency remains."
     },
     {
       "title": "Distribution stages and universal-character families",
@@ -3798,7 +4249,7 @@
     },
     {
       "title": "Prototype and validation boundary",
-      "detail": "The current seed supplies typed adjugate, finite-coordinate, coefficient-bound, arbitrary-filter continuity and retraction signatures, in addition to the earlier Hasse and Riesz algebra. The full finite-projective Riesz/slope signatures and completed-tensor base-change API remain omitted for the inherited determinant/rank, spectral-resultant and actual tensor-carrier reasons. Inherited assumptions still require audit as the remaining topology/lifting/division signatures are filled. Compilation checks types; all implementation statuses remain unchecked."
+      "detail": "The current seed supplies typed adjugate, finite-coordinate, coefficient-bound, arbitrary-filter continuity and retraction signatures, in addition to the earlier Hasse and Riesz algebra. The full finite-projective Riesz/slope signatures and completed-tensor base-change API remain omitted for the inherited determinant/rank, spectral-resultant and actual tensor-carrier reasons. Inherited assumptions still require audit as the remaining topology/lifting/division signatures are filled. Compilation checks types; all implementation statuses remain unchecked. Native signatures for the root-kernel inverse, approximation, finite generation and algebraic projectivity, and the existing finite-pr-projective node are now supplied. The full constant-rank/determinant theorem remains omitted for the stated gap."
     },
     {
       "title": "Imported complete-continuity contract beyond affinoids",
@@ -3846,120 +4297,104 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
     "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "Empty list retained; errata wrapper passes.",
+    "sourceIssues": "Empty predecessor list preserved; errata wrapper passes.",
     "validation": {
-      "nodes": 67,
+      "nodes": 75,
       "kinds": {
         "comparison": 7,
-        "construction": 9,
+        "construction": 10,
         "definition": 3,
-        "lemma": 32,
-        "theorem": 16
+        "lemma": 37,
+        "theorem": 18
       },
-      "api": 46,
-      "definitionConstructionApi": 42,
-      "definitionConstructionTests": 38,
-      "packetTests": 56,
-      "typedExamples": 56,
+      "api": 49,
+      "definitionConstructionApi": 45,
+      "definitionConstructionTests": 42,
+      "packetTests": 60,
+      "typedExamples": 60,
       "planets": 6,
-      "baseline": 66,
-      "preservedStatementsAndHypotheses": 54,
-      "preservedWholeNodes": 49,
-      "changedMetadata": [
-        "c0-lift",
-        "orthonormalizable-modules",
-        "compact-matrix-criterion",
-        "resolvent-series",
-        "resolvent-hasse-evaluation"
-      ],
+      "baseline": 75,
+      "preservedWholeNodes": 66,
+      "preservedStatementsAndHypotheses": 67,
+      "preservedAdjugateNodes": 13,
       "preservedSourceIssues": 0,
-      "newNodes": 13,
-      "newNamedDeclarations": 15,
-      "newTypedTests": 7,
-      "reachableNodes": 67,
-      "dependencyEdges": 230,
-      "internalEdges": 140,
+      "newSourceIssues": 0,
+      "newNodes": 8,
+      "newNamedDeclarations": 11,
+      "newTypedTests": 4,
+      "reachableNodes": 75,
+      "dependencyEdges": 260,
       "acyclic": true,
-      "analyticChainIndependentOfConsumer": true,
-      "baselineLeaves": 63,
-      "openStageLeaves": [
+      "baselineLeaves": 72,
+      "stageRequestLeaves": [
         "AdicSpacesPartII:R3"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 150,
+      "compilerWarnings": 165,
       "allWarningsPlaceholders": true,
       "pinnedMathlibModules": 1890,
-      "pinnedTauCetiModules": 0,
       "actualSupplierImports": 0,
-      "scratchCompleteTheorems": 7,
-      "scratchCompleteConstruction": 1,
+      "scratchCompleteLemmas": 11,
+      "scratchNativeConstructions": 1,
+      "scratchMathlibModules": 1633,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "scratchMathlibModules": 1635,
-      "readerWords": 13315,
+      "arithmeticAssertions": 611,
+      "readerWords": 16286,
       "scopedMutationCheck": true,
       "requests": 5,
       "gaps": 8,
-      "closedStages": 0
+      "closedStages": 0,
+      "blueprintErrors": 0,
+      "blueprintWarnings": 0,
+      "intakeProblems": 0,
+      "errataErrors": 0
     },
     "arithmetic": {
-      "assertions": 56192,
-      "systems": 2190,
+      "assertions": 611,
       "counts": {
-        "adjugate recurrence": 11235,
-        "distinct column bound": 11235,
-        "uniform tail bound": 33705,
-        "actual retraction identity": 3,
-        "recurrence compression": 3,
-        "fixed operator norm factors": 3,
-        "omitting factors fails": 3,
-        "boundary controls": 5
+        "approximant does not preserve kernel": 18,
+        "compressed error with actual projection norm": 18,
+        "omitting projection factor fails": 18,
+        "left geometric identity": 270,
+        "right geometric identity": 270,
+        "Jordan inverse": 15,
+        "nonunit parameter kernel is first factor": 1,
+        "root kernel has varying component rank": 1
       },
       "primes": [
         2,
         3,
         5
       ],
-      "dimensions": [
-        1,
-        2,
-        3
-      ],
-      "coefficientRing": "Q_p[epsilon]/epsilon^2, exact rational coefficient pairs and max p-adic norm",
-      "controls": {
-        "positive_degree_diagonal_not_power": true,
-        "image_support_does_not_test_every_input": true,
-        "nilpotent_nonzero_resolvent": true,
-        "nonreduced_coefficients_retained": true,
-        "degree_zero_empty_product": true
-      },
-      "scope": "Exact finite matrix algebra and norm tests. No claim to prove infinite-dimensional norm convergence, finite generation, rank or the roadmap."
+      "scope": "Exact rational two-by-two geometric identities and p-adic norm compression controls; no infinite-dimensional or projectivity theorem is inferred."
     },
     "lean": {
-      "suggestedFileSha256": "69ae6ffedf1ddf481cb1b854c1f1a5b07e07e6731bd53449d0dd1611eb17edac",
+      "suggestedFileSha256": "f56d4005a203eeed9f5ab30a4cee420d520e4fb83f0cb4d4380d176e145e9cfa",
       "errors": 0,
-      "warnings": 150,
+      "warnings": 165,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 1890,
       "tauCetiModules": 0,
       "actualSupplierImports": 0,
-      "sourceAuditSha256": "afdb1343b18944104008386ee542e298d07c2a993df7ee88878d47ca24f417df",
-      "scratchProofSha256": "801382a1b43e6767f3d2a8224486ff270fd23d35427e60968467e4bd149686a9",
-      "scratchCompleteTheorems": 7,
-      "scratchCompleteConstruction": 1,
+      "sourceAuditSha256": "527a44b81d401ded3a68ef0a9cdeb09154f986221bf9f51697efc52c2dee195e",
+      "scratchProofSha256": "44740c24c36f76590eb2df8b3b4e83432277027f14d10e6b3d9b62325d7d037e",
+      "scratchCompleteLemmas": 11,
+      "scratchNativeConstructions": 1,
       "scratchProofErrors": 0,
       "scratchProofWarnings": 0,
       "scratchProofPlaceholders": 0,
-      "scratchSourceModules": 1635
+      "scratchSourceModules": 1633
     },
     "publication": {
-      "baseCommit": "68a8ef428abed4c02305d7654bb080c0001a9e3b",
-      "capturedInputs": 48,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5853318725
+      "base": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
+      "unchangedInputs": 46,
+      "unchangedOutputs": 4,
+      "issueAvailable": true,
+      "lastClaimConfirmation": 5853318725,
+      "reviewIssue": 316,
+      "reviewUnclaimed": true
     },
     "closure": "Partial; eight gaps, five requests, no closed stages; every implementation status unchecked."
   },
@@ -4102,6 +4537,247 @@
           "allFourPredecessorOutputsUnchanged": true,
           "unchangedIssueBody": true,
           "claimConfirmation": 5853318725
+        },
+        "closure": "Partial; eight gaps, five requests, no closed stages; every implementation status unchecked."
+      }
+    },
+    "rieszFiniteness": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 641,
+      "claimComment": 5853317954,
+      "winningBot": 5853318725,
+      "predecessorPR": 3198,
+      "predecessorHead": "3fee04eb19372659f0e02be31f753f2683b626c8",
+      "predecessorMerge": "065cea18c60c6e3a95cd11bcc1ef577203784e37",
+      "priorNodes": 67,
+      "newNodes": 8,
+      "preservedWholeNodes": 66,
+      "preservedStatementsAndHypotheses": 67,
+      "changedNode": "riesz-root-projectors: third proof step and three additional prerequisites only",
+      "newBaseline": 9,
+      "ownership": "Retains native kernel, continuous equivalence, projection and Module.Projective; promotes the existing hasPr_retract API once. AdicSpacesPartII:R3 owns the unchanged complete-continuity predicate and generality request.",
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "Empty list retained; errata wrapper passes.",
+        "validation": {
+          "nodes": 67,
+          "kinds": {
+            "comparison": 7,
+            "construction": 9,
+            "definition": 3,
+            "lemma": 32,
+            "theorem": 16
+          },
+          "api": 46,
+          "definitionConstructionApi": 42,
+          "definitionConstructionTests": 38,
+          "packetTests": 56,
+          "typedExamples": 56,
+          "planets": 6,
+          "baseline": 66,
+          "preservedStatementsAndHypotheses": 54,
+          "preservedWholeNodes": 49,
+          "changedMetadata": [
+            "c0-lift",
+            "orthonormalizable-modules",
+            "compact-matrix-criterion",
+            "resolvent-series",
+            "resolvent-hasse-evaluation"
+          ],
+          "preservedSourceIssues": 0,
+          "newNodes": 13,
+          "newNamedDeclarations": 15,
+          "newTypedTests": 7,
+          "reachableNodes": 67,
+          "dependencyEdges": 230,
+          "internalEdges": 140,
+          "acyclic": true,
+          "analyticChainIndependentOfConsumer": true,
+          "baselineLeaves": 63,
+          "openStageLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 150,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 1890,
+          "pinnedTauCetiModules": 0,
+          "actualSupplierImports": 0,
+          "scratchCompleteTheorems": 7,
+          "scratchCompleteConstruction": 1,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchMathlibModules": 1635,
+          "readerWords": 13315,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "arithmetic": {
+          "assertions": 56192,
+          "systems": 2190,
+          "counts": {
+            "adjugate recurrence": 11235,
+            "distinct column bound": 11235,
+            "uniform tail bound": 33705,
+            "actual retraction identity": 3,
+            "recurrence compression": 3,
+            "fixed operator norm factors": 3,
+            "omitting factors fails": 3,
+            "boundary controls": 5
+          },
+          "primes": [
+            2,
+            3,
+            5
+          ],
+          "dimensions": [
+            1,
+            2,
+            3
+          ],
+          "coefficientRing": "Q_p[epsilon]/epsilon^2, exact rational coefficient pairs and max p-adic norm",
+          "controls": {
+            "positive_degree_diagonal_not_power": true,
+            "image_support_does_not_test_every_input": true,
+            "nilpotent_nonzero_resolvent": true,
+            "nonreduced_coefficients_retained": true,
+            "degree_zero_empty_product": true
+          },
+          "scope": "Exact finite matrix algebra and norm tests. No claim to prove infinite-dimensional norm convergence, finite generation, rank or the roadmap."
+        },
+        "lean": {
+          "suggestedFileSha256": "69ae6ffedf1ddf481cb1b854c1f1a5b07e07e6731bd53449d0dd1611eb17edac",
+          "errors": 0,
+          "warnings": 150,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 1890,
+          "tauCetiModules": 0,
+          "actualSupplierImports": 0,
+          "sourceAuditSha256": "afdb1343b18944104008386ee542e298d07c2a993df7ee88878d47ca24f417df",
+          "scratchProofSha256": "801382a1b43e6767f3d2a8224486ff270fd23d35427e60968467e4bd149686a9",
+          "scratchCompleteTheorems": 7,
+          "scratchCompleteConstruction": 1,
+          "scratchProofErrors": 0,
+          "scratchProofWarnings": 0,
+          "scratchProofPlaceholders": 0,
+          "scratchSourceModules": 1635
+        },
+        "publication": {
+          "baseCommit": "68a8ef428abed4c02305d7654bb080c0001a9e3b",
+          "capturedInputs": 48,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5853318725
+        },
+        "closure": "Partial; eight gaps, five requests, no closed stages; every implementation status unchecked."
+      },
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "Empty predecessor list preserved; errata wrapper passes.",
+        "validation": {
+          "nodes": 75,
+          "kinds": {
+            "comparison": 7,
+            "construction": 10,
+            "definition": 3,
+            "lemma": 37,
+            "theorem": 18
+          },
+          "api": 49,
+          "definitionConstructionApi": 45,
+          "definitionConstructionTests": 42,
+          "packetTests": 60,
+          "typedExamples": 60,
+          "planets": 6,
+          "baseline": 75,
+          "preservedWholeNodes": 66,
+          "preservedStatementsAndHypotheses": 67,
+          "preservedAdjugateNodes": 13,
+          "preservedSourceIssues": 0,
+          "newSourceIssues": 0,
+          "newNodes": 8,
+          "newNamedDeclarations": 11,
+          "newTypedTests": 4,
+          "reachableNodes": 75,
+          "dependencyEdges": 260,
+          "acyclic": true,
+          "baselineLeaves": 72,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 165,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 1890,
+          "actualSupplierImports": 0,
+          "scratchCompleteLemmas": 11,
+          "scratchNativeConstructions": 1,
+          "scratchMathlibModules": 1633,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "arithmeticAssertions": 611,
+          "readerWords": 16286,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0,
+          "blueprintErrors": 0,
+          "blueprintWarnings": 0,
+          "intakeProblems": 0,
+          "errataErrors": 0
+        },
+        "arithmetic": {
+          "assertions": 611,
+          "counts": {
+            "approximant does not preserve kernel": 18,
+            "compressed error with actual projection norm": 18,
+            "omitting projection factor fails": 18,
+            "left geometric identity": 270,
+            "right geometric identity": 270,
+            "Jordan inverse": 15,
+            "nonunit parameter kernel is first factor": 1,
+            "root kernel has varying component rank": 1
+          },
+          "primes": [
+            2,
+            3,
+            5
+          ],
+          "scope": "Exact rational two-by-two geometric identities and p-adic norm compression controls; no infinite-dimensional or projectivity theorem is inferred."
+        },
+        "lean": {
+          "suggestedFileSha256": "f56d4005a203eeed9f5ab30a4cee420d520e4fb83f0cb4d4380d176e145e9cfa",
+          "errors": 0,
+          "warnings": 165,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 1890,
+          "tauCetiModules": 0,
+          "actualSupplierImports": 0,
+          "sourceAuditSha256": "527a44b81d401ded3a68ef0a9cdeb09154f986221bf9f51697efc52c2dee195e",
+          "scratchProofSha256": "44740c24c36f76590eb2df8b3b4e83432277027f14d10e6b3d9b62325d7d037e",
+          "scratchCompleteLemmas": 11,
+          "scratchNativeConstructions": 1,
+          "scratchProofErrors": 0,
+          "scratchProofWarnings": 0,
+          "scratchProofPlaceholders": 0,
+          "scratchSourceModules": 1633
+        },
+        "publication": {
+          "base": "a8cf18edb47632a3ec9af5908dbfcc35489cdcc6",
+          "unchangedInputs": 46,
+          "unchangedOutputs": 4,
+          "issueAvailable": true,
+          "lastClaimConfirmation": 5853318725,
+          "reviewIssue": 316,
+          "reviewUnclaimed": true
         },
         "closure": "Partial; eight gaps, five requests, no closed stages; every implementation status unchecked."
       }

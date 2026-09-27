@@ -1,3 +1,5 @@
+import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict
+import Mathlib.Algebra.Module.Projective
 import Mathlib.LinearAlgebra.Matrix.Adjugate
 import Mathlib.Topology.ContinuousMap.ZeroAtInfty
 import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
@@ -1007,4 +1009,104 @@ example : Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (nilpotentTwo (
 example (a : A) :
     ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a 0).map (Polynomial.C : A →+* Polynomial A))) 1 1).coeff 1 = -a ∧
     ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • (diagonalTwo a 0).map (Polynomial.C : A →+* Polynomial A))) 0 0).coeff 1 = 0 := by sorry
+end TauCeti.NonarchimedeanFredholm
+
+/-! Riesz finite generation and projectivity. The geometric statements need only
+continuous A-scalar multiplication; no unit hypothesis on the root parameter.
+This section extends the existing native kernel and (Pr) interfaces. -/
+namespace TauCeti.NonarchimedeanFredholm
+section RieszFiniteness
+universe u v
+variable {A : Type u} {M : Type v} [NormedCommRing A]
+  [NormedAddCommGroup M] [Module A M] [ContinuousSMul A M]
+
+/-- L4/riesz-geometric-factor. -/
+lemma riesz_geometric_factor (u : M →L[A] M) (a : A) (h : ℕ) :
+    let B := a • ∑ j ∈ Finset.range h, (1-a • u)^j
+    u * B = 1-(1-a • u)^h ∧ B * u = 1-(1-a • u)^h := by sorry
+
+/-- L4/riesz-kernel-operator-equiv. Its inverse is the finite geometric sum. -/
+def rieszKernelOperatorEquiv (u : M →L[A] M) (a : A) (h : ℕ) :
+    ((1-a • u)^h).ker ≃L[A] ((1-a • u)^h).ker := by sorry
+
+lemma rieszKernelOperatorEquiv_apply (u : M →L[A] M) (a : A) (h : ℕ)
+    (x : ((1-a • u)^h).ker) :
+    (rieszKernelOperatorEquiv u a h x : M) = u x := by sorry
+
+lemma rieszKernelOperatorEquiv_symm_apply (u : M →L[A] M) (a : A) (h : ℕ)
+    (x : ((1-a • u)^h).ker) :
+    ((rieszKernelOperatorEquiv u a h).symm x : M) =
+      (a • ∑ j ∈ Finset.range h, (1-a • u)^j) x := by sorry
+
+lemma rieszKernelOperatorEquiv_subtype (u : M →L[A] M) (a : A) (h : ℕ) :
+    ((1-a • u)^h).ker.subtypeL.comp (rieszKernelOperatorEquiv u a h).toContinuousLinearMap =
+      u.comp ((1-a • u)^h).ker.subtypeL := by sorry
+
+-- Test riesz_inverse_order_zero.
+example (u : M →L[A] M) (a : A) (x : ((1-a • u)^0).ker) :
+    (x : M) = 0 ∧ rieszKernelOperatorEquiv u a 0 x = 0 := by sorry
+
+-- Test riesz_inverse_zero_parameter.
+example (u : M →L[A] M) (h : ℕ) (x : ((1-(0:A) • u)^h).ker) :
+    (x : M) = 0 ∧ (rieszKernelOperatorEquiv u 0 h).symm x = 0 := by sorry
+
+-- Test riesz_inverse_identity.
+example (h : ℕ) (x : ((1-(1:A) • (1 : M →L[A] M))^h).ker) :
+    rieszKernelOperatorEquiv (1 : M →L[A] M) 1 h x = x ∧
+    (rieszKernelOperatorEquiv (1 : M →L[A] M) 1 h).symm x = x := by sorry
+
+-- Test riesz_inverse_jordan: a nontrivial inverse, even in characteristic two.
+example (j : M →L[A] M) (hj : j^2 = 0)
+    (x : ((1-(1:A) • (1+j))^2).ker) :
+    ((rieszKernelOperatorEquiv (1+j) 1 2).symm x : M) = (1-j) x := by sorry
+
+/-- L4/riesz-kernel-pr. No Fredholm hypotheses are needed for this retraction. -/
+lemma riesz_kernel_hasPr (u : M →L[A] M) (a : A) (h : ℕ)
+    (F : Submodule A M) (ht : Submodule.IsTopCompl ((1-a • u)^h).ker F)
+    (hp : HasPr A M) : HasPr A ((1-a • u)^h).ker := by sorry
+
+variable {K : Type u} [NontriviallyNormedField K] [CompleteSpace K]
+  [NormOneClass A] [Nontrivial A] [NormedAlgebra K A] [CompleteSpace A]
+  [hNoeth : IsNoetherianRing A] [NormedSpace K M] [IsScalarTower K A M]
+  [CompleteSpace M]
+
+/-- L4/riesz-compressed-approximation. The approximant need not preserve the kernel. -/
+lemma riesz_compressed_approximation (u α : M →L[A] M) (a : A) (h : ℕ)
+    (F : Submodule A M) (ht : Submodule.IsTopCompl ((1-a • u)^h).ker F)
+    (hα : HasFiniteAImage α) :
+    let N := ((1-a • u)^h).ker
+    let B := a • ∑ j ∈ Finset.range h, (1-a • u)^j
+    let l := (N.projectionOntoL F ht).comp B
+    let β := l.comp (α.comp N.subtypeL)
+    HasFiniteAImage β ∧
+      ‖(ContinuousLinearMap.id A N - β).restrictScalars K‖ ≤
+      (‖l.restrictScalars K‖ * ‖N.subtypeL.restrictScalars K‖) *
+        ‖(u-α).restrictScalars K‖ := by sorry
+
+include K hNoeth in
+/-- L4/riesz-kernel-compact-identity. -/
+lemma riesz_kernel_identity_completelyContinuous (u : M →L[A] M) (a : A) (h : ℕ)
+    (F : Submodule A M) (ht : Submodule.IsTopCompl ((1-a • u)^h).ker F)
+    (hu : IsCompletelyContinuous u) :
+    IsCompletelyContinuous (ContinuousLinearMap.id A ((1-a • u)^h).ker) := by sorry
+
+include K hNoeth in
+/-- L4/riesz-kernel-finite: completeness of the native closed kernel is automatic. -/
+theorem riesz_kernel_finite (u : M →L[A] M) (a : A) (h : ℕ)
+    (F : Submodule A M) (ht : Submodule.IsTopCompl ((1-a • u)^h).ker F)
+    (hu : IsCompletelyContinuous u) : Module.Finite A ((1-a • u)^h).ker := by sorry
+
+include K hNoeth in
+/-- Existing L4/finite-pr-projective. Canonical finite-module topology remains a gap. -/
+theorem projective_of_finite_hasPr [Module.Finite A M] (hp : HasPr A M) :
+    Module.Projective A M := by sorry
+
+include K hNoeth in
+/-- L4/riesz-kernel-projective; no constant-rank conclusion is asserted here. -/
+theorem riesz_kernel_projective (u : M →L[A] M) (a : A) (h : ℕ)
+    (F : Submodule A M) (ht : Submodule.IsTopCompl ((1-a • u)^h).ker F)
+    (hu : IsCompletelyContinuous u) (hp : HasPr A M) :
+    Module.Projective A ((1-a • u)^h).ker := by sorry
+
+end RieszFiniteness
 end TauCeti.NonarchimedeanFredholm

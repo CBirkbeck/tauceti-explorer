@@ -1,105 +1,92 @@
-# BP-LocallyAnalyticDistributions — adjugate coefficient bounds
+# BP-LocallyAnalyticDistributions — Riesz finiteness checkpoint
 
-Codex — codex-7e92bd. Refs #641. Claim5853317954 confirmed by bot5853318725;
-the whole issue was read before claiming and again after confirmation.
+Codex / codex-7e92bd; Refs #641. Own-job follow-up to merged PR3198
+(head3fee04eb19372659f0e02be31f753f2683b626c8,
+merge065cea18c60c6e3a95cd11bcc1ef577203784e37).
+The same winning claim is5853317954, confirmed by bot5853318725; the full issue
+was reread after confirmation. The review must remain unclaimed at publication.
+Only the packet, reader, suggested Lean file and this handoff are changed.
 
-**67 nodes**: 3 definitions,9 constructions,32 lemmas,16 theorems,7 comparisons.
-**46 API entries**, **56 packet tests and typed examples**, **6 planets**,
-**66 baseline declarations**, **8 gaps**, **5 requests**, **0 closed stages**.
-Definitions/constructions account for42 API entries and38 tests. Every
-implementation remains unchecked; no independent review is claimed.
+## What this extends
 
-## What changed
+All67 predecessor statements and hypotheses are preserved;66 whole node
+objects and all13 adjugate nodes are unchanged. The composite Riesz theorem
+has only its finite-projectivity proof step and three prerequisites refined.
+Eight new nodes separate the finite geometric factor, native continuous
+inverse on ker((1−au)^h), the promoted existing (Pr) retraction API,
+inheritance of (Pr), compression of finite-image approximants, complete
+continuity of identity, finite generation and algebraic projectivity.
 
-Thirteen L4 nodes supply the explicit analytic adjugate estimate: native
-finite-coordinate projection, evaluation and contractivity; basis detection
-of operator norm; finite adjugate recurrence and distinct-column estimate;
-finite-coordinate comparison and finite-output bound; arbitrary-filter
-recurrence continuity; the finite-subset limit; a uniform geometric tail;
-actual retraction compression; and (Pr) entireness. Fifteen new named signatures
-and seven typed examples extend the seed. The already present projection
-helper and its norm signature now have precise packet ownership.
+For B=aΣ_{j<h}(1−au)^j, uB=Bu=1−(1−au)^h. No inverse of a is used.
+For N=ker((1−au)^h), inclusion i and continuous projection π along F, put
+l=πB. Then lui=identity_N. An arbitrary finite-A-image approximant α yields
+β=lαi and error at most ‖l‖_K‖i‖_K‖u−α‖_K. It need not preserve N.
+Tolerance ε/(1+‖l‖_K‖i‖_K) covers zero norm factors. The existing compact
+identity criterion and finite-(Pr)-projective theorem finish the planned
+chain. Canonical finite-module topology remains an explicit dependency gap.
 
-For finite output support J, the norm argument tests each input i on
-L=J∪{i}. Restricting only to J is insufficient, as diag(a,0) shows. Bounds
-use products of distinct output-column majorants, without factorial loss.
-Intermediate recurrence signatures assume neither the desired bound nor
-entireness. Their dependency chain precedes the resolvent/Hasse/Riesz nodes.
-The (Pr) comparison uses actual maps i,r and the fixed factor‖r‖‖i‖;
-finite approximation proves complete continuity of iur directly from the
-existing range-FG epsilon predicate. No new compactness predicate is added.
+The native kernel, continuous equivalence, projection and Module.Projective
+are reused. AdicSpacesPartII:R3 remains the unique complete-continuity owner;
+its generality request and the other four requests are unchanged. The full
+root theorem still needs rank and determinant arguments over nonreduced A.
+Neither a unit root parameter nor constant rank follows from this adapter:
+over K×K, u=1,a=(1,0),h=1 gives the varying-rank summand (1,0)A.
 
-All54 preceding statements and hypotheses,49 whole node objects,54 prior
-baseline records,13 integrated reviewed IDs,19 links,6 planets,stage statuses
-and5 requests are retained. The five metadata changes refine c0-lift,
-orthonormalizable-modules, compact-matrix-criterion, resolvent-series and
-resolvent-hasse-evaluation. Generic matrix, polynomial and native C0 APIs stay
-in Mathlib. The existing AdicSpacesPartII:R3 supplier stub and generality
-request remain; no theorem-assuming substitute is used.
+## Validation
 
-## Evidence and checks
+75 nodes:3 definitions,10 constructions,37 lemmas,18 theorems,7 comparisons.
+49 API entries;60 packet tests;60 typed examples;6 planets;75 baseline
+references. Definitions/constructions have45 API items and42 tests.
+All implementation statuses remain unchecked;8 gaps,5 requests,0 closed stages.
 
-Read all five reviewed LAD audit rows, the current stage/edge descriptions,
-all54 predecessor statements/hypotheses, reader and handoff. Instructions,
-upstream examples, accepted RS-16 contracts, decomposition and touching links
-match earlier fully read snapshots. PMIA's current packet is our merged
-PR3190 output. Both pinned library trees were searched and all12 added
-baseline statements read at the actual pin. The generated additive
-ultrametric sum lemma cites its indexed multiplicative generator; the
-baseline index is unmodified.
+The full suggested file elaborates with0errors and165 warnings, all proof
+placeholders. All1,890 imported Mathlib sources byte-match the pin. There are
+no actual Tau Ceti or planned-supplier imports; the labelled R3 signature
+stub remains. A separate scratch file proves11 lemmas and constructs the
+native kernel equivalence with0errors,0warnings,0placeholders against1,633
+byte-checked Mathlib sources. It checks geometric inversion, kernel
+invariance, compressed identity, finite-image mapping and the error bound.
+It does not prove the whole chain against implemented suppliers.
 
-Fresh full source reads: Buzzard manuscript p.22 and Serre printed pp.78–79
-(PDF11–12); p.79 was rendered and visually checked. Public PDF SHA256:
-Buzzard `0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d`;
-Serre `67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402`.
-Earlier source reads are retained as historical provenance. No new source
-finding; sourceIssues remains empty.
+Exact finite arithmetic passes611 assertions over primes2,3,5, including
+18 approximants that leave the kernel and18 oblique-projection controls where
+omitting the projection norm gives a false bound. It also checks Jordan
+inverses and the nonunit product-ring parameter. Earlier adjugate and Riesz
+checks are preserved as historical evidence and were not rerun here.
 
-The full suggested file compiles with Lean4.34.0-rc2: **0 errors,150 expected
-proof-placeholder warnings only**. All **1,890 Mathlib sources** match the
-pin/cache. No actual Tau Ceti or planned supplier module is imported.
+Current indexed blueprint, intake, errata, graph, API/test parity, predecessor
+preservation and four-file scope checks pass with no errors, warnings or
+problems. The dependency graph has75 reachable nodes,260 edges and72 baseline
+leaves; its sole stage leaf is the explicitly requested AdicSpacesPartII:R3.
+All46 captured inputs and all4 predecessor outputs match fresh main. The
+issue is available, its body and winning bot are unchanged, and review316
+is blocked and has no claim.
 
-Seven complete scratch lemmas and one polynomial-pencil helper compile with
-**0 errors,0 warnings,0 placeholders**, reaching1,635 verified Mathlib modules.
-They prove the two-dimensional adjugate, degree-zero/one/higher coefficients,
-determinant, second recurrence and the general native retraction recurrence.
-**56,192 exact arithmetic assertions** pass over2,190 systems, primes2,3,5 and
-dimensions1,2,3, with coefficients Q_p[ε]/ε². They include11,235 recurrence,
-11,235 column-bound and33,705 tail-bound checks. Nonisometric compression
-shows that omitting‖r‖‖i‖ can fail. Other controls cover missing input support,
-nilpotence, nonreduced coefficients and degree-zero empty products. These
-finite checks are not proofs of infinite convergence, rank or this roadmap.
+## Sources and inputs
 
-Unmodified-index blueprint: **zero errors and warnings**. Exact four-file
-intake: **zero problems**. Errata wrapper, preservation, reader/signature/test
-parity and scoped mutation checks pass. The230-edge dependency graph is
-acyclic, with140 internal edges,63 distinct baseline leaves and exactly the
-recorded AdicSpacesPartII:R3 stage request. The entire analytic estimate chain
-is independent of its resolvent-series consumer.
+Freshly read Buzzard full manuscript18–20 and23–25 and Serre printed80–82 /
+PDF13–15. Both public PDFs match their existing hashes:
+Buzzard0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d;
+Serre67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402.
+The explicit geometric factor and approximation compression are worker
+deductions of Buzzard Proposition3.2. Serre's field-dimension proof is not
+transferred. No new source finding or independent-review verdict is asserted.
+BGR remains unacquired; earlier Coleman reading remains inherited provenance.
 
-Suggested-file SHA256: `69ae6ffedf1ddf481cb1b854c1f1a5b07e07e6731bd53449d0dd1611eb17edac`.
-Complete scratch-proof SHA256: `801382a1b43e6767f3d2a8224486ff270fd23d35427e60968467e4bd149686a9`.
+Reviewed AUDIT25, all five LAD stage contracts, RS16 and its accepted review,
+predecessor interfaces and applicable ownership/link records were checked.
+Captured non-errata inputs are unchanged from the primary continuation.
+A targeted other-packet search confirms the R3 ownership; native declarations
+were read at the exact pin before citation. This is not a new exhaustive audit.
 
-All 48 captured input blobs and the four predecessor outputs match
-main `68a8ef428abed4c02305d7654bb080c0001a9e3b`; the issue body and winning claim are
-unchanged. The source register retains7,545 records; the complete changed
-record and register diff show only an unrelated QSeries/E207 citation reread
-date. These snapshots were refreshed after reading, without claiming a new
-independent source review. Exactly the four authorized files are published
-through Git Data REST.
+## Resume
 
-## Where to resume
+Discharge canonical finite-module topology and inverse norm bounds. Complete
+the nonreduced finite-projective determinant/rank proof, Cayley–Hamilton,
+polynomial division, the (Pr) exercises, completed tensors and Coleman
+spectral-resultant transport. Then develop the actual distribution families,
+universal-character action, uniform radii, semigroup bounds and specialization.
+L0–L3 remain not_read; use existing PMIA suppliers and keep RS16 boundaries.
 
-The next source paragraph is Buzzard Proposition3.2's finite generation and
-projectivity of the root summand: use the actual Riesz splitting, a geometric
-inverse for u on that kernel and finite-image approximations for its identity.
-Then supply finite-projective determinant/rank, constant-rank and exact-slope
-arguments. Do not infer polynomial equality from residue-field images over a
-nonreduced algebra. No stage is closed by the adjugate estimate.
-
-Acquire and decompose BGR finite-module topology, inverse norm bounds and
-completed tensors. Complete the (Pr) exercises and Coleman spectral-resultant
-transport. Audit inherited prototype assumptions as missing signatures are
-filled. L0–L3 sources and L4's actual distribution families, uniform character
-actions and specialization remain open. Preserve PMIA suppliers, RS-16
-boundaries, PadicFamilies consumers and the six planets.
+Suggested Lean SHA-256: f56d4005a203eeed9f5ab30a4cee420d520e4fb83f0cb4d4380d176e145e9cfa.
+Scratch proof SHA-256: 44740c24c36f76590eb2df8b3b4e83432277027f14d10e6b3d9b62325d7d037e.

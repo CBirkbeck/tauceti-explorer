@@ -1,5 +1,7 @@
 # Locally analytic distributions, growth, and character spaces
 
+Current checkpoint:75 nodes; the finite-projectivity continuation and current validation are below. Earlier validation paragraphs are explicitly historical. The roadmap remains partial, with no closed stage.
+
 This is a **partial blueprint** for the five layers L0–L4. It preserves the thirteen reviewed operator-theory nodes already integrated in the atlas and refines their dependencies. No layer is marked closed. The construction of actual distribution families is not supplied by the abstract Fredholm theory alone.
 
 The ownership decisions of accepted restructuring RS-16 are binding. The base roadmap is **Padic measures and Iwasawa algebras** (`PadicMeasuresIwasawaAlgebras`). Its layer L0a owns scalar character-space representability, component decompositions, universal characters and coordinate changes. This roadmap imports those objects. It owns the unbounded distribution transform, growth theory and distribution-family coefficient actions, including the uniform local radii needed to evaluate a universal character on an affinoid coefficient module. There is no reverse dependency making the scalar character-space construction depend on those distribution families.
@@ -971,7 +973,328 @@ Let M have (Pr), u:M→M be completely continuous, and c_n be its actual summand
 
 **Sources:** Serre-EndomorphismesCC-1962, §6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026. The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions.; Buzzard-Eigenvarieties-2006, §2, pp.7–12 for coordinates; §3, full manuscript p.22 freshly reread on27 September2026 for the Fredholm resolvent over (Pr) modules. The coordinate maps use the existing C0 carrier. The source invokes Serre Proposition10 for a Noetherian Banach algebra and a (Pr) module; the explicit finite-coordinate and retraction steps are decomposed here rather than assumed from the recurrence.
 
-## Checkpoint and continuation
+## L4 continuation: finite projectivity of the root kernel
+
+Fix a continuous A-linear endomorphism u, a coefficient a and an integer h≥0.
+Write v=1−au and N=ker(v^h). Once a continuous complement F has been obtained,
+the passage to finite projectivity has three different inputs: a geometric
+left inverse for u on N, finite-image approximation of identity on N, and
+inheritance of (Pr). The existing Riesz splitting supplies the complement;
+the following declarations expose the remaining finite-projectivity paragraph
+of Buzzard Proposition 3.2. They preserve the existing native kernel,
+projection, continuous equivalence and algebraic projectivity carriers.
+
+The finite geometric sum B=a(1+v+⋯+v^(h−1)) satisfies Bu=uB=1−v^h.
+In particular u is continuously invertible on N before we know that N is
+finite. No inverse of a is used: this observation also applies to root kernels
+which do not arise from a Fredholm root of constant order. For h=0, N is zero.
+For a=0, N is zero for every h. The construction and all estimates include
+these boundary cases.
+
+The analytic point is that an approximant α to u need not preserve N. If
+π:M→N is the native projection along F and i:N→M is inclusion, put l=πB.
+Then lui=identity_N, so β=lαi approximates identity_N and has finite A-image.
+Its error is at most D times the error of α, with D=‖l‖_K‖i‖_K. Neither factor
+is silently replaced by one. Choosing the input tolerance ε/(D+1) works even
+when D=0. Complete continuity of identity_N then invokes the existing
+compact-identity-finite theorem; it is not a second Neumann-series argument.
+
+Property (Pr) passes through the actual continuous retraction πi=identity.
+The already planned finite-pr-projective theorem then gives algebraic
+projectivity. Its canonical finite-module-topology prerequisite remains an
+explicit gap. The new nodes give the declaration graph for this paragraph,
+not a claim that its whole dependency chain is implemented or closed.
+
+A useful counterexample keeps the hypotheses precise. Over A=K×K take u=1,
+a=(1,0) and h=1. The root kernel is (1,0)A. It is finite projective, with rank
+one on the first component and zero on the second, while a is not a unit.
+Thus neither the geometric inverse nor finite projectivity implies a unit
+root parameter, freeness or constant rank. The full Hasse-root theorem has
+additional hypotheses, and its remaining nonreduced determinant/rank proof
+must still be supplied.
+
+### Finite geometric factor for the root operator
+
+`LocallyAnalyticDistributions:L4/riesz-geometric-factor` (lemma); proposed declaration `riesz_geometric_factor`.
+
+For every continuous A-linear u, a∈A and h≥0, the single finite sum B=a Σ_{0≤j<h}(1−au)^j satisfies uB=Bu=1−(1−au)^h.
+
+Hypotheses and conventions:
+
+- A is a commutative normed ring; M is a normed additive commutative group with an A-module structure and jointly continuous scalar multiplication. All maps are native continuous A-linear maps.
+- Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.
+
+Proof or construction:
+
+1. The finite geometric identities give (1−v)Σv^j=Σv^j(1−v)=1−v^h in the endomorphism ring. The right identity is the native geom_sum_mul_neg; the left follows from mul_geom_sum by changing the sign, or directly by induction.
+2. Use 1−v=au and centrality of the A-scalar action to move the scalar a across composition. Both factor identities hold without division by a.
+
+Prerequisites: `mathlib:geom_sum_mul_neg`, `mathlib:mul_geom_sum`.
+
+
+Acceptance:
+
+- For h=0 both products and 1−v^0 are zero. For a=1 and u=1+j with j²=0, h=2 gives B=1−j.
+
+Source: Proposition 3.2, complete proof on manuscript pp.23–24. The source makes the identity on N a polynomial in u with no constant term. This explicit geometric factor and its generality without a unit parameter are worker deductions of that step.
+
+### Continuous inverse on the root kernel
+
+`LocallyAnalyticDistributions:L4/riesz-kernel-operator-equiv` (construction); proposed declaration `rieszKernelOperatorEquiv`.
+
+Define rieszKernelOperatorEquiv(u,a,h) to be the native continuous A-linear automorphism of N whose forward map is the restriction of u and whose inverse is the restriction of B=a Σ_{j<h}(1−au)^j.
+
+Hypotheses and conventions:
+
+- A is a commutative normed ring; M is a normed additive commutative group with an A-module structure and jointly continuous scalar multiplication. All maps are native continuous A-linear maps.
+- Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.
+
+Proof or construction:
+
+1. The endomorphisms u and B commute with v and hence v^h; applying the commutation relation to a vector killed by v^h shows that both preserve N. Use the native ContinuousLinearMap.restrict for these two maps.
+2. On N, the two products from riesz-geometric-factor are identity because v^h vanishes. Apply ContinuousLinearEquiv.equivOfInverse to the actual continuous restrictions. The inverse uses a finite sum, so it has no convergence hypothesis.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/riesz-geometric-factor`, `mathlib:ContinuousLinearMap.restrict`, `mathlib:ContinuousLinearEquiv.equivOfInverse`, `mathlib:Commute.smul_right`.
+
+API:
+
+- `rieszKernelOperatorEquiv_apply` (coercion): For x∈N the image under the equivalence, viewed in M, is u(x).
+- `rieszKernelOperatorEquiv_symm_apply` (simp): For x∈N the inverse image, viewed in M, is B(x).
+- `rieszKernelOperatorEquiv_subtype` (compatibility): Composing the equivalence with the native inclusion i equals u composed with i, as continuous A-linear maps N→M.
+
+Uses:
+
+- Buzzard Proposition3.2, manuscript p.24: Identify the actual continuous inverse of u on the nilpotent root summand before considering its finite-projective determinant.
+- riesz-compressed-approximation and finite-slope-summands: The underlying geometric factor gives the left inverse on the included root kernel; the native equivalence records that no inverse of the root parameter is needed.
+
+Unit tests:
+
+- `riesz_inverse_order_zero` (degenerate): At h=0 every x∈ker(v^0) is zero, and its image under the equivalence is zero.
+- `riesz_inverse_zero_parameter` (degenerate): At a=0, for every h, every x∈N is zero and its inverse image is zero.
+- `riesz_inverse_identity` (compatibility): For u=identity and a=1, both the equivalence and its inverse fix every element of N, for every h.
+- `riesz_inverse_jordan` (computation): If j²=0, u=1+j, a=1 and h=2, the inverse on N acts by 1−j, including in characteristic two.
+
+Acceptance:
+
+- The construction does not replace N by a chosen finite free model and does not assume finite generation, a unit root parameter, a Fredholm series or complete continuity.
+
+Source: Proposition 3.2, complete proof on manuscript pp.23–24. The source uses invertibility on N on p.24. The finite geometric inverse is made explicit here and is valid before any rank or determinant argument.
+
+### Property (Pr) under continuous retractions
+
+`LocallyAnalyticDistributions:L4/pr-continuous-retract` (lemma); proposed declaration `hasPr_retract`.
+
+If P has (Pr) and continuous A-linear maps i:M→P and r:P→M satisfy ri=identity, then M has (Pr). This is the existing hasPr_retract API promoted before consumption.
+
+Hypotheses and conventions:
+
+- A is a commutative normed ring; M is a normed additive commutative group with an A-module structure and jointly continuous scalar multiplication. All maps are native continuous A-linear maps.
+- P is another normed A-module in the same universe as M; no finite-generation hypothesis is needed.
+
+Proof or construction:
+
+1. Choose the defining continuous split inclusion s:P→c_A(I) and retraction t:c_A(I)→P. The composite maps si and rt are continuous and their product is rtsi=ri=identity.
+2. Reuse the existing HasPr definition and existing hasPr_retract declaration; no second notion of a projective Banach module is introduced.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/projective-banach-modules`.
+
+
+Acceptance:
+
+- Taking i=r=identity retains the original property. No conclusion of algebraic projectivity is made without the finite-generation hypothesis.
+
+Source: Definition of (Pr), full manuscript pp.18–19, and use of Lemma2.11 on p.23. The source defines (Pr) by a continuous direct summand of a potentially ONable module. Transitivity of its split inclusion is the existing API proof, now given its own dependency node.
+
+### Property (Pr) of the complemented root kernel
+
+`LocallyAnalyticDistributions:L4/riesz-kernel-pr` (lemma); proposed declaration `riesz_kernel_hasPr`.
+
+If M has (Pr) and N=ker((1−au)^h) has a native topological complement F, then N has (Pr).
+
+Hypotheses and conventions:
+
+- A is a commutative normed ring; M is a normed additive commutative group with an A-module structure and jointly continuous scalar multiplication. All maps are native continuous A-linear maps.
+- Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.
+- F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB.
+
+Proof or construction:
+
+1. Use the native inclusion i and projection π onto N along F. The library projectionOntoL_apply_left gives πi=identity on N.
+2. Apply pr-continuous-retract to this actual continuous retraction. In the Hasse Riesz setting riesz-topological-splitting supplies F=image(v^h) and the required topological complement.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/pr-continuous-retract`, `mathlib:Submodule.projectionOntoL`, `mathlib:Submodule.projectionOntoL_apply_left`.
+
+
+Acceptance:
+
+- This does not require u to be completely continuous. At h=0 the kernel is zero and the statement still applies.
+
+Source: Proposition 3.2, complete proof on manuscript pp.23–24. Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported.
+
+### Finite-image approximation of the root identity
+
+`LocallyAnalyticDistributions:L4/riesz-compressed-approximation` (lemma); proposed declaration `riesz_compressed_approximation`.
+
+For any α:M→M with finite A-image, define β=lαi:N→N using l=πB. Then β has finite A-image and ‖identity_N−β‖_K≤D‖u−α‖_K, where D=‖l‖_K‖i‖_K. The map α need not preserve N.
+
+Hypotheses and conventions:
+
+- K is a complete nontrivially normed field; A is a nonzero complete Noetherian normed K-algebra with norm one for 1. M is a complete normed K-space and an A-module with compatible scalar tower and continuous A-action. Norms of A-linear maps mean the native K-operator norms after restriction of scalars.
+- Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.
+- F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB.
+
+Proof or construction:
+
+1. The geometric factor gives Bui=i, because v^h i=0. Apply πi=identity to obtain lui=identity_N. This is a kernel-specific adapter, not a new generic complete-continuity composition theorem.
+2. If range(α) lies in a finitely generated A-submodule Q of M, range(β) lies in l(Q). The native Submodule.FG.map makes l(Q) finitely generated. Thus α is composed with πB rather than restricted to a submodule it may not preserve.
+3. Subtract composites to obtain identity_N−β=l(u−α)i. Restrict scalars to K and apply ContinuousLinearMap.opNorm_comp_le twice. Retain both norm factors; the projection need not be contractive.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/riesz-geometric-factor`, `LocallyAnalyticDistributions:L4/finite-image-range-comparison`, `mathlib:Submodule.projectionOntoL`, `mathlib:Submodule.projectionOntoL_apply_left`, `mathlib:Submodule.FG.map`, `mathlib:ContinuousLinearMap.opNorm_comp_le`.
+
+
+Acceptance:
+
+- On K² with u=diag(1,0), a=1, h=1 and the coordinate complement, an approximant sending e₁ to e₁+εe₂ does not preserve N. Its compression β nevertheless equals identity_N.
+- The finite-image condition is over A, not finite K-rank. D may be zero on the zero module; the following tolerance choice includes that case.
+
+Source: Proposition 3.2, complete proof on manuscript pp.23–24. Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported.
+
+### Complete continuity of the root identity
+
+`LocallyAnalyticDistributions:L4/riesz-kernel-compact-identity` (lemma); proposed declaration `riesz_kernel_identity_completelyContinuous`.
+
+If u is completely continuous and N=ker((1−au)^h) has a native topological complement F, then identity_N is completely continuous in the imported ordinary complete-continuity sense.
+
+Hypotheses and conventions:
+
+- K is a complete nontrivially normed field; A is a nonzero complete Noetherian normed K-algebra with norm one for 1. M is a complete normed K-space and an A-module with compatible scalar tower and continuous A-action. Norms of A-linear maps mean the native K-operator norms after restriction of scalars.
+- Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.
+- F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB.
+
+Proof or construction:
+
+1. Fix ε>0 and put D=‖πB‖_K‖i‖_K≥0. The existing norm-approximation comparison supplies finite-A-image α with ‖u−α‖_K<ε/(D+1).
+2. Compress α by riesz-compressed-approximation. Its error is at most D‖u−α‖_K, which is strictly less than ε: bound it by (D+1)‖u−α‖_K and multiply the strict approximation inequality by the positive D+1. This proof also handles D=0.
+3. Apply completely-continuous-norm-approximation to identity_N. N is complete by the native completeSpace_ker instance. The predicate and its generality remain owned by AdicSpacesPartII:R3; this result is only its Riesz-kernel application.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/riesz-compressed-approximation`, `LocallyAnalyticDistributions:L4/completely-continuous-norm-approximation`, `mathlib:ContinuousLinearMap.completeSpace_ker`.
+
+
+Acceptance:
+
+- No countable approximating sequence or invariant approximant is assumed. The h=0 and a=0 kernels are zero.
+
+Source: Proposition 3.2, complete proof on manuscript pp.23–24. Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported.
+
+### Finite generation of the root kernel
+
+`LocallyAnalyticDistributions:L4/riesz-kernel-finite` (theorem); proposed declaration `riesz_kernel_finite`.
+
+If u is completely continuous and N=ker((1−au)^h) has a native topological complement F, then N is a finite A-module.
+
+Hypotheses and conventions:
+
+- K is a complete nontrivially normed field; A is a nonzero complete Noetherian normed K-algebra with norm one for 1. M is a complete normed K-space and an A-module with compatible scalar tower and continuous A-action. Norms of A-linear maps mean the native K-operator norms after restriction of scalars.
+- Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.
+- F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB.
+
+Proof or construction:
+
+1. Use riesz-kernel-compact-identity and the native completeness of the closed kernel. Apply the already planned compact-identity-finite equivalence.
+2. This invokes the existing Neumann approximation proof once; do not re-plan it or substitute a real/complex compact-operator theorem. Neither (Pr) nor finite K-dimension is required for this conclusion.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/riesz-kernel-compact-identity`, `LocallyAnalyticDistributions:L4/compact-identity-finite`, `mathlib:ContinuousLinearMap.completeSpace_ker`.
+
+
+Acceptance:
+
+- The conclusion is Module.Finite over the coefficient ring A; for infinite-dimensional A over K, this does not imply finite-dimensionality over K.
+
+Source: Proposition 3.2, complete proof on manuscript pp.23–24. Expands the finite-generation and projectivity paragraph using the existing native closed root kernel and continuous splitting; no constant-rank or determinant conclusion is imported.
+
+### Projectivity of the finite root kernel
+
+`LocallyAnalyticDistributions:L4/riesz-kernel-projective` (theorem); proposed declaration `riesz_kernel_projective`.
+
+If M has (Pr), u is completely continuous and N=ker((1−au)^h) has a native topological complement F, then N is an algebraically projective A-module; together with riesz-kernel-finite it is finite projective.
+
+Hypotheses and conventions:
+
+- K is a complete nontrivially normed field; A is a nonzero complete Noetherian normed K-algebra with norm one for 1. M is a complete normed K-space and an A-module with compatible scalar tower and continuous A-action. Norms of A-linear maps mean the native K-operator norms after restriction of scalars.
+- Write v=1−a u, N=ker(v^h), B=a Σ_{0≤j<h}v^j, and i:N→M for the native inclusion. The exponent h is any natural number, including zero. No unit hypothesis on a is imposed.
+- F is an A-submodule with the native topological-complement relation between N and F. Let π:M→N be Submodule.projectionOntoL along F, and put l=πB.
+
+Proof or construction:
+
+1. Apply riesz-kernel-pr and riesz-kernel-finite to N with the given continuous projection. The native closed-kernel instance supplies its completeness.
+2. Invoke the existing finite-pr-projective theorem, whose proof lifts identity through a continuous finite-free surjection and forgets topology. Its finite-module-topology dependency remains an explicit gap; this checkpoint does not establish that supplier.
+3. In riesz-root-projectors specialize F to image(v^h) using riesz-topological-splitting. The root order and Hasse conditions are needed to construct that complement, not in the present finite-projectivity adapter.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/riesz-kernel-pr`, `LocallyAnalyticDistributions:L4/riesz-kernel-finite`, `LocallyAnalyticDistributions:L4/finite-pr-projective`, `mathlib:ContinuousLinearMap.completeSpace_ker`, `mathlib:Module.Projective`.
+
+
+Acceptance:
+
+- For A=K×K, u=identity and a=(1,0), h=1 gives N=(1,0)A, a finite projective module with varying component rank. The parameter a is not a unit; no freeness or constant rank follows from this theorem.
+- The constant-rank h and exact determinant assertions of the full Fredholm-root theorem require its remaining nonreduced determinant argument.
+
+Source: Lemma2.11, manuscript p.19, and Proposition3.2 proof, pp.23–24. Separates the finite-generation and (Pr) inputs from the remaining rank/determinant proof. The native algebraic projectivity carrier is reused.
+
+### Executable and source boundary
+
+The suggested file now includes the existing finite-pr-projective theorem as
+`projective_of_finite_hasPr`, with native Module.Finite and Module.Projective.
+The pre-existing `hasPr_retract` signature is reused once; it is promoted to
+its own node because the root-kernel argument consumes it. Generic complete
+continuity remains owned by AdicSpacesPartII:R3, with the existing request for
+Noetherian Banach-algebra generality. No strict variant or second predicate is
+introduced.
+
+This follow-up freshly reads Buzzard manuscript pp.18–20 and23–25 and Serre
+printed pp.80–82 (PDF13–15). The public PDFs have the hashes recorded below.
+The explicit finite geometric inverse and approximant compression are worker
+deductions of Buzzard's finite-projectivity paragraph. Serre's dimension
+argument over a field is not transferred to a Banach coefficient algebra.
+No new source error or review verdict is asserted.
+
+## Current checkpoint and continuation
+
+The packet has **75 nodes**: 3 definitions, 10 constructions, 37 lemmas,
+18 theorems and7 comparisons. It has **49 API entries**, **60 packet tests**,
+**60 typed examples**, **6 planets**, **75 baseline references**, **8 gaps**,
+**5 requests** and**0 closed stages**. The thirteen definitions/constructions
+have45 API entries and42 tests. All67 predecessor statements, hypotheses,
+APIs and tests are preserved;66 predecessor node objects are unchanged.
+Only the composite root theorem's third proof step and three prerequisites
+are updated to consume the new chain. All13 adjugate nodes are unchanged.
+
+The entire suggested file compiles with **zero errors and165 proof-placeholder
+warnings only**. All1,890 reached Mathlib sources match the pinned commit.
+There are no actual Tau Ceti or planned-supplier imports; the explicitly
+labelled complete-continuity stub remains. This checks signatures, not proofs.
+A separate scratch file proves11 complete lemmas and constructs the native
+kernel equivalence with zero errors, warnings or placeholders, against1,633
+byte-checked Mathlib sources. It checks both geometric factors, invariance,
+the actual compressed identity, finite generation of mapped images and the
+operator error estimate. It does not prove the final finite-projectivity
+chain against implemented suppliers.
+
+An exact finite regression passes611 assertions over primes2,3 and5. It checks
+left and right geometric identities, Jordan inverses, and18 approximants that
+do not preserve the kernel. With an oblique complement the actual projection
+norm is necessary:18 controls fail if that factor is omitted. A product-ring
+control retains the nonunit-parameter, varying-rank example. These finite
+checks do not prove an infinite-dimensional theorem. Earlier adjugate and
+Riesz validation below is historical and was not rerun for this follow-up.
+
+Continue with canonical finite-module topology and inverse norm bounds, the
+finite-projective determinant/rank proof over nonreduced coefficients,
+Cayley–Hamilton, polynomial division, the (Pr) exercises and completed tensors,
+and Coleman spectral-resultant transport. L0–L3 and the actual L4 distribution
+families, coefficient action, uniform radii, semigroup estimates and
+specialization remain open. Preserve the RS-16 owners and existing suppliers.
+
+## Previous adjugate checkpoint: historical validation
 
 The packet has **67 nodes**: 3 definitions, 9 constructions, 32 lemmas,
 16 theorems and 7 comparisons. All 54 predecessor statements and hypotheses,
@@ -983,7 +1306,7 @@ text, and the resolvent gains its initial-coefficient API. Totals are
 The twelve definitions/constructions have 42 API items and 38 tests.
 All implementations remain unchecked.
 
-The suggested file compiles with **zero errors and 150 proof-placeholder
+At that checkpoint the suggested file compiled with **zero errors and 150 proof-placeholder
 warnings only**. All 1,890 reached Mathlib source files match the pin.
 No actual Tau Ceti or planned supplier module is imported. The explicitly
 labelled AdicSpacesPartII complete-continuity signature stub and its generality
@@ -1002,18 +1325,10 @@ nonzero resolvents, nonreduced coefficients and degree-zero empty products.
 These checks do not prove infinite-dimensional convergence or finite rank.
 Earlier Riesz scratch proofs and finite regressions remain historical evidence.
 
-This continuation freshly reads Buzzard's full manuscript p.22 and Serre's
+That continuation freshly reads Buzzard's full manuscript p.22 and Serre's
 full printed pp.78–79 (PDF11–12), including a rendered p.79 check. Both public
 PDFs match the recorded hashes. The earlier reading scopes below are prior
 provenance; no new source error is alleged.
-
-Resume with finite-projective generation, rank and determinant arguments for
-the Riesz summands, retaining nonreduced coefficients and the actual continuous
-splitting. Complete the (Pr) exercises, BGR finite-module topology and inverse
-bounds, completed tensor products and Coleman spectral-resultant transport.
-L0–L3 distribution stages and L4 distribution families, uniform character
-radii, semigroup bounds and specialization remain open. Use the existing PMIA
-suppliers and preserve the RS-16 ownership boundaries.
 
 ## Sources
 
