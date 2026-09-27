@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue. Four declarations compare the common rational formal-derivative constants of the actual smoothed series with real origin derivatives, signed complex continued values and integral arithmetic moments, reusing the PMIA formal conjugacy. Six L1 declarations identify the actual extended smoothing Amice series, its uniqueness and Q_p integral descent, and the Q_p moments of the smoothing, ambient unit-restricted and numerator measures. Nine L1 declarations place the actual arithmetic numerator on the native unit group and compare its inclusion, coefficient extension, Bernoulli moments and multiplicative convolution identities.",
+  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue. Four declarations compare the common rational formal-derivative constants of the actual smoothed series with real origin derivatives, signed complex continued values and integral arithmetic moments, reusing the PMIA formal conjugacy. Six L1 declarations identify the actual extended smoothing Amice series, its uniqueness and Q_p integral descent, and the Q_p moments of the smoothing, ambient unit-restricted and numerator measures. Nine L1 declarations place the actual arithmetic numerator on the native unit group and compare its inclusion, coefficient extension, Bernoulli moments and multiplicative convolution identities. Five L1 declarations give the actual numerator norm, finite moment combinations and smoothed Kummer precision, with explicit integral-unit hypotheses for removing the smoothing factor.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1498,6 +1498,83 @@
         "module": "Mathlib/Topology/Algebra/Constructions.lean",
         "provides": "Continuity of the value map from the native topological units type.",
         "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026 and exact declaration checked against the unmodified baseline index."
+      },
+      {
+        "ref": "mathlib:PadicInt.ker_toZModPow",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "provides": "The kernel of native reduction modulo p^r is the ideal generated by p^r.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_le_pow_iff_mem_span_pow",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The integral norm ball of radius p^(−r) equals that same ideal.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:ZMod.pow_totient",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+        "provides": "Euler exponent identity for every unit of ZMod n.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:pow_eq_pow_of_modEq",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "Congruent natural exponents give equal powers when the modulus annihilates the element.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.norm_le",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousMap/Compact.lean",
+        "provides": "On a compact domain, a nonnegative pointwise norm bound bounds the supremum norm.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.le_opNorm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Operator/Basic.lean",
+        "provides": "Evaluation is bounded by the operator norm times the input norm.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:Padic.nonarchimedean",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "The p-adic norm of a sum is at most the maximum of the two norms.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_units",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "Every native p-adic integer unit has norm one.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:Padic.norm_natCast_eq_one_iff",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "A natural number has p-adic norm one precisely when it is coprime to p; used in numerical precision checks.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:Padic.norm_p",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "The p-adic norm of p is its reciprocal, used in numerical precision checks.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_def",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The integral norm is exactly the norm of its canonical image in Q_p.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026; checked against the unmodified declaration index."
       }
     ]
   },
@@ -1527,7 +1604,8 @@
         "27 September2026: complete printed110–114/PDF11–15 reread for Lemma2.7; native Gamma-weighted Mellin sum theorem instantiated and normalized comparison restricted away from the raw pole.",
         "27 September2026: complete printed134–139/PDF35–40 reread, including§4.1 andLemmas4.2–4.3; actual smoothed-kernel regularity, derivative and decay instantiation. SourceE3positivity retained; no newfinding.",
         "27 September2026: follow-up to the full134–139 read; Lemma4.2 smoothed-zeta identity decomposed, with punctured-domain and logarithmic removable-value deductions.",
-        "27 September 2026 intrinsic-numerator continuation: full printed 127–129/PDF28–30 and printed 138–139/PDF39–40 freshly read. Source Remark 3.33 distinguishes multiplicative unit convolution from additive ambient convolution. Nine arithmetic adapters are worker deductions using exact existing supplier nodes; no full-paper reading or new finding is claimed."
+        "27 September 2026 intrinsic-numerator continuation: full printed 127–129/PDF28–30 and printed 138–139/PDF39–40 freshly read. Source Remark 3.33 distinguishes multiplicative unit convolution from additive ambient convolution. Nine arithmetic adapters are worker deductions using exact existing supplier nodes; no full-paper reading or new finding is claimed.",
+        "27 September 2026 Kummer continuation: complete printed115–117/PDF16–18 freshly read, printed117 visually inspected and collated with full v2PDF11–13. Five arithmetic deductions repair the unqualified congruence, explicitly acknowledging existing PMIA/E13. Earlier numerator reading on138–139 supplies the normalization; no full-paper extraction is claimed."
       ]
     },
     {
@@ -9599,6 +9677,275 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator-norm",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Integral norm bound for the arithmetic numerator",
+      "kind": "lemma",
+      "statement": "The operator norm of μ_a^U is at most one.",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures.",
+        "λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map."
+      ],
+      "proofSteps": [
+        "Apply the exact imported rational-unit-extension-norm identity to the actual integral λ_a. It identifies the operator norm with the supremum norm of the Q-images of the Amice coefficients of j_Zλ_a.",
+        "The imported integral-coefficient-sequence construction produces this sequence with uniform bound ‖1_Q‖. Its construction output, including this bound, is the dependency; no unstated foreign API assumption is used.",
+        "Use ‖1_Q‖=1. This bound is on the actual continuous dual and therefore applies to every continuous Q-valued test on U."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator",
+        "PadicMeasuresIwasawaAlgebras:L2/rational-unit-extension-norm",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-sequence"
+      ],
+      "acceptance": [
+        "No norm bound for an unsmoothed pseudomeasure is asserted. At a=1 the actual measure is zero and its norm is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/Kummer",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.norm_extend_intrinsicSmoothedNumerator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40.",
+          "excerpt": "(mod pᵐ)",
+          "match": "Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKummerTests.zero_parameter_bound",
+          "kind": "degenerate",
+          "statement": "At p=3,a=1 the operator norm is zero."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/finite-smoothed-moments",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Finite combinations of Bernoulli moments",
+      "kind": "lemma",
+      "statement": "For a finite set I, coefficients c_i∈Q and natural k_i≥1 on I, μ_a^U(Σ_{i∈I} c_i u^k_i)=Σ_{i∈I} c_i C_a(k_i).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures.",
+        "λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map."
+      ],
+      "proofSteps": [
+        "Form the continuous Q-valued monomial by multiplying the integral test j^k_i by the constant one, where j is the native units value map. Its value at u is the canonical Q-image of u raised to k_i.",
+        "Use linearity of the native AbstractMeasure continuous dual for the finite sum and scalar multiples. There is no infinite series or interchange of limits.",
+        "Apply intrinsic-numerator-extension-moment for each i in I. The bound k_i≥1 is needed only on I; the empty sum is zero. At k_i=1 the Euler factor gives zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-extension-moment",
+        "mathlib:Units.continuous_val",
+        "mathlib:AbstractMeasure"
+      ],
+      "acceptance": [
+        "The coefficients can be arbitrary elements of Q; they need not be integral. The first-weight and empty-set cases are explicit."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/Kummer",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.extend_intrinsicSmoothedNumerator_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40.",
+          "excerpt": "(mod pᵐ)",
+          "match": "Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKummerTests.empty_combination",
+          "kind": "degenerate",
+          "statement": "An empty finite combination evaluates to zero at p=3,a=2."
+        },
+        {
+          "name": "SuggestedKummerTests.first_weight_boundary",
+          "kind": "degenerate",
+          "statement": "The actual p=3,a=2 extended numerator has first moment zero."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/generalized-smoothed-kummer",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Generalized smoothed Kummer bound",
+      "kind": "theorem",
+      "statement": "For r≥0 and the finite data of finite-smoothed-moments, if ‖Σ_{i∈I} c_i u^k_i‖≤p^(−r) for every u∈U, then ‖Σ_{i∈I} c_i C_a(k_i)‖≤p^(−r).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures.",
+        "λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map."
+      ],
+      "proofSteps": [
+        "Let f be the continuous finite combination from finite-smoothed-moments. Its values are exactly the pointwise expression in the hypothesis.",
+        "Since U is compact and p^(−r) is nonnegative, native ContinuousMap.norm_le gives ‖f‖≤p^(−r).",
+        "Native ContinuousLinearMap.le_opNorm and intrinsic-numerator-norm give ‖μ_a^U(f)‖≤‖μ_a^U‖‖f‖≤‖f‖. Substitute the exact finite-moment equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/finite-smoothed-moments",
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-norm",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:ContinuousLinearMap.le_opNorm",
+        "mathlib:PadicInt.compactSpace"
+      ],
+      "acceptance": [
+        "This is an arithmetic consequence of the actual integral measure. It does not create a second generic measure-congruence supplier. Rational coefficients may cancel pointwise; no coefficientwise integrality assumption is added."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/Kummer",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothed_kummer_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40.",
+          "excerpt": "(mod pᵐ)",
+          "match": "Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/weight-period-smoothed-kummer",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Weight-period congruence for smoothed Bernoulli values",
+      "kind": "theorem",
+      "statement": "If r≥1, k,l≥1 and k≡l modulo p^(r−1)(p−1), then ‖C_a(k)−C_a(l)‖≤p^(−r).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures.",
+        "λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map.",
+        "The precision r is at least one; the exponents are positive naturals."
+      ],
+      "proofSteps": [
+        "For u∈U map its unit structure by the native ring hom Z→ZMod(p^r). Euler gives the finite unit raised to φ(p^r) equal to one. Native totient_prime_pow identifies that exponent with p^(r−1)(p−1).",
+        "Native pow_eq_pow_of_modEq shows equal kth and lth powers in the finite residue ring. Thus u^k−u^l lies in the reduction kernel, which ker_toZModPow identifies with (p^r). The native ideal/norm-ball comparison gives ‖u^k−u^l‖≤p^(−r). The inclusion in Q preserves this norm.",
+        "Apply generalized-smoothed-kummer to the two terms with coefficients 1 and −1. This finite-unit argument includes p=2; it does not choose a topological generator of U or use logarithms."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/generalized-smoothed-kummer",
+        "mathlib:PadicInt.toZModPow",
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:PadicInt.norm_le_pow_iff_mem_span_pow",
+        "mathlib:ZMod.pow_totient",
+        "mathlib:Nat.totient_prime_pow",
+        "mathlib:pow_eq_pow_of_modEq",
+        "mathlib:PadicInt.norm_def"
+      ],
+      "acceptance": [
+        "For p=3,a=2,k=2,l=4,r=1 the difference is 15/4 and has norm 1/3. For p=2,a=3,k=2,l=4,r=2 the difference is 16/3 and has norm 1/16≤1/4."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/Kummer",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothed_kummer_weight_period"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40.",
+          "excerpt": "(mod pᵐ)",
+          "match": "Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKummerTests.smoothed_precision",
+          "kind": "computation",
+          "statement": "At p=3,a=2,k=2,l=4 the smoothed difference is 15/4, with 3-adic norm 1/3."
+        },
+        {
+          "name": "SuggestedKummerTests.dyadic_precision",
+          "kind": "computation",
+          "statement": "At p=2,a=3,k=2,l=4 the smoothed difference is 16/3, satisfying the r=2 norm bound."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/unit-denominator-kummer",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Kummer congruence with unit smoothing denominators",
+      "kind": "theorem",
+      "statement": "Under the weight-period hypotheses, if both 1−a^k and 1−a^l are units in Z, then ‖V(k)−V(l)‖≤p^(−r).",
+      "hypotheses": [
+        "p is any prime, including 2; Z=ℤ_p, Q=ℚ_p and U=Zˣ have their native structures. The natural smoothing parameter a satisfies p∤a, with a=1 allowed. The canonical bounded Z-scalar action on Q is retained explicitly in the suggested signatures.",
+        "λ_a is the actual intrinsicSmoothedNumerator in D(U,Z), and μ_a^U=I_U,Q(λ_a) is its imported Q-valued integral coefficient extension. For k≥1 abbreviate C_a(k)=(1−p^(k−1))(1−a^k)B_k/k and V(k)=(1−p^(k−1))B_k/k, in Q via the canonical rational embedding. These are prose abbreviations, not new carriers or a complex-to-p-adic map.",
+        "In addition to r≥1,k,l≥1 and the period congruence, require IsUnit(1−a^k) and IsUnit(1−a^l) in Z, not merely nonzero elements of Q."
+      ],
+      "proofSteps": [
+        "Put d=1−a^k, e=1−a^l, x=V(k), y=V(l) in Q. Their integral-unit hypotheses give ‖d‖=‖e‖=1. By commutative ring arithmetic dx=C_a(k) and ey=C_a(l), so weight-period-smoothed-kummer bounds ‖dx−ey‖.",
+        "Apply the same finite-unit power calculation to the unique integral unit with value a, supplied by p∤a and the existing native unit criterion. It bounds ‖d−e‖ by p^(−r). Native unit monomials have norm one; evaluating the actual norm-at-most-one measure on u^l gives ‖C_a(l)‖≤1. Hence ‖y‖≤1 because ‖e‖=1.",
+        "The exact identity d(x−y)=(dx−ey)+(e−d)y and the nonarchimedean triangle inequality bound its norm by max(p^(−r),p^(−r)·1). Dividing by d preserves the norm since d is an integral unit.",
+        "Keep both denominator-unit assumptions in the signature. They exclude the trivial exceptional branch in the displayed counterexample. At p=2 every admissible natural a is odd, so these denominators are not units; the preceding smoothed theorem remains valid there. No blanket unsmoothed dyadic statement follows."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/weight-period-smoothed-kummer",
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-norm",
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-extension-moment",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:IsUnit.unit",
+        "mathlib:IsUnit.unit_spec",
+        "mathlib:PadicInt.norm_units",
+        "mathlib:PadicInt.norm_def",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:ContinuousLinearMap.le_opNorm",
+        "mathlib:Padic.nonarchimedean",
+        "mathlib:Padic.norm_natCast_eq_one_iff",
+        "mathlib:Padic.norm_p"
+      ],
+      "acceptance": [
+        "For p=5,a=2,k=2,l=6,r=1 the denominators −3 and −63 are units; V(2)−V(6)=760/63 has norm 1/5. For p=3,k=2,l=4 the unsmoothed difference has norm 3, so the unqualified r=1 conclusion fails. These are numerical Bernoulli values, not a construction of an unsmoothed pseudomeasure."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/Kummer",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kummer_of_unit_smoothing"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark 2.18 with preceding discussion, printed 115–117 / PDF16–18; numerator and interpolation normalization in §4, printed 138–139 / PDF39–40.",
+          "excerpt": "(mod pᵐ)",
+          "match": "Worker arithmetic repair and decomposition using the actual integral smoothed numerator. The blanket unsmoothed trivial-character congruence in Remark 2.18 fails; see consumer finding E10 and prior PMIA/E13. The norm and finite-combination statements are derived adapters, not separate source-numbered results."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedKummerTests.unit_denominator_odd_prime",
+          "kind": "computation",
+          "statement": "At p=5,a=2,k=2,l=6 both integral smoothing denominators are units and the unsmoothed difference has norm 1/5."
+        },
+        {
+          "name": "SuggestedKummerTests.unsmoothed_negative_control",
+          "kind": "computation",
+          "statement": "At p=3,k=2,l=4 the unsmoothed Bernoulli difference has norm 3, contradicting the unqualified bound 1/3."
+        }
+      ]
     }
   ],
   "requests": [
@@ -9623,7 +9970,7 @@
       "status": "partial",
       "remaining": [
         "The actual intrinsic arithmetic numerator on U=ℤ_pˣ, its ambient inclusion, coefficient extension and moments are now explicit. Its multiplicative Dirac action transports the smoothing cocycle, cross-smoothing identity and evenness integrally, including p=2. Compare these identities with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate the imported L3 pseudomeasures with exact carrier and denominator comparisons.",
-        "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the intrinsic numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
+        "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
         "The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
       ]
     },
@@ -9659,7 +10006,7 @@
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual intrinsic arithmetic numerator on U=ℤ_pˣ, its ambient inclusion, coefficient extension and moments are now explicit. Its multiplicative Dirac action transports the smoothing cocycle, cross-smoothing identity and evenness integrally, including p=2. Compare these identities with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate the imported L3 pseudomeasures with exact carrier and denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the intrinsic numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
+      "detail": "The actual intrinsic arithmetic numerator on U=ℤ_pˣ, its ambient inclusion, coefficient extension and moments are now explicit. Its multiplicative Dirac action transports the smoothing cocycle, cross-smoothing identity and evenness integrally, including p=2. Compare these identities with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate the imported L3 pseudomeasures with exact carrier and denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -9837,86 +10184,103 @@
         "2026-09-27: https://msp.org/ent/2025/4-1/p03.xhtml fetched and read; no erratum, corrigendum or correction link found. Joaquín Rodrigues Jacinto’s https://sites.google.com/site/joaquinrj/home lists the paper and journal link, without a separate correction.",
         "2026-09-27: title/author searches with errata and Remark8.3 correction returned no identified correction. The atlas source-issues register was checked for this paper; the Lemma7.5 sign is already ColemanIntegration/E22. This bounded search is not a priority or novelty claim."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E10",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Remark 2.18, published printed117 / PDF18; arXiv:2309.15692v2 p.12.",
+      "printed": "(mod pᵐ)",
+      "correction": "Retain an integral smoothing factor for the trivial-character congruence, or state and prove the precise branch/denominator conditions allowing its removal. The present repair gives the smoothed weight-period bound and removal when both smoothing denominators are integral units.",
+      "reason": "Already recorded as PadicMeasuresIwasawaAlgebras/E13. At p=3,m=1,k=2,l=4 with trivial character, the exponents are congruent modulo p−1, but (1−3)ζ(−1)=1/6 and (1−27)ζ(−3)=−13/60 differ by 23/60, whose 3-adic norm is 3 rather than at most 1/3. In the Bernoulli normalization V(k)=−(1−p^(k−1))ζ(1−k), the unsmoothed difference is −23/60, with the same norm. C_2(2)=1/2 and C_2(4)=−13/4 differ by 15/4 with norm 1/3. The counterexample concerns the blanket remark and its explicit Riemann-zeta specialization, not the interpolation theorems.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Prior atlas finding PadicMeasuresIwasawaAlgebras/E13 was read in full before this consumer repair. It is awaiting independent review; no new-discovery claim or own review verdict is made. The marker new means no identified correction in print, following the source-finding schema, not novelty within the atlas.",
+        "27 September 2026: freshly read full published printed115–117 / PDF16–18, visually inspected printed117, and collated full arXiv v2PDF11–13, including Remark2.18 on p.12. Both source hashes match sourceVersions.",
+        "27 September 2026: https://arxiv.org/abs/2309.15692 read; latest listed revision remains v2,19 December2024. Author article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints read, with no correction entry for this paper identified.",
+        "27 September 2026: journal landing page https://msp.org/ent/2025/4-1/p03.xhtml failed through the browser route but succeeded through direct HTTP; the full parsed article page was read, with no erratum/corrigendum/correction link identified. Bounded title+errata, identifier+correction and authors+Remark2.18 searches identified no correcting publication. This does not establish absence or priority; no authors were contacted."
+      ]
     }
   ],
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All nine findings preserved; no new finding or verdict; versioned errata passes.",
+    "sourceIssues": "Nine prior findings preserved whole; E10 acknowledges unreviewed PMIA/E13, with fresh source-version and bounded correction checks. No independent verdict; versioned errata passes.",
     "validation": {
-      "nodes": 153,
+      "nodes": 158,
       "kinds": {
         "definition": 1,
-        "lemma": 86,
+        "lemma": 88,
         "construction": 13,
-        "theorem": 42,
+        "theorem": 45,
         "comparison": 11
       },
       "api": 144,
       "definitionConstructionTests": 81,
-      "packetTests": 113,
+      "packetTests": 120,
       "planets": 17,
-      "baseline": 212,
-      "preservedWholeNodes": 144,
-      "preservedBaseline": 209,
+      "baseline": 223,
+      "preservedWholeNodes": 153,
+      "preservedBaseline": 212,
       "preservedSourceIssues": 9,
-      "newSourceIssues": 0,
-      "newNodes": 9,
-      "newNamedDeclarations": 12,
-      "newTypedTests": 8,
-      "typedExamples": 116,
-      "reachableNodes": 268,
-      "dependencyEdges": 1143,
+      "newSourceIssues": 1,
+      "newNodes": 5,
+      "newNamedDeclarations": 5,
+      "newTypedTests": 7,
+      "typedExamples": 123,
+      "reachableNodes": 284,
+      "dependencyEdges": 1222,
       "acyclic": true,
-      "baselineLeaves": 314,
+      "baselineLeaves": 326,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 301,
+      "compilerWarnings": 313,
       "allWarningsPlaceholders": true,
-      "supplierNodes": 249,
-      "supplierWarnings": 536,
-      "pinnedMathlibModules": 3552,
-      "pinnedTauCetiModules": 19,
+      "supplierNodes": 265,
+      "supplierWarnings": 569,
+      "pinnedMathlibModules": 3565,
+      "pinnedTauCetiModules": 20,
       "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 14,
-      "scratchCompleteDefinitions": 1,
-      "scratchMathlibModules": 1792,
+      "scratchCompleteLemmas": 16,
+      "scratchCompleteDefinitions": 0,
+      "scratchMathlibModules": 2843,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 53432,
+      "readerWords": 55915,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "e7682ddbd35791591220f31449589a0b9c4e0d16142ab7329100d6b91a15fc9a",
-      "sourceAuditSha256": "90a430639b4fd50da0e30862171e820da59e862b6eefc97956f91f4ecf2b1478",
+      "suggestedFileSha256": "363ac315fd826e11d80e8743a82f58bbc8a520a1092624444f9bdb9dbfaa2ce9",
+      "sourceAuditSha256": "0c507e70eeeaea3c6e6cd317cd2bd408491c01a3af61dc7290c71fd2d191d249",
       "errors": 0,
-      "warnings": 301,
+      "warnings": 313,
       "warningsOnlyPlaceholders": true,
-      "mathlibModules": 3552,
-      "tauCetiModules": 19,
+      "mathlibModules": 3565,
+      "tauCetiModules": 20,
       "actualSupplierModules": 1,
-      "supplierNodes": 249,
-      "supplierWarnings": 536,
-      "nativeTauCetiBuild": "Reused isolated source-built artifacts for 19 pinned modules; source hashes and zero-warning logs checked.",
+      "supplierNodes": 265,
+      "supplierWarnings": 569,
+      "nativeTauCetiBuild": "19 prior isolated source-built modules reused with source hashes and zero-warning logs checked; the new pinned UnitFiltration.Basic module freshly source-built with zero errors/warnings.",
       "scratch": {
-        "sha256": "3ebb35498ab995f10d3df251aa20d35855b1b3d64fee5588723dc844ac32b1c2",
-        "provedLemmas": 14,
-        "actualDefinitions": 1,
-        "mathlibModules": 1792,
+        "sha256": "25efc027b3d290c7968b73a639b6ebca84afaac121af9da8589a4f847122683a",
+        "provedLemmas": 16,
+        "actualDefinitions": 0,
+        "mathlibModules": 2843,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Native right-handed product and Dirac action, inclusion, monomial and scalar-action exponent; exact-premise restriction/cocycle/evenness adapters; two numerical moments, cross orientation and an extra-scalar negative control."
+        "scope": "Euler residue powers, kernel/norm-ball and coefficient transport, monomial and finite linearity, measure precision retaining its norm premise, integral-unit denominator algebra and counterexample/repair numerical checks."
       }
     },
     "publication": {
-      "base": "d8f1dcdcff0b61a3b474b2722c92bbe892d0a8a8",
+      "base": "1322339a1095feed6b9490ecd87bda44ad28a865",
       "unchangedInputs": 52,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -11843,6 +12207,197 @@
         },
         "publication": {
           "base": "d8f1dcdcff0b61a3b474b2722c92bbe892d0a8a8",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: five gaps, one request, zero closed stages; all implementation statuses unchecked."
+      }
+    },
+    "kummer": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3250,
+      "previousHead": "f0cc85756d5d1e2780073e8f0b9f9032103f3f5e",
+      "previousMerge": "a4057b0e1086ec9b02302ff5113cc9e718935532",
+      "newNodes": 5,
+      "preservedWholeNodes": 153,
+      "preservedBaseline": 212,
+      "preservedFindings": 9,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All nine findings preserved; no new finding or verdict; versioned errata passes.",
+        "validation": {
+          "nodes": 153,
+          "kinds": {
+            "definition": 1,
+            "lemma": 86,
+            "construction": 13,
+            "theorem": 42,
+            "comparison": 11
+          },
+          "api": 144,
+          "definitionConstructionTests": 81,
+          "packetTests": 113,
+          "planets": 17,
+          "baseline": 212,
+          "preservedWholeNodes": 144,
+          "preservedBaseline": 209,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 9,
+          "newNamedDeclarations": 12,
+          "newTypedTests": 8,
+          "typedExamples": 116,
+          "reachableNodes": 268,
+          "dependencyEdges": 1143,
+          "acyclic": true,
+          "baselineLeaves": 314,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 301,
+          "allWarningsPlaceholders": true,
+          "supplierNodes": 249,
+          "supplierWarnings": 536,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 14,
+          "scratchCompleteDefinitions": 1,
+          "scratchMathlibModules": 1792,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 53432,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "e7682ddbd35791591220f31449589a0b9c4e0d16142ab7329100d6b91a15fc9a",
+          "sourceAuditSha256": "90a430639b4fd50da0e30862171e820da59e862b6eefc97956f91f4ecf2b1478",
+          "errors": 0,
+          "warnings": 301,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "supplierNodes": 249,
+          "supplierWarnings": 536,
+          "nativeTauCetiBuild": "Reused isolated source-built artifacts for 19 pinned modules; source hashes and zero-warning logs checked.",
+          "scratch": {
+            "sha256": "3ebb35498ab995f10d3df251aa20d35855b1b3d64fee5588723dc844ac32b1c2",
+            "provedLemmas": 14,
+            "actualDefinitions": 1,
+            "mathlibModules": 1792,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Native right-handed product and Dirac action, inclusion, monomial and scalar-action exponent; exact-premise restriction/cocycle/evenness adapters; two numerical moments, cross orientation and an extra-scalar negative control."
+          }
+        },
+        "publication": {
+          "base": "d8f1dcdcff0b61a3b474b2722c92bbe892d0a8a8",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: five gaps, one request, zero closed stages; all implementation statuses unchecked."
+      },
+      "sourceBoundary": "Partial source reading as recorded; E10 acknowledges prior unreviewed PMIA/E13. Arithmetic norm/moment/congruence adapters only. Generic finite unit quotients remain supplier/native work; completed algebra and pseudomeasures remain open.",
+      "inputs": "All52 initial captured input blobs match the preceding submitted checkpoint. Applicable protocols and relevant native/supplier statements read in full in this continuous session; accepted scope, issue, audit rows, touching links and two upstream models retain their recorded reading provenance.",
+      "inputRefresh": "Prepublication refresh at1322339a1095feed6b9490ecd87bda44ad28a865: PMIA PR3252 adds16 unit-quotient nodes (249→265). All249 prior nodes,245 baseline objects,14 findings and requests are preserved whole; all16 new whole nodes, added Lean/imports and changed source/scope/gap/check metadata were read. The29 new unused supplier baseline citations were not independently source-read in this consumer continuation. No new unit-quotient node is required by this arithmetic slice. Registry retains every prior whole record and adds7 unrelated SieveMethodsAndPrimePatterns/E12–E18 records, fully read with their generated register changes. No Dirichlet or PMIA finding changes.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Nine prior findings preserved whole; E10 acknowledges unreviewed PMIA/E13, with fresh source-version and bounded correction checks. No independent verdict; versioned errata passes.",
+        "validation": {
+          "nodes": 158,
+          "kinds": {
+            "definition": 1,
+            "lemma": 88,
+            "construction": 13,
+            "theorem": 45,
+            "comparison": 11
+          },
+          "api": 144,
+          "definitionConstructionTests": 81,
+          "packetTests": 120,
+          "planets": 17,
+          "baseline": 223,
+          "preservedWholeNodes": 153,
+          "preservedBaseline": 212,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 1,
+          "newNodes": 5,
+          "newNamedDeclarations": 5,
+          "newTypedTests": 7,
+          "typedExamples": 123,
+          "reachableNodes": 284,
+          "dependencyEdges": 1222,
+          "acyclic": true,
+          "baselineLeaves": 326,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 313,
+          "allWarningsPlaceholders": true,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "pinnedMathlibModules": 3565,
+          "pinnedTauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 16,
+          "scratchCompleteDefinitions": 0,
+          "scratchMathlibModules": 2843,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 55915,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "363ac315fd826e11d80e8743a82f58bbc8a520a1092624444f9bdb9dbfaa2ce9",
+          "sourceAuditSha256": "0c507e70eeeaea3c6e6cd317cd2bd408491c01a3af61dc7290c71fd2d191d249",
+          "errors": 0,
+          "warnings": 313,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3565,
+          "tauCetiModules": 20,
+          "actualSupplierModules": 1,
+          "supplierNodes": 265,
+          "supplierWarnings": 569,
+          "nativeTauCetiBuild": "19 prior isolated source-built modules reused with source hashes and zero-warning logs checked; the new pinned UnitFiltration.Basic module freshly source-built with zero errors/warnings.",
+          "scratch": {
+            "sha256": "25efc027b3d290c7968b73a639b6ebca84afaac121af9da8589a4f847122683a",
+            "provedLemmas": 16,
+            "actualDefinitions": 0,
+            "mathlibModules": 2843,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Euler residue powers, kernel/norm-ball and coefficient transport, monomial and finite linearity, measure precision retaining its norm premise, integral-unit denominator algebra and counterexample/repair numerical checks."
+          }
+        },
+        "publication": {
+          "base": "1322339a1095feed6b9490ecd87bda44ad28a865",
           "unchangedInputs": 52,
           "unchangedOutputs": 4,
           "sameSessionFollowupAfterMerge": true,
