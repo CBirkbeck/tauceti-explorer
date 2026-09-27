@@ -3213,3 +3213,117 @@ example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1) :
     normalizedMellinContinuation (tameComplexKernel η) (-1) = 2/5 := by sorry
 end
 end SuggestedTameComplexKernelTests
+
+/-! The actual complex Gauss expression. Nonzero Gauss normalization remains
+explicit; all geometric manipulations are finite. Continuity supplies the
+removable comparison at zero, without evaluating an infinite formal series. -/
+namespace DirichletPadic
+noncomputable section
+section TameComplexGauss
+variable {D : ℕ} [NeZero D]
+
+theorem tameComplexGauss_denominator_ne_zero (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (a : ZMod D) (ha : a ≠ 0) (t : ℝ) :
+    ε^a.val * (Real.exp t : ℂ) - 1 ≠ 0 := by sorry
+
+theorem tameComplexGauss_analyticAt (η : DirichletCharacter ℂ D) (hD : 1 < D)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε D) (t : ℝ) :
+    AnalyticAt ℝ (fun t : ℝ => (-(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod D, η⁻¹ a / (ε^a.val * (Real.exp t : ℂ)-1))) t := by sorry
+
+theorem tameComplexGauss_generating (η : DirichletCharacter ℂ D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) (t : ℝ) :
+    (1-(Real.exp (D*t) : ℂ)) * (-(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod D, η⁻¹ a / (ε^a.val * (Real.exp t : ℂ)-1)) =
+      ∑ a : ZMod D, η a * (Real.exp (a.val*t) : ℂ) := by sorry
+
+theorem tameComplexKernel_eq_gauss (η : DirichletCharacter ℂ D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) (t : ℝ) :
+    tameComplexKernel η t = (-(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod D, η⁻¹ a / (ε^a.val * (Real.exp t : ℂ)-1)) := by sorry
+
+theorem tameComplexGauss_mass (η : DirichletCharacter ℂ D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod D, η⁻¹ a / (ε^a.val-1) =
+    -(D : ℂ)⁻¹ * ∑ a : ZMod D, η a * a.val := by sorry
+
+theorem tameComplexGauss_root_independent (η : DirichletCharacter ℂ D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (ε₁ ε₂ : ℂ) (hε₁ : IsPrimitiveRoot ε₁ D) (hε₂ : IsPrimitiveRoot ε₂ D)
+    (hG₁ : gaussSum η⁻¹ (AddChar.zmodChar D hε₁.pow_eq_one) ≠ 0)
+    (hG₂ : gaussSum η⁻¹ (AddChar.zmodChar D hε₂.pow_eq_one) ≠ 0) (t : ℝ) :
+    (-(gaussSum η⁻¹ (AddChar.zmodChar D hε₁.pow_eq_one))⁻¹ *
+      ∑ a : ZMod D, η⁻¹ a / (ε₁^a.val * (Real.exp t : ℂ)-1)) = (-(gaussSum η⁻¹ (AddChar.zmodChar D hε₂.pow_eq_one))⁻¹ *
+      ∑ a : ZMod D, η⁻¹ a / (ε₂^a.val * (Real.exp t : ℂ)-1)) := by sorry
+
+theorem tameComplexGauss_normalized_eq_LFunction (η : DirichletCharacter ℂ D) (hη : η.IsPrimitive)
+    (hD : 1 < D) (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) (s : ℂ) :
+    normalizedMellinContinuation (fun t : ℝ => (-(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod D, η⁻¹ a / (ε^a.val * (Real.exp t : ℂ)-1))) s = -η (-1) * η.LFunction s := by sorry
+
+theorem tameComplexKernel_formal_derivative (η : DirichletCharacter ℂ D) (hη : η ≠ 1)
+    (hD : IsUnit (D : ℂ)) (k : ℕ) :
+    iteratedDeriv k (tameComplexKernel η) 0 =
+      PowerSeries.constantCoeff ((PowerSeries.mahlerDerivation ℂ)^[k] (tameSeries η hD)) := by sorry
+
+theorem tameComplexKernel_formal_exponential_coeff (η : DirichletCharacter ℂ D) (hη : η ≠ 1)
+    (hD : IsUnit (D : ℂ)) (k : ℕ) :
+    PowerSeries.coeff k (PowerSeries.subst (PowerSeries.exp ℂ-1) (tameSeries η hD)) =
+      iteratedDeriv k (tameComplexKernel η) 0 / (k.factorial : ℂ) := by sorry
+end TameComplexGauss
+end
+end DirichletPadic
+
+namespace SuggestedComplexGaussTests
+open DirichletPadic
+noncomputable section
+-- imaginary_denominator
+example (t : ℝ) : Complex.I * (Real.exp t : ℂ)-1 ≠ 0 := by sorry
+-- zero_residue_denominator
+example (ε : ℂ) : ε^((0 : ZMod 3).val) * (Real.exp 0 : ℂ)-1 = 0 := by sorry
+-- zero_normalization
+example {D : ℕ} [NeZero D] (η : DirichletCharacter ℂ D) (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) = 0) (t : ℝ) : (-(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod D, η⁻¹ a / (ε^a.val * (Real.exp t : ℂ)-1)) = 0 := by sorry
+-- quadratic_generating
+example (η : DirichletCharacter ℂ 4) (hη : η 3 = -1) (ε : ℂ) (hε : IsPrimitiveRoot ε 4)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar 4 hε.pow_eq_one) ≠ 0) (t : ℝ) :
+    (1-(Real.exp (4*t) : ℂ)) * (-(gaussSum η⁻¹ (AddChar.zmodChar 4 hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod 4, η⁻¹ a / (ε^a.val * (Real.exp t : ℂ)-1)) =
+      (Real.exp t : ℂ) - (Real.exp (3*t) : ℂ) := by sorry
+-- quadratic_gauss_origin
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) (ε : ℂ) (hε : IsPrimitiveRoot ε 3)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one) ≠ 0) : (-(gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod 3, η⁻¹ a / (ε^a.val * (Real.exp 0 : ℂ)-1)) = 1/3 := by sorry
+-- quadratic_gauss_log_two
+example (η : DirichletCharacter ℂ 4) (hη : η 3 = -1) (ε : ℂ) (hε : IsPrimitiveRoot ε 4)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar 4 hε.pow_eq_one) ≠ 0) :
+    (-(gaussSum η⁻¹ (AddChar.zmodChar 4 hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod 4, η⁻¹ a / (ε^a.val * (Real.exp (Real.log 2) : ℂ)-1)) = 2/5 := by sorry
+-- inverse_primitive_root
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) (ε : ℂ)
+    (hε : IsPrimitiveRoot ε 3) (hεi : IsPrimitiveRoot ε⁻¹ 3)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one) ≠ 0)
+    (hGi : gaussSum η⁻¹ (AddChar.zmodChar 3 hεi.pow_eq_one) ≠ 0) (t : ℝ) :
+    (-(gaussSum η⁻¹ (AddChar.zmodChar 3 hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod 3, η⁻¹ a / (ε^a.val * (Real.exp t : ℂ)-1)) = (-(gaussSum η⁻¹ (AddChar.zmodChar 3 hεi.pow_eq_one))⁻¹ *
+      ∑ a : ZMod 3, η⁻¹ a / ((ε⁻¹)^a.val * (Real.exp t : ℂ)-1)) := by sorry
+-- even_gauss_negative_value
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1) (ε : ℂ) (hε : IsPrimitiveRoot ε 5)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar 5 hε.pow_eq_one) ≠ 0) :
+    normalizedMellinContinuation (fun t : ℝ => (-(gaussSum η⁻¹ (AddChar.zmodChar 5 hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod 5, η⁻¹ a / (ε^a.val * (Real.exp t : ℂ)-1))) (-1) = 2/5 := by sorry
+-- ordinary_derivative_normalization
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) (hD : IsUnit (3 : ℂ)) :
+    iteratedDeriv 2 (tameComplexKernel η) 0 =
+      PowerSeries.constantCoeff ((PowerSeries.mahlerDerivation ℂ)^[2] (tameSeries η hD)) := by sorry
+-- exponential_factorial
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) (hD : IsUnit (3 : ℂ)) :
+    PowerSeries.coeff 2 (PowerSeries.subst (PowerSeries.exp ℂ-1) (tameSeries η hD)) =
+      iteratedDeriv 2 (tameComplexKernel η) 0 / 2 := by sorry
+end
+end SuggestedComplexGaussTests
