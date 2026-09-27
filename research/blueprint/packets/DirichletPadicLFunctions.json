@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all190 predecessor nodes whole. Eight L2 declarations identify formal tame moments and complex special values through finite native rational Bernoulli polynomials, and state the common algebraic ordinary/unit-measure comparisons. A new explicit PMIA L2 request records the missing coefficient-field moment API. Five gaps, two requests and zero closed stages remain; all implementation statuses are unchecked.",
+  "summary": "Partial continuation preserving198 predecessor nodes whole. Six L2 declarations construct the actual inverse-weighted tame zeta measure, establish its unit support, multiplication-by-x identity, positive-moment shift and norm bound, and state the common algebraic shifted special-value comparison. Five gaps,two requests and zero closed stages remain; the coefficient-field ordinary-moment request is still open and every implementation status is unchecked.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1974,6 +1974,48 @@
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "provides": "A character vanishes at0 when the modulus ring is nontrivial; nonprincipality excludes modulus1.",
         "checked": "Full native statement and its explicit nontrivial-domain hypothesis read at pinned Mathlib082e2d3 on27 September2026 and matched to the unchanged index."
+      },
+      {
+        "ref": "mathlib:PadicInt.inv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The native inverse on units, defined to be zero on every nonunit.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:PadicInt.inv_mul",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The native unit inverse times its argument is1 under the norm-one hypothesis.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_le_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "Every native p-adic integer, including the zero-extended inverse, has norm at most1.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:norm_smul_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/MulAction.lean",
+        "provides": "The norm bound for a bounded scalar action; apply to x.inv acting on1 to bound its coefficient image.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:continuous_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Algebra.lean",
+        "provides": "The native algebra map is continuous under a continuous scalar action.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.opNorm_le_bound",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Operator/Basic.lean",
+        "provides": "A uniform test-function bound gives the continuous-dual operator-norm bound over the displayed normed field.",
+        "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
       }
     ]
   },
@@ -12889,6 +12931,384 @@
           "statement": "For quadratic modulo3 at p=2, the unit fourth moment is(1+16)·2/3=34/3."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-measure",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The tame zeta measure",
+      "kind": "construction",
+      "statement": "Define ζ_η=weight(g)(Eμ_η) on the existing D(Z_p,K). Thus ζ_η(f)=(Eμ_η)(gf). The inverse is zero on every nonunit before mapping into K.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η is the native DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Write μ=tameMeasure(η,hD,hpD), E=unitRestriction p K, x_K(x)=algebraMap Z_p K x and g(x)=algebraMap Z_p K(PadicInt.inv x). The supplier proves continuity of the native zero-extended inverse on Z_p; composition with the native continuous algebra map gives g. No new coefficient or measure carrier is introduced."
+      ],
+      "proofSteps": [
+        "Bundle g by composing the supplier’s continuous native PadicInt.inv with continuous_algebraMap. Bounded scalar action supplies continuity; no continuity of field inversion at zero is asserted.",
+        "Apply the existing general normed-ring weight operation to the existing ambient unit restriction of the actual tameMeasure. This is an arithmetic constructor; the integral-only inverseWeight operator is not applied to a K-valued measure.",
+        "The evaluation API is the supplier’s weight-evaluation. At modulus1 the actual tame measure is zero, so restriction and weighting give zero.",
+        "Pointwise g vanishes on nonunits by the native inv conditional and the native unit/norm characterization. Hence multiplying g by the unit characteristic function changes nothing; the generic evaluation laws give ζ_η=weight(g)μ_η. The principal and nonprincipal constructors are both defined, but only nonprincipal η receives the following Dirichlet special-value comparison."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-continuity",
+        "mathlib:PadicInt.inv",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:continuous_algebraMap"
+      ],
+      "acceptance": [
+        "Use the native zero-extended unit inverse. In particular x=p≠0 is still a nonunit, and g(p)=0.",
+        "The zero-th ζ moment is not identified by the positive-degree shift; no value at L(η,1) is inferred."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameZeta",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, Definition5.13 and its immediately following interpolation identity, printed146/PDF47; Lemma5.11, printed145/PDF46. Complete published144–146 read during this continuous session from the hash-verified public PDF.",
+          "excerpt": "x⁻¹",
+          "match": "Arithmetic specialization of the source inverse weighting to the actual tame measure. General weighting and continuity of the native p-adic unit inverse are imported from PMIA. Only the untwisted positive-power comparison is established at blueprint level; conductor-product twists and the coefficient-field ordinary-moment request remain explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameZetaTests.one_level_zero",
+          "kind": "degenerate",
+          "statement": "At modulus1 the actual tame zeta constructor is0."
+        },
+        {
+          "name": "SuggestedTameZetaTests.first_moment",
+          "kind": "computation",
+          "statement": "For quadratic modulo3 at p=2, the first ζ moment is2/3."
+        },
+        {
+          "name": "SuggestedTameZetaTests.omission_of_inverse",
+          "kind": "non-example",
+          "statement": "For the same data ζ differs from Eμ: their first ordinary moments are2/3 and0."
+        },
+        {
+          "name": "SuggestedTameZetaTests.weight_compatibility",
+          "kind": "compatibility",
+          "statement": "For the same data, weighting ζ by x and evaluating at1 gives the unit mass2/3, agreeing with the existing weight operation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Definition5.13 and the interpolation identity immediately following it, printed146",
+          "how": "Construct the actual inverse-weighted unit measure that changes the source moment argument from−k to1−k."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L2/tame-zeta-common-special-value",
+          "how": "Supply the existing-carrier measure whose positive ordinary moments are the p-adic images of explicit algebraic special values."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L3",
+          "how": "Supply the bounded arithmetic measure consumed by separately planned character-coordinate evaluation; no analytic branch or convergence statement follows from this construction alone."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.tameZetaMeasure_apply",
+          "role": "characterisation",
+          "statement": "ζ_η(f)=(Eμ_η)(gf), on every actual continuous K-valued test."
+        },
+        {
+          "name": "DirichletPadic.tameZetaMeasure_one_level",
+          "role": "simp",
+          "statement": "At D=1 the constructor is zero."
+        },
+        {
+          "name": "DirichletPadic.tameZetaMeasure_eq_unrestricted_weight",
+          "role": "compatibility",
+          "statement": "ζ_η=weight(g)μ_η since the native inverse already vanishes on nonunits."
+        },
+        {
+          "name": "DirichletPadic.unitRestriction_tameZetaMeasure",
+          "role": "relation",
+          "statement": "Eζ_η=ζ_η; promoted to tame-zeta-support."
+        },
+        {
+          "name": "DirichletPadic.weight_id_tameZetaMeasure",
+          "role": "compatibility",
+          "statement": "weight(x_K)ζ_η=Eμ_η; promoted to tame-zeta-weight."
+        },
+        {
+          "name": "DirichletPadic.tameZetaMeasure_moment_shift",
+          "role": "compatibility",
+          "statement": "ζ_η(x_K^(k+1))=(Eμ_η)(x_K^k); promoted to tame-zeta-moment-shift."
+        },
+        {
+          "name": "DirichletPadic.tameZetaMeasure_norm_le",
+          "role": "compatibility",
+          "statement": "The native continuous-dual operator norm of ζ_η is at most1; promoted to tame-zeta-norm."
+        },
+        {
+          "name": "DirichletPadic.tameZetaMeasure_common_special_value",
+          "role": "compatibility",
+          "statement": "At positive k the separate complex and p-adic embeddings of the same Euler–Bernoulli element give L(η,1−k) and ζ_η(x_K^k); promoted to tame-zeta-common-special-value."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-support",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Unit support of the tame zeta measure",
+      "kind": "lemma",
+      "statement": "Eζ_η=ζ_η on the ambient native measure carrier.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η is the native DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Write μ=tameMeasure(η,hD,hpD), E=unitRestriction p K, x_K(x)=algebraMap Z_p K x and g(x)=algebraMap Z_p K(PadicInt.inv x). The supplier proves continuity of the native zero-extended inverse on Z_p; composition with the native continuous algebra map gives g. No new coefficient or measure carrier is introduced."
+      ],
+      "proofSteps": [
+        "Evaluate both sides at an arbitrary continuous test. By the weight and unit-restriction evaluation laws the extra unit indicator multiplies the same g-weight.",
+        "Its square equals itself pointwise, or equivalently g vanishes off the units. Associativity gives equality on all tests; use the existing continuous-dual identification for extensionality.",
+        "Apply the supplier’s exact general-ring unit-support-psi equivalence to obtain ψζ_η=0. This is a support condition for the continuous dual, not MeasureTheory.support or an identification of two different carriers."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-multiplication",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-support-psi",
+        "mathlib:AbstractMeasure.toCLMEquiv"
+      ],
+      "acceptance": [
+        "Support and the psi-zero API require neither nonprincipality nor characteristic zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameZeta",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.unitRestriction_tameZetaMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, Definition5.13 and its immediately following interpolation identity, printed146/PDF47; Lemma5.11, printed145/PDF46. Complete published144–146 read during this continuous session from the hash-verified public PDF.",
+          "excerpt": "x⁻¹",
+          "match": "Arithmetic specialization of the source inverse weighting to the actual tame measure. General weighting and continuity of the native p-adic unit inverse are imported from PMIA. Only the untwisted positive-power comparison is established at blueprint level; conductor-product twists and the coefficient-field ordinary-moment request remain explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameZetaTests.psi_zero",
+          "kind": "compatibility",
+          "statement": "At p=2 and D=3 the actual ζ measure is killed by the existing psi operator."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.psiMeasure_tameZetaMeasure",
+          "role": "relation",
+          "statement": "ψζ_η=0 by the existing general-ring support equivalence."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-weight",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Multiplication by x recovers the unit measure",
+      "kind": "theorem",
+      "statement": "weight(x_K)ζ_η=Eμ_η.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η is the native DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Write μ=tameMeasure(η,hD,hpD), E=unitRestriction p K, x_K(x)=algebraMap Z_p K x and g(x)=algebraMap Z_p K(PadicInt.inv x). The supplier proves continuity of the native zero-extended inverse on Z_p; composition with the native continuous algebra map gives g. No new coefficient or measure carrier is introduced."
+      ],
+      "proofSteps": [
+        "Use the generic weight-multiplication and evaluation laws. The pointwise product is x_K(x)g(x), with the existing unit indicator coming from E.",
+        "For a native unit x, inv_mul and isUnit_iff give inv(x)·x=1 in Z_p; map that equality into K. On nonunits the unit indicator is zero. Therefore the resulting multiplier on Eμ is exactly1.",
+        "Conclude by native continuous-dual extensionality. The proof divides only by a unit of Z_p, and needs no field-general inverseWeight or inverseMahler construction."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-multiplication",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "mathlib:PadicInt.inv_mul",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:AbstractMeasure.toCLMEquiv"
+      ],
+      "acceptance": [
+        "The equation recovers Eμ, including its Euler factor; it does not recover the unprojected μ."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameZeta",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.weight_id_tameZetaMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, Definition5.13 and its immediately following interpolation identity, printed146/PDF47; Lemma5.11, printed145/PDF46. Complete published144–146 read during this continuous session from the hash-verified public PDF.",
+          "excerpt": "x⁻¹",
+          "match": "Arithmetic specialization of the source inverse weighting to the actual tame measure. General weighting and continuity of the native p-adic unit inverse are imported from PMIA. Only the untwisted positive-power comparison is established at blueprint level; conductor-product twists and the coefficient-field ordinary-moment request remain explicit."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-moment-shift",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Positive moments of the tame zeta measure",
+      "kind": "lemma",
+      "statement": "For every k≥0, ζ_η(x_K^(k+1))=(Eμ_η)(x_K^k).",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η is the native DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Write μ=tameMeasure(η,hD,hpD), E=unitRestriction p K, x_K(x)=algebraMap Z_p K x and g(x)=algebraMap Z_p K(PadicInt.inv x). The supplier proves continuity of the native zero-extended inverse on Z_p; composition with the native continuous algebra map gives g. No new coefficient or measure carrier is introduced."
+      ],
+      "proofSteps": [
+        "Evaluate the preceding measure equation on x_K^k. The supplier’s weight-evaluation gives ζ_η(x_K·x_K^k).",
+        "Pointwise power multiplication identifies the test with x_K^(k+1), including k=0. This shifts positive-degree moments only; no expression for ζ_η(1) follows from this argument."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation"
+      ],
+      "acceptance": [
+        "The first ζ moment is the unit mass, not the first ordinary moment of Eμ."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameZeta",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure_moment_shift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, Definition5.13 and its immediately following interpolation identity, printed146/PDF47; Lemma5.11, printed145/PDF46. Complete published144–146 read during this continuous session from the hash-verified public PDF.",
+          "excerpt": "x⁻¹",
+          "match": "Arithmetic specialization of the source inverse weighting to the actual tame measure. General weighting and continuity of the native p-adic unit inverse are imported from PMIA. Only the untwisted positive-power comparison is established at blueprint level; conductor-product twists and the coefficient-field ordinary-moment request remain explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameZetaTests.third_moment",
+          "kind": "computation",
+          "statement": "For quadratic modulo3 at p=2, ζ has third moment−10/9, the second unit moment of μ."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-norm",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Boundedness of the tame zeta measure",
+      "kind": "theorem",
+      "statement": "The existing native continuous-dual operator norm of ζ_η is at most1.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η is the native DirichletCharacter K D, hD:IsUnit(D:K), and p∤D. Write μ=tameMeasure(η,hD,hpD), E=unitRestriction p K, x_K(x)=algebraMap Z_p K x and g(x)=algebraMap Z_p K(PadicInt.inv x). The supplier proves continuity of the native zero-extended inverse on Z_p; composition with the native continuous algebra map gives g. No new coefficient or measure carrier is introduced."
+      ],
+      "proofSteps": [
+        "The native inverse is a p-adic integer, so its norm is at most1. Since its image in K is inv(x) acting on1, norm_smul_le and norm_one give ‖g(x)‖≤1 without assuming the Z_p algebra map is isometric.",
+        "Use ζ=weight(g)μ and weight-evaluation. For every f, the pointwise product bound implies ‖gf‖≤‖f‖ by the native compact continuous-map norm criterion.",
+        "The existing arithmetic norm bound for μ and native continuous-linear-map evaluation bound give ‖ζ(f)‖≤‖f‖. Apply opNorm_le_bound over the displayed nontrivially normed field K.",
+        "The all-test norm inequality is the API. Consequently included integral-valued tests have integral values in the native norm-valuation integer ring; an actual O-valued zeta constructor is not asserted by this norm theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-measure",
+        "DirichletPadicLFunctions:L2/tame-measure-norm",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:norm_smul_le",
+        "mathlib:ContinuousMap.norm_le",
+        "mathlib:ContinuousMap.norm_coe_le_norm",
+        "mathlib:ContinuousLinearMap.le_opNorm",
+        "mathlib:ContinuousLinearMap.opNorm_le_bound"
+      ],
+      "acceptance": [
+        "There is no factor1/‖p‖: the inverse is used only on units and vanishes on nonunits."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameZeta",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, Definition5.13 and its immediately following interpolation identity, printed146/PDF47; Lemma5.11, printed145/PDF46. Complete published144–146 read during this continuous session from the hash-verified public PDF.",
+          "excerpt": "x⁻¹",
+          "match": "Arithmetic specialization of the source inverse weighting to the actual tame measure. General weighting and continuity of the native p-adic unit inverse are imported from PMIA. Only the untwisted positive-power comparison is established at blueprint level; conductor-product twists and the coefficient-field ordinary-moment request remain explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameZetaTests.norm_bound",
+          "kind": "compatibility",
+          "statement": "At p=2,D=3 the norm of the zero-th ζ moment is at most1; its arithmetic value is not otherwise asserted."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.tameZetaMeasure_apply_norm_le",
+          "role": "compatibility",
+          "statement": "For every f:C(Z_p,K), ‖ζ_η(f)‖≤‖f‖."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-common-special-value",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Shifted algebraic tame special values",
+      "kind": "comparison",
+      "statement": "For k≥1 put b=(1−η(p)p^(k−1))·(−D^(k−1)/k)·Σ_aη(a)B_k(a.val/D) in E. Then ιC(b)=(1−ηC(p)p^(k−1))L(ηC,1−k) and ιK(b)=ζ_ηK(x_K^k).",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, ηK is the K-valued character obtained from the E-valued character below, hD:IsUnit(D:K), and p∤D. Write μ=tameMeasure(ηK,hD,hpD), E=unitRestriction p K, x_K(x)=algebraMap Z_p K x and g(x)=algebraMap Z_p K(PadicInt.inv x). The supplier proves continuity of the native zero-extended inverse on Z_p; composition with the native continuous algebra map gives g. No new coefficient or measure carrier is introduced.",
+        "K additionally has characteristic zero and Algebra ℚ K. E is a characteristic-zero field with its rational algebra; η is now a nonprincipal E-valued native character and ηK,ηC are its coefficient transports through separate field homomorphisms ιK:E→K and ιC:E→ℂ. No continuity of those field homomorphisms or ℚ→Z_p scalar tower is assumed."
+      ],
+      "proofSteps": [
+        "Apply the preceding common algebraic unit-special-value comparison at degree k−1. Character nonprincipality transfers through the injective field homomorphisms exactly as in that comparison.",
+        "Since k≥1, (k−1)+1=k. The moment-shift node identifies its K-valued unit moment with the kth moment of ζ. The rational Bernoulli polynomial index, divisor and complex argument simplify to k,k and1−k.",
+        "Keep the exponent k−1 in the Euler factor. This is the untwisted positive-integer specialization of Definition5.13. The PMIA L2 coefficient-field ordinary-moment request remains on this proof chain, and the primitive-conductor product-character twists required for full interpolation remain unplanned here."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-moment-shift",
+        "DirichletPadicLFunctions:L2/tame-unit-special-value-comparison"
+      ],
+      "acceptance": [
+        "Retain k≥1; no value at L(η,1), logarithmic formula or analytic interpolation follows at k=0.",
+        "L2 already has six planets; this continuation adds no planet."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameZeta",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure_common_special_value"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, Definition5.13 and its immediately following interpolation identity, printed146/PDF47; Lemma5.11, printed145/PDF46. Complete published144–146 read during this continuous session from the hash-verified public PDF.",
+          "excerpt": "x⁻¹",
+          "match": "Arithmetic specialization of the source inverse weighting to the actual tame measure. General weighting and continuity of the native p-adic unit inverse are imported from PMIA. Only the untwisted positive-power comparison is established at blueprint level; conductor-product twists and the coefficient-field ordinary-moment request remain explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameZetaTests.fifth_moment",
+          "kind": "computation",
+          "statement": "For quadratic modulo3 at p=2, the fifth ζ moment is34/3=(1+2⁴)·2/3."
+        }
+      ]
     }
   ],
   "requests": [
@@ -12928,7 +13348,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The actual tame kernel now has a finite Bernoulli generating identity, formal ordinary moments, coefficient transport and a common algebraic comparison with native complex Dirichlet L-values, including k=0 via the existing QSeries endpoint supplier. The K-valued actual ordinary-moment and unit special-value statements have an explicit new PMIA L2 request: its existing ordinary-moment API only handles Z_p-valued measures. Discharge that coefficient-field comparison, instantiate composite-modulus Gauss nonvanishing from its existing modular-forms owner, prove primitive-conductor product twists and establish inverse-weight interpolation. Generic p^n-root translation remains PMIA-owned; other integer-ring presentations need the existing norm-compatible identification. Full source extraction, analytic interpolation and completed-algebra comparison remain open."
+        "The actual tame zeta measure of Definition5.13 is constructed by weighting the ambient unit restriction with the mapped native zero-extended unit inverse. Its support, multiplication-by-x identity, positive-moment shift and norm bound are planned on the existing K-valued measure carrier. The untwisted common algebraic comparison has the required L(η,1−k) argument and Euler exponent k−1 for k≥1. The PMIA L2 coefficient-field ordinary-moment request remains a genuine dependency. Prove the primitive-conductor product-character twists and their shifted interpolation; instantiate composite-modulus primitive Gauss nonvanishing from its existing owner. An actual O-valued tame zeta constructor and comparisons with other integer-ring presentations remain to be supplied. Full source extraction, analytic branches and the completed-algebra comparison remain open."
       ]
     },
     {
@@ -12961,7 +13381,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual tame kernel now has a finite Bernoulli generating identity, formal ordinary moments, coefficient transport and a common algebraic comparison with native complex Dirichlet L-values, including k=0 via the existing QSeries endpoint supplier. The K-valued actual ordinary-moment and unit special-value statements have an explicit new PMIA L2 request: its existing ordinary-moment API only handles Z_p-valued measures. Discharge that coefficient-field comparison, instantiate composite-modulus Gauss nonvanishing from its existing modular-forms owner, prove primitive-conductor product twists and establish inverse-weight interpolation. Generic p^n-root translation remains PMIA-owned; other integer-ring presentations need the existing norm-compatible identification. Full source extraction, analytic interpolation and completed-algebra comparison remain open."
+      "detail": "The actual tame zeta measure of Definition5.13 is constructed by weighting the ambient unit restriction with the mapped native zero-extended unit inverse. Its support, multiplication-by-x identity, positive-moment shift and norm bound are planned on the existing K-valued measure carrier. The untwisted common algebraic comparison has the required L(η,1−k) argument and Euler exponent k−1 for k≥1. The PMIA L2 coefficient-field ordinary-moment request remains a genuine dependency. Prove the primitive-conductor product-character twists and their shifted interpolation; instantiate composite-modulus primitive Gauss nonvanishing from its existing owner. An actual O-valued tame zeta constructor and comparisons with other integer-ring presentations remain to be supplied. Full source extraction, analytic branches and the completed-algebra comparison remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -13208,44 +13628,44 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All13 findings and sourceVersions preserved whole. No new source finding or independent verdict. Versioned errata checks pass.",
+    "sourceIssues": "All13 findings and sourceVersions preserved whole; versioned errata checks pass. No new finding or independent verdict.",
     "validation": {
-      "nodes": 198,
+      "nodes": 204,
       "kinds": {
         "definition": 1,
-        "lemma": 102,
-        "construction": 21,
-        "theorem": 52,
-        "comparison": 22
+        "lemma": 104,
+        "construction": 22,
+        "theorem": 54,
+        "comparison": 23
       },
-      "api": 195,
-      "packetTests": 183,
-      "definitionConstructionTests": 113,
-      "typedExamples": 186,
+      "api": 205,
+      "packetTests": 191,
+      "definitionConstructionTests": 117,
+      "typedExamples": 194,
       "planets": 23,
-      "baseline": 280,
-      "preservedWholeNodes": 190,
-      "preservedBaseline": 270,
+      "baseline": 286,
+      "preservedWholeNodes": 198,
+      "preservedBaseline": 280,
       "preservedSourceIssues": 13,
       "newSourceIssues": 0,
-      "newNodes": 8,
-      "newNamedDeclarations": 8,
-      "newTypedTests": 10,
+      "newNodes": 6,
+      "newNamedDeclarations": 11,
+      "newTypedTests": 8,
       "requests": 2,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 333,
-      "dependencyEdges": 1461,
+      "reachableNodes": 339,
+      "dependencyEdges": 1493,
       "acyclic": true,
-      "baselineLeaves": 384,
+      "baselineLeaves": 385,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1",
         "PadicMeasuresIwasawaAlgebras:L2"
       ],
-      "readerWords": 76409,
+      "readerWords": 79053,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 450,
+      "compilerWarnings": 468,
       "allWarningsPlaceholders": true,
       "supplierNodes": 265,
       "currentSupplierNodes": 276,
@@ -13256,39 +13676,16 @@
       "actualSupplierModules": 1,
       "scratchCompleteLemmas": 5,
       "scratchCompleteDefinitions": 0,
-      "scratchMathlibModules": 2826,
+      "scratchMathlibModules": 1748,
       "scratchErrors": 0,
       "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "finiteControls": {
-        "scope": "Exact finite controls for the current tame arithmetic-moment formulas; no formal measure or special-value proof inferred.",
-        "checks": 55,
-        "range": "Five characters, k=0..10, exact pairs of Fractions; recursive tame power-series coefficients and iterated Mahler derivation versus finite native-convention Bernoulli polynomial formula.",
-        "quadraticMod3Moments": {
-          "0": [
-            "1/3",
-            "0"
-          ],
-          "1": [
-            "0",
-            "0"
-          ],
-          "2": [
-            "-2/9",
-            "0"
-          ],
-          "4": [
-            "2/3",
-            "0"
-          ]
-        }
-      }
+      "scratchPlaceholders": 0
     },
     "lean": {
-      "suggestedFileSha256": "df7ecb1f5d62b7b555c01eea4873605418572de3a04814744ec9f7dde95262b3",
+      "suggestedFileSha256": "55e458f82922d59c42fb6e20a068c9d70fae48ebdd10645131bdf5bae3f03aae",
       "sourceAuditSha256": "949b9dc3a704e3df17af1a0e2a7f8ffcd620379c4849688e7114ff1843db281c",
       "errors": 0,
-      "warnings": 450,
+      "warnings": 468,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 3595,
       "tauCetiModules": 20,
@@ -13296,25 +13693,25 @@
       "supplierNodes": 265,
       "currentSupplierNodes": 276,
       "supplierWarnings": 569,
-      "supplierReuse": "Existing actual265-node PMIA artifact, source and compile-log hashes reverified against the retained PR3269 receipt. Current276-node source preserves every old line in order and adds only two imports and the unit-test declarations. Only preserved APIs are used; no compile against the276-node revision claimed.",
+      "supplierReuse": "Actual265-node PMIA artifact/source/log hashes reverified from retained PR3269 evidence; current276-node source preserves every old line in order. Only preserved APIs are used; no compile against the newer276-node revision claimed.",
       "supplierHashes": {
         "source": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
         "olean": "792990b5b54462842b15c9a9c5d18ce27b258e320f5e048c22bd1cf6189c3e25",
         "log": "052f501c267b2d8edeec41158188185a72b4dc4b1acb567a0a9582f12710869d"
       },
-      "nativeTauCetiBuild": "All20 existing pinned Tau artifacts reused, source audited and zero-warning build logs checked. No new Mathlib or TauCeti build.",
+      "nativeTauCetiBuild": "All20 existing pinned native artifacts reused, source-audited and zero-warning build logs checked; no fresh Mathlib/TauCeti build.",
       "scratch": {
-        "sha256": "72b4737b00c73fec983321c35e727dd17ef9337cf17a15aeae5794320ea3638e",
+        "sha256": "7911d3dcbd89212015e8b0a873de3f9c267e1c904938007a978883eaa79fee97",
         "provedLemmas": 5,
-        "mathlibModules": 2826,
+        "mathlibModules": 1748,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Complete native proofs of finite-value field-hom transport, the rational-polynomial/real-Bernoulli-function comparison and quadratic-modulo3 finite values in degrees0,2,4. These do not prove the formal kernel identity, complex special-value theorem or requested field-general measure moment comparison."
+        "scope": "Complete native proofs that the p-adic unit inverse vanishes on nonunits, cancels a positive power on units, has coefficient image of norm≤1, contracts pointwise multiplication, and gives the three exact rational shifted Euler controls. These do not prove the arithmetic measure equality or the requested coefficient-field moment comparison."
       }
     },
     "publication": {
-      "base": "5ca6172d0e2559d5343100eebc8f141d2d29ff52",
+      "base": "665038ed6b5fba9d8c23a3c435b7fbec4bd73183",
       "unchangedInputs": 53,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -13322,7 +13719,7 @@
       "reviewIssue": 390,
       "reviewUnclaimed": true
     },
-    "closure": "Partial: five gaps,two requests,zero closed stages; all implementation statuses unchecked."
+    "closure": "Partial: five gaps,two requests,zero closed stages; every implementation status unchecked."
   },
   "provenance": {
     "smoothingFollowup": {
@@ -16491,6 +16888,34 @@
       "validationSummary": "198nodes,195API,183packettests,186typed,23planets,280baseline; full suggested450placeholderwarnings/noerrors;5complete native lemmas;55exact finite controls;two explicit request leaves.",
       "publication": {
         "base": "5ca6172d0e2559d5343100eebc8f141d2d29ff52",
+        "unchangedInputs": 53,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      }
+    },
+    "tameInverseWeight": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3271,
+      "previousHead": "6695d0e383f4bf601c3dc79025c20d46f200d8e6",
+      "previousMerge": "7c415848c13907168cd0cf4da101962df42b2a5e",
+      "sourceReading": "Definition5.13 and its entire published page146, together with144–145, read from the hash-verified public PDF during this continuous session. Exact PMIA weight, restriction, support and inverse-continuity nodes and suggested signatures were read; newly cited native statements fully read with ambient hypotheses and index-matched. Prior protocol/source/version/audit provenance persists. No fresh whole-paper reading, correction search or new finding.",
+      "boundary": "The actual tame zeta measure of Definition5.13 is constructed by weighting the ambient unit restriction with the mapped native zero-extended unit inverse. Its support, multiplication-by-x identity, positive-moment shift and norm bound are planned on the existing K-valued measure carrier. The untwisted common algebraic comparison has the required L(η,1−k) argument and Euler exponent k−1 for k≥1. The PMIA L2 coefficient-field ordinary-moment request remains a genuine dependency. Prove the primitive-conductor product-character twists and their shifted interpolation; instantiate composite-modulus primitive Gauss nonvanishing from its existing owner. An actual O-valued tame zeta constructor and comparisons with other integer-ring presentations remain to be supplied. Full source extraction, analytic branches and the completed-algebra comparison remain open.",
+      "inputBase": "7c415848c13907168cd0cf4da101962df42b2a5e",
+      "inputRefresh": "Accepted LAD refresh at665038ed6b5fba9d8c23a3c435b7fbec4bd73183: all15 added finite-matrix spectral nodes,35 added baseline records and changed summary/coverage/gap/check/provenance entries read. All137 old nodes,171 baseline records,2 findings and sourceVersions are preserved whole. The update does not alter any consumed Dirichlet dependency or Lean import. This is compatibility reading, not an independent verdict on LAD.",
+      "newNodes": 6,
+      "preservedWholeNodes": 198,
+      "preservedBaseline": 280,
+      "preservedFindings": 13,
+      "validationSummary": "204nodes,205API,191packettests,194typed,23planets,286baseline. Full suggested468placeholderwarnings/noerrors;5complete native lemmas with no proof holes. Both prior requests remain.",
+      "publication": {
+        "base": "665038ed6b5fba9d8c23a3c435b7fbec4bd73183",
         "unchangedInputs": 53,
         "unchangedOutputs": 4,
         "sameSessionFollowupAfterMerge": true,
