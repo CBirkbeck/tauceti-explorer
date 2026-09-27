@@ -1,3 +1,84 @@
+# BP-PadicMeasuresIwasawaAlgebras — unit inverse and source corrections
+
+Codex — codex-7e92bd. Refs #555. Own-job follow-up to merged checkpoint
+#3157, with review #146 unclaimed at preparation. All eight stages
+remain in scope; L2 and L3 remain partial and the other six remain not_read.
+No stage is closed and all implementation statuses remain unchecked.
+
+Fifteen nodes add identification and continuity of the existing PadicInt.inv;
+inverseWeight on the existing integral measure carrier; its evaluation,
+support, two composition identities, unique division on kerψ and inverse
+factor under unit-dilation pushforward; and transport through the existing
+integral Amice equivalence, with support, both derivative comparisons and the
+unique primitive in kerψSeries. Three consumed API items are separate nodes.
+Both constructions have usage records and at least three discriminating tests.
+
+The identities are WJ=JW=unitRestriction and ∂H=H∂=1−φψ. Unit dilation has
+factor a⁻¹. Intrinsic measures on the unit subtype, arbitrary coefficient
+extensions, root-of-unity averaging, and the arithmetic-action/formal-substitution
+comparison remain explicit requirements. No new group action is defined and
+no Coleman or locally analytic comparison is assumed.
+
+Totals: **69 nodes**, 66 API items,
+52 packet tests (51 for definitions/constructions),
+62 typed Lean examples, 10 planets,
+77 baseline declarations, 8 gaps,
+0 requests, 7 source findings,
+and 0 closed stages. Kinds:
+12 construction, 39 lemma, 2 definition, 12 theorem, 4 comparison.
+All 54 preceding node objects and all four prior source findings are unchanged.
+The L2 continuation list is narrowed; L5 explicitly retains compact exactness
+and rejects the invalid ML inference. No requests or planet choices change.
+
+The full suggested file compiled with **0 errors and 160 warnings, all proof
+placeholders**, against Lean4.34.0-rc2. All 2,071 actual transitive Mathlib
+sources matched the pinned source tree before the cached objects were used.
+No TauCeti module is imported.
+
+A separate six-lemma scratch proof compiles with zero errors, warnings or
+proof placeholders: identification with Ring.inverse, continuity, unit/nonunit
+values, the unit-dilation inverse identity and the product/indicator identity.
+Its 1,790 reached Mathlib sources were byte-matched to the pin. This limited
+formal check does not implement the roadmap. Independent finite checks cover
+15,714 atomic/coefficient cases over primes 2, 3, 5, including unit dilations and
+675 exact rational Amice coefficient identities. Extra source controls check
+36 strictly decreasing transition-image witnesses, six Eisenstein units, and
+the quotient orientation. Finite tests supplement the general proof outlines.
+
+Read the retained published RJW PDF, pp138–139 and179–180, especially (4-3)
+and the entire Proposition 12.5 proof; collate v2 PDF28 and58–59. Published138
+and179 were visually checked. While locating the source passage, v2p68 exposed
+a reversed quotient; published193/PDF94 was then read and rendered, collated
+with v2 PDF67–68, and notation/compactness checked on published161/163.
+E5 reverses both quotients in Corollary 13.14’s proof; E6 rejects the finite-
+generation-to-ML claim in Proposition 13.13 without refuting its conclusion;
+E7 restores −1 in the cyclotomic global-unit rank. Fresh journal, arXiv,
+authors’ pages, Crossref and targeted searches found no published correction.
+These are findings awaiting independent verification, not review verdicts.
+
+The accepted RS16 ownership, reviewed AUDIT26 rows, touching links and
+predecessor interfaces were read. The two previously read upstream models
+Multiquadratic and JacobianChallenge and binding documents match the current
+snapshot. Both pinned library trees and existing packets were screened;
+every newly cited statement and ambient hypothesis was read. No duplicate
+p-adic inverse, measure carrier, Amice equivalence or cyclotomic action is planned.
+
+Indexed blueprint validation and the exact four-file intake check pass with
+zero errors, warnings or problems. The graph is acyclic and new declarations,
+API entries, examples and source corrections agree across the deliverables.
+Fresh main `d93f6ea6354bf13db88417ff9ed87c930f1b7848` matched all 49 captured inputs and
+four predecessor outputs. The issue body and latest own winning claim
+5851670548 are unchanged; #555 is available and review #146 unclaimed.
+Only the automatically added preceding E4 register record was refreshed after
+its full diff was inspected. No independent review or manual merge was performed.
+
+Continue with the intrinsic clopen-domain comparison, coefficient/lattice and
+topology work, unit-action/formal-substitution comparison, averaging and the
+remaining L0/L0a/L1/L3/L4/L5/L6 targets. The preceding handoff is retained below
+as historical provenance; its counts describe that preceding checkpoint.
+
+---
+
 # BP-PadicMeasuresIwasawaAlgebras — bounded Frobenius and psi
 
 Codex — codex-7e92bd, 27 September 2026. **Partial checkpoint.** Refs #555.

@@ -9,7 +9,7 @@ Layer 1; general perfect-complex comparisons remain with SchemeKTheoryOperations
 complete-Noetherian-local specialization input with DeformationAndDerivedPatchingAlgebra:P7.
 
 **Partial checkpoint, 27 September 2026.** All eight campaign layers remain in scope. The source
-decomposition below covers the weighting/moment and bounded Frobenius/psi chains of L2 and one coherent algebraic part of L3. It does not construct the completed group
+decomposition below covers the weighting/moment, bounded Frobenius/psi and unit-inverse chains of L2 and one coherent algebraic part of L3. It does not construct the completed group
 algebra, its topology, or the continuous-character integral. Those appear as explicit data in the conditional
 algebraic statements. L2 and L3 are partial; the other six layers have not received source decomposition here. The campaign
 specification and accepted RS-16 decisions remain binding for the unprocessed targets.
@@ -999,6 +999,348 @@ Acceptance: For μ=δ₁ the correction term is zero; for μ=δ₀ it removes al
 
 Source: Rodrigues Jacinto–Williams, §3.5.5, printed p.128 / PDF29; arXiv v2 PDF21, with the pZ_p restriction from §3.5.3, printed p.127 / PDF28. Worker decomposition of the cited integral bounded-operator argument using the pinned continuous dual. The normed-commutative-ring generality of measure operations follows from the displayed precomposition and weighting construction; the source treats integral p-adic coefficient rings.
 
+## Division by x on unit support
+
+Write Z=ℤ_p, D=D(Z,Z), W=weight x, r=unitRestriction, A for the existing integral Amice equivalence, and ∂=(1+T)D. The function ι already exists as PadicInt.inv: it is the inverse on units and zero on all nonunits. The work below proves its continuity and then uses the existing measure weighting operation.
+
+The operator identities are WJ=JW=r, not an ambient inverse identity. Transport gives ∂H=H∂=1−φψ on integral power series. Thus H is the unique primitive in kerψ for an input in kerψ. No odd-prime hypothesis is needed.
+
+### Identification of p-adic unit inverses
+
+`PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification` — lemma. Lean name: `PadicInt.inv_eq_ringInverse`.
+
+For every z∈Z, PadicInt.inv z=Ring.inverse z. Both functions already exist; no new inverse function is defined.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.
+
+Proof outline:
+
+1. For a unit z, PadicInt.mul_inv and isUnit_iff give z·PadicInt.inv(z)=1. Ring.mul_inverse_cancel gives z·Ring.inverse(z)=1. Cancel the nonzero z.
+
+2. For a nonunit z, isUnit_iff implies ‖z‖≠1. Unfold the existing PadicInt.inv conditional using norm_eq_padic_norm: its value is zero. Ring.inverse_non_unit gives the same value.
+
+Prerequisites: `mathlib:PadicInt.inv`, `mathlib:PadicInt.mul_inv`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.norm_eq_padic_norm`, `mathlib:Ring.inverse`, `mathlib:Ring.mul_inverse_cancel`, `mathlib:Ring.inverse_non_unit`.
+
+Acceptance: At z=0 and z=p both functions vanish; at a unit they agree with its actual unit-group inverse. Complete scratch proof, without proof placeholders, checks this identification.
+
+### Continuity of the extended unit inverse
+
+`PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-continuity` — lemma. Lean name: `PadicInt.continuous_inv`.
+
+The existing function PadicInt.inv:Z→Z is continuous, including at zero and at every nonunit.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.
+
+Proof outline:
+
+1. Replace the existing function by Ring.inverse using padic-unit-inverse-identification.
+
+2. At a unit u, apply NormedRing.inverse_continuousAt. The p-adic integer ring is a complete normed ring and supplies HasSummableGeomSeries; it is not treated as a field.
+
+3. At a nonunit z, PadicInt.not_isUnit_iff gives ‖z‖<1. The open set {w:‖w‖<1} is a neighbourhood of z. Ring.inverse is identically zero there by inverse_non_unit. Transfer continuity from the constant-zero function via eventual equality.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification`, `mathlib:NormedRing.inverse_continuousAt`, `mathlib:PadicInt.not_isUnit_iff`, `mathlib:Ring.inverse_non_unit`.
+
+Acceptance: Complete scratch Lean proof compiles without proof placeholders or warnings. The zero extension is essential; this is not continuity of field inversion at zero.
+
+### Division by x on unit-supported measures
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-weight` — construction. Lean name: `AbstractMeasure.inverseWeight`.
+
+Define J=inverseWeight p : D→ₗ[Z]D by J=weight ι, where ι:C(Z,Z) bundles the existing PadicInt.inv using its continuity. Thus (Jμ)(f)=μ(ιf). The extension is zero on nonunits, including nonzero multiples of p.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.
+
+Proof outline:
+
+1. Bundle PadicInt.inv as a continuous map using padic-unit-inverse-continuity. Apply the preexisting weight construction; its compact-domain normed-ring hypotheses hold for Z.
+
+2. The evaluation formula is weight_apply. The Dirac formula is weight_dirac, so Jδ_a=a.inv·δ_a. Existing linear-map laws supply zero, addition and scalar compatibility.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-continuity`, `PadicMeasuresIwasawaAlgebras:L2/weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`.
+
+API `AbstractMeasure.inverseWeight_eq_weight`: J is exactly weighting by the bundled existing PadicInt.inv.
+
+API `AbstractMeasure.inverseWeight_apply`: (Jμ)(f)=μ(ιf). Promoted to inverse-weight-evaluation.
+
+API `AbstractMeasure.inverseWeight_dirac`: Jδ_a=a.inv·δ_a, hence zero at every nonunit.
+
+Test `SuggestedTests.inverse_weight_zero_atom`: At p=3, Jδ₀=0.
+
+Test `SuggestedTests.inverse_weight_unit_atom`: At p=3, Jδ₁=δ₁.
+
+Test `SuggestedTests.inverse_weight_two_atom`: At p=3, 2·Jδ₂=δ₂; the multiplier is 1/2, not 2.
+
+Test `SuggestedTests.inverse_weight_nonunit_atom`: At p=3, Jδ₃=0 although 3≠0.
+
+Test `SuggestedTests.inverse_weight_dyadic_atom`: At p=2, 3·Jδ₃=δ₃.
+
+Acceptance: The concrete integral carrier is reused. No inverse of x is taken in the whole continuous-function ring, and no measure topology or field-valued inverse Amice theorem is assumed.
+
+### Evaluation after division by x
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation` — lemma. Lean name: `AbstractMeasure.inverseWeight_apply`.
+
+(Jμ)(f)=μ(ιf) for every μ∈D and f∈C(Z,Z).
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.
+
+Proof outline:
+
+1. Unfold only inverseWeight and apply the earlier weight-evaluation theorem.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`.
+
+Acceptance: For f=1 this is the negative first moment on unit support.
+
+### Unit support of the inverse weight
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support` — lemma. Lean name: `AbstractMeasure.inverseWeight_unitRestriction`.
+
+For every μ∈D, J(rμ)=Jμ and r(Jμ)=Jμ. Thus J always lands in the actual unit-supported subspace and ignores the nonunit part.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.
+
+Proof outline:
+
+1. The main unit restriction has evaluation μ((1−χ_pZ)f). The identity 1−χ_pZ=1 on units and 0 on nonunits follows from not_isUnit_iff and norm_lt_one_iff_dvd.
+
+2. Pointwise ι(1−χ_pZ)=ι: on units the indicator is 1; on nonunits the existing inverse is 0. Evaluate both composites using weight_apply and the restriction evaluation, then use commutativity.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-multiplication`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `mathlib:PadicInt.not_isUnit_iff`, `mathlib:PadicInt.norm_lt_one_iff_dvd`, `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification`, `mathlib:Ring.inverse_non_unit`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation`.
+
+Acceptance: The identities hold for all ambient μ, so support is obtained without assuming it of the input.
+
+### Multiplication after division by x
+
+`PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight` — lemma. Lean name: `AbstractMeasure.weight_id_inverseWeight`.
+
+For every μ∈D, W(Jμ)=rμ. In particular W(Jμ)=μ when ψμ=0.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.
+
+Proof outline:
+
+1. Pointwise z·PadicInt.inv(z) is 1 on units by mul_inv and is 0 on nonunits by the inverse identification. It is exactly1−χ_pZ by the nonunit/divisibility equivalences.
+
+2. Evaluate W(Jμ) on f. The two weighting evaluations give μ(ι·x·f), which equals μ((1−χ_pZ)f). Use the unitRestriction evaluation. For the consequence use unitRestriction_eq_self_iff_psi_eq_zero.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-support-psi`, `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification`, `mathlib:PadicInt.mul_inv`, `mathlib:PadicInt.isUnit_iff`, `mathlib:PadicInt.not_isUnit_iff`, `mathlib:PadicInt.norm_lt_one_iff_dvd`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation`.
+
+Acceptance: At μ=δ₀ or δ_p the composite is 0, so the ambient identity map would be false.
+
+### Division after multiplication by x
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-weight-weight` — lemma. Lean name: `AbstractMeasure.inverseWeight_weight_id`.
+
+For every μ∈D, J(Wμ)=rμ.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.
+
+Proof outline:
+
+1. Weight-multiplication and commutativity identify J(Wμ) with W(Jμ). Apply weight-inverse-weight. This is an equality of measures, tested on every continuous function.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-multiplication`, `PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight`.
+
+Acceptance: This gives the cancellation needed for uniqueness only after restricting to rμ=μ.
+
+### Unique unit-supported division by x
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-weight-unique` — theorem. Lean name: `AbstractMeasure.inverseWeight_unique`.
+
+If μ∈D satisfies ψμ=0, there exists a unique ν∈D with ψν=0 and Wν=μ. Its value is Jμ.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.
+
+Proof outline:
+
+1. Existence: inverse-weight-support makes r(Jμ)=Jμ, hence ψ(Jμ)=0 by unit support. Weight-inverse-weight gives W(Jμ)=rμ=μ.
+
+2. Uniqueness: for any ν with ψν=0 and Wν=μ, apply J. Inverse-weight-weight gives ν=rν=J(Wν)=Jμ. The assertion is on the existing kernel condition, with no new carrier definition.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support`, `PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-weight`, `PadicMeasuresIwasawaAlgebras:L2/unit-support-psi`.
+
+Acceptance: The support hypothesis on both μ and ν is necessary for this inverse characterization; adding δ₀ otherwise preserves Wν.
+
+### Inverse weight under unit dilation
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-weight-dilation` — lemma. Lean name: `AbstractMeasure.inverseWeight_map_unit`.
+
+For a∈Zˣ let d_a:C(Z,Z) be z↦a·z. On all ambient μ, J(AbstractMeasure.map d_a μ)=a⁻¹·AbstractMeasure.map d_a(Jμ). The displayed map is the existing pushforward, not a newly constructed group action.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed.
+
+Proof outline:
+
+1. The inverse identification and Ring.inverse_mul applied to the unit a give ι(a z)=a⁻¹ι(z) for every z, including nonunits; Ring.inverse_unit fixes the inverse convention.
+
+2. At f the left side is μ((ιf)∘d_a)=μ((ι∘d_a)(f∘d_a)). Substitute the pointwise identity, pull out the scalar a⁻¹ using measure linearity, and use inverseWeight_apply and map_apply for the right side.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/padic-unit-inverse-identification`, `mathlib:Ring.inverse_mul`, `mathlib:Ring.inverse_unit`, `mathlib:AbstractMeasure.map`, `mathlib:AbstractMeasure.map_apply`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation`.
+
+Test `SuggestedTests.inverse_weight_dilation_factor`: At p=3, dilate δ₁ by 2 and then apply J: twice the result is δ₂. A factor 2 in place of 1/2 fails.
+
+Acceptance: This is the measure calculation in (12-3), valid also for p=2. Identifying an arithmetic Galois action or formal substitution with this pushforward is a separate comparison.
+
+### Inverse Mahler derivative on unit support
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-mahler` — construction. Lean name: `AbstractMeasure.inverseMahler`.
+
+Define H=inverseMahler p : Z[[T]]→ₗ[Z]Z[[T]] by H=A∘J∘A⁻¹, using the existing integral Amice linear equivalence A. Then H(Aμ)=A(Jμ), and ψSeries(HF)=0 for every F.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed. B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0.
+
+Proof outline:
+
+1. Compose the linear maps of the existing Amice equivalence, inverseWeight and inverse equivalence. No inverse transform over a larger coefficient field is used.
+
+2. The API intertwining and support statements are promoted below. For the tests, coefficientwise Dirac evaluation and mahler_natCast_eq give Aδ_n=(1+T)^n; apply inverseWeight_dirac and linearity.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-weight`, `mathlib:AbstractMeasure.amiceTransformEquiv`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:AbstractMeasure.dirac_apply`, `mathlib:mahler_natCast_eq`.
+
+API `AbstractMeasure.inverseMahler_eq_transport`: H equals the displayed composition of three existing/planned linear maps.
+
+API `AbstractMeasure.inverseMahler_amiceTransform`: H(Aμ)=A(Jμ). Promoted to inverse-mahler-intertwining.
+
+API `AbstractMeasure.psiSeries_inverseMahler`: ψSeries(HF)=0. Promoted to inverse-mahler-support.
+
+Test `SuggestedTests.inverse_mahler_constant`: At p=3, H(1)=0; the constant series is Aδ₀.
+
+Test `SuggestedTests.inverse_mahler_unit`: At p=3, H(1+T)=1+T.
+
+Test `SuggestedTests.inverse_mahler_square`: At p=3, 2H((1+T)²)=(1+T)².
+
+Test `SuggestedTests.inverse_mahler_nonunit`: At p=3, H((1+T)³)=0.
+
+Test `SuggestedTests.inverse_mahler_dyadic`: At p=2, 3H((1+T)³)=(1+T)³.
+
+Acceptance: H is an ambient linear extension of the inverse on kerψSeries. It is not an inverse of the Mahler derivative on all formal series.
+
+### Amice transform of division by x
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining` — comparison. Lean name: `AbstractMeasure.inverseMahler_amiceTransform`.
+
+For every integral μ, H(Aμ)=A(Jμ).
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed. B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0.
+
+Proof outline:
+
+1. Expand the transport defining H. Cancel A⁻¹A by the existing Amice linear equivalence.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler`, `mathlib:AbstractMeasure.amiceTransformEquiv`.
+
+Acceptance: On δ₂ at p=3 both sides have coefficients equal to those of (1+T)² divided by 2.
+
+### Unit support of the inverse Mahler derivative
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-support` — lemma. Lean name: `AbstractMeasure.psiSeries_inverseMahler`.
+
+For every integral formal series F, ψSeries(HF)=0.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed. B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0.
+
+Proof outline:
+
+1. Write F=Aμ using surjectivity of the existing integral Amice equivalence. Inverse-mahler-intertwining writes HF=A(Jμ).
+
+2. Inverse-weight-support gives r(Jμ)=Jμ, hence ψ(Jμ)=0 by unit support. Apply psi-series-intertwining to identify ψSeries(A(Jμ)) with A(ψ(Jμ))=0.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support`, `PadicMeasuresIwasawaAlgebras:L2/unit-support-psi`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining`, `mathlib:AbstractMeasure.amiceTransformEquiv`.
+
+Acceptance: The conclusion holds for every F, not only for a series already killed byψ.
+
+### Mahler derivative after its unit inverse
+
+`PadicMeasuresIwasawaAlgebras:L2/mahler-derivative-inverse` — lemma. Lean name: `AbstractMeasure.mahlerDerivation_inverseMahler`.
+
+For every integral formal series F, ∂(HF)=F−subst((1+T)^p−1)(ψSeries F), with ∂=(1+T)D. In particular ∂(HF)=F when ψSeries F=0.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed. B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0.
+
+Proof outline:
+
+1. Write F=Aμ using the existing integral Amice equivalence. InverseMahler_amiceTransform and the earlier amice-weight turn the left side into A(W(Jμ)).
+
+2. Apply weight-inverse-weight to get A(rμ). The main amiceTransform_unitRestriction gives precisely the displayed subtraction/substitution formula. The kernel consequence uses linearity and substitution at zero.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler`, `PadicMeasuresIwasawaAlgebras:L2/amice-weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/series-unit-restriction`, `mathlib:AbstractMeasure.amiceTransformEquiv`, `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining`.
+
+Acceptance: For F=1 both sides vanish: ψSeries1=1 and the restriction removes the atom0.
+
+### Unit inverse after the Mahler derivative
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-derivative` — lemma. Lean name: `AbstractMeasure.inverseMahler_mahlerDerivation`.
+
+For every integral formal series F, H(∂F)=F−subst((1+T)^p−1)(ψSeries F).
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed. B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0.
+
+Proof outline:
+
+1. Write F=Aμ. Amice-weight gives ∂F=A(Wμ); the defining inverseMahler comparison turns the left side into A(J(Wμ)).
+
+2. Use inverse-weight-weight and then amiceTransform_unitRestriction. No claim that the ambient derivative is injective is used.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler`, `PadicMeasuresIwasawaAlgebras:L2/amice-weight`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-weight`, `PadicMeasuresIwasawaAlgebras:L2/series-unit-restriction`, `mathlib:AbstractMeasure.amiceTransformEquiv`, `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining`.
+
+Acceptance: The derivative kills constant series; the right side removes their corresponding atom at 0.
+
+### Unique unit-supported Mahler primitive
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-unique` — theorem. Lean name: `AbstractMeasure.inverseMahler_unique`.
+
+If ψSeries F=0, there exists a unique integral formal series G with ψSeries G=0 and ∂G=F. It is G=HF.
+
+Hypotheses: p is any prime, including 2; Z=ℤ_p with its pinned norm topology. D=D(Z,Z) is the existing integral AbstractMeasure carrier, x is the identity continuous function, and W=weight x. Write r=unitRestriction p Z and ψ=psiMeasure p Z. No topology on the measure carrier is newly imposed. B=Z[[T]], A is the existing integral Amice linear equivalence, ∂ is the earlier Mahler derivation, H=inverseMahler p, and ψSeries is the earlier transport of ψ through A. The formal substituent b=(1+T)^p−1 has constant coefficient 0.
+
+Proof outline:
+
+1. Existence uses psiSeries_inverseMahler and mahler-derivative-inverse; the projection term vanishes because ψSeries F=0.
+
+2. For another G with ψSeries G=0 and ∂G=F, inverse-mahler-derivative gives G=H(∂G)=HF. This proves that ∂ restricts to a bijection of the existing kernel submodule without defining another series carrier.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler`, `PadicMeasuresIwasawaAlgebras:L2/mahler-derivative-inverse`, `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-derivative`, `PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-support`.
+
+Acceptance: The statement is integral and includes p=2. Neither an arbitrary primitive on all series nor uniqueness up to an unspecified constant is substituted for the kernel condition.
+
+Source: RJW published equation (4-3), p.138; Proposition 12.5 equation (12-3) and its full measure calculation, pp179–180; matching v2 PDF28 and58–59. Continuity and ambient projection formulas are explicit integral specializations using the pinned carriers. All implementation statuses remain unchecked.
+
+L2 owns bounded x-inverse under RS16. Coleman owns its norm/trace, arithmetic action and Coleman-map comparisons; locally analytic distribution extensions remain LAD-owned. No reverse edge or new P7 group action. ColemanIntegration negative-moment nodes are applications on other coefficient carriers, not suppliers of this integral inverse.
+
+Identify intrinsic measures on Z_pˣ with ambient supported measures via the separate generic L0 clopen-domain comparison. Extend coefficients with boundedness/lattice and topology hypotheses. Prove the unit-pushforward/formal-binomial-substitution comparison and import the P7 cyclotomic action with exact coefficient/topology identification. No closed layer is claimed.
+
+### Further findings on the published source
+
+The additional reading of printed p.193 identified three source issues, also present in arXiv v2 PDF67–68. They are recorded for independent verification; the inverse-weight nodes do not depend on the affected arithmetic statements.
+
+**PadicMeasuresIwasawaAlgebras/E5** — Proof of Corollary 13.14, published printed p.193 / PDF94; arXiv v2 PDF68.
+
+Printed: Gal(M⁺∞/L⁺∞) ≅ E⁺∞,1/U⁺∞,1 ≅ (E⁺∞,1/C⁺∞,1)/(U⁺∞,1/C⁺∞,1)
+
+Correction: Reverse numerator and denominator in both quotients: Gal(M⁺∞/L⁺∞) ≅ U⁺∞,1/E⁺∞,1 ≅ (U⁺∞,1/C⁺∞,1)/(E⁺∞,1/C⁺∞,1).
+
+Reason: Proposition 13.13 immediately above has kernel E inside U, and Definition 13.12 defines E as the closure of global units inside local units. The first isomorphism theorem therefore gives U/E. Since C⊆E⊆U, the third isomorphism theorem then gives (U/C)/(E/C). The printed E/U is not the required quotient; merely changing the first quotient leaves the second one reversed. The corollary’s stated exact sequence has the correct orientation and is unchanged.
+
+**PadicMeasuresIwasawaAlgebras/E6** — Last sentence of the proof of Proposition 13.13, published printed p.193 / PDF94; arXiv v2 PDF68.
+
+Printed: finitely generated Zp-modules (so satisfy the Mittag-Leffler condition)
+
+Correction: Justify inverse-limit exactness using compact Hausdorff modules and continuous transition maps, or prove the required Mittag–Leffler condition for this particular tower. Finite generation over Z_p alone does not imply stabilization of transition images.
+
+Reason: Take M_n=Z_p and transition M_(n+1)→M_n equal to multiplication by p. Every term is free of rank 1, but the images in M_0 are p^mZ_p, a strictly decreasing chain: p^m is not in p^(m+1)Z_p since cancellation would make p a unit. Thus this inverse system is not Mittag–Leffler. This counterexample rejects only the stated general implication, not a separately proved ML claim for the paper’s actual unit tower. For the displayed finite-level exact sequences, compactness provides the repair: fibres over a compatible quotient element are nonempty compact spaces; the transition-compatibility equations are closed and have the finite-intersection property, so a compatible lift exists. The paper already records compactness of these unit modules in §9, printed p.163. Class-field-theory identifications remain separate inputs; the proposition’s conclusion is not refuted.
+
+**PadicMeasuresIwasawaAlgebras/E7** — Leopoldt paragraph immediately after Definition 13.12, published printed p.193 / PDF94; arXiv v2 PDF67. Compare §9 notation, published p.161 / PDF62.
+
+Printed: r₁+r₂−1 = pⁿ⁻¹(p−1)/2
+
+Correction: The numerical rank is pⁿ⁻¹(p−1)/2−1. Retain the source’s r₁+r₂−1 on the left.
+
+Reason: Here p is odd and F_n=Q(μ_(p^n)) by §9, so r₁=0 and r₂=p^(n−1)(p−1)/2. Subtracting 1 is required by the displayed expression itself. At p=3,n=1, F_1 is the imaginary quadratic field Q(ζ₃), whose global units form the finite group μ₆; its closure has Z₃-rank 0, whereas the printed numerical formula gives 1. This corrects the numerical assertion, not Leopoldt’s conjecture or the use of its known abelian case.
+
+A bounded correction search on27 September2026 checked the journal landing page, arXiv version list, both authors’ publication pages, Crossref update relations and targeted web searches; no published correction was found. The packet lists the search URLs. Compact inverse-limit exactness remains an explicit L5 task; no new closure or class-field-theory proof is claimed here.
+
 ## L3: algebraic pseudomeasures and evaluation
 
 Let G be a group, R a commutative ring, δ : G →* R a specified Dirac homomorphism, and Q an R-algebra with
@@ -1377,7 +1719,7 @@ The publication and v2 display were collated on 27 September 2026, including a r
 ### PadicMeasuresIwasawaAlgebras:L2 — partial
 
 - Extend the integral ℤ_p Amice equivalence to the actual bounded-series carriers for general coefficient rings or fields, with integral lattice, coefficient, norm and weak-topology comparisons; do not assert surjectivity onto all field-valued formal series.
-- Construct the generic clopen-subtype restriction/extension comparison in L0 and its precise comparison with the ambient pZ_p/unit projectors supplied here. Decompose multiplication by z^x with genuine convergence hypotheses, unit dilations, inverse weighting on units and their operator relations.
+- The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Construct the generic clopen-subtype restriction/extension comparison in L0 and compare intrinsic unit-domain measures with the ambient projector. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action.
 - Prove the coefficient-extension and root-of-unity averaging formulas in §3.5.3–5, with convergence and descent explicit. ColemanPowerSeries:L1 owns comparison with the finite-free normalized trace; locally analytic and period-ring recipients own their respective comparisons. This packet supplies bounded references without reverse dependencies.
 - Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels.
 
@@ -1395,7 +1737,7 @@ The publication and v2 display were collated on 27 September 2026, including a r
 
 ### PadicMeasuresIwasawaAlgebras:L5 — not_read
 
-- Read/decompose determinant functors and compact inverse-limit exactness with their hypotheses. Import generic perfect-complex theory from SchemeKTheoryOperations:S.1 and complete-local input from DeformationAndDerivedPatchingAlgebra:P7; plan only the remaining Iwasawa-specific structures.
+- Read/decompose determinant functors and compact inverse-limit exactness with their hypotheses. Import generic perfect-complex theory from SchemeKTheoryOperations:S.1 and complete-local input from DeformationAndDerivedPatchingAlgebra:P7; plan only the remaining Iwasawa-specific structures. For the compact inverse-limit step, reject the finite-generation-to-Mittag–Leffler implication in RJW Proposition13.13 (E6): prove the compact Hausdorff exactness argument or the actual tower hypothesis. Reading that local passage does not decompose this layer.
 
 ### PadicMeasuresIwasawaAlgebras:L6 — not_read
 
@@ -1420,9 +1762,8 @@ Restriction to units. L3 retains its four planets: Pseudomeasures, Cleared numer
 Admissible evaluation and Independence of clearing factor. Adding L2 planets
 requires a justified sub-layer proposal; the layer is already at its limit.
 
-The packet contains 54 nodes, 60 API entries and 41 definition/construction tests.
-The suggested file also has ten additional comparison or boundary examples, for
-51 typed examples in total. All implementation statuses remain unchecked;
+The packet contains 69 nodes, 66 API entries and 51 definition/construction tests.
+The suggested file has 62 typed examples, including comparison and boundary cases. All implementation statuses remain unchecked;
 signature elaboration does not implement the roadmap.
 
 ## Sources and scope of reading
@@ -1433,7 +1774,7 @@ signature elaboration does not implement the roadmap.
 The preceding continuation additionally read and collated published PDF 26–28 (printed 125–127), especially
 §3.5.1–2, Lemma 3.29 and Corollary 3.30, and PDF 37–38 (printed 136–137), Lemma 4.3 and its
 use in Proposition 4.6; the matching v2 passages are PDF 19–20 and 27. The three inherited source
-findings are retained without changes. The present continuation adds E4.
+findings are retained without changes. The bounded-operator checkpoint adds E4. The unit-inverse follow-up records E5–E7 from published p.193; all four preceding findings are unchanged.
 
 Pinned library statements were read in the exact files and line ranges listed in the packet; names alone were not treated as evidence.
 
@@ -1443,3 +1784,5 @@ The SHA-256 digests above are unchanged. The larger reading ranges attributed to
 preceding workers remain their provenance; this is not an all-paper reading claim.
 The reviewed audit, all touching link entries and the accepted RS-16 bounded
 operator ownership and topology gate were rechecked before constructing these nodes.
+
+The unit-inverse follow-up additionally reads the passages listed above, including equation (4-3), Proposition 12.5 and published p.193. These focal readings do not supply the remaining source decomposition of the other layers. The three new source findings use the same version-of-record hash and fresh bounded correction searches on 27 September 2026.
