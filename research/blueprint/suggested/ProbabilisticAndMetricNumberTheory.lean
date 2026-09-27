@@ -1,12 +1,15 @@
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: GPT-6 Astra Pro (astra-20260926-pm-83c1)
+Authors: GPT-6 Astra Pro (astra-20260926-pm-83c1), Codex (codex-a71f92)
 -/
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.Data.Nat.GCD.Basic
 import Mathlib.Data.Nat.Prime.Basic
+import Mathlib.Algebra.GCDMonoid.FinsetLemmas
+import Mathlib.Algebra.BigOperators.Ring.Finset
+import Mathlib.Data.Finset.Powerset
 import TauCeti.Probability.Process.EmpiricalMeasure
 
 /-!
@@ -14,8 +17,8 @@ import TauCeti.Probability.Process.EmpiricalMeasure
 
 This file is a suggested signature skeleton, not the roadmap and not an exhaustive
 file plan. The companion Markdown and JSON mathematical contracts are definitive;
-names and signatures are suggestions. This file was NOT compiled. Proof placeholders
-are not formalization evidence. Target pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174
+names and signatures are suggestions. Pinned elaboration is recorded in the handoff.
+Proof placeholders are not formalization evidence. Target pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174
 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
 Reuse empiricalMeasure and ArithmeticFunction. The local notation below introduces
@@ -34,8 +37,7 @@ local notation "uLaw" =>
 /-- PM.0/prime-divisibility-sum: zero-extended finite weighted divisor sum.
 Primality is required by the arithmetic laws, not by this constructor. -/
 def primeDivisibilitySum (P : Finset ℕ) (a : ℕ → ℝ) : ArithmeticFunction ℝ := by
-  classical
-  exact ⟨fun n => if n = 0 then 0 else ∑ p ∈ P, if p ∣ n then a p else 0, by simp⟩
+  sorry
 
 /-- PM.0/positive-evaluation. -/
 theorem primeDivisibilitySum_apply (P : Finset ℕ) (a : ℕ → ℝ)
@@ -149,7 +151,7 @@ theorem primeDivisibilitySum_secondMoment_completePeriod (m : ℕ) (P : Finset �
       ∑ p ∈ P, (a p) ^ 2 * (1 / (p : ℝ) - 1 / (p : ℝ) ^ 2) := by
   sorry
 
-/-! ## Five constructor/API regression contracts; not compiled unit tests -/
+/-! ## Five constructor/API regression contracts; placeholders are not proofs -/
 
 /-- weighted_twelve -/
 example : primeDivisibilitySum {2, 3} (fun p => (p : ℝ)) 12 = 5 := by
@@ -174,6 +176,100 @@ example : primeDivisibilitySum (12 : ℕ).primeFactors (fun _ => 1) 12 = 2 ∧
 example : primeDivisibilitySum {2} (fun _ => 2) 4 = 2 ∧
     primeDivisibilitySum {2} (fun _ => 2) 4 ≠
       primeDivisibilitySum {2} (fun _ => 2) 2 + primeDivisibilitySum {2} (fun _ => 2) 2 := by
+  sorry
+
+/-- PM.0/simultaneous-divisibility: the product equals the finite lcm only for
+pairwise coprime factors. Empty products are one. -/
+theorem simultaneous_divisibility_probability (m : ℕ) (P : Finset ℕ)
+    (hP : ∀ p ∈ P, Nat.Prime p) :
+    ((uLaw m) {n : ℕ | ∀ p ∈ P, p ∣ n}).toReal =
+      (((m + 1) / (∏ p ∈ P, p) : ℕ) : ℝ) / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/divisibility-pattern-formula: all signed calculations are in the reals. -/
+theorem divisibility_pattern_formula (m : ℕ) (S T : Finset ℕ)
+    (hS : ∀ p ∈ S, Nat.Prime p) (hT : ∀ q ∈ T, Nat.Prime q)
+    (hST : Disjoint S T) :
+    ((uLaw m) {n : ℕ | (∀ p ∈ S, p ∣ n) ∧ (∀ q ∈ T, ¬ q ∣ n)}).toReal =
+      ∑ U ∈ T.powerset, (-1 : ℝ) ^ U.card *
+        ((((m + 1) / (∏ p ∈ S ∪ U, p) : ℕ) : ℝ) / ((m + 1 : ℕ) : ℝ)) := by
+  sorry
+
+/-- PM.0/divisibility-pattern-error. No assertion of exact independence at arbitrary m. -/
+theorem divisibility_pattern_error (m : ℕ) (S T : Finset ℕ)
+    (hS : ∀ p ∈ S, Nat.Prime p) (hT : ∀ q ∈ T, Nat.Prime q)
+    (hST : Disjoint S T) :
+    |((uLaw m) {n : ℕ | (∀ p ∈ S, p ∣ n) ∧ (∀ q ∈ T, ¬ q ∣ n)}).toReal -
+      (∏ p ∈ S, 1 / (p : ℝ)) * (∏ q ∈ T, (1 - 1 / (q : ℝ)))| ≤
+      (2 : ℝ) ^ T.card / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-- PM.0/complete-period-joint-law: every Boolean atom has the Bernoulli-product mass. -/
+theorem divisibility_pattern_completePeriod (m : ℕ) (S T : Finset ℕ)
+    (hS : ∀ p ∈ S, Nat.Prime p) (hT : ∀ q ∈ T, Nat.Prime q)
+    (hST : Disjoint S T) (hperiod : (∏ p ∈ S ∪ T, p) ∣ m + 1) :
+    ((uLaw m) {n : ℕ | (∀ p ∈ S, p ∣ n) ∧ (∀ q ∈ T, ¬ q ∣ n)}).toReal =
+      (∏ p ∈ S, 1 / (p : ℝ)) * (∏ q ∈ T, (1 - 1 / (q : ℝ))) := by
+  sorry
+
+/-- PM.0/divisibility-pattern-summed-error: an explicit sum over all Boolean atoms,
+not a newly defined total-variation carrier. -/
+theorem divisibility_pattern_summed_error (m : ℕ) (P : Finset ℕ)
+    (hP : ∀ p ∈ P, Nat.Prime p) :
+    (∑ S ∈ P.powerset,
+      |((uLaw m) {n : ℕ | (∀ p ∈ S, p ∣ n) ∧ (∀ q ∈ P \ S, ¬ q ∣ n)}).toReal -
+        (∏ p ∈ S, 1 / (p : ℝ)) * (∏ q ∈ P \ S, (1 - 1 / (q : ℝ)))|) ≤
+      (3 : ℝ) ^ P.card / ((m + 1 : ℕ) : ℝ) := by
+  sorry
+
+/-! ## Ten finite-pattern regression contracts -/
+
+/-- incomplete_all: the product exceeds the sample. -/
+example : ((uLaw 4) {n : ℕ | 2 ∣ n ∧ 3 ∣ n}).toReal = 0 := by
+  sorry
+
+/-- incomplete_signed: not equal to the Bernoulli mass 1/3. -/
+example : ((uLaw 4) {n : ℕ | 2 ∣ n ∧ ¬ 3 ∣ n}).toReal = 2 / 5 := by
+  sorry
+
+/-- complete_signed -/
+example : ((uLaw 5) {n : ℕ | 2 ∣ n ∧ ¬ 3 ∣ n}).toReal = 1 / 3 := by
+  sorry
+
+/-- complete_none -/
+example : ((uLaw 5) {n : ℕ | ¬ 2 ∣ n ∧ ¬ 3 ∣ n}).toReal = 1 / 3 := by
+  sorry
+
+/-- complete_only_three -/
+example : ((uLaw 5) {n : ℕ | 3 ∣ n ∧ ¬ 2 ∣ n}).toReal = 1 / 6 := by
+  sorry
+
+/-- empty_constraints: the unique empty Boolean pattern has mass one. -/
+example (m : ℕ) :
+    ((uLaw m) {n : ℕ | (∀ p ∈ (∅ : Finset ℕ), p ∣ n) ∧
+      (∀ q ∈ (∅ : Finset ℕ), ¬ q ∣ n)}).toReal = 1 := by
+  sorry
+
+/-- overlap_rejection: the event is empty, even on complete periods. -/
+example (m : ℕ) : ((uLaw m) {n : ℕ | 2 ∣ n ∧ ¬ 2 ∣ n}).toReal = 0 ∧
+    (1 / (2 : ℝ)) * (1 - 1 / 2) = 1 / 4 := by
+  sorry
+
+/-- composite_rejection: the correct joint divisor is lcm(2,4)=4, not 8. -/
+example : ((uLaw 3) {n : ℕ | 2 ∣ n ∧ 4 ∣ n}).toReal = 1 / 4 := by
+  sorry
+
+/-- one_positive_sample: zero is not accidentally included. -/
+example : ((uLaw 0) {n : ℕ | ¬ 2 ∣ n}).toReal = 1 := by
+  sorry
+
+/-- summed_atom_error_five: the four errors sum to 1/3, not zero. -/
+example :
+    (∑ S ∈ ({2, 3} : Finset ℕ).powerset,
+      |((uLaw 4) {n : ℕ | (∀ p ∈ S, p ∣ n) ∧
+        (∀ q ∈ ({2, 3} : Finset ℕ) \ S, ¬ q ∣ n)}).toReal -
+        (∏ p ∈ S, 1 / (p : ℝ)) *
+          (∏ q ∈ ({2, 3} : Finset ℕ) \ S, (1 - 1 / (q : ℝ)))|) = 1 / 3 := by
   sorry
 
 end TauCeti.Probability.Arithmetic
