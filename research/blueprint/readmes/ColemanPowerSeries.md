@@ -25,14 +25,14 @@ The scalar action of B on B is through φ(f)=f(Y^p−1); the norm has the sign
 (−1)^(p−1) on Y and T. This wider algebraic statement does not extend the
 arithmetic interpolation or quotient theorems to p=2.
 
-The packet has **50 local nodes**: two definitions, six constructions, 37 lemmas,
-three theorems and two comparisons. There are 25 nodes in L1 and 25 in L2. All remain implementation-unchecked; no layer is closed. In particular,
+The packet has **57 local nodes**: two definitions, six constructions, 43 lemmas,
+four theorems and two comparisons. There are 32 nodes in L1 and 25 in L2. All remain implementation-unchecked; no layer is closed. In particular,
 the comparison with the smoothed series F has a concrete denominator-cleared
 hypothesis and does not construct a Coleman measure.
 
 The named Lean signatures use `TauCetiRoadmap.Campaign.ColemanPowerSeries`;
 names below are relative to it. All 41 API items, 29 definition/construction
-tests, twelve comparison tests and two additional boundary controls have typed
+tests, 23 other node tests and two additional boundary controls have typed
 signatures/examples. The three finite-algebra adapter signatures select existing baseline
 constructions; all mathematical proofs and new data are placeholders. The suggested file is a specification, not a formalization.
 
@@ -121,7 +121,7 @@ matrix is [[0,Y_base],[1,0]], so its determinant is −Y_base. Subtracting the
 identity gives the matrix for T and determinant −T at p=2; at odd p both
 signs are positive. Trace is p times coordinate zero. A normalized trace
 therefore exists integrally and uniquely, but the bounded ψ operator and its
-comparison remain owned by PMIA L2.
+operator is supplied by PMIA L2. Proving its comparison with the integral trace remains Coleman L1 work.
 
 The stable node prefix for this tranche is `ColemanPowerSeries:L1/`.
 Each declaration below uses the explicit B, Y, φ and prime-p convention above.
@@ -719,6 +719,195 @@ For every f∈B there is a unique g∈B with τ(f)=pg. It equals the zeroth Frob
 
 **Source.** RJW-published, Lemma 10.8 and its proof, printed p.167 / PDF 68; finite-free algebra implicit in the degree-p assertion. The stated basis/coordinate calculation is the explicit proof of the finite-free input used here, or a determinant/trace consequence of it. The source does not state every helper separately. The dyadic signs follow from the displayed multiplication matrix, independently of the sources’ odd-prime arithmetic convention.
 
+### Integral norm congruences
+
+All congruences in this section are divisibility statements in B=ℤ_p[[T]].
+Write ρ for the existing coefficient reduction to 𝔽_p[[T]], and N^[r] for
+r-fold function iteration, with N^[0] the identity. It is essential to
+distinguish N^[r](f) from the ordinary power N(f)^r. For a constant c,
+the former is c^(p^r), whereas the latter is c^(pr).
+
+The target is exactly the four parts of Rodrigues Jacinto–Williams,
+Lemma 10.11, printed p.168. Coates–Sujatha supplies the corresponding
+Lemma 2.3.1, Lemma 2.3.2 and Corollary 2.3.3 on pp.18–19. Their unit
+iteration argument is retained. The determinant proof below gives the
+residue identity for every series and works at every prime, including 2.
+These are local algebraic statements; the arithmetic roadmap still uses
+its stated odd-prime convention.
+
+Two separate mechanisms enter the proof. Reduction of the determinant
+modulo a principal ideal shows that N preserves congruences. The exact
+first-order determinant expansion and divisibility of the integral trace
+then improve congruences near 1 by one p-power. These mechanisms must not
+be confused: preservation alone does not give the improved exponent.
+
+The Frobenius reduction used here is already a composite of pinned
+Mathlib facts: coefficient maps commute with valid formal substitution;
+in characteristic p the substituted polynomial becomes T^p; expansion
+followed by coefficient Frobenius is the p-th power; and Frobenius on
+𝔽_p is the identity. This calculation is part of the norm proof. It
+introduces no second cyclotomic Frobenius construction: the general
+Witt-coefficient action on period rings belongs to
+`PadicHodgeTheory:P7:annulus-foundations/cyclotomic-frobenius`.
+That node uses W(k), its Frobenius and A_F/p=k((π)); no identification
+of those coefficient/topological carriers with B is silently assumed.
+The current proof only uses the existing native substitution on B.
+
+#### Coefficient reduction and divisibility
+
+`ColemanPowerSeries:L1/residue-series-congruence` · `map_toZMod_eq_iff`
+
+For f,g∈B, their images under the existing coefficient map ρ=PowerSeries.map(PadicInt.toZMod) are equal if and only if p divides f−g in B.
+
+**Proof.** Equality after ρ is coefficientwise equality in 𝔽_p. By PadicInt.ker_toZMod and maximalIdeal_eq_span_p, it is equivalent to p dividing every coefficient of f−g. Choose one quotient coefficient at each index and assemble the resulting existing power series h. The coefficient formula for multiplication by the constant p gives f−g=p h. Conversely apply ρ to this equality. No boundedness condition on the quotient coefficients beyond membership in ℤ_p is needed.
+
+**Inputs.** `mathlib:PowerSeries.map`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PadicInt.toZMod`, `mathlib:PadicInt.ker_toZMod`, `mathlib:PadicInt.maximalIdeal_eq_span_p`, `mathlib:Ideal.mem_span_singleton`.
+
+**Source.** Lemma 10.11(i)–(ii), printed p.168 / PDF69; coefficientwise meaning of its congruences. An explicit coefficient-kernel helper for the source congruences, proved from the existing residue homomorphism. It is not a new quotient-ring or reduction-map construction.
+
+**Acceptance.** The condition controls all coefficients, not just the constant coefficient.
+
+The suggested example `residue_series_three_control` checks: In ℤ₃[[T]], ρ(1+3T)=ρ(1), but ρ(1+T)≠ρ(1), despite all three series having constant coefficient 1.
+
+#### Frobenius congruence reflection
+
+`ColemanPowerSeries:L1/frobenius-congruence-reflection` · `phi_sub_one_dvd_iff`
+
+For every f∈B and k≥0, p^k divides φ(f)−1 if and only if p^k divides f−1.
+
+**Proof.** Place f−1 in coordinate 0 and zero in all other coordinates of the existing assembly Ξ. The explicit finite-sum assembly formula reduces to φ(f−1)=φ(f)−1, since Y⁰=1. Apply phiAssemble_dvd_iff to this tuple. All zero coordinates satisfy divisibility automatically, and coordinate 0 gives the desired equivalence. The prime assumption ensures coordinate 0 exists. This includes f=1 and k=0 without choosing a finite valuation.
+
+**Inputs.** `ColemanPowerSeries:L1/frobenius-coordinate-formula`, `ColemanPowerSeries:L1/frobenius-coordinate-congruence-reflection`, `mathlib:PowerSeries.substAlgHom`.
+
+**Source.** Lemma 10.11(i), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.1, printed p.18 / PDF28. The source implication is strengthened to an equivalence using the already planned integral coordinate reflection; the reverse implication is also immediate from φ fixing p.
+
+**Acceptance.** At k=0 both sides are automatic. At p=3, f=1+T satisfies neither side for k=1: φ(f)−1 has a unit coefficient at degree 3.
+
+The suggested example `phi_congruence_three_control` checks: For p=3, 3 does not divide (1+T)³−1 in B, although its coefficients of T and T² are divisible by 3.
+
+#### Norm preservation of congruences
+
+`ColemanPowerSeries:L1/coleman-norm-preserves-congruence` · `colemanNorm_sub_dvd`
+
+For f,g∈B and k≥0, if p^k divides f−g then p^k divides N(f)−N(g). No unit hypothesis is imposed.
+
+**Proof.** Write f−g=p^k h. The native Algebra.leftMulMatrix is an algebra homomorphism, hence a ring homomorphism. Its matrix difference is p^k M_h, because a ring homomorphism sends the natural scalar p to p times the identity. Reduce every entry modulo the principal ideal (p^k) in the base B. The reduced matrices of f and g agree. Apply RingHom.map_det to this quotient map, then the inherited colemanNorm_matrix formula. Ideal.Quotient.mk_eq_mk_iff_sub_mem and Ideal.mem_span_singleton translate equality of the reduced determinants into divisibility. The argument also covers k=0, when the quotient is the zero ring.
+
+**Inputs.** `ColemanPowerSeries:L1/coleman-norm-matrix`, `mathlib:Algebra.leftMulMatrix`, `mathlib:RingHom.map_det`, `mathlib:Ideal.Quotient.mk_eq_mk_iff_sub_mem`, `mathlib:Ideal.mem_span_singleton`.
+
+**Source.** Lemma 10.11(ii)–(iii), printed p.168 / PDF69; norm from Lemma 10.8, p.167 / PDF68. A determinant-polynomial helper for the source congruences. The generic matrix reduction and determinant functoriality already belong to Mathlib and are imported.
+
+**Acceptance.** No additive-homomorphism property of N is asserted. For p=3, the inputs 1 and 1+9 are congruent modulo 9, and their norms are 1 and 1000.
+
+The suggested example `colemanNorm_constant_congruence_nine` checks: For p=3, N(10)−N(1)=999, which is divisible by 9 in ℤ₃[[T]].
+
+#### Coleman norm modulo p
+
+`ColemanPowerSeries:L1/coleman-norm-residue-identity` · `colemanNorm_sub_self_dvd`
+
+For every f∈B, p divides N(f)−f. No unit hypothesis is imposed.
+
+**Proof.** First reduce φ(f) coefficientwise using PowerSeries.map_subst. The native add_pow_char gives ρ(Y^p−1)=T^p; PowerSeries.expand_apply, map_frobenius_expand and ZMod.frobenius_zmod then give ρ(φ(f))=ρ(f)^p=ρ(f^p). Use map_toZMod_eq_iff. These are substitutions into existing identities, not a second construction of P7 cyclotomic Frobenius. Apply preservation of congruences to φ(f) and f^p, using this reduced equality. The inherited base-scalar formula gives N(φ(f))=f^p, and the monoid-homomorphism law gives N(f^p)=N(f)^p. After coefficient reduction, ρ(f)^p=ρ(N(f))^p. Frobenius is injective on the reduced ring 𝔽_p[[T]] by the native frobenius_inj theorem (the power-series ring is a domain). Cancel Frobenius and use map_toZMod_eq_iff to return to divisibility in B. This proof works for nonunits and does not identify the determinant with a product of completed substitutions.
+
+**Inputs.** `ColemanPowerSeries:L1/coleman-norm-preserves-congruence`, `ColemanPowerSeries:L1/coleman-norm-base-scalars`, `ColemanPowerSeries:L1/coleman-determinant-norm`, `ColemanPowerSeries:L1/residue-series-congruence`, `mathlib:frobenius_inj`, `mathlib:PowerSeries.map_subst`, `mathlib:PowerSeries.expand_apply`, `mathlib:PowerSeries.map_frobenius_expand`, `mathlib:ZMod.frobenius_zmod`, `mathlib:add_pow_char`.
+
+**Source.** Lemma 10.11(ii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29. Exactly the RJW assertion for all series. Coates–Sujatha states its norm congruence for units. The finite-free determinant proof supplies the stronger all-series statement without using the unfinished completed-substitution comparison.
+
+**Acceptance.** For p=3, N(2)=8 and N(2)−2=6 is divisible by 3 but not by 9.
+
+The suggested example `colemanNorm_mod_three_sharp` checks: In ℤ₃[[T]], 3 divides N(2)−2, but 9 does not.
+
+The suggested example `phi_freshman_two_difference` checks: For p=2, (1+T)²−1−T²=2T≠0 in ℤ₂[[T]].
+
+#### Coleman norm improvement at one
+
+`ColemanPowerSeries:L1/coleman-norm-improves-one-congruence` · `colemanNorm_sub_one_dvd`
+
+For f∈B and k≥1, if p^k divides f−1 then p^(k+1) divides N(f)−1. The assertion is stated for all f satisfying this condition.
+
+**Proof.** Write f=1+p^k h. For M=M_h, the native multiplication-matrix homomorphism gives M_f=I+p^k M. Apply the existing Matrix.det_one_add_smul with scalar p^k. It gives det(I+p^k M)=1+p^k trace(M)+p^(2k) Q for an explicit polynomial evaluation Q∈B; this exact expansion requires no division. Identify trace(M)=τ(h) by the native Algebra.trace_eq_matrix_trace and the inherited trace definition. The existing colemanTrace_divisible gives τ(h)=p b. Both terms p^(k+1)b and p^(2k)Q are divisible by p^(k+1), because k≥1 implies 2k≥k+1. Use the inherited norm-matrix formula.
+
+**Inputs.** `ColemanPowerSeries:L1/coleman-norm-matrix`, `ColemanPowerSeries:L1/coleman-integral-trace`, `ColemanPowerSeries:L1/coleman-trace-divisibility`, `mathlib:Algebra.leftMulMatrix`, `mathlib:Algebra.trace_eq_matrix_trace`, `mathlib:Matrix.det_one_add_smul`.
+
+**Source.** Lemma 10.11(iii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29. The source conclusion is proved integrally from norm and trace. Its separate unit hypothesis is unnecessary once the hypothesis f≡1 mod p^k, k≥1, is imposed. The argument covers p=2 and avoids the extended-ideal notation issues E4/E11.
+
+**Acceptance.** The bound k≥1 is essential to this statement: at k=0 the premise holds for f=0, while N(0)−1=−1 is not divisible by p. At p=3, f=4 gives N(f)−1=63, divisible by 9 but not by 27. At p=2, f=3 gives N(f)−1=8, consistent with the required bound 4.
+
+The suggested example `colemanNorm_improvement_three_sharp` checks: In ℤ₃[[T]], N(4)−1=63, 9 divides this difference, and 27 does not.
+
+The suggested example `colemanNorm_improvement_two` checks: In ℤ₂[[T]], N(3)−1=8 and 4 divides it.
+
+The suggested example `colemanNorm_improvement_zero_precision` checks: In ℤ₃[[T]], 1 divides 0−1, while 3 does not divide N(0)−1.
+
+#### Iterated norm improvement at one
+
+`ColemanPowerSeries:L1/coleman-norm-iterated-improvement` · `colemanNorm_iterate_sub_one_dvd`
+
+For f∈B, k≥1 and r≥0, if p^k divides f−1 then p^(k+r) divides N^[r](f)−1.
+
+**Proof.** Induct on r. At r=0 the iterate is f and the exponent is k. Apply colemanNorm_sub_one_dvd to N^[r](f) at precision k+r≥1. The new exponent is k+r+1=k+(r+1). No division or new topology is used.
+
+**Inputs.** `ColemanPowerSeries:L1/coleman-norm-improves-one-congruence`.
+
+**Source.** Proof of Lemma 10.11(iv), printed p.168 / PDF69: iterate part (iii). This makes the induction used in the source proof a reusable declaration, with the initial precision and zero-iterate case explicit.
+
+**Acceptance.** For p=3, f=4, k=1 and r=2, N^[2](4)=4⁹=262144, and 27 divides 262143.
+
+The suggested example `colemanNorm_twice_four` checks: In ℤ₃[[T]], N(N(4))=262144 and 27 divides N(N(4))−1.
+
+#### Coleman norm iteration congruence
+
+`ColemanPowerSeries:L1/coleman-norm-iterate-congruence` · `colemanNorm_iterate_sub_dvd`
+
+For an actual unit u∈Bˣ and integers k₂≥k₁≥0, p^(k₁+1) divides N^[k₂](u)−N^[k₁](u), viewing u in B.
+
+**Proof.** Put r=k₁ and d=k₂−k₁. By induction on d, colemanNorm_sub_self_dvd implies N^[d](u)≡u mod p: add the consecutive differences, each divisible by p. Form h=N^[d](u)·u⁻¹ in B, using the actual inverse of u. Then h−1=(N^[d](u)−u)u⁻¹ is divisible by p. Apply colemanNorm_iterate_sub_one_dvd with initial precision 1 and r iterations to obtain N^[r](h)−1 divisible by p^(r+1). Every iterate of N is a monoid homomorphism. Therefore N^[r](h)·N^[r](u)=N^[r+d](u); multiply the divisibility relation by N^[r](u), and use r+d=k₂. This avoids division by a possibly nonunit series introduced as an untyped quotient.
+
+**Inputs.** `ColemanPowerSeries:L1/coleman-norm-residue-identity`, `ColemanPowerSeries:L1/coleman-norm-iterated-improvement`, `ColemanPowerSeries:L1/coleman-determinant-norm`.
+
+**Source.** Lemma 10.11(iv) and its proof, printed p.168 / PDF69; Coates–Sujatha Corollary 2.3.3, printed p.19 / PDF29. The source statement with explicit iteration and actual units. It is the uniform p-adic estimate used in interpolation, not yet a continuity, convergence or arithmetic-evaluation theorem.
+
+**Acceptance.** At equal indices the difference is zero. For p=3 and the unit 2, k₁=1 and k₂=2 give 512−8=504, divisible by 9 but not by 27. At p=2, N(Y)=−Y and N²(Y)=−Y. The estimate holds despite Y itself not being norm-fixed.
+
+The suggested example `colemanNorm_iteration_three_sharp` checks: For p=3, N(N(2))−N(2)=504; 9 divides it, but 27 does not.
+
+The suggested example `colemanNorm_iteration_dyadic_sign` checks: For p=2 and Y=1+T, N(N(Y))=N(Y)=−Y, while N(Y)−Y=−2Y.
+
+#### Exponent and topology checks
+
+For the improvement theorem, write f=1+p^k h and M for multiplication by h
+in the inherited Frobenius basis. Mathlib gives the exact identity
+
+det(I+p^k M) − 1 = p^k trace(M) + p^(2k) Q,
+
+where Q is the evaluation of the polynomial obtained by removing the first
+two coefficients of det(I+ZM). Both Q and the trace are integral. The trace
+is p times the zeroth Frobenius coordinate of h, and k≥1 gives 2k≥k+1.
+This checks the power precisely, including k=1 and p=2. At k=0 the term
+p^(2k) has no forced factor p; the zero-series example disproves an
+extension to that boundary. No division by p occurs in the proof.
+
+The iteration estimate uses u⁻¹ only for an actual unit u. After applying
+the estimate at 1 to h=N^[d](u)u⁻¹, multiply back by N^[r](u).
+The monoid-homomorphism law gives
+
+(N^[r](h)−1)N^[r](u) = N^[r+d](u)−N^[r](u).
+
+This is the source's quotient argument with all carriers and iteration
+indices explicit. At equal indices the right side is zero; the statement
+includes this case. No inverse of T or inverse on all power series appears.
+
+The divisibility bound is uniform in the coefficient index. It is stronger
+than any one finite set of coefficient estimates, but its existence is not
+itself a continuity proof for N in the coefficientwise p-adic topology.
+The next component must prove that the inverse coordinate map is continuous
+(the existing assembly is a continuous bijection from a compact space to a
+Hausdorff space), then deduce continuity of N from its finite matrix formula.
+Combine the estimates with completeness or compactness to construct the
+limit and prove it is a unit and fixed by N. These steps realize
+Coates–Sujatha Corollary 2.3.4; they do not replace the finite-level
+evaluation and lifting arguments of Lemma 2.3.5 and Coleman interpolation.
+
 ### Required interpolation and comparison work
 
 The root-of-unity substitutions T↦ηY−1 require coefficients in
@@ -729,10 +918,12 @@ for the determinant norm, the analogous trace formula, their descent and the
 norm/evaluation comparison remain to be proved. The current determinant
 definition avoids treating these substitutions as ℤ_p[[T]] automorphisms.
 
-All four congruences of RJW Lemma10.11 remain separate obligations. The
-Coates–Sujatha norm/trace and first congruence proofs have been read, including
-the extended coefficient ring that their notation suppresses. Reading a proof
-is not a completed granular decomposition of the full interpolation theorem.
+The seven norm-congruence declarations above now cover all four parts of RJW
+Lemma10.11. They supply the uniform p-adic estimate needed for interpolation.
+Continuity of the coordinate inverse and norm, convergence of the norm
+iterates to a fixed unit, and arithmetic norm/evaluation compatibility remain
+separate obligations. The determinant argument proves these congruences
+integrally without presupposing the completed product formula.
 
 Interpolation requires finite-zero uniqueness for **nonzero** power series,
 finite-level arithmetic lifts, norm iteration and compactness. The compact
@@ -744,8 +935,9 @@ unit tower, prove surjectivity, and specify the unramified coefficient/Frobenius
 variants. The original Coleman source still needs reading.
 
 **Acceptance.** Recover U_∞≃B_Nˣ with its arithmetic and topological
-properties, the evaluation/norm identities and all four congruences. None of
-these remaining statements is asserted as a completed node in this tranche.
+properties and the evaluation/norm identities. The four congruences have
+explicit plans; the arithmetic and convergence statements still need their
+own declarations and proofs.
 
 ## L2. The Coleman map and its sign
 
@@ -1116,6 +1308,34 @@ The additional `power_subst_zero` control checks that substitution by zero
 kills Δ. Together with the comparison example, the suggested file has
 fifteen examples.
 
+
+### Exact integral measure suppliers
+
+The PMIA packet at main 448c011da57461d093d2d686960fcb157870374c has
+the following exact interfaces. Their common integral carrier is the existing
+ℤ_p-valued continuous dual on ℤ_p, and A is the existing integral Amice
+equivalence. A separate clopen-subtype comparison identifies intrinsic
+measures on ℤ_pˣ with ambient supported measures; PMIA L0 owns that work.
+
+| Supplier node in PadicMeasuresIwasawaAlgebras:L2 | Input to Coleman |
+| --- | --- |
+| `mahler-derivation-value` | ∂F=(1+T)D(F), so the local logarithmic derivative is ∂f/f. |
+| `amice-phi` | A(φμ)=(Aμ)[(1+T)^p−1] on integral measures. |
+| `psi-series` | The linear operator ψSeries=AψA⁻¹ whose comparison with the zeroth Frobenius coordinate belongs here. |
+| `series-unit-restriction` | Unit restriction has series Aμ−φψSeries(Aμ). |
+| `inverse-weight` and `inverse-weight-unique` | Integral division by x on unit support, using the existing p-adic unit inverse extended by zero. |
+| `inverse-weight-dilation` | For a∈ℤ_pˣ, inverse weighting after dilation by a is a⁻¹ times dilation after inverse weighting. |
+| `inverse-mahler` and `inverse-mahler-intertwining` | H=AJA⁻¹ and H(Aμ)=A(Jμ). |
+| `inverse-mahler-unique` | For ψSeries F=0 there is a unique G with ψSeries G=0 and ∂G=F, namely HF. |
+
+These node ids all have the exact prefix `PadicMeasuresIwasawaAlgebras:L2/`.
+Coleman consumes these operators; it does not reconstruct them. The new
+inverse-factor identity cancels the factor a in Δ after the separate action
+comparisons. It does not, by itself, prove arithmetic G-equivariance. The
+PMIA L2 request now asks for remaining topology, coefficient extension,
+completed averaging and the dilation/substitution comparison. The PMIA L0
+request isolates the generic clopen restriction/extension comparison.
+
 ## L3. Kernel and cokernel
 
 The torsion-free kernel theorem above concerns Δ on all formal units.
@@ -1364,11 +1584,11 @@ Test **padic_logDeriv_half**: At p=3 and 2a=1, substituting B_a−1 into a unit 
 
 ### Sources, ownership and remaining comparison
 
-Rodrigues Jacinto–Williams, Proposition 12.5, equation (12-2), printed p.179, gives Δ(σ_a f)=aσ_a(Δf) for a∈ℤ_pˣ. The formal calculation above works for every a∈ℤ_p. This extension does not assert that substitution by a nonunit exponent is an automorphism. The source’s next equation (12-3) has the inverse factor a⁻¹ for the inverse derivative on measures; proving that separate comparison is essential to the final equivariance statement.
+Rodrigues Jacinto–Williams, Proposition 12.5, equation (12-2), printed p.179, gives Δ(σ_a f)=aσ_a(Δf) for a∈ℤ_pˣ. The formal calculation above works for every a∈ℤ_p. This extension does not assert that substitution by a nonunit exponent is an automorphism. The source’s next equation (12-3) has the inverse factor a⁻¹ for the inverse derivative on measures; PMIA now supplies that inverse factor for the existing unit-dilation pushforward. Its identification with the arithmetic action and formal substitution is still essential to final equivariance.
 
 PadicHodgeTheory:P7:annulus-foundations/cyclotomic-gamma-action already supplies the unit-exponent cyclotomic action, its group law, inverses and continuity on its coefficient rings. Its overconvergent-cyclotomic-rings node specifies A_F^+=O_F[[π]]. Consume these nodes after checking the k=𝔽_p coefficient and topology identifications; do not create a second action in Coleman. The two new lemmas are formal weighted-derivative identities, including nonunit exponents, and assert no arithmetic-tower or Galois-action comparison.
 
-The formal twisted logarithmic derivative is specified for every p-adic exponent. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. Establish the actual tower action, its interpolation compatibility, norm-fixed restriction, the measure-action comparison and the inverse-derivative factor a⁻¹ needed for full Coleman-map equivariance. These identities alone do not close L2.
+The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative.
 
 ## Exact continuation boundary
 
@@ -1381,14 +1601,14 @@ The formal twisted logarithmic derivative is specified for every p-adic exponent
 ### ColemanPowerSeries:L1 — partial
 
 - Compare the proved integral trace coordinate with the bounded ψ owned by PMIA L2. Prove completed coefficient root-of-unity substitutions, trace/product formulas and descent; formal HasSubst alone is insufficient.
-- Give norm/evaluation comparison and every part of RJW Lemma10.11. The Coates–Sujatha norm/trace and congruence passages have now been read, but their full interpolation argument and original Coleman sources still need granular decomposition.
+- The four congruences of RJW Lemma10.11 now have explicit nodes. Establish continuity of norm and its coordinate inverse in the coefficientwise p-adic topology, convergence and fixedness of the norm-iterate limit (Coates–Sujatha Corollary2.3.4), and norm/evaluation compatibility. The uniform p-adic estimates do not alone supply the arithmetic interpolation map.
 - Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only.
 
 ### ColemanPowerSeries:L2 — partial
 
 - Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower.
-- The signed-integer cyclotomic factorization and smoothing identities, and the p-adic-exponent weighted derivative and twisted logarithmic derivative are specified. The formal twisted logarithmic derivative is specified for every p-adic exponent. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. Establish the actual tower action, its interpolation compatibility, norm-fixed restriction, the measure-action comparison and the inverse-derivative factor a⁻¹ needed for full Coleman-map equivariance. These identities alone do not close L2.
-- Consume actual PMIA bounded measure operators and the still-missing Dirichlet ψ/restriction/pseudomeasure results. The smoothed series, integral measure and T f_a F_a=f_a−a are already supplied by the exact Dirichlet L1 nodes; instantiate its series-cleared-equation on the shared denominator. Then prove equality of measures for raw Col₀ and normalized Col=−Col₀. This algebraic checkpoint introduces no measure carrier or Col map.
+- The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative.
+- Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; generic clopen-subtype comparison is requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain still depends on its explicit generic root-average gap. Import these nodes; pseudomeasure normalization and the Coleman normalized-trace comparison remain required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint.
 - Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures.
 
 ### ColemanPowerSeries:L3 — partial
@@ -1403,15 +1623,15 @@ The formal twisted logarithmic derivative is specified for every p-adic exponent
 - Prove local embeddings, the Teichmüller-adjusted compatible generator, closure equals ℤ_p-span, finite-level generation and the compactness argument for inverse-limit cyclicity. Retain −1 at finite real level where required.
 - Compute the closed cyclotomic tower's Coleman image and U_(∞,1)^+/C_(∞,1)^+ ≃ Λ(G^+)/(I(G^+)ζ_p) for odd p; transport the unit quotient itself under coefficient extension. This is not the Galois main conjecture.
 
-The six gap records and eleven supplier requests remain open. The stage-level
+The six gap records and twelve supplier requests remain open. The stage-level
 requests concern the undecomposed arithmetic/comparison statements; they are
-not hidden hypotheses of the 50 local nodes. Every new internal edge
+not hidden hypotheses of the 57 local nodes. Every new internal edge
 terminates in another local node or an exact pinned declaration. The existing
 L2 chain also imports the precise Dirichlet denominator nodes. A passing packet
 checker does not close the five stage targets.
 
-Six planets are proposed: **Frobenius power basis**, **Coleman norm**,
-**Integral Coleman trace**, and **Norm-fixed units** in L1; **Logarithmic
+Seven planets are proposed: **Frobenius power basis**, **Coleman norm**,
+**Integral Coleman trace**, **Norm-fixed units**, and **Coleman norm congruences** in L1; **Logarithmic
 derivative** and **Cyclotomic unit series** in L2. No planet is a completion
 claim. All implementation statuses remain unchecked.
 
@@ -1449,3 +1669,53 @@ none is replanned as a new generic construction.
 | `mathlib:PowerSeries.map_subst` | Coefficient homomorphisms commute with valid formal substitution. |
 | `mathlib:RingHom.toAlgebra` | Algebra structure with a·x=i(a)x from a ring homomorphism; explicitly handles the warned self-action diamond. |
 | `mathlib:Subgroup` | Existing subgroup structure on the actual unit group; no new unit carrier. |
+
+### Source scope of the norm-congruence continuation
+
+Codex — codex-hjdg0j read the published Rodrigues Jacinto–Williams PDF at
+physical pages 67–69 (printed 166–168), and visually checked printed 168.
+The same worker read Coates–Sujatha physical pages 26–31 (printed 16–21)
+in batches of at most three pages. Thus the continuation of Lemma 2.3.5
+on printed 20 has now been read. The preceding workers' larger reading
+scopes and source collation remain attributed to them. Neither source is
+claimed to have been completely read or decomposed here.
+
+The eleven inherited source findings are unchanged. In particular E4 and
+E11 record the coefficient-extension ideals used by the source norm proof.
+The new determinant argument supplies an integral route to the congruences;
+it does not discharge E2's completed root-of-unity substitution comparison.
+The opening of the additive exact-sequence argument on Coates–Sujatha
+pp.20–21 supplies leads for L3; no conclusion about its remaining proof is
+drawn without reading the continuation. The original Coleman paper and
+the coefficient variants remain outside this continuation's reading scope.
+
+The new native inputs are the coefficient and constant-multiplication
+formulas for power series; expansion and coefficient Frobenius; injectivity
+of Frobenius in reduced rings; reduction of determinants along ring maps;
+the principal-ideal quotient criterion; and Matrix.det_one_add_smul. Each
+statement and its ambient hypotheses were read at the pinned Mathlib commit,
+and each read source blob was checked against the pinned tree. These generic
+results are consumed, not replanned. The packet lists their exact names,
+modules and roles, alongside the preserved 57 baseline references.
+
+### Arithmetic numerator supplier
+
+The Dirichlet packet at main 3fa3504bfe0aa38e8c6f1934daa440b2e6756999
+supplies `DirichletPadicLFunctions:L1/series-psi-fixed`,
+`DirichletPadicLFunctions:L1/measure-psi-fixed`,
+`DirichletPadicLFunctions:L1/unit-smoothed-measure`,
+`DirichletPadicLFunctions:L1/unit-smoothed-difference`,
+`DirichletPadicLFunctions:L1/smoothed-numerator` and
+`DirichletPadicLFunctions:L1/numerator-amice`. In particular ν_a=Jμ_a
+is an actual integral ambient measure and Aν_a=H(F_a). These targets use
+natural a prime to p, with a=1 a zero boundary; the nondegenerate
+pseudomeasure comparison takes a>1. The ψ-invariance chain has an explicit
+generic averaging gap in its `series-phi-psi-fixed` prerequisite. Importing
+the node does not discharge that gap. The numerator construction and its
+Amice comparison themselves do not require ψ-invariance.
+
+Coleman must compare its raw map with −ν_a using the existing logarithmic
+derivative identity and operator comparisons. Dirichlet retains the
+independent identification ν_a=([a]−1)ζ_p, with its actual denominator and
+regularity conditions. This narrows the aggregate supplier request without
+changing the inherited denominator dependencies or declaring L2 closed.
