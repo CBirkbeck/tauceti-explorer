@@ -1,114 +1,34 @@
-# Handoff: BP-ArithmeticStatistics
+# BP-ArithmeticStatistics — symmetric-rank recurrence continuation
 
-**Job** `BP-ArithmeticStatistics` (issue #1038) · Claude Code, session `cc-2aeb03` · 24 September 2026.
-Baseline: Mathlib `082e2d3`, Tau Ceti `f790474`. Follows the accepted restructuring RS-07.
+Agent: Codex — codex-hjdg0j, 2026-09-27. Refs #1038.
+Claim [5855596347](https://github.com/CBirkbeck/tauceti-explorer/issues/1038#issuecomment-5855596347), confirmed by [5855597123](https://github.com/CBirkbeck/tauceti-explorer/issues/1038#issuecomment-5855597123). The full issue was read before and after the bot confirmation. Initial repository snapshot: a6a1ae3cc9805fd53cb471d5c808d817e5599dbd.
 
-## Deliverables
+## Checkpoint and exact change
 
-- **Packet:** `research/blueprint/packets/ArithmeticStatistics.json`, status `partial`.
-  - Scope ST.0–ST.5, `part` null.
-  - 409 nodes (157 theorems, 149 lemmas, 84 definitions, 15 constructions, 2 comparisons, 2 applications), with 778 API items and 364 unit tests.
-  - 36 planets, six per stage.
-  - 261 baseline declarations, each statement read at its pinned line.
-  - 51 sources, 75 source issues, 52 requests and 48 gaps.
-  - `python3 scripts/check_blueprint.py` against the pinned declaration index reports 0 errors and 0 warnings.
-- **Roadmap document:** `research/blueprint/readmes/ArithmeticStatistics.md`, about 47,000 words. It has an introduction
-  (purpose, scope, conventions, boundaries, sources) and one section per stage, and it agrees with the packet.
-- **Suggested Lean file:** `research/blueprint/suggested/ArithmeticStatistics.lean`. It imports only Mathlib; where a Tau Ceti module would be imported, a comment says so. It was compiled against Mathlib 082e2d3 with `lake env lean`, and elaborates with 1125 warnings, all `declaration uses sorry`, and no errors. Each object is declared once, by its owning stage, and every one of the packet's API items and unit tests occurs in it under the packet's name. Two overlaps between stages remain as separate packet names, to be consolidated by the review: ST.0's congruence weights against ST.2's congruence conditions, and ST.5's family densities against ST.0's upper and lower densities.
+The packet remains partial across all six stages. This continuation discharges only the named MacWilliams recursion gap in ST.5. Six lemma nodes expose the image obstruction for a symmetric column, the rank changes inside and outside the image, the exact rank fibers above one principal block, the global count recurrence and the rational product recurrence. The existing macwilliams-symmetric-rank-count node now proves its product by induction using those lemmas. Its statement and id are retained. The argument works in every characteristic and includes alternating symmetric matrices in characteristic two.
 
-## What is decomposed
+All other 408 inherited nodes are unchanged, as are the 261 inherited baseline entries, all 51 inherited source objects, all 75 source findings, all 52 requests and all restructuring proposals. The existing Lean file is an exact prefix; six theorem signatures and six examples are appended. No new definition, API item or planet is introduced. The reader gains the proof in its existing random-matrix section. The native matrix subtype and block constructor are reused.
 
-- **ST.0.** Families with their equivalence relations, height orderings, weights and local conditions; densities and their
-  comparisons; bounded-height finiteness. Also:
-  - the binary-quartic invariants I and J, their weights, the discriminant, the eligible pairs and the height, with
-    27Δ = 4I³ − J² and 27·H_E = 4·H′;
-  - Burungale–Tian's squareclass-height family of quadratic twists, the positive-squarefree subfamily and the density
-    comparison;
-  - number fields ordered by discriminant.
+Totals: 415 nodes (84 definitions, 15 constructions, 155 lemmas, 157 theorems, 2 comparisons, 2 applications); 778 API items; 364 definition/construction tests; 370 typed examples; 36 planets; 278 baseline declarations; 52 sources; 75 inherited source findings; 47 gaps; 52 requests. Every implementationStatus remains unchecked.
 
-  ST.0 has no gaps.
-- **ST.1.**
-  - The parametrization of 2-Selmer elements by locally soluble binary quartics, with stabilizers and the comparison to the
-    cohomological Selmer group, as the Tau Ceti EllipticCurves layers 6–7 interface.
-  - The embedding into pairs of ternary quadratic forms.
-  - The Delone–Faddeev correspondence and Bhargava's quartic parametrization, with maximality criteria and
-    Davenport–Heilbronn sets.
-  - The quintic parametrization at statement level.
-- **ST.2.**
-  - The geometric sieve and local densities.
-  - For binary quartic forms: fundamental domains, averaging, cutting off the cusp, reducible forms, the count by height,
-    and the uniformity estimate for infinitely many congruence conditions.
-  - For binary cubic forms: Davenport's count, the index-p switching and the Bhargava–Shankar–Tsimerman counts.
-- **ST.3.**
-  - Davenport–Heilbronn, the count of cubic fields and the mean of the 3-torsion of quadratic class groups, by the
-    Bhargava–Shankar–Tsimerman route.
-  - The classical binary quadratic and cubic counts.
-  - The quartic and quintic counts, the 2-torsion means and Fouvry–Klüners, stated with their sources.
-  - Cohen–Lenstra (moment form) and Malle as definitions no theorem assumes, and Klüners' counterexample.
-- **ST.4.** Bhargava–Shankar §3 in full:
-  - local solubility and the change of measure;
-  - local masses and the Tamagawa number of PGL₂;
-  - the average 3, with every local mass required positive (a missing hypothesis of the source);
-  - the average-rank bound 3/2.
-- **ST.5.**
-  - The 3-, 4- and 5-Selmer averages, the Poonen–Rains and BKLPR models, and the Cohen–Lenstra measure with its moment
-    theory.
-  - Local statistics and function-field results, including EVW as a stated input.
-  - Burungale–Tian's two inputs:
-    - **Smith's 2^∞ theorem** is a stated input. A gap names its owner, ArithmeticStatisticsPartIISmithMethod, which imports
-      ST.5, so there is no request and no cycle.
-    - **The BKLOS 3^∞ corank consequence** is carried in full. Corank, parity and CM inputs are requested from
-      SelmerIwasawaCohomology and ComplexMultiplicationAndExplicitReciprocity.
-  - The step from Smith's law to Burungale–Tian's Theorem 3.3 is proved here, with Assumption 1.1, the signed-integer to
-    squarefree conversion and 2-parity explicit.
+## Evidence and scope of reading
 
-## What remains
+The common protocol files and two complete nearby upstream documents (ArithmeticDirichletSeries and Multiquadratic) were reused after byte equality with earlier same-session readings. The six reviewed library-audit rows, accepted RS-07 ownership and review, atlas and campaign scope, predecessor handoff, exact finite-field count/limit nodes and their reader/Lean section were read. Both link directories were screened and every entry mentioning ArithmeticStatistics was read; they supply no additional positive edge for this component. The integrated eight-node decomposition and external draft were indexed and compared for scope; neither supplies the symmetric-rank recurrence. The entire 409-node inherited packet has been preserved outside the one selected theorem, not independently re-audited in this continuation.
 
-The coverage `remaining` lists and the gaps are precise. The main items:
+The source read is [Stanley, Spanning Trees and a Conjecture of Kontsevich](https://math.mit.edu/~rstan/pubs/pubfiles/114.pdf), the journal-formatted author-hosted copy, SHA-256 244cf41abe5774751b4b31d32462b0919682426b3ca03b946d2cacf53072cc8f. Read printed pp.354–356, including the entire §4 first proof and equations (4.2)–(4.3) on p.355, with title/bibliography metadata on pp.351,363. The formulas on p.355 were also visually read because the PDF text extraction corrupts signs. The additional kernel and parity calculations spell out that proof's linear algebra and product-verification steps. This is not a claim to have acquired MacWilliams 1969 or to have read all of Stanley's paper. No new source mistake was found in the passage used. Existing source findings remain inherited and unreviewed here.
 
-- **ST.3:** proofs of the quartic and quintic counts, the class-group moment theorems and the second-order terms.
-- **ST.2:** Bhargava's 2005 Proposition 23 and the O(X^{1/4}) bound behind the quartic counts.
-- **ST.5:** the orbit parametrizations and counts for the 3-, 4- and 5-Selmer averages; Kane's estimates; BKLOS §§3–8; the
-  Cassels–Tate adjointness; Dokchitser–Dokchitser's local lemmas; Rubin's CM lemmas (not public); EVW homological stability;
-  de Jong's bound.
-- **Placeholder prerequisites:** 40 bare stage ids remain, mostly in ST.5, where the supplying node does not exist yet. Each
-  is named in a gap.
-- **Other accepted paper routes.** The source routes of papers accepted after this job was queued are not yet in its
-  instructions: Wood 2019, Bhargava–Gross–Wang 2017, Bhargava–Shankar–Wang 2022 and 2025, Lemke Oliver–Wang–Wood 2025,
-  Koymans–Milovic, Koymans–Pagano, EVW 2016, Browning–Le Boudec–Sawin, Lipnowski–Tsimerman, Shende–Tsimerman, Castella et
-  al., Skinner and Skorobogatov–Sofos. A later queue will add them.
+A source-tree search in both pinned libraries found no symmetric finite-field rank count or border recurrence. Tau Ceti's symmetricMatrix dimension theorem is over the real numbers; it cannot provide these finite-field fibers. Other packet hits concern finite-field trace, linearized polynomials, symplectic geometry or unrelated discriminants, and do not supply the count. New baseline statements were opened and their bytes checked against the pinned Git trees. The inherited baseline entries are preserved, not claimed as a fresh 261-declaration audit.
 
-## Requests made to other roadmaps
+## Validation
 
-The packet's `requests` list records all 52, each with a precise need and its consumers:
+Lean 4.34.0-rc2 compiles the complete suggested file: no errors, exactly 1137 expected proof-placeholder warnings, no other warnings. Final seed SHA-256 ed18aefb6cbc898c4368a79a3c8655d47eb32e858da1ef2dfaf279ff91164fc7. The import graph uses byte-identical sources at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti remains pinned at f790474821cf4256814db967cb154e7af3d0c369. No implementation is submitted.
 
-- **GeometryOfNumbersAndQuadraticArithmetic:** GN.0, GN.2, GN.3, and GN.4 (Davenport's lemma).
-- **AnalyticNumberTheory:** AN.5 (the divisor bound) and AN.8 (the p-adic orbit volume).
-- **SelmerIwasawaCohomology** L1, L2 and L4; **ArithmeticGaloisDuality** R02.4.
-- **ComplexMultiplicationAndExplicitReciprocity** CM.1 and CM.3.
-- **AbelianSchemesAndArithmeticModuli** A2, A3 and A6.
-- **InverseGaloisAndArithmeticFundamentalGroups** IG.0, IG.1, IG.2, IG.4 and IG.5.
-- **FunctionFieldArithmetic** FA.4, **SchemeAndStackFoundations** SF.2, **EtaleDualityAndPerverseSheaves** EDC.2,
-  **DeligneWeightsAndPurity** DWP.7, **SieveMethodsAndPrimePatterns** SV.2 and **DiophantineApproximationAndTranscendence**
-  DT.4.
-- **Tau Ceti roadmap layers:** EllipticCurves (13 requests across layers 1 and 4–8), NumberFieldArithmetic, PolynomialGaloisGroups,
-  ClassFieldTheory, GlobalQuadraticForms, GlobalNumberFields, LocalFieldsRamification, ModularForms, Multiquadratic and
-  JacobianChallenge.
+Exact finite-field enumeration checked 494262 symmetric matrices: F₂ through size 5, F₃ through size 4, and F₄,F₅,F₇,F₈ through size 3. The nonprime fields use polynomial field arithmetic, not arithmetic modulo 4 or 8. Separately, 401415 bordered matrices and 54172 image-annihilator tests verify all three rank jumps and their fiber counts. Rational arithmetic checks 9300 product recurrences and 465 total-mass identities for every integer q from 2 to 16 through size 30. Both parity identities were also checked as symbolic rational identities. Five mutation fixtures catch a missing corner factor, an all-matrices count, omission of alternating planes, a lost empty matrix and the wrong subtraction exponent. These finite and algebraic checks support the proof route and do not replace formal proofs.
 
-## Restructure proposals
+The packet checker with the pinned declaration index reports no errors or warnings. The four-path intake check passes. Local checks verify the closed dependency component of the six lemmas plus the original theorem, the 408 unchanged node objects, 17 new baseline entries, exact signature names, all six examples and the absence of private paths. The rest of the inherited packet retains its recorded gaps and requests.
 
-These are recorded in the packet's `restructure`:
+## Resume
 
-- drop the atlas edge GN.1 → ST.0, which no ST.0 node uses;
-- rescope the SV.2 → ST.2 edge, since no step of the sources uses a large sieve;
-- split ST.2 into three sub-layers: the geometric sieve, binary quartic forms and binary cubic forms;
-- split ST.5 into four strands: random groups and matrix models, Selmer statistics of elliptic curves, local statistics and
-  abelian varieties over finite fields, and function-field analogues.
+The MacWilliams recursion item is removed from the ST.5 coverage remaining list and from gaps. Continue with the other precisely listed gaps. These include the higher Selmer orbit counts and parametrizations, Wood moment determination, the class-group and quartic/quintic counting proofs, the general number-field squareclass-density theorem, and the function-field geometric inputs. The infinite-product limit and its error estimate are a separate existing consumer of the finite count; they were preserved rather than reworked.
 
-## Sources
-
-- **Read:** all public, with URLs and hashes in the packet. The main ones are Bhargava–Shankar (arXiv:1006.1002v3),
-  Bhargava–Shankar–Tsimerman (arXiv:1005.0672) and Burungale–Tian (arXiv:2506.03465v2), with Bhargava's Higher Composition
-  Laws and density papers where public.
-- **Not public, and used only through public accounts:** Davenport–Heilbronn 1971, Cohen–Lenstra (LNM 1068), Cremona's and
-  Birch–Swinnerton-Dyer's descent, Rubin's CM lemmas and Nesterenko-type results.
+The inherited ownership rules still apply: import canonical elliptic heights and descent; keep the distinct Smith and BKLOS source hypotheses; do not use all-curve averages as quadratic-twist theorems. Retain all 52 supplier requests and their exact consuming node ids. Full independent review and broader source decomposition remain required before any stage is closed.
