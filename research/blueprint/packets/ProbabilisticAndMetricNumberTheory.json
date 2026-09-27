@@ -1,81 +1,1420 @@
 {
- "roadmapId":"ProbabilisticAndMetricNumberTheory",
- "protocol":"blueprint-v1",
- "part":null,
- "scope":["ProbabilisticAndMetricNumberTheory:PM.0","ProbabilisticAndMetricNumberTheory:PM.1","ProbabilisticAndMetricNumberTheory:PM.2","ProbabilisticAndMetricNumberTheory:PM.3","ProbabilisticAndMetricNumberTheory:PM.4","ProbabilisticAndMetricNumberTheory:PM.5"],
- "status":"partial",
- "summary":"Checkpoint: a finite weighted prime-truncation API and explicit first/second arithmetic-moment comparisons. Reuses pinned Tau Ceti empirical measures, Mathlib arithmetic functions and existing multiples counts. No stable independence, limit law, complete PM.0 coverage or Lean compilation is claimed.",
- "baseline":{
-  "mathlib":"082e2d37e8b0463410cdb532e111cd43d5a66174",
-  "tauceti":"f790474821cf4256814db967cb154e7af3d0c369",
-  "declarations":[
-   {"ref":"mathlib:ArithmeticFunction","module":"Mathlib.NumberTheory.ArithmeticFunction.Defs","provides":"ZeroHom from natural numbers; value at zero is forced to be zero. Multiplication of arithmetic functions is convolution, not pointwise multiplication.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:ArithmeticFunction.ext","module":"Mathlib.NumberTheory.ArithmeticFunction.Defs","provides":"Pointwise equality implies equality in the existing arithmetic-function carrier.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:ArithmeticFunction.map_zero","module":"Mathlib.NumberTheory.ArithmeticFunction.Defs","provides":"Every arithmetic function has value zero at zero.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:ArithmeticFunction.cardDistinctFactors","module":"Mathlib.NumberTheory.ArithmeticFunction.Misc","provides":"Existing omega, including the zero extension; do not redefine it.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:ArithmeticFunction.cardDistinctFactors_apply","module":"Mathlib.NumberTheory.ArithmeticFunction.Misc","provides":"Omega with distinct factors is the length of the deduplicated prime-factor list.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:ArithmeticFunction.cardDistinctFactors_mul","module":"Mathlib.NumberTheory.ArithmeticFunction.Misc","provides":"Distinct-prime count is additive on coprime products; does not assert complete additivity.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:ArithmeticFunction.cardDistinctFactors_apply_prime_pow","module":"Mathlib.NumberTheory.ArithmeticFunction.Misc","provides":"A positive power of a prime has exactly one distinct prime factor.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:Nat.card_multiples","module":"Mathlib.Data.Nat.Factorization.Basic","provides":"For all N,d in the naturals, the number of k<N with d dividing k+1 is Nat.div N d. This counting result is already implemented.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:Nat.Coprime.lcm_eq_mul","module":"Mathlib.Data.Nat.GCD.Basic","provides":"For coprime natural m,n, lcm(m,n)=m*n.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:Nat.Prime.dvd_of_dvd_pow","module":"Mathlib.Data.Nat.Prime.Basic","provides":"If a prime p divides m^n, it divides m.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:Nat.Prime.dvd_iff_eq","module":"Mathlib.Data.Nat.Prime.Basic","provides":"For prime p and a not equal to 1, a divides p iff p=a.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:ProbabilityTheory.uniformOn","module":"Mathlib.Probability.UniformOn","provides":"Existing conditioned counting measure, probability only for finite nonempty support.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"mathlib:ProbabilityTheory.isProbabilityMeasure_uniformOn","module":"Mathlib.Probability.UniformOn","provides":"Finite nonempty support with measurable singletons gives a probability measure.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"tauceti:TauCeti.Probability.empiricalMeasure","module":"TauCeti.Probability.Process.EmpiricalMeasure","provides":"ProbabilityMeasure of the first m+1 terms. Specialize x(k)=k+1, not x(k)=k.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal","module":"TauCeti.Probability.Process.EmpiricalMeasure","provides":"Real probability of a measurable event equals the normalized sum of its indicators, with denominator m+1.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"tauceti:TauCeti.Probability.integral_empiricalMeasure","module":"TauCeti.Probability.Process.EmpiricalMeasure","provides":"For strongly measurable complete real normed-space-valued f, integration is the normalized finite sum. All functions on the discrete natural carrier used here satisfy the condition.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."},
-   {"ref":"tauceti:TauCeti.Probability.empiricalMeasureOfFintype_eq_map_uniformOn","module":"TauCeti.Probability.Process.EmpiricalMeasure","provides":"Finite empirical law is the pushforward of uniformOn on its nonempty finite index type; this carrier bridge is not a new target.","checked":"Statement and proof read at the pinned commit on 2026-09-26; not compiled in this session."}
-  ]
- },
- "sources":[
-  {"id":"TAO-RESIDUES","title":"254A, Supplement 4: Probabilistic models and heuristics for the primes (optional)","authors":"Terence Tao","edition":"Author web exposition dated 4 January 2015; accessed 26 September 2026","url":"https://terrytao.wordpress.com/2015/01/04/254a-supplement-4-probabilistic-models-and-heuristics-for-the-primes-optional/","readSections":["Section 3, Equidistribution of residues: first six paragraphs, from the finite uniform sample through weak comparison of statistics. No theorem or proof from the subsequent rough-number discussion is used."]},
-  {"id":"ML-ARITH","title":"Mathlib arithmetic functions and prime-factor counting","authors":"Mathlib contributors","edition":"082e2d37e8b0463410cdb532e111cd43d5a66174","url":"https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ArithmeticFunction/Defs.lean","readSections":["Defs.lean lines 35-130: carrier, zero convention, extensionality and natural-value coercion","Misc.lean lines 250-405: omega, Omega, prime-power and coprime-product formulas"]},
-  {"id":"ML-COUNT","title":"Mathlib counting of positive multiples","authors":"Mathlib contributors","edition":"082e2d37e8b0463410cdb532e111cd43d5a66174","url":"https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Basic.lean","readSections":["Lines 485-625, especially Nat.card_multiples, Nat.Ioc_filter_dvd_card_eq_div and Nat.card_multiples'"]},
-  {"id":"ML-PRIME","title":"Mathlib natural prime and least-common-multiple arithmetic","authors":"Mathlib contributors","edition":"082e2d37e8b0463410cdb532e111cd43d5a66174","url":"https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Prime/Basic.lean","readSections":["Prime/Basic.lean lines 1-180: Prime.dvd_iff_eq and Prime.dvd_of_dvd_pow","GCD/Basic.lean lines 80-120: divisibility of lcm and Coprime.lcm_eq_mul"]},
-  {"id":"TC-EMP","title":"Empirical measures of sequences","authors":"The Tau Ceti contributors","edition":"f790474821cf4256814db967cb154e7af3d0c369","url":"https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Process/EmpiricalMeasure.lean","readSections":["Complete file: finite-population and successor-indexed empirical measures, measurable-set evaluation, real-valued counting, uniform-index pushforward and integration"]},
-  {"id":"ML-UNIFORM","title":"Classical probability: uniformOn","authors":"Kexing Ying and Bhavik Mehta","edition":"082e2d37e8b0463410cdb532e111cd43d5a66174","url":"https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Probability/UniformOn.lean","readSections":["Complete file, including finite/nonempty hypotheses, empty measure, event evaluation and product law"]}
- ],
- "nodes":[
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/prime-divisibility-sum","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Finite weighted prime truncation","kind":"construction","statement":"Construct S(P,a) : ArithmeticFunction real for a finite set P of natural indices and real weights a. Set S(P,a)(0)=0 and, for n>0, S(P,a)(n)=sum_{p in P} (if p divides n then a(p) else 0). Only the arithmetic interpretation and the prime-power/coprime laws require every member of P to be prime.","hypotheses":["P is a finite set; a is real-valued."],"proofSteps":["Use the existing ArithmeticFunction=ZeroHom carrier. Define the function by the displayed zero guard and finite sum; check its zero field by evaluation.","Export positive evaluation before using the construction in averages. Prove the seven separate API nodes below; do not add an independent arithmetic-function or probability carrier."],"prerequisites":["mathlib:ArithmeticFunction","mathlib:ArithmeticFunction.ext","mathlib:ArithmeticFunction.map_zero"],"acceptance":["Zero, positive and empty evaluations agree with the stated convention.","Implement the five tests listed on this node; multiplication in ArithmeticFunction is not used for pointwise products."],"sources":[{"sourceId":"ML-ARITH","locator":"Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow","match":"New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"},"api":[{"name":"primeDivisibilitySum_apply","role":"data","statement":"For n>0, S(P,a)(n)=sum over p in P of a(p) times the indicator of p dividing n.","node":"ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation"},{"name":"primeDivisibilitySum_empty","role":"simp","statement":"S(empty,a)=0 as an ArithmeticFunction, including at n=0.","node":"ProbabilisticAndMetricNumberTheory:PM.0/empty-truncation"},{"name":"primeDivisibilitySum_congr","role":"extensionality","statement":"If a(p)=b(p) for p in P then S(P,a)=S(P,b).","node":"ProbabilisticAndMetricNumberTheory:PM.0/coefficient-congruence"},{"name":"primeDivisibilitySum_add","role":"compatibility","statement":"S(P,a+b)=S(P,a)+S(P,b), where the additions are pointwise.","node":"ProbabilisticAndMetricNumberTheory:PM.0/coefficient-addition"},{"name":"primeDivisibilitySum_mul_of_coprime","role":"structure","statement":"For prime P and coprime positive m,n, S(P,a)(mn)=S(P,a)(m)+S(P,a)(n).","node":"ProbabilisticAndMetricNumberTheory:PM.0/coprime-additivity"},{"name":"primeDivisibilitySum_prime_pow","role":"characterisation","statement":"For prime P, prime q and k>=1, S(P,a)(q^k)=a(q) if q is in P, and 0 otherwise.","node":"ProbabilisticAndMetricNumberTheory:PM.0/prime-power-evaluation"},{"name":"primeDivisibilitySum_primeFactors","role":"compatibility","statement":"S(n.primeFactors,constant 1)(n) equals the real cast of the existing cardDistinctFactors n, for every natural n.","node":"ProbabilisticAndMetricNumberTheory:PM.0/omega-compatibility"}],"uses":[{"where":"ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean","how":"Finite prime truncations enter exact first-moment computation."},{"where":"ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison","how":"The same function, with the theoretical reciprocal-prime centering, enters a quantitative second-moment comparison."},{"where":"ProbabilisticAndMetricNumberTheory:PM.1","how":"Provides finite heads only. A large-prime tail estimate and limit argument remain separate targets."}],"tests":[{"name":"weighted_twelve","kind":"computation","statement":"For P={2,3} and a(p)=p, S(P,a)(12)=5, not 7; prime powers are counted once."},{"name":"zero_extension","kind":"degenerate","statement":"For P={2,3} and a(p)=p, S(P,a)(0)=0, although every p divides 0; the unguarded indicator sum would wrongly give 5."},{"name":"unit","kind":"degenerate","statement":"For every finite set of primes P and every a, S(P,a)(1)=0."},{"name":"omega_twelve","kind":"compatibility","statement":"For P=12.primeFactors and unit weights, S(P,1)(12)=cardDistinctFactors(12)=2, whereas cardFactors(12)=3."},{"name":"not_completely_additive","kind":"non-example","statement":"For P={2} and a(2)=2, S(P,a)(4)=2 differs from S(P,a)(2)+S(P,a)(2)=4."}],"planet":{"name":"Finite prime truncations"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Positive evaluation","kind":"lemma","statement":"For n>0, S(P,a)(n)=sum over p in P of a(p) times the indicator of p dividing n.","hypotheses":["n>0; P finite; a real-valued."],"proofSteps":["The zero branch is false. Unfold only the new constructor and evaluate its finite sum."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/prime-divisibility-sum"],"acceptance":["For P={2,3} and a(p)=p, S(P,a)(12)=5, not 7; prime powers are counted once."],"sources":[{"sourceId":"ML-ARITH","locator":"Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow","match":"New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/empty-truncation","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Empty truncation","kind":"lemma","statement":"S(empty,a)=0 as an ArithmeticFunction, including at n=0.","hypotheses":["a real-valued."],"proofSteps":["Apply existing arithmetic-function extensionality. At zero use the carrier zero law; at positive n use the empty finite sum."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","mathlib:ArithmeticFunction.ext","mathlib:ArithmeticFunction.map_zero"],"acceptance":["The equality is an equality of arithmetic functions, not only an almost-everywhere identity."],"sources":[{"sourceId":"ML-ARITH","locator":"Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow","match":"New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/coefficient-congruence","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Coefficient extensionality","kind":"lemma","statement":"If a(p)=b(p) for p in P then S(P,a)=S(P,b).","hypotheses":["P finite; a(p)=b(p) for every p in P."],"proofSteps":["Apply extensionality, split n=0, and compare each summand for n>0. Coefficients outside P are irrelevant."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","mathlib:ArithmeticFunction.ext"],"acceptance":["Changing weights outside P has no effect."],"sources":[{"sourceId":"ML-ARITH","locator":"Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow","match":"New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/coefficient-addition","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Additivity in the weights","kind":"lemma","statement":"S(P,a+b)=S(P,a)+S(P,b), where the additions are pointwise.","hypotheses":["P finite; a,b real-valued."],"proofSteps":["Split the zero and positive arguments. For each p split the divisibility condition, distribute addition, then use linearity of a finite sum."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","mathlib:ArithmeticFunction.ext"],"acceptance":["Cancellation a+(-a) produces the zero function; this is not a convolution formula."],"sources":[{"sourceId":"ML-ARITH","locator":"Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow","match":"New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/coprime-additivity","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Coprime product law","kind":"lemma","statement":"For prime P and coprime positive m,n, S(P,a)(mn)=S(P,a)(m)+S(P,a)(n).","hypotheses":["Every p in P is prime; m,n>0; gcd(m,n)=1."],"proofSteps":["For p in P, primality gives p divides mn iff p divides m or p divides n.","The two events cannot both hold: a common prime divisor would divide gcd(m,n)=1. Thus their 0/1 indicators add without a double contribution.","Multiply by a(p), sum, and apply positive evaluation at m,n,mn."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","mathlib:Nat.Prime.dvd_iff_eq"],"acceptance":["For P={2}, a(2)=2, m=n=2, the identity fails: the coprimality hypothesis cannot be removed."],"sources":[{"sourceId":"ML-ARITH","locator":"Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow","match":"New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."},{"sourceId":"ML-PRIME","locator":"Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul","match":"Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/prime-power-evaluation","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Prime-power law","kind":"lemma","statement":"For prime P, prime q and k>=1, S(P,a)(q^k)=a(q) if q is in P, and 0 otherwise.","hypotheses":["All p in P are prime; q prime; k>=1."],"proofSteps":["For p in P, p divides q^k iff p divides q, using the prime divisor-of-power theorem and its elementary converse.","Since p and q are prime this holds iff p=q. The finite sum has at most the q summand."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","mathlib:Nat.Prime.dvd_of_dvd_pow","mathlib:Nat.Prime.dvd_iff_eq"],"acceptance":["At P={2,3}, weights a(p)=p, evaluate q=2,k=3 to 2 and q=5,k=1 to 0."],"sources":[{"sourceId":"ML-ARITH","locator":"Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow","match":"New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."},{"sourceId":"ML-PRIME","locator":"Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul","match":"Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/omega-compatibility","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Compatibility with the existing omega","kind":"comparison","statement":"S(n.primeFactors,constant 1)(n) equals the real cast of the existing cardDistinctFactors n, for every natural n.","hypotheses":["n is any natural number, including 0 and 1."],"proofSteps":["At n=0 the existing arithmetic-function zero laws give both sides zero.","At positive n each member of n.primeFactors divides n, so the sum is the cardinal of n.primeFactors.","Identify that finite set with the deduplicated prime-factor list and use the existing cardDistinctFactors_apply theorem."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","mathlib:ArithmeticFunction.cardDistinctFactors","mathlib:ArithmeticFunction.cardDistinctFactors_apply","mathlib:ArithmeticFunction.map_zero"],"acceptance":["At 12 the value is 2; at 0 and 1 it is 0. Never substitute the multiplicity-counting Omega."],"sources":[{"sourceId":"ML-ARITH","locator":"Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow","match":"New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Exact divisibility probability","kind":"lemma","statement":"For every positive d, the real probability mu_N({n : d divides n}) equals (Nat.div N d)/N. This is a probability specialization of existing counting, not a new multiples-counting theorem.","hypotheses":["m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.","d>0."],"proofSteps":["Apply empiricalMeasure_apply_toReal to the measurable divisibility set on discrete naturals.","Its indicator sum is the real cast of the number of k<N with d dividing k+1. Substitute the already proved Nat.card_multiples and move the finite natural cast through the sum."],"prerequisites":["tauceti:TauCeti.Probability.empiricalMeasure","tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal","mathlib:Nat.card_multiples"],"acceptance":["N=5,d=2 gives 2/5; d>N gives 0; d=1 gives 1."],"sources":[{"sourceId":"ML-COUNT","locator":"Nat.card_multiples, in the section Lemmas about factorizations of particular functions","match":"The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."},{"sourceId":"TC-EMP","locator":"empiricalMeasure_apply_toReal and integral_empiricalMeasure","match":"Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Signed finite counting error","kind":"lemma","statement":"Let e_N(d)=mu_N(d divides n)-1/d, in the reals. For d>0, e_N(d)=-(N mod d)/(N*d), so -1/N<e_N(d)<=0; in particular |e_N(d)|<=1/N. This notation is a local expression, not another probability definition.","hypotheses":["m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.","d>0."],"proofSteps":["Write N=d*(Nat.div N d)+(N mod d) with 0<=N mod d<d.","Substitute the exact probability, cast the quotient-remainder equality to the reals, and divide by positive N*d.","The sign and strict lower bound follow from the remainder bounds. Retain the sign for exact-period specialization."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability"],"acceptance":["N=5,d=2 gives -1/10. If d divides N the error is exactly zero."],"sources":[{"sourceId":"ML-COUNT","locator":"Nat.card_multiples, in the section Lemmas about factorizations of particular functions","match":"The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/joint-divisibility","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Joint divisibility and the lcm","kind":"lemma","statement":"For positive d,e, mu_N({n : d divides n and e divides n})=(Nat.div N (Nat.lcm d e))/N. For distinct primes p,q, the denominator inside Nat.div becomes p*q; for equal primes it is p, not p^2.","hypotheses":["m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.","d,e>0."],"proofSteps":["The joint event is exactly the event that lcm(d,e) divides n, by the defining universal property of lcm. This lcm is positive.","Apply divisibility-probability. Use Coprime.lcm_eq_mul only when coprimality has been proved; distinct primes are coprime since a common divisor is 1 or each of them."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability","mathlib:Nat.Coprime.lcm_eq_mul","mathlib:Nat.Prime.dvd_iff_eq"],"acceptance":["N=12,d=4,e=6 gives 1/12 rather than floor(12/24)/12=0.","N=5,p=2,q=3 gives 0 while the product of marginal probabilities is 2/25."],"sources":[{"sourceId":"ML-COUNT","locator":"Nat.card_multiples, in the section Lemmas about factorizations of particular functions","match":"The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."},{"sourceId":"ML-PRIME","locator":"Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul","match":"Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Exact mean of a finite truncation","kind":"lemma","statement":"For prime P and real a, integral S(P,a) dmu_N = sum_{p in P} a(p)*(Nat.div N p)/N. All the quantities are real.","hypotheses":["m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.","P finite, all its members prime; a real-valued."],"proofSteps":["Apply integral_empiricalMeasure to S(P,a); on the discrete natural carrier it is strongly measurable.","For k<N, k+1>0, so use positive-evaluation. Interchange the two finite sums.","For each p, the sum of divisibility indicators is Nat.card_multiples N p. Pull out the constant real weight. No independence enters the proof."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","tauceti:TauCeti.Probability.integral_empiricalMeasure","mathlib:Nat.card_multiples"],"acceptance":["At N=5,P={2,3},a(p)=p, the values 0,2,3,2,0 have mean 7/5."],"sources":[{"sourceId":"ML-COUNT","locator":"Nat.card_multiples, in the section Lemmas about factorizations of particular functions","match":"The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."},{"sourceId":"TC-EMP","locator":"empiricalMeasure_apply_toReal and integral_empiricalMeasure","match":"Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean-error","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Centering error","kind":"lemma","statement":"Write A=sum_{p in P} a(p)/p and L=sum_{p in P}|a(p)|. Then |integral S(P,a) dmu_N-A|<=L/N.","hypotheses":["m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.","P finite and prime; a real-valued."],"proofSteps":["Subtract A from the exact mean and obtain sum a(p)*e_N(p).","Apply the finite triangle inequality and divisibility-error, noting that each p is positive."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean","ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error"],"acceptance":["Weights may have either sign. The centering A is not asserted to be the exact empirical mean."],"sources":[{"sourceId":"ML-COUNT","locator":"Nat.card_multiples, in the section Lemmas about factorizations of particular functions","match":"The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."},{"sourceId":"TAO-RESIDUES","locator":"Section 3, first six paragraphs; paragraph beginning However, one can still hope","match":"The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Exact centered pair average","kind":"lemma","statement":"For positive p,q, let I_d(n) be the real 0/1 indicator of d dividing n. Then integral (I_p-1/p)*(I_q-1/q) dmu_N equals (Nat.div N (Nat.lcm p q))/N -(Nat.div N p)/(N*q) -(Nat.div N q)/(N*p)+1/(p*q).","hypotheses":["m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.","p,q>0; primality is not needed for this identity."],"proofSteps":["Convert the integral to its finite average and expand the product into four terms.","The product I_p*I_q is the indicator of the joint divisibility event; the constant term averages to itself because there are exactly N terms.","Use divisibility-probability and joint-divisibility for the three nonconstant terms."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability","ProbabilisticAndMetricNumberTheory:PM.0/joint-divisibility","tauceti:TauCeti.Probability.integral_empiricalMeasure"],"acceptance":["When p=q use I_p^2=I_p. When N=5,p=2,q=3 the centered average is -1/15."],"sources":[{"sourceId":"ML-COUNT","locator":"Nat.card_multiples, in the section Lemmas about factorizations of particular functions","match":"The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."},{"sourceId":"TC-EMP","locator":"empiricalMeasure_apply_toReal and integral_empiricalMeasure","match":"Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-error","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Uniform prime-pair error","kind":"lemma","statement":"For primes p,q, put D(p,q)=1/p-1/p^2 when p=q, and 0 otherwise. Then |integral (I_p-1/p)*(I_q-1/q) dmu_N-D(p,q)|<=2/N. Repeated primes are included.","hypotheses":["m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.","p,q prime."],"proofSteps":["Replace each floor probability in centered-pair-identity by 1/d+e_N(d).","If p=q then lcm(p,p)=p, and the nonerror part is 1/p-1/p^2. If p!=q, coprimality gives lcm(p,q)=p*q and the nonerror part is zero.","The remaining expression is e_N(lcm(p,q))-e_N(p)/q-e_N(q)/p. Each error has magnitude at most 1/N.","Since p,q>=2, 1+1/p+1/q<=2. The triangle inequality proves the bound, including the diagonal."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity","ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error","mathlib:Nat.Coprime.lcm_eq_mul"],"acceptance":["At p=q=2, the centered square equals 1/4 pointwise and the error is actually zero.","Distinct-prime indicators under mu_N need not be independent."],"sources":[{"sourceId":"ML-PRIME","locator":"Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul","match":"Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."},{"sourceId":"TAO-RESIDUES","locator":"Section 3, first six paragraphs; paragraph beginning However, one can still hope","match":"The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Finite-head second-moment comparison","kind":"theorem","statement":"For prime P and real a, write A=sum a(p)/p, L=sum |a(p)|, V=sum a(p)^2*(1/p-1/p^2). Then |integral (S(P,a)-A)^2 dmu_N - V| <= 2*L^2/N. This is a centered second moment about A, not a formula for variance about the empirical mean.","hypotheses":["m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.","P finite and prime; a real-valued, with no sign or boundedness hypothesis beyond finiteness of P."],"proofSteps":["For n in the positive sample, S(P,a)(n)-A=sum a(p)*(I_p(n)-1/p).","Square and distribute as a double sum over all ordered pairs (p,q), including the diagonal. Convert the integral to a finite average and interchange these finite sums.","Subtract the sum of a(p)*a(q)*D(p,q). Its off-diagonal terms vanish and its diagonal is exactly V.","Apply centered-pair-error and the triangle inequality, obtaining (2/N)*sum_{p,q}|a(p)|*|a(q)|=(2/N)*L^2. No probabilistic independence or central limit theorem is used."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-error","tauceti:TauCeti.Probability.integral_empiricalMeasure"],"acceptance":["P empty gives 0=0. Signed weights and repeated pair indices must survive expansion.","The bound is useful only when L^2/N is controlled; it is not the Turan-Kubilius inequality and does not discharge the large-prime tail of Erdos-Kac."],"sources":[{"sourceId":"TAO-RESIDUES","locator":"Section 3, first six paragraphs; paragraph beginning However, one can still hope","match":"The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."},{"sourceId":"TC-EMP","locator":"empiricalMeasure_apply_toReal and integral_empiricalMeasure","match":"Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"},"planet":{"name":"Finite-head moment comparison"}},
-  {"id":"ProbabilisticAndMetricNumberTheory:PM.0/complete-period-moments","parentStageId":"ProbabilisticAndMetricNumberTheory:PM.0","realises":["ProbabilisticAndMetricNumberTheory:PM.0"],"title":"Exact moments on complete prime periods","kind":"theorem","statement":"Under the second-moment-comparison hypotheses, assume Q=product_{p in P}p divides N. Then integral (S(P,a)-A)^2 dmu_N=V. Also the already stated weighted-mean formula gives integral S(P,a) dmu_N=A, so this centered moment is the actual variance in this case.","hypotheses":["m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.","P finite and prime; a real-valued; product_{p in P}p divides N."],"proofSteps":["Each p in P divides Q and thus N. For p,q in P their lcm divides Q, whether p=q or not.","All three remainder terms in the centered-pair-identity are zero. The exact pair average is D(p,q).","Repeat the explicit finite double-sum argument of second-moment-comparison with equality. The exact first moment follows by replacing each floor quotient by N/p in weighted-mean."],"prerequisites":["ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison","ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity","ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error","ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean"],"acceptance":["For N=6,P={2,3},a(p)=p, A=2 and V=3. For N=5 the corresponding mean is 7/5 and centered second moment is 9/5, so completeness of the period cannot be silently removed.","For P empty, Q=1; every positive N satisfies the condition and both moments vanish."],"sources":[{"sourceId":"ML-COUNT","locator":"Nat.card_multiples, in the section Lemmas about factorizations of particular functions","match":"The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."},{"sourceId":"TAO-RESIDUES","locator":"Section 3, first six paragraphs; paragraph beginning However, one can still hope","match":"The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."}],"implementationStatus":"unchecked","library":{"module":"TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility","namespace":"TauCeti.Probability.Arithmetic"},"planet":{"name":"Complete-period moments"}}
- ],
- "links":[],
- "requests":[],
- "coverage":[
-  {"stageId":"ProbabilisticAndMetricNumberTheory:PM.0","status":"partial","remaining":["General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute.","The imported empirical law is used, but the arithmetic CDF/weak-convergence/characteristic-function dictionary, finite joint Bernoulli law, higher moments and quantitative growing-prime comparison still need source decomposition.","Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."]},
-  {"stageId":"ProbabilisticAndMetricNumberTheory:PM.1","status":"not_read","remaining":["Acquire and read full Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac proofs with their stated generality.","Derive the required Mertens asymptotic and normalization and control the large-prime tail; the L^2/N finite-head estimate here is insufficient alone.","Choose a valid moment-convergence or triangular-array route; the existing iid CLT does not apply to the arithmetic indicators."]},
-  {"stageId":"ProbabilisticAndMetricNumberTheory:PM.2","status":"not_read","remaining":["Read the selected Kuipers/Niederreiter proofs of Weyl criterion, polynomial equidistribution, discrepancy and normal-number consequences.","Pin interval endpoints, irrational-coefficient hypotheses and ES.0 differencing inputs; distinguish dense orbit from equidistribution."]},
-  {"stageId":"ProbabilisticAndMetricNumberTheory:PM.3","status":"not_read","remaining":["Select exact Khintchine and Duffin-Schaeffer statements and full proofs, separate convergence and divergence and the coprimality/monotonicity assumptions.","Use the audited Borel-Cantelli and Gallagher results rather than rebuilding them; choose precise Lebesgue/Hausdorff scope."]},
-  {"stageId":"ProbabilisticAndMetricNumberTheory:PM.4","status":"not_read","remaining":["Acquire primary Gauss-map invariance, ergodicity, mixing and metric continued-fraction proofs.","A pointwise ergodic theorem and integrability are not supplied by the audited mean/L1 convergence results. Homogeneous dynamics remains GN.4-owned."]},
-  {"stageId":"ProbabilisticAndMetricNumberTheory:PM.5","status":"not_read","remaining":["Acquire source-scoped short-interval and multiplicative-correlation proofs with explicit averaging and exceptional sets.","Reconcile AN.3/AN.5/AC.5 ownership; state general Chowla/Sarnak only in a conjecture register and never as proved consequences of a random model."]}
- ],
- "gaps":[
-  {"title":"PM.0: source and proof completion","neededBy":["ProbabilisticAndMetricNumberTheory:PM.0"],"detail":"General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute. The imported empirical law is used, but the arithmetic CDF/weak-convergence/characteristic-function dictionary, finite joint Bernoulli law, higher moments and quantitative growing-prime comparison still need source decomposition. Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."},
-  {"title":"PM.1: source and proof completion","neededBy":["ProbabilisticAndMetricNumberTheory:PM.1"],"detail":"Acquire and read full Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac proofs with their stated generality. Derive the required Mertens asymptotic and normalization and control the large-prime tail; the L^2/N finite-head estimate here is insufficient alone. Choose a valid moment-convergence or triangular-array route; the existing iid CLT does not apply to the arithmetic indicators."},
-  {"title":"PM.2: source and proof completion","neededBy":["ProbabilisticAndMetricNumberTheory:PM.2"],"detail":"Read the selected Kuipers/Niederreiter proofs of Weyl criterion, polynomial equidistribution, discrepancy and normal-number consequences. Pin interval endpoints, irrational-coefficient hypotheses and ES.0 differencing inputs; distinguish dense orbit from equidistribution."},
-  {"title":"PM.3: source and proof completion","neededBy":["ProbabilisticAndMetricNumberTheory:PM.3"],"detail":"Select exact Khintchine and Duffin-Schaeffer statements and full proofs, separate convergence and divergence and the coprimality/monotonicity assumptions. Use the audited Borel-Cantelli and Gallagher results rather than rebuilding them; choose precise Lebesgue/Hausdorff scope."},
-  {"title":"PM.4: source and proof completion","neededBy":["ProbabilisticAndMetricNumberTheory:PM.4"],"detail":"Acquire primary Gauss-map invariance, ergodicity, mixing and metric continued-fraction proofs. A pointwise ergodic theorem and integrability are not supplied by the audited mean/L1 convergence results. Homogeneous dynamics remains GN.4-owned."},
-  {"title":"PM.5: source and proof completion","neededBy":["ProbabilisticAndMetricNumberTheory:PM.5"],"detail":"Acquire source-scoped short-interval and multiplicative-correlation proofs with explicit averaging and exceptional sets. Reconcile AN.3/AN.5/AC.5 ownership; state general Chowla/Sarnak only in a conjecture register and never as proved consequences of a random model."},
-  {"title":"Pinned elaboration and global integration verification","neededBy":["ProbabilisticAndMetricNumberTheory:PM.0/prime-divisibility-sum","ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation","ProbabilisticAndMetricNumberTheory:PM.0/empty-truncation","ProbabilisticAndMetricNumberTheory:PM.0/coefficient-congruence","ProbabilisticAndMetricNumberTheory:PM.0/coefficient-addition","ProbabilisticAndMetricNumberTheory:PM.0/coprime-additivity","ProbabilisticAndMetricNumberTheory:PM.0/prime-power-evaluation","ProbabilisticAndMetricNumberTheory:PM.0/omega-compatibility","ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability","ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error","ProbabilisticAndMetricNumberTheory:PM.0/joint-divisibility","ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean","ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean-error","ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity","ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-error","ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison","ProbabilisticAndMetricNumberTheory:PM.0/complete-period-moments"],"detail":"Suggested signatures are uncompiled. The full declaration index, integrated coverage blob and repository-wide checker world were inaccessible through the available local filesystem; the reviewed AUDIT-07 source and its accepted review were read, and every listed baseline declaration was read at the pin. Run the official checker in the complete repository and elaborate all prototypes before accepting any implementation claim; inspect links/global ownership again before closing PM.0."}
- ],
- "sourceIssues":[],
- "sourceIssueScope":"Only the source sections listed as read were checked. No published-source error claim is made. Unread source routes and the rest of Tao's article are outside this empty findings list.",
- "checks":{"leanCompiled":false,"officialCheckerRun":false,"localCheck":"JSON structure, API target resolution, intra-packet DAG, source and baseline references; exact-rational numerical tests, described in the handoff."},
- "provenance":{"issue":1041,"agent":"GPT-6 Astra Pro","session":"astra-20260926-pm-83c1","reviewedAudit":"research/blueprint/audit/AUDIT-07.result.json","auditReview":"research/blueprint/reviews/REV-AUDIT-07.md","auditBlob":"029c65b1999100f2c1948c904da0a5e77a54734a","empiricalSourceBlob":"a27d4ef50e33d95c39934a73a0b54ce316fc4b23"}
+  "roadmapId": "ProbabilisticAndMetricNumberTheory",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "ProbabilisticAndMetricNumberTheory:PM.0",
+    "ProbabilisticAndMetricNumberTheory:PM.1",
+    "ProbabilisticAndMetricNumberTheory:PM.2",
+    "ProbabilisticAndMetricNumberTheory:PM.3",
+    "ProbabilisticAndMetricNumberTheory:PM.4",
+    "ProbabilisticAndMetricNumberTheory:PM.5"
+  ],
+  "status": "partial",
+  "summary": "Partial PM.0 blueprint: existing finite weighted prime-truncation API and first/second moments, extended by exact finite Boolean divisibility patterns, error 2^|T|/N, complete-period Bernoulli atoms, and summed atom error 3^|P|/N. Reuses pinned empirical measures and finite product identities. PM.0 still has explicit source/interface gaps; PM.1-PM.5 remain not_read.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:ArithmeticFunction",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Defs",
+        "provides": "ZeroHom from natural numbers; value at zero is forced to be zero. Multiplication of arithmetic functions is convolution, not pointwise multiplication.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.ext",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Defs",
+        "provides": "Pointwise equality implies equality in the existing arithmetic-function carrier.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.map_zero",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Defs",
+        "provides": "Every arithmetic function has value zero at zero.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.cardDistinctFactors",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "provides": "Existing omega, including the zero extension; do not redefine it.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.cardDistinctFactors_apply",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "provides": "Omega with distinct factors is the length of the deduplicated prime-factor list.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.cardDistinctFactors_mul",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "provides": "Distinct-prime count is additive on coprime products; does not assert complete additivity.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.cardDistinctFactors_apply_prime_pow",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "provides": "A positive power of a prime has exactly one distinct prime factor.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:Nat.card_multiples",
+        "module": "Mathlib.Data.Nat.Factorization.Basic",
+        "provides": "For all N,d in the naturals, the number of k<N with d dividing k+1 is Nat.div N d. This counting result is already implemented.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:Nat.Coprime.lcm_eq_mul",
+        "module": "Mathlib.Data.Nat.GCD.Basic",
+        "provides": "For coprime natural m,n, lcm(m,n)=m*n.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.dvd_of_dvd_pow",
+        "module": "Mathlib.Data.Nat.Prime.Basic",
+        "provides": "If a prime p divides m^n, it divides m.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.dvd_iff_eq",
+        "module": "Mathlib.Data.Nat.Prime.Basic",
+        "provides": "For prime p and a not equal to 1, a divides p iff p=a.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:ProbabilityTheory.uniformOn",
+        "module": "Mathlib.Probability.UniformOn",
+        "provides": "Existing conditioned counting measure, probability only for finite nonempty support.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:ProbabilityTheory.isProbabilityMeasure_uniformOn",
+        "module": "Mathlib.Probability.UniformOn",
+        "provides": "Finite nonempty support with measurable singletons gives a probability measure.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "tauceti:TauCeti.Probability.empiricalMeasure",
+        "module": "TauCeti.Probability.Process.EmpiricalMeasure",
+        "provides": "ProbabilityMeasure of the first m+1 terms. Specialize x(k)=k+1, not x(k)=k.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal",
+        "module": "TauCeti.Probability.Process.EmpiricalMeasure",
+        "provides": "Real probability of a measurable event equals the normalized sum of its indicators, with denominator m+1.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "module": "TauCeti.Probability.Process.EmpiricalMeasure",
+        "provides": "For strongly measurable complete real normed-space-valued f, integration is the normalized finite sum. All functions on the discrete natural carrier used here satisfy the condition.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "tauceti:TauCeti.Probability.empiricalMeasureOfFintype_eq_map_uniformOn",
+        "module": "TauCeti.Probability.Process.EmpiricalMeasure",
+        "provides": "Finite empirical law is the pushforward of uniformOn on its nonempty finite index type; this carrier bridge is not a new target.",
+        "checked": "Exact statement reread at the recorded pin on 2026-09-27; declarations used by the compiled planning signatures. Elaboration does not prove the planned results."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.cardFactors",
+        "module": "Mathlib.NumberTheory.ArithmeticFunction.Misc",
+        "provides": "Existing multiplicity-counting Omega, used by the discriminating test at 12; not the distinct-factor count.",
+        "checked": "Exact statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; pinned-source elaboration recorded in checks."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.dvd_mul",
+        "module": "Mathlib.Data.Nat.Prime.Defs",
+        "provides": "For a prime p, p divides m*n iff p divides m or p divides n; the coprime-product API combines this with disjointness.",
+        "checked": "Exact statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; pinned-source elaboration recorded in checks."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_primes",
+        "module": "Mathlib.Data.Nat.Prime.Basic",
+        "provides": "For primes p,q, Coprime p q iff p is not q.",
+        "checked": "Exact statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; pinned-source elaboration recorded in checks."
+      },
+      {
+        "ref": "mathlib:Finset.lcm_eq_prod",
+        "module": "Mathlib.Algebra.GCDMonoid.FinsetLemmas",
+        "provides": "For a natural-valued finite family that is pairwise coprime on the indexing finset, its finite lcm equals its finite product, including the empty family.",
+        "checked": "Exact statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; pinned-source elaboration recorded in checks."
+      },
+      {
+        "ref": "mathlib:Finset.lcm_dvd_iff",
+        "module": "Mathlib.Algebra.GCDMonoid.Finset",
+        "provides": "The finite lcm divides n iff every indexed value divides n.",
+        "checked": "Exact statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; pinned-source elaboration recorded in checks."
+      },
+      {
+        "ref": "mathlib:Finset.prod_one_add",
+        "module": "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "provides": "In a commutative semiring, the product of 1+f over a finite set is the sum over all its subsets of the products of f.",
+        "checked": "Exact statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; pinned-source elaboration recorded in checks."
+      },
+      {
+        "ref": "mathlib:Finset.card_powerset",
+        "module": "Mathlib.Data.Finset.Powerset",
+        "provides": "The powerset of a finite set T has cardinality 2 to the cardinality of T.",
+        "checked": "Exact statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; pinned-source elaboration recorded in checks."
+      },
+      {
+        "ref": "mathlib:Finset.sum_pow_mul_eq_add_pow",
+        "module": "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "provides": "The sum over U contained in P of a to |U| times b to (|P|-|U|) is (a+b) to |P|.",
+        "checked": "Exact statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; pinned-source elaboration recorded in checks."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "TAO-RESIDUES",
+      "title": "254A, Supplement 4: Probabilistic models and heuristics for the primes (optional)",
+      "authors": "Terence Tao",
+      "edition": "Author web exposition dated 4 January 2015; selected section reread 27 September 2026",
+      "url": "https://terrytao.wordpress.com/2015/01/04/254a-supplement-4-probabilistic-models-and-heuristics-for-the-primes-optional/",
+      "readSections": [
+        "Section 3, Equidistribution of residues: first six paragraphs, from the finite uniform sample through weak comparison of statistics. No theorem or proof from the subsequent rough-number discussion is used."
+      ],
+      "accessed": "2026-09-27",
+      "sha256": "eae0ca38d086769c4f4275a6fb6c4de1c68fc39ffccce35b20ef42f0444ae81a"
+    },
+    {
+      "id": "ML-ARITH",
+      "title": "Mathlib arithmetic functions and prime-factor counting",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ArithmeticFunction/Defs.lean",
+      "readSections": [
+        "Defs.lean lines 35-130: carrier, zero convention, extensionality and natural-value coercion",
+        "Misc.lean lines 250-405: omega, Omega, prime-power and coprime-product formulas"
+      ]
+    },
+    {
+      "id": "ML-COUNT",
+      "title": "Mathlib counting of positive multiples",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Basic.lean",
+      "readSections": [
+        "Lines 485-625, especially Nat.card_multiples, Nat.Ioc_filter_dvd_card_eq_div and Nat.card_multiples'"
+      ]
+    },
+    {
+      "id": "ML-PRIME",
+      "title": "Mathlib natural prime and least-common-multiple arithmetic",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Prime/Basic.lean",
+      "readSections": [
+        "Prime/Basic.lean lines 1-180: Prime.dvd_iff_eq and Prime.dvd_of_dvd_pow",
+        "GCD/Basic.lean lines 80-120: divisibility of lcm and Coprime.lcm_eq_mul",
+        "Prime/Defs.lean lines 405-426: Prime.dvd_mul; Prime/Basic.lean lines 200-216: coprime_primes (reread 2026-09-27)"
+      ]
+    },
+    {
+      "id": "TC-EMP",
+      "title": "Empirical measures of sequences",
+      "authors": "The Tau Ceti contributors",
+      "edition": "f790474821cf4256814db967cb154e7af3d0c369",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Probability/Process/EmpiricalMeasure.lean",
+      "readSections": [
+        "Complete file: finite-population and successor-indexed empirical measures, measurable-set evaluation, real-valued counting, uniform-index pushforward and integration"
+      ]
+    },
+    {
+      "id": "ML-UNIFORM",
+      "title": "Classical probability: uniformOn",
+      "authors": "Kexing Ying and Bhavik Mehta",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Probability/UniformOn.lean",
+      "readSections": [
+        "Complete file, including finite/nonempty hypotheses, empty measure, event evaluation and product law"
+      ]
+    },
+    {
+      "id": "ML-FINITE-PRODUCT",
+      "title": "Mathlib finite coprime products and subset expansions",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/BigOperators/Ring/Finset.lean",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Ring/Finset.lean lines 183-238: prod_one_add and sum_pow_mul_eq_add_pow, including their proofs",
+        "Algebra/GCDMonoid/FinsetLemmas.lean complete file: lcm_eq_prod and its reduction to pairwise coprimality",
+        "Algebra/GCDMonoid/Finset.lean lines 1-150: lcm_dvd_iff and empty/product conventions",
+        "Data/Finset/Powerset.lean lines 75-110: card_powerset"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/prime-divisibility-sum",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Finite weighted prime truncation",
+      "kind": "construction",
+      "statement": "Construct S(P,a) : ArithmeticFunction real for a finite set P of natural indices and real weights a. Set S(P,a)(0)=0 and, for n>0, S(P,a)(n)=sum_{p in P} (if p divides n then a(p) else 0). Only the arithmetic interpretation and the prime-power/coprime laws require every member of P to be prime.",
+      "hypotheses": [
+        "P is a finite set; a is real-valued."
+      ],
+      "proofSteps": [
+        "Use the existing ArithmeticFunction=ZeroHom carrier. Define the function by the displayed zero guard and finite sum; check its zero field by evaluation.",
+        "Export positive evaluation before using the construction in averages. Prove the seven separate API nodes below; do not add an independent arithmetic-function or probability carrier."
+      ],
+      "prerequisites": [
+        "mathlib:ArithmeticFunction",
+        "mathlib:ArithmeticFunction.ext",
+        "mathlib:ArithmeticFunction.map_zero"
+      ],
+      "acceptance": [
+        "Zero, positive and empty evaluations agree with the stated convention.",
+        "Implement the five tests listed on this node; multiplication in ArithmeticFunction is not used for pointwise products."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-ARITH",
+          "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
+          "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "api": [
+        {
+          "name": "primeDivisibilitySum_apply",
+          "role": "data",
+          "statement": "For n>0, S(P,a)(n)=sum over p in P of a(p) times the indicator of p dividing n.",
+          "node": "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation"
+        },
+        {
+          "name": "primeDivisibilitySum_empty",
+          "role": "simp",
+          "statement": "S(empty,a)=0 as an ArithmeticFunction, including at n=0.",
+          "node": "ProbabilisticAndMetricNumberTheory:PM.0/empty-truncation"
+        },
+        {
+          "name": "primeDivisibilitySum_congr",
+          "role": "extensionality",
+          "statement": "If a(p)=b(p) for p in P then S(P,a)=S(P,b).",
+          "node": "ProbabilisticAndMetricNumberTheory:PM.0/coefficient-congruence"
+        },
+        {
+          "name": "primeDivisibilitySum_add",
+          "role": "compatibility",
+          "statement": "S(P,a+b)=S(P,a)+S(P,b), where the additions are pointwise.",
+          "node": "ProbabilisticAndMetricNumberTheory:PM.0/coefficient-addition"
+        },
+        {
+          "name": "primeDivisibilitySum_mul_of_coprime",
+          "role": "structure",
+          "statement": "For prime P and coprime positive m,n, S(P,a)(mn)=S(P,a)(m)+S(P,a)(n).",
+          "node": "ProbabilisticAndMetricNumberTheory:PM.0/coprime-additivity"
+        },
+        {
+          "name": "primeDivisibilitySum_prime_pow",
+          "role": "characterisation",
+          "statement": "For prime P, prime q and k>=1, S(P,a)(q^k)=a(q) if q is in P, and 0 otherwise.",
+          "node": "ProbabilisticAndMetricNumberTheory:PM.0/prime-power-evaluation"
+        },
+        {
+          "name": "primeDivisibilitySum_primeFactors",
+          "role": "compatibility",
+          "statement": "S(n.primeFactors,constant 1)(n) equals the real cast of the existing cardDistinctFactors n, for every natural n.",
+          "node": "ProbabilisticAndMetricNumberTheory:PM.0/omega-compatibility"
+        }
+      ],
+      "uses": [
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean",
+          "how": "Finite prime truncations enter exact first-moment computation."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison",
+          "how": "The same function, with the theoretical reciprocal-prime centering, enters a quantitative second-moment comparison."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.1",
+          "how": "Provides finite heads only. A large-prime tail estimate and limit argument remain separate targets."
+        }
+      ],
+      "tests": [
+        {
+          "name": "weighted_twelve",
+          "kind": "computation",
+          "statement": "For P={2,3} and a(p)=p, S(P,a)(12)=5, not 7; prime powers are counted once."
+        },
+        {
+          "name": "zero_extension",
+          "kind": "degenerate",
+          "statement": "For P={2,3} and a(p)=p, S(P,a)(0)=0, although every p divides 0; the unguarded indicator sum would wrongly give 5."
+        },
+        {
+          "name": "unit",
+          "kind": "degenerate",
+          "statement": "For every finite set of primes P and every a, S(P,a)(1)=0."
+        },
+        {
+          "name": "omega_twelve",
+          "kind": "compatibility",
+          "statement": "For P=12.primeFactors and unit weights, S(P,1)(12)=cardDistinctFactors(12)=2, whereas cardFactors(12)=3."
+        },
+        {
+          "name": "not_completely_additive",
+          "kind": "non-example",
+          "statement": "For P={2} and a(2)=2, S(P,a)(4)=2 differs from S(P,a)(2)+S(P,a)(2)=4."
+        }
+      ],
+      "planet": {
+        "name": "Finite prime truncations"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Positive evaluation",
+      "kind": "lemma",
+      "statement": "For n>0, S(P,a)(n)=sum over p in P of a(p) times the indicator of p dividing n.",
+      "hypotheses": [
+        "n>0; P finite; a real-valued."
+      ],
+      "proofSteps": [
+        "The zero branch is false. Unfold only the new constructor and evaluate its finite sum."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/prime-divisibility-sum"
+      ],
+      "acceptance": [
+        "For P={2,3} and a(p)=p, S(P,a)(12)=5, not 7; prime powers are counted once."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-ARITH",
+          "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
+          "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/empty-truncation",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Empty truncation",
+      "kind": "lemma",
+      "statement": "S(empty,a)=0 as an ArithmeticFunction, including at n=0.",
+      "hypotheses": [
+        "a real-valued."
+      ],
+      "proofSteps": [
+        "Apply existing arithmetic-function extensionality. At zero use the carrier zero law; at positive n use the empty finite sum."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "mathlib:ArithmeticFunction.ext",
+        "mathlib:ArithmeticFunction.map_zero"
+      ],
+      "acceptance": [
+        "The equality is an equality of arithmetic functions, not only an almost-everywhere identity."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-ARITH",
+          "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
+          "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/coefficient-congruence",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Coefficient extensionality",
+      "kind": "lemma",
+      "statement": "If a(p)=b(p) for p in P then S(P,a)=S(P,b).",
+      "hypotheses": [
+        "P finite; a(p)=b(p) for every p in P."
+      ],
+      "proofSteps": [
+        "Apply extensionality, split n=0, and compare each summand for n>0. Coefficients outside P are irrelevant."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "mathlib:ArithmeticFunction.ext"
+      ],
+      "acceptance": [
+        "Changing weights outside P has no effect."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-ARITH",
+          "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
+          "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/coefficient-addition",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Additivity in the weights",
+      "kind": "lemma",
+      "statement": "S(P,a+b)=S(P,a)+S(P,b), where the additions are pointwise.",
+      "hypotheses": [
+        "P finite; a,b real-valued."
+      ],
+      "proofSteps": [
+        "Split the zero and positive arguments. For each p split the divisibility condition, distribute addition, then use linearity of a finite sum."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "mathlib:ArithmeticFunction.ext"
+      ],
+      "acceptance": [
+        "Cancellation a+(-a) produces the zero function; this is not a convolution formula."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-ARITH",
+          "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
+          "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/coprime-additivity",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Coprime product law",
+      "kind": "lemma",
+      "statement": "For prime P and coprime positive m,n, S(P,a)(mn)=S(P,a)(m)+S(P,a)(n).",
+      "hypotheses": [
+        "Every p in P is prime; m,n>0; gcd(m,n)=1."
+      ],
+      "proofSteps": [
+        "For p in P, primality gives p divides mn iff p divides m or p divides n.",
+        "The two events cannot both hold: a common prime divisor would divide gcd(m,n)=1. Thus their 0/1 indicators add without a double contribution.",
+        "Multiply by a(p), sum, and apply positive evaluation at m,n,mn."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "mathlib:Nat.Prime.dvd_iff_eq",
+        "mathlib:Nat.Prime.dvd_mul"
+      ],
+      "acceptance": [
+        "For P={2}, a(2)=2, m=n=2, the identity fails: the coprimality hypothesis cannot be removed."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-ARITH",
+          "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
+          "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
+        },
+        {
+          "sourceId": "ML-PRIME",
+          "locator": "Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul",
+          "match": "Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/prime-power-evaluation",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Prime-power law",
+      "kind": "lemma",
+      "statement": "For prime P, prime q and k>=1, S(P,a)(q^k)=a(q) if q is in P, and 0 otherwise.",
+      "hypotheses": [
+        "All p in P are prime; q prime; k>=1."
+      ],
+      "proofSteps": [
+        "For p in P, p divides q^k iff p divides q, using the prime divisor-of-power theorem and its elementary converse.",
+        "Since p and q are prime this holds iff p=q. The finite sum has at most the q summand."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "mathlib:Nat.Prime.dvd_of_dvd_pow",
+        "mathlib:Nat.Prime.dvd_iff_eq"
+      ],
+      "acceptance": [
+        "At P={2,3}, weights a(p)=p, evaluate q=2,k=3 to 2 and q=5,k=1 to 0."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-ARITH",
+          "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
+          "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
+        },
+        {
+          "sourceId": "ML-PRIME",
+          "locator": "Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul",
+          "match": "Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/omega-compatibility",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Compatibility with the existing omega",
+      "kind": "comparison",
+      "statement": "S(n.primeFactors,constant 1)(n) equals the real cast of the existing cardDistinctFactors n, for every natural n.",
+      "hypotheses": [
+        "n is any natural number, including 0 and 1."
+      ],
+      "proofSteps": [
+        "At n=0 the existing arithmetic-function zero laws give both sides zero.",
+        "At positive n each member of n.primeFactors divides n, so the sum is the cardinal of n.primeFactors.",
+        "Identify that finite set with the deduplicated prime-factor list and use the existing cardDistinctFactors_apply theorem."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "mathlib:ArithmeticFunction.cardDistinctFactors",
+        "mathlib:ArithmeticFunction.cardDistinctFactors_apply",
+        "mathlib:ArithmeticFunction.map_zero"
+      ],
+      "acceptance": [
+        "At 12 the value is 2; at 0 and 1 it is 0. Never substitute the multiplicity-counting Omega."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-ARITH",
+          "locator": "Defs.lean: ArithmeticFunction; Misc.lean: cardDistinctFactors and cardDistinctFactors_apply_prime_pow",
+          "match": "New finite weighted truncation in the existing carrier, not a replacement for omega, Omega, or a generic arithmetic-function definition. The zero convention is inherited; the finite-sum construction and API proofs are supplied here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Exact divisibility probability",
+      "kind": "lemma",
+      "statement": "For every positive d, the real probability mu_N({n : d divides n}) equals (Nat.div N d)/N. This is a probability specialization of existing counting, not a new multiples-counting theorem.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.",
+        "d>0."
+      ],
+      "proofSteps": [
+        "Apply empiricalMeasure_apply_toReal to the measurable divisibility set on discrete naturals.",
+        "Its indicator sum is the real cast of the number of k<N with d dividing k+1. Substitute the already proved Nat.card_multiples and move the finite natural cast through the sum."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Probability.empiricalMeasure",
+        "tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal",
+        "mathlib:Nat.card_multiples"
+      ],
+      "acceptance": [
+        "N=5,d=2 gives 2/5; d>N gives 0; d=1 gives 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-COUNT",
+          "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
+          "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
+        },
+        {
+          "sourceId": "TC-EMP",
+          "locator": "empiricalMeasure_apply_toReal and integral_empiricalMeasure",
+          "match": "Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Signed finite counting error",
+      "kind": "lemma",
+      "statement": "Let e_N(d)=mu_N(d divides n)-1/d, in the reals. For d>0, e_N(d)=-(N mod d)/(N*d), so -1/N<e_N(d)<=0; in particular |e_N(d)|<=1/N. This notation is a local expression, not another probability definition.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.",
+        "d>0."
+      ],
+      "proofSteps": [
+        "Write N=d*(Nat.div N d)+(N mod d) with 0<=N mod d<d.",
+        "Substitute the exact probability, cast the quotient-remainder equality to the reals, and divide by positive N*d.",
+        "The sign and strict lower bound follow from the remainder bounds. Retain the sign for exact-period specialization."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability"
+      ],
+      "acceptance": [
+        "N=5,d=2 gives -1/10. If d divides N the error is exactly zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-COUNT",
+          "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
+          "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/joint-divisibility",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Joint divisibility and the lcm",
+      "kind": "lemma",
+      "statement": "For positive d,e, mu_N({n : d divides n and e divides n})=(Nat.div N (Nat.lcm d e))/N. For distinct primes p,q, the denominator inside Nat.div becomes p*q; for equal primes it is p, not p^2.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.",
+        "d,e>0."
+      ],
+      "proofSteps": [
+        "The joint event is exactly the event that lcm(d,e) divides n, by the defining universal property of lcm. This lcm is positive.",
+        "Apply divisibility-probability. Use Coprime.lcm_eq_mul only when coprimality has been proved; distinct primes are coprime since a common divisor is 1 or each of them."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability",
+        "mathlib:Nat.Coprime.lcm_eq_mul",
+        "mathlib:Nat.Prime.dvd_iff_eq"
+      ],
+      "acceptance": [
+        "N=12,d=4,e=6 gives 1/12 rather than floor(12/24)/12=0.",
+        "N=5,p=2,q=3 gives 0 while the product of marginal probabilities is 2/25."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-COUNT",
+          "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
+          "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
+        },
+        {
+          "sourceId": "ML-PRIME",
+          "locator": "Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul",
+          "match": "Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Exact mean of a finite truncation",
+      "kind": "lemma",
+      "statement": "For prime P and real a, integral S(P,a) dmu_N = sum_{p in P} a(p)*(Nat.div N p)/N. All the quantities are real.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.",
+        "P finite, all its members prime; a real-valued."
+      ],
+      "proofSteps": [
+        "Apply integral_empiricalMeasure to S(P,a); on the discrete natural carrier it is strongly measurable.",
+        "For k<N, k+1>0, so use positive-evaluation. Interchange the two finite sums.",
+        "For each p, the sum of divisibility indicators is Nat.card_multiples N p. Pull out the constant real weight. No independence enters the proof."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "mathlib:Nat.card_multiples"
+      ],
+      "acceptance": [
+        "At N=5,P={2,3},a(p)=p, the values 0,2,3,2,0 have mean 7/5."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-COUNT",
+          "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
+          "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
+        },
+        {
+          "sourceId": "TC-EMP",
+          "locator": "empiricalMeasure_apply_toReal and integral_empiricalMeasure",
+          "match": "Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Centering error",
+      "kind": "lemma",
+      "statement": "Write A=sum_{p in P} a(p)/p and L=sum_{p in P}|a(p)|. Then |integral S(P,a) dmu_N-A|<=L/N.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.",
+        "P finite and prime; a real-valued."
+      ],
+      "proofSteps": [
+        "Subtract A from the exact mean and obtain sum a(p)*e_N(p).",
+        "Apply the finite triangle inequality and divisibility-error, noting that each p is positive."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error"
+      ],
+      "acceptance": [
+        "Weights may have either sign. The centering A is not asserted to be the exact empirical mean."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-COUNT",
+          "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
+          "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
+        },
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, first six paragraphs; paragraph beginning However, one can still hope",
+          "match": "The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Exact centered pair average",
+      "kind": "lemma",
+      "statement": "For positive p,q, let I_d(n) be the real 0/1 indicator of d dividing n. Then integral (I_p-1/p)*(I_q-1/q) dmu_N equals (Nat.div N (Nat.lcm p q))/N -(Nat.div N p)/(N*q) -(Nat.div N q)/(N*p)+1/(p*q).",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.",
+        "p,q>0; primality is not needed for this identity."
+      ],
+      "proofSteps": [
+        "Convert the integral to its finite average and expand the product into four terms.",
+        "The product I_p*I_q is the indicator of the joint divisibility event; the constant term averages to itself because there are exactly N terms.",
+        "Use divisibility-probability and joint-divisibility for the three nonconstant terms."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability",
+        "ProbabilisticAndMetricNumberTheory:PM.0/joint-divisibility",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "acceptance": [
+        "When p=q use I_p^2=I_p. When N=5,p=2,q=3 the centered average is -1/15."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-COUNT",
+          "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
+          "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
+        },
+        {
+          "sourceId": "TC-EMP",
+          "locator": "empiricalMeasure_apply_toReal and integral_empiricalMeasure",
+          "match": "Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Uniform prime-pair error",
+      "kind": "lemma",
+      "statement": "For primes p,q, put D(p,q)=1/p-1/p^2 when p=q, and 0 otherwise. Then |integral (I_p-1/p)*(I_q-1/q) dmu_N-D(p,q)|<=2/N. Repeated primes are included.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.",
+        "p,q prime."
+      ],
+      "proofSteps": [
+        "Replace each floor probability in centered-pair-identity by 1/d+e_N(d).",
+        "If p=q then lcm(p,p)=p, and the nonerror part is 1/p-1/p^2. If p!=q, coprimality gives lcm(p,q)=p*q and the nonerror part is zero.",
+        "The remaining expression is e_N(lcm(p,q))-e_N(p)/q-e_N(q)/p. Each error has magnitude at most 1/N.",
+        "Since p,q>=2, 1+1/p+1/q<=2. The triangle inequality proves the bound, including the diagonal."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error",
+        "mathlib:Nat.Coprime.lcm_eq_mul"
+      ],
+      "acceptance": [
+        "At p=q=2, the centered square equals 1/4 pointwise and the error is actually zero.",
+        "Distinct-prime indicators under mu_N need not be independent."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-PRIME",
+          "locator": "Prime.dvd_of_dvd_pow; Prime.dvd_iff_eq; GCD/Basic.lean: Coprime.lcm_eq_mul",
+          "match": "Primality removes shared factors only for distinct primes. Repeated primes use lcm(p,p)=p; noncoprime composite divisors are never replaced by their product."
+        },
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, first six paragraphs; paragraph beginning However, one can still hope",
+          "match": "The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Finite-head second-moment comparison",
+      "kind": "theorem",
+      "statement": "For prime P and real a, write A=sum a(p)/p, L=sum |a(p)|, V=sum a(p)^2*(1/p-1/p^2). Then |integral (S(P,a)-A)^2 dmu_N - V| <= 2*L^2/N. This is a centered second moment about A, not a formula for variance about the empirical mean.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.",
+        "P finite and prime; a real-valued, with no sign or boundedness hypothesis beyond finiteness of P."
+      ],
+      "proofSteps": [
+        "For n in the positive sample, S(P,a)(n)-A=sum a(p)*(I_p(n)-1/p).",
+        "Square and distribute as a double sum over all ordered pairs (p,q), including the diagonal. Convert the integral to a finite average and interchange these finite sums.",
+        "Subtract the sum of a(p)*a(q)*D(p,q). Its off-diagonal terms vanish and its diagonal is exactly V.",
+        "Apply centered-pair-error and the triangle inequality, obtaining (2/N)*sum_{p,q}|a(p)|*|a(q)|=(2/N)*L^2. No probabilistic independence or central limit theorem is used."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-error",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "acceptance": [
+        "P empty gives 0=0. Signed weights and repeated pair indices must survive expansion.",
+        "The bound is useful only when L^2/N is controlled; it is not the Turan-Kubilius inequality and does not discharge the large-prime tail of Erdos-Kac."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, first six paragraphs; paragraph beginning However, one can still hope",
+          "match": "The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."
+        },
+        {
+          "sourceId": "TC-EMP",
+          "locator": "empiricalMeasure_apply_toReal and integral_empiricalMeasure",
+          "match": "Specialize the implemented law to x(k)=k+1. The new arithmetic comparison is proved by evaluating this finite average."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "planet": {
+        "name": "Finite-head moment comparison"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/complete-period-moments",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Exact moments on complete prime periods",
+      "kind": "theorem",
+      "statement": "Under the second-moment-comparison hypotheses, assume Q=product_{p in P}p divides N. Then integral (S(P,a)-A)^2 dmu_N=V. Also the already stated weighted-mean formula gives integral S(P,a) dmu_N=A, so this centered moment is the actual variance in this case.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m, hence a probability on {1,...,N}.",
+        "P finite and prime; a real-valued; product_{p in P}p divides N."
+      ],
+      "proofSteps": [
+        "Each p in P divides Q and thus N. For p,q in P their lcm divides Q, whether p=q or not.",
+        "All three remainder terms in the centered-pair-identity are zero. The exact pair average is D(p,q).",
+        "Repeat the explicit finite double-sum argument of second-moment-comparison with equality. The exact first moment follows by replacing each floor quotient by N/p in weighted-mean."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/second-moment-comparison",
+        "ProbabilisticAndMetricNumberTheory:PM.0/centered-pair-identity",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error",
+        "ProbabilisticAndMetricNumberTheory:PM.0/weighted-mean"
+      ],
+      "acceptance": [
+        "For N=6,P={2,3},a(p)=p, A=2 and V=3. For N=5 the corresponding mean is 7/5 and centered second moment is 9/5, so completeness of the period cannot be silently removed.",
+        "For P empty, Q=1; every positive N satisfies the condition and both moments vanish."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-COUNT",
+          "locator": "Nat.card_multiples, in the section Lemmas about factorizations of particular functions",
+          "match": "The count is an existing theorem. This node derives the arithmetic-probability or finite-average consequence, rather than scheduling the count itself again."
+        },
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, first six paragraphs; paragraph beginning However, one can still hope",
+          "match": "The source motivates comparing arithmetic statistics with independent ones. The explicit finite error inequality below is a proved auxiliary calculation in this packet, not a quotation of a theorem or a claim of the Kubilius fundamental lemma."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "planet": {
+        "name": "Complete-period moments"
+      }
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/simultaneous-divisibility",
+      "title": "Simultaneous prime-divisibility probability",
+      "kind": "lemma",
+      "statement": "mu_N({n: every p in P divides n}) = floor(N/Q_P)/N.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m. Probabilities below are real-valued.",
+        "P is a finite set of natural primes; Q_P is its product, including Q_empty=1."
+      ],
+      "proofSteps": [
+        "Distinct members of P are coprime by Nat.coprime_primes. Finset.lcm_eq_prod therefore identifies Q_P with the finite lcm.",
+        "By Finset.lcm_dvd_iff, the event of all divisibilities is exactly Q_P dividing n. This also treats P empty: the empty lcm and product are 1.",
+        "Every prime is positive, hence Q_P is positive; apply divisibility-probability with d=Q_P. All sets of naturals are measurable."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.coprime_primes",
+        "mathlib:Finset.lcm_eq_prod",
+        "mathlib:Finset.lcm_dvd_iff",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-probability"
+      ],
+      "acceptance": [
+        "P empty gives probability 1 for every positive N.",
+        "P={2,3},N=5 gives 0; N=6 gives 1/6.",
+        "Dropping primality fails for P={2,4},N=4: the event has probability 1/4, while floor(4/8)/4=0."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-FINITE-PRODUCT",
+          "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
+          "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
+        },
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
+          "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-formula",
+      "title": "Signed formula for prime-divisibility patterns",
+      "kind": "lemma",
+      "statement": "mu_N(E(S,T)) = sum_{U subset T} (-1)^|U| floor(N/Q_{S union U})/N.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m. Probabilities below are real-valued.",
+        "S,T are disjoint finite sets of natural primes. Write Q_R=product_{p in R}p, with Q_empty=1; E(S,T)={n: every p in S divides n and no q in T divides n}. These are local expressions, not new carriers."
+      ],
+      "proofSteps": [
+        "At each natural n put I_p(n)=1 if p divides n and 0 otherwise. The event indicator is (product_{p in S} I_p(n))*(product_{q in T}(1-I_q(n))).",
+        "Apply Finset.prod_one_add with f(q)=-I_q(n), then distribute the first product. The U term is (-1)^|U| times the indicator of all primes in S union U dividing n. Because U is contained in T, it is disjoint from S; repeated indicators would also be idempotent.",
+        "Apply empiricalMeasure_apply_toReal to the event and each all-divisibility event; commute the two finite real sums. This avoids any unjustified signed subtraction in extended nonnegative reals.",
+        "Use simultaneous-divisibility for S union U, whose members are primes. Natural division is performed before casting to the real normalized probability."
+      ],
+      "prerequisites": [
+        "mathlib:Finset.prod_one_add",
+        "tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal",
+        "ProbabilisticAndMetricNumberTheory:PM.0/simultaneous-divisibility"
+      ],
+      "acceptance": [
+        "T empty recovers simultaneous-divisibility; S=T=empty gives 1.",
+        "S={2},T={3},N=5 gives 2/5 rather than the model value 1/3.",
+        "S empty,T={2,3},N=6 gives 1-1/2-1/3+1/6=1/3."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-FINITE-PRODUCT",
+          "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
+          "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
+        },
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
+          "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-error",
+      "title": "Bernoulli-product error for one pattern",
+      "kind": "lemma",
+      "statement": "Put b(S,T)=(product_{p in S}1/p)*(product_{q in T}(1-1/q)). Then |mu_N(E(S,T))-b(S,T)| <= 2^|T|/N.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m. Probabilities below are real-valued.",
+        "S,T are disjoint finite sets of natural primes. Write Q_R=product_{p in R}p, with Q_empty=1; E(S,T)={n: every p in S divides n and no q in T divides n}. These are local expressions, not new carriers."
+      ],
+      "proofSteps": [
+        "For U contained in T, disjointness gives Q_{S union U}=Q_S*Q_U. Positivity permits the reciprocal product identity.",
+        "Expand product_{q in T}(1-1/q) with Finset.prod_one_add at f(q)=-1/q. Multiplying by 1/Q_S yields b(S,T)=sum_{U subset T}(-1)^|U|/Q_{S union U}.",
+        "Subtract this identity from divisibility-pattern-formula. The difference is sum_{U subset T}(-1)^|U| e_N(Q_{S union U}), with e_N from divisibility-error.",
+        "Each product divisor is positive and each error has absolute value at most 1/N. The finite triangle inequality and Finset.card_powerset give 2^|T|/N."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-formula",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error",
+        "mathlib:Finset.prod_one_add",
+        "mathlib:Finset.card_powerset"
+      ],
+      "acceptance": [
+        "No restriction Q_{S union T}<=N is needed for this inequality, but the bound can exceed 1 and then conveys little information.",
+        "Disjointness cannot be dropped from the model interpretation: S=T={2} has an empty event while b=1/4, even when N is a multiple of 2.",
+        "For N=5,S={2},T={3}, the error is 1/15."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-FINITE-PRODUCT",
+          "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
+          "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
+        },
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
+          "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/complete-period-joint-law",
+      "title": "Complete-period Bernoulli law",
+      "kind": "theorem",
+      "statement": "If Q_{S union T} divides N, then mu_N(E(S,T))=b(S,T), with b(S,T)=(product_{p in S}1/p)*(product_{q in T}(1-1/q)). Thus the statement for S contained in P and T=P minus S specifies every Boolean divisibility atom for a finite prime set P on a complete period.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m. Probabilities below are real-valued.",
+        "S,T are disjoint finite sets of natural primes. Write Q_R=product_{p in R}p, with Q_empty=1; E(S,T)={n: every p in S divides n and no q in T divides n}. These are local expressions, not new carriers.",
+        "Q_{S union T} divides N."
+      ],
+      "proofSteps": [
+        "For every U contained in T, Q_{S union U} divides Q_{S union T}, hence divides N. Product divisibility follows by splitting the finite product into the subset and its complement.",
+        "Each remainder e_N(Q_{S union U}) is zero, by the exact signed remainder in divisibility-error, not just its upper bound.",
+        "Use the signed-subset formula and the reciprocal-product expansion from the proof of divisibility-pattern-error. Every summand is now exact, giving b(S,T).",
+        "For S contained in P, the sets S and P minus S are disjoint prime sets with union P, so this same equality covers all zero/one coordinate patterns. No new product-measure carrier or theorem about all nonzero residue classes is asserted."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-formula",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error",
+        "mathlib:Finset.prod_one_add"
+      ],
+      "acceptance": [
+        "N=6,P={2,3}: the atoms none, only 2, only 3, both have probabilities 1/3,1/3,1/6,1/6.",
+        "N=5 gives 2/5,2/5,1/5,0; the complete-period hypothesis is essential.",
+        "For P empty there is exactly one pattern, of mass 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-FINITE-PRODUCT",
+          "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
+          "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
+        },
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
+          "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
+        }
+      ],
+      "planet": {
+        "name": "Complete-period Bernoulli law"
+      }
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-summed-error",
+      "title": "Summed Boolean-atom error",
+      "kind": "theorem",
+      "statement": "For a finite prime set P, sum_{S subset P} |mu_N(E(S,P minus S))-b(S,P minus S)| <= 3^|P|/N, with E and b as in divisibility-pattern-error.",
+      "hypotheses": [
+        "m is a natural number; N=m+1; mu_N is the existing empiricalMeasure of k->k+1 at index m. Probabilities below are real-valued.",
+        "P is a finite set of natural primes; each S ranges over its powerset, and P minus S is the finite set difference."
+      ],
+      "proofSteps": [
+        "For every S contained in P, the disjoint prime sets S and P minus S satisfy divisibility-pattern-error. Their atom error is at most 2^|P minus S|/N.",
+        "Sum these inequalities and factor out 1/N. Since S is contained in P, |P minus S|=|P|-|S|.",
+        "Apply Finset.sum_pow_mul_eq_add_pow with real a=1,b=2 to evaluate sum_{S subset P} 2^(|P|-|S|)=3^|P|.",
+        "The atoms partition the finite Boolean pattern set and the nonnegative model masses sum to product_{p in P}(1/p+(1-1/p))=1 by finite distributivity. The exported declaration is the displayed sum bound; a measure-theoretic total-variation interface is not introduced."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-pattern-error",
+        "mathlib:Finset.sum_pow_mul_eq_add_pow"
+      ],
+      "acceptance": [
+        "For N=5,P={2,3}, the summed error is 1/3 and the bound is 9/5.",
+        "For complete prime periods all atom errors vanish by complete-period-joint-law.",
+        "For P empty the summed error is zero. The estimate alone is useful for varying P only when 3^|P|/N is small; it is not a general Kubilius growing-prime theorem."
+      ],
+      "sources": [
+        {
+          "sourceId": "ML-FINITE-PRODUCT",
+          "locator": "Finset.lcm_eq_prod and lcm_dvd_iff; Ring/Finset.lean prod_one_add, lines 196-198, and sum_pow_mul_eq_add_pow, lines 231-237",
+          "match": "The generic coprime-product and finite subset expansions are already in the pin. This node is their arithmetic empirical-probability specialization, derived in the displayed proof steps."
+        },
+        {
+          "sourceId": "TAO-RESIDUES",
+          "locator": "Section 3, first six paragraphs: product-modulus joint comparison and the following paragraph on weaker statistics",
+          "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
+        }
+      ]
+    }
+  ],
+  "links": [],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "status": "partial",
+      "remaining": [
+        "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute.",
+        "Finite Boolean divisibility-pattern formulas and complete-period Bernoulli atoms are now decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, all-residue-class joint model, higher moments and a source-scoped growing-prime comparison beyond the elementary 3^|P|/N bound still need decomposition.",
+        "Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
+      ]
+    },
+    {
+      "stageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "status": "not_read",
+      "remaining": [
+        "Acquire and read full Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac proofs with their stated generality.",
+        "Derive the required Mertens asymptotic and normalization and control the large-prime tail; the L^2/N finite-head estimate here is insufficient alone.",
+        "Choose a valid moment-convergence or triangular-array route; the existing iid CLT does not apply to the arithmetic indicators."
+      ]
+    },
+    {
+      "stageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "status": "not_read",
+      "remaining": [
+        "Read the selected Kuipers/Niederreiter proofs of Weyl criterion, polynomial equidistribution, discrepancy and normal-number consequences.",
+        "Pin interval endpoints, irrational-coefficient hypotheses and ES.0 differencing inputs; distinguish dense orbit from equidistribution."
+      ]
+    },
+    {
+      "stageId": "ProbabilisticAndMetricNumberTheory:PM.3",
+      "status": "not_read",
+      "remaining": [
+        "Select exact Khintchine and Duffin-Schaeffer statements and full proofs, separate convergence and divergence and the coprimality/monotonicity assumptions.",
+        "Use the audited Borel-Cantelli and Gallagher results rather than rebuilding them; choose precise Lebesgue/Hausdorff scope."
+      ]
+    },
+    {
+      "stageId": "ProbabilisticAndMetricNumberTheory:PM.4",
+      "status": "not_read",
+      "remaining": [
+        "Acquire primary Gauss-map invariance, ergodicity, mixing and metric continued-fraction proofs.",
+        "A pointwise ergodic theorem and integrability are not supplied by the audited mean/L1 convergence results. Homogeneous dynamics remains GN.4-owned."
+      ]
+    },
+    {
+      "stageId": "ProbabilisticAndMetricNumberTheory:PM.5",
+      "status": "not_read",
+      "remaining": [
+        "Acquire source-scoped short-interval and multiplicative-correlation proofs with explicit averaging and exceptional sets.",
+        "Reconcile AN.3/AN.5/AC.5 ownership; state general Chowla/Sarnak only in a conjecture register and never as proved consequences of a random model."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "PM.0: source and proof completion",
+      "neededBy": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "detail": "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute. Finite Boolean divisibility-pattern formulas and complete-period Bernoulli atoms are now decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, all-residue-class joint model, higher moments and a source-scoped growing-prime comparison beyond the elementary 3^|P|/N bound still need decomposition. Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
+    },
+    {
+      "title": "PM.1: source and proof completion",
+      "neededBy": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "detail": "Acquire and read full Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac proofs with their stated generality. Derive the required Mertens asymptotic and normalization and control the large-prime tail; the L^2/N finite-head estimate here is insufficient alone. Choose a valid moment-convergence or triangular-array route; the existing iid CLT does not apply to the arithmetic indicators."
+    },
+    {
+      "title": "PM.2: source and proof completion",
+      "neededBy": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "detail": "Read the selected Kuipers/Niederreiter proofs of Weyl criterion, polynomial equidistribution, discrepancy and normal-number consequences. Pin interval endpoints, irrational-coefficient hypotheses and ES.0 differencing inputs; distinguish dense orbit from equidistribution."
+    },
+    {
+      "title": "PM.3: source and proof completion",
+      "neededBy": [
+        "ProbabilisticAndMetricNumberTheory:PM.3"
+      ],
+      "detail": "Select exact Khintchine and Duffin-Schaeffer statements and full proofs, separate convergence and divergence and the coprimality/monotonicity assumptions. Use the audited Borel-Cantelli and Gallagher results rather than rebuilding them; choose precise Lebesgue/Hausdorff scope."
+    },
+    {
+      "title": "PM.4: source and proof completion",
+      "neededBy": [
+        "ProbabilisticAndMetricNumberTheory:PM.4"
+      ],
+      "detail": "Acquire primary Gauss-map invariance, ergodicity, mixing and metric continued-fraction proofs. A pointwise ergodic theorem and integrability are not supplied by the audited mean/L1 convergence results. Homogeneous dynamics remains GN.4-owned."
+    },
+    {
+      "title": "PM.5: source and proof completion",
+      "neededBy": [
+        "ProbabilisticAndMetricNumberTheory:PM.5"
+      ],
+      "detail": "Acquire source-scoped short-interval and multiplicative-correlation proofs with explicit averaging and exceptional sets. Reconcile AN.3/AN.5/AC.5 ownership; state general Chowla/Sarnak only in a conjecture register and never as proved consequences of a random model."
+    }
+  ],
+  "sourceIssues": [],
+  "sourceIssueScope": "Only the source sections listed as read were checked. No published-source error claim is made. Unread source routes and the rest of Tao's article are outside this empty findings list.",
+  "checks": {
+    "leanCompiled": true,
+    "officialCheckerRun": true,
+    "officialChecker": "python3 scripts/check_blueprint.py research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json --index <pinned declaration index>: 0 errors, 0 warnings.",
+    "lean": "Lean 4.34.0-rc2; all 22 planning declarations and 15 examples elaborate with 37 expected proof-placeholder warnings, no other warnings or errors. Transitive source comparison verified 8,482 pinned Mathlib files; the one imported Tau Ceti module was built from the pin.",
+    "proofProbes": "Separate scratch file: six proved lemmas (coprime product divisibility, empirical event averaging, divisor count, simultaneous prime count, avoidance expansion, subset error sum) and ten proved pattern examples; zero placeholders and zero warnings. These probes are not a complete implementation of the packet.",
+    "exactRationalRegressions": {
+      "divisor": 1000,
+      "jointDivisor": 25000,
+      "primePair": 1000,
+      "weightedMoment": 2680,
+      "completePeriodMoment": 181,
+      "pattern": 9720,
+      "completePeriodPattern": 690,
+      "summedAtom": 1920
+    },
+    "preservation": "All 17 inherited node IDs and mathematical statements, the seven construction API items and five tests are preserved. Only the coprime-additivity prerequisite list adds the already existing Nat.Prime.dvd_mul. PM.1-PM.5 coverage is unchanged.",
+    "localCheck": "Source and baseline references, API targets, intra-packet DAG, official full-repository blueprint check, and four-deliverable intake path/JSON checks."
+  },
+  "provenance": {
+    "issue": 1041,
+    "agent": "GPT-6 Astra Pro",
+    "session": "astra-20260926-pm-83c1",
+    "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
+    "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
+    "auditBlob": "029c65b1999100f2c1948c904da0a5e77a54734a",
+    "empiricalSourceBlob": "a27d4ef50e33d95c39934a73a0b54ce316fc4b23",
+    "continuation": {
+      "agent": "Codex",
+      "session": "codex-a71f92",
+      "date": "2026-09-27",
+      "base": "8f6fe5b8ff79f514c6c42a430b1813e4eae48ea5",
+      "claimComment": 5851486880,
+      "claimConfirmation": 5851487855,
+      "scope": "Five PM.0 finite-pattern declarations; 17 inherited IDs and mathematical statements preserved.",
+      "ownership": "Accepted RS-07 keeps arithmetic probability/independence comparisons in PM.0; generic arithmetic functions and finite identities are imported.",
+      "sourceAcquisition": "Selected Tao section reread in the author HTML; SHA-256 recorded under TAO-RESIDUES. No Kubilius monograph acquisition claimed."
+    }
+  }
 }
