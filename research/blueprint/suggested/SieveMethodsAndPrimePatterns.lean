@@ -16,6 +16,11 @@ import Mathlib.Analysis.Complex.Circle
 import Mathlib.Analysis.Complex.Trigonometric
 import Mathlib.Analysis.InnerProductSpace.PiL2
 import Mathlib.Algebra.Field.GeomSum
+import Mathlib.Analysis.Normed.Group.AddCircle
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
+import Mathlib.Analysis.Real.Pi.Bounds
+import Mathlib.NumberTheory.ZetaValues
+import Mathlib.Algebra.Order.Round
 
 /-!
 # Suggested finite sieve, Gram-row and taper signatures
@@ -520,5 +525,109 @@ example : ‖⟪taperedCharacter 1 1 0, taperedCharacter 1 1 (1/2)⟫_ℂ‖ = 1
 /-- taper_missing_final_bin -/
 example : ¬ ∃ m : ℕ, (3/10 : ℚ)*m ≤ 2/5 ∧
     2/5 < (3/10 : ℚ)*(m+1) ∧ (3/10 : ℚ)*(m+1) ≤ 1/2 := by sorry
+
+
+/-! Circular separation and the original finite integer interval. -/
+local notation "dist₁" => (fun t : ℝ => ‖(t : UnitAddCircle)‖)
+local notation "offset" => (fun H L : ℕ => L+1-H%2)
+
+/-- SV.2/circular-sine-square. Jordan's inequality on the native circle. -/
+theorem four_circle_norm_sq_le_sin_sq (t : ℝ) :
+    4 * dist₁ t ^ 2 ≤ Real.sin (Real.pi*t)^2 := by sorry
+
+/-- SV.2/circular-bin-packing. All bins are kept, including the last partial one. -/
+theorem circular_bin_card_le_two {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (x : ι → ℝ) (δ : ℝ) (hδ : 0 < δ)
+    (hsep : ∀ i j, i ≠ j → δ ≤ dist₁ (x i-x j)) (i : ι) (m : ℕ) :
+    ((Finset.univ.erase i).filter
+      (fun j => Nat.floor (dist₁ (x i-x j) / δ) = m)).card ≤ 2 := by sorry
+
+/-- SV.2/cosecant-row-bound. No unproved row estimate is assumed. -/
+theorem cosecantRow_le {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (x : ι → ℝ) (δ : ℝ) (hδ : 0 < δ)
+    (hsep : ∀ i j, i ≠ j → δ ≤ dist₁ (x i-x j)) (i : ι) :
+    (∑ j ∈ Finset.univ.erase i, 1 / Real.sin (Real.pi*(x i-x j))^2) ≤
+      Real.pi^2 / (12*δ^2) := by sorry
+
+/-- SV.2/integer-taper-choice. Explicit floor choice, not a claimed source quotation. -/
+theorem floor_taper_bound (δ : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1/2) :
+    0 < Nat.floor (1/δ) ∧
+      (Nat.floor (1/δ) : ℝ) +
+        (Real.pi^2 / (12*δ^2)) / (Nat.floor (1/δ) : ℝ) ≤ 2/δ := by sorry
+
+/-- SV.2/separated-core. The ambient taper width is the chosen positive integer. -/
+theorem largeSieve_centered {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (N : ℕ) (x : ι → ℝ) (δ : ℝ) (hδ : 0 < δ) (hδ' : δ ≤ 1/2)
+    (hsep : ∀ i j, i ≠ j → δ ≤ dist₁ (x i-x j))
+    (f : EuclideanSpace ℂ (Fin (2*(N+Nat.floor (1/δ))+1)))
+    (hf : ∀ k, (N : ℝ) < |(freq N (Nat.floor (1/δ)) k : ℝ)| → f k = 0) :
+    (∑ i, ‖∑ k, f k * phase ((freq N (Nat.floor (1/δ)) k : ℝ)*x i)‖^2) ≤
+      ‖f‖^2 * (2*(N : ℝ)+2/δ) := by sorry
+
+/-- SV.2/interval-vector. Zero extension into an existing native Euclidean space. -/
+def intervalVector (H L : ℕ) (a : Fin H → ℂ) :
+    EuclideanSpace ℂ (Fin (2*(H/2+L)+1)) := by sorry
+
+/-- SV.2/interval-coordinate. Promoted coordinate API. -/
+theorem intervalVector_apply (H L : ℕ) (a : Fin H → ℂ)
+    (k : Fin (2*(H/2+L)+1)) :
+    intervalVector H L a k = ∑ j : Fin H, if k.val = offset H L+j.val then a j else 0 :=
+  by sorry
+
+/-- SV.2/interval-support. Both parities fit in the same centered core. -/
+theorem intervalVector_support (H L : ℕ) (a : Fin H → ℂ)
+    (k : Fin (2*(H/2+L)+1)) (hk : (H/2 : ℕ) < |(freq (H/2) L k : ℝ)|) :
+    intervalVector H L a k = 0 := by sorry
+
+/-- SV.2/interval-norm. No coefficient is repeated or lost by padding. -/
+theorem intervalVector_norm_sq (H L : ℕ) (a : Fin H → ℂ) :
+    ‖intervalVector H L a‖^2 = ∑ j, ‖a j‖^2 := by sorry
+
+/-- SV.2/interval-phase. Original frequencies are M+1 through M+H. -/
+theorem intervalVector_fourier (M : ℤ) (H L : ℕ) (a : Fin H → ℂ) (x : ℝ) :
+    (∑ j, a j * phase (((M : ℝ)+(j.val : ℝ)+1)*x)) =
+      phase (((M : ℝ)+((H+1)/2 : ℕ))*x) *
+        ∑ k, intervalVector H L a k * phase ((freq (H/2) L k : ℝ)*x) := by sorry
+
+/-- SV.2/separation-card-small. Separation above the circle diameter is vacuous only for ≤1 point. -/
+theorem card_le_one_of_half_lt_separation {ι : Type*} [Fintype ι]
+    (x : ι → ℝ) (δ : ℝ) (hδ : 1/2 < δ)
+    (hsep : ∀ i j, i ≠ j → δ ≤ dist₁ (x i-x j)) :
+    Fintype.card ι ≤ 1 := by sorry
+
+/-- SV.2/additive-large-sieve. Bombieri's length+2/δ bound; not the sharper length−1+1/δ result. -/
+theorem additive_largeSieve {ι : Type*} [Fintype ι] [DecidableEq ι]
+    (M : ℤ) (H : ℕ) (a : Fin H → ℂ) (x : ι → ℝ) (δ : ℝ) (hδ : 0 < δ)
+    (hsep : ∀ i j, i ≠ j → δ ≤ dist₁ (x i-x j)) :
+    (∑ i, ‖∑ j, a j * phase (((M : ℝ)+(j.val : ℝ)+1)*x i)‖^2) ≤
+      ((H : ℝ)+2/δ) * ∑ j, ‖a j‖^2 := by sorry
+
+/-- interval_empty -/
+example (L : ℕ) (a : Fin 0 → ℂ) : intervalVector 0 L a = 0 := by sorry
+/-- interval_even_padding -/
+example (a b : ℂ) : intervalVector 2 1 ![a,b] = !₂[0,0,a,b,0] := by sorry
+/-- interval_odd_padding -/
+example (a b c : ℂ) : intervalVector 3 1 ![a,b,c] = !₂[0,a,b,c,0] := by sorry
+/-- interval_zero_taper -/
+example (a b : ℂ) : intervalVector 2 0 ![a,b] = !₂[0,a,b] := by sorry
+/-- interval_positive_phase -/
+example : (∑ j : Fin 2, (![1,Complex.I] : Fin 2 → ℂ) j *
+    phase (((-2 : ℝ)+j.val+1)*(1/4))) = 0 := by sorry
+/-- interval_starting_frequency -/
+example : (∑ j : Fin 1, (1 : ℂ) * phase (((0 : ℝ)+j.val+1)*(1/4))) =
+    Complex.I := by sorry
+/-- circular_antipode -/
+example : (1/2 : ℝ) - (round (1/2 : ℝ) : ℝ) = -1/2 := by sorry
+/-- circular_last_bin -/
+example : Nat.floor (dist₁ (2/5) / (3/10)) = 1 := by sorry
+/-- circular_antipodal_bin -/
+example : Nat.floor (dist₁ (1/2) / (1/4)) = 2 := by sorry
+/-- floor_taper_half -/
+example : Nat.floor (1/(1/2 : ℝ)) = 2 := by sorry
+/-- floor_taper_large_spacing -/
+example : Nat.floor (1/(2 : ℝ)) = 0 := by sorry
+/-- large_sieve_empty_interval -/
+example {ι : Type*} [Fintype ι] (M : ℤ) (a : Fin 0 → ℂ) (x : ι → ℝ) :
+    (∑ i, ‖∑ j, a j * phase (((M : ℝ)+(j.val : ℝ)+1)*x i)‖^2) = 0 := by sorry
 
 end SieveTaper
