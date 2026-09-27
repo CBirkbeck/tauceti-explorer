@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial Fredholm blueprint with a complete proof plan for the scalar truncation step in Coleman A3.8(11). Ten additional L4 declarations connect bounded reciprocal resultants to entire resultants through convergent finite remainders. The general entire spectral transform and operator transport retain explicit gaps.",
+  "summary": "Partial Fredholm blueprint with a complete proof plan for the scalar truncation step in Coleman A3.8(11). Ten additional L4 declarations connect bounded reciprocal resultants to entire resultants through convergent finite remainders. The general entire spectral transform and operator transport retain explicit gaps. Twelve native Gauss-convergence adapters supply truncation estimates, bounded coefficient limits, sequential completeness in all radii, uniform evaluation, product convergence and fixed monic division continuity; the spectral-transform coefficient bounds remain explicit.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -1464,6 +1464,104 @@
         "module": "Mathlib/Topology/Constructions.lean",
         "provides": "Convergence into a native product is equivalent to coordinatewise convergence; applied only to a finite coefficient vector.",
         "checked": "Full declaration, relevant ambient hypotheses and additive-generation annotation where applicable read at pin082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026. Existing compiled module only."
+      },
+      {
+        "ref": "mathlib:Metric.cauchySeq_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/MetricSpace/Cauchy.lean",
+        "provides": "Metric Cauchy sequences are exactly those whose sufficiently late pairs have arbitrarily small distance.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:Metric.tendstoUniformlyOn_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/MetricSpace/Pseudo/Basic.lean",
+        "provides": "Uniform convergence on a set is equivalent to a common eventual epsilon distance bound for every point of the set.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.gaussNorm_mul_le",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPowerSeries/GaussNorm.lean",
+        "provides": "The native multivariate Gauss norm is submultiplicative for a nonnegative, submultiplicative ultrametric coefficient function, nonnegative radii and bounded weighted coefficients.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.gaussNorm_neg",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/MvPowerSeries/GaussNorm.lean",
+        "provides": "A coefficient function invariant under negation gives a Gauss norm invariant under negation.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:PowerSeries.HasGaussNorm.hasMvGaussNorm",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/GaussNorm.lean",
+        "provides": "Univariate bounded weighted coefficients provide the underlying native multivariate boundedness premise.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:PowerSeries.gaussNorm_add_le_max",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/GaussNorm.lean",
+        "provides": "At a nonnegative radius, an ultrametric coefficient function gives the maximum bound for sums when both coefficient families are bounded.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:PowerSeries.gaussNorm_eq",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/GaussNorm.lean",
+        "provides": "The native univariate Gauss norm is the indexed supremum of the weighted coefficient values.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:PowerSeries.gaussNorm_nonneg",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/GaussNorm.lean",
+        "provides": "A nonnegative coefficient function has nonnegative native Gauss norm.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:PowerSeries.isRestricted_iff'",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Restricted.lean",
+        "provides": "Native univariate restrictedness is equivalent to weighted coefficient norms tending to zero along the natural-number atTop filter.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:PowerSeries.le_gaussNorm",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/GaussNorm.lean",
+        "provides": "Each weighted coefficient is bounded by the native Gauss norm, under its explicit boundedness premise.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:cauchySeq_tendsto_of_complete",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/UniformSpace/Cauchy.lean",
+        "provides": "Every Cauchy sequence in a complete uniform space converges.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:squeeze_zero",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/MetricSpace/Pseudo/Lemmas.lean",
+        "provides": "A nonnegative real function bounded by a function tending to zero also tends to zero.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:tendsto_nhds_unique",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "Limits along a nontrivial filter in a Hausdorff space are unique.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "tauceti:TauCeti.PowerSeries.hasGaussNorm_of_isRestricted",
+        "kind": "theorem",
+        "module": "TauCeti/RingTheory/PowerSeries/GaussNorm.lean",
+        "provides": "Native restricted power series over a normed ring have bounded weighted coefficient norms; completeness and multiplicativity are unnecessary.",
+        "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
       }
     ]
   },
@@ -1540,7 +1638,8 @@
         "Quotient/resultant follow-up,27September2026: complete published A3 printed432–435/PDF16–19 read; printed434/435 additionally rendered and visually checked. Hash unchanged. Uses the norm interpretation and A3.5,A3.7; spectral D remains a gap.",
         "27 September2026: complete printed432–436/PDF16–20 freshly reread from hash-identical published scan. Finite D(B,P) normalized by explicit native resultant degree bounds; no whole-source or infinite-limit closure claim.",
         "27 September2026: complete published printed432–436/PDF16–20 reread for the finite-operator step of A3.9. Triangularization hypotheses made explicit; unrestricted finite comparison and analytic limiting work remain precise gaps.",
-        "Published printed433–435/PDF17–19 freshly read for LemmaA3.4, norm-resultant interpretation and A3.8(11). Existing source id Coleman-PadicBanach-published-1997 is cited by the new nodes; this record states only this continuation reading."
+        "Published printed433–435/PDF17–19 freshly read for LemmaA3.4, norm-resultant interpretation and A3.8(11). Existing source id Coleman-PadicBanach-published-1997 is cited by the new nodes; this record states only this continuation reading.",
+        "27 September 2026: complete published printed 432–436 / PDF 16–20 freshly read from the hash-verified scan. Native Gauss-radius convergence and evaluation estimates are worker decompositions of the analytic limiting requirement; general spectral estimates remain open."
       ],
       "note": "Linear division is a worker deduction of the p434 division input. No full-paper coverage or transport of all Coleman hypotheses is claimed."
     }
@@ -9303,6 +9402,581 @@
           "statement": "For F=1, the simultaneous scalar sequence converges to1 for every monic Q, including Q=1."
         }
       ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-native-restricted",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Entire series and native restrictedness",
+      "kind": "comparison",
+      "statement": "F is entire if and only if it is native IsRestricted at every positive real radius.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit."
+      ],
+      "proofSteps": [
+        "Unfold the existing entire predicate. At each radius apply the native univariate isRestricted_iff' statement, which already translates the multivariate cofinite indexing to the natural-number atTop filter.",
+        "Consequently every entire F has native HasGaussNorm at every positive radius by the existing TauCeti restricted-series boundedness theorem. Do not replan that theorem or its weighted maximum argument."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:PowerSeries.isRestricted_iff'",
+        "tauceti:TauCeti.PowerSeries.hasGaussNorm_of_isRestricted"
+      ],
+      "acceptance": [
+        "The quantifier is every positive radius, not only the unit radius."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "isEntire_iff_forall_isRestricted"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-native-gauss",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "The native Gauss norm comparison",
+      "kind": "comparison",
+      "statement": "For every real R and every power series F, the preceding gaussSize R F equals the native G_R(F).",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit."
+      ],
+      "proofSteps": [
+        "Use native gaussNorm_eq to express the norm as the indexed supremum of ‖coeff_n(F)‖R^n. The indexed supremum is the supremum of its range, exactly the existing gaussSize expression.",
+        "This is an equality of existing functions, not a new norm definition. Bounds using a supremum still require native HasGaussNorm; the equality alone provides no boundedness."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:PowerSeries.gaussNorm_eq"
+      ],
+      "acceptance": [
+        "The comparison also holds for unbounded coefficient families under the native conditional-supremum convention, but no coefficient bound is inferred in that case."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "gaussSize_eq_gaussNorm"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "EntireGaussTests.native_polynomial",
+          "kind": "compatibility",
+          "statement": "For every polynomial P and real R, the preceding gaussSize of polynomialSeries(P) equals the native power-series Gauss norm of the actual polynomial coercion."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-gauss-truncation-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Two-radius truncation estimate",
+      "kind": "lemma",
+      "statement": "If 0<R≤S and F has native HasGaussNorm at S, then G_R(F−trunc_N(F))≤G_S(F)(R/S)^N for every N≥0.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit."
+      ],
+      "proofSteps": [
+        "Native coeff_trunc says the difference coefficient is zero below N and the original coefficient at k≥N.",
+        "For k≥N use the native coefficient bound at S and rewrite ‖coeff_k(F)‖R^k=(‖coeff_k(F)‖S^k)(R/S)^k. Since 0<R/S≤1 this is at most G_S(F)(R/S)^N.",
+        "The resulting bound holds for every coefficient, including the zero head. Apply the native supremum upper-bound criterion. No completeness or ultrametricity is used."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.gaussNorm_eq",
+        "mathlib:PowerSeries.le_gaussNorm",
+        "mathlib:PowerSeries.gaussNorm_nonneg",
+        "mathlib:PowerSeries.coeff_trunc",
+        "mathlib:csSup_le"
+      ],
+      "acceptance": [
+        "The loss starts at N, not N+1. The boundary R=S is allowed, but yields no geometric decay."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "gaussNorm_sub_trunc_le"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "EntireGaussTests.tail_boundary",
+          "kind": "computation",
+          "statement": "For F=aT^N and R>0 the truncation at N is zero and G_R(F−trunc_N(F))=‖a‖R^N."
+        },
+        {
+          "name": "EntireGaussTests.zero_truncation",
+          "kind": "degenerate",
+          "statement": "The truncation at zero is zero, so its tail has the same Gauss norm as F."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-gauss-truncation-convergence",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Entire truncations converge at every radius",
+      "kind": "lemma",
+      "statement": "If F is entire and R>0, then G_R(F−trunc_N(F)) tends to zero as N tends to infinity.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit."
+      ],
+      "proofSteps": [
+        "Choose S=2R. Entire native restrictedness and the native boundedness theorem give HasGaussNorm at S.",
+        "Apply the two-radius truncation estimate with ratio 1/2. The native geometric-power limit and nonnegativity of G_R squeeze the tail to zero."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-native-restricted",
+        "tauceti:TauCeti.PowerSeries.hasGaussNorm_of_isRestricted",
+        "LocallyAnalyticDistributions:L4/entire-gauss-truncation-bound",
+        "mathlib:PowerSeries.gaussNorm_nonneg",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one",
+        "mathlib:squeeze_zero"
+      ],
+      "acceptance": [
+        "This is convergence of the native Gauss norms at every positive radius; no new topology is installed."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendsto_gaussNorm_sub_trunc"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-bounded-coefficient-limit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Entire coefficient limits under radius bounds",
+      "kind": "lemma",
+      "statement": "Let F_i be a sequence of entire series and f a formal power series. Assume every coefficient of F_i converges to that of f, and for every S>0 there is C_S≥0 with G_S(F_i)≤C_S for all i. Then f is entire.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit."
+      ],
+      "proofSteps": [
+        "Fix S. Native restricted boundedness and le_gaussNorm give ‖coeff_k(F_i)‖S^k≤C_S. Norm continuity and the closed upper-bound limit theorem pass this inequality to coeff_k(f) for each k.",
+        "For each R>0 use S=2R to bound ‖coeff_k(f)‖R^k by C_(2R)2^(−k). The native geometric limit and squeeze give the required coefficient decay.",
+        "This proves actual native IsRestricted at every positive radius and hence the preceding IsEntire predicate. No completeness of A is needed because all coefficient limits are supplied."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-native-restricted",
+        "tauceti:TauCeti.PowerSeries.hasGaussNorm_of_isRestricted",
+        "mathlib:PowerSeries.gaussNorm_eq",
+        "mathlib:PowerSeries.le_gaussNorm",
+        "mathlib:PowerSeries.gaussNorm_nonneg",
+        "mathlib:le_of_tendsto",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one",
+        "mathlib:squeeze_zero"
+      ],
+      "acceptance": [
+        "A bound at one fixed radius does not imply entireness of the coefficient limit."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "isEntire_of_coeff_tendsto_of_gauss_bounded"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "EntireGaussTests.radius_loss",
+          "kind": "computation",
+          "statement": "For the moving monomial T^N in a norm-one ring, its Gauss norms at radii 1/2 and 2 are exactly (1/2)^N and 2^N. Small-radius decay supplies no large-radius bound."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-bounded-gauss-limit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Bounded coefficient limits converge in Gauss norms",
+      "kind": "theorem",
+      "statement": "Under the preceding coefficient-limit and every-radius uniform-bound hypotheses, if A is ultrametric, then G_R(F_i−f) tends to zero for each R>0.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit.",
+        "The norm is ultrametric: ‖x+y‖≤max(‖x‖,‖y‖)."
+      ],
+      "proofSteps": [
+        "The preceding node makes f entire. For fixed R take S=2R and the common S-bound C. Passing coefficient bounds to f also gives G_S(f)≤C.",
+        "The ultrametric addition bound and native negation invariance bound G_S(F_i−f) by C. The truncation estimate bounds every tail after N at radius R by C2^(−N), uniformly in i.",
+        "Choose N to make that tail smaller than a prescribed epsilon. The finitely many head coefficients converge to zero; intersect their eventual epsilon bounds and apply the supremum upper-bound criterion to the truncated head.",
+        "The native ultrametric Gauss addition inequality bounds the full difference by the maximum of head and tail. This proves convergence and does not assume evaluation continuity."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-bounded-coefficient-limit",
+        "LocallyAnalyticDistributions:L4/entire-gauss-truncation-bound",
+        "mathlib:PowerSeries.gaussNorm_eq",
+        "mathlib:PowerSeries.le_gaussNorm",
+        "mathlib:PowerSeries.gaussNorm_nonneg",
+        "mathlib:PowerSeries.gaussNorm_add_le_max",
+        "mathlib:MvPowerSeries.gaussNorm_neg",
+        "mathlib:le_of_tendsto",
+        "mathlib:PowerSeries.coeff_trunc",
+        "mathlib:csSup_le",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "acceptance": [
+        "The uniform bounds hold at all larger radii. Coefficientwise convergence by itself is insufficient."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendsto_gaussNorm_of_coeff_tendsto_of_gauss_bounded"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "EntireGaussTests.moving_monomials",
+          "kind": "non-example",
+          "statement": "In a norm-one ring the coefficients of T^N converge individually to zero, but G_1(T^N)=1 and its evaluation at 1 is 1 for every N."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-gauss-cauchy-bounded",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Radius bounds for a Gauss-Cauchy sequence",
+      "kind": "lemma",
+      "statement": "Let F_i be entire and R>0. If for every epsilon>0 there is N with G_R(F_i−F_j)<epsilon for all i,j≥N, then G_R(F_i) has a common nonnegative upper bound.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit.",
+        "The norm is ultrametric: ‖x+y‖≤max(‖x‖,‖y‖)."
+      ],
+      "proofSteps": [
+        "Use epsilon=1 and fix the resulting index N. For i≥N, write F_i=(F_i−F_N)+F_N and apply the native ultrametric Gauss bound to obtain G_R(F_i)≤max(1,G_R(F_N)).",
+        "Enlarge this bound by the maximum of the finitely many G_R(F_i) for i<N. Every term is finite by entire restrictedness. This covers the whole sequence."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-native-restricted",
+        "tauceti:TauCeti.PowerSeries.hasGaussNorm_of_isRestricted",
+        "mathlib:PowerSeries.gaussNorm_add_le_max",
+        "mathlib:PowerSeries.gaussNorm_nonneg"
+      ],
+      "acceptance": [
+        "No metric on the entire-series subring is assumed or constructed."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "gauss_bounded_of_cauchy"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-gauss-cauchy-complete",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Unique entire limit of Gauss-Cauchy sequences",
+      "kind": "theorem",
+      "statement": "Assume A is complete and ultrametric. A sequence F_i of entire series that is Cauchy in every native Gauss norm has a unique formal series f which is entire and satisfies G_R(F_i−f)→0 for every R>0.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit.",
+        "The norm is ultrametric: ‖x+y‖≤max(‖x‖,‖y‖).",
+        "A is complete."
+      ],
+      "proofSteps": [
+        "At radius 1, native le_gaussNorm bounds the norm of each coefficient difference by the Gauss difference. Native Metric.cauchySeq_iff makes each coefficient sequence Cauchy.",
+        "Completeness of A and the native Cauchy-sequence limit theorem supply a limit coefficient for each k. Use native PowerSeries.mk to form f from those coefficients; no new entire-series carrier is introduced.",
+        "The preceding Cauchy boundedness node gives uniform bounds at every radius. Apply the bounded-coefficient-limit node to make f entire and the bounded-Gauss-limit theorem to obtain convergence at every radius.",
+        "If g is another such limit, coefficient differences are bounded by the radius-one Gauss differences. Each coefficient therefore has both limits coeff_k(f) and coeff_k(g); native Hausdorff uniqueness and power-series extensionality give f=g."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-gauss-cauchy-bounded",
+        "LocallyAnalyticDistributions:L4/entire-bounded-coefficient-limit",
+        "LocallyAnalyticDistributions:L4/entire-bounded-gauss-limit",
+        "mathlib:PowerSeries.le_gaussNorm",
+        "mathlib:Metric.cauchySeq_iff",
+        "mathlib:cauchySeq_tendsto_of_complete",
+        "mathlib:PowerSeries.mk",
+        "mathlib:tendsto_nhds_unique"
+      ],
+      "acceptance": [
+        "This is the explicit sequential completeness criterion for all Gauss radii, not a CompleteSpace instance for an unspecified topology."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "existsUnique_entire_gauss_limit"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-gauss-uniform-evaluation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Uniform evaluation of a Gauss limit",
+      "kind": "theorem",
+      "statement": "Assume A is complete and ultrametric. For any filter l and family F_i of entire series, any entire f and R>0, G_R(F_i−f)→0 along l implies uniform convergence of entire_eval(F_i,a) to entire_eval(f,a) on the native closed ball ‖a‖≤R.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit.",
+        "The norm is ultrametric: ‖x+y‖≤max(‖x‖,‖y‖).",
+        "A is complete."
+      ],
+      "proofSteps": [
+        "The existing entire evaluation homomorphism identifies the difference of evaluated series with evaluation of F_i−f. The existing evaluation bound and native gaussSize comparison bound its norm by G_R(F_i−f) simultaneously for every ‖a‖≤R.",
+        "Apply native Metric.tendstoUniformlyOn_iff. The convergence of the common nonnegative upper bound supplies the same eventual index for every point of the ball.",
+        "The coefficient ring must be complete so the evaluation sums converge in A. The suggested signature of the existing evaluation homomorphism now explicitly retains this already stated mathematical hypothesis."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "LocallyAnalyticDistributions:L4/entire-native-gauss",
+        "mathlib:Metric.tendstoUniformlyOn_iff"
+      ],
+      "acceptance": [
+        "This applies to arbitrary filters and does not require compactness of the closed ball. In particular it justifies passing a radius-one Gauss limit through evaluation at 1 when norm(1)≤1."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendstoUniformlyOn_entire_eval_of_gauss"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "EntireGaussTests.uniform_truncation_evaluation",
+          "kind": "compatibility",
+          "statement": "For entire F, its native truncations evaluate uniformly to F on every closed ball of positive radius."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-gauss-multiplication-limit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Multiplication of Gauss limits",
+      "kind": "lemma",
+      "statement": "In an ultrametric A, if entire F_i→f and H_i→h in the native Gauss norm at a fixed R>0, then F_iH_i→fh in that same Gauss norm.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit.",
+        "The norm is ultrametric: ‖x+y‖≤max(‖x‖,‖y‖)."
+      ],
+      "proofSteps": [
+        "The ultrametric addition bound gives G_R(H_i)≤max(G_R(H_i−h),G_R(h)), so these values are eventually bounded.",
+        "Use F_iH_i−fh=(F_i−f)H_i+f(H_i−h). Apply native Gauss addition and the native multivariate submultiplicative bound, specialized through HasGaussNorm.hasMvGaussNorm to the actual univariate series.",
+        "The first error is bounded by a null sequence times a fixed bound; the second by G_R(f) times a null sequence. Their maximum tends to zero. Native restrictedness supplies all needed boundedness premises."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-native-restricted",
+        "tauceti:TauCeti.PowerSeries.hasGaussNorm_of_isRestricted",
+        "mathlib:PowerSeries.gaussNorm_add_le_max",
+        "mathlib:PowerSeries.HasGaussNorm.hasMvGaussNorm",
+        "mathlib:MvPowerSeries.gaussNorm_mul_le",
+        "mathlib:PowerSeries.gaussNorm_nonneg"
+      ],
+      "acceptance": [
+        "Use submultiplicativity, not multiplicativity: nonreduced normed coefficient rings are admitted."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendsto_gaussNorm_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "EntireGaussTests.nilpotent_product",
+          "kind": "non-example",
+          "statement": "For e≠0 with e²=0 and R>0, f=eT has G_R(f²)=0 but G_R(f)²>0. A multiplicative Gauss-norm claim would fail."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-quotient-gauss-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "A radius bound for entire monic division",
+      "kind": "lemma",
+      "statement": "Let Q be monic of degree d. If 1≤C≤S, 0<R≤S and ‖coeff_i(Q.reverse)‖≤C^i for every i, then every entire F satisfies G_R(S_Q(F))≤G_S(F)/S^d, where S_Q is the existing entireMonicQuotient.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit.",
+        "The norm is ultrametric: ‖x+y‖≤max(‖x‖,‖y‖).",
+        "A is nontrivial, complete and norm-one, as required by the preceding monic-division construction."
+      ],
+      "proofSteps": [
+        "Native restricted boundedness supplies HasGaussNorm for F at S. Use native le_gaussNorm to insert M=G_S(F) into the preceding entire-monic-quotient coefficient bound.",
+        "Multiply the kth quotient coefficient bound by R^k. It becomes at most (G_S(F)/S^d)(R/S)^k≤G_S(F)/S^d.",
+        "Use the native supremum upper-bound criterion. This imports the already decomposed reciprocal-tail estimate and introduces no new division algorithm."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-native-restricted",
+        "tauceti:TauCeti.PowerSeries.hasGaussNorm_of_isRestricted",
+        "mathlib:PowerSeries.gaussNorm_eq",
+        "mathlib:PowerSeries.le_gaussNorm",
+        "mathlib:PowerSeries.gaussNorm_nonneg",
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-bound",
+        "mathlib:csSup_le"
+      ],
+      "acceptance": [
+        "The radius is allowed to increase with Q. The case Q=1,d=0 is included."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "gaussNorm_entireMonicQuotient_le"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "EntireGaussTests.quotient_identity",
+          "kind": "degenerate",
+          "statement": "Division by the monic polynomial 1 gives S_1(F)=F for every entire F."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-quotient-gauss-limit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Continuity of entire monic division in Gauss radii",
+      "kind": "lemma",
+      "statement": "For fixed monic Q, if entire F_i→f in every Gauss radius, then S_Q(F_i)→S_Q(f) in every Gauss radius.",
+      "hypotheses": [
+        "A is a normed commutative ring. Write G_R(F) for the existing native PowerSeries.gaussNorm applied to the coefficient norm and real radius R. IsEntire and gaussSize are the preceding packet interfaces; the comparisons below identify them with native restrictedness at every positive radius and the native Gauss norm. PowerSeries.trunc N retains precisely the coefficients of degrees less than N. Additional completeness, ultrametricity and norm-one assumptions are stated individually; no field, reducedness or Noetherian assumption is implicit.",
+        "The norm is ultrametric: ‖x+y‖≤max(‖x‖,‖y‖).",
+        "A is nontrivial, complete and norm-one."
+      ],
+      "proofSteps": [
+        "The finite support of Q.reverse and its constant coefficient 1 supply C≥1 with ‖coeff_i(Q.reverse)‖≤C^i: bound the finitely many nonconstant coefficients by C, while the constant case uses norm(1)=1.",
+        "For fixed output radius R choose S≥max(C,R). The existing additivity and constant-scalar API of entireMonicQuotient identify the quotient difference with S_Q(F_i−f).",
+        "The preceding Gauss bound bounds its output norm by G_S(F_i−f)/S^d. The hypothesis at this S and the native squeeze criterion give the result."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-gauss-bound",
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient",
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-entire",
+        "mathlib:PowerSeries.gaussNorm_nonneg",
+        "mathlib:squeeze_zero"
+      ],
+      "acceptance": [
+        "This strengthens the earlier coefficientwise quotient convergence. It still does not prove the missing bounds for the general spectral resultant D(B,P)."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireConvergence",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "tendsto_gaussNorm_entireMonicQuotient"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, complete published printed 432–436 / PDF 16–20 freshly read on 27 September 2026; entire coefficient decay on 432, division on 434, spectral truncation limit and Lemma A3.8 on 435.",
+          "excerpt": "taking a limit",
+          "match": "Worker decomposition of the analytic convergence needed by the source limit. The native Gauss norm and restricted-series predicate already exist; the new estimates and completeness criterion do not construct the general spectral transform or assert its still-missing quantitative coefficient bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -9455,7 +10129,8 @@
         "The entire quotient and ordinary resultant unit criterion are now decomposed through native algebra. Complete spectral D(B,P) and Coleman A3.8–A3.9 transport, finite-projective determinants/rank, completed tensors and actual distribution families; no stage is closed by this slice.",
         "The finite polynomial spectral transform is now decomposed through native bounded resultants, with normalization, scalar extension, the finite factor-product law, exact zero-root padding, B(0)=0 stability, a finite quotient norm and the split root-product formula. The finite-endomorphism characteristic-polynomial comparison is now decomposed below. Complete the entire-input limit, its coefficient estimates and A3.8(11)/A3.9 transport; finite algebra alone does not discharge those analytic and operator obligations.",
         "The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps.",
-        "The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps."
+        "The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps.",
+        "Native Gauss norms and restrictedness now supply explicit two-radius truncation estimates, uniform-bound coefficient limits, all-radius Cauchy completeness, uniform evaluation on closed balls, multiplication convergence and continuity of fixed monic entire division. Construct the general spectral series D(B,P) by proving the missing quantitative coefficient estimates for its simultaneous finite truncations; then use these convergence criteria and the supplied scalar resultant limit for A3.8(11). Prove A3.8(10) and the infinite-operator A3.9 transport. No coefficientwise limit is sufficient by itself, and no topology or completed carrier is silently introduced. Canonical finite-module topology, nonreduced determinant/rank, completed tensors and actual distribution families remain separate gaps."
       ]
     }
   ],
@@ -9475,7 +10150,7 @@
     },
     {
       "title": "Spectral resultant and Coleman transport",
-      "detail": "The finite polynomial spectral transform and its unrestricted finite-matrix characteristic comparison are now decomposed. The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps. Agreement of Coleman’s ideal-reduction determinant with the principal-minor determinant, transport through u plus0 and the Q/Q*(0) normalization in Buzzard Theorem3.3 still need source decomposition. The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps."
+      "detail": "The finite polynomial spectral transform and its unrestricted finite-matrix characteristic comparison are now decomposed. The unrestricted finite matrix identity is now decomposed through native generic matrices, independent universal polynomial coefficients, a rational specialization detecting the generic discriminant, an eigenbasis over the algebraic closure of the universal fraction field, faithful descent and arbitrary-ring specialization. Continue with the entire-input definition and limit of D, quantitative coefficient estimates, Coleman A3.8(11) and the infinite-operator A3.9 transport. Preserve the distinction between fixed-rank finite mapping (no B(0)=0 hypothesis) and rank padding or infinite compact-operator transport (B(0)=0 required). Canonical finite-module topology, completed tensor products, determinant/rank over nonreduced coefficients and actual distribution families remain separate gaps. Agreement of Coleman’s ideal-reduction determinant with the principal-minor determinant, transport through u plus0 and the Q/Q*(0) normalization in Buzzard Theorem3.3 still need source decomposition. The scalar truncation equality in Coleman A3.8(11) is now decomposed: native Sylvester reflection/swap gives the finite reciprocal identity; convergent monic-quotient tails give remainder coefficient convergence; fixed-size resultant continuity gives Res(Q,F_n)→Res(Q,F); and normalization gives the simultaneous spectral scalar limit. Construct the general entire D(B,P), prove convergence with quantitative coefficient estimates in an entire topology that makes evaluation continuous, and then identify its value at1 using the supplied scalar limit. Prove A3.8(10) and the infinite-operator A3.9 transport. Do not infer evaluation continuity from coefficientwise convergence or identify a scalar limit with an unconstructed series. The canonical finite-module topology, finite-projective determinants/rank over nonreduced coefficients, completed tensors and actual distribution families remain separate gaps. Native Gauss norms and restrictedness now supply explicit two-radius truncation estimates, uniform-bound coefficient limits, all-radius Cauchy completeness, uniform evaluation on closed balls, multiplication convergence and continuity of fixed monic entire division. Construct the general spectral series D(B,P) by proving the missing quantitative coefficient estimates for its simultaneous finite truncations; then use these convergence criteria and the supplied scalar resultant limit for A3.8(11). Prove A3.8(10) and the infinite-operator A3.9 transport. No coefficientwise limit is sufficient by itself, and no topology or completed carrier is silently introduced. Canonical finite-module topology, nonreduced determinant/rank, completed tensors and actual distribution families remain separate gaps."
     },
     {
       "title": "Finite free and finite projective algebra interfaces",
