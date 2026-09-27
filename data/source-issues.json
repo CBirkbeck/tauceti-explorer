@@ -148485,6 +148485,153 @@
    "reviewReason": null
   },
   {
+   "id": "SieveMethodsAndPrimePatterns/E12",
+   "kind": "misprint",
+   "locator": "Live author HTML Chapter 16, acquired 2026-09-27, (16.1.2), final display of Theorem 16.2 proof, and final paragraph of Theorem 16.7 proof.",
+   "printed": "m ∈ ℤ; −n. M < m ≤ M+N; a_n. for some N.",
+   "correction": "Use the quantified integer m in (16.1.2); index the exponential sum by n consistently; the smooth-number asymptotic has some positive constant c as N grows, rather than some N.",
+   "reason": "The first two displayed formulas use a different free dummy name from the one quantified. In the third phrase N is the asymptotic variable already fixed by the argument, while c is the unspecified constant. These are local notation slips; the intended statements are identifiable.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+    "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+    "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya, Kiran S. Kedlaya, Notes on analytic number theory, Chapter 16: A multiplicative large sieve inequality, Live author HTML, Chapter 16, acquired 2026-09-27; SHA-256 e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E13",
+   "kind": "error",
+   "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Lemma 16.5 and Exercise 16.4.3 hint; the proof of Theorem 16.4 uses this lemma.",
+   "printed": "h(q)|S(0)|² ≤ Σ_a|S(a/q)|²",
+   "correction": "Before applying the local energy lemma, replace the coefficients by b_n=a_n on the surviving residue classes and zero elsewhere. Define S from b. State h(p)=0 for primes outside P, or restrict the denominator sum to squarefree products of primes in P. For Theorem 16.4 use S_b(0)=Z and Σ|b_n|²≤Σ|a_n|²; for the indicator specialization Σ|b_n|²=Z.",
+   "reason": "As written Definition 16.3 allows nonzero coefficients on excluded classes. Take P={2}, Ω₂={0}, a₁=a₂=1, all other coefficients zero. Then h(2)=1 and S(0)=2, while S(1/2)=0, so the displayed lemma asserts 4≤0. The exercise hint’s removal of excluded classes changes S(0); it is valid only after the coefficients and target have been adjusted. Theorem 16.4 itself is not refuted by this example.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+    "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+    "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya, Kiran S. Kedlaya, Notes on analytic number theory, Chapter 16: A multiplicative large sieve inequality, Live author HTML, Chapter 16, acquired 2026-09-27; SHA-256 e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E14",
+   "kind": "misprint",
+   "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Proof of Theorem 16.4, theorem invoked before Lemma 16.5.",
+   "printed": "Theorem 16.2",
+   "correction": "Invoke the additive reduced-residue bound Theorem 16.1 when summing the corrected Lemma 16.5 over q.",
+   "reason": "Lemma 16.5 provides a lower bound for reduced additive exponential-sum energies. Theorem 16.2 bounds a different sum over primitive multiplicative characters; its proof compares the multiplicative sum below the additive one, which is the wrong direction for inferring the needed additive upper bound. Theorem 16.1 gives that upper bound directly.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+    "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+    "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya, Kiran S. Kedlaya, Notes on analytic number theory, Chapter 16: A multiplicative large sieve inequality, Live author HTML, Chapter 16, acquired 2026-09-27; SHA-256 e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E15",
+   "kind": "misprint",
+   "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Proof of Lemma 16.5, first CRT display.",
+   "printed": "a₁/(q₁+a₂/q₂)",
+   "correction": "The phase is a₁/q₁+a₂/q₂, with q₁ and q₂ coprime divisors of squarefree q. The map to the numerator modulo q is a₁q₂+a₂q₁ and is a bijection on reduced residues.",
+   "reason": "The braces place the second fraction inside the first denominator. At q₁=2,q₂=3,a₁=a₂=1 the printed phase is 3/7 instead of 5/6. It does not have the required denominator q=6 or define the stated CRT reindexing.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+    "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+    "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya, Kiran S. Kedlaya, Notes on analytic number theory, Chapter 16: A multiplicative large sieve inequality, Live author HTML, Chapter 16, acquired 2026-09-27; SHA-256 e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E16",
+   "kind": "misprint",
+   "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Proof of Theorem 16.7, parenthesis computing the prime sieve density.",
+   "printed": "(p−1)/(p+1) ∼ 1/2",
+   "correction": "The ratio (p−1)/(p+1) tends to 1, so its asymptotic equivalent is 1. The earlier density ω(p)/p tends to 1/2.",
+   "reason": "Subtracting 1 gives −2/(p+1), which tends to zero. The bound h(p)≥1/3 used in the subsequent argument is unaffected for odd primes.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+    "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+    "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya, Kiran S. Kedlaya, Notes on analytic number theory, Chapter 16: A multiplicative large sieve inequality, Live author HTML, Chapter 16, acquired 2026-09-27; SHA-256 e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E17",
+   "kind": "error",
+   "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Proof of Theorem 16.7, final smooth-number count and the choice k=ε⁻¹.",
+   "printed": "k=ε⁻¹; Z_ε ≥ Σ_{p₁,…,p_k}⌊N/(p₁⋯p_k)⌋",
+   "correction": "Choose an integer k, for instance after decreasing ε to a reciprocal integer, and control the number of representations of each smooth integer. Insert a proved multiplicity factor in the lower bound. Supply the positive-density estimate with its dependence on ε. This finding does not assert Linnik’s theorem is false.",
+   "reason": "The displayed sum counts ordered prime tuples and can count one integer several times. With ε=1/2, N=100000, k=2, and the exact strict window p⁴>N and p²<N, the printed sum is 36745 while the number of integers up to N with all prime divisors at most √N is 35819. Direct integer sieving reproduces the false inequality. At N=1000000 the two values are 387659 and 344299. Also ε⁻¹ is not an integer for arbitrary ε, so it cannot serve as an unrestricted tuple length.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+    "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+    "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya, Kiran S. Kedlaya, Notes on analytic number theory, Chapter 16: A multiplicative large sieve inequality, Live author HTML, Chapter 16, acquired 2026-09-27; SHA-256 e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E18",
+   "kind": "gap",
+   "locator": "Live author HTML Chapter 16, acquired 2026-09-27, Definition 16.6, least positive quadratic nonresidue for p prime.",
+   "printed": "p prime",
+   "correction": "Restrict the definition to odd primes, or state a separate convention and treatment for p=2. The least positive nonsquare residue exists for each odd prime.",
+   "reason": "Every element of ZMod 2 is a square: 0=0² and 1=1². Hence no positive integer is a quadratic nonresidue modulo 2 under the literal nonsquare-residue definition. The finitely many exceptional primes can be treated separately in the counting theorem.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Read the complete live author Chapter 16 on 2026-09-27; the recorded text remains in that acquired HTML. The plain URL returned 406 to the command-line client; the same path with ?worker=20260927 served the chapter. The exact URL and byte hash are in sourceVersions.",
+    "Bounded web searches on 2026-09-27 for the chapter title, Lemma 16.5, Linnik, corrections and errata, including the author domain, found no matching correction. A 2007 MIT lecture-note copy was identified but not acquired or collated; the findings are not asserted against it.",
+    "Screened the snapshot sourceIssues objects in packet, paper and errata JSON for the chapter URL and the named passages; no existing matching entry found. These are unreviewed findings, with no exhaustive novelty claim and no author contact."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya, Kiran S. Kedlaya, Notes on analytic number theory, Chapter 16: A multiplicative large sieve inequality, Live author HTML, Chapter 16, acquired 2026-09-27; SHA-256 e67fd81c6d07ccac764a83eba8bf0b1c132739a716d3ae657b0172d5071cce67.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "WeilConjectures/E-WC0-1",
    "kind": "error",
    "locator": "Author course notes v2.21, Lemma 27.5, printed p. 155, final displayed formal logarithmic identity; proof p. 156.",
