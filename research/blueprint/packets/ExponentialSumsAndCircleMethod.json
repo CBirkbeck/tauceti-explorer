@@ -11,7 +11,7 @@
     "ExponentialSumsAndCircleMethod:ES.5"
   ],
   "status": "partial",
-  "summary": "A 35-node partial ES.0 blueprint preserving all 26 inherited interval, primitive-product and modulus-packing nodes. Nine numerical continuation nodes give the squared divisor factor, corrected explicit and uniform thresholds, the real-power saving kernel, the interval-scale conversion, the source exponent margin and constant absorption. A final uniform numerical implication retains the analytic estimate as an explicit premise. The character CRT reconstruction, quadratic-conductor interface and complete Graham–Ringrose proof remain unresolved; no full Proposition 8.2 claim is made. Eight gaps and all six partial stages remain.",
+  "summary": "A 45-node partial ES.0 blueprint preserving all 35 inherited nodes. Ten continuation declarations compose the existing CRT and unit-character equivalences, prove all-integer reconstruction, track the exact factor conductors and quadraticity, and connect the bounded blocks to a large-conductor quadratic character. Three exact CA.1 nodes supply coprime-product primitivity and the two conductor-shape facts. The distinguished factor is primitive, the original strict factor count and interval threshold are preserved, and empty principal families are included. The complete external Graham–Ringrose proof and full Proposition 8.2 assembly remain open; all six stages remain partial and all nodes unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -533,13 +533,167 @@
         "module": "Mathlib/RingTheory/Coprime/Lemmas.lean",
         "provides": "Integer coprimality of natural casts is equivalent to natural coprimality.",
         "checked": "Statement, surrounding hypotheses and relevant proof read at the pinned commit, source line 51. The conductor adapters were also screened against Tau Ceti's complete DirichletCharacter/Basic.lean and the declaration index."
+      },
+      {
+        "ref": "mathlib:ZMod.prodEquivPi",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/QuotientRing.lean",
+        "provides": "Native finite CRT ring equivalence for pairwise-coprime natural moduli.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 78; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:ZMod.prodEquivPi_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/QuotientRing.lean",
+        "provides": "Each coordinate of the native CRT equivalence is the canonical quotient reduction.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 89; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:MulChar.mulEquivToUnitHom",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "Multiplicative equivalence between native characters and homomorphisms of unit groups.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 368; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:Units.mapEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Units/Equiv.lean",
+        "provides": "A multiplicative equivalence induces one on groups of units.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 39; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:MulEquiv.piUnits",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Pi/Units.lean",
+        "provides": "Units of a product are the product of units.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 25; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:Pi.monoidHomMulEquiv",
+        "kind": "def",
+        "module": "Mathlib/Algebra/BigOperators/Pi.lean",
+        "provides": "Multiplicative equivalence decomposing homomorphisms from a finite commutative-monoid product; forward restriction and inverse finite product are built.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 171; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:MulEquiv.monoidHomCongrLeft",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Equiv/Basic.lean",
+        "provides": "Transport of homomorphisms along a domain multiplicative equivalence.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 151; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:MulEquiv.piCongrRight",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Equiv/Basic.lean",
+        "provides": "Coordinatewise multiplicative equivalence on dependent products.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 202; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.changeLevel_toUnitHom",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The unit homomorphism of a level lift is composition with ZMod.unitsMap.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 75; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:Pi.isUnit_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/Pi/Units.lean",
+        "provides": "A product element is a unit exactly when every coordinate is a unit.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 31; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:MulChar.map_nonunit",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "Native characters vanish at nonunits.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 128; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.isPrimitive_one_level_one",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The principal character modulo one is primitive.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 296; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.changeLevel_trans",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Transitivity of level lifting.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 100; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.eq_one_iff_conductor_eq_one",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "A positive-level character is principal exactly when its conductor is one.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 268; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:Nat.gcd_mul_of_coprime_of_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/GCD/Basic.lean",
+        "provides": "If a is coprime to c and b divides c, gcd(ab,c)=b.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 217; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:IsCoprime.mul_right_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Coprime/Basic.lean",
+        "provides": "Coprimality with a product is equivalent to coprimality with each factor.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 157; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:Nat.ordProj_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Defs.lean",
+        "provides": "The prime-power part p^factorization(n,p) divides n.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 333; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:Nat.not_dvd_ordCompl",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "For prime p and n≠0, the complementary factor n/p^factorization(n,p) is not divisible by p.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 197; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_ordCompl",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "For prime p and n≠0, p is coprime to the complementary factor.",
+        "checked": "Statement and surrounding hypotheses read at the pinned commit, source line 202; source blob verified against the pin tree. The index was used only to locate it."
+      },
+      {
+        "ref": "mathlib:Nat.ordProj_mul_ordCompl_eq_self",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "The prime-power part times its complementary quotient recovers the natural number.",
+        "checked": "Statement and hypotheses read at the pinned commit, source line 115; file blob verified against the pin tree."
+      },
+      {
+        "ref": "mathlib:Nat.ordProj_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Factorization/Basic.lean",
+        "provides": "The prime-power part is positive.",
+        "checked": "Statement and hypotheses read at the pinned commit, source line 100; file blob verified against the pin tree."
+      },
+      {
+        "ref": "mathlib:Finset.squarefree_prod_of_pairwise_isCoprime",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Squarefree/Basic.lean",
+        "provides": "A finite product of pairwise relatively prime squarefree elements is squarefree.",
+        "checked": "Statement and hypotheses read at the pinned commit, source line 238; file blob verified against the pin tree."
       }
     ]
   },
   "sources": [
     {
       "id": "BennettSiksek2020",
-      "title": "A conjecture of Erdős",
+      "title": "A conjecture of Erdős, supersingular primes and short character sums",
       "authors": "Michael A. Bennett and Samir Siksek",
       "edition": "Annals of Mathematics 191 (2020), 355–392; published version of record.",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf",
@@ -548,7 +702,8 @@
       "readSections": [
         "§8.1, printed pp.376–379, including Theorem 6, Proposition 8.2 and both proof cases.",
         "Page images 377–379 checked for conductor notation, divisor bound, factors and interval endpoints.",
-        "Continuation on 2026-09-27: freshly reread the whole selected §8.1 argument on printed pp.376–379 and inspected page 377 image, distinguishing ambient lcm, primitive conductor and excluded primes."
+        "Continuation on 2026-09-27: freshly reread the whole selected §8.1 argument on printed pp.376–379 and inspected page 377 image, distinguishing ambient lcm, primitive conductor and excluded primes.",
+        "CRT continuation, 2026-09-27: selected published pp.376–379 reread; extraction items44 and92–97, accepted route8 and reviewed E2/E3/E11 compared with the actual factor requirements."
       ],
       "note": "This blueprint reads the complete selected §8.1 argument, not the entire paper. The accepted extraction, its review and known reviewed E2/E3/E11 were read. The proof of the externally quoted Graham–Ringrose estimate was not read."
     },
@@ -565,7 +720,8 @@
         "Finite-sum norm inequality, natural coprimality under adding multiples, and real-power addition/multiplication/monotonicity statements with hypotheses.",
         "Algebra/Order/Archimedean/Defs.lean: exists_nat_ge; real-power nonnegativity and inverse-exponent threshold laws reread for the continuation.",
         "DirichletCharacter/Basic.lean lines1–445 in full for carrier, nonunit evaluation, change-level, conductor invariance, inverse, ambient/primitive product and conductor-product divisibility; Tau Ceti's DirichletCharacter/Basic.lean read in full as a duplication screen.",
-        "MulChar/Basic.lean quadratic predicate and square criterion (lines428–568); PrimeFin.lean lines30–122; Factorization/Basic.lean lines330–360; GCD/BigOperators.lean and GCD/Prime.lean in full; finite-subset product divisibility; common-prime characterization of noncoprimality; integer/natural coprimality comparison."
+        "MulChar/Basic.lean quadratic predicate and square criterion (lines428–568); PrimeFin.lean lines30–122; Factorization/Basic.lean lines330–360; GCD/BigOperators.lean and GCD/Prime.lean in full; finite-subset product divisibility; common-prime characterization of noncoprimality; integer/natural coprimality comparison.",
+        "CRT continuation: ZMod/QuotientRing native finite CRT; Algebra/BigOperators/Pi native homomorphism-product equivalence; unit equivalences; character/conductor/level-lifting statements; natural prime-power complement and gcd-product statements. All newly cited source blobs verified at the pin."
       ]
     },
     {
@@ -2735,6 +2891,555 @@
       "planet": {
         "name": "Small-conductor product cancellation"
       }
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/crt-character-equivalence",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "CRT decomposition of Dirichlet characters",
+      "kind": "definition",
+      "statement": "For a finite index type I, pairwise coprime natural moduli nᵢ and a commutative monoid with zero C, put N=∏ᵢnᵢ. Define crtCharacterEquiv(n) from Dirichlet characters C of level N to families of characters C of levels nᵢ, as a multiplicative equivalence. Let E be the native unit-group CRT equivalence from (ZMod N)× to ∏ᵢ(ZMod nᵢ)×. The i-th factor has unit homomorphism u ↦ χ(E⁻¹(eᵢ(u))), where eᵢ places u in coordinate i and one elsewhere; extend by zero at nonunits using the native unit-character equivalence. The inverse multiplies the coordinate characters on CRT units and extends by zero. No new character or conductor carrier is introduced.",
+      "hypotheses": [
+        "I is finite, with decidable equality for the coordinate inclusions; nᵢ are pairwise coprime. No positivity is needed for this algebraic equivalence; all conductor statements below require nᵢ>0.",
+        "C is any commutative monoid with zero. Empty I has N=1; modulus-one coordinates are allowed."
+      ],
+      "proofSteps": [
+        "Compose ZMod.prodEquivPi with Units.mapEquiv and MulEquiv.piUnits to obtain E. These are existing equivalences, not additional constructions.",
+        "Compose MulChar.mulEquivToUnitHom, transport along E by MulEquiv.monoidHomCongrLeft, Pi.monoidHomMulEquiv on the finite product of unit groups, and the coordinate inverses of MulChar.mulEquivToUnitHom through MulEquiv.piCongrRight.",
+        "The native Pi.monoidHomMulEquiv supplies both inverse laws and multiplicativity. Unfold its forward map to get the single-coordinate restriction, and its inverse to get the product on units. Zero extension is inherited from MulChar.ofUnitHom."
+      ],
+      "acceptance": [
+        "An empty family reconstructs the unique character modulo one, whose value is one even at zero.",
+        "A singleton family recovers its input character; at moduli 3 and 4 the principal family reconstructs a character zero at 2 and one at −1."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod.prodEquivPi",
+        "mathlib:MulChar.mulEquivToUnitHom",
+        "mathlib:Units.mapEquiv",
+        "mathlib:MulEquiv.piUnits",
+        "mathlib:MulEquiv.monoidHomCongrLeft",
+        "mathlib:Pi.monoidHomMulEquiv",
+        "mathlib:MulEquiv.piCongrRight"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Worker-defined adapter composing the pinned CRT and unit-character equivalences for the block factors used in Case 1; the paper does not name this equivalence separately."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.crtCharacterEquiv",
+      "uses": [
+        {
+          "where": "Bennett–Siksek §8.1, Case 1, printed pp.377–378",
+          "how": "Produce actual characters on the pairwise-coprime bounded blocks and recover the summand at all integers."
+        },
+        {
+          "where": "Theorem 6, printed pp.376–377",
+          "how": "Separate each ambient block modulus from its conductor; establish primitivity only where the analytic theorem requires it."
+        },
+        {
+          "where": "ES.0/crt-product-conductor and /crt-quadratic-components",
+          "how": "Use the multiplicative equivalence to compare primitive conductors and squares of characters."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ExponentialSumsPlan.crtCharacterEquiv_apply_unit",
+          "role": "characterisation",
+          "statement": "With E and eᵢ as in the definition, the unit homomorphism of the i-th factor sends u to χ.toUnitHom(E⁻¹(eᵢ(u))). This fixes the coordinate order."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.crtCharacterEquiv_symm_unit",
+          "role": "simp",
+          "statement": "For a family φᵢ and a unit u modulo N, the inverse character at u equals ∏ᵢφᵢ(reductionᵢ(u)), using the native ZMod.unitsMap for nᵢ|N."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.crtCharacterEquiv_one",
+          "role": "structure",
+          "statement": "The principal character maps to the family of principal characters, with their native zero values at nonunits."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.crtCharacterEquiv_mul",
+          "role": "structure",
+          "statement": "The image of χψ is the coordinatewise product of the images of χ and ψ."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.crtCharacterEquiv_ext",
+          "role": "extensionality",
+          "statement": "Two characters of level N are equal if and only if every corresponding CRT factor is equal."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.crt_inverse_product",
+          "role": "compatibility",
+          "statement": "The inverse of φ is ∏ᵢ changeLevel(nᵢ|N)(φᵢ), an equality of native characters at N. Promoted to ES.0/crt-inverse-product because conductor arguments consume it."
+        },
+        {
+          "name": "TauCeti.ExponentialSumsPlan.crt_integer_evaluation",
+          "role": "compatibility",
+          "statement": "For every integer a, χ(a)=∏ᵢ(crtCharacterEquiv(n)(χ))ᵢ(a), including nonunits and negative a. Promoted to ES.0/crt-integer-evaluation for the summand comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "crt_empty_inverse",
+          "kind": "degenerate",
+          "statement": "For I=Fin 0 and its empty family, the inverse character evaluates to 1 at every integer a."
+        },
+        {
+          "name": "crt_one_zero",
+          "kind": "degenerate",
+          "statement": "For the singleton modulus-one family, the factor of the principal character evaluates to 1 at zero."
+        },
+        {
+          "name": "crt_singleton",
+          "kind": "characterisation",
+          "statement": "For the singleton modulus-seven family and arbitrary χ, the unique factor agrees with χ at every integer."
+        },
+        {
+          "name": "crt_principal_nonunit",
+          "kind": "non-example",
+          "statement": "At the two moduli (3,4), the inverse of the principal family evaluates to 0 at 2; it is not the constant function one."
+        },
+        {
+          "name": "crt_principal_unit",
+          "kind": "computation",
+          "statement": "At the two moduli (3,4), the inverse of the principal family evaluates to 1 at −1."
+        },
+        {
+          "name": "crt_principal_conductor",
+          "kind": "compatibility",
+          "statement": "The inverse of the principal family at (3,4) has native conductor 1, despite ambient modulus 12."
+        }
+      ]
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/crt-inverse-product",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "CRT reconstruction as a product of level lifts",
+      "kind": "lemma",
+      "statement": "For the finite pairwise-coprime family nᵢ, N=∏ᵢnᵢ and characters φᵢ with values in a commutative monoid with zero C, crtCharacterEquiv(n)⁻¹(φ)=∏ᵢ changeLevel(nᵢ|N)(φᵢ), as characters modulo N.",
+      "hypotheses": [
+        "Same finite family and coefficient assumptions as crt-character-equivalence; zero moduli and empty families are allowed here."
+      ],
+      "proofSteps": [
+        "Use the unit-character equivalence to compare the two characters on units modulo N.",
+        "The inverse API gives the product of φᵢ evaluated on coordinate reductions. ZMod.prodEquivPi_apply identifies each coordinate with its native reduction; DirichletCharacter.changeLevel_toUnitHom gives exactly the same unit homomorphism for each lifted factor.",
+        "The finite product of characters agrees on units, hence agrees as a native MulChar; at nonunits zero extension is already part of the carrier."
+      ],
+      "acceptance": [
+        "Empty product is the principal character modulo one.",
+        "The right side is a product after all factors are lifted to N, not the mixed-level binary mul constructor."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/crt-character-equivalence",
+        "mathlib:ZMod.prodEquivPi_apply",
+        "mathlib:DirichletCharacter.changeLevel_toUnitHom",
+        "mathlib:MulChar.mulEquivToUnitHom"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Worker derivation supplying the precise meaning of the source product notation through native changeLevel."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.crt_inverse_product"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/crt-integer-evaluation",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "All-integer CRT reconstruction",
+      "kind": "lemma",
+      "statement": "For every integer z and character χ at N=∏ᵢnᵢ with values in a commutative monoid with zero C, χ(z)=∏ᵢφᵢ(z), where φ=crtCharacterEquiv(n)(χ). No coprimality hypothesis on z is imposed.",
+      "hypotheses": [
+        "I finite and the nᵢ pairwise coprime. Empty I and modulus-one coordinates are included."
+      ],
+      "proofSteps": [
+        "If z is a unit modulo N, use the inverse unit formula, its inverse law, and ZMod.prodEquivPi_apply to identify every coordinate with the integer cast at nᵢ.",
+        "If z is a nonunit modulo N, transport its unit predicate across the ring CRT equivalence and use Pi.isUnit_iff. Some coordinate z modulo nᵢ is a nonunit. Both χ(z) and that factor vanish by the native MulChar nonunit law, so the product is zero.",
+        "For empty I the target product is the one-element ring; all residues are units and the empty character product has value one."
+      ],
+      "acceptance": [
+        "Principal modulo 12 vanishes at 2, so reconstruction must retain nonunit zeros.",
+        "The formula applies at z=0 and z=−1; N=1 gives value one at both."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/crt-character-equivalence",
+        "mathlib:ZMod.prodEquivPi_apply",
+        "mathlib:Pi.isUnit_iff",
+        "mathlib:MulChar.map_nonunit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Worker derivation of the all-integer product identity needed inside the source interval sum; equality on units alone would not suffice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.crt_integer_evaluation"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/crt-primitive-family",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Finite CRT products of primitive factors",
+      "kind": "lemma",
+      "statement": "Let nᵢ>0 be a finite pairwise-coprime family and φᵢ native Dirichlet characters with values in a commutative monoid with zero C. If every φᵢ is primitive at nᵢ, then crtCharacterEquiv(n)⁻¹(φ) is primitive at ∏ᵢnᵢ.",
+      "hypotheses": [
+        "All nᵢ>0. The index set may be empty and some nᵢ may equal one."
+      ],
+      "proofSteps": [
+        "Induct over the finite index set, using crt-inverse-product to express the inverse character as a product of level lifts. The empty case is the native primitive principal character at level one.",
+        "At an insertion i, pairwise coprimality and Nat.coprime_prod_right_iff make nᵢ coprime to the product of the remaining levels. The induction hypothesis makes the remaining product primitive.",
+        "Apply the exact CA.1 primitivity-of-a-product-at-coprime-levels supplier. DirichletCharacter.changeLevel_trans identifies its two lifted factors with the full product. Reindexing and associating finite products are routine; the binary primitivity proof stays with CA.1."
+      ],
+      "acceptance": [
+        "The empty family is primitive at level one.",
+        "Primitivity at level one does not require nonprincipality.",
+        "Without coprimality, squaring a nonprincipal quadratic character gives a principal product; the conclusion fails."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/crt-inverse-product",
+        "ClassicalArithmeticCompletion:CA.1/primitivity-of-a-product-at-coprime-levels",
+        "mathlib:DirichletCharacter.isPrimitive_one_level_one",
+        "mathlib:DirichletCharacter.changeLevel_trans",
+        "mathlib:Nat.coprime_prod_right_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Finite-family adapter for the primitive factors on p.377, importing the owned binary theorem instead of rebuilding it."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.crt_primitive_family"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/crt-product-conductor",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Conductor of a finite CRT product",
+      "kind": "theorem",
+      "statement": "For positive pairwise-coprime nᵢ and arbitrary characters φᵢ valued in a commutative monoid with zero C, the conductor of crtCharacterEquiv(n)⁻¹(φ) equals ∏ᵢ cond(φᵢ).",
+      "hypotheses": [
+        "All nᵢ>0; neither primitivity nor nonprincipality of φᵢ is required."
+      ],
+      "proofSteps": [
+        "Set dᵢ=cond(φᵢ). The native conductor_dvd_level and conductor_ne_zero give positive dᵢ dividing nᵢ. The dᵢ remain pairwise coprime by divisibility.",
+        "Take each native primitiveCharacter φᵢ and reconstruct it at D=∏ᵢdᵢ. The preceding finite primitive-family lemma makes this character primitive at D.",
+        "Its change of level from D to N equals the reconstructed original family. Expand both inverse products, use changeLevel as a monoid homomorphism and changeLevel_trans, then use changeLevel_primitiveCharacter coordinatewise.",
+        "Conductor invariance under changeLevel gives the stated exact product. This uses positive N and does not confuse dᵢ with nᵢ."
+      ],
+      "acceptance": [
+        "A principal family has product conductor one regardless of its ambient moduli.",
+        "A mixture of a primitive factor modulo 4 and a principal factor modulo 3 has conductor 4 and ambient level 12."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/crt-inverse-product",
+        "ExponentialSumsAndCircleMethod:ES.0/crt-primitive-family",
+        "mathlib:DirichletCharacter.conductor_dvd_level",
+        "mathlib:DirichletCharacter.conductor_ne_zero",
+        "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:DirichletCharacter.changeLevel_trans",
+        "mathlib:DirichletCharacter.conductor_changeLevel"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Worker derivation making the source primitive/principal distinction precise for arbitrary CRT groupings."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.crt_product_conductor"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/crt-component-conductor",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Conductor of one CRT factor",
+      "kind": "lemma",
+      "statement": "For χ of positive level N=∏ᵢnᵢ with positive pairwise-coprime nᵢ, the conductor of its i-th CRT factor equals gcd(cond(χ),nᵢ). In particular a block nᵢ dividing cond(χ) has a primitive factor; a block coprime to cond(χ) has a principal factor.",
+      "hypotheses": [
+        "C is a commutative monoid with zero; every nᵢ>0. The two consequences use the native IsPrimitive and principal-character criteria."
+      ],
+      "proofSteps": [
+        "Apply crt-product-conductor to the family crtCharacterEquiv(n)(χ), using the inverse law to obtain cond(χ)=∏ⱼdⱼ.",
+        "The i-th dᵢ divides nᵢ. The product of all other dⱼ is coprime to nᵢ because dⱼ|nⱼ and the nⱼ are pairwise coprime.",
+        "Split the conductor product at i and apply Nat.gcd_mul_of_coprime_of_dvd, obtaining gcd(cond(χ),nᵢ)=dᵢ.",
+        "The first consequence unfolds IsPrimitive. For a block coprime to cond(χ), dᵢ=1 and eq_one_iff_conductor_eq_one identifies its factor with the principal character."
+      ],
+      "acceptance": [
+        "At ambient level 12 and conductor 4, the mod-3 factor is principal and the mod-4 factor primitive.",
+        "A principal character at a block of size greater than one is not primitive there."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/crt-product-conductor",
+        "ExponentialSumsAndCircleMethod:ES.0/crt-character-equivalence",
+        "mathlib:DirichletCharacter.conductor_dvd_level",
+        "mathlib:Nat.coprime_prod_right_iff",
+        "mathlib:Nat.gcd_mul_of_coprime_of_dvd",
+        "mathlib:DirichletCharacter.IsPrimitive",
+        "mathlib:DirichletCharacter.eq_one_iff_conductor_eq_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Worker derivation of exactly the distinguished-factor primitivity required by Theorem 6; it also recovers the source principal factors when their moduli are coprime to the conductor."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.crt_component_conductor"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/crt-quadratic-components",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Quadratic CRT factors",
+      "kind": "lemma",
+      "statement": "Every CRT factor of a complex quadratic Dirichlet character is quadratic in the native MulChar.IsQuadratic sense, which includes principal characters.",
+      "hypotheses": [
+        "A finite pairwise-coprime family; χ is a complex-valued native quadratic character at its product level."
+      ],
+      "proofSteps": [
+        "Use MulChar.isQuadratic_iff_sq_eq_one to express quadraticity as χ²=1 in the character group.",
+        "The multiplicative equivalence sends this equality to the coordinatewise square equality. Evaluate at the selected coordinate and apply the same native criterion."
+      ],
+      "acceptance": [
+        "A principal component satisfies this predicate.",
+        "No claim that all components are nonprincipal or have exact order two is made."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/crt-character-equivalence",
+        "mathlib:MulChar.isQuadratic_iff_sq_eq_one"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Worker derivation preserving the quadratic nature of the source factors without adding a new quadratic-character definition."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.crt_quadratic_components"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/change-level-exclusion",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Level lifting as an exclusion mask",
+      "kind": "lemma",
+      "statement": "For any natural D,R, any complex Dirichlet character η modulo D and any integer z, changeLevel(D|DR)(η)(z) equals η(z) if z and R are coprime as integers, and zero otherwise. No coprimality between D and R, and no positivity assumption, is needed for this evaluation identity.",
+      "hypotheses": [
+        "Native integer evaluation and IsCoprime are used, including D=0 or R=0; analytic applications have D,R>0."
+      ],
+      "proofSteps": [
+        "If z is coprime to both D and R, IsCoprime.mul_right_iff shows it is a unit modulo DR and changeLevel_eq_cast_of_dvd' gives the original value.",
+        "If z is not coprime to R, it is not coprime to DR and apply_eq_zero_iff makes the lifted value zero.",
+        "If z is not coprime to D, both η(z) and the lifted value vanish; the conditional right side is then zero in either case."
+      ],
+      "acceptance": [
+        "R=1 gives equality at every integer, including nonunits modulo D.",
+        "Repeated prime factors in R do not change the mask; coprimality of D and R is unnecessary."
+      ],
+      "prerequisites": [
+        "mathlib:DirichletCharacter.changeLevel",
+        "mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd'",
+        "mathlib:DirichletCharacter.apply_eq_zero_iff",
+        "mathlib:IsCoprime.mul_right_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Worker derivation identifying the corrected excluded-prime summand on pp.377–379 with a native character at the reduced period."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.change_level_exclusion"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/bounded-crt-character-factors",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Characters on the bounded CRT blocks",
+      "kind": "theorem",
+      "statement": "Let T≥8, 0<a≤8, Q odd squarefree with Q≥T, and R squarefree, with gcd(Q,R)=1 and gcd(a,QR)=1. Every prime dividing Q or R is at most T². Let η be a primitive complex character modulo aQ. There exist a natural r, positive moduli nᵢ indexed by Fin(r+1), and characters φᵢ modulo nᵢ, with: the moduli pairwise coprime and product aQR; n₀|Q, n₀ odd squarefree and T≤n₀; every 1<nᵢ≤T²; at most two indices i≠0 have nᵢ<T; cond(φᵢ)=gcd(aQ,nᵢ), so φ₀ is primitive; and η(z) times the coprimality mask for R equals ∏ᵢφᵢ(z) for every integer z.",
+      "hypotheses": [
+        "The native primitive η and arithmetic hypotheses are supplied. No quadraticity is needed for this factor construction.",
+        "R=1 is allowed; all modulus-one blocks have already been discarded. Other factors need not all be primitive or principal for an arbitrary admissible grouping; their exact gcd conductors are stated."
+      ],
+      "proofSteps": [
+        "Apply bounded-crt-modulus-blocks to obtain the distinguished q and the tail list B. Set r=length(B), enumerate q::B by Fin(r+1), and transfer its product, pairwise coprimality, bounds and exceptional-count properties. This is finite list indexing, not a new arithmetic packing theorem.",
+        "Lift η to aQR by native changeLevel and transport its level along the enumerated product equality. Its conductor is aQ by conductor_changeLevel and primitivity.",
+        "Apply crtCharacterEquiv to that native character. crt-component-conductor gives every gcd conductor. Since n₀|Q, it divides aQ and the distinguished factor is primitive.",
+        "Use change-level-exclusion and crt-integer-evaluation to identify the original masked summand at every integer. All nonunit zeros remain in this equality."
+      ],
+      "acceptance": [
+        "For a=4,Q=11,R=1,T=8, use moduli (11,4); both factors of a primitive η modulo 44 are primitive and the principal family is empty.",
+        "For a=4,Q=11,R=3,T=8, moduli (11,4,3) exhibit two small blocks; the mod-3 factor is principal and the mod-11 factor primitive.",
+        "A singleton family has r=0; its maximum over the other moduli is the empty maximum zero in the endpoint below."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/bounded-crt-modulus-blocks",
+        "ExponentialSumsAndCircleMethod:ES.0/crt-character-equivalence",
+        "ExponentialSumsAndCircleMethod:ES.0/crt-component-conductor",
+        "ExponentialSumsAndCircleMethod:ES.0/crt-integer-evaluation",
+        "ExponentialSumsAndCircleMethod:ES.0/change-level-exclusion",
+        "mathlib:DirichletCharacter.conductor_changeLevel"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Worker assembly of the corrected source factorization, preserving the existing r−2 arithmetic bound and accepted empty-principal-family convention. General subsequent factors are permitted by the corrected Theorem 6 modulus interface."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.bounded_crt_character_factors"
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/large-conductor-character-blocks",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "title": "Large-conductor character blocks and interval threshold",
+      "kind": "theorem",
+      "statement": "Fix c>0 and a natural k>2⁶⁴. Let σ be any complex quadratic character at a positive ambient modulus M≤k^(2c), whose conductor D satisfies D≥8k^(7/32). Suppose every prime divisor of M is at most k^(7/16). Then there exist r≥0, pairwise-coprime moduli nᵢ indexed by Fin(r+1), and quadratic characters φᵢ modulo nᵢ, such that ∏ᵢnᵢ divides M, every 1<nᵢ≤k^(7/16), n₀ is odd squarefree and at least k^(7/32), φ₀ is primitive, σ(z)=∏ᵢφᵢ(z) for every integer z, and r+1<10c+2. If L=max{nᵢ:i≠0}, with L=0 for the empty set, then max(L,n₀^(1/4))n₀^(5/4)<k/2. All displayed nonintegral powers are real powers of nonnegative real casts.",
+      "hypotheses": [
+        "σ need not be primitive at M. The large lower bound already excludes a principal σ.",
+        "This theorem supplies the factors and the size hypotheses for Theorem 6; it contains no character-sum estimate."
+      ],
+      "proofSteps": [
+        "Set η=σ.primitiveCharacter, D=cond(σ), and R to the product of primes of M absent from D. The inherited primitive-exclusion lemmas give gcd(D,R)=1, DR|M and σ(z)=η(z) times the R mask. R is squarefree by Finset.squarefree_prod_of_pairwise_isCoprime on its finite set of distinct primes.",
+        "η is primitive by the native theorem. It is quadratic because changeLevel(η)=σ, changeLevel is injective into M>0 and a monoid homomorphism, and the square-to-one criterion descends along that injection.",
+        "Use the exact CA.1 odd-part and two-adic-conductor-bound suppliers, not their proofs: write a=2^(D.factorization(2)) and Q=D/a. Then 0<a≤8, D=aQ, Q is odd squarefree and gcd(a,Q)=1. Native ordProj_pos, ordProj_mul_ordCompl_eq_self, ordProj_dvd, not_dvd_ordCompl and coprime_ordCompl supply the elementary factor split and coprimality. From D≥8T and a≤8 obtain Q≥T for T=k^(7/32); k>2⁶⁴ gives T≥8.",
+        "Since Q|D|M and R|M, the smoothness hypotheses transfer from M; T²=k^(7/16) by Real.rpow_mul. Coprimality of D and R gives all remaining packing inputs. Apply bounded-crt-character-factors to η; its moduli multiply to DR and therefore divide M.",
+        "The native lift of η to DR is quadratic by the square criterion and changeLevel multiplicativity. crt-quadratic-components then gives all factor predicates, while the inherited mask equality identifies their product with σ at every integer.",
+        "Let the bad set be all indices with nᵢ<T. The distinguished block is not bad and the packing bound gives card(bad)≤2. The total product is at most M≤k^(2c), and all blocks are at least one. Apply bounded-factor-count to the total number r+1 to get its strict bound 10c+2.",
+        "Take the finite maximum L of all other moduli, zero if none. Its bound is k^(7/16), as is n₀. Apply graham-ringrose-interval-threshold to obtain the stated strict inequality; no analytic estimate is invoked."
+      ],
+      "acceptance": [
+        "For σ=χ₁.mul χ₂ at M=lcm(N₁,N₂), the earlier ambient-product-evaluation and primitive-product-quadratic arguments give the source summand and quadraticity; M≤N₁N₂≤k^(2c), so the statement supplies Case 1 factors without assuming M=D R.",
+        "The source has r factors; this signature uses Fin(r+1), so its count is r+1 throughout.",
+        "Singleton factors use L=0. Empty principal families and conductor shrinkage at 2 remain valid.",
+        "The strict k>2⁶⁴ threshold is retained; equality would only give R₀≤k/2 from the inherited scalar bound."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/bounded-crt-character-factors",
+        "ExponentialSumsAndCircleMethod:ES.0/primitive-exclusion-coprime",
+        "ExponentialSumsAndCircleMethod:ES.0/primitive-exclusion-period-divides",
+        "ExponentialSumsAndCircleMethod:ES.0/primitive-exclusion-evaluation",
+        "ExponentialSumsAndCircleMethod:ES.0/crt-quadratic-components",
+        "ExponentialSumsAndCircleMethod:ES.0/bounded-factor-count",
+        "ExponentialSumsAndCircleMethod:ES.0/graham-ringrose-interval-threshold",
+        "ClassicalArithmeticCompletion:CA.1/odd-part-of-a-quadratic-conductor-is-squarefree",
+        "ClassicalArithmeticCompletion:CA.1/two-adic-conductor-bound",
+        "mathlib:DirichletCharacter.primitiveCharacter_isPrimitive",
+        "mathlib:DirichletCharacter.changeLevel_primitiveCharacter",
+        "mathlib:DirichletCharacter.changeLevel_injective",
+        "mathlib:DirichletCharacter.changeLevel",
+        "mathlib:DirichletCharacter.conductor_dvd_level",
+        "mathlib:DirichletCharacter.conductor_ne_zero",
+        "mathlib:MulChar.isQuadratic_iff_sq_eq_one",
+        "mathlib:Nat.ordProj_dvd",
+        "mathlib:Nat.not_dvd_ordCompl",
+        "mathlib:Nat.coprime_ordCompl",
+        "mathlib:Nat.squarefree_mul_iff",
+        "mathlib:Real.rpow_mul",
+        "mathlib:Real.rpow_le_rpow",
+        "mathlib:Real.rpow_pos_of_pos",
+        "mathlib:Nat.ordProj_mul_ordCompl_eq_self",
+        "mathlib:Nat.ordProj_pos",
+        "mathlib:Finset.squarefree_prod_of_pairwise_isCoprime"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/CharacterBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377",
+          "excerpt": "We can write",
+          "match": "Worker derivation of the complete arithmetic/character input to Case 1, importing both precise CA.1 classification statements. This realizes the factor-block portion of routed item 95 and leaves the external analytic proof explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declaration": "TauCeti.ExponentialSumsPlan.large_conductor_character_blocks"
     }
   ],
   "requests": [],
@@ -2743,7 +3448,7 @@
       "stageId": "ExponentialSumsAndCircleMethod:ES.0",
       "status": "partial",
       "remaining": [
-        "The 26 inherited nodes cover the small-conductor argument, product-character reduction and arithmetic modulus packing. Nine additions close the numerical large-conductor divisor saving, uniform thresholds and source-exponent absorption conditional on the analytic estimate. Still required: match the reusable quadratic-conductor classification/bounded 2-part, construct primitive/principal factors on the selected CRT moduli and prove their all-integer product identity, read and decompose the complete Graham–Ringrose proof, then assemble Proposition 8.2. The remaining Weyl, van der Corput, stationary-phase and completion targets still require their source decompositions."
+        "Forty-five nodes cover the small-conductor chain, primitive-product reduction, arithmetic modulus packing, the conditional numerical large-conductor saving, and now the CRT character/conductor interfaces with exact CA.1 conductor-shape imports. Read and decompose the complete Graham–Ringrose proof, then assemble Proposition8.2. The remaining Weyl, van der Corput, stationary-phase and completion targets require their source decompositions."
       ]
     },
     {
@@ -2784,16 +3489,16 @@
   ],
   "gaps": [
     {
-      "title": "Large-conductor CRT packing and Graham–Ringrose proof",
-      "detail": "Routed items 92 and 95: the pure arithmetic block packing is now decomposed by smooth-divisor-window, squarefree-modulus-blocks and bounded-crt-modulus-blocks, with bounded-factor-count and graham-ringrose-interval-threshold supplying r < 10c+2 and R₀ < k/2 for k > 2⁶⁴. Remaining: match the reusable theorem that the primitive quadratic conductor is a·Q with a ≤ 8 and odd squarefree Q, and show the source size/smoothness assumptions imply the packing hypotheses; construct and reconstruct the primitive/principal character factors on these pairwise-coprime moduli, preserving primitivity of the distinguished factor and the all-integer exclusion mask; read the entire external Graham–Ringrose proof (Iwaniec–Kowalski Theorem 12.13 or a legally readable original source) and decompose it. The published quotation is not that proof. Preserve the accepted E11 empty-principal-family convention; no missing-case error or unnecessarily weakened factor count is introduced. The separate numerical divisor-factor and constant-absorption steps are now decomposed and should not be repeated; they do not fill these character or analytic gaps."
+      "title": "Complete Graham–Ringrose proof",
+      "detail": "Routed item92 remains open: read and decompose the complete external Graham–Ringrose proof, or the exact Iwaniec–Kowalski Theorem12.13 version used by Bennett–Siksek. The published quotation is not its proof. Routed item95 now has exact bounded character factors, all-integer reconstruction, distinguished primitivity, r<10c+2 and R₀<k/2 through large-conductor-character-blocks. The conductor shape is imported from the two exact CA.1 nodes and binary primitivity from its exact CA.1 supplier. Remaining analytic work must preserve ambient moduli for general factors, permit one factor and empty principal families, and align real interval endpoints."
     },
     {
       "title": "Full distinct-quadratic cancellation proposition",
-      "detail": "Routed item 44 (Proposition 8.2) still requires the analytic large-conductor estimate and exact CRT character interfaces. The corrected AN.5 divisor bound is now applied uniformly for r<10c+2, and the factor-two absorption proves the source exponent γ=2^(−10c−6) under an explicit analytic-size premise, with one threshold depending only on c. Neither this numerical implication nor the earlier arithmetic packing proves that premise. The small-conductor product application already has its uniform threshold. Combine the branches only after the character/analytic dependencies are closed; all real interval lengths and floor conventions must agree."
+      "detail": "Routed item44 (Proposition8.2) still requires the analytic large-conductor estimate and the final combination with small-conductor-product-cancellation. The CRT character interfaces and their size hypotheses are now decomposed. The existing uniform large-conductor numeric threshold gives γ=2^(−10c−6) only after its analytic premise is established. Read the entire external proof and match its real interval length k/2, so odd k yields exactly the inherited natural interval (k div2,k]. No full cancellation theorem is claimed from character factorization alone."
     },
     {
       "title": "ExponentialSumsAndCircleMethod:ES.0 remaining source decomposition",
-      "detail": "The 26 inherited nodes cover the small-conductor argument, product-character reduction and arithmetic modulus packing. Nine additions close the numerical large-conductor divisor saving, uniform thresholds and source-exponent absorption conditional on the analytic estimate. Still required: match the reusable quadratic-conductor classification/bounded 2-part, construct primitive/principal factors on the selected CRT moduli and prove their all-integer product identity, read and decompose the complete Graham–Ringrose proof, then assemble Proposition 8.2. The remaining Weyl, van der Corput, stationary-phase and completion targets still require their source decompositions."
+      "detail": "Forty-five nodes cover the small-conductor chain, primitive-product reduction, arithmetic modulus packing, the conditional numerical large-conductor saving, and now the CRT character/conductor interfaces with exact CA.1 conductor-shape imports. Read and decompose the complete Graham–Ringrose proof, then assemble Proposition8.2. The remaining Weyl, van der Corput, stationary-phase and completion targets require their source decompositions."
     },
     {
       "title": "ExponentialSumsAndCircleMethod:ES.1 remaining source decomposition",
@@ -2817,14 +3522,14 @@
     }
   ],
   "inspection": {
-    "agent": "Codex — codex-a71f92",
+    "agent": "Codex — codex-hjdg0j",
     "date": "2026-09-27",
     "issue": 1040,
-    "snapshot": "9259a46d027f801a362476a366170bdee9033db9",
-    "audit": "All six reviewed AUDIT-07 rows in data/library-coverage.json read before planning; existing finite characters, Fourier infrastructure and Dirichlet approximation are not replanned.",
-    "ownership": "RS-03 and accepted review preserve ES.0–ES.5, with FF.2 owning general finite-field character bounds and AC.0/AC.5 distinct from torus/optimized circle-method results. RS-07 and current ES.4 contract import AN.3 and SV.2. All 28 ES-related link records were read; they are negative screens, not proof of independent mathematical absence. EffectiveBounds and GlobalNumberFields upstream readers supplied the granularity/style examples.",
-    "sourceBoundary": "The selected Bennett–Siksek §8.1 proof, printed pp.376–379, and page 377 image were freshly reread on 27 September. The full accepted paper/errata reviews and extraction items 44 and 92–97 were checked. This is not whole-paper coverage. The external Graham–Ringrose proof and the general programme source routes remain unread for this decomposition.",
-    "duplication": "All thirteen inherited node objects are preserved exactly. The existing mul, primitive_mul, conductor, changeLevel, primeFactors and IsQuadratic APIs supply the carriers and general conductor algebra. Exact searches of the pinned declarations, Mathlib/Tau Ceti character sources and existing blueprint packets found no copy of the eight scoped adapters. The AN.5 supplier retains its exact explicit/uniform nodes. Input comparison against the preceding checkpoint found 57 unchanged paths, 3 known absences and only the Sieve supplier changed; its blob matches this session's independently completed PR3168. No Sieve dependency is added."
+    "snapshot": "5f2181ae83fa4ca8d6a5f45d51fd4a160223cb31",
+    "audit": "All six reviewed AUDIT-07 rows read before planning, together with the accepted audit review. Existing character, conductor, Fourier and CRT constructions are reused.",
+    "ownership": "RS-03 and its accepted review retain ES.0–ES.5 and their FF/AC boundaries. RS-07 and its review retain AN.3 and SV.2 as prime-weighted suppliers. All ES-relevant entries in both link directories read: 52 files, all negative screens of explicitly varying depth. These are not absence proofs. ArithmeticDirichletSeries and Multiquadratic supplied the upstream style examples.",
+    "sourceBoundary": "Selected published Bennett–Siksek §8.1 pp.376–379 and extraction items44,92–97, accepted paper review, and E2/E3/E11 errata with their review read. No whole-paper or external Graham–Ringrose proof reading is claimed. Inherited source readings are preserved as provenance.",
+    "duplication": "All35 inherited node objects preserved. The native finite CRT, unit equivalences and Pi.monoidHomMulEquiv supply the algebraic constructions. Search of pinned Mathlib/Tau Ceti character modules and all blueprint packets found the exact CA.1 binary-primitivity, odd-squarefree-part and 2-adic-bound nodes; those are imported. The existing AN.5 divisor suppliers are unchanged. The new equivalence is only their Dirichlet-character composition and does not reproduce the generic homomorphism-product construction."
   },
   "routing": [
     {
@@ -2841,11 +3546,11 @@
     },
     {
       "item": "PAPER-BENNETT-SIKSEK-20/94",
-      "disposition": "Decomposed by eight new adapters: ambient evaluation, primitive exclusion mask, coprimality, reduced-period divisibility, common cancelled-prime support, quadraticity, nonprincipality and the small-conductor product application. Reuses the existing primitive construction; all nodes remain unchecked."
+      "disposition": "Decomposed by the eight inherited adapters: ambient evaluation, primitive exclusion mask, coprimality, reduced-period divisibility, common cancelled-prime support, quadraticity, nonprincipality and the small-conductor product application. Reuses the existing primitive construction; all nodes remain unchecked."
     },
     {
       "item": "PAPER-BENNETT-SIKSEK-20/95",
-      "disposition": "Open CRT packing; retain accepted E11 treatment of empty principal products."
+      "disposition": "Decomposed: bounded-crt-character-factors and large-conductor-character-blocks connect inherited arithmetic packing to exact CRT characters, using the two CA.1 conductor-shape suppliers. Distinguished primitivity, all-integer reconstruction, original strict factor count, interval threshold and empty principal families are included. No external analytic bound is asserted."
     },
     {
       "item": "PAPER-BENNETT-SIKSEK-20/96",
@@ -2857,9 +3562,9 @@
     }
   ],
   "validation": {
-    "packet": "Pinned-index checker: 0 errors and 0 warnings; 21 nodes, 5 planets, 50 exact baseline declarations, 8 gaps, no open requests and 6 partial stages. Four-file intake: 0 problems. Source-issue envelope: 0 errors.",
-    "lean": "21 main signatures and 36 contract examples elaborate with exactly 57 expected unproved-declaration warnings, 0 errors and 0 other warnings; 8482 reached Mathlib sources byte-checked against the pin. No Tau Ceti imports.",
-    "tests": "Seventeen complete scratch Lean checks: five general conductor lemmas and all twelve new contracts, with no unproved declarations, warnings or errors. Exact conductor regressions: 188 quadratic character tables, 729 primitive pairs, 702 distinct nonprincipal pairs, 470087 signed masked evaluations and 4212 interval bounds. Inherited regressions rerun: 33966 periodic intervals, 3900 divisible reindexings, 5200 weighted Mobius identities, 43560 excluded-character intervals and 129 product-conductor checks. Finite tests do not prove the general signatures.",
-    "status": "All 21 nodes unchecked; 13 lemmas and 8 theorems, no new definition or construction; 21 interfaces and 36 distinct contract examples; all thirteen inherited node objects and all source-issue/source-version objects preserved exactly."
+    "packet": "Pinned-index checker: zero errors and warnings. Forty-five nodes: 28 lemmas, 16 theorems and one definition; 96 baseline declarations, six planets, eight gaps, no requests, six partial stages.",
+    "lean": "The suggested file compiles at the pins with 118 expected unproved-declaration warnings and no other diagnostics; SHA-256 82b94d488f040a44d6fc03eed8cc2ff2e42a9df464c41bbe5198405364da52dd. All8482 reached Mathlib source files were byte-checked against the pinned tree; no Tau Ceti imports.",
+    "tests": "The CRT definition has seven API items and six packet contract tests. All45 main declarations, all new API signatures and68 typed examples are present. Three complete temporary Lean probes verify construction by composing native equivalences, the component unit formula and the general level-exclusion identity; printed axioms contain no placeholder axiom, and the probes were removed. Exact finite regressions cover512 families,8882 characters,19220 component conductors,897006 signed CRT identities and2051196 mask identities; integrated packing tests cover1090 packings,31674 primitive inputs,69930 component conductors and1995462 signed identities, including137 empty principal families and188 two-small-block packings. These finite checks are not general proofs.",
+    "status": "All45 nodes unchecked. All35 inherited node objects, their21 API items and42 packet tests, all three inherited source findings and source-version objects, and all six planets are preserved. Total API items28; packet tests48; definition tests6. The first three gaps are narrowed, the other five coverage/gap entries unchanged."
   }
 }
