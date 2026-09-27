@@ -1,155 +1,91 @@
-# BP-ColemanPowerSeries — the fixed-space Frobenius sequence
+# BP-ColemanPowerSeries: logarithmic-image lifting checkpoint
 
-Codex — codex-7e92bd. Refs #699. Follow-up to own merged PR3187 under the
-WORKERS correction provision; claim5852872635 was confirmed by bot5852873632.
-The entire issue was reread after that confirmation. No second claim or
-independent review is asserted. All 84 preceding node objects, 95 baseline
-records, eleven source findings, eight preceding planets and stage statuses
-are preserved. All five stages remain incomplete.
+Worker: Codex — codex-7e92bd. Issue #699; claim5853651521,
+confirmed by bot5853652504. **Partial**, all implementation statuses unchecked.
 
-Totals: **98 nodes** (2 definitions, 10 constructions, 69 lemmas,
-10 theorems, 7 comparisons); **60 API items**; **82 packet tests**, including
-42 definition/construction tests; **84 typed examples**; **9 planets**;
-**109 baseline references**; **6 gaps**, **12 requests**, **12 source findings**.
-Every implementation status remains unchecked.
+## Delivered
 
-## Supplied mathematics
+Nine new L3 declarations cover compact norm-fixed units, the closed actual
+logarithmic-derivative image, psi-saturation, coefficientwise precision limits,
+the signed correction, arbitrary-precision approximation, conditional
+surjectivity, norm-fixed residue-unit lifting and the exact reduction to the
+characteristic-p image condition. Generic compactness and local-ring unit
+lifting are pinned imports. The actual existing N, Delta, psi and norm-limit
+interfaces are retained.
 
-Fourteen L3 declarations decompose RJW Lemma12.15 on the actual native
-power-series carrier and PMIA bounded psi operator. With B=Z_p[[T]],
-phi(F)=F((1+T)^p−1), W=ker(psi−id) and U=ker psi, the maps in
+Totals:107 nodes (two definitions,ten constructions,75 lemmas,13 theorems,
+seven comparisons),60 API items,87 packet tests (42 on definitions/constructions),
+89 typed examples,nine planets,117 baseline references,six gaps,12 requests,
+13 source findings and zero closed stages. All98 prior node objects,109 prior
+baseline records,12 prior findings,nine planets and every previous seed byte
+are preserved. Five typed controls and E13 are added.
 
-0 → Z_p → W → U → Z_p → 0
+The current168-node PMIA supplier preserves its previous157 nodes and adds
+the bounded Amice norm/rational lattice results. Two supplier requests are
+narrowed accordingly; the unit-domain and finite-flat coefficient comparisons
+remain explicit. All other requests and non-L3 coverage/gaps are unchanged.
 
-are constant inclusion, 1−phi and native coefficient-zero evaluation. The
-boundary kernel is the constant series and its range is the zero-evaluation
-submodule of U. The final evaluation is surjective through c(1+T).
-Continuous compact-to-Hausdorff maps give the asserted closed image and
-quotient topologies. The constant inclusion is a closed embedding.
+## Reading and checks
 
-The substantial input is coefficientwise convergence. The parameter
-(1+T)^(p^n)−1 tends to zero by continuity of p-adic binomial coefficients at
-p^n→0. A finite substitution-coefficient formula proves phi^n(F)→0 whenever
-F(0)=0. Complete nonarchimedean coefficient groups give summability. The
-native Frobenius-iterate sum S(F) satisfies (1−phi)S(F)=F, and psi(S(F))=S(F)
-when psi(F)=0. Its domain restriction is essential.
+Fresh complete source reads: published RJW PDF80–85 / printed179–184 and
+arXivv2 PDF60–62 / printed60–62. Published183 was inspected as an image.
+The published hash is
+`78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6`;
+v2 is `efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4`.
+E13 corrects the proof's mu_p kernel label to mu_(p−1); the theorem statement
+already has the correct label. Both source versions and the exact p=3 check
+are recorded, with bounded correction searches and no independent verdict.
 
-The all-prime integral argument includes p=2. For F=Y−Y³ over Z_2, the sum
-has first coefficient 2 and second coefficient 1/3. The linear coefficient
-of phi^n(T) is nonzero p^n, so T-adic convergence would be false. The topology
-is the coefficientwise p-adic topology, not the coefficient supremum norm.
+The full claimed issue was reread after the bot confirmation. The reviewed L3
+AUDIT24 row and all five target lists were freshly read; the binding protocols,
+two upstream models, RS16/RS14, decomposition and touching links match earlier
+full reads in this continuous session. Consumed predecessor interfaces and
+the changed supplier declarations were read. No fresh full98-node audit or
+whole-source closure is claimed. Eight new baseline statements were read at
+the pinned commits, Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 and
+TauCeti f790474821cf4256814db967cb154e7af3d0c369.
 
-This is the fixed-series sequence, not the complete Coleman sequence.
-The preceding norm/logarithmic derivative map and its constant-root kernel
-are unchanged. Its image-surjectivity argument remains required.
+Full suggested file: zero errors,226 placeholder warnings only. Actual PMIA
+supplier: zero errors,367 placeholder warnings only. Source audit:2,759 pinned
+Mathlib modules,one actual suggested supplier,zero Tau Ceti modules.
+Seven complete scratch lemmas prove the native unit lift, varying-quotient
+decay, actual power-series precision limit, fixed-series saturation, compact
+fixed-unit domain, closed image and signed correction. They have zero errors,
+warnings or placeholders and reach1,864 pinned Mathlib modules.
 
-## Sources, ownership and finding E12
+Exact finite arithmetic:38,727 assertions,2,160 systems,p=2,3,5,7,
+precision exponents2–4,tested degrees1–5. Actual logarithmic derivatives are
+computed with an extra input coefficient. Signed-power, reduction, divisibility,
+kernel and invalid-sign controls pass. These are finite checks, not proofs of
+the infinite characteristic-p image theorem or arithmetic interpolation.
 
-Fresh reading on 27 September2026:
+Unmodified-index blueprint: **zero errors and warnings**. Four-file intake:
+**zero problems**. The thirteen-finding errata wrapper, preservation,
+reader/signature/test parity and scoped mutation checks pass. The647-edge
+dependency graph is acyclic, reaching159 named nodes and168 baseline leaves,
+with no unresolved stage leaf.
 
-- [Published RJW](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), full
-  PDF83–85 / printed182–184, including Lemmas12.12–12.15 and the beginning
-  of Theorem12.17. Published p.184 was also checked as a rendered page.
-  SHA256 `78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6`.
-- [arXiv v2](https://arxiv.org/pdf/2309.15692v2), full p.62 / PDF62,
-  collating the end of the proof with the published formula.
-  SHA256 `efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4`.
+Suggested-file SHA256: `9bd6888b38d75528aebc7958916541dd1041bb51e4bdae4c4d17f2bfd2c74b15`.
+Complete scratch-proof SHA256: `d80296a03160eedeec22f69b4e40f91a313149f6bd2df395ed5349ba65a1ff4f`.
 
-The published proof prints p times the leading nonconstant coefficient;
-the correct factor at degree r is p^r. Finding ColemanPowerSeries/E12
-records this proof misprint, also present in v2. The test F=T² gives p²,
-not p. The fixed-constants conclusion is unchanged because 1−p^r is a unit.
-The publisher article and issue pages were fetched and showed no erratum
-link, latest arXiv v2 retained the error, and title/author/lemma correction
-searches and the atlas registry found no identified correction. The author
-publications URL returned404 and was not read. The “new” token is bounded
-search evidence, not a priority claim or independent-review verdict.
+All 52 captured input blobs and the four predecessor outputs match
+main `640dd03bb57d120a18b84830e9985793d7f0d476`; the issue body and winning claim are
+unchanged. Exactly four authorized files are published through Git Data REST.
+No git command, manual merge or independent review is performed.
 
-The reviewed AUDIT24 and accepted RS16 assign this exact sequence to Coleman
-L3. Its native carriers and generic topology are in Mathlib. Exact PMIA
-psi-series, psi-series-phi, psi-series-continuous, series-unit-restriction and
-phi-psi-series-continuous interfaces were read and reused. Generic substitution
-coefficient/continuity arguments remain proof-local baseline specializations.
-The packet inventory and pinned libraries yielded no exact fixed-space
-sequence supplier. The fourteen added baseline statements were read at the
-pin; generated additive infinite-sum statements are cited through their
-literal indexed multiplicative generators, with the additive forms checked.
+## Exact resumption point
 
-Earlier whole-issue, protocol, owner, model, audit and source reading belongs
-to this continuous session; byte checks show the captured inputs unchanged.
-No new whole-paper or Coates–Sujatha reading is claimed. Twelve requests and six stage gaps remain. The L3 fixed-space subtask is
-supplied. After reading the fifteen newly merged PMIA topology interfaces,
-the L0 request is narrowed to integral-lattice/field-valued operator-norm
-comparison; weak and field-valued strong identifications are now supplied.
-All 142 preceding supplier nodes and our 98 node objects are unchanged.
+Start with Lemmas12.13–12.14 on published182–183. Prove the right-hand condition
+of L3/logarithmic-derivative-residue-image-equivalence: every reduction of a
+psi-fixed integral series is Delta(v) for a unit v of F_p[[T]]. Expose the
+integral polynomial identity needed to handle the rational expression; never
+apply the bounded integral psi to a series with a pole (existing E8).
+Combine that image theorem with the existing constant mu_(p−1) kernel to finish
+Theorem12.9, then with the existing fixed-space sequence. The current lifting
+theorem keeps its residual image hypothesis explicit.
 
-## Validation
-
-The actual full suggested file compiles with **0 errors and 212 expected
-placeholder warnings only**. Its actual PMIA supplier compiles with **339
-placeholder warnings only**. All **2,759 Mathlib modules** reached by the
-supplier and Coleman seed match the pin; no Tau Ceti module is reached.
-The seed retains all preceding bytes and adds two imports and the new
-signatures/API/examples. It remains a suggested declaration file.
-
-Nine separate complete Lean lemmas verify the convergence chain, including
-actual iterate substitution, the finite coefficient bound, parameter decay,
-summability and continuity of zero-constant substitution. They compile with
-**0 errors, 0 warnings and 0 placeholders**, reaching **2,036 pinned Mathlib
-modules**. These scratch calculations are validation, not implementation
-claims for the roadmap.
-
-**1,216,524 exact assertions** pass for p=2,3,5 and precisions p²,p³,p⁴.
-Truncated convolution checks substitution and telescoping. Sparse Y-polynomial
-psi is applied before taking T coefficients, so the harness does not assume
-psi descends to T-adic truncations. Exhaustive degree-three fixed-kernel checks
-modulo p² run in each precision batch. Tests cover dyadic coefficients,
-constant/evaluation obstructions, the corrected leading factor and failure of
-T-adic decay. Finite arithmetic does not prove the infinite sequence or topology.
-
-Indexed blueprint validation: **0 errors, 0 warnings**. Exact four-file intake:
-**0 problems**. The twelve-finding errata wrapper passes. Preservation,
-reader/signature/API/test parity and authorized scope checks pass. The acyclic
-cross-packet graph reaches **150 nodes**, **160 baseline leaves**, through
-**594 edges**, with no undeclared or stage-request leaves. The stage gaps are
-still explicit and are not eliminated by this graph check.
-
-Suggested-file SHA256: `b2e7da057e2f0ac82ed4eb27ad3e450d72d038cbdf82049c7d76db7df4c76054`.
-Complete convergence-proof SHA256: `6db17a3f2eb2b1bfbbea025d44e18cadc849b7bdc82333b1f144a0ff6983e1f0`.
-
-The refreshed module audit contains 2,760 entries: 2,759 Mathlib sources and
-one actual research supplier. The earlier compiler's 2,757 total comprised
-2,756 Mathlib modules plus its research supplier; the earlier description
-counting all entries as Mathlib is corrected. Every reached Mathlib source
-passes the pinned byte comparison.
-
-Final guard: all **52 captured inputs** and **four predecessor outputs**
-match main `1df817b2abcf3c588c127f3d6433fd8399e29d21`. Issue699 remains available,
-the last winning bot confirmation is unchanged, and review374 is unclaimed.
-Only the four authorized deliverables are published via Git Data REST.
-
-## Where to resume
-
-Prove the logarithmic-derivative image-surjectivity argument of published
-Lemmas12.11–12.14 on the actual norm-fixed subgroup, obtaining Theorem12.9.
-Then combine it with this fixed-series exact sequence and the existing
-unit-supported inverse derivative. Construct the actual cyclotomic tower,
-interpolation and action identifications before deriving Theorem12.17,
-its Tate-module kernel and cyclotomic-moment cokernel. Distinguish the kernel
-on all units, the constant-root kernel on norm-fixed units, and the full
-Coleman-map kernel.
-
-L0 retains tower fields and genuine unit modules. L1 retains determinant/root
-product, arithmetic norm/evaluation compatibility and interpolation. L2
-retains the full Coleman composite and arithmetic action comparison. L4
-retains the local cyclotomic-unit quotient. Coefficient extensions and
-completed-tensor topology remain supplier work. The precise remaining lists
-in the packet are authoritative; no stage is closed.
-
-Preceding handoff: [PR3187](https://github.com/CBirkbeck/tauceti-explorer/pull/3187).
-
-Supplier refresh before publication: the current PMIA seed and 157-node packet
-were fetched after the guard detected their merge. All fifteen new interfaces
-and the complete seed diff were read. The weak clopen/unit homeomorphisms,
-integral Amice homeomorphism and field-valued strong maps are supplied; the
-remaining request is only the integral-lattice norm-model comparison.
+After that, the L0/L1 actual cyclotomic tower and arithmetic interpolation,
+Coleman composite and G-action, principal-unit exact sequence, finite-flat
+coefficient comparisons and local cyclotomic quotient remain as recorded.
+The six gaps,12 requests and source completeness obligations remain; this
+checkpoint closes no stage and claims no independent review or formalization.
