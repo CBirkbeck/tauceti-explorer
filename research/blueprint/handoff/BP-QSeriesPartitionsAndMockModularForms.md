@@ -1,3 +1,60 @@
+# Jacobi heat-operator continuation — 27 September 2026
+
+Worker: **Codex — codex-hjdg0j**. Issue [#1042](https://github.com/CBirkbeck/tauceti-explorer/issues/1042).
+Claim [5853213554](https://github.com/CBirkbeck/tauceti-explorer/issues/1042#issuecomment-5853213554) was confirmed by the bot in [5853214244](https://github.com/CBirkbeck/tauceti-explorer/issues/1042#issuecomment-5853214244); the issue was reread after confirmation.
+Snapshot: `1df817b2abcf3c588c127f3d6433fd8399e29d21`. Publication base: `1f6f4916b99708fafd725fc46ed7d6775820e3d6`.
+Only the packet, reader, suggested file and this handoff are changed.
+
+## What this continuation establishes
+
+DMZ (4.12) is decomposed through **22 new nodes: two definitions, sixteen lemmas and four theorems**. The raw operator is Lₘ=4mDτ−(2πi)⁻²∂²_z. Its correction subtracts m(k−1/2)E₂/3, with native Mathlib normalized and Serre derivatives and native E₂. The operator covariance proof differentiates ordinary integer powers of cτ+d; the four space-preservation theorems have integral weight, positive integral index and trivial multiplier/elliptic character.
+
+The chain supplies normal convergence of differentiated Fourier expansions, elliptic covariance, the exact modular anomaly, its E₂ cancellation, an exact pole-cutoff criterion, the finite Fourier convolution through n+N, preservation of weakly holomorphic/weak/holomorphic/cuspidal growth, the theta heat equation, and the native Serre-derivative identity on theta coefficients. Fractional theta exponents are handled by Gaussian convergence rather than period-one assumptions.
+
+Five nodes promote consumed API items instead of duplicating their signatures: the monomial heat formula, three growth inclusions, and the cusp Fourier criterion. The holomorphic-to-weak inclusion uses the finite torsion grid j/(2m), finite Fourier inversion and the normalized theta leading terms. The middle residue class has leading coefficient two. Zero index uses Liouville, and negative index uses the elliptic Fourier recurrence to force zero. Thus this inclusion does not first assume weak holomorphy.
+
+All **479 inherited node objects are byte-for-byte equivalent as parsed JSON**, and all 14 gaps, 24 requests, 64 source findings and ten structural proposals are retained. No source error, request or planet is added. The other six coverage records are unchanged. QM.1 remains partial: only the heat part of its first remaining item is removed. Nothing here claims implementation or re-verifies the other layers.
+
+## Inventory and checks
+
+- 501 nodes: 110 definitions, 17 constructions, 225 lemmas, 146 theorems, three comparisons.
+- 750 API items; 501 packet tests (494 definition/construction tests and seven added theorem acceptance tests); 499 typed examples in the full seed. The inherited seed/packet example-count difference is retained; all fifteen new tests have typed examples.
+- 42 planets; 378 baseline references, including sixteen new references whose complete declarations were read and whose source blobs were checked at the pin.
+- Dependency graph: 1,195 internal edges, 1,979 total edges, acyclic. Every new prerequisite is a packet node or verified baseline reference. Source-issue/version checks pass.
+- Blueprint checker with the pinned declaration index: zero errors, zero warnings.
+- Suggested file: **compiled**, zero errors, **1,394 `sorry` warnings and no other warnings**. Its 8,482 transitive Mathlib sources were verified against `082e2d37e8b0463410cdb532e111cd43d5a66174` and the matching compiled cache. No Tau Ceti import is added. The existing comment-only Tau Ceti boundaries remain inherited; the new work needs Mathlib only.
+- Seed SHA-256: `1ff588d820c061018bfae0bd50121f4014f61fc1265c94a5b390283a79063eaf`.
+- Reader parity checks cover every new statement, hypothesis, proof step, API item and test. All promoted declarations occur once in the seed. All new nodes remain `unchecked`.
+- Exact checks: eighteen symbolic modular differential identities (including S, T, −I and both signs of c), ten elliptic identities, E₂-defect cancellation, the native Serre product identity, 1,332 Laurent-coefficient comparisons, 1,800 fractional theta frequencies, 26,600 support-shift checks, and 816 finite Fourier identities with the theta leading multiplicities. These verify formulas and finite cases; they are not a formal proof of the analytic convergence arguments.
+
+The latest-main guard checked 56 binding, deliverable, audit, atlas, link, owner and checker inputs: none changed; no new AGENTS.md was present. The final submission check is restricted to exactly the four authorized files.
+
+## Sources and ownership
+
+Fresh source: Dabholkar–Murthy–Zagier, *Quantum Black Holes, Wall Crossing, and Mock Modular Forms*, [arXiv:1208.4074v2](https://arxiv.org/pdf/1208.4074v2), 3 April 2014. Read on 27 September 2026: physical PDF pp.20–21 and24–29, corresponding to printed pp.19–20 and23–28. Extraction used pymupdf, at most three physical pages in any call. The eight pages include (3.7), §4.1, §4.2 through (4.18), and §4.3 through (4.30)/Table1. SHA-256: `7260e103bdfb71d9f06d727f88432a789efcaee9ddcd2fde5cff30521f670213`.
+
+DMZ gives the operator and its theta-coordinate action. The detailed differential, Fourier and growth proofs are an independent decomposition. The whole 153-page PDF and Eichler–Zagier are not claimed as fresh reading. All earlier read scopes and source findings retain their original provenance.
+
+The seven accepted AUDIT-15 records were read before selecting new mathematics, along with the full owner README, all atlas stages/incident edges, touching link entries, reserved IDs and the RS-06/RS-10 boundary records. No integrated decomposition exists. RS-06 is accepted; RS-10 remains a needs-changes lead, not an applied ownership decision. MP.8 explicitly retains rank-one Jacobi forms with QM.1 and owns its distinct genus-two objects; its packet has no heat-operator supplier. The packet-wide search found no second owner of this operator. Scalar derivatives and E₂ are baseline facts, not new roadmap nodes. Upstream style inputs read in full in this session: ArithmeticDirichletSeries and Multiquadratic; ModularForms was additionally searched for the particular boundary, not claimed as a fresh full read.
+
+## Exact continuation work
+
+The heat chain is complete at the planning level, within its stated integral-weight and trivial-multiplier scope. QM.0, QM.3 and QM.4 retain `source_decomposed`; QM.1, QM.2, QM.5 and QM.6 retain `partial`. No stage is marked closed.
+
+QM.1’s remaining obligations are:
+
+- DMZ §4.2 (4.13)–(4.18): the Taylor-expansion isomorphism J̃_(k,m)≅M_k⊕M_(k+2)⊕…⊕M_(k+2m) for even k, and its odd-weight analogue, with the polynomials P_(ν,k) and the Rankin–Cohen comparison. The inherited source boundary is unchanged: the cited Eichler–Zagier proofs have not been read. Supply exact weight restrictions where the displayed factorials or denominators degenerate, the modified Taylor coefficients, the count of 2m zeros by the argument principle, and the injectivity/surjectivity proof. The heat identity (4.12) is covered by the 22 new nodes and is no longer a remaining obligation.
+- DMZ §4.3: J_{k,1} ≅ M_k ⊕ S_{k+2}, J̃_{k,1} ≅ M_k ⊕ M_{k+2}, J_{k,1} ≅ M⁺_{k−1/2}(Γ₀(4)) (4.23); the forms φ_{0,1} (4.30), φ_{10,1} = η^{18}ϑ₁² (4.28), φ_{12,1}, φ_{−1,2} = ϑ₁(τ, 2z)/η³ (4.31); the structure theorems (4.25) and (4.35) with the relation (4.33) — stated in DMZ without proof.
+- DMZ §4.4: the Hecke-like operators U_s, V_ℓ and W_{m₁} on Jacobi forms (Eichler–Zagier §4), used by QM.4-type mock Jacobi theory.
+- Eichler–Zagier's Jacobi–Eisenstein series E_{k,m} and the finiteness bound dim J_{k,m} ≤ Σ_{ν=0}^{m} dim M_{k+2ν}: no public source with proofs was located in this pass.
+- The Knopp–Petersson Jacobi-symbol formula for v_η on all of SL(2, ℤ) (Matsuda (2.1), stated there without proof): QM.1 plans only Savitt's Γ₀(4) version (QM.1/eta-multiplier-gamma0-four); the full formula needs Rademacher–Grosswald's congruences for 12c·s(d, c), for which no public proof source was found.
+
+The other remaining lists and gaps in the packet are unchanged. For QM.2, resume the Selberg–Whiteman bridge, Fischer H-sum proof and paired-phase conversion before unconditional Rademacher root comparisons; the unit-square local case, 2/3-adic cases, shifted CRT and the square-root bound still need work. For QM.5, the quantum examples, dissections and complex special-function inputs remain; for QM.6, the FLM module and group identification, Monster character data, Conway–Norton/Koike data and invariant-form propagation remain. The inherited handoff below preserves the arithmetic worksheets and exact source boundaries. Do not infer closure from a successful prototype compilation.
+
+---
+
+## Inherited handoff, preserved with its original attribution
+
 # Handoff — BP-QSeriesPartitionsAndMockModularForms
 
 ## 2026-09-27 singular-prime checkpoint — Codex, codex-a71f92
