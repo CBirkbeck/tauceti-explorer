@@ -1,151 +1,170 @@
-# BP-PadicMeasuresIwasawaAlgebras: inverse from finite unit coordinates
+# BP-PadicMeasuresIwasawaAlgebras: weak unit-coordinate topology
 
-Codex — codex-7e92bd. Issue #555; fresh claim 5858975945 was confirmed by exact
-bot comment 5858977458. The whole issue was read before and after confirmation.
-Partial checkpoint; every node remains unchecked.
+Codex — codex-7e92bd. Issue #555; claim comment 5860667882 was confirmed by
+the bot's exact reply 5860668949. The whole issue was read before and after
+confirmation. This is a partial checkpoint; every node remains unchecked.
 
 ## Delivered
 
-294 unchecked nodes: 2 definitions, 40 constructions, 190 lemmas, 37 theorems and 25 comparisons; 208 API items, 201 packet tests (148 on definitions/constructions), 212 typed examples, 17 planets and 297 baseline citations. Eight gaps, no outgoing requests, fourteen inherited source findings and zero closed stages remain.
+304 nodes: 2 definitions, 40 constructions, 195 lemmas, 41 theorems and
+26 comparisons; 208 API items (205 on definitions/constructions), 209 packet
+tests (148 on definitions/constructions), 220 typed examples, 17 planets and
+309 baseline citations. Eight gaps, no outgoing requests, fourteen inherited
+source findings and zero closed stages remain.
 
-Twelve L1 nodes supply finite pairing refinement and independence, the native
-locally constant linear functional and its uniform bound, its extension to an
-actual native measure, coordinate recovery, reconstruction and unique existence.
-All 282 prior whole nodes, 289 baseline records, fourteen findings and seventeen
-planets are preserved. Two native imports and the new declarations surround
-the unchanged prior suggested-file bytes. Only L1 and its L2 cross-reference
-are narrowed in the outstanding work.
+Ten new L1 nodes supply weak compactness, the integral and joint finite
+coordinate closed embeddings, the compatible-family image, continuity of the
+existing coordinate inverse, arbitrary-filter convergence, joint and diagonal
+neighborhood bases, and the native topological-ring and linear-topology classes
+on the existing convolution ring. All 294 predecessor whole nodes, 297 baseline
+records, fourteen findings and the preceding suggested-file bytes are preserved.
+Only the L1 remaining work is narrowed. No new carrier or planet is introduced.
 
-## Recovering a measure from its finite unit coordinates
+## Mathematical content
 
-Let p be any prime, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ, including n=0. The actual
-reduction red_n:U→A_n is the preceding native unit map. Take integral finite
-coefficient functions c_n:A_n→₀ℤ_p, compatible under pushforward along the
-native transition t_(m,n):A_n→A_m. Pushforward sums coefficients in each fiber.
+For every prime p, including 2, take U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ, including n=0.
+Use the preceding actual unit reduction, native measures M=D(U,ℤ_p), integral
+finite projection π_n and joint projection π_(r,n) modulo p^r. Every topological
+signature explicitly selects the native weak topology.
 
-A locally constant test f factors through some red_n. Pair its finite test g
-with c_n by Σ_a g(a)c_n(a). Refinement preserves this pairing. Two presentations
-agree after passing to their maximum level, because the corresponding unit
-reduction is surjective. The value is therefore independent of the presentation
-and defines a ℤ_p-linear functional I_c on the native LocallyConstant carrier.
+Intrinsic restriction D(ℤ_p,ℤ_p)→M is continuous and surjective by its existing
+section. The ambient integral measure space is already compact by integral
+Amice. Its continuous image proves weak compactness of M. Integral finite
+coefficients are continuous and jointly injective, so the native compact-to-
+Hausdorff theorem gives a closed embedding into the product of A_n→ℤ_p.
+The image consists exactly of transition-compatible families, by the existing
+coordinate recovery and reconstruction. The inducing criterion gives continuity
+of this existing inverse for any continuously parameterized compatible family.
 
-Every integral coefficient has norm at most one. Surjectivity bounds each
-finite test value by the supremum norm of f, and the ultrametric inequality
-bounds the whole pairing by that same norm. The bound does not grow with the
-number of fibers. This supplies the continuity missing from a purely algebraic
-inverse-limit argument.
+The same compactness argument gives a closed embedding into the product of
+all joint coefficients (r,n,a). Thus convergence for any filter is eventual
+equality of each entire joint finite projection. Finiteness of A_n is essential
+when combining scalar eventual equalities. No uniform stabilization over all
+levels is claimed.
 
-Use the native linear inclusion of locally constant into continuous maps.
-Its range is a native submodule of C(U,ℤ_p), with the inherited norm; it is dense
-by the preceding finite-test density theorem. Descend I_c to that range and
-use LinearMap.mkContinuous with constant one. The native subtype inclusion is
-uniformly inducing, and ContinuousLinearMap.extend extends the functional to
-C(U,ℤ_p), since ℤ_p is complete. Both native APIs apply over rings or semirings;
-this argument does not require ℤ_p to be a field. No separate public topology
-or function-space carrier is introduced.
+The kernels N_(r,n) of the joint projections form a neighborhood basis at zero.
+Finite sets of scalar coordinate conditions are dominated by the maximum
+coefficient precision and maximum group depth, using the existing two transition
+laws. The diagonal N_(k,k) is cofinal by k=max(r,n), so both precisions still grow.
+These are kernels of the existing ring maps to native finite monoid algebras,
+hence ideals. They give native IsLinearTopology on the given weak topology.
 
-The resulting actual native measure μ_c agrees with I_c on locally constant
-tests and satisfies ‖μ_c(f)‖≤‖f‖ on all continuous tests. Characteristic tests
-recover each coefficient c_n(a). Conversely, reconstructing a measure from its
-own coordinates gives the original measure by the preceding separation theorem.
-There is thus a unique integral unit measure with any prescribed compatible
-family of integral finite coordinates.
+Convolution is jointly continuous: the embedding detects continuity, and each
+coefficient of a product is the fixed finite sum Σ_b c(b)d(b⁻¹a). Convert the
+native support sum to a sum over the entire finite group before claiming
+continuity; this avoids a varying-support argument. Addition and negation are
+coordinatewise additive. The result supplies native IsTopologicalRing for the
+existing convolution ring.
 
-At level zero A_0 is a singleton and c_0(1) is total mass. It is not an average.
-For p=2, the measure δ_1−δ_(−1) has zero depth-one coordinate but a nonzero
-depth-two coordinate. Uniqueness requires all levels. Group depth remains
-independent of coefficient precision throughout.
+Eight typed tests cover scaled and constant atoms, incompatible total mass,
+independence of the two precisions, the zero coefficient ring, continuous Dirac,
+joint convolution continuity and the dyadic identity
+(δ_(−1)−δ_1)²=−2(δ_(−1)−δ_1). The example 2(δ_1−δ_(−1)) vanishes at (1,2) and
+(2,1), but survives at (2,2).
 
-The input is an explicit family with its transition proof. It is not a newly
-defined completed group algebra. The next comparison must use the existing
-ProfiniteProPGroups Layer 9 carrier, actual quotient equivalences and cofinality,
-and must prove the algebra and joint coefficient/group topological comparison.
-The coordinate recovery here does not itself identify those topologies.
+## Sources, native baseline and ownership
 
-## Source and ownership checks
-
-The published RJW printed 119–123 / PDF 20–24 was freshly read in full, including
-Remark 3.11 and the entire proof and inverse construction of Proposition 3.16.
-The retained source PDF has SHA256
+The complete published RJW printed pages 119–123 / PDF 20–24 were freshly read,
+including Definition 3.5, Remark 3.11, the entire Proposition 3.16 proof and
+Remark 3.18. The retained publication has SHA256
 78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6.
-The explicit bound and ring-general native extension are worker decompositions
-of that argument. No new source issue, independent review or all-paper reading
-is claimed.
+The compactness shortcut and explicit topology decomposition are worker
+deductions, not additional statements attributed verbatim to the source.
+No new source issue, independent review or all-paper reading is claimed.
 
-The current handoff, reviewed AUDIT-26 L1 row, relevant predecessor nodes and
-signatures, accepted RS-16 boundary and complete Layer 9 completed-algebra
-subsection were read. The whole predecessor, all eight reviewed audit rows,
-two upstream model documents, roadmap descriptions and relevant links retain
-their earlier continuous-session reading provenance. The four predecessor
-outputs exactly match our merged PR #3276.
+The current PMIA handoff, relevant predecessor statements and signatures,
+reviewed AUDIT-26 L1 entry, and complete ProfiniteProPGroups Layer 9
+completed-algebra subsection were read again. The remaining roadmap, reviewed
+audits, accepted RS-16 boundary, relevant links and two upstream model documents
+retain their continuous-session full-reading provenance. All four predecessor
+outputs exactly match our merged PR #3280.
 
-Fifty of the preceding fifty-one guarded input files are unchanged. Dirichlet
-has grown from 210 to 217 nodes since the preceding publication: all seven
-new whole character-twist nodes and four changed predecessor nodes were read.
-Its coefficient-field request now imports the exact supplied PMIA moment node;
-the L1 completed-algebra request remains. There is no new reverse dependency.
-The source registry and other supplier/ownership inputs are unchanged.
+Twelve new baseline records are supported by full native statements and their
+ambient hypotheses. They concern compact images and closed embeddings,
+finite-support functions on finite types, inducing maps, product and discrete
+convergence, finite-coordinate neighborhood bases, finite convolution
+coefficients, and linear topology. The entire weak-topology definition was
+read. The native additive sum conversion is generated by the read to_additive
+annotation on Finsupp.prod_fintype. An erroneous doubly qualified name in the
+declaration index was not copied: the exact native IsInducing convergence
+criterion suffices. The index was only a locator.
 
-Eight baseline records are added after reading their full statements and
-ambient hypotheses. The complete native continuous-linear extension file was
-read, together with the inclusion, injectivity, subtype, uniform-embedding,
-p-adic completeness and ultrametric APIs. Reused finite pushforward,
-supremum norm, norm-one, mkContinuous and closed-locus statements were read.
-The declaration index was used only for names and locations. The field-only
-normed extension theorem is not used for ℤ_p.
+Coleman grew from 171 to 183 nodes through our own merged PR #3283, whose whole
+content was authored and read in this continuous session. Dirichlet grew from
+217 to 224 through seven integral-character-twist nodes read in that preceding
+job, then from 224 to 231 through seven reflection/parity nodes read here in
+full. All 224 predecessor Dirichlet nodes are preserved in the last delta.
+Its one completed-algebra request remains open; the present topology adapters
+do not claim to discharge it. There is no new reverse dependency.
 
-A bounded open-PR title search for “completed group” returned no result. The
-broader query was noisy and is not evidence of absence; the archive query
-returned a discussion of reductive-group Iwasawa decomposition, not a supplier
-for this inverse. Pinned source searches found no exact unit-coordinate
-reconstruction adapter. No upstream code is copied or native carrier rebuilt.
+The source ledger's two added Dirichlet findings were read by their full
+owner/file/id identities; all 7607 preceding entries are unchanged. At
+publication, the only changed guarded inputs are the generated ledger and
+register: three added ExponentialSumsAndCircleMethod findings were read, and
+all 7609 preceding entries remain unchanged. These do not change this packet's
+source boundary. Their review remains with their owners.
+
+A bounded open-PR title search for “measure weak” returned no result. This is
+not an exhaustive absence claim. Pinned source and previous upstream searches
+retain their recorded provenance; no upstream code is copied or native object
+replanned. The generic completedGroupAlgebra remains owned by
+ProfiniteProPGroups Layer 9.
 
 ## Validation
 
-The complete suggested file elaborates at the pinned baseline with zero errors
-and 626 warnings, all and only the expected placeholders. Its source closure
-checks 2815 Mathlib modules and two previously built pinned TauCeti modules.
-No native library was built and no planned supplier module was imported. No
-full proof of the twelve new declarations is claimed. Suggested SHA256:
-0c8521eae5c2c77b9f83206b05c13d9a4ebf32934b0353439aebc46e16503311.
+The full suggested file compiled at the pinned baseline with zero errors and
+644 warnings, all and only expected placeholders. Its source closure has
+2815 Mathlib modules and two previously built pinned TauCeti modules; it imports
+no planned supplier module. No native library was built. Suggested SHA256:
+ad64bfe94d36581684ae9a29fa5b76dad2dd154b24fb55b420274f6585e45432.
+Source-audit SHA256:
+19dadbcd27d06b24056147fb55cf85edd57680943ea830c0b0b7a4442a1fb0bb.
+These are elaborated signatures, not completed mathematical proofs.
 
-The indexed blueprint checker reports zero errors and warnings, and four-file
-intake reports zero problems. The filename-correct errata wrapper and whitespace
-checks pass. Whole-object preservation, reader/signature/test parity and the
-four-file mutation check pass. The reachable dependency graph has 295 nodes,
-1194 acyclic edges and 298 baseline leaves, with no unresolved stage leaves.
-This does not close the eight explicit source/interface gaps.
+Whole-object preservation and new declaration/test parity pass. The reachable
+dependency graph has 305 nodes, 1249 acyclic edges and 310 baseline leaves,
+with no unresolved stage leaves. This does not close the eight recorded gaps.
+The indexed packet checker, four-file intake, filename-correct errata wrapper
+and whitespace checks pass.
 
-Exact integer arithmetic checks 80 families at p=2,3,5,7 through group depth 3:
-800 refinement identities, 800 pairing comparisons, 320 uniform valuation
-bounds, 10060 coefficient recoveries, 320 mass comparisons and 3200 finite
-coefficient/group transition checks. Sixteen colliding-atom tests and the
-dyadic depth-one/depth-two counterexample pass. These finite computations
-check conventions and examples, not dense extension or limit topology.
+Exact arithmetic on 24 atomic families at p=2,3,5,7 verifies 384 convolution
+comparisons, 12072 fixed finite coefficient formulas, 2400 joint transition
+identities and 2400 convolution transition identities. It also verifies 1440
+diagonal-kernel containments, 1440 kernel multiplication checks, 1920 scaled-atom
+cutoffs, 384 constant-atom checks, 96 zero-precision cases, twelve incompatible-
+mass witnesses and 25 dyadic-square cases, including the independent-axis
+counterexample. These computations check conventions and examples, not infinite
+topological arguments.
 
+At publication main 488fb4f82a18e84919388f40dda6d20d944fd2bb,
+49 of 51 guarded input blobs and all four predecessor output blobs are
+unchanged; the two generated source files have the documented unrelated delta.
+The whole issue body and exact fresh bot confirmation were checked again.
+Only the four authorized files are submitted from the worker's own branch.
 One persistent checkout and existing pinned artifacts were used, with one own
 Lean process at a time. No own compiler, watcher or language server remains.
-Retained scratch evidence: inputs.json, WORKLIST.md, claim.json, claim-bot.json,
-issue-before.json, issue-claimed.json, issue-publication.json,
-comments-after.json, dirichlet-delta.json, upstream-completed.json,
-baseline-read.json, new-nodes.json, append.lean, compile.py,
-lean-source-audit.json, suggested-compile.log, arithmetic.py,
-arithmetic-results.json, verification.json, publication-guard.json,
-submission.json, intake-pr.json and the four final files in handoff-evidence.
-The existing source PDF and native artifacts retain their preceding handoff
-provenance. No new source copy, repository snapshot or library build is kept.
 
-At publication main 9b5a58905b564df16b77149a70e64b1d416ab4d6, all 51 captured input blobs
-and all four predecessor output blobs are unchanged. The whole issue body
-and the bot’s exact fresh claim confirmation were checked again. Exactly four
-authorized files are submitted from the worker’s own job branch.
-
+Retained scratch evidence: WORKLIST.md, inputs.json, claim.json, claim-bot.json,
+issue-before.json, issue-claimed.json, issue-publication.json, comments-after.json,
+the four predecessor files, new-nodes.json, baseline-read.json, append.lean,
+compile.py, lean-source-audit.json, suggested-compile.log, arithmetic.py,
+arithmetic-results.json, verify.py, verification.json, dirichlet-delta.json,
+source-ledger-delta.json, publication-ledger-delta.json, upstream-search.json,
+publication-guard.json, submission.json, intake-pr.json and the four final files
+in handoff-evidence. The existing source PDF and native artifacts retain their
+preceding handoff provenance. No repository snapshot or new library build is kept.
 
 ## Resume
 
-The inverse from compatible integral coordinates for the actual unit system is decomposed: finite pairings are independent of level, the native locally constant functional has uniform bound one, native dense extension gives an actual ℤ_p-valued measure, and recovery, reconstruction and unique existence are supplied. Compare this explicit-family inverse with the existing ProfiniteProPGroups Layer 9 completed-group-algebra carrier using unit-kernel cofinality and the actual quotient equivalences. Establish the algebra and joint coefficient/group topological equivalence, including the dyadic case; use coefficient powers together with finite-group kernels, never pure T-adic kernels or an integral eigenspace splitting. General adic coefficients, finite-extension lattices and complete source coverage remain separate targets.
+Identify these exact actual unit-measure coordinates with the existing
+ProfiniteProPGroups Layer 9 completedGroupAlgebra anchor. Use the actual quotient
+equivalences and unit-kernel cofinality to obtain the algebra homeomorphism and
+its finite-projection and Dirac laws. The measure-side inverse, weak topology,
+compactness, continuous ring operations and joint congruence ideal basis are
+now decomposed. Do not rebuild the completed carrier, discard either precision,
+replace the topology by pure T-adic kernels, or split integral dyadic eigenspaces.
 
-The other layer targets and their exact gaps remain in the packet. In particular,
-L0a and L4–L6 remain not_read; the coefficient-lattice, character-space,
-pseudomeasure and full source-coverage work remains. No stage is closed and no
-outgoing request is added by this explicit-family inverse.
+The other layer targets and exact gaps remain in the packet. L0a and L4–L6 are
+not_read; general adic coefficients, finite-extension lattices, character spaces,
+pseudomeasures and full source coverage remain. No stage is closed and no
+outgoing request is added by this measure-topology checkpoint.

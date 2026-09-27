@@ -1,3 +1,119 @@
+**Current unit-coordinate topology checkpoint:** 304 unchecked nodes: 2 definitions,
+40 constructions, 195 lemmas, 41 theorems and 26 comparisons; 208 API items,
+209 packet tests (148 on definitions/constructions), 220 typed examples,
+17 planets and 309 baseline citations. Eight gaps, no outgoing requests,
+fourteen inherited source findings and zero closed stages remain.
+
+## The weak topology of integral unit measures
+
+Fix any prime p, including 2. Write U=ℤ_pˣ, A_n=(ℤ/p^nℤ)ˣ for n≥0, and
+red_n:U→A_n for the actual unit reduction. The measure space M is the native
+space D(U,ℤ_p), equipped throughout with its native weak topology. Let π_n(μ)
+be the existing finite projection and π_(r,n)(μ) its coefficient reduction
+modulo p^r. Coefficient precision r and group depth n are independent.
+Native function products carry the p-adic topology on ℤ_p, and the discrete
+topology on each ℤ/p^rℤ. No additional compatible-family carrier is needed.
+
+The theorem `AbstractMeasure.compactSpace_unitMeasures_weak` makes M compact.
+The preceding integral Amice comparison already makes D(ℤ_p,ℤ_p) weakly
+compact. The intrinsic unit restriction is weakly continuous, and its section
+identity makes it surjective. Its image is therefore the whole compact space M.
+This uses compactness of integral measures, not a compactness assertion for an
+arbitrary continuous dual.
+
+Each coefficient π_n(μ)(a) is evaluation on the continuous characteristic
+function of the corresponding fiber. All these coefficients are weakly
+continuous, and together they separate actual measures. A continuous injective
+map from a compact space into a Hausdorff space is a closed embedding. This
+gives `AbstractMeasure.isClosedEmbedding_unitCoordinates_weak` for the map
+μ↦(n,a↦π_n(μ)(a)), using the native product of functions A_n→ℤ_p.
+
+The comparison `AbstractMeasure.range_unitCoordinates` identifies its image
+exactly: a family c_n:A_n→ℤ_p lies in it if and only if, for every m≤n,
+
+c_m(a)=Σ_{b: t_(m,n)(b)=a} c_n(b).
+
+Here t_(m,n) is the actual native unit transition. On each finite A_n, the
+native equivalence between functions and finite-support functions gives the
+input to the preceding `ofUnitCoordinates`. Its recovery theorem proves
+surjectivity onto this described image; the preceding compatibility theorem
+proves necessity. Level zero is included, and its sole coefficient is total
+mass. Thus a mass-one depth-zero coordinate together with a zero depth-one
+coordinate is not in the image.
+
+The lemma `AbstractMeasure.continuous_ofUnitCoordinates` applies to any
+topological parameter space X. If c(x) is a compatible family for every x,
+and x↦c(x)_n(a) is continuous for each n,a, then the reconstructed actual
+measure depends weakly continuously on x. The closed embedding detects
+continuity, and recovery identifies its composite coordinates with c(x).
+There is no topology on the proof of compatibility.
+
+The theorem `AbstractMeasure.isClosedEmbedding_jointUnitCoordinates_weak`
+applies the same compact-to-Hausdorff argument to μ↦(r,n,a↦π_(r,n)(μ)(a)).
+Coefficient reduction is continuous, and the preceding joint separation
+theorem supplies injectivity. Consequently the theorem
+`AbstractMeasure.tendsto_unitMeasures_weak_iff_joint` holds for every filter l:
+μ_i tends weakly to ν exactly when, for each r,n, the entire finite coordinate
+π_(r,n)(μ_i) eventually equals π_(r,n)(ν). The eventual index can depend on
+r,n. The native product convergence criterion, discreteness, and the finiteness
+of A_n give this statement without a metrizability assumption.
+
+Put N_(r,n)={μ:π_(r,n)(μ)=0}. The lemma
+`AbstractMeasure.hasBasis_unitMeasures_weak_zero` says these sets form a
+neighborhood basis at zero. Each is a neighborhood because A_n is finite.
+Conversely, finitely many scalar coordinate conditions are implied by one
+such kernel: take the maximum coefficient precision and maximum group depth,
+then use the existing precision and refinement transition identities. The
+lemma `AbstractMeasure.hasBasis_unitMeasures_weak_zero_diagonal` shows that
+N_(k,k) is already cofinal, by taking k=max(r,n). Both precisions still grow.
+
+The existing convolution ring has jointly continuous operations by
+`AbstractMeasure.unitMeasures_isTopologicalRing_weak`. The joint coordinate
+embedding detects continuity. Addition and negation use the finite additive
+maps. Convolution uses the existing finite ring projection and the formula
+
+(c*d)(a)=Σ_{b∈A_n} c(b)d(b⁻¹a).
+
+The sum runs over the entire finite group, independent of the two supports.
+Native `MonoidAlgebra.coeff_mul_apply_left`, followed by the additive form
+of `Finsupp.prod_fintype`, provides this fixed finite sum. Each summand is a
+product of continuous scalar coordinate maps. This proves joint continuity.
+The kernels N_(r,n) are ideals, using the already bundled joint ring maps
+and their exact underlying finite coefficients. Their neighborhood basis and
+native `IsLinearTopology.mk_of_hasBasis` give
+`AbstractMeasure.unitMeasures_isLinearTopology_weak` on the same weak topology.
+
+The eight typed acceptance examples are named `UnitCoordinateTopologyTests`:
+
+- `scaled_atoms`: p^kδ_1 tends weakly to zero for every prime p.
+- `constant_atom`: the constant δ_1 sequence does not tend to zero, although
+  every precision-zero projection vanishes.
+- `incompatible_mass`: mass one at depth zero cannot coexist with zero at depth one.
+- `independent_precisions`: at p=2, 2(δ_1−δ_(−1)) vanishes at (r,n)=(1,2)
+  and (2,1), but has a nonzero (2,2) coordinate.
+- `zero_precision`: N_(0,n) is the whole measure space.
+- `dirac_parameter`: the native Dirac map U→M is weakly continuous.
+- `convolution_limits`: multiplication M×M→M is jointly weakly continuous.
+- `dyadic_square`: μ=δ_(−1)−δ_1 satisfies μ²=−2μ integrally at p=2.
+
+These are ten declaration-sized L1 adapters on the existing measure space,
+depending on its L2 integral Amice compactness and unit restriction, and its
+preceding L1 finite projections, convolution, separation and reconstruction.
+The full published RJW pages 119–123, including Proposition 3.16 and its proof,
+were freshly read for this decomposition. The compactness argument and explicit
+joint neighborhood basis are worker deductions; the inherited source findings
+retain their recorded qualifications.
+
+The remaining completed-algebra comparison uses the carrier owned by
+ProfiniteProPGroups Layer 9. The actual quotient equivalences and unit-kernel
+cofinality must identify that carrier's projections with these coordinates,
+and give the algebra homeomorphism with its Dirac and finite-projection laws.
+The measure topology supplied here does not itself discharge that comparison.
+The coefficient-lattice, general adic coefficient and complete-source-coverage
+targets remain recorded gaps. Historical checkpoint counts below describe
+their respective additions; the current counts and topology are those above.
+
+
 **Current unit-coordinate checkpoint:** 294 unchecked nodes: 2 definitions, 40 constructions, 190 lemmas, 37 theorems and 25 comparisons; 208 API items, 201 packet tests (148 on definitions/constructions), 212 typed examples, 17 planets and 297 baseline citations. Eight gaps, no outgoing requests, fourteen inherited source findings and zero closed stages remain.
 
 ## Recovering a measure from its finite unit coordinates

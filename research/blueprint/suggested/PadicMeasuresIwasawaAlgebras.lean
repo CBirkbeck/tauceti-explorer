@@ -2545,3 +2545,110 @@ example : finiteProjection
     (dirac ℤ_[2] (1 : (ℤ_[2])ˣ)-dirac ℤ_[2] (-1)) ≠ 0 := by sorry
 end UnitCoordinateTests
 end
+
+/-! Weak topology from actual finite unit coordinates. These are adapters on
+native measures and function products, not a second completed group algebra. -/
+noncomputable section
+open scoped AbstractMeasure Topology
+namespace AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "M" => D((ℤ_[p])ˣ,ℤ_[p])
+local notation "Q" => fun n : ℕ =>
+  (ContinuousMap.mk (PadicInt.unitToZModPow p n) (PadicInt.continuous_unitToZModPow p n) :
+    C((ℤ_[p])ˣ,(ZMod (p^n))ˣ))
+
+theorem compactSpace_unitMeasures_weak :
+    letI : TopologicalSpace M := WeakTopology
+    CompactSpace M := by sorry
+
+theorem isClosedEmbedding_unitCoordinates_weak :
+    letI : TopologicalSpace M := WeakTopology
+    Topology.IsClosedEmbedding (fun μ : M => fun (n : ℕ) (a : (ZMod (p^n))ˣ) =>
+      finiteProjection (Q n) μ a) := by sorry
+
+theorem range_unitCoordinates :
+    Set.range (fun μ : M => fun (n : ℕ) (a : (ZMod (p^n))ˣ) => finiteProjection (Q n) μ a) =
+      {c : ∀ n : ℕ, (ZMod (p^n))ˣ → ℤ_[p] |
+        ∀ {m n : ℕ} (h : m ≤ n),
+          Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h))
+            (Finsupp.equivFunOnFinite.symm (c n)) = Finsupp.equivFunOnFinite.symm (c m)} := by sorry
+
+theorem continuous_ofUnitCoordinates {X : Type*} [TopologicalSpace X]
+    (c : X → ∀ n : ℕ, (ZMod (p^n))ˣ →₀ ℤ_[p])
+    (hc : ∀ x, ∀ {m n : ℕ} (h : m ≤ n),
+      Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h)) (c x n) = c x m)
+    (hcont : ∀ n a, Continuous (fun x => c x n a)) :
+    letI : TopologicalSpace M := WeakTopology
+    Continuous (fun x => ofUnitCoordinates p (c x) (hc x)) := by sorry
+
+theorem isClosedEmbedding_jointUnitCoordinates_weak :
+    letI : TopologicalSpace M := WeakTopology
+    Topology.IsClosedEmbedding (fun μ : M => fun (r n : ℕ) (a : (ZMod (p^n))ˣ) =>
+      jointFiniteProjection p r (Q n) μ a) := by sorry
+
+theorem tendsto_unitMeasures_weak_iff_joint {ι : Type*} (l : Filter ι)
+    (μ : ι → M) (ν : M) :
+    letI : TopologicalSpace M := WeakTopology
+    Filter.Tendsto μ l (𝓝 ν) ↔ ∀ r n, ∀ᶠ i in l,
+      jointFiniteProjection p r (Q n) (μ i) = jointFiniteProjection p r (Q n) ν := by sorry
+
+lemma hasBasis_unitMeasures_weak_zero :
+    letI : TopologicalSpace M := WeakTopology
+    (𝓝 (0 : M)).HasBasis (fun _ : ℕ × ℕ => True)
+      (fun k => {μ : M | jointFiniteProjection p k.1 (Q k.2) μ = 0}) := by sorry
+
+lemma hasBasis_unitMeasures_weak_zero_diagonal :
+    letI : TopologicalSpace M := WeakTopology
+    (𝓝 (0 : M)).HasBasis (fun _ : ℕ => True)
+      (fun k => {μ : M | jointFiniteProjection p k (Q k) μ = 0}) := by sorry
+
+lemma unitMeasures_isTopologicalRing_weak :
+    letI : TopologicalSpace M := WeakTopology
+    IsTopologicalRing M := by sorry
+
+lemma unitMeasures_isLinearTopology_weak :
+    letI : TopologicalSpace M := WeakTopology
+    IsLinearTopology M M := by sorry
+end AbstractMeasure
+
+namespace UnitCoordinateTopologyTests
+open AbstractMeasure
+-- UnitCoordinateTopologyTests.scaled_atoms: coefficient precision is topological data.
+example (p : ℕ) [Fact p.Prime] :
+    letI : TopologicalSpace D((ℤ_[p])ˣ,ℤ_[p]) := WeakTopology
+    Filter.Tendsto (fun k : ℕ => (p : ℤ_[p])^k • dirac ℤ_[p] (1 : (ℤ_[p])ˣ))
+      Filter.atTop (𝓝 0) := by sorry
+-- UnitCoordinateTopologyTests.constant_atom: depth without coefficient precision is insufficient.
+example :
+    letI : TopologicalSpace D((ℤ_[2])ˣ,ℤ_[2]) := WeakTopology
+    ¬ Filter.Tendsto (fun _ : ℕ => dirac ℤ_[2] (1 : (ℤ_[2])ˣ)) Filter.atTop (𝓝 0) := by sorry
+-- UnitCoordinateTopologyTests.incompatible_mass: the ambient coordinate product is larger than the image.
+example (p : ℕ) [Fact p.Prime] :
+    ¬ ∃ μ : D((ℤ_[p])ˣ,ℤ_[p]),
+      finiteProjection ⟨PadicInt.unitToZModPow p 0, PadicInt.continuous_unitToZModPow p 0⟩ μ =
+        Finsupp.single 1 1 ∧
+      finiteProjection ⟨PadicInt.unitToZModPow p 1, PadicInt.continuous_unitToZModPow p 1⟩ μ = 0 := by sorry
+-- UnitCoordinateTopologyTests.independent_precisions: either shallow axis loses information.
+example :
+    let μ := (2 : ℤ_[2]) • (dirac ℤ_[2] (1 : (ℤ_[2])ˣ)-dirac ℤ_[2] (-1))
+    jointFiniteProjection 2 1 ⟨PadicInt.unitToZModPow 2 2, PadicInt.continuous_unitToZModPow 2 2⟩ μ = 0 ∧
+    jointFiniteProjection 2 2 ⟨PadicInt.unitToZModPow 2 1, PadicInt.continuous_unitToZModPow 2 1⟩ μ = 0 ∧
+    jointFiniteProjection 2 2 ⟨PadicInt.unitToZModPow 2 2, PadicInt.continuous_unitToZModPow 2 2⟩ μ ≠ 0 := by sorry
+-- UnitCoordinateTopologyTests.zero_precision: a basis member may be the whole space.
+example (p : ℕ) [Fact p.Prime] (n : ℕ) :
+    {μ : D((ℤ_[p])ˣ,ℤ_[p]) | jointFiniteProjection p 0
+      ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ μ = 0} = Set.univ := by sorry
+-- UnitCoordinateTopologyTests.dirac_parameter: the inverse coordinate topology agrees with native Dirac.
+example (p : ℕ) [Fact p.Prime] :
+    letI : TopologicalSpace D((ℤ_[p])ˣ,ℤ_[p]) := WeakTopology
+    Continuous (dirac ℤ_[p] : (ℤ_[p])ˣ → D((ℤ_[p])ˣ,ℤ_[p])) := by sorry
+-- UnitCoordinateTopologyTests.convolution_limits: joint weak continuity, not only separate continuity.
+example (p : ℕ) [Fact p.Prime] :
+    letI : TopologicalSpace D((ℤ_[p])ˣ,ℤ_[p]) := WeakTopology
+    Continuous (fun z : D((ℤ_[p])ˣ,ℤ_[p]) × D((ℤ_[p])ˣ,ℤ_[p]) => z.1*z.2) := by sorry
+-- UnitCoordinateTopologyTests.dyadic_square: integral signs do not split into eigenspaces.
+example :
+    let μ := dirac ℤ_[2] (-1 : (ℤ_[2])ˣ)-dirac ℤ_[2] 1
+    μ*μ = (-2 : ℤ_[2]) • μ := by sorry
+end UnitCoordinateTopologyTests
+end
