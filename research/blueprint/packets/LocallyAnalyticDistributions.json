@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial continuation of the 45-node Hasse checkpoint: adds nine L4 declarations for the explicit Riesz projector, lower and normalized Hasse annihilation, idempotence, canonical kernel/image, closed topological splitting, continuous inverse on the regular summand, polynomial closure and commuting stability. All 45 preceding statements/hypotheses and 44 complete node objects, thirteen reviewed IDs and nineteen links are preserved. No stage is closed; finite-projective rank/determinant and all other gaps remain. Every implementationStatus is unchecked.",
+  "summary": "Partial continuation with67 unchecked nodes. Thirteen L4 declarations supply the missing finite-adjugate and operator-coefficient estimate: native coordinate projections, basis norm detection, finite-coordinate comparison, distinct-output-column bounds, coefficient continuity, the finite-subset limit, a uniform entire-tail estimate and compression through actual (Pr) retractions. All54 predecessor mathematical statements and hypotheses,49 whole node objects,13 reviewed IDs,19 links and six planets are retained. No stage is closed; finite-projective rank/determinant, topology/tensor and all distribution-stage gaps remain explicit.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -324,6 +324,90 @@
         "ref": "mathlib:Submodule.projectionL",
         "module": "Mathlib.Topology.Algebra.Module.Complement",
         "provides": "Existing continuous projection onto one submodule along a topological complement; reused without replanning."
+      },
+      {
+        "ref": "mathlib:ZeroAtInftyContinuousMap.toBCF",
+        "kind": "def",
+        "module": "Mathlib/Topology/ContinuousMap/ZeroAtInfty.lean",
+        "provides": "Native inclusion of C0 into bounded continuous functions.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:ZeroAtInftyContinuousMap.norm_toBCF_eq_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousMap/ZeroAtInfty.lean",
+        "provides": "The native C0 norm agrees with the bounded-function supremum norm.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:Matrix.adjugate",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "The native adjugate over a commutative ring, including the polynomial coefficient ring.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:Matrix.adjugate_mul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "The identity adj(D)D=det(D)I, used with the input-first matrix convention.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:Matrix.adjugate_one",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "The adjugate of the identity is identity.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:Matrix.adjugate_fin_succ_eq_det_submatrix",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+        "provides": "Each adjugate entry over Fin(d+1) is its signed deleted-row/deleted-column determinant.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:Matrix.det_apply",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "The determinant as the signed finite permutation sum of products taking one entry from each column.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Coeff.lean",
+        "provides": "The degree-n coefficient of a polynomial product is its finite antidiagonal convolution.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Normed/Group/Ultra.lean",
+        "provides": "Indexed multiplicative declaration carrying to_additive; its generated norm_sum_le_of_forall_le_of_nonneg bounds an ultrametric finite sum by a common nonnegative bound. The additive generated statement is used and the declaration index is unmodified.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:le_of_tendsto",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order/OrderClosed.lean",
+        "provides": "A nonempty-filter limit inherits an eventual closed upper bound.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Basic.lean",
+        "provides": "For a nonnegative element below one in an ordered Archimedean semifield, its natural powers tend to zero; instantiated with the real q.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
+      },
+      {
+        "ref": "mathlib:ContinuousLinearMap.opNorm_comp_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Operator/Basic.lean",
+        "provides": "The native operator norm of a composite is bounded by the product of the two norms; applied after restriction to K.",
+        "checked": "Actual statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026."
       }
     ]
   },
@@ -340,7 +424,8 @@
         "Section 3 through Theorem 3.3, pp. 21-25",
         "Codex 2026-09-27: pp. 7-12 (c0, bounded-family extension, operator norm, finite-rank/closure definitions, full Lemma 2.3 and Proposition 2.4); pp. 22-24 (Lemma 3.1 and Proposition 3.2, especially the complete finite-generation paragraph).",
         "Codex codex-7e92bd, 2026-09-27: freshly read full manuscript pp. 22-24, including Hasse definition, root unit argument and Proposition 3.2 proof.",
-        "Riesz algebra follow-up, 2026-09-27: full manuscript pp. 23-24 read from the hash-verified public PDF, distinguishing kernel/image uniqueness from finite-projectivity/rank."
+        "Riesz algebra follow-up, 2026-09-27: full manuscript pp. 23-24 read from the hash-verified public PDF, distinguishing kernel/image uniqueness from finite-projectivity/rank.",
+        "Adjugate continuation,27 September2026: freshly fetched the same public PDF and read the full manuscript p22 for the transfer of Serre Proposition10 to Noetherian Banach algebras and (Pr) modules. Earlier coordinate/source reads are retained as prior provenance."
       ],
       "note": "Prior readSections retain the predecessor extraction. Codex independently fetched and hash-verified the same 82-page author manuscript, then read physical/manuscript pp. 7-12 and 22-24 for this extension. BGR remains unacquired. This continuation independently fetched the same PDF and rechecked its hash; earlier source reads remain predecessor provenance.",
       "sha256": "0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d",
@@ -358,7 +443,8 @@
         "Section 6: Proposition 10 and Lemma 3, pp. 78-79",
         "Section 7: Propositions 11-12 and the projector proof, pp. 80-81",
         "Codex codex-7e92bd, 2026-09-27: fresh full PDF pp. 11-14, printed pp. 78-81; printed p. 81 also rendered to verify the signs, multiplication order and projector formulas.",
-        "Riesz algebra follow-up, 2026-09-27: full printed pp. 80-81 (PDF 13-14), especially e, f, complementary projectors, regular inverse and the start of the field-specific dimension count."
+        "Riesz algebra follow-up, 2026-09-27: full printed pp. 80-81 (PDF 13-14), especially e, f, complementary projectors, regular inverse and the start of the field-specific dimension count.",
+        "Adjugate continuation,27 September2026: freshly fetched the same published PDF and read full physical PDF11–12 / printed78–79, including all three cases of Lemma3; rendered printed79 to check its cofactor and support formulas. Finite L must range over supersets of the fixed output support and include the tested input coordinate."
       ],
       "note": "The product identity and Hasse-derivative formulas were also checked in rendered pages. No blanket assertion that field-specific dimension arguments transfer to Banach algebras. This continuation independently fetched and hash-verified the PDF. Coleman source reads remain inherited; the downloaded Coleman PDF was not freshly read for this checkpoint.",
       "sha256": "67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402",
@@ -467,7 +553,9 @@
         "mathlib:ZeroAtInftyContinuousMap",
         "mathlib:ZeroAtInftyContinuousMap.ext",
         "mathlib:ZeroAtInftyContinuousMap.instCompleteSpace",
-        "mathlib:NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one"
+        "mathlib:NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one",
+        "LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation",
+        "LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound"
       ],
       "proofSteps": [
         "Bounded m_i and x_i tending to zero imply x_i m_i tends to zero on the cofinite filter. Use the additive counterpart of the cited indexed theorem, as explained in baseline.declarations.",
@@ -536,7 +624,8 @@
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/c0-lift",
-        "LocallyAnalyticDistributions:L4/c0-scalar-bound"
+        "LocallyAnalyticDistributions:L4/c0-scalar-bound",
+        "LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound"
       ],
       "proofSteps": [
         "Package a chart into the existing continuous linear equivalence or linear isometry equivalence types.",
@@ -702,7 +791,9 @@
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/completely-continuous",
-        "LocallyAnalyticDistributions:L4/finite-submodule-approximation"
+        "LocallyAnalyticDistributions:L4/finite-submodule-approximation",
+        "LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation",
+        "LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound"
       ],
       "proofSteps": [
         "If column norms tend to zero, finite output projections have finite free image and approximate u uniformly.",
@@ -1509,15 +1600,15 @@
       ],
       "prerequisites": [
         "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
-        "LocallyAnalyticDistributions:L4/minor-tail-estimate"
+        "LocallyAnalyticDistributions:L4/resolvent-recurrence-entire"
       ],
       "proofSteps": [
-        "The recurrence gives both formal identities and polynomial dependence of v_n on u.",
-        "For finite coordinates use the adjugate-minor expression, whose coefficients use distinct columns. Transfer its column-product estimate to finite-coordinate truncations and then to u; Serre Lemma 3 supplies the estimate, not the recurrence alone.",
-        "For (Pr), construct on a common zero extension and restrict the operator-valued series. Analytic restriction respects the two-sided identity."
+        "Define the native continuous-linear coefficients recursively from v₀=I and v_(n+1)=c_(n+1)I+uv_n. Induction gives polynomial dependence and the two-sided formal identities.",
+        "Apply resolvent-recurrence-entire to this actual recurrence. Its separate chain proves the finite adjugate bound, finite-support comparison, finite-coordinate norm limit and fixed retraction estimate; it does not assume the entireness of this node.",
+        "Evaluate the resulting operator-valued entire series and its formal identities. The Hasse and Riesz consumers import this construction only after the analytic estimate has been supplied."
       ],
       "acceptance": [
-        "The recurrence alone does not imply entireness; keep the adjugate coefficient estimate as an explicit signature-level continuation task."
+        "The recurrence alone is insufficient. Its analytic estimate now has the exact resolvent-recurrence-entire dependency; finite-projective rank and determinant identities remain separate gaps."
       ],
       "uses": [
         {
@@ -1526,6 +1617,11 @@
         }
       ],
       "api": [
+        {
+          "name": "resolventCoeff_zero",
+          "role": "simp",
+          "statement": "The initial coefficient v₀ is the identity endomorphism on the actual module M."
+        },
         {
           "name": "resolventCoeff_succ",
           "role": "simp",
@@ -2179,7 +2275,7 @@
         "At s=0 compare term by term with the existing resolvent evaluation. At a=0 the only surviving term is v_s. This uses no change of module norm and creates no competing operator carrier."
       ],
       "acceptance": [
-        "This construction consumes resolvent-series entireness. The unresolved adjugate coefficient estimate is still required; the recurrence alone cannot supply it."
+        "This construction consumes resolvent-series entireness, now supported by resolvent-recurrence-entire and its separate adjugate/truncation/retraction chain. The recurrence alone cannot supply convergence."
       ],
       "sources": [
         {
@@ -2820,6 +2916,622 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/finite-coordinate-projection",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Finite coordinate truncation",
+      "kind": "construction",
+      "statement": "For a finite T⊆I, the existing helper π_T is the native continuous A-linear endomorphism of c_A(I) that retains coordinates in T and sets every other coordinate to zero. Its value is the finite sum Σ_{j∈T}x_j e_j; the carrier remains the native C0 space.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars."
+      ],
+      "proofSteps": [
+        "The finite-support function is continuous because I is discrete, and vanishes at infinity because its support lies in finite T. This constructs an element of the native ZeroAtInftyContinuousMap carrier.",
+        "Linearity is pointwise. Transfer the native supremum norm through toBCF and bound the difference pointwise by the norm of the original difference, giving continuity without choosing a basis enumeration.",
+        "The empty projection, intersection composition and basis-vector formulas follow coordinatewise. The evaluation and norm API items are promoted below before use in the analytic estimates."
+      ],
+      "prerequisites": [
+        "mathlib:ZeroAtInftyContinuousMap",
+        "mathlib:ZeroAtInftyContinuousMap.ext",
+        "mathlib:ZeroAtInftyContinuousMap.toBCF",
+        "mathlib:ZeroAtInftyContinuousMap.norm_toBCF_eq_norm",
+        "mathlib:BoundedContinuousFunction.norm_le",
+        "mathlib:BoundedContinuousFunction.norm_coe_le_norm"
+      ],
+      "acceptance": [
+        "This promotes the existing suggested helper; it does not define a second c0 carrier. Empty T gives zero, and the identity on an infinite c0 space is not a finite projection."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "coordinateProjection"
+      },
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§2, pp.7–12 for coordinates; §3, full manuscript p.22 freshly reread on27 September2026 for the Fredholm resolvent over (Pr) modules.",
+          "match": "The coordinate maps use the existing C0 carrier. The source invokes Serre Proposition10 for a Noetherian Banach algebra and a (Pr) module; the explicit finite-coordinate and retraction steps are decomposed here rather than assumed from the recurrence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "coordinateProjection_apply",
+          "role": "projection",
+          "statement": "At coordinate j, π_T(x)_j is x_j if j∈T and zero otherwise; promoted to finite-coordinate-projection-evaluation."
+        },
+        {
+          "name": "coordinateProjection_norm_le",
+          "role": "compatibility",
+          "statement": "For every x, ‖π_T x‖≤‖x‖; the existing signature is promoted to finite-coordinate-projection-bound."
+        },
+        {
+          "name": "coordinateProjection_empty",
+          "role": "simp",
+          "statement": "π_∅=0 as a native continuous A-linear map."
+        },
+        {
+          "name": "coordinateProjection_inter",
+          "role": "functoriality",
+          "statement": "π_T composed with π_S is π_(T∩S); hence each finite projection is idempotent."
+        },
+        {
+          "name": "coordinateProjection_single",
+          "role": "simp",
+          "statement": "π_T(a e_j)=a e_j if j∈T, and zero if j∉T."
+        }
+      ],
+      "uses": [
+        {
+          "where": "compact-matrix-criterion and resolvent-coefficient-bound",
+          "how": "The actual finite-coordinate approximation is π_T composed with u; its image has finite A-support and its output columns retain the common majorant."
+        },
+        {
+          "where": "c0-lift and orthonormalizable-modules",
+          "how": "Finite-support truncations approximate each native c0 vector and give the coordinate norm and basis tests."
+        }
+      ],
+      "tests": [
+        {
+          "name": "projection_empty_support",
+          "kind": "computation",
+          "statement": "For every x, π_∅x=0."
+        },
+        {
+          "name": "projection_selected_coordinate",
+          "kind": "computation",
+          "statement": "π_{j}(a e_j)=a e_j."
+        },
+        {
+          "name": "projection_rejected_coordinate",
+          "kind": "non-example",
+          "statement": "If i≠j, π_{i}(a e_j)=0."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Evaluation of a finite coordinate projection",
+      "kind": "lemma",
+      "statement": "For T finite, x∈c_A(I) and j∈I, (π_T x)_j=x_j when j∈T, and (π_T x)_j=0 otherwise.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars."
+      ],
+      "proofSteps": [
+        "Evaluate the defining finite-support function. This is the promoted projection formula, so subsequent coordinate arguments use an exact node."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/finite-coordinate-projection"
+      ],
+      "acceptance": [
+        "The formula treats selected and unselected coordinates and implies that π_Tu has output support in T."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "coordinateProjection_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Contractivity of coordinate truncation",
+      "kind": "lemma",
+      "statement": "For every finite T⊆I and every x∈c_A(I), ‖π_T x‖≤‖x‖.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars."
+      ],
+      "proofSteps": [
+        "Use finite-coordinate-projection-evaluation to bound each coordinate by ‖x‖, using zero outside T.",
+        "Apply the native bounded-function norm characterization and the C0-to-bounded-function norm equality."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation",
+        "mathlib:BoundedContinuousFunction.norm_le",
+        "mathlib:BoundedContinuousFunction.norm_coe_le_norm",
+        "mathlib:ZeroAtInftyContinuousMap.norm_toBCF_eq_norm"
+      ],
+      "acceptance": [
+        "This proves operator norm at most one after restricting scalars to K; it does not assert that every projection has norm one, since T can be empty."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "coordinateProjection_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/c0-operator-norm-criterion",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Operator bound from the coordinate vectors",
+      "kind": "lemma",
+      "statement": "For a continuous A-linear f:c_A(I)→c_A(I) and C≥0, ‖f‖_K≤C if and only if ‖f(e_i)‖≤C for every i∈I.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars."
+      ],
+      "proofSteps": [
+        "A coordinate vector has norm one when it exists. The forward implication follows from the native le_opNorm bound and the native C0 supremum norm.",
+        "For the reverse implication, use c0-lift on the bounded family f(e_i). Its norm formula, normalized A-action and uniqueness identify the resulting map with f and bound it by C. This includes empty I, where both the module and the operator norm are zero."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/c0-lift",
+        "LocallyAnalyticDistributions:L4/c0-scalar-bound",
+        "mathlib:ContinuousLinearMap.le_opNorm",
+        "mathlib:ContinuousLinearMap.opNorm_le_bound"
+      ],
+      "acceptance": [
+        "No countability or algebraic spanning assertion for the infinite c0 module is assumed. Finite-support density is used through the already planned bounded-family extension."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "c0_operator_norm_le_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/finite-adjugate-recurrence",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Coefficients of the finite adjugate",
+      "kind": "lemma",
+      "statement": "For a d×d matrix D over A, put H(T)=I−TD, c_n=coeff_n det(H), and B_n=(coeff_n adj(H)_ij)_ij. Then B₀=I and B_(n+1)=c_(n+1)I+B_nD. This order is compatible with the input-first operator convention.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars."
+      ],
+      "proofSteps": [
+        "Apply the native identity adj(H)H=det(H)I over the existing polynomial ring. Taking degree n+1 gives B_(n+1)−B_nD=c_(n+1)I by the polynomial product coefficient formula.",
+        "The constant coefficient is adj(I)=I; extract it by evaluation at zero, or directly from the cofactor formula. Include d=0, where the matrix carrier is a subsingleton and the determinant is one."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.adjugate",
+        "mathlib:Matrix.adjugate_mul",
+        "mathlib:Matrix.adjugate_one",
+        "mathlib:Polynomial.coeff_mul"
+      ],
+      "acceptance": [
+        "The adjugate is a numerator, not an inverse obtained by dividing by a determinant. In the input-first convention, f composed with V corresponds to the matrix of V multiplied on the right by D."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "finite_adjugate_recurrence"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "adjugate_rank_one",
+          "kind": "computation",
+          "statement": "For the one-by-one matrix (a), adj(I−TD)=I."
+        },
+        {
+          "name": "adjugate_diagonal_two",
+          "kind": "computation",
+          "statement": "For diag(a,b), the adjugate is diag(1−bT,1−aT)."
+        },
+        {
+          "name": "adjugate_nilpotent_two",
+          "kind": "computation",
+          "statement": "For the nonzero two-by-two nilpotent Jordan matrix N, adj(I−TN)=I+TN."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/finite-adjugate-coefficient-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Distinct-column bound for adjugate coefficients",
+      "kind": "lemma",
+      "statement": "Let D be a d×d matrix, b_j≥0 with ‖D_ij‖≤b_j, n≥0 and C≥0. Assume ∏_{j∈S}b_j≤C for every n-element subset S of its column index set. Every coefficient of degree n of every entry of adj(I−TD) then has norm at most C.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars."
+      ],
+      "proofSteps": [
+        "For d=0 the entry assertion is empty. For d>0 use the native cofactor formula adjugate_fin_succ_eq_det_submatrix, after the usual finite-index identification.",
+        "Expand the cofactor determinant by permutations and each product by Polynomial.coeff_mul. Every nonzero degree-n contribution selects n distinct columns of D, with coefficient a sign and the remaining factors from identity entries. Thus each contribution has norm at most a product of n distinct b_j.",
+        "Use submultiplicativity, norm one for signs and the ultrametric finite-sum inequality. There is no factorial multiplier. For n above the cofactor degree all contributions vanish. For n=0 the empty product is one."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.adjugate_fin_succ_eq_det_submatrix",
+        "mathlib:Matrix.det_apply",
+        "mathlib:Polynomial.coeff_mul",
+        "mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg"
+      ],
+      "acceptance": [
+        "Repeated columns are not allowed in the product majorant. The estimate holds over nonreduced Banach algebras and uses no eigenvalues or division by n!."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "finite_adjugate_coeff_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/finite-coordinate-resolvent-comparison",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Resolvent recurrence on finite coordinates",
+      "kind": "comparison",
+      "statement": "Let u:c_A(I)→c_A(I) be completely continuous, with output support in a finite J. Let V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual Fredholm coefficients. For every finite L⊇J, the entries of V_n between coordinates i,j∈L equal the degree-n coefficients of adj(I−T D_L), where D_L=(u_ij)_(i,j∈L).",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars."
+      ],
+      "proofSteps": [
+        "The operator u preserves the coordinate submodule A^L because its entire output lies in A^J⊆A^L. The finite-coordinate-determinant comparison identifies the actual Fredholm series with det(I−TD_L), including the additional zero directions in L.",
+        "Restriction of V₀ is identity. Inductively restrict the recurrence to A^L. In the input-first convention uV_n has matrix B_nD_L. Apply finite-adjugate-recurrence and uniqueness of the algebraic recurrence.",
+        "This statement does not bound the whole operator by restricting only to J. In the following norm proof L is chosen to contain the tested input coordinate as well as J."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/finite-coordinate-determinant",
+        "LocallyAnalyticDistributions:L4/finite-adjugate-recurrence"
+      ],
+      "acceptance": [
+        "For diag(a,0), the degree-one adjugate coefficient on the second coordinate is −a, even though it is zero on the image coordinate."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "finite_coordinate_resolvent_comparison"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "finite_output_support_is_not_enough_for_input",
+          "kind": "non-example",
+          "statement": "For diag(a,0), coefficient one of the (1,1) entry of adj(I−TD) is −a, whereas that of the (0,0) entry is zero, using indices0,1."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/finite-output-resolvent-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Resolvent bound for finite output support",
+      "kind": "lemma",
+      "statement": "Suppose u has output support in finite J. Let b_j≥0 bound its output-column norms, fix n≥0 and C≥0, and assume every product of n distinct b_j is at most C. Then ‖V_n‖_K≤C.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.",
+        "V is any sequence of native continuous A-linear endomorphisms with V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual Fredholm coefficients. These are algebraic recurrence hypotheses; no analytic estimate or entireness is assumed."
+      ],
+      "proofSteps": [
+        "For each input coordinate i choose L=J∪{i}. The recurrence preserves A^L and finite-coordinate-resolvent-comparison gives the exact adjugate entries of V_n(e_i).",
+        "Apply finite-adjugate-coefficient-bound to D_L with the restricted b. Its n-element subsets give n-element subsets of I, so the same C applies. The finite supremum norm gives ‖V_n(e_i)‖≤C.",
+        "Apply c0-operator-norm-criterion. This treats every input coordinate, including those outside J, and avoids the incorrect inference from a bound on V_n restricted only to the image support."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/finite-coordinate-resolvent-comparison",
+        "LocallyAnalyticDistributions:L4/finite-adjugate-coefficient-bound",
+        "LocallyAnalyticDistributions:L4/c0-operator-norm-criterion"
+      ],
+      "acceptance": [
+        "The uniform C is independent of L and of the input i. Arbitrary index sets and empty support are included."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "finite_output_resolvent_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/resolvent-coefficient-continuity",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Continuity of the finite recurrence",
+      "kind": "lemma",
+      "statement": "Let α carry any filter l. Suppose u_α→u in K-operator norm on c_A(I), and c_(α,n)→c_n in A for each n. Define sequences V_(α,n) and V_n by initial identity and V_(α,n+1)=c_(α,n+1)I+u_αV_(α,n), respectively V_(n+1)=c_(n+1)I+uV_n. For every fixed n, V_(α,n)→V_n in K-operator norm.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars."
+      ],
+      "proofSteps": [
+        "Induct on n. The initial identity is constant. Addition and multiplication are continuous in the native K-operator ring.",
+        "The coefficient action a↦aI on c_A(I) is bounded by ‖a‖, using c0-scalar-bound and the native operator norm criterion. Its continuity carries the scalar coefficient limits into operator limits.",
+        "Apply the recurrence and the induction hypothesis. The filter is arbitrary, so the result applies to finite subsets of an uncountable I ordered by inclusion."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/c0-scalar-bound",
+        "mathlib:ContinuousLinearMap.toNormedRing",
+        "mathlib:ContinuousLinearMap.opNorm_le_bound"
+      ],
+      "acceptance": [
+        "Only finitely many coefficient limits are used for a fixed n; no interchange with an infinite sum or evaluation is made."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "recurrence_coefficient_tendsto"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/resolvent-coefficient-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Adjugate bound for the Fredholm resolvent",
+      "kind": "theorem",
+      "statement": "Let u be completely continuous on c_A(I), and let b_j≥0 bound its output-column norms. For n≥0 and C≥0, if every product of n distinct b_j is at most C, then ‖V_n‖_K≤C.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.",
+        "V is any sequence of native continuous A-linear endomorphisms with V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual Fredholm coefficients. These are algebraic recurrence hypotheses; no analytic estimate or entireness is assumed."
+      ],
+      "proofSteps": [
+        "Take u_T=π_Tu over the directed set of finite T⊆I. The promoted projection formula gives finite output support and the same majorant b. Its image is contained in the span of finitely many coordinate vectors, so it is completely continuous by the defining finite-image approximation criterion.",
+        "The existing compact-matrix-criterion gives u_T→u in operator norm. The projection bound gives a common operator-norm bound; apply coefficient-continuity to each fixed Fredholm coefficient.",
+        "Define V_(T,n) by the finite algebraic recurrence. Apply resolvent-coefficient-continuity to obtain V_(T,n)→V_n for each fixed n. Each V_(T,n) has norm at most C by finite-output-resolvent-bound.",
+        "Pass this closed norm inequality to the limit using le_of_tendsto. The finite-subset filter is nonempty and directed. No decreasing enumeration of column sizes is needed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/finite-coordinate-projection-evaluation",
+        "LocallyAnalyticDistributions:L4/finite-coordinate-projection-bound",
+        "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+        "LocallyAnalyticDistributions:L4/coefficient-continuity",
+        "LocallyAnalyticDistributions:L4/finite-output-resolvent-bound",
+        "LocallyAnalyticDistributions:L4/resolvent-coefficient-continuity",
+        "mathlib:le_of_tendsto"
+      ],
+      "acceptance": [
+        "This supplies the analytic estimate missing from the old resolvent node. The recurrence alone would give a geometric bound and does not establish this distinct-column bound."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "resolvent_recurrence_norm_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/resolvent-tail-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Entire tail estimate for resolvent coefficients",
+      "kind": "lemma",
+      "statement": "Let b_j≥0 bound the output-column norms of completely continuous u and satisfy b_j≤L. Fix R>0, 0<q<1 and finite T with Rb_j≤q off T. Put m=|T| and B=max(1,RL). Then ‖V_n‖_K Rⁿ≤B^m q^(max(n−m,0)) for every n≥0.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.",
+        "V is any sequence of native continuous A-linear endomorphisms with V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual Fredholm coefficients. These are algebraic recurrence hypotheses; no analytic estimate or entireness is assumed."
+      ],
+      "proofSteps": [
+        "For any n-element subset S, split it into its intersection with T and its complement. At most m factors Rb_j are bounded by B; all others are bounded by q. Since B≥1 and 0<q<1, the product is at most B^m q^(max(n−m,0)).",
+        "Apply resolvent-coefficient-bound with C=B^m q^(max(n−m,0))/Rⁿ, which is nonnegative; Rⁿ is strictly positive. Multiply through by Rⁿ.",
+        "The constant B^m is independent of n. If b is cofinite-null, such T exists for every R and q, and the geometric right side tends to zero. The bound is also uniform for any family with the same b,L,T."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/resolvent-coefficient-bound",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "acceptance": [
+        "The exponent is truncated at zero for n≤m. There is no factorial factor, summation over input coordinates, or normed-field hypothesis on A itself."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "resolvent_recurrence_tail_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/resolvent-retraction-comparison",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Compression of the coefficient recurrence",
+      "kind": "lemma",
+      "statement": "Let i:M→c_A(I) and r:c_A(I)→M be native continuous A-linear maps with ri=I. For u:M→M put U=iur. For any scalar sequence c_n, suppose V₀=I_M, W₀=I_c0, V_(n+1)=c_(n+1)I_M+uV_n and W_(n+1)=c_(n+1)I_c0+UW_n. Then rW_n i=V_n for every n.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.",
+        "M is a Banach A-module with compatible K-action. The stated continuous retraction is actual data; no claim that every finite module has such a retraction is made."
+      ],
+      "proofSteps": [
+        "At n=0 this is exactly ri=I. Apply r on the left and i on the right to the next recurrence.",
+        "Use A-linearity to move c_(n+1) through r and i; use ri=I in the product term, and then the induction hypothesis. This is purely algebraic and works for any scalar sequence."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/projective-banach-modules"
+      ],
+      "acceptance": [
+        "The zero extension has identity on the whole ambient module at degree zero. It is the compression rW₀i that equals identity on M; do not replace W₀ by ir."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "recurrence_retraction"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/resolvent-recurrence-entire",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Entireness of the recurrence on a projective Banach module",
+      "kind": "theorem",
+      "statement": "Let M have (Pr), u:M→M be completely continuous, and c_n be its actual summand Fredholm coefficients. For any V₀=I and V_(n+1)=c_(n+1)I+uV_n, and every R>0, ‖V_n‖_K Rⁿ tends to zero.",
+      "hypotheses": [
+        "K is a complete nontrivially valued nonarchimedean field and A is a nonzero commutative Noetherian K-Banach algebra with norm one for 1 and its normalized submultiplicative ultrametric norm. All module structures are compatible.",
+        "I is an arbitrary discrete set and c_A(I) is the existing C0(I,A), with its supremum norm. The matrix entry u_ij is coordinate j of u(e_i): inputs come first and outputs second. Operator norms mean the native K-operator norm after restriction of scalars.",
+        "M is a complete Banach A-module with compatible bounded coefficient action as in the standing roadmap hypotheses; property (Pr) supplies actual continuous inclusion and retraction data."
+      ],
+      "proofSteps": [
+        "Choose the actual retraction i:M→c_A(I), r:c_A(I)→M from property (Pr). Approximate u by finite-A-image maps g at error ε/(1+‖i‖‖r‖); the maps igr still have finite A-image, and the composition norm bound gives approximation of U=iur. Thus U is completely continuous directly from the imported definition. The summand-fredholm-theory comparison identifies its Fredholm coefficients with the given c_n.",
+        "For U use its column-norm family b_j. It is bounded by ‖U‖ and cofinite-null by compact-matrix-criterion; normalized basis/evaluation bounds justify the column bound. Take q=1/2 and apply resolvent-tail-bound for every R to the recurrence W_n on c_A(I).",
+        "The geometric estimate gives ‖W_n‖Rⁿ→0. Apply resolvent-retraction-comparison and the native composition norm bound twice: ‖V_n‖Rⁿ≤‖r‖‖i‖‖W_n‖Rⁿ. The fixed nonnegative factor preserves convergence to zero.",
+        "Instantiate this theorem with the existing resolvent coefficient construction and its initial/successor equations. This proof does not use resolvent-series, its entireness API or any Hasse/Riesz theorem as a prerequisite."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/projective-banach-modules",
+        "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+        "LocallyAnalyticDistributions:L4/completely-continuous",
+        "LocallyAnalyticDistributions:L4/compact-matrix-criterion",
+        "LocallyAnalyticDistributions:L4/c0-operator-norm-criterion",
+        "LocallyAnalyticDistributions:L4/resolvent-tail-bound",
+        "LocallyAnalyticDistributions:L4/resolvent-retraction-comparison",
+        "mathlib:ContinuousLinearMap.opNorm_comp_le",
+        "mathlib:Submodule.FG.map",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "acceptance": [
+        "No isometric retraction is assumed: the factors ‖r‖ and ‖i‖ remain in the transfer. This analytic coefficient estimate does not establish finite-projectivity, constant rank or determinant equality of a root summand."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Nonarchimedean/Fredholm",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "resolvent_recurrence_entire"
+      },
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "§6, Proposition10 and Lemma3(a)–(c), printed78–79 / PDF11–12; full fresh reading and printed79 page image checked on27 September2026.",
+          "match": "The source separates the finite adjugate estimate, finite output support and norm-limit passage. These nodes express its distinct-column bound without choosing a decreasing enumeration. Extension from the valued field to the stated Banach algebra uses only ultrametricity and submultiplicativity, with the (Pr) transfer supplied through explicit retractions."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "§2, pp.7–12 for coordinates; §3, full manuscript p.22 freshly reread on27 September2026 for the Fredholm resolvent over (Pr) modules.",
+          "match": "The coordinate maps use the existing C0 carrier. The source invokes Serre Proposition10 for a Noetherian Banach algebra and a (Pr) module; the explicit finite-coordinate and retraction steps are decomposed here rather than assumed from the recurrence."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -2961,7 +3673,7 @@
       "remaining": [
         "The generic Fredholm spine is preserved. Algebraic coordinate detection and the Neumann proof of finite generation are decomposed, but canonical finite-module topology, inverse norm bounds and completed tensors remain gaps.",
         "Construct the spectral resultant D(B,P) and transport Coleman A3.8-A3.9 to Noetherian K-Banach algebras and (Pr) modules, including the normalization in Theorem 3.3.",
-        "The Hasse-calculus bridge is decomposed into ten declarations. Expand the remaining composite nodes and APIs, especially the operator adjugate coefficient bound, finite-projective determinant/rank argument, Cayley-Hamilton and Lemmas 2.12-2.13.",
+        "The Hasse calculus, explicit Riesz projector and analytic adjugate coefficient estimate are now separately decomposed. Expand the remaining composite nodes and APIs, especially the finite-projective determinant/rank argument, Cayley–Hamilton, polynomial division bounds and Lemmas2.12–2.13.",
         "Construct the actual affinoid-valued analytic/distribution modules, integral models, completed tensor products and specialization; include the RS-16 transferred universal-character coefficient action with uniform local radii.",
         "Prove continuity and complete continuity of the actual modular-symbol/automorphic semigroup operators and scalar-extension compatibility on slope-adapted affinoids. Include positive-order nonmeasure and order-zero/multivariable acceptance tests.",
         "Complete the explicitly omitted signatures, especially completed-tensor base change and the Riesz/slope hypotheses. The present partial suggested file elaborates at the pin; this is not a formalization claim.",
@@ -2994,7 +3706,7 @@
     },
     {
       "title": "Remaining analytic helper and API granularity",
-      "detail": "Hasse construction, polynomial comparison, product formula, coefficient bound, entireness, native operator evaluation, two-sided recurrence, polynomial closure, commutation and the unit-root argument are now separate nodes. The operator-valued adjugate coefficient estimate still underlies every analytic resolvent assertion and requires its own signature and decomposition. Expand finite-free determinant comparison, the lifting-converse bounded generating family and polynomial division estimates. The finite-projective determinant/rank argument and remaining composite-node API dependencies are not closed by Hasse calculus. This follow-up separates the Hasse-annihilation and explicit projector algebra, canonical kernel/image, native topological complement, continuous regular inverse, polynomial closure and commuting stability. Those steps have typed signatures; finite-projectivity/rank and the operator adjugate estimate remain unresolved."
+      "detail": "Hasse calculus, Riesz projector algebra and the operator-valued adjugate estimate now have separate nodes and typed signatures. The latter includes distinct-column finite bounds, finite output support, arbitrary finite-subset nets, fixed-degree recurrence continuity and the actual (Pr) compression factor. Remaining helper/API work: finite-free determinant comparison in greater detail, the lifting-converse bounded generating family, polynomial division estimates and finite-projective determinant/rank. These are not closed by the new resolvent estimate."
     },
     {
       "title": "Distribution stages and universal-character families",
@@ -3002,7 +3714,7 @@
     },
     {
       "title": "Prototype and validation boundary",
-      "detail": "The suggested file includes typed signatures and tests for every new Hasse node, with explicit completeness and bounded scalar-action hypotheses on convergence statements. The full Riesz/slope signatures still require finite-projective determinant/rank and spectral-resultant interfaces. The completed-tensor base-change API and remaining topology/lifting/division signatures remain omitted. Inherited signatures and mathematical statements are preserved; a complete audit of all inherited signature assumptions remains part of the prototype worklist. Compilation checks types, not proofs or closure. The explicit Riesz algebra and its native projectionL comparison now have typed signatures and four discriminating examples. The full finite-projective Riesz and exact finite-slope theorems remain omitted for the inherited interface reasons."
+      "detail": "The current seed supplies typed adjugate, finite-coordinate, coefficient-bound, arbitrary-filter continuity and retraction signatures, in addition to the earlier Hasse and Riesz algebra. The full finite-projective Riesz/slope signatures and completed-tensor base-change API remain omitted for the inherited determinant/rank, spectral-resultant and actual tensor-carrier reasons. Inherited assumptions still require audit as the remaining topology/lifting/division signatures are filled. Compilation checks types; all implementation statuses remain unchecked."
     },
     {
       "title": "Imported complete-continuity contract beyond affinoids",
@@ -3048,141 +3760,266 @@
     "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension."
   },
   "checks": {
-    "predecessor": {
-      "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-      "intake": "Exactly four authorized files; zero problems.",
-      "sourceIssues": "No new source finding; empty source-issue wrapper passes.",
-      "validation": {
-        "nodes": 45,
-        "newNodes": 10,
-        "kinds": {
-          "comparison": 6,
-          "construction": 7,
-          "definition": 3,
-          "lemma": 17,
-          "theorem": 12
-        },
-        "api": 36,
-        "tests": 45,
-        "definitionConstructionAPI": 32,
-        "definitionConstructionTests": 31,
-        "typedExamples": 45,
-        "planets": 6,
-        "baseline": 42,
-        "preservedStatementsAndHypotheses": 35,
-        "preservedWholeNodes": 34,
-        "preservedLinks": 19,
-        "internalNodes": 45,
-        "baselineLeaves": 42,
-        "stageRequestLeaves": [
-          "AdicSpacesPartII:R3"
-        ],
-        "dependencyEdges": 138,
-        "acyclic": true,
-        "gaps": 8,
-        "requests": 5,
-        "closedStages": 0,
-        "leanWarnings": 111,
-        "leanErrors": 0,
-        "auditedMathlibModules": 1882,
-        "scratchCompleteLeanProofs": 7,
-        "arithmetic": {
-          "assertions": 51363,
-          "matrixPairs": 420,
-          "coefficientModuli": [
-            2,
-            3,
-            4,
-            5,
-            6,
-            8,
-            11
-          ],
-          "note": "Finite exact arithmetic checks, not proofs of infinite-dimensional analytic statements."
-        }
+    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "sourceIssues": "Empty list retained; errata wrapper passes.",
+    "validation": {
+      "nodes": 67,
+      "kinds": {
+        "comparison": 7,
+        "construction": 9,
+        "definition": 3,
+        "lemma": 32,
+        "theorem": 16
       },
-      "suggestedSHA256": "cf902dd9da46488cdf13b1782fa8142be1bd207dac3e75082acb6319afbf0c41",
-      "publication": {
-        "baseCommit": "85cad46b3d86f72afb4f43b9a52f9d9148508442",
-        "capturedInputs": 21,
-        "allCapturedInputsMatch": true,
-        "allFourPredecessorOutputsUnchanged": true,
-        "unchangedIssueBody": true,
-        "claimConfirmation": 5852702029
-      },
-      "closure": "Partial: eight gaps, five requests, no closed stages; every implementation status unchecked."
+      "api": 46,
+      "definitionConstructionApi": 42,
+      "definitionConstructionTests": 38,
+      "packetTests": 56,
+      "typedExamples": 56,
+      "planets": 6,
+      "baseline": 66,
+      "preservedStatementsAndHypotheses": 54,
+      "preservedWholeNodes": 49,
+      "changedMetadata": [
+        "c0-lift",
+        "orthonormalizable-modules",
+        "compact-matrix-criterion",
+        "resolvent-series",
+        "resolvent-hasse-evaluation"
+      ],
+      "preservedSourceIssues": 0,
+      "newNodes": 13,
+      "newNamedDeclarations": 15,
+      "newTypedTests": 7,
+      "reachableNodes": 67,
+      "dependencyEdges": 230,
+      "internalEdges": 140,
+      "acyclic": true,
+      "analyticChainIndependentOfConsumer": true,
+      "baselineLeaves": 63,
+      "openStageLeaves": [
+        "AdicSpacesPartII:R3"
+      ],
+      "compilerErrors": 0,
+      "compilerWarnings": 150,
+      "allWarningsPlaceholders": true,
+      "pinnedMathlibModules": 1890,
+      "pinnedTauCetiModules": 0,
+      "actualSupplierImports": 0,
+      "scratchCompleteTheorems": 7,
+      "scratchCompleteConstruction": 1,
+      "scratchErrors": 0,
+      "scratchWarnings": 0,
+      "scratchPlaceholders": 0,
+      "scratchMathlibModules": 1635,
+      "readerWords": 13315,
+      "scopedMutationCheck": true,
+      "requests": 5,
+      "gaps": 8,
+      "closedStages": 0
     },
-    "rieszFollowup": {
-      "agent": "Codex — codex-7e92bd",
-      "claimComment": 5852701268,
-      "claimConfirmation": 5852702029,
-      "predecessorPR": 3183,
-      "sourceReadBoundary": "Fresh pp. 23-24 Buzzard and pp. 80-81 Serre; earlier broader readings remain predecessor provenance. No new source issue claimed.",
-      "baselineBoundary": "Read all twelve added pinned statements and searched both trees. Native idempotent/projection theory is reused. Tau Ceti finite-length Fitting and real/complex closed-range Riesz statements do not supply this Hasse root decomposition over Banach algebras.",
-      "validation": "Unmodified-index blueprint zero errors/warnings; exactly four authorized files pass intake; all 45 predecessor statements/hypotheses and 44 whole node objects preserved; DAG and reader/API/example parity pass.",
-      "compiled": {
-        "suggestedSHA256": "a58e316ed7dc208dfb680f6c0e7cf2e0a82234a2736e93da387f8a3b006a36d4",
-        "errors": 0,
-        "warnings": 128,
-        "warningsOnlyPlaceholders": true,
-        "mathlibModules": 1885,
-        "sourceAuditSHA256": "3a8e95164341478483348a75e1ac9e6d2b0671ef2c1ba1e7b5dfc21b8e57466f",
-        "scratchLemmas": 13,
-        "scratchErrors": 0,
-        "scratchWarnings": 0,
-        "scratchPlaceholders": 0,
-        "scratchSHA256": "f618fb235aa3681ff91bea1564cc1f56951148ad3cd5597fe2853d2cb1f186d1",
-        "scratchModules": 1129
-      },
+    "arithmetic": {
+      "assertions": 56192,
+      "systems": 2190,
       "counts": {
-        "nodes": 54,
-        "kinds": {
-          "comparison": 6,
-          "construction": 8,
-          "definition": 3,
-          "lemma": 23,
-          "theorem": 14
-        },
-        "api": 40,
-        "tests": 49,
-        "definitionConstructionAPI": 36,
-        "definitionConstructionTests": 35,
-        "typedExamples": 49,
-        "planets": 6,
-        "baseline": 54,
-        "gaps": 8,
-        "requests": 5,
-        "closedStages": 0
+        "adjugate recurrence": 11235,
+        "distinct column bound": 11235,
+        "uniform tail bound": 33705,
+        "actual retraction identity": 3,
+        "recurrence compression": 3,
+        "fixed operator norm factors": 3,
+        "omitting factors fails": 3,
+        "boundary controls": 5
       },
-      "finiteChecks": {
-        "assertions": 6451158,
-        "systems": 28624,
-        "perModulus": {
-          "2": 32,
-          "3": 243,
-          "4": 840,
-          "5": 3125,
-          "8": 24384
-        },
-        "controls": 6,
-        "note": "Exact finite rings include nonreduced Z/4 and Z/8; matrix tests do not prove analytic convergence or finite projectivity."
+      "primes": [
+        2,
+        3,
+        5
+      ],
+      "dimensions": [
+        1,
+        2,
+        3
+      ],
+      "coefficientRing": "Q_p[epsilon]/epsilon^2, exact rational coefficient pairs and max p-adic norm",
+      "controls": {
+        "positive_degree_diagonal_not_power": true,
+        "image_support_does_not_test_every_input": true,
+        "nilpotent_nonzero_resolvent": true,
+        "nonreduced_coefficients_retained": true,
+        "degree_zero_empty_product": true
       },
-      "registerRefresh": {
-        "base": "359ba836943d2f612d51bd29c2762a1bbeae7921",
-        "files": [
+      "scope": "Exact finite matrix algebra and norm tests. No claim to prove infinite-dimensional norm convergence, finite generation, rank or the roadmap."
+    },
+    "lean": {
+      "suggestedFileSha256": "69ae6ffedf1ddf481cb1b854c1f1a5b07e07e6731bd53449d0dd1611eb17edac",
+      "errors": 0,
+      "warnings": 150,
+      "warningsOnlyPlaceholders": true,
+      "mathlibModules": 1890,
+      "tauCetiModules": 0,
+      "actualSupplierImports": 0,
+      "sourceAuditSha256": "afdb1343b18944104008386ee542e298d07c2a993df7ee88878d47ca24f417df",
+      "scratchProofSha256": "801382a1b43e6767f3d2a8224486ff270fd23d35427e60968467e4bd149686a9",
+      "scratchCompleteTheorems": 7,
+      "scratchCompleteConstruction": 1,
+      "scratchProofErrors": 0,
+      "scratchProofWarnings": 0,
+      "scratchProofPlaceholders": 0,
+      "scratchSourceModules": 1635
+    },
+    "publication": {
+      "baseCommit": "68a8ef428abed4c02305d7654bb080c0001a9e3b",
+      "capturedInputs": 48,
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5853318725
+    },
+    "closure": "Partial; eight gaps, five requests, no closed stages; every implementation status unchecked."
+  },
+  "provenance": {
+    "adjugateContinuation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 641,
+      "claimComment": 5853317954,
+      "winningBot": 5853318725,
+      "priorNodes": 54,
+      "preservedStatementsAndHypotheses": 54,
+      "preservedWholeNodeObjects": 49,
+      "newNodes": 13,
+      "newBaseline": 12,
+      "freshSources": "Serre published printed78–79 including p79 image; Buzzard full manuscript p22. Both source hashes match.",
+      "ownership": "Uses native C0, matrices, polynomial coefficients and continuous maps; retains the imported ordinary complete-continuity predicate and its existing generality request. No new carrier or strict variant.",
+      "inputRefresh": {
+        "base": "68a8ef428abed4c02305d7654bb080c0001a9e3b",
+        "paths": [
           "data/source-issues.json",
           "research/errata/REGISTER.md"
         ],
-        "note": "Read the full diff: only ColemanIntegration/E25 is added, a Furusho Lemma2.15 puncture misprint. It does not affect any LAD prerequisite or source. Not independently reviewed here."
+        "result": "Full changed source record and register diff read: 7,545 findings retained, only QSeriesPartitionsAndMockModularForms/E207 citation gained its heat-continuation reread date. No LAD source/prerequisite change or independent verification of that finding."
       },
-      "publicationGuard": {
-        "base": "359ba836943d2f612d51bd29c2762a1bbeae7921",
-        "unchangedInputs": 51,
-        "unchangedOutputs": 4,
-        "issueAvailable": true,
-        "lastClaimConfirmation": 5852702029,
-        "reviewIssue": 316,
-        "reviewUnclaimed": true
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "Empty list retained; errata wrapper passes.",
+        "validation": {
+          "nodes": 67,
+          "kinds": {
+            "comparison": 7,
+            "construction": 9,
+            "definition": 3,
+            "lemma": 32,
+            "theorem": 16
+          },
+          "api": 46,
+          "definitionConstructionApi": 42,
+          "definitionConstructionTests": 38,
+          "packetTests": 56,
+          "typedExamples": 56,
+          "planets": 6,
+          "baseline": 66,
+          "preservedStatementsAndHypotheses": 54,
+          "preservedWholeNodes": 49,
+          "changedMetadata": [
+            "c0-lift",
+            "orthonormalizable-modules",
+            "compact-matrix-criterion",
+            "resolvent-series",
+            "resolvent-hasse-evaluation"
+          ],
+          "preservedSourceIssues": 0,
+          "newNodes": 13,
+          "newNamedDeclarations": 15,
+          "newTypedTests": 7,
+          "reachableNodes": 67,
+          "dependencyEdges": 230,
+          "internalEdges": 140,
+          "acyclic": true,
+          "analyticChainIndependentOfConsumer": true,
+          "baselineLeaves": 63,
+          "openStageLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 150,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 1890,
+          "pinnedTauCetiModules": 0,
+          "actualSupplierImports": 0,
+          "scratchCompleteTheorems": 7,
+          "scratchCompleteConstruction": 1,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchMathlibModules": 1635,
+          "readerWords": 13315,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "arithmetic": {
+          "assertions": 56192,
+          "systems": 2190,
+          "counts": {
+            "adjugate recurrence": 11235,
+            "distinct column bound": 11235,
+            "uniform tail bound": 33705,
+            "actual retraction identity": 3,
+            "recurrence compression": 3,
+            "fixed operator norm factors": 3,
+            "omitting factors fails": 3,
+            "boundary controls": 5
+          },
+          "primes": [
+            2,
+            3,
+            5
+          ],
+          "dimensions": [
+            1,
+            2,
+            3
+          ],
+          "coefficientRing": "Q_p[epsilon]/epsilon^2, exact rational coefficient pairs and max p-adic norm",
+          "controls": {
+            "positive_degree_diagonal_not_power": true,
+            "image_support_does_not_test_every_input": true,
+            "nilpotent_nonzero_resolvent": true,
+            "nonreduced_coefficients_retained": true,
+            "degree_zero_empty_product": true
+          },
+          "scope": "Exact finite matrix algebra and norm tests. No claim to prove infinite-dimensional norm convergence, finite generation, rank or the roadmap."
+        },
+        "lean": {
+          "suggestedFileSha256": "69ae6ffedf1ddf481cb1b854c1f1a5b07e07e6731bd53449d0dd1611eb17edac",
+          "errors": 0,
+          "warnings": 150,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 1890,
+          "tauCetiModules": 0,
+          "actualSupplierImports": 0,
+          "sourceAuditSha256": "afdb1343b18944104008386ee542e298d07c2a993df7ee88878d47ca24f417df",
+          "scratchProofSha256": "801382a1b43e6767f3d2a8224486ff270fd23d35427e60968467e4bd149686a9",
+          "scratchCompleteTheorems": 7,
+          "scratchCompleteConstruction": 1,
+          "scratchProofErrors": 0,
+          "scratchProofWarnings": 0,
+          "scratchProofPlaceholders": 0,
+          "scratchSourceModules": 1635
+        },
+        "publication": {
+          "baseCommit": "68a8ef428abed4c02305d7654bb080c0001a9e3b",
+          "capturedInputs": 48,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5853318725
+        },
+        "closure": "Partial; eight gaps, five requests, no closed stages; every implementation status unchecked."
       }
     }
   }
