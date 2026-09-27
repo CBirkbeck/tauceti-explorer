@@ -11,7 +11,7 @@
     "ProbabilisticAndMetricNumberTheory:PM.5"
   ],
   "status": "partial",
-  "summary": "Partial PM.0 blueprint: existing finite weighted prime-truncation API and first/second moments, extended by exact finite Boolean divisibility patterns, error 2^|T|/N, complete-period Bernoulli atoms, and summed atom error 3^|P|/N. Reuses pinned empirical measures and finite product identities. PM.0 still has explicit source/interface gaps; PM.1-PM.5 remain not_read.",
+  "summary": "Partial PM.0 blueprint: finite weighted prime truncations, first/second moments and Boolean divisibility laws, extended by five centered mixed-product and weighted higher-moment declarations with explicit finite errors and exact complete-period moments. Existing probability and finite-product APIs are reused. PM.0-PM.1 retain explicit gaps; PM.2-PM.5 remain not_read.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -165,6 +165,54 @@
         "module": "Mathlib.Algebra.BigOperators.Ring.Finset",
         "provides": "The sum over U contained in P of a to |U| times b to (|P|-|U|) is (a+b) to |P|.",
         "checked": "Exact statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; pinned-source elaboration recorded in checks."
+      },
+      {
+        "ref": "mathlib:Finset.prod_add",
+        "module": "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "provides": "Subset expansion of a finite product of two-term sums over a commutative semiring.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Finset.sum_pow'",
+        "module": "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "provides": "The n-th power of a finite sum is a finite sum of products over all ordered n-tuples, including n=0.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Finset.prod_fiberwise_of_maps_to'",
+        "module": "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "provides": "Group a finite product by fibers of a function mapping the source finset into the target finset.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Finset.card_image_le",
+        "module": "Mathlib.Data.Finset.Card",
+        "provides": "A finite image has cardinality at most that of its source.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:pow_le_of_le_one",
+        "module": "Mathlib.Algebra.Order.GroupWithZero.Basic",
+        "provides": "For 0<=x<=1 and nonzero natural n, x^n<=x.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:pow_le_pow_right₀",
+        "module": "Mathlib.Algebra.Order.GroupWithZero.Basic",
+        "provides": "For base x>=1, natural powers are monotone in the exponent.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ProbabilityTheory.integral_bernoulliMeasure",
+        "module": "Mathlib.Probability.Distributions.Bernoulli",
+        "provides": "For a complete real normed target and measurable singletons, integral f against Ber(x,y,p) is p*f(x)+(1-p)*f(y), with p in the unit interval.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ProbabilityTheory.iIndepFun.integral_fun_prod_comp",
+        "module": "Mathlib.Probability.Independence.Integration",
+        "provides": "For a finite independent family of a.e. measurable random variables and a.e. strongly measurable coordinate functions, the integral of their product factors into integrals; used only for the independent-model interpretation.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
       }
     ]
   },
@@ -245,7 +293,34 @@
         "Ring/Finset.lean lines 183-238: prod_one_add and sum_pow_mul_eq_add_pow, including their proofs",
         "Algebra/GCDMonoid/FinsetLemmas.lean complete file: lcm_eq_prod and its reduction to pairwise coprimality",
         "Algebra/GCDMonoid/Finset.lean lines 1-150: lcm_dvd_iff and empty/product conventions",
-        "Data/Finset/Powerset.lean lines 75-110: card_powerset"
+        "Data/Finset/Powerset.lean lines 75-110: card_powerset",
+        "Ring/Finset.lean lines 151-182: prod_univ_sum, sum_pow' and prod_add, including proofs; Group/Finset/Basic.lean lines 238-291: fiberwise products; Data/Finset/Card.lean lines 226-238: card_image_le."
+      ]
+    },
+    {
+      "id": "GS-SIEVING",
+      "title": "Sieving and the Erdos-Kac theorem",
+      "authors": "Andrew Granville and K. Soundararajan",
+      "edition": "Author typeset copy with 2006 footer and internal pages 1-13; related published chapter in Equidistribution in Number Theory, An Introduction (2007), pp.15-27, DOI 10.1007/978-1-4020-5404-4_2. The author copy is not identified as the version of record.",
+      "url": "https://dms.umontreal.ca/~andrew/PDF/ErdosKac.pdf",
+      "sha256": "c5c6ce0e61d91cd6da0b4be6b137e4b2fdd3e2c4f11b5c90d8b52b6846532be2",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Complete author copy: introduction, Theorem 1, Propositions 2-4 with their proofs, applications discussion, references and index; selected finite centered-product/weighted-moment argument decomposed here.",
+        "Images of author-copy pp.1,5,9,11 checked for findings. arXiv math/0606039v1 corresponding introduction, composition-count and polynomial-example passages spot-checked, not a claim of a full second reading.",
+        "Published preview pp.15-16 read, p.15 image checked; full published chapter not served by the publisher endpoint (subscription HTML). Findings outside the preview are scoped to the author copy/preprint."
+      ]
+    },
+    {
+      "id": "ML-MOMENT-TOOLS",
+      "title": "Pinned finite-moment and power-estimate suppliers",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Probability/Distributions/Bernoulli.lean",
+      "readSections": [
+        "Bernoulli.lean lines 1-55 and 169-202: carrier, integrability and exact integral.",
+        "Independence/Integration.lean lines 446-487: finite independent product integration and hypotheses.",
+        "Algebra/Order/GroupWithZero/Basic.lean lines 432-444 and 496-506: powers in [0,1] and monotonicity for base at least one."
       ]
     }
   ],
@@ -1276,6 +1351,228 @@
           "match": "Motivates comparison of finite arithmetic observations with a product model. The exact signed-subset formula and explicit constants here are independently derived finite auxiliary calculations, not numbered results of the source and not a Kubilius theorem."
         }
       ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/centered-product-expansion",
+      "title": "Exact centered prime-product average",
+      "kind": "lemma",
+      "statement": "The mu_N-average of product_{p in P} f_p(n)^alpha_p equals sum_{D subset P} (product_{p in D} w_p)(product_{p in P minus D} v_p) floor(N/Q_D)/N.",
+      "hypotheses": [
+        "P is a finite set of natural primes; m is a natural number, N=m+1, and mu_N is the existing empiricalMeasure of k -> k+1 at index m.",
+        "alpha is a natural-valued function on primes, with exponent zero allowed. Put u_p=1/p, f_p(n)=I_p(n)-u_p, v_p=(-u_p)^alpha_p, w_p=(1-u_p)^alpha_p-v_p, and Q_D=product_{p in D} p. All these are local expressions, not new carriers; real arithmetic and empty products equal to one are used."
+      ],
+      "proofSteps": [
+        "For each prime p and each n, split on p dividing n to obtain f_p(n)^alpha_p=v_p+w_p I_p(n), also when alpha_p=0.",
+        "Apply Finset.prod_add with the w_p I_p(n) term first and v_p second. Products of zero-one indicators give the event that every p in D divides n.",
+        "Use integral_empiricalMeasure to replace the integral by the finite average, interchange finite sums, and apply simultaneous-divisibility to D. Every member of D is prime, and the natural quotient N/Q_D is cast to the reals only after division.",
+        "The empty subset has Q_D=1 and normalized count one; in particular zero exponents and empty P introduce no exceptional undefined term."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/simultaneous-divisibility",
+        "mathlib:Finset.prod_add",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "acceptance": [
+        "All alpha_p=0 gives average one; P empty also gives one.",
+        "For P={2},alpha_2=2, v_2=1/4 and w_2=0; the average is exactly 1/4 for every N, including odd N.",
+        "For P={2,3},alpha_2=alpha_3=1,N=5 the average is -1/15, not zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, pp.4-5: f_r and the finite average preceding (9)",
+          "match": "The source groups centered prime factors by multiplicity. This exact subset/floor formula is a derived finite refinement using existing counting and finite distributivity, not a verbatim numbered assertion."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/centered-product-error",
+      "title": "Explicit centered-product remainder",
+      "kind": "lemma",
+      "statement": "Put G(P,alpha)=product_{p in P}(v_p+w_p/p). The absolute difference between the mu_N-average of product f_p^alpha_p and G(P,alpha) is at most [product_{p in P}(|v_p|+|w_p|)-product_{p in P}|v_p|]/N.",
+      "hypotheses": [
+        "P is a finite set of natural primes; m is a natural number, N=m+1, and mu_N is the existing empiricalMeasure of k -> k+1 at index m.",
+        "alpha is a natural-valued function on primes, with exponent zero allowed. Put u_p=1/p, f_p(n)=I_p(n)-u_p, v_p=(-u_p)^alpha_p, w_p=(1-u_p)^alpha_p-v_p, and Q_D=product_{p in D} p. All these are local expressions, not new carriers; real arithmetic and empty products equal to one are used."
+      ],
+      "proofSteps": [
+        "Expand G by Finset.prod_add with factors w_p/p and v_p; the D coefficient is the same as in centered-product-expansion, multiplied by 1/Q_D. All Q_D are positive.",
+        "Subtract the exact centered-product expansion. Each term has coefficient (product_D w_p)(product_{P minus D} v_p) times the signed divisor error e_N(Q_D) from divisibility-error.",
+        "For D empty that error is zero because Q_D=1. For every other subset its absolute value is at most 1/N; apply the finite triangle inequality and multiplicativity of absolute value.",
+        "Apply Finset.prod_add to |w_p| and |v_p|. The sum of absolute coefficients excluding the empty subset is exactly product(|v_p|+|w_p|)-product|v_p|, which is nonnegative."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/centered-product-expansion",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error",
+        "mathlib:Finset.prod_add"
+      ],
+      "acceptance": [
+        "The bound is zero when P is empty or all alpha_p are zero.",
+        "For P={2},alpha_2=2 the bound is zero, recovering the exact square average even when 2 does not divide N.",
+        "The model center is G, not a product of empirical centered means; the two-prime N=5 error is 1/15."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, pp.4-5: factorization of G(r) and remainder O(tau(R))",
+          "match": "Makes the finite remainder explicit by subset expansion. The subtraction of the empty-subset coefficient and its precise constant are independently derived, not attributed to the source."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/centered-product-uniform-error",
+      "title": "Uniform mixed-moment comparison",
+      "kind": "lemma",
+      "statement": "With nu_p(e)=u_p(1-u_p)^e+(1-u_p)(-u_p)^e, the absolute difference between the mu_N-average of product_{p in P} f_p(n)^alpha_p and product_{p in P}nu_p(alpha_p) is at most (3/2)^|P|/N, for all natural exponents.",
+      "hypotheses": [
+        "P is a finite set of natural primes; m is a natural number, N=m+1, and mu_N is the existing empiricalMeasure of k -> k+1 at index m.",
+        "alpha is a natural-valued function on primes, with exponent zero allowed. Put u_p=1/p, f_p(n)=I_p(n)-u_p, v_p=(-u_p)^alpha_p, w_p=(1-u_p)^alpha_p-v_p, and Q_D=product_{p in D} p. All these are local expressions, not new carriers; real arithmetic and empty products equal to one are used."
+      ],
+      "proofSteps": [
+        "The identity v_p+w_p/p=nu_p(alpha_p) follows by real ring algebra.",
+        "Since p is prime, 0<u_p<=1/2. If alpha_p=0, |v_p|+|w_p|=1. Otherwise pow_le_of_le_one gives u_p^alpha_p<=u_p and (1-u_p)^alpha_p<=1-u_p.",
+        "The triangle inequality gives |w_p|<=(1-u_p)^alpha_p+u_p^alpha_p<=1; hence |v_p|+|w_p|<=1+u_p<=3/2. No parity or positive exponent hypothesis is suppressed.",
+        "In centered-product-error discard the nonnegative subtracted product, then multiply these nonnegative bounds over P."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/centered-product-error",
+        "mathlib:pow_le_of_le_one"
+      ],
+      "acceptance": [
+        "The estimate permits zero exponents and all N>=1, without a restriction on Q_P.",
+        "For alpha_p=1, nu_p(1)=0, but the corresponding arithmetic centered average need not vanish on incomplete periods.",
+        "For p=3,e=3, nu_p(e)=2/27; odd individual centered moments are not identically zero."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, pp.4-5, and weighted extension in proof of Proposition 4, pp.10-11",
+          "match": "The source supplies the centered factor and product-model structure. The uniform explicit 3/2 bound is a finite auxiliary estimate derived in the proof steps, not a source Gaussian-moment bound."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/complete-period-centered-product",
+      "title": "Complete-period mixed moments",
+      "kind": "lemma",
+      "statement": "If Q_P divides N, the mu_N-average of product_{p in P} f_p(n)^alpha_p equals product_{p in P}[u_p(1-u_p)^alpha_p+(1-u_p)(-u_p)^alpha_p] exactly.",
+      "hypotheses": [
+        "P is a finite set of natural primes; m is a natural number, N=m+1, and mu_N is the existing empiricalMeasure of k -> k+1 at index m.",
+        "alpha is a natural-valued function on primes, with exponent zero allowed. Put u_p=1/p, f_p(n)=I_p(n)-u_p, v_p=(-u_p)^alpha_p, w_p=(1-u_p)^alpha_p-v_p, and Q_D=product_{p in D} p. All these are local expressions, not new carriers; real arithmetic and empty products equal to one are used.",
+        "Q_P divides N."
+      ],
+      "proofSteps": [
+        "For every D contained in P, split the prime product into D and its complement to see that Q_D divides Q_P and therefore N.",
+        "The signed remainder formula in divisibility-error gives e_N(Q_D)=0. In the exact subset formula every normalized floor can be replaced by 1/Q_D.",
+        "Apply Finset.prod_add to factor the resulting sum as product(v_p+w_p/p), then use elementary algebra to obtain the displayed expression.",
+        "Each factor is already the centered moment of the existing Bernoulli measure at 1 and 0, by integral_bernoulliMeasure. This interpretation does not introduce a second distribution carrier or claim independence on incomplete periods."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/centered-product-expansion",
+        "ProbabilisticAndMetricNumberTheory:PM.0/divisibility-error",
+        "mathlib:Finset.prod_add",
+        "mathlib:ProbabilityTheory.integral_bernoulliMeasure"
+      ],
+      "acceptance": [
+        "N=3,p=3,e=3 gives 2/27, and N=6,P={2,3},both exponents one gives zero.",
+        "If any alpha_p=1 the model product vanishes; this is the square-full-support cancellation used in the moment method, not a claim that every square-full product has nonzero model value.",
+        "Repeated prime coordinates must be merged into their exponent: p=2 twice gives 1/4, not the product of two zero means."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, definition of G(r) in proof of Proposition 2, p.4; square-full-support observation, p.5",
+          "match": "The source's centered Bernoulli factor is retained. Exact complete-period equality is a finite specialization of the source calculation proved here by the inherited divisor remainder."
+        }
+      ]
+    },
+    {
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.FiniteDivisibility",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/weighted-moment-comparison",
+      "title": "Finite weighted moment comparison",
+      "kind": "theorem",
+      "statement": "Let k>=0 and a:P->R, A=sum_{p in P}a(p)/p, and L=sum_{p in P}|a(p)|. For each ordered tuple t:{0,...,k-1}->P let T_t be its image, alpha_t(p) the number of coordinates equal to p, and G(t)=product_{p in T_t}nu_p(alpha_t(p)), with nu_p(e)=(1/p)(1-1/p)^e+(1-1/p)(-1/p)^e. Put M_k=sum_t (product_{j<k}a(t(j)))G(t). Then |integral (S(P,a)(n)-A)^k dmu_N - M_k| <= (3/2)^k L^k/N. S(P,a) is the existing zero-extended primeDivisibilitySum; all auxiliary expressions are local finite sums/products.",
+      "hypotheses": [
+        "P is a finite set of natural primes, a has arbitrary real weights (including negative and zero values), m,k are natural numbers, N=m+1, and mu_N samples 1,...,N.",
+        "Tuples are ordered and can repeat primes. The empty tuple exists when k=0 even if P is empty, so M_0=1 and L^0=1. When P is empty and k>0 the tuple set is empty and M_k=0."
+      ],
+      "proofSteps": [
+        "At every sampled n>0, positive-evaluation gives S(P,a)(n)-A=sum_{p in P}a(p)f_p(n). Apply Finset.sum_pow' and integral_empiricalMeasure, commuting finite sums.",
+        "For a tuple t, apply Finset.prod_fiberwise_of_maps_to' with target its image to group product_j f_{t(j)}(n) into product_{p in T_t}f_p(n)^alpha_t(p). Distinct image primes satisfy centered-product-uniform-error.",
+        "Finset.card_image_le gives |T_t|<=k. Since 3/2>=1, pow_le_pow_right₀ bounds (3/2)^|T_t| by (3/2)^k. Multiply by |product_j a(t(j))| and sum using the triangle inequality.",
+        "Finset.sum_pow' applied to |a| evaluates sum_t product_j |a(t(j))|=L^k, yielding the claimed bound, also in the empty-index cases.",
+        "The model interpretation uses existing integral_bernoulliMeasure and iIndepFun.integral_fun_prod_comp: for an independent Bernoulli(1/p) family, first group each repeated coordinate into its power, then factor only across distinct primes. Thus M_k is its weighted centered k-th moment. This interpretation is already generic library mathematics; it is not a separate node or an independence assumption on mu_N."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "ProbabilisticAndMetricNumberTheory:PM.0/centered-product-uniform-error",
+        "mathlib:Finset.sum_pow'",
+        "mathlib:Finset.prod_fiberwise_of_maps_to'",
+        "mathlib:Finset.card_image_le",
+        "mathlib:pow_le_pow_right₀",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "mathlib:ProbabilityTheory.integral_bernoulliMeasure",
+        "mathlib:ProbabilityTheory.iIndepFun.integral_fun_prod_comp"
+      ],
+      "acceptance": [
+        "For k=0 both arithmetic and model moments equal one; for P empty and k>0 both vanish.",
+        "For P={3},a(3)=-1,k=3,N=3, both sides' moments are -2/27. Taking absolute weights inside the model would be wrong.",
+        "For k=2 the model is sum a(p)^2(1/p-1/p^2). Keep the inherited sharper error 2L^2/N; the new general bound gives 9L^2/(4N), not an improvement in that special case.",
+        "A Gaussian approximation needs separate pairing/collision estimates and normalization; this finite comparison is not an Erdos-Kac theorem."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, proof of Proposition 2, p.4, and opening weighted expansion in proof of Proposition 4, p.10",
+          "match": "Follows the source's ordered tuple expansion and multiplicity grouping, specialized to the positive integer sample. The explicit finite error (3/2)^k L^k/N is derived here; no Gaussian asymptotic or general sieve-multiset theorem is imported."
+        }
+      ],
+      "planet": {
+        "name": "Finite weighted moment comparison"
+      }
     }
   ],
   "links": [],
@@ -1286,17 +1583,17 @@
       "status": "partial",
       "remaining": [
         "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute.",
-        "Finite Boolean divisibility-pattern formulas and complete-period Bernoulli atoms are now decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, all-residue-class joint model, higher moments and a source-scoped growing-prime comparison beyond the elementary 3^|P|/N bound still need decomposition.",
+        "Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, all-residue-class joint model and source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition.",
         "Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
       ]
     },
     {
       "stageId": "ProbabilisticAndMetricNumberTheory:PM.1",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Acquire and read full Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac proofs with their stated generality.",
-        "Derive the required Mertens asymptotic and normalization and control the large-prime tail; the L^2/N finite-head estimate here is insufficient alone.",
-        "Choose a valid moment-convergence or triangular-array route; the existing iid CLT does not apply to the arithmetic indicators."
+        "Granville-Soundararajan's complete author-copy proof was read, but its Theorem 1 and Propositions 2-4 are not fully decomposed. Still specify the Gaussian pairing and collision counts, smaller-support bounds with the corrected composition count, parity estimates and the precise uniform moment range.",
+        "Derive the Mertens normalization, large-prime removal and moment-convergence-to-Gaussian argument; the arithmetic indicators are not iid. General sieve-multiset h(d), r_d and D_k(P) interfaces and their applications must be routed under existing ownership before planning them.",
+        "Acquire and decompose the full Turan-Kubilius proof and source-scoped Hardy-Ramanujan proof, beyond the introductory summary and statements read here."
       ]
     },
     {
@@ -1338,14 +1635,14 @@
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.0"
       ],
-      "detail": "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute. Finite Boolean divisibility-pattern formulas and complete-period Bernoulli atoms are now decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, all-residue-class joint model, higher moments and a source-scoped growing-prime comparison beyond the elementary 3^|P|/N bound still need decomposition. Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
+      "detail": "General additive and strongly additive predicates, full prime-power representation and the Omega branch are not yet decomposed; the finite weighted truncation is not a substitute. Finite Boolean laws and centered mixed/higher-moment comparisons are decomposed. The arithmetic CDF/weak-convergence/characteristic-function dictionary, all-residue-class joint model and source-scoped growing-prime comparison beyond these elementary finite bounds still need decomposition. Acquire the exact Kubilius source edition and theorem locators. This checkpoint does not claim to have read that monograph."
     },
     {
       "title": "PM.1: source and proof completion",
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.1"
       ],
-      "detail": "Acquire and read full Turan-Kubilius, Hardy-Ramanujan and Erdos-Kac proofs with their stated generality. Derive the required Mertens asymptotic and normalization and control the large-prime tail; the L^2/N finite-head estimate here is insufficient alone. Choose a valid moment-convergence or triangular-array route; the existing iid CLT does not apply to the arithmetic indicators."
+      "detail": "Granville-Soundararajan's complete author-copy proof was read, but its Theorem 1 and Propositions 2-4 are not fully decomposed. Still specify the Gaussian pairing and collision counts, smaller-support bounds with the corrected composition count, parity estimates and the precise uniform moment range. Derive the Mertens normalization, large-prime removal and moment-convergence-to-Gaussian argument; the arithmetic indicators are not iid. General sieve-multiset h(d), r_d and D_k(P) interfaces and their applications must be routed under existing ownership before planning them. Acquire and decompose the full Turan-Kubilius proof and source-scoped Hardy-Ramanujan proof, beyond the introductory summary and statements read here."
     },
     {
       "title": "PM.2: source and proof completion",
@@ -1376,14 +1673,63 @@
       "detail": "Acquire source-scoped short-interval and multiplicative-correlation proofs with explicit averaging and exceptional sets. Reconcile AN.3/AN.5/AC.5 ownership; state general Chowla/Sarnak only in a conjecture register and never as proved consequences of a random model."
     }
   ],
-  "sourceIssues": [],
-  "sourceIssueScope": "Only the source sections listed as read were checked. No published-source error claim is made. Unread source routes and the rest of Tao's article are outside this empty findings list.",
+  "sourceIssues": [
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E1",
+      "source": "GS-SIEVING",
+      "kind": "misprint",
+      "locator": "Published preview p.15, sentence before inequality (1); also author copy p.1 and arXiv v1 p.1.",
+      "printed": "The source allows every k ≥ 0.",
+      "correction": "In inequality (1) require integer k>=1. Treat k=0 separately: pi_0(x)=1 for x>=2. In its subsequent tail sum add the possible n=1 contribution separately.",
+      "reason": "At k=0 the displayed (k-1)! is (-1)!, outside the natural factorial domain. The sole positive integer with no prime factor is 1. The exceptional contribution is negligible for the ensuing normal-order argument.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher chapter and book landing pages, DOI 10.1007/978-1-4020-5404-4_2; no linked correction found on 2026-09-27.",
+        "arXiv math/0606039 submission history: only v1 (1 June 2006) listed; corresponding passages retain these slips.",
+        "Granville's 2007 publication pages (2007.php and 2007.html), and primary-domain erratum/correction searches on 2026-09-27: no correction for this chapter located."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E2",
+      "source": "GS-SIEVING",
+      "kind": "error",
+      "locator": "Author copy p.5, composition-count sentence before (11), and p.11, final proof of Proposition 4. Same claim in arXiv v1 pp.5,10. Published body beyond preview unavailable; not asserted against its text.",
+      "printed": "binom(k-s,s)",
+      "correction": "The number of ordered s-tuples alpha_i>=2 with sum k, for 1<=s and 2s<=k, is binom(k-s-1,s-1). The printed binom(k-s,s) remains an upper bound in this range, so the ensuing estimates need no stronger error term.",
+      "reason": "For k=5,s=2 the tuples are (2,3),(3,2), two rather than three. Subtract two from each part and apply stars and bars. The ratio of the printed to correct binomial is (k-s)/s>=1; when s=0 handle the empty tuple separately.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Publisher chapter and book landing pages, DOI 10.1007/978-1-4020-5404-4_2; no linked correction found on 2026-09-27.",
+        "arXiv math/0606039 submission history: only v1 (1 June 2006) listed; corresponding passages retain these slips.",
+        "Granville's 2007 publication pages (2007.php and 2007.html), and primary-domain erratum/correction searches on 2026-09-27: no correction for this chapter located."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E3",
+      "source": "GS-SIEVING",
+      "kind": "misprint",
+      "locator": "Author copy p.9, polynomial-value example after Proposition 3; same formula in arXiv v1 p.9. Published body beyond preview unavailable; not asserted against its text.",
+      "printed": "μ_P, σ_P = m log log x + O(1)",
+      "correction": "Replace sigma_P by sigma_P squared in the displayed mean/variance asymptotic. In the usual fixed-power prime cutoff z=x^c, c>0, log log z=log log x+O(1).",
+      "reason": "Already f(t)=t gives h(p)=1, mu_P=sum_{p in P}1/p and sigma_P^2=mu_P-sum_{p in P}1/p^2. As the prime cutoff grows, sigma_P has square-root logarithmic size, not the same size as mu_P. Proposition 3 defines sigma_P squared as the variance.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Publisher chapter and book landing pages, DOI 10.1007/978-1-4020-5404-4_2; no linked correction found on 2026-09-27.",
+        "arXiv math/0606039 submission history: only v1 (1 June 2006) listed; corresponding passages retain these slips.",
+        "Granville's 2007 publication pages (2007.php and 2007.html), and primary-domain erratum/correction searches on 2026-09-27: no correction for this chapter located."
+      ]
+    }
+  ],
+  "sourceIssueScope": "Three findings, not independently reviewed. E1 is checked against the published preview. E2-E3 are scoped to the acquired author copy and arXiv v1 because the corresponding published pages were inaccessible. Product notation in (16) is read in its intended conventional scope (G once), not reported as an additional error. This is not a source-wide correctness verdict.",
   "checks": {
     "leanCompiled": true,
     "officialCheckerRun": true,
     "officialChecker": "python3 scripts/check_blueprint.py research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json --index <pinned declaration index>: 0 errors, 0 warnings.",
-    "lean": "Lean 4.34.0-rc2; all 22 planning declarations and 15 examples elaborate with 37 expected proof-placeholder warnings, no other warnings or errors. Transitive source comparison verified 8,482 pinned Mathlib files; the one imported Tau Ceti module was built from the pin.",
-    "proofProbes": "Separate scratch file: six proved lemmas (coprime product divisibility, empirical event averaging, divisor count, simultaneous prime count, avoidance expansion, subset error sum) and ten proved pattern examples; zero placeholders and zero warnings. These probes are not a complete implementation of the packet.",
+    "lean": "Lean 4.34.0-rc2: 27 declaration signatures and 25 examples elaborate with 52 expected proof-placeholder warnings and no others. 8,482 transitive Mathlib source files byte-verified against the pin; the one Tau Ceti empirical-measure module built from pinned source.",
+    "proofProbes": "New scratch probe: seven proved general lemmas (Boolean power identity, coefficient bound, model-factor algebra, subset expansion, tuple fiber grouping, existing Bernoulli integral specialization, empirical averaging) and seven proved examples; zero placeholders and zero warnings. Inherited proof probes are recorded in the previous checkpoint. None constitutes full packet implementation.",
     "exactRationalRegressions": {
       "divisor": 1000,
       "jointDivisor": 25000,
@@ -1394,8 +1740,16 @@
       "completePeriodPattern": 690,
       "summedAtom": 1920
     },
-    "preservation": "All 17 inherited node IDs and mathematical statements, the seven construction API items and five tests are preserved. Only the coprime-additivity prerequisite list adds the already existing Nat.Prime.dvd_mul. PM.1-PM.5 coverage is unchanged.",
-    "localCheck": "Source and baseline references, API targets, intra-packet DAG, official full-repository blueprint check, and four-deliverable intake path/JSON checks."
+    "preservation": "All 22 inherited node objects unchanged, including IDs, mathematical statements, dependencies, API and tests. PM.2-PM.5 coverage unchanged. PM.1 marked partial to reflect the newly read GS proof, without claiming its full decomposition.",
+    "localCheck": "Source and baseline references, API targets, intra-packet DAG, official full-repository blueprint check, and four-deliverable intake path/JSON checks.",
+    "centeredMomentRegressions": {
+      "mixedProduct": 22500,
+      "completePeriodMixed": 508,
+      "tupleVsAtomModel": 625,
+      "weightedMoment": 11250,
+      "completePeriodWeighted": 850,
+      "compositionCount": 64
+    }
   },
   "provenance": {
     "issue": 1041,
@@ -1405,16 +1759,52 @@
     "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
     "auditBlob": "029c65b1999100f2c1948c904da0a5e77a54734a",
     "empiricalSourceBlob": "a27d4ef50e33d95c39934a73a0b54ce316fc4b23",
-    "continuation": {
-      "agent": "Codex",
-      "session": "codex-a71f92",
-      "date": "2026-09-27",
-      "base": "8f6fe5b8ff79f514c6c42a430b1813e4eae48ea5",
-      "claimComment": 5851486880,
-      "claimConfirmation": 5851487855,
-      "scope": "Five PM.0 finite-pattern declarations; 17 inherited IDs and mathematical statements preserved.",
-      "ownership": "Accepted RS-07 keeps arithmetic probability/independence comparisons in PM.0; generic arithmetic functions and finite identities are imported.",
-      "sourceAcquisition": "Selected Tao section reread in the author HTML; SHA-256 recorded under TAO-RESIDUES. No Kubilius monograph acquisition claimed."
+    "continuations": [
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-27",
+        "base": "8f6fe5b8ff79f514c6c42a430b1813e4eae48ea5",
+        "claimComment": 5851486880,
+        "claimConfirmation": 5851487855,
+        "scope": "Five PM.0 finite-pattern declarations; 17 inherited IDs and mathematical statements preserved.",
+        "ownership": "Accepted RS-07 keeps arithmetic probability/independence comparisons in PM.0; generic arithmetic functions and finite identities are imported.",
+        "sourceAcquisition": "Selected Tao section reread in the author HTML; SHA-256 recorded under TAO-RESIDUES. No Kubilius monograph acquisition claimed."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-27",
+        "base": "a2bc2ea058abf817d665285781b66428a0bffd41",
+        "claimComment": 5851947968,
+        "claimConfirmation": 5851948686,
+        "scope": "Five finite centered-product/higher-moment nodes; all 22 inherited node objects unchanged.",
+        "ownership": "Accepted RS-07; generic Bernoulli integration, finite independence and tuple/fiber algebra imported from the pin.",
+        "sourceAcquisition": "Complete GS author copy, matching arXiv finding passages, published pp.15-16 preview; exact versions recorded."
+      }
+    ]
+  },
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://dms.umontreal.ca/~andrew/PDF/ErdosKac.pdf",
+      "citation": "Granville-Soundararajan, typeset author copy, internal pp.1-13, 2006 footer.",
+      "read": "2026-09-27",
+      "sha256": "c5c6ce0e61d91cd6da0b4be6b137e4b2fdd3e2c4f11b5c90d8b52b6846532be2"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0606039v1",
+      "citation": "arXiv math/0606039v1, 1 June 2006; only corresponding finding passages spot-checked.",
+      "read": "2026-09-27",
+      "sha256": "2838a953ec6ee5f33b691cb6ff7e157ec8998df80d12e2379c113266e2f28f7e"
+    },
+    {
+      "kind": "published",
+      "url": "https://page-one.springer.com/pdf/preview/10.1007/978-1-4020-5404-4_2",
+      "citation": "Springer 2007 chapter pp.15-27: only the publisher's two-page preview, pp.15-16, was readable; full chapter endpoint returned subscription HTML. E1 was checked at published p.15; E2-E3 were not verified against the version of record.",
+      "read": "2026-09-27",
+      "sha256": "acd70b3f42ad0bf4f23928df6bda3448a6aca77e629f1a90740c70bdbc174b69"
     }
-  }
+  ]
 }
