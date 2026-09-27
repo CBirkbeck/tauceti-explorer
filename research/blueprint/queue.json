@@ -23655,7 +23655,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-HeightsRationalPointsAndObstructions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AbelianSchemesAndArithmeticModuli",
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -23665,7 +23665,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1031"
+   "note": "released on GitHub issue #1031"
   },
   {
    "id": "REV-HeightsRationalPointsAndObstructions",
