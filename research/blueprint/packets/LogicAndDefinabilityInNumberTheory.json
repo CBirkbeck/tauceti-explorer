@@ -1,0 +1,1224 @@
+{
+  "roadmapId": "LogicAndDefinabilityInNumberTheory",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "LogicAndDefinabilityInNumberTheory:LD.0",
+    "LogicAndDefinabilityInNumberTheory:LD.1",
+    "LogicAndDefinabilityInNumberTheory:LD.2",
+    "LogicAndDefinabilityInNumberTheory:LD.3",
+    "LogicAndDefinabilityInNumberTheory:LD.4",
+    "LogicAndDefinabilityInNumberTheory:LD.5",
+    "LogicAndDefinabilityInNumberTheory:LD.6"
+  ],
+  "status": "partial",
+  "summary": "First checkpoint: a ring equivalence between native multivariate integer polynomials and the native polynomial functions used by Dioph, together with a finite-witness normal form that preserves every input coordinate. The input index type may be infinite. The comparison and witness-compression component closes to the pinned baseline; the MRDP proof, effective polynomial coding, integer transfer, valued-field logic and integration, and o-minimal counting remain explicit work.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Poly",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Native subtype of natural-assignment-to-integer functions satisfying IsPoly; its native commutative ring is used unchanged.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.ext",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Pointwise equality of native polynomial functions implies equality.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.proj",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Coordinate projection with its natural value cast to integers.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.const",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Constant integer-valued native polynomial function.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.proj_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Evaluation of a coordinate projection.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.const_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Evaluation of an integer constant.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.add_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Addition of native polynomials evaluates pointwise.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.sub_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Subtraction evaluates in the integers, without natural truncated subtraction.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.mul_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Multiplication evaluates pointwise.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.induction",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Induction into propositions from projections, integer constants, subtraction and multiplication.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.map",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Rename variables of a native polynomial function by precomposition on assignments.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Poly.map_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "The evaluation identity for Poly.map, valid without injectivity of the variable map.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Dioph",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Native Diophantine-set predicate with an arbitrary witness type and a native Poly in input-plus-witness variables.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Dioph.DiophFn",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Native graph-based notion of Diophantine function; retained, not reconstructed.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Dioph.pow_dioph",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Dioph.lean",
+        "provides": "Diophantine exponentiation already follows from the native Pell development; this is not the entire MRDP theorem.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "The universal evaluation ring homomorphism for a coefficient ring map and chosen variable images.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom_C",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Evaluation of a constant under the universal ring map.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval₂Hom_X'",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Evaluation of a variable under the universal ring map.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.induction_on",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
+        "provides": "Polynomial induction using constants, addition and multiplication by a variable.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.funext_set",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Funext.lean",
+        "provides": "Equality of polynomials over an integral domain from equality on a Cartesian box with every side infinite; specialize to the natural-number image in the integers.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Nat.cast_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/CharZero/Defs.lean",
+        "provides": "Injectivity of the natural cast into a characteristic-zero target.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Set.infinite_range_of_injective",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Set/Finite/Basic.lean",
+        "provides": "An injection from an infinite type has infinite image.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Int.castRingHom",
+        "kind": "def",
+        "module": "Mathlib/Data/Int/Cast/Lemmas.lean",
+        "provides": "The canonical ring homomorphism from integers into a ring.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:RingEquiv.ofBijective",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Ring/Equiv.lean",
+        "provides": "Bundle a bijective native ring map as a ring equivalence, using classical inverse choice.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.rename",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Rename.lean",
+        "provides": "Native variable-renaming algebra homomorphism.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.rename_rename",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Rename.lean",
+        "provides": "Composition of native polynomial renamings.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.eval_rename",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Rename.lean",
+        "provides": "Evaluation after renaming is evaluation after precomposition of the assignment.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.exists_finset_rename",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/MvPolynomial/Rename.lean",
+        "provides": "A polynomial factors through a finite subset of its full variable index type.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Finset.toRight",
+        "kind": "def",
+        "module": "Mathlib/Data/Finset/Sum.lean",
+        "provides": "Extract the right-summand elements of a finite set of sum variables.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Finset.mem_toRight",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Finset/Sum.lean",
+        "provides": "Membership in the extracted finite set is equivalent to right-summand membership in the original set.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Fintype.equivFin",
+        "kind": "def",
+        "module": "Mathlib/Data/Fintype/EquivFin.lean",
+        "provides": "Classical enumeration of a finite type by Fin of its cardinality.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Function.extend",
+        "kind": "def",
+        "module": "Mathlib/Logic/Function/Basic.lean",
+        "provides": "Extend a function along a map, using an explicit default function outside its image.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Function.Injective.extend_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Logic/Function/Basic.lean",
+        "provides": "An extension along an injection takes the prescribed value at every image point.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; its blob was checked against the pinned Git tree."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "poonen-2008",
+      "title": "Undecidability in number theory",
+      "authors": "Bjorn Poonen",
+      "edition": "Author-hosted eight-page copy of the Notices AMS 55 (2008), no.3, 344–350 survey; accessed 2026-09-27",
+      "url": "https://math.mit.edu/~poonen/papers/h10_notices.pdf",
+      "sha256": "baaf73c4ed8e57f78c52fddb5fc81718a42e804995c565686300726e749435f8",
+      "readSections": [
+        "Physical/printed author-copy pages 1–3: Definition 1, Example 2, Example 4, Definitions 3 and 5, Theorem 6 and Corollary 7, DPRM theorem and footnote 4, history and deduction of H10. The book proof of MRDP and pages 4–8 were not read. The finite polynomial/witness convention motivates this component; this survey is not asserted to supply a complete MRDP proof."
+      ]
+    },
+    {
+      "id": "mathlib-dioph",
+      "title": "Diophantine functions and Matiyasevic’s theorem: native Poly and Dioph",
+      "authors": "Mario Carneiro and the Mathlib contributors",
+      "edition": "Pinned source, Apache-2.0, read 2026-09-27",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Dioph.lean",
+      "readSections": [
+        "Lines 42–51: the explicit polynomial-comparison TODO; 76–246: native polynomial constructors, ring operations, induction, reindexing and Dioph; 337–347: Diophantine functions and projection; 634–640 and 660–681: existing exponentiation statement and proof context."
+      ]
+    },
+    {
+      "id": "freer-poly",
+      "title": "Hilbert10 polynomial bridge",
+      "authors": "Cameron Freer",
+      "edition": "Public independent formalization, commit 25b42fcd6c6c5af710c514638a6fcb4e22d00a30, Apache-2.0; read 2026-09-27",
+      "url": "https://github.com/cameronfreer/hilbert10/blob/25b42fcd6c6c5af710c514638a6fcb4e22d00a30/Hilbert10/PolyBridge.lean",
+      "sha256": "f4b6fda8dc235b6ce69a5746a6fee68a486fb36803e3d2cdf3c092d6e39e498d",
+      "readSections": [
+        "Full file: forward ring map, evaluations and polynomial existence by Poly.induction. Its actual namespace is Hilbert10. This packet follows the mathematical design and credits the proof route; no implementation is imported. Bijectivity and a ring equivalence strengthen the file’s existence-only inverse interface."
+      ]
+    },
+    {
+      "id": "freer-normal",
+      "title": "Hilbert10 finite Diophantine normal form",
+      "authors": "Cameron Freer",
+      "edition": "Public independent formalization, same pinned commit, Apache-2.0; read 2026-09-27",
+      "url": "https://github.com/cameronfreer/hilbert10/blob/25b42fcd6c6c5af710c514638a6fcb4e22d00a30/Hilbert10/NormalForm.lean",
+      "sha256": "3b1318637a4c2db4fecc4a1d2c21f87a633d9a0be395d4b99663b371ad1f8216",
+      "readSections": [
+        "Full file, including the natural-cast identity, Fin-input normal form, and transport to a finite input type. The checkpoint generalizes its conclusion to an arbitrary input type by compressing witnesses directly; it does not transport inputs through Fin. Full DiophToRE.lean and README status/main-results paragraphs were read as continuation leads, not as pinned-library declarations or independently compiled results."
+      ]
+    },
+    {
+      "id": "mathlib-pr-42203",
+      "title": "Compact only the right summand of a sum of polynomial variables",
+      "authors": "Cameron Freer",
+      "edition": "Open Mathlib pull request #42203; head fc45c15e7908c6f31b0b5efc447b8d8a5800d051, status checked 2026-09-27",
+      "url": "https://github.com/leanprover-community/mathlib4/pull/42203",
+      "readSections": [
+        "Full PR description, including both proposed statements and its finite-support/enumeration proof route. It is absent from the required Mathlib pin, so this packet plans the missing statements with that shape. Its current status is not a prerequisite or a reason to suspend work."
+      ]
+    },
+    {
+      "id": "mathlib-funext",
+      "title": "Multivariate polynomial extensionality on infinite boxes",
+      "authors": "The Mathlib contributors",
+      "edition": "Pinned source, Apache-2.0; read 2026-09-27",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/MvPolynomial/Funext.lean",
+      "readSections": [
+        "Lines 28–89, including the finite-variable induction and the arbitrary-variable funext_set statement and proof."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Integer polynomials as native polynomial functions",
+      "kind": "construction",
+      "statement": "For every type α, construct the ring homomorphism Tα from MvPolynomial α ℤ to Poly α which sends each integer constant c to Poly.const(c) and each variable Xᵢ to Poly.proj(i). Its underlying function evaluates the polynomial on natural assignments after casting them to integers.",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Use the existing commutative ring on Poly α; the integer cast there is its constant constructor. Apply MvPolynomial.eval₂Hom to Int.castRingHom and Poly.proj. This supplies the ring-map laws without a second ring structure.",
+        "The separate constant, variable and evaluation nodes below identify this universal map with the source’s intended polynomial function. No polynomial or Diophantine-set carrier is replaced."
+      ],
+      "prerequisites": [
+        "mathlib:Poly",
+        "mathlib:Poly.proj",
+        "mathlib:Poly.const",
+        "mathlib:MvPolynomial.eval₂Hom",
+        "mathlib:Int.castRingHom"
+      ],
+      "acceptance": [
+        "Negative coefficients remain integers.",
+        "The construction exists when α is empty."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.toDiophPoly",
+      "sources": [
+        {
+          "sourceId": "freer-poly",
+          "locator": "toDiophPoly and its evaluation lemmas",
+          "excerpt": "polynomial",
+          "match": "Mathematical comparison with the existing native types; declaration shape follows the cited source."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Diophantine polynomial comparison"
+      },
+      "uses": [
+        {
+          "where": "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-surjective",
+          "how": "Transfers constructor induction on native polynomial functions to integer polynomial syntax."
+        },
+        {
+          "where": "LogicAndDefinabilityInNumberTheory:LD.4/dioph-finite-mvpolynomial",
+          "how": "Builds the native Dioph witness from a finite multivariate-polynomial presentation."
+        },
+        {
+          "where": "Poonen Definition 1, p.2",
+          "how": "Reconciles the standard polynomial presentation with the native library predicate."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Diophantine.toDiophPoly_C",
+          "role": "simp",
+          "statement": "Tα(C c) = Poly.const(c) for every integer c."
+        },
+        {
+          "name": "TauCeti.Diophantine.toDiophPoly_X",
+          "role": "simp",
+          "statement": "Tα(Xᵢ) = Poly.proj(i)."
+        },
+        {
+          "name": "TauCeti.Diophantine.toDiophPoly_apply",
+          "role": "compatibility",
+          "statement": "For p and a natural assignment x, Tα(p)(x) = p evaluated at the integer casts of x."
+        },
+        {
+          "name": "TauCeti.Diophantine.toDiophPoly_add",
+          "role": "structure",
+          "statement": "Tα(p+q)=Tα(p)+Tα(q)."
+        },
+        {
+          "name": "TauCeti.Diophantine.toDiophPoly_mul",
+          "role": "structure",
+          "statement": "Tα(pq)=Tα(p)Tα(q)."
+        },
+        {
+          "name": "TauCeti.Diophantine.toDiophPoly_sub",
+          "role": "structure",
+          "statement": "Tα(p−q)=Tα(p)−Tα(q), using integer subtraction."
+        },
+        {
+          "name": "TauCeti.Diophantine.toDiophPoly_ext",
+          "role": "extensionality",
+          "statement": "If Tα(p) and Tα(q) agree at every natural assignment, they are equal as native Poly elements."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Diophantine.constant_negative",
+          "kind": "degenerate",
+          "statement": "With no variables, the image of constant −3 evaluates to −3 on the unique assignment."
+        },
+        {
+          "name": "TauCeti.Diophantine.two_coordinates",
+          "kind": "value",
+          "statement": "At (1,3), the image of X₀−2X₁ has value −5, not a truncated natural difference."
+        },
+        {
+          "name": "TauCeti.Diophantine.native_eval",
+          "kind": "compatibility",
+          "statement": "Evaluation agrees with native MvPolynomial.eval at every natural assignment cast to integers."
+        },
+        {
+          "name": "TauCeti.Diophantine.distinct_coordinates",
+          "kind": "non-example",
+          "statement": "The images of X₀ and X₁ in two variables differ: assignment (0,1) distinguishes them."
+        }
+      ]
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-constant",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Constant-polynomial comparison",
+      "kind": "lemma",
+      "statement": "For every integer c, Tα(C c) is Poly.const(c).",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Apply MvPolynomial.eval₂Hom_C.",
+        "The native AddGroupWithOne instance on Poly uses Poly.const for integer casts; alternatively compare the two functions with Poly.ext and Poly.const_apply."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly",
+        "mathlib:MvPolynomial.eval₂Hom_C",
+        "mathlib:Poly.ext",
+        "mathlib:Poly.const_apply"
+      ],
+      "acceptance": [
+        "Test c=−3,0,1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.toDiophPoly_C",
+      "sources": [
+        {
+          "sourceId": "freer-poly",
+          "locator": "toDiophPoly and its evaluation lemmas",
+          "excerpt": "polynomial",
+          "match": "Mathematical comparison with the existing native types; declaration shape follows the cited source."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-variable",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Coordinate-polynomial comparison",
+      "kind": "lemma",
+      "statement": "For each i in α, Tα(Xᵢ) is Poly.proj(i).",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Apply MvPolynomial.eval₂Hom_X' to the chosen variable image."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly",
+        "mathlib:MvPolynomial.eval₂Hom_X'"
+      ],
+      "acceptance": [
+        "Different coordinates remain distinct when distinguishable assignments exist."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.toDiophPoly_X",
+      "sources": [
+        {
+          "sourceId": "freer-poly",
+          "locator": "toDiophPoly and its evaluation lemmas",
+          "excerpt": "polynomial",
+          "match": "Mathematical comparison with the existing native types; declaration shape follows the cited source."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-eval",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Evaluation on natural assignments",
+      "kind": "lemma",
+      "statement": "For p in MvPolynomial α ℤ and x:α→ℕ, Tα(p)(x) = eval(cast∘x,p), where cast is the natural embedding into ℤ.",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Induct on p by MvPolynomial.induction_on. The constant case uses to-dioph-poly-constant and Poly.const_apply.",
+        "For addition use the ring-map law and Poly.add_apply. For multiplication by Xᵢ use the ring-map law, to-dioph-poly-variable, Poly.mul_apply and Poly.proj_apply. Each step matches native polynomial evaluation."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-constant",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-variable",
+        "mathlib:MvPolynomial.induction_on",
+        "mathlib:Poly.const_apply",
+        "mathlib:Poly.proj_apply",
+        "mathlib:Poly.add_apply",
+        "mathlib:Poly.mul_apply"
+      ],
+      "acceptance": [
+        "Negative coefficients and products give their integer values."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.toDiophPoly_apply",
+      "sources": [
+        {
+          "sourceId": "freer-poly",
+          "locator": "toDiophPoly and its evaluation lemmas",
+          "excerpt": "polynomial",
+          "match": "Mathematical comparison with the existing native types; declaration shape follows the cited source."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-surjective",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Every native polynomial has integer polynomial syntax",
+      "kind": "theorem",
+      "statement": "The map Tα is surjective for every type α.",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Apply Poly.induction with the proposition that a preimage under Tα exists. Projection and constant cases use Xᵢ and C c and the separate comparison nodes.",
+        "For subtraction and multiplication, take the corresponding operation on the two existing preimages. The ring-map laws prove the required equality.",
+        "The induction is into a proposition, so it is permitted by native Poly.induction. This does not construct a computable extraction procedure from an extensional function."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-constant",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-variable",
+        "mathlib:Poly.induction"
+      ],
+      "acceptance": [
+        "No finite input-type hypothesis.",
+        "No executable syntax recovery is claimed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.toDiophPoly_surjective",
+      "sources": [
+        {
+          "sourceId": "freer-poly",
+          "locator": "exists_mvPolynomial and its constructor induction",
+          "excerpt": "polynomial",
+          "match": "The source’s existence proof, repackaged as surjectivity of the native ring map."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-injective",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Polynomial identity from natural assignments",
+      "kind": "theorem",
+      "statement": "The map Tα is injective for every type α.",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Let Tα(p)=Tα(q). By to-dioph-poly-eval their evaluations agree on all tuples of natural numbers.",
+        "For every variable use the subset of ℤ which is the image of the natural embedding. Nat.cast_injective and Set.infinite_range_of_injective prove each side of this Cartesian box is infinite.",
+        "For a tuple in this box, choose a natural preimage in every coordinate and apply the assumed equality. MvPolynomial.funext_set over the integral domain ℤ now gives p=q. The empty index type is covered by the same statement."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-eval",
+        "mathlib:MvPolynomial.funext_set",
+        "mathlib:Nat.cast_injective",
+        "mathlib:Set.infinite_range_of_injective"
+      ],
+      "acceptance": [
+        "X(X−1) is distinguished from zero by assignment 2, even though both vanish at 0 and 1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.toDiophPoly_injective",
+      "sources": [
+        {
+          "sourceId": "mathlib-funext",
+          "locator": "funext_set, lines 51–74",
+          "excerpt": "polynomial",
+          "match": "Specialization of native polynomial extensionality to the infinite natural-number box in the integers; the specialized injectivity statement is new."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/poly-mvpolynomial-equiv",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Polynomial ring equivalence",
+      "kind": "construction",
+      "statement": "For every α, bundle Tα as a ring equivalence Eα: MvPolynomial α ℤ ≃ Poly α. Its inverse sends a native polynomial function to the unique multivariate integer polynomial with the same values on every natural assignment. The inverse is classical and carries no computability assertion.",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Combine the separately proved injectivity and surjectivity into bijectivity.",
+        "Apply RingEquiv.ofBijective. Record that the resulting forward ring map is exactly Tα. Its inverse laws and algebraic compatibility are inherited from the ring equivalence.",
+        "Evaluate Eα(Eα⁻¹(f))=f and apply to-dioph-poly-eval to obtain the inverse evaluation law. Uniqueness follows from injectivity, not from a chosen syntactic representative."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-surjective",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-injective",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-eval",
+        "mathlib:RingEquiv.ofBijective"
+      ],
+      "acceptance": [
+        "Forward and inverse preserve integer constants and multiplication.",
+        "The inverse is uniquely determined mathematically even though constructed by classical choice."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.mvPolynomialEquiv",
+      "sources": [
+        {
+          "sourceId": "mathlib-dioph",
+          "locator": "Poly, Poly.induction and the comparison TODO, lines 48–51,93,197–204",
+          "excerpt": "polynomial",
+          "match": "Completes the missing native polynomial comparison using the separately listed infinite-box theorem; the ring equivalence is an elementary consequence, not an existing pinned declaration."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LogicAndDefinabilityInNumberTheory:LD.4/poly-equiv-rename",
+          "how": "Transports existing variable maps to native polynomial renaming."
+        },
+        {
+          "where": "LogicAndDefinabilityInNumberTheory:LD.4/dioph-finite-mvpolynomial",
+          "how": "Exposes finite polynomial support while retaining the native Dioph carrier."
+        },
+        {
+          "where": "LogicAndDefinabilityInNumberTheory:LD.4",
+          "how": "Makes the native exponentiation and closure results usable by future polynomial coding interfaces."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Diophantine.mvPolynomialEquiv_toRingHom",
+          "role": "compatibility",
+          "statement": "The forward ring map of Eα is Tα."
+        },
+        {
+          "name": "TauCeti.Diophantine.mvPolynomialEquiv_symm_apply",
+          "role": "compatibility",
+          "statement": "Evaluating Eα⁻¹(f) at the integer casts of x gives f(x)."
+        },
+        {
+          "name": "TauCeti.Diophantine.mvPolynomialEquiv_symm_const",
+          "role": "simp",
+          "statement": "Eα⁻¹(Poly.const(c))=C c for every integer c."
+        },
+        {
+          "name": "TauCeti.Diophantine.mvPolynomialEquiv_symm_proj",
+          "role": "simp",
+          "statement": "Eα⁻¹(Poly.proj(i))=Xᵢ."
+        },
+        {
+          "name": "TauCeti.Diophantine.mvPolynomialEquiv_symm_add",
+          "role": "structure",
+          "statement": "Eα⁻¹(f+g)=Eα⁻¹(f)+Eα⁻¹(g)."
+        },
+        {
+          "name": "TauCeti.Diophantine.mvPolynomialEquiv_symm_mul",
+          "role": "structure",
+          "statement": "Eα⁻¹(fg)=Eα⁻¹(f)Eα⁻¹(g)."
+        },
+        {
+          "name": "TauCeti.Diophantine.mvPolynomialEquiv_left_inv",
+          "role": "equivalence",
+          "statement": "Eα⁻¹(Eα(p))=p."
+        },
+        {
+          "name": "TauCeti.Diophantine.mvPolynomialEquiv_right_inv",
+          "role": "equivalence",
+          "statement": "Eα(Eα⁻¹(f))=f."
+        },
+        {
+          "name": "TauCeti.Diophantine.mvPolynomialEquiv_rename",
+          "role": "functoriality",
+          "statement": "For any map h:α→β, Eβ(rename(h,p))=Poly.map(h,Eα(p)); injectivity of h is not required."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Diophantine.empty_inverse",
+          "kind": "degenerate",
+          "statement": "With no variables, E⁻¹(Poly.const(−7)) is C(−7)."
+        },
+        {
+          "name": "TauCeti.Diophantine.product_inverse",
+          "kind": "value",
+          "statement": "In two variables, E⁻¹(Poly.proj(0)·Poly.proj(1)) is X₀X₁."
+        },
+        {
+          "name": "TauCeti.Diophantine.inverse_native_eval",
+          "kind": "compatibility",
+          "statement": "For every native f and natural assignment x, eval(cast∘x,E⁻¹(f))=f(x)."
+        },
+        {
+          "name": "TauCeti.Diophantine.boolean_grid_insufficient",
+          "kind": "non-example",
+          "statement": "E(X₀(X₀−1)) is nonzero: its value at 2 is 2. Sampling only a Boolean grid is insufficient."
+        }
+      ]
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/poly-equiv-inverse-eval",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Inverse evaluation comparison",
+      "kind": "lemma",
+      "statement": "For every native polynomial f in Poly α and natural assignment x, evaluating Eα⁻¹(f) at the integer casts of x gives f(x).",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "The defining forward map of Eα is Tα. Apply to-dioph-poly-eval to Eα⁻¹(f).",
+        "The ring equivalence identity Eα(Eα⁻¹(f))=f identifies the resulting function value with f(x)."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/poly-mvpolynomial-equiv",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-eval"
+      ],
+      "acceptance": [
+        "This remains valid for an empty variable type and negative constants."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.mvPolynomialEquiv_symm_apply",
+      "sources": [
+        {
+          "sourceId": "mathlib-dioph",
+          "locator": "Poly and Poly.ext, lines 93–107, together with the polynomial-comparison TODO",
+          "excerpt": "polynomial",
+          "match": "Elementary inverse law of the new equivalence. Promoted from its API because the finite-witness theorem consumes it."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/poly-equiv-rename",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Renaming compatibility",
+      "kind": "lemma",
+      "statement": "For any map h:α→β and polynomial p, Eβ(rename(h,p)) = Poly.map(h,Eα(p)). The map h can identify distinct variables.",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Compare values at every β-indexed natural assignment using Poly.ext.",
+        "The equivalence’s forward map is T. Apply to-dioph-poly-eval on both sides, MvPolynomial.eval_rename on the left and Poly.map_apply on the right. Both values are eval(cast∘x∘h,p)."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/poly-mvpolynomial-equiv",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-eval",
+        "mathlib:Poly.ext",
+        "mathlib:Poly.map_apply",
+        "mathlib:MvPolynomial.eval_rename"
+      ],
+      "acceptance": [
+        "Collapsing both variables of X₀−X₁ to the same coordinate produces zero; this naturality identity does not assert injectivity of renaming."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.mvPolynomialEquiv_rename",
+      "sources": [
+        {
+          "sourceId": "mathlib-dioph",
+          "locator": "Poly.map and map_apply, lines 226–234",
+          "excerpt": "polynomial",
+          "match": "Comparison of native reindexing with the new ring equivalence."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/finite-right-support",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Finite witness support with fixed inputs",
+      "kind": "lemma",
+      "statement": "For a commutative semiring R and p in MvPolynomial (α⊕β) R, there exist a finite subset t of β and q in MvPolynomial (α⊕t) R such that p=rename(idα⊕inclusion,q). Every input variable is left unchanged.",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Apply MvPolynomial.exists_finset_rename to p, obtaining a finite set s of sum variables and a polynomial r on s.",
+        "Put t=Finset.toRight(s). Map each element of s to α⊕t: an input inl(a) goes to inl(a); a witness inr(b) goes to inr(b), with its membership in t supplied by Finset.mem_toRight.",
+        "Rename r by this map to form q. The composite with idα⊕inclusion is the original inclusion of s, so MvPolynomial.rename_rename gives p=rename(idα⊕inclusion,q)."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.exists_finset_rename",
+        "mathlib:Finset.toRight",
+        "mathlib:Finset.mem_toRight",
+        "mathlib:MvPolynomial.rename",
+        "mathlib:MvPolynomial.rename_rename"
+      ],
+      "acceptance": [
+        "No domain or characteristic assumption on R.",
+        "No finite input-type assumption.",
+        "A polynomial involving only inputs admits t empty."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.exists_finset_right_rename",
+      "sources": [
+        {
+          "sourceId": "mathlib-pr-42203",
+          "locator": "PR body, exists_finset_right_rename and proof route",
+          "excerpt": "polynomial",
+          "match": "Same statement shape as the open Mathlib proposal; absent from the required pin."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/finite-right-rename",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Finite witness enumeration",
+      "kind": "lemma",
+      "statement": "For a commutative semiring R and p in MvPolynomial (α⊕β) R, there exist m∈ℕ, an injective map h:Fin m→β, and q in MvPolynomial (α⊕Fin m) R with p=rename(idα⊕h,q).",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Apply finite-right-support to obtain t and its polynomial q₀.",
+        "Choose e:t≃Fin(card t) using Fintype.equivFin. Set h=inclusion∘e⁻¹ and rename q₀ by idα⊕e.",
+        "The chosen h is injective because e⁻¹ and subtype inclusion are injective. Use MvPolynomial.rename_rename and the inverse laws of e to verify the displayed identity."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/finite-right-support",
+        "mathlib:Fintype.equivFin",
+        "mathlib:MvPolynomial.rename_rename"
+      ],
+      "acceptance": [
+        "If β is empty the witness block has size zero.",
+        "Inputs are not silently permuted when witnesses are numbered."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.exists_fin_right_rename",
+      "sources": [
+        {
+          "sourceId": "mathlib-pr-42203",
+          "locator": "PR body, exists_fin_right_rename and finite enumeration",
+          "excerpt": "polynomial",
+          "match": "Follows the proposed Mathlib shape and generality at the fixed baseline."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/right-rename-solutions",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Preservation of existential natural roots",
+      "kind": "lemma",
+      "statement": "Let h:Fin m→β be injective, q∈ℤ[α⊕Fin m], and x:α→ℕ. There exists y:β→ℕ with rename(idα⊕h,q)(x,y)=0 if and only if there exists z:Fin m→ℕ with q(x,z)=0. All evaluations cast naturals into integers.",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Given y, restrict it to z=y∘h. MvPolynomial.eval_rename proves the evaluations agree.",
+        "Given z, use Function.extend(h,z,0) as a β-assignment. Function.Injective.extend_apply gives y(h(j))=z(j), so the same evaluation identity gives a root of the renamed polynomial.",
+        "The default zero supplies all unused witnesses, including when m=0. No surjectivity of h is needed."
+      ],
+      "prerequisites": [
+        "mathlib:MvPolynomial.eval_rename",
+        "mathlib:Function.extend",
+        "mathlib:Function.Injective.extend_apply"
+      ],
+      "acceptance": [
+        "For q(u,v)=u−v−1, collapsing both witnesses makes the equation unsatisfiable although q has natural roots; the injectivity hypothesis cannot be dropped."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.exists_nat_zero_rename_right",
+      "sources": [
+        {
+          "sourceId": "freer-normal",
+          "locator": "dioph_iff_exists_fin_mvPolynomial, key equality and witness extension",
+          "excerpt": "polynomial",
+          "match": "Extracts the two solution-transport directions as a reusable lemma; does not add a new representation predicate."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LogicAndDefinabilityInNumberTheory:LD.4/dioph-finite-mvpolynomial",
+      "parentStageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "realises": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "title": "Finite Diophantine normal form",
+      "kind": "theorem",
+      "statement": "For every type α and S⊆(α→ℕ), native Dioph(S) holds exactly when there are m∈ℕ and p∈MvPolynomial (α⊕Fin m) ℤ such that, for every input x, x∈S if and only if there exists y:Fin m→ℕ with eval(cast∘Sum.elim(x,y),p)=0. This holds without assuming α finite.",
+      "hypotheses": [
+        "α and β are arbitrary types, possibly empty or infinite. Natural-number assignments are cast coordinatewise to integers. Additional hypotheses are stated explicitly."
+      ],
+      "proofSteps": [
+        "Unpack native Dioph(S) as a polynomial function f on α⊕β and its existential-root characterization. Apply the inverse of poly-mvpolynomial-equiv to obtain integer polynomial syntax with exactly the same values.",
+        "Apply finite-right-rename to that polynomial. Then right-rename-solutions replaces the arbitrary β-witness block by Fin m while fixing x; this proves the forward implication.",
+        "For the reverse implication in universe zero use witness type Fin m and native polynomial T(p). Apply to-dioph-poly-eval. For an arbitrary input universe use the witness type ULift(Fin m) at that universe and rename p along idα⊕ULift.up before applying T. Lifting or lowering assignments gives the same existential condition by MvPolynomial.eval_rename.",
+        "This is a mathematical existential normal form, not a computable procedure for recovering p or m from a proof of native Dioph. Computable encodings and the MRDP simulation remain separate work."
+      ],
+      "prerequisites": [
+        "LogicAndDefinabilityInNumberTheory:LD.4/poly-mvpolynomial-equiv",
+        "LogicAndDefinabilityInNumberTheory:LD.4/poly-equiv-inverse-eval",
+        "LogicAndDefinabilityInNumberTheory:LD.4/to-dioph-poly-eval",
+        "LogicAndDefinabilityInNumberTheory:LD.4/finite-right-rename",
+        "LogicAndDefinabilityInNumberTheory:LD.4/right-rename-solutions",
+        "mathlib:Dioph",
+        "mathlib:MvPolynomial.eval_rename"
+      ],
+      "acceptance": [
+        "Even natural inputs are represented by X−2Y.",
+        "A nonzero constant polynomial has no root, including with zero inputs and witnesses.",
+        "The statement specializes both to finite tuples and to α=ℕ.",
+        "Zero witness variables means a polynomial condition, not automatic truth."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Diophantine/PolynomialBridge",
+        "namespace": "TauCeti.Diophantine"
+      },
+      "declaration": "TauCeti.Diophantine.dioph_iff_exists_fin_mvPolynomial",
+      "sources": [
+        {
+          "sourceId": "freer-normal",
+          "locator": "dioph_iff_exists_fin_mvPolynomial and dioph_iff_exists_finite_mvPolynomial",
+          "excerpt": "polynomial",
+          "match": "Generalizes the cited finite-input theorem by applying witness compression before any input reindexing; the proof does not require a finite input type."
+        },
+        {
+          "sourceId": "poonen-2008",
+          "locator": "Definition 1 and footnote 4, author-copy p.2",
+          "excerpt": "diophantine",
+          "match": "Motivation: arithmetic relations represented by one integer polynomial and finitely many existential witnesses. The source states its definition over integers; this component retains Mathlib’s natural assignment domain and does not identify those domains."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite Diophantine normal form"
+      }
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "LogicAndDefinabilityInNumberTheory:LD.0",
+      "status": "not_read",
+      "remaining": [
+        "Arithmetic interpretation and valued-language interfaces: Read a complete source for interpretations on definable quotients and a concrete valued-field language. Reuse native Language, ring language, Term, BoundedFormula, Realize, Definable, ultraproducts and Łoś. Specify the sort encoding and semantics bridge for residue and value sorts rather than replanning single-sorted logic. A chosen elementary arithmetic extension and its relationship to the native standard-part interfaces still need exact statements."
+      ]
+    },
+    {
+      "stageId": "LogicAndDefinabilityInNumberTheory:LD.1",
+      "status": "not_read",
+      "remaining": [
+        "Denef–Pas language and relative elimination: Acquire the exact Pas/Cluckers–Loeser sources and decompose angular components, residue/value sorts, henselian hypotheses and relative elimination. Reuse native algebraic HenselianLocalRing. Separate equicharacteristic-zero theorems from mixed-characteristic transfer with exceptional residue characteristics. No quantifier-elimination theorem is claimed by this component."
+      ]
+    },
+    {
+      "stageId": "LogicAndDefinabilityInNumberTheory:LD.2",
+      "status": "not_read",
+      "remaining": [
+        "Definable cells and local integration: Read complete cell-decomposition and Igusa/Poincaré rationality proofs. Specify normalized Haar measures, measurability, cell fibers, convergence and coefficient rings. Reconcile local-density measure normalizations with ExponentialSumsAndCircleMethod:ES.3, and give exact input contracts to AnalyticNumberTheory:AN.8. Native measure theory alone is not definable integration."
+      ]
+    },
+    {
+      "stageId": "LogicAndDefinabilityInNumberTheory:LD.3",
+      "status": "not_read",
+      "remaining": [
+        "Constructible motivic functions and transfer: Acquire and decompose a fixed complete Cluckers–Loeser source, including definable subassignments, coefficient localization, integrability, pushforwards, specialization and the residue-characteristic bound. Inspect actual motives and geometric suppliers before requesting missing inputs. Do not identify the Grothendieck ring of varieties, definable sets and mixed motives. No supplier request is invented for a statement not yet specified."
+      ]
+    },
+    {
+      "stageId": "LogicAndDefinabilityInNumberTheory:LD.4",
+      "status": "partial",
+      "remaining": [
+        "Computable coding, MRDP and integer transfer: The polynomial comparison is mathematically closed, but its classical inverse supplies no algorithm. Construct and verify a finite effective polynomial coding and evaluation interface against native REPred and ComputablePred. Read the full Davis–Putnam–Robinson/Matiyasevich proof route, reusing native Dioph.pow_dioph. The public Hilbert10 repository is a concrete source lead: its PolyBridge, NormalForm and DiophToRE files were read, but its computation and MRDP spine were not audited or compiled. Coordinate with its author before integrating code; this checkpoint integrates none. State both natural/integer reductions, with four-square witnesses and effective transformations, before claiming integer H10. Keep rational and other-field assertions separate."
+      ]
+    },
+    {
+      "stageId": "LogicAndDefinabilityInNumberTheory:LD.5",
+      "status": "not_read",
+      "remaining": [
+        "Uniform consumer instantiations: Choose actual density/counting, nonarchimedean geometry and algorithmic consumers. For each specify its language, formula, parameters and finite exceptional set, then trace the exact LD.2/LD.3/LD.4 supplier statements. An existential normal form alone gives no uniform algorithm or transfer theorem."
+      ]
+    },
+    {
+      "stageId": "LogicAndDefinabilityInNumberTheory:LD.6",
+      "status": "not_read",
+      "remaining": [
+        "o-minimal counting and application inputs: Read complete primary proofs of selected o-minimal structures and cells, the Pila–Wilkie estimate outside the algebraic part, and source-scoped unlikely-intersection applications. Specify independent orbit, uniformization and functional-transcendence inputs. Reuse native height/Northcott material and the owners in DiophantineApproximationAndTranscendence:DT.5 and HeightsRationalPointsAndObstructions:RP.5 after checking exact statements. Do not infer Manin–Mumford or André–Oort from counting alone."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Arithmetic interpretation and valued-language interfaces",
+      "neededBy": [
+        "LogicAndDefinabilityInNumberTheory:LD.0"
+      ],
+      "detail": "Read a complete source for interpretations on definable quotients and a concrete valued-field language. Reuse native Language, ring language, Term, BoundedFormula, Realize, Definable, ultraproducts and Łoś. Specify the sort encoding and semantics bridge for residue and value sorts rather than replanning single-sorted logic. A chosen elementary arithmetic extension and its relationship to the native standard-part interfaces still need exact statements."
+    },
+    {
+      "title": "Denef–Pas language and relative elimination",
+      "neededBy": [
+        "LogicAndDefinabilityInNumberTheory:LD.1"
+      ],
+      "detail": "Acquire the exact Pas/Cluckers–Loeser sources and decompose angular components, residue/value sorts, henselian hypotheses and relative elimination. Reuse native algebraic HenselianLocalRing. Separate equicharacteristic-zero theorems from mixed-characteristic transfer with exceptional residue characteristics. No quantifier-elimination theorem is claimed by this component."
+    },
+    {
+      "title": "Definable cells and local integration",
+      "neededBy": [
+        "LogicAndDefinabilityInNumberTheory:LD.2"
+      ],
+      "detail": "Read complete cell-decomposition and Igusa/Poincaré rationality proofs. Specify normalized Haar measures, measurability, cell fibers, convergence and coefficient rings. Reconcile local-density measure normalizations with ExponentialSumsAndCircleMethod:ES.3, and give exact input contracts to AnalyticNumberTheory:AN.8. Native measure theory alone is not definable integration."
+    },
+    {
+      "title": "Constructible motivic functions and transfer",
+      "neededBy": [
+        "LogicAndDefinabilityInNumberTheory:LD.3"
+      ],
+      "detail": "Acquire and decompose a fixed complete Cluckers–Loeser source, including definable subassignments, coefficient localization, integrability, pushforwards, specialization and the residue-characteristic bound. Inspect actual motives and geometric suppliers before requesting missing inputs. Do not identify the Grothendieck ring of varieties, definable sets and mixed motives. No supplier request is invented for a statement not yet specified."
+    },
+    {
+      "title": "Computable coding, MRDP and integer transfer",
+      "neededBy": [
+        "LogicAndDefinabilityInNumberTheory:LD.4"
+      ],
+      "detail": "The polynomial comparison is mathematically closed, but its classical inverse supplies no algorithm. Construct and verify a finite effective polynomial coding and evaluation interface against native REPred and ComputablePred. Read the full Davis–Putnam–Robinson/Matiyasevich proof route, reusing native Dioph.pow_dioph. The public Hilbert10 repository is a concrete source lead: its PolyBridge, NormalForm and DiophToRE files were read, but its computation and MRDP spine were not audited or compiled. Coordinate with its author before integrating code; this checkpoint integrates none. State both natural/integer reductions, with four-square witnesses and effective transformations, before claiming integer H10. Keep rational and other-field assertions separate."
+    },
+    {
+      "title": "Uniform consumer instantiations",
+      "neededBy": [
+        "LogicAndDefinabilityInNumberTheory:LD.5"
+      ],
+      "detail": "Choose actual density/counting, nonarchimedean geometry and algorithmic consumers. For each specify its language, formula, parameters and finite exceptional set, then trace the exact LD.2/LD.3/LD.4 supplier statements. An existential normal form alone gives no uniform algorithm or transfer theorem."
+    },
+    {
+      "title": "o-minimal counting and application inputs",
+      "neededBy": [
+        "LogicAndDefinabilityInNumberTheory:LD.6"
+      ],
+      "detail": "Read complete primary proofs of selected o-minimal structures and cells, the Pila–Wilkie estimate outside the algebraic part, and source-scoped unlikely-intersection applications. Specify independent orbit, uniformization and functional-transcendence inputs. Reuse native height/Northcott material and the owners in DiophantineApproximationAndTranscendence:DT.5 and HeightsRationalPointsAndObstructions:RP.5 after checking exact statements. Do not infer Manin–Mumford or André–Oort from counting alone."
+    }
+  ],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~poonen/papers/h10_notices.pdf",
+      "citation": "Author-hosted eight-page copy of the Notices AMS 55 (2008), no.3, 344–350 survey; accessed 2026-09-27",
+      "read": "2026-09-27",
+      "sha256": "baaf73c4ed8e57f78c52fddb5fc81718a42e804995c565686300726e749435f8"
+    }
+  ],
+  "researchNotes": {
+    "audit": "The generated data/library-coverage.json has no direct LD rows. Read the accepted AUDIT-34.result.json LogicAndDefinabilityInNumberTheory entry and its REV-AUDIT-34 review. It marks LD.0, LD.1 and LD.4 partly built and the other four layers not built. Its claims were used as search leads; every declaration cited in this component was read at the pin.",
+    "existingWork": "No earlier packet, suggested file, reader, handoff or integrated decomposition for this roadmap exists in the starting snapshot. No expansion draft for this id was found. Current atlas, campaign document and every touching link-file entry were read. Reserved ids contain none for this roadmap.",
+    "ownership": "ClassicalArithmeticCompletion:CA.4 was screened for the native polynomial-comparison contract; its equation-specific targets are not replanned here. The packet uses no cross-roadmap mathematical node and creates no request. Accepted RS-08/RS-25 forwarding entries involving LD were read; none supplies this missing native comparison.",
+    "upstreamStyle": "Read EffectiveBounds and Multiquadratic upstream documents in full. Baseline-first structure and explicit counterexamples guide this reader.",
+    "designSearch": "On 2026-09-27, GitHub open Mathlib PR search found #42203; its full description and head were read. Web searches of Lean Zulip for Dioph/MvPolynomial returned no matching design discussion. The public Hilbert10 work was found, pinned, credited and read to the stated extent. This is not a claim of an exhaustive search.",
+    "librarySearch": "Searched both pinned Lean trees for Diophantine, Dioph/Poly–MvPolynomial comparisons, valued-field language and angular-component terms. Mathlib explicitly leaves the Poly comparison as a TODO; no matching Tau Ceti declaration was found. No current upstream result is treated as part of the required pins.",
+    "sourceLimit": "Poonen’s survey statements are read with their 2008 date; historically open examples are not treated as current frontier facts. The full MRDP proof, Denef–Pas, Cluckers–Loeser and o-minimality source chains remain named acquisition gaps. No mathematical source error was established in the passages supporting the component.",
+    "componentClosure": "All thirteen nodes in this checkpoint terminate at pinned baseline declarations. The seven roadmap layers remain open because their other stated targets are not covered. No external repository is required to elaborate the suggested file."
+  }
+}
