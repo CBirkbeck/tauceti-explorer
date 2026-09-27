@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all217 predecessor nodes whole. Seven L2 declarations give integral character specializations of tame zeta, inclusion and cancellation, positive-value integrality, Amice comparison and finite-character congruences. Five gaps,one L1 request,zero closed stages; all implementations remain unchecked.",
+  "summary": "Partial continuation preserving all224 old nodes whole. Seven L2 nodes give reflection and parity for actual tame, character-weighted and integral measures, including odd character mass and positive-value vanishing. Two source normalization findings are added; five gaps,one L1 request,zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2065,6 +2065,41 @@
         "module": "Mathlib/Topology/Algebra/Polynomial.lean",
         "provides": "Continuity of polynomial evaluation in the target topological algebra, without requiring continuity of a rational coefficient map.",
         "checked": "Full statement and ambient hypotheses read at pinned Mathlib082e2d3 on27September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:Equiv.prod_comp",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+        "provides": "Native reindexing; its explicit to_additive annotation provides Equiv.sum_comp used for the reflected atom sum.",
+        "checked": "Full native declaration and relevant ambient hypotheses read at pin082e2d37e8b0463410cdb532e111cd43d5a66174; additive-generation annotation read where applicable. Existing native artifacts only."
+      },
+      {
+        "ref": "mathlib:ZMod.val_neg_of_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "Canonical representative of a nonzero residue under negation.",
+        "checked": "Full native declaration and relevant ambient hypotheses read at pin082e2d37e8b0463410cdb532e111cd43d5a66174; additive-generation annotation read where applicable. Existing native artifacts only."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.level_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "The only native Dirichlet character of modulus1 is principal.",
+        "checked": "Full native declaration and relevant ambient hypotheses read at pin082e2d37e8b0463410cdb532e111cd43d5a66174; additive-generation annotation read where applicable. Existing native artifacts only."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.map_zero'",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "A native Dirichlet character maps0 to0 at every modulus other than1.",
+        "checked": "Full native declaration and relevant ambient hypotheses read at pin082e2d37e8b0463410cdb532e111cd43d5a66174; additive-generation annotation read where applicable. Existing native artifacts only."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.map_dirac",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Native pushforward sends a Dirac measure to the Dirac measure at the image point.",
+        "checked": "Full native declaration and relevant ambient hypotheses read at pin082e2d37e8b0463410cdb532e111cd43d5a66174; additive-generation annotation read where applicable. Existing native artifacts only."
       }
     ]
   },
@@ -14699,6 +14734,419 @@
           "statement": "For quadratic η modulo3 and χ modulo4, the second and fourth zeta character values differ by−48. Their norm is1/16, hence at most1/8, consistent with x²−x⁴ divisible by8 on dyadic units."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-atoms-reflection",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Reflection of the finite tame source",
+      "kind": "lemma",
+      "statement": "For A_η=Σ_(a:ZMod D)η(a)δ_(a.val), one has (x↦D−x)_*A_η=η(−1)A_η.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, η≠1, hD:IsUnit(D:K), and p∤D. Put μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD and r(x)=−x on the actual p-adic integers. The pushforward r_* is the native AbstractMeasure.map, not a new operator carrier."
+      ],
+      "proofSteps": [
+        "Nonprincipality and native DirichletCharacter.level_one imply D≠1. Native map_zero' then gives η(0)=0. The zero residue contributes zero on both sides, although its reflected integer representative would be D.",
+        "For every nonzero residue a, native val_neg_of_ne_zero identifies (−a).val=D−a.val. This is an equality of actual integer representatives; after casting it into Z_p, the atom at D−(−a).val is the atom at a.val.",
+        "Reindex the finite sum by native negation of ZMod D. Native multiplicativity gives η(−a)=η(−1)η(a). Native map_dirac and the linearity of pushforward give the displayed equality of actual finite atomic measures."
+      ],
+      "prerequisites": [
+        "mathlib:DirichletCharacter.level_one",
+        "mathlib:DirichletCharacter.map_zero'",
+        "mathlib:ZMod.val_neg_of_ne_zero",
+        "mathlib:Equiv.prod_comp",
+        "mathlib:AbstractMeasure.map_dirac",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "acceptance": [
+        "The finite identity only needs D>0 and η(0)=0; the surrounding tame-measure hypotheses are retained for its applications. The cited prod_comp has an explicit native additive-generation annotation supplying sum_comp."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameAtoms_reflection"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.13, printed146/PDF47, and the parity discussion after Theorem5.17 and in Remark6.2, printed147/149/PDF48/50. Complete published147–150 and arXiv v2PDF35–37 read; published148/149 and v2 35/36 visually checked.",
+          "excerpt": "odd character",
+          "match": "Worker decomposition of the reflection argument on the actual tame measures and the resulting vanishing tests. The source motivates parity of specializations; no analytic branch, logarithmic primitive or p-adic L-value at degree0 is constructed by this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameParityTests.quadratic_atoms",
+          "kind": "computation",
+          "statement": "At p=2, reflection about3 sends δ1−δ2 to its negative."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-measure-reflection",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Reflection parity of the tame kernel measure",
+      "kind": "theorem",
+      "statement": "r_*μ=−η(−1)μ.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, η≠1, hD:IsUnit(D:K), and p∤D. Put μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD and r(x)=−x on the actual p-adic integers. The pushforward r_* is the native AbstractMeasure.map, not a new operator carrier."
+      ],
+      "proofSteps": [
+        "Apply the native pushforward for q(x)=D−x to the existing translation equation μ−(x↦x+D)_*μ=A_η. Since q∘(x↦x+D)=r and q=(x↦x+D)∘r, the finite source reflection gives (x↦x+D)_*(r_*μ)−r_*μ=η(−1)A_η.",
+        "Rearrange: r_*μ and −η(−1)μ have the same difference under translation by D. Their difference λ is thus fixed by this actual translation.",
+        "Repeat the particular Mahler addition calculation already used in tame-translation, now on λ: native Nat.add_choose_eq, mahler_natCast_eq and density give A((x↦x+D)_*λ)=Y^D A(λ), Y=1+T. Therefore (1−Y^D)A(λ)=0.",
+        "The already supplied identity Y^D−1=Tq_D and the unit certificate for q_D show 1−Y^D≠0 in K[[T]]. Here T is nonzero by its degree-one coefficient, and q_D is a unit because its constant coefficient is the supplied unit D. Cancellation in the native domain K[[T]] gives A(λ)=0. Native Amice injectivity gives λ=0.",
+        "The argument uses neither density of monomial moments nor a generic convolution-algebra comparison. Nonprincipality is essential: for the principal character modulo3 in Q_2 the tame kernel has mass−1, so it cannot satisfy the asserted anti-invariance."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-atoms-reflection",
+        "DirichletPadicLFunctions:L2/tame-translation",
+        "DirichletPadicLFunctions:L2/tame-series",
+        "DirichletPadicLFunctions:L1/smoothing-denominator",
+        "mathlib:AbstractMeasure.map_map",
+        "mathlib:AbstractMeasure.injective_amiceTransform",
+        "mathlib:Nat.add_choose_eq",
+        "mathlib:mahler_natCast_eq",
+        "mathlib:PadicInt.denseRange_natCast",
+        "mathlib:AbstractMeasure.coeff_amiceTransform"
+      ],
+      "acceptance": [
+        "Valid at p=2; no division by2 occurs. The characteristic-zero assumption is not needed for this reflection equality."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.map_neg_tameMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.13, printed146/PDF47, and the parity discussion after Theorem5.17 and in Remark6.2, printed147/149/PDF48/50. Complete published147–150 and arXiv v2PDF35–37 read; published148/149 and v2 35/36 visually checked.",
+          "excerpt": "odd character",
+          "match": "Worker decomposition of the reflection argument on the actual tame measures and the resulting vanishing tests. The source motivates parity of specializations; no analytic branch, logarithmic primitive or p-adic L-value at degree0 is constructed by this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameParityTests.odd_tame_measure_even",
+          "kind": "compatibility",
+          "statement": "For quadratic η modulo3 at p=2, μ is fixed by x↦−x."
+        },
+        {
+          "name": "SuggestedTameParityTests.even_tame_measure_odd",
+          "kind": "compatibility",
+          "statement": "For quadratic η modulo5 at p=2, μ changes sign under x↦−x."
+        },
+        {
+          "name": "SuggestedTameParityTests.principal_hypothesis_needed",
+          "kind": "non-example",
+          "statement": "For principal η modulo3 at p=2, μ(1)=−1, disproving the same anti-invariance without η≠1."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-zeta-reflection",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Reflection parity of the tame zeta measure",
+      "kind": "theorem",
+      "statement": "r_*ζ=η(−1)ζ.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, η≠1, hD:IsUnit(D:K), and p∤D. Put μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD and r(x)=−x on the actual p-adic integers. The pushforward r_* is the native AbstractMeasure.map, not a new operator carrier."
+      ],
+      "proofSteps": [
+        "Specialize the existing unit-restriction/dilation identity to the native unit−1. Thus E commutes with r_* and the previous reflection identity gives r_*(Eμ)=−η(−1)Eμ.",
+        "The native zero-extended p-adic integer inverse satisfies inv(−x)=−inv(x): for units this follows from inverse multiplication; for nonunits both values are0. It is also checked directly from the native definition, including x=0. Its image g in K has the same oddness.",
+        "Write ζ=weight(g)(Eμ). Use the existing projection formula for weights and the involution r∘r=id, or evaluate it on every continuous test, to move r_* through the weight. The oddness of g contributes a second minus sign. Combine with the reflected Eμ to obtain η(−1)ζ."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-measure-reflection",
+        "DirichletPadicLFunctions:L2/tame-zeta-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-dilation",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-pushforward",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "mathlib:PadicInt.inv",
+        "mathlib:PadicInt.inv_mul",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "acceptance": [
+        "The sign differs from that of μ because ζ is the inverse-coordinate weighting. No global field inverse is assigned to nonunits."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.map_neg_tameZetaMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.13, printed146/PDF47, and the parity discussion after Theorem5.17 and in Remark6.2, printed147/149/PDF48/50. Complete published147–150 and arXiv v2PDF35–37 read; published148/149 and v2 35/36 visually checked.",
+          "excerpt": "odd character",
+          "match": "Worker decomposition of the reflection argument on the actual tame measures and the resulting vanishing tests. The source motivates parity of specializations; no analytic branch, logarithmic primitive or p-adic L-value at degree0 is constructed by this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameParityTests.odd_tame_zeta_odd",
+          "kind": "compatibility",
+          "statement": "For quadratic η modulo3 at p=2, ζ changes sign under x↦−x."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-zeta-reflection",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Reflection of a character-weighted tame zeta measure",
+      "kind": "lemma",
+      "statement": "r_*ν=cν.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, η≠1, hD:IsUnit(D:K), and p∤D. Put μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD and r(x)=−x on the actual p-adic integers. The pushforward r_* is the native AbstractMeasure.map, not a new operator carrier.",
+        "n≥0, χ:DirichletCharacter K(p^n), wχ=primePowerCharacter p n χ, ν=weight(wχ)ζ and c=η(−1)χ(−1). Use the native character at its displayed level, including the unique level-one character at n=0."
+      ],
+      "proofSteps": [
+        "The native reduction map is a ring homomorphism, so red_n(−x)=−red_n(x). Native character multiplicativity therefore gives wχ(−x)=χ(−1)wχ(x), also for n=0.",
+        "Apply the existing weight projection formula to the involution r, then the preceding reflection identity for ζ. Linearity extracts the two character values, giving c=η(−1)χ(−1).",
+        "The formula keeps the actual χ at its displayed level. No primitive-conductor identification or root-of-unity field extension is needed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-zeta-reflection",
+        "DirichletPadicLFunctions:L2/prime-power-character",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-pushforward",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "acceptance": [
+        "Includes principal characters at every level and the dyadic case."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.map_neg_weight_character_tameZetaMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.13, printed146/PDF47, and the parity discussion after Theorem5.17 and in Remark6.2, printed147/149/PDF48/50. Complete published147–150 and arXiv v2PDF35–37 read; published148/149 and v2 35/36 visually checked.",
+          "excerpt": "odd character",
+          "match": "Worker decomposition of the reflection argument on the actual tame measures and the resulting vanishing tests. The source motivates parity of specializations; no analytic branch, logarithmic primitive or p-adic L-value at degree0 is constructed by this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameParityTests.two_odd_characters_even",
+          "kind": "compatibility",
+          "statement": "Quadratic η modulo3 and χ modulo4 give an even character-weighted ζ at p=2."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/integral-tame-character-reflection",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Integral reflection of tame character values",
+      "kind": "comparison",
+      "statement": "r_*νO=cO νO.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, η≠1, hD:IsUnit(D:K), and p∤D. Put μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD and r(x)=−x on the actual p-adic integers. The pushforward r_* is the native AbstractMeasure.map, not a new operator carrier.",
+        "n≥0, χ:DirichletCharacter K(p^n), wχ=primePowerCharacter p n χ, ν=weight(wχ)ζ and c=η(−1)χ(−1). Use the native character at its displayed level, including the unique level-one character at n=0.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), with its native norm and inclusion ι:O→K. Let νO=integralTwistedTameZetaMeasure n χ η hD hpD and cO=⟨c, norm≤1⟩:O. There is no extra chosen Z_p-algebra on O and no inverse of2 in O."
+      ],
+      "proofSteps": [
+        "Native DirichletCharacter.norm_le_one puts η(−1) and χ(−1), hence their product c, in the fixed norm-valuation integer ring. This supplies the displayed scalar cO without choosing a new coefficient structure.",
+        "Evaluate the two O-valued measures on an arbitrary continuous O-test f and include the results into K. The existing all-test character comparison identifies the left value with ν((ι∘f)∘r) and the right value with cν(ι∘f).",
+        "The preceding actual K-measure reflection makes these values equal. Injectivity of subtype inclusion and native continuous-dual extensionality prove the O-measure equality."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-zeta-reflection",
+        "DirichletPadicLFunctions:L2/integral-tame-character-inclusion",
+        "mathlib:DirichletCharacter.norm_le_one",
+        "mathlib:Valuation.mem_integer_iff",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.toCLMEquiv"
+      ],
+      "acceptance": [
+        "This is an equality of actual O-valued measures; no integral projector (1±r)/2 is defined, especially at p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.map_neg_integralTwistedTameZetaMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.13, printed146/PDF47, and the parity discussion after Theorem5.17 and in Remark6.2, printed147/149/PDF48/50. Complete published147–150 and arXiv v2PDF35–37 read; published148/149 and v2 35/36 visually checked.",
+          "excerpt": "odd character",
+          "match": "Worker decomposition of the reflection argument on the actual tame measures and the resulting vanishing tests. The source motivates parity of specializations; no analytic branch, logarithmic primitive or p-adic L-value at degree0 is constructed by this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameParityTests.integral_even_reflection",
+          "kind": "compatibility",
+          "statement": "The integral χ4 twist of ζ for η3 is fixed by reflection at p=2."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-parity-test",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Vanishing of tests with incompatible reflection parity",
+      "kind": "theorem",
+      "statement": "If ε∈K, f:C(Z_p,K), f(−x)=εf(x) for every x, and ε≠c, then ν(f)=0. The same holds for an O-test whose included values satisfy this reflection equation.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, η≠1, hD:IsUnit(D:K), and p∤D. Put μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD and r(x)=−x on the actual p-adic integers. The pushforward r_* is the native AbstractMeasure.map, not a new operator carrier.",
+        "n≥0, χ:DirichletCharacter K(p^n), wχ=primePowerCharacter p n χ, ν=weight(wχ)ζ and c=η(−1)χ(−1). Use the native character at its displayed level, including the unique level-one character at n=0.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), with its native norm and inclusion ι:O→K. Let νO=integralTwistedTameZetaMeasure n χ η hD hpD and cO=⟨c, norm≤1⟩:O. There is no extra chosen Z_p-algebra on O and no inverse of2 in O."
+      ],
+      "proofSteps": [
+        "Evaluate r_*ν=cν on f. Native map_apply and K-linearity give ε·ν(f)=c·ν(f), so (ε−c)ν(f)=0.",
+        "Since ε−c≠0, cancellation in K gives ν(f)=0. For an O-test apply this to its included test, use the all-test comparison and subtype injectivity. No inverse of ε−c or2 in O is required.",
+        "If CharZero K and c=−1, specialize to the constant-one test with ε=1. This gives zero for the actual character mass, and likewise for νO(1). This is the odd-character mass vanishing used before a logarithmic comparison; no even-character mass formula or analytic branch is inferred."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-zeta-reflection",
+        "DirichletPadicLFunctions:L2/integral-tame-character-inclusion",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.toCLMEquiv"
+      ],
+      "acceptance": [
+        "The main result uses the explicit inequality ε≠c, with no characteristic-zero assumption. Only the ±1 odd-mass corollary assumes CharZero K."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameZetaMeasure_character_test_eq_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.13, printed146/PDF47, and the parity discussion after Theorem5.17 and in Remark6.2, printed147/149/PDF48/50. Complete published147–150 and arXiv v2PDF35–37 read; published148/149 and v2 35/36 visually checked.",
+          "excerpt": "odd character",
+          "match": "Worker decomposition of the reflection argument on the actual tame measures and the resulting vanishing tests. The source motivates parity of specializations; no analytic branch, logarithmic primitive or p-adic L-value at degree0 is constructed by this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.integralTwistedTameZetaMeasure_test_eq_zero",
+          "role": "compatibility",
+          "statement": "An O-valued test with included reflection factor ε≠c has zero integral value."
+        },
+        {
+          "name": "DirichletPadic.tameZetaMeasure_character_mass_eq_zero_of_odd",
+          "role": "simp",
+          "statement": "If CharZero K and c=−1, then ζ(wχ)=0, including degree0."
+        },
+        {
+          "name": "DirichletPadic.integralTwistedTameZetaMeasure_mass_eq_zero_of_odd",
+          "role": "simp",
+          "statement": "Under the same oddness and characteristic-zero assumptions, νO(1)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTameParityTests.odd_character_mass",
+          "kind": "computation",
+          "statement": "At p=2 with η3 quadratic and the level-one principal χ, the integral character mass is0."
+        },
+        {
+          "name": "SuggestedTameParityTests.odd_test_even_twist",
+          "kind": "compatibility",
+          "statement": "For quadratic η3 and χ4 at p=2, every odd continuous K-test has zero character-weighted value."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-character-value-parity",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Parity vanishing of the Euler–Bernoulli values",
+      "kind": "theorem",
+      "statement": "For k≥1 and (−1)^k≠c, the actual product-level value b_(χ,k) is0; every O-valued lift of x_K^k has zero νO value.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field with Algebra Z_p K and IsBoundedSMul Z_p K. D>0, η:DirichletCharacter K D, η≠1, hD:IsUnit(D:K), and p∤D. Put μ=tameMeasure η hD hpD, ζ=tameZetaMeasure η hD hpD and r(x)=−x on the actual p-adic integers. The pushforward r_* is the native AbstractMeasure.map, not a new operator carrier.",
+        "n≥0, χ:DirichletCharacter K(p^n), wχ=primePowerCharacter p n χ, ν=weight(wχ)ζ and c=η(−1)χ(−1). Use the native character at its displayed level, including the unique level-one character at n=0.",
+        "O is exactly Valuation.integer(NormedField.valuation(K)), with its native norm and inclusion ι:O→K. Let νO=integralTwistedTameZetaMeasure n χ η hD hpD and cO=⟨c, norm≤1⟩:O. There is no extra chosen Z_p-algebra on O and no inverse of2 in O.",
+        "Assume CharZero K and Algebra Q K. Let N=D p^n and θ=η.changeLevel(D∣N)·χ.changeLevel(p^n∣N). Write b_(χ,k)=(1−θ(p)p^(k−1))·(−N^(k−1)/k)·Σ_(a:ZMod N)θ(a) algebraMap Q K(B_k(a.val/N))."
+      ],
+      "proofSteps": [
+        "The native algebra map preserves negation, hence the continuous test x↦x_K^k has reflection factor (−1)^k. Apply tame-character-parity-test to ν.",
+        "The preceding character-moment shift and twisted unit-moment formula identify ν(x_K^k) with the displayed b_(χ,k), retaining its actual level and Euler factor. This proves the scalar vanishing.",
+        "For any O-valued lift of x_K^k, use the preceding all-test inclusion or the integral moment comparison and subtype injectivity. The coefficient ring need not contain1/2 and k may be divisible by p.",
+        "Matching parity does not imply a nonzero value. It merely removes this vanishing obstruction; the quadratic η3χ4 second value−2 supplies a nonzero control, whereas other zero values may have an independent cause."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-character-parity-test",
+        "DirichletPadicLFunctions:L2/tame-character-value-integral",
+        "DirichletPadicLFunctions:L2/tame-zeta-character-shift",
+        "DirichletPadicLFunctions:L2/twisted-tame-moments",
+        "DirichletPadicLFunctions:L2/twisted-tame-psi"
+      ],
+      "acceptance": [
+        "Keep k≥1 for the Euler–Bernoulli identity. Odd mass vanishing at k=0 is supplied separately by the preceding node."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameParity",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameCharacterZetaValue_eq_zero_of_parity"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition5.13, printed146/PDF47, and the parity discussion after Theorem5.17 and in Remark6.2, printed147/149/PDF48/50. Complete published147–150 and arXiv v2PDF35–37 read; published148/149 and v2 35/36 visually checked.",
+          "excerpt": "odd character",
+          "match": "Worker decomposition of the reflection argument on the actual tame measures and the resulting vanishing tests. The source motivates parity of specializations; no analytic branch, logarithmic primitive or p-adic L-value at degree0 is constructed by this slice."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.integralTwistedTameZetaMeasure_moment_eq_zero_of_parity",
+          "role": "compatibility",
+          "statement": "For every continuous O-valued lift of x_K^k with k≥1 and mismatched parity, νO(f)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedTameParityTests.mismatched_second_moment",
+          "kind": "computation",
+          "statement": "For quadratic η3 at p=2, the untwisted ζ second moment vanishes."
+        },
+        {
+          "name": "SuggestedTameParityTests.matching_second_moment_not_zero",
+          "kind": "non-example",
+          "statement": "For quadratic η3 and χ4 at p=2, the character-weighted second moment−2 does not vanish."
+        },
+        {
+          "name": "SuggestedTameParityTests.integral_mismatched_third_moment",
+          "kind": "computation",
+          "statement": "For quadratic η3 and χ4 at p=2, every integral cubic lift has zero value."
+        }
+      ]
     }
   ],
   "requests": [
@@ -14731,7 +15179,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "Integral finite-character specializations now live on the native norm-valuation integer ring, with all-test inclusion, inverse-character cancellation, level independence on the unit-supported zeta measure, positive-value integrality, Amice compatibility and finite-character Kummer bounds. Exact primitive-conductor identification and product Gauss/Fourier comparison remain with the existing modular-forms direction; other integer-ring presentations require a norm-compatible identification. Complete full source extraction, analytic character branches, logarithmic and degree0 values, and the PMIA L1 completed-algebra comparison. The coefficient-field ordinary-moment request was resolved by the exact PMIA supplier nodes; no new request is added."
+        "Reflection of the actual tame kernel and inverse-weighted zeta, native finite-character and integral reflection, incompatible-parity test vanishing, odd-character mass vanishing and positive Euler–Bernoulli parity are now decomposed. Complete primitive-conductor/product Gauss comparisons through the existing modular-forms owner, analytic branches and the even-character logarithmic/degree0 values, full source extraction and the PMIA L1 actual completed-algebra comparison. Integral parity uses inclusion and cancellation in K, without integral division by2. The supplied unit-coordinate inverse does not yet provide the requested completed-algebra/topological identification."
       ]
     },
     {
@@ -14764,7 +15212,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "Integral finite-character specializations now live on the native norm-valuation integer ring, with all-test inclusion, inverse-character cancellation, level independence on the unit-supported zeta measure, positive-value integrality, Amice compatibility and finite-character Kummer bounds. Exact primitive-conductor identification and product Gauss/Fourier comparison remain with the existing modular-forms direction; other integer-ring presentations require a norm-compatible identification. Complete full source extraction, analytic character branches, logarithmic and degree0 values, and the PMIA L1 completed-algebra comparison. The coefficient-field ordinary-moment request was resolved by the exact PMIA supplier nodes; no new request is added."
+      "detail": "Reflection of the actual tame kernel and inverse-weighted zeta, native finite-character and integral reflection, incompatible-parity test vanishing, odd-character mass vanishing and positive Euler–Bernoulli parity are now decomposed. Complete primitive-conductor/product Gauss comparisons through the existing modular-forms owner, analytic branches and the even-character logarithmic/degree0 values, full source extraction and the PMIA L1 actual completed-algebra comparison. Integral parity uses inclusion and cancellation in K, without integral division by2. The supplied unit-coordinate inverse does not yet provide the requested completed-algebra/topological identification."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -15006,104 +15454,138 @@
         "These are bounded checks, not an exhaustive absence or novelty claim; no authors contacted."
       ],
       "source": "RJW-published"
+    },
+    {
+      "id": "DirichletPadicLFunctions/E14",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Proof of Theorem5.20, first integral in its second displayed calculation, published148/PDF49; arXiv v2PDF35.",
+      "printed": "χ(x)⟨x⟩^(k−1)·μ_η",
+      "correction": "Insert ω⁻¹ in this integrand: χω⁻¹(x)⟨x⟩^(k−1)·μ_η. This is the integrand in the immediately preceding pointwise identity and in equation(5-7) at s=1−k.",
+      "reason": "Since x=ω(x)⟨x⟩, χω⁻ᵏ(x)x^(k−1)=χω⁻¹(x)⟨x⟩^(k−1), not the printed integrand. For odd p at x=−1 with χ principal and k=1, the printed multiplier is1 whereas the required multiplier is−1. At p=3 with quadratic η modulo4, the printed integral is the unit mass1; the corrected odd multiplier has integral0 because μ_η is even. The theorem’s stated interpolation formula keeps its normalization.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September2026: complete published147–150/PDF48–51 and arXiv v2PDF35–37 read and collated. Published148/149 and v2 35/36 page images inspected. Both stored edition digests match sourceVersions; the indicated text is present in both.",
+        "Current arXiv abstract https://arxiv.org/abs/2309.15692 lists v2 of19 December2024 as latest. Authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the preprint and journal, with no separate correction shown at those entries.",
+        "The journal article-page request failed in the current web tool; the hash-verified publication itself was available. Bounded title/identifier+5.20+correction/errata and author+errata searches found no correcting notice; unrelated results were discarded. This is not an exhaustive absence or priority claim, and no authors were contacted.",
+        "The63 relevant source-register locators and Dirichlet/PMIA/Coleman packet findings were screened. The distinct modD/modN misprint in the next proof is already ColemanIntegration/E20 and is credited without adding a duplicate local record."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E15",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Opening of §6, displayed positive-character interpolation formula before the question about k=0, published148/PDF49; arXiv v2PDF35.",
+      "printed": "∫χ(x)xᵏ·ζ_η=L(θ,1−k)",
+      "correction": "Include (1−θ(p)p^(k−1)) on the right at the primitive conductor, or explicitly restrict this display to n≥1 so θ(p)=0. For n=0 the displayed factor cannot generally be omitted.",
+      "reason": "The decomposition allows the trivial p-power character, of conductor1. Take p=3, η the primitive quadratic character modulo4, χ principal at level1 and k=1. The already normalized finite Bernoulli formula gives L(η,0)=1/2 and η(3)=−1. The unit restriction gives ζ_η(x)= (1−η(3))L(η,0)=1, whereas the printed right side is1/2. The same source correctly includes the Euler factor in its preceding interpolation and in Theorem6.1; the defect is this displayed restatement.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27 September2026: complete published147–150/PDF48–51 and arXiv v2PDF35–37 read and collated. Published148/149 and v2 35/36 page images inspected. Both stored edition digests match sourceVersions; the indicated text is present in both.",
+        "Current arXiv abstract https://arxiv.org/abs/2309.15692 lists v2 of19 December2024 as latest. Authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the preprint and journal, with no separate correction shown at those entries.",
+        "The journal article-page request failed in the current web tool; the hash-verified publication itself was available. Bounded title/identifier+5.20+correction/errata and author+errata searches found no correcting notice; unrelated results were discarded. This is not an exhaustive absence or priority claim, and no authors were contacted.",
+        "The63 relevant source-register locators and Dirichlet/PMIA/Coleman packet findings were screened. The distinct modD/modN misprint in the next proof is already ColemanIntegration/E20 and is credited without adding a duplicate local record."
+      ]
     }
   ],
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All13 findings and sourceVersions preserved whole; versioned errata checks pass. No new finding or independent verdict.",
+    "sourceIssues": "All13 old findings and sourceVersions remain whole; two version-collated findings added, existing ColemanIntegration/E20 credited without duplication. Versioned errata checks pass; no independent verdict.",
     "validation": {
-      "nodes": 224,
+      "nodes": 231,
       "kinds": {
         "definition": 1,
-        "lemma": 109,
+        "lemma": 111,
         "construction": 25,
-        "theorem": 60,
-        "comparison": 29
+        "theorem": 64,
+        "comparison": 30
       },
-      "api": 238,
-      "packetTests": 225,
+      "api": 242,
+      "packetTests": 237,
       "definitionConstructionTests": 132,
-      "typedExamples": 228,
+      "typedExamples": 240,
       "planets": 23,
-      "baseline": 293,
-      "preservedWholeNodes": 217,
+      "baseline": 298,
+      "preservedWholeNodes": 224,
       "preservedBaseline": 293,
       "preservedSourceIssues": 13,
-      "newSourceIssues": 0,
+      "newSourceIssues": 2,
       "newNodes": 7,
-      "newNamedDeclarations": 16,
+      "newNamedDeclarations": 11,
       "newTypedTests": 12,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 365,
-      "dependencyEdges": 1648,
+      "reachableNodes": 373,
+      "dependencyEdges": 1696,
       "acyclic": true,
-      "baselineLeaves": 393,
+      "baselineLeaves": 398,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 87585,
+      "readerWords": 90674,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 544,
+      "compilerWarnings": 567,
       "allWarningsPlaceholders": true,
       "supplierNodes": 265,
-      "currentSupplierNodes": 282,
+      "currentSupplierNodes": 294,
       "supplierWarnings": 569,
       "supplierArtifactReused": true,
       "pinnedMathlibModules": 3595,
       "pinnedTauCetiModules": 20,
       "actualSupplierModules": 1,
-      "scratchCompleteDefinitions": 1,
-      "scratchCompleteLemmas": 6,
-      "scratchMathlibModules": 2213,
+      "scratchCompleteDefinitions": 0,
+      "scratchCompleteLemmas": 4,
+      "scratchMathlibModules": 1905,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "integralValues": 300,
-        "principalLevelComparisons": 150,
-        "nonprincipalLevelComparisons": 150,
-        "inverseUnitProducts": 110,
-        "dyadicResidues": 4
+        "atomReflection": 24,
+        "residueReflection": 2218,
+        "tameMomentParity": 44,
+        "characterValueParity": 488,
+        "characterNegation": 2359
       },
       "newRoutesStageLeaves": []
     },
     "lean": {
-      "suggestedFileSha256": "5d9f760512a13ef7ded1e682c6fda79f5c6c165c98b87bda9a9d28a1949bc06b",
+      "suggestedFileSha256": "4a0ceb5aa2a395355f2fe0ac3f89bd2e0433abf52668e46c7cac817bb077bd2d",
       "sourceAuditSha256": "949b9dc3a704e3df17af1a0e2a7f8ffcd620379c4849688e7114ff1843db281c",
       "errors": 0,
-      "warnings": 544,
+      "warnings": 567,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 3595,
       "tauCetiModules": 20,
       "actualSupplierModules": 1,
       "supplierNodes": 265,
-      "currentSupplierNodes": 282,
+      "currentSupplierNodes": 294,
       "supplierWarnings": 569,
-      "supplierReuse": "The full target uses the verified actual265-node PMIA artifact. The current282-node supplier preserves the old source in order; its six new coefficient-algebra moment signatures and proof graph were read in the preceding continuation and retained as planning dependencies. The target does not call those six functions. No local compile against the282-node supplier is claimed.",
+      "supplierReuse": "The full target uses the verified actual265-node PMIA artifact. The current294-node supplier preserves the old source in order; all twelve new unit-coordinate nodes and120 added Lean lines, including two imports, were read. No current-target declaration calls those new unit-coordinate functions. No local compile against the294-node supplier is claimed. The actual completed-group-algebra/topology request remains open.",
       "supplierHashes": {
         "source": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
         "olean": "792990b5b54462842b15c9a9c5d18ce27b258e320f5e048c22bd1cf6189c3e25",
         "log": "052f501c267b2d8edeec41158188185a72b4dc4b1acb567a0a9582f12710869d"
       },
-      "nativeTauCetiBuild": "All20 existing pinned artifacts reused with source hashes and original zero-warning build logs verified; no native library build.",
+      "nativeTauCetiBuild": "All20 existing pinned artifacts reused; source and original zero-warning build logs verified. No native library build.",
       "scratch": {
-        "sha256": "66a23fb44cb9650bcc22debe4d5ea2cfbf91479cdd4fa8a37dade280794aa468",
-        "provedLemmas": 6,
-        "actualDefinitions": 1,
-        "mathlibModules": 2213,
+        "sha256": "26b5d8c59d4492312ed27b27d1fab64fd9c6fe03d2e603fa8a95f63a4b34bfb4",
+        "provedLemmas": 4,
+        "actualDefinitions": 0,
+        "mathlibModules": 1905,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "One complete native definition and six complete lemmas check the norm-valuation integer criterion, native character-value integrality, the continuous O-valued character lift, its inclusion and supremum bound, inverse-character cancellation at units, and the zero-level constant character. Reduction continuity is an explicit premise matching the existing PMIA declaration. These local checks do not prove the full measure identities."
+        "scope": "Four complete native lemmas prove character reflection, the finite reflected atom sum using canonical residue representatives, cancellation for a continuous test whose reflection factor differs from the measure’s, and oddness of the native zero-extended p-adic integer inverse. These are local proofs; the actual tame-measure reflection and arithmetic parity statements remain unchecked blueprint declarations."
       }
     },
     "publication": {
-      "base": "9b5a58905b564df16b77149a70e64b1d416ab4d6",
-      "unchangedInputs": 53,
+      "base": "bfb332bc24062e7b2fd906d7ac0385c0243eb31f",
+      "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
       "lastClaimConfirmation": 5854791937,
@@ -18664,6 +19146,69 @@
         "inverseUnitProducts": 110,
         "dyadicResidues": 4
       }
+    },
+    "tameParity": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3279,
+      "previousHead": "f3d74f49a39b17e3c4a3cc7b66afb22dca2121d0",
+      "previousMerge": "00279a43be14d0c7588b1449f0452aba81fc4bd5",
+      "preservedWholeNodes": 224,
+      "preservedBaseline": 293,
+      "preservedFindings": 13,
+      "newNodes": 7,
+      "newFindings": 2,
+      "reading": "Complete published147–150 and arXiv v2PDF35–37 read and collated, selected page images checked. Full native finite-representative, character edge/parity and actual measure pushforward/injectivity declarations and full PMIA weight-pushforward/unit-restriction-dilation nodes read. Earlier protocol/audit/source reading persists. This is not full-paper reading or an independent verdict.",
+      "supplierRefresh": {
+        "base": "a0fe180a91a719f8b3ea1a7ecf2a9479a201d28e",
+        "oldNodes": 282,
+        "newNodes": 294,
+        "preservedWholeNodes": 282,
+        "preservedBaseline": 289,
+        "newBaseline": 8,
+        "preservedFindings": 14,
+        "newNodesRead": 12,
+        "newLeanLinesRead": 120,
+        "newImports": [
+          "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Extend",
+          "Mathlib.Topology.ContinuousMap.LocallyConstant"
+        ],
+        "oldSourcePreserved": true,
+        "reading": "All twelve new node records and full120-line Lean addition, including two imports, read; eight added baseline records and changed summary/source reading/coverage/gaps/checks read. The inverse for explicit integral unit-coordinate families is supplied. The exact actual completed-group-algebra and topological comparison requested by Dirichlet remains open. No consumed old declaration changed; no independent review or compile against the294-node supplier is claimed."
+      },
+      "knownSourceFinding": "ColemanIntegration/E20 records the adjacent modD/modN typo; no duplicate local record is added.",
+      "boundary": "Reflection of the actual tame kernel and inverse-weighted zeta, native finite-character and integral reflection, incompatible-parity test vanishing, odd-character mass vanishing and positive Euler–Bernoulli parity are now decomposed. Complete primitive-conductor/product Gauss comparisons through the existing modular-forms owner, analytic branches and the even-character logarithmic/degree0 values, full source extraction and the PMIA L1 actual completed-algebra comparison. Integral parity uses inclusion and cancellation in K, without integral division by2. The supplied unit-coordinate inverse does not yet provide the requested completed-algebra/topological identification.",
+      "inputBase": "a0fe180a91a719f8b3ea1a7ecf2a9479a201d28e",
+      "registerRefresh": {
+        "previousBase": "a0fe180a91a719f8b3ea1a7ecf2a9479a201d28e",
+        "newBase": "bfb332bc24062e7b2fd906d7ac0385c0243eb31f",
+        "files": [
+          "data/source-issues.json",
+          "research/errata/REGISTER.md"
+        ],
+        "wholeAddedRecordsRead": 7,
+        "scope": "Unrelated ClassicalAdicEtaleCohomology/E1–E7; no overlap with tame parity or RJW findings. All prior register records retained whole. Full JSON and Markdown changes read; no independent verdict."
+      },
+      "publication": {
+        "base": "bfb332bc24062e7b2fd906d7ac0385c0243eb31f",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "atomReflection": 24,
+        "residueReflection": 2218,
+        "tameMomentParity": 44,
+        "characterValueParity": 488,
+        "characterNegation": 2359
+      },
+      "sourceScreen": "Bounded current63-record relevant register locator screening and full related Coleman findings read; author entries and arXiv revision history checked. Current journal page request failed; the hash-verified published PDF was read. No exhaustive correction search or priority claim."
     }
   },
   "requestResolutions": [

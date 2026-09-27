@@ -1,86 +1,65 @@
-# BP-DirichletPadicLFunctions: integral character values
+# BP-DirichletPadicLFunctions: tame reflection and parity
 
-Codex / codex-7e92bd. Same-worker issue713 follow-up to PR3277, merged
-6dce6f97c735a9c953c6e1b2125058833159a2ec with head
-f32095bbfcf96f609bc902bddcd3b910f602a633. Original claim5854790528,
+Codex / codex-7e92bd same-worker issue713 follow-up to PR3279, merged
+00279a43be14d0c7588b1449f0452aba81fc4bd5 with head
+f3d74f49a39b17e3c4a3cc7b66afb22dca2121d0. Original claim5854790528,
 winning bot5854791937; no additional claim. Review390 remains unclaimed.
 
 ## Delivered and remaining
 
-Seven L2 nodes construct the actual integral character-weighted tame zeta
-measure, compare it on every O-valued test with the K-valued zeta measure,
-cancel inverse characters on its unit support, prove positive-character-value
-integrality, compare native Amice transforms and give finite linear-combination
-and Kummer bounds for the explicit product-level Euler–Bernoulli values.
-O is exactly the native integer ring of the norm valuation. Only the Amice
-comparison assumes a compatible continuous Z_p-algebra action on O.
+Seven L2 nodes reflect the finite tame atoms, prove r_*μ=−η(−1)μ and
+r_*ζ=η(−1)ζ, add the factorχ(−1) under character weighting, transport the
+reflection to the native norm-valuation integer ring, and give incompatible-test,
+odd-mass and positive Euler–Bernoulli parity vanishing. Nonprincipality is explicit.
+The proof reflects the actual translation equation and cancels Tq_D in the
+native Amice domain; it does not assume moment density or a completed algebra.
+The integral statements use all-test inclusion and cancellation in K, without
+inverting2 in O. They include p=2 and level0.
 
-The principal character fixes this already unit-supported measure at every
-level, and level raising includes level0. The inverse-character assertion uses
-unit support. The arithmetic retains each actual product level, permits
-imprimitive characters and weights divisible by p, and divides only in K.
-The finite-combination theorem allows varying character levels and arbitrary
-K-coefficients; its norm bound requires the stated bound on every unit. It
-never assumes that the coefficient-field embedding preserves a normalized norm.
-Degree0 mass has an inclusion comparison and norm bound, with no L-value claim.
-
-Totals:224 unchecked nodes (1 definition,25 constructions,109 lemmas,
-60 theorems,29 comparisons),238 API entries,225 packet tests (132 on
-constructions/definitions),228 typed examples,23 planets and293 baseline
-references. All217 predecessor nodes,293 baseline records,13 findings and
-sourceVersions remain whole. Five gaps,one L1 request and zero closed stages
-remain. The preceding resolved PMIA L2 request stays in requestResolutions.
+Totals:231 unchecked nodes (1 definition,25 constructions,111 lemmas,
+64 theorems,30 comparisons),242 API entries,237 packet tests (132 on
+constructions/definitions),240 typed examples,23 planets and298 baseline
+references. Fifteen findings, five gaps,one L1 request and zero closed stages.
+All224 old nodes,293 old baseline records and13 old findings remain whole.
+The earlier PMIA L2 resolution remains in requestResolutions.
 
 Resume with primitive-conductor and product Gauss/Fourier comparisons through
-the existing modular-forms owner, source extraction, analytic character branches,
-logarithmic/degree0 values and the PMIA L1 completed-algebra comparison. Other
-integer-ring presentations require a norm-compatible identification.
+the existing modular-forms owner, the imported analytic character components,
+branch interpolation, even-character logarithmic values, pure p-power conductor,
+pole/residue analysis and the PMIA L1 completed-algebra comparison. Odd mass
+vanishing alone does not construct an analytic branch or prove a logarithmic
+formula. Other integral-ring presentations need norm-compatible identification.
 
-## Reading and validation
+## Reading and checks
 
-Complete published145–147 were read from the hash-verified public PDF in this
-continuous session. Native character-value bounds, subtype continuity and
-integer-membership statements and the full supplier reduction-continuity node
-were read with their hypotheses. Earlier protocol, reviewed library audit,
-source/version and supplier-reading provenance persists. No new finding,
-independent verdict, whole-paper reading or correction-search claim is made.
+Complete published147–150 and arXiv v2PDF35–37 were read and collated;
+published148/149 and v2 35/36 were visually checked. The source editions retain
+their recorded hashes. Full relevant native residue-representative, character
+edge/parity, pushforward and Amice-injectivity declarations and existing PMIA
+weight-projection and unit-dilation nodes were read. Earlier protocol, reviewed
+library audit and source-reading provenance remains in the packet. No whole-paper
+reading, completed formalization or independent review is claimed.
 
-Indexed blueprint: zero errors and warnings. Four-file intake, whitespace,
-whole-record preservation, API/test parity, all224 reader IDs and scoped mutation
-checks pass. The dependency graph has365 reachable nodes,1648 edges and393
-native leaves; it is acyclic, with only the PMIA L1 stage request leaf. The seven
-new proof chains have no stage request leaves.
+All224 predecessor nodes,293 baseline records,13 findings and sourceVersions are preserved whole. All231 node IDs remain in the reader. Eleven named declarations and12 typed examples are added. The indexed blueprint has zero errors and warnings; four-file intake, whitespace, scoped mutation, API/test parity and versioned source-issue checks pass. The graph has373 reachable nodes,1696 edges and398 native leaves, is acyclic and has only the PMIA L1 stage request leaf. Each of the seven new proof routes has no stage request leaf.
 
-Full suggested Lean: zero errors and544 expected placeholder warnings;
-3595 pinned Mathlib modules,20 pinned Tau Ceti modules and one actual PMIA
-artifact. The full target uses the verified actual265-node PMIA artifact. The current282-node supplier preserves the old source in order; its six new coefficient-algebra moment signatures and proof graph were read in the preceding continuation and retained as planning dependencies. The target does not call those six functions. No local compile against the282-node supplier is claimed.
-Existing source, olean and original compile-log hashes were checked. No native
-library build, Lake project or cache download was run.
+The full suggested module elaborates with zero errors and567 expected placeholder warnings against3595 pinned Mathlib modules,20 pinned Tau Ceti modules and one verified actual PMIA artifact. The full target uses the verified actual265-node PMIA artifact. The current294-node supplier preserves the old source in order; all twelve new unit-coordinate nodes and120 added Lean lines, including two imports, were read. No current-target declaration calls those new unit-coordinate functions. No local compile against the294-node supplier is claimed. The actual completed-group-algebra/topology request remains open. Source, olean and original compiler-log hashes were rechecked. Existing artifacts were reused; no Mathlib or Tau Ceti build, new Lake project or cache download was run.
 
-One complete native definition and six complete lemmas check the norm-valuation integer criterion, native character-value integrality, the continuous O-valued character lift, its inclusion and supremum bound, inverse-character cancellation at units, and the zero-level constant character. Reduction continuity is an explicit premise matching the existing PMIA declaration. These local checks do not prove the full measure identities.
-The probe compiles against2213 pinned Mathlib modules with zero errors,
-warnings and proof holes. Thirty finite character choices give300 integral-value
-checks,150 principal-level and150 nonprincipal-level comparisons,110 inverse
-unit products and all four unit classes modulo8. An exact symbolic odd-integer
-identity checks the divisibility example. The two dyadic values−2 and46 differ
-by−48, of norm1/16≤1/8. Finite controls do not prove general measure identities.
+Four complete native lemmas prove character reflection, the finite reflected atom sum using canonical residue representatives, cancellation for a continuous test whose reflection factor differs from the measure’s, and oddness of the native zero-extended p-adic integer inverse. These are local proofs; the actual tame-measure reflection and arithmetic parity statements remain unchecked blueprint declarations. The probe elaborates against1905 pinned Mathlib modules with zero errors, warnings or proof holes. Sixty-one finite character cases supply24 finite-atom reflections,2218 residue reflections,44 tame moment parity checks,488 character-value parity checks and2359 character-negation checks. The principal-modulo3 mass−1 prevents dropping nonprincipality. The matching dyadic second value−2 prevents asserting unconditional vanishing. These finite controls do not prove the general measure or analytic statements.
 
-Suggested SHA256: `5d9f760512a13ef7ded1e682c6fda79f5c6c165c98b87bda9a9d28a1949bc06b`.
-Native probe SHA256: `66a23fb44cb9650bcc22debe4d5ea2cfbf91479cdd4fa8a37dade280794aa468`.
+Two source findings are added. E14 restores the dropped ω⁻¹ factor in the proof of Theorem5.20; at p=3, quadratic η modulo4, principal χ and k=1 the printed integral is1 while the corrected integral is0. E15 restores the Euler factor in the opening of section6 when n=0; in the same tame setting the first zeta moment is1 while the printed L-value is1/2. Both editions were collated and their page images checked. The distinct modulus typo is already ColemanIntegration/E20 and is credited without a duplicate local finding. No independent verdict is given.
 
-The LocallyAnalyticDistributions input changed152→162 nodes at
-9b5a58905b564df16b77149a70e64b1d416ab4d6. All ten new records, eight baseline additions and
-changed source/coverage/gap/check/provenance entries were read;152 old nodes,
-206 baseline records and both findings remain whole. No consumed contract
-changed. The guard at9b5a58905b564df16b77149a70e64b1d416ab4d6 checks53 inputs, four predecessor
-outputs, unchanged issue text, the original winning claim and unclaimed review390.
-One reusable worktree and one Lean process at a time; all compiler processes
-have ended. The whole predecessor Lean body remains unchanged.
+The current PMIA refresh preserves282 old nodes,289 baseline records and14 findings whole, with sourceVersions unchanged. The twelve new nodes, eight baseline additions, full120-line Lean addition and changed source/coverage/gap/check entries were read. The explicit unit-coordinate inverse does not close the completed-algebra request. Seven unrelated ClassicalAdicEtaleCohomology register additions and their full Markdown change were read; all prior register records remain whole and neither new finding overlaps. The publication guard atbfb332bc24062e7b2fd906d7ac0385c0243eb31f checks54 inputs, four predecessor outputs, unchanged issue text, the original winning claim and unclaimed review390.
 
-Retained evidence: IntegralCharacterProbe.lean and its compiler/result/source
-receipts; finite_controls.py and finite-controls.json; full suggested compile
-and source audit; artifact-reuse.json; closure/verification/route-audit receipts;
-publication guard and captured inputs; accepted LAD input diff and reading
-receipt; exact submitted deliverables and submission/remote receipts. Retire
-scratch after opening the PR, retaining this evidence. No private path or PDF
-is published. No implementation or closed stage is claimed.
+Suggested SHA256: `4a0ceb5aa2a395355f2fe0ac3f89bd2e0433abf52668e46c7cac817bb077bd2d`.
+Native probe SHA256: `26b5d8c59d4492312ed27b27d1fab64fd9c6fe03d2e603fa8a95f63a4b34bfb4`.
+
+One reusable worktree and one Lean process at a time were used; all compiler
+processes have ended. Exactly the four authorized deliverables change.
+
+Retained evidence: ParityProbe.lean and compiler/result/source-audit receipts;
+finite_controls.py and finite-controls.json; full suggested compile and source
+audit; artifact-reuse.json; closure/verification/route-audit receipts; captured
+inputs and publication guard; the complete accepted PMIA input changes and
+reading receipt; source-screen and selected page images; exact submitted
+files and submission/remote receipts. Retire scratch after opening the PR,
+retaining this evidence. No private path or source PDF is published.
