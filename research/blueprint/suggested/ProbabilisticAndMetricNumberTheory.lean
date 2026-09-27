@@ -13,6 +13,12 @@ import Mathlib.Data.Finset.Powerset
 import Mathlib.Data.Nat.Choose.Multinomial
 import Mathlib.Algebra.Order.Antidiag.FinsuppEquiv
 import Mathlib.Data.Fintype.Perm
+import Mathlib.NumberTheory.PrimeCounting
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Algebra.Order.Floor.Semiring
+import Mathlib.Algebra.BigOperators.Associated
+import Mathlib.Algebra.Order.BigOperators.Ring.Finset
+import Mathlib.Data.Nat.Choose.Sum
 import TauCeti.Probability.Process.EmpiricalMeasure
 import TauCeti.Probability.Distributions.Gaussian.Moments
 
@@ -537,6 +543,127 @@ example : multiMoment ∅ 0 = 1 ∧ hSubset ∅ 0 = 1 ∧ dTuple ∅ 0 = 1 := by
 example :
     (∫ n, (primeDivisibilitySum {3} (fun _ => 1) n - 1/3)^3 ∂(uLaw 0)) =
       -(1/27) := by
+  sorry
+
+
+/-! ## Deterministic cutoff removal and finite moment transfer
+
+P_z uses the existing inclusive prime set and natural floor. These abbreviations
+are local notation only. All moment bounds use the same positive sample.
+-/
+local notation "primeCut" => (fun z : ℝ => Nat.primesLE ⌊z⌋₊)
+local notation "cutMean" => (fun z : ℝ => ∑ p ∈ primeCut z, 1 / (p : ℝ))
+local notation "cutCentered" => (fun (z : ℝ) (n : ℕ) =>
+  primeDivisibilitySum (primeCut z) (fun _ => 1) n - cutMean z)
+local notation "cutError" => (fun (m : ℕ) (z b : ℝ) =>
+  Real.log ((m+1 : ℕ) : ℝ) / Real.log z + |cutMean z - b|)
+local notation "cutMoment" => (fun (m : ℕ) (z : ℝ) (j : ℕ) =>
+  ∫ n, (cutCentered z n)^j ∂(uLaw m))
+local notation "evenEnvelope" => (fun (m : ℕ) (z : ℝ) (j : ℕ) =>
+  ite (Even j) (cutMoment m z j)
+    (Real.sqrt (cutMoment m z (j-1) * cutMoment m z (j+1))))
+
+/-- PM.1/omega-cutoff-identity. Equality at the cutoff belongs to the head. -/
+theorem omega_cutoff_identity (n : ℕ) (z : ℝ) (hn : 0 < n) (hz : 0 ≤ z) :
+    (ArithmeticFunction.cardDistinctFactors n : ℝ) =
+      primeDivisibilitySum (primeCut z) (fun _ => 1) n +
+        ((n.primeFactors.filter (fun p : ℕ => z < (p : ℝ))).card : ℝ) := by
+  sorry
+
+/-- PM.1/large-prime-log-bound. No logarithmic assertion at n=0 or z=1. -/
+theorem large_prime_log_bound (n : ℕ) (z : ℝ) (hn : 0 < n) (hz : 1 < z) :
+    ((n.primeFactors.filter (fun p : ℕ => z < (p : ℝ))).card : ℝ) ≤
+      Real.log (n : ℝ) / Real.log z := by
+  sorry
+
+/-- PM.1/centered-cutoff-error. The center discrepancy is not suppressed. -/
+theorem omega_centered_cutoff_error (m n : ℕ) (z b : ℝ) (hz : 1 < z)
+    (hn : 0 < n) (hnN : n ≤ m+1) :
+    |((ArithmeticFunction.cardDistinctFactors n : ℝ) - b) - cutCentered z n| ≤
+      cutError m z b := by
+  sorry
+
+/-- PM.1/cutoff-power-error. Absolute lower powers, not signed odd powers. -/
+theorem omega_cutoff_power_error (m n k : ℕ) (z b : ℝ) (hz : 1 < z)
+    (hn : 0 < n) (hnN : n ≤ m+1) :
+    |((ArithmeticFunction.cardDistinctFactors n : ℝ) - b)^k - (cutCentered z n)^k| ≤
+      ∑ j ∈ Finset.range k, (k.choose j : ℝ) * (cutError m z b)^(k-j) *
+        |cutCentered z n|^j := by
+  sorry
+
+/-- PM.1/absolute-odd-moment. Specialize existing finite Cauchy–Schwarz. -/
+theorem primeDivisibilitySum_abs_odd_moment_le (m r : ℕ) (P : Finset ℕ)
+    (a : ℕ → ℝ) (b : ℝ) :
+    (∫ n, |primeDivisibilitySum P a n - b|^(2*r+1) ∂(uLaw m)) ≤
+      Real.sqrt ((∫ n, (primeDivisibilitySum P a n - b)^(2*r) ∂(uLaw m)) *
+        (∫ n, (primeDivisibilitySum P a n - b)^(2*r+2) ∂(uLaw m))) := by
+  sorry
+
+/-- PM.1/cutoff-moment-transfer. Finite bound; no asymptotic conclusion is assumed. -/
+theorem omega_cutoff_moment_transfer (m k : ℕ) (z b : ℝ) (hz : 1 < z) :
+    |(∫ n, ((ArithmeticFunction.cardDistinctFactors n : ℝ) - b)^k ∂(uLaw m)) -
+      cutMoment m z k| ≤
+        ∑ j ∈ Finset.range k, (k.choose j : ℝ) * (cutError m z b)^(k-j) *
+          evenEnvelope m z j := by
+  sorry
+
+/-! ## Ten cutoff-removal regression contracts -/
+
+/-- cutoff_sixty: the boundary prime 3 is retained. -/
+example : primeDivisibilitySum (primeCut 3) (fun _ => 1) 60 = 2 ∧
+    (((60 : ℕ).primeFactors.filter (fun p : ℕ => (3 : ℝ) < (p : ℝ))).card : ℝ) = 1 := by
+  sorry
+
+/-- cutoff_at_five: inclusive, not strict, prime cutoff. -/
+example : primeDivisibilitySum (primeCut 5) (fun _ => 1) 60 = 3 ∧
+    (((60 : ℕ).primeFactors.filter (fun p : ℕ => (5 : ℝ) < (p : ℝ))).card : ℝ) = 0 := by
+  sorry
+
+/-- cutoff_below_two: a prime power contributes once. -/
+example : primeDivisibilitySum (primeCut (3/2)) (fun _ => 1) 8 = 0 ∧
+    (((8 : ℕ).primeFactors.filter (fun p : ℕ => (3/2 : ℝ) < (p : ℝ))).card : ℝ) = 1 := by
+  sorry
+
+/-- cutoff_unit: log(1)=0, no empty-product pathology. -/
+example (z : ℝ) (hz : 1 < z) :
+    (((1 : ℕ).primeFactors.filter (fun p : ℕ => z < (p : ℝ))).card : ℝ) = 0 ∧
+      Real.log (1 : ℝ) / Real.log z = 0 := by
+  sorry
+
+/-- cutoff_center_mismatch: every sampled factor can be retained but b can differ. -/
+example : |((ArithmeticFunction.cardDistinctFactors 1 : ℝ) - 0) -
+    cutCentered 2 1| = 1/2 ∧ cutError 0 2 0 = 1/2 := by
+  sorry
+
+/-- cutoff_zeroth_moments -/
+example (m : ℕ) (z b : ℝ) :
+    (∫ n, ((ArithmeticFunction.cardDistinctFactors n : ℝ) - b)^(0 : ℕ) ∂(uLaw m)) = 1 ∧
+      cutMoment m z 0 = 1 := by
+  sorry
+
+/-- cutoff_first_transfer -/
+example (m : ℕ) (z b : ℝ) (hz : 1 < z) :
+    |(∫ n, ((ArithmeticFunction.cardDistinctFactors n : ℝ)-b) ∂(uLaw m)) -
+      cutMoment m z 1| ≤ cutError m z b := by
+  sorry
+
+/-- cutoff_second_transfer -/
+example (m : ℕ) (z b : ℝ) (hz : 1 < z) :
+    |(∫ n, ((ArithmeticFunction.cardDistinctFactors n : ℝ)-b)^2 ∂(uLaw m)) -
+      cutMoment m z 2| ≤ (cutError m z b)^2 +
+        2 * cutError m z b * Real.sqrt (cutMoment m z 2) := by
+  sorry
+
+/-- absolute_first_not_signed: cancellation is not an absolute-moment bound. -/
+example :
+    (∫ n, |primeDivisibilitySum {3} (fun _ => 1) n - 1/3| ∂(uLaw 2)) = 4/9 ∧
+    (∫ n, (primeDivisibilitySum {3} (fun _ => 1) n - 1/3) ∂(uLaw 2)) = 0 := by
+  sorry
+
+/-- absolute_two_equality: adjacent-even Cauchy–Schwarz can be sharp. -/
+example (m r : ℕ) :
+    (∫ n, |primeDivisibilitySum {2} (fun _ => 1) n - 1/2|^(2*r+1) ∂(uLaw m)) =
+      (1/2 : ℝ)^(2*r+1) := by
   sorry
 
 end TauCeti.Probability.Arithmetic
