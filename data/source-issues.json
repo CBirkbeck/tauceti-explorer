@@ -131367,6 +131367,28 @@
    "reviewReason": null
   },
   {
+   "id": "DirichletPadicLFunctions/E6",
+   "kind": "gap",
+   "locator": "Proof of Lemma4.7, printed p.137 / PDF38; arXiv:2309.15692v2 p.27.",
+   "printed": "ψ(1/T)=1/T",
+   "correction": "Justify an extension of ψ and its comparison to the bounded operator before acting on 1/T, or clear the poles and apply the generic rational-series root-average comparison only to the integral smoothed F_a. The latter route is specified by the two L2 requests in this packet.",
+   "reason": "The bounded integral operator acts on ℤ_p[[T]], while 1/T is outside that carrier. Linearity and commutation with dilation cannot be applied to the two pole terms inside the existing domain, even though their smoothed difference is integral. The finite partial-fraction identity is algebraically correct; the missing step is its operator-domain comparison, not a counterexample to Lemma4.7.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "The same gap was already recorded as ColemanPowerSeries/E8 in the current atlas source register; this consumer record acknowledges that prior unreviewed roadmap observation and makes no priority claim.",
+    "Fresh collation of the full published §4 (PDF37–40) and v2 PDF26–28 on 27 September 2026; both retain the displayed pole calculation. The source digests are recorded in sourceVersions.",
+    "arXiv version listing https://arxiv.org/abs/2309.15692 checked on27 September2026: latest revision v2,19 December2024; no later correcting version identified.",
+    "Targeted title/authors plus errata/correction and arXiv number plus Lemma4.7 searches on27 September2026 found no correcting publication. The journal article URL https://msp.org/ent/2025/4-1/p03.xhtml returned unsupported/error content through the browser route in this continuation; this failure is not evidence of absence. Earlier author-page/Crossref searches are retained with E1–E5 as their own provenance. The marker new means no identified published correction, not claimed novelty."
+   ],
+   "owner": "DirichletPadicLFunctions",
+   "file": "research/blueprint/packets/DirichletPadicLFunctions.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DrinfeldModulesAndTModules/E-DM8-1",
    "kind": "misprint",
    "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16",
