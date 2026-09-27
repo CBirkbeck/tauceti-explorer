@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 75 preceding nodes. Nine declarations compare logarithmic differentiation of the native determinant norm with the independently constructed bounded psi: a formal-derivation adapter to existing first-order determinants, weighted basis coordinates and the connection matrix, the integral trace identity, norm/psi comparison, norm-fixed image containment, the actual continuous restricted homomorphism and its constant-root kernel. No stage is closed. Arithmetic interpolation, image surjectivity, the remaining Coleman factors and local cyclotomic quotients remain required. The L3 fixed-space Frobenius sequence is decomposed using a coefficientwise convergent iterate sum, its constant kernel and evaluation cokernel, on the actual shared psi operator. Arithmetic interpolation and logarithmic-derivative surjectivity remain open.",
+  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -765,6 +765,62 @@
         "module": "Mathlib/Topology/Separation/Hausdorff.lean",
         "provides": "A continuous surjection from compact to Hausdorff is a quotient map.",
         "checked": "Full statement and surrounding hypotheses read at Mathlib 082e2d3 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:Units.isClosedEmbedding_embedProduct",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Group/Units.lean",
+        "provides": "Closed embedding of native units into the ring and its opposite. The immediately following pinned instance gives compactness of units in any compact T1 topological monoid.",
+        "checked": "Full declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:isClosed_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "The equalizer of two continuous maps into a Hausdorff space is closed.",
+        "checked": "Full declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:isCompact_iff_compactSpace",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "A set is compact precisely when its native subtype carries CompactSpace.",
+        "checked": "Full declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "A surjective coefficient ring homomorphism induces a surjective map on formal power series.",
+        "checked": "Full declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:ZMod.ringHom_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "Any ring homomorphism from a ring into ZMod n is surjective, in particular PadicInt.toZMod.",
+        "checked": "Full declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:IsLocalHom.of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
+        "provides": "A surjective ring homomorphism from a commutative local ring to a nontrivial commutative ring is a local homomorphism.",
+        "checked": "Full declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.surjective_units_map_of_local_ringHom",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/RingHom/Basic.lean",
+        "provides": "A surjective local homomorphism of semirings induces a surjection on native units.",
+        "checked": "Full declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September2026."
+      },
+      {
+        "ref": "mathlib:squeeze_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/MetricSpace/Pseudo/Lemmas.lean",
+        "provides": "A real-valued function squeezed between zero and a function tending to zero also tends to zero.",
+        "checked": "Full declaration statement and relevant hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September2026."
       }
     ]
   },
@@ -785,7 +841,8 @@
         "Norm-limit continuation, 27 September2026: freshly fetched source hashes match the recorded editions. Read CS printed17–19/PDF27–29 and RJW printed167–169/PDF68–70 in full. The norm-limit proof and its continuity/unit arguments are decomposed; no whole-source or arithmetic-interpolation closure claim.",
         "27 September 2026 trace-comparison follow-up: printed p.167 / PDF68 read in full, especially the normalized-trace sentence after Lemma10.8; collated with arXiv v2 §3.5.5 PDF21, read in full. The base-valued convention, polynomial-density decomposition and dyadic extension are worker derivations using the independently constructed bounded operator. No additional source finding.",
         "Codex codex-7e92bd norm/logarithmic-derivative continuation, 27 September2026: freshly fetched the same publication bytes and read full PDF80-82 / printed179-181, including Definition12.8, Theorem12.9 and Lemma12.10. The matrix and dual-number proof is an independent worker derivation from the actual finite-free norm, not a claim that the paper supplies these helpers.",
-        "27 September2026 fixed-space continuation: full PDF83–85 / printed182–184, including Lemmas12.12–12.15; printed184 also checked as a page image."
+        "27 September2026 fixed-space continuation: full PDF83–85 / printed182–184, including Lemmas12.12–12.15; printed184 also checked as a page image.",
+        "Codex codex-7e92bd logarithmic-image lifting continuation, 27 September2026: newly fetched hash-identical published PDF80–85 / printed179–184 read in full; printed183 rendered and visually inspected. Lemmas12.11–12.12 are decomposed; Lemmas12.13–12.14 were read but their characteristic-p image argument remains a precise gap. E13 records the proof kernel-label slip; earlier E8 still governs the rational-expression domain issue."
       ]
     },
     {
@@ -795,10 +852,11 @@
       "edition": "arXiv:2309.15692v2, 19 December 2024",
       "url": "https://arxiv.org/pdf/2309.15692v2",
       "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
-      "accessed": "2026-09-26",
+      "accessed": "2026-09-27",
       "readSections": [
         "Collated §§4.1–4.3 (printed pp.26–28), §10.2, Lemmas 10.8–10.11 and Definition 10.14/Theorem 10.15 (pp.48–52), §12.1 and Definition 12.8/Lemma 12.10 (pp.57–59). Not a claim to have read the whole preprint.",
-        "27 September2026: full PDF62 / printed62, collating the leading-coefficient formula in the proof of the fixed-space sequence with the published version."
+        "27 September2026: full PDF62 / printed62, collating the leading-coefficient formula in the proof of the fixed-space sequence with the published version.",
+        "27 September2026: fresh full PDF60–62 / printed60–62, collating Lemmas12.11–12.15 and the proof of Theorem12.9; the kernel label on p61 agrees with the published misprint."
       ]
     },
     {
@@ -5869,6 +5927,439 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/norm-fixed-units-compact",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Compactness of norm-fixed units",
+      "kind": "lemma",
+      "statement": "The existing normFixedUnits subgroup S is a compact space.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=Z_p, B=Z[[T]], B_0=F_p[[T]] and Y=1+T. The topology on B is coefficientwise p-adic convergence; B units and all subgroups have their native induced topologies.",
+        "N is the existing determinant Coleman norm, S is its existing norm-fixed subgroup of B units, Delta(u)=Y D(u) u^(-1) is the existing logarithmic derivative, and psi is the actual PMIA Z-linear bounded integral operator. W=ker(psi-id). Reduction rho:B→B_0 is the native coefficient map induced by PadicInt.toZMod."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-fixed-units",
+        "ColemanPowerSeries:L1/coleman-norm-continuous",
+        "mathlib:PadicInt.compactSpace",
+        "mathlib:Pi.compactSpace",
+        "mathlib:Units.isClosedEmbedding_embedProduct",
+        "mathlib:Units.continuous_val",
+        "mathlib:isClosed_eq",
+        "mathlib:isCompact_iff_compactSpace"
+      ],
+      "proofSteps": [
+        "The native coefficient topology makes B a compact Hausdorff ring. Use the native compactness instance on B units, supplied by its closed embedding into B times its opposite; no new compact-units theorem is planned.",
+        "The defining equality N(u)=u is an equalizer of continuous maps on B units, by norm continuity and continuous unit coercion. It is therefore closed in that compact space.",
+        "A closed subset of a compact space is compact. Transport this compactness to the existing subgroup carrier using isCompact_iff_compactSpace."
+      ],
+      "acceptance": [
+        "Compactness uses both coefficientwise topology and the proven continuity of the actual norm. It does not follow merely from the subgroup laws."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogImage",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.compactSpace_normFixedUnits"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.",
+          "excerpt": "12.11",
+          "match": "Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/logarithmic-derivative-image-closed",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Closed logarithmic-derivative image",
+      "kind": "lemma",
+      "statement": "The set {Delta(u) : u∈S} is closed in the coefficientwise topology of B.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=Z_p, B=Z[[T]], B_0=F_p[[T]] and Y=1+T. The topology on B is coefficientwise p-adic convergence; B units and all subgroups have their native induced topologies.",
+        "N is the existing determinant Coleman norm, S is its existing norm-fixed subgroup of B units, Delta(u)=Y D(u) u^(-1) is the existing logarithmic derivative, and psi is the actual PMIA Z-linear bounded integral operator. W=ker(psi-id). Reduction rho:B→B_0 is the native coefficient map induced by PadicInt.toZMod."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/norm-fixed-units-compact",
+        "ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-continuous",
+        "mathlib:isCompact_range",
+        "mathlib:IsCompact.isClosed"
+      ],
+      "proofSteps": [
+        "Compose the existing continuous restricted logarithmic derivative with the native submodule inclusion into B.",
+        "Its domain S is compact by norm-fixed-units-compact, so its image in B is compact. Since B is Hausdorff, that image is closed."
+      ],
+      "acceptance": [
+        "The ambient closed image is precisely the image of the actual Delta map on S. No surjectivity or choice of a continuous inverse is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogImage",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.isClosed_range_normFixedLogDeriv"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.",
+          "excerpt": "12.11",
+          "match": "Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/psi-fixed-p-saturation",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Division by powers of p in fixed series",
+      "kind": "lemma",
+      "statement": "For every n≥0 and F∈B, psi(p^n F)=p^n F if and only if psi(F)=F.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=Z_p, B=Z[[T]], B_0=F_p[[T]] and Y=1+T. The topology on B is coefficientwise p-adic convergence; B units and all subgroups have their native induced topologies.",
+        "N is the existing determinant Coleman norm, S is its existing norm-fixed subgroup of B units, Delta(u)=Y D(u) u^(-1) is the existing logarithmic derivative, and psi is the actual PMIA Z-linear bounded integral operator. W=ker(psi-id). Reduction rho:B→B_0 is the native coefficient map induced by PadicInt.toZMod."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series",
+        "mathlib:PowerSeries.smul_eq_C_mul",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:PadicInt.norm_p"
+      ],
+      "proofSteps": [
+        "Z-linearity moves the constant scalar p^n through psi. Rewrite constant multiplication as the native Z-scalar action.",
+        "In each coefficient, cancel the nonzero element p^n of the characteristic-zero domain Z_p. Equality of all coefficients yields psi(F)=F. Conversely, scalar linearity preserves any fixed series. No torsion-freeness instance for an unspecified module is presumed."
+      ],
+      "acceptance": [
+        "At n=0 this is the original fixed condition. Cancellation is integral and does not introduce 1/p in B."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogImage",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.psi_p_pow_fixed_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.",
+          "excerpt": "12.11",
+          "match": "Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "LogImageTests.p_saturation",
+          "kind": "characterisation",
+          "statement": "For F∈B, psi(pF)=pF if and only if psi(F)=F."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L3/p-power-precision-limit",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Coefficientwise convergence from integral precision",
+      "kind": "lemma",
+      "statement": "For any sequence f:N→B and target F∈B, if p^n divides f(n)−F for every n≥0, then f(n) tends coefficientwise to F.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=Z_p, B=Z[[T]], B_0=F_p[[T]] and Y=1+T. The topology on B is coefficientwise p-adic convergence; B units and all subgroups have their native induced topologies.",
+        "N is the existing determinant Coleman norm, S is its existing norm-fixed subgroup of B units, Delta(u)=Y D(u) u^(-1) is the existing logarithmic derivative, and psi is the actual PMIA Z-linear bounded integral operator. W=ker(psi-id). Reduction rho:B→B_0 is the native coefficient map induced by PadicInt.toZMod."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:PadicInt.norm_p_pow",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one",
+        "mathlib:squeeze_zero"
+      ],
+      "proofSteps": [
+        "Choose integral quotients q_n with f(n)−F=p^n q_n. For every coefficient j the difference is p^n coeff_j(q_n).",
+        "All coefficients of every q_n have p-adic norm at most one; hence each error coefficient has norm at most p^(−n), independent of n and j. Squeeze against the geometric sequence tending to zero.",
+        "Use the native coefficientwise convergence criterion for power series. No uniform bound on the degree, no stabilization of the q_n, and no T-adic convergence assertion are required."
+      ],
+      "acceptance": [
+        "Even an arbitrary varying integral quotient q_n satisfies p^n q_n→0 coefficientwise."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogImage",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.tendsto_of_p_pow_dvd_sub"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.",
+          "excerpt": "12.11",
+          "match": "Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "LogImageTests.varying_quotient_decay",
+          "kind": "compatibility",
+          "statement": "For any q:N→B, the sequence p^n q(n) converges coefficientwise to zero."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L3/logarithmic-derivative-precision-step",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "The signed precision correction",
+      "kind": "lemma",
+      "statement": "Let u,v∈S, F,H∈B and n≥0. If Delta(u)−F=p^n H and p divides Delta(v)−H, then p^(n+1) divides Delta(u v^(−p^n))−F.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=Z_p, B=Z[[T]], B_0=F_p[[T]] and Y=1+T. The topology on B is coefficientwise p-adic convergence; B units and all subgroups have their native induced topologies.",
+        "N is the existing determinant Coleman norm, S is its existing norm-fixed subgroup of B units, Delta(u)=Y D(u) u^(-1) is the existing logarithmic derivative, and psi is the actual PMIA Z-linear bounded integral operator. W=ker(psi-id). Reduction rho:B→B_0 is the native coefficient map induced by PadicInt.toZMod."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-fixed-units",
+        "ColemanPowerSeries:L2/logarithmic-derivative-product",
+        "ColemanPowerSeries:L2/logarithmic-derivative-integer-powers"
+      ],
+      "proofSteps": [
+        "The subgroup S is closed under signed integer powers and multiplication, so u v^(−p^n) remains an actual norm-fixed unit.",
+        "The product and signed-power formulas give Delta(u v^(−p^n))−F=(Delta(u)−F)−p^n Delta(v).",
+        "Write Delta(v)−H=pQ. The new error is −p^n(Delta(v)−H)=p^(n+1)(−Q), which gives the explicit integral quotient."
+      ],
+      "acceptance": [
+        "The error convention is Delta(u)−F. With that convention the exponent must be −p^n. At odd p a positive exponent fails for residual error H=1 and Delta(v)=1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogImage",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_precision_step"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.",
+          "excerpt": "12.11",
+          "match": "Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/logarithmic-derivative-precision-approximation",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Approximation at every p-adic precision",
+      "kind": "lemma",
+      "statement": "Under the residual image hypothesis, for every F∈W and n≥0 there exists u∈S with p^n dividing Delta(u)−F.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=Z_p, B=Z[[T]], B_0=F_p[[T]] and Y=1+T. The topology on B is coefficientwise p-adic convergence; B units and all subgroups have their native induced topologies.",
+        "N is the existing determinant Coleman norm, S is its existing norm-fixed subgroup of B units, Delta(u)=Y D(u) u^(-1) is the existing logarithmic derivative, and psi is the actual PMIA Z-linear bounded integral operator. W=ker(psi-id). Reduction rho:B→B_0 is the native coefficient map induced by PadicInt.toZMod.",
+        "Residual image hypothesis: for every F∈B with psi(F)=F, some u∈S satisfies rho(Delta(u))=rho(F). This is a hypothesis, not a supplied image theorem."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L3/psi-fixed-p-saturation",
+        "ColemanPowerSeries:L3/logarithmic-derivative-precision-step",
+        "ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-psi-fixed",
+        "ColemanPowerSeries:L1/residue-series-congruence",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series",
+        "ColemanPowerSeries:L2/logarithmic-derivative-constants"
+      ],
+      "proofSteps": [
+        "At n=0 choose u=1; divisibility by one is automatic.",
+        "At precision n choose H with Delta(u)−F=p^n H. Both Delta(u) and F are psi-fixed; Z-linearity and psi-fixed-p-saturation show that H is psi-fixed.",
+        "Apply the residual image hypothesis to H. The existing residue-series-congruence criterion converts equality of reductions into p-divisibility of Delta(v)−H.",
+        "Apply logarithmic-derivative-precision-step to u and v to obtain precision n+1. This induction does not use a logarithmic derivative on a nonunit or divide inside B."
+      ],
+      "acceptance": [
+        "All n≥0 are included. The hypothesis quantifies over every fixed residual target, including the divided errors arising during induction."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogImage",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_approximate_mod_p_pow"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.",
+          "excerpt": "12.11",
+          "match": "Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "LogImageTests.zero_precision",
+          "kind": "degenerate",
+          "statement": "For every F∈B, p^0 divides Delta(1)−F."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L3/logarithmic-derivative-surjective-mod-p",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Surjectivity from the residual image condition",
+      "kind": "theorem",
+      "statement": "Under the residual image hypothesis, the existing group homomorphism normFixedLogDeriv:S→Multiplicative(W) is surjective.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=Z_p, B=Z[[T]], B_0=F_p[[T]] and Y=1+T. The topology on B is coefficientwise p-adic convergence; B units and all subgroups have their native induced topologies.",
+        "N is the existing determinant Coleman norm, S is its existing norm-fixed subgroup of B units, Delta(u)=Y D(u) u^(-1) is the existing logarithmic derivative, and psi is the actual PMIA Z-linear bounded integral operator. W=ker(psi-id). Reduction rho:B→B_0 is the native coefficient map induced by PadicInt.toZMod.",
+        "Residual image hypothesis: for every F∈B with psi(F)=F, some u∈S satisfies rho(Delta(u))=rho(F). This is a hypothesis, not a supplied image theorem."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-map",
+        "ColemanPowerSeries:L3/logarithmic-derivative-precision-approximation",
+        "ColemanPowerSeries:L3/p-power-precision-limit",
+        "ColemanPowerSeries:L3/logarithmic-derivative-image-closed",
+        "mathlib:IsClosed.mem_of_tendsto"
+      ],
+      "proofSteps": [
+        "For F∈W choose u_n∈S whose logarithmic derivatives agree with F modulo p^n, using the precision-approximation lemma.",
+        "The precision-limit lemma shows Delta(u_n)→F in B. Each term is in the actual logarithmic-derivative image, which is closed; therefore F is also in that image.",
+        "Convert the ambient equality Delta(u)=F into equality in the native psi-fixed submodule and its Multiplicative tag. No convergence of the chosen u_n themselves is needed."
+      ],
+      "acceptance": [
+        "This is a conditional lifting theorem. Full Theorem12.9 still requires the characteristic-p image condition; the word surjective does not discharge that separate gap."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogImage",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedLogDeriv_surjective_of_mod_p"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemmas12.11–12.12 and their proofs, printed181–182 / PDF82–83; surrounding PDF80–85 freshly read in full.",
+          "excerpt": "12.11",
+          "match": "Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L3/norm-fixed-unit-residue-surjective",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Norm-fixed lifts of residue-series units",
+      "kind": "theorem",
+      "statement": "Every v∈B_0 units is the reduction of some u∈S. Equivalently, the native units map induced by rho, restricted to S, is surjective.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=Z_p, B=Z[[T]], B_0=F_p[[T]] and Y=1+T. The topology on B is coefficientwise p-adic convergence; B units and all subgroups have their native induced topologies.",
+        "N is the existing determinant Coleman norm, S is its existing norm-fixed subgroup of B units, Delta(u)=Y D(u) u^(-1) is the existing logarithmic derivative, and psi is the actual PMIA Z-linear bounded integral operator. W=ker(psi-id). Reduction rho:B→B_0 is the native coefficient map induced by PadicInt.toZMod."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-fixed-units",
+        "ColemanPowerSeries:L1/coleman-norm-limit",
+        "ColemanPowerSeries:L1/coleman-norm-limit-precision",
+        "ColemanPowerSeries:L1/coleman-norm-limit-fixed",
+        "ColemanPowerSeries:L1/coleman-norm-limit-unit",
+        "ColemanPowerSeries:L1/residue-series-congruence",
+        "mathlib:PowerSeries.map_surjective",
+        "mathlib:ZMod.ringHom_surjective",
+        "mathlib:IsLocalHom.of_surjective",
+        "mathlib:IsLocalRing.surjective_units_map_of_local_ringHom",
+        "mathlib:Units.map"
+      ],
+      "proofSteps": [
+        "The reduction Z→F_p is onto by ZMod.ringHom_surjective, so its native power-series map rho is onto. B is a local ring and B_0 is nontrivial; the native surjective-local-hom theorem makes rho a local homomorphism.",
+        "Apply the existing generic theorem that a surjective local ring homomorphism induces a surjection on units. Choose an actual integral series unit w lifting v. This generic unit-lifting theorem is cited, not duplicated as a new roadmap node.",
+        "Apply the already constructed norm limit L to w. Its value is an actual unit, is fixed by N, and satisfies L(w)−w∈pB by precision at iteration zero.",
+        "The residue congruence criterion gives rho(L(w))=rho(w). Native unit extensionality upgrades that equality of series to equality of the reduced units, producing the required member of S."
+      ],
+      "acceptance": [
+        "This is surjectivity onto all residue-series units, not just those with constant coefficient one. It includes p=2 using the preceding all-prime norm-limit construction."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogImage",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.residue_normFixedUnits_surjective"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma12.12, printed182 / PDF83; the norm-limit input is already decomposed in L1.",
+          "excerpt": "12.11",
+          "match": "Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "LogImageTests.dyadic_unit_lift",
+          "kind": "compatibility",
+          "statement": "Every unit of F_2[[T]] is the reduction of an actual norm-fixed unit of Z_2[[T]]."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L3/logarithmic-derivative-residue-image-equivalence",
+      "parentStageId": "ColemanPowerSeries:L3",
+      "realises": [
+        "ColemanPowerSeries:L3"
+      ],
+      "title": "Reduction to the characteristic-p image calculation",
+      "kind": "theorem",
+      "statement": "The actual map normFixedLogDeriv is surjective if and only if, for every F∈B with psi(F)=F, there exists v∈B_0 units such that Delta(v)=rho(F), where the right-hand Delta is the existing logarithmic derivative over F_p.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=Z_p, B=Z[[T]], B_0=F_p[[T]] and Y=1+T. The topology on B is coefficientwise p-adic convergence; B units and all subgroups have their native induced topologies.",
+        "N is the existing determinant Coleman norm, S is its existing norm-fixed subgroup of B units, Delta(u)=Y D(u) u^(-1) is the existing logarithmic derivative, and psi is the actual PMIA Z-linear bounded integral operator. W=ker(psi-id). Reduction rho:B→B_0 is the native coefficient map induced by PadicInt.toZMod."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-map",
+        "ColemanPowerSeries:L2/logarithmic-derivative-coefficient-change",
+        "ColemanPowerSeries:L3/logarithmic-derivative-surjective-mod-p",
+        "ColemanPowerSeries:L3/norm-fixed-unit-residue-surjective",
+        "ColemanPowerSeries:L3/norm-fixed-logarithmic-derivative-kernel",
+        "ColemanPowerSeries:L1/coleman-fixed-constant-units"
+      ],
+      "proofSteps": [
+        "If the actual map is onto, lift F to u∈S and reduce that unit. The existing coefficient-change identity carries Delta(u)=F to Delta(rho(u))=rho(F).",
+        "Conversely, choose the asserted residue unit v for F. Norm-fixed-unit-residue-surjective lifts v to u∈S. Coefficient change gives rho(Delta(u))=Delta(v)=rho(F), establishing the exact residual image hypothesis.",
+        "Apply logarithmic-derivative-surjective-mod-p. The remaining task is exactly the explicit characteristic-p image assertion in Lemmas12.13–12.14; it has not been assumed as a hidden property of a new object."
+      ],
+      "acceptance": [
+        "Retain the existing kernel of constant (p−1)-st roots. The proof of Theorem12.9 prints mu_p where mu_(p−1) is required; E13 records that slip. At p=3, the constant unit −1 detects it.",
+        "The remaining characteristic-p proof must use a well-defined integral polynomial identity or a separately justified localization. The earlier E8 bounded-psi domain issue is not resolved by applying psi to a pole."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanLogImage",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedLogDeriv_surjective_iff_residue_logDeriv"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemmas12.11–12.14 and proof of Theorem12.9, printed181–183 / PDF82–84; the kernel label on printed183 was checked in the page image.",
+          "excerpt": "12.11",
+          "match": "Declaration-sized expansion of the integral compactness and successive-precision argument. The residue-unit lift is specialized from pinned generic local-ring theorems and the existing Coleman norm limit. All-prime algebra here is independently justified and makes no assertion about arithmetic interpolation at p=2."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "LogImageTests.odd_constant_kernel",
+          "kind": "non-example",
+          "statement": "At p=3, the constant series unit −1 is norm-fixed and has logarithmic derivative zero, but (−1)^3≠1 in Z_3."
+        }
+      ]
     }
   ],
   "requests": [
@@ -5928,13 +6419,13 @@
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L2",
-      "need": "Receiving finite-extension integer-ring instances, integral-lattice/scaling and measure-topology comparisons for bounded Amice operators, and unit-dilation pushforward versus formal binomial substitution. Exact integral root averaging and actual coefficient extension from integral measures to complete ultrametric normed Z_p-algebras with bounded scalar action are supplied. Coleman now supplies its integral normalized-trace/psiSeries comparison; its determinant/product and arithmetic-action comparisons remain local obligations.",
+      "need": "Receiving finite-extension integer-ring instances and their integral-lattice/scaling and measure-topology comparisons for bounded Amice operators, plus unit-dilation pushforward versus formal binomial substitution. On the actual Z_p domain with Q_p coefficients, the bounded Amice norm isometry, integral image equal to the closed rational-dual unit ball, and common p-power denominators now have exact supplier nodes. General finite-extension and unit-domain compatibility remain required. Coleman supplies its own normalized-trace/psi comparison; determinant/product and arithmetic-action comparisons remain local obligations.",
       "neededBy": [
         "ColemanPowerSeries:L1",
         "ColemanPowerSeries:L2"
       ],
       "status": "open",
-      "note": "Exact suppliers include PadicMeasuresIwasawaAlgebras:L2/root-translation, root-average, root-average-integral-descent, rational-root-average-descent, bounded-inverse, bounded-inverse-amice, integral-coefficient-extension, coefficient-extension-amice, coefficient-extension-test-function, coefficient-extension-pushforward and coefficient-extension-weight. Their statements and hypotheses were read; the latter construction concerns actual measures on Z_p over eligible complete ultrametric normed coefficient rings. Do not request or rebuild these inputs. Receiving-ring instances, lattice/scaling comparisons and remaining measure-action topology retain this stage-level request."
+      "note": "Exact suppliers include PadicMeasuresIwasawaAlgebras:L2/root-translation, root-average, root-average-integral-descent, rational-root-average-descent, bounded-inverse, bounded-inverse-amice, integral-coefficient-extension, coefficient-extension-amice, coefficient-extension-test-function, coefficient-extension-pushforward and coefficient-extension-weight. Their statements and hypotheses were read; the latter construction concerns actual measures on Z_p over eligible complete ultrametric normed coefficient rings. Do not request or rebuild these inputs. Receiving-ring instances, lattice/scaling comparisons and remaining measure-action topology retain this stage-level request. Refreshed against the168-node supplier merged in PR3202: additionally consume L2/field-bounded-amice-isometry, rational-integral-extension-injective, rational-integral-extension-norm, rational-integral-image, rational-integral-image-closed and rational-measure-integral-scaling for their exact Z_p-domain/Q_p-coefficient statements. Do not rebuild or request those specializations."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L4",
@@ -5978,8 +6469,8 @@
       "neededBy": [
         "ColemanPowerSeries:L2"
       ],
-      "need": "For Z_p-valued measures and the finite-flat coefficient lattices required by Coleman, compare the integral measure carriers with their coefficient-lattice submodules in field-valued continuous-dual norm models. Show that clopen restriction and extension preserve this identification and its induced operator-norm topology, including the actual Z_p unit domain. The weak-topology identifications and field-valued strong-topology maps already have exact PMIA nodes.",
-      "note": "Import PMIA L0/clopen-restriction-weak-continuous, L0/clopen-inclusion-weak-closed-embedding, L0/clopen-decomposition-weak-homeomorphism, L0/clopen-inclusion-operator-norm, L0/clopen-inclusion-strong-closed-embedding and L0/clopen-decomposition-strong-homeomorphism; L2/unit-measure-kernel-weak-homeomorphism, L2/integral-amice-weak-homeomorphism, L2/unit-measure-amice-weak-homeomorphism, L2/unit-inclusion-operator-norm and L2/unit-measure-kernel-strong-homeomorphism. Their field-valued norm hypotheses do not by themselves supply the integral-lattice comparison. Do not rebuild their algebraic maps or the supplied weak/strong homeomorphisms."
+      "need": "Extend the supplied Z_p-domain/Q_p-dual integral-lattice identification to the finite-flat coefficient lattices required by Coleman and prove its compatibility with clopen restriction and extension, in particular on the actual Z_p unit domain, with the induced operator-norm topology. The ambient Z_p-domain integral image, norm comparison, closedness and common denominators are now supplied by exact PMIA L2 nodes; the weak identifications and field-valued strong maps were already supplied.",
+      "note": "Import PMIA L0/clopen-restriction-weak-continuous, L0/clopen-inclusion-weak-closed-embedding, L0/clopen-decomposition-weak-homeomorphism, L0/clopen-inclusion-operator-norm, L0/clopen-inclusion-strong-closed-embedding and L0/clopen-decomposition-strong-homeomorphism; L2/unit-measure-kernel-weak-homeomorphism, L2/integral-amice-weak-homeomorphism, L2/unit-measure-amice-weak-homeomorphism, L2/unit-inclusion-operator-norm and L2/unit-measure-kernel-strong-homeomorphism. Their field-valued norm hypotheses do not by themselves supply the integral-lattice comparison. Do not rebuild their algebraic maps or the supplied weak/strong homeomorphisms. The new rational-integral-image and rational-integral-extension-norm nodes settle the ambient Z_p-domain/Q_p-dual specialization only. Compatibility with the unit clopen domain and general finite-flat coefficients is still the precise request."
     }
   ],
   "coverage": [
@@ -6015,7 +6506,7 @@
       "stageId": "ColemanPowerSeries:L3",
       "status": "partial",
       "remaining": [
-        "The actual continuous logarithmic-derivative map on norm-fixed units, its image containment in psi-fixed series and its constant-root kernel are supplied. Decompose the mod-p image calculation and lifting/compactness proof in Lemmas 12.11–12.14; derive the exact logarithmic-derivative sequence of Theorem 12.9 on actual norm-fixed units.",
+        "The compactness, p-saturation and lifting arguments of Lemmas12.11–12.12 are now decomposed. The actual logarithmic-derivative map is surjective exactly when every reduction of a psi-fixed integral series is Delta(v) for some v∈F_p[[T]] units. Prove that explicit characteristic-p image assertion by decomposing Lemmas12.13–12.14, with a legitimate integral polynomial rewrite of the rational expression implicated by E8. Then combine surjectivity with the existing constant mu_(p−1) kernel to obtain Theorem12.9; the proof kernel label is corrected by E13.",
         "The fixed-space five-term sequence 0→Z_p→B^(psi=1)→B^(psi=0)→Z_p→0 is now decomposed, including the coefficientwise convergent Frobenius sum, constant kernel, evaluation obstruction and quotient topologies. Combine it with the still-required logarithmic-derivative surjectivity and actual arithmetic interpolation to obtain the full Coleman sequence.",
         "Construct the kernel μ_(p−1)×ℤ_p(1), cyclotomic-moment cokernel, and Theorem 12.17 for principal units as both topological and algebraic modules. Tensor every term in a finite-flat coefficient extension and prove the completed-tensor comparison."
       ]
@@ -6057,7 +6548,7 @@
       "neededBy": [
         "ColemanPowerSeries:L3"
       ],
-      "detail": "The actual continuous logarithmic-derivative map on norm-fixed units, its image containment in psi-fixed series and its constant-root kernel are supplied. Decompose the mod-p image calculation and lifting/compactness proof in Lemmas 12.11–12.14; derive the exact logarithmic-derivative sequence of Theorem 12.9 on actual norm-fixed units. The fixed-space five-term sequence 0→Z_p→B^(psi=1)→B^(psi=0)→Z_p→0 is now decomposed, including the coefficientwise convergent Frobenius sum, constant kernel, evaluation obstruction and quotient topologies. Combine it with the still-required logarithmic-derivative surjectivity and actual arithmetic interpolation to obtain the full Coleman sequence. Construct the kernel μ_(p−1)×ℤ_p(1), cyclotomic-moment cokernel, and Theorem 12.17 for principal units as both topological and algebraic modules. Tensor every term in a finite-flat coefficient extension and prove the completed-tensor comparison."
+      "detail": "The compactness, p-saturation and lifting arguments of Lemmas12.11–12.12 are now decomposed. The actual logarithmic-derivative map is surjective exactly when every reduction of a psi-fixed integral series is Delta(v) for some v∈F_p[[T]] units. Prove that explicit characteristic-p image assertion by decomposing Lemmas12.13–12.14, with a legitimate integral polynomial rewrite of the rational expression implicated by E8. Then combine surjectivity with the existing constant mu_(p−1) kernel to obtain Theorem12.9; the proof kernel label is corrected by E13. The fixed-space five-term sequence 0→Z_p→B^(psi=1)→B^(psi=0)→Z_p→0 is now decomposed, including the coefficientwise convergent Frobenius sum, constant kernel, evaluation obstruction and quotient topologies. Combine it with the still-required logarithmic-derivative surjectivity and actual arithmetic interpolation to obtain the full Coleman sequence. Construct the kernel μ_(p−1)×ℤ_p(1), cyclotomic-moment cokernel, and Theorem 12.17 for principal units as both topological and algebraic modules. Tensor every term in a finite-flat coefficient extension and prove the completed-tensor comparison."
     },
     {
       "title": "L4 continuation boundary",
@@ -6271,6 +6762,23 @@
         "27 September2026: exact title plus errata/erratum and author/Lemma12.15 correction searches found no identified correction. The author-publications URL returned404, so no claim of inspecting its contents is made.",
         "Atlas source-issue registry screened for Lemma12.15 and its preprint locator; no matching recorded finding. The new marker reports this bounded search, not a priority claim."
       ]
+    },
+    {
+      "id": "ColemanPowerSeries/E13",
+      "source": "RJW-published",
+      "kind": "misprint",
+      "locator": "Proof of Theorem12.9, published printed183 / PDF84, page image checked; also arXiv2309.15692v2 printed61 / PDF61.",
+      "printed": "its kernel is μ_p by Remark12.4.",
+      "correction": "The kernel is μ_(p−1), as correctly stated in Theorem12.9 and Remark12.4. Only the kernel label in this proof sentence changes.",
+      "reason": "A zero logarithmic derivative is a constant series unit c. The actual norm of that constant is c^p, so norm-fixedness is c^(p−1)=1. At p=3 the constant −1 is norm-fixed and has zero logarithmic derivative, but (−1)^3 is not one. Thus μ_p cannot be the intended kernel.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27 September2026: fetched the MSP article https://msp.org/ent/2025/4-1/p03.xhtml and volume4 issue1 contents https://msp.org/ent/2025/4-1/; no erratum link identified. The printed183 kernel label was checked in the version-of-record page image.",
+        "27 September2026: freshly fetched and read published PDF80–85 and arXiv2309.15692v2 PDF60–62. The same kernel slip occurs in both. Exact title with errata/erratum and author/Theorem12.9/kernel correction searches found no identified correction.",
+        "The author research URL https://warwick.ac.uk/fac/sci/maths/people/staff/cwilliams/research/ returned404; no inspection of its contents is claimed.",
+        "Atlas source-issue registry screened for Theorem12.9 and kernel references: no matching finding. The new marker records a bounded search and is not a priority claim."
+      ]
     }
   ],
   "sourceVersions": [
@@ -6278,14 +6786,14 @@
       "kind": "published",
       "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
       "citation": "Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101",
-      "read": "2026-09-26",
+      "read": "2026-09-27",
       "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2309.15692v2",
       "citation": "arXiv:2309.15692v2, 19 December 2024",
-      "read": "2026-09-26",
+      "read": "2026-09-27",
       "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
     },
     {
@@ -6862,123 +7370,250 @@
         },
         "scope": "Full fifteen new PMIA topology node interfaces and complete seed diff read. All 142 existing supplier nodes preserved. Weak clopen/unit and integral Amice homeomorphisms and field-valued strong maps are now supplied; only integral-lattice operator-norm comparison remains requested."
       }
+    },
+    "logImageLifting": {
+      "worker": "Codex — codex-7e92bd",
+      "issue": 699,
+      "claim": 5853651521,
+      "confirmation": 5853652504,
+      "predecessorNodes": 98,
+      "newNodes": 9,
+      "sourceScope": "Published RJW PDF80–85 and arXivv2 PDF60–62 freshly read in full; no whole-paper closure claim.",
+      "inputs": "52 input blobs captured; binding protocols, upstream models, RS16/RS14, decomposition and links retain earlier full-read provenance. The reviewed L3 AUDIT24 row and all five target lists were freshly read. All98 old node objects are preserved; relevant consumed declarations were reread. No fresh full98-node audit is claimed. Current168-node PMIA supplier replaces the preceding157-node version; all157 inherited nodes are unchanged and its11 new norm/lattice nodes were read in this continuous session.",
+      "baseline": "Eight new native declarations statement-read at the pin. Generic local-ring unit lifting and compactness of native units are reused rather than planned again.",
+      "boundary": "No arithmetic tower, characteristic-p image theorem, generalized coefficient lattice or independent review is asserted.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "All twelve preceding findings preserved; E13 added against the version of record and collated v2; thirteen-finding errata wrapper passes.",
+        "validation": {
+          "nodes": 107,
+          "kinds": {
+            "definition": 2,
+            "lemma": 75,
+            "theorem": 13,
+            "comparison": 7,
+            "construction": 10
+          },
+          "api": 60,
+          "definitionConstructionTests": 42,
+          "packetTests": 87,
+          "planets": 9,
+          "baseline": 117,
+          "preservedWholeNodes": 98,
+          "preservedSourceIssues": 12,
+          "newSourceIssues": 1,
+          "newNodes": 9,
+          "newNamedDeclarations": 9,
+          "newTypedTests": 5,
+          "typedExamples": 89,
+          "reachableNodes": 159,
+          "dependencyEdges": 647,
+          "acyclic": true,
+          "baselineLeaves": 168,
+          "stageRequestLeaves": [],
+          "compilerErrors": 0,
+          "compilerWarnings": 226,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 367,
+          "pinnedMathlibModules": 2759,
+          "pinnedTauCetiModules": 0,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 7,
+          "scratchMathlibModules": 1864,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 35374,
+          "scopedMutationCheck": true,
+          "requests": 12,
+          "gaps": 6,
+          "closedStages": 0
+        },
+        "arithmetic": {
+          "status": "pass",
+          "systems": 2160,
+          "total": 38727,
+          "counts": {
+            "unit inverse": 2160,
+            "signed logarithmic power": 2160,
+            "logarithmic product": 2160,
+            "explicit correction quotient": 2160,
+            "improved coefficient precision": 8640,
+            "coefficient-change logarithmic derivative": 2160,
+            "residue unit lift": 2160,
+            "varying integral quotient bound": 8640,
+            "zero precision": 2160,
+            "signed correction constant control": 36,
+            "constant fixedness criterion": 3106,
+            "constant logarithmic derivative": 3106,
+            "reject positive exponent": 27,
+            "kernel source counterexample": 4,
+            "reject nonintegral quotient inference": 48
+          },
+          "primes": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "precisions": [
+            2,
+            3,
+            4
+          ],
+          "testedDegrees": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "scope": "Exact finite quotient power-series arithmetic with one extra input coefficient for differentiation. Checks the actual logarithmic derivative, signed powers, reduction and precision identity; constant norm formula controls the kernel label. Does not prove psi-fixedness, norm-fixed lifting, compactness, convergence or the characteristic-p image calculation."
+        },
+        "lean": {
+          "suggestedFileSha256": "9bd6888b38d75528aebc7958916541dd1041bb51e4bdae4c4d17f2bfd2c74b15",
+          "errors": 0,
+          "warnings": 226,
+          "warningsOnlyPlaceholders": true,
+          "supplierWarnings": 367,
+          "mathlibModules": 2759,
+          "tauCetiModules": 0,
+          "actualSupplierModules": 1,
+          "sourceAuditSha256": "bb94a23ae859927a422aae3112e99c89858b347651eff567f1ca588d4f8767a0",
+          "scratchProofSha256": "d80296a03160eedeec22f69b4e40f91a313149f6bd2df395ed5349ba65a1ff4f",
+          "scratchCompleteLemmas": 7,
+          "scratchProofErrors": 0,
+          "scratchProofWarnings": 0,
+          "scratchProofPlaceholders": 0,
+          "scratchSourceModules": 1864
+        },
+        "publication": {
+          "baseCommit": "640dd03bb57d120a18b84830e9985793d7f0d476",
+          "capturedInputs": 52,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5853652504
+        },
+        "closure": "Partial; six gaps, twelve requests, no closed stages; every implementation status unchecked."
+      }
     }
   },
   "checks": {
-    "status": "Partial plan; all implementation statuses unchecked.",
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly the four authorized files; zero problems.",
-    "sourceIssues": "Eleven preceding findings preserved; E12 added; twelve-finding errata wrapper passes with no new review verdict.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "sourceIssues": "All twelve preceding findings preserved; E13 added against the version of record and collated v2; thirteen-finding errata wrapper passes.",
     "validation": {
-      "nodes": 98,
+      "nodes": 107,
       "kinds": {
         "definition": 2,
-        "lemma": 69,
-        "theorem": 10,
+        "lemma": 75,
+        "theorem": 13,
         "comparison": 7,
         "construction": 10
       },
       "api": 60,
       "definitionConstructionTests": 42,
-      "packetTests": 82,
+      "packetTests": 87,
       "planets": 9,
-      "baseline": 109,
-      "preservedWholeNodes": 84,
-      "preservedSourceIssues": 11,
+      "baseline": 117,
+      "preservedWholeNodes": 98,
+      "preservedSourceIssues": 12,
       "newSourceIssues": 1,
-      "newNodes": 14,
-      "newNamedDeclarations": 22,
-      "newTypedTests": 9,
-      "typedExamples": 84,
-      "reachableNodes": 150,
-      "dependencyEdges": 594,
+      "newNodes": 9,
+      "newNamedDeclarations": 9,
+      "newTypedTests": 5,
+      "typedExamples": 89,
+      "reachableNodes": 159,
+      "dependencyEdges": 647,
       "acyclic": true,
-      "baselineLeaves": 160,
+      "baselineLeaves": 168,
       "stageRequestLeaves": [],
       "compilerErrors": 0,
-      "compilerWarnings": 212,
+      "compilerWarnings": 226,
       "allWarningsPlaceholders": true,
-      "supplierWarnings": 339,
+      "supplierWarnings": 367,
       "pinnedMathlibModules": 2759,
       "pinnedTauCetiModules": 0,
-      "scratchCompleteLemmas": 9,
-      "scratchMathlibModules": 2036,
+      "actualSupplierModules": 1,
+      "scratchCompleteLemmas": 7,
+      "scratchMathlibModules": 1864,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 32018,
+      "readerWords": 35374,
       "scopedMutationCheck": true,
       "requests": 12,
       "gaps": 6,
-      "closedStages": 0,
-      "blueprintErrors": 0,
-      "blueprintWarnings": 0,
-      "intakeProblems": 0,
-      "errataErrors": 0
+      "closedStages": 0
     },
     "arithmetic": {
       "status": "pass",
-      "total": 1216524,
+      "systems": 2160,
+      "total": 38727,
       "counts": {
-        "coefficientwise precision": 9,
-        "iterate parameter": 63,
-        "iterate formula": 15162,
-        "finite telescope": 2166,
-        "inverse boundary precision": 2166,
-        "sum constant term": 2166,
-        "sum recovers input": 2166,
-        "psi zero input": 45,
-        "zero evaluation input": 45,
-        "psi fixed precision": 45,
-        "boundary range precision": 45,
-        "dyadic coefficient one": 3,
-        "dyadic coefficient two": 3,
-        "correct leading factor": 63,
-        "constant obstruction": 9,
-        "evaluation surjective section": 9,
-        "fixed kernel constants": 1192326,
-        "negative source missing exponent": 3,
-        "negative T-adic decay": 30
+        "unit inverse": 2160,
+        "signed logarithmic power": 2160,
+        "logarithmic product": 2160,
+        "explicit correction quotient": 2160,
+        "improved coefficient precision": 8640,
+        "coefficient-change logarithmic derivative": 2160,
+        "residue unit lift": 2160,
+        "varying integral quotient bound": 8640,
+        "zero precision": 2160,
+        "signed correction constant control": 36,
+        "constant fixedness criterion": 3106,
+        "constant logarithmic derivative": 3106,
+        "reject positive exponent": 27,
+        "kernel source counterexample": 4,
+        "reject nonintegral quotient inference": 48
       },
       "primes": [
         2,
         3,
-        5
+        5,
+        7
       ],
       "precisions": [
         2,
         3,
         4
       ],
-      "degree": 7,
-      "scope": "Exact finite quotient checks, sparse Y-coordinate psi before truncation, and integer source/topology controls. These do not prove convergence, continuity or the infinite exact sequence."
+      "testedDegrees": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "scope": "Exact finite quotient power-series arithmetic with one extra input coefficient for differentiation. Checks the actual logarithmic derivative, signed powers, reduction and precision identity; constant norm formula controls the kernel label. Does not prove psi-fixedness, norm-fixed lifting, compactness, convergence or the characteristic-p image calculation."
     },
     "lean": {
-      "suggestedFileSha256": "b2e7da057e2f0ac82ed4eb27ad3e450d72d038cbdf82049c7d76db7df4c76054",
-      "sourceAuditSha256": "fa3c6c03c4cd15f229e8d0bb8ea8ff6c90b2c65d575cd003e040fdcfdfe1c1ae",
+      "suggestedFileSha256": "9bd6888b38d75528aebc7958916541dd1041bb51e4bdae4c4d17f2bfd2c74b15",
       "errors": 0,
-      "warnings": 212,
-      "allWarningsPlaceholders": true,
-      "supplierWarnings": 339,
+      "warnings": 226,
+      "warningsOnlyPlaceholders": true,
+      "supplierWarnings": 367,
       "mathlibModules": 2759,
       "tauCetiModules": 0,
-      "plannedSupplierModules": 1,
-      "moduleCountAccounting": "The refreshed audit has 2760 entries: 2759 Mathlib modules and one research supplier. The earlier compiler total 2757 comprised 2756 Mathlib modules and one research supplier, correcting its earlier count description.",
-      "scratchProofSha256": "6db17a3f2eb2b1bfbbea025d44e18cadc849b7bdc82333b1f144a0ff6983e1f0",
-      "scratchCompleteLemmas": 9,
-      "scratchMathlibModules": 2036,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0
+      "actualSupplierModules": 1,
+      "sourceAuditSha256": "bb94a23ae859927a422aae3112e99c89858b347651eff567f1ca588d4f8767a0",
+      "scratchProofSha256": "d80296a03160eedeec22f69b4e40f91a313149f6bd2df395ed5349ba65a1ff4f",
+      "scratchCompleteLemmas": 7,
+      "scratchProofErrors": 0,
+      "scratchProofWarnings": 0,
+      "scratchProofPlaceholders": 0,
+      "scratchSourceModules": 1864
     },
     "publication": {
-      "base": "1df817b2abcf3c588c127f3d6433fd8399e29d21",
-      "unchangedInputs": 52,
-      "unchangedOutputs": 4,
-      "issueAvailable": true,
-      "lastClaimConfirmation": 5852873632,
-      "reviewIssue": 374,
-      "reviewUnclaimed": true
-    }
+      "baseCommit": "640dd03bb57d120a18b84830e9985793d7f0d476",
+      "capturedInputs": 52,
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5853652504
+    },
+    "closure": "Partial; six gaps, twelve requests, no closed stages; every implementation status unchecked."
   }
 }
