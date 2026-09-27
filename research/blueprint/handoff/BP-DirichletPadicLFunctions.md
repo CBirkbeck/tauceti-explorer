@@ -1,69 +1,77 @@
-# BP-DirichletPadicLFunctions: actual/formal smoothing comparison
+# BP-DirichletPadicLFunctions: arithmetic coefficient extension
 
 Codex / codex-7e92bd. Issue713, winning primary claim5854790528, bot5854791937.
-Same-worker follow-up to merged PR3239, headab023a6c01d134d386ca299ccab37ed444cbfe3f,
-merge859951b57f48576bd78ac9b22cf5d6f4b0177b9f. No additional claim.
-Partial blueprint; every implementation status unchecked. Review390 remains
+Same-worker follow-up to merged PR3242, head0cf5bf451de0d0fc4f6baa32fd8cd5d07702d678,
+merge6d5a64f6296d6f57a67dd71e2109affad8aec26f. No additional claim.
+Partial blueprint; all implementation statuses unchecked. Review390 remains
 unclaimed for automatic own-worker follow-up intake.
 
 ## Delivered
 
-Four declarations specialize the imported formal exponential coefficient theorem
-to the actual F_a, then compare its rational iterated-Mahler-derivation constant
-with actual real origin derivatives, signed complex continued values and integral
-arithmetic moments. This supplies equation(4-1) for every derivative order.
-There is no global convergence claim for formal series and no real/complex-to-
-p-adic scalar map. The arithmetic measure remains integral throughout evaluation.
+Six declarations specialize the exact coefficient extension to the arithmetic
+measures. The actual extended μ_a has Amice series F_a over every eligible
+coefficient ring and is uniquely determined by it. Over Q_p it has unique
+integral descent, namely μ_a. Actual Q_p-valued evaluations of the extended
+smoothing, ambient unit-restricted and numerator measures give the existing
+Bernoulli formulas. The receiver hypotheses, ambient domain and numerator k≥1
+boundary are retained. There is no new extension, measure or series carrier.
 
-Totals138 nodes:1 definition,12 constructions,80 lemmas,36 theorems,
-9 comparisons;127 API entries;99 packet tests (73 definition/construction),
-102 typed examples;17 planets;208 baseline references. Five gaps,one request,
-nine source findings and zero closed stages remain. Preserve129 predecessor
-nodes and207 baseline objects whole. Three constructions gain4 API entries and
-3 uses; two earlier scope sentences are updated. Prior Lean declarations are
-unchanged; one stale introductory scope comment is updated. Six tests distinguish
-zero smoothing, factorial normalization, dyadic images, derivative operators and
-odd Mellin signs. The L0/L1 remaining-work text reflects the supplied comparison.
+Totals144 nodes:1 definition,12 constructions,82 lemmas,40 theorems,
+9 comparisons;133 API entries;105 packet tests (73 definition/construction),
+108 typed examples;17 planets;209 baseline references. Five gaps,one request,
+nine findings and zero closed stages remain. Preserve135 predecessor nodes,
+208 baseline objects,all prior Lean bytes and9 findings whole. Three constructions
+gain6 API entries/3 uses. Six tests cover zero smoothing, extended Amice
+coefficients, dyadic smoothing/unit/numerator values and the k=1 boundary.
 
 ## Reading and evidence
 
-RJW Lemma4.3/equation(4-1) and Proposition4.6, printed136–137, within the
-previous full134–139 reading. Actual arithmetic-series and moment nodes and
-PMIA exp-conjugacy/iterate/coefficient/ordinary-moment-exp were freshly read
-in full. Generic conjugacy remains owned by PMIA. One native ordinary derivative
-normalization statement was read and indexed for the control test. All52 input
-blobs initially match the preceding submitted snapshot; the source registry
-changes were already read. Whole issue unchanged from the full reading; audit,
-scope, protocols, touching links and upstream models retain their provenance.
-No new finding and no review verdict; all nine findings remain unchanged.
+Worker coefficient compatibility for RJW4.4–4.6 and4.8/equation4-3, in the
+previous fully read134–139 passage. Exact extension, Amice, test-function,
+uniqueness and integral injectivity supplier nodes were freshly read in full.
+The unit-domain extension was read to retain the carrier boundary. Native general
+Amice injectivity was reread, and one exact algebra-map statement was read and
+indexed. All52 captured inputs initially match the preceding submitted snapshot.
+Issue body unchanged from full reading; audit,scope,protocols,touching links and
+upstream models retain their continuous reading provenance. No new finding or
+review verdict; all nine findings remain unchanged.
 
 Indexed blueprint: zero errors and warnings. Four-file intake: zero problems.
 Versioned errata, exact preservation, signature/test/reader parity and output
-scope checks pass. The acyclic graph reaches214 nodes with914 edges and277
+scope checks pass. The acyclic graph reaches232 nodes with989 edges and294
 baseline leaves; its only stage leaf is the preserved PMIA L1 request.
-Suggested-file SHA256: `33891fc8fad7661359bf4e1a57d5673cdeb611eaa1612a9476d51619dffd8ce0`.
-Scratch-proof SHA256: `a8d4111495f1b8695792ac62dedf91f45ec51da22edce715f7f63100a3d6e792`.
+Suggested-file SHA256: `86b0367083d5a94b09f68e56f14a2efe515c47e3829e72adcc32ed75f617a76e`.
+Scratch-proof SHA256: `c47bf18656c707dd326d5646e12f9f673cd659f93152de96a1a258ad087d7607`.
 
-The publication guard at 75f5194ee1360ceb6350b1100b4920eb6526240b checks all52 captured inputs,
-four predecessor blobs, the unchanged issue, merged PR3239 and the same
+The publication guard at e1d39abcb53e58a30c7d3a46fc5ccef0bcb3b8c2 checks all52 refreshed inputs,
+four predecessor blobs, the unchanged issue, merged PR3242 and the same
 session's winning claim. Independent review390 remains blocked and unclaimed.
 Exactly four authorized files are published through Git Data REST.
 
-Suggested Lean compiles with269 expected placeholder warnings only; the actual
-PMIA232 supplier compiles with484. Audit:3,552 pinned Mathlib,19 pinned Tau Ceti
-from the prior isolated source build,1 actual suggested supplier. Native source
-hashes and zero-warning build logs checked. The scratch file has48 complete
-lemmas (34 prior actual-kernel,14 new formal/control/comparison) and4 actual
-definitions, against2,929 pinned Mathlib modules, with no errors, warnings or
-proof holes. The explicit formal F_2 solves (2+T)F=1; its operator controls and
-the actual h_2 third derivative are complete. Generic comparison premises remain
-explicit. No implementation status is changed.
+Suggested Lean compiles with281 expected placeholder warnings only; actual PMIA249
+supplier compiles with536. Audit:3,552 pinned Mathlib,19 pinned Tau Ceti from the
+prior isolated source build and1 actual supplier; native hashes/logs checked.
+Ten complete scratch lemmas compile against2,856 pinned Mathlib modules with
+no errors,warnings or proof holes. General Amice/injectivity/descent adapters
+state their exact extension premises; the native monomial image and dyadic/boundary
+computations and the canonical bounded-scalar instance are complete. Fixed-prime
+typed examples retain the supplier instance premise. No implementation status is changed.
 
 ## Resume
 
-L0: generalized Bernoulli/finite Fourier imports, Dedekind-zeta meromorphic
-residue comparison, and idele/infinity-type conventions. L1: actual completed
-unit-group algebra, regularity/localization, smoothing independence, parity/descent,
-denominator-qualified congruences and measure coefficient extension/descent.
-Continue the twist/branch/pole and constant Eisenstein pseudomeasure tasks.
-Five gaps and one general completed-algebra request remain; no stage is closed.
+Connect the arithmetic measures to the intrinsic unit-domain and actual completed
+algebra; prove regularity/localization, smoothing independence, parity/descent
+and denominator-qualified congruences. Further coefficient-field/descent work
+must retain chosen embeddings/convergence in character and logarithmic applications.
+Continue generalized Bernoulli/finite Fourier, Dedekind/idele, twists, branch/pole
+and constant Eisenstein pseudomeasure tasks. Five gaps and one general completed-
+algebra request remain; no stage is closed.
+
+Before publication the actual supplier was refreshed from232 to249 nodes.
+All232 prior nodes and prior baseline objects remain whole. The17 new convolution
+and finite-algebra nodes, full suggested-file delta, changed scope and new source
+record were read. The completed-algebra/unit-reduction request remains open.
+The two unrelated Ballmann registry additions and their register delta were read
+in full. Four captured inputs were refreshed; the Dirichlet mathematics is unchanged.
+
+The subsequent registry-only refresh at9f6442f72eabddda0e8293ddf5e9561e30949ab7 adds EffectiveDiophantineMethods/E1 and PhiGammaModulesAndIwasawaCohomology/E1. Both complete records and the register delta were read; no Dirichlet finding, mathematical input or compiled source changed.
