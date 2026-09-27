@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain.",
+  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1015,6 +1015,132 @@
         "module": "Mathlib/Analysis/MellinTransform.lean",
         "provides": "Positive real scaling t↦at multiplies the native Mellin transform by a^(−s).",
         "checked": "Actual declaration statement and surrounding hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; compile reached sources were bytechecked against this pin."
+      },
+      {
+        "ref": "mathlib:Real.summable_pow_mul_exp_neg_nat_mul",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Exp.lean",
+        "provides": "Native summability of n^m exp(−tn) for m natural and t>0; the positive-index sum is its shifted tail.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:multipliable_nat_add_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/NatInt.lean",
+        "provides": "The additive theorem summable_nat_add_iff is generated here: deleting a finite initial segment preserves summability in an additive topological group.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:Multipliable.tprod_le_tprod",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Order.lean",
+        "provides": "The additive Summable.tsum_le_tsum generated here compares two summable families term by term.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:hasDerivAt_tsum_of_isPreconnected",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/SmoothSeries.lean",
+        "provides": "Termwise differentiation on a preconnected open set, requiring a summable uniform derivative bound and convergence at one point.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:Real.hasDerivAt_exp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean",
+        "provides": "The native exponential has derivative exp(t) at every real t.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:tsum_geometric_of_norm_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
+        "provides": "The sum of a geometric series with ratio of norm less than one equals the inverse of one minus that ratio.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:iteratedDeriv_succ",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
+        "provides": "The (n+1)st ordinary iterated derivative is the derivative of the nth.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:Filter.EventuallyEq.deriv_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Basic.lean",
+        "provides": "Functions agreeing on a neighborhood have equal derivatives at its center.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:HasDerivAt.const_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Mul.lean",
+        "provides": "Multiplication of a differentiable function by a constant multiplies its derivative by that constant.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:HasDerivAt.mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Mul.lean",
+        "provides": "Native product rule for derivatives.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:HasDerivAt.add",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Add.lean",
+        "provides": "Native sum rule for derivatives.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:Real.contDiff_exp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean",
+        "provides": "The real exponential is smooth to every order.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:ContDiffOn.div",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/ContDiff/Operations.lean",
+        "provides": "The quotient of two smooth functions is smooth on a set where the denominator is nonzero.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:isLittleO_pow_exp_pos_mul_atTop",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.lean",
+        "provides": "Every real polynomial power is little-o of exp(bt) for b>0 at positive infinity.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:Asymptotics.IsBigO.of_bound",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Asymptotics/Defs.lean",
+        "provides": "An eventual explicit norm bound supplies native Big-O.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:Filter.EventuallyEq.iteratedDerivWithin_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.lean",
+        "provides": "Equality of germs within a set, together with equality at the point, gives equal iterated within derivatives.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:iteratedDerivWithin_eq_iteratedDeriv",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
+        "provides": "At a smooth point in a set with unique derivatives, ordinary and within iterated derivatives agree.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
+      },
+      {
+        "ref": "mathlib:HasDerivAt.ofReal_comp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/RealDeriv.lean",
+        "provides": "The real derivative of a real-valued function is preserved when its values are included into the complex numbers.",
+        "checked": "Full statement and surrounding hypotheses read at pinned Mathlib082e2d3. Generated additive names are cited through their indexed multiplicative generator."
       }
     ]
   },
@@ -1038,7 +1164,8 @@
         "Classical modular comparison continuation, 27 September 2026: freshly read full published PDF59–62 / printed158–161 and collated full arXiv v2 PDF43–45. The eight new nodes extend the pinned level-one and degeneracy APIs, with exact normalization and a common integer for the positive measure/modular coefficients. Earlier wider readings are retained as predecessor provenance; no source-complete extraction or new source finding is claimed.",
         "27 September2026 finite-coordinate follow-up: printed120–123 / PDF21–24 and printed159–160 / PDF60–61 read in full. The two-index finite coordinate, multiplicity, transition and pairing adapters are worker deductions from Proposition3.16 and Theorem8.2. Published PDF hash matches the recorded source. No complete-source extraction or new finding is claimed.",
         "Positive-series continuation,27 September2026: freshly downloaded the same published PDF and read physical PDF60–61 in full, containing Definition8.1, Theorem8.2 and Remark8.3(1), with the beginning of Remark8.3(2). The native coefficientwise assembly, bound, congruence and integer-series comparison are worker deductions. No complete-source reading or new source finding is claimed.",
-        "Mellin continuation,27 September2026: fresh full reading of published physical PDF11–13 / printed110–112, including Theorem2.4 and its proof, Remark2.5 and Lemmas2.6–2.7. Theorem2.4 is decomposed here; the actual Bernoulli/smoothing kernel applications remain in the coverage ledger. No fresh full-paper reading or new source finding is claimed."
+        "Mellin continuation,27 September2026: fresh full reading of published physical PDF11–13 / printed110–112, including Theorem2.4 and its proof, Remark2.5 and Lemmas2.6–2.7. Theorem2.4 is decomposed here; the actual Bernoulli/smoothing kernel applications remain in the coverage ledger. No fresh full-paper reading or new source finding is claimed.",
+        "27 September2026: complete printed110–114 / PDF11–15 freshly read; Lemma2.6 exponential derivative decay decomposed, with endpoint smoothness and Lemma2.7 application still explicit gaps."
       ]
     },
     {
@@ -5805,6 +5932,322 @@
       "planet": {
         "name": "Mellin special values"
       }
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/weighted-exponential-halfline-bound",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Uniform weighted-exponential bounds",
+      "kind": "lemma",
+      "statement": "For every m≥0, δ>0 and t≥δ, 0≤F_m(t)≤exp(δ−t) F_m(δ).",
+      "hypotheses": [
+        "For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line."
+      ],
+      "proofSteps": [
+        "The native polynomial-weighted exponential summability theorem, shifted to positive indices, proves convergence at δ and at every t≥δ.",
+        "For n≥1, exp(−nt)≤exp(δ−t)exp(−nδ), since (n−1)(t−δ)≥0. Multiply by n^m≥0 and use the native comparison of two summable families.",
+        "All summands are nonnegative. Factoring exp(δ−t)=exp(δ)exp(−t) gives a fixed Big-O constant exp(δ)F_m(δ)."
+      ],
+      "prerequisites": [
+        "mathlib:Real.summable_pow_mul_exp_neg_nat_mul",
+        "mathlib:multipliable_nat_add_iff",
+        "mathlib:Multipliable.tprod_le_tprod",
+        "mathlib:Asymptotics.IsBigO.of_bound"
+      ],
+      "acceptance": [
+        "The cutoff is strictly positive. The estimate makes no uniform claim as δ tends to zero or as m tends to infinity."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "weightedExp_halfline_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
+          "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/weighted-exponential-derivative",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Derivative of the weighted exponential sum",
+      "kind": "lemma",
+      "statement": "For every m≥0 and t>0, F_m has real derivative −F_(m+1)(t) at t.",
+      "hypotheses": [
+        "For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line."
+      ],
+      "proofSteps": [
+        "Fix t>0 and work on the preconnected open interval (t/2,∞). The nth summand has derivative −n^(m+1)exp(−ny), by the native exponential and constant-multiplication rules.",
+        "The derivative norm for y>t/2 is bounded by n^(m+1)exp(−n t/2). This majorant is summable by the pinned polynomial-weighted exponential theorem; the original sum converges at t.",
+        "Apply hasDerivAt_tsum_of_isPreconnected with those exact hypotheses. Pull the minus sign through the convergent derivative series."
+      ],
+      "prerequisites": [
+        "mathlib:Real.summable_pow_mul_exp_neg_nat_mul",
+        "mathlib:multipliable_nat_add_iff",
+        "mathlib:Real.hasDerivAt_exp",
+        "mathlib:HasDerivAt.const_mul",
+        "mathlib:hasDerivAt_tsum_of_isPreconnected"
+      ],
+      "acceptance": [
+        "Convergence of the original series alone would not justify differentiation; retain the summable derivative majorant and the open positive interval."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "weightedExp_hasDerivAt"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
+          "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/reciprocal-exponential-geometric",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Geometric expansion of the reciprocal exponential",
+      "kind": "lemma",
+      "statement": "For t>0, F_0(t)=1/(exp(t)−1), and consequently b(t)=t F_0(t).",
+      "hypotheses": [
+        "For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line."
+      ],
+      "proofSteps": [
+        "The ratio exp(−t) has norm less than one. Each positive-index term exp(−nt) is a power of this ratio.",
+        "Factor out the first power, apply the native geometric-sum theorem and simplify using exp(−t)=exp(t)⁻¹.",
+        "The denominator exp(t)−1 is positive for t>0, justifying the algebraic cancellation. Multiply by t to obtain the Bernoulli-kernel identity."
+      ],
+      "prerequisites": [
+        "mathlib:tsum_geometric_of_norm_lt_one",
+        "mathlib:Real.summable_pow_mul_exp_neg_nat_mul",
+        "mathlib:multipliable_nat_add_iff"
+      ],
+      "acceptance": [
+        "The formula is restricted to t>0. At zero the literal totalized quotient has value zero, while its removable extension must have value one."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "reciprocalExp_geometric"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
+          "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedBernoulliDecayTests.geometric_log_two",
+          "kind": "computation",
+          "statement": "At t=log(2), F_0(t)=1."
+        },
+        {
+          "name": "SuggestedBernoulliDecayTests.unextended_zero",
+          "kind": "non-example",
+          "statement": "The literal quotient t/(exp(t)−1) at t=0 is zero; it does not itself define the required smooth extension with value one."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/reciprocal-exponential-iterated-derivative",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Iterated derivatives of the reciprocal exponential",
+      "kind": "lemma",
+      "statement": "For every m≥0 and t>0, the mth ordinary real iterated derivative of t↦1/(exp(t)−1) equals (−1)^m F_m(t).",
+      "hypotheses": [
+        "For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line."
+      ],
+      "proofSteps": [
+        "The zeroth formula is reciprocal-exponential-geometric.",
+        "Induct on m. The inductive identity holds on the open positive half-line, hence as an equality of germs at every positive t.",
+        "Use iteratedDeriv_succ and equality of derivatives of equal germs. Differentiate (−1)^m F_m with weighted-exponential-derivative and the constant-multiplication rule, obtaining (−1)^(m+1)F_(m+1)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/reciprocal-exponential-geometric",
+        "DirichletPadicLFunctions:L0/weighted-exponential-derivative",
+        "mathlib:iteratedDeriv_succ",
+        "mathlib:Filter.EventuallyEq.deriv_eq",
+        "mathlib:HasDerivAt.const_mul"
+      ],
+      "acceptance": [
+        "Only local identities at positive t are differentiated. No derivative of a divergent series at zero is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "reciprocalExp_iteratedDeriv"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
+          "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/bernoulli-positive-derivative-formula",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Positive-half-line Bernoulli derivative formula",
+      "kind": "lemma",
+      "statement": "For every m≥0 and t>0, b^(m+1)(t)=(−1)^m((m+1)F_m(t)−tF_(m+1)(t)).",
+      "hypotheses": [
+        "For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line."
+      ],
+      "proofSteps": [
+        "Differentiate b=tF_0 locally, using the product rule and the weighted exponential derivative, to obtain b′=F_0−tF_1.",
+        "For the inductive step differentiate the displayed m formula on the open positive half-line. The two contributions to F_(m+1) have coefficients −(m+1) and −1, giving the new coefficient m+2 with the next alternating sign.",
+        "Use the native sum, product and constant rules and iteratedDeriv_succ. The zeroth formula comes from the geometric comparison and is kept separate to avoid a negative derivative index."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/reciprocal-exponential-geometric",
+        "DirichletPadicLFunctions:L0/weighted-exponential-derivative",
+        "mathlib:iteratedDeriv_succ",
+        "mathlib:Filter.EventuallyEq.deriv_eq",
+        "mathlib:HasDerivAt.mul",
+        "mathlib:HasDerivAt.add",
+        "mathlib:HasDerivAt.const_mul"
+      ],
+      "acceptance": [
+        "For m=0 the formula is F_0−tF_1. The source expression with an (n−1) derivative is not applied at n=0."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "bernoulliKernel_iteratedDeriv_succ"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
+          "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedBernoulliDecayTests.first_derivative_log_two",
+          "kind": "computation",
+          "statement": "The first derivative of the literal Bernoulli kernel at log(2) is 1−2 log(2)."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/bernoulli-ordinary-derivative-decay",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Exponential decay of every Bernoulli derivative",
+      "kind": "theorem",
+      "statement": "For every m≥0, the mth ordinary real iterated derivative of b(t)=t/(exp(t)−1) is O(exp(−t/2)) as t→+∞.",
+      "hypotheses": [
+        "For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line."
+      ],
+      "proofSteps": [
+        "Use the uniform weighted-exponential bounds with δ=1. The zeroth derivative is bounded by C_0 t exp(−t) for t≥1.",
+        "For m=n+1, the derivative formula and nonnegativity of each F_j bound its absolute value by ((n+1)C_n+t C_(n+1))exp(−t). Each C_j is a fixed finite constant.",
+        "The native domination of powers by exp(t/2) absorbs both the constant and linear factor. Equivalently, (1+t)exp(−t/2) is eventually bounded. Apply the native Big-O norm-bound criterion.",
+        "This proves the decay assertion of Lemma2.6 with one admissible rate 1/2; the implicit bound may depend on the derivative order. It does not establish smoothness at zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/weighted-exponential-halfline-bound",
+        "DirichletPadicLFunctions:L0/bernoulli-positive-derivative-formula",
+        "DirichletPadicLFunctions:L0/reciprocal-exponential-geometric",
+        "mathlib:isLittleO_pow_exp_pos_mul_atTop",
+        "mathlib:Asymptotics.IsBigO.of_bound"
+      ],
+      "acceptance": [
+        "Include derivative order zero. The stronger rate-one Big-O statement for b itself is false because b(t)/exp(−t) grows like t."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "bernoulliKernel_iteratedDeriv_decay"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
+          "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedBernoulliDecayTests.rate_one_fails",
+          "kind": "non-example",
+          "statement": "The zeroth Bernoulli kernel is not O(exp(−t)) at positive infinity; the factor t cannot be dropped."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L0/bernoulli-within-derivative-decay",
+      "parentStageId": "DirichletPadicLFunctions:L0",
+      "realises": [
+        "DirichletPadicLFunctions:L0"
+      ],
+      "title": "Decay on the actual Mellin half-line",
+      "kind": "theorem",
+      "statement": "Let g:ℝ→ℂ agree with the real Bernoulli quotient included into ℂ at every t>0. For every m≥0, its native iteratedDerivWithin m g [0,∞) is O(exp(−t/2)) at +∞.",
+      "hypotheses": [
+        "For m≥0 and t>0, write F_m(t)=sum_(n≥1) n^m exp(−nt), using the native real infinite sum. This is notation for an explicit function, not a new summability predicate or carrier. Write b(t)=t/(exp(t)−1) on the positive half-line.",
+        "g:ℝ→ℂ satisfies g(t)=(t/(exp(t)−1):ℝ) included into ℂ for all t>0."
+      ],
+      "proofSteps": [
+        "The real quotient is smooth on the positive half-line by native smoothness of exp and the quotient theorem, since exp(t)−1>0 there. Inclusion into ℂ preserves its real derivatives by HasDerivAt.ofReal_comp and induction.",
+        "At any t>0 the equality assumption identifies g with this smooth quotient on a neighborhood. Within derivatives on [0,∞) equal the ordinary derivatives at such an interior point, and equality of germs preserves all these derivatives.",
+        "The complex norm of an included real value is its absolute value. Transfer bernoulli-ordinary-derivative-decay through these eventual equalities.",
+        "This supplies exactly the all-derivative decay premise of normalized-mellin-continuation for any correct smooth extension. The independent ContDiffOn hypothesis at zero must still be proved."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L0/bernoulli-ordinary-derivative-decay",
+        "mathlib:Real.contDiff_exp",
+        "mathlib:ContDiffOn.div",
+        "mathlib:HasDerivAt.ofReal_comp",
+        "mathlib:iteratedDerivWithin_eq_iteratedDeriv",
+        "mathlib:Filter.EventuallyEq.iteratedDerivWithin_eq"
+      ],
+      "acceptance": [
+        "No condition on g(0) or on negative inputs is needed for this asymptotic assertion. The result does not imply that an arbitrary such g is continuous at zero."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Mellin/BernoulliKernel",
+        "namespace": "DirichletPadic",
+        "declaration": "bernoulliKernel_iteratedDerivWithin_decay"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§2.3, Lemma2.6 and its complete proof, printed111–112 / physicalPDF12–13; surrounding Theorem2.4 and Lemma2.7 read27 September2026.",
+          "match": "Declaration-level justification of the source geometric-series argument. Uniform majorants and the explicit half-rate bound make its convergence and differentiation steps precise; the complex within-derivative adapter is a worker deduction. The source asymptotic equivalence is not needed or claimed by these bounds."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -5822,7 +6265,8 @@
       "status": "partial",
       "remaining": [
         "Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. Establish the smooth right-hand extension of the actual Bernoulli kernel t/(exp(t)−1), identify all its derivatives at zero, justify the differentiated geometric series and exponential decay of every derivative (Lemma2.6), and prove the sum/integral and normalization comparisons of Lemma2.7 on their valid domains. Treat the actual smoothed kernels and then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections.",
-        "Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
+        "Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions.",
+        "Bernoulli decay and termwise differentiation on the positive half-line are supplied; origin smoothness/derivative values and Mellin integral comparisons remain as precisely stated in the L0 gap."
       ]
     },
     {
@@ -5861,7 +6305,7 @@
     {
       "title": "L0 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The generic Theorem2.4 continuation chain is now supplied by eleven L0 nodes, and its proof dependencies reach only the baseline. Remaining work: Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. Establish the smooth right-hand extension of the actual Bernoulli kernel t/(exp(t)−1), identify all its derivatives at zero, justify the differentiated geometric series and exponential decay of every derivative (Lemma2.6), and prove the sum/integral and normalization comparisons of Lemma2.7 on their valid domains. Treat the actual smoothed kernels and then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
+      "detail": "The generic Theorem2.4 continuation chain is now supplied by eleven L0 nodes, and its proof dependencies reach only the baseline. Remaining work: Theorem2.4 now has a declaration-level chain for endpoint bounds, integration by parts, coherent shifts, entire normalized continuation and nonpositive-integer values. The seven Bernoulli-decay nodes now justify the differentiated geometric expansion on t>0, all positive-half-line derivative formulas and exponential decay of every within derivative with rate1/2, completing the decay assertion of Lemma2.6. Establish the smooth right-hand extension at zero of the actual Bernoulli kernel, identify every derivative there with the correct Bernoulli number, and prove the sum/integral and normalization comparisons of Lemma2.7 on their valid domains. Treat the actual smoothed kernels and then compare algebraic Bernoulli values through explicit complex and p-adic embeddings. The negative-zeta formula, including ζ(0)=−1/2, already exists; E2 and E5 retain the source normalization corrections. Import generalized Bernoulli/finite Fourier data from the existing ModularForms Layer 0; compare Dedekind zeta with the meromorphic germ and residue supplied through AutomorphicLFunctionsAndLocalFactors:AL.1 and Mathlib’s real class-number limit; instantiate GlobalNumberFields Layers 9–10 idele/infinity-type conventions."
     },
     {
       "title": "L1 remaining source decomposition and interfaces",
@@ -6047,89 +6491,81 @@
     }
   ],
   "checks": {
-    "status": "Partial plan; every implementation status remains unchecked.",
+    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "sourceIssues": "All9 predecessor findings preserved; versioned errata wrapper passes.",
     "validation": {
-      "nodes": 91,
+      "nodes": 98,
       "kinds": {
         "definition": 1,
-        "lemma": 54,
+        "lemma": 59,
         "construction": 10,
-        "theorem": 21,
+        "theorem": 23,
         "comparison": 5
       },
       "api": 89,
       "definitionConstructionTests": 67,
-      "packetTests": 68,
+      "packetTests": 72,
       "planets": 14,
-      "baseline": 143,
-      "preservedWholeNodes": 79,
-      "preservedStatements": 80,
-      "updatedProofStatusNotes": 1,
+      "baseline": 161,
+      "preservedWholeNodes": 91,
       "preservedSourceIssues": 9,
       "newSourceIssues": 0,
-      "newNodes": 11,
-      "newNamedDeclarations": 17,
-      "newTypedTests": 6,
-      "typedExamples": 71,
-      "reachableNodes": 167,
-      "dependencyEdges": 685,
+      "newNodes": 7,
+      "newNamedDeclarations": 7,
+      "newTypedTests": 4,
+      "typedExamples": 75,
+      "reachableNodes": 174,
+      "dependencyEdges": 720,
       "acyclic": true,
-      "baselineLeaves": 213,
+      "baselineLeaves": 231,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 187,
+      "compilerWarnings": 198,
       "allWarningsPlaceholders": true,
-      "supplierWarnings": 339,
-      "pinnedMathlibModules": 3542,
+      "supplierWarnings": 442,
+      "pinnedMathlibModules": 3550,
       "pinnedTauCetiModules": 19,
-      "plannedSupplierModules": 1,
-      "scratchCompleteLemmas": 17,
-      "scratchAuxiliaryDefinitions": 2,
-      "scratchMathlibModules": 2566,
+      "actualSupplierModules": 1,
+      "scratchCompleteLemmas": 10,
+      "scratchMathlibModules": 1960,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 31278,
+      "readerWords": 33363,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
-      "closedStages": 0,
-      "blueprintErrors": 0,
-      "blueprintWarnings": 0,
-      "intakeProblems": 0,
-      "errataErrors": 0
-    },
-    "publication": {
-      "base": "1f6f4916b99708fafd725fc46ed7d6775820e3d6",
-      "unchangedInputs": 52,
-      "unchangedOutputs": 4,
-      "issueAvailable": true,
-      "lastClaimConfirmation": 5853175762,
-      "reviewIssue": 390,
-      "reviewUnclaimed": true
+      "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "5f19d57c261d449d303fdd433e2de278865337c2b5985b0d505baeb3fed56f2a",
-      "sourceAuditSha256": "b56b04e77cdde98e08da926efb858aa730f53ff7c3bf185f800ddcce988df1ca",
+      "suggestedFileSha256": "84fe818c40f04eb3dda39dcdbe9a3ef2c4537af53a4a78b3421e71b2095caecf",
       "errors": 0,
-      "warnings": 187,
-      "allWarningsPlaceholders": true,
-      "supplierWarnings": 339,
-      "mathlibModules": 3542,
+      "warnings": 198,
+      "warningsOnlyPlaceholders": true,
+      "supplierWarnings": 442,
+      "mathlibModules": 3550,
       "tauCetiModules": 19,
-      "plannedSupplierModules": 1,
-      "scratchProofSha256": "35dbb194a728a162d8bcbd5b0ef68f170647b490d56968f458f89d06e6e985f2",
-      "scratchCompleteLemmas": 17,
-      "scratchAuxiliaryDefinitions": 2,
-      "scratchErrors": 0,
-      "scratchWarnings": 0,
-      "scratchPlaceholders": 0,
-      "scratchMathlibModules": 2566
+      "actualSupplierImports": 1,
+      "sourceAuditSha256": "59ad8569b607a4728a9258516f4aa44bc6fb031d75f88ee57a1d78c492f0a83b",
+      "scratchProofSha256": "dffa3d24641952af6da9a7db54103224c6fe12b62ff8f466dc441e1ef1441569",
+      "scratchCompleteLemmas": 10,
+      "scratchProofErrors": 0,
+      "scratchProofWarnings": 0,
+      "scratchProofPlaceholders": 0,
+      "scratchSourceModules": 1960
     },
-    "sourceIssues": "All nine predecessor findings and source versions retained. No new finding or review verdict. Fresh reading is restricted to published PDF11–13.",
-    "priorValidation": "Previous finite arithmetic checks remain historical records and were not rerun for the analytic continuation change."
+    "publication": {
+      "baseCommit": "e5b38d77622ccd52b476f65588904364ecad0494",
+      "capturedInputs": 52,
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5854305408
+    },
+    "closure": "Partial; five gaps, one request, no closed stages; every implementation status unchecked."
   },
   "provenance": {
     "smoothingFollowup": {
@@ -6511,6 +6947,198 @@
       "preservation": "All80 predecessor statements, hypotheses, dependencies, APIs and tests;79 complete node objects unchanged. Only the final proof-status sentence of L0/smoothed-value-complex is narrowed to the remaining kernel application.",
       "sourceScope": "Theorem2.4 and its proof, physical PDF11–12, with surrounding application onPDF13; nine existing findings retained, no independent-review verdict added.",
       "ownership": "Reviewed AUDIT24 and acceptedRS14 retain this specific Mellin proof atL0. Existing native convergence, zeta and Dirichlet L-values remain baseline. QSeries contour-transfer and incomplete-gamma nodes do not supply this statement."
+    },
+    "bernoulliDecay": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854304504,
+      "winningBot": 5854305408,
+      "preservedWholeNodes": 91,
+      "newNodes": 7,
+      "preservedFindings": 9,
+      "historicalChecks": {
+        "status": "Partial plan; every implementation status remains unchecked.",
+        "validation": {
+          "nodes": 91,
+          "kinds": {
+            "definition": 1,
+            "lemma": 54,
+            "construction": 10,
+            "theorem": 21,
+            "comparison": 5
+          },
+          "api": 89,
+          "definitionConstructionTests": 67,
+          "packetTests": 68,
+          "planets": 14,
+          "baseline": 143,
+          "preservedWholeNodes": 79,
+          "preservedStatements": 80,
+          "updatedProofStatusNotes": 1,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 11,
+          "newNamedDeclarations": 17,
+          "newTypedTests": 6,
+          "typedExamples": 71,
+          "reachableNodes": 167,
+          "dependencyEdges": 685,
+          "acyclic": true,
+          "baselineLeaves": 213,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 187,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 339,
+          "pinnedMathlibModules": 3542,
+          "pinnedTauCetiModules": 19,
+          "plannedSupplierModules": 1,
+          "scratchCompleteLemmas": 17,
+          "scratchAuxiliaryDefinitions": 2,
+          "scratchMathlibModules": 2566,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 31278,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0,
+          "blueprintErrors": 0,
+          "blueprintWarnings": 0,
+          "intakeProblems": 0,
+          "errataErrors": 0
+        },
+        "publication": {
+          "base": "1f6f4916b99708fafd725fc46ed7d6775820e3d6",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "issueAvailable": true,
+          "lastClaimConfirmation": 5853175762,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "lean": {
+          "suggestedFileSha256": "5f19d57c261d449d303fdd433e2de278865337c2b5985b0d505baeb3fed56f2a",
+          "sourceAuditSha256": "b56b04e77cdde98e08da926efb858aa730f53ff7c3bf185f800ddcce988df1ca",
+          "errors": 0,
+          "warnings": 187,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 339,
+          "mathlibModules": 3542,
+          "tauCetiModules": 19,
+          "plannedSupplierModules": 1,
+          "scratchProofSha256": "35dbb194a728a162d8bcbd5b0ef68f170647b490d56968f458f89d06e6e985f2",
+          "scratchCompleteLemmas": 17,
+          "scratchAuxiliaryDefinitions": 2,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchMathlibModules": 2566
+        },
+        "sourceIssues": "All nine predecessor findings and source versions retained. No new finding or review verdict. Fresh reading is restricted to published PDF11–13.",
+        "priorValidation": "Previous finite arithmetic checks remain historical records and were not rerun for the analytic continuation change."
+      },
+      "sourceBoundary": "Fresh full published RJW printed110–114/PDF11–15; current mathematics is Lemma2.6. No fresh whole-paper extraction, new finding, endpoint smoothness or Mellin integral comparison is claimed.",
+      "nativeReuse": "Native polynomial-weighted exponential summability and the open-set termwise derivative theorem are cited, not replanned. F_m is notation for a native infinite sum, not a new definition.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "All9 predecessor findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 98,
+          "kinds": {
+            "definition": 1,
+            "lemma": 59,
+            "construction": 10,
+            "theorem": 23,
+            "comparison": 5
+          },
+          "api": 89,
+          "definitionConstructionTests": 67,
+          "packetTests": 72,
+          "planets": 14,
+          "baseline": 161,
+          "preservedWholeNodes": 91,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 7,
+          "newNamedDeclarations": 7,
+          "newTypedTests": 4,
+          "typedExamples": 75,
+          "reachableNodes": 174,
+          "dependencyEdges": 720,
+          "acyclic": true,
+          "baselineLeaves": 231,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 198,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 442,
+          "pinnedMathlibModules": 3550,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 10,
+          "scratchMathlibModules": 1960,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 33363,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "84fe818c40f04eb3dda39dcdbe9a3ef2c4537af53a4a78b3421e71b2095caecf",
+          "errors": 0,
+          "warnings": 198,
+          "warningsOnlyPlaceholders": true,
+          "supplierWarnings": 442,
+          "mathlibModules": 3550,
+          "tauCetiModules": 19,
+          "actualSupplierImports": 1,
+          "sourceAuditSha256": "59ad8569b607a4728a9258516f4aa44bc6fb031d75f88ee57a1d78c492f0a83b",
+          "scratchProofSha256": "dffa3d24641952af6da9a7db54103224c6fe12b62ff8f466dc441e1ef1441569",
+          "scratchCompleteLemmas": 10,
+          "scratchProofErrors": 0,
+          "scratchProofWarnings": 0,
+          "scratchProofPlaceholders": 0,
+          "scratchSourceModules": 1960
+        },
+        "publication": {
+          "baseCommit": "e5b38d77622ccd52b476f65588904364ecad0494",
+          "capturedInputs": 52,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5854305408
+        },
+        "closure": "Partial; five gaps, one request, no closed stages; every implementation status unchecked."
+      },
+      "inputRefresh": {
+        "ladNodes": 92,
+        "pmiaNodes": 209,
+        "qseriesNodes": 522,
+        "ladPriorWholeNodesPreserved": 80,
+        "qseriesPriorWholeNodesPreserved": 510,
+        "screened": "LAD12 entire-division and QSeries12 Fischer-sum additions screened by statement, hypotheses and dependencies. Registry additions LAD E1/E2 read in full. No consumed Dirichlet interface changed."
+      },
+      "upstreamSearch": {
+        "date": "2026-09-27",
+        "queries": [
+          "repo:leanprover-community/mathlib4 is:pr is:open Bernoulli",
+          "site:leanprover-community.github.io/archive Bernoulli Mellin",
+          "site:github.com/leanprover-community/mathlib4/pull Bernoulli generating"
+        ],
+        "result": "The first30 returned open-PR hits were screened: Bernoulli arithmetic, probability and generic algebra; no competing real kernel-decay interface identified. Bounded search, not a global absence claim.",
+        "nativeOverlap": "The pinned EisensteinSeries/QExpansion.lean statements summableLocallyUniformlyOn_iteratedDerivWithin_smul_cexp and iteratedDerivWithin_tsum_cexp_eq were read. They provide complex-upper-half-plane exponential-series results; the present real positive-half-line adapters reuse native generic calculus without planning another such theory."
+      }
     }
   },
   "requestResolutions": [
