@@ -18,8 +18,8 @@ conjectures and never consumed.
 
 **Status: partial.** DY.0, DY.1 and DY.4 are source decomposed. DY.2, DY.3, DY.5 and DY.6 are partial, each with a
 precise `remaining` list in the packet's coverage record. The packet has:
-- 408 nodes, 627 API items and 359 definition/construction unit tests;
-- 393 declarations of the pinned libraries cited;
+- 410 nodes, 627 API items and 359 definition/construction unit tests;
+- 403 declarations of the pinned libraries cited;
 - 47 mistakes in its sources recorded;
 - 17 gaps and 26 requests to other roadmaps.
 
@@ -33,7 +33,7 @@ Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f
 | DY.3 | partial | 68 | Effectivity of dynatomic cycles; Dynatomic polynomial; Dynatomic curve Y₁(n); Northcott finiteness of preperiodic points; Certified enumeration of preperiodic points; Uniform boundedness conjecture |
 | DY.4 | source decomposed | 66 | Adelic measure; Equidistribution of small points on P¹; Arakelov–Zhang pairing; Yuan's equidistribution theorem; Dynamical equidistribution; Vanishing of the dynamical pairing |
 | DY.5 | partial | 65 | Automorphism group of a rooted tree; Preimage tree; Arboreal Galois representation; Stoll's maximality criterion; Jones's ramification criterion; Odoni's theorem |
-| DY.6 | partial | 86 | Lattès map; Call–Silverman specialization theorem; Critical height; Critical height is a moduli height; Uniform common torsion images for Legendre pairs; Étale dynamical Mordell–Lang |
+| DY.6 | partial | 88 | Lattès map; Call–Silverman specialization theorem; Critical height; Critical height is a moduli height; Uniform common torsion images for Legendre pairs; Étale dynamical Mordell–Lang |
 
 ## What this roadmap owns, and what it imports
 
@@ -3337,7 +3337,7 @@ Proof outline:
 
 2. Evaluate the Bézout identity at a. If p also divided f′(a), both terms on its left would be divisible by p, contradicting p ∤ c. The same exclusion gives p ∤ m.
 
-3. In the Cassels consumer, separability after clearing denominators supplies this certificate; its construction is part of the recorded field-presentation gap, not a hidden conclusion of this node.
+3. In the Cassels consumer, DY.6/lech-integral-specialization-certificate now constructs the integral certificate and an admissible specialization from the generically separable integral equation. Extracting that equation and the marked denominators from the original field remains a distinct presentation gap.
 
 Acceptance:
 
@@ -3346,6 +3346,92 @@ Acceptance:
 - For f = X² there is no nonzero constant certificate; this node does not manufacture a simple root for a repeated factor.
 
 Inputs: `ArithmeticDynamics:DY.6/schur-prime-avoiding`.
+
+### Integral specialization and marked denominator exclusions
+
+The following two additions start from an integral equation whose image over its
+fraction field is separable. They do not assume coprimality over the integral
+coefficient ring, nor claim to construct the original field presentation.
+Cassels's pp. 195–196 use a discriminant; here the existing resultant certificate
+makes the simple-root implication explicit. The finite transcendence basis,
+primitive-element theorem, resultants and generic denominator clearing remain
+baseline, not replanned notions.
+
+**Integral specialization preserving separability and marked denominators** (`DY.6/lech-integral-specialization-certificate`, lemma).
+
+Let n ≥ 0, R = ℤ[T₁,…,Tₙ] using MvPolynomial (Fin n) ℤ, K = FractionRing R, and H ∈ R[Y] with positive natural degree. Suppose the image of H in K[Y] is separable. Let D be a finite set of nonzero elements of R. Set c = Res(H,H′), with both degree parameters equal to the actual natural degrees. There exist A,B ∈ R[Y] and a ∈ ℤⁿ such that c ≠ 0, AH + BH′ = c, c(a) ≠ 0, lc(H)(a) ≠ 0, every q ∈ D has q(a) ≠ 0, and deg H(Y,a) = deg H. Evaluating the identity gives A(Y,a)H(Y,a) + B(Y,a)∂YH(Y,a) = c(a).
+
+Hypotheses and conventions: Separability is tested over the fraction field, not in R[Y]; an integral polynomial need not be coprime to its derivative over R. H need not be monic or irreducible. D is arbitrary finite auxiliary data, not a claimed output of the still-open primitive-element/marked-element presentation. Zero parameters (n = 0) and D = ∅ are allowed.
+
+Proof outline:
+
+1. Map H and H′ to K[Y]. The injective fraction-field map preserves both actual natural degrees and commutes with differentiation. Polynomial.resultant_ne_zero applied to separability and Polynomial.resultant_map_map show c ≠ 0 in R. Do not assume IsCoprime H H′ in R[Y].
+
+2. Use the existing Polynomial.exists_mul_add_mul_eq_C_resultant at the actual degrees. Positive degree of H supplies its nonzero-degree disjunction. Commute the two products to obtain AH + BH′ = C c. This imports the integral resultant certificate; no new resultant or denominator-clearing theory is planned.
+
+3. Form the finite set E = D ∪ {c,lc(H)}. All factors are nonzero, hence P = ∏q∈E q ≠ 0. If P vanished on every a ∈ ℤⁿ, MvPolynomial.funext over the infinite domain ℤ would imply P = 0. Choose a with P(a) ≠ 0 and extract all factor nonvanishings. This works also for n = 0 and empty D.
+
+4. Polynomial.natDegree_map_of_leadingCoeff_ne_zero preserves the degree after evaluation. Apply Polynomial.map to the certificate, using map_add, map_mul, map_C and derivative_map for its specialized identity. The tuple a depends on the entire marked-denominator set; arbitrary specializations are not asserted good.
+
+Acceptance:
+
+- For H = Y² − T, an alternative certificate is A = −2, B = Y, c = 2T. With D = {T − 2}, a = 2 fails the denominator condition although H(Y,2) is separable; a = 1 preserves the denominator and the degree.
+- For H = TY − 1, a = 0 loses the Y-degree and must be excluded by lc(H)(a) ≠ 0; monicity cannot be assumed silently.
+- For H = Y² the generic separability hypothesis fails: evaluation at Y = 0 rules out any nonzero scalar Bézout certificate.
+- For n = 0 and H = Y² − 2 the parameter tuple is unique; empty D has product one and the theorem is still meaningful.
+
+Inputs: `mathlib:IsFractionRing.injective`, `mathlib:Polynomial.separable_def'`, `mathlib:Polynomial.resultant_ne_zero`, `mathlib:Polynomial.resultant_map_map`, `mathlib:Polynomial.exists_mul_add_mul_eq_C_resultant`, `mathlib:Polynomial.derivative_map`, `mathlib:Polynomial.natDegree_map_eq_of_injective`, `mathlib:Polynomial.natDegree_map_of_leadingCoeff_ne_zero`, `mathlib:MvPolynomial.funext`.
+
+Source match: cassels-embedding-1976, pp. 195–196, proof of Theorem I, equations (2)–(5): Cassels excludes zeros of the leading coefficient, discriminant and marked denominators before choosing a prime. This node is an explicit resultant/Bézout reformulation of that finite-exclusion step, not a quotation of a separately numbered theorem; it assumes the integral presentation has been supplied.
+
+**Simple-root primes for a family with prescribed denominator exclusions** (`DY.6/lech-specialized-simple-prime`, theorem).
+
+Let n ≥ 0, R = ℤ[T₁,…,Tₙ], and H ∈ R[Y] have positive natural degree and separable image in (FractionRing R)[Y]. Let D be a finite set of nonzero parameter polynomials. For every N ∈ ℕ there exist a ∈ ℤⁿ, a prime p > N and b ∈ ℤ such that Hₐ = H(Y,a) has the same natural degree as H, p ∤ lc(H)(a), p ∤ q(a) for all q ∈ D, p ∣ Hₐ(b), and p ∤ Hₐ′(b).
+
+Hypotheses and conventions: The prime and integral parameter specialization are chosen together; the conclusion does not apply to every prime or every specialization. No algebraic independence of a is asserted: a is only the integral residue-box centre for the later p-adic perturbation. Nonconstant H is essential; p = 2 is not forbidden here, while N = 3 forces p ≥ 5 when the analytic consumer needs it.
+
+Proof outline:
+
+1. Apply DY.6/lech-integral-specialization-certificate to obtain A,B,c,a with c(a), lc(H)(a) and all q(a) nonzero, and the degree equality.
+
+2. Set m = lc(H)(a)·∏q∈D q(a), a nonzero integer (empty product one). Map AH + BH′ = C c along evaluation at a; Polynomial.derivative_map gives the exact derivative required by DY.6/simple-root-prime-avoiding.
+
+3. Apply that existing prime-selection node to Hₐ, Aₐ, Bₐ, c(a), m and N. It gives p > N with p ∤ m and a simple residue root b. Each excluded factor divides m, so p divides neither lc(H)(a) nor any q(a). No Chebotarev or Hilbert irreducibility is used.
+
+4. The output is the exact residue data consumed by the remaining algebraically independent p-adic perturbation and Hensel steps of DY.6/lech-embedding-lemma. Producing H and D from the original field, and extending the eventual root to a field embedding, remain separate gaps.
+
+Acceptance:
+
+- H = Y² − T, D = {T − 2}: a = 1, p = 3 and b = 1 give Hₐ(b) = 0, Hₐ′(b) = 2 and denominator value −1; this witnesses any N < 3.
+- The same a and b at p = 2 fail the simple-root condition. The theorem promises a suitable prime, not all primes.
+- With no parameters, H = Y² − 2 and D = ∅, p = 7 and b = 3 give values 7 and 6. This specializes the field-family step to the number-field case.
+- D may be empty; no artificial nonemptiness assumption is used. For n > 0 the integral tuple is not a transcendence basis.
+
+Inputs: `ArithmeticDynamics:DY.6/lech-integral-specialization-certificate`, `ArithmeticDynamics:DY.6/simple-root-prime-avoiding`, `mathlib:Polynomial.derivative_map`, `mathlib:Finset.dvd_prod_of_mem`.
+
+Source match: cassels-embedding-1976, p. 196, equations (5)–(9): Packages the chosen integral specialization and the prime with a simple residue root, while keeping every denominator and the leading coefficient invertible modulo p. The Bézout formulation replaces the source's discriminant shorthand. cassels-embedding-addendum-1976, pp. 479–480, replacement proof of Lemma 2: The already-planned Schur/simple-root nodes provide the elementary prime-avoidance input, for every lower bound N.
+
+Additional pinned statements read for this continuation (including the baseline
+building blocks for the still-open presentation adapter):
+
+- `mathlib:Polynomial.resultant_ne_zero` (`Mathlib/RingTheory/Polynomial/Resultant/Basic.lean`): Over a domain, coprime polynomials have nonzero resultant at their actual degrees. Applied only after passage to the fraction field.
+- `mathlib:Polynomial.separable_def'` (`Mathlib/FieldTheory/Separable.lean`): Separability is the existence of a polynomial Bézout identity with scalar one in the specified coefficient ring.
+- `mathlib:Polynomial.derivative_map` (`Mathlib/Algebra/Polynomial/Derivative.lean`): Formal differentiation commutes with any coefficient-ring homomorphism.
+- `mathlib:Polynomial.natDegree_map_eq_of_injective` (`Mathlib/Algebra/Polynomial/Degree/Lemmas.lean`): Injective coefficient maps preserve natural degree; needed for actual-degree resultants.
+- `mathlib:Polynomial.natDegree_map_of_leadingCoeff_ne_zero` (`Mathlib/Algebra/Polynomial/Eval/Degree.lean`): A specialization preserves natural degree when the image of the leading coefficient is nonzero.
+- `mathlib:Finset.dvd_prod_of_mem` (`Mathlib/Algebra/BigOperators/Group/Finset/Piecewise.lean`): Every factor belonging to a finite product divides it; excludes each marked denominator from the selected prime.
+- `mathlib:exists_finset_isTranscendenceBasis` (`Mathlib/FieldTheory/FinTrdeg.lean`): A finite transcendence basis for a FinTrdeg extension; EssFiniteType already supplies FinTrdeg. This existence is baseline, not a new roadmap node.
+- `mathlib:Field.exists_primitive_element` (`Mathlib/FieldTheory/PrimitiveElement.lean`): A finite separable field extension is generated by one element. The presentation gap must establish its hypotheses and compare the resulting carriers, not replan this theorem.
+- `mathlib:IsLocalization.integerNormalization_spec` (`Mathlib/RingTheory/Localization/Integral.lean`): A polynomial over a localization has an integral-coefficient multiple by a denominator in the localizing monoid; supports the still-open presentation adapter.
+- `mathlib:IsLocalization.exist_integer_multiples` (`Mathlib/RingTheory/Localization/Integer.lean`): A finite indexed family of elements of a localization has one common denominator. The roadmap does not need a second generic common-denominator construction.
+
+Verification: the complete suggested file elaborates at the pinned sources with
+1,151 expected placeholder warnings and no other diagnostics. Separate scratch
+proofs check resultant nonvanishing, the integral specialization certificate and
+finite-family nonvanishing; the final prime assembly is proved with the already
+planned simple-root theorem as an explicit argument. Ten examples check the
+hypothesis boundaries. This is verification of the planning interfaces, not a
+claim that the complete Lech embedding or prime-selection theorem is implemented.
 
 **Hensel lifting from a simple residue-field root** (`DY.6/hensel-root-of-simple-reduction`, lemma).
 
@@ -3377,11 +3463,11 @@ Hypotheses and conventions: L is a field with a ℚ-algebra structure and Algebr
 
 Proof outline:
 
-1. Remaining field-presentation gap: choose a finite transcendence basis x and a primitive algebraic element y; write every marked element as U(y,x)/V(x) with U,V integral polynomials and V ≠ 0. Produce a cleared equation H(Y,x) for y with nonzero leading coefficient and a nonzero separability/Bézout certificate polynomial in x. None of this extraction is asserted closed by the endpoint signature.
+1. Remaining field-presentation gap: starting from Algebra.EssFiniteType ℚ L, use the existing finite-transcendence-basis and primitive-element theorems to identify L with a simple finite extension of Frac(ℤ[T₁,…,Tₙ]). Produce a positive-degree generically separable H(Y,T) for the primitive element and, for each marked element, an expression U(y,T)/V(T) with integral polynomials and V ≠ 0. Baseline integer normalization and common-denominator lemmas exist; their transport through this presentation and the evaluation identities still need a declaration-sized adapter.
 
-2. For the finitely many nonzero coefficient, certificate and denominator polynomials, a simultaneous nonvanishing integral specialization x = a follows by applying MvPolynomial.funext to their nonzero product.
+2. DY.6/lech-integral-specialization-certificate now supplies the nonzero resultant/Bézout certificate and an integral parameter specialization preserving the degree and all marked denominators. The resultant, its integral certificate and finite-family nonvanishing are built on exact pinned baseline statements.
 
-3. Use DY.6/simple-root-prime-avoiding for the specialized equation and the product of its nonzero denominator/leading-coefficient values; choose p > max(N,3). Cassels's addendum supplies elementary prime selection, without Chebotarev.
+3. DY.6/lech-specialized-simple-prime packages the simple residue root and simultaneous leading-coefficient/denominator exclusions; use the bound max(N,3). Cassels's addendum supplies the elementary prime-selection input, without Chebotarev.
 
 4. Remaining independent-perturbation gap: construct algebraically independent ξ ∈ ℤ_pⁿ with ξ ≡ a modulo p, using Cassels Lemma 3 and rational rescaling/translation. Transfer the simple-root certificate and denominator nonvanishing through polynomial reduction.
 
@@ -3396,7 +3482,7 @@ Acceptance:
 - The bound N = 3 gives p ≥ 5 without imposing this restriction on Hensel's lemma.
 - L = ℚ(√2), s = {√2}: at p = 7, 3 is a simple root modulo p and Hensel gives an integral image. This does not assert an embedding at every prime.
 
-Inputs: `mathlib:Algebra.EssFiniteType`, `mathlib:IntermediateField.fg_top_iff`, `mathlib:MvPolynomial.funext`, `ArithmeticDynamics:DY.6/simple-root-prime-avoiding`, `ArithmeticDynamics:DY.6/hensel-root-of-simple-reduction`.
+Inputs: `mathlib:Algebra.EssFiniteType`, `mathlib:IntermediateField.fg_top_iff`, `ArithmeticDynamics:DY.6/hensel-root-of-simple-reduction`, `ArithmeticDynamics:DY.6/lech-specialized-simple-prime`, `mathlib:exists_finset_isTranscendenceBasis`, `mathlib:Field.exists_primitive_element`, `mathlib:IsLocalization.integerNormalization_spec`, `mathlib:IsLocalization.exist_integer_multiples`.
 
 **Cassels embedding with prescribed p-adic units** (`DY.6/lech-embedding-units`, theorem).
 
@@ -3863,7 +3949,7 @@ Needed by: `DY.6/p-adic-power-series-coordinates`.
 
 ### Lech's embedding lemma
 
-The endpoint now has the correct finite-field-generation and arbitrary-marked-set contract. Cassels 1976 and its elementary addendum have been read: prime selection, the simple-root certificate implication, Hensel's residue/norm bridge and the units/localized-ring corollaries are decomposed. Still open: (1) extract a finite transcendence basis and primitive-element presentation from Algebra.EssFiniteType ℚ L, simultaneously clear denominators for the marked elements and produce a nonzero polynomial Bézout certificate; (2) construct algebraically independent ξ in any prescribed integral residue box, with a complete cardinality/rescaling argument and polynomial-reduction compatibility; (3) transport the resulting rational-function-field embedding across the primitive-element presentation to an injective L → ℚ_p and prove its evaluation identities. These need declaration-sized nodes and exact baseline matches; the endpoint is partial, not a proof by a hidden existence hypothesis. Chebotarev is not required by the selected Cassels-addendum route.
+The endpoint has the finite-field-generation and arbitrary-marked-set contract. From a supplied generically separable H over ℤ[T₁,…,Tₙ] and a finite nonzero denominator set, DY.6/lech-integral-specialization-certificate and DY.6/lech-specialized-simple-prime now construct the nonzero polynomial Bézout certificate, preserve degree at an integral specialization, and obtain a simple residue root while avoiding all denominators and the leading coefficient. Still open: (1) assemble the baseline finite transcendence basis, primitive element, integer normalization and common-denominator results into an explicit presentation of L over Frac(ℤ[T₁,…,Tₙ]), with positive-degree generically separable H and marked expressions U(y,T)/V(T), V ≠ 0, and evaluation identities; (2) construct algebraically independent ξ in a prescribed integral residue box, including cardinality/rescaling and polynomial-reduction compatibility; (3) extend the fraction-field embedding across the primitive element, prove all evaluation identities and injectivity. No desired field presentation or embedding is smuggled in as a hypothesis of the original endpoint. Chebotarev is not required.
 
 Needed by: `DY.6/lech-embedding-lemma`.
 

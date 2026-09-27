@@ -7824,6 +7824,69 @@ theorem simple_root_prime_avoiding (f A B : ℤ[X]) (hf : 0 < f.natDegree)
     ∃ p : ℕ, p.Prime ∧ N < p ∧ ¬ (p : ℤ) ∣ m ∧
       ∃ a : ℤ, (p : ℤ) ∣ f.eval a ∧ ¬ (p : ℤ) ∣ f.derivative.eval a := sorry
 
+/-! ### Integral specialization for the Lech–Cassels proof
+
+No new polynomial or fraction-field carrier is introduced. Producing H and D from
+an arbitrary finitely generated field is still a separate gap.
+-/
+
+/-- DY.6/lech-integral-specialization-certificate. The resultant is taken at the
+actual degrees; H is assumed separable only after passage to the fraction field. -/
+theorem lech_integral_specialization_certificate {n : ℕ} (H : (MvPolynomial (Fin n) ℤ)[X])
+    (hdeg : 0 < H.natDegree)
+    (hsep : (H.map (algebraMap _ (FractionRing (MvPolynomial (Fin n) ℤ)))).Separable)
+    (D : Finset (MvPolynomial (Fin n) ℤ)) (hD : ∀ q ∈ D, q ≠ 0) :
+    let c := H.resultant H.derivative
+    ∃ A B : (MvPolynomial (Fin n) ℤ)[X], ∃ a : Fin n → ℤ,
+      c ≠ 0 ∧ A * H + B * H.derivative = C c ∧
+      MvPolynomial.eval a c ≠ 0 ∧ MvPolynomial.eval a H.leadingCoeff ≠ 0 ∧
+      (∀ q ∈ D, MvPolynomial.eval a q ≠ 0) ∧
+      (H.map (MvPolynomial.eval a)).natDegree = H.natDegree := sorry
+
+/-- DY.6/lech-specialized-simple-prime. Integral parameters are residue-box centres,
+not algebraically independent tuples. -/
+theorem lech_specialized_simple_prime
+    {n : ℕ} (H : (MvPolynomial (Fin n) ℤ)[X]) (hdeg : 0 < H.natDegree)
+    (hsep : (H.map (algebraMap _ (FractionRing (MvPolynomial (Fin n) ℤ)))).Separable)
+    (D : Finset (MvPolynomial (Fin n) ℤ)) (hD : ∀ q ∈ D, q ≠ 0) (N : ℕ) :
+    ∃ a : Fin n → ℤ, ∃ p : ℕ, p.Prime ∧ N < p ∧
+      (H.map (MvPolynomial.eval a)).natDegree = H.natDegree ∧
+      ¬ (p : ℤ) ∣ MvPolynomial.eval a H.leadingCoeff ∧
+      (∀ q ∈ D, ¬ (p : ℤ) ∣ MvPolynomial.eval a q) ∧
+      ∃ b : ℤ, (p : ℤ) ∣ (H.map (MvPolynomial.eval a)).eval b ∧
+        ¬ (p : ℤ) ∣ (H.map (MvPolynomial.eval a)).derivative.eval b := sorry
+
+/-! Examples: marked-denominator failure, degree loss, repeated factors, the
+zero-parameter and empty-product cases, and bad residue characteristic. -/
+
+example : (-2 : (MvPolynomial (Fin 1) ℤ)[X]) * (X ^ 2 - C (MvPolynomial.X 0)) +
+    X * (X ^ 2 - C (MvPolynomial.X 0) : (MvPolynomial (Fin 1) ℤ)[X]).derivative =
+      C (2 * MvPolynomial.X 0) := sorry
+
+example : MvPolynomial.eval (fun _ : Fin 1 => (2 : ℤ)) (MvPolynomial.X 0 - 2) = 0 := sorry
+
+example : MvPolynomial.eval (fun _ : Fin 1 => (1 : ℤ)) (MvPolynomial.X 0 - 2) = -1 := sorry
+
+example : ((X ^ 2 - C (MvPolynomial.X 0) : (MvPolynomial (Fin 1) ℤ)[X]).map
+    (MvPolynomial.eval (fun _ => (1 : ℤ)))).eval 1 = 0 := sorry
+
+example : ((X ^ 2 - C (MvPolynomial.X 0) : (MvPolynomial (Fin 1) ℤ)[X]).map
+    (MvPolynomial.eval (fun _ => (1 : ℤ)))).derivative.eval 1 = 2 := sorry
+
+example : ((C (MvPolynomial.X 0) * X - 1 : (MvPolynomial (Fin 1) ℤ)[X]).map
+    (MvPolynomial.eval (fun _ => (0 : ℤ)))).natDegree = 0 := sorry
+
+example : ¬ ∃ A B : ℤ[X], ∃ c : ℤ, c ≠ 0 ∧ A * X ^ 2 + B * (X ^ 2 : ℤ[X]).derivative = C c := sorry
+
+example : ((X ^ 2 - 2 : (MvPolynomial (Fin 0) ℤ)[X]).map
+    (MvPolynomial.eval Fin.elim0)).eval 3 = 7 := sorry
+
+example : (Finset.prod (∅ : Finset (MvPolynomial (Fin 0) ℤ))
+    (MvPolynomial.eval Fin.elim0)) = 1 := sorry
+
+example : ¬ (3 : ℤ) ∣ (X ^ 2 - 1 : ℤ[X]).derivative.eval 1 ∧
+    (2 : ℤ) ∣ (X ^ 2 - 1 : ℤ[X]).derivative.eval 1 := sorry
+
 /-- DY.6/hensel-root-of-simple-reduction. Prime 2 is permitted here. -/
 theorem hensel_root_of_simple_reduction {p : ℕ} [Fact p.Prime]
     (F : ℤ_[p][X]) (b : ℤ_[p])
