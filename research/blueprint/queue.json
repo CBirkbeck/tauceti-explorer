@@ -23218,14 +23218,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticDynamics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-InverseGaloisAndArithmeticFundamentalGroups",
     "BP-SchemeAndStackFoundations",
     "BP-TropicalAndBerkovichArithmetic"
    ],
-   "note": "claimed on GitHub issue #1023"
+   "note": "released on GitHub issue #1023"
   },
   {
    "id": "REV-ArithmeticDynamics",
@@ -24106,7 +24106,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-ExponentialSumsAndCircleMethod.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -24114,7 +24114,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "released on GitHub issue #1040"
+   "note": "claimed on GitHub issue #1040"
   },
   {
    "id": "REV-ExponentialSumsAndCircleMethod",
