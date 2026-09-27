@@ -346,3 +346,112 @@ example (h : ¬ 3 ∣ 2) : smoothedNumerator 3 2 h ≠ unitSmoothedMeasure 3 2 h
 -- SuggestedTests.numerator_first_dyadic
 example (h : ¬ 2 ∣ 3) : smoothedNumerator 2 3 h (ContinuousMap.id ℤ_[2]) = 0 := sorry
 end SuggestedTests
+
+/-! Arithmetic smoothing relations. Generic pushforward and inverse weighting are imported.
+The actual measures, not their moments as additional hypotheses, occur in every signature.
+The inverse-weighted expressions are the numerator J(r μ_a)=J μ_a by the exact supplier.
+-/
+namespace DirichletPadic
+section SmoothingRelations
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+
+-- DirichletPadicLFunctions:L1/measure-smoothing-cocycle
+theorem smoothedMeasure_mul (a b : ℕ)
+    (ha : ¬ p ∣ a) (hb : ¬ p ∣ b) (hab : ¬ p ∣ a * b) :
+    smoothedMeasure p (a * b) hab = smoothedMeasure p a ha +
+      (a : Z) • AbstractMeasure.map
+        ⟨fun z : Z => (a : Z) * z, continuous_const.mul continuous_id⟩
+        (smoothedMeasure p b hb) := sorry
+
+-- DirichletPadicLFunctions:L1/measure-cross-smoothing
+theorem smoothedMeasure_cross (a b : ℕ) (ha : ¬ p ∣ a) (hb : ¬ p ∣ b) :
+    (b : Z) • AbstractMeasure.map
+        ⟨fun z : Z => (b : Z) * z, continuous_const.mul continuous_id⟩
+        (smoothedMeasure p a ha) - smoothedMeasure p a ha =
+    (a : Z) • AbstractMeasure.map
+        ⟨fun z : Z => (a : Z) * z, continuous_const.mul continuous_id⟩
+        (smoothedMeasure p b hb) - smoothedMeasure p b hb := sorry
+
+-- DirichletPadicLFunctions:L1/measure-reflection
+theorem smoothedMeasure_reflection (a : ℕ) (ha : ¬ p ∣ a) :
+    smoothedMeasure p a ha +
+      AbstractMeasure.map ⟨fun z : Z => -z, continuous_neg⟩ (smoothedMeasure p a ha) =
+        ((a : Z) - 1) • AbstractMeasure.dirac Z 0 := sorry
+
+-- DirichletPadicLFunctions:L1/numerator-smoothing-cocycle
+theorem smoothedNumerator_mul (a b : ℕ)
+    (ha : ¬ p ∣ a) (hb : ¬ p ∣ b) (hab : ¬ p ∣ a * b) :
+    smoothedNumerator p (a * b) hab = smoothedNumerator p a ha +
+      AbstractMeasure.map
+        ⟨fun z : Z => (a : Z) * z, continuous_const.mul continuous_id⟩
+        (smoothedNumerator p b hb) := sorry
+
+-- DirichletPadicLFunctions:L1/numerator-cross-smoothing
+theorem smoothedNumerator_cross (a b : ℕ) (ha : ¬ p ∣ a) (hb : ¬ p ∣ b) :
+    AbstractMeasure.map
+        ⟨fun z : Z => (b : Z) * z, continuous_const.mul continuous_id⟩
+        (smoothedNumerator p a ha) - smoothedNumerator p a ha =
+    AbstractMeasure.map
+        ⟨fun z : Z => (a : Z) * z, continuous_const.mul continuous_id⟩
+        (smoothedNumerator p b hb) - smoothedNumerator p b hb := sorry
+
+-- DirichletPadicLFunctions:L1/numerator-even
+theorem smoothedNumerator_even (a : ℕ) (ha : ¬ p ∣ a) :
+    AbstractMeasure.map ⟨fun z : Z => -z, continuous_neg⟩
+      (smoothedNumerator p a ha) = smoothedNumerator p a ha := sorry
+
+end SmoothingRelations
+end DirichletPadic
+
+namespace SuggestedSmoothingTests
+open DirichletPadic
+open scoped AbstractMeasure
+
+-- SuggestedSmoothingTests.measure_product_odd
+example (h2 : ¬ 3 ∣ 2) (h4 : ¬ 3 ∣ 4) :
+    smoothedMeasure 3 4 h4 = smoothedMeasure 3 2 h2 +
+      (2 : ℤ_[3]) • AbstractMeasure.map
+        ⟨fun z : ℤ_[3] => 2 * z, continuous_const.mul continuous_id⟩
+        (smoothedMeasure 3 2 h2) := sorry
+
+-- SuggestedSmoothingTests.measure_product_dyadic
+example (h3 : ¬ 2 ∣ 3) (h5 : ¬ 2 ∣ 5) (h15 : ¬ 2 ∣ 15) :
+    smoothedMeasure 2 15 h15 = smoothedMeasure 2 3 h3 +
+      (3 : ℤ_[2]) • AbstractMeasure.map
+        ⟨fun z : ℤ_[2] => 3 * z, continuous_const.mul continuous_id⟩
+        (smoothedMeasure 2 5 h5) := sorry
+
+-- SuggestedSmoothingTests.reflection_zero_atom
+example (h2 : ¬ 3 ∣ 2) :
+    smoothedMeasure 3 2 h2 + AbstractMeasure.map
+      ⟨fun z : ℤ_[3] => -z, continuous_neg⟩ (smoothedMeasure 3 2 h2) =
+        AbstractMeasure.dirac ℤ_[3] 0 := sorry
+
+-- SuggestedSmoothingTests.reflection_dyadic
+example (h3 : ¬ 2 ∣ 3) :
+    smoothedMeasure 2 3 h3 + AbstractMeasure.map
+      ⟨fun z : ℤ_[2] => -z, continuous_neg⟩ (smoothedMeasure 2 3 h3) =
+        (2 : ℤ_[2]) • AbstractMeasure.dirac ℤ_[2] 0 := sorry
+
+-- SuggestedSmoothingTests.numerator_product_scalar
+example (h2 : ¬ 3 ∣ 2) (h4 : ¬ 3 ∣ 4) :
+    smoothedNumerator 3 4 h4 =
+      smoothedNumerator 3 2 h2 +
+        AbstractMeasure.map
+          ⟨fun z : ℤ_[3] => 2 * z, continuous_const.mul continuous_id⟩
+          (smoothedNumerator 3 2 h2) := sorry
+
+-- SuggestedSmoothingTests.cross_smoothing_second_moment
+example (h2 : ¬ 3 ∣ 2) (h4 : ¬ 3 ∣ 4) :
+    (15 : ℤ_[3]) * smoothedNumerator 3 2 h2
+      ((ContinuousMap.id ℤ_[3]) ^ 2) =
+    3 * smoothedNumerator 3 4 h4
+      ((ContinuousMap.id ℤ_[3]) ^ 2) := sorry
+
+-- SuggestedSmoothingTests.even_dyadic_numerator
+example (h3 : ¬ 2 ∣ 3) :
+    AbstractMeasure.map ⟨fun z : ℤ_[2] => -z, continuous_neg⟩
+      (smoothedNumerator 2 3 h3) =
+        smoothedNumerator 2 3 h3 := sorry
+end SuggestedSmoothingTests

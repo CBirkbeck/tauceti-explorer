@@ -1,3 +1,79 @@
+# BP-DirichletPadicLFunctions — smoothing compatibility and parity
+
+Codex — codex-7e92bd. Refs #713. Own-job follow-up to merged checkpoint
+#3161 under WORKERS.md; review #390 unclaimed at preparation.
+All five layers remain in scope, no layer is closed, and every implementation
+status remains unchecked.
+
+Six new relation nodes prove, at the blueprint level, μ_ab=μ_a+aσ_aμ_b,
+the corresponding cross-smoothing identity, and μ_a+ε_*μ_a=(a−1)δ₀.
+Applying the exact imported inverse weight J cancels the scalar a and kills
+the zero atom. For the existing numerator ν_a=Jμ_a this gives
+ν_ab=ν_a+σ_aν_b, (σ_b−1)ν_a=(σ_a−1)ν_b, and ε_*ν_a=ν_a.
+Every equality uses the actual existing ambient integral measure carrier.
+The six new dependency chains avoid both generic averaging requests.
+
+The proof of ordinary-moment determination is expanded within the two arithmetic
+proofs: apply baseline Mahler extensionality, multiply the nth Mahler function
+by n!, expand the descending Pochhammer polynomial as a finite sum, and cancel
+the nonzero scalar n! after evaluation. No generic moment theorem, measure
+carrier, inverse weight, group action or formal-substitution comparison is
+duplicated. The already-planned Coleman denominator-product identity is left
+with its owner; no reverse dependency is introduced.
+
+Two existing constructions gain three API entries each and seven tests in total.
+All 45 preceding mathematical statements and six source findings remain.
+The unit-support proof now cites the exact promoted restriction-evaluation node
+and baseline clopen indicator, replacing use of an unpromoted foreign API.
+7 Proposition 4.8 arXiv-v2 locators are corrected from page27 to page28.
+This corrects citation metadata, not a new source finding.
+
+Totals: **51 nodes**, 44 API entries,
+33 packet tests (32 definition/construction tests),
+35 typed Lean examples, 6 planets,
+61 baseline declarations, 6 gaps,
+2 requests, 6 source findings,
+and 0 closed stages.
+
+The actual suggested file compiles with **zero errors and 88 warnings**, all proof placeholders. Its actual imported PMIA suggested file was compiled separately with zero errors and 160 placeholder warnings. The 3,027 reached Mathlib source files were byte-matched to the pin; no Tau Ceti module is imported. The real supplier source and generated object hashes are recorded, and no local operator stub is substituted. The suggested SHA-256 is `b66bcf6ca9e1acda7e158d8aeba6e4a63582f083ea87bdc00f235acf06c73e39`.
+
+A separate scratch proof of the finite-Pochhammer extensionality reduction and
+two rational Bernoulli identities compiled with zero errors, warnings or
+placeholders after checking 2,856 Mathlib source imports. Its SHA-256 is
+`d9b8b6437bb6ff07b2aad25eba1befb32b485a50680b4dc2ace355bd090b2097`. This limited proof check does not
+implement the roadmap. There are 81,951 finite exact arithmetic/residue checks
+and eight controls detecting missing or extra scalars, the zero-atom correction,
+wrong exponents, inverse direction, nonunit smoothing and the k=1 endpoint.
+The tests use no formula for the numerator’s total mass. Finite computations
+supplement the general proof outlines and do not establish all parameters.
+
+Read the whole claimed issue, campaign/scopes, all five reviewed AUDIT24 rows,
+accepted RS14 review, own layer decisions, relevant owners/links and full prose;
+all touching link records; the complete predecessor reader, seed and handoff;
+and every newly consumed node. Binding documents and the two previously read
+upstream models are byte-checked against the fresh snapshot. Both pinned
+libraries and the existing packet owners were searched before planning.
+Every newly cited baseline statement was read at the pins.
+
+Fresh source reading covers published RJW PDF37–40 / printed136–139, collated
+with arXiv v2 PDF26–28, plus published PDF31–32 / printed130–131 for Lemma3.36.
+The earlier version hashes and six findings are preserved. No new erratum
+search, author contact, independent-review verdict or whole-paper reading is claimed.
+
+Indexed blueprint validation reports zero errors and warnings. The exact four-file intake reports zero problems. The graph is acyclic, and the reader, signatures, API and tests agree. Fresh main `3fa3504bfe0aa38e8c6f1934daa440b2e6756999` matched all 52 captured inputs and the four predecessor outputs. The issue body and own winning claim 5851844379 are unchanged; #713 is available and review #390 is unclaimed. The preceding automatic E6 register addition was inspected in full, with every prior issue record unchanged. No manual merge or independent review was performed.
+
+Continue with the exact L2 root averages and bounded rational-series comparison;
+then the actual intrinsic unit-support/completed-algebra and multiplicative
+Dirac/convolution comparisons, arithmetic regularity, pseudomeasure existence
+and independence, parity descent, denominator-qualified Kummer congruences,
+and the separate integral dyadic construction. Ambient evenness does not give
+a dyadic idempotent (1+ε)/2. Retain all L0/L2/L3/L4 and coefficient-extension
+obligations; no layer is closed by this arithmetic compatibility tranche.
+
+---
+
+## Previous checkpoint record (historical)
+
 # BP-DirichletPadicLFunctions — unit restriction and numerator checkpoint
 
 Codex — codex-7e92bd; 27 September 2026. Refs #713. Partial checkpoint, not a
