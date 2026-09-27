@@ -2,6 +2,9 @@ import Mathlib.NumberTheory.DirichletCharacter.Bounds
 import Mathlib.NumberTheory.ArithmeticFunction.Moebius
 import Mathlib.Algebra.Ring.Periodic
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Data.Nat.Factorization.Basic
+import Mathlib.Data.Nat.GCD.BigOperators
+import Mathlib.Data.Nat.GCD.Prime
 import Mathlib.Tactic
 
 /-! This file is not the roadmap and is not exhaustive; the roadmap document
@@ -115,6 +118,64 @@ theorem eventual_small_conductor_power_saving (c : ℝ) (hc : 0 < c) :
         ‖∑ m ∈ Finset.Ioc (k / 2) k, if Nat.Coprime m M then χ m else 0‖ ≤
           Real.rpow k (1 / 2 : ℝ) := by sorry
 
+/-- ES.0/ambient-product-evaluation. Includes nonunits and negative integers. -/
+theorem ambient_product_evaluation {N₁ N₂ : ℕ} [NeZero N₁] [NeZero N₂]
+    (χ₁ : DirichletCharacter ℂ N₁) (χ₂ : DirichletCharacter ℂ N₂) (a : ℤ) :
+    (χ₁.mul χ₂) a = χ₁ a * χ₂ a := by sorry
+
+/-- ES.0/primitive-exclusion-coprime. No new character or exclusion carrier. -/
+theorem primitive_exclusion_coprime {M : ℕ} [NeZero M]
+    (σ : DirichletCharacter ℂ M) :
+    Nat.Coprime σ.conductor
+      (∏ p ∈ M.primeFactors.filter (fun p => ¬ p ∣ σ.conductor), p) := by sorry
+
+/-- ES.0/primitive-exclusion-period-divides. Divisibility, not equality. -/
+theorem primitive_exclusion_period_divides {M : ℕ} [NeZero M]
+    (σ : DirichletCharacter ℂ M) :
+    σ.conductor * (∏ p ∈ M.primeFactors.filter (fun p => ¬ p ∣ σ.conductor), p)
+      ∣ M := by sorry
+
+/-- ES.0/primitive-exclusion-evaluation. Valid also for principal characters. -/
+theorem primitive_exclusion_evaluation {M : ℕ} [NeZero M]
+    (σ : DirichletCharacter ℂ M) (a : ℤ) :
+    σ a = if IsCoprime a
+      ((∏ p ∈ M.primeFactors.filter (fun p => ¬ p ∣ σ.conductor), p : ℕ) : ℤ)
+      then σ.primitiveCharacter a else 0 := by sorry
+
+/-- ES.0/cancelled-prime-common-support. Quadraticity is unnecessary here. -/
+theorem cancelled_prime_common_support {N₁ N₂ : ℕ} [NeZero N₁] [NeZero N₂]
+    (χ₁ : DirichletCharacter ℂ N₁) (χ₂ : DirichletCharacter ℂ N₂)
+    (hp₁ : χ₁.IsPrimitive) (hp₂ : χ₂.IsPrimitive) :
+    (∏ p ∈ (Nat.lcm N₁ N₂).primeFactors.filter
+      (fun p => ¬ p ∣ (χ₁.mul χ₂).conductor), p) ∣ Nat.gcd N₁ N₂ := by sorry
+
+/-- ES.0/primitive-product-quadratic. Primitivity of the inputs is unnecessary. -/
+theorem primitive_product_quadratic {N₁ N₂ : ℕ} [NeZero N₁] [NeZero N₂]
+    (χ₁ : DirichletCharacter ℂ N₁) (χ₂ : DirichletCharacter ℂ N₂)
+    (h₁ : χ₁.IsQuadratic) (h₂ : χ₂.IsQuadratic) :
+    (χ₁.primitive_mul χ₂).IsQuadratic := by sorry
+
+/-- ES.0/primitive-product-nonprincipal. Distinct as integer-valued functions;
+the moduli may coincide. -/
+theorem primitive_product_nonprincipal {N₁ N₂ : ℕ} [NeZero N₁] [NeZero N₂]
+    (χ₁ : DirichletCharacter ℂ N₁) (χ₂ : DirichletCharacter ℂ N₂)
+    (hp₁ : χ₁.IsPrimitive) (hp₂ : χ₂.IsPrimitive)
+    (h₁ : χ₁.IsQuadratic) (h₂ : χ₂.IsQuadratic)
+    (hne : ∃ a : ℤ, χ₁ a ≠ χ₂ a) : χ₁.primitive_mul χ₂ ≠ 1 := by sorry
+
+/-- ES.0/small-conductor-product-cancellation. The same K works for both
+conductors and all characters; this is not the large-conductor branch. -/
+theorem small_conductor_product_cancellation (c : ℝ) (hc : 0 < c) :
+    ∃ K : ℕ, 1 ≤ K ∧ ∀ k : ℕ, K ≤ k →
+      ∀ (N₁ N₂ : ℕ) [NeZero N₁] [NeZero N₂]
+        (χ₁ : DirichletCharacter ℂ N₁) (χ₂ : DirichletCharacter ℂ N₂),
+        χ₁.IsPrimitive → χ₂.IsPrimitive → χ₁.IsQuadratic → χ₂.IsQuadratic →
+        (∃ a : ℤ, χ₁ a ≠ χ₂ a) →
+        (N₁ : ℝ) ≤ Real.rpow k c → (N₂ : ℝ) ≤ Real.rpow k c →
+        ((χ₁.mul χ₂).conductor : ℝ) ≤ 8 * Real.rpow k (7 / 32 : ℝ) →
+        ‖∑ a ∈ Finset.Ioc (k / 2) k, χ₁ a * χ₂ a‖ ≤
+          Real.rpow k (1 / 2 : ℝ) := by sorry
+
 section ContractTests
 /-- Contract test: character_three_complete. -/
 example : (∑ n ∈ Finset.Ioc 0 2, if n % 3 = 1 then (1 : ℤ)
@@ -177,5 +238,35 @@ example (c : ℝ) (hc : 0 < c) : 1 / ((64 * c)⁻¹) = 64 * c := by sorry
 /-- Contract test: explicit_constant_one_exponent. -/
 example (ε : ℝ) (hε : 0 < ε) (B : ℕ) :
     1 ≤ (max 1 (ε * Real.log 2)⁻¹) ^ B := by sorry
+/-- Contract test: exclusion_shrink_eight. -/
+example : (∏ p ∈ (8 : ℕ).primeFactors.filter (fun p => ¬ p ∣ 4), p) = 1 := by sorry
+/-- Contract test: exclusion_mixed_fifteen. -/
+example : (∏ p ∈ (15 : ℕ).primeFactors.filter (fun p => ¬ p ∣ 5), p) = 3 := by sorry
+/-- Contract test: exclusion_principal_twelve. -/
+example : (∏ p ∈ (12 : ℕ).primeFactors.filter (fun p => ¬ p ∣ 1), p) = 6 := by sorry
+/-- Contract test: exclusion_modulus_one. -/
+example : (∏ p ∈ (1 : ℕ).primeFactors.filter (fun p => ¬ p ∣ 1), p) = 1 := by sorry
+/-- Contract test: period_divisibility_not_equality. -/
+example : (4 : ℕ) * 1 ∣ 8 ∧ 4 * 1 ≠ 8 := by sorry
+/-- Contract test: common_prime_not_coprime_moduli. -/
+example : (3 : ℕ) ∣ Nat.gcd 3 15 ∧ ¬ Nat.Coprime 3 15 := by sorry
+/-- Contract test: imprimitive_support_obstruction. -/
+example : ¬ (2 : ℕ) ∣ Nat.gcd 8 1 := by sorry
+/-- Contract test: mask_negative_excluded. -/
+example : (if IsCoprime (-3 : ℤ) 3 then (-1 : ℂ) else 0) = 0 := by sorry
+/-- Contract test: mask_negative_kept. -/
+example : (if IsCoprime (-2 : ℤ) 3 then (-1 : ℂ) else 0) = -1 := by sorry
+/-- Contract test: mask_zero_excluded. -/
+example : (if IsCoprime (0 : ℤ) 6 then (1 : ℂ) else 0) = 0 := by sorry
+/-- Contract test: quadratic_two_adic_cancellation. -/
+example (a : ℤ) :
+    (if a % 8 = 1 ∨ a % 8 = 7 then (1 : ℤ)
+      else if a % 8 = 3 ∨ a % 8 = 5 then -1 else 0) *
+    (if a % 8 = 1 ∨ a % 8 = 3 then (1 : ℤ)
+      else if a % 8 = 5 ∨ a % 8 = 7 then -1 else 0) =
+    (if a % 4 = 1 then (1 : ℤ) else if a % 4 = 3 then -1 else 0) := by sorry
+/-- Contract test: diagonal_principal_obstruction. -/
+example : (∑ a ∈ Finset.Ioc (0 : ℕ) 3,
+    (if a % 3 = 1 then (1 : ℤ) else if a % 3 = 2 then -1 else 0)^2) = 2 := by sorry
 end ContractTests
 end TauCeti.ExponentialSumsPlan

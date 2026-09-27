@@ -4,13 +4,13 @@
 
 This is a partial blueprint for all six stages ES.0–ES.5, with a declaration-sized development of one source-routed branch inside ES.0. It plans the small-conductor part of the proof of Proposition 8.2 in Michael A. Bennett and Samir Siksek, *A conjecture of Erdős*, Annals of Mathematics 191 (2020), 355–392. The result concerns cancellation in products of distinct primitive quadratic characters. The branch developed here is more general in its finite-sum hypotheses: it works for an arbitrary nonprincipal complex Dirichlet character and an arbitrary positive exclusion modulus.
 
-The outcome is a chain of thirteen proposed declarations, not a completed implementation or a closed circle-method roadmap. It supplies exact interval reindexing, a Möbius expansion, the bounds qτ(M) and qM, and a square-root saving using the exact AN.5 explicit and uniform divisor-bound nodes. Both an explicit size threshold and a natural threshold depending only on the growth exponent are specified. The passage from a product of primitive quadratic characters to these inputs is still an explicit gap. The large-conductor branch, the externally quoted Graham–Ringrose theorem, and all the general circle-method targets require further source decomposition.
+The outcome is a chain of twenty-one proposed declarations, not a completed implementation or a closed circle-method roadmap. Thirteen unchanged nodes supply exact interval reindexing, a Möbius expansion, the bounds qτ(M) and qM, and explicit and uniform square-root thresholds using the exact AN.5 divisor nodes. Eight new adapters reduce the product of distinct primitive quadratic characters to those inputs: they retain the excluded-prime mask and prove the conductor arithmetic needed to preserve the original growth exponent. The large-conductor branch, the externally quoted Graham–Ringrose theorem, and all the general circle-method targets require further source decomposition.
 
 The version read is the [published PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf), SHA-256 `3920a7524a37870942fe3591ac858db23cb604f4331bccd2a6dc5f11a1671fbf`, accessed 26 September 2026. The complete selected §8.1 argument, printed pp.376–379, was read, including the two cases of Proposition 8.2. Pages 377–379 were also checked as images. This reading does not establish coverage of the entire article. In particular, neither the original Graham–Ringrose proof nor Iwaniec–Kowalski Theorem 12.13 was read for this checkpoint.
 
 The accepted paper extraction, its independent review, and reviewed errata E2, E3 and E11 were read alongside the published argument. The generic periodic-sequence and floor-division lemmas below are worker derivations which expose the finite steps used by that argument. They are not attributed to the article as separately stated named theorems. The square-root threshold is an explicit consequence of the corrected subpower input, not a transcription of a claimed constant in the source.
 
-The divisor supplier follows Terence Tao's [The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), 23 September 2008, SHA-256 `1a26cc2a78746463092d440c0a1e119bd8d4c3e223f805dd000ae8a76830b2f9`, accessed 26 September 2026. Both proofs in the main post were read while preparing AN.5; the comments are not used. The explicit constant D^B is the worker's quantified refinement of the small/large-prime proof, decomposed in AN.5. This ES continuation reread those exact supplier statements and Bennett–Siksek pp.378–379.
+The divisor supplier follows Terence Tao's [The divisor bound](https://terrytao.wordpress.com/2008/09/23/the-divisor-bound/), 23 September 2008, SHA-256 `1a26cc2a78746463092d440c0a1e119bd8d4c3e223f805dd000ae8a76830b2f9`, accessed 26 September 2026. Both proofs in the main post were read while preparing AN.5; the comments are not used. The explicit constant D^B is the worker's quantified refinement of the small/large-prime proof, decomposed in AN.5. The previous continuation reread those exact supplier statements. The present continuation freshly reread all of the selected Bennett–Siksek pp.376–379 argument and the page 377 image on 27 September, along with the accepted paper and errata reviews. No new whole-paper reading is claimed.
 
 ## Ownership and the pinned starting point
 
@@ -18,12 +18,13 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 RS-03 and its accepted review retain the six ES stages. ES.0 owns analytic completion, differencing and oscillation methods; FiniteFieldsAndCharacterSums:FF.2 owns the general finite-field character bounds they consume. Torus counting identities in ES.1 are not the same object as the finite additive-combinatorics Fourier package in AC.0. The optimized Diophantine circle-method endpoints in ES.4 likewise do not duplicate the finite-complexity pattern endpoint in AC.5. RS-07 and the current ES.4 contract distinguish the prime-weighted branch: AnalyticNumberTheory:AN.3 supplies uniform prime-progression analysis, while SieveMethodsAndPrimePatterns:SV.2 supplies the Vaughan/Heath-Brown and Type I/II interfaces. Retired AN stages are not invoked.
 
-All 28 existing link records mentioning this roadmap were read. They record negative screens of differing depth, not proofs that no mathematical dependency exists. In particular, the negative IntegralLattices and GlobalQuadraticForms screens do not turn geometry-of-numbers estimates into the local-density or circle-method theorems needed here. The preceding ES packet's ten finite-sum and conditional-absorption nodes retain their original identifiers and mathematical statements. Three supplier-consuming consequences extend that chain.
+All 28 existing link records mentioning this roadmap were read. They record negative screens of differing depth, not proofs that no mathematical dependency exists. In particular, the negative IntegralLattices and GlobalQuadraticForms screens do not turn geometry-of-numbers estimates into the local-density or circle-method theorems needed here. All thirteen node objects from the preceding ES checkpoint are retained exactly. The eight additions consume the existing character constructors and conductor theorems; neither the generic primitive construction nor the AN.5 divisor proof is replanned.
 
 The key reuse decisions are as follows.
 
 - Characters are the existing `DirichletCharacter`, namely multiplicative characters on a residue ring with zero values at nonunits. No new character structure is introduced.
-- Primitive reduction is already provided by `primitiveCharacter`, `changeLevel_primitiveCharacter` and `primitiveCharacter_isPrimitive`. The existing evaluation comparison has a coprimality hypothesis; it is not an unconditional equality on every integer.
+- Primitive reduction is already provided by `primitiveCharacter`, `changeLevel_primitiveCharacter` and `primitiveCharacter_isPrimitive`. Products at the ambient lcm and their primitive inducers are already `mul` and `primitive_mul`; the latter is primitive by `primitive_mul_isPrimitive`. The existing evaluation comparison has a coprimality hypothesis. The new all-integer adapter restores the missing excluded-prime mask.
+- `conductor_changeLevel`, `conductor_inv` and `conductor_mul_dvd_lcm_conductor` already supply the general conductor algebra. The new cancelled-prime lemma is a consequence of these, not a duplicate conductor theory. Quadraticity is the existing `MulChar.IsQuadratic`, including principal characters.
 - `Function.Periodic`, natural finite intervals, gcd/coprimality, `Nat.divisors` and `ArithmeticFunction.moebius` already exist. The new nodes are consequences and adapters, not replacement definitions.
 - Complete character cancellation is already `MulChar.sum_eq_zero_of_ne_one`. The missing interface is the incomplete natural interval and its precise residual length.
 - The convolution identity for Möbius and zeta is built. The weighted, exclusion-filtered finite interval formula is the adapter developed here.
@@ -43,7 +44,7 @@ Complex norms are the ordinary absolute values. Real powers use positive or nonn
 
 Three integers have different roles in the source application: the ambient modulus of the product, the conductor of its primitive inducing character, and the product of excluded primes. In the generic lemmas below q is any positive character modulus and M is any positive exclusion modulus. The product qM is a valid period but is not asserted to be a least period or a conductor. Neither coprimality of q and M nor squarefreeness of M is needed for the finite-sum estimates.
 
-## The thirteen declarations
+## The twenty-one declarations
 
 The dependency chain begins with exact periodic cancellation, uses it to bound each Möbius-reindexed inner sum, and ends with two bounds and explicit constant absorption. Every node below has implementation status unchecked. Its proposed name is in `TauCeti.ExponentialSumsPlan`.
 
@@ -345,6 +346,190 @@ Acceptance checks:
 - At c=1/64 the imported exponent is exactly 1.
 - This is only the small-conductor branch; it does not assert the full product-character proposition.
 
+
+## Product-conductor conventions
+
+For declarations 14–21 only, write M=lcm(N1,N2), σ=χ1.mul χ2, q=cond(σ), η=χ1.primitive_mul χ2 and R=∏{p prime : p divides M and p does not divide q}p. These are local expressions in existing types, not new definitions. In declarations 15–17, σ may instead be any character modulo M>0. Do not confuse this ambient M with the arbitrary exclusion modulus called M in declarations 1–13; their application substitutes R for that exclusion modulus.
+
+The exact identities are gcd(q,R)=1 and qR|M. R has each excluded prime once, so it is positive even when its prime set is empty. It need not equal M/q. For χ8χ−8=χ−4, M=8, q=4 and R=1. For χ3 times the primitive product χ3χ5 of conductor 15, M=15, q=5 and R=3. The comparison with the primitive character must include the R mask even at negative integers and at zero.
+
+### 14. Integer evaluation of the ambient product
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/ambient-product-evaluation`. Proposed declaration: `TauCeti.ExponentialSumsPlan.ambient_product_evaluation`.
+
+For positive N1,N2, complex Dirichlet characters χi modulo Ni and every integer a, the existing character σ=χ1.mul χ2 modulo M=lcm(N1,N2) satisfies σ(a)=χ1(a)χ2(a).
+
+No primitivity, quadraticity, distinctness or coprimality of the moduli is required. Evaluations cast the same integer to each residue ring, including nonunits.
+
+Proof plan:
+
+1. Unfold the existing ambient product as A·B, with A and B the change-level lifts to M.
+2. If a is coprime to M, apply the existing coprime change-level evaluation theorem to both factors.
+3. If a is not coprime to M, choose a common prime of |a| and M. A prime divides an lcm exactly when it divides at least one input modulus, so at least one original character vanishes. The ambient character vanishes as well.
+4. Use integer gcd via natural absolute values to cover a=0 and negative a; no division or representative choice is needed.
+
+The direct prerequisites are `mathlib:DirichletCharacter.mul`, `mathlib:DirichletCharacter.changeLevel_eq_cast_of_dvd'`, `mathlib:DirichletCharacter.apply_eq_zero_iff`, `mathlib:Nat.Prime.dvd_lcm`, `mathlib:Nat.Prime.not_coprime_iff_dvd`. The source use is Bennett–Siksek §8.1, printed pp.377–379: Transfers the source's pointwise product into the already existing ambient character.
+
+Acceptance checks:
+
+- Do not apply the coprime change-level formula at a nonunit.
+- Distinct characters of equal modulus are allowed.
+
+### 15. Coprimality of conductor and excluded primes
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/primitive-exclusion-coprime`. Proposed declaration: `TauCeti.ExponentialSumsPlan.primitive_exclusion_coprime`.
+
+For any complex character σ modulo M>0, put q=cond(σ) and R=∏{p prime : p divides M and p does not divide q}p. Then gcd(q,R)=1.
+
+The finite prime set is the existing primeFactors(M) filtered by p not dividing q; the empty product is 1. σ may be principal or imprimitive.
+
+Proof plan:
+
+1. Every factor p is prime and does not divide q, hence is coprime to q.
+2. Apply the finite-product coprimality equivalence; no prime power or multiplicity is included.
+
+The direct prerequisites are `mathlib:Nat.primeFactors`, `mathlib:Nat.mem_primeFactors`, `mathlib:Nat.coprime_prod_right_iff`. The source use is Bennett–Siksek §8.1, printed pp.377–379: Provides the coprime primitive/exclusion split required before the CRT branch.
+
+Acceptance checks:
+
+- M=8,q=4 gives R=1.
+- M=q=1 has an empty excluded-prime set and satisfies the result.
+
+### 16. The reduced product divides the ambient modulus
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/primitive-exclusion-period-divides`. Proposed declaration: `TauCeti.ExponentialSumsPlan.primitive_exclusion_period_divides`.
+
+For σ modulo M>0, q=cond(σ) and R the product of prime divisors of M absent from q, qR divides M.
+
+No assertion that qR=M or that qR is a primitive conductor. All prime factors in R occur once; q>0 is supplied by conductor_ne_zero.
+
+Proof plan:
+
+1. The product R over a subset of primeFactors(M) divides the full prime product, which divides M.
+2. The existing conductor theorem gives q dividing M.
+3. Combine these two divisibilities using gcd(q,R)=1, or equivalently identify their lcm with qR.
+
+The direct prerequisites are `ExponentialSumsAndCircleMethod:ES.0/primitive-exclusion-coprime`, `mathlib:DirichletCharacter.conductor_dvd_level`, `mathlib:DirichletCharacter.conductor_ne_zero`, `mathlib:Finset.prod_dvd_prod_of_subset`, `mathlib:Nat.prod_primeFactors_dvd`. The source use is Bennett–Siksek §8.1, printed pp.377–379: Replaces the source's unjustified equality between the ambient modulus and its reduced primitive/exclusion product.
+
+Acceptance checks:
+
+- The 2-adic example gives strict divisibility 4|8.
+- For the principal character modulo 12, qR=6|12.
+
+### 17. The primitive character with its exclusion mask
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/primitive-exclusion-evaluation`. Proposed declaration: `TauCeti.ExponentialSumsPlan.primitive_exclusion_evaluation`.
+
+For every complex character σ modulo M>0 and integer a, let q=cond(σ), η=σ.primitiveCharacter and R the product of prime divisors of M absent from q. Then σ(a)=η(a) if gcd(|a|,R)=1, and σ(a)=0 otherwise.
+
+No nonprincipality or primitivity hypothesis on σ; q=1 is allowed. The mask uses coprimality of integers, equivalent to natural coprimality for nonnegative inputs.
+
+Proof plan:
+
+1. If a is not coprime to R, a prime of R divides both a and M; the ambient character vanishes.
+2. Suppose a is coprime to R. If a is also coprime to q, it is coprime to M: a hypothetical common prime of a and M either divides q or occurs among the factors of R, giving a contradiction.
+3. In this coprime-to-M case use primitiveCharacter_apply_of_isCoprime to equate η(a) and σ(a).
+4. In the remaining case a is not coprime to q. Since q divides M, neither character is evaluated at a unit, so both values vanish. These cases also handle a=0 and negative a.
+
+The direct prerequisites are `mathlib:DirichletCharacter.primitiveCharacter`, `mathlib:DirichletCharacter.primitiveCharacter_apply_of_isCoprime`, `mathlib:DirichletCharacter.apply_eq_zero_iff`, `mathlib:DirichletCharacter.conductor_dvd_level`, `mathlib:Nat.mem_primeFactors`, `mathlib:Nat.Prime.not_coprime_iff_dvd`, `mathlib:Nat.isCoprime_iff_coprime`. The source use is Bennett–Siksek §8.1, printed pp.377–379: Turns the product evaluation into the exact masked finite sums already decomposed in the first thirteen nodes.
+
+Acceptance checks:
+
+- At M=15,q=5 the mask must remove multiples of 3 even when η is nonzero there.
+- At M=12 for the principal character, η is the character modulo 1 and R=6; the masked identity includes a=0.
+- The formula is valid for R=1; do not require a nonempty principal-factor family.
+
+### 18. Cancelled primes divide both original conductors
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/cancelled-prime-common-support`. Proposed declaration: `TauCeti.ExponentialSumsPlan.cancelled_prime_common_support`.
+
+Let χ1,χ2 be primitive complex Dirichlet characters of positive moduli N1,N2. Set M=lcm(N1,N2), σ=χ1.mul χ2, q=cond(σ), and R the product of prime divisors of M not dividing q. Then R divides gcd(N1,N2).
+
+Quadraticity and distinctness are unnecessary, but primitivity of both inputs is required.
+
+Proof plan:
+
+1. Lift χ1,χ2 to A,B modulo M. By conductor_changeLevel and primitivity, their conductors are N1,N2.
+2. Write A=(A·B)·B⁻¹. Apply conductor_mul_dvd_lcm_conductor and conductor_inv to obtain N1 dividing lcm(q,N2). Similarly N2 divides lcm(q,N1).
+3. For a prime p of M not dividing q, the lcm criterion first gives p dividing at least one Ni. The corresponding reverse conductor divisibility then forces p to divide the other Ni.
+4. Every factor of R is consequently a prime divisor of gcd(N1,N2). Its distinct-prime product divides the radical of that gcd, which divides the gcd.
+
+The direct prerequisites are `mathlib:DirichletCharacter.IsPrimitive`, `mathlib:DirichletCharacter.conductor_changeLevel`, `mathlib:DirichletCharacter.conductor_inv`, `mathlib:DirichletCharacter.conductor_mul_dvd_lcm_conductor`, `mathlib:Nat.Prime.dvd_lcm`, `mathlib:Nat.mem_primeFactors`, `mathlib:Finset.prod_dvd_prod_of_subset`, `mathlib:Nat.prod_primeFactors_dvd`. The source use is Bennett–Siksek §8.1, printed pp.377–379: Supplies R≤min(N1,N2), preserving the source growth exponent c in the small-conductor application.
+
+Acceptance checks:
+
+- Do not infer the claim merely from q dividing M; the reverse conductor bounds are essential.
+- The imprimitive principal modulo 8 paired with modulo 1 is a counterexample without primitivity.
+- R is bounded by either original modulus, not merely by their product.
+
+### 19. Quadraticity survives primitive reduction
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/primitive-product-quadratic`. Proposed declaration: `TauCeti.ExponentialSumsPlan.primitive_product_quadratic`.
+
+For positive N1,N2 and quadratic complex Dirichlet characters χi modulo Ni, the existing primitive product η=χ1.primitive_mul χ2 is quadratic.
+
+Quadratic means the existing predicate that every value is 0, 1 or −1; it includes the principal character. No input primitivity or distinctness is required.
+
+Proof plan:
+
+1. Use the existing equivalence between quadraticity and χ²=1.
+2. Change level to M=lcm(N1,N2); the lifts preserve squares as monoid homomorphisms, so σ²=1.
+3. The existing change-level equality sends η to σ. Apply injectivity of changeLevel from q to M to infer η²=1, and convert back to quadraticity.
+
+The direct prerequisites are `mathlib:DirichletCharacter.mul`, `mathlib:DirichletCharacter.primitive_mul`, `mathlib:DirichletCharacter.changeLevel`, `mathlib:DirichletCharacter.changeLevel_injective`, `mathlib:DirichletCharacter.changeLevel_primitiveCharacter`, `mathlib:MulChar.IsQuadratic`, `mathlib:MulChar.IsQuadratic.sq_eq_one`, `mathlib:MulChar.isQuadratic_iff_sq_eq_one`. The source use is Bennett–Siksek §8.1, printed pp.377–379: Supplies the quadratic hypothesis for later large-conductor arithmetic; that later branch is not asserted here.
+
+Acceptance checks:
+
+- The diagonal product may become principal and is still quadratic.
+- Primitivity of η is already primitive_mul_isPrimitive; do not introduce a new existence theorem.
+
+### 20. Distinct primitive quadratic inputs give a nonprincipal inducer
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/primitive-product-nonprincipal`. Proposed declaration: `TauCeti.ExponentialSumsPlan.primitive_product_nonprincipal`.
+
+For positive N1,N2, primitive quadratic complex characters χi modulo Ni, and an integer a with χ1(a)≠χ2(a), the primitive product η=χ1.primitive_mul χ2 is not principal.
+
+Distinctness is as functions on integers; moduli may coincide. The interface retains both source quadratic hypotheses; the proof only needs the second input to square to the principal character.
+
+Proof plan:
+
+1. Assume η=1. Changing level to M gives A·B=1 for the two lifted inputs.
+2. Quadraticity gives B²=1, so A=B.
+3. Conductor invariance under changeLevel and input primitivity imply N1=N2.
+4. Transport across this equality and apply injectivity of changeLevel to deduce χ1=χ2, contradicting the integer witness.
+
+The direct prerequisites are `mathlib:DirichletCharacter.primitive_mul`, `mathlib:DirichletCharacter.changeLevel_primitiveCharacter`, `mathlib:DirichletCharacter.changeLevel_injective`, `mathlib:DirichletCharacter.conductor_changeLevel`, `mathlib:DirichletCharacter.IsPrimitive`, `mathlib:MulChar.IsQuadratic.sq_eq_one`. The source use is Bennett–Siksek §8.1, printed pp.377–379: Justifies the nonprincipal hypothesis needed by incomplete and masked character cancellation.
+
+Acceptance checks:
+
+- Equal primitive inputs give a principal product and must be excluded.
+- Distinct conjugate order-three characters modulo 7 have principal product; distinctness without quadraticity is insufficient.
+- The χ8,χ−8 example has equal moduli and different character values, so distinct-modulus hypotheses would be too restrictive.
+
+### 21. Small-conductor cancellation for the original product
+
+Identifier: `ExponentialSumsAndCircleMethod:ES.0/small-conductor-product-cancellation`. Proposed declaration: `TauCeti.ExponentialSumsPlan.small_conductor_product_cancellation`.
+
+For each real c>0 there is a natural K≥1 such that, for every k≥K and every pair of distinct primitive quadratic complex Dirichlet characters χi of positive moduli Ni≤k^c, if q=cond(χ1.mul χ2)≤8k^(7/32), then ‖Σ_{k div2<a≤k}χ1(a)χ2(a)‖≤k^(1/2). The threshold K depends only on c.
+
+Distinctness means an integer witness of different values; the moduli may be equal. There is no prime-factor smoothness hypothesis in this small-conductor branch. The theorem does not cover q>8k^(7/32), or assert full Proposition 8.2.
+
+Proof plan:
+
+1. Choose K from eventual-small-conductor-power-saving for the same c.
+2. Form the existing σ and η, with q>0 and η nonprincipal by primitive-product-nonprincipal.
+3. The excluded prime product R is positive, since all its factors are positive primes (including the empty product 1). By cancelled-prime-common-support, R divides gcd(N1,N2), hence R≤N1≤k^c.
+4. Combine ambient-product-evaluation and primitive-exclusion-evaluation, converting integer coprimality to natural coprimality at the natural interval arguments.
+5. Apply the uniform masked-character bound with character η modulo q and exclusion modulus R. The threshold is independent of both inputs; no exponent 2c from the ambient lcm is needed.
+
+The direct prerequisites are `ExponentialSumsAndCircleMethod:ES.0/ambient-product-evaluation`, `ExponentialSumsAndCircleMethod:ES.0/primitive-exclusion-evaluation`, `ExponentialSumsAndCircleMethod:ES.0/cancelled-prime-common-support`, `ExponentialSumsAndCircleMethod:ES.0/primitive-product-nonprincipal`, `ExponentialSumsAndCircleMethod:ES.0/eventual-small-conductor-power-saving`, `mathlib:DirichletCharacter.conductor_ne_zero`, `mathlib:DirichletCharacter.primitive_mul_isPrimitive`, `mathlib:Nat.isCoprime_iff_coprime`. The source use is Bennett–Siksek §8.1, printed pp.377–379: Completes the product-to-masked-sum application for the small-conductor branch without duplicating AN.5 or claiming the large-conductor result.
+
+Acceptance checks:
+
+- Preserve the quantifier order ∀c>0 ∃K ∀k,N1,N2,χ1,χ2.
+- The strict source Case 2 condition implies the stated non-strict bound; equality at the conductor threshold is harmless.
+- R=1 needs no exceptional case. Equal inputs fail the nonprincipal reduction.
+
 ## Why the two interval bounds are different
 
 The qM estimate comes from the period of the masked sequence. Its proof must establish zero mean for that sequence; periodicity alone is insufficient. The Möbius expansion proves exactly that zero mean, without a coprimality hypothesis between q and M. A length-qM block is then discarded in one step, and the remaining length is less than qM.
@@ -361,7 +546,7 @@ The known errata are reproduced as cross-referenced source issues, without assig
 
 First, the claimed universal divisor bound with exponent 1/log log(3q) is false: τ(120)=16, whereas the displayed real-power expression is about14.89222. The corrected input is τ(q)≤Cε q^ε for every positive q and fixed ε>0. Constants and threshold dependence are part of the interface, not notation suppressed by the blueprint.
 
-Second, the lcm of two primitive quadratic conductors is an ambient modulus of their product, not necessarily the product's primitive conductor. The example χ8χ−8=χ−4 has ambient modulus 8 and conductor 4. If M2 consists of primes of the ambient modulus absent from the primitive conductor M1, then the required relation is divisibility M1M2|M, not equality. The exact masked-character identity and its conductor arithmetic still need their own decomposition. The present qM period theorem is valid independently of that missing reduction.
+Second, the lcm of two primitive quadratic conductors is an ambient modulus of their product, not necessarily the product's primitive conductor. The example χ8χ−8=χ−4 has ambient modulus 8 and conductor 4. If M2 consists of primes of the ambient modulus absent from the primitive conductor M1, then the required relation is divisibility M1M2|M, not equality. Declarations 14–20 now decompose the exact masked-character identity and its conductor arithmetic using the pinned general conductor APIs. Declaration 21 applies the earlier uniform small-conductor estimate to the original product. The earlier qM period theorem remains valid in its greater generality, independently of the primitive reduction.
 
 Third, Theorem 6 must use ambient moduli for the general character factors; primitivity is imposed on the distinguished factor. A principal character has conductor 1 even when represented at a larger modulus. The reviewed E11 specifically rejects a supposed missing M2=1 case: the principal-factor collection may be empty, with r=s. The source's r−2 counting argument remains sufficient. This checkpoint does not reintroduce the rejected objection.
 
@@ -374,10 +559,10 @@ The existing errata review's bounded correction search covered the publisher, Cr
 | PAPER-BENNETT-SIKSEK-20/44 | Open full Proposition 8.2; present nodes do not assert closure. |
 | PAPER-BENNETT-SIKSEK-20/92 | Open complete Graham–Ringrose proof and corrected modulus interface. |
 | PAPER-BENNETT-SIKSEK-20/93 | Existing primitiveCharacter/changeLevel/IsPrimitive APIs, with the coprime evaluation boundary recorded. |
-| PAPER-BENNETT-SIKSEK-20/94 | Open product conductor and exclusion-prime reduction, including the 2-adic example. |
+| PAPER-BENNETT-SIKSEK-20/94 | Decomposed by the eight new conductor, exclusion and small-product adapters; existing primitive construction reused, all nodes unchecked. |
 | PAPER-BENNETT-SIKSEK-20/95 | Open CRT packing; retain accepted E11 treatment of empty principal products. |
 | PAPER-BENNETT-SIKSEK-20/96 | Exact AN.5 explicit and uniform divisor nodes imported; no ES-owned duplicate divisor-function theory. |
-| PAPER-BENNETT-SIKSEK-20/97 | Thirteen nodes: two interval bounds, conditional absorption, explicit supplier composition and uniform eventual cancellation. |
+| PAPER-BENNETT-SIKSEK-20/97 | Thirteen unchanged masked-character nodes, now applied to the original product by declaration 21. |
 
 The exact supplier `AnalyticNumberTheory:AN.5/explicit-divisor-subpower-bound` says that for ε>0 and a natural B≥exp(1/ε), every positive natural n satisfies τ(n)≤max(1,(ε log2)⁻¹)^B n^ε. Its companion `AnalyticNumberTheory:AN.5/uniform-divisor-subpower-bound` states that for every ε>0 there exists C≥1 such that τ(n)≤C n^ε for every positive n, with C depending only on ε. These contracts resolve the former stage-level request. Neither is an eventual-only estimate with an unrecorded lower cutoff.
 
@@ -389,7 +574,7 @@ Every stage remains partial. The audited presence of building blocks must not be
 
 ### ExponentialSumsAndCircleMethod:ES.0
 
-Thirteen adapters decompose the small-conductor finite-interval argument of Bennett–Siksek §8.1. Still required: quadratic product conductor/exclusion reduction; CRT prime-block packing and its empty-product case; a complete proof of the Graham–Ringrose input and full Proposition 8.2 assembly; all Weyl, van der Corput, stationary-phase and completion targets not supplied by these adapters.
+Twenty-one adapters decompose the small-conductor interval argument and its product-character conductor/exclusion reduction. Still required: CRT prime-block packing and its empty-product case; a complete proof of the Graham–Ringrose input and full Proposition 8.2 assembly; all Weyl, van der Corput, stationary-phase and completion targets not supplied by these adapters.
 
 ### ExponentialSumsAndCircleMethod:ES.1
 
@@ -417,7 +602,7 @@ The remaining exact gaps are recorded in the packet; the first mathematical cont
 
 ## Contract tests and verification
 
-The suggested file gives all thirteen main signatures and twenty-four contract examples. Example names appear in comments next to their statements. Integer character tables in the tests are concrete value checks, not substitute character structures or a claim that their general character laws have been formalized there.
+The suggested file gives all twenty-one main signatures and thirty-six contract examples. Example names appear in comments next to their statements. Integer character tables in the tests are concrete value checks, not substitute character structures or a claim that their general character laws have been formalized there.
 
 - `character_three_complete`: For the integer χ3 table (0,1,−1), Σ_{0<n≤2}χ3(n)=0.
 - `reversed_interval`: Σ_{5<n≤4}(n:Z)=0.
@@ -445,12 +630,31 @@ The suggested file gives all thirteen main signatures and twenty-four contract e
 - `divisor_supplier_exponent`: For c>0, 1/((64c)⁻¹)=64c.
 - `one_small_conductor_exponent`: At c=1/64 the divisor exponent 1/(64c) equals 1.
 
-The continuation also proves eight checks in a separate scratch Lean file: all six new contract examples, the pointwise conversion from (8C)^(64/17)≤k to 8C≤k^(17/64), and the existence of one natural threshold valid for every later k. These checks contain no unproved declarations and produce no warnings. They test reciprocal exponents and the universal quantifier over k.
+The previous threshold continuation also proved eight checks in a separate scratch Lean file: all six new contract examples, the pointwise conversion from (8C)^(64/17)≤k to 8C≤k^(17/64), and the existence of one natural threshold valid for every later k. These checks contain no unproved declarations and produce no warnings. They test reciprocal exponents and the universal quantifier over k.
 
 A separate scratch Lean file proved ten concrete interval, endpoint, exponent and masked-period examples with no unproved declarations and no warnings. Those proofs test the elementary conventions; they do not prove the general proposed signatures.
 
 An exact-arithmetic regression, rerun for this continuation, checked 33,966 periodic intervals with zero-mean ternary periods of lengths 1–6, 3,900 positive-divisor reindexings, 5,200 weighted Möbius identities, and 43,560 exclusion-filtered intervals for four concrete quadratic-character tables. It also checked 129 instances of χ8χ−8=χ−4, including negative arguments. Shared-prime and nonsquarefree exclusion moduli are included. These are finite checks, not general proofs.
 
-The main suggested file elaborates against the pinned baseline with exactly 37 expected unproved-declaration warnings and no errors or other warnings. The reached 8,482 Mathlib source files were byte-checked against the recorded pin; there are no Tau Ceti imports in this checkpoint. The packet checker with the exact declaration index reports zero errors and zero warnings; the four-file intake check reports zero problems.
+The new conductor contracts add the following discriminating examples:
 
-The planets chosen for ES.0 are Divisor-weighted character bound, Product-period character bound and Small-conductor cancellation. They are central mathematical results rather than implementation checks. No other layer receives a planet from this partial chain.
+- `exclusion_shrink_eight`: At ambient M=8 and primitive conductor q=4, R=1; repeated powers of 2 are not extra excluded primes.
+- `exclusion_mixed_fifteen`: At M=15 and q=5, R=3.
+- `exclusion_principal_twelve`: For the principal character modulo 12, q=1 and R=6, not 12.
+- `exclusion_modulus_one`: At M=q=1 the empty prime product R equals 1.
+- `period_divisibility_not_equality`: For χ8χ−8, qR=4 divides ambient 8 but is not equal to it.
+- `common_prime_not_coprime_moduli`: For χ3 times the primitive χ15, q=5 and R=3 divides gcd(3,15); the original conductors need not be coprime.
+- `imprimitive_support_obstruction`: If the inputs are principal modulo 8 and modulo 1, then q=1 and R=2 does not divide gcd(8,1); input primitivity is necessary for the common-support conclusion.
+- `mask_negative_excluded`: For R=3 and a=−3, the mask kills the nonzero primitive χ5 value −1.
+- `mask_negative_kept`: For R=3 and a=−2, the mask retains the primitive χ5 value −1.
+- `mask_zero_excluded`: For the principal character modulo 12, primitive η modulo 1 takes value 1 at 0 but the R=6 mask makes the ambient value 0.
+- `quadratic_two_adic_cancellation`: The integer residue tables satisfy χ8(a)χ−8(a)=χ−4(a) for every integer a, including negative a and even nonunits.
+- `diagonal_principal_obstruction`: The square of χ3 sums to 2 on (0,3], whereas its primitive conductor is 1; equal input characters cannot satisfy a nonprincipal conductor bound.
+
+A new independent finite regression enumerates 188 quadratic character tables at moduli up to 60 and checks multiplicativity directly. Among primitive characters of conductors at most 40, it checks all 729 ordered pairs, including 27 diagonal principal products and 702 distinct nonprincipal products. It verifies conductor/exclusion divisibility, common support, quadraticity, 470,087 signed masked evaluations and 4,212 interval inequalities. Conductor is computed from factorization through reduction on units, not guessed from an ambient period. Distinct conjugate order-three characters modulo 7 supply a counterexample to dropping quadraticity. These finite checks do not prove the general declarations.
+
+Seventeen new scratch Lean checks are complete, with no unproved declarations, warnings or errors: five general proofs of conductor/exclusion coprimality, reduced-period divisibility, common support, quadraticity and nonprincipality, plus all twelve new contract examples. The all-integer exclusion mask remains a proposed declaration; it is not claimed to have been implemented by these checks.
+
+The suggested file elaborates at the pins with exactly 57 expected unproved-declaration warnings and no errors or other warnings. All 8,482 reached Mathlib sources were byte-checked; there are no Tau Ceti imports. The pinned-index packet checker reports 0 errors and 0 warnings; the four-file intake check reports 0 problems, and the source-issue envelope has 0 errors. There are thirteen lemmas and eight theorems, no new definitions/constructions, fifty exact baseline declarations, eight gaps and six partial stages. The original thirteen node objects and reviewed source-finding/version objects are unchanged.
+
+The five planets chosen for ES.0 are Divisor-weighted character bound, Product-period character bound, Small-conductor cancellation, Primitive character and exclusion mask, and Small-conductor product cancellation. They are central mathematical results rather than implementation checks. No other layer receives a planet from this partial chain.
