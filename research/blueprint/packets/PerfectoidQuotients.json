@@ -1,0 +1,2402 @@
+{
+  "roadmapId": "PerfectoidQuotients",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "PerfectoidQuotients:Q0",
+    "PerfectoidQuotients:Q0:animated-application",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidQuotients:Q1",
+    "PerfectoidQuotients:Q2",
+    "PerfectoidQuotients:Q3",
+    "PerfectoidQuotients:Q4"
+  ],
+  "status": "partial",
+  "summary": "A declaration-sized integral-perfectoid interface on the existing Witt vectors, pretilt and Fontaine map, with a zero-ring branch and a closed characteristic-p algebraic quotient argument. The twelve accepted source aggregates and their corrections remain in a continuation register; general prismatic, mixed-characteristic and analytic endpoints remain explicit obligations.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:IsAdicComplete",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "class IsAdicComplete : Prop extends IsHausdorff I M, IsPrecomplete I M",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:IsAdicComplete.subsingleton",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "protected theorem subsingleton (h : IsAdicComplete (⊤ : Ideal R) M) : Subsingleton M :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:IsAdicComplete.le_jacobson_bot",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "theorem le_jacobson_bot [IsAdicComplete I R] : I ≤ (⊥ : Ideal R).jacobson := by",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:IsAdicComplete.map_algebraMap_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "theorem map_algebraMap_iff [CommRing S] [Module S M] [Algebra R S]",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:PreTilt",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Perfection.lean",
+        "provides": "def PreTilt :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:PreTilt.coeff",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Perfection.lean",
+        "provides": "def coeff (n : ℕ) : PreTilt O p →+* ModP O p := Perfection.coeff (ModP O p) p n",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:PreTilt.untilt",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+        "provides": "noncomputable def untilt : PreTilt O p →* O :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:PreTilt.mk_untilt_eq_coeff_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Perfectoid/Untilt.lean",
+        "provides": "theorem mk_untilt_eq_coeff_zero (x : PreTilt O p) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.fontaineTheta",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+        "provides": "def fontaineTheta : 𝕎 R♭ →+* R :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.mk_fontaineTheta",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+        "provides": "theorem mk_fontaineTheta (x : 𝕎 R♭) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.fontaineTheta_teichmuller",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+        "provides": "theorem fontaineTheta_teichmuller (x : R♭) : fontaineTheta R p (teichmuller p x) = x.untilt := by",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:surjective_fontaineTheta",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Perfectoid/FontaineTheta.lean",
+        "provides": "theorem surjective_fontaineTheta (hF : Function.Surjective (frobenius (ModP R p) p)) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.ker_constantCoeff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/WittVector/Complete.lean",
+        "provides": "lemma ker_constantCoeff : RingHom.ker constantCoeff = Ideal.span {(p : 𝕎 k)} := by",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.quotientPEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Complete.lean",
+        "provides": "noncomputable def quotientPEquiv : 𝕎 k ⧸ Ideal.span {(p : 𝕎 k)} ≃+* k :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.isAdicCompleteIdealSpanP",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/WittVector/Complete.lean",
+        "provides": "instance isAdicCompleteIdealSpanP : IsAdicComplete (Ideal.span {(p : 𝕎 k)}) (𝕎 k) where",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.coeff_p_one",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Identities.lean",
+        "provides": "theorem coeff_p_one [CharP R p] : (p : 𝕎 R).coeff 1 = 1 := by rw [coeff_p, ite_eq_left rfl]",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.mul_coeff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Defs.lean",
+        "provides": "theorem mul_coeff (x y : 𝕎 R) (n : ℕ) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.constantCoeff_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/WittVector/Teichmuller.lean",
+        "provides": "lemma constantCoeff_surjective : Function.Surjective (constantCoeff : 𝕎 R → R) :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Ideal.isUnit_of_sub_one_mem_jacobson_bot",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Jacobson/Ideal.lean",
+        "provides": "theorem isUnit_of_sub_one_mem_jacobson_bot (r : R) (h : r - 1 ∈ jacobson (⊥ : Ideal R)) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Perfection.coeff_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Perfection.lean",
+        "provides": "theorem coeff_surjective (h : Function.Surjective (frobenius R p)) (n : ℕ) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Perfection.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Perfection.lean",
+        "provides": "def map (φ : R →+* S) : Perfection R p →+* Perfection S p where",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Perfection.coeff_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Perfection.lean",
+        "provides": "@[simp] theorem coeff_map (φ : R →+* S) (f : Perfection R p) (n : ℕ) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Perfection.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Perfection.lean",
+        "provides": "noncomputable def lift (R : Type u₁) [CommSemiring R] [CharP R p] [PerfectRing R p]",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Perfection.coeff_pow_p",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Perfection.lean",
+        "provides": "theorem coeff_pow_p (f : Perfection R p) (n : ℕ) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/WittVector/Basic.lean",
+        "provides": "noncomputable def map (f : R →+* S) : 𝕎 R →+* 𝕎 S where",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:WittVector.eq_of_apply_teichmuller_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/TeichmullerSeries.lean",
+        "provides": "theorem eq_of_apply_teichmuller_eq",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:IsHausdorff.eq_iff_smodEq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "theorem IsHausdorff.eq_iff_smodEq [IsHausdorff I M] {x y : M} :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "def quotientMap {I : Ideal R} (J : Ideal S) [I.IsTwoSided] [J.IsTwoSided] (f : R →+* S)",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "def lift (f : R →+* S) (H : ∀ a : R, a ∈ I → f a = 0) : R ⧸ I →+* S :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "theorem mk_surjective : Function.Surjective (mk I) := fun y =>",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Ideal.isRadical_iff_quotient_reduced",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Nilpotent.lean",
+        "provides": "theorem Ideal.isRadical_iff_quotient_reduced {R : Type*} [CommRing R] (I : Ideal R) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Ideal.IsRadical.radical_le_iff",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "theorem IsRadical.radical_le_iff (hJ : J.IsRadical) : I.radical ≤ J ↔ I ≤ J :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:PerfectRing",
+        "kind": "class",
+        "module": "Mathlib/FieldTheory/Perfect.lean",
+        "provides": "class PerfectRing (R : Type*) (p : ℕ) [Pow R ℕ] : Prop where",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:PerfectRing.ofSurjective",
+        "kind": "lemma",
+        "module": "Mathlib/FieldTheory/Perfect.lean",
+        "provides": "lemma PerfectRing.ofSurjective (R : Type*) (p : ℕ) [CommRing R] [ExpChar R p]",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:frobeniusEquiv",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/Perfect.lean",
+        "provides": "noncomputable def frobeniusEquiv : R ≃+* R :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:frobeniusEquiv_symm_pow_p",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Perfect.lean",
+        "provides": "theorem frobeniusEquiv_symm_pow_p (x : R) : ((frobeniusEquiv R p).symm x) ^ p = x :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:CharP.charP_iff_prime_eq_zero",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/CharP/Basic.lean",
+        "provides": "lemma charP_iff_prime_eq_zero [Nontrivial R] {p : ℕ} (hp : p.Prime) :",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Ideal.radical_isRadical",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "theorem radical_isRadical : (radical I).IsRadical := fun r ⟨n, k, hrnki⟩ =>",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Ideal.quotientMap_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
+        "provides": "theorem quotientMap_surjective {J : Ideal R} {I : Ideal S} [I.IsTwoSided] [J.IsTwoSided]",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Perfection.teichmuller_sModEq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Teichmuller.lean",
+        "provides": "theorem teichmuller_sModEq {x : Perfection (R ⧸ I) p} {y : R} {n : ℕ}",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:Ideal.radical",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "def radical (I : Ideal R) : Ideal R where",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:PerfectClosure",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/PerfectClosure.lean",
+        "provides": "def PerfectClosure : Type u :=",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      },
+      {
+        "ref": "mathlib:PerfectClosure.of",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/PerfectClosure.lean",
+        "provides": "def of : K →+* PerfectClosure K p where",
+        "checked": "Statement and enclosing hypotheses read at the pinned Mathlib commit. Used only at the stated generality; the audit is a search aid."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "bs-prisms-2022",
+      "title": "Prisms and prismatic cohomology",
+      "authors": "Bhargav Bhatt, Peter Scholze",
+      "edition": "arXiv:1905.08229v4, 12 January 2022; public PDF, hash matches the integrated extraction.",
+      "url": "https://arxiv.org/pdf/1905.08229v4",
+      "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+      "inheritedReadSections": [
+        "Section 7 in full: Notation 7.1, Proposition 7.2, Corollary 7.3, Theorem 7.4 with proof, Remark 7.5, Construction 7.6, Lemmas 7.7-7.8, Example 7.9, Proposition 7.10, Proposition 7.11, Examples 7.12-7.13, Theorem 7.14, Remark 7.15 (pp. 55-62; extraction lines 2412-2795)",
+        "Statements and proofs of Lemma 4.8 (pp. 38-39), Lemma 3.9 (pp. 31-32); statements of Lemma 3.5, Lemma 3.8, Theorem 3.10 (with the first paragraph of its proof), Theorem 6.3, Corollary 2.39, Definition 2.42, Lemma 2.34, Corollary 2.31, Remark 4.7",
+        "Section 8 opening: Notation 8.1 and Definition 8.2 (statement only)",
+        "REVIEW-EXT-03 (2026-09-15; library extraction, stamp \"arXiv:1905.08229v4 [math.AG] 12 Jan 2022\"): Section 7 re-read in full (lines 2412-2786). Also read: Lemma 3.5 with proof (p. 29, lines 1316-1331); Lemmas 3.8-3.9 and Theorem 3.10 with proofs (pp. 31-32, lines 1427-1480); Remark 4.6, Remark 4.7 and Lemma 4.8 with proof (pp. 38-39, lines 1728-1758); statements of Corollary 2.31, Lemma 2.34, Corollary 2.39, Definition 2.42 and Theorem 6.3; §8.1 from Notation 8.1 through the proof of Proposition 8.5 (pp. 63-66, lines 2796-2931)."
+      ],
+      "readSections": [
+        "Fresh: pp.55–56 (Notation 7.1, Proposition 7.2 with proof, Corollary 7.3, Theorem 7.4 statement, Remark 7.5, opening of Construction 7.6) and p.62 (Remark 7.15 and full proof of Theorem 7.4). Page 56 also rendered. Remaining §7 evidence is retained from the accepted decomposition, not claimed as a fresh complete reading."
+      ],
+      "accessed": "2026-09-26",
+      "readThrough": "2026-09-27"
+    },
+    {
+      "id": "bms2-thh-2019",
+      "title": "Topological Hochschild homology and integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+      "edition": "arXiv:1802.03261v2, 9 April 2019; public PDF, hash matches the integrated extraction.",
+      "url": "https://arxiv.org/pdf/1802.03261v2",
+      "sha256": "b2338ef19714f39aeac2aaaa4e8d6bd708020815016bbe5541a74e4db3594038",
+      "inheritedReadSections": [
+        "Definition 4.10 (quasisyntomic rings and covers), Definition 4.18 and Proposition 4.19 (perfectoid rings; statements), Definition 4.20, Remarks 4.21-4.22 (quasiregular semiperfectoid rings) (pp. 20-23; extraction lines 929-1094)",
+        "REVIEW-EXT-03 (2026-09-15; library extraction, stamp \"arXiv:1802.03261v2 [math.AG] 9 Apr 2019\"): Definition 4.10-Lemma 4.25 re-read, including Example 4.12, Lemmas 4.15-4.17, Example 4.24 and the statement of Lemma 4.25 (pp. 20-24, lines 925-1100)."
+      ],
+      "readSections": [
+        "Fresh: pp.21–23, including Definition 4.18, all of Proposition 4.19 and both proofs of part (3), Definition 4.20 and Remark 4.21. Page 23 also rendered. The v-descent proof is not imported into the early Q route."
+      ],
+      "accessed": "2026-09-26",
+      "readThrough": "2026-09-27"
+    },
+    {
+      "id": "ecd-2026",
+      "title": "Etale cohomology of diamonds",
+      "authors": "Peter Scholze",
+      "edition": "Supplied revision dated 14 April 2026 (library copy EtCohDiamonds.pdf, catalogue: \"deliberately not replaced with a live copy\"); arXiv:1709.07343 is an earlier preprint with different numbering. Extraction line numbers refer to pdftotext -layout of the library PDF.",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf",
+      "sha256": "4ce3d1232a6e9e186d1a36da5cc659616569ac8dd2bb263510247c07995a26c1",
+      "inheritedReadSections": [
+        "Section 5, Definition 5.7, Theorem 5.8 with its proof-by-reference and the following remark, Proposition 5.9 (pp. 24-25; extraction lines 1107-1133)",
+        "REVIEW-EXT-03 (2026-09-15; SHA-256 of the library PDF re-verified; a regenerated pdftotext -layout extraction reproduces lines 1107-1133): Definitions 5.6-5.7, Theorem 5.8 with the following remark, Proposition 5.9 with proof, Definition 5.10 and Proposition 5.11 with proof (pp. 24-26, lines 1098-1165)."
+      ],
+      "readSections": [
+        "Accepted extraction/reviewer evidence retained; the 14 April 2026 PDF has not been freshly obtained for this checkpoint. Its hash is inherited provenance, not a new acquisition."
+      ],
+      "accessed": "2026-09-26",
+      "readThrough": "2026-09-27"
+    },
+    {
+      "id": "bms1-integral-2018",
+      "title": "Integral p-adic Hodge theory",
+      "authors": "Bhargav Bhatt, Matthew Morrow, Peter Scholze",
+      "edition": "arXiv:1602.03148v3, 15 January 2019; public PDF, hash matches the integrated extraction.",
+      "url": "https://arxiv.org/pdf/1602.03148v3",
+      "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
+      "inheritedReadSections": [
+        "REVIEW-EXT-03 (2026-09-15): Lemma 3.20 with proof, the remark after it and Lemma 3.21 statement (pp. 26-27, lines 1622-1672)."
+      ],
+      "readSections": [
+        "Fresh: §3.1 Definition 3.1 and Lemma 3.2 statement (p.19); pp.21–24, including Definitions 3.5, Lemmas 3.9–3.10 with proofs, Remark 3.11 and Example 3.15; Lemmas 3.20–3.21 with the printed proofs, pp.26–27. Pages 22 and 24 also inspected as rendered images. Lemma 3.2 proof and the references in Lemma 3.21 are not freshly read."
+      ],
+      "accessed": "2026-09-26",
+      "readThrough": "2026-09-27"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Integral perfectoid rings",
+      "kind": "definition",
+      "statement": "Fix a prime p. A commutative ring R is integral perfectoid if it is the zero ring, or p is not a unit, R is classically p-adically complete and separated, there are π∈R and a∈R× with π^p=pa, Frobenius on R/p is surjective, and ker(θ:W(PreTilt(R,p))→R) is generated by one element. θ, PreTilt and W are the existing Mathlib constructions. The nonzero branch is exactly BMS2 Definition 4.18; completeness forces nonunit p for every nonzero R. No chosen generator, δ-structure, prism or desired comparison theorem is a field of the predicate.",
+      "hypotheses": [
+        "p is prime; all rings are commutative and unital. The zero ring is allowed.",
+        "The integral predicate is independent of a topology on a Tate localization. Its p-adic completeness includes separation."
+      ],
+      "proofSteps": [
+        "Use the existing PreTilt, Fontaine map and ideal span in the nonunit-p branch. The zero-ring branch is explicit because the pinned PreTilt ring instance uses a nontrivial characteristic-p quotient.",
+        "If a p-adically complete ring has p invertible, its p-adic ideal is top and IsAdicComplete.subsingleton makes it the zero ring; thus the branch condition does not exclude an object of BMS2.",
+        "The original aggregate identifier is retained for this single definition. Quasisyntomic and quasiregular semiperfectoid predicates are transferred to their DD.0/DD.5 supplier contracts; their accepted source statements remain in inheritedWork."
+      ],
+      "acceptance": [
+        "The zero ring, F_p and F_p×F_p pass. Z/4, F₂[t], dual numbers and the semiperfect root quotient fail for distinct stated reasons."
+      ],
+      "prerequisites": [
+        "mathlib:IsAdicComplete",
+        "mathlib:IsAdicComplete.subsingleton",
+        "mathlib:PreTilt",
+        "mathlib:WittVector.fontaineTheta"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms2-thh-2019",
+          "locator": "Definition 4.18, p.22",
+          "excerpt": "A ring R is perfectoid if it is p-adically complete",
+          "match": "Exact definition; the zero-ring separation is a library-interface adaptation, not a change of mathematical scope."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.IsIntegralPerfectoid",
+      "api": [
+        {
+          "name": "TauCeti.PerfectoidQuotients.IsIntegralPerfectoid.of_subsingleton",
+          "role": "example",
+          "statement": "Every zero ring is integral perfectoid."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.IsIntegralPerfectoid.complete",
+          "role": "projection",
+          "statement": "An integral perfectoid R is classically p-adically complete and separated."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.IsIntegralPerfectoid.has_p_root",
+          "role": "projection",
+          "statement": "There exist π in R and a unit a with π^p=pa."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.IsIntegralPerfectoid.iff_nontrivial",
+          "role": "characterisation",
+          "statement": "With the existing nonunit-p and completeness instances, the predicate is exactly the root condition, Frobenius surjectivity on ModP, and a principal kernel of the existing Fontaine map."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.IsIntegralPerfectoid.congr",
+          "role": "equivalence",
+          "statement": "A ring equivalence R≃S preserves and reflects the predicate, with p fixed."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.integralPerfectoid_iff_perfect",
+          "role": "compatibility",
+          "statement": "For a ring of characteristic exactly p, integral perfectoidness is equivalent to Mathlib PerfectRing R p."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.PerfectoidQuotients.zeroRing",
+          "kind": "degenerate",
+          "statement": "ZMod 1 is integral perfectoid for every prime p."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.primeField",
+          "kind": "computation",
+          "statement": "ZMod p is integral perfectoid for every prime p."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.zmodFour",
+          "kind": "non-example",
+          "statement": "ZMod 4 is not integral perfectoid at p=2: no π and odd unit a satisfy π²=2a."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.polynomial",
+          "kind": "non-example",
+          "statement": "F₂[t] is not integral perfectoid at 2: Frobenius misses t."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.dualNumbers",
+          "kind": "non-example",
+          "statement": "TrivSqZeroExt F₂ F₂ is not integral perfectoid: its nonzero square-zero element is not a square."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.semiperfectNotPerfect",
+          "kind": "non-example",
+          "statement": "If A=PerfectClosure(F₂[t],2) and t denotes the image of the polynomial variable, A/(t) is not integral perfectoid although its squaring map is surjective. The class t^(1/2) is nonzero and square-zero."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.semiperfectSquaring",
+          "kind": "characterisation",
+          "statement": "Squaring is surjective on PerfectClosure(F₂[t],2)/(t); this separates the principal-kernel condition from Frobenius surjectivity."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.productField",
+          "kind": "computation",
+          "statement": "F_p × F_p is integral perfectoid, so a domain or valuation-ring condition would be too strong."
+        },
+        {
+          "name": "TauCeti.PerfectoidQuotients.perfectRingAgreement",
+          "kind": "compatibility",
+          "statement": "Every ring of characteristic p with the baseline PerfectRing instance satisfies the predicate."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PrismaticCohomology:PR.0 and AInfCohomology:AI.0",
+          "how": "The integral predicate supplies the ring side of the perfect-prism correspondence and θ-kernel hypotheses without assuming those theorems."
+        },
+        {
+          "where": "BS22 Notation 7.1 and Theorem 7.4",
+          "how": "Semiperfectoid presentations begin with a surjection from a ring satisfying precisely this integral predicate."
+        },
+        {
+          "where": "PerfectoidSpaces:P1/integral-perfectoid-comparison",
+          "how": "Compare the BMS2 normalization with BMS1 and the existing Tate/plus-ring carrier, with boundedness in the converse."
+        }
+      ],
+      "planet": {
+        "name": "Integral perfectoid rings"
+      }
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/integral-perfectoid-nontrivial-criterion",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "The nonzero integral-perfectoid criterion",
+      "kind": "lemma",
+      "statement": "If p is not a unit in the classically p-complete ring R, integral perfectoidness is equivalent to the three remaining BMS2 conditions: π^p=pa for a unit a, surjective Frobenius on ModP R p, and principal ker θ.",
+      "hypotheses": [
+        "p prime; the actual nonunit-p and IsAdicComplete instances are supplied."
+      ],
+      "proofSteps": [
+        "The nonunit assumption rules out the subsingleton branch, because every element of a zero ring is a unit.",
+        "Unpack the existential proof instances and use proof irrelevance; the Fontaine map and its ideal do not depend on which proofs supply the instances."
+      ],
+      "acceptance": [
+        "Changing witnesses for completeness or nonunit p does not change the predicate."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms2-thh-2019",
+          "locator": "Definition 4.18, p.22",
+          "excerpt": "A ring R is perfectoid if it is p-adically complete",
+          "match": "API promotion used in the characteristic-p equivalence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.IsIntegralPerfectoid.iff_nontrivial"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/inverse-perfection-unit-criterion",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Units in inverse perfection",
+      "kind": "lemma",
+      "statement": "For a ring R of characteristic p and x∈Perfection(R,p), x is a unit if and only if its zeroth coordinate is a unit.",
+      "hypotheses": [
+        "p prime; R a commutative ring of characteristic p; no surjectivity of its Frobenius is assumed."
+      ],
+      "proofSteps": [
+        "A ring map preserves units, giving the forward implication.",
+        "If x₀ is a unit, each x_n is a unit because x_n^(p^n)=x₀. Their inverses form a compatible Frobenius sequence; pointwise multiplication exhibits the inverse of x in the existing Perfection ring."
+      ],
+      "acceptance": [
+        "A sequence with zeroth coordinate 1 is a unit. This is inverse-limit perfection, not adjoining roots by a direct limit."
+      ],
+      "prerequisites": [
+        "mathlib:Perfection.coeff_pow_p"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Lemma 3.10 proof, p.23, unit detection in S♭",
+          "excerpt": "it is enough to check that the image",
+          "match": "The proof uses unit detection in the inverse limit; the general statement is extracted from the coordinate argument."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.perfection_isUnit_iff"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/perfect-witt-unit-criterion",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Units in Witt vectors over a perfect ring",
+      "kind": "lemma",
+      "statement": "For a perfect ring k of characteristic p, w∈W(k) is a unit if and only if w₀ is a unit of k.",
+      "hypotheses": [
+        "k is an arbitrary perfect commutative ring of characteristic p, not necessarily a field."
+      ],
+      "proofSteps": [
+        "The constant-coefficient map preserves units. For the converse lift an inverse of w₀ through the surjective constant-coefficient map.",
+        "The product differs from 1 by an element of (p), by the baseline kernel formula. Witt p-adic completeness puts (p) in the Jacobson radical. The baseline Jacobson unit criterion makes the product a unit, and hence w is a unit."
+      ],
+      "acceptance": [
+        "p is not a unit in W(k) when k has characteristic exactly p; 1+p is a unit."
+      ],
+      "prerequisites": [
+        "mathlib:WittVector.ker_constantCoeff",
+        "mathlib:WittVector.constantCoeff_surjective",
+        "mathlib:WittVector.isAdicCompleteIdealSpanP",
+        "mathlib:IsAdicComplete.le_jacobson_bot",
+        "mathlib:Ideal.isUnit_of_sub_one_mem_jacobson_bot"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Lemma 3.10 proof, p.23, deduction that a is a unit",
+          "excerpt": "a₀ are units",
+          "match": "Supplies the general-ring unit test used by the kernel-generator argument; the pinned DVR file only has a field-specialized test."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.witt_isUnit_iff"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/witt-product-first-coordinate",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "The first Witt product coordinate in characteristic p",
+      "kind": "lemma",
+      "statement": "For x,y∈W(k) with k of characteristic p, (xy)₁=x₀^p y₁+x₁ y₀^p.",
+      "hypotheses": [
+        "p prime; k a commutative characteristic-p ring. Perfection of k is not needed."
+      ],
+      "proofSteps": [
+        "Compute the first two universal Witt multiplication polynomials over the integer polynomial ring using ghost degrees zero and one. The degree-one expression is x₀^p y₁+x₁ y₀^p+p x₁y₁.",
+        "Evaluate in k; its characteristic-p hypothesis kills the last term. Cancellation of p is used only in the universal torsion-free polynomial calculation."
+      ],
+      "acceptance": [
+        "The formula remains valid over nonreduced characteristic-p rings; it must not be asserted over an arbitrary mixed-characteristic coefficient ring."
+      ],
+      "prerequisites": [
+        "mathlib:WittVector.mul_coeff"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Lemma 3.10 proof, p.23, first two Witt coordinates of ξ′a",
+          "excerpt": "ξ = ξ′a",
+          "match": "The displayed degree-one coordinate is exactly the formula used here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.witt_mul_coeff_one"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/theta-kernel-characteristic-p",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "A principal θ-kernel in characteristic p is generated by p",
+      "kind": "lemma",
+      "statement": "Let R have characteristic p. Assume the pinned completeness and nonunit-p instances and that ker θ is principal. Then ker θ=(p) inside W(PreTilt(R,p)). Frobenius surjectivity on R is not required for this implication.",
+      "hypotheses": [
+        "p prime; R a commutative characteristic-p ring with the indicated instances."
+      ],
+      "proofSteps": [
+        "Choose ξ generating ker θ. Since p maps to zero, write p=ξa. The existing θ-mod-p formula gives c₀(ξ₀)=0, where c₀:PreTilt(R,p)→R/p.",
+        "Apply c₀ to the first Witt product coordinate. Since p₁=1, obtain 1=c₀(ξ₁)c₀(a₀)^p. Thus c₀(a₀) is a unit.",
+        "The inverse-perfection unit criterion makes a₀ a unit; the perfect-Witt unit criterion makes a a unit. Therefore ξ and p generate the same ideal. This is the characteristic-p specialization of the generator argument, so no general prism correspondence is imported."
+      ],
+      "acceptance": [
+        "No p-torsion cancellation is performed in R. The conclusion concerns the kernel in its Witt ring."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q0:integral-algebra/inverse-perfection-unit-criterion",
+        "PerfectoidQuotients:Q0:integral-algebra/perfect-witt-unit-criterion",
+        "PerfectoidQuotients:Q0:integral-algebra/witt-product-first-coordinate",
+        "mathlib:WittVector.mk_fontaineTheta",
+        "mathlib:WittVector.coeff_p_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Lemma 3.10 proof, p.23, and Example 3.15, p.24",
+          "excerpt": "Then S is perfectoid if and only if it is perfect.",
+          "match": "Specializes the primitive-generator proof to π=0; all coefficient steps are recorded separately."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.theta_kernel_charP"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/tilt-projection-injective-characteristic-p",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Injectivity of the characteristic-p tilt projection",
+      "kind": "lemma",
+      "statement": "Under the hypotheses of the preceding kernel lemma, the zeroth-coordinate map PreTilt(R,p)→R/p is injective.",
+      "hypotheses": [
+        "R has characteristic exactly p; ker θ principal; existing θ hypotheses."
+      ],
+      "proofSteps": [
+        "If x has zeroth coordinate zero, θ([x]) is zero because R/p=R and the baseline θ-mod-p formula identifies its reduction.",
+        "Then [x] belongs to ker θ=(p). The baseline constant-coefficient kernel formula forces x=0. A ring homomorphism with zero kernel is injective."
+      ],
+      "acceptance": [
+        "For a semiperfect nonreduced ring the projection is surjective but not injective, so its θ-kernel cannot be principal."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q0:integral-algebra/theta-kernel-characteristic-p",
+        "mathlib:WittVector.mk_fontaineTheta",
+        "mathlib:WittVector.ker_constantCoeff"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Example 3.15, p.24",
+          "excerpt": "Then S is perfectoid if and only if it is perfect.",
+          "match": "Expands the equality S=A_inf(S)/p=S♭ into the missing injectivity declaration."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.tilt_projection_injective_charP"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/untilt-naturality",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Naturality of the multiplicative untilt",
+      "kind": "lemma",
+      "statement": "For a ring map f:R→S between classically p-complete rings with p nonunit, let g:R/p→S/p commute with the quotient maps and f. For every x∈PreTilt(R,p), f(x♯)=(Perfection.map(g)(x))♯.",
+      "hypotheses": [
+        "p prime; the commuting reduction square is a hypothesis and is retained in the suggested signature."
+      ],
+      "proofSteps": [
+        "Choose lifts of each coordinate of x. Their images under f lift the corresponding coordinates of Perfection.map(g)(x), by the commuting square.",
+        "The baseline Teichmüller congruence determines each sharp modulo p^(n+1) by the p^n-th power of a lift. Apply f to those congruences.",
+        "p-adic separation of S identifies the two elements. No topological structure is added: a ring map sends p^nR into p^nS."
+      ],
+      "acceptance": [
+        "For identity and composite ring maps the equality agrees with the existing Perfection.map functoriality."
+      ],
+      "prerequisites": [
+        "mathlib:PreTilt.untilt",
+        "mathlib:Perfection.map",
+        "mathlib:Perfection.coeff_map",
+        "mathlib:Perfection.teichmuller_sModEq",
+        "mathlib:IsHausdorff.eq_iff_smodEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Definition 3.1 and Lemma 3.2 statement, p.19; naturality of the construction",
+          "excerpt": "Ainf(S) = W(S♭)",
+          "match": "Packet-derived functoriality from the baseline congruence formula; no unread proof of Lemma 3.2 is claimed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.untilt_natural"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/theta-naturality",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Naturality of Fontaine’s map",
+      "kind": "lemma",
+      "statement": "With f and g as in untilt naturality, f(θ_R(w))=θ_S(W(g♭)(w)) for all w∈W(PreTilt(R,p)).",
+      "hypotheses": [
+        "The two rings are classically p-complete, p is nonunit in each, and g is the map induced by f modulo p."
+      ],
+      "proofSteps": [
+        "Reduce both ring maps to S/p^n. The prime is nilpotent in that target.",
+        "Use the baseline equality criterion for maps out of Witt vectors into a p-nilpotent ring: equality on Teichmüller representatives suffices. θ([x])=x♯ and untilt naturality give that equality.",
+        "Apply p-adic separation of S. The nilpotence hypothesis is used only after reduction, never asserted in S."
+      ],
+      "acceptance": [
+        "The reduction square is essential; the prototype explicitly includes it rather than allowing Lean to drop an unused section hypothesis."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q0:integral-algebra/untilt-naturality",
+        "mathlib:WittVector.map",
+        "mathlib:WittVector.fontaineTheta_teichmuller",
+        "mathlib:WittVector.eq_of_apply_teichmuller_eq",
+        "mathlib:IsHausdorff.eq_iff_smodEq"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "§3.1, Definition 3.1 and Lemma 3.4, pp.19–21",
+          "excerpt": "Further functorial properties",
+          "match": "Ring-map naturality is derived from the existing Mathlib construction; Lemma 3.4 supplies the surrounding θ convention, not a verbatim statement of this lemma."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.theta_natural"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/integral-perfectoid-ring-equivalence",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Invariance under ring equivalence",
+      "kind": "lemma",
+      "statement": "For every ring equivalence e:R≃S, integral perfectoidness of R at p is equivalent to that of S at p.",
+      "hypotheses": [
+        "p prime; commutative unital rings; the zero ring is included."
+      ],
+      "proofSteps": [
+        "Transport the subsingleton case directly. Otherwise transport completeness along the bijection of p-adic congruence systems, and the root/unit and Frobenius-surjectivity conditions along e.",
+        "The induced maps modulo p, on inverse perfection, and on Witt vectors are equivalences because the inverse ring map gives their inverses. θ naturality identifies the two kernels, so principal generation transfers in both directions."
+      ],
+      "acceptance": [
+        "Changing the presentation of F_p or its finite product does not change perfectoidness."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+        "PerfectoidQuotients:Q0:integral-algebra/theta-naturality",
+        "mathlib:Ideal.quotientMap",
+        "mathlib:Perfection.map",
+        "mathlib:WittVector.map",
+        "mathlib:IsAdicComplete"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms2-thh-2019",
+          "locator": "Definition 4.18, p.22",
+          "excerpt": "A ring R is perfectoid if it is p-adically complete",
+          "match": "A presentation-independent predicate on rings; the transport proof uses the named naturality nodes."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.IsIntegralPerfectoid.congr"
+    },
+    {
+      "id": "PerfectoidQuotients:Q0:integral-algebra/characteristic-p-perfectoid-criterion",
+      "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "realises": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "title": "Integral perfectoidness in characteristic p",
+      "kind": "theorem",
+      "statement": "A commutative ring of characteristic exactly p is integral perfectoid if and only if it satisfies Mathlib PerfectRing R p, namely bijectivity of the p-th-power map.",
+      "hypotheses": [
+        "p prime; characteristic exactly p gives a nonzero ring. The zero-ring statement is separately part of the definition API."
+      ],
+      "proofSteps": [
+        "For a perfectoid R, use the nontrivial criterion. Frobenius surjectivity gives surjectivity of the tilt projection by Perfection.coeff_surjective. The principal-kernel lemma gives injectivity. Thus R/p=R is isomorphic to its perfect inverse perfection.",
+        "Conversely, if R is perfect, the projection from its inverse perfection is bijective: existence uses successive unique roots, and uniqueness follows from injectivity of their powers.",
+        "Under R/p=R, the existing θ formula is the constant-coefficient map followed by this bijection. Its kernel is (p) by the baseline Witt kernel formula. The p-adic ideal is zero, so R is complete, and π=0 with unit 1 supplies the root condition."
+      ],
+      "acceptance": [
+        "F_p×F_p passes; F₂[t] and F₂[ε]/ε² fail. The semiperfect quotient of the perfect closure of F₂[t] also fails."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q0:integral-algebra/integral-perfectoid-nontrivial-criterion",
+        "PerfectoidQuotients:Q0:integral-algebra/tilt-projection-injective-characteristic-p",
+        "mathlib:Perfection.coeff_surjective",
+        "mathlib:PerfectRing",
+        "mathlib:Perfection.lift",
+        "mathlib:WittVector.mk_fontaineTheta",
+        "mathlib:WittVector.ker_constantCoeff",
+        "mathlib:IsAdicComplete"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Example 3.15, p.24, with Lemma 3.10 proof, p.23",
+          "excerpt": "Then S is perfectoid if and only if it is perfect.",
+          "match": "Exact characteristic-p equivalence, expanded to the pinned carriers."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Integral",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.integralPerfectoid_iff_perfect",
+      "planet": {
+        "name": "Perfect rings of characteristic p"
+      }
+    },
+    {
+      "id": "PerfectoidQuotients:Q4/quotient-frobenius-surjective",
+      "parentStageId": "PerfectoidQuotients:Q4",
+      "realises": [
+        "PerfectoidQuotients:Q4"
+      ],
+      "title": "Surjectivity of powers on a quotient",
+      "kind": "lemma",
+      "statement": "If the p-th-power function on a commutative ring R is surjective, its p-th-power function on R/I is surjective for every ideal I.",
+      "hypotheses": [
+        "p prime in the roadmap specialization. The argument itself needs no characteristic or reducedness assumption."
+      ],
+      "proofSteps": [
+        "Lift a quotient element to r∈R using the existing surjective quotient map. Choose a p-th root s of r. Its class is a p-th root of the given quotient element."
+      ],
+      "acceptance": [
+        "It holds even for the semiperfect nonreduced quotient A/(t), so surjectivity alone cannot be the target perfectoid criterion."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal.Quotient.mk_surjective"
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Theorem 7.4 and its proof, pp.56 and 62",
+          "excerpt": "The map S → Sperfd is surjective.",
+          "match": "Elementary characteristic-p specialization used in the quotient proof; source-derived bookkeeping, not a separately named theorem in BS22."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Quotient",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.quotient_pow_surjective"
+    },
+    {
+      "id": "PerfectoidQuotients:Q4/perfect-quotient-radical-criterion",
+      "parentStageId": "PerfectoidQuotients:Q4",
+      "realises": [
+        "PerfectoidQuotients:Q4"
+      ],
+      "title": "Perfect quotients of a perfect characteristic-p ring",
+      "kind": "lemma",
+      "statement": "For a perfect ring R of characteristic p and any ideal I, PerfectRing(R/I,p) holds if and only if I is radical. This includes I=R and its zero quotient.",
+      "hypotheses": [
+        "p prime; R a perfect commutative ring of characteristic exactly p; no properness or finite-generation condition on I."
+      ],
+      "proofSteps": [
+        "The quotient power map is surjective by quotient-frobenius-surjective. If I is radical then R/I is reduced; split off the zero ring, and in the nonzero case give the quotient characteristic p and apply PerfectRing.ofSurjective.",
+        "Conversely, bijectivity of the p-th power implies that no nonzero element of the quotient is nilpotent: choose p^n at least the nilpotence exponent and use injectivity repeatedly. The existing radical/reduced-quotient equivalence gives radicality of I."
+      ],
+      "acceptance": [
+        "The top ideal gives the zero ring, which still has bijective p-th power. Nonradical ideals fail injectivity."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q4/quotient-frobenius-surjective",
+        "mathlib:Ideal.isRadical_iff_quotient_reduced",
+        "mathlib:PerfectRing.ofSurjective",
+        "mathlib:CharP.charP_iff_prime_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Example 3.15, p.24",
+          "excerpt": "Then S is perfectoid if and only if it is perfect.",
+          "match": "Packet-derived elementary quotient criterion supporting the BS22 characteristic-p application."
+        },
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Theorem 7.4 and its proof, pp.56 and 62",
+          "excerpt": "The map S → Sperfd is surjective.",
+          "match": "Specialization to quotients of perfect characteristic-p rings."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Quotient",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.quotient_perfect_iff_radical"
+    },
+    {
+      "id": "PerfectoidQuotients:Q4/radical-quotient-integral-perfectoid",
+      "parentStageId": "PerfectoidQuotients:Q4",
+      "realises": [
+        "PerfectoidQuotients:Q4"
+      ],
+      "title": "The radical quotient is integral perfectoid",
+      "kind": "lemma",
+      "statement": "For a perfect characteristic-p ring R and any ideal I, R/√I is integral perfectoid at p, including the zero quotient.",
+      "hypotheses": [
+        "p prime; R perfect of characteristic p."
+      ],
+      "proofSteps": [
+        "The radical is radical in the existing ideal API. The perfect-quotient criterion gives PerfectRing(R/√I,p).",
+        "If the quotient is zero use the explicit zero-ring branch. Otherwise the map from R gives characteristic p, and the characteristic-p perfectoid criterion applies."
+      ],
+      "acceptance": [
+        "For I=0 the quotient is R; for I=R it is the zero ring."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q4/perfect-quotient-radical-criterion",
+        "PerfectoidQuotients:Q0:integral-algebra/characteristic-p-perfectoid-criterion",
+        "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+        "mathlib:Ideal.radical_isRadical",
+        "mathlib:CharP.charP_iff_prime_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Theorem 7.4 and its proof, pp.56 and 62",
+          "excerpt": "The map S → Sperfd is surjective.",
+          "match": "Candidate perfectoidization in characteristic p, combined with BMS1 Example 3.15."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Quotient",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.radical_quotient_integralPerfectoid"
+    },
+    {
+      "id": "PerfectoidQuotients:Q4/characteristic-p-perfectoidization-universal",
+      "parentStageId": "PerfectoidQuotients:Q4",
+      "realises": [
+        "PerfectoidQuotients:Q4"
+      ],
+      "title": "Perfectoidization of a characteristic-p quotient",
+      "kind": "theorem",
+      "statement": "Let R be a perfect ring of characteristic p and I an arbitrary ideal. For every integral perfectoid ring T and ring map f:R→T killing I, there is a unique ring map g:R/√I→T with g composed with the quotient map equal to f. Together with the preceding perfectoidness lemma and the existing surjective map R/I→R/√I, this identifies R/√I as the universal integral perfectoid ring under R/I.",
+      "hypotheses": [
+        "No characteristic assumption is imposed on T: the given ring map forces p=0 in T. The zero target is allowed."
+      ],
+      "proofSteps": [
+        "If T is zero the factorization is unique. Otherwise f(p)=0 gives characteristic p; the integral-perfectoid criterion makes T perfect, hence reduced.",
+        "Every element of √I maps to a nilpotent and hence to zero in T. Apply the existing Ideal.Quotient.lift to f.",
+        "The quotient map from R is surjective, so the lift is unique. Apply Ideal.quotientMap_surjective to the identity of R and I≤√I for the surjectivity from R/I. No transfinite prism, completed base change or André theorem enters this specialization."
+      ],
+      "acceptance": [
+        "Surjectivity is a statement about the canonical quotient map, not an abstract existence of a perfectoid target. It works for infinitely generated I."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q4/radical-quotient-integral-perfectoid",
+        "PerfectoidQuotients:Q0:integral-algebra/characteristic-p-perfectoid-criterion",
+        "mathlib:CharP.charP_iff_prime_eq_zero",
+        "mathlib:Ideal.Quotient.lift",
+        "mathlib:Ideal.Quotient.mk_surjective",
+        "mathlib:Ideal.quotientMap_surjective",
+        "mathlib:Ideal.radical"
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Theorem 7.4 and its proof, pp.56 and 62",
+          "excerpt": "The map S → Sperfd is surjective.",
+          "match": "Explicit characteristic-p proof of the universal-property and surjectivity specialization; no claim to close the mixed-characteristic theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Quotient",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.radical_quotient_universal",
+      "planet": {
+        "name": "Perfectoidization in characteristic p"
+      }
+    },
+    {
+      "id": "PerfectoidQuotients:Q4/compatible-root-ideal-radical",
+      "parentStageId": "PerfectoidQuotients:Q4",
+      "realises": [
+        "PerfectoidQuotients:Q4"
+      ],
+      "title": "The ideal of all roots of a principal element",
+      "kind": "theorem",
+      "statement": "In a perfect ring R of characteristic p, for f∈R the ideal generated by φ^(−n)(f), n≥0, equals √(f). Roots here are supplied by the inverse of the existing Frobenius ring equivalence.",
+      "hypotheses": [
+        "p prime; R perfect of characteristic p. This is an algebraic ideal with no topology attached."
+      ],
+      "proofSteps": [
+        "Every listed root has p^n-th power f, so belongs to √(f).",
+        "If x^m belongs to (f), choose n with p^n≥m, and write x^(p^n)=fc. Apply the inverse n-th Frobenius to obtain x=φ^(−n)(f)φ^(−n)(c), proving membership in the root ideal.",
+        "Both inclusions hold for arbitrary f, including zero and units. The fixed-root sequence has exact compatibility, not independently chosen roots."
+      ],
+      "acceptance": [
+        "For f=0 the ideal is zero; for f=1 it is top; every compatible root maps to zero in the radical quotient."
+      ],
+      "prerequisites": [
+        "mathlib:frobeniusEquiv",
+        "mathlib:frobeniusEquiv_symm_pow_p",
+        "mathlib:Ideal.radical"
+      ],
+      "sources": [
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Theorem 7.4 and its proof, pp.56 and 62",
+          "excerpt": "The map S → Sperfd is surjective.",
+          "match": "The root-ideal description in the printed principal-case proof, specialized to characteristic p and supplied with an elementary algebraic argument."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Quotient",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.root_span_eq_radical"
+    },
+    {
+      "id": "PerfectoidQuotients:Q4/integral-perfectoid-quotient-radical-criterion",
+      "parentStageId": "PerfectoidQuotients:Q4",
+      "realises": [
+        "PerfectoidQuotients:Q4"
+      ],
+      "title": "Which algebraic quotients stay integral perfectoid",
+      "kind": "theorem",
+      "statement": "For a perfect characteristic-p ring R and any ideal I, R/I is integral perfectoid at p if and only if I is radical.",
+      "hypotheses": [
+        "p prime; characteristic-p perfect source; arbitrary ideal, including top."
+      ],
+      "proofSteps": [
+        "Split the zero quotient. The ideal is then top and radical, and the zero ring is integral perfectoid.",
+        "For a nonzero quotient, transfer characteristic p along the quotient map. Apply the characteristic-p integral-perfectoid criterion followed by the perfect-quotient radical criterion."
+      ],
+      "acceptance": [
+        "For A=F₂[t^(1/2^∞)], the ideal (t) is not radical because t^(1/2) is outside it but has square in it. Its quotient is semiperfect but not integral perfectoid."
+      ],
+      "prerequisites": [
+        "PerfectoidQuotients:Q4/perfect-quotient-radical-criterion",
+        "PerfectoidQuotients:Q0:integral-algebra/characteristic-p-perfectoid-criterion",
+        "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+        "mathlib:CharP.charP_iff_prime_eq_zero"
+      ],
+      "sources": [
+        {
+          "sourceId": "bms1-integral-2018",
+          "locator": "Example 3.15, p.24",
+          "excerpt": "Then S is perfectoid if and only if it is perfect.",
+          "match": "Exact algebraic quotient application; no Tate or completed-quotient assertion."
+        },
+        {
+          "sourceId": "bs-prisms-2022",
+          "locator": "Theorem 7.4 and its proof, pp.56 and 62",
+          "excerpt": "The map S → Sperfd is surjective.",
+          "match": "Acceptance criterion for the characteristic-p surjectivity route."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RingTheory/Perfectoid/Quotient",
+        "namespace": "TauCeti.PerfectoidQuotients"
+      },
+      "implementationStatus": "unchecked",
+      "suggestedDeclaration": "TauCeti.PerfectoidQuotients.quotient_perfectoid_iff_radical"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "PrismaticCohomology:PR.0",
+      "need": "The actual free δ-ring, prism, boundedness, rigidity, completed-perfection and perfect-prism/integral-perfectoid correspondence declarations, with regular-envelope hypotheses. The algebraic δ-prefix packet is a lead; no general prism carrier is yet imported as implemented.",
+      "neededBy": [
+        "PerfectoidQuotients:Q0:animated-application",
+        "PerfectoidQuotients:Q2"
+      ]
+    },
+    {
+      "supplier": "PrismaticCohomology:PR.1",
+      "need": "The complete Q1 reexport contract: bounded relative site and structure sheaf, covers, Čech–Alexander models and Theorem 6.3 with twists, multiplicative comparison and descent.",
+      "neededBy": [
+        "PerfectoidQuotients:Q1"
+      ]
+    },
+    {
+      "supplier": "PrismaticCohomology:PR.2",
+      "need": "Derived left Kan extension (7.6), filtered Hodge–Tate comparison, base change, discreteness/δ-structure, idempotent retract, regular and QRSP initiality (7.7–7.10).",
+      "neededBy": [
+        "PerfectoidQuotients:Q2",
+        "PerfectoidQuotients:Q3"
+      ]
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.0",
+      "need": "Full cotangent complexes, derived exterior powers and mod-p Tor-amplitude criteria defining quasisyntomic and QRSP rings, beyond the ordinary differential prefix.",
+      "neededBy": [
+        "PerfectoidQuotients:Q0:integral-algebra",
+        "PerfectoidQuotients:Q0:animated-application",
+        "PerfectoidQuotients:Q2"
+      ]
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.1",
+      "need": "Derived completion of rings/modules, comparison with classical completion under bounded torsion, completed colimits and base change at the ordinal and descent steps.",
+      "neededBy": [
+        "PerfectoidQuotients:Q0:integral-algebra",
+        "PerfectoidQuotients:Q2",
+        "PerfectoidQuotients:Q3",
+        "PerfectoidQuotients:Q4"
+      ]
+    },
+    {
+      "supplier": "DerivedDeRhamCohomology:DD.5",
+      "need": "Quasisyntomic site and compatible-root QRSP covers with the exact bounded torsion/amplitude hypotheses; O_C/p is an included QRSP example.",
+      "neededBy": [
+        "PerfectoidQuotients:Q0:integral-algebra",
+        "PerfectoidQuotients:Q3"
+      ]
+    },
+    {
+      "supplier": "EnhancedDerivedSheaves:E5:animation",
+      "need": "The actual simplicial commutative/animated algebra carrier, polynomial resolutions and coherent sifted Kan extension, with its comparison to commutative algebra objects.",
+      "neededBy": [
+        "PerfectoidQuotients:Q0:animated-application",
+        "PerfectoidQuotients:Q2"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PerfectoidQuotients:Q0",
+      "status": "partial",
+      "remaining": [
+        "Container scope: the new integral predicate and characteristic-p algebraic quotient prefix are specified. The BMS1/BMS2 comparison, general θ-kernel structure and all remaining stages below are required."
+      ]
+    },
+    {
+      "stageId": "PerfectoidQuotients:Q0:animated-application",
+      "status": "partial",
+      "remaining": [
+        "Refine the accepted Lemma 4.8 aggregate against actual PR.0 prism carriers, including the inverse-Frobenius factorization needed for δ-compatibility in a p-torsion target. Import free δ-rings, distinguished elements, prisms, boundedness, orientations and completed perfection once from PR.0.",
+        "The E5 animation and DD.0–1 cotangent, derived powers and completion contracts remain required; no strict commutative-DGA substitution in characteristic p."
+      ]
+    },
+    {
+      "stageId": "PerfectoidQuotients:Q0:integral-algebra",
+      "status": "partial",
+      "remaining": [
+        "Normalize BMS1 Definition 3.5 to BMS2 Definition 4.18 using Lemma 3.9, including p-adic versus π-adic completeness; spell out the general principal-kernel, nonzerodivisor and bounded-torsion statements. The new characteristic-p argument does not supply them.",
+        "Resolve the P1 comparison lead at its recorded node IDs, whose packet has needs_changes review. Retain general Tate rings, explicit plus rings, boundedness in the converse and the nonzerodivisor in BMS1 Lemma 3.21.",
+        "DD.0/DD.5 own the quasisyntomic and QRSP definitions extracted in the old aggregate. Restore their exact accepted O_C/p test through supplier nodes; it is QRSP."
+      ]
+    },
+    {
+      "stageId": "PerfectoidQuotients:Q1",
+      "status": "partial",
+      "remaining": [
+        "Q1 is a PR.1 reexport. Obtain the bounded relative site, covers, structure sheaf, Čech–Alexander presentation independence and Frobenius, and Theorem 6.3 with its multiplicative map and twists, not the étale comparison."
+      ]
+    },
+    {
+      "stageId": "PerfectoidQuotients:Q2",
+      "status": "partial",
+      "remaining": [
+        "Refine Proposition 7.2 into adjoining, δ-stable torsion removal, derived completion, ordinal iteration and initiality declarations. Distinguish all prisms from the bounded site.",
+        "Import PR.2 Construction 7.6 and Lemmas 7.7–7.10, retaining the retract/idempotent argument, bounded torsion and Koszul regularity.",
+        "Establish completed flat base change of perfectoidization and descent of surjectivity without citing Proposition 8.5 circularly."
+      ]
+    },
+    {
+      "stageId": "PerfectoidQuotients:Q3",
+      "status": "partial",
+      "remaining": [
+        "Decompose Proposition 7.11, completed perfection preserving faithful flatness, the monic-root extension and limit-stage/size claims of Theorem 7.14. Include Examples 7.12–7.13 and the needed Remark 7.15 refinement.",
+        "Compatible roots must be chosen successively; no v-descent or Q4 theorem may enter this early route."
+      ]
+    },
+    {
+      "stageId": "PerfectoidQuotients:Q4",
+      "status": "partial",
+      "remaining": [
+        "The characteristic-p algebraic quotient prefix is specified; complete the arbitrary semiperfectoid theorem using correctly completed filtered colimits, principal reduction, Q2 base change and faithful-flat descent after André.",
+        "For Remark 7.5 and ECD 5.8, prove the pseudouniformizer completion and plus-ring statements on P4 carriers. Assess the unreviewed PerfectoidSpaces/E33 lead about characteristic-p completion; do not promote its proposed fix as established.",
+        "Prove the analytic universal property, surjectivity after inversion, plus-ring integral closure and integral almost surjectivity, preserving the nonclosed-ideal acceptance test."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "General integral algebra and normalization",
+      "neededBy": [
+        "PerfectoidQuotients:Q0:integral-algebra"
+      ],
+      "detail": "Normalize BMS1 Definition 3.5 to BMS2 Definition 4.18 using Lemma 3.9, including p-adic versus π-adic completeness; spell out the general principal-kernel, nonzerodivisor and bounded-torsion statements. The new characteristic-p argument does not supply them."
+    },
+    {
+      "title": "Tate comparison and completion interfaces",
+      "neededBy": [
+        "PerfectoidQuotients:Q0:integral-algebra",
+        "PerfectoidQuotients:Q4"
+      ],
+      "detail": "Resolve the P1 comparison lead at its recorded node IDs, whose packet has needs_changes review. Retain general Tate rings, explicit plus rings, boundedness in the converse and the nonzerodivisor in BMS1 Lemma 3.21. For Remark 7.5 and ECD 5.8, prove the pseudouniformizer completion and plus-ring statements on P4 carriers. Assess the unreviewed PerfectoidSpaces/E33 lead about characteristic-p completion; do not promote its proposed fix as established."
+    },
+    {
+      "title": "Prism and derived-algebra source closure",
+      "neededBy": [
+        "PerfectoidQuotients:Q0:animated-application",
+        "PerfectoidQuotients:Q1",
+        "PerfectoidQuotients:Q2"
+      ],
+      "detail": "PR.0/PR.1/PR.2, E5 and DD.0–1 contracts in requests; accepted inherited aggregates are not declaration-sized replacements for these suppliers."
+    },
+    {
+      "title": "Universal-prism transfinite construction",
+      "neededBy": [
+        "PerfectoidQuotients:Q2"
+      ],
+      "detail": "Refine Proposition 7.2 into adjoining, δ-stable torsion removal, derived completion, ordinal iteration and initiality declarations. Distinguish all prisms from the bounded site."
+    },
+    {
+      "title": "Noncircular completed flat base change",
+      "neededBy": [
+        "PerfectoidQuotients:Q2",
+        "PerfectoidQuotients:Q4"
+      ],
+      "detail": "Establish completed flat base change of perfectoidization and descent of surjectivity without citing Proposition 8.5 circularly."
+    },
+    {
+      "title": "André construction and limits",
+      "neededBy": [
+        "PerfectoidQuotients:Q3"
+      ],
+      "detail": "Decompose Proposition 7.11, completed perfection preserving faithful flatness, the monic-root extension and limit-stage/size claims of Theorem 7.14. Include Examples 7.12–7.13 and the needed Remark 7.15 refinement. Compatible roots must be chosen successively; no v-descent or Q4 theorem may enter this early route."
+    },
+    {
+      "title": "General surjectivity reductions",
+      "neededBy": [
+        "PerfectoidQuotients:Q4"
+      ],
+      "detail": "The characteristic-p algebraic quotient prefix is specified; complete the arbitrary semiperfectoid theorem using correctly completed filtered colimits, principal reduction, Q2 base change and faithful-flat descent after André."
+    },
+    {
+      "title": "Analytic closed quotients",
+      "neededBy": [
+        "PerfectoidQuotients:Q4"
+      ],
+      "detail": "Prove the analytic universal property, surjectivity after inversion, plus-ring integral closure and integral almost surjectivity, preserving the nonclosed-ideal acceptance test."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PerfectoidQuotients/E1",
+      "source": "bs-prisms-2022",
+      "kind": "misprint",
+      "locator": "Corollary 7.3 proof, p.56, arXiv v4",
+      "printed": "with a map R → A/I",
+      "correction": "Replace R by S, or explicitly require the map from R to factor through the chosen quotient S.",
+      "reason": "The category being identified consists of perfectoid rings under S. Arbitrary maps from the presentation ring R would forget its kernel.",
+      "affects": "nothing",
+      "known": "Already identified in accepted REVIEW-EXT-03; freshly confirmed in the rendered public v4 PDF. No novelty claim.",
+      "searched": [
+        "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+        "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+        "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+      ]
+    },
+    {
+      "id": "PerfectoidQuotients/E2",
+      "source": "bms1-integral-2018",
+      "kind": "misprint",
+      "locator": "Lemma 3.14 proof, p.24, arXiv v3",
+      "printed": "[?, Lem. 6.5.13(i)]",
+      "correction": "Supply a verified bibliographic reference for Frobenius acting by zero on the cotangent complex, or include that argument. No replacement author/title is guessed.",
+      "reason": "The rendered public preprint has an unresolved citation marker. The conclusion is unchanged; the source closure is owned by DD.0.",
+      "affects": "nothing",
+      "known": "Unresolved citation confirmed in the rendered preprint; publisher status and novelty unestablished.",
+      "searched": [
+        "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+        "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+        "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+      ]
+    },
+    {
+      "id": "PerfectoidQuotients/E3",
+      "source": "bms2-thh-2019",
+      "kind": "misprint",
+      "locator": "Proposition 4.19(3), end of the first proof, p.23, arXiv v2",
+      "printed": "to the claim follows",
+      "correction": "so the claim follows",
+      "reason": "Editorial grammar; the elementary second proof and the statement are unaffected.",
+      "affects": "nothing",
+      "known": "Preprint text freshly confirmed as rendered; publisher status and novelty unestablished.",
+      "searched": [
+        "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+        "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+        "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+      ]
+    },
+    {
+      "id": "PerfectoidQuotients/E4",
+      "source": "bs-prisms-2022",
+      "kind": "misprint",
+      "locator": "Sentence before Theorem 7.4, p.56, arXiv v4",
+      "printed": "One goal in this section is prove",
+      "correction": "One goal in this section is to prove",
+      "reason": "Editorial omission of the infinitive marker; no mathematical consequence.",
+      "affects": "nothing",
+      "known": "Preprint text freshly confirmed as rendered; publisher status and novelty unestablished.",
+      "searched": [
+        "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+        "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+        "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+      ]
+    },
+    {
+      "id": "PerfectoidQuotients/E5",
+      "source": "bms1-integral-2018",
+      "kind": "misprint",
+      "locator": "Lemma 3.20 proof, p.27, arXiv v3",
+      "printed": "Let assume for the moment",
+      "correction": "Let us assume for the moment",
+      "reason": "Editorial omission of the pronoun; no mathematical consequence.",
+      "affects": "nothing",
+      "known": "Fresh public preprint text; publisher status and novelty unestablished.",
+      "searched": [
+        "Fresh public arXiv PDFs identified by the full hashes in sources; relevant rendered pages inspected during 2026-09-26–27.",
+        "arXiv version histories for 1602.03148, 1802.03261 and 1905.08229 checked 2026-09-26; no subsequent version is listed.",
+        "The atlas source-issue register was screened by source title and owner, including confirmed, rejected and awaiting-review records. Publisher full-text collation and an exhaustive erratum search are not claimed."
+      ]
+    }
+  ],
+  "inheritedWork": {
+    "origin": "data/decompositions/PerfectoidQuotients.json at snapshot 61b72d8dc2537dbe5a5d7d231c32c1e93e9f287f; accepted independent-review-REVIEW-EXT-03, 2026-09-15.",
+    "policy": "The twelve source aggregates are preserved verbatim here, outside the declaration graph. The first identifier is refined to the integral predicate above; its other notions import DD owners. The other eleven identifiers remain unrefined continuation obligations and are not counted as typed nodes. No inherited acceptance verdict is applied to this packet.",
+    "nodes": [
+      {
+        "id": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+        "parentStageId": "PerfectoidQuotients:Q0:integral-algebra",
+        "title": "Integral perfectoid, semiperfectoid, quasisyntomic and quasiregular semiperfectoid rings",
+        "kind": "definition",
+        "statement": "(BMS2 4.18) A ring R is perfectoid if it is p-adically complete, there is π ∈ R with π^p = pu for a unit u, Frobenius is surjective on R/p, and ker(θ: A_inf(R) = W(R♭) → R) is principal; then ker θ is generated by a nonzerodivisor ξ = p + [π♭]^p α, L_{R/Z_p} has p-complete Tor-amplitude in degree −1 with p-completion R[1], and R[p^∞] = R[p]. (BMS2 4.10) A is quasisyntomic if p-complete with bounded p^∞-torsion and L_{A/Z_p} has p-complete Tor-amplitude in [−1, 0]; a map of such rings is a quasisyntomic cover if p-completely faithfully flat with p-complete Tor-amplitude of L_{B/A} in [−1, 0]. (BS22 7.1) S is semiperfectoid if it is a derived p-complete ring admitting a surjection from a perfectoid ring; it is quasiregular if in addition it has bounded p^∞-torsion and L_{S/Z_p}[−1] is p-completely flat over S, in which case S is classically p-complete. (BMS2 4.20, 4.22; the identification with BS22 Notation 7.1 is a packet-authored reconciliation via Remarks 4.21-4.22) S is quasiregular semiperfectoid iff quasisyntomic, receiving a map from a perfectoid ring, with S/p semiperfect; conditions (2)-(3) may be replaced by the existence of a surjection from a perfectoid ring.",
+        "hypotheses": [
+          "All completions are p-adic (BMS2) or derived p-adic (BS22 Notation 7.1); BS22 asks only derived p-completeness for semiperfectoid, and Notation 7.1 records that quasiregularity forces classical p-completeness.",
+          "Perfectoid here is the integral notion of BMS1 §3, not the Tate-ring notion of PerfectoidSpaces:P1; the comparison for R^+ inside a perfectoid Tate ring is not proved in the sources read (gap)."
+        ],
+        "proofSteps": [
+          "BMS2 Remark 4.21: semiperfectness of S/p gives Ω¹_{(S/p)/F_p} = 0, so L_{S/R} ⊗^L S/p ∈ D^{≤ −1} for any R → S. For S ∈ QSyn, whose L_{S/Z_p} has p-complete Tor-amplitude in [−1, 0], this places the Tor-amplitude in degree −1.",
+          "BMS2 Remark 4.22: given R → S with R perfectoid and S/p semiperfect, R ⊗̂_{Z_p} W(S♭) is perfectoid and surjects onto S (S♭ the inverse-limit perfection of S/p), so the two formulations of the definition agree."
+        ],
+        "acceptance": [
+          "The ϖ-adic completion of R^+/(I ∩ R^+) for R^+ integral perfectoid is semiperfectoid (Remark 7.5), and R⟨X^{1/p^∞}⟩/(X − f) for perfectoid R is quasiregular semiperfectoid (proof of Prop. 7.10).",
+          "A perfectoid ring is quasiregular semiperfectoid with L_{R/Z_p}^∧ = R[1] (Example 4.24, Proposition 4.19). O_C/p is quasiregular semiperfectoid, and a test must not classify it otherwise. It is p-complete with bounded p-torsion, a quotient of the perfectoid O_C by the nonzerodivisor p, and L_{(O_C/p)/O_C} ≅ (p)/(p²)[1] is p-completely flat in degree −1, so BMS2 Lemma 4.25 applies (the regular-quotient formula is DD.0 content)."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, Notation 7.1, p. 55 (extraction lines 2422-2425)",
+            "excerpt": "Fix a semiperfectoid ring S, i.e. S is a derived p-complete ring that can be written as a quotient of a perfectoid ring R. We recall that S is called quasiregular if S has bounded p^∞-torsion, and the cotangent complex L_{S/Z_p}[−1] is p-completely flat over S",
+            "match": "The exact hypotheses under which Sections 7.1-7.3 are stated."
+          },
+          {
+            "sourceId": "bms2-thh-2019",
+            "locator": "Section 4, Definition 4.10, Definition 4.18, Proposition 4.19, Definition 4.20, Remarks 4.21-4.22, pp. 20-23 (extraction lines 929-1094)",
+            "excerpt": "A ring S is quasiregular semiperfectoid if: (1) The ring S is quasisyntomic, i.e. S ∈ QSyn. (2) There exists a map R → S with R perfectoid. (3) The Frobenius of S/pS is surjective, i.e. S/pS is semiperfect.",
+            "match": "The BMS2 definition cited by BS22 Notation 7.1, with the equivalent formulation used in the proofs."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q0:animated-application/perfect-prism-is-initial-over-its-perfectoid-ring",
+        "parentStageId": "PerfectoidQuotients:Q0:animated-application",
+        "title": "Maps out of a perfect prism are determined by their reduction: (A_inf(R), ker θ) is initial in (R)_Δ",
+        "kind": "lemma",
+        "statement": "Let (A, I) be a perfect prism with perfectoid ring R = A/I. For any prism (B, J), any ring map A/I → B/J lifts uniquely to a map of prisms (A, I) → (B, J). Hence (R)_Δ = (R/A)_Δ. The dual statement fails: a prism (A, I) may admit several maps to a perfect prism (B, J) with the same reduction.",
+        "hypotheses": [
+          "(A, I) perfect (φ_A bijective); B and B/J derived p-complete; B may have p-torsion, which is why being a δ-map must be checked separately.",
+          "Uses that L_{A/Z_p} vanishes after derived p-completion because A is the ring of Witt vectors of a perfect F_p-algebra. The source states this without proof; identifying a perfect prism with W(A/p) is Corollary 2.31, a packet-supplied reference.",
+          "Placement: Lemma 4.8 is an application of PR.0's perfect-prism/perfectoid-ring correspondence and rigidity, so it is filed under Q0:animated-application (which imports PR.0), not under Q0:integral-algebra (which PR.0 itself requires)."
+        ],
+        "proofSteps": [
+          "Deformation theory: Hom(A, B) ≅ Hom(A, B/J) ≅ Hom(A, B/(J, p)) since L_{A/Z_p}^∧ = 0 and B, B/J are derived p-complete; so A → A/I → B/J lifts uniquely to α: A → B, compatible with Frobenius lifts, with α(I) ⊂ J.",
+          "α is a δ-map: it factors uniquely through B^perf = lim_φ B → B by bijectivity of φ on A; B^perf is a perfect δ-ring, hence p-torsionfree, so the φ-equivariant map A → B^perf is automatically a δ-map, and B^perf → B is a δ-map by construction.",
+          "The proof ends there: α is a δ-map with α(I) ⊂ J, hence a map of prisms. Rigidity (Lemma 3.5, IB = J) is not used in Lemma 4.8. It is used in the proof of Proposition 7.2 (\"K = dC by Lemma 3.5\"), and the PR.0 rigidity link was re-targeted there by REVIEW-EXT-03."
+        ],
+        "acceptance": [
+          "For R = O_C and any prism (B, J) with a map O_C → B/J, there is a unique prism map (A_inf(O_C), (ξ)) → (B, J), so the absolute prismatic site of Spf O_C is the relative site over A_inf.",
+          "The uniqueness fails for maps into perfect prisms from non-perfect prisms (remark after Lemma 4.8)."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 4.1, Remark 4.7 and Lemma 4.8 with proof, pp. 38-39 (extraction lines 1736-1758)",
+            "excerpt": "To check α is a δ-map, note that α factors uniquely over B^perf := lim_φ B → B by the bijectivity of φ on A. As B^perf is a perfect δ-ring, it is p-torsionfree. Thus, the φ-equivariant map A → B^perf is automatically a δ-map.",
+            "match": "The p-torsion subtlety in the proof that the lift is a map of prisms."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+        "parentStageId": "PerfectoidQuotients:Q2",
+        "title": "The category of prisms under a semiperfectoid ring has an initial object with principal ideal",
+        "kind": "construction",
+        "statement": "For a semiperfectoid ring S, the category of all prisms (A, I) with a map S → A/I has an initial object (Δ^init_S, I) with I = (d) principal. Δ^init_S is a derived (p, d)-complete δ-A_inf(R)-algebra in which d is a nonzerodivisor, obtained from B = A_inf(R){x_f | f ∈ J}/(d x_f − f | f ∈ J)_δ (J = ker(A_inf(R) → R → S)) by killing the smallest δ-stable ideal containing the d^∞-torsion, taking H^0 of the derived (p, d)-completion, and iterating transfinitely. The source identifies this category with the absolute prismatic site (Spf S)_Δ of Remark 4.7. The objects of that site are bounded prisms, whereas Δ^init_S \"is not bounded in general\", so Δ^init_S need not be an object of (Spf S)_Δ.",
+        "hypotheses": [
+          "S = R/J' for a perfectoid ring R (surjection chosen); (A_inf(R), ker θ = (d)) is the initial prism under R (Lemma 4.8) and ker θ is principal.",
+          "Δ^init_S is not bounded in general; its perfection is the well-behaved object (Corollary 7.3).",
+          "The transfinite induction uses that derived completion commutes with ω₁-filtered colimits.",
+          "Asserted, not argued: that the transfinite torsion-removal process ends in a d-torsion-free derived (p, d)-complete ring still receiving a unique map to every (C, K), and that Remark 4.7's bounded site is the category meant."
+        ],
+        "proofSteps": [
+          "Given a prism (C, K) with S → C/K, Lemma 4.8 gives a unique (A_inf(R), (d)) → (C, K) and K = dC by rigidity (Lemma 3.5); d is a nonzerodivisor in C, so each f ∈ J has a unique quotient f/d ∈ C.",
+          "Freely adjoining x_f with d x_f = f in δ-rings gives a unique δ-map B → C; since C is d-torsionfree it factors through B/B[d^∞]_δ, and since C is derived (p, d)-complete and classical, through H^0 of the derived (p, d)-completion.",
+          "The completed quotient may acquire new d-torsion; transfinite iteration (completion commuting with ω₁-filtered colimits) produces Δ^init_S with d a nonzerodivisor and still a unique map to (C, K); d is distinguished, so (Δ^init_S, (d)) is a prism.",
+          "R = A_inf(R)/d → Δ^init_S/d factors through S because all elements of J become divisible by d."
+        ],
+        "acceptance": [
+          "For S = R perfectoid, Δ^init_S = A_inf(R) by Lemma 4.8, since (A_inf(R), ker θ) is already initial among prisms under R.",
+          "For S = R/(f) with f admitting compatible p-power roots, Corollary 7.3 and the proof of Theorem 7.4 together give that the p-adic completion of (Δ^init_S)_perf/I is the p-completion of R/(f^{1/p^∞})."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, Proposition 7.2 with proof, p. 55 (extraction lines 2426-2461)",
+            "excerpt": "The latter δ-ring may however contain new d-torsion elements; but after a transfinite induction (using that completion commutes with ω₁-filtered colimits), we arrive at a derived (p, d)-complete δ-A_inf(R)-algebra Δ^init_S such that d is a nonzerodivisor.",
+            "match": "The torsion-removal and completion loop that the stage text calls 'the explicit adjoining, torsion-removal and transfinite completion argument of 7.2'."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q2/universal-perfectoidization",
+        "parentStageId": "PerfectoidQuotients:Q2",
+        "title": "Universal perfectoid ring S_perfd under a semiperfectoid ring",
+        "kind": "construction",
+        "statement": "For semiperfectoid S there is a universal perfectoid ring S_perfd with a map S → S_perfd (every map from S to a perfectoid ring factors uniquely through it), namely S_perfd = p-adic completion of (Δ^init_S)_perf / I, where (Δ^init_S)_perf is the completed perfection of the initial prism.",
+        "hypotheses": [
+          "Uses the equivalence between perfectoid rings and perfect prisms (Theorem 3.10; supplied by PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings) so that perfectoid rings under S are perfect prisms under (Δ^init_S, I).",
+          "Uses Lemma 3.9: the completed perfection (A_∞, IA_∞) of a prism is the universal perfect prism under it, IA_perf = (d) with d, p nonzerodivisors and A_perf/d[p^∞] = A_perf/d[p]; the derived and classical (p, I)-completions agree."
+        ],
+        "proofSteps": [
+          "Perfectoid rings S_perfd with S → S_perfd correspond to perfect prisms (A, I) with R → A/I factoring through S, i.e. to perfect prisms under (Δ^init_S, I).",
+          "Lemma 3.9 identifies the universal perfect prism under (Δ^init_S, I) as its completed perfection; reduce modulo I and note the quotient is p-adically complete (bounded p-torsion)."
+        ],
+        "acceptance": [
+          "For S perfectoid, S_perfd = S.",
+          "Theorem 7.4 asserts S → S_perfd is surjective; before that theorem only the universal property is known."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, Corollary 7.3 with proof, p. 56 (extraction lines 2463-2468), and Lemma 3.9 with proof, pp. 31-32 (extraction lines 1434-1448)",
+            "excerpt": "Note that the category of perfectoid rings S_perfd with a map S → S_perfd is equivalent to the category of perfect prisms (A, I) with a map R → A/I. Thus, the claim follows from Lemma 3.9.",
+            "match": "The two-line proof and its two imports (Theorem 3.10 and Lemma 3.9)."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+        "parentStageId": "PerfectoidQuotients:Q2",
+        "title": "Derived prismatic cohomology by left Kan extension, with its Hodge-Tate filtration and formal properties",
+        "kind": "construction",
+        "statement": "For a bounded prism (A, I), the functor R ↦ Δ_{R/A} on p-completely smooth A/I-algebras (valued in commutative algebras in (p, I)-complete objects of D(A) with φ_A-semilinear Frobenius) is left Kan extended to all derived p-complete simplicial commutative A/I-algebras. The Hodge-Tate comparison (Theorem 6.3) yields on Δ̄_{R/A} := Δ_{R/A} ⊗^L_A A/I an exhaustive increasing N-indexed filtration with gr^i = derived p-completion of ∧^i L_{R/(A/I)}{−i}[−i]. Consequences: (1) agreement with Δ_{R/A} for p-completely smooth R; (2) R ↦ Δ_{R/A} is a sheaf for the p-completely etale topology; (3) for perfect (A, I) it is a quasisyntomic sheaf on quasisyntomic A/I-algebras; (4) base change Δ_{R_B/B} ≅ Δ_{R/A} ⊗̂^L_A B for maps of bounded prisms (A, I) → (B, J), R_B the derived p-completion of R ⊗^L_A B; (5) the functor is symmetric monoidal and commutes with all colimits.",
+        "hypotheses": [
+          "(A, I) bounded; left Kan extension in the sense of Lurie HTT §5.5.9 along the inclusion of p-completely smooth algebras into derived p-complete simplicial commutative A/I-algebras.",
+          "This construction is owned by PrismaticCohomology:PR.2 according to stage Q2 ('Import PR.2's independent extension'); no PR.2 node exists yet in the PrismaticCohomology draft, so the construction is recorded here as read (see gap).",
+          "Properties (2)-(5) are asserted as 'immediate consequences' of the Hodge-Tate filtration; the source gives no further argument."
+        ],
+        "proofSteps": [
+          "Define Δ_{R/A} as the left Kan extension; on smooth algebras nothing changes (1).",
+          "The Hodge-Tate comparison for smooth algebras (Theorem 6.3: Ω^i_{R/(A/I)} ≅ H^i(Δ̄_{R/A}){i}) left-Kan-extends to the filtration with graded pieces the completed derived exterior powers of the cotangent complex, since ∧^i L extends Ω^i.",
+          "(2)-(5) are stated as \"immediate consequences\". Packet-authored reading: they follow from the filtration by etale/quasisyntomic descent of completed derived exterior powers of the cotangent complex, base change of L, and colimit preservation of the associated graded. For (3) the source points only to a variant for derived de Rham cohomology in characteristic p ([BMS19, Example 5.11], unread)."
+        ],
+        "acceptance": [
+          "For R = A/I⟨X⟩, gr^1 = R{−1}[−1] and the filtration recovers the Hodge-Tate comparison Ω¹ ≅ H¹(Δ̄){1}.",
+          "For R with L_{R/(A/I)}[−1] p-completely flat (e.g. quasiregular semiperfectoid over a perfect prism) all gr^i are discrete, so Δ̄_{R/A} is discrete (used in 7.10)."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Construction 7.6 and consequences (1)-(5), pp. 56-57 (extraction lines 2494-2532); Theorem 6.3 statement, p. 52 (extraction lines 2353-2356)",
+            "excerpt": "The Hodge-Tate comparison shows that Δ̄_{R/A} := Δ_{R/A} ⊗^L_A A/I admits an exhaustive increasing N-indexed filtration with gr^i given by sending R to the derived p-completion of ∧^i L_{R/(A/I)}{−i}[−i]",
+            "match": "The filtered Hodge-Tate comparison for derived prismatic cohomology required by stage Q2."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+        "parentStageId": "PerfectoidQuotients:Q2",
+        "title": "When Δ_{R/A} is discrete it is a δ-ring, a prism over (A, I), and weakly initial with an idempotent retract that is initial",
+        "kind": "lemma",
+        "statement": "Let (A, I) be a bounded prism and R a derived p-complete simplicial A/I-algebra with Δ_{R/A} concentrated in degree 0. Then (1) the φ_A-linear Frobenius on Δ_{R/A} lifts naturally to a δ-A-structure; (2) (Δ_{R/A}, IΔ_{R/A}) is a prism over (A, I) with a map R → Δ̄_{R/A}; (3) the category of prisms (B, J) over (A, I) with R → B/J has an initial object, (Δ_{R/A}, IΔ_{R/A}) is weakly initial, and the initial object is the retract of an idempotent endomorphism of (Δ_{R/A}, IΔ_{R/A}). (Lemma 7.8) In an idempotent complete category C, if the identity factors through C_{X\\} → C via F: C → C_{X\\}, then F(X) is an idempotent of X whose retract is initial in C.",
+        "hypotheses": [
+          "Discreteness of Δ_{R/A} (hence of Δ̄_{R/A} = Δ_{R/A} ⊗^L_A A/I for (2)).",
+          "The δ-structure is obtained from the functorial Čech-Alexander model F_A(R) and the map F_A(R) → W_2(F_A(R)) classifying δ-structures, together with the pullback square W_2(B) = B ×_{B ⊗^L F_p} B for simplicial commutative rings.",
+          "BS22 conjectures that (Δ_{R/A}, IΔ_{R/A}) is itself initial; only weak initiality plus the retract is proved.",
+          "Lemma 7.8 is stated for an idempotent complete category. The source applies it to (R/A)_Δ without checking idempotent completeness; this is a gap. In part (3), \"Using the argument from part (1), one shows that this is in fact a map of δ-rings\" is asserted."
+        ],
+        "proofSteps": [
+          "(1) Build the map Δ_{R/A} ≅ colim lim F_A(R) → colim lim W_2(F_A(R)) of E_∞-rings over A → W_2(A), splitting restriction; identify the target with W_2(Δ_{R/A}) using the pullback square and discreteness; this is a δ-structure refining φ_R.",
+          "(2) Immediate from derived (p, I)-completeness and discreteness of Δ̄_{R/A}.",
+          "(3) For any (B, J) in (R/A)_Δ, resolving R by p-completely ind-smooth R_i and writing Δ_{R/A} = colim_{Δ^op} lim_{C ∈ (R_•/A)_Δ} C, restrict the limit to the compatible objects defined by (B, J) to get a functorial δ-map Δ_{R/A} → B; conclude by Lemma 7.8 (faithful F, epimorphism X → X', at most one and at least one map X' → Y)."
+        ],
+        "acceptance": [
+          "Lemma 7.8 applied to C = (R/A)_Δ with X = (Δ_{R/A}, IΔ_{R/A}) gives the initial object as a retract.",
+          "In Example 7.9 and Proposition 7.10 the idempotent is shown to be the identity."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Lemma 7.7 with proof and Lemma 7.8 with proof, pp. 57-59 (extraction lines 2533-2617)",
+            "excerpt": "In particular, the initial object is the image of some idempotent endomorphism of (Δ_{R/A}, IΔ_{R/A}). In part (3), we conjecture that (Δ_{R/A}, IΔ_{R/A}) is actually the initial object.",
+            "match": "Exact strength of the initial-object statement; stage Q2's 'idempotent-retract lemma'."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
+        "parentStageId": "PerfectoidQuotients:Q2",
+        "title": "For a Koszul-regular quotient R = A/(I, f_1, ..., f_r) with bounded p-torsion, Δ_{R/A} is the prismatic envelope and initial",
+        "kind": "lemma",
+        "statement": "Fix a bounded prism (A, I) and R = A/J with J = (I, f_1, ..., f_r), f_1, ..., f_r Koszul-regular on A/I, R with bounded p-torsion. Then Δ_{R/A} is concentrated in degree 0 and I-torsionfree, and (Δ_{R/A}, IΔ_{R/A}) is the initial object of (R/A)_Δ; locally where I = (d), Δ_{R/A} = A{f_1/d, ..., f_r/d}^∧ (the prismatic envelope A{J/I}^∧ of Proposition 3.13).",
+        "hypotheses": [
+          "Koszul-regularity of f_1, ..., f_r on A/I and bounded p-torsion of R; principal I after localization on Spf A.",
+          "Imports: Proposition 3.13 (prismatic envelopes of regular ideals; supplied by PrismaticCohomology:PR.0/regular-prismatic-envelopes), Lemma 7.7, the Hodge-Tate filtration, and a standard free-resolution computation cited to [Bha12, Claim 3.30] (unread).",
+          "Also used: Lemma 7.7(1)-(2) to regard (Δ_{R/A}, IΔ_{R/A}) as an object of (R/A)_Δ, and the assertion \"the formation of both sides commutes with arbitrary base change\" (Construction 7.6(4) for Δ, free δ-adjunction for B)."
+        ],
+        "proofSteps": [
+          "Δ_{R/A} is discrete and I-torsionfree by the Hodge-Tate filtration (gr^i are completed exterior powers of L_{R/(A/I)} = J/(J² + I)[1]), so it is an object of (R/A)_Δ.",
+          "Base change reduces the comparison B := A{f_i/d}^∧ → Δ_{R/A} to the universal case A = Z_p{d, f_1, ..., f_r}[δ(d)^{-1}]^∧, where A/I and R are p-torsionfree and f_1, ..., f_r is p-completely regular relative to A_0/I_0 for (A_0, I_0) = (Z_p{d}[δ(d)^{-1}]^∧, (d)); Proposition 3.13 identifies B with the prismatic envelope, discrete and initial in (R/A)_Δ.",
+          "B → Δ_{R/A} has a retraction by Lemma 7.7, so B/IB → Δ̄_{R/A} has p-torsionfree cokernel; it suffices that B/IB[1/p] → Δ̄_{R/A}[1/p] is surjective, which holds because Δ̄_{R/A}[1/p] is generated as a Banach R[1/p]-algebra by gr^1 = J/(J² + I){−1} and J/I maps onto it."
+        ],
+        "acceptance": [
+          "R = A/(I, f) with f a nonzerodivisor on A/I and R of bounded p-torsion: Δ_{R/A} = A{f/d}^∧, and the initial prism is obtained by adjoining f/d.",
+          "The example is the engine of Proposition 7.10 via the rings T = R⟨X_1^{1/p^∞}, ..., X_r^{1/p^∞}⟩/(X_1 − f_1, ..., X_r − f_r)."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Example 7.9 with proof, p. 59 (extraction lines 2618-2644)",
+            "excerpt": "By the construction of the prismatic envelope in Proposition 3.13, it follows that B identifies with the prismatic envelope A{J/I}^∧; this implies that B is concentrated in degree 0 and (B, IB) is the initial object of (R/A)_Δ.",
+            "match": "The point where PR.0's envelope construction enters the semiperfectoid theory."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+        "parentStageId": "PerfectoidQuotients:Q2",
+        "title": "For quasiregular semiperfectoid S, Δ_{S/A} is discrete, equals the initial prism Δ^init_S independently of the perfectoid R, and S → Δ̄_S is p-completely faithfully flat",
+        "kind": "theorem",
+        "statement": "Let S be quasiregular semiperfectoid, R → S any map from a perfectoid ring, (A, I) = (A_inf(R), ker θ). Then Δ_{S/A} is discrete, (Δ_{S/A}, IΔ_{S/A}) is the initial prism Δ^init_S with a map S → Δ^init_S/I (so Δ_{S/A} does not depend on R), and S → Δ̄_{S/A} = Δ_{S/A}/I is p-completely faithfully flat. Notation: Δ_S := Δ^init_S = Δ_{S/A}.",
+        "hypotheses": [
+          "S quasiregular in the sense of Notation 7.1 (bounded p^∞-torsion and L_{S/Z_p}[−1] p-completely flat) and semiperfectoid; R perfectoid mapping to S, not necessarily surjectively. The proof uses the consequence that L_{S/R}[−1] is p-completely flat.",
+          "Uses the Hodge-Tate filtration (all gr^i = completed ∧^i L_{S/R}[−i]{−i} p-completely flat, hence discrete), Lemma 7.7(3), Example 7.9, and the invariance of Δ_{S/A} under R ↦ R⟨Y_i^{1/p^∞}⟩ and under A ↦ A_inf(R⟨X^{1/p^∞}⟩).",
+          "Implicit in the reduction: the idempotents of Lemma 7.7(3) are natural in S. This is needed so that surjectivity of Δ_{S'} → Δ_S and the filtered colimit S' = colim T transfer \"idempotent = id\". The source also writes Δ_{S/R} for Δ_{S/A}."
+        ],
+        "proofSteps": [
+          "Discreteness and faithful flatness: the completed derived exterior powers ∧^i L_{S/R}[−i] are p-completely flat S-modules, so the Hodge-Tate filtration exhibits Δ̄_{S/A} as discrete and p-completely faithfully flat over S (source). That Δ_{S/A} is then discrete follows by derived (p, I)-completeness (packet-authored step).",
+          "Initiality: it suffices that the idempotent of Lemma 7.7(3) is the identity. Replace R by R⟨Y_i^{1/p^∞} | i ∈ I⟩ (no change to cotangent complexes) to make R → S surjective with kernel generated by {f_j}; S' = R⟨X_j^{1/p^∞}⟩/(X_j − f_j)^∧ → S is surjective on rings and on cotangent complexes, so Δ_{S'/R} → Δ_{S/R} is surjective and it suffices to treat S'.",
+          "S' is a filtered colimit of T = R⟨X_1^{1/p^∞}, ..., X_r^{1/p^∞}⟩/(X_1 − f_1, ..., X_r − f_r), and Δ_{T/A} ≅ Δ_{T/A'} for A' = A_inf(R⟨X^{1/p^∞}⟩) compatibly with idempotents; Example 7.9 (T is a Koszul-regular quotient of A'/I) shows the idempotent is the identity."
+        ],
+        "acceptance": [
+          "O_C/p is quasiregular semiperfectoid (see the Q0:integral-algebra node), so Proposition 7.10 applies to it. For S = R/(f) with R perfectoid, f admitting compatible p-power roots, f a nonzerodivisor on R and R/f of bounded p-torsion, Δ_S is the completed prismatic envelope A_inf(R){[f♭]/d}^∧ (Example 7.9 with r = 1 and lift [f♭] of f).",
+          "Independence of R: Δ_{S/A_inf(R)} ≅ Δ_{S/A_inf(R')} for any two perfectoid rings mapping to S."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Proposition 7.10 with proof, pp. 59-60 (extraction lines 2645-2679)",
+            "excerpt": "Thus, by the Hodge-Tate comparison, Δ_{S'/R} → Δ_{S/R} is surjective, so it suffices to show that the idempotent endomorphism of Δ_{S'/A} is the identity. But, by truncating the set J of generators, we can express S' as a filtered colimit of regular semiperfectoid rings",
+            "match": "The reduction of the initial-object claim to the lci case of Example 7.9."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+        "parentStageId": "PerfectoidQuotients:Q3",
+        "title": "A quasisyntomic A/I-algebra admits a prism (B, IB) over (A, I) with R → B/IB p-completely faithfully flat; flatness of the (perfected) prism",
+        "kind": "theorem",
+        "statement": "Let (A, I) be a bounded prism and R a quasisyntomic A/I-algebra. Then there is (B → B/IB ← R) ∈ (R/A)_Δ with R → B/IB p-completely faithfully flat. Consequently (1) (A, I) → (B, IB) is a flat map of prisms, faithfully flat if A/I → R is p-completely faithfully flat; (2) if A is perfect, (A, I) → (B, IB)_perf is flat, faithfully flat under the same condition.",
+        "hypotheses": [
+          "R quasisyntomic over A/I; the cover S := A/I⟨x_j^{1/p^∞}⟩ ⊗̂^L_{A/I⟨x_j⟩} R built from a surjection A/I⟨x_j | j ∈ J⟩ → R is a quasisyntomic cover with S/p relatively semiperfect over A/(I, p), so L^∧_{S/(A/I)}[−1] is p-completely flat. The source asserts both properties with \"It is easy to see\" and \"In particular\".",
+          "The prism B = Δ_{S/A} is produced by the first half of the proof of Proposition 7.10 and Lemma 7.7 (discreteness gives the δ-structure); (2) uses passage to filtered colimits (perfection = colim over φ)."
+        ],
+        "proofSteps": [
+          "Construct S by formally extracting p-power roots of a set of generators x_j; R → S is a quasisyntomic cover and A/(I, p) → S/p is relatively semiperfect (quotient of a flat algebra with bijective relative Frobenius), so Ω¹_{S/(A/I)}/p = 0 and L^∧_{S/(A/I)}[−1] is p-completely flat.",
+          "As in Proposition 7.10, the Hodge-Tate filtration shows Δ_{S/A} is discrete and S → Δ̄_{S/A} p-completely faithfully flat; Lemma 7.7 makes B = Δ_{S/A} a prism over (A, I).",
+          "(1): A/I → R → S → B/IB is a composite of p-completely flat maps (faithfully flat if the first is); (2): perfection is a filtered colimit of Frobenius twists, preserving (faithful) flatness. The passage from p-complete flatness of A/I → B/IB to (p, I)-complete flatness of A → B is not written out."
+        ],
+        "acceptance": [
+          "For R = A/I itself the construction gives a faithfully flat prism cover in which every element of a generating set has compatible p-power roots.",
+          "Examples of Example 7.12's covers R → R_∞ (footnote 12, which belongs to Example 7.12, not to Proposition 7.11): for a perfect crystalline prism take R_∞ the perfection of R; with etale coordinates take R_∞ = R[y_i^{1/p^∞}]^∧/(y_i − x_i)."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.3, Proposition 7.11 with proof, p. 60 (extraction lines 2680-2706)",
+            "excerpt": "It is easy to see that R → S is a quasisyntomic cover (so S is quasisyntomic over A/I as well), and that A/(I, p) → S/p is relatively semiperfect. In particular, the derived p-completion of the cotangent complex L^∧_{S/(A/I)}[−1] is a p-completely flat S-module.",
+            "match": "The explicit compatible-root cover demanded by stage Q3 and the flatness deduced from it."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q3/andre-flatness-lemma",
+        "parentStageId": "PerfectoidQuotients:Q3",
+        "title": "Andre's flatness lemma: every perfectoid ring has a p-completely faithfully flat absolutely integrally closed perfectoid extension",
+        "kind": "theorem",
+        "statement": "Let R be a perfectoid ring. There is a p-completely faithfully flat map R → S of perfectoid rings with S absolutely integrally closed (every monic polynomial over S has a root); in particular every element of S admits a compatible system of p-power roots. The map can moreover be chosen to be an ind-syntomic cover modulo p (Remark 7.15, sketched).",
+        "hypotheses": [
+          "R perfectoid, written as A/I for a perfect prism (A, I) (Theorem 3.10).",
+          "R̃ := p-complete R-algebra obtained by formally adjoining roots of all monic polynomials over R is a quasisyntomic cover of R (asserted, not proved in the source).",
+          "Transfinite iteration of R ↦ R_1 and the perfectoidness/faithful flatness at limit stages are asserted in one sentence; the stage text asks for completeness, perfectoidness, faithful flatness and size bounds at limit stages explicitly."
+        ],
+        "proofSteps": [
+          "Proposition 7.11(2) applied to R̃ gives a perfect prism (B, IB) over (A, I) with R̃ → B/IB =: R_1 such that R → R̃ → R_1 is p-completely faithfully flat; R_1 is perfectoid and every monic polynomial over R has a root in R_1. (Proposition 7.11(2) gives flatness of (A, I) → (B, IB)_perf; the proof of Theorem 7.14 writes \"perfect prism (B, IB)\" for this perfection.)",
+          "Transfinitely iterate R ↦ R_1 to obtain a quasisyntomic cover R → R' with R' perfectoid and absolutely integrally closed.",
+          "Remark 7.15 (sketch): for S = R⟨Y^{1/p^∞}⟩/(f(Y)), the map S → Δ̄_S is a cover (Prop. 7.10); after reducing to p-torsionfree R and choosing ϖ with (ϖ^p) = (p), φ_A^*(T/ϖ) is the pd-envelope of f(Y) in R/ϖ[Y^{1/p^∞}] (Corollary 2.39), and pd-envelopes of nonzerodivisors in F_p-algebras are ind-syntomic (A/f^p[g_1, g_2, ...]/(g_i^p)), lifting along nilpotent thickenings; alternatively [GR, Theorem 16.9.17]."
+        ],
+        "acceptance": [
+          "Over R = O_C with C algebraically closed the lemma is trivial, since O_C is absolutely integrally closed. Over R = Z_p^cycl it produces a faithfully flat perfectoid extension containing roots of all monic polynomials, hence compatible p-power roots of every element.",
+          "Compatible p-power roots of a specified f come from roots of the monic polynomials Y^{p^n} − f solved compatibly (absolute integral closedness gives roots at every degree; compatibility is arranged by choosing successively)."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.3, Theorem 7.14 with proof and Remark 7.15, pp. 61-62 (extraction lines 2731-2773)",
+            "excerpt": "Proposition 7.11 (2) then gives a perfect prism (B, IB) over (A, I) equipped with an A/I-algebra map R̃ → B/IB =: R_1 such that the composition A/I = R → R̃ → R_1 is p-completely faithfully flat. ... Transfinitely iterating the construction R ↦ R_1 yields a quasisyntomic cover R → R' with R' being perfectoid and absolutely integrally closed.",
+            "match": "The whole proof as printed; the limit-stage claims are exactly what is left implicit."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization",
+        "parentStageId": "PerfectoidQuotients:Q4",
+        "title": "S → S_perfd is surjective for every semiperfectoid S",
+        "kind": "theorem",
+        "statement": "For any semiperfectoid ring S, the map S → S_perfd to the universal perfectoid ring under S is surjective. In the principal case S = R/(f) with R perfectoid and f admitting compatible p-power roots, S_perfd is the p-adic completion of R/(f^{1/p^∞}).",
+        "hypotheses": [
+          "S = R/J with R perfectoid; the reduction to finitely generated J 'using filtered colimits' and to principal J 'by induction' is stated without details (the stage text demands the correctly completed filtered-colimit argument). The printed proof writes \"I = (f)\" for the principal ideal J.",
+          "Uses Theorem 7.14 to pass to a p-completely faithfully flat perfectoid R → R' in which f has compatible p-power roots, and the base-change/descent compatibility of S ↦ S_perfd along R → R' (stated as 'we can assume', not argued; see gap).",
+          "Uses that perfectoid rings are reduced and that the p-completion of R/(f^{1/p^∞}) is perfectoid (asserted)."
+        ],
+        "proofSteps": [
+          "Reduce to J finitely generated (filtered colimits), then to J = (f) principal (induction on the number of generators).",
+          "By Theorem 7.14 assume f has compatible p-power roots f^{1/p^n} ∈ R.",
+          "Any map S = R/f → T with T perfectoid factors through the p-completion of R/(f^{1/p^∞}) because T is reduced (f^{1/p^n} maps to a nilpotent, hence to 0); this completion is itself perfectoid, so it is S_perfd, and R → S → S_perfd are surjective."
+        ],
+        "acceptance": [
+          "Principal case with roots already present: for R = Z_p^cycl⟨T^{1/p^∞}⟩ and f = T, S_perfd = (R/(T^{1/p^∞}))^∧ = Z_p^cycl, a quotient of R. For f without compatible roots in R (e.g. T − 1), the printed proof passes to R' by Theorem 7.14 and computes (S ⊗̂_R R')_perfd, so such a test also exercises the unproved base-change step (see gap).",
+          "Surjectivity means S_perfd is a quotient, not merely a ring under S."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.3, proof of Theorem 7.4, p. 62 (extraction lines 2774-2786); statement p. 56 (extraction line 2469)",
+            "excerpt": "Using filtered colimits, we may assume that J is finitely generated, and then by induction we may actually assume that I = (f) is principal. By Theorem 7.14, we can assume that f admits compatible p-power roots f^{1/p^n} ∈ R. But as any perfectoid ring T is reduced, any map S = R/f → T automatically factors over the p-completion of R/(f^{1/p^∞}), which is itself perfectoid.",
+            "match": "The complete printed proof; every 'we may assume' is a boundary listed in the hypotheses and gaps."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      },
+      {
+        "id": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+        "parentStageId": "PerfectoidQuotients:Q4",
+        "title": "Closed perfectoid quotients: the vanishing locus of an ideal in an affinoid perfectoid space is strongly Zariski closed",
+        "kind": "application",
+        "statement": "Let X = Spa(R, R^+) be affinoid perfectoid (R a perfectoid Tate ring with pseudo-uniformizer ϖ, R^+ ⊂ R° open and integrally closed) and I ⊂ R an ideal. Let S be the ϖ-adic completion of R^+/(I ∩ R^+); S is semiperfectoid, R' := S_perfd[1/ϖ] is a perfectoid Tate ring which is a quotient of R, every map from R to a perfectoid ring vanishing on I factors uniquely through R', and the vanishing locus of I in X is the strongly Zariski closed subset Spa(R', R'^+) with R'^+ the minimal open integrally closed subring of R' containing the image of R^+. Hence (ECD 5.8) every Zariski closed immersion Z → X (closed immersion whose image is the zero locus of an ideal) is strongly Zariski closed (Z = Spa(S, S^+) affinoid with R → S surjective and S^+ the integral closure of R^+ in S); the claim in [Sch15, Remark II.2.4] that the notions differ was erroneous. ECD adds that Theorem 7.4 also implies almost surjectivity on plus rings, independently of [KL15, 3.6.9(c)].",
+        "hypotheses": [
+          "S must be semiperfectoid. BS22 asserts \"S is a semiperfectoid ring\" without proof. The required input is BMS1 Lemma 3.20, read by the reviewer: if a complete Tate ring R is perfectoid in Fontaine's sense, then every ring of integral elements R^+ is an integral perfectoid ring. Sch12 perfectoid K-algebras are perfectoid in Fontaine's sense (remark after 3.20). S is then a quotient of R^+ and derived p-complete. The proof of 3.20 imports BMS1 Lemmas 3.9-3.10 and [45, Lemma 5.5], none read.",
+          "Passing between S_perfd (integral, p-complete) and R' (Tate) needs the ϖ-adic and p-adic topologies on R^+ to agree. This holds when p is a unit of R, since p is then a pseudo-uniformizer; ϖ^p | p alone does not give it. In characteristic p, derived p-completeness is automatic and the ϖ-adic completion of Remark 7.5 must be used. The source does not discuss either case.",
+          "ECD's printed remark reads 'S^+ → R^+ is almost surjective'; the mathematically meaningful direction is R^+ → S^+ (almost surjectivity of the plus ring map), as in [KL15, 3.6.9(c)]; recorded as a probable misprint."
+        ],
+        "proofSteps": [
+          "Form S = (R^+/(I ∩ R^+))^∧_ϖ; by Theorem 7.4, S → S_perfd is surjective, so R^+ → S_perfd is surjective and R → R' = S_perfd[1/ϖ] is surjective.",
+          "Universal property: a continuous map R → T to a perfectoid Tate ring vanishing on I sends R^+ into T° and vanishes on I ∩ R^+, hence induces S → T°. T° is an integral perfectoid ring by BMS1 Lemma 3.20, so this gives S_perfd → T° and then R' → T, which is unique because R → R' is surjective. The integrality and continuity inputs are packet-authored; the source says only \"any map from R to a perfectoid ring that vanishes on I factors uniquely over R'\".",
+          "The vanishing locus of I is therefore Spa(R', R'^+) with R'^+ the minimal open integrally closed subring containing the image of R^+; this is strongly Zariski closed by definition, giving ECD Theorem 5.8 via Definition 5.7."
+        ],
+        "acceptance": [
+          "For X = Spa(K⟨T^{1/p^∞}⟩, K°⟨T^{1/p^∞}⟩) and I = (T): S = (K°⟨T^{1/p^∞}⟩/(T))^∧ and, by the principal case of Theorem 7.4 (T has compatible roots), S_perfd = K°, so R' = K. The Zariski closed subset is the origin Spa(K, K°), and the kernel of R → R' is the closed ideal generated by all T^{1/p^n}, not (T).",
+          "Diagonals (for affinoid X = Spa(R, R^+), Y = Spa(S, S^+)): Δ_f is strongly Zariski closed because S ⊗̂_R S → S is surjective, so Δ_f is an immersion (ECD Proposition 5.9). This uses only the definitions, not Theorem 5.8."
+        ],
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, Remark 7.5, p. 56 (extraction lines 2470-2482)",
+            "excerpt": "Indeed, let I ⊂ R be any ideal, and let S be the ϖ-adic completion of R^+/I ∩ R^+. Then S is a semiperfectoid ring, and so by the theorem R' = S_perfd[1/ϖ] is a perfectoid Tate ring that is a quotient of R and such that any map from R to a perfectoid ring that vanishes on I factors uniquely over R'.",
+            "match": "The construction of the closed perfectoid quotient and its universal property, exactly as the stage prescribes."
+          },
+          {
+            "sourceId": "ecd-2026",
+            "locator": "Section 5, Definition 5.7, Theorem 5.8 with proof and following remark, pp. 24-25 (extraction lines 1107-1125)",
+            "excerpt": "Theorem 5.8. Let f : Z → X = Spa(R, R^+) be a Zariski closed immersion. Then f is strongly Zariski closed. Proof. This follows from [BS22, Theorem 7.4, Remark 7.5].",
+            "match": "The consumer statement (ECD 5.8) and its definitions of Zariski closed and strongly Zariski closed maps."
+          },
+          {
+            "sourceId": "bms1-integral-2018",
+            "locator": "Section 3.2, Lemma 3.20 with proof and following remark, pp. 26-27 (lines 1628-1665)",
+            "excerpt": "Let R be a complete Tate ring with a ring of integral elements R+ ⊂ R. If R is perfectoid in Fontaine’s sense, then R+ is perfectoid.",
+            "match": "The comparison Remark 7.5 needs so that the completed quotient of R^+ is semiperfectoid and so that T° is an integral perfectoid ring in the universal property."
+          }
+        ],
+        "implementationStatus": "unchecked"
+      }
+    ],
+    "links": [
+      {
+        "source": "PrismaticCohomology:PR.0/rigidity-prism-ideal",
+        "target": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+        "reason": "Rigidity (Lemma 3.5) gives K = dC for the unique map (A_inf(R), (d)) → (C, K) in the proof of Proposition 7.2, so that d is a nonzerodivisor in C and the quotients f/d exist. Re-targeted by REVIEW-EXT-03: the proof of Lemma 4.8 does not use Lemma 3.5.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, proof of Proposition 7.2, p. 55 (line 2438)"
+          }
+        ]
+      },
+      {
+        "source": "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+        "target": "PerfectoidQuotients:Q0:animated-application/perfect-prism-is-initial-over-its-perfectoid-ring",
+        "reason": "The perfect prism attached to a perfectoid ring R is (A_inf(R), ker θ) with principal kernel; Lemma 4.8 is stated for exactly this correspondence (Theorem 3.10).",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 3, Theorem 3.10, p. 32; Section 4.1, Lemma 4.8, p. 38"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q0:animated-application/perfect-prism-is-initial-over-its-perfectoid-ring",
+        "target": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+        "reason": "Lemma 4.8 provides the unique map (A_inf(R), (d)) → (C, K) from which the elements f/d and the δ-ring B are built.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, proof of Proposition 7.2, p. 55"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+        "target": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+        "reason": "The construction starts from a surjection R → S from a perfectoid ring, which is the definition of semiperfectoid.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, Notation 7.1 and proof of Proposition 7.2, p. 55"
+          }
+        ]
+      },
+      {
+        "source": "DerivedDeRhamCohomology:DD.1",
+        "target": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+        "reason": "DD.1 owns derived (p, d)-completion of rings and the exchange of completion with filtered colimits; Proposition 7.2 takes H^0 of derived (p, d)-completions and uses that completion commutes with ω₁-filtered colimits in the transfinite induction.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, proof of Proposition 7.2, p. 55"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+        "target": "PerfectoidQuotients:Q2/universal-perfectoidization",
+        "reason": "S_perfd is defined as the p-completion of (Δ^init_S)_perf / I.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, Corollary 7.3, p. 56"
+          }
+        ]
+      },
+      {
+        "source": "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+        "target": "PerfectoidQuotients:Q2/universal-perfectoidization",
+        "reason": "Supplies both the equivalence perfectoid rings = perfect prisms (Theorem 3.10) and the completed perfection of a prism as the universal perfect prism under it (Lemma 3.9), the two inputs of Corollary 7.3; the PR.0 node's sources cover Lemmas 3.8-3.9 and Theorem 3.10.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, proof of Corollary 7.3, p. 56"
+          }
+        ]
+      },
+      {
+        "source": "PrismaticCohomology:PR.1",
+        "target": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+        "reason": "PR.1 owns the relative prismatic site of p-completely smooth algebras and the Hodge-Tate comparison H^i(Δ̄_{R/A}) ≅ Ω^i{−i} (BS22 Theorem 6.3); Construction 7.6 left-Kan-extends exactly this functor and filtration.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Construction 7.6, p. 56; Theorem 6.3, p. 52"
+          }
+        ]
+      },
+      {
+        "source": "EnhancedDerivedSheaves:E5:animation",
+        "target": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+        "reason": "E5:animation supplies simplicial commutative rings, polynomial resolutions and sifted left Kan extensions, which is the formalism (Lurie HTT §5.5.9) used to define Δ_{R/A} on derived p-complete simplicial commutative A/I-algebras.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, opening paragraph and Construction 7.6, p. 56"
+          }
+        ]
+      },
+      {
+        "source": "DerivedDeRhamCohomology:DD.0",
+        "target": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+        "reason": "The graded pieces of the derived Hodge-Tate filtration are completed derived exterior powers ∧^i L_{R/(A/I)}, whose construction, base change and colimit compatibility are DD.0's scope.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Construction 7.6 and consequences (4)-(5), pp. 56-57"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+        "target": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+        "reason": "Lemma 7.7 is about the derived functor Δ_{R/A} of Construction 7.6 and its Čech-Alexander model.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Lemma 7.7, p. 57"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+        "target": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
+        "reason": "Example 7.9 obtains discreteness and I-torsion-freeness of Δ_{R/A} from the Hodge-Tate comparison, and identifies gr^1 = J/(J² + I){−1} for the final surjectivity. Added by REVIEW-EXT-03.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Example 7.9, p. 59 (lines 2619-2621, 2638-2642)"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+        "target": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
+        "reason": "The retraction of B → Δ_{R/A} used to prove the isomorphism comes from Lemma 7.7.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Example 7.9, p. 59 ('The map B → Δ_{R/A} then admits a retraction by Lemma 7.7')"
+          }
+        ]
+      },
+      {
+        "source": "PrismaticCohomology:PR.0/regular-prismatic-envelopes",
+        "target": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
+        "reason": "In the universal case the prismatic envelope A{J/I}^∧ of Proposition 3.13 (p-completely regular sequence relative to the base prism) is identified with A{f_i/d}^∧, giving discreteness and initiality; the PR.0 node states Proposition 3.13 with the relative-regularity hypothesis (Definition 2.42) used here.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Example 7.9, p. 59"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
+        "target": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+        "reason": "The idempotent of Lemma 7.7(3) is shown to be the identity for T = R⟨X_i^{1/p^∞}⟩/(X_i − f_i) by Example 7.9 applied over A' = A_inf(R⟨X^{1/p^∞}⟩).",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, proof of Proposition 7.10, p. 60"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+        "target": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+        "reason": "Proposition 7.10 reduces initiality to showing that the idempotent endomorphism of Lemma 7.7(3) is the identity. Added by REVIEW-EXT-03.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, proof of Proposition 7.10, pp. 59-60 (lines 2656-2658, 2667-2677)"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+        "target": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+        "reason": "Discreteness and p-complete faithful flatness of Δ̄_{S/A} over S are read off the Hodge-Tate filtration when L_{S/R}[−1] is p-completely flat; surjectivity Δ_{S'/R} → Δ_{S/R} is also deduced from it.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, proof of Proposition 7.10, pp. 59-60"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+        "target": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+        "reason": "The hypothesis 'quasiregular semiperfectoid' (bounded p-torsion, L_{S/R}[−1] p-completely flat) is exactly what makes the graded pieces discrete.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.2, Proposition 7.10 and first paragraph of its proof, p. 59"
+          }
+        ]
+      },
+      {
+        "source": "DerivedDeRhamCohomology:DD.5",
+        "target": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+        "reason": "DD.5 constructs the quasisyntomic site with DD.0's morphism condition and the semiperfectoid (compatible-root) covers of BMS2 §4; Proposition 7.11 needs precisely that R → S = A/I⟨x_j^{1/p^∞}⟩ ⊗̂ R is a quasisyntomic cover with S/p relatively semiperfect.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.3, proof of Proposition 7.11, p. 60"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+        "target": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+        "reason": "'The argument in the first half of Proposition 7.10 repeats verbatim' to show B = Δ_{S/A} is discrete with S → B/IB p-completely faithfully flat; Lemma 7.7 gives the δ-structure.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.3, proof of Proposition 7.11, p. 60"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+        "target": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+        "reason": "Proposition 7.11 uses Lemma 7.7 to get the δ-structure on B = Δ_{S/A}, making (B, IB) a prism. Added by REVIEW-EXT-03.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.3, proof of Proposition 7.11, p. 60 (lines 2699-2700)"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+        "target": "PerfectoidQuotients:Q3/andre-flatness-lemma",
+        "reason": "Proposition 7.11(2) applied to the quasisyntomic cover R → R̃ produces the perfect prism (B, IB) and the faithfully flat perfectoid R_1 = B/IB.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.3, proof of Theorem 7.14, p. 61"
+          }
+        ]
+      },
+      {
+        "source": "PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings",
+        "target": "PerfectoidQuotients:Q3/andre-flatness-lemma",
+        "reason": "R is written as A/I for a perfect prism and R_1 = B/IB is perfectoid because (B, IB) is a perfect prism (Theorem 3.10 in both directions).",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.3, proof of Theorem 7.14, p. 61"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q3/andre-flatness-lemma",
+        "target": "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization",
+        "reason": "Theorem 7.14 supplies the faithfully flat perfectoid extension in which the generator f acquires compatible p-power roots.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.3, proof of Theorem 7.4, p. 62"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q2/universal-perfectoidization",
+        "target": "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization",
+        "reason": "Theorem 7.4 is a statement about the universal perfectoid ring S_perfd of Corollary 7.3.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, Theorem 7.4, p. 56"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization",
+        "target": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+        "reason": "Remark 7.5 applies Theorem 7.4 to S = (R^+/(I ∩ R^+))^∧ to obtain the perfectoid Tate quotient R' and the identification of the vanishing locus.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, Remark 7.5, p. 56"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+        "target": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+        "reason": "Remark 7.5 applies Theorem 7.4 to S = (R^+/(I ∩ R^+))^∧, which must be semiperfectoid in the sense of Notation 7.1, i.e. a derived p-complete quotient of an integral perfectoid ring. The comparison \"R^+ integral perfectoid\" is BMS1 Lemma 3.20 (see the gap). Added by REVIEW-EXT-03.",
+        "sources": [
+          {
+            "sourceId": "bs-prisms-2022",
+            "locator": "Section 7.1, Remark 7.5, p. 56 (lines 2477-2479)"
+          },
+          {
+            "sourceId": "bms1-integral-2018",
+            "locator": "Section 3.2, Lemma 3.20, p. 26"
+          }
+        ]
+      },
+      {
+        "source": "PerfectoidSpaces:P4",
+        "target": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+        "reason": "P4 owns the definitions of closed immersions, Zariski closed and strongly Zariski closed immersions (ECD 5.6-5.7) on which the statement of ECD 5.8 is made; Q4 supplies the theorem back to P8 as the atlas prescribes.",
+        "sources": [
+          {
+            "sourceId": "ecd-2026",
+            "locator": "Section 5, Definition 5.7 and Theorem 5.8, pp. 24-25"
+          }
+        ]
+      }
+    ],
+    "gaps": [
+      {
+        "title": "PR.2 supplier nodes for derived prismatic cohomology do not yet exist",
+        "neededBy": [
+          "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+          "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+          "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism"
+        ],
+        "detail": "Stage Q2 says these results are imported from PrismaticCohomology:PR.2, but the existing draft research/expansion/drafts/PrismaticCohomology.json contains only PR.0 nodes and PR.1/prismatic-structure-sheaf. The three Q2 nodes above record what was read in BS22 7.6-7.10 and should be relocated to (or replaced by) PR.2 nodes when that packet is written; until then the link PrismaticCohomology:PR.1 → derived-prismatic-cohomology points at the stage."
+      },
+      {
+        "title": "Base change of perfectoidization and descent of surjectivity along Andre's extension",
+        "neededBy": [
+          "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization"
+        ],
+        "detail": "The printed proof says 'By Theorem 7.14, we can assume that f admits compatible p-power roots', i.e. it replaces R by a p-completely faithfully flat perfectoid R' and S by S ⊗̂ R'. The compatibility (S ⊗̂_R R')_perfd = S_perfd ⊗̂_R R' and faithfully flat descent of surjectivity are not argued in Section 7; Construction 7.6(4) (base change of derived prismatic cohomology) is the available input. The reviewer read BS22 §8.1 through the proof of Proposition 8.5 (lines 2796-2931, pp. 63-66). Definition 8.2's derived perfectoidization Δ_{S/A,perf} ⊗^L_A A/I satisfies flat base change formally by 7.6(4), but its identification with the Corollary 7.3 perfectoidization for semiperfectoid S (Proposition 8.5) uses Theorem 7.4 (\"where the composite is surjective by Theorem 7.4\"), and the same proof asserts again that \"the formation of S ↦ S_perfd commutes with p-completely flat base change on R\" (line 2917). Section 8 therefore cannot be cited for this step without circularity. A direct argument must still be supplied, for example through a quasiregular semiperfectoid cover (Proposition 7.10) and 7.6(4), together with p-completely faithfully flat descent of surjectivity."
+      },
+      {
+        "title": "Reductions to finitely generated and principal ideals in Theorem 7.4",
+        "neededBy": [
+          "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization"
+        ],
+        "detail": "The source reduces to J finitely generated 'using filtered colimits' and to J principal 'by induction' without stating how S_perfd behaves under filtered colimits of quotients or under successive quotients (R/(f_1, f_2) = (R/f_1)/(f_2) with R/f_1 replaced by its perfectoidization). The stage text asks for the correctly completed filtered-colimit argument; this must be reconstructed (perfectoidization commutes with the relevant colimits by its universal property, but completeness of the colimit must be handled)."
+      },
+      {
+        "title": "Integral perfectoidness of rings of integral elements of perfectoid Tate rings",
+        "neededBy": [
+          "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+          "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings"
+        ],
+        "detail": "Remark 7.5 needs R^+ (open and integrally closed in R° of a perfectoid Tate ring) to be an integral perfectoid ring, so that the ϖ-adic completion of R^+/(I ∩ R^+) is semiperfectoid; the universal property needs the same for T°. REVIEW-EXT-03 located and read the statement: BMS1 Lemma 3.20 (arXiv v3, pp. 26-27), \"If R is perfectoid in Fontaine's sense, then R+ is perfectoid\", with the remark that Sch12 perfectoid K-algebras are perfectoid in Fontaine's sense. Its proof uses BMS1 Lemmas 3.9-3.10 and [45, Lemma 5.5] (unread). The ϖ-adic versus p-adic completion issue is recorded in the Q4 node: the two agree when p is a unit of R, while in characteristic p only the ϖ-adic completion makes sense. Next action: decompose BMS1 Lemma 3.20 as a Q0:integral-algebra node and read BMS1 Lemmas 3.9-3.10."
+      },
+      {
+        "title": "Limit-stage claims in Andre's flatness lemma",
+        "neededBy": [
+          "PerfectoidQuotients:Q3/andre-flatness-lemma"
+        ],
+        "detail": "The transfinite iteration R ↦ R_1 needs: p-completed filtered colimits of perfectoid rings along p-completely faithfully flat maps are perfectoid and p-completely faithfully flat over R; at limit ordinals the construction stabilizes to an absolutely integrally closed ring; a cardinality bound on the length of the iteration. None is written in BS22. Also the claim that R̃ is a quasisyntomic cover of R is unproved there. Next action: check Andre's original (Le lemme d'Abhyankar perfectoide, 2018) and BMS2 §4 for the perfectoid colimit statement."
+      },
+      {
+        "title": "Q1 Hodge-Tate comparison not decomposed",
+        "neededBy": [
+          "PerfectoidQuotients:Q1"
+        ],
+        "detail": "Only the statement of BS22 Theorem 6.3 was read. Its proof (Construction 4.9 comparison map, Lemma 4.21 etale localization, reduction to A/I⟨X_1, ..., X_n⟩ and the explicit map η) and the crystalline comparison it uses are the PR.1 content that Q1 re-exports; no PR.1 node for it exists in the PrismaticCohomology draft. Next action: read BS22 §§4.2-6 (extraction lines 1772-2411)."
+      },
+      {
+        "title": "Candidate Lean primitives (unchecked)",
+        "neededBy": [
+          "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings"
+        ],
+        "detail": "Mathlib (vendored in the TauCeti project) has Mathlib.RingTheory.WittVector, Mathlib.RingTheory.Perfection (Perfection, PreTilt) and Mathlib.RingTheory.Perfectoid.FontaineTheta (fontaineTheta : 𝕎 R♭ →+* R for p-adically complete R, with surjectivity under Frobenius surjectivity on R/p); no δ-ring, prism, derived completion or animated ring library was found. For the cotangent complex, only the naive cotangent complex exists (Mathlib/RingTheory/Extension/Cotangent/*, H1Cotangent; checked by REVIEW-EXT-03), not the simplicial L_{B/A}, and the TauCeti sources contain no perfectoid material. Implementation status of every node is unchecked."
+      },
+      {
+        "title": "Unverified hypotheses and asserted steps in §§4.1, 7.1-7.3 (reviewer list)",
+        "neededBy": [
+          "PerfectoidQuotients:Q0:animated-application/perfect-prism-is-initial-over-its-perfectoid-ring",
+          "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+          "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+          "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+          "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms"
+        ],
+        "detail": "(a) Lemma 4.8: vanishing of L^∧_{W(S)/Z_p} for perfect S is stated without proof. (b) Proposition 7.2: termination of the transfinite torsion removal is asserted, and the initial object among all prisms need not be bounded, whereas Remark 4.7's site consists of bounded prisms. (c) Lemma 7.7(3)/7.8: idempotent completeness of (R/A)_Δ is not checked, and the δ-map property in part (3) is asserted. (d) Proposition 7.10: the idempotents must be natural in S for the surjectivity and colimit reductions, and the \"regular semiperfectoid\" rings T are asserted to be Koszul-regular quotients. (e) Proposition 7.11: R → S a quasisyntomic cover and relative semiperfectness are \"easy to see\", and the passage to (p, I)-complete flatness of A → B is not written. Next action: supply these arguments or locate them (BMS2 §4 for (d)-(e); Stacks or Lurie for idempotent completeness)."
+      }
+    ],
+    "review": {
+      "status": "accepted",
+      "reviewer": "independent-review-REVIEW-EXT-03",
+      "date": "2026-09-15",
+      "notes": "Scope checked: all 12 nodes and all links, against the library copies of BS22 (arXiv v4, stamp verified), BMS2 (arXiv v2, stamp verified) and the supplied ECD revision (SHA-256 verified; a regenerated layout extraction reproduces the cited lines). The reviewer also read BS22 Lemmas 3.5, 3.8-3.9, Theorem 3.10 and §8.1 through the proof of Proposition 8.5, BMS2 Lemmas 4.15-4.25, and BMS1 Lemma 3.20; BMS1 was added as a source.\nNodes: 1 verified, 11 corrected, 0 unverifiable. Main corrections:\n(1) Two acceptance items declared O_C/p outside the semiperfectoid/QRSP class; it is quasiregular semiperfectoid by BMS2 Lemma 4.25.\n(2) Lemma 4.8's proof does not use rigidity; the PR.0 rigidity link was re-targeted to Proposition 7.2.\n(3) Proposition 7.2 concerns all prisms, while Remark 4.7's site is bounded; qualified.\n(4) The p-adic versus ϖ-adic completion step in Remark 7.5 was justified by \"ϖ^p | p\", which is insufficient; corrected.\n(5) The R^+ integral-perfectoid gap is now located in BMS1 Lemma 3.20 (read; imports recorded).\n(6) BS22 §8 cannot supply the base change used in the proof of Theorem 7.4 without circularity, since Proposition 8.5 uses Theorem 7.4 and re-asserts that base change.\n(7) Acceptance examples that silently used base change or lacked hypotheses were fixed, and packet-authored steps are labelled.\nLinks: four added (Hodge-Tate filtration → Example 7.9; Lemma 7.7 → Propositions 7.10 and 7.11; Q0:integral-algebra → Remark 7.5 node). Supplier scopes checked against atlas descriptions: DD.0, DD.1, DD.5, E5:animation, PR.1 and PerfectoidSpaces:P4 cover the stated needs. The PR.0 draft nodes (rigidity, perfect prisms, regular envelopes) state what is used.\nStructure: all parentStageIds belong to PerfectoidQuotients and all coverage ids exist. The Lean gap was corrected: mathlib has the naive cotangent complex. Packet status stays partial.",
+      "checked": [
+        {
+          "nodeId": "PerfectoidQuotients:Q0:integral-algebra/semiperfectoid-quasisyntomic-and-qrsp-rings",
+          "verdict": "corrected",
+          "note": "BMS2 Definitions 4.10, 4.18, 4.20, Proposition 4.19, Remarks 4.21-4.22 and BS22 Notation 7.1 match. The \"Equivalently\" reconciliation with Notation 7.1 is now labelled packet-authored, and the Remark 4.21 conclusion needs S ∈ QSyn. Acceptance item \"O_C/p ... not quasisyntomic-relevant\" was wrong: O_C/p is quasiregular semiperfectoid by Lemma 4.25."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q0:animated-application/perfect-prism-is-initial-over-its-perfectoid-ring",
+          "verdict": "corrected",
+          "note": "Lemma 4.8 with proof (lines 1740-1757) matches. The packet's third proof step (rigidity, Lemma 3.5) is not in the proof of 4.8 and was removed; the link was re-targeted to Proposition 7.2. Corollary 2.31 is a packet-supplied reference for A = W(A/p)."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q2/initial-prism-of-a-semiperfectoid-ring",
+          "verdict": "corrected",
+          "note": "Proposition 7.2 with proof (lines 2426-2460) matches. The statement conflated the category of all prisms with the bounded absolute prismatic site, although Δ^init_S need not be bounded (qualified). The acceptance examples were reworded (Lemma 4.8; Corollary 7.3 with the proof of 7.4)."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q2/universal-perfectoidization",
+          "verdict": "verified",
+          "note": "Corollary 7.3 and Lemma 3.9 (read with proof) match, including the derived-versus-classical completion claims. The printed \"perfect prisms (A, I) with a map R → A/I\" should read S → A/I; the packet's proof step already uses the correct form."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q2/derived-prismatic-cohomology-and-hodge-tate-filtration",
+          "verdict": "corrected",
+          "note": "Construction 7.6 (lines 2494-2532) and the Theorem 6.3 statement match. The derivation of (2)-(5) is labelled packet-authored, and the [BMS19, Example 5.11] pointer for (3) is recorded."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q2/discrete-derived-prismatic-cohomology-gives-a-weakly-initial-prism",
+          "verdict": "corrected",
+          "note": "Lemmas 7.7-7.8 with proofs (lines 2533-2617) match. The idempotent-completeness hypothesis of Lemma 7.8 is not verified for (R/A)_Δ in the source (recorded), and the asserted δ-map in part (3) is noted."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q2/lci-quotient-prism-is-initial",
+          "verdict": "corrected",
+          "note": "Example 7.9 (lines 2618-2644) matches. The acceptance example lacked the bounded p-torsion hypothesis, and the uses of Lemma 7.7(1)-(2) and of base change were added. [Bha12, Claim 3.30] remains unread."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q2/qrsp-derived-prismatic-cohomology-is-the-initial-prism",
+          "verdict": "corrected",
+          "note": "Proposition 7.10 with proof (lines 2645-2677) matches. Quasiregularity is defined via L_{S/Z_p}[−1], not L_{S/R}[−1]. The acceptance claim that O_C/p is \"not semiperfectoid\" was wrong, and the Example 7.9 specialization lacked the nonzerodivisor/bounded-torsion hypotheses. Naturality of idempotents is noted as implicit."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q3/lifting-quasisyntomic-covers-to-prisms",
+          "verdict": "corrected",
+          "note": "Proposition 7.11 with proof (lines 2680-2702) matches. \"It is easy to see\" assertions and the implicit flatness passage are labelled. Footnote 12 belongs to Example 7.12, not 7.11."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q3/andre-flatness-lemma",
+          "verdict": "corrected",
+          "note": "Theorem 7.14 with proof and Remark 7.15 (lines 2731-2773) match. The acceptance item needs C algebraically closed for O_C to be absolutely integrally closed. The \"perfect prism (B, IB)\" notation for the perfection is noted."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q4/surjectivity-of-perfectoidization",
+          "verdict": "corrected",
+          "note": "The proof of Theorem 7.4 (lines 2774-2785) matches; the misprint \"I = (f)\" for J is noted. The acceptance example silently used base change; it was replaced by a root-bearing example plus an explicit pointer to the base-change gap."
+        },
+        {
+          "nodeId": "PerfectoidQuotients:Q4/zariski-closed-subsets-are-strongly-zariski-closed",
+          "verdict": "corrected",
+          "note": "Remark 7.5 (lines 2470-2482) and ECD Definition 5.7, Theorem 5.8, the remark and Proposition 5.9 (layout lines 1107-1133) match, and the ECD misprint S^+ → R^+ is confirmed. The p-adic versus ϖ-adic completion claim (\"ϖ^p | p\") was insufficient; it holds when p is a unit of R and is undiscussed in characteristic p. The universal property needs T° integral perfectoid, now BMS1 Lemma 3.20 (read). The closed-disc acceptance example was rewritten with the correct kernel."
+        }
+      ]
+    },
+    "correctionsToRetain": [
+      "O_C/p is QRSP, not a counterexample.",
+      "Lemma 4.8 does not use rigidity; Proposition 7.2 does.",
+      "Proposition 7.2 ranges over all prisms, not only the bounded absolute site.",
+      "Lemma 7.7 gives weak initiality and an idempotent retract, not unconditional initiality.",
+      "Example 7.9 retains Koszul regularity and bounded p-torsion.",
+      "A divisibility π^p|p does not by itself identify the two adic topologies.",
+      "Section 8 cannot be used circularly to fill the base-change step in Theorem 7.4.",
+      "ECD’s plus-ring map has direction R+→S+, as noted by the accepted review."
+    ],
+    "supplierLeads": [
+      {
+        "id": "PerfectoidSpaces:P1/integral-perfectoid-comparison",
+        "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+        "status": "needs_changes",
+        "use": "BMS1 Lemma 3.20 comparison, including boundedness in the converse; freshly read. Reconcile normalized predicate before relying on it."
+      },
+      {
+        "id": "PerfectoidSpaces:P1/integral-elements-adically-complete",
+        "file": "research/blueprint/packets/PerfectoidSpaces--P0.json",
+        "status": "needs_changes",
+        "use": "Plus-ring completeness and the passage from pseudouniformizer-adic to p-adic completeness, with its stated hypotheses."
+      }
+    ],
+    "sourceIssueAssessment": [
+      "PerfectoidSpaces/E9 is rejected by the independent review; its expanded proof dependencies are retained, but no source mistake is asserted from that record.",
+      "PerfectoidSpaces/E33 is awaiting review and proposes an extra pseudouniformizer completion in Remark 7.5. Its assertion about arbitrary characteristic-p perfection does not alone settle the semiperfectoid quotient case. Keep this as a lead within the analytic completion gap, not an accepted correction.",
+      "PAPER-BHATT-SCHOLZE-22/E5 and E15 record respectively the all-prisms/site distinction and I→J in the proof of Theorem 7.4; the corrected forms are retained."
+    ]
+  },
+  "sourceIssueReferences": [
+    "PAPER-BHATT-SCHOLZE-22/E5",
+    "PAPER-BHATT-SCHOLZE-22/E15",
+    "PerfectoidSpaces/E9",
+    "PerfectoidSpaces/E33"
+  ],
+  "closureNotes": {
+    "audit": "data/library-coverage.json has no PerfectoidQuotients entry in this snapshot. AUDIT-38.result.json and its accepted REV-AUDIT-38 report were read directly. The baseline Fontaine map and Witt/perfection machinery are reused, not planned again.",
+    "graph": "The typed declaration prefix has only internal and exact baseline prerequisites. All seven stages remain partial: local closure does not close the roadmap.",
+    "ownership": "RS-01 is accepted. No second prism, relative prismatic, derived-cohomology, quasisyntomic or Tate carrier is introduced. Source aggregates that belong to PR/DD are retained as import obligations, not replanned as local definitions."
+  },
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1905.08229v4",
+      "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
+      "read": "2026-09-26–27"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1802.03261v2",
+      "sha256": "b2338ef19714f39aeac2aaaa4e8d6bd708020815016bbe5541a74e4db3594038",
+      "read": "2026-09-26–27"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1602.03148v3",
+      "sha256": "285f7d2088607688365ca92222dcf44c0acd6c4788dd872fe6a6191b9c4e072a",
+      "read": "2026-09-26–27"
+    }
+  ],
+  "checks": {
+    "blueprint": "Zero errors and zero warnings with the pinned declaration index.",
+    "intake": "Four authorized files; zero problems.",
+    "validation": {
+      "nodes": 17,
+      "kinds": {
+        "definition": 1,
+        "lemma": 12,
+        "theorem": 4
+      },
+      "apiItems": 6,
+      "definitionTests": 9,
+      "leanExamples": 18,
+      "planets": 3,
+      "baselineDeclarations": 43,
+      "gaps": 8,
+      "requests": 7,
+      "internalEdges": 19,
+      "typedNodeSignatures": 17,
+      "namedLeanDeclarations": 20,
+      "compilerErrors": 0,
+      "compilerWarnings": 37,
+      "allWarningsUseSorry": true,
+      "mathlibSourceFiles": 2176,
+      "taucetiImports": 0,
+      "readerWords": 7538,
+      "internalDAG": "acyclic",
+      "sourceIssueChecks": "zero errors",
+      "inheritedAggregatePreservation": 12,
+      "unrefinedInheritedAggregates": 11,
+      "mutationAudit": "Only authorized deliverables changed"
+    },
+    "publication": {
+      "baseCommit": "bf0c1ca3ffff66284779a374e39a4a33ac829ecb",
+      "capturedInputs": 67,
+      "inputRefresh": {
+        "base": "bf0c1ca3ffff66284779a374e39a4a33ac829ecb",
+        "files": [
+          "data/source-issues.json",
+          "research/blueprint/packets/PrismaticCohomology--PR.0.json",
+          "research/errata/REGISTER.md"
+        ],
+        "sourceIssueRecords": 15,
+        "prismaticNodes": 54,
+        "note": "Read fifteen added source records and all fifteen PR.0 additions since the claim snapshot; no new dependency duplicates the characteristic-p prefix. Eight delta ideal/quotient nodes are supplier leads for the unrefined universal-prism gap."
+      },
+      "allCapturedBlobsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5851027707
+    },
+    "closure": "Partial: eight gaps, seven supplier requests and no closed stage. All seventeen node signatures and their API/tests elaborate. Eleven unrefined inherited aggregates remain outside the typed graph. No implementation is claimed."
+  }
+}
