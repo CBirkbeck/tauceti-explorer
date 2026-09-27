@@ -3015,6 +3015,164 @@ This part of ST.5 builds the probability theory of random finite abelian p-group
 - **Limit of P_Sym** (theorem): over F_2, P_Sym(r, n) → ∏_{j odd}(1 − 2^{−j})/∏_{i=1}^{n}(2^i − 1), with |P_Sym(r, n) − limit| ≤ 2^{n+1−r} for r ≥ 1; the limits sum to 1, and the n = 0 value α ≈ 0.41942 is the constant of Stevenhagen's conjecture.
 - **Koymans–Pagano identity** (theorem): 1/(2^{m+1} − 1) = Σ_{n=0}^{m} (1/(2^{n+1} − 1))·P(m, m, n)/2^m, proved by the probabilistic argument with a random surjection and a random pairing (Koymans–Pagano, Higher Rédei reciprocity, (A.2)).
 
+
+#### The symmetric-matrix recurrence in every characteristic
+
+The symmetric count uses the native matrix subtype: a matrix with its transpose
+symmetry and the specified rank. Write \(N_F(n,k)\) for its cardinality, and
+\(q=|F|\). The entries on the diagonal are unrestricted. In characteristic two,
+this includes both alternating and nonalternating bilinear forms. The ordinary
+coordinate dot product is bilinear; it carries neither complex conjugation nor
+a positivity assertion. Matrix rank is the dimension of the image, as in
+Mathlib's `Matrix.rank` and `Matrix.mulVecLin`.
+
+The source is Richard P. Stanley, *Spanning Trees and a Conjecture of
+Kontsevich*, Annals of Combinatorics 2 (1998), §4, first proof, printed p.355,
+[author-hosted journal copy](https://math.mit.edu/~rstan/pubs/pubfiles/114.pdf).
+That proof attributes its recurrence argument to MacWilliams. The six lemmas
+below expose the linear algebra and product calculation needed to implement it.
+The native block-matrix construction `Matrix.fromBlocks` represents
+\[
+ B(S,v,a)=\begin{pmatrix}S&v\\v^{\mathsf T}&a\end{pmatrix}.
+\]
+Its index type is the disjoint union of the original index type and a singleton;
+a final equivalence identifies this with \(n+1\) indices. The source puts the
+corner first, which gives the same rank after a simultaneous reindexing.
+
+No separate symmetric-matrix carrier is introduced. Tau Ceti's
+`finrank_symmetricMatrix` concerns a real self-adjoint subspace with its
+Frobenius inner product. Its statement does not supply the finite-field rank
+fibers. The existing `symmetricKernelLaw` uses the native finite subtype and is
+unchanged: the count below is its finite-dimensional arithmetic input.
+
+**The image obstruction for a symmetric border** (`symmetric_mem_range_iff`, `ArithmeticStatistics:ST.5/symmetric-image-obstruction`).
+
+For a field F, n ≥ 0, a symmetric matrix S in M_n(F), and v in F^n, v belongs to im S if and only if v·z = 0 for every z in ker S. The pairing is the ordinary bilinear coordinate dot product, without conjugation.
+
+If v=Sx and Sz=0, symmetry gives v·z=x·Sz=0.
+
+For the converse use the native dual-annihilator criterion for W=im S. Every functional φ vanishing on W is a dot product z·(−): take z_i=φ(e_i) and expand with the coordinate basis and its finite reconstruction theorem. Vanishing on each S e_i says Sᵀz=0, hence Sz=0 by symmetry.
+
+The assumed annihilation gives φ(v)=z·v=0. The dual-annihilator criterion implies v∈W. This argument does not identify bilinear forms with quadratic forms and uses no division by two.
+
+Acceptance: For S=0, the criterion gives v=0. For the alternating plane S=[[0,1],[1,0]] over F₂, every column lies in the image.
+
+**The corner obstruction inside the image** (`rank_symmetric_border_of_image`, `ArithmeticStatistics:ST.5/symmetric-border-rank-in-image`).
+
+For a field F and symmetric S in M_n(F), let x∈F^n, v=Sx, a∈F, and B=[[S,v],[vᵀ,a]] on F^n⊕F. Then rank B = rank S if a=x·Sx, and rank B = rank S+1 otherwise, equivalently rank S plus the indicator of a≠x·Sx.
+
+Put c=a−x·Sx. The invertible coordinate change (y,t)↦(y+tx,t) identifies ker B with ker S × {t∈F : ct=0}. Indeed B(y,t)=0 is equivalent to S(y+tx)=0 and ct=0, since vᵀy=xᵀSy.
+
+When c=0 the second factor is F and adds one to the kernel dimension; when c≠0 it is zero-dimensional. Use native finrank invariance, the product-dimension identity and rank-nullity in dimension n+1.
+
+The scalar x·Sx is independent of the chosen preimage of v: two preimages differ by an element of ker S and v annihilates that kernel.
+
+Acceptance: S=0 and x=0 give rank B=0 for a=0 and rank B=1 for a≠0. For an alternating S over characteristic two, x·Sx=0; the same formula remains valid.
+
+**The rank-two jump outside the image** (`rank_symmetric_border_of_not_mem`, `ArithmeticStatistics:ST.5/symmetric-border-rank-outside-image`).
+
+For a field F, a symmetric matrix S in M_n(F), v∈F^n outside im S, and every a∈F, the symmetric border B=[[S,v],[vᵀ,a]] has rank S+2.
+
+The top block equation Sy+tv=0 forces t=0, since a nonzero t would put v in im S. Thus ker B is linearly isomorphic to {y∈ker S : v·y=0} via y↦(y,0).
+
+The image-obstruction lemma says y↦v·y is a nonzero linear functional on ker S. Apply the native codimension-one kernel theorem to this restricted functional.
+
+Rank-nullity for S and B now gives rank B=(n+1)−(dim ker S−1)=rank S+2. The nonzero restricted functional also ensures dim ker S≥1, so no negative dimension or truncated subtraction is used.
+
+Acceptance: For n=1,S=0,v=1, the border [[0,1],[1,a]] has rank two for every a, including in characteristic two. An invertible S admits no column outside its image.
+
+**The three symmetric-border rank fibers** (`card_symmetric_border_rank`, `ArithmeticStatistics:ST.5/symmetric-border-rank-fibers`).
+
+Let F have q elements and S∈M_n(F) be symmetric of rank r. For every k≥0, the number of pairs (v,a)∈F^n×F for which [[S,v],[vᵀ,a]] has rank k is q^r if k=r; (q−1)q^r if k=r+1; q^(n+1)−q^(r+1) if k=r+2; and zero otherwise. The diagonal entry a is unrestricted.
+
+The image of S has q^r elements by the native finite-vector-space cardinality theorem and the definition of Matrix.rank.
+
+For each column in the image the in-image rank lemma gives exactly one corner preserving rank and q−1 other corners increasing it by one. Count columns v, not preimages x; the invariant corner value was proved independent of the preimage.
+
+There are q^n−q^r columns outside the image, and every one of their q corners increases rank by two. The outside-image rank lemma excludes all other ranks. The bound r≤n ensures each natural subtraction is exact. Sum the disjoint finite fibers.
+
+Acceptance: The three counts sum to q^(n+1). For q=2,n=2,S=0 they are 1,1,6. For q=3,n=2,r=1 they are 3,6,18. If r=n the rank-two fiber is empty.
+
+**The symmetric rank-count recurrence** (`card_symmetric_rank_recurrence`, `ArithmeticStatistics:ST.5/symmetric-rank-count-recurrence`).
+
+Let F have q elements, and let N_F(n,k) count symmetric matrices in M_n(F) of rank k, using the existing native finite subtype. Define the numerical coefficient c_q(n,r,k) to be q^r when k=r, (q−1)q^r when k=r+1, q^(n+1)−q^(r+1) when k=r+2, and zero otherwise. Then for every n,k≥0, N_F(n+1,k)=Σ_{r=0}^n N_F(n,r)c_q(n,r,k). This notation introduces no new carrier or separately defined library object.
+
+Reindex Fin(n+1) by Fin n plus a singleton. Reading the principal block, the extra column and the corner is a bijection from symmetric matrices to triples (S,v,a); writing the symmetric block matrix is its inverse.
+
+Native reindexing preserves rank. Group the finite count first by the principal block S and then by its rank r, using the native dependent-sum cardinality theorem. Every rank lies in 0,…,n by the native width bound.
+
+Substitute the border-fiber formula. The sum version states the boundary cases without negative rank indices or negative exponents; for 2≤k≤n+1 it becomes N_F(n+1,k)=q^kN_F(n,k)+(q−1)q^(k−1)N_F(n,k−1)+(q^(n+1)−q^(k−1))N_F(n,k−2).
+
+Acceptance: N_F(0,0)=1 and N_F(0,k)=0 for k>0. At q=2 the first rows are (1), (1,1), (1,3,4), (1,7,28,28). At q=3,n=2 the row is (1,8,18).
+
+**The rational product recurrence** (`symmetric_rank_product_recurrence`, `ArithmeticStatistics:ST.5/symmetric-rank-product-recurrence`).
+
+For natural q≥2 and s,t≥0, let P_q(s,t)=[∏_{i=1}^{⌊t/2⌋} q^(2i)/(q^(2i)−1)]·∏_{i=0}^{t−1}(q^(s−i)−1), interpreted in ℚ; natural s−i is truncated at zero. Thus P_q(s,0)=1 and P_q(s,t)=0 for t>s. With c_q(n,r,k) as in symmetric-rank-count-recurrence, P_q(n+1,k)=Σ_{r=0}^n P_q(n,r)c_q(n,r,k) for all n,k≥0. P is local mathematical notation for the displayed expression, not a new library definition.
+
+All denominators q^(2i)−1 are nonzero since i≥1 and q≥2. Empty products give the k=0 case. For k=1 use q(q^n−1)+(q−1)=q^(n+1)−1, with the empty-size boundary included.
+
+For 2≤k≤n+1 put D=P_q(n,k−2), a=q^(k−1), t=q^(n−k+2). Cancel the common nonzero D. If k is even put C=qa/(qa−1). The ratios P_q(n,k)/D, P_q(n,k−1)/D and P_q(n+1,k)/D are respectively C(t−1)(t/q−1), t−1 and C(at−1)(t−1). The recurrence reduces to qa·C(t−1)(t/q−1)+(q−1)a(t−1)+a(t−1)=C(at−1)(t−1).
+
+If k is odd, k≥3; put C=a/(a−1). The same three ratios are C(t−1)(t/q−1), C(t−1) and C(at−1)(t−1). The reduced identity is qa·C(t−1)(t/q−1)+(q−1)a·C(t−1)+a(t−1)=C(at−1)(t−1). Both identities follow after multiplying by their displayed nonzero denominators and ordinary polynomial algebra.
+
+When k=n+2 the only possibly contributing term is r=n, whose coefficient q^(n+1)−q^(n+1) is zero. For k>n+2 there are no contributing terms. The factor with i=s makes every P_q(s,k) with k>s vanish, so these cases agree with the left side. Cast the natural coefficients to ℚ using r≤n before distributing subtraction.
+
+Acceptance: The identity holds for all integer q≥2, independently of whether q is a prime power. The k=n+1 boundary has t=q and the P_q(n,k) factor vanishes; no division by q^0−1 occurs. At n=0, k=0,1 and k≥2 it yields 1,q−1 and 0.
+
+**MacWilliams' formula and the initial row.** There is exactly one empty matrix.
+It has rank zero, so \(N_F(0,0)=1\) and \(N_F(0,k)=0\) for \(k>0\). An
+\(n\)-column matrix has rank at most \(n\). The count recurrence and the
+rational-product recurrence now identify every row by induction on \(n\),
+simultaneously for every \(k\). This gives `card_symmetric_rank_eq` with exactly
+its existing statement and with no dependence on a matrix-distribution theorem.
+The direction of use is count first, probability law second.
+
+The two parity calculations use \(D=P_q(n,k-2)\) only in the range
+\(2\leq k\leq n+1\). All its numerator factors are positive, and every
+\(q^{2i}-1\) in a denominator is nonzero. The upper boundary \(k=n+1\)
+is included: then \(t=q\), and the factor \(t/q-1\) is zero. The case
+\(k=n+2\) is separate because its only possible rank-two contribution is
+\(q^{n+1}-q^{n+1}=0\). These distinctions prevent truncated natural subtraction
+from hiding an invalid negative rank or an undefined denominator.
+
+**Pinned prerequisites.** The image obstruction uses
+`Subspace.forall_mem_dualAnnihilator_apply_eq_zero_iff`, `Pi.basisFun` and
+`Module.Basis.sum_repr`. The two rank calculations use
+`LinearMap.finrank_range_add_finrank_ker`,
+`Module.Dual.finrank_ker_add_one_of_ne_zero`, `LinearEquiv.finrank_eq`, and the
+native dimensions of products and coordinate spaces. Fiber counting uses
+`Module.natCard_eq_pow_finrank`, `Nat.card_congr` and `Nat.card_sigma`.
+`Matrix.rank_reindex` identifies the block indexing convention, and
+`Matrix.rank_le_width` bounds the summation range. These are statements at the
+pinned Mathlib commit. All further operations are finite sums, coordinate
+identities, induction and rational algebra. This component introduces no
+cross-roadmap request.
+
+**Concrete acceptance cases.** The suggested file gives six examples covering
+the empty matrix, impossible empty-matrix rank, the binary alternating plane,
+odd characteristic, the zero principal block and the adjacent parity rows.
+
+| Field and size | Counts in ascending rank |
+| --- | --- |
+| Any finite field, size 0 | 1 |
+| \(\mathbb F_2\), size 2 | 1, 3, 4 |
+| \(\mathbb F_2\), size 3 | 1, 7, 28, 28 |
+| \(\mathbb F_3\), size 2 | 1, 8, 18 |
+
+For the zero size-two block over \(\mathbb F_2\), its eight borders have counts
+\(1,1,6\) in ranks zero, one and two. Counting just the three nonzero columns
+would miss the two available corners for each. For a rank-one size-two block
+over \(\mathbb F_3\), the rank fibers have sizes \(3,6,18\). Counting the
+preimages of a column would introduce a spurious factor \(q^{n-r}\). The
+unrestricted symmetric rank-two count over \(\mathbb F_2\) is four; deleting
+the nonzero alternating plane changes the sample space. These examples
+separate the stated count from three plausible incorrect constructions.
+
+The finite-rank recurrence closes the explicit MacWilliams proof gap. It does
+not establish arithmetic equidistribution of class groups or Selmer groups;
+those results use their own source hypotheses. The infinite-product limit and
+its error bound remain the existing, separate consumer node.
+
 #### Conjectural models
 
 - **`CohenLenstraHeuristic` p u K** (ST.5/cohen-lenstra-heuristic-for-quadratic-fields, a conjecture recorded as a definition). For odd p, K_d ≅ ℚ(√d) (squarefree d ≠ 1, `IsQuadraticFamily`), and every class B: among squarefree d < 0 (u = 0) or d > 0 (u = 1) with |disc K_d| ≤ X, the proportion with Cl(K_d)_p ≅ B tends to μ_{p,u}(B). API: `CohenLenstraHeuristic`, `IsQuadraticFamily`, `quadraticFamilyUpTo`, `classGroupPrimary`, `quadraticFamilyUpTo_finite`, `cohenLenstraHeuristic_iff_primary_independent`, `cohenLenstraHeuristic_tsum_limits`. Unit tests: the predicted proportion of imaginary fields with trivial 3-part is c_{3,0}; with 3 | h it is 1 − c_{3,0} ≈ 0.440 (EVW §1.1 prints this number for indivisibility, ArithmeticStatistics/E624); the real weight of ℤ/p is c_{p,1}/(p(p − 1)).

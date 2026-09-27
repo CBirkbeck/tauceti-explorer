@@ -8868,3 +8868,89 @@ theorem complements_conj_of_coprime_abelian {E : Type*} [Group E] [Finite E] (H 
 end ArithmeticStatistics
 
 end ST5
+
+namespace ArithmeticStatistics
+
+open scoped Matrix
+
+/-! The unrestricted-diagonal symmetric rank recurrence over every finite field.
+Stanley (1998), §4, first proof, equations (4.2)–(4.3). -/
+
+/-- The obstruction to extending a column inside a symmetric matrix's image. -/
+theorem symmetric_mem_range_iff {F : Type*} [Field F] {n : ℕ}
+    (S : Matrix (Fin n) (Fin n) F) (hS : S.IsSymm) (v : Fin n → F) :
+    v ∈ LinearMap.range S.mulVecLin ↔
+      ∀ z : Fin n → F, S *ᵥ z = 0 → v ⬝ᵥ z = 0 := sorry
+
+/-- A column in the image leaves only one scalar corner obstruction. -/
+theorem rank_symmetric_border_of_image {F : Type*} [Field F] {n : ℕ}
+    (S : Matrix (Fin n) (Fin n) F) (hS : S.IsSymm) (x : Fin n → F) (a : F) :
+    (Matrix.fromBlocks S (fun i (_ : Unit) => (S *ᵥ x) i) (fun (_ : Unit) j => (S *ᵥ x) j)
+      (fun _ _ : Unit => a)).rank = S.rank +
+        @ite ℕ (a = x ⬝ᵥ (S *ᵥ x)) (Classical.propDecidable _) 0 1 := by
+  classical
+  sorry
+
+/-- A column outside the image adds two to the rank, in every characteristic. -/
+theorem rank_symmetric_border_of_not_mem {F : Type*} [Field F] {n : ℕ}
+    (S : Matrix (Fin n) (Fin n) F) (hS : S.IsSymm) (v : Fin n → F) (a : F)
+    (hv : v ∉ LinearMap.range S.mulVecLin) :
+    (Matrix.fromBlocks S (fun i (_ : Unit) => v i) (fun (_ : Unit) j => v j) (fun _ _ : Unit => a)).rank =
+      S.rank + 2 := sorry
+
+/-- Cardinality of each rank fiber above one symmetric principal block. -/
+theorem card_symmetric_border_rank {F : Type*} [Field F] [Fintype F] {n : ℕ}
+    (S : Matrix (Fin n) (Fin n) F) (hS : S.IsSymm) (k : ℕ) :
+    Nat.card {va : (Fin n → F) × F //
+      (Matrix.fromBlocks S (fun i (_ : Unit) => va.1 i) (fun (_ : Unit) j => va.1 j)
+        (fun _ _ : Unit => va.2)).rank = k} =
+      if k = S.rank then Fintype.card F ^ S.rank
+      else if k = S.rank + 1 then (Fintype.card F - 1) * Fintype.card F ^ S.rank
+      else if k = S.rank + 2 then Fintype.card F ^ (n + 1) - Fintype.card F ^ (S.rank + 1)
+      else 0 := sorry
+
+/-- Summing the principal-block fibers gives the symmetric rank recurrence. -/
+theorem card_symmetric_rank_recurrence (F : Type*) [Field F] [Fintype F] (n k : ℕ) :
+    Nat.card {S : Matrix (Fin (n + 1)) (Fin (n + 1)) F // S.IsSymm ∧ S.rank = k} =
+      ∑ r ∈ Finset.range (n + 1),
+        Nat.card {S : Matrix (Fin n) (Fin n) F // S.IsSymm ∧ S.rank = r} *
+          (if k = r then Fintype.card F ^ r
+          else if k = r + 1 then (Fintype.card F - 1) * Fintype.card F ^ r
+          else if k = r + 2 then Fintype.card F ^ (n + 1) - Fintype.card F ^ (r + 1)
+          else 0) := sorry
+
+/-- The explicit rational product satisfies the same recurrence, including the boundaries. -/
+theorem symmetric_rank_product_recurrence (q n k : ℕ) (hq : 2 ≤ q) :
+    let P : ℕ → ℕ → ℚ := fun s t =>
+      (∏ i ∈ Finset.Icc 1 (t / 2), ((q : ℚ) ^ (2 * i) / ((q : ℚ) ^ (2 * i) - 1))) *
+        ∏ i ∈ Finset.range t, ((q : ℚ) ^ (s - i) - 1)
+    P (n + 1) k = ∑ r ∈ Finset.range (n + 1), P n r *
+      ((if k = r then q ^ r
+        else if k = r + 1 then (q - 1) * q ^ r
+        else if k = r + 2 then q ^ (n + 1) - q ^ (r + 1)
+        else 0 : ℕ) : ℚ) := sorry
+
+/-- Rank zero includes exactly the zero matrix, including size zero. -/
+example : Nat.card {S : Matrix (Fin 0) (Fin 0) (ZMod 2) // S.IsSymm ∧ S.rank = 0} = 1 := sorry
+
+/-- The empty matrix never has positive rank. -/
+example : Nat.card {S : Matrix (Fin 0) (Fin 0) (ZMod 2) // S.IsSymm ∧ S.rank = 1} = 0 := sorry
+
+/-- Characteristic two: the nonzero alternating plane is included. -/
+example : Nat.card {S : Matrix (Fin 2) (Fin 2) (ZMod 2) // S.IsSymm ∧ S.rank = 2} = 4 := sorry
+
+/-- Odd characteristic: the three rank fibers at size two total 27. -/
+example : Nat.card {S : Matrix (Fin 2) (Fin 2) (ZMod 3) // S.IsSymm ∧ S.rank = 0} = 1 ∧
+    Nat.card {S : Matrix (Fin 2) (Fin 2) (ZMod 3) // S.IsSymm ∧ S.rank = 1} = 8 ∧
+    Nat.card {S : Matrix (Fin 2) (Fin 2) (ZMod 3) // S.IsSymm ∧ S.rank = 2} = 18 := sorry
+
+/-- A zero block over F₂ has six borders of rank two, among its eight borders. -/
+example : Nat.card {va : (Fin 2 → ZMod 2) × ZMod 2 //
+    (Matrix.fromBlocks (0 : Matrix (Fin 2) (Fin 2) (ZMod 2)) (fun i (_ : Unit) => va.1 i)
+      (fun (_ : Unit) j => va.1 j) (fun _ _ : Unit => va.2)).rank = 2} = 6 := sorry
+
+/-- At rank three over F₂, two different parity rows have equal full-rank counts. -/
+example : Nat.card {S : Matrix (Fin 3) (Fin 3) (ZMod 2) // S.IsSymm ∧ S.rank = 2} = 28 ∧
+    Nat.card {S : Matrix (Fin 3) (Fin 3) (ZMod 2) // S.IsSymm ∧ S.rank = 3} = 28 := sorry
+
+end ArithmeticStatistics
