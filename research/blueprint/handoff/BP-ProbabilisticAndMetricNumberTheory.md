@@ -1,3 +1,116 @@
+# Arithmetic law and weak-limit checkpoint — BP-ProbabilisticAndMetricNumberTheory
+
+Codex, session `codex-a71f92`, issue #1041, 27 September 2026.
+Claim 5854981888 won, confirmed by bot 5854982805 at 10:19:10 UTC.
+Whole issue read before and after confirmation. Snapshot
+69ab493e4778e308b46c0bad6cae24c1cacb047b; continue merged PR #3225.
+
+## Contribution and boundary
+
+Eight new PM.0 nodes supply arithmetic observation frequencies, inclusive CDF
+counts, the correctly normalized characteristic-function sum, the arithmetic
+Levy criterion, a Lipschitz comparison of the omega/Omega laws, a vanishing
+scaled L1 mean, a changing-measure tail limit and conditional weak-limit
+equivalence. All use native empirical measures and probability objects.
+
+For N=m+1, D=Omega-omega, X=(omega-b)/s and Y=(Omega-b)/s, the finite comparison
+is |E g(Y)-E g(X)|<=L*(1-1/N)/s for s>0 and any L-Lipschitz real g.
+Global boundedness of g is unnecessary for this finite statement. If s_m tends
+to positive infinity, the two observations have the same convergence-in-
+distribution behavior toward any given Borel probability law, with arbitrary
+common centers b_m. Initial zero or negative scales do not matter.
+
+The native Slutsky helper assumes a fixed sampling measure. The proof instead
+uses the native bounded-Lipschitz weak-convergence criterion on the changing
+pushforward laws. No generic Slutsky or Levy theorem is replanned.
+The Gaussian convergence premise for omega is NOT proved. Neither are the
+higher repeated-factor moments or the CDF-continuity-point converse criterion.
+The new limit statement is an equivalence, not a claim that a limit exists.
+
+All 59 inherited node objects, 93 baseline records, three previous findings
+and four source-version records remain unchanged. Only one read-scope sentence
+is appended to the Tao 2014 source; the other thirteen source objects remain
+identical. PM.1–PM.5 coverage and gaps and all eight planets are unchanged.
+
+Inventory: 67 unchecked nodes (1 construction, 48 lemmas, 1 comparison,
+17 theorems); 7 construction API entries; 21 packet test contracts (5 construction
+tests and 16 new lemma/theorem regressions); 93 suggested examples; 8 planets;
+106 baseline citations; 16 sources; 4 source findings; 6 gaps; no requests.
+Every stage remains incomplete; the four unread stages retain not_read coverage.
+
+## Sources and input discipline
+
+Binding documents match the fully read copies in this session. WORKERS reread;
+all six reviewed PM audit records reread before planning. No AGENTS.md.
+The previous PM inputs, four deliverables, matching links, accepted RS-07,
+audits/reviews and upstream style texts are byte-identical except our own
+already checked ES3 supplier checkpoint. Previous full input readings apply.
+The newly merged GN3 supplier is our own checked Henk product-count checkpoint;
+it supplies no new dependency to this slice.
+
+Tao 2014 Section 4 Exercises 46 and 51 and Theorem 47 freshly reread.
+Tao 2010 Notes 2: Exercise 5; Section 2 from equation (5) through the full proof
+of Theorem 13; Exercise 15 and hint inspected for the probability-target limit.
+Only these passages are claimed read. Author HTML SHA-256:
+ffa97487e6339d8cef52ad1c0609373738520c027b06ba24a89e8af2caad332d.
+
+E4 records the omitted evaluation at t=0 in Exercise 11's derivative formula:
+X=1 gives F(t)=exp(it), whose first derivative at pi is -i, not i.
+Its Taylor coefficients at zero remain correct. A bounded title/exercise
+correction search and current-page comment occurrence screen found no applicable
+correction; no full comment-thread or print-version collation is claimed.
+E1–E3 retain their previous version restrictions. E4 is unreviewed and scoped
+only to the acquired author HTML, not asserted against a book edition.
+
+Searched both pinned libraries and packet statements for these arithmetic laws.
+The other packet search hit was a differential form named omega, not this
+arithmetic topic. Read exact statements for all thirteen new baseline references.
+Native empirical-measure source reread completely. The convergence definition
+supports varying source measures; its fixed-measure helper's restriction was
+explicitly checked. No new supplier request or ownership change is necessary.
+
+## Validation
+
+- Official blueprint checker with full pinned declaration index: zero errors,
+  zero warnings.
+- Suggested Lean: 67 declarations and 93 examples, 160 expected planning
+  placeholder warnings only, no errors or other warnings. All 8,482 transitive
+  Mathlib sources byte-checked against the pin/cache; two Tau Ceti modules built
+  from pinned source.
+- Separate scratch probe checks the general counting, CDF and characteristic
+  formulas, arithmetic Levy equivalence, reciprocal squeeze and a changing-
+  measure bounded-Lipschitz transfer bridge, plus six examples. All six general
+  statements and six examples compile with no placeholders, axioms or diagnostics;
+  no arithmetic Gaussian theorem or full implementation of all eight nodes is claimed.
+- Exact tests: 4,800 event counts; 5,400 CDF endpoints; 10,200 characteristic
+  values using exact fourth roots of unity; 17,280 Lipschitz comparisons;
+  540 scaled mean envelopes; 2,160 tail envelopes; 173 fixed-scale obstructions;
+  eight rejected mutations. Ranges and statistics are in the reader.
+  Finite regressions do not establish asymptotic limits.
+- Errata schema passes. Preservation/DAG, synchronized names and counts,
+  source-scope, current-main input guard and four-deliverable intake checks
+  are rerun before publication. Only the four issue deliverables are published.
+
+## Exact continuation
+
+Preserve all existing finite residue, moment and cutoff contracts.
+PM.0 still needs general additive/strongly additive interfaces and prime-power
+representation, Exercise 46's higher moments, the source-specific growing-prime
+comparison, exact Kubilius source acquisition, and the counting-at-CDF-continuity-
+points characterization of weak convergence. Do not replace these gaps by the
+finite CDF formula or the conditional transfer supplied here.
+
+PM.1 still needs Mertens normalization, source-specific cutoff and lower-even-
+moment estimates, uniform growing-order control and a valid moment-continuity
+argument. Its omega Gaussian convergence is the missing premise for the
+Erdos–Kac specialization. PM.2–PM.5 gaps are unchanged. No unread source or
+whole stage is claimed closed.
+
+## Historical handoffs
+
+The earlier inventories and open conditional-transfer obligations below are
+historical; the checkpoint above supersedes them.
+
 # Repeated-prime-factor checkpoint — BP-ProbabilisticAndMetricNumberTheory
 
 Codex, session `codex-a71f92`, issue #1041, 27 September 2026.
