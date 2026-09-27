@@ -1,8 +1,10 @@
-**Smoothed-transform endpoint checkpoint, 27 September 2026.** The packet now has 139 unchecked nodes, 253 API entries, 129 definition/construction tests plus five inherited lemma tests, 22 planets and 103 baseline references. Its 5 gaps and 20 requests remain. Seven new L3 nodes correct the rotated smoothing transform at w=1. The two singular terms are cancelled before any formal inverse is taken; the logarithm quotient sign is corrected to give -log_p(b). No layer is newly closed.
+**Special-unit model checkpoint, 27 September 2026.** The packet has 149 unchecked nodes, 257 API entries, 133 definition/construction tests plus five other tests, 22 planets and 105 baseline references. Five gaps and twenty requests remain; no stage is closed. Ten new declarations supply the finite-extension four-puncture model and scalar zero differential, with the exact remaining Coleman comparison recorded below.
+
+**Earlier smoothed-transform endpoint checkpoint, 27 September 2026.** That checkpoint had 139 unchecked nodes, 253 API entries, 129 definition/construction tests plus five inherited lemma tests, 22 planets and 103 baseline references. Its 5 gaps and 20 requests remain. Seven new L3 nodes correct the rotated smoothing transform at w=1. The two singular terms are cancelled before any formal inverse is taken; the logarithm quotient sign is corrected to give -log_p(b). No layer is newly closed.
 
 # Coleman integration and noncritical Dirichlet L-values
 
-**Scalar transport checkpoint, 27 September 2026.** This continuation preserves 117 of the
+**Earlier scalar transport checkpoint, 27 September 2026.** This continuation preserves 117 of the
 118 predecessor node objects exactly and refines the remaining global five-term parent.
 Fourteen new nodes make the signed scalar transformations and the exhaustive norm case split
 explicit. The special-unit good-reduction argument remains open; no stage is newly closed.
@@ -3328,15 +3330,15 @@ Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.
 
 *Node* `ColemanIntegration:L2/five-term-relation`.
 
-For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. Scalar signed covariance and exhaustive norm reduction to the special-unit subcase are now decomposed. The precise special-unit good-reduction input and the separate field-correct projective/Bloch comparisons remain open; no complete global proof is claimed.
+For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. Scalar signed covariance and exhaustive norm reduction to the special-unit subcase are now decomposed. The finite-extension special-unit model and zero differential are now decomposed. Coleman membership across additional regular-image ends, boundary normalization, C_p density and the separate field-correct projective/Bloch comparisons remain open; no complete global proof is claimed.
 
 *Hypotheses.* a ∈ C_p; x, y ∉ {0, 1}, x ≠ y; p any prime.
 
 *Proof outline.*
 
 1. The differential: by ColemanIntegration:L2/dilogarithm-identities (c), dD^a(z) = ½ρ(z, 1 − z) with ρ(f, g) := log_a f·d log g − log_a g·d log f, which is bi-additive and alternating in (f, g) and vanishes when f or g is a root of unity (log_a of a root of unity is 0).
-2. The intended cyclic cross-ratio calculation makes the differential of the signed sum vanish. Polylogarithms:P.1/five-cross-ratio-identity currently states the identity for complex points, not C_p points; the field-general algebraic form, including infinity and denominator conditions, is requested from that owner. Do not import the complex Bloch-Wigner five-term theorem as a p-adic proof.
-3. Good-reduction route requiring a separate lemma: fix y with |y|=|1-y|=1 and construct the good-reduction punctured line P^1 minus {0,1,infinity,y}. Show that the five rational maps have the precise pullback data of L1/coleman-pullback and the signed sum is a Coleman function. Its zero differential would imply constancy by L1/coleman-uniqueness-principle. Evaluate at x->0 using inversion and the bounded-ramification estimates of L2/value-at-one: the first, third and fourth terms tend to 0 and the fifth to D^a(1/(1-y))=D^a(y). The existing explicit L1 model is for roots-of-unity punctures, not arbitrary y, so the model and pullback hypotheses must be supplied. If constructed only over finite extensions, prove the algebraic x,y case first and extend by density and local analyticity on the open admissible locus; arbitrary elements of C_p need not lie in a finite extension.
+2. The scalar differential is now supplied by five-term-logarithmic-pullbacks and five-term-defect-zero-differential; it uses no field-general projective identity. The cyclic projective reformulation still needs the separate Polylogarithms supplier, including infinity and denominator conditions.
+3. The arbitrary-special-unit four-puncture model over finite K, its residue/Frobenius datum and integral argument maps are now explicit nodes. The zero differential is separately supplied. Complete the Coleman pullback comparison when an extra source end maps to a regular target point, then prove membership of the five-term defect, global constancy and the boundary value. The current inherited pullback statement has an unnecessarily restrictive ends-to-ends clause and cannot be silently applied. Extend the algebraic-input result to C_p using density and local analyticity. Retain the independent field-general projective and Bloch comparisons. No vanishing theorem follows merely from the new derivative-zero statement.
 4. Scalar transport is now supplied by five-term-defect through five-term-from-special-units: the four elementary pair transformations have checked signs; mixed norms, separated residue discs and close equal-norm pairs reduce to nested discs; the remaining cases reduce to a special-unit second coordinate. Thus the scalar global conclusion follows once the preceding good-reduction input is proved. No field-general cross-ratio interface is needed for this scalar reduction. The cyclic projective reformulation still needs its separate algebraic supplier, including infinity cases.
 5. Once the requested algebraic five-term boundary identity is supplied, the branch-change formula in L2/dilogarithm-identities is an alternating bi-additive expression and cancels in the five-term sum; its factorization through the pre-Bloch group and branch independence on the Bloch group use the same algebraic input. These global consequences are targets, not consequences of the nested-disc result alone.
 6. Nested-disc case: apply ColemanIntegration:L2/five-term-nested-discs, proved from the single-disc Abel series identity and explicit cancellation of the two branch logarithms. This replaces the old unproved inference that a logarithm-polynomial expression with vanishing partial differentials is constant. It needs neither semistable Coleman continuation nor a two-variable logarithm-transcendence theorem.
@@ -3569,7 +3571,7 @@ Let Li_k^ℂ be the principal branch of the complex polylogarithm (Polylogarithm
 - Close the special-unit good-reduction input for every admissible first coordinate and every second coordinate v with |v|=|1−v|=1: construct the arbitrary-special-unit punctured-line model, its Coleman pullbacks and constancy argument, then finite-extension/density comparison. The scalar norm reduction is decomposed; the cyclic projective reformulation and Bloch descent still need their field-correct algebraic supplier.
 - Coleman 1982 (Invent. Math. 69) was not read (no public copy): the Frobenius and distribution relations are proved here from L1 and checked numerically; when a copy is available, compare Propositions 6.1-6.4 and 7.1 with these nodes and record the misprints Besser-de Jeu point out.
 
-The scalar covariance and exhaustive norm reduction are now decomposed in five-term-defect through five-term-from-special-units, independently of this gap. The missing analytic input is R_a(u,v)=0 for EVERY admissible u,v with |v|=|1−v|=1, not just pairs whose five arguments are all special. Construct P^1 minus {0,1,infinity,v} for arbitrary special v, verify the good-reduction model and all rational-map pullback hypotheses, establish Coleman constancy and its boundary value. The existing explicit L1 model has roots-of-unity punctures; it is not this arbitrary model. If the construction is first over finite extensions, prove the algebraic-input case and extend by density and local analyticity on the admissible open locus; arbitrary ℂ_p points need not be algebraic. Separately retain the requested field-general cross-ratio identities for the cyclic projective reformulation and Bloch boundary/descent. None of these remaining inputs is implied by scalar covariance. No semistable theory or locally analytic zero-derivative shortcut is introduced.
+The arbitrary-special-unit four-puncture model over finite K, its residue/Frobenius datum and integral argument maps are now explicit nodes. The zero differential is separately supplied. Complete the Coleman pullback comparison when an extra source end maps to a regular target point, then prove membership of the five-term defect, global constancy and the boundary value. The current inherited pullback statement has an unnecessarily restrictive ends-to-ends clause and cannot be silently applied. Extend the algebraic-input result to C_p using density and local analyticity. Retain the independent field-general projective and Bloch comparisons. No vanishing theorem follows merely from the new derivative-zero statement.
 
 Request to Polylogarithms:P.1: Generalize the algebraic cross-ratio interface behind P.1/five-cross-ratio-identity from complex points to pairwise distinct points of P^1 over a field: the complement, inverse, adjacent-permutation and fractional-linear invariance identities, and the five-point cyclic identity, with explicit denominator and infinity cases. Keep the current complex Bloch-Wigner theorem unchanged. ColemanIntegration needs only these algebraic identities over C_p, not a duplicate complex or p-adic five-term theorem. The scalar two-variable norm reduction now uses only specialized D-valued covariance and no general projective carrier. This request remains for the parent’s cyclic projective comparison and algebraic boundary/descent, not as an unresolved input to the scalar norm-reduction lemmas.
 
@@ -4860,3 +4862,279 @@ Sources:
 
 - RJW, §3.5.2, arXiv v2 p.20; Definition 4.5, p.27; (7.7)–(7.8), p.42. The bounded rotation formula and regularized centre. The exact integral coefficient extension remains a supplier request.
 
+
+
+## An arbitrary separated fourth puncture
+
+The five-term proof uses a four-punctured projective line. The following explicit
+finite-extension construction supplies its geometry and Frobenius datum. It uses
+the existing AdicSpacesPartII dagger algebras, norms, strict-neighbourhood sections,
+differentials and identity principle through six exact supplier nodes.
+
+The fourth point need not be a root of unity. Over finite K/Q_p, set q=#k,
+where k is the residue field. The lift fixes K and sends z to z^q. A ramified
+coefficient v can have v^q−v divisible by a uniformizer without being divisible
+by p; the correction estimate therefore uses the maximal ideal.
+
+This continuation also computes the five logarithmic pullbacks and proves zero
+differential of the scalar defect. The remaining proof must identify the defect
+as a Coleman function, including extra source ends mapping to regular target
+points, and establish its boundary normalization. These are separate steps.
+The scalar identity for arbitrary C_p inputs also needs the algebraic-input
+density argument. No stage is closed by this continuation.
+
+### Tube of the four-punctured line
+
+`ColemanIntegration:L1/special-unit-tube` — construction. Proposed declaration: `TauCeti.ColemanIntegration.specialUnitTube`.
+
+For v in C_p define specialUnitTube(v)={z: |z|=|z−1|=|z−v|=1}. For |v|=|1−v|=1 this is the tube of P¹_k minus {0,1,infinity,v-bar}; the definition is the existing Set of C_p-points, not a new analytic-space carrier.
+
+Hypotheses: p is prime; the set is defined for every v in C_p. The geometric assertion additionally assumes v lies in finite K/Q_p and |v|=|1−v|=1.
+
+Proof outline:
+
+1. Define the indicated intersection of three norm level sets in the existing field C_p.
+2. For the geometric interpretation use the three affine puncture sections and the specialization criterion: reduction differs from c exactly when |z−c|=1 for integral z,c. Infinity is excluded by |z|=1.
+
+Prerequisites: `mathlib:PadicComplex`, `ColemanIntegration:L1/residue-disc-parametrisation`.
+
+Acceptance:
+
+- At p=5 and v=2, the point3 belongs; 0,1,2 do not.
+- At v=1 the underlying set is the old thrice-punctured tube, but the four-distinct-section geometric hypothesis fails.
+
+Uses:
+
+- ColemanIntegration:L2/five-term-relation: Identifies the ordinary residue discs on the required four-punctured model.
+- ColemanIntegration:L1/special-unit-maps: Checks all rational argument maps on the tube without imposing an all-arguments-special condition on the eventual global theorem.
+
+API:
+
+- `TauCeti.ColemanIntegration.mem_specialUnitTube` (characterisation): z belongs exactly when |z|=1, |z−1|=1 and |z−v|=1.
+- `TauCeti.ColemanIntegration.specialUnitTube_subset` (compatibility): specialUnitTube(v) is contained in the existing puncturedTube(p,1).
+- `TauCeti.ColemanIntegration.specialUnitTube_one` (simp): specialUnitTube(1)=puncturedTube(p,1) as subsets of C_p; this set equality does not assert a four-point good-reduction model.
+- `TauCeti.ColemanIntegration.specialUnitTube_isOpen` (structure): specialUnitTube(v) is open in the ultrametric topology on C_p.
+
+Tests:
+
+- `specialUnitTube_five_three` (computation): For p=5,v=2, the point3 belongs to specialUnitTube(2).
+- `specialUnitTube_puncture` (non-example): v never belongs to specialUnitTube(v).
+- `specialUnitTube_one_test` (compatibility): specialUnitTube(1)=puncturedTube(p,1).
+- `specialUnitTube_two_collision` (non-example): For p=2,v=2, |v| is not1, so the geometric separated-section hypothesis fails even though specialUnitTube(2) remains a defined set.
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Separated four-point good-reduction model
+
+`ColemanIntegration:L1/special-unit-line-good-reduction` — lemma. Proposed declaration: `TauCeti.ColemanIntegration.specialUnitLine_goodReduction`.
+
+The pair (P¹_(O_K), D_v) with D_v the disjoint union of the sections 0,1,v,infinity is a good-reduction pair. Its affine complement is Spec O_K[z,1/(z(z−1)(z−v))]; its differentials are free on dz. Its wide opens are W_r(v)={r<|z|<r⁻¹, |z−1|>r, |z−v|>r}, 0<r<1. Its tube is specialUnitTube(v).
+
+Hypotheses: p is prime; K is a finite extension of Q_p inside C_p, O_K its valuation ring, k its residue field of cardinal q=p^f; v in K satisfies |v|=|1−v|=1.
+
+Proof outline:
+
+1. The differences v,1−v and1 are units, so the three affine sections and the section at infinity are pairwise disjoint over O_K. Each section is a copy of Spec O_K; their union is finite etale.
+2. Apply the existing good-reduction-pair construction to the smooth proper relative projective line, whose geometric fibres are connected. Compute the complement by localizing the affine z-chart at z(z−1)(z−v).
+3. Localize the polynomial differential module: dz is a basis. Use parameters z,z−1,z−v,1/z in the existing wide-open construction to obtain W_r and the tube. This specializes existing geometry; it does not construct a generic projective-line library.
+
+Prerequisites: `ColemanIntegration:L1/good-reduction-pair`, `ColemanIntegration:L1/wide-open-neighbourhood`, `ColemanIntegration:L1/special-unit-tube`.
+
+Acceptance:
+
+- At p=5,v=2 all four sections stay distinct.
+- The same claim fails for v=p or v=1+p, which collide with0 or1 in reduction; p=2 is allowed over an extension with residue field containing an element different from0,1.
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Principal parts at four separated punctures
+
+`ColemanIntegration:L1/special-unit-line-principal-parts` — lemma. Proposed declaration: `TauCeti.ColemanIntegration.specialUnitLine_principalParts`.
+
+Write A_v=A†(P¹ minus {0,1,v,infinity}). Every f in A_v has a unique decomposition f=f_infinity(z)+f_0(1/z)+f_1(1/(z−1))+f_v(1/(z−v)), where f_infinity is a power series and each finite-puncture series has zero constant coefficient; all four are restricted at some common radius rho>1. Conversely each such expression lies in A_v. Restriction of A_v and A_v dz to any nonempty residue disc is injective.
+
+Hypotheses: p is prime; K is a finite extension of Q_p inside C_p, O_K its valuation ring, k its residue field of cardinal q=p^f; v in K satisfies |v|=|1−v|=1.
+
+Proof outline:
+
+1. Apply partial fractions to K[z,1/(z(z−1)(z−v))]. Assign the constant polynomial part only to f_infinity; otherwise uniqueness would fail.
+2. On a closed rational subdomain between the boundary circles, the Gauss estimates for the four expansions bound the projections to each principal part. Pairwise unit distances keep the discs disjoint. Pass these bounded projections to the completed algebra; passage through slightly smaller overconvergence radii gives the dagger union.
+3. Recover each negative Laurent tail from its own boundary circle, so all projections are unique. For the converse evaluate all four restricted series on a sufficiently small wide open W_r with r⁻¹<rho.
+4. Apply the connected-domain identity principle from AdicSpacesPartII:F1/dagger-identity-principle; W_r is the connected projective line with four disjoint closed discs removed. The same applies to differential coefficients because dz is a basis.
+
+Prerequisites: `ColemanIntegration:L1/special-unit-line-good-reduction`, `ColemanIntegration:L0/disc-analytic-functions`, `ColemanIntegration:L0/annulus-residue`, `mathlib:PowerSeries.IsRestricted`, `AdicSpacesPartII:F1/weak-completion-generic-fibre`, `AdicSpacesPartII:F1/overconvergent-sections-formula`, `AdicSpacesPartII:F1/dagger-rational-localisation`, `AdicSpacesPartII:F1/radius-tate-algebra-affinoid`, `AdicSpacesPartII:F1/dagger-identity-principle`.
+
+Acceptance:
+
+- 1/(z(z−v))=(1/v)(1/(z−v)−1/z).
+- An expansion permitting independent constants at finite punctures would not be unique.
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Residue coordinates on the four-punctured line
+
+`ColemanIntegration:L1/special-unit-line-de-rham` — theorem. Proposed declaration: `TauCeti.ColemanIntegration.specialUnitLine_deRham`.
+
+For A_v, ker(d)=K and every differential eta in A_v dz has a unique residue vector (c_0,c_1,c_v) in K³ with eta=dh+c_0 dz/z+c_1 dz/(z−1)+c_v dz/(z−v), h in A_v unique modulo K. The three displayed logarithmic forms give a basis of H¹ of the dagger de Rham complex; the residue at infinity is −c_0−c_1−c_v.
+
+Hypotheses: p is prime; K is a finite extension of Q_p inside C_p, O_K its valuation ring, k its residue field of cardinal q=p^f; v in K satisfies |v|=|1−v|=1.
+
+Proof outline:
+
+1. Use special-unit-line-principal-parts on the coefficient of eta. Integrate the polynomial-side series and the negative Laurent terms with exponents different from−1 termwise.
+2. Division by a nonzero integer preserves overconvergence after shrinking rho>1: the existing ultrametric integer bound is polynomial in the index, while the radius margin supplies exponential decay. Apply formal-primitive-radius to each piece.
+3. The three remaining simple-pole coefficients are the corresponding residues. Exact forms have zero residue, so they determine the unique vector. If dh=0, characteristic-zero coefficient differentiation forces the polynomial part constant and all principal parts zero.
+4. Expand the three logarithmic forms in t=1/z to read residue−1 at infinity for each; exact forms contribute zero.
+
+Prerequisites: `ColemanIntegration:L1/special-unit-line-principal-parts`, `ColemanIntegration:L0/formal-primitive-radius`, `ColemanIntegration:L0/ultrametric-natcast-bound`, `ColemanIntegration:L0/annulus-exact-iff-residue-zero`, `AdicSpacesPartII:F1/dagger-differentials`.
+
+Acceptance:
+
+- dz/z²=d(−1/z) while dz/z is not exact.
+- The class of dz/(z(z−v)) has coordinates(−1/v,0,1/v).
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Small error in the q-power Frobenius polynomial
+
+`ColemanIntegration:L1/special-unit-frobenius-error` — lemma. Proposed declaration: `TauCeti.ColemanIntegration.specialUnitFrobenius_error`.
+
+For each c in {0,1,v}, E_c(Z)=Z^q−c−(Z−c)^q has every coefficient in the maximal ideal of O_K and degree less than q. Thus there is a real delta<1 bounding the norms of all coefficients of the three E_c. On W_s(v), |E_c(z)/(z−c)^q|≤delta/s^q whenever0<s<1. For c=0 the error is zero.
+
+Hypotheses: p is prime; K is a finite extension of Q_p inside C_p, O_K its valuation ring, k its residue field of cardinal q=p^f; v in K satisfies |v|=|1−v|=1.
+
+Proof outline:
+
+1. Reduce the polynomial modulo the maximal ideal. FiniteField.pow_card gives c-bar^q=c-bar, and sub_pow_char_pow gives (Z−c-bar)^q=Z^q−c-bar^q. The reduction is zero.
+2. The leading coefficients cancel, leaving degree at most q−1. Choose delta as the maximum of the finitely many coefficient norms and0; it is strictly less than1.
+3. For |z|≤1, the ultrametric bound gives |E_c(z)|≤delta and |z−c|>s. For |z|>1, |z−c|=|z| and the degree bound gives quotient norm≤delta/|z|≤delta.
+
+Prerequisites: `ColemanIntegration:L1/special-unit-line-good-reduction`, `mathlib:FiniteField.pow_card`, `mathlib:sub_pow_char_pow`, `mathlib:PadicComplex.isNonarchimedean`.
+
+Acceptance:
+
+- For c=v, the constant coefficient involves v^q−v and is generally only divisible by a uniformizer, not necessarily by p.
+- Do not use the p-power Frobenius with coefficients fixed when the residue field is F_(p^f) with f>1; q is essential.
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Overconvergent Frobenius logarithmic corrections
+
+`ColemanIntegration:L1/special-unit-frobenius-correction` — lemma. Proposed declaration: `TauCeti.ColemanIntegration.specialUnitFrobenius_correction`.
+
+The K-linear q-power map phi(z)=z^q induces an endomorphism of A_v. For c in {0,1,v}, u_c=(z^q−c)/(z−c)^q is an overconvergent unit with a canonical convergent log(u_c) in A_v; log(u_0)=0. One has phi*(dz/(z−c))=q dz/(z−c)+d log(u_c). This asserts convergence near the tube, not on all of the punctured residue disc.
+
+Hypotheses: p is prime; K is a finite extension of Q_p inside C_p, O_K its valuation ring, k its residue field of cardinal q=p^f; v in K satisfies |v|=|1−v|=1.
+
+Proof outline:
+
+1. Choose s<1 sufficiently close to1 that delta<s^q. Then special-unit-frobenius-error gives |u_c−1|<1 uniformly on W_s, so the geometric inverse and the inherited logarithm series converge after a strict radius margin. Their sums belong to A_v.
+2. For each target W_r choose s with s^q>r and delta<s^q. If |z|≤1, ultrametric strict domination gives |z^q−c|=|z−c|^q; if |z|>1, both norms equal |z|^q. The inequalities for0 and infinity also hold. Hence phi(W_s) is contained in W_r, producing the dagger endomorphism.
+3. Differentiate u_c algebraically and use d log u_c=du_c/u_c on the convergence domain. The result is q z^(q−1) dz/(z^q−c)−q dz/(z−c). For c=0, u_0=1.
+
+Prerequisites: `ColemanIntegration:L1/special-unit-frobenius-error`, `ColemanIntegration:L0/log-one-add-convergence`, `ColemanIntegration:L0/log-one-add-mul`, `AdicSpacesPartII:F1/overconvergent-sections-formula`, `AdicSpacesPartII:F1/dagger-rational-localisation`.
+
+Acceptance:
+
+- When v is not Teichmueller, phi need not fix the actual section v; it fixes its reduction.
+- All choices of sufficiently strict radius give the same dagger germ.
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Frobenius datum for an arbitrary separated fourth point
+
+`ColemanIntegration:L1/special-unit-frobenius-datum` — theorem. Proposed declaration: `TauCeti.ColemanIntegration.specialUnitFrobenius_datum`.
+
+For the four-punctured line over finite K, the forms dz/z,dz/(z−1),dz/(z−v), the K-linear lift z↦z^q, matrix q I_3 and corrections(0,log u_1,log u_v) form the existing FrobeniusDatum, satisfying(H0),(H1),(Hi),(Hw). Therefore the inherited word-algebra construction and Coleman uniqueness apply to this concrete line. No general-curve de Rham comparison is required for this instance.
+
+Hypotheses: p is prime; K is a finite extension of Q_p inside C_p, O_K its valuation ring, k its residue field of cardinal q=p^f; v in K satisfies |v|=|1−v|=1.
+
+Proof outline:
+
+1. Supply H0 and H1 from special-unit-line-de-rham and Hi from special-unit-line-principal-parts. Supply the differential Frobenius equation from special-unit-frobenius-correction.
+2. All eigenvalues are q. Every nonempty product of them raised to a positive power is q^(nm), which is not1 in characteristic zero. This is Hw; no Weil-weight theorem is used.
+3. Insert this datum into the existing word-algebra, realization and uniqueness constructions. The finite-extension and residue-cardinality hypotheses remain in force; this does not build a model for arbitrary transcendental v in C_p.
+
+Prerequisites: `ColemanIntegration:L1/frobenius-h1-datum`, `ColemanIntegration:L1/special-unit-line-de-rham`, `ColemanIntegration:L1/special-unit-line-principal-parts`, `ColemanIntegration:L1/special-unit-frobenius-correction`, `ColemanIntegration:L1/coleman-realization`, `ColemanIntegration:L1/coleman-uniqueness-principle`.
+
+Acceptance:
+
+- For q=5,v=2, the matrix is5I_3, not5I_2.
+- The coefficient v−v^q appears in u_v unless v is a q-fixed lift.
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Integral argument maps on the four-punctured line
+
+`ColemanIntegration:L1/special-unit-maps` — lemma. Proposed declaration: `TauCeti.ColemanIntegration.specialUnitMaps_goodReduction`.
+
+The four nonconstant maps z, v/z, v(z−1)/(z(v−1)), (1−z)/(1−v) extend to O_K-automorphisms of P¹ whose restriction sends Y_v=P¹ minus {0,1,v,infinity} into U_1=P¹ minus {0,1,infinity}. The constant map v also maps Y_v into U_1. Preimages of the ordered target punctures(0,1,infinity) are respectively(0,1,infinity), (infinity,v,0), (1,v,0), (1,v,infinity). Each nonconstant map sends specialUnitTube(v) into puncturedTube(p,1).
+
+Hypotheses: p is prime; K is a finite extension of Q_p inside C_p, O_K its valuation ring, k its residue field of cardinal q=p^f; v in K satisfies |v|=|1−v|=1.
+
+Proof outline:
+
+1. Represent the four maps by matrices [[1,0],[0,1]], [[0,v],[1,0]], [[v,−v],[v−1,0]], [[−1,1],[0,1−v]]. Their determinants1,−v,v(v−1),v−1 are units, so the rational maps extend over O_K with invertible reduction.
+2. Solve their numerator, numerator-minus-denominator and denominator equations to obtain the preimage table, including infinity. Their inverse images of the removed target sections are subsets of D_v.
+3. For the constant v both v and1−v are units, so it defines an integral section of U_1. On the tube, direct norm division proves the target and its complement have norm1.
+4. A removed source point can map to a regular target point: the identity sends v to v. Accordingly this establishes the scheme-morphism hypotheses of Furusho Proposition2.5, but not the unnecessarily restrictive ends-to-ends wording in the current inherited pullback node. The analytic pullback extension across such extra source ends is retained as an explicit next step.
+
+Prerequisites: `ColemanIntegration:L1/special-unit-line-good-reduction`, `ColemanIntegration:L1/special-unit-tube`, `ColemanIntegration:L1/punctured-line`, `mathlib:norm_div`.
+
+Acceptance:
+
+- At p=5,v=2,z=3, all four varying arguments are special units.
+- The identity map has a regular image for the source end v, which must not be silently treated as a target end.
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Logarithmic coordinates of the five argument maps
+
+`ColemanIntegration:L2/five-term-logarithmic-pullbacks` — lemma. Proposed declaration: `TauCeti.ColemanIntegration.fiveTerm_logarithmicPullbacks`.
+
+For admissible x,v in C_p, write X=log_a x, U=log_a(1−x), V=log_a v, W=log_a(1−v), H=log_a(x−v), and alpha=dx/x, beta=dx/(x−1), gamma=dx/(x−v). For the ordered arguments x,v,v/x,v(x−1)/(x(v−1)),(1−x)/(1−v), the pairs(log f,log(1−f)) are (X,U),(V,W),(V−X,H−X),(V+U−X−W,H−X−W),(U−W,H−W). Their differential pairs are(alpha,beta),(0,0),(−alpha,gamma−alpha),(beta−alpha,gamma−alpha),(beta,gamma).
+
+Hypotheses: p is prime; a in C_p is any branch parameter; x,v are different from0,1 and x≠v. No special-unit or algebraicity assumption is needed.
+
+Proof outline:
+
+1. Apply the existing admissibility lemma to rule out zero and one at all five arguments.
+2. Factor1−v/x=(x−v)/x, 1−v(x−1)/(x(v−1))=(x−v)/(x(1−v)), and1−(1−x)/(1−v)=(x−v)/(1−v).
+3. Use the existing logarithm-branch homomorphism, including log(−1)=0, to obtain the five logarithm pairs. Differentiate the nonvanishing factors, keeping v fixed, to obtain the five differential pairs. No scalar five-term identity is used.
+
+Prerequisites: `ColemanIntegration:L2/five-term-arguments`, `ColemanIntegration:L0/log-branch`, `ColemanIntegration:L0/log-branch-local-expansion`, `mathlib:HasDerivAt`.
+
+Acceptance:
+
+- The fourth complement contains1−v in the denominator; reversing this factor changes a logarithmic constant.
+- The second argument is constant in x, so both of its differentials are zero.
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Vanishing differential of the scalar five-term defect
+
+`ColemanIntegration:L2/five-term-defect-zero-differential` — lemma. Proposed declaration: `TauCeti.ColemanIntegration.fiveTermDefect_hasDerivAt_zero`.
+
+For every branch a and every admissible pair x,v in C_p, HasDerivAt (x↦R_a(x,v)) 0 holds at x, where R_a is the existing scalar fiveTermDefect. This is a differential statement on the admissible open locus; global vanishing is not asserted.
+
+Hypotheses: p is prime; a in C_p is any branch parameter; x,v are different from0,1 and x≠v.
+
+Proof outline:
+
+1. For each argument use dD_a(f)=one-half(log_a(f)dlog_a(1−f)−log_a(1−f)dlog_a(f)) from dilogarithm-identities and the chain rule.
+2. Insert the logarithm and differential pairs from five-term-logarithmic-pullbacks with signs+,-,+,-,+. Twice the result is X beta−U alpha+(V−X)(gamma−alpha)+(H−X)alpha−(V+U−X−W)(gamma−alpha)+(H−X−W)(beta−alpha)+(U−W)gamma−(H−W)beta.
+3. Collect the coefficients of alpha,beta,gamma; each is identically zero by commutative ring algebra. This works for p=2 because the coefficient field has characteristic zero, so2 is invertible.
+4. Keep the subsequent Coleman membership, global constancy and boundary normalization separate. A function with derivative zero on a totally disconnected locus need not be globally constant.
+
+Prerequisites: `ColemanIntegration:L2/five-term-defect`, `ColemanIntegration:L2/five-term-logarithmic-pullbacks`, `ColemanIntegration:L2/dilogarithm-identities`, `mathlib:HasDerivAt`.
+
+Acceptance:
+
+- Changing the fourth five-term sign leaves a generally nonzero symbolic differential.
+- No inference uses the global five-term-relation node.
+
+Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This is an explicit worker elaboration of its good-reduction framework.
+
+### Prototype boundary
+
+The suggested file types the tube and all four API items, four tests, the polynomial error, the logarithmic derivative of the Frobenius correction, the tube part of the rational maps, the complete logarithmic pullback table and the zero derivative. The scheme model, principal-parts comparison, actual dagger de Rham module and instantiated Frobenius datum are honest comments until their existing owners supply the required Lean carriers. No substitute structure assumes these conclusions.
