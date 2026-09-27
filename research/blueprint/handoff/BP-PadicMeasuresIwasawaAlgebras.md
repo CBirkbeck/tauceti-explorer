@@ -1,134 +1,110 @@
-# BP-PadicMeasuresIwasawaAlgebras — clopen measure topologies
+# BP-PadicMeasuresIwasawaAlgebras — bounded Amice norm
 
-Codex — codex-7e92bd. Refs #555. Claim5853060858 was confirmed by
-bot5853061619; the whole issue was read before and after confirmation.
-This partial continuation preserves all 142 predecessor node objects,
-146 baseline records, thirteen source findings and thirteen planets.
-No stage is closed and every implementation status remains unchecked.
+Codex — codex-7e92bd. Refs #555. Claim5853539650 confirmed by bot5853540867.
+The full issue was read before claiming and reread after confirmation.
 
-Totals: **157 nodes** (2 definitions, 25 constructions, 97 lemmas,
-20 theorems, 13 comparisons); **141 API items**; **109 packet tests**
-(99 on definitions/constructions); **120 typed examples**; **13 planets**;
-**157 baseline references**; **8 gaps**, **0 requests**, **13 source findings**.
-There are fifteen new nodes, eleven new baseline records and seven new tests.
-No new definition or carrier is introduced.
+**168 nodes**:2 definitions,26 constructions,103 lemmas,23 theorems,14 comparisons.
+**149 API entries**, **117 packet tests**, **128 typed examples**, **13 planets**,
+**166 baseline declarations**, **8 gaps**, **0 requests**, **0 closed stages**.
+Definitions/constructions account for146 API items and102 tests.
+All implementations remain unchecked; no independent review is claimed.
 
-## Supplied comparisons
+## What changed
 
-Mathlib already defines AbstractMeasure.WeakTopology and StrongTopology,
-deliberately without global instances. The weak topology is available for
-normed commutative ring coefficients. The pinned strong topology and the native
-continuous-dual operator norm require a nontrivially normed field. Every new
-signature selects the relevant existing topology explicitly.
+Eleven L2 nodes supply the field-valued Amice coefficient bound, native bounded
+sequence construction, exact inverse norm, recovery, linear isometry and
+bounded-series range. For Q_p they give injectivity of actual integral
+coefficient extension, its norm, its unique image characterization as the
+dual unit ball, norm closedness and common p-power denominators. Nineteen new
+named signatures and eight typed examples extend the seed.
 
-L0 now supplies weak continuity of native pushforward and existing intrinsic
-clopen restriction, a closed embedding of clopen measures, and a homeomorphism
-for the existing complementary decomposition. Evaluation on fixed test
-functions proves continuity; the continuous section/retraction gives closed
-range in the Hausdorff ambient weak dual. No weak completeness or compactness
-of the full continuous dual is assumed.
+The field-general isometry requires complete ultrametric K, its Z_p-algebra
+structure and bounded Z_p scalar action. It compares the existing field dual
+with native bounded sequences in their supremum norm. An arbitrary K formal
+series is not necessarily bounded; p^(−n) coefficients give the control.
+The integral comparison is for domain Z_p and coefficient field Q_p. No
+native norm or strong-topology instance on D(Z_p,Z_p) is invented. Native
+PowerSeries.toSubring supplies coefficient lifting. General profinite domains
+and finite-extension integer rings remain explicit L0 obligations.
 
-For field coefficients, native pushforward and clopen restriction contract
-the operator norm, and clopen inclusion preserves it. The strong closed
-embedding and complementary homeomorphism use these bounds. The inverse
-product map has bound two with the maximum product norm over general normed
-fields. An ultrametric isometry is not silently applied to an archimedean field.
+All157 predecessor node objects,157 baseline records,13 source findings and
+13 planets are preserved verbatim. The six unaffected coverage/gap entries,
+all supplier boundaries, scope and empty request list are unchanged. Every
+previous seed byte precedes the appended block. Generic completed algebras
+retain ProfiniteProPGroups ownership and the joint adic topology gate;
+convolution and multiplicative Amice theory are not asserted by this linear
+comparison.
 
-L2 transports these comparisons to the actual p-adic unit group, including
-p=2. The existing unit-measure/psi-kernel equivalence is a homeomorphism for
-the weak topology and, separately with field coefficients, for the strong
-topology. Unit inclusion preserves the field-valued measure norm. The pinned
-integral Amice equivalence is a homeomorphism from weak measure topology to
-coefficientwise series topology, using the existing inverse-evaluation
-continuity. The existing unit-series kernel equivalence inherits this
-homeomorphism. These results compare the actual maps and native submodules;
-additive and multiplicative convolutions remain distinct.
+## Reading and validation
 
-## Reading and ownership
+The current campaign, stages, reviewed AUDIT26 L0/L2 rows and other layer
+targets, predecessor declarations and relevant suggested interfaces were read.
+Binding instructions, upstream models, RS16/RS14 decisions, decomposition
+and touching links match earlier full reads in this continuous session.
+The changed Coleman and Dirichlet consumers were screened; their new boundary
+and Mellin nodes do not supply or duplicate this bounded norm comparison.
+The source register change adds Coleman/E12 and a QSeries/E207 reread date;
+full changed records were read. No independent review of those findings is
+claimed. Nine added baseline declarations were statement-read at the pin.
 
-Read the full current campaign and handoff, all 142 predecessor statements,
-the focal clopen/unit/Amice proof dependencies and suggested interfaces.
-Read the reviewed AUDIT26 L0 row in full and the other seven target lists.
-The binding protocols, accepted RS16/RS14 decisions and previously read upstream
-LocalFieldsRamification and Multiquadratic models match the earlier continuous
-session's full reads. The three existing supplier link files are unchanged;
-the exact new AdicSpaces link was read. All five records naming PMIA stages
-were checked against those reads. Stage descriptions repeat the campaign
-contracts; all touching stage-edge endpoints were screened.
-
-The baseline audit explicitly lists the native topology definitions, so none
-is reconstructed here. The whole pinned source search and packet inventory
-found no existing clopen-measure continuity/norm comparison with these exact
-maps. Every one of the eleven added baseline declarations was statement-read
-at the pin. The native norm bounds retain their nontrivially normed field
-hypotheses. Existing source findings E9–E11 retain their convergence,
-completeness and noncompact-domain qualifications.
-
-Fresh public source: [RJW published version](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf),
-full PDF20–22 / printed119–121 and PDF28–30 / printed127–129, read on
-27 September2026. This includes Definitions3.5,3.7–3.8, Remarks3.9–3.12,3.31,
-Corollary3.32 and Remark3.33 with their surroundings. SHA256:
+Fresh full source read: published RJW PDF20,24–27 / printed119,123–126,
+27 September2026. The downloaded PDF matches SHA256
 `78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6`.
-The topology comparisons and generality are worker derivations from these
-formulas and existing library APIs. All thirteen findings are preserved;
-there is no new source finding, independent review or whole-source reading claim.
+The norm isometry and rational lattice statements are worker derivations from
+the Mahler basis and actual coefficient pairing. Earlier source scopes and
+all13 source findings are preserved; no new source error or full-paper reading
+is claimed.
 
-## Validation
+The full suggested file compiles: **0 errors,367 proof-placeholder warnings
+only**, with **2,737 reached Mathlib modules** byte-matched to the pin and no
+Tau Ceti imports. All roadmap declarations remain unchecked.
 
-The actual full suggested file compiles with **0 errors and 339 expected
-placeholder warnings only**. All **2,737 reached Mathlib source modules** match
-the pin; no Tau Ceti module is imported. The import scan excludes examples
-inside comments. All prior suggested-file bytes remain between two new native
-imports and the appended block.
+**Eight complete scratch lemmas**, one bounded coefficient constructor and
+a proved canonical Z_p action instance compile with **0 errors,0 warnings,
+0 placeholders**, reaching2,020 audited Mathlib modules. The proofs establish
+the Mahler test norm, coefficient bound, native bounded sequence evaluation
+and bound, scalar Mahler term, dual pairing bound, exact coefficient/dual norm,
+and unique integral series lift. Crucially the exact norm proof uses only
+the pinned Mahler theorem and ultrametric sum inequality, not a proposed
+inverse or an assumed norm equality.
 
-Two complete scratch Lean proofs establish weak continuity and operator-norm
-contractivity of the actual native pushforward, with **0 errors, 0 warnings
-and 0 placeholders**. They use only baseline declarations, not planned maps.
-The weak-continuity proof even needs no compactness assumption. These validate
-the generic steps; all roadmap implementations remain unchecked.
-
-**32,336 exact assertions** check signed rational atomic measures on a
-three-point space for p=2,3,5,7, with weights −p,−1,0,1,1/p, every clopen and
-every map to a two-point space. The p-adic dual norm is the maximum of the
-atomic absolute values and the archimedean dual norm is their sum; both are
-attained by test functions. The tests check contraction, inclusion norm,
-complementary bounds and three kinds of false-isometry controls. Monomial
-coefficient controls distinguish coefficientwise and supremum convergence.
-They do not prove infinite-dimensional topology or compactness.
+**55,894 exact assertions** pass over3,360 finite binomial-transform systems,
+dimensions1–5, primes2,3,5,7. They check the inverse transform, finite pairings,
+dual/coefficient norm, integral unit-ball criterion, common denominators and
+norm attainment. Controls retain nonintegral Dirac measures, zero total mass
+with nonzero norm, insufficient denominator exponents, monomial norms and
+unbounded coefficient-prefix norms. Finite checks do not prove the infinite
+topology or all roadmap targets.
 
 Unmodified-index blueprint: **zero errors and warnings**. Exact four-file
-intake: **zero problems**. The source-finding wrapper, all preservation checks,
-reader/signature/test parity and scoped mutation checks pass. The 644-edge
-prerequisite graph is acyclic and reaches only named nodes and baseline leaves.
+intake: **zero problems**. The thirteen-finding errata wrapper, preservation,
+reader/signature/test parity and scoped mutation checks pass. The691-edge
+prerequisite graph is acyclic and reaches only named nodes and163 baseline
+leaves, with no unresolved stage leaf.
 
-Suggested-file SHA256: `27c29b8325f215ed2a485876347af830290ad94002ac5e5e663fa44f198c6395`.
-Complete pushforward-proof SHA256: `4301eb978e50ef6f4a814e32c7cd20b5764caaf9f881ad1a5a54fb399058e1e6`.
+Suggested-file SHA256: `120b57a6e00130c5a30ada11e1b09ded2d12672aa4b93f872690fb5ab87c3a10`.
+Complete scratch-proof SHA256: `2f2e06d6d3367814223a5da5b26c03c1217c1ccb477ba371069c419ec29bb649`.
 
-Final guard: all 49 captured inputs and the four predecessor outputs
-match main `9fa426198d5d4239f7ec0fa83df8b5ebaa859308`; the issue body and winning claim
-are unchanged. The refreshed Coleman input equals our merged PR3187 artifact.
-Exactly the four authorized deliverables are published through Git Data REST.
+All 49 captured input blobs and the four predecessor outputs match
+main `a8cf18edb47632a3ec9af5908dbfcc35489cdcc6`; the issue body and winning claim are
+unchanged. Exactly the four authorized files are published through Git Data
+REST. No git command, manual merge or independent review is performed.
 
-## Exact continuation
+## Where to resume
 
-Coleman can consume clopen-inclusion-weak-closed-embedding,
-unit-measure-kernel-weak-homeomorphism and unit-measure-amice-weak-homeomorphism
-for its actual integral measure target. The field-valued strong comparison
-is separately available. The integral strong/norm request still needs the
-actual integral-lattice embedding in a field dual; no norm on the integral
-measure carrier was smuggled in through a field instance. Consumer files are
-unchanged by this job.
+L0: general profinite integral lattices and finite-extension coefficients,
+bounded finitely additive clopen data, finite free lattices, completed
+coefficient tensors and exact completeness/weak-compactness/norm-noncompactness
+statements. The rational unit-ball comparison alone does not end these tasks.
 
-L0 continues with bounded finitely additive clopen data, integral lattices,
-finite-extension scaling, general coefficient extension and completed tensors,
-and the precise completeness, weak compactness and norm noncompactness
-statements. L2 continues coefficient towers and norm/lattice comparisons,
-convolution and multivariable theory, general residue classes and the
-convergent unit-dilation/substitution comparison. The new homeomorphisms remove
-only the specified weak/clopen and field-valued strong comparison work.
+L2: coefficient towers and finite-extension integer-ring instances, general
+coefficient-lattice comparisons, convolution, multivariable theory, arbitrary
+residue classes, and genuinely convergent unit-dilation/substitution maps.
+The coefficient norm is now explicit; distinguish it from weak/coefficientwise
+topology. The actual intrinsic unit maps can consume the field-norm result.
 
-The other six coverage records and gap records are unchanged. In particular,
-completed-group-algebra coordinates retain the upstream joint adic topology
-gate, and the remaining character-space, pseudomeasure, Weierstrass,
-determinant, exactness and order-duality targets still need full decomposition.
-The predecessor handoff is available in [PR3181](https://github.com/CBirkbeck/tauceti-explorer/pull/3181).
+L1: obtain the exact joint adic/finite-quotient completed algebra interface
+from its existing owner before identifying it with measures; the kernels are
+((1+T)^(p^n)−1) together with coefficient reduction, not pure T-adic kernels.
+L0a and L3–L6 character-space, pseudomeasure, Weierstrass, determinant,
+exactness and order-duality targets retain their unchanged gaps.
