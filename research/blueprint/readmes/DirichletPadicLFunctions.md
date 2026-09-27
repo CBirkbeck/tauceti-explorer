@@ -1,10 +1,10 @@
-**Current packet:** 98 unchecked nodes, 89 API items, 72 packet tests
-(67 on definitions/constructions), 75 typed examples, 14 planets and 161
-baseline references. Five gaps, one supplier request and nine findings remain;
-no stage is closed. Seven declarations supply the differentiated geometric
-expansion and all-derivative decay for the Bernoulli kernel. Historical
-checkpoint validation below retains its earlier scope; current validation
-and the precise continuation boundary appear at the end.
+**Current packet:** 110 unchecked nodes (one definition, eleven constructions,
+66 lemmas, 27 theorems and five comparisons), 98 API items, 78 packet tests
+(70 on definitions/constructions), 81 typed examples, 15 planets and 183 baseline
+references. Five gaps, one request, nine findings and zero closed stages remain.
+Twelve origin declarations now supply the smooth Bernoulli kernel and its actual
+entire normalized Mellin continuation. Earlier validation below is historical;
+current evidence and the continuation boundary appear at the end.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -3320,3 +3320,346 @@ the continued Mellin transform to that actual extension and to the smoothed
 kernels. The existing arithmetic comparisons, actual completed unit-group
 algebra request, character twists, branches/poles and constant Eisenstein
 pseudomeasure remain in the five gaps and one request.
+
+
+## The removable Bernoulli kernel and its Mellin values
+
+The literal real quotient t/(exp(t)−1) has value zero at t=0 under totalized
+field division. The kernel in RJW has value one there. Use the native extended
+divided difference and define β(t)=dslope(exp,0,t)⁻¹. At zero its denominator
+is exp′(0)=1; away from zero it is (exp(t)−1)/t. The denominator never vanishes
+on the real line. The native analytic power-series shift proves analyticity of
+the divided difference at zero, and native division handles all other points.
+Analytic inversion now gives global real analyticity and hence smoothness of β.
+This says nothing about an entire complex extension of the real quotient.
+
+The product β(t)(exp(t)−1)=t holds at every real t. Apply the native higher
+Leibniz rule at zero. The derivative of order zero of exp−1 is zero, and every
+positive-order derivative is one. Consequently, for each n≥0, the finite sum
+of choose(n+1,k)β^(k)(0), over k=0 through n, is one for n=0 and zero otherwise.
+This is exactly the native ordinary Bernoulli recurrence. Strong induction and
+cancellation of its nonzero final coefficient n+1 identify β^(n)(0)=B_n.
+The first derivative is −1/2, not the positive-B_1 convention. This argument
+needs no prior convergence theorem for the Bernoulli generating series.
+
+Compose with the native real-to-complex continuous linear map to obtain
+ g:ℝ→ℂ. Its derivatives remain real derivatives. Unique differentiability of
+the closed half-line, including its endpoint, identifies its within derivatives
+at zero with the included B_n. The earlier Bernoulli-decay theorem applies
+because g agrees with the quotient on t>0; choose rate1/2 for every order.
+Thus the existing normalized Mellin continuation applies to this actual kernel:
+it is entire, and its value at −n is (−1)^n B_n. In particular, its value at −1
+is +1/2. This is not a claim about ζ(0), whose native value is −1/2.
+The integral comparison relating the two functions remains a separate task,
+with the source E2 and E5 normalization corrections retained.
+
+The 98 predecessor nodes are unchanged. Native analytic calculus, Bernoulli
+arithmetic and general continuation remain owned by the baseline and existing
+suppliers. The current QSeries additions describe Jacobi index-raising,
+Fourier coefficients, theta decompositions and heat compatibility; the fourteen
+new statements, hypotheses and dependencies were screened and do not supply
+this real kernel interface. The PMIA packet now has232 nodes, preserving the
+prior209 and adding finite/joint projections and seven dilation statements.
+The LAD packet now has112 nodes; its quotient/resultant additions and two
+refined resultant statements were screened without changing consumed interfaces.
+Neither supplier supplies the Bernoulli origin extension. New registry entries since the prior Dirichlet checkpoint are QSeries E208,
+concerning missing τ-periodicity, and Sieve E10/E11, concerning a missing modulus
+and omitted boundary bin. All three and the REGISTER deltas were read in full;
+they do not affect this argument.
+
+### The smooth Bernoulli kernel
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-kernel` — `smoothBernoulliKernel` (construction).
+
+Define β:ℝ→ℝ by β(t)=dslope(exp,0,t)⁻¹, using native extended divided differences. This is the distinguished removable extension of t/(exp(t)−1) at zero.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. Use native dslope for exp centered at zero and take its pointwise reciprocal in ℝ. This introduces one function, with no custom analytic, derivative or Bernoulli carrier.
+2. The following evaluation, analyticity and derivative nodes provide its operational API. Native ordinary Bernoulli numbers and their recurrence remain baseline material.
+
+**Prerequisites:** `mathlib:dslope`.
+
+**Uses:**
+
+- RJW Theorem2.4 applied to the generating function on printed111: The correct value and smoothness at zero make this function a valid half-line kernel.
+- RJW Remark2.5 and Lemma2.7; DirichletPadicLFunctions:L0: Its derivative values feed nonpositive-integer Mellin values; the positive quotient identifies the integrand for the later zeta comparison.
+
+**API:**
+
+- `smoothBernoulliKernel_def` (data): For all real t, β(t) is the reciprocal of native dslope(exp,0,t).
+- `smoothBernoulliKernel_zero` (simp): β(0)=1; promoted below.
+- `smoothBernoulliKernel_of_ne` (characterisation): For t≠0, β(t)=t/(exp(t)−1); promoted below.
+- `smoothBernoulliKernel_analyticAt` (structure): β is real analytic at every real point; promoted below.
+- `smoothBernoulliKernel_contDiff` (structure): β is smooth to every finite order, including at zero; promoted below.
+- `smoothBernoulliKernel_mul_exp_sub_one` (relation): β(t)(exp(t)−1)=t for every t; promoted below.
+- `smoothBernoulliKernel_iteratedDeriv_zero` (example): The nth derivative at zero is the real image of B_n; promoted below.
+- `smoothBernoulliKernel_complex_contDiff` (coercion): The inclusion g:ℝ→ℂ is smooth over ℝ; promoted below.
+- `smoothBernoulliKernel_iteratedDerivWithin_zero` (compatibility): The complex within derivative D_n g at the origin equals the complex image of B_n; promoted below.
+
+**Tests:**
+
+- `SuggestedBernoulliOriginTests.extended_zero` (computation): β(0)=1.
+- `SuggestedBernoulliOriginTests.log_two` (computation): β(log(2))=log(2).
+- `SuggestedBernoulliOriginTests.literal_quotient_mismatch` (non-example): β(0) differs from the literal totalized quotient 0/(exp(0)−1), which is zero.
+
+**Acceptance:** The real field uses totalized inverse. Its value at the origin is verified by the derivative of exp, so the defining expression is not the totalized quotient t/(exp(t)−1).
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### The Bernoulli kernel at zero
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-zero` — `smoothBernoulliKernel_zero` (lemma).
+
+β(0)=1.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. Native dslope_same evaluates the denominator as exp′(0). The native derivative of exp gives exp(0)=1, whose inverse is one.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-kernel`, `mathlib:dslope_same`, `mathlib:Real.hasDerivAt_exp`.
+
+**Acceptance:** This value supplies B_0 and is essential for continuity.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### The Bernoulli quotient away from zero
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-away` — `smoothBernoulliKernel_of_ne` (lemma).
+
+For every real t≠0, β(t)=t/(exp(t)−1).
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. Use dslope_of_ne and the native slope formula to identify the denominator as (exp(t)−1)/t.
+2. Invert the quotient in ℝ and simplify. This identity holds on both punctured real half-lines.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-kernel`, `mathlib:dslope_of_ne`.
+
+**Acceptance:** The hypothesis t≠0 must remain; the equality fails at zero.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### Analyticity of the Bernoulli extension
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-analytic` — `smoothBernoulliKernel_analyticAt` (theorem).
+
+β is real analytic at every t∈ℝ.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. At zero choose the native power series of exp. HasFPowerSeriesAt.has_fpower_series_dslope_fslope supplies an analytic power series for dslope(exp,0) there.
+2. At a nonzero t, a neighborhood avoids zero. The slope agrees there with (exp(x)−1)/x, analytic by native division and equality of germs.
+3. The denominator dslope(exp,0,t) never vanishes: at zero it is one; away from zero exp(t)−1 and t are nonzero because the real exponential equals one exactly at zero. Apply native analytic inversion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-kernel`, `mathlib:dslope_same`, `mathlib:dslope_of_ne`, `mathlib:Real.hasDerivAt_exp`, `mathlib:HasFPowerSeriesAt.has_fpower_series_dslope_fslope`, `mathlib:analyticAt_rexp`, `mathlib:AnalyticAt.div`, `mathlib:AnalyticAt.inv`, `mathlib:AnalyticAt.congr`, `mathlib:Real.exp_eq_one_iff`.
+
+**Acceptance:** Analyticity is over ℝ on the real line. No claim of an entire complex extension of t/(exp(t)−1) is made.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### Smoothness of the Bernoulli extension
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-smooth` — `smoothBernoulliKernel_contDiff` (lemma).
+
+β is a native C∞ real function on all of ℝ.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. Assemble the analytic-at-every-point conclusion into native AnalyticOnNhd on the whole real line. Apply AnalyticOnNhd.contDiff.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-analytic`, `mathlib:AnalyticOnNhd.contDiff`.
+
+**Acceptance:** This includes smoothness at zero, not just on t>0.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### The Bernoulli exponential product identity
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-product` — `smoothBernoulliKernel_mul_exp_sub_one` (lemma).
+
+For every real t, β(t)(exp(t)−1)=t.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. At zero both sides vanish. At t≠0 use smooth-bernoulli-away and cancel exp(t)−1, nonzero by exp(t)=1 iff t=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-away`, `mathlib:Real.exp_eq_one_iff`.
+
+**Acceptance:** The identity holds at zero, but by itself it does not determine β(0) or regularity there.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### The Bernoulli derivative recurrence
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-derivative-recurrence` — `smoothBernoulliKernel_derivative_recurrence` (lemma).
+
+For every n≥0, the sum over 0≤k≤n of choose(n+1,k) β^(k)(0) equals one if n=0 and zero otherwise.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. Differentiate the product identity n+1 times at zero using native iteratedDeriv_mul and the established smoothness of both factors.
+2. The zeroth derivative of exp−1 at zero is zero; every positive derivative is one, by native subtraction, constant derivatives and iterated exponential derivatives. Thus the k=n+1 product term vanishes and all remaining second-factor derivatives are one.
+3. The (n+1)st derivative of the identity at zero is one exactly when n=0. This gives the displayed finite recurrence without differentiating an unproved Bernoulli infinite series.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-product`, `DirichletPadicLFunctions:L0/smooth-bernoulli-smooth`, `mathlib:Real.contDiff_exp`, `mathlib:iteratedDeriv_mul`, `mathlib:iteratedDeriv_sub`, `mathlib:iteratedDeriv_const`, `mathlib:Real.iter_deriv_exp`, `mathlib:iteratedDeriv_eq_iterate`, `mathlib:iteratedDeriv_fun_id_zero`.
+
+**Acceptance:** The upper limit is n and the binomial coefficient uses n+1. The coefficient of the unknown nth derivative is n+1.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### Bernoulli derivatives at the origin
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-derivatives` — `smoothBernoulliKernel_iteratedDeriv_zero` (theorem).
+
+For every n≥0, β^(n)(0) is the real image of the rational Bernoulli number B_n.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. Map native sum_bernoulli(n+1) from ℚ to ℝ, obtaining exactly the same recurrence as smooth-bernoulli-derivative-recurrence.
+2. Strongly induct on n. Split both finite sums into k<n and k=n. All terms of lower order agree by the inductive hypothesis.
+3. Cancel the common lower-order sum and then the nonzero coefficient choose(n+1,n)=n+1 in ℝ. The n=0 case gives β(0)=B_0 without a separate division by zero.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-derivative-recurrence`, `mathlib:sum_bernoulli`, `mathlib:bernoulli_zero`, `mathlib:bernoulli_one`, `mathlib:bernoulli_two`.
+
+**Tests:**
+
+- `SuggestedBernoulliOriginTests.first_derivative` (computation): β′(0)=−1/2.
+- `SuggestedBernoulliOriginTests.second_derivative` (computation): β^(2)(0)=1/6.
+
+**Acceptance:** Use ordinary bernoulli, not the positive-B_1 variant bernoulli-prime. No convergence radius for the Bernoulli series is asserted.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### The complex-valued Bernoulli kernel
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth` — `smoothBernoulliKernel_complex_contDiff` (lemma).
+
+The function g:ℝ→ℂ given by g(t)=β(t) included into ℂ is C∞ over ℝ.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. Compose β with native Complex.ofRealCLM. Native smoothness under a continuous linear map preserves all orders. Restricting to [0,∞) gives the exact ContDiffOn premise used by normalized Mellin continuation.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-smooth`, `mathlib:ContDiff.continuousLinearMap_comp`, `mathlib:Complex.ofRealCLM`.
+
+**Acceptance:** The scalar field for differentiating g is ℝ; its codomain is ℂ.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### Bernoulli right derivatives at zero
+
+`DirichletPadicLFunctions:L0/smooth-bernoulli-within-values` — `smoothBernoulliKernel_iteratedDerivWithin_zero` (lemma).
+
+For every n≥0, the native iterated derivative within [0,∞) of g at zero equals B_n included into ℂ.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. The closed real half-line has unique derivatives, including at zero. The native ordinary/within comparison applies to the globally smooth g.
+2. Native composition of iterated Frechet derivatives with Complex.ofRealCLM identifies the nth real derivative of g with the included nth derivative of β; evaluate the multilinear maps on n copies of one.
+3. Use smooth-bernoulli-derivatives and compatibility of the rational, real and complex embeddings.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth`, `DirichletPadicLFunctions:L0/smooth-bernoulli-smooth`, `DirichletPadicLFunctions:L0/smooth-bernoulli-derivatives`, `mathlib:uniqueDiffOn_Ici`, `mathlib:iteratedDerivWithin_eq_iteratedDeriv`, `mathlib:ContinuousLinearMap.iteratedFDeriv_comp_left`.
+
+**Acceptance:** The endpoint comparison uses UniqueDiffOn, not the false assertion that zero is interior to [0,∞).
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### Entire Bernoulli Mellin continuation
+
+`DirichletPadicLFunctions:L0/bernoulli-mellin-entire` — `smoothBernoulliKernel_mellin_entire` (theorem).
+
+The existing normalizedMellinContinuation applied to g(t)=β(t) included into ℂ is complex differentiable at every s∈ℂ.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. Use the complex smoothness node and restrict to [0,∞). On t>0, the away-from-zero quotient formula identifies g with the literal real Bernoulli quotient.
+2. Instantiate bernoulli-within-derivative-decay with this equality: for every order choose the positive rate1/2. Apply normalized-mellin-entire.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth`, `DirichletPadicLFunctions:L0/smooth-bernoulli-away`, `DirichletPadicLFunctions:L0/bernoulli-within-derivative-decay`, `DirichletPadicLFunctions:L0/normalized-mellin-entire`.
+
+**Acceptance:** This is an instantiation of the existing normalized continuation; no new Mellin carrier is introduced. The zeta comparison requires a separate sum/integral proof.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### Bernoulli Mellin values
+
+`DirichletPadicLFunctions:L0/bernoulli-mellin-values` — `smoothBernoulliKernel_mellin_neg_nat` (theorem).
+
+For every n≥0, normalizedMellinContinuation(g,−n)=(−1)^n B_n in ℂ.
+
+**Hypotheses:** All derivatives of real-valued functions are over ℝ. B_n denotes native ordinary bernoulli(n) in ℚ, with B_1=−1/2, included in ℝ or ℂ as indicated. β is the real extension defined below, and g(t) denotes its inclusion into ℂ.
+
+**Proof outline:**
+
+1. Supply smoothness and all-derivative decay exactly as for bernoulli-mellin-entire. Apply the existing normalized-mellin-negative-values theorem.
+2. Substitute the actual within derivative at zero from smooth-bernoulli-within-values.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-complex-smooth`, `DirichletPadicLFunctions:L0/smooth-bernoulli-away`, `DirichletPadicLFunctions:L0/bernoulli-within-derivative-decay`, `DirichletPadicLFunctions:L0/normalized-mellin-negative-values`, `DirichletPadicLFunctions:L0/smooth-bernoulli-within-values`.
+
+**Tests:**
+
+- `SuggestedBernoulliOriginTests.mellin_minus_one` (computation): The continued normalized Mellin transform of g at −1 equals +1/2.
+
+**Acceptance:** The n=1 value is +1/2. This is a Mellin-continuation value, not ζ(0); the source E2 correction and native ζ(0)=−1/2 remain unchanged.
+
+**Sources:** RJW-published, §2.3, Theorem2.4, the Bernoulli generating-function paragraph and Remark2.5, printed110–111 / PDF11–12; complete surrounding printed110–114 freshly read27 September2026. The source specifies the smooth kernel and its Bernoulli Taylor coefficients. The native divided-difference construction, Leibniz recurrence and real-to-complex endpoint adapters are worker deductions supplying its removable-value justification. The final two declarations instantiate the already decomposed Theorem2.4; they do not assert the unproved Lemma2.7 zeta comparison.
+
+### Current origin validation and continuation
+
+All98 prior whole nodes,161 baseline records,nine findings,fourteen planets and
+all prior suggested-file bytes are preserved. The complete published RJW
+printed110–114 / PDF11–15 was freshly read. Twenty-four exact native statements
+were read; twenty-two are new baseline records and two were already present.
+The reviewed L0 library audit and accepted RS14 ownership boundary were read in
+full. The binding protocols and two upstream models retain the continuous
+reading provenance from the preceding checkpoints; their captured blobs match.
+Bounded open-Mathlib-PR and Zulip searches found no competing origin-kernel
+interface. This is not an exhaustive upstream absence claim.
+
+The full suggested file compiles with zero errors and217 expected placeholder
+warnings only. The actual232-node PMIA supplier compiles with zero errors and
+484 placeholder warnings. The source audit reaches3,552 byte-verified pinned
+Mathlib modules,19 pinned Tau Ceti modules rebuilt without warnings, and one
+actual suggested supplier. No supplier is replaced by an assumed hypothesis.
+Every implementation status remains unchecked.
+
+One actual construction and17 complete scratch lemmas compile with zero errors,
+warnings or placeholders against2,329 byte-verified Mathlib modules. They prove
+the origin value, punctured quotient formula, nonvanishing denominator, global
+analyticity and smoothness, product identity, exact value at log(2), derivative
+recurrence, all Bernoulli derivative values, first/second derivatives, complex
+smoothness, derivative compatibility, the within-endpoint value and the literal
+quotient mismatch. These checks validate the plan; the public seed still consists
+of suggested signatures with placeholder proofs.
+
+Resume with RJW Lemma2.7: justify the infinite sum–integral interchange on a
+specified convergent half-plane, the scaled Gamma integral and the normalized
+zeta comparison, treating the pole at s=1 through the correct continuation.
+Then handle the actual smoothed kernels and the complex/p-adic comparison.
+Generic native zeta negative values are imported, not replanned. The remaining
+arithmetic interfaces, completed unit-group algebra request, twists,
+branches/poles and constant Eisenstein pseudomeasure remain in the five gaps
+and one request. No stage is claimed closed.

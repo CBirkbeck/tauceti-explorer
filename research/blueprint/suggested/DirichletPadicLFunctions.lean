@@ -1084,3 +1084,66 @@ example : deriv b (Real.log 2) = 1 - 2 * Real.log 2 := by sorry
 example : ¬ b =O[atTop] (fun t : ℝ => Real.exp (-t)) := by sorry
 end
 end DirichletPadic
+
+/-! ## The Bernoulli kernel at the origin and its Mellin continuation -/
+namespace DirichletPadic
+noncomputable section
+open Filter Asymptotics Set
+open scoped Topology
+
+def smoothBernoulliKernel (t : ℝ) : ℝ := by sorry
+
+theorem smoothBernoulliKernel_def (t : ℝ) :
+    smoothBernoulliKernel t = (dslope Real.exp 0 t)⁻¹ := by sorry
+
+theorem smoothBernoulliKernel_zero : smoothBernoulliKernel 0 = 1 := by sorry
+
+theorem smoothBernoulliKernel_of_ne {t : ℝ} (ht : t ≠ 0) :
+    smoothBernoulliKernel t = t / (Real.exp t - 1) := by sorry
+
+theorem smoothBernoulliKernel_analyticAt (t : ℝ) :
+    AnalyticAt ℝ smoothBernoulliKernel t := by sorry
+
+theorem smoothBernoulliKernel_contDiff :
+    ContDiff ℝ (⊤ : ℕ∞) smoothBernoulliKernel := by sorry
+
+theorem smoothBernoulliKernel_mul_exp_sub_one (t : ℝ) :
+    smoothBernoulliKernel t * (Real.exp t - 1) = t := by sorry
+
+theorem smoothBernoulliKernel_derivative_recurrence (n : ℕ) :
+    (∑ k ∈ Finset.range (n+1), ((n+1).choose k : ℝ) *
+      iteratedDeriv k smoothBernoulliKernel 0) = if n = 0 then 1 else 0 := by sorry
+
+theorem smoothBernoulliKernel_iteratedDeriv_zero (n : ℕ) :
+    iteratedDeriv n smoothBernoulliKernel 0 = (bernoulli n : ℝ) := by sorry
+
+theorem smoothBernoulliKernel_complex_contDiff :
+    ContDiff ℝ (⊤ : ℕ∞) (fun t : ℝ => (smoothBernoulliKernel t : ℂ)) := by sorry
+
+theorem smoothBernoulliKernel_iteratedDerivWithin_zero (n : ℕ) :
+    iteratedDerivWithin n (fun t : ℝ => (smoothBernoulliKernel t : ℂ)) (Ici 0) 0 =
+      (bernoulli n : ℂ) := by sorry
+
+theorem smoothBernoulliKernel_mellin_entire :
+    Differentiable ℂ
+      (normalizedMellinContinuation (fun t : ℝ => (smoothBernoulliKernel t : ℂ))) := by sorry
+
+theorem smoothBernoulliKernel_mellin_neg_nat (n : ℕ) :
+    normalizedMellinContinuation (fun t : ℝ => (smoothBernoulliKernel t : ℂ)) (-(n : ℂ)) =
+      (-1 : ℂ)^n * (bernoulli n : ℂ) := by sorry
+
+-- SuggestedBernoulliOriginTests.extended_zero
+example : smoothBernoulliKernel 0 = 1 := by sorry
+-- SuggestedBernoulliOriginTests.log_two
+example : smoothBernoulliKernel (Real.log 2) = Real.log 2 := by sorry
+-- SuggestedBernoulliOriginTests.literal_quotient_mismatch
+example : smoothBernoulliKernel 0 ≠ (0 : ℝ) / (Real.exp 0 - 1) := by sorry
+-- SuggestedBernoulliOriginTests.first_derivative
+example : deriv smoothBernoulliKernel 0 = -1/2 := by sorry
+-- SuggestedBernoulliOriginTests.second_derivative
+example : iteratedDeriv 2 smoothBernoulliKernel 0 = 1/6 := by sorry
+-- SuggestedBernoulliOriginTests.mellin_minus_one
+example : normalizedMellinContinuation (fun t : ℝ => (smoothBernoulliKernel t : ℂ)) (-1) =
+    1/2 := by sorry
+end
+end DirichletPadic
