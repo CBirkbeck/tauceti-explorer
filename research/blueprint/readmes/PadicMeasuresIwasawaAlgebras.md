@@ -1,3 +1,7 @@
+**Current packet:** 249 unchecked nodes (36 construction, 161 lemma, 2 definition, 28 theorem, 22 comparison), 189 API items, 171 packet tests (134 on definitions/constructions), 182 typed examples, 17 planets and 245 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
+
+Seventeen L1 entries now specify convolution and finite algebra coordinates. Earlier validation below is historical; the current evidence is recorded at the end.
+
 **Dilation/substitution checkpoint, 27 September 2026.** The packet contains
 232 unchecked nodes (30 constructions, 150 lemmas, 2 definitions, 28 theorems, 22 comparisons), 169 API items,
 153 packet tests, 164 typed examples, 15 planets and 226 baseline references.
@@ -6418,3 +6422,546 @@ Continue with the exact L1 gap: unit-residue cofinality, inverse compatible
 coordinate construction, comparison with the existing completed-algebra
 anchor,convolution and the joint-topology equivalence. Other seven stage gaps
 remain unchanged. No stage is closed by this finite-coordinate checkpoint.
+
+
+## Convolution and finite algebra coordinates
+
+Let G be a locally compact topological monoid with continuous multiplication,
+and R a topological commutative ring. Native scalar-valued measures D(G,R)
+are the continuous R-linear dual of C(G,R). Pull a continuous test f back
+along multiplication and contract the second variable against ν. This defines
+the continuous function x↦ν(y↦f(xy)). Pushing the native right-handed product
+measure prodMk′(μ,ν) forward along multiplication defines convolution.
+Its evaluation is μ(x↦ν(y↦f(xy))); the order xy matters.
+
+Associativity follows from associativity of G and the composition law for
+right convolution. The identity is δ_1. Native bilinearity supplies a ring and
+an R-algebra with the existing additive and scalar structure. These assertions
+need no norm or field assumption. Commutativity is stated only for a compact
+Hausdorff totally disconnected commutative monoid with T0 coefficients, where
+the native Fubini theorem applies. No topology on the dual is selected here.
+
+For a continuous homomorphism q:G→A to a finite discrete monoid, the existing
+finite projection π_q is a Finsupp value. At the fixed Mathlib pin,
+MonoidAlgebra is a structure containing such a value. Thus define Π_q by the
+native ofCoeff wrapper. Its product is convolution of coefficients, never
+pointwise multiplication. Reconstruct measures on A as finite Dirac sums,
+expand their ordered products, and identify the result with native monoid
+algebra multiplication. Pushforward along q gives the general multiplicativity
+law without assuming q surjective. Together with the Dirac and scalar laws,
+Π_q is an algebra homomorphism. At q=id it is an algebra equivalence with
+inverse c↦Σ_a c.coeff(a)δ_a. There is no division by the order of A.
+
+For R=ℤ_p, compose Π_q with native coefficient reduction to ℤ/p^rℤ.
+This gives a ring homomorphism for every r≥0, including r=0 where the codomain
+is the zero ring. Coefficient precision and the finite monoid quotient are
+independent indices. The dyadic prime is included throughout. A permutation
+test detects reversal of the product; the trivial quotient test detects
+incorrect averaging; the zero-precision test detects an unjustified nonzero
+coefficient assumption.
+
+The source passage is the published RJW pp.119–123, especially Propositions
+3.15–3.16 and Remark3.18. The locally compact noncommutative generality follows
+the identified upstream interface. The finite-coordinate and joint-precision
+adapters are worker deductions. David Loeffler's Mathlib PR41961, head
+7abfb91a8f1dedb3538783e1d6c0df461cdaba05, supplies the upstream right-handed
+convolveFunRight and measure-ring design. The PR is closed with a Merged by
+Bors title, but its Measure/Monoid.lean module is absent from programme pin
+082e2d3. It is design evidence, not a baseline declaration. PR42836, head
+5f7c12365d3c93530900f2da0309ed2c7079baac, uses that interface for the Amice
+algebra equivalence. PR42832 supplies the already pinned linear equivalence.
+Their full descriptions and patches were read. On advancing the pin, import
+the upstream convolution API and retire the corresponding local signatures;
+retain the additional finite-coordinate comparisons. No upstream implementation
+is copied into this suggested file.
+
+CompletedGroupAlgebra remains owned by ProfiniteProPGroups Layer9. The inverse
+construction from compatible finite data, its boundedness or compactness,
+actual unit-reduction cofinality, and the topological comparison are still
+required. The accepted RS16 topology gate uses both coefficient ideals and
+finite-group kernels ((1+T)^(p^n)−1); pure T-adic truncations do not substitute
+for them. The existing inclusion from multiplicative units into the additive
+p-adic group is not a monoid homomorphism between those two operations, so
+pushforward multiplicativity does not apply to that inclusion.
+
+### Convolving a function on the right
+
+`PadicMeasuresIwasawaAlgebras:L1/right-convolution-function` — `AbstractMeasure.convolveFunRight` (construction).
+
+Construct the R-bilinear operation convolveFunRight(ν,f)(x)=ν(y↦f(xy)), valued in native continuous functions C(G,R).
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1.
+
+**Proof outline:**
+
+1. Pull f back along the continuous multiplication map G×G→G. Apply the native contraction contractSnd to ν and this pullback.
+2. Compose the existing linear maps to bundle linearity in ν and f. Continuity in x is already supplied by native contraction; no norm estimate or new function carrier is needed.
+
+**Prerequisites:** `mathlib:AbstractMeasure.contractSnd`, `mathlib:ContinuousMap.compCLM`.
+
+**Uses:**
+
+- RJW Remark3.18: Makes the inner integral a genuine continuous test function.
+- Upstream PR41961 and PR42836: This is the right-convolution API used by the associative product and the Amice algebra comparison.
+
+**API:**
+
+- `AbstractMeasure.convolveFunRight_apply` (simp): Evaluation is ν(y↦f(xy)); promoted below.
+- `AbstractMeasure.convolveFunRight_dirac_apply` (simp): For ν=δ_y the output at x is f(xy).
+- `AbstractMeasure.convolveFunRight_apply_one` (simp): Its value at the monoid identity is ν(f).
+- `AbstractMeasure.convolveFunRight_one` (example): Convolution with δ_1 leaves f unchanged.
+
+**Tests:**
+
+- `ConvolutionTests.function_right_dirac` (compatibility): Convolution with δ_y evaluates at x as f(xy).
+- `ConvolutionTests.function_identity` (degenerate): Convolution with δ_1 is the identity on continuous functions.
+- `ConvolutionTests.function_constant` (computation): For the constant function c, the output is the constant cν(1).
+
+**Acceptance:** Right means multiplication of the variable x by the integrated variable y on its right.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Evaluation of right convolution
+
+`PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation` — `AbstractMeasure.convolveFunRight_apply` (lemma).
+
+For ν∈D(G,R), f∈C(G,R) and x∈G, convolveFunRight(ν,f)(x)=ν(y↦f(xy)).
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1.
+
+**Proof outline:**
+
+1. Unfold the native contraction on the multiplication pullback and use contractSnd_apply.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/right-convolution-function`, `mathlib:AbstractMeasure.contractSnd_apply`.
+
+**Acceptance:** The inner test is continuous by continuity of multiplication.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Convolution of measures
+
+`PadicMeasuresIwasawaAlgebras:L1/convolution-product` — `AbstractMeasure.convolutionMul` (construction).
+
+Give native D(G,R) the product μ∗ν obtained by pushing native prodMk′(μ,ν) forward along multiplication G×G→G.
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1.
+
+**Proof outline:**
+
+1. Use native right-handed product measures, which exist under local compactness. Push forward along the continuous multiplication map.
+2. Native bilinearity of product and pushforward supplies additivity and R-linearity in both arguments. Keep the existing additive group and R-module on the native dual.
+
+**Prerequisites:** `mathlib:AbstractMeasure.prodMk'`, `mathlib:AbstractMeasure.map`.
+
+**Uses:**
+
+- RJW Remark3.18 and Proposition3.16: Supplies the product that the completed-algebra comparison must preserve.
+- PMIA L2 Amice comparison and Dirichlet L1 pseudomeasure normalization: Supplies the actual algebraic measure product rather than an assumed multiplication.
+
+**API:**
+
+- `AbstractMeasure.mul_def` (data): μ∗ν is map(multiplication)(prodMk′(μ,ν)).
+- `AbstractMeasure.mul_apply` (characterisation): (μ∗ν)(f)=μ(convolveFunRight(ν,f)); promoted below.
+- `AbstractMeasure.dirac_mul_dirac` (simp): δ_x∗δ_y=δ_(xy); promoted below.
+
+**Tests:**
+
+- `ConvolutionTests.product_dirac` (compatibility): δ_x∗δ_y=δ_(xy).
+- `ConvolutionTests.product_zero` (degenerate): 0∗μ=0.
+- `ConvolutionTests.ordered_permutations` (non-example): Over integer coefficients on permutations of Fin3, δ_(01)∗δ_(12) differs from δ_(12)∗δ_(01).
+
+**Acceptance:** No new measure type, completed group ring or Fubini theorem is introduced.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Iterated integration for convolution
+
+`PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation` — `AbstractMeasure.mul_apply` (lemma).
+
+For μ,ν∈D(G,R) and f∈C(G,R), (μ∗ν)(f)=μ(convolveFunRight(ν,f)).
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1.
+
+**Proof outline:**
+
+1. Use native map_apply and prodMk′_apply. The inner contraction is exactly the preceding construction on the multiplication pullback.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/convolution-product`, `PadicMeasuresIwasawaAlgebras:L1/right-convolution-function`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.prodMk'_apply`.
+
+**Acceptance:** The outer measure is μ and the inner measure is ν, agreeing with the source and identified upstream API.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Products of Dirac masses
+
+`PadicMeasuresIwasawaAlgebras:L1/convolution-dirac` — `AbstractMeasure.dirac_mul_dirac` (lemma).
+
+For x,y∈G, δ_x∗δ_y=δ_(xy).
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1.
+
+**Proof outline:**
+
+1. Evaluate on f; the convolution evaluation and two native Dirac evaluations give f(xy). Use extensionality of measures.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Acceptance:** Do not reverse xy when the monoid is noncommutative.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Composition of right convolutions
+
+`PadicMeasuresIwasawaAlgebras:L1/right-convolution-composition` — `AbstractMeasure.convolveFunRight_mul` (lemma).
+
+convolveFunRight(μ∗ν,f)=convolveFunRight(μ,convolveFunRight(ν,f)).
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1.
+
+**Proof outline:**
+
+1. Evaluate at x and expand both iterated integrals using the two evaluation formulas.
+2. Apply measure and continuous-map extensionality to the two nested tests. The resulting equality is f(x(yz))=f((xy)z), by associativity in G.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation`.
+
+**Acceptance:** No interchange of the two measures is used; the order μ then ν is retained.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### The algebra of measures
+
+`PadicMeasuresIwasawaAlgebras:L1/convolution-algebra` — `AbstractMeasure.convolutionRing` (construction).
+
+The preceding product and δ_1 make native D(G,R) a ring and an R-algebra, extending its existing additive group and scalar action.
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1.
+
+**Proof outline:**
+
+1. Additivity of native product and pushforward gives the two distributivity and zero laws. The composition-of-right-convolution formula gives associativity after evaluation on every continuous test.
+2. The Dirac evaluation formula gives the left and right unit laws for δ_1. Use the existing additive group to assemble the Ring instance.
+3. Both scalar compatibility laws come from native R-bilinearity. Apply native Algebra.ofModule so the algebra scalar action is the already existing one.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/convolution-product`, `PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/right-convolution-composition`, `PadicMeasuresIwasawaAlgebras:L1/convolution-dirac`, `mathlib:AbstractMeasure.prodMk'`, `mathlib:Algebra.ofModule`.
+
+**Uses:**
+
+- RJW Proposition3.15 and Remark3.18: Makes the finite and inverse-limit comparisons algebra homomorphisms.
+- PMIA L3: Supplies the integral measure algebra used before localization and character evaluation.
+
+**API:**
+
+- `AbstractMeasure.one_def` (data): The multiplicative unit is δ_1.
+- `AbstractMeasure.one_apply` (simp): The unit measure evaluates f to f(1).
+- `AbstractMeasure.convolutionAlgebra` (instance): The R-algebra instance uses the existing R-module action.
+- `AbstractMeasure.algebraMap_apply` (compatibility): The scalar r, viewed as a measure, evaluates f to r·f(1).
+
+**Tests:**
+
+- `ConvolutionTests.algebra_right_unit` (degenerate): μ∗δ_1=μ.
+- `ConvolutionTests.algebra_left_unit` (degenerate): δ_1∗μ=μ.
+- `ConvolutionTests.algebra_scalar` (compatibility): The scalar r in the algebra is rδ_1.
+
+**Acceptance:** No commutativity of the measure ring is assumed. No topology on the dual is selected by this algebraic construction.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Commutativity on profinite abelian monoids
+
+`PadicMeasuresIwasawaAlgebras:L1/commutative-convolution` — `AbstractMeasure.mul_comm_of_commMonoid` (lemma).
+
+If G is compact Hausdorff and totally disconnected, its multiplication is commutative, and R is Hausdorff, then μ∗ν=ν∗μ.
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1. For this assertion G is a compact Hausdorff totally disconnected commutative monoid and R is T0 (hence Hausdorff as a topological ring).
+
+**Proof outline:**
+
+1. Use the native equality of left- and right-handed product measures. Apply the native swapped-product formula to reverse the two integration variables.
+2. The multiplication pullback is invariant under swapping the variables by commutativity of G. Pushforward therefore identifies the two products.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/convolution-product`, `mathlib:AbstractMeasure.prodMk_eq_prodMk'`, `mathlib:AbstractMeasure.prodMk'_flip`.
+
+**Acceptance:** The general locally compact noncommutative construction has no commutativity assertion; the native Fubini hypotheses remain explicit.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Pushforward preserves convolution
+
+`PadicMeasuresIwasawaAlgebras:L1/convolution-pushforward` — `AbstractMeasure.map_mul` (lemma).
+
+For a continuous monoid homomorphism h:G→H, map(h)(μ∗ν)=map(h)(μ)∗map(h)(ν).
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1.
+
+**Proof outline:**
+
+1. Expand the two sides using map_apply and the iterated-integral evaluation.
+2. Extensionality of the two successive continuous tests reduces the claim to h(xy)=h(x)h(y). No quotient or surjectivity is needed.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation`, `mathlib:AbstractMeasure.map_apply`.
+
+**Acceptance:** A continuous map without the homomorphism condition does not satisfy this law. In particular, multiplicative-unit inclusion into the additive group is not covered.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Multiplicativity of total mass
+
+`PadicMeasuresIwasawaAlgebras:L1/convolution-total-mass` — `AbstractMeasure.mul_totalMass` (lemma).
+
+The total mass satisfies (μ∗ν)(1)=μ(1)ν(1).
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1.
+
+**Proof outline:**
+
+1. Pulling the constant-one test back along multiplication gives the constant-one function on G×G.
+2. Apply the native right-handed product pairing to the two constant-one tests.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/convolution-product`, `mathlib:AbstractMeasure.prodMk'_prod_apply`.
+
+**Acceptance:** Together with additivity and δ_1(1)=1 this is the measure augmentation ring law.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Finite projection as pushed-forward coefficients
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projection-pushforward` — `AbstractMeasure.finiteProjection_map` (lemma).
+
+π_id(map(q)(μ))=π_q(μ).
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1. For finite-coordinate statements A is a finite discrete monoid, q:G→A is a continuous monoid homomorphism, and π_q is the existing finiteProjection with its native Finsupp codomain. Write Π_q(μ)=MonoidAlgebra.ofCoeff(π_q(μ)); native MonoidAlgebra is a structure with a coefficient field, not definitionally the Finsupp type. No surjectivity of q is required.
+
+**Proof outline:**
+
+1. Evaluate the coefficient at a. Both sides apply μ to the pullback along q of the singleton indicator at a, by native map_apply and the existing projection coefficient formula.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient`, `mathlib:AbstractMeasure.map_apply`.
+
+**Acceptance:** This is an equality of native Finsupp values, before applying ofCoeff.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Finite Dirac expansion of convolution
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-convolution-expansion` — `AbstractMeasure.finite_convolution_expansion` (lemma).
+
+On A, μ∗ν=Σ_a Σ_b π_id(μ)(a)π_id(ν)(b)δ_(ab).
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1. For finite-coordinate statements A is a finite discrete monoid, q:G→A is a continuous monoid homomorphism, and π_q is the existing finiteProjection with its native Finsupp codomain. Write Π_q(μ)=MonoidAlgebra.ofCoeff(π_q(μ)); native MonoidAlgebra is a structure with a coefficient field, not definitionally the Finsupp type. No surjectivity of q is required.
+
+**Proof outline:**
+
+1. Use the existing finite discrete reconstruction separately for μ and ν.
+2. Distribute the product over the two finite sums and scalars using native product/pushforward linearity. Replace each product of Dirac masses by δ_(ab). Only coefficient multiplication in R is commuted; monoid elements retain their order.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-discrete-reconstruction`, `PadicMeasuresIwasawaAlgebras:L1/convolution-product`, `PadicMeasuresIwasawaAlgebras:L1/convolution-dirac`, `mathlib:AbstractMeasure.prodMk'`, `mathlib:AbstractMeasure.map`.
+
+**Acceptance:** The formula is valid in the zero coefficient ring and for noncommutative A. There is no division by |A|.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Multiplicativity of finite measure coefficients
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-convolution-multiplicativity` — `AbstractMeasure.finiteProjection_mul` (lemma).
+
+For every continuous monoid homomorphism q:G→A, Π_q(μ∗ν)=Π_q(μ)Π_q(ν) in native MonoidAlgebra R A.
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1. For finite-coordinate statements A is a finite discrete monoid, q:G→A is a continuous monoid homomorphism, and π_q is the existing finiteProjection with its native Finsupp codomain. Write Π_q(μ)=MonoidAlgebra.ofCoeff(π_q(μ)); native MonoidAlgebra is a structure with a coefficient field, not definitionally the Finsupp type. No surjectivity of q is required.
+
+**Proof outline:**
+
+1. At the identity quotient of A, project the finite Dirac expansion, using linearity and the existing Dirac projection formula.
+2. The result is exactly native monoid-algebra multiplication: expand mul_def and use the generated additive sum_fintype theorem to sum over all finite monoid elements, including zero coefficients.
+3. For general q, apply convolution-pushforward and finite-projection-pushforward, reducing to the identity quotient case.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-convolution-expansion`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-dirac`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-pushforward`, `PadicMeasuresIwasawaAlgebras:L1/convolution-pushforward`, `mathlib:MonoidAlgebra`, `mathlib:MonoidAlgebra.mul_def`, `mathlib:Finsupp.prod_fintype`.
+
+**Acceptance:** The native ofCoeff wrapper is explicit; multiplying the underlying Finsupp values pointwise would be wrong.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Multiplicativity at finite precision
+
+`PadicMeasuresIwasawaAlgebras:L1/joint-convolution-multiplicativity` — `AbstractMeasure.jointFiniteProjection_mul` (lemma).
+
+For p prime and r≥0, ofCoeff(π_(r,q)(μ∗ν))=ofCoeff(π_(r,q)(μ))ofCoeff(π_(r,q)(ν)) in MonoidAlgebra (ZMod(p^r)) A.
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1. For finite-coordinate statements A is a finite discrete monoid, q:G→A is a continuous monoid homomorphism, and π_q is the existing finiteProjection with its native Finsupp codomain. Write Π_q(μ)=MonoidAlgebra.ofCoeff(π_q(μ)); native MonoidAlgebra is a structure with a coefficient field, not definitionally the Finsupp type. No surjectivity of q is required. For joint projections R=Z_p, p is any prime including2, and r is any natural number including0.
+
+**Proof outline:**
+
+1. Native MonoidAlgebra.mapRingHom for the coefficient map Z_p→ZMod(p^r) sends Π_q(μ) to ofCoeff(π_(r,q)(μ)); check coefficients using the existing joint projection formula.
+2. Apply that native ring homomorphism to finite-convolution-multiplicativity. Its multiplication law supplies the result, including r=0.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-convolution-multiplicativity`, `PadicMeasuresIwasawaAlgebras:L1/joint-finite-coefficient`, `mathlib:MonoidAlgebra.mapRingHom`, `mathlib:MonoidAlgebra.coeff_mapRingHom`.
+
+**Acceptance:** The coefficient exponent and finite quotient remain independent. This is not a claim that pure T-adic truncations are group quotients.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Finite algebra projections of measures
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-projection-algebra-map` — `AbstractMeasure.finiteProjectionAlgHom` (construction).
+
+Bundle Π_q as an R-algebra homomorphism D(G,R)→MonoidAlgebra R A.
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1. For finite-coordinate statements A is a finite discrete monoid, q:G→A is a continuous monoid homomorphism, and π_q is the existing finiteProjection with its native Finsupp codomain. Write Π_q(μ)=MonoidAlgebra.ofCoeff(π_q(μ)); native MonoidAlgebra is a structure with a coefficient field, not definitionally the Finsupp type. No surjectivity of q is required.
+
+**Proof outline:**
+
+1. Compose the existing finite linear projection with native coeffLinearEquiv.symm to obtain the underlying linear map.
+2. Use finite-convolution-multiplicativity for products. The Dirac projection at the identity and q(1)=1 give the unit law. R-linearity and the unit law identify scalar embeddings.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/convolution-algebra`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection`, `PadicMeasuresIwasawaAlgebras:L1/finite-convolution-multiplicativity`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-dirac`, `mathlib:MonoidAlgebra.coeffLinearEquiv`.
+
+**Uses:**
+
+- RJW Proposition3.16: Provides the algebra-valued finite coordinates for the inverse-limit comparison.
+- Dirichlet L1/L4 and PMIA L3: Ensures finite coordinates respect products, Dirac elements and coefficient scalars.
+
+**API:**
+
+- `AbstractMeasure.finiteProjectionAlgHom_apply` (data): The underlying element is ofCoeff(π_q(μ)).
+- `AbstractMeasure.finiteProjectionAlgHom_coeff` (projection): The coefficient at a is π_q(μ)(a).
+- `AbstractMeasure.finiteProjectionAlgHom_dirac` (simp): The image of δ_x is single(q(x),1).
+
+**Tests:**
+
+- `ConvolutionTests.finite_algebra_one` (degenerate): The identity measure maps to the identity of the native monoid algebra.
+- `ConvolutionTests.finite_algebra_atoms` (computation): The image of δ_x∗δ_y is single(q(x)q(y),1).
+- `ConvolutionTests.finite_algebra_collapse` (non-example): For the constant homomorphism from a finite group to the trivial group over Z, the image of 2δ_x+3δ_y is single(1,5), with no averaging.
+
+**Acceptance:** The codomain has its native monoid-algebra product, not pointwise coefficient multiplication.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### The finite measure algebra
+
+`PadicMeasuresIwasawaAlgebras:L1/finite-discrete-algebra-equivalence` — `AbstractMeasure.finiteProjectionAlgEquiv` (construction).
+
+For finite discrete A, Π_id is an R-algebra equivalence D(A,R)≃MonoidAlgebra R A; its inverse is c↦Σ_a c.coeff(a)δ_a.
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1. For finite-coordinate statements A is a finite discrete monoid, q:G→A is a continuous monoid homomorphism, and π_q is the existing finiteProjection with its native Finsupp codomain. Write Π_q(μ)=MonoidAlgebra.ofCoeff(π_q(μ)); native MonoidAlgebra is a structure with a coefficient field, not definitionally the Finsupp type. No surjectivity of q is required.
+
+**Proof outline:**
+
+1. The existing finite coefficient map is bijective with the displayed Dirac-sum inverse. Native coeffEquiv wraps these coefficients into the monoid algebra.
+2. Promote finiteProjectionAlgHom(id) to an algebra equivalence using native AlgEquiv.ofBijective. The existing reconstruction and Dirac formulas identify its inverse.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-algebra-map`, `PadicMeasuresIwasawaAlgebras:L1/finite-discrete-coefficient-bijection`, `PadicMeasuresIwasawaAlgebras:L1/finite-discrete-reconstruction`, `mathlib:MonoidAlgebra.coeffEquiv`, `mathlib:AlgEquiv.ofBijective`.
+
+**Uses:**
+
+- RJW Proposition3.15: Identifies the actual finite measure algebra with the native monoid algebra and gives the exact inverse.
+
+**API:**
+
+- `AbstractMeasure.finiteProjectionAlgEquiv_apply` (data): The forward map is finiteProjectionAlgHom(id).
+- `AbstractMeasure.finiteProjectionAlgEquiv_symm_apply` (simp): The inverse sends c to the sum of c.coeff(a)δ_a over A.
+- `AbstractMeasure.finiteProjectionAlgEquiv_symm_single` (simp): The inverse sends single(a,r) to rδ_a.
+
+**Tests:**
+
+- `ConvolutionTests.finite_equiv_atom` (compatibility): The equivalence sends δ_a to single(a,1).
+- `ConvolutionTests.finite_equiv_inverse_zero` (degenerate): The inverse sends zero to the zero measure.
+- `ConvolutionTests.finite_equiv_inverse_product` (computation): The inverse of single(a,r)single(b,s) is (rs)δ_(ab).
+
+**Acceptance:** This settles the algebra content of Proposition3.15 for all finite monoids and topological commutative R. No inverse-limit surjectivity or topology comparison follows from this finite case alone.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Finite-precision algebra coordinates
+
+`PadicMeasuresIwasawaAlgebras:L1/joint-projection-ring-map` — `AbstractMeasure.jointFiniteProjectionRingHom` (construction).
+
+Bundle μ↦ofCoeff(π_(r,q)(μ)) as a unital ring homomorphism D(G,Z_p)→MonoidAlgebra (ZMod(p^r)) A.
+
+**Hypotheses:** G and H are locally compact topological monoids with continuous multiplication. R is a topological commutative ring; no field, nonzero, norm, or completeness assumption is imposed for the algebraic constructions. D(G,R) is native AbstractMeasure G R R. Use the right-handed product prodMk′: (μ∗ν)(f)=μ(x↦ν(y↦f(xy))). The group factors occur in the order xy, including when G is noncommutative. The unit is the native Dirac mass δ_1. For finite-coordinate statements A is a finite discrete monoid, q:G→A is a continuous monoid homomorphism, and π_q is the existing finiteProjection with its native Finsupp codomain. Write Π_q(μ)=MonoidAlgebra.ofCoeff(π_q(μ)); native MonoidAlgebra is a structure with a coefficient field, not definitionally the Finsupp type. No surjectivity of q is required. Here R=Z_p and p is prime; r≥0.
+
+**Proof outline:**
+
+1. Compose finiteProjectionAlgHom(q), regarded as a ring homomorphism, with native MonoidAlgebra.mapRingHom induced by PadicInt.toZModPow(r).
+2. Native coefficient evaluation identifies this composite with the existing joint finite projection. This construction carries no additional topology and rebuilds no inverse limit.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-algebra-map`, `PadicMeasuresIwasawaAlgebras:L1/joint-finite-coefficient`, `mathlib:MonoidAlgebra.mapRingHom`, `mathlib:MonoidAlgebra.coeff_mapRingHom`.
+
+**Uses:**
+
+- Accepted RS16 joint coefficient/group limit: Supplies ring-valued coordinates for the two independent inverse-system directions.
+- Dirichlet finite completed coordinates: Supplies the missing product compatibility without assuming the actual unit-reduction cofinality.
+
+**API:**
+
+- `AbstractMeasure.jointFiniteProjectionRingHom_apply` (data): The underlying element is ofCoeff(π_(r,q)(μ)).
+- `AbstractMeasure.jointFiniteProjectionRingHom_dirac` (simp): The image of δ_x is single(q(x),1) with coefficients modulo p^r.
+- `AbstractMeasure.jointFiniteProjectionRingHom_zero_precision` (simp): At r=0 every image is zero in the zero-ring monoid algebra.
+
+**Tests:**
+
+- `ConvolutionTests.joint_ring_one` (compatibility): At p=2,r=2 the identity measure maps to single(1,1) over ZMod4.
+- `ConvolutionTests.joint_ring_zero_precision` (degenerate): At p=2,r=0 the identity measure maps to zero.
+- `ConvolutionTests.joint_ring_product` (computation): At p=2,r=3, the image of (2δ_1)∗(3δ_1) is single(1,6) over ZMod8.
+
+**Acceptance:** At r=0 both zero and one map to the unique element of the zero ring; the map is still unital.
+
+**Sources:** RJW-published, §3.3, Propositions3.15–3.16, Remark3.18 and Example3.19, printed121–123/PDF22–24; complete printed119–123 freshly read27 September2026. The source states the iterated-integral product and algebra comparison for profinite abelian groups. The locally compact monoid generality, explicit ordered finite coefficients and joint reduction are worker decompositions, guided by the identified upstream API.; Loeffler-convolution-41961, Measure/Monoid.lean: convolveFunRight, right-handed product, ring/algebra and commutative instances; exact PR head recorded in sources. Reuse the upstream vocabulary and right-handed orientation. It is absent from the fixed programme baseline, so these remain unchecked proposed declarations, with deletion/import as the migration when available in the pin. The finite-coordinate comparisons are additional work here.
+
+### Current validation and continuation
+
+All232 predecessor nodes,226 baseline records,14 findings and every prior
+suggested Lean byte are preserved. All eight reviewed AUDIT26 rows and accepted
+RS16 layer boundaries were read, with the full current handoff. Native
+AbstractMeasure.Basic and the relevant MonoidAlgebra sections were read,
+including both product orientations, Fubini hypotheses, the native structure
+wrapper and coefficient ring maps. Twenty-two exact indexed declarations were
+read, adding19 new baseline records. The generated additive sum_fintype is
+credited to its indexed prod_fintype generator, whose attribute and hypotheses
+were read. Complete published RJW119–123/PDF20–24 was freshly reread from the
+hash-identical publication; no new source issue is added. Existing binding
+protocols, expansion protocol and two upstream models retain continuous read
+provenance. Captured inputs are checked again before publication.
+
+The bounded open-PR search for AbstractMeasure identified PR42836 and its
+convolution dependency41961; both complete patches were read and credited.
+The pinned TauCeti source has no AbstractMeasure or completedGroupAlgebra
+matches. Other Haar, Hecke and function convolutions found by broader search
+have different carriers. These are bounded findings, not global absence claims.
+
+The indexed packet checker reports0 errors and0 warnings. The four-file intake
+and versioned errata checks pass. Reader/node/API/test parity and preservation
+checks pass. The dependency graph has1,028 acyclic edges,250 reachable nodes,
+246 native baseline leaves and no unresolved stage leaves. This graph check
+does not close the eight explicit stage gaps.
+
+The full proposed suggested file elaborates with0 errors and536 warnings,
+all from placeholders, against2,795 recursively source-audited pinned Mathlib
+modules. There are no TauCeti or proposed supplier imports. It contains182
+typed examples,18 new. A separate independent complete proof file checks the
+actual native convolution and finite coefficient constructions, including
+associativity, right convolution composition, Fubini-based commutativity,
+pushforward multiplicativity, finite reconstruction and algebra-map bijectivity,
+and joint coefficient reduction. That file has5 constructions,5 native
+instances and37 complete lemmas (including the reused finite-projection
+proofs),0 errors,0 warnings and no placeholders; its2,802 Mathlib imports
+match pinned source bytes recursively. The public signatures remain unchecked.
+
+The concurrent Coleman126→143 update is exactly the preceding own submitted
+checkpoint. Dirichlet115→134 adds19 smoothed-kernel/Mellin entries and updates
+one historical proof-outline sentence; all new statements, hypotheses and
+prerequisites were screened, with no changed consumed interface. The generated
+registry retains all7,563 previous records modulo three citation-title edits
+and adds one unrelated probability finding. Its relevant records are unchanged.
+
+A final Dirichlet134→138 update adds four rational formal-derivative comparisons and refines five existing API/proof-status records. All four whole new nodes and refined fields were screened; every preceding statement, hypothesis and prerequisite is unchanged. The PMIA interfaces consumed there are preserved.
+
+
+Resume with the compatible-family inverse on actual integral measure data
+and the actual unit-residue system: prove continuity and cofinality of its open
+kernels, compare with the existing completed group algebra, and establish the
+joint coefficient/group topology. Then compare integral Amice with the native
+convolution algebra, using the identified upstream interface and preserving the
+additive/multiplicative group distinction. General coefficients, finite-extension
+lattices, continuous character families, L3 pseudomeasure specializations and
+all L4–L6 targets remain in the preserved gaps.

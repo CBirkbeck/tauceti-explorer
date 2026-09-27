@@ -1,3 +1,7 @@
+import Mathlib.GroupTheory.Perm.Basic
+import Mathlib.Algebra.MonoidAlgebra.Module
+import Mathlib.Algebra.MonoidAlgebra.MapDomain
+import Mathlib.Algebra.BigOperators.Finsupp.Basic
 import Mathlib.RingTheory.PowerSeries.Binomial
 import Mathlib.LinearAlgebra.Finsupp.Defs
 import Mathlib.RingTheory.PowerSeries.Expand
@@ -1993,4 +1997,178 @@ example : (3 : PadicInt 2) • inverseMahler 2
 example : psiSeries 3 (1 + PowerSeries.X) = 0 ∧
     psiSeries 3 (PowerSeries.subst (0 : PowerSeries (PadicInt 3))
       (1 + PowerSeries.X : PowerSeries (PadicInt 3))) ≠ 0 := by sorry
+end AbstractMeasure
+
+/-! Convolution and finite algebra coordinates (L1).
+The right-handed orientation and principal names follow the identified upstream
+PR41961. Its module is absent from the fixed baseline. All mathematical proofs
+and proposed constructions below are placeholders. Native structural fields
+only fix the intended multiplication and identity for the Ring instance. -/
+namespace AbstractMeasure
+noncomputable section
+open scoped AbstractMeasure
+section Convolution
+variable {G H R : Type*} [TopologicalSpace G] [Monoid G] [ContinuousMul G]
+  [LocallyCompactSpace G] [TopologicalSpace H] [Monoid H] [ContinuousMul H]
+  [LocallyCompactSpace H] [CommRing R] [TopologicalSpace R] [IsTopologicalRing R]
+
+def convolveFunRight : D(G,R) →ₗ[R] C(G,R) →ₗ[R] C(G,R) := sorry
+lemma convolveFunRight_apply (ν : D(G,R)) (f : C(G,R)) (x : G) :
+    convolveFunRight ν f x = ν ⟨fun y => f (x*y), by fun_prop⟩ := sorry
+lemma convolveFunRight_dirac_apply (f : C(G,R)) (x y : G) :
+    convolveFunRight (dirac R y) f x = f (x*y) := sorry
+lemma convolveFunRight_apply_one (ν : D(G,R)) (f : C(G,R)) :
+    convolveFunRight ν f 1 = ν f := sorry
+lemma convolveFunRight_one (f : C(G,R)) :
+    convolveFunRight (dirac R (1 : G)) f = f := sorry
+
+instance convolutionMul : Mul D(G,R) where
+  mul μ ν := map ⟨fun z : G×G => z.1*z.2, continuous_fst.mul continuous_snd⟩ (prodMk' μ ν)
+lemma mul_def (μ ν : D(G,R)) : μ*ν =
+    map ⟨fun z : G×G => z.1*z.2, continuous_fst.mul continuous_snd⟩ (prodMk' μ ν) := sorry
+lemma mul_apply (μ ν : D(G,R)) (f : C(G,R)) :
+    (μ*ν) f = μ (convolveFunRight ν f) := sorry
+lemma dirac_mul_dirac (x y : G) : dirac R x * dirac R y = dirac R (x*y) := sorry
+lemma convolveFunRight_mul (μ ν : D(G,R)) (f : C(G,R)) :
+    convolveFunRight (μ*ν) f = convolveFunRight μ (convolveFunRight ν f) := sorry
+
+instance : One D(G,R) := ⟨dirac R 1⟩
+instance : NonUnitalNonAssocRing D(G,R) where
+  zero_mul := sorry
+  mul_zero := sorry
+  left_distrib := sorry
+  right_distrib := sorry
+instance convolutionRing : Ring D(G,R) where
+  mul_assoc := sorry
+  one_mul := sorry
+  mul_one := sorry
+instance convolutionAlgebra : Algebra R D(G,R) := Algebra.ofModule (by sorry) (by sorry)
+lemma one_def : (1 : D(G,R)) = dirac R 1 := sorry
+lemma one_apply (f : C(G,R)) : (1 : D(G,R)) f = f 1 := sorry
+lemma algebraMap_apply (r : R) (f : C(G,R)) :
+    algebraMap R D(G,R) r f = r * f 1 := sorry
+lemma map_mul (h : G →* H) (hh : Continuous h) (μ ν : D(G,R)) :
+    map ⟨h,hh⟩ (μ*ν) = map ⟨h,hh⟩ μ * map ⟨h,hh⟩ ν := sorry
+lemma mul_totalMass (μ ν : D(G,R)) :
+    (μ*ν) (ContinuousMap.const G 1) =
+      μ (ContinuousMap.const G 1) * ν (ContinuousMap.const G 1) := sorry
+
+-- ConvolutionTests.function_right_dirac
+example (f : C(G,R)) (x y : G) : convolveFunRight (dirac R y) f x = f (x*y) := sorry
+-- ConvolutionTests.function_identity
+example (f : C(G,R)) : convolveFunRight (dirac R (1 : G)) f = f := sorry
+-- ConvolutionTests.function_constant
+example (ν : D(G,R)) (c : R) : convolveFunRight ν (ContinuousMap.const G c) =
+    ContinuousMap.const G (c * ν (ContinuousMap.const G 1)) := sorry
+-- ConvolutionTests.product_dirac
+example (x y : G) : dirac R x * dirac R y = dirac R (x*y) := sorry
+-- ConvolutionTests.product_zero
+example (μ : D(G,R)) : 0 * μ = 0 := sorry
+-- ConvolutionTests.algebra_right_unit
+example (μ : D(G,R)) : μ * dirac R 1 = μ := sorry
+-- ConvolutionTests.algebra_left_unit
+example (μ : D(G,R)) : dirac R 1 * μ = μ := sorry
+-- ConvolutionTests.algebra_scalar
+example (r : R) : algebraMap R D(G,R) r = r • dirac R 1 := sorry
+end Convolution
+
+section CommutativeConvolution
+variable {G R : Type*} [TopologicalSpace G] [CommMonoid G] [ContinuousMul G]
+  [CompactSpace G] [T2Space G] [TotallyDisconnectedSpace G]
+  [CommRing R] [TopologicalSpace R] [IsTopologicalRing R] [T0Space R]
+lemma mul_comm_of_commMonoid (μ ν : D(G,R)) : μ*ν = ν*μ := sorry
+end CommutativeConvolution
+
+section FiniteAlgebra
+variable {G A R : Type*} [TopologicalSpace G] [Monoid G] [ContinuousMul G]
+  [LocallyCompactSpace G] [TopologicalSpace A] [Monoid A] [Fintype A] [DecidableEq A]
+  [DiscreteTopology A] [CommRing R] [TopologicalSpace R] [IsTopologicalRing R]
+lemma finiteProjection_map (q : C(G,A)) (μ : D(G,R)) :
+    finiteProjection (.id A) (map q μ) = finiteProjection q μ := sorry
+lemma finite_convolution_expansion (μ ν : D(A,R)) :
+    μ*ν = ∑ a, ∑ b, (finiteProjection (.id A) μ a * finiteProjection (.id A) ν b) •
+      dirac R (a*b) := sorry
+lemma finiteProjection_mul (q : G →* A) (hq : Continuous q) (μ ν : D(G,R)) :
+    MonoidAlgebra.ofCoeff (finiteProjection ⟨q,hq⟩ (μ*ν)) =
+      MonoidAlgebra.ofCoeff (finiteProjection ⟨q,hq⟩ μ) *
+        MonoidAlgebra.ofCoeff (finiteProjection ⟨q,hq⟩ ν) := sorry
+def finiteProjectionAlgHom (q : G →* A) (hq : Continuous q) :
+    D(G,R) →ₐ[R] MonoidAlgebra R A := sorry
+lemma finiteProjectionAlgHom_apply (q : G →* A) (hq : Continuous q) (μ : D(G,R)) :
+    finiteProjectionAlgHom q hq μ = MonoidAlgebra.ofCoeff (finiteProjection ⟨q,hq⟩ μ) := sorry
+lemma finiteProjectionAlgHom_coeff (q : G →* A) (hq : Continuous q) (μ : D(G,R)) (a : A) :
+    (finiteProjectionAlgHom q hq μ).coeff a = finiteProjection ⟨q,hq⟩ μ a := sorry
+lemma finiteProjectionAlgHom_dirac (q : G →* A) (hq : Continuous q) (x : G) :
+    finiteProjectionAlgHom (R := R) q hq (dirac R x) = MonoidAlgebra.single (q x) 1 := sorry
+
+def finiteProjectionAlgEquiv : D(A,R) ≃ₐ[R] MonoidAlgebra R A := sorry
+lemma finiteProjectionAlgEquiv_apply (μ : D(A,R)) :
+    finiteProjectionAlgEquiv μ = finiteProjectionAlgHom (MonoidHom.id A) continuous_id μ := sorry
+lemma finiteProjectionAlgEquiv_symm_apply (c : MonoidAlgebra R A) :
+    finiteProjectionAlgEquiv.symm c = ∑ a, c.coeff a • dirac R a := sorry
+lemma finiteProjectionAlgEquiv_symm_single (a : A) (r : R) :
+    finiteProjectionAlgEquiv.symm (MonoidAlgebra.single a r) = r • dirac R a := sorry
+-- ConvolutionTests.finite_algebra_one
+example (q : G →* A) (hq : Continuous q) :
+    finiteProjectionAlgHom (R := R) q hq 1 = 1 := sorry
+-- ConvolutionTests.finite_algebra_atoms
+example (q : G →* A) (hq : Continuous q) (x y : G) :
+    finiteProjectionAlgHom (R := R) q hq (dirac R x * dirac R y) =
+      MonoidAlgebra.single (q x * q y) 1 := sorry
+-- ConvolutionTests.finite_equiv_atom
+example (a : A) : finiteProjectionAlgEquiv (dirac R a) = MonoidAlgebra.single a 1 := sorry
+-- ConvolutionTests.finite_equiv_inverse_zero
+example : (finiteProjectionAlgEquiv (R := R) (A := A)).symm 0 = 0 := sorry
+-- ConvolutionTests.finite_equiv_inverse_product
+example (a b : A) (r s : R) :
+    finiteProjectionAlgEquiv.symm (MonoidAlgebra.single a r * MonoidAlgebra.single b s) =
+      (r*s) • dirac R (a*b) := sorry
+
+variable (p : ℕ) [Fact p.Prime]
+lemma jointFiniteProjection_mul (r : ℕ) (q : G →* A) (hq : Continuous q)
+    (μ ν : D(G,ℤ_[p])) :
+    MonoidAlgebra.ofCoeff (jointFiniteProjection p r ⟨q,hq⟩ (μ*ν)) =
+      MonoidAlgebra.ofCoeff (jointFiniteProjection p r ⟨q,hq⟩ μ) *
+        MonoidAlgebra.ofCoeff (jointFiniteProjection p r ⟨q,hq⟩ ν) := sorry
+def jointFiniteProjectionRingHom (r : ℕ) (q : G →* A) (hq : Continuous q) :
+    D(G,ℤ_[p]) →+* MonoidAlgebra (ZMod (p^r)) A := sorry
+lemma jointFiniteProjectionRingHom_apply (r : ℕ) (q : G →* A) (hq : Continuous q)
+    (μ : D(G,ℤ_[p])) : jointFiniteProjectionRingHom p r q hq μ =
+      MonoidAlgebra.ofCoeff (jointFiniteProjection p r ⟨q,hq⟩ μ) := sorry
+lemma jointFiniteProjectionRingHom_dirac (r : ℕ) (q : G →* A) (hq : Continuous q) (x : G) :
+    jointFiniteProjectionRingHom p r q hq (dirac ℤ_[p] x) = MonoidAlgebra.single (q x) 1 := sorry
+lemma jointFiniteProjectionRingHom_zero_precision (q : G →* A) (hq : Continuous q)
+    (μ : D(G,ℤ_[p])) : jointFiniteProjectionRingHom p 0 q hq μ = 0 := sorry
+end FiniteAlgebra
+
+-- ConvolutionTests.ordered_permutations
+example :
+    letI : TopologicalSpace (Equiv.Perm (Fin 3)) := ⊥
+    letI : DiscreteTopology (Equiv.Perm (Fin 3)) := ⟨rfl⟩
+    dirac ℤ (Equiv.swap (0 : Fin 3) 1) * dirac ℤ (Equiv.swap (1 : Fin 3) 2) ≠
+      dirac ℤ (Equiv.swap (1 : Fin 3) 2) * dirac ℤ (Equiv.swap (0 : Fin 3) 1) := sorry
+-- ConvolutionTests.finite_algebra_collapse
+example {A : Type*} [Group A] [Fintype A] [DecidableEq A] [TopologicalSpace A]
+    [DiscreteTopology A] (x y : A) :
+    letI : TopologicalSpace PUnit := ⊥
+    finiteProjectionAlgHom (R := ℤ) (1 : A →* PUnit) (by fun_prop)
+      ((2 : ℤ) • dirac ℤ x + (3 : ℤ) • dirac ℤ y) =
+        MonoidAlgebra.single 1 5 := sorry
+-- ConvolutionTests.joint_ring_one
+example :
+    letI : TopologicalSpace PUnit := ⊥
+    jointFiniteProjectionRingHom 2 2 (MonoidHom.id PUnit) continuous_id
+      (1 : D(PUnit,ℤ_[2])) = MonoidAlgebra.single 1 1 := sorry
+-- ConvolutionTests.joint_ring_zero_precision
+example :
+    letI : TopologicalSpace PUnit := ⊥
+    jointFiniteProjectionRingHom 2 0 (MonoidHom.id PUnit) continuous_id
+      (1 : D(PUnit,ℤ_[2])) = 0 := sorry
+-- ConvolutionTests.joint_ring_product
+example :
+    letI : TopologicalSpace PUnit := ⊥
+    jointFiniteProjectionRingHom 2 3 (MonoidHom.id PUnit) continuous_id
+      (((2 : ℤ_[2]) • dirac ℤ_[2] (1 : PUnit)) * ((3 : ℤ_[2]) • dirac ℤ_[2] 1)) =
+        MonoidAlgebra.single 1 6 := sorry
+end
 end AbstractMeasure
