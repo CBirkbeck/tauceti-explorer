@@ -1,4 +1,6 @@
 import Mathlib.Data.Int.CardIntervalMod
+import Mathlib.Probability.CDF
+import Mathlib.MeasureTheory.Measure.LevyConvergence
 import Mathlib.Data.ZMod.QuotientRing
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
@@ -911,4 +913,116 @@ example : ((uLaw 3) {n : ℕ | (ArithmeticFunction.cardFactors n : ℝ) ≤ 1}).
     ((uLaw 3) {n : ℕ | (ArithmeticFunction.cardDistinctFactors n : ℝ) ≤ 1}).toReal = 1 := by sorry
 
 
+
+/-! Arithmetic observation laws and repeated-factor limit transfer.
+The measures change with m. No use of a fixed-measure Slutsky theorem is implicit.
+-/
+open Filter ProbabilityTheory
+open scoped Topology NNReal Classical
+
+/-- PM.0/arithmetic-law-count. Counts keep repeated observation values. -/
+theorem arithmetic_law_count (m : ℕ) (f : ℕ → ℝ) (B : Set ℝ)
+    (hB : MeasurableSet B) :
+    ((uLaw m).map f).real B =
+      (((Finset.range (m+1)).filter (fun k => f (k+1) ∈ B)).card : ℝ) /
+        (m+1 : ℕ) := by sorry
+
+/-- PM.0/arithmetic-law-cdf. The endpoint is inclusive. -/
+theorem arithmetic_law_cdf (m : ℕ) (f : ℕ → ℝ) (x : ℝ) :
+    cdf ((uLaw m).map f) x =
+      (((Finset.range (m+1)).filter (fun k => f (k+1) ≤ x)).card : ℝ) /
+        (m+1 : ℕ) := by sorry
+
+/-- PM.0/arithmetic-law-charfun. Positive probability phase, with no 2*pi. -/
+theorem arithmetic_law_charfun (m : ℕ) (f : ℕ → ℝ) (t : ℝ) :
+    charFun ((uLaw m).map f) t =
+      (∑ k ∈ Finset.range (m+1), Complex.exp
+        (((t * f (k+1) : ℝ) : ℂ) * Complex.I)) / (m+1 : ℕ) := by sorry
+
+/-- PM.0/arithmetic-levy-criterion. The target must be a probability law. -/
+theorem arithmetic_levy_criterion (f : ℕ → ℕ → ℝ)
+    (ν : Measure ℝ) [IsProbabilityMeasure ν] :
+    TendstoInDistribution f atTop (fun x : ℝ => x) uLaw ν ↔
+      ∀ t : ℝ, Tendsto (fun m =>
+        (∑ k ∈ Finset.range (m+1), Complex.exp
+          (((t * f m (k+1) : ℝ) : ℂ) * Complex.I)) / (m+1 : ℕ))
+        atTop (𝓝 (charFun ν t)) := by sorry
+
+/-- PM.0/excess-lipschitz-bound. g need not be globally bounded. -/
+theorem excess_lipschitz_bound (m : ℕ) (b s : ℝ) (hs : 0 < s)
+    (g : ℝ → ℝ) (L : ℝ≥0) (hg : LipschitzWith L g) :
+    |(∫ n : ℕ, g (((ArithmeticFunction.cardFactors n : ℝ)-b)/s) ∂uLaw m) -
+      (∫ n : ℕ, g (((ArithmeticFunction.cardDistinctFactors n : ℝ)-b)/s) ∂uLaw m)| ≤
+      (L : ℝ) * ((1 - 1/(m+1 : ℕ)) / s) := by sorry
+
+/-- PM.0/excess-l1-limit. Divergence implies eventual positivity; no all-index premise. -/
+theorem excess_l1_limit (s : ℕ → ℝ) (hs : Tendsto s atTop atTop) :
+    Tendsto (fun m => ∫ n : ℕ, |factorExcess n / s m| ∂uLaw m)
+      atTop (𝓝 0) := by sorry
+
+/-- PM.0/excess-tail-limit. This is a changing-measure tail limit. -/
+theorem excess_tail_limit (s : ℕ → ℝ) (hs : Tendsto s atTop atTop)
+    (ε : ℝ) (hε : 0 < ε) :
+    Tendsto (fun m => (uLaw m).real {n : ℕ | ε ≤ |factorExcess n / s m|})
+      atTop (𝓝 0) := by sorry
+
+/-- PM.0/excess-distribution-transfer. Either convergence remains a hypothesis. -/
+theorem excess_distribution_transfer (b s : ℕ → ℝ) (hs : Tendsto s atTop atTop)
+    (ν : Measure ℝ) [IsProbabilityMeasure ν] :
+    TendstoInDistribution
+      (fun m n => ((ArithmeticFunction.cardDistinctFactors n : ℝ)-b m)/s m)
+      atTop (fun x : ℝ => x) uLaw ν ↔
+    TendstoInDistribution
+      (fun m n => ((ArithmeticFunction.cardFactors n : ℝ)-b m)/s m)
+      atTop (fun x : ℝ => x) uLaw ν := by sorry
+
+/-! Sixteen law/transfer contracts. -/
+/-- law_constant_retains_multiplicity. -/
+example : ((uLaw 3).map (fun _ : ℕ => (7 : ℝ))).real {7} = 1 := by sorry
+/-- law_one_point_samples_one. -/
+example : ((uLaw 0).map (fun n : ℕ => (n : ℝ))).real {1} = 1 := by sorry
+/-- cdf_inclusive_at_atom. -/
+example : cdf ((uLaw 1).map (fun n : ℕ => (n : ℝ))) 1 = 1/2 := by sorry
+/-- cdf_below_positive_sample. -/
+example : cdf ((uLaw 3).map (fun n : ℕ => (n : ℝ))) 0 = 0 := by sorry
+/-- charfun_zero_normalization. -/
+example (m : ℕ) (f : ℕ → ℝ) : charFun ((uLaw m).map f) 0 = 1 := by sorry
+/-- charfun_positive_phase. -/
+example : charFun ((uLaw 0).map (fun _ : ℕ => (1 : ℝ))) (Real.pi/2) =
+    Complex.I := by sorry
+/-- levy_constant_law. -/
+example (c : ℝ) :
+    TendstoInDistribution (fun _ _ : ℕ => c) atTop (fun x : ℝ => x)
+      uLaw (Measure.dirac c) := by sorry
+/-- levy_sum_at_zero_not_zero. -/
+example (m : ℕ) :
+    (∑ _k ∈ Finset.range (m+1), (1 : ℂ)) / (m+1 : ℕ) = 1 := by sorry
+/-- lipschitz_constant_statistic. -/
+example (m : ℕ) (c : ℝ) :
+    |(∫ _n : ℕ, c ∂uLaw m) - (∫ _n : ℕ, c ∂uLaw m)| = 0 := by sorry
+/-- lipschitz_identity_signed_gap. -/
+example : (∫ n : ℕ, (ArithmeticFunction.cardFactors n : ℝ) ∂uLaw 3) -
+    (∫ n : ℕ, (ArithmeticFunction.cardDistinctFactors n : ℝ) ∂uLaw 3) = 1/4 := by sorry
+/-- l1_scale_can_start_at_zero. -/
+example : Tendsto (fun m => ∫ n : ℕ, |factorExcess n / (m : ℝ)| ∂uLaw m)
+    atTop (𝓝 0) := by sorry
+/-- l1_fixed_scale_not_a_vanishing_bound. -/
+example : (∫ n : ℕ, |factorExcess n / 1| ∂uLaw 3) = 1/4 := by sorry
+/-- tail_diverging_integer_scale. -/
+example : Tendsto (fun m => (uLaw m).real {n : ℕ | (1:ℝ) ≤ |factorExcess n/(m+1:ℕ)|})
+    atTop (𝓝 0) := by sorry
+/-- tail_zero_threshold_mass_one. -/
+example (m : ℕ) (s : ℝ) :
+    (uLaw m).real {n : ℕ | (0:ℝ) ≤ |factorExcess n/s|} = 1 := by sorry
+/-- transfer_arbitrary_common_center. -/
+example (b : ℕ → ℝ) (ν : Measure ℝ) [IsProbabilityMeasure ν] :
+    TendstoInDistribution
+      (fun m n => ((ArithmeticFunction.cardDistinctFactors n : ℝ)-b m)/(m+1:ℕ))
+      atTop (fun x : ℝ => x) uLaw ν ↔
+    TendstoInDistribution
+      (fun m n => ((ArithmeticFunction.cardFactors n : ℝ)-b m)/(m+1:ℕ))
+      atTop (fun x : ℝ => x) uLaw ν := by sorry
+/-- transfer_does_not_identify_finite_laws. -/
+example : ((uLaw 3).map (fun n : ℕ => (ArithmeticFunction.cardFactors n : ℝ))).real {2} = 1/4 ∧
+    ((uLaw 3).map (fun n : ℕ => (ArithmeticFunction.cardDistinctFactors n : ℝ))).real {2} = 0 := by sorry
 end TauCeti.Probability.Arithmetic

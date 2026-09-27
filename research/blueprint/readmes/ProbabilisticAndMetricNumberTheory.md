@@ -8,13 +8,14 @@ normalization and quantifiers belong to each theorem. A heuristic model is not a
 joint law, a dense orbit is not an equidistributed orbit, and mean convergence is not a
 pointwise ergodic theorem.
 
-The companion packet is **partial**. Its 59 nodes give a finite weighted prime-truncation
+The companion packet is **partial**. Its 67 nodes give a finite weighted prime-truncation
 API, quantitative first/second-moment comparisons and finite Boolean divisibility-pattern
 laws, centered mixed products and higher moments with explicit errors, and finite
 unweighted even/odd Gaussian moment comparisons, and deterministic prime-cutoff removal
 with finite moment transfer to omega, full residue-class joint laws and sharp finite
 comparison bounds, and the repeated-prime-factor first-moment, tail and finite
-distribution comparison. None is labelled implemented. These
+distribution comparison, arithmetic law dictionary and conditional weak-limit transfer.
+None is labelled implemented. These
 results address bounded parts of PM.0 and PM.1; they neither close either stage nor prove Turan–Kubilius,
 Hardy–Ramanujan or Erdos–Kac. The full six-stage coverage ledger is in the JSON.
 
@@ -1129,11 +1130,12 @@ No continuity hypothesis is needed for this finite statement.
 The sandwich and scaled L1 estimate provide inputs to an asymptotic transfer
 once convergence of the omega laws and divergence of the scale are established.
 They do not supply those assumptions. In particular, the general arithmetic
-CDF/weak-convergence dictionary, Mertens normalization and the moment-continuity
-argument remain in the gap ledger. An iid central limit theorem still does not
+CDF-continuity-point criterion, Mertens normalization and the moment-continuity
+argument remain in the gap ledger. The new section below supplies the characteristic-function
+dictionary and conditional weak-limit transfer. An iid central limit theorem still does not
 apply directly to these arithmetic divisibility indicators.
 
-### Repeated-factor checks and source limits
+### Historical repeated-factor checks and source limits
 
 Sixteen suggested examples cover zero and one, squarefree and repeated factors,
 prime and composite powers, the positive sample, exact means, inclusive thresholds,
@@ -1161,15 +1163,255 @@ and acquired-HTML occurrence screen produced no applicable correction; this is
 not a full comment-thread collation or a source-wide correctness claim. The
 three inherited Granville–Soundararajan findings and their edition restrictions
 remain unchanged. The higher repeated-factor moments in Exercise 46, the full
-Hardy–Ramanujan deduction and the asymptotic Omega transfer remain explicit work.
+Hardy–Ramanujan deduction remained explicit work at that checkpoint. The conditional
+Omega transfer is now supplied in the following section; the underlying Gaussian limit is not.
+
+## Arithmetic laws and conditional limit transfer
+
+This continuation adds eight declarations to PM.0. Use the existing empirical
+measure mu_N for N=m+1, with observations at k+1 for k=0,...,m. Every map from
+the discrete naturals is measurable. The real pushforward law, CDF, characteristic
+function and convergence-in-distribution relation are all native library objects.
+Repeated values are counted with their multiplicities; no new probability carrier
+is defined. Suggested home: `TauCeti/NumberTheory/ArithmeticProbability/LimitTransfer.lean`.
+
+For the repeated-factor branch put D=Omega-omega, with real casts before
+subtraction, and X_m=(omega-b_m)/s_m, Y_m=(Omega-b_m)/s_m. The centers and scales
+are common. The finite Lipschitz bound requires s>0. The limit statements require
+s_m tending to positive infinity, so initial zero or negative scales are harmless.
+The target nu is any Borel probability law, including atomic laws. No continuity
+of its CDF or arithmetic independence is assumed.
+
+### Arithmetic observation frequencies
+
+Suggested declaration: `TauCeti.Probability.Arithmetic.arithmetic_law_count`.
+Node: `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-count`.
+
+For f:N→R and every Borel set B, (map f mu_N).real(B)=#{k in {0,...,m}: f(k+1) in B}/N.
+
+Proof outline:
+
+1. Apply native measurability of every map from discrete naturals, then map_measureReal_apply to pull back B.
+2. Apply empiricalMeasure_apply_toReal on the natural-number preimage. Convert its finite sum of 0/1 indicators to the cardinality of the filtered range and replace inverse multiplication by division. Count indices, not the image set; no injectivity of f is assumed.
+
+Dependencies: `mathlib:measurable_of_countable`, `mathlib:MeasureTheory.map_measureReal_apply`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`.
+
+Regression contracts:
+
+- `law_constant_retains_multiplicity`: A constant observation 7 on N=4 has mass 1 at 7, not 1/4.
+- `law_one_point_samples_one`: For N=1 and f(n)=n, the law gives mass 1 to {1}, not {0}.
+
+### Arithmetic cumulative distribution counts
+
+Suggested declaration: `TauCeti.Probability.Arithmetic.arithmetic_law_cdf`.
+Node: `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-cdf`.
+
+For every f:N→R and x in R, the native cdf of map f mu_N at x equals #{k in {0,...,m}: f(k+1)<=x}/N.
+
+Proof outline:
+
+1. Use native cdf_eq_real for the pushforward probability measure.
+2. Apply arithmetic-law-count to the closed half-line (-infinity,x]. The endpoint is inclusive; no continuity of the finite atomic CDF is assumed.
+
+Dependencies: `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-count`, `mathlib:ProbabilityTheory.cdf_eq_real`.
+
+Regression contracts:
+
+- `cdf_inclusive_at_atom`: For N=2,f(n)=n,x=1 the CDF is 1/2; a strict endpoint gives 0.
+- `cdf_below_positive_sample`: For N=4,f(n)=n,x=0 the CDF is 0.
+
+### Arithmetic characteristic-function average
+
+Suggested declaration: `TauCeti.Probability.Arithmetic.arithmetic_law_charfun`.
+Node: `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-charfun`.
+
+For every f:N→R and real t, charFun(map f mu_N)(t)=(1/N) sum_{k=0}^m exp(i*t*f(k+1)). The complex division uses the cast of the positive integer N.
+
+Proof outline:
+
+1. Expand native charFun_apply_real: its phase is +i*t*x, without a 2*pi factor.
+2. Use integral_map with the measurable arithmetic observation and continuous complex exponential. Apply the existing complex-valued integral_empiricalMeasure to the composition on naturals.
+3. Rewrite real scalar multiplication on C as division by the complex cast of N. This identity requires no integrability hypothesis on the infinite observation sequence: only a finite population is integrated.
+
+Dependencies: `mathlib:measurable_of_countable`, `mathlib:MeasureTheory.charFun_apply_real`, `mathlib:MeasureTheory.integral_map`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`.
+
+Regression contracts:
+
+- `charfun_zero_normalization`: At t=0 the characteristic function equals 1 for every m and f.
+- `charfun_positive_phase`: The constant observation 1 at t=pi/2 has characteristic function i, not -i and not the 2*pi Fourier phase.
+
+### Arithmetic Levy criterion
+
+Suggested declaration: `TauCeti.Probability.Arithmetic.arithmetic_levy_criterion`.
+Node: `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-levy-criterion`.
+
+Let f_m:N→R be any sequence and nu a Borel probability measure on R. The native TendstoInDistribution of f_m under mu_(m+1) to the identity observation under nu holds if and only if, for every real t, (1/(m+1)) sum_{k=0}^m exp(i*t*f_m(k+1)) tends to charFun(nu)(t).
+
+Proof outline:
+
+1. Every f_m is measurable because the domain is countable and discrete; the identity observation under nu is measurable.
+2. Apply the existing tendstoInDistribution_iff_tendsto_charFun, which permits varying source probability measures.
+3. Substitute arithmetic-law-charfun termwise and map_id on the target. The target is supplied as an actual probability measure; arbitrary pointwise limits are not accepted without the missing continuity/tightness condition.
+
+Dependencies: `ProbabilisticAndMetricNumberTheory:PM.0/arithmetic-law-charfun`, `mathlib:measurable_of_countable`, `mathlib:MeasureTheory.tendstoInDistribution_iff_tendsto_charFun`.
+
+Regression contracts:
+
+- `levy_constant_law`: The observations f_m(n)=c converge to the native Dirac law at c.
+- `levy_sum_at_zero_not_zero`: For every m the finite normalized exponential sum at zero is 1; omitting normalization gives m+1.
+
+### Lipschitz comparison of prime-factor laws
+
+Suggested declaration: `TauCeti.Probability.Arithmetic.excess_lipschitz_bound`.
+Node: `ProbabilisticAndMetricNumberTheory:PM.0/excess-lipschitz-bound`.
+
+For real b, positive s, and a real-valued L-Lipschitz function g with L>=0, |E_muN[g((Omega-b)/s)]-E_muN[g((omega-b)/s)]| <= L*(1-1/N)/s.
+
+Proof outline:
+
+1. Rewrite both empirical integrals as finite normalized sums. Thus even globally unbounded g is integrable here.
+2. For every sampled n, the common center cancels and |Y-X|=|D/s|. The native Lipschitz inequality bounds |g(Y)-g(X)| by L*|D/s|.
+3. Apply the existing finite triangle inequality and termwise sum monotonicity, pull out the nonnegative factor L, and rewrite the resulting average as the empirical integral of |D/s|.
+4. Apply excess-scaled-l1. The bound is not a pointwise claim D<=1, and requires no independence, differentiability or boundedness of g.
+
+Dependencies: `ProbabilisticAndMetricNumberTheory:PM.0/excess-scaled-l1`, `mathlib:lipschitzWith_iff_dist_le_mul`, `mathlib:Finset.abs_sum_le_sum_abs`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`.
+
+Regression contracts:
+
+- `lipschitz_constant_statistic`: A constant statistic has comparison error zero at every sample size.
+- `lipschitz_identity_signed_gap`: At N=4,b=0,s=1,g=id the signed mean gap is +1/4.
+
+### Vanishing normalized repeated-factor mean
+
+Suggested declaration: `TauCeti.Probability.Arithmetic.excess_l1_limit`.
+Node: `ProbabilisticAndMetricNumberTheory:PM.0/excess-l1-limit`.
+
+For any real sequence s_m tending to positive infinity, E_mu(m+1)[|D/s_m|] tends to 0. Finitely many zero or negative scales are allowed by native total division and do not affect the limit.
+
+Proof outline:
+
+1. Divergence of s_m implies s_m>0 eventually, so the existing excess-scaled-l1 applies on that tail.
+2. The integral is nonnegative and is at most (1-1/N)/s_m<=1/s_m eventually. Here N=m+1>=1 and 1/N>=0.
+3. Compose tendsto_inv_atTop_zero with the scale limit and use the native eventual squeeze theorem. Do not require positivity at m=0.
+
+Dependencies: `ProbabilisticAndMetricNumberTheory:PM.0/excess-scaled-l1`, `mathlib:tendsto_inv_atTop_zero`, `mathlib:squeeze_zero'`.
+
+Regression contracts:
+
+- `l1_scale_can_start_at_zero`: The scale s_m=m gives the zero limit although its first term is zero.
+- `l1_fixed_scale_not_a_vanishing_bound`: At fixed scale 1 and N=4 the absolute mean is 1/4; scale divergence cannot be dropped from the proof.
+
+### Vanishing repeated-factor tail frequencies
+
+Suggested declaration: `TauCeti.Probability.Arithmetic.excess_tail_limit`.
+Node: `ProbabilisticAndMetricNumberTheory:PM.0/excess-tail-limit`.
+
+For s_m tending to positive infinity and every epsilon>0, mu_(m+1).real{n: epsilon<=|D(n)/s_m|} tends to 0. This is a tail-frequency limit for changing measures, not a fixed-measure TendstoInMeasure statement.
+
+Proof outline:
+
+1. For each m the absolute normalized excess is a nonnegative integrable finite-population observation; integrability follows directly from the native finite Dirac sum.
+2. Apply the native real Markov inequality at epsilon. Divide by epsilon>0 to bound the event mass by E[|D/s_m|]/epsilon.
+3. Apply excess-l1-limit, continuity of division by the nonzero constant epsilon and the nonnegative squeeze theorem. No assertion about convergence of the observations on one common probability space is needed.
+
+Dependencies: `ProbabilisticAndMetricNumberTheory:PM.0/excess-l1-limit`, `mathlib:MeasureTheory.mul_meas_ge_le_integral_of_nonneg`, `mathlib:squeeze_zero`, `tauceti:TauCeti.Probability.empiricalMeasure`.
+
+Regression contracts:
+
+- `tail_diverging_integer_scale`: For s_m=m+1 and threshold epsilon=1, the tail frequency tends to zero.
+- `tail_zero_threshold_mass_one`: At epsilon=0 the event has mass 1 for every m and scale, so a nonnegative threshold premise is insufficient.
+
+### Transfer between omega and Omega limit laws
+
+Suggested declaration: `TauCeti.Probability.Arithmetic.excess_distribution_transfer`.
+Node: `ProbabilisticAndMetricNumberTheory:PM.0/excess-distribution-transfer`.
+
+For arbitrary real centers b_m, a real scale s_m tending to positive infinity, and any Borel probability measure nu on R, (omega-b_m)/s_m under mu_(m+1) converges in distribution to nu if and only if (Omega-b_m)/s_m does. The limit law need not have a continuous CDF.
+
+Proof outline:
+
+1. All observations are measurable on discrete naturals; their pushforward laws are native probability measures. Use the existing bounded-Lipschitz integral characterization of weak convergence.
+2. For each bounded L-Lipschitz test function g, integral_map rewrites integrals against the two laws as the arithmetic expectations. On the eventual positive-scale tail, excess-lipschitz-bound gives their absolute difference at most L/s_m.
+3. The last bound tends to zero by reciprocal convergence. Apply the eventual squeeze theorem to the absolute difference, then the native metric criterion and addition/subtraction of limits to transfer the limiting integral from either law to the other.
+4. Apply the reverse direction of the same bounded-Lipschitz characterization. No new Slutsky theorem is planned, and its existing fixed-sampling-measure helper is not misapplied.
+5. Specializing the center and scale to the log-log Erdős–Kac normalization is valid once their scale divergence and the omega Gaussian-limit premise are supplied. This checkpoint does not supply the latter; it closes only the repeated-factor transfer in Exercise 51(iv).
+
+Dependencies: `ProbabilisticAndMetricNumberTheory:PM.0/excess-lipschitz-bound`, `mathlib:MeasureTheory.TendstoInDistribution`, `mathlib:MeasureTheory.tendsto_iff_forall_lipschitz_integral_tendsto`, `mathlib:MeasureTheory.integral_map`, `mathlib:measurable_of_countable`, `mathlib:tendsto_inv_atTop_zero`, `mathlib:squeeze_zero'`, `mathlib:tendsto_iff_dist_tendsto_zero`.
+
+Regression contracts:
+
+- `transfer_arbitrary_common_center`: The equivalence holds for s_m=m+1 and arbitrary common b_m and target probability nu.
+- `transfer_does_not_identify_finite_laws`: At N=4, the unnormalized Omega law assigns mass 1/4 to {2}, whereas the omega law assigns mass 0. Only the stated asymptotic equivalence is claimed.
+
+### Sources, source correction and exact limits
+
+The arithmetic transfer refines [Tao's 2014 Section 4, Exercises 46 and 51](https://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-number-theory/).
+The first-moment estimate is sufficient for this conditional weak-limit transfer;
+higher repeated-factor moments are not needed for this step and remain separate work.
+The probability conventions are in [Tao's 2010 Notes 2](https://terrytao.wordpress.com/2010/01/05/254a-notes-2-the-central-limit-theorem/),
+Exercise 5 and Section 2 equation (5), Theorem 13 and its proof. These selected
+passages were read, including the distinction in Exercise 15 between an actual
+probability target and an arbitrary pointwise characteristic-function limit.
+The generic theorems are imported from the pinned library, not planned again.
+
+Finding E4: Exercise 11's final derivative formula needs evaluation at t=0.
+For the deterministic variable X=1, F(t)=exp(it); its first derivative at pi is -i,
+not i. The correct general expression is E[(iX)^j exp(itX)], and the moment
+identity holds at zero. This does not invalidate the preceding Taylor coefficients
+or Theorem 13. The finding is restricted to the acquired author HTML, hash
+`ffa97487e6339d8cef52ad1c0609373738520c027b06ba24a89e8af2caad332d`.
+A bounded title/exercise correction search and current-page comment occurrence
+screen found no applicable correction; no full comment-thread or print-edition
+collation is claimed. The three inherited findings remain unchanged. No source
+finding has been independently reviewed in this continuation.
+
+The native convergence definition allows changing source measures. Its
+fixed-measure Slutsky helper is not directly applicable here. The proof instead
+uses the existing bounded-Lipschitz criterion on the two sequences of pushforward
+probability laws and the finite Lipschitz estimate above. It works in both
+directions and even for an atomic target. Neither direction proves that a limit
+exists. The omega Gaussian theorem, Mertens normalization and source-specific
+moment convergence remain open. The finite CDF identity is not yet the converse
+weak-convergence criterion phrased only using counts at continuity points.
+
+### New validation scope
+
+The suggested file now has 67 declaration signatures and 93 examples, elaborating
+with 160 expected placeholder warnings and no other diagnostics. All 67 nodes
+remain unchecked. The inventory is 1 construction, 48 lemmas, 1 comparison and
+17 theorems, with 7 construction API items, 21 packet test contracts (5 construction
+tests and 16 new theorem/lemma regressions), 8 unchanged planets and 106 baseline
+citations. No stage is closed; there remain 6 gaps and no supplier requests.
+
+Exact rational tests check 4,800 event counts, 5,400 CDF endpoints and 10,200
+characteristic-function values at multiples of pi/2 for N=1,...,120. The five
+observation families are a constant, the positive identity, residue modulo 3,
+omega and Omega. The characteristic checks use exact rational real/imaginary
+parts of the four roots of unity, not floating-point exponentials.
+For N=1,...,180, four centers, four positive rational scales and six statistics
+(constant, identity, absolute value, positive part, clipped identity and twice a
+shifted absolute value), 17,280 Lipschitz comparisons pass. Three diverging-scale
+families give 540 finite mean envelopes and 2,160 positive-threshold envelopes.
+The 173 fixed-scale obstructions use multiples of 4 to give a nonzero lower bound.
+Eight mutations reject loss of multiplicity, sampling zero, a strict CDF endpoint,
+wrong phase sign, omitted 1/N normalization, zero threshold, different centers
+and a fixed scale. These finite regressions do not prove asymptotic statements.
+
+A separate scratch Lean file proves six general statements and six examples,
+without placeholders, axioms or diagnostics: the count, CDF and characteristic
+identities, arithmetic Levy equivalence, reciprocal squeeze and a native
+changing-measure bounded-Lipschitz weak-transfer bridge. The last assumes the
+test-integral difference tends to zero; it does not assume a fixed source measure.
+This checks the selected bridge and identities, not all eight nodes or a Gaussian limit.
 
 ## Remaining roadmap work and ownership
 
 PM.0 still needs general additive/strongly additive interfaces, general prime-power
-representation, higher repeated-factor moments and asymptotic Omega transfer,
-stronger growing-prime comparison beyond the finite full-residue laws,
-and the counting/CDF/characteristic-function/weak-convergence dictionary. Use the existing
-empirical, moment and characteristic-function carriers for these tasks.
+representation, higher repeated-factor moments, stronger growing-prime comparison
+beyond the finite full-residue laws, and the converse criterion using counting limits
+at CDF continuity points. The finite counting/CDF/characteristic-function identities,
+arithmetic Levy criterion and conditional omega-to-Omega weak-limit equivalence are
+now decomposed. Use the existing empirical, moment and characteristic-function carriers.
 
 PM.1 still needs decomposition of the read Granville–Soundararajan Erdos–Kac proof,
 including the precise Gaussian moment range, Mertens normalization and source-specific
@@ -1197,8 +1439,9 @@ API declarations, five construction tests, ten finite-pattern examples, ten cent
 examples, eight finite-Gaussian examples, ten cutoff-removal examples and all comparison
 statements are represented, together with nine full-residue declarations and 18 residue-law
 acceptance cases. The repeated-factor section adds eight declarations and sixteen examples.
-All 59 declaration signatures and 77 example contracts
-elaborate at the pinned sources with 136 expected placeholder warnings
+The law-transfer section adds eight declarations and sixteen examples.
+All 67 declaration signatures and 93 example contracts
+elaborate at the pinned sources with 160 expected placeholder warnings
 and no others.
 The construction body is a planning placeholder too. Every node remains unchecked;
 signature elaboration is not proof verification.
