@@ -1,3 +1,5 @@
+**Current monic-division checkpoint:** 104 unchecked nodes (12 constructions,3 definitions,56 lemmas,23 theorems,10 comparisons),60 API entries,74 packet tests (51 on definitions/constructions),74 typed examples,six planets and110 baseline references. Two source findings,eight gaps,five requests and zero closed stages remain. Historical checkpoint counts and validations below retain their earlier scope.
+
 **Entire linear-division checkpoint, 27 September 2026.** The packet now has
 92 unchecked nodes (8 comparisons, 11 constructions, 3 definitions, 49 lemmas, 21 theorems), 57 API entries, 70 packet tests,
 70 typed examples, six planets and 94 baseline references. All 80 preceding
@@ -2121,3 +2123,366 @@ carrier. The existing Riesz kernel finiteness/projectivity chain remains.
 L0–L3 and the analytic distribution families and specialization in L4 still
 require their full source decomposition. Preserve the PMIA suppliers and
 RS-16 ownership boundaries.
+
+
+## General monic division of entire series
+
+Let Q be monic of degree d over a nontrivial complete commutative ultrametric
+normed ring A with norm(1)=1. Its reversed polynomial has constant coefficient
+one. Use its native formal inverse B_Q, and write b_k for the inverse's
+coefficients. This reciprocal need not be entire. Its coefficients instead
+satisfy an exponential estimate: choose C≥1 with every reversed coefficient
+bounded by C^i; then norm(b_k)≤C^k. Such a C exists because only finitely many
+nonconstant polynomial coefficients need bounding. Native inverse recursion,
+strong induction and the ultrametric finite-sum inequality prove this estimate.
+
+For entire F=sum f_n T^n, define the quotient by
+s_n=sum_(k≥0) f_(n+d+k)b_k. At any radius S>C, the summands have the geometric
+majorant (M/S^(n+d))(C/S)^k, where M bounds F's coefficients weighted by S.
+Thus the actual tails converge. The ultrametric bound gives
+norm(s_n)≤M/S^(n+d). Testing at a smaller arbitrary radius R<S proves the
+quotient entire. The definition uses the total native sum for general formal
+inputs, while its analytic laws state the convergence hypotheses explicitly.
+
+The reciprocal identity Q.reverse times B_Q=1 yields the coefficient recurrence
+f_(n+d)=s_n+sum_(i<d)Q_i s_(n+d-i). Finite-sum interchange is justified by the
+summability of every shifted tail. Hence F−Q S_Q(F) has no coefficients at or
+above degree d. The remainder is its native polynomial truncation at d.
+The native polynomial degree bound includes d=0, where Q=1, the quotient is F
+and the remainder is zero.
+
+Uniqueness uses entireness, including over rings with zero divisors. If QH has
+degree below d, its high coefficients give a recurrence expressing each h_n
+in terms of future coefficients. Choose S larger than the reversed coefficient
+bound C. The nonnegative weighted sequence x_n=norm(h_n)S^n has a finite
+supremum M by entireness. The recurrence gives x_n≤(C/S)M for every n, so
+M≤(C/S)M. Since C/S<1, M=0 and H=0. This proves the corrected entire case of
+the monic product obstruction without rescaling the variable by a unit in A.
+It does not use the false restricted-series assertion recorded in E1.
+
+Compare two entire quotient/remainder pairs to obtain uniqueness. Native
+polynomial division and the previous linear-tail division therefore agree
+with this quotient. The existing integrated `L4/entire-division` node is
+refined in place with this proof chain; no second top-level division theorem,
+entire-series carrier,formal inverse or polynomial division algorithm is planned.
+
+The quotient-algebra determinant comparison, the spectral resultant D(B,P),
+its operator comparison and the finite-projective slope arguments remain
+separate obligations. The general monic division helper supplies one of their
+inputs. The other four stages and all existing supplier requests remain open.
+
+### Division of entire series by a monic polynomial
+
+`LocallyAnalyticDistributions:L4/entire-division` — `entire_monic_division_existsUnique` (theorem).
+
+For monic Q in A[T] of degree d and P in A{{T}}, there are unique S in A{{T}} and R in A[T] with degree R<d and P=QS+R; for Q=1, R=0.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. Take S=S_Q(P) and the native truncation remainder provided by entire-monic-division-remainder. The quotient is entire by entire-monic-quotient-entire and the remainder has degree below d.
+2. Apply entire-monic-division-unique to any competing pair. When Q=1 the native truncation at zero is zero and the quotient is P.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-division-remainder`, `LocallyAnalyticDistributions:L4/entire-monic-quotient-entire`, `LocallyAnalyticDistributions:L4/entire-monic-division-unique`.
+
+**Acceptance:** The quotient is entire, not merely a formal Laurent series.
+
+**Sources:** Coleman-PadicBanach-1997, Appendix A3, division preceding Lemmas A3.5 and A3.7 Exposes the polynomial-division input to the resultants, with the transport and convergence boundary retained.; Coleman-PadicBanach-published-1997, printed434/PDF18, norm interpretation and proof of LemmaA3.5 The retained composite theorem now has explicit reciprocal-tail convergence, coefficient recurrence and entire uniqueness prerequisites. This completes its monic one-variable division proof plan, without claiming the resultant comparisons or spectral resultant.
+
+### Exponential bound for the reciprocal reversal
+
+`LocallyAnalyticDistributions:L4/monic-reciprocal-bound` — `monic_reciprocal_coeff_bound` (lemma).
+
+For every k≥0, norm(b_k)≤C^k.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed. C is a real number with C≥1 and norm(coeff_i(Q.reverse))≤C^i for every i. Such a C exists because the reversal is a polynomial with constant coefficient1: choose C≥1 bounding its finitely many nonconstant coefficient norms.
+
+**Proof outline:**
+
+1. Use the existing invOfUnit with the unit1; its constant coefficient is1. For k>0, native coeff_invOfUnit writes b_k as minus the finite sum of coeff_i(Q.reverse)b_j over i+j=k,j<k.
+2. Strong induction bounds each term by C^i C^j=C^k. Apply the native ultrametric finite-sum bound; no factor equal to the number of summands appears.
+
+**Prerequisites:** `mathlib:Polynomial.reverse`, `mathlib:Polynomial.coeff_zero_reverse`, `mathlib:PowerSeries.invOfUnit`, `mathlib:PowerSeries.coeff_invOfUnit`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`.
+
+**Acceptance:** The bound concerns the formal reciprocal of Q.reverse, not a formal inverse of Q. Q may have zero constant coefficient.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### Convergence of reciprocal-weighted entire tails
+
+`LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable` — `monic_reciprocal_tail_summable` (lemma).
+
+For every entire F and every m≥0, the series Σ_(k≥0) coeff_(m+k)(F)b_k is summable.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. Choose a coefficient bound C as in monic-reciprocal-bound and a real radius S>C. Entireness at S gives M≥0 bounding norm(coeff_j(F))S^j for every j.
+2. The kth summand has norm at most (M/S^m)(C/S)^k by the reciprocal coefficient bound and submultiplicativity. The ratio lies in [0,1).
+3. Apply native geometric summability and norm-dominated summability in the complete normed additive group. This supplies every shifted tail used in the recurrence, including m=0.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/monic-reciprocal-bound`, `LocallyAnalyticDistributions:L4/entire-series`, `mathlib:Filter.Tendsto.bddAbove_range`, `mathlib:summable_geometric_of_lt_one`, `mathlib:Summable.of_norm_bounded_eventually_nat`.
+
+**Acceptance:** No root of Q or inverse of its constant coefficient is chosen.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### Reciprocal-tail quotient by a monic polynomial
+
+`LocallyAnalyticDistributions:L4/entire-monic-quotient` — `entireMonicQuotient` (construction).
+
+For native formal F, define S_Q(F) by coefficient s_n=Σ_(k≥0) coeff_(n+d+k)(F)b_k using the total native infinite sum. Analytic interpretation and linear laws are asserted for entire inputs.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. Use native PowerSeries.mk on the displayed coefficient function. The definition accepts any Q; all analytic assertions here require Q monic. The preceding summability theorem justifies it for entire F.
+2. Zero follows coefficientwise. On entire inputs, native summability allows addition and multiplication by a scalar through each sum. Subsequent nodes promote coefficient evaluation, bounds, entireness, division and comparisons.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.invOfUnit`, `mathlib:Polynomial.reverse`.
+
+**API:**
+
+- `entireMonicQuotient_zero` (simp): S_Q(0)=0.
+- `entireMonicQuotient_add` (structure): For entire F,G and monic Q, S_Q(F+G)=S_Q(F)+S_Q(G).
+- `entireMonicQuotient_C_mul` (structure): For entire F and monic Q, S_Q(cF)=cS_Q(F) for every c∈A.
+
+**Uses:**
+
+- L4/entire-division and entire-resultants: Provides the actual entire quotient by the monic polynomial used to represent classes in the finite polynomial quotient.
+- Coleman LemmaA3.5 and the norm interpretation immediately before it: Supplies the justified analytic division and native polynomial remainder needed for the resultant comparison.
+- Existing linear-division nodes: Specializes compatibly to the existing tail quotient for T-a; does not introduce a second entire-series carrier.
+
+**Tests:**
+
+- `monic_quotient_one` (degenerate): For every formal F, S_1(F)=F.
+- `monic_quotient_power_shift` (compatibility): For d≥0 and every formal F, S_(T^d)(F) is the native series with nth coefficient coeff_(n+d)(F).
+- `monic_quotient_quadratic` (computation): For Q=T^2+aT+b and F=T^3, S_Q(F)=T-a.
+- `monic_quotient_nilpotent` (computation): If e^2=0, then S_(T^2-e)(T^4)=T^2+e and the remainder is zero, including nonzero nilpotent e.
+
+**Acceptance:** The shift is n+d+k and the coefficients come from the inverse of the reversal. Inverting Q itself would fail for zero constant coefficient and would not compute this analytic quotient.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### Coefficients of the monic tail quotient
+
+`LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff` — `entireMonicQuotient_coeff` (lemma).
+
+For every formal F, coeff_n(S_Q(F))=Σ_(k≥0)coeff_(n+d+k)(F)b_k. For entire F and monic Q this sum converges.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. Apply the native coefficient-of-mk formula. Convergence on the asserted analytic domain comes from the construction prerequisite.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-quotient`, `mathlib:PowerSeries.coeff_mk`.
+
+**Acceptance:** The equality of total sums alone is not a summability statement outside the analytic domain.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### Weighted bound for the monic quotient
+
+`LocallyAnalyticDistributions:L4/entire-monic-quotient-bound` — `entireMonicQuotient_bound` (lemma).
+
+If S≥C, M≥0 and norm(coeff_j(F))S^j≤M for every j, then norm(coeff_n(S_Q(F)))≤M/S^(n+d).
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed. C is a real number with C≥1 and norm(coeff_i(Q.reverse))≤C^i for every i. Such a C exists because the reversal is a polynomial with constant coefficient1: choose C≥1 bounding its finitely many nonconstant coefficient norms.
+
+**Proof outline:**
+
+1. S≥C≥1 makes S positive. Each kth summand is bounded by M C^k/S^(n+d+k)≤M/S^(n+d).
+2. Apply the native ultrametric infinite-sum bound. Its total-sum convention permits this inequality even when F is not entire; convergence is invoked separately when using the division identity.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff`, `LocallyAnalyticDistributions:L4/monic-reciprocal-bound`, `mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le_of_nonneg`.
+
+**Acceptance:** The loss is exactly d powers of S. The boundary S=C is permitted in the inequality, but the separate summability proof chooses S>C.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### Entireness of the monic quotient
+
+`LocallyAnalyticDistributions:L4/entire-monic-quotient-entire` — `entireMonicQuotient_entire` (lemma).
+
+If F is entire and Q monic, then S_Q(F) is entire.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. Choose C controlling the reciprocal as above. For an arbitrary tested radius R>0 choose S>max(R,C). Entireness of F at S supplies M.
+2. The coefficient estimate gives norm(s_n)R^n≤(M/S^d)(R/S)^n. Native geometric convergence and squeezing show the left side tends to zero.
+3. This holds at every R>0, which is the existing entire predicate. No single-radius completion replaces it.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-quotient-bound`, `LocallyAnalyticDistributions:L4/entire-series`, `mathlib:Filter.Tendsto.bddAbove_range`, `mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one`.
+
+**Acceptance:** Arbitrarily large coefficient norms of Q are allowed by increasing S.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### The monic quotient coefficient recurrence
+
+`LocallyAnalyticDistributions:L4/entire-monic-quotient-recurrence` — `entireMonicQuotient_recurrence` (lemma).
+
+For entire F and every n≥0, coeff_(n+d)(F)=s_n+Σ_(i<d)coeff_i(Q)s_(n+d-i).
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. Monicity identifies the constant coefficient of Q.reverse with1, so native mul_invOfUnit gives Q.reverse times B_Q=1. Comparing coefficient ell gives b_ell+Σ_(1≤j≤min(d,ell))coeff_(d-j)(Q)b_(ell-j)=1 for ell=0 and0 otherwise.
+2. Expand the asserted right side using the convergent tail formulas. Set j=d-i in the finite lower-degree sum and ell=j+k in each shifted tail.
+3. Every shifted series is summable by monic-reciprocal-tail-summable. Native finite-sum interchange and scalar multiplication justify gathering the coefficient of coeff_(n+d+ell)(F). It is the displayed reciprocal convolution, so only ell=0 survives.
+4. The case d=0 has an empty finite sum and Q=1; it gives coeff_n(F)=s_n.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff`, `LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable`, `mathlib:PowerSeries.mul_invOfUnit`, `mathlib:PowerSeries.coeff_mul`, `mathlib:Polynomial.coeff_reverse`, `mathlib:Polynomial.coeff_zero_reverse`, `mathlib:Polynomial.reverse_natDegree_le`, `mathlib:Multipliable.tprod_finsetProd`, `mathlib:Summable.tsum_mul_left`.
+
+**Acceptance:** The indices n+d-i always exceed n for i<d. This direction is essential to both the tail formula and uniqueness.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### The native polynomial remainder
+
+`LocallyAnalyticDistributions:L4/entire-monic-division-remainder` — `entireMonicQuotient_division` (theorem).
+
+For entire F, let R be the native degree-d truncation of F-Q S_Q(F). Then F=Q S_Q(F)+R in A[[T]] and degree(R)<d.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. The recurrence says all coefficients of F-Q S_Q(F) in degrees n+d vanish. Thus the difference agrees coefficientwise with its native truncation at d.
+2. Below d, coeff_trunc gives precisely the original difference; at and above d, both coefficients are zero. Apply native power-series extensionality and rearrange.
+3. Native degree_trunc_lt proves the polynomial degree bound, also for d=0 where the remainder is zero and its degree is minus infinity.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-quotient-recurrence`, `mathlib:PowerSeries.coeff_mul`, `mathlib:PowerSeries.trunc`, `mathlib:PowerSeries.coeff_trunc`, `mathlib:PowerSeries.degree_trunc_lt`, `mathlib:Polynomial.coeff_coe`.
+
+**Acceptance:** Use polynomial degree, not natDegree, for the zero remainder. No new remainder carrier or arbitrary choice is introduced.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### A monic entire product cannot lower degree
+
+`LocallyAnalyticDistributions:L4/entire-monic-product-low-degree` — `entire_monic_product_low_degree` (lemma).
+
+If H is entire, R is a polynomial of degree less than d and QH=R in A[[T]], then H=0 and R=0.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. If d=0, monicity gives Q=1 and the degree bound gives R=0, so H=0. For d>0 compare coefficients at n+d: h_n=−Σ_(i<d)coeff_i(Q)h_(n+d-i). This uses only the leading coefficient1 and the remainder degree bound.
+2. Choose C≥1 so norm(coeff_(d-j)(Q))≤C^j for j=1,...,d, and S>C. The nonnegative sequence x_n=norm(h_n)S^n tends to zero by entireness and hence has a bounded range. Let M be its real supremum, finite and nonnegative.
+3. Put theta=C/S<1. Submultiplicativity and the ultrametric finite-sum estimate give x_n≤max_(1≤j≤d)theta^j x_(n+j)≤theta M. Taking the supremum yields M≤theta M, so M=0.
+4. All coefficients h_n vanish. Native power-series extensionality gives H=0; the product identity and injectivity of the native polynomial inclusion then give R=0.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-series`, `mathlib:PowerSeries.coeff_mul`, `mathlib:Polynomial.coeff_coe`, `mathlib:Polynomial.coeff_eq_zero_of_degree_lt`, `mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg`, `mathlib:Filter.Tendsto.bddAbove_range`, `mathlib:le_csSup`, `mathlib:csSup_le`, `mathlib:Polynomial.coe_injective`.
+
+**Acceptance:** This proves the monic corrected entire case behind source findingE1 without rescaling by a unit of A. It remains valid with zero divisors. Restricted convergence at radius1 is insufficient.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### Uniqueness of monic entire division
+
+`LocallyAnalyticDistributions:L4/entire-monic-division-unique` — `entire_monic_division_unique` (theorem).
+
+If F=QG+R=QH+S, G,H are entire and polynomial R,S have degree less than d, then G=H and R=S.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. Subtract the two decompositions. The existing entire subring makes G-H entire. The polynomial S-R has degree below d, including zero remainders.
+2. Apply entire-monic-product-low-degree to Q(G-H)=S-R, then conclude both equalities.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-product-low-degree`, `LocallyAnalyticDistributions:L4/entire-series`.
+
+**Acceptance:** The proof never cancels a nonunit polynomial inside the full formal-series ring.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### Compatibility with native polynomial division
+
+`LocallyAnalyticDistributions:L4/entire-monic-quotient-polynomial` — `entireMonicQuotient_polynomial` (comparison).
+
+For every polynomial P, S_Q(P)=P divByMonic Q under native polynomial inclusion, and the constructed native truncation remainder equals P modByMonic Q.
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. The native monic polynomial division identity provides a polynomial quotient and remainder, with the remainder degree below d. Include the equality in native power series; polynomials are entire by the existing lemma.
+2. Compare it with the constructed entire division. Uniqueness identifies both quotients and both remainders.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-division-remainder`, `LocallyAnalyticDistributions:L4/entire-monic-quotient-entire`, `LocallyAnalyticDistributions:L4/entire-monic-division-unique`, `LocallyAnalyticDistributions:L4/polynomial-series-entire`, `mathlib:Polynomial.modByMonic_add_div`, `mathlib:Polynomial.degree_modByMonic_lt`.
+
+**Acceptance:** This is compatibility with the already-existing divByMonic and modByMonic, not a new polynomial division algorithm.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### Compatibility with the existing linear tail quotient
+
+`LocallyAnalyticDistributions:L4/entire-monic-quotient-linear` — `entireMonicQuotient_linear` (comparison).
+
+For every a∈A and entire F, S_(T-a)(F) equals the existing entireLinearQuotient(a,F).
+
+**Hypotheses:** A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.
+
+**Proof outline:**
+
+1. Both quotient constructions are entire and give division of F by the same native monic linear polynomial. The linear construction has constant remainder F(a); the native degree-one truncation is also constant.
+2. Apply the general uniqueness theorem. It identifies the quotients and, as a consequence, the native remainder with the existing evaluation constant.
+
+**Prerequisites:** `LocallyAnalyticDistributions:L4/entire-monic-division-remainder`, `LocallyAnalyticDistributions:L4/entire-monic-quotient-entire`, `LocallyAnalyticDistributions:L4/entire-monic-division-unique`, `LocallyAnalyticDistributions:L4/entire-linear-division`, `LocallyAnalyticDistributions:L4/entire-linear-quotient-entire`.
+
+**Acceptance:** No new evaluation functional or competing linear quotient is defined.
+
+**Sources:** Coleman-PadicBanach-published-1997, Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full. Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1.
+
+### Current validation and continuation
+
+Ninety-one predecessor node objects remain whole. The existing entire-division
+node retains its identifier and conclusion, and now names its explicit proof
+prerequisites. All94 earlier baseline objects,two findings,six planets,
+five requests and previous suggested-file bytes are preserved. Twelve nodes,
+the refined theorem,three API signatures and four typed examples are appended.
+The full seed compiles with0 errors and217 placeholder warnings only,against
+2,057 byte-verified pinned Mathlib modules; no Tau Ceti or planned supplier is
+imported by this seed. Every implementation status remains unchecked.
+
+A complete scratch proof establishes the reciprocal coefficient estimate by
+strong induction using the actual native invOfUnit recurrence. It also proves
+the constant and product identities and the real supremum contraction argument
+used in uniqueness, and checks the actual quotient constructor and its
+unit-divisor case. These proofs validate key steps; the entire convergence and
+full division theorem remain a blueprint plan. Exact finite arithmetic compares
+an independent monic long-division algorithm with reciprocal-tail coefficients
+in Q[epsilon]/(epsilon^2),using its maximum p-adic coefficient norm. All62,415
+assertions pass in960 systems at p=2,3,5,7 and divisor degrees0 through5.
+These checks include weighted bounds,recurrences,degree-zero divisors,
+quadratic signs and nonzero nilpotents; they do not prove infinite convergence.
+
+Fresh full source reads: published Coleman printed432–435/physicalPDF16–19
+and author physicalPDF22–26. Both fetched PDFs match the recorded hashes.
+The inherited E1/E2 findings remain unchanged and await independent review.
+No new finding or fresh whole-paper audit is claimed. Sixteen added baseline
+statements and their hypotheses were read at the pin.
+
+During this work PMIA209→225 supplied this session's finite-coordinate
+checkpoint,then225→232 added seven dilation/substitution nodes. All seven
+new complete node objects were read; they preserve the entire coefficient
+algebra boundary and are not new prerequisites for this division theorem.
+The source registry's new QSeries/E208 periodicity finding was read in full;
+all earlier registry objects were unchanged and the finding does not alter
+monic entire division.
+
+Resume with the finite-free quotient-algebra/resultant comparison and spectral
+resultant D(B,P),followed by its operator and finite-projective determinant/rank
+transport. Canonical finite-module topology,completed tensor interfaces and
+actual locally analytic distribution modules retain the precise eight gaps
+and five requests. The general monic division helper itself now has a fully
+decomposed proof plan; no whole stage is closed.
