@@ -2,7 +2,10 @@ import Mathlib.Topology.ContinuousMap.ZeroAtInfty
 import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
 import Mathlib.Analysis.Normed.Operator.Banach
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.RingTheory.PowerSeries.Trunc
+import Mathlib.Algebra.Polynomial.HasseDeriv
+import Mathlib.Data.Nat.Choose.Bounds
+import Mathlib.Data.ZMod.Basic
 import Mathlib.RingTheory.Noetherian.Basic
 import Mathlib.LinearAlgebra.FreeModule.Basic
 
@@ -36,11 +39,11 @@ universe u v w
 
 variable {K A : Type u}
 variable [NontriviallyNormedField K] [CompleteSpace K]
-variable [NormedCommRing A] [NormOneClass A] [Nontrivial A]
-variable [NormedAlgebra K A] [CompleteSpace A] [hNoeth : IsNoetherianRing A]
+variable [NormedCommRing A] [NormOneClass A] [hNontrivialA : Nontrivial A]
+variable [NormedAlgebra K A] [hCompleteA : CompleteSpace A] [hNoeth : IsNoetherianRing A]
 variable {M N P : Type v}
 variable [NormedAddCommGroup M] [NormedSpace K M] [Module A M]
-variable [IsScalarTower K A M] [ContinuousSMul A M] [CompleteSpace M]
+variable [IsScalarTower K A M] [ContinuousSMul A M] [hCompleteM : CompleteSpace M]
 variable [NormedAddCommGroup N] [NormedSpace K N] [Module A N]
 variable [IsScalarTower K A N] [ContinuousSMul A N] [CompleteSpace N]
 variable [NormedAddCommGroup P] [NormedSpace K P] [Module A P]
@@ -270,6 +273,72 @@ theorem mem_entireSeries (f : PowerSeries A) :
 
 def entire_eval (f : PowerSeries A) (a : A) : A := ∑' n : ℕ, f.coeff n * a^n
 
+
+/- L4 Hasse calculus: native power series, with no characteristic assumption. -/
+section HasseFormal
+variable {B : Type*} [Semiring B]
+
+/-- L4/hasse-series: coefficient n is choose(n+s,s) times coefficient n+s. -/
+def hasseSeries (s : ℕ) (f : PowerSeries B) : PowerSeries B := by sorry
+
+theorem hasseSeries_coeff (s n : ℕ) (f : PowerSeries B) :
+    (hasseSeries s f).coeff n = (n+s).choose s • f.coeff (n+s) := by sorry
+theorem hasseSeries_zero (f : PowerSeries B) : hasseSeries 0 f = f := by sorry
+theorem hasseSeries_add (s : ℕ) (f g : PowerSeries B) :
+    hasseSeries s (f+g) = hasseSeries s f + hasseSeries s g := by sorry
+theorem hasseSeries_smul (s : ℕ) (b : B) (f : PowerSeries B) :
+    hasseSeries s (b • f) = b • hasseSeries s f := by sorry
+
+/-- L4/hasse-polynomial-comparison: reuse the pinned polynomial construction. -/
+theorem hasseSeries_polynomial (s : ℕ) (p : Polynomial B) :
+    hasseSeries s (p : PowerSeries B) =
+      (Polynomial.hasseDeriv s p : PowerSeries B) := by sorry
+
+/-- L4/hasse-product: valid also for a noncommutative coefficient semiring. -/
+theorem hasseSeries_mul (s : ℕ) (f g : PowerSeries B) :
+    hasseSeries s (f*g) = ∑ ij ∈ Finset.antidiagonal s,
+      hasseSeries ij.1 f * hasseSeries ij.2 g := by sorry
+
+-- Test hasse_order_zero.
+example (f : PowerSeries B) : hasseSeries 0 f = f := by sorry
+-- Test hasse_degree_boundary.
+example (s d : ℕ) (b : B) (h : d < s) :
+    hasseSeries s (PowerSeries.monomial d b) = 0 := by sorry
+-- Test hasse_top_monomial.
+example (s : ℕ) (b : B) :
+    hasseSeries s (PowerSeries.monomial s b) = PowerSeries.C b := by sorry
+-- Test hasse_characteristic_two: no inverse factorial is allowed.
+example : hasseSeries 2 (PowerSeries.monomial 2 (1 : ZMod 2)) = 1 ∧
+    Polynomial.derivative (Polynomial.derivative
+      ((Polynomial.X : Polynomial (ZMod 2))^2)) = 0 := by sorry
+end HasseFormal
+
+/-- L4/hasse-coefficient-bound: ordinary norm bound, independent of ultrametricity. -/
+theorem hasseSeries_norm_bound {B : Type*} [NormedRing B]
+    (f : PowerSeries B) (s n : ℕ) (R : ℝ) (hR : 0 < R) :
+    ‖(hasseSeries s f).coeff n‖ * R^n ≤
+      (R^s)⁻¹ * (‖f.coeff (n+s)‖ * (2*R)^(n+s)) := by sorry
+
+/-- L4/hasse-entire: the coefficient ring can be the native K-operator ring. -/
+theorem hasseSeries_entire {B : Type*} [NormedRing B]
+    (f : PowerSeries B)
+    (hf : ∀ R : ℝ, 0 < R → Tendsto (fun n : ℕ => ‖f.coeff n‖ * R^n)
+      atTop (𝓝 0)) (s : ℕ) (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun n : ℕ => ‖(hasseSeries s f).coeff n‖ * R^n)
+      atTop (𝓝 0) := by sorry
+
+include hCompleteA in
+/-- L4/entire-root-unit: the displayed tail is the actual two-sided inverse. -/
+theorem entire_root_isUnit (f : PowerSeries A) (hf : IsEntire f)
+    (h0 : f.coeff 0 = 1) (a : A) (ha : entire_eval f a = 0) :
+    IsUnit a ∧ a * (-(∑' n : ℕ, f.coeff (n+1) * a^n)) = 1 ∧
+      (-(∑' n : ℕ, f.coeff (n+1) * a^n)) * a = 1 := by sorry
+
+-- Test root_nonunit_constant: dropping the unit constant gives a false statement.
+include hNontrivialA in
+example : entire_eval (PowerSeries.X : PowerSeries A) 0 = 0 ∧
+    ¬ IsUnit (0 : A) := by sorry
+
 def gaussSize (R : ℝ) (f : PowerSeries A) : ℝ :=
   sSup (Set.range (fun n : ℕ => ‖f.coeff n‖ * R^n))
 
@@ -495,6 +564,86 @@ example (hK : ∀ x y : K, ‖x + y‖ ≤ max ‖x‖ ‖y‖) :
       (hf : IsCompletelyContinuous (ContinuousLinearMap.id (K × K) E)),
       fredholmSeriesPr (ContinuousLinearMap.id (K × K) E) hp hf =
         1 - PowerSeries.C (1, 0) * PowerSeries.X ∧ ¬ IsUnit ((1, 0) : K × K) := by sorry
+
+/-- L4/resolvent-hasse-evaluation. Use a bounded, not necessarily contractive, A-action.
+The sum is formed in the complete normed K-endomorphisms; its limit is A-linear. -/
+def resolventHasseAt (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f) (a : A) (s : ℕ) : M →L[A] M := by sorry
+
+include hA hNoeth hCompleteA hCompleteM in
+theorem resolventHasseAt_hasSum (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (s : ℕ) :
+    HasSum (fun n : ℕ => (n+s).choose s •
+      ((a^n) • (resolventCoeff f hp hf (n+s)).restrictScalars K))
+      ((resolventHasseAt f hp hf a s).restrictScalars K) := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+theorem resolventHasseAt_zero (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) : resolventHasseAt f hp hf a 0 = resolventAt f hp hf a := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+theorem resolventHasseAt_at_zero (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f) (s : ℕ) :
+    resolventHasseAt f hp hf 0 s = resolventCoeff f hp hf s := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/evaluated-hasse-resolvent, preserving both multiplication orders. -/
+theorem resolventHasseAt_succ (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (s : ℕ) :
+    (ContinuousLinearMap.id A M - a • f).comp (resolventHasseAt f hp hf a (s+1)) -
+        f.comp (resolventHasseAt f hp hf a s) =
+      entire_eval (hasseSeries (s+1) (fredholmSeriesPr f hp hf)) a •
+        ContinuousLinearMap.id A M ∧
+    (resolventHasseAt f hp hf a (s+1)).comp (ContinuousLinearMap.id A M - a • f) -
+        (resolventHasseAt f hp hf a s).comp f =
+      entire_eval (hasseSeries (s+1) (fredholmSeriesPr f hp hf)) a •
+        ContinuousLinearMap.id A M := by sorry
+
+include hA hNoeth hCompleteA hCompleteM in
+/-- L4/hasse-polynomial-closure: closure in the existing K-operator norm. -/
+theorem resolventHasseAt_mem_closure (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a : A) (s : ℕ) :
+    (resolventHasseAt f hp hf a s).restrictScalars K ∈
+      closure {g : M →L[K] M | ∃ p : Polynomial A,
+        g = ∑ i ∈ p.support, p.coeff i • (f.restrictScalars K)^i} := by sorry
+
+include K hA hNoeth hCompleteA hCompleteM in
+/-- L4/hasse-resolvent-commutation: all the values commute, even at distinct points. -/
+theorem resolventHasseAt_commute (f : M →L[A] M) (hp : HasPr A M)
+    (hf : IsCompletelyContinuous f)
+    (hbound : ∃ C : ℝ, 0 < C ∧ ∀ (b : A) (x : M), ‖b • x‖ ≤ C * ‖b‖ * ‖x‖)
+    (a b : A) (s t : ℕ) :
+    Commute (resolventHasseAt f hp hf a s) f ∧
+      Commute (resolventHasseAt f hp hf a s) (resolventHasseAt f hp hf b t) := by sorry
+
+-- Test hasse_scalar_resolvent: positive Hasse order of the identity numerator vanishes.
+include K hA hNoeth hCompleteA hCompleteM in
+example (a t : A) (hp : HasPr A A)
+    (h : IsCompletelyContinuous (a • ContinuousLinearMap.id A A)) :
+    resolventHasseAt (a • ContinuousLinearMap.id A A) hp h t 1 = 0 := by sorry
+
+-- Test hasse_diagonal_resolvent: the coefficient on each axis uses the other eigenvalue.
+include K hA hNoeth hCompleteA hCompleteM in
+example (a b t : A) (hp : HasPr A C₀(Fin 2, A))
+    (h : IsCompletelyContinuous (finiteMatrixOperator (diagonalTwo a b))) :
+    resolventHasseAt (finiteMatrixOperator (diagonalTwo a b)) hp h t 1 =
+      finiteMatrixOperator (diagonalTwo (-b) (-a)) := by sorry
+
+-- Test hasse_nilpotent_resolvent: determinant one does not make the derivative zero.
+include K hA hNoeth hCompleteA hCompleteM in
+example (t : A) (hp : HasPr A C₀(Fin 2, A))
+    (h : IsCompletelyContinuous (finiteMatrixOperator (nilpotentTwo (A := A)))) :
+    resolventHasseAt (finiteMatrixOperator (nilpotentTwo (A := A))) hp h t 1 =
+      finiteMatrixOperator (nilpotentTwo (A := A)) := by sorry
+
 end FredholmPr
 
 /- Monic polynomial and entire-series hypotheses are actual propositions. -/
@@ -534,7 +683,7 @@ example (Q : Polynomial A) (hQ : Q.Monic) (hd : 0 < Q.natDegree)
 * API fredholmSeriesPr_baseChange: select/audit the completed tensor carrier and
   universal property; retain a continuous, not necessarily contractive, A -> B.
 * Riesz/slope signatures need finite-projective determinant, fibre rank and
-  Hasse calculus. Do not weaken to a Prop field, pointwise eigenspaces, assumed
+  the remaining adjugate bound. The Hasse evaluation signatures are now explicit. Do not weaken to a Prop field, pointwise eigenspaces, assumed
   constant rank or just power-annihilation by Q*(u).
 * Remaining signatures: finite-module topology and detection norm bounds, completed base change,
   lifting characterization, finite projectivity, direct-sum determinant, entire

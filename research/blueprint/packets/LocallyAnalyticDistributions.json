@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial operator-theory blueprint preserving all thirteen reviewed L4 IDs and nineteen links. Extends the inherited 31 nodes by four declarations: finite-image convention comparison, strict operator-norm approximation, ring scalar-action bounds on existing c0, and algebraic finite-coordinate detection. Expands the identity/finite-generation criterion using native operator completeness and Neumann series. Imports the existing AdicSpaces Part II complete-continuity predicate with an explicit Noetherian Banach generality request. The suggested signatures compile; every implementation status remains unchecked, and no layer is closed.",
+  "summary": "Partial continuation preserving all 35 preceding mathematical statements and hypotheses, the thirteen integrated reviewed IDs and nineteen links. Adds ten L4 declarations for characteristic-free Hasse calculus, its native polynomial comparison and entire operator-valued evaluation, the two-sided resolvent recurrence, polynomial closure and commutation, and the explicit unit-root inverse. No stage is closed; the adjugate estimate, finite-projective rank/determinant and other inherited gaps remain. All implementation statuses are unchecked.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -173,6 +173,96 @@
         "module": "Mathlib/Topology/MetricSpace/Algebra.lean",
         "provides": "Existing bounded scalar-action class. Its inspected IsBoundedSMul.continuousSMul instance at line 149 gives joint continuity; the source-only index omits this named priority instance, so this entry cites the indexed class and records the actual instance here.",
         "checked": "Statement and context read in the byte-verified pinned file."
+      },
+      {
+        "ref": "mathlib:PowerSeries.mk",
+        "module": "Mathlib.RingTheory.PowerSeries.Basic",
+        "provides": "Native constructor from a coefficient sequence.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_mk",
+        "module": "Mathlib.RingTheory.PowerSeries.Basic",
+        "provides": "Coefficient formula for that constructor.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:Polynomial.hasseDeriv",
+        "module": "Mathlib.Algebra.Polynomial.HasseDeriv",
+        "provides": "Existing polynomial Hasse derivative, over any semiring.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:Polynomial.hasseDeriv_coeff",
+        "module": "Mathlib.Algebra.Polynomial.HasseDeriv",
+        "provides": "Its coefficient formula uses choose(n+s,s) and coefficient n+s.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_coe",
+        "module": "Mathlib.RingTheory.PowerSeries.Basic",
+        "provides": "The native polynomial inclusion preserves each coefficient.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:Polynomial.hasseDeriv_mul",
+        "module": "Mathlib.Algebra.Polynomial.HasseDeriv",
+        "provides": "Finite antidiagonal product formula over any semiring, preserving multiplication order.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_trunc",
+        "module": "Mathlib.RingTheory.PowerSeries.Trunc",
+        "provides": "Truncation agrees below its bound and vanishes above it.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_mul_eq_coeff_trunc_mul_trunc",
+        "module": "Mathlib.RingTheory.PowerSeries.Trunc",
+        "provides": "A coefficient of a product is computed from any two truncations longer than its index.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:norm_pow_le_mul_norm",
+        "module": "Mathlib.Analysis.Normed.Group.Basic",
+        "provides": "Indexed multiplicative declaration whose inspected to_additive name is norm_nsmul_le; the additive form bounds the norm of repeated addition. The generated name is not duplicated as a new node.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:Nat.choose_le_two_pow",
+        "module": "Mathlib.Data.Nat.Choose.Bounds",
+        "provides": "choose(n,s) <= 2^n for all natural indices.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:Summable.of_norm_bounded_eventually_nat",
+        "module": "Mathlib.Analysis.Normed.Group.InfiniteSum",
+        "provides": "An eventual summable real norm bound implies summability in a complete seminormed additive commutative group.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:summable_geometric_of_lt_one",
+        "module": "Mathlib.Analysis.SpecificLimits.Basic",
+        "provides": "Nonnegative real geometric ratio strictly less than one gives a summable series.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:HasSum.mul_left",
+        "module": "Mathlib.Topology.Algebra.InfiniteSum.Ring",
+        "provides": "Continuous multiplication on the left preserves a convergent sum.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:HasSum.mul_right",
+        "module": "Mathlib.Topology.Algebra.InfiniteSum.Ring",
+        "provides": "Continuous multiplication on the right preserves a convergent sum without commuting factors.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
+      },
+      {
+        "ref": "mathlib:hasSum_iff_tendsto_nat_of_summable_norm",
+        "module": "Mathlib.Analysis.Normed.Group.InfiniteSum",
+        "provides": "Norm summability identifies the unconditional sum with the limit of initial partial sums.",
+        "checked": "Statement and surrounding hypotheses read in the pinned source; all imported Mathlib source bytes were compared with the pinned checkout."
       }
     ]
   },
@@ -187,9 +277,10 @@
       "readSections": [
         "Section 2, definitions and Propositions/Lemmas 2.1-2.13, pp. 6-21, including the proof of Lemma 2.7",
         "Section 3 through Theorem 3.3, pp. 21-25",
-        "Codex 2026-09-27: pp. 7-12 (c0, bounded-family extension, operator norm, finite-rank/closure definitions, full Lemma 2.3 and Proposition 2.4); pp. 22-24 (Lemma 3.1 and Proposition 3.2, especially the complete finite-generation paragraph)."
+        "Codex 2026-09-27: pp. 7-12 (c0, bounded-family extension, operator norm, finite-rank/closure definitions, full Lemma 2.3 and Proposition 2.4); pp. 22-24 (Lemma 3.1 and Proposition 3.2, especially the complete finite-generation paragraph).",
+        "Codex codex-7e92bd, 2026-09-27: freshly read full manuscript pp. 22-24, including Hasse definition, root unit argument and Proposition 3.2 proof."
       ],
-      "note": "Prior readSections retain the predecessor extraction. Codex independently fetched and hash-verified the same 82-page author manuscript, then read physical/manuscript pp. 7-12 and 22-24 for this extension. BGR remains unacquired.",
+      "note": "Prior readSections retain the predecessor extraction. Codex independently fetched and hash-verified the same 82-page author manuscript, then read physical/manuscript pp. 7-12 and 22-24 for this extension. BGR remains unacquired. This continuation independently fetched the same PDF and rechecked its hash; earlier source reads remain predecessor provenance.",
       "sha256": "0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d",
       "accessDate": "2026-09-27"
     },
@@ -203,9 +294,12 @@
       "readSections": [
         "Section 5: Proposition 7, Corollary 1 and Proposition 8, pp. 75-77",
         "Section 6: Proposition 10 and Lemma 3, pp. 78-79",
-        "Section 7: Propositions 11-12 and the projector proof, pp. 80-81"
+        "Section 7: Propositions 11-12 and the projector proof, pp. 80-81",
+        "Codex codex-7e92bd, 2026-09-27: fresh full PDF pp. 11-14, printed pp. 78-81; printed p. 81 also rendered to verify the signs, multiplication order and projector formulas."
       ],
-      "note": "The product identity and Hasse-derivative formulas were also checked in rendered pages. No blanket assertion that field-specific dimension arguments transfer to Banach algebras."
+      "note": "The product identity and Hasse-derivative formulas were also checked in rendered pages. No blanket assertion that field-specific dimension arguments transfer to Banach algebras. This continuation independently fetched and hash-verified the PDF. Coleman source reads remain inherited; the downloaded Coleman PDF was not freshly read for this checkpoint.",
+      "sha256": "67a032c129ad2a36adeeadc4b4ccb3c0ab17c5a1ef8de83f7dda85f2115fe402",
+      "accessDate": "2026-09-27"
     },
     {
       "id": "Coleman-PadicBanach-1997",
@@ -1521,11 +1615,15 @@
         "LocallyAnalyticDistributions:L4/resolvent-series",
         "LocallyAnalyticDistributions:L4/compact-identity-finite",
         "LocallyAnalyticDistributions:L4/finite-pr-projective",
-        "LocallyAnalyticDistributions:L4/fredholm-direct-sum"
+        "LocallyAnalyticDistributions:L4/fredholm-direct-sum",
+        "LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent",
+        "LocallyAnalyticDistributions:L4/hasse-polynomial-closure",
+        "LocallyAnalyticDistributions:L4/hasse-resolvent-commutation",
+        "LocallyAnalyticDistributions:L4/entire-root-unit"
       ],
       "proofSteps": [
-        "For h>0 the vanishing constant-term identity shows that a is a unit. Apply Hasse derivatives to the resolvent identity and evaluate at a. With z_s=Delta^s F_u(a), c=Delta^h P_u(a), set e=c^(-1)(1-au)z_h and f=-c^(-1)u z_(h-1). They commute, e+f=1 and f e^h=0. Thus p=e^h, q=1-p are complementary idempotents, with N=image(q), F=image(p).",
-        "The identities give (1-au)^h q=0 and (1-au)^h z_h^h=c^h p. Hence 1-au is invertible on F. Closed images of continuous idempotents give a topological direct sum; the series construction puts the projectors in the closure of A[u].",
+        "For h>0 apply entire-root-unit to the determinant, whose constant coefficient is one. The named evaluated-hasse-resolvent lemma supplies the recurrence for z_s=Delta_s F_u(a); hasse-resolvent-commutation supplies all required commutations. With c=Delta_h P_u(a) a unit, set e=c^(-1)(1-au)z_h and f=-c^(-1)u z_(h-1). The recurrence gives e+f=1 and, by induction, (1-au)^(s+1)z_s=0 for s<h; hence f e^h=0. Thus p=e^h, q=1-p are complementary idempotents, with N=image(q), F=image(p).",
+        "The identities give (1-au)^h q=0 and (1-au)^h z_h^h=c^h p. Hence 1-au is invertible on F. Closed images of continuous idempotents give a topological direct sum; the series construction puts the projectors in the closure of A[u]. The polynomial-closure lemma now provides the explicit analytic input for this last assertion.",
         "On N the identity is a polynomial in u without constant term, so it is completely continuous. Apply compact-identity-finite and finite-pr-projective.",
         "Use direct-sum determinant factorization and fredholm-resolvent on F. Establish rank h at each maximal-ideal fibre before claiming a unit leading coefficient: finite projective modules can have varying rank. On each fibre nilpotence and the exact order h give rank h. With constant rank established, analytic division and polynomial degree then identify P_(u|N) exactly. Equality after residue-field reduction alone is not a valid argument over nonreduced A. The finite-projective determinant and local-rank API is an explicit remaining gap."
       ],
@@ -1759,6 +1857,482 @@
           "statement": "If j is outside finite S and A is nonzero, the coordinate vector e_j vanishes on S but is nonzero."
         }
       ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/hasse-series",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Hasse derivatives of formal power series",
+      "kind": "construction",
+      "statement": "For any possibly noncommutative semiring B and s in N, construct the additive B-linear operation Delta_s on the existing B[[T]] by coefficient_n(Delta_s f)=choose(n+s,s) times coefficient_(n+s)(f). Multiplication by the natural number means repeated addition, with no inverse factorial and no convergence assumption.",
+      "hypotheses": [
+        "B is a semiring; s and coefficient indices are natural numbers. The variable T is central."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "proofSteps": [
+        "Apply the native power-series constructor to the displayed coefficient sequence. Coefficient extensionality and distributivity prove additivity and left B-linearity; natural-number multiplication commutes with left scalar multiplication.",
+        "Order zero uses choose(n,0)=1. A monomial of degree d<s has every coefficient zero; at d=s its Hasse derivative is the constant coefficient. These finite computations do not shift a formal series by a nonzero constant."
+      ],
+      "acceptance": [
+        "Do not define this by dividing an iterated derivative by s factorial. Formal substitution T+a is not performed on arbitrary formal power series."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
+          "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LocallyAnalyticDistributions:L4/hasse-product",
+          "how": "Differentiates the formal two-sided resolvent identity."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L4/resolvent-hasse-evaluation",
+          "how": "Supplies the coefficient sequence to be summed after convergence is proved."
+        }
+      ],
+      "api": [
+        {
+          "name": "hasseSeries_coeff",
+          "role": "characterisation",
+          "statement": "Coefficient n is choose(n+s,s) times coefficient n+s."
+        },
+        {
+          "name": "hasseSeries_zero",
+          "role": "simp",
+          "statement": "Delta_0 f=f."
+        },
+        {
+          "name": "hasseSeries_add",
+          "role": "compatibility",
+          "statement": "Delta_s(f+g)=Delta_s f+Delta_s g."
+        },
+        {
+          "name": "hasseSeries_smul",
+          "role": "compatibility",
+          "statement": "Delta_s(b f)=b Delta_s f, including noncommutative B."
+        }
+      ],
+      "tests": [
+        {
+          "name": "hasse_order_zero",
+          "kind": "degenerate",
+          "statement": "Delta_0 fixes every series."
+        },
+        {
+          "name": "hasse_degree_boundary",
+          "kind": "non-example",
+          "statement": "Delta_s(b T^d)=0 whenever d<s."
+        },
+        {
+          "name": "hasse_top_monomial",
+          "kind": "characterisation",
+          "statement": "Delta_s(b T^s)=b, not s factorial times b."
+        },
+        {
+          "name": "hasse_characteristic_two",
+          "kind": "non-example",
+          "statement": "Over Z/2, Delta_2(T^2)=1 although the second ordinary polynomial derivative is zero."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/hasse-polynomial-comparison",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Polynomial and series Hasse derivatives agree",
+      "kind": "comparison",
+      "statement": "The native inclusion of B[T] in B[[T]] carries Polynomial.hasseDeriv s p to Delta_s of the included polynomial, for every semiring B.",
+      "hypotheses": [
+        "No topology, characteristic restriction or commutativity of B."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/hasse-series",
+        "mathlib:Polynomial.hasseDeriv",
+        "mathlib:Polynomial.hasseDeriv_coeff",
+        "mathlib:Polynomial.coeff_coe"
+      ],
+      "proofSteps": [
+        "Compare coefficient n on both sides. The pinned polynomial formula is choose(n+s,s) times coefficient n+s. Natural-number scalar multiplication is its natural cast multiplied on the left.",
+        "This is an adapter to the existing polynomial operation, not a new polynomial differentiation theory."
+      ],
+      "acceptance": [
+        "Preserve the order of coefficient multiplication over noncommutative semirings."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
+          "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/hasse-product",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Hasse product formula for power series",
+      "kind": "lemma",
+      "statement": "For f,g in B[[T]] and s in N, Delta_s(fg)=sum over i+j=s of (Delta_i f)(Delta_j g), with f before g in every product.",
+      "hypotheses": [
+        "B is any semiring; the sum over pairs of natural numbers with i+j=s is finite."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/hasse-polynomial-comparison",
+        "mathlib:Polynomial.hasseDeriv_mul",
+        "mathlib:PowerSeries.coeff_trunc",
+        "mathlib:PowerSeries.coeff_mul_eq_coeff_trunc_mul_trunc"
+      ],
+      "proofSteps": [
+        "Fix the coefficient n to be compared and truncate both f and g at N=n+s+1. All coefficients used on the left have degree at most n+s.",
+        "On the right a contributing convolution pair r+t=n and Hasse pair i+j=s uses coefficients r+i and t+j, both less than N. Replace each by its polynomial truncation coefficient.",
+        "Apply the existing polynomial Hasse product theorem and the polynomial comparison. Coefficient extensionality concludes the formal identity without any infinite rearrangement."
+      ],
+      "acceptance": [
+        "A noncommutative coefficient test must distinguish fg from gf."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
+          "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/hasse-coefficient-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Hasse coefficient radius bound",
+      "kind": "lemma",
+      "statement": "For a normed ring B, f in B[[T]], s,n in N and real R>0, norm(coefficient_n(Delta_s f)) R^n is at most R^(-s) norm(coefficient_(n+s)(f)) (2R)^(n+s).",
+      "hypotheses": [
+        "B need not be commutative, complete, ultrametric or norm-one. R is strictly positive."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/hasse-series",
+        "mathlib:norm_pow_le_mul_norm",
+        "mathlib:Nat.choose_le_two_pow"
+      ],
+      "proofSteps": [
+        "The additive counterpart norm_nsmul_le of the indexed multiplicative declaration bounds repeated addition by choose(n+s,s) times the coefficient norm.",
+        "Bound the binomial coefficient by 2^(n+s). Multiply by the nonnegative R^n and rewrite 2^(n+s) R^n as R^(-s)(2R)^(n+s). Positivity of R justifies cancellation."
+      ],
+      "acceptance": [
+        "The right radius is 2R; a fixed radius argument alone does not prove entireness.",
+        "The zero operator ring is admitted; no norm-one identity is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
+          "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/hasse-entire",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Hasse derivatives preserve entireness",
+      "kind": "lemma",
+      "statement": "If for every real R>0 the sequence norm(f_n) R^n tends to zero, the same holds for the coefficients of Delta_s f, for each fixed s. This applies to a possibly noncommutative normed coefficient ring.",
+      "hypotheses": [
+        "B is a normed ring; no completeness is needed for this coefficient limit statement."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/hasse-coefficient-bound",
+        "LocallyAnalyticDistributions:L4/entire-series"
+      ],
+      "proofSteps": [
+        "Apply the original decay at 2R to the shifted index n+s, which tends to infinity. Multiply by the fixed factor R^(-s).",
+        "The Hasse coefficient norm is nonnegative and bounded by this sequence. Squeeze to zero, for each R>0. On commutative A this is exactly membership in the existing entire-series carrier."
+      ],
+      "acceptance": [
+        "Entireness means all positive radii, not merely radii less than one."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
+          "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/resolvent-hasse-evaluation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Evaluated Hasse derivatives of the resolvent",
+      "kind": "construction",
+      "statement": "For a in A and s in N, construct z_s(a)=sum_n choose(n+s,s) a^n v_(n+s) as a continuous A-linear endomorphism of M, where v_n are the existing Fredholm resolvent coefficients. The sum converges in the native K-operator norm.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr) and u is completely continuous.",
+        "Use the norm after restriction to K. The compatible A-action has an explicit bound norm(bx) <= C norm(b) norm(x) for some C>0; C is not assumed to be one."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/resolvent-series",
+        "LocallyAnalyticDistributions:L4/hasse-entire",
+        "mathlib:ContinuousLinearMap.instCompleteSpace",
+        "mathlib:ContinuousLinearMap.opNorm_le_bound",
+        "mathlib:ContinuousLinearMap.le_opNorm",
+        "mathlib:Summable.of_norm_bounded_eventually_nat",
+        "mathlib:summable_geometric_of_lt_one"
+      ],
+      "proofSteps": [
+        "Form the Hasse coefficient series in the existing complete normed ring of continuous K-linear endomorphisms. The previous entireness lemma applies to the norm after scalar restriction.",
+        "Choose rho>max(norm(a),0). Hasse entireness makes norm(w_n) rho^n eventually at most one. The scalar-action bound and operator-norm inequality give norm(a^n w_n) <= C (norm(a)/rho)^n eventually. Thus the norms and the operators are summable by the real geometric series and completeness.",
+        "Every partial sum is A-linear. Operator-norm convergence implies pointwise convergence, and continuity of scalar multiplication lets the A-linearity equality pass to the limit. Package the limit as the native continuous A-linear map; uniqueness of limits makes it independent of the chosen bound and radius.",
+        "At s=0 compare term by term with the existing resolvent evaluation. At a=0 the only surviving term is v_s. This uses no change of module norm and creates no competing operator carrier."
+      ],
+      "acceptance": [
+        "This construction consumes resolvent-series entireness. The unresolved adjugate coefficient estimate is still required; the recurrence alone cannot supply it."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
+          "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent",
+          "how": "Evaluates the formal differentiated identity."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L4/riesz-root-projectors",
+          "how": "Constructs the operators z_h and z_(h-1) entering the projectors."
+        }
+      ],
+      "api": [
+        {
+          "name": "resolventHasseAt_hasSum",
+          "role": "characterisation",
+          "statement": "The binomially weighted resolvent coefficient sequence has this sum in the native K-operator norm, with the explicit bounded-action hypothesis."
+        },
+        {
+          "name": "resolventHasseAt_zero",
+          "role": "compatibility",
+          "statement": "Hasse order zero agrees with the existing resolventAt."
+        },
+        {
+          "name": "resolventHasseAt_at_zero",
+          "role": "simp",
+          "statement": "At a=0 the value is exactly v_s."
+        }
+      ],
+      "tests": [
+        {
+          "name": "hasse_scalar_resolvent",
+          "kind": "degenerate",
+          "statement": "On the line A with u=a, the resolvent numerator is constant one, so z_1(t)=0."
+        },
+        {
+          "name": "hasse_diagonal_resolvent",
+          "kind": "characterisation",
+          "statement": "For diag(a,b), z_1(t)=diag(-b,-a), independent of t."
+        },
+        {
+          "name": "hasse_nilpotent_resolvent",
+          "kind": "non-example",
+          "statement": "For the nonzero nilpotent two-by-two Jordan block N, z_1(t)=N even though P_N=1."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/evaluated-hasse-resolvent",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Evaluated Hasse resolvent recurrence",
+      "kind": "lemma",
+      "statement": "For every s>=0 and a in A, (1-au) z_(s+1)(a) - u z_s(a) = Delta_(s+1) P_u(a) times 1, and z_(s+1)(a)(1-au) - z_s(a)u has the same value. The order-zero identity is the existing two-sided resolvent identity, using z_0(a)=F_u(a).",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr) and u is completely continuous.",
+        "Use the norm after restriction to K. The compatible A-action has an explicit bound norm(bx) <= C norm(b) norm(x) for some C>0; C is not assumed to be one."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/hasse-product",
+        "LocallyAnalyticDistributions:L4/resolvent-hasse-evaluation",
+        "LocallyAnalyticDistributions:L4/hasse-polynomial-comparison",
+        "LocallyAnalyticDistributions:L4/resolvent-series",
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:HasSum.mul_left",
+        "mathlib:HasSum.mul_right"
+      ],
+      "proofSteps": [
+        "Apply the formal product formula to (1-Tu)F_u=P_u times 1. Its only nonzero derivatives on the first factor have orders zero and one, with Delta_1(1-Tu)=-u. This gives the left formal recurrence; start with F_u(1-Tu) for the right recurrence.",
+        "The Hasse evaluation construction gives absolute norm summability at a. Continuous left/right multiplication may therefore pass through the sum. The extra T shifts the index with an explicit zero constant term, and multiplication by a is the bounded scalar operator.",
+        "Coefficient-wise scalar identities evaluate to Delta_(s+1) P_u(a) times the identity: the map b to scalar multiplication by b is bounded by C. Preserve both product orders until commutation is established separately."
+      ],
+      "acceptance": [
+        "At a Hasse root of order h the right side vanishes for s+1<h and equals the specified unit c at s+1=h. The s=0 identity is not obtained by using a negative derivative order."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
+          "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/hasse-polynomial-closure",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Hasse resolvent values lie in the polynomial closure",
+      "kind": "lemma",
+      "statement": "For every a in A and s in N, the restricted K-linear map z_s(a) belongs to the closure, in the native K-operator norm, of the set of finite polynomial expressions sum_i b_i u^i with b_i in A.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr) and u is completely continuous.",
+        "Use the norm after restriction to K. The compatible A-action has an explicit bound norm(bx) <= C norm(b) norm(x) for some C>0; C is not assumed to be one."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/resolvent-hasse-evaluation",
+        "LocallyAnalyticDistributions:L4/resolvent-series",
+        "mathlib:hasSum_iff_tendsto_nat_of_summable_norm"
+      ],
+      "proofSteps": [
+        "Induct on n in v_0=1 and v_(n+1)=c_(n+1) times 1+u v_n to express v_n as a polynomial in u with scalar A-coefficients.",
+        "Each finite partial sum defining z_s(a) remains a polynomial in u; the binomial and a powers are scalar coefficients. The construction proves norm summability, hence convergence of initial partial sums to z_s(a).",
+        "A limit of elements of the polynomial set lies in its closure. There is no use of a norm on A-linear endomorphisms independent of scalar restriction."
+      ],
+      "acceptance": [
+        "The topology is operator norm, not pointwise convergence. The zero module is included."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
+        },
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
+          "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/hasse-resolvent-commutation",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Hasse resolvent values commute",
+      "kind": "lemma",
+      "statement": "Each z_s(a) commutes with u and with every z_t(b), for all a,b in A and s,t in N.",
+      "hypotheses": [
+        "Standing Banach hypotheses; M has (Pr) and u is completely continuous.",
+        "Use the norm after restriction to K. The compatible A-action has an explicit bound norm(bx) <= C norm(b) norm(x) for some C>0; C is not assumed to be one."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/hasse-polynomial-closure",
+        "mathlib:ContinuousLinearMap.toNormedRing"
+      ],
+      "proofSteps": [
+        "A-linearity of u makes every scalar multiplication by A commute with u; commutativity of A then makes all finite polynomials in u commute with one another.",
+        "For a fixed polynomial operator q, the equation xq=qx defines a closed set because multiplication in the native K-operator ring is continuous. Taking the first limit shows z_s(a) commutes with each polynomial.",
+        "Fix z_s(a) and take a second limit through the same closed commutation equation. This proves commutation with z_t(b); choosing q=u proves the first assertion. Faithfulness of scalar restriction returns the A-linear equalities."
+      ],
+      "acceptance": [
+        "Use two successive limits, not an unproved assertion that arbitrary limits preserve products uniformly."
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre-EndomorphismesCC-1962",
+          "locator": "Section 7, Proposition 12 proof, printed pp. 80-81 (PDF pp. 13-14)",
+          "match": "The formal product identity and evaluated recurrence are read directly. The commutative Banach-algebra extension uses bounded scalar action; the field dimension argument is not imported."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-root-unit",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Roots of an entire series with unit constant are units",
+      "kind": "lemma",
+      "statement": "If f in A{{T}} has constant coefficient one and f(a)=0, then a is a unit with inverse -sum_(n>=0) f_(n+1) a^n. In particular a positive-order Hasse root of a Fredholm determinant is a unit.",
+      "hypotheses": [
+        "A is a complete commutative normed ring; no field, reducedness, Noetherianity or characteristic hypothesis is needed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:Summable.of_norm_bounded_eventually_nat",
+        "mathlib:summable_geometric_of_lt_one",
+        "mathlib:HasSum.mul_left"
+      ],
+      "proofSteps": [
+        "Choose rho>max(norm(a),0). Decay of norm(f_(n+1)) rho^(n+1) bounds the shifted coefficient norm by a constant times rho^(-n). Thus the shifted tail evaluated at a is absolutely summable by a geometric comparison.",
+        "Separate the constant term in the convergent evaluation and shift the tail: 0=f(a)=1+a sum_n f_(n+1) a^n. Moving terms gives a times the displayed negative tail equal to one.",
+        "Commutativity supplies the reverse product identity and therefore a unit with this inverse. The argument does not infer equality from residue fields."
+      ],
+      "acceptance": [
+        "The constant-coefficient assumption is essential: f=T has the nonunit root zero.",
+        "For Hasse order zero no root vanishing is assumed, and this lemma is not applied."
+      ],
+      "sources": [
+        {
+          "sourceId": "Buzzard-Eigenvarieties-2006",
+          "locator": "Section 3, p. 22, Hasse derivatives and roots; Proposition 3.2, pp. 23-24",
+          "match": "Source formula and its use over a Noetherian Banach algebra; the explicit coefficient and convergence arguments are expanded here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "root_nonunit_constant",
+          "kind": "non-example",
+          "statement": "The entire polynomial T vanishes at zero, which is not a unit in a nonzero coefficient algebra."
+        }
+      ]
     }
   ],
   "links": [
@@ -1900,7 +2474,7 @@
       "remaining": [
         "The generic Fredholm spine is preserved. Algebraic coordinate detection and the Neumann proof of finite generation are decomposed, but canonical finite-module topology, inverse norm bounds and completed tensors remain gaps.",
         "Construct the spectral resultant D(B,P) and transport Coleman A3.8-A3.9 to Noetherian K-Banach algebras and (Pr) modules, including the normalization in Theorem 3.3.",
-        "Expand the inherited multi-result nodes and every API item to declaration-level prerequisites, including Hasse calculus, the finite-projective determinant/rank argument, Cayley-Hamilton and Lemmas 2.12-2.13.",
+        "The Hasse-calculus bridge is decomposed into ten declarations. Expand the remaining composite nodes and APIs, especially the operator adjugate coefficient bound, finite-projective determinant/rank argument, Cayley-Hamilton and Lemmas 2.12-2.13.",
         "Construct the actual affinoid-valued analytic/distribution modules, integral models, completed tensor products and specialization; include the RS-16 transferred universal-character coefficient action with uniform local radii.",
         "Prove continuity and complete continuity of the actual modular-symbol/automorphic semigroup operators and scalar-extension compatibility on slope-adapted affinoids. Include positive-order nonmeasure and order-zero/multivariable acceptance tests.",
         "Complete the explicitly omitted signatures, especially completed-tensor base change and the Riesz/slope hypotheses. The present partial suggested file elaborates at the pin; this is not a formalization claim.",
@@ -1932,7 +2506,7 @@
     },
     {
       "title": "Remaining analytic helper and API granularity",
-      "detail": "Expand finite-free determinant comparison, the lifting-converse bounded generating family, polynomial division estimates, operator-valued adjugate estimates and Hasse evaluation calculus. The Neumann-series/operator-completeness step is now supplied by exact pinned declarations in compact-identity-finite. Retained composite nodes and their API dependencies still need further declaration granularity."
+      "detail": "Hasse construction, polynomial comparison, product formula, coefficient bound, entireness, native operator evaluation, two-sided recurrence, polynomial closure, commutation and the unit-root argument are now separate nodes. The operator-valued adjugate coefficient estimate still underlies every analytic resolvent assertion and requires its own signature and decomposition. Expand finite-free determinant comparison, the lifting-converse bounded generating family and polynomial division estimates. The finite-projective determinant/rank argument and remaining composite-node API dependencies are not closed by Hasse calculus."
     },
     {
       "title": "Distribution stages and universal-character families",
@@ -1940,7 +2514,7 @@
     },
     {
       "title": "Prototype and validation boundary",
-      "detail": "The suggested file compiles against byte-verified pinned imports with proof-placeholder warnings only. All 27 inherited tests now have Lean examples, including the actual eA submodule and the conditional rescaled-line test. The completed-tensor base-change API and the remaining Riesz/slope, topology and spectral-resultant signatures are explicitly omitted because their carriers or analytic hypotheses are unresolved. Compilation is not proof verification or closure."
+      "detail": "The suggested file includes typed signatures and tests for every new Hasse node, with explicit completeness and bounded scalar-action hypotheses on convergence statements. The full Riesz/slope signatures still require finite-projective determinant/rank and spectral-resultant interfaces. The completed-tensor base-change API and remaining topology/lifting/division signatures remain omitted. Inherited signatures and mathematical statements are preserved; a complete audit of all inherited signature assumptions remains part of the prototype worklist. Compilation checks types, not proofs or closure."
     },
     {
       "title": "Imported complete-continuity contract beyond affinoids",
@@ -1984,5 +2558,69 @@
   "review": {
     "status": "pending",
     "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension."
+  },
+  "checks": {
+    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "sourceIssues": "No new source finding; empty source-issue wrapper passes.",
+    "validation": {
+      "nodes": 45,
+      "newNodes": 10,
+      "kinds": {
+        "comparison": 6,
+        "construction": 7,
+        "definition": 3,
+        "lemma": 17,
+        "theorem": 12
+      },
+      "api": 36,
+      "tests": 45,
+      "definitionConstructionAPI": 32,
+      "definitionConstructionTests": 31,
+      "typedExamples": 45,
+      "planets": 6,
+      "baseline": 42,
+      "preservedStatementsAndHypotheses": 35,
+      "preservedWholeNodes": 34,
+      "preservedLinks": 19,
+      "internalNodes": 45,
+      "baselineLeaves": 42,
+      "stageRequestLeaves": [
+        "AdicSpacesPartII:R3"
+      ],
+      "dependencyEdges": 138,
+      "acyclic": true,
+      "gaps": 8,
+      "requests": 5,
+      "closedStages": 0,
+      "leanWarnings": 111,
+      "leanErrors": 0,
+      "auditedMathlibModules": 1882,
+      "scratchCompleteLeanProofs": 7,
+      "arithmetic": {
+        "assertions": 51363,
+        "matrixPairs": 420,
+        "coefficientModuli": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8,
+          11
+        ],
+        "note": "Finite exact arithmetic checks, not proofs of infinite-dimensional analytic statements."
+      }
+    },
+    "suggestedSHA256": "cf902dd9da46488cdf13b1782fa8142be1bd207dac3e75082acb6319afbf0c41",
+    "publication": {
+      "baseCommit": "85cad46b3d86f72afb4f43b9a52f9d9148508442",
+      "capturedInputs": 21,
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5852702029
+    },
+    "closure": "Partial: eight gaps, five requests, no closed stages; every implementation status unchecked."
   }
 }
