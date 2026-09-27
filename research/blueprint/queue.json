@@ -14261,9 +14261,9 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #555"
+   "note": "claimed on GitHub issue #555"
   },
   {
    "id": "REV-PadicMeasuresIwasawaAlgebras",
@@ -14309,11 +14309,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #641"
+   "note": "released on GitHub issue #641"
   },
   {
    "id": "REV-LocallyAnalyticDistributions",
@@ -23600,13 +23600,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-GeneralAlgebraicKTheory--K.1",
     "BP-GeneralAlgebraicKTheory--K.6"
    ],
-   "note": "claimed on GitHub issue #1030"
+   "note": "released on GitHub issue #1030"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic",
@@ -23949,12 +23949,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "released on GitHub issue #1036"
+   "note": "claimed on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
