@@ -131713,6 +131713,50 @@
    "reviewReason": null
   },
   {
+   "id": "DirichletPadicLFunctions/E11",
+   "kind": "misprint",
+   "locator": "Proof of Lemma5.5, published printed142/PDF43; arXiv v2p.31, first two Mellin integral displays and following Dirichlet-series display.",
+   "printed": "e^(−akt)ε^(−akc); χ(−1)∑χ(−k)k^(−s)",
+   "correction": "Retain the scalar a before the second exponential in both integral displays. In the final Dirichlet-series display either change the summand to χ(k) when χ(−1) is factored out, or keep χ(−k) with no extra parity factor outside. The stated Lemma5.5 formula remains unchanged.",
+   "reason": "The definition on published141 multiplies its second rational summand by a, which survives geometric expansion. Its Mellin scaling is therefore a·a^(−s)=a^(1−s); the printed integrands without a would instead give a^(−s). Also χ(−k)=χ(−1)χ(k); the printed outside χ(−1) counts that sign twice for odd characters. Restoring a and using the parity factor exactly once gives precisely the lemma statement. These are proof-display slips, not a refutation of the stated interpolation formula.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September2026: complete published printed139–144/PDF40–45 freshly read in batches of at most3 physical pages. Published142 and144 visually inspected; full arXiv v2PDF30–32 collated. Both source digests match sourceVersions.",
+    "The snapshot atlas register was screened by relevant Dirichlet, PMIA and Coleman owners and these locators; no matching existing finding was identified. This is not a priority or novelty claim, and no independent-review verdict is supplied.",
+    "Current-session checks of https://arxiv.org/abs/2309.15692, https://sites.google.com/site/joaquinrj/home, https://chriswilliams1404.wixsite.com/website/publications-preprints and https://msp.org/ent/2025/4-1/p03.xhtml are retained from the immediately preceding Kummer continuation. The listing showed latest v2,19 December2024. Journal direct HTTP succeeded after the browser route failed; no correction entry was identified.",
+    "27 September2026: additional bounded exact-identifier/5.5+correction, geometric+correction and article-title+errata web searches found no identified correcting publication. Unrelated errata search results were discarded. These checks do not establish absence; no authors were contacted."
+   ],
+   "owner": "DirichletPadicLFunctions",
+   "file": "research/blueprint/packets/DirichletPadicLFunctions.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DirichletPadicLFunctions/E12",
+   "kind": "misprint",
+   "locator": "Geometric expansion immediately after equation(5-3), published printed144/PDF45; arXiv v2p.32.",
+   "printed": "ε^(kc)/(ε^c−1)^(k+1)",
+   "correction": "Insert (−1)^k in the coefficient of T^k: the reciprocal of (1+T)ε^c−1 expands as Σ_{k≥0}(−1)^k ε^(kc)/(ε^c−1)^(k+1)·T^k.",
+   "reason": "Factor the denominator as (ε^c−1)(1+ε^c T/(ε^c−1)); its inverse is the alternating geometric series. The displayed sum without the sign represents F_η(−T), not F_η(T). For the primitive quadratic character modulo3, with ε²+ε+1=0 and G(η)=ε−ε², the defining rational sum reduces to (1+T)/(T²+3T+3). Its T³ coefficient is1/9; the printed unsigned expansion gives−1/9. This is also a tame example at p=2. Multiplying coefficients by signs preserves integrality, so the ensuing integral-coefficient conclusion is unaffected.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September2026: complete published printed139–144/PDF40–45 freshly read in batches of at most3 physical pages. Published142 and144 visually inspected; full arXiv v2PDF30–32 collated. Both source digests match sourceVersions.",
+    "The snapshot atlas register was screened by relevant Dirichlet, PMIA and Coleman owners and these locators; no matching existing finding was identified. This is not a priority or novelty claim, and no independent-review verdict is supplied.",
+    "Current-session checks of https://arxiv.org/abs/2309.15692, https://sites.google.com/site/joaquinrj/home, https://chriswilliams1404.wixsite.com/website/publications-preprints and https://msp.org/ent/2025/4-1/p03.xhtml are retained from the immediately preceding Kummer continuation. The listing showed latest v2,19 December2024. Journal direct HTTP succeeded after the browser route failed; no correction entry was identified.",
+    "27 September2026: additional bounded exact-identifier/5.5+correction, geometric+correction and article-title+errata web searches found no identified correcting publication. Unrelated errata search results were discarded. These checks do not establish absence; no authors were contacted."
+   ],
+   "owner": "DirichletPadicLFunctions",
+   "file": "research/blueprint/packets/DirichletPadicLFunctions.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DrinfeldModulesAndTModules/E-DM8-1",
    "kind": "misprint",
    "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16",
