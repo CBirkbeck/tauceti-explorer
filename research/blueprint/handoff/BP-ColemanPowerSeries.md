@@ -89,16 +89,13 @@ the final217→224 seven nodes were completed here. Its changed moment nodes
 consume the exact supplier, and the new integral character twists introduce
 no reverse Coleman dependency. No other captured input changed.
 
-The fresh PMIA294 supplier compiled successfully. The full predecessor Coleman
-file also compiled against that supplier with zero errors and360 expected
-placeholder warnings. The changed183-node suggested file was attempted but
-its compile is INCONCLUSIVE: after more than twenty minutes, severe shared-memory
-thrashing had caused410,927,534,080 bytes of native-library rereads, with690
-kernel CPU seconds and11 user CPU seconds. Full memory-stall pressure exceeded94%.
-The worker terminated its own compiler to stop the thrashing. It had emitted
-169 expected placeholder warnings and no reported error at termination; this
-is not a successful compile of the changed file. The new signatures and eight
-examples therefore still require a complete elaboration run.
+The full changed183-node suggested file compiles successfully with Lean
+4.34.0-rc2 at the pinned baseline: zero errors and386 warnings, all and only
+the expected proof placeholders. The actual PMIA294 supplier was freshly
+compiled with zero errors and626 placeholder warnings; the predecessor
+Coleman file was also checked against it. An initial full attempt was stopped
+after severe shared-memory thrashing; after pressure cleared, the complete
+run succeeded. The current compile log records the successful run.
 
 The source audit covers2846 byte-verified pinned Mathlib modules,3 previously
 built pinned TauCeti modules and the actual PMIA294 suggested supplier. No
@@ -119,8 +116,12 @@ identities,672 evaluation ring-law checks,336 tail-independence comparisons and
 336 unit-polynomial lifts. These test conventions in (ℤ/p^r)[X]/E_n; they do not
 prove the norm statements, compactness, convergence or general interpolation.
 
-At publication main a0fe180a91a719f8b3ea1a7ecf2a9479a201d28e, all53 captured input
-blobs and all four predecessor output blobs were unchanged. Only the four
+At publication main bfb332bc24062e7b2fd906d7ac0385c0243eb31f,51 of53 captured
+input blobs and all four predecessor output blobs were unchanged. The two
+changed files are the global source-issue registry and its rendered register.
+Their delta adds only seven ClassicalAdicEtaleCohomology findings; all7600
+previous registry entries, including the Coleman findings, are unchanged.
+The delta was inspected using owner/file/id keys; no consumed input changed. Only the four
 authorized deliverables are submitted from the worker’s own branch.
 
 Retained scratch evidence: inputs.json, WORKLIST.md, issue-before.json,
@@ -131,16 +132,13 @@ lean-source-audit.json, suggested-compile.log, compile-pressure.json,
 predecessor-with-current-supplier.log,
 PadicMeasuresIwasawaAlgebras-compile.log, finite-evaluation-tests.py,
 finite-evaluation-tests.json, verification.json, publication-guard.json,
-submission.json, intake-pr.json, and the four final files in handoff-evidence.
+submission.json, intake-pr.json, source-registry-delta.json, and the four final
+files in handoff-evidence.
 The prior source PDF and native artifacts retain their existing provenance.
 One persistent clone and one own Lean process at a time were used; no Lake
 project or native-library build was created.
 
 ## Resume
-
-First rerun full suggested-file elaboration when shared memory pressure permits.
-The current source audit and mathematical checks do not substitute for this
-uncompleted validation. Do not report the changed file as compiled.
 
 Identify the actual O_n with the canonical local-field valuation ring, matching
 its maximal ideal, residue map and normalized valuation. Interpret the exact

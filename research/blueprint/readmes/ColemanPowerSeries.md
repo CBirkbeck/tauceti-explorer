@@ -5441,3 +5441,14 @@ of exhaustive upstream coverage.
 The native integral closure O_n now has its inherited spectral norm, compactness, linear topology and convergent power-series evaluation; every unit is the evaluation of a unit polynomial of degree<d_n. Identify this ring with the canonical local-field valuation ring, its maximal ideal and residue map, and interpret the exact equation ‖ϖ_n‖^(d_n)=p⁻¹ in the owner’s normalized valuation and total ramification conventions. Establish continuous relative norm transitions and arithmetic norm/evaluation compatibility before building the actual norm-compatible inverse limits. No converse characterization of integral elements by norm≤1 is asserted here. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint.
 
 L1 still requires the arithmetic norm/evaluation square, interpolation uniqueness and compact successive approximation. General unramified or semilocal coefficient variants need their own exact Frobenius and norm interfaces. The actual full and principal unit inverse limits and their actions are not supplied by fixed-level evaluation.
+
+
+### Validation of the spectral-norm checkpoint
+
+The full suggested file elaborates at the pinned baseline with zero errors
+and386 expected proof-placeholder warnings. Its source audit covers2846
+Mathlib modules,3 existing pinned TauCeti modules and the freshly compiled
+actual PMIA294 supplier. The indexed packet, intake, errata, preservation and
+acyclic dependency checks pass. The finite quotient checks cover seven
+cyclotomic levels at four precisions. All declarations remain unchecked
+mathematical plans; elaboration and finite examples do not establish proofs.
