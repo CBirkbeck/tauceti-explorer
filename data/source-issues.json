@@ -131320,6 +131320,174 @@
    "reviewReason": null
   },
   {
+   "id": "DiophantineApproximationAndTranscendence/E217",
+   "kind": "misprint",
+   "locator": "§1, published pp. 217–218 and 221 (physical pp. 3–4 and 7); author pp. 3–4 and 8: index definition, derivative locus and affine index.",
+   "printed": "(i/d) ≤ σ",
+   "correction": "In the definition by the largest vanishing threshold and the associated jet equations, use weighted order <σ. Define the zero polynomial’s index to be ∞.",
+   "reason": "For F=X₁₁, d₁=1 and point (1:0), the first nonzero derivative has weight 1. The printed condition holds for every σ<1 and fails at σ=1, so there is no largest admissible threshold. Strict-below vanishing gives index 1 and agrees with the packet’s existing weightedIndex. E216 records this mechanism in a different paper (Evertse 1996), so it does not cover the present source.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+    "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+    "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma, Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E218",
+   "kind": "misprint",
+   "locator": "§1, published p. 217 derivative definition and p. 221 affine Remark; author pp. 3 and 8.",
+   "printed": "∏_{h=0}^m; X_h=(X_h0,…,X_hm)",
+   "correction": "Start the derivative product at h=1; end the h-th homogeneous variable block at X_h,n_h.",
+   "reason": "The blocks are numbered 1,…,m and the h-th block has n_h+1 variables. Both intended index sets are stated immediately before the misprints.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+    "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+    "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma, Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E219",
+   "kind": "error",
+   "locator": "§1 Remark, published p. 222 (physical p. 8), first paragraph; author p. 8. Published page visually checked.",
+   "printed": "k_hj ≤ i_hj",
+   "correction": "Replace the coordinatewise affine derivative bound by Σ_{j≥1}k_hj≤Σ_{j≥0}i_hj separately in each block. The triangular Hasse-jet formula in this checkpoint proves this sufficient total-order bound on the chart X_h0=1. In characteristic zero, ordinary derivatives have the same vanishing orders because their factorial factors are nonzero.",
+   "reason": "Take one block, F=X₁²−X₀X₁, f(y)=y²−y, homogeneous order i=(1,0), and point (X₀,X₁)=(1,1). Then ∂F/∂X₀=−1 at the point, whereas the printed bound permits only k=0 and f(1)=0. Coefficients with denominators powers of X₀ are regular at this point and cannot fix the contradiction. The corrected block-total bound permits the needed first affine derivative and proves equality of the indices.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+    "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+    "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma, Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E220",
+   "kind": "misprint",
+   "locator": "Corollary, published pp. 219–220 (physical pp. 5–6); author p. 6.",
+   "printed": "0 ≤ ε ≤ M + 1",
+   "correction": "Require 0<ε≤M+1.",
+   "reason": "The hypotheses and conclusions contain division by ε, and the proof applies Theorems 1 and 2 with ε′=ε/(M+1)>0. With the corrected strict index convention Z₀ is the whole product, so the proper-product conclusion is not an ε=0 statement. The printed division at ε=0 is undefined; this is not a counterexample satisfying a defined zero-parameter premise.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+    "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+    "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma, Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E221",
+   "kind": "misprint",
+   "locator": "§5, proof of Lemma 11, published p. 245 (physical p. 31), first displayed dimension chain proving (5.2); author p. 30.",
+   "printed": "dim π_{ {1}∪i}(Z′) − 1",
+   "correction": "Replace Z′ by Z in this term.",
+   "reason": "Rank-nullity on T gives dim T−dim V_{ {1}∪i}=dim π_{ {1}∪i}(Z). For Z=(ℙ¹)², Z′={Q}×ℙ¹ and i={2}, the printed intermediate equality reads 1=1−1; the corrected one reads 1=2−1. The asserted conclusion (5.2) is unchanged.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+    "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+    "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma, Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E222",
+   "kind": "misprint",
+   "locator": "§5, proof of Theorem 3, published pp. 245–246 (physical pp. 31–32); author pp. 31–32. Published p. 246 visually checked.",
+   "printed": "d_h/d_{h+1} > 2m³/ε; (m(m+1)/ε)^s",
+   "correction": "Use the weak ratio bound ≥ stated in (1.11). In the numerical contradiction retain the factor s in (ms/ε′)^s, or bound it by (m²(m+1)/ε)^s using s≤m and ε′=ε/(m+1).",
+   "reason": "The dropped factor is not supplied by ε′=ε/(m+1). Under the stated weak ratio hypothesis the corrected upper bound is (m²(m+1)/ε)^s(2m³/ε)^{−s}=((m+1)/(2m))^s<1 for m≥2 and s≥1. Since 2m³/ε>1 and Ση_i≥s, the ratio-product estimate still gives the contradiction. The theorem’s strict height premise (1.12) is unchanged; this correction does not by itself prove the ≥ height boundary used in Evertse 1996.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+    "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+    "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma, Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E223",
+   "kind": "misprint",
+   "locator": "Author copy p. 28 lower bound in proof of Theorem 2, and p. 33 reference [12]; compare published pp. 242 and 247 (physical pp. 28 and 33).",
+   "printed": "d_m^{n_m−δ_n}; Mathematika 2 (1995)",
+   "correction": "Use δ_m and the year 1955. Both are already correct in the published version.",
+   "reason": "The factors in the next line cancel only with δ_m; the published proof prints that index. The published reference [12] dates Roth’s paper 1955, agreeing with the historical discussion in §1. These are findings about the author copy, not about the version of record.",
+   "affects": "nothing",
+   "known": "Corrected in the published Acta Arithmetica 73 (1995), pp. 242 and 247.",
+   "searched": [
+    "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+    "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+    "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma, Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence/E224",
+   "kind": "misprint",
+   "locator": "Proof of Theorem 2, published p. 242 (physical p. 28), binomial coefficient bound preceding (4.12), visually checked; author p. 28.",
+   "printed": "2^{Σ_h Σ_{j=1}^{n_h} l_hj}",
+   "correction": "Start the inner sum at j=0. Then the product of all binomial coefficients is at most 2^{Σ_hΣ_{j=0}^{n_h}l_hj}=2^{d₁+⋯+d_m}.",
+   "reason": "With a single block, exponent (l₀,l₁)=(2,0) and derivative order (i₀,i₁)=(1,0), the product of binomial coefficients is 2, while the printed intermediate upper bound is 1. Including j=0 restores the standard binomial bound and leaves the final coefficient-height estimate (4.12) unchanged.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: compared the author’s 95-product.pdf with the published Acta Arithmetica PDF; both hashes and the exact read scope are recorded in sourceVersions and sources.",
+    "2026-09-27: checked https://pub.math.leidenuniv.nl/~evertsejh/publications.shtml and https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/73/3; no separate correction linked for this article.",
+    "2026-09-27: bounded web searches for Evertse, the exact article title, erratum, errata and correction; no matching correction found. This is not a claim that no correction exists."
+   ],
+   "owner": "DiophantineApproximationAndTranscendence",
+   "file": "research/blueprint/packets/DiophantineApproximationAndTranscendence.json",
+   "citation": "Jan-Hendrik Evertse, An explicit version of Faltings' Product Theorem and an improvement of Roth's lemma, Acta Arith. 73 (1995), 215–248, DOI 10.4064/aa-73-3-215-248; author copy and published PDF compared on 2026-09-27.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DirichletPadicLFunctions/E1",
    "kind": "misprint",
    "locator": "Proposition 4.4, last displayed equation of the proof: printed p. 137 / PDF 38; arXiv v2 p. 27.",
