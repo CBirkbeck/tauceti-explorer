@@ -25,14 +25,14 @@ The scalar action of B on B is through φ(f)=f(Y^p−1); the norm has the sign
 (−1)^(p−1) on Y and T. This wider algebraic statement does not extend the
 arithmetic interpolation or quotient theorems to p=2.
 
-The packet has **69 local nodes**: two definitions, seven constructions, 53 lemmas,
-five theorems and two comparisons. There are 44 nodes in L1 and 25 in L2. All remain implementation-unchecked; no layer is closed. In particular,
+The packet has **75 local nodes**: two definitions, seven constructions, 56 lemmas,
+five theorems and five comparisons. There are 50 nodes in L1 and 25 in L2. All remain implementation-unchecked; no layer is closed. In particular,
 the comparison with the smoothed series F has a concrete denominator-cleared
 hypothesis and does not construct a Coleman measure.
 
 The named Lean signatures use `TauCetiRoadmap.Campaign.ColemanPowerSeries`;
 names below are relative to it. All 48 API items, 33 definition/construction
-tests, 23 other node tests and two additional boundary controls have typed
+tests, 33 other node tests and two additional boundary controls have typed
 signatures/examples. The three finite-algebra adapter signatures select existing baseline
 constructions; all mathematical proofs and new data are placeholders. The suggested file is a specification, not a formalization.
 
@@ -121,7 +121,7 @@ matrix is [[0,Y_base],[1,0]], so its determinant is −Y_base. Subtracting the
 identity gives the matrix for T and determinant −T at p=2; at odd p both
 signs are positive. Trace is p times coordinate zero. A normalized trace
 therefore exists integrally and uniquely, but the bounded ψ operator and its
-operator is supplied by PMIA L2. Proving its comparison with the integral trace remains Coleman L1 work.
+operator is supplied by PMIA L2. Its comparison with the integral trace is supplied by Coleman L1/coleman-trace-psi below.
 
 The stable node prefix for this tranche is `ColemanPowerSeries:L1/`.
 Each declaration below uses the explicit B, Y, φ and prime-p convention above.
@@ -1632,9 +1632,8 @@ determinant argument. No new source finding is asserted.
 
 PMIA's merged integral averaging checkpoint now supplies exact root-translation,
 root-average, integral-descent and rational-root-average-descent nodes. Its generic
-coefficient and topology request is narrowed accordingly. The Coleman trace/ψ and
-determinant/product comparisons still require their own proofs; the norm-limit component
-does not silently complete them. The new planet “Norm-fixed limit” is the sixth L1 planet.
+coefficient and topology request is narrowed accordingly. The trace comparison below identifies the actual bounded ψ; the
+determinant/product comparison remains a separate obligation. The new planet “Norm-fixed limit” is the sixth L1 planet.
 
 ### Continuity of Frobenius coordinates
 
@@ -1904,7 +1903,7 @@ Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Coro
 
 ### ColemanPowerSeries:L1 — partial
 
-- Compare the actual integral trace with PMIA bounded ψ. PMIA now supplies precise integral root-translation, root-average and rational-descent nodes; use those rather than another bounded operator. The determinant/product comparison, the trace/ψ identification and norm/evaluation compatibility remain Coleman obligations; general coefficient extensions remain supplier work.
+- The integral trace/PMIA bounded-ψ comparison, zeroth Frobenius coordinate and embedded root-sum formula are supplied. Prove the determinant/root-product comparison and arithmetic norm/evaluation compatibility using the existing PMIA root translations; general coefficient extensions remain supplier work.
 - The four RJW Lemma10.11 congruences, inverse-coordinate/norm/trace continuity, and the norm-fixed invertible limit with uniform precision and continuity are supplied. Prove the arithmetic norm/evaluation compatibility and the actual finite-level lifts before using this limit in tower interpolation. The series construction does not itself supply an arithmetic interpolation map.
 - Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only.
 
@@ -1912,7 +1911,7 @@ Source: CS-2006, Corollary 2.3.4 and its proof, printed p.19 / PDF29, using Coro
 
 - Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower.
 - The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative.
-- Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; generic clopen-subtype comparison is requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain still depends on its explicit generic root-average gap. Import these nodes; pseudomeasure normalization and the Coleman normalized-trace comparison remain required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint.
+- Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; generic clopen-subtype comparison is requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain now imports the exact generic root-average and rational-descent supplier nodes. Import these nodes; the Coleman normalized-trace comparison is now supplied, while pseudomeasure normalization and logarithmic-derivative/norm compatibility remain required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint.
 - Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures.
 
 ### ColemanPowerSeries:L3 — partial
@@ -2026,9 +2025,9 @@ changing the inherited denominator dependencies or declaring L2 closed.
 
 ## Norm-limit validation
 
-The full suggested file elaborates with zero errors and 147 proof-placeholder warnings.
-It contains 58 typed examples. All 2,252 imported Mathlib source modules were byte-checked
-against the pin. The compactness argument uses an explicit specialization of the native
+The preceding norm-limit seed elaborated with zero errors and 147 proof-placeholder warnings.
+It contained 58 typed examples, using 2,252 pinned Mathlib source modules. The current
+combined validation is recorded in the trace-comparison section below. The compactness argument uses an explicit specialization of the native
 product compactness instance to the underlying coefficient function type; ordinary instance
 inference alone does not expose this through the power-series definition.
 
@@ -2046,7 +2045,197 @@ p in the zero-iterate error bound. Nonunit constants converge toward zero in the
 approximations and are excluded from the unit-valued conclusion. The controls do not prove
 infinite convergence or continuity.
 
-Continue with the normalized trace/ψ and determinant/root-product comparisons, arithmetic
+Continue with the determinant/root-product comparison, arithmetic
 norm/evaluation compatibility, actual finite-level lifts and interpolation. The series limit
 does not identify a norm-compatible field-unit tower. All six gaps and twelve requests remain
 explicit, and no stage is closed.
+
+The Dirichlet supplier was refreshed at main 797977d5a6a116d94aca5543f14d411cf3215d1b. Its six changed inherited L1 records retain their mathematical statements and now use exact PMIA averaging suppliers. The obsolete averaging-gap wording in the L2 continuation and Dirichlet request is removed. Its new positive Eisenstein coefficient nodes are outside this comparison.
+
+## The integral trace and bounded psi
+
+The source writes the finite-free trace with values in the subring φ(B), then
+applies φ inverse and divides by p. The existing scalar-algebra trace already
+has the ordinary base B as its codomain. Its comparison is therefore τ(F)=pψ(F).
+After embedding into the extension ring it becomes φτ(F)=pφψ(F). These are
+different formulas, and the suggested tests distinguish them on Y^p.
+
+No division by a nonunit is introduced in the integral ring. The coordinate
+formula τ(F)=pc₀(F), combined with the comparison and cancellation of the nonzero
+element p, identifies the existing zeroth coordinate with the existing bounded ψ.
+The two independently constructed operators are compared by their polynomial
+values and continuity. The trace’s scalar law is promoted from its existing API
+to a lemma node because the polynomial comparison uses it as a prerequisite.
+
+The power calculation writes n=pq+r, expresses Y^n as φ(Y^q)Y^r, and reads the
+zeroth coordinate in the existing basis. For ψ the natural-power projector and
+left-inverse theorems are exact PMIA imports. Translation by 1 in the polynomial
+ring gives spanning by powers of Y. The pinned polynomial density theorem then
+extends the equality to every integral series. This uses the coefficientwise
+p-adic topology; it asserts no continuity for the supremum coefficient norm.
+
+The root-sum statement is a consumer comparison with the exact PMIA root-average
+node. It uses its actual coefficient embedding into the valuation integer ring
+of ℂ_p and its continuous integral root translations. The root substitutions are
+not asserted to be automorphisms of ℤ_p[[T]]. The already recorded source finding
+about their ambient ring is preserved.
+
+The statements include p=2 by this algebraic argument. Arithmetic interpolation,
+the determinant/root-product formula and logarithmic-derivative/norm compatibility
+remain in the continuation boundary. No new layer is closed.
+
+### Trace and Frobenius scalars
+
+`ColemanPowerSeries:L1/coleman-trace-frobenius-scalars` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_phi_mul` (lemma).
+
+For every a,F∈B, τ(φ(a)F)=aτ(F). This promotes the existing trace compatibility API to a prerequisite declaration.
+
+Hypotheses: p is any prime, including 2. Z=ℤ_p, B=Z[[T]], Y=1+T and φ(F)=F(Y^p−1). B carries the coefficientwise p-adic topology. The existing phiScalarAlgebra uses φ for its scalar map; τ=colemanTrace is its Algebra.trace with values in the base B, and c_i(F) are the existing phiBasis coordinates. ψ is the actual PMIA AbstractMeasure.psiSeries, transported from the bounded integral measure operator by the pinned Amice equivalence. Its continuity and left-inverse formula are imported from PMIA. No normalized-trace definition of ψ, division by p inside B, or additional coefficient Frobenius is assumed.
+
+Proof outline:
+
+1. Unfold the existing trace construction to Algebra.trace for the explicitly chosen Frobenius scalar algebra.
+2. Apply the scalar-map law of this B-linear map. Its source scalar action is φ(a)F, while its target scalar action is ordinary multiplication aτ(F). This is the existing linear-map law, not an extra property of ψ.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-integral-trace`, `ColemanPowerSeries:L1/frobenius-scalar-algebra`, `mathlib:Algebra.trace`.
+
+Acceptance: With a=Y and F=1, the identity gives τ(Y^p)=pY. Constants a=C(z) give the Z-linearity needed for the polynomial comparison. The suggested signature already exists in the inherited trace API and is reused.
+
+Sources:
+
+- RJW, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+
+### Trace on natural powers of one plus T
+
+`ColemanPowerSeries:L1/coleman-trace-natural-powers` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_one_add_X_pow` (lemma).
+
+For every n∈ℕ, τ(Y^n)=p·Y^(n/p) if p divides n, and τ(Y^n)=0 otherwise; n/p is natural quotient.
+
+Hypotheses: p is any prime, including 2. Z=ℤ_p, B=Z[[T]], Y=1+T and φ(F)=F(Y^p−1). B carries the coefficientwise p-adic topology. The existing phiScalarAlgebra uses φ for its scalar map; τ=colemanTrace is its Algebra.trace with values in the base B, and c_i(F) are the existing phiBasis coordinates. ψ is the actual PMIA AbstractMeasure.psiSeries, transported from the bounded integral measure operator by the pinned Amice equivalence. Its continuity and left-inverse formula are imported from PMIA. No normalized-trace definition of ψ, division by p inside B, or additional coefficient Frobenius is assumed.
+
+Proof outline:
+
+1. Write n=pq+r with 0≤r<p. The formal substitution homomorphism fixes constants and sends Y to Y^p, so Y^n=φ(Y^q)Y^r.
+2. Use the Frobenius basis values and the scalar action to identify its coordinate vector as Y^q times the r-th coordinate vector. Basis.repr_self_apply computes the zeroth coordinate.
+3. Apply coleman-trace-coordinates. The zeroth coordinate is Y^q exactly when r=0, equivalently p divides n, and zero otherwise. This is a finite calculation in the existing scalar algebra.
+
+Prerequisites: `ColemanPowerSeries:L1/frobenius-scalar-algebra`, `ColemanPowerSeries:L1/frobenius-basis-values`, `ColemanPowerSeries:L1/coleman-trace-coordinates`, `mathlib:Module.Basis.repr_self_apply`, `mathlib:PowerSeries.substAlgHom`.
+
+Tests:
+
+- `TraceComparisonTests.cube_three` (computation): For p=3, τ((1+T)³)=3(1+T).
+- `TraceComparisonTests.square_two` (computation): For p=2, τ((1+T)²)=2(1+T).
+
+Acceptance: The n=0 value is p. For p=2, τ(Y²)=2Y; for p=3, τ(Y³)=3Y. The output exponent is n/p, not n.
+
+Sources:
+
+- RJW, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+
+### Trace and bounded psi on polynomials
+
+`ColemanPowerSeries:L1/coleman-trace-psi-polynomials` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_eq_mul_psi_polynomial` (lemma).
+
+For every polynomial P∈Z[T], τ(P)=p·ψ(P), where both occurrences of P use the existing polynomial-to-power-series map.
+
+Hypotheses: p is any prime, including 2. Z=ℤ_p, B=Z[[T]], Y=1+T and φ(F)=F(Y^p−1). B carries the coefficientwise p-adic topology. The existing phiScalarAlgebra uses φ for its scalar map; τ=colemanTrace is its Algebra.trace with values in the base B, and c_i(F) are the existing phiBasis coordinates. ψ is the actual PMIA AbstractMeasure.psiSeries, transported from the bounded integral measure operator by the pinned Amice equivalence. Its continuity and left-inverse formula are imported from PMIA. No normalized-trace definition of ψ, division by p inside B, or additional coefficient Frobenius is assumed.
+
+Proof outline:
+
+1. First compare on Y^n. PMIA phi-psi-natural-powers gives φψ(Y^n). If n=pq, φ(Y^q)=Y^n; applying ψ and its left-inverse identity gives ψ(Y^n)=Y^q. If p does not divide n, applying ψ gives zero. Compare with coleman-trace-natural-powers. No new generic psi-on-powers node is introduced here.
+2. The trace is Z-linear: its existing φ-semilinearity applied to the constant series C(a), together with φ(C(a))=C(a), gives τ(aF)=aτ(F). Psi is already a Z-linear map. Multiplication by p is Z-linear.
+3. Use the surjective pinned Polynomial.taylorEquiv at 1 to write P as a polynomial in Y. Polynomial.induction_on' and taylor_monomial reduce the equality to the preceding powers and scalar compatibility. PowerSeries.smul_eq_C_mul identifies the coefficient action.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-trace-natural-powers`, `ColemanPowerSeries:L1/coleman-trace-frobenius-scalars`, `ColemanPowerSeries:L1/frobenius-scalar-algebra`, `PadicMeasuresIwasawaAlgebras:L2/psi-series`, `PadicMeasuresIwasawaAlgebras:L2/phi-psi-natural-powers`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-phi`, `mathlib:Polynomial.taylorEquiv`, `mathlib:Polynomial.taylor_monomial`, `mathlib:Polynomial.induction_on'`, `mathlib:PowerSeries.smul_eq_C_mul`, `mathlib:Polynomial.toPowerSeries`.
+
+Acceptance: For p=2, τ(T)=−2 while ψ(T)=−1; the formula also includes the zero polynomial.
+
+Sources:
+
+- RJW, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+
+### Integral trace and bounded psi
+
+`ColemanPowerSeries:L1/coleman-trace-psi` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_eq_mul_psi` (comparison).
+
+For every F∈B, colemanTrace(F)=p·AbstractMeasure.psiSeries(F) in the base B. This compares the existing finite-free Algebra.trace with the independently constructed bounded integral operator.
+
+Hypotheses: p is any prime, including 2. Z=ℤ_p, B=Z[[T]], Y=1+T and φ(F)=F(Y^p−1). B carries the coefficientwise p-adic topology. The existing phiScalarAlgebra uses φ for its scalar map; τ=colemanTrace is its Algebra.trace with values in the base B, and c_i(F) are the existing phiBasis coordinates. ψ is the actual PMIA AbstractMeasure.psiSeries, transported from the bounded integral measure operator by the pinned Amice equivalence. Its continuity and left-inverse formula are imported from PMIA. No normalized-trace definition of ψ, division by p inside B, or additional coefficient Frobenius is assumed.
+
+Proof outline:
+
+1. The existing Coleman trace is coefficientwise continuous. The existing PMIA psi-series-continuous theorem and multiplication by the constant p make the right side continuous.
+2. The maps agree on polynomial series by coleman-trace-psi-polynomials. The pinned polynomial inclusion has dense range and B is Hausdorff for the coefficientwise p-adic topology.
+3. Apply DenseRange.equalizer to those two actual functions. No continuity for a coefficient supremum norm is needed; no field-valued formal-series inverse or root translation in Z[[T]] is asserted.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-trace-psi-polynomials`, `ColemanPowerSeries:L1/coleman-trace-continuous`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-continuous`, `mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries`, `mathlib:DenseRange.equalizer`.
+
+Tests:
+
+- `TraceComparisonTests.zero_three` (degenerate): For p=3, τ(0)=3ψ(0).
+- `TraceComparisonTests.one_three` (computation): For p=3, τ(1)=3 and ψ(1)=1.
+- `TraceComparisonTests.variable_two` (computation): For p=2, τ(T)=−2 and ψ(T)=−1.
+- `TraceComparisonTests.no_extra_frobenius_three` (non-example): For p=3, τ((1+T)³) is not 3(1+T)³.
+- `TraceComparisonTests.no_missing_prime_three` (non-example): For p=3, τ(1) is not ψ(1).
+
+Acceptance: For p=3, τ(1)=3 and ψ(1)=1 reject a missing factor p. At F=Y³, τ(F)=3Y differs from 3Y³ and rejects an extra Frobenius. The theorem includes p=2.
+
+Sources:
+
+- RJW, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+
+### The zeroth Frobenius coordinate is psi
+
+`ColemanPowerSeries:L1/frobenius-zeroth-coordinate-psi` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.phiBasis_repr_zero_eq_psi` (comparison).
+
+For every F∈B, the zeroth coordinate in the actual Frobenius basis equals the bounded operator: c₀(F)=AbstractMeasure.psiSeries(F).
+
+Hypotheses: p is any prime, including 2. Z=ℤ_p, B=Z[[T]], Y=1+T and φ(F)=F(Y^p−1). B carries the coefficientwise p-adic topology. The existing phiScalarAlgebra uses φ for its scalar map; τ=colemanTrace is its Algebra.trace with values in the base B, and c_i(F) are the existing phiBasis coordinates. ψ is the actual PMIA AbstractMeasure.psiSeries, transported from the bounded integral measure operator by the pinned Amice equivalence. Its continuity and left-inverse formula are imported from PMIA. No normalized-trace definition of ψ, division by p inside B, or additional coefficient Frobenius is assumed.
+
+Proof outline:
+
+1. Combine coleman-trace-coordinates with coleman-trace-psi to obtain p·c₀(F)=p·ψ(F).
+2. B is a characteristic-zero integral domain, so the natural prime p is nonzero and multiplication by p is injective. Cancel p. This is cancellation of a nonzero element, not inversion of p in the integral ring.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-trace-coordinates`, `ColemanPowerSeries:L1/coleman-trace-psi`.
+
+Tests:
+
+- `TraceComparisonTests.coordinate_three` (compatibility): For p=3, the zeroth coordinate of (1+T)³ in phiBasis is 1+T.
+
+Acceptance: For p=3, c₀(Y³)=Y, while for 0<i<p the zeroth coordinate of Y^i is zero. Together with the existing divisibility theorem, this specifies the unique integral normalized trace.
+
+Sources:
+
+- RJW, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+
+### The embedded trace as a root sum
+
+`ColemanPowerSeries:L1/coleman-trace-root-sum` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanTrace_root_sum` (comparison).
+
+Let O be the existing valuation integer ring of ℂ_p, j:Z→O the existing PMIA integralCoefficientMap, and ζ∈O primitive of order p. For every F∈B, map(j,φ(colemanTrace(F)))=Σ_{i<p}rootTranslation(ζ,i,F) in O[[T]], using the actual PMIA integral root translations.
+
+Hypotheses: p is any prime, including 2. Z=ℤ_p, B=Z[[T]], Y=1+T and φ(F)=F(Y^p−1). B carries the coefficientwise p-adic topology. The existing phiScalarAlgebra uses φ for its scalar map; τ=colemanTrace is its Algebra.trace with values in the base B, and c_i(F) are the existing phiBasis coordinates. ψ is the actual PMIA AbstractMeasure.psiSeries, transported from the bounded integral measure operator by the pinned Amice equivalence. Its continuity and left-inverse formula are imported from PMIA. No normalized-trace definition of ψ, division by p inside B, or additional coefficient Frobenius is assumed. O carries its inherited p-adic topology. Root translations are the existing topological integral-series evaluations from PMIA; roots need not lie in ℤ_p.
+
+Proof outline:
+
+1. Substitute the integral comparison τ(F)=pψ(F). Formal Frobenius substitution and coefficient mapping preserve multiplication and the natural constant p.
+2. The left side becomes p·map(j,φψ(F)), which equals the displayed root sum by the exact PMIA root-average theorem.
+3. The translated inputs are evaluated in the existing receiving integer ring, not treated as automorphisms of Z[[T]]. No new root-averaging theorem or coefficient-extension construction is planned.
+
+Prerequisites: `ColemanPowerSeries:L1/coleman-trace-psi`, `PadicMeasuresIwasawaAlgebras:L2/root-average`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map`, `mathlib:PowerSeries.substAlgHom`.
+
+Tests:
+
+- `TraceComparisonTests.root_sum_one` (computation): For any prime p and primitive ζ∈O of order p, the root sum of 1 is p.
+- `TraceComparisonTests.root_sum_phi` (compatibility): For any prime p and primitive ζ∈O of order p, the root sum of (1+T)^p is p(1+T)^p.
+
+Acceptance: At F=1 the root sum is p. At F=Y^p it is pY^p; this is the embedded trace, whereas the base-valued trace is pY.
+
+Sources:
+
+- RJW, Sentence immediately following Lemma 10.8, printed p.167 / PDF68, compared with §3.5.5 equation (3-9), printed pp.128–129; arXiv v2 §3.5.5 PDF21. Worker decomposition of the source’s normalized-trace comparison. The paper writes the trace into the embedded subring φ(B) and applies φ inverse. The existing Coleman trace is already base-valued, so its integral comparison is τ=pψ. Polynomial values and coefficientwise continuity prove the comparison with the independently constructed bounded operator. The dyadic case is proved algebraically; no odd-prime arithmetic theorem is extended by assertion.
+
+The current packet contains 75 unchecked nodes, 48 API items, 66 packet tests (33 for definitions and constructions), 68 typed examples, 8 planets and 83 baseline references. All six gaps, twelve requests and eleven source findings are retained; no stage is closed.
+
+The current combined seed compiles with zero errors and 162 expected proof-placeholder warnings; the actual PMIA supplier compiles with 255 placeholder warnings. The reached source graph has 2,752 pinned Mathlib modules plus the actual supplier seed. A separate complete two-lemma polynomial-density proof has zero errors, warnings or placeholders. Exact integer and cyclotomic-quotient computations pass 3,030 assertions for p=2,3,5,7 and sixteen negative controls. The finite calculations test the normalization and polynomial comparisons; they do not prove the infinite continuity argument.
