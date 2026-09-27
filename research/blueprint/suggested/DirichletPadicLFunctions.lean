@@ -2511,3 +2511,108 @@ example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : �
     ‖tameZetaMeasure η hD hpD (1 : C(ℤ_[2],ℚ_[2]))‖ ≤ 1 := by sorry
 end
 end SuggestedTameZetaTests
+
+/-! Integral tame zeta on the native norm-valuation integer ring.
+Only the final Amice comparison needs a separately displayed compatible O-action.
+Positive-value integrality retains the explicit coefficient-field moment request. -/
+namespace DirichletPadic
+noncomputable section
+section IntegralTameZeta
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+
+def integralTameZetaMeasure (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) : D(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K)))) :=
+  AbstractMeasure.weight (⟨fun x : ℤ_[p] => ⟨algebraMap ℤ_[p] K (PadicInt.inv x), by sorry⟩, by sorry⟩ : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K)))))
+    (AbstractMeasure.unitRestriction p (Valuation.integer (NormedField.valuation (K := K))) (integralTameMeasure η hD hpD))
+
+theorem integralTameZetaMeasure_apply (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) :
+    integralTameZetaMeasure η hD hpD f =
+      AbstractMeasure.unitRestriction p (Valuation.integer (NormedField.valuation (K := K))) (integralTameMeasure η hD hpD) ((⟨fun x : ℤ_[p] => ⟨algebraMap ℤ_[p] K (PadicInt.inv x), by sorry⟩, by sorry⟩ : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) * f) := by sorry
+
+theorem integralTameZetaMeasure_one_level (η : DirichletCharacter K 1)
+    (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p ∣ 1) :
+    integralTameZetaMeasure η hD hpD = 0 := by sorry
+
+theorem coe_integralTameZetaMeasure_apply (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) :
+    (integralTameZetaMeasure η hD hpD f : K) = tameZetaMeasure η hD hpD ((⟨Subtype.val, continuous_subtype_val⟩ : C((Valuation.integer (NormedField.valuation (K := K))),K)).comp f) := by sorry
+
+theorem integralTameZetaMeasure_bound (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) :
+    ‖integralTameZetaMeasure η hD hpD f‖ ≤ ‖f‖ := by sorry
+
+theorem unitRestriction_integralTameZetaMeasure (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.unitRestriction p (Valuation.integer (NormedField.valuation (K := K))) (integralTameZetaMeasure η hD hpD) =
+      integralTameZetaMeasure η hD hpD := by sorry
+
+theorem psiMeasure_integralTameZetaMeasure (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    AbstractMeasure.psiMeasure p (Valuation.integer (NormedField.valuation (K := K))) (integralTameZetaMeasure η hD hpD) = 0 := by sorry
+
+theorem integralTameZetaMeasure_unique (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (ν : D(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K)))))
+    (hν : ∀ f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K)))), (ν f : K) = tameZetaMeasure η hD hpD ((⟨Subtype.val, continuous_subtype_val⟩ : C((Valuation.integer (NormedField.valuation (K := K))),K)).comp f)) :
+    ν = integralTameZetaMeasure η hD hpD := by sorry
+
+section Values
+variable [CharZero K] [Algebra ℚ K]
+theorem tameZetaValue_mem_integer (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1) (k : ℕ) (hk : 1 ≤ k) :
+    (1-η (p : ZMod D)*(p : K)^(k-1)) *
+      (-(D : K)^(k-1)/k * ∑ a : ZMod D,
+        η a * algebraMap ℚ K ((Polynomial.bernoulli k).eval (a.val/D : ℚ))) ∈ (Valuation.integer (NormedField.valuation (K := K))) := by sorry
+
+theorem coe_integralTameZetaMeasure_moment (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1) (k : ℕ) (hk : 1 ≤ k)
+    (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) (hf : ∀ x, (f x : K) = (algebraMap ℤ_[p] K x)^k) :
+    (integralTameZetaMeasure η hD hpD f : K) =
+      (1-η (p : ZMod D)*(p : K)^(k-1)) *
+        (-(D : K)^(k-1)/k * ∑ a : ZMod D,
+          η a * algebraMap ℚ K ((Polynomial.bernoulli k).eval (a.val/D : ℚ))) := by sorry
+end Values
+
+variable [Algebra ℤ_[p] (Valuation.integer (NormedField.valuation (K := K)))] [ContinuousSMul ℤ_[p] (Valuation.integer (NormedField.valuation (K := K)))] [IsScalarTower ℤ_[p] (Valuation.integer (NormedField.valuation (K := K))) K]
+theorem map_amiceTransform_integralTameZetaMeasure (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype (integralTameZetaMeasure η hD hpD).amiceTransform =
+      (tameZetaMeasure η hD hpD).amiceTransform := by sorry
+end IntegralTameZeta
+end
+end DirichletPadic
+
+namespace SuggestedIntegralTameZetaTests
+open DirichletPadic
+noncomputable section
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- modulus_one
+example (η : DirichletCharacter ℚ_[2] 1) (hD : IsUnit (1 : ℚ_[2])) (hpD : ¬2 ∣ 1) :
+    integralTameZetaMeasure η hD hpD = 0 := by sorry
+-- mass_inclusion
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    (integralTameZetaMeasure η hD hpD (1 : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) : ℚ_[2]) =
+      tameZetaMeasure η hD hpD (1 : C(ℤ_[2],ℚ_[2])) := by sorry
+-- first_integral_value
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (f : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) (hf : ∀ x, (f x : ℚ_[2]) = x) :
+    (integralTameZetaMeasure η hD hpD f : ℚ_[2]) = 2/3 := by sorry
+-- wild_scalar
+example : (1/3 : ℚ_[3]) ∉ Valuation.integer (NormedField.valuation (K := ℚ_[3])) := by sorry
+-- mass_bound
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    ‖integralTameZetaMeasure η hD hpD (1 : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2])))))‖ ≤ 1 := by sorry
+-- integral_psi_zero
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.psiMeasure 2 (Valuation.integer (NormedField.valuation (K := ℚ_[2]))) (integralTameZetaMeasure η hD hpD) = 0 := by sorry
+-- third_value_integral
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (f : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) (hf : ∀ x, (f x : ℚ_[2]) = (x : ℚ_[2])^3) :
+    (integralTameZetaMeasure η hD hpD f : ℚ_[2]) = -10/9 ∧ (-10/9 : ℚ_[2]) ∈ (Valuation.integer (NormedField.valuation (K := ℚ_[2]))) := by sorry
+-- p_divides_weight
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) (f : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) (hf : ∀ x, (f x : ℚ_[2]) = (x : ℚ_[2])^2) :
+    integralTameZetaMeasure η hD hpD f = 0 := by sorry
+variable [Algebra ℤ_[2] (Valuation.integer (NormedField.valuation (K := ℚ_[2])))] [ContinuousSMul ℤ_[2] (Valuation.integer (NormedField.valuation (K := ℚ_[2])))] [IsScalarTower ℤ_[2] (Valuation.integer (NormedField.valuation (K := ℚ_[2]))) ℚ_[2]]
+-- amice_constant
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    ((coeff 0 (integralTameZetaMeasure η hD hpD).amiceTransform : (Valuation.integer (NormedField.valuation (K := ℚ_[2])))) : ℚ_[2]) =
+      coeff 0 (tameZetaMeasure η hD hpD).amiceTransform := by sorry
+end
+end SuggestedIntegralTameZetaTests
