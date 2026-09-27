@@ -131919,6 +131919,50 @@
    "reviewReason": null
   },
   {
+   "id": "DirichletPadicLFunctions/E14",
+   "kind": "misprint",
+   "locator": "Proof of Theorem5.20, first integral in its second displayed calculation, published148/PDF49; arXiv v2PDF35.",
+   "printed": "χ(x)⟨x⟩^(k−1)·μ_η",
+   "correction": "Insert ω⁻¹ in this integrand: χω⁻¹(x)⟨x⟩^(k−1)·μ_η. This is the integrand in the immediately preceding pointwise identity and in equation(5-7) at s=1−k.",
+   "reason": "Since x=ω(x)⟨x⟩, χω⁻ᵏ(x)x^(k−1)=χω⁻¹(x)⟨x⟩^(k−1), not the printed integrand. For odd p at x=−1 with χ principal and k=1, the printed multiplier is1 whereas the required multiplier is−1. At p=3 with quadratic η modulo4, the printed integral is the unit mass1; the corrected odd multiplier has integral0 because μ_η is even. The theorem’s stated interpolation formula keeps its normalization.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September2026: complete published147–150/PDF48–51 and arXiv v2PDF35–37 read and collated. Published148/149 and v2 35/36 page images inspected. Both stored edition digests match sourceVersions; the indicated text is present in both.",
+    "Current arXiv abstract https://arxiv.org/abs/2309.15692 lists v2 of19 December2024 as latest. Authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the preprint and journal, with no separate correction shown at those entries.",
+    "The journal article-page request failed in the current web tool; the hash-verified publication itself was available. Bounded title/identifier+5.20+correction/errata and author+errata searches found no correcting notice; unrelated results were discarded. This is not an exhaustive absence or priority claim, and no authors were contacted.",
+    "The63 relevant source-register locators and Dirichlet/PMIA/Coleman packet findings were screened. The distinct modD/modN misprint in the next proof is already ColemanIntegration/E20 and is credited without adding a duplicate local record."
+   ],
+   "owner": "DirichletPadicLFunctions",
+   "file": "research/blueprint/packets/DirichletPadicLFunctions.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "DirichletPadicLFunctions/E15",
+   "kind": "error",
+   "locator": "Opening of §6, displayed positive-character interpolation formula before the question about k=0, published148/PDF49; arXiv v2PDF35.",
+   "printed": "∫χ(x)xᵏ·ζ_η=L(θ,1−k)",
+   "correction": "Include (1−θ(p)p^(k−1)) on the right at the primitive conductor, or explicitly restrict this display to n≥1 so θ(p)=0. For n=0 the displayed factor cannot generally be omitted.",
+   "reason": "The decomposition allows the trivial p-power character, of conductor1. Take p=3, η the primitive quadratic character modulo4, χ principal at level1 and k=1. The already normalized finite Bernoulli formula gives L(η,0)=1/2 and η(3)=−1. The unit restriction gives ζ_η(x)= (1−η(3))L(η,0)=1, whereas the printed right side is1/2. The same source correctly includes the Euler factor in its preceding interpolation and in Theorem6.1; the defect is this displayed restatement.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "27 September2026: complete published147–150/PDF48–51 and arXiv v2PDF35–37 read and collated. Published148/149 and v2 35/36 page images inspected. Both stored edition digests match sourceVersions; the indicated text is present in both.",
+    "Current arXiv abstract https://arxiv.org/abs/2309.15692 lists v2 of19 December2024 as latest. Authors’ article entries at https://sites.google.com/site/joaquinrj/home and https://chriswilliams1404.wixsite.com/website/publications-preprints link the preprint and journal, with no separate correction shown at those entries.",
+    "The journal article-page request failed in the current web tool; the hash-verified publication itself was available. Bounded title/identifier+5.20+correction/errata and author+errata searches found no correcting notice; unrelated results were discarded. This is not an exhaustive absence or priority claim, and no authors were contacted.",
+    "The63 relevant source-register locators and Dirichlet/PMIA/Coleman packet findings were screened. The distinct modD/modN misprint in the next proof is already ColemanIntegration/E20 and is credited without adding a duplicate local record."
+   ],
+   "owner": "DirichletPadicLFunctions",
+   "file": "research/blueprint/packets/DirichletPadicLFunctions.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DrinfeldModulesAndTModules/E-DM8-1",
    "kind": "misprint",
    "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16",
