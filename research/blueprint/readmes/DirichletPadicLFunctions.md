@@ -1,4 +1,4 @@
-**Current packet:** 231 unchecked nodes: 1 definition, 25 constructions, 111 lemmas, 64 theorems and 30 comparisons. 242 API entries,237 packet tests (132 on definitions/constructions),240 typed examples,23 planets and298 baseline references. Five gaps,one L1 request,15 findings and zero closed stages remain. The final section records tame parity; earlier checkpoint narratives and validation are historical.
+**Current packet:** 242 unchecked nodes: 1 definition, 26 constructions, 113 lemmas, 70 theorems and 32 comparisons. 251 API entries, 253 packet tests (137 on definitions/constructions), 256 typed examples, 23 planets and 303 baseline references. Five gaps, one L1 request, 15 findings and zero closed stages remain. The final section records the complex tame kernel; earlier checkpoint narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -8103,17 +8103,318 @@ The adjacent modulus typo is already recorded as `ColemanIntegration/E20`; its f
 
 **Remaining:** Reflection of the actual tame kernel and inverse-weighted zeta, native finite-character and integral reflection, incompatible-parity test vanishing, odd-character mass vanishing and positive Euler–Bernoulli parity are now decomposed. Complete primitive-conductor/product Gauss comparisons through the existing modular-forms owner, analytic branches and the even-character logarithmic/degree0 values, full source extraction and the PMIA L1 actual completed-algebra comparison. Integral parity uses inclusion and cancellation in K, without integral division by2. The supplied unit-coordinate inverse does not yet provide the requested completed-algebra/topological identification.
 
-### Tame parity validation
 
-All224 predecessor nodes,293 baseline records,13 findings and sourceVersions are preserved whole. All231 node IDs remain in the reader. Eleven named declarations and12 typed examples are added. The indexed blueprint has zero errors and warnings; four-file intake, whitespace, scoped mutation, API/test parity and versioned source-issue checks pass. The graph has373 reachable nodes,1696 edges and398 native leaves, is acyclic and has only the PMIA L1 stage request leaf. Each of the seven new proof routes has no stage request leaf.
+## The complex tame kernel and its Mellin transform
 
-The full suggested module elaborates with zero errors and567 expected placeholder warnings against3595 pinned Mathlib modules,20 pinned Tau Ceti modules and one verified actual PMIA artifact. The full target uses the verified actual265-node PMIA artifact. The current294-node supplier preserves the old source in order; all twelve new unit-coordinate nodes and120 added Lean lines, including two imports, were read. No current-target declaration calls those new unit-coordinate functions. No local compile against the294-node supplier is claimed. The actual completed-group-algebra/topology request remains open. Source, olean and original compiler-log hashes were rechecked. Existing artifacts were reused; no Mathlib or Tau Ceti build, new Lake project or cache download was run.
+The real-variable kernel below uses the source orientation exp(+t) and a native divided difference to fill its removable value. Its Mellin comparison reuses the native Dirichlet L-function and the previously planned continuation theorem.
 
-Four complete native lemmas prove character reflection, the finite reflected atom sum using canonical residue representatives, cancellation for a continuous test whose reflection factor differs from the measure’s, and oddness of the native zero-extended p-adic integer inverse. These are local proofs; the actual tame-measure reflection and arithmetic parity statements remain unchecked blueprint declarations. The probe elaborates against1905 pinned Mathlib modules with zero errors, warnings or proof holes. Sixty-one finite character cases supply24 finite-atom reflections,2218 residue reflections,44 tame moment parity checks,488 character-value parity checks and2359 character-negation checks. The principal-modulo3 mass−1 prevents dropping nonprincipality. The matching dyadic second value−2 prevents asserting unconditional vanishing. These finite controls do not prove the general measure or analytic statements.
+### The smooth complex tame kernel
 
-Two source findings are added. E14 restores the dropped ω⁻¹ factor in the proof of Theorem5.20; at p=3, quadratic η modulo4, principal χ and k=1 the printed integral is1 while the corrected integral is0. E15 restores the Euler factor in the opening of section6 when n=0; in the same tame setting the first zeta moment is1 while the printed L-value is1/2. Both editions were collated and their page images checked. The distinct modulus typo is already ColemanIntegration/E20 and is credited without a duplicate local finding. No independent verdict is given.
+`DirichletPadicLFunctions:L2/tame-complex-kernel` — `DirichletPadic.tameComplexKernel` (construction).
 
-The current PMIA refresh preserves282 old nodes,289 baseline records and14 findings whole, with sourceVersions unchanged. The twelve new nodes, eight baseline additions, full120-line Lean addition and changed source/coverage/gap/check entries were read. The explicit unit-coordinate inverse does not close the completed-algebra request. Seven unrelated ClassicalAdicEtaleCohomology register additions and their full Markdown change were read; all prior register records remain whole and neither new finding overlaps. The publication guard atbfb332bc24062e7b2fd906d7ac0385c0243eb31f checks54 inputs, four predecessor outputs, unchanged issue text, the original winning claim and unclaimed review390.
+Define f(t)=−D⁻¹ β(Dt) Σ_a η(a) dslope(u↦exp(a.val·u),0,t), including each real divided difference in ℂ.
 
-Suggested SHA256: `4a0ceb5aa2a395355f2fe0ac3f89bd2e0433abf52668e46c7cac817bb077bd2d`.
-Native probe SHA256: `26b5d8c59d4492312ed27b27d1fab64fd9c6fe03d2e603fa8a95f63a4b34bfb4`.
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed.
+
+**Proof outline:**
+
+1. Use the existing native extended divided difference, which equals the derivative at its center. The formula is a finite sum in ℂ and gives a total function on ℝ. There is no division by t in the definition.
+2. At t=0, β(0)=1 and the divided difference of exp(a.val·u) equals a.val. Thus f(0)=−D⁻¹ Σ_a η(a)a.val. The modulus-one character gives the zero function; the principal character modulo 3 instead gives f(0)=−1.
+3. For t≠0, substitute β(Dt)=Dt/(exp(Dt)−1) and the slope formula. Both D and t are nonzero, and real exponential injectivity gives exp(Dt)≠1. Cancel to get Σ_a η(a)(exp(a.val·t)−1)/(1−exp(Dt)). If η≠1 its zero sum removes the subtracted constants.
+4. Native sub_smul_dslope also gives the global identity D·t·f(t)=−β(Dt) Σ_a η(a)(exp(a.val·t)−1), including t=0. The identity supplies origin derivatives without evaluating an infinite formal power series.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-kernel`, `DirichletPadicLFunctions:L0/smooth-bernoulli-zero`, `DirichletPadicLFunctions:L0/smooth-bernoulli-away`, `mathlib:dslope`, `mathlib:dslope_same`, `mathlib:dslope_of_ne`, `mathlib:sub_smul_dslope`, `mathlib:Real.hasDerivAt_exp`, `mathlib:MulChar.sum_eq_zero_of_ne_one`, `mathlib:Complex.ofRealCLM`.
+
+**Api:**
+
+- `DirichletPadic.tameComplexKernel_def` (characterisation): Expose the finite β/divided-difference expression.
+- `DirichletPadic.tameComplexKernel_zero` (simp): The value at zero is −D⁻¹Ση(a)a.val.
+- `DirichletPadic.tameComplexKernel_of_ne` (compatibility): Away from zero use the subtracted finite numerator and denominator 1−exp(Dt).
+- `DirichletPadic.tameComplexKernel_of_ne_one` (compatibility): Under nonprincipality, remove the constants from the finite numerator.
+- `DirichletPadic.tameComplexKernel_mul` (simp): For all t, Dtf(t)=−β(Dt)Ση(a)(exp(a.val·t)−1).
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.level_one_zero` (computation): The unique character modulo 1 gives the zero function.
+- `SuggestedTameComplexKernelTests.quadratic_origin` (computation): For the quadratic character modulo 3, f(0)=1/3.
+- `SuggestedTameComplexKernelTests.quadratic_log_two` (computation): For that character, f(log 2)=2/7.
+- `SuggestedTameComplexKernelTests.principal_origin` (non-example): The principal character modulo 3 has f(0)=−1; do not identify this subtracted kernel with its unsmoothed L-series kernel.
+- `SuggestedTameComplexKernelTests.quartic_orientation` (computation): For the quartic character modulo 5 with η(2)=i, f(0)=(3+i)/5, fixing the orientation of η rather than η⁻¹.
+
+**Uses:**
+
+- RJW Lemma 5.9 and the following tame interpolation argument: The value and derivatives at the removable point supply the same Bernoulli expressions as the actual tame-measure moments.
+- tame-complex-positive-series and tame-complex-mellin-comparison below: The finite quotient identifies the decaying exponential series and its normalized Mellin transform. No new L-function or Mellin carrier is introduced.
+
+**Acceptance:** The source orientation is exp(+t), not exp(−t). Principal characters are permitted in this subtracted constructor, but not in the ensuing Dirichlet-L comparison. Real divided differences must be explicitly typed as ℝ before inclusion into ℂ.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### Regularity across the tame removable point
+
+`DirichletPadicLFunctions:L2/tame-complex-regularity` — `DirichletPadic.tameComplexKernel_analyticAt` (theorem).
+
+For every real t, f is real analytic at t; in particular f is globally C∞ over ℝ.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed.
+
+**Proof outline:**
+
+1. For each canonical representative a, u↦exp(a.val·u) is real analytic. At zero, apply native HasFPowerSeriesAt.has_fpower_series_dslope_fslope to its local power series. Away from zero its divided difference is an analytic quotient with nonzero denominator.
+2. The existing β is real analytic everywhere, hence so is β(Dt). Include the real factors through the native continuous real-linear map ℝ→ℂ, multiply by the fixed complex coefficients, and take the finite sum. These operations preserve real analyticity.
+3. Apply native analytic-to-ContDiff on the whole real line. No nonprincipality or primitivity is needed for this regularity of the subtracted constructor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-kernel`, `DirichletPadicLFunctions:L0/smooth-bernoulli-analytic`, `mathlib:analyticAt_rexp`, `mathlib:AnalyticAt.comp`, `mathlib:HasFPowerSeriesAt.has_fpower_series_dslope_fslope`, `mathlib:AnalyticAt.div`, `mathlib:AnalyticOnNhd.contDiff`, `mathlib:Complex.ofRealCLM`.
+
+**Api:**
+
+- `DirichletPadic.tameComplexKernel_contDiff` (compatibility): The actual kernel is globally C∞ over ℝ.
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.analytic_at_zero` (boundary): Every character modulo 3, including the principal one, gives a kernel analytic at zero.
+
+**Acceptance:** Analyticity is in the real variable; no entire extension of f to the complex t-plane is asserted. The later entire function has Mellin variable s.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### Tame kernel derivatives and Bernoulli values
+
+`DirichletPadicLFunctions:L2/tame-complex-origin-derivatives` — `DirichletPadic.tameComplexKernel_iteratedDeriv_zero` (theorem).
+
+For every k≥0, f^(k)(0)=b_(η,k), and the same holds for the derivative within [0,∞).
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed. Assume η≠1. Then D≠1, η(0)=0, and the finite sum of η over ZMod D is zero. Primitivity is not required. Character values use the displayed modulus and canonical representatives. b_(η,k)=−D^k/(k+1) Σ_(a:ZMod D)η(a)·algebraMap ℚ ℂ(B_(k+1)(a.val/D)), with native ordinary Bernoulli polynomials (B₁=X−1/2).
+
+**Proof outline:**
+
+1. Differentiate the constructor’s global identity Dtf(t)=−β(Dt)Ση(a)(exp(a.val·t)−1) exactly k+1 times at zero. Native higher Leibniz leaves D(k+1)f^(k)(0) on the left. Smoothness justifies every product and finite-sum differentiation.
+2. The jth derivative of β(Dt) at zero is D^j B_j. Native exponential derivatives give a.val^(k+1−j) on the other factor for j≤k; the j=k+1 contribution of exp(a.val·t)−1 is zero. Transfer the real derivative formulas into ℂ using the native continuous linear inclusion and its higher-derivative composition theorem.
+3. Thus the right side is −Σ_a η(a)Σ_(j=0)^k choose(k+1,j)D^j B_j a.val^(k+1−j). Add the missing j=k+1 term; it sums to zero because Ση=0. Native Polynomial.bernoulli gives exactly D^(k+1)B_(k+1)(a.val/D). Cancel the nonzero D(k+1) in ℂ.
+4. Native unique differentiability of [0,∞) identifies the ordinary and within derivatives, including the endpoint. For the API comparison with η.LFunction(−k), import the existing tame-complex-special-values node with its separate k=0 treatment. Do not use the ultrametric measure theorem with K=ℂ.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-kernel`, `DirichletPadicLFunctions:L2/tame-complex-regularity`, `DirichletPadicLFunctions:L0/smooth-bernoulli-derivatives`, `DirichletPadicLFunctions:L2/tame-complex-special-values`, `mathlib:iteratedDeriv_mul`, `mathlib:iteratedDeriv_fun_id_zero`, `mathlib:iteratedDeriv_comp_const_mul`, `mathlib:iteratedDeriv_exp_const_mul`, `mathlib:ContinuousLinearMap.iteratedFDeriv_comp_left`, `mathlib:Polynomial.bernoulli`, `mathlib:MulChar.sum_eq_zero_of_ne_one`, `mathlib:iteratedDerivWithin_eq_iteratedDeriv`.
+
+**Api:**
+
+- `DirichletPadic.tameComplexKernel_iteratedDerivWithin_zero` (compatibility): The derivative within [0,∞) has the same finite Bernoulli value.
+- `DirichletPadic.tameComplexKernel_iteratedDeriv_zero_eq_LFunction` (compatibility): For every k≥0 the derivative at zero equals the existing native η.LFunction(−k).
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.quadratic_second_derivative` (computation): The quadratic character modulo 3 gives f″(0)=−2/9.
+- `SuggestedTameComplexKernelTests.even_first_derivative` (computation): The quadratic character modulo 5 gives f′(0)=−2/5.
+
+**Acceptance:** The derivative value has no factor (−1)^k. That factor appears only in the normalized Mellin value at −k. The finite identity uses ordinary Bernoulli numbers.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### The decaying tame exponential expansion
+
+`DirichletPadicLFunctions:L2/tame-complex-positive-series` — `DirichletPadic.tameComplexKernel_hasSum` (lemma).
+
+For t>0, the series Σ_(m≥1)−η(−1)η(m)exp(−mt) has sum f(t).
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed. Assume η≠1. Then D≠1, η(0)=0, and the finite sum of η over ZMod D is zero. Primitivity is not required. Character values use the displayed modulus and canonical representatives.
+
+**Proof outline:**
+
+1. Nonprincipality implies D≠1 and hence η(0)=0. Since ‖η(m)‖≤1, the positive-index exponential series is absolutely summable for t>0 by a geometric majorant.
+2. Use native summation by residue classes on the corresponding sum over m≥0; its zero term vanishes. In residue class a the sum is η(a)exp(−a.val·t)/(1−exp(−Dt)), by the native geometric HasSum formula. The zero residue contributes nothing, including its positive multiples.
+3. Reindex the finite numerator by a↦−a. For a≠0, (−a).val=D−a.val, while η(−a)=η(−1)η(a). The zero term vanishes. Multiply numerator and denominator by exp(Dt) to obtain −η(−1) times the positive exponential sum equal to the nonprincipal quotient for f(t).
+4. Absolute summability and equality of the sum give the stated HasSum. The parity factor occurs exactly once. For an even character the kernel is the negative of the usual positive-exponential L-series kernel.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-kernel`, `mathlib:DirichletCharacter.level_one`, `mathlib:DirichletCharacter.map_zero'`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:Nat.sumByResidueClasses`, `mathlib:hasSum_geometric_of_norm_lt_one`, `mathlib:ZMod.val_neg_of_ne_zero`, `mathlib:Equiv.prod_comp`.
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.even_kernel_negative` (computation): For quadratic η modulo 5, f(log 2)=−6/31, checking the even-character minus sign.
+
+**Acceptance:** The statement excludes principal characters. For the principal character modulo 3 at t=log 2, the subtracted kernel is −4/7 whereas the asserted unsmoothed series would give −6/7.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### Termwise derivatives of the tame exponential series
+
+`DirichletPadicLFunctions:L2/tame-complex-positive-derivatives` — `DirichletPadic.tameComplexKernel_iteratedDeriv_hasSum` (theorem).
+
+For k≥0 and t>0, Σ_(m≥1)−η(−1)η(m)(−m)^k exp(−mt) has sum f^(k)(t).
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed. Assume η≠1. Then D≠1, η(0)=0, and the finite sum of η over ZMod D is zero. Primitivity is not required. Character values use the displayed modulus and canonical representatives.
+
+**Proof outline:**
+
+1. The k=0 case is tame-complex-positive-series. For induction, fix t>0 and use the preconnected open interval (t/2,∞). Each kth summand has the displayed next derivative by the native real exponential derivative, real-to-complex derivative transport and constant multiplication.
+2. On that interval the norm of the derivative is bounded by m^(k+1)exp(−m t/2), because both character values have norm at most one. This positive-index majorant is summable by the existing native polynomial-weighted exponential theorem. The kth series is absolutely summable at t by the corresponding k-majorant.
+3. Apply native hasDerivAt_tsum_of_isPreconnected with these hypotheses. The induction identity holds on the whole interval, so the derivative of its sum equals the derivative of the actual kernel. Native iteratedDeriv_succ completes the induction.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-positive-series`, `DirichletPadicLFunctions:L2/tame-complex-regularity`, `DirichletPadicLFunctions:L0/weighted-exponential-derivative`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:Real.summable_pow_mul_exp_neg_nat_mul`, `mathlib:hasDerivAt_tsum_of_isPreconnected`, `mathlib:Real.hasDerivAt_exp`, `mathlib:HasDerivAt.ofReal_comp`, `mathlib:HasDerivAt.const_mul`, `mathlib:iteratedDeriv_succ`.
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.odd_first_series` (compatibility): For quadratic η modulo 3 the first derivative series has coefficients η(m)(−m), with no extra parity minus sign.
+
+**Acceptance:** A convergent original series alone does not justify differentiation. Retain the summable derivative majorant and the strictly positive cutoff.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### Exponential bounds for every tame kernel derivative
+
+`DirichletPadicLFunctions:L2/tame-complex-derivative-decay` — `DirichletPadic.tameComplexKernel_derivative_bound` (theorem).
+
+For k≥0 and t≥δ>0, ‖f^(k)(t)‖≤exp(δ−t)F_k(δ), where F_k(u)=Σ_(m≥1)m^k exp(−mu). Consequently each within derivative on [0,∞) is O(exp(−t)) at +∞.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed. Assume η≠1. Then D≠1, η(0)=0, and the finite sum of η over ZMod D is zero. Primitivity is not required. Character values use the displayed modulus and canonical representatives.
+
+**Proof outline:**
+
+1. Use the preceding HasSum, the triangle inequality for an absolutely summable series, and the bound on character values. This gives ‖f^(k)(t)‖≤F_k(t).
+2. Apply the already decomposed weighted-exponential-halfline-bound: F_k(t)≤exp(δ−t)F_k(δ). The finite constant depends on k and δ, with no uniform assertion across orders or at δ=0.
+3. Fix δ=1. Factor exp(1−t)=exp(1)exp(−t) and use native IsBigO.of_bound. Ordinary and within derivatives agree on the positive half-line by global smoothness and unique differentiability of [0,∞). They are therefore eventually equal at +∞, giving the required within-derivative bound.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-positive-derivatives`, `DirichletPadicLFunctions:L2/tame-complex-regularity`, `DirichletPadicLFunctions:L0/weighted-exponential-halfline-bound`, `mathlib:Asymptotics.IsBigO.of_bound`, `mathlib:iteratedDerivWithin_eq_iteratedDeriv`.
+
+**Api:**
+
+- `DirichletPadic.tameComplexKernel_within_decay` (compatibility): Every derivative within [0,∞) is O(exp(−t)) at +∞.
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.decay_to_zero` (compatibility): For quadratic η modulo 3 the actual kernel tends to zero at +∞.
+
+**Acceptance:** The rate 1 works for every fixed order, but the implied constant depends on that order. This is complex archimedean decay, not a p-adic norm bound.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### Convergence of the tame Mellin integral
+
+`DirichletPadicLFunctions:L2/tame-complex-mellin-convergent` — `DirichletPadic.tameComplexKernel_mellin_convergent` (lemma).
+
+For Re(s)>0, the native Mellin integral of f converges.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed. Assume η≠1. Then D≠1, η(0)=0, and the finite sum of η over ZMod D is zero. Primitivity is not required. Character values use the displayed modulus and canonical representatives.
+
+**Proof outline:**
+
+1. Global smoothness implies continuity and local integrability on (0,∞). Continuity at zero makes f bounded on a right neighborhood, hence f=O(t^0) there.
+2. Use the order-zero exponential bound at infinity. Apply native mellinConvergent_of_isBigO_rpow_exp with a=1 and b=0. Its exact condition is Re(s)>0, which is wider than the absolute Dirichlet-series half-plane used for the next comparison.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-regularity`, `DirichletPadicLFunctions:L2/tame-complex-derivative-decay`, `mathlib:mellinConvergent_of_isBigO_rpow_exp`.
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.convergence_before_series_halfplane` (boundary): For quadratic η modulo 3, the Mellin integral converges at s=1/2.
+
+**Acceptance:** No convergence claim is made at s=0 or on its left boundary by this node.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### The tame Mellin integral and the native L-series
+
+`DirichletPadicLFunctions:L2/tame-complex-mellin-gamma-l` — `DirichletPadic.tameComplexKernel_mellin_eq_gamma_LFunction` (comparison).
+
+For Re(s)>1, mellin(f,s)=−η(−1)Γ(s)η.LFunction(s).
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed. Assume η≠1. Then D≠1, η(0)=0, and the finite sum of η over ZMod D is zero. Primitivity is not required. Character values use the displayed modulus and canonical representatives.
+
+**Proof outline:**
+
+1. Instantiate native hasSum_mellin with positive frequencies m=n+1, coefficients −η(−1)η(m), the preceding positive-series HasSum, and Re(s)>1. Every frequency is positive.
+2. The required norm sum is bounded by Σ_(m≥1)m^(−Re(s)), using both character norm bounds. The native shifted p-series theorem supplies summability. Native hasSum_mellin already proves the scaled Gamma integrals and the justified sum/integral interchange.
+3. Its conclusion identifies mellin(f,s) with the Gamma-weighted character Dirichlet series. Remove the zero term using η(0)=0 and native LSeries_def₀; extract the common scalar and Gamma factor. Native DirichletCharacter.LFunction_eq_LSeries identifies the remaining series on Re(s)>1.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-positive-series`, `DirichletPadicLFunctions:L2/tame-complex-mellin-convergent`, `mathlib:hasSum_mellin`, `mathlib:DirichletCharacter.norm_le_one`, `mathlib:Real.summable_one_div_nat_add_rpow`, `mathlib:LSeries_def₀`, `mathlib:DirichletCharacter.LFunction_eq_LSeries`.
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.gamma_two` (compatibility): For quadratic η modulo 3 at s=2, mellin(f,2)=Γ(2)η.LFunction(2).
+
+**Acceptance:** Use the existing native LFunction. Do not define another meromorphic continuation or apply the Dirichlet series outside Re(s)>1.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### Entire continuation of the tame Mellin transform
+
+`DirichletPadicLFunctions:L2/tame-complex-mellin-entire` — `DirichletPadic.tameComplexKernel_mellin_entire` (theorem).
+
+The existing normalizedMellinContinuation(f) is complex differentiable everywhere.
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed. Assume η≠1. Then D≠1, η(0)=0, and the finite sum of η over ZMod D is zero. Primitivity is not required. Character values use the displayed modulus and canonical representatives.
+
+**Proof outline:**
+
+1. Restrict global C∞ regularity to [0,∞). For every derivative choose the positive decay rate a=1, supplied by tame-complex-derivative-decay.
+2. Apply the existing normalized-mellin-entire theorem to these verified hypotheses. The function is precisely the existing shift-defined continuation; no new gluing construction or analytic carrier is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-regularity`, `DirichletPadicLFunctions:L2/tame-complex-derivative-decay`, `DirichletPadicLFunctions:L0/normalized-mellin-entire`.
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.entire_even_character` (compatibility): The quadratic character modulo 5 also yields an entire normalized Mellin continuation.
+
+**Acceptance:** This is entire in s. It does not assert that the real-variable kernel has no complex t-plane poles.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### Global tame Mellin comparison
+
+`DirichletPadicLFunctions:L2/tame-complex-mellin-comparison` — `DirichletPadic.tameComplexKernel_normalized_eq_LFunction` (comparison).
+
+For every s∈ℂ, normalizedMellinContinuation(f,s)=−η(−1)η.LFunction(s).
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed. Assume η≠1. Then D≠1, η(0)=0, and the finite sum of η over ZMod D is zero. Primitivity is not required. Character values use the displayed modulus and canonical representatives.
+
+**Proof outline:**
+
+1. On Re(s)>1, the existing normalized-mellin-initial-halfplane formula and the Gamma-weighted comparison give the stated identity after cancellation of Γ(s), which is nonzero in the positive half-plane.
+2. The left side is entire by the preceding node. The right side is entire by native DirichletCharacter.differentiable_LFunction under η≠1. Complex differentiability supplies native analyticity on the whole plane.
+3. Both functions agree on an open neighborhood of 2 contained in Re(s)>1. Apply native analytic uniqueness on the preconnected complex plane to conclude equality everywhere, including s=1 and all nonpositive integers.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-mellin-entire`, `DirichletPadicLFunctions:L2/tame-complex-mellin-gamma-l`, `DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane`, `mathlib:Complex.Gamma_ne_zero_of_re_pos`, `mathlib:DirichletCharacter.differentiable_LFunction`, `mathlib:DifferentiableOn.analyticOnNhd`, `mathlib:AnalyticOnNhd.eq_of_eventuallyEq`.
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.odd_value_one` (boundary): For quadratic η modulo 3, normalizedMellinContinuation(f,1)=η.LFunction(1).
+
+**Acceptance:** Nonprincipality removes the L-function pole, so the identity includes s=1. No continuation across a principal-character pole is asserted.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+### Negative integral values of the tame Mellin continuation
+
+`DirichletPadicLFunctions:L2/tame-complex-mellin-values` — `DirichletPadic.tameComplexKernel_mellin_neg_nat` (theorem).
+
+For k≥0, normalizedMellinContinuation(f,−k)=(−1)^k b_(η,k).
+
+**Hypotheses:** D is a positive natural number, represented by NeZero D. η is the native DirichletCharacter ℂ D. All real-variable derivatives of functions ℝ→ℂ are over ℝ. β is the existing real smoothBernoulliKernel. Set f=tameComplexKernel η. No p-adic coefficient field or ultrametric structure on ℂ is assumed. Assume η≠1. Then D≠1, η(0)=0, and the finite sum of η over ZMod D is zero. Primitivity is not required. Character values use the displayed modulus and canonical representatives. b_(η,k)=−D^k/(k+1) Σ_(a:ZMod D)η(a)·algebraMap ℚ ℂ(B_(k+1)(a.val/D)), with native ordinary Bernoulli polynomials (B₁=X−1/2).
+
+**Proof outline:**
+
+1. Apply the existing normalized-mellin-negative-values theorem with the established C∞ and all-derivative decay hypotheses. It gives (−1)^k times the kth derivative within [0,∞) at zero.
+2. Substitute the finite origin-derivative identity, retaining the sign (−1)^k and the Bernoulli index k+1. This includes k=0 and involves no singular Gamma evaluation.
+3. The global comparison independently identifies this with −η(−1)η.LFunction(−k). The existing complex special-value identity equals b_(η,k), so the two formulas impose the usual parity vanishing. This comparison is over ℂ and does not import the p-adic measure-reflection theorem.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-complex-origin-derivatives`, `DirichletPadicLFunctions:L2/tame-complex-regularity`, `DirichletPadicLFunctions:L2/tame-complex-derivative-decay`, `DirichletPadicLFunctions:L2/tame-complex-mellin-comparison`, `DirichletPadicLFunctions:L0/normalized-mellin-negative-values`.
+
+**Tests:**
+
+- `SuggestedTameComplexKernelTests.even_negative_value_sign` (computation): For quadratic η modulo 5, normalizedMellinContinuation(f,−1)=2/5.
+
+**Acceptance:** An even character at k=1 has the extra minus sign: quadratic η modulo 5 gives normalized value +2/5, while its derivative and native L-value are −2/5.
+
+**Source:** §5.2, equation (5-3) and Lemma 5.9, printed 144 / PDF 45; complete printed 141–144 / PDF 42–45 read during preparation. The preceding Mellin argument is Lemma 5.5, printed 142 / PDF 43; the continuation theorem is Theorem 2.4, printed 110–111 / PDF 11–12. Worker decomposition using the finite-character numerator form of the tame kernel. The real extension, its derivative estimates and the comparison with the existing native Dirichlet L-function are explicit below. This extends the finite-numerator route to all nonprincipal characters. Identification with the source’s primitive Gauss rational expression remains a separate finite Fourier comparison. Existing E11/E12 record adjacent proof-display slips and are preserved; no new finding or independent verdict is added.
+
+**Remaining:** The finite-numerator complex tame kernel now has explicit removable-point regularity, Bernoulli derivatives, absolutely convergent exponential expansions, all-derivative decay, an entire normalized Mellin continuation and comparison with the native nonprincipal Dirichlet L-function. Complete the primitive complex Gauss/rational and product-conductor comparisons through the existing modular-forms owner, analytic p-adic branches, even-character logarithmic/degree-zero values, full source extraction and the PMIA L1 actual completed-algebra comparison. These complex-variable results do not construct an analytic p-adic character family.
+
+### Complex tame kernel validation
+
+All 231 predecessor nodes, 298 baseline records, 15 findings and sourceVersions are preserved whole. All 242 node IDs remain in the reader. Twenty named declarations, including the actual kernel definition and its defining equation, and 16 typed examples are added. The indexed blueprint has zero errors and warnings; four-file intake, whitespace, scoped mutation, API/test parity and versioned source-issue checks pass. The graph has 384 reachable nodes, 1774 edges and 403 native leaves, is acyclic and has only the PMIA L1 stage request leaf. Each of the eleven new proof routes has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 601 expected placeholder warnings against 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and one verified actual PMIA artifact. The full target uses the verified actual 265-node PMIA artifact. The current 294-node supplier preserves that source in order; the earlier accepted refresh remains its reading provenance. No current-target declaration calls its new unit-coordinate functions. No local compile against the 294-node supplier is claimed. The actual completed-group-algebra/topology request remains open. Source, olean and original compiler-log hashes were rechecked. Existing artifacts were reused; no Mathlib or Tau Ceti build, new Lake project or cache download was run.
+
+The native probe constructs β from dslope and the actual finite tame kernel, then proves β(0)=1, the exponential divided-difference value at zero, the kernel’s finite origin formula and its modulus-one zero case. Its two definitions and four complete lemmas use only native libraries. The general regularity, decay and Mellin comparisons remain unchecked blueprint declarations. It elaborates against 1900 pinned Mathlib modules with zero errors, warnings or proof holes. Exact rational Taylor division checks 72 origin derivatives and 72 parity identities, and 24 rational exponential substitutions check the positive-series sign. The five genuine characters include the quartic character modulo 5, whose real and imaginary components are computed separately and checked together; 139 multiplication checks verify the finite character tables. The principal-modulo-3 control distinguishes its subtracted kernel −4/7 at log 2 from the incorrectly imported unsmoothed series −6/7. These finite controls do not prove the general analytic statements.
+
+No source finding is added. The initial captured register changes contain our already merged E14/E15, which remain awaiting independent review. A subsequent refresh adds three unrelated finite-field source findings, ExponentialSumsAndCircleMethod/E12–E14. All new records and full Markdown differences were read, and all previous register records remain whole. No consumed tame-kernel contract changes. The publication guard at 488fb4f82a18e84919388f40dda6d20d944fd2bb checks 54 inputs, four predecessor outputs, unchanged issue text, the original winning claim and unclaimed review #390.
+
+Suggested SHA256: `0666e6ca5cdad595112220533183b4d43f5afe6fc2351438c7f12eb0c508a1a9`.
+Native probe SHA256: `1f6f9d4d8fa939daa47af9f05ebfa10612fc8c3701c29ead69335e89550608bf`.
