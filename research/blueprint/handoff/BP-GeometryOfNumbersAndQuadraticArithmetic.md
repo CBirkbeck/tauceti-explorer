@@ -1,40 +1,129 @@
-# BP-GeometryOfNumbersAndQuadraticArithmetic — convex-section volume checkpoint
+# BP-GeometryOfNumbersAndQuadraticArithmetic — fifth continuation
 
-Codex — codex-a71f92, 2026-09-27. Refs #1030. Claim 5855261765 confirmed by bot 5855262712; whole issue read before and after confirmation. Snapshot 859951b57f48576bd78ac9b22cf5d6f4b0177b9f. Partial blueprint, not roadmap closure.
+Codex — codex-a71f92 · issue #1030 · 2026-09-27  
+Claim5855533752, exact bot confirmation5855534764 at11:45:14UTC.  
+Snapshotd8f1dcdcff0b61a3b474b2722c92bbe892d0a8a8. Partial checkpoint.
 
-## Delivered
+## Result
 
-Seven new GN.1 plans preserve all 56 inherited nodes: finite interior-disjoint translate volume; exact finite-union sections; pointwise convex-section enlargement; section-volume monotonicity; native Tonelli comparison for compact finite unions; complementary partial-dilation identity; codimension volume growth.
+The complete sharp upper Minkowski product proof now has declaration-sized plans.
+Fourteen nodes join the inherited integral strict-minimum flag and analytic
+convex-section lemmas to the generic upper product inequality. They cover gauge
+coordinate transport, cross-cluster null intersections, clustered additivity,
+strict-flag separation, lattice-box rows, native product-coordinate adaptation,
+the consecutive threshold ratio, initial and enclosing box volumes, weighted
+telescoping, finite recurrence, large-box limit, coordinate bound and final
+intrinsic covolume-normalized theorem.
 
-For a finite family of translations in E and a compact convex body in E×F, dilation by r≥1 grows union volume by at least r^(dim F). No symmetry or origin condition is imposed. Empty families, empty sections and zero-dimensional factors are included. A chosen section center is eliminated by translation invariance before integration; no measurable selection is assumed.
+All 77 nodes remain unchecked: one definition,59lemmas,17theorems.
+There are89API entries,137packet contract tests,147suggested examples,12planets,
+156baseline declarations,6sources,9source findings,8gaps,0requests and7partial
+stages. The definition-only checker totals remain13API items and7tests.
 
-This is the analytic auxiliary slice of Henk §3, not the sharp upper Minkowski theorem. Lattice-box grouping, coordinate/Haar transport, ratio assembly, telescoping and the large-box limit remain open.
+The upper theorem supplies the generic product input alongside the inherited
+sharp lower bound and attained independent witnesses. It does not supply
+consumer-owned arithmetic normalization, norm floors, transference, Davenport
+multisets or verified LLL. No consumer packet is changed.
 
-Totals: 63 nodes (one definition, 47 lemmas, fifteen theorems), 75 API entries, 106 packet contract tests, 116 suggested examples, twelve unchanged planets (three GN.0, six GN.1, three GN.4), 132 baseline entries, six sources, nine findings, eight gaps, zero requests. Definition-only totals remain thirteen API items and seven tests. No new carrier, definition or construction; every node unchecked and every stage partial.
+## Mathematical points to retain
 
-## Source, ownership and upstream
+- Native ZLattice.volume_image_eq_volume_div_covolume' already supplies integral
+  coordinate-volume normalization; do not replan a lattice or covolume carrier.
+- A row union can be nonconvex and contain overlapping translates. Prove its
+  cross-row intersections null from the original convex pieces' null frontiers,
+  then sum row volumes. Summing every individual translate is generally wrong.
+- Cutoff k means the first k coordinates, with exponent d−k. In the recurrence,
+  zero-based consecutive index i gives exponent d−i−1.
+- The strict gauge flag, not an assertion that minimum vectors form an integral
+  basis, gives row separation. Equal successive minima are allowed.
+- The outer radius is independent of q. All compact union measures are finite
+  before converting extended-real measure identities to real volume.
+- Positive dimension uses first/last indices; zero dimension has an empty
+  product and native one-point volume1. No invalid minimum index is selected.
+- The inherited real/Fin minimum plan must be reconciled with the NNReal/Nat
+  design inspected in Mathlib PR35812 before implementation. That inspected
+  PR's endpoint placeholder did not supply this upper theorem.
 
-All 63 consulted paths compared with the prior GN snapshot. The sole differing consumer packet is the exact Diophantine blob 2ad50ea20739a372eaedcd75c9d44e178cb8d5a6 already considered during the prior publication guard. Own four files and all 28 matching links are unchanged. Seven reviewed audit rows freshly read. Binding documents unchanged; prior complete RS-03/07, supplier/consumer and upstream-style readings remain applicable. No AGENTS.md.
+## Source and ownership record
 
-All seven pages of Henk arXiv math/0204158v1 freshly text-read; rendered p.6 checked for the partial maps, translating centers and codimension exponent. SHA-256 403d8f400cfd8a823260466713ef90bc7425c5be0677b986388b43da78608b60. Publisher version not acquired; no new correction search or finding. E1–E9 and sourceVersions remain exact; only one Henk read-scope entry is added.
+All seven Henk arXiv math/0204158v1 pages freshly text-read; rendered pp5–7
+inspected for (3.1)–(3.6), row multiplicities, exponents and final limit.
+The identical acquired PDF has SHA256
+403d8f400cfd8a823260466713ef90bc7425c5be0677b986388b43da78608b60.
+The publisher version was not acquired; no new correction search or erratum.
+E1–E9 and every sourceVersions object remain exact.
 
-Sixteen additional native baseline statements and contexts read. Convex null frontiers, translations, compactness, measurable sections, product measure, lower-integral monotonicity, determinants and product-Haar instances are reused. The section-measurability declaration is at the root namespace. The generated additive translation and product-Haar interfaces are checked through their actual native types.
+All seven reviewed audit rows were freshly read before planning. The63consulted
+paths, including28matchinglinks, matched the authored GN4 checkpoint at claim
+time, with the same two expected absences. The binding rules were read fully in
+this continuous turn; WORKERS was refreshed. Prior full RS03/07, supplier,
+consumer and upstream-style readings still apply. There was no AGENTS.md.
 
-Mathlib PR #35812 was open at head 8423d1c878e50d8504a230ffd9b6ec76ce6a08eb when inspected, along with the relevant November 2025 Lean Zulip thread. Relevant minimum-definition/attainment/directional-basis/endpoint passages were read, not the entire proof file. Before implementation, reconcile the inherited private-plan real gauge/Fin interface with the proposed native NNReal/Nat API. A real directional basis need not be an integral lattice basis; the PR’s second-theorem placeholder is not an upper-product supplier. The seven new auxiliaries do not define minima.
+All63inherited statements, hypotheses, proof steps, API items and tests remain
+exact. Two consumer-use status notes now point to both product bounds. Planet change:
+the central upper theorem takes the Intrinsic ball bound planet slot. That
+auxiliary's id, statement, API and tests are unchanged. GN.1 still has six
+planets; total remains twelve. All132prior baseline entries are exact.
+Henk gains one reading-scope entry; Couveignes's note now points at the supplied
+Evertse/Henk bounds. Other sources and non-GN.1 coverage records are unchanged.
 
 ## Verification
 
-- Pinned-index packet checker: zero errors and warnings.
-- Suggested Lean 4.34.0-rc2: 64 signatures (63 nodes plus the inherited defining API) and 116 examples; exactly 180 required unproved-statement warnings and no others. All 8,482 reached Mathlib source files byte-match the pin; zero Tau Ceti imports.
-- Scratch Lean: six general proofs (convex enlargement, exact sections, complementary dilation, determinant, Haar image measure and native Tonelli comparison), plus six concrete statements; no placeholders or diagnostics. Not all seven proposed nodes are implemented.
-- Exact rational tests: 2,250 polygon-union comparisons; 16,650 section-volume checks; 36,450 convexity witnesses; 4,500 empty sections; 12,618 exact affine integration slabs; 6,750 codimension-two extrusions; 450 unit-dilation checks; 27 touching-interval families; six boundary rejections. Five polygon shapes, fifteen shifts, six finite translation families and five dilation factors. Regressions, not general geometric proofs.
-- Earlier minimum, count and integral-flag regressions are historical, not rerun.
-- Source-envelope, four-file intake, inherited-object/API/test parity, acyclic dependency and fresh consulted-input/link guards run before publication. Only four authorized deliverables change.
+- Suggested Lean: compiled against the pins,225required unproved-statement
+  warnings,zero errors and zero other warnings. All8,482reached Mathlib sources
+  byte-match the pinned baseline. No Tau Ceti module imported.
+- Six general scratch proofs and six examples compile without placeholders,
+  axioms or diagnostics: gauge transport, convex-cluster null intersection,
+  integer-box cardinality, strict interior-difference gauge bound, integral
+  flag coordinates and the large-box limit. This is selected proof evidence,
+  not implementation of all fourteen new nodes or the final theorem.
+- Packet checker with pinned declaration index: zero errors,zero warnings.
+- Exact rational regressions:45polygon families;270row factorizations;135each
+  of initial volumes,ratio inequalities,outer bounds and finite chains;
+  2,420exact integration slabs;4,410strict-flag vector checks;4,815cross-row
+  gauge checks;45repeated-minimum equalities.
+- Higher-dimensional boxes:56upper-product families through dimension5,
+  840row factorizations,620ratio checks,220finite chains,4zero-dimensional
+  cases. Interval clusters:90factorizations and300null-intersection checks.
+- Coordinate normalization:1,488skew/non-unit-covolume families and37,200
+  gauge-coordinate checks. Algebra:1,092weighted telescope identities,
+  3,276volume-chain inequalities,36exact box-ratio identities.
+  Ten wrong variants rejected, including flattened translate sums, the
+  ambient rather than transverse exponent, omitted covolume, non-strict
+  flags and a q-dependent outer margin.
+- Earlier regression/proof counts remain historical and were not rerun.
+  Finite rational tests are not universal geometric or limit proofs.
+- Errata, inherited mathematical contracts, dependency graph and deliverable
+  scope checks pass. Four-file intake:4files,0problems. Fresh-main guard:
+  62consultedpaths unchanged and1reviewed consumer update,2expectedabsences,
+  no AGENTS and no added matching link. Only the four authorized tracked
+  files are changed.
 
-## Resume
+The final ArithmeticStatistics consumer update has exact blob
+04cabaf51cf031424840084c7566199e9900870f,409→415nodes. All six new
+ST.5 symmetric-border/rank-recurrence nodes and the changed MacWilliams proof
+were read. The eight GN-relevant node objects and four GN requests are exactly
+unchanged. This is compatibility screening, not a full independent review.
+The guard allows only that exact consumer blob; a further update triggers
+another check. The consumer itself is preserved from fresh main, not edited.
 
-Transport the compatible integral minimum flag to product coordinates, explicitly retaining the Haar/covolume normalization. Group finite lattice-box translates by transverse classes and prove disjointness. Combine the new auxiliary with the initial interior-disjoint volume identity and outer-box volume bound to obtain the consecutive-minimum ratio; telescope and take the large-box limit. Treat equal minima and dimension zero explicitly. The sharp upper product-with-witnesses consumer contract is still open.
+## Precise continuation
 
-Then resume full GN.1 source reconciliation and the existing GN.2 integral/hermitian, GN.3 mass/density, GN.4 Davenport/transference/homogeneous, GN.5 verified LLL and GN.6 hermitian K branches. Respect built owners and RS-03/07. No consumer packet is edited.
+Keep all current declarations, native carriers, baseline imports and sources.
+Do not restart the Henk proof or introduce another successive-minimum carrier.
+GN.1 still needs complete bibliography/source coverage, Evertse Theorem2.11's
+Hermite-basis proof, John's ellipsoid theorem and applications, as well as the
+upstream API reconciliation before implementation.
 
-Opening the PR ends the claim; continue the ordered queue. Never unclaim submitted work or manually merge, close or label.
+GN.2 retains O_K/Z_p integral genera and dyadic/hermitian refinements, importing
+field Witt/local-global and rational IntegralLattices foundations.
+GN.3 retains local densities, stabilizers, weighted mass and convergence;
+adelic foundations and theta stay with their recorded owners.
+GN.4 retains Davenport multisets, transference and independent homogeneous
+arithmetic branches; no sharp factor-one lattice count is claimed.
+GN.5 retains generic verified LLL, not its consumer arithmetic reductions.
+GN.6 retains exact categories with duality and higher hermitian K-theory,
+not duplicate degree-zero field Witt/GW theory.
+
+Only the four authorized deliverables are submitted. No review verdict,
+implementation, source-wide completeness or completed-stage claim is made.

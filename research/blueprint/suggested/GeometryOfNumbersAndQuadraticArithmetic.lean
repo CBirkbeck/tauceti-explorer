@@ -19,6 +19,9 @@ import Mathlib.MeasureTheory.Measure.Prod
 import Mathlib.MeasureTheory.Measure.NullMeasurable
 import Mathlib.Analysis.Convex.Measure
 import Mathlib.LinearAlgebra.Determinant
+import Mathlib.Data.Pi.Interval
+import Mathlib.Data.Int.Interval
+import Mathlib.Analysis.SpecificLimits.Basic
 import Mathlib.Tactic
 
 /-!
@@ -26,7 +29,7 @@ This file is not the roadmap and is not exhaustive; the roadmap document is defi
 These statements suggest Lean forms so contributors and reviewers can converge on names and signatures.
 Blueprint checkpoint for #1030; every new statement is an unchecked planning obligation.
 No replacement lattice, Gram matrix, covolume or measure carrier is introduced.
-The primitive-orthogonal proof chain is included. The sharp lower half of Minkowski's second theorem is included; its upper half remains a packet gap.
+The primitive-orthogonal proof chain and both sharp halves of Minkowski's second theorem are planned here; all statements remain unchecked.
 -/
 noncomputable section
 open scoped BigOperators
@@ -925,5 +928,206 @@ example : (2 : ℝ) ^ finrank ℝ (EuclideanSpace ℝ (Fin 0)) = 1 := by sorry
 example (K : Set (ℝ × ℝ)) :
     (fun p : ℝ × ℝ => ((1 : ℝ) • p.1,p.2)) '' K = K := by sorry
 end HenkFiberTests
+
+section HenkUpper
+open scoped ENNReal Pointwise
+
+/-- GN.1/gauge-linear-equiv. Transform the body and point simultaneously. -/
+lemma gauge_linearEquiv {E F : Type*} [AddCommGroup E] [Module ℝ E]
+    [AddCommGroup F] [Module ℝ F] (e : E ≃ₗ[ℝ] F) (K : Set E) (x : E) :
+    gauge (e '' K) (e x) = gauge K x := by sorry
+
+/-- GN.1/convex-cluster-intersection-null. No convexity of either union is assumed. -/
+lemma convex_cluster_intersection_null {E I J : Type*}
+    [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
+    [MeasurableSpace E] [BorelSpace E] [Fintype I] [Fintype J]
+    (μ : Measure E) [μ.IsAddHaarMeasure] (A : I → Set E) (B : J → Set E)
+    (hA : ∀ i, Convex ℝ (A i)) (hB : ∀ j, Convex ℝ (B j))
+    (hdis : ∀ i j, Disjoint (interior (A i)) (interior (B j))) :
+    μ ((⋃ i, A i) ∩ ⋃ j, B j) = 0 := by sorry
+
+/-- GN.1/clustered-translate-volume. Only the outer rows are a.e. disjoint. -/
+lemma clustered_translate_volume {E I J : Type*}
+    [NormedAddCommGroup E] [NormedSpace ℝ E] [FiniteDimensional ℝ E]
+    [MeasurableSpace E] [BorelSpace E] [Fintype I] [Fintype J]
+    (μ : Measure E) [μ.IsAddHaarMeasure] (K : Set E)
+    (hK : IsCompact K) (hconv : Convex ℝ K) (u : I → E) (v : J → E)
+    (hdis : ∀ j j', j ≠ j' → ∀ i i', Disjoint
+      ((fun x => u i+v j+x) '' interior K)
+      ((fun x => u i'+v j'+x) '' interior K)) :
+    μ (⋃ j, ⋃ i, (fun x => u i+v j+x) '' K) =
+      (Fintype.card J : ℝ≥0∞) * μ (⋃ i, (fun x => u i+x) '' K) := by sorry
+
+local notation "Mbox" => (fun (d q : ℕ) =>
+  Finset.Icc (fun _ : Fin d => -(q : ℤ)) (fun _ : Fin d => (q : ℤ)))
+set_option quotPrecheck false in
+local notation "Mprefix" => (fun (d k q : ℕ) =>
+  Finset.filter (fun z => ∀ j : Fin d, k ≤ Fin.val j → z j = 0) (Mbox d q))
+local notation "boxUnion" => (fun (d q : ℕ) (S : Set (Fin d → ℝ)) =>
+  ⋃ z ∈ Mbox d q, (fun x : Fin d → ℝ => (fun j => (z j : ℝ))+x) '' S)
+local notation "prefixUnion" => (fun (d k q : ℕ) (S : Set (Fin d → ℝ)) =>
+  ⋃ z ∈ Mprefix d k q, (fun x : Fin d → ℝ => (fun j => (z j : ℝ))+x) '' S)
+
+/-- GN.1/strict-flag-translate-separation. Strict threshold; closed boundaries may touch. -/
+lemma strict_flag_translate_separation {d : ℕ}
+    (K : ConvexBody (Fin d → ℝ)) (hK : (0 : Fin d → ℝ) ∈ interior (K : Set _))
+    (hsym : ∀ x ∈ K, -x ∈ K) (t : ℝ) (ht : 0 < t) (k : ℕ) (hk : k ≤ d)
+    (hflag : ∀ z : Fin d → ℤ, gauge (K : Set _) (fun j => (z j : ℝ)) < t →
+      ∀ j : Fin d, k ≤ j.val → z j = 0)
+    (x y : Fin d → ℤ) (hxy : ∃ j : Fin d, k ≤ j.val ∧ x j ≠ y j) :
+    Disjoint ((fun w : Fin d → ℝ => (fun j => (x j : ℝ))+w) ''
+      interior ((t/2) • (K : Set _)))
+      ((fun w : Fin d → ℝ => (fun j => (y j : ℝ))+w) ''
+      interior ((t/2) • (K : Set _))) := by sorry
+
+/-- GN.1/lattice-box-row-volume. The prefix union may have overlapping translates. -/
+lemma lattice_box_row_volume (d k q : ℕ) (hk : k ≤ d)
+    (S : Set (Fin d → ℝ)) (hS : IsCompact S) (hconv : Convex ℝ S)
+    (hdis : ∀ x ∈ Mbox d q, ∀ y ∈ Mbox d q,
+      (∃ j : Fin d, k ≤ j.val ∧ x j ≠ y j) →
+      Disjoint ((fun w : Fin d → ℝ => (fun j => (x j : ℝ))+w) '' interior S)
+        ((fun w : Fin d → ℝ => (fun j => (y j : ℝ))+w) '' interior S)) :
+    volume (boxUnion d q S) =
+      ((2*q+1 : ℕ) : ℝ≥0∞)^(d-k) * volume (prefixUnion d k q S) := by sorry
+
+/-- GN.1/coordinate-transverse-union-volume. Native coordinate-split product measure. -/
+lemma coordinate_transverse_union_volume {I : Type*} [Fintype I] (d k : ℕ) (hk : k ≤ d)
+    (S : Set (Fin d → ℝ)) (hS : IsCompact S) (hconv : Convex ℝ S)
+    (v : I → Fin d → ℝ) (hv : ∀ i j, k ≤ j.val → v i j = 0)
+    (r : ℝ) (hr : 1 ≤ r) :
+    ENNReal.ofReal (r^(d-k)) * volume (⋃ i, (fun x => v i+x) '' S) ≤
+      volume (⋃ i, (fun x => v i+x) '' (r • S)) := by sorry
+
+/-- GN.1/successive-box-volume-ratio. Includes equality of the two thresholds. -/
+lemma flag_box_volume_ratio {d : ℕ} (K : ConvexBody (Fin d → ℝ))
+    (hK : (0 : Fin d → ℝ) ∈ interior (K : Set _)) (hsym : ∀ x ∈ K, -x ∈ K)
+    (s t : ℝ) (hs : 0 < s) (hst : s ≤ t) (k q : ℕ) (hk : k ≤ d)
+    (hflag : ∀ z : Fin d → ℤ, gauge (K : Set _) (fun j => (z j : ℝ)) < t →
+      ∀ j : Fin d, k ≤ j.val → z j = 0) :
+    (t/s)^(d-k) * volume.real (boxUnion d q ((s/2) • (K : Set _))) ≤
+      volume.real (boxUnion d q ((t/2) • (K : Set _))) := by sorry
+
+/-- GN.1/first-box-volume. The threshold forbids nonzero strict-sublevel vectors. -/
+lemma first_box_volume {d : ℕ} (K : ConvexBody (Fin d → ℝ))
+    (hK : (0 : Fin d → ℝ) ∈ interior (K : Set _)) (hsym : ∀ x ∈ K, -x ∈ K)
+    (s : ℝ) (hs : 0 < s)
+    (hfirst : ∀ z : Fin d → ℤ, gauge (K : Set _) (fun j => (z j : ℝ)) < s → z = 0)
+    (q : ℕ) :
+    volume.real (boxUnion d q ((s/2) • (K : Set _))) =
+      (2*(q : ℝ)+1)^d * (s/2)^d * volume.real (K : Set (Fin d → ℝ)) := by sorry
+
+/-- GN.1/outer-lattice-box-volume. The radius is chosen independently of q. -/
+lemma outer_lattice_box_volume (d : ℕ) (S : Set (Fin d → ℝ)) (hS : IsCompact S) :
+    ∃ R : ℝ, 0 ≤ R ∧ ∀ q : ℕ,
+      volume.real (boxUnion d q S) ≤ (2*(q : ℝ)+2*R)^d := by sorry
+
+/-- GN.1/weighted-ratio-product. Descending exponents are essential. -/
+lemma weighted_ratio_product (n : ℕ) (a : Fin (n+1) → ℝ) (ha : ∀ j, 0 < a j) :
+    a 0^(n+1) * (∏ i : Fin n, (a i.succ / a i.castSucc)^(n-i.val)) =
+      ∏ j, a j := by sorry
+
+/-- GN.1/weighted-volume-chain. No division by any volume. -/
+lemma weighted_volume_chain (n : ℕ) (a V : Fin (n+1) → ℝ)
+    (ha : ∀ j, 0 < a j) (hV : ∀ j, 0 ≤ V j) (B : ℝ) (hB : 0 ≤ B)
+    (hfirst : a 0^(n+1)*B ≤ V 0)
+    (hstep : ∀ i : Fin n, (a i.succ/a i.castSucc)^(n-i.val)*V i.castSucc ≤ V i.succ) :
+    (∏ j, a j)*B ≤ V (Fin.last n) := by sorry
+
+/-- GN.1/large-box-comparison-limit. Even d=0 has its native meaning. -/
+lemma large_box_comparison_limit (d : ℕ) (R B : ℝ)
+    (h : ∀ q : ℕ, (2*(q : ℝ)+1)^d * B ≤ (2*(q : ℝ)+2*R)^d) : B ≤ 1 := by sorry
+
+/-- GN.1/coordinate-flag-upper. The flag is a hypothesis, not a new minimum definition. -/
+theorem coordinate_flag_upper (d : ℕ) (K : ConvexBody (Fin d → ℝ))
+    (hK : (0 : Fin d → ℝ) ∈ interior (K : Set _)) (hsym : ∀ x ∈ K, -x ∈ K)
+    (a : Fin d → ℝ) (ha : ∀ i, 0 < a i) (hmono : Monotone a)
+    (hflag : ∀ i : Fin d, ∀ z : Fin d → ℤ,
+      gauge (K : Set _) (fun j => (z j : ℝ)) < a i →
+      ∀ j : Fin d, i ≤ j → z j = 0) :
+    (∏ i, a i) * volume.real (K : Set (Fin d → ℝ)) ≤ 2^d := by sorry
+
+/-- GN.1/minkowski-second-upper. Native intrinsic volume and covolume, including dimension zero. -/
+theorem minkowski_second_upper
+    {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+    [FiniteDimensional ℝ E] [MeasurableSpace E] [BorelSpace E]
+    (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (K : ConvexBody E) (hK : (0 : E) ∈ interior (K : Set E))
+    (hsym : ∀ x ∈ K, -x ∈ K) :
+    (∏ i : Fin (finrank ℝ E), successiveMin L K i) * volume.real (K : Set E) ≤
+      2^finrank ℝ E * ZLattice.covolume L := by sorry
+end HenkUpper
+
+section HenkUpperTests
+/-- gauge_coordinate_scale -/
+example : gauge (Set.Icc (-2 : ℝ) 2) 2 = 1 := by sorry
+/-- gauge_coordinate_wrong_point -/
+example : gauge (Set.Icc (-1 : ℝ) 1) 2 = 2 ∧
+    gauge (Set.Icc (-1 : ℝ) 1) 2 ≠ 1 := by sorry
+/-- cluster_touching_null -/
+example : volume ((Set.Icc (0 : ℝ) 2 ∪ Set.Icc 1 3) ∩
+    (Set.Icc 3 5 ∪ Set.Icc 4 6)) = 0 := by sorry
+/-- cluster_cross_overlap_not_null -/
+example : volume (Set.Icc (0 : ℝ) 2 ∩ Set.Icc 1 3) = 1 := by sorry
+/-- cluster_volume_overlapping_rows -/
+example : volume (Set.Icc (0 : ℝ) 2 ∪ Set.Icc 1 3 ∪ Set.Icc 3 5 ∪ Set.Icc 4 6) = 6 ∧
+    volume (Set.Icc (0 : ℝ) 2 ∪ Set.Icc 1 3 ∪ Set.Icc 3 5 ∪ Set.Icc 4 6) ≠ 8 := by sorry
+/-- cluster_volume_repeated_inner_label -/
+example : volume ((Set.Icc (0 : ℝ) 1 ∪ Set.Icc 0 1) ∪
+    (Set.Icc 1 2 ∪ Set.Icc 1 2)) = 2 := by sorry
+/-- flag_half_body_touching -/
+example : Disjoint (Set.Ioo (-1/2 : ℝ) (1/2)) (Set.Ioo (1/2) (3/2)) := by sorry
+/-- flag_radius_factor_two -/
+example : ¬ Disjoint (Set.Ioo (-1 : ℝ) 1) (Set.Ioo 0 2) := by sorry
+/-- box_row_two_dimensional -/
+example : volume ((Set.Icc (-2 : ℝ) 2) ×ˢ (Set.Icc (-1/2 : ℝ) (1/2))) = 4 ∧
+    volume ((Set.Icc (-2 : ℝ) 2) ×ˢ (Set.Icc (-3/2 : ℝ) (3/2))) = 12 := by sorry
+/-- box_row_zero_radius -/
+example (d : ℕ) : (Finset.Icc (fun _ : Fin d => (0 : ℤ)) (fun _ => (0 : ℤ))).card = 1 := by sorry
+/-- coordinate_codimension_two -/
+example : (2 : ℝ)^(3-1 : ℕ) = 4 ∧ (2 : ℝ)^(3-1 : ℕ) ≠ 8 := by sorry
+/-- coordinate_full_prefix -/
+example (r : ℝ) (d : ℕ) : r^(d-d) = 1 ∧ r^(d-0) = r^d := by sorry
+/-- box_ratio_repeated_minimum -/
+example (s : ℝ) (hs : 0 < s) (d k : ℕ) (V : ℝ) : (s/s)^(d-k)*V = V := by sorry
+/-- box_ratio_codimension_not_dimension -/
+example : (3 : ℝ)*3 ≤ 15 ∧ ¬ (3 : ℝ)^2*3 ≤ 15 := by sorry
+/-- initial_box_square -/
+example : (3 : ℝ)^2*(1/2)^2*4 = 9 := by sorry
+/-- initial_box_nonunit_threshold -/
+example : (3 : ℝ)^2*(1/4)^2*8 = 9/2 := by sorry
+/-- outer_box_fixed_margin -/
+example : (15 : ℝ) ≤ (2+2*(3/2))^2 ∧ (2+2*(3/2) : ℝ)^2 = 25 := by sorry
+/-- outer_box_empty_dimension -/
+example : volume (∅ : Set (Fin 0 → ℝ)) = 0 ∧ (0 : ℝ)^0 = 1 := by sorry
+/-- weighted_ratio_three_values -/
+example : (2 : ℝ)^3*(3/2)^2*(5/3) = 2*3*5 := by sorry
+/-- weighted_ratio_repeated_values -/
+example : (2 : ℝ)^3*(2/2)^2*(5/2) = 20 := by sorry
+/-- weighted_ratio_rank_one -/
+example (a : ℝ) : a^1*(∏ i : Fin 0, (Fin.elim0 i : ℝ)) = a := by sorry
+/-- volume_chain_sharp_values -/
+example : (3/2 : ℝ)^2*8 = 18 ∧ (5/3 : ℝ)*18 = 30 ∧ (2*3*5 : ℝ) = 30 := by sorry
+/-- volume_chain_zero_base -/
+example (n : ℕ) (a : Fin (n+1) → ℝ) : (∏ i, a i)*(0 : ℝ) ≤ 0 := by sorry
+/-- large_box_half_margin -/
+example (q : ℕ) : (2*(q : ℝ)+2*(1/2))/(2*(q : ℝ)+1) = 1 := by sorry
+/-- large_box_zero_dimension -/
+example (R B : ℝ) (h : ∀ q : ℕ, (2*(q : ℝ)+1)^0*B ≤ (2*(q : ℝ)+2*R)^0) :
+    B ≤ 1 := by sorry
+/-- coordinate_upper_rectangle -/
+example : ((1/3 : ℝ)*1)*12 = 2^2 := by sorry
+/-- coordinate_upper_diamond -/
+example : ((1 : ℝ)*1)*2 < 2^2 := by sorry
+/-- coordinate_upper_empty -/
+example : (∏ i : Fin 0, (Fin.elim0 i : ℝ)) *
+    volume.real (Set.univ : Set (Fin 0 → ℝ)) = 2^0 := by sorry
+/-- upper_nonunit_covolume -/
+example : (2/3 : ℝ)*6 = 2*2 ∧ ¬ (2/3 : ℝ)*6 ≤ 2 := by sorry
+/-- upper_anisotropic_lattice -/
+example : ((1 : ℝ)*3)*8 = 2^2*6 := by sorry
+/-- upper_zero_dimension -/
+example : volume (Set.univ : Set (EuclideanSpace ℝ (Fin 0))) = 1 ∧
+    (∏ i : Fin 0, (Fin.elim0 i : ℝ)) = 1 := by sorry
+end HenkUpperTests
 
 end TauCeti.GeometryOfNumbersPlan
