@@ -1,3 +1,6 @@
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
+import Mathlib.FieldTheory.Finite.Basic
+import Mathlib.Algebra.CharP.Reduced
 import Mathlib.RingTheory.PowerSeries.Binomial
 import Mathlib.NumberTheory.Padics.MahlerBasis
 /-
@@ -471,4 +474,109 @@ example (a : ℤ_[3]) (ha : 2 * a = 1) (u : (PowerSeries ℤ_[3])ˣ)
     (hg : PowerSeries.HasSubst (PowerSeries.binomialSeries ℤ_[3] a - 1)) :
     2 * logDeriv (Units.map (PowerSeries.substAlgHom hg).toMonoidHom u) = 1 := by sorry
 
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+/-!
+Integral L1 norm congruences. These are suggested signatures, not implementations.
+The mathematical roadmap is definitive. N^[k] is function iteration; the norm
+uses the inherited explicit Frobenius scalar algebra, including at p=2.
+-/
+noncomputable section
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+section NormCongruences
+variable (p : ℕ) [Fact p.Prime]
+local notation "B" => PowerSeries (PadicInt p)
+local notation "Y" => (1 + PowerSeries.X : B)
+set_option quotPrecheck false in
+local notation "Phi" => (PowerSeries.substAlgHom
+  (PowerSeries.HasSubst.of_constantCoeff_zero' (by simp :
+    PowerSeries.constantCoeff (Y ^ p - 1) = 0))).toRingHom
+
+-- ColemanPowerSeries:L1/residue-series-congruence
+lemma map_toZMod_eq_iff (f g : B) :
+    PowerSeries.map (PadicInt.toZMod : PadicInt p →+* ZMod p) f =
+      PowerSeries.map (PadicInt.toZMod : PadicInt p →+* ZMod p) g ↔
+    (p : B) ∣ f - g := sorry
+
+-- ColemanPowerSeries:L1/frobenius-congruence-reflection
+lemma phi_sub_one_dvd_iff (f : B) (k : ℕ) :
+    (p : B) ^ k ∣ Phi f - 1 ↔ (p : B) ^ k ∣ f - 1 := sorry
+
+-- ColemanPowerSeries:L1/coleman-norm-preserves-congruence
+lemma colemanNorm_sub_dvd (f g : B) (k : ℕ)
+    (h : (p : B) ^ k ∣ f - g) :
+    (p : B) ^ k ∣ colemanNorm p f - colemanNorm p g := sorry
+
+-- ColemanPowerSeries:L1/coleman-norm-residue-identity
+lemma colemanNorm_sub_self_dvd (f : B) :
+    (p : B) ∣ colemanNorm p f - f := sorry
+
+-- ColemanPowerSeries:L1/coleman-norm-improves-one-congruence
+lemma colemanNorm_sub_one_dvd (f : B) (k : ℕ) (hk : 1 ≤ k)
+    (h : (p : B) ^ k ∣ f - 1) :
+    (p : B) ^ (k + 1) ∣ colemanNorm p f - 1 := sorry
+
+-- ColemanPowerSeries:L1/coleman-norm-iterated-improvement
+lemma colemanNorm_iterate_sub_one_dvd (f : B) (k r : ℕ) (hk : 1 ≤ k)
+    (h : (p : B) ^ k ∣ f - 1) :
+    (p : B) ^ (k + r) ∣ (colemanNorm p)^[r] f - 1 := sorry
+
+-- ColemanPowerSeries:L1/coleman-norm-iterate-congruence
+theorem colemanNorm_iterate_sub_dvd (u : Bˣ) (k₁ k₂ : ℕ) (h : k₁ ≤ k₂) :
+    (p : B) ^ (k₁ + 1) ∣
+      (colemanNorm p)^[k₂] (u : B) - (colemanNorm p)^[k₁] (u : B) := sorry
+end NormCongruences
+
+section NormCongruenceTests
+local instance : Fact (Nat.Prime 2) := ⟨by decide⟩
+local instance : Fact (Nat.Prime 3) := ⟨by decide⟩
+local notation "B2" => PowerSeries (PadicInt 2)
+local notation "B3" => PowerSeries (PadicInt 3)
+local notation "red3" => PowerSeries.map (PadicInt.toZMod : PadicInt 3 →+* ZMod 3)
+
+-- test residue_series_three_control
+example : red3 (1 + 3 * PowerSeries.X) = red3 1 ∧
+    red3 (1 + PowerSeries.X) ≠ red3 1 := sorry
+
+-- test phi_congruence_three_control
+example : ¬ (3 : B3) ∣ (1 + PowerSeries.X) ^ 3 - 1 := sorry
+
+-- test phi_freshman_two_difference
+example : (1 + PowerSeries.X : B2) ^ 2 - 1 - PowerSeries.X ^ 2 = 2 * PowerSeries.X ∧
+    (2 * PowerSeries.X : B2) ≠ 0 := sorry
+
+-- test colemanNorm_constant_congruence_nine
+example : colemanNorm 3 10 - colemanNorm 3 1 = 999 ∧
+    (9 : B3) ∣ colemanNorm 3 10 - colemanNorm 3 1 := sorry
+
+-- test colemanNorm_mod_three_sharp
+example : (3 : B3) ∣ colemanNorm 3 2 - 2 ∧
+    ¬ (9 : B3) ∣ colemanNorm 3 2 - 2 := sorry
+
+-- test colemanNorm_improvement_three_sharp
+example : colemanNorm 3 4 - 1 = 63 ∧
+    (9 : B3) ∣ colemanNorm 3 4 - 1 ∧ ¬ (27 : B3) ∣ colemanNorm 3 4 - 1 := sorry
+
+-- test colemanNorm_improvement_two
+example : colemanNorm 2 3 - 1 = 8 ∧ (4 : B2) ∣ colemanNorm 2 3 - 1 := sorry
+
+-- test colemanNorm_improvement_zero_precision
+example : (1 : B3) ∣ 0 - 1 ∧ ¬ (3 : B3) ∣ colemanNorm 3 0 - 1 := sorry
+
+-- test colemanNorm_twice_four
+example : colemanNorm 3 (colemanNorm 3 4) = 262144 ∧
+    (27 : B3) ∣ colemanNorm 3 (colemanNorm 3 4) - 1 := sorry
+
+-- test colemanNorm_iteration_three_sharp
+example : colemanNorm 3 (colemanNorm 3 2) - colemanNorm 3 2 = 504 ∧
+    (9 : B3) ∣ colemanNorm 3 (colemanNorm 3 2) - colemanNorm 3 2 ∧
+    ¬ (27 : B3) ∣ colemanNorm 3 (colemanNorm 3 2) - colemanNorm 3 2 := sorry
+
+-- test colemanNorm_iteration_dyadic_sign
+example : colemanNorm 2 (colemanNorm 2 (1 + PowerSeries.X)) =
+      colemanNorm 2 (1 + PowerSeries.X) ∧
+    colemanNorm 2 (1 + PowerSeries.X) = -(1 + PowerSeries.X) ∧
+    colemanNorm 2 (1 + PowerSeries.X) - (1 + PowerSeries.X) =
+      -2 * (1 + PowerSeries.X : B2) := sorry
+end NormCongruenceTests
 end TauCetiRoadmap.Campaign.ColemanPowerSeries

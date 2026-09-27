@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation: 25 L1 nodes construct the finite-free Frobenius scalar algebra on ℤ_p[[T]], its explicit power basis, determinant norm, integral trace, trace divisibility and norm-fixed unit subgroup. The proof decomposes residue coordinates, finite-level lifting, reflection, uniqueness and compact existence. All prime p, including 2, are covered in this algebraic tranche with explicit dyadic norm signs. The preceding 15 L2 logarithmic-derivative/Dirichlet-denominator comparison nodes and nine source findings are retained. Completed root-of-unity substitution, product and measure comparisons, arithmetic interpolation, exactness and local quotients remain required. No stage is closed; accepted RS-16 ownership is unchanged. Ten further L2 lemmas specify signed-integer cyclotomic formulas and the twisted logarithmic derivative for every p-adic exponent. They reuse the pinned binomial series and the exact imported natural denominator; the P7 cyclotomic action remains an imported interface.",
+  "summary": "Partial continuation: 25 L1 nodes construct the finite-free Frobenius scalar algebra on ℤ_p[[T]], its explicit power basis, determinant norm, integral trace, trace divisibility and norm-fixed unit subgroup. The proof decomposes residue coordinates, finite-level lifting, reflection, uniqueness and compact existence. All prime p, including 2, are covered in this algebraic tranche with explicit dyadic norm signs. The preceding 15 L2 logarithmic-derivative/Dirichlet-denominator comparison nodes and nine source findings are retained. Completed root-of-unity substitution, product and measure comparisons, arithmetic interpolation, exactness and local quotients remain required. No stage is closed; accepted RS-16 ownership is unchanged. Ten further L2 lemmas specify signed-integer cyclotomic formulas and the twisted logarithmic derivative for every p-adic exponent. They reuse the pinned binomial series and the exact imported natural denominator; the P7 cyclotomic action remains an imported interface. The norm-congruence continuation adds seven L1 declarations covering all four parts of RJW Lemma 10.11 from the existing finite-free determinant norm and trace, including p=2. Reduction, congruence preservation and iteration are explicit; no root-of-unity product comparison or norm-limit construction is assumed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -413,6 +413,83 @@
         "module": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
         "provides": "Coefficient n of binomialSeries A a is choose(a,n) acting on 1.",
         "checked": "Full statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; the p-adic prime instance and coefficient topology are explicit."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Coefficient n of the existing coefficient map is the coefficient-ring map applied to coefficient n.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_C_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Multiplication by a constant scales every coefficient, used to assemble coefficientwise divisibility witnesses.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.expand_apply",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+        "provides": "Expansion by a nonzero p is exactly substitution by T^p.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:PowerSeries.map_frobenius_expand",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+        "provides": "Over an ExpChar-p commutative ring, coefficient Frobenius after expansion is the p-th power.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:ZMod.frobenius_zmod",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+        "provides": "Coefficient Frobenius on ZMod p is the identity for prime p.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:frobenius_inj",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/CharP/Reduced.lean",
+        "provides": "Frobenius is injective in a reduced commutative ring of exponential characteristic p.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:add_pow_char",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/CharP/Lemmas.lean",
+        "provides": "In a commutative semiring of prime characteristic p, (x+y)^p=x^p+y^p.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:RingHom.map_det",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "A ring homomorphism sends a determinant to the determinant of the entrywise mapped matrix.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.mk_eq_mk_iff_sub_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Equality in an ideal quotient is equivalent to the difference belonging to the ideal.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:Ideal.mem_span_singleton",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Membership in a principal ideal of a commutative semiring is divisibility by its generator.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
+      },
+      {
+        "ref": "mathlib:Matrix.det_one_add_smul",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "Exact expansion det(I+rM)=1+trace(M)r+Q(r)r² over any commutative ring and finite square matrix.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27 by Codex — codex-hjdg0j; source blob checked against the pinned GitHub tree."
       }
     ]
   },
@@ -428,7 +505,8 @@
       "readSections": [
         "§10.1–10.4, printed pp.163–170 (PDF 64–71), including all proofs; §12.1–12.2.1 through the statement of Lemma 12.14, pp.177–183; operator passages §3.5, pp.126–129; §4.1–4.3, pp.136–139. The remainder of §§9–12 and cited Coates–Sujatha/Coleman sources have not been exhaustively decomposed. Rendered PDF pp.38 and 71 to verify the two signs.",
         "Codex — codex-7e92bd, 2026-09-27: freshly downloaded the same publication bytes and read printed pp.166–169 (PDF67–70), including Lemmas10.7–10.11, Proposition10.12 and Theorem10.13. Earlier read scopes and v2 collation remain attributed to the predecessor.",
-        "Signed and p-adic parameter continuation: freshly acquired published copy, printed p.165 and pp.177–180 read; p.165 and p.179 rendered and visually inspected. Focal reads only; no whole-paper completeness claim."
+        "Signed and p-adic parameter continuation: freshly acquired published copy, printed p.165 and pp.177–180 read; p.165 and p.179 rendered and visually inspected. Focal reads only; no whole-paper completeness claim.",
+        "Codex — codex-hjdg0j, 2026-09-27: physical PDF67–69 / printed166–168 read in full, with printed168 rendered and visually checked. Fresh reading covers Lemmas10.7–10.11, Proposition10.10 and the opening of Proposition10.12. Earlier wider reading remains attributed to the preceding workers."
       ]
     },
     {
@@ -452,7 +530,8 @@
       "sha256": "38178a8a147169c3750b7693c46c7453954790b101b37c2690f8e8cda91b0789",
       "accessed": "2026-09-27",
       "readSections": [
-        "Printed pp.13–19 (PDF23–29): local units, Theorems2.1.2–2.1.3, §2.2 norm and trace, Lemmas2.3.1–2.3.4 and the beginning of Lemma2.3.5. Its proof continues on p.20, not read in this tranche. Rendered printed p.15 to check Theorem2.1.3. The notation page and the opening paragraph of publisher sample §1.1 were also read: the book fixes an odd prime. No full-book or coefficient-variant reading is claimed."
+        "Printed pp.13–19 (PDF23–29): local units, Theorems2.1.2–2.1.3, §2.2 norm and trace, Lemmas2.3.1–2.3.4 and the beginning of Lemma2.3.5. Its proof continues on p.20, not read in this tranche. Rendered printed p.15 to check Theorem2.1.3. The notation page and the opening paragraph of publisher sample §1.1 were also read: the book fixes an odd prime. No full-book or coefficient-variant reading is claimed.",
+        "Codex — codex-hjdg0j, 2026-09-27: physical PDF26–31 / printed16–21 read in full in batches of at most three pages, including Lemmas2.3.1–2.3.2, Corollaries2.3.3–2.3.4, completed Lemma2.3.5 and the opening §2.4. The book’s odd-prime convention is preserved; the dyadic algebra is independently justified by the determinant proof."
       ]
     }
   ],
@@ -2970,6 +3049,367 @@
         "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.logDeriv_padic_subst"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/residue-series-congruence",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coefficient reduction and divisibility",
+      "kind": "lemma",
+      "statement": "For f,g∈B, their images under the existing coefficient map ρ=PowerSeries.map(PadicInt.toZMod) are equal if and only if p divides f−g in B.",
+      "hypotheses": [
+        "p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). N is the inherited determinant norm for the explicit φ-scalar algebra, with basis Y^i for 0≤i<p. Divisibility and congruences are in B. The notation N^[r] means r-fold composition, with N^[0]=id; it never means the r-th power of N(f)."
+      ],
+      "proofSteps": [
+        "Equality after ρ is coefficientwise equality in 𝔽_p. By PadicInt.ker_toZMod and maximalIdeal_eq_span_p, it is equivalent to p dividing every coefficient of f−g.",
+        "Choose one quotient coefficient at each index and assemble the resulting existing power series h. The coefficient formula for multiplication by the constant p gives f−g=p h. Conversely apply ρ to this equality. No boundedness condition on the quotient coefficients beyond membership in ℤ_p is needed."
+      ],
+      "acceptance": [
+        "The condition controls all coefficients, not just the constant coefficient."
+      ],
+      "prerequisites": [
+        "mathlib:PowerSeries.map",
+        "mathlib:PowerSeries.coeff_map",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:PadicInt.toZMod",
+        "mathlib:PadicInt.ker_toZMod",
+        "mathlib:PadicInt.maximalIdeal_eq_span_p",
+        "mathlib:Ideal.mem_span_singleton"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.map_toZMod_eq_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.11(i)–(ii), printed p.168 / PDF69; coefficientwise meaning of its congruences.",
+          "match": "An explicit coefficient-kernel helper for the source congruences, proved from the existing residue homomorphism. It is not a new quotient-ring or reduction-map construction."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "residue_series_three_control",
+          "kind": "non-example",
+          "statement": "In ℤ₃[[T]], ρ(1+3T)=ρ(1), but ρ(1+T)≠ρ(1), despite all three series having constant coefficient 1."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/frobenius-congruence-reflection",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Frobenius congruence reflection",
+      "kind": "lemma",
+      "statement": "For every f∈B and k≥0, p^k divides φ(f)−1 if and only if p^k divides f−1.",
+      "hypotheses": [
+        "p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). N is the inherited determinant norm for the explicit φ-scalar algebra, with basis Y^i for 0≤i<p. Divisibility and congruences are in B. The notation N^[r] means r-fold composition, with N^[0]=id; it never means the r-th power of N(f)."
+      ],
+      "proofSteps": [
+        "Place f−1 in coordinate 0 and zero in all other coordinates of the existing assembly Ξ. The explicit finite-sum assembly formula reduces to φ(f−1)=φ(f)−1, since Y⁰=1.",
+        "Apply phiAssemble_dvd_iff to this tuple. All zero coordinates satisfy divisibility automatically, and coordinate 0 gives the desired equivalence. The prime assumption ensures coordinate 0 exists. This includes f=1 and k=0 without choosing a finite valuation."
+      ],
+      "acceptance": [
+        "At k=0 both sides are automatic. At p=3, f=1+T satisfies neither side for k=1: φ(f)−1 has a unit coefficient at degree 3."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/frobenius-coordinate-formula",
+        "ColemanPowerSeries:L1/frobenius-coordinate-congruence-reflection",
+        "mathlib:PowerSeries.substAlgHom"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.phi_sub_one_dvd_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.11(i), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.1, printed p.18 / PDF28.",
+          "match": "The source implication is strengthened to an equivalence using the already planned integral coordinate reflection; the reverse implication is also immediate from φ fixing p."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "phi_congruence_three_control",
+          "kind": "non-example",
+          "statement": "For p=3, 3 does not divide (1+T)³−1 in B, although its coefficients of T and T² are divisible by 3."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-preserves-congruence",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Norm preservation of congruences",
+      "kind": "lemma",
+      "statement": "For f,g∈B and k≥0, if p^k divides f−g then p^k divides N(f)−N(g). No unit hypothesis is imposed.",
+      "hypotheses": [
+        "p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). N is the inherited determinant norm for the explicit φ-scalar algebra, with basis Y^i for 0≤i<p. Divisibility and congruences are in B. The notation N^[r] means r-fold composition, with N^[0]=id; it never means the r-th power of N(f)."
+      ],
+      "proofSteps": [
+        "Write f−g=p^k h. The native Algebra.leftMulMatrix is an algebra homomorphism, hence a ring homomorphism. Its matrix difference is p^k M_h, because a ring homomorphism sends the natural scalar p to p times the identity.",
+        "Reduce every entry modulo the principal ideal (p^k) in the base B. The reduced matrices of f and g agree.",
+        "Apply RingHom.map_det to this quotient map, then the inherited colemanNorm_matrix formula. Ideal.Quotient.mk_eq_mk_iff_sub_mem and Ideal.mem_span_singleton translate equality of the reduced determinants into divisibility. The argument also covers k=0, when the quotient is the zero ring."
+      ],
+      "acceptance": [
+        "No additive-homomorphism property of N is asserted. For p=3, the inputs 1 and 1+9 are congruent modulo 9, and their norms are 1 and 1000."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-matrix",
+        "mathlib:Algebra.leftMulMatrix",
+        "mathlib:RingHom.map_det",
+        "mathlib:Ideal.Quotient.mk_eq_mk_iff_sub_mem",
+        "mathlib:Ideal.mem_span_singleton"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_sub_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.11(ii)–(iii), printed p.168 / PDF69; norm from Lemma 10.8, p.167 / PDF68.",
+          "match": "A determinant-polynomial helper for the source congruences. The generic matrix reduction and determinant functoriality already belong to Mathlib and are imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "colemanNorm_constant_congruence_nine",
+          "kind": "concrete",
+          "statement": "For p=3, N(10)−N(1)=999, which is divisible by 9 in ℤ₃[[T]]."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-residue-identity",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coleman norm modulo p",
+      "kind": "lemma",
+      "statement": "For every f∈B, p divides N(f)−f. No unit hypothesis is imposed.",
+      "hypotheses": [
+        "p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). N is the inherited determinant norm for the explicit φ-scalar algebra, with basis Y^i for 0≤i<p. Divisibility and congruences are in B. The notation N^[r] means r-fold composition, with N^[0]=id; it never means the r-th power of N(f)."
+      ],
+      "proofSteps": [
+        "First reduce φ(f) coefficientwise using PowerSeries.map_subst. The native add_pow_char gives ρ(Y^p−1)=T^p; PowerSeries.expand_apply, map_frobenius_expand and ZMod.frobenius_zmod then give ρ(φ(f))=ρ(f)^p=ρ(f^p). Use map_toZMod_eq_iff. These are substitutions into existing identities, not a second construction of P7 cyclotomic Frobenius.",
+        "Apply preservation of congruences to φ(f) and f^p, using this reduced equality. The inherited base-scalar formula gives N(φ(f))=f^p, and the monoid-homomorphism law gives N(f^p)=N(f)^p.",
+        "After coefficient reduction, ρ(f)^p=ρ(N(f))^p. Frobenius is injective on the reduced ring 𝔽_p[[T]] by the native frobenius_inj theorem (the power-series ring is a domain).",
+        "Cancel Frobenius and use map_toZMod_eq_iff to return to divisibility in B. This proof works for nonunits and does not identify the determinant with a product of completed substitutions."
+      ],
+      "acceptance": [
+        "For p=3, N(2)=8 and N(2)−2=6 is divisible by 3 but not by 9."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-preserves-congruence",
+        "ColemanPowerSeries:L1/coleman-norm-base-scalars",
+        "ColemanPowerSeries:L1/coleman-determinant-norm",
+        "ColemanPowerSeries:L1/residue-series-congruence",
+        "mathlib:frobenius_inj",
+        "mathlib:PowerSeries.map_subst",
+        "mathlib:PowerSeries.expand_apply",
+        "mathlib:PowerSeries.map_frobenius_expand",
+        "mathlib:ZMod.frobenius_zmod",
+        "mathlib:add_pow_char"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_sub_self_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.11(ii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29.",
+          "match": "Exactly the RJW assertion for all series. Coates–Sujatha states its norm congruence for units. The finite-free determinant proof supplies the stronger all-series statement without using the unfinished completed-substitution comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "colemanNorm_mod_three_sharp",
+          "kind": "non-example",
+          "statement": "In ℤ₃[[T]], 3 divides N(2)−2, but 9 does not."
+        },
+        {
+          "name": "phi_freshman_two_difference",
+          "kind": "concrete",
+          "statement": "For p=2, (1+T)²−1−T²=2T≠0 in ℤ₂[[T]]."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-improves-one-congruence",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coleman norm improvement at one",
+      "kind": "lemma",
+      "statement": "For f∈B and k≥1, if p^k divides f−1 then p^(k+1) divides N(f)−1. The assertion is stated for all f satisfying this condition.",
+      "hypotheses": [
+        "p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). N is the inherited determinant norm for the explicit φ-scalar algebra, with basis Y^i for 0≤i<p. Divisibility and congruences are in B. The notation N^[r] means r-fold composition, with N^[0]=id; it never means the r-th power of N(f)."
+      ],
+      "proofSteps": [
+        "Write f=1+p^k h. For M=M_h, the native multiplication-matrix homomorphism gives M_f=I+p^k M.",
+        "Apply the existing Matrix.det_one_add_smul with scalar p^k. It gives det(I+p^k M)=1+p^k trace(M)+p^(2k) Q for an explicit polynomial evaluation Q∈B; this exact expansion requires no division.",
+        "Identify trace(M)=τ(h) by the native Algebra.trace_eq_matrix_trace and the inherited trace definition. The existing colemanTrace_divisible gives τ(h)=p b.",
+        "Both terms p^(k+1)b and p^(2k)Q are divisible by p^(k+1), because k≥1 implies 2k≥k+1. Use the inherited norm-matrix formula."
+      ],
+      "acceptance": [
+        "The bound k≥1 is essential to this statement: at k=0 the premise holds for f=0, while N(0)−1=−1 is not divisible by p.",
+        "At p=3, f=4 gives N(f)−1=63, divisible by 9 but not by 27. At p=2, f=3 gives N(f)−1=8, consistent with the required bound 4."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-matrix",
+        "ColemanPowerSeries:L1/coleman-integral-trace",
+        "ColemanPowerSeries:L1/coleman-trace-divisibility",
+        "mathlib:Algebra.leftMulMatrix",
+        "mathlib:Algebra.trace_eq_matrix_trace",
+        "mathlib:Matrix.det_one_add_smul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_sub_one_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.11(iii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29.",
+          "match": "The source conclusion is proved integrally from norm and trace. Its separate unit hypothesis is unnecessary once the hypothesis f≡1 mod p^k, k≥1, is imposed. The argument covers p=2 and avoids the extended-ideal notation issues E4/E11."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "colemanNorm_improvement_three_sharp",
+          "kind": "non-example",
+          "statement": "In ℤ₃[[T]], N(4)−1=63, 9 divides this difference, and 27 does not."
+        },
+        {
+          "name": "colemanNorm_improvement_two",
+          "kind": "concrete",
+          "statement": "In ℤ₂[[T]], N(3)−1=8 and 4 divides it."
+        },
+        {
+          "name": "colemanNorm_improvement_zero_precision",
+          "kind": "degenerate",
+          "statement": "In ℤ₃[[T]], 1 divides 0−1, while 3 does not divide N(0)−1."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-iterated-improvement",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Iterated norm improvement at one",
+      "kind": "lemma",
+      "statement": "For f∈B, k≥1 and r≥0, if p^k divides f−1 then p^(k+r) divides N^[r](f)−1.",
+      "hypotheses": [
+        "p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). N is the inherited determinant norm for the explicit φ-scalar algebra, with basis Y^i for 0≤i<p. Divisibility and congruences are in B. The notation N^[r] means r-fold composition, with N^[0]=id; it never means the r-th power of N(f)."
+      ],
+      "proofSteps": [
+        "Induct on r. At r=0 the iterate is f and the exponent is k.",
+        "Apply colemanNorm_sub_one_dvd to N^[r](f) at precision k+r≥1. The new exponent is k+r+1=k+(r+1). No division or new topology is used."
+      ],
+      "acceptance": [
+        "For p=3, f=4, k=1 and r=2, N^[2](4)=4⁹=262144, and 27 divides 262143."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-improves-one-congruence"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_iterate_sub_one_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proof of Lemma 10.11(iv), printed p.168 / PDF69: iterate part (iii).",
+          "match": "This makes the induction used in the source proof a reusable declaration, with the initial precision and zero-iterate case explicit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "colemanNorm_twice_four",
+          "kind": "concrete",
+          "statement": "In ℤ₃[[T]], N(N(4))=262144 and 27 divides N(N(4))−1."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/coleman-norm-iterate-congruence",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Coleman norm iteration congruence",
+      "kind": "theorem",
+      "statement": "For an actual unit u∈Bˣ and integers k₂≥k₁≥0, p^(k₁+1) divides N^[k₂](u)−N^[k₁](u), viewing u in B.",
+      "hypotheses": [
+        "p is any prime, including 2; B=ℤ_p[[T]], Y=1+T, and φ(f)=f(Y^p−1). N is the inherited determinant norm for the explicit φ-scalar algebra, with basis Y^i for 0≤i<p. Divisibility and congruences are in B. The notation N^[r] means r-fold composition, with N^[0]=id; it never means the r-th power of N(f)."
+      ],
+      "proofSteps": [
+        "Put r=k₁ and d=k₂−k₁. By induction on d, colemanNorm_sub_self_dvd implies N^[d](u)≡u mod p: add the consecutive differences, each divisible by p.",
+        "Form h=N^[d](u)·u⁻¹ in B, using the actual inverse of u. Then h−1=(N^[d](u)−u)u⁻¹ is divisible by p.",
+        "Apply colemanNorm_iterate_sub_one_dvd with initial precision 1 and r iterations to obtain N^[r](h)−1 divisible by p^(r+1).",
+        "Every iterate of N is a monoid homomorphism. Therefore N^[r](h)·N^[r](u)=N^[r+d](u); multiply the divisibility relation by N^[r](u), and use r+d=k₂. This avoids division by a possibly nonunit series introduced as an untyped quotient."
+      ],
+      "acceptance": [
+        "At equal indices the difference is zero. For p=3 and the unit 2, k₁=1 and k₂=2 give 512−8=504, divisible by 9 but not by 27.",
+        "At p=2, N(Y)=−Y and N²(Y)=−Y. The estimate holds despite Y itself not being norm-fixed."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/coleman-norm-residue-identity",
+        "ColemanPowerSeries:L1/coleman-norm-iterated-improvement",
+        "ColemanPowerSeries:L1/coleman-determinant-norm"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/ColemanNorm",
+        "namespace": "TauCetiRoadmap.Campaign.ColemanPowerSeries",
+        "declaration": "TauCetiRoadmap.Campaign.ColemanPowerSeries.colemanNorm_iterate_sub_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma 10.11(iv) and its proof, printed p.168 / PDF69; Coates–Sujatha Corollary 2.3.3, printed p.19 / PDF29.",
+          "match": "The source statement with explicit iteration and actual units. It is the uniform p-adic estimate used in interpolation, not yet a continuity, convergence or arithmetic-evaluation theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "colemanNorm_iteration_three_sharp",
+          "kind": "non-example",
+          "statement": "For p=3, N(N(2))−N(2)=504; 9 divides it, but 27 does not."
+        },
+        {
+          "name": "colemanNorm_iteration_dyadic_sign",
+          "kind": "compatibility",
+          "statement": "For p=2 and Y=1+T, N(N(Y))=N(Y)=−Y, while N(Y)−Y=−2Y."
+        }
+      ],
+      "planet": {
+        "name": "Coleman norm congruences"
+      }
     }
   ],
   "requests": [
@@ -3029,13 +3469,13 @@
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L2",
-      "need": "Bounded Amice/measure operators ∂, φ, ψ, unit restriction 1−φψ and x⁻¹ on units; linearity, continuity and σ_a twists, with scalar extension and convergence for root-of-unity formulas. Identify Δ(f) with the imported ∂(f) times f⁻¹, without duplicating ∂. In L1, identify the supplied bounded φ with the exact substitution used for the scalar algebra, and identify the supplied bounded ψ(f) with the zeroth Frobenius-basis coordinate, equivalently the unique g with τ(f)=pg. The determinant trace and divisibility themselves are now planned here; do not duplicate them.",
+      "need": "Topological and coefficient-extension comparisons for the bounded Amice/measure operators, with the topology on measures stated; convergence and descent for root-of-unity averaging over extended coefficients; and the comparison between unit-dilation pushforward and formal binomial substitution. The integral operators, unit projector, inverse Mahler derivative and inverse-factor dilation identity already have exact supplier nodes. Coleman retains its own normalized-trace/psiSeries and arithmetic-action comparisons.",
       "neededBy": [
         "ColemanPowerSeries:L1",
         "ColemanPowerSeries:L2"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
+      "note": "Narrowed after reading the refreshed PMIA packet at main 448c011da57461d093d2d686960fcb157870374c. Use its finer nodes listed in provenance.normCongruences.supplierRefresh; do not request or rebuild the integral inverse operators. This request concerns the remaining stage-level interfaces, not the present norm-congruence proofs."
     },
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L4",
@@ -3057,12 +3497,12 @@
     },
     {
       "supplier": "DirichletPadicLFunctions:L1",
-      "need": "For positive a>1 prime to p, ψ-invariance, restriction-to-units formulas and the independently normalized ζ_p with raw Coleman image −([a]−1)ζ_p. The actual smoothed series F_a, its cleared identity and integral Amice measure are already supplied by DirichletPadicLFunctions:L1/smoothed-series, series-cleared-equation and smoothed-measure; import those precise nodes when constructing the Coleman measure, do not request or rebuild them. The integral denominator/basic laws are already imported by this corrected packet. Repair E5/E7/E8 below in the remaining source derivation.",
+      "need": "For positive a>1 prime to p, construct the independently normalized ζ_p and identify the exact arithmetic numerator ν_a with ([a]−1)ζ_p in the actual completed unit-group pseudomeasure carrier, including smoothing-parameter independence and the denominator/regularity hypotheses. ψ-invariance, unit restriction and ν_a now have exact supplier nodes; their root-average comparison remains an explicit supplier gap. Coleman proves its own raw image −ν_a and hence −([a]−1)ζ_p, retaining its sign convention.",
       "neededBy": [
         "ColemanPowerSeries:L2"
       ],
       "status": "open",
-      "note": "Stage-level continuation request only for the still-missing ψ/restriction/pseudomeasure results. The exact existing denominator nodes are direct prerequisites of the algebraic declarations, not open requests."
+      "note": "Narrowed after reading the relevant new Dirichlet nodes at main 3fa3504bfe0aa38e8c6f1934daa440b2e6756999. The existing denominator nodes used by the 50 inherited nodes are unchanged. Consume series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice; do not rebuild these results or treat the remaining averaging dependency as proved."
     },
     {
       "supplier": "IntegralIwasawaTheory:L0",
@@ -3072,6 +3512,15 @@
       ],
       "status": "open",
       "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot."
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L0",
+      "status": "open",
+      "neededBy": [
+        "ColemanPowerSeries:L2"
+      ],
+      "need": "For a compact profinite space and a clopen subset, compare the existing intrinsic integral measure on the clopen subtype with its extension by zero in the ambient continuous dual, characterize the image by support, and give restriction as inverse with the stated weak/operator-norm topology comparisons. Specialize to ℤ_pˣ as the clopen unit subset of ℤ_p to identify the ambient PMIA unit projector with the target intrinsic unit-domain measures of Coleman.",
+      "note": "Generic clopen restriction/extension is owned by L0. The refreshed inverse-weight and inverse-Mahler nodes explicitly leave this comparison open; do not build a private measure carrier in Coleman."
     }
   ],
   "coverage": [
@@ -3089,7 +3538,7 @@
       "status": "partial",
       "remaining": [
         "Compare the proved integral trace coordinate with the bounded ψ owned by PMIA L2. Prove completed coefficient root-of-unity substitutions, trace/product formulas and descent; formal HasSubst alone is insufficient.",
-        "Give norm/evaluation comparison and every part of RJW Lemma10.11. The Coates–Sujatha norm/trace and congruence passages have now been read, but their full interpolation argument and original Coleman sources still need granular decomposition.",
+        "The four congruences of RJW Lemma10.11 now have explicit nodes. Establish continuity of norm and its coordinate inverse in the coefficientwise p-adic topology, convergence and fixedness of the norm-iterate limit (Coates–Sujatha Corollary2.3.4), and norm/evaluation compatibility. The uniform p-adic estimates do not alone supply the arithmetic interpolation map.",
         "Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
       ]
     },
@@ -3098,8 +3547,8 @@
       "status": "partial",
       "remaining": [
         "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower.",
-        "The signed-integer cyclotomic factorization and smoothing identities, and the p-adic-exponent weighted derivative and twisted logarithmic derivative are specified. The formal twisted logarithmic derivative is specified for every p-adic exponent. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. Establish the actual tower action, its interpolation compatibility, norm-fixed restriction, the measure-action comparison and the inverse-derivative factor a⁻¹ needed for full Coleman-map equivariance. These identities alone do not close L2.",
-        "Consume actual PMIA bounded measure operators and the still-missing Dirichlet ψ/restriction/pseudomeasure results. The smoothed series, integral measure and T f_a F_a=f_a−a are already supplied by the exact Dirichlet L1 nodes; instantiate its series-cleared-equation on the shared denominator. Then prove equality of measures for raw Col₀ and normalized Col=−Col₀. This algebraic checkpoint introduces no measure carrier or Col map.",
+        "The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative.",
+        "Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; generic clopen-subtype comparison is requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain still depends on its explicit generic root-average gap. Import these nodes; pseudomeasure normalization and the Coleman normalized-trace comparison remain required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint.",
         "Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures."
       ]
     },
@@ -3135,14 +3584,14 @@
       "neededBy": [
         "ColemanPowerSeries:L1"
       ],
-      "detail": "Compare the proved integral trace coordinate with the bounded ψ owned by PMIA L2. Prove completed coefficient root-of-unity substitutions, trace/product formulas and descent; formal HasSubst alone is insufficient. Give norm/evaluation comparison and every part of RJW Lemma10.11. The Coates–Sujatha norm/trace and congruence passages have now been read, but their full interpolation argument and original Coleman sources still need granular decomposition. Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
+      "detail": "Compare the proved integral trace coordinate with the bounded ψ owned by PMIA L2. Prove completed coefficient root-of-unity substitutions, trace/product formulas and descent; formal HasSubst alone is insufficient. The four congruences of RJW Lemma10.11 now have explicit nodes. Establish continuity of norm and its coordinate inverse in the coefficientwise p-adic topology, convergence and fixedness of the norm-iterate limit (Coates–Sujatha Corollary2.3.4), and norm/evaluation compatibility. The uniform p-adic estimates do not alone supply the arithmetic interpolation map. Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, finite-level lifting, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
     },
     {
       "title": "L2 continuation boundary",
       "neededBy": [
         "ColemanPowerSeries:L2"
       ],
-      "detail": "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower. The signed-integer cyclotomic factorization and smoothing identities, and the p-adic-exponent weighted derivative and twisted logarithmic derivative are specified. The formal twisted logarithmic derivative is specified for every p-adic exponent. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. Establish the actual tower action, its interpolation compatibility, norm-fixed restriction, the measure-action comparison and the inverse-derivative factor a⁻¹ needed for full Coleman-map equivariance. These identities alone do not close L2. Consume actual PMIA bounded measure operators and the still-missing Dirichlet ψ/restriction/pseudomeasure results. The smoothed series, integral measure and T f_a F_a=f_a−a are already supplied by the exact Dirichlet L1 nodes; instantiate its series-cleared-equation on the shared denominator. Then prove equality of measures for raw Col₀ and normalized Col=−Col₀. This algebraic checkpoint introduces no measure carrier or Col map. Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures."
+      "detail": "Identify the explicit f_a with the Coleman series of the actual unit tower c(a), proving membership, relative norm compatibility and interpolation; the local algebraic nodes do not construct the tower. The signed-integer and p-adic logarithmic derivative identities are specified. Import the P7 cyclotomic unit-exponent action with its exact coefficient/topology identification. The PMIA inverse-weight-dilation node now supplies the a⁻¹ factor for the existing unit pushforward. Establish the actual tower action, interpolation compatibility, norm-fixed restriction and the measure-action/substitution comparison before combining it with the factor a in the logarithmic derivative. Consume the exact PMIA nodes mahler-derivation-value, amice-phi, psi-series, series-unit-restriction, inverse-weight, inverse-weight-unique, inverse-mahler-intertwining and inverse-mahler-unique. They supply the integral operators and the unique inverse on kerψ; generic clopen-subtype comparison is requested from PMIA L0. Dirichlet now supplies exact series-psi-fixed, measure-psi-fixed, unit-smoothed-measure, unit-smoothed-difference, smoothed-numerator and numerator-amice nodes. The ψ-invariance chain still depends on its explicit generic root-average gap. Import these nodes; pseudomeasure normalization and the Coleman normalized-trace comparison remain required. Then prove equality of actual measures for raw Col₀ and normalized Col=−Col₀ using the existing Dirichlet denominator and series-cleared-equation. No new measure carrier or Col map is defined in this checkpoint. Establish additivity, continuity, principal-unit ℤ_p-linearity and full G-equivariance of the actual Coleman map. The formal Δ identity supplies the factor a; identify it with the imported cyclotomic action and combine it with the inverse-derivative factor a⁻¹ on the actual measures."
     },
     {
       "title": "L3 continuation boundary",
@@ -3165,7 +3614,7 @@
         "ColemanPowerSeries:L1",
         "ColemanPowerSeries:L4"
       ],
-      "detail": "The original Coleman1979 paper has not been read: the EuDML landing page returned403 and a secondary lookup did not locate a readable copy. Coates–Sujatha printed pp.13–19 were read, but the proof continuing on p.20 and coefficient variants outside the read range remain required. Read precise unramified/semilocal hypotheses and all proof inputs; no arbitrary ramified coefficient extension follows from this ℤ_p algebra."
+      "detail": "The original Coleman1979 paper has not been read: the inherited EuDML access attempt returned403. Coates–Sujatha printed pp.13–19 were read by the predecessor, and this continuation freshly read pp.16–21, including the rest of Lemma2.3.5 and the beginning of §2.4. Its continuation after p.21, coefficient variants and other proof inputs remain required. No arbitrary ramified coefficient extension follows from this ℤ_p algebra."
     }
   ],
   "sourceIssues": [
@@ -3440,6 +3889,59 @@
         "reviewUnclaimed": true
       },
       "validation": "Blueprint with pinned index zero errors/warnings; four-file intake zero problems; preceding nodes and substantive finding fields preserved; new reader/signature/test parity; internal DAG acyclic."
+    },
+    "normCongruences": {
+      "worker": "Codex — codex-hjdg0j",
+      "date": "2026-09-27",
+      "issue": 699,
+      "claim": 5851870622,
+      "confirmation": 5851871414,
+      "base": "ca66a41d6cd47d92a6308f31344dc8f512042dad",
+      "preservedNodes": 50,
+      "preservedSourceIssues": 11,
+      "newNodes": 7,
+      "newBaselineDeclarations": 11,
+      "sourceScope": "RJW published pp.166–168; Coates–Sujatha pp.16–21. Exact PDF hashes match the inherited source records. No new source finding or independent-review verdict.",
+      "ownership": "Accepted RS-16 preserved. These are integral Coleman norm congruences in L1; bounded ψ, Weierstrass theory, measure operators and global cyclotomic units retain their existing suppliers.",
+      "claims": "Mathematical plans only; no implementation or full-stage closure is claimed.",
+      "supplierRefresh": {
+        "base": "448c011da57461d093d2d686960fcb157870374c",
+        "packet": "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+        "nodes": [
+          "PadicMeasuresIwasawaAlgebras:L2/mahler-derivation-value",
+          "PadicMeasuresIwasawaAlgebras:L2/amice-phi",
+          "PadicMeasuresIwasawaAlgebras:L2/psi-series",
+          "PadicMeasuresIwasawaAlgebras:L2/series-unit-restriction",
+          "PadicMeasuresIwasawaAlgebras:L2/inverse-weight",
+          "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-unique",
+          "PadicMeasuresIwasawaAlgebras:L2/inverse-weight-dilation",
+          "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler",
+          "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-intertwining",
+          "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-unique"
+        ],
+        "reading": "All fifteen new node objects read, with truncation-recovery reads, plus the four cited preexisting operator nodes and the L0 stage. New source findings E5–E7 and L2/L5 remaining interfaces screened; no independent review is claimed.",
+        "effect": "Narrow the L2 request; add the precise missing generic clopen comparison request to L0. Seven norm-congruence declarations are unaffected. Full arithmetic equivariance is not inferred from inverse-weight-dilation."
+      },
+      "publicationGuard": {
+        "base": "3fa3504bfe0aa38e8c6f1934daa440b2e6756999",
+        "guardedInputs": 68,
+        "changedInputs": [],
+        "newSupplierPackets": [],
+        "supplierRefresh": "Changed PMIA and Dirichlet packets read; their exact new supplier nodes recorded, two requests narrowed, and the missing L0 clopen comparison requested. All other guarded input bytes matched."
+      },
+      "dirichletRefresh": {
+        "base": "3fa3504bfe0aa38e8c6f1934daa440b2e6756999",
+        "readNodes": [
+          "DirichletPadicLFunctions:L1/series-phi-psi-fixed",
+          "DirichletPadicLFunctions:L1/series-psi-fixed",
+          "DirichletPadicLFunctions:L1/measure-psi-fixed",
+          "DirichletPadicLFunctions:L1/unit-smoothed-measure",
+          "DirichletPadicLFunctions:L1/unit-smoothed-difference",
+          "DirichletPadicLFunctions:L1/smoothed-numerator",
+          "DirichletPadicLFunctions:L1/numerator-amice"
+        ],
+        "effect": "All twenty added statements screened; seven exact node objects, the L1 remaining list and the new E6 finding read. All five directly consumed denominator nodes unchanged. Narrow the aggregate L1 request and preserve the generic averaging gap; no change to norm-congruence nodes or independent-review claim."
+      }
     }
   },
   "checks": {
@@ -3515,6 +4017,45 @@
       "unchangedIssueBody": true,
       "claimConfirmation": 5851456945
     },
-    "closure": "Partial: six gaps, eleven supplier requests, no closed stage. All packet definitions, node declarations, API items and tests have typed suggested-file forms. No proof or implementation claim follows from elaboration."
+    "closure": "Partial: six gaps, twelve supplier requests, no closed stage. Seven new norm-congruence plans; all proofs remain unchecked. The older validation records refer to their respective predecessor tranches.",
+    "normCongruences": {
+      "nodes": 57,
+      "apiItems": 41,
+      "attachedTests": 52,
+      "newTests": 11,
+      "preservedNodes": 50,
+      "preservedFindings": 11,
+      "errors": 0,
+      "warnings": 131,
+      "onlyPlaceholderWarnings": true,
+      "suggestedSHA256": "33c1e31b78d9403c60fed2e77718adab0f46e2a1130d8be3703534a94ae93527",
+      "requests": 12,
+      "preservedRequests": 9,
+      "narrowedRequests": 2,
+      "newRequests": 1,
+      "mathlibSources": 2266,
+      "regressions": {
+        "assertions": 540,
+        "primes": [
+          2,
+          3,
+          5
+        ],
+        "polynomialCasesPerPrime": 8,
+        "degree": 3,
+        "precisions": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "maxIterate": 2,
+        "method": "Exact integer polynomial resultants in Z[Z,T], with quotient relation Z^p=1+T; no numerical p-adic approximation.",
+        "scope": "Finite polynomial instances and boundary controls only; not a proof for arbitrary formal series."
+      },
+      "sourceFindings": "Eleven inherited findings preserved exactly; sourceIssues and sourceVersions schema checks have zero problems.",
+      "intake": "Four authorized files, zero problems.",
+      "blueprint": "Indexed checker: zero errors, zero warnings."
+    }
   }
 }
