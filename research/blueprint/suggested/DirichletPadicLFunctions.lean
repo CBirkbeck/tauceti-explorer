@@ -1,3 +1,5 @@
+import Mathlib.NumberTheory.LSeries.DirichletContinuation
+import Mathlib.NumberTheory.BernoulliPolynomials
 import Mathlib.Data.Nat.Choose.Vandermonde
 import Mathlib.Topology.Algebra.Valued.NormedValued
 import Mathlib.NumberTheory.DirichletCharacter.GaussSum
@@ -2269,3 +2271,125 @@ example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
       (⟨fun x : ℤ_[2] => x+3, by fun_prop⟩ : C(ℤ_[2],ℤ_[2])) (tameMeasure η hD hpD) =
       AbstractMeasure.dirac ℚ_[2] (1 : ℤ_[2]) - AbstractMeasure.dirac ℚ_[2] (2 : ℤ_[2]) := by sorry
 end SuggestedResidueTameTests
+
+/-! Tame arithmetic moments and common algebraic special values.
+The field-general Amice moment identity is explicitly requested from PMIA L2:
+the current supplier's integral Z_p theorem is insufficient for these K-valued
+measures. The statements below are unchecked targets, not completed proofs.
+The finite rational Bernoulli expression uses the native polynomial, without a
+new generalized-Bernoulli carrier. Complex and p-adic values use separate maps. -/
+namespace DirichletPadic
+noncomputable section
+open PowerSeries
+open scoped BigOperators
+section TameFormalMoments
+variable {E : Type*} [Field E] [CharZero E] [Algebra ℚ E] {D : ℕ} [NeZero D]
+
+theorem tameBernoulli_generating (η : DirichletCharacter E D) (hη : η ≠ 1) :
+    (PowerSeries.mk fun k => -(D : E)^k / ((k+1).factorial : E) *
+      ∑ a : ZMod D, η a * algebraMap ℚ E
+        ((Polynomial.bernoulli (k+1)).eval (a.val / D : ℚ))) *
+      (1 - rescale (D : E) (PowerSeries.exp E)) =
+    ∑ a : ZMod D, PowerSeries.C (η a) * rescale (a.val : E) (PowerSeries.exp E) := by sorry
+
+theorem coeff_tameSeries_exp (η : DirichletCharacter E D) (hη : η ≠ 1)
+    (hD : IsUnit (D : E)) (k : ℕ) :
+    coeff k (subst (PowerSeries.exp E - 1) (tameSeries η hD)) =
+      -(D : E)^k / ((k+1).factorial : E) * ∑ a : ZMod D,
+        η a * algebraMap ℚ E ((Polynomial.bernoulli (k+1)).eval (a.val / D : ℚ)) := by sorry
+
+theorem constantCoeff_iterate_mahler_tameSeries (η : DirichletCharacter E D)
+    (hη : η ≠ 1) (hD : IsUnit (D : E)) (k : ℕ) :
+    constantCoeff ((PowerSeries.mahlerDerivation E)^[k] (tameSeries η hD)) =
+      -(D : E)^k / (k+1) * ∑ a : ZMod D,
+        η a * algebraMap ℚ E ((Polynomial.bernoulli (k+1)).eval (a.val / D : ℚ)) := by sorry
+
+theorem tameBernoulliValue_map {F : Type*} [Field F] [CharZero F] [Algebra ℚ F]
+    (η : DirichletCharacter E D) (f : E →+* F) (k : ℕ) :
+    f (-(D : E)^k / (k+1) * ∑ a : ZMod D,
+      η a * algebraMap ℚ E ((Polynomial.bernoulli (k+1)).eval (a.val / D : ℚ))) =
+    -(D : F)^k / (k+1) * ∑ a : ZMod D,
+      (η.ringHomComp f) a * algebraMap ℚ F
+        ((Polynomial.bernoulli (k+1)).eval (a.val / D : ℚ)) := by sorry
+end TameFormalMoments
+
+theorem LFunction_neg_nat_tame {D : ℕ} [NeZero D]
+    (η : DirichletCharacter ℂ D) (hη : η ≠ 1) (k : ℕ) :
+    η.LFunction (-(k : ℂ)) = -(D : ℂ)^k / (k+1) * ∑ a : ZMod D,
+      η a * algebraMap ℚ ℂ ((Polynomial.bernoulli (k+1)).eval (a.val / D : ℚ)) := by sorry
+
+section TameArithmeticMoments
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] [CharZero K] [Algebra ℚ K] {D : ℕ} [NeZero D]
+
+theorem tameMeasure_moment_bernoulli (η : DirichletCharacter K D) (hη : η ≠ 1)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (k : ℕ) :
+    tameMeasure η hD hpD
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) =
+    -(D : K)^k / (k+1) * ∑ a : ZMod D,
+      η a * algebraMap ℚ K ((Polynomial.bernoulli (k+1)).eval (a.val / D : ℚ)) := by sorry
+
+theorem tameMeasure_common_special_value {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+    (η : DirichletCharacter E D) (hη : η ≠ 1) (ιC : E →+* ℂ) (ιK : E →+* K)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (k : ℕ) :
+    let b : E := -(D : E)^k / (k+1) * ∑ a : ZMod D,
+      η a * algebraMap ℚ E ((Polynomial.bernoulli (k+1)).eval (a.val / D : ℚ))
+    ιC b = DirichletCharacter.LFunction (η.ringHomComp ιC) (-(k : ℂ)) ∧
+    ιK b = tameMeasure (η.ringHomComp ιK) hD hpD
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := by sorry
+
+theorem tameMeasure_unit_common_special_value {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+    (η : DirichletCharacter E D) (hη : η ≠ 1) (ιC : E →+* ℂ) (ιK : E →+* K)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (k : ℕ) :
+    let b : E := (1-η (p : ZMod D)*(p : E)^k) *
+      (-(D : E)^k / (k+1) * ∑ a : ZMod D,
+        η a * algebraMap ℚ E ((Polynomial.bernoulli (k+1)).eval (a.val / D : ℚ)))
+    ιC b = (1-(η.ringHomComp ιC) (p : ZMod D)*(p : ℂ)^k) *
+      DirichletCharacter.LFunction (η.ringHomComp ιC) (-(k : ℂ)) ∧
+    ιK b = AbstractMeasure.unitRestriction p K (tameMeasure (η.ringHomComp ιK) hD hpD)
+      (⟨fun x : ℤ_[p] => (algebraMap ℤ_[p] K x)^k, by fun_prop⟩ : C(ℤ_[p],K)) := by sorry
+end TameArithmeticMoments
+end
+end DirichletPadic
+
+namespace SuggestedTameMomentTests
+open DirichletPadic PowerSeries
+noncomputable section
+-- quadratic_zero
+example (η : DirichletCharacter ℚ 3) (hη : η 2 = -1) (hD : IsUnit (3 : ℚ)) :
+    coeff 0 (subst (PowerSeries.exp ℚ - 1) (tameSeries η hD)) = 1/3 := by sorry
+-- quadratic_second_exponential
+example (η : DirichletCharacter ℚ 3) (hη : η 2 = -1) (hD : IsUnit (3 : ℚ)) :
+    coeff 2 (subst (PowerSeries.exp ℚ - 1) (tameSeries η hD)) = -1/9 := by sorry
+-- quadratic_fourth_formal
+example (η : DirichletCharacter ℚ 3) (hη : η 2 = -1) (hD : IsUnit (3 : ℚ)) :
+    constantCoeff ((PowerSeries.mahlerDerivation ℚ)^[4] (tameSeries η hD)) = 2/3 := by sorry
+-- principal_exclusion
+example (hD : IsUnit (3 : ℚ)) :
+    constantCoeff (tameSeries (1 : DirichletCharacter ℚ 3) hD) = -1 ∧
+    -(∑ a : ZMod 3, (1 : DirichletCharacter ℚ 3) a *
+      (Polynomial.bernoulli 1).eval (a.val / 3 : ℚ)) = 0 := by sorry
+-- rational_transport
+example (η : DirichletCharacter ℚ 3) (hη : η 2 = -1) :
+    algebraMap ℚ ℂ (-(3 : ℚ)^2/3 * ∑ a : ZMod 3,
+      η a * (Polynomial.bernoulli 3).eval (a.val/3 : ℚ)) = -2/9 := by sorry
+-- complex_zero
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) : η.LFunction 0 = 1/3 := by sorry
+-- complex_second
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) : η.LFunction (-2) = -2/9 := by sorry
+-- quartic_complex_zero
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = Complex.I) :
+    η.LFunction 0 = (3+Complex.I)/5 := by sorry
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_fourth
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameMeasure η hD hpD (⟨fun x : ℤ_[2] => (x : ℚ_[2])^4, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) = 2/3 := by sorry
+-- dyadic_unit_fourth
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    AbstractMeasure.unitRestriction 2 ℚ_[2] (tameMeasure η hD hpD)
+      (⟨fun x : ℤ_[2] => (x : ℚ_[2])^4, by fun_prop⟩ : C(ℤ_[2],ℚ_[2])) = 34/3 := by sorry
+end
+end SuggestedTameMomentTests
