@@ -138878,6 +138878,90 @@
    "reviewReason": null
   },
   {
+   "id": "MetaplecticAutomorphicForms/E-MP0-1",
+   "kind": "misprint",
+   "locator": "1996 author copy, I.1, p.5, orthogonal-sum paragraph",
+   "printed": "W = W₁ + W₁",
+   "correction": "Read W=W₁+W₂, the orthogonal direct sum used in the map H(W₁)×H(W₂)→H(W).",
+   "reason": "The immediately described map sends ((w₁,t₁),(w₂,t₂)) to (w₁+w₂,t₁+t₂) and has the anti-diagonal scalar kernel. Repeating W₁ is inconsistent with both its domain and the orthogonal-sum assumption.",
+   "affects": "the proof",
+   "known": "new (no addressing correction located; independent review required)",
+   "searched": [
+    "2026-09-27: author research page https://www.math.utoronto.ca/skudla/ssk.research.html lists the 1996 notes; no erratum entry found.",
+    "2026-09-27: searches for Kudla castle.pdf corrections, Kudla local theta 1996 errata, unique Heisenberg character extension, and dyadic self-dual lattice model corrections found no correction addressing these passages. A 2002-labelled mirror was a search lead, not a version read or collated.",
+    "These are findings about the specified unpublished author copy. No claim is made about a separate published version or about an exhaustive correction search."
+   ],
+   "owner": "MetaplecticAutomorphicForms",
+   "file": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json",
+   "citation": "Stephen S. Kudla, Notes on the local theta correspondence, Unpublished author notes; introduction dated July 6, 1996; 110-page author copy.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MetaplecticAutomorphicForms/E-MP0-2",
+   "kind": "error",
+   "locator": "1996 author copy, I.2, p.6, character extension paragraph",
+   "printed": "unique extension",
+   "correction": "The displayed character, when multiplicative, is the distinguished extension trivial on the chosen section Y→H(Y). It is unique only after imposing that normalization; the cocycle condition must also hold as in E-MP0-3.",
+   "reason": "Take a nonzero isotropic F-line Y in a symplectic plane and nontrivial ψ. Since ω restricts to zero on Y, ψ(t) and ψ(t+ℓ(y)) are distinct characters of H(Y) extending the same central ψ, for any nonzero F-linear functional ℓ:Y→F. Thus uniqueness among all extensions is false even in the simplest polarized case.",
+   "affects": "a stated result",
+   "known": "new (no addressing correction located; independent review required)",
+   "searched": [
+    "2026-09-27: author research page https://www.math.utoronto.ca/skudla/ssk.research.html lists the 1996 notes; no erratum entry found.",
+    "2026-09-27: searches for Kudla castle.pdf corrections, Kudla local theta 1996 errata, unique Heisenberg character extension, and dyadic self-dual lattice model corrections found no correction addressing these passages. A 2002-labelled mirror was a search lead, not a version read or collated.",
+    "These are findings about the specified unpublished author copy. No claim is made about a separate published version or about an exhaustive correction search."
+   ],
+   "owner": "MetaplecticAutomorphicForms",
+   "file": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json",
+   "citation": "Stephen S. Kudla, Notes on the local theta correspondence, Unpublished author notes; introduction dated July 6, 1996; 110-page author copy.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MetaplecticAutomorphicForms/E-MP0-3",
+   "kind": "error",
+   "locator": "1996 author copy, I.2, p.6, formula for ψ_Y on a closed character-self-dual additive subgroup",
+   "printed": "ψ_Y(y, t) = ψ(t)",
+   "correction": "For this formula require ψ(½ω(y,y′))=1 for all y,y′∈Y. It holds for an isotropic F-subspace. For a general closed self-dual additive subgroup, construct a valid splitting character or quadratic refinement and prove its multiplication law; do not infer the displayed formula from ψω-self-duality alone.",
+   "reason": "Let F=Q₂, W=F² with ω((x,y),(x′,y′))=xy′−yx′, Y=Z₂², and ψ have kernel Z₂. Then Y equals its annihilator for ψω. The elements (e₀,0) and (e₁,0) both have proposed value 1, but their product has central coordinate ½ and value ψ(½)=−1. This is a failure of the printed formula, not a claim that a correctly chosen lattice model cannot exist.",
+   "affects": "a stated result",
+   "known": "new (no addressing correction located; independent review required)",
+   "searched": [
+    "2026-09-27: author research page https://www.math.utoronto.ca/skudla/ssk.research.html lists the 1996 notes; no erratum entry found.",
+    "2026-09-27: searches for Kudla castle.pdf corrections, Kudla local theta 1996 errata, unique Heisenberg character extension, and dyadic self-dual lattice model corrections found no correction addressing these passages. A 2002-labelled mirror was a search lead, not a version read or collated.",
+    "These are findings about the specified unpublished author copy. No claim is made about a separate published version or about an exhaustive correction search."
+   ],
+   "owner": "MetaplecticAutomorphicForms",
+   "file": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json",
+   "citation": "Stephen S. Kudla, Notes on the local theta correspondence, Unpublished author notes; introduction dated July 6, 1996; 110-page author copy.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MetaplecticAutomorphicForms/E-MP0-4",
+   "kind": "misprint",
+   "locator": "1996 author copy, I.2, p.9, equivariance display for I_{Y₁,Y₂}",
+   "printed": "A_{Y₁,Y₂}(f)",
+   "correction": "Use I_{Y₁,Y₂}(f) on the right side of the equivariance identity, matching the integral operator defined immediately above.",
+   "reason": "The paragraph defines I_{Y₁,Y₂}:S_{Y₁}→S_{Y₂}, then asserts its H-equivariance. No operator A indexed by this pair has been defined; the same intertwining integral is required on both sides.",
+   "affects": "the proof",
+   "known": "new (no addressing correction located; independent review required)",
+   "searched": [
+    "2026-09-27: author research page https://www.math.utoronto.ca/skudla/ssk.research.html lists the 1996 notes; no erratum entry found.",
+    "2026-09-27: searches for Kudla castle.pdf corrections, Kudla local theta 1996 errata, unique Heisenberg character extension, and dyadic self-dual lattice model corrections found no correction addressing these passages. A 2002-labelled mirror was a search lead, not a version read or collated.",
+    "These are findings about the specified unpublished author copy. No claim is made about a separate published version or about an exhaustive correction search."
+   ],
+   "owner": "MetaplecticAutomorphicForms",
+   "file": "research/blueprint/packets/MetaplecticAutomorphicForms--MP.0.json",
+   "citation": "Stephen S. Kudla, Notes on the local theta correspondence, Unpublished author notes; introduction dated July 6, 1996; 110-page author copy.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MetaplecticAutomorphicForms/E-MP8-1",
    "kind": "misprint",
    "locator": "Published Invent. Math.102(1990), §1, p.545, final sentence",
