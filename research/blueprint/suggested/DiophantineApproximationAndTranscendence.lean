@@ -18,6 +18,7 @@ import Mathlib.Algebra.MvPolynomial.Degrees
 import Mathlib.Data.Finsupp.Interval
 import Mathlib.RingTheory.MvPolynomial.WeightedHomogeneous
 import Mathlib.Algebra.MvPolynomial.Equiv
+import Mathlib.Algebra.MvPolynomial.Funext
 import Mathlib.Algebra.MvPolynomial.PDeriv
 import Mathlib.Algebra.MvPolynomial.Rename
 import Mathlib.Algebra.MvPolynomial.Variables
@@ -44,6 +45,7 @@ import Mathlib.FieldTheory.PolynomialGaloisGroup
 import Mathlib.FieldTheory.RatFunc.AsPolynomial
 import Mathlib.FieldTheory.SplittingField.Construction
 import Mathlib.LinearAlgebra.Finsupp.LinearCombination
+import Mathlib.LinearAlgebra.Dual.Lemmas
 import Mathlib.LinearAlgebra.LinearIndependent.Defs
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
@@ -5224,3 +5226,223 @@ example : (X 1 : MvPolynomial (Fin 2) ℚ) ≠ 0 ∧
     MvPolynomial.eval₂ MvPolynomial.C (fun l : Fin 2 => if l = 0 then X (0 : Fin 1) else 0)
       (X 1 : MvPolynomial (Fin 2) ℚ) = 0 := by sorry
 end DiophantineApproximation
+
+/-! ## Hyperplane-height reduction (Evertse, Lemma 24)
+The coefficient maps below are Mathlib's `sumAlgEquiv` and `coeff`.
+Minimum total extra degree gives a simultaneous form of the source's successive
+lowest-coefficient extraction. Strict thresholds incorporate source issue E216.
+Sharp Roth remains an explicit prerequisite with an unresolved proof decomposition.
+-/
+
+namespace DiophantineApproximation
+section HyperplaneHeights
+variable {K : Type*} [Field K] [NumberField K]
+
+/-- DT.2/height2-zero-extension. -/
+theorem height2_zero_extension {I J : Type*} [Fintype I] [Fintype J]
+    (f : I → J) (hf : Function.Injective f) (x : I → K) (hx : x ≠ 0)
+    (y : J → K) (hy : ∀ i, y (f i) = x i)
+    (hz : ∀ j, j ∉ Set.range f → y j = 0) : height2 y = height2 x := by sorry
+
+/-- DT.2/height2-subvector. -/
+theorem height2_comp_le {I J : Type*} [Fintype I] [Fintype J]
+    (f : I → J) (hf : Function.Injective f) (y : J → K)
+    (hy : y ∘ f ≠ 0) : height2 (y ∘ f) ≤ height2 y := by sorry
+
+/-- DT.2/height2-scalar-invariance. -/
+theorem height2_smul {I : Type*} [Fintype I] (a : K) (ha : a ≠ 0)
+    (x : I → K) (hx : x ≠ 0) : height2 (a • x) = height2 x := by sorry
+
+/-- DT.2/height2-binary-normal-vector. -/
+theorem height2_pair_swap_neg (a b : K) :
+    height2 (![b, -a] : Fin 2 → K) = height2 (![a, b] : Fin 2 → K) := by sorry
+
+open Classical in
+/-- DT.2/height2-normalized-pair-product. -/
+theorem height2_le_prod_pairs {N : ℕ} (hN : 2 ≤ N) (b : Fin N → K)
+    (p : Fin N) (hp : b p ≠ 0) :
+    height2 b ≤ ∏ q ∈ Finset.univ.erase p, height2 (![b p, b q] : Fin 2 → K) := by sorry
+
+/-- DT.2/large-height-binary-direction. -/
+theorem exists_large_height2_pair {N : ℕ} (hN : 2 ≤ N) (b : Fin N → K)
+    (p : Fin N) (hp : b p ≠ 0) :
+    ∃ q : Fin N, q ≠ p ∧
+      height2 b ≤ height2 (![b q, -b p] : Fin 2 → K) ^ (N - 1) ∧
+      (![b q, -b p] : Fin 2 → K) ≠ 0 ∧ b p * b q + b q * (-b p) = 0 := by sorry
+
+open Classical in
+/-- DT.2/height2-monomial-multiplication. -/
+theorem height2_coeff_monomial_mul {S : Type*} [Fintype S]
+    (P : MvPolynomial S K) (hP : P ≠ 0) (a : S →₀ ℕ) :
+    let Q := MvPolynomial.monomial a (1 : K) * P
+    height2 (fun u : Q.support => Q.coeff u) =
+      height2 (fun u : P.support => P.coeff u) := by sorry
+
+open Classical in
+/-- DT.2/height2-coefficient-slice. -/
+theorem height2_sumAlgEquiv_coeff_le {E B : Type*} [Fintype E] [Fintype B]
+    (F : MvPolynomial (E ⊕ B) K) (e : E →₀ ℕ)
+    (he : (MvPolynomial.sumAlgEquiv K E B F).coeff e ≠ 0) :
+    let P := (MvPolynomial.sumAlgEquiv K E B F).coeff e
+    height2 (fun u : P.support => P.coeff u) ≤
+      height2 (fun u : F.support => F.coeff u) := by sorry
+
+end HyperplaneHeights
+end DiophantineApproximation
+
+namespace MvPolynomial
+
+/-- DT.2/hasse-derivative-coefficient-slice. -/
+theorem hasseDeriv_sumAlgEquiv_coeff {R E B : Type*} [CommSemiring R]
+    (F : MvPolynomial (E ⊕ B) R) (e : E →₀ ℕ) (i : B →₀ ℕ) :
+    (sumAlgEquiv R E B (hasseDeriv (i.mapDomain Sum.inr) F)).coeff e =
+      hasseDeriv i ((sumAlgEquiv R E B F).coeff e) := by sorry
+
+/-- DT.2/lowest-degree-affine-coefficient. -/
+theorem coeff_eval₂_affine_of_min_degree {R E B : Type*} [CommSemiring R]
+    [Fintype E] [Fintype B] (Q : MvPolynomial E (MvPolynomial B R))
+    (e : E →₀ ℕ) (he : ∀ u ∈ Q.support, e.degree ≤ u.degree)
+    (x : B → R) (A : B → E → R) :
+    (eval₂ (eval₂Hom C (fun b => C (x b) + ∑ j, C (A b j) * X j)) X Q).coeff e =
+      eval x (Q.coeff e) := by sorry
+
+/-- DT.2/binary-slice-block-degrees. -/
+theorem block_degrees_sumAlgEquiv_coeff {R : Type*} [CommSemiring R] {m r : ℕ}
+    (F : MvPolynomial ((Fin m × Fin r) ⊕ (Fin m × Fin 2)) R)
+    (d : Fin m → ℕ)
+    (hF : ∀ u ∈ F.support, ∀ h,
+      (∑ a : Fin r, u (.inl (h, a))) + u (.inr (h, 0)) + u (.inr (h, 1)) = d h)
+    (e : Fin m × Fin r →₀ ℕ)
+    (he : (sumAlgEquiv R (Fin m × Fin r) (Fin m × Fin 2) F).coeff e ≠ 0) :
+    (∀ h, (∑ a : Fin r, e (h, a)) ≤ d h) ∧
+    (∀ v ∈ ((sumAlgEquiv R (Fin m × Fin r) (Fin m × Fin 2) F).coeff e).support,
+      ∀ h, v (h, 0) + v (h, 1) = d h - ∑ a : Fin r, e (h, a)) := by sorry
+
+/-- DT.2/binary-slice-vanishing. A single slice works for all indices in J. -/
+theorem exists_binary_slice_vanishing {K E B : Type*} [Field K] [Infinite K]
+    [Fintype E] [Fintype B] (F : MvPolynomial (E ⊕ B) K) (hF : F ≠ 0)
+    (J : Set (B →₀ ℕ)) (x : B → K) (A : B → E → K)
+    (hv : ∀ i ∈ J, ∀ u : E → K,
+      eval (Sum.elim u (fun b => x b + ∑ j, A b j * u j))
+        (hasseDeriv (i.mapDomain Sum.inr) F) = 0) :
+    ∃ e : E →₀ ℕ, e ∈ (sumAlgEquiv K E B F).support ∧
+      (∀ u ∈ (sumAlgEquiv K E B F).support, e.degree ≤ u.degree) ∧
+      (sumAlgEquiv K E B F).coeff e ≠ 0 ∧
+      ∀ i ∈ J, eval x (hasseDeriv i ((sumAlgEquiv K E B F).coeff e)) = 0 := by sorry
+
+/-- DT.2/restore-binary-multihomogeneity. -/
+theorem block_degrees_monomial_mul {R : Type*} [CommSemiring R] [Nontrivial R] {m : ℕ}
+    (P : MvPolynomial (Fin m × Fin 2) R) (hP : P ≠ 0) (δ a : Fin m → ℕ)
+    (hδ : ∀ v ∈ P.support, ∀ h, v (h, 0) + v (h, 1) = δ h) :
+    let t : Fin m × Fin 2 →₀ ℕ := Finsupp.equivFunOnFinite.symm
+      (fun p => if p.2 = 0 then a p.1 else 0)
+    let Q := monomial t (1 : R) * P
+    Q ≠ 0 ∧ ∀ v ∈ Q.support, ∀ h, v (h, 0) + v (h, 1) = δ h + a h := by sorry
+
+end MvPolynomial
+
+namespace DiophantineApproximation
+section HyperplaneNonvanishing
+variable {K : Type*} [Field K] [NumberField K]
+
+open Classical in
+/-- DT.2/hyperplane-nonvanishing. Evertse Lemma 24, through the sharp Roth node. -/
+theorem nonvanishing_on_hyperplanes {m N : ℕ} (hm : 2 ≤ m) (hN : 2 ≤ N)
+    (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) {Θ : ℝ} (hΘ : 0 < Θ) (hΘ1 : Θ ≤ 1)
+    (hdd : ∀ h h' : Fin m, h'.val = h.val + 1 → 2 * (m : ℝ)^2 / Θ ≤ (d h : ℝ) / d h')
+    (F : MvPolynomial (Fin m × Fin N) K) (hF : F ≠ 0)
+    (hFh : ∀ u ∈ F.support, ∀ h, ∑ l, u (h, l) = d h)
+    (b : Fin m → Fin N → K) (hb : ∀ h, b h ≠ 0)
+    (hH : ∀ h, (Real.exp (∑ h, (d h : ℝ)) * height2 (fun u : F.support => F.coeff u)) ^
+      (((N : ℝ) - 1) * (3 * (m : ℝ)^2 / Θ)^m) ≤ height2 (b h)^d h) :
+    ∃ (x : Fin m → Fin N → K) (i : Fin m × Fin N →₀ ℕ),
+      (∀ h, ∑ l, b h l * x h l = 0) ∧
+      (∑ h, (∑ l, (i (h,l) : ℝ)) / d h) < m * Θ ∧
+      MvPolynomial.eval (fun p => x p.1 p.2) (MvPolynomial.hasseDeriv i F) ≠ 0 := by sorry
+
+/-- DT.2/hyperplane-normal-height. -/
+theorem exists_normal_height2 {N : ℕ} (hN : 2 ≤ N) (T : Submodule K (Fin N → K))
+    (hT : Module.finrank K T = N - 1) :
+    ∃ b : Fin N → K, b ≠ 0 ∧ T = dotOrthogonal (K ∙ b) ∧
+      subspaceHeight T = height2 b := by sorry
+
+open Classical in
+/-- DT.2/hyperplane-jet-restriction. The exact polynomial input of the grid lemma. -/
+theorem exists_nonzero_hyperplane_jet_restriction {m N : ℕ} (hm : 2 ≤ m) (hN : 2 ≤ N)
+    (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) {Θ : ℝ} (hΘ : 0 < Θ) (hΘ1 : Θ ≤ 1)
+    (hdd : ∀ h h' : Fin m, h'.val = h.val + 1 → 2 * (m : ℝ)^2 / Θ ≤ (d h : ℝ) / d h')
+    (F : MvPolynomial (Fin m × Fin N) K) (hF : F ≠ 0)
+    (hFh : ∀ u ∈ F.support, ∀ h, ∑ l, u (h,l) = d h)
+    (b : Fin m → Fin N → K) (hb : ∀ h, b h ≠ 0)
+    (hH : ∀ h, (Real.exp (∑ h, (d h : ℝ)) * height2 (fun u : F.support => F.coeff u)) ^
+      (((N : ℝ) - 1) * (3 * (m : ℝ)^2 / Θ)^m) ≤ height2 (b h)^d h)
+    (a : Fin m → Fin (N - 1) → Fin N → K)
+    (ha : ∀ h, LinearIndependent K (a h) ∧
+      Submodule.span K (Set.range (a h)) = dotOrthogonal (K ∙ b h)) :
+    ∃ i : Fin m × Fin N →₀ ℕ,
+      (∑ h, (∑ l, (i (h,l) : ℝ)) / d h) < m * Θ ∧
+      MvPolynomial.eval₂ MvPolynomial.C
+        (fun p : Fin m × Fin N => ∑ j : Fin (N-1),
+          MvPolynomial.C (a p.1 j p.2) * MvPolynomial.X (p.1,j))
+        (MvPolynomial.hasseDeriv i F) ≠ 0 := by sorry
+
+end HyperplaneNonvanishing
+end DiophantineApproximation
+
+/-! Discriminating examples for the hyperplane reduction. -/
+namespace DiophantineApproximation
+open MvPolynomial
+/-- DiophantineApproximation.test_height2_pivot_product -/
+example : height2 (![1,2,2] : Fin 3 → ℚ) = 3 ∧
+    height2 (![1,2] : Fin 2 → ℚ)^2 = 5 := by sorry
+/-- DiophantineApproximation.test_height2_scaled_pivot -/
+example : height2 (![2,4,4] : Fin 3 → ℚ) = 3 ∧
+    height2 (![2,-1] : Fin 2 → ℚ)^2 = 5 := by sorry
+/-- DiophantineApproximation.test_height2_not_max_height -/
+example : height2 (![1,1,1] : Fin 3 → ℚ)^2 = 3 ∧
+    Height.mulHeight (![1,1,1] : Fin 3 → ℚ) = 1 := by sorry
+/-- DiophantineApproximation.test_height2_zero_padding -/
+example : height2 (![0,1,2,0] : Fin 4 → ℚ) = height2 (![1,2] : Fin 2 → ℚ) := by sorry
+/-- DiophantineApproximation.test_height2_zero_vector -/
+example : height2 (![0,0] : Fin 2 → ℚ) = 0 := by sorry
+end DiophantineApproximation
+
+namespace MvPolynomial
+/-- MvPolynomial.test_hasse_binary_slice -/
+example : (sumAlgEquiv ℚ (Fin 1) (Fin 1)
+    (hasseDeriv (Finsupp.single (.inr 0) 2)
+      (X (.inl 0)^2 * X (.inr 0)^3 : MvPolynomial ((Fin 1) ⊕ (Fin 1)) ℚ))).coeff
+        (Finsupp.single 0 2) = 3 * X 0 := by sorry
+/-- MvPolynomial.test_slice_before_specialization -/
+example :
+    let F : MvPolynomial ((Fin 1) ⊕ (Fin 2)) ℚ :=
+      X (.inl 0)^2 * (X (.inr 0) - 2 * X (.inr 1) + X (.inl 0))^3
+    (sumAlgEquiv ℚ (Fin 1) (Fin 2) F).coeff 0 = 0 ∧
+    (sumAlgEquiv ℚ (Fin 1) (Fin 2) F).coeff (Finsupp.single 0 2) =
+      (X 0 - 2 * X 1)^3 := by sorry
+/-- MvPolynomial.test_slice_strict_boundary -/
+example : eval (![2,1] : Fin 2 → ℚ)
+      (hasseDeriv (Finsupp.single 0 2) ((X 0 - 2 * X 1)^3)) = 0 ∧
+    eval (![2,1] : Fin 2 → ℚ)
+      (hasseDeriv (Finsupp.single 0 3) ((X 0 - 2 * X 1)^3)) = 1 := by sorry
+/-- MvPolynomial.test_affine_minimum_needed -/
+example :
+    let F : MvPolynomial ((Fin 1) ⊕ (Fin 1)) ℚ := X (.inr 0) + X (.inl 0)
+    (eval₂ C (Sum.elim X (fun _ : Fin 1 => X (0 : Fin 1))) F).coeff
+        (Finsupp.single 0 1) = 2 ∧
+    eval (fun _ : Fin 1 => (0 : ℚ))
+      ((sumAlgEquiv ℚ (Fin 1) (Fin 1) F).coeff (Finsupp.single 0 1)) = 1 := by sorry
+/-- MvPolynomial.test_restored_binary_index -/
+example : weightedIndex (![5,5] : Fin 2 → ℕ) (![2,1] : Fin 2 → ℚ)
+    (X 0^2 * (X 0 - 2 * X 1)^3) = (3 : ℝ≥0∞) / 5 := by sorry
+/-- MvPolynomial.test_zero_extra_variables -/
+example : (sumAlgEquiv ℚ (Fin 0) (Fin 1)
+    (X (.inr 0)^2 : MvPolynomial ((Fin 0) ⊕ (Fin 1)) ℚ)).coeff 0 = X 0^2 := by sorry
+/-- MvPolynomial.test_slice_cancellation -/
+example : (sumAlgEquiv ℚ (Fin 1) (Fin 1)
+    (X (.inl 0) * X (.inr 0) - X (.inl 0) * X (.inr 0) + X (.inl 0)^2)).coeff
+      (Finsupp.single 0 1) = 0 ∧
+    (sumAlgEquiv ℚ (Fin 1) (Fin 1)
+    (X (.inl 0) * X (.inr 0) - X (.inl 0) * X (.inr 0) + X (.inl 0)^2)).coeff
+      (Finsupp.single 0 2) = 1 := by sorry
+end MvPolynomial
