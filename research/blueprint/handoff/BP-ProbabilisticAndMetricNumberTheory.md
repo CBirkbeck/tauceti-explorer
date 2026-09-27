@@ -1,143 +1,135 @@
 # BP-ProbabilisticAndMetricNumberTheory — handoff
 
 Issue #1041. Codex, session codex-a71f92, 2026-09-27.
-Checkpoint: partial; all 27 nodes remain unchecked.
-Claim 5851947968 won, confirmed by bot comment 5851948686; whole issue reread after confirmation.
-Inspected base: a2bc2ea058abf817d665285781b66428a0bffd41.
+Checkpoint: partial; all 36 nodes remain unchecked.
+Claim 5852717263 won, confirmed by bot comment 5852721245; whole issue reread.
+Inspected base: 37df917a4ce275459fbfbe076b977d95621cbbb3.
 
 ## Result and preservation
 
-Added five PM.0 declarations: centered-product-expansion, centered-product-error,
-centered-product-uniform-error, complete-period-centered-product and
-weighted-moment-comparison. They give exact subset/floor expansions of centered
-prime products, an explicit coefficient-dependent remainder, a uniform
-(3/2)^|P|/N bound, exact mixed moments on complete periods, and weighted k-th
-moment error at most (3/2)^k L^k/N, where L is the sum of absolute weights.
+Added nine PM.1 declarations: local-factor-bound, model-multinomial-expansion,
+paired-support-formula, distinct-prime-tuples, prime-collision-bound,
+fixed-support-bound, smaller-support-bound, finite-even-gaussian-bound and
+finite-odd-moment-bound. They specialize to unit weights and finite prime sets.
+The explicit even bound separates arithmetic/model error, paired-support
+collisions and smaller supports. The odd bound does not set model or empirical
+odd moments to zero. No asymptotic Erdős–Kac theorem is claimed.
 
-All 22 inherited node objects from the merged #3152 checkpoint are unchanged,
-including statements, prerequisites, sources, construction API and tests.
-No new carrier or construction was introduced. Generic Bernoulli integration,
-independent-product integration, power-of-sum and product-by-fiber identities
-are pinned suppliers, not new targets. The inherited second-moment error
-2 L^2/N remains sharper than the general k=2 bound.
+All 27 inherited node objects are preserved exactly, including every statement,
+prerequisite, source, API and test. The three source findings and source-version
+records are unchanged. PM.0 and PM.2–PM.5 coverage is unchanged. PM.1 remains
+partial. The sharper inherited second-moment error is retained.
 
-Inventory: 27 nodes (1 construction, 20 lemmas, 1 comparison, 5 theorems),
-7 construction API items, 5 construction tests, 20 additional theorem examples,
-5 planets, 33 baseline declarations, 9 sources, 6 gaps and 0 requests.
-The 25 example contracts include zero exponents, empty products, repeated prime
-coordinates, incomplete periods, a nonzero odd moment and signed weights.
-No whole stage is closed.
+Inventory: 36 nodes (1 construction, 27 lemmas, 1 comparison, 7 theorems),
+7 construction API items, 5 construction tests, 28 additional theorem examples,
+6 planets (5 on PM.0 and 1 on PM.1), 49 baseline declarations, 11 sources,
+6 gaps and 0 requests. No new definition or construction, and no whole stage closed.
 
 ## Inputs, ownership and source reading
 
-The ordered queue had no eligible higher-kind job. Read WORKERS, blueprint
-PROTOCOL, expansion PROTOCOL and UPSTREAM_GUIDE completely in this session;
-their hashes were unchanged on this snapshot. No applicable AGENTS file was found.
+Read WORKERS, blueprint PROTOCOL, expansion PROTOCOL and UPSTREAM_GUIDE
+completely earlier in this continuous session; their hashes are unchanged.
+WORKERS was reread during this continuation. No applicable AGENTS file was found.
+The ordered queue had no eligible higher-priority issue at claim time.
 
-The four inherited deliverables were byte-identical to this session's fully read
-#3152 copies. Reread the six integrated PM library-audit rows and accepted
-AUDIT-07 review before planning. Compared the campaign and atlas extract,
-accepted RS-07 result/report/review, upstream style documents, audit and matching
-link files against the earlier reading. Inputs were unchanged except the GN
-supplier packet, which exactly matched this session's fully read/written merged
-#3156 result. No GN result is required by these finite declarations.
-The integrated PM decomposition and AN.8 packet remain absent; no invented
-supplier reference was inserted.
+The prior continuation's four deliverables were byte-identical at the new base.
+All six integrated library-audit rows and the accepted AUDIT-07 review were
+reread. Read the complete reader, suggested file and handoff, campaign, atlas
+stage/edge data, packet metadata, all baseline entries and the focal five
+centered-moment nodes. The remaining inherited node objects were preserved,
+not independently recertified.
 
-RS-07 keeps the arithmetic probability comparisons in PM.0; generic arithmetic
-functions and probability foundations are imported. The exact new finite
-centered-moment lemmas were not found in the pinned Mathlib/Tau Ceti screen.
-Read each added baseline statement and its hypotheses at the pin. In particular,
-an ordered tuple is grouped by prime fibers before independence is used;
-repeated positions are not declared independent.
+The 55-input comparison found 53 unchanged files and the same two absences.
+This covers the binding instructions, campaign and atlas extract, audit,
+accepted RS-07 result/report/review, upstream ArithmeticDirichletSeries and
+Exchangeability style/ownership documents, suppliers and matching links.
+Prior full readings in this session remain applicable. The integrated PM
+decomposition and AN.8 packet are still absent; neither is an invented supplier.
 
-Read the complete Granville–Soundararajan author copy of Sieving and the
-Erdos–Kac theorem: internal pages 1–13, proofs of Theorem 1 and Propositions 2–4,
-applications discussion, bibliography and index. Selected finite auxiliary
-arguments are decomposed; this is not a full extraction of all the source's
-results or of its general sieve framework. The exact constants in the five
-new declarations are explicitly derived here, not attributed to numbered
-source assertions.
+PM.1 owns the arithmetic limit-law auxiliaries. Source/index and packet screens
+did not find the new prime-specific comparisons already implemented or planned
+elsewhere; unrelated Gaussian-prime and Hilbert-pairing hits were inspected.
+The pinned libraries already supply multinomial expansion, finite multiplicity
+carriers, fixed-total allocation counts, equivalence cardinalities and Gaussian
+central moments. Exact statements and hypotheses were read before citing them.
+The complete Tau Ceti Gaussian/Moments file and Mathlib FinsuppEquiv file were
+read. These suppliers are imported, not planned again. No generic sieve-multiset
+h(d), r_d or D_k(P) carrier is introduced.
 
-The source ledger records the author-copy hash and date. Corresponding finding
-passages in arXiv math/0606039v1 were spot-checked. The publisher's preview
-(published pages 15–16) was acquired and read, with page 15 visually checked.
-The full published chapter endpoint returned subscription HTML. It was not
-treated as a PDF or as a complete version-of-record reading.
+The complete Granville–Soundararajan author copy was read in the preceding
+continuation. Its unchanged hash is recorded in the source ledger. For this
+continuation the proof of Proposition 2 on internal pages 4–6 was reread, and
+page 5 was visually rechecked. The nine new finite results refine that method:
+the variance-weighted local bound, explicit Q collision term and finite
+arithmetic errors are derived, not falsely attributed to numbered source
+assertions. The previously recorded composition-count correction E2 is used.
 
-Three source findings await independent review: E1 restricts k>=0 to k>=1
-in the introductory inequality with (k-1)! (checked at published page 15);
-E2 corrects the ordered composition count, while retaining the valid upper
-bound used in the proof; E3 replaces sigma by sigma squared in the polynomial
-example. E2 and E3 are scoped only to the author copy and checked preprint
-passages. Exact versions and access limitation are recorded. Searched publisher
-pages, arXiv version history and the author's publication lists for corrections;
-none was found. No source-wide correctness verdict or author contact is claimed.
+No new source finding is asserted. E1, E2 and E3 retain their previous scope:
+E1 was checked in the published preview; E2/E3 concern checked author-copy and
+preprint passages because the full published chapter was not accessible.
+Earlier correction searches and acquisition details remain in the source ledger;
+no new full version-of-record acquisition or source-wide correctness verdict.
 
 ## Verification
 
-The complete suggested file compiles under Lean 4.34.0-rc2 against Mathlib
+The complete suggested file elaborates under Lean 4.34.0-rc2 against Mathlib
 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti
-f790474821cf4256814db967cb154e7af3d0c369: 27 declaration signatures and 25 examples,
-52 expected proof-placeholder warnings, no other warnings or errors.
-The inherited file was compiled before editing (37 expected warnings).
-The driver byte-compared 8,482 transitive Mathlib source files with the pin
-and built the imported Tau Ceti empirical-measure module from pinned source.
+f790474821cf4256814db967cb154e7af3d0c369: 36 declaration signatures and
+33 example contracts, 69 expected proof-placeholder warnings, no other warnings
+or errors. The inherited file compiled before editing with 52 expected warnings.
+The driver byte-checked 8,482 transitive Mathlib source files and built the
+empirical-measure and Gaussian-moment Tau Ceti modules from pinned source.
 
-A separate scratch probe proves seven general lemmas and seven examples with
-zero placeholders or warnings. It covers the Boolean-power identity, the
-3/2 coefficient bound, model-factor algebra, subset expansion, tuple grouping
-by fibers, the existing Bernoulli integral specialization and empirical
-averaging. Its examples verify the nonzero third moment at prime 3, the
-incomplete/complete mixed pair, the constant square at prime 2, zero sharp
-remainder, exponent-one cancellation and a source composition-count boundary.
-These probes are not a full formal implementation of the packet.
+A separate scratch probe proves one general local-factor bound and six examples
+with no placeholders or warnings. The examples check rational local/fourth
+moments, the existing multinomial coefficient, and existing Gaussian fourth
+and third central moments. These probes are not a full formal implementation.
 
-Exact-rational checks added 22,500 mixed-product cases, including 508
-complete-period cases, for subsets of {2,3,5,7}, exponents 0 through 3 and
-N=1,...,36. They independently compare direct arithmetic averages with the
-subset expansion, model product and both error bounds.
-For subsets of {2,3,5}, weights in {-2,0,1,3}, k=0,...,4 and N=1,...,18,
-625 tuple models were compared with independently enumerated Boolean atom
-models, and 11,250 arithmetic weighted moments were checked, including 850
-complete-period cases. Also checked 64 composition counts against recursive
-enumeration and the source's still-valid upper bound.
+The new exact-rational suite passed 288 independent Boolean-atom versus
+multinomial model comparisons, 7,680 arithmetic moment checks, 96 collision
+bounds, 120 fixed-support bounds and 100 corrected allocation counts. Model
+orders are 0–8, prime sets are all subsets of {2,3,5,7,11}, and sample sizes are
+1–30. Allocation counts cover k=1–20. It checks empty and repeated-coordinate
+cases, singleton cancellation, paired/smaller-support decomposition, odd signs
+and all displayed finite error terms.
 
-Reran inherited exact checks: 1,000 divisor, 25,000 joint-divisor, 1,000 prime-pair,
-2,680 weighted-second-moment cases (181 complete-period), 9,720 pattern cases
-(690 complete-period), and 1,920 summed-atom checks.
+Earlier checkpoints record 22,500 mixed-product cases (508 complete-period),
+625 tuple/atom models, 11,250 weighted moments (850 complete-period), 64 source
+composition counts, and the preceding divisibility/pattern regression suites.
+Those records are retained as historical evidence, not a claim that the new
+Gaussian-only script reruns those other suites.
 
 The official full-index blueprint checker reports 0 errors and 0 warnings.
-The source findings and versions pass the errata checker in a scratch-only
-errata-v1 envelope; that checker expects an errata document, not a blueprint
-packet directly. All four deliverables pass the intake checks (0 problems).
-The fresh-main guard passed at 63091de06f3ecc0458e3a3d3f8c6b35f7ec8d9a8:
-all 59 guarded paths were unchanged, the two known absences stayed absent,
-and no new matching link file appeared. Exactly the four authorized tracked
-files differ from the inspected snapshot; all 22 inherited node objects match.
-Only the four authorized files are published; no downloaded source, extracted
-text, regression code, proof probe, build output or private path is included.
+The four-deliverable intake check reports 0 problems. The unchanged source
+findings and version records pass the errata checker in an in-memory errata-v1
+envelope; the blueprint packet itself retains blueprint-v1.
+The preservation/live-main guard passed at
+85cad46b3d86f72afb4f43b9a52f9d9148508442: all 59 guarded paths were unchanged,
+the same two inputs stayed absent, and no new matching link appeared.
+Exactly the four authorized tracked files differ from the snapshot.
+All 27 inherited node objects, source findings and source versions match.
+Only the four authorized deliverables are published, never scratch source downloads,
+regression scripts, proof probes, build outputs or private paths.
 
 ## Exact continuation
 
 PM.0 still needs general additive/strongly additive interfaces, prime-power and
 Omega representations, the arithmetic CDF/characteristic-function/weak-convergence
-dictionary, the all-residue-class joint model and stronger growing-prime
-comparison with its source-specific range. The finite Boolean and mixed-moment
-formulas are already present and should not be re-planned.
+dictionary, all-residue-class joint model and stronger growing-prime comparisons.
+Existing finite Boolean/mixed-moment formulas should not be replanned.
 
-PM.1 is now partial rather than not_read because the full GS proof was read.
-Its remaining decomposition must isolate the Gaussian pairing and collision
-estimates, smaller-support contribution with the corrected composition count,
-parity bounds and uniform moment range. Add Mertens normalization, large-prime
-removal and a valid moment-convergence-to-Gaussian route. The arithmetic
-indicators are not iid. Route the general sieve-multiset h(d), r_d and D_k(P)
-interfaces before introducing them; their appearance in the source is not
-permission to duplicate other owners' sieve infrastructure. Acquire the full
-Turan–Kubilius and Hardy–Ramanujan proof sources and the exact Kubilius edition.
+PM.1 now has finite unit-weight paired-support, collision, fixed-support,
+smaller-support and parity estimates. Reuse those and Tau Ceti's existing
+Gaussian moment evaluation. Next isolate the precise source-specific uniform
+growing-moment range, Mertens normalization, large-prime removal and a valid
+moment-convergence route. The finite bounds here alone do not close Theorem 1
+or Propositions 2–4. General weighted asymptotic results and general sieve
+multisets require their own source-scoped hypotheses and ownership routing.
+Acquire full Turan–Kubilius and Hardy–Ramanujan proof sources and the exact
+Kubilius edition. Arithmetic indicators are not iid.
 
-PM.2–PM.5 coverage is unchanged: Weyl/discrepancy with precise ES.0 input;
-metric approximation with measure/monotonicity/coprimality hypotheses and
-existing Borel–Cantelli/Gallagher suppliers; pointwise ergodic and integrability
-inputs for Gauss dynamics; short-interval/correlation ownership and the
-conjectural status of general Chowla/Sarnak. Recheck live inputs on resumption.
+PM.2–PM.5 remain unchanged: Weyl/discrepancy with precise ES.0 input;
+metric approximation with measure/monotonicity/coprimality hypotheses and existing
+Borel–Cantelli/Gallagher suppliers; pointwise ergodic and integrability inputs for
+Gauss dynamics; short-interval/correlation ownership and the conjectural status
+of general Chowla/Sarnak. Recheck live inputs before further work.
