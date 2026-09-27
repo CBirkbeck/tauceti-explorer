@@ -1,4 +1,6 @@
-**Special-unit model checkpoint, 27 September 2026.** The packet has 149 unchecked nodes, 257 API entries, 133 definition/construction tests plus five other tests, 22 planets and 105 baseline references. Five gaps and twenty requests remain; no stage is closed. Ten new declarations supply the finite-extension four-puncture model and scalar zero differential, with the exact remaining Coleman comparison recorded below.
+**Algebraic-density checkpoint, 27 September2026.** The packet has 156 unchecked nodes, 257 API entries, 133 definition/construction tests and ten other tests, 100 typed examples, 22 planets and 112 baseline references. Five gaps and twenty requests remain; no stage is closed. The density step is supplied as an explicit conditional reduction, retaining the required algebraic special-unit Coleman proof.
+
+**Earlier special-unit model checkpoint, 27 September 2026.** That checkpoint had 149 unchecked nodes, 257 API entries, 133 definition/construction tests plus five other tests, 22 planets and 105 baseline references. Five gaps and twenty requests remain; no stage is closed. Ten new declarations supply the finite-extension four-puncture model and scalar zero differential, with the exact remaining Coleman comparison recorded below.
 
 **Earlier smoothed-transform endpoint checkpoint, 27 September 2026.** That checkpoint had 139 unchecked nodes, 253 API entries, 129 definition/construction tests plus five inherited lemma tests, 22 planets and 103 baseline references. Its 5 gaps and 20 requests remain. Seven new L3 nodes correct the rotated smoothing transform at w=1. The two singular terms are cancelled before any formal inverse is taken; the logarithm quotient sign is corrected to give -log_p(b). No layer is newly closed.
 
@@ -3330,7 +3332,7 @@ Source: de Jeu, arXiv:2007.11014v1, p.6 discussion before Proposition2.10 and p.
 
 *Node* `ColemanIntegration:L2/five-term-relation`.
 
-For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. Scalar signed covariance and exhaustive norm reduction to the special-unit subcase are now decomposed. The finite-extension special-unit model and zero differential are now decomposed. Coleman membership across additional regular-image ends, boundary normalization, C_p density and the separate field-correct projective/Bloch comparisons remain open; no complete global proof is claimed.
+For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a(y) + D^a(y/x) − D^a((1 − x^{−1})/(1 − y^{−1})) + D^a((1 − x)/(1 − y)) = 0. Equivalently, for five distinct points s_1, …, s_5 of P¹(C_p), Σ_{i∈Z/5} D^a([s_i, s_{i+1}, s_{i+2}, s_{i+3}]) = 0 with the cross-ratio [s_1,s_2,s_3,s_4] = (s_1 − s_2)(s_3 − s_4)/((s_1 − s_4)(s_3 − s_2)) in the convention of Polylogarithms P.1/bloch-wigner-five-term (a complex comparison only; its algebraic identities over C_p are a supplier request). Hence, for every subfield K ⊂ C_p, [x] ↦ D^a(x) is a homomorphism from the free abelian group on K ∖ {0, 1} modulo the five-term relations (the pre-Bloch group) to C_p, independent of a on the Bloch group. The nested-disc case 0<|y|<|x|<1 now has a separate source-derived proof chain. Scalar signed covariance and exhaustive norm reduction to the special-unit subcase are now decomposed. The finite-extension special-unit model and zero differential are now decomposed. The conditional algebraic-density reduction is now supplied. Coleman membership across additional regular-image ends, boundary normalization and the separate field-correct projective/Bloch comparisons remain open; no complete global proof is claimed.
 
 *Hypotheses.* a ∈ C_p; x, y ∉ {0, 1}, x ≠ y; p any prime.
 
@@ -3338,7 +3340,7 @@ For every a ∈ C_p and all x, y ∈ C_p ∖ {0, 1} with x ≠ y: D^a(x) − D^a
 
 1. The differential: by ColemanIntegration:L2/dilogarithm-identities (c), dD^a(z) = ½ρ(z, 1 − z) with ρ(f, g) := log_a f·d log g − log_a g·d log f, which is bi-additive and alternating in (f, g) and vanishes when f or g is a root of unity (log_a of a root of unity is 0).
 2. The scalar differential is now supplied by five-term-logarithmic-pullbacks and five-term-defect-zero-differential; it uses no field-general projective identity. The cyclic projective reformulation still needs the separate Polylogarithms supplier, including infinity and denominator conditions.
-3. The arbitrary-special-unit four-puncture model over finite K, its residue/Frobenius datum and integral argument maps are now explicit nodes. The zero differential is separately supplied. Complete the Coleman pullback comparison when an extra source end maps to a regular target point, then prove membership of the five-term defect, global constancy and the boundary value. The current inherited pullback statement has an unnecessarily restrictive ends-to-ends clause and cannot be silently applied. Extend the algebraic-input result to C_p using density and local analyticity. Retain the independent field-general projective and Bloch comparisons. No vanishing theorem follows merely from the new derivative-zero statement.
+3. The arbitrary-special-unit four-puncture model over finite K, its residue/Frobenius datum and integral argument maps are now explicit nodes. The zero differential is separately supplied. Complete the Coleman pullback comparison when an extra source end maps to a regular target point, then prove membership of the five-term defect, global constancy and the boundary value. The current inherited pullback statement has an unnecessarily restrictive ends-to-ends clause and cannot be silently applied. The exact conditional algebraic-input reduction is now supplied by five-term-from-algebraic-special-units: continuity and density extend a proved special-unit identity from the existing algebraic closure to all C_p points. Establish its algebraic special-unit hypothesis through the remaining Coleman membership, constancy and boundary argument. Retain the independent field-general projective and Bloch comparisons. No vanishing theorem follows merely from the new derivative-zero statement.
 4. Scalar transport is now supplied by five-term-defect through five-term-from-special-units: the four elementary pair transformations have checked signs; mixed norms, separated residue discs and close equal-norm pairs reduce to nested discs; the remaining cases reduce to a special-unit second coordinate. Thus the scalar global conclusion follows once the preceding good-reduction input is proved. No field-general cross-ratio interface is needed for this scalar reduction. The cyclic projective reformulation still needs its separate algebraic supplier, including infinity cases.
 5. Once the requested algebraic five-term boundary identity is supplied, the branch-change formula in L2/dilogarithm-identities is an alternating bi-additive expression and cancels in the five-term sum; its factorization through the pre-Bloch group and branch independence on the Bloch group use the same algebraic input. These global consequences are targets, not consequences of the nested-disc result alone.
 6. Nested-disc case: apply ColemanIntegration:L2/five-term-nested-discs, proved from the single-disc Abel series identity and explicit cancellation of the two branch logarithms. This replaces the old unproved inference that a logarithm-polynomial expression with vanishing partial differentials is constant. It needs neither semistable Coleman continuation nor a two-variable logarithm-transcendence theorem.
@@ -3571,7 +3573,7 @@ Let Li_k^ℂ be the principal branch of the complex polylogarithm (Polylogarithm
 - Close the special-unit good-reduction input for every admissible first coordinate and every second coordinate v with |v|=|1−v|=1: construct the arbitrary-special-unit punctured-line model, its Coleman pullbacks and constancy argument, then finite-extension/density comparison. The scalar norm reduction is decomposed; the cyclic projective reformulation and Bloch descent still need their field-correct algebraic supplier.
 - Coleman 1982 (Invent. Math. 69) was not read (no public copy): the Frobenius and distribution relations are proved here from L1 and checked numerically; when a copy is available, compare Propositions 6.1-6.4 and 7.1 with these nodes and record the misprints Besser-de Jeu point out.
 
-The arbitrary-special-unit four-puncture model over finite K, its residue/Frobenius datum and integral argument maps are now explicit nodes. The zero differential is separately supplied. Complete the Coleman pullback comparison when an extra source end maps to a regular target point, then prove membership of the five-term defect, global constancy and the boundary value. The current inherited pullback statement has an unnecessarily restrictive ends-to-ends clause and cannot be silently applied. Extend the algebraic-input result to C_p using density and local analyticity. Retain the independent field-general projective and Bloch comparisons. No vanishing theorem follows merely from the new derivative-zero statement.
+The arbitrary-special-unit four-puncture model over finite K, its residue/Frobenius datum and integral argument maps are now explicit nodes. The zero differential is separately supplied. Complete the Coleman pullback comparison when an extra source end maps to a regular target point, then prove membership of the five-term defect, global constancy and the boundary value. The current inherited pullback statement has an unnecessarily restrictive ends-to-ends clause and cannot be silently applied. The exact conditional algebraic-input reduction is now supplied by five-term-from-algebraic-special-units: continuity and density extend a proved special-unit identity from the existing algebraic closure to all C_p points. Establish its algebraic special-unit hypothesis through the remaining Coleman membership, constancy and boundary argument. Retain the independent field-general projective and Bloch comparisons. No vanishing theorem follows merely from the new derivative-zero statement.
 
 Request to Polylogarithms:P.1: Generalize the algebraic cross-ratio interface behind P.1/five-cross-ratio-identity from complex points to pairwise distinct points of P^1 over a field: the complement, inverse, adjacent-permutation and fractional-linear invariance identities, and the five-point cyclic identity, with explicit denominator and infinity cases. Keep the current complex Bloch-Wigner theorem unchanged. ColemanIntegration needs only these algebraic identities over C_p, not a duplicate complex or p-adic five-term theorem. The scalar two-variable norm reduction now uses only specialized D-valued covariance and no general projective carrier. This request remains for the parent’s cyclic projective comparison and algebraic boundary/descent, not as an unresolved input to the scalar norm-reduction lemmas.
 
@@ -4649,7 +4651,7 @@ lines record each value.
 
 ### Local-repair ownership and checks
 
-The six local Abel lemmas introduce no new definitions or competing analytic carriers. The existing 22 planets are retained; the L2 layer is already at its six-planet limit. All 139 nodes remain unchecked. The nested-disc result does not consume the global five-term theorem or any complex Bloch–Wigner theorem.
+The six local Abel lemmas introduce no new definitions or competing analytic carriers. The existing 22 planets are retained; the L2 layer is already at its six-planet limit. All nodes remain unchecked. The nested-disc result does not consume the global five-term theorem or any complex Bloch–Wigner theorem.
 
 The field-general cross-ratio identities are requested from `Polylogarithms:P.1`, preserving its existing complex theorem. The packet retains every inherited supplier request and adds this one; no general Tate-algebra completion or semistable continuation is silently assumed. Scalar normalization and covariance are now decomposed below. The remaining global proof still requires the hypothesis-complete special-unit good-reduction argument and the projective/Bloch comparisons.
 
@@ -5138,3 +5140,216 @@ Source: Furusho, p-adic multiple zeta values I, arXiv v2, §2.1, pp.7–9. This 
 ### Prototype boundary
 
 The suggested file types the tube and all four API items, four tests, the polynomial error, the logarithmic derivative of the Frobenius correction, the tube part of the rational maps, the complete logarithmic pullback table and the zero derivative. The scheme model, principal-parts comparison, actual dagger de Rham module and instantiated Frobenius datum are honest comments until their existing owners supply the required Lean carriers. No substitute structure assumes these conclusions.
+
+## Algebraic-input reduction for the five-term identity
+
+The scalar defect R_a is already defined on the genuine C_p carrier. Its five
+arguments avoid 0 and 1 on the admissible locus A, so local analyticity of the
+existing polylogarithm gives continuity of R_a in both variables. The logarithm
+branch can be handled using L(w)=−Li_1^a(1−w) near a nonzero w. This reuses the
+weight-one identity instead of constructing another logarithm or assuming that
+its totalized value at zero is continuous.
+
+Let S consist of admissible (x,y) with |y|=|1−y|=1. There is deliberately no
+unit condition on x or on x−y. Nonzero-radius spheres in an ultrametric space
+are open, hence S is open. The actual C_p is the completion of the existing
+PadicAlgCl, and pairs of algebraic elements have dense image. Intersecting that
+dense image with S gives density within S while preserving every admissibility
+and special-unit condition. A sequence may require increasing finite extensions;
+no fixed finite extension, and in particular not Q_p, is declared dense in C_p.
+
+Consequently an identity R_a=0 proved on algebraic pairs in S extends to every
+point of S by continuity. The preceding scalar norm-reduction theorem then
+extends it to all admissible pairs. The new theorem states its algebraic-input
+hypothesis explicitly. Establishing that hypothesis still requires the actual
+Coleman pullback across an additional source end mapping to a regular target
+point, membership of R_a, global Coleman constancy and the boundary value.
+A locally analytic function with zero derivative is not used as a substitute.
+The projective and Bloch-group comparisons are still separate obligations.
+
+The analytic source is [Furusho, Definition2.9 and Proposition2.11](https://arxiv.org/pdf/math/0304085v2),
+pp.9–10; pp.7–10 were read. The density reduction is a worker derivation from
+the pinned completion and topology theorems. All source findings are preserved.
+Two already present API signatures are promoted to prerequisite nodes; the
+five new signatures and their tests append to the actual preceding seed.
+
+### Local analyticity of the actual polylogarithm
+
+`ColemanIntegration:L2/polylogarithm-analytic-at` — `padicPolylog_analyticAt` (lemma).
+
+For every natural k and z≠1, the existing function Li_k^a is analytic at z over ℂ_p. This promotes its existing analyticAt API, with its original suggested signature.
+
+Hypotheses: p is any prime, including 2. Fix a branch parameter a∈ℂ_p and an actual logarithm branch L satisfying the existing IsLogBranch interface. D and R_a are the existing dilogD and scalar fiveTermDefect. An admissible pair (x,y) has x,y different from 0 and 1, and x≠y. Write A for this subset of ℂ_p² and S for its subset with |y|=|1−y|=1. No condition |x|=1 or |x−y|=1 is imposed. The topology is the ordinary product p-adic topology.
+
+Proof outline:
+
+1. For k≥1, use the existing Coleman function on the ordinary residue discs, the power-series expression near zero and the existing expansions on the punctured discs of 1 and infinity. At a nonsingular point these expansions are locally analytic.
+2. For k=0 the defining rational function z/(1−z) is analytic away from its nonzero denominator. Neither case asserts continuity at z=1.
+
+Prerequisites: `ColemanIntegration:L2/p-adic-polylogarithm`, `ColemanIntegration:L2/polylogarithms-on-the-punctured-residue-discs`, `ColemanIntegration:L2/polylogarithm-power-series`.
+
+Acceptance: At z=0 the theorem includes the normalized ordinary series. The excluded endpoint 1 cannot be inserted using the finitely ramified limit theorem.
+
+Sources:
+
+- §2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9. The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input.
+
+### Weight one and the fixed logarithm branch
+
+`ColemanIntegration:L2/polylogarithm-weight-one` — `padicPolylog_one_index` (lemma).
+
+For z≠1, the actual weight-one polylogarithm satisfies Li_1^a(z)=−L(1−z). This promotes the existing weight-one characterization API and reuses its suggested signature.
+
+Hypotheses: p is any prime, including 2. Fix a branch parameter a∈ℂ_p and an actual logarithm branch L satisfying the existing IsLogBranch interface. D and R_a are the existing dilogD and scalar fiveTermDefect. An admissible pair (x,y) has x,y different from 0 and 1, and x≠y. Write A for this subset of ℂ_p² and S for its subset with |y|=|1−y|=1. No condition |x|=1 or |x−y|=1 is imposed. The topology is the ordinary product p-adic topology.
+
+Proof outline:
+
+1. Apply the weight-one clause of the existing polylogarithm construction and its continuation. It is the fixed branch L throughout, including on the punctured discs. No separate logarithm is constructed.
+
+Prerequisites: `ColemanIntegration:L2/p-adic-polylogarithm`.
+
+Acceptance: For z=1−w with w≠0, rearrangement gives L(w)=−Li_1^a(1−w), the exact local expression used for continuity.
+
+Sources:
+
+- §2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9. The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input.
+
+### Continuity of the Coleman dilogarithm
+
+`ColemanIntegration:L2/dilogarithm-continuous-at` — `dilogD_continuousAt` (lemma).
+
+For z≠0,1, the existing Coleman dilogarithm D^a is continuous at z as an ℂ_p-valued function.
+
+Hypotheses: p is any prime, including 2. Fix a branch parameter a∈ℂ_p and an actual logarithm branch L satisfying the existing IsLogBranch interface. D and R_a are the existing dilogD and scalar fiveTermDefect. An admissible pair (x,y) has x,y different from 0 and 1, and x≠y. Write A for this subset of ℂ_p² and S for its subset with |y|=|1−y|=1. No condition |x|=1 or |x−y|=1 is imposed. The topology is the ordinary product p-adic topology.
+
+Proof outline:
+
+1. By polylogarithm-analytic-at, Li_1^a and Li_2^a are continuous away from 1, using AnalyticAt.continuousAt.
+2. On a neighborhood of any nonzero w, polylogarithm-weight-one gives L(w)=−Li_1^a(1−w). This proves continuity of the actual branch L there. Apply it at z and at 1−z.
+3. Use the defining scalar expression D^a(z)=Li_2^a(z)+L(z)L(1−z)/2 and continuity of sums and products in ℂ_p. Division by the fixed nonzero scalar 2 is valid also for p=2.
+
+Prerequisites: `ColemanIntegration:L2/polylogarithm-analytic-at`, `ColemanIntegration:L2/polylogarithm-weight-one`, `ColemanIntegration:L2/dilogarithm-identities`, `mathlib:AnalyticAt.continuousAt`.
+
+Tests:
+
+- `DensityTests.dilog_at_two` (computation): For p=2 and every branch, D^a is continuous at 2.
+
+Acceptance: At p=2, D^a is continuous at 2 for every branch, even though 2 is not a p-adic unit. No assertion is made at 0 or 1.
+
+Sources:
+
+- §2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9. The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input.
+
+### Continuity of the five-term expression
+
+`ColemanIntegration:L2/five-term-defect-continuous` — `fiveTermDefect_continuousOn` (lemma).
+
+The actual scalar function (x,y)↦R_a(x,y) is continuous on the admissible open set A⊂ℂ_p².
+
+Hypotheses: p is any prime, including 2. Fix a branch parameter a∈ℂ_p and an actual logarithm branch L satisfying the existing IsLogBranch interface. D and R_a are the existing dilogD and scalar fiveTermDefect. An admissible pair (x,y) has x,y different from 0 and 1, and x≠y. Write A for this subset of ℂ_p² and S for its subset with |y|=|1−y|=1. No condition |x|=1 or |x−y|=1 is imposed. The topology is the ordinary product p-adic topology.
+
+Proof outline:
+
+1. The projections and the three rational argument maps in R_a are continuous at every admissible pair. Their denominators x, 1−y, and 1−y⁻¹ are nonzero; the last condition follows from y≠0,1.
+2. Use the existing five-term-arguments lemma to check that each argument differs from 0 and 1. Compose dilogarithm-continuous-at with each of the five maps.
+3. Take the exact signed sum from five-term-defect. This uses no global five-term theorem or zero-derivative constancy principle.
+
+Prerequisites: `ColemanIntegration:L2/five-term-defect`, `ColemanIntegration:L2/five-term-arguments`, `ColemanIntegration:L2/dilogarithm-continuous-at`.
+
+Tests:
+
+- `DensityTests.continuity_nested_two` (compatibility): For p=2 and every branch, (x,y)↦R_a(x,y) is continuous at (2,8).
+
+Acceptance: The result is continuity in both variables on A. At the admissible dyadic pair (2,8) it gives ordinary product-topology continuity without a special-unit hypothesis.
+
+Sources:
+
+- §2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9. The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input.
+
+### The special-unit admissible locus is open
+
+`ColemanIntegration:L2/five-term-special-unit-open` — `fiveTerm_specialUnit_isOpen` (lemma).
+
+The set S={(x,y)∈A: |y|=|1−y|=1} is open in ℂ_p².
+
+Hypotheses: p is any prime, including 2. Fix a branch parameter a∈ℂ_p and an actual logarithm branch L satisfying the existing IsLogBranch interface. D and R_a are the existing dilogD and scalar fiveTermDefect. An admissible pair (x,y) has x,y different from 0 and 1, and x≠y. Write A for this subset of ℂ_p² and S for its subset with |y|=|1−y|=1. No condition |x|=1 or |x−y|=1 is imposed. The topology is the ordinary product p-adic topology.
+
+Proof outline:
+
+1. The five nonvanishing and inequality conditions defining A are open: the coordinate functions and their difference are continuous and ℂ_p is Hausdorff.
+2. In the existing ultrametric space ℂ_p, a sphere of nonzero radius is open. Pull back the radius-one sphere at zero along the second projection and along (x,y)↦1−y.
+3. Intersect these two open sets with A. This is openness of this particular Coleman locus, not a new analytic-space or special-unit carrier.
+
+Prerequisites: `mathlib:PadicComplex.isUltrametricDist`, `mathlib:IsUltrametricDist.isOpen_sphere`, `mathlib:isOpen_ne_fun`.
+
+Tests:
+
+- `DensityTests.small_first_three` (computation): At p=3, (3,2) belongs to S and |3|≠1; restricting the first coordinate to special units would fail this test.
+- `DensityTests.excluded_diagonal` (non-example): At p=5, (2,2) does not belong to S.
+- `DensityTests.excluded_zero` (non-example): At p=3, (0,2) does not belong to S.
+
+Acceptance: The pair (3,2) lies in S at p=3, even though |3|≠1. The diagonal pair (2,2) at p=5 and the boundary pair (0,2) at p=3 are excluded.
+
+Sources:
+
+- §2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9. The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input.
+
+### Algebraic pairs are dense in the special-unit locus
+
+`ColemanIntegration:L2/five-term-algebraic-density` — `fiveTerm_specialUnit_algebraic_dense` (lemma).
+
+Let e:PadicAlgCl(p)²→ℂ_p² be the pair of canonical completion embeddings. Then S⊆closure(S∩range(e)). Thus admissible algebraic pairs with special-unit second coordinate approximate every pair in S while retaining those conditions.
+
+Hypotheses: p is any prime, including 2. Fix a branch parameter a∈ℂ_p and an actual logarithm branch L satisfying the existing IsLogBranch interface. D and R_a are the existing dilogD and scalar fiveTermDefect. An admissible pair (x,y) has x,y different from 0 and 1, and x≠y. Write A for this subset of ℂ_p² and S for its subset with |y|=|1−y|=1. No condition |x|=1 or |x−y|=1 is imposed. The topology is the ordinary product p-adic topology.
+
+Proof outline:
+
+1. At the pin, ℂ_p is the completion of the existing algebraic closure PadicAlgCl(p). UniformSpace.Completion.denseRange_coe₂ supplies density of the pair embedding into the product.
+2. Apply Dense.open_subset_closure_inter to that dense range and the open set S from five-term-special-unit-open.
+3. The approximating algebraic coordinates may generate different finite extensions as the approximation improves. No one fixed finite extension is asserted dense in ℂ_p; in particular ℚ_p-rational pairs are not substituted for algebraic-closure pairs.
+
+Prerequisites: `ColemanIntegration:L2/five-term-special-unit-open`, `mathlib:PadicComplex`, `mathlib:UniformSpace.Completion.denseRange_coe₂`, `mathlib:Dense.open_subset_closure_inter`.
+
+Acceptance: The approximation remains inside S, avoiding 0,1 and the diagonal. It includes p=2, whose residue field requires algebraic points for special units.
+
+Sources:
+
+- §2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9. The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input.
+
+### Reduction to algebraic special-unit inputs
+
+`ColemanIntegration:L2/five-term-from-algebraic-special-units` — `fiveTermDefect_of_algebraic_special_units` (theorem).
+
+Fix a branch. Assume R_a(e(u),e(v))=0 for every u,v in the existing PadicAlgCl(p) whose image pair is in S. Then R_a(x,y)=0 for every admissible x,y∈ℂ_p. The displayed hypothesis is the still-required finite-extension special-unit Coleman input.
+
+Hypotheses: p is any prime, including 2. Fix a branch parameter a∈ℂ_p and an actual logarithm branch L satisfying the existing IsLogBranch interface. D and R_a are the existing dilogD and scalar fiveTermDefect. An admissible pair (x,y) has x,y different from 0 and 1, and x≠y. Write A for this subset of ℂ_p² and S for its subset with |y|=|1−y|=1. No condition |x|=1 or |x−y|=1 is imposed. The topology is the ordinary product p-adic topology.
+
+Proof outline:
+
+1. Restrict five-term-defect-continuous to S. The hypothesis gives equality with the constant-zero function on S∩range(e).
+2. Use Set.EqOn.of_subset_closure with five-term-algebraic-density to extend equality to every point of S. This is extension of a continuous identity, not a conclusion from a vanishing local derivative.
+3. Apply the existing five-term-from-special-units theorem to obtain vanishing at every admissible pair. The existing signed covariance and norm reduction supply this last step.
+4. The algebraic hypothesis is not proved here: the four-puncture Coleman pullback, constancy and boundary normalization must establish it. Any two input elements of PadicAlgCl(p) lie in a common finite extension, but that field can vary. Branch parameters remain arbitrary in ℂ_p.
+
+Prerequisites: `ColemanIntegration:L2/five-term-defect-continuous`, `ColemanIntegration:L2/five-term-algebraic-density`, `ColemanIntegration:L2/five-term-from-special-units`, `mathlib:Set.EqOn.of_subset_closure`.
+
+Acceptance: No algebraicity assumption is imposed on the conclusion’s x or y. The hypothesis retains all admissible first coordinates, including those outside the special-unit tube. The projective/Bloch reformulation remains a distinct supplier comparison.
+
+Sources:
+
+- §2.2, Definition2.9 and Proposition2.11, arXiv v2 pp.9–10; p.10 read in full together with pp.7–9. The source supplies local analyticity of the existing Coleman polylogarithms away from 1. The continuity, open-locus and algebraic-density reductions here are explicit worker deductions using the pinned completion and topology theorems. The source does not state these adapters, and the conditional reduction does not establish the finite-extension five-term input.
+
+The added dependency of the global five-term target is
+`ColemanIntegration:L2/five-term-from-algebraic-special-units`. Its explicit
+hypothesis is precisely the unfinished algebraic case, so the global target
+remains unchecked and the corresponding gap remains open.
+
+Seven complete scratch lemmas check the open-locus/density extension and the
+logarithm/dilogarithm/five-argument continuity reductions at the pin. They have
+no placeholders. The finite stability harness passes 9,119 exact assertions,
+including 2,989 rational perturbation pairs and 49 pairs in the unramified
+dyadic quadratic model with a root of X²+X+1. The latter distinguishes special
+units over the algebraic closure from the empty special residue locus in F₂.
+These checks do not prove the outstanding Coleman constancy or boundary input.
+
+The current full suggested file elaborates with zero errors and 342 expected proof-placeholder warnings. The actual PMIA and Dirichlet supplier seeds elaborate with 255 and 107 placeholder warnings. All 3923 reached Mathlib source modules match the pin; the one reached Tau Ceti module was rebuilt from its pinned source. The 100 typed examples include the five new locus and continuity tests. Both complete scratch proof files have zero errors and warnings.
