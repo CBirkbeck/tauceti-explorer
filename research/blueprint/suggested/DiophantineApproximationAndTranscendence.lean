@@ -15,6 +15,8 @@ import Mathlib.Algebra.LinearRecurrence
 import Mathlib.Algebra.Module.ZLattice.Basic
 import Mathlib.Algebra.MonoidAlgebra.NoZeroDivisors
 import Mathlib.Algebra.MvPolynomial.Degrees
+import Mathlib.Data.Finsupp.Interval
+import Mathlib.RingTheory.MvPolynomial.WeightedHomogeneous
 import Mathlib.Algebra.MvPolynomial.Equiv
 import Mathlib.Algebra.MvPolynomial.PDeriv
 import Mathlib.Algebra.MvPolynomial.Rename
@@ -5009,3 +5011,216 @@ example :
   sorry
 
 end MvPolynomial
+
+/-! ## Block-linear Hasse jets and nonzero block grids
+Elementary supporting lemmas for Evertse, §7, Lemma 26 (published pp. 295–296).
+Local notation below expands to existing polynomial operations; it introduces no carrier.
+-/
+
+namespace MvPolynomial
+section BlockLinearJets
+
+variable {R : Type*} [CommSemiring R] {m N r : ℕ}
+variable (A : Fin m → Fin N → Fin r → R)
+local notation "ℒ" => (fun p : Fin m × Fin N =>
+  (∑ a : Fin r, C (A (Prod.fst p) (Prod.snd p) a) * X (Prod.fst p, a) :
+    MvPolynomial (Fin m × Fin r) R))
+
+/-- DT.1/block-linear-monomial-support. -/
+theorem block_sum_eq_of_coeff_linear_monomial_ne_zero
+    (e : Fin m × Fin N →₀ ℕ) (k : Fin m × Fin r →₀ ℕ)
+    (hc : (e.prod fun p n => ℒ p ^ n).coeff k ≠ 0) :
+    ∀ h, ∑ a : Fin r, k (h, a) = ∑ l : Fin N, e (h, l) := by sorry
+
+/-- DT.1/block-linear-hasse-chain-rule. E is a finite coordinate box with the exact
+block-sum equalities imposed; no infinite sum or preselected nonzero coefficient. -/
+theorem hasseDeriv_eval₂_blockLinear
+    (F : MvPolynomial (Fin m × Fin N) R)
+    (i : Fin m × Fin N →₀ ℕ) (k : Fin m × Fin r →₀ ℕ) :
+    let E := (Finset.Iic (Finsupp.equivFunOnFinite.symm
+      (fun p : Fin m × Fin N => ∑ a : Fin r, k (p.1, a)))).filter
+        (fun e => ∀ h, ∑ l : Fin N, e (h, l) = ∑ a : Fin r, k (h, a))
+    hasseDeriv k (eval₂ C ℒ (hasseDeriv i F)) =
+      ∑ e ∈ E, C ((e.prod fun p n => ℒ p ^ n).coeff k *
+        ((i + e).prod fun p n => (n.choose (i p) : R))) *
+        eval₂ C ℒ (hasseDeriv (i + e) F) := by sorry
+
+/-- DT.1/nonzero-block-linear-jet-extraction. -/
+theorem exists_nonzero_hasseDeriv_of_blockLinear
+    (F : MvPolynomial (Fin m × Fin N) R)
+    (i : Fin m × Fin N →₀ ℕ) (k : Fin m × Fin r →₀ ℕ)
+    (y : Fin m × Fin r → R)
+    (hn : eval y (hasseDeriv k (eval₂ C ℒ (hasseDeriv i F))) ≠ 0) :
+    ∃ e : Fin m × Fin N →₀ ℕ,
+      (∀ h, ∑ l : Fin N, e (h, l) = ∑ a : Fin r, k (h, a)) ∧
+      eval (fun p => ∑ a : Fin r, A p.1 p.2 a * y (p.1, a))
+        (hasseDeriv (i + e) F) ≠ 0 := by sorry
+
+/-- DT.1/block-linear-degree-bound. Upper block-degree support suffices;
+zero polynomials and rank-deficient maps are allowed. -/
+theorem degreeOf_eval₂_blockLinear_le
+    (F : MvPolynomial (Fin m × Fin N) R) (d : Fin m → ℕ)
+    (hF : ∀ μ ∈ F.support, ∀ h, ∑ l : Fin N, μ (h, l) ≤ d h)
+    (q : Fin m × Fin r) :
+    (eval₂ C ℒ F).degreeOf q ≤ d q.1 := by sorry
+
+end BlockLinearJets
+
+/-- DT.1/hasse-residual-block-degrees. Do not infer the order bound from a zero jet. -/
+theorem hasseDeriv_block_degrees {R : Type*} [CommSemiring R] {m N : ℕ}
+    (F : MvPolynomial (Fin m × Fin N) R) (d : Fin m → ℕ)
+    (hF : ∀ μ ∈ F.support, ∀ h, ∑ l : Fin N, μ (h, l) = d h)
+    (j : Fin m × Fin N →₀ ℕ) (hj : hasseDeriv j F ≠ 0) :
+    (∀ h, ∑ l : Fin N, j (h, l) ≤ d h) ∧
+    (∀ μ ∈ (hasseDeriv j F).support, ∀ h,
+      ∑ l : Fin N, μ (h, l) = d h - ∑ l : Fin N, j (h, l)) := by sorry
+
+/-- DT.1/zero-block-forces-degree-zero. -/
+theorem block_degree_eq_zero_of_eval_ne_zero {R : Type*} [CommSemiring R] {m N : ℕ}
+    (H : MvPolynomial (Fin m × Fin N) R) (δ : Fin m → ℕ)
+    (hH : ∀ μ ∈ H.support, ∀ h, ∑ l : Fin N, μ (h, l) = δ h)
+    (x : Fin m × Fin N → R) (hx : eval x H ≠ 0) (h : Fin m)
+    (hz : ∀ l, x (h, l) = 0) : δ h = 0 := by sorry
+
+/-- DT.1/zero-degree-block-independence. All degree-zero blocks can change at once. -/
+theorem eval_eq_of_eq_on_nonzero_degree_blocks {R : Type*} [CommSemiring R] {m N : ℕ}
+    (H : MvPolynomial (Fin m × Fin N) R) (δ : Fin m → ℕ)
+    (hH : ∀ μ ∈ H.support, ∀ h, ∑ l : Fin N, μ (h, l) = δ h)
+    (x y : Fin m × Fin N → R)
+    (hxy : ∀ h, δ h ≠ 0 → ∀ l, x (h, l) = y (h, l)) :
+    eval x H = eval y H := by sorry
+
+end MvPolynomial
+
+namespace DiophantineApproximation
+
+/-- DT.2/block-linear-jet-weight-budget. The real bound is strict without any rounding. -/
+theorem block_jet_weight_budget {m N : ℕ} (hm : 0 < m) (hN : 2 ≤ N)
+    (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) (ε : ℝ) (hε : 0 < ε)
+    (i e : Fin m × Fin N →₀ ℕ) (k : Fin m × Fin (N - 1) →₀ ℕ)
+    (hi : (∑ h, (∑ l : Fin N, (i (h, l) : ℝ)) / d h) < m * ε)
+    (he : ∀ h, ∑ l : Fin N, e (h, l) = ∑ a : Fin (N - 1), k (h, a))
+    (hk : ∀ h a, (k (h, a) : ℝ) ≤ d h * ε / N) :
+    (∑ h, (∑ l : Fin N, ((i + e) (h, l) : ℝ)) / d h) <
+      (2 - 1 / (N : ℝ)) * m * ε ∧
+    (2 - 1 / (N : ℝ)) * m * ε < 2 * m * ε := by sorry
+
+/-- DT.2/nonzero-block-grid-replacement. Only linear independence, not an ambient
+subspace or a particular basis representation, is needed. -/
+theorem exists_nonzero_block_grid_same_eval {K : Type*} [Field K] {m N r : ℕ}
+    (a₀ : Fin r) (b : Fin m → Fin r → Fin N → K)
+    (hb : ∀ h, LinearIndependent K (b h)) (B : ℝ) (hB : 1 ≤ B)
+    (H : MvPolynomial (Fin m × Fin N) K) (δ : Fin m → ℕ)
+    (hH : ∀ μ ∈ H.support, ∀ h, ∑ l : Fin N, μ (h, l) = δ h)
+    (z : Fin m → Fin r → ℤ) (hz : ∀ h a, ((z h a).natAbs : ℝ) ≤ B)
+    (hn : MvPolynomial.eval (fun p => ∑ a, (z p.1 a : K) * b p.1 a p.2) H ≠ 0) :
+    ∃ z' : Fin m → Fin r → ℤ,
+      (∀ h a, ((z' h a).natAbs : ℝ) ≤ B) ∧
+      (∀ h, (fun l => ∑ a, (z' h a : K) * b h a l) ≠ 0) ∧
+      MvPolynomial.eval (fun p => ∑ a, (z' p.1 a : K) * b p.1 a p.2) H =
+        MvPolynomial.eval (fun p => ∑ a, (z p.1 a : K) * b p.1 a p.2) H := by sorry
+
+/-- DT.2/conditional-nonzero-block-grid-jet. The actual nonzero restriction is an
+input, not a replacement for the missing hyperplane-height proof of Lemma 24. -/
+theorem exists_nonzero_block_grid_jet_of_restriction {K : Type*} [Field K] [CharZero K]
+    {m N : ℕ} (hm : 0 < m) (hN : 2 ≤ N)
+    (d : Fin m → ℕ) (hd : ∀ h, 0 < d h) (ε : ℝ) (hε : 0 < ε) (hε1 : ε ≤ 1)
+    (F : MvPolynomial (Fin m × Fin N) K)
+    (hF : ∀ μ ∈ F.support, ∀ h, ∑ l : Fin N, μ (h, l) = d h)
+    (b : Fin m → Fin (N - 1) → Fin N → K)
+    (hb : ∀ h, LinearIndependent K (b h))
+    (i : Fin m × Fin N →₀ ℕ)
+    (hi : (∑ h, (∑ l : Fin N, (i (h, l) : ℝ)) / d h) < m * ε)
+    (hn : MvPolynomial.eval₂ MvPolynomial.C
+      (fun p : Fin m × Fin N => ∑ a : Fin (N - 1),
+        MvPolynomial.C (b p.1 a p.2) * MvPolynomial.X (p.1, a))
+      (MvPolynomial.hasseDeriv i F) ≠ 0) :
+    ∃ (z : Fin m → Fin (N - 1) → ℤ) (j : Fin m × Fin N →₀ ℕ),
+      (∀ h a, ((z h a).natAbs : ℝ) ≤ N / ε) ∧
+      (∀ h, (fun l => ∑ a, (z h a : K) * b h a l) ≠ 0) ∧
+      (∑ h, (∑ l : Fin N, (j (h, l) : ℝ)) / d h) <
+        (2 - 1 / (N : ℝ)) * m * ε ∧
+      MvPolynomial.eval (fun p => ∑ a, (z p.1 a : K) * b p.1 a p.2)
+        (MvPolynomial.hasseDeriv j F) ≠ 0 := by sorry
+
+end DiophantineApproximation
+
+/-! Regression examples for the block-linear and nonzero-block lemmas. -/
+namespace MvPolynomial
+/-- MvPolynomial.test_linear_support_square -/
+example : ((X (0 : Fin 2) + X 1)^2 : MvPolynomial (Fin 2) ℚ).coeff
+    (Finsupp.single 0 1 + Finsupp.single 1 1) = 2 := by sorry
+/-- MvPolynomial.test_linear_support_wrong_degree -/
+example : ((X (0 : Fin 2) + X 1)^2 : MvPolynomial (Fin 2) ℚ).coeff
+    (Finsupp.single 0 1) = 0 := by sorry
+/-- MvPolynomial.test_chain_binomial_factor -/
+example : hasseDeriv (Finsupp.single 0 1)
+    (eval₂ C (fun _ : Fin 1 => 2 * X (0 : Fin 1))
+      (hasseDeriv (Finsupp.single 0 1) (X 0 ^ 2 : MvPolynomial (Fin 1) ℚ))) = 4 := by sorry
+/-- MvPolynomial.test_chain_zero_map -/
+example : hasseDeriv (Finsupp.single 0 1)
+    (eval₂ C (fun _ : Fin 1 => (0 : MvPolynomial (Fin 1) ℚ))
+      (hasseDeriv 0 (X 0 ^ 2 + 1 : MvPolynomial (Fin 1) ℚ))) = 0 := by sorry
+/-- MvPolynomial.test_chain_cancellation -/
+example : eval₂ C (fun _ : Fin 2 => X (0 : Fin 1))
+    (X 0 - X 1 : MvPolynomial (Fin 2) ℚ) = 0 ∧
+    hasseDeriv (Finsupp.single 0 1) (X 0 - X 1 : MvPolynomial (Fin 2) ℚ) = 1 ∧
+    hasseDeriv (Finsupp.single 1 1) (X 0 - X 1 : MvPolynomial (Fin 2) ℚ) = -1 := by sorry
+/-- MvPolynomial.test_chain_order_zero -/
+example : eval (fun _ : Fin 1 => (2 : ℚ))
+    (hasseDeriv 0 (eval₂ C X (X 0 ^ 2 : MvPolynomial (Fin 1) ℚ))) = 4 := by sorry
+/-- MvPolynomial.test_residual_two_blocks -/
+example : hasseDeriv (Finsupp.single (0, 0) 1)
+    (X (0,0)^2 * X (1,0) : MvPolynomial (Fin 2 × Fin 1) ℚ) =
+    2 * X (0,0) * X (1,0) := by sorry
+/-- MvPolynomial.test_residual_zero_derivative -/
+example : hasseDeriv (Finsupp.single 0 3) (X 0^2 : MvPolynomial (Fin 1) ℚ) = 0 ∧
+    ¬ (3 : ℕ) ≤ 2 := by sorry
+/-- MvPolynomial.test_substitution_merges_degrees -/
+example : eval₂ C (fun _ : Fin 2 => X (0 : Fin 1))
+    (X 0 * X 1 : MvPolynomial (Fin 2) ℚ) = X 0^2 ∧
+    (eval₂ C (fun _ : Fin 2 => X (0 : Fin 1))
+      (X 0 * X 1 : MvPolynomial (Fin 2) ℚ)).degreeOf 0 = 2 := by sorry
+/-- MvPolynomial.test_substitution_zero_polynomial -/
+example (q : Fin 2 × Fin 1) : (0 : MvPolynomial (Fin 2 × Fin 1) ℚ).degreeOf q = 0 := by sorry
+/-- MvPolynomial.test_positive_degree_zero_block -/
+example : eval (fun _ : Fin 1 × Fin 1 => (0 : ℚ))
+    (X (0,0)^2 : MvPolynomial (Fin 1 × Fin 1) ℚ) = 0 := by sorry
+/-- MvPolynomial.test_constant_empty_block -/
+example : eval (fun p : Fin 1 × Fin 0 => Fin.elim0 p.2)
+    (C 3 : MvPolynomial (Fin 1 × Fin 0) ℚ) = 3 := by sorry
+/-- MvPolynomial.test_degree_zero_block_ignored -/
+example : eval (fun p : Fin 2 × Fin 1 => if p.1 = 0 then (0 : ℚ) else 2)
+    (X (1,0)^2) = 4 ∧
+    eval (fun p : Fin 2 × Fin 1 => if p.1 = 0 then (-3 : ℚ) else 2)
+    (X (1,0)^2) = 4 := by sorry
+/-- MvPolynomial.test_nonhomogeneous_replacement_failure -/
+example : eval (fun _ : Fin 1 => (0 : ℚ)) (1 + X 0) = 1 ∧
+    eval (fun _ : Fin 1 => (-1 : ℚ)) (1 + X 0) = 0 := by sorry
+end MvPolynomial
+
+namespace DiophantineApproximation
+open MvPolynomial
+/-- DiophantineApproximation.test_grid_small_order_bound -/
+example (k : ℕ) (hk : (k : ℝ) ≤ 1 / 2) : k = 0 := by sorry
+/-- DiophantineApproximation.test_grid_weight_numerical -/
+example : (1 : ℝ) / 4 < (2 - 1 / 2) * (1 / 2) ∧
+    (2 - 1 / 2) * (1 / 2) < (1 : ℝ) := by sorry
+/-- DiophantineApproximation.test_all_zero_blocks_constant -/
+example : eval (fun _ : Fin 2 × Fin 2 => (0 : ℚ)) (1 : MvPolynomial _ ℚ) = 1 ∧
+    eval (fun p : Fin 2 × Fin 2 => if p.2 = 0 then (1 : ℚ) else 0)
+      (1 : MvPolynomial _ ℚ) = 1 ∧
+    (fun l : Fin 2 => if l = 0 then (1 : ℚ) else 0) ≠ 0 := by sorry
+/-- DiophantineApproximation.test_mixed_zero_block_replacement -/
+example : MvPolynomial.eval (fun p : Fin 2 × Fin 2 => if p.1 = 1 ∧ p.2 = 0 then (2 : ℚ) else 0)
+    (X (1,0)^2) = 4 ∧
+    MvPolynomial.eval (fun p : Fin 2 × Fin 2 => if p.2 = 0 then
+      (if p.1 = 0 then (1 : ℚ) else 2) else 0) (X (1,0)^2) = 4 := by sorry
+/-- DiophantineApproximation.test_conditional_line_grid_witness -/
+example : MvPolynomial.eval (fun p : Fin 1 × Fin 2 => if p.2 = 0 then (1 : ℚ) else 0)
+    (MvPolynomial.hasseDeriv 0 (X (0,0)^2)) = 1 ∧ (0 : ℝ) < (2 - 1 / 2) := by sorry
+/-- DiophantineApproximation.test_nonzero_not_nonzero_restriction -/
+example : (X 1 : MvPolynomial (Fin 2) ℚ) ≠ 0 ∧
+    MvPolynomial.eval₂ MvPolynomial.C (fun l : Fin 2 => if l = 0 then X (0 : Fin 1) else 0)
+      (X 1 : MvPolynomial (Fin 2) ℚ) = 0 := by sorry
+end DiophantineApproximation

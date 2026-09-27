@@ -11,7 +11,7 @@
   "DiophantineApproximationAndTranscendence:DT.5"
  ],
  "status": "partial",
- "summary": "Blueprint of Diophantine approximation and transcendence, stages DT.0–DT.5, built on Evertse's Leiden notes (chapters 1–8) and public primary sources, with Mathlib 082e2d3 as the baseline for heights, the product formula, continued fractions, Dirichlet's theorem, Liouville numbers, Mahler measure, Siegel's lemma, Minkowski's theorem, the unit theorem and part of Lindemann–Weierstrass. DT.0 fixes the height conventions (naive height, Mahler measure, Mathlib's absolute Weil height and their comparisons, with the field-extension formula missing at the pin), the house, Siegel's lemma over number fields with rational-integer unknowns, simultaneous Dirichlet approximation and the approximation exponents. DT.1 proves Liouville's inequality with explicit constant, Thue's theorem by the auxiliary-polynomial method and Roth's theorem in full (weighted index, divided derivatives, Wronskians, Roth's lemma, the auxiliary polynomial), with the finiteness of Thue equations. DT.2 states and applies the Subspace Theorem and its p-adic form (Roth from Subspace, Schmidt's approximation by algebraic numbers, norm form equations, Mahler's theorem, S-unit equations in fields of characteristic 0) and decomposes the Evertse–Ferretti proof to the level of its numbered results, with Evertse's rectangular-grid jet lemma decomposed through root multiplicities, degree-preserving partial specialization and induction. DT.3 proves Hermite, Lindemann–Weierstrass in Baker's form, Gelfond–Schneider (real case by Evertse's route, complex case by Gelfond's method) and Baker's linear independence of logarithms by the Schneider–Lang method of Waldschmidt, and states Baker's, Matveev's and Yu's quantitative bounds exactly. DT.4 derives effective finiteness for unit, Thue, superelliptic, Catalan-type and S-unit equations from those bounds, with the height, degree and branch conversion lemmas, and exports the bound theorems to EffectiveDiophantineMethods ED.2. DT.5 defines Mahler functions, E- and G-functions and states Siegel–Shidlovskii (Beukers' refinement), André, Nishioka, Nesterenko, Ax–Schanuel and Schanuel's and the period conjectures as explicit hypotheses. Open: the proofs of the quantitative linear-form bounds, the imported inputs of the Subspace Theorem's proof, several DT.4 and DT.5 proofs without public sources, part of the absolute-height API, and the requests to GeometryOfNumbersAndQuadraticArithmetic and ClassicalArithmeticCompletion.",
+ "summary": "Blueprint of Diophantine approximation and transcendence, stages DT.0–DT.5, built on Evertse's Leiden notes (chapters 1–8) and public primary sources, with Mathlib 082e2d3 as the baseline for heights, the product formula, continued fractions, Dirichlet's theorem, Liouville numbers, Mahler measure, Siegel's lemma, Minkowski's theorem, the unit theorem and part of Lindemann–Weierstrass. DT.0 fixes the height conventions (naive height, Mahler measure, Mathlib's absolute Weil height and their comparisons, with the field-extension formula missing at the pin), the house, Siegel's lemma over number fields with rational-integer unknowns, simultaneous Dirichlet approximation and the approximation exponents. DT.1 proves Liouville's inequality with explicit constant, Thue's theorem by the auxiliary-polynomial method and Roth's theorem in full (weighted index, divided derivatives, Wronskians, Roth's lemma, the auxiliary polynomial), with the finiteness of Thue equations. DT.2 states and applies the Subspace Theorem and its p-adic form (Roth from Subspace, Schmidt's approximation by algebraic numbers, norm form equations, Mahler's theorem, S-unit equations in fields of characteristic 0) and decomposes the Evertse–Ferretti proof to the level of its numbered results, with Evertse's rectangular-grid jet lemma decomposed through root multiplicities, degree-preserving partial specialization and induction, and the conditional hyperplane-grid jet through a finite block-linear Hasse chain rule, its weight budget and simultaneous replacement of zero blocks. DT.3 proves Hermite, Lindemann–Weierstrass in Baker's form, Gelfond–Schneider (real case by Evertse's route, complex case by Gelfond's method) and Baker's linear independence of logarithms by the Schneider–Lang method of Waldschmidt, and states Baker's, Matveev's and Yu's quantitative bounds exactly. DT.4 derives effective finiteness for unit, Thue, superelliptic, Catalan-type and S-unit equations from those bounds, with the height, degree and branch conversion lemmas, and exports the bound theorems to EffectiveDiophantineMethods ED.2. DT.5 defines Mahler functions, E- and G-functions and states Siegel–Shidlovskii (Beukers' refinement), André, Nishioka, Nesterenko, Ax–Schanuel and Schanuel's and the period conjectures as explicit hypotheses. Open: the proofs of the quantitative linear-form bounds, the imported inputs of the Subspace Theorem's proof, several DT.4 and DT.5 proofs without public sources, part of the absolute-height API, and the requests to GeometryOfNumbersAndQuadraticArithmetic and ClassicalArithmeticCompletion.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2661,6 +2661,111 @@
     "module": "Mathlib/Algebra/MvPolynomial/Polynomial.lean",
     "provides": "Evaluation after first-variable evaluation agrees with evaluation using Fin.cases.",
     "checked": "Statement and surrounding hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Algebra/MvPolynomial/Polynomial.lean:31; 2026-09-26."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.IsWeightedHomogeneous",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+    "provides": "Existing support-weight predicate; specialize to each block indicator, without a new carrier.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean:128; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.isWeightedHomogeneous_X",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+    "provides": "A variable has its assigned weight.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean:230; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.IsWeightedHomogeneous.C_mul",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+    "provides": "Coefficient multiplication preserves weight.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean:300; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.IsWeightedHomogeneous.sum",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+    "provides": "A finite sum at a fixed homogeneous weight.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean:290; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.IsWeightedHomogeneous.pow",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+    "provides": "A power scales homogeneous weight by its exponent.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean:305; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.IsWeightedHomogeneous.prod",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean",
+    "provides": "The weight of a finite product is the sum of factor weights.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/RingTheory/MvPolynomial/WeightedHomogeneous.lean:313; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:Finsupp.instLocallyFiniteOrder",
+    "kind": "instance",
+    "module": "Mathlib/Data/Finsupp/Interval.lean",
+    "provides": "Finite coordinate boxes of natural multiindices, filtered to define E(k).",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Data/Finsupp/Interval.lean:85; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.eval₂_monomial",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Substitution of a monomial is a scalar times a product of powers.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/MvPolynomial/Eval.lean:92; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.eval_eval₂",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Evaluation after polynomial substitution is composed evaluation.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/MvPolynomial/Eval.lean:313; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.as_sum",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
+    "provides": "Finite decomposition into supported coefficient monomials.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/MvPolynomial/Basic.lean:967; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.degreeOf_le_iff",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/MvPolynomial/Degrees.lean",
+    "provides": "Individual degree is bounded exactly when all supported exponents are bounded.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/MvPolynomial/Degrees.lean:235; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.eval₂Hom_eq_zero",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Every supported monomial contains a zero-evaluated variable of positive exponent, so evaluation vanishes.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/MvPolynomial/Eval.lean:685; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:MvPolynomial.eval₂_congr",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Evaluation depends only on variables present in supported monomials.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Algebra/MvPolynomial/Eval.lean:226; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:LinearIndependent.ne_zero",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/LinearIndependent/Defs.lean",
+    "provides": "A vector in a linearly independent family over a nontrivial ring is nonzero.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/LinearAlgebra/LinearIndependent/Defs.lean:153; 2026-09-27."
+   },
+   {
+    "ref": "mathlib:finProdFinEquiv",
+    "kind": "def",
+    "module": "Mathlib/Logic/Equiv/Fin/Basic.lean",
+    "provides": "Bijection from product coordinates to Fin of the product cardinality.",
+    "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, Mathlib/Logic/Equiv/Fin/Basic.lean:332; 2026-09-27."
    }
   ]
  },
@@ -2814,7 +2919,8 @@
    "readSections": [
     "§1 remarks on Roth's lemma (preprint pp. 3–5)",
     "§7 statements of Lemmas 23–26 (preprint pp. 63–68)",
-    "2026-09-26: §1 preprint p. 2 height convention; §7 preprint pp. 63–68, full proofs of Lemmas 24–26 and statement of Lemma 23; preprint pp. 63 and 67 and published pp. 290 and 294 (PDF pages 67 and 71) checked visually."
+    "2026-09-26: §1 preprint p. 2 height convention; §7 preprint pp. 63–68, full proofs of Lemmas 24–26 and statement of Lemma 23; preprint pp. 63 and 67 and published pp. 290 and 294 (PDF pages 67 and 71) checked visually.",
+    "2026-09-27: Lemma 26, preprint p. 68 reread; published pp. 295–296 (PDF pages 72–73) read visually. Explicit block-linear Hasse coefficients and nonzero-block conversion checked as elementary supporting arguments, not attributed as separate printed theorems."
    ]
   },
   {
@@ -12465,8 +12571,8 @@
     "EF Proposition 12.1 imports Evertse 1996 Lemma 26, via sharp Roth (Lemma 23), hyperplane non-vanishing (Lemma 24), and the rectangular-grid jet bound (Lemma 25).",
     "Lemma 25 is decomposed into grid-floor-capacity, univariate-integer-grid-jet, partial-specialization-jet, nonzero-partial-grid-specialization and rectangular-integer-grid-jet. These use the existing DT.1 divided-derivative API and pinned root-multiplicity and polynomial-equivalence APIs.",
     "Lemma 24 remains a gap: turn the hyperplane height bound into a large-height binary direction, extract successive lowest-degree coefficient slices preserving the vanishing-index condition, restore binary multihomogeneity, and apply sharp-roths-lemma. Its public proof on preprint pp. 64–67 contains the reduction; access to Schmidt's book is not necessary for this step.",
-    "Lemma 26 remains a gap at composition: choose a derivative F_i of weighted order < mε nonzero on the product of hyperplanes, and express it in basis coordinates. Apply rectangular-integer-grid-jet with budgets N/ε and degree bounds r_h. The chain-rule expansion must produce a nonzero original-variable jet whose additional weighted order is at most m(N−1)ε/N < mε.",
-    "EF requires nonzero points in every block, while the displayed grid in Lemma 26 allows zero blocks. Establish the conversion using multihomogeneity: a derivative nonzero at a zero block has residual degree zero there and is independent of that block; replace zero by a basis vector. This remains an explicit proof obligation.",
+    "After Lemma 24 produces an actual nonzero restriction of a jet of weighted order < mε, apply conditional-nonzero-block-grid-jet. Its proof splits block-linear coefficient support, a finite Hasse chain identity, nonzero original-jet extraction, individual-degree control, residual block degrees, and the strict weighted budget into separate lemmas.",
+    "The conditional theorem also proves the nonzero-block requirement of EF Proposition 12.1: zero-block-forces-degree-zero and simultaneous zero-degree-block-independence allow replacement by a nonzero basis vector, with integer coefficients bounded by N/ε≥1. This step does not strengthen the unresolved Lemma 24 input by assumption.",
     "Use the index convention corrected in E216: vanishing at all orders strictly below the threshold, and index ≤ the weight of any nonzero jet. The final strict bound < 2mε is separate from this non-strict intermediate inequality."
    ],
    "acceptance": [
@@ -12476,7 +12582,8 @@
    "prerequisites": [
     "DiophantineApproximationAndTranscendence:DT.2/sharp-roths-lemma",
     "DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace",
-    "DiophantineApproximationAndTranscendence:DT.2/rectangular-integer-grid-jet"
+    "DiophantineApproximationAndTranscendence:DT.2/rectangular-integer-grid-jet",
+    "DiophantineApproximationAndTranscendence:DT.2/conditional-nonzero-block-grid-jet"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/DiophantineApproximation/ParametricSubspace",
@@ -12502,6 +12609,11 @@
      "sourceId": "evertse-improvement-quantitative-subspace-1996",
      "locator": "§7, Lemma 25, preprint p. 67; published p. 294.",
      "match": "Rectangular-grid derivative budget, decomposed into five lemma nodes."
+    },
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof, preprint p. 68; published pp. 295–296.",
+     "match": "The conditional grid-jet chain is decomposed; Lemma 24's height-to-nonzero-restriction input remains the open prerequisite."
     }
    ],
    "implementationStatus": "unchecked"
@@ -21516,6 +21628,647 @@
     "namespace": "MvPolynomial"
    },
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.1/block-linear-monomial-support",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.1",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.1"
+   ],
+   "title": "Block degrees in a linear substitution",
+   "kind": "lemma",
+   "statement": "Let R be a commutative semiring, m,N,r natural numbers, A_h an N-by-r matrix, e an X-multiindex and k a Y-multiindex. Set L_hl(T)=Σ_a A_hla T_ha and c_e,k=[T^k]∏_hl L_hl(T)^e_hl. If c_e,k ≠ 0, then Σ_a k_ha=Σ_l e_hl for every block h.",
+   "hypotheses": [
+    "Zero block counts, zero matrices and r=0 are allowed; no rank or characteristic assumption."
+   ],
+   "proofSteps": [
+    "Use the existing weighted-homogeneous predicate with block-indicator weights w_h(h′,a)=1 when h=h′ and 0 otherwise.",
+    "Each L_h′l is a sum of scalar multiples of variables of weight w_h(h′,a). The pinned weighted-homogeneous sum, scalar, power and product lemmas give weight Σ_l e_hl for the displayed product.",
+    "A nonzero coefficient has that weight by the defining support property. Cancellation can delete coefficients, but cannot introduce a different block degree.",
+    "For a fixed k, every e with these equalities satisfies e_hl ≤ Σ_a k_ha; the corresponding finite coordinate box, filtered by the equalities, is exactly E(k). Finsupp's finite interval instance represents this set without introducing a new carrier."
+   ],
+   "acceptance": [
+    "Block degree is preserved exactly, not merely bounded above; zero rows impose no exception."
+   ],
+   "prerequisites": [
+    "mathlib:MvPolynomial.IsWeightedHomogeneous",
+    "mathlib:MvPolynomial.isWeightedHomogeneous_X",
+    "mathlib:MvPolynomial.IsWeightedHomogeneous.C_mul",
+    "mathlib:MvPolynomial.IsWeightedHomogeneous.sum",
+    "mathlib:MvPolynomial.IsWeightedHomogeneous.pow",
+    "mathlib:MvPolynomial.IsWeightedHomogeneous.prod",
+    "mathlib:Finsupp.instLocallyFiniteOrder"
+   ],
+   "api": [
+    {
+     "name": "MvPolynomial.block_sum_eq_of_coeff_linear_monomial_ne_zero",
+     "role": "other",
+     "statement": "Let R be a commutative semiring, m,N,r natural numbers, A_h an N-by-r matrix, e an X-multiindex and k a Y-multiindex. Set L_hl(T)=Σ_a A_hla T_ha and c_e,k=[T^k]∏_hl L_hl(T)^e_hl. If c_e,k ≠ 0, then Σ_a k_ha=Σ_l e_hl for every block h."
+    }
+   ],
+   "tests": [
+    {
+     "name": "MvPolynomial.test_linear_support_square",
+     "kind": "computation",
+     "statement": "Over ℚ, the coefficient of X₀X₁ in (X₀+X₁)² is 2."
+    },
+    {
+     "name": "MvPolynomial.test_linear_support_wrong_degree",
+     "kind": "non-example",
+     "statement": "Over ℚ, the coefficient of X₀ in (X₀+X₁)² is zero."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Reusable polynomial input to the conditional grid-jet argument."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Elementary support lemma making the source's linear-combination step explicit, derived using the pinned weighted-homogeneous API; not a separately named source theorem."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/MvPolynomial/BlockLinearJets",
+    "namespace": "MvPolynomial"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.1/block-linear-hasse-chain-rule",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.1",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.1"
+   ],
+   "title": "Finite block-linear Hasse chain rule",
+   "kind": "lemma",
+   "statement": "For R,m,N,r,A as in block-linear-monomial-support, any F∈R[X], X-multiindex i and Y-multiindex k satisfy D_Y^k((D_X^i F)(AY))=Σ_{e∈E(k)} c_e,k(A) b(i,e) (D_X^{i+e}F)(AY), as polynomials in Y. Here E(k)={e:Σ_l e_hl=Σ_a k_ha for every h}, c_e,k is the coefficient of T^k in ∏_hl(Σ_a A_hla T_ha)^e_hl, and b(i,e)=∏_hl binom(i_hl+e_hl,i_hl).",
+   "hypotheses": [
+    "R is any commutative semiring. No injectivity, nonzero coefficient, homogeneity or positive degree is assumed."
+   ],
+   "proofSteps": [
+    "Use the existing multivariate Taylor expansion for H=D^iF, as a polynomial identity: H(AY+AT)=Σ_e (D^eH)(AY)(AT)^e. Obtain this identity over the polynomial coefficient ring by the same monomial binomial expansion; all terms beyond the coordinate degrees vanish by the existing derivative degree bound.",
+    "Since A(Y+T)=AY+AT, extract the coefficient of T^k. On the left this is D_Y^k(H(AY)); on the right it is c_e,k(A)(D^eH)(AY). Coefficient extraction and the sum commute because the expansion is finite.",
+    "block-linear-monomial-support removes every e outside E(k). Its finite coordinate box also shows that zero summands can be added to obtain precisely the displayed finite sum.",
+    "Apply the existing Hasse composition identity, including b(i,e). Natural binomial coefficients are cast into R, so division and characteristic-zero assumptions are unnecessary."
+   ],
+   "acceptance": [
+    "The statement is an identity of polynomials, stronger than equality at integer grid points; it includes k=0 and a zero substitution matrix."
+   ],
+   "prerequisites": [
+    "DiophantineApproximationAndTranscendence:DT.1/block-linear-monomial-support",
+    "DiophantineApproximationAndTranscendence:DT.1/multivariate-taylor-expansion",
+    "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-composition",
+    "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-coefficients",
+    "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative",
+    "mathlib:MvPolynomial.eval₂_monomial",
+    "mathlib:MvPolynomial.eval_eval₂"
+   ],
+   "api": [
+    {
+     "name": "MvPolynomial.hasseDeriv_eval₂_blockLinear",
+     "role": "other",
+     "statement": "For R,m,N,r,A as in block-linear-monomial-support, any F∈R[X], X-multiindex i and Y-multiindex k satisfy D_Y^k((D_X^i F)(AY))=Σ_{e∈E(k)} c_e,k(A) b(i,e) (D_X^{i+e}F)(AY), as polynomials in Y. Here E(k)={e:Σ_l e_hl=Σ_a k_ha for every h}, c_e,k is the coefficient of T^k in ∏_hl(Σ_a A_hla T_ha)^e_hl, and b(i,e)=∏_hl binom(i_hl+e_hl,i_hl)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "MvPolynomial.test_chain_binomial_factor",
+     "kind": "computation",
+     "statement": "For F=X₀² over ℚ, D¹((D¹F)(2Y))=4; omitting the composition binomial coefficient would give 2."
+    },
+    {
+     "name": "MvPolynomial.test_chain_zero_map",
+     "kind": "degenerate",
+     "statement": "Substituting X↦0 into D⁰(X²+1) gives 1; its positive-order Hasse derivative is zero."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Reusable polynomial input to the conditional grid-jet argument."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Explicit finite coefficient formula expanding the source's linear-combination assertion; the inherited DT.1 composition and Taylor lemmas are reused, not replanned."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/MvPolynomial/BlockLinearJets",
+    "namespace": "MvPolynomial"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.1/nonzero-block-linear-jet-extraction",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.1",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.1"
+   ],
+   "title": "A nonzero original jet from a substituted jet",
+   "kind": "lemma",
+   "statement": "For R,m,N,r,A,F,i,k as above and y∈R^(mr), if D_Y^k((D_X^iF)(AY))(y)≠0, there is an X-multiindex e with Σ_l e_hl=Σ_a k_ha for each h and (D_X^{i+e}F)(Ay)≠0.",
+   "hypotheses": [
+    "R is any commutative semiring; singular and zero matrices are allowed."
+   ],
+   "proofSteps": [
+    "Evaluate block-linear-hasse-chain-rule at y, using the pinned evaluation-composition identity.",
+    "A nonzero finite sum has a nonzero summand. If the displayed original jet in that summand were zero, multiplication by its coefficient would make the summand zero. Thus it is nonzero, without a no-zero-divisors assumption.",
+    "Membership of the selected exponent in E(k) supplies every exact block-sum identity. This is only a one-way implication: nonzero original jets can cancel after substitution."
+   ],
+   "acceptance": [
+    "Do not infer a nonzero composed jet from a chosen nonzero original jet."
+   ],
+   "prerequisites": [
+    "DiophantineApproximationAndTranscendence:DT.1/block-linear-hasse-chain-rule",
+    "mathlib:MvPolynomial.eval_eval₂"
+   ],
+   "api": [
+    {
+     "name": "MvPolynomial.exists_nonzero_hasseDeriv_of_blockLinear",
+     "role": "other",
+     "statement": "For R,m,N,r,A,F,i,k as above and y∈R^(mr), if D_Y^k((D_X^iF)(AY))(y)≠0, there is an X-multiindex e with Σ_l e_hl=Σ_a k_ha for each h and (D_X^{i+e}F)(Ay)≠0."
+    }
+   ],
+   "tests": [
+    {
+     "name": "MvPolynomial.test_chain_cancellation",
+     "kind": "non-example",
+     "statement": "For F=X₀−X₁ and X₀=X₁=Y over ℚ, the composed polynomial is zero although D_(1,0)F=1 and D_(0,1)F=−1."
+    },
+    {
+     "name": "MvPolynomial.test_chain_order_zero",
+     "kind": "degenerate",
+     "statement": "For the identity substitution and F=X², the zero-order jet evaluated at 2 is 4."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Reusable polynomial input to the conditional grid-jet argument."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Declaration-sized extraction from the source's nonzero linear combination; coefficient nonvanishing is inferred, never assumed."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/MvPolynomial/BlockLinearJets",
+    "namespace": "MvPolynomial"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.1/hasse-residual-block-degrees",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.1",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.1"
+   ],
+   "title": "Residual block degrees of a nonzero Hasse derivative",
+   "kind": "lemma",
+   "statement": "Let R be a commutative semiring and F∈R[X_hl] be block-homogeneous of natural degrees d_h, meaning every exponent μ in its support satisfies Σ_l μ_hl=d_h. If D^jF≠0, then Σ_l j_hl≤d_h for each h, and every exponent ν in the support of D^jF satisfies Σ_l ν_hl=d_h−Σ_l j_hl.",
+   "hypotheses": [
+    "No characteristic or domain hypothesis is needed. The nonzero-derivative hypothesis is required for the order bound."
+   ],
+   "proofSteps": [
+    "The existing coefficient formula gives coeff_ν(D^jF)=(∏_hl binom(ν_hl+j_hl,j_hl)) coeff_{ν+j}F.",
+    "A nonzero derivative coefficient therefore gives a nonzero coefficient of F at ν+j. Its block sum is d_h; distributing the natural sum gives Σ_l ν_hl+Σ_l j_hl=d_h.",
+    "Apply this to every surviving ν for residual homogeneity, and to one surviving ν (which exists by D^jF≠0) for the order bound. Subtract only after this equality; truncating subtraction alone cannot justify the order bound."
+   ],
+   "acceptance": [
+    "Use the inherited support condition, equivalently the pinned weighted-homogeneous predicate for each block indicator; no new multihomogeneous structure."
+   ],
+   "prerequisites": [
+    "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-coefficients"
+   ],
+   "api": [
+    {
+     "name": "MvPolynomial.hasseDeriv_block_degrees",
+     "role": "other",
+     "statement": "Let R be a commutative semiring and F∈R[X_hl] be block-homogeneous of natural degrees d_h, meaning every exponent μ in its support satisfies Σ_l μ_hl=d_h. If D^jF≠0, then Σ_l j_hl≤d_h for each h, and every exponent ν in the support of D^jF satisfies Σ_l ν_hl=d_h−Σ_l j_hl."
+    }
+   ],
+   "tests": [
+    {
+     "name": "MvPolynomial.test_residual_two_blocks",
+     "kind": "computation",
+     "statement": "For F=X_(0,0)²X_(1,0) over ℚ, D_(1,0)F=2X_(0,0)X_(1,0), of residual block degrees (1,1)."
+    },
+    {
+     "name": "MvPolynomial.test_residual_zero_derivative",
+     "kind": "non-example",
+     "statement": "D³(X²)=0 over ℚ, although 3≤2 is false; nonzero cannot be omitted from the order bound."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Reusable polynomial input to the conditional grid-jet argument."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Elementary coefficient argument supplying the source's asserted individual-degree bound and the nonzero-block conversion; this precise semiring formulation is not a quoted source statement."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/MvPolynomial/BlockLinearJets",
+    "namespace": "MvPolynomial"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.1/block-linear-degree-bound",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.1",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.1"
+   ],
+   "title": "Individual degree after block-linear substitution",
+   "kind": "lemma",
+   "statement": "Let R be a commutative semiring, F∈R[X_hl], and d_h∈ℕ. Assume Σ_l μ_hl≤d_h for every μ in the support of F and every h. For any block-linear matrix A_h of size N-by-r, each individual Y_ha-degree of F(AY) is at most d_h.",
+   "hypotheses": [
+    "F may be zero; the block support condition is only an upper bound, not equality. A may have any rank."
+   ],
+   "proofSteps": [
+    "Expand F as its finite sum of coefficient monomials using the pinned polynomial support-sum identity.",
+    "For a nonzero coefficient of F(AY), some monomial substitution summand has nonzero coefficient. A scalar coefficient cannot turn a zero coefficient into a nonzero one.",
+    "Apply block-linear-monomial-support to that summand: its output block sum equals the input block sum, hence is at most d_h. Each individual nonnegative exponent is bounded by that sum.",
+    "The pinned degreeOf_le_iff converts the resulting support bound to the individual degree inequality. This proof covers the zero polynomial without extracting a spurious monomial."
+   ],
+   "acceptance": [
+    "The needed bound is the whole block degree, not the maximum of the separate input-variable degrees."
+   ],
+   "prerequisites": [
+    "DiophantineApproximationAndTranscendence:DT.1/block-linear-monomial-support",
+    "mathlib:MvPolynomial.as_sum",
+    "mathlib:MvPolynomial.eval₂_monomial",
+    "mathlib:MvPolynomial.degreeOf_le_iff"
+   ],
+   "api": [
+    {
+     "name": "MvPolynomial.degreeOf_eval₂_blockLinear_le",
+     "role": "other",
+     "statement": "Let R be a commutative semiring, F∈R[X_hl], and d_h∈ℕ. Assume Σ_l μ_hl≤d_h for every μ in the support of F and every h. For any block-linear matrix A_h of size N-by-r, each individual Y_ha-degree of F(AY) is at most d_h."
+    }
+   ],
+   "tests": [
+    {
+     "name": "MvPolynomial.test_substitution_merges_degrees",
+     "kind": "computation",
+     "statement": "Substituting X₀=X₁=Y into X₀X₁ gives Y², with individual Y-degree 2, although each original individual degree is 1."
+    },
+    {
+     "name": "MvPolynomial.test_substitution_zero_polynomial",
+     "kind": "degenerate",
+     "statement": "For the zero polynomial over ℚ, every individual degree is zero."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Reusable polynomial input to the conditional grid-jet argument."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Expands the sentence bounding G's degree in each Y_hj before application of Lemma 25."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/MvPolynomial/BlockLinearJets",
+    "namespace": "MvPolynomial"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.1/zero-block-forces-degree-zero",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.1",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.1"
+   ],
+   "title": "A nonzero value at a zero block forces degree zero",
+   "kind": "lemma",
+   "statement": "Let R be a commutative semiring and H∈R[X_hl] have block degrees δ_h. If H(x)≠0 and x_h is the zero vector, then δ_h=0.",
+   "hypotheses": [
+    "Block homogeneity means Σ_l μ_hl=δ_h for every exponent μ in the support. Nonzero value is an actual evaluation hypothesis."
+   ],
+   "proofSteps": [
+    "If δ_h>0, the block sum of each supported exponent is positive, so some variable of that block occurs to positive power.",
+    "All those variables evaluate to zero at x. The pinned eval₂Hom_eq_zero lemma therefore makes every supported monomial vanish and gives H(x)=0, a contradiction.",
+    "Natural δ_h must consequently be zero; the argument also covers an empty coordinate block."
+   ],
+   "acceptance": [
+    "This is a residual-degree statement, not an inference that the original F has degree zero."
+   ],
+   "prerequisites": [
+    "mathlib:MvPolynomial.eval₂Hom_eq_zero"
+   ],
+   "api": [
+    {
+     "name": "MvPolynomial.block_degree_eq_zero_of_eval_ne_zero",
+     "role": "other",
+     "statement": "Let R be a commutative semiring and H∈R[X_hl] have block degrees δ_h. If H(x)≠0 and x_h is the zero vector, then δ_h=0."
+    }
+   ],
+   "tests": [
+    {
+     "name": "MvPolynomial.test_positive_degree_zero_block",
+     "kind": "computation",
+     "statement": "For H=X_(0,0)² over ℚ, H evaluated at the zero block is 0."
+    },
+    {
+     "name": "MvPolynomial.test_constant_empty_block",
+     "kind": "degenerate",
+     "statement": "A constant polynomial 3 on one empty block evaluates to 3."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Reusable polynomial input to the conditional grid-jet argument."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Elementary supporting lemma for upgrading Lemma 26's grid point to Evertse–Ferretti Proposition 12.1's nonzero block points; no such upgrade is claimed to be a separate printed lemma."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/MvPolynomial/BlockLinearJets",
+    "namespace": "MvPolynomial"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.1/zero-degree-block-independence",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.1",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.1"
+   ],
+   "title": "Simultaneous independence of degree-zero blocks",
+   "kind": "lemma",
+   "statement": "Let R be a commutative semiring and H∈R[X_hl] have block degrees δ_h. If block vectors x,y agree on every block h with δ_h≠0, then H(x)=H(y). Thus all zero-degree blocks can be replaced simultaneously by arbitrary vectors.",
+   "hypotheses": [
+    "The conclusion is global evaluation independence, not merely constancy at one witness."
+   ],
+   "proofSteps": [
+    "For a supported exponent μ, a block with δ_h=0 has a sum of nonnegative exponents equal to zero; every μ_hl in that block is zero.",
+    "Every variable appearing in the support of that monomial therefore lies in a nonzero-degree block, where x and y agree.",
+    "Apply the pinned evaluation-congruence lemma to conclude equality for H. This establishes simultaneous replacement directly and avoids an unsupported iteration of pointwise independence."
+   ],
+   "acceptance": [
+    "Replacing any collection of zero-degree blocks at once preserves the value."
+   ],
+   "prerequisites": [
+    "mathlib:MvPolynomial.eval₂_congr"
+   ],
+   "api": [
+    {
+     "name": "MvPolynomial.eval_eq_of_eq_on_nonzero_degree_blocks",
+     "role": "other",
+     "statement": "Let R be a commutative semiring and H∈R[X_hl] have block degrees δ_h. If block vectors x,y agree on every block h with δ_h≠0, then H(x)=H(y). Thus all zero-degree blocks can be replaced simultaneously by arbitrary vectors."
+    }
+   ],
+   "tests": [
+    {
+     "name": "MvPolynomial.test_degree_zero_block_ignored",
+     "kind": "computation",
+     "statement": "For H=X_(1,0)² over ℚ, H(0,2)=H(−3,2)=4."
+    },
+    {
+     "name": "MvPolynomial.test_nonhomogeneous_replacement_failure",
+     "kind": "non-example",
+     "statement": "For H=1+X over ℚ, H(0)=1 but H(−1)=0: nonzero evaluation at zero does not imply independence without homogeneity."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Reusable polynomial input to the conditional grid-jet argument."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Elementary support lemma for the nonzero-block conversion, expanding the proof supplement after verification rather than asserting it occurs verbatim in Evertse."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/Algebra/MvPolynomial/BlockLinearJets",
+    "namespace": "MvPolynomial"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.2/block-linear-jet-weight-budget",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.2"
+   ],
+   "title": "Weighted budget for the extracted grid jet",
+   "kind": "lemma",
+   "statement": "Let m≥1,N≥2,d_h>0 be natural numbers and ε>0 real. Put w_d(u)=Σ_h(Σ_l u_hl)/d_h. Let X-multiindices i,e and Y-multiindex k, with N−1 parameters per block, satisfy w_d(i)<mε, Σ_l e_hl=Σ_a k_ha and k_ha≤d_h ε/N. Then w_d(i+e)<(2−1/N)mε<2mε.",
+   "hypotheses": [
+    "All inequalities and divisions are in ℝ; d_h and N are cast before division. No rounding or ε≤1 assumption is needed."
+   ],
+   "proofSteps": [
+    "Distribute the finite sums and use positive d_h to obtain w_d(i+e)=w_d(i)+Σ_h(Σ_a k_ha)/d_h.",
+    "Sum the N−1 coordinate bounds to get Σ_a k_ha≤(N−1)d_h ε/N. Divide by d_h and sum over m blocks.",
+    "Consequently w_d(i+e)≤w_d(i)+m(N−1)ε/N<(2−1/N)mε. Since mε/N>0, this is strictly below 2mε. These are elementary finite-sum and ordered-field calculations, requiring no new index definition."
+   ],
+   "acceptance": [
+    "Preserve the initial strict inequality. A nonzero jet only bounds the weighted index weakly by its weight; strictness comes from this budget."
+   ],
+   "prerequisites": [],
+   "api": [
+    {
+     "name": "DiophantineApproximation.block_jet_weight_budget",
+     "role": "other",
+     "statement": "Let m≥1,N≥2,d_h>0 be natural numbers and ε>0 real. Put w_d(u)=Σ_h(Σ_l u_hl)/d_h. Let X-multiindices i,e and Y-multiindex k, with N−1 parameters per block, satisfy w_d(i)<mε, Σ_l e_hl=Σ_a k_ha and k_ha≤d_h ε/N. Then w_d(i+e)<(2−1/N)mε<2mε."
+    }
+   ],
+   "tests": [
+    {
+     "name": "DiophantineApproximation.test_grid_small_order_bound",
+     "kind": "characterisation",
+     "statement": "If k∈ℕ and k≤1/2 in ℝ, then k=0."
+    },
+    {
+     "name": "DiophantineApproximation.test_grid_weight_numerical",
+     "kind": "computation",
+     "statement": "With m=1,N=2,d=4,ε=1/2,i=0,e=k=1, the final weight is 1/4<3/4<1."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Supplies an explicit step after the nonzero hyperplane restriction."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Expands the last displayed estimate of Lemma 26 and records the stronger intermediate factor 2−1/N. The erroneous strict index-to-witness inequality is already recorded as E216."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/DiophantineApproximation/GridNonvanishing",
+    "namespace": "DiophantineApproximation"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.2/nonzero-block-grid-replacement",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.2"
+   ],
+   "title": "Nonzero block representatives preserving a grid value",
+   "kind": "lemma",
+   "statement": "Let K be a field, b_h1,…,b_hr linearly independent vectors of K^N in each of m blocks, choose a₀∈{1,…,r}, and let B≥1. Let H∈K[X_hl] have block degrees δ_h. Suppose z_ha∈ℤ, |z_ha|≤B, and H(x)≠0 for x_h=Σ_a z_ha b_ha. There exist z′_ha∈ℤ with the same bounds such that every x′_h=Σ_a z′_ha b_ha is nonzero and H(x′)=H(x).",
+   "hypotheses": [
+    "r is nonempty, witnessed by a₀. Linear independence suffices; no ambient subspace or spanning assertion is needed. No characteristic-zero assumption is needed for this replacement lemma."
+   ],
+   "proofSteps": [
+    "For each block whose x_h is zero, zero-block-forces-degree-zero gives δ_h=0.",
+    "Set z′_h=z_h on nonzero blocks, and set z′_h to the integer unit vector at a₀ on zero blocks. Each coefficient remains bounded because B≥1.",
+    "LinearIndependent.ne_zero gives b_ha₀≠0, so the new x′_h is nonzero in every replaced block; unreplaced blocks were already nonzero.",
+    "On every block with δ_h≠0, x_h was nonzero and is unchanged. zero-degree-block-independence gives H(x′)=H(x) simultaneously."
+   ],
+   "acceptance": [
+    "The conclusion is nonzero block vectors, not nonzero individual coordinates. Applied to H=D^jF, obtain its residual block degrees from hasse-residual-block-degrees first."
+   ],
+   "prerequisites": [
+    "DiophantineApproximationAndTranscendence:DT.1/zero-block-forces-degree-zero",
+    "DiophantineApproximationAndTranscendence:DT.1/zero-degree-block-independence",
+    "mathlib:LinearIndependent.ne_zero"
+   ],
+   "api": [
+    {
+     "name": "DiophantineApproximation.exists_nonzero_block_grid_same_eval",
+     "role": "other",
+     "statement": "Let K be a field, b_h1,…,b_hr linearly independent vectors of K^N in each of m blocks, choose a₀∈{1,…,r}, and let B≥1. Let H∈K[X_hl] have block degrees δ_h. Suppose z_ha∈ℤ, |z_ha|≤B, and H(x)≠0 for x_h=Σ_a z_ha b_ha. There exist z′_ha∈ℤ with the same bounds such that every x′_h=Σ_a z′_ha b_ha is nonzero and H(x′)=H(x)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "DiophantineApproximation.test_all_zero_blocks_constant",
+     "kind": "degenerate",
+     "statement": "For H=1 over ℚ in two blocks of length 2, replacing both zero blocks by (1,0) preserves value 1 and makes both vectors nonzero."
+    },
+    {
+     "name": "DiophantineApproximation.test_mixed_zero_block_replacement",
+     "kind": "computation",
+     "statement": "For H=X_(1,0)² over ℚ at blocks (0,0) and (2,0), replacing only the first block by (1,0) preserves value 4; zero coordinates inside the nonzero vectors are allowed."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Supplies an explicit step after the nonzero hyperplane restriction."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Elementary upgrade to EF Proposition 12.1's nonzero blocks, verified from support homogeneity; Lemma 26 itself permits zero block points."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/DiophantineApproximation/GridNonvanishing",
+    "namespace": "DiophantineApproximation"
+   },
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "DiophantineApproximationAndTranscendence:DT.2/conditional-nonzero-block-grid-jet",
+   "parentStageId": "DiophantineApproximationAndTranscendence:DT.2",
+   "realises": [
+    "DiophantineApproximationAndTranscendence:DT.2"
+   ],
+   "title": "A nonzero-block grid jet from a nonzero restriction",
+   "kind": "lemma",
+   "statement": "Let K be a characteristic-zero field, m≥1,N≥2,d_h positive integers, and 0<ε≤1. Let F∈K[X_hl] have block degrees d_h, and for each h let b_h1,…,b_h,N−1 be linearly independent vectors of K^N. Suppose an X-multiindex i has w_d(i)<mε and the polynomial G(Y)=(D^iF)(Σ_a Y_1a b_1a,…,Σ_a Y_ma b_ma) is nonzero. There exist integers z_ha and an X-multiindex j with |z_ha|≤N/ε, every x_h=Σ_a z_ha b_ha nonzero, w_d(j)<(2−1/N)mε, and (D^jF)(x)≠0.",
+   "hypotheses": [
+    "The nonzero composed polynomial G is an explicit input. F≠0 alone does not suffice. No height or degree-separation assumption is used at this conditional stage."
+   ],
+   "proofSteps": [
+    "G≠0 implies D^iF≠0 since polynomial substitution maps zero to zero. hasse-residual-block-degrees gives residual degrees d_h−Σ_l i_hl≤d_h, and block-linear-degree-bound gives the individual parameter-degree bounds for G.",
+    "Reindex the m(N−1) variables by finProdFinEquiv and apply rectangular-integer-grid-jet with all budgets N/ε and degree bounds d_h. Transport evaluation, degree and the monomial Hasse coefficient formula back along the finite bijection. The resulting integer y and parameter order k satisfy |y_ha|≤N/ε and k_ha≤d_h ε/N, with a nonzero evaluated Hasse jet.",
+    "nonzero-block-linear-jet-extraction gives e with exact block sums and D^{i+e}F(Ay)≠0. Set j=i+e. block-linear-jet-weight-budget gives the strict weight bound.",
+    "Apply hasse-residual-block-degrees to the nonzero polynomial H=D^jF. Since N/ε≥1 and N−1≥1, nonzero-block-grid-replacement replaces all zero blocks while preserving the same nonzero Hasse jet and its order.",
+    "For the parent theorem, use the existing weighted-index definition to get index≤w_d(j), hence index<2mε. Over characteristic zero, the inherited factorial-to-ordinary derivative API makes this nonvanishing equivalent to the ordinary mixed-derivative form in the parent suggested signature."
+   ],
+   "acceptance": [
+    "This closes the purely algebraic and grid portion of Lemma 26 plus the nonzero-block conversion. It does not prove Lemma 24's hyperplane-height nonvanishing or the sharp Roth/Faltings input."
+   ],
+   "prerequisites": [
+    "DiophantineApproximationAndTranscendence:DT.1/hasse-residual-block-degrees",
+    "DiophantineApproximationAndTranscendence:DT.1/block-linear-degree-bound",
+    "DiophantineApproximationAndTranscendence:DT.1/nonzero-block-linear-jet-extraction",
+    "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative-coefficients",
+    "DiophantineApproximationAndTranscendence:DT.1/multivariate-hasse-derivative",
+    "DiophantineApproximationAndTranscendence:DT.1/weighted-index-of-polynomial",
+    "DiophantineApproximationAndTranscendence:DT.2/rectangular-integer-grid-jet",
+    "DiophantineApproximationAndTranscendence:DT.2/block-linear-jet-weight-budget",
+    "DiophantineApproximationAndTranscendence:DT.2/nonzero-block-grid-replacement",
+    "mathlib:finProdFinEquiv"
+   ],
+   "api": [
+    {
+     "name": "DiophantineApproximation.exists_nonzero_block_grid_jet_of_restriction",
+     "role": "other",
+     "statement": "Let K be a characteristic-zero field, m≥1,N≥2,d_h positive integers, and 0<ε≤1. Let F∈K[X_hl] have block degrees d_h, and for each h let b_h1,…,b_h,N−1 be linearly independent vectors of K^N. Suppose an X-multiindex i has w_d(i)<mε and the polynomial G(Y)=(D^iF)(Σ_a Y_1a b_1a,…,Σ_a Y_ma b_ma) is nonzero. There exist integers z_ha and an X-multiindex j with |z_ha|≤N/ε, every x_h=Σ_a z_ha b_ha nonzero, w_d(j)<(2−1/N)mε, and (D^jF)(x)≠0."
+    }
+   ],
+   "tests": [
+    {
+     "name": "DiophantineApproximation.test_conditional_line_grid_witness",
+     "kind": "computation",
+     "statement": "For m=1,N=2,d=2,ε=1, F=X_(0,0)² and the line basis (1,0), z=1 and j=0 give a nonzero block, value 1, and weight 0<3/2."
+    },
+    {
+     "name": "DiophantineApproximation.test_nonzero_not_nonzero_restriction",
+     "kind": "non-example",
+     "statement": "F=X₁ is nonzero over ℚ, but restriction to the line Y↦(Y,0) is the zero polynomial. F≠0 cannot replace the nonzero-restriction hypothesis."
+    }
+   ],
+   "uses": [
+    {
+     "where": "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids",
+     "how": "Supplies an explicit step after the nonzero hyperplane restriction."
+    }
+   ],
+   "sources": [
+    {
+     "sourceId": "evertse-improvement-quantitative-subspace-1996",
+     "locator": "§7, Lemma 26 and proof: author preprint p. 68; published Compositio 101 (1996), pp. 295–296.",
+     "match": "Conditional decomposition of Lemma 26 after its use of Lemma 24, with the nonzero-block strengthening needed by EF Proposition 12.1. The conditional theorem is not advertised as the full unconditional source result."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/DiophantineApproximation/GridNonvanishing",
+    "namespace": "DiophantineApproximation"
+   },
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -21569,7 +22322,7 @@
    "remaining": [
     "Split the Evertse–Ferretti proof of the Parametric Subspace Theorem into page-sized nodes: Lemmas 9.1, 9.3, 9.4, 10.1–10.3, 11.1, 11.2, 11.4–11.6, 13.3–13.5, the §14 argument, Lemma 15.3, Lemmas 16.2–16.4, 17.1–17.4, 18.1–18.4, Proposition 18.5 and Lemma 5.2 of arXiv:1008.2340 (gap 'Internal lemmas of the Evertse–Ferretti proof').",
     "Read and decompose Evertse–Schlickewei 2002 (preprint 00-abssub.pdf) §7 (Corollary 7.2, the absolute Minkowski theorem via Roy–Thunder) and §§6, 9 (Lemma 6.3, Davenport's Lemma 9.2).",
-    "Decompose Evertse 1996 §7 Lemmas 24 and 26 (Lemma 25 is decomposed), including nonzero-block conversion to EF Proposition 12.1; decompose Evertse 1995 (95-product.pdf), the explicit Faltings Product Theorem behind sharp Roth. Preserve the H₂ height convention and corrected index boundary.",
+    "Decompose Evertse 1996 §7 Lemma 24's hyperplane-height reduction; Lemma 25 and the conditional Lemma 26 chain with nonzero-block conversion are decomposed. Decompose Evertse 1995 (95-product.pdf), the explicit Faltings Product Theorem behind sharp Roth. Preserve H₂ and the corrected index boundary.",
     "Obtain a public source for Bombieri–Vaaler's Siegel lemma (Invent. Math. 73 (1983)) and decompose its Theorem 9, or replace it by Evertse's public 'A variation on Siegel's lemma'.",
     "Read and decompose Evertse–Schlickewei–Schmidt §§6–12 (their Theorem 2.1).",
     "Find and decompose a public proof of Schmidt's norm form theorem ((i) ⇒ (ii) of Evertse Theorem 7.13); candidate: Evertse, 'The number of solutions of decomposable form equations' (preprint 95-decforms.pdf).",
@@ -21640,11 +22393,11 @@
    "detail": "The Roth-machinery input of the Subspace Theorem. Evertse's 34-page preprint (95-product.pdf, public) was identified but only its introduction read. Roth's original lemma (1955) would suffice for the qualitative Subspace Theorem with worse constants but is not the lemma of the source route; it belongs with Roth's proof in DiophantineApproximationAndTranscendence:DT.1."
   },
   {
-   "title": "Non-vanishing on hyperplane grids: Evertse Lemmas 24 and 26 and nonzero-block conversion",
+   "title": "Non-vanishing on hyperplanes: Evertse Lemma 24",
    "neededBy": [
     "DiophantineApproximationAndTranscendence:DT.2/nonvanishing-on-grids"
    ],
-   "detail": "Lemma 25 is decomposed by rectangular-integer-grid-jet and its four proof lemmas. The full public §7 proof, preprint pp. 63–68, has been read. Remaining: Lemma 24's hyperplane-height-to-binary-direction inequality, coefficient extraction preserving low-index vanishing, and homogenization; Lemma 26's linear-substitution chain rule and weighted derivative budget; conversion from possibly zero block points to EF Proposition 12.1's nonzero block points via multihomogeneity. Use the corrected index boundary E216. The sharp-Roth/Faltings proof gap is separate and unchanged. Schmidt LNM 785 need not be obtained merely to read this reduction."
+   "detail": "Lemma 25 and the algebraic/grid part of Lemma 26 are decomposed, including the finite block-linear Hasse chain rule, derivative-weight budget and nonzero-block replacement. The parent theorem still needs Lemma 24: derive the large-height binary direction from the hyperplane-height bound, extract successive lowest-degree coefficient slices preserving low-index vanishing, restore binary multihomogeneity and apply sharp-roths-lemma. The full public preprint §7 pp. 64–67 proof has been read, but this height-theoretic reduction is not yet a chain of declaration-sized nodes. conditional-nonzero-block-grid-jet starts only after an actual nonzero restriction has been obtained; F≠0 alone is insufficient. Preserve H₂ and source issue E216. The separate sharp-Roth/Faltings proof gap is unchanged; obtaining Schmidt LNM 785 is not necessary merely to read this reduction."
   },
   {
    "title": "Bombieri–Vaaler's Siegel lemma (Invent. Math. 73 (1983), Theorem 9) not read",
@@ -22915,7 +23668,7 @@
    "kind": "author copy",
    "url": "https://pub.math.leidenuniv.nl/~evertsejh/95-subspace.pdf",
    "citation": "J.-H. Evertse, author preprint of Compositio Math. 101 (1996), 225–311; 83 pages.",
-   "read": "2026-09-26",
+   "read": "2026-09-27",
    "sha256": "ac82a38059a5d0d9fd23a40a3896fb58d8525b14ef44c42199df9582bd9a0fb4"
   },
   {
@@ -22923,7 +23676,7 @@
    "kind": "published",
    "url": "https://www.numdam.org/item/CM_1996__101_3_225_0.pdf",
    "citation": "J.-H. Evertse, An improvement of the quantitative Subspace theorem, Compositio Math. 101 (1996), 225–311.",
-   "read": "2026-09-26",
+   "read": "2026-09-27",
    "sha256": "49e5d3f8160660828d10f2b5dcad4d7f22ffa2052623b954abbbb6fe7bc98177"
   }
  ]

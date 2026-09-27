@@ -1346,17 +1346,294 @@ These tests also occur in the suggested file:
 - `MvPolynomial.test_grid_zero_variables`: For nonzero c ∈ ℚ the zero-order derivative of C c in zero variables evaluates to c.
 - `MvPolynomial.test_grid_mixed_jet`: For P = (X₀³−X₀)X₁², budgets (1,1/2) and degree bounds (3,2), z = (0,0), d = (1,2) satisfy all bounds and DᵈP(z) = −1. Every order-zero grid value is zero.
 
+### Block-linear jets and nonzero block points
+
+The algebraic portion of Evertse's Lemma 26 uses the full block degree, not the
+maximum of the degrees in the separate variables. Its source is §7, preprint p. 68
+and published pp. 295–296 of the two versions linked above. The explicit
+coefficient formula and support arguments below expand that proof. The
+nonzero-block replacement supplies the additional conclusion required by
+Evertse–Ferretti Proposition 12.1; it is not presented as a separate printed
+lemma of Evertse.
+
+Write X_hl for N variables in each of m blocks, Y_ha for r parameters per block,
+and L_hl(Y)=Σ_a A_hla Y_ha. The notation D^j means the existing DT.1 Hasse
+derivative. For positive d_h, write w_d(j)=Σ_h(Σ_l j_hl)/d_h, with division in
+the reals. No new derivative, grid, weight or homogeneity carrier is introduced.
+The support condition for block degree d_h is the existing
+`MvPolynomial.IsWeightedHomogeneous` condition with the h-th block-indicator
+weight; it is written explicitly to match the inherited parent theorem.
+
+Seven polynomial lemmas belong to DT.1, beside its existing derivative and
+index API. The weight budget, grid replacement and conditional witness belong
+to DT.2. The conditional witness depends on an actual nonzero polynomial
+restriction and does not replace the height-theoretic proof of Lemma 24.
+
+#### Block degrees in a linear substitution
+
+`DT.1/block-linear-monomial-support` · API `MvPolynomial.block_sum_eq_of_coeff_linear_monomial_ne_zero`.
+
+Let R be a commutative semiring, m,N,r natural numbers, A_h an N-by-r matrix, e an X-multiindex and k a Y-multiindex. Set L_hl(T)=Σ_a A_hla T_ha and c_e,k=[T^k]∏_hl L_hl(T)^e_hl. If c_e,k ≠ 0, then Σ_a k_ha=Σ_l e_hl for every block h.
+
+Zero block counts, zero matrices and r=0 are allowed; no rank or characteristic assumption.
+
+Use the existing weighted-homogeneous predicate with block-indicator weights w_h(h′,a)=1 when h=h′ and 0 otherwise.
+
+Each L_h′l is a sum of scalar multiples of variables of weight w_h(h′,a). The pinned weighted-homogeneous sum, scalar, power and product lemmas give weight Σ_l e_hl for the displayed product.
+
+A nonzero coefficient has that weight by the defining support property. Cancellation can delete coefficients, but cannot introduce a different block degree.
+
+For a fixed k, every e with these equalities satisfies e_hl ≤ Σ_a k_ha; the corresponding finite coordinate box, filtered by the equalities, is exactly E(k). Finsupp's finite interval instance represents this set without introducing a new carrier.
+
+Dependencies: `mathlib:MvPolynomial.IsWeightedHomogeneous`, `mathlib:MvPolynomial.isWeightedHomogeneous_X`, `mathlib:MvPolynomial.IsWeightedHomogeneous.C_mul`, `mathlib:MvPolynomial.IsWeightedHomogeneous.sum`, `mathlib:MvPolynomial.IsWeightedHomogeneous.pow`, `mathlib:MvPolynomial.IsWeightedHomogeneous.prod`, `mathlib:Finsupp.instLocallyFiniteOrder`.
+
+Acceptance: Block degree is preserved exactly, not merely bounded above; zero rows impose no exception.
+
+Tests:
+
+- `MvPolynomial.test_linear_support_square`: Over ℚ, the coefficient of X₀X₁ in (X₀+X₁)² is 2.
+- `MvPolynomial.test_linear_support_wrong_degree`: Over ℚ, the coefficient of X₀ in (X₀+X₁)² is zero.
+
+#### Finite block-linear Hasse chain rule
+
+`DT.1/block-linear-hasse-chain-rule` · API `MvPolynomial.hasseDeriv_eval₂_blockLinear`.
+
+For R,m,N,r,A as in block-linear-monomial-support, any F∈R[X], X-multiindex i and Y-multiindex k satisfy D_Y^k((D_X^i F)(AY))=Σ_{e∈E(k)} c_e,k(A) b(i,e) (D_X^{i+e}F)(AY), as polynomials in Y. Here E(k)={e:Σ_l e_hl=Σ_a k_ha for every h}, c_e,k is the coefficient of T^k in ∏_hl(Σ_a A_hla T_ha)^e_hl, and b(i,e)=∏_hl binom(i_hl+e_hl,i_hl).
+
+R is any commutative semiring. No injectivity, nonzero coefficient, homogeneity or positive degree is assumed.
+
+Use the existing multivariate Taylor expansion for H=D^iF, as a polynomial identity: H(AY+AT)=Σ_e (D^eH)(AY)(AT)^e. Obtain this identity over the polynomial coefficient ring by the same monomial binomial expansion; all terms beyond the coordinate degrees vanish by the existing derivative degree bound.
+
+Since A(Y+T)=AY+AT, extract the coefficient of T^k. On the left this is D_Y^k(H(AY)); on the right it is c_e,k(A)(D^eH)(AY). Coefficient extraction and the sum commute because the expansion is finite.
+
+block-linear-monomial-support removes every e outside E(k). Its finite coordinate box also shows that zero summands can be added to obtain precisely the displayed finite sum.
+
+Apply the existing Hasse composition identity, including b(i,e). Natural binomial coefficients are cast into R, so division and characteristic-zero assumptions are unnecessary.
+
+Dependencies: `DT.1/block-linear-monomial-support`, `DT.1/multivariate-taylor-expansion`, `DT.1/multivariate-hasse-derivative-composition`, `DT.1/multivariate-hasse-derivative-coefficients`, `DT.1/multivariate-hasse-derivative`, `mathlib:MvPolynomial.eval₂_monomial`, `mathlib:MvPolynomial.eval_eval₂`.
+
+Acceptance: The statement is an identity of polynomials, stronger than equality at integer grid points; it includes k=0 and a zero substitution matrix.
+
+Tests:
+
+- `MvPolynomial.test_chain_binomial_factor`: For F=X₀² over ℚ, D¹((D¹F)(2Y))=4; omitting the composition binomial coefficient would give 2.
+- `MvPolynomial.test_chain_zero_map`: Substituting X↦0 into D⁰(X²+1) gives 1; its positive-order Hasse derivative is zero.
+
+#### A nonzero original jet from a substituted jet
+
+`DT.1/nonzero-block-linear-jet-extraction` · API `MvPolynomial.exists_nonzero_hasseDeriv_of_blockLinear`.
+
+For R,m,N,r,A,F,i,k as above and y∈R^(mr), if D_Y^k((D_X^iF)(AY))(y)≠0, there is an X-multiindex e with Σ_l e_hl=Σ_a k_ha for each h and (D_X^{i+e}F)(Ay)≠0.
+
+R is any commutative semiring; singular and zero matrices are allowed.
+
+Evaluate block-linear-hasse-chain-rule at y, using the pinned evaluation-composition identity.
+
+A nonzero finite sum has a nonzero summand. If the displayed original jet in that summand were zero, multiplication by its coefficient would make the summand zero. Thus it is nonzero, without a no-zero-divisors assumption.
+
+Membership of the selected exponent in E(k) supplies every exact block-sum identity. This is only a one-way implication: nonzero original jets can cancel after substitution.
+
+Dependencies: `DT.1/block-linear-hasse-chain-rule`, `mathlib:MvPolynomial.eval_eval₂`.
+
+Acceptance: Do not infer a nonzero composed jet from a chosen nonzero original jet.
+
+Tests:
+
+- `MvPolynomial.test_chain_cancellation`: For F=X₀−X₁ and X₀=X₁=Y over ℚ, the composed polynomial is zero although D_(1,0)F=1 and D_(0,1)F=−1.
+- `MvPolynomial.test_chain_order_zero`: For the identity substitution and F=X², the zero-order jet evaluated at 2 is 4.
+
+#### Residual block degrees of a nonzero Hasse derivative
+
+`DT.1/hasse-residual-block-degrees` · API `MvPolynomial.hasseDeriv_block_degrees`.
+
+Let R be a commutative semiring and F∈R[X_hl] be block-homogeneous of natural degrees d_h, meaning every exponent μ in its support satisfies Σ_l μ_hl=d_h. If D^jF≠0, then Σ_l j_hl≤d_h for each h, and every exponent ν in the support of D^jF satisfies Σ_l ν_hl=d_h−Σ_l j_hl.
+
+No characteristic or domain hypothesis is needed. The nonzero-derivative hypothesis is required for the order bound.
+
+The existing coefficient formula gives coeff_ν(D^jF)=(∏_hl binom(ν_hl+j_hl,j_hl)) coeff_{ν+j}F.
+
+A nonzero derivative coefficient therefore gives a nonzero coefficient of F at ν+j. Its block sum is d_h; distributing the natural sum gives Σ_l ν_hl+Σ_l j_hl=d_h.
+
+Apply this to every surviving ν for residual homogeneity, and to one surviving ν (which exists by D^jF≠0) for the order bound. Subtract only after this equality; truncating subtraction alone cannot justify the order bound.
+
+Dependencies: `DT.1/multivariate-hasse-derivative-coefficients`.
+
+Acceptance: Use the inherited support condition, equivalently the pinned weighted-homogeneous predicate for each block indicator; no new multihomogeneous structure.
+
+Tests:
+
+- `MvPolynomial.test_residual_two_blocks`: For F=X_(0,0)²X_(1,0) over ℚ, D_(1,0)F=2X_(0,0)X_(1,0), of residual block degrees (1,1).
+- `MvPolynomial.test_residual_zero_derivative`: D³(X²)=0 over ℚ, although 3≤2 is false; nonzero cannot be omitted from the order bound.
+
+#### Individual degree after block-linear substitution
+
+`DT.1/block-linear-degree-bound` · API `MvPolynomial.degreeOf_eval₂_blockLinear_le`.
+
+Let R be a commutative semiring, F∈R[X_hl], and d_h∈ℕ. Assume Σ_l μ_hl≤d_h for every μ in the support of F and every h. For any block-linear matrix A_h of size N-by-r, each individual Y_ha-degree of F(AY) is at most d_h.
+
+F may be zero; the block support condition is only an upper bound, not equality. A may have any rank.
+
+Expand F as its finite sum of coefficient monomials using the pinned polynomial support-sum identity.
+
+For a nonzero coefficient of F(AY), some monomial substitution summand has nonzero coefficient. A scalar coefficient cannot turn a zero coefficient into a nonzero one.
+
+Apply block-linear-monomial-support to that summand: its output block sum equals the input block sum, hence is at most d_h. Each individual nonnegative exponent is bounded by that sum.
+
+The pinned degreeOf_le_iff converts the resulting support bound to the individual degree inequality. This proof covers the zero polynomial without extracting a spurious monomial.
+
+Dependencies: `DT.1/block-linear-monomial-support`, `mathlib:MvPolynomial.as_sum`, `mathlib:MvPolynomial.eval₂_monomial`, `mathlib:MvPolynomial.degreeOf_le_iff`.
+
+Acceptance: The needed bound is the whole block degree, not the maximum of the separate input-variable degrees.
+
+Tests:
+
+- `MvPolynomial.test_substitution_merges_degrees`: Substituting X₀=X₁=Y into X₀X₁ gives Y², with individual Y-degree 2, although each original individual degree is 1.
+- `MvPolynomial.test_substitution_zero_polynomial`: For the zero polynomial over ℚ, every individual degree is zero.
+
+#### A nonzero value at a zero block forces degree zero
+
+`DT.1/zero-block-forces-degree-zero` · API `MvPolynomial.block_degree_eq_zero_of_eval_ne_zero`.
+
+Let R be a commutative semiring and H∈R[X_hl] have block degrees δ_h. If H(x)≠0 and x_h is the zero vector, then δ_h=0.
+
+Block homogeneity means Σ_l μ_hl=δ_h for every exponent μ in the support. Nonzero value is an actual evaluation hypothesis.
+
+If δ_h>0, the block sum of each supported exponent is positive, so some variable of that block occurs to positive power.
+
+All those variables evaluate to zero at x. The pinned eval₂Hom_eq_zero lemma therefore makes every supported monomial vanish and gives H(x)=0, a contradiction.
+
+Natural δ_h must consequently be zero; the argument also covers an empty coordinate block.
+
+Dependencies: `mathlib:MvPolynomial.eval₂Hom_eq_zero`.
+
+Acceptance: This is a residual-degree statement, not an inference that the original F has degree zero.
+
+Tests:
+
+- `MvPolynomial.test_positive_degree_zero_block`: For H=X_(0,0)² over ℚ, H evaluated at the zero block is 0.
+- `MvPolynomial.test_constant_empty_block`: A constant polynomial 3 on one empty block evaluates to 3.
+
+#### Simultaneous independence of degree-zero blocks
+
+`DT.1/zero-degree-block-independence` · API `MvPolynomial.eval_eq_of_eq_on_nonzero_degree_blocks`.
+
+Let R be a commutative semiring and H∈R[X_hl] have block degrees δ_h. If block vectors x,y agree on every block h with δ_h≠0, then H(x)=H(y). Thus all zero-degree blocks can be replaced simultaneously by arbitrary vectors.
+
+The conclusion is global evaluation independence, not merely constancy at one witness.
+
+For a supported exponent μ, a block with δ_h=0 has a sum of nonnegative exponents equal to zero; every μ_hl in that block is zero.
+
+Every variable appearing in the support of that monomial therefore lies in a nonzero-degree block, where x and y agree.
+
+Apply the pinned evaluation-congruence lemma to conclude equality for H. This establishes simultaneous replacement directly and avoids an unsupported iteration of pointwise independence.
+
+Dependencies: `mathlib:MvPolynomial.eval₂_congr`.
+
+Acceptance: Replacing any collection of zero-degree blocks at once preserves the value.
+
+Tests:
+
+- `MvPolynomial.test_degree_zero_block_ignored`: For H=X_(1,0)² over ℚ, H(0,2)=H(−3,2)=4.
+- `MvPolynomial.test_nonhomogeneous_replacement_failure`: For H=1+X over ℚ, H(0)=1 but H(−1)=0: nonzero evaluation at zero does not imply independence without homogeneity.
+
+#### Weighted budget for the extracted grid jet
+
+`DT.2/block-linear-jet-weight-budget` · API `DiophantineApproximation.block_jet_weight_budget`.
+
+Let m≥1,N≥2,d_h>0 be natural numbers and ε>0 real. Put w_d(u)=Σ_h(Σ_l u_hl)/d_h. Let X-multiindices i,e and Y-multiindex k, with N−1 parameters per block, satisfy w_d(i)<mε, Σ_l e_hl=Σ_a k_ha and k_ha≤d_h ε/N. Then w_d(i+e)<(2−1/N)mε<2mε.
+
+All inequalities and divisions are in ℝ; d_h and N are cast before division. No rounding or ε≤1 assumption is needed.
+
+Distribute the finite sums and use positive d_h to obtain w_d(i+e)=w_d(i)+Σ_h(Σ_a k_ha)/d_h.
+
+Sum the N−1 coordinate bounds to get Σ_a k_ha≤(N−1)d_h ε/N. Divide by d_h and sum over m blocks.
+
+Consequently w_d(i+e)≤w_d(i)+m(N−1)ε/N<(2−1/N)mε. Since mε/N>0, this is strictly below 2mε. These are elementary finite-sum and ordered-field calculations, requiring no new index definition.
+
+Dependencies: elementary finite-sum and ordered-field arithmetic.
+
+Acceptance: Preserve the initial strict inequality. A nonzero jet only bounds the weighted index weakly by its weight; strictness comes from this budget.
+
+Tests:
+
+- `DiophantineApproximation.test_grid_small_order_bound`: If k∈ℕ and k≤1/2 in ℝ, then k=0.
+- `DiophantineApproximation.test_grid_weight_numerical`: With m=1,N=2,d=4,ε=1/2,i=0,e=k=1, the final weight is 1/4<3/4<1.
+
+#### Nonzero block representatives preserving a grid value
+
+`DT.2/nonzero-block-grid-replacement` · API `DiophantineApproximation.exists_nonzero_block_grid_same_eval`.
+
+Let K be a field, b_h1,…,b_hr linearly independent vectors of K^N in each of m blocks, choose a₀∈{1,…,r}, and let B≥1. Let H∈K[X_hl] have block degrees δ_h. Suppose z_ha∈ℤ, |z_ha|≤B, and H(x)≠0 for x_h=Σ_a z_ha b_ha. There exist z′_ha∈ℤ with the same bounds such that every x′_h=Σ_a z′_ha b_ha is nonzero and H(x′)=H(x).
+
+r is nonempty, witnessed by a₀. Linear independence suffices; no ambient subspace or spanning assertion is needed. No characteristic-zero assumption is needed for this replacement lemma.
+
+For each block whose x_h is zero, zero-block-forces-degree-zero gives δ_h=0.
+
+Set z′_h=z_h on nonzero blocks, and set z′_h to the integer unit vector at a₀ on zero blocks. Each coefficient remains bounded because B≥1.
+
+LinearIndependent.ne_zero gives b_ha₀≠0, so the new x′_h is nonzero in every replaced block; unreplaced blocks were already nonzero.
+
+On every block with δ_h≠0, x_h was nonzero and is unchanged. zero-degree-block-independence gives H(x′)=H(x) simultaneously.
+
+Dependencies: `DT.1/zero-block-forces-degree-zero`, `DT.1/zero-degree-block-independence`, `mathlib:LinearIndependent.ne_zero`.
+
+Acceptance: The conclusion is nonzero block vectors, not nonzero individual coordinates. Applied to H=D^jF, obtain its residual block degrees from hasse-residual-block-degrees first.
+
+Tests:
+
+- `DiophantineApproximation.test_all_zero_blocks_constant`: For H=1 over ℚ in two blocks of length 2, replacing both zero blocks by (1,0) preserves value 1 and makes both vectors nonzero.
+- `DiophantineApproximation.test_mixed_zero_block_replacement`: For H=X_(1,0)² over ℚ at blocks (0,0) and (2,0), replacing only the first block by (1,0) preserves value 4; zero coordinates inside the nonzero vectors are allowed.
+
+#### A nonzero-block grid jet from a nonzero restriction
+
+`DT.2/conditional-nonzero-block-grid-jet` · API `DiophantineApproximation.exists_nonzero_block_grid_jet_of_restriction`.
+
+Let K be a characteristic-zero field, m≥1,N≥2,d_h positive integers, and 0<ε≤1. Let F∈K[X_hl] have block degrees d_h, and for each h let b_h1,…,b_h,N−1 be linearly independent vectors of K^N. Suppose an X-multiindex i has w_d(i)<mε and the polynomial G(Y)=(D^iF)(Σ_a Y_1a b_1a,…,Σ_a Y_ma b_ma) is nonzero. There exist integers z_ha and an X-multiindex j with |z_ha|≤N/ε, every x_h=Σ_a z_ha b_ha nonzero, w_d(j)<(2−1/N)mε, and (D^jF)(x)≠0.
+
+The nonzero composed polynomial G is an explicit input. F≠0 alone does not suffice. No height or degree-separation assumption is used at this conditional stage.
+
+G≠0 implies D^iF≠0 since polynomial substitution maps zero to zero. hasse-residual-block-degrees gives residual degrees d_h−Σ_l i_hl≤d_h, and block-linear-degree-bound gives the individual parameter-degree bounds for G.
+
+Reindex the m(N−1) variables by finProdFinEquiv and apply rectangular-integer-grid-jet with all budgets N/ε and degree bounds d_h. Transport evaluation, degree and the monomial Hasse coefficient formula back along the finite bijection. The resulting integer y and parameter order k satisfy |y_ha|≤N/ε and k_ha≤d_h ε/N, with a nonzero evaluated Hasse jet.
+
+nonzero-block-linear-jet-extraction gives e with exact block sums and D^{i+e}F(Ay)≠0. Set j=i+e. block-linear-jet-weight-budget gives the strict weight bound.
+
+Apply hasse-residual-block-degrees to the nonzero polynomial H=D^jF. Since N/ε≥1 and N−1≥1, nonzero-block-grid-replacement replaces all zero blocks while preserving the same nonzero Hasse jet and its order.
+
+For the parent theorem, use the existing weighted-index definition to get index≤w_d(j), hence index<2mε. Over characteristic zero, the inherited factorial-to-ordinary derivative API makes this nonvanishing equivalent to the ordinary mixed-derivative form in the parent suggested signature.
+
+Dependencies: `DT.1/hasse-residual-block-degrees`, `DT.1/block-linear-degree-bound`, `DT.1/nonzero-block-linear-jet-extraction`, `DT.1/multivariate-hasse-derivative-coefficients`, `DT.1/multivariate-hasse-derivative`, `DT.1/weighted-index-of-polynomial`, `DT.2/rectangular-integer-grid-jet`, `DT.2/block-linear-jet-weight-budget`, `DT.2/nonzero-block-grid-replacement`, `mathlib:finProdFinEquiv`.
+
+Acceptance: This closes the purely algebraic and grid portion of Lemma 26 plus the nonzero-block conversion. It does not prove Lemma 24's hyperplane-height nonvanishing or the sharp Roth/Faltings input.
+
+Tests:
+
+- `DiophantineApproximation.test_conditional_line_grid_witness`: For m=1,N=2,d=2,ε=1, F=X_(0,0)² and the line basis (1,0), z=1 and j=0 give a nonzero block, value 1, and weight 0<3/2.
+- `DiophantineApproximation.test_nonzero_not_nonzero_restriction`: F=X₁ is nonzero over ℚ, but restriction to the line Y↦(Y,0) is the zero polynomial. F≠0 cannot replace the nonzero-restriction hypothesis.
+
+The characteristic-zero restriction enters at the integer-grid jet lemma and
+at equivalence with ordinary derivatives. The coefficient-support, Hasse
+chain-rule, residual-degree and independence lemmas work over any commutative
+semiring. Grid replacement needs a field and a nonempty independent family,
+but not characteristic zero. These distinctions keep the reusable algebra
+separate from the arithmetic application.
+
+The final index step uses its existing infimum definition: a nonzero jet gives
+index ≤ w_d(j). For X² at 0 with weight 2, index and witness weight both equal 1.
+The strict inequality in the final conclusion comes from
+w_d(j)<(2−1/N)mε<2mε, not from a false strict index-to-witness inequality.
+
 #### Remaining hyperplane steps and source corrections
 
-The rectangular lemma supplies exactly d_{hj} ≤ r_h ε/N for degree bounds r_h and budgets N/ε.
-It does not by itself prove `nonvanishing-on-grids`. The remaining obligations are Evertse's
-Lemma 24 (the hyperplane height reduction, coefficient slicing and restoration of binary
-multihomogeneity), Lemma 26's chain rule and weighted derivative count, and the conversion
-to nonzero block points in Evertse–Ferretti Proposition 12.1. A nonzero jet can occur at a
-zero block; the conversion must use multihomogeneity to replace that block by a basis vector
-when the residual degree there is zero. The public preprint contains Lemma 24's reduction,
-although it credits Schmidt; this step does not require obtaining Schmidt's book.
-The separate sharp-Roth/Faltings proof gap remains.
+The rectangular lemma supplies exactly k_{ha} ≤ d_h ε/N for degree bounds d_h
+and budgets N/ε. The conditional grid theorem composes it with the explicit
+chain rule, strict weight budget and nonzero-block replacement. This does not
+by itself prove `nonvanishing-on-grids`: Evertse's Lemma 24 still needs its
+hyperplane-height reduction, coefficient slicing and restoration of binary
+multihomogeneity. In particular, F≠0 does not imply that its restriction to
+the chosen hyperplanes is nonzero. The public preprint contains Lemma 24's
+reduction, although it credits Schmidt; this step does not require obtaining
+Schmidt's book. The separate sharp-Roth/Faltings proof gap remains.
 
 Two source findings are recorded with version-specific evidence in the packet:
 
