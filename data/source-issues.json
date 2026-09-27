@@ -131757,6 +131757,29 @@
    "reviewReason": null
   },
   {
+   "id": "DirichletPadicLFunctions/E13",
+   "kind": "misprint",
+   "locator": "Proof of Lemma5.10, first display for (φ∘ψ)(F_η), published printed145/PDF46; arXiv v2p33.",
+   "printed": "pG(η)⁻¹",
+   "correction": "Replace the denominator pG(η)⁻¹ by pG(η⁻¹), keeping the common coefficient −1/(pG(η⁻¹)) inherited from equation(5-3) and root averaging.",
+   "reason": "The Gauss sum of the inverse character is not the inverse of its Gauss sum. The defining series has coefficient −1/G(η⁻¹), and averaging contributes1/p. The following line of the same proof already uses the corrected normalization. For the primitive quadratic character modulo3, η⁻¹=η and G(η)²=−3, so the printed coefficient differs by the nontrivial factor−3; this is also tame at p=2. Correcting the coefficient preserves the stated psi-eigenrelation.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "27 September2026: complete published139–147/PDF40–48 read in consecutive batches; full arXiv v2PDF33–35 collated and published145 visually inspected. Both canonical digests match sourceVersions. The error is present in both versions.",
+    "The atlas source register was screened by Dirichlet, PMIA and Coleman owners and all relevant locators; no prior matching entry was identified. Own E11/E12 are retained whole. No priority claim or independent verdict is supplied.",
+    "Current-session arXiv/author/journal checks from the preceding Kummer and character-twist slices remain their own provenance; latest listed arXiv revision v2,19December2024. Additional identifier+Lemma5.10+correction and authors+Gauss+errata queries identified no correcting publication; unrelated results were discarded.",
+    "The search surfaced https://warwick.ac.uk/fac/sci/maths/people/staff/cwilliams/lecturenotes/lecturenotes-change.pdf. Its title page and complete pp23–25 were read; metadata creation/modification date is8February2018, not a newly dated correction. The same typo occurs in Lemma4.10 onp24. SHA256500774707f990324aaf1ccb43def197089d39907177024471d30dfc9ee52feb9. This older note is not substituted for the version of record.",
+    "These are bounded checks, not an exhaustive absence or novelty claim; no authors contacted."
+   ],
+   "owner": "DirichletPadicLFunctions",
+   "file": "research/blueprint/packets/DirichletPadicLFunctions.json",
+   "citation": "Sources of the blueprint of DirichletPadicLFunctions",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DrinfeldModulesAndTModules/E-DM8-1",
    "kind": "misprint",
    "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16",
