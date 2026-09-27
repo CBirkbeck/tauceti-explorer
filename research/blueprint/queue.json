@@ -15583,8 +15583,9 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicLFunctionsAndLocalFactors.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #688"
   },
   {
    "id": "REV-AutomorphicLFunctionsAndLocalFactors",
@@ -19638,9 +19639,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-MetaplecticAutomorphicForms--MP.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #771"
+   "note": "released on GitHub issue #771"
   },
   {
    "id": "REV-MetaplecticAutomorphicForms--MP.0",
