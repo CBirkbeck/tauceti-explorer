@@ -1,3 +1,4 @@
+import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.Analysis.SpecificLimits.Normed
 import Mathlib.Topology.Algebra.InfiniteSum.Nonarchimedean
 import Mathlib.Algebra.DualNumber
@@ -1019,4 +1020,97 @@ example (F : B) : Ψ ((p : B) * F) = (p : B) * F ↔ Ψ F = F := by sorry
 example : (-1 : (PowerSeries ℤ_[3])ˣ) ∈ normFixedUnits 3 ∧
     logDeriv (-1 : (PowerSeries ℤ_[3])ˣ) = 0 ∧
     (-1 : ℤ_[3])^3 ≠ 1 := by sorry
+end TauCetiRoadmap.Campaign.ColemanPowerSeries
+
+/-! ## Characteristic-p logarithmic image
+The residue averaging operator is the actual PMIA supplier. Euler products use the
+native power-series product topology; no Laurent-series action is assumed.
+-/
+namespace TauCetiRoadmap.Campaign.ColemanPowerSeries
+noncomputable section
+open PowerSeries Filter Topology
+open scoped PowerSeries.WithPiTopology BigOperators
+variable (p : ℕ) [Fact p.Prime]
+local notation "k" => ZMod p
+local notation "B₀" => PowerSeries k
+local notation "η[" u "]" =>
+  (X * PowerSeries.derivative k (u : B₀) * ((u⁻¹ : B₀ˣ) : B₀))
+local notation "φ₀" => PowerSeries.expand p (Nat.Prime.ne_zero (Fact.out : p.Prime))
+local instance : TopologicalSpace (ZMod p) := ⊥
+local instance : DiscreteTopology (ZMod p) := ⟨rfl⟩
+
+theorem residuePsi_logDeriv (u : B₀ˣ) :
+    IwasawaResidue.residuePsi p (logDeriv u) = logDeriv u := by sorry
+
+theorem frobenius_coefficient_completion (a : B₀) (ha : a.constantCoeff = 0) :
+    ∃ h H : B₀, h.constantCoeff = 0 ∧
+      (∀ n, h.coeff (p*n) = h.coeff n) ∧
+      (∀ n, ¬ p ∣ n → h.coeff n = a.coeff n) ∧
+      a - h = X^p * φ₀ H := by sorry
+
+theorem euler_factor_logarithmic_coeff (m : ℕ) (hm : 0 < m) (a : k)
+    (u : B₀ˣ) (hu : (u : B₀) = 1 - monomial m a) (n : ℕ) :
+    (η[u]).coeff n = if 0 < n ∧ m ∣ n then -(m : k) * a^(n/m) else 0 := by sorry
+
+theorem euler_factor_frobenius_coeff (m : ℕ) (hm : 0 < m) (a : k)
+    (u : B₀ˣ) (hu : (u : B₀) = 1 - monomial m a) (n : ℕ) :
+    (η[u]).coeff (p*n) = (η[u]).coeff n := by sorry
+
+theorem euler_correction_step (h : B₀) (m : ℕ) (hm : 0 < m)
+    (hfixed : ∀ n, h.coeff (p*n) = h.coeff n)
+    (hvanish : ∀ n < m, h.coeff n = 0) :
+    ∃ a : k, ∃ u : B₀ˣ, (u : B₀) = 1 - monomial m a ∧
+      (p ∣ m → a = 0) ∧
+      (∀ n ≤ m, (h - η[u]).coeff n = 0) ∧
+      (∀ n, (h - η[u]).coeff (p*n) = (h - η[u]).coeff n) := by sorry
+
+theorem euler_correction_sequence (h : B₀) (hzero : h.constantCoeff = 0)
+    (hfixed : ∀ n, h.coeff (p*n) = h.coeff n) :
+    ∃ a : ℕ → k, ∃ u : ℕ → B₀ˣ, a 0 = 0 ∧
+      (∀ m, p ∣ m → a m = 0) ∧
+      (∀ N, (u N : B₀) = ∏ i ∈ Finset.range N, (1 - monomial (i+1) (a (i+1)))) ∧
+      (∀ N n, n ≤ N → (η[u N]).coeff n = h.coeff n) := by sorry
+
+theorem euler_product_unit_limit (a : ℕ → k) :
+    ∃ u : B₀ˣ, (u : B₀).constantCoeff = 1 ∧
+      (u : B₀) = ∏' i : ℕ, (1 - monomial (i+1) (a (i+1))) ∧
+      (∀ N n, n ≤ N → (u : B₀).coeff n =
+        (∏ i ∈ Finset.range N, (1 - monomial (i+1) (a (i+1))) : B₀).coeff n) := by sorry
+
+theorem radial_logarithmic_coeff_congr (u v : B₀ˣ) (N : ℕ)
+    (h : ∀ n ≤ N, (u : B₀).coeff n = (v : B₀).coeff n) :
+    ∀ n ≤ N, (η[u]).coeff n = (η[v]).coeff n := by sorry
+
+theorem frobenius_fixed_logarithmic_primitive (h : B₀)
+    (hzero : h.constantCoeff = 0) (hfixed : ∀ n, h.coeff (p*n) = h.coeff n) :
+    ∃ u : B₀ˣ, (u : B₀).constantCoeff = 1 ∧ η[u] = h := by sorry
+
+theorem residue_logarithmic_decomposition (g : B₀) :
+    ∃ u : B₀ˣ, ∃ H : B₀,
+      g = logDeriv u + (1+X)*X^(p-1)*φ₀ H := by sorry
+
+theorem residuePsi_fixed_logarithmic_image (g : B₀)
+    (hg : IwasawaResidue.residuePsi p g = g) :
+    ∃ u : B₀ˣ, logDeriv u = g := by sorry
+
+theorem normFixedLogDeriv_surjective :
+    Function.Surjective (normFixedLogDeriv p) := by sorry
+
+-- ResidueImageTests.empty_product: degree zero of every Euler product is one.
+example (a : ℕ → k) :
+    (∏' i : ℕ, (1 - monomial (i+1) (a (i+1))) : B₀).constantCoeff = 1 := by sorry
+-- ResidueImageTests.ternary_first_factor: the sign in the correction is essential.
+example (u : (PowerSeries (ZMod 3))ˣ)
+    (hu : (u : PowerSeries (ZMod 3)) = 1 - monomial 1 (2 : ZMod 3)) :
+    (X * derivative (ZMod 3) (u : PowerSeries (ZMod 3)) *
+      ((u⁻¹ : (PowerSeries (ZMod 3))ˣ) : PowerSeries (ZMod 3))).coeff 1 = 1 := by sorry
+-- ResidueImageTests.characteristic_kernel: a nonconstant pth-power factor has zero derivative.
+example (u : B₀ˣ) (hu : (u : B₀) = 1 - monomial p (1 : k)) :
+    logDeriv u = 0 := by sorry
+-- ResidueImageTests.dyadic_image: the image theorem includes p=2.
+example (g : PowerSeries (ZMod 2)) (hg : IwasawaResidue.residuePsi 2 g = g) :
+    ∃ u : (PowerSeries (ZMod 2))ˣ, logDeriv u = g := by sorry
+-- ResidueImageTests.zero_primitive: normalize the constant coefficient, not the whole char-p kernel.
+example : (1 : B₀ˣ).val.constantCoeff = 1 ∧ η[(1 : B₀ˣ)] = 0 := by sorry
+end
 end TauCetiRoadmap.Campaign.ColemanPowerSeries

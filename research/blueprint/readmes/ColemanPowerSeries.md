@@ -1,9 +1,10 @@
-**Logarithmic-image lifting checkpoint, 27 September2026.** The packet now
-has107 unchecked nodes,60 API items,87 packet tests,89 typed examples,
-nine planets and117 baseline references. There are six gaps,12 requests,
-13 source findings and no closed stages. Nine new L3 declarations reduce
-actual logarithmic-derivative surjectivity to an explicit characteristic-p
-image assertion. Earlier checkpoint validation counts below are historical.
+**Residue-image checkpoint, 27 September 2026.** This packet has 119 unchecked
+nodes, 60 API items, 92 packet tests, 94 typed examples, nine planets and 135
+baseline references. Six gaps, 12 requests, 13 source findings and no closed
+stages remain. Twelve new declarations complete the proof plan for the
+characteristic-p logarithmic image and unconditional surjectivity on norm-fixed
+integral units. Earlier validation sections describe historical checkpoints;
+the final section gives the current checks and continuation boundary.
 
 # Coleman power series, local units, and cyclotomic-unit quotients
 
@@ -32,14 +33,14 @@ The scalar action of B on B is through φ(f)=f(Y^p−1); the norm has the sign
 (−1)^(p−1) on Y and T. This wider algebraic statement does not extend the
 arithmetic interpolation or quotient theorems to p=2.
 
-The packet has **107 local nodes**: two definitions, ten constructions,75 lemmas,
-13 theorems and seven comparisons. There are53 nodes in L1,30 in L2 and24 in L3. All remain implementation-unchecked; no layer is closed. In particular,
+The packet has **119 local nodes**: two definitions, ten constructions, 84 lemmas,
+16 theorems and seven comparisons. There are 53 nodes in L1, 30 in L2 and 36 in L3. All remain implementation-unchecked; no layer is closed. In particular,
 the comparison with the smoothed series F has a concrete denominator-cleared
 hypothesis and does not construct a Coleman measure.
 
 The named Lean signatures use `TauCetiRoadmap.Campaign.ColemanPowerSeries`;
 names below are relative to it. All 60 API items, 42 definition/construction
-tests,45 other node tests and two additional boundary controls have typed
+tests, 50 other node tests and two additional boundary controls have typed
 signatures/examples. The three finite-algebra adapter signatures select existing baseline
 constructions; all mathematical proofs and new data are placeholders. The suggested file is a specification, not a formalization.
 
@@ -2956,8 +2957,8 @@ Finally the residual preimage may be sought among all units of F_p[[T]]. The
 pinned local-ring theorem lifts any such unit to an integral power-series
 unit. The already constructed norm limit turns that lift into a norm-fixed
 unit without changing its residue. Coefficient change for Delta then gives
-the exact equivalence with the characteristic-p image condition. This last
-condition remains to be proved by decomposing Lemmas12.13–12.14. Their rational
+the exact equivalence with the characteristic-p image condition. The residue-image continuation below proves this condition by decomposing
+Lemmas12.13–12.14. Their rational
 expression must be replaced by a legitimate integral identity or accompanied
 by a separately justified localization; the earlier E8 domain issue remains.
 
@@ -3210,7 +3211,7 @@ read in full. The published183 page image was inspected. The source hashes
 match the recorded versions. Eight added baseline declarations were read at
 the pin. Earlier broader readings retain their existing provenance.
 
-Resume at Lemmas12.13–12.14: prove the exact characteristic-p image condition
+Historical resumption point, now supplied by the residue-image continuation: prove the exact characteristic-p image condition
 in logarithmic-derivative-residue-image-equivalence, respecting the domain of
 psi. Then combine it with the existing constant-root kernel and fixed-space
 sequence. Arithmetic interpolation, local cyclotomic towers and quotients,
@@ -3220,3 +3221,337 @@ The current PMIA supplier now supplies the ambient Z_p-domain/Q_p-dual norm,
 integral closed unit-ball image and common denominators. The12 requests remain,
 with the two lattice requests narrowed to finite-flat coefficient generality,
 the unit clopen domain and compatibility. No supplier declaration is duplicated.
+
+
+## Characteristic-p logarithmic image
+
+Let k=F_p, B_0=k[[T]] and Y=1+T. The existing logarithmic derivative is
+Delta(u)=Y D(u)u^{-1}. Use eta(u)=T D(u)u^{-1} as notation within the argument.
+Multiplication by T retains coefficient precision after differentiation; this
+is why the Euler correction works through the same degree as the unit itself.
+
+For a series a with zero constant coefficient, copy its prime-to-p coefficients
+along their p-power rays. The resulting h satisfies h_{pn}=h_n, and a-h is
+T^p H(T^p). Construct a primitive of h by successive factors 1-alpha_m T^m.
+At degree m prime to p, choose alpha_m=-h_m/m for the current residual
+coefficient. At a multiple of p, invariance forces that coefficient to vanish,
+so choose zero. The correction retains coefficient invariance. The native
+Mathlib product theorem supplies convergence, and the constant coefficient
+one supplies an actual unit. Coefficient stabilization and the precision lemma
+then identify its radial logarithmic derivative with h.
+
+Apply this to a=T Y^{-1}g. Multiplication by Y and cancellation of T give
+g=Delta(u)+Y T^{p-1}H(T^p), entirely in the ordinary power-series ring. Every
+residue-unit logarithmic derivative is fixed by the actual PMIA averaging
+operator: lift the unit to an integral norm-fixed unit and reduce the existing
+fixedness identity. When g is itself fixed, PMIA's fixed-error theorem forces
+H=0. This proves the residue image assertion for all fixed residue series.
+The previous compact lifting argument now gives unconditional surjectivity of
+the actual norm-fixed logarithmic derivative. Together with its existing
+mu_(p-1) kernel, this supplies the assertions of Theorem 12.9.
+
+PMIA owns residue averaging, its reduction comparison and the pole-cancelled
+fixed-error calculation. ClassicalArithmeticCompletion owns the Cartier
+coefficient interface used by PMIA with positive prime degree and indices
+below that degree. No generic Cartier claim outside those hypotheses is
+needed here. Mathlib owns convergence of products with increasing orders.
+The Atlas search found existing analytic Euler products and fixed-ratio
+q-products; this argument only adds the variable-coefficient logarithmic
+correction and its coefficient consequences.
+
+### Residue logarithmic derivatives are fixed by averaging
+
+`ColemanPowerSeries:L3/residue-logarithmic-derivative-psi-fixed` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.residuePsi_logDeriv` (lemma).
+
+For every u∈B_0 units, the actual PMIA residue operator satisfies ψ_0(Δ(u))=Δ(u).
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. Use norm-fixed-unit-residue-surjective to lift u to an actual norm-fixed integral unit v.
+2. The existing norm-fixed logarithmic-derivative theorem gives ψ(Δ(v))=Δ(v). Reduce coefficients and use the PMIA residue-psi comparison and the existing logarithmic-derivative coefficient-change identity.
+3. The reduced unit is u, so the resulting equality is exactly the asserted fixedness. No lift of an arbitrary ψ_0-fixed series is assumed.
+
+**Prerequisites:** `ColemanPowerSeries:L3/norm-fixed-unit-residue-surjective`, `ColemanPowerSeries:L2/norm-fixed-logarithmic-derivative-psi-fixed`, `ColemanPowerSeries:L2/logarithmic-derivative-coefficient-change`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi-comparison`.
+
+**Acceptance:** This is fixedness of Δ for every residue unit, obtained using the already proved norm-fixed unit lift.
+
+**Sources:** RJW-published, Lemma12.13, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Completion of coefficients along p-power rays
+
+`ColemanPowerSeries:L3/frobenius-coefficient-completion` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.frobenius_coefficient_completion` (lemma).
+
+For a∈B_0 with constant coefficient zero, there exist h,H∈B_0 such that h_0=0, h_(pn)=h_n for all n, h_n=a_n when p does not divide n, and a−h=T^p H(T^p).
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. Define h_n=a_m where m is the native p-free part of n. At n=0 the p-free part is zero, so h_0=0. The two native p-free-part identities give h_(pn)=h_n and h_n=a_n away from multiples of p.
+2. Thus a−h has zero constant coefficient and is supported on positive multiples of p. Define H_n=(a−h)_(p(n+1)) using the native coefficient constructor.
+3. Check coefficients of T^p H(T^p) with the native expansion and shift formulas. They recover a−h at every degree.
+
+**Prerequisites:** `mathlib:Nat.ordCompl_self_pow_mul`, `mathlib:Nat.ordCompl_eq_self_iff_zero_or_not_dvd`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_expand`, `mathlib:PowerSeries.coeff_mul_X_pow'`.
+
+**Acceptance:** The zero coefficient is fixed to zero separately. The error is divisible by T^p, not merely supported at arbitrary multiples including degree zero.
+
+**Sources:** RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Logarithmic coefficients of one Euler factor
+
+`ColemanPowerSeries:L3/euler-factor-logarithmic-coefficients` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.euler_factor_logarithmic_coeff` (lemma).
+
+For m≥1, a∈k and an actual unit u with value 1−aT^m, the coefficient of η(u) at n is −m a^(n/m) when n>0 and m divides n, and zero otherwise.
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. The constant coefficient of 1−aT^m is one, so the native unit criterion supplies the unit when needed. Its inverse coefficients, from coeff_invOfUnit and mul_invOfUnit, are a^r in degrees mr and zero in all other degrees.
+2. Differentiate the polynomial expression using the native monomial and power formulas. Multiplication by T gives −m aT^m.
+3. Multiply by the actual unit inverse and shift coefficients. Handle n=0 separately; all formulas remain valid if a=0 or p divides m.
+
+**Prerequisites:** `mathlib:PowerSeries.isUnit_iff_constantCoeff`, `mathlib:PowerSeries.coeff_invOfUnit`, `mathlib:PowerSeries.mul_invOfUnit`, `mathlib:PowerSeries.monomial_eq_C_mul_X_pow`, `mathlib:PowerSeries.derivative_pow`, `mathlib:PowerSeries.derivative_C`, `mathlib:PowerSeries.derivative_X`, `mathlib:PowerSeries.coeff_mul_X_pow'`.
+
+**Unit tests:**
+
+- `ResidueImageTests.ternary_first_factor` (computation): For a unit u with value 1−2T over F_3, coefficient one of T D(u)u⁻¹ is 1.
+- `ResidueImageTests.characteristic_kernel` (non-example): A unit with value 1−T^p over F_p has Δ(u)=0; the characteristic-p logarithmic kernel is not just constants.
+
+**Acceptance:** For m=1,a=2 in F_3, the coefficient at degree one is 1. If p divides m, every logarithmic coefficient vanishes although the factor may be nonconstant.
+
+**Sources:** RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Frobenius invariance of Euler logarithmic coefficients
+
+`ColemanPowerSeries:L3/euler-factor-frobenius-invariance` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.euler_factor_frobenius_coeff` (lemma).
+
+For m≥1, a∈k and u with value 1−aT^m, coefficient pn of η(u) equals coefficient n for every n≥0.
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. If p divides m, its scalar image is zero, so both coefficients vanish by euler-factor-logarithmic-coefficients.
+2. Otherwise m is coprime to p, and m divides pn exactly when it divides n. In the nonzero-degree divisible case, the exponents differ by multiplication by p.
+3. Apply the native finite-field identity a^p=a. Degree zero is zero on both sides.
+
+**Prerequisites:** `ColemanPowerSeries:L3/euler-factor-logarithmic-coefficients`, `mathlib:ZMod.natCast_eq_zero_iff`, `mathlib:ZMod.pow_card`.
+
+**Acceptance:** The equality uses F_p coefficients; the same unmodified equality is not asserted over an arbitrary characteristic-p coefficient field.
+
+**Sources:** RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### One coefficient correction by an Euler factor
+
+`ColemanPowerSeries:L3/euler-correction-step` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.euler_correction_step` (lemma).
+
+Let m≥1 and h∈B_0 have h_(pn)=h_n and h_n=0 for n<m. There are a∈k and an actual unit u with value 1−aT^m such that h−η(u) vanishes through degree m and still has p-invariant coefficients. If p divides m, choose a=0.
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. If p divides m, then h_m=h_(m/p)=0 because m/p<m. Choose a=0 and u=1.
+2. If p does not divide m, its image in k is invertible. Set a=−h_m/m and use the native unit criterion to obtain u.
+3. The Euler coefficient formula gives η(u)_m=−ma=h_m and vanishing below m. Subtract to improve the vanishing range.
+4. Subtract the two coefficient-invariance identities to preserve p-invariance. The minus sign in a is essential.
+
+**Prerequisites:** `ColemanPowerSeries:L3/euler-factor-logarithmic-coefficients`, `ColemanPowerSeries:L3/euler-factor-frobenius-invariance`, `mathlib:ZMod.natCast_eq_zero_iff`, `mathlib:PowerSeries.isUnit_iff_constantCoeff`.
+
+**Acceptance:** Never divide by m when p divides it. At the initial step m=1 the input has zero constant coefficient.
+
+**Sources:** RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Compatible finite Euler corrections
+
+`ColemanPowerSeries:L3/euler-correction-sequence` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.euler_correction_sequence` (lemma).
+
+For h∈B_0 with h_0=0 and h_(pn)=h_n, there exist coefficients a_m and actual units u_N such that a_0=0, a_m=0 when p divides m, u_N has value product_(1≤m≤N)(1−a_mT^m), and coefficients of η(u_N) agree with h through degree N.
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. Start with the empty product u_0=1 and a_0=0. The constant coefficient of η(u_0) and of h is zero.
+2. At step m, subtract η(u_(m−1)) from h. Additivity of the existing logarithmic derivative, and Yη(u)=TΔ(u), identify this as subtraction of the previous Euler-factor contributions.
+3. Each contribution has p-invariant coefficients by euler-factor-frobenius-invariance. Apply euler-correction-step to the residual series; multiply the actual previous unit by the new factor unit.
+4. Natural-number recursion gives one compatible sequence, not a separate choice of a product for each precision. Its zero choices at multiples of p are retained.
+
+**Prerequisites:** `ColemanPowerSeries:L3/euler-correction-step`, `ColemanPowerSeries:L3/euler-factor-frobenius-invariance`, `ColemanPowerSeries:L2/logarithmic-derivative`, `ColemanPowerSeries:L2/logarithmic-derivative-product`, `mathlib:PowerSeries.isUnit_iff_constantCoeff`.
+
+**Acceptance:** The Nth product uses precisely factors of degrees 1 through N. Later choices do not change already corrected coefficients.
+
+**Sources:** RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Normalized unit determined by the Euler product
+
+`ColemanPowerSeries:L3/euler-product-unit-limit` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.euler_product_unit_limit` (lemma).
+
+For any coefficients a_m∈k, the native product product_(m≥1)(1−a_mT^m) is the value of an actual unit u with constant coefficient one. For every N and n≤N, its nth coefficient equals that of the finite product through m=N.
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative. Give k its discrete topology and B_0 the native coefficientwise topology.
+
+**Proof outline:**
+
+1. Write each factor as 1+monomial(m,−a_m). Its added term has order at least m, including infinite order when a_m=0. Apply the native multipliability theorem; this convergence theorem is already in Mathlib.
+2. Map the product by continuous constant-coefficient evaluation. Every factor has constant coefficient one, so the product does too. Use the native unit criterion to obtain u.
+3. Every factor of degree greater than n preserves coefficient n by the native shift formula. Finite induction gives eventual stabilization of coefficient n of the partial products.
+4. The native partial-product convergence and continuity of coefficient evaluation identify the stabilized coefficient with that of u in the Hausdorff coefficient topology.
+
+**Prerequisites:** `mathlib:PowerSeries.WithPiTopology.multipliable_one_add_of_tendsto_order_atTop_nhds_top`, `mathlib:PowerSeries.order_monomial`, `mathlib:Multipliable.map_tprod`, `mathlib:PowerSeries.WithPiTopology.continuous_constantCoeff`, `mathlib:PowerSeries.isUnit_iff_constantCoeff`, `mathlib:HasProd.tendsto_prod_nat`, `mathlib:PowerSeries.WithPiTopology.continuous_coeff`, `mathlib:PowerSeries.monomial_eq_C_mul_X_pow`, `mathlib:PowerSeries.coeff_mul_X_pow'`.
+
+**Unit tests:**
+
+- `ResidueImageTests.empty_product` (degenerate): The constant coefficient of the actual infinite Euler product is one, for every coefficient sequence.
+
+**Acceptance:** The constant coefficient is one, so the limiting series is a unit rather than merely a nonzero series. No norm on all power series is introduced.
+
+**Sources:** RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Precision of the radial logarithmic derivative
+
+`ColemanPowerSeries:L3/radial-logarithmic-coefficient-congruence` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.radial_logarithmic_coeff_congr` (lemma).
+
+If actual units u,v of B_0 have equal coefficients through degree N, then η(u) and η(v) have equal coefficients through degree N.
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. The native divisibility criterion makes u−v divisible by T^(N+1). The unit-inverse difference identity makes u⁻¹−v⁻¹ divisible by the same power.
+2. The derivative coefficient formula shows that T D(u−v) is divisible by T^(N+1): multiplication by T restores the degree lost by differentiation.
+3. Expand η(u)−η(v)=T D(u−v)u⁻¹+T D(v)(u⁻¹−v⁻¹). Each term is divisible by T^(N+1); translate back to coefficient equality.
+
+**Prerequisites:** `mathlib:PowerSeries.X_pow_dvd_iff`, `mathlib:PowerSeries.coeff_derivative`, `mathlib:PowerSeries.coeff_mul_X_pow'`.
+
+**Acceptance:** The factor T is necessary for a precision statement with no lost degree. For the existing weighted Δ, one extra input coefficient is needed.
+
+**Sources:** RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Logarithmic primitive of a coefficient-invariant series
+
+`ColemanPowerSeries:L3/frobenius-invariant-logarithmic-primitive` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.frobenius_fixed_logarithmic_primitive` (theorem).
+
+If h∈B_0 has h_0=0 and h_(pn)=h_n for all n, there exists an actual unit u with constant coefficient one and η(u)=h.
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. Take the compatible Euler corrections from euler-correction-sequence and their actual limiting unit from euler-product-unit-limit.
+2. For each degree n choose N≥n. The limiting unit and the Nth finite product agree through degree N; radial-logarithmic-coefficient-congruence gives agreement of their radial logarithmic derivatives through that degree.
+3. The finite correction identity identifies this coefficient with h_n. Native power-series extensionality gives η(u)=h. Normalization of the constant coefficient does not assert uniqueness modulo the characteristic-p kernel.
+
+**Prerequisites:** `ColemanPowerSeries:L3/euler-correction-sequence`, `ColemanPowerSeries:L3/euler-product-unit-limit`, `ColemanPowerSeries:L3/radial-logarithmic-coefficient-congruence`, `mathlib:PowerSeries.ext`.
+
+**Unit tests:**
+
+- `ResidueImageTests.zero_primitive` (degenerate): The unit one has constant coefficient one and radial logarithmic derivative zero.
+
+**Acceptance:** For h=0 the unit one is a valid normalized primitive. Do not impose a torsion-free derivative-kernel theorem over F_p.
+
+**Sources:** RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Logarithmic decomposition with a pole-free remainder
+
+`ColemanPowerSeries:L3/residue-logarithmic-decomposition` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.residue_logarithmic_decomposition` (lemma).
+
+For every g∈B_0 there are an actual unit u and H∈B_0 with g=Δ(u)+Y T^(p−1)H(T^p).
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. Y has unit constant coefficient, hence an inverse in B_0. Form a=T Y⁻¹g, an actual power series with zero constant coefficient.
+2. Apply frobenius-coefficient-completion to obtain a−h=T^p H(T^p). Apply frobenius-invariant-logarithmic-primitive to obtain u with η(u)=h.
+3. Multiply the displayed equality by Y and use Yη(u)=TΔ(u), which follows by unfolding the existing logarithmic derivative.
+4. Cancel the common factor T using native injectivity of multiplication by X. Since p>1, T^p=T T^(p−1). Every expression stays inside B_0.
+
+**Prerequisites:** `ColemanPowerSeries:L3/frobenius-coefficient-completion`, `ColemanPowerSeries:L3/frobenius-invariant-logarithmic-primitive`, `ColemanPowerSeries:L2/logarithmic-derivative`, `mathlib:PowerSeries.isUnit_iff_constantCoeff`, `mathlib:PowerSeries.X_mul_injective`.
+
+**Acceptance:** This is Lemma12.14 with the source remainder rewritten as Y T^(p−1)H(T^p); it does not ask the bounded averaging operator to act on Y/T.
+
+**Sources:** RJW-published, Lemma12.14, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Logarithmic image of residue averaging invariants
+
+`ColemanPowerSeries:L3/residue-psi-fixed-logarithmic-image` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.residuePsi_fixed_logarithmic_image` (theorem).
+
+Every g∈B_0 satisfying ψ_0(g)=g equals Δ(u) for some actual unit u∈B_0 units.
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. Write g=Δ(u)+Y T^(p−1)H(T^p) by residue-logarithmic-decomposition.
+2. The first term is ψ_0-fixed by residue-logarithmic-derivative-psi-fixed. Subtract its equality from the fixedness of g, using the actual linear residue operator.
+3. The PMIA residue-psi-fixed-error-zero theorem forces H=0. Substitute back to obtain g=Δ(u). This also applies to every reduction of an integral ψ-fixed series by the PMIA reduction comparison.
+
+**Prerequisites:** `ColemanPowerSeries:L3/residue-logarithmic-decomposition`, `ColemanPowerSeries:L3/residue-logarithmic-derivative-psi-fixed`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi-fixed-error-zero`.
+
+**Unit tests:**
+
+- `ResidueImageTests.dyadic_image` (compatibility): Every series fixed by the actual residue averaging operator at p=2 is the logarithmic derivative of an actual unit of F_2[[T]].
+
+**Acceptance:** This derives the stronger statement for all actual residue ψ_0-fixed series; the source only needs reductions of integral fixed series. No lifting of arbitrary residue fixed series is assumed in the argument.
+
+**Sources:** RJW-published, Lemma12.13, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Surjectivity on norm-fixed integral units
+
+`ColemanPowerSeries:L3/norm-fixed-logarithmic-derivative-surjective` — `TauCetiRoadmap.Campaign.ColemanPowerSeries.normFixedLogDeriv_surjective` (theorem).
+
+The actual existing group homomorphism normFixedLogDeriv from norm-fixed units in Z_p[[T]] to the additive ψ-fixed integral series, with the native Multiplicative tag, is surjective.
+
+**Hypotheses:** p is prime, including p=2; k=F_p and B_0=k[[T]] are the native ZMod and PowerSeries carriers. Put Y=1+T. Write η(u)=T D(u) u⁻¹ only as notation; Δ(u)=Y D(u) u⁻¹ is the existing logarithmic derivative.
+
+**Proof outline:**
+
+1. For an integral ψ-fixed F, use the actual PMIA coefficient-reduction comparison to prove that its reduction is ψ_0-fixed.
+2. Apply residue-psi-fixed-logarithmic-image to obtain a residue unit with logarithmic derivative equal to that reduction.
+3. Apply the existing logarithmic-derivative-residue-image-equivalence, which already contains the norm-fixed lift, p-adic precision corrections and compact-image argument. No residual image hypothesis remains.
+4. Together with the existing norm-fixed-logarithmic-derivative-kernel theorem, this supplies the kernel and surjectivity assertions of Theorem12.9; its kernel is μ_(p−1), as in existing finding E13.
+
+**Prerequisites:** `ColemanPowerSeries:L3/residue-psi-fixed-logarithmic-image`, `PadicMeasuresIwasawaAlgebras:L2/residue-psi-comparison`, `ColemanPowerSeries:L3/logarithmic-derivative-residue-image-equivalence`, `ColemanPowerSeries:L3/norm-fixed-logarithmic-derivative-kernel`.
+
+**Acceptance:** The conclusion concerns the actual previously constructed norm and logarithmic derivative. It does not assert the arithmetic Coleman interpolation or Theorem12.17.
+
+**Sources:** RJW-published, Lemma12.13–12.14 and completion of Theorem12.9, published printed182–183/PDF83–84; full fresh reading, including the Euler-product proof; arXiv2309.15692v2 pp.60–61 collated. Declaration-sized worker decomposition of the source argument with explicit native carriers and hypotheses. The residue averaging and fixed-error calculation are imported from PMIA; no bounded operator is applied to a pole.
+
+### Current validation and continuation boundary
+
+All 107 predecessor node objects, 117 baseline records, 13 findings, nine
+planets and previous suggested-file content are preserved. E8's domain issue
+is handled inside ordinary power series; E13's kernel correction remains.
+The two PMIA lattice requests now ask only for finite-flat generality beyond
+the supplied actual unit-domain comparisons. No stage is marked closed.
+
+The full suggested file compiles with zero errors and 243 expected placeholder
+warnings only. Its actual 209-node PMIA supplier compiles with zero errors and
+442 such warnings. The import audit byte-checks 2,797 pinned Mathlib modules
+and the actual suggested supplier. No Tau Ceti module is reached.
+
+Nine complete scratch lemmas compile with zero errors, warnings or placeholders
+against 1,711 pinned Mathlib modules. They prove native Euler multipliability,
+constant coefficient one, unit status, partial-product convergence, preservation
+of low coefficients, the three coefficient-completion identities, and radial
+derivative divisibility. Exact finite arithmetic passes 412,089 assertions
+across 960 systems over F_p, for p=2,3,5,7 and tested degrees 3,7,15,25.
+It checks the actual unit inverses, correction recursion, logarithmic identities,
+pole-free remainders and fixed-error controls. Finite checks do not prove the
+infinite theorem or arithmetic interpolation.
+
+Fresh source reading covers complete published RJW printed 182–183 / PDF 83–84
+and arXiv v2 pages 60–61, with their source hashes checked. Eighteen new baseline
+statements were read at the pins. The current actual PMIA residue supplier
+and the restricted Cartier interface were read. Earlier broader readings
+retain their historical provenance; this is not a new full-source audit.
+
+Continue with the actual arithmetic Coleman interpolation and composite, the
+full G-action, its kernel mu_(p-1) times Z_p(1), cyclotomic-moment cokernel,
+and the principal-unit exact sequence of Theorem 12.17. The tower, quotient
+and finite-flat completed-tensor obligations remain in the six gaps and twelve
+requests. Every implementation status remains unchecked.
