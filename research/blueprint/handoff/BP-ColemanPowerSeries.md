@@ -1,3 +1,159 @@
+# BP-ColemanPowerSeries — norm congruence continuation
+
+Worker: Codex — codex-hjdg0j. Issue #699; winning claim comment
+5851870622, bot confirmation 5851871414. Snapshot main
+ca66a41d6cd47d92a6308f31344dc8f512042dad. Full scope L0–L4, part null.
+This is a partial checkpoint. Opening the PR ends this claim; no manual
+merge, issue closure or label change is part of this submission.
+
+## Delivered mathematics
+
+Preserves all 50 inherited node objects, 41 API items, 41 attached tests,
+eleven source-finding objects and nine supplier requests unchanged. The PMIA L2
+and Dirichlet L1 requests are narrowed to their remaining interfaces, and a precise PMIA L0
+clopen-subtype comparison request is added. Adds seven L1
+declarations: six lemmas and one theorem, with eleven attached examples.
+The resulting packet has 57 nodes (2 definitions, 6 constructions,
+43 lemmas, 4 theorems, 2 comparisons), 41 API items, 29 definition/construction
+tests and 23 other attached tests. Two further inherited boundary examples
+remain in the suggested file. There are 7 planets, 68 baseline references,
+6 explicit gaps, 12 supplier requests and no closed stage.
+
+The new component supplies all four parts of RJW Lemma 10.11. It uses the
+actual inherited φ-scalar determinant norm and trace. Reduction modulo p
+is an existing coefficient map; equality of reductions is equivalent to
+divisibility of the series difference. Frobenius congruence reflection
+specializes the existing coordinate-divisibility theorem. The determinant
+commutes with reduction modulo (p^k), so N preserves congruences. Native
+power-series expansion/Frobenius identities and injectivity of Frobenius
+on 𝔽_p[[T]] then give N(f)≡f mod p for every f.
+
+For f=1+p^k h, the native exact expansion det(I+p^k M_h) gives the trace
+term p^k τ(h) and a remainder divisible by p^(2k). The inherited trace
+divisibility and k≥1 yield p^(k+1). Induction and multiplication by the
+norm iterate of an actual unit give the two-index congruence. All these
+algebraic statements include p=2. The arithmetic odd-prime convention and
+the separate root-of-unity product comparison are unchanged.
+
+The examples detect loss of the exponent, confusion between iteration
+and powers, omission of high coefficients in a congruence, the forbidden
+k=0 extension, and the dyadic sign. They remain typed specifications.
+
+## Reading and ownership
+
+WORKERS, both protocols, UPSTREAM_GUIDE and browser instructions were read
+in this session and the snapshot copies checked unchanged. The two upstream
+models are GrothendieckEulerForms and JacobianChallenge, previously read
+fully in this session and byte-checked in this snapshot. The full campaign
+document, all five reviewed AUDIT-24 entries, all stage descriptions and
+edges, all 35 applicable link records, full issue before/after the winning
+bot, and the applicable accepted RS-16 ownership were read before planning.
+No AGENTS file was present. All inherited node objects, source findings,
+baseline records, sources, coverage, gaps, requests and suggested Lean
+were read; the reader was read in the relevant L1 and continuation sections,
+not in its entirety. The predecessor handoff and provenance were retained.
+
+P7's exact cyclotomic-frobenius node was read. It owns the general
+Witt-coefficient Frobenius action and its period-ring basis. The calculation
+ρ(φ(f))=ρ(f)^p here is a direct use of native substitution/expansion identities
+inside the norm proof; no second Frobenius declaration is proposed. PMIA
+and Dirichlet packet screens found no supplying norm-congruence node.
+Accepted RS-16 assigns the integral norm congruences to Coleman L1.
+Generic determinants remain Mathlib inputs. Bounded ψ and its comparison,
+Weierstrass, completed actions and global cyclotomic units retain their
+existing suppliers. No new carrier is introduced. The fresh PMIA packet
+supplies inverse weighting, its unit-dilation factor and the unique inverse
+Mahler derivative on kerψ. Its fifteen new node objects and four exact
+preexisting operator nodes were read. Use the exact ids now recorded in
+the packet/reader; the intrinsic clopen measure comparison belongs to L0.
+The new PMIA source findings E5–E7 concern printed193 and do not alter this
+norm-congruence component; they were screened without claiming review.
+
+Fresh source reading: published RJW physical PDF67–69 / printed166–168,
+with printed168 rendered and visually checked; Coates–Sujatha physical
+PDF26–31 / printed16–21. PDF reads were at most three physical pages per
+call and used pymupdf. Hashes agree exactly with the inherited records.
+Earlier wider RJW and arXiv readings remain predecessor evidence. The
+eleven inherited findings are unchanged; no new mistake or independent
+review verdict is asserted. CS printed20 completes the read proof of
+Lemma2.3.5; pp.20–21 also begin the additive exact-sequence argument, whose
+continuation must be read before planning its closure.
+
+## Validation and publication
+
+The indexed blueprint checker reports zero errors and warnings. The
+suggested file is compiled against Lean 4.34.0-rc2 and the exact pinned
+Mathlib source closure; all warnings must be proof placeholders. No scratch
+Lean file or proof implementation was introduced. Compiler totals, scoped
+four-file intake, mathematical regressions and fresh-main guard results are
+recorded below after final validation. Passing these checks establishes
+neither proofs nor closure of the roadmap.
+
+Final validation: **Lean exit 0, 0 errors, 131 warnings**, all declaration
+proof placeholders. Its import closure has **2266 Mathlib source modules**
+byte-verified against the exact pin, and no Tau Ceti imports. The suggested
+file SHA-256 is 33c1e31b78d9403c60fed2e77718adab0f46e2a1130d8be3703534a94ae93527.
+The indexed blueprint checker and source-finding schema have zero errors
+or warnings/problems; four-file intake has zero problems. Declaration/API/
+test names and all seven new reader entries agree. Internal prerequisites
+form an acyclic graph. All 50 inherited node objects and eleven finding
+objects are preserved exactly.
+
+Exact integer polynomial resultant regressions passed **540 assertions**,
+at p=2,3,5 with eight degree-at-most-three cases per prime, precisions 0–3,
+two norm iterations, and sharp/boundary examples. This is finite-case
+checking, not proof for all formal series. The first invocation lacked
+SymPy; rerunning in the existing mathematical Python environment succeeded.
+
+Fresh-main guard: 3fa3504bfe0aa38e8c6f1934daa440b2e6756999; 68 paths guarded. The refreshed PMIA
+and Dirichlet packets were read and adopted as inputs; all other captured bytes matched,
+no newly added relevant supplier packet, unchanged issue instructions,
+and the original winning bot verified. Exactly the four authorized
+deliverables differ from the starting archive. No private path or PDF
+is included in them.
+
+The final guard also detected a Dirichlet supplier update at
+3fa3504bfe0aa38e8c6f1934daa440b2e6756999. Its twenty added statements were
+screened; seven exact supplying node objects, the L1 remaining list and
+new E6 were read. The existing five denominator dependencies are unchanged.
+The reader/packet now name the ψ-invariance, unit-restriction and arithmetic
+numerator nodes. The ψ chain retains its explicit root-average gap, while
+the numerator and its Amice comparison are independent of that gap. The
+remaining Dirichlet request is pseudomeasure normalization/denominators;
+Coleman retains its own raw-image sign comparison. All original node and
+source-finding objects remain unchanged.
+
+## Exact next work
+
+Resume L1 with continuity of the inverse Frobenius coordinate map and of
+the norm in the coefficientwise p-adic topology. The existing assembly
+is a continuous bijection from compact B^p to Hausdorff B; use the native
+compact-to-Hausdorff inverse theorem. Norm is then a finite determinant
+polynomial in those coordinates. Combine continuity and the new iterate
+estimate with completeness/compactness to specify and prove the norm-fixed
+limit (CS Corollary2.3.4), retaining the nonzero residue of the constant
+coefficient to prove the limit is a unit.
+
+Then construct completed root-of-unity substitutions over the correct
+extended coefficient ring, compare the determinant/product and integral
+trace/bounded ψ, and prove arithmetic norm/evaluation compatibility.
+Read RJW printed169 before completing Proposition10.12; use the now-read
+CS Lemma2.3.5 as a guide to its indices and finite-level lifts. Import
+Weierstrass from PMIA L4 with the nonzero hypothesis. Full interpolation,
+continuity and equivariance still require the genuine cyclotomic unit tower.
+
+The L0 tower and principal-unit module, L2 Coleman measure map and sign,
+L3 kernel/cokernel/topological exactness and coefficient extension, and
+L4 local cyclotomic-unit quotient remain the explicit stage gaps. The
+original Coleman1979 paper and precise coefficient variants still need
+reading. Do not convert the new norm congruences into a claim of arithmetic
+interpolation or full closure. Do not re-create supplier-owned objects.
+
+---
+
+The following predecessor handoff is retained as historical evidence;
+its earlier counts and reading boundaries are superseded above.
+
 # BP-ColemanPowerSeries — signed and p-adic parameters
 
 Codex — codex-7e92bd. Refs #699. Own-job follow-up to merged checkpoint
