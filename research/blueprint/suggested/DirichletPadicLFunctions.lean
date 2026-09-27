@@ -1,3 +1,5 @@
+import TauCeti.NumberTheory.ModularForms.Degeneracy
+import Mathlib.NumberTheory.ModularForms.EisensteinSeries.QExpansion
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import Mathlib.NumberTheory.PowModTotient
 import research.blueprint.suggested.PadicMeasuresIwasawaAlgebras
@@ -462,7 +464,7 @@ end SuggestedSmoothingTests
 /-!
 Positive Eisenstein coefficients (L4). These are native integral measures on the actual unit
  group. The index is positive, so this constructor makes no assertion about A₀. The modular-form
- comparison and the completed-algebra image remain explicit gaps in the roadmap.
+ comparison is supplied below; the completed-algebra image remains an explicit gap.
 -/
 namespace DirichletPadic
 section EisensteinCoefficients
@@ -570,3 +572,123 @@ example [Fact (Nat.Prime 5)] : ¬ (25 : ℤ_[5]) ∣
       positiveEisensteinMeasure 5 2 ⟨fun u : ℤ_[5]ˣ => (u : ℤ_[5]) ^ 3, by fun_prop⟩ := sorry
 
 end SuggestedEisensteinTests
+
+/-!
+Arithmetic Eisenstein normalization and its actual p-stabilized modular form (L4).
+The classical form is the existing Mathlib E. The source's arithmetic normalization
+is a scalar multiple; the level change uses the existing Tau Ceti degeneracy map.
+The positive coefficient comparison uses the same integer in ℂ and ℤ_p.
+The construction of A₀ and its completed-algebra comparison remain separate gaps.
+-/
+namespace DirichletPadic
+section ClassicalEisenstein
+open scoped MatrixGroups
+open CongruenceSubgroup Matrix.SpecialLinearGroup UpperHalfPlane
+
+-- DirichletPadicLFunctions:L4/normalized-eisenstein
+/-- RJW's arithmetic normalization of the existing constant-one Eisenstein form. -/
+def normalizedEisenstein (k : ℕ) (hk : 4 ≤ k) : ModularForm 𝒮ℒ (k : ℤ) :=
+  (-(bernoulli k : ℂ) / (2 * k)) • ModularForm.E (by omega : 3 ≤ k)
+
+theorem normalizedEisenstein_eq_smul (k : ℕ) (hk : 4 ≤ k) :
+    normalizedEisenstein k hk =
+      (-(bernoulli k : ℂ) / (2*k)) • ModularForm.E (by omega : 3 ≤ k) := sorry
+
+theorem normalizedEisenstein_apply (k : ℕ) (hk : 4 ≤ k) (z : ℍ) :
+    normalizedEisenstein k hk z =
+      (-(bernoulli k : ℂ) / (2*k)) * ModularForm.E (by omega : 3 ≤ k) z := sorry
+
+-- DirichletPadicLFunctions:L4/normalized-eisenstein-coeff
+theorem normalizedEisenstein_coeff (k : ℕ) (hk : 4 ≤ k) (he : Even k) (n : ℕ) :
+    (qExpansion 1 (normalizedEisenstein k hk)).coeff n =
+      if n = 0 then -(bernoulli k : ℂ) / (2*k)
+      else (ArithmeticFunction.sigma (k-1) n : ℂ) := sorry
+
+-- DirichletPadicLFunctions:L4/normalized-eisenstein-zeta-constant
+theorem normalizedEisenstein_constant_zeta (k : ℕ) (hk : 4 ≤ k) (he : Even k) :
+    (qExpansion 1 (normalizedEisenstein k hk)).coeff 0 =
+      riemannZeta (1 - (k : ℂ)) / 2 ∧
+    (qExpansion 1 (normalizedEisenstein k hk)).coeff 0 =
+      algebraMap ℚ ℂ (-bernoulli k / (2*k)) := sorry
+
+variable (p : ℕ) [Fact p.Prime]
+-- DirichletPadicLFunctions:L4/p-stabilized-eisenstein
+/-- Arithmetic p-stabilization in the native modular-form carrier at Γ₀(p). -/
+def pStabilizedEisenstein (k : ℕ) (hk : 4 ≤ k) :
+    ModularForm ((Gamma0 p).map (mapGL ℝ)) (k : ℤ) :=
+  ModularForm.ofLe (Subgroup.map_le_range _ _) (normalizedEisenstein k hk) -
+    (p : ℂ) ^ (k - 1) • TauCeti.ModularForm.levelRaise p
+      (by simpa using TauCeti.Gamma0_map_le_conjAct_scaleGL 1 p)
+      (ModularForm.ofLe (Subgroup.map_le_range _ _) (normalizedEisenstein k hk))
+
+theorem pStabilizedEisenstein_eq (k : ℕ) (hk : 4 ≤ k) :
+    pStabilizedEisenstein p k hk =
+      ModularForm.ofLe (Subgroup.map_le_range _ _) (normalizedEisenstein k hk) -
+        (p : ℂ) ^ (k - 1) • TauCeti.ModularForm.levelRaise p
+          (by simpa using TauCeti.Gamma0_map_le_conjAct_scaleGL 1 p)
+          (ModularForm.ofLe (Subgroup.map_le_range _ _) (normalizedEisenstein k hk)) := sorry
+
+theorem pStabilizedEisenstein_apply (k : ℕ) (hk : 4 ≤ k) (z : ℍ) :
+    pStabilizedEisenstein p k hk z = normalizedEisenstein k hk z -
+      (p : ℂ) ^ (k-1) * normalizedEisenstein k hk (TauCeti.scaleGL p • z) := sorry
+
+-- DirichletPadicLFunctions:L4/p-stabilized-q-expansion
+theorem pStabilizedEisenstein_qExpansion (k : ℕ) (hk : 4 ≤ k) :
+    qExpansion 1 (pStabilizedEisenstein p k hk) =
+      qExpansion 1 (normalizedEisenstein k hk) - (p : ℂ) ^ (k-1) •
+        (qExpansion 1 (normalizedEisenstein k hk)).expand p (NeZero.ne p) := sorry
+
+-- DirichletPadicLFunctions:L4/p-stabilized-positive-coeff
+theorem pStabilizedEisenstein_coeff_pos (k : ℕ) (hk : 4 ≤ k) (he : Even k) (n : ℕ+) :
+    (qExpansion 1 (pStabilizedEisenstein p k hk)).coeff (n : ℕ) =
+      ((∑ d ∈ (n : ℕ).divisors with ¬ p ∣ d, (d : ℤ) ^ (k-1)) : ℂ) := sorry
+
+-- DirichletPadicLFunctions:L4/p-stabilized-zeta-constant
+theorem pStabilizedEisenstein_constant_zeta (k : ℕ) (hk : 4 ≤ k) (he : Even k) :
+    (qExpansion 1 (pStabilizedEisenstein p k hk)).coeff 0 =
+      (1 - (p : ℂ) ^ (k-1)) * riemannZeta (1 - (k : ℂ)) / 2 ∧
+    (qExpansion 1 (pStabilizedEisenstein p k hk)).coeff 0 =
+      algebraMap ℚ ℂ (-(1-(p : ℚ)^(k-1))*bernoulli k/(2*k)) := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-modular-comparison
+-- A joint comparison via ℤ, never an arbitrary map from ℂ to a p-adic field.
+theorem positiveEisensteinMeasure_modular_coeff (k : ℕ) (hk : 4 ≤ k) (he : Even k)
+    (n : ℕ+) :
+    ∃! S : ℤ,
+      (qExpansion 1 (pStabilizedEisenstein p k hk)).coeff (n : ℕ) = (S : ℂ) ∧
+      positiveEisensteinMeasure p n
+        ⟨fun u : ℤ_[p]ˣ => (u : ℤ_[p]) ^ (k-1), by fun_prop⟩ = (S : ℤ_[p]) := sorry
+
+end ClassicalEisenstein
+end DirichletPadic
+
+namespace SuggestedModularTests
+open DirichletPadic UpperHalfPlane
+
+-- SuggestedModularTests.weight_four_normalization
+example : (qExpansion 1 (normalizedEisenstein 4 (by decide))).coeff 0 = (1/240 : ℂ) ∧
+    (qExpansion 1 (normalizedEisenstein 4 (by decide))).coeff 1 = 1 := sorry
+
+-- SuggestedModularTests.weight_six_sign
+example : (qExpansion 1 (normalizedEisenstein 6 (by decide))).coeff 0 = (-1/504 : ℂ) ∧
+    (qExpansion 1 (normalizedEisenstein 6 (by decide))).coeff 2 = 33 := sorry
+
+-- SuggestedModularTests.native_constant_one_rejected
+example : (qExpansion 1 (normalizedEisenstein 4 (by decide))).coeff 0 ≠ (1 : ℂ) := sorry
+
+-- SuggestedModularTests.dyadic_stabilized_constant
+example : (qExpansion 1 (pStabilizedEisenstein 2 4 (by decide))).coeff 0 = (-7/240 : ℂ) := sorry
+
+-- SuggestedModularTests.coefficient_at_p_survives
+example : (qExpansion 1 (pStabilizedEisenstein 2 4 (by decide))).coeff 2 = (1 : ℂ) ∧
+    (qExpansion 1 (pStabilizedEisenstein 2 4 (by decide))).coeff 2 ≠ (0 : ℂ) := sorry
+
+-- SuggestedModularTests.prime_to_p_index
+example : (qExpansion 1 (pStabilizedEisenstein 3 4 (by decide))).coeff 2 = (9 : ℂ) := sorry
+
+-- SuggestedModularTests.multiple_of_p_index
+example : (qExpansion 1 (pStabilizedEisenstein 3 4 (by decide))).coeff 6 = (9 : ℂ) ∧
+    (qExpansion 1 (pStabilizedEisenstein 3 4 (by decide))).coeff 6 =
+      (qExpansion 1 (pStabilizedEisenstein 3 4 (by decide))).coeff 2 := sorry
+
+end SuggestedModularTests
