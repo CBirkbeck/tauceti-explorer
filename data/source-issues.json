@@ -137343,6 +137343,153 @@
    "reviewReason": "Found by the review (checker C2) and checked at the locator in the version read."
   },
   {
+   "id": "HeightsRationalPointsAndObstructions/E1",
+   "kind": "misprint",
+   "locator": "§3, proof of Lemma 3.1, p.2 in the undated 13-page author copy read 2026-09-27",
+   "printed": "exactly equal",
+   "correction": "The equality for the logarithmic height needs log(max|xᵢ|/gcd(xᵢ)). The displayed lemma’s weaker upper bound by max|xᵢ| remains true. The stronger upper bound by log(max|xᵢ|) is what §11 uses.",
+   "reason": "At [1:2], the height is log 2, whereas the displayed quotient is 2.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author’s current heights.pdf and Spring 2022 course page https://www.math.columbia.edu/~dejong/courses/schemes-spring-2022.html, accessed 2026-09-27; no correction linked.",
+    "Author homepage https://www.math.columbia.edu/~dejong/, accessed 2026-09-27; no correction to these notes located.",
+    "Web searches for de Jong Notes on Heights corrections and site.math.columbia.edu heights.pdf errata on 2026-09-27; no correction found. No claim of an exhaustive bibliographic search."
+   ],
+   "owner": "HeightsRationalPointsAndObstructions",
+   "file": "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+   "citation": "Aise Johan de Jong, Notes on Heights, Undated author-hosted course notes, linked by the Spring 2022 Schemes course page; 13-page copy accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HeightsRationalPointsAndObstructions/E2",
+   "kind": "misprint",
+   "locator": "§11, paragraph before the left inverse, p.6 in the undated 13-page author copy read 2026-09-27",
+   "printed": "rank m + 1",
+   "correction": "The (m+1)-by-(n+1) matrix with m≥n and maximal rank has rank n+1, which gives its left inverse.",
+   "reason": "The inclusion with matrix [[1,0],[0,1],[0,0]] has m=2,n=1, rank 2, and a left inverse; rank 3 is impossible.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author’s current heights.pdf and Spring 2022 course page https://www.math.columbia.edu/~dejong/courses/schemes-spring-2022.html, accessed 2026-09-27; no correction linked.",
+    "Author homepage https://www.math.columbia.edu/~dejong/, accessed 2026-09-27; no correction to these notes located.",
+    "Web searches for de Jong Notes on Heights corrections and site.math.columbia.edu heights.pdf errata on 2026-09-27; no correction found. No claim of an exhaustive bibliographic search."
+   ],
+   "owner": "HeightsRationalPointsAndObstructions",
+   "file": "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+   "citation": "Aise Johan de Jong, Notes on Heights, Undated author-hosted course notes, linked by the Spring 2022 Schemes course page; 13-page copy accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HeightsRationalPointsAndObstructions/E3",
+   "kind": "error",
+   "locator": "§11, lower-bound calculation, p.6 in the undated 13-page author copy read 2026-09-27",
+   "printed": "hm(y)",
+   "correction": "The equality identifying log max|yⱼ| with hₘ(y) requires primitive integer coordinates. Replace y=Ax by its primitive integer normalization y′; eBy′ is a nonzero scalar multiple of x. Apply the same upper estimate to y′. In the preceding maximum, the range for j is 0,…,m, not 0,…,n.",
+   "reason": "For A=2I₂ and x=(1,1), y=(2,2), so log max|yⱼ|=log 2 while h₁([y])=0. For A=(0,1)ᵀ, n=0,m=1, the printed maximum over index 0 alone also misses the nonzero coordinate.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author’s current heights.pdf and Spring 2022 course page https://www.math.columbia.edu/~dejong/courses/schemes-spring-2022.html, accessed 2026-09-27; no correction linked.",
+    "Author homepage https://www.math.columbia.edu/~dejong/, accessed 2026-09-27; no correction to these notes located.",
+    "Web searches for de Jong Notes on Heights corrections and site.math.columbia.edu heights.pdf errata on 2026-09-27; no correction found. No claim of an exhaustive bibliographic search."
+   ],
+   "owner": "HeightsRationalPointsAndObstructions",
+   "file": "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+   "citation": "Aise Johan de Jong, Notes on Heights, Undated author-hosted course notes, linked by the Spring 2022 Schemes course page; 13-page copy accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HeightsRationalPointsAndObstructions/E4",
+   "kind": "misprint",
+   "locator": "§14, Step 5, displayed equality, p.8 in the undated 13-page author copy read 2026-09-27",
+   "printed": "ϕK",
+   "correction": "Replace each displayed ϕ by the corresponding real-valued height h; the equality is in the height-class quotient.",
+   "reason": "The earlier ϕ notation denotes maps into projective spaces, which cannot be added as real functions. The preceding tensor identity gives the intended sum of heights.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author’s current heights.pdf and Spring 2022 course page https://www.math.columbia.edu/~dejong/courses/schemes-spring-2022.html, accessed 2026-09-27; no correction linked.",
+    "Author homepage https://www.math.columbia.edu/~dejong/, accessed 2026-09-27; no correction to these notes located.",
+    "Web searches for de Jong Notes on Heights corrections and site.math.columbia.edu heights.pdf errata on 2026-09-27; no correction found. No claim of an exhaustive bibliographic search."
+   ],
+   "owner": "HeightsRationalPointsAndObstructions",
+   "file": "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+   "citation": "Aise Johan de Jong, Notes on Heights, Undated author-hosted course notes, linked by the Spring 2022 Schemes course page; 13-page copy accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HeightsRationalPointsAndObstructions/E5",
+   "kind": "misprint",
+   "locator": "§14, Step 6 continuation, p.9 in the undated 13-page author copy read 2026-09-27",
+   "printed": "Fact II",
+   "correction": "Use Fact III for very ampleness of a tensor product of very ample bundles.",
+   "reason": "Fact II gives difference presentations of arbitrary invertible modules; Fact III says that tensoring a very ample bundle with a globally generated one is very ample.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author’s current heights.pdf and Spring 2022 course page https://www.math.columbia.edu/~dejong/courses/schemes-spring-2022.html, accessed 2026-09-27; no correction linked.",
+    "Author homepage https://www.math.columbia.edu/~dejong/, accessed 2026-09-27; no correction to these notes located.",
+    "Web searches for de Jong Notes on Heights corrections and site.math.columbia.edu heights.pdf errata on 2026-09-27; no correction found. No claim of an exhaustive bibliographic search."
+   ],
+   "owner": "HeightsRationalPointsAndObstructions",
+   "file": "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+   "citation": "Aise Johan de Jong, Notes on Heights, Undated author-hosted course notes, linked by the Spring 2022 Schemes course page; 13-page copy accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HeightsRationalPointsAndObstructions/E6",
+   "kind": "gap",
+   "locator": "§14, Step 7, p.9 in the undated 13-page author copy read 2026-09-27",
+   "printed": "Step 3",
+   "correction": "Insert the globally generated comparison: tensor a globally generated L by a sufficiently positive very ample N as in Fact IV; the Segre identity gives the height of its chosen generating sections as h(L⊗N)−h(N). Additivity identifies this with h(L). Apply this comparison to both L and f*L before asserting pullback.",
+   "reason": "Step 3 only states the comparison for very ample L. A pullback of a very ample bundle can be trivial under a constant morphism and need not be very ample, so the cited step alone does not justify its second use.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author’s current heights.pdf and Spring 2022 course page https://www.math.columbia.edu/~dejong/courses/schemes-spring-2022.html, accessed 2026-09-27; no correction linked.",
+    "Author homepage https://www.math.columbia.edu/~dejong/, accessed 2026-09-27; no correction to these notes located.",
+    "Web searches for de Jong Notes on Heights corrections and site.math.columbia.edu heights.pdf errata on 2026-09-27; no correction found. No claim of an exhaustive bibliographic search."
+   ],
+   "owner": "HeightsRationalPointsAndObstructions",
+   "file": "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+   "citation": "Aise Johan de Jong, Notes on Heights, Undated author-hosted course notes, linked by the Spring 2022 Schemes course page; 13-page copy accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "HeightsRationalPointsAndObstructions/E7",
+   "kind": "misprint",
+   "locator": "§15, equation (15.0.1), p.9 in the undated 13-page author copy read 2026-09-27",
+   "printed": "log",
+   "correction": "Use log(max{1,||1+a||ᵥ}) in the sum if this is the height comparison for [1:1+a]. Alternatively restrict a≠−1 and state an extended-log convention if only the weaker untruncated inequality is intended. The max version is the one supplied by Axiom 2.",
+   "reason": "At a=−1 each displayed logarithm has zero argument. With the usual real logarithm this is undefined; the projective height itself is well defined and equals zero. The pointwise estimate (15.0.2) is meaningful at a=−1.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Author’s current heights.pdf and Spring 2022 course page https://www.math.columbia.edu/~dejong/courses/schemes-spring-2022.html, accessed 2026-09-27; no correction linked.",
+    "Author homepage https://www.math.columbia.edu/~dejong/, accessed 2026-09-27; no correction to these notes located.",
+    "Web searches for de Jong Notes on Heights corrections and site.math.columbia.edu heights.pdf errata on 2026-09-27; no correction found. No claim of an exhaustive bibliographic search."
+   ],
+   "owner": "HeightsRationalPointsAndObstructions",
+   "file": "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+   "citation": "Aise Johan de Jong, Notes on Heights, Undated author-hosted course notes, linked by the Spring 2022 Schemes course page; 13-page copy accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "K2SymbolsBrauer/E1",
    "kind": "misprint",
    "locator": "III.5.11, the paragraph after (D1)–(D3), PDF p. 234 (draft p. 226), author-hosted draft of 29 August 2013",
