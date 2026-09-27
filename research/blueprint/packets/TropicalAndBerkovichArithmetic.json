@@ -1,0 +1,2207 @@
+{
+  "roadmapId": "TropicalAndBerkovichArithmetic",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "TropicalAndBerkovichArithmetic:TB.0",
+    "TropicalAndBerkovichArithmetic:TB.1",
+    "TropicalAndBerkovichArithmetic:TB.2",
+    "TropicalAndBerkovichArithmetic:TB.3",
+    "TropicalAndBerkovichArithmetic:TB.4",
+    "TropicalAndBerkovichArithmetic:TB.5",
+    "TropicalAndBerkovichArithmetic:TB.6",
+    "TropicalAndBerkovichArithmetic:TB.7"
+  ],
+  "status": "partial",
+  "summary": "A dependency-closed TB.0 component plans the compact Hausdorff bounded-seminorm spectrum and its contravariant functor on bounded ring maps, using native multiplicative seminorms and the native power trick. The reviewed curve and tropicalization extraction is retained with declaration-sized targets and explicit missing inputs. This is a partial blueprint, not a formalisation.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:MulRingSeminorm",
+        "kind": "structure",
+        "module": "Mathlib/Analysis/Normed/Unbundled/RingSeminorm.lean",
+        "provides": "Native nonnegative additive seminorm and unital multiplicative map to the reals.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 62; Git blob verified."
+      },
+      {
+        "ref": "mathlib:MulRingSeminorm.ext",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Unbundled/RingSeminorm.lean",
+        "provides": "Extensional equality of native multiplicative seminorms.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 303; Git blob verified."
+      },
+      {
+        "ref": "mathlib:normRingSeminorm",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Normed/Unbundled/RingSeminorm.lean",
+        "provides": "The submultiplicative ring seminorm supplied by the norm.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 191; Git blob verified."
+      },
+      {
+        "ref": "mathlib:RingHom.IsBoundedWrt",
+        "kind": "def",
+        "module": "Mathlib/Basic/Real/Basic.lean",
+        "provides": "One positive uniform bound between specified real functions.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 595; Git blob verified."
+      },
+      {
+        "ref": "mathlib:RingHom.IsBounded",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Normed/Ring/Basic.lean",
+        "provides": "One positive uniform bound between source and target norms.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 504; Git blob verified."
+      },
+      {
+        "ref": "mathlib:contraction_of_isPowMul_of_boundedWrt",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Unbundled/IsPowMulFaithful.lean",
+        "provides": "Power-multiplicative bounded pullbacks are pointwise dominated by the source ring seminorm.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 36; Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsPowMul",
+        "kind": "def",
+        "module": "Mathlib/Basic/Real/Basic.lean",
+        "provides": "Power multiplicativity for positive natural powers.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 583; Git blob verified."
+      },
+      {
+        "ref": "mathlib:map_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Hom/Defs.lean",
+        "provides": "A multiplicative map preserves natural powers.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 470; Git blob verified."
+      },
+      {
+        "ref": "mathlib:normHom",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Normed/Ring/Basic.lean",
+        "provides": "The native multiplicative map supplied by a multiplicative norm and norm of one equal to one.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 745; Git blob verified."
+      },
+      {
+        "ref": "mathlib:Topology.IsEmbedding",
+        "kind": "structure",
+        "module": "Mathlib/Topology/Defs/Induced.lean",
+        "provides": "Induced topology together with injectivity.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 147; Git blob verified."
+      },
+      {
+        "ref": "mathlib:Topology.IsInducing.continuous_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Maps/Basic.lean",
+        "provides": "Continuity into an induced topology is tested after the inducing map.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 124; Git blob verified."
+      },
+      {
+        "ref": "mathlib:continuous_pi",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "Coordinatewise continuity gives continuity into a product.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 773; Git blob verified."
+      },
+      {
+        "ref": "mathlib:continuous_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "Each coordinate evaluation is continuous for the product topology.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 778; Git blob verified."
+      },
+      {
+        "ref": "mathlib:isClosed_iInter",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Basic.lean",
+        "provides": "Arbitrary intersections of closed sets are closed.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 159; Git blob verified."
+      },
+      {
+        "ref": "mathlib:isClosed_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "An equality of continuous real functions cuts out a closed set.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 488; Git blob verified."
+      },
+      {
+        "ref": "mathlib:isClosed_le",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order/OrderClosed.lean",
+        "provides": "An inequality of continuous real functions cuts out a closed set.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 447; Git blob verified."
+      },
+      {
+        "ref": "mathlib:isCompact_pi_infinite",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "Tychonoff compactness for a product of compact subsets.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 1162; Git blob verified."
+      },
+      {
+        "ref": "mathlib:CompactIccSpace",
+        "kind": "class",
+        "module": "Mathlib/Topology/Order/Compact.lean",
+        "provides": "Native compactness of closed intervals, including real intervals.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 51; Git blob verified."
+      },
+      {
+        "ref": "mathlib:IsCompact.of_isClosed_subset",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "A closed subset of a compact set is compact.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 106; Git blob verified."
+      },
+      {
+        "ref": "mathlib:Topology.IsEmbedding.isCompact_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "An embedding reflects compactness from its image.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 998; Git blob verified."
+      },
+      {
+        "ref": "mathlib:Topology.IsEmbedding.t2Space",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "An embedding into a Hausdorff space has a Hausdorff domain.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 371; Git blob verified."
+      },
+      {
+        "ref": "mathlib:Pi.t2Space",
+        "kind": "instance",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "Products of Hausdorff spaces are Hausdorff.",
+        "checked": "Statement and hypotheses read at pinned commit; source line 390; Git blob verified."
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/spectrum",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "Berkovich spectrum",
+      "kind": "definition",
+      "statement": "For a normed commutative unital ring A, M(A) is the subtype of native MulRingSeminorm A consisting of p with p(a) ≤ ‖a‖ for every a. Points are actual real-valued seminorms, not equivalence classes. Completeness, a base field, multiplicativity of the ambient norm and a nonarchimedean norm are not required for this carrier.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Take the norm-dominated subtype of the existing seminorm carrier; retain its function coercion through the named evaluation projection. The native carrier already supplies positivity, zero, negation, triangle inequality, one and multiplication."
+      ],
+      "acceptance": [
+        "The zero ring has no point because one must map to one and zero to zero.",
+        "The zero function is excluded.",
+        "On the product of two real fields, the two projection seminorms are distinct; the ambient maximum norm itself is not multiplicative."
+      ],
+      "prerequisites": [
+        "mathlib:MulRingSeminorm",
+        "mathlib:MulRingSeminorm.ext"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Definition 2.2.2.1(i), p. 6; Definition/Exercise 2.1.2.1(i), p. 4",
+          "match": "The source uses bounded points for Banach rings. The bounded-iff-dominated node proves equality with this presentation; this carrier needs no completion."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Berkovich.Spectrum.toSeminorm",
+          "role": "projection",
+          "statement": "Forget only the domination proof, retaining the native MulRingSeminorm."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.eval",
+          "role": "data",
+          "statement": "For x in M(A) and a in A, return x(a) in ℝ."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.ofSeminorm",
+          "role": "constructor",
+          "statement": "A native multiplicative seminorm p with a pointwise norm bound gives a point."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.ofSeminorm_eval",
+          "role": "simp",
+          "statement": "Evaluating the constructed point at a returns p(a)."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.ext",
+          "role": "extensionality",
+          "statement": "Points with equal values at every a in A are equal."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.eval_zero",
+          "role": "simp",
+          "statement": "Every point has value zero at zero."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.eval_one",
+          "role": "simp",
+          "statement": "Every point has value one at one."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.eval_mul",
+          "role": "simp",
+          "statement": "x(ab)=x(a)x(b)."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.eval_neg",
+          "role": "simp",
+          "statement": "x(−a)=x(a)."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.eval_add_le",
+          "role": "characterisation",
+          "statement": "x(a+b)≤x(a)+x(b)."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.eval_nonneg",
+          "role": "characterisation",
+          "statement": "0≤x(a)."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.eval_le_norm",
+          "role": "characterisation",
+          "statement": "x(a)≤‖a‖."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Berkovich.Spectrum.zeroRing_empty",
+          "kind": "degenerate",
+          "statement": "M(A) is empty when A is a subsingleton normed ring."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.zeroFunction_excluded",
+          "kind": "non-example",
+          "statement": "No point takes value zero at every a."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.native_compatibility",
+          "kind": "compatibility",
+          "statement": "Forgetting the bound on the point made from p returns exactly p."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.nonmultiplicative_product_norm",
+          "kind": "non-example",
+          "statement": "The maximum norm on ℝ×ℝ is not multiplicative: use (1,0) and (0,1)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Temkin 2.2.2.1 and 2.2.2.4(i)",
+          "how": "Supply points and pullback."
+        },
+        {
+          "where": "AdicSpacesPartII:R3/uniform-spectral-seminorm; PerfectoidSpaces:P1/uniform-banach-field-over-nondiscrete-field",
+          "how": "Consumers require rings without a chosen base field; the spectral maximum and nonemptiness requested there are explicit gaps."
+        },
+        {
+          "where": "TB.1; ArithmeticDynamics:DY.2",
+          "how": "Evaluation functions begin discs and analytic norm comparisons."
+        }
+      ],
+      "planet": {
+        "name": "Berkovich spectrum"
+      }
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/bounded-iff-dominated",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "Bounded points are norm dominated",
+      "kind": "lemma",
+      "statement": "For p in native MulRingSeminorm A, there is a constant C>0 with p(a)≤C‖a‖ for all a if and only if p(a)≤‖a‖ for all a.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply the native contraction theorem to the identity ring map, the norm ring seminorm, and the multiplicative function p. Native preservation of powers supplies power multiplicativity.",
+        "For the reverse direction choose C=1. This is an adapter, not a second power-trick theorem."
+      ],
+      "acceptance": [
+        "A different positive bound C produces the same point subtype.",
+        "A point need not be bounded as a real-valued function on all of A."
+      ],
+      "prerequisites": [
+        "mathlib:RingHom.IsBoundedWrt",
+        "mathlib:normRingSeminorm",
+        "mathlib:IsPowMul",
+        "mathlib:map_pow",
+        "mathlib:contraction_of_isPowMul_of_boundedWrt"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Definition 2.2.2.1(i), p. 6",
+          "match": "Identifies the source boundedness convention with the chosen subtype; the proof is the pinned library theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Berkovich.Spectrum.bounded_iff_dominated"
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/evaluation-topology",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "Topology of pointwise convergence",
+      "kind": "construction",
+      "statement": "Equip M(A) with the topology induced by x↦(a↦x(a)) into the full product ℝ^A. Thus continuity into M(A) is equivalent to continuity of every evaluation coordinate.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the native induced topology on the native function product.",
+        "Apply the inducing-map continuity criterion, followed by coordinatewise continuity into a product."
+      ],
+      "acceptance": [
+        "Evaluations at zero and one are continuous constants.",
+        "The two projection points of ℝ×ℝ have disjoint separating neighborhoods."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0/spectrum",
+        "mathlib:Topology.IsInducing.continuous_iff",
+        "mathlib:continuous_pi",
+        "mathlib:continuous_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Definition 2.2.2.1(i), p. 6",
+          "match": "The initial topology for evaluation at every element of A."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Berkovich.Spectrum.topology",
+          "role": "instance",
+          "statement": "The topology is induced by the full evaluation map M(A)→ℝ^A."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.continuous_eval",
+          "role": "characterisation",
+          "statement": "Evaluation at each a is continuous."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.continuous_iff",
+          "role": "universal-property",
+          "statement": "For any topological Z, f:Z→M(A) is continuous exactly when each z↦f(z)(a) is continuous."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.topology_eq_induced",
+          "role": "compatibility",
+          "statement": "The topology agrees with the native induced topology from ℝ^A."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Berkovich.Spectrum.topology_zero_coordinate",
+          "kind": "degenerate",
+          "statement": "Evaluation at zero is continuous."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.topology_product_coordinates",
+          "kind": "compatibility",
+          "statement": "For a,b in A the map x↦(x(a),x(b)) is continuous into ℝ²."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.topology_all_coordinates",
+          "kind": "characterisation",
+          "statement": "Coordinatewise continuous maps into M(A) are continuous."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.topology_distinguishes_projections",
+          "kind": "non-example",
+          "statement": "An open set contains the first projection point of ℝ×ℝ and excludes the second; evaluation at (2,3) separates them."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Temkin 2.2.2.3(i)",
+          "how": "Compactness is obtained in the product topology."
+        },
+        {
+          "where": "Temkin 2.2.2.4(i)",
+          "how": "Each coordinate of pullback is another evaluation."
+        },
+        {
+          "where": "TB.0 analytic comparison",
+          "how": "The comparison must identify this topology, not merely the point set."
+        }
+      ]
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/evaluation-embedding",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "The evaluation map is an embedding",
+      "kind": "lemma",
+      "statement": "The evaluation map M(A)→ℝ^A is a topological embedding.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The topology is induced by definition. Native seminorm extensionality and subtype extensionality prove injectivity."
+      ],
+      "acceptance": [
+        "Equality of coordinates cannot identify two distinct points."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0/spectrum",
+        "TropicalAndBerkovichArithmetic:TB.0/evaluation-topology",
+        "mathlib:MulRingSeminorm.ext",
+        "mathlib:Topology.IsEmbedding"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Definition 2.2.2.1(i), p. 6",
+          "match": "The explicit induced-topology embedding is the library formulation of the definition."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Berkovich.Spectrum.isEmbedding_eval"
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/evaluation-range",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "Equations for the evaluation image",
+      "kind": "lemma",
+      "statement": "The image of M(A) in ℝ^A is exactly the functions v satisfying v(0)=0, v(1)=1, v(−a)=v(a), v(a+b)≤v(a)+v(b), v(ab)=v(a)v(b), and 0≤v(a)≤‖a‖ for all a,b.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Unpack a spectrum point to obtain the listed laws.",
+        "Conversely bundle the additive group seminorm laws and multiplicative zero-preserving unital homomorphism laws into the existing MulRingSeminorm, then attach domination."
+      ],
+      "acceptance": [
+        "The zero function violates the one equation; the product maximum norm violates multiplication."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0/spectrum",
+        "mathlib:MulRingSeminorm"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Definition/Exercise 2.1.2.1(i), p. 4; Definition 2.2.2.1(i), p. 6",
+          "match": "Native-carrier expansion used only to prove the image description."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Berkovich.Spectrum.range_eval"
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/closed-evaluation-range",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "Closedness of the evaluation image",
+      "kind": "lemma",
+      "statement": "The image of M(A) in ℝ^A is closed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Express the image as the intersection of the equalities and inequalities of evaluation-range.",
+        "Coordinate evaluation, real addition and real multiplication are continuous. Each equality is closed by the Hausdorff equality theorem; each inequality is closed by the real order theorem. Intersect over all elements and pairs."
+      ],
+      "acceptance": [
+        "One uses non-strict inequalities; imposing strict positivity on all nonzero elements would fail closedness."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0/evaluation-range",
+        "mathlib:continuous_apply",
+        "mathlib:isClosed_eq",
+        "mathlib:isClosed_le",
+        "mathlib:isClosed_iInter"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Fact 2.2.2.3(i), p. 7",
+          "match": "This is the explicit topological proof step for the compactness statement; supplied here from native closed-set lemmas."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Berkovich.Spectrum.isClosed_range_eval"
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/compact-spectrum",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "Compactness of the Berkovich spectrum",
+      "kind": "theorem",
+      "statement": "M(A) is compact for every normed commutative ring A, even without completeness or nontriviality.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The image lies in the product of compact real intervals [0,‖a‖]. Tychonoff makes that product compact.",
+        "Closedness of the image makes it a compact subset of this product. Reflect compactness along the evaluation embedding. No nonemptiness argument is used."
+      ],
+      "acceptance": [
+        "M(ℝ×ℝ) is compact although its ambient norm is not multiplicative.",
+        "The empty spectrum of a zero ring is compact."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0/evaluation-embedding",
+        "TropicalAndBerkovichArithmetic:TB.0/closed-evaluation-range",
+        "mathlib:isCompact_pi_infinite",
+        "mathlib:CompactIccSpace",
+        "mathlib:IsCompact.of_isClosed_subset",
+        "mathlib:Topology.IsEmbedding.isCompact_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Fact 2.2.2.3(i), p. 7",
+          "match": "Proves the compactness assertion in a stronger generality; the nonemptiness assertion is not included."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Compactness of the Berkovich spectrum"
+      },
+      "leanName": "TauCeti.Berkovich.Spectrum.compactSpace"
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/hausdorff-spectrum",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "Hausdorffness of the Berkovich spectrum",
+      "kind": "lemma",
+      "statement": "M(A) is Hausdorff.",
+      "hypotheses": [],
+      "proofSteps": [
+        "The real product is Hausdorff and the evaluation map is an embedding."
+      ],
+      "acceptance": [
+        "Projection points on ℝ×ℝ are separated using evaluation at (2,3)."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0/evaluation-embedding",
+        "mathlib:Pi.t2Space",
+        "mathlib:Topology.IsEmbedding.t2Space"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Definition 2.2.2.1(i), p. 6",
+          "match": "Point separation follows from distinct real-valued seminorms having different coordinates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Berkovich.Spectrum.t2Space"
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/comap",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "Pullback of Berkovich points",
+      "kind": "construction",
+      "statement": "For normed commutative rings A,B and a bounded unital ring homomorphism f:A→B, construct the continuous map M(f):M(B)→M(A), given by M(f)(x)(a)=x(f(a)).",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compose the native seminorm laws with the ring map. If ‖f(a)‖≤C‖a‖, then x(f(a))≤C‖a‖. Apply bounded-iff-dominated to the composed seminorm.",
+        "For continuity test each a-coordinate, which is evaluation at f(a). Identity and reversed composition follow by pointwise extensionality."
+      ],
+      "acceptance": [
+        "Contravariance reverses f:A→B and g:B→D: M(g∘f)=M(f)∘M(g).",
+        "Do not assume an arbitrary continuous ring homomorphism is bounded."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0/spectrum",
+        "TropicalAndBerkovichArithmetic:TB.0/bounded-iff-dominated",
+        "TropicalAndBerkovichArithmetic:TB.0/evaluation-topology",
+        "mathlib:RingHom.IsBounded",
+        "mathlib:MulRingSeminorm"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Exercise 2.2.2.4(i), p. 7",
+          "match": "Contravariant continuous functor on bounded homomorphisms; completeness is unused."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Berkovich.Spectrum.comap_eval",
+          "role": "simp",
+          "statement": "M(f)(x)(a)=x(f(a))."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.comap_id",
+          "role": "functoriality",
+          "statement": "M(id)(x)=x."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.comap_comp",
+          "role": "functoriality",
+          "statement": "M(g∘f)(x)=M(f)(M(g)(x))."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.comap_continuous",
+          "role": "structure",
+          "statement": "The map is continuous for the evaluation topologies."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.comap_proof_irrel",
+          "role": "compatibility",
+          "statement": "Changing the proof of boundedness does not change the continuous map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Berkovich.Spectrum.comap_first_projection",
+          "kind": "value",
+          "statement": "Pull the real norm back along the first projection ℝ×ℝ→ℝ: its value at (2,3) is 2."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.comap_second_projection",
+          "kind": "value",
+          "statement": "Pull back along the second projection: its value at (2,3) is 3."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.comap_id_real",
+          "kind": "degenerate",
+          "statement": "Pulling the real norm point back along the identity fixes it."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.comap_distinguishes_projections",
+          "kind": "non-example",
+          "statement": "The first and second projection pullbacks are distinct."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Temkin 2.2.2.4(i)",
+          "how": "Functoriality of spectra."
+        },
+        {
+          "where": "AdicSpacesPartII:R3/uniform-spectral-seminorm",
+          "how": "The spectral comparison uses the induced map of spectra."
+        },
+        {
+          "where": "TB.0; TB.4",
+          "how": "Coordinate restriction and tropicalization need evaluation-compatible pullbacks."
+        }
+      ],
+      "planet": {
+        "name": "Pullback of Berkovich points"
+      },
+      "leanName": "TauCeti.Berkovich.Spectrum.comap"
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/field-norm-point",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "The norm point of a valued field",
+      "kind": "construction",
+      "statement": "For a normed field K, its native absolute-value norm defines a distinguished point ν_K of M(K), with ν_K(a)=‖a‖. No completeness or nontrivial valuation hypothesis is needed.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Combine the native norm homomorphism with the native additive seminorm laws; the required upper bound is equality."
+      ],
+      "acceptance": [
+        "The real norm point has values 0,2,1/2 on 0,2,2 inverse."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0/spectrum",
+        "mathlib:normHom",
+        "mathlib:MulRingSeminorm"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Definitions 2.1.2.1(i) and 2.2.2.1(i), pp. 4, 6",
+          "match": "Specialization to the multiplicative norm of a field."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Berkovich.Spectrum.normPoint_eval",
+          "role": "simp",
+          "statement": "ν_K(a)=‖a‖."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.normPoint_toMonoidWithZeroHom",
+          "role": "compatibility",
+          "statement": "The underlying native multiplicative map of ν_K is normHom."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.normPoint_eq_ofSeminorm",
+          "role": "characterisation",
+          "statement": "Any native seminorm point whose function equals the norm is ν_K."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Berkovich.Spectrum.normPoint_two",
+          "kind": "value",
+          "statement": "ν_ℝ(2)=2."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.normPoint_zero",
+          "kind": "degenerate",
+          "statement": "ν_ℝ(0)=0."
+        },
+        {
+          "name": "TauCeti.Berkovich.Spectrum.normPoint_inverse",
+          "kind": "value",
+          "statement": "ν_ℝ(2 inverse)=1/2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "TB.0 scalar compatibility",
+          "how": "A bounded point pulled back from an algebra to its normed base field must equal ν_K."
+        },
+        {
+          "where": "Pullback tests",
+          "how": "The two projection points on a product ring are constructed from this point."
+        }
+      ],
+      "leanName": "TauCeti.Berkovich.Spectrum.normPoint"
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.0/field-spectrum-singleton",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "title": "The spectrum of a normed field is a singleton",
+      "kind": "theorem",
+      "statement": "For any normed field K, every point of M(K) equals ν_K.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For a=0 equality is forced. For a≠0, multiplicativity gives p(a)p(a inverse)=1.",
+        "Use p(a)≤‖a‖ and p(a inverse)≤‖a inverse‖=‖a‖ inverse to obtain the reverse inequality p(a)≥‖a‖. Apply extensionality."
+      ],
+      "acceptance": [
+        "Every point of M(ℝ) takes value 3 at −3.",
+        "A power of the real absolute value with exponent strictly between zero and one fails domination near zero."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0/field-norm-point",
+        "TropicalAndBerkovichArithmetic:TB.0/spectrum"
+      ],
+      "sources": [
+        {
+          "sourceId": "temkin-2011",
+          "locator": "Definition 2.2.2.1(i), p. 6",
+          "match": "Elementary consequence of the bounded multiplicative point definition, proved here with explicit inverse bounds."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Spectrum",
+        "namespace": "TauCeti.Berkovich.Spectrum"
+      },
+      "implementationStatus": "unchecked",
+      "leanName": "TauCeti.Berkovich.Spectrum.eq_normPoint"
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Semistable vertex set",
+      "kind": "definition",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. A semistable vertex set is a finite set V of type-2 points of X̂^an whose complement is a disjoint union of open balls and finitely many open annuli, with the punctures in distinct open-ball components. This inherited identifier now retains only the vertex-set definition.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Use the native algebraic curve and its missing Berkovich analytification, with the TB.1 analytic ball and annulus classifications.",
+        "Specify the decomposition as a property of V, without choosing an enumeration of infinitely many ball components."
+      ],
+      "acceptance": [
+        "Two punctures in one complementary ball invalidate the candidate."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "TropicalAndBerkovichArithmetic:TB.1",
+        "SchemeAndStackFoundations:SF.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Definition 3.1, printed p. 101; arXiv p. 7",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Semistable vertex set"
+      },
+      "api": [
+        {
+          "name": "TauCeti.Berkovich.Curve.SemistableVertexSet.points",
+          "role": "projection",
+          "statement": "Return the finite subset V of type-2 points."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.SemistableVertexSet.ext",
+          "role": "extensionality",
+          "statement": "Equal finite subsets define equal vertex sets."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.SemistableVertexSet.ofDecomposition",
+          "role": "constructor",
+          "statement": "A finite type-2 subset with the stated decomposition and puncture separation gives a vertex set."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.SemistableVertexSet.punctures_separated",
+          "role": "characterisation",
+          "statement": "Distinct punctures lie in distinct complementary ball components."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Berkovich.Curve.vertexSet_unpunctured",
+          "kind": "degenerate",
+          "statement": "For D empty the puncture condition is vacuous."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.vertexSet_sameBall_rejected",
+          "kind": "non-example",
+          "statement": "Two punctures in one complementary ball prevent semistability for the punctured curve."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.vertexSet_loop_allowed",
+          "kind": "compatibility",
+          "statement": "A complementary annulus may have both boundary ends at the same vertex; a simple-graph restriction would reject valid examples."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BPR structure §§3–4; TB.2 and TB.5",
+          "how": "Provides the actual skeleton and retraction used by metric and tropicalization theory."
+        }
+      ],
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Skeleton of a semistable decomposition",
+      "kind": "construction",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. For a semistable V, define Σ(X,V) as V union the intrinsic skeleta of the generalized open annulus components of X^an minus V. A punctured ball contributes a ray. Its completed skeleton is the closure in X̂^an.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Take the union in the analytic point space using TB.1 annulus skeleta.",
+        "Define the completed-skeleton accessor by closure; equality with Σ union D is proved separately."
+      ],
+      "acceptance": [
+        "A puncture belongs to the completed skeleton but not to X^an."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Definitions 3.3 and 3.5, printed pp. 102–103",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Skeleton of a curve"
+      },
+      "api": [
+        {
+          "name": "TauCeti.Berkovich.Curve.skeleton_mem",
+          "role": "characterisation",
+          "statement": "Membership means being a vertex or a point of a complementary annulus skeleton."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.skeleton_vertex_mem",
+          "role": "simp",
+          "statement": "Every vertex is in Σ."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.completedSkeleton",
+          "role": "data",
+          "statement": "The closure of Σ in X̂^an."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.skeleton_no_annuli",
+          "role": "example",
+          "statement": "If there are no generalized annulus components, Σ=V."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Berkovich.Curve.skeleton_noAnnuli",
+          "kind": "degenerate",
+          "statement": "No annulus components implies Σ=V."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.skeleton_annulusInterior",
+          "kind": "value",
+          "statement": "An intrinsic annulus-skeleton point is in Σ even when not in V."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.skeleton_puncture",
+          "kind": "non-example",
+          "statement": "A puncture is in the completed skeleton and is not in Σ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BPR structure §§3–4; TB.2 and TB.5",
+          "how": "Provides the actual skeleton and retraction used by metric and tropicalization theory."
+        }
+      ],
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/component-limit-boundary",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Limit boundaries of semistable components",
+      "kind": "lemma",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. An open-ball component has one boundary vertex. An open annulus of modulus r has its skeleton parametrization extending continuously from (0,r) to [0,r], with both ends in V, possibly equal. A punctured ball has the extension [0,∞] with one end in V and one in D.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "BPR Proposition 2.10 yields limits of regular-function norms as logarithmic radius tends to zero.",
+        "Lemma 2.13 gives constant norms off the annular skeleton; use a zero-free collar to check endpoint continuity, then compactness.",
+        "Apply the same endpoint argument at both annulus ends or at the puncture. These parts share one proof. The cited TB.1 inputs remain gaps."
+      ],
+      "acceptance": [
+        "A loop annulus has equal endpoint images."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Lemma 3.2 with proof, printed pp. 101–102",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/skeleton-complement-balls",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Ball components off the skeleton",
+      "kind": "lemma",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. Every component B of X^an minus Σ is an open ball with a singleton limit boundary in Σ.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Combine the component boundary lemma with BPR Lemma 2.12 for an annulus minus its intrinsic skeleton."
+      ],
+      "acceptance": [
+        "The boundary point may lie in an edge interior, not in V."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/component-limit-boundary",
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Lemma 3.4(3), printed p. 102",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/completed-skeleton-boundary",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Closure and punctures of the skeleton",
+      "kind": "lemma",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. Σ is closed in X^an, its limit boundary in X̂^an is D, and its closure is Σ union D. It is compact exactly when D is empty.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Use the finitely many segments and rays with their endpoint extensions.",
+        "For D empty the union is compact; any omitted puncture is a limit point preventing compactness in the Hausdorff proper analytification."
+      ],
+      "acceptance": [
+        "A punctured-ball ray is not compact, and its added endpoint is not at finite path distance."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/component-limit-boundary",
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Lemma 3.4(1)–(2), Definition 3.5, printed pp. 102–103",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/skeleton-disc-characterization",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Disc characterization of the skeleton",
+      "kind": "lemma",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. Σ consists of the points admitting no affinoid neighborhood isomorphic to a closed unit ball and disjoint from V.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Off Σ, use the complementary open ball.",
+        "For x in Σ outside V, any connected candidate neighborhood disjoint from V stays in the same annulus component. Apply BPR Proposition 2.4."
+      ],
+      "acceptance": [
+        "The disjointness from V cannot be omitted in the connected-neighborhood argument."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-complement-balls",
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Lemma 3.4(4), printed pp. 102–103",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Retraction onto the skeleton",
+      "kind": "construction",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. Define τ_V:X^an→Σ to fix Σ and send every other point to the unique boundary point of its complementary open-ball component. Continuity is a separate lemma.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Use the unique boundary supplied by skeleton-complement-balls, and the identity on Σ."
+      ],
+      "acceptance": [
+        "An edge-interior point is fixed."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-complement-balls"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Definition 3.7, printed p. 103",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Retraction to the skeleton"
+      },
+      "api": [
+        {
+          "name": "TauCeti.Berkovich.Curve.retraction_on_skeleton",
+          "role": "simp",
+          "statement": "τ_V fixes Σ pointwise."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.retraction_on_ball",
+          "role": "characterisation",
+          "statement": "τ_V is constant on each complementary ball with value its boundary point."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.retraction_surjective",
+          "role": "other",
+          "statement": "Every point of Σ is attained."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.retraction_unique",
+          "role": "extensionality",
+          "statement": "These skeleton and ball evaluation laws determine the map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Berkovich.Curve.retraction_vertex",
+          "kind": "value",
+          "statement": "τ_V(v)=v for a vertex."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.retraction_edgeInterior",
+          "kind": "non-example",
+          "statement": "An edge-interior point is fixed rather than rounded to a vertex."
+        },
+        {
+          "name": "TauCeti.Berkovich.Curve.retraction_sameBall",
+          "kind": "characterisation",
+          "statement": "Two points in one off-skeleton ball have the same image."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BPR structure §§3–4; TB.2 and TB.5",
+          "how": "Provides the actual skeleton and retraction used by metric and tropicalization theory."
+        }
+      ],
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Continuity of skeletal retraction",
+      "kind": "lemma",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. τ_V is continuous and restricts on each complementary generalized annulus to its intrinsic retraction.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "The annulus assertion follows from BPR Lemma 2.12.",
+        "Supply the vertex-neighborhood proof left as an exercise in Lemma 3.8. This is an unresolved proof input; continuity on the complementary components alone is insufficient."
+      ],
+      "acceptance": [
+        "Check vertices with infinitely many attached balls."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Lemma 3.8, printed p. 103",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/connected-skeleton",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Connectedness of the skeleton",
+      "kind": "lemma",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. Both Σ and its completed skeleton are connected.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Use connectedness of X^an and surjectivity of τ_V, then connectedness of the closure. Analytic connectedness remains an open named input."
+      ],
+      "acceptance": [
+        "Completing puncture ends does not create an extra connected component."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction",
+        "TropicalAndBerkovichArithmetic:TB.2/completed-skeleton-boundary",
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Proposition 3.9, printed p. 103",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Existence of a semistable vertex set",
+      "kind": "theorem",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. X has a semistable vertex set. This inherited identifier now records the existence part of Theorem 4.22.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Import the analytic semistable reduction theorem over the possibly nonnoetherian rank-one valuation ring, as in BL85 Theorem 7.1; request the extension beyond the DVR stable-reduction owner.",
+        "Use the model-to-vertex correspondence of BPR Theorem 4.11.",
+        "Separate punctures by Proposition 3.13(3), whose proof was read but whose annular inputs remain open."
+      ],
+      "acceptance": [
+        "The punctured case needs refinement, not an arbitrary vertex addition."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "AdicSpacesPartII:R2/admissible-formal-scheme",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Theorem 4.22, printed p. 112",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Semistable vertex-set existence"
+      },
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/intrinsic-minimal-skeleton",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Intrinsic minimal skeleton",
+      "kind": "theorem",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. If χ(X)=2−2g(X̂)−#D≤0 and V is inclusion-minimal, Σ(X,V) is the locus with no affinoid neighborhood isomorphic to the closed unit ball.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Use genus-zero contractions (BPR Proposition 4.21) and refinement (3.13).",
+        "The source reduces a forbidden closed-ball intersection to a tree with a low-valence genus-zero vertex. The contraction, genus and neighborhood inputs require decomposition."
+      ],
+      "acceptance": [
+        "The χ≤0 restriction excludes the unpunctured projective line."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-disc-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Theorem 4.22(1), printed p. 112",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/stable-vertex-characterization",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Stable vertices of a hyperbolic curve",
+      "kind": "theorem",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. For χ(X)<0 and inclusion-minimal V, V is stable and equals the points of Σ of valence at least three or positive vertex genus. The genus of a type-2 point is the genus of the smooth proper curve over the residue field with function field the residue field of its completed residue field.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Apply the genus-zero contractions in Proposition 4.21.",
+        "The residue-curve genus and model-comparison proofs are open inputs. The strict Euler-characteristic condition is retained."
+      ],
+      "acceptance": [
+        "A positive-genus vertex remains even at valence below three."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Definition 4.20 and Theorem 4.22(2), printed pp. 111–112",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/unique-minimal-skeleton",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Uniqueness of the minimal skeleton",
+      "kind": "lemma",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. For χ(X)≤0 there is a unique set-theoretic minimal skeleton.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "A finite vertex set has a minimal subset, and the intrinsic description is independent of that choice."
+      ],
+      "acceptance": [
+        "A Tate curve has one minimal circle but many minimal one-point vertex sets."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/intrinsic-minimal-skeleton"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Corollary 4.23, printed p. 112",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.2/unique-stable-vertex-set",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.2"
+      ],
+      "title": "Uniqueness of stable vertices",
+      "kind": "lemma",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. For χ(X)<0 there is a unique stable vertex set.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Use the intrinsic skeleton and its valence-or-genus characterization. Also establish that stable sets are minimal in this range using the contraction theory; that input remains open."
+      ],
+      "acceptance": [
+        "Do not apply the assertion to a Tate curve with χ=0."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.2/unique-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-vertex-characterization"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-structure-published",
+          "locator": "Corollary 4.23, printed p. 112",
+          "match": "Refines the reviewed extraction; published passages collated."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.5",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.5"
+      ],
+      "title": "Faithful tropicalization of a finite subgraph",
+      "kind": "theorem",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. Every finite embedded Γ in H°(X^an) admits a closed embedding of X into a quasiprojective toric K-variety meeting its dense torus T such that Γ maps isometrically onto its tropical image. Metrics are the subgraph length metrics. H° is the non-leaf locus, excluding classical and type-4 points. This identifier now retains the existence part of Theorem 1.1.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Read BPR tropicalization §§4–6 for rational functions, multiplicities and faithful refinement; the introduction supplies no proof leaves.",
+        "Import toric embeddings from the algebraic owner and resolve the arbitrary-field scope extension."
+      ],
+      "acceptance": [
+        "A plane embedding can contract a Tate loop; faithfulness is not automatic."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.3",
+        "TropicalAndBerkovichArithmetic:TB.4",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-tropicalization-2016",
+          "locator": "Theorem 1.1, arXiv p. 2",
+          "match": "Reviewed introduction statement; proof bodies remain open."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Faithful tropicalization"
+      },
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.5/faithful-domination",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.5",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.5"
+      ],
+      "title": "Faithfulness under domination",
+      "kind": "theorem",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. Embeddings faithful on a fixed Γ are stable under domination by equivariant toric maps and cofinal among toric embeddings meeting the dense torus.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Decompose the domination relation, common dominating embeddings and stability proof from BPR §5.15."
+      ],
+      "acceptance": [
+        "Lengths are measured within the image subgraph, not via shortcuts in the entire tropicalization."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+        "TropicalAndBerkovichArithmetic:TB.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-tropicalization-2016",
+          "locator": "Theorem 1.1 and following paragraph, arXiv p. 2",
+          "match": "Reviewed introduction statement; proof bodies remain open."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.4/tropical-multiplicity-formula",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.4",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.4"
+      ],
+      "title": "Tropical multiplicity formula for curves",
+      "kind": "theorem",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. After suitable subdivision, each tropical edge e′ has finitely many embedded segments e_i of H° mapping homeomorphically onto it. Other segments disjoint from these in its preimage are contracted. Its multiplicity is the sum of their positive integral expansion factors. Initial-degeneration components are counted with scheme multiplicities.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Read and decompose Proposition 5.4, Theorem 5.8 and Corollary 5.9, including finite-map multiplicities and initial degenerations. These proof bodies remain unread."
+      ],
+      "acceptance": [
+        "Factors 2 and 3 contribute multiplicity 5, not 2."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.3",
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "SchemeAndStackFoundations:SF.0"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-tropicalization-2016",
+          "locator": "Theorem 1.3, arXiv pp. 2–3",
+          "match": "Reviewed introduction statement; proof bodies remain open."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tropical multiplicity formula"
+      },
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.5/multiplicity-one-isometry",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.5",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.5"
+      ],
+      "title": "Multiplicity-one isometry criterion",
+      "kind": "theorem",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. If Γ′ is a finite embedded tropical subgraph and every initial degeneration at w in Γ′ is irreducible and generically reduced, a unique embedded Γ in H° maps homeomorphically onto it and the map is an isometry for the subgraph length metrics.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "Read the proof in BPR §§5–6, including vertex compatibility. The edge multiplicity formula gives a unique slope-one edge over a multiplicity-one edge but does not alone establish vertex gluing."
+      ],
+      "acceptance": [
+        "Irreducibility without generic reducedness is insufficient."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.4/tropical-multiplicity-formula",
+        "TropicalAndBerkovichArithmetic:TB.3",
+        "TropicalAndBerkovichArithmetic:TB.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-tropicalization-2016",
+          "locator": "Theorem 1.4, arXiv p. 3",
+          "match": "Reviewed introduction statement; proof bodies remain open."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Multiplicity-one isometry"
+      },
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic:TB.4/expansion-factor-gcd",
+      "parentStageId": "TropicalAndBerkovichArithmetic:TB.4",
+      "realises": [
+        "TropicalAndBerkovichArithmetic:TB.4"
+      ],
+      "title": "Expansion factors from coordinate slopes",
+      "kind": "lemma",
+      "statement": "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set. For an affine curve embedded in a torus by invertible regular functions f_i, the expansion factor on an affine edge is the gcd of the absolute values of the integral slopes of log|f_i|. An all-zero slope tuple gives factor zero and a contracted edge.",
+      "hypotheses": [
+        "K is algebraically closed and complete for a nontrivial rank-one nonarchimedean valuation; X is a smooth connected algebraic K-curve; X̂ is its smooth proper completion and D=X̂ minus X is the finite puncture set."
+      ],
+      "proofSteps": [
+        "The index of the coordinate-slope vector in its primitive lattice direction is the gcd.",
+        "Identifying this index with the analytic and tropical lengths requires the missing metric and slope framework."
+      ],
+      "acceptance": [
+        "Slopes (−2,4) give factor 2; (0,0) gives zero."
+      ],
+      "prerequisites": [
+        "TropicalAndBerkovichArithmetic:TB.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "bpr-tropicalization-2016",
+          "locator": "Introduction, arXiv p. 3, pointing to Remark 5.6",
+          "match": "Reviewed introduction statement; proof bodies remain open."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Berkovich/Curve",
+        "namespace": "TauCeti.Berkovich.Curve"
+      },
+      "implementationStatus": "unchecked",
+      "prototypeStatus": "Omitted: the actual analytic carriers are missing; see geometric-signatures gap."
+    }
+  ],
+  "inheritedDecomposition": {
+    "path": "data/decompositions/TropicalAndBerkovichArithmetic.json",
+    "review": "independent-review-REVIEW-EXT-03",
+    "note": "The inherited review certifies that extraction only. This packet has not been independently reviewed. All four identifiers are retained and refined as follows.",
+    "refinements": {
+      "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/component-limit-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-complement-balls",
+        "TropicalAndBerkovichArithmetic:TB.2/completed-skeleton-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-disc-characterization"
+      ],
+      "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton": [
+        "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction",
+        "TropicalAndBerkovichArithmetic:TB.2/connected-skeleton"
+      ],
+      "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta": [
+        "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/intrinsic-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-vertex-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-stable-vertex-set"
+      ],
+      "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors": [
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-domination",
+        "TropicalAndBerkovichArithmetic:TB.4/tropical-multiplicity-formula",
+        "TropicalAndBerkovichArithmetic:TB.5/multiplicity-one-isometry",
+        "TropicalAndBerkovichArithmetic:TB.4/expansion-factor-gcd"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "temkin-2011",
+      "title": "Introduction to Berkovich analytic spaces",
+      "authors": "Michael Temkin",
+      "edition": "Author-hosted arXiv:1010.2235v2, 16 December 2011; 52 pages. Not asserted to be the Springer chapter.",
+      "url": "https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf",
+      "sha256": "93d4a9bb0ffc9fa2273a0ff5996b2c8ec72201c8c7f9dd7fac652c64c77f2e5a",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Physical pp. 1, 3–7; §§2.1–2.2.4 through p. 7. Spectrum definition, compactness statement and functoriality exercise. This passage supplies no proof of nonemptiness or spectral maximum.",
+        "Source issues visually checked on pp. 4 and 7."
+      ]
+    },
+    {
+      "id": "bpr-structure-2014",
+      "title": "On the structure of nonarchimedean analytic curves",
+      "authors": "Matthew Baker, Sam Payne, Joseph Rabinoff",
+      "edition": "arXiv:1404.0279v1 [math.AG], 1 April 2014 (published in Tropical and non-Archimedean geometry, Contemp. Math. 605 (2013); this is the paper cited as [BPR13] by the tropicalization paper). Not in the library catalogue. Extraction line numbers refer to a pdftotext -layout extraction of this PDF (1299 lines).",
+      "url": "https://arxiv.org/abs/1404.0279",
+      "readSections": [
+        "Section 3: Definition 3.1 - Proposition 3.9 with proofs (semistable vertex sets, skeleta, completed skeleta, retraction) (pp. 7-9; extraction lines 374-484)",
+        "Theorem 4.22 (stable reduction theorem) and Corollary 4.23, statements and the first lines of the proof (extraction lines 885-900)",
+        "REVIEW-EXT-03 (re-fetched 2026-09-16 from https://arxiv.org/pdf/1404.0279v1, 363304 bytes; SHA-256 identical to the value recorded above; stamp \"arXiv:1404.0279v1 [math.AG] 1 Apr 2014\"): Section 3 opening conventions, Definitions 3.1, 3.3, 3.5, 3.7, Remark 3.6, Lemmas 3.2, 3.4, 3.8 and Proposition 3.9 with all proofs, and Definition 3.10 (pp. 7-9, lines 370-490); Theorem 4.22 with the whole printed proof and Corollary 4.23 (lines 878-905).",
+        "This worker, 2026-09-27: physical pp. 1, 7–10, 16–18. Hash reproduced; published comparison recorded separately."
+      ],
+      "sha256": "5e40117270a0051d9661c9bbd0317968b810573796a5c2408582f20692568a11"
+    },
+    {
+      "id": "bpr-tropicalization-2016",
+      "title": "Nonarchimedean geometry, tropicalization, and metrics on curves",
+      "authors": "Matthew Baker, Sam Payne, Joseph Rabinoff",
+      "edition": "arXiv:1104.0320v3 [math.AG], 10 June 2015 (published in Algebraic Geometry 3 (2016) 63-105). The paper notes that its numbering differs from v2 and that the former Section 5 was extracted and published separately as [BPR13] (= the structure paper above). Not in the library catalogue. Extraction line numbers refer to a pdftotext -layout extraction (2144 lines).",
+      "url": "https://arxiv.org/abs/1104.0320",
+      "readSections": [
+        "Introduction: statements of Theorems 1.1-1.4 and the surrounding discussion of expansion factors m_rel(e) and tropical multiplicities (pp. 2-3; extraction lines 60-140)",
+        "REVIEW-EXT-03 (re-fetched 2026-09-16 from https://arxiv.org/pdf/1104.0320v3, 577783 bytes; SHA-256 identical to the value recorded above; stamp \"arXiv:1104.0320v3 [math.AG] 10 Jun 2015\"): the version remark and the whole introduction, including the standing hypotheses, the definition of H°(X^an) as the space of non-leaves, Theorems 1.1-1.4, the expansion-factor discussion and the gcd formula (pp. 1-3, lines 20-145); Remark 5.6 with (5.6.1) (lines 1237-1245).",
+        "This worker, 2026-09-27: physical pp. 1–3 including standing hypotheses and Theorems 1.1–1.4. Hash reproduced. Remark 5.6 locator is inherited; its formula is also on p. 3. Proof bodies unread."
+      ],
+      "sha256": "19fbd64ec043835cbadad0375df562d78aa62b26b4820bd1e9f0f79d45c4348e"
+    },
+    {
+      "id": "bpr-structure-published",
+      "title": "On the structure of non-archimedean analytic curves",
+      "authors": "Matthew Baker, Sam Payne, Joseph Rabinoff",
+      "edition": "Published author offprint, Contemporary Mathematics 605 (2013), 93–121, DOI 10.1090/conm/605/12113; 29 physical pages.",
+      "url": "https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1",
+      "sha256": "01cbd4659548f916d5c82bbd4703dcee865307271796d873cc7d1dd098c43d6e",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Physical pp. 9–13 (printed 101–105), 19–21 (111–113), 23 (115). Definitions 3.1–3.10, Lemmas 3.2/3.4/3.8, Proposition 3.9 and 3.13 with proofs; definitions 4.16, 4.19–4.20; Theorem 4.22 and Corollary 4.23 with printed proof; Remark 4.24; §5.3 source comparison.",
+        "Visual checks of printed pp. 102 and 115. Full paper not read."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://math.huji.ac.il/~temkin/papers/Introduction_to_Berkovich_Spaces.pdf",
+      "read": "2026-09-27",
+      "sha256": "93d4a9bb0ffc9fa2273a0ff5996b2c8ec72201c8c7f9dd7fac652c64c77f2e5a",
+      "citation": "arXiv:1010.2235v2. Springer chapter DOI 10.1007/978-3-319-11029-5_1 landing page opened; PDF request returned HTML, not the chapter. E1–E2 are scoped only to the preprint."
+    },
+    {
+      "kind": "published",
+      "url": "https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/StructureOfNonarchimedeanCurves.pdf?download=1",
+      "read": "2026-09-27",
+      "sha256": "01cbd4659548f916d5c82bbd4703dcee865307271796d873cc7d1dd098c43d6e",
+      "citation": "Published author offprint, Contemporary Mathematics 605 (2013), 93–121, DOI 10.1090/conm/605/12113; 29 physical pages."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1404.0279v1",
+      "read": "2026-09-27",
+      "sha256": "5e40117270a0051d9661c9bbd0317968b810573796a5c2408582f20692568a11"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1104.0320v3",
+      "read": "2026-09-27",
+      "sha256": "19fbd64ec043835cbadad0375df562d78aa62b26b4820bd1e9f0f79d45c4348e"
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "TropicalAndBerkovichArithmetic/E1",
+      "source": "temkin-2011",
+      "kind": "error",
+      "locator": "Definition/Exercise 2.1.1.1(iv), preprint p. 4 only",
+      "printed": "The source makes equivalence of two seminorms equivalent to equality of the topologies they induce.",
+      "correction": "Two-sided constant bounds imply equal topologies; the converse is false for general seminormed abelian groups.",
+      "reason": "On the additive real group, |x| and √|x| are norms with the same topology. At x=n² their ratio is n, and near zero the reverse ratio is unbounded. No global equivalence constant exists.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv:1010.2235 submission history: v2 remains the listed version.",
+        "Author-hosted PDF; author papers-page URLs unavailable.",
+        "Springer chapter landing page and PDF request (returned HTML).",
+        "Searches for Temkin introduction Berkovich errata: no relevant correction located."
+      ]
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/E2",
+      "source": "temkin-2011",
+      "kind": "misprint",
+      "locator": "Definition 2.2.3.1, preprint p. 7 only",
+      "printed": "The source takes f ∈ A.",
+      "correction": "Use f ∈ C in the topology of MSpec(C).",
+      "reason": "For C=K[T], evaluation points at T=0 and T=1 agree on A=K and differ at T. Base-ring coordinates alone cannot separate these points.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv:1010.2235 submission history: v2 remains the listed version.",
+        "Author-hosted PDF; author papers-page URLs unavailable.",
+        "Springer chapter landing page and PDF request (returned HTML).",
+        "Searches for Temkin introduction Berkovich errata: no relevant correction located."
+      ]
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/E3",
+      "source": "bpr-structure-published",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 3.2, printed p. 102 (physical 10); also arXiv p. 8",
+      "printed": "The argument takes r sufficiently near 1.",
+      "correction": "The logarithmic radius tends to 0, and the scalar function |f(φ(z))| on the annular skeleton must lie in (c1,c2).",
+      "reason": "The preceding limit is r→0. The map φ has values on the curve, not in a real interval; r1,r2 are not the endpoints of the continuity test. These substitutions repair the intended collar argument.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv:1404.0279v1 and published author offprint collated.",
+        "Rabinoff research/publications page and Payne published offprint.",
+        "Searches for the paper title with errata: no relevant correction located."
+      ]
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/E4",
+      "source": "bpr-structure-published",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 3.4(4), printed pp. 102–103; also arXiv p. 8",
+      "printed": "The source allows every neighborhood that is connected.",
+      "correction": "Qualify the connected neighborhood as disjoint from V.",
+      "reason": "A connected subset of the complement of V lies in one component; an arbitrary connected neighborhood need not. The candidate affinoid neighborhood already has the required disjointness, so the theorem is unchanged.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv:1404.0279v1 and published author offprint collated.",
+        "Rabinoff research/publications page and Payne published offprint.",
+        "Searches for the paper title with errata: no relevant correction located."
+      ]
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/E5",
+      "source": "bpr-structure-published",
+      "kind": "error",
+      "locator": "§5.3 opening, printed p. 115 (physical 23); also arXiv p. 18",
+      "printed": "The source asserts an inclusion preserving distances.",
+      "correction": "The old edge becomes a union of subdivided edges with its length preserved. Use Proposition 3.13(1)–(2), not containment of the old edge in one refined edge.",
+      "reason": "Insert a type-2 point in the interior of an old edge, as Proposition 3.13(2) permits. The two new edges each omit part of the old one. The global metric compatibility result requires the subdivision formulation.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv:1404.0279v1 and published author offprint collated.",
+        "Rabinoff research/publications page and Payne published offprint.",
+        "Searches for the paper title with errata: no relevant correction located."
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Integrate the native smooth connected algebraic curve, smooth proper completion and finite puncture set from AlgebraicCurves. Analytification belongs to TB.0, not this request.",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "need": "Source-scoped analytic semistable reduction over the possibly nonnoetherian rank-one valuation ring of an algebraically closed complete field, as in BL85 Theorem 7.1. Coordinate the precise extension beyond StableReduction Layers 7–9 under RS-25, compatibly with their DVR range. Use the existing AdicSpacesPartII:R2/admissible-formal-scheme carrier.",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Common scheme interfaces for closed toric embeddings over the general nonarchimedean field K, equivariant dominating maps and initial degenerations retaining generic multiplicities. Coordinate the toric extension with AnalyticToricGeometry Layer 0, whose specified algebraic supplier uses a complex base. Do not duplicate its cones, fans or toric gluing.",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+        "TropicalAndBerkovichArithmetic:TB.4/tropical-multiplicity-formula"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "TropicalAndBerkovichArithmetic/spectral-existence",
+      "title": "Nonemptiness, unit criterion and spectral maximum",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "detail": "Read full proofs for nonzero Banach rings: existence of a bounded multiplicative seminorm, detection of units, and the spectral seminorm as the attained maximum of evaluations. Compactness alone proves none of these. This leaves incoming AdicSpacesPartII R3 and PerfectoidSpaces P1 requests unresolved; their spectral-seminorm carrier is not reconstructed here."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/analytic-carriers",
+      "title": "Completed residue fields and analytic spaces",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/component-limit-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-complement-balls",
+        "TropicalAndBerkovichArithmetic:TB.2/completed-skeleton-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-disc-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction",
+        "TropicalAndBerkovichArithmetic:TB.2/connected-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/intrinsic-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-vertex-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-stable-vertex-set",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-domination",
+        "TropicalAndBerkovichArithmetic:TB.5/multiplicity-one-isometry"
+      ],
+      "detail": "Build residue fields from prime kernels and native completion; prove scalar/nonarchimedean compatibility, affinoid domains, sheaves, gluing and curve analytification, including connectedness. Source proofs remain partly unread."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/adic-comparison",
+      "title": "Rank-one adic comparison",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.0"
+      ],
+      "detail": "Import native Spa and R1/R2 objects, then prove the actual normalized rank-one map, maximal-generization uniqueness, continuity and quotient topology under precise plus-ring hypotheses. Native generization existence alone is insufficient."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/annulus-foundations",
+      "title": "TB.1 line and annulus foundations",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/component-limit-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-complement-balls",
+        "TropicalAndBerkovichArithmetic:TB.2/completed-skeleton-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-disc-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction",
+        "TropicalAndBerkovichArithmetic:TB.2/connected-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/intrinsic-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-vertex-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-stable-vertex-set"
+      ],
+      "detail": "Read and decompose the four point types, intrinsic generalized-annulus skeleta/retractions, BPR Propositions 2.4/2.5/2.10 and Lemmas 2.12/2.13, closed-ball contractibility and zero-free norm constancy. Preserve type IV without spherical completeness."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/retraction-vertex-proof",
+      "title": "Continuity at vertices",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction"
+      ],
+      "detail": "Supply the actual vertex-neighborhood proof left as an exercise in Lemma 3.8. This is an intentional exercise, not a claimed source error."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/models-genus-refinement",
+      "title": "Formal models, genus and refinement",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/component-limit-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-complement-balls",
+        "TropicalAndBerkovichArithmetic:TB.2/completed-skeleton-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-disc-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction",
+        "TropicalAndBerkovichArithmetic:TB.2/connected-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/intrinsic-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-vertex-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-stable-vertex-set"
+      ],
+      "detail": "Decompose Theorem 4.11, formal fibres, vertex genus and the genus formula, Proposition 4.21 contractions and full refinement API. Read BL85 proof leaves. Prove finite valued-field extension compatibility; do not substitute a simple intersection graph for the metric skeleton with loops and genera."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/graph-divisors",
+      "title": "TB.3 graph divisors and specialization",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.3",
+        "TropicalAndBerkovichArithmetic:TB.4/tropical-multiplicity-formula",
+        "TropicalAndBerkovichArithmetic:TB.4/expansion-factor-gcd",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-domination",
+        "TropicalAndBerkovichArithmetic:TB.5/multiplicity-one-isometry"
+      ],
+      "detail": "Fix public proof sources for metric-graph divisors, integral-affine slopes, Laplacian sign, Jacobian, graph Riemann–Roch and specialization inequality, including metrized complexes. Consume native algebraic Riemann–Roch and StableReduction numerical types without duplication."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/tropical-proof-bodies",
+      "title": "TB.4–TB.5 proof bodies",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.4/tropical-multiplicity-formula",
+        "TropicalAndBerkovichArithmetic:TB.4/expansion-factor-gcd",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-domination",
+        "TropicalAndBerkovichArithmetic:TB.5/multiplicity-one-isometry"
+      ],
+      "detail": "Read BPR §§4–6 and tropical foundations: initial degenerations, polyhedra, balancing, finite-map multiplicities, rational functions, dominating embeddings and vertex compatibility. The introduction supplies targets, not closed proofs. Resolve general-base toric ownership through the request."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/model-measures",
+      "title": "TB.6 metrics, measures and local heights",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.6"
+      ],
+      "detail": "Read Chambert-Loir math/0304023 and primary model/intersection sources. Plan model line-bundle metrics, intersection-weighted measures, mass equal to degree, semipositive approximation and integrable local heights. Global heights and equidistribution have other owners."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/uniformization-integration",
+      "title": "TB.7 interfaces",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.7"
+      ],
+      "detail": "Import the elliptic Tate curve from EllipticCurves Layer 4, Coleman primitives from ColemanIntegration, and abelian uniformization from R11.3. Source Schottky/Mumford theory in its totally degenerate range and actual skeleton-period/integration comparisons."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/geometric-signatures",
+      "title": "Missing Lean forms of geometric targets",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.2/semistable-vertex-sets-and-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/component-limit-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-complement-balls",
+        "TropicalAndBerkovichArithmetic:TB.2/completed-skeleton-boundary",
+        "TropicalAndBerkovichArithmetic:TB.2/skeleton-disc-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/retraction-to-the-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/continuous-retraction",
+        "TropicalAndBerkovichArithmetic:TB.2/connected-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-reduction-and-minimal-skeleta",
+        "TropicalAndBerkovichArithmetic:TB.2/intrinsic-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/stable-vertex-characterization",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-minimal-skeleton",
+        "TropicalAndBerkovichArithmetic:TB.2/unique-stable-vertex-set",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-tropicalization-and-expansion-factors",
+        "TropicalAndBerkovichArithmetic:TB.5/faithful-domination",
+        "TropicalAndBerkovichArithmetic:TB.4/tropical-multiplicity-formula",
+        "TropicalAndBerkovichArithmetic:TB.5/multiplicity-one-isometry",
+        "TropicalAndBerkovichArithmetic:TB.4/expansion-factor-gcd"
+      ],
+      "detail": "All TB.2, TB.4 and TB.5 nodes and the APIs/tests of SemistableVertexSet, skeleton and retraction are omitted from the suggested file: actual analytic-curve, annulus, type-2-point, residue-curve and tropical initial-degeneration carriers are absent. Do not replace them by unconstrained proposition parameters. All 11 TB.0 nodes and their APIs/tests are typed."
+    },
+    {
+      "id": "TropicalAndBerkovichArithmetic/source-coverage",
+      "title": "Complete source extraction",
+      "neededBy": [
+        "TropicalAndBerkovichArithmetic:TB.0",
+        "TropicalAndBerkovichArithmetic:TB.1",
+        "TropicalAndBerkovichArithmetic:TB.2",
+        "TropicalAndBerkovichArithmetic:TB.3",
+        "TropicalAndBerkovichArithmetic:TB.4",
+        "TropicalAndBerkovichArithmetic:TB.5",
+        "TropicalAndBerkovichArithmetic:TB.6",
+        "TropicalAndBerkovichArithmetic:TB.7"
+      ],
+      "detail": "Only listed passages were read. Complete Berkovich/Huber foundations, BPR proof bodies, Baker–Norine, Baker specialization, Chambert-Loir and integration/uniformization sources. The inherited BPR source-catalogue gap remains; this job cannot edit the catalogue."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "TropicalAndBerkovichArithmetic:TB.0",
+      "status": "partial",
+      "remaining": [
+        "Nonemptiness, units and spectral maximum.",
+        "Residue fields, scalar compatibility, analytic domains/gluing/analytification and adic comparison."
+      ]
+    },
+    {
+      "stageId": "TropicalAndBerkovichArithmetic:TB.1",
+      "status": "not_read",
+      "remaining": [
+        "All line and annulus constructions, point classification, metrics and descent."
+      ]
+    },
+    {
+      "stageId": "TropicalAndBerkovichArithmetic:TB.2",
+      "status": "partial",
+      "remaining": [
+        "Analytic carriers and continuity at vertices.",
+        "Formal model correspondence, semistable existence supplier, genus/contractions/refinement and field extension.",
+        "Geometric signatures and tests."
+      ]
+    },
+    {
+      "stageId": "TropicalAndBerkovichArithmetic:TB.3",
+      "status": "not_read",
+      "remaining": [
+        "Graph divisors, slope formula, Jacobian, Riemann–Roch and specialization inequality."
+      ]
+    },
+    {
+      "stageId": "TropicalAndBerkovichArithmetic:TB.4",
+      "status": "partial",
+      "remaining": [
+        "Definitions and proofs behind multiplicity and gcd targets.",
+        "Higher-dimensional tropical foundations, balancing, pushforward and typed carriers."
+      ]
+    },
+    {
+      "stageId": "TropicalAndBerkovichArithmetic:TB.5",
+      "status": "partial",
+      "remaining": [
+        "Proofs of faithful refinement, domination and multiplicity-one isometry with vertex gluing; typed carriers."
+      ]
+    },
+    {
+      "stageId": "TropicalAndBerkovichArithmetic:TB.6",
+      "status": "not_read",
+      "remaining": [
+        "Model metrics/measures/local heights."
+      ]
+    },
+    {
+      "stageId": "TropicalAndBerkovichArithmetic:TB.7",
+      "status": "not_read",
+      "remaining": [
+        "Owned uniformization/integration inputs and genuine skeleton-period comparisons."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "TropicalAndBerkovichArithmetic",
+        "tauceti:TauCetiRoadmap/EllipticCurves"
+      ],
+      "detail": "TB.7 says it constructs Tate uniformization, already owned by EllipticCurves Layer 4.",
+      "proposal": "Keep the Berkovich skeleton-period/integration comparisons in TB.7; import the elliptic Tate curve and point-level uniformization from EllipticCurves Layer 4."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "TropicalAndBerkovichArithmetic",
+        "SchemeAndStackFoundations",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry"
+      ],
+      "detail": "Tropicalization requires toric varieties over arbitrary nonarchimedean K beyond the existing complex-base algebraic supplier.",
+      "proposal": "Route missing general-base toric extensions as Analytic toric geometry, Part II: toric varieties over general fields, built on and compatible with Layer 0. TB.4–TB.5 own only the tropical/nonarchimedean comparisons. This proposal is unaccepted; the precise supplier remains requested."
+    }
+  ],
+  "baselineAudit": {
+    "result": "research/blueprint/audit/AUDIT-39.result.json",
+    "review": "research/blueprint/reviews/REV-AUDIT-39.md",
+    "note": "The accepted audit/review were read directly. The aggregate library-coverage file omits TB and still lists AUDIT-39 pending. All eight stages are not built, with adjacent native infrastructure. The present component independently confirms each cited native declaration; no audit data are edited."
+  },
+  "closureNote": "The 11 TB.0 declarations form a baseline-closed component. No full stage is claimed closed. Geometric source targets end in explicit gaps and three supplier requests; the inherited independent review is not transferred."
+}
