@@ -48817,15 +48817,9 @@
     "research/blueprint/suggested/RiemannianGeometry.lean"
    ],
    "after": [],
-<<<<<<< Updated upstream
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-RiemannianGeometry.md",
-   "note": "released on GitHub issue #3069"
-=======
    "state": "superseded",
    "prompt": "research/blueprint/prompts/DESIGN-AREA-RiemannianGeometry.md",
    "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
->>>>>>> Stashed changes
   },
   {
    "id": "REV-DESIGN-AREA-RiemannianGeometry",
@@ -48866,15 +48860,9 @@
     "research/blueprint/suggested/SeveralComplexVariablesKahlerGeometry.lean"
    ],
    "after": [],
-<<<<<<< Updated upstream
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md",
-   "note": "released on GitHub issue #3070"
-=======
    "state": "superseded",
    "prompt": "research/blueprint/prompts/DESIGN-AREA-SeveralComplexVariablesKahlerGeometry.md",
    "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
->>>>>>> Stashed changes
   },
   {
    "id": "REV-DESIGN-AREA-SeveralComplexVariablesKahlerGeometry",
@@ -48915,15 +48903,9 @@
     "research/blueprint/suggested/SymplecticContactGeometry.lean"
    ],
    "after": [],
-<<<<<<< Updated upstream
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-AREA-SymplecticContactGeometry.md",
-   "note": "released on GitHub issue #3071"
-=======
    "state": "superseded",
    "prompt": "research/blueprint/prompts/DESIGN-AREA-SymplecticContactGeometry.md",
    "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
->>>>>>> Stashed changes
   },
   {
    "id": "REV-DESIGN-AREA-SymplecticContactGeometry",
