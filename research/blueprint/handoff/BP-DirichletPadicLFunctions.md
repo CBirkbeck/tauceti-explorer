@@ -1,3 +1,129 @@
+# BP-DirichletPadicLFunctions — unit restriction and numerator checkpoint
+
+Codex — codex-7e92bd; 27 September 2026. Refs #713. Partial checkpoint, not a
+completed roadmap or formalization. The claim comment 5851843558 was confirmed
+by bot 5851844379, and the whole issue was re-read unchanged after confirmation.
+The five original layers L0–L4 remain the scope.
+
+## What this checkpoint changes
+
+All25 predecessor node objects and All 5 source-issue objects are preserved
+exactly. Twenty new L1 nodes give the arithmetic finite-root average, the
+bounded ψ fixed-point proof plan, a=1 zero measure, unit-restriction construction,
+Euler moments and the actual inverse-weighted numerator with its support,
+primitive equation, uniqueness, moment shift and Amice comparison.
+
+The packet now has 45 nodes:1 definition,4 constructions,26 lemmas,12 theorems,
+2 comparisons. There are38 API entries,25 definition/construction tests plus 1
+inherited comparison test,46 baseline references,6 planets,6 gaps and 2 requests.
+L0/L1 remain partial; L2–L4 remain not_read. No stage is closed. L1 has its full
+six planets; the new one is Unit Euler-factor formula.
+
+The two constructions use the existing ambient integral measure carrier:
+ρ_a=Eμ_a and ν_a=Jμ_a=Jρ_a. The current 69-node measure supplier provides exact
+unitRestriction, inverseWeight, inverseMahler and comparison nodes; generic
+operators are not rebuilt here. The important support distinction is ψμ_a=μ_a
+versus ψρ_a=ψν_a=0. The numerator's primitive equation is Wν_a=ρ_a; uniqueness
+requires unit support because W kills δ₀.
+
+The source’s root calculation ψ(1/T) leaves the bounded integral series carrier.
+New E6 records the same gap already observed in ColemanPowerSeries/E8, explicitly
+without a discovery claim. Its statement is not refuted. The repair applies the
+bounded operator only to integral F_a, evaluates finite polynomial quotients at
+roots in a receiving fraction field, cancels p there and descends injectively.
+The five earlier source findings and their search provenance remain unchanged.
+
+## Precisely what remains open
+
+Two requests to PadicMeasuresIwasawaAlgebras:L2 are spelled out in full in the
+packet and reader. First, generic finite-root partial fractions in a characteristic-
+zero field. Second, for arbitrary P,Q∈ℤ_p[T] with Q(0) a unit and QF=P, compare
+p·φψ_B F with Σ P(ζⁱ(1+T)−1)/Q(ζⁱ(1+T)−1) in Frac(K[[T]]), including the
+cyclotomic coefficient extension and injective embedding. This must be the
+existing bounded Amice-transported psiSeries. Nonzero-constant formal substitution
+and an unproved extension of ψ to 1/T cannot replace that comparison.
+
+The generic supplier inputs are missing, not assumptions of the arithmetic
+signatures. Their gap propagates through smoothing-root-average,
+series-phi-psi-fixed, series-psi-fixed, measure-psi-fixed, unit-smoothed-difference,
+unit-smoothed-euler, unit-smoothed-moment, unit-smoothed-mass,
+unit-smoothed-integral, numerator-moment and numerator-integral. The direct
+constructions, support, primitive equation/uniqueness, moment shift and Amice
+comparison have exact supplier-node inputs and do not depend on this gap.
+
+After the requests are supplied, arithmetic smoothing compatibility, regularity
+of θ_a in the actual completed unit-group algebra, its precise comparison with
+L3 pseudomeasures, independence of a, full interpolation, parity/descent and
+Kummer congruences remain necessary. The integral numerator includes p=2; this
+does not give a single topological generator of ℤ₂× or a dyadic pseudomeasure
+splitting. The k=1 numerical moment is zero by the Euler factor, while k=0 for
+the numerator is not asserted. L0 Mellin/decay/differentiation, all of L2–L4 and
+measure coefficient extension/descent remain as recorded in coverage and gaps.
+
+Accepted RS-14 ownership is retained. In particular, no reverse dependency on
+Coleman is introduced: Coleman’s trace, norm and arithmetic comparison remain
+with that roadmap. A same-session separate scratch investigation has noted
+possible later smoothing/reflection identities; none is incorporated or claimed
+as verified by this checkpoint. Continue from published §4.3 and exact shared
+interfaces, not a proposed pseudomeasure structure packaging its own conclusion.
+
+## Reading and verification
+
+Read before planning: whole issue before/after claim, owner document, All 6 atlas
+stage descriptions and 30 stage links (only5 layers scoped), All 5 reviewed AUDIT24
+rows, full predecessor seed/reader/handoff, accepted RS-14 prose/review and all
+relevant ownership/direct-link decisions,28 touching link files, and both upstream
+models LocalFieldsRamification and Multiquadratic. Binding worker/protocol files
+were rechecked against their earlier full reading. The actual69-node PMIA supplier
+was refreshed and its new inverse-weight contracts read. No existing exact root-
+average comparison was found in pinned libraries or other current packets.
+
+Fresh source reading: all of published §4, PDF37–40 / printed136–139, collated
+with arXiv v2 PDF26–28. Digests are in sourceVersions; earlier broader reading
+claims remain predecessor provenance. The new primitive-root citation was read
+at the Mathlib pin. E6’s bounded correction search and the journal-browser failure
+are recorded; neither a failed fetch nor absence of a located repair proves novelty.
+
+The suggested file compiled with 0 errors and 75 warnings, all the standard
+placeholder warning:51 named declarations and 28 examples. It imports the actual
+repository PMIA suggested file to type its exact interfaces, plus individual
+Mathlib modules. That supplier file was compiled first from captured source,
+with 0 errors and 160 placeholder warnings. This is an unchecked prototype import,
+not an assertion that the supplier is a completed library module. The 3,027 reached
+Mathlib sources match the pinned source bytes; one additional reached source is
+the actual supplier seed. No foreign stand-in axioms or duplicate definitions
+were used to simulate an unavailable interface.
+
+Six complete scratch proofs without placeholders check the coprime-root telescope,
+an exact rational averaging case, a noncoprime counterexample and three endpoint/
+value computations. Two sensitive baseline telescopes were checked. Exact finite
+arithmetic controls pass 29,651 assertions, including p=2,3,5,7 Bernoulli integrality,
+unit/numerator endpoints and shift, finite-root sums and denominator-cleared
+polynomial quotients over five finite fields, and characteristic-zero examples.
+These controls do not prove the missing bounded p-adic averaging comparison.
+
+Final validation: the indexed blueprint checker reports zero errors and warnings;
+the official four-file intake reports zero problems. Six findings and both version
+records pass the errata schema. Preservation, API/test/reader parity, source hashes
+and scoped mutation checks pass. The internal graph has74 edges and is acyclic;
+14 exact external node inputs reach46 supplier nodes with no return to Dirichlet.
+
+Publication guard: all50 captured inputs and four unchanged predecessor outputs
+match main `448c011da57461d093d2d686960fcb157870374c`. The issue body and winning claim are unchanged.
+The regenerated global register was refreshed and its changed entries screened:
+PMIA E5–E7 concern §13 and do not replace or contradict the §4 averaging gap.
+The actual69-node supplier and its seed are captured at the recorded main blobs.
+Exactly the four authorized deliverables are submitted using Git Data REST;
+no git command was used.
+
+## Earlier checkpoint provenance
+
+The following retained handoff describes the preceding checkpoints. Its counts,
+open-input descriptions and validation claims are historical; the current state
+and remaining work are specified above.
+
+---
+
 # BP-DirichletPadicLFunctions — exact moment supplier reconciliation
 
 Codex — codex-a71f92, 26 September 2026. **Partial; no stage closed.** Refs #713.
