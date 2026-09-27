@@ -1,5 +1,130 @@
 # Handoff — BP-ArithmeticDynamics
 
+## Independent-parameter and Hensel checkpoint — 27 September 2026
+
+Agent: Codex, session `codex-hjdg0j`; issue #1023. Claim comment 5853960443
+was explicitly confirmed by bot comment 5853961396. Continue the merged PR #3199.
+This is a partial blueprint checkpoint, not an implementation or independent review.
+
+### Contribution
+
+Five new DY.6 declarations complete the parameter/root portion of the Lech–Cassels
+argument from a supplied integral polynomial presentation:
+
+1. `lech-padic-independent-family`: finite algebraically independent families in ℚ_p,
+   derived from a transcendence basis, countability of polynomial/algebraic extensions,
+   and the existing Cantor injection into a nonempty complete perfect space.
+2. `lech-affine-independent-family`: rational diagonal affine changes preserve
+   independence, for arbitrary index types and nonzero scale factors, via inverse
+   polynomial substitutions.
+3. `lech-independent-residue-tuple`: an independent family of integral p-adic parameters
+   in any prescribed integral residue box. Independence is stated in ℚ_p, since ℤ_p
+   is not a ℚ-algebra. The empty family and p = 2 are included.
+4. `lech-residue-hensel-lift`: reduction commutes with parameter and polynomial
+   evaluation, so a supplied simple residue root lifts; leading coefficient and
+   denominator exclusions give units and unchanged degree. This statement requires
+   neither independence nor generic separability.
+5. `lech-independent-hensel-specialization`: the preceding steps and the existing
+   prime-selection node supply an independent integral tuple and simple integral root
+   above every prime bound, preserving degree and all denominator units.
+
+Only the proof steps and prerequisites of the stable `lech-embedding-lemma` endpoint
+change. Its statement and all other 409 inherited node objects are exactly preserved.
+All 46 sources, 47 source findings, 26 requests, five restructuring proposals and
+42 planets are preserved; no new carrier, definition or API inventory is introduced.
+The Lech gap retains exactly the arbitrary-field presentation and embedding transport
+contracts. Its parameter/residue/Hensel obligations are no longer open.
+
+Totals: **415 nodes** (69 definitions, 23 constructions, 155 lemmas, 148 theorems,
+9 comparisons, 11 applications); **627 API items**, **359 packet unit tests**, and
+**403 typed examples** in the suggested file, including 20 new discriminating
+acceptance examples. There are **429 pinned baseline citations**, **42 planets**,
+**17 gaps** and **26 inherited requests**. All nodes remain unchecked; no stage is closed.
+
+### Evidence and checks
+
+Reread Cassels, *An embedding theorem for fields*, Bull. Austral. Math. Soc. 14
+(1976), 193–198, in full, using the exact publisher-scan hash already recorded
+in the packet. Read at most three physical PDF pages per extraction and inspect
+printed p. 197 as an image for the rescaling, congruence, Hensel and unit calculations.
+The source's Lemma 3 and pp. 196–197 support this slice. The affine lemma's arbitrary
+index type is an explicit worker generalization: the same inverse substitutions
+work for finite-support polynomials. No new source-error finding is asserted.
+The other inherited sources and findings are preserved, not independently re-extracted.
+The inherited packet lacked the required `sourceVersions` index. This checkpoint
+adds the reread Cassels scan and transcribes the existing reading provenance for
+the four preprints with stated-result findings. Their exact editions, dates, hashes
+and published-text limitations remain those of the inherited records; no new
+collation or source-error verdict is claimed.
+
+Read the seven reviewed audit rows before planning, the campaign and seven atlas stages,
+the applicable accepted RS-03/25/29 boundary records, the index and relevant Lech nodes,
+reader sections and full handoff. Screened all packet statements for a matching independent
+p-adic-parameter supplier and checked both pinned libraries. The 53 touching link-map
+entries are negative screens; the atlas and accepted restructurings retain the actual
+supplier links. The two upstream style documents read in full are Completed/EffectiveBounds
+and ArithmeticDirichletSeries. There is no AGENTS.md in the snapshot.
+
+All new baseline references were checked against actual statements with surrounding
+hypotheses and byte-verified against the pinned GitHub blobs. The proof uses native
+algebraic independence, multivariable/univariate polynomials, p-adic numbers, p-adic
+integers, residue homomorphisms and units.
+
+- Packet checker with the pinned declaration index: **0 errors, 0 warnings**.
+- Complete suggested file: Lean 4.34.0-rc2 against Mathlib 082e2d3, with only the
+  required placeholder warnings: **0 errors, 1,176 placeholder warnings**.
+- All 8,482 transitive Mathlib source files byte-match the pinned cache. No Tau Ceti
+  module is imported by this inherited suggested file.
+- Temporary proof checks were appended only to the authorized suggested file, then
+  removed. Complete proofs checked the finite-family and rational-affine lemmas
+  directly against the baseline. A complete residue-tuple proof used exactly those
+  two planned contracts. The polynomial reduction identity was proved directly from
+  baseline homomorphism extensionality. A complete proof of the degree/unit/root
+  lifting statement used exactly the inherited simple-reduction Hensel contract.
+  All five proof checks elaborated without errors or additional diagnostics.
+  These checks validate the routes; the published planning signatures retain placeholders.
+- Twenty new typed examples distinguish the empty family, the singleton/transcendence
+  comparison, rational/diagonal dependent families, zero scale factors, nonrational
+  translations, odd 2-adic transcendental parameters, equal residues with independent
+  coordinates, simple versus repeated residue roots, lost degree, and nonzero versus
+  unit denominators. An algebraic root is not claimed jointly independent of its parameters.
+- Source-issue and source-version checks pass; semantic preservation, acyclicity
+  and the four-file intake checks pass. The submission guard rechecks the claim and
+  all relevant repository input blobs against the current main branch.
+- Only the issue's four deliverable files are changed. No auxiliary Lean file, downloaded
+  source, image, build artifact, private path or scratch proof belongs in the PR.
+
+### Resume exactly here
+
+1. Preserve `DY.6/lech-embedding-lemma` and its finite-field-generation hypothesis
+   `Algebra.EssFiniteType ℚ L`. Choose and reindex a finite transcendence basis, identify
+   its generated field with `FractionRing (MvPolynomial (Fin n) ℤ)`, establish finite
+   separability of L over that field, and use the native primitive-element theorem.
+2. Extract an integral polynomial H of positive Y-degree with generically separable
+   image, a primitive element y satisfying it, and marked expressions U(y,T)/V(T)
+   with integral polynomial numerators, parameter-only nonzero denominators, and
+   all transport/evaluation identities. H need not be monic after denominator clearing.
+   Use baseline localization and common-denominator APIs; do not rebuild them.
+3. Feed precisely that H and the marked denominator set into
+   `DY.6/lech-independent-hensel-specialization`, with bound max(N,3). This supplies
+   every parameter, prime, Hensel-root, leading-coefficient and unit-denominator output.
+   Do not replan the now-decomposed independent-perturbation or polynomial-reduction step.
+4. Independence makes parameter evaluation injective and hence extends it to the fraction
+   field. Transport through the primitive extension, using its defining irreducible
+   relation over the parameter field and the supplied root η; prove all evaluation
+   identities and injectivity. Irreducibility over the parameter subfield is the relevant
+   condition. Do not assert irreducibility of H(Y,ξ) over all of ℚ_p, where it has a root.
+5. Evaluate each marked numerator in ℤ_p and divide by its unit denominator. The existing
+   unit and localized-coefficient-ring corollaries then apply. The other 16 gaps and all
+   unrelated coverage/requests remain as in the historical handoff.
+
+## Historical checkpoint and original roadmap handoff
+
+The following accounts are retained as provenance. Their counts and descriptions of
+open independent-perturbation work are superseded by the checkpoint above.
+
+# Handoff — BP-ArithmeticDynamics
+
 ## Specialization checkpoint — 27 September 2026
 
 Agent: Codex, session `codex-a71f92`. Issue #1023; claim comment 5853404251
