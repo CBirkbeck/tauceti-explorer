@@ -1,73 +1,75 @@
-# BP-DirichletPadicLFunctions: finite tame kernel
+# BP-DirichletPadicLFunctions: conditional tame Gauss comparison
 
-Codex / codex-7e92bd. Same-worker issue713 follow-up after PR3257 merged
- d68a5e76aecb2dc6b3e1b36f4f49bcdbc939d36d with head
-6bb88085edacd70d0d3632bbb111e34b5ce26f5a, under claim5854790528,
-confirmed5854791937. No additional claim; review390 remains unclaimed.
-Partial; all statuses unchecked.
+Codex / codex-7e92bd. Same-worker issue713 follow-up after PR3259 merged
+7e325288e4a3bd0f2ad8aebc4c5c7cfb9922cc20 with head
+0e280a587546a67b156e79e895574846caa1a430. Original claim5854790528,
+confirmed5854791937; no additional claim. Review390 remains unclaimed.
+Partial; all implementation statuses unchecked.
 
 ## Delivered
 
-Nine L2 nodes give Q_η=−Σ_a η(a)q_(a.val), its nonprincipal pole cancellation,
-F_η=Q_η/q_D and generating equation, the uniform tame coefficient bound,
-actual bounded sequence, actual K-valued kernel measure, operator-norm bound
-and characterization by q_D A(μ)=Q_η. All use native carriers and exact PMIA
-suppliers. The principal and modulus-one constructions remain explicit boundary
-cases; they do not satisfy the nonprincipal generating identity.
+Four L2 nodes give the finite primitive Gauss generating equation, equality with
+the existing tame series, the corrected alternating coefficient formula, and
+identification of the actual K-valued measure transform with the source expression.
+They use native characters, additive root character, Gauss sums, formal inverses
+and the exact PMIA measure. D>1, primitive η and ε, D invertibility where required,
+and G(η⁻¹)≠0 are explicit. No new generic carrier is introduced.
 
-For quadratic η modulo3, F=(1+T)/(3+3T+T²) has coefficients1/3,0,−1/9,1/9.
-At p=2 the actual measure has mass1/3 and second moment−2/9. At p=3 its constant
-coefficient has norm3, so the integral bound requires p∤D.
+For quadratic η modulo3, the source expression S satisfies(3+3T+T²)S=1+T,
+with cubic coefficient+1/9. Principal-character, modulus-one, zero-Gauss and
+zero-constant-inverse boundary tests retain the exact scope of the identities.
 
-Totals175 nodes (1 definition,19 constructions,94 lemmas,45 theorems,16 comparisons),
-182 API entries,145 packet tests (106 on definitions/constructions),148 typed examples,
-19 planets,240 baseline citations. All166 predecessor nodes,235 baseline objects,
-old Lean bytes and12 source findings are preserved whole. Five gaps,one request,
-zero closed stages.
+Totals179 nodes(1 definition,19 constructions,96 lemmas,46 theorems,17 comparisons),
+182 API entries,153 packet tests(106 on definitions/constructions),156 typed examples,
+20 planets,256 baseline citations. All175 old nodes and240 baseline objects whole.
+Entire predecessor Lean bytes retained as a contiguous body with two leading imports.
+First12 findings whole; E13 only renames sourceId→source, preserving every other
+field and repairing the generated published-source citation. No new finding.
+Five gaps,one request,zero closed stages.
 
-## Sources and remaining work
+## Sources and resume point
 
-Full published139–147/PDF40–48 read; fullv2PDF33–35 collated; published145 visually
-inspected. E13 corrects pG(η)⁻¹ to pG(η⁻¹) in the first display for (φ∘ψ)(F_η)
-in the Lemma5.10 proof. For quadratic η modulo3 the wrong scalar differs by−3.
-The stated eigenrelation survives the repair. Additional bounded searches and the
-older Warwick lecture-note title/pp23–25 found the same typo and no identified
-correction. No novelty claim, author contact or independent verdict.
+Source passages/version checks retain the preceding continuous-session provenance:
+full published139–147, arXivv2PDF30–35 and visual checks. No fresh whole-paper or
+correction-search claim. Sixteen new native statements and ambient hypotheses
+fully read and index-matched; complete primitive-Dirichlet Gauss module read.
 
-Complete the finite Fourier/Gauss comparison with the source formula, primitive
-normalizations, actual O_K-valued measure and coefficient transport, the psi
-eigenrelation, special-value moments, conductor-product twists and the unit inverse-
-weight measure. Generic p^n-root translation remains owned by PMIA. Do not infer
-interpolation or a completed-algebra comparison from the bounded constructor.
+Instantiate composite-modulus primitive Gauss nonvanishing from its existing
+modular-forms owner; native finite-field-domain product theorems are insufficient.
+Next construct the actual O_K-valued measure and coefficient transport, then
+psi-eigenrelation, Dirichlet special-value moments, conductor-product twists,
+unit restriction and inverse weighting. The p^n-root operator stays with PMIA.
+No interpolation or completed-algebra comparison follows just from this equality.
 
-## Validation
+## Validation and inputs
 
 Indexed blueprint: zero errors and warnings. Four-file intake: zero problems.
 Versioned errata, exact preservation, reader/signature/test parity and scoped
-mutation checks pass. Graph: 304 reachable nodes, 1309 edges and
-339 baseline leaves; acyclic, with only the PMIA L1 request leaf.
-Suggested Lean compiles with zero errors and378 expected placeholder warnings;
-the actual265-node PMIA supplier has569 placeholder warnings. Audit:3,565 byte-
-verified pinned Mathlib modules,20 pinned Tau Ceti modules and1 actual supplier.
-All20 Tau Ceti artifacts reused with source hashes and zero-warning logs checked.
-One complete native finite-numerator definition and15 complete lemmas compile
-against2,810 pinned Mathlib modules with zero errors,warnings or proof holes.
-They check cancellation with its zero-sum premise, finite generating and inverse
-identities, coefficient bounds with exact input bounds, quadratic scalar controls
-and the Gauss-inverse distinction with its square=-3 premise. They do not prove
-the full arithmetic source comparison or special values.
-Suggested-file SHA256: `6cd61fb9878c2dbe91d481e9fb90d9032ac7ba151d18a780d0900f701bcce95a`.
-Native-proof SHA256: `2f461126813cbe3710a508e7e60f126b9e39027e97c26ead24c264875a205eb1`.
-Publication guard at d097b70c4de901f067b9674235ade64cc6e2133d verifies all52 refreshed inputs, four predecessor
-outputs, unchanged issue body, exact merged PR3257 head and the same winning claim.
+mutation checks pass. The real errata collector produces the published RJW
+citation for repaired E13, still awaiting review. Graph:308 reachable nodes,
+1335 edges and355 baseline leaves; acyclic, with only the PMIA L1 request leaf.
+Suggested Lean compiles with zero errors and390 expected placeholder warnings;
+the freshly compiled actual265-node PMIA supplier has569 placeholder warnings.
+The recursive audit verifies3,581 pinned Mathlib modules,20 pinned Tau Ceti modules
+and1 actual supplier. All20 Tau Ceti artifacts reused with matching source hashes
+and zero-warning logs; no fresh Tau Ceti build claimed.
+Eight complete native scratch lemmas compile against2,806 pinned Mathlib modules
+with zero errors,warnings or proof holes. They prove the primitive inverse and
+nonprincipal consequences, root denominator, finite Fourier powers, finite geometric
+clearing with its inverse premise, inverse constant, inverse rescaling and alternating
+coefficient formula. The full weighted source comparison and special values remain
+unchecked blueprint statements.
+Suggested-file SHA256:`5b00585e38e76f902d577aec81cce66e273ff9a962faf1fef93dc8e518653dac`.
+Native-proof SHA256:`287fe35489d1e262f5b57dabe17058ba0fc5b41038feed9147a5f32e12e5edb8`.
+Publication guard at81dc02bbcc0f7609f96c6e33008fe1105e0353e9 verifies all52 refreshed inputs, four predecessor
+outputs, unchanged issue body, exact merged PR3259 head and the same winning claim.
 Review390 is blocked and unclaimed. Exactly four authorized files are published
 through Git Data REST.
 
-The52 initial inputs match the previous refreshed snapshot except generated
-register additions E11/E12, both whole objects read; all prior records preserved
-by full-object multiset. The four outputs match PR3257. Five new native statements
-and exact supplier nodes read; inherited protocol/scope/audit/link/model provenance
-persists. All20 Tau Ceti artifacts reused from earlier isolated source builds,
-with hashes and zero-warning logs to be checked; no fresh compilation claimed.
-
-Final input refresh at d097b70c4de901f067b9674235ade64cc6e2133d: the generated source register added seven unrelated HeightsRationalPointsAndObstructions findings E1–E7. All seven complete records and every changed generated-reader line were read; prior records remain whole by full-object multiset. No independent verdict or fresh reading of their source is claimed. No Lean input changed.
+Initial52-input snapshot0ae42c265d61ba0b99fd6d964ac1e07d43820620 has outputs identical
+PR3259. Own E13 generated record read whole. Refresh81dc02bbcc0f7609f96c6e33008fe1105e0353e9
+adds five TropicalAndBerkovichArithmetic E1–E5 findings, all read whole with17diff
+lines; previous records preserved by multiset. No independent source verification
+or verdict on that register. Prior protocol/scope/issue/audit/link/model reading
+provenance persists. All20 Tau Ceti artifacts reused from previous isolated
+source builds with hashes and zero-warning logs checked; no fresh Tau compilation.
