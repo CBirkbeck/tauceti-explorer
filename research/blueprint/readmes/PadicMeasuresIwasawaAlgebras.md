@@ -9,7 +9,7 @@ Layer 1; general perfect-complex comparisons remain with SchemeKTheoryOperations
 complete-Noetherian-local specialization input with DeformationAndDerivedPatchingAlgebra:P7.
 
 **Partial checkpoint, 27 September 2026.** All eight campaign layers remain in scope. The source
-decomposition below covers the weighting/moment, bounded Frobenius/psi and unit-inverse chains of L2 and one coherent algebraic part of L3. It does not construct the completed group
+decomposition below covers the weighting/moment, bounded Frobenius/psi, unit-inverse and integral root-averaging chains of L2 and one coherent algebraic part of L3. It does not construct the completed group
 algebra, its topology, or the continuous-character integral. Those appear as explicit data in the conditional
 algebraic statements. L2 and L3 are partial; the other six layers have not received source decomposition here. The campaign
 specification and accepted RS-16 decisions remain binding for the unprocessed targets.
@@ -1702,6 +1702,737 @@ version hashes, locators and bounded search. Nothing has been sent to the author
 
 The publication and v2 display were collated on 27 September 2026, including a rendered check of the publication. A bounded search of the version listing, exact-title correction queries and the two authors’ publication entries found no correction to this display. The journal HTML route was unavailable in this continuation. The input register’s 17 PMIA/Coleman/Dirichlet records did not contain it. The marker “new” means no identified published correction, without a priority claim.
 
+## L2: integral root averaging and rational comparison
+
+This continuation supplies two generic inputs requested by DirichletPadicLFunctions:L1:
+`PadicMeasuresIwasawaAlgebras:L2/root-partial-fractions` and
+`PadicMeasuresIwasawaAlgebras:L2/rational-root-average-descent`.
+It preserves all 69 preceding node objects, all seven source findings, and the ten planet choices.
+The existing six L2 planets already reach the layer limit; these declarations refine their library.
+All eight campaign stages remain in scope and none is closed.
+
+Write Z=ℤ_p, B=Z[[T]], Y=1+T, and b=Y^p−1. The operator ψ is the preceding bounded
+Amice transport, and φ is formal substitution by b. Let C_p be Mathlib's existing
+p-adic complex field and O its valuation integer ring. The composite Z→ℚ_p→C_p
+lifts to j:Z→O. This uses existing carriers throughout. O is complete as a closed subset
+of C_p, and its small valuation balls give a basis of ideals. The coefficientwise
+p-adic topology on B and O[[T]] is essential to the proof.
+
+For a primitive pth root ζ in O, its displacement satisfies |ζ−1|<1, also when p=2.
+Thus C(ζ^i)Y−1 is topologically nilpotent in O[[T]]. The existing topological evaluation
+homomorphism defines τ_i(F) with this argument and coefficient map C∘j. A nonzero
+constant term is permitted by this convergent evaluation. Algebraic formal substitution
+does not supply the required operation. Every construction below states this distinction
+in its proof and suggested signature.
+
+The central formula is the integral equality
+
+    p · map(j, φψF) = Σ_{i<p} τ_i(F).
+
+For F=Y^n, the bounded projector and finite root orthogonality give the two sides directly.
+Writing P(T) as a polynomial in Y proves the equality for every polynomial. Polynomial
+density then gives the full result, once both sides have been proved continuous.
+Continuity of ψ is the substantive step: for a fixed continuous integral test function f,
+the Mahler coefficients of f tend to zero, while every coefficient of F is bounded by one.
+Consequently the finite Mahler pairings converge uniformly in F to inverse-Amice evaluation
+on f. This proves weak evaluation continuity, then continuity of each coefficient of ψ.
+It does not identify the product topology with a uniform coefficient norm.
+
+The formula determines an integral G uniquely from p·map(j,φG)=Στ_i(F): existence uses
+G=ψF, and uniqueness cancels p, the coefficient embedding, and φ using ψφ=id. This is
+integral descent and independence of the chosen primitive root. It does not divide by p in O.
+
+For integral F with QF=P and unit Q(0), apply the actual ring homomorphism τ_i to this
+equality. Polynomial agreement and nonvanishing affine polynomial substitution identify
+its image with P(ζ^iY−1)/Q(ζ^iY−1) in Frac(C_p[[T]]). The identity descends along an
+injective field map K→C_p compatible with Z, in particular for the existing cyclotomic
+intermediate field K=ℚ_p(ζ). The finite partial-fraction identity is proved separately by
+a geometric sum and root orthogonality. There is no assertion that bounded ψ is defined
+on the individual pole 1/T. The previously recorded Dirichlet E6/Coleman E8 domain issue
+remains with those owners; this continuation adds no duplicate source finding.
+
+The sources are [RJW's published §3.5.3–5 and Lemma 4.7](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf),
+printed127–129 and137 / PDF28–30 and38, collated with
+[arXiv v2](https://arxiv.org/pdf/2309.15692v2), PDF20–22 and27. These eight page texts
+were freshly fetched and read in full, with hashes matching the recorded editions.
+The continuity/density architecture is an explicit elaboration of the source identity using
+the pinned library, not an attribution of that proof architecture to the paper.
+
+Accepted RS-16 assigns this bounded input to PMIA L2. ColemanPowerSeries owns its
+finite-free trace comparison; LocallyAnalyticDistributions owns extension to its different
+test-function spaces. Their packets and relevant reviewed audit/link records were screened.
+No reverse dependency or second bounded ψ is introduced. General coefficient extension,
+arbitrary residue classes modulo p^n, z^x weighting, completed-algebra topology, and the
+remaining stage targets are still listed below.
+
+### The linear topology on the receiving integer ring
+
+`PadicMeasuresIwasawaAlgebras:L2/integer-ring-linear-topology` — comparison.
+
+The induced topology on O=Valued.integer(ℂ_p) is a linear ring topology: zero has a basis of open ideals.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Use the existing valuation integer ring, not a new ring or a discrete topology. Its norm is the induced p-adic norm and its elements have norm at most 1.
+2. For each positive radius r≤1, the elements of O with norm less than r form an ideal: the ultrametric inequality proves additivity and multiplication by an element of O cannot increase the norm. These are exactly the valuation ltIdeal balls.
+3. The induced valued-field neighborhood basis is this ideal basis. Apply IsLinearTopology.mk_of_hasBasis. Completeness is supplied separately by the pinned closed-integer-subspace theorem; no finiteness or discretely valued hypothesis is imposed on O.
+
+Prerequisites: `mathlib:Valued.integer`, `mathlib:Valuation.ltIdeal`, `mathlib:Valued.hasBasis_nhds_zero`, `mathlib:IsLinearTopology.mk_of_hasBasis`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### The integral coefficient embedding
+
+`PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map` — construction.
+
+Let j₀:ℤ_p→ℂ_p be the composite ℤ_p→ℚ_p→ℂ_p. Define j:ℤ_p→O by lifting this existing ring map to the valuation integer ring, so the underlying ℂ_p value of j(x) is j₀(x).
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. The composite preserves the p-adic norm; every x in ℤ_p has norm at most 1. Hence j₀(x) lies in the existing valuation integer subring.
+2. Restrict the codomain of the existing composite ring homomorphism to that subring. All ring laws come from the existing maps. This is a coefficient embedding, not scalar extension of measures on arbitrary profinite spaces.
+
+Prerequisites: `mathlib:Valued.integer`, `mathlib:PadicComplex.norm_extends'`, `mathlib:PadicInt.norm_le_one`.
+
+API:
+
+- `IwasawaAveraging.integralCoefficientMap_coe` (coercion): For every x∈ℤ_p, the image of j(x) in ℂ_p equals j₀(x). Promoted to integral-coefficient-map-coe.
+- `IwasawaAveraging.integralCoefficientMap_continuous` (compatibility): The canonical coefficient embedding j:ℤ_p→O is continuous for the induced p-adic topologies. Promoted to integral-coefficient-map-continuous.
+- `IwasawaAveraging.integralCoefficientMap_injective` (characterisation): The coefficient embedding j:ℤ_p→O is injective. Promoted to integral-coefficient-map-injective.
+
+Uses:
+
+- RJW equation (3-9); PadicMeasuresIwasawaAlgebras:L2/root-average: Evaluate integral series after root translation in a complete linear receiving topology and compare the finite sum with the actual bounded operator.
+- DirichletPadicLFunctions:L1 rational psi requests: Supply generic rational-series averaging and finite partial fractions to the existing Dirichlet proof. Bernoulli formulas and the smoothed rational input remain in the consumer.
+- ColemanPowerSeries:L1 and LocallyAnalyticDistributions:L1: Provide the bounded reference identity; recipients own their finite-free trace or locally analytic comparison. There is no reverse prerequisite.
+
+Tests:
+
+- `IwasawaAveraging.Tests.coefficient_zero` (degenerate): j(0)=0.
+- `IwasawaAveraging.Tests.coefficient_one` (computation): j(1)=1; the zero map fails this test.
+- `IwasawaAveraging.Tests.coefficient_agreement` (compatibility): For each x∈ℤ_p, the underlying C_p element of j(x) is the canonical image of x through ℚ_p.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### The underlying coefficient embedding
+
+`PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-coe` — lemma.
+
+For every x∈ℤ_p, the image of j(x) in ℂ_p equals j₀(x).
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Unfold the codomain restriction in integral-coefficient-map. Its first component is exactly the composite through ℚ_p.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Continuity of the coefficient embedding
+
+`PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-continuous` — lemma.
+
+The canonical coefficient embedding j:ℤ_p→O is continuous for the induced p-adic topologies.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. The embedding into ℂ_p preserves the p-adic norm, by the base-field norm-extension theorem and the subtype norm on ℤ_p.
+2. A norm-preserving map is continuous. The induced subtype topology on O then gives continuity of the lifted map.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-coe`, `mathlib:PadicComplex.norm_extends'`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Faithfulness of the coefficient embedding
+
+`PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-injective` — lemma.
+
+The coefficient embedding j:ℤ_p→O is injective.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Equality after j implies equality after the inclusion into ℂ_p. This inclusion agrees with the composite through ℚ_p.
+2. The first map is the inclusion of ℤ_p into its fraction field and the second is a field embedding; both are injective. Alternatively use the norm-preserving description to show that only zero maps to zero.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-coe`, `mathlib:PadicComplex.norm_extends'`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Prime roots of unity are close to one
+
+`PadicMeasuresIwasawaAlgebras:L2/prime-root-sub-one-norm` — lemma.
+
+For every ζ∈ℂ_p with ζ^p=1, including ζ=1 and p=2, one has |ζ−1|<1.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Since p>0 and ζ^p=1, ζ has finite order and the pinned finite-order norm lemma gives |ζ|=1. Thus w=ζ−1 satisfies |w|≤1 by ultrametricity.
+2. Expand (1+w)^p=1. For 1≤k<p, the integer binomial coefficient binom(p,k) is divisible by p. Thus w^p is minus the sum of binom(p,k)w^k over this range.
+3. Every summand has norm at most |p|=1/p<1. The ultrametric inequality yields |w|^p≤1/p, hence |w|<1. No unjustified substitution or assumption on a finite extension occurs.
+
+Prerequisites: `mathlib:IsOfFinOrder.norm_eq_one`, `mathlib:PadicComplex.isNonarchimedean`, `mathlib:PadicComplex.norm_extends'`, `mathlib:Nat.Prime.dvd_choose_self`, `mathlib:add_pow`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Topological nilpotence of the root displacement
+
+`PadicMeasuresIwasawaAlgebras:L2/integer-root-sub-one-nilpotent` — lemma.
+
+For ζ∈O with ζ^p=1, the powers of ζ−1 tend to zero in O.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Include ζ in ℂ_p and apply prime-root-sub-one-norm. The subtype norm on O is the same norm.
+2. The pinned norm-less-than-one power convergence theorem gives convergence of powers to zero. This is topological nilpotence; ζ−1 is not asserted algebraically nilpotent.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/prime-root-sub-one-norm`, `mathlib:tendsto_pow_atTop_nhds_zero_of_norm_lt_one`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Uniform tails for integral Amice evaluation
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-amice-uniform-tail` — lemma.
+
+For f∈C(ℤ_p,ℤ_p) and ε>0 there is N such that, for every F∈ℤ_p[[T]] and n≥N, |invTransform(F)(f)−Σ_{k<n} c_k(f)·coeff_k(F)|<ε, where c_k(f) is its pinned Mahler coefficient.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Use the exact pinned invTransform_apply series, whose Mahler coefficients c_k(f) tend to zero.
+2. Choose N so that |c_k(f)|≤ε/2 for every k≥N. The choice is independent of F because every integral coefficient of F has norm at most 1.
+3. Split off the finite sum. Each remaining term has norm at most ε/2. The ultrametric sum bound gives a tail norm at most ε/2, which is strictly less than ε. The smaller bound is needed to preserve strictness after taking the infinite sum.
+
+Prerequisites: `mathlib:AbstractMeasure.invTransform_apply`, `mathlib:PadicInt.mahlerEquiv`, `mathlib:PadicInt.norm_le_one`, `mathlib:IsUltrametricDist.norm_tsum_le_of_forall_le`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Weak continuity of integral Amice evaluation
+
+`PadicMeasuresIwasawaAlgebras:L2/inverse-amice-evaluation-continuous` — lemma.
+
+For each f∈C(ℤ_p,ℤ_p), the map F↦invTransform(F)(f) is continuous for the coefficientwise p-adic topology on ℤ_p[[T]].
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Each finite Mahler pairing is a finite sum of continuous coefficient projections multiplied by fixed constants.
+2. The preceding uniform tail estimate proves uniform convergence of those finite pairings to the actual inverse Amice evaluation. The uniform limit is continuous.
+3. This is continuity against a fixed test function. It neither identifies the coefficientwise topology with the sup norm on coefficients nor asserts norm continuity of the full inverse transform.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/inverse-amice-uniform-tail`, `mathlib:PowerSeries.WithPiTopology.continuous_coeff`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Coefficientwise continuity of bounded psi
+
+`PadicMeasuresIwasawaAlgebras:L2/psi-series-continuous` — lemma.
+
+The existing bounded integral operator psiSeries:ℤ_p[[T]]→ℤ_p[[T]] is continuous for the coefficientwise p-adic topology.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. For a fixed coefficient n, use the actual Amice transport and psi-evaluation: coeff_n(psiSeries F)=invTransform(F)(χ·(mahler_n∘q)), where χ is the clopen pℤ_p indicator and q is the existing extended exact-division map.
+2. The indicated test function is continuous and integral. Apply inverse-amice-evaluation-continuous.
+3. Continuity of every coefficient proves continuity into the product topology. No ring-homomorphism property of psi is used.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/psi-series`, `PadicMeasuresIwasawaAlgebras:L2/psi-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/inverse-amice-evaluation-continuous`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Continuity of the bounded averaging projector
+
+`PadicMeasuresIwasawaAlgebras:L2/phi-psi-series-continuous` — lemma.
+
+The map F↦φ(psiSeries F), where φ(F)=F((1+T)^p−1), is continuous in the coefficientwise p-adic topology.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. The constant coefficient of b=(1+T)^p−1 is zero. For fixed n, coeff_n(F(b)) is a finite sum over k≤n of coeff_k(F)·coeff_n(b^k), using the pinned substitution coefficient formula.
+2. Each such coefficient depends continuously on finitely many input coefficients. Therefore φ is continuous, and composition with psi-series-continuous gives the assertion.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/psi-series-continuous`, `mathlib:PowerSeries.coeff_subst'`, `mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Natural Dirac transforms
+
+`PadicMeasuresIwasawaAlgebras:L2/amice-dirac-natural` — lemma.
+
+For n∈ℕ, the Amice transform of the existing integral Dirac measure δ_n is (1+T)^n.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Evaluate the nth Dirac measure on each Mahler basis function. The pinned mahler_natCast_eq gives binom(n,k).
+2. These are exactly the coefficients of (1+T)^n. Coefficient extensionality proves the equality.
+
+Prerequisites: `mathlib:AbstractMeasure.dirac_apply`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:mahler_natCast_eq`, `mathlib:Polynomial.coeff_one_add_X_pow`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### The bounded projector on natural powers
+
+`PadicMeasuresIwasawaAlgebras:L2/phi-psi-natural-powers` — lemma.
+
+For n∈ℕ, φ(psiSeries((1+T)^n)) equals (1+T)^n if p divides n and equals zero otherwise.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Use amice-dirac-natural to write the input as the transform of δ_n.
+2. The existing phi-psi theorem gives restriction of δ_n to pℤ_p. Its value is δ_n precisely when p divides the p-adic integer n, and is zero otherwise.
+3. For natural n, divisibility by p in ℤ_p agrees with ordinary divisibility. Transform back using the Dirac formula.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/amice-dirac-natural`, `PadicMeasuresIwasawaAlgebras:L2/phi-psi`, `PadicMeasuresIwasawaAlgebras:L2/restriction-pmultiples`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-intertwining`, `PadicMeasuresIwasawaAlgebras:L2/amice-phi`, `mathlib:PadicInt.norm_lt_one_iff_dvd`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### The convergent root-translation argument
+
+`PadicMeasuresIwasawaAlgebras:L2/root-translation-convergence` — lemma.
+
+For ζ∈O with ζ^p=1 and i∈ℕ, the series C(ζ^i)(1+T)−1 is topologically nilpotent in O[[T]] with its coefficientwise topology.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. The constant coefficient is ζ^i−1. Since (ζ^i)^p=1, integer-root-sub-one-nilpotent applies.
+2. Use the existing theorem that a power series over a linearly topological commutative ring is topologically nilpotent when its constant coefficient is. The target integer ring has the topology supplied above.
+3. This supplies HasEval, not HasSubst. The latter would require algebraic nilpotence and is generally false here.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/integer-root-sub-one-nilpotent`, `PadicMeasuresIwasawaAlgebras:L2/integer-ring-linear-topology`, `mathlib:MvPowerSeries.LinearTopology.isTopologicallyNilpotent_of_constantCoeff`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Integral topological root translation
+
+`PadicMeasuresIwasawaAlgebras:L2/root-translation` — construction.
+
+For ζ∈O with ζ^p=1 and i∈ℕ, define τ_i:ℤ_p[[T]]→O[[T]] to be the existing continuous topological evaluation ring homomorphism with coefficient map C∘j and argument C(ζ^i)(1+T)−1.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Use the existing complete Hausdorff integer ring O and its coefficientwise power-series topology. Completeness of O is the pinned closed-subspace result and completeness of the product is inherited.
+2. The coefficient map is continuous by integral-coefficient-map-continuous and continuity of constant-series inclusion. The argument has HasEval by root-translation-convergence.
+3. Instantiate PowerSeries.eval₂Hom. Its ring laws are inherited from this baseline construction; no second bounded psi or new power-series carrier is defined.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-continuous`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-convergence`, `mathlib:Valued.isClosed_integer`, `mathlib:IsClosed.completeSpace_coe`, `mathlib:PowerSeries.eval₂Hom`.
+
+API:
+
+- `IwasawaAveraging.rootTranslation_eq_eval` (characterisation): For integral F, τ_i(F)=eval₂(C∘j,C(ζ^i)(1+T)−1,F). Promoted to root-translation-evaluation.
+- `IwasawaAveraging.rootTranslation_continuous` (compatibility): For fixed ζ and i, τ_i:ℤ_p[[T]]→O[[T]] is continuous in the coefficientwise p-adic topologies. Promoted to root-translation-continuous.
+- `IwasawaAveraging.rootTranslation_polynomial` (compatibility): For P∈ℤ_p[T], τ_i(P)=P evaluated with coefficient map C∘j at C(ζ^i)(1+T)−1. Promoted to root-translation-polynomial.
+- `IwasawaAveraging.rootTranslation_one_add_X_pow` (simp): For i,n∈ℕ, τ_i((1+T)^n)=C(ζ^(in))(1+T)^n. Promoted to root-translation-natural-powers.
+- `IwasawaAveraging.rootTranslation_hasSum` (characterisation): For integral F, the series Σ_n C(j(coeff_n F))·(C(ζ^i)(1+T)−1)^n has sum τ_i(F) in O[[T]]. Promoted to root-translation-sum.
+- `IwasawaAveraging.rootTranslation_zeroth` (simp): For every integral F, τ_0(F)=map(j,F). Promoted to root-translation-zeroth.
+
+Uses:
+
+- RJW equation (3-9); PadicMeasuresIwasawaAlgebras:L2/root-average: Evaluate integral series after root translation in a complete linear receiving topology and compare the finite sum with the actual bounded operator.
+- DirichletPadicLFunctions:L1 rational psi requests: Supply generic rational-series averaging and finite partial fractions to the existing Dirichlet proof. Bernoulli formulas and the smoothed rational input remain in the consumer.
+- ColemanPowerSeries:L1 and LocallyAnalyticDistributions:L1: Provide the bounded reference identity; recipients own their finite-free trace or locally analytic comparison. There is no reverse prerequisite.
+
+Tests:
+
+- `IwasawaAveraging.Tests.translation_zero` (degenerate): For p=2, ζ=−1 and i=1, τ_i(0)=0.
+- `IwasawaAveraging.Tests.translation_variable` (computation): For p=2, ζ=−1 and i=1, τ_i(T)=−2−T. Omitting the translated constant term fails this test.
+- `IwasawaAveraging.Tests.translation_odd_power` (computation): For p=2, ζ=−1 and i=1, τ_i((1+T)^3)=−(1+T)^3.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Root translation as topological evaluation
+
+`PadicMeasuresIwasawaAlgebras:L2/root-translation-evaluation` — lemma.
+
+For integral F, τ_i(F)=eval₂(C∘j,C(ζ^i)(1+T)−1,F).
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Unfold root-translation and use the pinned evaluation-homomorphism coercion formula. The evaluation uses the genuine complete linear topology established in the construction.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-translation`, `mathlib:PowerSeries.coe_eval₂Hom`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Continuity of root translation
+
+`PadicMeasuresIwasawaAlgebras:L2/root-translation-continuous` — lemma.
+
+For fixed ζ and i, τ_i:ℤ_p[[T]]→O[[T]] is continuous in the coefficientwise p-adic topologies.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Apply the pinned continuity theorem for topological evaluation to the continuous coefficient map and the HasEval argument supplied above.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-translation-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-convergence`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-continuous`, `mathlib:PowerSeries.continuous_eval₂`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Polynomial agreement of root translation
+
+`PadicMeasuresIwasawaAlgebras:L2/root-translation-polynomial` — lemma.
+
+For P∈ℤ_p[T], τ_i(P)=P evaluated with coefficient map C∘j at C(ζ^i)(1+T)−1.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Apply eval₂_coe to the actual evaluation formula. Only polynomial evaluation appears on the right, so it needs no infinite formal substitution.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-translation-evaluation`, `mathlib:PowerSeries.eval₂_coe`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Root translation on natural powers
+
+`PadicMeasuresIwasawaAlgebras:L2/root-translation-natural-powers` — lemma.
+
+For i,n∈ℕ, τ_i((1+T)^n)=C(ζ^(in))(1+T)^n.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. The polynomial agreement maps 1+T to C(ζ^i)(1+T).
+2. The ring-homomorphism law preserves nth powers. Commute the two factors and combine the powers of ζ.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-translation-polynomial`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### The convergent series defining root translation
+
+`PadicMeasuresIwasawaAlgebras:L2/root-translation-sum` — lemma.
+
+For integral F, the series Σ_n C(j(coeff_n F))·(C(ζ^i)(1+T)−1)^n has sum τ_i(F) in O[[T]].
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Use the exact pinned hasSum_eval₂ theorem with the continuous coefficient map and the proven topological nilpotence.
+2. The coefficient ring is O, whose topology is linear and complete. This result is not an evaluation theorem for arbitrary unbounded ℂ_p-valued coefficient sequences.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-translation-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-convergence`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-continuous`, `mathlib:PowerSeries.hasSum_eval₂`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### The identity root translation
+
+`PadicMeasuresIwasawaAlgebras:L2/root-translation-zeroth` — lemma.
+
+For every integral F, τ_0(F)=map(j,F).
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. At i=0 the argument is T. For every polynomial P the two maps agree by polynomial evaluation.
+2. Both maps are continuous for the coefficientwise topology; the coefficient map is continuous and polynomial inclusion has dense image. The equality therefore extends to every F.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-translation-polynomial`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-continuous`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-continuous`, `mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries`, `mathlib:DenseRange.equalizer`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Finite root orthogonality
+
+`PadicMeasuresIwasawaAlgebras:L2/primitive-root-power-sum` — lemma.
+
+For a commutative domain R, ζ∈R primitive of order p and n∈ℕ, Σ_{i<p} ζ^(in) is p if p divides n, and zero otherwise.
+
+Hypotheses: R is a commutative domain; ζ has exact order p; n is a natural number.
+
+Proof outline:
+
+1. If p divides n, ζ^n=1 and every summand is 1.
+2. Otherwise ζ^n≠1 by the primitive-root divisibility criterion. Multiplying the geometric sum by ζ^n−1 gives (ζ^n)^p−1=0. The first factor is nonzero; cancellation in the domain gives a zero sum.
+3. No inverse of p is introduced. The formula also holds in receiving integral rings.
+
+Prerequisites: `mathlib:IsPrimitiveRoot.pow_eq_one_iff_dvd`, `mathlib:geom_sum_mul`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Root averaging of polynomial transforms
+
+`PadicMeasuresIwasawaAlgebras:L2/root-average-polynomial` — lemma.
+
+For ζ∈O primitive of order p and P∈ℤ_p[T], p·map(j,φ(psiSeries P))=Σ_{i<p}τ_i(P) in O[[T]].
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. First take P=(1+T)^n. The left side is p times that power exactly when p divides n, by phi-psi-natural-powers.
+2. The right side has the same value by root-translation-natural-powers and primitive-root-power-sum.
+3. Every polynomial P(T) is a finite ℤ_p-linear combination of powers of 1+T: expand P(U−1) in U and then put U=1+T. Both sides are ℤ_p-linear through j, so the identity extends to P.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/phi-psi-natural-powers`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-natural-powers`, `PadicMeasuresIwasawaAlgebras:L2/primitive-root-power-sum`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Integral root averaging for bounded psi
+
+`PadicMeasuresIwasawaAlgebras:L2/root-average` — theorem.
+
+For ζ∈O primitive of order p and every F∈ℤ_p[[T]], p·map(j,φ(psiSeries F))=Σ_{i<p}τ_i(F) in O[[T]].
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. The left side is continuous by phi-psi-series-continuous, coefficientwise continuity of map(j), and multiplication by the constant p.
+2. The right side is a finite sum of continuous root translations. O[[T]] is Hausdorff.
+3. The maps agree on the dense image of ℤ_p[T] by root-average-polynomial, hence everywhere. This compares the actual bounded Amice-transported psi; no trace comparison or alternate operator is assumed.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-average-polynomial`, `PadicMeasuresIwasawaAlgebras:L2/phi-psi-series-continuous`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-continuous`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-continuous`, `mathlib:PowerSeries.WithPiTopology.denseRange_toPowerSeries`, `mathlib:DenseRange.equalizer`.
+
+Tests:
+
+- `IwasawaAveraging.Tests.average_variable_two` (computation): For p=2 and ζ=−1, τ_0(T)+τ_1(T)=−2; φψ(T)=−1, so the factor p cannot be omitted.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Unique integral descent of the root average
+
+`PadicMeasuresIwasawaAlgebras:L2/root-average-integral-descent` — theorem.
+
+For each integral F and primitive ζ∈O, there is a unique G∈ℤ_p[[T]] satisfying p·map(j,φ(G))=Σ_{i<p}τ_i(F). The unique G is psiSeries F.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Existence is root-average with G=psiSeries F.
+2. For uniqueness, cancel the nonzero constant p in the domain O[[T]]. Cancel the injective coefficient map using PowerSeries.map_injective.
+3. Finally φ is injective because psiSeries∘φ=id. No division by p is performed in O or ℤ_p, and the integral value is independent of the chosen primitive root.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-average`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-injective`, `PadicMeasuresIwasawaAlgebras:L2/psi-series-phi`, `mathlib:PowerSeries.map_injective`.
+
+Acceptance: The unique integral G is ψF by root-average. Uniqueness implies independence of the choice of primitive root. No inverse of p is introduced in O.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Nonvanishing translated polynomial denominators
+
+`PadicMeasuresIwasawaAlgebras:L2/translated-polynomial-nonzero` — lemma.
+
+For nonzero Q∈ℤ_p[T] and nonzero ζ∈ℂ_p, Q(ζY−1) is nonzero in Frac(ℂ_p[[T]]), where Y=1+T and coefficients use the canonical embedding.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. The coefficient embedding is injective, so the polynomial Q remains nonzero over ℂ_p.
+2. Substitution T↦ζT+(ζ−1) has inverse T↦ζ⁻¹T+(ζ⁻¹−1); equivalently undo ζY−1 by (T+1)/ζ−1. Therefore it cannot send a nonzero polynomial to zero. These are polynomial compositions, not infinite substitutions.
+3. The inclusions from polynomials to formal series and then to their fraction field are injective. The resulting rational denominator is consequently nonzero.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-injective`, `mathlib:PowerSeries.map_injective`, `mathlib:IsFractionRing.injective`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Root translation of an integral rational series
+
+`PadicMeasuresIwasawaAlgebras:L2/root-translation-rational` — comparison.
+
+Let P,Q∈ℤ_p[T], Q(0) a unit, and F∈ℤ_p[[T]] with QF=P. After mapping τ_i(F) to Frac(ℂ_p[[T]]), its value is P(ζ^iY−1)/Q(ζ^iY−1).
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. Apply the actual root-translation ring homomorphism to QF=P. Polynomial agreement identifies its two polynomial factors.
+2. Q(0) a unit implies Q≠0. Since ζ^p=1, each ζ^i is nonzero; translated-polynomial-nonzero proves the denominator nonzero.
+3. Map the equality into the receiving fraction field and divide by this denominator. Nothing applies psi to an individual pole, and no arbitrary formal series is evaluated at ζ−1.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-translation-polynomial`, `PadicMeasuresIwasawaAlgebras:L2/translated-polynomial-nonzero`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-coe`, `mathlib:IsFractionRing.injective`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Rational-series averaging for the bounded operator
+
+`PadicMeasuresIwasawaAlgebras:L2/rational-root-average` — theorem.
+
+For ζ∈ℂ_p primitive of order p, P,Q∈ℤ_p[T] with Q(0) a unit, and integral F satisfying QF=P, one has p·J(φ(psiSeries F))=Σ_{i<p}P(ζ^iY−1)/Q(ζ^iY−1) in Frac(ℂ_p[[T]]). Here J is the canonical coefficient/series inclusion and Y=1+T.
+
+Hypotheses: p is a prime, including 2; Z=ℤ_p, B=Z[[T]], Y=1+T and b=Y^p−1. A is the pinned integral Amice equivalence, φ is substitution by b, and ψ is the existing AbstractMeasure.psiSeries, with ψφ=id and φψ the pZ restriction projector. C_p is the pinned PadicComplex field, O is its existing valuation integer ring with the induced topology, and j₀:Z→C_p is the composite through ℚ_p. Power series carry the coefficientwise p-adic topology, not the uniform coefficient norm topology. Write j:Z→O for integral-coefficient-map and τ_i for root-translation whenever they occur.
+
+Proof outline:
+
+1. A root of unity has norm 1 by the pinned finite-order norm theorem. Thus ζ lies in the existing integer ring O; injectivity of O→ℂ_p reflects its primitive-root property.
+2. Apply root-average in O[[T]], then map the identity through ℂ_p[[T]] into its fraction field.
+3. Replace each translated integral series by its rational expression using root-translation-rational. The canonical coefficient-map comparison identifies the left side with J of the original integral series.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-average`, `PadicMeasuresIwasawaAlgebras:L2/root-translation-rational`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-map-coe`, `mathlib:IsOfFinOrder.norm_eq_one`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### The finite-root partial-fraction denominators
+
+`PadicMeasuresIwasawaAlgebras:L2/root-denominator-nonzero` — lemma.
+
+For a characteristic-zero field K, ζ∈K primitive of order p and y∈K with y^p≠1, every ζ^i y−1 is nonzero, for all i∈ℕ.
+
+Hypotheses: K is a characteristic-zero field; ζ has exact order p; y^p≠1.
+
+Proof outline:
+
+1. If ζ^i y=1, take pth powers. Since ζ^p=1, the left side becomes y^p, contradicting the hypothesis.
+
+Prerequisites: `mathlib:IsPrimitiveRoot.pow_eq_one_iff_dvd`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, Lemma 4.7, printed p.137 / PDF38; collated with arXiv v2 PDF27. Expands the finite partial-fraction step as an algebraic field identity with every denominator nonzero. It does not extend bounded ψ to the individual pole 1/T; the Dirichlet source-domain finding E6 remains in its owner packet.
+
+### The finite-root partial-fraction identity
+
+`PadicMeasuresIwasawaAlgebras:L2/root-partial-fractions` — theorem.
+
+For a characteristic-zero field K, ζ primitive of order p and y^p≠1, Σ_{i<p}1/(ζ^i y−1)=p/(y^p−1).
+
+Hypotheses: K is a characteristic-zero field; ζ has exact order p; y^p≠1.
+
+Proof outline:
+
+1. All displayed denominators are nonzero by root-denominator-nonzero and y^p≠1.
+2. The geometric-sum identity gives 1/(ζ^i y−1)=(Σ_{k<p}(ζ^i y)^k)/(y^p−1).
+3. Interchange the two finite sums. The inner sum of ζ^(ik) is zero for 0<k<p and p for k=0 by primitive-root-power-sum. Only the constant term survives, giving the claimed factor p.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/root-denominator-nonzero`, `PadicMeasuresIwasawaAlgebras:L2/primitive-root-power-sum`, `mathlib:geom_sum_mul`.
+
+Tests:
+
+- `IwasawaAveraging.Tests.partial_fractions_two` (computation): For p=2, ζ=−1 and y=2 over ℚ, the finite sum is 1−1/3=2/3.
+
+Acceptance: At p=2, ζ=−1, y=2 the sum is 2/3. The condition y^p≠1 is essential; y=1 is excluded.
+
+Source: RJW-published, Lemma 4.7, printed p.137 / PDF38; collated with arXiv v2 PDF27. Expands the finite partial-fraction step as an algebraic field identity with every denominator nonzero. It does not extend bounded ψ to the individual pole 1/T; the Dirichlet source-domain finding E6 remains in its owner packet.
+
+### Translated denominators over an embedded coefficient field
+
+`PadicMeasuresIwasawaAlgebras:L2/translated-polynomial-descent-nonzero` — lemma.
+
+Let K be a characteristic-zero field, j_K:ℤ_p→K and e:K→ℂ_p ring maps with e∘j_K=j₀. For Q∈ℤ_p[T] nonzero and ζ∈K nonzero, Q(ζY−1) is nonzero in Frac(K[[T]]).
+
+Hypotheses: K is a characteristic-zero field; e∘j_K equals the canonical ℤ_p→ℂ_p map.
+
+Proof outline:
+
+1. The field embedding e is injective, so PowerSeries.map e is injective. Compose it with inclusion into Frac(ℂ_p[[T]]).
+2. The existing fraction-ring lift gives an embedding of Frac(K[[T]]) into Frac(ℂ_p[[T]]). It maps the denominator to the one over ℂ_p with root e(ζ).
+3. The latter is nonzero by translated-polynomial-nonzero. Therefore the original denominator is nonzero.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/translated-polynomial-nonzero`, `mathlib:PowerSeries.map_injective`, `mathlib:IsFractionRing.lift`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
+### Rational averaging over the cyclotomic coefficient field
+
+`PadicMeasuresIwasawaAlgebras:L2/rational-root-average-descent` — theorem.
+
+For K,j_K,e as in translated-polynomial-descent-nonzero, ζ∈K primitive of order p, P,Q∈ℤ_p[T] with Q(0) a unit, and integral F with QF=P, the same identity p·J_K(φ(psiSeries F))=Σ_{i<p}P(ζ^iY−1)/Q(ζ^iY−1) holds in Frac(K[[T]]), with its canonical maps J_K and Y=1+T.
+
+Hypotheses: K is a characteristic-zero field; e∘j_K equals the canonical ℤ_p→ℂ_p map.
+
+Proof outline:
+
+1. Map both sides along the injective fraction-ring lift induced by e. It respects polynomial evaluation and nonzero denominators.
+2. The image identity is rational-root-average for e(ζ), whose primitive order follows from injectivity. Coefficient compatibility is exactly e∘j_K=j₀. Injectivity reflects the equality.
+3. A concrete receiving field is the existing intermediate-field adjoin K=ℚ_p(ζ)⊂ℂ_p. A primitive root exists by algebraic closedness; it satisfies X^p−1, so this is a finite algebraic cyclotomic extension. Use the existing intermediate-field inclusion and the composite ℤ_p→ℚ_p→K. No new valued-field carrier or finite-free trace is constructed.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L2/rational-root-average`, `PadicMeasuresIwasawaAlgebras:L2/translated-polynomial-descent-nonzero`, `mathlib:PowerSeries.map_injective`, `mathlib:IsFractionRing.lift`, `mathlib:HasEnoughRootsOfUnity.exists_primitiveRoot`, `mathlib:IntermediateField.adjoin`.
+
+Acceptance: Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed.
+
+Source: RJW-published, §3.5.3–5, equations (3-5), (3-6), (3-9), printed pp.127–129 / PDF28–30; collated with arXiv v2 PDF20–22. The source motivates the bounded root-averaging identity. This node is an explicit library-level decomposition for integral ℤ_p coefficients. The receiving integer ring, topological evaluation, uniform Mahler tails and density proof are worker elaborations using the listed pinned declarations; the source does not state these Lean-level continuity lemmas.
+
 ## Remaining layers and ownership
 
 ### PadicMeasuresIwasawaAlgebras:L0 — not_read
@@ -1720,7 +2451,7 @@ The publication and v2 display were collated on 27 September 2026, including a r
 
 - Extend the integral ℤ_p Amice equivalence to the actual bounded-series carriers for general coefficient rings or fields, with integral lattice, coefficient, norm and weak-topology comparisons; do not assert surjectivity onto all field-valued formal series.
 - The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Construct the generic clopen-subtype restriction/extension comparison in L0 and compare intrinsic unit-domain measures with the ambient projector. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action.
-- Prove the coefficient-extension and root-of-unity averaging formulas in §3.5.3–5, with convergence and descent explicit. ColemanPowerSeries:L1 owns comparison with the finite-free normalized trace; locally analytic and period-ring recipients own their respective comparisons. This packet supplies bounded references without reverse dependencies.
+- The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Extend coefficient lattices and the bounded Amice equivalence for general rings/fields before claiming the full coefficient-general §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers.
 - Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels.
 
 ### PadicMeasuresIwasawaAlgebras:L3 — partial
@@ -1762,8 +2493,8 @@ Restriction to units. L3 retains its four planets: Pseudomeasures, Cleared numer
 Admissible evaluation and Independence of clearing factor. Adding L2 planets
 requires a justified sub-layer proposal; the layer is already at its limit.
 
-The packet contains 69 nodes, 66 API entries and 51 definition/construction tests.
-The suggested file has 62 typed examples, including comparison and boundary cases. All implementation statuses remain unchecked;
+The packet contains 101 nodes, 75 API entries and 57 definition/construction tests (60 packet tests total).
+The suggested file has 70 typed examples, including comparison and boundary cases. All implementation statuses remain unchecked;
 signature elaboration does not implement the roadmap.
 
 ## Sources and scope of reading
@@ -1786,3 +2517,30 @@ The reviewed audit, all touching link entries and the accepted RS-16 bounded
 operator ownership and topology gate were rechecked before constructing these nodes.
 
 The unit-inverse follow-up additionally reads the passages listed above, including equation (4-3), Proposition 12.5 and published p.193. These focal readings do not supply the remaining source decomposition of the other layers. The three new source findings use the same version-of-record hash and fresh bounded correction searches on 27 September 2026.
+
+## Root-averaging validation and continuation
+
+The full suggested file elaborates against the pinned source closure with zero errors and
+200 proof-placeholder warnings; 2,732 imported Mathlib source files were byte-compared with
+the pinned tree. It contains 70 typed examples. This checks signatures and typeclass
+compatibility, not the mathematical proofs left as placeholders.
+
+Five separate scratch examples have complete Lean proofs and no warnings: completeness
+of O, the generic finite-root denominator argument, the characteristic-zero p=2 rational
+identity, its value at y=2, and finite-order root norm one. Four sensitive baseline telescopes
+were checked, including the generated additive ultrametric sum bound. That declaration is
+absent from the text-only baseline index because it is generated by the additive translation
+attribute; the indexed checker uses a scratch supplemental row backed by its source and
+compiled telescope. The published packet does not alter the baseline index.
+
+An independent exact-arithmetic harness passes 716 assertions for p=2,3,5,7. It works in
+ℚ[ζ_p], reduces by the cyclotomic polynomial, and checks inverses, root orthogonality,
+partial fractions, polynomial averaging, and finite rational geometric-series congruences.
+Negative controls detect a missing p factor and a dropped translated constant. The rational
+checks compare fourteen input coefficients through degree five modulo p^5; these finite
+checks do not prove the uniform-tail estimate or any infinite convergence assertion.
+
+The next worker should resolve the general bounded coefficient and lattice comparison before
+claiming coefficient-general averaging. The Dirichlet consumer can now import the two precise
+supplier nodes above and discharge its own rational ψ-invariance proof. No consumer is edited
+by this checkpoint. Continue the remaining eight stage gaps to full source coverage.
