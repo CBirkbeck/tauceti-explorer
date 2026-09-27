@@ -1,76 +1,46 @@
-# BP-KTheoryLowDegrees--U.1 — Spin-coordinate continuation
+# BP-KTheoryLowDegrees--U.1 — the real circle ring is Dedekind
 
-Agent: Codex; session: codex-a71f92; issue: #764; date: 2026-09-26.
-Status: **checkpoint / partial**, not a completed blueprint or an independent review.
+Codex — codex-hjdg0j. Refs #764. Claim 5852901273 was explicitly confirmed by bot 5852902328; the full issue was reread after confirmation. This is a partial continuation of PR #3117, not an independent review or a formalization.
 
-## Delivered
+## Delivered and exact closure
 
-Four new application lemmas decompose the real-circle obstruction:
+Eight new U.3 declarations supply the real-circle Dedekind obligation: six lemmas, one construction and one theorem. The existing carrier A=ℝ[x,y]/(x²+y²−1) is unchanged. The circle relation is Eisenstein in the outer variable at the coefficient prime (Y−1), so its quotient is a domain. For σ²=1 the chart A[(1+σx)⁻¹] is explicitly ℝ[t,(1+t²)⁻¹], by x↦σ(1−t²)/(1+t²), y↦2t/(1+t²), with inverse t↦y/(1+σx). The two chart denominators sum to 2 and cover all primes. Native localization results give Dedekind prime localizations; native local criteria give integral closure and dimension at most one; Noetherianity is supplied directly by existing polynomial and quotient instances. The final theorem supplies the exact IsDedekindDomain predicate.
 
-1. The ordered coordinate pair (e₁,e₀) is orthonormal for the existing realCliffordForm N 0, for every N≥2.
-2. The faithful SO coordinate image of spinRotation with parameter θ is the stabilized positive circle rotation through 2θ. The proof calculates every column, including the complementary identity.
-3. The once-around circle loop has the existing spinRotationPath as a lift from 1 to negOne.
-4. No based contraction of that loop exists in the exact pinned SO carrier: covering-lift uniqueness and endpoint invariance contradict negOne≠1.
+The separate Dedekind gap is removed, and U.3/U.4 remaining-work lists are narrowed. No stage is closed. The Spin obstruction still needs the requested continuous SL-to-SO retraction. Neither SK₁ nontriviality nor a theorem about arbitrary Dedekind domains is inferred from the algebraic proof alone. The chart at the zero prime is allowed to be a field; no zero-prime DVR claim is made. No assertion says A itself is a PID.
 
-The final SK₁ theorem now consumes this chain but still explicitly awaits the SL-to-SO retraction. The inherited positive-column convention is preserved. A visual check of Weibel III.1.5.4 shows that his displayed matrix is its inverse, so the reader and source-match annotation explain this translation; it is not alleged to be a source error.
+The chart has seven API lemmas and four tests: the two t=0 poles, the t=1 value, agreement with the inverse equivalence, and a wrong y-coordinate scale. A fifth typed test checks the exact final predicate's components. All new prerequisites end in native baseline declarations or other new nodes; the chain has no supplier request.
 
-All 210 inherited node IDs survive. Exactly 208 inherited node objects are unchanged; only circle-evaluation-rotation and SK1-real-circle-nonzero are revised. All inherited sources, source versions, ten sourceIssues, nine supplier requests, 408 baseline entries, APIs, tests and 44 planets are preserved. Four unrelated gap records are unchanged; the rotation gap is narrowed to its remaining retraction request.
+## Preservation and totals
 
-Current totals: 214 nodes, 430 API items, 225 tests, 44 planets, 425 baseline declarations, five gaps and nine requests. The checker reports 426 API items and 222 tests because it counts only definition/construction nodes; the extra four APIs and three tests are on lemmas. No whole stage is closed.
+222 nodes: 16 definitions, 38 constructions, 90 lemmas, 60 theorems, 8 comparisons and 10 applications. There are 437 API items, 230 packet tests, 240 typed examples, 44 planets, 450 baseline citations, 10 source findings, 4 gaps and 9 requests. The checker counts 433 API items and 226 tests on definition/construction nodes; the larger totals include lemma/theorem items.
 
-## Reading and ownership
+All 214 inherited IDs survive. Exactly 210 inherited node objects are unchanged. The SK1-real-circle-nonzero node changes only its stale Dedekind-gap prose; its conclusion and requested topological retraction are preserved. The universal Mennicke, SK₁-valued Mennicke and Bass–Milnor–Serre nodes gain the explicit Dedekind dependency for their non-examples. All 425 earlier baseline records, source findings, requests, planets and restructuring proposals are retained. The reader preserves the predecessor content, updates the affected gap/dependency text, and includes every new statement, proof, hypothesis, API and test. Historical Spin verification is explicitly marked historical.
 
-Read the reviewed AUDIT-29 entries for all eight scoped stages before planning, accepted RS-18 and the relevant stage/owner links. Fresh full upstream style reads were GrothendieckEulerForms and LieGroups. The companion Z.3 packet, generic Spin mathematics and generic Lie-group mathematics are not re-planned.
+## Read scope and source provenance
 
-Fresh source reading: Weibel's author-hosted combined K-book draft of 29 August 2013, III.1.5 with proof and III.1.5.1–4, PDF pp.192–193 / printed pp.184–185; PDF193 also inspected visually. Public source: https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf. SHA-256: a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845. No unread Spin Geometry proof is claimed as a source. The coordinate calculation is explicitly supplied here using the pinned generator and conjugation APIs, not attributed as a printed proof in Weibel.
+The current binding worker/protocol/style documents are byte-identical to the versions read for the immediately preceding job. There is no AGENTS.md in the snapshot. Read all eight reviewed AUDIT-29 scope rows, accepted RS-18 scope/ownership records, the full owner document and atlas scope/edges, and all touching link entries. Read the existing packet inventory, scope, coverage, gaps and requests, and the detailed circle and consuming U.4 contracts. Unchanged Morita, Milnor and arithmetic proof records are inherited evidence, not a fresh full-source audit. Fresh full upstream style reads were JacobianChallenge and Multiquadratic.
 
-Read the actual pinned statements for the real quadratic form and weights, Clifford generator relations, Clifford star, injectivity of the generating map, Spin action and rotation path, the faithful SO coordinate inclusion and its topology, compactness and the covering projection, and covering-lift uniqueness/endpoint invariance. The 17 newly registered statements have module/line locators in continuationAudit.pinReads. Pins remain Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+Fresh public primary source: Weibel, The K-book, author-hosted draft dated 29 August 2013, https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf, accessed 27 September 2026. Physical pp.191–193 (printed pp.183–185) were read in full in one three-page batch. SHA256 a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845. These pages establish the example and arithmetic distinction; the Eisenstein/stereographic proof is the worker's explicit deduction, not a claimed printed proof. No newly discovered source error is asserted. Earlier source findings and version records remain as predecessor evidence.
 
-## Checks
+Twenty-five new indexed baseline statements were read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and each source Git blob checked. Already-cited evaluation, quotient and Dedekind declarations were reread. The polynomial Euclidean-domain, PID-to-Dedekind and multivariable UFD instances were also inspected directly. Pinned Mathlib/Tau Ceti and packet searches found no existing algebraic real-circle chart/Dedekind adapter. Generic localization, normality, dimension and polynomial infrastructure is reused, not replanned.
 
-- Packet validator with pinned declaration index: 0 errors, 0 warnings.
-- Exact-file intake: four authorized files, zero problems; 214-node internal graph acyclic; inherited requests/sourceIssues and all unrelated gaps unchanged.
-- Publication guard: all 20 selected input/output blobs unchanged between claim snapshot f812aa162e951db8d8937459c9bf8e837746323d and fresh main 8d79859e2dbf30c7980a59eff7ee8cdac1361eaa. Claim bot confirmation 5850308122 still names this session. Only the four authorized deliverables are published, using MCP; no git commands.
-- Complete suggested Lean file: Lean 4.34.0-rc2, 0 errors, 721 proof-placeholder warnings only. All new theorem/example bodies are proof placeholders as required; nothing is claimed formalized.
-- Byte-compared all 8482 reached Mathlib sources; built all 106 reached Tau Ceti modules from the pin in isolated scratch.
-- Four separate actual Lean proof checks: arbitrary-dimensional coordinate norm, ordered-pair orthogonality, pinned compact covering instance, and no endpoint-relative contraction of the projection of a path from 1 to negOne. Zero proof placeholders, errors or warnings. This is not a full formalization of the coordinate comparison.
-- Exact Clifford multiplication over ℤ[c,s]: 270 coordinate identities, both orientations in dimensions 2–16; 15 wrong-orientation comparisons correctly rejected. No floating point.
-- Suggested file SHA-256: 40bc1337ba55866dc998dbde02f2032b111bc48965dedf5488bb4c598b0eb1d0.
+## Verification
 
-## Where to resume
+The indexed packet checker reports zero errors and zero warnings. Source-finding/version validation passes. The full internal dependency graph is acyclic, with 632 internal edges and 1335 total edges. New reader/signature/API/test parity and exact predecessor-preservation assertions pass.
 
-Preserve the Morita, Milnor, determinant and circle-contraction work. Resolve these precise gaps; their complete contracts and consumers are in the packet.
+The entire suggested Lean file compiles with Lean 4.34.0-rc2: zero errors, 741 expected proof-placeholder warnings only. All 8482 reached Mathlib modules were verified against their pinned Git blobs and cache source bytes; all 106 reached Tau Ceti modules were freshly built from pin-verified sources. Seed SHA256 d213bb91d79acbcc33f872c5a840f482513b1af5885b9f760275e454f0ec9bf2. No auxiliary Lean file was created.
 
-### The SL-to-SO retraction for the real-circle obstruction
+Nine formal polynomial identities over exact integer coefficient dictionaries check the chart relation, both inverse-coordinate identities and the characteristic-two square obstruction. There are 4754 exact rational chart cases, including 4752 nonzero overlap parameters with transition t↦1/t. Pole tests and wrong-scale controls pass. These arithmetic checks verify the formulas; they do not constitute a formal proof of the global Dedekind theorem.
 
-The coordinate frame, full stabilized Spin-action comparison, nonclosing once-around lift, and absence of a based SO contraction are now source-decomposed in U.3/circle-coordinate-frame, circle-spin-coordinates, circle-spin-lift and circle-no-so-contraction. Their covering machinery is actual pinned baseline; no π₁ computation or Spin simple connectivity is needed. What remains is the LieGroups layer 9 request: for every N≥2, a continuous retraction from the coordinate-topologized real determinant-one matrices to SO(realCliffordForm N 0), fixing that SO subgroup under the faithful coordinate representation, hence fixing 1 and the evaluated stabilized circle rotations. Composing this retraction with circle-trivial-class-based-contraction would contradict circle-no-so-contraction. No retraction is constructed or assumed to be already available here, so the final SK₁ theorem remains partial. The canonical supplier-stage ID remains in unresolvedUpstreamPrerequisites and requests because the checker tests the tauceti: declaration prefix before atlas stages; no fictitious baseline declaration is introduced.
+The final publication comparison against main caccea9110cda7d3df23faec83c6d7dbf53c3658 checked 50 inputs: no relevant changes or new instructions. Exact-file intake reports four files and zero problems; all eight new IDs are unreserved.
 
-Needed by: `KTheoryLowDegrees:U.3/SK1-real-circle-nonzero`.
+## Resume
 
-### The real circle ring is Dedekind for the U.4 non-example
+The four remaining gap records give the precise contracts:
 
-Prove that A=ℝ[x,y]/(x²+y²−1) is a Noetherian integrally closed integral domain of dimension at most one, with the exact IsDedekindDomain hypotheses required by the Mennicke and arithmetic non-examples. The SK₁ nontriviality theorem itself uses only the specified commutative quotient ring; its former parenthetical Dedekind assertion was not backed by a prerequisite. This application fact must be sourced and decomposed, potentially via the smooth affine real conic and complex Laurent-polynomial base change with descent. No descent theorem or geometric regularity criterion is asserted as baseline without reading it. Preserve the Dedekind-domain counterexample target in U.4; do not treat it as a proved consequence of SK₁≠1 alone.
+- The SL-to-SO retraction on coordinate-topologized determinant-one real matrices, fixing the faithful pinned SO carrier in every N≥2. LieGroups layer 9 owns this. Combine it with the inherited Spin endpoint obstruction to finish SK₁ nontriviality; the Dedekind input is now circle-ring-dedekind.
+- The tame degree-m Hilbert formula, product formula and power reciprocity for BMS, with the recorded dependency cycle and orientation addressed.
+- The higher-unit Hilbert-symbol formula for the totally imaginary BMS case, with its missing source proof and ownership.
+- The relative-K₁/homotopy-fibre comparison, retaining the preceding K₂ term and resolving the classical-K₂ dependency cycle.
 
-Needed by: `KTheoryLowDegrees:U.3/SK1-real-circle-nonzero`, `KTheoryLowDegrees:U.4/sk1-mennicke-symbol`, `KTheoryLowDegrees:U.4/universal-mennicke-group`, `KTheoryLowDegrees:U.4/bass-milnor-serre`.
-
-### The tame formula, the degree-m Hilbert product formula and the power reciprocity law (BMS (A.16), (A.19)–(A.21))
-
-U.4's arithmetic Mennicke argument (BMS Theorem 3.5) uses (A.16) (a, b / 𝔭)_m = (a/𝔭)_m^{ord_𝔭 b} for a a unit at 𝔭 ∤ m, the product formula ∏_𝔭 (a, b / 𝔭)_m = 1 (Artin–Tate XII Theorem 13) and its consequence (A.21) (b/a)_m = ∏_{𝔭∤a}(a, b / 𝔭)_m. ClassicalArithmeticCompletion CA.1 plans exactly these (CA.1/tame-hilbert-symbol-formula, CA.1/hilbert-product-formula-of-degree-n, CA.1/power-reciprocity-law), but those nodes cite K2SymbolsBrauer:T.7 for the norm-residue symbol, and T.7 lies downstream of U.4 (CA.1 ← T.7 ← T.3:localization-comparison ← T.2:graded-map ← K3BlochGroups:V.2 ← ArithmeticKTheory:N.5 ← U.4), so U.4 cannot import them without a stage cycle; Tau Ceti ClassFieldTheory lists 'explicit power-reciprocity laws beyond quadratic reciprocity' as outside its scope. BMS's orientation of the symbol is the transpose of CA.1's. Resolution proposed in restructure.
-
-Needed by: `KTheoryLowDegrees:U.4/power-reduction-non-totally-imaginary`, `KTheoryLowDegrees:U.4/power-reduction-totally-imaginary`.
-
-### Hilbert symbols on higher unit groups at primes above p (BMS (A.17)–(A.18))
-
-The totally imaginary case of BMS Theorem 3.5 (Case 3, through Lemma 3.4(a)) needs (A.17): for k/ℚ_p finite containing μ_{p^n}, with e = ord_𝔭(p), (U_𝔭(h), U_𝔭 / 𝔭)_{p^n} = (U_𝔭(h+1), k^× / 𝔭)_{p^n} = μ_{p^{n−j}}, j = [h/e − 1/(p−1)]_{[0,n]}. BMS prove it (pp. 87–88) from Serre, Corps locaux, Ch. XIV Prop. 6 (p. 237) and Ch. XV Prop. 9 (p. 219), which are not freely available and were not read; no roadmap of the atlas plans the statement. Needed only for S = ∅ and F totally complex, where U.4 uses j = 0 (the pairing U_𝔭(h) × U_𝔭 → μ_{p^n} is onto).
-
-Needed by: `KTheoryLowDegrees:U.4/power-reduction-totally-imaginary`.
-
-### Comparison of classical relative K₁ with π₁ of the homotopy fibre (K-book IV.1.11, Ex. IV.1.15)
-
-The source gives only a hint ('Use Ex. III.2.7 to show that π₁K(R → R/I) is isomorphic to the group K₁(R, I)'). Completing the five-lemma argument needs π₂BGL⁺ = K₂ (K2SymbolsBrauer T.1:plus) and the classical relative K₂-sequence (K2SymbolsBrauer T.6), which the helper places downstream of U.6 because K2SymbolsBrauer:T.1/k2-definition cites GeneralAlgebraicKTheory:K.2, whose combined stage requires K.2:low-degree-comparisons ← U.6. GeneralAlgebraicKTheory's decomposition node K.5/relative-K-theory-and-excision-boundary asserts the identification with the same exercise as its only source. See restructure.
-
-Needed by: `KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison`.
-
-The LieGroups request is already present: a continuous retraction, for every N≥2, from the determinant-one real matrices with coordinate topology to the pinned SO(realCliffordForm N 0), fixing SO in the faithful coordinate inclusion. It must fix the stabilized rotation and 1. Do not replace it with an informal deformation-retraction assertion or a differently topologized carrier.
-
-The nine supplier requests and historical H.3 plus-construction obstruction-theory boundary are unchanged. Keep K₀ on left modules, K₁ automorphism classes on right modules with column vectors, finite sets of finite places for S, and the positive DVR boundary normalization.
+The nine supplier requests also retain the finite-dimensional Morita map comparison and exact class-field/idele/Chebotarev contracts. Z.1 remains partial for that comparison. The inherited H.3 plus-construction proof boundary remains in U.6 coverage. Preserve left-module K₀, right-module/column K₁, finite sets of finite places for S, the positive DVR boundary, and every existing source correction. The previous detailed handoff is available in PR #3117.
