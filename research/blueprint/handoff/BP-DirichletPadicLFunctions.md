@@ -1,69 +1,67 @@
-# BP-DirichletPadicLFunctions: the complex tame kernel
+# BP-DirichletPadicLFunctions: actual complex Gauss comparison
 
-Codex / codex-7e92bd same-worker issue #713 follow-up to PR #3282, merged
-55dd94efe1e9b3b8ad098994937f540ac44a2d92 with head
-062c184e2d5f05d79dbc29d7fa61d15825c9ffeb. Original claim 5854790528,
+Codex / codex-7e92bd same-worker issue #713 follow-up to PR #3285, merged
+45cd6a0fdc21377af9eba1a6b14ad55e5f4404db with head
+1e1cc25a25fd56bdc3f00b89a816d14b37206edb. Original claim 5854790528,
 winning bot 5854791937; no additional claim. Review #390 remains unclaimed.
 
 ## Delivered and remaining
 
-Eleven L2 nodes give an actual finite complex tame kernel using the native
-real divided difference and the existing smooth Bernoulli kernel. They supply
-its removable value, global real analyticity, Bernoulli origin derivatives,
-positive exponential series, justified termwise derivatives, exponential
-bounds of every order, Mellin convergence, the Gamma-weighted native L-series
-comparison, entire normalized Mellin continuation and all negative integral
-values. The source orientation is exp(+t); the normalized comparison has the
-factor −η(−1), while the origin derivatives have no (−1)^k factor.
+Five L2 nodes give real-axis denominator nonvanishing, real analyticity of
+the weighted finite Gauss expression, its finite generating equation, its
+comparison with the actual tame kernel including the origin, and the formal
+versus analytic derivative comparison. The API includes the Gauss mass,
+primitive-root independence, normalized Mellin comparison and formal
+exponential coefficient with its factorial denominator.
 
-Nonprincipality is explicit for the L-function comparison; no primitivity is
-required in the finite-numerator construction. The principal constructor is
-subtracted and has different Mellin behavior. All real derivatives are typed
-before inclusion into ℂ. No ultrametric structure on ℂ or new L-function
-carrier is used.
+The comparison assumes a primitive character, a primitive root and an
+explicit nonzero inverse-character Gauss sum. The zero-residue summand has
+zero character weight; its vanishing denominator at the origin is never
+cancelled. The formal derivative comparison needs only nonprincipality and
+a nonzero modulus. No infinite formal series is evaluated at a nonzero real
+argument. Generic composite-modulus Gauss nonvanishing remains with its
+existing modular-forms owner.
 
-Totals: 242 unchecked nodes (1 definition, 26 constructions, 113 lemmas,
-70 theorems, 32 comparisons), 251 API entries, 253 packet tests (137 on
-constructions/definitions), 256 typed examples, 23 planets and 303 baseline
+Totals: 247 unchecked nodes (1 definition, 26 constructions, 115 lemmas,
+71 theorems, 34 comparisons), 255 API entries, 263 packet tests (137 on
+definitions/constructions), 266 typed examples, 23 planets and 307 baseline
 references. Fifteen findings, five gaps, one L1 request, zero closed stages.
-All 231 old nodes, 298 old baseline records and 15 old findings remain whole.
 
-Resume with the primitive complex Gauss/rational identification and product
-conductor comparisons through the existing modular-forms owner, then analytic
-p-adic branches, even-character logarithmic values, pure p-power conductor,
-pole/residue analysis and the PMIA L1 completed-algebra comparison. The new
-complex kernel does not construct an analytic p-adic character family. The
-separate existing arithmetic integral and parity results retain their own
-hypotheses and do not supply a normed embedding from ℂ to a p-adic field.
+Resume with the analytic p-adic branches and their actual unit-measure
+integrals; keep the finite-character and Teichmüller normalizations explicit.
+Even-character logarithmic values, pure p-power conductor, pole/residue
+analysis, conductor/product comparisons through their existing owner and
+the PMIA completed-algebra comparison remain separate open obligations.
 
 ## Reading and checks
 
-Complete published 141–144 / PDF 42–45 were freshly read during preparation,
-including the Mellin calculation and Lemma 5.9. The earlier complete source
-and version-collation provenance remains in the packet. Exact native
-Dirichlet continuation, divided-difference, residue-class summation, higher
-derivative, real-to-complex transport and Mellin interchange declarations
-were read with their ambient hypotheses. Native Gamma nonvanishing is the
-positive-real-part theorem. No whole-paper reading, completed formalization
-or independent review is claimed.
+Complete published 144–145 / PDF 45–46 were freshly read from the verified
+version of record, including the Gauss expression and Lemma 5.9. All four
+predecessor formal Gauss nodes and both formal moment/exponential nodes were
+read whole. The complete native Dirichlet-character GaussSum source and
+applicable complex-root, real exponential, analytic composition/division and
+finite geometric declarations were read with their ambient hypotheses. The
+complex norm theorem is distinguished from the algebraic field-norm theorem.
+Earlier version collation remains recorded. No whole-paper reading,
+completed formalization or independent review is claimed.
 
-All 231 predecessor nodes, 298 baseline records, 15 findings and sourceVersions are preserved whole. All 242 node IDs remain in the reader. Twenty named declarations, including the actual kernel definition and its defining equation, and 16 typed examples are added. The indexed blueprint has zero errors and warnings; four-file intake, whitespace, scoped mutation, API/test parity and versioned source-issue checks pass. The graph has 384 reachable nodes, 1774 edges and 403 native leaves, is acyclic and has only the PMIA L1 stage request leaf. Each of the eleven new proof routes has no stage request leaf.
+All 242 predecessor nodes, 303 baseline records, 15 findings and sourceVersions are preserved whole. Nine named declarations and ten typed examples are added. The indexed blueprint, four-file intake, whitespace, scoped mutation, API/test parity and versioned source-issue checks pass. The graph has 389 reachable nodes, 1805 edges and 406 native leaves, is acyclic and has only the PMIA L1 stage request leaf. Each of the five new proof routes has no stage request leaf.
 
-The full suggested module elaborates with zero errors and 601 expected placeholder warnings against 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and one verified actual PMIA artifact. The full target uses the verified actual 265-node PMIA artifact. The current 294-node supplier preserves that source in order; the earlier accepted refresh remains its reading provenance. No current-target declaration calls its new unit-coordinate functions. No local compile against the 294-node supplier is claimed. The actual completed-group-algebra/topology request remains open. Source, olean and original compiler-log hashes were rechecked. Existing artifacts were reused; no Mathlib or Tau Ceti build, new Lake project or cache download was run.
+The full suggested module elaborates with zero errors and 620 expected placeholder warnings against 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and one verified actual PMIA artifact. The full target uses the verified actual 265-node PMIA artifact. The current 304-node supplier preserves that source in order. All ten new weak-topology records and their added signatures were read during the 294-to-304 refresh; no new supplier declaration is called here. No local compile against the 304-node supplier is claimed. The requested comparison with the existing completedGroupAlgebra carrier remains open. Source, olean and original compiler-log hashes were rechecked. Existing artifacts were reused; no Mathlib or Tau Ceti build, new Lake project or cache download was run.
 
-The native probe constructs β from dslope and the actual finite tame kernel, then proves β(0)=1, the exponential divided-difference value at zero, the kernel’s finite origin formula and its modulus-one zero case. Its two definitions and four complete lemmas use only native libraries. The general regularity, decay and Mellin comparisons remain unchecked blueprint declarations. It elaborates against 1900 pinned Mathlib modules with zero errors, warnings or proof holes. Exact rational Taylor division checks 72 origin derivatives and 72 parity identities, and 24 rational exponential substitutions check the positive-series sign. The five genuine characters include the quartic character modulo 5, whose real and imaginary components are computed separately and checked together; 139 multiplication checks verify the finite character tables. The principal-modulo-3 control distinguishes its subtracted kernel −4/7 at log 2 from the incorrectly imported unsmoothed series −6/7. These finite controls do not prove the general analytic statements.
+Four complete native lemmas prove real-axis denominator nonvanishing, its primitive-root specialization, real analyticity of the reciprocal, and the finite scalar geometric identity. The general Gauss/kernel and formal/analytic comparisons remain unchecked blueprint declarations. It elaborates against 2025 pinned Mathlib modules with zero errors, warnings or proof holes. Exact cyclotomic arithmetic checks 16 Gauss normalizations, 86 finite Fourier identities, 80 kernel values, 112 origin derivatives, 112 factorial identities and 55 root-independence comparisons for five primitive characters. The nonreal quartic character modulo 5 is computed in Q(ζ20), using the actual inverse-character weights. Every computed inverse is verified by multiplication. These finite checks do not prove generic Gauss nonvanishing or real analyticity.
 
-No source finding is added. The initial captured register changes contain our already merged E14/E15, which remain awaiting independent review. A subsequent refresh adds three unrelated finite-field source findings, ExponentialSumsAndCircleMethod/E12–E14. All new records and full Markdown differences were read, and all previous register records remain whole. No consumed tame-kernel contract changes. The publication guard at 488fb4f82a18e84919388f40dda6d20d944fd2bb checks 54 inputs, four predecessor outputs, unchanged issue text, the original winning claim and unclaimed review #390.
+No source finding is added. The register refresh adds four unrelated HigherLocalFieldsAndHigherClassFieldTheory/E1–E4 findings awaiting independent review. All new records and the full Markdown differences were read; all previous records remain whole. No consumed Gauss or tame-kernel contract changes. The publication guard at a181fde62d8dcb8c8b48e45dad3442732b00ba32 checks 54 inputs, four predecessor outputs, unchanged issue text, the original winning claim and unclaimed review #390.
 
-Suggested SHA256: `0666e6ca5cdad595112220533183b4d43f5afe6fc2351438c7f12eb0c508a1a9`.
-Native probe SHA256: `1f6f9d4d8fa939daa47af9f05ebfa10612fc8c3701c29ead69335e89550608bf`.
+Suggested SHA256: `b334607b0620f818af78d989c1b96fcb858ce10337d1d896036816e1767b1d34`.
+Native probe SHA256: `139284f1054500e352df3c7029c36b8e0ad25889a283fefbcd5e6350b2ac3800`.
 
 One reusable worktree and one Lean process at a time were used. All compiler
 processes have ended. Exactly the four authorized deliverables change.
 
-Retained evidence: KernelProbe.lean with compiler/result/source audit;
-finite_controls.py and finite-controls.json; full suggested compile and source
-audit; artifact-reuse.json; closure/verification/route-audit receipts; captured
-inputs and publication guard; register change and reading receipts; exact
-submitted files and submission/remote receipts. Retire scratch after opening
-the PR, retaining this evidence. No private path or source PDF is published.
+Retain ComplexGaussProbe.lean and its compiler/result/source audit, the exact
+finite-control code and results, the full suggested compile and source audit,
+artifact hashes, graph/preservation/API receipts, capture and publication
+guard, supplier/register reading receipts and exact submitted files with
+remote verification. Retire scratch after opening the PR. No private path or
+source PDF is published.
