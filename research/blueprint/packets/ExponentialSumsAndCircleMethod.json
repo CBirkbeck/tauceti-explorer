@@ -11,11 +11,116 @@
     "ExponentialSumsAndCircleMethod:ES.5"
   ],
   "status": "partial",
-  "summary": "A 21-node partial ES.0 blueprint preserving all thirteen finite-interval, Möbius and AN.5-consuming nodes. Eight new adapters decompose the primitive product and excluded-prime mask, distinguish ambient modulus from conductor, and apply the existing uniform threshold to distinct primitive quadratic inputs in the small-conductor branch. Eight substantive gaps and all six partial stages remain.",
+  "summary": "A 26-node partial ES.0 blueprint preserving all twenty-one interval, Möbius, explicit-threshold and primitive-product nodes. Five additions decompose smooth divisor extraction, pairwise-coprime modulus blocks, the two-residual packing, the factor-count bound and the interval-length threshold for the large-conductor route. These arithmetic results do not assert character CRT reconstruction, quadratic conductor classification, the external Graham–Ringrose proof or full Proposition 8.2. Eight substantive gaps and all six partial stages remain.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "declarations": [
+      {
+        "ref": "mathlib:Nat.ne_one_iff_exists_prime_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Prime/Basic.lean",
+        "provides": "Every natural number other than one has a prime divisor.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 247, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_of_squarefree_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Squarefree.lean",
+        "provides": "The two factors of a squarefree natural product are coprime.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 329, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Nat.squarefree_mul_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Squarefree.lean",
+        "provides": "Squarefreeness of a natural product is equivalent to coprimality and squarefreeness of both factors.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 332, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_list_prod_right_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/GCD/BigOperators.lean",
+        "provides": "Coprimality with a list product is equivalent to coprimality with every entry.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 26, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Squarefree.squarefree_of_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Squarefree/Basic.lean",
+        "provides": "A divisor of a squarefree monoid element is squarefree.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 84, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:List.prod_filter_bne_one",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/List/Basic.lean",
+        "provides": "Deleting unit entries equal to one leaves the list product unchanged.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 221, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Real.log_prod",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "The logarithm of a finite product of nonzero reals is the sum of their logarithms.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 407, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Real.log_le_log",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "Logarithmic monotonicity with a strictly positive lower argument.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 151, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Real.log_nonneg",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "Logarithms of reals at least one are nonnegative.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 213, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Real.log_pos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+        "provides": "The logarithm of a real greater than one is positive.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 188, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Real.log_rpow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "For positive x, log(x^y)=y log x.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 494, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Real.rpow_lt_rpow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "Strict monotonicity in nonnegative bases at a positive real exponent.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 538, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Real.rpow_le_rpow_of_exponent_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "For a base at least one, real powers are monotone in the exponent.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 617, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Real.rpow_natCast",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Pow/Real.lean",
+        "provides": "Real powers at natural exponents agree with ordinary natural powers.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 62, on 27 September 2026; reached source bytes checked against the pin."
+      },
+      {
+        "ref": "mathlib:Odd.of_dvd_nat",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Order/Ring/Abs.lean",
+        "provides": "Every natural divisor of an odd number is odd.",
+        "checked": "Statement and ambient hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 274, on 27 September 2026; reached source bytes checked against the pin."
+      },
       {
         "ref": "mathlib:Function.Periodic",
         "kind": "def",
@@ -470,6 +575,237 @@
     }
   ],
   "nodes": [
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/smooth-divisor-window",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/ModulusBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "implementationStatus": "unchecked",
+      "kind": "lemma",
+      "title": "Divisor in a smooth-modulus window",
+      "statement": "Let T > 1 be real and N a natural number with T ≤ N. If every prime p dividing N satisfies p ≤ T², then there is a natural divisor d of N with T ≤ d ≤ T².",
+      "hypotheses": [
+        "N is automatically positive. Squarefreeness is not required for this divisor-extraction step. Bounds on natural numbers are comparisons after casting to ℝ."
+      ],
+      "proofSteps": [
+        "Use strong induction on N. Since N > 1, Nat.ne_one_iff_exists_prime_dvd supplies a prime p dividing N.",
+        "If p ≥ T, choose d = p; the smoothness hypothesis gives p ≤ T².",
+        "If p < T, write N = pA with A = N div p < N. Every prime divisor of A divides N. If A ≥ T, apply the induction hypothesis to A and compose divisibility.",
+        "If A < T, then N = pA ≤ T². Choose d = N, which still satisfies N ≥ T. This proves the window without an ordering of the prime factors or a new smooth-number predicate."
+      ],
+      "acceptance": [
+        "T = 3, N = 30 permits d = 6; primality of the selected block is not required.",
+        "T = 5, N = 6 permits d = N, illustrating the final induction branch.",
+        "T = 3, N = 11 has no divisor in [3,9]; the bound on prime factors cannot be dropped."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.ne_one_iff_exists_prime_dvd"
+      ],
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, printed pp.377–378, Case 1, factor conditions (a)–(c)",
+          "excerpt": "Case 1.",
+          "match": "Worker-derived extraction lemma exposing the arithmetic behind the asserted grouping of prime factors; not a separately numbered theorem of the source."
+        }
+      ]
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/squarefree-modulus-blocks",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/ModulusBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "implementationStatus": "unchecked",
+      "kind": "theorem",
+      "title": "Pairwise-coprime bounded blocks of a squarefree modulus",
+      "statement": "Let T > 1, let N be squarefree, and suppose every prime divisor p of N is at most T². There exist a list B of natural numbers and a residual integer u with 0 < u < T, u·∏B = N, every b in B in [T,T²], the entries of B pairwise coprime, and gcd(u,∏B) = 1.",
+      "hypotheses": [
+        "The list and residual use the existing List, product, Squarefree and Nat.Coprime carriers. No new factorization object is defined.",
+        "N = 1 is allowed and gives B empty, u = 1. The residual may equal one. Since T > 1, every listed block exceeds one."
+      ],
+      "proofSteps": [
+        "Use strong induction on N. Squarefreeness implies N ≠ 0. If N < T, take the empty list and residual N.",
+        "Otherwise extract d in [T,T²] by ES.0/smooth-divisor-window and write N = dA, A = N div d < N.",
+        "Nat.squarefree_mul_iff supplies squarefreeness of A and gcd(d,A) = 1. Prime-factor bounds pass to A, so apply the induction hypothesis to obtain A = u·∏B.",
+        "Prepend d. The product identity follows by associativity and commutativity. From gcd(d,u·∏B) = 1 obtain coprimality with u and with each member of B using Nat.coprime_list_prod_right_iff. These give pairwise coprimality of the enlarged list and coprimality of u with its product.",
+        "If N ≥ T the list cannot be empty, because the product identity would force N = u < T. Each block and the residual divide N; hence they inherit squarefreeness and, when N is odd, oddness."
+      ],
+      "acceptance": [
+        "T = 3, N = 210: B = [3,5,7], u = 2 satisfies all assertions.",
+        "T = 8, N = 1: the list is empty and u = 1. No nonempty-family convention is imposed.",
+        "N = 36, T = 3 can yield [3,3,4] by unrestricted repeated extraction; pairwise coprimality fails without squarefreeness."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/smooth-divisor-window",
+        "mathlib:Nat.squarefree_mul_iff",
+        "mathlib:Nat.coprime_of_squarefree_mul",
+        "mathlib:Nat.coprime_list_prod_right_iff",
+        "mathlib:Squarefree.squarefree_of_dvd",
+        "mathlib:Odd.of_dvd_nat"
+      ],
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, printed pp.377–378, Case 1, factor conditions (a)–(e)",
+          "excerpt": "Case 1.",
+          "match": "Makes the bounded prime-block grouping and its single residual explicit. It permits an empty list instead of assuming every family has a last block."
+        }
+      ]
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/bounded-crt-modulus-blocks",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/ModulusBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "implementationStatus": "unchecked",
+      "kind": "theorem",
+      "title": "Bounded CRT modulus blocks",
+      "planet": {
+        "name": "Bounded CRT modulus blocks"
+      },
+      "statement": "Let T ≥ 8 and a,Q,R be natural numbers with 0 < a ≤ 8, Q and R squarefree, Q odd, Q ≥ T, gcd(Q,R) = 1 and gcd(a,QR) = 1. Suppose every prime divisor of Q or R is at most T². Then there exist q and a list B such that q divides Q, q is odd and squarefree, T ≤ q ≤ T², the product of q::B is aQR, its entries are pairwise coprime and all in (1,T²], and at most two entries of B are less than T.",
+      "hypotheses": [
+        "This is a pure modulus-packing theorem. In the intended application a is the bounded 2-primary factor of the primitive conductor, Q its odd part, and R the excluded-prime product. The theorem does not prove that a given character has such a conductor decomposition.",
+        "R = 1 is explicitly permitted. Unit factors are removed. The distinguished factor comes from Q, not from the principal exclusion modulus."
+      ],
+      "proofSteps": [
+        "Apply ES.0/squarefree-modulus-blocks separately to Q and R, obtaining Q = u·∏U and R = v·∏V with 1 ≤ u,v < T and every full block in [T,T²].",
+        "Since Q ≥ T, U is nonempty. Choose its first entry q. It divides Q, so inherits oddness and squarefreeness; it also satisfies the required lower and upper bounds.",
+        "Replace the primitive residual u by au. Since a ≤ 8 ≤ T and u < T, au ≤ 8T ≤ T². The principal residual v is also below T². Both are positive; no squarefreeness of a is needed because a is kept inside this single block.",
+        "Concatenate U, [au], V and [v], then delete entries equal to one. List.prod_filter_bne_one preserves the product. The first entry q remains since q ≥ T > 1.",
+        "Within each family, coprimality follows from the packing theorem. The assumptions gcd(Q,R) = 1 and gcd(a,QR) = 1 give all cross-family coprimalities and coprimality of au with the other primitive blocks. Use divisibility of each factor into its family product; filtering preserves pairwise coprimality.",
+        "Every surviving full block is at least T. Only au and v can be smaller, so after taking out the distinguished q there are at most two small entries. If R = 1, its full-block list is empty and v = 1 is deleted; no principal factor is inserted artificially.",
+        "Reindexing the resulting list by its positions provides the hypotheses of ES.0/bounded-factor-count. This gives the source's r−2 count, including an empty principal family, without replacing it by an unnecessary weaker factor bound. Character restriction and reconstruction along CRT remain a separate unclosed interface."
+      ],
+      "acceptance": [
+        "T = 8, a = 4, Q = 11, R = 3 gives q::B = [11,4,3]. Both residual blocks are small: an r−1 large-block count would be false.",
+        "T = 8, a = 1, Q = 105, R = 1 permits [15,7]; the principal family contributes no factor.",
+        "T = 8, a = 1, Q = 11, R = 1 permits the one-factor list [11]. Empty maxima in the analytic threshold must then be handled by the distinguished q term alone.",
+        "A residual au = 8·7 = 56 at T = 8 lies below T² = 64; retaining the bounded a in a separate extra small block would lose the sharp two-exception count."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/squarefree-modulus-blocks",
+        "mathlib:List.prod_filter_bne_one",
+        "mathlib:Nat.coprime_list_prod_right_iff",
+        "mathlib:Squarefree.squarefree_of_dvd",
+        "mathlib:Odd.of_dvd_nat"
+      ],
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, printed pp.377–378, Case 1, (a)–(e) and r−2 bound; accepted E11 review",
+          "excerpt": "Case 1.",
+          "match": "Arithmetic part of routed item 95. The accepted errata review allows the principal family to be empty; this theorem keeps that convention and the original two-residual count. It does not claim the external Graham–Ringrose proof or the character CRT adapters are supplied."
+        }
+      ]
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/bounded-factor-count",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/ModulusBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "implementationStatus": "unchecked",
+      "kind": "lemma",
+      "title": "Factor count with two exceptional blocks",
+      "statement": "Let k > 1, c > 0, qᵢ ≥ 1 for i in Fin r, and let E be a subset of Fin r with at most two members. Suppose qᵢ ≥ k^(7/32) whenever i is outside E, and ∏ᵢqᵢ ≤ k^(2c). Then r < 10c + 2. All inequalities and the product bound are interpreted in ℝ.",
+      "hypotheses": [
+        "The exceptional set is an input identifying the at most two residual blocks from ES.0/bounded-crt-modulus-blocks. The result also permits r = 0 or 1.",
+        "Neither distinctness nor primality of the qᵢ is needed for this numerical bound. Positivity follows from qᵢ ≥ 1."
+      ],
+      "proofSteps": [
+        "Each exceptional factor contributes a nonnegative logarithm. Each of the r−|E| other factors contributes at least (7/32)log k, by logarithmic monotonicity and Real.log_rpow.",
+        "Sum and use Real.log_prod. The product bound gives (r−|E|)(7/32)log k ≤ 2c log k.",
+        "Since log k > 0, divide to obtain r ≤ (64/7)c + |E| ≤ (64/7)c + 2. Because c > 0 and 64/7 < 10, the claimed strict bound follows.",
+        "The packing theorem supplies E after indexing the list; the ambient source bound aQR ∣ lcm(N₁,N₂) ≤ N₁N₂ ≤ k^(2c) is used as an inequality, never the false equality between ambient modulus and reduced period."
+      ],
+      "acceptance": [
+        "For r ≤ 2 the result is consistent even if all factors are exceptional.",
+        "The coefficient is 64/7, not 32/7, because the ambient product bound is k^(2c).",
+        "Three small factors cannot be allowed: take k = 2³², c = 3/64, and q₁=q₂=q₃=2. The product is k^(2c)=8, but 3 < 10c+2 is false."
+      ],
+      "prerequisites": [
+        "ExponentialSumsAndCircleMethod:ES.0/bounded-crt-modulus-blocks",
+        "mathlib:Real.log_prod",
+        "mathlib:Real.log_le_log",
+        "mathlib:Real.log_nonneg",
+        "mathlib:Real.log_pos",
+        "mathlib:Real.log_rpow"
+      ],
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, printed p.378, displayed r−2 logarithmic bound",
+          "excerpt": "Case 1.",
+          "match": "Makes the strict numerical constant and the two exceptional blocks explicit. This estimate is independent of the unproved analytic character-sum bound."
+        }
+      ]
+    },
+    {
+      "id": "ExponentialSumsAndCircleMethod:ES.0/graham-ringrose-interval-threshold",
+      "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
+      "realises": [
+        "ExponentialSumsAndCircleMethod:ES.0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ExponentialSums/ModulusBlocks",
+        "namespace": "TauCeti.ExponentialSumsPlan"
+      },
+      "implementationStatus": "unchecked",
+      "kind": "lemma",
+      "title": "Interval length for the smooth-modulus estimate",
+      "statement": "Let k > 2⁶⁴ be real, let 0 ≤ q ≤ k^(7/16), and let L ≤ k^(7/16). Then max(L,q^(1/4))·q^(5/4) ≤ k^(63/64) < k/2.",
+      "hypotheses": [
+        "In the application L is an upper bound for the other moduli; L = 0 is allowed when there are no other factors. No character estimate is a hypothesis or a conclusion.",
+        "The first inequality only needs k > 1. The displayed combined contract uses the explicit strict threshold k > 2⁶⁴ for the second inequality."
+      ],
+      "proofSteps": [
+        "Monotonicity of real powers gives q^(1/4) ≤ k^(7/64) ≤ k^(7/16), so the maximum is at most k^(7/16). Also q^(5/4) ≤ k^(35/64).",
+        "Multiply these nonnegative upper bounds and use Real.rpow_add to get exponent 7/16 + 35/64 = 63/64.",
+        "Raise k > 2⁶⁴ to the positive exponent 1/64, obtaining k^(1/64) > 2. Multiply by k^(63/64) > 0 and use the exponent sum one to get 2k^(63/64) < k.",
+        "Thus the quoted analytic theorem's lower bound R₀ is below the real interval length k/2 once the factor moduli have the stated cap. This establishes the length condition only, not the quoted estimate or its full source decomposition."
+      ],
+      "acceptance": [
+        "At k = 2⁶⁴ the second comparison is equality, so the strict threshold cannot be weakened to k ≥ 2⁶⁴.",
+        "At k = 2¹²⁸ the comparison is 2¹²⁶ < 2¹²⁷.",
+        "L = 0 retains the q^(1/4) term for a one-factor decomposition; an undefined empty maximum is not used."
+      ],
+      "prerequisites": [
+        "mathlib:Real.rpow_le_rpow",
+        "mathlib:Real.rpow_lt_rpow",
+        "mathlib:Real.rpow_le_rpow_of_exponent_le",
+        "mathlib:Real.rpow_mul",
+        "mathlib:Real.rpow_add",
+        "mathlib:Real.rpow_natCast"
+      ],
+      "sources": [
+        {
+          "sourceId": "BennettSiksek2020",
+          "locator": "§8.1, printed p.378, displayed R₀ inequality",
+          "excerpt": "Case 1.",
+          "match": "Pure size calculation underlying the use of Theorem 6; supplies an explicit threshold omitted under the source's sufficiently-large-k convention."
+        }
+      ]
+    },
     {
       "id": "ExponentialSumsAndCircleMethod:ES.0/periodic-interval-remainder",
       "parentStageId": "ExponentialSumsAndCircleMethod:ES.0",
@@ -1961,7 +2297,7 @@
       "stageId": "ExponentialSumsAndCircleMethod:ES.0",
       "status": "partial",
       "remaining": [
-        "Twenty-one adapters decompose the small-conductor interval argument and its product-character conductor/exclusion reduction. Still required: CRT prime-block packing and its empty-product case; a complete proof of the Graham–Ringrose input and full Proposition 8.2 assembly; all Weyl, van der Corput, stationary-phase and completion targets not supplied by these adapters."
+        "Twenty-one preserved nodes cover the small-conductor interval argument and product-character reduction; five additions give the arithmetic modulus packing (including empty principal families), the original r−2 factor count and an explicit interval threshold. Still required: match the quadratic conductor classification and bounded 2-part, construct primitive/principal character factors on the selected CRT blocks and prove their exact product; read and decompose the complete Graham–Ringrose proof; supply the uniform large-conductor divisor saving and full Proposition 8.2 assembly; decompose all remaining Weyl, van der Corput, stationary-phase and completion targets."
       ]
     },
     {
@@ -2003,15 +2339,15 @@
   "gaps": [
     {
       "title": "Large-conductor CRT packing and Graham–Ringrose proof",
-      "detail": "Routed items 92 and 95: read the complete external theorem proof (Iwaniec–Kowalski Theorem 12.13 or a legally readable original source), normalize modulus versus conductor, factor the primitive/principal pieces and prove the prime-block construction with exact first-block and interval-length inequalities. Permit an empty principal-factor family when M2=1; the reviewed E11 rejects an alleged missing-case defect. Do not replace the source's r−2 bound by an unjustified enlarged requirement. Neither the published quotation nor its accepted extraction is a full source decomposition."
+      "detail": "Routed items 92 and 95: the pure arithmetic block packing is now decomposed by smooth-divisor-window, squarefree-modulus-blocks and bounded-crt-modulus-blocks, with bounded-factor-count and graham-ringrose-interval-threshold supplying r < 10c+2 and R₀ < k/2 for k > 2⁶⁴. Remaining: match the reusable theorem that the primitive quadratic conductor is a·Q with a ≤ 8 and odd squarefree Q, and show the source size/smoothness assumptions imply the packing hypotheses; construct and reconstruct the primitive/principal character factors on these pairwise-coprime moduli, preserving primitivity of the distinguished factor and the all-integer exclusion mask; read the entire external Graham–Ringrose proof (Iwaniec–Kowalski Theorem 12.13 or a legally readable original source) and decompose it. The published quotation is not that proof. Preserve the accepted E11 empty-principal-family convention; no missing-case error or unnecessarily weakened factor count is introduced."
     },
     {
       "title": "Full distinct-quadratic cancellation proposition",
-      "detail": "Routed item 44 (Proposition 8.2) still requires the large-conductor branch, effective constants and prime-factor growth conditions. The small-conductor branch now has a product-character application with one threshold depending only on c, using the exact AN.5 nodes. This does not assert the full proposition or its complete constant dependence."
+      "detail": "Routed item 44 (Proposition 8.2) still requires the analytic large-conductor estimate, exact CRT character interfaces, and uniform absorption of the corrected AN.5 divisor bound into τ(q)^(r²) < q^(1/2), with one threshold depending only on c. The new arithmetic packing and interval-size estimates do not prove cancellation by themselves. The preserved small-conductor branch already has its product-character application and uniform c-dependent threshold. Combine the branches only after the remaining large-conductor dependencies and constants are closed."
     },
     {
       "title": "ExponentialSumsAndCircleMethod:ES.0 remaining source decomposition",
-      "detail": "Twenty-one adapters decompose the small-conductor interval argument and its product-character conductor/exclusion reduction. Still required: CRT prime-block packing and its empty-product case; a complete proof of the Graham–Ringrose input and full Proposition 8.2 assembly; all Weyl, van der Corput, stationary-phase and completion targets not supplied by these adapters."
+      "detail": "Twenty-one preserved nodes cover the small-conductor interval argument and product-character reduction; five additions give the arithmetic modulus packing (including empty principal families), the original r−2 factor count and an explicit interval threshold. Still required: match the quadratic conductor classification and bounded 2-part, construct primitive/principal character factors on the selected CRT blocks and prove their exact product; read and decompose the complete Graham–Ringrose proof; supply the uniform large-conductor divisor saving and full Proposition 8.2 assembly; decompose all remaining Weyl, van der Corput, stationary-phase and completion targets."
     },
     {
       "title": "ExponentialSumsAndCircleMethod:ES.1 remaining source decomposition",

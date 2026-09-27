@@ -1,3 +1,122 @@
+# BP-ExponentialSumsAndCircleMethod — bounded-modulus continuation
+
+Agent: Codex — `codex-a71f92`. 27 September 2026. Refs #1040.
+Claim 5853565566 was confirmed by bot 5853567087 at 06:55:23 UTC.
+Whole issue read before and after confirmation.
+Working snapshot: edcb85158937f27d14742663d16b82ceab330ddd.
+The preceding ArithmeticDynamics PR #3199 merged at 06:56:57 UTC.
+
+Status remains partial. All twenty-one inherited nodes are preserved exactly;
+all six stages remain partial and every node remains unchecked.
+
+## What changed
+
+Five new ES.0 nodes, in dependency order:
+
+1. `smooth-divisor-window`: extract a divisor in [T,T²] under the prime-factor
+   bound, without assuming squarefreeness.
+2. `squarefree-modulus-blocks`: repeatedly extract pairwise-coprime full blocks,
+   with a positive residual below T and exact product identity.
+3. `bounded-crt-modulus-blocks`: pack an odd squarefree part Q and a squarefree
+   exclusion R, absorb the bounded factor a ≤ 8 into Q's residual, delete unit
+   factors, and retain a distinguished odd squarefree q in [T,T²]. At most two
+   small blocks survive, including when R = 1.
+4. `bounded-factor-count`: the two exceptions and product bound k^(2c) give
+   r ≤ (64/7)c + 2 < 10c + 2.
+5. `graham-ringrose-interval-threshold`: the modulus cap gives
+   R₀ ≤ k^(63/64) < k/2 for the explicit strict threshold k > 2⁶⁴.
+
+The new central planet is Bounded CRT modulus blocks, making six ES.0 planets.
+Fifteen additional baseline statements are cited. No new definition or
+construction carrier, API inventory, character structure or supplier request
+is introduced. The existing List, Squarefree and coprimality notions suffice.
+
+Current totals: 26 nodes, comprising 16 lemmas and 10 theorems; zero
+definition/construction API items or tests; 48 suggested contract examples;
+six planets; 65 baseline declarations; eight gaps; zero requests.
+Sources, source-version objects, all three reviewed source findings, all
+twenty-one prior nodes and every ES.1–ES.5 coverage entry are unchanged.
+
+## Source and ownership boundary
+
+Freshly reread the complete selected Bennett–Siksek published §8.1 argument,
+printed pp.376–379, and inspect a rendering of p.378 for the factor count,
+R₀, nested exponents and c₃. The PDF matches the existing published SHA-256.
+The earlier extraction and accepted reviews are reused only after input
+comparison. In particular the reviewed E11 allows an empty principal family;
+do not reintroduce the rejected missing-case allegation or enlarge the
+source's r−2 bound unnecessarily.
+
+The five additions expose arithmetic steps of Case 1; the source does not
+name all these as separate lemmas. The two-residual packing theorem is about
+integer moduli. It does NOT supply CRT maps on characters, a theorem about
+quadratic conductors, or the external Graham–Ringrose estimate. The complete
+proof of that estimate has not been read. Existing Iwaniec–Kowalski PDF leads
+were previously only front matter; their presence is not proof coverage.
+
+Read all six reviewed audit rows before planning. Binding instructions and
+the 28 related links are unchanged. The 61-path comparison found 57 identical
+inputs, three known absences and only the Sieve supplier changed; that blob
+equals this session's fully read/written merged PR #3193. Thus the preceding
+complete RS-03/RS-07, campaign/atlas, extraction/review, source and upstream
+style readings still apply. Search both pinned libraries and packet ownership
+for divisor windows and prime-block packing; no exact supplier was found.
+Generic smooth-number and character constructors are reused, not replanned.
+All fifteen new baseline statements were read with their ambient hypotheses.
+
+## Checks
+
+- Pinned-index packet checker: zero errors and zero warnings.
+- Complete suggested Lean file: 74 expected placeholder warnings, no other
+  diagnostics, Lean 4.34.0-rc2. All 8,482 reached Mathlib source files match
+  the pin; no Tau Ceti imports.
+- Scratch: five fully proved general statements and twelve examples, with
+  zero placeholders, errors or warnings. These prove divisor extraction,
+  squarefree packing, factor count, interval threshold and the residual cap.
+  The combined two-family packing has a complete mathematical proof outline,
+  a checked interface and exact regressions; a complete Lean proof of that
+  assembly is not claimed.
+- Exact regressions: 2,763 divisor windows, 952 squarefree packings and 43,912
+  two-family packings, including 2,960 empty principal families and 11,691
+  decompositions with exactly two small blocks. Five boundary checks reject
+  missing smoothness, missing squarefreeness, only one permitted residual,
+  a non-strict interval threshold, and three exceptional factors.
+- Source-issue envelope: zero errors. Source findings and versions compare
+  equal to the inherited packet.
+- Four-file intake: zero problems. Immutable-snapshot preservation: all 21
+  inherited nodes unchanged; all 21 prior signatures and 36 examples preserved
+  verbatim. Fresh-main guard: 69 consulted paths, 66 present and three known
+  absences, no changed inputs or new matching links. Only the four
+  named deliverables belong in the PR; no proof probes, PDFs, scripts, build
+  artifacts or private paths are included.
+
+Finite regressions do not establish general theorems; the blueprint remains
+planning work, not an implementation claim.
+
+## Resume here
+
+1. Preserve the arithmetic packing and its two-residual count. Match the
+   reusable quadratic-conductor classification: primitive conductor aQ with
+   a ≤ 8, odd squarefree Q, and the source lower bound implying Q ≥ k^(7/32).
+   Do not duplicate another owner's classification.
+2. Build the character CRT restriction/reconstruction adapters on the selected
+   pairwise-coprime moduli. Prove the distinguished factor primitive and the
+   product identity at every integer, including the exclusion mask. R = 1
+   yields an empty principal family, not a missing case.
+3. Read and decompose a legally accessible complete Graham–Ringrose proof,
+   checking the exact hypotheses of the displayed estimate. Its statement
+   in Bennett–Siksek is insufficient source coverage.
+4. Import the existing AN.5 divisor estimate and derive a uniform threshold
+   for τ(q)^(r²) < q^(1/2) using the bounded r. Absorb constants uniformly in c;
+   the printed universal divisor inequality remains false.
+5. Combine the analytic estimate, these size bounds and the preserved
+   small-conductor theorem to prove the actual Proposition 8.2 endpoint.
+   Preserve real interval lengths and the existing floor conventions.
+6. Continue the unrelated ES.0–ES.5 source targets recorded in the packet.
+   No stage has been closed and no independent review is requested.
+
+## Historical primitive-product checkpoint
+
 # BP-ExponentialSumsAndCircleMethod — primitive-product continuation
 
 Agent: Codex — codex-a71f92. Date: 27 September 2026. Refs #1040.
