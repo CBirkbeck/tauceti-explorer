@@ -1,3 +1,5 @@
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
+import Mathlib.Analysis.Normed.Group.Ultra
 import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict
 import Mathlib.Algebra.Module.Projective
 import Mathlib.LinearAlgebra.Matrix.Adjugate
@@ -1109,4 +1111,90 @@ theorem riesz_kernel_projective (u : M →L[A] M) (a : A) (h : ℕ)
     Module.Projective A ((1-a • u)^h).ker := by sorry
 
 end RieszFiniteness
+end TauCeti.NonarchimedeanFredholm
+
+/-! Fredholm coefficients: finite bounds and cofinite summability.
+These signatures specify the arguments; their proof placeholders claim no implementation.
+-/
+namespace TauCeti.NonarchimedeanFredholm
+noncomputable section
+open Filter Topology
+open scoped BigOperators
+
+section FiniteCoefficientBounds
+variable {A I : Type*} [NormedCommRing A] [NormOneClass A]
+
+-- L4/ultrametric-product-perturbation
+theorem ultrametric_product_perturbation
+    (hA : ∀ x y : A, ‖x + y‖ ≤ max ‖x‖ ‖y‖)
+    (S : Finset I) (f g : I → A) (C δ : ℝ)
+    (hC : 1 ≤ C) (hδ : 0 ≤ δ)
+    (hf : ∀ i ∈ S, ‖f i‖ ≤ C) (hg : ∀ i ∈ S, ‖g i‖ ≤ C)
+    (hd : ∀ i ∈ S, ‖f i - g i‖ ≤ δ) :
+    ‖(∏ i ∈ S, f i) - ∏ i ∈ S, g i‖ ≤ δ * C^(S.card-1) := by sorry
+
+-- L4/ultrametric-determinant-bound
+theorem ultrametric_determinant_bound [Fintype I] [DecidableEq I]
+    (hA : ∀ x y : A, ‖x + y‖ ≤ max ‖x‖ ‖y‖)
+    (D : Matrix I I A) (b : I → ℝ) (hb : ∀ j, 0 ≤ b j)
+    (hD : ∀ i j, ‖D i j‖ ≤ b j) : ‖D.det‖ ≤ ∏ j, b j := by sorry
+
+-- L4/ultrametric-determinant-perturbation
+theorem ultrametric_determinant_perturbation [Fintype I] [DecidableEq I]
+    (hA : ∀ x y : A, ‖x + y‖ ≤ max ‖x‖ ‖y‖)
+    (D E : Matrix I I A) (C δ : ℝ) (hC : 1 ≤ C) (hδ : 0 ≤ δ)
+    (hD : ∀ i j, ‖D i j‖ ≤ C) (hE : ∀ i j, ‖E i j‖ ≤ C)
+    (hDE : ∀ i j, ‖D i j - E i j‖ ≤ δ) :
+    ‖D.det - E.det‖ ≤ δ * C^(Fintype.card I-1) := by sorry
+
+-- L4/fixed-degree-minors-null: no countability, Noetherianity or completeness here.
+theorem fixed_degree_minors_null [DecidableEq I]
+    (hA : ∀ x y : A, ‖x + y‖ ≤ max ‖x‖ ‖y‖)
+    (a : I → I → A) (b : I → ℝ) (hb0 : ∀ j, 0 ≤ b j)
+    (hb : Tendsto b cofinite (𝓝 0)) (hbd : ∃ C : ℝ, ∀ j, b j ≤ C)
+    (ha : ∀ i j, ‖a i j‖ ≤ b j) (n : ℕ) :
+    Tendsto (fun S : {S : Finset I // S.card = n} =>
+      Matrix.det (fun i j : ↥S.val => a i j)) cofinite (𝓝 0) := by sorry
+
+-- Test native_finite_coefficient_formula: supplied by Mathlib for the existing comparison.
+-- This is a native reference example, not another planned declaration.
+example [Fintype I] [DecidableEq I] (D : Matrix I I A) (k : ℕ) :
+    (Matrix.det (1 + (Polynomial.X : Polynomial A) • D.map Polynomial.C)).coeff k =
+      ∑ S ∈ Finset.univ.powersetCard k,
+        (D.submatrix (Subtype.val : S → I) (Subtype.val : S → I)).det := by sorry
+
+-- Tests product_empty_difference, singleton_determinant_bound, determinant_empty_bound.
+example (C δ : ℝ) (hC : 1 ≤ C) (hδ : 0 ≤ δ) (f g : I → A) :
+    ‖(∏ i ∈ (∅ : Finset I), f i) - ∏ i ∈ (∅ : Finset I), g i‖ ≤ δ := by sorry
+example (a : A) (b : ℝ) (hb : ‖a‖ ≤ b) :
+    ‖Matrix.det (fun _ _ : Fin 1 => a)‖ ≤ b := by sorry
+example : ‖(1 : Matrix (Fin 0) (Fin 0) A).det‖ = 1 := by sorry
+end FiniteCoefficientBounds
+
+-- L4/distinct-column-product-tail: the real combinatorics used before the infinite sum.
+theorem distinct_column_product_tail {I : Type*} [DecidableEq I]
+    (S T : Finset I) (b : I → ℝ) (B q : ℝ)
+    (hB : 1 ≤ B) (hq : 0 ≤ q) (hq' : q ≤ 1)
+    (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, b j ≤ B)
+    (hT : ∀ j, j ∉ T → b j ≤ q) :
+    (∏ j ∈ S, b j) ≤ B^T.card * q^(S.card-T.card) := by sorry
+
+section FiniteOutputComparison
+variable {K A I : Type*}
+variable [NontriviallyNormedField K] [CompleteSpace K]
+variable [NormedCommRing A] [NormOneClass A] [Nontrivial A]
+variable [NormedAlgebra K A] [CompleteSpace A] [IsNoetherianRing A]
+variable [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
+
+-- Existing L4/finite-coordinate-determinant, now with its full typed conclusion.
+include K in
+theorem finite_coordinate_determinant
+    (hA : ∀ x y : A, ‖x + y‖ ≤ max ‖x‖ ‖y‖)
+    (f : C₀(I, A) →L[A] C₀(I, A)) (hf : IsCompletelyContinuous f)
+    (S : Finset I) (hS : ∀ x j, j ∉ S → f x j = 0) :
+    fredholmSeries f hf = polynomialSeries (Matrix.det
+      (1 + (Polynomial.X : Polynomial A) •
+        Matrix.map (-(fun i j : ↥S => operatorEntry f i j)) Polynomial.C)) := by sorry
+end FiniteOutputComparison
+end
 end TauCeti.NonarchimedeanFredholm
