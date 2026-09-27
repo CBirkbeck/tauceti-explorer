@@ -131810,6 +131810,27 @@
    "reviewReason": null
   },
   {
+   "id": "EffectiveDiophantineMethods/E1",
+   "kind": "misprint",
+   "locator": "Published §3.3, p.279, PrepareLift: the definition of Λ, with φᵢ as defined in §3.2, p.277.",
+   "printed": "Λ = {Lⱼ₋₁ ∩ ker(φᵢ) : i ∈ I′}",
+   "correction": "At target D=NₖΓ use Lⱼ₋₁∩φᵢ⁻¹(φᵢ(D)); with the source’s surjective maps this is Lⱼ₋₁∩φᵢ⁻¹(NₖGᵢ). Equivalently, first replace Gᵢ by Gᵢ/NₖGᵢ and φᵢ by its composite into that quotient, then take its kernel. The required invariant is D≤Lⱼ≤Lⱼ₋₁.",
+   "reason": "Let Γ=ℤ, G=ℤ/4, φ reduction, Nₖ₋₁=1, qₖ=2 and Nₖ=2. The selected exponent test holds. The displayed original kernel produces L₁=4ℤ, which fails to contain D=2ℤ. The final assignment Lₜ=2ℤ then makes an ascending step, so the quotient Lₜ₋₁/Lₜ in Lift is not defined. The quotient-target kernel is 2ℤ and preserves the invariant. This is a defect of the literal printed notation, not a claim that the authors’ implementation has this bug.",
+   "affects": "the proof",
+   "known": "The authors’ MWSieve-new.m already performs the target quotient before taking Kernel(h): LiftInformation lines 2480–2493. URL https://www.mathe2.uni-bayreuth.de/stoll/magma/MWSieve-new.m; SHA-256 2e4b0cc03da645fdb3bcb554893a7dd736b97cae6b7ec1583942b12b0c31bd7f.",
+   "searched": [
+    "Publisher article page and version-of-record PDF, DOI 10.1112/S1461157009000187, accessed 2026-09-27; no separate corrigendum found on the article page.",
+    "arXiv 0906.1934 version history checked: v1 and v2 dated 10 June and 30 November 2009; no subsequent version listed. The v2 PDF was not read.",
+    "Michael Stoll’s publications page AG31 and Magma directory, accessed 2026-09-27; the author-copy formula agrees with the published kernel notation, while the downloaded implementation already uses the quotient target."
+   ],
+   "owner": "EffectiveDiophantineMethods",
+   "file": "research/blueprint/packets/EffectiveDiophantineMethods.json",
+   "citation": "Nils Bruin and Michael Stoll, The Mordell–Weil sieve: proving non-existence of rational points on curves, LMS Journal of Computation and Mathematics 13 (2010), 272–306; version of record, doi:10.1112/S1461157009000187",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "EllipticKTheory/E1",
    "kind": "gap",
    "locator": "VI.6, opening discussion before Harder's Theorem 6.1, PDF p. 510 (printed p. 502)",
@@ -145686,6 +145707,27 @@
    "owner": "PerfectoidSpaces",
    "file": "research/blueprint/packets/PerfectoidSpaces--P8.json",
    "citation": "Christopher Birkbeck, Ben Heuer, Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, arXiv:1902.03985v4, 10 May 2021; printed page = PDF page",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PhiGammaModulesAndIwasawaCohomology/E1",
+   "kind": "misprint",
+   "locator": "Retrieved arXiv:1203.5718v3, Definition 2.2.2, printed p.16/PDF index15, finite-free sentence following phi:R_A^[s,r]→R_A^[s/p,r/p].",
+   "printed": "The source claims that, via ϕ, R_A^[s,r](π_K) is free of rank p as a module over R_A^[s/p,r/p](π_K).",
+   "correction": "The target R_A^[s/p,r/p](π_K) is rank p over the source R_A^[s,r](π_K) via phi; reverse the two rings in that sentence.",
+   "reason": "The structural map has the opposite direction to the printed module assertion. The following trace and the Q_p coordinate decomposition use the corrected orientation. The page was visually inspected.",
+   "affects": "nothing",
+   "known": "No separate correction located in the checks listed. Scoped to the retrieved preprint; the JAMS version could not be read. No publication or novelty claim.",
+   "searched": [
+    "arXiv abstract/version history and retrieved v3 text.",
+    "Targeted paper-title and author searches for erratum/correction.",
+    "AMS publication-PDF attempt failed; UC eScholarship returned metadata, not the text."
+   ],
+   "owner": "PhiGammaModulesAndIwasawaCohomology",
+   "file": "research/blueprint/packets/PhiGammaModulesAndIwasawaCohomology.json",
+   "citation": "Kiran S. Kedlaya, Jonathan Pottharst, Liang Xiao, Cohomology of arithmetic families of (phi,Gamma)-modules, arXiv:1203.5718v3, margin dated 19 November 2013; retrieved 79-page PDF has cover date 1 November 2018. Not collated with the JAMS version of record.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
