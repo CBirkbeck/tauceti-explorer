@@ -614,11 +614,11 @@
         "checked": "Full source statement and hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The generated additive ultrametric sum bound was also checked by its compiled telescope."
       },
       {
-        "ref": "mathlib:IsUltrametricDist.norm_tsum_le_of_forall_le",
+        "ref": "mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le",
         "kind": "lemma",
         "module": "Mathlib/Analysis/Normed/Group/Ultra.lean",
-        "provides": "In an ultrametric seminormed additive commutative group, the norm of a sum is bounded by a common upper bound on all term norms; the index type is nonempty.",
-        "checked": "Full source statement and hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The generated additive ultrametric sum bound was also checked by its compiled telescope."
+        "provides": "The multiplicative ultrametric product bound. Its additive-translation attribute generates IsUltrametricDist.norm_tsum_le_of_forall_le: in an ultrametric seminormed additive commutative group, a common bound on all term norms bounds the norm of the sum (nonempty index type). The proof uses this generated additive theorem, not multiplication on the original ring.",
+        "checked": "The indexed multiplicative source at Ultra.lean:342 and its surrounding hypotheses were read at the pin; the generated additive telescope was independently compiled. The citation uses the indexed source declaration because the text-only index omits generated names."
       },
       {
         "ref": "mathlib:MvPowerSeries.LinearTopology.isTopologicallyNilpotent_of_constantCoeff",
@@ -4762,13 +4762,13 @@
       "proofSteps": [
         "Use the exact pinned invTransform_apply series, whose Mahler coefficients c_k(f) tend to zero.",
         "Choose N so that |c_k(f)|≤ε/2 for every k≥N. The choice is independent of F because every integral coefficient of F has norm at most 1.",
-        "Split off the finite sum. Each remaining term has norm at most ε/2. The ultrametric sum bound gives a tail norm at most ε/2, which is strictly less than ε. The smaller bound is needed to preserve strictness after taking the infinite sum."
+        "Split off the finite sum. Each remaining term has norm at most ε/2. The ultrametric sum bound gives a tail norm at most ε/2, which is strictly less than ε. The smaller bound is needed to preserve strictness after taking the infinite sum. The indexed prerequisite names the multiplicative source declaration; its generated additive counterpart is IsUltrametricDist.norm_tsum_le_of_forall_le, whose exact telescope was compiled and checked."
       ],
       "prerequisites": [
         "mathlib:AbstractMeasure.invTransform_apply",
         "mathlib:PadicInt.mahlerEquiv",
         "mathlib:PadicInt.norm_le_one",
-        "mathlib:IsUltrametricDist.norm_tsum_le_of_forall_le"
+        "mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Padics/Measure/RootAverage",
@@ -6095,7 +6095,7 @@
     }
   ],
   "checks": {
-    "blueprint": "Zero errors and warnings with the pinned index plus one source-verified generated-declaration row in scratch.",
+    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index. The additive ultrametric bound is cited through its indexed generating declaration and explicitly identified in the proof plan.",
     "intake": "Four authorized files; zero problems.",
     "sourceFindings": "All seven inherited findings preserved; errata wrapper passes. No new source finding.",
     "validation": {
@@ -6128,7 +6128,7 @@
       "pinnedTauCetiModules": 0,
       "scratchProofsWithoutPlaceholders": 5,
       "sensitiveTelescopes": 4,
-      "readerWords": 26373,
+      "readerWords": 26393,
       "regressions": {
         "status": "pass",
         "counts": {
@@ -6172,7 +6172,8 @@
       "allCapturedInputsMatch": true,
       "allFourPredecessorOutputsUnchanged": true,
       "unchangedIssueBody": true,
-      "claimConfirmation": 5852157899
+      "claimConfirmation": 5852157899,
+      "sameBranchCorrection": "The first CI attempt rejected the generated additive name absent from its text-only index. The citation now names the actual indexed generating declaration, with the generated additive result explicitly documented. No mathematical statement or Lean signature changes."
     },
     "closure": "Partial: eight gaps, zero requests and zero closed stages. General bounded coefficient extension and the remaining stage targets are explicit. Every implementation status remains unchecked."
   },

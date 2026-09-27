@@ -66,9 +66,11 @@ a worker elaboration of equation (3-9), backed by the pinned declarations.
 All 30 new baseline references were checked in pinned source, including the
 actual ambient hypotheses. The generated additive ultrametric sum bound was
 also checked through its compiled telescope. The text-only baseline index omits
-that generated name: the indexed checker used a scratch supplemental row for
-`IsUltrametricDist.norm_tsum_le_of_forall_le`, generated from
-`norm_tprod_le_of_forall_le` at Mathlib/Analysis/Normed/Group/Ultra.lean:342.
+that generated name. The first CI check therefore rejected the direct generated-name
+citation. The same-branch correction cites the indexed generating declaration
+`IsUltrametricDist.norm_tprod_le_of_forall_le` at
+Mathlib/Analysis/Normed/Group/Ultra.lean:342 and explicitly documents that its generated
+additive counterpart is the theorem used. The unmodified pinned index now passes.
 No baseline or index file is submitted.
 
 ## Validation
@@ -95,8 +97,8 @@ F(Y−1), retain exponents divisible by p, and put Y=1+T. For rational checks us
 F=1/(1−cT), c=p,2p,−p, whose translated coefficients follow the elementary
 geometric recurrence. Compare with the fourteen-term polynomial projector.
 
-Indexed blueprint validation: **zero errors and warnings**, using the documented
-generated-declaration supplemental row. Official four-file intake: **zero problems**.
+Indexed blueprint validation: **zero errors and warnings**, using the unmodified
+pinned index and the documented generating-declaration citation. Official four-file intake: **zero problems**.
 The errata wrapper passes for all seven inherited findings. Preservation, reader/API/test
 parity, source hashes, the 183-edge acyclic internal graph and scoped mutation checks pass.
 
