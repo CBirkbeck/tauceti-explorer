@@ -12,8 +12,8 @@ completions of mock theta functions. QM.5 connects them to quantum modular forms
 and traces of singular moduli, and QM.6 states and plans the proof chain of monstrous moonshine.
 
 **Status: partial.** QM.0, QM.3 and QM.4 are source decomposed; QM.1, QM.2, QM.5 and QM.6 are partial, each with a
-precise `remaining` list in the packet's coverage record. The packet has 501 nodes, 750 API items and
-501 unit tests, cites 378 declarations of the pinned libraries and 52 sources, and records
+precise `remaining` list in the packet's coverage record. The packet has 510 nodes, 753 API items and
+507 packet tests (500 definition/construction tests), cites 402 declarations of the pinned libraries and 52 sources, and records
 64 source issues, 14 gaps and 24 requests to other roadmaps. These counts include the inherited
 Bailey-chain and fifth-order continuations. The heat-operator and singular-prime continuations do not
 independently certify the other layers or close the Selberg comparison bridge.
@@ -24,7 +24,7 @@ Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f
 |---|---|---|---|
 | QM.0 | source decomposed | 50 | q-Pochhammer symbols; Gaussian binomial coefficients; q-binomial theorem; Jacobi triple product identity; Ramanujan's partition congruences; Rogers–Ramanujan identities |
 | QM.1 | partial | 89 | Dedekind eta transformation formula; Ligozat's cusp-order formula; Theta transformation law on the theta group; Jacobi theta function ϑ(z; τ); Jacobi forms of weight k and index m; Theta decomposition |
-| QM.2 | partial | 51 | Ford circles; Modified Bessel function I_ν; Rademacher's Kloosterman sum A_k(n); Rademacher's exact formula; Effective remainder bound; Hardy–Ramanujan asymptotic formula |
+| QM.2 | partial | 60 | Ford circles; Modified Bessel function I_ν; Rademacher's Kloosterman sum A_k(n); Rademacher's exact formula; Effective remainder bound; Hardy–Ramanujan asymptotic formula |
 | QM.3 | source decomposed | 66 | Weight-k hyperbolic Laplacian; ξ-operator (shadow map); Harmonic weak Maass form; Bruinier–Funke pairing {g, f}; Bruinier–Funke exact sequences; Maass–Poincaré series |
 | QM.4 | source decomposed | 110 | Appell–Lerch sum μ(u, v; τ); Zwegers' completion μ̃; Transformation law of μ̃ (Zwegers Thm 1.11); Zwegers' indefinite theta function; Modularity of indefinite theta functions; Zwegers' completion of F₇ (weight 1/2) |
 | QM.5 | partial | 72 | Quantum modular form; Eichler integral; Kontsevich–Zagier strange identity; WRT invariants as radial limits; Andrews–Garvan crank; Traces of singular moduli |
@@ -4116,13 +4116,14 @@ Theorem 1 (5.3):
 Aₖ(n) = (3|k)√k Bₖ(n), k≥1, gcd(k,6)=1,
 
 with the positive real square root and the Jacobi symbol embedded in ℂ.
-Its final conversion from the printed cosine sum to Bₖ is negation symmetry.
-Its earlier proof is **not yet decomposed**. Besides the inherited
-Dedekind-to-Jacobi multiplier gap, Whiteman §§2–4 require finite Gauss
-reductions and Fischer's H-sum evaluation. Fischer's paper has not been
-read in this continuation. The paired cosine conversion (5.1)–(5.3) on
-pp.167–168 must also be split into declaration-sized lemmas. The new gap
-names these inputs explicitly; citing the final formula does not supply them.
+The finite phase-conversion continuation below now decomposes the passage
+from the printed Selberg sum to Bₖ, using a uniform phase and negation symmetry.
+The preceding equality with the original Dedekind sum is **not yet decomposed**:
+besides the inherited Dedekind-to-Jacobi multiplier gap, Whiteman §§2–4 require
+finite Gauss reductions and Fischer's H-sum evaluation. That input is now the
+explicit `rademacher-selberg-formula` target. Fischer's paper has been acquired
+but not read in this pass. The gap names the remaining Fourier and multiplier
+inputs; citing the final formula does not supply them.
 
 Subject to that proof boundary, three new local consequences have short
 routes:
@@ -4187,3 +4188,219 @@ Sources for this slice:
 [Whiteman's publisher PDF](https://msp.org/pjm/1956/6-1/pjm-v6-n1-p18-s.pdf),
 [Johansson's publication](https://doi.org/10.1112/S1461157012001088), and
 [Johansson's author errata](https://fredrikj.net/math/hrr.html).
+
+## Finite Selberg phase conversion
+
+This continuation closes the finite passage from Whiteman's explicit Selberg sum to the odd quadratic-root sum. It does not close the Dedekind-to-Selberg Fourier calculation. All nine nodes below remain unchecked, QM.2 remains partial, and its six existing planets are unchanged. No generic character, Gauss-sum or Kloosterman theory is duplicated.
+
+The uniform phase is exp(πik/6). Its real part supplies the Jacobi sign; conjugation of the whole root sum handles zero roots and other fixed points without an assumption that roots occur in distinct pairs.
+
+### Selberg's finite cosine sum
+
+`selberg-rademacher-sum` — definition; declaration `selbergRademacherSum`.
+
+For k≥1 and n∈ℤ, define S_k(n)=√(k/3) ∑_{0≤l<2k, (6l+1)²≡1−24n (mod 24k)} (−1)^l cos(π(6l+1)/(6k)), a real number. The square root is positive. The condition is equivalently (3l²+l)/2≡−n (mod k): l(3l+1) is always even. This auxiliary is defined for all positive k, including even k and multiples of 3; equality with the Dedekind-defined A_k is a separate theorem with a recorded gap.
+
+Hypotheses: k≥1; n∈ℤ. Exact integer congruences, not natural truncated subtraction.
+
+Proof plan:
+
+1. Use the finite natural range 0≤l<2k, filter using integer congruence modulo 24k, and take the displayed real sum. Expanding (6l+1)²−(1−24n)=12(3l²+l+2n) proves equivalence with Whiteman's condition without division in a residue ring.
+2. Replacing n by n+tk changes the discriminant by a multiple of 24k, so the sum is periodic in n modulo k. At k=1 both l=0 and l=1 contribute √3/2; √(1/3) gives S_1(n)=1.
+3. Consumers use the characterization and the separately decomposed half-range and character comparisons; this definition imports neither a new generic additive character nor a new Kloosterman carrier.
+
+Prerequisites: `mathlib:Int.modEq_iff_dvd`, `mathlib:Real.cos_pi_div_six`, `mathlib:Real.sqrt_div`.
+
+Source: Whiteman, §1 (1.4), printed p.160; §5 (5.1), p.167. Exactly the real finite expression on the right of Selberg (1.4), with the congruence multiplied out to remove integer division.
+
+Uses:
+
+- `QSeriesPartitionsAndMockModularForms:QM.2/selberg-odd-half-range`: Reduce the full 2k range only for odd k.
+- `QSeriesPartitionsAndMockModularForms:QM.2/selberg-odd-root-comparison`: Convert the finite cosine expression to the existing root sum B_k.
+- `QSeriesPartitionsAndMockModularForms:QM.2/rademacher-selberg-formula`: Separate the source-dependent Dedekind equality from the independently closed finite conversion.
+
+API:
+
+- `selbergRademacherSum_eq_sum` (characterisation): S_k(n) equals the displayed filtered 2k-range real sum, with integer discriminant 1−24n.
+- `selbergRademacherSum_periodic` (simp): For t∈ℤ, S_k(n+tk)=S_k(n).
+- `selbergRademacherSum_one` (simp): For every n∈ℤ, S_1(n)=1.
+
+Definition tests:
+
+- `selbergSum_one_test` (degenerate): S_1(−7)=1; both original summation indices contribute.
+- `selbergSum_two_test` (computation): S_2(1)=−1, testing the full-range definition at an even modulus.
+- `selbergSum_five_singular_test` (computation): S_5(4)=−√5; the full-range roots are l=4 and l=9.
+- `selbergSum_five_empty_test` (computation): S_5(1)=0 since its summation set is empty.
+- `selbergSum_twentyFive_test` (non-example): S_25(24)=0 although ten full-range indices satisfy the root condition; the sum is not their cardinality.
+- `selbergSum_five_phase_test` (compatibility): S_5(0)=−2√5 cos(4π/5), using the standard character's factor 2 and the Jacobi sign.
+
+Acceptance: The range is 2k, not k, unless the odd half-range theorem supplies the extra factor 2.
+
+### The odd half-range form of Selberg's sum
+
+`selberg-odd-half-range` — lemma; declaration `selbergRademacherSum_odd`.
+
+For k≥1 odd and n∈ℤ, S_k(n)=2√(k/3) ∑_{0≤l<k, (6l+1)²≡1−24n (mod 24k)} (−1)^l cos(π(6l+1)/(6k)).
+
+Hypotheses: k≥1 and odd. No condition at the prime 3.
+
+Proof plan:
+
+1. For integer l, replacing l by l+k changes (6l+1)² by 12k(6l+3k+1). Because k is odd, the parenthesis is even; hence the root predicate is invariant modulo 24k.
+2. The cosine angle increases by π, while (−1)^(l+k)=−(−1)^l. The two minus signs cancel, proving equality of the weighted indicator summands.
+3. Split the range of length 2k into l and l+k using the additive form of Finset.prod_range_add. The two sums agree; factor out 2√(k/3). This argument remains valid at k=1.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/selberg-rademacher-sum`, `mathlib:Int.modEq_iff_dvd`, `mathlib:Real.cos_add_nat_mul_pi`, `mathlib:Finset.prod_range_add`.
+
+Source: Whiteman, §5 (5.1), printed p.167, derived from (1.4). Declaration-sized proof of the odd-period reduction used before Whiteman's Case 1.
+
+Acceptance: At k=1 the half sum has one term but its prefactor is 2/√3. No even-k reduction is asserted.
+
+### Reindexing Selberg's odd roots
+
+`selberg-odd-root-reindexing` — lemma; declaration `selbergRoot_bijOn`.
+
+For k≥1 with gcd(k,6)=1, the map l↦24⁻¹(6l+1) in ℤ/kℤ is a bijection from {l∈ℕ | l<k and (6l+1)²≡1−24n (mod 24k)} onto {m∈ℤ/kℤ | (24m)²=1−24n}. The inverse is the least nonnegative representative of 6⁻¹(24m−1).
+
+Hypotheses: k≥1; gcd(k,6)=1; n∈ℤ. Inverses are the native inverses of units in ℤ/kℤ.
+
+Proof plan:
+
+1. Coprimality makes 6 and 24 units modulo k and gives gcd(k,24)=1. The affine maps using these inverses are mutually inverse on ℤ/kℤ; their representatives in [0,k) are unique.
+2. For every integer l, (6l+1)²≡1 (mod 24), since l(3l+1) is even. Also 1−24n≡1 modulo 24. Combine this automatic congruence with the root congruence modulo k using the coprime-modulus equivalence for integer congruences.
+3. Convert integer congruences modulo k to native ZMod equalities, then restrict the affine bijection to the two displayed root sets. ZMod.val_lt and natCast_zmod_val supply the inverse representative. No squarefreeness or root-cardinality premise is used.
+
+Prerequisites: `mathlib:Int.modEq_and_modEq_iff_modEq_mul`, `mathlib:ZMod.intCast_eq_intCast_iff`, `mathlib:ZMod.isUnit_iff_coprime`, `mathlib:ZMod.mul_inv_of_unit`, `mathlib:ZMod.val_lt`, `mathlib:ZMod.natCast_zmod_val`.
+
+Source: Whiteman, §5, Case 1 between (5.1) and (5.2), printed p.167. Whiteman's l-to-m correspondence, made explicit with native residue inverses and the automatic modulus-24 condition.
+
+Acceptance: At k=25,n=24 there are five half-range roots, not two. At k=1 both sets have one element.
+
+### The uniform Selberg phase congruence
+
+`selberg-phase-congruence` — lemma; declaration `selbergPhase_congruence`.
+
+If k∈ℕ, gcd(k,6)=1 and l,m∈ℤ satisfy 24m≡6l+1 (mod k), then 6(k+1)l+1≡k²+24m (mod 12k).
+
+Hypotheses: gcd(k,6)=1; l,m are arbitrary integer lifts.
+
+Proof plan:
+
+1. Modulo k the difference of the right and left sides is (24m−6l−1)+k(k−6l), which is divisible by k by the assumed root-label congruence.
+2. Modulo 12, k lies in {1,5,7,11}; hence k²≡1, and 6(k+1) is divisible by 12. Both sides therefore reduce to 1.
+3. Since gcd(k,12)=1, combine these congruences to modulus 12k. This replaces the piecewise l,l′ calculation, and does not require the quadratic root condition.
+
+Prerequisites: `mathlib:Int.modEq_iff_dvd`, `mathlib:Int.modEq_and_modEq_iff_modEq_mul`, `mathlib:ZMod.intCast_eq_intCast_iff`.
+
+Source: Whiteman, §5 (5.2) and its evaluation, printed pp.167–168. Independent uniform arithmetic decomposition of Whiteman's phase conversion, rather than a claim that this congruence is printed verbatim.
+
+Acceptance: For k=5,l=0,m=4 the congruence is 1≡121 modulo 60. For k=25,l=4,m=0 it is 625≡625 modulo 300.
+
+### The uniform Selberg character identity
+
+`selberg-phase-character` — lemma; declaration `selbergPhase_character`.
+
+For k≥1 with gcd(k,6)=1, l∈ℕ and m∈ℤ with 24m≡6l+1 (mod k), (−1)^l exp(πi(6l+1)/(6k))=exp(πik/6)·e_k(2m), where e_k is ZMod.stdAddChar. The phase exp(πik/6) is common to every l, including fixed points of negation on the root set.
+
+Hypotheses: k≥1; gcd(k,6)=1; 24m≡6l+1 modulo k. No choice of preferred integer lift m is required.
+
+Proof plan:
+
+1. Use exp(πi)=−1 and exp(lz)=exp(z)^l to combine the left side into exp(2πi·[6(k+1)l+1]/(12k)).
+2. Apply selberg-phase-congruence and write its integer multiple of 12k explicitly. Complex exponentials are equal when their arguments differ by an integer multiple of 2πi.
+3. Split the exponent [k²+24m]/(12k)=k/12+2m/k. The standard additive-character coefficient formula identifies the second exponential as e_k(2m).
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/selberg-phase-congruence`, `mathlib:Complex.exp_nat_mul`, `mathlib:Complex.exp_pi_mul_I`, `mathlib:Complex.exp_eq_exp_iff_exists_int`, `mathlib:ZMod.stdAddChar_coe`, `mathlib:Int.modEq_iff_add_fac`.
+
+Source: Whiteman, §5 (5.2) through Theorem 1, printed pp.167–168. Independent complex-character proof of the finite cosine conversion; it removes the interval case split while preserving Whiteman's normalization.
+
+Acceptance: Changing m by any multiple of k changes neither side. Replacing e_k(2m) by e_k(m) fails at k=5,l=0,m=4.
+
+### The Jacobi-three cosine factor
+
+`jacobi-three-cosine` — lemma; declaration `cos_pi_mul_nat_div_six`.
+
+For k∈ℕ with gcd(k,6)=1, cos(πk/6)=(3|k)√3/2, with the integer Jacobi symbol cast to ℝ.
+
+Hypotheses: gcd(k,6)=1; in particular k is odd and positive.
+
+Proof plan:
+
+1. The permitted residues k modulo 12 are 1,5,7,11. Apply jacobiSym.mod_right with numerator 3 to reduce (3|k) to the corresponding symbols at those four denominators, whose values are 1,−1,−1,1.
+2. Write k=12q+r. Cosine periodicity removes 2πq. At r=1 use cos(π/6)=√3/2; at r=5,7 use π−π/6 and π+π/6; at r=11 use 2π−π/6.
+3. The two four-entry tables coincide. This uses the existing Jacobi reciprocity implementation through mod_right; it does not replan quadratic reciprocity.
+
+Prerequisites: `mathlib:jacobiSym.mod_right`, `mathlib:Real.cos_add_nat_mul_two_pi`, `mathlib:Real.cos_pi_div_six`, `mathlib:Real.cos_add_nat_mul_pi`, `mathlib:Real.cos_pi_sub`, `mathlib:Real.cos_add_pi`, `mathlib:Real.cos_two_pi_sub`.
+
+Source: Whiteman, §5 immediately preceding Theorem 1, printed p.168. The source's sign (3|k)=±1 according to k modulo 12, expressed as the real part of the common phase.
+
+Acceptance: The signs at k=5 and 7 are negative; at k=1 and 11 they are positive.
+
+### Reality of the odd Rademacher root sum
+
+`odd-rademacher-root-conjugation` — lemma; declaration `oddRademacherRootSum_conj`.
+
+For every k≥1 and n∈ℤ, the complex conjugate of B_k(n) equals B_k(n). This promotes the existing oddRademacherRootSum_conj API item; the suggested signature occurs only once.
+
+Hypotheses: k≥1; no coprimality or root-cardinality hypothesis.
+
+Proof plan:
+
+1. Negation is an involutive bijection of the finite root set because (24(−m))²=(24m)².
+2. Every value of the standard additive character lies on the unit circle. Thus its inverse is its conjugate, and the additive-character negation law gives conjugate(e_k(2m))=e_k(−2m).
+3. Conjugate the finite sum and reindex by m↦−m using the additive form of Finset.prod_bij. Fixed points cause no exception because this is a bijection argument, not a division into two-element orbits.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-sum`, `mathlib:ZMod.stdAddChar_apply`, `mathlib:Circle.norm_coe`, `mathlib:Complex.inv_eq_conj`, `mathlib:AddChar.map_neg_eq_inv`, `mathlib:Finset.prod_bij`.
+
+Source: Whiteman, §5 (5.3), printed p.168. Complete proof of the character-to-cosine identification already exposed by the root-sum API.
+
+Acceptance: Applies to k=1, where negation fixes the unique root, and k=25,n=24, with five singular roots.
+
+### Selberg's finite sum in odd root coordinates
+
+`selberg-odd-root-comparison` — theorem; declaration `selbergRademacherSum_eq_oddRootSum`.
+
+For k≥1 with gcd(k,6)=1 and n∈ℤ, S_k(n), embedded in ℂ, equals (3|k)√k B_k(n). This identity compares two explicit finite sums and is independent of the Dedekind-to-Selberg equality.
+
+Hypotheses: k≥1; gcd(k,6)=1; n∈ℤ.
+
+Proof plan:
+
+1. Use selberg-odd-half-range, replacing each weighted cosine by the real part of its weighted complex exponential.
+2. Reindex the half-range roots by selberg-odd-root-reindexing and apply selberg-phase-character with an integer lift of each residue. Pull the common phase exp(πik/6) outside the finite sum.
+3. By odd-rademacher-root-conjugation, B_k(n) is real. The real part of the product is therefore cos(πk/6) times B_k(n), embedded back into ℂ.
+4. Insert jacobi-three-cosine. Since k≥1, the positive-root identity 2√(k/3)·√3/2=√k follows from Real.sqrt_div and √3≠0. This also covers k=1 and all singular root sets.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/selberg-rademacher-sum`, `QSeriesPartitionsAndMockModularForms:QM.2/selberg-odd-half-range`, `QSeriesPartitionsAndMockModularForms:QM.2/selberg-odd-root-reindexing`, `QSeriesPartitionsAndMockModularForms:QM.2/selberg-phase-character`, `QSeriesPartitionsAndMockModularForms:QM.2/jacobi-three-cosine`, `QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-conjugation`, `mathlib:Complex.exp_ofReal_mul_I_re`, `mathlib:Finset.prod_bij`, `mathlib:Real.sqrt_div`.
+
+Source: Whiteman, §5 (5.1)–(5.3), printed pp.167–168. Closed finite-conversion proof plan by the uniform phase identity; the equality with the original Dedekind sum is not assumed.
+
+Acceptance: S_1(n)=B_1(n)=1; S_5(4)=−√5; S_25(24)=0 despite nonempty singular root sets.
+
+### The odd Selberg formula for Rademacher's sum
+
+`rademacher-selberg-formula` — theorem; declaration `rademacherKloosterman_eq_selberg`.
+
+For k≥1 with gcd(k,6)=1 and n∈ℤ, the original Dedekind-defined A_k(n) equals S_k(n), embedded in ℂ. This is a source-dependent target with the explicitly retained Selberg–Whiteman bridge gap, not a completed proof plan.
+
+Hypotheses: k≥1; gcd(k,6)=1. The auxiliary S itself is defined for all positive k.
+
+Proof plan:
+
+1. Whiteman §§2–4 prove the full Selberg formula by calculating finite Fourier coefficients: coefficients at nonunits vanish; at units they become Fischer's H-sums after completing squares.
+2. To turn that route into a closed plan, decompose the H-sum/Gauss evaluations and Whiteman's multiplier congruences, then identify his Jacobi-normalized roots with the existing Dedekind normalization. The inherited Jacobi multiplier gap and the remaining Selberg–Whiteman bridge gap explicitly record these inputs.
+3. The present continuation closes only the subsequent finite conversion (5.1)–(5.3). It does not replace the missing Fourier computation with a numerical test, and does not infer this equality from the root comparison that consumes it.
+
+Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.2/selberg-rademacher-sum`, `QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher`, `QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-jacobi-form`.
+
+Source: Whiteman, §1 (1.4), p.160; proof §§2–4, pp.160–167. Names the precise unresolved source-dependent input of the existing odd Rademacher endpoint. No new source-reading or closure claim for Fischer is made.
+
+Acceptance: A_1(n)=1 is consistent; finite numeric agreement is not evidence that the Fourier proof is decomposed.
+
+### Baseline and evidence boundary
+
+The 24 added baseline citations were read in the pinned source, including the modulus-product criterion, native residue casts and unit inverses, the character's unit-circle values, exponential periodicity, exact cosine constants and the finite range split. The existing Jacobi-symbol `mod_right` declaration was reread and reused. Generated additive finite-sum lemmas are cited through their indexed multiplicative declarations and the additive reduction; the source index is not changed.
+
+Whiteman's printed pp.160 and 167–168 were reread and their formulas visually inspected. The uniform phase congruence is an independent decomposition of his conversion, not an additional formula attributed verbatim to the paper. The previously recorded source findings and versions are unchanged. Fischer's [publisher paper](https://msp.org/pjm/1951/1-1/pjm-v1-n1-p08-s.pdf), pp.83–95, has been acquired, but its H-sum proof was not read in this pass and is not used as established evidence.
+
+Independent exact checks cover 64,980 integer phase congruences, 5,640 root bijections and 8,460 odd half-period root checks. Floating comparisons of the two finite sums cover 5,640 cases through k=180, including 69 cases containing the zero root; the maximum difference is below 3.9·10⁻¹⁴. General scratch Lean proofs verify the phase congruence and complex identity, the native character conjugation law and root-sum reality, the Jacobi-three cosine and elementary root congruences without placeholders. Neither these calculations nor compilation of the planning signatures establish the remaining Dedekind-to-Selberg equality.
