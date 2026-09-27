@@ -358,4 +358,137 @@ example : largeSpectrum (Pi.single (0 : ZMod 4) (1 : ℂ)) (1/3) = ∅ := by sor
 /-- S8: a genuinely noncyclic group has the same normalization. -/
 example : largeSpectrum (Pi.single (0 : ZMod 2 × ZMod 2) (1 : ℂ)) (1/4) = Finset.univ := by sorry
 
+
+/-! AC.1 chord-radius Bohr sets and the corrected nonvanishing argument. -/
+
+/-- Strict chord radius on the existing character dual; specified by `mem_bohrSet`. -/
+def bohrSet (Λ : Finset (AddChar G ℂ)) (δ : ℝ) : Finset G := by sorry
+
+lemma mem_bohrSet (Λ : Finset (AddChar G ℂ)) (δ : ℝ) (x : G) :
+    x ∈ bohrSet Λ δ ↔ ∀ χ ∈ Λ, ‖χ x - 1‖ < δ := by sorry
+
+lemma bohrSet_empty (δ : ℝ) : bohrSet (∅ : Finset (AddChar G ℂ)) δ = Finset.univ := by sorry
+
+lemma bohrSet_of_nonpos (Λ : Finset (AddChar G ℂ)) (hΛ : Λ.Nonempty)
+    {δ : ℝ} (hδ : δ ≤ 0) : bohrSet Λ δ = ∅ := by sorry
+
+lemma zero_mem_bohrSet_iff (Λ : Finset (AddChar G ℂ)) (δ : ℝ) :
+    0 ∈ bohrSet Λ δ ↔ 0 < δ ∨ Λ = ∅ := by sorry
+
+lemma bohrSet_mono (Λ : Finset (AddChar G ℂ)) {δ ε : ℝ} (h : δ ≤ ε) :
+    bohrSet Λ δ ⊆ bohrSet Λ ε := by sorry
+
+lemma bohrSet_antitone {Λ Γ : Finset (AddChar G ℂ)} (h : Λ ⊆ Γ) (δ : ℝ) :
+    bohrSet Γ δ ⊆ bohrSet Λ δ := by sorry
+
+lemma bohrSet_union (Λ Γ : Finset (AddChar G ℂ)) (δ : ℝ) :
+    bohrSet (Λ ∪ Γ) δ = bohrSet Λ δ ∩ bohrSet Γ δ := by sorry
+
+lemma neg_mem_bohrSet (Λ : Finset (AddChar G ℂ)) (δ : ℝ) (x : G) :
+    -x ∈ bohrSet Λ δ ↔ x ∈ bohrSet Λ δ := by sorry
+
+open scoped Pointwise in
+lemma bohrSet_add_subset (Λ : Finset (AddChar G ℂ)) (δ ε : ℝ) :
+    bohrSet Λ δ + bohrSet Λ ε ⊆ bohrSet Λ (δ + ε) := by sorry
+
+open scoped Pointwise in
+lemma bohrSet_sub_subset (Λ : Finset (AddChar G ℂ)) (δ ε : ℝ) :
+    bohrSet Λ δ - bohrSet Λ ε ⊆ bohrSet Λ (δ + ε) := by sorry
+
+lemma bohrSet_erase_one (Λ : Finset (AddChar G ℂ)) {δ : ℝ} (hδ : 0 < δ) :
+    bohrSet (Λ.erase 1) δ = bohrSet Λ δ := by sorry
+
+lemma bohrSet_pullback (q : G →+ H) (Λ : Finset (AddChar H ℂ)) (δ : ℝ) :
+    bohrSet (Λ.image (fun χ => χ.compAddMonoidHom q)) δ =
+      Finset.univ.filter (fun x => q x ∈ bohrSet Λ δ) := by sorry
+
+lemma bohrSet_eq_univ_of_two_lt (Λ : Finset (AddChar G ℂ)) {δ : ℝ} (hδ : 2 < δ) :
+    bohrSet Λ δ = Finset.univ := by sorry
+
+/-- The reflection includes conjugation, for arbitrary complex input. -/
+lemma fourier_quadconvolution (f : G → ℂ) (χ : AddChar G ℂ) :
+    fourier (nconv (nconv f f)
+      (nconv (fun y => star (f (-y))) (fun y => star (f (-y))))) χ =
+        (‖fourier f χ‖ ^ 4 : ℝ) := by sorry
+
+lemma fourth_sum_eq_quadconvolution (f : G → ℂ) (x : G) :
+    (∑ χ : AddChar G ℂ, (‖fourier f χ‖ ^ 4 : ℝ) * χ x) =
+      nconv (nconv f f)
+        (nconv (fun y => star (f (-y))) (fun y => star (f (-y)))) x := by sorry
+
+/-- Every representation is counted; the factor is N^(-3), not N^(-4). -/
+lemma indicator_quadconvolution_eq_count (A : Finset G) (x : G) :
+    let f : G → ℂ := fun y => if y ∈ A then 1 else 0
+    nconv (nconv f f)
+      (nconv (fun y => star (f (-y))) (fun y => star (f (-y)))) x =
+        (Fintype.card G : ℂ)⁻¹ ^ 3 *
+          (((A.product A).product (A.product A)).filter
+            (fun p => p.1.1 + p.1.2 - p.2.1 - p.2.2 = x)).card := by sorry
+
+open scoped Pointwise in
+lemma indicator_quadconvolution_ne_zero_iff (A : Finset G) (x : G) :
+    let f : G → ℂ := fun y => if y ∈ A then 1 else 0
+    nconv (nconv f f)
+      (nconv (fun y => star (f (-y))) (fun y => star (f (-y)))) x ≠ 0 ↔
+        x ∈ (A + A) - (A + A) := by sorry
+
+/-- The resonant bound uses mass on Λ, as required by source correction E1. -/
+lemma weighted_fourier_re_ge_of_bohrSet (w : AddChar G ℂ → ℝ)
+    (hw : ∀ χ, 0 ≤ w χ) (Λ : Finset (AddChar G ℂ)) (δ : ℝ) (x : G)
+    (hx : x ∈ bohrSet Λ δ) :
+    (1 - δ) * (∑ χ ∈ Λ, w χ) - (∑ χ ∈ Λᶜ, w χ) ≤
+      (∑ χ : AddChar G ℂ, (w χ : ℂ) * χ x).re := by sorry
+
+lemma weighted_fourier_re_ge_of_concentration (w : AddChar G ℂ → ℝ)
+    (hw : ∀ χ, 0 ≤ w χ) (Λ : Finset (AddChar G ℂ)) (x : G)
+    (hx : x ∈ bohrSet Λ (1/4))
+    (hΛ : (3/4 : ℝ) * (∑ χ, w χ) ≤ ∑ χ ∈ Λ, w χ) :
+    (5/16 : ℝ) * (∑ χ, w χ) ≤
+      (∑ χ : AddChar G ℂ, (w χ : ℂ) * χ x).re := by sorry
+
+open scoped Pointwise in
+lemma bohrSet_largeSpectrum_subset_double_sub_double (A : Finset G) (hA : A.Nonempty)
+    {K : ℝ} (hK : 0 < K) (hdouble : ((A + A).card : ℝ) ≤ K * A.card) :
+    bohrSet (largeSpectrum (fun x => if x ∈ A then (1 : ℂ) else 0)
+      (((A.card : ℝ) / Fintype.card G) / (2 * Real.sqrt K))) (1/4) ⊆
+        (A + A) - (A + A) := by sorry
+
+/-- B1: no constraints means the whole group even at a negative radius. -/
+example : bohrSet (∅ : Finset (AddChar (ZMod 4) ℂ)) (-1) = Finset.univ := by sorry
+
+/-- B2: a nonempty constraint family at radius zero has no points. -/
+example : bohrSet ({1} : Finset (AddChar (ZMod 4) ℂ)) 0 = ∅ := by sorry
+
+/-- B3: a trivial character imposes no constraint at positive radius. -/
+example : bohrSet ({1} : Finset (AddChar (ZMod 4) ℂ)) (1/4) = Finset.univ := by sorry
+
+/-- B4: chord radius is strict; the antipode is excluded at radius two. -/
+example : (2 : ZMod 4) ∉ bohrSet {AddChar.zmodAddEquiv (1 : ZMod 4)} 2 := by sorry
+
+/-- B5: a small Bohr set can consist of just the identity. -/
+example : bohrSet {AddChar.zmodAddEquiv (1 : ZMod 4)} (1/4) = {0} := by sorry
+
+/-- B6: the one-element group is included. -/
+example (Λ : Finset (AddChar (ZMod 1) ℂ)) : bohrSet Λ (1/4) = Finset.univ := by sorry
+
+/-- B7: projection from a noncyclic group gives a nontrivial kernel. -/
+example : bohrSet
+    {(AddChar.zmodAddEquiv (1 : ZMod 2)).compAddMonoidHom
+      (AddMonoidHom.fst (ZMod 2) (ZMod 2))} (1/4) =
+        {(0, 0), (0, 1)} := by sorry
+
+/-- B8: four point masses give N^(-3), not N^(-4). -/
+example :
+    let f : ZMod 3 → ℂ := fun y => if y ∈ ({1} : Finset (ZMod 3)) then 1 else 0
+    nconv (nconv f f)
+      (nconv (fun y => star (f (-y))) (fun y => star (f (-y)))) 0 = 1/27 := by sorry
+
+/-- B9: a full set gives the constant one, including the three convolution factors. -/
+example (x : G) :
+    nconv (nconv (fun _ : G => (1 : ℂ)) (fun _ => 1))
+      (nconv (fun _ => 1) (fun _ => 1)) x = 1 := by sorry
+
+/-- B10: empty indicators have zero fourth sum; positive mass cannot be omitted. -/
+example (x : G) : (∑ χ : AddChar G ℂ, (‖fourier (0 : G → ℂ) χ‖ ^ 4 : ℝ) * χ x) = 0 := by sorry
+
 end TauCeti.AdditiveFourier

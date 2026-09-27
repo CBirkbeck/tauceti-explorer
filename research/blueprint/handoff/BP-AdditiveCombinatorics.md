@@ -1,131 +1,122 @@
 # Handoff — BP-AdditiveCombinatorics
 
-Refs #1037. Codex session codex-a71f92, 27 September 2026.
-Continuation of PR3133 and this session's PR3171.
-Claim comment 5853261512 was confirmed by bot comment 5853262264 at
-06:12:05 UTC before mathematical work. The whole issue was reread.
-Snapshot base: 6ff760d32e7befccd9072538cb5ef498a79015c1.
+Refs #1037. Codex session **codex-hjdg0j**, 27 September 2026.
+Continuation of PR #3195 (codex-a71f92), retaining its earlier checkpoints.
+Claim comment 5854283901 was confirmed by bot comment 5854285238 before work;
+the entire issue was reread. Snapshot: 8b56d6675e9e17c5042e9eb7dfc47bb13f7c021f.
 
-## Status: quantitative spectrum checkpoint, no replacing packet
+## Status: Bohr containment checkpoint, no replacing packet
 
-The inherited two definitions, forty lemma signatures and twenty examples
-are retained unchanged. This checkpoint adds a large-spectrum definition,
-seventeen lemma signatures and eight discriminating examples. The suggested
-file now has three definitions, fifty-seven lemmas and twenty-eight examples:
-88 required proof-placeholder warnings and no other diagnostics at both pins.
+The reader now specifies the next complete finite Fourier argument in Tao
+notes 2 §6: strict chord-radius Bohr sets and their containment in the double
+difference set of a nonempty small-doubling set. It applies the inherited E1
+correction and gives the explicit positive lower bound 5/16 of the full fourth
+moment. It does not identify phase distance with chord length.
 
-The new definition has six use-driven API obligations. Eleven additional
-quantitative interfaces supply coefficient bounds, indicator L2/fourth moments,
-large-spectrum cardinality, fourth-moment tails and small-doubling concentration.
-Their complete dependency order is in the reader. The exact three-quarter
-concentration and 4K/rho cardinal constants are retained.
+Added: one definition, thirteen construction API lemmas, seven additional
+lemma interfaces, ten typed examples, and two candidate AC.1 planet names.
+The worksheet now contains four definitions, 77 lemmas and 38 examples.
+All 88 inherited declarations/examples remain unchanged. The new baseline table names twelve indexed declarations (two rows
+combine names); three were already used by the spectrum continuation, giving
+nine additional indexed inputs. Generated additive names are distinguished
+from their indexed multiplicative generators.
 
-No packet is created. A narrow replacing packet would displace the nine
-accepted Green–Tao nodes before their statement-level reconciliation, API/tests
-and closure contracts are complete. The accepted decomposition and all nine IDs
-remain unchanged. No stage is marked closed. Packet counts remain zero: no
-allocated nodes, API records, tests, planets or requests. The reader now contains
-six candidate planet names (four AC.0, two AC.1); these are proposals, not an
-allocated graph. This checkpoint does not claim the whole blueprint is complete.
+No packet is created: a narrow replacing packet would displace the nine
+accepted Green–Tao nodes without their required statement-level reconciliation.
+The integrated file, all nine IDs and all source records remain byte-identical.
+Packet counts are zero: no allocated nodes, API records, tests, planets or
+requests. The reader has eight candidate planet names (four AC.0, four AC.1).
+All six stages remain open; this is a source-backed checkpoint, not a completed
+blueprint or an implementation claim.
 
-## Work and provenance
+## Mathematical content and dependency boundary
 
-Read the complete inherited reader, suggested file and handoff, all six reviewed
-audit rows, campaign document and atlas stages/edges before extending the plan.
-A 56-path input comparison against this session's preceding additive checkpoint
-found 55 byte-identical consulted files and one known absence (the packet);
-the matching link-map set was unchanged. Thus the earlier complete readings of
-RS-03/report/review, REV-AUDIT-16, the integrated nine-node decomposition,
-the area red-team/verifier decisions, touching links, finite-field consumer,
-routed Bennett–Siksek item and two upstream style documents remain applicable.
-No new claims of reading those sources' full original proofs are made.
+The new definition is a Finset filter on the pinned AddChar dual. Its thirteen
+API obligations cover membership, empty frequencies, nonpositive radii, the
+identity, monotonicity in radius, antitonicity in frequencies, unions,
+negation, addition, subtraction, removing the trivial character, pullback
+along any additive homomorphism, and radii greater than two. The reader derives
+each obligation from the uses in the source and the existing quotient/coordinate
+interfaces. No alternative character or convolution carrier is introduced.
 
-Freshly reread Tao notes 2, section 6 in full and exercises Q3–Q4. The source
-assigns the elementary Fourier facts to an exercise; its displayed argument
-derives the coefficient, cardinality, fourth-moment and concentration estimates.
-The fresh 118-page PDF download matches the inherited hash exactly.
-The new scope is equations (1)–(7), including their full displayed argument.
-The already-recorded E1–E3 corrections remain unchanged and still apply to the
-subsequent Bohr/lattice transition. No new source finding is asserted.
+Four interfaces handle the fourfold convolution: its fourth-power Fourier
+coefficient, inversion, the exact N^(-3) representation count, and support
+exactly (A+A)-(A+A). The reader supplies the explicit finite change of variables
+and its inverse. Two weighted inequalities separate the corrected real-part
+estimate from the three-quarter concentration assumption. The endpoint combines
+those interfaces with the inherited positive fourth moment and concentration.
+The existing spectrum cardinal bound supplies at most 4K/rho constraints.
 
-The large spectrum is an absolute, non-strict norm threshold on the existing
-character dual and normalized transform. It is not a new character group,
-energy, sumset, Fourier normalization or convolution theory. Membership,
-antitonicity, nonpositive thresholds, the zero function, characters and complex
-scaling are its six API obligations. Its actual uses are counting the source's
-resonant frequencies, isolating their fourth moment and bounding the number of
-character constraints supplied to the still-open Bohr-set step.
+The endpoint uses no Minkowski theorem and no cyclic or prime-order hypothesis.
+It supplies a nonempty Bohr set, not a Bohr size bound or a progression. The
+Bohr-to-progression source step still needs its own phase/lattice comparisons,
+exact GN.1 supplier and proof. E2 and E3 remain binding on that step.
 
-The proof of concentration uses only finite Fourier identities and the pinned
-Cauchy–Schwarz energy inequality, not a new lattice or distribution input.
-The cardinal bound at rho/(2 sqrt K) requires A nonempty and K positive but no
-small-doubling assumption; concentration additionally requires |A+A|<=K|A|.
-The general tail inequality remains valid for all real thresholds because a
-nonpositive threshold has empty complement. No division by zero density or
-threshold is used.
+## Reading and ownership evidence
 
-## Pinned baseline and proof verification
+Read the full predecessor reader, seed and handoff; all six reviewed AUDIT-16
+rows; the full campaign description and stages/edges; all nine integrated node
+objects, their links, gaps and accepted review; relevant accepted RS-03 entries;
+REV-AUDIT-16; and the additive findings /1–/20 of the combinatorics area verifier.
+The previously read WORKERS, both protocols and UPSTREAM_GUIDE were confirmed
+unchanged. Both full upstream style documents (Completed/EffectiveBounds and
+ArithmeticDirichletSeries) byte-match this session's prior complete readings.
+All matching link-entry objects were screened/read, including array-valued
+stage overlaps. The LieGroups, coding and finite-field ownership remains intact.
+Read the routed Bennett–Siksek /46 and /101 contracts: qualitative Roth does
+not certify the exact Rahman threshold. No original Rahman proof is claimed.
 
-Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
-Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
+Freshly acquired the same 118-page CMU-hosted Tao compilation, with SHA-256
+961b333259ff9db8289e6e8a59c10a7a418d6709694fc99f33252ee91694ffe9.
+Fresh reading: physical PDF pp.34–38 (notes 2 printed pp.8–12), §6 and the
+opening §7 transition; page 37 was also rendered and visually checked.
+Extraction used no more than three physical pages per call. The implemented
+planning scope is equations (8)–(9) and their corrected nonvanishing argument,
+with equations (1)–(7) as inherited inputs. No complete lattice/Freiman proof,
+other lecture, Tao–Vu book, Green–Tao original proof or Rahman original is
+claimed freshly read here. Prior source-read scopes remain predecessor evidence.
 
-Reread the entire pinned additive-energy and finite-set convolution modules.
-Read the actual statements and proof contexts for eleven indexed inputs listed
-in the reader: finite-sum reindexing, cardinality bijections, energy square-sum
-and Cauchy–Schwarz inequalities, character norms, complex norm conversion,
-nonnegative subsums, complementary sums and the square-root identity.
-Generated additive names were verified through their annotated source and
-exercised in the proof probes; they were not misreported as independent index
-entries. Full source-tree, declaration-index and packet searches found no
-pinned large-spectrum definition or Fourier-energy adapter.
-
-The previous compact Fourier/Peter–Weyl and APAP design readings remain relevant.
-No external APAP source code is copied or imported. This is an independently
-specified normalization interface; actual integration or code-port coordination
-still belongs to the programme's upstream workflow.
+Whole-library, declaration-index and packet searches found no Bohr-set or
+Bogolyubov implementation at either pin. All hits concerned the unrelated
+Bohr-Mollerup Gamma theorem. Actual pinned source statements and assumptions
+for every new baseline input were read and blob-verified before citation.
 
 ## Checks executed
 
-- Suggested Lean: three definitions, fifty-seven lemma signatures and
-  twenty-eight examples; exactly 88 expected proof-placeholder warnings and
-  no others. All 8,482 reached Mathlib sources byte-match the pin; the 36 Tau Ceti
-  dependencies reuse this session's directly pinned builds.
-- Complete scratch implementations of the three definitions and proofs of
-  38 general statements. The 21 new proofs comprise the four inherited
-  Plancherel/convolution/indicator/energy obligations and all seventeen new
-  quantitative/API statements. No placeholders or warnings.
-- All eight new spectrum examples proved in scratch. Two inherited exact
-  source-correction checks also remain valid. No scratch proof is submitted.
-- Exact cyclotomic regressions: 878 subsets, 5,268 indicator threshold cases,
-  2,610 small-doubling/concentration cases, 1,280 arbitrary complex-valued
-  finite functions and 7,680 general threshold cases. Boundary, non-real
-  scaling, zero and noncyclic examples are included; no floating-point tolerance.
-- Inherited exact checks rerun: eleven groups; 579 point-mass inversion/Parseval
-  pairs; 5,589 convolution coefficients; forty self-energy subsets; 576 ordered
-  mixed-energy pairs; quotient basis and sign/multiplicity sentinels.
-- The packet checker is not applicable because there is still no packet.
-  Do not describe this checkpoint as a zero-error packet validation.
-- Source/version checker on an in-memory errata-v1 envelope: zero errors.
-- Three-file submission allowlist/JSON/private-path check: zero problems.
-- Source/version findings are preserved verbatim below. Only the three authorized
-  reader/suggested/handoff files are submitted; no private paths, source copies,
-  proofs or build artifacts.
+- Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti
+  f790474821cf4256814db967cb154e7af3d0c369. All 8,482 reached Mathlib
+  sources byte-verified; 36 Tau Ceti dependencies freshly built.
+- Full suggested file: 119 required proof-placeholder warnings, zero errors,
+  no other warnings. Four definitions, 77 lemmas, 38 examples.
+- Temporary complete proofs in the sole authorized suggested file: actual
+  Bohr finite-filter definition, thirteen API statements, both weighted
+  estimates, fourth-power complex algebra, and normalized representation-count
+  support equivalence. These seventeen proof checks have no placeholder axiom
+  in the checked dependency chains. Removed all probes before submission.
+- Exact rational complex regressions: 550 subsets in six groups; 4,234
+  indicator quadruple-count/Fourier coefficients; 1,632 small-doubling cases;
+  3,771 Bohr nonvanishing/containment points; 648 arbitrary complex-function
+  coefficients; 270 frequency/radius boundary families. Direct singleton
+  convolution on Z/3 also gives 1/27 at zero and zero elsewhere.
+- Exact radical check on Z/32: a non-kernel point with chord length strictly
+  between zero and 1/4; corrected weighted inference. This abstract-weight
+  test is not a new claimed counterexample for actual indicator spectra.
+- Inherited spectrum scratch proofs/regression scripts were not rerun. The
+  complete Fourier/count identities and final containment remain worksheet
+  interfaces with explicit proof outlines, not completed Lean proofs.
+- No packet exists, so the packet checker is not applicable. Do not report a
+  zero-error packet check. Source/version checks on an in-memory errata-v1
+  envelope and the three-file intake check report zero problems.
+- Only the authorized reader, suggested file and handoff change. No private
+  paths, PDF, extracted source text, temporary proofs or build files are included.
 
-## Source provenance and mistakes to carry into the packet
+## Source versions and inherited findings
 
-Source ID: tao-254a-notes2-cmu. Terence Tao, Lecture notes 2 for 254A.
-The acquired text is the CMU-hosted compilation, not the published Tao–Vu book.
-Read §6 in full (printed pp.8–11, PDF pp.34–37), Q3–Q4 on printed p.23
-(PDF p.49), and the opening of §7 through the phase-radius comparison on
-printed p.12. PDF pp.35,37,38 were rendered and visually checked.
-No complete Freiman/Bohr proof, other lecture, or book-wide reading is claimed.
-
-The sourceVersions and sourceIssues records below are **unreviewed findings**,
-preserved here because there is no replacing packet yet. Copy them, with their
-IDs, into its corresponding fields when that packet is constructed.
-"new" means no correction was found in the listed searches, not author
-confirmation or a claim that nobody has noticed the issue.
-Do not send anything to the author without the maintainer.
+The following unreviewed sourceVersions/sourceIssues records are preserved
+verbatim from the predecessor. There is no new source finding. Transfer their
+IDs unchanged into the corresponding fields of the preserving packet.
+“New” means no correction was located in the recorded searches; it is not
+a claim of author confirmation or priority. No author contact was made.
 
 ```json
 {
@@ -191,38 +182,34 @@ Do not send anything to the author without the maintainer.
 }
 ```
 
-## Remaining work and exact resume point
+## Exact resume point and remaining contracts
 
-1. Reconcile all nine accepted Green–Tao nodes to declaration granularity without
-   deleting correct mathematics. Read their original sources and complete
-   dependency contracts before creating a replacing AC.0–AC.5 packet.
-2. The general Plancherel, convolution-product, indicator representation count
-   and mixed-energy obligations are now supported by complete scratch proofs.
-   Carry their exact baseline locators and the new quantitative dependency order
-   into the eventual packet; scratch proofs are not baseline declarations.
-3. AC.0 still needs the quotient fibre-cardinality and cyclic-constructor
-   comparisons fully checked, the chosen one-dimensional Peter–Weyl skeleton
-   identification and the exact coding/ER.4 specializations. No new proof of
-   those remaining general interfaces is claimed here.
-4. AC.1 can resume after the source's equation (7): use the proved spectrum
-   cardinality/concentration as inputs to a corrected Bohr-set nonvanishing
-   argument, then supply Bohr-set size/regularity and the complete selected
-   Freiman/lattice route. Apply E1–E3. GN.1's precise Minkowski-II input is
-   required where used; the first theorem does not replace it. BSG and the
-   other source-scoped inverse/density-increment targets remain open.
-5. AC.2 needs Rahman's exact numerical-threshold edition/proof and the selected
-   all-length Szemerédi/removal/correspondence/Varnavides route. Preserve the
-   pinned qualitative Roth theorem and require nontrivial/distinct progressions.
-6. AC.3 needs complex conjugated Gowers cubes, interval/box comparisons,
-   corrected quantitative inverse theorems and filtered rational nilsequence
-   data. The accepted LieGroups ownership contract remains binding.
-7. AC.4 retains its seven accepted nodes. The 2008 transference route does not
-   itself supply the separately requested dense-model and relative-counting
-   targets. Resolve the actual analytic consumers; generic Selberg bounds or
-   Bombieri–Vinogradov cannot certify the majorant's conditions.
-8. AC.5 still needs separate linear-equations, Möbius–nilsequence and accepted
-   number-field/Kai branches with the exact local, complexity and box inputs.
-9. Canonical files outside this issue's deliverables remain untouched. Rejected
-   red-team findings do not force a latest-bound/PFR programme, an AC.2/AC.3
-   cycle or a blanket coding dependency. No theorem beyond the selected source
-   is silently asserted.
+1. AC.1: resume after Tao notes 2 §6 equation (9), at the Bohr-to-progression
+   transition in §7. Specify the phase-radius comparison using E2–E3, the
+   appropriate cyclic or general finite-abelian statement, the lattice map,
+   rank/injectivity hypotheses and the precise GN.1 Minkowski-II input.
+   Cyclic progression and general coset-progression bounds cannot be exchanged.
+   Bohr size/regularity, BSG, the full selected Freiman and density-increment
+   proofs remain open. No cross-roadmap request record is allocated yet.
+2. Reconcile all nine accepted Green–Tao nodes to declaration granularity and
+   complete APIs/tests and source contracts before creating a replacing packet.
+   Preserve their IDs and correct mathematics. In particular, the set-form
+   progression statement needs explicit nontriviality and ambient hypotheses.
+3. AC.0: quotient fibre-cardinality, cyclic-constructor, one-dimensional
+   Peter–Weyl identification and exact coding/ER.4 specializations still need
+   full checks. This checkpoint preserves their existing interfaces.
+4. AC.2: original Rahman numerical-threshold proof and a selected all-length
+   Szemerédi/removal/correspondence/Varnavides route; import pinned qualitative
+   Roth rather than replanning it.
+5. AC.3: complex conjugated cube definitions, interval/box comparisons,
+   corrected quantitative inverse results and filtered rational nilsequence
+   data; preserve the accepted LieGroups Part II ownership.
+6. AC.4: preserve seven accepted transference-related nodes and close their
+   source-scoped analytic obligations. The 2008 route does not by itself supply
+   the separately requested dense-model and relative-counting targets; generic
+   Selberg or Bombieri–Vinogradov statements do not certify its majorant.
+7. AC.5: linear-equations, Möbius–nilsequence and accepted number-field/Kai
+   branches require their precise local, complexity, box and analytic suppliers.
+
+Canonical files outside this issue remain untouched. Rejected findings do not
+force a latest-bound/PFR programme, an AC.2/AC.3 cycle or a coding-stage prerequisite.
