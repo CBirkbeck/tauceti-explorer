@@ -11,7 +11,7 @@
     "ProbabilisticAndMetricNumberTheory:PM.5"
   ],
   "status": "partial",
-  "summary": "Partial PM.0-PM.1 blueprint: preserve the finite weighted prime, Boolean-law and centered-moment interfaces; add nine unweighted prime-moment declarations for multinomial expansion, paired supports, collision and smaller-support bounds, and finite even/odd Gaussian comparisons. Generic Gaussian moments and counting are pinned suppliers. No whole stage is closed; PM.2-PM.5 remain not_read.",
+  "summary": "Partial PM.0-PM.1 blueprint: retain finite weighted primes, Boolean divisibility laws, centered moments and finite even/odd Gaussian comparisons; add six declarations for inclusive prime-cutoff decomposition, logarithmic tail control, explicit center and power errors, adjacent-even absolute-moment control and finite moment transfer to omega. Generic prime sets, binomial expansion and Cauchy–Schwarz are pinned suppliers. No whole stage is closed; PM.2-PM.5 remain not_read.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -309,6 +309,90 @@
         "module": "TauCeti.Probability.Distributions.Gaussian.Moments",
         "provides": "Every odd Gaussian central moment is zero, including degenerate variance. Reused rather than replanned.",
         "checked": "Exact declaration and hypotheses read at the recorded pinned source on 2026-09-27; the complete suggested signatures elaborate at these pins."
+      },
+      {
+        "ref": "mathlib:Finset.prod_primes_dvd",
+        "kind": "theorem",
+        "module": "Mathlib.Algebra.BigOperators.Associated",
+        "provides": "In a cancellative commutative monoid with zero and trivial units, a finite set of prime divisors of n has product dividing n; used on naturals.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 144 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Finset.abs_sum_le_sum_abs",
+        "kind": "theorem",
+        "module": "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "provides": "The absolute value of a finite sum is bounded by the sum of absolute values.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 324 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Finset.sum_mul_sq_le_sq_mul_sq",
+        "kind": "lemma",
+        "module": "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+        "provides": "Squared finite Cauchy–Schwarz: (sum f*g)^2 <= (sum f^2)(sum g^2).",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 171 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Nat.le_floor_iff",
+        "kind": "theorem",
+        "module": "Mathlib.Algebra.Order.Floor.Defs",
+        "provides": "For nonnegative real z, p<=floor_nat(z) iff its real cast is <=z.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 138 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Real.sq_sqrt",
+        "kind": "theorem",
+        "module": "Mathlib.Analysis.Real.Sqrt",
+        "provides": "For a nonnegative real x, the square of sqrt x equals x.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 178 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Real.log_le_log",
+        "kind": "lemma",
+        "module": "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "provides": "For 0<x<=y, log x<=log y.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 151 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Real.log_pos",
+        "kind": "theorem",
+        "module": "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "provides": "For 1<x, log x>0.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 188 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Real.log_prod",
+        "kind": "theorem",
+        "module": "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "provides": "Log of a finite product of nonzero real factors is the sum of logs.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 407 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:add_pow",
+        "kind": "theorem",
+        "module": "Mathlib.Data.Nat.Choose.Sum",
+        "provides": "Finite binomial expansion of (x+y)^k with j in range(k+1).",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 76 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Nat.mem_primeFactors",
+        "kind": "lemma",
+        "module": "Mathlib.Data.Nat.PrimeFin",
+        "provides": "Membership in n.primeFactors means primality, divisibility and n nonzero.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 41 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Nat.primesLE",
+        "kind": "def",
+        "module": "Mathlib.NumberTheory.PrimeCounting",
+        "provides": "Existing finite primes up to a natural inclusive bound; use at the natural floor of a real cutoff.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 132 in the pinned source. Imported, not replanned."
+      },
+      {
+        "ref": "mathlib:Nat.mem_primesLE",
+        "kind": "lemma",
+        "module": "Mathlib.NumberTheory.PrimeCounting",
+        "provides": "Membership in primesLE n is p<=n and primality.",
+        "checked": "Exact statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 162 in the pinned source. Imported, not replanned."
       }
     ]
   },
@@ -405,7 +489,8 @@
         "Complete author copy: introduction, Theorem 1, Propositions 2-4 with their proofs, applications discussion, references and index; selected finite centered-product/weighted-moment argument decomposed here.",
         "Images of author-copy pp.1,5,9,11 checked for findings. arXiv math/0606039v1 corresponding introduction, composition-count and polynomial-example passages spot-checked, not a claim of a full second reading.",
         "Published preview pp.15-16 read, p.15 image checked; full published chapter not served by the publisher endpoint (subscription HTML). Findings outside the preview are scoped to the author copy/preprint.",
-        "Third continuation: focal proof of Proposition 2 on internal pp.4-6 reread; p.5 image rechecked. Nine finite unweighted pairing/collision/parity refinements decomposed, with the existing E2 composition-count correction. No new full version-of-record reading."
+        "Third continuation: focal proof of Proposition 2 on internal pp.4-6 reread; p.5 image rechecked. Nine finite unweighted pairing/collision/parity refinements decomposed, with the existing E2 composition-count correction. No new full version-of-record reading.",
+        "Fourth continuation: internal pp.3-6 reread, especially the complete Deduction of Theorem 1 on p.4; p.4 visually checked. Six finite cutoff-removal refinements isolate the distinct-prime tail, change of center, binomial remainder and absolute-moment Cauchy–Schwarz step. No new source-wide or version-of-record reading."
       ]
     },
     {
@@ -443,6 +528,19 @@
       "readSections": [
         "Complete file, including absolute moments, even and odd central moments and degenerate-variance branches.",
         "Mathlib Probability/Moments/Basic.lean lines 39-83: existing moment and centralMoment definitions at the Mathlib pin."
+      ]
+    },
+    {
+      "id": "ML-CUTOFF-TOOLS",
+      "title": "Pinned prime-cutoff, logarithmic and finite moment-transfer suppliers",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/PrimeCounting.lean",
+      "readSections": [
+        "PrimeCounting.lean lines 124-174: existing inclusive prime cutoff and membership; Algebra/Order/Floor/Defs.lean lines 124-145: natural floor membership.",
+        "Data/Nat/PrimeFin.lean lines 1-80: prime-factor finset and membership; Algebra/BigOperators/Associated.lean lines 136-152: finite product of prime divisors. Factorization/Basic.lean lines 330-362 and ArithmeticFunction/Misc.lean lines 318-370 inspected for reuse.",
+        "Analysis/SpecialFunctions/Log/Basic.lean lines 140-156,180-194,400-413: monotonicity, positivity and finite product logarithm.",
+        "Data/Nat/Choose/Sum.lean lines 68-86: binomial theorem; Algebra/Order/BigOperators/Group/Finset.lean lines 316-333: finite triangle inequality; Ring/Finset.lean lines 162-185: finite squared Cauchy–Schwarz; Analysis/Real/Sqrt.lean lines 171-194: nonnegative square-root identities."
       ]
     }
   ],
@@ -2138,6 +2236,274 @@
           "match": "Finite parity specialization of the source's lower-support argument. No symmetry of the arithmetic divisibility variables is assumed."
         }
       ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/omega-cutoff-identity",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "title": "Prime cutoff decomposition of omega",
+      "kind": "lemma",
+      "statement": "For every n>0 and z>=0, omega(n)=S(P_z,1)(n)+|T_z(n)|. In particular a prime equal to z is retained, and every prime power contributes once, not its exponent.",
+      "hypotheses": [
+        "Use the existing ArithmeticFunction.cardDistinctFactors as omega and existing unit-weight primeDivisibilitySum S. No new prime-count, cutoff, moment or measure carrier is introduced.",
+        "For real z>=0, P_z denotes the existing Nat.primesLE(floor_nat(z)); a prime p belongs precisely when p<=z. On positive n put T_z(n)={p in n.primeFactors: z<p}, A_z=sum_{p in P_z}1/p, and Y_z(n)=S(P_z,1)(n)-A_z. All casts, logarithms and error terms are real.",
+        "n is a positive natural number. The identity needs only z>=0, not z>1."
+      ],
+      "proofSteps": [
+        "Use positive-evaluation to express S(P_z,1)(n) as a sum of divisibility indicators. Nat.mem_primesLE and Nat.le_floor_iff identify its nonzero terms with the members of n.primeFactors whose real value is at most z, using Nat.mem_primeFactors and n>0.",
+        "Use omega-compatibility and positive-evaluation on n.primeFactors to express omega(n) as the cardinality of that finite set.",
+        "Partition n.primeFactors by p<=z and z<p; add their cardinalities. This uses finite-set partition identities, not an asymptotic estimate."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/positive-evaluation",
+        "ProbabilisticAndMetricNumberTheory:PM.0/omega-compatibility",
+        "mathlib:Nat.primesLE",
+        "mathlib:Nat.mem_primesLE",
+        "mathlib:Nat.le_floor_iff",
+        "mathlib:Nat.mem_primeFactors"
+      ],
+      "acceptance": [
+        "At n=60,z=3 the head is 2 and the tail is 1; at z=5 the tail is 0.",
+        "At n=8,z=3/2 the head is 0 and tail is 1, not 3; n=1 gives two zero summands."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
+          "excerpt": "Deduction of Theorem 1.",
+          "match": "Exact auxiliary decomposition of the source's displayed split into p<=z and p>z. Real cutoffs are represented by the existing natural floor and primesLE. The source's O(k) is not assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.PrimeTruncation",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/large-prime-log-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "title": "Logarithmic bound for discarded prime factors",
+      "kind": "lemma",
+      "statement": "For n>0 and z>1, |T_z(n)| <= log(n)/log(z). The bound counts distinct prime divisors; it permits n=1 and real nonintegral z, and has no assumption z<=n.",
+      "hypotheses": [
+        "Use the existing ArithmeticFunction.cardDistinctFactors as omega and existing unit-weight primeDivisibilitySum S. No new prime-count, cutoff, moment or measure carrier is introduced.",
+        "For real z>=0, P_z denotes the existing Nat.primesLE(floor_nat(z)); a prime p belongs precisely when p<=z. On positive n put T_z(n)={p in n.primeFactors: z<p}, A_z=sum_{p in P_z}1/p, and Y_z(n)=S(P_z,1)(n)-A_z. All casts, logarithms and error terms are real.",
+        "n is positive and z>1, so log(z)>0."
+      ],
+      "proofSteps": [
+        "For T=T_z(n), Nat.mem_primeFactors supplies prime, positive divisors of n. The existing Finset.prod_primes_dvd proves product T divides n. Its positive product is at most n.",
+        "Every p in T satisfies log(z)<=log(p) by Real.log_le_log, so |T| log(z)<=sum_{p in T}log(p).",
+        "Apply Real.log_prod to identify the sum with log(product T), then Real.log_le_log to bound this by log(n). Divide by the positive Real.log_pos z. The empty product is one, so no nonempty-tail hypothesis is used."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.mem_primeFactors",
+        "mathlib:Finset.prod_primes_dvd",
+        "mathlib:Real.log_prod",
+        "mathlib:Real.log_le_log",
+        "mathlib:Real.log_pos"
+      ],
+      "acceptance": [
+        "At n=1 the estimate is 0<=0; z>n gives empty T.",
+        "At n=30,z=2 the tail count is 2, consistent with 2 log(2)<=log(30).",
+        "The logarithmic quotient is not claimed for z=1 or for n=0."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
+          "excerpt": "Deduction of Theorem 1.",
+          "match": "Explicit deterministic bound underlying the source's O(k) tail when z=x^(1/k). This is a derived auxiliary with exact hypotheses, not a quoted numbered inequality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.PrimeTruncation",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/centered-cutoff-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "title": "Centered prime cutoff error",
+      "kind": "lemma",
+      "statement": "For N=m+1, z>1, b real, and 1<=n<=N, set D=log(N)/log(z)+|A_z-b|. Then |(omega(n)-b)-Y_z(n)|<=D. The two summands in D respectively control discarded primes and the change of center.",
+      "hypotheses": [
+        "Use the existing ArithmeticFunction.cardDistinctFactors as omega and existing unit-weight primeDivisibilitySum S. No new prime-count, cutoff, moment or measure carrier is introduced.",
+        "For real z>=0, P_z denotes the existing Nat.primesLE(floor_nat(z)); a prime p belongs precisely when p<=z. On positive n put T_z(n)={p in n.primeFactors: z<p}, A_z=sum_{p in P_z}1/p, and Y_z(n)=S(P_z,1)(n)-A_z. All casts, logarithms and error terms are real.",
+        "m is natural, N=m+1; b is any real center, not an assumed empirical or model mean. z>1 and 1<=n<=N."
+      ],
+      "proofSteps": [
+        "Omega-cutoff-identity gives (omega(n)-b)-Y_z(n)=|T_z(n)|+(A_z-b). Apply the triangle inequality and nonnegativity of a finite cardinality.",
+        "Use large-prime-log-bound and Real.log_le_log for n<=N, dividing by log(z)>0. This proves the displayed D bound.",
+        "D is nonnegative because N>=1. No Mertens estimate for |A_z-b|, and no numerical choice of b or z, is inserted without a separate proof."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.1/omega-cutoff-identity",
+        "ProbabilisticAndMetricNumberTheory:PM.1/large-prime-log-bound",
+        "mathlib:Real.log_le_log",
+        "mathlib:Real.log_pos"
+      ],
+      "acceptance": [
+        "For b=A_z, the pointwise difference is exactly the nonnegative tail count.",
+        "For n=N=1, the log contribution vanishes; the error equals |A_z-b|, even when P_z contains primes absent from the sample.",
+        "A center mismatch is retained even if every prime factor lies below the cutoff."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
+          "excerpt": "Deduction of Theorem 1.",
+          "match": "Quantifies both terms inside the source's O(k), without borrowing the unstated Mertens normalization. It is valid beyond the source's special cutoff."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.PrimeTruncation",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/cutoff-power-error",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "title": "Binomial prime cutoff power error",
+      "kind": "lemma",
+      "statement": "For N=m+1, z>1, b real, 1<=n<=N and k>=0, with D as above, |(omega(n)-b)^k-Y_z(n)^k| <= sum_{j=0}^{k-1} binom(k,j) D^(k-j) |Y_z(n)|^j. The sum is empty at k=0.",
+      "hypotheses": [
+        "Use the existing ArithmeticFunction.cardDistinctFactors as omega and existing unit-weight primeDivisibilitySum S. No new prime-count, cutoff, moment or measure carrier is introduced.",
+        "For real z>=0, P_z denotes the existing Nat.primesLE(floor_nat(z)); a prime p belongs precisely when p<=z. On positive n put T_z(n)={p in n.primeFactors: z<p}, A_z=sum_{p in P_z}1/p, and Y_z(n)=S(P_z,1)(n)-A_z. All casts, logarithms and error terms are real.",
+        "m,k are natural, z>1, b real and 1<=n<=m+1. D=log(m+1)/log(z)+|A_z-b|."
+      ],
+      "proofSteps": [
+        "Let d=(omega(n)-b)-Y_z(n). The preceding centered-cutoff-error gives |d|<=D and D>=0.",
+        "Apply the pinned binomial theorem to (Y_z(n)+d)^k. Isolate its j=k term, which is Y_z(n)^k, leaving exactly j<k; at k=0 both the remainder and its bound are zero.",
+        "Apply Finset.abs_sum_le_sum_abs. Replace the absolute value of each product by binom(k,j)|Y_z(n)|^j|d|^(k-j), and use monotonicity of nonnegative powers to replace |d| by D. Signs of Y and d are not discarded before this step."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.1/centered-cutoff-error",
+        "mathlib:add_pow",
+        "mathlib:Finset.abs_sum_le_sum_abs",
+        "mathlib:pow_le_pow_left₀"
+      ],
+      "acceptance": [
+        "For k=0 the bound is 0; for k=1 it is D, and for k=2 it is D^2+2D|Y|.",
+        "When Y is negative, |Y| cannot be replaced by Y in the bound. At n=1,N=2,z=3,b=A_z,k=2, Y=-5/6 and 0<D=log(2)/log(3)<1, so D^2+2DY is negative."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
+          "excerpt": "Deduction of Theorem 1.",
+          "match": "Exact finite binomial-error version of the source's second displayed formula. No unspecified O-constant, asymptotic order range or moment convergence is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.PrimeTruncation",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/absolute-odd-moment",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "title": "Odd absolute prime moments from adjacent even moments",
+      "kind": "lemma",
+      "statement": "For m,r natural, finite P, real weights a and real b, let Z(n)=S(P,a)(n)-b and E_j=integral Z^j dmu_(m+1). Then integral |Z|^(2r+1) dmu_(m+1) <= sqrt(E_(2r)*E_(2r+2)). Both even factors are nonnegative. At r=0, E_0=1.",
+      "hypotheses": [
+        "mu_(m+1) is the existing empirical probability measure on 1,...,m+1.",
+        "P is any finite set of natural indices, a has arbitrary real values and b is real. No primality or independence hypothesis is needed for this finite-sample inequality."
+      ],
+      "proofSteps": [
+        "Rewrite all three integrals using the existing integral_empiricalMeasure. Every real function on the discrete natural carrier is strongly measurable; each resulting sum is finite.",
+        "Apply the existing Finset.sum_mul_sq_le_sq_mul_sq to f(n)=|Z(n)|^r and g(n)=|Z(n)|^(r+1) over the N=m+1 sample indices. Their product is |Z|^(2r+1), and their squares equal Z^(2r) and Z^(2r+2).",
+        "Divide the squared Cauchy–Schwarz inequality by N^2. The same positive normalization occurs in each average. Nonnegative square roots and Real.sq_sqrt give the stated bound. This is an arithmetic specialization, not a new generic Cauchy–Schwarz theorem."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "mathlib:Finset.sum_mul_sq_le_sq_mul_sq",
+        "mathlib:Real.sq_sqrt"
+      ],
+      "acceptance": [
+        "For P={2},a=1,b=1/2 all |Z| equal 1/2, so equality holds for every N and r.",
+        "For P={3},N=3,a=1,b=1/3, the signed first moment is 0 but the absolute first moment is 4/9; the r=0 upper bound is sqrt(2/9).",
+        "Signed weights and constant nonzero centers are allowed. An empty P with b=0 gives zero odd absolute moments, while E_0 remains 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
+          "excerpt": "Deduction of Theorem 1.",
+          "match": "Specializes the source's Cauchy–Schwarz step, retaining the absolute moment rather than incorrectly using its possibly vanishing signed odd moment. Existing finite Cauchy–Schwarz supplies the generic theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.PrimeTruncation",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.1/cutoff-moment-transfer",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.1",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.1"
+      ],
+      "title": "Finite prime cutoff moment transfer",
+      "kind": "theorem",
+      "statement": "For N=m+1, z>1, b real and k>=0, put D=log(N)/log(z)+|A_z-b|, E_j=integral Y_z^j dmu_N, and U_j=E_j for even j, while U_j=sqrt(E_(j-1)*E_(j+1)) for odd j. Then |integral (omega-b)^k dmu_N-E_k| <= sum_{j=0}^{k-1} binom(k,j) D^(k-j) U_j. The formula is an exact finite bound with no unspecified constant.",
+      "hypotheses": [
+        "Use the existing ArithmeticFunction.cardDistinctFactors as omega and existing unit-weight primeDivisibilitySum S. No new prime-count, cutoff, moment or measure carrier is introduced.",
+        "For real z>=0, P_z denotes the existing Nat.primesLE(floor_nat(z)); a prime p belongs precisely when p<=z. On positive n put T_z(n)={p in n.primeFactors: z<p}, A_z=sum_{p in P_z}1/p, and Y_z(n)=S(P_z,1)(n)-A_z. All casts, logarithms and error terms are real.",
+        "m,k are natural, N=m+1, z>1 and b is real. E_j and U_j are local expressions, not new moment carriers. For odd j, j>=1 and j-1,j+1 are even."
+      ],
+      "proofSteps": [
+        "Rewrite the integral difference as the difference of the two empirical finite averages. Apply the triangle inequality for that finite sum and cutoff-power-error at every n=1,...,N.",
+        "Interchange the two finite sums and pull out the nonnegative constant binom(k,j)D^(k-j). The remaining factor is the empirical absolute j-th moment of Y_z.",
+        "For even j, |Y_z|^j=Y_z^j. For odd j=2r+1, apply absolute-odd-moment at P=P_z, weights 1 and center A_z. This proves the U_j bound without any iid premise.",
+        "At k=0 both original moments are 1 and the right side is empty. For later asymptotics, even U_j inputs can use second-moment-comparison and finite-even-gaussian-bound; their growth and D's size must still be established, and are not conclusions of this theorem."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.1/cutoff-power-error",
+        "ProbabilisticAndMetricNumberTheory:PM.1/absolute-odd-moment",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "mathlib:Finset.abs_sum_le_sum_abs"
+      ],
+      "acceptance": [
+        "At k=0 the two normalized moments equal 1; at k=1 the right side is D because U_0=1.",
+        "At k=2 the bound is D^2+2D sqrt(E_2), since E_0=1.",
+        "The formula holds for N=1 and for z>N; it does not remove the separate center discrepancy |A_z-b|.",
+        "No convergence in distribution, Mertens estimate or uniform growing-order range follows without additional bounds."
+      ],
+      "sources": [
+        {
+          "sourceId": "GS-SIEVING",
+          "locator": "Author copy, internal p.4, Deduction of Theorem 1, first three displayed formulas and Cauchy–Schwarz step",
+          "excerpt": "Deduction of Theorem 1.",
+          "match": "Finite, fully quantified transfer mechanism in the source's deduction of Theorem 1. It combines the displayed binomial expansion with adjacent-even Cauchy–Schwarz; the source's remaining asymptotic estimates are not claimed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.PrimeTruncation",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "planet": {
+        "name": "Prime cutoff moment transfer"
+      }
     }
   ],
   "links": [],
@@ -2157,7 +2523,7 @@
       "status": "partial",
       "remaining": [
         "The finite unweighted pairing, collision, fixed-support/composition and parity estimates are decomposed, using the existing Gaussian moment supplier. The source's Theorem 1 and Propositions 2-4 still require the precise uniform growing-moment range and sharper source-specific asymptotic estimates; the explicit finite bounds here do not close those theorems.",
-        "Derive the Mertens normalization, large-prime removal and moment-convergence-to-Gaussian argument; the arithmetic indicators are not iid. General sieve-multiset h(d), r_d and D_k(P) interfaces and their applications must be routed under existing ownership before planning them.",
+        "Deterministic large-prime removal and finite binomial/adjacent-even moment transfer are decomposed with D=log(N)/log(z)+|A_z-b|. Still derive Mertens normalization, source-specific estimates for D and the lower even moments, a uniform growing-order range, and a valid moment-convergence-to-Gaussian argument; the arithmetic indicators are not iid. General sieve-multiset h(d), r_d and D_k(P) interfaces and their applications must be routed under existing ownership before planning them.",
         "Acquire and decompose the full Turan-Kubilius proof and source-scoped Hardy-Ramanujan proof, beyond the introductory summary and statements read here."
       ]
     },
@@ -2207,7 +2573,7 @@
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.1"
       ],
-      "detail": "The finite unweighted pairing, collision, fixed-support/composition and parity estimates are decomposed, using the existing Gaussian moment supplier. The source's Theorem 1 and Propositions 2-4 still require the precise uniform growing-moment range and sharper source-specific asymptotic estimates; the explicit finite bounds here do not close those theorems. Derive the Mertens normalization, large-prime removal and moment-convergence-to-Gaussian argument; the arithmetic indicators are not iid. General sieve-multiset h(d), r_d and D_k(P) interfaces and their applications must be routed under existing ownership before planning them. Acquire and decompose the full Turan-Kubilius proof and source-scoped Hardy-Ramanujan proof, beyond the introductory summary and statements read here."
+      "detail": "The finite unweighted pairing, collision, fixed-support/composition and parity estimates are decomposed, using the existing Gaussian moment supplier. The source's Theorem 1 and Propositions 2-4 still require the precise uniform growing-moment range and sharper source-specific asymptotic estimates; the explicit finite bounds here do not close those theorems. Deterministic large-prime removal and finite binomial/adjacent-even moment transfer are decomposed with D=log(N)/log(z)+|A_z-b|. Still derive Mertens normalization, source-specific estimates for D and the lower even moments, a uniform growing-order range, and a valid moment-convergence-to-Gaussian argument; the arithmetic indicators are not iid. General sieve-multiset h(d), r_d and D_k(P) interfaces and their applications must be routed under existing ownership before planning them. Acquire and decompose the full Turan-Kubilius proof and source-scoped Hardy-Ramanujan proof, beyond the introductory summary and statements read here."
     },
     {
       "title": "PM.2: source and proof completion",
