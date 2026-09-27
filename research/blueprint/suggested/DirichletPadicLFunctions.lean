@@ -1,3 +1,5 @@
+import Mathlib.NumberTheory.ArithmeticFunction.Misc
+import Mathlib.NumberTheory.PowModTotient
 import research.blueprint.suggested.PadicMeasuresIwasawaAlgebras
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.RingTheory.PowerSeries.Inverse
@@ -455,3 +457,116 @@ example (h3 : ¬ 2 ∣ 3) :
       (smoothedNumerator 2 3 h3) =
         smoothedNumerator 2 3 h3 := sorry
 end SuggestedSmoothingTests
+
+
+/-!
+Positive Eisenstein coefficients (L4). These are native integral measures on the actual unit
+ group. The index is positive, so this constructor makes no assertion about A₀. The modular-form
+ comparison and the completed-algebra image remain explicit gaps in the roadmap.
+-/
+namespace DirichletPadic
+section EisensteinCoefficients
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-measure
+/-- The sum of Dirac measures at positive divisors of n prime to p. -/
+def positiveEisensteinMeasure (n : ℕ+) : D(Zˣ, Z) := sorry
+
+theorem positiveEisensteinMeasure_eq_sum (n : ℕ+) :
+    positiveEisensteinMeasure p n =
+      ∑ d ∈ (n : ℕ).divisors, if hd : ¬ p ∣ d then
+        AbstractMeasure.dirac Z
+          (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+            ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit else 0 := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-evaluation
+theorem positiveEisensteinMeasure_apply (n : ℕ+) (f : C(Zˣ, Z)) :
+    positiveEisensteinMeasure p n f =
+      ∑ d ∈ (n : ℕ).divisors, if hd : ¬ p ∣ d then
+        f (PadicInt.isUnit_iff.mpr (PadicInt.norm_natCast_eq_one_iff.mpr
+          ((Fact.out : p.Prime).coprime_iff_not_dvd.mpr hd))).unit else 0 := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-moment
+theorem positiveEisensteinMeasure_moment (n : ℕ+) (e : ℕ) :
+    positiveEisensteinMeasure p n ⟨fun u : Zˣ => (u : Z) ^ e, by fun_prop⟩ =
+      ∑ d ∈ (n : ℕ).divisors with ¬ p ∣ d, (d : Z) ^ e := sorry
+
+theorem positiveEisensteinMeasure_one :
+    positiveEisensteinMeasure p 1 = AbstractMeasure.dirac Z 1 := sorry
+
+theorem positiveEisensteinMeasure_prime_pow (r : ℕ) :
+    positiveEisensteinMeasure p ⟨p ^ r, pow_pos (Fact.out : p.Prime).pos r⟩ =
+      AbstractMeasure.dirac Z 1 := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-remove-p
+theorem positiveEisensteinMeasure_mul_p (n : ℕ+) :
+    positiveEisensteinMeasure p
+      ⟨p * (n : ℕ), Nat.mul_pos (Fact.out : p.Prime).pos n.pos⟩ =
+        positiveEisensteinMeasure p n := sorry
+
+theorem positiveEisensteinMeasure_mass (n : ℕ+) :
+    positiveEisensteinMeasure p n 1 =
+      (((n : ℕ).divisors.filter fun d => ¬ p ∣ d).card : Z) := sorry
+
+-- DirichletPadicLFunctions:L4/divisor-sum-euler-deletion
+-- Integer subtraction, including exponent zero, avoids truncated natural subtraction.
+theorem divisorSum_eulerDeletion (n : ℕ+) (e : ℕ) :
+    (∑ d ∈ (n : ℕ).divisors with ¬ p ∣ d, (d : ℤ) ^ e) =
+      (ArithmeticFunction.sigma e n : ℤ) -
+        if p ∣ (n : ℕ) then (p : ℤ) ^ e *
+          (ArithmeticFunction.sigma e ((n : ℕ) / p) : ℤ) else 0 := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-euler-moment
+theorem positiveEisensteinMeasure_euler_moment (n : ℕ+) (e : ℕ) :
+    positiveEisensteinMeasure p n ⟨fun u : Zˣ => (u : Z) ^ e, by fun_prop⟩ =
+      (ArithmeticFunction.sigma e n : Z) -
+        if p ∣ (n : ℕ) then (p : Z) ^ e *
+          (ArithmeticFunction.sigma e ((n : ℕ) / p) : Z) else 0 := sorry
+
+-- DirichletPadicLFunctions:L4/positive-eisenstein-weight-congruence
+theorem positiveEisensteinMeasure_moment_congr (n : ℕ+) (r e e' : ℕ)
+    (hr : 0 < r) (he : Nat.ModEq (p ^ (r - 1) * (p - 1)) e e') :
+    (p : Z) ^ r ∣
+      positiveEisensteinMeasure p n ⟨fun u : Zˣ => (u : Z) ^ e', by fun_prop⟩ -
+        positiveEisensteinMeasure p n ⟨fun u : Zˣ => (u : Z) ^ e, by fun_prop⟩ := sorry
+
+end EisensteinCoefficients
+end DirichletPadic
+
+namespace SuggestedEisensteinTests
+open DirichletPadic
+
+-- SuggestedEisensteinTests.first_coefficient
+example : positiveEisensteinMeasure 3 1 = AbstractMeasure.dirac ℤ_[3] 1 := sorry
+
+-- SuggestedEisensteinTests.prime_coefficient_survives
+example : positiveEisensteinMeasure 3 3 = AbstractMeasure.dirac ℤ_[3] 1 := sorry
+
+-- SuggestedEisensteinTests.dyadic_divisor_sum
+example (h3 : IsUnit (3 : ℤ_[2])) :
+    positiveEisensteinMeasure 2 6 = AbstractMeasure.dirac ℤ_[2] 1 +
+      AbstractMeasure.dirac ℤ_[2] h3.unit := sorry
+
+-- SuggestedEisensteinTests.mass_counts_divisors
+example : positiveEisensteinMeasure 2 6 1 = (2 : ℤ_[2]) := sorry
+
+-- SuggestedEisensteinTests.weight_four_dyadic
+example : positiveEisensteinMeasure 2 6
+    ⟨fun u : ℤ_[2]ˣ => (u : ℤ_[2]) ^ 3, by fun_prop⟩ = 28 := sorry
+
+-- SuggestedEisensteinTests.euler_deletion_six
+example : (∑ d ∈ (6 : ℕ).divisors with ¬ 3 ∣ d, (d : ℤ) ^ 3) =
+    (ArithmeticFunction.sigma 3 6 : ℤ) - 27 * (ArithmeticFunction.sigma 3 2 : ℤ) := sorry
+
+-- SuggestedEisensteinTests.dyadic_precision
+example : (8 : ℤ_[2]) ∣
+    positiveEisensteinMeasure 2 3 ⟨fun u : ℤ_[2]ˣ => (u : ℤ_[2]) ^ 5, by fun_prop⟩ -
+      positiveEisensteinMeasure 2 3 ⟨fun u : ℤ_[2]ˣ => (u : ℤ_[2]), by fun_prop⟩ := sorry
+
+-- SuggestedEisensteinTests.tame_component_not_enough_for_precision
+example [Fact (Nat.Prime 5)] : ¬ (25 : ℤ_[5]) ∣
+    positiveEisensteinMeasure 5 2 ⟨fun u : ℤ_[5]ˣ => (u : ℤ_[5]) ^ 7, by fun_prop⟩ -
+      positiveEisensteinMeasure 5 2 ⟨fun u : ℤ_[5]ˣ => (u : ℤ_[5]) ^ 3, by fun_prop⟩ := sorry
+
+end SuggestedEisensteinTests
