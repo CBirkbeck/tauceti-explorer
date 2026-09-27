@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue. Four declarations compare the common rational formal-derivative constants of the actual smoothed series with real origin derivatives, signed complex continued values and integral arithmetic moments, reusing the PMIA formal conjugacy. Six L1 declarations identify the actual extended smoothing Amice series, its uniqueness and Q_p integral descent, and the Q_p moments of the smoothing, ambient unit-restricted and numerator measures.",
+  "summary": "Partial roadmap with 91 unchecked nodes. Eleven L0 declarations supply the Gamma-normalized Mellin continuation in RJW Theorem2.4: actual endpoint limits, integration by parts, coherent translated half-planes, entire differentiability and nonpositive-integer values, using native within derivatives and the pinned convergence library. The complex-valued and explicit-choice presentation is a worker generalization of the real-valued source argument. All80 preceding mathematical statements, hypotheses, dependencies, APIs and tests survive; one stale proof-status sentence is updated. Bernoulli/smoothing kernel applications and all other incomplete arithmetic and Eisenstein targets remain explicit. Five gaps, one request and no closed stage remain. Seven L0 declarations justify the differentiated geometric expansion of the actual Bernoulli kernel and exponential decay of every derivative, including the native complex-valued within-derivative premise for Mellin continuation. Twelve L0 declarations construct the smooth Bernoulli kernel from native dslope, derive every Bernoulli derivative at zero by a finite Leibniz recurrence, and instantiate the entire normalized Mellin continuation and its negative-integer values. Five L0 comparison declarations reuse native hasSum_mellin for the actual Bernoulli integral and identify its existing normalized continuation with sζ(s+1) away from zero, retaining the removable value1 separately. Thirteen L0 declarations construct the actual smoothed Mellin kernel by native divided differences, supply all Bernoulli derivatives and decay with positive rate min(1,a), and instantiate its existing entire normalized Mellin continuation. Six L0 declarations identify the actual smoothed Mellin continuation with (1−a^(1−s))ζ(s) away from1 and give its removable value log(a) at1, reusing native Mellin shift/dilation and the native zeta residue. Four declarations compare the common rational formal-derivative constants of the actual smoothed series with real origin derivatives, signed complex continued values and integral arithmetic moments, reusing the PMIA formal conjugacy. Six L1 declarations identify the actual extended smoothing Amice series, its uniqueness and Q_p integral descent, and the Q_p moments of the smoothing, ambient unit-restricted and numerator measures. Nine L1 declarations place the actual arithmetic numerator on the native unit group and compare its inclusion, coefficient extension, Bernoulli moments and multiplicative convolution identities.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1477,6 +1477,27 @@
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The canonical algebra map from p-adic integers to p-adic numbers is the existing subtype inclusion.",
         "checked": "Full statement and canonical algebra instance read at pinned Mathlib082e2d3 on27 September2026, lines564–569; exact declaration checked in the unmodified index."
+      },
+      {
+        "ref": "mathlib:PadicInt.compactSpace",
+        "kind": "instance",
+        "module": "Mathlib/NumberTheory/Padics/ProperSpace.lean",
+        "provides": "The native p-adic integer space is compact for every prime p, supplying local compactness of its native unit group through the existing topological-units instances.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026 and exact declaration checked against the unmodified baseline index."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.map_map",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Basic.lean",
+        "provides": "Composition of native measure pushforwards equals pushforward along the composite continuous map.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026 and exact declaration checked against the unmodified baseline index."
+      },
+      {
+        "ref": "mathlib:Units.continuous_val",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Constructions.lean",
+        "provides": "Continuity of the value map from the native topological units type.",
+        "checked": "Full statement read at pinned Mathlib 082e2d3 on 27 September 2026 and exact declaration checked against the unmodified baseline index."
       }
     ]
   },
@@ -1505,7 +1526,8 @@
         "27 September2026: complete printed110–114/PDF11–15 reread; origin regularity and derivatives of the Bernoulli kernel decomposed and Theorem2.4 instantiated. Lemma2.7 sum/integral comparison remains explicit work.",
         "27 September2026: complete printed110–114/PDF11–15 reread for Lemma2.7; native Gamma-weighted Mellin sum theorem instantiated and normalized comparison restricted away from the raw pole.",
         "27 September2026: complete printed134–139/PDF35–40 reread, including§4.1 andLemmas4.2–4.3; actual smoothed-kernel regularity, derivative and decay instantiation. SourceE3positivity retained; no newfinding.",
-        "27 September2026: follow-up to the full134–139 read; Lemma4.2 smoothed-zeta identity decomposed, with punctured-domain and logarithmic removable-value deductions."
+        "27 September2026: follow-up to the full134–139 read; Lemma4.2 smoothed-zeta identity decomposed, with punctured-domain and logarithmic removable-value deductions.",
+        "27 September 2026 intrinsic-numerator continuation: full printed 127–129/PDF28–30 and printed 138–139/PDF39–40 freshly read. Source Remark 3.33 distinguishes multiplicative unit convolution from additive ambient convolution. Nine arithmetic adapters are worker deductions using exact existing supplier nodes; no full-paper reading or new finding is claimed."
       ]
     },
     {
@@ -9084,6 +9106,499 @@
           "statement": "At p=2,a=3, E_Q(ν_3)(x²)=+2/3 in ℚ₂."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Arithmetic numerator on the unit group",
+      "kind": "construction",
+      "statement": "Construct λ_a=intrinsicSmoothedNumerator p a := r_Z(ν_a) in D(U,Z). This is the actual intrinsic restriction of the inverse-weighted arithmetic measure.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=ℤ_p and U=Zˣ with its native topology; D(X,R) is the existing AbstractMeasure continuous dual. The natural smoothing parameter a satisfies p∤a, with a=1 retained. Let ν_a be the existing ambient smoothedNumerator, r_R the imported intrinsic restriction, j_R native pushforward along Units.val and E_R the imported ambient unit projector.",
+        "On U, ∗ is the exact PMIA multiplicative convolution: (α∗β)(f)=α(u↦β(v↦f(uv))), with δ_1 as identity. No additive-ambient convolution, completed-algebra comparison, localization or regularity is inferred. The native unit group is compact and locally compact by the pinned instances."
+      ],
+      "proofSteps": [
+        "Apply the existing PMIA intrinsic-unit-restriction linear map to the actual ν_a. The resulting carrier is the native units type U, with no new measure, topology or inverse-weight operator.",
+        "The zero case a=1 follows from the existing ν_1=0 API and linearity of r_Z. The inclusion comparison and moment formulas are proved in the promoted nodes below.",
+        "For the uniqueness API, apply r_Z to j_Zη=ν_a and use the exact supplier retraction r_Zj_Z=id. Its right side is the defining λ_a. This characterizes the actual unit measure without assuming an inverse for every ambient measure."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothed-numerator",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
+      ],
+      "acceptance": [
+        "λ_a is on U, while ν_a is on Z. The two are compared by j_Z, not treated as definitionally equal."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntrinsicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remarks 3.31 and 3.33, §3.5.5 and equation (3-10), printed 127–129 / PDF28–30; equations (4-2)–(4-3), Definitions 4.9–4.10 and Proposition 4.11 with proof, printed 138–139 / PDF39–40.",
+          "excerpt": "it is not a subalgebra",
+          "match": "Worker decomposition of the source intrinsic/ambient identification and multiplicative unit action, applied to the existing arithmetic numerator. The cocycle and cross-smoothing identities are transported from the already planned ambient arithmetic identities; the source does not state these exact adapters separately. All-prime integral statements retain p=2 without averaging by 1/2. The source completed-algebra and denominator assertions remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.intrinsicSmoothedNumerator_eq_restrict",
+          "role": "characterisation",
+          "statement": "λ_a=r_Zν_a."
+        },
+        {
+          "name": "DirichletPadic.map_val_intrinsicSmoothedNumerator",
+          "role": "compatibility",
+          "statement": "j_Zλ_a=ν_a; promoted to intrinsic-numerator-inclusion."
+        },
+        {
+          "name": "DirichletPadic.intrinsicSmoothedNumerator_unique",
+          "role": "universal-property",
+          "statement": "If η∈D(U,Z) satisfies j_Zη=ν_a, then η=λ_a."
+        },
+        {
+          "name": "DirichletPadic.intrinsicSmoothedNumerator_one",
+          "role": "simp",
+          "statement": "λ_1=0."
+        },
+        {
+          "name": "DirichletPadic.intrinsicSmoothedNumerator_moment",
+          "role": "data",
+          "statement": "For k≥1 the image of λ_a(u↦u^k) in ℚ_p is (1−p^(k−1))(1−a^k)B_k/k; promoted."
+        },
+        {
+          "name": "DirichletPadic.map_val_dirac_mul_intrinsicSmoothedNumerator",
+          "role": "functoriality",
+          "statement": "j_Z(δ_u∗λ_a)=σ_uν_a for every u∈U, with σ_u the ambient multiplicative dilation pushforward; promoted."
+        },
+        {
+          "name": "DirichletPadic.intrinsicSmoothedNumerator_mul",
+          "role": "relation",
+          "statement": "λ_(ab)=λ_a+δ_a∗λ_b for natural a,b prime to p, with their actual unit lifts; promoted."
+        },
+        {
+          "name": "DirichletPadic.intrinsicSmoothedNumerator_cross",
+          "role": "relation",
+          "statement": "(δ_b−δ_1)∗λ_a=(δ_a−δ_1)∗λ_b with the actual unit lifts; promoted."
+        },
+        {
+          "name": "DirichletPadic.intrinsicSmoothedNumerator_even",
+          "role": "relation",
+          "statement": "δ_(−1)∗λ_a=λ_a, including p=2; promoted."
+        },
+        {
+          "name": "DirichletPadic.map_val_extend_intrinsicSmoothedNumerator",
+          "role": "compatibility",
+          "statement": "For eligible R, j_R(I_U,Rλ_a)=I_Rν_a; promoted."
+        },
+        {
+          "name": "DirichletPadic.extend_intrinsicSmoothedNumerator_moment",
+          "role": "data",
+          "statement": "The actual ℚ_p-valued extension of λ_a has the same Bernoulli moments on coefficient-valued tests for k≥1; promoted."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW equation (4-3) and Definitions 4.9–4.10",
+          "how": "Places the actual inverse-weighted arithmetic numerator on the multiplicative unit-group measure carrier used before division by θ_a."
+        },
+        {
+          "where": "RJW Proposition 4.11; DirichletPadicLFunctions:L1 smoothing independence and parity",
+          "how": "Supplies the integral convolution numerator identities needed when the actual completed-algebra comparison and regularity become available."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L2–L3 and ColemanPowerSeries:L2 coefficient comparisons",
+          "how": "Compares the actual intrinsic arithmetic measure and its coefficient extension with the ambient numerator without changing carriers implicitly."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedIntrinsicNumeratorTests.zero_parameter",
+          "kind": "degenerate",
+          "statement": "At p=3, λ_1=0."
+        },
+        {
+          "name": "SuggestedIntrinsicNumeratorTests.first_moment",
+          "kind": "degenerate",
+          "statement": "At p=3,a=2, λ_2(u↦u)=0."
+        },
+        {
+          "name": "SuggestedIntrinsicNumeratorTests.second_moment",
+          "kind": "computation",
+          "statement": "At p=3,a=2, the image of λ_2(u↦u²) in ℚ₃ is 1/2."
+        },
+        {
+          "name": "SuggestedIntrinsicNumeratorTests.dyadic_second",
+          "kind": "computation",
+          "statement": "At p=2,a=3, the image of λ_3(u↦u²) in ℚ₂ is 2/3."
+        },
+        {
+          "name": "SuggestedIntrinsicNumeratorTests.product_without_scalar",
+          "kind": "compatibility",
+          "statement": "At p=3, λ_4=λ_2+δ_2∗λ_2. There is no additional scalar 2."
+        },
+        {
+          "name": "SuggestedIntrinsicNumeratorTests.cross_denominator_orientation",
+          "kind": "compatibility",
+          "statement": "At p=3, (δ_4−δ_1)∗λ_2=(δ_2−δ_1)∗λ_4. Their second moments are respectively 15·(1/2) and 3·(5/2)."
+        },
+        {
+          "name": "SuggestedIntrinsicNumeratorTests.dyadic_even",
+          "kind": "compatibility",
+          "statement": "At p=2,a=3, δ_(−1)∗λ_3=λ_3 integrally."
+        },
+        {
+          "name": "SuggestedIntrinsicNumeratorTests.dyadic_extended_second",
+          "kind": "computation",
+          "statement": "At p=2,a=3, the actual ℚ₂-valued unit-domain extension evaluated on u↦(u:ℚ₂)² is 2/3, with the supplier bounded-scalar hypothesis retained."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator-inclusion",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Inclusion of the intrinsic arithmetic numerator",
+      "kind": "comparison",
+      "statement": "j_Zλ_a=ν_a in D(Z,Z).",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=ℤ_p and U=Zˣ with its native topology; D(X,R) is the existing AbstractMeasure continuous dual. The natural smoothing parameter a satisfies p∤a, with a=1 retained. Let ν_a be the existing ambient smoothedNumerator, r_R the imported intrinsic restriction, j_R native pushforward along Units.val and E_R the imported ambient unit projector.",
+        "On U, ∗ is the exact PMIA multiplicative convolution: (α∗β)(f)=α(u↦β(v↦f(uv))), with δ_1 as identity. No additive-ambient convolution, completed-algebra comparison, localization or regularity is inferred. The native unit group is compact and locally compact by the pinned instances."
+      ],
+      "proofSteps": [
+        "Unfold λ_a=r_Zν_a and use the exact imported intrinsic-unit-extension-projector identity j_Zr_Z=E_Z.",
+        "Apply the existing numerator-support theorem E_Zν_a=ν_a. This proves the equality of actual ambient measures, hence equality on every continuous test."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator",
+        "DirichletPadicLFunctions:L1/numerator-support",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector"
+      ],
+      "acceptance": [
+        "The support theorem is necessary: for an arbitrary ambient measure j_Zr_Z recovers its unit projector, not the whole measure."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntrinsicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.map_val_intrinsicSmoothedNumerator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remarks 3.31 and 3.33, §3.5.5 and equation (3-10), printed 127–129 / PDF28–30; equations (4-2)–(4-3), Definitions 4.9–4.10 and Proposition 4.11 with proof, printed 138–139 / PDF39–40.",
+          "excerpt": "it is not a subalgebra",
+          "match": "Worker decomposition of the source intrinsic/ambient identification and multiplicative unit action, applied to the existing arithmetic numerator. The cocycle and cross-smoothing identities are transported from the already planned ambient arithmetic identities; the source does not state these exact adapters separately. All-prime integral statements retain p=2 without averaging by 1/2. The source completed-algebra and denominator assertions remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator-moment",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Bernoulli moments on the unit group",
+      "kind": "theorem",
+      "statement": "For every natural k≥1, the image of λ_a(u↦(u:Z)^k) in ℚ_p is (1−p^(k−1))(1−a^k)B_k/k.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=ℤ_p and U=Zˣ with its native topology; D(X,R) is the existing AbstractMeasure continuous dual. The natural smoothing parameter a satisfies p∤a, with a=1 retained. Let ν_a be the existing ambient smoothedNumerator, r_R the imported intrinsic restriction, j_R native pushforward along Units.val and E_R the imported ambient unit projector.",
+        "On U, ∗ is the exact PMIA multiplicative convolution: (α∗β)(f)=α(u↦β(v↦f(uv))), with δ_1 as identity. No additive-ambient convolution, completed-algebra comparison, localization or regularity is inferred. The native unit group is compact and locally compact by the pinned instances."
+      ],
+      "proofSteps": [
+        "Evaluate intrinsic-numerator-inclusion on the ambient monomial x↦x^k. Native map_apply identifies the included left side with λ_a evaluated on the restriction u↦(u:Z)^k.",
+        "Apply the existing numerator-moment theorem at k≥1. The natural-power continuous test is formed from the native continuous units value map.",
+        "Keep the k=1 endpoint: its Euler factor is 1−p^0=0. No denominator is cancelled there, and the theorem does not extend to k=0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-inclusion",
+        "DirichletPadicLFunctions:L1/numerator-moment",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:Units.continuous_val"
+      ],
+      "acceptance": [
+        "At p=3,a=2,k=2 the value is 1/2; at p=2,a=3,k=2 it is 2/3. The first moment vanishes for every admissible parameter."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntrinsicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remarks 3.31 and 3.33, §3.5.5 and equation (3-10), printed 127–129 / PDF28–30; equations (4-2)–(4-3), Definitions 4.9–4.10 and Proposition 4.11 with proof, printed 138–139 / PDF39–40.",
+          "excerpt": "it is not a subalgebra",
+          "match": "Worker decomposition of the source intrinsic/ambient identification and multiplicative unit action, applied to the existing arithmetic numerator. The cocycle and cross-smoothing identities are transported from the already planned ambient arithmetic identities; the source does not state these exact adapters separately. All-prime integral statements retain p=2 without averaging by 1/2. The source completed-algebra and denominator assertions remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator-dirac",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Dirac action on the arithmetic numerator",
+      "kind": "lemma",
+      "statement": "For every u∈U, j_Z(δ_u∗λ_a)=σ_uν_a, where σ_u is native ambient pushforward along z↦(u:Z)z.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=ℤ_p and U=Zˣ with its native topology; D(X,R) is the existing AbstractMeasure continuous dual. The natural smoothing parameter a satisfies p∤a, with a=1 retained. Let ν_a be the existing ambient smoothedNumerator, r_R the imported intrinsic restriction, j_R native pushforward along Units.val and E_R the imported ambient unit projector.",
+        "On U, ∗ is the exact PMIA multiplicative convolution: (α∗β)(f)=α(u↦β(v↦f(uv))), with δ_1 as identity. No additive-ambient convolution, completed-algebra comparison, localization or regularity is inferred. The native unit group is compact and locally compact by the pinned instances."
+      ],
+      "proofSteps": [
+        "Use the exact supplier convolution evaluation and right-convolution evaluation at a Dirac mass. On a unit-domain test f the result is λ_a(v↦f(uv)); native Dirac evaluation performs the outer integral.",
+        "Apply native map_apply for j_Z. Since the value of uv is (u:Z)(v:Z), this test equals the pullback of the ambient dilation. Extensionality of continuous maps identifies these functions.",
+        "Native map_map identifies the two composed pushforwards. Replace j_Zλ_a with ν_a using intrinsic-numerator-inclusion. The direction is multiplication by u, not its inverse."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-inclusion",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.map_map",
+        "mathlib:Units.continuous_val",
+        "mathlib:PadicInt.compactSpace"
+      ],
+      "acceptance": [
+        "On the kth monomial this action contributes u^k, not u^(k+1) or u^(−k). It compares one actual arithmetic action; it does not assert that j_Z preserves additive convolution."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntrinsicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.map_val_dirac_mul_intrinsicSmoothedNumerator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remarks 3.31 and 3.33, §3.5.5 and equation (3-10), printed 127–129 / PDF28–30; equations (4-2)–(4-3), Definitions 4.9–4.10 and Proposition 4.11 with proof, printed 138–139 / PDF39–40.",
+          "excerpt": "it is not a subalgebra",
+          "match": "Worker decomposition of the source intrinsic/ambient identification and multiplicative unit action, applied to the existing arithmetic numerator. The cocycle and cross-smoothing identities are transported from the already planned ambient arithmetic identities; the source does not state these exact adapters separately. All-prime integral statements retain p=2 without averaging by 1/2. The source completed-algebra and denominator assertions remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator-cocycle",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Multiplicative smoothing cocycle on units",
+      "kind": "lemma",
+      "statement": "For natural a,b prime to p, λ_(ab)=λ_a+δ_u∗λ_b, where u∈U has value a in Z.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=ℤ_p and U=Zˣ with its native topology; D(X,R) is the existing AbstractMeasure continuous dual. The natural smoothing parameter a satisfies p∤a, with a=1 retained. Let ν_a be the existing ambient smoothedNumerator, r_R the imported intrinsic restriction, j_R native pushforward along Units.val and E_R the imported ambient unit projector.",
+        "On U, ∗ is the exact PMIA multiplicative convolution: (α∗β)(f)=α(u↦β(v↦f(uv))), with δ_1 as identity. No additive-ambient convolution, completed-algebra comparison, localization or regularity is inferred. The native unit group is compact and locally compact by the pinned instances.",
+        "b is natural with p∤b and p∤ab; u∈U has value (a:Z). Such a unit exists by the previously recorded native p-adic unit criteria; its value specifies it uniquely."
+      ],
+      "proofSteps": [
+        "Apply the injectivity of j_Z from the imported intrinsic-unit-restriction-section. Use its native linear-map structure to carry the sum through inclusion.",
+        "Use intrinsic-numerator-inclusion for λ_(ab) and λ_a, and intrinsic-numerator-dirac for δ_u∗λ_b. The specified value u=a identifies the dilation map.",
+        "The resulting equality is exactly the existing ambient numerator-smoothing-cocycle. Its inverse weighting has already cancelled the scalar a, so none is introduced here."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-inclusion",
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-dirac",
+        "DirichletPadicLFunctions:L1/numerator-smoothing-cocycle",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
+      ],
+      "acceptance": [
+        "The suggested signature retains explicit p∤ab and the bundled unit/value equality. Native prime/unit criteria already recorded in the packet supply these from p∤a and p∤b. At p=3,a=b=2 the missing scalar is detected by the second moment."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntrinsicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_mul"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remarks 3.31 and 3.33, §3.5.5 and equation (3-10), printed 127–129 / PDF28–30; equations (4-2)–(4-3), Definitions 4.9–4.10 and Proposition 4.11 with proof, printed 138–139 / PDF39–40.",
+          "excerpt": "it is not a subalgebra",
+          "match": "Worker decomposition of the source intrinsic/ambient identification and multiplicative unit action, applied to the existing arithmetic numerator. The cocycle and cross-smoothing identities are transported from the already planned ambient arithmetic identities; the source does not state these exact adapters separately. All-prime integral statements retain p=2 without averaging by 1/2. The source completed-algebra and denominator assertions remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator-cross",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Cross-smoothing in the unit measure algebra",
+      "kind": "lemma",
+      "statement": "For natural a,b prime to p and their unit lifts u,v, (δ_v−δ_1)∗λ_a=(δ_u−δ_1)∗λ_b.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=ℤ_p and U=Zˣ with its native topology; D(X,R) is the existing AbstractMeasure continuous dual. The natural smoothing parameter a satisfies p∤a, with a=1 retained. Let ν_a be the existing ambient smoothedNumerator, r_R the imported intrinsic restriction, j_R native pushforward along Units.val and E_R the imported ambient unit projector.",
+        "On U, ∗ is the exact PMIA multiplicative convolution: (α∗β)(f)=α(u↦β(v↦f(uv))), with δ_1 as identity. No additive-ambient convolution, completed-algebra comparison, localization or regularity is inferred. The native unit group is compact and locally compact by the pinned instances.",
+        "b is natural with p∤b; u,v∈U have values a,b in Z."
+      ],
+      "proofSteps": [
+        "Use the supplier convolution ring to distribute the products and identify δ_1 as the multiplicative identity.",
+        "Apply injectivity of j_Z. Its linearity and intrinsic-numerator-dirac/inclusion turn the assertion into σ_bν_a−ν_a=σ_aν_b−ν_b.",
+        "Invoke the existing ambient numerator-cross-smoothing theorem. This is an equality before any localization; it does not permit cancellation of δ_a−δ_1."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-inclusion",
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-dirac",
+        "DirichletPadicLFunctions:L1/numerator-cross-smoothing",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
+      ],
+      "acceptance": [
+        "For p=3,a=2,b=4, second moments give 15·(1/2)=3·(5/2). The denominator orientation is b acting on λ_a and a acting on λ_b."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntrinsicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_cross"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remarks 3.31 and 3.33, §3.5.5 and equation (3-10), printed 127–129 / PDF28–30; equations (4-2)–(4-3), Definitions 4.9–4.10 and Proposition 4.11 with proof, printed 138–139 / PDF39–40.",
+          "excerpt": "it is not a subalgebra",
+          "match": "Worker decomposition of the source intrinsic/ambient identification and multiplicative unit action, applied to the existing arithmetic numerator. The cocycle and cross-smoothing identities are transported from the already planned ambient arithmetic identities; the source does not state these exact adapters separately. All-prime integral statements retain p=2 without averaging by 1/2. The source completed-algebra and denominator assertions remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator-even",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Even intrinsic arithmetic numerator",
+      "kind": "lemma",
+      "statement": "δ_(−1)∗λ_a=λ_a in D(U,Z), for every prime p including 2.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=ℤ_p and U=Zˣ with its native topology; D(X,R) is the existing AbstractMeasure continuous dual. The natural smoothing parameter a satisfies p∤a, with a=1 retained. Let ν_a be the existing ambient smoothedNumerator, r_R the imported intrinsic restriction, j_R native pushforward along Units.val and E_R the imported ambient unit projector.",
+        "On U, ∗ is the exact PMIA multiplicative convolution: (α∗β)(f)=α(u↦β(v↦f(uv))), with δ_1 as identity. No additive-ambient convolution, completed-algebra comparison, localization or regularity is inferred. The native unit group is compact and locally compact by the pinned instances."
+      ],
+      "proofSteps": [
+        "Apply the same inclusion injectivity. Use intrinsic-numerator-dirac with the native unit −1 and intrinsic-numerator-inclusion.",
+        "Multiplication by −1 on Z is negation. The resulting assertion is the existing ambient numerator-even theorem.",
+        "This argument uses only integral pushforwards and convolution. It neither divides by 2 nor constructs the idempotent (1+δ_(−1))/2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-inclusion",
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-dirac",
+        "DirichletPadicLFunctions:L1/numerator-even",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
+      ],
+      "acceptance": [
+        "The p=2,a=3 test retains the integral unit group and its nontrivial sign element. Descent and splitting in the actual completed algebra remain separate."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntrinsicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.intrinsicSmoothedNumerator_even"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remarks 3.31 and 3.33, §3.5.5 and equation (3-10), printed 127–129 / PDF28–30; equations (4-2)–(4-3), Definitions 4.9–4.10 and Proposition 4.11 with proof, printed 138–139 / PDF39–40.",
+          "excerpt": "it is not a subalgebra",
+          "match": "Worker decomposition of the source intrinsic/ambient identification and multiplicative unit action, applied to the existing arithmetic numerator. The cocycle and cross-smoothing identities are transported from the already planned ambient arithmetic identities; the source does not state these exact adapters separately. All-prime integral statements retain p=2 without averaging by 1/2. The source completed-algebra and denominator assertions remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator-extension-inclusion",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Coefficient extension of the intrinsic numerator",
+      "kind": "comparison",
+      "statement": "For every eligible R, j_R(I_U,Rλ_a)=I_Rν_a.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=ℤ_p and U=Zˣ with its native topology; D(X,R) is the existing AbstractMeasure continuous dual. The natural smoothing parameter a satisfies p∤a, with a=1 retained. Let ν_a be the existing ambient smoothedNumerator, r_R the imported intrinsic restriction, j_R native pushforward along Units.val and E_R the imported ambient unit projector.",
+        "On U, ∗ is the exact PMIA multiplicative convolution: (α∗β)(f)=α(u↦β(v↦f(uv))), with δ_1 as identity. No additive-ambient convolution, completed-algebra comparison, localization or regularity is inferred. The native unit group is compact and locally compact by the pinned instances.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R and I_U,R are the exact imported ambient and unit-domain integral coefficient-extension maps."
+      ],
+      "proofSteps": [
+        "Apply the exact PMIA integral-unit-extension-inclusion theorem to λ_a. Its right side is I_R(j_Zλ_a).",
+        "Substitute intrinsic-numerator-inclusion. The result identifies actual R-valued measures on Z and retains every receiver hypothesis of the coefficient-extension supplier."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-inclusion",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-inclusion"
+      ],
+      "acceptance": [
+        "This is a coefficient/inclusion square, not an algebra homomorphism into additive-ambient convolution or a completed-algebra comparison."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntrinsicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.map_val_extend_intrinsicSmoothedNumerator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remarks 3.31 and 3.33, §3.5.5 and equation (3-10), printed 127–129 / PDF28–30; equations (4-2)–(4-3), Definitions 4.9–4.10 and Proposition 4.11 with proof, printed 138–139 / PDF39–40.",
+          "excerpt": "it is not a subalgebra",
+          "match": "Worker decomposition of the source intrinsic/ambient identification and multiplicative unit action, applied to the existing arithmetic numerator. The cocycle and cross-smoothing identities are transported from the already planned ambient arithmetic identities; the source does not state these exact adapters separately. All-prime integral statements retain p=2 without averaging by 1/2. The source completed-algebra and denominator assertions remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/intrinsic-numerator-extension-moment",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Coefficient-valued numerator moments on units",
+      "kind": "theorem",
+      "statement": "For k≥1, I_U,ℚ_p(λ_a)(u↦(u:ℚ_p)^k)=(1−p^(k−1))(1−a^k)B_k/k.",
+      "hypotheses": [
+        "p is any prime, including 2. Put Z=ℤ_p and U=Zˣ with its native topology; D(X,R) is the existing AbstractMeasure continuous dual. The natural smoothing parameter a satisfies p∤a, with a=1 retained. Let ν_a be the existing ambient smoothedNumerator, r_R the imported intrinsic restriction, j_R native pushforward along Units.val and E_R the imported ambient unit projector.",
+        "On U, ∗ is the exact PMIA multiplicative convolution: (α∗β)(f)=α(u↦β(v↦f(uv))), with δ_1 as identity. No additive-ambient convolution, completed-algebra comparison, localization or regularity is inferred. The native unit group is compact and locally compact by the pinned instances.",
+        "Use R=ℚ_p with its canonical Z-algebra structure and bounded Z-scalar action. The exponent k is natural and at least 1."
+      ],
+      "proofSteps": [
+        "Take the integral continuous test f(u)=(u:Z)^k. Its pointwise coefficient image is the scalar multiple f·1 of the constant ℚ_p-valued one.",
+        "Apply the exact integral-unit-extension-test-function supplier to λ_a and f. It gives the canonical coefficient image of λ_a(f).",
+        "Identify the canonical algebra map with the native inclusion by PadicInt.algebraMap_apply and apply intrinsic-numerator-moment. The result is evaluation of the actual extended unit-domain measure."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/intrinsic-numerator-moment",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-test-function",
+        "mathlib:PadicInt.algebraMap_apply"
+      ],
+      "acceptance": [
+        "At p=2,a=3,k=2 the actual ℚ₂-valued evaluation is 2/3. The k=1 value is zero and k=0 is excluded."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/IntrinsicNumerator",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.extend_intrinsicSmoothedNumerator_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remarks 3.31 and 3.33, §3.5.5 and equation (3-10), printed 127–129 / PDF28–30; equations (4-2)–(4-3), Definitions 4.9–4.10 and Proposition 4.11 with proof, printed 138–139 / PDF39–40.",
+          "excerpt": "it is not a subalgebra",
+          "match": "Worker decomposition of the source intrinsic/ambient identification and multiplicative unit action, applied to the existing arithmetic numerator. The cocycle and cross-smoothing identities are transported from the already planned ambient arithmetic identities; the source does not state these exact adapters separately. All-prime integral statements retain p=2 without averaging by 1/2. The source completed-algebra and denominator assertions remain separate obligations."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -9107,9 +9622,9 @@
       "stageId": "DirichletPadicLFunctions:L1",
       "status": "partial",
       "remaining": [
-        "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons.",
-        "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
-        "The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic unit-domain and completed-algebra comparisons remain in the first L1 work item."
+        "The actual intrinsic arithmetic numerator on U=ℤ_pˣ, its ambient inclusion, coefficient extension and moments are now explicit. Its multiplicative Dirac action transports the smoothing cocycle, cross-smoothing identity and evenness integrally, including p=2. Compare these identities with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate the imported L3 pseudomeasures with exact carrier and denominator comparisons.",
+        "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the intrinsic numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
+        "The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
       ]
     },
     {
@@ -9144,7 +9659,7 @@
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual integral numerator, unit support, unique primitive equation and inverseMahler comparison have exact supplier nodes. The ambient arithmetic cocycle, cross-smoothing identity and evenness of the numerator are now planned explicitly. Compare these identities through the intrinsic unit-support and multiplicative Dirac/convolution maps with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate L3 pseudomeasures with exact carrier/denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the ambient numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic unit-domain and completed-algebra comparisons remain in the first L1 work item."
+      "detail": "The actual intrinsic arithmetic numerator on U=ℤ_pˣ, its ambient inclusion, coefficient extension and moments are now explicit. Its multiplicative Dirac action transports the smoothing cocycle, cross-smoothing identity and evenness integrally, including p=2. Compare these identities with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate the imported L3 pseudomeasures with exact carrier and denominator comparisons. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1), parity descent in the actual completed algebra (the intrinsic numerator is now even) and denominator-qualified Kummer congruences. The present integral measure/numerator statements cover p=2, but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -9325,85 +9840,83 @@
     }
   ],
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+    "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "Nine full findings preserved with no new findings or review verdicts; versioned errata passes.",
+    "sourceIssues": "All nine findings preserved; no new finding or verdict; versioned errata passes.",
     "validation": {
-      "nodes": 144,
+      "nodes": 153,
       "kinds": {
         "definition": 1,
-        "lemma": 82,
-        "construction": 12,
-        "theorem": 40,
-        "comparison": 9
+        "lemma": 86,
+        "construction": 13,
+        "theorem": 42,
+        "comparison": 11
       },
-      "api": 133,
-      "definitionConstructionTests": 73,
-      "packetTests": 105,
+      "api": 144,
+      "definitionConstructionTests": 81,
+      "packetTests": 113,
       "planets": 17,
-      "baseline": 209,
-      "preservedWholeNodes": 135,
-      "refinedNodes": [
-        "DirichletPadicLFunctions:L1/smoothed-measure",
-        "DirichletPadicLFunctions:L1/unit-smoothed-measure",
-        "DirichletPadicLFunctions:L1/smoothed-numerator"
-      ],
-      "preservedBaseline": 208,
+      "baseline": 212,
+      "preservedWholeNodes": 144,
+      "preservedBaseline": 209,
       "preservedSourceIssues": 9,
       "newSourceIssues": 0,
-      "newNodes": 6,
-      "newNamedDeclarations": 6,
-      "newTypedTests": 6,
-      "typedExamples": 108,
-      "reachableNodes": 232,
-      "dependencyEdges": 989,
+      "newNodes": 9,
+      "newNamedDeclarations": 12,
+      "newTypedTests": 8,
+      "typedExamples": 116,
+      "reachableNodes": 268,
+      "dependencyEdges": 1143,
       "acyclic": true,
-      "baselineLeaves": 294,
+      "baselineLeaves": 314,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 281,
+      "compilerWarnings": 301,
       "allWarningsPlaceholders": true,
+      "supplierNodes": 249,
       "supplierWarnings": 536,
       "pinnedMathlibModules": 3552,
       "pinnedTauCetiModules": 19,
       "actualSupplierModules": 1,
-      "scratchCompleteLemmas": 10,
-      "scratchMathlibModules": 2856,
+      "scratchCompleteLemmas": 14,
+      "scratchCompleteDefinitions": 1,
+      "scratchMathlibModules": 1792,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 49702,
+      "readerWords": 53432,
       "scopedMutationCheck": true,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0
     },
     "lean": {
-      "suggestedFileSha256": "86b0367083d5a94b09f68e56f14a2efe515c47e3829e72adcc32ed75f617a76e",
+      "suggestedFileSha256": "e7682ddbd35791591220f31449589a0b9c4e0d16142ab7329100d6b91a15fc9a",
       "sourceAuditSha256": "90a430639b4fd50da0e30862171e820da59e862b6eefc97956f91f4ecf2b1478",
       "errors": 0,
-      "warnings": 281,
+      "warnings": 301,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 3552,
       "tauCetiModules": 19,
       "actualSupplierModules": 1,
       "supplierNodes": 249,
       "supplierWarnings": 536,
-      "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
+      "nativeTauCetiBuild": "Reused isolated source-built artifacts for 19 pinned modules; source hashes and zero-warning logs checked.",
       "scratch": {
-        "sha256": "c47bf18656c707dd326d5646e12f9f673cd659f93152de96a1a258ad087d7607",
-        "provedLemmas": 10,
-        "mathlibModules": 2856,
+        "sha256": "3ebb35498ab995f10d3df251aa20d35855b1b3d64fee5588723dc844ac32b1c2",
+        "provedLemmas": 14,
+        "actualDefinitions": 1,
+        "mathlibModules": 1792,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Complete native Amice uniqueness/injectivity/descent adapters with explicit extension premises; native monomial image, rational/dyadic computations, numerator boundary and canonical bounded-scalar proof. Fixed-prime public tests retain the supplier scalar-bound class."
+        "scope": "Native right-handed product and Dirac action, inclusion, monomial and scalar-action exponent; exact-premise restriction/cocycle/evenness adapters; two numerical moments, cross orientation and an extra-scalar negative control."
       }
     },
     "publication": {
-      "base": "e1d39abcb53e58a30c7d3a46fc5ccef0bcb3b8c2",
+      "base": "d8f1dcdcff0b61a3b474b2722c92bbe892d0a8a8",
       "unchangedInputs": 52,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -9411,7 +9924,7 @@
       "reviewIssue": 390,
       "reviewUnclaimed": true
     },
-    "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
+    "closure": "Partial: five gaps, one request, zero closed stages; all implementation statuses unchecked."
   },
   "provenance": {
     "smoothingFollowup": {
@@ -11145,6 +11658,200 @@
         "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
       },
       "inputRefresh": "All52 initial inputs matched the preceding submitted snapshot. Prepublication refresh at4d7e00c2bd4c4ba97e2e5e3c61c391ee1e609a59 updates the actual PMIA supplier232→249 and its suggested file, plus two registry files. All232 prior supplier nodes and prior baseline objects remain whole. All17 new convolution/finite-algebra nodes, full Lean delta, changed coverage/gap and new source record were read; actual unit-reduction cofinality/completed-algebra request remains open. The two unrelated Ballmann records and register delta were read in full. The subsequent registry-only refresh at9f6442f72eabddda0e8293ddf5e9561e30949ab7 adds EffectiveDiophantineMethods/E1 and PhiGammaModulesAndIwasawaCohomology/E1. Both complete records and the register delta were read; no Dirichlet finding, mathematical input or compiled source changed. Whole issue body unchanged from full reading; binding mathematical scope unchanged."
+    },
+    "intrinsicNumerator": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3247,
+      "previousHead": "c0a6d930cac9dcacb7782c824a8a0a9e3dff9b87",
+      "previousMerge": "42b070e927540a4299721161abd101bdaf040589",
+      "newNodes": 9,
+      "preservedWholeNodes": 144,
+      "preservedBaseline": 209,
+      "preservedFindings": 9,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Nine full findings preserved with no new findings or review verdicts; versioned errata passes.",
+        "validation": {
+          "nodes": 144,
+          "kinds": {
+            "definition": 1,
+            "lemma": 82,
+            "construction": 12,
+            "theorem": 40,
+            "comparison": 9
+          },
+          "api": 133,
+          "definitionConstructionTests": 73,
+          "packetTests": 105,
+          "planets": 17,
+          "baseline": 209,
+          "preservedWholeNodes": 135,
+          "refinedNodes": [
+            "DirichletPadicLFunctions:L1/smoothed-measure",
+            "DirichletPadicLFunctions:L1/unit-smoothed-measure",
+            "DirichletPadicLFunctions:L1/smoothed-numerator"
+          ],
+          "preservedBaseline": 208,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 6,
+          "newNamedDeclarations": 6,
+          "newTypedTests": 6,
+          "typedExamples": 108,
+          "reachableNodes": 232,
+          "dependencyEdges": 989,
+          "acyclic": true,
+          "baselineLeaves": 294,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 281,
+          "allWarningsPlaceholders": true,
+          "supplierWarnings": 536,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 10,
+          "scratchMathlibModules": 2856,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 49702,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "86b0367083d5a94b09f68e56f14a2efe515c47e3829e72adcc32ed75f617a76e",
+          "sourceAuditSha256": "90a430639b4fd50da0e30862171e820da59e862b6eefc97956f91f4ecf2b1478",
+          "errors": 0,
+          "warnings": 281,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "supplierNodes": 249,
+          "supplierWarnings": 536,
+          "nativeTauCetiBuild": "Reused isolated source-built artifacts for19 pinned modules, with checked source hashes and zero-warning logs.",
+          "scratch": {
+            "sha256": "c47bf18656c707dd326d5646e12f9f673cd659f93152de96a1a258ad087d7607",
+            "provedLemmas": 10,
+            "mathlibModules": 2856,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Complete native Amice uniqueness/injectivity/descent adapters with explicit extension premises; native monomial image, rational/dyadic computations, numerator boundary and canonical bounded-scalar proof. Fixed-prime public tests retain the supplier scalar-bound class."
+          }
+        },
+        "publication": {
+          "base": "e1d39abcb53e58a30c7d3a46fc5ccef0bcb3b8c2",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial:five gaps,one request,zero closed stages; all statuses unchecked."
+      },
+      "sourceBoundary": "Freshly read full published printed127–129 and138–139. All mathematical adapters use the actual native U and the exact PMIA restriction, convolution and extension suppliers. Generic completed-algebra and denominator regularity remain open.",
+      "inputs": "All52 captured input blobs match the preceding submitted checkpoint; issue body, five audit rows and relevant native/supplier statements freshly read. Protocols reread; prior scope, two upstream models and touching links retain their continuous reading provenance.",
+      "nativeSearch": "Exact arithmetic numerator/smoothing names and Bernoulli-measure search across the pinned Tau Ceti tree and Mathlib padics found no implementation. This is a scoped search; it is not a global absence claim.",
+      "inputRefresh": "Before publication, the LAD packet was refreshed from 112 to 124 nodes at d8f1dcdcff0b61a3b474b2722c92bbe892d0a8a8. All 112 prior nodes, baseline objects, findings and requests are preserved. The 12 new finite spectral-resultant nodes and changed source-reading/coverage/gap records were read in full. None is a new prerequisite of this arithmetic slice; no compiled source changed. This is an input-compatibility check, not an independent review of LAD.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All nine findings preserved; no new finding or verdict; versioned errata passes.",
+        "validation": {
+          "nodes": 153,
+          "kinds": {
+            "definition": 1,
+            "lemma": 86,
+            "construction": 13,
+            "theorem": 42,
+            "comparison": 11
+          },
+          "api": 144,
+          "definitionConstructionTests": 81,
+          "packetTests": 113,
+          "planets": 17,
+          "baseline": 212,
+          "preservedWholeNodes": 144,
+          "preservedBaseline": 209,
+          "preservedSourceIssues": 9,
+          "newSourceIssues": 0,
+          "newNodes": 9,
+          "newNamedDeclarations": 12,
+          "newTypedTests": 8,
+          "typedExamples": 116,
+          "reachableNodes": 268,
+          "dependencyEdges": 1143,
+          "acyclic": true,
+          "baselineLeaves": 314,
+          "stageRequestLeaves": [
+            "PadicMeasuresIwasawaAlgebras:L1"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 301,
+          "allWarningsPlaceholders": true,
+          "supplierNodes": 249,
+          "supplierWarnings": 536,
+          "pinnedMathlibModules": 3552,
+          "pinnedTauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "scratchCompleteLemmas": 14,
+          "scratchCompleteDefinitions": 1,
+          "scratchMathlibModules": 1792,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 53432,
+          "scopedMutationCheck": true,
+          "requests": 1,
+          "gaps": 5,
+          "closedStages": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "e7682ddbd35791591220f31449589a0b9c4e0d16142ab7329100d6b91a15fc9a",
+          "sourceAuditSha256": "90a430639b4fd50da0e30862171e820da59e862b6eefc97956f91f4ecf2b1478",
+          "errors": 0,
+          "warnings": 301,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 3552,
+          "tauCetiModules": 19,
+          "actualSupplierModules": 1,
+          "supplierNodes": 249,
+          "supplierWarnings": 536,
+          "nativeTauCetiBuild": "Reused isolated source-built artifacts for 19 pinned modules; source hashes and zero-warning logs checked.",
+          "scratch": {
+            "sha256": "3ebb35498ab995f10d3df251aa20d35855b1b3d64fee5588723dc844ac32b1c2",
+            "provedLemmas": 14,
+            "actualDefinitions": 1,
+            "mathlibModules": 1792,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Native right-handed product and Dirac action, inclusion, monomial and scalar-action exponent; exact-premise restriction/cocycle/evenness adapters; two numerical moments, cross orientation and an extra-scalar negative control."
+          }
+        },
+        "publication": {
+          "base": "d8f1dcdcff0b61a3b474b2722c92bbe892d0a8a8",
+          "unchangedInputs": 52,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5854791937,
+          "reviewIssue": 390,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: five gaps, one request, zero closed stages; all implementation statuses unchecked."
+      }
     }
   },
   "requestResolutions": [
