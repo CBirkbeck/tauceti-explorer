@@ -1,75 +1,77 @@
-# BP-DirichletPadicLFunctions: conditional tame Gauss comparison
+# BP-DirichletPadicLFunctions: actual integral tame measure
 
-Codex / codex-7e92bd. Same-worker issue713 follow-up after PR3259 merged
-7e325288e4a3bd0f2ad8aebc4c5c7cfb9922cc20 with head
-0e280a587546a67b156e79e895574846caa1a430. Original claim5854790528,
+Codex / codex-7e92bd. Same-worker issue713 follow-up after PR3261 merged
+2c903dd9bc9c7f0d1f134363493dc671bcb101fa with head
+0aed6ed225517023ca43157c79c2646eb42d4225. Original claim5854790528,
 confirmed5854791937; no additional claim. Review390 remains unclaimed.
 Partial; all implementation statuses unchecked.
 
 ## Delivered
 
-Four L2 nodes give the finite primitive Gauss generating equation, equality with
-the existing tame series, the corrected alternating coefficient formula, and
-identification of the actual K-valued measure transform with the source expression.
-They use native characters, additive root character, Gauss sums, formal inverses
-and the exact PMIA measure. D>1, primitive η and ε, D invertibility where required,
-and G(η⁻¹)≠0 are explicit. No new generic carrier is introduced.
+Five L2 nodes give the actual integral tame series, the homogeneous bound on
+integer-valued tests, the actual O-valued tame measure, Amice coefficient
+transport and uniqueness on all integral-valued continuous tests.
+O is precisely the existing integer subring of NormedField.valuation(K).
+The measure restricts the previously constructed actual K-valued measure:
+μ^O(f)=⟨μ(ι∘f), membership⟩, with‖μ^O(f)‖≤‖f‖≤1.
+Native ring-linear bounded construction supplies continuity. No field structure
+on O, new generic extension carrier or operator norm on integral measures.
 
-For quadratic η modulo3, the source expression S satisfies(3+3T+T²)S=1+T,
-with cubic coefficient+1/9. Principal-character, modulus-one, zero-Gauss and
-zero-constant-inverse boundary tests retain the exact scope of the identities.
+Construction and all-test comparison require no choice of Z_p-algebra on O.
+The O-valued Amice comparison explicitly retains a continuous action and scalar
+tower compatible with K. Canonical action setup factors the given Z_p map through
+O using the existing integral-coefficient-image bound. The integral transform
+maps to the previous F_η and hence conditionally to the Gauss expression.
+Dyadic quadratic-modulo3 mass1/3 and cubic coefficient1/9, modulus-one zero,
+wild1/3 outsideO at p=3, zero/scalar/transport/uniqueness tests are included.
 
-Totals179 nodes(1 definition,19 constructions,96 lemmas,46 theorems,17 comparisons),
-182 API entries,153 packet tests(106 on definitions/constructions),156 typed examples,
-20 planets,256 baseline citations. All175 old nodes and240 baseline objects whole.
-Entire predecessor Lean bytes retained as a contiguous body with two leading imports.
-First12 findings whole; E13 only renames sourceId→source, preserving every other
-field and repairing the generated published-source citation. No new finding.
-Five gaps,one request,zero closed stages.
+Totals184 nodes(1 definition,21 constructions,98 lemmas,46 theorems,18 comparisons),
+193 API entries,163 packet tests(113 on definitions/constructions),166 typed examples,
+21 planets,263 baseline citations. All179 old nodes,256 baseline objects and13
+findings whole. Predecessor Lean bytes retained as a contiguous body with one
+leading import. Five gaps,one request,zero closed stages.
 
 ## Sources and resume point
 
-Source passages/version checks retain the preceding continuous-session provenance:
-full published139–147, arXivv2PDF30–35 and visual checks. No fresh whole-paper or
-correction-search claim. Sixteen new native statements and ambient hypotheses
-fully read and index-matched; complete primitive-Dirichlet Gauss module read.
+No new finding, fresh whole-paper reading or correction-search claim. Prior
+full published139–147, arXivv2PDF30–35 and visual/version checks persist.
+Seven new native statements/ambient hypotheses fully read and index-matched;
+exact PMIA bound statements and native ring-linear constructor read.
 
-Instantiate composite-modulus primitive Gauss nonvanishing from its existing
-modular-forms owner; native finite-field-domain product theorems are insufficient.
-Next construct the actual O_K-valued measure and coefficient transport, then
-psi-eigenrelation, Dirichlet special-value moments, conductor-product twists,
-unit restriction and inverse weighting. The p^n-root operator stays with PMIA.
-No interpolation or completed-algebra comparison follows just from this equality.
+Next instantiate the primitive composite-modulus Gauss nonvanishing supplier,
+prove psi-eigenrelation, special-value moments, conductor-product twists,
+unit restriction and inverse weighting. Generic p^n-root translation stays
+with PMIA. Other O_K presentations need the existing norm-compatible ring
+identification. No interpolation or completed-algebra claim follows from this lift.
 
 ## Validation and inputs
 
 Indexed blueprint: zero errors and warnings. Four-file intake: zero problems.
-Versioned errata, exact preservation, reader/signature/test parity and scoped
-mutation checks pass. The real errata collector produces the published RJW
-citation for repaired E13, still awaiting review. Graph:308 reachable nodes,
-1335 edges and355 baseline leaves; acyclic, with only the PMIA L1 request leaf.
-Suggested Lean compiles with zero errors and390 expected placeholder warnings;
+Versioned errata, whole-object preservation, reader/signature/test parity and scoped
+mutation checks pass. All13 findings remain whole and the real collector retains
+the correct E13 citation. Graph:313 reachable nodes,1362 edges and
+359 baseline leaves; acyclic, with only the PMIA L1 request leaf.
+Suggested Lean compiles with zero errors and414 expected placeholder warnings;
 the freshly compiled actual265-node PMIA supplier has569 placeholder warnings.
-The recursive audit verifies3,581 pinned Mathlib modules,20 pinned Tau Ceti modules
-and1 actual supplier. All20 Tau Ceti artifacts reused with matching source hashes
-and zero-warning logs; no fresh Tau Ceti build claimed.
-Eight complete native scratch lemmas compile against2,806 pinned Mathlib modules
-with zero errors,warnings or proof holes. They prove the primitive inverse and
-nonprincipal consequences, root denominator, finite Fourier powers, finite geometric
-clearing with its inverse premise, inverse constant, inverse rescaling and alternating
-coefficient formula. The full weighted source comparison and special values remain
-unchecked blueprint statements.
-Suggested-file SHA256:`5b00585e38e76f902d577aec81cce66e273ff9a962faf1fef93dc8e518653dac`.
-Native-proof SHA256:`287fe35489d1e262f5b57dabe17058ba0fc5b41038feed9147a5f32e12e5edb8`.
-Publication guard at81dc02bbcc0f7609f96c6e33008fe1105e0353e9 verifies all52 refreshed inputs, four predecessor
-outputs, unchanged issue body, exact merged PR3259 head and the same winning claim.
+Recursive audit:3,581 pinned Mathlib modules,20 pinned Tau Ceti modules and1 actual
+supplier. All20 Tau Ceti artifacts reused with matching source hashes and zero-
+warning logs; no fresh Tau Ceti build claimed.
+One actual native restriction constructor and9 complete scratch lemmas compile
+against2,822 pinned Mathlib modules with zero errors,warnings or proof holes.
+They prove the integer membership and test bounds, inclusion norm preservation,
+and the actual O-linear continuous restriction, its evaluation,bound and uniqueness,
+retaining an explicit measure operator-norm≤1 premise. They do not prove the
+arithmetic tame norm theorem, full Amice comparison or source special values.
+Suggested-file SHA256:`9b976eb9638923a57d6a7d74cb1da557af8635f8a3f29d3fc5ddd8376d885ca9`.
+Native-proof SHA256:`3e96d461316566df71022fa8ac62f6e7c9226f19221c32ccdb0f928681337078`.
+Publication guard at3be3b269a0ac251c5e9263bbe05e1eef4c67683e verifies all52 inputs,four predecessor outputs,
+unchanged issue body,exact merged PR3261 head and same winning claim.
 Review390 is blocked and unclaimed. Exactly four authorized files are published
 through Git Data REST.
 
-Initial52-input snapshot0ae42c265d61ba0b99fd6d964ac1e07d43820620 has outputs identical
-PR3259. Own E13 generated record read whole. Refresh81dc02bbcc0f7609f96c6e33008fe1105e0353e9
-adds five TropicalAndBerkovichArithmetic E1–E5 findings, all read whole with17diff
-lines; previous records preserved by multiset. No independent source verification
-or verdict on that register. Prior protocol/scope/issue/audit/link/model reading
-provenance persists. All20 Tau Ceti artifacts reused from previous isolated
-source builds with hashes and zero-warning logs checked; no fresh Tau compilation.
+Snapshotdc2d2969889c496502c4ca9c02ce1010cf24bf8e:52 inputs and outputs identical
+PR3261 except own E13 generated citation repair. Full old/new record and9diff
+lines read; every other register object preserved by multiset. Prior protocol,
+scope,issue,audit,link and model reading provenance persists. All20 Tau Ceti
+artifacts reused from previous isolated source builds with matching source
+hashes and zero-warning logs; no fresh Tau Ceti build claimed.

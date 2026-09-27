@@ -1,3 +1,4 @@
+import Mathlib.Topology.Algebra.Valued.NormedValued
 import Mathlib.NumberTheory.DirichletCharacter.GaussSum
 import Mathlib.RingTheory.PowerSeries.WellKnown
 import Mathlib.Analysis.MellinTransform
@@ -2024,3 +2025,128 @@ example {p : ℕ} [Fact p.Prime] {K : Type*} [NormedField K]
 -- primitive_modulus_one
 example (η : DirichletCharacter ℚ 1) : tameNumerator η = 0 := by sorry
 end SuggestedGaussTests
+
+/-! Integral tame coefficients and the actual integer-valued tame measure.
+The coefficient ring below is the existing integer subring of the norm valuation.
+The actual measure is a restriction of tameMeasure on integer-valued tests.
+Only the Amice comparison requires a compatible Z_p-algebra action on that subring.
+No norm topology or field structure is installed on the integral measure carrier. -/
+namespace DirichletPadic
+section TameIntegral
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  {D : ℕ} [NeZero D]
+
+def integralTameSeries (η : DirichletCharacter K D) (hD : IsUnit (D : K))
+    (hpD : ¬p ∣ D) : (Valuation.integer (NormedField.valuation (K := K)))⟦X⟧ :=
+  PowerSeries.mk fun n => ⟨coeff n (tameSeries η hD), by sorry⟩
+
+theorem coe_coeff_integralTameSeries (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (n : ℕ) :
+    ((coeff n (integralTameSeries η hD hpD) : (Valuation.integer (NormedField.valuation (K := K)))) : K) = coeff n (tameSeries η hD) := by sorry
+
+theorem map_integralTameSeries (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype (integralTameSeries η hD hpD) = tameSeries η hD := by sorry
+
+theorem integralTameSeries_one_level (η : DirichletCharacter K 1)
+    (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p ∣ 1) :
+    integralTameSeries η hD hpD = 0 := by sorry
+
+theorem integralTameSeries_unique (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (F : (Valuation.integer (NormedField.valuation (K := K)))⟦X⟧)
+    (hF : PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype F = tameSeries η hD) :
+    F = integralTameSeries η hD hpD := by sorry
+
+variable [CompleteSpace K]
+theorem tameMeasure_integralTest_bound (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) :
+    ‖tameMeasure η hD hpD ((⟨Subtype.val, continuous_subtype_val⟩ : C((Valuation.integer (NormedField.valuation (K := K))),K)).comp f)‖ ≤ ‖f‖ ∧
+    ‖f‖ ≤ 1 := by sorry
+
+def integralTameMeasure (η : DirichletCharacter K D) (hD : IsUnit (D : K))
+    (hpD : ¬p ∣ D) : D(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K)))) :=
+  AbstractMeasure.toCLMEquiv.symm
+    (({ toFun := fun f =>
+          ⟨tameMeasure η hD hpD ((⟨Subtype.val, continuous_subtype_val⟩ : C((Valuation.integer (NormedField.valuation (K := K))),K)).comp f),
+            by sorry⟩
+        map_add' := by sorry
+        map_smul' := by sorry } : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K)))) →ₗ[(Valuation.integer (NormedField.valuation (K := K)))] (Valuation.integer (NormedField.valuation (K := K)))).mkContinuous 1 (by sorry))
+
+theorem coe_integralTameMeasure_apply (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) :
+    (integralTameMeasure η hD hpD f : K) =
+      tameMeasure η hD hpD ((⟨Subtype.val, continuous_subtype_val⟩ : C((Valuation.integer (NormedField.valuation (K := K))),K)).comp f) := by sorry
+
+theorem integralTameMeasure_bound (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) :
+    ‖integralTameMeasure η hD hpD f‖ ≤ ‖f‖ := by sorry
+
+theorem integralTameMeasure_one_level (η : DirichletCharacter K 1)
+    (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p ∣ 1) :
+    integralTameMeasure η hD hpD = 0 := by sorry
+
+theorem coe_integralTameMeasure_mass (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    (integralTameMeasure η hD hpD (1 : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K))))) : K) =
+      (-∑ a : ZMod D, η a * (a.val : K)) * (↑hD.unit⁻¹ : K) := by sorry
+
+theorem integralTameMeasure_unique (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (ν : D(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K)))))
+    (hν : ∀ f : C(ℤ_[p],(Valuation.integer (NormedField.valuation (K := K)))), (ν f : K) =
+      tameMeasure η hD hpD ((⟨Subtype.val, continuous_subtype_val⟩ : C((Valuation.integer (NormedField.valuation (K := K))),K)).comp f)) :
+    ν = integralTameMeasure η hD hpD := by sorry
+
+variable [Algebra ℤ_[p] (Valuation.integer (NormedField.valuation (K := K)))] [ContinuousSMul ℤ_[p] (Valuation.integer (NormedField.valuation (K := K)))] [IsScalarTower ℤ_[p] (Valuation.integer (NormedField.valuation (K := K))) K]
+theorem amiceTransform_integralTameMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    (integralTameMeasure η hD hpD).amiceTransform = integralTameSeries η hD hpD := by sorry
+
+theorem map_amiceTransform_integralTameMeasure (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := K))).subtype (integralTameMeasure η hD hpD).amiceTransform =
+      (tameMeasure η hD hpD).amiceTransform := by sorry
+end TameIntegral
+end DirichletPadic
+
+namespace SuggestedIntegralTameTests
+open DirichletPadic
+variable [IsBoundedSMul ℤ_[2] ℚ_[2]]
+-- dyadic_integral_coefficient
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    ((coeff 3 (integralTameSeries η hD hpD) : (Valuation.integer (NormedField.valuation (K := ℚ_[2])))) : ℚ_[2]) = 1/9 := by sorry
+-- modulus_one_integral_series
+example (hD : IsUnit ((1 : ℕ) : ℚ_[2])) (hpD : ¬2 ∣ 1) :
+    integralTameSeries (1 : DirichletCharacter ℚ_[2] 1) hD hpD = 0 := by sorry
+-- wild_coefficient_not_integral
+example : (1/3 : ℚ_[3]) ∉ Valuation.integer (NormedField.valuation (K := ℚ_[3])) := by sorry
+-- dyadic_integral_mass
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    (integralTameMeasure η hD hpD (1 : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) : ℚ_[2]) = 1/3 := by sorry
+-- modulus_one_integral_measure
+example (hD : IsUnit ((1 : ℕ) : ℚ_[2])) (hpD : ¬2 ∣ 1) :
+    integralTameMeasure (1 : DirichletCharacter ℚ_[2] 1) hD hpD = 0 := by sorry
+-- integral_measure_zero_test
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    integralTameMeasure η hD hpD (0 : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) = 0 := by sorry
+-- integral_measure_scalar_test
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (r : (Valuation.integer (NormedField.valuation (K := ℚ_[2])))) (f : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) :
+    integralTameMeasure η hD hpD (r • f) = r * integralTameMeasure η hD hpD f := by sorry
+-- integral_measure_uniqueness
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (ν : D(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2]))))) (hν : ∀ f : C(ℤ_[2],(Valuation.integer (NormedField.valuation (K := ℚ_[2])))), (ν f : ℚ_[2]) =
+      tameMeasure η hD hpD ((⟨Subtype.val, continuous_subtype_val⟩ : C((Valuation.integer (NormedField.valuation (K := ℚ_[2]))),ℚ_[2])).comp f)) :
+    ν = integralTameMeasure η hD hpD := by sorry
+variable [Algebra ℤ_[2] (Valuation.integer (NormedField.valuation (K := ℚ_[2])))] [ContinuousSMul ℤ_[2] (Valuation.integer (NormedField.valuation (K := ℚ_[2])))] [IsScalarTower ℤ_[2] (Valuation.integer (NormedField.valuation (K := ℚ_[2]))) ℚ_[2]]
+-- integral_transform_transport
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    PowerSeries.map (Valuation.integer (NormedField.valuation (K := ℚ_[2]))).subtype (integralTameMeasure η hD hpD).amiceTransform =
+      tameSeries η hD := by sorry
+-- integral_transform_quadratic_mass
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    ((coeff 0 (integralTameMeasure η hD hpD).amiceTransform : (Valuation.integer (NormedField.valuation (K := ℚ_[2])))) : ℚ_[2]) = 1/3 := by sorry
+end SuggestedIntegralTameTests

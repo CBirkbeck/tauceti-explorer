@@ -1,9 +1,9 @@
-**Current packet:** 179 unchecked nodes: one definition, nineteen constructions,
-96 lemmas,46 theorems and17 comparisons. There are182 API entries,153 packet tests
-(106 on definitions/constructions),156 typed examples,20 planets and256 baseline
+**Current packet:** 184 unchecked nodes: one definition,21 constructions,
+98 lemmas,46 theorems and18 comparisons. There are193 API entries,163 packet tests
+(113 on definitions/constructions),166 typed examples,21 planets and263 baseline
 references. Five gaps,one request,13 findings and zero closed stages remain.
-The final section records the current conditional Gauss comparison and E13 metadata
-repair; preceding checkpoint narratives and validation are historical.
+The final section records the actual integral tame measure; preceding checkpoint
+narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -6340,3 +6340,275 @@ predecessor Lean file remains a contiguous body, preceded by two explicit import
 and followed by the four new declarations and eight typed tests. The first12
 findings are whole; E13 changes only its source-link key. No closed-stage or
 completed-implementation claim is made.
+
+
+## The actual integral tame series and measure
+
+Take the same tame arithmetic data as before: p is prime, p∤D, η is the
+native K-valued character modulo D, and D is a unit in K. Let K be a
+nontrivially normed ultrametric Z_p-algebra with bounded scalar action, complete
+when constructing the measure. The integer ring here is exactly
+
+O=Valuation.integer(NormedField.valuation(K)).
+
+This is the existing native subring of elements of norm at most1, with the
+inherited norm and topology. Write ι:O→K for its native inclusion. This choice
+keeps the norm and valuation consistent. For another presentation of O_K one
+must use its existing compatible ring identification.
+
+The previous coefficient bound puts every coeff_n(F_η) in O. Bundle those
+actual elements in native PowerSeries.mk to obtain F_η^O. Mapping its coefficients
+by ι recovers F_η, and injectivity of that map proves uniqueness of the lift.
+No primitivity or nonprincipal assumption is needed. At modulus1 the series
+is0. For quadratic η modulo3 at p=2 its included cubic coefficient is1/9;
+at p=3 the constant coefficient1/3 is outside O, explaining the tame hypothesis.
+
+For an O-valued continuous test f on Z_p, each value has norm at most1.
+Compactness and the native supremum-norm criterion give‖f‖≤1. The inclusion
+preserves the norm, so‖ι∘f‖=‖f‖. The previously planned norm bound for the
+actual K-valued tame measure now gives
+
+‖μ_η(ι∘f)‖≤‖f‖≤1.
+
+The first inequality supplies continuity; the second supplies an integral value.
+Define the actual O-valued measure by
+
+μ_η^O(f)=⟨μ_η(ι∘f), the membership certificate⟩.
+
+It is O-linear because the field-valued measure is K-linear and ι is a ring
+map. The native LinearMap.mkContinuous constructor with bound1 and the native
+AbstractMeasure.toCLMEquiv.symm package it in D(Z_p,O). No field structure on O
+or generic coefficient-extension operator is needed. The bound is stated on
+evaluations, and no field-style operator norm or strong topology is installed
+on the integral measure type.
+
+The defining all-test equality ι(μ_η^O(f))=μ_η(ι∘f) makes the comparison concrete.
+Its included mass is−D⁻¹Σ_aη(a)a.val, and the modulus-one measure is zero.
+For the dyadic quadratic-modulo3 measure the included mass is1/3. Subtype
+injectivity shows that any other O-valued measure satisfying the same all-test
+identity is exactly μ_η^O. This uniqueness does not assume an unproved extension
+operator or density theorem.
+
+To speak of the O-valued Amice transform, give O a continuous Z_p-algebra action
+compatible with the given action on K, expressed by the exact IsScalarTower
+hypothesis. The construction above is independent of this additional action.
+For the canonical action, the existing integral-coefficient-image bound puts the
+Z_p image in O, and the action factors through this native subring; continuity
+and compatibility follow from the inherited topology and inclusion. The new
+Amice signatures keep the action and compatibility explicit.
+
+The native nth Amice coefficient is evaluation on the Mahler test acting on1.
+Compatibility makes inclusion carry that O-valued test to the K-valued one.
+The all-test identity therefore gives
+
+A(μ_η^O)=F_η^O,     map(ι)(A(μ_η^O))=A(μ_η)=F_η.
+
+Under the preceding primitive/root/nonzero-Gauss hypotheses this included
+transform is the source Gauss expression with its corrected alternating sign.
+This checkpoint constructs and compares the integral measure; it does not prove
+the psi-eigenrelation or identify moments with Dirichlet special values.
+
+### Scope, sources and remaining work
+
+All13 source findings remain whole, including the repaired E13 source key.
+The fresh register changes only E13's generated citation from the generic
+blueprint label to the published RJW citation. The complete old/new record and
+all9 changed-register lines were read; every other record is preserved by
+multiset. No new source finding or independent verdict is introduced.
+
+The earlier full published139–147 and arXivv2PDF30–35 reading and canonical
+version evidence retain their provenance. This slice does not claim another
+whole-paper reading or correction search. Seven new native statements and
+ambient hypotheses were read and index-matched, together with the exact native
+integer carrier, bounded ring-linear constructor and consumed PMIA statements.
+
+Still instantiate composite-modulus primitive Gauss nonvanishing from its
+existing owner, prove the psi-eigenrelation, Dirichlet special-value moments,
+conductor-product twists, unit restriction and inverse-weight interpolation.
+The generic p^n-root operator remains a PMIA obligation. Five gaps,one request
+and zero closed stages remain; all implementation statuses are unchecked.
+
+### The integral tame series
+
+`DirichletPadicLFunctions:L2/tame-integral-series` — `DirichletPadic.integralTameSeries` (construction).
+
+Define F_η^O in the native O[[T]] by giving its nth coefficient the actual value coeff_n(F_η) together with its existing norm≤1 certificate.
+
+**Hypotheses:** p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D. O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here.
+
+**Proof outline:**
+
+1. Use the prior tameSeries_coeff_norm_le. Native NormedField.valuation_apply and Valuation.mem_integer_iff turn that norm bound into membership in the already existing O.
+2. Bundle those actual subtypes using native PowerSeries.mk. Mapping by O.subtype recovers the old tameSeries coefficient by coefficient; no new rational expression or generalized Bernoulli object is introduced.
+3. Native PowerSeries.map_injective for the injective inclusion gives uniqueness of the integral lift and the modulus-one zero identity. The wild p=3 quadratic-modulo3 coefficient1/3 is outside O, so the tame coprimality remains necessary.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-coefficient-bound`, `DirichletPadicLFunctions:L2/tame-series`, `mathlib:NormedField.valuation`, `mathlib:NormedField.valuation_apply`, `mathlib:Valuation.integer`, `mathlib:Valuation.mem_integer_iff`, `mathlib:PowerSeries.coeff_mk`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.map_injective`.
+
+**Uses:**
+
+- RJW equation(5-3) integrality and Lemma5.9: Realizes the bounded source series in the native integral coefficient ring after the prior conditional Gauss comparison.
+- DirichletPadicLFunctions:L2 tame-integral-amice: Is the exact transform of the actual integral tame measure.
+
+**API:**
+
+- `DirichletPadic.coe_coeff_integralTameSeries` (characterisation): The inclusion of coeff_n(F_η^O) is coeff_n(F_η).
+- `DirichletPadic.map_integralTameSeries` (compatibility): Mapping F_η^O by the native integer-ring inclusion gives F_η.
+- `DirichletPadic.integralTameSeries_one_level` (simp): At modulus1 the integral series is0.
+- `DirichletPadic.integralTameSeries_unique` (extensionality): Any O-series whose inclusion image is F_η equals F_η^O.
+
+**Tests:**
+
+- `SuggestedIntegralTameTests.dyadic_integral_coefficient` (computation): For quadratic η modulo3 at p=2, the included cubic coefficient of F_η^O is1/9.
+- `SuggestedIntegralTameTests.modulus_one_integral_series` (degenerate): The modulus-one integral series is0.
+- `SuggestedIntegralTameTests.wild_coefficient_not_integral` (non-example): At p=3, the quadratic-modulo3 constant coefficient1/3 is outside the norm-valuation integer ring.
+
+**Acceptance:** This is an actual integral lift of the already fixed tame series, not an assumption that an arbitrary K-valued series is integral. K need not be complete for the series constructor.
+
+**Sources:** RJW-published, §5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices. Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed.
+
+### Integral test bound for the tame measure
+
+`DirichletPadicLFunctions:L2/tame-integral-test-bound` — `DirichletPadic.tameMeasure_integralTest_bound` (lemma).
+
+For every continuous f:Z_p→O, the actual field-valued tame measure satisfies ‖μ_η(ι∘f)‖≤‖f‖≤1.
+
+**Hypotheses:** p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D. O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here. For the actual measure and its comparisons K is complete, as required by the preceding tameMeasure constructor. No separate choice of a Z_p-algebra on O is required to construct the restricted O-valued measure.
+
+**Proof outline:**
+
+1. Every value of f has norm at most1 by membership in O. Native ContinuousMap.norm_le on compact Z_p therefore bounds its supremum norm by1.
+2. The inclusion O→K preserves pointwise norms. The same supremum criterion in both directions proves ‖ι∘f‖=‖f‖.
+3. Use the previous tameMeasure_norm_le and native ContinuousLinearMap.le_opNorm on the actual K-valued functional. This gives the stronger bound by‖f‖, which supplies continuity of the integral restriction, as well as value integrality.
+4. The norm in the operator step is taken only for the K-valued continuous dual over the nontrivially normed field. No operator norm or default strong topology is installed on the O-valued measure type.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-measure-norm`, `mathlib:NormedField.valuation_apply`, `mathlib:Valuation.mem_integer_iff`, `mathlib:ContinuousMap.norm_le`, `mathlib:ContinuousMap.norm_coe_le_norm`, `mathlib:ContinuousLinearMap.le_opNorm`.
+
+**Acceptance:** A bound by1 alone would not be a continuity proof. Retain the homogeneous bound by‖f‖ used by the constructor.
+
+**Sources:** RJW-published, §5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices. Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed.
+
+### The integral tame measure
+
+`DirichletPadicLFunctions:L2/tame-integral-measure` — `DirichletPadic.integralTameMeasure` (construction).
+
+Define μ_η^O in the native D(Z_p,O) by μ_η^O(f)=⟨μ_η(ι∘f), its norm≤1 certificate⟩ for every continuous O-valued test f.
+
+**Hypotheses:** p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D. O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here. For the actual measure and its comparisons K is complete, as required by the preceding tameMeasure constructor. No separate choice of a Z_p-algebra on O is required to construct the restricted O-valued measure.
+
+**Proof outline:**
+
+1. Use tame-integral-test-bound to make the displayed output an element of the existing O. This is the actual tame arithmetic measure restricted on all integral-valued continuous tests.
+2. Addition and O-linearity follow from K-linearity of the original measure and the ring inclusion. Bundle this function as a native O-linear map. Native LinearMap.mkContinuous with bound1 supplies continuity from‖μ_η^O(f)‖≤‖f‖.
+3. Apply AbstractMeasure.toCLMEquiv.symm. This constructor works over the ring O and does not require O to be a field, a new measure carrier, a generic coefficient-extension operator, or a separately chosen Z_p-algebra on O.
+4. The inclusion evaluation identity is the defining formula. Evaluating at1 gives the arithmetic mass−D⁻¹Σ_aη(a)a.val inside K; the integral value itself lies in O by construction. At modulus1 the original measure is zero, hence so is this one.
+5. The exact Amice coefficient comparison and uniqueness on all integral-valued tests are promoted below. Under the earlier primitive-root and Gauss nonvanishing hypotheses the included transform therefore agrees with the source Gauss expression, without introducing another measure.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-test-bound`, `DirichletPadicLFunctions:L2/tame-measure`, `mathlib:LinearMap.mkContinuous`, `mathlib:AbstractMeasure.toCLMEquiv`.
+
+**Uses:**
+
+- RJW §5.2 integrality and Lemma5.9: Supplies an actual integral-valued measure, not just a bounded field-valued transform.
+- RJW Lemmas5.10–5.12 and Definition5.13: Provides the integral arithmetic input for the still separate psi, special-value, twist and inverse-weight comparisons.
+- DirichletPadicLFunctions:L2 tame-integral-amice: Its defining evaluation identity compares the same Mahler tests after the compatible coefficient action.
+
+**API:**
+
+- `DirichletPadic.coe_integralTameMeasure_apply` (characterisation): ι(μ_η^O(f))=μ_η(ι∘f) for every continuous O-valued test f.
+- `DirichletPadic.integralTameMeasure_bound` (relation): The integral functional satisfies‖μ_η^O(f)‖≤‖f‖.
+- `DirichletPadic.integralTameMeasure_one_level` (simp): At modulus1 the actual integral measure is0.
+- `DirichletPadic.coe_integralTameMeasure_mass` (data): The included mass is−D⁻¹Σ_aη(a)a.val, using the old unit inverse certificate.
+- `DirichletPadic.amiceTransform_integralTameMeasure` (compatibility): For the continuous compatible Z_p action on O, A(μ_η^O)=F_η^O; promoted.
+- `DirichletPadic.map_amiceTransform_integralTameMeasure` (compatibility): Mapping the integral Amice transform by the native inclusion gives the actual K-valued tame measure transform.
+- `DirichletPadic.integralTameMeasure_unique` (extensionality): An O-valued measure with the same included values on all O-valued tests equals μ_η^O; promoted.
+
+**Tests:**
+
+- `SuggestedIntegralTameTests.dyadic_integral_mass` (computation): For quadratic η modulo3 at p=2, the included mass of μ_η^O is1/3.
+- `SuggestedIntegralTameTests.modulus_one_integral_measure` (degenerate): The modulus-one integral measure is0.
+- `SuggestedIntegralTameTests.integral_measure_zero_test` (computation): The actual integral measure sends the zero test to0.
+- `SuggestedIntegralTameTests.integral_measure_scalar_test` (compatibility): For every r∈O and O-valued continuous f, μ_η^O(rf)=rμ_η^O(f).
+
+**Acceptance:** Keep the integral carrier topology inherited from the existing measure construction. The pointwise estimate is stated directly; no unavailable field-style norm is asserted on the O-linear continuous dual.
+
+**Sources:** RJW-published, §5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices. Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed.
+
+### Integral Amice coefficient transport
+
+`DirichletPadicLFunctions:L2/tame-integral-amice` — `DirichletPadic.amiceTransform_integralTameMeasure` (comparison).
+
+With a continuous Z_p-algebra action on O compatible with K, A(μ_η^O)=F_η^O; mapping by ι gives A(μ_η)=F_η.
+
+**Hypotheses:** p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D. O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here. For the actual measure and its comparisons K is complete, as required by the preceding tameMeasure constructor. No separate choice of a Z_p-algebra on O is required to construct the restricted O-valued measure. Only for the O-valued Amice transform, equip O with a continuous Z_p-algebra action and an IsScalarTower(Z_p,O,K) compatible with the given K action and native inclusion. These exact hypotheses appear in the suggested signatures. The canonical restricted action is obtained by factoring the given Z_p map through O using the existing integral-coefficient-image bound; no arbitrary action is assumed compatible.
+
+**Proof outline:**
+
+1. Apply the native coeff_amiceTransform formula to μ_η^O. Its nth test is the native Z_p Mahler function acting on1 in C(Z_p,O).
+2. The scalar-tower hypothesis identifies the inclusion of this test with the corresponding K-valued Mahler test. Apply the integral measure evaluation identity and the same native coefficient formula in K.
+3. The previously established Amice transform of the actual tame K-valued measure is F_η. Thus each included integral coefficient equals coeff_n(F_η), which is the defining coefficient of F_η^O.
+4. Use injectivity of the native inclusion, or native PowerSeries.map_injective, to obtain the O-series equality. Compose with the existing tame Gauss comparison when its primitive/root/nonzero-Gauss hypotheses hold.
+5. For the canonical O action, factor algebraMap(Z_p,K) through O using the exact existing PMIA integralCoefficient_norm_le and norm_one. Continuity and scalar compatibility are inherited from the field action and subtype topology. This is instance setup for the native subring, not a newly planned generic scalar-extension theory.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-measure`, `DirichletPadicLFunctions:L2/tame-integral-series`, `DirichletPadicLFunctions:L2/tame-measure`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:PowerSeries.coeff_map`, `mathlib:PowerSeries.map_injective`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-image-bound`.
+
+**Tests:**
+
+- `SuggestedIntegralTameTests.integral_transform_transport` (compatibility): With the compatible dyadic coefficient action, mapping A(μ_η^O) into Q_2 gives the previous tameSeries.
+- `SuggestedIntegralTameTests.integral_transform_quadratic_mass` (computation): For quadratic η modulo3 at p=2, the included constant Amice coefficient of μ_η^O is1/3.
+
+**Acceptance:** The compatible coefficient action is explicit only where the O-valued Amice transform needs it. The construction and all-test comparison of μ_η^O do not depend on a hidden choice of that action.
+
+**Sources:** RJW-published, §5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices. Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed.
+
+### Uniqueness on integral-valued tests
+
+`DirichletPadicLFunctions:L2/tame-integral-measure-unique` — `DirichletPadic.integralTameMeasure_unique` (lemma).
+
+If an existing O-valued measure ν satisfies ι(ν(f))=μ_η(ι∘f) for every continuous f:Z_p→O, then ν=μ_η^O.
+
+**Hypotheses:** p is prime, including2. K is a nontrivially normed ultrametric field with its native Z_p-algebra and bounded Z_p scalar action. D is positive, η is the existing DirichletCharacter K D, hD certifies that D is a unit in K, and p∤D. O denotes exactly the existing Valuation.integer(NormedField.valuation(K)), the integer subring of the norm valuation. Thus x∈O iff ‖x‖≤1, and O inherits its norm and topology as a subring of K. No arbitrary independent valuation is silently identified with the norm. The native inclusion is denoted ι:O→K. Neither nonprincipality nor primitivity of η is required here. For the actual measure and its comparisons K is complete, as required by the preceding tameMeasure constructor. No separate choice of a Z_p-algebra on O is required to construct the restricted O-valued measure.
+
+**Proof outline:**
+
+1. Compare with the defining evaluation identity of integralTameMeasure on the same test.
+2. Injectivity of the native subtype inclusion makes the O-valued evaluations equal. Native function-like extensionality gives equality in D(Z_p,O).
+3. This identifies the actual integral lift on all its tests. It neither defines an unrestricted O→K measure-extension operator nor asserts that arbitrary field measures admit an integral lift.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-integral-measure`.
+
+**Tests:**
+
+- `SuggestedIntegralTameTests.integral_measure_uniqueness` (compatibility): For K=Q_2, the displayed all-test compatibility characterizes the actual integral tame measure uniquely.
+
+**Acceptance:** Use all O-valued continuous tests, with no unproved density or arbitrary coefficient-extension surrogate.
+
+**Sources:** RJW-published, §5.2, equation(5-3), following integrality discussion and Lemma5.9, printed144/PDF45; subsequent Lemmas5.10–5.12 and Definition5.13, printed145–146/PDF46–47. Full published139–147 and arXivv2PDF30–35 were read in the preceding continuous slices. Worker construction of the actual arithmetic integral-valued measure from the existing bounded tame K-valued measure. Uses the native integer ring of the norm valuation and proves compatibility on all integral-valued tests and on Amice coefficients. Conditional Gauss comparison is inherited; special values and psi remain separate. No new source error or fresh whole-paper reading is claimed.
+
+### Current validation
+
+Indexed blueprint: zero errors and warnings. Four-file intake: zero problems.
+Versioned errata, whole-object preservation, reader/signature/test parity and scoped
+mutation checks pass. All13 findings remain whole and the real collector retains
+the correct E13 citation. Graph:313 reachable nodes,1362 edges and
+359 baseline leaves; acyclic, with only the PMIA L1 request leaf.
+Suggested Lean compiles with zero errors and414 expected placeholder warnings;
+the freshly compiled actual265-node PMIA supplier has569 placeholder warnings.
+Recursive audit:3,581 pinned Mathlib modules,20 pinned Tau Ceti modules and1 actual
+supplier. All20 Tau Ceti artifacts reused with matching source hashes and zero-
+warning logs; no fresh Tau Ceti build claimed.
+One actual native restriction constructor and9 complete scratch lemmas compile
+against2,822 pinned Mathlib modules with zero errors,warnings or proof holes.
+They prove the integer membership and test bounds, inclusion norm preservation,
+and the actual O-linear continuous restriction, its evaluation,bound and uniqueness,
+retaining an explicit measure operator-norm≤1 premise. They do not prove the
+arithmetic tame norm theorem, full Amice comparison or source special values.
+Suggested-file SHA256:`9b976eb9638923a57d6a7d74cb1da557af8635f8a3f29d3fc5ddd8376d885ca9`.
+Native-proof SHA256:`3e96d461316566df71022fa8ac62f6e7c9226f19221c32ccdb0f928681337078`.
+Publication guard at3be3b269a0ac251c5e9263bbe05e1eef4c67683e verifies all52 inputs,four predecessor outputs,
+unchanged issue body,exact merged PR3261 head and same winning claim.
+Review390 is blocked and unclaimed. Exactly four authorized files are published
+through Git Data REST.
+
+All179 predecessor nodes,256 baseline objects and13 findings remain whole.
+The entire predecessor Lean file remains a contiguous body, preceded by one
+explicit import and followed by the new declarations and typed tests. No stage
+is closed, and no proposed implementation is claimed complete.
