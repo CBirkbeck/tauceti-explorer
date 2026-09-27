@@ -1,3 +1,58 @@
+# BP-DirichletPadicLFunctions — positive coefficient continuation
+
+Worker: Codex — codex-hjdg0j, 27 September 2026. Refs #713.
+The winning claim is issue comment 5852336057, explicitly confirmed by bot comment 5852336863;
+the full issue was reread after confirmation. This is a partial checkpoint.
+
+Seven new L4 nodes construct native integral measures A_n on ℤ_p× for n>0, their continuous
+function evaluation and ordinary moments, A_{pn}=A_n, integer Euler-factor deletion and its
+moment comparison, and the congruence for exponents modulo p^(r−1)(p−1) at precision p^r.
+The statements include p=2. All 51 predecessor statements and hypotheses and all six earlier source findings
+are preserved exactly. Forty-five node objects are unchanged; six have updated dependency/proof prose. No generic carrier or operator is duplicated. The seven new proof chains
+use only pinned baseline declarations and local nodes; they use no supplier node. Both existing L2 requests are now resolved to exact supplier nodes.
+
+The packet has 58 nodes (1 definition, 5 constructions, 35 lemmas, 15 theorems, 2 comparisons),
+53 API entries, 40 packet tests, 43 typed examples, 9 planets (6 in L1, 3 in L4), 71 baseline
+references, 9 source findings, 5 gaps and no open requests. The checker's definition/construction
+test subtotal is 39; one inherited lemma test accounts for the all-node total of 40. L0, L1 and
+L4 are partial; L2 and L3 retain their extraction statuses. No stage is closed.
+
+Validation: the indexed blueprint checker reports zero errors/warnings. Exact four-file intake
+passes. All added API signatures, tests and node statements agree with the reader and suggested
+file. Recursive prerequisite traversal reaches 134 nodes and 525 edges without a cycle; every
+reachable leaf is now a baseline reference. The native suggested
+file compiles with zero errors and 107 warnings, all declaration placeholders. Its actual supplier
+file compiles with zero errors and 255 such warnings. All 8,482 imported Mathlib sources were
+verified against the pinned tree and the cached sources; no Tau Ceti module is compiled here.
+The supplier was compiled from the captured source, without a substitute definition or axiom.
+There are no scratch Lean proof files. Arithmetic verification checked 240 p-index invariance
+cases, 2,160 Euler-deletion cases, 6,480 weight-congruence cases and four explicit controls
+(8,884 checks total). These checks and admitted signatures claim no implementation.
+
+Fresh evidence: published PDF56–62 (printed155–161), read in batches of at most three pages,
+and v2 PDF43–46; §8 was collated completely. Exact pinned statements were read for the native
+measure/Dirac/unit APIs, divisors, sigma, totient and modular remainder congruences. The modular
+E and Tau Ceti levelRaise/q-expansion statements were also inspected as continuation leads,
+not added as completed comparisons. The five reviewed AUDIT-24 rows and accepted RS-14
+contracts remain binding. The two upstream models, campaign and touching links were checked
+against the already read session snapshots. E7 repeats ColemanIntegration/E22's sign typo;
+E8 records level versus weight; E9 records the k−1 weight-space shift and even-weight restriction.
+Both versions and the bounded correction search are recorded. No review verdict was added.
+
+Resume with the actual classical normalization and p-stabilization comparison: rescale native
+ModularForm.E by −B_k/(2k), prove the normalized coefficients and constant ζ(1−k)/2, then use
+the pinned TauCeti.ModularForm.levelRaise and its coefficient formula at Γ₀(p). Next identify
+A_n in the shared completed algebra and instantiate A₀=xζ_p/2 with the exact arithmetic L1
+pseudomeasure and supplier interfaces, including dyadic denominators. Full specialization,
+constant-term congruences and tame-character families remain open. L0–L3 remaining scope work is retained. The two bounded root-average requests are resolved to
+root-partial-fractions and rational-root-average-descent with their denominator nodes. Geometric families stay with PadicFamilies.
+
+Publication guard: 57 captured inputs and outputs are unchanged at fresh main `59d2eb478c09323b0019d0c1574904e4c2c9aef0`; claim and issue text remain valid and the existing measure supplier changed from 69 to 117 nodes during work; its consumed 29-node new averaging chain was read, absorbed and recompiled. The final refreshed inputs are unchanged.
+
+Suggested file SHA-256: `d0f41e34272aaa699b0ff0148ec63e0b0f540ac72682638c401f77d9a6cf7e44`.
+
+## Predecessor handoff history
+
 # BP-DirichletPadicLFunctions — smoothing compatibility and parity
 
 Codex — codex-7e92bd. Refs #713. Own-job follow-up to merged checkpoint
