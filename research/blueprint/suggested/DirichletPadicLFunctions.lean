@@ -1439,3 +1439,114 @@ example : extendIntegralCoefficients (R := ℚ_[2]) (smoothedNumerator 2 3 (by n
     ((ContinuousMap.id ℤ_[2])^2 • (1 : C(ℤ_[2],ℚ_[2]))) = 2/3 := by sorry
 end
 end DirichletPadic
+
+/-! ## Arithmetic numerator on the native unit group
+
+Restriction, coefficient extension and multiplicative convolution are imported
+from their single owner. No completed-algebra or denominator regularity theorem
+is supplied by these measure-level statements.
+-/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => (ℤ_[p])ˣ
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U, Z))
+
+-- DirichletPadicLFunctions:L1/intrinsic-numerator
+noncomputable def intrinsicSmoothedNumerator (a : ℕ) (ha : ¬ p ∣ a) : D(U, Z) := sorry
+
+theorem intrinsicSmoothedNumerator_eq_restrict (a : ℕ) (ha : ¬ p ∣ a) :
+    intrinsicSmoothedNumerator p a ha = restrictUnits p Z (smoothedNumerator p a ha) := sorry
+
+-- DirichletPadicLFunctions:L1/intrinsic-numerator-inclusion
+theorem map_val_intrinsicSmoothedNumerator (a : ℕ) (ha : ¬ p ∣ a) :
+    AbstractMeasure.map j (intrinsicSmoothedNumerator p a ha) = smoothedNumerator p a ha := sorry
+
+theorem intrinsicSmoothedNumerator_unique (a : ℕ) (ha : ¬ p ∣ a) (η : D(U, Z))
+    (hη : AbstractMeasure.map j η = smoothedNumerator p a ha) :
+    η = intrinsicSmoothedNumerator p a ha := sorry
+
+theorem intrinsicSmoothedNumerator_one (ha : ¬ p ∣ 1) :
+    intrinsicSmoothedNumerator p 1 ha = 0 := sorry
+
+-- DirichletPadicLFunctions:L1/intrinsic-numerator-moment
+theorem intrinsicSmoothedNumerator_moment (a k : ℕ) (ha : ¬ p ∣ a) (hk : 1 ≤ k) :
+    (intrinsicSmoothedNumerator p a ha (j ^ k) : ℚ_[p]) =
+      ((1 - (p : ℚ_[p]) ^ (k-1)) * (1 - (a : ℚ_[p]) ^ k)) *
+        ((bernoulli k : ℚ) : ℚ_[p]) / (k : ℚ_[p]) := sorry
+
+-- DirichletPadicLFunctions:L1/intrinsic-numerator-dirac
+theorem map_val_dirac_mul_intrinsicSmoothedNumerator (a : ℕ) (ha : ¬ p ∣ a) (u : U) :
+    AbstractMeasure.map j (dirac Z u * intrinsicSmoothedNumerator p a ha) =
+      AbstractMeasure.map ⟨fun z : Z => (u : Z) * z, continuous_const.mul continuous_id⟩
+        (smoothedNumerator p a ha) := sorry
+
+-- DirichletPadicLFunctions:L1/intrinsic-numerator-cocycle
+theorem intrinsicSmoothedNumerator_mul (a b : ℕ)
+    (ha : ¬ p ∣ a) (hb : ¬ p ∣ b) (hab : ¬ p ∣ a*b) (u : U) (hu : (u : Z) = (a : Z)) :
+    intrinsicSmoothedNumerator p (a*b) hab = intrinsicSmoothedNumerator p a ha +
+      dirac Z u * intrinsicSmoothedNumerator p b hb := sorry
+
+-- DirichletPadicLFunctions:L1/intrinsic-numerator-cross
+theorem intrinsicSmoothedNumerator_cross (a b : ℕ) (ha : ¬ p ∣ a) (hb : ¬ p ∣ b)
+    (u v : U) (hu : (u : Z) = (a : Z)) (hv : (v : Z) = (b : Z)) :
+    (dirac Z v - dirac Z (1 : U)) * intrinsicSmoothedNumerator p a ha =
+      (dirac Z u - dirac Z (1 : U)) * intrinsicSmoothedNumerator p b hb := sorry
+
+-- DirichletPadicLFunctions:L1/intrinsic-numerator-even
+theorem intrinsicSmoothedNumerator_even (a : ℕ) (ha : ¬ p ∣ a) :
+    dirac Z (-1 : U) * intrinsicSmoothedNumerator p a ha =
+      intrinsicSmoothedNumerator p a ha := sorry
+
+section Coefficients
+variable {R : Type*} [NormedCommRing R] [Algebra ℤ_[p] R] [IsUltrametricDist R]
+  [CompleteSpace R] [IsBoundedSMul ℤ_[p] R]
+-- DirichletPadicLFunctions:L1/intrinsic-numerator-extension-inclusion
+theorem map_val_extend_intrinsicSmoothedNumerator (a : ℕ) (ha : ¬ p ∣ a) :
+    AbstractMeasure.map j (extendIntegralUnitCoefficients (R := R)
+      (intrinsicSmoothedNumerator p a ha)) =
+      extendIntegralCoefficients (R := R) (smoothedNumerator p a ha) := sorry
+end Coefficients
+
+-- DirichletPadicLFunctions:L1/intrinsic-numerator-extension-moment
+theorem extend_intrinsicSmoothedNumerator_moment [IsBoundedSMul Z ℚ_[p]]
+    (a k : ℕ) (ha : ¬ p ∣ a) (hk : 1 ≤ k) :
+    extendIntegralUnitCoefficients (R := ℚ_[p]) (intrinsicSmoothedNumerator p a ha)
+      ((j ^ k) • (1 : C(U, ℚ_[p]))) =
+      ((1 - (p : ℚ_[p]) ^ (k-1)) * (1 - (a : ℚ_[p]) ^ k)) *
+        ((bernoulli k : ℚ) : ℚ_[p]) / (k : ℚ_[p]) := sorry
+end DirichletPadic
+
+namespace SuggestedIntrinsicNumeratorTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+-- SuggestedIntrinsicNumeratorTests.zero_parameter
+example : intrinsicSmoothedNumerator 3 1 (by norm_num) = 0 := sorry
+-- SuggestedIntrinsicNumeratorTests.first_moment
+example : intrinsicSmoothedNumerator 3 2 (by norm_num)
+    (⟨Units.val, Units.continuous_val⟩ : C((ℤ_[3])ˣ, ℤ_[3])) = 0 := sorry
+-- SuggestedIntrinsicNumeratorTests.second_moment
+example : (intrinsicSmoothedNumerator 3 2 (by norm_num)
+    ((⟨Units.val, Units.continuous_val⟩ : C((ℤ_[3])ˣ, ℤ_[3])) ^ 2) : ℚ_[3]) = 1/2 := sorry
+-- SuggestedIntrinsicNumeratorTests.dyadic_second
+example : (intrinsicSmoothedNumerator 2 3 (by norm_num)
+    ((⟨Units.val, Units.continuous_val⟩ : C((ℤ_[2])ˣ, ℤ_[2])) ^ 2) : ℚ_[2]) = 2/3 := sorry
+-- SuggestedIntrinsicNumeratorTests.product_without_scalar
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
+    intrinsicSmoothedNumerator 3 4 (by norm_num) = intrinsicSmoothedNumerator 3 2 (by norm_num) +
+      dirac ℤ_[3] u * intrinsicSmoothedNumerator 3 2 (by norm_num) := sorry
+-- SuggestedIntrinsicNumeratorTests.cross_denominator_orientation
+example (u v : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) (hv : (v : ℤ_[3]) = 4) :
+    (dirac ℤ_[3] v - dirac ℤ_[3] 1) * intrinsicSmoothedNumerator 3 2 (by norm_num) =
+      (dirac ℤ_[3] u - dirac ℤ_[3] 1) * intrinsicSmoothedNumerator 3 4 (by norm_num) := sorry
+-- SuggestedIntrinsicNumeratorTests.dyadic_even
+example : dirac ℤ_[2] (-1 : (ℤ_[2])ˣ) * intrinsicSmoothedNumerator 2 3 (by norm_num) =
+    intrinsicSmoothedNumerator 2 3 (by norm_num) := sorry
+-- SuggestedIntrinsicNumeratorTests.dyadic_extended_second
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] :
+    extendIntegralUnitCoefficients (R := ℚ_[2]) (intrinsicSmoothedNumerator 2 3 (by norm_num))
+      (((⟨Units.val, Units.continuous_val⟩ : C((ℤ_[2])ˣ, ℤ_[2])) ^ 2) •
+        (1 : C((ℤ_[2])ˣ, ℚ_[2]))) = 2/3 := sorry
+end SuggestedIntrinsicNumeratorTests
