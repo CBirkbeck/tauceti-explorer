@@ -11,7 +11,7 @@
     "ProbabilisticAndMetricNumberTheory:PM.5"
   ],
   "status": "partial",
-  "summary": "Partial PM.0-PM.1 checkpoint: finite arithmetic/residue and moment comparisons, prime-cutoff transfer, repeated-factor first moments, the finite counting/CDF/characteristic-function dictionary and conditional omega-to-Omega weak-limit transfer. No Gaussian limit or complete stage is claimed.",
+  "summary": "Preserves all 67 inherited arithmetic probability, finite residue/moment, cutoff, first repeated-factor mean and conditional law-transfer nodes. Adds nine PM.0 plans proving a finite positive-geometric Euler bound, a uniform exponential moment and every fixed repeated-factor moment, with explicit tail and scale bounds. The remaining general additive interfaces, source-specific growing-prime comparisons, CDF criterion and full arithmetic Gaussian/normal-order arguments stay open. No new carrier or implementation claim.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -663,6 +663,66 @@
         "module": "Mathlib.Topology.MetricSpace.Pseudo.Defs",
         "provides": "Convergence in a pseudometric space is equivalent to the distance to the proposed limit tending to zero.",
         "checked": "Exact statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; native empirical-measure source at Tau Ceti f790474 was reread in full."
+      },
+      {
+        "ref": "mathlib:geom_sum_mul",
+        "module": "Mathlib.Algebra.Ring.GeomSum",
+        "provides": "The finite geometric sum times x-1 equals x^n-1 in a ring; specialize x=3/2.",
+        "checked": "Actual statement and surrounding context read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_pow_primes",
+        "module": "Mathlib.Data.Nat.Prime.Basic",
+        "provides": "Arbitrary natural powers of two distinct primes are coprime, including exponent zero.",
+        "checked": "Actual statement and surrounding context read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Real.exp_sum",
+        "module": "Mathlib.Analysis.Complex.Exponential",
+        "provides": "The real exponential of a finite sum is the product of exponentials.",
+        "checked": "Actual statement and surrounding context read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Real.exp_nat_mul",
+        "module": "Mathlib.Analysis.Complex.Exponential",
+        "provides": "exp(n*x)=exp(x)^n for a natural n.",
+        "checked": "Actual statement and surrounding context read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Real.exp_log",
+        "module": "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+        "provides": "exp(log x)=x for strictly positive real x.",
+        "checked": "Actual statement and surrounding context read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Real.prod_one_add_le_exp_sum",
+        "module": "Mathlib.Analysis.Complex.Exponential",
+        "provides": "A finite product of 1+f(i), for globally nonnegative f, is at most exp of the finite sum.",
+        "checked": "Actual statement and surrounding context read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Real.exp_le_exp",
+        "module": "Mathlib.Analysis.Complex.Exponential",
+        "provides": "The real exponential preserves and reflects weak order.",
+        "checked": "Actual statement and surrounding context read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Real.pow_div_factorial_le_exp",
+        "module": "Mathlib.Analysis.Complex.Exponential",
+        "provides": "For x>=0 and natural k, x^k/k!<=exp x.",
+        "checked": "Actual statement and surrounding context read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Real.exp_sub",
+        "module": "Mathlib.Analysis.Complex.Exponential",
+        "provides": "exp(x-y)=exp(x)/exp(y), with its denominator always positive.",
+        "checked": "Actual statement and surrounding context read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZMod.natCast_eq_zero_iff",
+        "module": "Mathlib.Data.ZMod.Basic",
+        "provides": "A natural n casts to zero in ZMod q exactly when q divides n, including q=1.",
+        "checked": "Actual statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
       }
     ]
   },
@@ -826,7 +886,8 @@
         "Section 4 opening omega/Omega divisor-sum identities through Remark 45 and Exercise 46, Theorem 47, and Exercise 51(i)-(iv) with its normalization paragraph. The intervening multiplication-table discussion was read for context, not decomposed.",
         "Exercise 46 states the moment bounds as exercises, without a supplied proof. This continuation provides an explicit finite k=1 proof only. Higher moments, the full Hardy-Ramanujan deduction, and the Gaussian-limit exercise remain open.",
         "Bounded title/Exercise 46 correction search and occurrence screen of the acquired HTML yielded no applicable correction. This is not a source-wide correctness verdict or complete comment-thread collation.",
-        "27 September limit-transfer continuation: Exercises 46 and 51 and Theorem 47 freshly reread. The conditional omega-to-Omega transfer in Exercise 51(iv) is now decomposed from the existing first moment, without claiming the omega Gaussian convergence in part (iii). Earlier read-scope text records the preceding checkpoint."
+        "27 September limit-transfer continuation: Exercises 46 and 51 and Theorem 47 freshly reread. The conditional omega-to-Omega transfer in Exercise 51(iv) is now decomposed from the existing first moment, without claiming the omega Gaussian convergence in part (iii). Earlier read-scope text records the preceding checkpoint.",
+        "27 September higher-moment continuation: Exercise 46(i)-(ii), the surrounding variance argument, Theorem 47 and Exercise 51 freshly reread from the same acquired author HTML. All fixed repeated-factor moments in Exercise 46(ii) now have a worker-derived finite positive-geometric/exponential proof decomposition. The source does not provide this proof or its constants. The surrounding omega variance/Mertens deduction and Gaussian limit remain open. No new correction search, version collation or source finding."
       ]
     },
     {
@@ -865,6 +926,18 @@
         "ConvergenceInDistribution.lean lines 45-225, including varying-domain definition and fixed-measure restriction of its Slutsky helper; LevyConvergence.lean lines 35-53,188-258; Portmanteau.lean lines 675-722.",
         "Probability/CDF.lean lines 72-87; Measure/CharacteristicFunction/Basic.lean lines 125-143; Measure/Real.lean lines 70-89; Integral/Bochner/Basic.lean lines 252-272,284-294,630-646,930-950,1030-1069.",
         "MeasurableSpace/Basic.lean lines 280-297; Topology/MetricSpace/Lipschitz.lean lines 42-53; Pseudo/Lemmas.lean lines 25-43; Pseudo/Defs.lean lines 1192-1205; Topology/Algebra/Order/Field.lean lines 62-81. Existing Tau Ceti empirical measure file reread completely."
+      ]
+    },
+    {
+      "id": "ML-EXCESS-MOMENTS",
+      "title": "Pinned finite geometric, exponential and CRT suppliers",
+      "authors": "Mathlib contributors",
+      "edition": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Complex/Exponential.lean",
+      "readSections": [
+        "Analysis/Complex/Exponential.lean lines 213–259,304–317,672–687: finite sums, natural multiples, exponential quotient, factorial bound, order and finite product majorant; SpecialFunctions/Log/Basic.lean lines 52–67: positive exp-log inverse.",
+        "Algebra/Ring/GeomSum.lean ring context and lines 232–240; Algebra/Order/Field/GeomSum.lean complete file; BigOperators/Ring/Finset.lean finite product-of-sums passages; BigOperators/Intervals.lean lines 207–236, including additive telescoping generator.",
+        "Data/Nat/Prime/Basic.lean lines 200–218: distinct prime powers coprime; Factorization/Basic.lean lines 130–175: factorization cutoff and divisibility; Data/ZMod/Basic.lean lines 509–524: zero residue iff divisibility. Existing CRT and empirical-measure contracts are reused."
       ]
     }
   ],
@@ -4037,6 +4110,514 @@
           "statement": "At N=4, the unnormalized Omega law assigns mass 1/4 to {2}, whereas the omega law assigns mass 0. Only the stated asymptotic equivalence is claimed."
         }
       ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-local-geometric",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Positive geometric expansion at one prime",
+      "kind": "lemma",
+      "statement": "For n>0, n<=N and prime p, a^(v_p(n)-1)=1+sum_{j=2}^N 1_{p^j|n}·(1/2)·a^(j-2), where v_p(n)=n.factorization p and both subtractions in natural exponents are truncated.",
+      "hypotheses": [
+        "m,n,N,k are natural. Where m occurs set M=m+1 and use mu_M, the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. Its support is 1,...,M, never zero.",
+        "D(n)=(Omega(n):R)-(omega(n):R), with real casts before subtraction and the native cardFactors/cardDistinctFactors. D is nonnegative. Put a=3/2 and t=log(a)>0 only as local scalar notation; no new definition or carrier is exported. All finite sums use their displayed inclusive cutoffs."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.Prime.pow_dvd_iff_le_factorization",
+        "mathlib:Nat.factorization_lt",
+        "mathlib:geom_sum_mul"
+      ],
+      "proofSteps": [
+        "Set v=v_p(n). The native divisibility criterion says p^j|n iff j<=v; positivity of n is essential. Native factorization_lt gives v<n<=N.",
+        "If v=0 or v=1, the indicated exponent interval contributes nothing and the natural exponent v-1 is zero, so both sides equal one.",
+        "For v>=2, reindex j=i+2 over i=0,...,v-2. The native finite geometric identity at a=3/2 gives (1/2)·sum_{i=0}^{v-2}a^i=a^(v-1)-1.",
+        "No contribution from j=1 is permitted: the weight measures repeated factors, not all factors."
+      ],
+      "acceptance": [
+        "At n=1 and p=2 the local weight is 1.",
+        "At n=8 and p=2 the local weight is 9/4.",
+        "At n=p=2 the local weight is 1, not 3/2."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
+          "excerpt": "Exercise 46",
+          "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ExcessMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_local_geometric",
+      "tests": [
+        {
+          "name": "geometric_unit",
+          "kind": "degenerate",
+          "statement": "At n=1 and p=2 the local weight is 1."
+        },
+        {
+          "name": "geometric_cube",
+          "kind": "computation",
+          "statement": "At n=8 and p=2 the local weight is 9/4."
+        },
+        {
+          "name": "first_prime_power_has_no_excess_weight",
+          "kind": "non-example",
+          "statement": "At n=p=2 the local weight is 1, not 3/2."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-product",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Finite prime product for the excess exponential",
+      "kind": "lemma",
+      "statement": "For n>0 and n<=N, exp(tD(n))=product_{p<=N, prime} a^(v_p(n)-1), with truncated natural exponents.",
+      "hypotheses": [
+        "m,n,N,k are natural. Where m occurs set M=m+1 and use mu_M, the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. Its support is 1,...,M, never zero.",
+        "D(n)=(Omega(n):R)-(omega(n):R), with real casts before subtraction and the native cardFactors/cardDistinctFactors. D is nonnegative. Put a=3/2 and t=log(a)>0 only as local scalar notation; no new definition or carrier is exported. All finite sums use their displayed inclusive cutoffs."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-prime-power-expansion",
+        "ProbabilisticAndMetricNumberTheory:PM.0/prime-power-tail-count",
+        "mathlib:Real.exp_sum",
+        "mathlib:Real.exp_nat_mul",
+        "mathlib:Real.exp_log"
+      ],
+      "proofSteps": [
+        "Use the inherited finite repeated-prime-power expansion and single-prime count to write D(n) as the sum over primes p<=N of the real cast of v_p(n)-1.",
+        "Distribute multiplication by t over this finite sum and apply native exp_sum.",
+        "For each natural exponent e, native exp_nat_mul and exp_log(a)=a identify exp(te)=a^e. No real-power convention is substituted for the natural exponent.",
+        "If N=1, the product is empty and n=1 has D=0. The positive sample ensures the zero-divisibility pathology is never used."
+      ],
+      "acceptance": [
+        "At n=72, exp(tD)=27/8.",
+        "At the squarefree n=30, exp(tD)=1."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
+          "excerpt": "Exercise 46",
+          "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ExcessMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_exponential_product",
+      "tests": [
+        {
+          "name": "exponential_mixed_powers",
+          "kind": "computation",
+          "statement": "At n=72, exp(tD)=27/8."
+        },
+        {
+          "name": "squarefree_exponential_weight",
+          "kind": "compatibility",
+          "statement": "At the squarefree n=30, exp(tD)=1."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-euler",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Finite Euler upper bound for the excess mean",
+      "kind": "lemma",
+      "statement": "For M=m+1, E_mu_M[exp(tD)]<=product_{p<=M, prime}(1+sum_{j=2}^M (1/2)·a^(j-2)/p^j).",
+      "hypotheses": [
+        "m,n,N,k are natural. Where m occurs set M=m+1 and use mu_M, the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. Its support is 1,...,M, never zero.",
+        "D(n)=(Omega(n):R)-(omega(n):R), with real casts before subtraction and the native cardFactors/cardDistinctFactors. D is nonnegative. Put a=3/2 and t=log(a)>0 only as local scalar notation; no new definition or carrier is exported. All finite sums use their displayed inclusive cutoffs."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-product",
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-local-geometric",
+        "ProbabilisticAndMetricNumberTheory:PM.0/crt-residue-probability",
+        "mathlib:Nat.coprime_pow_primes",
+        "mathlib:ZMod.natCast_eq_zero_iff",
+        "mathlib:Fintype.prod_sum",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "proofSteps": [
+        "On the positive sample, replace exp(tD) by the finite prime product and then replace each local factor by its positive geometric expansion.",
+        "Expand the product using the native finite product-of-sums theorem. At each prime the choices are the constant term or an exponent j in [2,M]. Give the constant choice exponent zero, weight one and modulus p^0=1.",
+        "For a chosen exponent family, powers of distinct primes are pairwise coprime by the native theorem. Identify all zero-residue events with divisibility via natCast_eq_zero_iff. The inherited CRT atom formula gives joint probability floor(M/Q)/M for Q=product p^j.",
+        "To see the remainder indicator vanish at the zero tuple, its inverse CRT residue is zero and (-1).val=Q-1; the remainder R is always less than Q. This includes Q=1, where R=0. Thus no event is assumed independent.",
+        "Every coefficient is nonnegative. Replace floor(M/Q)/M by 1/Q, factor that denominator over the chosen prime powers, and reverse the finite product expansion.",
+        "All integration is the native finite empirical sum. There is no limiting product or infinite interchange of sums."
+      ],
+      "acceptance": [
+        "For M=4 the exponential mean is exactly 9/8.",
+        "For M=3 every sampled integer is squarefree and the exponential mean is 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
+          "excerpt": "Exercise 46",
+          "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ExcessMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_exponential_euler",
+      "tests": [
+        {
+          "name": "exponential_mean_four",
+          "kind": "computation",
+          "statement": "For M=4 the exponential mean is exactly 9/8."
+        },
+        {
+          "name": "exponential_mean_three",
+          "kind": "degenerate",
+          "statement": "For M=3 every sampled integer is squarefree and the exponential mean is 1."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-local-euler-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Uniform bound for one repeated-factor Euler term",
+      "kind": "lemma",
+      "statement": "For any prime p and natural N, sum_{j=2}^N (1/2)·a^(j-2)/p^j <= 2/p^2.",
+      "hypotheses": [
+        "m,n,N,k are natural. Where m occurs set M=m+1 and use mu_M, the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. Its support is 1,...,M, never zero.",
+        "D(n)=(Omega(n):R)-(omega(n):R), with real casts before subtraction and the native cardFactors/cardDistinctFactors. D is nonnegative. Put a=3/2 and t=log(a)>0 only as local scalar notation; no new definition or carrier is exported. All finite sums use their displayed inclusive cutoffs."
+      ],
+      "prerequisites": [
+        "mathlib:geom_sum_Ico_le_of_lt_one"
+      ],
+      "proofSteps": [
+        "If N<2 the sum is empty and the right side is positive.",
+        "Otherwise reindex j=i+2. The sum is [1/(2p^2)]·sum_{i=0}^{N-2}(3/(2p))^i.",
+        "Since p>=2, the ratio is in (0,3/4], strictly less than one. The native finite geometric bound gives at most 1/[p(2p-3)].",
+        "The inequality 1/[p(2p-3)]<=2/p^2 follows by positive cross-multiplication from p>=2. It is equality at p=2 at the infinite-sum bound, not at a finite cutoff.",
+        "The fixed base a=3/2 is below 2. At base 2 the local ratio at p=2 is one and this uniform argument fails."
+      ],
+      "acceptance": [
+        "For p=2,N=2 the sum is 1/8.",
+        "At N=1 the sum is zero for every p.",
+        "Replacing a by 2 gives sum_{j=2}^{10}2^(j-2)/2^j=9/4; geometric decay is lost."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
+          "excerpt": "Exercise 46",
+          "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ExcessMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_local_euler_bound",
+      "tests": [
+        {
+          "name": "local_density_first_term",
+          "kind": "computation",
+          "statement": "For p=2,N=2 the sum is 1/8."
+        },
+        {
+          "name": "local_density_empty_cutoff",
+          "kind": "degenerate",
+          "statement": "At N=1 the sum is zero for every p."
+        },
+        {
+          "name": "base_two_loses_geometric_decay",
+          "kind": "non-example",
+          "statement": "Replacing a by 2 gives sum_{j=2}^{10}2^(j-2)/2^j=9/4; geometric decay is lost."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-finite-euler-bound",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Uniform finite excess Euler product bound",
+      "kind": "lemma",
+      "statement": "For any finite set P of primes and any natural N, product_{p in P}(1+sum_{j=2}^N (1/2)·a^(j-2)/p^j)<=exp(2).",
+      "hypotheses": [
+        "m,n,N,k are natural. Where m occurs set M=m+1 and use mu_M, the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. Its support is 1,...,M, never zero.",
+        "D(n)=(Omega(n):R)-(omega(n):R), with real casts before subtraction and the native cardFactors/cardDistinctFactors. D is nonnegative. Put a=3/2 and t=log(a)>0 only as local scalar notation; no new definition or carrier is exported. All finite sums use their displayed inclusive cutoffs."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-local-euler-bound",
+        "mathlib:Real.prod_one_add_le_exp_sum",
+        "mathlib:Real.exp_le_exp",
+        "mathlib:Finset.prod_Icc_div",
+        "mathlib:Finset.prod_le_prod_of_subset_of_one_le'"
+      ],
+      "proofSteps": [
+        "All local sums are nonnegative. Apply excess-local-euler-bound and finite product monotonicity to bound the product by product_{p in P}(1+2/p^2).",
+        "Use native prod_one_add_le_exp_sum with the globally nonnegative function n mapped to 2/(n:R)^2; total division at n=0 still gives a nonnegative value. The result is exp(2·sum_{p in P}1/p^2).",
+        "Take B=max(2,max P), with any native finite supremum implementing the empty case. Because all p>=2, enlarge the nonnegative sum to integers r=2,...,B.",
+        "For r>=2, 1/r^2<=1/[r(r-1)]=1/(r-1)-1/r. The existing additive form generated by prod_Icc_div telescopes the latter finite sum to 1-1/B<=1. The subset-sum monotonicity is the additive form of the recorded native multiplicative supplier.",
+        "Monotonicity of exp now gives exp(2). Empty P has product one and satisfies the same bound. No prime-reciprocal asymptotic, Mertens theorem or infinite Euler product enters."
+      ],
+      "acceptance": [
+        "The empty prime-family product is 1.",
+        "For P={2,3},N=2 the product is 19/16."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
+          "excerpt": "Exercise 46",
+          "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ExcessMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_finite_euler_bound",
+      "tests": [
+        {
+          "name": "empty_euler_family",
+          "kind": "degenerate",
+          "statement": "The empty prime-family product is 1."
+        },
+        {
+          "name": "two_prime_finite_euler",
+          "kind": "computation",
+          "statement": "For P={2,3},N=2 the product is 19/16."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-mean",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Uniform exponential moment of repeated prime factors",
+      "kind": "theorem",
+      "statement": "For every M=m+1>=1, E_mu_M[exp(log(3/2)·D)]<=exp(2), with an absolute constant independent of M.",
+      "hypotheses": [
+        "m,n,N,k are natural. Where m occurs set M=m+1 and use mu_M, the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. Its support is 1,...,M, never zero.",
+        "D(n)=(Omega(n):R)-(omega(n):R), with real casts before subtraction and the native cardFactors/cardDistinctFactors. D is nonnegative. Put a=3/2 and t=log(a)>0 only as local scalar notation; no new definition or carrier is exported. All finite sums use their displayed inclusive cutoffs."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-euler",
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-finite-euler-bound",
+        "mathlib:Nat.mem_primesLE"
+      ],
+      "proofSteps": [
+        "Apply excess-exponential-euler at M=m+1.",
+        "The native primesLE membership theorem supplies primality of every member; apply excess-finite-euler-bound to that finite set with cutoff M.",
+        "Compose the inequalities. This is a finite-sample theorem, not an assertion that the prime-power events are independent or that the distribution has a limit."
+      ],
+      "acceptance": [
+        "For M=1 the exponential mean is 1."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
+          "excerpt": "Exercise 46",
+          "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ExcessMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_exponential_mean",
+      "tests": [
+        {
+          "name": "exponential_singleton_sample",
+          "kind": "degenerate",
+          "statement": "For M=1 the exponential mean is 1."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-all-moments",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "All fixed repeated-factor moments",
+      "kind": "theorem",
+      "statement": "For every natural k and M=m+1, E_mu_M[|D|^k]<=exp(2)·k!/[log(3/2)]^k. In particular sum_{n=1}^M D(n)^k is bounded by M times this explicit k-dependent constant.",
+      "hypotheses": [
+        "m,n,N,k are natural. Where m occurs set M=m+1 and use mu_M, the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. Its support is 1,...,M, never zero.",
+        "D(n)=(Omega(n):R)-(omega(n):R), with real casts before subtraction and the native cardFactors/cardDistinctFactors. D is nonnegative. Put a=3/2 and t=log(a)>0 only as local scalar notation; no new definition or carrier is exported. All finite sums use their displayed inclusive cutoffs."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-mean",
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-factorization",
+        "mathlib:List.toFinset_card_le",
+        "mathlib:Real.pow_div_factorial_le_exp",
+        "mathlib:Real.log_pos",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "proofSteps": [
+        "D>=0 follows from distinct-factor cardinality at most total-factor cardinality (or the inherited nonnegative factorization sum). Thus |D|=D, including the arithmetic zero extension.",
+        "For t=log(3/2)>0, apply the native inequality (tD)^k/k!<=exp(tD). Both t^k and k! are strictly positive, even for k=0.",
+        "Rearrange pointwise to D^k<=[k!/t^k]exp(tD). Average over the finite positive sample using its native sum formula and then apply excess-exponential-mean.",
+        "The implied constant depends on k and is not claimed uniform in growing k. At k=0 the actual mean is one. The unnormalized sum version follows by multiplying by M; for a real cutoff x>=1, take M=floor(x)<=x.",
+        "This completes the worker proof decomposition of Exercise 46(ii)'s fixed-moment bound, not its surrounding omega variance estimate or the full Hardy-Ramanujan/Erdos-Kac theorems."
+      ],
+      "acceptance": [
+        "The zeroth moment is exactly 1 for every positive sample, not zero.",
+        "For M=8 the second excess moment is 5/8."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
+          "excerpt": "Exercise 46",
+          "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ExcessMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_all_moments",
+      "tests": [
+        {
+          "name": "excess_zeroth_moment",
+          "kind": "degenerate",
+          "statement": "The zeroth moment is exactly 1 for every positive sample, not zero."
+        },
+        {
+          "name": "excess_second_moment_eight",
+          "kind": "computation",
+          "statement": "For M=8 the second excess moment is 5/8."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-tail",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Exponential tail bound for repeated prime factors",
+      "kind": "lemma",
+      "statement": "For every M=m+1 and every real threshold u, mu_M{n:u<=D(n)}<=exp(2-log(3/2)·u), with inclusive threshold and real-valued probability.",
+      "hypotheses": [
+        "m,n,N,k are natural. Where m occurs set M=m+1 and use mu_M, the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. Its support is 1,...,M, never zero.",
+        "D(n)=(Omega(n):R)-(omega(n):R), with real casts before subtraction and the native cardFactors/cardDistinctFactors. D is nonnegative. Put a=3/2 and t=log(a)>0 only as local scalar notation; no new definition or carrier is exported. All finite sums use their displayed inclusive cutoffs."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-exponential-mean",
+        "mathlib:MeasureTheory.mul_meas_ge_le_integral_of_nonneg",
+        "mathlib:Real.exp_le_exp",
+        "mathlib:Real.exp_sub",
+        "mathlib:Real.log_pos",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "proofSteps": [
+        "The function exp(tD) is nonnegative and integrable for the finite empirical measure. Native Markov bounds exp(tu) times the probability of exp(tu)<=exp(tD) by its mean.",
+        "Because t>0 and exp preserves and reflects order, this event is exactly u<=D. There is no strict-versus-weak threshold change.",
+        "Divide by exp(tu)>0, use the exponential mean bound, and apply native exp_sub. The argument permits every real u; for u<=0 the bound may exceed one but remains valid."
+      ],
+      "acceptance": [
+        "For M=8 the inclusive tail probability P(D>=2) is 1/8."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
+          "excerpt": "Exercise 46",
+          "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ExcessMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_exponential_tail",
+      "tests": [
+        {
+          "name": "excess_inclusive_tail_eight",
+          "kind": "computation",
+          "statement": "For M=8 the inclusive tail probability P(D>=2) is 1/8."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.0/excess-scaled-moments",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.0",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.0"
+      ],
+      "title": "Scaled repeated-factor moment bounds",
+      "kind": "lemma",
+      "statement": "For every natural k, M=m+1 and real s>0, E_mu_M[|D/s|^k]<=exp(2)·k!/([log(3/2)]^k·s^k).",
+      "hypotheses": [
+        "m,n,N,k are natural. Where m occurs set M=m+1 and use mu_M, the existing empiricalMeasure of k mapped to k+1 at index m, on discrete naturals. Its support is 1,...,M, never zero.",
+        "D(n)=(Omega(n):R)-(omega(n):R), with real casts before subtraction and the native cardFactors/cardDistinctFactors. D is nonnegative. Put a=3/2 and t=log(a)>0 only as local scalar notation; no new definition or carrier is exported. All finite sums use their displayed inclusive cutoffs."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.0/excess-all-moments",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure"
+      ],
+      "proofSteps": [
+        "Since s>0, |D/s|^k=|D|^k/s^k, with s^k>0 even when k=0.",
+        "Pull the positive scalar through the native finite empirical sum and apply excess-all-moments.",
+        "This gives the quantitative finite input for higher-moment comparisons at diverging scales. It does not assert an arithmetic Gaussian limit or a uniform growing-order estimate."
+      ],
+      "acceptance": [
+        "For M=8,s=2,k=2 the scaled moment is 5/32.",
+        "At s=2,k=0 the scaled moment is 1 for every positive sample."
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-PRIME-FACTORS",
+          "locator": "Section 4, Exercise 46(ii); Exercise 46(i), Theorem 47 and Exercise 51(iv) explain the uses",
+          "excerpt": "Exercise 46",
+          "match": "Worker-derived finite positive-geometric proof of the source exercise. The source supplies the fixed-k target, not this exponential-moment proof or these explicit constants. No generic mean-value or independence theorem is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.NumberTheory.ArithmeticProbability.ExcessMoments",
+        "namespace": "TauCeti.Probability.Arithmetic"
+      },
+      "declarationName": "TauCeti.Probability.Arithmetic.excess_scaled_moments",
+      "tests": [
+        {
+          "name": "scaled_second_moment_eight",
+          "kind": "computation",
+          "statement": "For M=8,s=2,k=2 the scaled moment is 5/32."
+        },
+        {
+          "name": "scaled_zeroth_moment",
+          "kind": "degenerate",
+          "statement": "At s=2,k=0 the scaled moment is 1 for every positive sample."
+        }
+      ]
     }
   ],
   "links": [],
@@ -4046,7 +4627,7 @@
       "stageId": "ProbabilisticAndMetricNumberTheory:PM.0",
       "status": "partial",
       "remaining": [
-        "General additive and strongly additive predicates and their full prime-power representation are still needed. The repeated-factor first moment and conditional omega-to-Omega transfer to any given probability law are decomposed; Exercise 46 higher repeated-factor moments remain open.",
+        "General additive and strongly additive predicates and their full prime-power representation are still needed. The repeated-factor first moment, all fixed natural moments (Exercise 46(ii)), explicit exponential/tail bounds, and conditional omega-to-Omega transfer to any given probability law are decomposed. This does not supply the surrounding omega variance/Mertens estimate or a constant uniform in a growing moment order.",
         "Finite counting/CDF/characteristic-function identities and the arithmetic Levy criterion are decomposed using native probability. The converse criterion phrased only as counting limits at CDF continuity points remains open; no arbitrary pointwise characteristic-function limit is accepted without a probability target or continuity/tightness input.",
         "Finite Boolean laws and centered mixed/higher-moment comparisons remain preserved. Source-scoped growing-prime comparison beyond these elementary finite bounds still needs decomposition; acquire the exact Kubilius source edition and theorem locators."
       ]
@@ -4099,7 +4680,7 @@
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.0"
       ],
-      "detail": "General additive and strongly additive predicates and their full prime-power representation are still needed. The repeated-factor first moment and conditional omega-to-Omega transfer to any given probability law are decomposed; Exercise 46 higher repeated-factor moments remain open. Finite counting/CDF/characteristic-function identities and the arithmetic Levy criterion are decomposed using native probability. The converse criterion phrased only as counting limits at CDF continuity points remains open; no arbitrary pointwise characteristic-function limit is accepted without a probability target or continuity/tightness input. Finite Boolean laws and centered mixed/higher-moment comparisons remain preserved. Source-scoped growing-prime comparison beyond these elementary finite bounds still needs decomposition; acquire the exact Kubilius source edition and theorem locators. The limit-transfer statement is conditional in both directions and permits arbitrary common centers and eventually positive diverging scales; it does not discharge the PM.1 omega Gaussian convergence or source-specific normalization."
+      "detail": "General additive and strongly additive predicates and their full prime-power representation are still needed. The repeated-factor first moment, all fixed natural moments (Exercise 46(ii)), explicit exponential/tail bounds, and conditional omega-to-Omega transfer to any given probability law are decomposed. This does not supply the surrounding omega variance/Mertens estimate or a constant uniform in a growing moment order. Finite counting/CDF/characteristic-function identities and the arithmetic Levy criterion are decomposed using native probability. The converse criterion phrased only as counting limits at CDF continuity points remains open; no arbitrary pointwise characteristic-function limit is accepted without a probability target or continuity/tightness input. Finite Boolean laws and centered mixed/higher-moment comparisons remain preserved. Source-scoped growing-prime comparison beyond these elementary finite bounds still needs decomposition; acquire the exact Kubilius source edition and theorem locators. The limit transfer remains conditional and does not discharge PM.1 omega Gaussian convergence, source-specific normalization or the full Hardy-Ramanujan variance deduction."
     },
     {
       "title": "PM.1: source and proof completion",
@@ -4207,8 +4788,8 @@
     "leanCompiled": true,
     "officialCheckerRun": true,
     "officialChecker": "python3 scripts/check_blueprint.py research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json --index <pinned declaration index>: 0 errors, 0 warnings.",
-    "lean": "Lean 4.34.0-rc2: 67 declaration signatures and 93 examples elaborate with 160 expected proof-placeholder warnings, no other diagnostics. All 8,482 transitive Mathlib sources verified against pin/cache and two Tau Ceti modules freshly built.",
-    "proofProbes": "Separate scratch file: six general statements (arithmetic law count, CDF, characteristic-function average, arithmetic Levy equivalence, reciprocal squeeze and a changing-measure bounded-Lipschitz weak-transfer bridge) and six examples compile with no placeholders, axioms or diagnostics. This checks the bridge and selected identities, not all eight new nodes or any arithmetic Gaussian limit.",
+    "lean": "Lean 4.34.0-rc2: 76 declaration signatures and 111 examples elaborate with 187 expected proof-placeholder warnings, no other diagnostics. All 8,482 reached Mathlib source files verified against the pin/cache; two Tau Ceti modules freshly built from pinned source.",
+    "proofProbes": "Separate scratch: six general proofs (geometric identity, reindexed local density bound, reciprocal telescope, factorial moment domination, prime-power joint divisibility, exponential tail division) plus six concrete arithmetic examples, without placeholders, axioms or diagnostics. This checks selected algebraic steps, not full implementation of all nine nodes.",
     "exactRationalRegressions": {
       "divisor": 1000,
       "jointDivisor": 25000,
@@ -4219,7 +4800,7 @@
       "completePeriodPattern": 690,
       "summedAtom": 1920
     },
-    "preservation": "All 59 inherited node objects, 77 examples, 93 baseline entries, three prior source findings and four prior version records are preserved. Only the Tao 2014 source gains one precise scope entry; PM.1-PM.5 coverage/gaps and the eight planets are unchanged.",
+    "preservation": "All 67 inherited node objects, 106 baseline entries, four source findings and five sourceVersions stay exact. The Tao 2014 source gains one read-scope entry; other fifteen sources unchanged. One new pinned-code source record. PM.1–PM.5 coverage/gaps and all eight planets unchanged.",
     "localCheck": "Source and baseline references, API targets, intra-packet DAG, official packet checker with the full pinned declaration index, inherited-object preservation, source-version/errata checks, current-main input guard, and four-deliverable intake path/JSON checks.",
     "centeredMomentRegressions": {
       "mixedProduct": 22500,
@@ -4255,7 +4836,27 @@
       "tailEnvelopes": 2160,
       "fixedScaleObstructions": 173,
       "mutationsRejected": 8
-    }
+    },
+    "priorLawTransferEvidence": {
+      "lean": "Lean 4.34.0-rc2: 67 declaration signatures and 93 examples elaborate with 160 expected proof-placeholder warnings, no other diagnostics. All 8,482 transitive Mathlib sources verified against pin/cache and two Tau Ceti modules freshly built.",
+      "proofProbes": "Separate scratch file: six general statements (arithmetic law count, CDF, characteristic-function average, arithmetic Levy equivalence, reciprocal squeeze and a changing-measure bounded-Lipschitz weak-transfer bridge) and six examples compile with no placeholders, axioms or diagnostics. This checks the bridge and selected identities, not all eight new nodes or any arithmetic Gaussian limit.",
+      "preservation": "All 59 inherited node objects, 77 examples, 93 baseline entries, three prior source findings and four prior version records are preserved. Only the Tao 2014 source gains one precise scope entry; PM.1-PM.5 coverage/gaps and the eight planets are unchanged."
+    },
+    "excessMomentRegressions": {
+      "exponentialMeanChecks": 800,
+      "finiteEulerMeanChains": 66,
+      "fixedMomentChecks": 8800,
+      "inclusiveTailChecks": 9600,
+      "localGeometricDensityChecks": 615,
+      "pointwiseExponentialProducts": 600,
+      "pointwiseLocalExpansions": 15410,
+      "primePowerJointCounts": 4096,
+      "rationalTranscendentalEnvelopes": 2,
+      "reciprocalTelescopeChecks": 399,
+      "rejectedMutations": 8,
+      "scaledMomentChecks": 44000
+    },
+    "regressionScope": "Current tests use exact fractions: sample sizes 1–800, moment orders 0–10 and five rational scales; finite Euler chains at 1–64,96,128; local geometric cutoffs 0–40 and primes up to 47; pointwise products for n=1–200 at N=n,n+1,n+7; prime-power exponent tuples in {0,1,2,3}^4 for primes 2,3,5,7. Alternating log-series and positive exp-series geometric tails give rational certificates for transcendental constants, without floating point. All other regression fields are historical and were not rerun."
   },
   "provenance": {
     "issue": 1041,
@@ -4320,6 +4921,18 @@
         "scope": "Eight PM.0 law/limit-transfer nodes; all 59 inherited node objects preserved.",
         "ownership": "Native empirical measures, CDF, characteristic functions, Levy and bounded-Lipschitz convergence tests are reused; only arithmetic dictionary and repeated-factor transfer are planned.",
         "sourceAcquisition": "Selected Tao 2014 exercises reread, selected Tao 2010 Section 1/2 passages read with full Theorem 13 proof; E4 scoped to author HTML."
+      },
+      {
+        "agent": "Codex",
+        "session": "codex-a71f92",
+        "date": "2026-09-27",
+        "base": "9f6442f72eabddda0e8293ddf5e9561e30949ab7",
+        "claimComment": 5855394116,
+        "claimConfirmation": 5855395033,
+        "scope": "Nine PM.0 fixed repeated-factor moment/exponential/tail/scale plans; all 67 inherited nodes and 106 baseline entries preserved.",
+        "ownership": "All six reviewed audit rows freshly read. Native geometric sums, CRT, finite sum/product identities, empirical measures, Markov and exp-series bounds are suppliers. No generic mean-value, independence, probability or arithmetic-function carrier is replanned.",
+        "sourceAcquisition": "Tao 2014 Exercise 46 and neighboring specified passages freshly reread from unchanged author HTML. The positive geometric proof and constants are worker derivations. No new correction search or source finding.",
+        "inputs": "All 60 prior consulted paths compared. Own files and 29 matching links unchanged. The changed GN3 supplier is exactly authored blob 291950f3560cff92d6798027ef4b81330a9a3716; ES supplier dd0138dfaf8f5c92f31f7de708c9c3fd0ff993fe was already fully considered during the SV5 input guard. No new dependency to either supplier. Two expected absences retained; binding documents unchanged and no AGENTS.md."
       }
     ]
   },

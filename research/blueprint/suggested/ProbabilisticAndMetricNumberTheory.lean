@@ -1025,4 +1025,95 @@ example (b : ℕ → ℝ) (ν : Measure ℝ) [IsProbabilityMeasure ν] :
 /-- transfer_does_not_identify_finite_laws. -/
 example : ((uLaw 3).map (fun n : ℕ => (ArithmeticFunction.cardFactors n : ℝ))).real {2} = 1/4 ∧
     ((uLaw 3).map (fun n : ℕ => (ArithmeticFunction.cardDistinctFactors n : ℝ))).real {2} = 0 := by sorry
+
+/-! Higher repeated-factor moments via a finite positive geometric expansion. -/
+
+/-- PM.0/excess-local-geometric. No first-power contribution is included. -/
+theorem excess_local_geometric {n N p : ℕ} (hn : 0 < n) (hnN : n ≤ N)
+    (hp : p.Prime) :
+    (3/2 : ℝ) ^ (n.factorization p - 1) =
+      1 + ∑ j ∈ Finset.Icc 2 N,
+        if p^j ∣ n then (1/2 : ℝ)*(3/2 : ℝ)^(j-2) else 0 := by sorry
+
+/-- PM.0/excess-exponential-product. The constant prime-power cutoff is finite. -/
+theorem excess_exponential_product {n N : ℕ} (hn : 0 < n) (hnN : n ≤ N) :
+    Real.exp (Real.log (3/2) * factorExcess n) =
+      ∏ p ∈ Nat.primesLE N, (3/2 : ℝ)^(n.factorization p-1) := by sorry
+
+/-- PM.0/excess-exponential-euler. Uses exact CRT counts, not independence. -/
+theorem excess_exponential_euler (m : ℕ) :
+    (∫ n : ℕ, Real.exp (Real.log (3/2) * factorExcess n) ∂uLaw m) ≤
+      ∏ p ∈ Nat.primesLE (m+1), (1 + ∑ j ∈ Finset.Icc 2 (m+1),
+        (1/2 : ℝ)*(3/2 : ℝ)^(j-2)/(p : ℝ)^j) := by sorry
+
+/-- PM.0/excess-local-euler-bound. The worst geometric ratio is 3/4 at p=2. -/
+theorem excess_local_euler_bound {p : ℕ} (hp : p.Prime) (N : ℕ) :
+    (∑ j ∈ Finset.Icc 2 N, (1/2 : ℝ)*(3/2 : ℝ)^(j-2)/(p : ℝ)^j) ≤
+      2/(p : ℝ)^2 := by sorry
+
+/-- PM.0/excess-finite-euler-bound. No infinite Euler product is constructed. -/
+theorem excess_finite_euler_bound (P : Finset ℕ) (hP : ∀ p ∈ P, p.Prime) (N : ℕ) :
+    (∏ p ∈ P, (1 + ∑ j ∈ Finset.Icc 2 N,
+      (1/2 : ℝ)*(3/2 : ℝ)^(j-2)/(p : ℝ)^j)) ≤ Real.exp 2 := by sorry
+
+/-- PM.0/excess-exponential-mean. Uniform in the positive sample size. -/
+theorem excess_exponential_mean (m : ℕ) :
+    (∫ n : ℕ, Real.exp (Real.log (3/2)*factorExcess n) ∂uLaw m) ≤
+      Real.exp 2 := by sorry
+
+/-- PM.0/excess-all-moments. Explicit k-dependent constant, including k=0. -/
+theorem excess_all_moments (m k : ℕ) :
+    (∫ n : ℕ, |factorExcess n|^k ∂uLaw m) ≤
+      Real.exp 2 * (k.factorial : ℝ) / (Real.log (3/2))^k := by sorry
+
+/-- PM.0/excess-exponential-tail. The exponential threshold is positive for every t. -/
+theorem excess_exponential_tail (m : ℕ) (t : ℝ) :
+    ((uLaw m) {n : ℕ | t ≤ factorExcess n}).toReal ≤
+      Real.exp (2 - Real.log (3/2)*t) := by sorry
+
+/-- PM.0/excess-scaled-moments. A finite bound, not a Gaussian convergence theorem. -/
+theorem excess_scaled_moments (m k : ℕ) (s : ℝ) (hs : 0 < s) :
+    (∫ n : ℕ, |factorExcess n / s|^k ∂uLaw m) ≤
+      Real.exp 2 * (k.factorial : ℝ) / ((Real.log (3/2))^k * s^k) := by sorry
+
+/-- geometric_unit -/
+example : (3/2 : ℝ)^((1 : ℕ).factorization 2 - 1) = 1 := by sorry
+/-- geometric_cube -/
+example : (3/2 : ℝ)^((8 : ℕ).factorization 2 - 1) = 9/4 := by sorry
+/-- first_prime_power_has_no_excess_weight -/
+example : (3/2 : ℝ)^((2 : ℕ).factorization 2 - 1) = 1 := by sorry
+/-- exponential_mixed_powers -/
+example : Real.exp (Real.log (3/2)*factorExcess 72) = 27/8 := by sorry
+/-- squarefree_exponential_weight -/
+example : Real.exp (Real.log (3/2)*factorExcess 30) = 1 := by sorry
+/-- exponential_mean_four -/
+example : (∫ n : ℕ, Real.exp (Real.log (3/2)*factorExcess n) ∂uLaw 3) = 9/8 := by sorry
+/-- exponential_mean_three -/
+example : (∫ n : ℕ, Real.exp (Real.log (3/2)*factorExcess n) ∂uLaw 2) = 1 := by sorry
+/-- local_density_first_term -/
+example : (∑ j ∈ Finset.Icc 2 2,
+    (1/2 : ℝ)*(3/2 : ℝ)^(j-2)/(2 : ℝ)^j) = 1/8 := by sorry
+/-- local_density_empty_cutoff -/
+example (p : ℕ) : (∑ j ∈ Finset.Icc 2 1,
+    (1/2 : ℝ)*(3/2 : ℝ)^(j-2)/(p : ℝ)^j) = 0 := by sorry
+/-- base_two_loses_geometric_decay -/
+example : (∑ j ∈ Finset.Icc 2 10, (2 : ℝ)^(j-2)/(2 : ℝ)^j) = 9/4 := by sorry
+/-- empty_euler_family -/
+example (N : ℕ) : (∏ p ∈ (∅ : Finset ℕ), (1 + ∑ j ∈ Finset.Icc 2 N,
+    (1/2 : ℝ)*(3/2 : ℝ)^(j-2)/(p : ℝ)^j)) = 1 := by sorry
+/-- two_prime_finite_euler -/
+example : (∏ p ∈ ({2,3} : Finset ℕ), (1 + ∑ j ∈ Finset.Icc 2 2,
+    (1/2 : ℝ)*(3/2 : ℝ)^(j-2)/(p : ℝ)^j)) = 19/16 := by sorry
+/-- exponential_singleton_sample -/
+example : (∫ n : ℕ, Real.exp (Real.log (3/2)*factorExcess n) ∂uLaw 0) = 1 := by sorry
+/-- excess_zeroth_moment -/
+example (m : ℕ) : (∫ n : ℕ, |factorExcess n|^(0 : ℕ) ∂uLaw m) = 1 := by sorry
+/-- excess_second_moment_eight -/
+example : (∫ n : ℕ, |factorExcess n|^(2 : ℕ) ∂uLaw 7) = 5/8 := by sorry
+/-- excess_inclusive_tail_eight -/
+example : ((uLaw 7) {n : ℕ | (2 : ℝ) ≤ factorExcess n}).toReal = 1/8 := by sorry
+/-- scaled_second_moment_eight -/
+example : (∫ n : ℕ, |factorExcess n / 2|^(2 : ℕ) ∂uLaw 7) = 5/32 := by sorry
+/-- scaled_zeroth_moment -/
+example (m : ℕ) : (∫ n : ℕ, |factorExcess n / 2|^(0 : ℕ) ∂uLaw m) = 1 := by sorry
 end TauCeti.Probability.Arithmetic
