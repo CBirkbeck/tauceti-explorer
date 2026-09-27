@@ -1,3 +1,4 @@
+import Mathlib.Algebra.Polynomial.Div
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
 import Mathlib.Analysis.Normed.Group.Ultra
 import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Restrict
@@ -1197,4 +1198,110 @@ theorem finite_coordinate_determinant
         Matrix.map (-(fun i j : ↥S => operatorEntry f i j)) Polynomial.C)) := by sorry
 end FiniteOutputComparison
 end
+end TauCeti.NonarchimedeanFredholm
+
+/- Entire division by a linear factor. All nontrivial sum identities require
+entireness; the total native coefficient construction makes no convergence
+claim for arbitrary formal series. No Noetherian or field hypothesis is used. -/
+namespace TauCeti.NonarchimedeanFredholm
+variable {A : Type*} [NormedCommRing A] [NormOneClass A] [CompleteSpace A]
+
+/-- L4/entire-tail-summable: m=0 includes the evaluation series. -/
+theorem entire_tail_summable (f : PowerSeries A) (hf : IsEntire f) (a : A) (m : ℕ) :
+    Summable (fun k : ℕ => f.coeff (m+k) * a^k) := by sorry
+
+/-- L4/entire-linear-quotient: native formal-series constructor. -/
+def entireLinearQuotient (a : A) (f : PowerSeries A) : PowerSeries A :=
+  PowerSeries.mk (fun n => ∑' k : ℕ, f.coeff (n+1+k) * a^k)
+
+/-- L4/entire-linear-quotient-coeff: promoted data API. -/
+theorem entireLinearQuotient_coeff (a : A) (f : PowerSeries A) (n : ℕ) :
+    (entireLinearQuotient a f).coeff n = ∑' k : ℕ, f.coeff (n+1+k) * a^k := by sorry
+
+theorem entireLinearQuotient_zero (a : A) :
+    entireLinearQuotient a (0 : PowerSeries A) = 0 := by sorry
+
+theorem entireLinearQuotient_add (a : A) (f g : PowerSeries A)
+    (hf : IsEntire f) (hg : IsEntire g) :
+    entireLinearQuotient a (f+g) = entireLinearQuotient a f + entireLinearQuotient a g := by sorry
+
+theorem entireLinearQuotient_C_mul (a b : A) (f : PowerSeries A) (hf : IsEntire f) :
+    entireLinearQuotient a (PowerSeries.C b * f) =
+      PowerSeries.C b * entireLinearQuotient a f := by sorry
+
+theorem entireLinearQuotient_C (a b : A) :
+    entireLinearQuotient a (PowerSeries.C b) = 0 := by sorry
+
+theorem entireLinearQuotient_at_zero (f : PowerSeries A) :
+    entireLinearQuotient 0 f = PowerSeries.mk (fun n => f.coeff (n+1)) := by sorry
+
+/-- L4/entire-linear-quotient-recurrence. -/
+theorem entireLinearQuotient_recurrence (a : A) (f : PowerSeries A) (hf : IsEntire f) (n : ℕ) :
+    (entireLinearQuotient a f).coeff n =
+      f.coeff (n+1) + a * (entireLinearQuotient a f).coeff (n+1) := by sorry
+
+/-- L4/entire-linear-quotient-bound: no summability assertion is hidden in the bound. -/
+theorem entireLinearQuotient_bound
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (a : A) (f : PowerSeries A) (S M : ℝ) (hS : 0 < S) (ha : ‖a‖ ≤ S)
+    (hM : 0 ≤ M) (hb : ∀ m : ℕ, ‖f.coeff m‖ * S^m ≤ M) (n : ℕ) :
+    ‖(entireLinearQuotient a f).coeff n‖ ≤ M / S^(n+1) := by sorry
+
+/-- L4/entire-linear-quotient-entire. -/
+theorem entireLinearQuotient_entire
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (a : A) (f : PowerSeries A) (hf : IsEntire f) :
+    IsEntire (entireLinearQuotient a f) := by sorry
+
+/-- L4/entire-linear-division. -/
+theorem entire_linear_division (a : A) (f : PowerSeries A) (hf : IsEntire f) :
+    f = (PowerSeries.X - PowerSeries.C a) * entireLinearQuotient a f +
+      PowerSeries.C (entire_eval f a) := by sorry
+
+/-- L4/entire-linear-product-constant: the entire hypothesis is essential. -/
+theorem entire_linear_product_constant (a b : A) (f : PowerSeries A) (hf : IsEntire f)
+    (h : (PowerSeries.X - PowerSeries.C a) * f = PowerSeries.C b) :
+    f = 0 ∧ b = 0 := by sorry
+
+/-- L4/entire-linear-division-unique. -/
+theorem entire_linear_division_unique (a b c : A) (f g h : PowerSeries A)
+    (hg : IsEntire g) (hh : IsEntire h)
+    (hb : f = (PowerSeries.X - PowerSeries.C a) * g + PowerSeries.C b)
+    (hc : f = (PowerSeries.X - PowerSeries.C a) * h + PowerSeries.C c) :
+    g = h ∧ b = c := by sorry
+
+/-- L4/polynomial-series-entire: promoted existing polynomial test. -/
+theorem polynomialSeries_entire (P : Polynomial A) : IsEntire (polynomialSeries P) := by sorry
+
+/-- L4/entire-linear-quotient-polynomial. -/
+theorem entireLinearQuotient_polynomial
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖) (a : A) (P : Polynomial A) :
+    entireLinearQuotient a (polynomialSeries P) =
+      polynomialSeries (P /ₘ (Polynomial.X - Polynomial.C a)) := by sorry
+
+/-- L4/entire-linear-root-factor. -/
+theorem entire_root_iff_linear_factor
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖) (a : A) (f : PowerSeries A) (hf : IsEntire f) :
+    entire_eval f a = 0 ↔ ∃ g : PowerSeries A, IsEntire g ∧
+      f = (PowerSeries.X - PowerSeries.C a) * g := by sorry
+
+-- Test linear_quotient_constant.
+example (a b : A) : entireLinearQuotient a (PowerSeries.C b) = 0 := by sorry
+-- Test linear_quotient_quadratic: distinguishes sign and tail index.
+example (a : A) : entireLinearQuotient a (PowerSeries.X^2 : PowerSeries A) =
+    PowerSeries.X + PowerSeries.C a := by sorry
+-- Test linear_quotient_zero_shift: native shift rather than a second divX object.
+example (f : PowerSeries A) : entireLinearQuotient 0 f =
+    PowerSeries.mk (fun n => f.coeff (n+1)) := by sorry
+-- Test linear_quotient_native_polynomial.
+example (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖) (a : A) (P : Polynomial A) :
+    entireLinearQuotient a (polynomialSeries P) =
+      polynomialSeries (P /ₘ (Polynomial.X - Polynomial.C a)) := by sorry
+-- Test linear_quotient_zero_divisor: coefficients need not be reduced.
+example (e : A) (he : e^2 = 0) :
+    entireLinearQuotient e (PowerSeries.C e * PowerSeries.X^2) =
+      PowerSeries.C e * PowerSeries.X := by sorry
+-- Test linear_entire_uniqueness_boundary: formal series alone do not suffice.
+example (a : A) :
+    (1 - PowerSeries.C a * PowerSeries.X) * PowerSeries.mk (fun n : ℕ => a^n) = 1 := by sorry
 end TauCeti.NonarchimedeanFredholm

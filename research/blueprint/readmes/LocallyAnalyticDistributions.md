@@ -1,3 +1,497 @@
+**Entire linear-division checkpoint, 27 September 2026.** The packet now has
+92 unchecked nodes (8 comparisons, 11 constructions, 3 definitions, 49 lemmas, 21 theorems), 57 API entries, 70 packet tests,
+70 typed examples, six planets and 94 baseline references. All 80 preceding
+nodes and 84 baseline objects are preserved whole. Twelve new nodes and two
+published-source findings are added. Eight gaps, five requests and zero closed
+stages remain. Counts and validation statements in earlier checkpoint sections
+below describe those historical checkpoints.
+
+## L4 continuation: dividing entire series by a linear factor
+
+Write F=sum c_n T^n in the existing native power-series ring A[[T]]. The predicate
+IsEntire continues to mean that norm(c_n)R^n tends to zero for every real R>0.
+This continuation uses a complete commutative normed ring A with submultiplicative
+norm and norm(1)=1, and assumes the ultrametric inequality precisely in the
+quotient bound, its entireness and the results that consume them. The parameter
+a is any element of A. Neither a field structure, reducedness nor Noetherianity
+is used. This is a weaker contract than the standing Noetherian K-Banach setup
+of the Fredholm operator nodes.
+
+The quotient is explicit:
+
+q_n = sum_(k>=0) c_(n+1+k) a^k, and Q_a(F)=sum_(n>=0) q_n T^n.
+
+Every tail converges for entire F. To see this, choose S>max(1,norm(a)). The
+weighted coefficients at S tend to zero and are bounded by some M>=0. The kth
+summand in the mth evaluated tail is bounded by
+(M/S^m)(norm(a)/S)^k, an ordinary convergent geometric series of real norms.
+This proves summability without an ultrametric assumption. The construction
+uses native PowerSeries.mk and the total native tsum, so it has a value even
+outside the entire subring; no additive, scalar or analytic interpretation is
+claimed there unless separately justified.
+
+For ultrametric A, a sharper bound gives norm(q_n)<=M/S^(n+1) whenever
+norm(a)<=S and norm(c_m)S^m<=M. The existing native ultrametric infinite-sum
+bound supplies this directly. Its total-sum convention also proves the bound
+on arbitrary formal inputs; that is distinct from proving their convergence.
+For an entire input and a desired radius R, choose S>max(R,norm(a),1). Then
+
+norm(q_n) R^n <= (M/S)(R/S)^n,
+
+which tends to zero. Thus the quotient is entire at every radius. Taking S=R
+would only give a uniform bound, so the larger radius is essential.
+
+Splitting the first term of each convergent tail gives
+q_n=c_(n+1)+a q_(n+1). The same operation on evaluation gives
+F(a)=c_0+a q_0. Coefficientwise these two equations prove
+
+F=(T-a)Q_a(F)+F(a).
+
+The sign, the one-step coefficient shift and the constant remainder are all
+fixed by this identity. In particular Q_a(T^2)=T+a. At a=0 the construction
+agrees with the native shifted-coefficient series appearing in
+PowerSeries.eq_X_mul_shift_add_const; no new generic formal division operator
+is introduced.
+
+Uniqueness is an analytic statement even though the identity lives in native
+formal series. If (T-a)H=b is constant and H is entire, its coefficients satisfy
+h_n=a h_(n+1), hence h_n=a^k h_(n+k). Fix R>=max(1,norm(a)). Entireness implies
+that R^(-n) norm(h_(n+k))R^(n+k) tends to zero, while it bounds norm(h_n) from
+above. Thus every coefficient vanishes, then b=0. Apply this to the difference
+of two entire quotients to obtain simultaneous uniqueness of quotient and
+constant remainder. This does not cancel a nonunit or discard a nilpotent.
+
+Native Polynomial.divByMonic and its remainder-at-a theorem already give the
+polynomial division identity. Polynomial coefficients have finite support,
+so the existing polynomial inclusion is entire. Comparing that identity with
+the tail quotient by analytic uniqueness proves exact compatibility with the
+native polynomial quotient. Finally, F(a)=0 is equivalent to divisibility of F
+by T-a with an entire quotient; the converse follows by uniqueness of the
+constant remainder. No evaluation operation on arbitrary formal substitutions
+is assumed.
+
+### Ownership and remaining scope
+
+Accepted RS-16 leaves these Fredholm/entire-polynomial helpers in L4. The
+reviewed AUDIT-25 rows and current upstream models were checked. The existing
+ProfiniteProPGroups Layer9 linear Weierstrass division has a different contract:
+bounded integral Z_p series and a topologically nilpotent parameter. It is not
+reconstructed here. The DiophantineApproximationAndTranscendence division nodes
+concern complex entire functions (and several complex variables), rather than
+the coefficient-decay algebra over a Banach ring.
+
+Pinned native PowerSeries.WeierstrassPreparation provides ideal-adic division
+under IsWeierstrassDivisorAt and IsAdicComplete. It does not supply arbitrary-a
+entire Banach-ring division, so it is a documented near miss rather than a
+claimed baseline implementation. Existing native coefficient constructors,
+infinite-sum bounds, geometric convergence and polynomial division are reused.
+
+The earlier general monic division node is preserved. Its degree>=2 quotient
+and finite-dimensional remainder recurrences still require decomposition, as
+do the quotient-basis/resultant interfaces, spectral resultant transport and
+finite-projective determinant/rank arguments. These twelve declarations do not
+close L4, and they add no planet beyond its existing six.
+
+### Summability of every evaluated coefficient tail
+
+`LocallyAnalyticDistributions:L4/entire-tail-summable` (lemma); proposed declaration `TauCeti.NonarchimedeanFredholm.entire_tail_summable`.
+
+If F=sum c_n T^n is entire and a is any element of A, then for every m>=0 the series sum_(k>=0) c_(m+k) a^k is summable. The case m=0 is evaluation at a.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. Choose S>max(1,norm(a)). Entireness at S makes norm(c_j)S^j converge to zero; the native bounded-range theorem supplies M>=0 bounding every term.
+2. Submultiplicativity and norm_pow_le bound norm(c_(m+k)a^k) by (M/S^m)(norm(a)/S)^k. The ratio lies in [0,1).
+3. Use the native summable geometric series, scalar multiplication and norm-dominated summability in the complete normed additive group. This argument does not require the ultrametric inequality.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-series`, `mathlib:Filter.Tendsto.bddAbove_range`, `mathlib:norm_pow_le`, `mathlib:summable_geometric_of_lt_one`, `mathlib:Summable.of_norm_bounded_eventually_nat`.
+
+Acceptance:
+
+- At a=0 only k=0 survives. For m=0 this supplies the actual convergence needed to split entire_eval, not merely a total tsum value.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Tail quotient for division by a linear factor
+
+`LocallyAnalyticDistributions:L4/entire-linear-quotient` (construction); proposed declaration `TauCeti.NonarchimedeanFredholm.entireLinearQuotient`.
+
+For a in A and a native formal series F=sum c_n T^n, define Q_a(F) by coefficient q_n=sum_(k>=0) c_(n+1+k)a^k, using the total native infinite sum. Its analytic quotient interpretation and additive/scalar laws below are asserted for entire F, where every tail converges. No new carrier for entire series is introduced.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. Apply native PowerSeries.mk to the displayed total coefficient function. The preceding tail-summability node justifies its convergent interpretation on the existing entire-series subring.
+2. Derive zero, constants and the zero-parameter shift coefficientwise. For entire inputs, summability permits additivity and multiplication by a scalar. The promoted coefficient, recurrence, norm, entireness and polynomial comparison nodes expose the interface used by later declarations.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-series`, `LocallyAnalyticDistributions:L4/entire-tail-summable`, `mathlib:PowerSeries.mk`, `mathlib:PowerSeries.coeff_mk`.
+
+Uses:
+
+- Coleman A3, proof of Lemma A3.5 and the quotient-algebra interpretation on printed434: Provide the linear-factor analytic quotient and its polynomial remainder.
+- L4/entire-linear-root-factor and existing entireResultant_linear API: Identify the entire ideal generated by T-a and the remainder F(a), without assuming evaluation on an arbitrary formal series converges.
+
+Planning API:
+
+- `entireLinearQuotient_coeff`: The coefficient q_n is the convergent tail sum_(k>=0)c_(n+1+k)a^k for entire F; the total coefficient equality holds for every F. Promoted to its own node.
+- `entireLinearQuotient_zero`: Q_a(0)=0.
+- `entireLinearQuotient_add`: For entire F,G, Q_a(F+G)=Q_a(F)+Q_a(G).
+- `entireLinearQuotient_C_mul`: For entire F and any b in A, Q_a(bF)=b Q_a(F).
+- `entireLinearQuotient_C`: Q_a(b)=0 for any constant b.
+- `entireLinearQuotient_at_zero`: Q_0(F) is the native shifted series with coefficient c_(n+1), for every formal F.
+- `entireLinearQuotient_entire`: If F is entire and A is ultrametric, Q_a(F) is entire. Promoted to its own node.
+- `entireLinearQuotient_polynomial`: For a polynomial P, Q_a(P) is the native monic polynomial quotient P divided by T-a, included in the native power-series ring. Promoted to its own comparison node.
+
+Typed tests:
+
+- `linear_quotient_constant`: For any a,b in A, Q_a(b)=0.
+- `linear_quotient_quadratic`: For any a in A, Q_a(T^2)=T+a.
+- `linear_quotient_zero_shift`: For every formal F, Q_0(F)=PowerSeries.mk of the shifted coefficients c_(n+1).
+- `linear_quotient_native_polynomial`: For ultrametric A, any a and polynomial P, Q_a(P)=the native polynomial quotient P divByMonic (T-a) included in A[[T]].
+- `linear_quotient_zero_divisor`: For e in A with e^2=0, Q_e(eT^2)=eT. Nonzero nilpotents need not be discarded.
+
+Acceptance:
+
+- Q_a(T^2)=T+a; replacing n+1+k by n+k or changing a to -a fails this test.
+- Neither a topologically nilpotent parameter nor a domain hypothesis is introduced.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Coefficient formula for the tail quotient
+
+`LocallyAnalyticDistributions:L4/entire-linear-quotient-coeff` (lemma); proposed declaration `TauCeti.NonarchimedeanFredholm.entireLinearQuotient_coeff`.
+
+For every formal F, a and n, coeff_n(Q_a(F))=sum_(k>=0)c_(n+1+k)a^k as an equality of total native sums; for entire F the sum converges.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. Unfold only the constructor and apply the native coefficient-of-mk equation. Summability on entire inputs is provided by the construction prerequisite.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-linear-quotient`, `mathlib:PowerSeries.coeff_mk`.
+
+Acceptance:
+
+- The first quotient coefficient starts at c_1, not c_0.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Recurrence for linear-quotient coefficients
+
+`LocallyAnalyticDistributions:L4/entire-linear-quotient-recurrence` (lemma); proposed declaration `TauCeti.NonarchimedeanFredholm.entireLinearQuotient_recurrence`.
+
+For entire F, q_n=c_(n+1)+a q_(n+1) for every n>=0.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. Use the generated additive Summable.tsum_eq_zero_add from the indexed native multiplicative declaration to split k=0 from the convergent tail.
+2. Reindex the remaining k+1 terms, use a^(k+1)=a a^k and commute the scalar a with the sum.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-linear-quotient-coeff`, `LocallyAnalyticDistributions:L4/entire-tail-summable`, `mathlib:Multipliable.tprod_eq_zero_mul`, `mathlib:Summable.tsum_mul_left`.
+
+Acceptance:
+
+- For F=T^2 the recurrence gives q_1=1 and q_0=a, fixing both sign and indexing.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Ultrametric bound for each quotient coefficient
+
+`LocallyAnalyticDistributions:L4/entire-linear-quotient-bound` (lemma); proposed declaration `TauCeti.NonarchimedeanFredholm.entireLinearQuotient_bound`.
+
+Suppose A is ultrametric, S>0, norm(a)<=S and M>=0 satisfies norm(c_m) S^m<=M for all m. Then norm(coeff_n(Q_a(F)))<=M/S^(n+1) for every n. This bound is valid for the total construction even without an entireness assumption; it does not by itself assert tail convergence.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. Multiply the norm of the kth summand by S^(n+1). Submultiplicativity and norm(a)^k<=S^k give norm(c_(n+1+k))S^(n+1+k)<=M. Divide by the positive S^(n+1).
+2. Install the native ultrametric instance and apply the generated additive norm_tsum_le_of_forall_le_of_nonneg. Its total-sum convention makes the bound valid even for a nonsummable input; analytic use separately invokes entire-tail-summable.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-linear-quotient-coeff`, `mathlib:norm_pow_le`, `mathlib:IsUltrametricDist.isUltrametricDist_of_isNonarchimedean_norm`, `mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le_of_nonneg`.
+
+Acceptance:
+
+- At n=0 the loss is M/S, not M. The boundary norm(a)=S is allowed in the bound.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Entireness of the linear quotient
+
+`LocallyAnalyticDistributions:L4/entire-linear-quotient-entire` (lemma); proposed declaration `TauCeti.NonarchimedeanFredholm.entireLinearQuotient_entire`.
+
+Over ultrametric A, for every a and entire F the quotient Q_a(F) is entire.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. Fix R>0 and choose S>max(R,norm(a),1). Boundedness of the coefficient sequence at S supplies M>=0.
+2. The quotient bound gives norm(q_n)R^n <= (M/S)(R/S)^n. Since 0<R/S<1, the native geometric limit and squeezing give convergence to zero. Repeat for every positive R.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-linear-quotient-bound`, `LocallyAnalyticDistributions:L4/entire-series`, `mathlib:Filter.Tendsto.bddAbove_range`, `mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one`.
+
+Acceptance:
+
+- There is no restriction norm(a)<1. A larger radius than the tested radius is essential; boundedness at R alone is insufficient.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Division identity with evaluation as remainder
+
+`LocallyAnalyticDistributions:L4/entire-linear-division` (theorem); proposed declaration `TauCeti.NonarchimedeanFredholm.entire_linear_division`.
+
+For entire F and arbitrary a, F=(T-a)Q_a(F)+F(a) in native A[[T]], where F(a)=sum_(n>=0)c_n a^n and the remainder is a constant series.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. For coefficient n+1 the displayed identity is exactly q_n-a q_(n+1)=c_(n+1), the preceding recurrence.
+2. For coefficient zero, split the convergent evaluation sum to obtain F(a)=c_0+a q_0. The scalar term then cancels -a q_0.
+3. Apply native coefficient extensionality. The identity itself uses normed-ring summability; the separate entireness node supplies the analytic quotient over an ultrametric ring.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-linear-quotient-recurrence`, `LocallyAnalyticDistributions:L4/entire-tail-summable`, `mathlib:PowerSeries.ext`, `mathlib:PowerSeries.coeff_succ_X_mul`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:Multipliable.tprod_eq_zero_mul`, `mathlib:Summable.tsum_mul_left`.
+
+Acceptance:
+
+- At a=0 this is the existing native shift identity F=T shift(F)+c_0. A formal substitution with nonzero constant is never applied to a general series.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### An entire linear product cannot be a nonzero constant
+
+`LocallyAnalyticDistributions:L4/entire-linear-product-constant` (lemma); proposed declaration `TauCeti.NonarchimedeanFredholm.entire_linear_product_constant`.
+
+If H is entire and (T-a)H=b is a constant series, then H=0 and b=0. This holds over a complete commutative normed ring without a domain assumption.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. Positive-degree coefficients give h_n=a h_(n+1), hence induction gives h_n=a^k h_(n+k) for every k.
+2. Choose R>=max(1,norm(a)). For fixed n, norm(h_n)<=R^(-n) norm(h_(n+k))R^(n+k), whose right side tends to zero by entireness at R and a shifted natural-index limit. The native closed-order limit lemma forces norm(h_n)=0.
+3. All coefficients vanish; coefficient zero in the product identity now gives b=0. This is the linear-factor corrected entire case of the issue in Coleman A3.1; no claim is made for all restricted series.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-series`, `mathlib:PowerSeries.coeff_succ_X_mul`, `mathlib:PowerSeries.coeff_C_mul`, `mathlib:PowerSeries.ext`, `mathlib:norm_pow_le`, `mathlib:le_of_tendsto`.
+
+Typed tests:
+
+- `linear_entire_uniqueness_boundary`: For any a in A, the native formal geometric series H=sum a^n T^n satisfies (1-aT)H=1. At a=p in Q_p it is restricted but not entire, disproving the unrestricted replacement in Coleman A3.1.
+
+Acceptance:
+
+- For A=Q_p, H=sum p^n T^n is restricted and (1-pT)H=1. It is not entire: at radius p its weighted coefficients are all one. Thus restricted convergence cannot replace entireness.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+- Coleman-PadicBanach-published-1997, Lemma A3.1, printed432/PDF16; corrected linear entire case, finding LocallyAnalyticDistributions/E1. Mathematical transcription of the displayed notation in the scanned page. The stated restricted-series assertion is false; the node assumes entire H and proves its own linear case.
+
+### Uniqueness of the entire quotient and constant remainder
+
+`LocallyAnalyticDistributions:L4/entire-linear-division-unique` (theorem); proposed declaration `TauCeti.NonarchimedeanFredholm.entire_linear_division_unique`.
+
+If F=(T-a)G+b=(T-a)H+c with entire G,H and b,c in A, then G=H and b=c.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. Subtract the two identities. The existing entire-series subring is closed under subtraction, so G-H is entire.
+2. Apply the preceding product-constant lemma to (T-a)(G-H)=c-b; conclude both differences vanish.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-linear-product-constant`, `LocallyAnalyticDistributions:L4/entire-series`.
+
+Acceptance:
+
+- The statement permits zero divisors and arbitrary a. It never cancels T-a inside all formal series.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Native polynomials are entire
+
+`LocallyAnalyticDistributions:L4/polynomial-series-entire` (lemma); proposed declaration `TauCeti.NonarchimedeanFredholm.polynomialSeries_entire`.
+
+The existing polynomialSeries inclusion sends every polynomial P in A[T] to an entire series. This promotes the existing polynomials_are_entire test to a named prerequisite.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. Identify the existing eval-based polynomialSeries map with the native polynomial-to-power-series inclusion by polynomial induction. Its nth coefficient is P.coeff n by the baseline coefficient comparison.
+2. Above the finite polynomial degree all coefficients are zero, so at each positive radius the weighted coefficient sequence is eventually zero.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-series`, `mathlib:Polynomial.coeff_coe`.
+
+Acceptance:
+
+- Constants and the zero polynomial are included. No analytic convergence estimate is required.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Agreement with native monic polynomial division
+
+`LocallyAnalyticDistributions:L4/entire-linear-quotient-polynomial` (comparison); proposed declaration `TauCeti.NonarchimedeanFredholm.entireLinearQuotient_polynomial`.
+
+For ultrametric A, arbitrary a and polynomial P, Q_a(polynomialSeries(P)) equals polynomialSeries(P divByMonic (T-a)).
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. The native monic-division identity writes P=(T-a)(P divByMonic (T-a))+P(a). Map it into native power series; both polynomial terms are entire by the preceding lemma.
+2. The entire division identity gives a second decomposition, with an entire tail quotient. Uniqueness equates the quotients and also the remainders. No separate evaluation comparison for a polynomial is needed to apply uniqueness with these two constants.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/polynomial-series-entire`, `LocallyAnalyticDistributions:L4/entire-linear-quotient-entire`, `LocallyAnalyticDistributions:L4/entire-linear-division`, `LocallyAnalyticDistributions:L4/entire-linear-division-unique`, `mathlib:Polynomial.divByMonic`, `mathlib:Polynomial.modByMonic_add_div`, `mathlib:Polynomial.modByMonic_X_sub_C_eq_C_eval`.
+
+Acceptance:
+
+- For P=T^2, native division gives T+a; for P constant it gives zero. The polynomial operation is imported rather than recreated.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Roots and linear factors in the entire-series ring
+
+`LocallyAnalyticDistributions:L4/entire-linear-root-factor` (theorem); proposed declaration `TauCeti.NonarchimedeanFredholm.entire_root_iff_linear_factor`.
+
+For ultrametric A, arbitrary a and entire F, F(a)=0 if and only if there exists an entire G with F=(T-a)G.
+
+Hypotheses and conventions:
+
+- A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed.
+
+Proof outline:
+
+1. If F(a)=0, take G=Q_a(F); entireness and the division identity supply the factorization.
+2. Conversely compare the asserted decomposition with constant remainder zero to the constructed entire decomposition with constant remainder F(a). Uniqueness forces F(a)=0.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-linear-division`, `LocallyAnalyticDistributions:L4/entire-linear-quotient-entire`, `LocallyAnalyticDistributions:L4/entire-linear-division-unique`.
+
+Acceptance:
+
+- The factor must be entire; a merely formal factor can exist when evaluation is nonzero. Over Q_p, T-p^(-1) is a unit in Q_p[[T]], but it does not divide 1 in Q_p{{T}}.
+
+Sources:
+
+- Coleman-PadicBanach-published-1997, Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization. Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality.
+
+### Published source findings awaiting independent review
+
+The fresh source reading covered the full published printed430–435/PDF14–19,
+with separate image checks of printed432 and433, and the author copy PDF22–28.
+The published scan and author copy are separately identified and hashed in
+sourceVersions. These findings are recorded without an author-supplied or
+independent-review verdict. The bounded correction search is documented below;
+"new" records that no correction was found in that search.
+
+#### LocallyAnalyticDistributions/E1: error affecting a stated result
+
+Published Lemma A3.1, printed432/PDF16; also author-copy PDF22–23. Display notation checked on both page images.
+
+Printed: H(T) is in A⟨T⟩ and G(T)H(T) is in A, then either G(T) is constant or H(T)=0. (Mathematical transcription of the scanned display.)
+
+Correction: Replace the restricted-series hypothesis H in A⟨T⟩ by the entire-series hypothesis H in A{{T}} for the stated rescaling proof. The new nodes prove the linear-factor entire case directly.
+
+Reason: Take A=Q_p, G=1-pT and H=sum_(n>=0)p^n T^n. The leading coefficient -p is multiplicative, H is a nonzero restricted series, and GH=1; G is nonconstant. H is not entire because at radius p the weighted coefficients are all1. Rescaling T to a^M T to make the leading term dominate does not in general preserve restricted convergence, whereas entire convergence survives every fixed rescaling. This falsifies the auxiliary lemma as stated; it does not refute the later entire-series division or resultant conclusions.
+
+#### LocallyAnalyticDistributions/E2: misprint affecting the proof
+
+Published proof of Lemma A3.4, printed433/PDF17; also author-copy PDF24. Published formula checked on the page image.
+
+Printed: K(T)=sum_(i=1)^n (-1)^i c_i T^(n-i). (Mathematical transcription of the scanned display.)
+
+Correction: Insert the missing leading term: K(T)=T^n+sum_(i=1)^n(-1)^i c_i T^(n-i).
+
+Reason: The preceding Q is monic and the proof constructs a universal splitting algebra by imposing K(T)=product_i(T-b_i). As printed K has zero T^n coefficient; equating coefficients imposes0=1, giving the zero ring and no way to infer the claimed identity in C. The monic correction is the intended polynomial and restores the splitting-algebra argument. The displayed slip alone does not disprove Lemma A3.4.
+
+Correction search:
+
+- 27September2026: opened the Springer version-of-record landing page https://link.springer.com/article/10.1007/s002220050127; no correction link found. Read the published scan from the recorded public mirror and the separately hashed public author copy.
+- Targeted public searches for the title with erratum/correction and Coleman A3.1 with error/entire, and Coleman A3.4 with correction/erratum; no relevant correction located. This was a bounded search, not proof that none exists.
+- Searched the atlas source-issues registry and research/errata/REGISTER.md for the exact title and author-copy identifier: no existing finding found. The wstein memorial directory did not open and its paper endpoint returned403, so no successful reading of that page is claimed.
+
+For A3.1 the counterexample meets the source's multiplicative-leading-coefficient
+condition: every nonzero element of Q_p has multiplicative norm. Its rescaling
+argument works for entire H because every fixed rescaling remains convergent.
+The local new uniqueness lemma proves its own linear case directly. For A3.4
+the missing monic term collapses the displayed coefficient quotient to the zero
+ring; restoring it gives the intended universal splitting polynomial. Neither
+finding is represented as a disproof of the later entire resultant conclusions.
+
+### Validation boundary
+
+The complete suggested file compiles with zero errors and 197 proof-placeholder
+warnings only, against 1,983 byte-checked pinned Mathlib sources. It contains
+seventeen newly named declarations and six new typed examples. All implementation
+statuses remain unchecked. There are no actual planned-supplier or Tau Ceti imports.
+
+A separate scratch file proves eleven lemmas using one native quotient
+construction, with no errors, warnings or proof placeholders, against 2,795
+byte-checked Mathlib sources. Three lemmas take explicit summability hypotheses
+to verify addition, the recurrence and the division identity; another proves
+iteration from an explicit coefficient recurrence. The other seven verify
+native coefficients, zero/shift behavior, ultrametric sum and weighted bounds,
+polynomial division and the formal geometric counterexample. These checks do
+not implement the planned entire convergence or analytic uniqueness theorems.
+
+Independent exact arithmetic passes 17,775 assertions over 640 finite polynomial
+systems for primes2,3,5,7, using rational coefficient pairs modeling the
+nonreduced ring Q_p[epsilon]/epsilon^2. It compares descending Euclidean division
+with the coefficient-tail formula, checks Horner evaluation, norm/radius bounds,
+scalar/additive laws, sign/index controls and both source findings. Finite
+truncation tests are not used as a proof about infinite series.
+
+## Earlier checkpoint material
+
 **Fredholm coefficient checkpoint, 27 September 2026.** The current packet has
 80 unchecked nodes, 49 API entries, 64 packet tests and typed examples,
 6 planets and 84 baseline declarations. Eight gaps, five requests and no

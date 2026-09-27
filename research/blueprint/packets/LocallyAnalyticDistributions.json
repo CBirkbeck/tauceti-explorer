@@ -10,13 +10,14 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial roadmap with the existing adjugate/Hasse/Riesz spine and an explicit eight-node finite-projectivity chain for a complemented root kernel. Geometric inversion, projection of arbitrary finite-A-image approximants, inheritance of (Pr), finite generation and projectivity are separated. Canonical finite-module topology, rank/determinants, actual distribution families and all inherited gaps remain open. The Fredholm coefficient refinement separates finite ultrametric bounds, arbitrary-index cofinite summability and finite exceptional-set estimates, reusing the native finite principal-minor coefficient formula.",
+  "summary": "Partial roadmap with the existing adjugate/Hasse/Riesz spine and an explicit eight-node finite-projectivity chain for a complemented root kernel. Geometric inversion, projection of arbitrary finite-A-image approximants, inheritance of (Pr), finite generation and projectivity are separated. Canonical finite-module topology, rank/determinants, actual distribution families and all inherited gaps remain open. The Fredholm coefficient refinement separates finite ultrametric bounds, arbitrary-index cofinite summability and finite exceptional-set estimates, reusing the native finite principal-minor coefficient formula. Linear-division continuation: twelve additional declarations give evaluated-tail summability, the native tail quotient, its recurrence and ultrametric bounds, entireness, division, uniqueness, polynomial compatibility and the entire root-factor criterion. Two published Coleman source findings are recorded for independent review. General monic division and spectral transport remain open.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
     "coordinates": "c_A(I) uses ZeroAtInftyContinuousMap on an arbitrary discrete index type I. Write u(e_i)=sum_j a_ij e_j: i is the INPUT index, j the OUTPUT index, and r_j(u)=sup_i norm(a_ij). No countability hypothesis on I. Projections pi_S retain finite sets of output coordinates.",
     "series": "P_u(T)=det(1-Tu), c_0=1 and c_n=(-1)^n times the sum of principal n-minors. A{{T}} means decay norm(c_n) R^n -> 0 for EVERY real R>0, not just R<1. It is not given the single radius-one norm as a complete norm. Q*(X)=X^deg(Q) Q(1/X). Root multiplicity uses Hasse derivatives, with the first nonzero derivative a UNIT.",
-    "riesz": "v=1-au, z_s=Delta_s F_u(a), c=Delta_h P_u(a) a UNIT; b=c^(-1)z_h, p=(vb)^h, E=1-p. E projects onto N=ker(v^h), while Serre calls its regular complement p. At h=0, E=0, N=0, F=M. All inverse statements specify their invariant submodule."
+    "riesz": "v=1-au, z_s=Delta_s F_u(a), c=Delta_h P_u(a) a UNIT; b=c^(-1)z_h, p=(vb)^h, E=1-p. E projects onto N=ker(v^h), while Serre calls its regular complement p. At h=0, E=0, N=0, F=M. All inverse statements specify their invariant submodule.",
+    "linearDivision": "The new entire linear-division nodes state weaker hypotheses than the standing Noetherian K-Banach setup: complete commutative normed A with norm(1)=1; ultrametric only where stated. The parameter a is arbitrary. Native PowerSeries, existing IsEntire/entire_eval and native polynomial divByMonic are reused. Total tsum outside the entire subring is never treated as a convergent analytic evaluation."
   },
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -534,6 +535,76 @@
         "module": "Mathlib/Data/Finset/Card.lean",
         "provides": "The cardinalities of S minus T and S intersect T add to the cardinality of S; the intersection has at most card T elements.",
         "checked": "Actual statement and section hypotheses read in the pinned source; generated additive names are used only through their indexed multiplicative generators."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto.bddAbove_range",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order/LiminfLimsup.lean",
+        "provides": "A real sequence converging along atTop has bounded-above range.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:norm_pow_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Ring/Basic.lean",
+        "provides": "Submultiplicativity gives norm(a^n)<=norm(a)^n with NormOneClass, including n=0.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Multipliable.tprod_eq_zero_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/NatInt.lean",
+        "provides": "Read the to_additive generator: Summable.tsum_eq_zero_add splits the zero term of a summable natural series in a Hausdorff topological additive commutative group.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Summable.tsum_mul_left",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Ring.lean",
+        "provides": "A summable series commutes with multiplication by a fixed scalar in a Hausdorff topological semiring.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:PowerSeries.ext",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Native series equality follows from equality of every coefficient.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_succ_X_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The coefficient of degree n+1 in X times a native series is its coefficient of degree n.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_C_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Native coefficient projection commutes with multiplication on the left by a constant series.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.divByMonic",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "Existing total quotient by a monic polynomial; used only for X-C(a).",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.modByMonic_add_div",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "The native remainder plus divisor times native quotient equals the dividend.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.modByMonic_X_sub_C_eq_C_eval",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "Remainder on division by X-C(a) is C(P.eval(a)) over a commutative ring.",
+        "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
       }
     ]
   },
@@ -589,9 +660,24 @@
       "readDate": "2026-09-26",
       "readSections": [
         "Appendix A3, Lemmas A3.5, A3.7, A3.8 and Theorem A3.9",
-        "Appendix A4, proof of Lemma A4.1 and the root/slope argument A4.2-A4.3"
+        "Appendix A4, proof of Lemma A4.1 and the root/slope argument A4.2-A4.3",
+        "Linear-division continuation,27September2026: full author PDF22–28 freshly read and compared with published printed430–435. Earlier reads retained as prior provenance."
       ],
-      "note": "Transport from the manuscript's hypotheses to arbitrary Noetherian K-Banach algebras and (Pr) modules remains a listed gap; the source is not cited as having already proved that transport."
+      "note": "Transport from the manuscript's hypotheses to arbitrary Noetherian K-Banach algebras and (Pr) modules remains a listed gap; the source is not cited as having already proved that transport.",
+      "sha256": "d4035d4c48825de9ce9da47791e328f4bd03c8e6145f40ccb8ab80712b5f1b5c"
+    },
+    {
+      "id": "Coleman-PadicBanach-published-1997",
+      "title": "P-adic Banach Spaces and Families of Modular Forms",
+      "authors": "Robert F. Coleman",
+      "edition": "Published version, Inventiones Mathematicae 127 (1997), 417–479; public scan",
+      "url": "https://kundudeb.github.io/1997_Coleman.pdf",
+      "sha256": "32ff34f60fc2ef4608506daa169c3cc61e07520f019d63928e86b093a16b1973",
+      "readDate": "2026-09-27",
+      "readSections": [
+        "Full printed430–435/PDF14–19; images of printed432 and433 checked to distinguish display notation from OCR."
+      ],
+      "note": "Linear division is a worker deduction of the p434 division input. No full-paper coverage or transport of all Coleman hypotheses is claimed."
     }
   ],
   "nodes": [
@@ -4285,6 +4371,570 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-tail-summable",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Summability of every evaluated coefficient tail",
+      "kind": "lemma",
+      "statement": "If F=sum c_n T^n is entire and a is any element of A, then for every m>=0 the series sum_(k>=0) c_(m+k) a^k is summable. The case m=0 is evaluation at a.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:Filter.Tendsto.bddAbove_range",
+        "mathlib:norm_pow_le",
+        "mathlib:summable_geometric_of_lt_one",
+        "mathlib:Summable.of_norm_bounded_eventually_nat"
+      ],
+      "proofSteps": [
+        "Choose S>max(1,norm(a)). Entireness at S makes norm(c_j)S^j converge to zero; the native bounded-range theorem supplies M>=0 bounding every term.",
+        "Submultiplicativity and norm_pow_le bound norm(c_(m+k)a^k) by (M/S^m)(norm(a)/S)^k. The ratio lies in [0,1).",
+        "Use the native summable geometric series, scalar multiplication and norm-dominated summability in the complete normed additive group. This argument does not require the ultrametric inequality."
+      ],
+      "acceptance": [
+        "At a=0 only k=0 survives. For m=0 this supplies the actual convergence needed to split entire_eval, not merely a total tsum value."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entire_tail_summable"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-quotient",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Tail quotient for division by a linear factor",
+      "kind": "construction",
+      "statement": "For a in A and a native formal series F=sum c_n T^n, define Q_a(F) by coefficient q_n=sum_(k>=0) c_(n+1+k)a^k, using the total native infinite sum. Its analytic quotient interpretation and additive/scalar laws below are asserted for entire F, where every tail converges. No new carrier for entire series is introduced.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "LocallyAnalyticDistributions:L4/entire-tail-summable",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "proofSteps": [
+        "Apply native PowerSeries.mk to the displayed total coefficient function. The preceding tail-summability node justifies its convergent interpretation on the existing entire-series subring.",
+        "Derive zero, constants and the zero-parameter shift coefficientwise. For entire inputs, summability permits additivity and multiplication by a scalar. The promoted coefficient, recurrence, norm, entireness and polynomial comparison nodes expose the interface used by later declarations."
+      ],
+      "acceptance": [
+        "Q_a(T^2)=T+a; replacing n+1+k by n+k or changing a to -a fails this test.",
+        "Neither a topologically nilpotent parameter nor a domain hypothesis is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireLinearQuotient"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "Coleman A3, proof of Lemma A3.5 and the quotient-algebra interpretation on printed434",
+          "how": "Provide the linear-factor analytic quotient and its polynomial remainder."
+        },
+        {
+          "where": "L4/entire-linear-root-factor and existing entireResultant_linear API",
+          "how": "Identify the entire ideal generated by T-a and the remainder F(a), without assuming evaluation on an arbitrary formal series converges."
+        }
+      ],
+      "api": [
+        {
+          "name": "entireLinearQuotient_coeff",
+          "role": "data",
+          "statement": "The coefficient q_n is the convergent tail sum_(k>=0)c_(n+1+k)a^k for entire F; the total coefficient equality holds for every F. Promoted to its own node."
+        },
+        {
+          "name": "entireLinearQuotient_zero",
+          "role": "simp",
+          "statement": "Q_a(0)=0."
+        },
+        {
+          "name": "entireLinearQuotient_add",
+          "role": "structure",
+          "statement": "For entire F,G, Q_a(F+G)=Q_a(F)+Q_a(G)."
+        },
+        {
+          "name": "entireLinearQuotient_C_mul",
+          "role": "structure",
+          "statement": "For entire F and any b in A, Q_a(bF)=b Q_a(F)."
+        },
+        {
+          "name": "entireLinearQuotient_C",
+          "role": "simp",
+          "statement": "Q_a(b)=0 for any constant b."
+        },
+        {
+          "name": "entireLinearQuotient_at_zero",
+          "role": "compatibility",
+          "statement": "Q_0(F) is the native shifted series with coefficient c_(n+1), for every formal F."
+        },
+        {
+          "name": "entireLinearQuotient_entire",
+          "role": "compatibility",
+          "statement": "If F is entire and A is ultrametric, Q_a(F) is entire. Promoted to its own node."
+        },
+        {
+          "name": "entireLinearQuotient_polynomial",
+          "role": "compatibility",
+          "statement": "For a polynomial P, Q_a(P) is the native monic polynomial quotient P divided by T-a, included in the native power-series ring. Promoted to its own comparison node."
+        }
+      ],
+      "tests": [
+        {
+          "name": "linear_quotient_constant",
+          "kind": "degenerate",
+          "statement": "For any a,b in A, Q_a(b)=0."
+        },
+        {
+          "name": "linear_quotient_quadratic",
+          "kind": "computation",
+          "statement": "For any a in A, Q_a(T^2)=T+a."
+        },
+        {
+          "name": "linear_quotient_zero_shift",
+          "kind": "compatibility",
+          "statement": "For every formal F, Q_0(F)=PowerSeries.mk of the shifted coefficients c_(n+1)."
+        },
+        {
+          "name": "linear_quotient_native_polynomial",
+          "kind": "compatibility",
+          "statement": "For ultrametric A, any a and polynomial P, Q_a(P)=the native polynomial quotient P divByMonic (T-a) included in A[[T]]."
+        },
+        {
+          "name": "linear_quotient_zero_divisor",
+          "kind": "computation",
+          "statement": "For e in A with e^2=0, Q_e(eT^2)=eT. Nonzero nilpotents need not be discarded."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-quotient-coeff",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Coefficient formula for the tail quotient",
+      "kind": "lemma",
+      "statement": "For every formal F, a and n, coeff_n(Q_a(F))=sum_(k>=0)c_(n+1+k)a^k as an equality of total native sums; for entire F the sum converges.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-linear-quotient",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "proofSteps": [
+        "Unfold only the constructor and apply the native coefficient-of-mk equation. Summability on entire inputs is provided by the construction prerequisite."
+      ],
+      "acceptance": [
+        "The first quotient coefficient starts at c_1, not c_0."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireLinearQuotient_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-quotient-recurrence",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Recurrence for linear-quotient coefficients",
+      "kind": "lemma",
+      "statement": "For entire F, q_n=c_(n+1)+a q_(n+1) for every n>=0.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-linear-quotient-coeff",
+        "LocallyAnalyticDistributions:L4/entire-tail-summable",
+        "mathlib:Multipliable.tprod_eq_zero_mul",
+        "mathlib:Summable.tsum_mul_left"
+      ],
+      "proofSteps": [
+        "Use the generated additive Summable.tsum_eq_zero_add from the indexed native multiplicative declaration to split k=0 from the convergent tail.",
+        "Reindex the remaining k+1 terms, use a^(k+1)=a a^k and commute the scalar a with the sum."
+      ],
+      "acceptance": [
+        "For F=T^2 the recurrence gives q_1=1 and q_0=a, fixing both sign and indexing."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireLinearQuotient_recurrence"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-quotient-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Ultrametric bound for each quotient coefficient",
+      "kind": "lemma",
+      "statement": "Suppose A is ultrametric, S>0, norm(a)<=S and M>=0 satisfies norm(c_m) S^m<=M for all m. Then norm(coeff_n(Q_a(F)))<=M/S^(n+1) for every n. This bound is valid for the total construction even without an entireness assumption; it does not by itself assert tail convergence.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-linear-quotient-coeff",
+        "mathlib:norm_pow_le",
+        "mathlib:IsUltrametricDist.isUltrametricDist_of_isNonarchimedean_norm",
+        "mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le_of_nonneg"
+      ],
+      "proofSteps": [
+        "Multiply the norm of the kth summand by S^(n+1). Submultiplicativity and norm(a)^k<=S^k give norm(c_(n+1+k))S^(n+1+k)<=M. Divide by the positive S^(n+1).",
+        "Install the native ultrametric instance and apply the generated additive norm_tsum_le_of_forall_le_of_nonneg. Its total-sum convention makes the bound valid even for a nonsummable input; analytic use separately invokes entire-tail-summable."
+      ],
+      "acceptance": [
+        "At n=0 the loss is M/S, not M. The boundary norm(a)=S is allowed in the bound."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireLinearQuotient_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-quotient-entire",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Entireness of the linear quotient",
+      "kind": "lemma",
+      "statement": "Over ultrametric A, for every a and entire F the quotient Q_a(F) is entire.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-linear-quotient-bound",
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:Filter.Tendsto.bddAbove_range",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "proofSteps": [
+        "Fix R>0 and choose S>max(R,norm(a),1). Boundedness of the coefficient sequence at S supplies M>=0.",
+        "The quotient bound gives norm(q_n)R^n <= (M/S)(R/S)^n. Since 0<R/S<1, the native geometric limit and squeezing give convergence to zero. Repeat for every positive R."
+      ],
+      "acceptance": [
+        "There is no restriction norm(a)<1. A larger radius than the tested radius is essential; boundedness at R alone is insufficient."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireLinearQuotient_entire"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-division",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Division identity with evaluation as remainder",
+      "kind": "theorem",
+      "statement": "For entire F and arbitrary a, F=(T-a)Q_a(F)+F(a) in native A[[T]], where F(a)=sum_(n>=0)c_n a^n and the remainder is a constant series.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-linear-quotient-recurrence",
+        "LocallyAnalyticDistributions:L4/entire-tail-summable",
+        "mathlib:PowerSeries.ext",
+        "mathlib:PowerSeries.coeff_succ_X_mul",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:Multipliable.tprod_eq_zero_mul",
+        "mathlib:Summable.tsum_mul_left"
+      ],
+      "proofSteps": [
+        "For coefficient n+1 the displayed identity is exactly q_n-a q_(n+1)=c_(n+1), the preceding recurrence.",
+        "For coefficient zero, split the convergent evaluation sum to obtain F(a)=c_0+a q_0. The scalar term then cancels -a q_0.",
+        "Apply native coefficient extensionality. The identity itself uses normed-ring summability; the separate entireness node supplies the analytic quotient over an ultrametric ring."
+      ],
+      "acceptance": [
+        "At a=0 this is the existing native shift identity F=T shift(F)+c_0. A formal substitution with nonzero constant is never applied to a general series."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entire_linear_division"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-product-constant",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "An entire linear product cannot be a nonzero constant",
+      "kind": "lemma",
+      "statement": "If H is entire and (T-a)H=b is a constant series, then H=0 and b=0. This holds over a complete commutative normed ring without a domain assumption.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:PowerSeries.coeff_succ_X_mul",
+        "mathlib:PowerSeries.coeff_C_mul",
+        "mathlib:PowerSeries.ext",
+        "mathlib:norm_pow_le",
+        "mathlib:le_of_tendsto"
+      ],
+      "proofSteps": [
+        "Positive-degree coefficients give h_n=a h_(n+1), hence induction gives h_n=a^k h_(n+k) for every k.",
+        "Choose R>=max(1,norm(a)). For fixed n, norm(h_n)<=R^(-n) norm(h_(n+k))R^(n+k), whose right side tends to zero by entireness at R and a shifted natural-index limit. The native closed-order limit lemma forces norm(h_n)=0.",
+        "All coefficients vanish; coefficient zero in the product identity now gives b=0. This is the linear-factor corrected entire case of the issue in Coleman A3.1; no claim is made for all restricted series."
+      ],
+      "acceptance": [
+        "For A=Q_p, H=sum p^n T^n is restricted and (1-pT)H=1. It is not entire: at radius p its weighted coefficients are all one. Thus restricted convergence cannot replace entireness."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entire_linear_product_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        },
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Lemma A3.1, printed432/PDF16; corrected linear entire case, finding LocallyAnalyticDistributions/E1",
+          "match": "Mathematical transcription of the displayed notation in the scanned page. The stated restricted-series assertion is false; the node assumes entire H and proves its own linear case."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "linear_entire_uniqueness_boundary",
+          "kind": "non-example",
+          "statement": "For any a in A, the native formal geometric series H=sum a^n T^n satisfies (1-aT)H=1. At a=p in Q_p it is restricted but not entire, disproving the unrestricted replacement in Coleman A3.1."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-division-unique",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Uniqueness of the entire quotient and constant remainder",
+      "kind": "theorem",
+      "statement": "If F=(T-a)G+b=(T-a)H+c with entire G,H and b,c in A, then G=H and b=c.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-linear-product-constant",
+        "LocallyAnalyticDistributions:L4/entire-series"
+      ],
+      "proofSteps": [
+        "Subtract the two identities. The existing entire-series subring is closed under subtraction, so G-H is entire.",
+        "Apply the preceding product-constant lemma to (T-a)(G-H)=c-b; conclude both differences vanish."
+      ],
+      "acceptance": [
+        "The statement permits zero divisors and arbitrary a. It never cancels T-a inside all formal series."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entire_linear_division_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/polynomial-series-entire",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Native polynomials are entire",
+      "kind": "lemma",
+      "statement": "The existing polynomialSeries inclusion sends every polynomial P in A[T] to an entire series. This promotes the existing polynomials_are_entire test to a named prerequisite.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:Polynomial.coeff_coe"
+      ],
+      "proofSteps": [
+        "Identify the existing eval-based polynomialSeries map with the native polynomial-to-power-series inclusion by polynomial induction. Its nth coefficient is P.coeff n by the baseline coefficient comparison.",
+        "Above the finite polynomial degree all coefficients are zero, so at each positive radius the weighted coefficient sequence is eventually zero."
+      ],
+      "acceptance": [
+        "Constants and the zero polynomial are included. No analytic convergence estimate is required."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "polynomialSeries_entire"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-quotient-polynomial",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Agreement with native monic polynomial division",
+      "kind": "comparison",
+      "statement": "For ultrametric A, arbitrary a and polynomial P, Q_a(polynomialSeries(P)) equals polynomialSeries(P divByMonic (T-a)).",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/polynomial-series-entire",
+        "LocallyAnalyticDistributions:L4/entire-linear-quotient-entire",
+        "LocallyAnalyticDistributions:L4/entire-linear-division",
+        "LocallyAnalyticDistributions:L4/entire-linear-division-unique",
+        "mathlib:Polynomial.divByMonic",
+        "mathlib:Polynomial.modByMonic_add_div",
+        "mathlib:Polynomial.modByMonic_X_sub_C_eq_C_eval"
+      ],
+      "proofSteps": [
+        "The native monic-division identity writes P=(T-a)(P divByMonic (T-a))+P(a). Map it into native power series; both polynomial terms are entire by the preceding lemma.",
+        "The entire division identity gives a second decomposition, with an entire tail quotient. Uniqueness equates the quotients and also the remainders. No separate evaluation comparison for a polynomial is needed to apply uniqueness with these two constants."
+      ],
+      "acceptance": [
+        "For P=T^2, native division gives T+a; for P constant it gives zero. The polynomial operation is imported rather than recreated."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireLinearQuotient_polynomial"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-linear-root-factor",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Roots and linear factors in the entire-series ring",
+      "kind": "theorem",
+      "statement": "For ultrametric A, arbitrary a and entire F, F(a)=0 if and only if there exists an entire G with F=(T-a)G.",
+      "hypotheses": [
+        "A is a complete commutative normed ring with submultiplicative norm and norm(1)=1. The named series is entire when explicitly required; a is any element of A. No field, reducedness, Noetherianity or small-norm condition on a is assumed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-linear-division",
+        "LocallyAnalyticDistributions:L4/entire-linear-quotient-entire",
+        "LocallyAnalyticDistributions:L4/entire-linear-division-unique"
+      ],
+      "proofSteps": [
+        "If F(a)=0, take G=Q_a(F); entireness and the division identity supply the factorization.",
+        "Conversely compare the asserted decomposition with constant remainder zero to the constructed entire decomposition with constant remainder F(a). Uniqueness forces F(a)=0."
+      ],
+      "acceptance": [
+        "The factor must be entire; a merely formal factor can exist when evaluation is nonzero. Over Q_p, T-p^(-1) is a unit in Q_p[[T]], but it does not divide 1 in Q_p{{T}}."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entire_root_iff_linear_factor"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Section A3, printed p.434/PDF18, proof of Lemma A3.5; linear-factor specialization",
+          "match": "Worker deduction supplying the explicit linear-factor division input to this passage. The source does not state the coefficient formula or this weaker Banach-ring generality."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -4432,7 +5082,8 @@
         "Complete the explicitly omitted signatures, especially completed-tensor base change and the Riesz/slope hypotheses. The present partial suggested file elaborates at the pin; this is not a formalization claim.",
         "Resolve the imported complete-continuity generality request in AdicSpacesPartII:R3 without creating a second predicate or silently importing its strict variant.",
         "The root projector and canonical topological decomposition are now separately specified. Complete the finite-projective determinant/rank and exact-slope arguments; the continuous regular inverse alone supplies neither rank nor polynomial determinant equality.",
-        "The root-kernel geometric inverse and finite-projectivity chain are separately decomposed. Discharge the existing canonical finite-module-topology input, then the constant-rank and determinant argument over nonreduced coefficients; the new adapter does not settle those gaps."
+        "The root-kernel geometric inverse and finite-projectivity chain are separately decomposed. Discharge the existing canonical finite-module-topology input, then the constant-rank and determinant argument over nonreduced coefficients; the new adapter does not settle those gaps.",
+        "The linear-factor entire quotient, uniqueness and native polynomial comparison are decomposed. Finish general monic degree>=2 quotient/remainder estimates and resolve the two Coleman source findings through independent review."
       ]
     }
   ],
@@ -4460,7 +5111,7 @@
     },
     {
       "title": "Remaining analytic helper and API granularity",
-      "detail": "Hasse calculus, Riesz projector algebra and the operator-valued adjugate estimate now have separate nodes and typed signatures. The latter includes distinct-column finite bounds, finite output support, arbitrary finite-subset nets, fixed-degree recurrence continuity and the actual (Pr) compression factor. Remaining helper/API work: finite-free determinant comparison in greater detail, the lifting-converse bounded generating family, polynomial division estimates and finite-projective determinant/rank. These are not closed by the new resolvent estimate. The finite-projectivity paragraph now has a finite geometric inverse, actual projection/compression estimate, compact identity, finite generation and (Pr) inheritance nodes; their finite-module-topology dependency remains. The coefficient construction now has separate finite product/determinant perturbation, determinant column bound, cofinite minor decay and finite-exception product nodes. The finite-coordinate determinant comparison uses the pinned native principal-minor coefficient formula; arbitrary finite-free-image comparison still needs the stated topology and transport steps."
+      "detail": "Hasse calculus, Riesz projector algebra and the operator-valued adjugate estimate now have separate nodes and typed signatures. The latter includes distinct-column finite bounds, finite output support, arbitrary finite-subset nets, fixed-degree recurrence continuity and the actual (Pr) compression factor. Remaining helper/API work: finite-free determinant comparison in greater detail, the lifting-converse bounded generating family, polynomial division estimates and finite-projective determinant/rank. These are not closed by the new resolvent estimate. The finite-projectivity paragraph now has a finite geometric inverse, actual projection/compression estimate, compact identity, finite generation and (Pr) inheritance nodes; their finite-module-topology dependency remains. The coefficient construction now has separate finite product/determinant perturbation, determinant column bound, cofinite minor decay and finite-exception product nodes. The finite-coordinate determinant comparison uses the pinned native principal-minor coefficient formula; arbitrary finite-free-image comparison still needs the stated topology and transport steps. The degree-one case is now separately decomposed through evaluated tails, quotient bounds, entireness and uniqueness. General monic degree>=2 still requires the finite-dimensional remainder recurrence and convergence estimates; the source correction in A3.1 must be respected."
     },
     {
       "title": "Distribution stages and universal-character families",
@@ -4468,7 +5119,7 @@
     },
     {
       "title": "Prototype and validation boundary",
-      "detail": "The current seed supplies typed adjugate, finite-coordinate, coefficient-bound, arbitrary-filter continuity and retraction signatures, in addition to the earlier Hasse and Riesz algebra. The full finite-projective Riesz/slope signatures and completed-tensor base-change API remain omitted for the inherited determinant/rank, spectral-resultant and actual tensor-carrier reasons. Inherited assumptions still require audit as the remaining topology/lifting/division signatures are filled. Compilation checks types; all implementation statuses remain unchecked. Native signatures for the root-kernel inverse, approximation, finite generation and algebraic projectivity, and the existing finite-pr-projective node are now supplied. The full constant-rank/determinant theorem remains omitted for the stated gap. The finite-coordinate determinant comparison now has its full typed conclusion with the negative matrix and polynomial-to-power-series map. Five new coefficient-helper signatures are supplied."
+      "detail": "The current seed supplies typed adjugate, finite-coordinate, coefficient-bound, arbitrary-filter continuity and retraction signatures, in addition to the earlier Hasse and Riesz algebra. The full finite-projective Riesz/slope signatures and completed-tensor base-change API remain omitted for the inherited determinant/rank, spectral-resultant and actual tensor-carrier reasons. Inherited assumptions still require audit as the remaining topology/lifting/division signatures are filled. Compilation checks types; all implementation statuses remain unchecked. Native signatures for the root-kernel inverse, approximation, finite generation and algebraic projectivity, and the existing finite-pr-projective node are now supplied. The full constant-rank/determinant theorem remains omitted for the stated gap. The finite-coordinate determinant comparison now has its full typed conclusion with the negative matrix and polynomial-to-power-series map. Five new coefficient-helper signatures are supplied. Twelve linear-division declarations and six typed examples now have signatures. The full general monic division signature and spectral/finite-projective gaps are not closed by them."
     },
     {
       "title": "Imported complete-continuity contract beyond affinoids",
@@ -4503,7 +5154,40 @@
       "need": "Extend the ordinary predicate and finite-rank/composition/closedness API of AdicSpacesPartII:R3/completely-continuous-map from its stated affinoid setting to complete modules over commutative Noetherian K-Banach algebras with compatible bounded action; use the same range-FG epsilon predicate, which the current suggested file already spells out more generally. Promote consumed API to named supplier nodes. Do not import or generalize Kiehl's strict variant as part of this request."
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "LocallyAnalyticDistributions/E1",
+      "source": "Coleman-PadicBanach-published-1997",
+      "kind": "error",
+      "locator": "Published Lemma A3.1, printed432/PDF16; also author-copy PDF22–23. Display notation checked on both page images.",
+      "printed": "Lemma A3.1 asserts that H(T) belonging to A⟨T⟩ and G(T)H(T) belonging to A imply that G(T) must be constant unless H(T)=0.",
+      "correction": "Replace the restricted-series hypothesis H in A⟨T⟩ by the entire-series hypothesis H in A{{T}} for the stated rescaling proof. The new nodes prove the linear-factor entire case directly.",
+      "reason": "Take A=Q_p, G=1-pT and H=sum_(n>=0)p^n T^n. The leading coefficient -p is multiplicative, H is a nonzero restricted series, and GH=1; G is nonconstant. H is not entire because at radius p the weighted coefficients are all1. Rescaling T to a^M T to make the leading term dominate does not in general preserve restricted convergence, whereas entire convergence survives every fixed rescaling. This falsifies the auxiliary lemma as stated; it does not refute the later entire-series division or resultant conclusions.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "27September2026: opened the Springer version-of-record landing page https://link.springer.com/article/10.1007/s002220050127; no correction link found. Read the published scan from the recorded public mirror and the separately hashed public author copy.",
+        "Targeted public searches for the title with erratum/correction and Coleman A3.1 with error/entire, and Coleman A3.4 with correction/erratum; no relevant correction located. This was a bounded search, not proof that none exists.",
+        "Searched the atlas source-issues registry and research/errata/REGISTER.md for the exact title and author-copy identifier: no existing finding found. The wstein memorial directory did not open and its paper endpoint returned403, so no successful reading of that page is claimed."
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions/E2",
+      "source": "Coleman-PadicBanach-published-1997",
+      "kind": "misprint",
+      "locator": "Published proof of Lemma A3.4, printed433/PDF17; also author-copy PDF24. Published formula checked on the page image.",
+      "printed": "The source defines K(T)=sum_(i=1)^n (-1)^i c_i T^(n-i).",
+      "correction": "Insert the missing leading term: K(T)=T^n+sum_(i=1)^n(-1)^i c_i T^(n-i).",
+      "reason": "The preceding Q is monic and the proof constructs a universal splitting algebra by imposing K(T)=product_i(T-b_i). As printed K has zero T^n coefficient; equating coefficients imposes0=1, giving the zero ring and no way to infer the claimed identity in C. The monic correction is the intended polynomial and restores the splitting-algebra argument. The displayed slip alone does not disprove Lemma A3.4.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "27September2026: opened the Springer version-of-record landing page https://link.springer.com/article/10.1007/s002220050127; no correction link found. Read the published scan from the recorded public mirror and the separately hashed public author copy.",
+        "Targeted public searches for the title with erratum/correction and Coleman A3.1 with error/entire, and Coleman A3.4 with correction/erratum; no relevant correction located. This was a bounded search, not proof that none exists.",
+        "Searched the atlas source-issues registry and research/errata/REGISTER.md for the exact title and author-copy identifier: no existing finding found. The wstein memorial directory did not open and its paper endpoint returned403, so no successful reading of that page is claimed."
+      ]
+    }
+  ],
   "restructure": [],
   "libraryReview": {
     "status": "discovery_only",
@@ -4515,122 +5199,104 @@
   },
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "Empty predecessor findings list preserved; errata wrapper passes.",
+    "intake": "Exactly four authorized deliverables; zero problems.",
+    "sourceIssues": "Two findings against the separately hashed published Coleman scan, compared with the author copy, with bounded correction searches and no independent-review verdicts. Errata wrapper passes.",
     "validation": {
-      "nodes": 80,
+      "nodes": 92,
       "kinds": {
-        "comparison": 7,
-        "construction": 10,
+        "comparison": 8,
+        "construction": 11,
         "definition": 3,
-        "lemma": 42,
-        "theorem": 18
+        "lemma": 49,
+        "theorem": 21
       },
-      "api": 49,
-      "definitionConstructionApi": 45,
-      "definitionConstructionTests": 42,
-      "packetTests": 64,
-      "typedExamples": 64,
+      "api": 57,
+      "definitionConstructionApi": 53,
+      "definitionConstructionTests": 47,
+      "packetTests": 70,
+      "typedExamples": 70,
       "planets": 6,
-      "baseline": 84,
-      "preservedStatementsAndHypotheses": 75,
-      "preservedWholeNodes": 71,
-      "preservedRieszFinitenessNodes": 8,
-      "changedMetadata": [
-        "fredholm-determinant",
-        "minor-tail-estimate",
-        "coefficient-continuity",
-        "finite-coordinate-determinant"
-      ],
+      "baseline": 94,
+      "preservedWholeNodes": 80,
+      "preservedBaseline": 84,
       "preservedSourceIssues": 0,
-      "newNodes": 5,
-      "newNamedDeclarations": 6,
-      "newTypedTests": 4,
-      "reachableNodes": 80,
-      "dependencyEdges": 290,
-      "internalEdges": 163,
+      "newSourceIssues": 2,
+      "newNodes": 12,
+      "newNamedDeclarations": 17,
+      "newTypedTests": 6,
+      "reachableNodes": 92,
+      "dependencyEdges": 340,
       "acyclic": true,
-      "coefficientHelpersIndependentOfConsumers": true,
-      "baselineLeaves": 81,
-      "openStageLeaves": [
+      "baselineLeaves": 91,
+      "stageRequestLeaves": [
         "AdicSpacesPartII:R3"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 175,
+      "compilerWarnings": 197,
       "allWarningsPlaceholders": true,
       "pinnedMathlibModules": 1983,
-      "pinnedTauCetiModules": 0,
       "actualSupplierImports": 0,
-      "scratchCompleteTheorems": 7,
+      "scratchProvedLemmas": 11,
+      "scratchSummabilityAdapters": 3,
+      "scratchRecurrenceInduction": 1,
+      "scratchNativeConstructions": 1,
+      "scratchMathlibModules": 2795,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "scratchMathlibModules": 1803,
-      "arithmeticAssertions": 31013,
-      "readerWords": 18895,
+      "arithmeticAssertions": 17775,
+      "readerWords": 22915,
       "scopedMutationCheck": true,
       "requests": 5,
       "gaps": 8,
-      "closedStages": 0
+      "closedStages": 0,
+      "blueprintErrors": 0,
+      "blueprintWarnings": 0,
+      "intakeProblems": 0,
+      "errataErrors": 0
+    },
+    "lean": {
+      "suggestedFileSha256": "9016199dc96529c2748b9c0cc38ee5b9e1e6c9b70728b67ada6cc58bc699d2ad",
+      "sourceAuditSha256": "5061577ae9cf51cae69f9cf991ca1358ef3d9a18615f9fe47ca6b67b87ce6b4f",
+      "errors": 0,
+      "warnings": 197,
+      "warningsOnlyPlaceholders": true,
+      "mathlibModules": 1983,
+      "tauCetiModules": 0,
+      "scratch": {
+        "sha256": "0ec46cc12976051023c231fe32bb9b02f0eb5a4c00f5f8ade5307174bedada0b",
+        "provedLemmas": 11,
+        "nativeConstructions": 1,
+        "modules": 2795,
+        "errors": 0,
+        "warnings": 0,
+        "placeholders": 0,
+        "scope": "Seven unconditional native checks, three adapters with explicit summability hypotheses, and one induction from an explicit coefficient recurrence. The analytic tail convergence and entire uniqueness theorems remain plans."
+      }
     },
     "arithmetic": {
-      "assertions": 31013,
-      "systems": 1200,
-      "counts": {
-        "signed principal-minor polynomial": 1200,
-        "determinant perturbation without factorial": 1200,
-        "distinct column determinant bound": 5600,
-        "uniform geometric coefficient tail": 10800,
-        "coefficient perturbation": 2400,
-        "finite output support polynomial": 1200,
-        "missing output column vanishes": 2800,
-        "finite product perturbation": 1200,
-        "finite exceptional-set product": 4608,
-        "empty matrix coefficient": 1,
-        "nonreduced coefficient survives": 1,
-        "wrong sign rejected": 1,
-        "nonzero nilpotent determinant one": 1,
-        "repeated column bound invalid": 1
-      },
+      "assertions": 17775,
+      "systems": 640,
       "primes": [
         2,
         3,
         5,
         7
       ],
-      "dimensions": [
-        1,
-        2,
-        3
-      ],
-      "coefficientRing": "Exact rational coefficient pairs in Q_p[epsilon]/epsilon^2, with max p-adic norm.",
-      "scope": "Finite arithmetic checks only; cofinite convergence and infinite-dimensional topology are not inferred from finite tests."
-    },
-    "lean": {
-      "suggestedFileSha256": "5a70aa04792b76a5bad485701067a5135a174cc8b5d84f798c5846b058d74088",
-      "errors": 0,
-      "warnings": 175,
-      "warningsOnlyPlaceholders": true,
-      "mathlibModules": 1983,
-      "tauCetiModules": 0,
-      "actualSupplierImports": 0,
-      "sourceAuditSha256": "0d4bc963d5f7751f26274919f89eb99246881970054ed7c9f1192ea36cc1b5d0",
-      "scratchProofSha256": "9883394f3d88f0085677dbf97fed5bbe1a91fedf0b93ecb08347a513f4977334",
-      "scratchCompleteLemmas": 7,
-      "scratchProofErrors": 0,
-      "scratchProofWarnings": 0,
-      "scratchProofPlaceholders": 0,
-      "scratchSourceModules": 1803
+      "scriptSha256": "904dea8bb2a53eec2593624fb69d8eb58d5791abe037f9959edc87f5893522f5",
+      "resultsSha256": "957ccc356c6727d46fdf650c36a1b941cf3a7d6e18e1e4fcd4db0d885e2a84c9",
+      "scope": "Independent finite Euclidean polynomial division versus coefficient-tail formula, Horner evaluation and norm bounds over nonreduced rational-pair models; source counterexample truncations and monic-leading-term controls. No infinite-series proof claim."
     },
     "publication": {
-      "baseCommit": "b9da2d084755153da25c3d8cd4a1972220f4ea68",
-      "capturedInputs": 48,
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5853988648
+      "base": "8b56d6675e9e17c5042e9eb7dfc47bb13f7c021f",
+      "unchangedInputs": 48,
+      "unchangedOutputs": 4,
+      "sameSessionFollowupAfterMerge": true,
+      "lastClaimConfirmation": 5853988648,
+      "reviewIssue": 316,
+      "reviewUnclaimed": true
     },
-    "closure": "Partial; eight gaps, five requests, no closed stages; every implementation status unchecked."
+    "closure": "Partial: eight gaps, five requests, zero closed stages; all implementation statuses unchecked."
   },
   "provenance": {
     "adjugateContinuation": {
@@ -5266,6 +5932,140 @@
         "addedSupplierNodesScreened": 18,
         "registryDelta": "Full records read: Coleman E13, PMIA E14, GeometryOfNumbers E8/E9 and revised Diophantine E216, plus SieveMethods E9; no current Fredholm input changes."
       }
+    },
+    "entireLinearDivision": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 641,
+      "claimComment": 5853987738,
+      "winningBot": 5853988648,
+      "previousPr": 3212,
+      "previousHead": "4fab3fbf25939b2169f6bd01da8a998b8357a4ba",
+      "previousMerge": "1b9d609ef9cfa286bae5fb8453d869e56ea32c3b",
+      "preservedWholeNodes": 80,
+      "preservedBaseline": 84,
+      "newSourceIssues": 2,
+      "newNodes": 12,
+      "newBaseline": 10,
+      "newTypedTests": 6,
+      "ownership": "RS-16 leaves entire Fredholm helpers in LAD L4. ProfiniteProPGroupsLayer9 supplies bounded integral topologically-nilpotent division, and DiophantineApproximationAndTranscendence supplies complex entire-function division; neither is reconstructed. Native ideal-adic Weierstrass division requires different hypotheses. Native polynomial division and ultrametric tsum bounds are reused.",
+      "sourceReading": "Fresh full published Coleman printed430–435/PDF14–19 and author PDF22–28. Published printed432/433 and authorPDF22 inspected visually. A3.1 requires the entire correction; A3.4 misses its monic term. No full-paper coverage assertion.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "Two findings against the separately hashed published Coleman scan, compared with the author copy, with bounded correction searches and no independent-review verdicts. Errata wrapper passes.",
+        "validation": {
+          "nodes": 92,
+          "kinds": {
+            "comparison": 8,
+            "construction": 11,
+            "definition": 3,
+            "lemma": 49,
+            "theorem": 21
+          },
+          "api": 57,
+          "definitionConstructionApi": 53,
+          "definitionConstructionTests": 47,
+          "packetTests": 70,
+          "typedExamples": 70,
+          "planets": 6,
+          "baseline": 94,
+          "preservedWholeNodes": 80,
+          "preservedBaseline": 84,
+          "preservedSourceIssues": 0,
+          "newSourceIssues": 2,
+          "newNodes": 12,
+          "newNamedDeclarations": 17,
+          "newTypedTests": 6,
+          "reachableNodes": 92,
+          "dependencyEdges": 340,
+          "acyclic": true,
+          "baselineLeaves": 91,
+          "stageRequestLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 197,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 1983,
+          "actualSupplierImports": 0,
+          "scratchProvedLemmas": 11,
+          "scratchSummabilityAdapters": 3,
+          "scratchRecurrenceInduction": 1,
+          "scratchNativeConstructions": 1,
+          "scratchMathlibModules": 2795,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "arithmeticAssertions": 17775,
+          "readerWords": 22915,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0,
+          "blueprintErrors": 0,
+          "blueprintWarnings": 0,
+          "intakeProblems": 0,
+          "errataErrors": 0
+        },
+        "lean": {
+          "suggestedFileSha256": "9016199dc96529c2748b9c0cc38ee5b9e1e6c9b70728b67ada6cc58bc699d2ad",
+          "sourceAuditSha256": "5061577ae9cf51cae69f9cf991ca1358ef3d9a18615f9fe47ca6b67b87ce6b4f",
+          "errors": 0,
+          "warnings": 197,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 1983,
+          "tauCetiModules": 0,
+          "scratch": {
+            "sha256": "0ec46cc12976051023c231fe32bb9b02f0eb5a4c00f5f8ade5307174bedada0b",
+            "provedLemmas": 11,
+            "nativeConstructions": 1,
+            "modules": 2795,
+            "errors": 0,
+            "warnings": 0,
+            "placeholders": 0,
+            "scope": "Seven unconditional native checks, three adapters with explicit summability hypotheses, and one induction from an explicit coefficient recurrence. The analytic tail convergence and entire uniqueness theorems remain plans."
+          }
+        },
+        "arithmetic": {
+          "assertions": 17775,
+          "systems": 640,
+          "primes": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "scriptSha256": "904dea8bb2a53eec2593624fb69d8eb58d5791abe037f9959edc87f5893522f5",
+          "resultsSha256": "957ccc356c6727d46fdf650c36a1b941cf3a7d6e18e1e4fcd4db0d885e2a84c9",
+          "scope": "Independent finite Euclidean polynomial division versus coefficient-tail formula, Horner evaluation and norm bounds over nonreduced rational-pair models; source counterexample truncations and monic-leading-term controls. No infinite-series proof claim."
+        },
+        "publication": {
+          "base": "8b56d6675e9e17c5042e9eb7dfc47bb13f7c021f",
+          "unchangedInputs": 48,
+          "unchangedOutputs": 4,
+          "sameSessionFollowupAfterMerge": true,
+          "lastClaimConfirmation": 5853988648,
+          "reviewIssue": 316,
+          "reviewUnclaimed": true
+        },
+        "closure": "Partial: eight gaps, five requests, zero closed stages; all implementation statuses unchecked."
+      }
     }
-  }
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://kundudeb.github.io/1997_Coleman.pdf",
+      "citation": "Inventiones Mathematicae 127 (1997), 417–479, DOI10.1007/s002220050127; version-of-record scan from public mirror.",
+      "read": "2026-09-27",
+      "sha256": "32ff34f60fc2ef4608506daa169c3cc61e07520f019d63928e86b093a16b1973"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.uchicago.edu/~fcale/Files/Cole2.pdf",
+      "read": "2026-09-27",
+      "sha256": "d4035d4c48825de9ce9da47791e328f4bd03c8e6145f40ccb8ab80712b5f1b5c"
+    }
+  ]
 }
