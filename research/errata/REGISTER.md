@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5424 new mistakes confirmed · 1367 awaiting review · 667 already corrected in print · 85 rejected on review · 19 extractions and packets not yet checked.
+5424 new mistakes confirmed · 1368 awaiting review · 667 already corrected in print · 85 rejected on review · 19 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -10203,6 +10203,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### Zdzisław Wojtkowiak, A note on functional equations of the p-adic polylogarithms, Bull. Soc. Math. France 119 (1991), no. 3, 343-370 (version of record; numdam scan, PDF sha256 3c29dd4f28f92bf84357ac423860d43b2aab91f840a3620333fabe84fd22e97e; page images of pp. 345 and 362-364 checked) (`ColemanIntegration`)
 
 - **Misprint** at §0, the system (*_1) before Theorem A', p. 345 (Bull. SMF 119 (1991), version of record). The source says `(*_1) ℓ′_1 = 1/(z − 1), ℓ′_2 = ℓ_1/z, ..., ℓ′_n = ℓ_{n−1}/z`; it should be `ℓ′_1 = 1/(1 − z) (so that ℓ_1(z) = −log(1 − z) = Li_1(z)).`. With the initial condition lim_{z→0} ℓ_k(z) = 0 of (**_2), the printed system gives ℓ_1 = log(1 − z) = −Σ z^n/n and ℓ_k = −Σ z^n/n^k, contradicting the next paragraph ('The function Li_k(z) is analytic at 0 and has the convergent Taylor expansion Σ z^n/n^k at 0') and the functional equation (*) on p. 362. Recorded as `ColemanIntegration/E14`; looked for an existing correction in: the numdam scan of the published article (no erratum found in the journal volume index on numdam).
+
+### Hidekazu Furusho, p-adic multiple zeta values I: p-adic multiple polylogarithms and the p-adic KZ equation, arXiv:math/0304085v2 (published Invent. Math. 155 (2004)) (`ColemanIntegration`)
+
+- **Misprint** at Lemma2.15, arXiv math/0304085v2, printed/PDFp.11 (page image checked). Finding scoped to the preprint; the published text was not served. (it affects a stated result). The source says `lim′_(z→1) g(z) converges if and only if a_k=0 for 1≤k≤l.`; it should be `Replace z→1 by z→0. Here g(z)=Σ_(k=0)^l a_k(log^a z)^k.`. As printed, g(z)=log^a z is a counterexample: local analyticity at1 gives limit0 although its linear coefficient is1. The proof itself takes z_n=α^n with |α|<1, hence approaches0; this is also the puncture used by the preceding proof of Theorem2.13. The intended zero-puncture assertion is unchanged. Recorded as `ColemanIntegration/E25`; looked for an existing correction in: 27 September2026: arXiv math/0304085 version history lists v2 (28 September2003) as latest; v2 was downloaded and pp.7–12 read.; 27 September2026: author publication list https://www.math.nagoya-u.ac.jp/~furusho/ checked at the 2004 article and searched for an erratum; no correction for this item was identified.; 27 September2026: publisher article https://link.springer.com/article/10.1007/s00222-003-0320-9 and PDF endpoint checked; the browser served the article landing page and the direct request served HTML with cookies_not_supported, not the version-of-record PDF. Published wording remains unchecked.; 27 September2026: exact-title, author, errata and Lemma2.15 search; no identified correction. The new marker records this bounded search, not a priority claim.; Current atlas source-issue registry screened for Furusho/Lemma2.15: no matching finding identified..
 
 ### Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no.1, 101–216; DOI 10.2140/ent.2025.4.101 (`ColemanPowerSeries`)
 

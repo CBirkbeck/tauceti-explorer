@@ -129309,6 +129309,29 @@
    "reviewReason": null
   },
   {
+   "id": "ColemanIntegration/E25",
+   "kind": "misprint",
+   "locator": "Lemma2.15, arXiv math/0304085v2, printed/PDFp.11 (page image checked). Finding scoped to the preprint; the published text was not served.",
+   "printed": "lim′_(z→1) g(z) converges if and only if a_k=0 for 1≤k≤l.",
+   "correction": "Replace z→1 by z→0. Here g(z)=Σ_(k=0)^l a_k(log^a z)^k.",
+   "reason": "As printed, g(z)=log^a z is a counterexample: local analyticity at1 gives limit0 although its linear coefficient is1. The proof itself takes z_n=α^n with |α|<1, hence approaches0; this is also the puncture used by the preceding proof of Theorem2.13. The intended zero-puncture assertion is unchanged.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "27 September2026: arXiv math/0304085 version history lists v2 (28 September2003) as latest; v2 was downloaded and pp.7–12 read.",
+    "27 September2026: author publication list https://www.math.nagoya-u.ac.jp/~furusho/ checked at the 2004 article and searched for an erratum; no correction for this item was identified.",
+    "27 September2026: publisher article https://link.springer.com/article/10.1007/s00222-003-0320-9 and PDF endpoint checked; the browser served the article landing page and the direct request served HTML with cookies_not_supported, not the version-of-record PDF. Published wording remains unchecked.",
+    "27 September2026: exact-title, author, errata and Lemma2.15 search; no identified correction. The new marker records this bounded search, not a priority claim.",
+    "Current atlas source-issue registry screened for Furusho/Lemma2.15: no matching finding identified."
+   ],
+   "owner": "ColemanIntegration",
+   "file": "research/blueprint/packets/ColemanIntegration.json",
+   "citation": "Hidekazu Furusho, p-adic multiple zeta values I: p-adic multiple polylogarithms and the p-adic KZ equation, arXiv:math/0304085v2 (published Invent. Math. 155 (2004))",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ColemanPowerSeries/E1",
    "kind": "error",
    "locator": "Definition 10.14/Theorem 10.15, published p.170 / PDF 71; arXiv v2 p.52; compare published Proposition 10.4/Lemma 10.5 p.165 and Definition 4.10 p.138.",
