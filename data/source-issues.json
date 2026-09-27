@@ -146906,6 +146906,87 @@
    "reviewReason": null
   },
   {
+   "id": "QSeriesPartitionsAndMockModularForms/E309",
+   "kind": "error",
+   "locator": "Published Pacific J. Math. 6 (1956), p.172, proof of Theorem 5, paragraph between (6.6) and (6.7)",
+   "printed": "2^s",
+   "correction": "The number of roots is not always 2^s for odd k when D=1−24n shares factors with k. Use the CRT bijection between the actual local root sets, not a fixed cardinality. The multiplicative identity is not disproved by this finding.",
+   "reason": "Take n=24, k=25: d=gcd(24,k)=1, D=−575, and (24m)^2≡D (mod25) has the five roots 0,5,10,15,20, rather than 2. To have two nontrivial coprime factors in the theorem take k=325=25·13 with the same n: D≡10 mod13 is a nonzero square and the root set has 10 elements, not 2^2=4. Both counts were checked by exact enumeration and independently by closed finite Lean examples.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "MSP publication page and publisher PDF, 2026-09-27; no correction listed in the retrieved material.",
+    "Web search for Whiteman's paper title with erratum/correction, 2026-09-27; no matching correction found.",
+    "Johansson's author errata page https://fredrikj.net/math/hrr.html, read 2026-09-27; its corrections concern Johansson, not this root-count assertion."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Albert Leon Whiteman, A sum connected with the series for the partition function, Pacific J. Math. 6 (1956) 159–176, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E310",
+   "kind": "gap",
+   "locator": "Published Pacific J. Math. 6 (1956), pp.168–169, proof of the fourth branch of Corollary 1 (5.4)",
+   "printed": "0<μ<λ",
+   "correction": "The valuation parametrization v=p^μb with 0<μ<λ and p∤b omits v≡0 modulo p^λ. Here the source's v denotes 1−24n. Add this case or use translation of all roots by p^(λ−1), which gives cancellation uniformly for λ≥2.",
+   "reason": "For p=5, λ=2, n=24, the discriminant is −575 and is divisible by25, so the displayed range for μ cannot apply. The conclusion is nonetheless true: translation by5 permutes the five roots and multiplies each character value by the same nontrivial fifth root of unity. The new singular-cancellation node gives the uniform repair.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Whiteman publisher scan pp.168–169 and publication page, 2026-09-27.",
+    "Search for the title with erratum/correction and Johansson's author errata page, 2026-09-27; no correction of this proof omission found."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Albert Leon Whiteman, A sum connected with the series for the partition function, Pacific J. Math. 6 (1956) 159–176, read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E311",
+   "kind": "misprint",
+   "locator": "Published LMS J. Comput. Math. 15 (2012), p.344, equation (2.6), second branch; also arXiv:1205.5991v2 p.4",
+   "printed": "λ = 0",
+   "correction": "Replace λ=0 by λ=1 in the branch for p>3 and p | 1−24n.",
+   "reason": "This is the first-prime singular branch of Whiteman (5.4); the author confirms the correction, crediting Hugo M. Spinelli. For p=5,n=4 the value is −√5. λ=0 would instead set k=1, whose value is 1.",
+   "affects": "a stated result",
+   "known": "Fredrik Johansson, author errata, https://fredrikj.net/math/hrr.html (page last updated 2019-04-27, read 2026-09-27), crediting Hugo M. Spinelli.",
+   "searched": [
+    "Author errata page https://fredrikj.net/math/hrr.html.",
+    "Publisher version pp.344–345 and arXiv:1205.5991v2 pp.4–5, both inspected 2026-09-27."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Fredrik Johansson, Efficient implementation of the Hardy–Ramanujan–Rademacher formula, LMS J. Comput. Math. 15 (2012), 341–359; DOI 10.1112/S1461157012001088; publisher PDF accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "QSeriesPartitionsAndMockModularForms/E312",
+   "kind": "misprint",
+   "locator": "Published LMS J. Comput. Math. 15 (2012), pp.344–345, factorization preceding (2.7), case (2.8), and Algorithm 2; also arXiv:1205.5991v2 pp.4–5",
+   "printed": "s ← s × Aₖ₁(n₁)",
+   "correction": "When k₁=4, negate the accumulator as well: the corresponding factorization has a minus sign. The shifted arguments in (2.8) are unchanged.",
+   "reason": "The author's errata page explicitly supplies the missing negation, crediting Hugo M. Spinelli. Whiteman Theorem 6 has the minus sign. For k=20,n=0 the shifts in Johansson (2.8) give n₁=3 mod4 and n₂=0 mod5. Direct finite sums give A₂₀(0)≈2.76912333046 and A₄(3)A₅(0)≈−2.76912333046; the numerical check is diagnostic, while the cited exact theorem and author correction fix the sign.",
+   "affects": "a stated result",
+   "known": "Fredrik Johansson, author errata, https://fredrikj.net/math/hrr.html (page last updated 2019-04-27, read 2026-09-27), crediting Hugo M. Spinelli.",
+   "searched": [
+    "Author errata page https://fredrikj.net/math/hrr.html.",
+    "Publisher version pp.344–345, arXiv:1205.5991v2 pp.4–5, and Whiteman (1956) Theorem 6, 2026-09-27."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "Fredrik Johansson, Efficient implementation of the Hardy–Ramanujan–Rademacher formula, LMS J. Comput. Math. 15 (2012), 341–359; DOI 10.1112/S1461157012001088; publisher PDF accessed 2026-09-27",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "SchemeKTheoryOperations/E1",
    "kind": "error",
    "locator": "Remark V.3.4.2 (PDF p. 395, book p. 387)",
