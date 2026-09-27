@@ -4,7 +4,7 @@
 
 A sieve estimates a nonnegative weighted population after excluding specified local divisibility conditions. Its finite algebra must be separated from the analytic assertion that a remainder is small. This roadmap develops that algebra on the existing Mathlib sieve carrier, then uses it as the foundation for dimension estimates, combinatorial and quadratic weights, large-sieve inequalities, distribution of primes and prime-pattern applications.
 
-The specification now contains twenty finite SV.0 declarations: all eight inherited results are preserved, and twelve additions supply weighted finite families, arbitrary excluded residue classes, their exact sum interfaces and the resulting Legendre error estimate. Empty local conditions and full-residue obstructions are handled separately. SV.0 remains partial: dimension hypotheses, concrete polynomial/CRT discrepancy bounds and family-level remainder distribution are substantial additional targets. SV.1 has source reading and baseline identifications but no new declaration-sized decomposition here. SV.2–SV.5 remain source-decomposition work, with their ownership and outstanding inputs listed below. These coverage boundaries are not claims that any theorem is implemented.
+The specification contains twenty finite SV.0 declarations on weighted families and arbitrary excluded residue classes, and seven finite SV.2 declarations giving the weighted Selberg and Bombieri–Selberg inner-product inequalities. Empty local conditions, full-residue obstructions, zero Gram rows and empty vector families are handled explicitly. SV.0–SV.2 remain partial: dimension, concrete polynomial/CRT discrepancy estimates, analytic large sieves and bilinear decompositions are substantial additional targets. SV.3–SV.5 retain their outstanding source-decomposition work. These coverage boundaries are not claims that any theorem is implemented.
 
 Use the existing BoundingSieve and SelbergSieve types. Do not construct a competing record of sieve data, redefine the Möbius function, or package a single coefficient inequality into a new predicate. Generic multiplicative functions, Dirichlet convolution, finite sums, prime factorization and Selberg quadratic-form diagonalization are library inputs.
 
@@ -151,7 +151,7 @@ This is the first lower truncation of the pointwise inclusion-exclusion argument
 
 ## Acceptance examples and library boundaries
 
-The suggested file carries eight named theorem signatures and ten theorem examples:
+The basic finite-sieve part of the suggested file carries eight named result signatures and ten examples:
 
 1. Empty support has sifted sum zero.
 2. With \(P=1\), all support weight survives, including weight at zero.
@@ -164,7 +164,7 @@ The suggested file carries eight named theorem signatures and ten theorem exampl
 9. A coefficient supported at one retains the normalization remainder.
 10. Opposite real coefficient signs do not cancel the absolute error.
 
-Those ten inherited examples test the original eight theorems. The continuation below adds two constructions into the same existing carrier, with fourteen API items and nine discriminating construction tests, plus two further theorem examples. The twenty main declarations and fourteen API signatures give twenty-one examples in total. Every packet node retains implementation status unchecked.
+The ten basic finite examples test the eight initial results. The indexed-family and residue-class development below adds two constructions into the same existing carrier, with fourteen API items and nine discriminating construction tests, plus two further theorem examples. SV.0 has twenty main declarations, fourteen API signatures and twenty-one examples. The separate SV.2 Gram development adds seven declarations and twelve examples. Every packet node retains implementation status unchecked.
 
 The existing BoundingSieve.IsUpperMoebius, its weighted upper inequality, and its main-term-plus-error inequality are baseline results. So are lambdaSquared, its upper-coefficient property, and mainSum_lambdaSquared_eq_sum_mul_sum_sq. The roadmap adds missing Selberg optimization and applications beyond these declarations, not repeated diagonalization under new names.
 
@@ -497,6 +497,174 @@ Tests:
 
 The finite-family divisibility and sifted-sum laws, and the three residue sum/Euler laws, are promoted from API obligations to separate nodes because the error theorem consumes them. Other field projections and base-case compatibility stay in the construction APIs. The finite fiber-sum operation itself is already in Mathlib: the source declaration prod_fiberwise_eq_prod_filter generates the additive companion sum_fiberwise_eq_sum_filter, which the complete scratch proofs use.
 
+## SV.2: finite Gram-row inequalities
+
+The finite geometry of a large-sieve argument is independent of its arithmetic estimates. Fix a finite indexing type I, a real or complex normed inner-product space E and an indexed family y:I→E. Neither completeness nor finite dimensionality is required. Repeated vectors, linear dependence and zero vectors are allowed. A finite subset of another type is represented by its membership subtype; no new finite-family carrier is needed.
+
+Use Mathlib's convention: the first inner-product argument is conjugate-linear and the second is linear. Put Gᵢⱼ=⟨yᵢ,yⱼ⟩, the existing Matrix.gram, and rᵢ=Σⱼ|Gᵢⱼ|. The row sums are real and nonnegative; they are local notation, not additional definitions. Scalar norms, not real parts or squared moduli, are summed in rᵢ. All divisions by a zero real denominator are zero. Only the maximum form requires I to be nonempty.
+
+Bombieri's original Proposition 1 is attributed there, including its proof, to Selberg. It gives a weighted inequality stronger than the maximum form cited by Bennett–Siksek. Its finite proof uses a squared-distance defect and a symmetric Gram estimate. The source writes the inner product linear in its first argument; translating its coefficient without switching the arguments would break the complex case. The theorem uses the corrected coefficient choice recorded in source finding E9.
+
+### Vanishing Gram row detects the zero vector
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.2/gram-row-zero`. Proposed declaration: `SieveGram.gramRow_eq_zero_iff`.
+
+For each i∈I, rᵢ=0 if and only if yᵢ=0.
+
+
+
+Proof outline:
+
+1. Each summand defining rᵢ is nonnegative. The diagonal term |⟨yᵢ,yᵢ⟩| is at most rᵢ by finite-sum monotonicity.
+2. If rᵢ=0 the diagonal inner product is zero, so the existing positive-definite inner-product lemma gives yᵢ=0. Conversely, a zero vector makes every entry of its row zero.
+
+Direct prerequisites: `mathlib:Matrix.gram`, `mathlib:Matrix.gram_apply`, `mathlib:inner_self_eq_zero`.
+
+Acceptance:
+
+- A family containing a zero vector has a zero row without making any other denominator invalid.
+- A nonzero vector always has positive row sum, even in a dependent family.
+
+### Gram-row bound for a finite linear combination
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.2/gram-row-quadratic`. Proposed declaration: `SieveGram.norm_sum_smul_sq_le_gramRows`.
+
+For every scalar family c:I→𝕜, ‖Σᵢcᵢyᵢ‖² ≤ Σᵢ|cᵢ|²rᵢ.
+
+
+
+Proof outline:
+
+1. Expand the squared norm as the real part of Σᵢⱼ conjugate(cᵢ)cⱼGᵢⱼ, using the existing Gram quadratic identity, or its finite inner-product sum laws.
+2. Bound each real part by its modulus and then use 2|cᵢ||cⱼ|≤|cᵢ|²+|cⱼ|²; this follows by expanding the nonnegative square (|cᵢ|−|cⱼ|)².
+3. Interchange indices in the terms containing |cⱼ|². Norm symmetry of the inner product makes the two half-sums equal, leaving exactly Σᵢ|cᵢ|²rᵢ.
+
+Direct prerequisites: `mathlib:InnerProductSpace`, `mathlib:Matrix.star_dotProduct_gram_mulVec`, `mathlib:sum_inner`, `mathlib:inner_sum`, `mathlib:inner_smul_left`, `mathlib:inner_smul_right`, `mathlib:norm_inner_symm`, `mathlib:RCLike.re_le_norm`.
+
+Acceptance:
+
+- The empty family gives 0≤0.
+- Repeated unit vectors with all coefficients 1 attain equality; no orthogonality is assumed.
+- Changing Gᵢⱼ to its real part without taking absolute values is invalid: the family 1,−1 has cancelling signed rows.
+
+### Selberg's normalized projection defect bound
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.2/selberg-defect`. Proposed declaration: `SieveGram.selberg_defect_le`.
+
+Set cᵢ=⟨yᵢ,x⟩/rᵢ, casting the real denominator to 𝕜. Then ‖x−Σᵢcᵢyᵢ‖² ≤ ‖x‖²−Σᵢ|⟨x,yᵢ⟩|²/rᵢ.
+
+x is any vector of E.
+
+Proof outline:
+
+1. Use the existing norm_sub_sq expansion with the finite linear combination. Apply gram-row-quadratic to its squared norm.
+2. For each i, conjugate symmetry and z·conjugate(z)=|z|² give Re(cᵢ⟨x,yᵢ⟩)=|⟨x,yᵢ⟩|²/rᵢ.
+3. Since rᵢ≥0, scalar norm/division gives |cᵢ|²rᵢ=|⟨x,yᵢ⟩|²/rᵢ. Split rᵢ=0 before field cancellation; both sides of this identity are zero in that case.
+4. Sum the two identities and collect the −2 and +1 contributions. Use the corrected single row sum, not the printed global sum of squared Gram entries recorded in E9.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.2/gram-row-quadratic`, `mathlib:norm_sub_sq`, `mathlib:inner_sum`, `mathlib:inner_smul_right`, `mathlib:inner_conj_symm`, `mathlib:norm_inner_symm`, `mathlib:RCLike.mul_conj`, `mathlib:RCLike.norm_ofReal`, `mathlib:RCLike.div_re_ofReal`.
+
+Acceptance:
+
+- For x=1 and y=i in ℂ the coefficient is −i, and its multiple of y is 1. The opposite convention gives −1 and does not prove the defect estimate.
+- For x=1,y=2 in ℝ the corrected coefficient is 1/2 and the defect is zero; the printed coefficient 1/8 gives defect 9/16.
+
+### Selberg's weighted inner-product inequality
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.2/selberg-weighted-inner`. Proposed declaration: `SieveGram.selberg_weighted_inner`.
+
+Σᵢ |⟨x,yᵢ⟩|²/rᵢ ≤ ‖x‖².
+
+x is any vector of E; zero rows contribute zero.
+
+Proof outline:
+
+1. The left-hand squared norm in selberg-defect is nonnegative. Move the weighted sum to the other side.
+2. The proof is finite over either scalar field. Thus the Hilbert-space statement extends to normed inner-product spaces without a completeness assumption.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.2/selberg-defect`.
+
+Acceptance:
+
+- An empty or all-zero family has weighted sum zero.
+- For a single nonzero vector this is Cauchy–Schwarz after dividing by its squared norm.
+- For x=1 and real y=(1,2), the two terms are 1/3 and 4/6, summing to 1; replacing the denominators by their squares fails already at y=1/2.
+- For an orthonormal family all rows equal one, so the result agrees with the existing finite Bessel inequality; it does not rebuild the orthonormal theory.
+
+### Inner-product bound from a uniform Gram row estimate
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.2/bombieri-row-bound`. Proposed declaration: `SieveGram.bombieri_of_gramRow_le`.
+
+If B≥0 and rᵢ≤B for every i, then Σᵢ|⟨x,yᵢ⟩|² ≤ ‖x‖²B.
+
+x∈E; B is a real nonnegative bound, not a new bound predicate.
+
+Proof outline:
+
+1. If rᵢ=0 then gram-row-zero makes yᵢ=0, hence its unweighted numerator is zero.
+2. For rᵢ>0, multiply rᵢ≤B by the nonnegative quotient |⟨x,yᵢ⟩|²/rᵢ. This bounds the unweighted numerator by B times that quotient.
+3. Sum and multiply selberg-weighted-inner by B≥0. This form needs no maximum and therefore supports the empty family.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.2/gram-row-zero`, `SieveMethodsAndPrimePatterns:SV.2/selberg-weighted-inner`.
+
+Acceptance:
+
+- B=0 forces every indexed vector zero.
+- For an empty family and x=1, allowing B=−1 would assert 0≤−1; the sign hypothesis is necessary in the empty case.
+
+### Bombieri–Selberg Gram-row inequality
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.2/bombieri-selberg`. Proposed declaration: `SieveGram.bombieri_selberg`.
+
+For nonempty I, Σᵢ|⟨x,yᵢ⟩|² ≤ ‖x‖² maxᵢ∈I rᵢ.
+
+x∈E and I is nonempty; use the existing finite supremum, not a chosen default maximum.
+
+Proof outline:
+
+1. Take B to be the existing finite supremum of the real row sums. Every row is bounded by it.
+2. Choose an index only to infer B≥0 from the nonnegative row at that index; no maximizing vector or Gram inverse is needed.
+3. Apply bombieri-row-bound. Empty families are covered by that lemma instead of assigning an artificial real maximum.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.2/bombieri-row-bound`, `mathlib:Finset.sup'`, `mathlib:Finset.le_sup'`.
+
+Acceptance:
+
+- For m repeated copies of a unit vector and x that vector, both sides equal m, including the Gram off-diagonal contributions.
+- For y=(1,2) and x=1 over ℝ the unweighted sum is 5 and the maximum row is 6.
+- Taking the maximum of individual entries instead of row sums fails on repeated unit vectors.
+
+### Diagonal and off-diagonal Gram estimate
+
+Identifier: `SieveMethodsAndPrimePatterns:SV.2/bombieri-diagonal-offdiagonal`. Proposed declaration: `SieveGram.bombieri_diagonal_offDiagonal`.
+
+If D,C≥0, ‖yᵢ‖²≤D for every i, and |⟨yᵢ,yⱼ⟩|≤C whenever i≠j, then Σᵢ|⟨x,yᵢ⟩|² ≤ ‖x‖²(D+(|I|−1)₊C), where (|I|−1)₊ is natural truncated subtraction.
+
+x∈E; I may be empty. D and C are real nonnegative constants.
+
+Proof outline:
+
+1. For an index i, use the existing additive companion of mul_prod_erase to separate its diagonal term from the remaining finite row.
+2. The diagonal norm is ‖yᵢ‖². Bound the remaining |I|−1 terms individually by C; the existing erase-cardinality identity counts them exactly.
+3. Thus each row is bounded by D+(|I|−1)₊C, a nonnegative number. Apply bombieri-row-bound, whose empty-family case requires no index choice.
+4. For nonempty I, division by |I| and (|I|−1)/|I|≤1 gives the normalized bound (Σᵢ|⟨x,yᵢ⟩|²)/|I|≤‖x‖²(D/|I|+C) used in Bennett–Siksek. This is routine real arithmetic, not an analytic estimate of D or C.
+
+Direct prerequisites: `SieveMethodsAndPrimePatterns:SV.2/bombieri-row-bound`, `mathlib:inner_self_re_eq_norm`, `mathlib:inner_self_eq_norm_sq`, `mathlib:Finset.mul_prod_erase`, `mathlib:Finset.card_erase_of_mem`.
+
+Acceptance:
+
+- The empty family satisfies 0≤‖x‖²D and the singleton case has no off-diagonal contribution.
+- For m≥1 repeated unit vectors, D=C=1 gives equality with constant m.
+- For an orthonormal family D=1,C=0 recovers the finite Bessel bound. No arithmetic character-correlation or prime-number theorem bound is assumed implicitly.
+
+### Library boundary and applications
+
+Matrix.gram, its Hermitian symmetry, its finite quadratic identity and positive semidefiniteness already exist. The pinned Orthonormal.sum_inner_products_le is also already a finite Bessel inequality, but it requires orthonormality and does not furnish arbitrary Gram row control. The new proofs use the existing finite inner-product identities and scalar norm arithmetic. They introduce neither a Gram record nor a Schur-bound predicate, and do not repeat orthonormal bases, operator theory or generic matrix constructions.
+
+For the Bennett–Siksek application, the finite diagonal/off-diagonal estimate gives the normalized average bound once the family cardinality is positive. Establishing that the characters satisfy a useful off-diagonal correlation bound, estimating the norm of the von Mangoldt vector and deriving the large-parameter threshold are additional arithmetic inputs. This finite result supplies no such estimate by itself. In particular, it is not the additive or multiplicative analytic large sieve, a quadratic-symbol bilinear estimate or a polynomial Farey large sieve.
+
+The two SV.2 planets are Selberg's weighted inner-product inequality and the Bombieri–Selberg inequality. The zero-row and quadratic/defect lemmas explain their proof; the uniform-row and diagonal/off-diagonal forms explain how consumers use them. No new definition is required, so the inherited two construction APIs and their tests stay unchanged.
+
 ## Remaining source decomposition and ownership
 
 ### SV.0: general local conditions and analytic remainder estimates
@@ -505,7 +673,7 @@ The new finite-family and residue constructors bridge Kedlaya's arbitrary local 
 
 Sieve dimension requires its actual logarithmic inequality, constants, quantifiers and range. A family-level remainder estimate requires an actual family of samples and a bound uniform in the intended parameters. Both remain targets. The finite cutoff lemma is the interface consuming such an estimate, not its proof.
 
-The remaining Chapter 11 route includes Rankin's estimate, the weighted divisor-count estimate, its tail estimate, the quantitative Eratosthenes theorem and a justified Brun application. Their exercises and analytic estimates require decomposition. Any summation or asymptotic input belonging to AnalyticNumberTheory:AN.0 must be requested at its exact statement once the consuming nodes are specified. None of the twenty finite nodes needs an unresolved analytic supplier. The labels themselves can greatly exceed the original sample bound: 33 has label 1155 for the bad residues 0 and −2 at primes 3,5,7,11. Thus the representation does not repair or assume the missing linear cutoff in source finding E7.
+The remaining Chapter 11 route includes Rankin's estimate, the weighted divisor-count estimate, its tail estimate, the quantitative Eratosthenes theorem and a justified Brun application. Their exercises and analytic estimates require decomposition. Any summation or asymptotic input belonging to AnalyticNumberTheory:AN.0 must be requested at its exact statement once the consuming nodes are specified. None of the twenty finite SV.0 nodes needs an unresolved analytic supplier. The labels themselves can greatly exceed the original sample bound: 33 has label 1155 for the bad residues 0 and −2 at primes 3,5,7,11. Thus the representation does not repair or assume the missing linear cutoff in source finding E7.
 
 ### SV.1: Brun and Selberg
 
@@ -515,12 +683,9 @@ Use the existing quadratic coefficient construction and diagonalized main form. 
 
 SV.2 owns additive and multiplicative large-sieve inequalities, duality, primitive-character reduction, Vaughan identities and Type I/II decompositions. Accepted RS-07 puts the Vaughan/bilinear direction from SV.2 into AnalyticNumberTheory:AN.3; the old reverse prerequisite must not be reintroduced.
 
-The routed Bennett–Siksek item PAPER-BENNETT-SIKSEK-20/45 requires the finite Gram-row inequality
-\[
- \sum_i|\langle x,y_i\rangle|^2
- \leq \|x\|^2\max_i\sum_j|\langle y_i,y_j\rangle|
-\]
-for a nonempty finite family in a real or complex inner-product space. Its extracted statement is a lead, not a substitute for reading Theorem 7 and its proof at p.379. The quadratic-symbol bilinear estimate required by ArithmeticStatistics:ST.5 and the polynomial Farey estimate required by FiniteFieldsAndCharacterSums:FF.1 are distinct consumer needs. The finite SV.0 declarations do not discharge them.
+The routed Bennett–Siksek item PAPER-BENNETT-SIKSEK-20/45 is supplied by the finite theorem above. The original four-page Bombieri paper is read in full, but its analytic theorem still needs decomposition: for δ-separated points, the exponential-sum square average is bounded by (N+2/δ) times the coefficient square sum. Its proof constructs finitely supported tapered vectors in ℓ², expresses their Gram entries by a difference of Fejér kernels, bounds a reciprocal-sine-square separation sum, chooses an integer taper length and changes the interval by translation and parity. These are concrete remaining targets, not consequences asserted from the finite inequality alone.
+
+Read Kedlaya Chapters 15–16 and the Chapter 18 Vaughan route for the remaining duality, multiplicative and bilinear work. The quadratic-symbol bilinear estimate required by ArithmeticStatistics:ST.5 and the polynomial Farey estimate required by FiniteFieldsAndCharacterSums:FF.1 remain distinct consumer needs. Neither the finite SV.0 algebra nor the finite Gram theorem discharges their analytic hypotheses.
 
 ### SV.3: average distribution of primes
 
@@ -543,14 +708,16 @@ The source-issue entries are version-specific. In the Heath-Brown preprint, the 
 For Kedlaya's displayed Brun proof, the packet records the unverified linear cutoff needed by the invoked theorem, and the need for a precise leading coefficient rather than an unspecified logarithmic big-O bound in its dimension calculation. These are proof-interface findings, not assertions that Brun's upper bound is false. The analytic application remains a source-decomposition gap. The finite identities and bounds above do not depend on either unresolved inference.
 
 
-## Continuation verification and boundaries
+Bombieri's [published paper](https://www.impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/18/0/97707/a-note-on-the-large-sieve), pp.401–404, was read completely in the publisher scan. The packet distinguishes the decomposed Proposition 1 from the read but undecomposed analytic theorem. The coefficient display after (4), p.402, prints a global double sum of squared Gram moduli in the denominator. The proof requires the first-power sum over the fixed row. At x=1,y=2 the printed coefficient is 1/8, yielding defect 9/16, whereas the corrected coefficient 1/2 yields zero. This is an unreviewed misprint finding about the proof choice, not a challenge to the proposition. The [volume's published errata](https://impan.pl/en/publishing-house/journals-and-series/acta-arithmetica/all/18/0/97710/errata-acta-arithmetica-xviii-1971) were read completely and contain no correction to p.402; bounded title/correction searches found none. No exhaustive novelty claim is made.
 
-All eight inherited node objects and the eight source findings/version records are unchanged. The two constructions add fourteen API items and nine construction tests; with the inherited and additional theorem examples there are twenty-one examples in the suggested file. The packet has twenty nodes (two constructions, twelve lemmas and six theorems), five SV.0 planets, forty-one exact baseline declarations, six gaps and no supplier requests. SV.0–SV.1 remain partial; SV.2–SV.5 remain not_read.
+The relevant [Bennett–Siksek publisher PDF](https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p02-s.pdf) reading for this sieve slice is §8.2, printed pp.379–380, including Theorem 7 and its application. Its arithmetic application motivates the diagonal/off-diagonal consequence but is not certified complete here. Hashes, versions and exact reading boundaries appear in the packet.
 
-The complete selected source reading is inherited from the preceding checkpoint. This continuation freshly reread the weighted inclusion-exclusion proof and Definition 11.6 in Kedlaya, and Heath-Brown pp.1–4. A fresh Kedlaya download has the identical recorded hash. No new source findings or broader source coverage are claimed.
+## Verification and boundaries
 
-Exact regressions checked 1,485 local residue systems and 13,365 finite populations, including 9,216 proper-set populations and 4,149 full local obstructions. They verified 53,460 labels, 89,505 divisor/fiber identities and 36,864 Legendre errors with rational weights and negative, zero or non-normalized approximate masses. These are finite checks, not proofs of the general statements.
+The packet has 27 nodes: two constructions, sixteen lemmas and nine theorems; fourteen API items; nine construction tests; thirty-three suggested examples; seven planets, five in SV.0 and two in SV.2; sixty-three baseline references; six gaps and no supplier requests. The twenty SV.0 node objects and their APIs, tests, source findings and version scopes are preserved. SV.0–SV.2 are partial and SV.3–SV.5 remain not_read.
 
-The suggested file elaborates under Lean 4.34.0-rc2: twenty main declarations, fourteen API signatures and twenty-one examples give exactly fifty-five required proof-placeholder warnings and no others. All 1,426 reached Mathlib source files byte-match the pin. Complete scratch implementations of the two constructors, nine general bridge statements, one squarefree-product baseline application and all eleven new examples also compile with no placeholders or warnings, after checking 8,482 tactic-environment source files. These probes are not submitted and do not change any implementation status.
+The suggested file elaborates under Lean 4.34.0-rc2 with exactly 74 required proof-placeholder warnings and no other warning or error. All 8,482 reached Mathlib source files byte-match the pin. Complete scratch proofs of all seven general Gram statements and all twelve new examples also compile without placeholders or warnings. Scratch proofs are verification evidence only; no proof is submitted and every implementation status remains unchecked.
 
-The inherited rational regressions were rerun: 1,280 cases per finite identity/inequality, 9,200 coefficient-cutoff cases and 1,542 strict-cutoff prime-count examples, plus the recorded source witnesses. The official packet checker with the pinned declaration index reports no errors or warnings. The source-issue checker reports no errors on an in-memory errata envelope. Only the four authorized deliverables are submitted; the handoff records the remaining proof-reading and analytic decomposition.
+Exact Gaussian-rational regressions cover 3,280 finite families, 9,432 zero-row checks, 13,120 quadratic estimates, and 19,680 checks each of the defect, weighted, uniform-row and diagonal/off-diagonal bounds. The 19,656 nonempty-family cases also check the maximum form. Families have zero to three vectors in dimension two, with four complex phase patterns; test vectors and coefficients include nonintegral complex rationals. The source coefficient and opposite-conjugation witnesses are checked separately. These finite checks supplement, rather than replace, the general scratch proofs.
+
+Earlier finite-sieve and residue-constructor proof/regression evidence is retained in the packet and was not rerun in this Gram continuation. The official packet checker with the pinned declaration index and the source-issue/version checker report no errors. Only the four authorized deliverables are submitted. The handoff distinguishes the finite statement supplied from the remaining analytic proofs.
