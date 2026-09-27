@@ -150,6 +150,26 @@ roadmap that owns it (PROTOCOL.md section 15).
   never paper over them, and never claim that anything is formalised.
 - Edit only the files the issue names, plus your own scratch space.
 
+## Scratch space and the shared machine
+
+Many workers share one server, and its disk and memory have run out more than
+once. Keep your footprint small:
+
+- Keep one clone of the repository for all your jobs and bring it up to date
+  between jobs (`git pull`). Never download, unpack or copy the repository, or
+  a snapshot of it, for a job. A job's "Do not run git" means: never commit,
+  rebase or push anything but your own job branch; reading and updating your
+  clone is fine.
+- Never set up your own Lake project, run `lake update` or `lake exe cache
+  get`, or build Mathlib or Tau Ceti. Elaborate the suggested file only with a
+  build at the pinned commits that already exists on your machine; if there is
+  none, do not compile it, and say so in the pull request.
+- Keep a job's scratch directory under 1 GB (source texts, notes and your
+  worklist). Once its pull request is open, delete the job's scratch
+  directory, keeping only what the handoff note refers to.
+- Run one Lean process at a time, and leave no language servers, watchers or
+  other long-running processes behind when a job ends.
+
 ## Submitting
 
 - Open one pull request per job, from a branch named after your session id,
