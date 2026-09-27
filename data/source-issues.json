@@ -148875,6 +148875,166 @@
    "reviewReason": null
   },
   {
+   "id": "SieveMethodsAndPrimePatterns/E19",
+   "kind": "misprint",
+   "locator": "§18.1, Theorem 18.3 proof, small-r bound after (18.1.2); 2007 p.2, Theorem 2 proof",
+   "printed": "|f||g| y^(1/2) Δ^3 Σ_{s≤Q}τ(s)/φ(s) Σ_{r≤R}r",
+   "correction": "Retain the x^(1/2) factor supplied by Lemma 18.2, and write the coefficient norms consistently as |f|₂, |g|₂.",
+   "reason": "Lemma 18.2 contributes x^(1/2)Δ^3rτ(s)|f|₂. Cauchy–Schwarz bounds the g sum by y^(1/2)|g|₂. Their product contains (xy)^(1/2); the displayed small-r line omits the x factor. The final theorem does contain the expected Δ(xy)^(1/2).",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+    "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya; identity attributed to R. C. Vaughan, Notes on analytic number theory, Chapter 18: The Bombieri–Vinogradov theorem: proof, Live author HTML, acquired 27 September 2026; collated with the author's MIT 18.785 handout revised 9 May 2007, not a journal version.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E20",
+   "kind": "gap",
+   "locator": "§18.1, Theorem 18.3 proof, summation of the dyadic large-r estimates; 2007 p.3, opening paragraph",
+   "printed": "Q+x^(1/2)+y^(1/2)+x^(1/2)y^(1/2)R^(-1)",
+   "correction": "Supply a sharper summation argument or retain the logarithmic loss from the stated block bounds; the displayed estimates alone do not imply the quoted uniform bound.",
+   "reason": "Take R=1, Q=t=2^k, x=t^4, y=1. Each displayed block upper-bound expression P^(-1)√(4P²+x)√(4P²+y) is at least 2t² for P=1,2,…,t/2. Their sum is at least 2kt², whereas the claimed aggregate expression is t+2t²+1. No absolute constant compares these as k grows. This challenges the inference from the printed estimates, not the actual character sum or classical theorem.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+    "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya; identity attributed to R. C. Vaughan, Notes on analytic number theory, Chapter 18: The Bombieri–Vinogradov theorem: proof, Live author HTML, acquired 27 September 2026; collated with the author's MIT 18.785 handout revised 9 May 2007, not a journal version.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E21",
+   "kind": "misprint",
+   "locator": "§18.2, boundary explanation following (18.2.2); 2007 p.3 after (4)",
+   "printed": "n<x^(1/5)",
+   "correction": "The omitted small-number part includes n≤x^(1/5), including a prime-power endpoint.",
+   "reason": "For x=32 the cutoff is 2. At n=2 the incomplete-log convolution is zero but Λ(2)=log 2. The discrepancy boundary must include this endpoint. The stated order-of-magnitude error can still absorb it.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+    "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya; identity attributed to R. C. Vaughan, Notes on analytic number theory, Chapter 18: The Bombieri–Vinogradov theorem: proof, Live author HTML, acquired 27 September 2026; collated with the author's MIT 18.785 handout revised 9 May 2007, not a journal version.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E22",
+   "kind": "misprint",
+   "locator": "§18.2, multiplicative partition parameter after (18.2.3); 2007 p.3, last paragraph",
+   "printed": "x^(1/5)<δ≤1",
+   "correction": "At minimum the lower bound must be changed to permit 0<δ≤1 for x>1; the expected small negative power and all needed lower-range constraints require a fresh proof.",
+   "reason": "For x>1 the printed interval is empty. The later choice δ=Δ^(1/2) is at most one and cannot satisfy its lower bound. This checkpoint does not silently substitute an unverified exponent.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+    "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya; identity attributed to R. C. Vaughan, Notes on analytic number theory, Chapter 18: The Bombieri–Vinogradov theorem: proof, Live author HTML, acquired 27 September 2026; collated with the author's MIT 18.785 handout revised 9 May 2007, not a journal version.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E23",
+   "kind": "gap",
+   "locator": "§18.2, multiplicative partition and rectangles after (18.2.3); 2007 pp.3–4",
+   "printed": "O(δ^(-1)); LM=x",
+   "correction": "Specify the actual covered interval and count, the rectangle selection below the hyperbola and every boundary strip. A partition of [1,x] into consecutive multiplicative intervals generally needs a log x factor.",
+   "reason": "After k consecutive intervals of ratio 1+δ starting at 1, the endpoint is (1+δ)^k, so reaching x requires k≥log x/log(1+δ). Moreover the printed boxes have ℓ>L and m>M with LM=x, hence ℓm>x throughout: they cannot cover terms with ℓm≤x. The original proof may intend a different restricted interval and selection, but it must be stated and justified.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+    "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya; identity attributed to R. C. Vaughan, Notes on analytic number theory, Chapter 18: The Bombieri–Vinogradov theorem: proof, Live author HTML, acquired 27 September 2026; collated with the author's MIT 18.785 handout revised 9 May 2007, not a journal version.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E24",
+   "kind": "misprint",
+   "locator": "§18.2, display defining D(L,M;N,m); 2007 p.4",
+   "printed": "Σ_{l,m≡m (mod N)}λ(ℓ)μ(m)−φ(N)^(-1)Σ_{lm∈(ℤ/Nℤ)*}",
+   "correction": "Use a distinct residue a and product congruence ℓm≡a mod N; include λ(ℓ)μ(m) in the reduced-residue average, with the same two interval restrictions.",
+   "reason": "The current display repeats m as residue and summation variable and leaves the second sum without a summand. Definition 18.1 applied to the finite bilinear coefficients determines the corrected expression.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+    "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya; identity attributed to R. C. Vaughan, Notes on analytic number theory, Chapter 18: The Bombieri–Vinogradov theorem: proof, Live author HTML, acquired 27 September 2026; collated with the author's MIT 18.785 handout revised 9 May 2007, not a journal version.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E25",
+   "kind": "error",
+   "locator": "§18.2, last aggregate bound and substitution δ=Δ^(1/2); 2007 p.4",
+   "printed": "O((δ^(-1)x+Δ)x(log x)^3)",
+   "correction": "Re-establish the aggregate bound. The expression (δ+δ^(-1)Δ)x(log x)^3 would balance at the stated choice, but this is only a candidate correction until the preceding rectangle argument is supplied.",
+   "reason": "Substitution in the printed expression yields (Δ^(-1/2)x+Δ)x(log x)^3, not Δ^(1/2)x(log x)^3. For x≥1 and 0<Δ≤1 their ratio is at least x/Δ, unbounded. This is an invalid proof step, not a counterexample to Bombieri–Vinogradov.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+    "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya; identity attributed to R. C. Vaughan, Notes on analytic number theory, Chapter 18: The Bombieri–Vinogradov theorem: proof, Live author HTML, acquired 27 September 2026; collated with the author's MIT 18.785 handout revised 9 May 2007, not a journal version.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SieveMethodsAndPrimePatterns/E26",
+   "kind": "misprint",
+   "locator": "§18.3, Theorem 18.5 display; 2007 p.4, Theorem 3",
+   "printed": "Σ_{a∈(ℤ/Nℤ)×}|D_f(x;N,m)|²",
+   "correction": "Replace the free residue m by the bound variable a in the summand and read |f|² as the squared ℓ² norm consistently with Definition 18.1/Lemma 18.2.",
+   "reason": "The sum binds a while its summand uses a different free variable m. A variance over residue classes must evaluate the discrepancy at the residue being summed. Only this syntactic correction is asserted; the theorem's proof remains an explicit exercise gap.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-09-27: author live Chapter 18 acquired and read, then collated with https://kskedlaya.org/18.785/bombieri2.pdf (revised 9 May 2007); the listed defects persist at the corresponding older locators.",
+    "2026-09-27: bounded web queries site:kskedlaya.org/ant errata Bombieri; Kedlaya analytic number theory chapter 18 corrections Vaughan delta; site:kskedlaya.org analytic number theory corrections. Results included the author's course page and revised handout; no correcting erratum was located. This is not an exhaustive novelty claim."
+   ],
+   "owner": "SieveMethodsAndPrimePatterns",
+   "file": "research/blueprint/packets/SieveMethodsAndPrimePatterns.json",
+   "citation": "Kiran S. Kedlaya; identity attributed to R. C. Vaughan, Notes on analytic number theory, Chapter 18: The Bombieri–Vinogradov theorem: proof, Live author HTML, acquired 27 September 2026; collated with the author's MIT 18.785 handout revised 9 May 2007, not a journal version.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "TropicalAndBerkovichArithmetic/E1",
    "kind": "error",
    "locator": "Definition/Exercise 2.1.1.1(iv), preprint p. 4 only",
