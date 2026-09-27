@@ -1,3 +1,8 @@
+import Mathlib.Data.Nat.Log
+import Mathlib.Data.Fintype.Pigeonhole
+import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Order.Interval.Finset.Nat
+import Mathlib.Data.Set.Finite.Lattice
 import Mathlib.Algebra.LinearRecurrence
 import Mathlib.Algebra.Module.Lattice
 import Mathlib.Algebra.Module.PID
@@ -5808,5 +5813,153 @@ theorem free_intGroupRing_of_odd_card (h : IsTamelyRamified (𝓞 K) (𝓞 L))
 end IntegralGaloisModule
 
 end CA7
+
+end TauCeti.ClassicalArithmetic
+
+
+namespace TauCeti.ClassicalArithmetic
+
+/-! ## Cobham's theorem through redundant digits and overlapping periods
+The declarations below retain the canonical-digit `IsAutomatic` definition.
+All proof bodies are planning placeholders.
+-/
+
+/-- Reversal on every word, including noncanonical and padded words. -/
+theorem DFAO.exists_output_reverse {α σ Δ : Type*} [Fintype σ] (M : DFAO α σ Δ) :
+    ∃ (τ : Type) (_ : Fintype τ) (N : DFAO α τ Δ),
+      ∀ w, N.output (N.eval w) = M.output (M.eval w.reverse) := by sorry
+
+/-- A finite kernel and bounded carry compute all bounded little-endian words. -/
+theorem IsAutomatic.exists_boundedDigitLSF {k : ℕ} [NeZero k] {Δ : Type*}
+    {f : ℕ → Δ} (hf : IsAutomatic k f) (hk : 2 ≤ k) (d : ℕ) :
+    ∃ (σ : Type) (_ : Fintype σ) (M : DFAO (Fin (d + 1)) σ Δ),
+      ∀ w, M.output (M.eval w) = f (Nat.ofDigits k (w.map Fin.val)) := by sorry
+
+/-- Redundant most-significant-first digits, with correctness on every word. -/
+theorem isAutomatic_iff_redundantDigits {k d : ℕ} [NeZero k] {Δ : Type*}
+    (hk : 2 ≤ k) (hd : k ≤ d + 1) (f : ℕ → Δ) :
+    IsAutomatic k f ↔ ∃ (σ : Type) (_ : Fintype σ) (M : DFAO (Fin (d + 1)) σ Δ),
+      ∀ w, M.output (M.eval w) = f (Nat.ofDigits k (w.map Fin.val).reverse) := by sorry
+
+/-- Positive-length words over the enlarged alphabet include both interval endpoints. -/
+theorem exists_redundantDigits_of_le {k n z : ℕ} (hk : 2 ≤ k) (hn : 0 < n)
+    (hz : z ≤ 2 * k ^ n) :
+    ∃ w : List (Fin (2 * k + 1)), w.length = n ∧
+      Nat.ofDigits k (w.map Fin.val).reverse = z := by sorry
+
+/-- One finite colouring controls all doubled radix suffix blocks. -/
+theorem IsAutomatic.exists_widePrefixColouring {k : ℕ} [NeZero k] {Δ : Type*}
+    {f : ℕ → Δ} (hf : IsAutomatic k f) (hk : 2 ≤ k) :
+    ∃ (q : ℕ), 0 < q ∧ ∃ C : ℕ → Fin q,
+      ∀ x y, C x = C y → ∀ n, 0 < n → ∀ z, z ≤ 2 * k ^ n →
+        f (x * k ^ n + z) = f (y * k ^ n + z) := by sorry
+
+/-- Finite pigeonholing of normalized powers; equality is allowed. -/
+theorem exists_close_powers {a b C : ℕ} (ha : 2 ≤ a) (hb : 2 ≤ b) (hC : 0 < C) :
+    ∃ m n : ℕ, 0 < m ∧ 0 < n ∧
+      C * Int.natAbs ((a : ℤ) ^ m - (b : ℤ) ^ n) ≤ b ^ n := by sorry
+
+/-- Uniform collision representatives for the infinite fibres of the second colouring. -/
+theorem exists_tail_colour_collisions {r s : ℕ} (A : ℕ → Fin r) (B : ℕ → Fin s) :
+    ∃ N ξ : ℕ, 0 < ξ ∧ ∀ x, N ≤ x → ∃ u v : ℕ,
+      u < ξ ∧ v < ξ ∧ u ≠ v ∧ B u = B x ∧ B v = B x ∧ A u = A v := by sorry
+
+/-- A long integer overlap extends the first local period to the union. -/
+theorem localPeriod_union_intervals {Δ : Type*} (f : ℕ → Δ) {l r L R p q : ℕ}
+    (hp : 0 < p) (hq : 0 < q)
+    (hI : ∀ t, l ≤ t → t + p ≤ r → f (t + p) = f t)
+    (hJ : ∀ t, L ≤ t → t + q ≤ R → f (t + q) = f t)
+    (hcard : p + q ≤ (Finset.Icc (max l L) (min r R)).card) :
+    ∀ t, min l L ≤ t → t + p ≤ max r R → f (t + p) = f t := by sorry
+
+/-- Three block comparisons at nearby unequal scales give a positive local period. -/
+theorem localPeriod_of_close_scales {Δ : Type*} (f : ℕ → Δ) {A B ξ x u v : ℕ}
+    (hA : 0 < A) (hB : 0 < B) (hξ : 0 < ξ) (hu : u < ξ) (hv : v < ξ)
+    (huv : u ≠ v) (hAB : A ≠ B)
+    (hclose : 6 * ξ * Int.natAbs ((A : ℤ) - B) ≤ B)
+    (hxu : ∀ z, z ≤ 2 * B → f (x * B + z) = f (u * B + z))
+    (hxv : ∀ z, z ≤ 2 * B → f (x * B + z) = f (v * B + z))
+    (huvA : ∀ w, w ≤ 2 * A → f (u * A + w) = f (v * A + w)) :
+    let p := Int.natAbs (((u : ℤ) - v) * ((A : ℤ) - B))
+    0 < p ∧ 6 * p ≤ B ∧ ∀ t, 3 * x * B + B ≤ 3 * t →
+      3 * (t + p) ≤ 3 * x * B + 5 * B → f (t + p) = f t := by sorry
+
+/-- Integer endpoint rounding preserves enough overlap for one tail period. -/
+theorem eventuallyPeriodic_of_window_periods {Δ : Type*} (f : ℕ → Δ) {B N : ℕ}
+    (hB : 0 < B)
+    (h : ∀ x, N ≤ x → ∃ p : ℕ, 0 < p ∧ 6 * p ≤ B ∧
+      ∀ t, 3 * x * B + B ≤ 3 * t →
+        3 * (t + p) ≤ 3 * x * B + 5 * B → f (t + p) = f t) :
+    ∃ p : ℕ, 0 < p ∧ 6 * p ≤ B ∧ ∀ t, (N + 1) * B ≤ t → f (t + p) = f t := by sorry
+
+/-- Forward direction of Cobham's theorem, with both positive exponents quantified. -/
+theorem eventuallyPeriodic_of_two_automatic {a b : ℕ} [NeZero a] [NeZero b]
+    {Δ : Type*} (ha : 2 ≤ a) (hb : 2 ≤ b)
+    (hind : ∀ m n : ℕ, 0 < m → 0 < n → a ^ m ≠ b ^ n)
+    (f : ℕ → Δ) (hfa : IsAutomatic a f) (hfb : IsAutomatic b f) :
+    ∃ N p : ℕ, 0 < p ∧ ∀ t, N ≤ t → f (t + p) = f t := by sorry
+
+/- The node `eventually-periodic-sequences-are-automatic` promotes the existing
+`isAutomatic_of_eventually_periodic` declaration above; there is no second copy. -/
+
+/-- Cobham's complete equivalence on the existing automatic-sequence carrier. -/
+theorem cobham {a b : ℕ} [NeZero a] [NeZero b] {Δ : Type*}
+    (ha : 2 ≤ a) (hb : 2 ≤ b)
+    (hind : ∀ m n : ℕ, 0 < m → 0 < n → a ^ m ≠ b ^ n) (f : ℕ → Δ) :
+    (IsAutomatic a f ∧ IsAutomatic b f) ↔
+      ∃ N p : ℕ, 0 < p ∧ ∀ t, N ≤ t → f (t + p) = f t := by sorry
+
+/-- Acceptance `reversal_order`: noncommuting transitions detect an incorrect reversal. -/
+example :
+    (⟨fun q b => if b then 2 * q else q + 1, 0, id⟩ : DFAO Bool (ZMod 3) (ZMod 3)).eval
+        [false, true] = 2 ∧
+    (⟨fun q b => if b then 2 * q else q + 1, 0, id⟩ : DFAO Bool (ZMod 3) (ZMod 3)).eval
+        [true, false] = 1 := by sorry
+
+/-- Acceptance `boundedCarry_three`: a two-state carry bound is too small. -/
+example : (3 + 4) / 2 = (3 : ℕ) := by sorry
+
+/-- Acceptance `redundant_same_value`: noncanonical and canonical words agree. -/
+example : Nat.ofDigits 3 ([3] : List ℕ).reverse =
+    Nat.ofDigits 3 ([1, 0] : List ℕ).reverse := by sorry
+
+/-- Acceptance `redundant_leading_zero`: leading zeros are harmless. -/
+example (k : ℕ) (w : List ℕ) :
+    Nat.ofDigits k (0 :: w).reverse = Nat.ofDigits k w.reverse := by sorry
+
+/-- Acceptance `redundant_endpoint`: the doubled interval is closed on the right. -/
+example : Nat.ofDigits 2 ([4, 0] : List ℕ).reverse = 8 := by sorry
+
+/-- Acceptance `zero_length_rejected`: a zero-length word cannot represent 2. -/
+example : ¬ ∃ w : List (Fin 5), w.length = 0 ∧
+    Nat.ofDigits 2 (w.map Fin.val).reverse = 2 := by sorry
+
+/-- Acceptance `close_powers_two_three`: a positive, unequal pair. -/
+example : 10 * Int.natAbs ((2 : ℤ) ^ 8 - 3 ^ 5) ≤ (3 : ℕ) ^ 5 := by sorry
+
+/-- Acceptance `dependent_bases`: unequal bases need not be independent. -/
+example : (2 : ℕ) ≠ 4 ∧ (2 : ℕ) ^ 2 = 4 ^ 1 := by sorry
+
+/-- Acceptance `window_rounding_seven`: the adjacent overlap retains two integers. -/
+example : (Finset.Icc (7 + (7 + 2) / 3) (5 * 7 / 3)).card = 2 := by sorry
+
+/-- Acceptance `window_rounding_eight`: an endpoint remainder does not break gluing. -/
+example : (Finset.Icc (8 + (8 + 2) / 3) (5 * 8 / 3)).card = 3 := by sorry
+
+/-- Acceptance `signed_period`: both signs of the scale difference give the same period. -/
+example : Int.natAbs (((0 : ℤ) - 1) * (17 - 18)) = 1 ∧
+    Int.natAbs (((1 : ℤ) - 0) * (18 - 17)) = 1 := by sorry
+
+/-- Acceptance `finite_prefix`: eventual periodicity need not hold from zero. -/
+example : (∀ n ≥ 1, (if n + 2 = 0 then 7 else (n + 2) % 2 : ℕ) =
+    (if n = 0 then 7 else n % 2 : ℕ)) ∧
+    (if 2 = 0 then 7 else 2 % 2 : ℕ) ≠ (if 0 = 0 then 7 else 0 % 2 : ℕ) := by sorry
+
+/-- Acceptance `unary_eventually_periodic`: base one uses the existing unary convention. -/
+example : IsAutomatic 1 (fun n : ℕ => if n = 0 then 7 else n % 2) := by sorry
+
+/-- Acceptance `both_bases_finite_prefix`: the same tail is automatic in both bases. -/
+example : IsAutomatic 2 (fun n : ℕ => if n = 0 then 7 else n % 2) ∧
+    IsAutomatic 3 (fun n : ℕ => if n = 0 then 7 else n % 2) := by sorry
 
 end TauCeti.ClassicalArithmetic
