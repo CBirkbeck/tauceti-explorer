@@ -4,6 +4,8 @@ import Mathlib.Analysis.InnerProductSpace.GramSchmidtOrtho
 import Mathlib.Analysis.InnerProductSpace.Projection.FiniteDimensional
 import Mathlib.LinearAlgebra.BilinearForm.DualLattice
 import Mathlib.LinearAlgebra.FreeModule.PID
+import Mathlib.LinearAlgebra.Basis.Flag
+import Mathlib.Data.ZMod.QuotientGroup
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Analysis.Convex.Body
 import Mathlib.Analysis.Convex.Gauge
@@ -692,5 +694,145 @@ example : (Nat.floor (2 / (1/2 : ℝ)) + 1)^2 = 25 ∧
     (Nat.floor (2 / (3 : ℝ)) + 1)^2 = 1 ∧ (1 : ℕ) < 5 := by sorry
 
 end CountingTests
+
+
+section IntegralFlag
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E]
+
+/-- GN.0/prescribed-primitive-basis. Preserve a given basis of the intersection. -/
+lemma saturated_adapted_basis_of_basis
+    (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (W : Submodule ℝ E)
+    (hW : Submodule.span ℝ (ZLattice.comap ℝ L W.subtype : Set W) = ⊤)
+    {r : ℕ} (c : Basis (Fin r) ℤ (ZLattice.comap ℝ L W.subtype)) :
+    ∃ (s : ℕ) (b : Basis (Fin r ⊕ Fin s) ℤ L),
+      r+s = finrank ℝ E ∧ ∀ i, (b (Sum.inl i) : E) = ((c i : W) : E) := by sorry
+
+/-- GN.0/integral-rational-flag. The short real vectors need not be an integral basis. -/
+lemma exists_integral_basis_same_flag
+    (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (w : Basis (Fin (finrank ℝ E)) ℝ E) (hw : ∀ i, w i ∈ L) :
+    ∃ b : Basis (Fin (finrank ℝ E)) ℤ L,
+      ∀ k : Fin (finrank ℝ E+1), (b.ofZLatticeBasis ℝ).flag k = w.flag k := by sorry
+
+/-- GN.1/integral-minimum-flag. No upper bound on the individual basis vectors is claimed. -/
+lemma exists_integral_minimum_flag
+    (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (K : ConvexBody E) (hK : (0 : E) ∈ interior (K : Set E)) :
+    ∃ b : Basis (Fin (finrank ℝ E)) ℤ L,
+      ∀ i, ∀ x : L, gauge (K : Set E) x < successiveMin L K i →
+        (x : E) ∈ (b.ofZLatticeBasis ℝ).flag i.castSucc := by sorry
+end IntegralFlag
+
+section DivisibilityRounding
+
+/-- GN.4/divisible-rounding-step. Natural subtraction; even a zero remainder advances. -/
+lemma divisible_rounding_step (q m : ℕ) (hq : 0 < q) (hm : 0 < m)
+    (hupper : m < 2*q) :
+    let n := if q ≤ m then m else q+m-q%m
+    q ≤ n ∧ n < 2*q ∧ m ∣ n := by sorry
+
+/-- GN.4/divisible-rounding-chain. The last factor is unchanged. -/
+lemma exists_divisible_rounding {d : ℕ} (q : Fin d → ℕ)
+    (hq : ∀ i, 0 < q i) (hmono : Antitone q) :
+    ∃ n : Fin d → ℕ, (∀ i, q i ≤ n i) ∧
+      (∀ i, i.val+1 = d → n i = q i) ∧
+      (∀ i, i.val+1 < d → n i < 2*q i) ∧
+      (∀ i j, i ≤ j → n j ∣ n i) := by sorry
+
+/-- GN.4/divisible-rounding-product. Strictness requires at least two factors. -/
+lemma divisible_rounding_product {d : ℕ} (hd : 2 ≤ d)
+    (q n : Fin d → ℕ) (hq : ∀ i, 0 < q i) (hn : ∀ i, q i ≤ n i)
+    (hlast : ∀ i, i.val+1 = d → n i = q i)
+    (hupper : ∀ i, i.val+1 < d → n i < 2*q i) :
+    (∏ i, n i) < 2^(d-1) * ∏ i, q i := by sorry
+
+/-- GN.4/diagonal-span-coordinates. No positivity is needed for membership. -/
+lemma mem_diagonal_span_iff {G : Type*} [AddCommGroup G] {d : ℕ}
+    (b : Basis (Fin d) ℤ G) (n : Fin d → ℕ) (x : G) :
+    x ∈ Submodule.span ℤ (Set.range (fun i => (n i : ℤ) • b i)) ↔
+      ∀ i, (n i : ℤ) ∣ b.repr x i := by sorry
+
+/-- GN.4/diagonal-span-index. A zero factor gives the native infinite-index sentinel. -/
+lemma diagonal_span_index {G : Type*} [AddCommGroup G] {d : ℕ}
+    (b : Basis (Fin d) ℤ G) (n : Fin d → ℕ) :
+    (Submodule.span ℤ (Set.range (fun i => (n i : ℤ) • b i))).toAddSubgroup.index =
+      ∏ i, n i := by sorry
+end DivisibilityRounding
+
+section HenkProduct
+variable {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
+  [FiniteDimensional ℝ E]
+
+/-- GN.4/diagonal-lattice-avoidance. Divide by the last nonzero coordinate's factor. -/
+lemma diagonal_lattice_avoidance
+    (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (K : ConvexBody E) (hK : (0 : E) ∈ interior (K : Set E))
+    (b : Basis (Fin (finrank ℝ E)) ℤ L)
+    (hflag : ∀ i, ∀ x : L, gauge (K : Set E) x < successiveMin L K i →
+      (x : E) ∈ (b.ofZLatticeBasis ℝ).flag i.castSucc)
+    (n : Fin (finrank ℝ E) → ℕ) (hn : ∀ i, 0 < n i)
+    (hdiv : ∀ i j, i ≤ j → n j ∣ n i)
+    (hcut : ∀ i, 2/(n i : ℝ) < successiveMin L K i) :
+    ∀ x ∈ Submodule.span ℤ (Set.range (fun i => (n i : ℤ) • (b i : E))),
+      x ∈ (2 : ℝ) • (K : Set E) → x = 0 := by sorry
+
+/-- GN.4/henk-successive-minima-count. Henk Theorem 1.5, not Conjecture 1.4. -/
+theorem lattice_count_lt_successive_minima
+    (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (K : ConvexBody E) (hK : (0 : E) ∈ interior (K : Set E))
+    (hsym : ∀ x ∈ K, -x ∈ K) (hd : 2 ≤ finrank ℝ E) :
+    {x : E | x ∈ L ∧ x ∈ K}.ncard <
+      2^(finrank ℝ E-1) *
+        ∏ i : Fin (finrank ℝ E), (Nat.floor (2 / successiveMin L K i)+1) := by sorry
+end HenkProduct
+
+section HenkTests
+/-- prescribed_basis_orientation -/
+example : (Matrix.det (!![(1 : ℤ),0;1,-1])) = -1 := by sorry
+/-- prescribed_nonprimitive_column -/
+example (a b : ℤ) : ¬ IsUnit (Matrix.det (!![(2 : ℤ),a;0,b])) := by sorry
+/-- flag_independent_not_integral -/
+example : Matrix.det (!![(1 : ℤ),1;1,-1]) = -2 := by sorry
+/-- flag_standard_prefix -/
+example (x : Fin 3 → ℝ) :
+    x ∈ (Pi.basisFun ℝ (Fin 3)).flag (2 : Fin 4) ↔ x 2 = 0 := by sorry
+/-- minimum_flag_strict_boundary -/
+example : ¬ ((1 : Fin 2 → ℝ) ∈ (Pi.basisFun ℝ (Fin 2)).flag 0) := by sorry
+/-- minimum_flag_empty -/
+example : (Pi.basisFun ℝ (Fin 0)).flag (0 : Fin 1) = ⊤ := by sorry
+/-- rounding_keep_next -/
+example : (if (5 : ℕ) ≤ 6 then 6 else 5+6-5%6) = 6 := by sorry
+/-- rounding_zero_remainder -/
+example : (if (6 : ℕ) ≤ 3 then 3 else 6+3-6%3) = 9 := by sorry
+/-- rounding_chain_example -/
+example : (3 : ℕ) ∣ 6 ∧ (6 : ℕ) ∣ 12 ∧
+    (7 ≤ (12 : ℕ) ∧ 12 < 2*7) ∧ (5 ≤ (6 : ℕ) ∧ 6 < 2*5) := by sorry
+/-- rounding_empty_product -/
+example : (∏ i : Fin 0, (Fin.elim0 i : ℕ)) = 1 := by sorry
+/-- rounding_strict_product -/
+example : (12*6*3 : ℕ) < 2^2*(7*5*3) := by sorry
+/-- rounding_rank_one_not_strict -/
+example : ¬ (3 : ℕ) < 2^(1-1)*(3 : ℕ) := by sorry
+/-- diagonal_membership_different_factors -/
+example : ((2 : ℤ) ∣ 4 ∧ (3 : ℤ) ∣ 6) ∧ ¬ ((2 : ℤ) ∣ 3) := by sorry
+/-- diagonal_zero_coordinate -/
+example (z : ℤ) : (0 : ℤ) ∣ z ↔ z = 0 := by sorry
+/-- diagonal_index_two_three -/
+example : (AddSubgroup.pi Set.univ (fun i : Fin 2 =>
+    AddSubgroup.zmultiples ((![2,3] : Fin 2 → ℤ) i))).index = 6 := by sorry
+/-- diagonal_index_zero_factor -/
+example : (AddSubgroup.pi Set.univ (fun i : Fin 2 =>
+    AddSubgroup.zmultiples ((![2,0] : Fin 2 → ℤ) i))).index = 0 := by sorry
+/-- diagonal_division_needs_chain -/
+example : ¬ ∃ z : ℤ, (z : ℚ) = (2/3 : ℚ) := by sorry
+/-- diagonal_threshold_needs_strict -/
+example : (2 : ℤ) ≠ 0 ∧ (2 : ℤ) ∣ 2 ∧ (2/(2 : ℝ)) = 1 := by sorry
+/-- henk_cube_strict -/
+example : (9 : ℕ) < 2^(2-1)*(3*3) := by sorry
+/-- henk_anisotropic_strict -/
+example : (3 : ℕ) < 2^(2-1)*(3*1) ∧ (3*1 : ℕ) < 3^2 := by sorry
+end HenkTests
 
 end TauCeti.GeometryOfNumbersPlan
