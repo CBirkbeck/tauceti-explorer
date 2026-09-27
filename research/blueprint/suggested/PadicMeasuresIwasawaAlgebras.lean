@@ -1,3 +1,5 @@
+import TauCeti.Topology.Algebra.Group.LocallyConstant
+import Mathlib.Topology.Separation.DisjointCover
 import Mathlib.NumberTheory.Padics.LocalField
 import Mathlib.Topology.Instances.ZMod
 import Mathlib.Data.ZMod.Units
@@ -2266,3 +2268,79 @@ example (u : (ℤ_[2])ˣ) :
     AbstractMeasure.jointFiniteProjectionRingHom 2 0 (PadicInt.unitToZModPow 2 2)
       (PadicInt.continuous_unitToZModPow 2 2) (AbstractMeasure.dirac ℤ_[2] u) = 0 := sorry
 end UnitReductionTests
+
+
+/-! Concrete locally constant tests and measure separation on p-adic units.
+Native uniform local constancy is imported from Tau Ceti. All bodies below are
+planning placeholders. The source-grounded proof outlines are in the roadmap;
+the additional scratch proof experiment is unconfirmed. The compatible-family
+inverse remains a stated gap. -/
+
+noncomputable section
+open scoped AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+
+lemma PadicInt.unitToZModPow_function_factor_iff {A : Type*} (n : ℕ) (f : (ℤ_[p])ˣ → A) :
+    (∃ g : (ZMod (p^n))ˣ → A, g ∘ PadicInt.unitToZModPow p n = f) ↔
+      (PadicInt.unitToZModPow p n).ker ≤ TauCeti.rightTranslationStabilizer f := sorry
+
+lemma PadicInt.exists_unitToZModPow_locallyConstant_factor {A : Type*} (f : (ℤ_[p])ˣ → A)
+    (hf : IsLocallyConstant f) :
+    ∃ n, ∃ g : (ZMod (p^n))ˣ → A, g ∘ PadicInt.unitToZModPow p n = f := sorry
+
+lemma PadicInt.isLocallyConstant_iff_unitToZModPow_factor {A : Type*} (f : (ℤ_[p])ˣ → A) :
+    IsLocallyConstant f ↔ ∃ n, ∃ g : (ZMod (p^n))ˣ → A,
+      g ∘ PadicInt.unitToZModPow p n = f := sorry
+
+lemma PadicInt.unitToZModPow_function_factor_unique {A : Type*} (n : ℕ)
+    (g h : (ZMod (p^n))ˣ → A)
+    (heq : g ∘ PadicInt.unitToZModPow p n = h ∘ PadicInt.unitToZModPow p n) : g = h := sorry
+
+lemma PadicInt.unitToZModPow_function_factor_refinement {A : Type*} (m n : ℕ) (hmn : m ≤ n)
+    (f : (ℤ_[p])ˣ → A) (g : (ZMod (p^m))ˣ → A)
+    (hg : g ∘ PadicInt.unitToZModPow p m = f) :
+    (g ∘ ZMod.unitsMap (pow_dvd_pow p hmn)) ∘ PadicInt.unitToZModPow p n = f := sorry
+
+lemma PadicInt.exists_unitToZModPow_continuous_factor {A : Type*} [TopologicalSpace A] [DiscreteTopology A]
+    (f : (ℤ_[p])ˣ → A) (hf : Continuous f) :
+    ∃ n, ∃ g : (ZMod (p^n))ˣ → A, g ∘ PadicInt.unitToZModPow p n = f := sorry
+
+lemma PadicInt.unitToZModPow_zero_factor_iff {A : Type*} (f : (ℤ_[p])ˣ → A) :
+    (∃ g : (ZMod (p^0))ˣ → A, g ∘ PadicInt.unitToZModPow p 0 = f) ↔
+      ∀ x, f x = f 1 := sorry
+
+lemma PadicInt.dense_unitToZModPow_tests {R : Type*} [MetricSpace R] :
+    Dense {f : C((ℤ_[p])ˣ,R) | ∃ n, ∃ g : (ZMod (p^n))ˣ → R,
+      g ∘ PadicInt.unitToZModPow p n = f} := sorry
+
+lemma AbstractMeasure.unitToZModPow_ext {R : Type*} [NormedCommRing R]
+    (μ ν : D((ℤ_[p])ˣ,R))
+    (h : ∀ n, AbstractMeasure.finiteProjection ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ μ =
+      AbstractMeasure.finiteProjection ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ ν) : μ = ν := sorry
+
+lemma AbstractMeasure.jointUnitToZModPow_ext (μ ν : D((ℤ_[p])ˣ,ℤ_[p]))
+    (h : ∀ r n, AbstractMeasure.jointFiniteProjection p r ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ μ =
+      AbstractMeasure.jointFiniteProjection p r ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ ν) : μ = ν := sorry
+
+lemma AbstractMeasure.diagonalUnitToZModPow_ext (μ ν : D((ℤ_[p])ˣ,ℤ_[p]))
+    (h : ∀ n, AbstractMeasure.jointFiniteProjection p n ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ μ =
+      AbstractMeasure.jointFiniteProjection p n ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ ν) : μ = ν := sorry
+
+namespace UnitDescentTests
+-- UnitDescentTests.zero_level_constant
+example (c : ℤ) : ∃ g : (ZMod (3^0))ˣ → ℤ,
+    g ∘ PadicInt.unitToZModPow 3 0 = fun _ => c := sorry
+-- UnitDescentTests.dyadic_depth_one_insufficient
+example : ¬ ∃ g : (ZMod (2^1))ˣ → (ZMod (2^2))ˣ,
+    g ∘ PadicInt.unitToZModPow 2 1 = PadicInt.unitToZModPow 2 2 := sorry
+-- UnitDescentTests.joint_zero_precision
+example (μ : D((ℤ_[2])ˣ,ℤ_[2])) :
+    AbstractMeasure.jointFiniteProjection 2 0
+      ⟨PadicInt.unitToZModPow 2 2, PadicInt.continuous_unitToZModPow 2 2⟩ μ = 0 := sorry
+-- UnitDescentTests.dyadic_joint_dirac
+example : AbstractMeasure.jointFiniteProjection 2 2
+    ⟨PadicInt.unitToZModPow 2 2, PadicInt.continuous_unitToZModPow 2 2⟩
+    (AbstractMeasure.dirac ℤ_[2] (1 : (ℤ_[2])ˣ)) =
+      Finsupp.single (PadicInt.unitToZModPow 2 2 1) 1 := sorry
+end UnitDescentTests
+end

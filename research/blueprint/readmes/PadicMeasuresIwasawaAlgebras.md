@@ -1,3 +1,7 @@
+**Current unit-test checkpoint:** 276 unchecked nodes (38 construction, 178 lemma, 2 definition, 34 theorem, 24 comparison), 196 API items, 185 packet tests (142 on definitions/constructions), 196 typed examples, 17 planets and 287 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
+
+Eleven L1 declarations supply concrete finite-test descent and measure separation. Earlier checkpoint counts and validation passages below are historical; current evidence and scope are at the end.
+
 **Current unit-quotient checkpoint:** 265 unchecked nodes (38 construction, 171 lemma, 2 definition, 30 theorem, 24 comparison), 196 API items, 181 packet tests (142 on definitions/constructions), 192 typed examples, 17 planets and 274 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
 
 Sixteen L1 adapters now supply the concrete unit residue system. Earlier checkpoint counts and verification paragraphs below are historical; current evidence and scope are at the end.
@@ -7440,3 +7444,329 @@ carrier and joint topology. The source §3.3 inverse argument needs these actual
 analytic steps; group-element separation and homomorphism factorization alone
 do not supply them. The remaining coefficient-general, finite-extension,
 character-family, pseudomeasure and L4–L6 targets stay explicit below.
+
+
+## Finite test descent and measure separation on p-adic units
+
+Let U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ for any prime p, including2, and every n≥0.
+Use the already planned actual reduction red_n:U→A_n. A function f:U→A
+factors through red_n exactly when its right-translation stabilizer contains
+ker(red_n). Surjectivity supplies a representative of each residue, and this
+kernel condition makes the value independent of the representative. The
+codomain A needs neither algebraic structure nor topology.
+
+Tau Ceti already owns the general uniform-local-constancy theorem in
+ProfiniteCohomology Layer7: a locally constant function on a compact group
+has an open right-translation stabilizer. Mathlib already makes ℤ_p compact
+and units of a compact topological monoid compact. Apply these native facts,
+then the preceding cofinality of ker(red_n) in the open subgroups of U. Every
+locally constant function therefore factors through some red_n. The converse
+uses discreteness of A_n and continuity of red_n. At a fixed level the factor
+is unique, and passing to a larger level pulls it back along native unitsMap.
+Continuous functions to any discrete space are covered, even if the codomain
+is infinite, since the resulting finite factor forces finite image.
+
+At depth0 the only tests are constant. In the dyadic case the function red_2
+cannot factor through red_1: −1 and1 coincide modulo2 but differ modulo4.
+The same group-depth convention remains independent of coefficient precision.
+
+For a general metric codomain R, a continuous U→R function need not factor
+exactly. Native finite approximation supplies an arbitrarily close locally
+constant function, which does factor. Thus the actual unit-cylinder functions
+are dense in C(U,R) with its native topology of uniform convergence. For a
+normed commutative coefficient ring, two native measures having the same
+finite unit coefficients agree on these cylinder functions by the already
+planned finite pairing formula. Their continuity and density force equality.
+No completeness or nonarchimedean hypothesis on R is used for this uniqueness.
+
+For integral ℤ_p-valued measures, equality of all joint coordinates first
+identifies the integral finite coefficients by native p-adic residue
+separation, then identifies the measures. Even the diagonal coordinates
+(precision n,group depth n) suffice: every pair(r,n) is a projection of the
+pair(k,k) with k=max(r,n), by coefficient reduction followed by finite-group
+refinement. This cofinal argument retains both parameters and does not assert
+that the completed topology is pure T-adic. It also retains p=2.
+
+The specific-system separation requested by the Dirichlet packet is now
+supplied at the planning level. Its completed-coordinate request still needs
+the inverse construction and actual measure/completed-algebra comparison.
+The native completedGroupAlgebra carrier stays with ProfiniteProPGroups
+Layer9; no replacement carrier is introduced. All implementation statuses
+remain unchecked, and every public mathematical body remains a placeholder.
+### Criterion for descent of a unit test
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-test-factor-criterion` — `PadicInt.unitToZModPow_function_factor_iff` (lemma).
+
+For any set A and function f:U→A, a function g:A_n→A with g∘red_n=f exists exactly when ker(red_n) is contained in the native right-translation stabilizer of f.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. A is an arbitrary type; f is an arbitrary function.
+
+**Proof outline:**
+
+1. If f=g∘red_n, right multiplication by a kernel element does not change the residue and therefore does not change f.
+2. Conversely choose a right inverse s of the surjective red_n and set g(a)=f(s(a)). If red_n(y)=red_n(x), then x⁻¹y belongs to its kernel; translation invariance at x gives f(y)=f(x). Apply this with y=s(red_n(x)).
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-surjective`, `tauceti:TauCeti.rightTranslationStabilizer`, `tauceti:TauCeti.mem_rightTranslationStabilizer`, `mathlib:Function.surjInv`, `mathlib:Function.surjInv_eq`.
+
+**Acceptance:** A has no algebraic structure or topology. This is a statement about functions, beyond the earlier homomorphism-only factorization.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Descent of locally constant unit tests
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor` — `PadicInt.exists_unitToZModPow_locallyConstant_factor` (theorem).
+
+Every locally constant f:U→A, with A any set, factors as g∘red_n for some n and g:A_n→A.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. A is any type and f:U→A is locally constant.
+
+**Proof outline:**
+
+1. Native compactness of ℤ_p and the native compact-units instance make U compact. Apply TauCeti.isOpen_rightTranslationStabilizer to f.
+2. Package the native stabilizer as an open subgroup and apply unit-reduction-cofinality. Its kernel inclusion supplies factorization by unit-test-factor-criterion.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-test-factor-criterion`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-cofinality`, `tauceti:TauCeti.isOpen_rightTranslationStabilizer`, `mathlib:Units.isClosedEmbedding_embedProduct`, `mathlib:PadicInt.compactSpace`.
+
+**Acceptance:** Uniform constancy and the stabilizer remain native declarations owned by ProfiniteCohomology Layer7. No duplicate compactness proof or function carrier is introduced.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Characterization by finite unit descent
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-characterization` — `PadicInt.isLocallyConstant_iff_unitToZModPow_factor` (lemma).
+
+For every f:U→A, local constancy is equivalent to factorization through red_n for some n.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. A is an arbitrary type.
+
+**Proof outline:**
+
+1. The forward implication is unit-locally-constant-factor.
+2. For the reverse implication every function on the discrete A_n is locally constant; precompose with the proved continuous reduction.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity`, `mathlib:IsLocallyConstant.of_discrete`, `mathlib:IsLocallyConstant.comp_continuous`.
+
+**Acceptance:** The codomain need not be discrete, finite or topological.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Uniqueness of a descended unit test
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-test-factor-uniqueness` — `PadicInt.unitToZModPow_function_factor_unique` (lemma).
+
+At fixed n, if g,h:A_n→A satisfy g∘red_n=h∘red_n, then g=h.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. A is an arbitrary type.
+
+**Proof outline:**
+
+1. Choose a preimage in U for each a∈A_n by surjectivity and evaluate the given equality there.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-surjective`.
+
+**Acceptance:** Uniqueness is at a fixed level. Choosing a level is not canonical; refinement relates different choices.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Refinement of descended unit tests
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-test-factor-refinement` — `PadicInt.unitToZModPow_function_factor_refinement` (lemma).
+
+If g:A_m→A satisfies g∘red_m=f and m≤n, then (g∘t_(m,n))∘red_n=f, where t_(m,n) is native ZMod.unitsMap.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. A is any type; m≤n.
+
+**Proof outline:**
+
+1. Precompose g with the native transition. Apply unit-reduction-refinement pointwise, then the given factorization.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement`, `mathlib:ZMod.unitsMap`.
+
+**Acceptance:** The value function is pulled back along group reduction. This is not a homomorphism assumption on g.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Descent of continuous discrete-valued unit tests
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-continuous-discrete-factor` — `PadicInt.exists_unitToZModPow_continuous_factor` (lemma).
+
+Every continuous f:U→A with A discrete factors through some red_n.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. A is a topological space with discrete topology.
+
+**Proof outline:**
+
+1. Native IsLocallyConstant.iff_continuous converts continuity to local constancy. Apply unit-locally-constant-factor.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor`, `mathlib:IsLocallyConstant.iff_continuous`.
+
+**Acceptance:** A need not be finite; the factorization itself implies finite image. In particular this supplies every continuous finite-valued test used by finite-projections-separate.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Tests at the zero unit level
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-test-zero-factor` — `PadicInt.unitToZModPow_zero_factor_iff` (lemma).
+
+A function f:U→A factors through red_0 exactly when f(x)=f(1) for every x.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. A is any type.
+
+**Proof outline:**
+
+1. Every red_0 value is1, so a factor gives the constant value at1.
+2. Conversely the constant function on A_0 with value f(1) supplies the factor.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-reduction`.
+
+**Tests:**
+
+- `UnitDescentTests.zero_level_constant` (degenerate): At p=3 every constant function to ℤ factors through depth0.
+- `UnitDescentTests.dyadic_depth_one_insufficient` (non-example): The function red_2 on ℤ_2ˣ cannot factor through red_1: −1 and1 agree modulo2 but differ modulo4.
+
+**Acceptance:** A_0 is the unit group of the zero ring and has one element. The boundary is not omitted.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Density of finite unit tests
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-cylinder-density` — `PadicInt.dense_unitToZModPow_tests` (lemma).
+
+For any metric space R, continuous functions U→R that factor through one of the red_n form a dense subset of C(U,R), with its native topology of uniform convergence.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. R is any metric space; U is compact Hausdorff and totally disconnected with the inherited native topology.
+
+**Proof outline:**
+
+1. Embed U in ℤ_p using native Units.isOpenEmbedding_val. Every subset of the ultrametric space ℤ_p is totally disconnected; transfer that property through the native embedding-range equivalence. This is a local instance in the proof, not a new carrier.
+2. For a continuous f and positive epsilon use the open epsilon-neighbourhood of the diagonal of R. Native finite approximation on compact Hausdorff totally disconnected U gives continuous q:U→Fin k and g:Fin k→R with pointwise distance less than epsilon.
+3. The composite g∘q is locally constant by discreteness of Fin k, hence factors through red_n by unit-locally-constant-factor.
+4. Native ContinuousMap.dist_lt_iff turns the pointwise bound into the required uniform bound; Metric.mem_closure_iff gives density.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity`, `mathlib:ContinuousMap.exists_finite_approximation_of_mem_nhds_diagonal`, `mathlib:IsLocallyConstant.of_discrete`, `mathlib:IsLocallyConstant.comp_continuous`, `mathlib:ContinuousMap.dist_lt_iff`, `mathlib:Metric.mem_closure_iff`, `mathlib:IsOpen.mem_nhdsSet`, `mathlib:Units.isOpenEmbedding_val`, `mathlib:Topology.IsEmbedding.isTotallyDisconnected_range`, `mathlib:isTotallyDisconnected_of_totallyDisconnectedSpace`.
+
+**Acceptance:** R need not be complete or a ring. The finite test is an approximation; a general continuous R-valued function need not factor exactly.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Unit coordinates determine a measure
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-measure-separation` — `AbstractMeasure.unitToZModPow_ext` (theorem).
+
+For any normed commutative ring R, two native R-valued measures μ,ν on U are equal if π_(red_n)(μ)=π_(red_n)(ν) for every n.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. R is a normed commutative ring; measures mean native AbstractMeasure U R R. No completeness or nonarchimedean assumption on R is needed.
+
+**Proof outline:**
+
+1. The finite-projection pairing formula expresses evaluation on g∘red_n as the finite sum of g(a) times the corresponding coordinate. Equality of projections gives equality of both measures on every such test.
+2. Apply unit-cylinder-density and native Continuous.ext_on to the two continuous functionals, then native measure extensionality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-cylinder-density`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-pairing`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity`, `mathlib:Continuous.ext_on`.
+
+**Acceptance:** Only the actual unit reductions are quantified. The result supplies the specific-system injectivity requested by Dirichlet; existence of a measure from coordinates remains separate.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Joint unit coordinates determine an integral measure
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-joint-measure-separation` — `AbstractMeasure.jointUnitToZModPow_ext` (theorem).
+
+Two native ℤ_p-valued measures on U are equal if their joint finite coordinates at every coefficient precision r and group depth n are equal.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. Both measures have coefficients in ℤ_p.
+
+**Proof outline:**
+
+1. Fix n and a residue a. Equality of the joint coordinates gives equality of every p-power reduction of the integral finite coefficient at a. Native PadicInt.ext_of_toZModPow gives equality of these coefficients.
+2. Use finite-support function extensionality and unit-measure-separation.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-measure-separation`, `PadicMeasuresIwasawaAlgebras:L1/joint-finite-coefficient`, `mathlib:PadicInt.ext_of_toZModPow`.
+
+**Acceptance:** Precision0 is the zero coefficient ring and carries no information alone; all precisions together are used.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Diagonal unit coordinates determine an integral measure
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-diagonal-measure-separation` — `AbstractMeasure.diagonalUnitToZModPow_ext` (theorem).
+
+It suffices to compare, for every n, the joint coordinate with coefficient precision n and unit-group depth n.
+
+**Hypotheses:** p is any prime, including2. U=ℤ_pˣ has its native compact group topology; A_n=(ℤ/p^nℤ)ˣ is finite and discrete. n ranges over all natural numbers, including0. red_n:U→A_n is the previously planned actual unit reduction. The group depth n and coefficient precision r are independent. Both measures have coefficients in ℤ_p.
+
+**Proof outline:**
+
+1. To compare a general pair (r,n), set k=max(r,n). Apply native coefficient reduction from k to r to the equality at (k,k), using joint-finite-precision.
+2. Push the resulting finite coordinates along native unitsMap from group depth k to n. Use joint-finite-refinement and unit-reduction-refinement.
+3. All pairs agree, so unit-joint-measure-separation applies.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-joint-measure-separation`, `PadicMeasuresIwasawaAlgebras:L1/joint-finite-precision`, `PadicMeasuresIwasawaAlgebras:L1/joint-finite-refinement`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement`, `mathlib:ZMod.unitsMap`.
+
+**Tests:**
+
+- `UnitDescentTests.joint_zero_precision` (degenerate): For p=2 and group depth2, every integral measure has zero joint coordinate at coefficient precision0.
+- `UnitDescentTests.dyadic_joint_dirac` (compatibility): For p=2, coefficient precision2 and group depth2, δ_1 has the basis coefficient at the residue of1 in (ℤ/4ℤ)ˣ.
+
+**Acceptance:** This is cofinality in the two-parameter system. It does not identify the completed topology with pure T-adic truncation or remove either parameter from the definition.
+
+**Sources:** RJW-published, Definitions3.7–3.8 and Remarks3.11–3.12, printed119–121/PDF20–22; Proposition3.16 and its complete proof, printed121–122/PDF22–23. Full printed118–124/PDF19–25 freshly read27 September2026. Worker decomposition of the finite-test and injectivity steps for the concrete multiplicative unit system. These adapter declarations are not separately stated in the source.; TauCeti-uniform-local-constancy, Complete LocallyConstant.lean, especially lines46–81. The existing open translation stabilizer supplies the compactness step. Only descent through the specific p-adic unit reductions is planned here.
+
+### Current validation and continuation
+
+All265 whole predecessor nodes,274 baseline objects,14 findings,17 planets
+and every preceding suggested Lean byte are preserved. All eight reviewed
+AUDIT26 rows,accepted RS16 boundaries,current handoff,and the exact
+ProfiniteProPGroups Layer9 supplier passage were read. Binding protocols,
+expansion protocol,two upstream models and unchanged links retain continuous
+read provenance. The51 captured input blobs are guarded.
+
+The full native TauCeti uniform-local-constancy file was read, as were the
+actual compact-units and p-adic compactness instances,the finite-approximation
+statement,continuous-map metric comparison,and all named native inputs.
+Sixteen exact indexed declarations were read,adding13 baseline records;
+the existing PadicInt.compactSpace instance was also read in full. The
+published RJW printed118–124/PDF19–25 was freshly read,especially the complete
+Proposition3.16 proof at121–122/PDF22–23. Source SHA256 is
+78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6.
+No new source finding or independent review is asserted.
+
+A bounded open Mathlib PR title query for the exact phrase locally constant
+returned no candidates. A broader keyword query returned unrelated titles;
+no claim about their mathematics or global absence is made. The bounded
+Zulip search returned general quotient discussions and older discrete-quotient
+documentation,not an exact concrete-unit adapter. The pinned native supplier
+is used directly. Its uniform constancy and stabilizer are not new nodes.
+
+Dirichlet153→158 adds five nodes: intrinsic numerator norm,finite smoothed
+moments,generalized smoothed Kummer,weight-period smoothed Kummer,and the
+unit-denominator corollary. All five whole nodes were read; all153 earlier
+whole objects are unchanged. The registry7575→7576 and REGISTER changes are
+the same fully read Dirichlet E10 addition screened in the preceding LAD
+checkpoint; the source correction requires smoothing or unit denominators.
+The subsequent158→184 refresh adds26 whole nodes for character twists,tame kernels,Gauss comparison and integral tame measures; all26 were read,and all158 preceding whole nodes are unchanged. Registry7576→7592 adds16 whole records (Dirichlet E11–13,Heights E1–7,InverseGalois E1,Tropical E1–5),all read; every7576 earlier record is unchanged. These add no reverse dependency or change to the consumed PMIA APIs. The generated REGISTER carries the same additions. These are input checks,not an independent review. LAD PR3255 merged
+automatically as83534672a95cb0213906a0409a70e6e2a455a951.
+
+A second registry refresh7592→7600 adds SieveMethodsAndPrimePatterns E19–26. All eight whole additions and corresponding REGISTER changes were read; all7592 earlier whole records are unchanged. These are unrelated to the PMIA unit-test scope and receive no independent-review verdict.
+
+The full suggested file compiles with0 errors and584 warnings,
+all and only placeholder warnings. Only the non-executable scratch-status
+comment was updated afterward; all imports and declarations are byte-identical.
+Recursive audit checks2813 pinned Mathlib
+modules and2 byte-identical rebuilt TauCeti modules; no planned supplier
+is imported as if already implemented. The additional full-proof experiment was not completed. The final attempt
+was stopped under sustained host memory pressure after the required suggested
+file had compiled successfully. Its written proof terms are scratch work,
+not confirmed complete Lean proofs; no successful scratch run is asserted.
+The public plan is justified by the source and native-declaration readings,
+the explicit mathematical proof outlines,and the checked Lean signatures.
+
+Indexed blueprint checker:0 errors,0 warnings. Four-file intake:0 problems.
+Errata wrapper,whole-object preservation,reader/signature/test parity and
+scope checks pass. The reachable graph contains277 nodes,1125
+acyclic edges and288 native leaves,with no unresolved stage leaves.
+All265 preceding whole nodes,274 baseline records,14 findings,17 planets
+and preceding suggested Lean bytes are preserved. Public bodies stay sorry;
+all implementation statuses stay unchecked.
+
+The actual unit system now supplies arbitrary locally constant and continuous discrete-valued test descent, dense cylinder tests, and measure separation by finite, joint and diagonal coordinates. Construct the inverse from compatible integral finite coordinates: define evaluation on a finite test by its coordinate pairing, prove independence of the chosen level by refinement, establish a uniform bound and extend continuously, then prove the inverse identities. Compare this with the existing ProfiniteProPGroups Layer9 completed group algebra and establish the joint coefficient/group topological equivalence. General adic-coefficient and finite-extension comparisons remain. The Dirichlet request has its specific-unit separation but still needs the actual measure/completed-algebra equivalence. Retain the RS16 coefficient powers together with finite-group kernels ((1+T)^(p^n)−1), including the integral dyadic case. No completed carrier or general uniform-local-constancy theorem is rebuilt.
