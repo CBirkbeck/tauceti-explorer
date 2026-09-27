@@ -23599,13 +23599,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-GeneralAlgebraicKTheory--K.1",
     "BP-GeneralAlgebraicKTheory--K.6"
    ],
-   "note": "released on GitHub issue #1030"
+   "note": "claimed on GitHub issue #1030"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic",
@@ -23947,12 +23947,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "claimed on GitHub issue #1036"
+   "note": "released on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
