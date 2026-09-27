@@ -1,3 +1,9 @@
+import Mathlib.Analysis.Normed.Ring.Finite
+import Mathlib.NumberTheory.Padics.Complex
+import Mathlib.RingTheory.PowerSeries.Evaluation
+import Mathlib.RingTheory.MvPowerSeries.LinearTopology
+import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
+import Mathlib.Data.Nat.Choose.Dvd
 import Mathlib.Analysis.Normed.Ring.Units
 import Mathlib.Topology.LocallyConstant.Algebra
 import Mathlib.Topology.Homeomorph.Lemmas
@@ -602,3 +608,199 @@ example : inverseMahler 3 ((1 + X) ^ 3) = 0 := sorry
 -- SuggestedTests.inverse_mahler_dyadic
 example : (3 : ℤ_[2]) • inverseMahler 2 ((1 + X) ^ 3) = (1 + X) ^ 3 := sorry
 end SuggestedTests
+
+/-! ## Integral topological root averaging
+
+The receiving ring is the existing valuation integer ring of C_p, with its
+induced topology. The topology on power series is the coefficientwise p-adic
+product topology. Topological evaluation, not formal substitution at a nonzero
+constant, defines root translation. The operator psiSeries is the preceding one.
+-/
+
+namespace IwasawaAveraging
+open Filter Topology PowerSeries
+open scoped PowerSeries.WithPiTopology Valued NNReal Classical
+
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "O" => 𝒪[ℂ_[p]]
+local notation "B" => Z⟦X⟧
+local notation "b" => ((1 + X : B) ^ p - 1)
+local notation "j₀" => (RingHom.comp (algebraMap ℚ_[p] ℂ_[p]) (algebraMap Z ℚ_[p]))
+
+-- The complete-space instance is the pinned closed-subspace theorem.
+local instance : CompleteSpace O :=
+  (Valued.isClosed_integer ℂ_[p]).isComplete.completeSpace_coe
+
+/-- Small valuation balls give an ideal basis on the existing integer ring. -/
+theorem integerRing_linearTopology : IsLinearTopology O O := by sorry
+local instance : IsLinearTopology O O := integerRing_linearTopology p
+
+/-- The canonical coefficient map, the existing composite lifted into its unit ball. -/
+def integralCoefficientMap : Z →+* O := sorry
+
+theorem integralCoefficientMap_coe (x : Z) :
+    ((integralCoefficientMap p x : O) : ℂ_[p]) = j₀ x := by sorry
+
+theorem integralCoefficientMap_continuous : Continuous (integralCoefficientMap p) := by sorry
+
+theorem integralCoefficientMap_injective : Function.Injective (integralCoefficientMap p) := by sorry
+
+theorem primeRoot_sub_one_norm {ζ : ℂ_[p]} (hζ : ζ ^ p = 1) : ‖ζ - 1‖ < 1 := by sorry
+
+theorem integerRoot_sub_one_topologicallyNilpotent {ζ : O} (hζ : ζ ^ p = 1) :
+    IsTopologicallyNilpotent (ζ - 1) := by sorry
+
+theorem invTransform_uniform_tail (f : C(Z, Z)) (ε : ℝ) (hε : 0 < ε) :
+    ∃ N : ℕ, ∀ F : B, ∀ n : ℕ, N ≤ n →
+      ‖AbstractMeasure.invTransform F f -
+        ∑ k ∈ Finset.range n, PadicInt.mahlerEquiv Z f k * F.coeff k‖ < ε := by sorry
+
+/-- Integral Amice evaluation is continuous for the coefficientwise topology. -/
+theorem continuous_invTransform_apply (f : C(Z, Z)) :
+    Continuous (fun F : B => AbstractMeasure.invTransform F f) := by sorry
+
+theorem continuous_psiSeries : Continuous (AbstractMeasure.psiSeries p) := by sorry
+
+theorem continuous_phi_psiSeries :
+    Continuous (fun F : B => subst b (AbstractMeasure.psiSeries p F)) := by sorry
+
+theorem amiceTransform_dirac_nat (n : ℕ) :
+    (AbstractMeasure.dirac Z (n : Z)).amiceTransform = (1 + X : B) ^ n := by sorry
+
+theorem phi_psiSeries_one_add_X_pow (n : ℕ) :
+    subst b (AbstractMeasure.psiSeries p ((1 + X : B) ^ n)) =
+      if p ∣ n then (1 + X : B) ^ n else 0 := by sorry
+
+theorem rootTranslation_hasEval (ζ : O) (hζ : ζ ^ p = 1) (i : ℕ) :
+    PowerSeries.HasEval (C (ζ ^ i) * (1 + X : O⟦X⟧) - 1) := by sorry
+
+/-- Only integral input coefficients are evaluated; the target has its genuine topology. -/
+def rootTranslation (ζ : O) (hζ : ζ ^ p = 1) (i : ℕ) : B →+* O⟦X⟧ := sorry
+
+theorem rootTranslation_eq_eval (ζ : O) (hζ : ζ ^ p = 1) (i : ℕ) (F : B) :
+    rootTranslation p ζ hζ i F =
+      PowerSeries.eval₂ ((PowerSeries.C : O →+* O⟦X⟧).comp (integralCoefficientMap p))
+        (C (ζ ^ i) * (1 + X) - 1) F := by sorry
+
+theorem rootTranslation_continuous (ζ : O) (hζ : ζ ^ p = 1) (i : ℕ) :
+    Continuous (rootTranslation p ζ hζ i) := by sorry
+
+theorem rootTranslation_polynomial (ζ : O) (hζ : ζ ^ p = 1) (i : ℕ) (P : Polynomial Z) :
+    rootTranslation p ζ hζ i (P : B) =
+      P.eval₂ ((PowerSeries.C : O →+* O⟦X⟧).comp (integralCoefficientMap p))
+        (C (ζ ^ i) * (1 + X) - 1) := by sorry
+
+theorem rootTranslation_one_add_X_pow (ζ : O) (hζ : ζ ^ p = 1) (i n : ℕ) :
+    rootTranslation p ζ hζ i ((1 + X : B) ^ n) = C (ζ ^ (i * n)) * (1 + X) ^ n := by sorry
+
+theorem rootTranslation_hasSum (ζ : O) (hζ : ζ ^ p = 1) (i : ℕ) (F : B) :
+    HasSum (fun n => C (integralCoefficientMap p (F.coeff n)) *
+      (C (ζ ^ i) * (1 + X : O⟦X⟧) - 1) ^ n) (rootTranslation p ζ hζ i F) := by sorry
+
+theorem rootTranslation_zeroth (ζ : O) (hζ : ζ ^ p = 1) (F : B) :
+    rootTranslation p ζ hζ 0 F = PowerSeries.map (integralCoefficientMap p) F := by sorry
+
+theorem primitiveRoot_power_sum {R : Type*} [CommRing R] [IsDomain R]
+    {ζ : R} (hζ : IsPrimitiveRoot ζ p) (n : ℕ) :
+    (∑ i ∈ Finset.range p, ζ ^ (i * n)) = if p ∣ n then (p : R) else 0 := by sorry
+
+theorem root_average_polynomial (ζ : O) (hζ : IsPrimitiveRoot ζ p) (P : Polynomial Z) :
+    (p : O⟦X⟧) * PowerSeries.map (integralCoefficientMap p)
+      (subst b (AbstractMeasure.psiSeries p (P : B))) =
+      ∑ i ∈ Finset.range p, rootTranslation p ζ hζ.pow_eq_one i (P : B) := by sorry
+
+theorem root_average (ζ : O) (hζ : IsPrimitiveRoot ζ p) (F : B) :
+    (p : O⟦X⟧) * PowerSeries.map (integralCoefficientMap p)
+      (subst b (AbstractMeasure.psiSeries p F)) =
+      ∑ i ∈ Finset.range p, rootTranslation p ζ hζ.pow_eq_one i F := by sorry
+
+theorem root_average_integral_descent (ζ : O) (hζ : IsPrimitiveRoot ζ p) (F : B) :
+    ∃! G : B, (p : O⟦X⟧) * PowerSeries.map (integralCoefficientMap p) (subst b G) =
+      ∑ i ∈ Finset.range p, rootTranslation p ζ hζ.pow_eq_one i F := by sorry
+
+section Fractions
+local notation "CPS" => ℂ_[p]⟦X⟧
+local notation "Q" => FractionRing CPS
+local notation "J" => RingHom.comp (algebraMap CPS Q) (PowerSeries.map j₀)
+local notation "Y" => ((algebraMap CPS Q) (1 + X))
+local notation "c" => (RingHom.comp (algebraMap CPS Q) (PowerSeries.C : ℂ_[p] →+* CPS))
+
+/-- Polynomial affine substitution has no zero denominator for nonzero Q. -/
+theorem translated_polynomial_ne_zero (ζ : ℂ_[p]) (hζ : ζ ≠ 0)
+    (P : Polynomial Z) (hP : P ≠ 0) :
+    P.eval₂ (RingHom.comp c j₀) (c ζ * Y - 1) ≠ 0 := by sorry
+
+theorem rootTranslation_rational (ζ : O) (hζ : ζ ^ p = 1) (i : ℕ)
+    (P Q₀ : Polynomial Z) (hQ : IsUnit (Q₀.coeff 0)) (F : B)
+    (hF : (Q₀ : B) * F = (P : B)) :
+    (algebraMap CPS Q) (PowerSeries.map (Valued.integer ℂ_[p]).subtype
+      (rootTranslation p ζ hζ i F)) =
+      P.eval₂ (RingHom.comp c j₀) (c ((ζ : ℂ_[p]) ^ i) * Y - 1) /
+        Q₀.eval₂ (RingHom.comp c j₀) (c ((ζ : ℂ_[p]) ^ i) * Y - 1) := by sorry
+
+theorem rational_root_average (ζ : ℂ_[p]) (hζ : IsPrimitiveRoot ζ p)
+    (P Q₀ : Polynomial Z) (hQ : IsUnit (Q₀.coeff 0)) (F : B)
+    (hF : (Q₀ : B) * F = (P : B)) :
+    (p : Q) * J (subst b (AbstractMeasure.psiSeries p F)) =
+      ∑ i ∈ Finset.range p,
+        P.eval₂ (RingHom.comp c j₀) (c (ζ ^ i) * Y - 1) /
+          Q₀.eval₂ (RingHom.comp c j₀) (c (ζ ^ i) * Y - 1) := by sorry
+end Fractions
+
+section AlgebraicFractions
+variable {K : Type*} [Field K] [CharZero K]
+
+theorem root_denominator_ne_zero {ζ y : K} (hζ : IsPrimitiveRoot ζ p)
+    (hy : y ^ p ≠ 1) (i : ℕ) : ζ ^ i * y - 1 ≠ 0 := by sorry
+
+theorem root_partial_fractions {ζ y : K} (hζ : IsPrimitiveRoot ζ p)
+    (hy : y ^ p ≠ 1) :
+    (∑ i ∈ Finset.range p, 1 / (ζ ^ i * y - 1)) = (p : K) / (y ^ p - 1) := by sorry
+
+theorem translated_polynomial_descent_ne_zero (j : Z →+* K) (e : K →+* ℂ_[p])
+    (he : e.comp j = j₀) (ζ : K) (hζ : ζ ≠ 0)
+    (P : Polynomial Z) (hP : P ≠ 0) :
+    let ι := algebraMap (PowerSeries K) (FractionRing (PowerSeries K))
+    let c := ι.comp (PowerSeries.C : K →+* PowerSeries K)
+    P.eval₂ (RingHom.comp c j) (c ζ * ι (1 + X) - 1) ≠ 0 := by sorry
+
+/-- The receiving field can be the actual finite cyclotomic subfield of C_p. -/
+theorem rational_root_average_descent (j : Z →+* K) (e : K →+* ℂ_[p])
+    (he : e.comp j = j₀) (ζ : K) (hζ : IsPrimitiveRoot ζ p)
+    (P Q₀ : Polynomial Z) (hQ : IsUnit (Q₀.coeff 0)) (F : B)
+    (hF : (Q₀ : B) * F = (P : B)) :
+    let ι := algebraMap (PowerSeries K) (FractionRing (PowerSeries K))
+    let J := ι.comp (PowerSeries.map j)
+    let c := ι.comp (PowerSeries.C : K →+* PowerSeries K)
+    let Y := ι (1 + X)
+    (p : FractionRing (PowerSeries K)) * J (subst b (AbstractMeasure.psiSeries p F)) =
+      ∑ i ∈ Finset.range p,
+        P.eval₂ (RingHom.comp c j) (c (ζ ^ i) * Y - 1) /
+          Q₀.eval₂ (RingHom.comp c j) (c (ζ ^ i) * Y - 1) := by sorry
+end AlgebraicFractions
+
+-- IwasawaAveraging.Tests.coefficient_zero
+example : integralCoefficientMap p 0 = 0 := by sorry
+-- IwasawaAveraging.Tests.coefficient_one
+example : integralCoefficientMap p 1 = 1 := by sorry
+-- IwasawaAveraging.Tests.coefficient_agreement
+example (x : Z) : ((integralCoefficientMap p x : O) : ℂ_[p]) = j₀ x := by sorry
+
+-- IwasawaAveraging.Tests.translation_zero
+example (h : (-1 : 𝒪[ℂ_[2]]) ^ 2 = 1) :
+    rootTranslation 2 (-1) h 1 0 = 0 := by sorry
+-- IwasawaAveraging.Tests.translation_variable
+example (h : (-1 : 𝒪[ℂ_[2]]) ^ 2 = 1) :
+    rootTranslation 2 (-1) h 1 X = -2 - X := by sorry
+-- IwasawaAveraging.Tests.translation_odd_power
+example (h : (-1 : 𝒪[ℂ_[2]]) ^ 2 = 1) :
+    rootTranslation 2 (-1) h 1 ((1 + X) ^ 3) = -(1 + X) ^ 3 := by sorry
+
+-- IwasawaAveraging.Tests.average_variable_two
+example (h : IsPrimitiveRoot (-1 : 𝒪[ℂ_[2]]) 2) :
+    (∑ i ∈ Finset.range 2, rootTranslation 2 (-1) h.pow_eq_one i X) = -2 := by sorry
+-- IwasawaAveraging.Tests.partial_fractions_two
+example : (∑ i ∈ Finset.range 2, 1 / (((-1 : ℚ) ^ i) * 2 - 1)) = 2 / 3 := by sorry
+
+end IwasawaAveraging
