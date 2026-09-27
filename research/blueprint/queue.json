@@ -16120,11 +16120,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #699"
+   "note": "claimed on GitHub issue #699"
   },
   {
    "id": "REV-ColemanPowerSeries",
@@ -16366,9 +16366,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #704"
+   "note": "released on GitHub issue #704"
   },
   {
    "id": "REV-CrystallineCohomology--CR.0",
