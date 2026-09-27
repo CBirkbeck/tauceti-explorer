@@ -11,7 +11,7 @@
     "SieveMethodsAndPrimePatterns:SV.5"
   ],
   "status": "partial",
-  "summary": "Finite weighted sieve foundations on the existing BoundingSieve carrier: exact inclusion-exclusion, its Euler-product main term and absolute remainder, lower coefficient estimates, explicit support-truncated error control, and the first Bonferroni lower bound. No new sieve carrier, asymptotic estimate or level-of-distribution predicate is introduced. Dimension, general excluded-residue bridges and all advanced endpoints remain explicit gaps.",
+  "summary": "Twenty finite SV.0 declarations on the existing BoundingSieve carrier. All eight inherited nodes remain unchanged. Twelve additions construct multiplicity-preserving finite-family and arbitrary-residue sieves, remove zero-density local conditions, separate full-residue obstructions, prove their exact divisibility/survival interfaces and transfer the Legendre error bound. Dimension, distribution and advanced endpoints remain open; no new sieve carrier or generic multiplicative extension is introduced.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -190,6 +190,118 @@
         "module": "Mathlib/Data/Nat/PrimeFin.lean",
         "provides": "For nonzero P, membership in its finite prime factors means primality and divisibility.",
         "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174."
+      },
+      {
+        "ref": "mathlib:Finset.prod_fiberwise_eq_prod_filter",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+        "provides": "Finite product over fibers equals the product over the preimage filter. Its generated additive companion Finset.sum_fiberwise_eq_sum_filter is used here and was verified by complete Lean proofs; the declaration index lists the source multiplicative name.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 248. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Finset.prod_dvd_prod_of_subset",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+        "provides": "A product over a finite subset divides the product over the larger finite set.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 639. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Finset.squarefree_prod_of_pairwise_isCoprime",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Squarefree/Basic.lean",
+        "provides": "A finite product of squarefree pairwise relatively prime factors is squarefree.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 238. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Finset.eq_univ_of_card",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/Card.lean",
+        "provides": "A finite subset with the cardinality of a finite ambient type equals the full set.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 106. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Finset.card_le_univ",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Fintype/Card.lean",
+        "provides": "A finite subset has cardinality at most that of its finite ambient type.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 115. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_iff_isRelPrime",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/GCD/Basic.lean",
+        "provides": "Natural coprimality is equivalent to the generic relative-primality relation needed by the squarefree-product theorem.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 230. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_prod_left_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/GCD/BigOperators.lean",
+        "provides": "Coprimality of a finite product is equivalent to coprimality of each factor.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 38. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Nat.coprime_primes",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Prime/Basic.lean",
+        "provides": "Two primes are coprime exactly when they differ.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 209. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.primeFactors",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "The finite prime-factor set of a prime p is the singleton {p}.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 94. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Nat.prod_primeFactors_of_squarefree",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/Squarefree.lean",
+        "provides": "A squarefree natural equals the product of its distinct prime factors.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 342. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Nat.primeFactors_prod",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/Squarefree.lean",
+        "provides": "The prime-factor set of the product of a finite set of primes is that set.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 346. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:Nat.prod_primeFactors_dvd_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Squarefree.lean",
+        "provides": "For nonzero k, the product of the prime factors of n divides k exactly when those prime factors are contained among k's.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 358. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:ZMod.card",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Defs.lean",
+        "provides": "The finite residue ring ZMod n has cardinality n; positivity supplies the finite instance in this application.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 166. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.prodPrimeFactors",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "Existing arithmetic function equal to zero at 0 and to the product of prescribed values over distinct prime divisors otherwise.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 53. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.prodPrimeFactors_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "Evaluation of that existing arithmetic function at any nonzero natural.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 65. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.IsMultiplicative.prodPrimeFactors",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "The existing prime-factor product extension is multiplicative on coprime natural arguments.",
+        "checked": "Statement and surrounding hypotheses read at the pinned Mathlib commit, source line 72. The exact finite-family and residue constructors were tested with complete scratch Lean proofs; no such implementation is submitted."
       }
     ]
   },
@@ -205,7 +317,8 @@
       "readSections": [
         "Preface and Section 1, pp.1-6, complete.",
         "Section 2, pp.6-8, through the statement of Lemma 2.1; its proof and pp.9-50 not read.",
-        "Rendered pp.1-4 checked for the reported examples and asymptotic hypotheses."
+        "Rendered pp.1-4 checked for the reported examples and asymptotic hypotheses.",
+        "Continuation: pp.1–4 reread, especially Example 2's parameter/image distinction and Corollary 1.1. No additional pages or published version read."
       ]
     },
     {
@@ -218,7 +331,8 @@
       "accessed": "2026-09-27",
       "readSections": [
         "Chapter 11 in full, sections 11.1-11.6 including proofs and exercises.",
-        "Chapters 12-21 not read for this packet."
+        "Chapters 12-21 not read for this packet.",
+        "Continuation: §11.2 weighted inclusion-exclusion proof and Definition 11.6 freshly reread; fresh author HTML byte-identical to the previously read complete chapter."
       ]
     }
   ],
@@ -562,6 +676,683 @@
       "planet": {
         "name": "First Bonferroni sieve bound"
       }
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/finite-family-sieve",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Weighted finite-family sieve",
+      "kind": "construction",
+      "statement": "Construct s.ofFiniteFamily(A,f,w) as a BoundingSieve with support f(A), weight at n equal to Σ_{a∈A,f(a)=n}w(a), and the same prime product, density and approximate mass as s.",
+      "hypotheses": [
+        "s is an existing BoundingSieve; A is a finite set of indices in any type; f maps indices to naturals; w is real-valued and nonnegative on A. No injectivity or positivity of f is assumed."
+      ],
+      "prerequisites": [
+        "mathlib:BoundingSieve",
+        "mathlib:Finset.prod_fiberwise_eq_prod_filter"
+      ],
+      "proofSteps": [
+        "Use the existing BoundingSieve record, replacing only support and weights by the displayed finite image and fiber sums.",
+        "Every fiber weight is nonnegative because all its indices belong to A. Retain the template's squarefreeness and both strict prime-density bounds unchanged.",
+        "The projection and off-image API follow from the record and finite sums. For identity-family compatibility, interchange finite fibers using the existing additive fiber theorem; only observables, not unrestricted off-support weights, agree."
+      ],
+      "acceptance": [
+        "All repeated labels contribute to the weight; this is not an unweighted image sieve.",
+        "The map may take the value zero. Its divisibility and survival follow the existing natural conventions.",
+        "Replacing a population does not prove that the retained X approximates its mass."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "ofFiniteFamily"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "BoundingSieve.ofFiniteFamily_support",
+          "role": "projection",
+          "statement": "The new support is the finite image f(A)."
+        },
+        {
+          "name": "BoundingSieve.ofFiniteFamily_weights",
+          "role": "characterisation",
+          "statement": "For every natural n the weight is Σ_{a∈A,f(a)=n}w(a), including repeated labels and zero labels."
+        },
+        {
+          "name": "BoundingSieve.ofFiniteFamily_prodPrimes",
+          "role": "simp",
+          "statement": "The prime product is exactly the template's prime product."
+        },
+        {
+          "name": "BoundingSieve.ofFiniteFamily_totalMass",
+          "role": "simp",
+          "statement": "The approximate mass is exactly the template's arbitrary real mass X."
+        },
+        {
+          "name": "BoundingSieve.ofFiniteFamily_nu",
+          "role": "simp",
+          "statement": "The entire multiplicative density function is exactly the template's density."
+        },
+        {
+          "name": "BoundingSieve.ofFiniteFamily_weights_of_not_mem",
+          "role": "simp",
+          "statement": "If n is outside the finite image f(A), its new weight is zero."
+        },
+        {
+          "name": "BoundingSieve.ofFiniteFamily_id_siftedSum",
+          "role": "compatibility",
+          "statement": "Taking A equal to the template support, f the identity and w the template weights preserves its sifted sum. Equality of the full records is not asserted: the original may have nonzero weights outside its support."
+        }
+      ],
+      "tests": [
+        {
+          "name": "family_collision_weights",
+          "kind": "computation",
+          "statement": "Two indices mapping to 7, of weights 2 and 3, give weight 5 at 7, not 1, 2 or 3."
+        },
+        {
+          "name": "family_empty_population",
+          "kind": "degenerate",
+          "statement": "An empty index set gives sifted sum zero for any template."
+        },
+        {
+          "name": "family_identity_agreement",
+          "kind": "compatibility",
+          "statement": "Using the template support, identity label and original weights preserves multSum(1)."
+        },
+        {
+          "name": "family_polynomial_multiplicity",
+          "kind": "non-example",
+          "statement": "The seven parameters 2≤n≤8 map under n(10−n) to four distinct values, but their unit-weight pushforward has multSum(1)=7, not 4."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Heath-Brown arXiv v1 pp.2–3, Example 2; existing finding E3",
+          "how": "Retain each parameter of n(2N−n) with its weight instead of losing multiplicities in the literal image set."
+        },
+        {
+          "where": "SieveMethodsAndPrimePatterns:SV.0/residue-class-sieve",
+          "how": "Push the finite indexed population through its product-of-bad-primes labels while retaining the already specified local density and mass."
+        },
+        {
+          "where": "SV.0 finite identities and SV.1 sieve applications",
+          "how": "Reuse the existing BoundingSieve sums for noninjective sample maps without introducing a competing indexed-sieve type."
+        }
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/finite-family-multsum",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Divisibility sums of a weighted family",
+      "kind": "lemma",
+      "statement": "For every natural d, multSum(d) of s.ofFiniteFamily(A,f,w) equals Σ_{a∈A,d|f(a)}w(a).",
+      "hypotheses": [
+        "s is an existing BoundingSieve; A is a finite set of indices in any type; f maps indices to naturals; w is real-valued and nonnegative on A. No injectivity or positivity of f is assumed."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/finite-family-sieve",
+        "mathlib:BoundingSieve.multSum",
+        "mathlib:Finset.prod_fiberwise_eq_prod_filter"
+      ],
+      "proofSteps": [
+        "Expand only the new support and weights and the existing multSum.",
+        "Use Finset's generated additive fiberwise identity on the finite image restricted by d dividing the image value.",
+        "An index lies over that restricted image exactly when d divides its label; no injectivity is used. In particular d=0 picks exactly zero labels."
+      ],
+      "acceptance": [
+        "At d=1 the result is the total indexed weight, not the cardinality of the image.",
+        "At d=0 retain all indices whose label is zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "ofFiniteFamily_multSum"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/finite-family-siftedsum",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Sifted sums of a weighted family",
+      "kind": "lemma",
+      "statement": "The sifted sum of s.ofFiniteFamily(A,f,w) equals Σ_{a∈A,gcd(s.prodPrimes,f(a))=1}w(a).",
+      "hypotheses": [
+        "s is an existing BoundingSieve; A is a finite set of indices in any type; f maps indices to naturals; w is real-valued and nonnegative on A. No injectivity or positivity of f is assumed."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/finite-family-sieve",
+        "mathlib:BoundingSieve.siftedSum",
+        "mathlib:Finset.prod_fiberwise_eq_prod_filter"
+      ],
+      "proofSteps": [
+        "Expand the carrier's sifted sum and restrict the finite image by coprimality with the unchanged prime product.",
+        "Apply the existing finite fiber-sum identity. The preimage of this restricted image is exactly the displayed subset of A.",
+        "No information about ν or X is used in this equality."
+      ],
+      "acceptance": [
+        "When the prime product is 1, even zero labels survive.",
+        "For any larger prime product zero labels are removed, but their multiplicities still appear in divisibility sums."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "ofFiniteFamily_siftedSum"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/prime-dvd-residue-label",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Prime divisibility of a residue label",
+      "kind": "lemma",
+      "statement": "Let Q be a finite set of primes and Ωp a finite subset of ZMod p. For any integer a and p∈Q, p divides L(a)=∏_{q∈Q,a mod q∈Ωq}q if and only if a mod p belongs to Ωp.",
+      "hypotheses": [
+        "No properness, nonemptiness, sign or interval condition is needed for Ω or a."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.primeFactors_prod",
+        "mathlib:Nat.mem_primeFactors_of_ne_zero"
+      ],
+      "proofSteps": [
+        "The factors in L(a) are distinct primes, so the existing primeFactors_prod theorem identifies its prime-factor set with the defining filtered set.",
+        "The product is nonzero, including when the filter is empty.",
+        "Apply prime-factor membership at the prime p and use p∈Q to eliminate the redundant membership condition."
+      ],
+      "acceptance": [
+        "The result handles negative integers by the existing integer cast to ZMod.",
+        "An empty bad set can never contribute its prime to the label."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "prime_dvd_residueLabel_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/divisor-dvd-residue-label",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Simultaneous local conditions as divisibility",
+      "kind": "lemma",
+      "statement": "Under the same finite prime data, for every d dividing ∏_{p∈Q}p and every integer a, d divides L(a) if and only if a mod p belongs to Ωp for every p∈primeFactors(d).",
+      "hypotheses": [
+        "The divisor hypothesis is on the squarefree prime product; d=1 is allowed, and d=0 is excluded by that hypothesis."
+      ],
+      "prerequisites": [
+        "mathlib:Finset.squarefree_prod_of_pairwise_isCoprime",
+        "mathlib:Nat.coprime_primes",
+        "mathlib:Nat.coprime_iff_isRelPrime",
+        "mathlib:Nat.prod_primeFactors_of_squarefree",
+        "mathlib:Nat.prod_primeFactors_dvd_iff",
+        "mathlib:Nat.primeFactors_prod"
+      ],
+      "proofSteps": [
+        "Distinct primes are pairwise coprime, so the existing squarefree-product theorem makes the ambient product squarefree; hence its divisor d is squarefree.",
+        "Replace d by the product of its prime factors. Use prod_primeFactors_dvd_iff and primeFactors_prod to translate divisibility into containment of prime supports.",
+        "Every prime of d already lies in Q because d divides the ambient product, leaving precisely the displayed simultaneous residue conditions."
+      ],
+      "acceptance": [
+        "At d=1 the local condition is vacuous and every label is divisible by d.",
+        "Do not extend to d=4 with Q={2}: a label containing the prime 2 once is not divisible by 4."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "dvd_residueLabel_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/residue-label-survival",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Local avoidance as coprimality",
+      "kind": "lemma",
+      "statement": "For the same data, gcd(∏_{p∈Q}p,L(a))=1 if and only if a mod p is outside Ωp for every p∈Q.",
+      "hypotheses": [
+        "Q consists of primes; no assumption that the bad residue is zero. Empty and full local sets are allowed."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/prime-dvd-residue-label",
+        "mathlib:Nat.coprime_prod_left_iff"
+      ],
+      "proofSteps": [
+        "Use the finite-product coprimality equivalence to reduce to coprimality of each p∈Q with L(a).",
+        "A prime is coprime to a natural number exactly when it does not divide it.",
+        "Use prime-dvd-residue-label at each p and negate its equivalence."
+      ],
+      "acceptance": [
+        "Bad residue {1} modulo 2 keeps the original integer zero and removes one.",
+        "The empty prime set gives label 1 and all samples survive."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "coprime_residueLabel_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/residue-class-sieve",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Sieve with arbitrary excluded residue classes",
+      "kind": "construction",
+      "statement": "Construct BoundingSieve.ofResidueClasses(A,x,w,Q,Ω,X) with prime product P, multiplicative density prodPrimeFactors(ρ), approximate mass X, support the image of L∘x on A, and weights the sums over its fibers.",
+      "hypotheses": [
+        "A is a finite index set, x maps indices to integers, w is real-valued and nonnegative on A, Q is a finite set consisting of primes, Ωp is a finite subset of ZMod p for each natural p, card(Ωp)<p for p∈Q, and X is an arbitrary real.",
+        "Write ρ(p)=card(Ωp)/p, Q+= {p∈Q : Ωp is nonempty}, P=∏_{p∈Q+}p and L(b)=∏_{p∈Q,b mod p∈Ωp}p. All products are finite, with empty product 1. These are local expressions, not new carriers or functions in the blueprint."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/finite-family-sieve",
+        "mathlib:Finset.squarefree_prod_of_pairwise_isCoprime",
+        "mathlib:Nat.coprime_primes",
+        "mathlib:Nat.coprime_iff_isRelPrime",
+        "mathlib:Nat.primeFactors_prod",
+        "mathlib:ArithmeticFunction.prodPrimeFactors",
+        "mathlib:ArithmeticFunction.IsMultiplicative.prodPrimeFactors",
+        "mathlib:ArithmeticFunction.prodPrimeFactors_apply",
+        "mathlib:Nat.Prime.primeFactors"
+      ],
+      "proofSteps": [
+        "Remove precisely the empty local sets to form Q+. The product P is squarefree by the existing distinct-prime product theorem.",
+        "Use the existing arithmetic function prodPrimeFactors(ρ), not a new multiplicative-extension construction. Its prime value is ρ(p), and its value at zero is zero.",
+        "For p∈Q+, nonempty Ωp gives ρ(p)>0; the properness hypothesis gives ρ(p)<1. Empty densities occur only outside P, where the carrier imposes no strict bound.",
+        "Build the existing carrier with this prime/density/mass data and apply finite-family-sieve to the label map L∘x. This supplies global nonnegativity of the fiber weights.",
+        "Verify the projection, prime-value and inactive-prime API directly. The supported divisibility and sifted-sum laws are separate promoted lemma nodes because the error theorem consumes them."
+      ],
+      "acceptance": [
+        "All-empty local data are valid and give P=1. Do not impose card(Ωp)>0 on the original Q.",
+        "If a local set has card p, use full-residue-obstruction rather than forcing density 1 into this carrier.",
+        "The chosen density extension is only multiplicative on coprime inputs: at prime powers it repeats no factor. On the squarefree divisors actually used, it is exactly the product of local densities.",
+        "The natural labels record local membership, not the magnitude of the original integer samples; no linear cutoff follows."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "ofResidueClasses"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "BoundingSieve.ofResidueClasses_prodPrimes",
+          "role": "projection",
+          "statement": "The carrier's prime product is P=∏_{p∈Q,Ωp nonempty}p; empty local conditions are removed."
+        },
+        {
+          "name": "BoundingSieve.ofResidueClasses_nu",
+          "role": "characterisation",
+          "statement": "The density is the existing arithmetic function prodPrimeFactors(ρ), with ρ(p)=card(Ωp)/p: ν(0)=0 and ν(d)=∏_{p|d}ρ(p) for d>0."
+        },
+        {
+          "name": "BoundingSieve.ofResidueClasses_totalMass",
+          "role": "simp",
+          "statement": "The approximate mass equals the supplied real X, without a sign or normalization assumption."
+        },
+        {
+          "name": "BoundingSieve.ofResidueClasses_support",
+          "role": "projection",
+          "statement": "The support is the finite image of a↦L(x(a)), where L(b)=∏_{p∈Q, b mod p∈Ωp}p."
+        },
+        {
+          "name": "BoundingSieve.ofResidueClasses_weights",
+          "role": "characterisation",
+          "statement": "At a natural n the weight is the sum of w(a) over indices a∈A with L(x(a))=n. Equal labels retain all their multiplicities."
+        },
+        {
+          "name": "BoundingSieve.ofResidueClasses_nu_prime",
+          "role": "simp",
+          "statement": "For every prime p, including those outside Q, ν(p)=card(Ωp)/p."
+        },
+        {
+          "name": "BoundingSieve.ofResidueClasses_inactive_prime",
+          "role": "relation",
+          "statement": "If p∈Q and Ωp is empty, then p does not divide the carrier prime product. The zero density is not forced into a strictly positive carrier field."
+        }
+      ],
+      "tests": [
+        {
+          "name": "residue_empty_prime_set",
+          "kind": "degenerate",
+          "statement": "With no sieving primes, three integer samples −1,0,1 of weight 2 give sifted sum 6, independently of unused residue data."
+        },
+        {
+          "name": "residue_all_zero_densities",
+          "kind": "degenerate",
+          "statement": "For Q={2,3} and both local residue sets empty, the carrier has prime product 1 and all three weight-2 samples survive."
+        },
+        {
+          "name": "residue_nonzero_bad_class",
+          "kind": "non-example",
+          "statement": "For Q={2}, bad residue {1}, sample 0 of weight 2 and sample 1 of weight 3, the sifted sum is 2. A divisibility-only interpretation would incorrectly give 3."
+        },
+        {
+          "name": "residue_mixed_empty_negative",
+          "kind": "computation",
+          "statement": "For Q={2,3}, empty bad set at 2 and bad residue {1} at 3, the prime product is 3 and the six unit-weight samples −2,…,3 have sifted sum 4."
+        },
+        {
+          "name": "residue_radical_density",
+          "kind": "compatibility",
+          "statement": "The existing prodPrimeFactors extension at a single bad residue modulo 2 has ν(4)=1/2, not 1/4. Complete multiplicativity is neither required nor asserted."
+        }
+      ],
+      "planet": {
+        "name": "Sieve with excluded residue classes"
+      },
+      "uses": [
+        {
+          "where": "Kedlaya Definition 11.6 and weighted Lemma 11.2",
+          "how": "Realize arbitrary sets of excluded residue classes, with the original indexed weights, in the pinned sieve carrier."
+        },
+        {
+          "where": "SieveMethodsAndPrimePatterns:SV.0/residue-legendre-error",
+          "how": "Make the existing Legendre error theorem applicable to those local conditions; deleting zero densities keeps its Euler product unchanged."
+        },
+        {
+          "where": "SV.1–SV.5 local-data inputs",
+          "how": "Separate the exact finite representation from dimension, distribution and analytic cutoff hypotheses needed by later sieve estimates."
+        }
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/residue-class-multsum",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Divisibility sum equals the local intersection",
+      "kind": "lemma",
+      "statement": "For s=ofResidueClasses(A,x,w,Q,Ω,X) and every d|s.prodPrimes, s.multSum(d)=Σ_{a∈A,∀p∈primeFactors(d),x(a) mod p∈Ωp}w(a).",
+      "hypotheses": [
+        "A is a finite index set, x maps indices to integers, w is real-valued and nonnegative on A, Q is a finite set consisting of primes, Ωp is a finite subset of ZMod p for each natural p, card(Ωp)<p for p∈Q, and X is an arbitrary real.",
+        "Write ρ(p)=card(Ωp)/p, Q+= {p∈Q : Ωp is nonempty}, P=∏_{p∈Q+}p and L(b)=∏_{p∈Q,b mod p∈Ωp}p. All products are finite, with empty product 1. These are local expressions, not new carriers or functions in the blueprint."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/residue-class-sieve",
+        "SieveMethodsAndPrimePatterns:SV.0/finite-family-multsum",
+        "SieveMethodsAndPrimePatterns:SV.0/divisor-dvd-residue-label",
+        "mathlib:Finset.prod_dvd_prod_of_subset"
+      ],
+      "proofSteps": [
+        "The active prime product P divides the full Q prime product by finite-subset product divisibility, so d also divides the latter.",
+        "Apply finite-family-multsum to the residue constructor's label map.",
+        "Use divisor-dvd-residue-label at each index to identify the filter. For d=1 this is the entire indexed population."
+      ],
+      "acceptance": [
+        "The local conditions are simultaneous, not a sum of separate prime conditions.",
+        "Repeated integer or label values remain weighted with all of their preimages."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "ofResidueClasses_multSum"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/residue-class-siftedsum",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Sifted sum equals the original local avoidance count",
+      "kind": "lemma",
+      "statement": "For s=ofResidueClasses(A,x,w,Q,Ω,X), s.siftedSum=Σ_{a∈A,∀p∈Q,x(a) mod p∉Ωp}w(a).",
+      "hypotheses": [
+        "A is a finite index set, x maps indices to integers, w is real-valued and nonnegative on A, Q is a finite set consisting of primes, Ωp is a finite subset of ZMod p for each natural p, card(Ωp)<p for p∈Q, and X is an arbitrary real.",
+        "Write ρ(p)=card(Ωp)/p, Q+= {p∈Q : Ωp is nonempty}, P=∏_{p∈Q+}p and L(b)=∏_{p∈Q,b mod p∈Ωp}p. All products are finite, with empty product 1. These are local expressions, not new carriers or functions in the blueprint."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/residue-class-sieve",
+        "SieveMethodsAndPrimePatterns:SV.0/finite-family-siftedsum",
+        "SieveMethodsAndPrimePatterns:SV.0/residue-label-survival"
+      ],
+      "proofSteps": [
+        "Apply finite-family-siftedsum to the label map and active prime product.",
+        "For each index, filtering Q by bad-residue membership already removes every empty Ωp. Thus its label equals the label formed using Q+.",
+        "Apply residue-label-survival on Q+. Avoidance on Q+ is equivalent to avoidance on all Q because empty local sets cannot contain any residue."
+      ],
+      "acceptance": [
+        "Zero survives when it avoids the chosen residues; it is not automatically removed just because the carrier is a divisibility sieve.",
+        "The mixed empty/nonempty example at negative integers has P=3 and sifted sum 4."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "ofResidueClasses_siftedSum"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/residue-euler-product",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Deleting empty local conditions preserves the Euler product",
+      "kind": "lemma",
+      "statement": "For s=ofResidueClasses(A,x,w,Q,Ω,X), ∏_{p∈primeFactors(s.prodPrimes)}(1−s.nu(p)) = ∏_{p∈Q}(1−card(Ωp)/p).",
+      "hypotheses": [
+        "A is a finite index set, x maps indices to integers, w is real-valued and nonnegative on A, Q is a finite set consisting of primes, Ωp is a finite subset of ZMod p for each natural p, card(Ωp)<p for p∈Q, and X is an arbitrary real.",
+        "Write ρ(p)=card(Ωp)/p, Q+= {p∈Q : Ωp is nonempty}, P=∏_{p∈Q+}p and L(b)=∏_{p∈Q,b mod p∈Ωp}p. All products are finite, with empty product 1. These are local expressions, not new carriers or functions in the blueprint."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/residue-class-sieve",
+        "mathlib:Nat.primeFactors_prod",
+        "mathlib:ArithmeticFunction.prodPrimeFactors_apply",
+        "mathlib:Nat.Prime.primeFactors"
+      ],
+      "proofSteps": [
+        "Use primeFactors_prod to identify the carrier prime factors with Q+.",
+        "Evaluate prodPrimeFactors(ρ) at each prime, obtaining ρ(p).",
+        "Extend the product from Q+ to Q. Every added prime has empty local set, hence density zero and factor one."
+      ],
+      "acceptance": [
+        "Empty local sets contribute factors one, not zero.",
+        "With Q empty both products are one, independent of X and the population."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "ofResidueClasses_eulerProduct"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/full-residue-obstruction",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "A fully excluded residue space leaves no survivors",
+      "kind": "theorem",
+      "statement": "For any finite indexed population A, integer sample map x, arbitrary real weights w, finite prime set Q and finite local sets Ωp, if p∈Q and card(Ωp)=p, then Σ_{a∈A,∀q∈Q,x(a) mod q∉Ωq}w(a)=0.",
+      "hypotheses": [
+        "No nonnegativity of weights and no properness of the other local sets is needed.",
+        "This result is stated before constructing a BoundingSieve; density one is outside its permitted prime-density range."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod.card",
+        "mathlib:Finset.eq_univ_of_card",
+        "mathlib:Finset.card_le_univ"
+      ],
+      "proofSteps": [
+        "Since p is prime it is nonzero. The finite residue ring ZMod p has cardinality p.",
+        "A finite subset of that cardinality equals the full residue space, by eq_univ_of_card.",
+        "Every index fails the avoidance condition at p, so the filtered set is empty.",
+        "For completeness of the input split, card_le_univ ensures no local set at a prime has cardinality above p: either this obstruction applies or every local set is proper."
+      ],
+      "acceptance": [
+        "The obstruction handles nonempty sample sets, not just the trivial empty-population case.",
+        "Do not replace the density-one local set by a positive but smaller artificial density."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "full_residueClass_siftedSum_eq_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "residue_full_class_obstruction",
+          "kind": "degenerate",
+          "statement": "Excluding every residue modulo 3 leaves weighted sum zero on −2,…,3."
+        }
+      ]
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.0/residue-legendre-error",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.0",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.0"
+      ],
+      "title": "Legendre error for arbitrary local residue conditions",
+      "kind": "theorem",
+      "statement": "Under the proper local-set hypotheses, let S=Σ_{a∈A,∀p∈Q,x(a) mod p∉Ωp}w(a), ρ(p)=card(Ωp)/p and P=∏_{p∈Q,Ωp nonempty}p. Then |S−X∏_{p∈Q}(1−ρ(p))| ≤ Σ_{d|P}|Σ_{a∈A,∀p∈primeFactors(d),x(a) mod p∈Ωp}w(a)−X∏_{p∈primeFactors(d)}ρ(p)|.",
+      "hypotheses": [
+        "A is a finite index set, x maps indices to integers, w is real-valued and nonnegative on A, Q is a finite set consisting of primes, Ωp is a finite subset of ZMod p for each natural p, card(Ωp)<p for p∈Q, and X is an arbitrary real.",
+        "The divisor sum includes d=1; X need not equal the indexed total weight. No analytic remainder, dimension or distribution hypothesis is implied."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.0/residue-class-sieve",
+        "SieveMethodsAndPrimePatterns:SV.0/residue-class-multsum",
+        "SieveMethodsAndPrimePatterns:SV.0/residue-class-siftedsum",
+        "SieveMethodsAndPrimePatterns:SV.0/residue-euler-product",
+        "SieveMethodsAndPrimePatterns:SV.0/legendre-error",
+        "mathlib:BoundingSieve.rem",
+        "mathlib:ArithmeticFunction.prodPrimeFactors_apply"
+      ],
+      "proofSteps": [
+        "Apply the inherited legendre-error theorem to the residue-class constructor.",
+        "Use residue-class-siftedsum to replace its sifted sum by S, and residue-euler-product to restore the full Q Euler product.",
+        "Expand the existing signed remainder using residue-class-multsum. Every d|P is positive, so the existing prodPrimeFactors evaluation gives the displayed product of local densities.",
+        "Reorder real multiplication to place X first. All errors remain inside absolute values; no source-claimed cutoff or quantitative estimate is imported."
+      ],
+      "acceptance": [
+        "All-empty local data give the identity |Σw−X|≤|Σw−X|, retaining the mass-normalization error at d=1.",
+        "The indexed Goldbach polynomial example retains seven parameters, not four image points.",
+        "Even labels larger than the original sample bound are allowed; quantitative sieve applications still need independently proved cutoff or tail hypotheses."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Finite",
+        "namespace": "BoundingSieve",
+        "name": "residueClass_legendre_error"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-11",
+          "locator": "§11.2, weighted inclusion-exclusion and proof; §11.4, Definition 11.6",
+          "match": "Worker-derived realization of the source's arbitrary local conditions in the existing Mathlib divisibility carrier. Finite weighted fibers, prime-support algebra and the multiplicative extension are imported from the pinned library; no analytic remainder estimate is attributed to this adapter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Legendre bound for residue conditions"
+      },
+      "tests": [
+        {
+          "name": "residue_label_has_no_linear_cutoff",
+          "kind": "non-example",
+          "statement": "For bad residues {0,−2} and Q={3,5,7,11}, the integer 33 has prime-product label 1155; the label is not bounded by the original sample's size."
+        }
+      ]
     }
   ],
   "links": [],
@@ -571,7 +1362,7 @@
       "stageId": "SieveMethodsAndPrimePatterns:SV.0",
       "status": "partial",
       "remaining": [
-        "Bridge arbitrary excluded residue classes and indexed/multiset polynomial values to the existing divisibility carrier, preserving multiplicities and zero-density cases.",
+        "The general finite-family/residue bridge is now decomposed, including repeated labels, empty local classes and full-residue obstruction. Concrete polynomial root sets, CRT counts and interval discrepancy bounds still require application-specific proofs; the prime-product labels supply no linear cutoff.",
         "State sieve dimension with its exact logarithmic inequalities and uniform constants, then decompose the selected Rankin and remainder-tail estimates.",
         "Define and prove the actual family-level remainder distribution estimates; the finite cutoff inequality and SelbergSieve.level alone do not supply them.",
         "Decompose Kedlaya Chapter 11 Lemmas 11.5, 11.7, 11.8, Theorem 11.9 and the properly justified Brun application in Theorem 11.11; audit their analytic prerequisites."
@@ -626,7 +1417,7 @@
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.0"
       ],
-      "detail": "Bridge arbitrary excluded residue classes and indexed/multiset polynomial values to the existing divisibility carrier, preserving multiplicities and zero-density cases. State sieve dimension with its exact logarithmic inequalities and uniform constants, then decompose the selected Rankin and remainder-tail estimates. Define and prove the actual family-level remainder distribution estimates; the finite cutoff inequality and SelbergSieve.level alone do not supply them. Decompose Kedlaya Chapter 11 Lemmas 11.5, 11.7, 11.8, Theorem 11.9 and the properly justified Brun application in Theorem 11.11; audit their analytic prerequisites."
+      "detail": "The general finite-family/residue bridge is now decomposed, including repeated labels, empty local classes and full-residue obstruction. Concrete polynomial root sets, CRT counts and interval discrepancy bounds still require application-specific proofs; the prime-product labels supply no linear cutoff. State sieve dimension with its exact logarithmic inequalities and uniform constants, then decompose the selected Rankin and remainder-tail estimates. Define and prove the actual family-level remainder distribution estimates; the finite cutoff inequality and SelbergSieve.level alone do not supply them. Decompose Kedlaya Chapter 11 Lemmas 11.5, 11.7, 11.8, Theorem 11.9 and the properly justified Brun application in Theorem 11.11; audit their analytic prerequisites."
     },
     {
       "title": "SV.1 remaining source decomposition",
@@ -662,13 +1453,6 @@
         "SieveMethodsAndPrimePatterns:SV.5"
       ],
       "detail": "Select and read original beta/weighted-sieve, Chen and affine-sieve sources separately. State each route's own bilinear/parity-breaking or expansion hypotheses, orbit/local-obstruction assumptions and number of prime factors counted with multiplicity; import existing almost-prime predicates."
-    },
-    {
-      "title": "General residue patterns are not yet realized by the divisibility carrier",
-      "neededBy": [
-        "SieveMethodsAndPrimePatterns:SV.0"
-      ],
-      "detail": "Kedlaya's A_p permits arbitrary bad residue classes, whereas BoundingSieve.multSum tests divisibility of natural sample values. A polynomial-value pushforward must retain multiplicities, and primes with nu(p)=0 cannot be inserted unchanged into the carrier's strictly positive density field. Prove an explicit bridge, including its degenerate cases, instead of asserting the two formalisms identical."
     }
   ],
   "sourceIssues": [
@@ -809,8 +1593,8 @@
   ],
   "checks": {
     "leanCompiled": true,
-    "lean": "Lean 4.34.0-rc2: eight named signatures and ten examples elaborate with exactly 18 required proof-placeholder warnings and no others. 1,394 transitive Mathlib source files byte-verified against the pin; no Tau Ceti imports needed.",
-    "proofProbes": "Scratch-only proof file: all eight proposed general statements, one direct Möbius-divisor specialization, and five examples proved without placeholders; zero warnings. The tactic-enabled proof environment byte-verified 8,482 Mathlib source files. These checks are not a published implementation, and all packet nodes remain unchecked.",
+    "lean": "Lean 4.34.0-rc2: twenty main declarations, fourteen API signatures and twenty-one examples elaborate; exactly 55 required proof-placeholder warnings and no others. All 1,426 reached Mathlib source files byte-matched the pin.",
+    "proofProbes": "Complete scratch implementations of both constructors, nine general bridge statements, a squarefree-prime-product baseline application and all eleven new examples compile with no placeholders or warnings; 8,482 reached Mathlib sources byte-matched the pin. The preceding eight finite statements, Möbius-divisor specialization and five examples were independently rechecked. Scratch proofs are not submitted and do not change unchecked status.",
     "exactRationalRegressions": {
       "weightedDivisorInterchange": 1280,
       "legendreIdentity": 1280,
@@ -822,21 +1606,33 @@
     },
     "regressionCoverage": "Sixteen squarefree products of subsets of {2,3,5,7}, empty support, support containing zero, rational nonnegative weights, signed coefficients, positive/zero/negative approximate mass, arbitrary prime densities strictly between zero and one, and cutoffs 0,1 and both sides of divisor endpoints. Exact source-example witnesses also checked.",
     "officialCheckerRun": true,
-    "officialChecker": "python3 scripts/check_blueprint.py research/blueprint/packets/SieveMethodsAndPrimePatterns.json --index <pinned declaration index>: 0 errors, 0 warnings.",
-    "sourceVersions": "Source-issue structure and version metadata checked with scripts/check_errata.py on a scratch errata-v1 envelope containing the unchanged findings and sourceVersions.",
-    "scope": "No inherited packet or integrated decomposition existed. Exactly the issue's four deliverables; no source copies, extracted text, proof probes or regression scripts are submitted."
+    "officialChecker": "scripts/check_blueprint.py with the pinned declaration index: zero errors and warnings.",
+    "sourceVersions": "scripts/check_errata.py on a scratch-only errata-v1 envelope: zero errors; all eight source findings and both source-version objects remain unchanged.",
+    "scope": "All eight inherited node objects, the source findings and source-version objects are preserved exactly. Only the issue's four deliverables are submitted; no source copies or scratch artifacts.",
+    "constructionAPI": "Two constructions of the existing BoundingSieve, 14 API items and 9 construction tests; the five nontrivial downstream sum/Euler interfaces have been promoted to separate lemma nodes.",
+    "residueRegressions": {
+      "localSystems": 1485,
+      "finitePopulations": 13365,
+      "properPopulations": 9216,
+      "fullLocalObstructions": 4149,
+      "labelChecks": 53460,
+      "divisorFiberChecks": 89505,
+      "legendreErrorChecks": 36864
+    },
+    "residueRegressionCoverage": "All prime subsets of {2,3,5} and all local residue sets, including empty and full sets; negative and repeated sample values; rational weights; negative, zero, normalized and non-normalized approximate masses. Separate polynomial-image multiplicity, nonzero bad class, radical-density and missing-linear-cutoff witnesses."
   },
   "provenance": {
     "issue": 1036,
     "agent": "Codex",
     "session": "codex-a71f92",
     "date": "2026-09-27",
-    "base": "63091de06f3ecc0458e3a3d3f8c6b35f7ec8d9a8",
-    "claimComment": 5852081973,
-    "claimConfirmation": 5852082785,
+    "base": "59dd715eedc9d5d13d8726e3cf80074779859caf",
+    "claimComment": 5853068109,
+    "claimConfirmation": 5853069002,
     "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
     "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-    "ownership": "Accepted RS-07; all new declarations belong to finite sieve SV.0. No AN.3 prerequisite is imported into SV.2."
+    "ownership": "Accepted RS-07; all new declarations belong to finite sieve SV.0. No AN.3 prerequisite is imported into SV.2.",
+    "continuation": "All six reviewed audit rows, complete inherited packet/reader/suggested/handoff, campaign and atlas read. Fifty-eight consulted input paths compared against the previous checkpoint: 56 unchanged, two known absences, no matching-link delta. Reuse complete unchanged RS-07/review, audit-review, upstream-style and supplier/consumer readings from this continuous session. Pinned sieve and finite prime/fiber APIs reread; general Tau Ceti prime-product theorem screened. No new source finding is asserted."
   },
   "sourceIssueScope": "Eight unreviewed findings. E1-E6 are scoped only to arXiv math/0209360v1: the Bonner 2003 body was identified bibliographically but not acquired, so no finding is asserted against its text. E7-E8 concern the live Kedlaya Chapter 11 proof as accessed, not an unacquired historical edition. E7 is a missing-hypothesis verification, not a counterexample to Brun's theorem. No source-wide correctness or independent-review claim is made.",
   "sourceVersions": [
