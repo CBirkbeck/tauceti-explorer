@@ -20528,8 +20528,9 @@
     "REV-RS-26"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicLocalLanglandsForGL2Qp.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #970"
   },
   {
    "id": "REV-PadicLocalLanglandsForGL2Qp",
@@ -23599,13 +23600,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-GeneralAlgebraicKTheory--K.1",
     "BP-GeneralAlgebraicKTheory--K.6"
    ],
-   "note": "claimed on GitHub issue #1030"
+   "note": "released on GitHub issue #1030"
   },
   {
    "id": "REV-GeometryOfNumbersAndQuadraticArithmetic",
@@ -24161,14 +24162,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-ExponentialSumsAndCircleMethod",
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "note": "released on GitHub issue #1041"
+   "note": "claimed on GitHub issue #1041"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory",
