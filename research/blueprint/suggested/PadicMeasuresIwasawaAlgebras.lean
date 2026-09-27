@@ -1,3 +1,7 @@
+import Mathlib.Topology.MetricSpace.Ultra.TotallySeparated
+import Mathlib.NumberTheory.Padics.ProperSpace
+import Mathlib.Topology.Sequences
+import Mathlib.Analysis.Normed.Module.WeakDual
 import Mathlib.NumberTheory.Padics.Measure.Topology
 import Mathlib.Topology.Algebra.Module.Spaces.WeakDual
 import Mathlib.Topology.Algebra.Group.Units
@@ -1486,3 +1490,104 @@ example : ¬ ∃ μ : D(ℤ_[3], ℤ_[3]), extendIntegralCoefficients (R := ℚ_
 example : (1 / 2 : ℚ_[2]) • dirac ℚ_[2] (1 : ℤ_[2]) =
     ((2 : ℚ_[2]) ^ 1)⁻¹ • extendIntegralCoefficients (dirac ℤ_[2] (1 : ℤ_[2])) := by sorry
 end SuggestedTests.BoundedAmiceNorm
+
+/-! Weak/norm topology continuation on native measure carriers. -/
+namespace AbstractMeasure
+open Filter Topology
+section DiracTopology
+variable {X R : Type*} [TopologicalSpace X] [NormedCommRing R]
+
+theorem continuous_dirac_weak :
+    @Continuous X D(X,R) _ WeakTopology (dirac R) := by sorry
+
+variable {K : Type*} [NontriviallyNormedField K] [CompactSpace X]
+theorem norm_dirac (x : X) : ‖toCLMEquiv (dirac K x)‖ = 1 := by sorry
+
+theorem norm_dirac_sub (hK : ∀ a b : K, ‖a+b‖ ≤ max ‖a‖ ‖b‖)
+    [TotallySeparatedSpace X] {x y : X} (hxy : x ≠ y) :
+    ‖toCLMEquiv (dirac K x - dirac K y)‖ = 1 := by sorry
+
+theorem not_isCompact_measure_unitBall [Infinite X] [TotallySeparatedSpace X]
+    (hK : ∀ a b : K, ‖a+b‖ ≤ max ‖a‖ ‖b‖) :
+    ¬ IsCompact {L : C(X,K) →L[K] K | ‖L‖ ≤ 1} := by sorry
+end DiracTopology
+
+section PrimePowerTopology
+variable (p : ℕ) [Fact p.Prime]
+
+theorem tendsto_dirac_prime_powers_weak (R : Type*) [NormedCommRing R] :
+    letI : TopologicalSpace D(ℤ_[p],R) := WeakTopology
+    Tendsto (fun n : ℕ => dirac R ((p : ℤ_[p])^n))
+      atTop (𝓝 (dirac R 0)) := by sorry
+
+theorem norm_dirac_prime_powers_sub_zero (n : ℕ) :
+    ‖toCLMEquiv (dirac ℚ_[p] ((p : ℤ_[p])^n) - dirac ℚ_[p] 0)‖ = 1 := by sorry
+
+theorem not_tendsto_dirac_prime_powers_strong :
+    ¬ Tendsto (fun n : ℕ => toCLMEquiv (dirac ℚ_[p] ((p : ℤ_[p])^n)))
+      atTop (𝓝 (toCLMEquiv (dirac ℚ_[p] 0))) := by sorry
+end PrimePowerTopology
+end AbstractMeasure
+
+namespace ContinuousMap
+variable {X : Type*} [TopologicalSpace X] [CompactSpace X]
+variable (p : ℕ) [Fact p.Prime]
+
+theorem exists_integral_test_scaling (f : C(X,ℚ_[p])) :
+    ∃ n : ℕ, ∃ g : C(X,ℤ_[p]), ∀ x, (g x : ℚ_[p]) = (p : ℚ_[p])^n * f x := by sorry
+end ContinuousMap
+
+namespace AbstractMeasure
+open Topology
+open scoped PowerSeries.WithPiTopology
+variable (p : ℕ) [Fact p.Prime]
+
+theorem compactSpace_integralMeasures_weak :
+    letI : TopologicalSpace D(ℤ_[p],ℤ_[p]) := WeakTopology
+    CompactSpace D(ℤ_[p],ℤ_[p]) := by sorry
+
+variable [IsBoundedSMul ℤ_[p] ℚ_[p]]
+theorem continuous_extendIntegralCoefficients_weak :
+    @Continuous D(ℤ_[p],ℤ_[p]) D(ℤ_[p],ℚ_[p]) WeakTopology WeakTopology
+      (extendIntegralCoefficients (p := p) (R := ℚ_[p])) := by sorry
+
+theorem isClosedEmbedding_extendIntegralCoefficients_weak :
+    letI : TopologicalSpace D(ℤ_[p],ℤ_[p]) := WeakTopology
+    letI : TopologicalSpace D(ℤ_[p],ℚ_[p]) := WeakTopology
+    IsClosedEmbedding (extendIntegralCoefficients (p := p) (R := ℚ_[p])) := by sorry
+end AbstractMeasure
+
+namespace WeakNormTests
+open AbstractMeasure Filter Topology
+local instance (p : ℕ) [Fact p.Prime] : IsBoundedSMul ℤ_[p] ℚ_[p] :=
+  IsBoundedSMul.of_norm_smul_le (by sorry)
+
+-- WeakNormTests.dyadic_dirac_difference
+example : ‖toCLMEquiv (dirac ℚ_[2] (0 : ℤ_[2]) - dirac ℚ_[2] 1)‖ = 1 := by sorry
+-- WeakNormTests.equal_dirac_points
+example : ‖toCLMEquiv (dirac ℚ_[3] (0 : ℤ_[3]) - dirac ℚ_[3] 0)‖ = 0 := by sorry
+-- WeakNormTests.integral_dyadic_weak_limit
+example :
+    letI : TopologicalSpace D(ℤ_[2],ℤ_[2]) := WeakTopology
+    Tendsto (fun n : ℕ => dirac ℤ_[2] ((2 : ℤ_[2])^n)) atTop (𝓝 (dirac ℤ_[2] 0)) := by sorry
+-- WeakNormTests.ternary_weak_not_strong
+example :
+    (letI : TopologicalSpace D(ℤ_[3],ℚ_[3]) := WeakTopology;
+      Tendsto (fun n : ℕ => dirac ℚ_[3] ((3 : ℤ_[3])^n)) atTop (𝓝 (dirac ℚ_[3] 0))) ∧
+    ¬ Tendsto (fun n : ℕ => toCLMEquiv (dirac ℚ_[3] ((3 : ℤ_[3])^n)))
+      atTop (𝓝 (toCLMEquiv (dirac ℚ_[3] 0))) := by sorry
+-- WeakNormTests.nonintegral_constant_scaling
+example :
+    (∀ x : ℤ_[3], ((ContinuousMap.const ℤ_[3] (1 : ℤ_[3])) x : ℚ_[3]) =
+      (3 : ℚ_[3]) * (ContinuousMap.const ℤ_[3] (1/3 : ℚ_[3])) x) ∧
+    ¬ ∃ g : C(ℤ_[3],ℤ_[3]), ∀ x, (g x : ℚ_[3]) = (1/3 : ℚ_[3]) := by sorry
+-- WeakNormTests.dyadic_integral_weak_embedding
+example :
+    letI : TopologicalSpace D(ℤ_[2],ℤ_[2]) := WeakTopology
+    letI : TopologicalSpace D(ℤ_[2],ℚ_[2]) := WeakTopology
+    IsClosedEmbedding (extendIntegralCoefficients (p := 2) (R := ℚ_[2])) := by sorry
+-- WeakNormTests.amice_monomial_norm
+example (n : ℕ) :
+    ‖toCLMEquiv (extendIntegralCoefficients (R := ℚ_[3])
+      ((amiceTransformEquiv (p := 3)).symm (PowerSeries.X ^ n)))‖ = 1 := by sorry
+end WeakNormTests
