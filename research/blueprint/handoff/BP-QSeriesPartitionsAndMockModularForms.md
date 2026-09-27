@@ -1,5 +1,126 @@
 # Handoff — BP-QSeriesPartitionsAndMockModularForms
 
+## 2026-09-27 singular-prime checkpoint — Codex, codex-a71f92
+
+Current continuation of issue #1042. Claim comment 5852581060 won, as confirmed
+by bot comment 5852581904; the complete issue was read before claiming and
+again after confirmation. This note supersedes the old counts below, not
+the mathematical work or historical evidence. All 472 inherited node objects
+and all inherited IDs are preserved without alteration.
+
+### Deliverables and scope
+
+Seven new QM.2 nodes: one specialized quadratic-root-sum definition with four
+API items and six tests; singular root translation; singular cancellation;
+the odd-modulus Rademacher comparison with an explicit bridge gap; the
+first-prime singular value; higher-prime-power singular vanishing; and the
+mod-p nonsquare obstruction. Generic additive characters are reused from
+Mathlib. General Kloosterman theory is not replanned, and no new planet is
+added. The elementary translation/cancellation branch does not depend on
+the Selberg bridge. The A_k endpoints do depend on that unresolved bridge.
+
+Totals: **479 nodes** (108 definitions, 17 constructions, 209 lemmas,
+142 theorems, 3 comparisons), **736 API items**, **486 unit tests**,
+**42 planets**, **362 baseline declarations**, **52 sources**,
+**64 source issues**, **14 gaps**, **24 requests**, **10 restructuring
+proposals**. QM.2 now has 51 nodes. The reader's stale introduction/table
+counts were reconciled with the inherited QM.0 Bailey-chain additions
+(50 nodes) and QM.4 fifth-order additions (110 nodes, source_decomposed).
+QM.0, QM.3 and QM.4 retain source_decomposed; all other layers remain partial.
+Every node remains unchecked. No claim of formalization or whole-roadmap closure.
+
+### Source work and findings
+
+Read the reviewed audit of all seven layers, REV-AUDIT-15, atlas stages and
+stage edges, campaign document, full inherited handoff/worksheet, all coverage,
+gaps and requests, full node-title index, and the exact affected QM.2 contracts.
+RS-06 is accepted and RS-10 still needs changes; their Q-series links concern
+QM.6/QM.5, not this local QM.2 extension. The earlier complete readings of the
+EffectiveBounds and ArithmeticDirichletSeries upstream documents were reused.
+No unrelated source/node was independently recertified.
+
+Whiteman's publisher PDF matched the inherited SHA-256
+63e5dcb988fbdef2e9fa486395f202fc75923df0d4551f1faff751018ba4b391.
+Its extracted text pp.159–176 was inspected, with relevant formulas/proofs
+on pp.167–168 and 172 visually checked. Sections 2–4 remain undecomposed:
+Fischer's 1951 H-sum input was not read, and the equations need a complete
+collation before a closure claim.
+
+Johansson's arXiv v2 normalization and sections 2.1–2.2 were read, followed
+by the publisher version §§2.1–2.2 pp.343–345, including rendered pp.344–345.
+Publisher PDF SHA-256:
+6ef4f511e798a2398443ef2468699ac2fdb3d2ed9a658c8681a68b0d46b0645a.
+The author errata section was read. The later complexity analysis and
+odd/distinct-partition formula were not extracted; the author's separate
+correction of that formula was noted but not independently rechecked.
+The attempted AMS download of Lehmer 1938 returned HTTP 403; do not count it
+as a new reading.
+
+E309 records the false fixed root count in Whiteman's Theorem 5 proof:
+k=25,n=24 gives five roots, and k=325,n=24 gives ten, rather than two/four.
+It is a proof-step finding, not a counterexample to his multiplication theorem.
+E310 records the omitted fully singular case in the valuation argument of
+Corollary 1, repaired by uniform translation. Both await independent review;
+recorded searches found no existing correction.
+E311/E312 record Johansson's λ=1 and k₁=4 sign corrections, already on his
+author page and credited to Hugo M. Spinelli. Both were verified in the
+version of record, not just the preprint. The new sourceVersions entries
+cover these four findings only, not a retrospective collation of the
+sixty inherited source issues. No independent-review verdict was added.
+
+### Verification
+
+- Full inherited suggested file compiled before editing: 1331 expected
+  placeholder warnings only.
+- Full expanded suggested file compiled at the pinned Mathlib/Tau Ceti
+  baseline: **1352 expected placeholder warnings, no other diagnostics**.
+  The compilation harness verified all 8482 imported Mathlib source files
+  byte-for-byte against the pinned source tree before using cached artifacts.
+  The file imports no Tau Ceti modules.
+- Seven separate scratch Lean examples compiled with **no placeholders and
+  no warnings**: two exact root counts, two translation equivalences, the
+  character multiplier's nontriviality, a Jacobi-symbol value and the
+  character translation law. These are evidence for conventions, not
+  implementations submitted to the roadmap.
+- Exact finite tests covered **294 singular cases**, **25 nonempty**,
+  with complete translation-orbit checks, for primes 5 through 23 and
+  powers up to 700. Separately **2440 floating comparisons** over
+  gcd(k,6)=1, k≤120 and −1≤n<k matched the original Dedekind formula,
+  maximum discrepancy about 1.3431·10⁻¹². No numerical check closes a
+  mathematical gap.
+- The packet checker with the pinned declaration index reports
+  **0 errors, 0 warnings**.
+- The indexed Finset.prod_bij is cited through its explicit additive
+  reduction. Its generated Finset.sum_bij companion exists and its
+  signature elaborates, but the source-only index omits generated names.
+  The index was not edited to silence that limitation.
+- Only this issue's four deliverables are submitted. All PDFs, extracts,
+  source-check scripts, complete scratch proofs and build logs remain
+  outside the submitted files.
+
+### Resume here
+
+First split and prove the **Selberg–Whiteman bridge for the odd Rademacher
+root comparison**: obtain Fischer's 1951 paper, collate Whiteman §§2–4,
+close the inherited Jacobi multiplier gap, and decompose the paired phase
+conversion (5.1)–(5.3) on pp.167–168. The current comparison node is an
+explicit endpoint with a gap, not a one-step closed proof plan.
+
+Then handle unit discriminants with their two roots and finite
+prime-power lifting, exceptional primes 2 and 3, and the shifted CRT
+factorization. Preserve actual local root sets rather than assuming
+two roots per odd prime. Incorporate the author-corrected minus sign
+when splitting off a factor 4. Complete the square-root bound only with
+k>1 for strictness, then Lehmer's sharpened remainder. Do not infer
+same-n multiplicativity or a converse vanishing criterion from this
+checkpoint. The earlier H1–H8 worksheet remains useful but is not a
+substitute for these source and dependency checks.
+
+After this checkpoint's PR is opened, the claim ends. Never unclaim a
+submitted job. The earlier workers' handoffs follow unchanged.
+
+
+
 Job `BP-QSeriesPartitionsAndMockModularForms`, issue #1042. Agent: Claude Code, session `cc-2aeb03`, 24 September 2026.
 First pass: no packet or reviewed decomposition existed. No restructuring proposal has this roadmap as a member. RS-06
 (accepted) and RS-10 (needs changes) only record links into QM.6 and QM.5.

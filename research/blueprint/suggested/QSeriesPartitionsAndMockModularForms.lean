@@ -16,6 +16,7 @@ import Mathlib.Analysis.Asymptotics.AsymptoticEquivalent
 import Mathlib.Analysis.Asymptotics.Defs
 import Mathlib.Analysis.Calculus.ParametricIntegral
 import Mathlib.Analysis.Complex.Basic
+import Mathlib.Analysis.SpecialFunctions.Complex.CircleAddChar
 import Mathlib.Analysis.Complex.UpperHalfPlane.Basic
 import Mathlib.Analysis.Complex.UpperHalfPlane.Measure
 import Mathlib.Analysis.Complex.UpperHalfPlane.Topology
@@ -8641,3 +8642,84 @@ end QM6
 end TauCeti.QSeries
 
 end QM6File
+
+/-! ## QM.2 continuation: singular odd-prime root sums
+These are suggested signatures, not implementations. The reader is definitive.
+The A_k comparison retains the explicit Selberg/Fischer bridge gap in the packet.
+All seven new nodes remain unchecked; the finite arithmetic is separated from that bridge. -/
+namespace TauCeti.QSeries
+open scoped BigOperators
+
+/-- Node odd-rademacher-root-sum; specialized to discriminant 1 - 24n. -/
+noncomputable def oddRademacherRootSum (k : ℕ) [NeZero k] (n : ℤ) : ℂ := sorry
+
+lemma oddRademacherRootSum_eq_sum (k : ℕ) [NeZero k] (n : ℤ) :
+    oddRademacherRootSum k n =
+      ∑ m ∈ (Finset.univ : Finset (ZMod k)).filter
+        (fun m ↦ (24 * m)^2 = 1 - 24 * (n : ZMod k)), ZMod.stdAddChar (2 * m) := sorry
+
+lemma oddRademacherRootSum_periodic (k : ℕ) [NeZero k] (n t : ℤ) :
+    oddRademacherRootSum k (n + t * k) = oddRademacherRootSum k n := sorry
+
+lemma oddRademacherRootSum_conj (k : ℕ) [NeZero k] (n : ℤ) :
+    star (oddRademacherRootSum k n) = oddRademacherRootSum k n := sorry
+
+lemma oddRademacherRootSum_of_no_roots (k : ℕ) [NeZero k] (n : ℤ)
+    (h : ∀ m : ZMod k, (24 * m)^2 ≠ 1 - 24 * (n : ZMod k)) :
+    oddRademacherRootSum k n = 0 := sorry
+
+-- oddRademacherRootSum_one_test
+example (n : ℤ) : oddRademacherRootSum 1 n = 1 := sorry
+-- oddRademacherRootSum_five_nonsquare_test
+example : oddRademacherRootSum 5 1 = 0 := sorry
+-- oddRademacherRootSum_five_singular_test
+example : oddRademacherRootSum 5 4 = 1 := sorry
+-- oddRademacherRootSum_twentyFive_singular_test
+example : oddRademacherRootSum 25 24 = 0 ∧
+    (Finset.univ : Finset (ZMod 25)).filter
+      (fun m ↦ (24*m)^2 = 1 - 24 * (24 : ZMod 25)) = {0,5,10,15,20} := sorry
+-- oddRademacherRootSum_twentyFive_empty_test
+example : oddRademacherRootSum 25 9 = 0 := sorry
+-- oddRademacherRootSum_five_phase_test
+example : oddRademacherRootSum 5 0 = (2 * Real.cos (4 * Real.pi / 5) : ℝ) := sorry
+
+/-- Node odd-rademacher-root-translation. Includes D = 0 modulo p^v. -/
+lemma oddRademacherRoot_translation (p v : ℕ) (hp : p.Prime) (hp3 : 3 < p)
+    (hv : 2 ≤ v) (n : ℤ) (hn : (p : ℤ) ∣ 1 - 24*n) (m : ZMod (p^v)) :
+    (24 * (m + (p : ZMod (p^v))^(v-1)))^2 = 1 - 24 * (n : ZMod (p^v)) ↔
+      (24 * m)^2 = 1 - 24 * (n : ZMod (p^v)) := sorry
+
+/-- Node odd-rademacher-root-singular-cancellation. -/
+lemma oddRademacherRootSum_singular (p v : ℕ) [NeZero (p^v)]
+    (hp : p.Prime) (hp3 : 3 < p) (hv : 2 ≤ v) (n : ℤ)
+    (hn : (p : ℤ) ∣ 1 - 24*n) : oddRademacherRootSum (p^v) n = 0 := sorry
+
+/-- Node rademacher-odd-root-comparison. Its unresolved proof route is a packet gap,
+not an arbitrary predicate or a hidden assumption that the formula is already available. -/
+lemma rademacherKloosterman_eq_oddRootSum (k : ℕ) [NeZero k]
+    (hk : Nat.Coprime k 6) (n : ℤ) :
+    rademacherKloosterman k n =
+      (jacobiSym 3 k : ℂ) * (Real.sqrt k : ℂ) * oddRademacherRootSum k n := sorry
+
+/-- Node rademacher-prime-singular-value. -/
+lemma rademacherKloosterman_prime_singular (p : ℕ) (hp : p.Prime) (hp3 : 3 < p)
+    (n : ℤ) (hn : (p : ℤ) ∣ 1 - 24*n) :
+    rademacherKloosterman p n = (jacobiSym 3 p : ℂ) * (Real.sqrt p : ℂ) := sorry
+
+/-- Node rademacher-prime-power-singular-vanishing. -/
+lemma rademacherKloosterman_prime_pow_singular (p v : ℕ)
+    (hp : p.Prime) (hp3 : 3 < p) (hv : 2 ≤ v) (n : ℤ)
+    (hn : (p : ℤ) ∣ 1 - 24*n) : rademacherKloosterman (p^v) n = 0 := sorry
+
+/-- Node rademacher-prime-power-nonsquare-vanishing. -/
+lemma rademacherKloosterman_prime_pow_nonsquare (p v : ℕ)
+    (hp : p.Prime) (hp3 : 3 < p) (hv : 1 ≤ v) (n : ℤ)
+    (hn : ¬ IsSquare ((1 - 24*n : ℤ) : ZMod p)) :
+    rademacherKloosterman (p^v) n = 0 := sorry
+
+-- Endpoint acceptance regressions, still only planning signatures.
+example : rademacherKloosterman 5 4 = -(Real.sqrt 5 : ℂ) := sorry
+example : rademacherKloosterman 25 24 = 0 := sorry
+example : rademacherKloosterman 125 99 = 0 := sorry
+example : rademacherKloosterman 7 1 = 0 := sorry
+end TauCeti.QSeries
