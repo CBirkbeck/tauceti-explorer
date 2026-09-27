@@ -1,3 +1,4 @@
+import TauCeti.RingTheory.Polynomial.Resultant.AdjoinRoot
 import Mathlib.Algebra.Polynomial.Reverse
 import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.Algebra.Polynomial.Div
@@ -792,38 +793,6 @@ example (hp : HasPr A C₀(Fin 2, A))
 
 end FredholmPr
 
-/- Monic polynomial and entire-series hypotheses are actual propositions. -/
-def entireResultant (Q : Polynomial A) (hQ : Q.Monic)
-    (f : PowerSeries A) (hf : IsEntire f) : A := by sorry
-
-theorem entireResultant_remainder (Q : Polynomial A) (hQ : Q.Monic)
-    (f g s : PowerSeries A) (hf : IsEntire f) (hg : IsEntire g)
-    (hs : IsEntire s) (h : f = polynomialSeries Q * s + g) :
-    entireResultant Q hQ f hf = entireResultant Q hQ g hg := by sorry
-
-theorem entireResultant_mul (Q : Polynomial A) (hQ : Q.Monic)
-    (f g : PowerSeries A) (hf : IsEntire f) (hg : IsEntire g)
-    (hfg : IsEntire (f*g)) :
-    entireResultant Q hQ (f*g) hfg =
-      entireResultant Q hQ f hf * entireResultant Q hQ g hg := by sorry
-
-theorem entireResultant_linear (a : A) (f : PowerSeries A) (hf : IsEntire f)
-    (hq : (Polynomial.X - Polynomial.C a).Monic) :
-    entireResultant (Polynomial.X - Polynomial.C a) hq f hf = entire_eval f a := by sorry
-
--- Unit test: constant_divisor, including f=0.
-example (f : PowerSeries A) (hf : IsEntire f) (hq : (1 : Polynomial A).Monic) :
-    entireResultant 1 hq f hf = 1 := by sorry
--- Unit test: linear_evaluation.
-example (a b : A) (hq : (Polynomial.X - Polynomial.C a).Monic)
-    (hf : IsEntire (1 - PowerSeries.C b * PowerSeries.X)) :
-    entireResultant (Polynomial.X - Polynomial.C a) hq
-      (1 - PowerSeries.C b * PowerSeries.X) hf = 1 - b*a := by sorry
--- Unit test: common_factor.
-example (Q : Polynomial A) (hQ : Q.Monic) (hd : 0 < Q.natDegree)
-    (hf : IsEntire (polynomialSeries Q)) :
-    entireResultant Q hQ (polynomialSeries Q) hf = 0 := by sorry
-
 /- Explicit transcription worklist (not substituted by Prop placeholders):
 
 * API fredholmSeriesPr_baseChange: select/audit the completed tensor carrier and
@@ -1414,4 +1383,156 @@ example (e : A) (he : e^2 = 0) :
       ((Polynomial.X^2 - Polynomial.C e : Polynomial A) : PowerSeries A) *
       entireMonicQuotient (Polynomial.X^2 - Polynomial.C e) (PowerSeries.X^4)) = 0 := sorry
 end
+end TauCeti.NonarchimedeanFredholm
+
+/-!
+Entire quotient and resultant comparison. The native finite algebra is AdjoinRoot;
+no new polynomial quotient, basis, norm or generic determinant criterion is planned.
+-/
+namespace TauCeti.NonarchimedeanFredholm
+variable {A : Type*} [NormedCommRing A] [NormOneClass A]
+
+/-- L4/entire-polynomial-inclusion: bundle the existing polynomial inclusion. -/
+def entirePolynomial : Polynomial A →+* entireSeries A := by sorry
+
+theorem entirePolynomial_coe (P : Polynomial A) :
+    (entirePolynomial P : PowerSeries A) = polynomialSeries P := by sorry
+
+theorem entirePolynomial_injective : Function.Injective (entirePolynomial (A := A)) := by sorry
+
+theorem entirePolynomial_C (a : A) :
+    (entirePolynomial (Polynomial.C a) : PowerSeries A) = PowerSeries.C a := by sorry
+
+/-- L4/entire-polynomial-divisibility: analytic division creates no polynomial factors. -/
+theorem entirePolynomial_dvd_iff [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q P : Polynomial A) (hQ : Q.Monic) :
+    entirePolynomial Q ∣ entirePolynomial P ↔ Q ∣ P := by sorry
+
+/-- L4/entire-quotient-class: monic division into the actual native finite algebra. -/
+def entireAdjoinRoot [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) : entireSeries A →+* AdjoinRoot Q := by sorry
+
+theorem entireAdjoinRoot_polynomial [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q P : Polynomial A) (hQ : Q.Monic) :
+    entireAdjoinRoot hA Q hQ (entirePolynomial P) = AdjoinRoot.mk Q P := by sorry
+
+theorem entireAdjoinRoot_of_decomposition [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q R : Polynomial A) (hQ : Q.Monic) (F G : entireSeries A)
+    (h : F = entirePolynomial Q * G + entirePolynomial R) :
+    entireAdjoinRoot hA Q hQ F = AdjoinRoot.mk Q R := by sorry
+
+/-- L4/entire-quotient-class-kernel. -/
+theorem entireAdjoinRoot_eq_zero_iff [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : entireSeries A) :
+    entireAdjoinRoot hA Q hQ F = 0 ↔ entirePolynomial Q ∣ F := by sorry
+
+/-- L4/entire-quotient-class-surjective. -/
+theorem entireAdjoinRoot_surjective [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) :
+    Function.Surjective (entireAdjoinRoot hA Q hQ) := by sorry
+
+/-- L4/entire-quotient-class-linear: uses the existing evaluated-tail division. -/
+theorem entireAdjoinRoot_linear [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖) (a : A) (F : entireSeries A) :
+    entireAdjoinRoot hA (Polynomial.X - Polynomial.C a) (Polynomial.monic_X_sub_C a) F =
+      AdjoinRoot.of (Polynomial.X - Polynomial.C a) (entire_eval F a) := by sorry
+
+/- The existing resultant definition is moved here to use this actual quotient
+   map and to state its complete/ultrametric hypotheses explicitly. -/
+def entireResultant [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic)
+    (f : PowerSeries A) (hf : IsEntire f) : A := by sorry
+
+theorem entireResultant_norm [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : entireSeries A) :
+    entireResultant hA Q hQ F F.property =
+      Algebra.norm A (entireAdjoinRoot hA Q hQ F) := by sorry
+
+theorem entireResultant_remainder [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (f g s : PowerSeries A)
+    (hf : IsEntire f) (hg : IsEntire g) (hs : IsEntire s)
+    (h : f = polynomialSeries Q * s + g) :
+    entireResultant hA Q hQ f hf = entireResultant hA Q hQ g hg := by sorry
+
+theorem entireResultant_mul [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (f g : PowerSeries A)
+    (hf : IsEntire f) (hg : IsEntire g) (hfg : IsEntire (f*g)) :
+    entireResultant hA Q hQ (f*g) hfg =
+      entireResultant hA Q hQ f hf * entireResultant hA Q hQ g hg := by sorry
+
+theorem entireResultant_linear [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖) (a : A)
+    (f : PowerSeries A) (hf : IsEntire f) (hq : (Polynomial.X - Polynomial.C a).Monic) :
+    entireResultant hA (Polynomial.X - Polynomial.C a) hq f hf = entire_eval f a := by sorry
+
+/-- L4/entire-resultant-polynomial: native Tau Ceti norm-resultant comparison. -/
+theorem entireResultant_polynomial [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q P : Polynomial A) (hQ : Q.Monic) :
+    entireResultant hA Q hQ (polynomialSeries P) (polynomialSeries_entire P) =
+      Q.resultant P Q.natDegree P.natDegree := by sorry
+
+/-- L4/entire-resultant-bezout: the coefficient of F is a bounded-degree polynomial. -/
+theorem entireResultant_bezout [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : entireSeries A) :
+    ∃ G : entireSeries A, ∃ H : Polynomial A, H.degree < (Q.natDegree : WithBot ℕ) ∧
+      entirePolynomial (Polynomial.C
+        (entireResultant hA Q hQ F F.property)) =
+        entirePolynomial Q * G + entirePolynomial H * F := by sorry
+
+/-- Existing L4/resultant-unit now has its full analytic statement. -/
+theorem entireResultant_isUnit_iff [CompleteSpace A] [Nontrivial A]
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : entireSeries A) :
+    IsUnit (entireResultant hA Q hQ F F.property) ↔
+      IsCoprime (entirePolynomial Q) F := by sorry
+
+-- Test entire_polynomial_zero.
+example : entirePolynomial (0 : Polynomial A) = 0 := by sorry
+-- Test entire_polynomial_square.
+example : (entirePolynomial (Polynomial.X^2 : Polynomial A) : PowerSeries A) =
+    PowerSeries.X^2 := by sorry
+-- Test entire_polynomial_native_injective.
+example (P S : Polynomial A) : entirePolynomial P = entirePolynomial S ↔ P = S := by sorry
+
+section Tests
+variable [CompleteSpace A] [Nontrivial A] (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+-- Test quotient_constant_divisor: the target is the zero ring, not A.
+example (F : entireSeries A) : entireAdjoinRoot hA 1 (Polynomial.monic_one) F = 0 := by sorry
+-- Test quotient_nilpotent_square.
+example : entireAdjoinRoot hA (Polynomial.X^2) (Polynomial.monic_X_pow 2)
+    (entirePolynomial (Polynomial.X^2)) = 0 := by sorry
+-- Test quotient_nilpotent_generator_nonzero.
+example : entireAdjoinRoot hA (Polynomial.X^2) (Polynomial.monic_X_pow 2)
+    (entirePolynomial Polynomial.X) ≠ 0 := by sorry
+-- Test quotient_native_remainder.
+example (Q P : Polynomial A) (hQ : Q.Monic) :
+    entireAdjoinRoot hA Q hQ (entirePolynomial P) = AdjoinRoot.mk Q (P %ₘ Q) := by sorry
+-- Existing test constant_divisor, including f=0.
+example (f : PowerSeries A) (hf : IsEntire f) :
+    entireResultant hA 1 (Polynomial.monic_one) f hf = 1 := by sorry
+-- Existing test linear_evaluation.
+example (a b : A) (hf : IsEntire (1 - PowerSeries.C b * PowerSeries.X)) :
+    entireResultant hA (Polynomial.X - Polynomial.C a) (Polynomial.monic_X_sub_C a)
+      (1 - PowerSeries.C b * PowerSeries.X) hf = 1-b*a := by sorry
+-- Existing test common_factor.
+example (Q : Polynomial A) (hQ : Q.Monic) (hd : 0 < Q.natDegree) :
+    entireResultant hA Q hQ (polynomialSeries Q) (polynomialSeries_entire Q) = 0 := by sorry
+-- Test resultant_nilpotent_linear: handles a nonreduced quotient and coefficients.
+example (a b : A) :
+    entireResultant hA (Polynomial.X^2) (Polynomial.monic_X_pow 2)
+      (polynomialSeries (Polynomial.C a + Polynomial.C b * Polynomial.X))
+      (polynomialSeries_entire _) = a^2 := by sorry
+end Tests
 end TauCeti.NonarchimedeanFredholm
