@@ -147278,6 +147278,28 @@
    "reviewReason": null
   },
   {
+   "id": "QSeriesPartitionsAndMockModularForms/E208",
+   "kind": "error",
+   "locator": "§4.4, printed p.31 (physical PDF p.32), paragraph defining elliptic forms just before (4.47), arXiv:1208.4074v2",
+   "printed": "The source says every elliptic form admits a Fourier expansion matching (4.3).",
+   "correction": "Require period one in τ as well as joint holomorphy and the elliptic transformation law before asserting the integer q-Fourier expansion. Without that condition retain only the theta expansion with holomorphic τ-dependent coefficient functions.",
+   "reason": "The stated elliptic-form definition imposes only the z-lattice law, not τ↦τ+1. For m=1, F(τ,z)=τ·ϑ_{1,0}(τ,z) is jointly holomorphic and has that elliptic law. Since ϑ_{1,0}(τ+1,z)=ϑ_{1,0}(τ,z), F(τ+1,z)−F(τ,z)=ϑ_{1,0}(τ,z), which is nonzero (at τ=i,z=0 its defining Gaussian series has positive real terms, including 1). An expansion with constant coefficients c(n,r) and integer n as in (4.3), converging at every point, is necessarily period one in τ. Genuine neutral-multiplier Jacobi forms already have this period from the T-transformation, so their U_s mapping statements are unaffected.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv https://arxiv.org/abs/1208.4074 on 2026-09-27 lists only v1 and v2, latest 3 April 2014; no subsequent correction linked.",
+    "Author directory https://people.mpim-bonn.mpg.de/zagier/files/arxiv/1208.4074/ lists v1 and v2. Author homepage lists an expanded book to appear, not an acquired published edition.",
+    "Searches for 1208.4074 erratum/errata and Quantum Black Holes elliptic forms periodic; no correction of this missing periodicity located.",
+    "Existing packet source issues screened; E207 treats a different growth-condition misprint."
+   ],
+   "owner": "QSeriesPartitionsAndMockModularForms",
+   "file": "research/blueprint/packets/QSeriesPartitionsAndMockModularForms.json",
+   "citation": "A. Dabholkar, S. Murthy, D. Zagier, Quantum Black Holes, Wall Crossing, and Mock Modular Forms, arXiv:1208.4074v2, read 24 September 2026; heat continuation reread 27 September 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "SchemeKTheoryOperations/E1",
    "kind": "error",
    "locator": "Remark V.3.4.2 (PDF p. 395, book p. 387)",
