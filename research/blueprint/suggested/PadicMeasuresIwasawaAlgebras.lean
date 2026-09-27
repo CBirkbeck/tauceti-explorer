@@ -1,3 +1,5 @@
+import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Extend
+import Mathlib.Topology.ContinuousMap.LocallyConstant
 import TauCeti.Topology.Algebra.Group.LocallyConstant
 import Mathlib.Topology.Separation.DisjointCover
 import Mathlib.NumberTheory.Padics.LocalField
@@ -2425,3 +2427,121 @@ example :
     let xQ : C(ℤ_[2],ℚ_[2]) := (ContinuousMap.id ℤ_[2]) • 1
     weight xQ (dirac ℚ_[2] (0 : ℤ_[2])) = 0 := by sorry
 end SuggestedTests.AlgebraMoments
+
+/-! Reconstruction of integral unit measures from compatible finite coefficients.
+The input is an explicit family and its transition law. This is not a new
+completed group-algebra carrier. -/
+noncomputable section
+open scoped AbstractMeasure
+namespace AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+variable (c : ∀ n : ℕ, (ZMod (p^n))ˣ →₀ ℤ_[p])
+variable (hc : ∀ {m n : ℕ} (h : m ≤ n),
+  Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h)) (c n) = c m)
+
+include hc in
+lemma unitCoordinate_pairing_refinement (m n : ℕ) (h : m ≤ n)
+    (g : (ZMod (p^m))ˣ → ℤ_[p]) :
+    ∑ a, g a * c m a =
+      ∑ b, g (ZMod.unitsMap (pow_dvd_pow p h) b) * c n b := by sorry
+include hc in
+lemma unitCoordinate_pairing_independent (m n : ℕ)
+    (g : (ZMod (p^m))ˣ → ℤ_[p]) (h : (ZMod (p^n))ˣ → ℤ_[p])
+    (heq : g ∘ PadicInt.unitToZModPow p m = h ∘ PadicInt.unitToZModPow p n) :
+    ∑ a, g a * c m a = ∑ b, h b * c n b := by sorry
+
+def unitCoordinateIntegral (c : ∀ n : ℕ, (ZMod (p^n))ˣ →₀ ℤ_[p])
+    (hc : ∀ {m n : ℕ} (h : m ≤ n),
+      Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h)) (c n) = c m) : LocallyConstant (ℤ_[p])ˣ ℤ_[p] →ₗ[ℤ_[p]] ℤ_[p] := by sorry
+lemma unitCoordinateIntegral_factor (f : LocallyConstant (ℤ_[p])ˣ ℤ_[p])
+    (n : ℕ) (g : (ZMod (p^n))ˣ → ℤ_[p])
+    (hg : g ∘ PadicInt.unitToZModPow p n = f) :
+    unitCoordinateIntegral p c hc f = ∑ a, g a * c n a := by sorry
+lemma unitCoordinateIntegral_norm_le (f : LocallyConstant (ℤ_[p])ˣ ℤ_[p]) :
+    ‖unitCoordinateIntegral p c hc f‖ ≤ ‖f.toContinuousMap‖ := by sorry
+lemma unitCoordinateIntegral_zero : unitCoordinateIntegral p c hc 0 = 0 := by sorry
+lemma unitCoordinateIntegral_add (f g : LocallyConstant (ℤ_[p])ˣ ℤ_[p]) :
+    unitCoordinateIntegral p c hc (f+g) =
+      unitCoordinateIntegral p c hc f + unitCoordinateIntegral p c hc g := by sorry
+lemma unitCoordinateIntegral_smul (a : ℤ_[p]) (f : LocallyConstant (ℤ_[p])ˣ ℤ_[p]) :
+    unitCoordinateIntegral p c hc (a • f) = a * unitCoordinateIntegral p c hc f := by sorry
+
+def ofUnitCoordinates (c : ∀ n : ℕ, (ZMod (p^n))ˣ →₀ ℤ_[p])
+    (hc : ∀ {m n : ℕ} (h : m ≤ n),
+      Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h)) (c n) = c m) : D((ℤ_[p])ˣ,ℤ_[p]) := by sorry
+lemma ofUnitCoordinates_locallyConstant (f : LocallyConstant (ℤ_[p])ˣ ℤ_[p]) :
+    ofUnitCoordinates p c hc f.toContinuousMap = unitCoordinateIntegral p c hc f := by sorry
+lemma ofUnitCoordinates_norm_le (f : C((ℤ_[p])ˣ,ℤ_[p])) :
+    ‖ofUnitCoordinates p c hc f‖ ≤ ‖f‖ := by sorry
+lemma finiteProjection_ofUnitCoordinates (n : ℕ) :
+    finiteProjection ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩
+      (ofUnitCoordinates p c hc) = c n := by sorry
+lemma ofUnitCoordinates_mass :
+    ofUnitCoordinates p c hc (ContinuousMap.const _ 1) = c 0 1 := by sorry
+lemma ofUnitCoordinates_zero
+    (h0 : ∀ {m n : ℕ} (h : m ≤ n),
+      Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h)) (0 : (ZMod (p^n))ˣ →₀ ℤ_[p]) = 0) :
+    ofUnitCoordinates p (fun _ => 0) h0 = 0 := by sorry
+lemma ofUnitCoordinates_add
+    (d : ∀ n : ℕ, (ZMod (p^n))ˣ →₀ ℤ_[p])
+    (hd : ∀ {m n : ℕ} (h : m ≤ n),
+      Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h)) (d n) = d m)
+    (hcd : ∀ {m n : ℕ} (h : m ≤ n),
+      Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h)) (c n+d n) = c m+d m) :
+    ofUnitCoordinates p (fun n => c n+d n) hcd =
+      ofUnitCoordinates p c hc + ofUnitCoordinates p d hd := by sorry
+lemma ofUnitCoordinates_smul (a : ℤ_[p])
+    (hac : ∀ {m n : ℕ} (h : m ≤ n),
+      Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h)) (a • c n) = a • c m) :
+    ofUnitCoordinates p (fun n => a • c n) hac = a • ofUnitCoordinates p c hc := by sorry
+
+include hc in
+theorem existsUnique_ofUnitCoordinates : ∃! μ : D((ℤ_[p])ˣ,ℤ_[p]),
+    ∀ n, finiteProjection
+      ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ μ = c n := by sorry
+
+lemma unitCoordinates_compatible (μ : D((ℤ_[p])ˣ,ℤ_[p])) {m n : ℕ} (h : m ≤ n) :
+    Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h))
+      (finiteProjection ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ μ) =
+      finiteProjection ⟨PadicInt.unitToZModPow p m, PadicInt.continuous_unitToZModPow p m⟩ μ := by sorry
+lemma ofUnitCoordinates_finiteProjection (μ : D((ℤ_[p])ˣ,ℤ_[p])) :
+    ofUnitCoordinates p
+      (fun n => finiteProjection ⟨PadicInt.unitToZModPow p n, PadicInt.continuous_unitToZModPow p n⟩ μ)
+      (fun h => unitCoordinates_compatible p μ h) = μ := by sorry
+end AbstractMeasure
+
+namespace UnitCoordinateTests
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+variable (c : ∀ n : ℕ, (ZMod (p^n))ˣ →₀ ℤ_[p])
+variable (hc : ∀ {m n : ℕ} (h : m ≤ n),
+  Finsupp.mapDomain (ZMod.unitsMap (pow_dvd_pow p h)) (c n) = c m)
+-- UnitCoordinateTests.lc_zero: even nonzero coordinates annihilate the zero test.
+example : unitCoordinateIntegral p c hc 0 = 0 := by sorry
+-- UnitCoordinateTests.lc_constant: the zero group level records total mass.
+example (a : ℤ_[p]) : unitCoordinateIntegral p c hc (LocallyConstant.const _ a) = a * c 0 1 := by sorry
+-- UnitCoordinateTests.lc_dirac: no averaging factor appears.
+example (u : (ℤ_[p])ˣ) (a : ℤ_[p])
+    (hca : ∀ n, c n = Finsupp.single (PadicInt.unitToZModPow p n u) a)
+    (f : LocallyConstant (ℤ_[p])ˣ ℤ_[p]) : unitCoordinateIntegral p c hc f = a * f u := by sorry
+-- UnitCoordinateTests.zero: a zero family gives the zero actual measure.
+example (hcz : ∀ n, c n = 0) : ofUnitCoordinates p c hc = 0 := by sorry
+-- UnitCoordinateTests.dirac: actual native Dirac compatibility, with arbitrary integral mass.
+example (u : (ℤ_[p])ˣ) (a : ℤ_[p])
+    (hca : ∀ n, c n = Finsupp.single (PadicInt.unitToZModPow p n u) a) :
+    ofUnitCoordinates p c hc = a • dirac ℤ_[p] u := by sorry
+-- UnitCoordinateTests.mass_not_average: two atoms contribute the sum of their masses.
+example (u v : (ℤ_[p])ˣ)
+    (hca : ∀ n, c n = 2 • Finsupp.single (PadicInt.unitToZModPow p n u) 1 +
+      3 • Finsupp.single (PadicInt.unitToZModPow p n v) 1) :
+    ofUnitCoordinates p c hc (ContinuousMap.const _ 1) = 5 := by sorry
+-- UnitCoordinateTests.dyadic_first_depth: shallow group quotients do not determine a measure.
+example : finiteProjection
+    ⟨PadicInt.unitToZModPow 2 1, PadicInt.continuous_unitToZModPow 2 1⟩
+    (dirac ℤ_[2] (1 : (ℤ_[2])ˣ)-dirac ℤ_[2] (-1)) = 0 := by sorry
+-- UnitCoordinateTests.dyadic_second_depth: both integral signs survive at depth two.
+example : finiteProjection
+    ⟨PadicInt.unitToZModPow 2 2, PadicInt.continuous_unitToZModPow 2 2⟩
+    (dirac ℤ_[2] (1 : (ℤ_[2])ˣ)-dirac ℤ_[2] (-1)) ≠ 0 := by sorry
+end UnitCoordinateTests
+end

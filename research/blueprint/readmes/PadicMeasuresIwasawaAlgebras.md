@@ -1,3 +1,51 @@
+**Current unit-coordinate checkpoint:** 294 unchecked nodes: 2 definitions, 40 constructions, 190 lemmas, 37 theorems and 25 comparisons; 208 API items, 201 packet tests (148 on definitions/constructions), 212 typed examples, 17 planets and 297 baseline citations. Eight gaps, no outgoing requests, fourteen inherited source findings and zero closed stages remain.
+
+## Recovering a measure from its finite unit coordinates
+
+Let p be any prime, U=ℤ_pˣ and A_n=(ℤ/p^nℤ)ˣ, including n=0. The actual
+reduction red_n:U→A_n is the preceding native unit map. Take integral finite
+coefficient functions c_n:A_n→₀ℤ_p, compatible under pushforward along the
+native transition t_(m,n):A_n→A_m. Pushforward sums coefficients in each fiber.
+
+A locally constant test f factors through some red_n. Pair its finite test g
+with c_n by Σ_a g(a)c_n(a). Refinement preserves this pairing. Two presentations
+agree after passing to their maximum level, because the corresponding unit
+reduction is surjective. The value is therefore independent of the presentation
+and defines a ℤ_p-linear functional I_c on the native LocallyConstant carrier.
+
+Every integral coefficient has norm at most one. Surjectivity bounds each
+finite test value by the supremum norm of f, and the ultrametric inequality
+bounds the whole pairing by that same norm. The bound does not grow with the
+number of fibers. This supplies the continuity missing from a purely algebraic
+inverse-limit argument.
+
+Use the native linear inclusion of locally constant into continuous maps.
+Its range is a native submodule of C(U,ℤ_p), with the inherited norm; it is dense
+by the preceding finite-test density theorem. Descend I_c to that range and
+use LinearMap.mkContinuous with constant one. The native subtype inclusion is
+uniformly inducing, and ContinuousLinearMap.extend extends the functional to
+C(U,ℤ_p), since ℤ_p is complete. Both native APIs apply over rings or semirings;
+this argument does not require ℤ_p to be a field. No separate public topology
+or function-space carrier is introduced.
+
+The resulting actual native measure μ_c agrees with I_c on locally constant
+tests and satisfies ‖μ_c(f)‖≤‖f‖ on all continuous tests. Characteristic tests
+recover each coefficient c_n(a). Conversely, reconstructing a measure from its
+own coordinates gives the original measure by the preceding separation theorem.
+There is thus a unique integral unit measure with any prescribed compatible
+family of integral finite coordinates.
+
+At level zero A_0 is a singleton and c_0(1) is total mass. It is not an average.
+For p=2, the measure δ_1−δ_(−1) has zero depth-one coordinate but a nonzero
+depth-two coordinate. Uniqueness requires all levels. Group depth remains
+independent of coefficient precision throughout.
+
+The input is an explicit family with its transition proof. It is not a newly
+defined completed group algebra. The next comparison must use the existing
+ProfiniteProPGroups Layer 9 carrier, actual quotient equivalences and cofinality,
+and must prove the algebra and joint coefficient/group topological comparison.
+The coordinate recovery here does not itself identify those topologies.
+
 **Current coefficient-algebra moment checkpoint:** 282 unchecked nodes: 38 constructions, 181 lemmas, 2 definitions, 36 theorems and 25 comparisons; 196 API items, 193 packet tests (142 on definitions/constructions), 204 typed examples, 17 planets and 289 baseline declarations. Eight gaps, no requests, fourteen source findings and zero closed stages remain.
 
 ## Ordinary moments over a coefficient algebra
@@ -8016,3 +8064,330 @@ node and both requests are unchanged. The exact fresh bot confirmation and
 whole issue body were checked again. Exactly four authorized files are
 published on the worker's own branch. The preceding Coleman PR3274 was
 merged automatically as9a1aaa58a1cc28ee90c1cbb4bcfd4d6fa1a2c28c.
+
+
+## The inverse on integral unit coordinates
+
+### Refinement of integral coordinate pairings
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-pairing-refinement` — `AbstractMeasure.unitCoordinate_pairing_refinement` (lemma).
+
+For m≤n and g:A_m→ℤ_p, Σ_a g(a)c_m(a)=Σ_b g(t_(m,n)(b))c_n(b).
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. Substitute the given transition identity for c_m. The native mapDomain_fintype formula writes it as the finite sum of single(t_(m,n)(b),c_n(b)).
+2. Distribute the finite pairing over that sum; evaluation of a native single leaves g(t_(m,n)(b))c_n(b). Rearrange finite sums. No representatives or division by a fiber cardinality are involved.
+
+**Prerequisites:** `mathlib:Finsupp.mapDomain_fintype`, `mathlib:ZMod.unitsMap`.
+
+**Acceptance:** The formula includes m=0 and n=m. It is the adjunction between coefficient pushforward and test pullback.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### Independence of the finite test level
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-pairing-independent` — `AbstractMeasure.unitCoordinate_pairing_independent` (lemma).
+
+If g:A_m→ℤ_p and h:A_n→ℤ_p have g∘red_m=h∘red_n, then Σ_a g(a)c_m(a)=Σ_b h(b)c_n(b).
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. Pass to k=max(m,n). The existing refinement of actual unit reductions identifies both pulled-back tests on U.
+2. Surjectivity of red_k makes the two tests on A_k equal. Apply unit-coordinate-pairing-refinement to each of the two finite pairings and substitute that equality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-pairing-refinement`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-surjective`.
+
+**Acceptance:** Only equality after pullback is required; neither test need be a homomorphism.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### Integration of locally constant unit tests
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-integral` — `AbstractMeasure.unitCoordinateIntegral` (construction).
+
+Construct the ℤ_p-linear functional I_c:LocallyConstant(U,ℤ_p)→ℤ_p by I_c(f)=Σ_a g(a)c_n(a), where f=g∘red_n at any finite level.
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. The existing locally constant factorization provides a level and finite test. Choose one for the definition; unit-coordinate-pairing-independent proves that every such choice gives the same value.
+2. For f and h, refine their finite presentations to a common level. Their sum is represented there by the sum of the tests; finite distributivity proves additivity. The zero test has pairing zero. Scalar multiplication is represented by multiplying the finite test by the scalar, giving ℤ_p-linearity.
+3. Package these identities in the native linear-map carrier on native LocallyConstant. No topology on LocallyConstant is chosen here.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor`, `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-pairing-independent`, `PadicMeasuresIwasawaAlgebras:L1/unit-test-factor-refinement`.
+
+**API:**
+
+- `AbstractMeasure.unitCoordinateIntegral_factor` (characterisation): For every presentation f=g∘red_n, I_c(f)=Σ_a g(a)c_n(a); promoted to unit-coordinate-integral-factor.
+- `AbstractMeasure.unitCoordinateIntegral_zero` (simp): I_c(0)=0.
+- `AbstractMeasure.unitCoordinateIntegral_add` (structure): I_c(f+h)=I_c(f)+I_c(h).
+- `AbstractMeasure.unitCoordinateIntegral_smul` (structure): I_c(a f)=a I_c(f) for a∈ℤ_p.
+- `AbstractMeasure.unitCoordinateIntegral_norm_le` (compatibility): ‖I_c(f)‖≤‖f.toContinuousMap‖; promoted to unit-coordinate-integral-bound.
+
+**Tests:**
+
+- `UnitCoordinateTests.lc_zero` (degenerate): For every compatible family c, I_c(0)=0.
+- `UnitCoordinateTests.lc_constant` (computation): For a∈ℤ_p, I_c(constant a)=a c_0(1), since the group A_0 has one element.
+- `UnitCoordinateTests.lc_dirac` (compatibility): If c_n=single(red_n(u),a) for all n, then I_c(f)=a f(u) for every locally constant f.
+
+**Uses:**
+
+- RJW Remark 3.11 and Proposition 3.16: Turn the compatible finite fiber masses into integration on locally constant tests and extend to the continuous dual.
+- DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates: Supply the concrete-unit inverse needed before comparison with the owner’s actual completed group algebra.
+- Accepted RS-16 L1 boundary: Use the existing unit quotient system without introducing another completed algebra or identifying group depth with coefficient precision.
+
+**Acceptance:** The input family may have arbitrary integral coefficients; there is no separate bounded-family hypothesis. The uniform estimate is the next lemma.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### The finite formula for unit integration
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-integral-factor` — `AbstractMeasure.unitCoordinateIntegral_factor` (lemma).
+
+For f∈LocallyConstant(U,ℤ_p), n≥0 and g:A_n→ℤ_p with g∘red_n=f, I_c(f)=Σ_a g(a)c_n(a).
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. Compare the presentation chosen by unit-coordinate-integral with the supplied presentation using unit-coordinate-pairing-independent. This gives the formula without unfolding the choice in subsequent proofs.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-integral`, `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-pairing-independent`.
+
+**Acceptance:** The result holds at every valid level, including levels above the first one at which f factors.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### Uniform integral bound for coordinate pairings
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-integral-bound` — `AbstractMeasure.unitCoordinateIntegral_norm_le` (lemma).
+
+For every f∈LocallyConstant(U,ℤ_p), ‖I_c(f)‖≤‖f.toContinuousMap‖.
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. Choose a finite presentation f=g∘red_n and apply unit-coordinate-integral-factor. Every coordinate c_n(a) has norm at most one by native PadicInt.norm_le_one.
+2. For each a use surjectivity of red_n to choose u with red_n(u)=a. Then ‖g(a)‖=‖f(u)‖≤‖f.toContinuousMap‖ by the native supremum norm bound.
+3. Each product g(a)c_n(a) therefore has norm at most this same bound. Induct over the finite sum using native PadicInt.nonarchimedean and nonnegativity of the bound. No factor equal to the size of A_n appears.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-integral-factor`, `PadicMeasuresIwasawaAlgebras:L1/unit-locally-constant-factor`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-surjective`, `mathlib:PadicInt.norm_le_one`, `mathlib:PadicInt.nonarchimedean`, `mathlib:ContinuousMap.norm_coe_le_norm`.
+
+**Acceptance:** The bound is independent of the level, the family and the number of nonzero coordinates. Integral coefficients are essential to the stated constant one.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### The integral measure of finite unit coordinates
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-measure` — `AbstractMeasure.ofUnitCoordinates` (construction).
+
+Construct μ_c=ofUnitCoordinates(c):D(U,ℤ_p) as the unique continuous extension of I_c from locally constant tests.
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. Use the existing native linear inclusion e=LocallyConstant.toContinuousMapLinearMap into C(U,ℤ_p). Its injectivity lets I_c descend uniquely to the native submodule range(e); use the inherited norm and topology on that range. This is a local proof construction, not another public function-space carrier.
+2. The preceding norm bound becomes ‖I_c(x)‖≤‖x‖ on range(e). Native LinearMap.mkContinuous with bound one packages it as a continuous ℤ_p-linear functional. This native constructor works for rings, so ℤ_p is not treated as a field.
+3. The range is dense: the existing dense finite unit tests are locally constant because red_n is continuous into a finite discrete space. The native subtype inclusion range(e).subtypeL is uniformly inducing by isUniformEmbedding_subtype_val.
+4. Apply native ContinuousLinearMap.extend along this inclusion, using native completeness of ℤ_p. Its output is precisely the native continuous dual D(U,ℤ_p). Agreement follows from extend_eq. The semiring extension API supplies linearity; no field-only extendOfNorm theorem is used.
+5. The zero, sum and scalar laws in the family variable follow from the finite pairing formula and equality of continuous maps on the dense locally constant range. Compatibility proofs for the zero, sum and scalar families are obtained by finite pushforward linearity; proof irrelevance removes their choices. At level zero the unique coefficient is the value on the constant-one test.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-integral`, `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-integral-bound`, `PadicMeasuresIwasawaAlgebras:L1/unit-cylinder-density`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity`, `mathlib:LocallyConstant.toContinuousMapLinearMap`, `mathlib:LocallyConstant.toContinuousMap_injective`, `mathlib:IsLocallyConstant.of_discrete`, `mathlib:IsLocallyConstant.comp_continuous`, `mathlib:LinearMap.mkContinuous`, `mathlib:Submodule.subtypeL`, `mathlib:isUniformEmbedding_subtype_val`, `mathlib:ContinuousLinearMap.extend`, `mathlib:ContinuousLinearMap.extend_eq`, `mathlib:PadicInt.completeSpace`, `mathlib:Continuous.ext_on`.
+
+**API:**
+
+- `AbstractMeasure.ofUnitCoordinates_locallyConstant` (characterisation): μ_c(f.toContinuousMap)=I_c(f); promoted to unit-coordinate-measure-locally-constant.
+- `AbstractMeasure.ofUnitCoordinates_norm_le` (compatibility): ‖μ_c(f)‖≤‖f‖ for every continuous test; promoted to unit-coordinate-measure-bound.
+- `AbstractMeasure.finiteProjection_ofUnitCoordinates` (projection): π_(red_n)(μ_c)=c_n for every n; promoted to unit-coordinate-recovery.
+- `AbstractMeasure.ofUnitCoordinates_mass` (projection): μ_c(1)=c_0(1).
+- `AbstractMeasure.ofUnitCoordinates_zero` (simp): The zero family reconstructs the zero measure.
+- `AbstractMeasure.ofUnitCoordinates_add` (structure): For compatible c,d, μ_(c+d)=μ_c+μ_d.
+- `AbstractMeasure.ofUnitCoordinates_smul` (structure): For a∈ℤ_p and compatible c, μ_(a c)=a μ_c.
+
+**Tests:**
+
+- `UnitCoordinateTests.zero` (degenerate): If c_n=0 for every n, then μ_c=0.
+- `UnitCoordinateTests.dirac` (compatibility): If c_n=single(red_n(u),a) at every level, then μ_c=a δ_u on the actual native measure carrier.
+- `UnitCoordinateTests.mass_not_average` (non-example): If c_n=2 single(red_n(u),1)+3 single(red_n(v),1), then μ_c(1)=5, even when u and v reduce to the same unit.
+
+**Uses:**
+
+- RJW Remark 3.11 and Proposition 3.16: Turn the compatible finite fiber masses into integration on locally constant tests and extend to the continuous dual.
+- DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates: Supply the concrete-unit inverse needed before comparison with the owner’s actual completed group algebra.
+- Accepted RS-16 L1 boundary: Use the existing unit quotient system without introducing another completed algebra or identifying group depth with coefficient precision.
+
+**Acceptance:** This constructs an actual native measure. Identifying its input family with the owner’s completed group-algebra element and proving the topological algebra comparison remain separate targets.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### Agreement of the extension on locally constant tests
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-measure-locally-constant` — `AbstractMeasure.ofUnitCoordinates_locallyConstant` (lemma).
+
+For f∈LocallyConstant(U,ℤ_p), μ_c(f.toContinuousMap)=I_c(f).
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. Regard f.toContinuousMap as an element of the native range used in unit-coordinate-measure. Apply native ContinuousLinearMap.extend_eq, using the density and uniform-inducing properties established in that construction. Unfold only the descended functional on this range.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-measure`, `mathlib:ContinuousLinearMap.extend_eq`.
+
+**Acceptance:** The equality compares actual continuous tests with the already defined linear locally constant integral.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### The uniform bound after continuous extension
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-measure-bound` — `AbstractMeasure.ofUnitCoordinates_norm_le` (lemma).
+
+For every continuous f:U→ℤ_p, ‖μ_c(f)‖≤‖f‖.
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. The subset of C(U,ℤ_p) where ‖μ_c(f)‖≤‖f‖ is closed, because μ_c and both norm functions are continuous and the real order is closed.
+2. It contains every locally constant test by unit-coordinate-measure-locally-constant and unit-coordinate-integral-bound. Such tests contain the dense finite unit tests, so the closed subset is the whole space.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-measure-locally-constant`, `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-integral-bound`, `PadicMeasuresIwasawaAlgebras:L1/unit-cylinder-density`, `mathlib:isClosed_le`.
+
+**Acceptance:** This is a pointwise operator bound on the native integral dual; it does not assume that a field-valued operator norm is already installed.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### Recovery of the prescribed finite coefficients
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-recovery` — `AbstractMeasure.finiteProjection_ofUnitCoordinates` (lemma).
+
+For every n≥0, π_(red_n)(μ_c)=c_n as native finitely supported coefficient functions.
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. Evaluate the coefficient at a using the existing finite-projection-coefficient formula. Its characteristic test is locally constant, as a discrete finite function pulled back by red_n.
+2. Apply unit-coordinate-measure-locally-constant and unit-coordinate-integral-factor at the same level n. The finite pairing with the characteristic test has precisely the summand a, giving c_n(a). Native coefficient extensionality proves the equality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-measure-locally-constant`, `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-integral-factor`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity`, `mathlib:IsLocallyConstant.of_discrete`, `mathlib:IsLocallyConstant.comp_continuous`.
+
+**Acceptance:** Recovery holds at level zero as well as at positive depth. No coefficient precision has been discarded.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### Compatibility of an actual measure’s unit coordinates
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-compatibility` — `AbstractMeasure.unitCoordinates_compatible` (lemma).
+
+For μ∈D(U,ℤ_p) and m≤n, (t_(m,n))_*π_(red_n)(μ)=π_(red_m)(μ).
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Measures are native AbstractMeasure U ℤ_p ℤ_p; take an actual integral measure μ.
+
+**Proof outline:**
+
+1. The native finite transition is continuous because its domain is discrete. Apply the existing finite-projection-refinement theorem to red_n and this transition.
+2. The existing unit-reduction-refinement identity identifies the composite with red_m. Rearrange the resulting equality to supply the explicit compatibility argument for the inverse constructor.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/finite-projection-refinement`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-refinement`, `PadicMeasuresIwasawaAlgebras:L1/unit-reduction-continuity`, `mathlib:ZMod.unitsMap`.
+
+**Acceptance:** This names the exact adapter used by the reconstruction identity; it is not an assumed compatibility field.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### Reconstruction of an integral unit measure
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-reconstruction` — `AbstractMeasure.ofUnitCoordinates_finiteProjection` (lemma).
+
+For every μ∈D(U,ℤ_p), reconstructing from c_n=π_(red_n)(μ), with compatibility supplied by unit-coordinate-compatibility, gives μ.
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Measures are native AbstractMeasure U ℤ_p ℤ_p; take an actual integral measure μ.
+
+**Proof outline:**
+
+1. Unit-coordinate-recovery identifies every finite coordinate of the reconstructed measure with the corresponding coordinate of μ.
+2. Apply the existing unit-measure-separation theorem, which quantifies all actual unit reductions. No single finite group depth suffices.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-compatibility`, `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-recovery`, `PadicMeasuresIwasawaAlgebras:L1/unit-measure-separation`.
+
+**Tests:**
+
+- `UnitCoordinateTests.dyadic_first_depth` (non-example): At p=2, π_(red_1)(δ_1−δ_(−1))=0.
+- `UnitCoordinateTests.dyadic_second_depth` (computation): At p=2, π_(red_2)(δ_1−δ_(−1))≠0. Thus depth-one data alone do not determine an integral unit measure.
+
+**Acceptance:** Together with unit-coordinate-recovery this gives both inverse identities on explicit compatible data, without asserting a new completed-algebra carrier.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+### Existence and uniqueness from compatible unit coordinates
+
+`PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-existence-uniqueness` — `AbstractMeasure.existsUnique_ofUnitCoordinates` (theorem).
+
+For every compatible integral family c as above, there exists a unique μ∈D(U,ℤ_p) such that π_(red_n)(μ)=c_n for every n≥0.
+
+**Hypotheses:** p is any prime, including 2. U=ℤ_pˣ has its native compact topology; A_n=(ℤ/p^nℤ)ˣ for every n≥0. red_n is the existing actual unit reduction, and t_(m,n):A_n→A_m for m≤n is native ZMod.unitsMap. Take an explicit family c_n:A_n→₀ℤ_p and proofs (t_(m,n))_*c_n=c_m, where pushforward is native Finsupp.mapDomain, summing fiber coefficients. This is input data, not a new inverse-limit or completed-group-algebra carrier. Measures are native AbstractMeasure U ℤ_p ℤ_p.
+
+**Proof outline:**
+
+1. For existence choose the actual native measure μ_c and apply unit-coordinate-recovery.
+2. For uniqueness, any other measure with the same coordinates equals μ_c by the existing unit-measure-separation theorem.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/unit-coordinate-recovery`, `PadicMeasuresIwasawaAlgebras:L1/unit-measure-separation`.
+
+**Acceptance:** This supplies the inverse at the level of explicit families. The coefficient/group topological algebra comparison with the existing owner remains open.
+
+**Source:** Remark 3.11 and Proposition 3.16 with its full proof and inverse construction, printed 120–122 / PDF 21–23; complete printed 119–123 freshly read from the published copy. Worker decomposition of the inverse on the concrete unit quotient system. The source constructs the inverse from finite fiber masses; the explicit integral norm bound and native dense extension justify continuity. General completed group algebras remain owned by ProfiniteProPGroups Layer 9.
+
+
+### Remaining comparison
+
+The inverse from compatible integral coordinates for the actual unit system is decomposed: finite pairings are independent of level, the native locally constant functional has uniform bound one, native dense extension gives an actual ℤ_p-valued measure, and recovery, reconstruction and unique existence are supplied. Compare this explicit-family inverse with the existing ProfiniteProPGroups Layer 9 completed-group-algebra carrier using unit-kernel cofinality and the actual quotient equivalences. Establish the algebra and joint coefficient/group topological equivalence, including the dyadic case; use coefficient powers together with finite-group kernels, never pure T-adic kernels or an integral eigenspace splitting. General adic coefficients, finite-extension lattices and complete source coverage remain separate targets.
+
+
+### Unit-coordinate validation
+
+The complete suggested file elaborates at the pinned baseline with zero errors
+and 626 warnings, all and only the expected placeholders. Its source closure
+checks 2815 Mathlib modules and two previously built pinned TauCeti modules.
+No native library was built and no planned supplier module was imported. No
+full proof of the twelve new declarations is claimed. Suggested SHA256:
+0c8521eae5c2c77b9f83206b05c13d9a4ebf32934b0353439aebc46e16503311.
+
+The indexed blueprint checker reports zero errors and warnings, and four-file
+intake reports zero problems. The filename-correct errata wrapper and whitespace
+checks pass. Whole-object preservation, reader/signature/test parity and the
+four-file mutation check pass. The reachable dependency graph has 295 nodes,
+1194 acyclic edges and 298 baseline leaves, with no unresolved stage leaves.
+This does not close the eight explicit source/interface gaps.
+
+Exact integer arithmetic checks 80 families at p=2,3,5,7 through group depth 3:
+800 refinement identities, 800 pairing comparisons, 320 uniform valuation
+bounds, 10060 coefficient recoveries, 320 mass comparisons and 3200 finite
+coefficient/group transition checks. Sixteen colliding-atom tests and the
+dyadic depth-one/depth-two counterexample pass. These finite computations
+check conventions and examples, not dense extension or limit topology.
+
+One persistent checkout and existing pinned artifacts were used, with one own
+Lean process at a time. No own compiler, watcher or language server remains.
+Retained scratch evidence: inputs.json, WORKLIST.md, claim.json, claim-bot.json,
+issue-before.json, issue-claimed.json, issue-publication.json,
+comments-after.json, dirichlet-delta.json, upstream-completed.json,
+baseline-read.json, new-nodes.json, append.lean, compile.py,
+lean-source-audit.json, suggested-compile.log, arithmetic.py,
+arithmetic-results.json, verification.json, publication-guard.json,
+submission.json, intake-pr.json and the four final files in handoff-evidence.
+The existing source PDF and native artifacts retain their preceding handoff
+provenance. No new source copy, repository snapshot or library build is kept.
+
+At publication main 9b5a58905b564df16b77149a70e64b1d416ab4d6, all 51 captured input blobs
+and all four predecessor output blobs are unchanged. The whole issue body
+and the bot’s exact fresh claim confirmation were checked again. Exactly four
+authorized files are submitted from the worker’s own job branch.
