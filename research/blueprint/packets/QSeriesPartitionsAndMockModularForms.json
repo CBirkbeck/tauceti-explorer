@@ -12,7 +12,7 @@
     "QSeriesPartitionsAndMockModularForms:QM.6"
   ],
   "status": "partial",
-  "summary": "Q-series, partitions, Jacobi and mock modular forms, first pass, planned from free sources against the pinned libraries. QM.0 builds the formal q-series layer on Mathlib's partitions and x-adic products: q-Pochhammer symbols, q-integers, Gaussian polynomials, the q-binomial and q-Vandermonde theorems, Euler's identities, the finite, universal and formal Jacobi triple products with the specialisations the ClassicalArithmeticCompletion packet requests, Ramanujan's congruences modulo 5 and 7 by formal dissections, the Rogers–Ramanujan identities through Bressoud's polynomial identities, and the evaluation theorem that turns an x-adic identity into an analytic one inside a disc. QM.1 plans the eta multiplier system on all of SL(2, ℤ) with Dedekind sums, the theta multiplier and eta quotients with their orders at every cusp, Zwegers' ϑ(z; τ) with its elliptic and modular laws, and Eichler–Zagier Jacobi forms with the theta decomposition. QM.2 plans Ford circles, the modified Bessel functions, the sums A_k(n), Rademacher's exact formula with an effective remainder, and the Hardy–Ramanujan asymptotic. QM.3 plans the weight-k Laplacian, harmonic Maass forms with their holomorphic and non-holomorphic parts, the ξ-operator, the Bruinier–Funke pairing and exact sequence, and Maass–Poincaré series. QM.4 plans Zwegers' Appell–Lerch sums, the functions R and E, the completion μ̃ and its transformation law, indefinite theta functions of type (n − 1, 1), and the seventh-order mock theta functions with their completion and shadow. QM.5 plans quantum modular forms, Eichler integrals, Kontsevich's strange identity, the radial limits of WRT invariants for the Poincaré sphere against ArithmeticQuantumTopology QT.4 and the Habiro ring, the Andrews–Garvan crank, and Zagier's traces of singular moduli. QM.6 plans vertex operator algebras, graded traces and McKay–Thompson series, the no-ghost theorem, the Monster Lie algebra with its twisted denominator identities, and the statement of monstrous moonshine; the Frenkel–Lepowsky–Meurman module and the identification of its automorphism group with the presented Monster are recorded gaps. Remaining work is listed per layer, with fourteen gaps and twenty-four requests to other owners. A later continuation adds the Bailey-chain route to the Andrews–Gordon identities for i = 1 and i = k (Warnaar; Andrews 1984), in the Nahm-sum form that HabiroNahmSeries requests. A singular-prime continuation adds the specialized odd Rademacher quadratic-root sum, its translation/cancellation proof and three local consequences. The odd comparison retains an explicit Selberg/Fischer bridge gap; no square-root bound, unit-root converse, or exceptional-prime evaluation is claimed completed. Four source issues are added, including two author-corrected Johansson typos checked in the version of record. The Jacobi heat continuation adds a 22-declaration decomposition of DMZ (4.12), with the exact modular anomaly, E₂ convolution at a possibly negative Fourier cutoff, all four growth-space maps and the native Serre-derivative identity in theta coordinates. The 479 predecessor nodes and all inherited gaps and requests are retained. The finite Selberg phase continuation adds nine nodes, preserving all 501 inherited IDs and statements and refining only the odd-root endpoint's proof route. The exact finite conversion is decomposed by a uniform phase; the Dedekind-to-Selberg Fourier equality remains an explicit gap. No planet, source issue or supplier request is added. The Fischer finite-reduction continuation adds twelve QM.2 nodes: the specialized H-sum, representative and parameter symmetries, the parity-compatible half-range identity, three finite partition identities and four reductions (3.31)–(3.34). All 510 inherited node objects are unchanged. The general Gauss evaluations and eta/Fourier bridge remain explicit gaps.",
+  "summary": "Q-series, partitions, Jacobi and mock modular forms, first pass, planned from free sources against the pinned libraries. QM.0 builds the formal q-series layer on Mathlib's partitions and x-adic products: q-Pochhammer symbols, q-integers, Gaussian polynomials, the q-binomial and q-Vandermonde theorems, Euler's identities, the finite, universal and formal Jacobi triple products with the specialisations the ClassicalArithmeticCompletion packet requests, Ramanujan's congruences modulo 5 and 7 by formal dissections, the Rogers–Ramanujan identities through Bressoud's polynomial identities, and the evaluation theorem that turns an x-adic identity into an analytic one inside a disc. QM.1 plans the eta multiplier system on all of SL(2, ℤ) with Dedekind sums, the theta multiplier and eta quotients with their orders at every cusp, Zwegers' ϑ(z; τ) with its elliptic and modular laws, and Eichler–Zagier Jacobi forms with the theta decomposition. QM.2 plans Ford circles, the modified Bessel functions, the sums A_k(n), Rademacher's exact formula with an effective remainder, and the Hardy–Ramanujan asymptotic. QM.3 plans the weight-k Laplacian, harmonic Maass forms with their holomorphic and non-holomorphic parts, the ξ-operator, the Bruinier–Funke pairing and exact sequence, and Maass–Poincaré series. QM.4 plans Zwegers' Appell–Lerch sums, the functions R and E, the completion μ̃ and its transformation law, indefinite theta functions of type (n − 1, 1), and the seventh-order mock theta functions with their completion and shadow. QM.5 plans quantum modular forms, Eichler integrals, Kontsevich's strange identity, the radial limits of WRT invariants for the Poincaré sphere against ArithmeticQuantumTopology QT.4 and the Habiro ring, the Andrews–Garvan crank, and Zagier's traces of singular moduli. QM.6 plans vertex operator algebras, graded traces and McKay–Thompson series, the no-ghost theorem, the Monster Lie algebra with its twisted denominator identities, and the statement of monstrous moonshine; the Frenkel–Lepowsky–Meurman module and the identification of its automorphism group with the presented Monster are recorded gaps. Remaining work is listed per layer, with fourteen gaps and twenty-four requests to other owners. A later continuation adds the Bailey-chain route to the Andrews–Gordon identities for i = 1 and i = k (Warnaar; Andrews 1984), in the Nahm-sum form that HabiroNahmSeries requests. A singular-prime continuation adds the specialized odd Rademacher quadratic-root sum, its translation/cancellation proof and three local consequences. The odd comparison retains an explicit Selberg/Fischer bridge gap; no square-root bound, unit-root converse, or exceptional-prime evaluation is claimed completed. Four source issues are added, including two author-corrected Johansson typos checked in the version of record. The Jacobi heat continuation adds a 22-declaration decomposition of DMZ (4.12), with the exact modular anomaly, E₂ convolution at a possibly negative Fourier cutoff, all four growth-space maps and the native Serre-derivative identity in theta coordinates. The 479 predecessor nodes and all inherited gaps and requests are retained. The finite Selberg phase continuation adds nine nodes, preserving all 501 inherited IDs and statements and refining only the odd-root endpoint's proof route. The exact finite conversion is decomposed by a uniform phase; the Dedekind-to-Selberg Fourier equality remains an explicit gap. No planet, source issue or supplier request is added. The Fischer finite-reduction continuation adds twelve QM.2 nodes: the specialized H-sum, representative and parameter symmetries, the parity-compatible half-range identity, three finite partition identities and four reductions (3.31)–(3.34). All 510 inherited node objects are unchanged. The general Gauss evaluations and eta/Fourier bridge remain explicit gaps. A fourteen-node continuation treats the Jacobi index-raising operator of DMZ (4.36), including integral coefficient transport, theta rescaling and compatibility with the native total-derivative heat operators. All 522 predecessor nodes are preserved. E208 records the missing τ-period hypothesis in the source’s assertion about unrestricted elliptic forms; QM.1 remains partial.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2838,6 +2838,105 @@
         "module": "Mathlib/Data/ZMod/Basic.lean",
         "provides": "For a unit a in any ZMod ring, a times its native inverse equals one.",
         "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27; line 849. Imported source bytes are verified by the pinned compilation harness."
+      },
+      {
+        "ref": "mathlib:Continuous.intervalIntegrable",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+        "provides": "Continuous functions on the real line are integrable on finite intervals for a locally finite measure.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 514; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:DifferentiableOn.comp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/FDeriv/Comp.lean",
+        "provides": "Composition on a set is differentiable when both maps are differentiable and the inner map takes that set into the outer domain.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 196; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:DifferentiableOn.const_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/FDeriv/Mul.lean",
+        "provides": "Left multiplication by a constant preserves differentiability on a set in a normed algebra.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 367; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:DifferentiableOn.prodMk",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/FDeriv/Prod.lean",
+        "provides": "Pairs of differentiable maps on the same set are differentiable.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 95; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Function.Periodic.nat_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Ring/Periodic.lean",
+        "provides": "A period can be multiplied by any natural number; used for integer translates 0 through s−1.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 129; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:HasProd.tprod_fiberwise",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Constructions.lean",
+        "provides": "Unconditional products may be regrouped by fibers in a complete uniform commutative group. Its explicitly generated additive theorem HasSum.tsum_fiberwise supplies the complex theta regrouping.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 240; source Git blob verified on 2026-09-27.",
+        "generatedDeclaration": "HasSum.tsum_fiberwise"
+      },
+      {
+        "ref": "mathlib:deriv_comp_mul_left",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/CompMul.lean",
+        "provides": "For total derivatives, deriv(f(c·))(x)=c·deriv(f)(cx), without differentiability or nonzero-scalar hypotheses.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 43; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:deriv_const_mul_field",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Mul.lean",
+        "provides": "Constant multiplication in a normed field commutes with the total derivative without a differentiability premise.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 376; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:geom_sum_mul",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Ring/GeomSum.lean",
+        "provides": "The finite geometric sum multiplied by x−1 is x^n−1, without dividing by x−1.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 232; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:intervalIntegral.integral_add_adjacent_intervals",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+        "provides": "Integrals on adjacent intervals add, provided each is interval integrable.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 1097; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:intervalIntegral.integral_comp_add_right",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+        "provides": "Translation changes both interval endpoints by the translation parameter.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 956; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:intervalIntegral.integral_comp_mul_left",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+        "provides": "Change of variables by a nonzero real scalar, with inverse-scalar factor and rescaled endpoints.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 936; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:intervalIntegral.integral_const_mul",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+        "provides": "A constant scalar in a real normed division algebra factors out of its interval integral.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 819; source Git blob verified on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:iteratedDeriv_succ",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
+        "provides": "The (n+1)-st total derivative is the derivative of the n-th total derivative.",
+        "checked": "Complete statement and ambient hypotheses read at pinned Mathlib 082e2d3, line 306; source Git blob verified on 2026-09-27."
       }
     ]
   },
@@ -2993,7 +3092,8 @@
         "§4.1 Basic definitions, (4.1)–(4.7) (printed pp. 23–24)",
         "§4.2 Theta expansion and Taylor expansion, (4.8)–(4.18) and the growth characterisations (printed pp. 24–27)",
         "§4.3 Example: Jacobi forms of index 1, (4.19)–(4.35) and Table 1 (printed pp. 27–29)",
-        "Fresh heat continuation, 27 September 2026: physical PDF pp.20–21 (printed19–20), pp.24–29 (printed23–28), extracted in batches of at most three physical pages. Includes (3.7), all of §4.1, §4.2 through (4.18), and §4.3 through (4.30)/Table1. The source identity (4.12) is decomposed independently; this does not claim to have read Eichler–Zagier or the entire 153-page PDF."
+        "Fresh heat continuation, 27 September 2026: physical PDF pp.20–21 (printed19–20), pp.24–29 (printed23–28), extracted in batches of at most three physical pages. Includes (3.7), all of §4.1, §4.2 through (4.18), and §4.3 through (4.30)/Table1. The source identity (4.12) is decomposed independently; this does not claim to have read Eichler–Zagier or the entire 153-page PDF.",
+        "Index-raising continuation, 27 September 2026: physical PDF pp.24–26 and30–33 (printed pp.23–25 and29–32), batches of at most three pages; §4.4 read in full for operator and growth context, with physical pp.30 and32 visually checked. Only (4.36) and its direct consequences are decomposed here. E208 is scoped to the unrestricted elliptic-form paragraph on printed p.31 in arXiv v2; no published expanded-book text was acquired."
       ]
     },
     {
@@ -34644,6 +34744,637 @@
       ],
       "implementationStatus": "unchecked",
       "declarationName": "rademacherKloosterman_eq_selberg"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-index-raising",
+      "declarationName": "jacobiIndexRaise",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Jacobi index raising",
+      "kind": "definition",
+      "statement": "For s∈ℕ and φ:ℍ×ℂ→ℂ define U_sφ(τ,z)=φ(τ,sz). This is ordinary precomposition in the elliptic coordinate, complex-linear on the function space. The source operator has s≥1. At s=0 the same formula is evaluation at z=0, constant in z, and need not be injective.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Define the displayed function using multiplication in ℂ. Pointwise evaluation proves its zero, addition and scalar laws.",
+        "Associativity of multiplication gives U_s(U_tφ)=U_(st)φ and U_1φ=φ. At s=0 multiplication gives φ(τ,0).",
+        "For s>0, equality U_sφ=U_sψ can be evaluated at z/s to recover φ(τ,z)=ψ(τ,z); the complex cast of s is nonzero. This proves injectivity without an analytic premise."
+      ],
+      "prerequisites": [],
+      "acceptance": [
+        "The weight and τ coordinate stay fixed; the index changes quadratically in the covariance lemmas."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "DMZ §4.4 (4.36)",
+          "how": "Maps index m to s²m while retaining weight."
+        },
+        {
+          "where": "DMZ §4.4 (4.38)",
+          "how": "The modified index-raising V operator uses U_s in its Möbius sum; that operator remains an explicit coverage obligation."
+        },
+        {
+          "where": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-theta",
+          "how": "Identifies old theta components inside the enlarged residue space."
+        },
+        {
+          "where": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-modified-heat",
+          "how": "Compares index raising with the existing corrected heat operator."
+        }
+      ],
+      "api": [
+        {
+          "name": "jacobiIndexRaise_apply",
+          "role": "simp",
+          "statement": "U_sφ(τ,z)=φ(τ,sz)."
+        },
+        {
+          "name": "jacobiIndexRaise_zero",
+          "role": "simp",
+          "statement": "U_s0=0."
+        },
+        {
+          "name": "jacobiIndexRaise_add",
+          "role": "structure",
+          "statement": "U_s(φ+ψ)=U_sφ+U_sψ."
+        },
+        {
+          "name": "jacobiIndexRaise_smul",
+          "role": "structure",
+          "statement": "For a∈ℂ, U_s(aφ)=aU_sφ."
+        },
+        {
+          "name": "jacobiIndexRaise_one",
+          "role": "simp",
+          "statement": "U_1φ=φ."
+        },
+        {
+          "name": "jacobiIndexRaise_zero_parameter",
+          "role": "simp",
+          "statement": "U_0φ(τ,z)=φ(τ,0)."
+        },
+        {
+          "name": "jacobiIndexRaise_comp",
+          "role": "functoriality",
+          "statement": "U_s(U_tφ)=U_(st)φ for all s,t∈ℕ."
+        },
+        {
+          "name": "jacobiIndexRaise_injective",
+          "role": "characterisation",
+          "statement": "For s>0 the map φ↦U_sφ is injective on the entire function space."
+        }
+      ],
+      "tests": [
+        {
+          "name": "indexRaise.test_polynomial",
+          "kind": "computation",
+          "statement": "U_3(τ+z²)=τ+9z², detecting quadratic scaling in the elliptic coordinate."
+        },
+        {
+          "name": "indexRaise.test_zero_parameter",
+          "kind": "degenerate",
+          "statement": "U_0(τ+z)=τ."
+        },
+        {
+          "name": "indexRaise.test_identity",
+          "kind": "compatibility",
+          "statement": "U_1φ=φ for arbitrary φ, agreeing with identity precomposition."
+        },
+        {
+          "name": "indexRaise.test_tau_fixed",
+          "kind": "non-example",
+          "statement": "For φ(τ,z)=τ, U_2φ=φ; at τ=i its value is i, not 2i."
+        },
+        {
+          "name": "indexRaise.test_zero_kernel",
+          "kind": "non-example",
+          "statement": "The nonzero function φ(τ,z)=z satisfies U_0φ=0."
+        },
+        {
+          "name": "indexRaise.test_composition",
+          "kind": "compatibility",
+          "statement": "U_2(U_3φ)=U_6φ for arbitrary φ."
+        }
+      ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-joint-holomorphic",
+      "declarationName": "differentiableOn_jacobiIndexRaise",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Holomorphy under elliptic dilation",
+      "kind": "lemma",
+      "statement": "If φ is jointly holomorphic on ℍ×ℂ, then U_sφ is jointly holomorphic for every s∈ℕ.",
+      "hypotheses": [],
+      "proofSteps": [
+        "On the open subset {(τ,z)∈ℂ² | Im τ>0}, use the complex-linear coordinate map A_s(τ,z)=(τ,sz). It preserves this set because its first coordinate is unchanged.",
+        "The projections and scalar multiplication make A_s differentiable. Apply DifferentiableOn.comp to the ofComplex extension of φ and A_s. This also works when s=0."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-index-raising",
+        "mathlib:DifferentiableOn.comp",
+        "mathlib:DifferentiableOn.prodMk",
+        "mathlib:DifferentiableOn.const_mul"
+      ],
+      "acceptance": [
+        "No invertibility of A_s is required."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-modular",
+      "declarationName": "jacobiModularSlash_indexRaise",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Modular covariance of index raising",
+      "kind": "lemma",
+      "statement": "For k,m∈ℚ, s∈ℕ, γ∈SL₂(ℤ) and arbitrary φ, (U_sφ)|_(k,s²m)γ=U_s(φ|_(k,m)γ), with the existing rational-weight complex-power convention unchanged.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Expand the existing modular slash and write j=cτ+d. Both sides have the identical factor j^(−k). Their arguments of φ agree because s(z/j)=(sz)/j.",
+        "Their exponential arguments agree by (s²m)cz²/j=mc(sz)²/j. This is field algebra without changing any complex-power branch or requiring a rational weight to be integral."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-index-raising",
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modular-slash"
+      ],
+      "acceptance": [
+        "The target index is s²m; replacing it by sm fails for s=2,m=1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic",
+      "declarationName": "jacobiEllipticSlash_indexRaise",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Elliptic covariance of index raising",
+      "kind": "lemma",
+      "statement": "For m∈ℚ, s∈ℕ, l,μ∈ℤ and arbitrary φ, (U_sφ)|_(s²m)[l,μ]=U_s(φ|_m[sl,sμ]). Thus an elliptic multiplier χ pulls back to (l,μ)↦χ(sl,sμ).",
+      "hypotheses": [],
+      "proofSteps": [
+        "After unfolding the two elliptic slashes, both arguments of φ are sz+slτ+sμ.",
+        "The exponential exponents agree since s²m(l²τ+2lz)=m((sl)²τ+2(sl)(sz)). Use integer and natural casts into ℂ and polynomial arithmetic."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-index-raising",
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-elliptic-slash"
+      ],
+      "acceptance": [
+        "A nontrivial elliptic multiplier is pulled back, not assumed unchanged."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic-integral",
+      "declarationName": "jacobiIndexRaise_ellipticIntegral",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Elliptic coefficient integrals under dilation",
+      "kind": "lemma",
+      "statement": "Let s≥1, r∈ℤ, τ∈ℍ, and let z↦φ(τ,z) be continuous and period one. With e(w)=exp(2πiw), ∫₀¹(U_sφ)(τ,u)e(−ru)du equals ∫₀¹φ(τ,u)e(−(r/s)u)du if s divides r in ℤ, and is zero otherwise. In the divisible branch r/s is the exact integer quotient.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Substitute v=su using the native interval-integral scaling law. Split [0,s] into the s intervals [a,a+1], then translate v=u+a. Continuity supplies interval integrability; period one gives φ(τ,u+a)=φ(τ,u).",
+        "The result is s⁻¹ times ∫₀¹φ(τ,u)e(−ru/s)du times the finite geometric sum Σ_(a=0)^(s−1)e(−ra/s). For ξ=e(−r/s), ξ^s=1, and the native exponential kernel criterion gives ξ=1 exactly when s divides r.",
+        "If ξ≠1, the geometric identity (Σξ^a)(ξ−1)=ξ^s−1 forces the sum to vanish. If ξ=1, its value is s and cancels s⁻¹; write r=st to identify r/s=t, also for negative r. No period or regularity in τ is used."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-index-raising",
+        "mathlib:intervalIntegral.integral_comp_mul_left",
+        "mathlib:intervalIntegral.integral_comp_add_right",
+        "mathlib:intervalIntegral.integral_add_adjacent_intervals",
+        "mathlib:intervalIntegral.integral_const_mul",
+        "mathlib:Continuous.intervalIntegrable",
+        "mathlib:Function.Periodic.nat_mul",
+        "mathlib:Complex.exp_eq_one_iff",
+        "mathlib:geom_sum_mul"
+      ],
+      "acceptance": [
+        "For s=2 the odd frequencies vanish; a factor 1/s does not remain at the even frequencies."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-fourier",
+      "declarationName": "jacobiFourierCoeff_indexRaise",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Fourier coefficients of index raising",
+      "kind": "lemma",
+      "statement": "Let s≥1 and suppose every slice z↦φ(τ,z) is continuous and period one. For n,r∈ℤ, c_(U_sφ)(n,r)=c_φ(n,r/s) if s divides r, and zero otherwise, for the existing double-integral coefficients. The integer n is unchanged. This integral identity needs no period or regularity in τ; interpreting these numbers as a convergent double Fourier expansion additionally requires the hypotheses of jacobi-fourier-expansion.",
+      "hypotheses": [],
+      "proofSteps": [
+        "In the defining double integral split e(−n(x+i)−ru)=e(−n(x+i))e(−ru). Pull the factor independent of u outside the inner integral.",
+        "Apply index-raising-elliptic-integral at each τ=x+i. Its divisibility condition is independent of x. In the divisible case move the same exponential factor back inside and recognize c_φ(n,r/s); in the other case the outer integral of zero is zero."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-coefficient",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic-integral",
+        "mathlib:intervalIntegral.integral_const_mul"
+      ],
+      "acceptance": [
+        "For q³ζ⁻¹, U_2 gives q³ζ⁻²: the coefficient at (3,−2) is 1 and at (3,−1) is 0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "indexRaise.test_negative_frequency",
+          "kind": "computation",
+          "statement": "For φ=q³ζ⁻¹, c_(U_2φ)(3,−2)=1 and c_(U_2φ)(3,−1)=0."
+        }
+      ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-theta",
+      "declarationName": "jacobiThetaIndex_indexRaise",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Theta functions under index raising",
+      "kind": "lemma",
+      "statement": "For positive integers m,s, μ∈ℤ and τ∈ℍ,z∈ℂ, ϑ_(m,μ)(τ,sz)=Σ_(a=0)^(s−1)ϑ_(s²m,sμ+2sm a)(τ,z). The labels are integers and the existing theta function handles their reduction modulo 2s²m.",
+      "hypotheses": [],
+      "proofSteps": [
+        "In the defining theta series write its integer summation variable uniquely as n=sb+a with 0≤a<s. The old frequency 2mn+μ becomes s(2mn+μ)=2s²mb+(sμ+2sm a).",
+        "Its q exponent is unchanged: [s(2mn+μ)]²/(4s²m)=(2mn+μ)²/(4m). The z exponent also agrees after substituting sz.",
+        "The existing theta-index comparison with jacobiTheta₂ and its native summability theorem give an unconditional sum for Im τ>0. Apply the additive fiberwise-sum theorem to n↦n mod s, parametrizing each fiber by b∈ℤ. There are s fibers, giving the finite sum displayed."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-index-raising",
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-index",
+        "mathlib:hasSum_jacobiTheta₂_term",
+        "mathlib:HasProd.tprod_fiberwise"
+      ],
+      "acceptance": [
+        "For m=1,s=2,μ=1 the output is ϑ_(4,2)+ϑ_(4,6), not a single theta component."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "indexRaise.test_theta_split",
+          "kind": "compatibility",
+          "statement": "ϑ_(1,1)(τ,2z)=ϑ_(4,2)(τ,z)+ϑ_(4,6)(τ,z)."
+        }
+      ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-theta-coefficient",
+      "declarationName": "thetaDecompositionCoeff_indexRaise",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Theta coefficients under index raising",
+      "kind": "lemma",
+      "statement": "For positive integers m,s, a function φ whose z slices are continuous and period one, ν∈ℤ and τ∈ℍ, h^(s²m)_(U_sφ,ν)(τ)=h^m_(φ,ν/s)(τ) if s divides ν, and zero otherwise. Here h is exactly the existing thetaDecompositionCoeff integral, whether or not φ satisfies an elliptic transformation law.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Unfold the existing coefficient as e(−ν²τ/(4s²m)) times its elliptic coefficient integral and apply index-raising-elliptic-integral.",
+        "In the nondivisible case the integral vanishes. In the divisible case write ν=st; cancellation of the nonzero s and m gives ν²/(4s²m)=t²/(4m), so the prefactor and remaining integral are exactly h^m_(φ,t).",
+        "When φ has the index-m elliptic law, the covariance node supplies the target law and the existing theta decomposition makes these the actual finite theta coefficients. The integral identity itself requires no modular transformation."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic-integral",
+        "QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition-coefficient",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic",
+        "QSeriesPartitionsAndMockModularForms:QM.1/theta-decomposition"
+      ],
+      "acceptance": [
+        "For s=2 the two new labels 2 and 6 carry old labels 1 and 3, which agree for m=1 by existing theta-coefficient periodicity."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-heat",
+      "declarationName": "jacobiHeat_indexRaise",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Heat compatibility of index raising",
+      "kind": "lemma",
+      "statement": "For m∈ℚ, s∈ℕ and arbitrary φ:ℍ×ℂ→ℂ, L_(s²m)(U_sφ)=s²U_s(L_mφ). This uses the existing total derivatives and remains true at s=0 without a holomorphy hypothesis.",
+      "hypotheses": [],
+      "proofSteps": [
+        "For fixed z the τ derivative of U_sφ is exactly the τ derivative of φ(·,sz); the τ argument is unchanged, including its ofComplex extension.",
+        "Apply deriv_comp_mul_left to z↦φ(τ,sz). Apply it again to the derivative and use deriv_const_mul_field: the second derivative is s² times the old second derivative evaluated at sz. These native lemmas hold for total derivatives without differentiability assumptions, including zero scalar.",
+        "Expand the existing heat expression 4mDτ−(2πi)⁻²∂²_z and factor s². The same calculation at s=0 gives zero."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-index-raising",
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-operator",
+        "mathlib:Derivative.normalizedDerivOfComplex",
+        "mathlib:deriv_comp_mul_left",
+        "mathlib:deriv_const_mul_field",
+        "mathlib:iteratedDeriv_succ"
+      ],
+      "acceptance": [
+        "For φ=z² and s=3 the elliptic second derivative scales by 9, not 3."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "indexRaise.test_heat_factor",
+          "kind": "computation",
+          "statement": "L_9(U_3(z²))=−18(2πi)⁻² at every point."
+        }
+      ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-modified-heat",
+      "declarationName": "jacobiModifiedHeat_indexRaise",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Modified heat compatibility of index raising",
+      "kind": "lemma",
+      "statement": "For k,m∈ℚ, s∈ℕ and arbitrary φ, L_(k,s²m)(U_sφ)=s²U_s(L_(k,m)φ). Weight k is unchanged in this compatibility formula.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use index-raising-heat for the uncorrected part. The correction is m(k−1/2)E₂φ/3.",
+        "Replacing m by s²m multiplies that correction by s², and E₂ depends only on τ, so precomposition in z leaves it fixed. Distribute and factor s². No transformation theorem or analytic hypothesis is required."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-heat",
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modified-heat-operator"
+      ],
+      "acceptance": [
+        "The index factor scales the E₂ correction as well as the second derivative; s=0 gives zero."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-holomorphic",
+      "declarationName": "jacobiIndexRaise_mem_holomorphic",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Jacobi forms under index raising",
+      "kind": "theorem",
+      "statement": "For k,m∈ℚ, s∈ℕ, modular multiplier v and elliptic multiplier χ, U_s maps JacobiForm(k,m,v,χ) into JacobiForm(k,s²m,v,χ_s), where χ_s(l,μ)=χ(sl,sμ). The function spaces, joint holomorphy and growth conditions are the existing packet definitions; no new carrier is introduced.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply index-raising-joint-holomorphic. The two covariance lemmas transfer the modular multiplier v unchanged and the elliptic multiplier to χ_s(l,μ)=χ(sl,sμ); pointwise scalar multiplication commutes with U_s.",
+        "For each α,β∈ℚ, the normalized torsion value of the output is e(s²mα²τ)φ(τ,sατ+sβ). This is exactly the input normalized torsion value at (sα,sβ), because s²mα²=m(sα)². Apply its boundedness hypothesis. The argument includes s=0."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-form",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-joint-holomorphic",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-modular",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic"
+      ],
+      "acceptance": [
+        "Trivial multipliers stay trivial. The source case s≥1 follows, and the chosen totalization also satisfies this statement at s=0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-cuspidal",
+      "declarationName": "jacobiIndexRaise_mem_cuspidal",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Jacobi cusp forms under index raising",
+      "kind": "theorem",
+      "statement": "For k,m∈ℚ, s∈ℕ, modular multiplier v and elliptic multiplier χ, U_s maps JacobiCuspForm(k,m,v,χ) into JacobiCuspForm(k,s²m,v,χ_s), where χ_s(l,μ)=χ(sl,sμ). The function spaces, joint holomorphy and growth conditions are the existing packet definitions; no new carrier is introduced.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply index-raising-joint-holomorphic. The two covariance lemmas transfer the modular multiplier v unchanged and the elliptic multiplier to χ_s(l,μ)=χ(sl,sμ); pointwise scalar multiplication commutes with U_s.",
+        "For each α,β∈ℚ, the normalized torsion value of the output is e(s²mα²τ)φ(τ,sατ+sβ). This is exactly the input normalized torsion value at (sα,sβ), because s²mα²=m(sα)². Apply its limit zero hypothesis. The argument includes s=0."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-form",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-joint-holomorphic",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-modular",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic"
+      ],
+      "acceptance": [
+        "Trivial multipliers stay trivial. The source case s≥1 follows, and the chosen totalization also satisfies this statement at s=0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-weak",
+      "declarationName": "jacobiIndexRaise_mem_weak",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Weak Jacobi forms under index raising",
+      "kind": "theorem",
+      "statement": "For k,m∈ℚ, s∈ℕ, modular multiplier v and elliptic multiplier χ, U_s maps WeakJacobiForm(k,m,v,χ) into WeakJacobiForm(k,s²m,v,χ_s), where χ_s(l,μ)=χ(sl,sμ). The function spaces, joint holomorphy and growth conditions are the existing packet definitions; no new carrier is introduced.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply index-raising-joint-holomorphic. The two covariance lemmas transfer the modular multiplier v unchanged and the elliptic multiplier to χ_s(l,μ)=χ(sl,sμ); pointwise scalar multiplication commutes with U_s.",
+        "At any fixed z∈ℂ, the output value is the input value at the fixed point sz. Its boundedness at i∞ is an input hypothesis. No uniform bound over z is required."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/weak-jacobi-form",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-joint-holomorphic",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-modular",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic"
+      ],
+      "acceptance": [
+        "Trivial multipliers stay trivial. The source case s≥1 follows, and the chosen totalization also satisfies this statement at s=0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-weakly-holomorphic",
+      "declarationName": "jacobiIndexRaise_mem_weakly_holomorphic",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.1",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.1"
+      ],
+      "title": "Weakly holomorphic Jacobi forms under index raising",
+      "kind": "theorem",
+      "statement": "For k,m∈ℚ, s∈ℕ, modular multiplier v and elliptic multiplier χ, U_s maps WeaklyHolomorphicJacobiForm(k,m,v,χ) into WeaklyHolomorphicJacobiForm(k,s²m,v,χ_s), where χ_s(l,μ)=χ(sl,sμ). The function spaces, joint holomorphy and growth conditions are the existing packet definitions; no new carrier is introduced.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Apply index-raising-joint-holomorphic. The two covariance lemmas transfer the modular multiplier v unchanged and the elliptic multiplier to χ_s(l,μ)=χ(sl,sμ); pointwise scalar multiplication commutes with U_s.",
+        "Choose the input pole cutoff N. For each fixed z, q^N(U_sφ)(τ,z)=q^Nφ(τ,sz) is bounded at i∞ by the same input hypothesis. The single N works for every z and is unchanged by s."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.1/weakly-holomorphic-jacobi-form",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-joint-holomorphic",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-modular",
+        "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic"
+      ],
+      "acceptance": [
+        "Trivial multipliers stay trivial. The source case s≥1 follows, and the chosen totalization also satisfies this statement at s=0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/ModularForms/JacobiForm/IndexRaising",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "dmz-quantum-black-holes",
+          "locator": "arXiv:1208.4074v2, §4.4 (4.36), printed p.29 (physical PDF p.30); growth paragraph printed p.31; theta conventions §4.2 (4.10)",
+          "match": "The source defines U_s for positive integers and states its index change and growth preservation. The explicit covariance, coefficient, theta and differential proofs here are independent decompositions. The totalization at s=0 is a library convention, not attributed to (4.36)."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -34857,11 +35588,11 @@
     {
       "stageId": "QSeriesPartitionsAndMockModularForms:QM.1",
       "status": "partial",
-      "note": "Zwegers Proposition 1.3 (all ten items), Theorem 1.11's multiplier v(γ), Chapter 3 (E), (M) and Theorem 3.1 are decomposed; Kong–Teo §§3–7 (triple product, Dedekind sums, reciprocity, Dedekind's functional equation) completely; Savitt §§2–4 (multiplier conventions, sign cocycle, Theorem 4.1, Remark 1.2); DMZ §4.1, §4.2 through the heat-operator identity (4.12), and the φ_{−2,1} parts of §4.3. The heat continuation gives 22 declaration-sized nodes: two operators, their calculus and Fourier interfaces, and preservation of all four growth spaces. The proof uses the native normalized derivative, Serre derivative and E₂. It keeps integral weight, positive integral index and trivial multipliers for the four space-preservation theorems; it makes no half-integral slash-equivariance claim. Five of the new nodes promote API lemmas consumed by the chain. In particular the holomorphic-to-weak inclusion is proved directly using finite torsion evaluations, avoiding any circular assumption of weak holomorphy.",
+      "note": "Zwegers Proposition 1.3 (all ten items), Theorem 1.11's multiplier v(γ), Chapter 3 (E), (M) and Theorem 3.1 are decomposed; Kong–Teo §§3–7 (triple product, Dedekind sums, reciprocity, Dedekind's functional equation) completely; Savitt §§2–4 (multiplier conventions, sign cocycle, Theorem 4.1, Remark 1.2); DMZ §4.1, §4.2 through the heat-operator identity (4.12), and the φ_{−2,1} parts of §4.3. The heat continuation gives 22 declaration-sized nodes: two operators, their calculus and Fourier interfaces, and preservation of all four growth spaces. The proof uses the native normalized derivative, Serre derivative and E₂. It keeps integral weight, positive integral index and trivial multipliers for the four space-preservation theorems; it makes no half-integral slash-equivariance claim. Five of the new nodes promote API lemmas consumed by the chain. In particular the holomorphic-to-weak inclusion is proved directly using finite torsion evaluations, avoiding any circular assumption of weak holomorphy. The index-raising continuation decomposes DMZ §4.4 (4.36) into fourteen declarations, including both slash covariances, all four growth-space maps, coefficient integrals, theta rescaling and heat compatibility. Its source-positive operator is totalized at zero; Fourier reconstruction retains the explicit τ-period hypothesis, as explained by E208.",
       "remaining": [
         "DMZ §4.2 (4.13)–(4.18): the Taylor-expansion isomorphism J̃_(k,m)≅M_k⊕M_(k+2)⊕…⊕M_(k+2m) for even k, and its odd-weight analogue, with the polynomials P_(ν,k) and the Rankin–Cohen comparison. The inherited source boundary is unchanged: the cited Eichler–Zagier proofs have not been read. Supply exact weight restrictions where the displayed factorials or denominators degenerate, the modified Taylor coefficients, the count of 2m zeros by the argument principle, and the injectivity/surjectivity proof. The heat identity (4.12) is covered by the 22 new nodes and is no longer a remaining obligation.",
         "DMZ §4.3: J_{k,1} ≅ M_k ⊕ S_{k+2}, J̃_{k,1} ≅ M_k ⊕ M_{k+2}, J_{k,1} ≅ M⁺_{k−1/2}(Γ₀(4)) (4.23); the forms φ_{0,1} (4.30), φ_{10,1} = η^{18}ϑ₁² (4.28), φ_{12,1}, φ_{−1,2} = ϑ₁(τ, 2z)/η³ (4.31); the structure theorems (4.25) and (4.35) with the relation (4.33) — stated in DMZ without proof.",
-        "DMZ §4.4: the Hecke-like operators U_s, V_ℓ and W_{m₁} on Jacobi forms (Eichler–Zagier §4), used by QM.4-type mock Jacobi theory.",
+        "DMZ §4.4: V_(k,t), its modified Möbius combination, W_(m₁) for exact divisors, the lowering operators u_t and projections U_t, their composition laws and primitive decomposition (4.37)–(4.46). Distinguish the lower-case index-raising U_s of (4.36), now covered, from the capitalized projection notation. Prove separately which operators preserve each growth condition; the source says W_(m₁) and u_t need not preserve weakness.",
         "Eichler–Zagier's Jacobi–Eisenstein series E_{k,m} and the finiteness bound dim J_{k,m} ≤ Σ_{ν=0}^{m} dim M_{k+2ν}: no public source with proofs was located in this pass.",
         "The Knopp–Petersson Jacobi-symbol formula for v_η on all of SL(2, ℤ) (Matsuda (2.1), stated there without proof): QM.1 plans only Savitt's Γ₀(4) version (QM.1/eta-multiplier-gamma0-four); the full formula needs Rademacher–Grosswald's congruences for 12c·s(d, c), for which no public proof source was found."
       ]
@@ -35977,6 +36708,23 @@
         "Author errata page https://fredrikj.net/math/hrr.html.",
         "Publisher version pp.344–345, arXiv:1205.5991v2 pp.4–5, and Whiteman (1956) Theorem 6, 2026-09-27."
       ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E208",
+      "source": "dmz-quantum-black-holes",
+      "locator": "§4.4, printed p.31 (physical PDF p.32), paragraph defining elliptic forms just before (4.47), arXiv:1208.4074v2",
+      "printed": "The source says every elliptic form admits a Fourier expansion matching (4.3).",
+      "kind": "error",
+      "correction": "Require period one in τ as well as joint holomorphy and the elliptic transformation law before asserting the integer q-Fourier expansion. Without that condition retain only the theta expansion with holomorphic τ-dependent coefficient functions.",
+      "reason": "The stated elliptic-form definition imposes only the z-lattice law, not τ↦τ+1. For m=1, F(τ,z)=τ·ϑ_{1,0}(τ,z) is jointly holomorphic and has that elliptic law. Since ϑ_{1,0}(τ+1,z)=ϑ_{1,0}(τ,z), F(τ+1,z)−F(τ,z)=ϑ_{1,0}(τ,z), which is nonzero (at τ=i,z=0 its defining Gaussian series has positive real terms, including 1). An expansion with constant coefficients c(n,r) and integer n as in (4.3), converging at every point, is necessarily period one in τ. Genuine neutral-multiplier Jacobi forms already have this period from the T-transformation, so their U_s mapping statements are unaffected.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "arXiv https://arxiv.org/abs/1208.4074 on 2026-09-27 lists only v1 and v2, latest 3 April 2014; no subsequent correction linked.",
+        "Author directory https://people.mpim-bonn.mpg.de/zagier/files/arxiv/1208.4074/ lists v1 and v2. Author homepage lists an expanded book to appear, not an acquired published edition.",
+        "Searches for 1208.4074 erratum/errata and Quantum Black Holes elliptic forms periodic; no correction of this missing periodicity located.",
+        "Existing packet source issues screened; E207 treats a different growth-condition misprint."
+      ]
     }
   ],
   "restructure": [
@@ -36111,263 +36859,226 @@
       "read": "2026-09-27",
       "sha256": "7260e103bdfb71d9f06d727f88432a789efcaee9ddcd2fde5cff30521f670213",
       "citation": "Dabholkar–Murthy–Zagier, arXiv:1208.4074v2 (3 April 2014), printed pp.19–20 and23–28; physical pp.20–21 and24–29. No new source error asserted and no retrospective review of inherited findings."
+    },
+    {
+      "sourceId": "dmz-quantum-black-holes",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1208.4074v2",
+      "read": "2026-09-27",
+      "sha256": "7260e103bdfb71d9f06d727f88432a789efcaee9ddcd2fde5cff30521f670213",
+      "citation": "Dabholkar–Murthy–Zagier, arXiv:1208.4074v2, 3 April 2014. Fresh reads: printed pp.23–25 and29–32, physical pp.24–26 and30–33. E208 quotes the elliptic-form paragraph on printed p.31. The arXiv version list and author directory show v1/v2; the author homepage lists an expanded book to appear. No published-book version was acquired, and the finding is asserted only against this preprint text. No correction of the missing τ-period premise was located; this is not an independent review of the 64 inherited findings."
     }
   ],
   "continuationAudit": {
     "agent": "Codex",
     "session": "codex-hjdg0j",
     "issue": 1042,
-    "claim": 5853213554,
-    "winningBot": 5853214244,
-    "scope": "DMZ (4.12), Jacobi heat and modified heat operator; prior nodes and findings are inherited evidence.",
+    "claim": 5854484079,
+    "winningBot": 5854485159,
+    "scope": "Jacobi index raising, DMZ (4.36); preserve inherited material without a new independent-review claim.",
     "newNodeIds": [
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-operator",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-fourier-regularity",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-fourier-coefficient",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-elliptic-covariance",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-modular-anomaly",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-modified-heat-operator",
-      "QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-modular-covariance",
-      "QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-elliptic-covariance",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-fourier-lower-bound-growth",
-      "QSeriesPartitionsAndMockModularForms:QM.1/e2-jacobi-fourier-product",
-      "QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-fourier-coefficient",
-      "QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-weakly-holomorphic",
-      "QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-weak",
-      "QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-holomorphic",
-      "QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-cuspidal",
-      "QSeriesPartitionsAndMockModularForms:QM.1/theta-index-heat-equation",
-      "QSeriesPartitionsAndMockModularForms:QM.1/modified-heat-theta-decomposition",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-heat-monomial",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-to-holomorphic",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-holomorphic-to-weak",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-weak-to-weakly-holomorphic",
-      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-cusp-fourier-support"
+      "QSeriesPartitionsAndMockModularForms:QM.1/jacobi-index-raising",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-joint-holomorphic",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-modular",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-elliptic-integral",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-fourier",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-theta",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-theta-coefficient",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-heat",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-modified-heat",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-holomorphic",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-cuspidal",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-weak",
+      "QSeriesPartitionsAndMockModularForms:QM.1/index-raising-weakly-holomorphic"
     ],
     "newBaselineReferences": [
-      "mathlib:Complex.exp_eq_one_iff",
-      "mathlib:Complex.hasDerivAt_exp",
-      "mathlib:Derivative.normalizedDerivOfComplex",
-      "mathlib:Derivative.normalizedDerivOfComplex_mul",
-      "mathlib:Derivative.serreDerivative",
-      "mathlib:DifferentiableOn.deriv",
-      "mathlib:EisensteinSeries.hasSum_qExpansion_E2",
-      "mathlib:HasSum.mul",
-      "mathlib:Real.summable_pow_mul_exp_neg_nat_mul",
-      "mathlib:UpperHalfPlane.IsZeroAtImInfty.isBoundedAtImInfty",
-      "mathlib:UpperHalfPlane.denom_ne_zero",
-      "mathlib:UpperHalfPlane.mdifferentiable_iff",
-      "mathlib:hasDerivAt_zpow",
-      "mathlib:hasFDerivAt_tsum_of_isPreconnected",
-      "mathlib:riemannZeta_two",
-      "mathlib:summable_pow_mul_jacobiTheta₂_term_bound"
+      "mathlib:Continuous.intervalIntegrable",
+      "mathlib:DifferentiableOn.comp",
+      "mathlib:DifferentiableOn.const_mul",
+      "mathlib:DifferentiableOn.prodMk",
+      "mathlib:Function.Periodic.nat_mul",
+      "mathlib:HasProd.tprod_fiberwise",
+      "mathlib:deriv_comp_mul_left",
+      "mathlib:deriv_const_mul_field",
+      "mathlib:geom_sum_mul",
+      "mathlib:intervalIntegral.integral_add_adjacent_intervals",
+      "mathlib:intervalIntegral.integral_comp_add_right",
+      "mathlib:intervalIntegral.integral_comp_mul_left",
+      "mathlib:intervalIntegral.integral_const_mul",
+      "mathlib:iteratedDeriv_succ"
     ],
     "pinReads": {
-      "Mathlib/NumberTheory/ModularForms/Derivative.lean": {
-        "blob": "a3b3ea81f521d1e818df1f02eb29fc0be5c66206",
+      "Mathlib/Analysis/Calculus/FDeriv/Comp.lean": {
+        "blob": "d7dee1ff3320db9442853106989cda47b2c0a221",
         "ranges": [
           [
-            1,
-            105
+            20,
+            46
           ],
           [
-            140,
-            185
-          ],
-          [
-            213,
-            249
-          ],
-          [
-            124,
-            139
-          ],
-          [
-            273,
-            302
+            186,
+            208
           ]
         ]
       },
-      "Mathlib/NumberTheory/ModularForms/EisensteinSeries/E2/Summable.lean": {
-        "blob": "e56090a42fb6e179274502d8d715e9b30513fc2a",
+      "Mathlib/Analysis/Calculus/Deriv/Comp.lean": {
+        "blob": "d5a0dd83652c1f59c57cadca2029582db3838fa8",
         "ranges": [
           [
-            90,
-            130
-          ]
-        ]
-      },
-      "Mathlib/NumberTheory/ModularForms/EisensteinSeries/E2/MDifferentiable.lean": {
-        "blob": "655089275a1c9b56fb0b8f22ce06f968d3ef7480",
-        "ranges": [
-          [
-            15,
-            48
-          ]
-        ]
-      },
-      "Mathlib/NumberTheory/ModularForms/EisensteinSeries/E2/Transform.lean": {
-        "blob": "71772d84acea316d4a44b5bc2fb6e9742fc3d035",
-        "ranges": [
-          [
-            225,
-            245
-          ]
-        ]
-      },
-      "Mathlib/NumberTheory/ModularForms/EisensteinSeries/E2/Defs.lean": {
-        "blob": "833b05a3c813092e6570d46d5ec4409fccee3aa0",
-        "ranges": [
-          [
-            52,
-            75
-          ]
-        ]
-      },
-      "Mathlib/Analysis/Calculus/SmoothSeries.lean": {
-        "blob": "0824b4375ba9ab81411e58c734211090ce1be397",
-        "ranges": [
-          [
-            42,
-            98
-          ]
-        ]
-      },
-      "Mathlib/Analysis/Fourier/AddCircle.lean": {
-        "blob": "3f5c6ed72797f568db7740186fc4ee2f0cdf0fed",
-        "ranges": [
-          [
-            575,
-            611
-          ]
-        ]
-      },
-      "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean": {
-        "blob": "4bdfedf2cf474a721e0687852a5782f304781eb7",
-        "ranges": [
-          [
-            223,
-            230
-          ]
-        ]
-      },
-      "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean": {
-        "blob": "a7edac6433ba93905d9c00a95aa40bb9d9f3971e",
-        "ranges": [
-          [
-            110,
-            155
-          ],
-          [
-            205,
-            238
+            208,
+            246
           ],
           [
             290,
-            322
+            310
+          ]
+        ]
+      },
+      "Mathlib/Analysis/Calculus/Deriv/Mul.lean": {
+        "blob": "72534c7d4bdd8a8810e4657edf16caadf16a2d7a",
+        "ranges": [
+          [
+            290,
+            315
           ],
           [
-            78,
-            110
+            355,
+            378
+          ],
+          [
+            36,
+            59
+          ],
+          [
+            269,
+            278
+          ],
+          [
+            325,
+            332
+          ],
+          [
+            213,
+            225
           ]
         ]
       },
-      "Mathlib/Analysis/Complex/CauchyIntegral.lean": {
-        "blob": "aac86aa902e778812ce356a977d682cff3105b0f",
+      "Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean": {
+        "blob": "2504147e2230a26eb804b0898004d0186c4e36a1",
         "ranges": [
           [
-            704,
-            730
+            885,
+            897
+          ],
+          [
+            915,
+            941
+          ],
+          [
+            950,
+            963
+          ],
+          [
+            1090,
+            1107
+          ],
+          [
+            43,
+            62
+          ],
+          [
+            505,
+            518
+          ],
+          [
+            807,
+            830
+          ],
+          [
+            62,
+            72
+          ],
+          [
+            498,
+            501
+          ],
+          [
+            817,
+            826
           ]
         ]
       },
-      "Mathlib/MeasureTheory/Integral/IntervalIntegral/IntegrationByParts.lean": {
-        "blob": "b19f15eb3d86371c4f494274b8432a1aafd99a79",
+      "Mathlib/Analysis/Calculus/Deriv/CompMul.lean": {
+        "blob": "34c03da1a2670d9c6136e8e51d27dc365a70647a",
         "ranges": [
           [
-            108,
-            151
+            15,
+            68
           ]
         ]
       },
-      "Mathlib/Topology/Algebra/InfiniteSum/Ring.lean": {
-        "blob": "e35bbff9e5feaa71d0cb229fa5f9ec6ffbf2be65",
+      "Mathlib/Analysis/Calculus/FDeriv/Mul.lean": {
+        "blob": "5c625329be59e8f6f32f242efbf6ccb9e783f1c5",
         "ranges": [
           [
-            158,
-            188
+            18,
+            40
+          ],
+          [
+            355,
+            374
+          ],
+          [
+            242,
+            261
+          ],
+          [
+            168,
+            179
           ]
         ]
       },
-      "Mathlib/Analysis/Complex/UpperHalfPlane/Manifold.lean": {
-        "blob": "7a5bf1f96ef9ad5e04e639c4c7097162b04d0bfe",
+      "Mathlib/Analysis/Calculus/FDeriv/Prod.lean": {
+        "blob": "566eaced50cc3812dec18d93c043698839fc33f7",
         "ranges": [
           [
-            71,
-            90
-          ]
-        ]
-      },
-      "Mathlib/Analysis/Complex/UpperHalfPlane/MoebiusAction.lean": {
-        "blob": "39084e4f4ae97c9dc588675a4f50607fdeffcddc",
-        "ranges": [
-          [
-            58,
-            74
-          ]
-        ]
-      },
-      "Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean": {
-        "blob": "4f23138d60cf767cc436cb60b942fd6c2e3409ea",
-        "ranges": [
+            20,
+            35
+          ],
           [
             85,
-            94
+            101
           ]
         ]
       },
-      "Mathlib/Analysis/SpecialFunctions/Exp.lean": {
-        "blob": "97aa22cce9a0173e19aa13b00bb213f5a48ebef8",
+      "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean": {
+        "blob": "86135f3b7295638a64b59ddaf2653b87d2733431",
         "ranges": [
           [
-            470,
-            483
+            275,
+            313
           ]
         ]
       },
-      "Mathlib/Analysis/Calculus/Deriv/ZPow.lean": {
-        "blob": "f2ef23c541dc79e6e3849b41d61d51664106792b",
+      "Mathlib/Algebra/Ring/GeomSum.lean": {
+        "blob": "14c675fd023d5e0e62b207d531a33c339efb1129",
         "ranges": [
           [
-            54,
-            69
-          ]
-        ]
-      },
-      "Mathlib/Analysis/Complex/UpperHalfPlane/FunctionsBoundedAtInfty.lean": {
-        "blob": "80937009c27d534f4668f38104cfb2a8695a65ba",
-        "ranges": [
+            15,
+            34
+          ],
           [
-            34,
-            90
-          ]
-        ]
-      },
-      "Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean": {
-        "blob": "5b3b954a06326e35f8b27538cc81e9b3eefccee4",
-        "ranges": [
+            212,
+            238
+          ],
           [
-            1235,
-            1244
-          ]
-        ]
-      },
-      "Mathlib/Analysis/Complex/Liouville.lean": {
-        "blob": "b44338eadde7bc83ba4d64303a8c2bc73328491a",
-        "ranges": [
+            120,
+            133
+          ],
           [
-            101,
-            124
+            190,
+            203
           ]
         ]
       },
@@ -36375,8 +37086,60 @@
         "blob": "7d9d13f0fff6011a6cb81847fcf67c3014900835",
         "ranges": [
           [
-            138,
+            135,
             150
+          ]
+        ]
+      },
+      "Mathlib/Topology/Algebra/InfiniteSum/Constructions.lean": {
+        "blob": "51f508711b441722fcd629b432b9f62d76434e0f",
+        "ranges": [
+          [
+            210,
+            260
+          ],
+          [
+            35,
+            56
+          ],
+          [
+            157,
+            168
+          ],
+          [
+            95,
+            113
+          ],
+          [
+            183,
+            194
+          ]
+        ]
+      },
+      "Mathlib/NumberTheory/ModularForms/Derivative.lean": {
+        "blob": "a3b3ea81f521d1e818df1f02eb29fc0be5c66206",
+        "ranges": [
+          [
+            25,
+            43
+          ]
+        ]
+      },
+      "Mathlib/NumberTheory/ModularForms/JacobiTheta/TwoVariable.lean": {
+        "blob": "a7edac6433ba93905d9c00a95aa40bb9d9f3971e",
+        "ranges": [
+          [
+            252,
+            267
+          ]
+        ]
+      },
+      "Mathlib/Algebra/Ring/Periodic.lean": {
+        "blob": "1128ba9eae6d18139efa301106323fc59b269aa4",
+        "ranges": [
+          [
+            119,
+            133
           ]
         ]
       }
