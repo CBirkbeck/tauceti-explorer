@@ -804,3 +804,188 @@ example (h : IsPrimitiveRoot (-1 : 𝒪[ℂ_[2]]) 2) :
 example : (∑ i ∈ Finset.range 2, 1 / (((-1 : ℚ) ^ i) * 2 - 1)) = 2 / 3 := by sorry
 
 end IwasawaAveraging
+
+/-! ## Bounded Mahler coefficients and extension of integral measures
+
+The domain of the inverse is the existing bounded continuous sequence type.
+The codomain is the existing AbstractMeasure. The coefficient action is bounded;
+the target norm need not be multiplicative. This section gives the Z_p-domain
+case of coefficient extension, with genuine continuity and convergence.
+-/
+
+open scoped BoundedContinuousFunction
+namespace AbstractMeasure
+section BoundedCoefficients
+variable {p : ℕ} [Fact p.Prime]
+variable {R : Type*} [NormedCommRing R] [Algebra ℤ_[p] R]
+  [hU : IsUltrametricDist R] [hC : CompleteSpace R] [hB : IsBoundedSMul ℤ_[p] R]
+
+include hU hC hB in
+theorem boundedMahler_summable (c : ℕ →ᵇ R) (f : C(ℤ_[p], R)) :
+    Summable (fun n => PadicInt.mahlerEquiv R f n * c n) := sorry
+
+/-- Pair a continuous function's vanishing Mahler coefficients with a bounded sequence. -/
+def boundedMahlerPairing {p : ℕ} [Fact p.Prime] {R : Type*}
+    [NormedCommRing R] [Algebra ℤ_[p] R] [IsUltrametricDist R]
+    [CompleteSpace R] [IsBoundedSMul ℤ_[p] R]
+    (c : ℕ →ᵇ R) : C(ℤ_[p], R) →ₗ[R] R := sorry
+
+theorem boundedMahlerPairing_apply (c : ℕ →ᵇ R) (f : C(ℤ_[p], R)) :
+    boundedMahlerPairing c f = ∑' n, PadicInt.mahlerEquiv R f n * c n := sorry
+theorem boundedMahlerPairing_add (c : ℕ →ᵇ R) (f g : C(ℤ_[p], R)) :
+    boundedMahlerPairing c (f + g) = boundedMahlerPairing c f + boundedMahlerPairing c g := sorry
+theorem boundedMahlerPairing_smul (c : ℕ →ᵇ R) (r : R) (f : C(ℤ_[p], R)) :
+    boundedMahlerPairing c (r • f) = r * boundedMahlerPairing c f := sorry
+theorem boundedMahlerPairing_bound (c : ℕ →ᵇ R) (f : C(ℤ_[p], R)) :
+    ‖boundedMahlerPairing c f‖ ≤ ‖c‖ * ‖f‖ := sorry
+theorem boundedMahlerPairing_integral (F : ℤ_[p]⟦X⟧) (c : ℕ →ᵇ ℤ_[p])
+    (hc : ∀ n, c n = F.coeff n) (f : C(ℤ_[p], ℤ_[p])) :
+    boundedMahlerPairing c f = invTransform F f := sorry
+
+/-- The actual continuous functional; boundedness is part of the input type. -/
+def boundedInvTransform {p : ℕ} [Fact p.Prime] {R : Type*}
+    [NormedCommRing R] [Algebra ℤ_[p] R] [IsUltrametricDist R]
+    [CompleteSpace R] [IsBoundedSMul ℤ_[p] R] : (ℕ →ᵇ R) →ₗ[R] D(ℤ_[p], R) := sorry
+
+theorem boundedInvTransform_apply (c : ℕ →ᵇ R) (f : C(ℤ_[p], R)) :
+    boundedInvTransform c f = boundedMahlerPairing c f := sorry
+theorem boundedInvTransform_mahler (c : ℕ →ᵇ R) (n : ℕ) :
+    boundedInvTransform c ((mahler n : C(ℤ_[p], ℤ_[p])) • (1 : C(ℤ_[p], R))) = c n := sorry
+theorem amiceTransform_boundedInvTransform (c : ℕ →ᵇ R) :
+    (boundedInvTransform (p := p) c).amiceTransform = PowerSeries.mk c := sorry
+theorem boundedInvTransform_unique (c : ℕ →ᵇ R) (μ : D(ℤ_[p], R))
+    (h : μ.amiceTransform = PowerSeries.mk c) : μ = boundedInvTransform c := sorry
+theorem boundedInvTransform_zero : boundedInvTransform (p := p) (R := R) 0 = 0 := sorry
+theorem boundedInvTransform_add (c d : ℕ →ᵇ R) :
+    boundedInvTransform (p := p) (c + d) = boundedInvTransform c + boundedInvTransform d := sorry
+theorem boundedInvTransform_smul (r : R) (c : ℕ →ᵇ R) :
+    boundedInvTransform (p := p) (r • c) = r • boundedInvTransform c := sorry
+theorem boundedInvTransform_integral (F : ℤ_[p]⟦X⟧) (c : ℕ →ᵇ ℤ_[p])
+    (hc : ∀ n, c n = F.coeff n) : boundedInvTransform c = invTransform F := sorry
+theorem boundedInvTransform_bound (c : ℕ →ᵇ R) (f : C(ℤ_[p], R)) :
+    ‖boundedInvTransform c f‖ ≤ ‖c‖ * ‖f‖ := sorry
+
+omit [IsUltrametricDist R] [CompleteSpace R] in
+include hB in
+theorem integralCoefficient_norm_le (z : ℤ_[p]) :
+    ‖algebraMap ℤ_[p] R z‖ ≤ ‖(1 : R)‖ := sorry
+
+omit [IsUltrametricDist R] [CompleteSpace R] in
+/-- The mapped Amice coefficients, bounded by the norm of the target unit. -/
+def integralAmiceCoefficients {p : ℕ} [Fact p.Prime] {R : Type*}
+    [NormedCommRing R] [Algebra ℤ_[p] R] [IsBoundedSMul ℤ_[p] R]
+    (μ : D(ℤ_[p], ℤ_[p])) : ℕ →ᵇ R := sorry
+
+omit [IsUltrametricDist R] [CompleteSpace R] in
+theorem integralAmiceCoefficients_apply (μ : D(ℤ_[p], ℤ_[p])) (n : ℕ) :
+    integralAmiceCoefficients (R := R) μ n = algebraMap ℤ_[p] R (μ.amiceTransform.coeff n) := sorry
+omit [IsUltrametricDist R] [CompleteSpace R] in
+theorem integralAmiceCoefficients_norm (μ : D(ℤ_[p], ℤ_[p])) :
+    ‖integralAmiceCoefficients (R := R) μ‖ ≤ ‖(1 : R)‖ := sorry
+omit [IsUltrametricDist R] [CompleteSpace R] in
+theorem integralAmiceCoefficients_zero : integralAmiceCoefficients (p := p) (R := R) 0 = 0 := sorry
+omit [IsUltrametricDist R] [CompleteSpace R] in
+theorem integralAmiceCoefficients_add (μ ν : D(ℤ_[p], ℤ_[p])) :
+    integralAmiceCoefficients (R := R) (μ + ν) =
+      integralAmiceCoefficients μ + integralAmiceCoefficients ν := sorry
+omit [IsUltrametricDist R] [CompleteSpace R] in
+theorem integralAmiceCoefficients_smul (a : ℤ_[p]) (μ : D(ℤ_[p], ℤ_[p])) :
+    integralAmiceCoefficients (R := R) (a • μ) =
+      algebraMap ℤ_[p] R a • integralAmiceCoefficients μ := sorry
+theorem integralAmiceCoefficients_self (μ : D(ℤ_[p], ℤ_[p])) (n : ℕ) :
+    integralAmiceCoefficients (R := ℤ_[p]) μ n = μ.amiceTransform.coeff n := sorry
+
+/-- Extend integral coefficients on Z_p by the bounded inverse, in the existing measure type. -/
+def extendIntegralCoefficients {p : ℕ} [Fact p.Prime] {R : Type*}
+    [NormedCommRing R] [Algebra ℤ_[p] R] [IsUltrametricDist R]
+    [CompleteSpace R] [IsBoundedSMul ℤ_[p] R]
+    (μ : D(ℤ_[p], ℤ_[p])) : D(ℤ_[p], R) := sorry
+
+theorem extendIntegralCoefficients_apply (μ : D(ℤ_[p], ℤ_[p])) (f : C(ℤ_[p], R)) :
+    extendIntegralCoefficients μ f =
+      ∑' n, PadicInt.mahlerEquiv R f n * algebraMap ℤ_[p] R (μ.amiceTransform.coeff n) := sorry
+theorem amiceTransform_extendIntegralCoefficients (μ : D(ℤ_[p], ℤ_[p])) :
+    (extendIntegralCoefficients (R := R) μ).amiceTransform =
+      μ.amiceTransform.map (algebraMap ℤ_[p] R) := sorry
+theorem extendIntegralCoefficients_test (μ : D(ℤ_[p], ℤ_[p])) (f : C(ℤ_[p], ℤ_[p])) :
+    extendIntegralCoefficients (R := R) μ (f • (1 : C(ℤ_[p], R))) =
+      algebraMap ℤ_[p] R (μ f) := sorry
+theorem extendIntegralCoefficients_unique (μ : D(ℤ_[p], ℤ_[p])) (ν : D(ℤ_[p], R))
+    (hν : ∀ f : C(ℤ_[p], ℤ_[p]),
+      ν (f • (1 : C(ℤ_[p], R))) = algebraMap ℤ_[p] R (μ f)) :
+    ν = extendIntegralCoefficients μ := sorry
+theorem extendIntegralCoefficients_zero :
+    extendIntegralCoefficients (p := p) (R := R) 0 = 0 := sorry
+theorem extendIntegralCoefficients_add (μ ν : D(ℤ_[p], ℤ_[p])) :
+    extendIntegralCoefficients (R := R) (μ + ν) =
+      extendIntegralCoefficients μ + extendIntegralCoefficients ν := sorry
+theorem extendIntegralCoefficients_smul (a : ℤ_[p]) (μ : D(ℤ_[p], ℤ_[p])) :
+    extendIntegralCoefficients (R := R) (a • μ) =
+      algebraMap ℤ_[p] R a • extendIntegralCoefficients μ := sorry
+theorem extendIntegralCoefficients_self (μ : D(ℤ_[p], ℤ_[p])) :
+    extendIntegralCoefficients (R := ℤ_[p]) μ = μ := sorry
+theorem extendIntegralCoefficients_bound (μ : D(ℤ_[p], ℤ_[p])) (f : C(ℤ_[p], R)) :
+    ‖extendIntegralCoefficients (R := R) μ f‖ ≤ ‖(1 : R)‖ * ‖f‖ := sorry
+theorem extendIntegralCoefficients_dirac (x : ℤ_[p]) :
+    extendIntegralCoefficients (R := R) (dirac ℤ_[p] x) = dirac R x := sorry
+theorem extendIntegralCoefficients_map (μ : D(ℤ_[p], ℤ_[p])) (g : C(ℤ_[p], ℤ_[p])) :
+    extendIntegralCoefficients (R := R) (map g μ) = map g (extendIntegralCoefficients μ) := sorry
+theorem extendIntegralCoefficients_weight (μ : D(ℤ_[p], ℤ_[p])) (g : C(ℤ_[p], ℤ_[p])) :
+    extendIntegralCoefficients (R := R) (weight g μ) =
+      weight (g • (1 : C(ℤ_[p], R))) (extendIntegralCoefficients μ) := sorry
+end BoundedCoefficients
+end AbstractMeasure
+
+namespace SuggestedTests.BoundedCoefficients
+open AbstractMeasure
+open scoped BoundedContinuousFunction
+
+-- Assemble the pinned norm-bound constructor with the existing subtype norm.
+-- The scratch regression checks this small receiving-instance proof completely.
+local instance (p : ℕ) [Fact p.Prime] : IsBoundedSMul ℤ_[p] ℚ_[p] :=
+  IsBoundedSMul.of_norm_smul_le (by sorry)
+
+-- boundedMahlerPairing_constant
+example : boundedMahlerPairing (p := 3)
+    (BoundedContinuousFunction.const ℕ (1 / 3 : ℚ_[3])) (1 : C(ℤ_[3], ℚ_[3])) = 1 / 3 := sorry
+-- boundedMahlerPairing_zero
+example (f : C(ℤ_[3], ℚ_[3])) : boundedMahlerPairing (0 : ℕ →ᵇ ℚ_[3]) f = 0 := sorry
+-- boundedMahlerPairing_integral
+example (F : ℤ_[3]⟦X⟧) (c : ℕ →ᵇ ℤ_[3]) (hc : ∀ n, c n = F.coeff n)
+    (f : C(ℤ_[3], ℤ_[3])) : boundedMahlerPairing c f = invTransform F f := sorry
+-- boundedInvTransform_nonintegral
+example : boundedInvTransform (p := 3)
+    (BoundedContinuousFunction.const ℕ (1 / 3 : ℚ_[3])) (1 : C(ℤ_[3], ℚ_[3])) = 1 / 3 := sorry
+-- boundedInvTransform_zero
+example : boundedInvTransform (p := 3) (R := ℚ_[3]) 0 = 0 := sorry
+-- boundedInvTransform_integral
+example (F : ℤ_[3]⟦X⟧) (c : ℕ →ᵇ ℤ_[3]) (hc : ∀ n, c n = F.coeff n) :
+    boundedInvTransform c = invTransform F := sorry
+-- boundedInvTransform_unbounded (the excluded sequence cannot be packaged)
+example : ¬ ∃ c : ℕ →ᵇ ℚ_[3], ∀ n, c n = ((3 : ℚ_[3]) ^ n)⁻¹ := sorry
+-- The corresponding putative pairing has terms identically one, so it diverges.
+example : ¬ Summable (fun n : ℕ => (3 : ℚ_[3]) ^ n * ((3 : ℚ_[3]) ^ n)⁻¹) := sorry
+-- integralAmiceCoefficients_dirac_zero
+example : integralAmiceCoefficients (R := ℚ_[3]) (dirac ℤ_[3] 0) 0 = 1 ∧
+    integralAmiceCoefficients (R := ℚ_[3]) (dirac ℤ_[3] 0) 1 = 0 := sorry
+-- integralAmiceCoefficients_zero
+example (n : ℕ) : integralAmiceCoefficients (p := 3) (R := ℚ_[3]) 0 n = 0 := sorry
+-- integralAmiceCoefficients_self
+example (μ : D(ℤ_[3], ℤ_[3])) (n : ℕ) :
+    integralAmiceCoefficients (R := ℤ_[3]) μ n = μ.amiceTransform.coeff n := sorry
+-- extendIntegralCoefficients_square
+example : extendIntegralCoefficients (R := ℚ_[3]) (dirac ℤ_[3] 2)
+    ⟨fun x : ℤ_[3] => algebraMap ℤ_[3] ℚ_[3] (x ^ 2),
+      (continuous_algebraMap _ _).comp (continuous_id.pow 2)⟩ = 4 := sorry
+-- extendIntegralCoefficients_zero
+example : extendIntegralCoefficients (p := 3) (R := ℚ_[3]) 0 = 0 := sorry
+-- extendIntegralCoefficients_self
+example (μ : D(ℤ_[3], ℤ_[3])) : extendIntegralCoefficients (R := ℤ_[3]) μ = μ := sorry
+-- extendIntegralCoefficients_pushforward
+example : extendIntegralCoefficients (R := ℚ_[3])
+    (map ⟨fun x : ℤ_[3] => 2 * x, continuous_const.mul continuous_id⟩ (dirac ℤ_[3] 1)) =
+      dirac ℚ_[3] 2 := sorry
+-- extendIntegralCoefficients_weight
+example : extendIntegralCoefficients (R := ℚ_[2])
+    (weight (ContinuousMap.id ℤ_[2]) (dirac ℤ_[2] 3)) = (3 : ℚ_[2]) • dirac ℚ_[2] 3 := sorry
+end SuggestedTests.BoundedCoefficients
