@@ -1,3 +1,5 @@
+import Mathlib.Algebra.Polynomial.Reverse
+import Mathlib.RingTheory.PowerSeries.Inverse
 import Mathlib.Algebra.Polynomial.Div
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
 import Mathlib.Analysis.Normed.Group.Ultra
@@ -1304,4 +1306,112 @@ example (e : A) (he : e^2 = 0) :
 -- Test linear_entire_uniqueness_boundary: formal series alone do not suffice.
 example (a : A) :
     (1 - PowerSeries.C a * PowerSeries.X) * PowerSeries.mk (fun n : ℕ => a^n) = 1 := by sorry
+end TauCeti.NonarchimedeanFredholm
+
+/-! General monic entire division, using the native inverse of the polynomial
+reversal and native truncation. This refines the existing entire-division node.
+All signatures are plans, including the required convergence hypotheses. -/
+namespace TauCeti.NonarchimedeanFredholm
+noncomputable section
+variable {A : Type*} [NormedCommRing A] [NormOneClass A] [CompleteSpace A] [Nontrivial A]
+
+lemma monic_reciprocal_coeff_bound
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (C : ℝ) (hC : 1 ≤ C)
+    (hb : ∀ i : ℕ, ‖Q.reverse.coeff i‖ ≤ C^i) (k : ℕ) :
+    ‖(PowerSeries.invOfUnit (Q.reverse : PowerSeries A) 1).coeff k‖ ≤ C^k := sorry
+lemma monic_reciprocal_tail_summable
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) (m : ℕ) :
+    Summable (fun k : ℕ => F.coeff (m+k) *
+      (PowerSeries.invOfUnit (Q.reverse : PowerSeries A) 1).coeff k) := sorry
+
+def entireMonicQuotient (Q : Polynomial A) (F : PowerSeries A) : PowerSeries A := sorry
+lemma entireMonicQuotient_zero (Q : Polynomial A) :
+    entireMonicQuotient Q 0 = (0 : PowerSeries A) := sorry
+lemma entireMonicQuotient_add
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F G : PowerSeries A)
+    (hF : IsEntire F) (hG : IsEntire G) :
+    entireMonicQuotient Q (F+G) = entireMonicQuotient Q F + entireMonicQuotient Q G := sorry
+lemma entireMonicQuotient_C_mul
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) (c : A) :
+    entireMonicQuotient Q (PowerSeries.C c * F) =
+      PowerSeries.C c * entireMonicQuotient Q F := sorry
+lemma entireMonicQuotient_coeff (Q : Polynomial A) (F : PowerSeries A) (n : ℕ) :
+    (entireMonicQuotient Q F).coeff n = ∑' k : ℕ, F.coeff (n+Q.natDegree+k) *
+      (PowerSeries.invOfUnit (Q.reverse : PowerSeries A) 1).coeff k := sorry
+lemma entireMonicQuotient_bound
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (C S M : ℝ) (hC : 1 ≤ C) (hS : C ≤ S)
+    (hQb : ∀ i : ℕ, ‖Q.reverse.coeff i‖ ≤ C^i) (hM : 0 ≤ M)
+    (F : PowerSeries A) (hF : ∀ j : ℕ, ‖F.coeff j‖ * S^j ≤ M) (n : ℕ) :
+    ‖(entireMonicQuotient Q F).coeff n‖ ≤ M / S^(n+Q.natDegree) := sorry
+lemma entireMonicQuotient_entire
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) :
+    IsEntire (entireMonicQuotient Q F) := sorry
+lemma entireMonicQuotient_recurrence
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) (n : ℕ) :
+    F.coeff (n+Q.natDegree) = (entireMonicQuotient Q F).coeff n +
+      ∑ i ∈ Finset.range Q.natDegree,
+        Q.coeff i * (entireMonicQuotient Q F).coeff (n+Q.natDegree-i) := sorry
+theorem entireMonicQuotient_division
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) :
+    let R := PowerSeries.trunc Q.natDegree
+      (F - (Q : PowerSeries A) * entireMonicQuotient Q F)
+    F = (Q : PowerSeries A) * entireMonicQuotient Q F + (R : PowerSeries A) ∧
+      R.degree < (Q.natDegree : WithBot ℕ) := sorry
+lemma entire_monic_product_low_degree
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (H : PowerSeries A) (hH : IsEntire H)
+    (R : Polynomial A) (hR : R.degree < (Q.natDegree : WithBot ℕ))
+    (h : (Q : PowerSeries A) * H = (R : PowerSeries A)) : H = 0 ∧ R = 0 := sorry
+theorem entire_monic_division_unique
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F G H : PowerSeries A)
+    (hG : IsEntire G) (hH : IsEntire H) (R S : Polynomial A)
+    (hR : R.degree < (Q.natDegree : WithBot ℕ))
+    (hS : S.degree < (Q.natDegree : WithBot ℕ))
+    (hFG : F = (Q : PowerSeries A) * G + (R : PowerSeries A))
+    (hFH : F = (Q : PowerSeries A) * H + (S : PowerSeries A)) : G = H ∧ R = S := sorry
+lemma entireMonicQuotient_polynomial
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (P : Polynomial A) :
+    entireMonicQuotient Q (P : PowerSeries A) = ((P /ₘ Q : Polynomial A) : PowerSeries A) ∧
+    PowerSeries.trunc Q.natDegree
+      ((P : PowerSeries A) - (Q : PowerSeries A) * entireMonicQuotient Q (P : PowerSeries A)) =
+      P %ₘ Q := sorry
+lemma entireMonicQuotient_linear
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (a : A) (F : PowerSeries A) (hF : IsEntire F) :
+    entireMonicQuotient (Polynomial.X - Polynomial.C a) F = entireLinearQuotient a F := sorry
+-- Retained L4/entire-division node, now decomposed through the preceding lemmas.
+theorem entire_monic_division_existsUnique
+    (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) :
+    ∃! qr : PowerSeries A × Polynomial A,
+      IsEntire qr.1 ∧ qr.2.degree < (Q.natDegree : WithBot ℕ) ∧
+      F = (Q : PowerSeries A) * qr.1 + (qr.2 : PowerSeries A) := sorry
+
+-- Test monic_quotient_one.
+example (F : PowerSeries A) : entireMonicQuotient 1 F = F := sorry
+-- Test monic_quotient_power_shift.
+example (d : ℕ) (F : PowerSeries A) :
+    entireMonicQuotient (Polynomial.X^d) F = PowerSeries.mk (fun n => F.coeff (n+d)) := sorry
+-- Test monic_quotient_quadratic.
+example (a b : A) :
+    entireMonicQuotient (Polynomial.X^2 + Polynomial.C a * Polynomial.X + Polynomial.C b)
+      (PowerSeries.X^3) = PowerSeries.X - PowerSeries.C a := sorry
+-- Test monic_quotient_nilpotent.
+example (e : A) (he : e^2 = 0) :
+    entireMonicQuotient (Polynomial.X^2 - Polynomial.C e) (PowerSeries.X^4) =
+      PowerSeries.X^2 + PowerSeries.C e ∧
+    PowerSeries.trunc 2 (PowerSeries.X^4 -
+      ((Polynomial.X^2 - Polynomial.C e : Polynomial A) : PowerSeries A) *
+      entireMonicQuotient (Polynomial.X^2 - Polynomial.C e) (PowerSeries.X^4)) = 0 := sorry
+end
 end TauCeti.NonarchimedeanFredholm

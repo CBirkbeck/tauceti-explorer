@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial roadmap with the existing adjugate/Hasse/Riesz spine and an explicit eight-node finite-projectivity chain for a complemented root kernel. Geometric inversion, projection of arbitrary finite-A-image approximants, inheritance of (Pr), finite generation and projectivity are separated. Canonical finite-module topology, rank/determinants, actual distribution families and all inherited gaps remain open. The Fredholm coefficient refinement separates finite ultrametric bounds, arbitrary-index cofinite summability and finite exceptional-set estimates, reusing the native finite principal-minor coefficient formula. Linear-division continuation: twelve additional declarations give evaluated-tail summability, the native tail quotient, its recurrence and ultrametric bounds, entireness, division, uniqueness, polynomial compatibility and the entire root-factor criterion. Two published Coleman source findings are recorded for independent review. General monic division and spectral transport remain open.",
+  "summary": "Partial continuation preserving91 whole predecessor nodes and refining the retained entire-division theorem in place. Twelve new L4 nodes supply reciprocal-reversal bounds, convergent quotient tails, native quotient construction, weighted estimates and entireness, the coefficient recurrence, native polynomial remainder, entire uniqueness and native polynomial/linear comparisons. The one-variable monic entire-division proof plan is now decomposed over complete ultrametric normed rings including nonreduced coefficients. Spectral resultants, finite-module topology, determinant/rank, distribution modules and the other stage targets remain exact gaps. Eight gaps,five requests,zero closed stages; all implementation statuses unchecked.",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -605,6 +605,118 @@
         "module": "Mathlib/Algebra/Polynomial/Div.lean",
         "provides": "Remainder on division by X-C(a) is C(P.eval(a)) over a commutative ring.",
         "checked": "Statement and hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 27 September 2026."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_eq_zero_of_degree_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Degree/Operations.lean",
+        "provides": "A coefficient above polynomial degree is zero, including the zero polynomial.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 65–87. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Polynomial.reverse",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Native reversal of a polynomial.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 215–225. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_reverse",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Reversal coefficients use the existing reflected index; for i≤d this is d−i.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 215–241. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_zero_reverse",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Reversal constant coefficient is the original leading coefficient.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 224–225. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Polynomial.reverse_natDegree_le",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Reverse.lean",
+        "provides": "Reversal degree is at most the original degree, so coefficients above d vanish.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 235–241. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:PowerSeries.invOfUnit",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "Native formal reciprocal with specified constant unit.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 84–85. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_invOfUnit",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "Native reciprocal coefficient recursion.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 87–94. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:PowerSeries.mul_invOfUnit",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "Native product identity when the specified unit is the constant coefficient.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 102–104. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_mul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Native finite antidiagonal coefficient formula for a product.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 249–254. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Multipliable.tprod_finsetProd",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Basic.lean",
+        "provides": "Indexed multiplicative generator of the native finite-sum/infinite-sum interchange, with summability hypotheses.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 728–733. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:PowerSeries.trunc",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Trunc.lean",
+        "provides": "Native linear truncation to a polynomial.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 50–58. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:PowerSeries.degree_trunc_lt",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Trunc.lean",
+        "provides": "Truncation has polynomial degree below the cutoff, including cutoff zero.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 82–88. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:le_csSup",
+        "kind": "theorem",
+        "module": "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+        "provides": "Every element of a nonempty bounded real set is at most its supremum.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 189–203. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:csSup_le",
+        "kind": "theorem",
+        "module": "Mathlib/Order/ConditionallyCompleteLattice/Basic.lean",
+        "provides": "A uniform upper bound bounds the real supremum.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 189–203. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Polynomial.coe_injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Injective native polynomial inclusion into power series.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 815–819. Reached source modules are byte-checked against the pin during compilation."
+      },
+      {
+        "ref": "mathlib:Polynomial.degree_modByMonic_lt",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Div.lean",
+        "provides": "Native monic polynomial remainder degree bound over a nontrivial ring.",
+        "checked": "Statement and section hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 136–150. Reached source modules are byte-checked against the pin during compilation."
       }
     ]
   },
@@ -661,7 +773,8 @@
       "readSections": [
         "Appendix A3, Lemmas A3.5, A3.7, A3.8 and Theorem A3.9",
         "Appendix A4, proof of Lemma A4.1 and the root/slope argument A4.2-A4.3",
-        "Linear-division continuation,27September2026: full author PDF22–28 freshly read and compared with published printed430–435. Earlier reads retained as prior provenance."
+        "Linear-division continuation,27September2026: full author PDF22–28 freshly read and compared with published printed430–435. Earlier reads retained as prior provenance.",
+        "Monic-division continuation,27September2026: freshly fetched hash-identical author copy and read full physicalPDF22–26; entire-division/resultant passage collated with published434."
       ],
       "note": "Transport from the manuscript's hypotheses to arbitrary Noetherian K-Banach algebras and (Pr) modules remains a listed gap; the source is not cited as having already proved that transport.",
       "sha256": "d4035d4c48825de9ce9da47791e328f4bd03c8e6145f40ccb8ab80712b5f1b5c"
@@ -675,7 +788,8 @@
       "sha256": "32ff34f60fc2ef4608506daa169c3cc61e07520f019d63928e86b093a16b1973",
       "readDate": "2026-09-27",
       "readSections": [
-        "Full printed430–435/PDF14–19; images of printed432 and433 checked to distinguish display notation from OCR."
+        "Full printed430–435/PDF14–19; images of printed432 and433 checked to distinguish display notation from OCR.",
+        "Monic-division continuation,27September2026: freshly fetched hash-identical published scan and read full printed432–435/PDF16–19. Reciprocal-tail estimates are worker derivations of the division input on p434. Existing E1/E2 retained; no new finding."
       ],
       "note": "Linear division is a worker deduction of the p434 division input. No full-paper coverage or transport of all Coleman hypotheses is claimed."
     }
@@ -1719,14 +1833,16 @@
       "title": "Division of entire series by a monic polynomial",
       "statement": "For monic Q in A[T] of degree d and P in A{{T}}, there are unique S in A{{T}} and R in A[T] with degree R<d and P=QS+R; for Q=1, R=0.",
       "hypotheses": [
-        "Standing Banach hypotheses; monicity, or a separately normalized unit leading coefficient, is essential."
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
       ],
       "prerequisites": [
-        "LocallyAnalyticDistributions:L4/entire-series"
+        "LocallyAnalyticDistributions:L4/entire-monic-division-remainder",
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-entire",
+        "LocallyAnalyticDistributions:L4/entire-monic-division-unique"
       ],
       "proofSteps": [
-        "Perform finite polynomial division on truncations. Bound the quotient and remainder recurrence using a radius larger than all coefficient bounds for Q.",
-        "Use entireness at arbitrarily large radii to pass to the limits. The finite-dimensional remainder lives in the basis 1,T,...,T^(d-1). The recurrence estimates still need declaration-level expansion."
+        "Take S=S_Q(P) and the native truncation remainder provided by entire-monic-division-remainder. The quotient is entire by entire-monic-quotient-entire and the remainder has degree below d.",
+        "Apply entire-monic-division-unique to any competing pair. When Q=1 the native truncation at zero is zero and the quotient is P."
       ],
       "acceptance": [
         "The quotient is entire, not merely a formal Laurent series."
@@ -1736,9 +1852,19 @@
           "sourceId": "Coleman-PadicBanach-1997",
           "locator": "Appendix A3, division preceding Lemmas A3.5 and A3.7",
           "match": "Exposes the polynomial-division input to the resultants, with the transport and convergence boundary retained."
+        },
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "printed434/PDF18, norm interpretation and proof of LemmaA3.5",
+          "match": "The retained composite theorem now has explicit reciprocal-tail convergence, coefficient recurrence and entire uniqueness prerequisites. This completes its monic one-variable division proof plan, without claiming the resultant comparisons or spectral resultant."
         }
       ],
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entire_monic_division_existsUnique"
+      }
     },
     {
       "id": "LocallyAnalyticDistributions:L4/entire-resultants",
@@ -4935,6 +5061,548 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/monic-reciprocal-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Exponential bound for the reciprocal reversal",
+      "kind": "lemma",
+      "statement": "For every k≥0, norm(b_k)≤C^k.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.",
+        "C is a real number with C≥1 and norm(coeff_i(Q.reverse))≤C^i for every i. Such a C exists because the reversal is a polynomial with constant coefficient1: choose C≥1 bounding its finitely many nonconstant coefficient norms."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.reverse",
+        "mathlib:Polynomial.coeff_zero_reverse",
+        "mathlib:PowerSeries.invOfUnit",
+        "mathlib:PowerSeries.coeff_invOfUnit",
+        "mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg"
+      ],
+      "proofSteps": [
+        "Use the existing invOfUnit with the unit1; its constant coefficient is1. For k>0, native coeff_invOfUnit writes b_k as minus the finite sum of coeff_i(Q.reverse)b_j over i+j=k,j<k.",
+        "Strong induction bounds each term by C^i C^j=C^k. Apply the native ultrametric finite-sum bound; no factor equal to the number of summands appears."
+      ],
+      "acceptance": [
+        "The bound concerns the formal reciprocal of Q.reverse, not a formal inverse of Q. Q may have zero constant coefficient."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "monic_reciprocal_coeff_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Convergence of reciprocal-weighted entire tails",
+      "kind": "lemma",
+      "statement": "For every entire F and every m≥0, the series Σ_(k≥0) coeff_(m+k)(F)b_k is summable.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/monic-reciprocal-bound",
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:Filter.Tendsto.bddAbove_range",
+        "mathlib:summable_geometric_of_lt_one",
+        "mathlib:Summable.of_norm_bounded_eventually_nat"
+      ],
+      "proofSteps": [
+        "Choose a coefficient bound C as in monic-reciprocal-bound and a real radius S>C. Entireness at S gives M≥0 bounding norm(coeff_j(F))S^j for every j.",
+        "The kth summand has norm at most (M/S^m)(C/S)^k by the reciprocal coefficient bound and submultiplicativity. The ratio lies in [0,1).",
+        "Apply native geometric summability and norm-dominated summability in the complete normed additive group. This supplies every shifted tail used in the recurrence, including m=0."
+      ],
+      "acceptance": [
+        "No root of Q or inverse of its constant coefficient is chosen."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "monic_reciprocal_tail_summable"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-quotient",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Reciprocal-tail quotient by a monic polynomial",
+      "kind": "construction",
+      "statement": "For native formal F, define S_Q(F) by coefficient s_n=Σ_(k≥0) coeff_(n+d+k)(F)b_k using the total native infinite sum. Analytic interpretation and linear laws are asserted for entire inputs.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:PowerSeries.invOfUnit",
+        "mathlib:Polynomial.reverse"
+      ],
+      "proofSteps": [
+        "Use native PowerSeries.mk on the displayed coefficient function. The definition accepts any Q; all analytic assertions here require Q monic. The preceding summability theorem justifies it for entire F.",
+        "Zero follows coefficientwise. On entire inputs, native summability allows addition and multiplication by a scalar through each sum. Subsequent nodes promote coefficient evaluation, bounds, entireness, division and comparisons."
+      ],
+      "acceptance": [
+        "The shift is n+d+k and the coefficients come from the inverse of the reversal. Inverting Q itself would fail for zero constant coefficient and would not compute this analytic quotient."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireMonicQuotient"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "entireMonicQuotient_zero",
+          "role": "simp",
+          "statement": "S_Q(0)=0."
+        },
+        {
+          "name": "entireMonicQuotient_add",
+          "role": "structure",
+          "statement": "For entire F,G and monic Q, S_Q(F+G)=S_Q(F)+S_Q(G)."
+        },
+        {
+          "name": "entireMonicQuotient_C_mul",
+          "role": "structure",
+          "statement": "For entire F and monic Q, S_Q(cF)=cS_Q(F) for every c∈A."
+        }
+      ],
+      "tests": [
+        {
+          "name": "monic_quotient_one",
+          "kind": "degenerate",
+          "statement": "For every formal F, S_1(F)=F."
+        },
+        {
+          "name": "monic_quotient_power_shift",
+          "kind": "compatibility",
+          "statement": "For d≥0 and every formal F, S_(T^d)(F) is the native series with nth coefficient coeff_(n+d)(F)."
+        },
+        {
+          "name": "monic_quotient_quadratic",
+          "kind": "computation",
+          "statement": "For Q=T^2+aT+b and F=T^3, S_Q(F)=T-a."
+        },
+        {
+          "name": "monic_quotient_nilpotent",
+          "kind": "computation",
+          "statement": "If e^2=0, then S_(T^2-e)(T^4)=T^2+e and the remainder is zero, including nonzero nilpotent e."
+        }
+      ],
+      "uses": [
+        {
+          "where": "L4/entire-division and entire-resultants",
+          "how": "Provides the actual entire quotient by the monic polynomial used to represent classes in the finite polynomial quotient."
+        },
+        {
+          "where": "Coleman LemmaA3.5 and the norm interpretation immediately before it",
+          "how": "Supplies the justified analytic division and native polynomial remainder needed for the resultant comparison."
+        },
+        {
+          "where": "Existing linear-division nodes",
+          "how": "Specializes compatibly to the existing tail quotient for T-a; does not introduce a second entire-series carrier."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Coefficients of the monic tail quotient",
+      "kind": "lemma",
+      "statement": "For every formal F, coeff_n(S_Q(F))=Σ_(k≥0)coeff_(n+d+k)(F)b_k. For entire F and monic Q this sum converges.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "proofSteps": [
+        "Apply the native coefficient-of-mk formula. Convergence on the asserted analytic domain comes from the construction prerequisite."
+      ],
+      "acceptance": [
+        "The equality of total sums alone is not a summability statement outside the analytic domain."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireMonicQuotient_coeff"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-quotient-bound",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Weighted bound for the monic quotient",
+      "kind": "lemma",
+      "statement": "If S≥C, M≥0 and norm(coeff_j(F))S^j≤M for every j, then norm(coeff_n(S_Q(F)))≤M/S^(n+d).",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed.",
+        "C is a real number with C≥1 and norm(coeff_i(Q.reverse))≤C^i for every i. Such a C exists because the reversal is a polynomial with constant coefficient1: choose C≥1 bounding its finitely many nonconstant coefficient norms."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff",
+        "LocallyAnalyticDistributions:L4/monic-reciprocal-bound",
+        "mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le_of_nonneg"
+      ],
+      "proofSteps": [
+        "S≥C≥1 makes S positive. Each kth summand is bounded by M C^k/S^(n+d+k)≤M/S^(n+d).",
+        "Apply the native ultrametric infinite-sum bound. Its total-sum convention permits this inequality even when F is not entire; convergence is invoked separately when using the division identity."
+      ],
+      "acceptance": [
+        "The loss is exactly d powers of S. The boundary S=C is permitted in the inequality, but the separate summability proof chooses S>C."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireMonicQuotient_bound"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-quotient-entire",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Entireness of the monic quotient",
+      "kind": "lemma",
+      "statement": "If F is entire and Q monic, then S_Q(F) is entire.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-bound",
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:Filter.Tendsto.bddAbove_range",
+        "mathlib:tendsto_pow_atTop_nhds_zero_of_lt_one"
+      ],
+      "proofSteps": [
+        "Choose C controlling the reciprocal as above. For an arbitrary tested radius R>0 choose S>max(R,C). Entireness of F at S supplies M.",
+        "The coefficient estimate gives norm(s_n)R^n≤(M/S^d)(R/S)^n. Native geometric convergence and squeezing show the left side tends to zero.",
+        "This holds at every R>0, which is the existing entire predicate. No single-radius completion replaces it."
+      ],
+      "acceptance": [
+        "Arbitrarily large coefficient norms of Q are allowed by increasing S."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireMonicQuotient_entire"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-quotient-recurrence",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "The monic quotient coefficient recurrence",
+      "kind": "lemma",
+      "statement": "For entire F and every n≥0, coeff_(n+d)(F)=s_n+Σ_(i<d)coeff_i(Q)s_(n+d-i).",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-coeff",
+        "LocallyAnalyticDistributions:L4/monic-reciprocal-tail-summable",
+        "mathlib:PowerSeries.mul_invOfUnit",
+        "mathlib:PowerSeries.coeff_mul",
+        "mathlib:Polynomial.coeff_reverse",
+        "mathlib:Polynomial.coeff_zero_reverse",
+        "mathlib:Polynomial.reverse_natDegree_le",
+        "mathlib:Multipliable.tprod_finsetProd",
+        "mathlib:Summable.tsum_mul_left"
+      ],
+      "proofSteps": [
+        "Monicity identifies the constant coefficient of Q.reverse with1, so native mul_invOfUnit gives Q.reverse times B_Q=1. Comparing coefficient ell gives b_ell+Σ_(1≤j≤min(d,ell))coeff_(d-j)(Q)b_(ell-j)=1 for ell=0 and0 otherwise.",
+        "Expand the asserted right side using the convergent tail formulas. Set j=d-i in the finite lower-degree sum and ell=j+k in each shifted tail.",
+        "Every shifted series is summable by monic-reciprocal-tail-summable. Native finite-sum interchange and scalar multiplication justify gathering the coefficient of coeff_(n+d+ell)(F). It is the displayed reciprocal convolution, so only ell=0 survives.",
+        "The case d=0 has an empty finite sum and Q=1; it gives coeff_n(F)=s_n."
+      ],
+      "acceptance": [
+        "The indices n+d-i always exceed n for i<d. This direction is essential to both the tail formula and uniqueness."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireMonicQuotient_recurrence"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-division-remainder",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "The native polynomial remainder",
+      "kind": "theorem",
+      "statement": "For entire F, let R be the native degree-d truncation of F-Q S_Q(F). Then F=Q S_Q(F)+R in A[[T]] and degree(R)<d.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-recurrence",
+        "mathlib:PowerSeries.coeff_mul",
+        "mathlib:PowerSeries.trunc",
+        "mathlib:PowerSeries.coeff_trunc",
+        "mathlib:PowerSeries.degree_trunc_lt",
+        "mathlib:Polynomial.coeff_coe"
+      ],
+      "proofSteps": [
+        "The recurrence says all coefficients of F-Q S_Q(F) in degrees n+d vanish. Thus the difference agrees coefficientwise with its native truncation at d.",
+        "Below d, coeff_trunc gives precisely the original difference; at and above d, both coefficients are zero. Apply native power-series extensionality and rearrange.",
+        "Native degree_trunc_lt proves the polynomial degree bound, also for d=0 where the remainder is zero and its degree is minus infinity."
+      ],
+      "acceptance": [
+        "Use polynomial degree, not natDegree, for the zero remainder. No new remainder carrier or arbitrary choice is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireMonicQuotient_division"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-product-low-degree",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "A monic entire product cannot lower degree",
+      "kind": "lemma",
+      "statement": "If H is entire, R is a polynomial of degree less than d and QH=R in A[[T]], then H=0 and R=0.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-series",
+        "mathlib:PowerSeries.coeff_mul",
+        "mathlib:Polynomial.coeff_coe",
+        "mathlib:Polynomial.coeff_eq_zero_of_degree_lt",
+        "mathlib:IsUltrametricDist.norm_prod_le_of_forall_le_of_nonneg",
+        "mathlib:Filter.Tendsto.bddAbove_range",
+        "mathlib:le_csSup",
+        "mathlib:csSup_le",
+        "mathlib:Polynomial.coe_injective"
+      ],
+      "proofSteps": [
+        "If d=0, monicity gives Q=1 and the degree bound gives R=0, so H=0. For d>0 compare coefficients at n+d: h_n=−Σ_(i<d)coeff_i(Q)h_(n+d-i). This uses only the leading coefficient1 and the remainder degree bound.",
+        "Choose C≥1 so norm(coeff_(d-j)(Q))≤C^j for j=1,...,d, and S>C. The nonnegative sequence x_n=norm(h_n)S^n tends to zero by entireness and hence has a bounded range. Let M be its real supremum, finite and nonnegative.",
+        "Put theta=C/S<1. Submultiplicativity and the ultrametric finite-sum estimate give x_n≤max_(1≤j≤d)theta^j x_(n+j)≤theta M. Taking the supremum yields M≤theta M, so M=0.",
+        "All coefficients h_n vanish. Native power-series extensionality gives H=0; the product identity and injectivity of the native polynomial inclusion then give R=0."
+      ],
+      "acceptance": [
+        "This proves the monic corrected entire case behind source findingE1 without rescaling by a unit of A. It remains valid with zero divisors. Restricted convergence at radius1 is insufficient."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entire_monic_product_low_degree"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-division-unique",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Uniqueness of monic entire division",
+      "kind": "theorem",
+      "statement": "If F=QG+R=QH+S, G,H are entire and polynomial R,S have degree less than d, then G=H and R=S.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-product-low-degree",
+        "LocallyAnalyticDistributions:L4/entire-series"
+      ],
+      "proofSteps": [
+        "Subtract the two decompositions. The existing entire subring makes G-H entire. The polynomial S-R has degree below d, including zero remainders.",
+        "Apply entire-monic-product-low-degree to Q(G-H)=S-R, then conclude both equalities."
+      ],
+      "acceptance": [
+        "The proof never cancels a nonunit polynomial inside the full formal-series ring."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entire_monic_division_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-quotient-polynomial",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Compatibility with native polynomial division",
+      "kind": "comparison",
+      "statement": "For every polynomial P, S_Q(P)=P divByMonic Q under native polynomial inclusion, and the constructed native truncation remainder equals P modByMonic Q.",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-division-remainder",
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-entire",
+        "LocallyAnalyticDistributions:L4/entire-monic-division-unique",
+        "LocallyAnalyticDistributions:L4/polynomial-series-entire",
+        "mathlib:Polynomial.modByMonic_add_div",
+        "mathlib:Polynomial.degree_modByMonic_lt"
+      ],
+      "proofSteps": [
+        "The native monic polynomial division identity provides a polynomial quotient and remainder, with the remainder degree below d. Include the equality in native power series; polynomials are entire by the existing lemma.",
+        "Compare it with the constructed entire division. Uniqueness identifies both quotients and both remainders."
+      ],
+      "acceptance": [
+        "This is compatibility with the already-existing divByMonic and modByMonic, not a new polynomial division algorithm."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireMonicQuotient_polynomial"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L4/entire-monic-quotient-linear",
+      "parentStageId": "LocallyAnalyticDistributions:L4",
+      "realises": [
+        "LocallyAnalyticDistributions:L4"
+      ],
+      "title": "Compatibility with the existing linear tail quotient",
+      "kind": "comparison",
+      "statement": "For every a∈A and entire F, S_(T-a)(F) equals the existing entireLinearQuotient(a,F).",
+      "hypotheses": [
+        "A is a nontrivial complete commutative ultrametric normed ring with submultiplicative norm and norm(1)=1. Native PowerSeries and Polynomial carriers are used. Q is monic of degree d, allowing d=0 and Q=1. Write B_Q for native invOfUnit(Q.reverse,1), using the native polynomial inclusion, and b_k for its kth coefficient. The reversal has constant coefficient1. No domain, reducedness, Noetherianity, field or splitting hypothesis is imposed."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L4/entire-monic-division-remainder",
+        "LocallyAnalyticDistributions:L4/entire-monic-quotient-entire",
+        "LocallyAnalyticDistributions:L4/entire-monic-division-unique",
+        "LocallyAnalyticDistributions:L4/entire-linear-division",
+        "LocallyAnalyticDistributions:L4/entire-linear-quotient-entire"
+      ],
+      "proofSteps": [
+        "Both quotient constructions are entire and give division of F by the same native monic linear polynomial. The linear construction has constant remainder F(a); the native degree-one truncation is also constant.",
+        "Apply the general uniqueness theorem. It identifies the quotients and, as a consequence, the native remainder with the existing evaluation constant."
+      ],
+      "acceptance": [
+        "No new evaluation functional or competing linear quotient is defined."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/NonarchimedeanFredholm/EntireDivision",
+        "namespace": "TauCeti.NonarchimedeanFredholm",
+        "declaration": "entireMonicQuotient_linear"
+      },
+      "sources": [
+        {
+          "sourceId": "Coleman-PadicBanach-published-1997",
+          "locator": "Appendix A3, printed434/PDF18: quotient-algebra interpretation and proof of LemmaA3.5; published432–435/PDF16–19 and authorPDF22–26 read in full.",
+          "match": "Worker decomposition of the existing monic entire-division input. The reciprocal-tail formula and quantitative estimates are not separately stated in the source. The proof permits nonreduced coefficients and uses the corrected entire hypothesis recorded in E1."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [
@@ -5076,14 +5744,14 @@
       "remaining": [
         "The generic Fredholm spine is preserved. Algebraic coordinate detection and the Neumann proof of finite generation are decomposed, but canonical finite-module topology, inverse norm bounds and completed tensors remain gaps.",
         "Construct the spectral resultant D(B,P) and transport Coleman A3.8-A3.9 to Noetherian K-Banach algebras and (Pr) modules, including the normalization in Theorem 3.3.",
-        "The Hasse calculus, explicit Riesz projector and analytic adjugate coefficient estimate are now separately decomposed. Expand the remaining composite nodes and APIs, especially the finite-projective determinant/rank argument, Cayley–Hamilton, polynomial division bounds and Lemmas2.12–2.13.",
+        "The Hasse calculus, explicit Riesz projector and analytic adjugate coefficient estimate are now separately decomposed. Expand the remaining composite nodes and APIs, especially the finite-projective determinant/rank argument, Cayley–Hamilton and Lemmas2.12–2.13. The monic one-variable entire division bounds are supplied below.",
         "Construct the actual affinoid-valued analytic/distribution modules, integral models, completed tensor products and specialization; include the RS-16 transferred universal-character coefficient action with uniform local radii.",
         "Prove continuity and complete continuity of the actual modular-symbol/automorphic semigroup operators and scalar-extension compatibility on slope-adapted affinoids. Include positive-order nonmeasure and order-zero/multivariable acceptance tests.",
         "Complete the explicitly omitted signatures, especially completed-tensor base change and the Riesz/slope hypotheses. The present partial suggested file elaborates at the pin; this is not a formalization claim.",
         "Resolve the imported complete-continuity generality request in AdicSpacesPartII:R3 without creating a second predicate or silently importing its strict variant.",
         "The root projector and canonical topological decomposition are now separately specified. Complete the finite-projective determinant/rank and exact-slope arguments; the continuous regular inverse alone supplies neither rank nor polynomial determinant equality.",
         "The root-kernel geometric inverse and finite-projectivity chain are separately decomposed. Discharge the existing canonical finite-module-topology input, then the constant-rank and determinant argument over nonreduced coefficients; the new adapter does not settle those gaps.",
-        "The linear-factor entire quotient, uniqueness and native polynomial comparison are decomposed. Finish general monic degree>=2 quotient/remainder estimates and resolve the two Coleman source findings through independent review."
+        "General one-variable monic entire division is now decomposed by reciprocal-tail estimates, native truncation remainder and entire uniqueness, with polynomial and linear compatibility. Use this completed proof plan in the resultant quotient-algebra comparison. The spectral resultant D(B,P), continuity/topology and finite-free quotient-algebra transport remain separate obligations; resolve the two inherited Coleman findings through independent review."
       ]
     }
   ],
@@ -5111,7 +5779,7 @@
     },
     {
       "title": "Remaining analytic helper and API granularity",
-      "detail": "Hasse calculus, Riesz projector algebra and the operator-valued adjugate estimate now have separate nodes and typed signatures. The latter includes distinct-column finite bounds, finite output support, arbitrary finite-subset nets, fixed-degree recurrence continuity and the actual (Pr) compression factor. Remaining helper/API work: finite-free determinant comparison in greater detail, the lifting-converse bounded generating family, polynomial division estimates and finite-projective determinant/rank. These are not closed by the new resolvent estimate. The finite-projectivity paragraph now has a finite geometric inverse, actual projection/compression estimate, compact identity, finite generation and (Pr) inheritance nodes; their finite-module-topology dependency remains. The coefficient construction now has separate finite product/determinant perturbation, determinant column bound, cofinite minor decay and finite-exception product nodes. The finite-coordinate determinant comparison uses the pinned native principal-minor coefficient formula; arbitrary finite-free-image comparison still needs the stated topology and transport steps. The degree-one case is now separately decomposed through evaluated tails, quotient bounds, entireness and uniqueness. General monic degree>=2 still requires the finite-dimensional remainder recurrence and convergence estimates; the source correction in A3.1 must be respected."
+      "detail": "Hasse calculus, Riesz projector algebra and the operator-valued adjugate estimate now have separate nodes and typed signatures. The latter includes distinct-column finite bounds, finite output support, arbitrary finite-subset nets, fixed-degree recurrence continuity and the actual (Pr) compression factor. Remaining helper/API work: finite-free determinant comparison in greater detail, the lifting-converse bounded generating family, finite-projective determinant/rank. These are not closed by the new resolvent estimate. The finite-projectivity paragraph now has a finite geometric inverse, actual projection/compression estimate, compact identity, finite generation and (Pr) inheritance nodes; their finite-module-topology dependency remains. The coefficient construction now has separate finite product/determinant perturbation, determinant column bound, cofinite minor decay and finite-exception product nodes. The finite-coordinate determinant comparison uses the pinned native principal-minor coefficient formula; arbitrary finite-free-image comparison still needs the stated topology and transport steps. The entire division helper now has explicit monic reciprocal-tail convergence, quotient bounds, recurrence, native remainder and uniqueness nodes for every degree, with linear/polynomial compatibility. Use those statements to complete the distinct quotient-algebra/resultant and spectral-resultant transport; the source correction in A3.1 remains recorded."
     },
     {
       "title": "Distribution stages and universal-character families",
@@ -5119,7 +5787,7 @@
     },
     {
       "title": "Prototype and validation boundary",
-      "detail": "The current seed supplies typed adjugate, finite-coordinate, coefficient-bound, arbitrary-filter continuity and retraction signatures, in addition to the earlier Hasse and Riesz algebra. The full finite-projective Riesz/slope signatures and completed-tensor base-change API remain omitted for the inherited determinant/rank, spectral-resultant and actual tensor-carrier reasons. Inherited assumptions still require audit as the remaining topology/lifting/division signatures are filled. Compilation checks types; all implementation statuses remain unchecked. Native signatures for the root-kernel inverse, approximation, finite generation and algebraic projectivity, and the existing finite-pr-projective node are now supplied. The full constant-rank/determinant theorem remains omitted for the stated gap. The finite-coordinate determinant comparison now has its full typed conclusion with the negative matrix and polynomial-to-power-series map. Five new coefficient-helper signatures are supplied. Twelve linear-division declarations and six typed examples now have signatures. The full general monic division signature and spectral/finite-projective gaps are not closed by them."
+      "detail": "The current seed supplies typed adjugate, finite-coordinate, coefficient-bound, arbitrary-filter continuity and retraction signatures, in addition to the earlier Hasse and Riesz algebra. The full finite-projective Riesz/slope signatures and completed-tensor base-change API remain omitted for the inherited determinant/rank, spectral-resultant and actual tensor-carrier reasons. Inherited assumptions still require audit as the remaining topology/lifting signatures are filled. Compilation checks types; all implementation statuses remain unchecked. Native signatures for the root-kernel inverse, approximation, finite generation and algebraic projectivity, and the existing finite-pr-projective node are now supplied. The full constant-rank/determinant theorem remains omitted for the stated gap. The finite-coordinate determinant comparison now has its full typed conclusion with the negative matrix and polynomial-to-power-series map. Five new coefficient-helper signatures are supplied. Twelve linear-division declarations and six typed examples now have signatures. The full general monic division signature is now supplied with its reciprocal-tail prerequisites and four additional typed tests. Spectral-resultant, finite-projective and tensor gaps remain."
     },
     {
       "title": "Imported complete-continuity contract beyond affinoids",
@@ -5198,105 +5866,101 @@
     "notes": "Codex codex-hjdg0j continuation of the ChatGPT checkpoint. The accepted review covers the integrated thirteen-node decomposition, not this blueprint or this extension."
   },
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "Two findings against the separately hashed published Coleman scan, compared with the author copy, with bounded correction searches and no independent-review verdicts. Errata wrapper passes.",
+    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index. Checker counts56 unique API items;60 API entries include inherited promotions.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "sourceIssues": "Both predecessor findings and their source versions preserved; errata wrapper passes. No new finding.",
     "validation": {
-      "nodes": 92,
+      "nodes": 104,
       "kinds": {
-        "comparison": 8,
-        "construction": 11,
+        "comparison": 10,
+        "construction": 12,
         "definition": 3,
-        "lemma": 49,
-        "theorem": 21
+        "lemma": 56,
+        "theorem": 23
       },
-      "api": 57,
-      "definitionConstructionApi": 53,
-      "definitionConstructionTests": 47,
-      "packetTests": 70,
-      "typedExamples": 70,
+      "apiEntries": 60,
+      "definitionConstructionTests": 51,
+      "packetTests": 74,
       "planets": 6,
-      "baseline": 94,
-      "preservedWholeNodes": 80,
-      "preservedBaseline": 84,
-      "preservedSourceIssues": 0,
-      "newSourceIssues": 2,
+      "baseline": 110,
+      "preservedWholeNodes": 91,
+      "refinedExistingNodes": [
+        "LocallyAnalyticDistributions:L4/entire-division"
+      ],
+      "preservedSourceIssues": 2,
       "newNodes": 12,
-      "newNamedDeclarations": 17,
-      "newTypedTests": 6,
-      "reachableNodes": 92,
-      "dependencyEdges": 340,
+      "newNamedDeclarations": 16,
+      "newTypedTests": 4,
+      "typedExamples": 74,
+      "reachableNodes": 104,
+      "dependencyEdges": 403,
       "acyclic": true,
-      "baselineLeaves": 91,
-      "stageRequestLeaves": [
+      "baselineLeaves": 107,
+      "requestedStageLeaves": [
         "AdicSpacesPartII:R3"
       ],
       "compilerErrors": 0,
-      "compilerWarnings": 197,
+      "compilerWarnings": 217,
       "allWarningsPlaceholders": true,
-      "pinnedMathlibModules": 1983,
-      "actualSupplierImports": 0,
-      "scratchProvedLemmas": 11,
-      "scratchSummabilityAdapters": 3,
-      "scratchRecurrenceInduction": 1,
-      "scratchNativeConstructions": 1,
-      "scratchMathlibModules": 2795,
+      "pinnedMathlibModules": 2057,
+      "pinnedTauCetiModules": 0,
+      "scratchCompleteLemmas": 7,
+      "scratchCompleteConstructions": 1,
+      "scratchMathlibModules": 1799,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "arithmeticAssertions": 17775,
-      "readerWords": 22915,
+      "readerWords": 26878,
       "scopedMutationCheck": true,
       "requests": 5,
       "gaps": 8,
-      "closedStages": 0,
-      "blueprintErrors": 0,
-      "blueprintWarnings": 0,
-      "intakeProblems": 0,
-      "errataErrors": 0
-    },
-    "lean": {
-      "suggestedFileSha256": "9016199dc96529c2748b9c0cc38ee5b9e1e6c9b70728b67ada6cc58bc699d2ad",
-      "sourceAuditSha256": "5061577ae9cf51cae69f9cf991ca1358ef3d9a18615f9fe47ca6b67b87ce6b4f",
-      "errors": 0,
-      "warnings": 197,
-      "warningsOnlyPlaceholders": true,
-      "mathlibModules": 1983,
-      "tauCetiModules": 0,
-      "scratch": {
-        "sha256": "0ec46cc12976051023c231fe32bb9b02f0eb5a4c00f5f8ade5307174bedada0b",
-        "provedLemmas": 11,
-        "nativeConstructions": 1,
-        "modules": 2795,
-        "errors": 0,
-        "warnings": 0,
-        "placeholders": 0,
-        "scope": "Seven unconditional native checks, three adapters with explicit summability hypotheses, and one induction from an explicit coefficient recurrence. The analytic tail convergence and entire uniqueness theorems remain plans."
-      }
+      "closedStages": 0
     },
     "arithmetic": {
-      "assertions": 17775,
-      "systems": 640,
+      "systems": 960,
+      "assertions": 62415,
       "primes": [
         2,
         3,
         5,
         7
       ],
-      "scriptSha256": "904dea8bb2a53eec2593624fb69d8eb58d5791abe037f9959edc87f5893522f5",
-      "resultsSha256": "957ccc356c6727d46fdf650c36a1b941cf3a7d6e18e1e4fcd4db0d885e2a84c9",
-      "scope": "Independent finite Euclidean polynomial division versus coefficient-tail formula, Horner evaluation and norm bounds over nonreduced rational-pair models; source counterexample truncations and monic-leading-term controls. No infinite-series proof claim."
+      "divisorDegrees": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ring": "Q[epsilon]/(epsilon^2), max p-adic coefficient norm; all computations exact rational pairs.",
+      "scope": "Independent long division versus reciprocal-tail coefficients; reconstruction, degree, recurrence, reciprocal norm and weighted quotient bound; zero input, degree-zero divisor, quadratic signs and nonzero nilpotents. Finite controls do not prove convergence or infinite analytic uniqueness."
+    },
+    "lean": {
+      "suggestedFileSha256": "5ef38b099465eeded0372a8d5b3b008b2687dc38f300a7c87d56c60ccf677331",
+      "errors": 0,
+      "warnings": 217,
+      "warningsOnlyPlaceholders": true,
+      "mathlibModules": 2057,
+      "tauCetiModules": 0,
+      "sourceAuditSha256": "e43bd3ac9f2cef7df0193d5399fdf01e2674e9a54ebcf9f478c4420149481a60",
+      "scratchProofSha256": "b5260e4c01f7505d95da09f98b6f43d2297372ce8294a37237dade156b69911f",
+      "scratchCompleteLemmas": 7,
+      "scratchCompleteConstructions": 1,
+      "scratchErrors": 0,
+      "scratchWarnings": 0,
+      "scratchPlaceholders": 0,
+      "scratchSourceModules": 1799
     },
     "publication": {
-      "base": "8b56d6675e9e17c5042e9eb7dfc47bb13f7c021f",
-      "unchangedInputs": 48,
-      "unchangedOutputs": 4,
-      "sameSessionFollowupAfterMerge": true,
-      "lastClaimConfirmation": 5853988648,
-      "reviewIssue": 316,
-      "reviewUnclaimed": true
+      "baseCommit": "d77dc63126f01320feafb3abcdea4b206b04ac11",
+      "capturedInputs": 48,
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5854633810
     },
-    "closure": "Partial: eight gaps, five requests, zero closed stages; all implementation statuses unchecked."
+    "closure": "Partial;8 gaps,5 requests,0 closed stages; every implementation status unchecked. General monic entire division helper decomposed; resultant and spectral transport remain gaps."
   },
   "provenance": {
     "adjugateContinuation": {
@@ -6051,6 +6715,117 @@
         },
         "closure": "Partial: eight gaps, five requests, zero closed stages; all implementation statuses unchecked."
       }
+    },
+    "monicDivision": {
+      "worker": "Codex — codex-7e92bd",
+      "issue": 641,
+      "claim": 5854632769,
+      "confirmation": 5854633810,
+      "predecessorNodes": 92,
+      "preservedWholeNodes": 91,
+      "refinedExistingNode": "LocallyAnalyticDistributions:L4/entire-division",
+      "newNodes": 12,
+      "reading": "Full issue before/after winning claim; fresh AUDIT25 L4 and accepted RS16 L4. All12 intervening linear-division node objects and current handoff read in full. Binding protocols,two upstream models and touching links inherit earlier full-read provenance with unchanged captured blobs. Full published432–435 and author22–26 freshly read.",
+      "ownership": "No new entire-series carrier,formal reciprocal,polynomial division algorithm or monic-division top-level duplicate. Existing native carriers and baseline APIs reused; existing entire-division theorem refined in place. Restricted ideal-adic Weierstrass and complex analytic division do not supply this entire Banach-ring statement.",
+      "boundary": "General one-variable monic entire division is now decomposed by reciprocal-tail estimates, native truncation remainder and entire uniqueness, with polynomial and linear compatibility. Use this completed proof plan in the resultant quotient-algebra comparison. The spectral resultant D(B,P), continuity/topology and finite-free quotient-algebra transport remain separate obligations; resolve the two inherited Coleman findings through independent review.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index. Checker counts56 unique API items;60 API entries include inherited promotions.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "Both predecessor findings and their source versions preserved; errata wrapper passes. No new finding.",
+        "validation": {
+          "nodes": 104,
+          "kinds": {
+            "comparison": 10,
+            "construction": 12,
+            "definition": 3,
+            "lemma": 56,
+            "theorem": 23
+          },
+          "apiEntries": 60,
+          "definitionConstructionTests": 51,
+          "packetTests": 74,
+          "planets": 6,
+          "baseline": 110,
+          "preservedWholeNodes": 91,
+          "refinedExistingNodes": [
+            "LocallyAnalyticDistributions:L4/entire-division"
+          ],
+          "preservedSourceIssues": 2,
+          "newNodes": 12,
+          "newNamedDeclarations": 16,
+          "newTypedTests": 4,
+          "typedExamples": 74,
+          "reachableNodes": 104,
+          "dependencyEdges": 403,
+          "acyclic": true,
+          "baselineLeaves": 107,
+          "requestedStageLeaves": [
+            "AdicSpacesPartII:R3"
+          ],
+          "compilerErrors": 0,
+          "compilerWarnings": 217,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2057,
+          "pinnedTauCetiModules": 0,
+          "scratchCompleteLemmas": 7,
+          "scratchCompleteConstructions": 1,
+          "scratchMathlibModules": 1799,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 26878,
+          "scopedMutationCheck": true,
+          "requests": 5,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "arithmetic": {
+          "systems": 960,
+          "assertions": 62415,
+          "primes": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "divisorDegrees": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "ring": "Q[epsilon]/(epsilon^2), max p-adic coefficient norm; all computations exact rational pairs.",
+          "scope": "Independent long division versus reciprocal-tail coefficients; reconstruction, degree, recurrence, reciprocal norm and weighted quotient bound; zero input, degree-zero divisor, quadratic signs and nonzero nilpotents. Finite controls do not prove convergence or infinite analytic uniqueness."
+        },
+        "lean": {
+          "suggestedFileSha256": "5ef38b099465eeded0372a8d5b3b008b2687dc38f300a7c87d56c60ccf677331",
+          "errors": 0,
+          "warnings": 217,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2057,
+          "tauCetiModules": 0,
+          "sourceAuditSha256": "e43bd3ac9f2cef7df0193d5399fdf01e2674e9a54ebcf9f478c4420149481a60",
+          "scratchProofSha256": "b5260e4c01f7505d95da09f98b6f43d2297372ce8294a37237dade156b69911f",
+          "scratchCompleteLemmas": 7,
+          "scratchCompleteConstructions": 1,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "scratchSourceModules": 1799
+        },
+        "publication": {
+          "baseCommit": "d77dc63126f01320feafb3abcdea4b206b04ac11",
+          "capturedInputs": 48,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5854633810
+        },
+        "closure": "Partial;8 gaps,5 requests,0 closed stages; every implementation status unchecked. General monic entire division helper decomposed; resultant and spectral transport remain gaps."
+      },
+      "refreshedInputs": "PMIA209→225 matches own merged PR3224;225→232 seven new complete node objects read and screened. Source registry adds only QSeries/E208; full finding and REGISTER delta read. All earlier registry records remain unchanged. These changes supply no replacement for the entire division helper."
     }
   },
   "sourceVersions": [
