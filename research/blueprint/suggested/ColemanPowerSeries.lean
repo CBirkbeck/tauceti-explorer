@@ -1,3 +1,6 @@
+import Mathlib.RingTheory.DiscreteValuationRing.TFAE
+import Mathlib.RingTheory.Ideal.GoingUp
+import Mathlib.RingTheory.LocalRing.ResidueField.Basic
 import Mathlib.RingTheory.Polynomial.Eisenstein.IsIntegral
 import Mathlib.NumberTheory.Padics.PadicIntegers
 import Mathlib.RingTheory.Polynomial.GaussLemma
@@ -1386,5 +1389,80 @@ example (n : ℕ) : differenceQuotientEquiv p n (Ideal.Quotient.mk _ (1 : O n)) 
 -- IntegralTowerTests.dyadic_quotient
 example : Nat.card (integralClosure ℤ_[2] (level 2 0) ⧸
     Ideal.span {integralZeta 2 0-1}) = 2 := sorry
+end ColemanCyclotomic
+end
+
+/-! The algebraic cyclotomic integral closure is a local DVR.
+The canonical residue field here is that of the native algebraic local ring.
+Comparison with a topological local field and its valuation ring remains separate.
+All signatures are unchecked proof plans. -/
+noncomputable section
+namespace ColemanCyclotomic
+open Polynomial
+variable (p : ℕ) [Fact p.Prime]
+local notation "O" => fun n => integralClosure ℤ_[p] (level p n)
+local notation "d" => fun n => p^n*(p-1)
+local notation "ϖ" => fun n => integralZeta p n-1
+
+lemma difference_pow_mem_primeIdeal (n : ℕ) :
+    (ϖ n)^(d n) ∈ Ideal.span {(p : O n)} := sorry
+lemma differenceIdeal_isMaximal (n : ℕ) :
+    (Ideal.span {ϖ n}).IsMaximal := sorry
+lemma maximal_ideal_eq_differenceIdeal (n : ℕ) (M : Ideal (O n)) [M.IsMaximal] :
+    M = Ideal.span {ϖ n} := sorry
+instance integers_local (n : ℕ) : IsLocalRing (O n) := sorry
+lemma integers_maximalIdeal (n : ℕ) :
+    IsLocalRing.maximalIdeal (O n) = Ideal.span {ϖ n} := sorry
+instance integers_finite (n : ℕ) : Module.Finite ℤ_[p] (O n) := sorry
+instance integers_noetherian (n : ℕ) : IsNoetherianRing (O n) := sorry
+instance integers_dvr (n : ℕ) : IsDiscreteValuationRing (O n) := sorry
+lemma integral_difference_irreducible (n : ℕ) : Irreducible (ϖ n) := sorry
+
+def residueFieldEquiv (n : ℕ) : IsLocalRing.ResidueField (O n) ≃+* ZMod p := sorry
+lemma residueFieldEquiv_residue (n : ℕ) (x : O n) :
+    residueFieldEquiv p n (IsLocalRing.residue (O n) x) = reduction p n x := sorry
+lemma residueFieldEquiv_scalar (n : ℕ) (a : ℤ_[p]) :
+    residueFieldEquiv p n (IsLocalRing.residue (O n) (algebraMap ℤ_[p] (O n) a)) =
+      PadicInt.toZMod a := sorry
+lemma residueFieldEquiv_unique (n : ℕ) (f : IsLocalRing.ResidueField (O n) →+* ZMod p)
+    (hf : f.comp (IsLocalRing.residue (O n)) = reduction p n) :
+    f = (residueFieldEquiv p n).toRingHom := sorry
+lemma integers_isUnit_iff_reduction_ne_zero (n : ℕ) (x : O n) :
+    IsUnit x ↔ reduction p n x ≠ 0 := sorry
+lemma isUnit_aeval_difference_iff (n : ℕ) (f : ℤ_[p][X]) :
+    IsUnit (Polynomial.aeval (ϖ n) f) ↔ IsUnit (f.coeff 0) := sorry
+lemma exists_unit_polynomial_lift (n : ℕ) (u : (O n)ˣ) :
+    ∃ f : ℤ_[p][X], f.natDegree < d n ∧
+      Polynomial.aeval (ϖ n) f = (u : O n) ∧ IsUnit (f.coeff 0) := sorry
+lemma exists_unit_series_polynomial_lift (n : ℕ) (u : (O n)ˣ) :
+    ∃ f : ℤ_[p][X], f.natDegree < d n ∧
+      Polynomial.aeval (ϖ n) f = (u : O n) ∧ IsUnit (f : PowerSeries ℤ_[p]) := sorry
+
+-- LocalCyclotomicTests.residue_difference
+example (n : ℕ) : residueFieldEquiv p n
+    (IsLocalRing.residue (O n) (ϖ n)) = 0 := sorry
+-- LocalCyclotomicTests.residue_root
+example (n : ℕ) : residueFieldEquiv p n
+    (IsLocalRing.residue (O n) (integralZeta p n)) = 1 := sorry
+-- LocalCyclotomicTests.residue_scalar
+example (n : ℕ) (a : ℤ_[p]) : residueFieldEquiv p n
+    (IsLocalRing.residue (O n) (algebraMap ℤ_[p] (O n) a)) = PadicInt.toZMod a := sorry
+-- LocalCyclotomicTests.dyadic_residue
+example : Nat.card (IsLocalRing.ResidueField (integralClosure ℤ_[2] (level 2 0))) = 2 := sorry
+-- LocalCyclotomicTests.dyadic_uniformizer
+example : Irreducible (-2 : integralClosure ℤ_[2] (level 2 0)) := sorry
+-- LocalCyclotomicTests.nonunit_difference
+example (n : ℕ) : ¬ IsUnit (ϖ n) := sorry
+-- LocalCyclotomicTests.unit_root_polynomial
+example (n : ℕ) : IsUnit (Polynomial.aeval (ϖ n) (X+1 : ℤ_[p][X])) := sorry
+-- LocalCyclotomicTests.nonunit_constant_prime
+example (n : ℕ) : ¬ IsUnit (Polynomial.aeval (ϖ n) (X+C (p : ℤ_[p]))) := sorry
+-- LocalCyclotomicTests.ternary_unit_constant
+example : IsUnit (Polynomial.aeval (integralZeta 3 0-1) (X+2 : ℤ_[3][X])) := sorry
+-- LocalCyclotomicTests.dyadic_linear_zero
+example : Polynomial.aeval (integralZeta 2 0-1) (X+2 : ℤ_[2][X]) = 0 := sorry
+-- LocalCyclotomicTests.dyadic_constant_lift
+example (u : (integralClosure ℤ_[2] (level 2 0))ˣ) :
+    ∃ a : ℤ_[2], algebraMap ℤ_[2] (integralClosure ℤ_[2] (level 2 0)) a = u ∧ IsUnit a := sorry
 end ColemanCyclotomic
 end

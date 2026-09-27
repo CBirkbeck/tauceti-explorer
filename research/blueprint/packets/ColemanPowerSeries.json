@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required. The characteristic-p logarithmic image is now decomposed through native Euler products, coefficient corrections and the imported residue averaging/fixed-error results, yielding unconditional surjectivity of the actual norm-fixed logarithmic derivative. Seven L1 nodes now give the exact root-product characterization and uniqueness of the actual determinant norm. They include promotion of the already signed scalar-map API, so six new declarations and five typed examples are added. Arithmetic norm/evaluation and interpolation remain gaps. Seventeen L0 declarations now specify the actual local cyclotomic algebraic tower, with a native Eisenstein proof over ℤ_p, compatible roots and included fields, degrees, power basis, minimal polynomial and signed relative norms. Fifteen further L0 declarations supply the algebraic cyclotomic integral closure, integral power basis and explicit difference quotient ZMod p, while retaining the valuation-ring and uniformizer comparison boundary.",
+  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required. The characteristic-p logarithmic image is now decomposed through native Euler products, coefficient corrections and the imported residue averaging/fixed-error results, yielding unconditional surjectivity of the actual norm-fixed logarithmic derivative. Seven L1 nodes now give the exact root-product characterization and uniqueness of the actual determinant norm. They include promotion of the already signed scalar-map API, so six new declarations and five typed examples are added. Arithmetic norm/evaluation and interpolation remain gaps. Seventeen L0 declarations now specify the actual local cyclotomic algebraic tower, with a native Eisenstein proof over ℤ_p, compatible roots and included fields, degrees, power basis, minimal polynomial and signed relative norms. Fifteen further L0 declarations supply the algebraic cyclotomic integral closure, integral power basis and explicit difference quotient ZMod p, while retaining the valuation-ring and uniformizer comparison boundary. Thirteen new L0 nodes supply the algebraic local/DVR structure, canonical residue field and exact unit-polynomial lifting at each cyclotomic level. The topological local-field comparison and arithmetic interpolation remain open.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1423,6 +1423,146 @@
         "module": "Mathlib/Algebra/Polynomial/Div.lean",
         "provides": "A polynomial is divisible by X precisely when its constant coefficient is zero.",
         "checked": "Complete native statement and ambient hypotheses read at Mathlib082e2d3,27 September2026. Suggested forms tested against the existing pinned build; no implementation claim."
+      },
+      {
+        "ref": "mathlib:Polynomial.IsWeaklyEisensteinAt.pow_natDegree_le_of_aeval_zero_of_monic_mem_map",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/Basic.lean",
+        "provides": "A root of a monic weakly Eisenstein polynomial has all powers at least its mapped natural degree in the mapped coefficient ideal.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:Polynomial.Monic.natDegree_map",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Monic.lean",
+        "provides": "A monic polynomial retains its natural degree after coefficient mapping to a nontrivial semiring.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:RingHom.ker_isMaximal_of_surjective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "The kernel of a surjective ring homomorphism to a division ring is maximal.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:Ideal.isMaximal_comap_of_isIntegral_of_isMaximal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/GoingUp.lean",
+        "provides": "In an integral algebra extension, the contraction of a maximal ideal is maximal.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.eq_maximalIdeal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "provides": "Every maximal ideal of a local ring equals its canonical maximal ideal.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:Ideal.IsPrime.mem_of_pow_mem",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Prime.lean",
+        "provides": "If a power of an element lies in a prime ideal, that element lies in the ideal.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.of_unique_max_ideal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/Basic.lean",
+        "provides": "A commutative semiring with a unique maximal ideal is a native local ring.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:PowerBasis.finite",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "A native power basis supplies a finite module instance.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsNoetherianRing.of_finite",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Noetherian/Basic.lean",
+        "provides": "A module-finite algebra over a Noetherian ring is Noetherian.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsDiscreteValuationRing.TFAE",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DiscreteValuationRing/TFAE.lean",
+        "provides": "For a Noetherian local domain that is not a field, DVR structure is equivalent to a principal maximal ideal and the other listed native conditions.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.isField_iff_maximalIdeal_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "provides": "A local commutative ring is a field exactly when its maximal ideal is zero.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.sub_one_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean",
+        "provides": "A primitive root of order greater than one has nonzero difference from one.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsDiscreteValuationRing.irreducible_of_span_eq_maximalIdeal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
+        "provides": "Every maximal ideal of a local ring equals its canonical maximal ideal.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.ResidueField",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+        "provides": "The native residue field of a commutative local ring is its quotient by the canonical maximal ideal.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.residue",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+        "provides": "The native quotient homomorphism from a local ring to its residue field.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:Ideal.quotEquivOfEq",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "Equal ideals give canonically equivalent quotient rings.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:Ideal.quotEquivOfEq_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "The equivalence between quotients by equal ideals preserves the class of every representative.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.residue_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/LocalRing/ResidueField/Basic.lean",
+        "provides": "The native residue map is surjective.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.mem_maximalIdeal",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Basic.lean",
+        "provides": "Membership in the maximal ideal of a local ring is equivalent to being a nonunit.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
+      },
+      {
+        "ref": "mathlib:PowerBasis.exists_eq_aeval",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerBasis.lean",
+        "provides": "A native power basis represents every element by a polynomial of natural degree less than the basis dimension.",
+        "checked": "Full statement and ambient hypotheses read at the pinned source on27 September2026; exact indexed name verified."
       }
     ]
   },
@@ -9538,6 +9678,639 @@
           "how": "Integral polynomial coordinates and their quotient supply the algebraic part of choosing coefficients at a fixed cyclotomic level."
         }
       ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-difference-power",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "A cyclotomic power lies in the prime ideal",
+      "kind": "lemma",
+      "statement": "The power ϖ_n^(d_n) belongs to pO_n.",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "The established integral minimal polynomial of ϖ_n is the shifted cyclotomic polynomial E_n, which is monic and Eisenstein at(p). Its evaluation at ϖ_n is zero.",
+        "Apply native IsWeaklyEisensteinAt.pow_natDegree_le_of_aeval_zero_of_monic_mem_map to E_n over ℤ_p and its root in O_n. The mapped coefficient ideal is exactly the ideal generated by the included p.",
+        "Monicity preserves the degree after coefficient mapping. The native power-basis minimal-polynomial degree and the integral-basis dimension identify this degree with d_n. No valuation on the field is used."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/shifted-cyclotomic-eisenstein",
+        "ColemanPowerSeries:L0/integral-difference-minpoly",
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-generator",
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-dimension",
+        "mathlib:Polynomial.IsWeaklyEisensteinAt.pow_natDegree_le_of_aeval_zero_of_monic_mem_map",
+        "mathlib:Polynomial.Monic.natDegree_map",
+        "mathlib:PowerBasis.natDegree_minpoly",
+        "mathlib:minpoly.aeval"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "difference_pow_mem_primeIdeal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-difference-maximal",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Maximality of the difference ideal",
+      "kind": "lemma",
+      "statement": "The principal ideal(ϖ_n) of O_n is maximal.",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "The existing reduction map red_n:O_n→ZMod p is surjective by native ZMod.ringHom_surjective.",
+        "Its kernel is(ϖ_n) by the preceding checkpoint. Since ZMod p is a field, native ker_isMaximal_of_surjective identifies this kernel as a maximal ideal."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integral-reduction",
+        "ColemanPowerSeries:L0/cyclotomic-reduction-kernel",
+        "mathlib:ZMod.ringHom_surjective",
+        "mathlib:RingHom.ker_isMaximal_of_surjective"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "differenceIdeal_isMaximal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-unique-maximal",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Uniqueness of the cyclotomic maximal ideal",
+      "kind": "lemma",
+      "statement": "Every maximal ideal M of O_n equals(ϖ_n).",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "The extension ℤ_p→O_n is integral by the defining membership in integralClosure. Native integral going-up theory makes the contraction of M maximal in ℤ_p. Native local-ring uniqueness and maximalIdeal_eq_span_p identify it with(p). Thus the included p belongs to M.",
+        "The previous power relation places ϖ_n^(d_n) in M. A maximal ideal is prime; native mem_of_pow_mem puts ϖ_n in M, hence(ϖ_n)≤M.",
+        "Both ideals are proper and(ϖ_n) is already maximal. The inclusion forces equality. Existence of some maximal ideal is not used as an unexplained uniqueness assumption."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-difference-power",
+        "ColemanPowerSeries:L0/cyclotomic-difference-maximal",
+        "mathlib:integralClosure",
+        "mathlib:Ideal.isMaximal_comap_of_isIntegral_of_isMaximal",
+        "mathlib:IsLocalRing.eq_maximalIdeal",
+        "mathlib:PadicInt.maximalIdeal_eq_span_p",
+        "mathlib:Ideal.IsPrime.mem_of_pow_mem"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "maximal_ideal_eq_differenceIdeal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integers-local",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The cyclotomic integral ring is local",
+      "kind": "lemma",
+      "statement": "Install the native IsLocalRing instance on O_n.",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Use(ϖ_n) as the maximal ideal supplied by cyclotomic-difference-maximal.",
+        "The preceding uniqueness lemma supplies the unique-maximal-ideal hypothesis of native IsLocalRing.of_unique_max_ideal. Install that resulting proposition as the instance on the existing ring."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-difference-maximal",
+        "ColemanPowerSeries:L0/cyclotomic-unique-maximal",
+        "mathlib:IsLocalRing.of_unique_max_ideal"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_local"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-maximal-ideal",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The canonical cyclotomic maximal ideal",
+      "kind": "lemma",
+      "statement": "The native IsLocalRing.maximalIdeal of O_n equals(ϖ_n).",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Apply the explicit uniqueness theorem to the native maximal ideal, or native eq_maximalIdeal to the already proved maximality of(ϖ_n).",
+        "The equality connects the canonical local-ring residue map to the previously defined algebraic reduction; it is not merely an abstract field isomorphism."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integers-local",
+        "ColemanPowerSeries:L0/cyclotomic-difference-maximal",
+        "mathlib:IsLocalRing.eq_maximalIdeal"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_maximalIdeal"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integers-noetherian",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Finite Noetherian cyclotomic integers",
+      "kind": "lemma",
+      "statement": "The ring O_n is Noetherian, with its finite ℤ_p-module structure supplied by the existing integral power basis.",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Install native PowerBasis.finite using integralBasis(n); this gives Module.Finite ℤ_p O_n without making a new basis or finite-module carrier.",
+        "The base ℤ_p is Noetherian through its native DVR instance. Native IsNoetherianRing.of_finite applied along the specified algebra makes O_n Noetherian."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis",
+        "mathlib:PowerBasis.finite",
+        "mathlib:IsNoetherianRing.of_finite"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_noetherian"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "integers_finite",
+          "role": "instance",
+          "statement": "Install the native finite ℤ_p-module instance from integralBasis(n)."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integers-dvr",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Cyclotomic integral discrete valuation ring",
+      "kind": "theorem",
+      "statement": "Install the native IsDiscreteValuationRing instance on O_n.",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "O_n is a domain as a subring of K_n and is now local and Noetherian. Its maximal ideal is principal by integers_maximalIdeal.",
+        "The generator ϖ_n is nonzero: integralZeta(n) is primitive of order p^(n+1)>1, so native IsPrimitiveRoot.sub_one_ne_zero applies. Since ϖ_n lies in the maximal ideal, that ideal is nonzero; native isField_iff_maximalIdeal_eq shows O_n is not a field.",
+        "Apply the native DVR equivalences for a Noetherian local domain that is not a field, using principality of the maximal ideal. This supplies the native DVR instance on the actual integral closure."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integers-local",
+        "ColemanPowerSeries:L0/cyclotomic-maximal-ideal",
+        "ColemanPowerSeries:L0/cyclotomic-integers-noetherian",
+        "ColemanPowerSeries:L0/integral-cyclotomic-root",
+        "mathlib:IsPrimitiveRoot.sub_one_ne_zero",
+        "mathlib:IsLocalRing.isField_iff_maximalIdeal_eq",
+        "mathlib:IsDiscreteValuationRing.TFAE"
+      ],
+      "acceptance": [
+        "The algebraic DVR has its native algebraic valuation API. This does not install a topological local-field structure on K_n or identify the normalized field valuation."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_dvr"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-difference-irreducible",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The cyclotomic difference is a prime element",
+      "kind": "lemma",
+      "statement": "The element ϖ_n is irreducible in O_n, hence is a uniformizer of this algebraic DVR.",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Use primitivity of integralZeta(n) and native sub_one_ne_zero to prove ϖ_n≠0, including the bottom dyadic value−2.",
+        "Combine the canonical maximal-ideal equality with native irreducible_of_span_eq_maximalIdeal. The native lemma needs only a local domain and the indicated nonzero generator; no total-ramification theorem is hidden in the argument."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-maximal-ideal",
+        "ColemanPowerSeries:L0/cyclotomic-integers-dvr",
+        "ColemanPowerSeries:L0/integral-cyclotomic-root",
+        "mathlib:IsPrimitiveRoot.sub_one_ne_zero",
+        "mathlib:IsDiscreteValuationRing.irreducible_of_span_eq_maximalIdeal"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integral_difference_irreducible"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "LocalCyclotomicTests.dyadic_uniformizer",
+          "kind": "computation",
+          "statement": "At p=2,n=0 the element−2 is irreducible in O_0."
+        },
+        {
+          "name": "LocalCyclotomicTests.nonunit_difference",
+          "kind": "non-example",
+          "statement": "For every n and p, ϖ_n is not a unit."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-residue-field",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The canonical cyclotomic residue field",
+      "kind": "construction",
+      "statement": "Construct a ring equivalence from native IsLocalRing.ResidueField(O_n) to ZMod p that sends the canonical residue class of x to red_n(x).",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "The native residue field is O_n modulo its canonical maximal ideal. Transport that quotient along integers_maximalIdeal using native Ideal.quotEquivOfEq.",
+        "Compose with the existing differenceQuotientEquiv. The native quotient-on-representatives formula and differenceQuotientEquiv_mk show that the composite sends residue(x) to red_n(x).",
+        "Scalar compatibility follows from the existing reduction_scalar statement. Surjectivity of the native residue map proves uniqueness among ring maps whose composite with the residue map equals red_n."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-maximal-ideal",
+        "ColemanPowerSeries:L0/cyclotomic-difference-quotient",
+        "ColemanPowerSeries:L0/cyclotomic-reduction-scalars",
+        "mathlib:IsLocalRing.ResidueField",
+        "mathlib:IsLocalRing.residue",
+        "mathlib:Ideal.quotEquivOfEq",
+        "mathlib:Ideal.quotEquivOfEq_mk",
+        "mathlib:IsLocalRing.residue_surjective"
+      ],
+      "acceptance": [
+        "This is the canonical residue field of the algebraic local ring O_n. Its identification with the residue field of the requested topological local-field structure remains a separate compatibility statement."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "residueFieldEquiv"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "residueFieldEquiv_residue",
+          "role": "compatibility",
+          "statement": "The equivalence sends the canonical residue of x to red_n(x)."
+        },
+        {
+          "name": "residueFieldEquiv_scalar",
+          "role": "compatibility",
+          "statement": "On an included a∈ℤ_p the result is PadicInt.toZMod(a)."
+        },
+        {
+          "name": "residueFieldEquiv_unique",
+          "role": "universal-property",
+          "statement": "A ring map from the native residue field to ZMod p with this composite equals the underlying map of residueFieldEquiv."
+        }
+      ],
+      "tests": [
+        {
+          "name": "LocalCyclotomicTests.residue_difference",
+          "kind": "degenerate",
+          "statement": "The canonical residue of ϖ_n maps to0."
+        },
+        {
+          "name": "LocalCyclotomicTests.residue_root",
+          "kind": "computation",
+          "statement": "The canonical residue of integralZeta(n) maps to1."
+        },
+        {
+          "name": "LocalCyclotomicTests.residue_scalar",
+          "kind": "compatibility",
+          "statement": "The canonical residue of any included a∈ℤ_p maps to its native mod-p reduction."
+        },
+        {
+          "name": "LocalCyclotomicTests.dyadic_residue",
+          "kind": "computation",
+          "statement": "For p=2,n=0 the native residue field of O_0 has cardinality2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §9 and Lemma10.1",
+          "how": "Identifies residues of local integral elements with residues of the base scalars, with the exact reduction map."
+        },
+        {
+          "where": "ColemanPowerSeries:L0 unit towers and L1 arithmetic interpolation",
+          "how": "The exact residue comparison supplies the algebraic unit and coefficient-lifting tests before topological norm compatibility."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-unit-reduction",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Cyclotomic units detected by reduction",
+      "kind": "lemma",
+      "statement": "For x∈O_n, x is a unit if and only if red_n(x)≠0.",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "By native mem_maximalIdeal, the nonunits of O_n are exactly its canonical maximal ideal.",
+        "Replace this ideal by(ϖ_n), then by the kernel of red_n using the two existing equalities. Kernel membership means red_n(x)=0. Negating gives the displayed unit criterion."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integers-local",
+        "ColemanPowerSeries:L0/cyclotomic-maximal-ideal",
+        "ColemanPowerSeries:L0/cyclotomic-reduction-kernel",
+        "mathlib:IsLocalRing.mem_maximalIdeal"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_isUnit_iff_reduction_ne_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-polynomial-unit",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Units in cyclotomic polynomial coordinates",
+      "kind": "lemma",
+      "statement": "For every polynomial f∈ℤ_p[X], f(ϖ_n) is a unit in O_n if and only if its constant coefficient f(0) is a unit in ℤ_p.",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Apply the preceding unit criterion to f(ϖ_n) and the existing reduction_aeval formula; the residue is PadicInt.toZMod(f(0)).",
+        "Native ker_toZMod identifies the kernel with the native maximal ideal of ℤ_p. Native mem_maximalIdeal therefore equates nonzero reduction with being a unit in ℤ_p.",
+        "This holds for all polynomials, not only a preferred representative of degree less than d_n. Adding a multiple of E_n does not change this unit criterion because E_n(0)=p."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-unit-reduction",
+        "ColemanPowerSeries:L0/cyclotomic-integral-reduction",
+        "mathlib:PadicInt.ker_toZMod",
+        "mathlib:IsLocalRing.mem_maximalIdeal"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "isUnit_aeval_difference_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "LocalCyclotomicTests.unit_root_polynomial",
+          "kind": "computation",
+          "statement": "The polynomial X+1 evaluates to the unit integralZeta(n)."
+        },
+        {
+          "name": "LocalCyclotomicTests.nonunit_constant_prime",
+          "kind": "non-example",
+          "statement": "The polynomial X+p evaluates to a nonunit for every n and p."
+        },
+        {
+          "name": "LocalCyclotomicTests.ternary_unit_constant",
+          "kind": "computation",
+          "statement": "For p=3,n=0, X+2 evaluates to a unit."
+        },
+        {
+          "name": "LocalCyclotomicTests.dyadic_linear_zero",
+          "kind": "degenerate",
+          "statement": "For p=2,n=0, X+2 evaluates to0, and its constant coefficient2 is a nonunit."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-unit-polynomial-lift",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "A bounded polynomial lift of a cyclotomic unit",
+      "kind": "lemma",
+      "statement": "Every u∈O_n× admits a polynomial f∈ℤ_p[X] of natural degree less than d_n with f(ϖ_n)=u and unit constant coefficient.",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Native PowerBasis.exists_eq_aeval applied to integralBasis(n) gives a polynomial representative of u with natural degree less than its dimension. The established generator and dimension formulas replace these by ϖ_n and d_n.",
+        "The representative evaluates to a unit. The preceding polynomial unit criterion makes its constant coefficient a unit in ℤ_p. No infinite expansion, completeness or choice of successive residue representatives is needed for this finite polynomial assertion."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-generator",
+        "ColemanPowerSeries:L0/integral-cyclotomic-basis-dimension",
+        "ColemanPowerSeries:L0/cyclotomic-polynomial-unit",
+        "mathlib:PowerBasis.exists_eq_aeval"
+      ],
+      "acceptance": [
+        "The statement concerns the native algebraic cyclotomic integral ring; no general local-field construction is duplicated."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "exists_unit_polynomial_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "LocalCyclotomicTests.dyadic_constant_lift",
+          "kind": "computation",
+          "statement": "At p=2,n=0 every unit has a constant lift by a unit of ℤ_2, since d_0=1."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-unit-series-polynomial-lift",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "A unit series with a finite polynomial representative",
+      "kind": "lemma",
+      "statement": "Every u∈O_n× admits f∈ℤ_p[X] of natural degree less than d_n such that f(ϖ_n)=u and the native polynomial-to-power-series image of f is a unit in ℤ_p[[X]].",
+      "hypotheses": [
+        "Let p be any prime, including2, and n≥0. Use the actual native intermediate field K_n from the preceding nodes, generated by the compatible root of order p^(n+1), with ζ_n its chosen root. Put O_n=integralClosure ℤ_p K_n, ϖ_n=integralZeta(n)−1 and d_n=p^n(p−1)>0. The index n corresponds to the source’s level n+1. All algebraic structures use the specified composite scalar maps. No topology on K_n or comparison with a valuation ring is assumed."
+      ],
+      "proofSteps": [
+        "Take the polynomial lift with unit constant coefficient from the preceding node.",
+        "The native polynomial-to-power-series inclusion preserves the constant coefficient. Apply the native PowerSeries.isUnit_iff_constantCoeff theorem to obtain the series-unit assertion.",
+        "The equality to u in this statement is finite polynomial algebra evaluation. To identify it with the topological evaluation of that same series in K_n, use the owning local-field topology and the native polynomial/evaluation comparison after its hypotheses are supplied."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-unit-polynomial-lift",
+        "mathlib:PowerSeries.isUnit_iff_constantCoeff"
+      ],
+      "acceptance": [
+        "This is the algebraic part of the finite-level series lift. It neither chooses the norm-compatible Coleman interpolant nor proves analytic evaluation for arbitrary infinite power series."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/Integers",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "exists_unit_series_polynomial_lift"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9 printed161–163 and §10.1, Lemma10.1 printed164/PDF65; complete published printed161–164 freshly read27 September2026.",
+          "excerpt": "As u is a unit",
+          "match": "Worker algebraic decomposition of the source’s cyclotomic local ring, uniformizer and finite-level lift. The local/DVR structure is on native algebraic integralClosure. The bounded polynomial lift strengthens the algebraic part of Lemma10.1 using the previously constructed integral power basis. The topological local-field comparison and analytic evaluation of arbitrary infinite series are separate. The dyadic statements extend the source’s odd-prime range."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -9561,12 +10334,12 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
-      "need": "Eisenstein extensions are totally ramified and the root is a uniformizer, in the canonical local-field structures. The explicit cyclotomic integralClosure generation and algebraic difference quotient now have local nodes; only their valuation-ring/residue-field identification and ramification specialization remain here.",
+      "need": "Eisenstein extensions are totally ramified in the canonical local-field structures. The cyclotomic algebraic integral closure, local/DVR instances, irreducible difference and canonical algebraic residue field now have local nodes. Supply the comparison with the topological valuation ring and its normalized valuation, and the resulting ramification specialization.",
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
       "status": "open",
-      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot. This continuation supplies the purely algebraic cyclotomic generation using native Eisenstein denominator descent; it does not rebuild the general local-field theorem."
+      "note": "Stage-level continuation request, not a hidden assumption in the present algebraic declarations. No suitable finer node supplies this interface in the input snapshot. This continuation supplies the purely algebraic cyclotomic generation using native Eisenstein denominator descent; it does not rebuild the general local-field theorem. The current cyclotomic specialization derives localness and DVR structure algebraically from the native integral power basis and reduction kernel; it does not rebuild a general local-field theorem."
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
@@ -9656,9 +10429,10 @@
       "stageId": "ColemanPowerSeries:L0",
       "status": "partial",
       "remaining": [
-        "The algebraic cyclotomic tower, signed relative norms, integralClosure ℤ_p K_n=ℤ_p[ζ_n−1], its native integral power basis and the explicit quotient by ζ_n−1 equal to ZMod p now have nodes. Import the general local-field structures, integerRing_eq_integralClosure and Eisenstein uniformizer/total-ramification interfaces, then prove their cyclotomic specializations and identify the algebraic quotient with the canonical residue field. No topology, localness, DVR instance or ramification index on the new integral closure is asserted here.",
+        "The algebraic integral closure O_n is now planned as a native local DVR, with maximal ideal(ϖ_n), irreducible generator ϖ_n, canonical algebraic residue field ZMod p and exact unit detection. Every unit has a polynomial lift of degree less than d_n with unit constant coefficient, whose image in the native power-series ring is a unit. Import the general topological local-field structures and identify O_n, its maximal ideal, residue map and algebraic uniformizer with the canonical valuation-ring data; establish normalized valuation, total ramification and the native polynomial/series evaluation comparison. Then build continuous norm transitions, the actual full/principal inverse limits, compatible unit actions and arithmetic norm/evaluation compatibility. The present algebraic structures do not provide those topology or interpolation claims.",
         "Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
-        "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
+        "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint.",
+        "Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion and norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data."
       ]
     },
     {
@@ -9703,7 +10477,7 @@
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
-      "detail": "The algebraic cyclotomic tower, signed relative norms, integralClosure ℤ_p K_n=ℤ_p[ζ_n−1], its native integral power basis and the explicit quotient by ζ_n−1 equal to ZMod p now have nodes. Import the general local-field structures, integerRing_eq_integralClosure and Eisenstein uniformizer/total-ramification interfaces, then prove their cyclotomic specializations and identify the algebraic quotient with the canonical residue field. No topology, localness, DVR instance or ramification index on the new integral closure is asserted here. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
+      "detail": "The algebraic integral closure O_n is now planned as a native local DVR, with maximal ideal(ϖ_n), irreducible generator ϖ_n, canonical algebraic residue field ZMod p and exact unit detection. Every unit has a polynomial lift of degree less than d_n with unit constant coefficient, whose image in the native power-series ring is a unit. Import the general topological local-field structures and identify O_n, its maximal ideal, residue map and algebraic uniformizer with the canonical valuation-ring data; establish normalized valuation, total ramification and the native polynomial/series evaluation comparison. Then build continuous norm transitions, the actual full/principal inverse limits, compatible unit actions and arithmetic norm/evaluation compatibility. The present algebraic structures do not provide those topology or interpolation claims. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion and norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data."
     },
     {
       "title": "L1 continuation boundary",
@@ -11379,96 +12153,374 @@
         "otherBindingInputsUnchanged": 52,
         "predecessorDeliverablesUnchanged": true
       }
+    },
+    "cyclotomicLocalRing": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 699,
+      "claimComment": 5858374125,
+      "winningBot": 5858375264,
+      "preservedWholeNodes": 158,
+      "preservedBaseline": 203,
+      "preservedFindings": 13,
+      "newNodes": 13,
+      "historicalChecks": {
+        "nodes": 158,
+        "kinds": {
+          "definition": 2,
+          "lemma": 110,
+          "theorem": 20,
+          "comparison": 9,
+          "construction": 17
+        },
+        "api": 94,
+        "definitionConstructionAPI": 88,
+        "definitionConstructionTests": 63,
+        "packetTests": 121,
+        "planets": 12,
+        "baseline": 203,
+        "preservedWholeNodes": 143,
+        "preservedBaselineObjects": 181,
+        "preservedSourceIssues": 13,
+        "newSourceIssues": 0,
+        "newNodes": 15,
+        "newNamedDeclarations": 26,
+        "newTypedTests": 13,
+        "typedExamples": 123,
+        "reachableNodes": 229,
+        "dependencyEdges": 967,
+        "acyclic": true,
+        "baselineLeaves": 271,
+        "stageRequestLeaves": [],
+        "readerWords": 51382,
+        "scopedMutationCheck": true,
+        "requests": 12,
+        "gaps": 6,
+        "closedStages": 0,
+        "smallPolynomialTests": [
+          {
+            "p": 2,
+            "n": 0,
+            "coefficients": [
+              2,
+              1
+            ]
+          },
+          {
+            "p": 3,
+            "n": 0,
+            "coefficients": [
+              3,
+              3,
+              1
+            ]
+          },
+          {
+            "p": 2,
+            "n": 1,
+            "coefficients": [
+              2,
+              2,
+              1
+            ]
+          },
+          {
+            "p": 3,
+            "n": 1,
+            "coefficients": [
+              3,
+              9,
+              18,
+              21,
+              15,
+              6,
+              1
+            ]
+          }
+        ],
+        "compilerErrors": 0,
+        "compilerWarnings": 332,
+        "allWarningsPlaceholders": true,
+        "supplierWarnings": 584,
+        "sourceAudit": {
+          "Mathlib": 2844,
+          "TauCeti": 3,
+          "research": 1
+        },
+        "suggestedSHA256": "928066a24440b06d68646743ee905c9baabe962294b7e5f4a5ced27f2b5c06ab",
+        "indexedBlueprint": "zero errors, zero warnings",
+        "intake": "four authorized files, zero problems",
+        "errata": "versioned registry validation passes; all13 findings unchanged",
+        "compilation": "Full suggested file compiles with332 expected proof-placeholder warnings and zero errors; actual276-node PMIA supplier compiles with584 expected warnings. Existing pinned native artifacts only; no library builds."
+      },
+      "inputRefresh": {
+        "inputCount": 53,
+        "changedSincePreviousStart": [
+          "research/blueprint/packets/DirichletPadicLFunctions.json"
+        ],
+        "provenance": "Dirichlet grows184→198 from the preceding Coleman starting manifest. The first6 new nodes184→190 were fully screened before PR3270; the next8 nodes190→198 were freshly read in full here, with all190 prior nodes unchanged. These concern tame Bernoulli/formal moments, rational coefficient transport, complex special values and actual measure moments under a new PMIA coefficient-field request. No existing Coleman dependency changes or reverse Coleman edge. All52 other guarded inputs, binding protocols, two models, accepted RS16, supplier PMIA276, registry7600 and REGISTER retain preceding full-read provenance. Current handoff and all5 reviewed AUDIT24 rows freshly reread; fresh complete RJW161–164 read27 September2026."
+      },
+      "sourceBoundary": "Full published RJW161–164 freshly read. Cyclotomic algebraic adapters and dyadic extension are worker deductions; no analytic local-field or infinite interpolation claim.",
+      "remaining": "The algebraic integral closure O_n is now planned as a native local DVR, with maximal ideal(ϖ_n), irreducible generator ϖ_n, canonical algebraic residue field ZMod p and exact unit detection. Every unit has a polynomial lift of degree less than d_n with unit constant coefficient, whose image in the native power-series ring is a unit. Import the general topological local-field structures and identify O_n, its maximal ideal, residue map and algebraic uniformizer with the canonical valuation-ring data; establish normalized valuation, total ramification and the native polynomial/series evaluation comparison. Then build continuous norm transitions, the actual full/principal inverse limits, compatible unit actions and arithmetic norm/evaluation compatibility. The present algebraic structures do not provide those topology or interpolation claims.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All13 complete inherited findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 171,
+          "kinds": {
+            "definition": 2,
+            "lemma": 121,
+            "theorem": 21,
+            "comparison": 9,
+            "construction": 18
+          },
+          "api": 98,
+          "definitionConstructionAPI": 91,
+          "packetTests": 132,
+          "definitionConstructionTests": 67,
+          "typedExamples": 134,
+          "planets": 12,
+          "baseline": 223,
+          "newNodes": 13,
+          "newDeclarations": 17,
+          "newTypedTests": 11,
+          "preservedWholeNodes": 158,
+          "preservedBaseline": 203,
+          "preservedFindings": 13,
+          "newFindings": 0,
+          "reachableNodes": 242,
+          "dependencyEdges": 1029,
+          "baselineLeaves": 291,
+          "stageLeaves": [],
+          "acyclic": true,
+          "compilerErrors": 0,
+          "compilerWarnings": 360,
+          "warningsOnlyPlaceholders": true,
+          "pinnedMathlibModules": 2844,
+          "pinnedTauCetiModules": 3,
+          "actualSupplierModules": 1,
+          "actualSupplierSourceUnchanged": true,
+          "nativeModulesBuilt": 0,
+          "readerWords": 56061,
+          "gaps": 6,
+          "requests": 12,
+          "closedStages": 0,
+          "suggestedFileSha256": "62bc750416b1094fd84b0fa1405f6a434766d1d8f23815bb2461b1496d3a3544"
+        },
+        "arithmetic": {
+          "unitComparisons": 370,
+          "reductionMultiplicativityChecks": 100,
+          "cases": [
+            {
+              "prime": 2,
+              "level": 0,
+              "precision": 3,
+              "degree": 1,
+              "shiftedPolynomial": [
+                2,
+                1
+              ],
+              "testedElements": 13
+            },
+            {
+              "prime": 2,
+              "level": 1,
+              "precision": 3,
+              "degree": 2,
+              "shiftedPolynomial": [
+                2,
+                2,
+                1
+              ],
+              "testedElements": 69
+            },
+            {
+              "prime": 3,
+              "level": 0,
+              "precision": 2,
+              "degree": 2,
+              "shiftedPolynomial": [
+                3,
+                3,
+                1
+              ],
+              "testedElements": 86
+            },
+            {
+              "prime": 3,
+              "level": 1,
+              "precision": 2,
+              "degree": 6,
+              "shiftedPolynomial": [
+                3,
+                9,
+                18,
+                21,
+                15,
+                6,
+                1
+              ],
+              "testedElements": 101
+            },
+            {
+              "prime": 5,
+              "level": 0,
+              "precision": 2,
+              "degree": 4,
+              "shiftedPolynomial": [
+                5,
+                10,
+                10,
+                5,
+                1
+              ],
+              "testedElements": 101
+            }
+          ],
+          "scope": "Finite truncated coefficient quotients only; unit tests by determinant of the multiplication matrix, compared with nonzero constant reduction. These checks do not prove infinite integral-ring localness, DVR structure, topology or interpolation.",
+          "scriptSha256": "09873f6b66f73d97b082839998c6a7e4e719eaa0c00e62dc98edcdb63480cb63"
+        },
+        "publication": {
+          "base": "7c415848c13907168cd0cf4da101962df42b2a5e",
+          "publicationMain": "665038ed6b5fba9d8c23a3c435b7fbec4bd73183",
+          "inputChanges": {},
+          "outputChanges": {},
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5858375264
+        },
+        "closure": "Partial: six gaps,twelve requests,zero closed stages; every implementation status unchecked."
+      }
     }
   },
   "checks": {
-    "nodes": 158,
-    "kinds": {
-      "definition": 2,
-      "lemma": 110,
-      "theorem": 20,
-      "comparison": 9,
-      "construction": 17
+    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+    "intake": "Exactly four authorized deliverables; zero problems.",
+    "sourceIssues": "All13 complete inherited findings preserved; versioned errata wrapper passes.",
+    "validation": {
+      "nodes": 171,
+      "kinds": {
+        "definition": 2,
+        "lemma": 121,
+        "theorem": 21,
+        "comparison": 9,
+        "construction": 18
+      },
+      "api": 98,
+      "definitionConstructionAPI": 91,
+      "packetTests": 132,
+      "definitionConstructionTests": 67,
+      "typedExamples": 134,
+      "planets": 12,
+      "baseline": 223,
+      "newNodes": 13,
+      "newDeclarations": 17,
+      "newTypedTests": 11,
+      "preservedWholeNodes": 158,
+      "preservedBaseline": 203,
+      "preservedFindings": 13,
+      "newFindings": 0,
+      "reachableNodes": 242,
+      "dependencyEdges": 1029,
+      "baselineLeaves": 291,
+      "stageLeaves": [],
+      "acyclic": true,
+      "compilerErrors": 0,
+      "compilerWarnings": 360,
+      "warningsOnlyPlaceholders": true,
+      "pinnedMathlibModules": 2844,
+      "pinnedTauCetiModules": 3,
+      "actualSupplierModules": 1,
+      "actualSupplierSourceUnchanged": true,
+      "nativeModulesBuilt": 0,
+      "readerWords": 56061,
+      "gaps": 6,
+      "requests": 12,
+      "closedStages": 0,
+      "suggestedFileSha256": "62bc750416b1094fd84b0fa1405f6a434766d1d8f23815bb2461b1496d3a3544"
     },
-    "api": 94,
-    "definitionConstructionAPI": 88,
-    "definitionConstructionTests": 63,
-    "packetTests": 121,
-    "planets": 12,
-    "baseline": 203,
-    "preservedWholeNodes": 143,
-    "preservedBaselineObjects": 181,
-    "preservedSourceIssues": 13,
-    "newSourceIssues": 0,
-    "newNodes": 15,
-    "newNamedDeclarations": 26,
-    "newTypedTests": 13,
-    "typedExamples": 123,
-    "reachableNodes": 229,
-    "dependencyEdges": 967,
-    "acyclic": true,
-    "baselineLeaves": 271,
-    "stageRequestLeaves": [],
-    "readerWords": 51382,
-    "scopedMutationCheck": true,
-    "requests": 12,
-    "gaps": 6,
-    "closedStages": 0,
-    "smallPolynomialTests": [
-      {
-        "p": 2,
-        "n": 0,
-        "coefficients": [
-          2,
-          1
-        ]
-      },
-      {
-        "p": 3,
-        "n": 0,
-        "coefficients": [
-          3,
-          3,
-          1
-        ]
-      },
-      {
-        "p": 2,
-        "n": 1,
-        "coefficients": [
-          2,
-          2,
-          1
-        ]
-      },
-      {
-        "p": 3,
-        "n": 1,
-        "coefficients": [
-          3,
-          9,
-          18,
-          21,
-          15,
-          6,
-          1
-        ]
-      }
-    ],
-    "compilerErrors": 0,
-    "compilerWarnings": 332,
-    "allWarningsPlaceholders": true,
-    "supplierWarnings": 584,
-    "sourceAudit": {
-      "Mathlib": 2844,
-      "TauCeti": 3,
-      "research": 1
+    "arithmetic": {
+      "unitComparisons": 370,
+      "reductionMultiplicativityChecks": 100,
+      "cases": [
+        {
+          "prime": 2,
+          "level": 0,
+          "precision": 3,
+          "degree": 1,
+          "shiftedPolynomial": [
+            2,
+            1
+          ],
+          "testedElements": 13
+        },
+        {
+          "prime": 2,
+          "level": 1,
+          "precision": 3,
+          "degree": 2,
+          "shiftedPolynomial": [
+            2,
+            2,
+            1
+          ],
+          "testedElements": 69
+        },
+        {
+          "prime": 3,
+          "level": 0,
+          "precision": 2,
+          "degree": 2,
+          "shiftedPolynomial": [
+            3,
+            3,
+            1
+          ],
+          "testedElements": 86
+        },
+        {
+          "prime": 3,
+          "level": 1,
+          "precision": 2,
+          "degree": 6,
+          "shiftedPolynomial": [
+            3,
+            9,
+            18,
+            21,
+            15,
+            6,
+            1
+          ],
+          "testedElements": 101
+        },
+        {
+          "prime": 5,
+          "level": 0,
+          "precision": 2,
+          "degree": 4,
+          "shiftedPolynomial": [
+            5,
+            10,
+            10,
+            5,
+            1
+          ],
+          "testedElements": 101
+        }
+      ],
+      "scope": "Finite truncated coefficient quotients only; unit tests by determinant of the multiplication matrix, compared with nonzero constant reduction. These checks do not prove infinite integral-ring localness, DVR structure, topology or interpolation.",
+      "scriptSha256": "09873f6b66f73d97b082839998c6a7e4e719eaa0c00e62dc98edcdb63480cb63"
     },
-    "suggestedSHA256": "928066a24440b06d68646743ee905c9baabe962294b7e5f4a5ced27f2b5c06ab",
-    "indexedBlueprint": "zero errors, zero warnings",
-    "intake": "four authorized files, zero problems",
-    "errata": "versioned registry validation passes; all13 findings unchanged",
-    "compilation": "Full suggested file compiles with332 expected proof-placeholder warnings and zero errors; actual276-node PMIA supplier compiles with584 expected warnings. Existing pinned native artifacts only; no library builds."
+    "publication": {
+      "base": "7c415848c13907168cd0cf4da101962df42b2a5e",
+      "publicationMain": "665038ed6b5fba9d8c23a3c435b7fbec4bd73183",
+      "inputChanges": {},
+      "outputChanges": {},
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5858375264
+    },
+    "closure": "Partial: six gaps,twelve requests,zero closed stages; every implementation status unchecked."
   },
   "conventions": {
     "normRootProduct": "The equality lives in O[[T]]: iota(phi(N(F))) equals the product of the actual PMIA root translations. The native Vandermonde determinant is nonzero but need not be a unit. The nondiscrete coefficient substitution/evaluation theorem is imported from pinned Tau Ceti. The coefficient/base/receiving scalar maps are kept explicit."
