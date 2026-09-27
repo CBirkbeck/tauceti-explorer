@@ -1777,7 +1777,7 @@ Acceptance:
 
 Sources:
 
-- BennettSiksek2020, §8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377. Worker assembly of the corrected source factorization, preserving the existing r−2 arithmetic bound and accepted empty-principal-family convention. General later factors are permitted by the corrected Theorem 6 modulus interface.
+- BennettSiksek2020, §8.1, proof of Proposition 8.2, printed pp.377–378; Theorem 6 on pp.376–377. Worker assembly of the corrected source factorization, preserving the existing r−2 arithmetic bound and accepted empty-principal-family convention. General subsequent factors are permitted by the corrected Theorem 6 modulus interface.
 
 ### 45. Large-conductor character blocks and interval threshold
 
