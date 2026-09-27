@@ -23007,13 +23007,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-TropicalAndBerkovichArithmetic.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1019"
+   "note": "released on GitHub issue #1019"
   },
   {
    "id": "REV-TropicalAndBerkovichArithmetic",
@@ -23711,12 +23711,13 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-LogicAndDefinabilityInNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FoundationsAndLibraryIntegration",
     "BP-MotivesAndAlgebraicCycles",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1032"
   },
   {
    "id": "REV-LogicAndDefinabilityInNumberTheory",
