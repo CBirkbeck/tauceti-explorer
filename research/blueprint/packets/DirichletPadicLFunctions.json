@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving 184 predecessor nodes whole. Six L2 nodes give the actual tame translation equation, finite residue masses, psi eigenrelation, integral psi comparison, ambient unit restriction and ordinary unit-moment Euler factor. Five gaps, one request and zero closed stages remain; all implementation statuses are unchecked.",
+  "summary": "Partial continuation preserving all190 predecessor nodes whole. Eight L2 declarations identify formal tame moments and complex special values through finite native rational Bernoulli polynomials, and state the common algebraic ordinary/unit-measure comparisons. A new explicit PMIA L2 request records the missing coefficient-field moment API. Five gaps, two requests and zero closed stages remain; all implementation statuses are unchecked.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -1904,6 +1904,76 @@
         "module": "Mathlib/Analysis/SpecificLimits/Basic.lean",
         "provides": "The real geometric bound p^(-n) tends to zero.",
         "checked": "Full statement and ambient hypotheses read at pinned Mathlib 082e2d3 on 27 September 2026 and matched to the unchanged declaration index."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "Native rational Bernoulli polynomial, using B₁=−1/2.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli_generating_function",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "Exact formal Bernoulli generating identity over a commutative rational algebra.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:PowerSeries.rescale_rescale",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Composition of formal rescalings multiplies the scalars.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:Polynomial.eval_map_apply",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Polynomial evaluation at a mapped rational point equals the mapped rational evaluation.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:Polynomial.eval₂_at_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "provides": "Evaluation through a ring homomorphism preserves the value at a mapped point.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.LFunction",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/DirichletContinuation.lean",
+        "provides": "The native meromorphic Dirichlet L-function is the native periodic L-function on the same character.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:MulChar.ringHomComp_ne_one_iff",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "An injective coefficient homomorphism preserves and reflects nonprincipality.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:bernoulliFun",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/ZetaValues.lean",
+        "provides": "The real Bernoulli function is evaluation of the mapped native rational polynomial.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:bernoulliFun_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ZetaValues.lean",
+        "provides": "The native first Bernoulli function is x−1/2, including the zero-th special-value normalization.",
+        "checked": "Full native statement and ambient hypotheses read at pinned Mathlib082e2d3 on27 September2026 and matched to the unmodified declaration index."
+      },
+      {
+        "ref": "mathlib:MulChar.map_zero",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
+        "provides": "A character vanishes at0 when the modulus ring is nontrivial; nonprincipality excludes modulus1.",
+        "checked": "Full native statement and its explicit nontrivial-domain hypothesis read at pinned Mathlib082e2d3 on27 September2026 and matched to the unchanged index."
       }
     ]
   },
@@ -12414,6 +12484,411 @@
           "statement": "For quadratic η modulo 3 at p=2, the second ordinary moment on units is −10/9."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-bernoulli-generating",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Finite Bernoulli generating identity",
+      "kind": "lemma",
+      "statement": "Let H=mk(k↦−D^k S_(η,k)/(k+1)!). Then H·(1−rescale(D)(exp E))=Σ_a C(η(a))·rescale(a.val)(exp E).",
+      "hypotheses": [
+        "E is a characteristic-zero field with its rational algebra, D>0, η is the native DirichletCharacter E D and η≠1. B_n is exactly Polynomial.bernoulli n with rational coefficients; B_n(a/D) means rational evaluation at the canonical representative a.val/D. Write S_(η,k)=Σ_(a:ZMod D)η(a)·algebraMap( B_(k+1)(a.val/D) ) and b_(η,k)=−D^k S_(η,k)/(k+1). These are expressions in native objects, not new definitions or generalized Bernoulli carriers."
+      ],
+      "proofSteps": [
+        "For each a use native Polynomial.bernoulli_generating_function at a.val/D in E, and apply rescale(D). Native evaluation through a rational algebra identifies its coefficients with the mapped rational Bernoulli evaluations; rescale_rescale makes the right side D X exp(a.val X).",
+        "Multiply by η(a) and sum. The weighted degree-zero coefficient is Σ_aη(a)=0 by the native nonprincipal-character sum theorem. If J is this summed rescaled Bernoulli series, its coefficient of degree k+1 is D^(k+1) S_(η,k)/(k+1)!, so J=−D X H by native coefficient extensionality and the X coefficient shift.",
+        "The summed generating equation is J(exp(DX)−1)=D X Σ_aη(a)exp(a.val X). Substitute J=−D X H and cancel nonzero D and X in the domain E[[X]]. This yields the displayed identity with the minus sign. All exponentials and rescalings are formal; the factor exp(DX)−1 is never inverted as a power-series unit."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.bernoulli",
+        "mathlib:Polynomial.bernoulli_generating_function",
+        "mathlib:Polynomial.eval₂_at_apply",
+        "mathlib:PowerSeries.rescale",
+        "mathlib:PowerSeries.coeff_rescale",
+        "mathlib:PowerSeries.rescale_rescale",
+        "mathlib:PowerSeries.rescale_X",
+        "mathlib:PowerSeries.coeff_succ_X_mul",
+        "mathlib:MulChar.sum_eq_zero_of_ne_one"
+      ],
+      "acceptance": [
+        "Retain η≠1. At D=3 the principal-character series has mass−1, while the claimed Bernoulli mass expression is0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameBernoulli_generating"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF.",
+          "excerpt": "L(η, −k)",
+          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameMomentTests.principal_exclusion",
+          "kind": "non-example",
+          "statement": "For the principal character modulo3 the actual tame series has constant coefficient−1 but the degree-zero Bernoulli expression is0; the nonprincipal hypothesis is necessary."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-exponential-coefficients",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Exponential coefficients of the tame kernel",
+      "kind": "lemma",
+      "statement": "For hD:IsUnit(D:E), coeff_k(tameSeries(η,hD)(exp X−1))=−D^k S_(η,k)/(k+1)! for every k≥0.",
+      "hypotheses": [
+        "E is a characteristic-zero field with its rational algebra, D>0, η is the native DirichletCharacter E D and η≠1. B_n is exactly Polynomial.bernoulli n with rational coefficients; B_n(a/D) means rational evaluation at the canonical representative a.val/D. Write S_(η,k)=Σ_(a:ZMod D)η(a)·algebraMap( B_(k+1)(a.val/D) ) and b_(η,k)=−D^k S_(η,k)/(k+1). These are expressions in native objects, not new definitions or generalized Bernoulli carriers.",
+        "hD certifies the nonzero scalar D as a unit in E."
+      ],
+      "proofSteps": [
+        "Apply the native substitution algebra homomorphism at exp E−1 to the existing tame generating equation. The constant coefficient of exp−1 is0, so this is legal formal substitution.",
+        "Use exp_pow_eq_rescale_exp to turn (exp X)^D and (exp X)^a.val into exp(DX) and exp(a.val X). The substituted actual tameSeries therefore satisfies the preceding finite Bernoulli equation.",
+        "Subtract the two equations and cancel 1−exp(DX). Its coefficient of X is−D≠0 in characteristic zero; hence it is a nonzero series in the domain E[[X]]. Take coefficient k. No analytic exp or totalized inversion at a zero constant coefficient is used."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-bernoulli-generating",
+        "DirichletPadicLFunctions:L2/tame-generating-equation",
+        "mathlib:PowerSeries.substAlgHom",
+        "mathlib:PowerSeries.substAlgHom_X",
+        "mathlib:PowerSeries.subst_C",
+        "mathlib:PowerSeries.constantCoeff_exp",
+        "mathlib:PowerSeries.exp_pow_eq_rescale_exp"
+      ],
+      "acceptance": [
+        "The coefficient has denominator(k+1)!, while the ordinary moment will have denominator k+1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.coeff_tameSeries_exp"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF.",
+          "excerpt": "L(η, −k)",
+          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameMomentTests.quadratic_zero",
+          "kind": "computation",
+          "statement": "For quadratic modulo3 over ℚ the degree-zero exponential coefficient is1/3."
+        },
+        {
+          "name": "SuggestedTameMomentTests.quadratic_second_exponential",
+          "kind": "computation",
+          "statement": "For the same character the degree-two exponential coefficient is−1/9, half of the ordinary second moment."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-formal-moments",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Formal ordinary tame moments",
+      "kind": "theorem",
+      "statement": "constantCoeff(∂^[k](tameSeries(η,hD)))=b_(η,k), where ∂=(1+X)d/dX is the existing PMIA Mahler derivation.",
+      "hypotheses": [
+        "E is a characteristic-zero field with its rational algebra, D>0, η is the native DirichletCharacter E D and η≠1. B_n is exactly Polynomial.bernoulli n with rational coefficients; B_n(a/D) means rational evaluation at the canonical representative a.val/D. Write S_(η,k)=Σ_(a:ZMod D)η(a)·algebraMap( B_(k+1)(a.val/D) ) and b_(η,k)=−D^k S_(η,k)/(k+1). These are expressions in native objects, not new definitions or generalized Bernoulli carriers.",
+        "hD:IsUnit(D:E)."
+      ],
+      "proofSteps": [
+        "Apply PMIA exp-coefficient over E to the actual tameSeries. It identifies the iterated Mahler constant with k! times the preceding exponential coefficient.",
+        "Cancel k! against (k+1)!=(k+1)k! in the characteristic-zero field. This gives precisely −D^k S_(η,k)/(k+1), including k=0. This is a formal algebra theorem and needs no measure-valued supplier."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-exponential-coefficients",
+        "PadicMeasuresIwasawaAlgebras:L2/exp-coefficient"
+      ],
+      "acceptance": [
+        "For quadratic modulo3, degrees0,1,2,4 give1/3,0,−2/9,2/3."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.constantCoeff_iterate_mahler_tameSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF.",
+          "excerpt": "L(η, −k)",
+          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameMomentTests.quadratic_fourth_formal",
+          "kind": "computation",
+          "statement": "The fourth iterated Mahler constant is2/3, not the degree-four exponential coefficient1/36."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-algebraic-value-map",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Coefficient transport of tame arithmetic values",
+      "kind": "comparison",
+      "statement": "For a field homomorphism f:E→F between characteristic-zero fields with rational algebras, f(b_(η,k))=b_(η.ringHomComp(f),k).",
+      "hypotheses": [
+        "E is a characteristic-zero field with its rational algebra, D>0, η is the native DirichletCharacter E D. B_n is exactly Polynomial.bernoulli n with rational coefficients; B_n(a/D) means rational evaluation at the canonical representative a.val/D. Write S_(η,k)=Σ_(a:ZMod D)η(a)·algebraMap( B_(k+1)(a.val/D) ) and b_(η,k)=−D^k S_(η,k)/(k+1). These are expressions in native objects, not new definitions or generalized Bernoulli carriers.",
+        "F is a characteristic-zero field with its rational algebra. No topology or continuity of f is required; the formula also holds for principal η."
+      ],
+      "proofSteps": [
+        "Expand only the displayed finite native expression. A field homomorphism preserves finite sums, products, powers, division and natural casts, and every rational scalar.",
+        "Native ringHomComp evaluates pointwise as f(η(a)); the rational polynomial evaluations use the same canonical representatives on both sides. Thus the transported finite expression is exactly the target. The scratch native proof checks this equality without any arithmetic-measure hypothesis."
+      ],
+      "prerequisites": [
+        "mathlib:MulChar.ringHomComp",
+        "mathlib:Polynomial.bernoulli",
+        "mathlib:Polynomial.eval_map_apply"
+      ],
+      "acceptance": [
+        "Transport rational values with the canonical rational maps, never a map from ℂ into the p-adic coefficient field."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameBernoulliValue_map"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF.",
+          "excerpt": "L(η, −k)",
+          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameMomentTests.rational_transport",
+          "kind": "compatibility",
+          "statement": "The rational quadratic-modulo3 second value maps to−2/9 in ℂ."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-complex-special-values",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Complex tame special values",
+      "kind": "theorem",
+      "statement": "For a nonprincipal native complex Dirichlet character η modulo D>0 and k≥0, η.LFunction(−k)=b_(η,k), using the same rational Bernoulli evaluation expression.",
+      "hypotheses": [
+        "E=ℂ, D>0, η is the native DirichletCharacter E D and η≠1. B_n is exactly Polynomial.bernoulli n with rational coefficients; B_n(a/D) means rational evaluation at the canonical representative a.val/D. Write S_(η,k)=Σ_(a:ZMod D)η(a)·algebraMap( B_(k+1)(a.val/D) ) and b_(η,k)=−D^k S_(η,k)/(k+1). These are expressions in native objects, not new definitions or generalized Bernoulli carriers."
+      ],
+      "proofSteps": [
+        "Use the exact native definition DirichletCharacter.LFunction=ZMod.LFunction. The QSeries periodic-l-value-bernoulli supplier gives the k>0 formula and, under the native character zero-sum theorem, the k=0 formula.",
+        "For k>0 reindex n=1,…,D to residues a:ZMod D and use the native definition of bernoulliFun plus eval_map_apply to identify each real Bernoulli value with the image of its rational evaluation. Nonprincipality excludes D=1; hence η(0)=0, so the replacement of n=D by a.val=0 contributes zero.",
+        "For k=0 use the supplier’s distinct zero formula, based on hurwitz-zeta-at-zero on(0,1]. The native first Bernoulli function is x−1/2. Again the residue0 term vanishes. Do not apply hurwitzZeta_neg_nat with k=0 or use the false endpoint formula at x=0.",
+        "This imports the existing QSeries statements as planned proof prerequisites, with their current unchecked status; it does not re-plan general periodic L-values or the classical generalized Bernoulli carrier owned by ModularForms."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.5/periodic-l-value-bernoulli",
+        "QSeriesPartitionsAndMockModularForms:QM.5/hurwitz-zeta-at-zero",
+        "mathlib:DirichletCharacter.LFunction",
+        "mathlib:MulChar.sum_eq_zero_of_ne_one",
+        "mathlib:bernoulliFun",
+        "mathlib:bernoulliFun_one",
+        "mathlib:Polynomial.eval_map_apply",
+        "mathlib:MulChar.map_zero"
+      ],
+      "acceptance": [
+        "Native LFunction is the meromorphic continuation, not the defining Dirichlet series outside its half-plane."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.LFunction_neg_nat_tame"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF.",
+          "excerpt": "L(η, −k)",
+          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameMomentTests.complex_zero",
+          "kind": "computation",
+          "statement": "The quadratic character modulo3 has native complex L-value1/3 at0."
+        },
+        {
+          "name": "SuggestedTameMomentTests.complex_second",
+          "kind": "computation",
+          "statement": "Its value at−2 is−2/9."
+        },
+        {
+          "name": "SuggestedTameMomentTests.quartic_complex_zero",
+          "kind": "computation",
+          "statement": "For the quartic character modulo5 with η(2)=i the value at0 is(3+i)/5, retaining the nonreal character orientation."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-ordinary-moments",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Bernoulli moments of the actual tame measure",
+      "kind": "theorem",
+      "statement": "For every k≥0 the actual tameMeasure(η,hD,hpD) evaluated on x↦(algebraMap Z_p K x)^k equals b_(η,k).",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra Z_p K, IsBoundedSMul Z_p K and Algebra ℚ K. D>0, p∤D, hD:IsUnit(D:K), and η is a nonprincipal native K-valued character. The two algebra structures are separate; no ℚ-algebra structure on Z_p or ℚ→Z_p scalar tower is assumed.",
+        "E=K, D>0, η is the native DirichletCharacter E D and η≠1. B_n is exactly Polynomial.bernoulli n with rational coefficients; B_n(a/D) means rational evaluation at the canonical representative a.val/D. Write S_(η,k)=Σ_(a:ZMod D)η(a)·algebraMap( B_(k+1)(a.val/D) ) and b_(η,k)=−D^k S_(η,k)/(k+1). These are expressions in native objects, not new definitions or generalized Bernoulli carriers."
+      ],
+      "proofSteps": [
+        "Import the requested coefficient-field ordinary-moment comparison from PMIA L2: for μ:D(Z_p,K), μ(x_K^k)=constantCoeff(∂^[k](μ.amiceTransform)). The currently published ordinary-moment node only treats D(Z_p,Z_p), so it cannot supply this step; this request is a genuine open leaf.",
+        "Apply the requested identity to the actual tameMeasure. Its already planned Amice characterization is exactly tameSeries(η,hD).",
+        "Apply tame-formal-moments over K. No extension of a Z_p-valued measure, scalar tower through ℚ→Z_p or unproved descent of η to Z_p is assumed."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2",
+        "DirichletPadicLFunctions:L2/tame-measure",
+        "DirichletPadicLFunctions:L2/tame-formal-moments"
+      ],
+      "acceptance": [
+        "This arithmetic node remains conditional on the explicit PMIA request even though its Lean target signature elaborates."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameMeasure_moment_bernoulli"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF.",
+          "excerpt": "L(η, −k)",
+          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameMomentTests.dyadic_fourth",
+          "kind": "computation",
+          "statement": "At p=2, the quadratic character modulo3 has actual ordinary fourth moment2/3."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-special-value-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Common algebraic tame special value",
+      "kind": "comparison",
+      "statement": "Let b=b_(η,k) in E. Then ιC(b)=L(η.ringHomComp(ιC),−k) and ιK(b)=μ_(η.ringHomComp(ιK))(x_K^k).",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra Z_p K, IsBoundedSMul Z_p K and Algebra ℚ K. D>0, p∤D, hD:IsUnit(D:K), and the K-valued character is obtained by coefficient transport. The two algebra structures are separate; no ℚ-algebra structure on Z_p or ℚ→Z_p scalar tower is assumed.",
+        "E is a characteristic-zero field with its rational algebra, D>0, η is the native DirichletCharacter E D and η≠1. B_n is exactly Polynomial.bernoulli n with rational coefficients; B_n(a/D) means rational evaluation at the canonical representative a.val/D. Write S_(η,k)=Σ_(a:ZMod D)η(a)·algebraMap( B_(k+1)(a.val/D) ) and b_(η,k)=−D^k S_(η,k)/(k+1). These are expressions in native objects, not new definitions or generalized Bernoulli carriers.",
+        "ιC:E→ℂ and ιK:E→K are separate field homomorphisms. No finite extension or continuity assumption is needed for this finite-value comparison."
+      ],
+      "proofSteps": [
+        "Field homomorphisms are injective. Native ringHomComp_ne_one_iff transfers η≠1 to both characters.",
+        "Use tame-algebraic-value-map for each of the two homomorphisms. Apply tame-complex-special-values to the complex expression and tame-ordinary-moments to the K expression.",
+        "The explicit element b witnesses the common algebraic value. This states the exact meaning of the source’s complex/p-adic special-value equality without identifying their ambient fields. The measure side still depends on the requested PMIA field-general moment theorem."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-algebraic-value-map",
+        "DirichletPadicLFunctions:L2/tame-complex-special-values",
+        "DirichletPadicLFunctions:L2/tame-ordinary-moments",
+        "mathlib:MulChar.ringHomComp_ne_one_iff"
+      ],
+      "acceptance": [
+        "The two images use the same η, rather than its inverse or conjugate. No global ℂ→K map occurs."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameMeasure_common_special_value"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF.",
+          "excerpt": "L(η, −k)",
+          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/tame-unit-special-value-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Common algebraic unit special value",
+      "kind": "comparison",
+      "statement": "Let u=(1−η(p)p^k)b_(η,k) in E. Its complex image is(1−ηC(p)p^k)L(ηC,−k), and its K image is(Eμ_ηK)(x_K^k), where E is the existing ambient unit projector.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete nontrivially normed ultrametric field of characteristic zero, with Algebra Z_p K, IsBoundedSMul Z_p K and Algebra ℚ K. D>0, p∤D, hD:IsUnit(D:K), and the K-valued character is obtained by coefficient transport. The two algebra structures are separate; no ℚ-algebra structure on Z_p or ℚ→Z_p scalar tower is assumed.",
+        "E is a characteristic-zero field with its rational algebra, D>0, η is the native DirichletCharacter E D and η≠1. B_n is exactly Polynomial.bernoulli n with rational coefficients; B_n(a/D) means rational evaluation at the canonical representative a.val/D. Write S_(η,k)=Σ_(a:ZMod D)η(a)·algebraMap( B_(k+1)(a.val/D) ) and b_(η,k)=−D^k S_(η,k)/(k+1). These are expressions in native objects, not new definitions or generalized Bernoulli carriers.",
+        "Separate field homomorphisms ιC:E→ℂ and ιK:E→K are fixed. In this statement Eμ denotes the ambient unit projector and does not denote the coefficient field."
+      ],
+      "proofSteps": [
+        "Apply the preceding common-value comparison to b_(η,k). Transport the finite scalar1−η(p)p^k through each field homomorphism.",
+        "On the K side use the existing tame-unit-moments theorem to identify the scaled ordinary moment with evaluation of the actual ambient unit restriction.",
+        "Retain k in the Euler factor. The shift to L(θ,1−k) requires a separately proved inverse-weight and conductor-product twist; those are not consequences asserted by this declaration."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/tame-special-value-comparison",
+        "DirichletPadicLFunctions:L2/tame-unit-moments"
+      ],
+      "acceptance": [
+        "No new planet is added: L2 already has its allowed six planets."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/TameMoments",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameMeasure_unit_common_special_value"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§5.2, equation(5-3) and Lemma5.9, printed144/PDF45; Lemma5.11, printed145/PDF46. Full printed144–146 freshly reread from the hash-verified published PDF.",
+          "excerpt": "L(η, −k)",
+          "match": "Worker formal-algebra decomposition of the source ordinary-moment and unit-moment formulas. The finite numerator route extends from primitive to all nonprincipal characters at a positive modulus. Complex special values import the existing QSeries periodic-L-value nodes; the field-general measure moment identity is explicitly requested from PMIA L2. No new generic Bernoulli carrier or analytic convergence assertion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedTameMomentTests.dyadic_unit_fourth",
+          "kind": "computation",
+          "statement": "For quadratic modulo3 at p=2, the unit fourth moment is(1+16)·2/3=34/3."
+        }
+      ]
     }
   ],
   "requests": [
@@ -12422,6 +12897,13 @@
       "need": "For U=ℤ_p× and every prime p including2, supply the actual ℤ_p-linear integral-measure equivalence D(U,ℤ_p)→ℤ_p[[U]] on the existing ProfiniteProPGroups Layer9 completed-group-algebra anchor, compatible with convolution and Dirac u↦[u]. Supply the projections to (ℤ/p^sℤ)[(ℤ/p^rℤ)×], all r,s≥0, their joint coefficient/group transition laws, projection of [u] to [red_r(u)], and separation by these projections. Identify these quotients through the canonical unit reduction and its open kernel; use the joint adic/finite-quotient topology, not pure T-adic kernels or an integral dyadic eigenspace splitting. This request imports the general comparison; the finite divisor-coordinate arithmetic is already provided by the consuming nodes.",
       "neededBy": [
         "DirichletPadicLFunctions:L4/positive-eisenstein-completed-coordinates"
+      ]
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L2",
+      "need": "Supply the ordinary-moment/Amice comparison on the actual native coefficient-field carrier: for every prime p (including2), complete nontrivially normed ultrametric field K of characteristic zero with Algebra Z_p K and IsBoundedSMul Z_p K, every μ:D(Z_p,K) and k≥0, evaluation at the continuous test x↦(algebraMap Z_p K x)^k equals constantCoeff((mahlerDerivation K)^[k](μ.amiceTransform)). With Algebra ℚ K, combine the existing formal exp-coefficient theorem to get k! times coeff_k(Aμ(exp−1)). The existing ordinary-moment and ordinary-moment-exp nodes treat only Z_p-valued measures; bounded inversion alone does not generalize them. General weighting/Mahler coefficient identities belong to this owner. Do not assume η takes values in Z_p or a rational-algebra structure on Z_p.",
+      "neededBy": [
+        "DirichletPadicLFunctions:L2/tame-ordinary-moments"
       ]
     }
   ],
@@ -12446,7 +12928,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The actual tame measure now has finite p-power residue coefficients, the psi eigenrelation, its integral-valued comparison, ambient unit restriction and the ordinary unit-moment Euler factor under explicit characteristic-zero hypotheses for the finite-cycle proof. Instantiate composite-modulus primitive Gauss nonvanishing from its existing modular-forms owner; identify ordinary moments with Dirichlet special values, prove primitive-conductor product twists, and establish inverse-weight interpolation. Generic p^n-root translation remains a PMIA obligation. Other presentations of O_K require the existing norm-compatible ring identification. No full source extraction, analytic interpolation or completed-algebra comparison is claimed."
+        "The actual tame kernel now has a finite Bernoulli generating identity, formal ordinary moments, coefficient transport and a common algebraic comparison with native complex Dirichlet L-values, including k=0 via the existing QSeries endpoint supplier. The K-valued actual ordinary-moment and unit special-value statements have an explicit new PMIA L2 request: its existing ordinary-moment API only handles Z_p-valued measures. Discharge that coefficient-field comparison, instantiate composite-modulus Gauss nonvanishing from its existing modular-forms owner, prove primitive-conductor product twists and establish inverse-weight interpolation. Generic p^n-root translation remains PMIA-owned; other integer-ring presentations need the existing norm-compatible identification. Full source extraction, analytic interpolation and completed-algebra comparison remain open."
       ]
     },
     {
@@ -12479,7 +12961,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual tame measure now has finite p-power residue coefficients, the psi eigenrelation, its integral-valued comparison, ambient unit restriction and the ordinary unit-moment Euler factor under explicit characteristic-zero hypotheses for the finite-cycle proof. Instantiate composite-modulus primitive Gauss nonvanishing from its existing modular-forms owner; identify ordinary moments with Dirichlet special values, prove primitive-conductor product twists, and establish inverse-weight interpolation. Generic p^n-root translation remains a PMIA obligation. Other presentations of O_K require the existing norm-compatible ring identification. No full source extraction, analytic interpolation or completed-algebra comparison is claimed."
+      "detail": "The actual tame kernel now has a finite Bernoulli generating identity, formal ordinary moments, coefficient transport and a common algebraic comparison with native complex Dirichlet L-values, including k=0 via the existing QSeries endpoint supplier. The K-valued actual ordinary-moment and unit special-value statements have an explicit new PMIA L2 request: its existing ordinary-moment API only handles Z_p-valued measures. Discharge that coefficient-field comparison, instantiate composite-modulus Gauss nonvanishing from its existing modular-forms owner, prove primitive-conductor product twists and establish inverse-weight interpolation. Generic p^n-root translation remains PMIA-owned; other integer-ring presentations need the existing norm-compatible identification. Full source extraction, analytic interpolation and completed-algebra comparison remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -12726,118 +13208,121 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 13 findings and sourceVersions preserved whole, including the E13 generated published-source citation. No new source finding, independent verdict or correction-search claim. Versioned errata passes.",
+    "sourceIssues": "All13 findings and sourceVersions preserved whole. No new source finding or independent verdict. Versioned errata checks pass.",
     "validation": {
-      "nodes": 190,
+      "nodes": 198,
       "kinds": {
         "definition": 1,
-        "lemma": 100,
+        "lemma": 102,
         "construction": 21,
-        "theorem": 49,
-        "comparison": 19
+        "theorem": 52,
+        "comparison": 22
       },
       "api": 195,
+      "packetTests": 183,
       "definitionConstructionTests": 113,
-      "packetTests": 173,
+      "typedExamples": 186,
       "planets": 23,
-      "baseline": 270,
-      "preservedWholeNodes": 184,
-      "preservedBaseline": 263,
+      "baseline": 280,
+      "preservedWholeNodes": 190,
+      "preservedBaseline": 270,
       "preservedSourceIssues": 13,
       "newSourceIssues": 0,
-      "newNodes": 6,
+      "newNodes": 8,
       "newNamedDeclarations": 8,
       "newTypedTests": 10,
-      "typedExamples": 176,
-      "reachableNodes": 323,
-      "dependencyEdges": 1412,
+      "requests": 2,
+      "gaps": 5,
+      "closedStages": 0,
+      "reachableNodes": 333,
+      "dependencyEdges": 1461,
       "acyclic": true,
-      "baselineLeaves": 366,
+      "baselineLeaves": 384,
       "stageRequestLeaves": [
-        "PadicMeasuresIwasawaAlgebras:L1"
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "PadicMeasuresIwasawaAlgebras:L2"
       ],
+      "readerWords": 76409,
+      "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 432,
+      "compilerWarnings": 450,
       "allWarningsPlaceholders": true,
       "supplierNodes": 265,
+      "currentSupplierNodes": 276,
       "supplierWarnings": 569,
       "supplierArtifactReused": true,
-      "pinnedMathlibModules": 3581,
+      "pinnedMathlibModules": 3595,
       "pinnedTauCetiModules": 20,
       "actualSupplierModules": 1,
       "scratchCompleteLemmas": 5,
       "scratchCompleteDefinitions": 0,
-      "scratchMathlibModules": 1992,
+      "scratchMathlibModules": 2826,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 72940,
-      "scopedMutationCheck": true,
-      "requests": 1,
-      "gaps": 5,
-      "closedStages": 0,
-      "preservedGeneratedCitation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
       "finiteControls": {
-        "rationalChecks": 6654,
-        "gaussianRationalChecks": 1365,
-        "totalFiniteChecks": 8019,
-        "additionalChecks": "All total masses; for quartic η mod5 with η(2)=i at p=2, c0(level0)=(3+i)/5 and c0(level1)=(-1+3i)/5=i*c0(level0), unequal to i^-1*c0(level0). Exact pairs of Fractions, no floating point.",
-        "scope": "Finite candidate formulas only; this is not a formal proof of the actual measure equality."
-      },
-      "supplierReuse": {
-        "previousPR": 3263,
-        "byteComparisonCompletedBeforeRetiringPreviousScratch": true,
-        "files": {
-          "source": {
-            "sha256": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d"
-          },
-          "olean": {
-            "sha256": "792990b5b54462842b15c9a9c5d18ce27b258e320f5e048c22bd1cf6189c3e25"
-          },
-          "log": {
-            "sha256": "052f501c267b2d8edeec41158188185a72b4dc4b1acb567a0a9582f12710869d"
-          }
-        },
-        "currentSupplierNodes": 276,
-        "compiledSupplierNodes": 265,
-        "compatibility": "All 265 old nodes, 274 baseline objects, 14 findings and the complete old Lean body are preserved. The update only adds two imports and eleven declarations plus four tests on the unit-group system; no new instances or notation are declared. DisjointCover is already in the compiled native closure; the added native TauCeti LocallyConstant module was read in full and defines no new instances. The Dirichlet file uses only the preserved APIs. No compilation against the 276-node revision is asserted."
+        "scope": "Exact finite controls for the current tame arithmetic-moment formulas; no formal measure or special-value proof inferred.",
+        "checks": 55,
+        "range": "Five characters, k=0..10, exact pairs of Fractions; recursive tame power-series coefficients and iterated Mahler derivation versus finite native-convention Bernoulli polynomial formula.",
+        "quadraticMod3Moments": {
+          "0": [
+            "1/3",
+            "0"
+          ],
+          "1": [
+            "0",
+            "0"
+          ],
+          "2": [
+            "-2/9",
+            "0"
+          ],
+          "4": [
+            "2/3",
+            "0"
+          ]
+        }
       }
     },
     "lean": {
-      "suggestedFileSha256": "c60f100bfa01d4732d7764ff29d69a60cefb909f7fe5e93a53f495c0045f9d2f",
-      "sourceAuditSha256": "c0ab90654dbb30a388bc54c36b6e2772e77315146e218057c54444eda28bf0b4",
+      "suggestedFileSha256": "df7ecb1f5d62b7b555c01eea4873605418572de3a04814744ec9f7dde95262b3",
+      "sourceAuditSha256": "949b9dc3a704e3df17af1a0e2a7f8ffcd620379c4849688e7114ff1843db281c",
       "errors": 0,
-      "warnings": 432,
+      "warnings": 450,
       "warningsOnlyPlaceholders": true,
-      "mathlibModules": 3581,
+      "mathlibModules": 3595,
       "tauCetiModules": 20,
       "actualSupplierModules": 1,
       "supplierNodes": 265,
-      "supplierWarnings": 569,
-      "supplierReuse": "Actual PMIA source and copied olean byte-compared with the successful PR3263 build before retiring that scratch directory; source, artifact and compile-log hashes retained. No fresh supplier compilation claimed. The subsequently merged 276-node supplier preserves the whole old body and every consumed API; no compile against that newer revision is asserted.",
       "currentSupplierNodes": 276,
-      "nativeTauCetiBuild": "All 20 prior isolated source-built modules reused with source hashes and zero-warning logs checked; no fresh Mathlib or Tau Ceti build.",
+      "supplierWarnings": 569,
+      "supplierReuse": "Existing actual265-node PMIA artifact, source and compile-log hashes reverified against the retained PR3269 receipt. Current276-node source preserves every old line in order and adds only two imports and the unit-test declarations. Only preserved APIs are used; no compile against the276-node revision claimed.",
+      "supplierHashes": {
+        "source": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
+        "olean": "792990b5b54462842b15c9a9c5d18ce27b258e320f5e048c22bd1cf6189c3e25",
+        "log": "052f501c267b2d8edeec41158188185a72b4dc4b1acb567a0a9582f12710869d"
+      },
+      "nativeTauCetiBuild": "All20 existing pinned Tau artifacts reused, source audited and zero-warning build logs checked. No new Mathlib or TauCeti build.",
       "scratch": {
-        "sha256": "433011de183ba95793a5e316fd2bfc6164b2c1599a529ed8206301416f362afc",
+        "sha256": "72b4737b00c73fec983321c35e727dd17ef9337cf17a15aeae5794320ea3638e",
         "provedLemmas": 5,
-        "actualDefinitions": 0,
-        "mathlibModules": 1992,
+        "mathlibModules": 2826,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Complete native proofs of constancy under unit translation, finite-cycle uniqueness with characteristic zero, the actual residue-representative norm bound, characteristic-3 failure of mass cancellation, and finite Mahler translation by a natural number. These local proofs do not establish the full finite residue formula or actual tame psi theorem, which remain unchecked roadmap statements."
+        "scope": "Complete native proofs of finite-value field-hom transport, the rational-polynomial/real-Bernoulli-function comparison and quadratic-modulo3 finite values in degrees0,2,4. These do not prove the formal kernel identity, complex special-value theorem or requested field-general measure moment comparison."
       }
     },
     "publication": {
-      "base": "e7026dfd9ddcd785f86356f99c67869e0c849f2a",
-      "unchangedInputs": 52,
+      "base": "5ca6172d0e2559d5343100eebc8f141d2d29ff52",
+      "unchangedInputs": 53,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
       "lastClaimConfirmation": 5854791937,
       "reviewIssue": 390,
       "reviewUnclaimed": true
     },
-    "closure": "Partial: five gaps, one request, zero closed stages; all implementation statuses unchecked."
+    "closure": "Partial: five gaps,two requests,zero closed stages; all implementation statuses unchecked."
   },
   "provenance": {
     "smoothingFollowup": {
@@ -15961,6 +16446,57 @@
           "reviewUnclaimed": true
         },
         "closure": "Partial: five gaps, one request, zero closed stages; all implementation statuses unchecked."
+      }
+    },
+    "tameArithmeticMoments": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3269,
+      "previousHead": "b8e4844c5a149c6befd42d639a38f873a8ee8294",
+      "previousMerge": "787698102dcdcb8b1d1fdf25624c8297f145f56a",
+      "sourceReading": "Full published144–146 freshly reread from the hash-verified retained PDF. The two consumed QSeries nodes and exact suggested signatures and PMIA formal/moment nodes were read. All ten newly added native statements read with ambient hypotheses and index-matched. Prior full-source, version and audit provenance persists; no new whole-paper or correction-search claim.",
+      "boundary": "The actual tame kernel now has a finite Bernoulli generating identity, formal ordinary moments, coefficient transport and a common algebraic comparison with native complex Dirichlet L-values, including k=0 via the existing QSeries endpoint supplier. The K-valued actual ordinary-moment and unit special-value statements have an explicit new PMIA L2 request: its existing ordinary-moment API only handles Z_p-valued measures. Discharge that coefficient-field comparison, instantiate composite-modulus Gauss nonvanishing from its existing modular-forms owner, prove primitive-conductor product twists and establish inverse-weight interpolation. Generic p^n-root translation remains PMIA-owned; other integer-ring presentations need the existing norm-compatible identification. Full source extraction, analytic interpolation and completed-algebra comparison remain open.",
+      "workspace": "One reusable worktree of the existing clone; no repository snapshot or new library build. One Lean process at a time. Minimal evidence retained after submission.",
+      "inputBase": "18678fe8e78bf322c54fb0ab0451ea7a687f8f46",
+      "newNodes": 8,
+      "preservedWholeNodes": 190,
+      "preservedBaseline": 270,
+      "preservedFindings": 13,
+      "finiteControls": {
+        "scope": "Exact finite controls for the current tame arithmetic-moment formulas; no formal measure or special-value proof inferred.",
+        "checks": 55,
+        "range": "Five characters, k=0..10, exact pairs of Fractions; recursive tame power-series coefficients and iterated Mahler derivation versus finite native-convention Bernoulli polynomial formula.",
+        "quadraticMod3Moments": {
+          "0": [
+            "1/3",
+            "0"
+          ],
+          "1": [
+            "0",
+            "0"
+          ],
+          "2": [
+            "-2/9",
+            "0"
+          ],
+          "4": [
+            "2/3",
+            "0"
+          ]
+        }
+      },
+      "validationSummary": "198nodes,195API,183packettests,186typed,23planets,280baseline; full suggested450placeholderwarnings/noerrors;5complete native lemmas;55exact finite controls;two explicit request leaves.",
+      "publication": {
+        "base": "5ca6172d0e2559d5343100eebc8f141d2d29ff52",
+        "unchangedInputs": 53,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
       }
     }
   },
