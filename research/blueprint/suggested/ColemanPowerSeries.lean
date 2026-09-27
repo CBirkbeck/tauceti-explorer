@@ -1294,3 +1294,97 @@ example (n : ℕ) (hp : Odd p) :
     Algebra.norm (level p n) (zeta p (n+1)-1) = zeta p n-1 := sorry
 end ColemanCyclotomic
 end
+
+/- Algebraic integral closure at each cyclotomic level. This section does not
+install a valuation or identify its quotient with a valuative residue field. -/
+noncomputable section
+namespace ColemanCyclotomic
+open Polynomial
+variable (p : ℕ) [Fact p.Prime]
+
+-- Canonical scalar restriction through the already specified Q_p-algebra.
+instance level_integer_algebra (n : ℕ) : Algebra ℤ_[p] (level p n) :=
+  ((algebraMap ℚ_[p] (level p n)).comp (algebraMap ℤ_[p] ℚ_[p])).toAlgebra
+instance level_integer_tower (n : ℕ) : IsScalarTower ℤ_[p] ℚ_[p] (level p n) := sorry
+
+local notation "O" => fun n => integralClosure ℤ_[p] (level p n)
+local notation "E" => fun n => Polynomial.comp (cyclotomic (p^(n+1)) ℤ_[p]) (X+1)
+
+lemma zeta_integral (n : ℕ) : IsIntegral ℤ_[p] (zeta p n) := sorry
+lemma difference_minpoly (n : ℕ) :
+    minpoly ℤ_[p] (zeta p n-1) = E n := sorry
+lemma p_power_denominator (n : ℕ) (x : level p n) :
+    ∃ k : ℕ, (p : ℤ_[p])^k • x ∈ Algebra.adjoin ℤ_[p] {zeta p n-1} := sorry
+theorem integralClosure_eq_adjoin (n : ℕ) :
+    integralClosure ℤ_[p] (level p n) = Algebra.adjoin ℤ_[p] {zeta p n-1} := sorry
+
+def integralZeta (n : ℕ) : O n := sorry
+lemma integralZeta_val (n : ℕ) : (integralZeta p n).val = zeta p n := sorry
+lemma integralZeta_primitive (n : ℕ) :
+    IsPrimitiveRoot (integralZeta p n) (p^(n+1)) := sorry
+lemma integralZeta_difference_val (n : ℕ) :
+    (integralZeta p n-1 : O n).val = zeta p n-1 := sorry
+
+def integralBasis (n : ℕ) : PowerBasis ℤ_[p] (O n) := sorry
+lemma integralBasis_gen (n : ℕ) : (integralBasis p n).gen = integralZeta p n-1 := sorry
+lemma integralBasis_dim (n : ℕ) : (integralBasis p n).dim = p^n*(p-1) := sorry
+lemma integralBasis_entry (n : ℕ) (i : Fin (integralBasis p n).dim) :
+    (integralBasis p n).basis i = (integralZeta p n-1)^i.val := sorry
+lemma integral_difference_minpoly (n : ℕ) :
+    minpoly ℤ_[p] (integralZeta p n-1) = E n := sorry
+lemma prime_mem_differenceIdeal (n : ℕ) :
+    (p : O n) ∈ Ideal.span {integralZeta p n-1} := sorry
+
+def reduction (n : ℕ) : O n →+* ZMod p := sorry
+lemma reduction_scalar (n : ℕ) (a : ℤ_[p]) :
+    reduction p n (algebraMap ℤ_[p] (O n) a) = PadicInt.toZMod a := sorry
+lemma reduction_zeta (n : ℕ) : reduction p n (integralZeta p n) = 1 := sorry
+lemma reduction_aeval (n : ℕ) (f : ℤ_[p][X]) :
+    reduction p n (aeval (integralZeta p n-1) f) = PadicInt.toZMod (f.coeff 0) := sorry
+lemma reduction_unique (n : ℕ) (f : O n →+* ZMod p)
+    (hs : ∀ a : ℤ_[p], f (algebraMap ℤ_[p] (O n) a) = PadicInt.toZMod a)
+    (hz : f (integralZeta p n) = 1) : f = reduction p n := sorry
+theorem reduction_ker (n : ℕ) :
+    RingHom.ker (reduction p n) = Ideal.span {integralZeta p n-1} := sorry
+
+def differenceQuotientEquiv (n : ℕ) :
+    (O n ⧸ Ideal.span {integralZeta p n-1}) ≃+* ZMod p := sorry
+lemma differenceQuotientEquiv_mk (n : ℕ) (x : O n) :
+    differenceQuotientEquiv p n (Ideal.Quotient.mk _ x) = reduction p n x := sorry
+lemma differenceQuotientEquiv_scalar (n : ℕ) (a : ℤ_[p]) :
+    differenceQuotientEquiv p n (Ideal.Quotient.mk _ (algebraMap ℤ_[p] (O n) a)) =
+      PadicInt.toZMod a := sorry
+lemma differenceQuotientEquiv_symm_nat (n a : ℕ) :
+    (differenceQuotientEquiv p n).symm (a : ZMod p) = Ideal.Quotient.mk _ (a : O n) := sorry
+
+-- IntegralTowerTests.root_order
+example (n : ℕ) : (integralZeta p n)^(p^(n+1)) = 1 := sorry
+-- IntegralTowerTests.dyadic_root
+example : integralZeta 2 0 = -1 := sorry
+-- IntegralTowerTests.root_inclusion
+example (n : ℕ) : ((integralZeta p n).val).val = roots p n := sorry
+-- IntegralTowerTests.basis_zero
+example (n : ℕ) (h : 0 < (integralBasis p n).dim) :
+    (integralBasis p n).basis ⟨0,h⟩ = 1 := sorry
+-- IntegralTowerTests.dyadic_basis_dimension
+example : (integralBasis 2 0).dim = 1 := sorry
+-- IntegralTowerTests.ternary_basis_dimension
+example : (integralBasis 3 0).dim = 2 := sorry
+-- IntegralTowerTests.dyadic_difference
+example : integralZeta 2 0-1 = -2 := sorry
+-- IntegralTowerTests.reduction_polynomial
+example (n : ℕ) : reduction p n ((integralZeta p n-1)^2+2*(integralZeta p n-1)+3) = 3 := sorry
+-- IntegralTowerTests.reduction_prime
+example (n : ℕ) : reduction p n (p : O n) = 0 := sorry
+-- IntegralTowerTests.reduction_root
+example (n : ℕ) : reduction p n (integralZeta p n) = 1 := sorry
+-- IntegralTowerTests.quotient_difference
+example (n : ℕ) : differenceQuotientEquiv p n
+    (Ideal.Quotient.mk _ (integralZeta p n-1)) = 0 := sorry
+-- IntegralTowerTests.quotient_one
+example (n : ℕ) : differenceQuotientEquiv p n (Ideal.Quotient.mk _ (1 : O n)) = 1 := sorry
+-- IntegralTowerTests.dyadic_quotient
+example : Nat.card (integralClosure ℤ_[2] (level 2 0) ⧸
+    Ideal.span {integralZeta 2 0-1}) = 2 := sorry
+end ColemanCyclotomic
+end
