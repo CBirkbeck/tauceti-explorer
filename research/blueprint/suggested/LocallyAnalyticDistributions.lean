@@ -1,3 +1,5 @@
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.Data.Fin.Rev
 import Mathlib.Algebra.Polynomial.OfFn
 import Mathlib.LinearAlgebra.Matrix.MvPolynomial
 import Mathlib.FieldTheory.Separable
@@ -1844,4 +1846,103 @@ example : polynomialSpectralResultant 0 0 (1 : ℤ[X])
 example (M : Matrix (Fin 2) (Fin 2) (ZMod 1)) :
     polynomialSpectralResultant 2 1 Polynomial.X M.charpolyRev = M.charpolyRev := sorry
 end
+end TauCeti.NonarchimedeanFredholm
+
+/-! Reciprocal resultants and the scalar truncation limit in Coleman A3.8(11).
+The full entire spectral transform is a separate remaining target.
+-/
+namespace TauCeti.NonarchimedeanFredholm
+section ReciprocalResultants
+variable {R : Type*} [CommRing R]
+lemma sylvester_reflect_swap (f g : Polynomial R) (m n : ℕ) :
+    (Polynomial.sylvester f g m n).reindex
+        ((Fin.revPerm : Equiv.Perm (Fin (m+n))).trans (finCongr (Nat.add_comm m n)))
+        ((Fin.revPerm : Equiv.Perm (Fin (m+n))).trans (finCongr (Nat.add_comm m n))) =
+      Polynomial.sylvester (g.reflect n) (f.reflect m) n m := by sorry
+lemma resultant_reflect_swap (f g : Polynomial R) (m n : ℕ) :
+    Polynomial.resultant (f.reflect m) (g.reflect n) m n =
+      Polynomial.resultant g f n m := by sorry
+lemma polynomialSpectralResultant_one_sub_reverse_eval
+    (Q P : Polynomial R) (hQ : Q.Monic) (n : ℕ) (hP : P.natDegree ≤ n) :
+    (polynomialSpectralResultant n Q.natDegree (1-Q.reverse) P).eval 1 =
+      Polynomial.resultant Q P Q.natDegree P.natDegree := by sorry
+lemma resultant_modByMonic_fixedBound (Q P : Polynomial R) (hQ : Q.Monic) :
+    Polynomial.resultant Q P Q.natDegree P.natDegree =
+      Polynomial.resultant Q (P %ₘ Q) Q.natDegree Q.natDegree := by sorry
+end ReciprocalResultants
+
+section ResultantCoordinates
+variable {R : Type*} [CommRing R] [TopologicalSpace R] [IsTopologicalRing R] [DecidableEq R]
+lemma continuous_resultant_ofFn (Q : Polynomial R) (m n : ℕ) :
+    Continuous (fun v : Fin (n+1) → R =>
+      Polynomial.resultant Q (Polynomial.ofFn (n+1) v) m n) := by sorry
+end ResultantCoordinates
+
+section EntireResultantLimit
+variable {A : Type*} [NormedCommRing A] [NormOneClass A] [CompleteSpace A] [Nontrivial A]
+variable (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+lemma tendsto_entireMonicQuotient_trunc_coeff
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) (k : ℕ) :
+    Tendsto (fun n : ℕ => (entireMonicQuotient Q
+      ((PowerSeries.trunc (n+1) F : Polynomial A) : PowerSeries A)).coeff k)
+      atTop (𝓝 ((entireMonicQuotient Q F).coeff k)) := by sorry
+lemma tendsto_modByMonic_trunc_coeff
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) (k : ℕ) :
+    Tendsto (fun n : ℕ => ((PowerSeries.trunc (n+1) F) %ₘ Q).coeff k)
+      atTop (𝓝 ((PowerSeries.trunc Q.natDegree
+        (F-(Q : PowerSeries A)*entireMonicQuotient Q F)).coeff k)) := by sorry
+
+theorem tendsto_resultant_trunc
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) :
+    Tendsto (fun n : ℕ => Polynomial.resultant Q (PowerSeries.trunc (n+1) F)
+      Q.natDegree (PowerSeries.trunc (n+1) F).natDegree)
+      atTop (𝓝 (entireResultant hA Q hQ F hF)) := by sorry
+lemma tendsto_spectral_one_sub_reverse_eval
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) :
+    Tendsto (fun n : ℕ => (polynomialSpectralResultant n Q.natDegree
+      (1-Q.reverse) (PowerSeries.trunc (n+1) F)).eval 1)
+      atTop (𝓝 (entireResultant hA Q hQ F hF)) := by sorry
+
+theorem tendsto_spectral_simultaneous_trunc_eval
+    (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F)
+    (hF0 : F.coeff 0 = 1) :
+    Tendsto (fun n : ℕ => (polynomialSpectralResultant n n
+      (PowerSeries.trunc (n+1) ((1-Q.reverse : Polynomial A) : PowerSeries A))
+      (PowerSeries.trunc (n+1) F)).eval 1)
+      atTop (𝓝 (entireResultant hA Q hQ F hF)) := by sorry
+end EntireResultantLimit
+
+-- ReciprocalLimitTests.unit_divisor: the empty resultant is one.
+example (n : ℕ) (P : Polynomial ℤ) :
+    (polynomialSpectralResultant n 0 0 P).eval 1 = 1 := by sorry
+-- ReciprocalLimitTests.linear_sign: the reciprocal/swap signs cancel.
+example : (polynomialSpectralResultant 1 1 (Polynomial.C 3*Polynomial.X)
+    (1-Polynomial.C 2*Polynomial.X : Polynomial ℤ)).eval 1 = -5 := by sorry
+-- ReciprocalLimitTests.padding: retain the chosen rank even above actual degree.
+example : (polynomialSpectralResultant 5 1 (Polynomial.C 2*Polynomial.X)
+    (1+Polynomial.X^2 : Polynomial (ZMod 8))).eval 1 = 5 := by sorry
+-- ReciprocalLimitTests.unnormalized: the auxiliary bound matters without P(0)=1.
+example : (polynomialSpectralResultant 0 2 0 (Polynomial.C 2 : Polynomial ℤ)).eval 1 = 4 ∧
+    (polynomialSpectralResultant 0 0 0 (Polynomial.C 2 : Polynomial ℤ)).eval 1 = 1 := by sorry
+-- ReciprocalLimitTests.zero_polynomial: a positive-degree divisor gives zero.
+example : Polynomial.resultant (Polynomial.X : Polynomial ℤ) 0 1 0 = 0 := by sorry
+section LimitTests
+variable {A : Type*} [NormedCommRing A] [NormOneClass A] [CompleteSpace A] [Nontrivial A]
+variable (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+-- ReciprocalLimitTests.quotient_one: degree zero causes no analytic exception.
+example (F : PowerSeries A) (hF : IsEntire F) (k : ℕ) :
+    Tendsto (fun n : ℕ => (entireMonicQuotient (1 : Polynomial A)
+      ((PowerSeries.trunc (n+1) F : Polynomial A) : PowerSeries A)).coeff k)
+      atTop (𝓝 (F.coeff k)) := by sorry
+-- ReciprocalLimitTests.linear_limit: fixed-polynomial scalar limit is ordinary evaluation.
+example (a : A) (F : PowerSeries A) (hF : IsEntire F) :
+    Tendsto (fun n : ℕ => (polynomialSpectralResultant n 1
+      (Polynomial.C a*Polynomial.X) (PowerSeries.trunc (n+1) F)).eval 1)
+      atTop (𝓝 (entire_eval F a)) := by sorry
+-- ReciprocalLimitTests.constant_entire: both truncations stabilize, including n=0.
+example (Q : Polynomial A) (hQ : Q.Monic) :
+    Tendsto (fun n : ℕ => (polynomialSpectralResultant n n
+      (PowerSeries.trunc (n+1) ((1-Q.reverse : Polynomial A) : PowerSeries A)) 1).eval 1)
+      atTop (𝓝 (1 : A)) := by sorry
+end LimitTests
 end TauCeti.NonarchimedeanFredholm
