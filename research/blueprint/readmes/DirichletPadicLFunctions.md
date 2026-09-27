@@ -1,11 +1,11 @@
-**Current packet:** 115 unchecked nodes (one definition, eleven constructions,
-69 lemmas, 29 theorems and five comparisons), 103 API entries, 82 packet tests
-(70 on definitions/constructions), 85 typed examples, 16 planets and 192 baseline
-references. Five gaps, one request, nine findings and zero closed stages remain.
-Five declarations now compare the actual Bernoulli kernel's Mellin integral and
-normalized continuation with native Riemann zeta. Earlier checkpoint narratives
-and validation below are historical; the current comparison and precise remaining
-work appear in the final section.
+**Current packet:** 128 unchecked nodes: one definition, twelve constructions,
+76 lemmas, 34 theorems and five comparisons. It has 118 API entries, 88 packet
+tests (73 on definitions/constructions), 91 typed examples, 17 planets and
+200 baseline references. Five gaps, one request, nine findings and zero closed
+stages remain. Thirteen new declarations give the actual smoothed kernel,
+its derivatives, decay, and existing entire normalized Mellin continuation.
+Earlier checkpoint narratives and validation below are historical; the final
+section gives this checkpoint and the remaining comparison interfaces.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -3866,3 +3866,389 @@ conventions retain their existing suppliers. The other arithmetic interfaces,
 completed unit-group algebra request, twists, branches/poles and constant
 Eisenstein pseudomeasure remain in the five gaps and one request. No stage is
 claimed closed.
+
+
+## The actual smoothed Mellin kernel
+
+Let β be the existing smooth Bernoulli kernel. Define h_a as the native divided
+difference at zero of x↦β(x)−β(ax). The difference vanishes at zero, so away
+from zero this is (β(t)−β(at))/t. For a≠0 it agrees on t≠0 with the source's
+1/(exp(t)−1)−a/(exp(at)−1). Its value at zero is (a−1)/2. The raw totalized
+quotient would have value zero there and would not give the required extension.
+The definition is meaningful for every real a; decay and the Mellin application
+require a>0. This applies the already recorded source correction E3.
+
+The analytic difference has a convergent power series at zero. The native
+power-series shift for dslope supplies the analytic extension there. Away from
+zero, analytic division by t gives the same result. Thus h_a is real analytic
+and globally smooth for every real parameter. This claims real analyticity in
+the integration variable, not an entire extension in a complex variable.
+The product identity t h_a(t)=β(t)−β(at) holds even at zero.
+
+Differentiate that product n+1 times at zero. The only surviving term on the
+left is (n+1)h_a^(n)(0). On the right, global smoothness of β permits the native
+dilation derivative theorem and gives (1−a^(n+1))B_(n+1). Consequently the nth
+origin derivative is (1−a^(n+1))B_(n+1)/(n+1). This finite Leibniz argument uses
+the earlier actual Bernoulli derivative theorem and needs no separate convergence
+claim for the Bernoulli generating series. For a=2 the first derivative is−1/4.
+
+For positive t and a, use the existing positive-index weighted sums F_m.
+Induction on derivatives in the open positive half-line gives
+h_a^(m)(t)=(−1)^m(F_m(t)−a^(m+1)F_m(at)). The induction uses equal germs and
+the native chain rule, so it never applies a global smoothness theorem to the
+singular reciprocal exponential. The extra factor a in a^(m+1) is essential.
+At cutoff1, the existing estimate gives F_m(t)≤C_m exp(−t), where
+C_m=exp(1)F_m(1)≥0. Once t≥max(1,1/a), it also gives
+F_m(at)≤C_m exp(−at). Both exponentials are bounded by exp(−min(1,a)t).
+The resulting derivative bound is C_m(1+a^(m+1))exp(−min(1,a)t).
+The positive rate is independent of m, while its constant may depend on a,m.
+There is no bound uniform as a approaches zero.
+
+The special cases distinguish normalization and domain errors. For a=1 the
+kernel is zero. For a=2 it equals 1/(exp(t)+1), with value1/2 at zero and1/3
+at log(2). For a=−1 it is the constant−1, so it cannot satisfy the positive-rate
+decay assertion. These controls reinforce E3 without introducing a new finding.
+
+Include h_a into ℂ through the native real continuous linear map. The resulting
+g_a is smooth over ℝ; unique derivatives on [0,∞) identify its endpoint
+within derivatives with the included Bernoulli formula. At positive points
+within and ordinary derivatives coincide and have the same norm, giving the
+same atTop decay. For a>0 these are precisely the inputs to the existing
+normalized Mellin continuation. It is entire, and its value at−n is
+(−1)^n(1−a^(n+1))B_(n+1)/(n+1). For a=2,n=1 this is+1/4, while the actual
+real derivative is−1/4. No new continuation carrier is introduced.
+
+The existing rational-to-complex smoothed-value comparison is retained. Only
+its final proof-status sentence is brought up to date; its mathematical statement,
+hypotheses, prerequisites and test are unchanged. The other114 predecessor
+nodes and all192 prior baseline records remain whole. Eight exact new native
+statements were read and recorded. The existing Bernoulli origin and decay
+nodes supply their actual named interfaces, and all nine findings remain intact.
+At snapshot refresh all52 captured input blobs match the preceding Mellin/zeta
+checkpoint, including the screened Evertse registry additions. The whole issue
+body is unchanged from its complete after-claim reading. The reviewed L0 audit,
+accepted RS14 scope, touching links, binding protocols and two upstream models
+retain their continuous reading provenance and unchanged captured hashes.
+
+### The smooth smoothed Mellin kernel
+
+`DirichletPadicLFunctions:L0/smoothed-mellin-kernel` — `smoothedMellinKernel` (construction).
+
+For real a, define h_a:ℝ→ℝ as the native extended divided difference at zero of x↦β(x)−β(ax). Equivalently away from t=0 it is (β(t)−β(at))/t, with its derivative-defined value at zero.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. The difference β(x)−β(ax) vanishes at x=0. Apply native dslope centered at zero to that function. This is a real function built from the existing β, not a new analytic-function carrier.
+2. The following origin, punctured quotient, smoothness and derivative declarations give its operational API. At a=1 the difference is identically zero, so the kernel vanishes.
+3. For a≠0 and t≠0, substitution of the existing Bernoulli quotient recovers the source f_a. Positivity is imposed when using decay and Mellin continuation, as required by the preserved source finding E3.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smooth-bernoulli-kernel`, `mathlib:dslope`.
+
+**Uses:**
+
+- RJW§4.1 and Lemma4.2, printed136: Provides the actual smooth rapidly decreasing kernel whose normalized Mellin continuation interpolates the smoothed values.
+- RJW Lemma4.3 and Proposition4.6, printed136–137; existing L1 arithmetic smoothing nodes: Its derivatives at zero are explicit rational Bernoulli values. The analytic/formal substitution comparison is a separate consumer, not assumed by this construction.
+
+**API:**
+
+- `smoothedMellinKernel_def` (data): h_a(t) is native dslope at zero of x↦β(x)−β(ax).
+- `smoothedMellinKernel_zero` (simp): For every real a, h_a(0)=(a−1)/2.
+- `smoothedMellinKernel_one` (simp): For every real t, h_1(t)=0.
+- `smoothedMellinKernel_of_ne` (characterisation): For a≠0 and t≠0, h_a(t)=1/(exp(t)−1)−a/(exp(at)−1); promoted below.
+- `smoothedMellinKernel_analyticAt` (structure): For every real a, h_a is real analytic everywhere; promoted below.
+- `smoothedMellinKernel_contDiff` (structure): For every real a, h_a is globally smooth over ℝ; promoted below.
+- `smoothedMellinKernel_mul` (relation): For all real a,t, t h_a(t)=β(t)−β(at); promoted below.
+- `smoothedMellinKernel_iteratedDeriv_zero` (example): For every n≥0, h_a^(n)(0)=(1−a^(n+1))B_(n+1)/(n+1); promoted below.
+- `smoothedMellinKernel_iteratedDeriv_pos` (relation): For a,t>0, the mth derivative is (−1)^m(F_m(t)−a^(m+1)F_m(at)); promoted below.
+- `smoothedMellinKernel_iteratedDeriv_decay` (compatibility): For a>0, every derivative has decay O(exp(−min(1,a)t)); promoted below.
+- `smoothedMellinKernel_complex_contDiff` (coercion): The inclusion g_a is globally smooth over ℝ; promoted below.
+- `smoothedMellinKernel_iteratedDerivWithin_zero` (compatibility): The complex within derivative at zero is the included real Bernoulli formula; promoted below.
+- `smoothedMellinKernel_iteratedDerivWithin_decay` (compatibility): For a>0, every complex within derivative has the same positive decay rate; promoted below.
+- `smoothedMellinKernel_mellin_entire` (structure): For a>0, the existing normalizedMellinContinuation of g_a is entire; promoted below.
+- `smoothedMellinKernel_mellin_neg_nat` (example): For a>0, the continued value at −n is (−1)^n(1−a^(n+1))B_(n+1)/(n+1); promoted below.
+
+**Tests:**
+
+- `SuggestedSmoothedKernelTests.two_at_zero` (computation): h_2(0)=1/2.
+- `SuggestedSmoothedKernelTests.one_kernel` (degenerate): h_1 is identically zero.
+- `SuggestedSmoothedKernelTests.two_at_log_two` (computation): h_2(log(2))=1/3, agreeing with 1/(exp(t)+1).
+
+**Acceptance:** Do not define h_a by the raw totalized reciprocal-exponential difference: that expression is zero at t=0, while h_a(0)=(a−1)/2. The real parameter a=0 is admitted in the definition but not in the decay application.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### The smoothed exponential quotient
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-away` — `smoothedMellinKernel_of_ne` (lemma).
+
+For real a≠0 and t≠0, h_a(t)=1/(exp(t)−1)−a/(exp(at)−1).
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. Expand dslope away from its center as (β(t)−β(at))/t. The center value of the difference is zero.
+2. Apply smooth-bernoulli-away at t and at at, both nonzero. Cancel t and the exponential denominators, which are nonzero by exp(x)=1 iff x=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-mellin-kernel`, `DirichletPadicLFunctions:L0/smooth-bernoulli-away`, `mathlib:dslope_of_ne`, `mathlib:Real.exp_eq_one_iff`.
+
+**Acceptance:** Keep both nonzero hypotheses. At zero the displayed raw quotient has value zero by totalized division.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Analyticity of the smoothed kernel
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-analytic` — `smoothedMellinKernel_analyticAt` (theorem).
+
+For every real a and every real t, h_a is real analytic at t.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. The function x↦β(x)−β(ax) is real analytic everywhere, by the existing analyticity of β, analytic linear composition and subtraction.
+2. At t=0, take its native analytic power series and apply HasFPowerSeriesAt.has_fpower_series_dslope_fslope. This produces the analytic extension at the center.
+3. At t≠0, divide the analytic difference by x on a neighborhood avoiding zero and use equality of germs with dslope. No positivity assumption on a is needed for real analyticity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-mellin-kernel`, `DirichletPadicLFunctions:L0/smooth-bernoulli-analytic`, `mathlib:AnalyticAt.comp`, `mathlib:AnalyticAt.sub`, `mathlib:HasFPowerSeriesAt.has_fpower_series_dslope_fslope`, `mathlib:AnalyticAt.div`, `mathlib:AnalyticAt.congr`, `mathlib:dslope_of_ne`.
+
+**Acceptance:** The domain and scalar field are real. This does not assert that the reciprocal-exponential difference is entire in a complex t variable.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Smoothness of the smoothed kernel
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-smooth` — `smoothedMellinKernel_contDiff` (lemma).
+
+For every real a, h_a is globally C∞ over ℝ.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. Assemble smoothed-kernel-analytic into native AnalyticOnNhd on the whole real line and apply native AnalyticOnNhd.contDiff.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-analytic`, `mathlib:AnalyticOnNhd.contDiff`.
+
+**Acceptance:** The conclusion includes t=0 and all finite derivative orders.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### The smoothed kernel product identity
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-product` — `smoothedMellinKernel_mul` (lemma).
+
+For all real a and t, h_a(t)t=β(t)−β(at).
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. Apply native sub_smul_dslope to the analytic difference, centered at zero. Its value at the center is β(0)−β(0)=0. Convert real scalar multiplication to multiplication.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-mellin-kernel`, `mathlib:sub_smul_dslope`.
+
+**Acceptance:** This identity is global and valid also for a=0 and t=0. Regularity and the actual dslope value, not this identity alone, determine h_a(0).
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Smoothed Bernoulli derivatives
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-origin-derivatives` — `smoothedMellinKernel_iteratedDeriv_zero` (theorem).
+
+For every real a and every n≥0, h_a^(n)(0)=(1−a^(n+1))B_(n+1)/(n+1) in ℝ.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. Differentiate the global product identity n+1 times at zero. Native higher Leibniz leaves only the term (n+1)h_a^(n)(0), because the identity function has only its first derivative nonzero there.
+2. On the right, native iterated derivatives of a difference and of the globally smooth dilation β(at) give (1−a^(n+1))β^(n+1)(0). Substitute the existing Bernoulli derivative value.
+3. Cancel the nonzero real integer n+1. For n=0 this gives the API value (a−1)/2 using B_1=−1/2. No infinite Bernoulli-series differentiation is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-product`, `DirichletPadicLFunctions:L0/smoothed-kernel-smooth`, `DirichletPadicLFunctions:L0/smooth-bernoulli-smooth`, `DirichletPadicLFunctions:L0/smooth-bernoulli-derivatives`, `mathlib:ContDiff.comp`, `mathlib:iteratedDeriv_mul`, `mathlib:iteratedDeriv_sub`, `mathlib:iteratedDeriv_comp_const_mul`, `mathlib:iteratedDeriv_fun_id_zero`, `mathlib:bernoulli_one`, `mathlib:bernoulli_two`.
+
+**Tests:**
+
+- `SuggestedSmoothedKernelTests.two_first_derivative` (computation): h_2′(0)=−1/4.
+
+**Acceptance:** The Bernoulli index is n+1 and the denominator is n+1. The globally smooth β, not the singular reciprocal quotient, is used in the dilation derivative theorem.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Positive-half-line smoothed derivatives
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-positive-derivatives` — `smoothedMellinKernel_iteratedDeriv_pos` (lemma).
+
+For a>0, t>0 and m≥0, h_a^(m)(t)=(−1)^m(F_m(t)−a^(m+1)F_m(at)).
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. At m=0, use smoothed-kernel-away and the existing reciprocal-exponential-geometric identity at t and at at.
+2. Induct on m. The induction hypothesis holds on the open positive half-line, hence on a neighborhood of each positive t. Transfer derivatives through this equality of germs.
+3. Differentiate F_m(t) using weighted-exponential-derivative. Differentiate F_m(at) with the same theorem at at>0 and the native chain rule for multiplication by a. The latter supplies one additional factor a.
+4. Combine subtraction and scalar-multiplication derivatives and simplify the signs and powers, obtaining the m+1 formula. No global smoothness at zero is assumed for the raw reciprocal exponential.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-away`, `DirichletPadicLFunctions:L0/reciprocal-exponential-geometric`, `DirichletPadicLFunctions:L0/weighted-exponential-derivative`, `mathlib:iteratedDeriv_succ`, `mathlib:Filter.EventuallyEq.deriv_eq`, `mathlib:HasDerivAt.comp`, `mathlib:hasDerivAt_const_mul`, `mathlib:HasDerivAt.const_mul`, `mathlib:HasDerivAt.sub`.
+
+**Acceptance:** The dilation power is a^(m+1), not a^m. Positivity keeps both evaluation points in the series convergence domain.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Exponential decay of smoothed derivatives
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-derivative-decay` — `smoothedMellinKernel_iteratedDeriv_decay` (theorem).
+
+For a>0 and every m≥0, h_a^(m) is O(exp(−min(1,a)t)) as t→+∞.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. Use weighted-exponential-halfline-bound at cutoff1. Write C_m=exp(1)F_m(1)≥0. Then F_m(t)≤C_m exp(−t) for t≥1, and F_m(at)≤C_m exp(−at) once at≥1.
+2. For t≥max(1,1/a), both estimates apply. The positive-derivative formula and triangle inequality bound the absolute derivative by C_m(exp(−t)+a^(m+1)exp(−at)).
+3. Since a>0 and t≥0, both exponentials are at most exp(−min(1,a)t). The explicit bound is C_m(1+a^(m+1)) times this exponential. Apply native IsBigO.of_bound.
+4. The rate min(1,a) is positive and independent of m; the implicit constant may depend on both a and m. No uniform bound as a tends to zero is asserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-positive-derivatives`, `DirichletPadicLFunctions:L0/weighted-exponential-halfline-bound`, `mathlib:Asymptotics.IsBigO.of_bound`.
+
+**Tests:**
+
+- `SuggestedSmoothedKernelTests.negative_parameter` (non-example): For every real t, h_(−1)(t)=−1; the decay theorem cannot admit this negative parameter.
+
+**Acceptance:** The negative parameter control h_(−1)(t)=−1 shows why source E3 positivity is necessary. The case a=1 is the zero kernel and is included.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### The complex smoothed kernel
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-complex-smooth` — `smoothedMellinKernel_complex_contDiff` (lemma).
+
+For every real a, g_a:ℝ→ℂ obtained by including h_a is globally C∞ over ℝ.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. Compose smoothed-kernel-smooth with native Complex.ofRealCLM. Native continuous-linear-map composition preserves every derivative order.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-smooth`, `mathlib:Complex.ofRealCLM`, `mathlib:ContDiff.continuousLinearMap_comp`.
+
+**Acceptance:** Smoothness is over ℝ with codomain ℂ. Its restriction supplies ContDiffOn on the closed Mellin half-line.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Smoothed right derivatives at zero
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-within-values` — `smoothedMellinKernel_iteratedDerivWithin_zero` (lemma).
+
+For every real a and n≥0, the nth iterated derivative within [0,∞) of g_a at zero is (1−a^(n+1))B_(n+1)/(n+1), with all factors included into ℂ.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. Unique differentiability of the closed real half-line identifies the within derivative at zero with the ordinary derivative of globally smooth g_a.
+2. Native continuous-linear-map composition of iterated Frechet derivatives identifies that complex-valued derivative with the real derivative of h_a included into ℂ. Evaluate on n copies of1.
+3. Apply smoothed-kernel-origin-derivatives and compatibility of the rational/real/complex embeddings.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-complex-smooth`, `DirichletPadicLFunctions:L0/smoothed-kernel-smooth`, `DirichletPadicLFunctions:L0/smoothed-kernel-origin-derivatives`, `mathlib:uniqueDiffOn_Ici`, `mathlib:iteratedDerivWithin_eq_iteratedDeriv`, `mathlib:ContinuousLinearMap.iteratedFDeriv_comp_left`.
+
+**Acceptance:** Zero is handled as an endpoint of a uniquely differentiable closed half-line, not as an interior point.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Smoothed decay on the Mellin half-line
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-within-decay` — `smoothedMellinKernel_iteratedDerivWithin_decay` (lemma).
+
+For a>0 and every m≥0, iteratedDerivWithin m g_a [0,∞) is O(exp(−min(1,a)t)) at +∞.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. At every t>0 the closed-half-line within derivative equals the ordinary derivative of the globally smooth g_a.
+2. As in smoothed-kernel-within-values, continuous-linear inclusion commutes with derivatives. The complex norm of an included real derivative is its absolute value.
+3. Transfer smoothed-kernel-derivative-decay through these eventual equalities. Values at the endpoint do not enter this atTop assertion.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-complex-smooth`, `DirichletPadicLFunctions:L0/smoothed-kernel-smooth`, `DirichletPadicLFunctions:L0/smoothed-kernel-derivative-decay`, `mathlib:uniqueDiffOn_Ici`, `mathlib:iteratedDerivWithin_eq_iteratedDeriv`, `mathlib:ContinuousLinearMap.iteratedFDeriv_comp_left`.
+
+**Acceptance:** Keep the positive parameter and actual kernel. This is the precise decay premise used by the existing normalized continuation.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Entire smoothed Mellin continuation
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-mellin-entire` — `smoothedMellinKernel_mellin_entire` (theorem).
+
+For a>0, the existing normalizedMellinContinuation(g_a) is complex differentiable everywhere.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. Restrict smoothed-kernel-complex-smooth to [0,∞). For every derivative order use smoothed-kernel-within-decay with the positive rate min(1,a).
+2. Apply the already decomposed normalized-mellin-entire theorem to those actual inputs. No new continuation object is constructed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-complex-smooth`, `DirichletPadicLFunctions:L0/smoothed-kernel-within-decay`, `DirichletPadicLFunctions:L0/normalized-mellin-entire`.
+
+**Acceptance:** This does not yet identify the continuation with the smoothed zeta factor or with the arithmetic formal power series. Those are distinct comparisons.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Smoothed Mellin special values
+
+`DirichletPadicLFunctions:L0/smoothed-kernel-mellin-values` — `smoothedMellinKernel_mellin_neg_nat` (theorem).
+
+For a>0 and every n≥0, normalizedMellinContinuation(g_a,−n)=(−1)^n(1−a^(n+1))B_(n+1)/(n+1) in ℂ.
+
+**Hypotheses:** β is the already constructed real smoothBernoulliKernel, with ordinary Bernoulli convention B_1=−1/2. Define h_a below and write g_a(t) for its inclusion into ℂ. F_m(t) denotes the existing explicit real sum of (n+1)^m exp(−(n+1)t) for n≥0. Real and complex derivatives of these kernels are taken over ℝ.
+
+**Proof outline:**
+
+1. Supply the same smoothness and all-order positive-rate decay as for smoothed-kernel-mellin-entire to normalized-mellin-negative-values.
+2. Substitute smoothed-kernel-within-values. The continuation contributes the factor (−1)^n, whereas the real kernel derivative itself has no such extra factor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L0/smoothed-kernel-complex-smooth`, `DirichletPadicLFunctions:L0/smoothed-kernel-within-decay`, `DirichletPadicLFunctions:L0/smoothed-kernel-within-values`, `DirichletPadicLFunctions:L0/normalized-mellin-negative-values`.
+
+**Tests:**
+
+- `SuggestedSmoothedKernelTests.two_mellin_minus_one` (computation): The normalized Mellin continuation of g_2 at−1 is+1/4.
+
+**Acceptance:** For a=2,n=1 the real derivative is−1/4 while the normalized continued value is+1/4. Native zeta negative values remain baseline.
+
+**Sources:** RJW-published, §4.1, the function f_a and Lemma4.2, printed136/PDF37; surrounding printed134–139/PDF35–40 read27 September2026. Theorem2.4 and Lemma2.6 supply the earlier continuation/decay context. The source asserts smoothness and rapid decrease of the smoothed reciprocal-exponential difference. Native divided differences, the finite derivative argument and explicit decay rate below supply that justification. Existing E3 requires positivity of a for decay; origin and regularity statements themselves apply to every real a. Lemma4.2 zeta-factor comparison and Lemma4.3 analytic/formal substitution remain distinct interfaces.
+
+### Current validation and continuation
+
+The full suggested file compiles with zero errors and248 expected placeholder
+warnings only, with the actual232-node PMIA supplier compiling with484.
+The import audit reaches3,552 byte-verified pinned Mathlib modules,19 pinned
+Tau Ceti modules from the preceding isolated native-source build, and one actual
+suggested supplier. The native source hashes, artifacts and zero-warning build
+logs are retained and checked. No supplier is replaced by an assumed interface.
+
+The complete scratch file contains the earlier actual Bernoulli constructor
+and17 lemmas, the new smoothed constructor and17 further lemmas. All34 lemmas
+compile with zero errors, warnings or placeholders against2,329 byte-verified
+pinned Mathlib modules. The new checks prove analyticity, smoothness, the global
+product and punctured quotient, all origin derivative values, complex smoothness
+and endpoint derivatives, and the a=1,2,−1 and log(2) controls. A generic local
+series-derivative lemma proves the induction with explicit geometric-sum and
+weighted-derivative premises. A separate complete inequality proves the decay
+majorant from explicit nonnegative exponential bounds. Those two premises are
+supplied by existing roadmap nodes in the public signatures; the scratch file
+does not claim an implementation of those planned series declarations.
+
+Resume with the smoothed normalized comparison (1−a^(1−s))ζ(s), stating its
+valid punctured domain and removable value at s=1, and with the analytic/formal
+substitution interface of Lemma4.3. Then connect to the already explicit rational
+Bernoulli images in ℂ and the p-adic coefficient field. Native zeta values and
+generalized Bernoulli arithmetic remain upstream. The other arithmetic-measure,
+completed unit-group algebra, twist, branch/pole and constant Eisenstein
+pseudomeasure tasks remain in the five gaps and one request. No stage is closed.
