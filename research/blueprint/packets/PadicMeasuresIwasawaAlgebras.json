@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "Partial roadmap retaining the bounded Amice isometry and rational unit-ball range, with an eleven-node weak/norm topology continuation. Native Dirac measures are weakly continuous but stay one unit apart in operator norm; the infinite-domain dual unit ball is not norm compact. Integral test scaling gives weak continuity of the actual Z_p-to-Q_p extension, and the integral Amice homeomorphism makes it a compact weak closed embedding. Eight source/interface gaps and all ownership boundaries remain; no stage is closed.",
+  "summary": "Partial continuation preserving all179 preceding node objects. Twelve L2 declarations construct integral coefficient extension on the native p-adic unit group using the existing ambient extension and clopen maps; prove the inclusion, restriction and integral-test comparisons; and identify its rational image with the closed native dual unit ball, with injectivity, exact ambient coefficient norm and a common p-power denominator. The induced rational norm contracts under restriction and is unchanged by inclusion. No integral weak/operator-norm topology identification or convolution equivalence is asserted. Eight gaps remain, no requests are added and no stage is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1313,7 +1313,8 @@
         "Clopen/intrinsic-unit continuation, 27 September 2026: published physical PDF14–16,18–23,28–30 (printed113–115,117–122,127–129) read in batches of at most three pages; corresponding v2 physical pages10–15,20–22 collated. Focus: Definitions3.7–3.8, Remarks3.9–3.12,3.31,3.33 and Corollary3.32. Six source findings E8–E13 record passages encountered in the introduction/preliminaries, with bounded correction search. No all-paper reading or full L0 decomposition is claimed.",
         "Codex codex-7e92bd, 27 September2026: freshly downloaded the published PDF, verified its recorded hash, and read full PDF20-22/printed119-121 and PDF28-30/printed127-129. The explicit topology comparisons are worker derivations from the source definitions and restriction formulas and native library topology APIs. No new source finding or whole-source reading claim.",
         "Bounded Amice norm continuation,27 September2026: freshly fetched and hash-verified published PDF; full physical PDF20,24–27 / printed119,123–126 read for Definitions3.5,3.8,3.23, Theorems3.21/3.25, Example3.24 and Remark3.28. Field-general isometry and Q_p unit-ball/common-denominator statements are worker deductions with displayed hypotheses; earlier broader reads remain historical provenance.",
-        "Weak/norm follow-up, 27 September 2026: full printed119–121/PDF20–22 and printed123–126/PDF24–27 read, including the full Theorem3.25 proof and Remark3.28(3). Example3.19 page image checked; E14 records its set-argument misprint."
+        "Weak/norm follow-up, 27 September 2026: full printed119–121/PDF20–22 and printed123–126/PDF24–27 read, including the full Theorem3.25 proof and Remark3.28(3). Example3.19 page image checked; E14 records its set-argument misprint.",
+        "Codex codex-7e92bd, unit-domain integral-lattice continuation,27 September2026: newly fetched the hash-identical published PDF20,27–30 / printed119,126–129 and read every page in full. Printed127 was rendered and visually checked; its (1+T)z factor is multiplication, not an exponent, so no source error is asserted from the ambiguous text extraction. The new lattice statements are worker derivations of the source maps from the preceding ambient norm comparison."
       ]
     },
     {
@@ -1331,7 +1332,8 @@
         "Root-averaging continuation, 27 September 2026: freshly fetched publication printed127–129/PDF28–30 and printed137/PDF38, and arXiv v2 PDF20–22 and27, read in full and collated. The same edition hashes were verified. No all-paper reading or arbitrary-coefficient bounded Amice theorem is claimed.",
         "27 September 2026 bounded-coefficient follow-up: fresh public arXiv v2 hash matched; pp.17–19, especially the full proof of Theorem 3.25 and Remark 3.28, read. The bounded-sequence ring generalization and Z_p-domain coefficient-extension compatibilities are worker derivations checked against the pinned general Mahler basis. No convolution-algebra or weak/strong-topology equivalence is inferred from the linear inverse.",
         "Clopen/intrinsic-unit continuation, 27 September 2026: published physical PDF14–16,18–23,28–30 (printed113–115,117–122,127–129) read in batches of at most three pages; corresponding v2 physical pages10–15,20–22 collated. Focus: Definitions3.7–3.8, Remarks3.9–3.12,3.31,3.33 and Corollary3.32. Six source findings E8–E13 record passages encountered in the introduction/preliminaries, with bounded correction search. No all-paper reading or full L0 decomposition is claimed.",
-        "Weak/norm follow-up, 27 September 2026: Example3.19 on PDF17 freshly checked against the published image; latest arXiv version and publisher/author correction records checked for E14."
+        "Weak/norm follow-up, 27 September 2026: Example3.19 on PDF17 freshly checked against the published image; latest arXiv version and publisher/author correction records checked for E14.",
+        "27 September2026: freshly fetched the hash-identical v2 and read full PDF20, collating the weighting and clopen restriction passage. No new source finding."
       ]
     }
   ],
@@ -10318,6 +10320,597 @@
           "statement": "For each n, the rational extension of the native inverse integral Amice transform of T^n over Z_3 has operator norm 1, while the existing integral weak-homeomorphism comparison makes these measures weakly null."
         }
       ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-extension-unit-projector",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Coefficient extension preserves unit support",
+      "kind": "lemma",
+      "statement": "For every integral measure μ on Z, I_R(E_Z μ)=E_R(I_R μ).",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation",
+        "mathlib:LocallyConstant.charFn",
+        "mathlib:LocallyConstant.coe_charFn"
+      ],
+      "proofSteps": [
+        "Let e be the integral characteristic function of the unit locus, namely one minus the characteristic function of pZ. The supplied evaluation identity identifies E_Z with weighting by e.",
+        "Apply the existing coefficient-extension-weight theorem. Its R-valued multiplier is the coefficient image of e, which equals the R-valued unit indicator pointwise because the algebra map preserves zero and one.",
+        "The same evaluation identity over R identifies the result with E_R(I_R μ). This uses the actual support projector, not a newly defined psi operator."
+      ],
+      "acceptance": [
+        "The characteristic function cuts out units, not merely nonzero elements. For example the point p is removed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.extendIntegralCoefficients_unitRestriction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-unit-coefficient-extension",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Integral coefficient extension on the unit domain",
+      "kind": "construction",
+      "statement": "For μ∈D(U,Z), define I_U,R(μ)=r_R(I_R(j_Z μ))∈D(U,R), on the native unit-domain measure carrier.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-dirac",
+        "mathlib:AbstractMeasure.map",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.map_dirac"
+      ],
+      "proofSteps": [
+        "Include μ into the ambient integral measure space using native pushforward along the continuous Units.val map. Apply the already constructed bounded coefficient extension I_R, then the existing intrinsic unit restriction.",
+        "Zero, additivity and scalar compatibility follow from the existing linear maps and the corresponding API of I_R. The Z-scalar a acts after extension through algebraMap(a).",
+        "For R=Z, the ambient self-extension identity and r_Z j_Z=id give I_U,Z=id. For a Dirac mass at a unit, native pushforward, coefficient-extension-dirac and intrinsic restriction give the same Dirac mass with coefficients R."
+      ],
+      "acceptance": [
+        "The domain is actual unit-group measures, and the output uses the same native group. No convolution or arbitrary profinite scalar-extension theorem is claimed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.extendIntegralUnitCoefficients"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitIntegralTests.zero",
+          "kind": "degenerate",
+          "statement": "The rational extension of the zero integral unit measure is zero."
+        },
+        {
+          "name": "UnitIntegralTests.dirac_one",
+          "kind": "computation",
+          "statement": "The integral Dirac mass at the unit one extends to the rational Dirac mass at one."
+        },
+        {
+          "name": "UnitIntegralTests.native_self",
+          "kind": "compatibility",
+          "statement": "Extending an integral unit measure to Z coefficients gives that same native measure."
+        }
+      ],
+      "api": [
+        {
+          "name": "AbstractMeasure.extendIntegralUnitCoefficients_eq",
+          "role": "characterisation",
+          "statement": "I_U,R(μ)=r_R(I_R(j_Z μ))."
+        },
+        {
+          "name": "AbstractMeasure.extendIntegralUnitCoefficients_zero",
+          "role": "simp",
+          "statement": "I_U,R(0)=0."
+        },
+        {
+          "name": "AbstractMeasure.extendIntegralUnitCoefficients_add",
+          "role": "structure",
+          "statement": "I_U,R(μ+ν)=I_U,R(μ)+I_U,R(ν)."
+        },
+        {
+          "name": "AbstractMeasure.extendIntegralUnitCoefficients_smul",
+          "role": "compatibility",
+          "statement": "I_U,R(aμ)=algebraMap(a)I_U,R(μ) for a∈Z."
+        },
+        {
+          "name": "AbstractMeasure.extendIntegralUnitCoefficients_self",
+          "role": "compatibility",
+          "statement": "I_U,Z is the identity on D(U,Z)."
+        },
+        {
+          "name": "AbstractMeasure.extendIntegralUnitCoefficients_dirac",
+          "role": "simp",
+          "statement": "I_U,R(δ_u)=δ_u with coefficients R for every u∈U."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanPowerSeries:L2 and its PMIA L0/L2 requests",
+          "how": "Supplies the actual integral unit-domain coefficient extension and its comparison with ambient rational measures, without constructing the Coleman map."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1 and L4",
+          "how": "Gives the canonical coefficient extension for the existing arithmetic measures on the native unit domain."
+        },
+        {
+          "where": "RJW Remark3.31 and Remark3.33",
+          "how": "Makes the integral/rational meaning of restricting to units compatible with ambient inclusion."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-inclusion",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Coefficient extension commutes with unit inclusion",
+      "kind": "lemma",
+      "statement": "For μ∈D(U,Z), j_R(I_U,R μ)=I_R(j_Z μ).",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-extension-unit-projector",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
+      ],
+      "proofSteps": [
+        "Unfold the unit-domain extension and apply j_R r_R=E_R to write the left side as E_R(I_R(j_Z μ)).",
+        "Move E through I by integral-extension-unit-projector. The input j_Z μ is fixed by E_Z because E_Z j_Z=j_Z r_Z j_Z=j_Z.",
+        "This gives the displayed equality in the existing ambient R-valued measure space. It is the exact inclusion square required by the rational lattice comparison."
+      ],
+      "acceptance": [
+        "The inclusion commutes with scalar extension as a linear measure map. Its multiplicative-unit and additive-ambient convolution structures remain different."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.map_val_extendIntegralUnitCoefficients"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-test-function",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Integral test functions on units",
+      "kind": "lemma",
+      "statement": "For μ∈D(U,Z) and f∈C(U,Z), I_U,R(μ)(f_R)=algebraMap(μ(f)), where f_R is the pointwise coefficient image, expressed as f times the constant R-valued one.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "proofSteps": [
+        "Use the intrinsic restriction evaluation formula: I_U,R(μ)(f_R) is I_R(j_Z μ) evaluated on the R-valued zero extension of f_R from the clopen unit locus.",
+        "Coefficient change commutes pointwise with this zero extension. On the unit locus both functions equal the coefficient image of f, and outside both are zero. Apply continuous-function extensionality.",
+        "The ambient integral-test formula now gives algebraMap of j_Z μ applied to the integral zero extension. Native pushforward restricts that test back to f on U, proving the required equality."
+      ],
+      "acceptance": [
+        "The actual integral test is used; no field-linearity or operator-norm instance on D(U,Z) is presumed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.extendIntegralUnitCoefficients_test"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-unique",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Uniqueness from integral unit tests",
+      "kind": "lemma",
+      "statement": "Let μ∈D(U,Z) and ν∈D(U,R). If ν(f_R)=algebraMap(μ(f)) for every f∈C(U,Z), then ν=I_U,R μ.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-unique",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-inclusion",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "proofSteps": [
+        "Push ν forward along Units.val. For each integral test on Z, its restriction to U is an integral continuous test. The hypothesis and native map_apply show that j_R ν satisfies the ambient integral-test characterization for j_Z μ.",
+        "The existing ambient uniqueness theorem gives j_R ν=I_R(j_Z μ). Rewrite the latter as j_R(I_U,R μ) by integral-unit-extension-inclusion.",
+        "Apply r_R and use r_R j_R=id on both sides. This gives uniqueness on the actual unit-domain carrier, without adding a new density theorem."
+      ],
+      "acceptance": [
+        "Equality on integral tests determines an R-valued measure under the same completeness and bounded-scalar hypotheses as the existing ambient uniqueness theorem."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.extendIntegralUnitCoefficients_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-restriction",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Coefficient extension commutes with restriction",
+      "kind": "lemma",
+      "statement": "For every μ∈D(Z,Z), I_U,R(r_Z μ)=r_R(I_R μ).",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-extension-unit-projector",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
+      ],
+      "proofSteps": [
+        "The left side is r_R I_R j_Z r_Z μ=r_R I_R E_Z μ by the supplied inclusion/restriction relation.",
+        "Commute the projector through coefficient extension to obtain r_R E_R I_R μ. Since E_R=j_R r_R and r_R j_R=id, r_R E_R=r_R.",
+        "Conclude the exact square between integral restriction, rational or eligible-R coefficient extension and R-valued restriction."
+      ],
+      "acceptance": [
+        "For δ_1+δ_p, only the unit atom remains. The claim includes p=2 and keeps the entire unit domain."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.extendIntegralUnitCoefficients_restrict"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitIntegralTests.mixed_restriction",
+          "kind": "computation",
+          "statement": "Extending the intrinsic restriction of δ_1+δ_p from Z to Q_p gives δ_1 on U."
+        },
+        {
+          "name": "UnitIntegralTests.nonunit_restriction",
+          "kind": "non-example",
+          "statement": "Extending the restriction of δ_p gives zero on U, even though p is nonzero."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/rational-unit-extension-injective",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Injectivity on integral unit measures",
+      "kind": "lemma",
+      "statement": "The actual rational coefficient extension I_U,Q_p:D(U,Z)→D(U,Q_p) is injective.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced.",
+        "For this rational comparison R=Q_p, with the canonical bounded Z_p-scalar action. Every displayed measure norm is the operator norm after the native toCLMEquiv. The integral carrier is not assigned the native field norm or an implicit topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-inclusion",
+        "PadicMeasuresIwasawaAlgebras:L2/rational-integral-extension-injective",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
+      ],
+      "proofSteps": [
+        "Apply j_Q_p to equality of two unit extensions and use the inclusion square.",
+        "Injectivity of the existing ambient I_Q_p gives equality of j_Z μ and j_Z ν. Apply r_Z and its section relation to recover μ=ν."
+      ],
+      "acceptance": [
+        "This is injectivity of the actual coefficient-extension function. It does not follow just from injectivity of the scalar ring map without the measure comparison."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.extendIntegralUnitCoefficients_injective"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/rational-unit-extension-norm",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "The rational norm of an integral unit measure",
+      "kind": "lemma",
+      "statement": "For μ∈D(U,Z), the operator norm of I_U,Q_p μ equals the supremum norm of the Q_p-valued integral Amice coefficient sequence of j_Z μ.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced.",
+        "For this rational comparison R=Q_p, with the canonical bounded Z_p-scalar action. Every displayed measure norm is the operator norm after the native toCLMEquiv. The integral carrier is not assigned the native field norm or an implicit topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-inclusion",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-inclusion-operator-norm",
+        "PadicMeasuresIwasawaAlgebras:L2/rational-integral-extension-norm"
+      ],
+      "proofSteps": [
+        "The existing norm equality for native unit inclusion identifies the norm of I_U,Q_p μ with that of j_Q_p(I_U,Q_p μ).",
+        "Use the inclusion square to rewrite that ambient measure as I_Q_p(j_Z μ). The existing ambient integral-extension norm theorem gives exactly the specified bounded coefficient norm."
+      ],
+      "acceptance": [
+        "The Amice coefficients are those of the ambient included measure. No transform on U with a different basis and no norm on the integral carrier is invented."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.norm_extendIntegralUnitCoefficients"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitIntegralTests.supported_norm",
+          "kind": "compatibility",
+          "statement": "The rational operator norm of the unit extension of μ equals the rational operator norm of the ambient extension of its native inclusion."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/rational-unit-integral-image",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Integral unit measures form the rational unit ball",
+      "kind": "comparison",
+      "statement": "For ν∈D(U,Q_p), there is a unique μ∈D(U,Z) with I_U,Q_p μ=ν if and only if the native operator norm of ν is at most one.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced.",
+        "For this rational comparison R=Q_p, with the canonical bounded Z_p-scalar action. Every displayed measure norm is the operator norm after the native toCLMEquiv. The integral carrier is not assigned the native field norm or an implicit topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/rational-unit-extension-injective",
+        "PadicMeasuresIwasawaAlgebras:L2/rational-unit-extension-norm",
+        "PadicMeasuresIwasawaAlgebras:L2/rational-integral-image",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-inclusion-operator-norm",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-sequence"
+      ],
+      "proofSteps": [
+        "If ν=I_U,Q_p μ, its norm is the bounded integral Amice coefficient norm, at most one by integral-coefficient-sequence and the norm of one in Q_p.",
+        "Conversely, include ν into D(Z,Q_p). Its norm is unchanged, so the ambient integral-image theorem supplies μ_0∈D(Z,Z) with I_Q_p μ_0=j_Q_p ν.",
+        "Set μ=r_Z μ_0. The restriction square gives I_U,Q_p μ=r_Q_p I_Q_p μ_0=r_Q_p j_Q_p ν=ν.",
+        "Uniqueness is the preceding rational-unit-extension-injective theorem. No compactness or false weak-to-norm continuity inference is used."
+      ],
+      "acceptance": [
+        "The unit ball is closed and has radius one centered at zero in the native rational dual. A p^(-1)-scaled Dirac mass at the unit one lies outside it."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.unit_integral_extension_iff_norm_le_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitIntegralTests.nonintegral_atom",
+          "kind": "non-example",
+          "statement": "The rational unit-domain measure p^(-1)δ_1 is not the extension of any integral unit measure."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/rational-unit-integral-image-closed",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Closedness of the integral unit lattice",
+      "kind": "lemma",
+      "statement": "The range of μ↦toCLMEquiv(I_U,Q_p μ) is closed in the native normed dual C(U,Q_p)→L[Q_p]Q_p.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced.",
+        "For this rational comparison R=Q_p, with the canonical bounded Z_p-scalar action. Every displayed measure norm is the operator norm after the native toCLMEquiv. The integral carrier is not assigned the native field norm or an implicit topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/rational-unit-integral-image",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:isClosed_le"
+      ],
+      "proofSteps": [
+        "By the integral-image characterization, the range is exactly the set of native dual functionals with norm at most one. The native linear equivalence toCLMEquiv is onto.",
+        "This set is closed by continuity of the norm and isClosed_le. The claim concerns the codomain norm topology and does not identify it with the integral weak topology."
+      ],
+      "acceptance": [
+        "Closedness of the image does not assert that the extension is continuous from the weak integral topology into the rational norm topology."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.isClosed_range_unit_integral_extension"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/rational-unit-integral-scaling",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "A common denominator on the unit domain",
+      "kind": "theorem",
+      "statement": "Every ν∈D(U,Q_p) has the form p^(−n) I_U,Q_p μ for some n≥0 and μ∈D(U,Z). The same n works for all continuous tests.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced.",
+        "For this rational comparison R=Q_p, with the canonical bounded Z_p-scalar action. Every displayed measure norm is the operator norm after the native toCLMEquiv. The integral carrier is not assigned the native field norm or an implicit topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/rational-measure-integral-scaling",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section"
+      ],
+      "proofSteps": [
+        "Apply the existing ambient common-denominator theorem to j_Q_p ν. It gives n and μ_0 with j_Q_p ν=p^(−n) I_Q_p μ_0.",
+        "Apply the Q_p-linear restriction r_Q_p. Its section identity recovers ν on the left and its scalar linearity retains the one common denominator.",
+        "Use the coefficient-extension restriction square and set μ=r_Z μ_0. The integer n depends on the measure, not on an individual test function."
+      ],
+      "acceptance": [
+        "The zero measure admits n=0. The construction uses the same prime power as the ambient norm estimate, including at p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.exists_unit_integral_power_scaling"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/rational-integral-unit-restriction-bound",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Integral restriction is a rational norm contraction",
+      "kind": "lemma",
+      "statement": "For μ∈D(Z,Z), the rational operator norm of I_U,Q_p(r_Z μ) is at most that of I_Q_p μ.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z units with its native topology. Measures are the existing AbstractMeasure continuous duals. Let j_R:D(U,R)→D(Z,R) be native pushforward along Units.val, r_R the existing intrinsic unit restriction and E_R the existing ambient unitRestriction. Thus r_R j_R=id and j_R r_R=E_R.",
+        "R is a complete ultrametric normed commutative Z-algebra with bounded Z-scalar action. I_R denotes the existing coefficient extension on measures with domain Z. No new measure carrier or norm instance on integral measures is introduced.",
+        "For this rational comparison R=Q_p, with the canonical bounded Z_p-scalar action. Every displayed measure norm is the operator norm after the native toCLMEquiv. The integral carrier is not assigned the native field norm or an implicit topology."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-unit-extension-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-operator-norm-bound",
+        "PadicMeasuresIwasawaAlgebras:L0/pushforward-operator-norm-bound"
+      ],
+      "proofSteps": [
+        "Use the restriction square to replace the left measure by r_Q_p(I_Q_p μ).",
+        "Factor intrinsic restriction into restriction to the clopen unit locus followed by transport along the existing homeomorphism to U. Generic clopen restriction is a contraction in the native rational dual norm.",
+        "Native pushforward along the homeomorphism is also a contraction by the existing generic pushforward estimate. Combining the two estimates proves the desired inequality."
+      ],
+      "acceptance": [
+        "The bound has constant one. Together with rational-unit-extension-norm it supplies the requested inclusion/restriction compatibility for the induced rational operator norm."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/IntegralUnits",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.norm_extendIntegral_restrictUnits_le"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.5 and Definitions3.7–3.8, printed119 / PDF20; §3.5.2–5, Remark3.31, Corollary3.32 and Remark3.33, printed126–129 / PDF27–30.",
+          "match": "Worker derivation of the integral coefficient comparison on the native unit domain from the source restriction/inclusion formulas and the preceding bounded Amice/rational lattice results. The paper does not separately state these compatibility lemmas. The coefficient and topology hypotheses are explicit; E9–E11 retain their earlier qualifications."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -10326,7 +10919,7 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L0",
       "status": "partial",
       "remaining": [
-        "Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the general profinite integral-lattice/field-valued comparisons (the Z_p-domain, Q_p-coefficient case now has exact L2 nodes).",
+        "Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the general profinite integral-lattice/field-valued comparisons (the Z_p-domain, Q_p-coefficient case now has exact L2 nodes). The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted.",
         "Read and decompose finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases and completed coefficient tensors. Native weak and field-valued strong topologies, clopen comparisons and Dirac weak/norm separation are supplied. The infinite-domain ultrametric unit ball is not norm compact; native Banach–Alaoglu supplies weak compactness over proper fields. The Z_p-domain, Q_p-coefficient extension has its integral weak topology identified with the weakly compact unit ball in L2. General profinite coefficient extension, finite-extension lattices, and qualified completeness statements remain."
       ]
     },
@@ -10348,7 +10941,7 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L2",
       "status": "partial",
       "remaining": [
-        "The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons.",
+        "The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted.",
         "The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.",
         "The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.",
         "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
@@ -10391,7 +10984,7 @@
     {
       "title": "L0 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0 is partial. Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the general profinite integral-lattice/field-valued comparisons (the Z_p-domain, Q_p-coefficient case now has exact L2 nodes). Read and decompose finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases and completed coefficient tensors. Native weak and field-valued strong topologies, clopen comparisons and Dirac weak/norm separation are supplied. The infinite-domain ultrametric unit ball is not norm compact; native Banach–Alaoglu supplies weak compactness over proper fields. The Z_p-domain, Q_p-coefficient extension has its integral weak topology identified with the weakly compact unit ball in L2. General profinite coefficient extension, finite-extension lattices, and qualified completeness statements remain."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L0 is partial. Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the general profinite integral-lattice/field-valued comparisons (the Z_p-domain, Q_p-coefficient case now has exact L2 nodes). The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted. Read and decompose finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases and completed coefficient tensors. Native weak and field-valued strong topologies, clopen comparisons and Dirac weak/norm separation are supplied. The infinite-domain ultrametric unit ball is not norm compact; native Banach–Alaoglu supplies weak compactness over proper fields. The Z_p-domain, Q_p-coefficient extension has its integral weak topology identified with the weakly compact unit ball in L2. General profinite coefficient extension, finite-extension lattices, and qualified completeness statements remain."
     },
     {
       "title": "L0a remaining source and interface decomposition",
@@ -10406,7 +10999,7 @@
     {
       "title": "L2 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
     },
     {
       "title": "L3 remaining source and interface decomposition",
@@ -10691,97 +11284,113 @@
   ],
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All thirteen predecessor findings and edition records preserved; E14 adds the Example3.19 set-argument misprint, with no independent-review verdict. Errata wrapper passes.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "sourceIssues": "All fourteen predecessor findings preserved with version provenance; errata wrapper passes. No new source finding.",
     "validation": {
-      "nodes": 179,
+      "nodes": 191,
       "kinds": {
-        "construction": 26,
-        "lemma": 110,
+        "construction": 27,
+        "lemma": 119,
         "definition": 2,
-        "theorem": 25,
-        "comparison": 16
+        "theorem": 26,
+        "comparison": 17
       },
-      "api": 149,
-      "definitionConstructionTests": 102,
-      "packetTests": 124,
-      "typedExamples": 135,
+      "api": 155,
+      "definitionConstructionTests": 105,
+      "packetTests": 131,
       "planets": 13,
       "baseline": 185,
-      "preservedWholeNodes": 168,
-      "preservedBaseline": 166,
-      "preservedSourceIssues": 13,
-      "newSourceIssues": 1,
-      "newNodes": 11,
-      "newNamedDeclarations": 11,
+      "preservedWholeNodes": 179,
+      "preservedSourceIssues": 14,
+      "newNodes": 12,
+      "newNamedDeclarations": 18,
       "newTypedTests": 7,
-      "reachableNodes": 179,
-      "dependencyEdges": 749,
+      "typedExamples": 142,
+      "reachableNodes": 191,
+      "dependencyEdges": 803,
       "acyclic": true,
       "baselineLeaves": 182,
-      "stageRequestLeaves": [],
       "compilerErrors": 0,
-      "compilerWarnings": 386,
+      "compilerWarnings": 411,
       "allWarningsPlaceholders": true,
       "pinnedMathlibModules": 2775,
-      "actualSupplierImports": 0,
-      "scratchCompleteDiracLemmas": 7,
-      "scratchCompleteScalingLemma": 1,
-      "scratchConditionalAdapterLemmas": 3,
-      "scratchCompleteInstances": 1,
-      "scratchDiracMathlibModules": 1922,
-      "scratchLatticeMathlibModules": 2034,
+      "pinnedTauCetiModules": 0,
+      "scratchCompleteLemmas": 7,
+      "scratchCompleteConstruction": 1,
+      "scratchMathlibModules": 1903,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
-      "readerWords": 50365,
+      "readerWords": 54773,
       "scopedMutationCheck": true,
       "requests": 0,
       "gaps": 8,
-      "closedStages": 0,
-      "blueprintErrors": 0,
-      "blueprintWarnings": 0,
-      "intakeProblems": 0,
-      "errataErrors": 0
+      "closedStages": 0
+    },
+    "arithmetic": {
+      "status": "pass",
+      "systems": 640,
+      "total": 16879,
+      "counts": {
+        "restriction inclusion section": 640,
+        "ambient projector compatibility": 640,
+        "integral inclusion square": 640,
+        "unit inclusion norm": 640,
+        "restriction contraction": 640,
+        "integral unit ball": 640,
+        "integral image norm bound": 640,
+        "integral unit coefficient norm": 640,
+        "rational ambient coefficient norm": 640,
+        "common unit denominator": 640,
+        "common denominator recovery": 640,
+        "integral test formula": 640,
+        "restriction test formula": 640,
+        "ultrametric dual bound": 640,
+        "indicator detects coefficient": 6640,
+        "test uniqueness": 640,
+        "reject insufficient denominator": 584,
+        "nonintegral unit atom": 32,
+        "nonunit atom removed": 8,
+        "mixed atoms retain one": 8,
+        "reject total mass norm": 7
+      },
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "residuePowers": [
+        1,
+        2
+      ],
+      "scope": "Exact finite atomic measures at integer lifts, with clopen unit projection, native inclusion, Mahler binomial moments and rational p-adic norms. All tests are finite models; they do not prove continuity, infinite-dimensional scalar extension or weak/norm topology equivalence."
     },
     "lean": {
-      "suggestedFileSha256": "1c09e815c2834fff05597ed78cd469523e7f3a439b37f23dbaa5387ab588e99a",
-      "sourceAuditSha256": "88539f49e28b83ea77e6ae7328feb90d65613140988120b96d62a383e0dde54c",
+      "suggestedFileSha256": "3856e89b421cd4872a6e625aa08259ee925a1803434b8d83014bd570bdc9fd11",
       "errors": 0,
-      "warnings": 386,
+      "warnings": 411,
       "warningsOnlyPlaceholders": true,
       "mathlibModules": 2775,
       "tauCetiModules": 0,
-      "scratchDirac": {
-        "sha256": "3fb234606ef580c9ccfa4e45d23d53e56a05902cb4a17be71f27f0ab9498969d",
-        "completeLemmas": 7,
-        "modules": 1922,
-        "errors": 0,
-        "warnings": 0,
-        "placeholders": 0
-      },
-      "scratchLattice": {
-        "sha256": "5706689d5ab720ab81fa78a15777fc75fda8ea4dde715da14c89a3f2a604f556",
-        "completeScalingLemma": 1,
-        "conditionalAdapterLemmas": 3,
-        "completeInstances": 1,
-        "modules": 2034,
-        "errors": 0,
-        "warnings": 0,
-        "placeholders": 0,
-        "condition": "The adapters assume exactly the already planned integral extension test identity, its injectivity and integral Amice homeomorphism. No implementation of those suppliers is asserted."
-      }
+      "sourceAuditSha256": "88539f49e28b83ea77e6ae7328feb90d65613140988120b96d62a383e0dde54c",
+      "scratchProofSha256": "8df4c7c75bc376f5f0dd5f1a6ced1d07cdd44e30cab74d6fd5a4b494afb266d1",
+      "scratchCompleteLemmas": 7,
+      "scratchCompleteConstruction": 1,
+      "scratchProofErrors": 0,
+      "scratchProofWarnings": 0,
+      "scratchProofPlaceholders": 0,
+      "scratchSourceModules": 1903
     },
     "publication": {
-      "base": "640dd03bb57d120a18b84830e9985793d7f0d476",
-      "unchangedInputs": 47,
-      "unchangedOutputs": 4,
-      "issueClaimedBySameSession": true,
-      "lastClaimConfirmation": 5853848432,
-      "reviewIssue": 146,
-      "reviewUnclaimed": true
+      "baseCommit": "a6f03b8681c9524e550f8fdfb83974f35fb58923",
+      "capturedInputs": 49,
+      "allCapturedInputsMatch": true,
+      "allFourPredecessorOutputsUnchanged": true,
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5853947554
     },
-    "closure": "Partial: eight gaps, zero requests, zero closed stages; every implementation status unchecked."
+    "closure": "Partial; eight gaps, zero requests, no closed stages; every implementation status unchecked."
   },
   "provenance": {
     "unitInverseFollowup": {
@@ -11348,6 +11957,130 @@
         "oldNodes": 98,
         "newNodes": 107,
         "reason": "Own merged PR3204 adds nine Coleman logarithmic-image lifting nodes. All predecessor Coleman nodes preserved; all nine new statements, hypotheses, proofs, prerequisites, the source-finding context and relevant PMIA requests were read. No duplicate native Dirac or integral weak-embedding owner and no new reverse dependency; no PMIA statement changes required."
+      }
+    },
+    "integralUnitDomain": {
+      "worker": "Codex — codex-7e92bd",
+      "issue": 555,
+      "claim": 5853946450,
+      "confirmation": 5853947554,
+      "predecessorNodes": 179,
+      "newNodes": 12,
+      "inputs": "49 captured inputs inherit the earlier fully read PMIA inventory;47 initially identical. The changed Diophantine/E216 source-register record was read and is unrelated. The reviewed L0/L2 AUDIT26 rows and all eight target lists were freshly read. Binding protocols, upstream models, RS16/RS14, decomposition and touching links retain their full-read provenance in this continuous session. Every predecessor node object remains intact; consumed clopen and norm/lattice interfaces were reread.",
+      "sourceScope": "Fresh published PDF20,27–30 and v2 PDF20; printed127 page image checked. No new finding, no full-paper decomposition claim.",
+      "baseline": "All185 existing baseline records preserved. Native measure, pushforward, operator-norm and closed-unit-ball interfaces are reused; no new baseline declaration or duplicate general scalar-extension theorem is introduced.",
+      "boundary": "Only the actual Z_p unit domain is added. General profinite and finite-extension lattices, weak compactness, convolution and completed-algebra comparisons retain precise gaps.",
+      "concurrentCheckpoint": "Integrated concurrent merged PR3205 before publishing: all179 predecessor nodes,185 baseline records and14 findings preserved; eleven added nodes and E14 read in full. Fresh winning claim5853946450 confirmed5853947554.",
+      "inputRefresh": "The Coleman packet matches the exact merged PR3204 output. The register additions are Coleman/E13 and PMIA/E14, both read in full. Earlier changed Diophantine/E216 was screened. No independent review is claimed.",
+      "validation": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "All fourteen predecessor findings preserved with version provenance; errata wrapper passes. No new source finding.",
+        "validation": {
+          "nodes": 191,
+          "kinds": {
+            "construction": 27,
+            "lemma": 119,
+            "definition": 2,
+            "theorem": 26,
+            "comparison": 17
+          },
+          "api": 155,
+          "definitionConstructionTests": 105,
+          "packetTests": 131,
+          "planets": 13,
+          "baseline": 185,
+          "preservedWholeNodes": 179,
+          "preservedSourceIssues": 14,
+          "newNodes": 12,
+          "newNamedDeclarations": 18,
+          "newTypedTests": 7,
+          "typedExamples": 142,
+          "reachableNodes": 191,
+          "dependencyEdges": 803,
+          "acyclic": true,
+          "baselineLeaves": 182,
+          "compilerErrors": 0,
+          "compilerWarnings": 411,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2775,
+          "pinnedTauCetiModules": 0,
+          "scratchCompleteLemmas": 7,
+          "scratchCompleteConstruction": 1,
+          "scratchMathlibModules": 1903,
+          "scratchErrors": 0,
+          "scratchWarnings": 0,
+          "scratchPlaceholders": 0,
+          "readerWords": 54773,
+          "scopedMutationCheck": true,
+          "requests": 0,
+          "gaps": 8,
+          "closedStages": 0
+        },
+        "arithmetic": {
+          "status": "pass",
+          "systems": 640,
+          "total": 16879,
+          "counts": {
+            "restriction inclusion section": 640,
+            "ambient projector compatibility": 640,
+            "integral inclusion square": 640,
+            "unit inclusion norm": 640,
+            "restriction contraction": 640,
+            "integral unit ball": 640,
+            "integral image norm bound": 640,
+            "integral unit coefficient norm": 640,
+            "rational ambient coefficient norm": 640,
+            "common unit denominator": 640,
+            "common denominator recovery": 640,
+            "integral test formula": 640,
+            "restriction test formula": 640,
+            "ultrametric dual bound": 640,
+            "indicator detects coefficient": 6640,
+            "test uniqueness": 640,
+            "reject insufficient denominator": 584,
+            "nonintegral unit atom": 32,
+            "nonunit atom removed": 8,
+            "mixed atoms retain one": 8,
+            "reject total mass norm": 7
+          },
+          "primes": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "residuePowers": [
+            1,
+            2
+          ],
+          "scope": "Exact finite atomic measures at integer lifts, with clopen unit projection, native inclusion, Mahler binomial moments and rational p-adic norms. All tests are finite models; they do not prove continuity, infinite-dimensional scalar extension or weak/norm topology equivalence."
+        },
+        "lean": {
+          "suggestedFileSha256": "3856e89b421cd4872a6e625aa08259ee925a1803434b8d83014bd570bdc9fd11",
+          "errors": 0,
+          "warnings": 411,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2775,
+          "tauCetiModules": 0,
+          "sourceAuditSha256": "88539f49e28b83ea77e6ae7328feb90d65613140988120b96d62a383e0dde54c",
+          "scratchProofSha256": "8df4c7c75bc376f5f0dd5f1a6ced1d07cdd44e30cab74d6fd5a4b494afb266d1",
+          "scratchCompleteLemmas": 7,
+          "scratchCompleteConstruction": 1,
+          "scratchProofErrors": 0,
+          "scratchProofWarnings": 0,
+          "scratchProofPlaceholders": 0,
+          "scratchSourceModules": 1903
+        },
+        "publication": {
+          "baseCommit": "a6f03b8681c9524e550f8fdfb83974f35fb58923",
+          "capturedInputs": 49,
+          "allCapturedInputsMatch": true,
+          "allFourPredecessorOutputsUnchanged": true,
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5853947554
+        },
+        "closure": "Partial; eight gaps, zero requests, no closed stages; every implementation status unchecked."
       }
     }
   }
