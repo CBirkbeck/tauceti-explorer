@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 69 preceding nodes and seven source findings. Adds 32 L2 declarations for integral root translation, convergence, weak Amice continuity, root averaging of the existing bounded ψ, unique integral descent, finite partial fractions, and rational-series averaging over C_p and an embedded cyclotomic coefficient field. L2 and L3 remain partial, six stages remain not_read, and all eight stage gaps remain explicit.",
+  "summary": "Partial continuation preserving all 69 preceding nodes and seven source findings. Adds 32 L2 declarations for integral root translation, convergence, weak Amice continuity, root averaging of the existing bounded ψ, unique integral descent, finite partial fractions, and rational-series averaging over C_p and an embedded cyclotomic coefficient field. L2 and L3 remain partial, six stages remain not_read, and all eight stage gaps remain explicit. A sixteen-node bounded-coefficient checkpoint constructs the Mahler pairing and inverse on the existing bounded-sequence carrier, then the actual extension of integral measures on Z_p to eligible coefficient rings. It proves Amice, integral-test, uniqueness, Dirac, pushforward and weight comparisons, preserving every prior averaging node and every stage status.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -766,6 +766,132 @@
         "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
         "provides": "Powers of an element of norm less than one tend to zero.",
         "checked": "Full source statement and hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The generated additive ultrametric sum bound was also checked by its compiled telescope."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.injective_amiceTransform",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "Amice injectivity for complete ultrametric normed commutative Z_p-algebras with bounded scalar action.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:Algebra.algebraMap_eq_smul_one",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Algebra/Defs.lean",
+        "provides": "The coefficient homomorphism is scalar multiplication on the target unit.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:BoundedContinuousFunction.norm_coe_le_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousMap/Bounded/Normed.lean",
+        "provides": "Every value has norm at most the bounded function supremum norm.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:BoundedContinuousFunction.norm_le",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousMap/Bounded/Normed.lean",
+        "provides": "A nonnegative uniform pointwise norm bound bounds the bounded-function norm.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:BoundedContinuousFunction.ofNormedAddCommGroupDiscrete",
+        "kind": "def",
+        "module": "Mathlib/Topology/ContinuousMap/Bounded/Normed.lean",
+        "provides": "Construct the existing bounded continuous function from a uniform norm bound on a discrete domain.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:LinearMap.mkContinuous",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Normed/Operator/ContinuousLinearMap.lean",
+        "provides": "A linear map satisfying a uniform linear norm estimate becomes a continuous linear map, with ring scalars sufficient.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_mk",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "The formal-series constructor has the prescribed coefficient sequence.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:continuous_algebraMap",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Algebra.lean",
+        "provides": "Continuous scalar multiplication gives continuity of the algebra coefficient homomorphism.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:fwdDiff_iter_choose_zero",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/ForwardDiff.lean",
+        "provides": "Iterated finite differences of the binomial coefficient at zero give the Kronecker delta.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:fwdDiff_iter_const_smul",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/ForwardDiff.lean",
+        "provides": "Iterated forward difference commutes with a fixed scalar in a distributive multiplicative action; no field hypothesis.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:fwdDiff_iter_eq_sum_shift",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/ForwardDiff.lean",
+        "provides": "The nth forward difference is the finite signed binomial sum of shifted values.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:norm_smul_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/MulAction.lean",
+        "provides": "A bounded scalar action satisfies the product norm bound.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Nonarchimedean.lean",
+        "provides": "Indexed generating declaration; its to_additive counterpart NonarchimedeanAddGroup.summable_of_tendsto_cofinite_zero is the exact theorem used. Terms tending to zero are summable in a complete nonarchimedean additive group; additive generated theorem.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:Multipliable.map_tprod",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/InfiniteSum/Basic.lean",
+        "provides": "Indexed generating declaration; its to_additive counterpart Summable.map_tsum is the exact theorem used. A continuous additive homomorphism commutes with the sum of a summable family; additive generated theorem.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:ZeroAtInftyContinuousMap",
+        "kind": "structure",
+        "module": "Mathlib/Topology/ContinuousMap/ZeroAtInfty.lean",
+        "provides": "Source structure and its projection ZeroAtInftyContinuousMap.zero_at_infty'. The existing vanishing-at-infinity function carries its cocompact convergence-to-zero property.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:IsBoundedSMul.of_norm_smul_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/MulAction.lean",
+        "provides": "Build bounded scalar multiplication from its norm inequality; used with the existing Q_p norm and integral subtype for concrete tests.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.invTransform",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/AmiceTransform.lean",
+        "provides": "The existing inverse for integral Z_p-valued formal series.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_def",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The p-adic integer norm is the induced norm from Q_p.",
+        "checked": "Statement read in the source at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; compiled type check confirms hypotheses, including generated declarations."
       }
     ]
   },
@@ -798,7 +924,8 @@
         "PDF 21–23, including §3.6, Definitions 3.34/3.37, Remarks 3.33/3.35, Lemmas 3.36/3.38 with proofs, collated against the published passage.",
         "Continuation codex-a71f92: matching §3.5.1–2 on PDF 19–20 and Lemma 4.3/Proposition 4.6 on PDF 27, collated against the publication.",
         "Continuation codex-7e92bd: printed126–129 / PDF27–30 of the publication, read in full; matching v2 PDF20–21 collated for the restriction and phi/psi passage. The published p128 display was also rendered and visually checked for finding E4. No all-paper reading claim.",
-        "Root-averaging continuation, 27 September 2026: freshly fetched publication printed127–129/PDF28–30 and printed137/PDF38, and arXiv v2 PDF20–22 and27, read in full and collated. The same edition hashes were verified. No all-paper reading or arbitrary-coefficient bounded Amice theorem is claimed."
+        "Root-averaging continuation, 27 September 2026: freshly fetched publication printed127–129/PDF28–30 and printed137/PDF38, and arXiv v2 PDF20–22 and27, read in full and collated. The same edition hashes were verified. No all-paper reading or arbitrary-coefficient bounded Amice theorem is claimed.",
+        "27 September 2026 bounded-coefficient follow-up: fresh public arXiv v2 hash matched; pp.17–19, especially the full proof of Theorem 3.25 and Remark 3.28, read. The bounded-sequence ring generalization and Z_p-domain coefficient-extension compatibilities are worker derivations checked against the pinned general Mahler basis. No convolution-algebra or weak/strong-topology equivalence is inferred from the linear inverse."
       ]
     }
   ],
@@ -5741,6 +5868,917 @@
       "acceptance": [
         "Includes the prime 2. The stated coefficient carrier, topology and operator are retained in the suggested signature; no trace-defined replacement of bounded ψ is assumed."
       ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-summable",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Summability of a bounded Mahler pairing",
+      "statement": "For a bounded sequence c:N->R and f in C(Z_p,R), the series sum_n a_n(f)c_n is summable, where a_n(f) is the coefficient supplied by the existing general Mahler isometry.",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "Use the existing BoundedContinuousFunction(N,R) for c and the existing Mahler isometry into functions vanishing at infinity for a(f). Thus |c_n|<=||c|| and |a_n(f)| tends to zero.",
+        "Submultiplicativity bounds |a_n(f)c_n| by ||c|| |a_n(f)|, so the terms tend to zero. Completeness and the ultrametric series criterion give summability. Boundedness of c is essential; mere formal power-series coefficients do not provide it."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.mahlerEquiv",
+        "mathlib:ZeroAtInftyContinuousMap",
+        "mathlib:BoundedContinuousFunction.norm_coe_le_norm",
+        "mathlib:NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "boundedMahler_summable"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-pairing",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "construction",
+      "title": "The bounded Mahler pairing",
+      "statement": "For c in BoundedContinuousFunction(N,R), define the R-linear map I_c:C(Z_p,R)->R by I_c(f)=sum_n a_n(f)c_n. The space of test functions and the coefficient sequence are existing library objects.",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "Define the function by the convergent sum of bounded-mahler-summable.",
+        "Additivity follows from additivity of the existing Mahler coefficients and summable addition. Although the bundled Mahler isometry is Z_p-linear, its coefficients are R-linear in f: use a_n(f)=Delta^n f(0) and the pinned iterated forward-difference constant-scalar identity. This proves I_c(r f)=r I_c(f) by multiplication through the convergent sum."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-summable",
+        "mathlib:PadicInt.mahlerEquiv",
+        "mathlib:fwdDiff_iter_const_smul",
+        "mathlib:AbstractMeasure.invTransform_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "boundedMahlerPairing"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ],
+      "api": [
+        {
+          "name": "boundedMahlerPairing_apply",
+          "role": "characterisation",
+          "statement": "I_c(f)=sum_n a_n(f)c_n."
+        },
+        {
+          "name": "boundedMahlerPairing_add",
+          "role": "simp",
+          "statement": "I_c(f+g)=I_c(f)+I_c(g)."
+        },
+        {
+          "name": "boundedMahlerPairing_smul",
+          "role": "structure",
+          "statement": "I_c(r f)=r I_c(f) for r in R."
+        },
+        {
+          "name": "boundedMahlerPairing_bound",
+          "role": "relation",
+          "statement": "|I_c(f)| <= ||c|| ||f||."
+        },
+        {
+          "name": "boundedMahlerPairing_integral",
+          "role": "compatibility",
+          "statement": "For R=Z_p and c_n=coeff_n(F), I_c(f) equals the pinned invTransform(F)(f)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "boundedMahlerPairing_constant",
+          "kind": "computation",
+          "statement": "Over Q_3, the constant sequence c_n=1/3 gives I_c(1)=1/3."
+        },
+        {
+          "name": "boundedMahlerPairing_zero",
+          "kind": "degenerate",
+          "statement": "The zero coefficient sequence gives I_0(f)=0 for every test function."
+        },
+        {
+          "name": "boundedMahlerPairing_integral",
+          "kind": "compatibility",
+          "statement": "For an integral formal series F and its bounded coefficient sequence, I_c(f)=AbstractMeasure.invTransform(F)(f)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse",
+          "how": "Its norm estimate constructs a genuine continuous R-linear functional."
+        },
+        {
+          "where": "RJW Theorem 3.25",
+          "how": "The displayed series is the inverse formula."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-pairing-bound",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "The Mahler pairing norm bound",
+      "statement": "|I_c(f)| <= ||c|| ||f|| for every bounded c and continuous f.",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "The existing Mahler isometry gives |a_n(f)|<=||f||. The bounded-sequence norm gives |c_n|<=||c||.",
+        "Submultiplicativity bounds every summand by ||c|| ||f||. Apply the ultrametric norm bound for an infinite sum. This is a bound on values of the functional; it does not install an operator-norm topology on the measure type."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-pairing",
+        "mathlib:PadicInt.mahlerEquiv",
+        "mathlib:BoundedContinuousFunction.norm_coe_le_norm",
+        "mathlib:IsUltrametricDist.norm_tprod_le_of_forall_le"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "boundedMahlerPairing_bound"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "construction",
+      "title": "The bounded-coefficient inverse Amice transform",
+      "statement": "Define boundedInvTransform as the R-linear map from BoundedContinuousFunction(N,R) to the existing measure type D(Z_p,R), sending c to the continuous functional f->I_c(f). In particular its value is a measure, not a new carrier of formal power series.",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "Apply LinearMap.mkContinuous to I_c with the bound ||c|| proved above. Transport it through the existing AbstractMeasure.toCLMEquiv.",
+        "The pairing is additive and R-linear in c: distribute each term and use the already proved convergence. Thus these continuous functionals form an R-linear map in c.",
+        "Evaluation is the original Mahler series. The coefficient and uniqueness lemmas below identify it with the existing integral inverse when R=Z_p. The input is bounded sequences, not all formal series over a field."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-pairing",
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-pairing-bound",
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-summable",
+        "mathlib:LinearMap.mkContinuous",
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:AbstractMeasure.invTransform",
+        "mathlib:IsBoundedSMul.of_norm_smul_le",
+        "mathlib:PadicInt.norm_def"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "boundedInvTransform"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ],
+      "api": [
+        {
+          "name": "boundedInvTransform_apply",
+          "role": "characterisation",
+          "statement": "boundedInvTransform(c)(f)=I_c(f)."
+        },
+        {
+          "name": "boundedInvTransform_mahler",
+          "role": "simp",
+          "statement": "Its value on the R-valued nth Mahler function is c_n."
+        },
+        {
+          "name": "amiceTransform_boundedInvTransform",
+          "role": "compatibility",
+          "statement": "Its existing Amice transform equals PowerSeries.mk(c)."
+        },
+        {
+          "name": "boundedInvTransform_unique",
+          "role": "extensionality",
+          "statement": "A measure with that Amice transform is boundedInvTransform(c)."
+        },
+        {
+          "name": "boundedInvTransform_zero",
+          "role": "simp",
+          "statement": "boundedInvTransform(0)=0."
+        },
+        {
+          "name": "boundedInvTransform_add",
+          "role": "structure",
+          "statement": "The inverse preserves addition of bounded coefficient sequences."
+        },
+        {
+          "name": "boundedInvTransform_smul",
+          "role": "structure",
+          "statement": "The inverse is R-linear in the coefficient sequence."
+        },
+        {
+          "name": "boundedInvTransform_integral",
+          "role": "compatibility",
+          "statement": "For R=Z_p and c_n=coeff_n(F), boundedInvTransform(c)=the pinned invTransform(F)."
+        },
+        {
+          "name": "boundedInvTransform_bound",
+          "role": "relation",
+          "statement": "|boundedInvTransform(c)(f)| <= ||c|| ||f||."
+        }
+      ],
+      "tests": [
+        {
+          "name": "boundedInvTransform_nonintegral",
+          "kind": "computation",
+          "statement": "Over Q_3 the constant bounded sequence 1/3 gives value 1/3 on the constant function 1; nonintegral bounded coefficients are allowed."
+        },
+        {
+          "name": "boundedInvTransform_zero",
+          "kind": "degenerate",
+          "statement": "The zero sequence gives the zero existing measure."
+        },
+        {
+          "name": "boundedInvTransform_integral",
+          "kind": "compatibility",
+          "statement": "For R=Z_p, coefficients of an integral formal series give exactly the pinned invTransform, by the pinned Amice injectivity."
+        },
+        {
+          "name": "boundedInvTransform_unbounded",
+          "kind": "non-example",
+          "statement": "The sequence c_n=3^(-n) in Q_3 cannot be an input bounded sequence: its norms are 3^n. Pairing it with Mahler coefficients 3^n gives terms identically 1 and therefore a divergent series."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+          "how": "Constructs an actual R-valued measure from the bounded image of integral coefficients."
+        },
+        {
+          "where": "ColemanIntegration:L3/geometric-measure",
+          "how": "Bounded O_K coefficient series require a genuine inverse, with the receiving ring hypotheses established separately."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-mahler",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Mahler values of the bounded inverse",
+      "statement": "For every n, boundedInvTransform(c) applied to the nth Mahler function with values in R equals c_n.",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "The coefficient a_i of the R-valued nth Mahler function is 1 when i=n and zero otherwise. Compute a_i by iterated forward differences, commute the Z_p-valued function times 1_R through those differences by induction, and use the pinned finite binomial difference formula and natural-value formula for mahler.",
+        "Only the nth term of the convergent pairing remains. This proves the exact coefficient with no change of sign or factorial normalization."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse",
+        "mathlib:PadicInt.mahlerEquiv",
+        "mathlib:fwdDiff_iter_choose_zero",
+        "mathlib:fwdDiff_iter_eq_sum_shift",
+        "mathlib:mahler_natCast_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "boundedInvTransform_mahler"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "The Amice transform of the bounded inverse",
+      "statement": "The existing amiceTransform of boundedInvTransform(c) is PowerSeries.mk(c).",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "Use coefficient extensionality of the existing power series. The pinned coeff_amiceTransform reduces each coefficient to bounded-inverse-mahler."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-mahler",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:PowerSeries.coeff_mk"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "amiceTransform_boundedInvTransform"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-unique",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Uniqueness of the bounded inverse",
+      "statement": "If an existing measure mu in D(Z_p,R) has Amice transform PowerSeries.mk(c), then mu=boundedInvTransform(c).",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "Apply the pinned injectivity of the general Amice transform and the preceding coefficient equality. The existing injectivity has precisely the complete ultrametric ring and bounded Z_p-action hypotheses used here."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice",
+        "mathlib:AbstractMeasure.injective_amiceTransform"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "boundedInvTransform_unique"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-image-bound",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Bounded images of integral coefficients",
+      "statement": "For z in Z_p, |algebraMap(z)| <= |1_R|.",
+      "hypotheses": [
+        "p is prime; R is a normed commutative Z_p-algebra with bounded scalar action. Completeness and ultrametricity are not needed for this bound."
+      ],
+      "proofSteps": [
+        "Write algebraMap(z)=z times 1_R via the algebra scalar action. Its norm is at most |z| |1_R| by the bounded-action hypothesis, and |z|<=1 by the pinned integral norm bound."
+      ],
+      "prerequisites": [
+        "mathlib:Algebra.algebraMap_eq_smul_one",
+        "mathlib:PadicInt.norm_le_one",
+        "mathlib:norm_smul_le"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "integralCoefficient_norm_le"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-sequence",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "construction",
+      "title": "The bounded image coefficient sequence",
+      "statement": "For an integral measure mu, integralAmiceCoefficients(mu) is the existing bounded sequence n->algebraMap(coeff_n(A_mu)) in R, with the uniform bound |1_R|.",
+      "hypotheses": [
+        "p is prime; R is a normed commutative Z_p-algebra with bounded scalar action."
+      ],
+      "proofSteps": [
+        "Use BoundedContinuousFunction.ofNormedAddCommGroupDiscrete on the discrete natural numbers and the displayed coefficient function. integral-coefficient-image-bound proves the common norm bound.",
+        "Evaluation is the displayed coefficient formula. Its supremum norm is at most |1_R| by the existing bounded-function norm criterion. Zero, addition and scalar rules follow coefficientwise from the existing linear Amice transform and the coefficient homomorphism."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-image-bound",
+        "mathlib:BoundedContinuousFunction.ofNormedAddCommGroupDiscrete",
+        "mathlib:BoundedContinuousFunction.norm_le",
+        "mathlib:AbstractMeasure.amiceTransform"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "integralAmiceCoefficients"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ],
+      "api": [
+        {
+          "name": "integralAmiceCoefficients_apply",
+          "role": "projection",
+          "statement": "The nth value is algebraMap(coeff_n(A_mu))."
+        },
+        {
+          "name": "integralAmiceCoefficients_norm",
+          "role": "relation",
+          "statement": "The supremum norm is at most |1_R|."
+        },
+        {
+          "name": "integralAmiceCoefficients_zero",
+          "role": "simp",
+          "statement": "The zero measure has the zero sequence."
+        },
+        {
+          "name": "integralAmiceCoefficients_add",
+          "role": "structure",
+          "statement": "The coefficient sequence is additive in mu."
+        },
+        {
+          "name": "integralAmiceCoefficients_smul",
+          "role": "structure",
+          "statement": "Multiplication of mu by a in Z_p multiplies the sequence by algebraMap(a)."
+        },
+        {
+          "name": "integralAmiceCoefficients_self",
+          "role": "compatibility",
+          "statement": "For R=Z_p this is the original Amice coefficient sequence."
+        }
+      ],
+      "tests": [
+        {
+          "name": "integralAmiceCoefficients_dirac_zero",
+          "kind": "computation",
+          "statement": "For delta_0 the zeroth coefficient is 1 and the first coefficient is 0, including over Q_3."
+        },
+        {
+          "name": "integralAmiceCoefficients_zero",
+          "kind": "degenerate",
+          "statement": "For the zero integral measure every image coefficient is zero."
+        },
+        {
+          "name": "integralAmiceCoefficients_self",
+          "kind": "compatibility",
+          "statement": "For R=Z_p, the nth coefficient is exactly coeff_n(A_mu), using the standard identity algebra structure."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+          "how": "Supplies the bounded input to the inverse without assuming every R-valued formal series bounded."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "construction",
+      "title": "Extension of integral measures on Z_p",
+      "statement": "Define extendIntegralCoefficients(mu) in D(Z_p,R) as boundedInvTransform(integralAmiceCoefficients(mu)). Its Amice transform is the coefficient image of A_mu, and its value on the R-valued image of an integral test f is algebraMap(mu(f)). This extends coefficients of the actual measure on Z_p.",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "The coefficient-sequence construction supplies a bounded input with norm at most |1_R|; apply the bounded inverse.",
+        "The Amice and test-function identities are the separate lemmas below, and uniqueness follows from the existing general Mahler injectivity. Addition and the Z_p scalar rule follow from those identities. For R=Z_p, coefficient identity and pinned injectivity give the identity map.",
+        "The pairing norm estimate and the coefficient norm bound give |extendIntegralCoefficients(mu)(f)| <= |1_R| ||f|| for all R-valued continuous f. In particular the bound is ||f|| when |1_R|=1. This assertion neither gives arbitrary-profinite-space scalar extension nor identifies weak and norm topologies."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse",
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-pairing-bound",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-sequence"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "extendIntegralCoefficients"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ],
+      "api": [
+        {
+          "name": "extendIntegralCoefficients_apply",
+          "role": "characterisation",
+          "statement": "Evaluation on f is sum_n a_n(f) algebraMap(coeff_n(A_mu))."
+        },
+        {
+          "name": "amiceTransform_extendIntegralCoefficients",
+          "role": "compatibility",
+          "statement": "The Amice transform is PowerSeries.map(algebraMap)(A_mu)."
+        },
+        {
+          "name": "extendIntegralCoefficients_test",
+          "role": "compatibility",
+          "statement": "On algebraMap composed with an integral test f the value is algebraMap(mu(f))."
+        },
+        {
+          "name": "extendIntegralCoefficients_unique",
+          "role": "universal-property",
+          "statement": "Agreement on all these integral test functions uniquely characterizes the extended measure."
+        },
+        {
+          "name": "extendIntegralCoefficients_zero",
+          "role": "simp",
+          "statement": "The zero integral measure extends to zero."
+        },
+        {
+          "name": "extendIntegralCoefficients_add",
+          "role": "structure",
+          "statement": "Extension is additive."
+        },
+        {
+          "name": "extendIntegralCoefficients_smul",
+          "role": "structure",
+          "statement": "Extension of a mu is algebraMap(a) times the extension of mu, for a in Z_p."
+        },
+        {
+          "name": "extendIntegralCoefficients_self",
+          "role": "compatibility",
+          "statement": "Extension to Z_p with its identity algebra structure is the original measure."
+        },
+        {
+          "name": "extendIntegralCoefficients_bound",
+          "role": "relation",
+          "statement": "The extended value on any R-valued f has norm at most |1_R| ||f||."
+        },
+        {
+          "name": "extendIntegralCoefficients_dirac",
+          "role": "simp",
+          "statement": "Extension sends the actual integral delta_x to the actual R-valued delta_x."
+        },
+        {
+          "name": "extendIntegralCoefficients_map",
+          "role": "functoriality",
+          "statement": "Extension commutes with pushforward along every continuous map Z_p->Z_p."
+        },
+        {
+          "name": "extendIntegralCoefficients_weight",
+          "role": "compatibility",
+          "statement": "For an integral-valued continuous weight g, extension of weight(g,mu) equals weight(algebraMap composed with g,extend(mu))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "extendIntegralCoefficients_square",
+          "kind": "computation",
+          "statement": "Over Q_3, extension of the integral delta_2 applied to x->x^2 is 4."
+        },
+        {
+          "name": "extendIntegralCoefficients_zero",
+          "kind": "degenerate",
+          "statement": "Extension of the zero integral measure is zero."
+        },
+        {
+          "name": "extendIntegralCoefficients_self",
+          "kind": "compatibility",
+          "statement": "Over Z_p this extension equals the original measure, with no alternate carrier."
+        },
+        {
+          "name": "extendIntegralCoefficients_pushforward",
+          "kind": "compatibility",
+          "statement": "Over Q_3, extending the pushforward of delta_1 under x->2x gives delta_2."
+        },
+        {
+          "name": "extendIntegralCoefficients_weight",
+          "kind": "compatibility",
+          "statement": "Over Q_2, extension of the weight x on delta_3 is 3 times the Q_2-valued delta_3; the dyadic prime is allowed."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ColemanIntegration:L3/rotated-smoothed-amice",
+          "how": "Supplies the Z_p-to-R coefficient-extension portion of the bounded rotation request. The rotation identity and receiver instances remain separate obligations."
+        },
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L0",
+          "how": "Provides the Z_p-domain case of coefficient extension. The general profinite-domain and completed-tensor targets remain unproved."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1/smoothed-measure",
+          "how": "Its integral arithmetic measure can be extended to an eligible coefficient ring without redefining that measure."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-amice",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Amice compatibility of coefficient extension",
+      "statement": "A_(extendIntegralCoefficients(mu))=PowerSeries.map(algebraMap)(A_mu).",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "Use bounded-inverse-amice and the coefficient formula for integralAmiceCoefficients. Coefficient extensionality and the pinned coeff_map formula give the equality."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-sequence",
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice",
+        "mathlib:PowerSeries.coeff_map"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "amiceTransform_extendIntegralCoefficients"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Agreement on integral test functions",
+      "statement": "For f in C(Z_p,Z_p), extension of mu applied to algebraMap composed with f equals algebraMap(mu(f)).",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "The Mahler coefficient of algebraMap composed with f is algebraMap(a_n(f)): write this composition as f times 1_R, commute pointwise scalar multiplication through iterated forward differences, and evaluate at zero.",
+        "The inverse pairing therefore has terms algebraMap(a_n(f) coeff_n(A_mu)). The original integral pairing is summable by bounded-mahler-summable. The coefficient homomorphism is continuous by the bounded scalar action, so its map commutes with this convergent sum.",
+        "For R=Z_p, coefficient-extension-amice and the existing Amice injectivity identify the bounded inverse of these coefficients with mu. Hence the original sum is exactly mu(f)."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-amice",
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-mahler-summable",
+        "mathlib:PadicInt.mahlerEquiv",
+        "mathlib:continuous_algebraMap",
+        "mathlib:Multipliable.map_tprod",
+        "mathlib:AbstractMeasure.injective_amiceTransform"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "extendIntegralCoefficients_test"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-unique",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Uniqueness of coefficient extension",
+      "statement": "An R-valued measure nu equals extendIntegralCoefficients(mu) if nu(algebraMap composed with f)=algebraMap(mu(f)) for every integral continuous test f.",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "In particular the two measures agree on the R-valued images of all integral Mahler basis functions. Their Amice coefficients agree by the pinned extraction formula and coefficient-extension-test-function. Apply pinned general Amice injectivity."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:AbstractMeasure.injective_amiceTransform"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "extendIntegralCoefficients_unique"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-dirac",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Dirac compatibility of coefficient extension",
+      "statement": "For x in Z_p, extendIntegralCoefficients(delta_x over Z_p)=delta_x over R.",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "The existing R-valued Dirac measure evaluates the image of an integral test f to algebraMap(f(x)). This is exactly the required integral Dirac evaluation; apply coefficient-extension-unique."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-unique",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Example 3.24 and Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "extendIntegralCoefficients_dirac"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-pushforward",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Pushforward compatibility of coefficient extension",
+      "statement": "For a continuous map g:Z_p->Z_p, extension of map(g,mu) equals map(g,extendIntegralCoefficients(mu)).",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "Use coefficient-extension-unique and test on an integral f. The pinned pushforward formula evaluates the right side on the image of f composed with g.",
+        "Coefficient embedding commutes pointwise with precomposition, so coefficient-extension-test-function identifies this with algebraMap(mu(f composed with g)), the required integral pushforward value."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-unique",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, arXiv v2 p.18",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "extendIntegralCoefficients_map"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-weight",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "kind": "lemma",
+      "title": "Weight compatibility of coefficient extension",
+      "statement": "For g in C(Z_p,Z_p), extension of weight(g,mu) equals weight(algebraMap composed with g,extendIntegralCoefficients(mu)).",
+      "hypotheses": [
+        "p is prime; R is a complete ultrametric normed commutative ring with a Z_p-algebra structure whose scalar action satisfies |a r| <= |a| |r|. No multiplicative-norm, discrete-valuation or compactness assumption on R is imposed."
+      ],
+      "proofSteps": [
+        "Use the actual previously planned weight construction and its evaluation formula. On the image of an integral test f, the product of the two coefficient images is the image of g f because algebraMap is a ring homomorphism.",
+        "Coefficient-extension-test-function therefore gives algebraMap(mu(g f)). The integral weight has the same value by its evaluation formula. Apply coefficient-extension-unique. In particular this applies to the existing clopen restriction weights and the continuous total inverse weight; it does not assert multiplicativity of the inclusion of unit-group measures."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-unique",
+        "PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function",
+        "PadicMeasuresIwasawaAlgebras:L2/weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation"
+      ],
+      "sources": [
+        {
+          "sourceId": "RJW-v2",
+          "locator": "Theorem 3.25, p.18 and §3.5.1, p.19 (arXiv v2)",
+          "match": "The source proves the inverse by pairing vanishing Mahler coefficients with bounded integral coefficients. This node is a worker-derived generalization or compatibility of that construction under its displayed norm hypotheses; it does not claim the convolution-algebra or topology comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/BoundedAmice",
+        "namespace": "AbstractMeasure",
+        "declaration": "extendIntegralCoefficients_weight"
+      },
+      "acceptance": [
+        "Use the existing AbstractMeasure, continuous-function and bounded-sequence carriers. All convergence and coefficient hypotheses must be retained."
+      ]
     }
   ],
   "requests": [],
@@ -5770,9 +6808,9 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L2",
       "status": "partial",
       "remaining": [
-        "Extend the integral ℤ_p Amice equivalence to the actual bounded-series carriers for general coefficient rings or fields, with integral lattice, coefficient, norm and weak-topology comparisons; do not assert surjectivity onto all field-valued formal series.",
+        "The bounded-sequence inverse and the actual Z_p-to-R extension of measures on Z_p are supplied for complete ultrametric normed commutative Z_p-algebras with bounded scalar action. Establish the bounded-coefficient characterization of all field-valued measures, the receiving finite-extension integer-ring instances and the integral-lattice/scaling comparisons. Prove coefficient-tower, convolution, multivariable and norm/weak-topology comparisons on their actual domains; no surjectivity onto all field-valued formal series is asserted.",
         "The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Construct the generic clopen-subtype restriction/extension comparison in L0 and compare intrinsic unit-domain measures with the ambient projector. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action.",
-        "The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Extend coefficient lattices and the bounded Amice equivalence for general rings/fields before claiming the full coefficient-general §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers.",
+        "The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers.",
         "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
       ]
     },
@@ -5828,7 +6866,7 @@
     {
       "title": "L2 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The integral root-averaging subgraph now joins the preceding operator and inverse-weight subgraphs. Extend the integral ℤ_p Amice equivalence to the actual bounded-series carriers for general coefficient rings or fields, with integral lattice, coefficient, norm and weak-topology comparisons; do not assert surjectivity onto all field-valued formal series. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Construct the generic clopen-subtype restriction/extension comparison in L0 and compare intrinsic unit-domain measures with the ambient projector. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Extend coefficient lattices and the bounded Amice equivalence for general rings/fields before claiming the full coefficient-general §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
+      "detail": "Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The integral root-averaging subgraph now joins the preceding operator and inverse-weight subgraphs. The bounded-sequence inverse and the actual Z_p-to-R extension of measures on Z_p are supplied for complete ultrametric normed commutative Z_p-algebras with bounded scalar action. Establish the bounded-coefficient characterization of all field-valued measures, the receiving finite-extension integer-ring instances and the integral-lattice/scaling comparisons. Prove coefficient-tower, convolution, multivariable and norm/weak-topology comparisons on their actual domains; no surjectivity onto all field-valued formal series is asserted. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Construct the generic clopen-subtype restriction/extension comparison in L0 and compare intrinsic unit-domain measures with the ambient projector. Decompose multiplication by z^x with genuine convergence hypotheses. Prove the unit-dilation/formal-binomial-substitution comparison and import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward identity alone does not identify an arithmetic Galois action. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels."
     },
     {
       "title": "L3 remaining source and interface decomposition",
@@ -5993,87 +7031,26 @@
     }
   ],
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index. The additive ultrametric bound is cited through its indexed generating declaration and explicitly identified in the proof plan.",
-    "intake": "Four authorized files; zero problems.",
-    "sourceFindings": "All seven inherited findings preserved; errata wrapper passes. No new source finding.",
-    "validation": {
-      "nodes": 101,
-      "kinds": {
-        "construction": 14,
-        "lemma": 62,
-        "definition": 2,
-        "theorem": 17,
-        "comparison": 6
-      },
-      "api": 75,
-      "definitionConstructionTests": 57,
-      "otherTests": 3,
-      "planets": 10,
-      "baseline": 107,
-      "preservedNodes": 69,
-      "preservedSourceIssues": 7,
-      "newNodes": 32,
-      "newNamedDeclarations": 32,
-      "newTypedTests": 8,
-      "typedExamples": 70,
-      "internalEdges": 183,
-      "acyclic": true,
-      "externalNodeInputs": [],
-      "compilerErrors": 0,
-      "compilerWarnings": 200,
-      "allWarningsPlaceholders": true,
-      "pinnedMathlibModules": 2732,
-      "pinnedTauCetiModules": 0,
-      "scratchProofsWithoutPlaceholders": 5,
-      "sensitiveTelescopes": 4,
-      "readerWords": 26393,
-      "regressions": {
-        "status": "pass",
-        "counts": {
-          "primitive roots": 4,
-          "orthogonality": 100,
-          "nonzero denominators": 24,
-          "inverse checks": 153,
-          "partial fractions": 24,
-          "polynomial averaging": 336,
-          "rational truncation congruences": 72,
-          "dyadic translation": 1,
-          "negative control missing p": 1,
-          "negative control missing constant": 1
-        },
-        "total": 716,
-        "primes": [
-          2,
-          3,
-          5,
-          7
-        ],
-        "scope": "Exact arithmetic in Q[zeta_p], reduced modulo 1+zeta+...+zeta^(p-1). Orthogonality through exponent24, six rational y values per prime, eleven polynomials per prime, and three rational geometric series per prime through degree5 modulo p^5 using fourteen input coefficients. Congruence checks do not prove continuity or infinite convergence."
-      },
-      "scopedMutationCheck": true,
-      "requests": 0,
-      "gaps": 8,
-      "closedStages": 0
+    "blueprint": "Zero errors and warnings using the unmodified pinned declaration index. Generated additive results are cited through their indexed source declarations.",
+    "intake": "Exactly four authorized files; zero problems.",
+    "preservation": "All 101 preceding nodes, 107 preceding baseline records, seven findings, ten planets and stage statuses are unchanged; the exact preceding Lean body is a prefix.",
+    "structure": "209 internal edges, acyclic; all prerequisite leaves are recorded baseline declarations. Reader, signatures, API and tests agree.",
+    "lean": {
+      "suggestedFileSha256": "2e6cf9ef37bf31d863a53a5e5a285a2e52a3c52278fe5f1118476b6eb1a30526",
+      "errors": 0,
+      "warnings": 255,
+      "warningsOnlyPlaceholders": true,
+      "mathlibModules": 2732,
+      "tauCetiModules": 0,
+      "sourceAuditSha256": "68a74cecca234536932b650bd8e9cbb54a4791daf8ca788ba531d19642c97008",
+      "scratchProofSha256": "018a16cd7a75dc416d14c6b70efb8a87fa4e0d2c60ce9cf13af97e4176f97a36",
+      "scratchProofDeclarations": 31,
+      "scratchProofErrors": 0,
+      "scratchProofWarnings": 0,
+      "scratchProofPlaceholders": 0,
+      "scratchSourceModules": 2020
     },
-    "publication": {
-      "baseCommit": "2efc4b2b0b478478ed09ebac0861297043175bc6",
-      "capturedInputs": 23,
-      "registerRefresh": {
-        "base": "da422c1dd130e282bc65951ff05ce4a7fa986ce0",
-        "paths": [
-          "research/blueprint/packets/LocallyAnalyticDistributions.json",
-          "data/source-issues.json",
-          "research/errata/REGISTER.md"
-        ],
-        "note": "Screened all sixteen changed LAD L4 statements, changed coverage and requests; the changes concern Banach/Fredholm operators, not the bounded root average. Eight additional sieve source findings in the global register are unrelated to this source."
-      },
-      "allCapturedInputsMatch": true,
-      "allFourPredecessorOutputsUnchanged": true,
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5852157899,
-      "sameBranchCorrection": "The first CI attempt rejected the generated additive name absent from its text-only index. The citation now names the actual indexed generating declaration, with the generated additive result explicitly documented. No mathematical statement or Lean signature changes."
-    },
-    "closure": "Partial: eight gaps, zero requests and zero closed stages. General bounded coefficient extension and the remaining stage targets are explicit. Every implementation status remains unchecked."
+    "closure": "Eight gaps, zero requests, zero closed stages; every implementation status remains unchecked."
   },
   "provenance": {
     "unitInverseFollowup": {
@@ -6180,6 +7157,52 @@
       "sourceReading": "Root-averaging continuation, 27 September 2026: freshly fetched publication printed127–129/PDF28–30 and printed137/PDF38, and arXiv v2 PDF20–22 and27, read in full and collated. The same edition hashes were verified. No all-paper reading or arbitrary-coefficient bounded Amice theorem is claimed.",
       "ownership": "Accepted RS-16: bounded root averaging belongs to PMIA L2. Existing Coleman trace and locally analytic comparisons remain downstream. The two Dirichlet requests have exact candidate suppliers root-partial-fractions and rational-root-average-descent; this job changes no consumer file.",
       "snapshot": "71c43ba8cfa0f082eccf1e475e87e020f7d36bff"
+    },
+    "boundedCoefficientFollowup": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 555,
+      "previousPr": 3170,
+      "priorNodes": 101,
+      "newNodes": 16,
+      "newBaselineDeclarations": 18,
+      "finiteChecks": {
+        "exactFiniteChecks": 1716,
+        "negativeControls": {
+          "shifted_coefficients": true,
+          "reversed_difference_sign": true,
+          "missing_factorial_normalization": true,
+          "discard_nonintegral_coefficients": true,
+          "extend_as_dirac_zero": true,
+          "unbounded_input": true
+        },
+        "scope": "Exact rational finite Mahler pairings, Dirac, pushforward, weight, nonintegral scalar and unbounded-term checks. No finite test asserts an infinite analytic theorem; a separate complete pinned Lean proof checks convergence and the actual measure constructor."
+      },
+      "preservation": "All 101 prior node objects, prior baseline records, source findings, planets and stage statuses preserved; only the L2 remaining-work descriptions are narrowed. No reverse consumer prerequisite is introduced.",
+      "compiled": {
+        "suggestedFileSha256": "2e6cf9ef37bf31d863a53a5e5a285a2e52a3c52278fe5f1118476b6eb1a30526",
+        "errors": 0,
+        "warnings": 255,
+        "warningsOnlyPlaceholders": true,
+        "mathlibModules": 2732,
+        "tauCetiModules": 0,
+        "sourceAuditSha256": "68a74cecca234536932b650bd8e9cbb54a4791daf8ca788ba531d19642c97008",
+        "scratchProofSha256": "018a16cd7a75dc416d14c6b70efb8a87fa4e0d2c60ce9cf13af97e4176f97a36",
+        "scratchProofDeclarations": 31,
+        "scratchProofErrors": 0,
+        "scratchProofWarnings": 0,
+        "scratchProofPlaceholders": 0,
+        "scratchSourceModules": 2020
+      },
+      "publicationGuard": {
+        "base": "bf2349fb5eb9b2f6381c8847192c30a8f69d2dc5",
+        "unchangedInputs": 28,
+        "unchangedOutputs": 4,
+        "issueAvailable": true,
+        "lastClaimConfirmation": 5852157899,
+        "reviewIssue": 146,
+        "reviewUnclaimed": true
+      }
     }
   }
 }
