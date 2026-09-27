@@ -1,0 +1,1160 @@
+{
+  "roadmapId": "AutomorphicLFunctionsAndLocalFactors",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "AutomorphicLFunctionsAndLocalFactors:AL.0",
+    "AutomorphicLFunctionsAndLocalFactors:AL.1",
+    "AutomorphicLFunctionsAndLocalFactors:AL.2",
+    "AutomorphicLFunctionsAndLocalFactors:AL.3",
+    "AutomorphicLFunctionsAndLocalFactors:AL.4",
+    "AutomorphicLFunctionsAndLocalFactors:AL.5"
+  ],
+  "status": "partial",
+  "summary": "Thirteen declaration-sized items for bilinear character annihilators and compact-open Fourier calculations using Mathlib’s existing Fourier integral. The component separates translation, modulation, support, local constancy and the dual-measure condition for indicator inversion. The six-stage roadmap remains partial: its actual local-field self-duality, Schwartz-space comparisons, adelic Poisson theorem and L-function constructions have explicit gaps and supplier requests.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AddChar",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "Native additive character from an additive monoid into a multiplicative monoid.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:AddChar.map_zero_eq_one",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "An additive character sends zero to one.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:AddChar.map_add_eq_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "An additive character sends a sum to a product.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:AddChar.toAddMonoidHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "Native additive-homomorphism view with codomain Additive M, whose native kernel is an additive subgroup.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:AddChar.compAddMonoidHom",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "Pull back an additive character along an additive homomorphism.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:VectorFourier.fourierIntegral",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+        "provides": "For a bilinear L:V×W→R and ψ:R→Circle, the native transform is ∫ψ(−L(v,w))•f(v)dμ; R is any commutative ring.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:VectorFourier.fourierIntegral_congr_ae",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+        "provides": "Almost-everywhere equal inputs have equal Fourier integrals.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:VectorFourier.fourierIntegral_const_smul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+        "provides": "A complex scalar factors out, even with the native totalized integral convention.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:VectorFourier.fourierIntegral_comp_add_right",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+        "provides": "For measurable addition and right-translation-invariant μ, F(f(·+u))(w)=ψ(L(u,w))•Ff(w). This is already general and is imported.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:VectorFourier.fourierIntegral_convergent_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+        "provides": "With topological-ring, Borel-domain and continuity hypotheses on ψ and L, integrability of the Fourier integrand is equivalent to integrability of f.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:VectorFourier.fourierIntegral_continuous",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+        "provides": "Under the stated continuous-character/bilinear-form hypotheses, integrable f and first-countable W give a continuous Fourier integral.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.flip",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
+        "provides": "Transpose the two arguments of a native bilinear map.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:LinearMap.compl₂",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
+        "provides": "Precompose the second argument with a linear map, retaining the native bilinear carrier.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:IsLocallyConstant",
+        "kind": "def",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "Native local constancy, expressed by openness of every set preimage.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:IsLocallyConstant.isOpen_fiber",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "Each fiber of a locally constant function is open.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:IsLocallyConstant.iff_exists_open",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "Local constancy is equivalent to having an open constant neighborhood at every point.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:generalized_tube_lemma",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "An open neighborhood of the product of two compact sets contains a product of open neighborhoods.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:isClosed_iInter",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Basic.lean",
+        "provides": "An arbitrary intersection of closed sets is closed.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:isClosed_eq",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "The equality locus of two continuous maps to a Hausdorff space is closed.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_congr_ae",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+        "provides": "Almost-everywhere equal integrands have equal native Bochner integrals.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_indicator_const",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/Bochner/Set.lean",
+        "provides": "The integral of a measurable-set indicator with constant value c is μ.real(U)•c; no hidden probability normalization.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:HasCompactMulSupport",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/Support.lean",
+        "provides": "Explicit source declaration generating native HasCompactSupport; the latter means compactness of the closure of ordinary support.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:HasCompactMulSupport.of_mulSupport_subset_isCompact",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Support.lean",
+        "provides": "Explicit source for its generated additive counterpart: ordinary support contained in a compact set gives HasCompactSupport in an R1 space. The suggested file uses the additive notion.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:ZMod.toCircle",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "Standard circle-valued additive character of Z/N: exp(2πij/N).",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:ZMod.injective_toCircle",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "This standard character is injective for nonzero N.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:ZMod.dft",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Fourier/ZMod.lean",
+        "provides": "Native finite Fourier linear equivalence, with counting-measure normalization.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:ZMod.dft_eq_fourier",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/ZMod.lean",
+        "provides": "The finite Fourier transform equals the native Fourier integral against counting measure.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:Real.fourierChar",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Complex/Circle.lean",
+        "provides": "The real additive character x↦exp(2πix), valued in Circle.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:Subgroup.zpowers",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/ZPowers/Basic.lean",
+        "provides": "Explicit source generating AddSubgroup.zmultiples, the additive subgroup generated by one element; used in the kernel and real-lattice tests.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      },
+      {
+        "ref": "mathlib:PontryaginDual",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/PontryaginDual.lean",
+        "provides": "Existing compact-open space of continuous homomorphisms to Circle. Its existence alone does not give local-field self-duality or double-annihilator equalities.",
+        "checked": "Actual statement read at the pinned commit; source bytes verified against its pinned tree."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Tate1950",
+      "title": "Fourier Analysis in Number Fields and Hecke’s Zeta-Functions",
+      "authors": "John Tate",
+      "edition": "Princeton doctoral thesis, May 1950; original thesis scan, not the 1967 reprint",
+      "url": "https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf",
+      "sha256": "0c40f263e8ab7924d1f0a8c7e40d81d464aec6620b8ec14101f21f7b07e6f0c8",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Physical pages 1–24 read in batches of at most three pages; physical p.24/printed (2.17) rendered and inspected for the compact-subgroup calculation.",
+        "Chapter I; Chapter II §§2.1–2.4; §2.5 through the first nonarchimedean Fourier and unramified-zeta calculation. Physical pp.25–60 are unread. OCR does not establish unreadable formulas."
+      ]
+    },
+    {
+      "id": "Kudla2004",
+      "title": "Tate’s Thesis",
+      "authors": "Stephen S. Kudla",
+      "edition": "Chapter 6, An Introduction to the Langlands Program, Birkhäuser 2004, pp.109–131; published chapter scan",
+      "url": "https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf",
+      "doi": "10.1007/978-0-8176-8226-2_6",
+      "sha256": "fbce8ca325f21631f27de3d1162da0af953b287b810751bd92bd54b1eb821f35",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Physical pp.1–15/printed pp.109–123, in batches of at most three pages; pp.110 and 122 also rendered and inspected.",
+        "Sections 1–2 and Section 3 through (3.29), including local Schwartz functions, eigendistributions, normalized zeta distributions and the Fourier convention. Physical pp.16–23/printed pp.124–131 are unread."
+      ]
+    },
+    {
+      "id": "KudlaPreprint",
+      "title": "Tate’s Thesis",
+      "authors": "Stephen S. Kudla",
+      "edition": "Nineteen-page lecture preprint, expanded from March 2001 Jerusalem lectures; distinct from the published chapter",
+      "url": "https://u.cs.biu.ac.il/~reznikov/courses/kudla-1.pdf",
+      "sha256": "4932f3f8b8795dce6a7736a1d2a47feaf892979e48dddf8cad139ea81d961ae7",
+      "accessed": "2026-09-27",
+      "readSections": [
+        "Physical/printed pp.1–9, in batches of at most three pages. Used for version collation; pp.10–19 unread."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/pairing-annihilator",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Annihilator for a bilinear character pairing",
+      "kind": "construction",
+      "statement": "Construct U⊥={w∈W | ψ(L(u,w))=1 for every u∈U} as an AddSubgroup W. It is generally not an R-submodule. Its data is exactly this carrier and the inherited additive subgroup operations.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data."
+      ],
+      "proofSteps": [
+        "Use the displayed carrier inside the existing AddSubgroup type.",
+        "For zero use bilinearity and AddChar.map_zero_eq_one; for addition use bilinearity and AddChar.map_add_eq_mul; for negation use the additive-character inverse identity obtained from ψ(x+−x)=1. No analytic or duality theorem is used."
+      ],
+      "prerequisites": [
+        "mathlib:AddChar",
+        "mathlib:AddChar.map_zero_eq_one",
+        "mathlib:AddChar.map_add_eq_mul",
+        "mathlib:LinearMap.compl₂",
+        "mathlib:AddChar.toAddMonoidHom",
+        "mathlib:ZMod.toCircle",
+        "mathlib:ZMod.injective_toCircle",
+        "mathlib:Real.fourierChar",
+        "mathlib:Subgroup.zpowers"
+      ],
+      "acceptance": [
+        "Do not require ψ nontrivial: a trivial character has full annihilator.",
+        "Use an additive subgroup, so the real integer-lattice example is admitted."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.pairingAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
+          "excerpt": "this character is trivial on the subgroup",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Character annihilator"
+      },
+      "uses": [
+        {
+          "where": "Tate §2.5, physical p.24",
+          "how": "Express the frequencies on which a subgroup indicator has nonzero transform and the translated frequency support of its modulations."
+        },
+        {
+          "where": "Kudla 2004 p.122; AL.0 and MetaplecticAutomorphicForms:MP.0",
+          "how": "Track the support and measure factors in nonarchimedean Schwartz-function and oscillator-model Fourier calculations."
+        },
+        {
+          "where": "FunctionFieldArithmetic:FA.2",
+          "how": "Reuse the same local pairing calculation for residue characters after that owner supplies its local-field and global-residue constructions."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.LocalFourier.pairingAnnihilator_bot",
+          "role": "simp",
+          "statement": "The annihilator of the zero additive subgroup is the full subgroup W."
+        },
+        {
+          "name": "TauCeti.LocalFourier.pairingAnnihilator_zero",
+          "role": "simp",
+          "statement": "For the zero bilinear pairing the annihilator of every U is W."
+        },
+        {
+          "name": "TauCeti.LocalFourier.pairingAnnihilator_antitone",
+          "role": "structure",
+          "statement": "U⊆U′ implies (U′)⊥⊆U⊥ for the same ψ and L."
+        },
+        {
+          "name": "TauCeti.LocalFourier.pairingAnnihilator_comap",
+          "role": "functoriality",
+          "statement": "For a linear T:W′→W, the annihilator for (v,w′)↦L(v,Tw′) equals the native comap of U⊥ along T. This uses native LinearMap.compl₂."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.LocalFourier.pairingAnnihilator_zmod_two",
+          "kind": "computation",
+          "statement": "For R=V=W=Z/2, the standard ZMod.toCircle character, multiplication pairing and U=V, the annihilator is zero."
+        },
+        {
+          "name": "TauCeti.LocalFourier.pairingAnnihilator_trivial_character",
+          "kind": "degenerate",
+          "statement": "For ψ=1 and every L,U, the annihilator is W."
+        },
+        {
+          "name": "TauCeti.LocalFourier.pairingAnnihilator_zmultiples_eq_kernel",
+          "kind": "compatibility",
+          "statement": "For V=W=R, multiplication pairing and U the additive subgroup generated by 1, U⊥ equals the native kernel of ψ.toAddMonoidHom. U cannot be replaced by all of R in this assertion."
+        },
+        {
+          "name": "TauCeti.LocalFourier.pairingAnnihilator_not_real_submodule",
+          "kind": "non-example",
+          "statement": "For R=V=W=R-real, ψ(x)=exp(2πix), multiplication pairing and U=Z·1, the annihilator contains 1 and does not contain 1/2. Thus it is not stable under real scalar multiplication."
+        }
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Membership in the character annihilator",
+      "kind": "lemma",
+      "statement": "For every w, w∈U⊥ if and only if ψ(L(u,w))=1 for all u∈U.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data."
+      ],
+      "proofSteps": [
+        "Unfold only the carrier field of pairingAnnihilator. Export this as a separate lemma because the remaining nodes use it."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/pairing-annihilator"
+      ],
+      "acceptance": [
+        "At w=0 every character value is one."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.mem_pairingAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
+          "excerpt": "0",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/closed-annihilator",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Closedness of the character annihilator",
+      "kind": "lemma",
+      "statement": "If W is a topological space and w↦ψ(L(v,w)) is continuous for each v∈V, then U⊥ is closed in W.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "W is topological; each displayed one-variable circle-valued map is continuous."
+      ],
+      "proofSteps": [
+        "By mem-pairing-annihilator express U⊥ as the intersection over u∈U of the equality loci ψ(L(u,w))=1.",
+        "Each locus is closed by isClosed_eq, since Circle is Hausdorff. Apply isClosed_iInter."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
+        "mathlib:isClosed_eq",
+        "mathlib:isClosed_iInter"
+      ],
+      "acceptance": [
+        "For the real pairing and U=Z, U⊥ is closed but not open; this theorem alone gives no openness."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.isClosed_pairingAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
+          "excerpt": "0",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/open-annihilator",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Openness of a compact subgroup annihilator",
+      "kind": "theorem",
+      "statement": "Suppose V,W are topological spaces, U is compact as a subset of V, and (v,w)↦ψ(L(v,w)) is jointly locally constant. Then U⊥ is open in W.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V,W are topological; U is compact; the joint circle-valued pairing is IsLocallyConstant."
+      ],
+      "proofSteps": [
+        "The fiber of 1 under the joint pairing is open by IsLocallyConstant.isOpen_fiber.",
+        "For w∈U⊥, the compact product U×{w} lies in that fiber by the membership lemma. Apply generalized_tube_lemma to obtain an open neighborhood O of w with U×O in the fiber.",
+        "Every point of O belongs to U⊥; openness follows from its pointwise open neighborhoods. This proof does not take an infinite intersection of open sets."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
+        "mathlib:IsLocallyConstant.isOpen_fiber",
+        "mathlib:generalized_tube_lemma"
+      ],
+      "acceptance": [
+        "Over a finite discrete module the hypothesis holds for every pairing.",
+        "The real character is not locally constant, so the Z⊂R example does not satisfy these hypotheses."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.isOpen_pairingAnnihilator"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "p.115, local constancy and compact support; p.122, Fourier transforms",
+          "excerpt": "Fourier transforms",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Open character annihilator"
+      }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/vanishing-from-period",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Fourier vanishing from a nontrivial period",
+      "kind": "lemma",
+      "statement": "If f(v+u)=f(v) for every v and ψ(L(u,w))≠1, then Ff(w)=0.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V has a measurable-space structure; μ is a measure on V; f takes values in C.",
+        "All Fourier expressions use the existing native Bochner integral, including its totalized convention for nonintegrable functions.",
+        "Addition on V is measurable and μ is invariant under right addition."
+      ],
+      "proofSteps": [
+        "Apply native fourierIntegral_comp_add_right to the supplied period u and rewrite its left side using the period hypothesis.",
+        "The resulting equality z=ψ(L(u,w))•z in C forces z=0, because the circle scalar has complex value different from 1."
+      ],
+      "prerequisites": [
+        "mathlib:VectorFourier.fourierIntegral_comp_add_right"
+      ],
+      "acceptance": [
+        "For the constant function on Z/2 and counting measure, the transform at the nonzero frequency is zero."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.fourierIntegral_eq_zero_of_period"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
+          "excerpt": "0",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/fourier-support",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Fourier support lies in the period annihilator",
+      "kind": "lemma",
+      "statement": "If every u∈U is a period of f, then ordinary support(Ff)⊆U⊥.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V has a measurable-space structure; μ is a measure on V; f takes values in C.",
+        "All Fourier expressions use the existing native Bochner integral, including its totalized convention for nonintegrable functions.",
+        "Addition on V is measurable and μ is invariant under right addition."
+      ],
+      "proofSteps": [
+        "Outside U⊥, the membership lemma gives some u∈U with nontrivial phase.",
+        "Apply vanishing-from-period. This controls ordinary support; compactness of its closure is a separate node."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/vanishing-from-period"
+      ],
+      "acceptance": [
+        "For U=0 the conclusion is support(Ff)⊆W, imposing no false compactness."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.support_fourierIntegral_subset"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
+          "excerpt": "0",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-transform",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Fourier transform of a subgroup indicator",
+      "kind": "theorem",
+      "statement": "If U is measurable, then F(1_U)=μ.real(U)·1_(U⊥). The theorem uses native totalized Bochner integrals. On finite-measure compact-open U with continuous pairing it is the usual convergent Fourier calculation.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V has a measurable-space structure; μ is a measure on V; f takes values in C.",
+        "All Fourier expressions use the existing native Bochner integral, including its totalized convention for nonintegrable functions.",
+        "Addition on V is measurable and μ is invariant under right addition.",
+        "U is measurable. No unit-volume assumption and no self-duality identification are imposed."
+      ],
+      "proofSteps": [
+        "At w∈U⊥, the Fourier integrand equals 1_U pointwise; use membership and the character inverse identity. Apply integral_indicator_const to obtain μ.real(U).",
+        "At w∉U⊥, 1_U has every u∈U as a period by subgroup membership. Apply fourier-support to obtain zero.",
+        "Combine the two cases as the displayed equality of functions."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/fourier-support",
+        "mathlib:VectorFourier.fourierIntegral",
+        "mathlib:MeasureTheory.integral_indicator_const",
+        "mathlib:MeasureTheory.integral_congr_ae"
+      ],
+      "acceptance": [
+        "For U=Z/2 and counting measure, the result is twice the indicator of {0}.",
+        "For μ=0 both sides vanish.",
+        "If μ(U)=∞, μ.real(U)=0; this is only the native totalized identity, not a convergence assertion."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.fourierIntegral_indicator"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
+          "excerpt": "the measure of the subgroup",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fourier transform of a subgroup indicator"
+      }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/coset-transform",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Fourier transform of a coset indicator",
+      "kind": "lemma",
+      "statement": "For measurable U and a∈V, the transform of v↦1_U(v−a) equals w↦ψ(−L(a,w))·μ.real(U)·1_(U⊥)(w).",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V has a measurable-space structure; μ is a measure on V; f takes values in C.",
+        "All Fourier expressions use the existing native Bochner integral, including its totalized convention for nonintegrable functions.",
+        "Addition on V is measurable and μ is invariant under right addition.",
+        "U is measurable; a∈V."
+      ],
+      "proofSteps": [
+        "Apply native translation covariance with translation parameter −a.",
+        "Substitute indicator-transform and bilinearity L(−a,w)=−L(a,w). The phase has a minus sign because the input uses v−a."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-transform",
+        "mathlib:VectorFourier.fourierIntegral_comp_add_right"
+      ],
+      "acceptance": [
+        "For counting measure on Z/4, the indicator of {1} transforms at frequency 1 to −i, not +i."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.fourierIntegral_coset_indicator"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
+          "excerpt": "0",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/modulation",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Fourier transform of a character modulation",
+      "kind": "lemma",
+      "statement": "For every w₀, the transform of v↦ψ(L(v,w₀))·f(v) equals w↦Ff(w−w₀). No invariance of μ is needed.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V has a measurable-space structure; μ is a measure on V; f takes values in C.",
+        "All Fourier expressions use the existing native Bochner integral, including its totalized convention for nonintegrable functions."
+      ],
+      "proofSteps": [
+        "Expand the native Fourier integrand. Combine the two character values using AddChar.map_add_eq_mul and scalar associativity.",
+        "Bilinearity gives −L(v,w)+L(v,w₀)=−L(v,w−w₀); the integrands agree pointwise, so apply integral_congr_ae."
+      ],
+      "prerequisites": [
+        "mathlib:VectorFourier.fourierIntegral",
+        "mathlib:AddChar.map_add_eq_mul",
+        "mathlib:MeasureTheory.integral_congr_ae"
+      ],
+      "acceptance": [
+        "For counting measure on Z/3, the standard character transforms to 3 times the indicator of frequency 1, rather than frequency −1."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.fourierIntegral_modulation"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
+          "excerpt": "0",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/frequency-periods",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Frequency periods from support containment",
+      "kind": "lemma",
+      "statement": "If ordinary support(f)⊆U and a∈U⊥, then Ff(w+a)=Ff(w) for all w. No invariance of μ is needed.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V has a measurable-space structure; μ is a measure on V; f takes values in C.",
+        "All Fourier expressions use the existing native Bochner integral, including its totalized convention for nonintegrable functions."
+      ],
+      "proofSteps": [
+        "Compare the two integrands. Off U the value f(v) is zero by the support hypothesis.",
+        "On U, the membership lemma gives ψ(L(v,a))=1, so the extra phase is one. Use bilinearity, the character addition identity and integral_congr_ae."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/mem-pairing-annihilator",
+        "mathlib:VectorFourier.fourierIntegral",
+        "mathlib:AddChar.map_add_eq_mul",
+        "mathlib:MeasureTheory.integral_congr_ae"
+      ],
+      "acceptance": [
+        "If f is supported at zero, its Fourier integral is constant in the frequency, consistent with U=0 and U⊥=W."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.fourierIntegral_add_of_support"
+      },
+      "sources": [
+        {
+          "sourceId": "Tate1950",
+          "locator": "§2.5, physical p.24, printed (2.17), compact-subgroup Fourier calculation",
+          "excerpt": "0",
+          "match": "Declaration-sized abstraction of the indicated calculation, with all extra hypotheses stated; the source does not name this general declaration."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/locally-constant-transform",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Local constancy of the Fourier transform",
+      "kind": "theorem",
+      "statement": "Suppose V is topological, W is a topological additive group, U is compact, the joint character pairing is locally constant, and support(f)⊆U. Then Ff is locally constant.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V has a measurable-space structure; μ is a measure on V; f takes values in C.",
+        "All Fourier expressions use the existing native Bochner integral, including its totalized convention for nonintegrable functions.",
+        "W is an IsTopologicalAddGroup; U is compact in V; the joint pairing is locally constant."
+      ],
+      "proofSteps": [
+        "Apply open-annihilator to see that U⊥ is open.",
+        "By frequency-periods, Ff is constant on every additive coset w+U⊥. Translation in the topological group makes this coset an open neighborhood of w.",
+        "Apply IsLocallyConstant.iff_exists_open."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/open-annihilator",
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/frequency-periods",
+        "mathlib:IsLocallyConstant.iff_exists_open"
+      ],
+      "acceptance": [
+        "For a finite discrete group this recovers local constancy of every finite Fourier transform.",
+        "The assertion requires a compact subgroup containing the support, not merely an arbitrary compact support set."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.isLocallyConstant_fourierIntegral"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "p.122, Fourier transforms of Schwartz–Bruhat functions",
+          "excerpt": "f̂(x)",
+          "match": "One half of the nonarchimedean preservation assertion, conditional on an actual compact subgroup containing the support and a locally constant pairing."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Local constancy of the Fourier transform"
+      }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/compact-support-transform",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Compact support from a compact period annihilator",
+      "kind": "theorem",
+      "statement": "If W is Hausdorff, every u∈U is a period of f, and U⊥ is compact, then Ff has compact support in the native sense.",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V has a measurable-space structure; μ is a measure on V; f takes values in C.",
+        "All Fourier expressions use the existing native Bochner integral, including its totalized convention for nonintegrable functions.",
+        "Addition on V is measurable and μ is invariant under right addition.",
+        "W is a Hausdorff topological space; U⊥ is compact. This compactness is an explicit input, not inferred from openness of U."
+      ],
+      "proofSteps": [
+        "Apply fourier-support.",
+        "Use the generated additive counterpart of HasCompactMulSupport.of_mulSupport_subset_isCompact: the closure of a subset of a compact set is compact in a Hausdorff space."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/fourier-support",
+        "mathlib:HasCompactMulSupport.of_mulSupport_subset_isCompact"
+      ],
+      "acceptance": [
+        "A trivial character on a noncompact W has U⊥=W; the required compactness does not follow from compactness or openness of U."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.hasCompactSupport_fourierIntegral"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "p.122, Fourier transforms of Schwartz–Bruhat functions",
+          "excerpt": "S(F)",
+          "match": "The compact-support half of preservation, with the dual compactness theorem displayed as an input instead of assumed."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-inversion",
+      "parentStageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "realises": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "title": "Fourier inversion for a subgroup indicator",
+      "kind": "theorem",
+      "statement": "Put A=U⊥. Suppose U and A are measurable, μ on V and ν on W are translation invariant, the annihilator of A for the transposed pairing equals U, and μ.real(U)ν.real(A)=1. Then F_(ν,Lᵗ)(F_(μ,L)(1_U))(v)=1_U(−v).",
+      "hypotheses": [
+        "R is a commutative ring; V and W are additive commutative groups and R-modules.",
+        "ψ is a native AddChar R Circle; L:V×W→R is R-bilinear; U is a native additive subgroup of V. No topology, nontriviality or nondegeneracy is built into this data.",
+        "V has a measurable-space structure; μ is a measure on V; f takes values in C.",
+        "All Fourier expressions use the existing native Bochner integral, including its totalized convention for nonintegrable functions.",
+        "Addition on V is measurable and μ is invariant under right addition.",
+        "W has measurable addition and ν is right-translation invariant. U,A are measurable.",
+        "The double-annihilator equality and the volume-product equality are supplied explicitly."
+      ],
+      "proofSteps": [
+        "Apply indicator-transform to U. Rewrite its output as the complex scalar μ.real(U) times 1_A.",
+        "Use native fourierIntegral_const_smul, then apply indicator-transform to A with L.flip and ν.",
+        "Rewrite the double annihilator as U and the product of real volume factors as 1. A subgroup contains v iff it contains −v, giving the reflected indicator."
+      ],
+      "prerequisites": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0/indicator-transform",
+        "mathlib:VectorFourier.fourierIntegral_const_smul",
+        "mathlib:LinearMap.flip"
+      ],
+      "acceptance": [
+        "Counting measure on both copies of Z/2 has volume product 2, so its double transform is 2f(−v), not f(−v).",
+        "For U=Z/2, μ=count and ν=(1/2)count, the hypotheses give the correctly normalized indicator identity.",
+        "This is not a proof of Fourier inversion for every Schwartz function or existence/uniqueness of self-dual Haar measure."
+      ],
+      "library": {
+        "module": "TauCeti/Analysis/Fourier/CompactOpen",
+        "namespace": "TauCeti.LocalFourier",
+        "declaration": "TauCeti.LocalFourier.fourierIntegral_fourierIntegral_indicator"
+      },
+      "sources": [
+        {
+          "sourceId": "Kudla2004",
+          "locator": "p.122, self-dual measure and Fourier inversion",
+          "excerpt": "f̂̂(x) = f(−x)",
+          "match": "A precise conditional specialization to subgroup indicators. The source’s full Schwartz-space inversion and self-dual measure theorem remain gaps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fourier inversion for a subgroup indicator"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.1",
+      "need": "Supply the single generic carrier of locally constant compactly supported functions over C, its function coercion, extensionality, linear operations, translations and agreement with ordinary/closed support. AL.0 supplies its additive Fourier transform and local-field period/annihilator comparisons. The current thirteen nodes are statements on actual functions and native subgroups, so do not hide an unavailable carrier.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ]
+    },
+    {
+      "supplier": "AdelicAlgebraicGroups:AA.0",
+      "need": "Supply local compactness and compact-open cylinders for restricted products, product Haar measures with almost-everywhere unit volumes, change-of-finite-set compatibility and Fubini with explicit integrability. AL.0 supplies additive character compatibility and Poisson, rather than treating restricted-product topology alone as measure theory.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-9-hecke-and-ray-class-characters",
+      "need": "Supply the canonical continuous idele-class character, local components, finite conductor, real norm shift/unitary part and conductor/parity-compatible Q-to-Dirichlet dictionary. AL.1 constructs analytic zeta integrals on those existing arithmetic objects.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+      "need": "Supply the continuous real/complex character classification with complex norm exponents and the precise conversion between continuous, algebraic and finite-order infinity types. AL.1 converts the modulus convention to normalized |z|_C=z·conj(z); it does not replace continuous parameters by integer exponents.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.1",
+      "need": "Supply actual finite-length admissible real (g,K)-modules and their smooth moderate-growth Frechet globalizations, uniqueness/exactness and derivative actions. AL.2–3 must prove their Schwartz/Whittaker parameter estimates on those carriers.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ]
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.5",
+      "need": "Supply the integral GL_n derivative/Whittaker constructions and their stated base-change/exactness and coefficient hypotheses, with a valid complex specialization. AL.3 supplies its complex analytic integral and comparison, not an assertion that every family is co-Whittaker.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-0-places-completions-and-the-product-formula",
+      "need": "Supply the uniform finite/infinite completion API, real/complex topological identifications and normalized local absolute values, including the squared complex norm and the product formula. AL.0 supplies additive characters and self-dual measure; AL.1 uses those arithmetic normalizations in its integrals.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-5-full-adeles-and-the-additive-quotient",
+      "need": "Supply the native full adele ring, continuous diagonal embedding, discreteness of K and compactness of the additive quotient, with the Q fundamental-domain comparison. AL.0 must prove its character annihilator and quotient-volume normalization; these do not follow merely from compactness.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-3-local-factors-and-euler-products",
+      "need": "Supply the single generic ideal Euler-product framework, finite factorization and passage to infinite products under absolute convergence, with the precise zero-free hypotheses for logarithms and reciprocals. AL.1, AL.2, AL.4 and AL.5 provide their own local factors, multiplicativity, bounds and finite bad-set comparisons; this supplier does not give continuation.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "AutomorphicLFunctionsAndLocalFactors:AL.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "AutomorphicLFunctionsAndLocalFactors:AL.5"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.0",
+      "status": "partial",
+      "remaining": [
+        "Import SR.1’s actual locally constant compact-support carrier over C and its function coercion. Prove the additive-local-field characterization used on Kudla p.115: support in a large fractional ideal and invariance by a small fractional ideal. Establish uniform translation invariance from compact support and local constancy, and containment of compact sets in compact additive subgroups for the local fields in scope; these properties are not automatic on all topological groups.",
+        "Construct the standard additive local-field characters, prove continuity, nontriviality and local constancy at finite places, and the annihilator of each fractional ideal using the inverse different. Prove local additive self-duality, compactness of annihilators of open lattices and double-annihilator equality. Tate §2.2 assumes general LCA duality: the existing PontryaginDual carrier is not that theorem. Record the exact duality proof or supplier before closing this step.",
+        "Construct and normalize self-dual additive Haar measures, prove finite and positive compact-open volume, the dual volume product and all character/measure changes. Combine the finite-place carrier, period and annihilator results with the present component to obtain actual Fourier preservation and inversion on every Schwartz–Bruhat function. Handle translation and modulation of general finite linear combinations without assuming additivity of nonintegrable Bochner integrals.",
+        "At real and complex places import native SchwartzMap and its established Fourier theorems after reading their exact statements; prove the norm, trace and character convention comparisons. Construct the adelic restricted tensor product with distinguished almost-everywhere unit indicators, its relation to local Fourier transforms, the diagonal character pairing and Poisson summation using the GlobalNumberFields diagonal lattice and AA.0 product-measure interfaces; prove the required quotient-volume normalization. AF.0’s archimedean compactly supported C∞ test functions are not identical to the Schwartz family.",
+        "Read and decompose the remaining local and global analytic sources. Extract holomorphic parameter integrals, dominated differentiability, Mellin comparison and vertical/decay estimates from actual proofs, using the native analytic APIs identified by AUDIT-14 only after statement checks. Physical Tate pp.25–60 and published Kudla pp.124–131 remain unread."
+      ]
+    },
+    {
+      "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.1",
+      "status": "partial",
+      "remaining": [
+        "Use GlobalNumberFields Layers 0, 5, 9–10 and ArithmeticDirichletSeries Layer 3 for local components, conductors, unitary/norm twists and real/complex character classifications. Specify additive and multiplicative measure conventions separately: Kudla normalizes multiplicative unit volume to one, while Tate’s original §2.3 normalization depends on the different.",
+        "Decompose every local assertion read in Kudla pp.115–123: the scaling action on actual test functions and distributions; support-at-zero classification; extension from F×; Lemmas 3.2–3.3 and the one-dimensional eigendistribution Theorem 3.4; half-plane convergence; the unramified difference operator and geometric factor; ramified stabilization and test vectors; normalized zeta distributions and their entire dependence. The residue and exceptional-parameter extension argument must retain its nonsplit scaling action rather than infer uniqueness from an upper bound of two.",
+        "Read the missing proof sources for the archimedean distribution and integration-by-parts arguments, state the gamma factors with the normalized complex absolute value, and split Proposition 3.5, Lemma 3.6 and Corollary 3.7 into typed parameter identities. Define epsilon and gamma with the source’s positive Fourier convention or prove conversion to the native negative convention. Complete (3.27)–(3.29), the unread explicit epsilon/Gauss calculations and conductor dependence.",
+        "Read Tate’s global chapters and Kudla’s global section, then prove global convergence, product factorization with justified Fubini, meromorphic continuation and the functional equation using Poisson. Separate unitary from general norm-twisted characters and retain the trivial/norm-character poles. The generic Euler-product theorem in ArithmeticDirichletSeries does not provide analytic continuation."
+      ]
+    },
+    {
+      "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.2",
+      "status": "not_read",
+      "remaining": [
+        "Read the Godement–Jacquet sources and decompose matrix-space Schwartz functions, determinant powers, matrix coefficients, local integrability and rationality, fractional ideals, test vectors and the local functional equation over nonarchimedean fields. Import smooth representations; do not invent a new admissible-representation carrier.",
+        "Separately read the archimedean globalization and Schwartz estimates. Import AF.1’s actual finite-length admissible Casselman–Wallach realization, build the parameter-integral estimates and gamma-factor comparison. A Laurent-polynomial gcd is not an archimedean construction.",
+        "Prove spherical/unramified computation and its exact Satake normalization, adelic unfolding for cuspidal GL_n, justified Euler factorization, continuation and functional equation. Retain the n=1 exceptional pole and export normalization/bound estimates; the matrix-space proof does not establish zeta integrals for arbitrary reductive groups."
+      ]
+    },
+    {
+      "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.3",
+      "status": "not_read",
+      "remaining": [
+        "Import the exact complex specialization of SR.5’s Whittaker/derivative interfaces with its coefficient hypotheses. Read the nonarchimedean Rankin–Selberg integral proofs, convergence, rationality, fractional ideal, functional equation and unramified calculations separately for the n,m regimes.",
+        "Read Jacquet, Archimedean Rankin–Selberg Integrals §§2–16, and decompose actual Whittaker functionals and uniqueness/continuity on AF.1 globalizations, completed tensor products, holomorphic multiples, vertical strips, gamma factors and functional equations. These arguments cannot be replaced by finite-place gcd normalization.",
+        "Prove global cuspidal unfolding and products with convergence; retain contragredient/twist poles and only the established nonvanishing regions. Compare rational structures, Gauss sums and complex periods with their actual scalar ambiguity and the chosen cohomological convention."
+      ]
+    },
+    {
+      "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.4",
+      "status": "not_read",
+      "remaining": [
+        "Read the actual Satake and L-group suppliers and compare native characteristic-polynomial conventions before defining the unramified Euler polynomial. Separate conjugacy invariance, direct sums, tensor products, duality and coefficient extension with all normalizations.",
+        "Import the generic ArithmeticDirichletSeries Euler-product theorem and supply its eigenvalue bound to prove the exact half-plane of convergence. Prove comparison with AL.1–3 and with Weil–Deligne factors only under an established local-compatibility theorem. No generic continuation or local Langlands correspondence is supplied by a characteristic polynomial."
+      ]
+    },
+    {
+      "stageId": "AutomorphicLFunctionsAndLocalFactors:AL.5",
+      "status": "not_read",
+      "remaining": [
+        "Read the precise GL_2/Rankin interpolation families in AutomorphicPadicLFunctions. Construct finite-set removal and reinsertion as formal polynomial identities and complex evaluation identities, retaining the exceptional zero case without dividing by a vanishing factor.",
+        "Prove conductor/test-vector/twist compatibility, critical-value normalization, functional-equation signs and the algebraicity comparisons required by those families. RS-13 keeps these analytic corrections in AL.5 and the motivic period adapters in PS.1. Establish the required limiting or derivative theorem at each vanishing factor; no general p-adic L-function construction belongs here."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "AL.0: local-field and adelic Fourier closure",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0"
+      ],
+      "detail": "Import SR.1’s actual locally constant compact-support carrier over C and its function coercion. Prove the additive-local-field characterization used on Kudla p.115: support in a large fractional ideal and invariance by a small fractional ideal. Establish uniform translation invariance from compact support and local constancy, and containment of compact sets in compact additive subgroups for the local fields in scope; these properties are not automatic on all topological groups. Construct the standard additive local-field characters, prove continuity, nontriviality and local constancy at finite places, and the annihilator of each fractional ideal using the inverse different. Prove local additive self-duality, compactness of annihilators of open lattices and double-annihilator equality. Tate §2.2 assumes general LCA duality: the existing PontryaginDual carrier is not that theorem. Record the exact duality proof or supplier before closing this step. Construct and normalize self-dual additive Haar measures, prove finite and positive compact-open volume, the dual volume product and all character/measure changes. Combine the finite-place carrier, period and annihilator results with the present component to obtain actual Fourier preservation and inversion on every Schwartz–Bruhat function. Handle translation and modulation of general finite linear combinations without assuming additivity of nonintegrable Bochner integrals. At real and complex places import native SchwartzMap and its established Fourier theorems after reading their exact statements; prove the norm, trace and character convention comparisons. Construct the adelic restricted tensor product with distinguished almost-everywhere unit indicators, its relation to local Fourier transforms, the diagonal character pairing and Poisson summation using the GlobalNumberFields diagonal lattice and AA.0 product-measure interfaces; prove the required quotient-volume normalization. AF.0’s archimedean compactly supported C∞ test functions are not identical to the Schwartz family. Read and decompose the remaining local and global analytic sources. Extract holomorphic parameter integrals, dominated differentiability, Mellin comparison and vertical/decay estimates from actual proofs, using the native analytic APIs identified by AUDIT-14 only after statement checks. Physical Tate pp.25–60 and published Kudla pp.124–131 remain unread."
+    },
+    {
+      "title": "AL.1: Tate local and global zeta theory",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.1"
+      ],
+      "detail": "Use GlobalNumberFields Layers 0, 5, 9–10 and ArithmeticDirichletSeries Layer 3 for local components, conductors, unitary/norm twists and real/complex character classifications. Specify additive and multiplicative measure conventions separately: Kudla normalizes multiplicative unit volume to one, while Tate’s original §2.3 normalization depends on the different. Decompose every local assertion read in Kudla pp.115–123: the scaling action on actual test functions and distributions; support-at-zero classification; extension from F×; Lemmas 3.2–3.3 and the one-dimensional eigendistribution Theorem 3.4; half-plane convergence; the unramified difference operator and geometric factor; ramified stabilization and test vectors; normalized zeta distributions and their entire dependence. The residue and exceptional-parameter extension argument must retain its nonsplit scaling action rather than infer uniqueness from an upper bound of two. Read the missing proof sources for the archimedean distribution and integration-by-parts arguments, state the gamma factors with the normalized complex absolute value, and split Proposition 3.5, Lemma 3.6 and Corollary 3.7 into typed parameter identities. Define epsilon and gamma with the source’s positive Fourier convention or prove conversion to the native negative convention. Complete (3.27)–(3.29), the unread explicit epsilon/Gauss calculations and conductor dependence. Read Tate’s global chapters and Kudla’s global section, then prove global convergence, product factorization with justified Fubini, meromorphic continuation and the functional equation using Poisson. Separate unitary from general norm-twisted characters and retain the trivial/norm-character poles. The generic Euler-product theorem in ArithmeticDirichletSeries does not provide analytic continuation."
+    },
+    {
+      "title": "AL.2: Godement–Jacquet theory",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.2"
+      ],
+      "detail": "Read the Godement–Jacquet sources and decompose matrix-space Schwartz functions, determinant powers, matrix coefficients, local integrability and rationality, fractional ideals, test vectors and the local functional equation over nonarchimedean fields. Import smooth representations; do not invent a new admissible-representation carrier. Separately read the archimedean globalization and Schwartz estimates. Import AF.1’s actual finite-length admissible Casselman–Wallach realization, build the parameter-integral estimates and gamma-factor comparison. A Laurent-polynomial gcd is not an archimedean construction. Prove spherical/unramified computation and its exact Satake normalization, adelic unfolding for cuspidal GL_n, justified Euler factorization, continuation and functional equation. Retain the n=1 exceptional pole and export normalization/bound estimates; the matrix-space proof does not establish zeta integrals for arbitrary reductive groups."
+    },
+    {
+      "title": "AL.3: Rankin–Selberg theory and periods",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3"
+      ],
+      "detail": "Import the exact complex specialization of SR.5’s Whittaker/derivative interfaces with its coefficient hypotheses. Read the nonarchimedean Rankin–Selberg integral proofs, convergence, rationality, fractional ideal, functional equation and unramified calculations separately for the n,m regimes. Read Jacquet, Archimedean Rankin–Selberg Integrals §§2–16, and decompose actual Whittaker functionals and uniqueness/continuity on AF.1 globalizations, completed tensor products, holomorphic multiples, vertical strips, gamma factors and functional equations. These arguments cannot be replaced by finite-place gcd normalization. Prove global cuspidal unfolding and products with convergence; retain contragredient/twist poles and only the established nonvanishing regions. Compare rational structures, Gauss sums and complex periods with their actual scalar ambiguity and the chosen cohomological convention."
+    },
+    {
+      "title": "AL.4: Satake Euler factors",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.4"
+      ],
+      "detail": "Read the actual Satake and L-group suppliers and compare native characteristic-polynomial conventions before defining the unramified Euler polynomial. Separate conjugacy invariance, direct sums, tensor products, duality and coefficient extension with all normalizations. Import the generic ArithmeticDirichletSeries Euler-product theorem and supply its eigenvalue bound to prove the exact half-plane of convergence. Prove comparison with AL.1–3 and with Weil–Deligne factors only under an established local-compatibility theorem. No generic continuation or local Langlands correspondence is supplied by a characteristic polynomial."
+    },
+    {
+      "title": "AL.5: interpolation interfaces",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.5"
+      ],
+      "detail": "Read the precise GL_2/Rankin interpolation families in AutomorphicPadicLFunctions. Construct finite-set removal and reinsertion as formal polynomial identities and complex evaluation identities, retaining the exceptional zero case without dividing by a vanishing factor. Prove conductor/test-vector/twist compatibility, critical-value normalization, functional-equation signs and the algebraicity comparisons required by those families. RS-13 keeps these analytic corrections in AL.5 and the motivic period adapters in PS.1. Establish the required limiting or derivative theorem at each vanishing factor; no general p-adic L-function construction belongs here."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://sites.math.rutgers.edu/~alexk/2023S572/Tate1950.pdf",
+      "read": "2026-09-27",
+      "sha256": "0c40f263e8ab7924d1f0a8c7e40d81d464aec6620b8ec14101f21f7b07e6f0c8",
+      "citation": "Original 1950 thesis scan; no finding is attributed to the 1967 published reprint."
+    },
+    {
+      "kind": "published",
+      "url": "https://platoeinsyu.github.io/assets/pdf/Articles/Tate/TatesThesis.pdf",
+      "read": "2026-09-27",
+      "sha256": "fbce8ca325f21631f27de3d1162da0af953b287b810751bd92bd54b1eb821f35",
+      "citation": "Kudla 2004, chapter 6, pp.109–131; edition and pagination verified against the publisher’s chapter record."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://u.cs.biu.ac.il/~reznikov/courses/kudla-1.pdf",
+      "read": "2026-09-27",
+      "sha256": "4932f3f8b8795dce6a7736a1d2a47feaf892979e48dddf8cad139ea81d961ae7"
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors/E1",
+      "source": "Kudla2004",
+      "kind": "misprint",
+      "locator": "Published 2004 chapter, p.110, Section 1 conductor paragraph; also preprint p.2",
+      "printed": "χ_M for M | N₀",
+      "correction": "Replace M | N₀ by N₀ | M: the characters at moduli divisible by the conductor pull back to the same character of the profinite unit group.",
+      "reason": "The same page defines pullback along (Z/M)×→(Z/N)× when N divides M and states N₀ divides N. A primitive nontrivial character modulo 3 induces a character modulo 6, whereas it cannot arise from the trivial unit group modulo 1. The printed direction fails both checks.",
+      "affects": "nothing",
+      "known": "new (no addressing correction located; independent review required)",
+      "searched": [
+        "2026-09-27: publisher chapter page https://link.springer.com/chapter/10.1007/978-0-8176-8226-2_6 inspected; no correction entry addressing the conductor sentence found.",
+        "2026-09-27: author home and research list https://www.math.toronto.edu/skudla/ and https://www.math.toronto.edu/skudla/ssk.research.html inspected; no relevant erratum listed.",
+        "2026-09-27: searches for Kudla Tate thesis errata/conductor corrections found no addressing correction. The similarly titled 2025 Springer chapter is by Claus Sorensen, not a new edition of Kudla. The published p.110 was directly collated with preprint p.2. This search is not asserted exhaustive."
+      ]
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactors/E2",
+      "source": "KudlaPreprint",
+      "kind": "misprint",
+      "locator": "Lecture preprint p.1, bibliographic overview; corrected in published 2004 chapter p.110",
+      "printed": "book of x and Ramakrishnan",
+      "correction": "Read Valenza and Ramakrishnan, as in the published chapter.",
+      "reason": "Published p.110 names Valenza in the corresponding sentence; its reference [11] and publisher bibliography identify the same book. This is a preprint placeholder, not an error in the published version.",
+      "affects": "nothing",
+      "known": "Already corrected in Kudla 2004, p.110",
+      "searched": [
+        "Direct collation of the specified lecture preprint p.1 and published chapter p.110; publisher chapter bibliography [11]."
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "AutomorphicLFunctionsAndLocalFactors",
+        "SmoothRepresentationsOfLocalGroups"
+      ],
+      "detail": "AL.0’s finite-place Schwartz–Bruhat-space wording overlaps the generic locally constant compact-support carrier explicitly owned by SR.1. GL2 R16.1 already imports its generic test-function carriers.",
+      "proposal": "Keep the generic locally constant compact-support carrier and algebraic function API in SR.1. AL.0 imports its complex specialization and owns the additive local-field characterization, Fourier preservation/inversion, character and measure comparisons and adelic Schwartz theory. AF.0 retains its growth conditions and its distinct archimedean compactly supported smooth family. No supplier file is edited here."
+    }
+  ],
+  "audit": {
+    "reviewed": "All six AL.0–AL.5 AUDIT-14 rows and their REV-AUDIT-14 review were read before planning. RS-13 accepted result and full report were read; its keep decisions and period ownership are binding.",
+    "upstream": "GrothendieckEulerForms and JacobianChallenge were fully read in this worker session and byte-verified unchanged at this snapshot.",
+    "search": "Actual pinned FourierTransform statements show generic bilinear translation covariance already exists, beyond a real-only reading of the audit. Pinned locally-constant, compact-support, Haar/Bochner, character, finite Fourier, PontryaginDual and compact-representation character-integral statements were checked. The compact-representation trace integral is a normalized probability/finite-dimensional representation result; it does not supply this arbitrary-measure subgroup-indicator theorem. No annihilator package was found in the searched topology/group files. Baseline index results were only leads; cited statements were read.",
+    "ownership": "Read every AL stage and all 35 touching edges; all 35 applicable link-map records screened. Read SR.1/SR.5, AF.0/AF.1, AA.0, GlobalNumberFields Layers 0, 5, 9–10 and ArithmeticDirichletSeries Layer 3, FunctionFieldArithmetic FA.2, GL2 R16.1 and the upstream OneParameterSemigroups Part C/Bochner milestones. No AL packet/integrated decomposition or finer SR/AF/AA supplier packet existed at the snapshot. OneParameterSemigroups owns its positive-definite/Bochner results; no such result is replanned. FA.2 retains its differential/residue and global function-field constructions while consuming generic local Fourier lemmas.",
+    "closure": "All thirteen node chains end in checked baseline declarations and routine algebra/topology. The joint-local-constancy, compact-annihilator, double-annihilator and dual-volume hypotheses appear in the actual signatures. The six gaps and nine supplier requests concern the unconstructed full AL targets, not hidden prerequisites of the stated conditional component. No Schwartz-space proxy, new Fourier-integral definition or target theorem encoded as an arbitrary predicate is introduced."
+  }
+}
