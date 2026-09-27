@@ -9,6 +9,9 @@ import Mathlib.Analysis.Convex.Body
 import Mathlib.Analysis.Convex.Gauge
 import Mathlib.MeasureTheory.Measure.Lebesgue.VolumeOfBalls
 import Mathlib.Data.Set.Finite.Lemmas
+import Mathlib.Data.Set.Card
+import Mathlib.Data.ZMod.Basic
+import Mathlib.GroupTheory.IndexNSmul
 import Mathlib.MeasureTheory.Group.GeometryOfNumbers
 import Mathlib.Tactic
 
@@ -335,8 +338,7 @@ variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
 /-- GN.1/successive-minimum. Zero-based index; no index exists in dimension zero. -/
 def successiveMin (L : Submodule ℤ E) (K : ConvexBody E)
     (i : Fin (finrank ℝ E)) : ℝ :=
-  sInf {r : ℝ | 0 ≤ r ∧ i.val + 1 ≤
-    finrank ℝ (Submodule.span ℝ {x : E | x ∈ L ∧ gauge (K : Set E) x ≤ r})}
+  by sorry
 
 /-- Definitional API: scalar invariant on existing carriers. -/
 lemma successiveMin_def (L : Submodule ℤ E) (K : ConvexBody E)
@@ -601,4 +603,94 @@ example (K : ConvexBody ℝ) (hK : (K : Set ℝ) = Set.Icc (-1/10) 1) :
       volume.real (K : Set ℝ) = 11/10 ∧ (11/10 : ℝ) < 2 := by sorry
 
 end MinimaTests
+
+section LatticePointCounting
+
+/-- GN.4/coset-difference-bound. Finite index excludes the infinite-index sentinel. -/
+lemma ncard_le_index_mul {G : Type*} [AddCommGroup G]
+    (N : AddSubgroup G) [N.FiniteIndex] (S T : Set G)
+    (hT : T.Finite)
+    (hsub : ∀ x ∈ S, ∀ y ∈ S, x - y ∈ N → x - y ∈ T) :
+    S.ncard ≤ N.index * T.ncard := by sorry
+
+/-- GN.4/residue-separation-count. The basis must be integral and span the whole group. -/
+lemma ncard_le_pow_of_no_congruent {G : Type*} [AddCommGroup G]
+    {n : ℕ} (b : Basis (Fin n) ℤ G) (q : ℕ) (hq : 0 < q) (S : Set G)
+    (hsep : ∀ x ∈ S, ∀ y ∈ S, (∃ z : G, x - y = (q : ℤ) • z) → x = y) :
+    S.ncard ≤ q^n := by sorry
+
+variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+  [FiniteDimensional ℝ E]
+
+/-- GN.4/henk-sublattice-count. Index form of Henk Lemma 2.1, including boundary points. -/
+theorem henk_sublattice_count
+    (L M : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (hML : M ≤ L) (hindex : M.toAddSubgroup.relIndex L.toAddSubgroup ≠ 0)
+    (K : ConvexBody E) (hK : (0 : E) ∈ interior (K : Set E))
+    (hsym : ∀ x ∈ K, -x ∈ K) :
+    {x : E | x ∈ L ∧ x ∈ K}.ncard ≤
+      M.toAddSubgroup.relIndex L.toAddSubgroup *
+        {x : E | x ∈ M ∧ x ∈ (2 : ℝ) • (K : Set E)}.ncard := by sorry
+
+/-- GN.4/homothetic-lattice-avoidance. No symmetry is needed at this intermediate step. -/
+lemma homothetic_lattice_avoidance
+    (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (K : ConvexBody E) (hK : (0 : E) ∈ interior (K : Set E))
+    (hd : 0 < finrank ℝ E) (q : ℕ) (hq : 0 < q)
+    (hcut : 2 / (q : ℝ) < successiveMin L K ⟨0, hd⟩) :
+    ((q : ℝ) • (L : Set E)) ∩ ((2 : ℝ) • (K : Set E)) = {0} := by sorry
+
+/-- GN.4/first-minimum-count. Henk (1.3), not its product conjecture or Theorem 1.5. -/
+theorem lattice_count_le_first_minimum
+    (L : Submodule ℤ E) [DiscreteTopology L] [IsZLattice ℝ L]
+    (K : ConvexBody E) (hK : (0 : E) ∈ interior (K : Set E))
+    (hsym : ∀ x ∈ K, -x ∈ K) (hd : 0 < finrank ℝ E) :
+    {x : E | x ∈ L ∧ x ∈ K}.ncard ≤
+      (Nat.floor (2 / successiveMin L K ⟨0, hd⟩) + 1) ^ finrank ℝ E := by sorry
+
+end LatticePointCounting
+
+section CountingTests
+
+/-- count_empty -/
+example : (∅ : Set ℤ).ncard = 0 := by sorry
+
+/-- count_infinite_index_sentinel -/
+example : (⊥ : AddSubgroup ℤ).index = 0 ∧ ({0} : Set ℤ).ncard = 1 := by sorry
+
+/-- henk_interval_counts -/
+example : ({-1, 0, 1} : Set ℤ).ncard = 3 ∧
+    ({-2, 0, 2} : Set ℤ).ncard = 3 ∧ (3 : ℕ) ≤ 2 * 3 := by sorry
+
+/-- count_rank_zero -/
+example : ({0} : Set (Fin 0 → ℤ)).ncard = 1 := by sorry
+
+/-- residue_three_distinct -/
+example : ({(-1 : ZMod 3), 0, 1} : Set (ZMod 3)).ncard = 3 := by sorry
+
+/-- residue_collision -/
+example : ((0 : ℤ) : ZMod 2) = ((2 : ℤ) : ZMod 2) ∧ (0 : ℤ) ≠ 2 := by sorry
+
+/-- residue_zero_modulus -/
+example : Nat.card (ZMod 0) = 0 ∧ ¬ Finite (ZMod 0) := by sorry
+
+/-- homothetic_three_avoids -/
+example (z : ℤ) (hz : 3 ∣ z) (habs : |z| ≤ 2) : z = 0 := by sorry
+
+/-- homothetic_equality_fails -/
+example : (2 : ℤ) ≠ 0 ∧ (2 : ℤ) ∣ 2 ∧ |(2 : ℤ)| ≤ 2 ∧ (2 : ℝ) / 2 = 1 := by sorry
+
+/-- first_min_cube_count -/
+example : (({-1, 0, 1} : Set ℤ) ×ˢ ({-1, 0, 1} : Set ℤ)).ncard = 9 ∧
+    (Nat.floor (2 / (1 : ℝ)) + 1)^2 = 9 := by sorry
+
+/-- first_min_small_body -/
+example : Nat.floor (2 / (3 : ℝ)) + 1 = 1 := by sorry
+
+/-- first_min_anisotropic -/
+example : (Nat.floor (2 / (1/2 : ℝ)) + 1)^2 = 25 ∧
+    (Nat.floor (2 / (3 : ℝ)) + 1)^2 = 1 ∧ (1 : ℕ) < 5 := by sorry
+
+end CountingTests
+
 end TauCeti.GeometryOfNumbersPlan
