@@ -131761,7 +131761,7 @@
    ],
    "owner": "DirichletPadicLFunctions",
    "file": "research/blueprint/packets/DirichletPadicLFunctions.json",
-   "citation": "Sources of the blueprint of DirichletPadicLFunctions",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
