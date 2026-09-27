@@ -1185,3 +1185,87 @@ example : Lβ 0 = 1 := by sorry
 example : Lβ 0 ≠ (0:ℂ) * riemannZeta 1 := by sorry
 end
 end DirichletPadic
+
+/-! ## The actual smoothed Mellin kernel
+Use a native divided difference of the existing Bernoulli kernel difference.
+Positivity of the smoothing parameter is required for decay and continuation.
+The smoothed zeta-factor and analytic/formal substitution comparisons remain
+separate interfaces; all declarations here remain proposed signatures.
+-/
+namespace DirichletPadic
+noncomputable section
+open Set Filter Asymptotics
+open scoped Topology
+
+def smoothedMellinKernel (a t : ℝ) : ℝ := by sorry
+
+theorem smoothedMellinKernel_def (a t : ℝ) :
+    smoothedMellinKernel a t =
+      dslope (fun x => smoothBernoulliKernel x - smoothBernoulliKernel (a*x)) 0 t := by sorry
+
+theorem smoothedMellinKernel_zero (a : ℝ) : smoothedMellinKernel a 0 = (a-1)/2 := by sorry
+
+theorem smoothedMellinKernel_one (t : ℝ) : smoothedMellinKernel 1 t = 0 := by sorry
+
+theorem smoothedMellinKernel_of_ne {a t : ℝ} (ha : a ≠ 0) (ht : t ≠ 0) :
+    smoothedMellinKernel a t = 1/(Real.exp t-1) - a/(Real.exp (a*t)-1) := by sorry
+
+theorem smoothedMellinKernel_analyticAt (a t : ℝ) :
+    AnalyticAt ℝ (smoothedMellinKernel a) t := by sorry
+
+theorem smoothedMellinKernel_contDiff (a : ℝ) :
+    ContDiff ℝ (⊤ : ℕ∞) (smoothedMellinKernel a) := by sorry
+
+theorem smoothedMellinKernel_mul (a t : ℝ) :
+    smoothedMellinKernel a t * t = smoothBernoulliKernel t - smoothBernoulliKernel (a*t) := by sorry
+
+theorem smoothedMellinKernel_iteratedDeriv_zero (a : ℝ) (n : ℕ) :
+    iteratedDeriv n (smoothedMellinKernel a) 0 =
+      (1-a^(n+1)) * (bernoulli (n+1) : ℝ) / (n+1) := by sorry
+
+local notation "F" => (fun (m : ℕ) (t : ℝ) =>
+  ∑' n : ℕ, ((n+1 : ℕ) : ℝ)^m * Real.exp (-t*(n+1)))
+
+theorem smoothedMellinKernel_iteratedDeriv_pos {a : ℝ} (ha : 0 < a) (m : ℕ)
+    {t : ℝ} (ht : 0 < t) :
+    iteratedDeriv m (smoothedMellinKernel a) t =
+      (-1:ℝ)^m * (F m t - a^(m+1) * F m (a*t)) := by sorry
+
+theorem smoothedMellinKernel_iteratedDeriv_decay {a : ℝ} (ha : 0 < a) (m : ℕ) :
+    iteratedDeriv m (smoothedMellinKernel a) =O[atTop]
+      (fun t : ℝ => Real.exp (-(min 1 a)*t)) := by sorry
+
+local notation "gₛ" => (fun (a t : ℝ) => (smoothedMellinKernel a t : ℂ))
+
+theorem smoothedMellinKernel_complex_contDiff (a : ℝ) :
+    ContDiff ℝ (⊤ : ℕ∞) (gₛ a) := by sorry
+
+theorem smoothedMellinKernel_iteratedDerivWithin_zero (a : ℝ) (n : ℕ) :
+    iteratedDerivWithin n (gₛ a) (Ici 0) 0 =
+      (1-(a:ℂ)^(n+1)) * (bernoulli (n+1) : ℂ) / (n+1) := by sorry
+
+theorem smoothedMellinKernel_iteratedDerivWithin_decay {a : ℝ} (ha : 0 < a) (m : ℕ) :
+    iteratedDerivWithin m (gₛ a) (Ici 0) =O[atTop]
+      (fun t : ℝ => Real.exp (-(min 1 a)*t)) := by sorry
+
+theorem smoothedMellinKernel_mellin_entire {a : ℝ} (ha : 0 < a) :
+    Differentiable ℂ (normalizedMellinContinuation (gₛ a)) := by sorry
+
+theorem smoothedMellinKernel_mellin_neg_nat {a : ℝ} (ha : 0 < a) (n : ℕ) :
+    normalizedMellinContinuation (gₛ a) (-(n:ℂ)) =
+      (-1:ℂ)^n * (1-(a:ℂ)^(n+1)) * (bernoulli (n+1) : ℂ) / (n+1) := by sorry
+
+-- SuggestedSmoothedKernelTests.two_at_zero
+example : smoothedMellinKernel 2 0 = 1/2 := by sorry
+-- SuggestedSmoothedKernelTests.one_kernel
+example : smoothedMellinKernel 1 = fun _ => 0 := by sorry
+-- SuggestedSmoothedKernelTests.two_at_log_two
+example : smoothedMellinKernel 2 (Real.log 2) = 1/3 := by sorry
+-- SuggestedSmoothedKernelTests.two_first_derivative
+example : deriv (smoothedMellinKernel 2) 0 = -1/4 := by sorry
+-- SuggestedSmoothedKernelTests.negative_parameter
+example : smoothedMellinKernel (-1) = fun _ => -1 := by sorry
+-- SuggestedSmoothedKernelTests.two_mellin_minus_one
+example : normalizedMellinContinuation (gₛ 2) (-1) = 1/4 := by sorry
+end
+end DirichletPadic
