@@ -132986,6 +132986,72 @@
    "reviewReason": null
   },
   {
+   "id": "ExponentialSumsAndCircleMethod/E12",
+   "kind": "misprint",
+   "locator": "First additive-character orthogonality display, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
+   "printed": "The source assigns the value q when x = 1.",
+   "correction": "In additive-character orthogonality the exceptional argument is x=0, not x=1.",
+   "reason": "Over F₂ the two additive characters have values 1,1 at zero, summing to 2, and 1,−1 at one, summing to 0. The following sentence itself says the relation solves x=0.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Author-hosted chapter PDF, printed p.271, visually checked on 2026-09-27.",
+    "Authors’ linked corrections-ant.pdf dated March 8, 2010, all four pages; no entry for these p.271 slips.",
+    "Author papers-books page and web query Iwaniec Kowalski 271 x=1 orthogonality corrections; no correction located in this bounded search.",
+    "Publisher catalogue https://bookstore.ams.org/coll-53/ returned no readable text; published-page collation remains unestablished. Findings are scoped to the identified author copy."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Henryk Iwaniec and Emmanuel Kowalski, Analytic Number Theory, Chapter 11: Sums over finite fields, Author-hosted chapter extract; published book version not independently obtained",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E13",
+   "kind": "misprint",
+   "locator": "Sentence before the multiplicative orthogonality display, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
+   "printed": "The source specifies characters having order δ.",
+   "correction": "The subgroup consists of characters whose orders divide δ, equivalently characters annihilated by the δ-th power map. Exact order δ is not a subgroup when δ>1.",
+   "reason": "For F₅ and δ=4 the character group has four elements but only two have exact order four. The identity has order one and must belong to every subgroup.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Author-hosted chapter PDF, printed p.271, visually checked on 2026-09-27.",
+    "Authors’ linked corrections-ant.pdf dated March 8, 2010, all four pages; no entry for these p.271 slips.",
+    "Author papers-books page and web query Iwaniec Kowalski 271 x=1 orthogonality corrections; no correction located in this bounded search.",
+    "Publisher catalogue https://bookstore.ams.org/coll-53/ returned no readable text; published-page collation remains unestablished. Findings are scoped to the identified author copy."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Henryk Iwaniec and Emmanuel Kowalski, Analytic Number Theory, Chapter 11: Sums over finite fields, Author-hosted chapter extract; published book version not independently obtained",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ExponentialSumsAndCircleMethod/E14",
+   "kind": "misprint",
+   "locator": "Opening continuation of the multiplicative Hilbert 90 paragraph, printed p.271 of the identified author-hosted Chapter 11 extract; not collated with the published book.",
+   "printed": "The source asserts uniqueness modulo multiplication by an element of F_n*.",
+   "correction": "For the degree-n extension F_n/F, solutions of a=σ(b)/b are unique up to multiplication by F*, the fixed-field units, not by arbitrary F_n*.",
+   "reason": "If b and c are two solutions, σ(c/b)=c/b, so c/b lies in F*. For F₉/F₃ the map b↦b² on eight nonzero elements has kernel {1,−1}, not all eight elements.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Author-hosted chapter PDF, printed p.271, visually checked on 2026-09-27.",
+    "Authors’ linked corrections-ant.pdf dated March 8, 2010, all four pages; no entry for these p.271 slips.",
+    "Author papers-books page and web query Iwaniec Kowalski 271 x=1 orthogonality corrections; no correction located in this bounded search.",
+    "Publisher catalogue https://bookstore.ams.org/coll-53/ returned no readable text; published-page collation remains unestablished. Findings are scoped to the identified author copy."
+   ],
+   "owner": "ExponentialSumsAndCircleMethod",
+   "file": "research/blueprint/packets/ExponentialSumsAndCircleMethod.json",
+   "citation": "Henryk Iwaniec and Emmanuel Kowalski, Analytic Number Theory, Chapter 11: Sums over finite fields, Author-hosted chapter extract; published book version not independently obtained",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "FaltingsFinitenessAndIsogenyTheorems/E1",
    "kind": "misprint",
    "locator": "§2, Bemerkung d), p. 351; §3, p. 354 (the metric ‖α‖²_v)",
