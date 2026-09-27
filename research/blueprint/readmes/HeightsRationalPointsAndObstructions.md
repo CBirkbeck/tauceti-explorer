@@ -52,7 +52,7 @@ For any type X, HeightClass(X) is the native real module quotient of the functio
 Proof or construction:
 
 1. Specialize the native bounded-function submodule to real-valued functions and the top filter, then use the native submodule quotient. This is a transparent abbreviation, not another quotient relation or another boundedness predicate.
-2. Use the inherited quotient module structure and mkQ. Constants belong to the submodule by const_boundedAtFilter, so their classes vanish. On a finite type every real function has a finite, hence bounded, range.
+2. Use the inherited quotient module structure and mkQ. Constants belong to the submodule by const_boundedAtFilter, so their classes vanish. On a finite type every real function has a finite, hence bounded, range. The native metric boundedness criterion at center zero gives the Bornology compatibility statement.
 3. For linear descent use native liftQ with the exact kernel-inclusion hypothesis; liftQ_apply and quot_hom_ext supply its computation and uniqueness interfaces.
 
 The required uses are:
@@ -92,7 +92,7 @@ Acceptance cases:
 - A pointwise product of two classes is not defined: [1]=[0], but [n·1]≠[n·0].
 - Finite point sets give the zero quotient.
 
-Prerequisites: mathlib:Filter.boundedFilterSubmodule, mathlib:Filter.const_boundedAtFilter, mathlib:Submodule.Quotient.mk, mathlib:Submodule.Quotient.eq, mathlib:Submodule.mkQ, mathlib:Submodule.mkQ_surjective, mathlib:Submodule.Quotient.mk_eq_zero, mathlib:Submodule.liftQ, mathlib:Submodule.liftQ_apply, mathlib:Submodule.quot_hom_ext, mathlib:isBounded_iff_forall_norm_le, HeightsRationalPointsAndObstructions:RP.0/uniform-boundedness.
+Prerequisites: mathlib:Filter.boundedFilterSubmodule, mathlib:Filter.const_boundedAtFilter, mathlib:Submodule.Quotient.mk, mathlib:Submodule.Quotient.eq, mathlib:Submodule.mkQ, mathlib:Submodule.mkQ_surjective, mathlib:Submodule.Quotient.mk_eq_zero, mathlib:Submodule.liftQ, mathlib:Submodule.liftQ_apply, mathlib:Submodule.quot_hom_ext, mathlib:Metric.isBounded_iff_subset_closedBall, HeightsRationalPointsAndObstructions:RP.0/uniform-boundedness.
 
 Source: §14, footnote 1 and Steps 1–7, pp.7–9. Elementary quotient interface extracted from the source’s height-class convention; the proof uses the listed native declarations.
 
@@ -198,7 +198,7 @@ Acceptance cases:
 - Take h(n)=n and g(n)=n+(−1)^n, with C=1.
 - The reversed inequality is insufficient: 0≤n on ℕ, while n is Northcott and the constant zero function is not.
 
-Prerequisites: mathlib:Northcott, mathlib:Northcott.finite_le.
+Prerequisites: mathlib:Northcott.
 
 Source: §17, p.10, with §14 footnote 1, p.7. Explicit elementary sublevel-set proof supplying the representative interface for the finiteness notion used by the source. No projective Northcott theorem is re-planned.
 
@@ -359,7 +359,7 @@ Poonen's author-hosted Rational points on varieties was acquired, but only the f
 
 ## Baseline and review handoff
 
-The pinned commits are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Every baseline declaration in this packet was read in its source with its hypotheses. The native generated additive boundedness theorem and the Northcott class field are omitted by the textual declaration index; their source-generating declarations and actual Lean names were checked. This is an index limitation, not a missing mathematical input.
+The pinned commits are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Every baseline declaration in this packet was read in its source with its hypotheses. The packet cites the native closed-ball characterization of boundedness and the Northcott class itself, including its finite-sublevel field. The generated additive norm-bound theorem and the Northcott field also have their actual Lean names checked in the seed; those two names are absent from the textual declaration index and are not used as separate baseline references.
 
 The reviewed audit's seven RP rows, AUDIT-09 review, accepted RS-03 decision and review, current roadmap stages, the link maps touching this roadmap, and relevant ArithmeticDynamics and GrossZagier consumers were checked. ArithmeticDirichletSeries and Multiquadratic serve as previously read nearby upstream examples, with their unchanged bytes verified for this snapshot. There is no inherited RP blueprint packet to preserve. The broad GZ.1 integrated source node does not provide a separate existing HeightClass carrier.
 
