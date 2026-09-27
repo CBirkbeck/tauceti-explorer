@@ -11,20 +11,22 @@ Rademacher's exact formula and the Hardy–Ramanujan asymptotic. QM.3 and QM.4 d
 completions of mock theta functions. QM.5 connects them to quantum modular forms, radial limits of WRT invariants, cranks
 and traces of singular moduli, and QM.6 states and plans the proof chain of monstrous moonshine.
 
-**Status: partial.** QM.0 and QM.3 are source decomposed; QM.1, QM.2, QM.4, QM.5 and QM.6 are partial, each with a
-precise `remaining` list in the packet's coverage record. The packet has 457 nodes, 709 API items and
-463 unit tests, cites 352 declarations of the pinned libraries, records
-60 mistakes in its sources, 13 gaps and 24 requests to other roadmaps.
+**Status: partial.** QM.0, QM.3 and QM.4 are source decomposed; QM.1, QM.2, QM.5 and QM.6 are partial, each with a
+precise `remaining` list in the packet's coverage record. The packet has 479 nodes, 736 API items and
+486 unit tests, cites 362 declarations of the pinned libraries and 52 sources, and records
+64 source issues, 14 gaps and 24 requests to other roadmaps. These counts include the inherited
+Bailey-chain and fifth-order continuations. The singular-prime continuation below does not
+independently certify the other layers or close the Selberg comparison bridge.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
 | Layer | Status | Nodes | Planets |
 |---|---|---|---|
-| QM.0 | source decomposed | 43 | q-Pochhammer symbols; Gaussian binomial coefficients; q-binomial theorem; Jacobi triple product identity; Ramanujan's partition congruences; Rogers–Ramanujan identities |
+| QM.0 | source decomposed | 50 | q-Pochhammer symbols; Gaussian binomial coefficients; q-binomial theorem; Jacobi triple product identity; Ramanujan's partition congruences; Rogers–Ramanujan identities |
 | QM.1 | partial | 67 | Dedekind eta transformation formula; Ligozat's cusp-order formula; Theta transformation law on the theta group; Jacobi theta function ϑ(z; τ); Jacobi forms of weight k and index m; Theta decomposition |
-| QM.2 | partial | 44 | Ford circles; Modified Bessel function I_ν; Rademacher's Kloosterman sum A_k(n); Rademacher's exact formula; Effective remainder bound; Hardy–Ramanujan asymptotic formula |
+| QM.2 | partial | 51 | Ford circles; Modified Bessel function I_ν; Rademacher's Kloosterman sum A_k(n); Rademacher's exact formula; Effective remainder bound; Hardy–Ramanujan asymptotic formula |
 | QM.3 | source decomposed | 66 | Weight-k hyperbolic Laplacian; ξ-operator (shadow map); Harmonic weak Maass form; Bruinier–Funke pairing {g, f}; Bruinier–Funke exact sequences; Maass–Poincaré series |
-| QM.4 | partial | 102 | Appell–Lerch sum μ(u, v; τ); Zwegers' completion μ̃; Transformation law of μ̃ (Zwegers Thm 1.11); Zwegers' indefinite theta function; Modularity of indefinite theta functions; Zwegers' completion of F₇ (weight 1/2) |
+| QM.4 | source decomposed | 110 | Appell–Lerch sum μ(u, v; τ); Zwegers' completion μ̃; Transformation law of μ̃ (Zwegers Thm 1.11); Zwegers' indefinite theta function; Modularity of indefinite theta functions; Zwegers' completion of F₇ (weight 1/2) |
 | QM.5 | partial | 72 | Quantum modular form; Eichler integral; Kontsevich–Zagier strange identity; WRT invariants as radial limits; Andrews–Garvan crank; Traces of singular moduli |
 | QM.6 | partial | 63 | Vertex operator algebra; McKay–Thompson series; No-ghost theorem; Monster Lie algebra; Twisted denominator identity; Monstrous moonshine theorem |
 
@@ -51,8 +53,10 @@ Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f
 
 ## Sources
 
-Every source is freely available and was opened and read; the sections read, and the SHA-256 of each file, are in the
-packet. The roadmap's ANDREWS source (*The Theory of Partitions*) is not public and was replaced by public proofs.
+The inherited source records give the sections earlier workers read and the available file hashes;
+they are not a claim that each continuation re-read every source. The singular-prime continuation
+below identifies its own readings and boundaries. The roadmap's ANDREWS source (*The Theory of
+Partitions*) is not public and was replaced by public proofs.
 
 - **`stanley-ec1`** — Richard P. Stanley, *Enumerative Combinatorics, Volume 1, second edition*. The author's freely posted PDF of the second edition (725 pages; its page numbers, which are cited here, differ from the Cambridge printing by about 22 pages in Chapter 1), read 2026-09-24 <https://math.mit.edu/~rstan/ec/ec1.pdf>.
 - **`stanley-ec1-errata`** — Richard P. Stanley, *Errata for Enumerative Combinatorics, vol. 1, 2nd ed., 2012*. Version of 17 August 2025 (26 pages; page numbers refer to the Cambridge printing), read 2026-09-24 <https://math.mit.edu/~rstan/ec/errata_2ed.pdf>.
@@ -3426,3 +3430,153 @@ The genus-zero and Hauptmodul statements of QM.6 are analytic (compact Riemann s
 Zero errors and zero warnings. The suggested Lean file elaborates against Mathlib `082e2d3` with `lake env lean`;
 its only messages are `declaration uses 'sorry'` warnings. Every API item and unit test of the packet occurs in it
 under its packet name.
+
+## Singular odd-prime Rademacher sums
+
+This continuation develops the local arithmetic behind Whiteman's Corollary 1
+for primes greater than 3. It adds seven QM.2 declarations and no new planets.
+The comparison with the original Dedekind sum remains a named gap: the finite
+root arithmetic below is not a proof of Selberg's identity.
+
+Write D=1−24n, with n an integer. Aₖ(n) keeps the existing normalization
+Σₕ exp(πi s(h,k)−2πinh/k), summed over reduced residues h modulo k, and A₁(n)=1.
+The characters, finite residue rings and Jacobi symbol are Mathlib objects;
+this section does not introduce another general exponential-sum API. In
+particular, general Kloosterman sums remain at the proposed ES.0 boundary
+recorded above.
+
+### The specialized root sum
+
+The definition `odd-rademacher-root-sum` names
+
+Bₖ(n) = Σ_{m∈ℤ/kℤ, (24m)²=D} eₖ(2m), eₖ(j)=exp(2πij/k), k≥1.
+
+It uses `ZMod.stdAddChar` directly. The factor 2 in the character is essential:
+Whiteman's cosine angle is 4πm/k. The definition makes sense for every positive
+k, but its Aₖ comparison here applies only when gcd(k,6)=1. It does not
+assume that the roots are units, that there are exactly two, or that they
+exist.
+
+The planning API consists of `oddRademacherRootSum_eq_sum` (the displayed
+finite sum), `oddRademacherRootSum_periodic` (Bₖ(n+tk)=Bₖ(n) for integral t),
+`oddRademacherRootSum_conj` (complex conjugation fixes Bₖ(n)), and
+`oddRademacherRootSum_of_no_roots` (an empty root set gives zero). The
+periodicity is reduction modulo k; conjugation is reindexing by m↦−m.
+These are derived from the uses in the odd comparison and the local
+vanishing arguments, rather than a new character theory.
+
+Its six discriminating tests are B₁(n)=1, B₅(1)=0, B₅(4)=1, B₂₅(24)=0,
+B₂₅(9)=0, and B₅(0)=2 cos(4π/5). For n=24 modulo 25 the root set is
+{0,5,10,15,20}; for n=9 it is empty. Thus zero can come either from
+cancellation or from having no terms. The last test distinguishes the
+character eₖ(2m) from the tempting but wrong eₖ(m).
+
+### Translation and cancellation without a root count
+
+The lemma `odd-rademacher-root-translation` assumes p>3 prime, v≥2, and
+p|D. It states that m↦m+p^(v−1) preserves the equation (24m)²=D in ℤ/pᵛℤ,
+in both directions. Reducing the root equation modulo p shows p|m, because
+24 is prime to p. Expanding the translated square changes it by
+
+1152m p^(v−1) + 576p^(2v−2),
+
+which is divisible by pᵛ. The negative translation gives the inverse.
+This includes D≡0 modulo pᵛ and empty root sets; no finite valuation of D
+is required.
+
+The next lemma, `odd-rademacher-root-singular-cancellation`, concludes
+B_{pᵛ}(n)=0. Reindex the finite sum by that translation and use the
+character addition law to obtain
+
+B_{pᵛ}(n) = e_{pᵛ}(2p^(v−1)) B_{pᵛ}(n).
+
+The multiplier is not one: the standard character is injective and
+0<2p^(v−1)<pᵛ. Subtract and cancel in ℂ. The finite-sum reindexing is the
+additive form of the pinned `Finset.prod_bij`, applied through the
+multiplicative type alias; its generated additive companion also exists,
+although the source-only declaration index does not list that generated name.
+This argument is independent of any Dedekind multiplier formula.
+
+The exponent hypothesis cannot be dropped. At p=5, n=4, the first-power
+root sum is 1, whereas B₂₅(24)=0 has five roots. Another fully singular
+example is p=5, v=3, n=99: D=−2375 is divisible by 125 and B₁₂₅(99)=0.
+
+### Comparison boundary and three consequences
+
+The planned `rademacher-odd-root-comparison` is precisely Whiteman's
+Theorem 1 (5.3):
+
+Aₖ(n) = (3|k)√k Bₖ(n), k≥1, gcd(k,6)=1,
+
+with the positive real square root and the Jacobi symbol embedded in ℂ.
+Its final conversion from the printed cosine sum to Bₖ is negation symmetry.
+Its earlier proof is **not yet decomposed**. Besides the inherited
+Dedekind-to-Jacobi multiplier gap, Whiteman §§2–4 require finite Gauss
+reductions and Fischer's H-sum evaluation. Fischer's paper has not been
+read in this continuation. The paired cosine conversion (5.1)–(5.3) on
+pp.167–168 must also be split into declaration-sized lemmas. The new gap
+names these inputs explicitly; citing the final formula does not supply them.
+
+Subject to that proof boundary, three new local consequences have short
+routes:
+
+- `rademacher-prime-singular-value`: if p>3 is prime and p|D, then
+  Aₚ(n)=(3|p)√p. The only root modulo p is zero, contributing one.
+- `rademacher-prime-power-singular-vanishing`: if v≥2 and p|D, then
+  A_{pᵛ}(n)=0, by the translation cancellation above.
+- `rademacher-prime-power-nonsquare-vanishing`: if v≥1 and D is not
+  a square modulo p, then A_{pᵛ}(n)=0. Any root modulo pᵛ would reduce
+  under the existing residue-ring homomorphism to a root modulo p.
+
+Acceptance values are A₅(4)=−√5, A₂₅(24)=0, A₁₂₅(99)=0 and A₇(1)=0.
+There is no converse vanishing criterion in this checkpoint. Unit roots and
+their unique lifting, the p=2,3 formulas, shifted CRT factorization,
+the global square-root estimate, and Lehmer's sharper remainder remain in
+QM.2's coverage list. In particular no ordinary same-n multiplicativity is
+asserted, and any future strict bound must exclude k=1.
+
+### Source corrections and checks
+
+The publisher scan of Whiteman, *Pacific Journal of Mathematics* 6 (1956),
+159–176, was inspected as extracted text; the relevant formula/proof pages
+167–168 and 172 were also visually checked. Four source issues accompany
+this continuation, without an independent-review verdict:
+
+- E309: the proof of Theorem 5 on p.172 gives a fixed root count that fails
+  for singular discriminants. At k=25,n=24 there are five roots rather
+  than two; at k=325=25·13,n=24 there are ten rather than four, with no
+  nonsquare obstruction at either prime. Use the CRT bijection of the
+  actual local root sets. This finding concerns a proof step, not a
+  counterexample to the multiplication theorem.
+- E310: the proof of Corollary 1 parametrizes a discriminant of valuation
+  strictly between zero and the exponent, omitting D≡0 modulo pᵛ.
+  The uniform translation argument repairs that missing case.
+- E311–E312: Johansson's published (2.6) needs λ=1, not λ=0, and
+  Algorithm 2 needs a minus sign when k₁=4. These are already corrected
+  on the author's errata page, crediting Hugo M. Spinelli. Both misprints
+  were checked in the publisher PDF, pp.344–345, and in arXiv v2.
+
+For the sign regression, k=20,n=0 gives shifted arguments n₁=3 modulo 4
+and n₂=0 modulo 5. A₂₀(0) is about 2.76912333046, whereas
+A₄(3)A₅(0) is its negative. This numerical value checks conventions; the
+exact source and the author's correction determine the sign.
+
+The new source-version records identify only the texts checked for these
+four findings; they do not retroactively collate the sixty inherited
+findings. No existing correction of the two Whiteman proof issues was found
+in the recorded searches. They remain findings awaiting independent review.
+
+Independent scratch checks established the concrete root cardinalities,
+two translation equivalences, a nontrivial character value, a Jacobi value
+and the character translation law with seven complete Lean proofs. An exact
+finite search checked 294 singular cases (25 with nonempty root sets),
+including complete translation orbits. Separately, 2,440 floating comparisons
+for gcd(k,6)=1 and 1≤k≤120 matched the original Dedekind sums to the odd-root
+formula, with maximum discrepancy below 1.4·10⁻¹². These experiments do not
+close the comparison gap. The complete suggested file elaborates at the
+pin; the blueprint still contains no formalized implementation.
+
+Sources for this slice:
+[Whiteman's publisher PDF](https://msp.org/pjm/1956/6-1/pjm-v6-n1-p18-s.pdf),
+[Johansson's publication](https://doi.org/10.1112/S1461157012001088), and
+[Johansson's author errata](https://fredrikj.net/math/hrr.html).

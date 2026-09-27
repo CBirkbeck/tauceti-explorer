@@ -12,7 +12,7 @@
     "QSeriesPartitionsAndMockModularForms:QM.6"
   ],
   "status": "partial",
-  "summary": "Q-series, partitions, Jacobi and mock modular forms, first pass, planned from free sources against the pinned libraries. QM.0 builds the formal q-series layer on Mathlib's partitions and x-adic products: q-Pochhammer symbols, q-integers, Gaussian polynomials, the q-binomial and q-Vandermonde theorems, Euler's identities, the finite, universal and formal Jacobi triple products with the specialisations the ClassicalArithmeticCompletion packet requests, Ramanujan's congruences modulo 5 and 7 by formal dissections, the Rogers–Ramanujan identities through Bressoud's polynomial identities, and the evaluation theorem that turns an x-adic identity into an analytic one inside a disc. QM.1 plans the eta multiplier system on all of SL(2, ℤ) with Dedekind sums, the theta multiplier and eta quotients with their orders at every cusp, Zwegers' ϑ(z; τ) with its elliptic and modular laws, and Eichler–Zagier Jacobi forms with the theta decomposition. QM.2 plans Ford circles, the modified Bessel functions, the sums A_k(n), Rademacher's exact formula with an effective remainder, and the Hardy–Ramanujan asymptotic. QM.3 plans the weight-k Laplacian, harmonic Maass forms with their holomorphic and non-holomorphic parts, the ξ-operator, the Bruinier–Funke pairing and exact sequence, and Maass–Poincaré series. QM.4 plans Zwegers' Appell–Lerch sums, the functions R and E, the completion μ̃ and its transformation law, indefinite theta functions of type (n − 1, 1), and the seventh-order mock theta functions with their completion and shadow. QM.5 plans quantum modular forms, Eichler integrals, Kontsevich's strange identity, the radial limits of WRT invariants for the Poincaré sphere against ArithmeticQuantumTopology QT.4 and the Habiro ring, the Andrews–Garvan crank, and Zagier's traces of singular moduli. QM.6 plans vertex operator algebras, graded traces and McKay–Thompson series, the no-ghost theorem, the Monster Lie algebra with its twisted denominator identities, and the statement of monstrous moonshine; the Frenkel–Lepowsky–Meurman module and the identification of its automorphism group with the presented Monster are recorded gaps. Remaining work is listed per layer, with thirteen gaps and twenty-four requests to other owners. A later continuation adds the Bailey-chain route to the Andrews–Gordon identities for i = 1 and i = k (Warnaar; Andrews 1984), in the Nahm-sum form that HabiroNahmSeries requests.",
+  "summary": "Q-series, partitions, Jacobi and mock modular forms, first pass, planned from free sources against the pinned libraries. QM.0 builds the formal q-series layer on Mathlib's partitions and x-adic products: q-Pochhammer symbols, q-integers, Gaussian polynomials, the q-binomial and q-Vandermonde theorems, Euler's identities, the finite, universal and formal Jacobi triple products with the specialisations the ClassicalArithmeticCompletion packet requests, Ramanujan's congruences modulo 5 and 7 by formal dissections, the Rogers–Ramanujan identities through Bressoud's polynomial identities, and the evaluation theorem that turns an x-adic identity into an analytic one inside a disc. QM.1 plans the eta multiplier system on all of SL(2, ℤ) with Dedekind sums, the theta multiplier and eta quotients with their orders at every cusp, Zwegers' ϑ(z; τ) with its elliptic and modular laws, and Eichler–Zagier Jacobi forms with the theta decomposition. QM.2 plans Ford circles, the modified Bessel functions, the sums A_k(n), Rademacher's exact formula with an effective remainder, and the Hardy–Ramanujan asymptotic. QM.3 plans the weight-k Laplacian, harmonic Maass forms with their holomorphic and non-holomorphic parts, the ξ-operator, the Bruinier–Funke pairing and exact sequence, and Maass–Poincaré series. QM.4 plans Zwegers' Appell–Lerch sums, the functions R and E, the completion μ̃ and its transformation law, indefinite theta functions of type (n − 1, 1), and the seventh-order mock theta functions with their completion and shadow. QM.5 plans quantum modular forms, Eichler integrals, Kontsevich's strange identity, the radial limits of WRT invariants for the Poincaré sphere against ArithmeticQuantumTopology QT.4 and the Habiro ring, the Andrews–Garvan crank, and Zagier's traces of singular moduli. QM.6 plans vertex operator algebras, graded traces and McKay–Thompson series, the no-ghost theorem, the Monster Lie algebra with its twisted denominator identities, and the statement of monstrous moonshine; the Frenkel–Lepowsky–Meurman module and the identification of its automorphism group with the presented Monster are recorded gaps. Remaining work is listed per layer, with fourteen gaps and twenty-four requests to other owners. A later continuation adds the Bailey-chain route to the Andrews–Gordon identities for i = 1 and i = k (Warnaar; Andrews 1984), in the Nahm-sum form that HabiroNahmSeries requests. A singular-prime continuation adds the specialized odd Rademacher quadratic-root sum, its translation/cancellation proof and three local consequences. The odd comparison retains an explicit Selberg/Fischer bridge gap; no square-root bound, unit-root converse, or exceptional-prime evaluation is claimed completed. Four source issues are added, including two author-corrected Johansson typos checked in the version of record.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2480,6 +2480,76 @@
         "module": "TauCeti/NumberTheory/ModularForms/Petersson/Basic.lean",
         "provides": "∫_D conj(f)·g·(Im τ)^k dμ over a set D.",
         "checked": "statement read at the pinned commit (Tau Ceti f790474, line 107)"
+      },
+      {
+        "ref": "mathlib:ZMod.stdAddChar",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "For N with NeZero N, the standard AddChar (ZMod N) ℂ, sending an integer j to exp(2πij/N).",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZMod.stdAddChar_coe",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "Evaluation of stdAddChar on an integer cast equals exp(2πij/N), with N nonzero.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZMod.injective_stdAddChar",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/CircleAddChar.lean",
+        "provides": "The standard additive character on ZMod N is injective for N nonzero.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:AddChar.map_add_eq_mul",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "An additive character maps x+y to the product of its values, for an additive monoid and a monoid.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:AddChar.map_zero_eq_one",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "An additive character maps zero to one.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:Finset.prod_bij",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Group/Finset/Defs.lean",
+        "provides": "Products over finite sets agree under a membership-preserving surjective injection and matching summands, in a commutative monoid. Apply to the multiplicative type alias of the additive target to reindex a sum; the same source also generates the additive companion Finset.sum_bij.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27. The generated sum_bij signature elaborated at the pin, but its name is absent from the source-only declaration index; the product theorem is the indexed reduction actually cited."
+      },
+      {
+        "ref": "mathlib:Nat.Prime.dvd_of_dvd_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/Prime/Basic.lean",
+        "provides": "A natural prime dividing m^n divides m.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "An integer a has zero image in ZMod b iff the integer b divides a.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZMod.natCast_eq_zero_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "A natural a has zero image in ZMod b iff b divides a.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27."
+      },
+      {
+        "ref": "mathlib:ZMod.castHom",
+        "kind": "def",
+        "module": "Mathlib/Data/ZMod/Basic.lean",
+        "provides": "For m|n and a ring R of characteristic m, the canonical ring homomorphism ZMod n → R. Used for reduction modulo p.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-09-27."
       }
     ]
   },
@@ -2748,7 +2818,8 @@
       "readSections": [
         "§1 (definitions (1.1)–(1.4))",
         "§5 (Theorems 1–4)",
-        "§6 (Theorems 5–7, statements)"
+        "§6 (Theorems 5–7, statements)",
+        "2026-09-27 continuation: extracted text of pp.159–176 inspected, with pp.167–168 and 172 visually checked for Theorem 1, Corollary 1, and the Theorem 5 root-count assertion. Sections 2–4 are not claimed source-decomposed: their equation collation and Fischer H-sum input remain a named gap."
       ]
     },
     {
@@ -3127,6 +3198,28 @@
         "§1 (pp. 267–269): (1.1)–(1.8), in particular the Andrews–Gordon identity (1.3)",
         "§2 (pp. 269–272): Bailey's lemma (2.3)–(2.6), Theorem 1 with its proof (2.7)–(2.11), the unit pair (2.12)–(2.13) and Agarwal's identity (2.14)",
         "§3 opening (p. 273): Theorem 2 (3.1) and its proof; formulas read on the page images"
+      ]
+    },
+    {
+      "id": "johansson-2012-lms",
+      "title": "Efficient implementation of the Hardy–Ramanujan–Rademacher formula",
+      "authors": "Fredrik Johansson",
+      "edition": "LMS J. Comput. Math. 15 (2012), 341–359; DOI 10.1112/S1461157012001088; publisher PDF accessed 2026-09-27",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/80A6F53DCB85A4270641920D989A2E8F/S1461157012001088a.pdf/efficient_implementation_of_the_hardyramanujanrademacher_formula.pdf",
+      "sha256": "6ef4f511e798a2398443ef2468699ac2fdb3d2ed9a658c8681a68b0d46b0645a",
+      "readSections": [
+        "Publisher §§2.1–2.2 pp.343–345, including Algorithm 2; formula (2.6) and Algorithm 2 also checked on rendered pp.344–345.",
+        "arXiv:1205.5991v2 §1 normalization (1.6)–(1.7) and §§2.1–2.2 pp.3–5; later algorithmic complexity and partition variants not extracted in this checkpoint."
+      ]
+    },
+    {
+      "id": "johansson-hrr-errata",
+      "title": "Efficient implementation of the Hardy-Ramanujan-Rademacher formula: author errata",
+      "authors": "Fredrik Johansson",
+      "edition": "Author page, last updated 27 April 2019; read 2026-09-27",
+      "url": "https://fredrikj.net/math/hrr.html",
+      "readSections": [
+        "Errata section in full: λ=1 and k₁=4 sign corrections credited to Hugo M. Spinelli; the separate odd/distinct-partition correction credited to David Broadhurst was read but its original end-of-paper formula was not rechecked here."
       ]
     }
   ],
@@ -32644,6 +32737,362 @@
           "how": "the boundary that keeps the worked example from being quoted as a general theorem"
         }
       ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-sum",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.2",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.2"
+      ],
+      "title": "The odd Rademacher quadratic-root sum",
+      "kind": "definition",
+      "statement": "For k ≥ 1 and n ∈ ℤ, let B_k(n) = ∑_{m ∈ ℤ/kℤ, (24m)² = 1−24n} e_k(2m), where e_k is Mathlib's standard additive character. This is a specialized auxiliary of A_k(n), not a new general exponential-sum or character interface. Its definition is meaningful for every positive k; the comparison with A_k below requires gcd(k,6)=1.",
+      "hypotheses": [
+        "k is a positive natural number; n is an integer."
+      ],
+      "proofSteps": [
+        "Use the finite carrier ℤ/kℤ, filter by the displayed quadratic equation, and sum the existing standard additive character at 2m. All coefficients are reduced in ℤ/kℤ, so no lift is chosen.",
+        "Negation preserves the root set; reindex by m ↦ −m to see the imaginary parts cancel. The convention e_k(2m), rather than e_k(m), matches Whiteman's angle 4πm/k."
+      ],
+      "acceptance": [
+        "The singular root set can be nonempty while B_k(n)=0; it is not replaced by its cardinality.",
+        "At k=1 the unique residue contributes 1."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod",
+        "mathlib:ZMod.stdAddChar",
+        "mathlib:ZMod.stdAddChar_coe",
+        "mathlib:Finset.prod_bij"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Partition/RademacherKloosterman",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "whiteman-1956-pjm",
+          "locator": "§5, Theorem 1, (5.3), pp.167–168",
+          "excerpt": "THEOREM 1.",
+          "match": "An auxiliary spelling of the finite sum in (5.3). Negation identifies its complex-character version with the printed cosine sum; the definition itself does not assume the A_k comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison",
+          "how": "Expose exactly the finite root sum in Whiteman (5.3), with the factor (3|k)√k kept outside."
+        },
+        {
+          "where": "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-singular-cancellation",
+          "how": "Reindex the actual root set, including singular roots of arbitrary cardinality."
+        },
+        {
+          "where": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-prime-power-nonsquare-vanishing",
+          "how": "An empty root set forces the sum to vanish."
+        }
+      ],
+      "api": [
+        {
+          "name": "oddRademacherRootSum_eq_sum",
+          "role": "characterisation",
+          "statement": "B_k(n) equals the sum of e_k(2m) over the filtered finite carrier defined above."
+        },
+        {
+          "name": "oddRademacherRootSum_periodic",
+          "role": "simp",
+          "statement": "For t ∈ ℤ, B_k(n+tk)=B_k(n)."
+        },
+        {
+          "name": "oddRademacherRootSum_conj",
+          "role": "compatibility",
+          "statement": "The complex conjugate of B_k(n) equals B_k(n)."
+        },
+        {
+          "name": "oddRademacherRootSum_of_no_roots",
+          "role": "simp",
+          "statement": "If no m ∈ ℤ/kℤ satisfies (24m)²=1−24n, then B_k(n)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "oddRademacherRootSum_one_test",
+          "kind": "degenerate",
+          "statement": "For every integer n, B_1(n)=1."
+        },
+        {
+          "name": "oddRademacherRootSum_five_nonsquare_test",
+          "kind": "computation",
+          "statement": "B_5(1)=0, since 1−24≡2 modulo 5 is nonsquare."
+        },
+        {
+          "name": "oddRademacherRootSum_five_singular_test",
+          "kind": "computation",
+          "statement": "B_5(4)=1, since only the zero residue is a root."
+        },
+        {
+          "name": "oddRademacherRootSum_twentyFive_singular_test",
+          "kind": "non-example",
+          "statement": "B_25(24)=0 although its root set is {0,5,10,15,20}."
+        },
+        {
+          "name": "oddRademacherRootSum_twentyFive_empty_test",
+          "kind": "computation",
+          "statement": "B_25(9)=0; here D=−215≡10 modulo 25 has no square root."
+        },
+        {
+          "name": "oddRademacherRootSum_five_phase_test",
+          "kind": "compatibility",
+          "statement": "B_5(0)=2 cos(4π/5), viewed as a complex number; the angle is not 2π/5."
+        }
+      ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-translation",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.2",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.2"
+      ],
+      "title": "Translation of singular Rademacher roots",
+      "kind": "lemma",
+      "statement": "Let p>3 be prime, v≥2, and p divide D=1−24n. For every m∈ℤ/p^vℤ, (24(m+p^(v−1)))²=D if and only if (24m)²=D. Thus translation by p^(v−1) permutes the root set used by B_{p^v}(n), without a condition on the p-adic valuation of D.",
+      "hypotheses": [
+        "p is prime and p>3; v≥2; n∈ℤ; p divides 1−24n."
+      ],
+      "proofSteps": [
+        "Reduce a root equation modulo p. Since p does not divide 24 and a prime dividing a square divides its base, every root m is divisible by p (use an integer or natural representative).",
+        "Expand the change of square as 1152m p^(v−1)+576p^(2v−2). Both terms are divisible by p^v: the first uses p|m, the second uses v≥2.",
+        "Apply the same calculation with the negative translation to obtain the reverse implication and inverse permutation. This works for D≡0 modulo p^v and for the empty root set."
+      ],
+      "acceptance": [
+        "For p=5,v=2,n=24, translation by 5 cycles all five roots; for n=9 both sets are empty.",
+        "Do not assume that a singular root set has two elements."
+      ],
+      "prerequisites": [
+        "mathlib:ZMod",
+        "mathlib:ZMod.castHom",
+        "mathlib:Nat.Prime.dvd_of_dvd_pow",
+        "mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Partition/RademacherKloosterman",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "whiteman-1956-pjm",
+          "locator": "§5, proof of Corollary 1, pp.168–169",
+          "excerpt": "The contribution",
+          "match": "A uniform translation proof of the root grouping used by Whiteman; unlike the printed valuation parametrization, it also covers D≡0 modulo p^v."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-singular-cancellation",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.2",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.2"
+      ],
+      "title": "Cancellation of singular Rademacher root sums",
+      "kind": "lemma",
+      "statement": "For p>3 prime, v≥2, and p | 1−24n, B_{p^v}(n)=0, whether or not roots exist.",
+      "hypotheses": [
+        "p is prime and p>3; v≥2; n∈ℤ; p divides 1−24n."
+      ],
+      "proofSteps": [
+        "Reindex the defining finite sum by the permutation supplied by odd-rademacher-root-translation, using Finset.sum_bij.",
+        "The standard character's addition law gives B=e_{p^v}(2p^(v−1))B.",
+        "The character is injective and maps zero to one. Its displayed multiplier is not one, since 0<2p^(v−1)<p^v for p>3. Translate nonzero residues to divisibility with ZMod.natCast_eq_zero_iff.",
+        "Cancel the nonzero complex scalar 1−e_{p^v}(2p^(v−1)). No root count or finite valuation of D is used."
+      ],
+      "acceptance": [
+        "B_25(24)=0 with five roots, B_125(99)=0 with D≡0 mod125, and B_25(9)=0 with no roots.",
+        "The first-power case is excluded: B_5(4)=1."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-sum",
+        "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-translation",
+        "mathlib:Finset.prod_bij",
+        "mathlib:AddChar.map_add_eq_mul",
+        "mathlib:AddChar.map_zero_eq_one",
+        "mathlib:ZMod.injective_stdAddChar",
+        "mathlib:ZMod.natCast_eq_zero_iff"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Partition/RademacherKloosterman",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "whiteman-1956-pjm",
+          "locator": "§5, Corollary 1 (5.4), last case, pp.168–169",
+          "excerpt": "The contribution",
+          "match": "The finite-character proof replaces the printed geometric cosine grouping and fills its fully singular subcase."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.2",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.2"
+      ],
+      "title": "Whiteman's odd Rademacher root formula",
+      "kind": "lemma",
+      "statement": "For k≥1 with gcd(k,6)=1 and n∈ℤ, A_k(n)=(3|k)√k B_k(n), with the positive real square root and the integer Jacobi symbol embedded in ℂ. The original A_k is the Dedekind-sum definition already owned by QM.2.",
+      "hypotheses": [
+        "k≥1; gcd(k,6)=1; n∈ℤ."
+      ],
+      "proofSteps": [
+        "The missing Selberg bridge is recorded explicitly: pass from the existing Dedekind/Jacobi multiplier to Whiteman (1.4), and its odd-k form (5.1). The existing Jacobi-form node alone does not supply this transformation; Fischer's H-sum input and the intermediate Gauss reductions remain undecomposed.",
+        "Whiteman pp.167–168 sends each summation index l to the unique m with 6l+1≡24m modulo k, and pairs l with the index corresponding to −m. The cosine addition identity (5.2), with k modulo 12, gives the factor (3|k)√k. This finite phase-conversion argument also remains part of the explicitly named bridge gap until split and checked independently.",
+        "Once (5.3) is obtained, apply stdAddChar_coe and reindex by negation on the actual root set. The sine sum is zero, so its cosine sum equals B_k(n). Handle k=1 directly."
+      ],
+      "acceptance": [
+        "Recover A_1(n)=1 and A_5(4)=−√5.",
+        "A direct finite numerical check is diagnostic only, not a proof or closure of the Selberg bridge.",
+        "The formula is restricted to gcd(k,6)=1; exceptional primes have different weights."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher",
+        "QSeriesPartitionsAndMockModularForms:QM.2/kloosterman-sum-rademacher-jacobi-form",
+        "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-sum",
+        "mathlib:jacobiSym",
+        "mathlib:ZMod.stdAddChar_coe",
+        "mathlib:Finset.prod_bij"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Partition/RademacherKloosterman",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "whiteman-1956-pjm",
+          "locator": "§5, Theorem 1 (5.3), pp.167–168; preceding §§2–4",
+          "excerpt": "THEOREM 1.",
+          "match": "Exact normalized target of Whiteman (5.3), not a claimed decomposition of §§2–4. Its unresolved proof inputs are retained as a gap."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-prime-singular-value",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.2",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.2"
+      ],
+      "title": "The first-prime singular value of Rademacher's sum",
+      "kind": "lemma",
+      "statement": "If p>3 is prime and p | 1−24n, then A_p(n)=(3|p)√p in ℂ.",
+      "hypotheses": [
+        "p is prime and p>3; n∈ℤ; p divides 1−24n."
+      ],
+      "proofSteps": [
+        "Modulo the prime p, the equation (24m)²=0 forces m=0 because p does not divide 24. Thus the sum B_p(n) consists of the single term e_p(0)=1.",
+        "Apply rademacher-odd-root-comparison at k=p. This endpoint retains that comparison's unresolved bridge input."
+      ],
+      "acceptance": [
+        "A_5(4)=−√5, not zero; distinguish exponent v=1 from v≥2.",
+        "Johansson's printed λ=0 in (2.6) must be λ=1, as his author erratum confirms."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison",
+        "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-sum",
+        "mathlib:Nat.Prime.dvd_of_dvd_pow",
+        "mathlib:AddChar.map_zero_eq_one",
+        "mathlib:ZMod.intCast_zmod_eq_zero_iff_dvd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Partition/RademacherKloosterman",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "whiteman-1956-pjm",
+          "locator": "§5, Corollary 1 (5.4), third case, p.168",
+          "excerpt": "unique solution",
+          "match": "The singular first-power branch is separate from the higher-power zero branch."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-prime-power-singular-vanishing",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.2",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.2"
+      ],
+      "title": "Higher-prime-power singular vanishing",
+      "kind": "lemma",
+      "statement": "If p>3 is prime, v≥2 and p | 1−24n, then A_{p^v}(n)=0. In particular this includes 1−24n≡0 modulo p^v.",
+      "hypotheses": [
+        "p is prime and p>3; v≥2; n∈ℤ; p divides 1−24n."
+      ],
+      "proofSteps": [
+        "Apply odd-rademacher-root-singular-cancellation to obtain B_{p^v}(n)=0.",
+        "Since gcd(p^v,6)=1, substitute this value in rademacher-odd-root-comparison. The bridge gap remains a transitive input."
+      ],
+      "acceptance": [
+        "A_25(24)=0 although the quadratic congruence has five solutions.",
+        "A_125(99)=0 in the fully singular case D=−2375, divisible by125."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison",
+        "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-singular-cancellation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Partition/RademacherKloosterman",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "whiteman-1956-pjm",
+          "locator": "§5, Corollary 1 (5.4), fourth case, pp.168–169",
+          "excerpt": "The contribution",
+          "match": "The printed conclusion is retained, with a proof route that includes the omitted D≡0 modulo p^v case."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-prime-power-nonsquare-vanishing",
+      "parentStageId": "QSeriesPartitionsAndMockModularForms:QM.2",
+      "realises": [
+        "QSeriesPartitionsAndMockModularForms:QM.2"
+      ],
+      "title": "Nonsquare-discriminant vanishing",
+      "kind": "lemma",
+      "statement": "If p>3 is prime, v≥1 and 1−24n is not a square in ℤ/pℤ, then A_{p^v}(n)=0.",
+      "hypotheses": [
+        "p is prime and p>3; v≥1; n∈ℤ; 1−24n is nonsquare modulo p."
+      ],
+      "proofSteps": [
+        "Any root (24m)²=1−24n modulo p^v maps under ZMod.castHom to a square root modulo p, a contradiction.",
+        "The root sum is therefore empty. Substitute its zero value into rademacher-odd-root-comparison, retaining the bridge gap."
+      ],
+      "acceptance": [
+        "A_7(1)=0 because −23≡5 modulo 7 is nonsquare.",
+        "This statement does not call zero a nonresidue; the singular branches above handle that case."
+      ],
+      "prerequisites": [
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison",
+        "QSeriesPartitionsAndMockModularForms:QM.2/odd-rademacher-root-sum",
+        "mathlib:ZMod.castHom"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Partition/RademacherKloosterman",
+        "namespace": "TauCeti.QSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "whiteman-1956-pjm",
+          "locator": "§5, Corollary 1 (5.4), first case, p.168",
+          "excerpt": "no solution",
+          "match": "The stronger mod-p obstruction suffices for empty roots at every positive exponent; no converse or Hensel-lifting theorem is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -32869,11 +33318,11 @@
     {
       "stageId": "QSeriesPartitionsAndMockModularForms:QM.2",
       "status": "partial",
-      "note": "The Hardy–Ramanujan–Rademacher route is decomposed to the baseline through Kong–Teo's complete exposition of Rademacher's proof (Farey dissection with Ford circles, the eta transformation from QM.1, Bessel integrals), with the Bessel and Gamma inputs re-routed through Mathlib's regularized hypergeometric function and Fourier inversion; the effective remainder bound, the nearest-integer statements and Hardy and Ramanujan's truncated theorem are derived from the exact formula; Lehmer's multiplication theorems are decomposed down to his congruences and rest on one gap (the Jacobi-symbol form of the eta multiplier roots of unity).",
+      "note": "The Hardy–Ramanujan–Rademacher route is decomposed to the baseline through Kong–Teo's complete exposition of Rademacher's proof (Farey dissection with Ford circles, the eta transformation from QM.1, Bessel integrals), with the Bessel and Gamma inputs re-routed through Mathlib's regularized hypergeometric function and Fourier inversion; the effective remainder bound, the nearest-integer statements and Hardy and Ramanujan's truncated theorem are derived from the exact formula; Lehmer's multiplication theorems are decomposed down to his congruences and rest on one gap (the Jacobi-symbol form of the eta multiplier roots of unity). The 2026-09-27 continuation adds seven nodes for the specialized odd root sum and singular/nonsquare branches. Their elementary root arithmetic is separated from an explicitly undecomposed comparison bridge; QM.2 remains partial.",
       "remaining": [
         "Close the gap 'Jacobi-symbol closed form of exp(πi s(h, k))': decompose a public proof of the Dedekind-sum congruences 12hk·s(h, k) ≡ h² + 1 (mod gcd(3, k)·k) and 12k·s(h, k) ≡ k + 1 − 2(h | k) (mod 8) (k odd) with the even-k case, or import the Petersson–Rademacher Jacobi-symbol form of the eta multiplier once QM.1 plans it.",
-        "Decompose Lehmer 1938 §3–§4: the evaluation of A_{p^λ}(n) at prime powers through Salié sums and the bound |A_k(n)| < 2^{ω(k)}k^{1/2} (Theorem 8), which sharpen rademacher-remainder-bound to Lehmer 1939's O(n^{−1/2} log n) at N ≍ √n; read Lehmer 1938 pp. 281–295 and Lehmer 1939 §§2–4 line by line for this.",
-        "Decompose Whiteman 1956 §§2–6: Selberg's cosine formula A_k(n) = (k/3)^{1/2} Σ_{(3l² + l)/2 ≡ −n (mod k)} (−1)^l cos((6l + 1)π/(6k)), the quadratic-congruence Theorems 1–4 and the factorisation Theorems 5–7 (its proof uses Fischer's evaluation of the sums H_{h,k}(r), Pacific J. Math. 1 (1951), not yet read)."
+        "Complete the prime-power evaluations: the singular p>3 cases and the mod-p nonsquare obstruction now have separate nodes, but the unit-square two-root/lifting argument, exceptional p=2,3 formulas, shifted CRT factorization and the bound |A_k(n)| < 2^{ω(k)}√k for k>1 remain. Preserve A₁(n)=1 as the equality exception. Lehmer 1938 §§3–4 and Lehmer 1939 §§2–4 still need line-by-line decomposition for the sharper remainder; the attempted AMS 1938 PDF download in this continuation returned 403.",
+        "Close the new Selberg–Whiteman comparison bridge gap before claiming the local A_k evaluations have a closed proof plan. Whiteman §§2–4 use Fischer’s H-sum evaluation (1951), still unread; pp.167–168 also need a declaration-sized decomposition of the paired cosine conversion. Theorem 1 and the singular p>3 consequences are now named targets, not a claim that all §§2–6 have been decomposed. When treating Theorems 5–7 use actual CRT root sets, not the false fixed root count on p.172; use Johansson’s author-corrected λ=1 and k₁=4 minus sign."
       ]
     },
     {
@@ -33017,6 +33466,13 @@
         "QSeriesPartitionsAndMockModularForms:QM.6/lattice-vertex-algebra-invariant-form"
       ],
       "detail": "The proof in Jurisich 1998 Lemma 6.1 uses: V_L is an irreducible module over itself and every irreducible V_L-module is isomorphic to V_L for L even unimodular (C. Dong, Vertex algebras associated with even lattices, J. Algebra 161 (1993) 245–265), and the contragredient-module construction with its symmetry criterion (Frenkel–Huang–Lepowsky, Mem. AMS 104 (1993), §5.2–5.3); neither is decomposed here. A direct route (check the adjoint formula on the generating fields α(z), Y(e^β,z) for the Fock form twisted by θ and propagate it through products by the associativity formula) is the planned alternative but its propagation lemma is the missing FHL input."
+    },
+    {
+      "title": "Selberg–Whiteman bridge for the odd Rademacher root comparison",
+      "neededBy": [
+        "QSeriesPartitionsAndMockModularForms:QM.2/rademacher-odd-root-comparison"
+      ],
+      "detail": "Prove A_k(n)=(3|k)√k B_k(n) for k≥1, gcd(k,6)=1 in the existing Dedekind normalization. The inherited Jacobi multiplier gap remains; additionally Whiteman §§2–4 derive Selberg (1.4) through finite Gauss and Fischer H-sum evaluations. The text of these sections was inspected, but Fischer’s Pacific J. Math. 1 (1951) input was not read and the intermediate formulas have not been decomposed. Then split the l↔m reindexing and paired cosine phase conversion in (5.1)–(5.3), pp.167–168. Do not treat Theorem 1 as a one-step proved library input. The new root translation and character cancellation are independent of this gap, whereas all new A_k evaluations inherit it. The 2440 floating finite-sum comparisons are diagnostics, not a substitute for this proof."
     }
   ],
   "sourceIssues": [
@@ -33968,6 +34424,67 @@
         "the author's online copy",
         "Jurisich 1998 §4"
       ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E309",
+      "source": "whiteman-1956-pjm",
+      "kind": "error",
+      "locator": "Published Pacific J. Math. 6 (1956), p.172, proof of Theorem 5, paragraph between (6.6) and (6.7)",
+      "printed": "2^s",
+      "correction": "The number of roots is not always 2^s for odd k when D=1−24n shares factors with k. Use the CRT bijection between the actual local root sets, not a fixed cardinality. The multiplicative identity is not disproved by this finding.",
+      "reason": "Take n=24, k=25: d=gcd(24,k)=1, D=−575, and (24m)^2≡D (mod25) has the five roots 0,5,10,15,20, rather than 2. To have two nontrivial coprime factors in the theorem take k=325=25·13 with the same n: D≡10 mod13 is a nonzero square and the root set has 10 elements, not 2^2=4. Both counts were checked by exact enumeration and independently by closed finite Lean examples.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "MSP publication page and publisher PDF, 2026-09-27; no correction listed in the retrieved material.",
+        "Web search for Whiteman's paper title with erratum/correction, 2026-09-27; no matching correction found.",
+        "Johansson's author errata page https://fredrikj.net/math/hrr.html, read 2026-09-27; its corrections concern Johansson, not this root-count assertion."
+      ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E310",
+      "source": "whiteman-1956-pjm",
+      "kind": "gap",
+      "locator": "Published Pacific J. Math. 6 (1956), pp.168–169, proof of the fourth branch of Corollary 1 (5.4)",
+      "printed": "0<μ<λ",
+      "correction": "The valuation parametrization v=p^μb with 0<μ<λ and p∤b omits v≡0 modulo p^λ. Here the source's v denotes 1−24n. Add this case or use translation of all roots by p^(λ−1), which gives cancellation uniformly for λ≥2.",
+      "reason": "For p=5, λ=2, n=24, the discriminant is −575 and is divisible by25, so the displayed range for μ cannot apply. The conclusion is nonetheless true: translation by5 permutes the five roots and multiplies each character value by the same nontrivial fifth root of unity. The new singular-cancellation node gives the uniform repair.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Whiteman publisher scan pp.168–169 and publication page, 2026-09-27.",
+        "Search for the title with erratum/correction and Johansson's author errata page, 2026-09-27; no correction of this proof omission found."
+      ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E311",
+      "source": "johansson-2012-lms",
+      "kind": "misprint",
+      "locator": "Published LMS J. Comput. Math. 15 (2012), p.344, equation (2.6), second branch; also arXiv:1205.5991v2 p.4",
+      "printed": "λ = 0",
+      "correction": "Replace λ=0 by λ=1 in the branch for p>3 and p | 1−24n.",
+      "reason": "This is the first-prime singular branch of Whiteman (5.4); the author confirms the correction, crediting Hugo M. Spinelli. For p=5,n=4 the value is −√5. λ=0 would instead set k=1, whose value is 1.",
+      "affects": "a stated result",
+      "known": "Fredrik Johansson, author errata, https://fredrikj.net/math/hrr.html (page last updated 2019-04-27, read 2026-09-27), crediting Hugo M. Spinelli.",
+      "searched": [
+        "Author errata page https://fredrikj.net/math/hrr.html.",
+        "Publisher version pp.344–345 and arXiv:1205.5991v2 pp.4–5, both inspected 2026-09-27."
+      ]
+    },
+    {
+      "id": "QSeriesPartitionsAndMockModularForms/E312",
+      "source": "johansson-2012-lms",
+      "kind": "misprint",
+      "locator": "Published LMS J. Comput. Math. 15 (2012), pp.344–345, factorization preceding (2.7), case (2.8), and Algorithm 2; also arXiv:1205.5991v2 pp.4–5",
+      "printed": "s ← s × Aₖ₁(n₁)",
+      "correction": "When k₁=4, negate the accumulator as well: the corresponding factorization has a minus sign. The shifted arguments in (2.8) are unchanged.",
+      "reason": "The author's errata page explicitly supplies the missing negation, crediting Hugo M. Spinelli. Whiteman Theorem 6 has the minus sign. For k=20,n=0 the shifts in Johansson (2.8) give n₁=3 mod4 and n₂=0 mod5. Direct finite sums give A₂₀(0)≈2.76912333046 and A₄(3)A₅(0)≈−2.76912333046; the numerical check is diagnostic, while the cited exact theorem and author correction fix the sign.",
+      "affects": "a stated result",
+      "known": "Fredrik Johansson, author errata, https://fredrikj.net/math/hrr.html (page last updated 2019-04-27, read 2026-09-27), crediting Hugo M. Spinelli.",
+      "searched": [
+        "Author errata page https://fredrikj.net/math/hrr.html.",
+        "Publisher version pp.344–345, arXiv:1205.5991v2 pp.4–5, and Whiteman (1956) Theorem 6, 2026-09-27."
+      ]
     }
   ],
   "restructure": [
@@ -34063,6 +34580,29 @@
       ],
       "detail": "The genus-zero and Hauptmodul statements of QM.6 are analytic (compact Riemann surfaces X(Γ) for moonshine-type Γ, which need not lie in SL₂(ℤ), e.g. Γ₀(2)+). The planned chain consumes FuchsianOrbifolds Layers 2–5 (cofinite groups, cusps, compactification, degree one), ModularForms Layers 0 (j), 2 (coset representatives) and 10A (cusps of Γ₀(N)), and LieHighestWeight Layers 0 (sl₂) and 3 (PBW). It does not use the algebraic compactification comparison of ModularCurvesPartII R12.3, the Tate curve of R13.3, the coarse algebraic curves of R13.4a or ModularCurves Layer 10 (the RS-06 links into QM.6). The edge QM.1 → QM.6 carries only the eta products η_g of Borcherds (9.2), which occur inside the gap on the FLM module. Inside the roadmap QM.6 also consumes QM.3 (weakly holomorphic modular forms and their Laurent expansions, specialized to weight 0 and level one) and QM.0 (the q-Pochhammer symbol), which the atlas does not yet record as stage edges.",
       "proposal": "Replace the stage edges ModularCurvesPartII:R12.3 → QM.6 and the RS-06 links R13.3, R13.4a, ModularCurves Layer 10 → QM.6 by FuchsianOrbifolds Layers 2, 3, 4, 5 → QM.6 and ModularForms Layers 0, 2 → QM.6 (keep ModularForms 10A → QM.6); replace UPSTREAM:RepresentationTheory → QM.6 by LieHighestWeight Layers 0 and 3 → QM.6; keep QM.1 → QM.6 for the eta products of the Monster-specific step; add the in-roadmap edges QM.0 → QM.6 and QM.3 → QM.6."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://msp.org/pjm/1956/6-1/pjm-v6-n1-p18-s.pdf",
+      "citation": "Whiteman, Pacific J. Math. 6 (1956), 159–176; version used for E309–E310 only, not a retrospective collation of inherited findings.",
+      "read": "2026-09-27",
+      "sha256": "63e5dcb988fbdef2e9fa486395f202fc75923df0d4551f1faff751018ba4b391"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/80A6F53DCB85A4270641920D989A2E8F/S1461157012001088a.pdf/efficient_implementation_of_the_hardyramanujanrademacher_formula.pdf",
+      "citation": "Johansson, LMS J. Comput. Math. 15 (2012), 341–359, DOI 10.1112/S1461157012001088. Sections 2.1–2.2, especially pp.344–345; E311–E312 checked against this version of record.",
+      "read": "2026-09-27",
+      "sha256": "6ef4f511e798a2398443ef2468699ac2fdb3d2ed9a658c8681a68b0d46b0645a"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1205.5991v2",
+      "citation": "Johansson, arXiv:1205.5991v2, 6 July 2012; §1 normalization and §§2.1–2.2; E311–E312 agree with the publisher version at the passages inspected.",
+      "read": "2026-09-27",
+      "sha256": "39a0172f0622cd600563278121d23c2f51b73d09acb20a6ce9cb67da767a4712"
     }
   ]
 }
