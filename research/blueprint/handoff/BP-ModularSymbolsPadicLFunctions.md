@@ -1,6 +1,36 @@
-# BP-ModularSymbolsPadicLFunctions: L0 source-decomposed (checkpoint 2)
+# BP-ModularSymbolsPadicLFunctions: L0–L1 source-decomposed (checkpoint 3)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #777. **Status: partial.** L0 is `source_decomposed`; L1–L4 are `not_read`.
+Claude Code — session `cc-39fac3`, 28 September 2026. Refs #777. **Status: partial.** L0 and L1 are `source_decomposed`; L2–L4 are `not_read`.
+
+## Checkpoint 3: L1 (6 nodes, 4 planets)
+
+- **`period-lines`.** Lines come first, and a period Ω(φ) exists only after a basis is chosen, with Ω(λφ) = λ⁻¹Ω(φ).
+  The eigenspaces are L0's `eigenspace-dimension`.
+- **`integral-period-lattices`.** Saturation over a DVR gives the integral period, canonical up to 𝒪^×. It depends on
+  the choice between V_k(𝒪) and its dual when p ≤ k. Multiplicity one is needed only for Hecke-module comparisons.
+- **`twisted-mellin-formula`.** Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j·L(f, χ̄, j+1). Birch's lemma
+  and the Mellin transform are transcribed, with every convention explicit.
+  - **Checked numerically** with PARI/GP 2.17.2 (cypari2 via uv, in scratch) for characters of order 3 and 6 modulo 7:
+    11a1 to 10⁻¹⁴, and the level-5 weight-4 newform (j = 0, 1, 2) to 10⁻¹¹.
+  - The χ-reading fails.
+- **`critical-value-algebraicity`.** The sign is ε = (−1)^{k−j}χ(−1), derived from L0's ι and V_k conventions.
+- **`p-stabilised-euler-factors`.** L(f_α, s) = (1 − βp^{−s})L(f°, s).
+- **`rjw-b1-comparison`.** The exact identity: for n ≥ 1, B.1's right side is (−1)^{j+1}/(2πiΩ) times the Riemann sum
+  through a/pⁿ, and −ε(−1)^k/(2πiΩ) times the sum through −a/pⁿ.
+  - **Consequence for L2:** normalize the distribution through −a/pⁿ, as Pollack–Stevens (1) does. Otherwise B.1 needs a
+    period depending on j.
+  - n = 0 gives the two Euler factors.
+
+**Transcription caution.** Text extraction drops overbars. AWS (2), (7), AWS p. 13 and RJW B.1 all print χ̄; this was
+read on the page images, and they agree with the verified formula. The roadmap stage text's quotation of B.1 drops the
+bar. No source issue is recorded.
+
+**New source:** RJW, arXiv:2309.15692v2.
+
+**New request:** Tau Ceti ModularForms Layer 7 (L-functions, Mellin and twists).
+
+**Lean:** three proved checks, for the period rescaling, the Mellin constant and the B.1 conversion constant. It compiles
+with 0 errors and 68 `sorry` warnings (unchanged).
 
 ## What changed since checkpoint 1
 
@@ -62,16 +92,14 @@ New signatures:
 
 ## What a continuation should do
 
-1. **Integral lattices in L1.** Compare Symb_Γ(V_k(ℤ)) with Hom(𝕄, ℤ) through divided powers, since `polynomial-duality` only holds after inverting k!.
-2. **Stage L1** (periods and critical values):
-   - coefficient fields and ± eigenspaces over K_f, using `eigenspace-dimension`;
-   - period lines and periods Ω_f^±;
-   - saturated integral lattices;
-   - the Mellin formula with twists (AWS §2.8 gives the untwisted case);
-   - algebraicity;
-   - the RJW B.1 comparison.
-3. **Stage L2:** distributions D_k (needs LocallyAnalyticDistributions), specialisation, and the control theorem (PS §§3–5). `symbols-generator-values` is the input for PS Theorem 5.1.
-4. **Stages L3–L4.**
+1. **Stage L2.** This covers distributions D_k (which need LocallyAnalyticDistributions), specialization, the control
+   theorem (PS §§3–5) and the p-adic L-function with its interpolation.
+   - `symbols-generator-values` is the input for PS Theorem 5.1.
+   - Normalize the distribution through the cusps −a/pⁿ, so that `rjw-b1-comparison` gives RJW B.1 with periods that
+     depend only on the sign.
+2. **Integral lattices.** Compare Symb_Γ(V_k(ℤ)) with Hom(𝕄, ℤ) through divided powers. `polynomial-duality` holds only
+   after inverting k!, and `integral-period-lattices` records the dependence.
+3. **Stages L3–L4.**
 
 ## Sources read
 

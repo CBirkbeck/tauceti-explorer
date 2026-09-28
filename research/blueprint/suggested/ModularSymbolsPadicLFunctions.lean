@@ -8,9 +8,10 @@ import Mathlib.LinearAlgebra.Matrix.SpecialLinearGroup
 import Mathlib.RepresentationTheory.Homological.GroupCohomology.LongExactSequence
 import Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality
 import Mathlib.NumberTheory.ModularForms.Basic
+import Mathlib.Analysis.SpecialFunctions.Complex.Circle
 
 /-!
-# Suggested Lean forms: modular symbols (ModularSymbolsPadicLFunctions, L0)
+# Suggested Lean forms: modular symbols (ModularSymbolsPadicLFunctions, L0–L1)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`ModularSymbolsPadicLFunctions`) is definitive. The statements below suggest Lean forms, so that
@@ -388,6 +389,28 @@ theorem finrank_H1par_eq_two_mul (N k : ℕ) (hN : 4 ≤ N) :
 
 end Periods
 
+section CriticalValues
+
+/-!
+### L1: periods and critical values (signatures; comment only)
+
+```
+-- L1/period-lines (K_f from Tau Ceti ModularForms Layer 8)
+def periodLine (f : Newform N (k + 2) ε) (s : Sign) : Submodule K_f (Symb (Gamma1 N) (vkRep K_f k))
+theorem periodLine_finrank : Module.finrank K_f (periodLine f s) = 1
+def period (φ : periodLine f s) (hφ : φ ≠ 0) : ℂˣ         -- ψ_f^s = period φ • φ
+theorem period_smul (c : K_fˣ) : period (c • φ) _ = c⁻¹ • period φ _
+-- L1/twisted-mellin-formula (L-functions from Tau Ceti ModularForms Layer 7)
+theorem twisted_mellin (χ : DirichletCharacter ℂ m) (hχ : χ.IsPrimitive) (j : ℕ) (hj : j ≤ k) :
+    ∑ a : ZMod m, χ a * twistedPeriod f j a = gaussSum χ (ZMod.stdAddChar) * (j ! / (-2 * π * I) ^ j) *
+      LSeries (fun n ↦ (χ n)⁻¹ * coeff f n) (j + 1)
+-- L1/critical-value-algebraicity
+theorem critical_value_mem (hs : s = (-1) ^ (k - j) * χ (-1)) : … ∈ K_f⟮χ⟯
+```
+-/
+
+end CriticalValues
+
 end TauCeti.ModularSymbol
 
 namespace TauCeti.ModularSymbol.SuggestedTest
@@ -439,5 +462,22 @@ example : vkPairing ℚ 2 (by norm_num [Nat.factorial]) ⟨MvPolynomial.X 0 * Mv
 
 /-- `dim H¹_par(Γ₁(11), ℂ) = 2`, twice the genus of `X₁(11)`. -/
 example : Module.finrank ℂ (H1par (CongruenceSubgroup.Gamma1 11) (vkRep ℂ 0 _)) = 2 := sorry
+
+/-- `L1/period-lines`: rescaling the basis of a period line by `λ` rescales the period by `λ⁻¹`
+(`ψ = Ω • φ` gives `ψ = (λ⁻¹ * Ω) • (λ • φ)`). -/
+example {V : Type*} [AddCommGroup V] [Module ℂ V] (Ω c : ℂ) (hc : c ≠ 0) (φ ψ : V)
+    (h : ψ = Ω • φ) : ψ = (c⁻¹ * Ω) • (c • φ) := by
+  rw [h, smul_smul, mul_assoc, mul_comm Ω c, ← mul_assoc, inv_mul_cancel₀ hc, one_mul]
+
+/-- `L1/twisted-mellin-formula`, the Mellin constant: `-2πi · i^{j+1}/(2π)^{j+1} = 1/(-2πi)^j`
+reduces to `-i^{j+2} = i^j`. -/
+example (j : ℕ) : -(Complex.I ^ (j + 2)) = Complex.I ^ j := by
+  rw [pow_add, Complex.I_sq]; ring
+
+/-- `L1/rjw-b1-comparison`, the conversion constant: `-(-c)^j / c^{j+1} = (-1)^{j+1} / c` for
+`c = 2πi`. -/
+example (c : ℂ) (hc : c ≠ 0) (j : ℕ) : -((-c) ^ j / c ^ (j + 1)) = (-1) ^ (j + 1) / c := by
+  rw [neg_pow, pow_succ, pow_succ]
+  field_simp
 
 end TauCeti.ModularSymbol.SuggestedTest
