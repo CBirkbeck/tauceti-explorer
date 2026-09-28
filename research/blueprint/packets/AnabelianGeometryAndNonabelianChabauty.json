@@ -1,0 +1,1093 @@
+{
+  "roadmapId": "AnabelianGeometryAndNonabelianChabauty",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "AnabelianGeometryAndNonabelianChabauty:NC.0",
+    "AnabelianGeometryAndNonabelianChabauty:NC.1",
+    "AnabelianGeometryAndNonabelianChabauty:NC.2",
+    "AnabelianGeometryAndNonabelianChabauty:NC.3",
+    "AnabelianGeometryAndNonabelianChabauty:NC.4",
+    "AnabelianGeometryAndNonabelianChabauty:NC.5",
+    "AnabelianGeometryAndNonabelianChabauty:NC.6"
+  ],
+  "status": "partial",
+  "summary": "First checkpoint: nonabelian continuous cohomology for NC.3 — continuous 1-cocycles and invariants with nonabelian coefficients, H¹(G, U) as a pointed set, functoriality, comparison with Tau Ceti's abelian continuous cohomology, the exact sequences of pointed sets for subgroups and normal subgroups, central extensions (the action of H¹ of the kernel and the connecting map to H²), twisting, and the classification of torsors by H¹. Built from Mathlib's group actions and topological groups and Tau Ceti's explicit continuous cohomology; Selmer varieties, local conditions and all other stages remain open.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:ContinuousMap",
+        "kind": "structure",
+        "module": "Mathlib/Topology/ContinuousMap/Defs.lean",
+        "provides": "Continuous maps, for continuous cochains.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:ContinuousMonoidHom",
+        "kind": "structure",
+        "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+        "provides": "Continuous homomorphisms, the cocycles of a trivial action.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:ContinuousSMul",
+        "kind": "class",
+        "module": "Mathlib/Topology/Algebra/MulAction.lean",
+        "provides": "Continuity of the action map G × U → U.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:FixedPoints.subgroup",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "The subgroup of elements fixed by a MulDistribMulAction: H⁰.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsTopologicalGroup",
+        "kind": "class",
+        "module": "Mathlib/Topology/Algebra/Group/Defs.lean",
+        "provides": "Topological groups.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MulAction.QuotientAction",
+        "kind": "class",
+        "module": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
+        "provides": "Actions descending to coset spaces.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MulAction.orbitRel",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "The orbit relation of a group action.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MulAction.orbitRel.Quotient",
+        "kind": "abbrev",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "The orbit set of a group action, the carrier of H¹.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MulAction.toPerm",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Action/Basic.lean",
+        "provides": "A group action as a homomorphism to permutations.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MulAut.conj",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/End.lean",
+        "provides": "Conjugation as a group automorphism.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MulDistribMulAction",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Group/Action/Defs.lean",
+        "provides": "Actions of a monoid on a group by group endomorphisms (here automorphisms).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MulDistribMulAction.toMulAut",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Action/End.lean",
+        "provides": "The homomorphism to automorphisms given by a MulDistribMulAction.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Multiplicative",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/TypeTags/Basic.lean",
+        "provides": "The multiplicative type synonym of an additive group.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.Quotient.group",
+        "kind": "instance",
+        "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
+        "provides": "The group structure on a quotient by a normal subgroup.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.continuous_mk",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Group/Quotient.lean",
+        "provides": "The quotient map of topological groups is continuous.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuotientGroup.isOpenMap_coe",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Group/Quotient.lean",
+        "provides": "The quotient map of topological groups is open.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Subgroup.Normal",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "provides": "Normal subgroups.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Subgroup.center",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/Subgroup/Center.lean",
+        "provides": "The centre of a group.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Topology.IsQuotientMap",
+        "kind": "structure",
+        "module": "Mathlib/Topology/Defs/Induced.lean",
+        "provides": "Quotient maps of topological spaces.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:groupCohomology.IsMulCocycle₁",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean",
+        "provides": "Mathlib's multiplicative 1-cocycle condition for commutative coefficients, f(gh) = g•f(h)·f(g).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.B1",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "Explicit 1-coboundaries, the range of d⁰.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.B2",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "Coboundaries of continuous 1-cochains.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.H0",
+        "kind": "abbrev",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "H⁰ as the fixed-point additive subgroup.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.H1",
+        "kind": "abbrev",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "Explicit continuous H¹ = Z¹/B¹.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.H1EquivOfSmulEqSelf",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "For a trivial action, H¹ is the group of continuous homomorphisms.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.H1pi",
+        "kind": "abbrev",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "The class map Z¹ → H¹.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.H2",
+        "kind": "abbrev",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "Explicit continuous H² = Z²/B², B² the coboundaries of continuous cochains.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.H2pi",
+        "kind": "abbrev",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "The class map Z² → H².",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.Z1",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "Explicit continuous 1-cocycles C¹ ⊓ ker d¹ of a topological module.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.Z2",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "Explicit continuous 2-cocycles.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.d0",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "The differential d⁰m(g) = g•m − m.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.ContCohomology.d1",
+        "kind": "def",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+        "provides": "The differential d¹f(g, h) = g•f(h) − f(gh) + f(g).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "kim-siegel-2005",
+      "title": "The motivic fundamental group of P¹ ∖ {0, 1, ∞} and the theorem of Siegel",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv:math/0409456v1 (23 Sep 2004), 19 pp.; published in Invent. Math. 161 (2005). Accessed 2026-09-28.",
+      "url": "https://arxiv.org/abs/math/0409456v1",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941",
+      "readSections": [
+        "Read §1 'Torsor spaces' in full (pp. 2–10): the topologies of Lemmas 1–5, continuous cochains and nonabelian H¹, Proposition 1 (torsors and H¹) with proof, Proposition 2 (representability) with the central-extension claim and its proof, the exact sequence of pointed sets and Proposition 3. §2–§3 not read."
+      ]
+    },
+    {
+      "id": "kim-albanese-2009",
+      "title": "The unipotent Albanese map and Selmer varieties for curves",
+      "authors": "Minhyong Kim",
+      "edition": "arXiv:math/0510441v4 (13 Apr 2006), 31 pp.; published in Publ. RIMS Kyoto Univ. 45 (2009). Accessed 2026-09-28.",
+      "url": "https://arxiv.org/abs/math/0510441v4",
+      "sha256": "7b404331925f1d8e9bce81e9b16473f0d65a7f1ac2948ccff0db3a6e7b0d0f19",
+      "readSections": [
+        "Read the introduction (pp. 1–5) and the passages of §3 on local conditions, the connecting map from H⁰(G_v, U(B_cr ⊗ R)/U(R)), restriction maps and the central-extension structure of Selmer varieties (pp. 19–26). The rest was not read."
+      ]
+    },
+    {
+      "id": "poonen-rational-points",
+      "title": "Rational points on varieties",
+      "authors": "Bjorn Poonen",
+      "edition": "Graduate Studies in Mathematics 186, AMS 2017; author-hosted PDF (printed page = PDF page − 14), accessed 2026-09-28",
+      "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+      "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
+      "readSections": [
+        "Read §1.3.5 (Definition 1.3.14, Proposition 1.3.15 and its proof, pp. 11–12), Exercise 1.9 (p. 28), §4.5 (twists and Theorem 4.5.2, pp. 105–106), §5.11 and §5.12.4 (inner twists, classification of torsors, Remark 5.12.13, pp. 153–154)."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Continuous 1-cocycles and invariants with nonabelian coefficients",
+      "kind": "definition",
+      "statement": "Let G be a topological group and U a topological group on which G acts by group automorphisms, continuously (G × U → U continuous). The invariants are H⁰(G, U) := U^G = {u ∈ U : g•u = u for all g}, a subgroup of U (Mathlib FixedPoints.subgroup). The continuous 1-cocycles are Z¹(G, U) := {c : G → U continuous : c(gh) = c(g)·(g•c(h)) for all g, h ∈ G}, with the trivial cocycle 1 (the constant map to the identity) as base point. Lean: `TauCeti.NonabelianCohomology.H0 G U`, `TauCeti.NonabelianCohomology.Z1 G U` (a subtype of G → U).",
+      "hypotheses": [
+        "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). No commutativity of U; for U commutative written additively the definitions agree with Tau Ceti's explicit continuous cohomology (NC.3/abelian-comparison)."
+      ],
+      "proofSteps": [
+        "Definition as stated; H⁰ is FixedPoints.subgroup for the MulDistribMulAction.",
+        "Elementary identities: c(1) = 1 (put g = h = 1), c(g⁻¹) = g⁻¹•(c(g)⁻¹) (put h = g⁻¹), and the coboundaries g ↦ u·(g•u)⁻¹ are cocycles: u·(gh•u)⁻¹ = u(g•u)⁻¹·g•(u(h•u)⁻¹) because g acts by automorphisms. The coboundary of u is continuous since g ↦ g•u is continuous.",
+        "Trivial action: then the cocycle condition says c is a homomorphism, so Z¹(G, U) is the set of continuous homomorphisms G → U (ContinuousMonoidHom)."
+      ],
+      "acceptance": [
+        "The order of the factors matters when U is not commutative: the condition c(gh) = (g•c(h))·c(g) of Mathlib's commutative IsMulCocycle₁ defines a different set for nonabelian U (test below).",
+        "Continuity is part of the definition; for a profinite G and discrete U every cocycle factors through a finite quotient of G."
+      ],
+      "prerequisites": [
+        "mathlib:MulDistribMulAction",
+        "mathlib:FixedPoints.subgroup",
+        "mathlib:ContinuousSMul",
+        "mathlib:IsTopologicalGroup",
+        "mathlib:ContinuousMap",
+        "mathlib:ContinuousMonoidHom",
+        "mathlib:groupCohomology.IsMulCocycle₁"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, p. 6",
+          "match": "The continuous 1-cocycle condition with nonabelian coefficients, in the factor order used here."
+        },
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, p. 6",
+          "match": "The base point."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§1.3.5, Definition 1.3.14, p. 11",
+          "match": "Nonabelian cohomology exists in degrees 0 and 1 only."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Z1"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+          "how": "H¹ is the orbit set of Z¹ under twisted conjugation."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification",
+          "how": "A point of a torsor gives a cocycle."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+          "how": "The global and local Selmer maps take a rational point to the class of the cocycle of its path torsor."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H0",
+          "role": "constructor",
+          "statement": "H⁰(G, U) = FixedPoints.subgroup G U, the subgroup of G-invariant elements."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1",
+          "role": "constructor",
+          "statement": "The type of continuous maps c : G → U with c(gh) = c(g)·g•c(h)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.mem_iff",
+          "role": "characterisation",
+          "statement": "c ∈ Z¹ iff c is continuous and satisfies the cocycle identity."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.one",
+          "role": "constructor",
+          "statement": "The trivial cocycle g ↦ 1, the base point."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.map_one",
+          "role": "other",
+          "statement": "c(1) = 1 for every cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.map_inv",
+          "role": "other",
+          "statement": "c(g⁻¹) = g⁻¹•(c(g)⁻¹)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.coboundary",
+          "role": "constructor",
+          "statement": "For u ∈ U, the cocycle g ↦ u·(g•u)⁻¹."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.equivContinuousMonoidHomOfTrivial",
+          "role": "compatibility",
+          "statement": "If G acts trivially, Z¹(G, U) ≃ (G →ₜ* U), continuous homomorphisms."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.ext",
+          "role": "extensionality",
+          "statement": "Two cocycles are equal iff they agree at every g."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.trivial_group",
+          "kind": "degenerate",
+          "statement": "If G is the trivial group, Z¹(G, U) = {1}."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.trivial_action_hom",
+          "kind": "computation",
+          "statement": "For G = ℤ/2 (discrete) acting trivially on the symmetric group S₃ (discrete), Z¹(G, S₃) has exactly 4 elements: the trivial map and the three maps sending the generator to a transposition."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.factor_order",
+          "kind": "non-example",
+          "statement": "For G = U = S₃ with the trivial action, the identity map satisfies c(gh) = c(g)·(g•c(h)) but not c(gh) = (g•c(h))·c(g) (it is a homomorphism, not an anti-homomorphism): the factor order of the cocycle condition matters for nonabelian U."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.invariants",
+          "kind": "computation",
+          "statement": "For G = ℤ/2 acting on U = ℤ by negation, H⁰(G, U) = {0}; for the trivial action H⁰ = U."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.continuity",
+          "kind": "non-example",
+          "statement": "For G = ∏_{n ∈ ℕ} ℤ/2 (profinite) acting trivially on U = ℤ/2 (discrete), Z¹(G, U) is countable (continuous characters factor through finitely many coordinates), whereas the abstract homomorphisms G → ℤ/2 are uncountable: dropping continuity changes Z¹."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Nonabelian first cohomology as a pointed set",
+      "kind": "definition",
+      "statement": "In the situation of NC.3/continuous-cocycles, U acts on Z¹(G, U) by (u·c)(g) := u·c(g)·(g•u)⁻¹. The first cohomology H¹(G, U) is the orbit set of this action (Mathlib MulAction.orbitRel.Quotient U (Z¹ G U)), pointed by the class of the trivial cocycle; two cocycles in one orbit are called cohomologous. The class of c is trivial iff c is a coboundary g ↦ u·(g•u)⁻¹. Lean: `TauCeti.NonabelianCohomology.H1 G U` with the class map `H1.mk`.",
+      "hypotheses": [
+        "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U)."
+      ],
+      "proofSteps": [
+        "The formula defines a group action: (u·(v·c))(g) = u v c(g) (g•v)⁻¹ (g•u)⁻¹ = (uv) c(g) (g•(uv))⁻¹, since g acts by automorphisms; 1·c = c.",
+        "u·c is again a cocycle: (u·c)(gh) = u c(g) g•c(h) (gh•u)⁻¹, and (u·c)(g)·g•((u·c)(h)) = u c(g) (g•u)⁻¹ g•u g•c(h) g•(h•u)⁻¹, which agree. Continuity: u·c is a product of continuous maps (g ↦ g•u is continuous).",
+        "The orbit of the trivial cocycle is the set of coboundaries g ↦ u·(g•u)⁻¹, by definition of the action.",
+        "H¹ is a pointed set, not a group: there is no natural composition law when U is not commutative."
+      ],
+      "acceptance": [
+        "For trivial action, H¹(G, U) is the set of continuous homomorphisms G → U modulo conjugation by U.",
+        "Cohomologous means related by the action; for nonabelian U this is not 'c′ = c·b for a coboundary b' (test below)."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "mathlib:MulAction.orbitRel",
+        "mathlib:MulAction.orbitRel.Quotient"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, p. 6",
+          "match": "The twisted-conjugation action and H¹ as its orbit set."
+        },
+        {
+          "sourceId": "kim-albanese-2009",
+          "locator": "Introduction, p. 4",
+          "match": "The role of the nonabelian H¹ in Chabauty–Kim."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Nonabelian cohomology set H¹(G, U)"
+      },
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "The exact sequences are sequences of these pointed sets."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "The abelian group H¹(G, Z) acts on H¹(G, B) for central Z."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification",
+          "how": "Torsors are classified by H¹."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+          "how": "Selmer varieties are subsets of H¹(G_T, U_n) cut out by local conditions."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.instMulAction",
+          "role": "constructor",
+          "statement": "The action (u·c)(g) = u·c(g)·(g•u)⁻¹ of U on Z¹(G, U)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1",
+          "role": "constructor",
+          "statement": "H¹(G, U) = MulAction.orbitRel.Quotient U (Z¹ G U)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.mk",
+          "role": "constructor",
+          "statement": "The class map Z¹(G, U) → H¹(G, U)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.mk_surjective",
+          "role": "other",
+          "statement": "Every class has a representing cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.mk_eq_mk_iff",
+          "role": "characterisation",
+          "statement": "mk c = mk c′ iff c′ = u·c for some u ∈ U."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.instOne",
+          "role": "constructor",
+          "statement": "The base point, the class of the trivial cocycle."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.mk_eq_one_iff",
+          "role": "characterisation",
+          "statement": "mk c = 1 iff there is u ∈ U with c(g) = u·(g•u)⁻¹ for all g."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.equivOfTrivial",
+          "role": "compatibility",
+          "statement": "For trivial action, H¹(G, U) ≃ (G →ₜ* U) modulo conjugation by U."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.h1_trivial_group",
+          "kind": "degenerate",
+          "statement": "If G is the trivial group, H¹(G, U) is a single point."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.h1_S3",
+          "kind": "computation",
+          "statement": "For G = ℤ/2 acting trivially on S₃ (both discrete), H¹(G, S₃) has exactly 2 elements: the base point and the class of the transpositions."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.not_coboundary_quotient",
+          "kind": "non-example",
+          "statement": "In the same example, identifying cocycles c, c′ when c′(g) = c(g)·u(g•u)⁻¹ for some u gives 4 classes (the action is trivial, so every such b is trivial), not 2: the correct relation is twisted conjugation."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.h1_abelian",
+          "kind": "compatibility",
+          "statement": "For G = ℤ/2 acting on U = ℤ/3 (additive, discrete) by negation, H¹ is a single point, agreeing with Tau Ceti's ContCohomology.H1 (the orders are coprime)."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Functoriality of nonabelian H⁰ and H¹",
+      "kind": "lemma",
+      "statement": "(a) A continuous G-equivariant group homomorphism f : U → U′ induces a homomorphism H⁰(G, U) → H⁰(G, U′) and maps Z¹(G, U) → Z¹(G, U′), c ↦ f ∘ c, and H¹(G, U) → H¹(G, U′), preserving base points, compatible with identities and composition, and with f(u·c) = f(u)·(f ∘ c). (b) A continuous group homomorphism φ : G′ → G, with G′ acting on U through φ, induces the restriction maps H⁰(G, U) → H⁰(G′, U) (inclusion) and Z¹(G, U) → Z¹(G′, U), c ↦ c ∘ φ, and H¹(G, U) → H¹(G′, U), base point preserving and functorial; in particular for a closed subgroup H ≤ G there is restriction H¹(G, U) → H¹(H, U). Maps of pointed sets that are compatible in this way are what the exact sequences (NC.3/exact-sequence) are built from.",
+      "hypotheses": [
+        "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). In (a) U′ satisfies the same hypotheses and f is continuous with f(g•u) = g•f(u); in (b) φ is continuous and G′ acts on U by g′•u = φ(g′)•u."
+      ],
+      "proofSteps": [
+        "(a) f ∘ c is continuous and f(c(gh)) = f(c(g))·f(g•c(h)) = f(c(g))·g•f(c(h)); f(u·c) = f(u)·(f∘c) because f(u c(g) (g•u)⁻¹) = f(u) f(c(g)) (g•f(u))⁻¹. So the map descends to orbits and sends the trivial cocycle to the trivial cocycle.",
+        "(b) c ∘ φ is continuous and (c∘φ)(g′h′) = c(φg′)·φ(g′)•c(φh′); the U-actions correspond, so the map descends.",
+        "Identities and composition hold on cocycles, hence on classes."
+      ],
+      "acceptance": [
+        "Restriction to the decomposition group at a place v, H¹(G_T, U) → H¹(G_v, U), is the case (b) of the inclusion G_v → G_T used for Selmer conditions."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "mathlib:ContinuousMonoidHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-albanese-2009",
+          "locator": "§3, p. 25",
+          "match": "Restriction maps and their functoriality, as used for local conditions."
+        },
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, p. 7",
+          "match": "Functoriality in the coefficients."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Functoriality",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.map"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.map",
+          "role": "functoriality",
+          "statement": "The map H¹(G, U) → H¹(G, U′) induced by a continuous equivariant homomorphism."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.map_one",
+          "role": "functoriality",
+          "statement": "H1.map f sends the base point to the base point."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.map_id",
+          "role": "functoriality",
+          "statement": "H1.map id = id."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.map_comp",
+          "role": "functoriality",
+          "statement": "H1.map (f′ ∘ f) = H1.map f′ ∘ H1.map f."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.res",
+          "role": "functoriality",
+          "statement": "The restriction H¹(G, U) → H¹(G′, U) along a continuous homomorphism G′ → G."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.res_comp",
+          "role": "functoriality",
+          "statement": "Restriction along a composite is the composite of restrictions."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H0.map",
+          "role": "functoriality",
+          "statement": "The homomorphism of invariants induced by an equivariant homomorphism."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/abelian-comparison",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Comparison with abelian continuous cohomology",
+      "kind": "comparison",
+      "statement": "Let M be a commutative topological group written additively, with a continuous action of G by additive automorphisms, and U = Multiplicative M. With the induced action on U (Mathlib has no instance for it, so one is supplied), Z¹(G, U) is Tau Ceti's group of explicit continuous 1-cocycles ContCohomology.Z1 G M (cocycles c(gh) = c(g) + g•c(h), in Mathlib's IsCocycle₁ convention), the action of U on Z¹ is translation by the coboundaries d⁰(m)(g) = g•m − m up to sign, and the class map induces a bijection of pointed sets H¹(G, U) ≅ ContCohomology.H1 G M, sending the base point to 0. Consequently H¹(G, U) inherits a commutative group structure, H⁰(G, U) = ContCohomology.H0 G M, and for discrete G the cocycles are Mathlib's groupCohomology.IsMulCocycle₁ maps (the factor order being immaterial for commutative M).",
+      "hypotheses": [
+        "M a commutative topological additive group with a continuous DistribMulAction of G; G a topological group."
+      ],
+      "proofSteps": [
+        "The multiplicative cocycle identity for Multiplicative M is additive: c(gh) = c(g) + g•c(h); continuity is the same condition. This is Tau Ceti's d¹-kernel description (ContCohomology.d1_apply: d¹f(g,h) = g•f(h) − f(gh) + f(g)).",
+        "The action: (m·c)(g) = m + c(g) − g•m = c(g) − (d⁰m)(g), so orbits are cosets of B¹ = range d⁰ (Tau Ceti ContCohomology.B1) inside Z¹, and the orbit set is Z¹/B¹ = ContCohomology.H1 G M.",
+        "Invariants: FixedPoints.subgroup of the multiplicative action is FixedPoints.addSubgroup of the additive one (Tau Ceti ContCohomology.H0).",
+        "For discrete G and commutative M, c(gh) = c(g)·g•c(h) and Mathlib's IsMulCocycle₁ c(gh) = g•c(h)·c(g) coincide."
+      ],
+      "acceptance": [
+        "For trivial action, both sides are the continuous homomorphisms G → M (Tau Ceti ContCohomology.H1EquivOfSmulEqSelf)."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "tauceti:TauCeti.ContCohomology.Z1",
+        "tauceti:TauCeti.ContCohomology.B1",
+        "tauceti:TauCeti.ContCohomology.H1",
+        "tauceti:TauCeti.ContCohomology.H1pi",
+        "tauceti:TauCeti.ContCohomology.H0",
+        "tauceti:TauCeti.ContCohomology.d0",
+        "tauceti:TauCeti.ContCohomology.d1",
+        "tauceti:TauCeti.ContCohomology.H1EquivOfSmulEqSelf",
+        "mathlib:groupCohomology.IsMulCocycle₁",
+        "mathlib:Multiplicative"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, p. 6",
+          "match": "For commutative (vector-group) coefficients the nonabelian definitions agree with the conventional abelian ones."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.equivContCohomology"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.instMulDistribMulActionMultiplicative",
+          "role": "constructor",
+          "statement": "A DistribMulAction of G on the additive group M induces a MulDistribMulAction of G on Multiplicative M (not an instance in Mathlib at the pin), and continuity of the action transfers."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.equivContCohomology",
+          "role": "compatibility",
+          "statement": "Z¹(G, Multiplicative M) ≃ ContCohomology.Z1 G M, the identity on underlying functions."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.equivContCohomology",
+          "role": "compatibility",
+          "statement": "H¹(G, Multiplicative M) ≃ ContCohomology.H1 G M, compatible with the class maps."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.equivContCohomology_one",
+          "role": "compatibility",
+          "statement": "The base point goes to 0."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H0.equivContCohomology",
+          "role": "compatibility",
+          "statement": "H⁰(G, Multiplicative M) corresponds to ContCohomology.H0 G M."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "The exact sequences of pointed sets",
+      "kind": "theorem",
+      "statement": "Let A ≤ B be a closed subgroup of a topological group B stable under a continuous action of G by automorphisms, and B/A the coset space with the induced (continuous) G-action. (a) The sequence of pointed sets 1 → A^G → B^G → (B/A)^G →δ H¹(G, A) → H¹(G, B) is exact (at each term the image of the incoming map is the preimage of the base point), where δ(bA) is the class of the continuous cocycle g ↦ b⁻¹·(g•b); moreover δ(x) = δ(y) iff x and y lie in one B^G-orbit of (B/A)^G. (b) If A is normal, B/A is a topological group with continuous G-action, and the sequence continues exactly with → H¹(G, B/A): a class of H¹(G, B) maps to the base point of H¹(G, B/A) iff it comes from H¹(G, A). No continuous section of B → B/A is needed.",
+      "hypotheses": [
+        "G is a topological group and B a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). A a closed G-stable subgroup of B; for (b), A normal."
+      ],
+      "proofSteps": [
+        "δ is well defined: g•(bA) = bA gives b⁻¹(g•b) ∈ A; it is continuous in g (continuity of the action) and a cocycle: b⁻¹((gh)•b) = b⁻¹(g•b)·g•(b⁻¹(h•b)). Replacing b by ba replaces the cocycle by a⁻¹·(cocycle) under the twisted-conjugation action, so the class is unchanged.",
+        "Exactness at (B/A)^G: δ(bA) is trivial iff b⁻¹(g•b) = a(g•a)⁻¹ for some a ∈ A and all g, iff ba is G-invariant, iff bA comes from B^G. The same computation with two points gives the orbit statement.",
+        "Exactness at H¹(G, A): the image of [c] in H¹(G, B) is trivial iff c(g) = b⁻¹(g•b) for some b ∈ B, and then bA ∈ (B/A)^G and δ(bA) = [c].",
+        "Exactness at A^G and B^G is exactness of the underlying sets of invariants.",
+        "(b) If A is normal, B/A is a topological group (Mathlib's quotient topology, QuotientGroup.continuous_mk, open quotient map), and G × B/A → B/A is continuous since G × B → G × B/A is an open quotient map. If c ∈ Z¹(G, B) maps to a coboundary x(g•x)⁻¹ of B/A, lift x to b ∈ B (one element, so no continuity issue): the cocycle b⁻¹·c takes values in A, is continuous for the subspace topology, and its class maps to [c]."
+      ],
+      "acceptance": [
+        "Kim's crystalline condition: for U_n(R) ≤ U_n(B_cr ⊗ R), the image of H⁰(G_v, U_n(B_cr ⊗ R)/U_n(R)) → H¹(G_v, U_n(R)) is the set of crystalline torsors (Kim 2009, §3); this is (a) for a subgroup that is not normal.",
+        "Exactness is of pointed sets: two elements of H¹(G, A) with the same image in H¹(G, B) need not differ by an element of (B/A)^G unless one of them is the base point; the fibres over other points are described after twisting (NC.3/twisting)."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/functoriality",
+        "mathlib:FixedPoints.subgroup",
+        "mathlib:Subgroup.Normal",
+        "mathlib:QuotientGroup.Quotient.group",
+        "mathlib:QuotientGroup.continuous_mk",
+        "mathlib:QuotientGroup.isOpenMap_coe",
+        "mathlib:MulAction.QuotientAction"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, p. 9",
+          "match": "The sequence H⁰(G, B/A) → H¹(G, A) → H¹(G, B) for a subgroup A ≤ B that need not be normal."
+        },
+        {
+          "sourceId": "kim-albanese-2009",
+          "locator": "§3, p. 19",
+          "match": "The connecting map from invariants of a coset space, used for the crystalline condition."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.exact_H1_of_subgroup"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Exact sequence of nonabelian cohomology"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Central extensions: the action of H¹(G, Z) and the connecting map to H²",
+      "kind": "theorem",
+      "statement": "Let Z ≤ B be a closed G-stable subgroup contained in the centre of B, and C := B/Z. (a) The abelian group H¹(G, Z) (NC.3/abelian-comparison) acts on H¹(G, B) by [z]·[c] := [g ↦ z(g)c(g)], and the fibres of H¹(G, B) → H¹(G, C) are exactly the orbits of this action. (b) Suppose the projection B → C has a continuous (set-theoretic) section s. Then there is a connecting map δ² : H¹(G, C) → H²(G, Z), Tau Ceti's explicit continuous H² (ContCohomology.H2 of Z written additively), sending the class of c̄ to the class of the 2-cocycle (g, h) ↦ c(g)·(g•c(h))·c(gh)⁻¹ for the continuous lift c = s ∘ c̄; and the image of H¹(G, B) → H¹(G, C) is δ²⁻¹(0). (c) If, for every c ∈ Z¹(G, B), the group C twisted by the image of c (NC.3/twisting) has only the trivial G-invariant element, then the action in (a) is free, so each nonempty fibre is a principal homogeneous space of H¹(G, Z).",
+      "hypotheses": [
+        "G is a topological group and B a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). Z closed, G-stable and central in B. For (b), a continuous section of B → C (for unipotent algebraic groups an algebraic splitting of the extension exists, as in Kim's proof). For (c), the stated vanishing of twisted invariants."
+      ],
+      "proofSteps": [
+        "(a) z·c is a continuous cocycle because Z is central: z(gh)c(gh) = z(g)(g•z(h))c(g)(g•c(h)) = (z(g)c(g))·g•(z(h)c(h)). The action is compatible with twisted conjugation by B (central z commutes with u), so it descends to classes; it preserves the image in H¹(G, C). Conversely if [c₁], [c₂] have the same image, replace c₂ by u·c₂ so that the images in Z¹(G, C) agree (lift one element of C); then z := c₁⁻¹c₂ is Z-valued, continuous and, Z being central, a cocycle.",
+        "(b) For the lift c = s ∘ c̄, the defect (g, h) ↦ c(g)(g•c(h))c(gh)⁻¹ lies in Z (its image in C is 1), is continuous, and satisfies the 2-cocycle identity in Z (a direct computation using centrality). Changing c̄ within its class or changing the lift by a Z-valued continuous 1-cochain changes the defect by a 2-coboundary of a continuous cochain, so δ² is well defined into Z²/B² with Tau Ceti's B² (coboundaries of continuous cochains). δ²[c̄] = 0 iff the lift can be corrected by a continuous Z-valued cochain to a cocycle, i.e. iff [c̄] lifts to H¹(G, B).",
+        "(c) If z·c = u·c with u ∈ B, then projecting to C gives ū·c̄ = c̄, i.e. ū is invariant for the action twisted by c̄; by hypothesis ū = 1, so u ∈ Z and z(g) = u(g•u)⁻¹ is a coboundary of Z (Kim's argument)."
+      ],
+      "acceptance": [
+        "For the lower central series of a unipotent group U with H⁰(G, U^i/U^{i+1}) = 0, (c) applies at every step, which is how Kim shows H¹(G, U_{n+1}) ≅ H¹(G, U^{n+1}/U^{n+2}) × δ²⁻¹(0) (Kim 2005, Proposition 2).",
+        "Without the section hypothesis, H¹(G, C) → H²(G, Z) need not be definable with continuous cochains; (a) and (c) do not need it."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/abelian-comparison",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+        "tauceti:TauCeti.ContCohomology.H2",
+        "tauceti:TauCeti.ContCohomology.H2pi",
+        "tauceti:TauCeti.ContCohomology.Z2",
+        "tauceti:TauCeti.ContCohomology.B2",
+        "mathlib:Subgroup.center"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, proof of Proposition 2, p. 8",
+          "match": "The connecting map H¹(G, U_n) → H²(G, U^{n+1}/U^{n+2}) built from an algebraic splitting and the coboundary of a lift."
+        },
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, proof of Proposition 2, p. 9",
+          "match": "The action of H¹ of the central subgroup, its orbits and its freeness under vanishing invariants."
+        },
+        {
+          "sourceId": "kim-albanese-2009",
+          "locator": "§3, p. 26",
+          "match": "The same structure for Selmer varieties."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/ExactSequence",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.H1.map_eq_map_iff_central"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Central extensions and the connecting map to H²"
+      }
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/twisting",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Twisting by a cocycle",
+      "kind": "construction",
+      "statement": "Let c ∈ Z¹(G, U). The twisted group ₍c₎U is U with the action g ⋆ u := c(g)·(g•u)·c(g)⁻¹, again a continuous action by automorphisms. The map τ_c : Z¹(G, ₍c₎U) → Z¹(G, U), c′ ↦ (g ↦ c′(g)·c(g)), is a bijection carrying the trivial cocycle to c and the twisted-conjugation action of U on the left to that on the right; it induces a bijection of pointed sets H¹(G, ₍c₎U) ≅ H¹(G, U) sending the base point to [c]. Twisting is compatible with G-stable subgroups (for cocycles with values in them) and with quotients by normal ones, so that fibres of the maps in NC.3/exact-sequence over [c] become fibres over the base point after twisting. Lean: `TauCeti.NonabelianCohomology.Twist c` (a type synonym of U) and `TauCeti.NonabelianCohomology.H1.twistEquiv c`.",
+      "hypotheses": [
+        "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). c a continuous cocycle."
+      ],
+      "proofSteps": [
+        "g ⋆ − is an automorphism of U (conjugation composed with the automorphism g•−), and (gh) ⋆ u = c(gh)(gh•u)c(gh)⁻¹ = c(g) g•c(h) g•(h•u) g•c(h)⁻¹ c(g)⁻¹ = g ⋆ (h ⋆ u) by the cocycle identity; continuity from continuity of c and of the action.",
+        "τ_c(c′) is a cocycle for U: c′(gh)c(gh) = c′(g)·(g ⋆ c′(h))·c(g)·g•c(h) = c′(g)c(g)·g•(c′(h)c(h)). The inverse is c″ ↦ c″·c⁻¹. For u ∈ U, τ_c(u·c′)(g) = u c′(g)(g ⋆ u)⁻¹ c(g) = u c′(g) c(g) (g•u)⁻¹ = (u·τ_c(c′))(g).",
+        "Hence the bijection of orbit sets; the trivial cocycle maps to c.",
+        "Compatibility with subgroups and quotients: twisting by a cocycle with values in a G-stable subgroup A preserves A; if A is normal every twist preserves A, and the quotient map U → U/A is equivariant for the twists by c and by its image."
+      ],
+      "acceptance": [
+        "For trivial action and U commutative, twisting by any c does not change the action, and τ_c is translation by c."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "mathlib:MulAut.conj",
+        "mathlib:MulDistribMulAction.toMulAut"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, proof of Proposition 1, p. 6",
+          "match": "Twisting an action by a cocycle."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§4.5, p. 105",
+          "match": "Twists are classified by nonabelian H¹."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Basic",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Twist"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension",
+          "how": "The freeness hypothesis is stated for twisted invariants."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.3/exact-sequence",
+          "how": "Fibres over non-base points are fibres over base points of twisted sequences."
+        },
+        {
+          "where": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+          "how": "Local conditions at a point are compared through twisting by the class of that point."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist",
+          "role": "constructor",
+          "statement": "The type synonym ₍c₎U of U with the twisted action g ⋆ u = c(g)(g•u)c(g)⁻¹."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.smul_def",
+          "role": "characterisation",
+          "statement": "g ⋆ u = c(g)·(g•u)·c(g)⁻¹."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.continuousSMul",
+          "role": "other",
+          "statement": "The twisted action is continuous."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Z1.twistEquiv",
+          "role": "constructor",
+          "statement": "The bijection Z¹(G, ₍c₎U) ≃ Z¹(G, U), c′ ↦ c′·c."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistEquiv",
+          "role": "constructor",
+          "statement": "The induced bijection H¹(G, ₍c₎U) ≃ H¹(G, U)."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.H1.twistEquiv_one",
+          "role": "compatibility",
+          "statement": "twistEquiv sends the base point to the class of c."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.Twist.self",
+          "role": "compatibility",
+          "statement": "Twisting by the trivial cocycle is the original action."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_trivial",
+          "kind": "degenerate",
+          "statement": "Twisting by the trivial cocycle gives back U with its action, and twistEquiv is the identity."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_abelian",
+          "kind": "computation",
+          "statement": "For U commutative, g ⋆ u = g•u for every c, and twistEquiv is translation by c."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_S3",
+          "kind": "computation",
+          "statement": "For G = ℤ/2 acting trivially on S₃ and c sending the generator to a transposition τ, the twisted action is conjugation by τ, whose invariants form the subgroup {1, τ} of order 2."
+        },
+        {
+          "name": "TauCeti.NonabelianCohomology.tests.twist_changes_invariants",
+          "kind": "non-example",
+          "statement": "A twist need not be isomorphic to U as a G-group: for G = ℤ/2 acting trivially on S₃ and c(σ) = τ a transposition, H⁰(G, ₍c₎S₃) = {1, τ} has order 2 while H⁰(G, S₃) = S₃ has order 6; and twistEquiv sends the base point to [c], not to the base point."
+        }
+      ]
+    },
+    {
+      "id": "AnabelianGeometryAndNonabelianChabauty:NC.3/torsor-classification",
+      "parentStageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "realises": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "title": "Torsors under U with compatible G-action are classified by H¹(G, U)",
+      "kind": "theorem",
+      "statement": "A (G, U)-torsor is a topological space P with a continuous right action of U that is free and transitive, such that for one (equivalently every) p ∈ P the orbit map U → P, u ↦ p·u, is a homeomorphism, together with a continuous left action of G satisfying g•(p·u) = (g•p)·(g•u). For p ∈ P let c_p(g) ∈ U be the unique element with g•p = p·c_p(g). Then c_p ∈ Z¹(G, U), c_{p·u} = u⁻¹·c_p under the twisted-conjugation action, so [P] := [c_p] ∈ H¹(G, U) is independent of p and of the isomorphism class of P; P ↦ [P] is a bijection from isomorphism classes of (G, U)-torsors to H¹(G, U), the trivial torsor U corresponds to the base point, and P has a G-fixed point iff [P] is the base point. The inverse sends [c] to U with the twisted G-action g ∗ u := c(g)·(g•u).",
+      "hypotheses": [
+        "G is a topological group and U a topological group with an action of G by group automorphisms (MulDistribMulAction G U) such that the action map G × U → U is continuous (ContinuousSMul G U). Torsors are topological, with the orbit maps homeomorphisms; isomorphisms of torsors are homeomorphisms compatible with both actions."
+      ],
+      "proofSteps": [
+        "Cocycle: (gh)•p = g•(p·c_p(h)) = (g•p)·(g•c_p(h)) = p·c_p(g)·g•c_p(h), and freeness gives c_p(gh) = c_p(g)·g•c_p(h). Continuity: c_p is the composite of g ↦ g•p with the inverse of the orbit homeomorphism.",
+        "Change of point: g•(p·u) = p·c_p(g)·(g•u) = (p·u)·u⁻¹c_p(g)(g•u), so c_{pu}(g) = u⁻¹c_p(g)(g•u) = (u⁻¹·c_p)(g). An isomorphism of torsors carries p to a point with the same cocycle.",
+        "Inverse: for c ∈ Z¹, the formula g ∗ u := c(g)(g•u) is a continuous action (cocycle identity) compatible with right multiplication, and its cocycle at the point 1 is c. Cohomologous cocycles give isomorphic torsors (left multiplication by u), and a torsor is isomorphic to the one built from c_p via the orbit map at p.",
+        "A G-fixed point p has c_p = 1; conversely, if c_p(g) = u·(g•u)⁻¹ for all g, then g•(p·u) = p·c_p(g)·(g•u) = p·u, so p·u is fixed."
+      ],
+      "acceptance": [
+        "Path torsors: for a rational point x of a curve and a base point b, the torsor of paths from b to x, with the Galois action, has class [P(x)] ∈ H¹(G_K, U); this is the map from rational points to H¹ used in NC.4 (Kim 2009, introduction).",
+        "Poonen's classification of torsors under a smooth algebraic group G over k by H¹(k, G) (§5.12.4) is the algebraic version with G = Gal(k_s/k) and U = G(k_s) discrete."
+      ],
+      "prerequisites": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/nonabelian-h1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/continuous-cocycles",
+        "mathlib:MulAction.toPerm",
+        "mathlib:Topology.IsQuotientMap"
+      ],
+      "sources": [
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, Proposition 1, p. 5",
+          "match": "The classification of torsors by continuous H¹."
+        },
+        {
+          "sourceId": "kim-siegel-2005",
+          "locator": "§1, proof of Proposition 1, p. 6",
+          "match": "The cocycle of a point and its independence of the point."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§5.12.4, Remark 5.12.13, p. 154",
+          "match": "The cocycle of a torsor with a chosen point."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Homological/NonabelianCohomology/Torsor",
+        "namespace": "TauCeti.NonabelianCohomology",
+        "name": "TauCeti.NonabelianCohomology.Torsor.classOf"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Torsors and nonabelian H¹"
+      }
+    }
+  ],
+  "requests": [],
+  "coverage": [
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.0",
+      "status": "not_read",
+      "remaining": [
+        "Fundamental groupoids and sections: import the finite-étale fibre functor and Galois category from InverseGaloisAndArithmeticFundamentalGroups IG.0 and the arithmetic exact sequence from IG.1; construct path torsors (torsors in the sense of NC.3/torsor-classification) and the section of a rational point, base-point change and conjugacy independence; tangential base points on P¹ ∖ {0, 1, ∞} from PeriodsAndSpecialValues PS.9. Settle the path-torsor ownership overlap with IG.6."
+      ]
+    },
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.1",
+      "status": "not_read",
+      "remaining": [
+        "Source-qualified anabelian reconstruction: acquire and read Mochizuki's theorem and proof; decompose decomposition-group recovery, covers, linear systems and effectivity; state Isom and Hom versions separately."
+      ]
+    },
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.2",
+      "status": "not_read",
+      "remaining": [
+        "Unipotent fundamental groups: Tannakian construction of unipotent étale and de Rham fundamental groups, central series and finite quotients, path torsors with filtration, Frobenius and Galois structures (tensor-isomorphism torsors from MotivesAndAlgebraicCycles MC.6; rigid/de Rham input from ColemanIntegration L1), and the depth-one comparison with the Jacobian."
+      ]
+    },
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.3",
+      "status": "partial",
+      "remaining": [
+        "Representability: Kim 2005 Propositions 2–3 (H¹(G, U) and H⁰(G, U(B)/U) represented by affine pro-varieties under finite-dimensionality and H⁰-vanishing hypotheses), with the topologies on U(B ⊗_K R) of Kim §1 Lemmas 1–5; the unipotent-group inputs (lower central series, algebraic splittings of central extensions).",
+        "Local conditions and Selmer varieties: unramified and crystalline conditions (Kim 2009 §3, Lemma 5: the image of H⁰(G_v, U(B_cr ⊗ R)/U(R)) → H¹(G_v, U(R))), bad-place conditions, the global Selmer variety, and dimension calculations; depth-one agreement with the Kummer map and Selmer group of the Jacobian (HeightsRationalPointsAndObstructions RP.1) and a nontrivial depth-two obstruction.",
+        "Inflation–restriction for nonabelian H¹ (Serre, Galois Cohomology I §5.8), not in a freely readable source consulted here."
+      ]
+    },
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.4",
+      "status": "not_read",
+      "remaining": [
+        "Unipotent Albanese maps and Chabauty–Kim loci: iterated integrals (ColemanIntegration L1), the global-to-local Selmer map and the finiteness theorem under its hypotheses; depth one recovers classical Chabauty."
+      ]
+    },
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.5",
+      "status": "not_read",
+      "remaining": [
+        "Quadratic Chabauty: Balakrishnan–Dogra I and II, depth-two quotients, p-adic heights with all local terms, and a worked curve."
+      ]
+    },
+    {
+      "stageId": "AnabelianGeometryAndNonabelianChabauty:NC.6",
+      "status": "not_read",
+      "remaining": [
+        "Reconstruction and rational-point handoff to EffectiveDiophantineMethods ED.6, keeping the section conjecture and eventual Chabauty–Kim completeness conjectural."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Topologies on points of unipotent groups over topological algebras",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3"
+      ],
+      "detail": "Kim's H¹(G, U(B ⊗_K R)) uses the inductive-limit topology on B-vector spaces and the induced topology on points of affine schemes (Kim 2005, §1, Lemmas 1–5). The nodes here take U as an abstract topological group; the construction of these topologies and the continuity of the Galois action on points are not built and are needed before the Selmer varieties."
+    },
+    {
+      "title": "Unipotent algebraic groups: lower central series and splittings",
+      "neededBy": [
+        "AnabelianGeometryAndNonabelianChabauty:NC.3/central-extension"
+      ],
+      "detail": "The continuous-section hypothesis of NC.3/central-extension (b) holds for central extensions of unipotent groups over a field of characteristic 0 by an algebraic splitting (Kim 2005, proof of Proposition 2). Tau Ceti has unipotent-group theory, but this splitting and the lower-central-series quotients as vector groups are not decomposed here."
+    }
+  ],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "kind": "arXiv",
+      "url": "https://arxiv.org/pdf/math/0409456v1",
+      "citation": "M. Kim, The motivic fundamental group of P¹ ∖ {0,1,∞} and the theorem of Siegel, arXiv:math/0409456v1",
+      "read": "2026-09-28",
+      "sha256": "00efa6e96091d564f7afa2ad9fb917a34cc0a55b7e258164383519b4e93ba941"
+    },
+    {
+      "kind": "arXiv",
+      "url": "https://arxiv.org/pdf/math/0510441v4",
+      "citation": "M. Kim, The unipotent Albanese map and Selmer varieties for curves, arXiv:math/0510441v4",
+      "read": "2026-09-28",
+      "sha256": "7b404331925f1d8e9bce81e9b16473f0d65a7f1ac2948ccff0db3a6e7b0d0f19"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+      "citation": "B. Poonen, Rational points on varieties, GSM 186 (author PDF)",
+      "read": "2026-09-28",
+      "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579"
+    }
+  ]
+}
