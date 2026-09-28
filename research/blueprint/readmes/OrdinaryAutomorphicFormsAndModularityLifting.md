@@ -1,12 +1,14 @@
 # Ordinary automorphic forms and ordinary modularity lifting — blueprint
 
-This blueprint covers stages R21.1–R21.6. After one checkpoint, **R21.1 and R21.2 are partial**; R21.3–R21.6 are not
-yet read. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
+This blueprint covers stages R21.1–R21.6. After two checkpoints, **R21.1, R21.2 and R21.3 are partial**; R21.4–R21.6
+are not yet read. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
 - R21.1 only applies the ordinary projector to actual arithmetic modules;
-- R21.2 keeps the nearly ordinary and Eisenstein statements that Skinner–Wiles need beyond cuspidal Hida theory.
+- R21.2 keeps the nearly ordinary and Eisenstein statements that Skinner–Wiles need beyond cuspidal Hida theory;
+- R21.3 keeps the ordinary Galois families and deformation rings, in the pseudo-representation formalism the source
+  actually uses for reducible residual representations.
 
 The source is C. M. Skinner and A. J. Wiles, *Residually reducible representations and modular forms*, Publ. Math.
-IHÉS 89 (1999), 5–126, §§3.1–3.5. It is open access on Numdam as an OCR'd scan; every formula below was checked on the
+IHÉS 89 (1999), 5–126, §§2–3.5. It is open access on Numdam as an OCR'd scan; every formula below was checked on the
 page images.
 
 ## Purpose
@@ -35,6 +37,12 @@ Neither Mathlib nor Tau Ceti has definite quaternionic forms, Hilbert modular fo
 **Imported from other roadmaps:**
 - **PadicFamilies L0a:** the finite, adic and finite-algebra ordinary projectors (nodes cited directly).
 - **PadicMeasuresIwasawaAlgebras L1:** the completed group ring 𝒪[[G(U)]] (`convolution-algebra`).
+- **PadicFamilies L5 (R21.3):** the weight algebra, finiteness and density of weight-two points
+  (`totally-real-weight-algebra`, `hida-hecke-finite`, `algebraic-primes-dense`).
+- **GlobalGaloisDeformations R04.1–R04.2 (R21.3):** strict deformations, restriction, Φ_p, representability for Schur
+  residual representations and fixed-determinant rings (cited node ids).
+- **IntegralHeckeAndGaloisDeterminants IHG.0 (R21.3):** pseudocharacters, compared with Wiles' pseudo-representations
+  through the trace.
 - **Requested:**
   - **HilbertModularVarietiesAndShimuraCurves R18.3:** the definite quaternionic sets X(U) and H⁰(X(U), R), Hecke
     operators, change of level, stabilisers, the free-action lemma (Skinner–Wiles Lemma 3.5, Corollary 3.6) and
@@ -46,7 +54,13 @@ Neither Mathlib nor Tau Ceti has definite quaternionic forms, Hilbert modular fo
     Lemma 3.8) and Wiles' Λ-adic forms;
   - **AutomorphicPadicLFunctions L3:** the Deligne–Ribet p-adic L-function, Hilbert Eisenstein series and their constant
     terms, and Chai's forms with prescribed constant terms;
-  - **AutomorphicGaloisRepresentations R19.4:** local–global compatibility away from p.
+  - **AutomorphicGaloisRepresentations R19.4:** local–global compatibility away from p;
+  - **AutomorphicGaloisRepresentations R19.2 (R21.3):** Wiles' Galois representations of ordinary Hilbert eigenforms;
+  - **LocalGaloisDeformationRings L8 (R21.3):** the versal local and nearly ordinary rings of χ ⊕ 1 (Skinner–Wiles
+    Lemma 2.2, Corollary 2.3);
+  - **GlobalGaloisDeformations R04.3 (R21.3):** Mazur's unframed presentation for a Schur residual representation;
+  - **ArithmeticGaloisDuality R02.3 (R21.3):** the global Euler characteristic formula;
+  - **DeformationAndDerivedPatchingAlgebra R03.2 (R21.3):** Schlessinger's criteria.
 
 ## Conventions
 
@@ -180,6 +194,143 @@ Auslander–Buchsbaum.
 Δ_w-reduced U″. If U′/(F^× ∩ U′) acts freely, M_∞(U″) and M⁺_∞(U″) are free over Λ′_𝒪[[Δ_w]] with Δ_w-coinvariants
 M_∞(U′) and M⁺_∞(U′). This is separate from finite flatness over weight space.
 
+## Layer R21.3: ordinary Galois and deformation families (partial)
+
+Library modules: `TauCeti/NumberTheory/OrdinaryModularity/{Deformations, HidaGalois}`. The sources are Skinner–Wiles
+§§2.1, 2.3–2.5 and §3.3. χ is totally odd with χ|_{D_i} ≠ 1 at every v_i | p.
+
+**Definition: deformation data** (node `deformation-datum`). 𝒟 = (𝒪, Σ, c, ℳ) consists of the coefficients 𝒪, the
+ramification set Σ ⊇ 𝒫, an admissible class 0 ≠ c ∈ H_Σ(F, k) and the places ℳ. The class c gives the nonsplit
+ρ_c = (1 *; 0 χ), which is Schur but reducible.
+- *API:* `DeformationDatum`, `admissibleClasses`, `residualExtension`, `residualExtension_schur`,
+  `residualExtension_local_split`.
+- *Tests:*
+  - c = 0 is excluded;
+  - ρ_c(z_1) = diag(1, −1);
+  - Ribet's class for p = 691, χ = ω^{11} over ℚ is admissible.
+
+**Construction: nearly ordinary deformations** (node `deformation-of-type`; planet "Nearly ordinary deformation ring
+R_𝒟").
+- Type 𝒟 asks for ramification only in Σ, the ordered flag (ψ_1 *; 0 ψ_2) with ψ_1 ≡ χ at each v_i, and the shape
+  (1 *; 0 χ̃) on I_w for w ∈ ℳ.
+- R_𝒟 exists by Schur representability (GlobalGaloisDeformations R04.2).
+- Variants: R_{𝒟_Q} adds auxiliary primes Q, and R^min is the minimal ring, with R_{𝒟_Q} ≅ R^min_{𝒟_Q} ⊗ 𝒪[N_Σ].
+- Skinner–Wiles' "det ρ trivial on N_Σ" means χ̃^{−1}det ρ.
+- *API:* `IsOfType`, `universalRing`, `universalRing_represents`, `universalRingAux`, `universalRingMin`.
+- *Tests:*
+  - ρ_c itself is of type 𝒟;
+  - the wrong flag order is not;
+  - restriction to a permissible F′ gives type 𝒟′;
+  - twisting moves between the N_Σ-components.
+
+**Definition: permissible extensions** (node `permissible-extension`). These are the conditions under which 𝒟 base
+changes to a totally real F′/F (Remark 2.1).
+- *API:* `IsPermissibleExtension`, `DeformationDatum.baseChange`, `isOfType_baseChange`.
+- *Tests:*
+  - F itself is permissible;
+  - a field splitting ρ_c is not;
+  - a field where χ becomes trivial at some w | p is not.
+
+**Theorem: presentation and dimension** (node `global-presentation-bound`; planet). R_𝒟 ≅ 𝒪[[x_1, …, x_g]]/(f_1, …, f_r)
+with g − r ≥ d + δ_F − 2t − 3·#ℳ (Proposition 2.4). The proof has four steps:
+1. Mazur's presentation of the fixed-determinant auxiliary ring.
+2. d + 2t local nearly ordinary relations (Corollary 2.3, requested from LocalGaloisDeformationRings L8).
+3. Tensor with 𝒪[[Gal(L(Σ)/F)]] to free the determinant.
+4. Add 3·#ℳ relations at ℳ, and finish with the global Euler characteristic.
+
+**Lemma: matrix entries** (node `matrix-entry-subring`). R_𝒟 is generated over the completed subring of matrix entries
+(Lemmas 2.5–2.6).
+
+**Definition: ramification types** (node `ramification-types`). Types A (unipotent), B (φ ⊕ 1), B′ (φ ⊕ φ^{−1}) and C
+(induced from the unramified quadratic extension, characteristic 0 only).
+- *API:* `RamificationType`, `ramificationType_of_pseudo`, `typeC_charZero`.
+- *Tests:*
+  - Tate curves give type A;
+  - π(μ, 1) with μ tamely ramified gives type B;
+  - type C is impossible in characteristic p.
+
+**Definition: pseudo-representations** (node `pseudo-representation`; planet "Wiles pseudo-representation"). A
+pseudo-representation is ρ = {a, d, x} satisfying Wiles' seven identities. Its trace is a + d and its determinant is
+a(σ)d(σ) − x(σ, σ). A representation with ρ(z_1) = diag(1, −1) gives {a_σ, d_σ, b_σc_τ}. Pseudo-deformations are those
+of ρ_0 = {1, χ, 0}, of type 𝒟^ps = (𝒪, Σ). The trace is an IHG.0 pseudocharacter.
+- *API:* `PseudoRep`, `PseudoRep.trace`, `PseudoRep.det`, `PseudoRep.ofRep`, `PseudoRep.ofRep_conj_diagonal`,
+  `PseudoRep.trace_isPseudocharacter`.
+- *Tests:*
+  - the fourth identity is the expansion of b_{στ}c_{αβ} (proved in the Lean file);
+  - all ρ_c share ρ_0;
+  - the determinant of ofRep is det;
+  - diagonal conjugation leaves ofRep unchanged.
+
+**Theorem: the universal pseudo-deformation ring** (node `universal-pseudo-deformation`). The functor satisfies
+Schlessinger's criteria, with tangent dimension at most 4·#Gal(F(χ)/F) + 2s² + 4 (Lemma 2.10). The proof gives the
+sharper bound s² + 4s + 4·#Gal(F(χ)/F).
+
+**Construction: r_𝒟** (node `pseudo-to-deformation-map`). The map R_{𝒟^ps} → R_𝒟 is well defined because bases with
+ρ(z_1) = diag(1, −1) differ diagonally. It does not see c.
+- *API:* `pseudoToDeformation`, `pseudoToDeformation_unique`, `pseudoToDeformation_aux`.
+- *Tests:*
+  - it is the identity modulo maximal ideals;
+  - it is independent of the basis;
+  - it does not detect c.
+
+**Theorem: localisation at irreducible primes** (node `pseudo-deformation-localisation`). At a one-dimensional 𝔭 with
+ρ mod 𝔭 irreducible, R̂^ps_{𝔭^ps} ↠ R̂_{𝒟_Q,𝔭} (Proposition 2.11). Hence dim R^ps/Q^ps ≥ dim R_𝒟/Q (Corollary 2.12).
+
+**Lemma: lattices** (node `lattice-reduction-lemma`). An irreducible ρ with reduction 1 ⊕ χ has a lattice with
+nonsplit reduction (1 *; 0 χ), and its extension class is unique up to scalars (Lemma 2.13). Hence pseudo-deformations
+over a DVR with x ≠ 0 come from deformations of some ρ_c (Corollary 2.14).
+
+**Theorem: lifting pseudo-deformations** (node `pseudo-deformation-lifting`; planet). At a one-dimensional prime with
+x ≢ 0, a pseudo-deformation (R, ρ) lifts to a deformation ρ⁺ of some ρ_c over a domain R⁺ ⊇ R of the same dimension,
+built by blowing up and completing. With (2.8)–(2.9), ρ⁺ is of type 𝒟_Q (Proposition 2.15).
+
+**Construction: Λ_𝒪-structures** (node `deformation-iwasawa-algebra`). T_i ↦ det(γ_i) − 1 and Y ↦ ψ_2(y) − 1 on R_𝒟.
+On R_{𝒟^ps} the Y-variables use the roots α_i, β_i at g_i: (tr(g_iσ) − α_i tr σ)/(β_i − α_i) = ψ_2(σ). The structures
+are compatible with r_𝒟 and with level change.
+- *API:* `deformationLambdaAlgebra`, `pseudoLambdaAlgebra`, `pseudoToDeformation_lambda`, `lambdaAlgebra_levelChange`.
+- *Tests:*
+  - the upper-triangular identity (proved in the Lean file);
+  - r_i = 0;
+  - the variables vanish residually.
+
+**Construction: Hida's family representation** (node `hida-family-representation`; planet). For every prime Q of
+T_∞(U, 𝒪), ρ_Q : Gal(F̄/F) → GL₂(L̄) is semisimple with the properties (3.4)(i)–(vi): trace T(ℓ), determinant
+S(ℓ)Nm(ℓ) and S_xε(x), and the flag at each v_i with ψ_2(y) = T_y and ψ_2(λ_{𝔭_i}) = T_0(𝔭_i). The construction:
+- algebraic primes of weight 2 use Wiles' ρ_π (requested from AutomorphicGaloisRepresentations R19.2);
+- minimal primes glue over the dense weight-two points;
+- the flag (vi) comes from a nonsplit-reduction argument.
+- *API:* `hidaGaloisRep`, `hidaGaloisRep_trace`, `hidaGaloisRep_det`, `hidaGaloisRep_nearlyOrdinary`,
+  `hidaGaloisRep_specialise`.
+- *Tests:*
+  - ρ_Q(z_1) = diag(1, −1);
+  - it specialises to ρ_π in weight two;
+  - ψ_2 ≡ 1 modulo a permissible ideal.
+
+**Construction: the pseudo-representation into T_m** (node `hecke-pseudo-representation`). ρ^mod_m is obtained by
+patching over the minimal primes in m (3.5). For permissible m it gives the Λ_𝒪-algebra map
+R_{𝒟^ps} → T_∞(U, 𝒪)_m (3.6).
+- *API:* `heckePseudoRep`, `heckePseudoRep_trace`, `pseudoToHecke`, `pseudoToHecke_lambda`.
+- *Tests:*
+  - the residual pseudo-representation is {1, χ, 0};
+  - specialisation gives ρ_Q;
+  - the determinant is S(ℓ)Nm(ℓ).
+
+**Lemma: permissible = residually χ ⊕ 1** (node `permissible-residual-comparison`). (3.9) is equivalent to
+ρ̄_m ≅ χ ⊕ 1, and a permissible ideal is unique. This closes R21.2's deferral.
+
+**Theorem: generation and surjectivity** (node `hecke-generation`; planet "Surjectivity of R^ps → T_m").
+T_∞(U, 𝒪)_m is generated over Λ_𝒪 by T(ℓ), S(ℓ) with ℓ ∉ S (Lemma 3.11). Its proof uses
+T_y = (β_i − α_i)^{−1}(β_i tr ρ(σ_y) − tr ρ(g_iσ_y)); the source omits the inverse (E3). Hence level change and (3.6)
+are surjective (Corollaries 3.12–3.13).
+
+**Theorem: level by type** (node `level-type-control`). A minimal prime comes from the level fixed by its type at w:
+unramified, A, B or C (Proposition 3.14), or U′_w for type B′ with p-power φ (Proposition 3.15).
+
+**Lemma: inertia at auxiliary levels** (node `inertia-character-constraints`). Lemma 3.16.
+
+**Lemma: twisting** (node `family-twisting`). ρ_Q ⊗ Ψ occurs at level U ∩ U_1(cond^{(p)}(Ψ)²) (Lemma 3.17). The
+twist multiplies T_0(𝔭_i) by Ψ_P(λ_{𝔭_i}); the source prints the inverse (E4).
+
 ## Mistakes found in the sources
 
 **E1 (misprint, reaches nothing): Skinner–Wiles §3.2, before Lemma 3.10, p. 41.** "makes Λ_𝒪 a free Λ′_𝒪-module of
@@ -187,6 +338,13 @@ rank r = Σr_j" should read rank p^{Σ r_j}. In each variable u(1 + T)^{p^r} −
 polynomial of degree p^r. Lemma 3.10 uses only finite freeness.
 
 **E2 (misprint, reaches nothing): p. 35.** "H⁺_∞(U_a) = lim→ eH⁰(X(U_a), K/𝒪)⁺" should read H⁺_∞(U).
+
+**E3 (misprint, reaches nothing): the proof of Lemma 3.11, p. 42.** "T_y = (β_i − α_i)(β_i trace ρ^mod(σ_y) −
+trace ρ^mod(g_iσ_y))" should have (β_i − α_i)^{−1}, and likewise for T_0(𝔭_i). The printed expression is
+(β_i − α_i)²T_y. Membership in T^S is unaffected, because β_i − α_i is a unit.
+
+**E4 (misprint, reaches nothing): (3.7), p. 45.** "τ_P(T_0(𝔭_i)) = (T_0(𝔭_i) mod P)·Ψ_P(λ_{𝔭_i})^{−1}" should read
+Ψ_P(λ_{𝔭_i}). Twisting by Ψ ∘ det multiplies [U(1 0; 0 λ)U] by Ψ(λ), exactly as the next line does for T_y.
 
 No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF02698855.
 
@@ -196,11 +354,15 @@ No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF026988
   - apply the projector to the modular-curve H¹ towers (ModularCurvesPartII R14.3; Hida 1986) and to the indefinite
     Hilbert and Shimura-curve cohomology (R18.4);
   - odd-degree F.
-- **R21.2 is partial.** Skinner–Wiles Propositions 3.14–3.15, Lemmas 3.16–3.17, Proposition 3.20, Lemma 3.21, §3.6 and
-  §3.8 use Hida's family representation ρ_Q, so they are planned with R21.3. Skinner–Wiles' nearly ordinary paper for the
-  irreducible case (Toulouse 2001) is not read.
-- **R21.3–R21.6 are not read:** ordinary Galois families and pseudo-deformations (Skinner–Wiles §§2–3.3), R = T and the
-  patching of §§4–8, the p = 3 branch (Dieulefait–Pacetti), and Khare's use of Skinner–Wiles.
+- **R21.2 is partial.** Still to do: Proposition 3.20, Lemma 3.21, §3.6 (the rings T_Σ), §3.7 and §3.8. Propositions
+  3.14–3.15 and Lemmas 3.16–3.17 are now R21.3 nodes. Skinner–Wiles' Toulouse 2001 paper is not read.
+- **R21.3 is partial.** Still to do:
+  - §2.2 (the reducible locus, Lemmas 2.7–2.9), planned with R21.4 where it is used;
+  - the L8 determinant-versus-flag comparison, which is recorded only when a consumer needs it.
+- **R21.4–R21.6 are not read:**
+  - pro-modularity and the patching of Skinner–Wiles §§4–8;
+  - the p = 3 branch (Dieulefait–Pacetti);
+  - Khare's use of Skinner–Wiles.
 
 ## Sources
 

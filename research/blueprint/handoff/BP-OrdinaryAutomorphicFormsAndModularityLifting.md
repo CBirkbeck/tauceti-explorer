@@ -1,7 +1,75 @@
-# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.1–R21.2 partial (checkpoint 1)
+# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.1–R21.3 partial (checkpoint 2)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #962. **Status: partial.** R21.1 and R21.2 are
-`partial`; R21.3–R21.6 are `not_read`.
+Claude Code — session `cc-39fac3`, 28 September 2026. Refs #962. **Status: partial.** R21.1, R21.2 and R21.3 are
+`partial`; R21.4–R21.6 are `not_read`.
+
+## Checkpoint 2: R21.3 (19 nodes, 6 planets)
+
+Source: Skinner–Wiles §§2.1, 2.3–2.5 and §3.3, read on the page images (the OCR layer is too noisy for the formulas).
+
+**RS-08 for R21.3.** The ordinary Galois families and deformation rings are planned here, in the source's own
+formalism: Wiles pseudo-representations {a, d, x}, which suit the residually reducible case.
+- IHG.0 pseudocharacters are compared only through the trace.
+- The local nearly ordinary rings for χ ⊕ 1 (Lemma 2.2, Corollary 2.3) are requested from LocalGaloisDeformationRings
+  L8.
+- Representability for Schur ρ_c and the fixed-determinant rings are GlobalGaloisDeformations R04.2 nodes.
+- Mazur's unframed presentation, the Euler characteristic and Schlessinger's criteria are requested from R04.3, R02.3
+  and R03.2.
+
+**Deformations.**
+- `deformation-datum`: ρ_c is Schur and nonsplit.
+- `deformation-of-type` (planet): R_𝒟, R_{𝒟_Q} and R^min, with R_{𝒟_Q} ≅ R^min ⊗ 𝒪[N_Σ].
+- `permissible-extension`.
+- `global-presentation-bound` (planet): Proposition 2.4, g − r ≥ d + δ_F − 2t − 3#ℳ.
+- `matrix-entry-subring`: Lemmas 2.5–2.6.
+- `ramification-types`: A, B, B′ and C.
+
+**Pseudo-deformations.**
+- `pseudo-representation` (planet).
+- `universal-pseudo-deformation`: Lemma 2.10. The proof's bound is sharper than the stated one.
+- `pseudo-to-deformation-map`.
+- `pseudo-deformation-localisation`: Proposition 2.11 and Corollary 2.12.
+- `lattice-reduction-lemma`: Lemma 2.13 and Corollary 2.14.
+- `pseudo-deformation-lifting` (planet): Proposition 2.15.
+- `deformation-iwasawa-algebra`: §2.5.
+
+**Hecke side (§3.3).**
+- `hida-family-representation` (planet): (3.4), with the property (vi) argument transcribed.
+- `hecke-pseudo-representation`: (3.5) and (3.6).
+- `permissible-residual-comparison`: this closes the uniqueness and ρ̄_m ≅ χ ⊕ 1 deferral left by
+  R21.2/permissible-maximal-ideal, whose acceptance note now points here.
+- `hecke-generation` (planet): Lemma 3.11 and Corollaries 3.12–3.13.
+- `level-type-control`: Propositions 3.14–3.15, moved from R21.2.
+- `inertia-character-constraints`: Lemma 3.16.
+- `family-twisting`: Lemma 3.17.
+
+**New source issues (both misprints that reach nothing).**
+- **E3.** Lemma 3.11 prints T_y = (β_i − α_i)(…) for (β_i − α_i)^{−1}(…). With α_i ≡ 1 and β_i ≡ χ(g_i), the printed
+  expression is (β_i − α_i)²T_y; §2.5 has the right form.
+- **E4.** (3.7) twists T_0(𝔭_i) by Ψ_P(λ)^{−1}, inconsistent with T_y ↦ T_yΨ_P(y) and with (3.4)(vi); it should be
+  Ψ_P(λ).
+
+**Also changed.**
+- R21.1's `quaternionic-nearly-ordinary-hecke-algebra` now cites PadicFamilies L5/`totally-real-weight-algebra` (#3843,
+  which must merge first).
+- The R19.4 request now also lists the R21.3 consumers.
+
+**Lean.** Three new checked tests: the fourth pseudo-representation identity, the upper-triangular formula for ψ₂ (§2.5
+and E3), and a numeric E3 counterexample. It compiles with 0 errors, 0 warnings and no `sorry`.
+
+**Totals.** 35 nodes, 69 API items, 50 unit tests, 14 planets, 12 baseline declarations, 11 requests and 4 source
+issues. `check_blueprint.py`: 0 errors, 0 warnings.
+
+## What a continuation should do (after checkpoint 2)
+
+1. **R21.4 (pro-modularity and R = T):** Skinner–Wiles §4 (pro-modular primes, good data, (P1) and (P2), the key
+   proposition, the Main Theorem), §5 (formal patching), §§6–8 (cohomology estimates, nice primes, raising the level) and
+   the appendix (Raynaud's connectedness). Bring in §2.2 (Lemmas 2.7–2.9) and §§3.5–3.8 (Proposition 3.20, Lemma 3.21,
+   the rings T_Σ, the congruence maps).
+2. **R21.5:** Theorems A and B (§4.6); Khare 2006 and Dieulefait–Pacetti for the uses.
+3. **R21.1 remainder** as below.
+
+# Checkpoint 1
 
 ## Scope and restructuring
 
@@ -97,4 +165,4 @@ It contains:
 ## Sources read
 
 - Skinner–Wiles 1999 (Numdam): the introduction; §2.1 opening; §2.5; §§3.1–3.2 in full; §3.4; §3.5 through
-  Proposition 3.20; §3.6 opening.
+  Proposition 3.20; §3.6 opening (checkpoint 1). Checkpoint 2 adds §§2.1, 2.3–2.5 and §3.3 in full.
