@@ -1,9 +1,50 @@
-# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1, R21.3–R21.5 partial (checkpoint 4)
+# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1, R21.3–R21.5 partial (checkpoint 5)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #962. **Status: partial.**
 - R21.2 is `source_decomposed`.
 - R21.1, R21.3, R21.4 and R21.5 are `partial`.
 - R21.6 is `not_read`.
+
+## Checkpoint 5: Skinner–Wiles §§5–8 (8 R21.4 nodes)
+
+Source: §§5–8, read on the page images. The verification pages 107–110 and §8.3 were skimmed; their content is
+summarised in the proof steps.
+
+**§5, formal patching.**
+- `formal-patching-datum`: the axioms (5.1)–(5.11).
+- `formal-patching-theorem` (planet): Lemmas 5.1–5.6 and Propositions 5.7–5.9.
+- RS-08 imports abstract patching from DeformationAndDerivedPatchingAlgebra R03.5 and the complete-intersection criteria
+  (Auslander–Buchsbaum, de Smit–Rubin–Schoof Lemma 4.1 and Criterion I) from R03.3. Both are requested.
+
+**§6, estimates in characteristic p.**
+- `char-p-adjoint-irreducibility`: Lemmas 6.1–6.5.
+- `auxiliary-prime-sets`: Proposition 6.10, with Wiles' formula requested from ArithmeticGaloisDuality R02.4 and
+  Chebotarev from GlobalGaloisDeformations R04.5.
+
+**§7, minimal level.**
+- `minimum-level-surjection`: Lemma 7.1.
+- `minimum-level-r-equals-t`: Proposition 7.3.
+
+**§8, raising the level.**
+- `level-raising-congruence-maps`: Lemma 8.2 and (8.1).
+- `nice-prime-r-equals-t` (planet): Proposition 8.1.
+
+**Gap closed.** The temporary "§§5–8" gap is removed. `property-p1` now cites `nice-prime-r-equals-t`.
+
+**Planet cap.** R21.4 keeps 6 planets; `good-pair-and-nice-primes` loses its planet.
+
+**New source issue:** **E8**, "Proposition 7.2" printed for Proposition 7.3.
+
+**Lean.** One checked test: (1 + s) + (1 + s)^{−1} − 2 = s²/(1 + s). 0 errors, 0 warnings, no `sorry`.
+
+**Totals.** 62 nodes, 23 planets, 17 requests, 3 gaps (Raynaud, Washington, Waldschmidt) and 8 source issues.
+`check_blueprint.py`: 0 errors, 0 warnings.
+
+## What a continuation should do (after checkpoint 5)
+
+1. **R21.5:** the p = 3 branch (Dieulefait–Pacetti, arXiv:2108.07577; Berger–Li–Zhu), and Khare's use of Theorem A.
+2. **R21.6:** the exported statements and the independence check.
+3. **R21.1 remainder:** Hida's H¹ towers and R18.4.
 
 ## Checkpoint 4: 6 nodes (R21.4: 3, R21.5: 3)
 
