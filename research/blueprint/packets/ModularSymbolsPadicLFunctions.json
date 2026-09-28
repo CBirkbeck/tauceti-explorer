@@ -10,7 +10,7 @@
   "ModularSymbolsPadicLFunctions:L4"
  ],
  "status": "partial",
- "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain.",
+ "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain. Checkpoint 3 plans L1 (6 nodes): period lines and periods after a choice of basis, saturated integral lattices with periods canonical up to 𝒪^×, the twisted Mellin formula (Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j L(f, χ̄, j+1), checked numerically), algebraicity with the parity sign (−1)^{k−j}χ(−1), L-functions of p-stabilized forms, and the exact comparison with RJW Theorem B.1.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -324,7 +324,8 @@
     "§2.1 Basic definitions and §2.2 The Manin relations, pp. 6–8",
     "§2.3 Fundamental domains, §2.4 Solving the Manin relations, §2.5 The case of three-torsion and §2.6 Computing with modular symbols in practice, pp. 9–14 (read on the page images at the displayed relations)",
     "§3.4 Finite-dimensional quotients, p. 17",
-    "§5.1 Explicit lifts of classical symbols (Theorem 5.1 and its proof), pp. 21–22"
+    "§5.1 Explicit lifts of classical symbols (Theorem 5.1 and its proof), pp. 21–22",
+    "§6 opening: the interpolation property (1), p. 27 (read on the page image)"
    ]
   },
   {
@@ -352,7 +353,21 @@
    "sha256": "e7e2548f140b0a5825134fa568c68b3c31e8c38b5c36c4aaeb969a25ae8fb14f",
    "read": "2026-09-28",
    "readSections": [
-    "§2.2–2.9 Modular symbols and L-values, pp. 3–11 (the Γ₀(11) fundamental-domain relation in footnote 10, the weight-k symbol ψ_f in §2.7, the L-value formula in §2.8, the general definitions in §2.9)"
+    "§2.2–2.9 Modular symbols and L-values, pp. 3–11 (the Γ₀(11) fundamental-domain relation in footnote 10, the weight-k symbol ψ_f in §2.7, the L-value formula in §2.8, the general definitions in §2.9)",
+    "§2.1 formula (2), p. 3; §2 (after 2.10) the measure μ_f and its interpolation, p. 13; §5.1 formula (7), p. 24 (formulas read on the page images, since text extraction drops the bars)"
+   ]
+  },
+  {
+   "id": "RJW-2024",
+   "title": "An introduction to p-adic L-functions",
+   "authors": "Joaquín Rodrigues Jacinto and Chris Williams",
+   "edition": "arXiv:2309.15692v2 (19 December 2024), 85 pages; expository notes. Printed page = PDF page. The roadmap cites its Theorem B.1 as 'RJW B.1'.",
+   "url": "https://arxiv.org/pdf/2309.15692v2",
+   "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+   "read": "2026-09-28",
+   "readSections": [
+    "Definition 5.2 and Remark 5.3 (Gauss sums), pp. 29–30",
+    "Appendix B.1–B.2 (Theorem B.1 read on the page image, since text extraction drops the bars), pp. 79–80"
    ]
   }
  ],
@@ -2164,6 +2179,391 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L1/period-lines",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L1",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L1"
+   ],
+   "title": "Period lines and periods",
+   "kind": "definition",
+   "statement": "Let f ∈ S_{k+2}(Γ₁(N)) be a normalized newform with character ε_N and coefficient field K_f = ℚ(a_n(f), ε_N), with a fixed embedding K_f ↪ ℂ. For each sign ± the period line is L_f^± := Symb_{Γ₁(N)}(V_k(K_f))^±[λ_f], a one-dimensional K_f-space (L0/eigenspace-dimension), and ψ_f^± := (1 ± ι)ψ_f lies in L_f^± ⊗_{K_f} ℂ. A period exists only after a basis is chosen: for φ^± ∈ L_f^± ∖ {0}, Ω_f^±(φ^±) ∈ ℂ^× is the scalar with ψ_f^± = Ω_f^±(φ^±)·φ^±. Replacing φ^± by λφ^± (λ ∈ K_f^×) replaces Ω_f^± by λ^{−1}Ω_f^± and every period-normalized value by λ times itself.",
+   "hypotheses": [
+    "ψ_f, ι and the ± decomposition are L0's (period-symbol, involution-at-infinity, plus-minus-decomposition); ι = (−1 0; 0 1) normalizes Γ₁(N).",
+    "The line is the object; a scalar period is a coordinate on it. No canonical K_f-basis is assumed (RS-08: 'not a nonexistent canonical integral period basis')."
+   ],
+   "proofSteps": [
+    "L_f^± ⊗_{K_f} ℂ is the f-isotypic ±-part of Symb_{Γ₁(N)}(V_k(ℂ)) by symbols-base-change, and it contains ψ_f^± by the Hecke equivariance of f ↦ ψ_f.",
+    "Since the space is one-dimensional and ψ_f^± ≠ 0 (Eichler–Shimura), Ω_f^±(φ^±) exists and is nonzero; Ω(λφ) = λ^{−1}Ω(φ) is immediate."
+   ],
+   "acceptance": [
+    "11a1 (k = 0): ι fixes 0 and ∞, so ψ_f^+({0} − {∞}) = 2ψ_f({0} − {∞}) = 2L(f, 1) ≈ 0.50768.",
+    "Rescaling a basis by λ multiplies Ω by λ^{−1}: only statements invariant under this are basis-free.",
+    "ψ_f alone spans no line: its f-isotypic span in Symb(V_k(ℂ)) is two-dimensional (both signs), so 'the period of ψ_f' is undefined."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/eigenspace-dimension",
+    "ModularSymbolsPadicLFunctions:L0/period-symbol",
+    "ModularSymbolsPadicLFunctions:L0/plus-minus-decomposition",
+    "ModularSymbolsPadicLFunctions:L0/symbols-base-change"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Periods",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2 (after 2.10), p. 13",
+     "match": "Periods as scalars relating ψ_f^± to rational symbols."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.periodLine",
+     "role": "constructor",
+     "statement": "L_f^± = Symb_{Γ₁(N)}(V_k(K_f))^±[λ_f]."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.periodLine_finrank",
+     "role": "characterisation",
+     "statement": "finrank_{K_f} L_f^± = 1."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.period",
+     "role": "constructor",
+     "statement": "Ω_f^±(φ) for a nonzero φ ∈ L_f^±."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.period_smul",
+     "role": "compatibility",
+     "statement": "Ω_f^±(λ • φ) = λ⁻¹ • Ω_f^±(φ)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.psi_eq_period_smul",
+     "role": "characterisation",
+     "statement": "ψ_f^± = Ω_f^±(φ) • φ in L_f^± ⊗ ℂ."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L1/critical-value-algebraicity",
+     "how": "the periods dividing critical values."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2",
+     "how": "the normalized symbol φ_f^± fed into the control theorem."
+    },
+    {
+     "where": "PadicFamilies:L1",
+     "how": "RS-08: family periods are compared with these signed period lines, which are not globally chosen bases."
+    }
+   ],
+   "tests": [
+    {
+     "name": "psiPlus_eleven_a",
+     "kind": "example",
+     "statement": "11a1: ψ_f^+({0} − {∞}) = 2L(f, 1)."
+    },
+    {
+     "name": "period_smul",
+     "kind": "characterisation",
+     "statement": "Ω(λφ) = λ⁻¹Ω(φ) (a proved field identity in the suggested file)."
+    },
+    {
+     "name": "psi_no_line",
+     "kind": "non-example",
+     "statement": "The f-isotypic span of ψ_f without a sign projection is two-dimensional."
+    }
+   ],
+   "planet": {
+    "name": "Period lines"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L1/integral-period-lattices",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L1",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L1"
+   ],
+   "title": "Saturated integral lattices and integral periods",
+   "kind": "construction",
+   "statement": "Let 𝒪 be a discrete valuation ring (or a PID) whose fraction field K contains K_f, for example the completion of 𝒪_{K_f} at a prime. Let V_k(𝒪) = 𝒪[X, Y]_k with L0's right action. The saturated lattice L_f^±(𝒪) := (L_f^± ⊗_{K_f} K) ∩ Symb_{Γ₁(N)}(V_k(𝒪)) is free of rank one over 𝒪. A generator φ_𝒪^± is unique up to 𝒪^×, so the integral period Ω_{f,𝒪}^± := Ω_f^±(φ_𝒪^±) is canonical up to 𝒪^×. It depends on the lattice V_k(𝒪) (L0/polynomial-duality: V_k(𝒪) and Hom(Sym^k 𝒪², 𝒪) agree only after inverting k!). Comparisons with integral Hecke modules (freeness of the f-part over 𝕋_𝔪, congruence modules) need multiplicity-one hypotheses, which are not assumed here.",
+   "hypotheses": [
+    "Finite generation of Symb_Γ(V_k(𝒪)) comes from Manin's theorem (Div⁰ is finitely generated over ℤ[Γ]; requested from Tau Ceti ModularForms Layer 8 by L0).",
+    "Multiplicity one enters only when φ_𝒪^± is compared with a generator of a Hecke-module structure; the saturation itself exists for any line."
+   ],
+   "proofSteps": [
+    "Symb_Γ(V_k(𝒪)) is finitely generated and torsion-free, and embeds in Symb_Γ(V_k(K)) (symbols-base-change, 𝒪 → K flat).",
+    "The intersection of a K-line with it is nonzero (clear denominators of a K_f-basis) and finitely generated torsion-free of rank one, hence free over the PID 𝒪.",
+    "Saturation: the quotient of Symb_Γ(V_k(𝒪)) by L_f^±(𝒪) is torsion-free by construction, and generators differ by 𝒪^×."
+   ],
+   "acceptance": [
+    "k = 0, 𝒪 = ℤ_(p): φ_𝒪^± is the ℤ_(p)-valued symbol in the line whose values are not all divisible by p.",
+    "The non-saturated sublattice p·L_f^±(𝒪) gives a period off by p, not by a unit.",
+    "For p ≤ k, V_k(𝒪) and Hom(Sym^k 𝒪², 𝒪) can give different saturations: the pairing of L0/polynomial-duality has denominators C(k, i)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L1/period-lines",
+    "ModularSymbolsPadicLFunctions:L0/symbols-base-change",
+    "ModularSymbolsPadicLFunctions:L0/polynomial-duality",
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Periods",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2 (after 2.10), p. 13",
+     "match": "Pollack normalizes by a period so that the values are rational; the saturated integral choice refines this up to 𝒪^×."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.integralPeriodLattice",
+     "role": "constructor",
+     "statement": "L_f^±(𝒪) as an 𝒪-submodule of Symb(V_k(𝒪))."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.integralPeriodLattice_free",
+     "role": "characterisation",
+     "statement": "Free of rank one over 𝒪."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.integralPeriod",
+     "role": "constructor",
+     "statement": "Ω_{f,𝒪}^± from a generator."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.integralPeriod_unit",
+     "role": "compatibility",
+     "statement": "Two generators give periods differing by a unit of 𝒪."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2",
+     "how": "integrality of the p-adic L-function and the μ-invariant."
+    },
+    {
+     "where": "PadicFamilies:L1",
+     "how": "canonical single-form periods, integrally, before inverting p."
+    }
+   ],
+   "tests": [
+    {
+     "name": "integralPeriod_k0",
+     "kind": "example",
+     "statement": "k = 0: the generator has ℤ_(p)-values not all in pℤ_(p)."
+    },
+    {
+     "name": "integralPeriod_unit",
+     "kind": "characterisation",
+     "statement": "Generators differ by 𝒪^×."
+    },
+    {
+     "name": "integralPeriod_not_saturated",
+     "kind": "non-example",
+     "statement": "p·L_f^±(𝒪) is a lattice in the line but not saturated, and its generator's period is off by p."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L1/twisted-mellin-formula",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L1",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L1"
+   ],
+   "title": "The twisted Mellin formula for modular symbols",
+   "kind": "theorem",
+   "statement": "Let f = Σ a_n q^n ∈ S_{k+2}(Γ₁(N)), χ a primitive Dirichlet character of conductor m ≥ 1, τ(χ) = Σ_{a mod m} χ(a)e^{2πia/m}, L(f, χ, s) = Σ χ(n)a_n n^{−s} (entire, in the convention of Tau Ceti ModularForms Layer 7), and 0 ≤ j ≤ k. Then, along vertical paths, Σ_{a mod m} χ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)·j!/(−2πi)^j·L(f, χ̄, j+1). Equivalently, with χ̄ for χ, Σ_a χ̄(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ̄)·j!/(−2πi)^j·L(f, χ, j+1). In symbol form, Σ_a χ(a)·λ_{j,a/m}(ψ_f({a/m} − {∞})) = τ(χ)·j!/(−2πi)^j·L(f, χ̄, j+1) with λ_{j,x}(P) = (j!/k!)(∂_Y^{k−j}P)(1, −x). For m = 1: 2πi∫_{i∞}^0 f(z)z^j dz = j!/(−2πi)^j·L(f, j+1).",
+   "hypotheses": [
+    "The Mellin transform, entire continuation of L(g, s) for cusp forms g, and twisted L-functions are imported from Tau Ceti ModularForms Layer 7 (RS-08).",
+    "Every convention that changes the formula is explicit. The sum against χ(a) produces L(f, χ̄), not L(f, χ). The Gauss sum is τ(χ) = Σχ(a)e^{2πia/m}. The path runs from i∞ to a/m; reversing it changes the sign. Using −a/m multiplies by χ(−1). The factor 2πi sits in ψ_f, with j!/(−2πi)^j on the right, and not (2πi)^{j+1}."
+   ],
+   "proofSteps": [
+    "Birch's lemma: Σ_{a mod m} χ̄(a)e^{2πina/m} = χ(n)τ(χ̄) for primitive χ and every n, so f_χ := Σχ(n)a_n q^n = τ(χ̄)^{−1}Σ_a χ̄(a) f(z + a/m).",
+    "Mellin: for a cusp form g, 2πi∫_{i∞}^{0} g(z)z^j dz = −2πi·i^{j+1}∫_0^∞ g(iy)y^j dy = −2πi·i^{j+1}·j!(2π)^{−j−1}L(g, j+1) = j!/(−2πi)^j·L(g, j+1). The integral converges at both ends because g vanishes at every cusp.",
+    "Apply this to g = f_χ and substitute w = z + a/m: Σ_a χ̄(a)·2πi∫_{i∞}^{a/m} f(w)(w − a/m)^j dw = τ(χ̄)·j!/(−2πi)^j·L(f, χ, j+1). Then exchange χ and χ̄.",
+    "Symbol form: λ_{j,x}((zX + Y)^k) = (j!/k!)·(k!/j!)(z − x)^j = (z − x)^j."
+   ],
+   "acceptance": [
+    "m = 1, k = 0: 2πi∫_{i∞}^0 f(z)dz = L(f, 1). For 11a1, L(f, 1) = 0.2538418608… (PARI/GP 2.17.2).",
+    "Numerical check with PARI/GP 2.17.2 via cypari2, 2026-09-28, for the characters of order 3 and 6 modulo 7. For 11a1 (k = 0), with the integrals computed through Γ₀(11)-periods, both sides agree to 10^{−14}. For the level-5 weight-4 newform (k = 2) and j = 0, 1, 2, they agree to 10^{−11}. The reading with L(f, χ, j+1) fails by O(1).",
+    "For real χ the distinction between χ and χ̄ disappears, so quadratic-twist checks cannot detect a misplaced bar."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/period-symbol"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Periods",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2.8, p. 9",
+     "match": "The untwisted case 2πi∫_{i∞}^0 f(z)z^j dz = j!/(−2πi)^j·L(f, j+1), 0 ≤ j ≤ k."
+    },
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2.1, formula (2), p. 3",
+     "match": "(2): L(f, χ, 1) = τ(χ)/N·Σ_{a mod N} χ̄(a)·2πi∫_{i∞}^{−a/N} f(z)dz, the case k = j = 0 in the −a/N form. The bar is printed but lost in text extraction; read on the page image."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Twisted Mellin formula"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L1/critical-value-algebraicity",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L1",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L1"
+   ],
+   "title": "Algebraicity of critical values with the parity sign",
+   "kind": "theorem",
+   "statement": "Let T_{j,χ}(ψ) := Σ_{a mod m} χ(a)·λ_{j,a/m}(ψ({a/m} − {∞})) and ε := (−1)^{k−j}χ(−1). Then T_{j,χ}(ψ|ι) = εT_{j,χ}(ψ), so T_{j,χ} vanishes on the −ε eigenspace and T_{j,χ}(ψ_f) = ½T_{j,χ}(ψ_f^ε). For any basis φ^ε of L_f^ε, τ(χ)·j!/(−2πi)^j·L(f, χ̄, j+1)/Ω_f^ε(φ^ε) = ½T_{j,χ}(φ^ε) ∈ K_f(χ), for 0 ≤ j ≤ k and χ primitive. The sign is selected by parity: when k is even (for instance trivial character), ε = (−1)^jχ(−1).",
+   "hypotheses": [
+    "The action (P|γ)(X, Y) = P((X, Y)γ*) with γ* = adj γ, and (φ|ι)(D) = φ(ιD)|ι, are L0's; other conventions change ε by a sign that must be tracked."
+   ],
+   "proofSteps": [
+    "For ι = (−1 0; 0 1), ι* = (1 0; 0 −1) and (P|ι)(X, Y) = P(X, −Y), so λ_{j,x}(P|ι) = (−1)^{k−j}λ_{j,−x}(P).",
+    "ι({a/m} − {∞}) = {−a/m} − {∞}; substituting a ↦ −a gives T_{j,χ}(ψ|ι) = (−1)^{k−j}χ(−1)T_{j,χ}(ψ).",
+    "T_{j,χ}((1 ± ι)ψ) = (1 ± ε)T_{j,χ}(ψ), which is 2T(ψ) for the sign ε and 0 for the other.",
+    "ψ_f^ε = Ω^εφ^ε with φ^ε K_f-rational, and λ_{j,a/m} has rational coefficients, so T_{j,χ}(φ^ε) ∈ K_f(χ). Conclude with twisted-mellin-formula."
+   ],
+   "acceptance": [
+    "11a1, χ = 1, j = 0 (ε = +): 2πi∫_{i∞}^0 f(z)dz = L(f, 1) = Ω_E^+/5, with Ω_E^+ the real Néron period of X₀(11) (AWS (1), p. 2). So L(f, 1)/Ω_E^+ ∈ ℚ.",
+    "Changing φ^ε by λ ∈ K_f^× multiplies the normalized value by λ (period-lines).",
+    "Dividing by the period of the other sign gives nothing: T_{j,χ} vanishes identically on L_f^{−ε}."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L1/twisted-mellin-formula",
+    "ModularSymbolsPadicLFunctions:L1/period-lines",
+    "ModularSymbolsPadicLFunctions:L0/involution-at-infinity",
+    "ModularSymbolsPadicLFunctions:L0/eigenspace-dimension"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Periods",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2 (after 2.10), p. 13",
+     "match": "The case k = j = 0."
+    },
+    {
+     "sourceId": "RJW-2024",
+     "locator": "Appendix B.2.1, p. 79",
+     "match": "The range 0 ≤ j ≤ k of critical values."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Algebraicity of critical values"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L1/p-stabilised-euler-factors",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L1",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L1"
+   ],
+   "title": "L-functions of p-stabilized forms",
+   "kind": "lemma",
+   "statement": "Let f° be a newform of level N prime to p with character ε_N, α and β the roots of X² − a_pX + ε_N(p)p^{k+1}, and f_α(z) = f°(z) − βf°(pz), so that U_p f_α = αf_α. Then L(f_α, s) = (1 − βp^{−s})L(f°, s), and L(f_α, χ, s) = L(f°, χ, s) for every χ of conductor p^n with n ≥ 1. At s = j+1, βp^{−j−1} = ε_N(p)p^{k−j}/α.",
+   "hypotheses": [
+    "This separates the L-function of the p-stabilized form, which RJW's f (level Γ₀(N) with p | N) is, from that of the newform of level prime to p."
+   ],
+   "proofSteps": [
+    "a_n(f_α) = a_n(f°) − βa_{n/p}(f°), with a_{n/p} = 0 when p ∤ n, so L(f_α, s) = L(f°, s) − βp^{−s}L(f°, s).",
+    "For χ of conductor p^n with n ≥ 1, χ(n) = 0 whenever p | n, so the twisted series agree.",
+    "αβ = ε_N(p)p^{k+1} gives βp^{−j−1} = ε_N(p)p^{k−j}/α."
+   ],
+   "acceptance": [
+    "k = 0, trivial character, j = 0: 1 − βp^{−1} = 1 − 1/α.",
+    "Stabilizing at β instead of α exchanges the roles: L(f_β, s) = (1 − αp^{−s})L(f°, s).",
+    "This lemma supplies the second Euler factor of the n = 0 interpolation formula (rjw-b1-comparison)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L1/twisted-mellin-formula"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Periods",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-2024",
+     "locator": "Appendix B.2, p. 79",
+     "match": "RJW's f is already p-stabilized."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L1/rjw-b1-comparison",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L1",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L1"
+   ],
+   "title": "The RJW B.1 interpolation formula in the period dictionary",
+   "kind": "theorem",
+   "statement": "RJW Theorem B.1 prints, for f of weight k+2 and level Γ₀(N) with p | N, U_p-eigenvalue α_p with v_p(α_p) < k+1, χ of conductor p^n and 0 ≤ j ≤ k: L_p^an(f, χ̄, j+1) = ∫_{ℤ_p^×}χ(x)x^j·L_p^an(f) = −α_p^{−n}(1 − χ(p)p^j/α_p)·G(χ)·j!·p^{nj}/(2πi)^{j+1}·L(f, χ̄, j+1)/Ω_f^±, with G(χ) = τ(χ). In the dictionary of twisted-mellin-formula, put I_j(x) := 2πi∫_{i∞}^{x} f(z)(z − x)^j dz. For n ≥ 1 the right side equals exactly (−1)^{j+1}/(2πi·Ω_f^±)·α_p^{−n}p^{nj}Σ_{a mod p^n}χ(a)I_j(a/p^n), and equally −ε(−1)^k/(2πi·Ω_f^±)·α_p^{−n}p^{nj}Σ_aχ(a)I_j(−a/p^n), where ε = (−1)^{k−j}χ(−1). Only the second prefactor depends on the sign ε alone. So B.1 holds with a j-independent period Ω_f^± exactly when the distribution is normalized through the cusps −a/p^n, or equivalently through x ↦ −x: this is the normalization L2 must fix. For n = 0 and f = f_α the p-stabilization of f°, B.1 reads −(1 − p^j/α)(1 − ε_N(p)p^{k−j}/α)·j!/(2πi)^{j+1}·L(f°, j+1)/Ω^±.",
+   "hypotheses": [
+    "This node proves the classical side of the comparison. The existence and uniqueness of L_p^an(f) as a locally analytic distribution of growth v_p(α_p) (Manin, Amice–Vélu, Višik; Pollack–Stevens) is stage L2.",
+    "The stage text quotes B.1 with 'L(f,chi,j+1)'. RJW's printed B.1 has χ̄ both in L_p^an(f, χ̄, j+1) and in L(f, χ̄, j+1); this was read on the page image, because text extraction drops the bar. B.1 as printed therefore agrees with the dictionary and needs no source correction; the stage's transcription drops the bar."
+   ],
+   "proofSteps": [
+    "Substitute twisted-mellin-formula (m = p^n): L(f, χ̄, j+1) = (−2πi)^j/(τ(χ)j!)·Σ_aχ(a)I_j(a/p^n). Then G(χ) = τ(χ) cancels and leaves −(−2πi)^j/(2πi)^{j+1} = (−1)^{j+1}/(2πi).",
+    "Σ_aχ(a)I_j(−a/p^n) = χ(−1)Σ_aχ(a)I_j(a/p^n), and (−1)^{j+1}χ(−1) = −ε(−1)^k.",
+    "For n ≥ 1, χ(p) = 0 and L(f_α, χ̄, s) = L(f°, χ̄, s) (p-stabilised-euler-factors), so the formula does not see the stabilization.",
+    "For n = 0, G(1) = 1, χ(p) = 1 and L(f_α, j+1) = (1 − ε_N(p)p^{k−j}/α)L(f°, j+1)."
+   ],
+   "acceptance": [
+    "Pollack–Stevens (1) (§6, p. 27) is the same statement in another normalization: μ_f(z^j·χ) = α^{−n}·p^{n(j+1)}/(−2πi)^j·j!/τ(χ^{−1})·L(f, χ^{−1}, j+1)/Ω_f^±. Since τ(χ)τ(χ^{−1}) = χ(−1)p^n, this is χ(−1)·α^{−n}p^{nj}Σ_aχ(a)I_j(a/p^n)/Ω_f^± = α^{−n}p^{nj}Σ_aχ(a)I_j(−a/p^n)/Ω_f^±. It is the normalization through −a/p^n, and so consistent with B.1 with Ω_{B.1}^ε = −ε(−1)^kΩ_{PS}^ε/(2πi).",
+    "Pollack's AWS notes (p. 13): ∫χ dμ_f = α^{−n}τ(χ)L(f, χ̄, 1)/Ω_f^± for k = 0, n ≥ 1, from μ_f(a + p^nℤ_p) built on {a/p^n} − {∞}. This is the normalization through +a/p^n, which for k = j = 0 differs from B.1 by −1/(2πi) and the sign χ(−1) = ε.",
+    "Reading B.1 with L(f, χ, j+1), as the stage text transcribes it, would contradict the numerical check of twisted-mellin-formula for non-real χ; for quadratic χ both readings agree."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L1/twisted-mellin-formula",
+    "ModularSymbolsPadicLFunctions:L1/p-stabilised-euler-factors",
+    "ModularSymbolsPadicLFunctions:L1/critical-value-algebraicity",
+    "ModularSymbolsPadicLFunctions:L1/period-lines"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Periods",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-2024",
+     "locator": "Theorem B.1, pp. 79–80",
+     "match": "The statement compared (formula read on the page image)."
+    },
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6, interpolation property (1), p. 27",
+     "match": "The −a/p^n-normalized form."
+    },
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2 (after 2.10), p. 13; §5.1 formula (7), p. 24",
+     "match": "The +a/p^n-normalized form."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Interpolation dictionary"
+   }
   }
  ],
  "requests": [
@@ -2237,6 +2637,15 @@
    ],
    "status": "open",
    "note": "The functorial comparison with the analytic modular-curve carrier that stage L0 asks for; this packet's algebraic sequence (symbols-cohomology-sequence) needs no hypothesis."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-7-l-functions",
+   "need": "L(f, s) and the twisted L(f, χ, s) = Σ χ(n)a_n n^{−s} of cusp forms f ∈ S_{k+2}(Γ₁(N)), with the Mellin transform ∫_0^∞ g(iy)y^{s−1}dy = Γ(s)(2π)^{−s}L(g, s) and the entire continuation for cusp forms g.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L1/twisted-mellin-formula"
+   ],
+   "status": "open",
+   "note": "RS-08: L1 imports the classical Mellin/L-function theory of ModularForms 7."
   }
  ],
  "coverage": [
@@ -2248,10 +2657,9 @@
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L1",
-   "status": "not_read",
-   "remaining": [
-    "Source-decompose stage L1 (Periods and critical values)."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 keeps for L1: ± eigenspaces over the coefficient field, signed period lines, saturated integral symbol lattices and canonical integral periods up to 𝒪^×, the twisted Mellin formula with all its normalizations, algebraicity with the parity sign, and the RJW B.1 comparison with the n = 0 and p-stabilized-versus-primitive distinctions. All are planned (6 nodes; the eigenspaces themselves are L0/eigenspace-dimension). The twisted Mellin formula was checked numerically with PARI/GP in weights 2 and 4 with non-real characters. RJW's printed B.1 carries χ̄ (the stage text's transcription drops the bar), so no source issue is recorded. The distribution-level normalization (cusps −a/p^n) is handed to L2."
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L2",
