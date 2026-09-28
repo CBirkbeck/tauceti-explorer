@@ -31855,8 +31855,9 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-LIU-ETAL-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-LIU-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #2196"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #2196",
+   "finishedAt": "2026-09-28T18:24:31Z"
   },
   {
    "id": "ERRATA-PAPER-BENOIST-WITTENBERG-20",
