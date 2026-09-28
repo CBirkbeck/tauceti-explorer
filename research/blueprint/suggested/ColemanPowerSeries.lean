@@ -1,3 +1,5 @@
+import Mathlib.Topology.Algebra.Module.FiniteDimension
+import Mathlib.RingTheory.Norm.Transitivity
 import Mathlib.Topology.Algebra.Valued.NormedValued
 import Mathlib.RingTheory.Localization.Integral
 import Mathlib.Analysis.Normed.Ring.Finite
@@ -1608,5 +1610,106 @@ example : Ideal.span {(2 : integralClosure ℤ_[2] (level 2 0))} =
 -- CyclotomicValuationTests.ternary_primeIdeal
 example : Ideal.span {(3 : integralClosure ℤ_[3] (level 3 0))} =
     (IsLocalRing.maximalIdeal (integralClosure ℤ_[3] (level 3 0)))^2 := sorry
+end ColemanCyclotomic
+end
+
+/-! Actual continuous norm transitions and the arithmetic evaluation square.
+All carriers are the existing cyclotomic fields, integral closures and units. -/
+noncomputable section
+namespace ColemanCyclotomic
+open scoped BigOperators PowerSeries.WithPiTopology
+open TauCetiRoadmap.Campaign.ColemanPowerSeries
+variable (p : ℕ) [Fact p.Prime]
+local notation "K" => fun n => level p n
+local notation "O" => fun n => integralClosure ℤ_[p] (K n)
+local notation "B" => PowerSeries ℤ_[p]
+local notation "Y" => (1+PowerSeries.X : B)
+local notation "ϖ" => fun n => integralZeta p n-1
+set_option quotPrecheck false in
+local notation "Phi" => (PowerSeries.substAlgHom
+  (PowerSeries.HasSubst.of_constantCoeff_zero' (by simp : PowerSeries.constantCoeff (Y^p-1)=0))).toRingHom
+local notation "PhiAlg" => phiScalarAlgebra p
+set_option quotPrecheck false in
+local notation "PhiMod" => @Algebra.toModule B B _ _ PhiAlg
+set_option quotPrecheck false in
+local notation "coords" => (@Module.Basis.repr (Fin p) B B _ _ PhiMod (phiBasis p)).toEquiv
+set_option quotPrecheck false in
+local notation "mulMatrix" => (@AlgHom.toRingHom B B (Matrix (Fin p) (Fin p) B) _ _ _ PhiAlg _
+  (@Algebra.leftMulMatrix B B _ _ PhiAlg (Fin p) _ _ (phiBasis p)))
+
+lemma continuous_relative_coordinate (n : ℕ) (i : Fin (relativeBasis p n).dim) :
+    Continuous (fun x : K (n+1) => (relativeBasis p n).basis.repr x i) := sorry
+lemma continuous_relative_norm (n : ℕ) :
+    Continuous (Algebra.norm (K n) : K (n+1) → K n) := sorry
+
+def integralNorm (n : ℕ) : O (n+1) →* O n := sorry
+lemma integralNorm_zero (n : ℕ) : integralNorm p n 0 = 0 := sorry
+lemma integralNorm_scalar (n : ℕ) (a : ℤ_[p]) :
+    integralNorm p n (algebraMap ℤ_[p] (O (n+1)) a) = algebraMap ℤ_[p] (O n) (a^p) := sorry
+lemma integralNorm_difference (n : ℕ) :
+    integralNorm p n (ϖ (n+1)) = (-1 : O n)^(p+1)*(ϖ n) := sorry
+lemma integralNorm_field (n : ℕ) (x : O (n+1)) :
+    algebraMap (O n) (K n) (integralNorm p n x) =
+      Algebra.norm (K n) (algebraMap (O (n+1)) (K (n+1)) x) := sorry
+lemma continuous_integralNorm (n : ℕ) : Continuous (integralNorm p n) := sorry
+
+def unitsNorm (n : ℕ) : ContinuousMonoidHom (O (n+1))ˣ (O n)ˣ := sorry
+lemma unitsNorm_coe (n : ℕ) (u : (O (n+1))ˣ) :
+    (unitsNorm p n u : O n) = integralNorm p n (u : O (n+1)) := sorry
+lemma unitsNorm_inv (n : ℕ) (u : (O (n+1))ˣ) :
+    unitsNorm p n u⁻¹ = (unitsNorm p n u)⁻¹ := sorry
+lemma unitsNorm_scalar (n : ℕ) (a : ℤ_[p]ˣ) :
+    unitsNorm p n (Units.map (algebraMap ℤ_[p] (O (n+1))).toMonoidHom a) =
+      Units.map (algebraMap ℤ_[p] (O n)).toMonoidHom (a^p) := sorry
+
+lemma seriesEvaluation_phi_field (n : ℕ) (F : B) :
+    algebraMap (O (n+1)) (K (n+1)) (seriesEvaluation p (n+1) (Phi F)) =
+      algebraMap (K n) (K (n+1)) (algebraMap (O n) (K n) (seriesEvaluation p n F)) := sorry
+lemma seriesEvaluation_phiBasis_coordinates (n : ℕ) (F : B) (i : Fin p) :
+    let b := (relativeBasis p n).basis.reindex (finCongr (relativeBasis_dim p n))
+    b.repr (algebraMap (O (n+1)) (K (n+1)) (seriesEvaluation p (n+1) F)) i =
+      algebraMap (O n) (K n) (seriesEvaluation p n (coords F i)) := sorry
+lemma seriesEvaluation_mulMatrix (n : ℕ) (F : B) :
+    let b := (relativeBasis p n).basis.reindex (finCongr (relativeBasis_dim p n))
+    Algebra.leftMulMatrix b (algebraMap (O (n+1)) (K (n+1)) (seriesEvaluation p (n+1) F)) =
+      (mulMatrix F).map ((algebraMap (O n) (K n)).comp (seriesEvaluation p n)) := sorry
+
+theorem integralNorm_seriesEvaluation (n : ℕ) (F : B) :
+    integralNorm p n (seriesEvaluation p (n+1) F) =
+      seriesEvaluation p n (colemanNorm p F) := sorry
+lemma unitsNorm_seriesEvaluation (n : ℕ) (F : Bˣ) :
+    unitsNorm p n (Units.map (seriesEvaluation p (n+1)).toMonoidHom F) =
+      Units.map (seriesEvaluation p n).toMonoidHom (Units.map (colemanNorm p) F) := sorry
+lemma reduction_seriesEvaluation (n : ℕ) (F : B) :
+    reduction p n (seriesEvaluation p n F) = PadicInt.toZMod (PowerSeries.constantCoeff F) := sorry
+lemma reduction_unitsNorm (n : ℕ) (u : (O (n+1))ˣ) :
+    reduction p n (unitsNorm p n u : O n) = reduction p (n+1) (u : O (n+1)) := sorry
+lemma normFixedUnits_evaluation_compatible (n : ℕ) (F : normFixedUnits p) :
+    unitsNorm p n (Units.map (seriesEvaluation p (n+1)).toMonoidHom (F : Bˣ)) =
+      Units.map (seriesEvaluation p n).toMonoidHom (F : Bˣ) := sorry
+
+-- RelativeNormTests.integral_zero
+example (n : ℕ) : integralNorm p n 0 = 0 := sorry
+-- RelativeNormTests.integral_prime
+example (n : ℕ) : integralNorm p n (p : O (n+1)) = (p : O n)^p := sorry
+-- RelativeNormTests.dyadic_difference
+example : integralNorm 2 0 (integralZeta 2 1-1) = 2 := sorry
+-- RelativeNormTests.unit_identity
+example (n : ℕ) : unitsNorm p n 1 = 1 := sorry
+-- RelativeNormTests.unit_minus_one
+example (n : ℕ) : unitsNorm p n (-1) = (-1 : (O n)ˣ)^p := sorry
+-- RelativeNormTests.unit_root
+example (n : ℕ) (u : (O (n+1))ˣ) (hu : (u : O (n+1)) = integralZeta p (n+1)) :
+    (unitsNorm p n u : O n) = (-1 : O n)^(p+1)*integralZeta p n := sorry
+-- RelativeNormTests.evaluate_constant
+example (n : ℕ) (a : ℤ_[p]) :
+    integralNorm p n (seriesEvaluation p (n+1) (PowerSeries.C a)) =
+      algebraMap ℤ_[p] (O n) (a^p) := sorry
+-- RelativeNormTests.dyadic_variable
+example : integralNorm 2 0 (seriesEvaluation 2 1 PowerSeries.X) =
+    -seriesEvaluation 2 0 PowerSeries.X := sorry
+-- RelativeNormTests.principal_unit
+example (n : ℕ) (u : (O (n+1))ˣ) (hu : reduction p (n+1) (u : O (n+1)) = 1) :
+    reduction p n (unitsNorm p n u : O n) = 1 := sorry
 end ColemanCyclotomic
 end
