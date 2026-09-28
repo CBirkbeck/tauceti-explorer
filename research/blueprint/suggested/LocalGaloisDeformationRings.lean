@@ -2,6 +2,7 @@ import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.LinearAlgebra.Matrix.ToLin
 
 /-!
 # Suggested Lean forms: local Galois deformation rings (LocalGaloisDeformationRings, R08.1)
@@ -40,6 +41,20 @@ in the three entries centred at a lift `(a₀, b₀, c₀)` of `ρ̄(c)`. -/
 noncomputable def oddArchimedeanEquation (a₀ b₀ c₀ : R) : MvPowerSeries (Fin 3) R :=
   (MvPowerSeries.C a₀ + MvPowerSeries.X 0) ^ 2 +
     (MvPowerSeries.C b₀ + MvPowerSeries.X 1) * (MvPowerSeries.C c₀ + MvPowerSeries.X 2) - 1
+
+/-- **`R08.2/steinberg-condition`**, `n = 2`: the Frobenius relation of Steinberg lifts,
+`q (tr ρ(φ))² = (1 + q)² det ρ(φ)`. -/
+def SteinbergFrobRelation (q : ℕ) (M : Matrix (Fin 2) (Fin 2) R) : Prop :=
+  (q : R) * M.trace ^ 2 = (1 + q) ^ 2 * M.det
+
+/-- For `M = diag(α, qα)` the relation holds. -/
+theorem steinbergFrobRelation_diag (q : ℕ) (α : R) :
+    SteinbergFrobRelation q !![α, 0; 0, (q : R) * α] := sorry
+
+/-- **`R08.2/minimally-ramified-condition`**, the kernel condition for a single matrix: the
+kernels of `(A - 1)^i` have the expected rank (here stated as freeness of rank `r i`). -/
+def KernelsHaveRank {m : ℕ} (A : Matrix (Fin m) (Fin m) R) (r : ℕ → ℕ) : Prop :=
+  ∀ i, Nonempty (Module.Basis (Fin (r i)) R (LinearMap.ker (Matrix.toLin' ((A - 1) ^ i))))
 
 /-!
 ## Signatures against the GlobalGaloisDeformations functors (comment only)
