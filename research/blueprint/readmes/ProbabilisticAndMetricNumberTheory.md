@@ -2200,9 +2200,306 @@ For a real sequence u : ℕ → ℝ the following are equivalent: (a) n ↦ (u n
 - Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, before Proposition 1.1.2. Haar measure on T as Lebesgue measure on [0, 1). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
 - Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, Proposition 1.1.2. The criterion, at d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
 
+### Second pass: the rest of the asymptotic theory
+
+The second pass finishes the asymptotic part of the source's §1.1.1. It adds doubly infinite sequences, the Weyl criterion for an arbitrary limit measure, total equidistribution through rational twists (Exercise 1.1.4), the ℤ-indexed equidistribution theorem (Exercise 1.1.5 (iii)) and the full criterion for polynomial sequences (Exercise 1.1.6). The last three nodes give the abelian Ratner theorems (Proposition 1.1.5 and Exercise 1.1.7): every polynomial sequence in a torus splits into a part totally equidistributed on a subtorus and a periodic part. A subtorus is the image of an integer matrix, following the source's SL_d(ℤ) normal form in §1.1.2, and its Haar measure is the pushforward of the standard one. The rational decomposition that produces it uses Mathlib's Smith normal form, where the source inducts on the dimension. One more misprint, `ProbabilisticAndMetricNumberTheory/E9`, is recorded: 'polynomials of degree s' in Exercise 1.1.7 should be 'of degree at most s'.
+
+#### `asymptotic-equidistribution-int` — Equidistribution of doubly infinite sequences
+
+*definition*
+
+A sequence x : ℤ → X is asymptotically equidistributed for μ (AsympEquidistributedInt x μ) when both halves n ↦ x (n + 1) and n ↦ x (−(n + 1)), n ∈ ℕ, are AsympEquidistributed for μ; x(0) is omitted, as in the source. It is totally equidistributed when n ↦ x (q n + r) is AsympEquidistributedInt for every integer q ≥ 1 and every r ∈ ℤ.
+
+**Hypotheses.**
+- The hypotheses of asymptotic-equidistribution; x : ℤ → X; μ : ProbabilityMeasure X.
+
+**Construction or proof, in steps.**
+1. Define AsympEquidistributedInt x μ := AsympEquidistributed (fun n : ℕ => x (n + 1)) μ ∧ AsympEquidistributed (fun n : ℕ => x (-(n + 1))) μ.
+2. Define TotallyAsympEquidistributedInt x μ := ∀ q : ℕ, 0 < q → ∀ r : ℤ, AsympEquidistributedInt (fun n => x (q * n + r)) μ.
+3. The positive half with the shift by one is AsympEquidistributed (fun n : ℕ => x n) μ by asympEquidistributed_comp_add_iff, so the value x(0) never matters (the source's footnote 2).
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `AsympEquidistributedInt` | constructor | Both halves n ↦ x (n + 1) and n ↦ x (−(n + 1)) are AsympEquidistributed. |
+| `TotallyAsympEquidistributedInt` | constructor | ∀ q ≥ 1, ∀ r : ℤ, AsympEquidistributedInt (fun n => x (q * n + r)). |
+| `AsympEquidistributedInt.natCast` | relation | AsympEquidistributedInt x μ → AsympEquidistributed (fun n : ℕ => x n) μ. |
+| `asympEquidistributedInt_update_zero` | structure | Changing x 0 does not change AsympEquidistributedInt. |
+| `TotallyAsympEquidistributedInt.asympEquidistributedInt` | structure | Total implies plain (q = 1, r = 0). |
+| `TotallyAsympEquidistributedInt.totallyAsympEquidistributed_natCast` | relation | Totally equidistributed on ℤ implies n ↦ x n totally equidistributed on ℕ. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `asympEquidistributedInt.test_irrational_rotation` (computation) — n ↦ (n : ℝ) • ((√2 : ℝ) : UnitAddCircle) is AsympEquidistributedInt for circleHaar.
+- `asympEquidistributedInt.test_one_sided` (non-example) — x n = if 0 ≤ n then 0 else n • √2 is not AsympEquidistributedInt for circleHaar, although its negative half is.
+- `asympEquidistributedInt.test_zero_irrelevant` (degenerate) — Function.update x 0 p is AsympEquidistributedInt iff x is.
+
+**Where it is used.**
+- `linear-equidistribution-int` — Statement (iii) of Exercise 1.1.5 is total equidistribution on ℤ.
+- `polynomial-equidistribution-criterion` — Statement (iii) of Exercise 1.1.6.
+- `abelian-ratner-polynomial` — The source states the abelian Ratner theorems on ℤ.
+
+**Acceptance tests.**
+- n ↦ n α with α irrational in T is equidistributed on ℤ for circleHaar: both halves are linear sequences with irrational steps ±α.
+- A sequence that is 0 for n ≥ 0 and n √2 for n < 0 is not: its positive half is constant.
+- Changing x 0 does not change either notion.
+
+**Dependencies.**
+- In this packet: `asymptotic-equidistribution`, `total-asymptotic-equidistribution`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4. The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, footnote 2. Omitting x(0) is harmless. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+#### `weyl-criterion-general-measure` — Weyl's criterion for an arbitrary limit measure on the torus
+
+*theorem*
+
+For x : ℕ → UnitAddTorus d and any μ : ProbabilityMeasure (UnitAddTorus d), x is equidistributed for μ if and only if, for every k : d → ℤ, (n+1)⁻¹ ∑_{i≤n} mFourier k (x i) → ∫ mFourier k dμ. The measure μ is thus determined by its Fourier coefficients, and weyl-criterion is the case μ = torusHaar d.
+
+**Hypotheses.**
+- d a finite type; x : ℕ → UnitAddTorus d; μ a Borel probability measure on the torus.
+
+**Proof, in steps.**
+1. Only if: mFourier k is bounded continuous; use the complex integral characterisation of the definition.
+2. If: by linearity the averages of every trigonometric polynomial converge to its μ-integral; trigonometric polynomials are dense in C(UnitAddTorus d, ℂ) (span_mFourier_closure_eq_top), and averages and integrals are 1-Lipschitz in the sup norm, so every continuous function converges (ε/3 argument), which is the definition on a compact space.
+
+**Acceptance tests.**
+- For μ = torusHaar d it is weyl-criterion, since ∫ mFourier k = [k = 0].
+- For μ = diracProba p the criterion reads mFourier k (x i) averages → mFourier k p for all k.
+- Two probability measures with the same Fourier coefficients are equal (take x equidistributed for one).
+
+**Dependencies.**
+- In this packet: `asymptotic-equidistribution`
+- On the pinned libraries: `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.span_mFourier_closure_eq_top`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, proof of Proposition 1.1.2. The argument of the proof, which uses nothing about Haar measure except the values of its Fourier coefficients; the source states only the Haar case. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+#### `total-equidistribution-twisted-weyl` — Total equidistribution by rational twists
+
+*theorem*
+
+x : ℕ → UnitAddTorus d is totally equidistributed for torusHaar d if and only if, for every nonzero k : d → ℤ and every rational a/b (b ≥ 1), (n+1)⁻¹ ∑_{i≤n} mFourier k (x i) · e(a i / b) → 0.
+
+**Hypotheses.**
+- d a finite type; x : ℕ → UnitAddTorus d.
+
+**Proof, in steps.**
+1. If: for q ≥ 1 and r, the indicator of the progression {i ≡ r mod q} is a combination of the characters i ↦ e(a i / q), a = 0, …, q − 1 (finite Fourier inversion on ℤ/q); so the averages of mFourier k over the progression tend to 0, which by weyl-criterion is equidistribution of n ↦ x (q n + r).
+2. Only if: split the average over residues i mod b; on each residue class e(a i / b) is constant, and the average of mFourier k along the class tends to 0 by total equidistribution and weyl-criterion.
+
+**Acceptance tests.**
+- With only the untwisted averages (a = 0) the condition is plain equidistribution, which is strictly weaker.
+- x n = n • (1/2) in T: the twist a/b = 1/2 at k = 1 gives the constant average 1, so it is not totally equidistributed.
+- Every twist can be taken with b ≤ the modulus of the progression one tests.
+
+**Dependencies.**
+- In this packet: `total-asymptotic-equidistribution`, `weyl-criterion`
+- On the pinned libraries: `mathlib:UnitAddTorus.mFourier`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.4. The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+#### `linear-equidistribution-int` — The equidistribution theorem on ℤ
+
+*theorem*
+
+For α, β ∈ UnitAddTorus d, n ↦ n • α + β (n ∈ ℤ) is totally equidistributed on ℤ for torusHaar d if and only if α is irrational.
+
+**Hypotheses.**
+- d a finite type; α, β : UnitAddTorus d.
+
+**Proof, in steps.**
+1. Along q m + r the two halves are m ↦ m • (q α) + (r α + β) and m ↦ m • (−q α) + (β − r α); the steps ±q α are irrational iff α is, so both reduce to linear-equidistribution on ℕ.
+2. Conversely total equidistribution on ℤ gives equidistribution of the positive half, hence irrationality by linear-equidistribution.
+
+**Acceptance tests.**
+- For α rational, n α + β is periodic on ℤ and fails.
+- It agrees with linear-equidistribution's (i)–(iii) on ℕ.
+- β plays no role.
+
+**Dependencies.**
+- In this packet: `asymptotic-equidistribution-int`, `linear-equidistribution`, `torus-irrational`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5 (iii)–(iv). Statement (iii) and its equivalence with (iv). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+#### `polynomial-equidistribution-criterion` — Equidistribution criterion for polynomial sequences
+
+*theorem*
+
+For P(n) = ∑_{j=0}^{s} n^j • α_j with α_0, …, α_s ∈ UnitAddTorus d, the following are equivalent: (i) n ↦ P(n) (n ∈ ℕ) is equidistributed for torusHaar d; (ii) it is totally equidistributed; (iii) n ↦ P(n) (n ∈ ℤ) is totally equidistributed on ℤ; (iv) there is no nonzero k : d → ℤ with k · α_1 = ⋯ = k · α_s = 0. Equivalently: for every nonzero k some k · α_j with 1 ≤ j ≤ s is irrational in T.
+
+**Hypotheses.**
+- d a finite type; s ≥ 1; α_0, …, α_s ∈ UnitAddTorus d.
+
+**Proof, in steps.**
+1. (iv) ⇔ 'for each k ≠ 0 some k · α_j (j ≥ 1) has infinite order': if all k · α_j have finite order, a common multiple m gives (m k) · α_j = 0.
+2. By weyl-criterion-projections it suffices to treat k · P, a polynomial in T with coefficients k · α_j.
+3. d = 1, (iv) ⇒ (ii): let j₀ be the largest j ≥ 1 with α_j of infinite order and Q a common order of the α_j with j > j₀. Along n = Q m + r the terms of degree > j₀ are constant, and the rest is a polynomial in m whose leading coefficient Q^{j₀} α_{j₀} has infinite order; weyl-polynomial-equidistribution (with the n ↦ Q m + r substitution preserving that leading coefficient up to the factor Q^{j₀}) makes n ↦ P(Q m + r) equidistributed for each r. For a general progression q m + r, split m further by its residue mod Q: each of the Q interleaved subsequences is of the previous kind (step q Q), so the progression is equidistributed.
+4. (ii) ⇒ (i) trivially; (i) ⇒ (iv): if k ≠ 0 kills α_1, …, α_s then mFourier k (P(n)) = mFourier k (α_0) is constant of modulus one, so its averages do not tend to 0, contradicting weyl-criterion.
+5. (iii) follows from (ii) for both halves, since P(−n) is again a polynomial with coefficients ± α_j; (iii) ⇒ (i) by restriction.
+
+**Acceptance tests.**
+- For s = 1 it is linear-equidistribution.
+- P(n) = n²/2 + n/2 in T is constant 0 (n(n+1) is even): k = 2 kills both coefficients, as (iv) predicts.
+- P(n) = n²/2 + n √2 is totally equidistributed, although its leading coefficient is rational: Weyl's theorem alone does not show this.
+
+**Dependencies.**
+- In this packet: `weyl-criterion-projections`, `weyl-polynomial-equidistribution`, `linear-equidistribution`, `total-asymptotic-equidistribution`, `asymptotic-equidistribution-int`, `weyl-criterion`, `torus-irrational`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, Exercise 1.1.6. Statements (i)–(iii). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, Exercise 1.1.6 (iv). Statement (iv) and the reduction to d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+#### `subtorus` — Subtori of the standard torus and their Haar measures
+
+*definition*
+
+A subtorus datum S of UnitAddTorus d consists of n : ℕ and an integer matrix M : Matrix d (Fin n) ℤ; its homomorphism is S.toHom : UnitAddTorus (Fin n) →+ UnitAddTorus d, y ↦ (i ↦ ∑_j M i j • y j), its carrier is the range (a compact connected subgroup), and its Haar measure S.haar is the pushforward of torusHaar (Fin n) along S.toHom. A character mFourier k of the big torus has S.haar-integral 1 if k vanishes on the carrier (k M = 0) and 0 otherwise, so S.haar depends only on the carrier. In the source's language S.carrier is a subtorus, and every subtorus arises this way with M the last d′ columns of some L⁻¹, L ∈ SL_d(ℤ) (Exercise 1.1.22).
+
+**Hypotheses.**
+- d a finite type; n : ℕ; M : Matrix d (Fin n) ℤ.
+
+**Construction or proof, in steps.**
+1. S.toHom is a continuous additive homomorphism (finite sums of integer multiples of coordinates).
+2. carrier := S.toHom.range, compact (IsCompact.image of the compact torus) and connected (isConnected_range).
+3. haar := ⟨map S.toHom (torusHaar (Fin n)), _⟩, a probability measure; haar (carrier) = 1.
+4. integral_mFourier_haar: ∫ mFourier k d(S.haar) = ∫ mFourier (k M) d(torusHaar (Fin n)) = [k M = 0], by integral_map and integral_mFourier_torusHaar, since mFourier k ∘ S.toHom = mFourier (k M).
+5. haar depends only on the carrier: k M = 0 iff mFourier k is 1 on the carrier, so two data with the same carrier have the same Fourier coefficients, hence equal measures (FiniteMeasure.ext_of_forall_integral_eq with density of trigonometric polynomials).
+6. Translation invariance by carrier elements, from translation invariance of torusHaar (Fin n).
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `Subtorus` | constructor | Structure: n : ℕ, M : Matrix d (Fin n) ℤ. |
+| `Subtorus.toHom` | data | UnitAddTorus (Fin n) →+ UnitAddTorus d, y ↦ (i ↦ ∑ j, M i j • y j). |
+| `Subtorus.continuous_toHom` | structure | toHom is continuous. |
+| `Subtorus.carrier` | data | The additive subgroup S.toHom.range. |
+| `Subtorus.isCompact_carrier` | structure | The carrier is compact, hence closed. |
+| `Subtorus.isConnected_carrier` | structure | The carrier is connected. |
+| `Subtorus.haar` | constructor | The pushforward of torusHaar (Fin n) along toHom, as a ProbabilityMeasure. |
+| `Subtorus.haar_carrier` | characterisation | S.haar (S.carrier) = 1. |
+| `Subtorus.integral_mFourier_haar` | characterisation | ∫ mFourier k d(S.haar) = if k ᵥ* M = 0 then 1 else 0. |
+| `Subtorus.mFourier_eq_one_iff` | characterisation | mFourier k is identically 1 on S.carrier iff k ᵥ* M = 0. |
+| `Subtorus.haar_eq_of_carrier_eq` | structure | S.carrier = S'.carrier → S.haar = S'.haar. |
+| `Subtorus.top` | example | The full torus: n = #d, M = 1, with haar = torusHaar d. |
+| `Subtorus.bot` | example | The zero subtorus: n = 0, with haar = diracProba 0. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `subtorus.test_top` (compatibility) — (Subtorus.top d).haar = torusHaar d.
+- `subtorus.test_bot` (degenerate) — (Subtorus.bot d).haar = diracProba 0.
+- `subtorus.test_diagonal` (computation) — For the diagonal of T² (M = column (1, 1)): ∫ mFourier (1, −1) = 1 and ∫ mFourier (1, 0) = 0; a measure spread over all of T² gives 0 for both.
+- `subtorus.test_non_injective` (non-example) — M = (2) on T: toHom is x ↦ 2x, not injective, yet the carrier is all of T and haar = circleHaar. A definition that required toHom to be injective, or that weighted by the kernel, would treat this parametrisation of T differently from M = (1).
+
+**Where it is used.**
+- `torus-rational-decomposition` — The rational decomposition produces the subtorus on which the irrational part lives.
+- `abelian-ratner-polynomial` — The abelian Ratner theorem equidistributes P′ for S.haar.
+- `abelian-ratner-linear` — The linear case equidistributes n • α′ for S.haar.
+
+**Acceptance tests.**
+- The full torus (n = #d, M = 1) has haar = torusHaar d.
+- The zero subtorus (n = 0) has haar = diracProba 0.
+- The diagonal of T² (M = column (1, 1)) has ∫ mFourier (1, −1) = 1 and ∫ mFourier (1, 0) = 0.
+
+**Dependencies.**
+- In this packet: `torus-haar-probability`
+- On the pinned libraries: `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.Measure.map`, `mathlib:MeasureTheory.integral_map`, `mathlib:IsCompact.image`, `mathlib:isConnected_range`, `mathlib:MeasureTheory.FiniteMeasure.ext_of_forall_integral_eq`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.2, printed p. 16, complexity of a subtorus. The source's description of a subtorus as the preimage of T^{d′} × {0} under L ∈ SL_d(Z); the node's M is the corresponding block of L⁻¹. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.2, printed pp. 16–17, Exercise 1.1.22. Every compact connected subgroup is of this form; that identification is not planned in this pass (see coverage). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+#### `torus-rational-decomposition` — Rational decomposition of torus points along a subtorus
+
+*lemma*
+
+Let α_1, …, α_s ∈ UnitAddTorus d and Γ := {k : d → ℤ | every k · α_j has finite order}. Then there is a subtorus datum S with S.toHom injective such that (a) k vanishes on S.carrier iff k ∈ Γ, and (b) every α_j = α′_j + α″_j with α′_j ∈ S.carrier and α″_j of finite order.
+
+**Hypotheses.**
+- d a finite type; α_1, …, α_s ∈ UnitAddTorus d.
+
+**Proof, in steps.**
+1. Γ is a saturated subgroup of ℤ^d: if m k ∈ Γ with m ≠ 0 then k ∈ Γ, because k · α has finite order iff m k · α does.
+2. Smith normal form (Submodule.smithNormalForm) for Γ ≤ ℤ^d gives a basis b of ℤ^d with Γ = span(a_1 b_1, …, a_r b_r); saturation forces a_i = ±1, so Γ = span(b_1, …, b_r) is a direct summand.
+3. Let L be the matrix with rows b_1, …, b_d (in GL_d(ℤ)); L acts on the torus as an automorphism. Take S := the image of {0}^r × T^{d−r} under L⁻¹, i.e. M := the last d − r columns of L⁻¹; toHom is injective.
+4. (a): k vanishes on S.carrier iff k L⁻¹ has zero last d − r entries iff k ∈ span(b_1, …, b_r) = Γ.
+5. (b): in the coordinates y = L α_j the first r entries b_i · α_j have finite order; subtract the torsion point with those first r entries (and zeros elsewhere) pulled back by L⁻¹, leaving α′_j with first r coordinates zero, i.e. in S.carrier.
+
+**Acceptance tests.**
+- If every α_j is irrational in the sense of torus-irrational, Γ = 0 and S is the whole torus with α″_j = 0.
+- If every α_j has finite order, Γ = ℤ^d and S is the zero subtorus.
+- For α = (√2, 1/2) in T², Γ = ℤ (0, 1), S = T × {0}, α′ = (√2, 0), α″ = (0, 1/2).
+
+**Dependencies.**
+- In this packet: `subtorus`, `torus-irrational`
+- On the pinned libraries: `mathlib:Submodule.smithNormalForm`, `mathlib:IsOfFinOrder`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 7, proof of Proposition 1.1.5. The source splits off one primitive k′ at a time and inducts on the dimension; the lemma does all of Γ at once by Smith normal form, which also yields the subtorus in the SL_d(Z) form of §1.1.2. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.2, printed p. 16. The SL_d(Z) normal form of a subtorus. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+#### `abelian-ratner-polynomial` — Equidistribution theorem for abelian polynomial sequences
+
+*theorem*
+
+For P(n) = ∑_{j=0}^{s} n^j • α_j with α_0, …, α_s ∈ UnitAddTorus d there are a subtorus datum S and a decomposition P = P′ + P″, where P′(n) = ∑_{j=1}^{s} n^j • α′_j with every α′_j ∈ S.carrier and P″(n) = α_0 + ∑_{j=1}^{s} n^j • α″_j with every α″_j (j ≥ 1) of finite order, such that n ↦ P′(n) is totally equidistributed for S.haar on ℕ and on ℤ. P″ is periodic, and P is equidistributed for the average, over one period of P″, of the translates of S.haar by P″(n): a finite combination of Haar measures of cosets of S.carrier.
+
+**Hypotheses.**
+- d a finite type; s ≥ 0; α_0, …, α_s ∈ UnitAddTorus d.
+
+**Proof, in steps.**
+1. Apply torus-rational-decomposition to α_1, …, α_s to get S (with injective toHom) and α_j = α′_j + α″_j.
+2. P″ is periodic: each α″_j has finite order, so n ↦ n^j • α″_j is periodic with period the order.
+3. Total equidistribution of P′ for S.haar: by weyl-criterion-general-measure and integral_mFourier_haar it suffices that, for k not vanishing on S.carrier, the averages of mFourier k (P′(q n + r)) tend to 0. Write α′_j = S.toHom β_j; then mFourier k (P′(m)) = mFourier (k M) (∑ m^j • β_j). If all (k M) · β_j = k · α′_j had finite order, then so would all k · α_j, so k ∈ Γ and k vanishes on the carrier, a contradiction; hence polynomial-equidistribution-criterion (iv) holds for the polynomial ∑ m^j • β_j in T^n at frequency k M, which is nonzero, and the averages tend to 0 along every progression.
+4. The ℤ statement follows in the same way from (iii) of the criterion.
+5. The limit law of P: along each residue class mod a period Q of P″, P = P′ + constant, and P′ restricted to that class is equidistributed for S.haar; average over the Q classes.
+
+**Acceptance tests.**
+- If every α_j (j ≥ 1) is irrational, S is the whole torus and P″ = α_0: this is weyl-polynomial-equidistribution strengthened to total equidistribution.
+- The source's example n ↦ (√2 n, n²/3) is equidistributed for (1/3)·Haar(T × {0}) + (2/3)·Haar(T × {1/3}).
+- For s = 1 it is abelian-ratner-linear.
+
+**Dependencies.**
+- In this packet: `torus-rational-decomposition`, `subtorus`, `polynomial-equidistribution-criterion`, `weyl-criterion-general-measure`, `asymptotic-equidistribution-int`, `total-asymptotic-equidistribution`
+- On the pinned libraries: `mathlib:Function.Periodic`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, Exercise 1.1.7. The statement. The printed 'P′, P′′ are polynomials of degree s' should read 'of degree at most s' (P′′ can be constant); recorded as a misprint. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, after Exercise 1.1.7. The consequence for the limit law. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+#### `abelian-ratner-linear` — Equidistribution for abelian linear sequences
+
+*theorem*
+
+For α, β ∈ UnitAddTorus d there are a subtorus datum S and α = α′ + α″ with α′ ∈ S.carrier and α″ of finite order, such that n ↦ n • α′ is totally equidistributed for S.haar on ℕ and on ℤ, and n ↦ n • α″ + β is periodic.
+
+**Hypotheses.**
+- d a finite type; α, β : UnitAddTorus d.
+
+**Proof, in steps.**
+1. The case s = 1 of abelian-ratner-polynomial, with α_1 = α and α_0 = β.
+2. The source's own proof inducts on d, splitting off one primitive k′ with k′ · α rational at a time; the Smith-normal-form route of torus-rational-decomposition replaces that induction.
+
+**Acceptance tests.**
+- For α irrational, S is the whole torus and α″ = 0: linear-equidistribution.
+- For α = (√2, 1/2): S = T × {0}, α′ = (√2, 0), α″ = (0, 1/2).
+- For α of finite order, S is the zero subtorus and the sequence is periodic.
+
+**Dependencies.**
+- In this packet: `abelian-ratner-polynomial`, `torus-rational-decomposition`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 7, Proposition 1.1.5. The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6. The rational extreme. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
 ### Remaining in PM.2
 
-- Asymptotic equidistribution, total equidistribution, the Haar probability measures on T and T^d, irrational points, the Weyl criterion and its projection form, the linear equidistribution theorem, van der Corput's difference theorem, Weyl's polynomial theorem and uniform distribution mod 1 are decomposed (ℕ-indexed), from Tao, Higher order Fourier analysis §1.1.1. Van der Corput's inequality is ES.0/q-vdc-lag-bound at r = 1 and is not replanned.
-- Still to decompose from the same section: the ℤ-indexed versions ((iii) of Exercises 1.1.5 and 1.1.6); total equidistribution by rational twists (Exercise 1.1.4); Exercise 1.1.6, the full polynomial criterion that no nonzero k kills α_1, …, α_s; and the abelian Ratner decompositions (Proposition 1.1.5, Exercise 1.1.7).
+- Tao §1.1.1 (asymptotic theory) is now decomposed in full except Exercises 1.1.1–1.1.3 beyond their Portmanteau directions, the recurrence Exercise 1.1.8 and the multidimensional Definition 1.1.10 and Exercises 1.1.9–1.1.15.
+- Exercise 1.1.22 (every compact connected subgroup of T^d is the carrier of a subtorus datum) is not planned; the subtorus node takes the SL_d(Z) description as its definition.
 - Discrepancy (Erdős–Turán, Koksma) and the normal-number consequences (Borel's theorem, linking Mathlib's digit expansions and Tau Ceti's Bernoulli-shift ergodicity) still need a source read and nodes; the audit records both as absent.
 - Single-scale (quantitative) equidistribution, §1.1.2 of the same source, is not planned; ES and AC consumers should say whether they need it.
