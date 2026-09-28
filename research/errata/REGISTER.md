@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5545 new mistakes confirmed · 1543 awaiting review · 676 already corrected in print · 88 rejected on review · 18 extractions and packets not yet checked.
+5545 new mistakes confirmed · 1544 awaiting review · 676 already corrected in print · 88 rejected on review · 18 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -10581,6 +10581,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### Martin Henk, Successive Minima and Lattice Points, arXiv:math/0204158v1 (12 April 2002), seven-page preprint. Author bibliography lists Rend. Circ. Mat. Palermo (2), Suppl.70 (2002), 377–384; the publisher text was not obtained. (`GeometryOfNumbersAndQuadraticArithmetic`)
 
 - **Misprint** at arXiv math/0204158v1, p.2, sentence after (1.2); preprint only.. The source says `The source defines it as the least integer greater than or equal to x.`; it should be `For the displayed floor brackets, read greatest integer not greater than x.`. The image shows floor brackets, whereas the quoted words describe a ceiling. For x=3/2 the two operations give 1 and 2. The proof p.4 uses q_i=floor(2/λ_i+1), in particular q_i>2/λ_i; retain the floor convention and do not identify Conjecture 1.4 with the proved Theorem 1.5. Recorded as `GeometryOfNumbersAndQuadraticArithmetic/E9`; looked for an existing correction in: 2026-09-27: https://arxiv.org/abs/math/0204158 lists only v1, 12 April 2002.; 2026-09-27: https://page.math.tu-berlin.de/~henk/publications.html lists the publication and arXiv link, with no correction located.; 2026-09-27: exact title/author with errata/correction and the floor-wording search found no separate correction. The freely read preprint is the scope; the version of record was not obtained..
+
+### Mark Kisin, Lectures on deformations of Galois representations (Lecture 1), Lecture notes on the author's Harvard page, 4 pages (Lecture 1: deformations of representations of profinite groups). (`GlobalGaloisDeformations`)
+
+- **Misprint** at Lecture 1, (1.2), p. 1. The source says `The source defines condition Φp for G by requiring the maximal pro-p quotient of each finite index subgroup G′ ⊂ G to have finitely many topological generators. It claims equivalence with finite dimensionality of Hom(G, Fp).`; it should be `“This is equivalent to asking that Hom(G′, 𝔽_p) is finite dimensional for every open G′ ⊂ G” (as the same notes' Exercise 1 states).`. Finiteness of Hom(G, 𝔽_p) for G alone is strictly weaker: for p odd, G = (∏_ℕ ℤ/p) ⋊ ℤ/2 with ℤ/2 acting by inversion has abelianisation ℤ/2 (the commutators a^{-2} fill ∏ ℤ/p since 2 is invertible), so Hom(G, 𝔽_p) = 0, while its open subgroup ∏_ℕ ℤ/p of index 2 has infinite Hom to 𝔽_p and is not topologically finitely generated. Exercise 1 on p. 4 of the same notes states the correct equivalence with all open subgroups. Recorded as `GlobalGaloisDeformations/E1`; looked for an existing correction in: Kisin's Harvard notes page (people.math.harvard.edu/~kisin/notes/), fetched 2026-09-28: a single 4-page PDF, no revision or errata listed..
 
 ### Brian Conrad (with an appendix by W. R. Mann), Gross–Zagier revisited, Heegner Points and Rankin L-Series, MSRI Publications 49 (2004) 67–163; SLMath library PDF; printed page = PDF page + 65; accessed 2026-09-28 (`GrossZagierAndArithmeticHeights`)
 
