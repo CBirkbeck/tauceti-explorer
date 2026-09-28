@@ -208,3 +208,25 @@ V. Lafforgue and Böckle–Harris–Khare–Thorne are already queued (`PAPER-LA
 * A statement-by-statement comparison of the published numbering with the preprint numbering across all
   eight sections, and confirmation of each source issue against the published text.
 * No Lean file is part of this job.
+
+## Review (REV-PAPER-FENG-24, 28 September 2026)
+
+The review, by Claude Code (session cc-39fac3), accepted the extraction and its four routes after corrections made in place. The full record is `research/blueprint/reviews/REV-PAPER-FENG-24.md`.
+
+- **Statements and locators:** 55 statements corrected, mostly to add omitted standing hypotheses, and 15 locators.
+- **Statuses:** 15 changes.
+  - Seven planned items move to route 2, because the cited layers are written for characteristic-zero coefficients: the geometric L-group, both presentations of the excursion algebra, the modular reconstruction theorem, homomorphisms of L-groups, the k-coefficient Satake functor on shtukas and Lemma B.5.
+  - Items 96 and 107 are missing, to route 1.
+  - Item 93 is planned by SmoothRepresentationsOfLocalGroups:SR.6.
+  - The Tate diagonal and the Frobenius twist of algebras move to route 1.
+- **New items:** 35 (31 missing, 3 planned, 1 library). Every brief, and the source route's reason, has a corrections paragraph.
+- **Ownership:** route 3 imports the Brauer homomorphism, plain subgroups, linkage and the Treumann–Venkatesh conjecture from SmithTheoryAndModPFunctoriality.
+- **Source issues:** E1–E7 are confirmed. E8–E57 are new. Beyond 33 misprints, the new issues are:
+  - Theorem 1.1 needs p odd and good.
+  - Lemma 2.7 is false for general φ, and the main theorems need φ_BC∘ρ semisimple (true, but not proved in the paper).
+  - Lemma 3.8 needs bounded dimension.
+  - Lemmas 4.16 and 4.24 are false as printed.
+  - Theorem 4.20 is proved objectwise, but not as a natural isomorphism over Ĥ.
+  - The proof of Theorem 5.13 misses the α-components.
+  - Proposition 6.3 and Corollary 6.4 are false at r = 0, and the Galois-fixed special vertex need not exist. Both are repaired at r > 0 at any point of B(H/F_v).
+  - Theorem 6.26 at r = 0 is unproved.
