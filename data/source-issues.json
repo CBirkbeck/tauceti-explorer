@@ -141910,6 +141910,25 @@
    "reviewReason": null
   },
   {
+   "id": "LocalGaloisDeformationRings/E1",
+   "kind": "error",
+   "locator": "Theorem 6.12(4), in the published version (Duke Math. J. 128 (2005)); read through Remark 1.7 of arXiv v3, p. 4",
+   "printed": "The passage locates an error in both the proof and statement of published Theorem 6.12(4). For m = 1 + (p + 1)j, equivalently i = 1, it identifies ωm+p 2 and ωpm+1 2 as coincident characters, each having niveau one.",
+   "correction": "When i = 1 the reduction mod p of the lattice considered in Theorem 6.12(4) is split, not of niveau two; one more family of strongly divisible modules is needed, constructed in arXiv v3. The main theorems (6.22–6.24) are unaffected.",
+   "reason": "The two fundamental characters of level two named in 6.12(4) coincide and have niveau one when i = 1, so the niveau-two conclusion cannot hold there (the author's Remark 1.7).",
+   "affects": "a stated result",
+   "known": "Savitt, arXiv:math/0404327v3 (Remark 1.7) and the corrigendum on the author's website",
+   "searched": [
+    "arXiv:math/0404327v3, Remark 1.7, read 2026-09-28."
+   ],
+   "owner": "LocalGaloisDeformationRings",
+   "file": "research/blueprint/packets/LocalGaloisDeformationRings.json",
+   "citation": "David Savitt, On a conjecture of Conrad, Diamond, and Taylor, arXiv:math/0404327v3 (15 September 2010), 45 pages; published in Duke Math. J. 128 (2005). The arXiv v3 fixes an error of the published version (its Remark 1.7) and keeps the published numbering. Printed page = PDF page.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "LocallyAnalyticDistributions/E1",
    "kind": "error",
    "locator": "Published Lemma A3.1, printed432/PDF16; also author-copy PDF22–23. Display notation checked on both page images.",
