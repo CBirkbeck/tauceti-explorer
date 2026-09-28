@@ -14684,8 +14684,9 @@
    ],
    "avoidAccountOf": "BP-AdicEtaleGeometry",
    "prompt": "research/blueprint/prompts/REV-AdicEtaleGeometry.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #343"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #343",
+   "finishedAt": "2026-09-28T15:40:15Z"
   },
   {
    "id": "BP-AdicSpacesPartII",
@@ -14964,9 +14965,9 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisDuality.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #675"
+   "note": "released on GitHub issue #675"
   },
   {
    "id": "REV-ArithmeticGaloisDuality",
@@ -19122,10 +19123,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralIwasawaTheory--I.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #760"
   },
   {
    "id": "REV-IntegralIwasawaTheory--I.8",
@@ -23680,7 +23682,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-HeightsRationalPointsAndObstructions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AbelianSchemesAndArithmeticModuli",
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -23690,7 +23692,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1031"
+   "note": "claimed on GitHub issue #1031"
   },
   {
    "id": "REV-HeightsRationalPointsAndObstructions",
