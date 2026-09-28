@@ -63,6 +63,11 @@
         "text": "published",
         "pages": "published pp. 133–135 (PDF 27–29), page images, proof zoomed",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 134 (and the definitions on p. 133). The first half of the proof gives θ_S(G_{S,γ}) ⊆ Hom(S, (R̄^{(m)})^{h_γ}); the converse step fails. In the counterexample (F⁺ = ℚ(√5), F = F⁺(i), ℓ = 3, m = 1, R = ℤ₃(1), γ = ρ̄₊(c), h_γ = 1, S spanned by the Kummer class of u = (1+√5)/2) every lift of γ to Gal(F̃_S/F⁺) = Gal(F⁺(i, ζ₃, u^{1/3})/F⁺) has the form cτ^k with cτc = τ⁻¹ (c inverts ζ₃ and fixes the real cube root), so its square is 1 and every Frobenius w(m) is trivial: G_{S,γ} = {1}, while θ_S⁻¹Hom(S, R̄) is all of Gal(F_S/F^{(m)}) ≅ ℤ/3 (u is not a cube, since x³ − u is irreducible over ℚ(√5) and F(ζ₃) has 2-power degree). The proof's lift γ̃ with γ̃² = (g⁻¹Ψ)h_γ does not exist for Ψ ≠ 1. The inclusion in the correction is what the first half of the proof shows.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -105,6 +110,11 @@
         "text": "published",
         "pages": "published pp. 134–135 and 317–318 (PDF 28–29, 211–212), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 135. The first part is asserted for every abundant tuple and 'proved' by 'obvious from Definition 2.6.5'. Over O_λ/λ^n, A = [[λ,1],[0,λ]] has image {(λx+y, λy)} ⊇ λ²(O_λ/λ^n)² of index |k|², but its coordinate projections are all of O and λO, so the image is not a product of coordinate submodules and no change of basis of S (which preserves the image) makes A diagonal. It is abundant once m₀ + 𝔣(2)r_R ⩾ 2 and is realised whenever θ_S(G_{S,γ}) fills Hom(S, (R̄^{(m)})^{h_γ}) (e.g. [F:F⁺] = 1, where Lemma 2.6.4 holds). When 𝔣(r)r_R = 0 an abundant A is invertible and the claim holds, as the correction says.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -144,6 +154,11 @@
         "text": "published",
         "pages": "published p. 136 (PDF 30), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 136: the element is modified by replacing each γ′_α by its own power (exponents depending on α) with ξ′ unchanged; such a triple need not lie in the image of the joint homomorphism (ρ̄₀₊^{(m)}, ρ̄₁₊^{(m)}, ε̄^{(m)}), which (GI^m) requires. Powering one Galois element by a single exponent divisible by all the d_α e_α (and ≡ 1 on the residual level, as the correction arranges) repairs it; the lemma is true. Gap in the proof, as classified.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -183,6 +198,11 @@
         "text": "published",
         "pages": "published pp. 136–137 (PDF 30–31), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 137: 'a polynomial 𝒫(T) ∈ ℤ[T]' with no nonvanishing hypothesis, while (GI¹) (a), p. 136, requires 𝒫(ξ) invertible in O_λ/λ, impossible for 𝒫 = 0; the proof's choice 'P(a⁻¹) ≠ 0' has no solution then. The only application uses 𝒫 = T² − 1.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -222,6 +242,11 @@
         "text": "published",
         "pages": "published pp. 139, 141–142 (PDF 33, 35–36), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 139–142. Definition 3.1.3 allows any ring L, with 'unitary' meaning P_α(T) = (−T)^N P_α(T⁻¹). Over L = 𝔽₅ × 𝔽₅, α = {(1,2),(2,1),(3,3)} has P_α = T³ + 4T² + T + 4 in both components, and (−T)³P_α(T⁻¹) = −4T³ − T² − 4T − 1 = T³ + 4T² + T + 4, so α is unitary; yet no element squares to 1, so the ordering with α_iα_{N+1−i} = 1 that Construction 3.1.8(1) chooses does not exist. Over a domain the ordering exists, and the construction is only used over ℂ (Construction 3.1.10), so nothing downstream is affected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -263,6 +288,11 @@
         "pages": "published pp. 229, 342, 343 (PDF 123, 236, 237), page images; v3 pp. 82–83, 157 (text layer)",
         "printedMatches": true,
         "note": "The proof instance is the display at the foot of p. 229, the claimed intersection multiplicity. It is not the proof's last display, since the proof continues on p. 230. The correct product (q+1)(q³+1)⋯(q^{2k−1}+1) is printed on p. 342, just above Proposition B.3.5."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 229 (statement and proof), 342 and 343: each prints (p+1)(p+3)⋯(p^{2(r−δ)−1}+1) (resp. q). The correct product ∏_{i=1}^{r−δ}(p^{2i−1}+1) is printed in Theorem 5.7.8 and its proof (pp. 223–224, where the second factor is p³+1), and (p+3) ≠ p³+1 already at p = 2. The final factor fixes the intended reading, so nothing is affected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -303,6 +333,11 @@
         "text": "published",
         "pages": "published p. 231 (PDF 125), page image; the parallel formula on p. 230 (PDF 124); Proposition A.2.4 p. 326 (PDF 220)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 231: (5.20) prints c_{r−1}. Proposition A.2.4(2) (p. 326) is stated for dim V = 2r with c_{r−1}; applied to V_{s•} of dimension 2(r−j), as the right side d•_{r−j,p} shows, it gives c_{r−j−1}, and the parallel formula on p. 230 prints c_{r−j−1}. For j ⩾ 1 the printed integrand has the wrong degree. The proof's appeal to A.2.4(2) fixes the intended index.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -342,6 +377,11 @@
         "text": "published",
         "pages": "published pp. 234–235 (PDF 128–129), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 234–235. The proof asserts H¹(Gal(F̄_p/F_p^Φ), F₋₁H¹(I, …)) = 0 because p² − 1 is invertible, having just said the Galois action on E₂^{1,2r−2}(−1), hence on its quotient F₋₁H¹(I, …) (Lemma 5.9.3(5)), is trivial. For a procyclic group acting trivially, H¹ = Hom_cont(Ẑ, M) ≅ M, so the claim holds only if that module is 0, and p² − 1 plays no role. Without it, taking invariants gives 0 → F₋₁H¹ → H¹_sing → H^{2r−1}(M̄•, L(r−1))^G → F₋₁H¹, so right exactness in (6) is unproved for torsion L (it holds for L of characteristic 0 by weights). Downstream only the injection is used, as the entry says.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -385,6 +425,11 @@
         "text": "published",
         "pages": "published pp. 322–323 (PDF 216–217), with p. 321 (PDF 215, Definition A.1.1) and p. 212 (PDF 106, Lemma 5.6.2(3)), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 321–323. Lemma A.1.4 is stated for any pair (V, { , }) with V^# = 0 (not only split forms), and the proof opens with 'The lemma is trivial if N = 2'. Over κ = 𝔽₉ (p = 3), {x, y} = x₁³y₁ + t x₂³y₂ with t ∈ 𝔽₉ ∖ 𝔽₃ is non-degenerate (hence admissible by Lang's theorem, Definition A.1.1 being a condition over κ̄); DL(V, { , }, 1) is the set of lines with x₁⁴ + t x₂⁴ = 0, four distinct geometric points, none 𝔽₉-rational because the fourth powers in 𝔽₉^× are {±1} = 𝔽₃^×. So Frobenius permutes H⁰ = L⁴ without fixed points, contradicting (4) (take L = ℚ₅, where p + 1 = 4 is invertible). The added hypothesis (the pair descends to 𝔽_{p²} over κ) restores (4); the downstream check in Lemma 5.6.2(3) is correctly flagged.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -428,6 +473,11 @@
         "text": "published",
         "pages": "published pp. 352–355 (PDF 246–249) and p. 213 (PDF 107), with pp. 272 and 275 (PDF 166, 169), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 352–353: §C.2 takes 'N ⩾ 2' and defines H^prim as the kernel of ∪c₁(O(1)): H^{N−2} → H^N(1), then asserts a unique irreducible Ω_N isomorphic to it. For N = 2, Iso(Λ̄₂) is the q+1 isotropic points of a hermitian plane, H² = 0, and the kernel is all of H⁰, the permutation representation 𝟏 ⊕ St of dimension q+1, which is not irreducible. The reduced H⁰ (dimension q, = St) is what is needed; the same change applies to Definition 5.6.3 / (5.13).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -467,6 +517,11 @@
         "text": "published",
         "pages": "published p. 322 (PDF 216), with p. 321 (PDF 215), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 322: the map H ↦ H/V₀^⊣ is written as landing in DL(V′₀, { , }′₀, h). V₀^⊣ has dimension d and lies in H, so H/V₀^⊣ has rank h − d; the target must be DL(V′₀, { , }′₀, h − d), which is the d = 0 case just treated (N′ = N − d, h′ = h − d) and gives the dimension formula of part (2).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -508,6 +563,11 @@
         "pages": "published pp. 354–355 (PDF 248–249), page images",
         "printedMatches": true,
         "note": "The quotation starts on the last line of p. 354 (“Then ℙ(Y_N) is contained in Iso(Λ̄_N), which”) and continues at the top of p. 355."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 354–355: 'its cohomology class subtracted by c₁(O(1))'. [ℙ(Y_N)] lies in H^{2r−2}(r−1) and c₁(O(1)) in H²(1), so the subtraction is degree-consistent only for r = 2; the primitive projection is [ℙ(Y_N)] − (q+1)⁻¹h^{r−1} (degree of ℙ^{r−1} against the degree q+1 of the Fermat hypersurface), so even at r = 2 the coefficient is 1/(q+1). The conclusion (a nonzero P^{(r)}-fixed primitive class) is unaffected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -548,6 +608,11 @@
         "pages": "published pp. 306–308 (PDF 200–202), page images; arXiv v3 PDF pp. 133–134, text layer",
         "printedMatches": true,
         "note": "The v3 text (PDF p. 134) is the same. v1/v2 are not available here, so the v1/v2 locator was not checked."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 307: after showing both localized cohomologies are O_λ-torsion free, the proof says 'it suffices to show' a rational isomorphism (8.1). Torsion-free O_λ[Γ]-lattices with isomorphic rationalisations need not be isomorphic (Γ = ℤ acting on O_λ² by [[1,1],[0,1]] and [[1,λ],[0,1]]), and the lemma is used integrally to transport m_lat. The correction's determinant argument with the integral correspondences T^{•∘}, T^{∘•} closes the gap.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -587,6 +652,11 @@
         "text": "published",
         "pages": "published pp. 301–302 (PDF 195–196), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 302: Remark 7.3.5 prints H¹_ur(F_𝔭, H^{2n}_ét(…)). The product Sh(V_{n₀}) × Sh(V_{n₁}) has dimension 2n − 1 and the cycle class lies in absolute degree 2n, so after the Hochschild–Serre edge map the coefficient module is the geometric cohomology in degree 2n − 1, as in (7.3) and Corollary 7.2.9.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -626,6 +696,11 @@
         "text": "published",
         "pages": "published p. 319 (PDF 213), with the parallel sentence on p. 311 (PDF 205), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 319: '[1 − n, n]', whereas the identical sentence on p. 311 prints [−n, n − 1]. With ℚ_ℓ(1) of weight −1 (footnote 4), R₀ ⊂ ρ_{Π₀}(r₀) has weights in [−r₀, r₀ − 1] and R₁ ⊂ ρ_{Π₁}(r₁) in [−r₁, r₁], so R = R₀ ⊗ R₁ has weights in [−n, n − 1]. Both intervals have width 2n − 1 and satisfy a < 0 ⩽ b for n ⩾ 2, so the lemmas applied are unaffected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -666,6 +741,11 @@
         "text": "published",
         "pages": "published pp. 133–134 (PDF 27–28), page images, sentence zoomed",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 134: 'a place w̃ of F̃_S whose arithmetic Frobenius substitution coincides with γ'. The Frobenius of a place of F̃_S lies in Gal(F̃_S/F⁺), while γ is an element of Gal(F₊^{(m)}/F⁺); the argument needs it to be the lift γ̃ just constructed. A type slip (the substantive failure of that step is E1).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -700,6 +780,11 @@
         "text": "published",
         "pages": "published pp. 110, 112 (PDF 4, 6), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 112 (footnote 1) against Definition 1.1.3 (p. 111). Condition (2) (Π ∘ c ≅ Π^∨) only makes the Satake parameter at an inert prime stable under inversion, so for n₁ odd it contains 1 or −1; twisting a conjugate-orthogonal Π by a Hecke character χ with χ|_{𝔸_{F⁺}^×} = η keeps (1) and (2) but multiplies the parameter by χ_w(p) = −1. Containing 1 needs conjugate-orthogonality, which comes from (3) via Remark 1.1.4. The claim is true for relevant Π₁, so nothing is affected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -734,6 +819,11 @@
         "text": "published",
         "pages": "published p. 119 (PDF 13), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 119: '[0]_q = 1, [n]_q = (qⁿ − 1)/(q − 1)', but the formula gives [0]_q = 0; what the q-binomials with m ∈ {0, n} need is [0]_q! = 1 (the empty product). Harmless.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -768,6 +858,11 @@
         "text": "published",
         "pages": "published p. 119 (PDF 13), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 119: 'Let F̄ be the Galois closure of F in ℂ. Put Γ_F := Gal(F̄/F)'. The Galois closure is a finite extension, which would make Γ_F finite; everywhere else F̄ is the algebraic closure (Galois representations, ℓ-adic cohomology). Intended meaning clear.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -802,6 +897,11 @@
         "text": "published",
         "pages": "published pp. 124–125 (PDF 18–19), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 124–125: footnote 5 cites Lemma 2.2.6 for 'R crystalline with Hodge–Tate weights in [a, b] iff R_ℚ is', but Lemma 2.2.6 assumes R_ℚ crystalline and compares H¹_ns with the Bloch–Kato condition. The direction R_ℚ ⇒ R is immediate from Definition 2.2.4; the converse needs a limit theorem (Fontaine–Laffaille, or T. Liu's theorem on limits of torsion crystalline representations). Only the trivial direction is used later.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -836,6 +936,11 @@
         "text": "published",
         "pages": "published pp. 126–128 (PDF 20–22), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 127–128: the proof identifies End(R̄) ⊗ (O_λ/λ) with End(R̄)^d as (O_λ/λ)[G]-modules, but for a k-representation V, V ⊗_{𝔽_ℓ} k ≅ ⊕_σ V^{(σ)} (Frobenius twists), so the printed hypothesis Hom_{k[Γ_F]}(End(R̄), R̄) = 0 is too weak when k ≠ 𝔽_ℓ. The counterexample checks: k = 𝔽₂₅, R̄ = χ₁ ⊕ χ₂ with χ₁(h) = ζ⁵, χ₂(h) = ζ⁴ (dim 2 ⩽ min{3, 2}, semisimple, End(R̄) has exponents {0, 0, 1, 23} disjoint from {5, 4}); A = {1 + 5x e₁₂} ≅ 𝔽₂₅ with h acting by ζ admits the H-equivariant 𝔽₅-linear map x ↦ (x⁵, 0) to R̄, so H¹(G, R̄) = Hom_H(A, R̄) ≠ 0, and since R̄^G = 0 it injects into H¹(G, R) = ker Res_ρ. The corrected hypothesis (over 𝔽_ℓ, i.e. all twists) makes the proof work.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -871,6 +976,11 @@
         "pages": "published pp. 126–127 (PDF 20–21), page images; application checked on p. 317 (PDF 211)",
         "printedMatches": true,
         "note": "The page prints the fraktur 𝔯_R for r_R, a harmless transcription."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 127: 'If S is a free O_λ/λ^m-module of rank r_S for some positive integer m' with m already fixed by R, while Proposition 2.6.6 and §§8.2–8.3 apply the lemma to S free over O_λ/λ^{m−m₀}; the stray 'p' in 'O_λ/λ^m p' is also printed. The general version (as in arXiv v1/v2) is what is used and what the Kolyvagin argument gives.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -905,6 +1015,11 @@
         "text": "published",
         "pages": "published pp. 134–135 (PDF 28–29), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 134–135: the proof of Proposition 2.6.6 rests on the equality of Lemma 2.6.4 (E1). The example of E1 satisfies every hypothesis (R_ℚ = ℚ₃(1) absolutely irreducible; −1 ∈ ε̄(Γ_F) = 𝔽₃^× a nontrivial scalar, so Lemma 2.3.5(a) holds; γ of order 2; (R̄^{(m)})^{h_γ} = μ_{3^m} free of rank 1), and there G_{S,γ} = {1}, so θ_{S,γ} is zero on G_{S,γ} and no tuple is abundant once m > 𝔣(1)r_R. The added hypothesis in the correction is what the proof needs.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -942,6 +1057,11 @@
         "text": "published",
         "pages": "published pp. 136–137 (PDF 30–31), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 136–137: 'For a rational prime ℓ (that is odd and unramified in F) … R_α is an object … with a canonical (1 − α)-polarization'. The Weil pairing on T = H¹(A_α) induces on Sym^k T (k = n_α − 1) the pairing x^a y^{k−a} ↔ x^{k−a}y^a with coefficients ±a!(k−a)!, which are not ℓ-units when ℓ ⩽ k; for large image Sym^k V is absolutely irreducible and Sym^k T is not homothetic to its dual (divided-power) lattice, so no perfect polarization exists. Proposition 2.7.2 is only used for ℓ large, so nothing is affected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -976,6 +1096,11 @@
         "text": "published",
         "pages": "published pp. 136–137 (PDF 30–31), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 137. With t = [F′:F⁺] and y = g^t𝔠, ξ = ε̄(y) = −a^{−t} (ε̄(𝔠) = −1), so condition (a) reads 𝒫(−a^{−t}) ≠ 0, not the printed 𝒫(a⁻¹) ≠ 0; and h_{γ_α} = ρ̄⁺_α(y)² depends on how 𝔠 sits relative to the eigenbasis of ρ̄(g), which a conjugacy class does not fix (if 𝔠 swaps the eigenlines, h_{γ₀} is scalar and (c) fails). The entry's r₀ = r₁ = 1 examples show pairs (a, b) meeting all printed bullets while (d) or (e) fails. Proposition 2.7.2(3) remains true with the corrected choice, so the proof is affected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1011,6 +1136,11 @@
         "text": "published",
         "pages": "published pp. 138–139 (PDF 32–33), page images, zoomed",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 139: 'It follows that ℚ(Π′) is contained in ℚ(Π)', while the field introduced in the proof is ℚ(Π)′ (the composite of the ℚ(Π_w)); Π′ is never defined.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1046,6 +1176,11 @@
         "pages": "published pp. 139–140 (PDF 33–34), page images",
         "printedMatches": true,
         "note": "The page prints ‖v‖⁻¹ as a superscript, which the quote renders as '‖v‖−1'."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 140 (Definition 3.1.5 and Remark 3.1.6). For N even, (3) requires P(‖v‖) = 0 with P′(‖v‖) invertible; if ‖v‖ = 1 in L (e.g. L = 𝔽₃, ‖v‖ = 7) a unitary P has 1 with even multiplicity, so (3) never holds, yet α = {1, 1} contains the pair {‖v‖, ‖v‖⁻¹} exactly once. For N odd, (2) requires P(−‖v‖) invertible; if ‖v‖ = −1 in L then −‖v‖ = 1 is always a root, yet for α = {1} the pair {−‖v‖, −‖v‖⁻¹} = {1, 1} is absent. The remark needs ‖v‖² ≠ 1 in L, which holds in every use.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1080,6 +1215,11 @@
         "text": "published",
         "pages": "published pp. 142, 110 (PDF 36, 4), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 142: 'Suppose that Π satisfies Π ∘ c ≃ Π^∨. For v ∉ Σ⁺_Π, the Satake parameter α(Π_v) is unitary.' For N = 1 and χ a Hecke character extending η_{F/F⁺}, χ·χ^c = η ∘ Nm = 1 so χ ∘ c ≃ χ^∨, but at an unramified inert v, α(χ_v) = {χ_w(p)} = {η_v(p)} = {−1} and T + 1 ≠ (−T)(T⁻¹ + 1). One needs ω_Π trivial on 𝔸_{F⁺}^×, which holds for relevant Π (the only use).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1114,6 +1254,11 @@
         "text": "published",
         "pages": "published pp. 145–146 (PDF 39–40), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 145–146: Remark 3.2.6 asserts that under Hypothesis 3.2.10 ℚ(Π) is a strong coefficient field, with no argument, while Hypothesis 3.2.10 only says something when ρ_{BC(π),ι} is irreducible, which the remark does not assume; even then descending ρ^c to ℚ(Π)_λ needs the relevant endomorphism algebra to split. Unused elsewhere (a strong coefficient field is taken as given).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1152,6 +1297,11 @@
         "text": "published",
         "pages": "published pp. 110, 113, 146, 313–314, 374 (PDF 4, 7, 40, 207–208, 268), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 146 and the bibliography p. 374: the case N ⩾ 3 with F⁺ ≠ ℚ of Proposition 3.2.11 is 'proved in [37]', listed as 'Kisin, M., Shin, S.W., Zhu, Y.: Cohomology of certain Shimura varieties of abelian type (temporary title) (in preparation)'. So Hypothesis 3.2.10 in that range, and the main theorems assuming F⁺ ≠ ℚ, rest on unpublished work at the time of publication. I did not check whether later Kisin–Shin–Zhu work establishes Hypothesis 3.2.10 in this generality.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1189,6 +1339,11 @@
         "text": "published",
         "pages": "published p. 147 (PDF 41), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 147 (footnote 11 against Definitions 3.3.2 and 3.3.4). Example (i) checks: F = ℚ(√(−3−√2)) is a non-Galois (D₄) CM quartic with F⁺ = ℚ(√2); since (−3−√2)(−3+√2) = 7 and (7/17) = −1, of the two degree-one primes of F⁺ above 17 (√2 ≡ ±6) one is inert in F and the other splits, so the footnote's condition holds and calls the inert one very special. The reflex fields of the CM types meet in their common real quadratic subfield ℚ(√7), so F⁺_rflx = ℚ(√2, √7), and 𝔭 (with ℚ_17 completion) is inert there because (7/17) = −1: not very special. I did not re-check example (ii).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1223,6 +1378,11 @@
         "text": "published",
         "pages": "published pp. 147, 287, 303, 310, 318–319 (PDF 41, 181, 197, 204, 212–213), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 147 against arXiv v3 Definition 3.3.2: v3 defines F_rflx as generated by F and F_Φ for every CM type Φ (the composite), the published version by F and the intersection of the F_Φ. The proofs of Theorems 8.2.2 and 8.3.2 obtain (PI3) (a CM type Φ with ℚ_p^Φ = ℚ_{p²}) only from Frob_𝔭 fixing F⁺_rflx via (L5-2) and Chebotarev; with the composite this forces σ_𝔭 = c on the Galois closure, with the intersection it does not. So the published proof has a gap at that step. I did not re-derive the W(B₄) example of E31(ii).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1257,6 +1417,11 @@
         "text": "published",
         "pages": "published p. 150 (PDF 44), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 150: the pairing induced by λ is said to be perfect 'if and only if λ is p-principal', for S in Sch/ℤ_p^τ, which includes ℚ_p^τ-schemes where any quasi-isogeny induces isomorphisms on H^dR₁, so the pairing is perfect for non-p-principal λ too. The 'if' direction, and both directions when p is locally nilpotent on S (all uses), are correct.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1291,6 +1456,11 @@
         "text": "published",
         "pages": "published pp. 151–152 (PDF 45–46), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 152: 'ker F = im V = ω_{A^{(p)}/S}'. These are subbundles of H^dR₁(A^{(p)}/S), whose Hodge subbundle by (3.2) is ω_{(A^{(p)})^∨/S}; ω_{A^{(p)}/S} is the Hodge subbundle of the dual's H^dR₁. The paper uses the correct form in Notation 3.4.10(3). Intended meaning clear.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1329,6 +1499,11 @@
         "text": "published",
         "pages": "published pp. 153–155 (PDF 47–49), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 153: Lemma 3.4.12 assumes only that F⁺ ⊂ ℚ_p via τ, not that 𝔭 is inert. With F⁺ = ℚ, F imaginary quadratic with p = w₁w₂ split, ϖ = p, A = E an ordinary elliptic curve with O_F-action, B = E/E[w₁] and βα = p: on Dieudonné modules α_* is 0 on the w₁-part and an isomorphism on the w₂-part, so the right side of (2) is 1 − 0 = 1, while B[w^∞] ≅ E[w^∞] for each w, so the Lie ranks agree and the left side is 0. The proof uses σ⁻¹τ_∞^c = τ_∞, i.e. 𝔭 inert, which holds in every application.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1363,6 +1538,11 @@
         "text": "published",
         "pages": "published pp. 160, 163, 166 (PDF 54, 57, 60), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 160 and 166: 'g ∈ K^p\\U(V)(𝔸_F^{∞,p})/K^{p′}' in both definitions; U(V) is a group over F⁺ and morphisms of 𝔎(V)^p are double cosets in U(V)(𝔸_{F⁺}^{∞,p}), as written on p. 163.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1397,6 +1577,11 @@
         "text": "published",
         "pages": "published pp. 161–162 (PDF 55–56), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 161: the theorem ends 'Moreover, (4.1) is projective if and only if its base change to ℚ_p^Φ is', but the proof cites [62, Theorem 4.4] for representability and quasi-projectivity and then computes the tangent sheaf; the projectivity criterion is never addressed. The 'if' direction is standard (valuative criterion for PEL moduli) but unproved here; Lemma 4.2.4 treats the proper and non-proper cases separately, so nothing depends on it.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1431,6 +1616,11 @@
         "text": "published",
         "pages": "published pp. 162–163 (PDF 56–57), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 163: l_x is defined as the α with α(ω_{A₀^∨,τ∞}) ⊆ ω_{A^∨,τ∞}. By Remark 3.4.6, ω_{A₀^∨,τ∞} has rank 1 − r_{τ∞} = 0 for A₀ of signature Φ ∋ τ∞, so the condition is vacuous and the set is not a line; Hom(H^dR₁(A₀)_{τ∞}, ω_{A^∨,τ∞}), of rank 1, is the intended negative line. A remark only.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1468,6 +1658,11 @@
         "text": "published",
         "pages": "published pp. 166, 168, 170, 180 (PDF 60, 62, 64, 74), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 166, 168, 180 and Remark 4.3.6 (p. 169). The proof of (2) shows only that the tangent map of ι|B_{s⋆} is injective, i.e. that it is unramified (étale-locally a closed immersion); p. 180 uses it as 'locally for the Zariski topology on the source a closed immersion'. Since B_{s⋆} is proper and irreducible, a Zariski-open U ∋ x with ι|U an immersion would be closed in B ∩ ι⁻¹(V) and hence contain every x′ with ι(x′) = ι(x), so the Zariski-local statement fails whenever ι|B_{s⋆} is not injective on geometric points, which the N = 3 pigeonhole over the p + 1 vertex lattices produces for large inert p. Downstream uses need only unramifiedness.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1502,6 +1697,11 @@
         "text": "published",
         "pages": "published pp. 165–166 (PDF 59–60), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 166: in Definition 4.3.3 (of B_𝔭(V, −)) the last bullet says the morphism a of 𝔗 acts on M_𝔭(V, K^p)(S), copied from Definition 4.2.2; it should act on B_𝔭(V, K^p)(S), as the preceding bullet does.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1536,6 +1736,11 @@
         "text": "published",
         "pages": "published pp. 144, 171–173 (PDF 38, 65–67), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 172–173: 'U(V⋆)(F)g(iK^p)K⋆_p' and 'U(V⋆)(F)g_{s⋆}(iK^p)K⋆_p' (three times), whereas Sh(V⋆, K) = U(V⋆)(F⁺)\\U(V⋆)(𝔸^∞_{F⁺})/K (the same page writes U(V⋆)(F⁺_q) inline); the first occurrence also has g for g_{s⋆}.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1570,6 +1775,11 @@
         "text": "published",
         "pages": "published pp. 171, 173 (PDF 65, 67), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 173: 'an O_F-lattice Λ⋆ in V⋆ satisfying Λ⋆ ⊗_F F_𝔭 = Λ⋆_𝔭'. Λ⋆ ⊗_F F_𝔭 is the vector space, not a lattice (the completion Λ⋆ ⊗_{O_F} O_{F_𝔭} is meant), and the completions at the other primes 𝔮 | p must also be prescribed for A⋆ with λ⋆ to satisfy Definition 4.3.1 and for υ(s⋆) = g. Immediate fix.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1604,6 +1814,11 @@
         "text": "published",
         "pages": "published pp. 171, 175 (PDF 65, 69), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 175: 'when N is odd, Λ_{s⋆,𝔭} is a self-dual lattice under ϖ·( , )_{V⋆}'. Λ_{s⋆,𝔭} depends on a point s⋆ and lives in V_{s⋆}; the claim about K⋆_𝔭 = Stab(Λ⋆_𝔭) concerns Λ⋆_𝔭, which for N odd has (Λ⋆_𝔭)^∨ = pΛ⋆_𝔭 and so is self-dual for ϖ·( , ).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1638,6 +1853,11 @@
         "text": "published",
         "pages": "published pp. 177–178 (PDF 71–72), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 178: the extra datum is printed as (A⋆ × A₀, λ⋆ × ϖλ₀, η^{p⋆} × η₀^p; id). η₀^p is the level structure of the CM factor A₀ (source W₀ ⊗ 𝔸^{∞,p}) and does not fit; the level structure on A⋆ × A₀ is η^{p⋆} on V_n and 1 ↦ (id_{A₀})_*, as in the statement of Lemma 4.5.2(1) and Definition 4.5.1(c).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1672,6 +1892,11 @@
         "text": "published",
         "pages": "published pp. 177, 180 (PDF 71, 74), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 180: 'ι_sp is locally for the Zariski topology on the source a closed immersion, such that both the source and the target are smooth'. The target is a fibre product of two smooth subschemes whose smoothness is a consequence of the proposition, not an input (and the Zariski claim is E39). The reduction survives: an unramified morphism from a smooth scheme, bijective on geometric points and on tangent spaces, is étale and universally injective, hence an isomorphism.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1706,6 +1931,11 @@
         "text": "published",
         "pages": "published p. 180 (PDF 74), zoomed page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 180: 'hence p𝒟̃(A⋆)^∨_{τ∞} ⊆ H̃^c'; no 𝒟̃ is defined, and the next display uses p𝒟(A⋆)^∨_{τ∞}.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1740,6 +1970,11 @@
         "text": "published",
         "pages": "published pp. 152, 181–182 (PDF 46, 75–76), page images (p. 182 zoomed)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 182: 'F: 𝒟(A⋆)_τ → 𝒟(A⋆)_{τ^c} … for every τ ∈ Φ … follows from (1.4)'. By Notation 3.4.10(3) F maps 𝒟_τ to 𝒟_{στ}, and στ = τ^c only for τ∞, τ∞^c; '(1.4)' is a leftover label for step (1–4).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1774,6 +2009,11 @@
         "text": "published",
         "pages": "published p. 184 (PDF 78), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 184: 'a definite uniformization datum (V⋆_n, i_n, {Λ⋆_{n,𝔮}}) for V'; §4.5 has no V, the datum is for V_n (the next sentence fixes the one for V_{n+1}).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1811,6 +2051,11 @@
         "text": "published",
         "pages": "published pp. 176, 185, 263, 286 (PDF 70, 79, 157, 180), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 185: 'n₀ = 2r₀ and n₁ = 2r₁ + 1 for unique integers r₀, r₁ ⩾ 1', but §4.6 keeps the setup of §4.5 with n ⩾ 1, and n = 1 gives n₁ = 1, r₁ = 0. Nothing in §4.6 needs r₁ ⩾ 1, and the applications have n ⩾ 2.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1845,6 +2090,11 @@
         "text": "published",
         "pages": "published pp. 185 (zoomed), 186–187, 300–301 (PDF 79, 80–81, 194–195), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 185: loc′_𝔭 is defined as the composite of loc_𝔭, the pullback to H^i_𝔗(M^η_{n₀} ×_{T^η} M^η_{n₁}, L(j)) and the isomorphism H^i_𝔗(M_{n₀} ×_{T_𝔭} M_{n₁}, RΨL(j)) ⥲ H^i_𝔗(M_{n₀} ×_{T_𝔭} M_{n₁}, L(j)); the arrow from the arithmetic cohomology of the generic fibre (over ℚ_p^Φ) to H^i_𝔗(…, RΨL(j)) (arithmetic over F_p^Φ) is missing, and none exists canonically: for smooth proper X over the henselian ring the canonical map runs from special to generic, with the residue H^i(X_η) → H^{i−1}(X_s)(−1) as cokernel. Defining loc′_𝔭 on unramified classes (as the correction does) suffices, since the diagonal class is unramified.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1882,6 +2132,11 @@
         "text": "published",
         "pages": "published pp. 184, 186–188, 300 (PDF 78, 80–82, 194), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 186–187: △Sh(V⋆_n, (i_n−_n)K⋆_{sp,p}) is defined as the graph of (sh⋆_↓, sh⋆_↑), 'a subset of' the product, and Theorem 4.6.2's proof ends with ((id × π_{n₁}) ∘ b_△)_![B_sp] = (π_{n₀} × id)^*(1_{△Sh}). The left side is the base change of (s_↓, s_↑)_*1, which counts multiplicities; (sh⋆_↓, sh⋆_↑) need not be injective (the p + 1 points of a fibre of sh⋆_↓ can have the same image under sh⋆_↑ by pigeonhole), so the characteristic function of the set is wrong in general. Theorem 7.3.4 uses the pushforward explicitly, and with that reading Theorem 4.6.2 holds.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1916,6 +2171,11 @@
         "text": "published",
         "pages": "published p. 187 (PDF 81), zoomed page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 187: the right vertical arrow of the second diagram is labelled 'id×π₁'; the map is id × π_{n₁}, as in the left arrow and the identity below.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1951,6 +2211,11 @@
         "pages": "published pp. 193, 198, 210 (PDF 87, 92, 104), page images; also Definition 5.2.3 p. 190 (PDF 84) and the proof of Lemma 4.2.4 p. 162 (PDF 56)",
         "printedMatches": true,
         "note": "All three quotations are printed as recorded. The slips recur: 'M_𝔭(V, −)' appears twice on p. 193. H¹_dR also occurs in β_{*,τ∞^c}(H¹_dR(A/S)^⊥_{τ∞}) on p. 198, and H¹_dR(A)^⊥_{τ∞^c} occurs five times on p. 210."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 193 and 198: 'When M_𝔭(V, –) is proper' (§5 works with M_𝔭(V°, –)), 'is define by the condition H¹_dR(A/S)^⊥_{τ∞} ⊆ ω_{A^∨/S,τ∞^c}' (typo, and de Rham homology H₁^dR is meant as in Definition 5.2.3).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -1985,6 +2250,11 @@
         "text": "published",
         "pages": "published pp. 196–198 (PDF 90–92), page images; Definition 5.2.3 p. 190 (PDF 84)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 196: Theorem 5.3.4(2) states ℋom(ω_{𝒜^∨,τ∞}, ω^⊥_{𝒜^∨,τ∞^c}/ω_{𝒜^∨,τ∞}) ≃ (ζ°)^*𝒪(−(p+1)) on B°_{s°}. Off the link locus the radical makes ω^⊥_{𝒜^∨,τ∞^c} equal to ω_{𝒜^∨,τ∞}, so the quotient is zero there and not a line bundle; the isomorphism holds on B°_{s°} ∩ ι°⁻¹M†_𝔭 (the Fermat hypersurface), which is the only place Corollary 5.3.5 uses it.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2019,6 +2289,11 @@
         "text": "published",
         "pages": "published p. 199 (PDF 93), page image; Definitions 5.3.1 and 5.4.2 on pp. 194, 201 (PDF 88, 95)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 199: 'a π₁(S, s)-invariant K^{p•}-orbit of isomorphisms'; the functor is indexed by K^{p°} and no K^{p•} is defined (Definitions 5.3.1 and 5.4.2(e) use K^{p°}).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2054,6 +2329,11 @@
         "pages": "published pp. 201–203, 206 (PDF 95–97, 100), page images; Theorem 5.2.5(3) p. 190 (PDF 84)",
         "printedMatches": true,
         "note": "On p. 206 the identification is printed for a κ-point, with A rather than 𝒜: Lie_{A^∨,τ∞^c} ≃ H₁^dR(A)_{τ∞^c}/ω_{A^∨,τ∞^c}."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 202 and 206: Theorem 5.4.4(1),(2) and the proof write Lie_{𝒜^∨,τ∞^c} and identify it with H₁^dR(𝒜)_{τ∞^c}/ω_{𝒜^∨,τ∞^c}, which by Remark 3.4.6 is Lie_{𝒜,τ∞^c}, the symbol used in Theorem 5.2.5(3)–(5) and 5.4.4(5). The identification in the proof fixes the intended object.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2092,6 +2372,11 @@
         "text": "published",
         "pages": "published pp. 202–204 (PDF 96–98), page images; Remark 5.4.5 p. 207 (PDF 101); neatness in 𝔎(V)^□, p. 143 (text layer)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 202: 'The restriction of ι•_κ to B•_{s•} is locally on B•_{s•} a closed immersion'; as with E39 the proof only shows injectivity of the tangent map (unramifiedness), which gives an immersion étale-locally, not Zariski-locally on the source. Remark 5.4.5(1) asserts a closed immersion only for sufficiently small K^{p°}. Only the normal sheaf is used later.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2130,6 +2415,11 @@
         "pages": "published pp. 203, 206 (PDF 97, 100), page images; Definition 4.3.3 pp. 165–166 (PDF 59–60) and Definition 5.4.2 p. 201 (PDF 95)",
         "printedMatches": true,
         "note": "(e′) prints η^{•p} (bullet before p), as the quotation records. The correction silently changes it to η^{p•}, which is right."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 203 and 206: '(e′) the K^p-orbit …' and 'let η^p be the unique K^p-level structure such that Definition 4.3.3(d) is satisfied'; Definition 4.3.3 has no clause (d), and the relevant condition and level group are Definition 5.4.2(e) and K^{p°}.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2164,6 +2454,11 @@
         "text": "published",
         "pages": "published p. 205 (PDF 99), page image; Verschiebung convention on pp. 195, 200 (PDF 89, 94)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 205: 'H₂^{(p)} = γ_{*,τ∞}(𝕍H₁^dR(A/S)_{τ∞^c}) = 𝕍(im γ_{*,τ∞})'. 𝕍 maps the τ-component to the σ⁻¹τ-component; 𝕍H₁^dR(A)_{τ∞^c} is ω_{A^∨,τ∞}, which γ_{*,τ∞} kills, so the middle term must be γ_*(𝕍H₁^dR(A/S)_{τ∞}). The last equality and the conclusion H₁ ⊆ H₂^⊣ are right.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2199,6 +2494,11 @@
         "pages": "published pp. 211–212 (PDF 105–106), page images",
         "printedMatches": true,
         "note": "The sentence right after the display does print S°_{𝔭1}(V°, K^{p°})(S), so only the display has S°_𝔭."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 211: the display defines S°_{𝔭1}(V°, –) by K^{p°} ↦ S°_𝔭(V°, K^{p°}) (the subscript 1 is missing), and η°_𝔭 is 'for a chosen geometric point s … an isomorphism' without the π₁(S, s)-invariance that Definitions 5.2.1 and 5.3.1 require for a level structure.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2234,6 +2534,11 @@
         "pages": "published p. 212 (PDF 106), and Lemma A.1.4 pp. 322–323 (PDF 216–217), page images",
         "printedMatches": true,
         "note": "Lemma A.1.4 begins on p. 322, where its hypothesis 'Suppose that p + 1 is invertible in L' is printed. Parts (3),(4) and the proof are on p. 323."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 212 against Lemma A.1.4 (pp. 322–323): Lemma 5.6.2 assumes 'p + 1 invertible in L' only in part (1), but parts (2) and (3) cite Lemma A.1.4(3),(4), which assume it throughout; and A.1.4(3) ('an immediate consequence of (2)') does not cover the middle degree N − 2, where freeness needs the torsion argument in the correction. The statements are true for smooth hypersurfaces and later uses take ℓ ∤ p(p² − 1).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2268,6 +2573,11 @@
         "text": "published",
         "pages": "published p. 214 (PDF 108), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 214: 'π_𝔭 is a constituent the normalized parabolic induction of π^s(𝟏) ⊠ χ₁ ⊠ ⋯ ⊠ χ_{r−1} for some unramified characters χ₁, …, χ_{r−1} of F^×' — the 'of' is missing, and in §5 F is the global CM field, so the characters are of F_𝔭^× (wording carried over from Appendix C, where F is local).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2302,6 +2612,11 @@
         "text": "published",
         "pages": "published pp. 216–218 (PDF 110–112), page images; dim 𝒱^⊣_{s•} on p. 200 (PDF 94); v3 p. 75 (text layer)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 217–218: 'Lemma 5.7.3(3) implies rank H₂ ⩾ rank im(pφ•⁻¹)_{*,τ∞^c} + 1'. Lemma 5.7.3(3) only gives that the image meets the radical H₁^dR(A•₁/S)^⊥_{τ∞} trivially; the '+1' needs that radical (contained in H₂) to be a line, which holds for N odd but not for N even, where λ•₁ is p-principal and the radical is 0 (then the inequality fails at j = r − 1, e.g. N = 2, j = 0). The conclusion j ⩽ ⌊N/2⌋ − 1 still follows from rank H₂ = ⌈N/2⌉ − 1, as the correction shows.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2337,6 +2652,11 @@
         "pages": "published pp. 220–222 (PDF 114–116), page images; v3 text layer",
         "printedMatches": true,
         "note": "In v3 the occurrences are on pp. 76–77, not only p. 77."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 220–222 (the proof of Theorem 5.7.7 inherits the Lie_{𝒜^∨,τ∞^c} of Theorem 5.4.4): the displays identify the symbol with H₁^dR(A)_{τ∞^c}/ω_{A^∨,τ∞^c}, which by (3.2) is Lie_{A,τ∞^c}, the line bundle of Theorem 5.2.5(4),(5) and 5.4.4(5) that the proof invokes. Same slip as E56.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2371,6 +2691,11 @@
         "text": "published",
         "pages": "published pp. 223–224 (PDF 117–118), page images; the use in Proposition 5.8.8, p. 230 (PDF 124); radical dimension on p. 200 (PDF 94)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 223–224: Theorem 5.7.8(2) identifies the cokernel with ζ†*((σ*ℋ_{t†}) ⊗ O(1)) of rank ⌊N/2⌋ − j − 1 for all N. By the rank count from the rest of the theorem (M† smooth of dimension N − 2, B†_{s•_i} of dimension ⌊N/2⌋ − 1, intersection of dimension ⌊N/2⌋ − j − 1) the cokernel has rank N − ⌊N/2⌋ − j − 1, which is r − j for N = 2r + 1; for N = 3, j = 0 the intersection is a reduced point on the curve M†, the cokernel is its 1-dimensional tangent space, while ℋ_{t†} = 0. So (2) holds only for N even, as the correction says.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2405,6 +2730,11 @@
         "text": "published",
         "pages": "published p. 223 (PDF 117), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 223: 𝒱_{t†} := im(ψ₁)_{*,τ∞^c}/(im(pφ•⁻¹)_{*,τ∞^c} + H₁^dR(A•₁/S)^⊥_{τ∞}) for the κ-point t†; it is a κ-vector space (so that ℙ(𝒱_{t†}) is a κ-scheme) and S should be κ.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2439,6 +2769,11 @@
         "text": "published",
         "pages": "published p. 230 (PDF 124), page image; ι• in (5.5) on p. 201 (PDF 95)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 230: (5.19) 'ι•*Lie_{𝒜,τ∞^c} ≃ m^{†°*}O(1) of line bundles on M†_𝔭(V°, K^{p°})'. ι• is the map B•_𝔭 → M•_𝔭 of the basic correspondence, so ι•*Lie lives on B•_𝔭; the bundle on M† is (m^{†•})*Lie_{𝒜,τ∞^c}, which is what the degree computation that follows uses.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2473,6 +2808,11 @@
         "text": "published",
         "pages": "published p. 235 (PDF 129), page image; '𝔽_p^Φ contains 𝔽_{p²}' p. 188 and (P3) p. 264 (text layer)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 235: 'As p² − 1 is invertible in L, we further have E₂^{−1,2r}(−1)^{Gal(F̄_p/F_p^Φ)} = 0'. Gal(F̄_p/F_p^Φ) acts trivially on H^{2r−2}(M̄†, L(r−1)) (Lemma 5.6.2(3)), so its Frobenius acts on E₂^{−1,2r}(−1) by q^{±1} with q = #F_p^Φ = p^{2f}, and the invariants vanish iff q − 1 is invertible; p² − 1 divides q − 1 but its invertibility does not suffice when f > 1 (p = 3, q = 81, L = 𝔽₅). §6 later imposes ℚ_p^Φ = ℚ_{p²}, where the claim holds.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2507,6 +2847,11 @@
         "text": "published",
         "pages": "published pp. 231, 235–237 (PDF 125, 129–131), page images; Lemma 5.6.2 p. 212 (PDF 106); Lemma A.1.4 pp. 322–323 (PDF 216–217)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 235 and 237: the proofs of Lemma 5.9.3(1) and Lemma 5.9.6 cite Lemma 5.6.2(1),(2), which assume p + 1 invertible in L, while §5.9 takes L only p-coprime. The conclusions hold for every p-coprime L by weak Lefschetz and the Gysin isomorphism for the Fermat hypersurface (as in the proof of Lemma A.1.4(2)); the applications have ℓ ∤ p(p² − 1).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2541,6 +2886,11 @@
         "text": "published",
         "pages": "published p. 241 (PDF 135), page image; V°_{n+1} := (V°_n)_♯ on p. 237 (PDF 131)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 241: Definition 5.10.3(c) reads 'the K^p_{n+1}-orbit … for v ∈ V°_♯ ⊗ 𝔸^{∞,p}', copied from Definition 4.5.1(c); in §5.10 the level group is K^{p°}_{n+1} and the space V°_{n+1} = (V°_n)_♯, and 'V°_♯' is undefined.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2575,6 +2925,11 @@
         "text": "published",
         "pages": "published pp. 247–249 (PDF 141–143), page images incl. the rotated diagram of Prop. 5.10.14; uses checked on pp. 258–260",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 248: sh•↓ : Sh(V°_n, –_nK•_{n,p}) → Sh(V°_n, –_nK•_{sp,p}) and likewise sh†↓, i.e. from the n-level to the sp-level. Since K•_{sp,p} ⊆ K•_{n,p} and K†_{sp,p} ⊆ K†_{n,p}, the natural maps go from the sp-level down, which is how the diagram of Proposition 5.10.14 and every later use (Theorem 5.11.5, Lemma 5.11.6) take them.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2609,6 +2964,11 @@
         "text": "published",
         "pages": "published pp. 250–252 (PDF 144–146), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 250: Notation 5.11.1(4) defines every Q^{?₀,?₁} as the strict transform of P^{?₀,?₁} under σ. P^{†,†} is the centre of the blow-up, so its strict transform is empty; Lemma 5.11.3 uses Q^{†,†} as σ⁻¹(P^{†,†}), the exceptional ℙ¹-bundle.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2643,6 +3003,11 @@
         "text": "published",
         "pages": "published p. 251 (PDF 145), page image; Lemma 5.2.7 on p. 193 (PDF 87), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 251: Lemma 5.11.2 writes 𝐐 ⊗_{ℤ_{p²}} ℚ̄_p, but 𝐐 is a scheme over ℤ_p^Φ, which can be larger than ℤ_{p²}; Lemma 5.2.7 (p. 193) writes ⊗_{ℤ_p^Φ}. Harmless when F_p^Φ = F_{p²}.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2677,6 +3042,11 @@
         "text": "published",
         "pages": "published pp. 251–252 (PDF 145–146), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 252: Lemma 5.11.3(2) says σ: Q^{†,†} → P^{†,†} is 'a trivial ℙ¹-bundle' and (5) speaks of 'the trivial ℙ¹-fibration'. Near P^{†,†} the model is x₀y₀ = x₁y₁ with M°_{n_α} = {x_α = 0}, so the exceptional locus is ℙ(pr₀*N₀ ⊕ pr₁*N₁) with N_α the normal bundle of M†_{n_α} in M°_{n_α}, which restricts to O(p+1) on each Fermat fibre. Over a connected proper base ℙ(A ⊕ B) is trivial only if A ⊗ B⁻¹ is trivial (Krull–Schmidt), and pr₀*N₀ ⊗ pr₁*N₁⁻¹ is not, so the bundle is not trivial; f should be the class of one of the two canonical disjoint sections.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2711,6 +3081,11 @@
         "text": "published",
         "pages": "published p. 256 (PDF 150), page image zoomed at 300 dpi",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 256: the first arrow of inc^{•,†}_! is labelled (π°_{n₀} × π°_{n₁})^* from H⁰(S•_{n₀} ×_{T_𝔭} S°_{n₁}) to H⁰(B•_{n₀} ×_{T_𝔭} B°_{n₁}); the first factor must be π•_{n₀}, as the dual map inc*_{•,†} has.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2745,6 +3120,11 @@
         "text": "published",
         "pages": "published pp. 259–260 (PDF 153–154), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 260: the n-odd case concludes the computation for part (2) with 'Thus, (1) follows from Proposition 5.8.6', although (1) was concluded a few lines earlier with the same sentence; the second should read (2), as in the n-even case.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2779,6 +3159,11 @@
         "text": "published",
         "pages": "published p. 266 (PDF 160), page image; Lemma 6.2.1 on p. 268",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 266: 'the Satake parameter α of π_𝔭 does not contain the pair {−1, −1} (resp. {−p, −p⁻¹}) … by (P5)'. (P5) is a condition on α(Π_𝔭) mod λ, while the congruence between π and Π is only away from Σ⁺ ∪ Σ⁺_p (𝔪 contains no Hecke operator at 𝔭), so the comparison at 𝔭 through Galois representations (Chebotarev, Brauer–Nesbitt, local–global compatibility), carried out in Lemma 6.2.1 and the proof of Lemma 6.3.2, is missing here. The lemma is true.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2813,6 +3198,11 @@
         "text": "published",
         "pages": "published pp. 267–268 (PDF 161–162), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 267–268: '(the same argument of) Lemma 6.1.10' is invoked for the boundary, where (V′_N, π′) need not be a standard pair (Definition 3.2.7), so Lemma 6.1.10 does not apply literally, and the step 'H^i(Z_{F̄}, O_λ)_𝔪 = 0 implies (6.1) is an isomorphism' needs i*Rj_*O_λ rather than O_λ on the boundary. Both steps are standard and the conclusion holds; they are asserted without argument.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2847,6 +3237,11 @@
         "text": "published",
         "pages": "published p. 268 (PDF 162), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 268: 'by the Chebotarev density theorem, both ρ_{BC(π),ι} and ρ_{Π,λ} ⊗ ℚ̄_ℓ each admits a lattice such that their reductions are isomorphic'. Lemma 6.2.1 does not assume residual irreducibility, and then trace equality gives only isomorphic semisimplified reductions (Brauer–Nesbitt); the argument uses only Frobenius eigenvalues at 𝔭, so the conclusion stands.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2881,6 +3276,11 @@
         "text": "published",
         "pages": "published p. 268 (PDF 162), page image; Assumption 6.1.4 on p. 265",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 268: '(5) E^{0,2r}_{s,𝔪} degenerates at the second page'; degeneration is a property of the spectral sequence E^{p,q}_{s,𝔪}, not of one entry.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2915,6 +3315,11 @@
         "text": "published",
         "pages": "published pp. 270–271 (PDF 164–165), page images; Lemma 2.1.4 on p. 122 (text layer)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 271: 'This implies (2) by Lemma 2.1.4(1)'. E^{0,2r}_{2,𝔪} is only a Γ_F-stable submodule of ⊕(R^c_{BC(π′)})^{⊕d(π′)} (p. 270), so weak semisimplicity passes to it through Lemma 2.1.4(2) (subquotients) as well as (1) (direct sums).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2949,6 +3354,11 @@
         "text": "published",
         "pages": "published p. 272 (PDF 166), page image zoomed at 300 dpi",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 272: 'the roots of P_{α(Π_{N,𝔭})} mod λ'; Π_{N,𝔭} is not defined in §6, which writes P_{α(Π_𝔭)} (a leftover of the §7 notation Π_{n_α}).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -2983,6 +3393,11 @@
         "text": "published",
         "pages": "published pp. 272–273 (PDF 166–167), page images zoomed at 300 dpi",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 273: the proof of (3) defines ∇⁰_𝔪 and ends 'hence Δ⁰_𝔪 is surjective'; Δ⁰ is not defined in the published text (a leftover of arXiv v1).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3017,6 +3432,11 @@
         "text": "published",
         "pages": "published p. 280 (PDF 174), page image; Definition 6.3.3 and Theorem 6.3.4(5) on pp. 277–278",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 280: 𝒮^? := (r̄, η^μ_{F/F⁺}ε_ℓ^{1−N}, …) one line after 'χ := ε_ℓ^{1−N}'; μ is not defined in §6.4 (it is [51]'s parity, here 0 since N is even) and clashes with the integer μ of Theorem 6.3.4(5).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3051,6 +3471,11 @@
         "text": "published",
         "pages": "published pp. 281–282 (PDF 175–176), page images zoomed at 300 dpi; Liu–Tian–Xiao arXiv:2406.00624 p. 85, footnote 29, page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 281: v and v′ lift eigenvectors of r̄♮(φ_p²) with eigenvalues p^{−2r} and p^{−2r+2}, and x is defined by r_mix(t)v′ = xv + v′, followed by 'x(s − p^{−2r}) = 0'. With φ_p t φ_p⁻¹ = t^p (so φ_p² t φ_p⁻² = t^{p²}), conjugating gives x(s/s′ − p²) = 0; with s′ = p^{−4r+2}s⁻¹ this is x(s − p^{−2r+2})(s + p^{−2r+2}) = 0, which forces x = 0 when ℓ ∤ p²+1, contrary to the ring structure that follows. The printed relation x(s − p^{−2r}) = 0 is what r_mix(t)v = v + xv′ gives, so the roles of v and v′ are swapped; the rings R^unr, R^ram, R^cong and the conclusion are unaffected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3085,6 +3510,11 @@
         "text": "published",
         "pages": "published p. 282 (PDF 176), page image zoomed at 300 dpi; (P1) and Notation 6.1.3 on pp. 264–265",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 282: 'let T^ram be the image of 𝕋^{Σ⁺∩Σ⁺_p}_N'. By (P1) Σ⁺ ∩ Σ⁺_p = ∅, the abstract Hecke algebra is only defined for sets containing Σ⁺_bad, and 𝔪 lives in 𝕋^{Σ⁺∪Σ⁺_p}_N (Notation 6.1.3); ∪ is meant.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3119,6 +3549,11 @@
         "text": "published",
         "pages": "published p. 285 (PDF 179), page image; p. 282 for H ⊗ (R^ram)^{⊕N}",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 285: the whole proof of (3) is the assertion 'we have an isomorphism H^{2r−1}_𝔗(M̄•_N, O_λ(r)) ≃ H ⊗_{R^ram} R₁(r)', where R₁ is defined nowhere in the paper and the left side is not localised at 𝔪. The correction supplies the definition and the eigenvalue-separation argument that makes (3) follow from (P4).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3153,6 +3588,11 @@
         "text": "published",
         "pages": "published p. 285 (PDF 179), page image zoomed at 400 dpi",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 285: the third term of the displayed sequence is H/F₋₁H without a Tate twist, but H¹(I_{ℚ_{p²}}, M) ≅ M_I(−1) and inertia acts trivially on H/F₋₁H, so the term is (H/F₋₁H)(−1); the twist is what makes the splitting 'by considering Gal(F̄_p/F_{p²}) actions and (3)' work.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3187,6 +3627,11 @@
         "text": "published",
         "pages": "published pp. 285–286 (PDF 179–180), page images; hypotheses on pp. 264, 277–278; uses on pp. 310, 312, 318–319 (text layer)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 285–286: the proof claims O_λ/λ^m = R^ram/𝔫 'since 𝔫 ∩ O_λ = λ^m O_λ'. Read O_λ-linearly, R^ram/𝔫 is O_λ/λ^j with j = m iff ρ_{Π,λ,+} mod λ^m is of type 𝒮^ram, whose local condition 𝒟^ram at v ∈ Σ⁺_lr requires P_{α(Π_v)} level-raising special modulo λ^m, while the hypotheses only give it modulo λ. If it holds only modulo λ^j, j < m, the module in (5) is killed by λ^j and cannot be (R̄^{(m)c})^{⊕μ} with μ ⩾ 1, so (5) needs the added hypothesis, which both applications (Σ⁺_lr = ∅, or {𝔭₁} with (PII4)) supply.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3221,6 +3666,11 @@
         "text": "published",
         "pages": "published p. 288 (PDF 182), page image zoomed at 300 dpi; Notation 7.3.1 on p. 298 (PDF 192), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 288: 𝔪_α and 𝔫_α are defined through ker(𝕋^{Σ⁺}_{n_α} → O_E → …), but §7 introduces only Σ⁺_min (the domain of φ_{Π_α}); the notation is copied from Notation 6.1.3. The resulting ideal is the same for any Σ⁺_min ⊆ Σ⁺ ⊆ Σ⁺_I.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3255,6 +3705,11 @@
         "text": "published",
         "pages": "published p. 288 (PDF 182), page image; §7.3 counterpart on p. 298 (PDF 192), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 288: 'K•_sp := K^{p°}_sp × K•_{n₀,p}'. K•_sp is a level for U(V°_n), and for n odd K•_{n₀,p} = K•_{n+1,p} is a subgroup of U(V°_{n+1})(F⁺_p), so the product is not a subgroup of U(V°_n)(𝔸^∞_{F⁺}); K•_{sp,p} (as in §7.3) is meant. Unused later in §7.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3290,6 +3745,11 @@
         "pages": "published pp. 291–292, 295 (PDF 185–186, 189), page images",
         "printedMatches": true,
         "note": "Both quotations are as printed. The display right after the p. 295 quotation writes cl(P•_sp), which supports the correction."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 292 and 295 (image): the proof of Theorem 7.2.8(3) writes ∇(cl(Q_sp)) = ∇(cl(Q•_△)) with cl(Q•_△) ∈ H^{2n}(Q̄^{•,•}), but Q•_△ is never defined (Notation 5.11.1 defines P•_△) and the cycle of §7.2 is 𝐐_sp (the statement and Corollary 7.2.9 use 𝐐^η_sp). Intended meaning clear.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3324,6 +3784,11 @@
         "text": "published",
         "pages": "published pp. 262–263, 291–292, 295 (PDF 156–157, 185–186, 189), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 292: Proposition 7.2.7 is reduced to [47, Theorems 2.16 and 2.18], with footnote 29 saying the proofs there 'work without change' although [47] assumes the strictly semistable scheme proper, and here the coefficients are O_λ and 𝐐 is not proper. No argument is given for the adaptation (nearby-cycle cohomology in place of generic-fibre cohomology, the definition of cl(Q_sp) in C^n(Q, O_λ)); the inputs (Lemmas 5.11.2, 5.11.3, 7.2.5(6)) are available, so this is a gap in the proof.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3358,6 +3823,11 @@
         "text": "published",
         "pages": "published pp. 254, 294 (PDF 148, 188), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 294: the second display for (1b)/(1c) applies I°_{n₁,𝔭} ∘ inc*_{°,†} to (γ^{•,†}_{•,•})_!H^{2(n−1)}(P̄^{•,†}), which lands in the cohomology of P^{•,•}, where inc*_{°,†} is not defined; inc*_{•,†} is meant (the first display correctly uses inc*_{°,†}, inc*_{°,•}).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3392,6 +3862,11 @@
         "text": "published",
         "pages": "published p. 295 (PDF 189), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 295: ker ⁰d ⊗ ker ¹d ⊆ ⊕ H^{2(n−1)}_𝔗(P̄^{?₀,?₁}, O_λ(n−1)). By Künneth the tensor product of the degree-2r₀ and degree-2r₁ groups lies in degree 2n with twist n, and it is then placed in C^n(Q, O_λ), a subquotient of H^{2n}; the 2(n−1) is copied from the proof of (1).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3426,6 +3901,11 @@
         "text": "published",
         "pages": "published pp. 285, 296–297 (PDF 179, 190–191), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 296–297: the corollary takes the exponent in H¹_sing(ℚ_{p²}, H/(𝔫₀, 𝔫₁)) (H = H^{2n−1}_𝔗(Q̄, RΨO_λ(n))), while Theorem 7.2.8 computes the image in H¹_sing(ℚ_{p²}, H_{(𝔪₀,𝔪₁)})/(𝔫₀, 𝔫₁); the comparison map between the two is not mentioned (Frobenius invariants need not commute with reduction). The analogous comparison is proved in Theorem 6.3.4(4) and the same argument applies.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3463,6 +3943,11 @@
         "text": "published",
         "pages": "published pp. 298, 300–301 (PDF 192, 194–195), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 301: 'as the map H^{2n}_ét((Sh(V_{n₀}) × Sh(V_{n₁}))_{F_𝔭}, O_λ(n)) → H^{2n}_𝔗(M_{n₀} ×_{T_𝔭} M_{n₁}, O_λ(n)) is an isomorphism', unlocalised. The generic and special fibre absolute cohomologies differ by H^{2n−1}(X_s, O_λ(n−1)), which contains H¹(F_{p²}, H^{2n−2}(X̄_s, O_λ(n−1))) and is nonzero in general (Tate classes); after localisation at (𝔪₀, 𝔪₁) it vanishes by weights and Assumption 7.3.2, which suffices since the statement is modulo (𝔫₀, 𝔫₁).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3498,6 +3983,11 @@
         "pages": "published pp. 300–302 (PDF 194–196), page images",
         "printedMatches": true,
         "note": "The page prints T⋆_{n₁,𝔭} (a star), which the finding transcribes as T*. This is harmless."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 301: '= 0 in H^{2n}_𝔗(M_{n₀} ×_{T_𝔭} S_{n₁}, O_λ(n))/(𝔫₀, 𝔫₁)'. (id × π_{n₁})_! lowers degree by 2r₁ and the twist by r₁, so the group is H^{2r₀}_𝔗(M_{n₀} ×_{T_𝔭} S_{n₁}, O_λ(r₀)), as in Theorem 4.6.2 and the two claims above.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3532,6 +4022,11 @@
         "text": "published",
         "pages": "published pp. 298, 301 (PDF 192, 195), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 301: the Künneth display has the localised left side H^i(M̄_{n₀} ×_{T̄_𝔭} M̄_{n₁})_{(𝔪₀,𝔪₁)} and unlocalised factors on the right; the right side must be localised at 𝔪₀ and 𝔪₁ (as in Lemma 7.2.5(1)) for the conclusions drawn next from Assumption 7.3.2.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3566,6 +4061,11 @@
         "text": "published",
         "pages": "published pp. 305–306 (PDF 199–200), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 306: 'Let V′₁ ⊆ V₁ be the subspace such that k·e ⊗ V′₁ is the t-invariant subspace of W. Then it is easy to see that V′₁ is closed under the action of Γ'. An element g ∈ Γ maps W^t to W^{gtg⁻¹}, not to W^t, so Γ-stability of V′₁ does not follow from the t-invariants alone; the normal-closure (Clifford) argument in the correction supplies it. The lemma is true.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3600,6 +4100,11 @@
         "text": "published",
         "pages": "published pp. 306–307, 309–310, 312 (PDF 200–201, 203–204, 206), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 306–307 and 312: Lemma 8.1.7 asserts an isomorphism 'of O_λ[Γ_F]-modules' and immediately transports the (PI8) map, defined on the quotient by 𝕋^{Σ⁺_I∪Σ⁺_p}_{n₁} ∩ ker φ_{Π₁}, to the level-raised variety; that needs the isomorphism to be Hecke-linear, which an O_λ[Γ_F]-isomorphism need not be. The rational isomorphism of the proof (and the integral one of the E13 repair) is Hecke-equivariant, so the lemma should be stated for 𝕋[Γ_F]-modules.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3634,6 +4139,11 @@
         "text": "published",
         "pages": "published pp. 303, 310, 317–318 (PDF 197, 204, 211–212), page images; Lemma 2.7.1 (p. 136), text layer; arXiv v3 PDF pp. 135, 140, text layer",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 310 and 317: γ is chosen from (L5-2) and Lemma 2.7.1 before and independently of S, and then Proposition 2.6.6 is invoked to fix an (S, γ)-abundant Ψ ∈ G_{S,γ}. By E1/E23, Proposition 2.6.6 fails for [F:F⁺] = 2 when S lies in the wrong c-eigenspace relative to γ (in the base-change situation θ_S vanishes on G_{S,γ} if εb = −1), so the proofs need γ adapted to S, as the correction describes. The main theorems are expected to survive with that choice.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3668,6 +4178,11 @@
         "text": "published",
         "pages": "published pp. 303, 310, 317 (PDF 197, 204, 211), page images; Lemma 2.7.1 (p. 136), text layer",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 310 and 317: '(γ₁, γ₂, ξ) in the image of (ρ̄^{(m)}_{1+}, ρ̄^{(m)}_{2+}, ε̄^{(m)}_ℓ)'; the representations are indexed α = 0, 1 throughout (§2.7, Lemma 2.7.1), ρ̄_{2+} is undefined, and (a)–(e) refer to γ₀, γ₁.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3702,6 +4217,11 @@
         "text": "published",
         "pages": "published pp. 311, 319 (PDF 205, 213), page images; Notation 2.2.1 and (2.2), pp. 123–124, text layer",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 311 and 319: 'We also identify R̄^{(m)c} with (R̄^{(m)})^* via the polarization Ξ'. Ξ is a 1-polarization R^c ≅ R^∨(1) (§2.7), so R̄^{(m)c} ≅ (R̄^{(m)})^*(1), which is also what the local Tate pairing pairs with H¹(F_w, R̄^{(m)}).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3736,6 +4256,11 @@
         "text": "published",
         "pages": "published pp. 304, 313–314 (PDF 198, 207–208), page images; introduction pp. 110, 112–113, text layer; arXiv v3 PDF pp. 137–138, text layer",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 304 and 313–314: Corollary 8.2.3 assumes '(c) F⁺ ≠ ℚ if n ⩾ 3' and is proved 'from Theorem 8.2.2 and Lemma 8.1.3 (where we use (a) and (c))', but Lemma 8.1.3 assumes F⁺ ≠ ℚ outright (and Corollary 8.2.5 uses Lemma 8.1.4, whose (c) is F⁺ ≠ ℚ). Theorem 8.2.2 applies only to admissible λ, so for n = 2 and F⁺ = ℚ, allowed by (c), the proof gives nothing; arXiv v1/v2 covered this case with 'weakly admissible' primes, which v3 removed.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3773,6 +4298,11 @@
         "text": "published",
         "pages": "published pp. 303, 311–313, 319 (PDF 197, 205–207, 213), page images; Lemma 4.2.4 (p. 161), text layer",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 313 (and p. 319 for (8.14)): (8.5) is justified by 'both Sh′_n and Sh′_{n+1} have smooth models over O_{F_w} for which (an analogue of) Lemma 4.2.4 holds', for every w not above Σ⁺ ∪ {𝔭}, including w | ℓ. Lemma 4.2.4 is about p-coprime coefficients (specialisation isomorphisms) and gives unramifiedness at w ∤ ℓ, but says nothing about the Fontaine–Laffaille condition H¹_ns for torsion classes at w | ℓ; that step needs integral p-adic Hodge theory in the range guaranteed by (L1).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3807,6 +4337,11 @@
         "text": "published",
         "pages": "published pp. 313–314 (PDF 207–208), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 314: Remark 8.2.4 speaks of 'the modularity of symmetric powers of elliptic curves, namely, condition (a) in Corollary 8.2.3'; in Corollary 8.2.3 modularity is (b) and (a) is non-isogeny.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3841,6 +4376,11 @@
         "text": "published",
         "pages": "published p. 315 (PDF 209), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 315: Conjecture 8.3.1 says 'for every prime λ of E, the graph … is nonvanishing in the quotient Chow group CH^n(…)_E/(ker φ_{Π₀}, ker φ_{Π₁})'; the conclusion does not involve λ, so the quantifier is vacuous (the λ-adic statement is (8.10)).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3877,6 +4417,11 @@
         "pages": "published pp. 298, 315–316 (PDF 192, 209–210), page images",
         "printedMatches": true,
         "note": "The quoted condition continues the theorem's second bullet (the object (K_n, K_{n+1}) ∈ 𝔎(V_n)_sp), which begins on p. 315. The first bullet is the hermitian space V_n."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 316: '(K_{n₀})_v is a transferable open compact subgroup (Definition D.2.1) of U(V°_{n₀})(F⁺_v)'; Theorem 8.3.2 involves only the indefinite V_n, and the matching condition on p. 298 reads U(V_{n₀})(F⁺_v).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3913,6 +4458,11 @@
         "pages": "published p. 318 (PDF 212), page image",
         "printedMatches": true,
         "note": "The display is two displays before (8.12); the display immediately before (8.12) recalls 𝔫_α."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 318: the exponent display uses H^{2n}_ét((…)_{F_{𝔭₁}}, L(n))/(𝔫₀, 𝔫₁); L is the p-coprime coefficient ring of §4.6, while in §8 the coefficients are O_λ, as in Theorem 7.3.4 applied next.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3947,6 +4497,11 @@
         "text": "published",
         "pages": "published pp. 318–319 (PDF 212–213), with p. 298 (PDF 192, §7.3 definitions) and p. 300 (PDF 194, Theorem 7.3.4), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 318–319 against §7.3 (p. 298): (8.12) and the next paragraph use K⋆_sp, but Theorem 7.3.4, cited for (8.12), bounds 𝟙_{Sh(V⋆_n, K⋆_{sp,sp})} with K⋆_{sp,sp} := (i_nK^p_sp) × K⋆_{sp,p}; for n even K⋆_{sp,p} is a proper subgroup of K⋆_{n,p} and Sh(V⋆_n, K⋆_sp) does not map to Sh(V⋆_{n+1}, K⋆_{n+1}).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -3981,6 +4536,11 @@
         "text": "published",
         "pages": "published p. 319 (PDF 213), with p. 311 (PDF 205), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 319: 'Replace s₂ by its image in H¹_f(F, R̄^{(m)})'; no H¹_f of the torsion module is defined (H¹_{f,R} already contains s₂), and the rank-zero proof (p. 311) says 'its image in H¹(F, R̄^{(m)})'.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4015,6 +4575,11 @@
         "text": "published",
         "pages": "published pp. 326–330 (PDF 220–224), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 328: from 'π⁻¹(S) is a singleton' away from the special points and 'π⁻¹(s) = ℙ(H_s) ≃ ℙ^{r−1}' at them, the proof concludes 'In particular, π is a blow-up along DL(V♯)′'. A proper morphism that is an isomorphism off finitely many smooth points with ℙ^{r−1} fibres over them need not be the blow-up (the source could be non-reduced or non-normal along E), and the blow-up structure is used for ℒ|_E ≃ O_E(1) and c₁(O(E))|_E = −η in (A.3)–(A.4). A real gap in the proof, with a plausible repair as described.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4049,6 +4614,11 @@
         "text": "published",
         "pages": "published pp. 334–335 (PDF 228–229), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 335: 'a ∈ F^×, we have an element a^t ∈ A_N(F⁺)'; A_N(F⁺) acts on each e_i by a scalar in F⁺ (p. 334), so a must lie in (F⁺)^× (and ϖ a uniformizer of F⁺). The double cosets do not depend on the choice, so nothing changes.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4083,6 +4653,11 @@
         "text": "published",
         "pages": "published p. 348 (PDF 242), page image (zoomed)",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 348: the first display after 'the lemma is equivalent to' ends its product with (q^{2(k−δ)−1}), missing the '+ 1' that (B.5) and (B.6) on the same page carry ((q^{2δ−1} + 1)).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4117,6 +4692,11 @@
         "text": "published",
         "pages": "published p. 350 (PDF 244), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 350: with f_j = e_j + (terms in e_{−s}, …, e_{−1}, e₀ given by A and v) and (e_{−i}, e_j) = δ_{ij}, the pairing (f_i, f_j) involves A_{s+1−i, j}, so isotropy reads J_sA + ᵗ(J_sA)^c + ᵗv^c v = 0 with J_s the antidiagonal permutation, not the printed ᵗA^c + A + ᵗv^c v = 0; A ↦ J_sA is bijective, so the count q^{s(s+2)} is unaffected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4151,6 +4731,11 @@
         "text": "published",
         "pages": "published p. 351 (PDF 245), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 351: 'a unique strictly positive (unramified) character χ of P_π(F⁺)'; the parabolic has just been called P, and P_π is not defined.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4185,6 +4770,11 @@
         "text": "published",
         "pages": "published p. 354 (PDF 248), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 354: 'there are only four characters of W_N'. W_N ≃ {±1}^r ⋊ 𝔖_r has four characters for r ⩾ 2 but W₂ = {±1} has two; the conclusion (only 𝟏 and ε_N^TT contribute) still holds for r = 1.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4219,6 +4809,11 @@
         "text": "published",
         "pages": "published pp. 355, 357, 358, 360, 361 (PDF 249, 251, 252, 254, 255), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 355 and 360: (α₂, …, α_r) with 1 ⩽ |α₂| ⩽ ⋯ ⩽ |α_r| is claimed 'unique up to permutation'. For r = 2 and α₂ = i, both α₂ = i and α₂ = −i = i⁻¹ satisfy the constraint and give the same irreducible tempered induction, but are not permutations of each other; uniqueness holds up to α_i ↦ α_i⁻¹ for unimodular α_i as well. Never used.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4253,6 +4848,11 @@
         "text": "published",
         "pages": "published pp. 357, 359, 361 (PDF 251, 253, 255), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 357 (and pp. 359, 361): 'the parabolic subgroup of G containing P₀'; P₀ is never defined (only P_{0min} := G₀ ∩ P_min and Q₀ are), P_min is meant.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4287,6 +4887,11 @@
         "text": "published",
         "pages": "published pp. 361–362 (PDF 255–256), with p. 358 (PDF 252), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 362: the formula for C(α) has a product ∏_{j=1}^{i−1}(α_iα_j − q⁻²)/(α_iα_j − 1) and a middle product over |α_j| < |α_i| although the parameters are (α₂, …, α_r), so α₁ is undefined; with α₁ := q (as in the proof of Lemma C.2.2(2)) the j = 1 factor combines with (α_i − q⁻¹)/(α_i − 1) to (α_i − q⁻³)/(α_i − 1), which vanishes at the reducibility point α_i = q⁻³ as the entry's rank-one check requires. The conclusion 'which is nonzero' is unaffected.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4321,6 +4926,11 @@
         "text": "published",
         "pages": "published p. 364 (PDF 258), with p. 362 (PDF 256), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 364: the proof of Corollary C.3.3 cites 'Propositions C.3.1 and C.2.5', but Proposition C.2.5 concerns the even-rank groups while N = 2r+1 here; the input at 𝔭 is the hypothesis BC(π_𝔭) ≃ BC(π′_𝔭) with C.3.1(2). In the statement, '(Definition 3.2.3)' (automorphic base change) is attached to the discrete-series clause.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4355,6 +4965,11 @@
         "text": "published",
         "pages": "published p. 365 (PDF 259), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 365 and the whole text layer: 'Here, H_w ∈ 𝕋_{N,w}[T] is the Hecke polynomial' is the only occurrence of the phrase in the paper, and no definition is given (§3.1 introduces 𝕋_{N,v}, the Satake transform and φ_α but no Hecke polynomial); it must be imported from [12, Definition 1.9].",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4389,6 +5004,11 @@
         "text": "published",
         "pages": "published pp. 365–368 (PDF 259–262), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 366: K_{w₀,0} := ∏_{v|w₀} U(Λ)(O_{F⁺_v}) is declared hyperspecial in G(ℚ_{w₀}), but Proposition D.1.3 only puts w itself outside Σ⁺ ∪ Σ⁺_ℓ; other places above the same rational prime w₀ may lie in Σ⁺, where Λ is not given and V_v need not be split, so the integral model and Igusa varieties used next are not available as described. The added hypothesis is harmless for Corollary D.1.4.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4423,6 +5043,11 @@
         "text": "published",
         "pages": "published p. 368 (PDF 262), page image",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 368: Chebotarev is applied to ρ̄_{Π,λ} alone to produce places w′ where (D.1) is decomposed generic. Conjugacy of Frobenius under ρ̄_{Π,λ} fixes the root ratios mod λ but not ‖w′‖ mod ℓ, and decomposed genericity at w′ excludes ratios equal to ‖w′‖; one must apply Chebotarev to ρ̄_{Π,λ} × ε̄_ℓ so that ‖w′‖ ≡ ‖w‖ (mod ℓ) as well. Routine fix; the conclusion is right.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4457,6 +5082,11 @@
         "text": "published",
         "pages": "published p. 369 (PDF 263), page image; p. 370 via the text layer",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 369: 'We have the homomorphism φ_Π : 𝕋^{Σ⁺}_N → ℚ̄_ℓ given by Π. Fix an isomorphism ι_ℓ : ℂ ⥲ ℚ̄_ℓ.' Proposition D.2.3 uses ι_ℓφ_Π, so φ_Π is the ℂ-valued homomorphism of Construction 3.1.10.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4483,6 +5113,11 @@
         "text": "published",
         "pages": "published p. 222 (PDF 116), page image at 300 dpi",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on p. 222: '𝕍 im γ_{1*,τ∞} = (γ_{1*,τ∞^c} ω_{𝒜,τ∞^c})^{(p)}'. In the paper's convention (3.2) the Hodge subbundle of H₁^dR(𝒜) is ω_{𝒜^∨}, and γ_{1*,τ∞^c} is defined on H₁^dR(𝒜)_{τ∞^c}, so ω_{𝒜^∨,τ∞^c} is meant (as in Theorem 5.4.4(4)).",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4509,6 +5144,11 @@
         "text": "published",
         "pages": "published pp. 223–224 (PDF 117–118), page images at 300 dpi",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 223 and 224: 'the scheme S†_{s•} is a disjoint of (p+1)(p³+1)⋯ copies of Spec κ' (twice); 'disjoint union' is meant.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4535,6 +5175,11 @@
         "text": "published",
         "pages": "published pp. 258–259 (PDF 152–153), page images zoomed at 260 dpi; arXiv v3 text layer PDF p. 103",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on the page image of p. 259: in the n = n₀ even case the display just above gives m•_{↑!}inc•₀(1_{s•_n}) = inc•₁(1_{s•_{n+1}}), but the second line of both displays for (1) and (2) prints inc•₀(1_{s•_{n+1}}); the class lives on M̄•_{n+1} = M̄•_{n₁}, so the subscript is 1.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4561,6 +5206,11 @@
         "text": "published",
         "pages": "published pp. 286–287, 311, 319 (PDF 180–181, 205, 213); pp. 311, 319 page images, p. 320 text layer",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 311 and 319: (8.5) and (8.14) are asserted for w 'not above Σ⁺ ∪ {𝔭}' (resp. {𝔭₁, 𝔭₂}); no unsubscripted Σ⁺ is defined in §§7–8 (only Σ⁺_min, Σ⁺_I, Σ⁺_II), and the pairing computations use the excluded set Σ⁺_min. Same slip as E90.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     },
     {
@@ -4587,6 +5237,11 @@
         "text": "published",
         "pages": "published pp. 351–352 (PDF 245–246), page images",
         "printedMatches": true
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp. 350–352: the Levi GL_{r_t} × ⋯ × GL_{N₀} × ⋯ × GL_{r_t} uses N₀, which is not defined in §C.1 (the symbol does not occur on pp. 350–351); N₀ = N − 2(r₁ + ⋯ + r_t), the rank of the space of G₀.",
+        "by": "REV-ERRATA-PAPER-LIU-ETAL-22"
       }
     }
   ]
