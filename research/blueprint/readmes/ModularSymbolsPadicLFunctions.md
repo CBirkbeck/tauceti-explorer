@@ -1,7 +1,7 @@
 # Modular symbols and analytic p-adic L-functions of modular forms — blueprint
 
-This blueprint covers stages L0–L4. After three checkpoints, **L0 and L1 are source-decomposed**. Stages L2–L4 are not
-yet read.
+This blueprint covers stages L0–L4. After four checkpoints, **L0, L1 and L2 are source-decomposed**. Stages L3–L4 are
+not yet read.
 
 L0 plans Pollack–Stevens' **Hom-side (cohomological) modular symbols** for arbitrary coefficient modules. These are what
 L2's distribution-valued symbols need. The homological side is imported from Tau Ceti's ModularForms roadmap,
@@ -12,7 +12,7 @@ Layer 8, which the reviewed library audit AUDIT-26 lists as a duplicate of this 
 - the analysis of the period map.
 
 The sources are:
-- **Pollack–Stevens:** Ann. Sci. ÉNS (4) 44 (2011), §§2–3 and §5.1. It is open access on Numdam.
+- **Pollack–Stevens:** Ann. Sci. ÉNS (4) 44 (2011), §§2–6 and the §8 examples. It is open access on Numdam.
 - **Wiese:** the course notes *Computational Arithmetic of Modular Forms*, arXiv:1809.04645v1, §§1, 4–7.
 - **Pollack:** the Arizona Winter School 2011 notes, §2.
 
@@ -26,7 +26,8 @@ Modular symbols carry the periods and critical L-values of modular forms, and la
 - the Eichler–Shimura isomorphism;
 - one-dimensional newform eigenspaces over the coefficient field.
 
-L1 builds periods and critical values on the last of these.
+L1 builds periods and critical values on the last of these. L2 builds the p-adic L-function of a small-slope
+refinement from distribution-valued symbols.
 
 ## What the libraries and other roadmaps supply
 
@@ -48,7 +49,11 @@ AUDIT-26 records L0 as not built.
 - diamond operators and nebentypus spaces on forms (`diamondOp`, `cuspFormCharSpace`,
   `isInternal_cuspFormCharSpace`);
 - the positive definite Petersson product (`CuspForm.peterssonInnerCosets_definite`);
-- newforms and multiplicity one (`HeckeRing.GL2.Newform`, `HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one`).
+- newforms and multiplicity one (`HeckeRing.GL2.Newform`, `HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one`);
+- for L2, the level-raising operator V_d with its q-expansion (`TauCeti.CuspForm.levelRaise`,
+  `TauCeti.CuspForm.qExpansion_levelRaise`) and the coefficient characterisations of U_p- and T_p-eigenforms
+  (`HeckeRing.GL2.heckeUCuspNat_eq_smul_iff_forall_qExpansion_coeff_prime_mul`,
+  `HeckeRing.GL2.heckeTCuspNat_eq_smul_iff_forall_qExpansion_coeff_prime_mul`).
 
 **Imported from other roadmaps (requests):**
 - **ModularForms Layer 8:**
@@ -57,9 +62,13 @@ AUDIT-26 records L0 as not built.
   - the fundamental-domain presentation of Div⁰ over ℤ[Γ], with the corrected sign below;
   - the module 𝕄 N k and its Hecke and diamond operators;
   - the period map with its convergence, invariance, equivariance and injectivity.
-- **ModularForms Layer 5:** separation of cuspidal and Eisenstein eigensystems.
+- **ModularForms Layer 5:** separation of cuspidal and Eisenstein eigensystems, at level N (L0) and at level Np (L2).
+- **ModularForms Layer 4 (L2):** the p-oldspace of a newform is spanned by f(z) and f(pz), and U_p f = a_p f at p | N.
 - **ModularForms 10C:** the dimension formula for S_k(Γ₁(N)).
 - **ModularCurvesPartII R14.3:** the topological comparison Symb_Γ(V) ≅ H¹_c(Y_Γ, Ṽ) (Ash–Stevens Proposition 4.2).
+- **LocallyAnalyticDistributions (L2):** the spaces A[r], D[r], D(ℤ_p) (its L0), h-admissibility with Amice–Vélu/Višik
+  uniqueness and bounded measures (its L2), both requested; the Riesz theory of its L4 (`finite-slope-summands`,
+  `completely-continuous`) is cited directly.
 
 ## Conventions
 
@@ -328,6 +337,64 @@ free of rank one, so the integral period is canonical up to 𝒪^×.
 - RJW's printed B.1 has χ̄. The stage text's "L(f,chi,j+1)" drops the bar, so no source correction is needed. The bars
   were read on the page images, because text extraction loses them.
 
+## Layer L2: refinements and small slope
+
+Library module: `TauCeti/NumberTheory/ModularSymbols/Overconvergent`. The source is Pollack–Stevens §§3–6. The level is
+Γ₀ = Γ₁(N) ∩ Γ₀(p) for p ∤ N and Γ₁(N) for p | N. Pollack–Stevens' proofs use only Γ₀ ⊆ Σ₀(p) and
+U_p = Σ_a |(1 a; 0 p), so they cover the stage's case of p dividing the level.
+
+**Construction: p-stabilisation** (node `p-stabilisation`; planet). f_α = f° − βf°(pz), with coefficients
+a_n − βa_{n/p}. U_p f_α = αf_α is proved from Tau Ceti's coefficient characterisations of U_p and T_p. On span(f°, f°(pz)),
+U_p is a companion matrix, so eigenspaces are lines and U_p is semisimple exactly when α ≠ β. The Euler-factor change is
+L1's `p-stabilised-euler-factors`.
+
+**Definition: refinements** (node `refinement`). A refinement is (f, α): a root of X² − a_pX + ε(p)p^{k+1} if p ∤ N, and
+α = a_p ≠ 0 if p | N. Its slope is h = v_p(α) ∈ [0, k + 1]; it has small slope if h < k + 1.
+
+**Lemma: the refined eigenline** (node `refined-eigenline`). The (T_ℓ, U_p = α)-eigenspace of Symb_{Γ₀}(V_k(K))^± is a
+line, spanned over ℂ by (1 ± ι)ψ_{f_α}. It needs the p-oldspace and the level-Np Eisenstein separation from ModularForms
+Layers 4–5 (requested).
+
+**Definition: weight-k distributions** (node `weight-k-distributions`). D_k(ℤ_p), D_k = D[1], D†_k with
+(γ ·_k f)(z) = (a + cz)^k f((b + dz)/(a + cz)).
+- Moments identify D with bounded sequences and D† with sequences that are O(r^j) for all r > 1.
+- ‖μ|γ‖_{r/p^n} ≤ ‖μ‖_r for det γ = p^n.
+- The action and this bound hold only for r < p (E8 below).
+
+**Construction: specialisation** (node `specialisation-map`). ρ_k(μ) = ∫(Y − zX)^k dμ is Σ₀(p)-equivariant (the identity
+is proved in Lean). The Y^k-coefficient of ρ_k(μ) is the total mass, with no binomial denominator.
+
+**Theorem: overconvergent lifts** (node `overconvergent-lift`). ρ*_k is surjective on D†-valued symbols (Theorem 4.5 with
+Bernoulli numbers, Theorem 5.1), and U_p maps D† into D (Lemma 5.3), so it is surjective on D-valued symbols. The proof of
+Theorem 5.1 is used with L0's sign-corrected D_∞ relation (E1).
+
+**Lemma: slope decomposition of the fibre** (node `slope-decomposition-fibre`). u = λ^{−1}U_p preserves the lattice Y_ϕ
+(bounds on the moments up to ⌊h⌋), and X_ϕ splits into a finite-dimensional slope-h part and a topologically nilpotent
+part. The general Riesz theory is LocallyAnalyticDistributions L4.
+
+**Theorem: Stevens' control theorem** (node `control-theorem`; planet). For slope < k + 1, specialisation is an
+isomorphism Symb(D_k(ℤ_p))^{<k+1} ≅ Symb(D_k)^{<k+1} ≅ Symb(V_k)^{<k+1}.
+- U_p is divisible by p^{k+1} on ker ρ*_k.
+- The first isomorphism is cited by Pollack–Stevens to an unread preprint; here it is derived from the contraction bound.
+- At slope k + 1 it fails exactly for f in the image of θ_k (Theorem 5.14), which is L3.
+
+**Lemma: admissibility** (node `eigensymbol-admissibility`). The values of a slope-h eigensymbol are h-admissible
+(Lemma 6.2).
+
+**Construction: the p-adic L-function** (node `p-adic-l-function`; planet). L_p(f, α; φ^±) = Φ({∞} − {0})|_{ℤ_p^×}, with
+the distribution relation. Pollack–Stevens' explicit φ^± is −(1 ± (−1)^kι)ψ_{f_α}/(2Ω^±): their label ± is the ι-sign
+times (−1)^k.
+
+**Theorem: interpolation and uniqueness** (node `interpolation-and-uniqueness`; planet). With ± = (−1)^jχ(−1):
+L_p(z^jχ) = e·α^{−n}p^{nj}τ(χ)j!/(2πi)^j·L(f_α, χ^{−1}, j+1)/Ω^±, where e = 1 for n ≥ 1 and e = 1 − p^j/α for n = 0.
+- This is Pollack–Stevens (2) summed against χ, using L1's twisted Mellin formula.
+- It is RJW B.1 with Ω_{B.1} = −Ω/(2πi), independent of j, which settles the normalization L1 handed over.
+- Uniqueness for h < k + 1 is requested from LocallyAnalyticDistributions L2.
+
+**Theorem: ordinary integral measures** (node `ordinary-integral-measure`; planet). For h = 0 and φ^± generators of the
+saturated lattices, L_p(1_{a+pⁿℤ_p}) = α^{−n}[Y^k]φ({∞} − {a/pⁿ}) ∈ 𝒪, so L_p ∈ 𝒪⟦ℤ_p^×⟧. Arbitrary bases give only
+𝒪⟦ℤ_p^×⟧[1/p]. The higher moments need not be integral when p ≤ k.
+
 ## Mistakes found in the sources
 
 **E1 (error, reaches a stated result): the sign in Pollack–Stevens Theorem 2.6 and Corollary 2.7 (p. 12).** The same
@@ -345,6 +412,20 @@ applies to Theorem 2.9 and Corollary 2.10.
 **E3 (misprint, reaches nothing): Corollary 2.10.** "(1 + γ′_i + (γ″_i)²)" should read (1 + γ″_i + (γ″_i)²), and the
 undefined m′_i, m″_i should read v′_i, v″_i.
 
+**E4 (misprint, reaches nothing): §6.2, (1) against (2), p. 27.** With the same periods, (2) gives (1) times the sign
+± = (−1)^jχ(−1): the two formulas agree on the +-part and differ by −1 on the −-part. Renaming Ω^− fixes it; the proof of
+Proposition 6.3 uses only (2).
+
+**E5 (error, reaches nothing): (1) at n = 0.** For trivial χ the restriction to ℤ_p^× contributes the factor 1 − p^j/α,
+which (1) omits. RJW B.1 has it as (1 − χ(p)p^j/α).
+
+**E6 (misprint): Proposition 6.5 (3), p. 29.** "L(f, χ^{−1}, 1)" should read L(f, χ^{−1}, j + 1).
+
+**E7 (misprint): Definition 6.4, p. 29.** "S_k(Γ, ℚ̄_p)" should read S_{k+2}(Γ₀, ℚ̄_p), as in Theorem 5.14.
+
+**E8 (error, reaches nothing): §3.3 and the proof of Lemma 6.2.** The weight-k action on A[r] and the contraction
+‖μ|γ‖_{r/pⁿ} ≤ ‖μ‖_r hold only for r < p. For r ≥ p and γ = (1 0; p 1), z/(1 + pz) has its pole −1/p in B[ℤ_p, r].
+
 No published erratum was found, either on Numdam or in the Crossref record.
 
 ## Remaining work
@@ -358,9 +439,10 @@ No published erratum was found, either on Numdam or in the Crossref record.
   The integral comparison of Symb_Γ(V_k(ℤ)) with Hom(𝕄, ℤ) goes through the divided-power lattice. L1's
   `integral-period-lattices` records the dependence on this choice.
 - **L1 is source-decomposed.** It depends on ModularForms Layer 7 (L-functions), which is requested.
-- **L2–L4 are not yet read:**
-  - L2: small slope and the control theorem;
-  - L3: critical slope;
+- **L2 is source-decomposed.** It depends on LocallyAnalyticDistributions L0 and L2 and on ModularForms Layers 4–5,
+  all requested, and cites LocallyAnalyticDistributions L4 nodes directly.
+- **L3–L4 are not yet read:**
+  - L3: critical slope (Pollack–Stevens §§5.4, 6.4 and 8.4, and Bellaïche);
   - L4: examples.
 
 ## Sources
