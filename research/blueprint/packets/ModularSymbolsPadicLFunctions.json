@@ -1,0 +1,1036 @@
+{
+ "roadmapId": "ModularSymbolsPadicLFunctions",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "ModularSymbolsPadicLFunctions:L0",
+  "ModularSymbolsPadicLFunctions:L1",
+  "ModularSymbolsPadicLFunctions:L2",
+  "ModularSymbolsPadicLFunctions:L3",
+  "ModularSymbolsPadicLFunctions:L4"
+ ],
+ "status": "partial",
+ "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. This first checkpoint plans the algebraic core of L0 from Pollack–Stevens, 'Overconvergent modular symbols and p-adic L-functions' (Ann. Sci. ENS 2011), §2.1–2.2 and §3.4: the Steinberg module Δ₀ = Div⁰(P¹(ℚ)) with its GL₂(ℚ)-action, V-valued modular symbols for a finite-index Γ ≤ SL₂(ℤ), Manin's unimodular map d : ℤ[SL₂(ℤ)] → Δ₀ with its surjectivity (continued fractions) and kernel (the Manin relations 1 + σ, 1 + τ + τ², and 1 − (−1) over SL₂(ℤ)), the coset basis of ℤ[SL₂(ℤ)] over ℤ[Γ], the coefficient modules V_k = Sym^k with the adjugate action, the monoid Σ₀(N), the Hecke operators T_ℓ and U_q, and the involution at infinity with the plus/minus decomposition. The cohomological comparison, the explicit Manin presentation, Eichler–Shimura and stages L1–L4 remain.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:AddSubgroup",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+    "provides": "Additive subgroups.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:CongruenceSubgroup.Gamma0",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+    "provides": "Γ₀(N) ≤ SL₂(ℤ).",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Finsupp",
+    "kind": "structure",
+    "module": "Mathlib/Data/Finsupp/Defs.lean",
+    "provides": "Finitely supported functions.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Finsupp.linearCombination",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
+    "provides": "Linear combinations of a family.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Finsupp.single",
+    "kind": "def",
+    "module": "Mathlib/Data/Finsupp/Single.lean",
+    "provides": "The indicator divisor.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.ker",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+    "provides": "Kernel of a linear map.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Matrix.GeneralLinearGroup",
+    "kind": "abbrev",
+    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+    "provides": "GL_n(R).",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Matrix.SpecialLinearGroup",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+    "provides": "SL_n(R).",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Matrix.SpecialLinearGroup.map",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+    "provides": "SL_n(R) → SL_n(S) along a ring map.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Matrix.SpecialLinearGroup.toGL",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+    "provides": "SL_n(R) → GL_n(R).",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Matrix.adjugate",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+    "provides": "The adjugate matrix.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Module.Free",
+    "kind": "class",
+    "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+    "provides": "Free modules.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+    "provides": "The monoid algebra.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.mapDomainRingHom",
+    "kind": "def",
+    "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
+    "provides": "R[H] → R[G] along a monoid hom.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.of",
+    "kind": "def",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+    "provides": "The canonical map G → R[G].",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:MvPolynomial.aeval",
+    "kind": "def",
+    "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+    "provides": "Evaluation of polynomials in an algebra.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:MvPolynomial.homogeneousSubmodule",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
+    "provides": "Homogeneous polynomials of a given degree.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:OnePoint",
+    "kind": "def",
+    "module": "Mathlib/Topology/Compactification/OnePoint/Basic.lean",
+    "provides": "The one-point compactification; OnePoint K is P¹(K).",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:OnePoint.instGLAction",
+    "kind": "instance",
+    "module": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+    "provides": "GL₂(K) acts on OnePoint K by linear fractional transformations.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:OnePoint.smul_infty_eq_ite",
+    "kind": "lemma",
+    "module": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+    "provides": "g · ∞ = a/c or ∞.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:OnePoint.smul_some_eq_ite",
+    "kind": "lemma",
+    "module": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
+    "provides": "g · x as a fraction or ∞.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Representation",
+    "kind": "abbrev",
+    "module": "Mathlib/RepresentationTheory/Basic.lean",
+    "provides": "Group representations.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Submodule.span",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
+    "provides": "Span.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Submonoid",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Group/Submonoid/Defs.lean",
+    "provides": "Submonoids.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "tauceti:HeckeRing.GL2.commRingHeckeRingGamma0",
+    "kind": "def",
+    "module": "TauCeti/NumberTheory/HeckeRing/GL2/Gamma0/Diagonal/Composite.lean",
+    "provides": "The commutative ring structure on the Γ₀(N) Hecke ring of double cosets.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "POLLACK-STEVENS-2011",
+   "title": "Overconvergent modular symbols and p-adic L-functions",
+   "authors": "Robert Pollack and Glenn Stevens",
+   "edition": "Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "url": "https://www.numdam.org/item/10.24033/asens.2139.pdf",
+   "sha256": "62e85b8aaa08423ffa58611cdf540c4ed5de44ddd691a9f8e7147d26375275e4",
+   "readSections": [
+    "§1.1–1.8 (introduction and outline)",
+    "§2.1 Basic definitions and §2.2 The Manin relations, pp. 6–8",
+    "§3.4 Finite-dimensional quotients, p. 17",
+    "Section headings of §§2.3–2.6 and 3–4, for the remaining work"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/steinberg-module",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The Steinberg module Δ₀ = Div⁰(P¹(ℚ))",
+   "kind": "definition",
+   "statement": "Δ₀ ⊆ ℤ[P¹(ℚ)] is the group of degree-zero divisors on P¹(ℚ) = ℚ ∪ {∞}, a left ℤ[GL₂(ℚ)]-module through the action of GL₂(ℚ) on P¹(ℚ) by linear fractional transformations. It is generated by the divisors {b} − {a}.",
+   "hypotheses": [
+    "P¹(ℚ) is Mathlib's OnePoint ℚ with its GL₂(ℚ)-action (OnePoint.instGLAction)."
+   ],
+   "proofSteps": [
+    "Define Δ₀ as the kernel of the degree map ℤ[P¹(ℚ)] → ℤ (Finsupp.linearCombination with all weights 1).",
+    "The permutation action g·{x} = {g x} preserves the degree, hence Δ₀.",
+    "Generation: a divisor Σ n_x {x} of degree 0 equals Σ n_x ({x} − {∞})."
+   ],
+   "acceptance": [
+    "A single point {∞} is not in Δ₀.",
+    "{b} − {a} + {c} − {b} = {c} − {a}; {a} − {a} = 0.",
+    "The scalar matrices act trivially, so the action factors through PGL₂(ℚ); in particular −1 ∈ SL₂(ℤ) acts trivially."
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+     "how": "modular symbols are Γ-equivariant maps out of Δ₀."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L1",
+     "how": "evaluation of symbols at {∞} − {0} and {∞} − {a/m} gives twisted L-values."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:OnePoint",
+    "mathlib:OnePoint.instGLAction",
+    "mathlib:Matrix.GeneralLinearGroup",
+    "mathlib:Finsupp",
+    "mathlib:Finsupp.single",
+    "mathlib:Finsupp.linearCombination",
+    "mathlib:LinearMap.ker",
+    "mathlib:Representation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Basic",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.1, p. 6",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.Delta0",
+     "role": "constructor",
+     "statement": "Δ₀ as a submodule of ℤ[P¹(ℚ)]."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.steinbergRep",
+     "role": "structure",
+     "statement": "The GL₂(ℚ)-representation on Δ₀."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.divisorOf",
+     "role": "constructor",
+     "statement": "The divisor {b} − {a}."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.span_divisorOf",
+     "role": "characterisation",
+     "statement": "The {b} − {a} generate Δ₀."
+    }
+   ],
+   "tests": [
+    {
+     "name": "delta0_not_point",
+     "kind": "non-example",
+     "statement": "{∞} ∉ Δ₀."
+    },
+    {
+     "name": "divisorOf_add",
+     "kind": "example",
+     "statement": "({b} − {a}) + ({c} − {b}) = {c} − {a}."
+    },
+    {
+     "name": "divisorOf_self",
+     "kind": "example",
+     "statement": "{a} − {a} = 0."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Modular symbols",
+   "kind": "definition",
+   "statement": "For Γ ≤ SL₂(ℤ) of finite index and a right ℤ[Γ]-module V, Symb_Γ(V) is the group of additive maps φ : Δ₀ → V with φ(γD) = φ(D)|γ^{-1} for all γ ∈ Γ, D ∈ Δ₀. In the formal version V carries the left representation ρ(γ)v = v|γ^{-1}, and the condition reads φ(γD) = ρ(γ)φ(D).",
+   "hypotheses": [
+    "Γ acts on Δ₀ through SL₂(ℤ) → GL₂(ℚ).",
+    "Left/right conventions: Pollack–Stevens' right action v|γ is recorded as the left representation v ↦ v|γ^{-1}."
+   ],
+   "proofSteps": [
+    "Define symbols Γ ρ as the additive subgroup of maps Δ₀ → V satisfying the equivariance; closure under sums and negatives is immediate.",
+    "A modular symbol is determined by its values on the unimodular divisors {γ0} − {γ∞} (manin-surjectivity)."
+   ],
+   "acceptance": [
+    "Symb_{SL₂(ℤ)}(ℤ) = 0: by the Manin relations φ({0} − {∞}) = v satisfies 2v = 0 and 3v = 0.",
+    "Symb_{Γ₀(11)}(ℤ) has rank 3 = 2g + (c − 1), with genus g = 1 and c = 2 cusps.",
+    "When the orders of torsion elements act invertibly on V, Symb_Γ(V) ≅ H¹_c(H/Γ, Ṽ) (Pollack–Stevens, citing Ash–Stevens [2, Prop. 4.2]); planned as remaining work."
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L1",
+     "how": "the plus/minus eigensymbols of a newform and its periods."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2",
+     "how": "distribution-valued symbols lifting polynomial-valued ones (control theorem)."
+    }
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
+    "mathlib:Representation",
+    "mathlib:AddSubgroup",
+    "mathlib:Matrix.SpecialLinearGroup.map",
+    "mathlib:Matrix.SpecialLinearGroup.toGL",
+    "mathlib:CongruenceSubgroup.Gamma0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Basic",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.1, pp. 6–7",
+     "match": "The definition, with ϕ ∈ SymbΓ(V) ⟺ ϕ(γD) = ϕ(D)|γ⁻¹."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.symbols",
+     "role": "constructor",
+     "statement": "Symb_Γ(V) as an additive subgroup of Hom(Δ₀, V)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.symbols_ext",
+     "role": "extensionality",
+     "statement": "Determined by the values on unimodular divisors."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.heckeT_mem_symbols",
+     "role": "compatibility",
+     "statement": "Hecke operators preserve Γ₀(N)-symbols."
+    }
+   ],
+   "tests": [
+    {
+     "name": "symbols_SL2Z_trivial",
+     "kind": "example",
+     "statement": "Symb_{SL₂(ℤ)}(ℤ) = 0."
+    },
+    {
+     "name": "symbols_Gamma0_11_rank",
+     "kind": "example",
+     "statement": "Symb_{Γ₀(11)}(ℤ) has rank 3."
+    },
+    {
+     "name": "symbols_zero",
+     "kind": "example",
+     "statement": "The zero map is a modular symbol for every Γ and V."
+    }
+   ],
+   "planet": {
+    "name": "Modular symbols"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/unimodular-map",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The unimodular map d : ℤ[SL₂(ℤ)] → Δ₀",
+   "kind": "construction",
+   "statement": "d is the ℤ[SL₂(ℤ)]-linear map sending γ = (a b; c d) to {γ0} − {γ∞} = {b/d} − {a/c}, the boundary of the unimodular path [γ] from a/c to b/d.",
+   "hypotheses": [
+    "γ acts through SL₂(ℤ) → GL₂(ℚ) on P¹(ℚ)."
+   ],
+   "proofSteps": [
+    "Define d on the basis γ of ℤ[SL₂(ℤ)] by the displayed divisor and extend linearly; equivariance d(gx) = g·d(x) follows from g·({γ0} − {γ∞}) = {gγ0} − {gγ∞}."
+   ],
+   "acceptance": [
+    "d(1) = {0} − {∞}; d(σ) = {∞} − {0}, so d(1 + σ) = 0.",
+    "d(τ) = {1} − {0} and d(τ²) = {∞} − {1}, so d(1 + τ + τ²) = 0.",
+    "d(−γ) = d(γ), since −1 acts trivially."
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/manin-relations",
+     "how": "Δ₀ ≅ ℤ[G]/ker d."
+    }
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
+    "mathlib:MonoidAlgebra",
+    "mathlib:MonoidAlgebra.of",
+    "mathlib:OnePoint.smul_infty_eq_ite",
+    "mathlib:OnePoint.smul_some_eq_ite"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.2, p. 8",
+     "match": "The map d (Pollack–Stevens over G = PSL₂(ℤ))."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.unimodularMap",
+     "role": "constructor",
+     "statement": "d as a ℤ-linear map."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.unimodularMap_of",
+     "role": "simp",
+     "statement": "d(γ) = {γ0} − {γ∞}."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.unimodularMap_of_mul",
+     "role": "compatibility",
+     "statement": "d(g·γ) = g · d(γ): d is SL₂(ℤ)-equivariant."
+    }
+   ],
+   "tests": [
+    {
+     "name": "d_one_add_sigma",
+     "kind": "example",
+     "statement": "d(1 + σ) = 0."
+    },
+    {
+     "name": "d_triangle",
+     "kind": "example",
+     "statement": "d(1 + τ + τ²) = 0."
+    },
+    {
+     "name": "d_neg_one",
+     "kind": "example",
+     "statement": "d(−γ) = d(γ)."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/manin-surjectivity",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Every divisor is a sum of unimodular divisors",
+   "kind": "lemma",
+   "statement": "d : ℤ[SL₂(ℤ)] → Δ₀ is surjective: every degree-zero divisor on P¹(ℚ) is a ℤ-combination of unimodular divisors {γ0} − {γ∞}.",
+   "hypotheses": [
+    "None."
+   ],
+   "proofSteps": [
+    "By span_divisorOf it suffices to treat {r} − {∞} for r = a/c ∈ ℚ in lowest terms (and {∞} − {∞} = 0).",
+    "Let p_i/q_i be the convergents of the continued fraction of r, with p_{−1}/q_{−1} = 1/0 = ∞. Then {r} − {∞} = Σ_i ({p_i/q_i} − {p_{i−1}/q_{i−1}}), and p_i q_{i−1} − p_{i−1} q_i = ±1, so each term is ±d(γ_i) for γ_i = (p_{i−1} ±p_i; q_{i−1} ±q_i) ∈ SL₂(ℤ)."
+   ],
+   "acceptance": [
+    "For r = 0: {0} − {∞} = d(1).",
+    "For r = 1/2 the convergents are 0/1 and 1/2, so {1/2} − {∞} = ({0} − {∞}) + ({1/2} − {0}), and both terms are unimodular (0·2 − 1·1 = −1).",
+    "Manin's trick; the formal proof can reuse Mathlib's continued fractions (GenContFract) or Euclid's algorithm directly."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/unimodular-map",
+    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
+    "mathlib:Matrix.SpecialLinearGroup"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.2, p. 8",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/manin-relations",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The Manin relations",
+   "kind": "theorem",
+   "statement": "ker d is the left ideal of ℤ[SL₂(ℤ)] generated by 1 + σ, 1 + τ + τ² and 1 − (−1), where σ = (0 −1; 1 0) and τ = (0 −1; 1 −1); hence Δ₀ ≅ ℤ[SL₂(ℤ)]/ker d. Modulo 1 − (−1) this is Manin's presentation Δ₀ ≅ ℤ[PSL₂(ℤ)]/(ℤ[G](1 + τ + τ²) + ℤ[G](1 + σ)).",
+   "hypotheses": [
+    "The generator 1 − (−1) appears because the formalisation works over SL₂(ℤ), in which −1 acts trivially on P¹(ℚ)."
+   ],
+   "proofSteps": [
+    "The listed elements lie in ker d (unimodular-map).",
+    "Farey tessellation: unimodular paths are the edges and the images of the triangle 0, 1, ∞ are the faces of a PSL₂(ℤ)-invariant decomposition of H* with vertex set P¹(ℚ); PSL₂(ℤ) acts simply transitively on oriented edges and with stabiliser ⟨τ⟩ on faces.",
+    "Cellular chains relative to the vertices: the 1-chains are ℤ[G]/ℤ[G](1 + σ) (reversing an edge) and the 2-chains ℤ[G/⟨τ⟩], with boundary x ↦ x(1 + τ + τ²). Since H* is contractible, the long exact sequence of the pair identifies H₁(H*, P¹(ℚ)) with Δ₀ through the boundary map, and cellular homology computes it as C₁/∂C₂; hence ker d = ℤ[G](1 + σ) + ℤ[G](1 + τ + τ²).",
+    "Pull back along ℤ[SL₂(ℤ)] → ℤ[PSL₂(ℤ)], whose kernel is generated by 1 − (−1). Pollack–Stevens cite Manin without proof; an algebraic alternative uses PSL₂(ℤ) ≅ ℤ/2 ∗ ℤ/3."
+   ],
+   "acceptance": [
+    "For Γ torsion-free, the resulting presentation of Δ₀ as a ℤ[Γ]-module has a single relation (Pollack–Stevens Theorem 2.6, remaining work).",
+    "Symb_{SL₂(ℤ)}(ℤ) = 0 follows at once.",
+    "The ideal is a left ideal: it is not two-sided."
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+     "how": "a symbol is determined by a vector v_i per coset satisfying the two- and three-term Manin relations."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2",
+     "how": "the explicit presentation behind the control theorem's difference equation."
+    }
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/unimodular-map",
+    "ModularSymbolsPadicLFunctions:L0/manin-surjectivity",
+    "mathlib:Submodule.span",
+    "mathlib:MonoidAlgebra"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.2, p. 8",
+     "match": "The statement, over G = PSL₂(ℤ)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Manin relations"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/coset-basis",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "ℤ[SL₂(ℤ)] is free over ℤ[Γ]",
+   "kind": "lemma",
+   "statement": "For Γ ≤ SL₂(ℤ), ℤ[SL₂(ℤ)] is a free left ℤ[Γ]-module, with basis any set of right coset representatives of Γ\\SL₂(ℤ).",
+   "hypotheses": [
+    "Γ acts by left multiplication through the inclusion."
+   ],
+   "proofSteps": [
+    "SL₂(ℤ) = ⊔_i Γ g_i gives ℤ[SL₂(ℤ)] = ⊕_i ℤ[Γ]g_i, and γ g_i ↦ (γ, i) is a bijection Γ × (Γ\\SL₂(ℤ)) → SL₂(ℤ)."
+   ],
+   "acceptance": [
+    "For finite index the basis is finite, of size [SL₂(ℤ) : Γ].",
+    "Combined with the Manin relations this gives the ℤ[Γ]-presentation of Δ₀ by coset generators."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/unimodular-map",
+    "mathlib:Module.Free",
+    "mathlib:MonoidAlgebra.mapDomainRingHom"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.2, p. 8",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/polynomial-coefficients",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The coefficient modules V_k = Sym^k",
+   "kind": "definition",
+   "statement": "For a commutative ring R and k ≥ 0, V_k(R) is the R-module of homogeneous polynomials of degree k in X, Y, with the right action of integral matrices of nonzero determinant (P|γ)(X, Y) = P((X, Y)·γ*) = P(dX − cY, −bX + aY) for γ = (a b; c d), γ* its adjugate; restricted to Γ it gives the left representation γ ↦ (P ↦ P|γ^{-1}).",
+   "hypotheses": [
+    "The adjugate keeps the action integral, so it is defined for the monoid of integral matrices, not only GL₂(ℚ)."
+   ],
+   "proofSteps": [
+    "V_k(R) := MvPolynomial.homogeneousSubmodule (Fin 2) R k; P|γ := aeval of the substitution X ↦ dX − cY, Y ↦ −bX + aY, which preserves degree k.",
+    "Right action: (γδ)* = δ*γ* gives P|(γδ) = (P|γ)|δ."
+   ],
+   "acceptance": [
+    "rank V_k(R) = k + 1.",
+    "A scalar matrix c·1 acts by c^k.",
+    "V_0 is the trivial representation; Pollack–Stevens use V_k = Sym^k(ℚ_p²) with the same formula."
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L1",
+     "how": "V_k-valued symbols attached to weight k + 2 forms through Eichler–Shimura."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2",
+     "how": "the specialisation ρ_k : D_k → V_k."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:MvPolynomial.homogeneousSubmodule",
+    "mathlib:MvPolynomial.aeval",
+    "mathlib:Matrix.adjugate",
+    "mathlib:Representation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Hecke",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§3.4, p. 17",
+     "match": "The action."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.Vk",
+     "role": "constructor",
+     "statement": "V_k(R)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.slashVk",
+     "role": "structure",
+     "statement": "The right action P|γ."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.slashVk_mul",
+     "role": "functoriality",
+     "statement": "P|(γδ) = (P|γ)|δ."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.vkRep",
+     "role": "other",
+     "statement": "The left representation of Γ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "vk_rank",
+     "kind": "example",
+     "statement": "rank V_k(R) = k + 1."
+    },
+    {
+     "name": "vk_scalar",
+     "kind": "example",
+     "statement": "c·1 acts by c^k."
+    },
+    {
+     "name": "vk_zero",
+     "kind": "example",
+     "statement": "V_0 has the trivial action."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/hecke-monoid",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The monoid Σ₀(N)",
+   "kind": "construction",
+   "statement": "Σ₀(N) is the monoid of integral matrices (a b; c d) with nonzero determinant, N | c and (a, N) = 1; it contains Γ₀(N) and the matrices (ℓ 0; 0 1) for (ℓ, N) = 1 and (1 a; 0 ℓ) for all a, ℓ ≥ 1.",
+   "hypotheses": [
+    "N ≥ 1."
+   ],
+   "proofSteps": [
+    "Closure: the lower-left entry of a product is c a′ + d c′ ≡ 0 mod N, and the upper-left entry a a′ + b c′ ≡ a a′ mod N is prime to N; determinants multiply."
+   ],
+   "acceptance": [
+    "Γ₀(N) ⊆ Σ₀(N) (Gamma0_le_Sigma0).",
+    "(1 a; 0 ℓ) ∈ Σ₀(N) for every a and ℓ ≥ 1; (ℓ 0; 0 1) ∈ Σ₀(N) iff (ℓ, N) = 1.",
+    "This is Pollack–Stevens' S₀(p) with p replaced by N."
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/hecke-operators",
+     "how": "Hecke operators are sums of the Σ₀(N)-slash over coset representatives."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:Submonoid",
+    "mathlib:CongruenceSubgroup.Gamma0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Hecke",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.1, p. 7",
+     "match": "The monoid (for N = p)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.Sigma0",
+     "role": "constructor",
+     "statement": "Σ₀(N) as a submonoid."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.Gamma0_le_Sigma0",
+     "role": "relation",
+     "statement": "Γ₀(N) ⊆ Σ₀(N)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.toGLQ'",
+     "role": "coercion",
+     "statement": "Σ₀(N) → GL₂(ℚ)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "sigma0_upper",
+     "kind": "example",
+     "statement": "(1 a; 0 ℓ) ∈ Σ₀(N)."
+    },
+    {
+     "name": "sigma0_diag",
+     "kind": "example",
+     "statement": "(ℓ 0; 0 1) ∈ Σ₀(N) iff (ℓ, N) = 1."
+    },
+    {
+     "name": "sigma0_gamma0",
+     "kind": "example",
+     "statement": "Γ₀(N) ⊆ Σ₀(N)."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/hecke-operators",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Hecke operators on modular symbols",
+   "kind": "construction",
+   "statement": "For V with a right Σ₀(N)-action extending its Γ₀(N)-action, and φ ∈ Symb_{Γ₀(N)}(V): (φ|δ)(D) := φ(δD)|δ; for a prime ℓ ∤ N, φ|T_ℓ := φ|(ℓ 0; 0 1) + Σ_{a=0}^{ℓ−1} φ|(1 a; 0 ℓ); for q | N, φ|U_q := Σ_{a=0}^{q−1} φ|(1 a; 0 q). These preserve Symb_{Γ₀(N)}(V) and commute.",
+   "hypotheses": [
+    "V's Γ₀(N)-action is the restriction of the Σ₀(N)-action."
+   ],
+   "proofSteps": [
+    "The listed matrices are representatives of Γ₀(N)\\Γ₀(N)(ℓ 0; 0 1)Γ₀(N) (resp. for U_q); right multiplication by γ ∈ Γ₀(N) permutes the cosets, so Σ φ|α_i is again Γ₀(N)-invariant.",
+    "The operators come from an action of the Γ₀(N) Hecke ring of double cosets on Symb_{Γ₀(N)}(V), with T_ℓ the class of Γ₀(N)(ℓ 0; 0 1)Γ₀(N); commutativity follows from commutativity of that ring (Tau Ceti HeckeRing.GL2.commRingHeckeRingGamma0)."
+   ],
+   "acceptance": [
+    "On Symb_{Γ₀(11)}(ℤ), T_2 has characteristic polynomial (x − 3)(x + 2)²: eigenvalue 3 on the boundary (Eisenstein) part and a₂(11a) = −2 on the plus and minus parts.",
+    "On the same space T_3 has characteristic polynomial (x − 4)(x + 1)².",
+    "U_q is defined without the (q 0; 0 1) term."
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L1",
+     "how": "Hecke eigensymbols of a newform."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2",
+     "how": "U_p on distribution-valued symbols in the control theorem."
+    }
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/hecke-monoid",
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
+    "tauceti:HeckeRing.GL2.commRingHeckeRingGamma0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Hecke",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.1, p. 7",
+     "match": "The formulas."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.slash",
+     "role": "structure",
+     "statement": "(φ|δ)(D) = φ(δD)|δ."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.heckeT",
+     "role": "constructor",
+     "statement": "T_ℓ."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.heckeU",
+     "role": "constructor",
+     "statement": "U_q."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.heckeT_comm",
+     "role": "relation",
+     "statement": "T_ℓ T_m = T_m T_ℓ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "hecke_T2_Gamma0_11",
+     "kind": "example",
+     "statement": "charpoly T_2 on Symb_{Γ₀(11)}(ℤ) is (x − 3)(x + 2)²."
+    },
+    {
+     "name": "hecke_T3_Gamma0_11",
+     "kind": "example",
+     "statement": "charpoly T_3 on Symb_{Γ₀(11)}(ℤ) is (x − 4)(x + 1)²."
+    },
+    {
+     "name": "hecke_preserves",
+     "kind": "characterisation",
+     "statement": "T_ℓ maps Γ₀(N)-symbols to Γ₀(N)-symbols."
+    }
+   ],
+   "planet": {
+    "name": "Hecke operators on modular symbols"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/involution-at-infinity",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The involution at infinity",
+   "kind": "construction",
+   "statement": "ι = (−1 0; 0 1) acts on P¹(ℚ) by x ↦ −x; when ι normalises Γ (for instance Γ = Γ₀(N)) and V carries a compatible action of ι, φ ↦ φ|ι is an involution of Symb_Γ(V).",
+   "hypotheses": [
+    "ι normalises Γ; V has an action of the monoid generated by Γ and ι."
+   ],
+   "proofSteps": [
+    "ι² = 1; ι Γ₀(N) ι^{-1} = Γ₀(N) since conjugation changes the signs of b and c; (φ|ι)|ι = φ."
+   ],
+   "acceptance": [
+    "ι · x = −x on P¹(ℚ) and fixes 0 and ∞.",
+    "It is not in SL₂(ℤ) (det ι = −1)."
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/plus-minus-decomposition",
+     "how": "the ± eigenspaces."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L1",
+     "how": "the plus/minus periods Ω_f^±."
+    }
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
+    "mathlib:Matrix.GeneralLinearGroup",
+    "mathlib:CongruenceSubgroup.Gamma0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Basic",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.1, p. 7",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.iota",
+     "role": "constructor",
+     "statement": "ι ∈ GL₂(ℚ)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.iota_mul_self",
+     "role": "simp",
+     "statement": "ι² = 1."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.iota_normalizes_Gamma0",
+     "role": "relation",
+     "statement": "ι normalises Γ₀(N)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.iota_smul",
+     "role": "simp",
+     "statement": "ι · x = −x."
+    }
+   ],
+   "tests": [
+    {
+     "name": "iota_zero",
+     "kind": "example",
+     "statement": "ι fixes 0 and ∞."
+    },
+    {
+     "name": "iota_sq",
+     "kind": "example",
+     "statement": "ι² = 1."
+    },
+    {
+     "name": "iota_not_SL2",
+     "kind": "non-example",
+     "statement": "ι ∉ SL₂(ℤ) (determinant −1)."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/plus-minus-decomposition",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The plus/minus decomposition",
+   "kind": "lemma",
+   "statement": "If ι normalises Γ and 2 acts invertibly on V, then Symb_Γ(V) = Symb_Γ(V)^+ ⊕ Symb_Γ(V)^− into ±1-eigenspaces of ι, via φ = (φ + φ|ι)/2 + (φ − φ|ι)/2; the decomposition is preserved by the Hecke operators when ι commutes with them.",
+   "hypotheses": [
+    "2 invertible on V."
+   ],
+   "proofSteps": [
+    "The idempotents (1 ± ι)/2 are defined since 2 is invertible and ι² = 1."
+   ],
+   "acceptance": [
+    "Over ℤ the decomposition fails in general: Symb^+ ⊕ Symb^− has index a power of 2.",
+    "Hecke operators T_ℓ commute with ι (ι normalises the double cosets)."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/involution-at-infinity",
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Basic",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.1, p. 7",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [],
+ "coverage": [
+  {
+   "stageId": "ModularSymbolsPadicLFunctions:L0",
+   "status": "partial",
+   "remaining": [
+    "Compactly supported and parabolic cohomology of the modular curve with boundary maps, and the comparison Symb_Γ(V) ≅ H¹_c(H/Γ, Ṽ) when the orders of torsion elements are invertible on V (Ash–Stevens Proposition 4.2, cited by Pollack–Stevens).",
+    "Solving the Manin relations: fundamental domains and the presentation of Δ₀ over ℤ[Γ] (Pollack–Stevens §§2.3–2.5, Theorem 2.6), including the three-torsion case.",
+    "Diamond operators and nebentypus, and the Γ₁(N) versions of the Hecke operators.",
+    "Eichler–Shimura period maps at general level: rational structures, Hecke equivariance, injectivity and eigenspace dimensions; elliptic stabilisers through a torsion-free auxiliary level and descent; comparison with the analytic modular-curve carrier."
+   ],
+   "notes": "This checkpoint plans the algebraic core of L0 from Pollack–Stevens §2.1–2.2 and §3.4: the Steinberg module, modular symbols, the unimodular map with Manin's surjectivity and relations (over SL₂(ℤ), with −1 as an extra relation), the coset basis, the coefficient modules V_k, the monoid Σ₀(N), Hecke operators and the involution at infinity with the plus/minus decomposition. AUDIT-26 records L0 as not built; the only library inputs are Mathlib's P¹, GL₂ action, congruence subgroups and polynomial modules, and Tau Ceti's Γ₀(N) Hecke ring."
+  },
+  {
+   "stageId": "ModularSymbolsPadicLFunctions:L1",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage L1 (Periods and critical values)."
+   ]
+  },
+  {
+   "stageId": "ModularSymbolsPadicLFunctions:L2",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage L2 (Refinements and small slope)."
+   ]
+  },
+  {
+   "stageId": "ModularSymbolsPadicLFunctions:L3",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage L3 (Critical slope)."
+   ]
+  },
+  {
+   "stageId": "ModularSymbolsPadicLFunctions:L4",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage L4 (Examples and coefficient changes)."
+   ]
+  }
+ ],
+ "gaps": []
+}
