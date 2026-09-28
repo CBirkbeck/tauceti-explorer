@@ -1431,6 +1431,24 @@
           "name": "LinearEquiv.isSupportedOnComponents_iff",
           "role": "equivalence",
           "statement": "If M ≅ N as R-modules, M is supported on components iff N is."
+        },
+        {
+          "name": "Module.IsSupportedOnComponents.mk",
+          "role": "constructor",
+          "statement": "If every prime minimal over Ann_R(M) is a minimal prime of R, then M is supported on components. The introduction rule, so that a user never unfolds the definition to prove it.",
+          "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--R03.6"
+        },
+        {
+          "name": "Module.isSupportedOnComponents_of_faithfulSMul",
+          "role": "compatibility",
+          "statement": "If M is faithful in Mathlib's sense (FaithfulSMul R M) then M is supported on components. This holds over any commutative ring: faithfulness gives Ann_R(M) = ⊥, and minimalPrimes R is by definition (⊥ : Ideal R).minimalPrimes.",
+          "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--R03.6"
+        },
+        {
+          "name": "Module.isSupportedOnComponents_of_subsingleton",
+          "role": "example",
+          "statement": "The zero module is supported on components: its annihilator is R, over which no prime is minimal. The degenerate unit test, made a named lemma so that consumers can cite it.",
+          "addedBy": "REV-DeformationAndDerivedPatchingAlgebra--R03.6"
         }
       ],
       "suggestedDeclarations": [
@@ -5169,7 +5187,12 @@
         "the correction itself, read in full",
         "the published PDF on Calegari's page (same text)",
         "this atlas's errata register (research/errata/REGISTER.md and data/source-issues.json): PAPER-CALEGARI-GERAGHTY-18/E141 (this slip) and E15 (the brackets)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.6",
+        "reason": "Confirmed. This re-records PAPER-CALEGARI-GERAGHTY-18/E141, as the known field says, and that is checkable inside the atlas: data/source-issues.json carries E141 with the same locator (§6.1, Theorem 6.4(1), p. 389), the same printed text and the same correction, confirmed by REV-PAPER-CALEGARI-GERAGHTY-18. The bracket half is item (2) of the authors' published Correction; the R for R∞ slip is not. affects: nothing is right, since the text cites Theorem 6.4 only for parts (2) and (3), and the proof of part (1) already uses the correct hypothesis on R∞."
+      }
     },
     {
       "id": "DeformationAndDerivedPatchingAlgebra/E2",
@@ -5185,7 +5208,12 @@
         "Crossref metadata for DOI 10.1007/s10240-008-0015-2 (no correction or update relation)",
         "the Numdam item page PMIHES_2008__108__183_0",
         "this atlas's errata register (research/errata/REGISTER.md and data/source-issues.json): no entry for Taylor 2008; PAPER-CALEGARI-GERAGHTY-18/E130 records the analogous missing non-vanishing hypothesis in Calegari–Geraghty Lemma 6.2 and notes that Theorem 6.4(2) needs it too"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.6",
+        "reason": "Confirmed against the source, read at Numdam (PMIHES_2008__108__183_0). Lemma 2.3 is printed exactly as quoted, with no M ≠ 0, and Definition 2.1 defines near faithfulness of a finitely generated M by Ann_A(M) nilpotent with no nonzero hypothesis; no global convention in §2 excludes M = 0. So for M = 0 and A ≠ 0 the conclusion fails: Ann_A(0) = A is not nilpotent. The reason given rests on the convention depth(0) = ∞, which is correct but is the softer half: a reader leaving depth(0) undefined would call the lemma vacuous rather than false. The proof settles it without any convention. It reads 'every minimal prime over Ann_A M (which will then be an associated prime of M …)', and for M = 0 we have Ass(0) = ∅ and Ann_A(0) = A, over which no prime is minimal, so the inference to 'must be a minimal prime of A' delivers nothing. The proof therefore needs M ≠ 0 whichever convention is used, which is why the fix is to add the hypothesis rather than weaken the conclusion. The nodes formalising Lemma 2.3 already carry the corrected hypothesis, through Mathlib's RingTheory.Sequence.IsRegular, whose definition includes M/(r₁, …, r_n)M ≠ 0."
+      }
     }
   ],
   "sourceVersions": [
@@ -5210,5 +5238,278 @@
       "read": "2026-09-26",
       "sha256": "c60cfe362940e641ee2cd60c61c1429961f18d3d16b4a6857df4ea7993111ee7"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.6",
+    "date": "2026-09-28",
+    "notes": "Accepted, with one correction. Sources: all 144 excerpt references were matched against the source texts — Taylor 2008 (Numdam), Calegari–Geraghty (author copy), Kisin 2009 (Annals), Khare–Wintenberger II (author copy), ACC+ (author copy), 23 Stacks tags and the Mathlib MvPowerSeries files at the pin — first by normalised substring and chunk matching, then, for every reference below an exact match, by requiring every run of four or more plain words to occur in the source, then by reading. All 144 hold; the residual mismatches were formula typesetting and pdftotext layout interleaving a split formula into the middle of a sentence. Baseline: all 126 declarations exist in their cited module at Mathlib 082e2d37, read from the clone's object store (60 under their full dotted name, 66 under a namespaced head). Closure: check_blueprint passes the packet as closed with 0 errors and 0 warnings; the three cross-packet prerequisites resolve to nodes of DeformationAndDerivedPatchingAlgebra--P7.json whose statements supply the uses; the Lemma 2.3 chain carries M ≠ 0. Proof steps were read in detail for the two definitions, the Lemma 2.3 chain and the three nodes resting on P7, and checked for the rest at the level of sources and prerequisites rather than re-derived. Correction: three API items added to supported-on-components. sourceIssues E1 and E2 confirmed. Nothing compiled: no build at the pinned commits exists on this machine.",
+    "checked": [
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (ACCplus-PotentialAutomorphyCM, CalegariGeraghty-2018, StacksProject-web-2026-09-24, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/supported-on-components",
+        "verdict": "corrected",
+        "note": "Every source excerpt matched against the source text (ACCplus-PotentialAutomorphyCM, CalegariGeraghty-2018, StacksProject-web-2026-09-24, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module. The API had four items and lacked a constructor, a compatibility with Mathlib and a named example; three were added (Module.IsSupportedOnComponents.mk, Module.isSupportedOnComponents_of_faithfulSMul, Module.isSupportedOnComponents_of_subsingleton), and matching signatures added to the suggested file."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-support-eq-univ",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (ACCplus-PotentialAutomorphyCM, StacksProject-web-2026-09-24, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-minimal-primes-mem-support",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, StacksProject-web-2026-09-24, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-restrict-scalars-surjective",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/radical-annihilator-quotient",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (StacksProject-web-2026-09-24, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-quotient",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/quotient-action-kernel-bound",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/quotient-action-nearly-faithful",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change-subset",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Stacks-0BUR-2026-09-26); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Stacks-0BUR-2026-09-26); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change-flat",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Stacks-00HR-2026-09-26, Stacks-0BUR-2026-09-26); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/support-restrict-scalars-surjective",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, StacksProject-web-2026-09-24); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-base-change",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (StacksProject-web-2026-09-24); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-of-base-change",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (StacksProject-web-2026-09-24); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-base-change-iff",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (StacksProject-web-2026-09-24); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/framing-augmentation-kernel",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Mathlib-MvPowerSeries-082e2d3); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/framing-variables",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Mathlib-MvPowerSeries-082e2d3, Stacks-0BUR-2026-09-26); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/framing-quotient-nearly-faithful",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Mathlib-MvPowerSeries-082e2d3, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/minimal-primes-of-torsion-free",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, StacksProject-web-2026-09-24); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-minimal-primes-away-mem-support",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, StacksProject-web-2026-09-24); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-after-inverting",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/faithful-iff-after-inverting",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (KhareWintenberger-SerreII, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-depth-associated-primes-minimal",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (StacksProject-web-2026-09-24, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module. Formalises Taylor Lemma 2.3 and carries the hypothesis M ≠ 0 that sourceIssues E2 adds, through IsRegular's M/(r)M ≠ 0, so the node states the corrected result."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-depth-annihilator-primes-top-dimensional",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, StacksProject-web-2026-09-24, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module. Formalises Taylor Lemma 2.3 and carries the hypothesis M ≠ 0 that sourceIssues E2 adds, through IsRegular's M/(r)M ≠ 0, so the node states the corrected result."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-support-top-components",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, StacksProject-web-2026-09-24, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module. Formalises Taylor Lemma 2.3 and carries the hypothesis M ≠ 0 that sourceIssues E2 adds, through IsRegular's M/(r)M ≠ 0, so the node states the corrected result."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-maximal-depth-equidimensional",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-nearly-faithful-irreducible",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module. Formalises Taylor Lemma 2.3 and carries the hypothesis M ≠ 0 that sourceIssues E2 adds, through IsRegular's M/(r)M ≠ 0, so the node states the corrected result."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-depth-nearly-faithful-irreducible-away",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/annihilator-group-stable",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (KhareWintenberger-SerreII); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/support-group-stable",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (KhareWintenberger-SerreII); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/support-group-transitive",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (KhareWintenberger-SerreII); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/faithful-group-transitive",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (KhareWintenberger-SerreII); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-lift-from-special-fibre",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, StacksProject-web-2026-09-24, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module. Its cross-packet prerequisite in DeformationAndDerivedPatchingAlgebra--P7.json was read and its statement supplies what is used; that packet carries no review of its own."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/patching-radical-comparison",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/patching-nearly-faithful-descends",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/patching-reduced-quotient-iso",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/patching-kernel-equals-ideal",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Kisin-FiniteFlatModularity-2009, StacksProject-web-2026-09-24); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module. Its cross-packet prerequisite in DeformationAndDerivedPatchingAlgebra--P7.json was read and its statement supplies what is used; that packet carries no review of its own."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/patching-free-conclusion",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, StacksProject-web-2026-09-24); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module. Its cross-packet prerequisite in DeformationAndDerivedPatchingAlgebra--P7.json was read and its statement supplies what is used; that packet carries no review of its own."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/r-to-t-kernel-nil",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/r-to-t-kernel-nilpotent",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (ACCplus-PotentialAutomorphyCM, StacksProject-web-2026-09-24); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/r-red-equals-t-red",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (ACCplus-PotentialAutomorphyCM, CalegariGeraghty-2018); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/t-reduced-iff-kernel-nilradical",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-reduced",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/torsion-in-kernel",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (KhareWintenberger-SerreII); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-torsion-free-quotient",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (KhareWintenberger-SerreII, Kisin-FiniteFlatModularity-2009); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/torsion-in-nilradical",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (KhareWintenberger-SerreII, Kisin-FiniteFlatModularity-2009); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/t-reduced-iff-after-inverting",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (Kisin-FiniteFlatModularity-2009, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-free",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-of-free",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/patched-module-support-theorem",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018, Taylor-AutomorphyII-2008); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/patched-module-away-support",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      },
+      {
+        "nodeId": "DeformationAndDerivedPatchingAlgebra:R03.6/patched-module-r-equals-t",
+        "verdict": "verified",
+        "note": "Every source excerpt matched against the source text (CalegariGeraghty-2018); every baseline prerequisite confirmed at Mathlib 082e2d37 in its cited module."
+      }
+    ]
+  }
 }

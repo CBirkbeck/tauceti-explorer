@@ -160,6 +160,24 @@ theorem NearlyFaithful.isSupportedOnComponents [NearlyFaithful R M] :
 theorem _root_.LinearEquiv.isSupportedOnComponents_iff (e : M ≃ₗ[R] N) :
     IsSupportedOnComponents R M ↔ IsSupportedOnComponents R N := sorry
 
+/-- (constructor) The introduction rule: minimal primes over the annihilator being minimal primes of
+`R` gives `IsSupportedOnComponents`, without unfolding the definition. Added by
+REV-DeformationAndDerivedPatchingAlgebra--R03.6. -/
+theorem IsSupportedOnComponents.mk
+    (h : (Module.annihilator R M).minimalPrimes ⊆ minimalPrimes R) :
+    IsSupportedOnComponents R M := sorry
+
+/-- (compatibility) A faithful module in Mathlib's sense is supported on components, over any
+commutative ring: `Ann_R(M) = ⊥` and `minimalPrimes R` is `(⊥ : Ideal R).minimalPrimes`. Added by
+REV-DeformationAndDerivedPatchingAlgebra--R03.6. -/
+theorem isSupportedOnComponents_of_faithfulSMul [FaithfulSMul R M] :
+    IsSupportedOnComponents R M := sorry
+
+/-- (example) The zero module is supported on components. Added by
+REV-DeformationAndDerivedPatchingAlgebra--R03.6. -/
+theorem isSupportedOnComponents_of_subsingleton [Subsingleton M] :
+    IsSupportedOnComponents R M := sorry
+
 end API
 
 /-! ### L4 `nearly-faithful-iff-support-eq-univ` -/
