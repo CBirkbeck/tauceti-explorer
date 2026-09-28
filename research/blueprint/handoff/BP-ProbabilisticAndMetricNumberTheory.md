@@ -203,3 +203,42 @@ polynomial criterion, no nonzero k killing α_1, …, α_s); and the abelian Rat
 (Proposition 1.1.5, Exercise 1.1.7). Beyond it: discrepancy (Erdős–Turán, Koksma) and normal numbers
 (Borel), which need a source. GN.4 plans equidistribution for lattice points and homogeneous flows, and it
 should reuse `AsympEquidistributed` rather than define its own. PM.3–PM.5 are unchanged.
+
+# Continuation — 28 September 2026, second PM.2 pass (Claude Code, cc-fb70e5)
+
+Claimed again by comment 5872053346, confirmed by the bot. This pass finishes the asymptotic theory of
+Tao §1.1.1, using the same author copy (sha256 re-verified) and reading the passages listed in the
+source record's third `readSections` entry. All earlier nodes are unchanged.
+
+**Nine new PM.2 nodes, no new planets** (PM.2 already has the maximum of six):
+
+| node | kind | source |
+|---|---|---|
+| `asymptotic-equidistribution-int` | definition, 6 API, 3 tests | p. 4 and footnote 2 |
+| `weyl-criterion-general-measure` | theorem | proof of Prop. 1.1.2 |
+| `total-equidistribution-twisted-weyl` | theorem | Ex. 1.1.4 |
+| `linear-equidistribution-int` | theorem | Ex. 1.1.5 (iii) |
+| `polynomial-equidistribution-criterion` | theorem | Ex. 1.1.6 |
+| `subtorus` | definition, 13 API, 4 tests | §1.1.2's SL_d(ℤ) complexity paragraph, Ex. 1.1.22 |
+| `torus-rational-decomposition` | lemma | the proof of Prop. 1.1.5, done by Smith normal form |
+| `abelian-ratner-polynomial` | theorem | Ex. 1.1.7 |
+| `abelian-ratner-linear` | theorem | Prop. 1.1.5 |
+
+**Design.** A subtorus is a *datum*, an integer matrix M : d × n. Its carrier is the image of
+T^n → T^d, and its Haar measure is the pushforward of `torusHaar (Fin n)`. The API proves that the
+measure depends only on the carrier and computes its Fourier coefficients as [k M = 0]. This follows
+the source's own description of a subtorus by L ∈ SL_d(ℤ), and it avoids Lie theory. The equivalence
+with "compact connected subgroup" is Exercise 1.1.22, which is left in `remaining`.
+`torus-rational-decomposition` replaces the source's induction on the dimension by a single Smith
+normal form (`Submodule.smithNormalForm`) for the saturated lattice Γ = {k : every k · α_j is torsion}.
+
+**Finding E9** (misprint, new, affects nothing): Exercise 1.1.7 says "P′, P′′ are polynomials of
+degree s", but P″ may be constant, so it should read "of degree at most s".
+
+**Checks.** `check_blueprint --index` against the pinned declaration index gives 0 errors and 0 warnings; 95 nodes, 19
+of them on PM.2. `intake.py check-files` gives 0 problems. Every new node, API and test name appears
+in the suggested file. Nothing was compiled, as before.
+
+**Next for PM.2:** Exercise 1.1.22, the recurrence Exercise 1.1.8 and the multidimensional theory
+(Definition 1.1.10, Exercises 1.1.9–1.1.15) from the same section; then discrepancy and normal numbers,
+which need a source; and any single-scale material that ES or AC consumers ask for.

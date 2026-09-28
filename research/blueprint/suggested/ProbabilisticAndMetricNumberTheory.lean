@@ -30,6 +30,8 @@ import Mathlib.MeasureTheory.Measure.Portmanteau
 import Mathlib.MeasureTheory.Measure.DiracProba
 import Mathlib.Probability.Distributions.Uniform
 import Mathlib.Analysis.Real.Sqrt
+import Mathlib.Algebra.Ring.Periodic
+import Mathlib.Data.Matrix.Mul
 
 /-!
 # Suggested finite arithmetic probability signatures
@@ -1382,5 +1384,203 @@ example (α : UnitAddTorus (Fin 0)) : TorusIrrational α := by sorry
 
 /-- torusIrrational.test_one_dim -/
 example (a : UnitAddCircle) : TorusIrrational (fun _ : Unit => a) ↔ addOrderOf a = 0 := by sorry
+
+
+/-! ### PM.2, second pass: the rest of Tao §1.1.1
+
+Claude Code (cc-fb70e5), 2026-09-28. Doubly infinite sequences, the general-measure Weyl
+criterion, rational twists, the polynomial criterion, subtori and the abelian Ratner theorems.
+Signatures only; not elaborated, as for the first pass.
+-/
+
+section Continuation
+
+open MeasureTheory Filter Topology
+
+section Int
+
+variable {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X]
+
+/-- PM.2/asymptotic-equidistribution-int: both halves, `x 0` omitted. -/
+def AsympEquidistributedInt (x : ℤ → X) (μ : ProbabilityMeasure X) : Prop :=
+  AsympEquidistributed (fun n : ℕ => x (n + 1)) μ ∧
+    AsympEquidistributed (fun n : ℕ => x (-(n + 1))) μ
+
+def TotallyAsympEquidistributedInt (x : ℤ → X) (μ : ProbabilityMeasure X) : Prop :=
+  ∀ q : ℕ, 0 < q → ∀ r : ℤ, AsympEquidistributedInt (fun n => x (q * n + r)) μ
+
+theorem AsympEquidistributedInt.natCast {x : ℤ → X} {μ : ProbabilityMeasure X}
+    (h : AsympEquidistributedInt x μ) : AsympEquidistributed (fun n : ℕ => x n) μ := by
+  sorry
+
+theorem asympEquidistributedInt_update_zero (x : ℤ → X) (p : X) (μ : ProbabilityMeasure X) :
+    AsympEquidistributedInt (Function.update x 0 p) μ ↔ AsympEquidistributedInt x μ := by
+  sorry
+
+theorem TotallyAsympEquidistributedInt.asympEquidistributedInt {x : ℤ → X}
+    {μ : ProbabilityMeasure X} (h : TotallyAsympEquidistributedInt x μ) :
+    AsympEquidistributedInt x μ := by
+  sorry
+
+theorem TotallyAsympEquidistributedInt.totallyAsympEquidistributed_natCast {x : ℤ → X}
+    {μ : ProbabilityMeasure X} (h : TotallyAsympEquidistributedInt x μ) :
+    TotallyAsympEquidistributed (fun n : ℕ => x n) μ := by
+  sorry
+
+/-- asympEquidistributedInt.test_irrational_rotation -/
+example :
+    AsympEquidistributedInt (fun n : ℤ => n • ((Real.sqrt 2 : ℝ) : UnitAddCircle)) circleHaar := by
+  sorry
+
+/-- asympEquidistributedInt.test_one_sided -/
+example : ¬ AsympEquidistributedInt
+    (fun n : ℤ => if 0 ≤ n then (0 : UnitAddCircle) else n • ((Real.sqrt 2 : ℝ) : UnitAddCircle))
+    circleHaar := by
+  sorry
+
+/-- asympEquidistributedInt.test_zero_irrelevant -/
+example (x : ℤ → X) (p : X) (μ : ProbabilityMeasure X) :
+    AsympEquidistributedInt (Function.update x 0 p) μ ↔ AsympEquidistributedInt x μ := by sorry
+
+end Int
+
+section TorusContinuation
+
+variable {d : Type*} [Fintype d]
+
+/-- PM.2/weyl-criterion-general-measure. -/
+theorem asympEquidistributed_iff_mFourier (x : ℕ → UnitAddTorus d)
+    (μ : ProbabilityMeasure (UnitAddTorus d)) :
+    AsympEquidistributed x μ ↔ ∀ k : d → ℤ,
+      Tendsto (fun n : ℕ => ((n + 1 : ℕ) : ℂ)⁻¹ *
+        ∑ i ∈ Finset.range (n + 1), UnitAddTorus.mFourier k (x i)) atTop
+        (𝓝 (∫ y, UnitAddTorus.mFourier k y ∂(μ : Measure (UnitAddTorus d)))) := by
+  sorry
+
+/-- PM.2/total-equidistribution-twisted-weyl (Tao, Exercise 1.1.4). -/
+theorem totallyAsympEquidistributed_iff_twisted (x : ℕ → UnitAddTorus d) :
+    TotallyAsympEquidistributed x (torusHaar d) ↔ ∀ k : d → ℤ, k ≠ 0 → ∀ (a : ℤ) (b : ℕ), 0 < b →
+      Tendsto (fun n : ℕ => ((n + 1 : ℕ) : ℂ)⁻¹ * ∑ i ∈ Finset.range (n + 1),
+        UnitAddTorus.mFourier k (x i) * fourier a (((i : ℝ) / b : ℝ) : UnitAddCircle))
+        atTop (𝓝 0) := by
+  sorry
+
+/-- PM.2/linear-equidistribution-int (Tao, Exercise 1.1.5 (iii)). -/
+theorem totallyAsympEquidistributedInt_linear_iff (α β : UnitAddTorus d) :
+    TotallyAsympEquidistributedInt (fun n : ℤ => n • α + β) (torusHaar d) ↔ TorusIrrational α := by
+  sorry
+
+/-- PM.2/polynomial-equidistribution-criterion (Tao, Exercise 1.1.6). -/
+theorem polynomial_equidistribution_tfae (s : ℕ) (hs : 1 ≤ s) (α : ℕ → UnitAddTorus d) :
+    List.TFAE [
+      AsympEquidistributed (fun n : ℕ => ∑ j ∈ Finset.range (s + 1), (n ^ j) • α j) (torusHaar d),
+      TotallyAsympEquidistributed (fun n : ℕ => ∑ j ∈ Finset.range (s + 1), (n ^ j) • α j)
+        (torusHaar d),
+      TotallyAsympEquidistributedInt (fun n : ℤ => ∑ j ∈ Finset.range (s + 1), (n ^ j) • α j)
+        (torusHaar d),
+      ¬ ∃ k : d → ℤ, k ≠ 0 ∧ ∀ j ∈ Finset.Icc 1 s, ∑ i, k i • α j i = 0] := by
+  sorry
+
+/-- PM.2/subtorus: the image of an integer matrix `M : d × n`, with its Haar measure. -/
+structure Subtorus (d : Type*) [Fintype d] where
+  n : ℕ
+  M : Matrix d (Fin n) ℤ
+
+namespace Subtorus
+
+variable (S : Subtorus d)
+
+def toHom : UnitAddTorus (Fin S.n) →+ UnitAddTorus d where
+  toFun y i := ∑ j, S.M i j • y j
+  map_zero' := by sorry
+  map_add' := by sorry
+
+theorem continuous_toHom : Continuous S.toHom := by sorry
+
+def carrier : AddSubgroup (UnitAddTorus d) := S.toHom.range
+
+theorem isCompact_carrier : IsCompact (S.carrier : Set (UnitAddTorus d)) := by sorry
+
+theorem isConnected_carrier : IsConnected (S.carrier : Set (UnitAddTorus d)) := by sorry
+
+def haar : ProbabilityMeasure (UnitAddTorus d) :=
+  ⟨Measure.map S.toHom (torusHaar (Fin S.n) : Measure (UnitAddTorus (Fin S.n))), by sorry⟩
+
+theorem haar_carrier : (S.haar : Measure (UnitAddTorus d)) S.carrier = 1 := by sorry
+
+theorem integral_mFourier_haar (k : d → ℤ) :
+    ∫ y, UnitAddTorus.mFourier k y ∂(S.haar : Measure (UnitAddTorus d)) =
+      if Matrix.vecMul k S.M = 0 then 1 else 0 := by
+  sorry
+
+theorem mFourier_eq_one_iff (k : d → ℤ) :
+    (∀ y ∈ S.carrier, UnitAddTorus.mFourier k y = 1) ↔ Matrix.vecMul k S.M = 0 := by
+  sorry
+
+theorem haar_eq_of_carrier_eq {S' : Subtorus d} (h : S.carrier = S'.carrier) :
+    S.haar = S'.haar := by
+  sorry
+
+variable (d) in
+/-- The full torus. -/
+def top : Subtorus d :=
+  ⟨Fintype.card d, Matrix.of fun i j => if Fintype.equivFin d i = j then 1 else 0⟩
+
+variable (d) in
+/-- The zero subtorus. -/
+def bot : Subtorus d := ⟨0, 0⟩
+
+end Subtorus
+
+/-- PM.2/torus-rational-decomposition. -/
+theorem exists_subtorus_rational_decomposition {s : ℕ} (α : Fin s → UnitAddTorus d) :
+    ∃ S : Subtorus d, Function.Injective S.toHom ∧
+      (∀ k : d → ℤ, (∀ y ∈ S.carrier, ∑ i, k i • y i = 0) ↔
+        ∀ j, IsOfFinAddOrder (∑ i, k i • α j i)) ∧
+      ∀ j, ∃ α' ∈ S.carrier, IsOfFinAddOrder (α j - α') := by
+  sorry
+
+/-- PM.2/abelian-ratner-polynomial (Tao, Exercise 1.1.7). -/
+theorem exists_abelian_ratner_polynomial (s : ℕ) (α : ℕ → UnitAddTorus d) :
+    ∃ (S : Subtorus d) (α' α'' : ℕ → UnitAddTorus d),
+      (∀ j, 1 ≤ j → j ≤ s → α' j ∈ S.carrier ∧ IsOfFinAddOrder (α'' j) ∧ α j = α' j + α'' j) ∧
+      TotallyAsympEquidistributed
+        (fun n : ℕ => ∑ j ∈ Finset.Icc 1 s, (n ^ j) • α' j) S.haar ∧
+      TotallyAsympEquidistributedInt
+        (fun n : ℤ => ∑ j ∈ Finset.Icc 1 s, (n ^ j) • α' j) S.haar ∧
+      ∃ Q : ℕ, 0 < Q ∧ Function.Periodic
+        (fun n : ℤ => α 0 + ∑ j ∈ Finset.Icc 1 s, (n ^ j) • α'' j) (Q : ℤ) := by
+  sorry
+
+/-- PM.2/abelian-ratner-linear (Tao, Proposition 1.1.5). -/
+theorem exists_abelian_ratner_linear (α β : UnitAddTorus d) :
+    ∃ (S : Subtorus d) (α' α'' : UnitAddTorus d),
+      α' ∈ S.carrier ∧ IsOfFinAddOrder α'' ∧ α = α' + α'' ∧
+      TotallyAsympEquidistributed (fun n : ℕ => n • α') S.haar ∧
+      TotallyAsympEquidistributedInt (fun n : ℤ => n • α') S.haar ∧
+      ∃ Q : ℕ, 0 < Q ∧ Function.Periodic (fun n : ℤ => n • α'' + β) (Q : ℤ) := by
+  sorry
+
+/-- subtorus.test_top -/
+example : (Subtorus.top d).haar = torusHaar d := by sorry
+
+/-- subtorus.test_bot -/
+example : (Subtorus.bot d).haar = diracProba 0 := by sorry
+
+/-- subtorus.test_diagonal -/
+example :
+    let D : Subtorus (Fin 2) := ⟨1, Matrix.of fun _ _ => 1⟩
+    ∫ y, UnitAddTorus.mFourier (![1, -1] : Fin 2 → ℤ) y
+        ∂(D.haar : Measure (UnitAddTorus (Fin 2))) = 1 ∧
+      ∫ y, UnitAddTorus.mFourier (![1, 0] : Fin 2 → ℤ) y
+        ∂(D.haar : Measure (UnitAddTorus (Fin 2))) = 0 := by
+  sorry
+
+/-- subtorus.test_non_injective: `x ↦ 2x` on `T` still has Haar pushforward `torusHaar`. -/
+example : (⟨1, Matrix.of fun _ _ => 2⟩ : Subtorus (Fin 1)).haar = torusHaar (Fin 1) := by sorry
+
+end TorusContinuation
+
+end Continuation
 
 end TauCeti.Equidistribution
