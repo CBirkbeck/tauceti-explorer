@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all266 predecessor nodes whole. Six L3 nodes give the canonically normalized odd-character L-value, through scalar phase and finite unit pairing, with one native L(0) API and twelve typed examples. E16 records the missing root qualification of Remark6.3. Five gaps, one L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all272 predecessor nodes whole. Seven L1 nodes extend the arithmetic smoothing series and integral measure to every p-adic unit, with exact natural-parameter compatibility, coefficientwise and weak continuity, and all nonnegative ordinary moments. All sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2450,6 +2450,125 @@
         "module": "Mathlib/RingTheory/RootsOfUnity/Complex.lean",
         "provides": "theorem isPrimitiveRoot_exp (n : ℕ) (h0 : n ≠ 0) : IsPrimitiveRoot (exp (2 * π * I / n)) n := by",
         "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:PadicInt.instBinomialRing",
+        "kind": "instance",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "noncomputable instance instBinomialRing : BinomialRing ℤ_[p] where",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:PowerSeries.binomialSeries",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+        "provides": "def binomialSeries (A) [One A] [SMul R A] (r : R) : PowerSeries A :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:PowerSeries.binomialSeries_coeff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/PowerSeries/Binomial.lean",
+        "provides": "lemma binomialSeries_coeff [Semiring A] [SMul R A] (r : R) (n : ℕ) :",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:Ring.choose_one_right",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "theorem choose_one_right [NatPowAssoc R] (r : R) : choose r 1 = r := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:Ring.choose_neg'",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "theorem choose_neg' [NatPowAssoc R] (r : R) (n : ℕ) :",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:Ring.multichoose_one",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "theorem multichoose_one (k : ℕ) : multichoose (1 : R) k = 1 := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:Ring.choose_natCast",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "theorem choose_natCast [NatPowAssoc R] (n k : ℕ) : choose (n : R) k = Nat.choose n k := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:PadicInt.continuous_choose",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "lemma continuous_choose (k : ℕ) : Continuous (fun x : ℤ_[p] ↦ Ring.choose x k) := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:Units.continuous_coe_inv",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Constructions.lean",
+        "provides": "theorem continuous_coe_inv : Continuous (fun u => ↑u⁻¹ : Mˣ → M) :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:PowerSeries.coeff_invOfUnit",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "theorem coeff_invOfUnit (n : ℕ) (φ : R⟦X⟧) (u : Rˣ) :",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:AbstractMeasure.WeakTopology",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/Measure/Topology.lean",
+        "provides": "@[reducible] def WeakTopology : TopologicalSpace (AbstractMeasure X R E) :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:continuous_induced_dom",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Order.lean",
+        "provides": "theorem continuous_induced_dom {t : TopologicalSpace β} : Continuous[induced f t, t] f :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:continuous_apply",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "theorem continuous_apply (i : ι) : Continuous fun p : ∀ i, A i => p i :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:Units.isOpenMap_val",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Ring/Units.lean",
+        "provides": "theorem isOpenMap_val : IsOpenMap (val : Rˣ → R) :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:Topology.Dense.preimage",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Maps/Basic.lean",
+        "provides": "protected theorem Dense.preimage {s : Set Y} (hs : Dense s) (hf : IsOpenMap f) :",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_natCast_lt_one_iff",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "lemma norm_natCast_lt_one_iff {n : ℕ} :",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:Continuous.ext_on",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+        "provides": "theorem Continuous.ext_on [T2Space X] {s : Set Y} (hs : Dense s) {f g : Y → X} (hf : Continuous f)",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
       }
     ]
   },
@@ -17851,6 +17970,521 @@
           "statement": "Under the same primitive, odd, canonical-root and nonzero-Gauss hypotheses, η.LFunction1=πi·G⁻¹·(η⁻¹).LFunction0."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothing-series",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Smoothing series at a p-adic unit",
+      "kind": "construction",
+      "statement": "Define F_u=b_u·PowerSeries.invOfUnit(q_u,u) in Z[[T]] for every u∈U.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation."
+      ],
+      "proofSteps": [
+        "The native BinomialRing instance on Z makes every coefficient integral. Ring.choose_one_right gives constantCoeff(q_u)=u, so native invOfUnit is its actual multiplicative inverse. No factorial or T is inverted in Z.",
+        "Multiplying by q_u gives b_u; multiplying this equation by T also gives Tq_u F_u=q_u−C(u). Multiplication by the same inverse proves uniqueness among solutions of q_u F=b_u.",
+        "The constant coefficient is choose(u,2)u⁻¹. At u=1 the numerator b_u is zero. At u=−1 native choose_neg and multichoose_one give choose(−1,n)=(−1)^n, hence b_(−1)=−q_(−1) and F_(−1)=−1."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.instBinomialRing",
+        "mathlib:PowerSeries.binomialSeries",
+        "mathlib:PowerSeries.binomialSeries_coeff",
+        "mathlib:PowerSeries.mk",
+        "mathlib:PowerSeries.coeff_mk",
+        "mathlib:Ring.choose_one_right",
+        "mathlib:PowerSeries.invOfUnit",
+        "mathlib:PowerSeries.mul_invOfUnit",
+        "mathlib:PowerSeries.constantCoeff_invOfUnit",
+        "mathlib:Ring.choose_neg'",
+        "mathlib:Ring.multichoose_one",
+        "mathlib:Ring.choose_natCast"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedSeries"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "excerpt": "whose Mahler transform is",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.padicSmoothedSeries_def",
+          "role": "characterisation",
+          "statement": "The series is exactly b_u·invOfUnit(q_u,u)."
+        },
+        {
+          "name": "DirichletPadic.padicSmoothedSeries_mul_denominator",
+          "role": "characterisation",
+          "statement": "q_u F_u=b_u in the native integral series ring."
+        },
+        {
+          "name": "DirichletPadic.padicSmoothedSeries_constantCoeff",
+          "role": "simp",
+          "statement": "constantCoeff(F_u)=choose(u,2)u⁻¹ in Z."
+        },
+        {
+          "name": "DirichletPadic.padicSmoothedSeries_unique",
+          "role": "extensionality",
+          "statement": "Any integral series F satisfying q_u F=b_u equals F_u."
+        },
+        {
+          "name": "DirichletPadic.padicSmoothedSeries_one",
+          "role": "simp",
+          "statement": "F_1=0."
+        },
+        {
+          "name": "DirichletPadic.padicSmoothedSeries_neg_one",
+          "role": "simp",
+          "statement": "F_(−1)=−1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedPadicSmoothingTests.series_identity_parameter",
+          "kind": "degenerate",
+          "statement": "F_1=0 at p=2."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.series_negative_parameter",
+          "kind": "non-example",
+          "statement": "F_(−1)=−1 at p=2; it is not zero."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.dyadic_three_coefficients",
+          "kind": "computation",
+          "statement": "At p=2 and u=3, the first two coefficients, included in Q_2, are1 and−2/3."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.inverse_two_coefficients",
+          "kind": "computation",
+          "statement": "At p=3 and u=1/2, the first two coefficients in Q_3 are−1/4 and1/16."
+        }
+      ],
+      "acceptance": [
+        "There is no choice of a natural representative of u. The construction includes negative and nonintegral rational p-adic units and retains integral coefficients at p=2."
+      ],
+      "uses": [
+        {
+          "where": "Definition4.5 and the following arbitrary-unit measure",
+          "how": "Provide its actual integral Amice series."
+        },
+        {
+          "where": "Theorem4.1 and PMIA L3 pseudomeasure membership",
+          "how": "Supply smoothing parameters for every group element, needed before an all-unit numerator condition can be proved."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothing-series-natural",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Agreement with natural smoothing series",
+      "kind": "comparison",
+      "statement": "If u∈U has value a∈N, then F_u=smoothedSeries Z a ha for any certificate ha that a is a unit.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation.",
+        "a is natural and the equality (u:Z)=a is explicit."
+      ],
+      "proofSteps": [
+        "Native Ring.choose_natCast identifies both shifted coefficient sequences with the natural binomial sequences of the existing smoothed-series constructor.",
+        "Both series satisfy q_a F=b_a. Cancel the unit q_a, or use the preceding uniqueness API, to obtain equality independently of the unit certificate."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothing-series",
+        "DirichletPadicLFunctions:L1/smoothed-series",
+        "DirichletPadicLFunctions:L1/series-cancellation",
+        "mathlib:Ring.choose_natCast"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedSeries_nat"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "excerpt": "whose Mahler transform is",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [],
+      "tests": [
+        {
+          "name": "SuggestedPadicSmoothingTests.natural_two_comparison",
+          "kind": "compatibility",
+          "statement": "At p=3,u=2 the new series equals the original smoothedSeries at2."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.natural_three_comparison",
+          "kind": "compatibility",
+          "statement": "At p=2,u=3 the new series equals the original smoothedSeries at3."
+        }
+      ],
+      "acceptance": [
+        "This is an equality in the existing integral series ring, not only an equality after a field extension."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothing-coefficients-continuous",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Continuous smoothing coefficients",
+      "kind": "lemma",
+      "statement": "For every n≥0, u↦coeff_n(F_u) is continuous U→Z.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation."
+      ],
+      "proofSteps": [
+        "Native continuous_choose makes each coefficient of q_u and b_u continuous after composition with the continuous unit inclusion.",
+        "Induct strongly on n in the exact native coeff_invOfUnit recurrence. Its degree-zero term is the continuous unit inverse. At positive degree, each summand uses a lower inverse coefficient multiplied by a continuous coefficient of q_u; the finite sum and the factor−u⁻¹ preserve continuity.",
+        "Native coeff_mul expresses coeff_n(F_u) as a finite convolution of those continuous coefficients. The native coefficientwise convergence criterion then gives continuity of the entire series-valued map for WithPiTopology."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothing-series",
+        "mathlib:PadicInt.continuous_choose",
+        "mathlib:Units.continuous_val",
+        "mathlib:Units.continuous_coe_inv",
+        "mathlib:PowerSeries.coeff_invOfUnit",
+        "mathlib:PowerSeries.coeff_mul",
+        "mathlib:PowerSeries.WithPiTopology.tendsto_iff_coeff_tendsto"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedSeries_coeff_continuous"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "excerpt": "whose Mahler transform is",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.padicSmoothedSeries_continuous",
+          "role": "continuity",
+          "statement": "u↦F_u is continuous for the native coefficientwise p-adic topology on Z[[T]]."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedPadicSmoothingTests.coefficient_limit_at_negative_one",
+          "kind": "compatibility",
+          "statement": "At p=3, for the units with values3^(n+1)−1, the first coefficient tends to0."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.constant_limit_at_negative_one",
+          "kind": "compatibility",
+          "statement": "At p=2, for units with values2^(n+1)−1, the constant coefficient tends to−1."
+        }
+      ],
+      "acceptance": [
+        "This asserts coefficientwise continuity; it does not assert uniform convergence of all coefficients or convergence in their sup norm."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothed-measure",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Integral smoothing measures at p-adic units",
+      "kind": "construction",
+      "statement": "Define μ_u=(AbstractMeasure.amiceTransformEquiv)⁻¹(F_u) in the existing D(Z,Z).",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation."
+      ],
+      "proofSteps": [
+        "Apply the pinned integral Amice inverse to the preceding series. The existing carrier and equivalence already supply a bounded continuous Z-linear functional; no replacement measure object is defined.",
+        "The inverse laws give its exact Amice series. Coeff_amiceTransformEquiv gives its values at the native Mahler basis. Injectivity of the equivalence gives uniqueness.",
+        "At u=1 the zero series has zero inverse. At u=−1, evaluating native Dirac at0 on each Mahler function gives Amice(δ_0)=1; linearity and injectivity therefore identify μ_(−1)=−δ_0."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothing-series",
+        "mathlib:AbstractMeasure.amiceTransformEquiv",
+        "mathlib:AbstractMeasure.amiceTransformEquiv_apply",
+        "mathlib:AbstractMeasure.coeff_amiceTransformEquiv",
+        "mathlib:AbstractMeasure.dirac",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:mahler_natCast_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedMeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "excerpt": "whose Mahler transform is",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.padicSmoothedMeasure_def",
+          "role": "characterisation",
+          "statement": "μ_u is the inverse native Amice transform of F_u."
+        },
+        {
+          "name": "DirichletPadic.amice_padicSmoothedMeasure",
+          "role": "characterisation",
+          "statement": "Amice(μ_u)=F_u."
+        },
+        {
+          "name": "DirichletPadic.padicSmoothedMeasure_mahler",
+          "role": "simp",
+          "statement": "μ_u(mahler n)=coeff_n(F_u)."
+        },
+        {
+          "name": "DirichletPadic.padicSmoothedMeasure_unique",
+          "role": "extensionality",
+          "statement": "Any measure in D(Z,Z) with Amice series F_u equals μ_u."
+        },
+        {
+          "name": "DirichletPadic.padicSmoothedMeasure_one",
+          "role": "simp",
+          "statement": "μ_1=0."
+        },
+        {
+          "name": "DirichletPadic.padicSmoothedMeasure_neg_one",
+          "role": "simp",
+          "statement": "μ_(−1)=−δ_0 as an actual integral measure."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedPadicSmoothingTests.measure_identity_parameter",
+          "kind": "degenerate",
+          "statement": "μ_1=0 at p=2."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.measure_negative_parameter",
+          "kind": "compatibility",
+          "statement": "μ_(−1)=−δ_0 at p=2."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.inverse_two_mass",
+          "kind": "computation",
+          "statement": "At p=3,u=1/2 the total mass included in Q_3 is−1/4."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.negative_parameter_positive_moment",
+          "kind": "computation",
+          "statement": "At p=3, μ_(−1)(x²)=0."
+        }
+      ],
+      "acceptance": [
+        "The formal and p-adic construction at−1 does not repair the rapid-decay failure of the complex kernel recorded in E3."
+      ],
+      "uses": [
+        {
+          "where": "Theorem4.1 arithmetic pseudomeasure construction",
+          "how": "Supply arithmetic measures at every p-adic unit, before applying unit restriction and inverse weighting."
+        },
+        {
+          "where": "Proposition4.6 and subsequent moment extension",
+          "how": "Interpolate the existing natural smoothing measures in a weakly continuous family."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothed-measure-natural",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Agreement with natural smoothing measures",
+      "kind": "comparison",
+      "statement": "For a∈N with p∤a and u∈U of value a, μ_u=smoothedMeasure p a ha.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation.",
+        "a is natural, p∤a, and (u:Z)=a."
+      ],
+      "proofSteps": [
+        "Use the old norm/unit criteria to produce a unit certificate for a. The natural series comparison identifies F_u with the old Amice series.",
+        "Apply the exact new and old Amice characterizations. Injectivity of the same native equivalence gives equality of the actual integral measures."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure",
+        "DirichletPadicLFunctions:L1/padic-smoothing-series-natural",
+        "DirichletPadicLFunctions:L1/smoothed-measure",
+        "DirichletPadicLFunctions:L1/measure-amice",
+        "mathlib:AbstractMeasure.amiceTransformEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedMeasure_nat"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "excerpt": "whose Mahler transform is",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [],
+      "tests": [
+        {
+          "name": "SuggestedPadicSmoothingTests.natural_measure_two",
+          "kind": "compatibility",
+          "statement": "At p=3,u=2, μ_u equals the old smoothedMeasure at2."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.natural_measure_three",
+          "kind": "compatibility",
+          "statement": "At p=2,u=3, μ_u equals the old smoothedMeasure at3."
+        }
+      ],
+      "acceptance": [
+        "All prior natural-parameter nodes remain unchanged and their exact arithmetic measure is recovered."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothed-measure-weak-continuity",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Weak continuity in the smoothing parameter",
+      "kind": "lemma",
+      "statement": "The map u↦μ_u is continuous U→D(Z,Z) for the native WeakTopology.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation."
+      ],
+      "proofSteps": [
+        "The preceding series continuity uses WithPiTopology. Import the supplied integral-Amice homeomorphism, whose inverse has precisely the required continuity from that topology to the native weak measure topology.",
+        "Compose with the actual inverse Amice map defining μ_u. For each fixed f∈C(Z,Z), the weak topology is induced by the evaluation family, so u↦μ_u(f) is continuous."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure",
+        "DirichletPadicLFunctions:L1/padic-smoothing-coefficients-continuous",
+        "PadicMeasuresIwasawaAlgebras:L2/integral-amice-weak-homeomorphism",
+        "mathlib:AbstractMeasure.WeakTopology",
+        "mathlib:continuous_induced_dom",
+        "mathlib:continuous_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedMeasure_continuous_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "excerpt": "whose Mahler transform is",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.padicSmoothedMeasure_apply_continuous",
+          "role": "continuity",
+          "statement": "For every fixed continuous integral test f, u↦μ_u(f) is continuous U→Z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "SuggestedPadicSmoothingTests.weak_limit_negative_parameter",
+          "kind": "compatibility",
+          "statement": "At p=2, units2^(n+1)−1 give μ_u converging weakly to−δ_0."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.fixed_test_limit",
+          "kind": "compatibility",
+          "statement": "At p=3, the same negative-unit approximation gives μ_u(f)→−f(0) for every fixed integral continuous test."
+        }
+      ],
+      "acceptance": [
+        "The imported inverse continuity uses bounded integral coefficients. This does not assert operator-norm continuity or unrestricted field-valued series convergence."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/padic-smoothed-ordinary-moments",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Ordinary moments for every smoothing unit",
+      "kind": "theorem",
+      "statement": "For every k≥0, μ_u(x^k), included in Q_p, equals (1−u^(k+1))·algebraMap_Q,Q_p(B_(k+1)/(k+1)).",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p and U=Z^× with their native topologies. All series have integral coefficients in the existing PowerSeries Z. For u∈U, write q_u=mk(n↦Ring.choose(u,n+1)) and b_u=mk(n↦Ring.choose(u,n+2)) as local notation. These are shifted coefficients of the native binomialSeries Z u, not new series carriers or a new exponentiation operation.",
+        "The variable u is included Z→Q_p only on the right. B_j is the existing rational bernoulli with B_1=−1/2. The actual integral measure is evaluated before its value is included into Q_p."
+      ],
+      "proofSteps": [
+        "Native natural-number density in Z and the open map U→Z imply that units with natural-number values are dense in U, by Dense.preimage. A natural value of a unit is prime to p by the native norm/unit criteria. This uses no topological generator and includes p=2.",
+        "For fixed k, the left side is continuous by fixed-test continuity and continuity of Z→Q_p. The right side is a polynomial in u multiplied by a fixed rational constant, hence continuous.",
+        "At each natural unit, the preceding measure comparison and the old measure-ordinary-moment formula give equality, with the rational factor split by the algebra map. Apply Continuous.ext_on for the dense natural-unit set to extend the equality to all u.",
+        "The statement includes k=0. At u=−1 it gives total mass−1 and every strictly positive moment0, agreeing with−δ_0. No common complex embedding of u is needed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure-natural",
+        "DirichletPadicLFunctions:L1/padic-smoothed-measure-weak-continuity",
+        "DirichletPadicLFunctions:L1/measure-ordinary-moment",
+        "mathlib:PadicInt.denseRange_natCast",
+        "mathlib:Units.isOpenMap_val",
+        "mathlib:Topology.Dense.preimage",
+        "mathlib:PadicInt.norm_units",
+        "mathlib:PadicInt.norm_natCast_lt_one_iff",
+        "mathlib:Continuous.ext_on"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/PadicSmoothing",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.padicSmoothedMeasure_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section4.1, Proposition4.4, Definition4.5 and Proposition4.6, published136–137/PDF37–38, read with4.2–4.3 and Theorem4.1 on complete published136–139/PDF37–40.",
+          "excerpt": "whose Mahler transform is",
+          "match": "Worker extension from natural parameters prime to p to every u in Z_p^×, using the native binomial-ring structure and coefficientwise continuity. It constructs an actual integral arithmetic series and measure on existing carriers. The source complex smoothing argument still requires a positive natural parameter, as preserved in E3; the negative unit is a valid formal and p-adic parameter."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [],
+      "tests": [
+        {
+          "name": "SuggestedPadicSmoothingTests.inverse_two_first_moment",
+          "kind": "computation",
+          "statement": "At p=3,u=1/2, μ_u(x)=1/16 in Q_3."
+        },
+        {
+          "name": "SuggestedPadicSmoothingTests.inverse_two_second_moment",
+          "kind": "computation",
+          "statement": "At p=3,u=1/2, μ_u(x²)=0."
+        }
+      ],
+      "acceptance": [
+        "This extends the integral smoothing measure and its ordinary moments. All-unit intrinsic numerators, their compatibility and pseudomeasure membership still require the remaining steps."
+      ]
     }
   ],
   "requests": [
@@ -17874,7 +18508,7 @@
       "stageId": "DirichletPadicLFunctions:L1",
       "status": "partial",
       "remaining": [
-        "The actual intrinsic arithmetic numerator on U=ℤ_pˣ, its ambient inclusion, coefficient extension and moments are now explicit. Its multiplicative Dirac action transports the smoothing cocycle, cross-smoothing identity and evenness integrally, including p=2. Compare these identities with the actual completed unit-group algebra, prove regularity of θ_a=[a]−[1], and instantiate the imported L3 pseudomeasures with exact carrier and denominator comparisons.",
+        "The smoothing series and integral measure now admit every p-adic unit parameter, with natural-parameter compatibility, coefficientwise/weak continuity and all nonnegative ordinary moments. Extend the psi-fixed identity, smoothing cocycle and intrinsic inverse-weighted numerator to these parameters. Then use the supplier regularity of the Dirac difference at p+1 to construct the actual arithmetic pseudomeasure, prove all-unit numerator membership, parameter independence, positive interpolation and parity. The actual completed-group-algebra comparison remains requested from PMIA L1. Analytic branches, logarithmic values, pure p-power conductor, pole/residue analysis, complete source extraction and the full Eisenstein family remain open.",
         "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
         "The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
       ]
@@ -18215,89 +18849,85 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "One new unreviewed finding, E16, records the missing canonical complex-root qualification in Remark6.3; all fifteen prior findings and sourceVersions are preserved whole.",
+    "sourceIssues": "All16 predecessor source findings and sourceVersions remain whole; no new finding or independent verdict.",
     "validation": {
-      "nodes": 272,
+      "nodes": 279,
       "kinds": {
         "definition": 1,
-        "lemma": 130,
-        "construction": 27,
-        "theorem": 77,
-        "comparison": 37
+        "lemma": 132,
+        "construction": 29,
+        "theorem": 78,
+        "comparison": 39
       },
-      "api": 263,
-      "packetTests": 307,
-      "definitionConstructionTests": 140,
-      "typedExamples": 310,
+      "api": 277,
+      "packetTests": 325,
+      "definitionConstructionTests": 148,
+      "typedExamples": 328,
       "planets": 24,
-      "baseline": 348,
-      "preservedWholeNodes": 266,
-      "preservedBaseline": 329,
-      "preservedSourceIssues": 15,
-      "newSourceIssues": 1,
-      "newNodes": 6,
-      "newNamedDeclarations": 7,
-      "newTypedTests": 12,
+      "baseline": 365,
+      "preservedWholeNodes": 272,
+      "preservedBaseline": 348,
+      "preservedSourceIssues": 16,
+      "newSourceIssues": 0,
+      "newNodes": 7,
+      "newNamedDeclarations": 21,
+      "newTypedTests": 18,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 414,
-      "dependencyEdges": 1929,
+      "reachableNodes": 422,
+      "dependencyEdges": 1987,
       "acyclic": true,
-      "baselineLeaves": 447,
+      "baselineLeaves": 466,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 105222,
+      "readerWords": 107980,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 695,
+      "compilerWarnings": 734,
       "allWarningsPlaceholders": true,
       "supplierNodes": 265,
-      "currentSupplierNodes": 320,
+      "currentSupplierNodes": 332,
       "supplierWarnings": 569,
       "supplierArtifactReused": true,
       "pinnedMathlibModules": 3595,
       "pinnedTauCetiModules": 20,
       "actualSupplierModules": 1,
-      "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 4,
-      "scratchMathlibModules": 1757,
+      "scratchCompleteDefinitions": 3,
+      "scratchCompleteLemmas": 14,
+      "scratchMathlibModules": 2040,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "polarFactorizations": 21,
-        "scalarPhases": 19,
-        "inverseLogDifferences": 19,
-        "unitResidueDifferences": 24,
-        "characterMultiplications": 244,
-        "oddWeightedSums": 6,
-        "nonrealOddSums": 2,
-        "oddLValues": 5,
-        "zeroValueComparisons": 5,
-        "rootChangeComparisons": 18,
-        "exactGaussControls": 2,
-        "exactBernoulliControls": 2
+        "unitParameters": 19,
+        "integralCoefficients": 247,
+        "ordinaryMoments": 247,
+        "naturalCompatibility": 117,
+        "negativeBoundaryCoefficients": 13,
+        "identityBoundaryCoefficients": 13,
+        "approximationCoefficients": 513,
+        "explicitValues": 4
       },
-      "numericalControlsCertified": false,
+      "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
     },
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 695,
-      "sha256": "dc939616c8a798a9fb179ad9231dfc88b07df450990b633cc264a62ceb79e41e",
+      "warnings": 734,
+      "sha256": "3921c08c22f7538171b71637ae92d1adcc16c4d04bf76844404ac10c0b4dfbfe",
       "nativeProbe": {
-        "completeLemmas": 4,
+        "completeLemmas": 14,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "6867437bee8ef4858fb4d78c54a47e1b6622c540d4353dcdc65388277ad1ebb0"
+        "sha256": "66169cbfd723fa18122e72eb8cf93fb893c6a7100b75892fcba3e61783d49290"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 265,
-        "currentSupplierNodes": 320,
+        "currentSupplierNodes": 332,
         "supplierWarnings": 569,
         "hashes": {
           "source": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
@@ -18305,7 +18935,7 @@
           "log": "052f501c267b2d8edeec41158188185a72b4dc4b1acb567a0a9582f12710869d"
         },
         "wholeOldBodyPreserved": true,
-        "currentSupplierSourceSha256": "d9a5079316a70e82bbe867853129fdda1a3059b11e781e270595de373778dda8",
+        "currentSupplierSourceSha256": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
         "nativeTauModules": 20,
         "nativeMathlibModules": 3595,
         "artifactSha256": {
@@ -18334,7 +18964,7 @@
       }
     },
     "publication": {
-      "base": "6e864402d0548adc7a47e21755ecb1c08277efdb",
+      "base": "eb168d99081c2c90ba13c6ec3f29e889278ef8ce",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -22216,6 +22846,80 @@
         "exactBernoulliControls": 2
       },
       "numericalMethod": "Exact Fraction-pair arithmetic in Q(i) for two modulo4 Gauss sums and the modulo4/5 Bernoulli sums; all analytic controls use70 decimal digits and tolerance1e-60, not interval-certified or general proofs."
+    },
+    "padicUnitSmoothing": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3296,
+      "previousHead": "abdc8373b03c57c4e326e59ae600ee77db733a4b",
+      "previousMerge": "bb68bf1f3de241b970e29fdca778e73e8d4d1dce",
+      "preservedWholeNodes": 272,
+      "preservedBaseline": 348,
+      "preservedFindings": 16,
+      "newNodes": 7,
+      "reading": "Full published136–139/PDF37–40 read on28 September2026, covering Theorem4.1, the smoothing series and measure, restriction and removal of the smoothing parameter. The published source digest was verified. The arbitrary-unit extension below is a worker deduction using native integral binomial coefficients, continuity and density, rather than an assertion that the complex Mellin kernel extends to negative parameters. Relevant whole supplier nodes for inverse-Amice evaluation and the weak Amice homeomorphism were read, together with their actual suggested signatures.",
+      "boundary": "The smoothing series and integral measure now admit every p-adic unit parameter, with natural-parameter compatibility, coefficientwise/weak continuity and all nonnegative ordinary moments. Extend the psi-fixed identity, smoothing cocycle and intrinsic inverse-weighted numerator to these parameters. Then use the supplier regularity of the Dirac difference at p+1 to construct the actual arithmetic pseudomeasure, prove all-unit numerator membership, parameter independence, positive interpolation and parity. The actual completed-group-algebra comparison remains requested from PMIA L1. Analytic branches, logarithmic values, pure p-power conductor, pole/residue analysis, complete source extraction and the full Eisenstein family remain open.",
+      "inputBase": "eb168d99081c2c90ba13c6ec3f29e889278ef8ce",
+      "inputReading": {
+        "base": "210a64e2bbe4b6c1897517bfe72d9fbd7452147d",
+        "inputDelta": {
+          "data/source-issues.json": {
+            "old": "fb145066b47c308a2e2eb578fc7bb0e3e795ce55",
+            "new": "13961f7a7006d2c87845754f4a3f017e1783de08"
+          },
+          "research/errata/REGISTER.md": {
+            "old": "751d24c8b54500589ea3708790db6403ae395c50",
+            "new": "2a4048c08627617aad4530e3a9f0574284baf8da"
+          }
+        },
+        "reading": "The only two captured input changes are automatic aggregation of our merged E16 into data/source-issues.json and research/errata/REGISTER.md. The whole new record and exact no-context Markdown difference were read; all source record fields match the authored finding, awaiting independent review. The first context-rich register diff was truncated and is not a reading claim."
+      },
+      "sourceBoundary": "E3 still requires a positive parameter for the complex rapidly decreasing kernel. The formal integral series and p-adic measure extend to arbitrary units. No new source finding or independent verdict. No generic binomial, Amice, weak-topology or pseudomeasure carrier is duplicated.",
+      "publication": {
+        "base": "eb168d99081c2c90ba13c6ec3f29e889278ef8ce",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "unitParameters": 19,
+        "integralCoefficients": 247,
+        "ordinaryMoments": 247,
+        "naturalCompatibility": 117,
+        "negativeBoundaryCoefficients": 13,
+        "identityBoundaryCoefficients": 13,
+        "approximationCoefficients": 513,
+        "explicitValues": 4
+      },
+      "numericalMethod": "Exact rational arithmetic only: generalized binomial coefficients, independent Stirling-to-ordinary-moment conversion and Bernoulli recurrence, plus p-adic valuations of finite natural approximations. These are finite controls, not proofs of continuity or the general moment theorem.",
+      "supplierRefresh": {
+        "base": "eb168d99081c2c90ba13c6ec3f29e889278ef8ce",
+        "changedInputs": {
+          "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json": {
+            "old": "16c6d308ee7a0d3a3c06cf9940a8611a3998ee4a",
+            "new": "d6a18833f3cd542c80739925fc2806281263bafa"
+          },
+          "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean": {
+            "old": "5297667316eca2f56338eb246a9d16b9e7931def",
+            "new": "88855170c27ca6db321808e8978efa4b23ab45e7"
+          }
+        },
+        "preservedWholeNodes": 320,
+        "preservedBaseline": 315,
+        "preservedFindings": 14,
+        "sourceVersionsWhole": true,
+        "oldLeanContiguous": true,
+        "newNodes": 12,
+        "newBaseline": 4,
+        "newLeanLines": 96,
+        "reading": "All twelve new nodes, four new baseline records, the complete 96-line suggested addition and all changed summary, coverage, gaps, checks and provenance fields were read. Actual nontrivial Z_p-valued continuous characters receive Q_p-valued pseudomeasure evaluation, character separation, a clearing-factor norm bound and continuity in compact-open-continuous character families away from the trivial character. No C_p-valued extension or analytic family is inferred. All existing supplier interfaces called by this checkpoint remain identical; the actual265-node artifact remains sufficient. No newly added supplier declaration is called."
+      }
     }
   },
   "requestResolutions": [
