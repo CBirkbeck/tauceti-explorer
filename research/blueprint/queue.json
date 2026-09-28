@@ -14261,9 +14261,9 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #555"
+   "note": "released on GitHub issue #555"
   },
   {
    "id": "REV-PadicMeasuresIwasawaAlgebras",
@@ -16121,11 +16121,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #699"
+   "note": "claimed on GitHub issue #699"
   },
   {
    "id": "REV-ColemanPowerSeries",
