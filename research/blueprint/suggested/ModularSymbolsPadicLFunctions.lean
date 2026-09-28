@@ -12,7 +12,7 @@ import Mathlib.Analysis.SpecialFunctions.Complex.Circle
 import Mathlib.NumberTheory.Padics.PadicIntegers
 
 /-!
-# Suggested Lean forms: modular symbols (ModularSymbolsPadicLFunctions, L0–L2)
+# Suggested Lean forms: modular symbols (ModularSymbolsPadicLFunctions, L0–L4)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`ModularSymbolsPadicLFunctions`) is definitive. The statements below suggest Lean forms, so that
@@ -465,6 +465,34 @@ def Sigma0p : Submonoid (Matrix (Fin 2) (Fin 2) ℤ_[p]) where
 
 end SmallSlope
 
+section CriticalSlope
+
+/-!
+### L3: critical slope, and L4: examples (signatures; comment only)
+
+Criticality, θ-criticality and Bellaïche's critical and secondary p-adic L-functions are planned
+by PadicFamilies L3 (RS-08); this packet specialises them to a single refinement.
+
+```
+-- L3/non-theta-critical-lift (IsThetaCritical from PadicFamilies L3/refinement-criticality)
+def criticalSlopePadicL (r : Refinement N k p) (hs : r.slope = k + 1) (hθ : ¬ r.IsThetaCritical)
+    (φ : Sign → refinedLine r _) : DistAn (ℤ_[p]ˣ)
+theorem criticalSlopePadicL_lift_unique (Φ : Sign → SymbEigen r (DistAn p))
+    (hΦ : ∀ s, specialiseSymb k (Φ s) = φ s) : Φ = criticalLift r hs hθ φ
+theorem criticalSlopePadicL_admissible : IsAdmissible (k + 1) (criticalSlopePadicL r hs hθ φ)
+-- L3/critical-slope-interpolation: the formula of padicLFunction_interpolation
+-- L3/critical-slope-non-uniqueness
+theorem exists_admissible_vanishing (k : ℕ) :
+    ∃ μ : DistAn (ℤ_[p]ˣ), μ ≠ 0 ∧ IsAdmissible (k + 1) μ ∧
+      ∀ j ≤ k, ∀ χ : DirichletCharacter ℂ_[p] (p ^ n), μ (z ^ j * χ) = 0
+-- L4/euler-factor-comparison (αβ = ε(p)p^{k+1})
+theorem eulerFactor_eq (χ) (hχ : conductor χ = 1) (j ≤ k) :
+    e r χ j = (1 - χ p * p ^ j / α) * (1 - (χ p)⁻¹ * ε p * p ^ (k - j) / α)
+```
+-/
+
+end CriticalSlope
+
 end TauCeti.ModularSymbol
 
 namespace TauCeti.ModularSymbol.SuggestedTest
@@ -570,5 +598,27 @@ example (u e S : ℂ) (hu : u ^ 2 = 1) (hS : S ≠ 0) : (e * S) / (u * S) = u * 
 example (p : ℚ) (hp : p ≠ 0) : 1 + p * (-1 / p) = 0 := by
   rw [mul_div, mul_neg_one, neg_div, div_self hp]
   ring
+
+/-- `L3/critical-slope-non-uniqueness`: the polynomial model `∏_{i ≤ k} (s - γ^i)` of
+`log^{[k]}` vanishes at every `s = γ^j` with `j ≤ k`. -/
+example (γ : ℚ) (k j : ℕ) (hj : j ≤ k) : ∏ i ∈ Finset.range (k + 1), (γ ^ j - γ ^ i) = 0 :=
+  Finset.prod_eq_zero (Finset.mem_range.2 (Nat.lt_succ_of_le hj)) (sub_self _)
+
+/-- `L4/euler-factor-comparison`: with `αβ = ε(p)p^{k+1}` and `i + j = k`,
+`ε(p)p^{k-j}/α = β/p^{j+1}`, so the second factor is the p-stabilisation factor at `s = j + 1`. -/
+example (α β e q : ℂ) (i j : ℕ) (hα : α ≠ 0) (hq : q ≠ 0) (h : α * β = e * q ^ (i + j + 1)) :
+    e * q ^ i / α = β / q ^ (j + 1) := by
+  rw [div_eq_div_iff hα (pow_ne_zero _ hq), mul_comm β α, h]
+  ring
+
+/-- `L4/level-eleven-examples`: the first Greenberg lift `(97, 59, 61)` of `(1/5, -3/2, 1/2)`
+agrees with it modulo `11²`. -/
+example : (97 : ℚ) - 1 / 5 = 11 ^ 2 * (4 / 5) ∧ (59 : ℚ) - (-3 / 2) = 11 ^ 2 * (1 / 2) ∧
+    (61 : ℚ) - 1 / 2 = 11 ^ 2 * (1 / 2) := by
+  norm_num
+
+/-- `L4/level-eleven-examples`: the linear coefficient of `L₁₁(f, T)` is an `11`-adic unit, so
+`λ = 1`. -/
+example : ¬ (11 ∣ 1490719231) := by norm_num
 
 end TauCeti.ModularSymbol.SuggestedTest
