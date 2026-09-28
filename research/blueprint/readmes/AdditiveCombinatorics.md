@@ -1208,3 +1208,117 @@ planned once by its owner and imported here.
 - **Interior of the Green-Tao argument not read: Section 10 and Appendix A (Goldston-Yildirim correlation estimates).** Updated in review (REVIEW-EXT-08-EXT-16). The draft's boundary (Sections 6-7, Proposition 8.2, Lemmas 5.4-5.5) has been read by the reviewer (printed pp. 14-34) and is recorded in the proof steps of the nodes for Propositions 5.3 and 8.1. Still not read: Section 10 (printed pp. 42-49), which reduces Propositions 9.5 and 9.6 to the contour-integral estimate Lemma 10.4 from Goldston-Yildirim [17] via local factor computations (Lemmas 10.1, 10.3, 10.5, 10.6, Definition 10.2); and Appendix A after Lemma A.3 (pp. 53-56, the inductive proof of Lemma 10.4). Next source action: read printed pp. 42-56 of the same source; no new acquisition is needed.
 - **Dirichlet's theorem for the growing modulus W(N) in the endgame.** Added in review (REVIEW-EXT-08-EXT-16). Verified in the source: printed p. 35 asserts that if w(N) << log log N then 'by Dirichlet's theorem' sum_{n <= N} Lambda-tilde(n) = N(1+o(1)), and the proof of Theorem 1.1 (p. 36) uses this to compute E(f); footnote 21 says only sum_{N <= n <= 2N} Lambda-tilde(n) >> N is needed and suggests a pigeonholed residue class; Section 11 (p. 49) says w can finally be a constant depending only on k. Reviewer observation, not stated in the source: W = prod_{p <= w} p is about e^{w}, so for w(N) of size log log N the modulus is a power of log N and the asymptotic needs prime number theorem estimates uniform in the modulus (Siegel-Walfisz range); a fixed-modulus prime number theorem in progressions (the scope of AnalyticNumberTheory:AN.2) suffices only with w constant or w(N) growing slowly enough for a diagonal argument. No supplier link is proposed; the orchestrator should decide whether the endgame consumes AN.2 (fixed modulus) or a uniform statement.
 - **Maximal order of the divisor function in Proposition 9.10.** Added in review (REVIEW-EXT-08-EXT-16). The proof of Proposition 9.10 (printed p. 41) handles coincident shifts h_i through the bound ||nu||_infinity << exp(C log N/log log N), obtained 'by standard estimates for the maximal order of the divisor function d(n)', with no proof or reference; this fixes the choice tau(0) := exp(C m log N/log log N). The estimate d(n) <= exp(C log n/log log n) is not decomposed in any EXT-08 packet. Next action: identify a supplier stage or acquire and read a source proof of d(n) <= exp(C log n/log log n); no such proof was located in the supplied library.
+
+### AC.3: the Gowers-norm estimates
+
+Split out of the accepted Gowers node, which cites Green–Tao (5.5)–(5.7) in its sources but states only
+the definitions. The estimates are what make the norm usable, and AC.3 cannot close while the
+Gowers–Cauchy–Schwarz inequality is only an API line. The accepted node itself is unchanged. Each
+dependency edge below is one the source justifies: Lemma 5.2's proof opens "By (5.7) it suffices to prove
+the claim for d = k − 1", and (5.5) is invoked in Lemma 6.1 and in the lemma behind Proposition 6.2, the
+Section 6 machinery on which the Koopman–von Neumann theorem rests.
+
+#### `gowers-cauchy-schwarz` — The Gowers–Cauchy–Schwarz inequality (Green–Tao (5.5))
+
+*theorem* · planet **Gowers–Cauchy–Schwarz inequality**
+
+For d ≥ 1 and any {0,1}^d-indexed family (f_ω) of real-valued functions on Z_N, |⟨(f_ω)_{ω∈{0,1}^d}⟩_{U^d}| ≤ ∏_{ω∈{0,1}^d} ‖f_ω‖_{U^d}. A single inner product is therefore controlled by the product of the norms of its entries, which is what lets one small Gowers norm force a whole progression count to be small.
+
+**Hypotheses.**
+- d ≥ 1
+- each f_ω : Z_N → ℝ, bounded
+- ‖·‖_{U^d} the Gowers norm of the accepted node, well defined for d ≥ 1
+
+**Proof, in steps.**
+1. Rewrite ⟨(f_ω)⟩_{U^d} as an average over h' ∈ Z_N^{d-1} of the product of two inner averages, one over the f_ω with ω_d = 0 and one over those with ω_d = 1 (the rewriting (5.2)–(5.3) of the accepted node).
+2. Apply the Cauchy–Schwarz inequality in the h' variables to get |⟨(f_ω)⟩| ≤ ⟨(f_{ω',0})⟩^{1/2} ⟨(f_{ω',1})⟩^{1/2}, where each factor doubles the functions with the last digit fixed.
+3. Do the same in each of the other d − 1 digits in turn; the source notes the argument is symmetric in the digits.
+4. After one application per digit every surviving inner product has all 2^d entries equal to a single f_ω, i.e. is ‖f_ω‖_{U^d}^{2^d}; collecting the exponents gives the product of the norms.
+
+**Acceptance tests.**
+- With every f_ω equal to f, the inequality becomes ‖f‖^{2^d} ≤ ‖f‖^{2^d}, an equality.
+- For d = 1 it reads |𝔼 f_0 · 𝔼 f_1| ≤ |𝔼 f_0| |𝔼 f_1|, again an equality, since the U^1 inner product factorises.
+- The inequality needs one Cauchy–Schwarz per digit, d in all; an argument using fewer does not reach the product of all 2^d norms.
+
+**Dependencies.** `gowers-inner-product-and-uniformity-norm`
+
+**Sources.**
+- Green–Tao, arXiv:math/0404188v6 — §5, the paragraph ending in (5.5), printed p. 12. The statement (5.5) and the one-Cauchy–Schwarz-per-digit proof. Prose verbatim from the arXiv v6 LaTeX source; the displayed formula transcribed from it.
+
+#### `gowers-triangle-inequality` — The Gowers triangle inequality
+
+*theorem*
+
+For d ≥ 1 and real-valued f, g on Z_N, ‖f + g‖_{U^d} ≤ ‖f‖_{U^d} + ‖g‖_{U^d}.
+
+**Hypotheses.**
+- d ≥ 1
+- f, g : Z_N → ℝ
+
+**Proof, in steps.**
+1. Expand ⟨(f+g)_{ω}⟩_{U^d} by multilinearity of the inner product into the 2^{2^d} inner products in which each entry is f or g.
+2. Bound each by the Gowers–Cauchy–Schwarz inequality and sum with the binomial formula to get ‖f+g‖_{U^d}^{2^d} = |⟨(f+g)_{ω}⟩_{U^d}| ≤ (‖f‖_{U^d} + ‖g‖_{U^d})^{2^d}.
+3. Take 2^d-th roots.
+
+**Acceptance tests.**
+- Taking g = 0 gives ‖f‖ ≤ ‖f‖.
+- Taking g = −f gives 0 ≤ 2‖f‖, consistent with non-negativity.
+- Together with homogeneity this makes ‖·‖_{U^d} a seminorm for every d ≥ 1; whether it is a norm is the separate question settled by the next nodes.
+
+**Dependencies.** `gowers-inner-product-and-uniformity-norm`, `gowers-cauchy-schwarz`
+
+**Sources.**
+- Green–Tao, arXiv:math/0404188v6 — §5, the paragraph following (5.5), printed p. 12. The triangle inequality and its derivation from (5.5) by multilinearity and the binomial formula. Prose verbatim from the LaTeX source.
+
+#### `gowers-norm-monotone` — Monotonicity of the Gowers norms in d (Green–Tao (5.7))
+
+*lemma*
+
+For d ≥ 2 and real-valued f on Z_N, ‖f‖_{U^{d-1}} ≤ ‖f‖_{U^d}.
+
+**Hypotheses.**
+- d ≥ 2
+- f : Z_N → ℝ
+
+**Proof, in steps.**
+1. Use ‖1‖_{U^d} = 1 ((5.6)), immediate from the definition.
+2. Apply the Gowers–Cauchy–Schwarz inequality to the family with f_ω = f when ω_d = 0 and f_ω = 1 when ω_d = 1, to get |⟨(f_ω)⟩_{U^d}| ≤ ‖f‖_{U^d}^{2^{d-1}}.
+3. Compute the left-hand side directly: averaging out the last coordinate of h leaves ‖f‖_{U^{d-1}}^{2^{d-1}}.
+4. Take 2^{d-1}-th roots.
+
+**Acceptance tests.**
+- For f = 1 both sides equal 1.
+- At d = 2 it gives |𝔼 f| = ‖f‖_{U^1} ≤ ‖f‖_{U^2}.
+- The lemma is what lets Lemma 5.2 reduce to the top index: its proof opens 'By (5.7) it suffices to prove the claim for d = k − 1'.
+
+**Dependencies.** `gowers-inner-product-and-uniformity-norm`, `gowers-cauchy-schwarz`
+
+**Sources.**
+- Green–Tao, arXiv:math/0404188v6 — §5, the paragraph containing (5.6) and (5.7), printed p. 13. The statement (5.7) and the last step of its proof. Prose verbatim from the LaTeX source.
+
+#### `gowers-norm-is-norm` — U^d is a norm for d ≥ 2, and U^1 only a seminorm
+
+*theorem*
+
+For d ≥ 2, ‖·‖_{U^d} is a norm on real-valued functions on Z_N: ‖f‖_{U^d} = 0 only for f = 0. For d = 1 it is not: ‖f‖_{U^1} = |𝔼 f| vanishes on every f of mean zero.
+
+**Hypotheses.**
+- f : Z_N → ℝ
+
+**Proof, in steps.**
+1. For U^2: apply the Gowers–Cauchy–Schwarz inequality with f_{00} = f and f_{10}, f_{01}, f_{11} Kronecker delta functions; the left-hand side recovers a value of f, so ‖f‖_{U^2} = 0 forces f ≡ 0.
+2. Together with the triangle inequality and homogeneity, U^2 is a norm.
+3. For d ≥ 2 in general, monotonicity gives ‖f‖_{U^2} ≤ ‖f‖_{U^d}, so ‖f‖_{U^d} = 0 forces ‖f‖_{U^2} = 0 and hence f = 0.
+4. For d = 1, the definition gives ‖f‖_{U^1} = |𝔼 f|, which is zero for any nonzero f of mean zero.
+
+**Acceptance tests.**
+- A nonzero f of mean zero has ‖f‖_{U^1} = 0 but ‖f‖_{U^2} > 0.
+- The indicator of a single point has positive U^d norm for every d ≥ 2.
+- The source also records ‖f‖_{U^2} = (∑_ξ |f̂(ξ)|^4)^{1/4}, but says Fourier analysis is motivation only in this paper, so that identity is not a prerequisite here.
+
+**Dependencies.** `gowers-inner-product-and-uniformity-norm`, `gowers-cauchy-schwarz`, `gowers-triangle-inequality`, `gowers-norm-monotone`
+
+**Sources.**
+- Green–Tao, arXiv:math/0404188v6 — §5, the paragraph following (5.7), printed p. 13. The norm property for d ≥ 2 and the failure at d = 1. Prose verbatim from the LaTeX source.
+- Green–Tao, arXiv:math/0404188v6 — §5, the d = 2 example following (5.5), printed p. 12. The positivity of U^2 on which the d ≥ 2 case rests. Prose verbatim from the LaTeX source.
+
