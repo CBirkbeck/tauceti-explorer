@@ -801,7 +801,11 @@
     "The residual representation is unchanged, so composing this with the prime-to-ℓ descent of R20.2 is legitimate."
    ],
    "prerequisites": [
-    "SerreWeightAndLevelOptimisation:R20.2/serre-level"
+    "SerreWeightAndLevelOptimisation:R20.2/serre-level",
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step1",
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step2",
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step3",
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step4"
    ],
    "sources": [
     {
@@ -1498,6 +1502,206 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step1",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.4",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.4"
+   ],
+   "title": "Stripping ℓ-power level, step 1: twisting away the ℓ-power character",
+   "kind": "lemma",
+   "statement": "Let ℓ ≥ 3 and let ρ̄ arise from an eigenform f ∈ S_k(Γ₁(M)), M = Nℓ^α with (N, ℓ) = 1 and α > 0. Then ρ̄ arises from Γ₀(ℓ^r) ∩ Γ₁(ℓN) for some r ≥ 0. Writing the character of f as κ = εηω^i, with ε of conductor dividing N, η of ℓ-power order and conductor, and ω the Teichmüller character, one writes η = ξ^{−2} with ξ of ℓ-power order (possible because η has odd order); then f ⊗ ξ has type (k, εω^i), gives rise to ρ̄, and has level Nℓ^r once ℓ^r is divisible by the square of the conductor of ξ. For ℓ ≥ 5 the step also follows from Carayol's theorem, with r = α.",
+   "hypotheses": [
+    "ℓ ≥ 3",
+    "k ≥ 2",
+    "M = Nℓ^α, (N, ℓ) = 1, α > 0",
+    "ρ̄ arises from an eigenform in S_k(Γ₁(M)) with character κ"
+   ],
+   "proofSteps": [
+    "Decompose κ = εηω^i with ε of conductor dividing N, η of ℓ-power order and ℓ-power conductor, and ω the character of conductor ℓ and order ℓ − 1 congruent to the identity mod v; i is an integer mod ℓ − 1.",
+    "Since η has ℓ-power order and ℓ is odd, η has odd order, so η = ξ^{−2} for a character ξ of ℓ-power order.",
+    "Twist: f ⊗ ξ has type (k, εω^i). Because ξ has ℓ-power order it is trivial mod v, so f ⊗ ξ gives rise to ρ̄.",
+    "Choose r ≥ α with ℓ^r divisible by the square of the conductor of ξ; then f ⊗ ξ has level Nℓ^r.",
+    "For ℓ ≥ 5, Carayol's theorem gives the same conclusion directly, with r = α."
+   ],
+   "acceptance": [
+    "The twisting character has ℓ-power order, hence trivial reduction, so the residual representation is unchanged.",
+    "The step needs ℓ odd, to write η as a square; that is where ℓ ≥ 3 enters.",
+    "The resulting level Γ₀(ℓ^r) ∩ Γ₁(ℓN) may have r > α: the step trades the character for more ℓ-power level."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.4/nebentypus-congruent-character"
+   ],
+   "sources": [
+    {
+     "sourceId": "ribet1994",
+     "locator": "§2, proof of (2.1), Step 1, p. 5",
+     "match": "The statement of Step 1, that for ℓ ≥ 5 it follows from (1.3) with r = α, and that it holds for all ℓ ≥ 3 by the elementary twisting argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step2",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.4",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.4"
+   ],
+   "title": "Stripping ℓ-power level, step 2: multiplying by an Eisenstein series congruent to 1",
+   "kind": "lemma",
+   "statement": "If ρ̄ arises from an eigenform of type (k, εω^i) on Γ₀(ℓ^r) ∩ Γ₁(ℓN), with r > 0, then ρ̄ arises from Γ₀(ℓ^r) ∩ Γ₁(N). With i positive, the Eisenstein series G := L(1−i, ω^{−i})/2 + Σ_n (Σ_{d|n} ω^{−i}(d)d^{i−1}) q^n has type (i, ω^{−i}) on Γ₀(ℓ); its constant term c has negative v-adic order, by the Kummer congruences and the von Staudt theorem, so E := c^{−1}G has v-integral coefficients and E ≡ 1 mod v. Then fE is on Γ₀(ℓ^r) ∩ Γ₁(N) and, mod v, is a nonzero eigenform with the eigenvalues of f, and the Deligne–Serre lifting lemma gives an eigenform there with congruent eigenvalues.",
+   "hypotheses": [
+    "ρ̄ arises from an eigenform f of type (k, εω^i) on Γ₀(ℓ^r) ∩ Γ₁(ℓN)",
+    "r > 0",
+    "i a positive integer"
+   ],
+   "proofSteps": [
+    "Form G := L(1−i, ω^{−i})/2 + Σ_n (Σ_{d|n} ω^{−i}(d) d^{i−1}) q^n, of type (i, ω^{−i}) on Γ₀(ℓ).",
+    "The product fG has character εω^iω^{−i} = ε, so it lies on Γ₀(ℓ^r) ∩ Γ₁(N) since r > 0.",
+    "The constant term c = L(1−i, ω^{−i})/2 has negative v-adic order, by the Kummer congruences and the von Staudt theorem; so E := c^{−1}G is v-integral and E ≡ 1 mod v.",
+    "Hence fE ≡ f mod v: it is a nonzero mod-v eigenform with the eigenvalues of f, on Γ₀(ℓ^r) ∩ Γ₁(N).",
+    "Apply the Deligne–Serre lifting lemma to obtain an eigenform on Γ₀(ℓ^r) ∩ Γ₁(N) whose eigenvalues are congruent to those of f."
+   ],
+   "acceptance": [
+    "The multiplier cancels exactly the ω^i part of the character, which is why it is taken of type (i, ω^{−i}).",
+    "The congruence E ≡ 1 mod v rests on the constant term having negative v-adic order; without it the product would not reduce to f.",
+    "The lift is to an eigenform with congruent eigenvalues, not to fE itself, which need not be an eigenform in characteristic zero."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step1",
+    "AlgebraicModularFormsAndSerreWeights:R15.5"
+   ],
+   "sources": [
+    {
+     "sourceId": "ribet1994",
+     "locator": "§2, proof of (2.1), Step 2, p. 5",
+     "match": "The normalisation E := c^{−1}G ≡ 1 mod v, the conclusion that fE is a nonzero mod-v eigenform with the eigenvalues of f on Γ₀(ℓ^r) ∩ Γ₁(N), and the appeal to the lifting lemma [12, Lemme 6.11]."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step3",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.4",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.4"
+   ],
+   "title": "Stripping ℓ-power level, step 3: lowering the ℓ-power by Frobenius and U",
+   "kind": "lemma",
+   "statement": "If ρ̄ arises from an eigenform f = Σ a_n q^n on Γ₀(ℓ^r) ∩ Γ₁(N) with r > 1, then f is congruent mod v to a cusp form of some weight on Γ₀(ℓ^{r−1}) ∩ Γ₁(N); iterating, ρ̄ arises from Γ₀(ℓ) ∩ Γ₁(N). With σ a Frobenius element for v in Gal(K/Q), K a Galois number field containing the a_n, the form g := (σ^{−1}f)^ℓ|U, where U is the ℓ-th Hecke operator, lies on Γ₀(ℓ^{r−1}) ∩ Γ₁(N), and its expansion is congruent mod v to Σ (σ^{−1}a_n)^ℓ q^n, hence to that of f.",
+   "hypotheses": [
+    "ρ̄ arises from an eigenform f = Σ a_n q^n on Γ₀(ℓ^r) ∩ Γ₁(N)",
+    "r > 1",
+    "K a finite Galois extension of Q containing the a_n, σ ∈ Gal(K/Q) a Frobenius element for v"
+   ],
+   "proofSteps": [
+    "σ^{−1}f := Σ σ^{−1}(a_n) q^n is a normalised eigenform of the same weight, and σa ≡ a^ℓ mod v on the ring of integers of K.",
+    "Set g := (σ^{−1}f)^ℓ|U. The ℓ-th power raises the weight; applying U lowers the ℓ-level, so g lies on Γ₀(ℓ^{r−1}) ∩ Γ₁(N).",
+    "Mod v, the ℓ-th power acts on q-expansions by n ↦ ℓn with coefficients raised to the ℓ-th power, and U undoes the index change, so g ≡ Σ (σ^{−1}a_n)^ℓ q^n mod v.",
+    "Since (σ^{−1}a_n)^ℓ ≡ a_n mod v, g ≡ f mod v.",
+    "Iterate from r down to r = 1."
+   ],
+   "acceptance": [
+    "The step changes the weight and does not control it.",
+    "It needs r > 1 at each application and stops at level ℓ, i.e. Γ₀(ℓ) ∩ Γ₁(N).",
+    "The Frobenius twist is what makes the ℓ-th power congruent to f rather than to its Frobenius conjugate."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step2"
+   ],
+   "sources": [
+    {
+     "sourceId": "ribet1994",
+     "locator": "§2, proof of (2.1), Step 3, p. 5",
+     "match": "The construction g := (σ^{−1}f)^ℓ|U, that g lies on Γ₀(ℓ^{r−1}) ∩ Γ₁(N), and that its expansion is congruent mod v to that of f."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step4",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.4",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.4"
+   ],
+   "title": "Stripping ℓ-power level, step 4: Serre's trace argument to level N",
+   "kind": "lemma",
+   "statement": "If ρ̄ arises from an eigenform f of character ε on Γ₁(N) ∩ Γ₀(ℓ), then ρ̄ arises from Γ₁(N). With U the ℓ-th Hecke operator, V : Σ a_n q^n ↦ Σ a_n q^{ℓn} and W the Atkin–Lehner-type operator given by an integer matrix of the form (ℓx, y; Nℓz, ℓ) with ℓx − Nyz = 1, the trace Tr(F) := F + ε^{−1}(ℓ)ℓ^{1−w/2} F|W|U carries a form of weight w and character ε on Γ₁(N) ∩ Γ₀(ℓ) to one on Γ₁(N). Taking E the normalised Eisenstein series of weight ℓ − 1 (or E₄ when ℓ = 3), of weight a, the form g := E − ℓ^{a/2}E|W = E − ℓ^a E|V satisfies g ≡ 1 mod ℓ with g|W divisible by ℓ^{1+a/2}, and Tr(f g^i) ≡ f mod ℓ for sufficiently large i.",
+   "hypotheses": [
+    "ρ̄ arises from an eigenform f of character ε on Γ₁(N) ∩ Γ₀(ℓ)",
+    "ℓ ≥ 3",
+    "N prime to ℓ"
+   ],
+   "proofSteps": [
+    "Recall the operators: U the ℓ-th Hecke operator; V : Σ a_n q^n ↦ Σ a_n q^{ℓn}; W given by (ℓx, y; Nℓz, ℓ) with ℓx − Nyz = 1. W is the inverse of the operator W_Q of Atkin–Li, W = ε(ℓ)W_Q on forms with character ε, and W² is multiplication by ε(ℓ).",
+    "The trace Tr(F) := F + ε^{−1}(ℓ)ℓ^{1−w/2} F|W|U of a form of weight w and character ε on Γ₁(N) ∩ Γ₀(ℓ) is a form of weight w on Γ₁(N); and for G on Γ₁(N), G|W = ℓ^{w/2}ε(ℓ)G|V.",
+    "Take E the normalised Eisenstein series of weight ℓ − 1 on SL(2, Z) (E₄ if ℓ = 3), of weight a, so E ≡ 1 mod ℓ, and form g := E − ℓ^{a/2}E|W = E − ℓ^a E|V. Then g ≡ 1 mod ℓ and g|W is divisible by ℓ^{1+a/2}.",
+    "Tr(f g^i) is a form on Γ₁(N) for every positive integer i.",
+    "Following Serre's calculation, the term ε^{−1}(ℓ)ℓ^{1−w/2}(f g^i)|W|U is divisible by an increasing power of ℓ as i grows, so Tr(f g^i) ≡ f mod ℓ for i large."
+   ],
+   "acceptance": [
+    "The weight grows with i; like steps 1 and 3, the step gives some weight and does not control it.",
+    "g ≡ 1 mod ℓ is what makes f g^i reduce to f; g|W being divisible by a positive power of ℓ is what makes the second term of the trace vanish mod ℓ for large i.",
+    "ℓ = 3 uses E₄ in place of the weight ℓ − 1 = 2 series, which is not holomorphic."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-step3"
+   ],
+   "sources": [
+    {
+     "sourceId": "ribet1994",
+     "locator": "§2, proof of (2.1), Step 4, p. 6",
+     "match": "The conclusion of Step 4: Tr(f g^i) is a form on Γ₁(N) and is congruent to f mod ℓ for i large, following Serre's calculation in [46, §3.2]."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "SerreWeightAndLevelOptimisation:R20.4/weight-two-at-level-n-ell",
+   "parentStageId": "SerreWeightAndLevelOptimisation:R20.4",
+   "realises": [
+    "SerreWeightAndLevelOptimisation:R20.4"
+   ],
+   "title": "Descending to weight two at level Nℓ (Ribet, Theorem 2.2)",
+   "kind": "theorem",
+   "statement": "Suppose ρ̄ arises from S_k(Γ₁(N)) with N prime to ℓ and 2 ≤ k ≤ ℓ + 1, and assume ℓ > 3 or N > 3. Then ρ̄ arises from S₂(Γ₁(Nℓ)). This is the partial converse to Theorem 2.1: that theorem removes ℓ-power level at the cost of the weight, and this one returns to weight two at the cost of one factor of ℓ.",
+   "hypotheses": [
+    "N prime to ℓ",
+    "2 ≤ k ≤ ℓ + 1",
+    "ℓ > 3 or N > 3",
+    "ρ̄ arises from S_k(Γ₁(N))"
+   ],
+   "proofSteps": [
+    "For ℓ ≥ 5, cite Ash–Stevens's proof by parabolic cohomology.",
+    "Alternatively follow Serre's approach as worked out by Gross, Proposition 9.3, which allows arbitrary ℓ but assumes N ≥ 4; Gross's §10 extends it to N ≤ 2 with k even.",
+    "The hypothesis 'ℓ > 3 or N > 3' covers exactly the cases the two sources between them reach."
+   ],
+   "acceptance": [
+    "The weight range 2 ≤ k ≤ ℓ + 1 is a hypothesis and cannot be dropped.",
+    "The conclusion is at level Nℓ, not N: one factor of ℓ is the price of weight two.",
+    "The case ℓ ≤ 3 with N ≤ 3 is not covered by the statement."
+   ],
+   "prerequisites": [
+    "SerreWeightAndLevelOptimisation:R20.4/strip-ell-power-from-level",
+    "AlgebraicModularFormsAndSerreWeights:R15.5"
+   ],
+   "sources": [
+    {
+     "sourceId": "ribet1994",
+     "locator": "§2, statement (2.2) Theorem, p. 6",
+     "match": "The statement of Theorem 2.2 with its hypotheses."
+    },
+    {
+     "sourceId": "ribet1994",
+     "locator": "§2, the paragraph following (2.2), p. 6",
+     "match": "The two proofs the source cites, and the ranges they cover: Ash–Stevens for ℓ ≥ 5, and Gross's Proposition 9.3 for arbitrary ℓ with N ≥ 4."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Weight two at level Nℓ"
+   }
   }
  ],
  "coverage": [
@@ -1533,7 +1737,6 @@
    "stageId": "SerreWeightAndLevelOptimisation:R20.4",
    "status": "partial",
    "remaining": [
-    "The coefficient-prime level removal itself: Ribet's §2 'Stripping powers of ℓ from the level' is read and public but not yet decomposed into nodes.",
     "The sufficiently-large-p finite-flat weight-two application, which needs FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5 through the request recorded here.",
     "The justification for excluding p-primary character orders is stated inside the nebentypus node's acceptance tests via the ℓ = 2, 3 counterexamples, but the counterexamples themselves are cited from the source and not reconstructed."
    ]

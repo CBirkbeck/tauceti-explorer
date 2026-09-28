@@ -248,6 +248,32 @@ theorem nebentypus_congruent_character
     (_hℓ : 5 ≤ ℓ) (_hmod : ArisesFromWithChar ρ N k ε) (_hcong : True) :
     ArisesFromWithChar ρ N k ε' := sorry
 
+/-! #### The proof of Theorem 2.1 in steps, and Theorem 2.2 (third pass) -/
+
+/-- Step 1: twisting away the `ℓ`-power part of the character; `ρ̄` arises from `Γ₀(ℓ^r) ∩ Γ₁(ℓN)`. -/
+theorem strip_ell_step1 (ArisesFromGamma0Gamma1 : ResRep F → ℕ → ℕ → Prop)
+    (ArisesFrom : ResRep F → ℕ → ℕ → Prop) (N α k : ℕ) (_hℓ : 3 ≤ ℓ) (_hcop : Nat.Coprime N ℓ)
+    (_hmod : ArisesFrom ρ (N * ℓ ^ α) k) : ∃ r : ℕ, ArisesFromGamma0Gamma1 ρ (ℓ ^ r) (ℓ * N) := sorry
+
+/-- Step 2: multiplying by an Eisenstein series congruent to `1` removes `ℓ` from the `Γ₁` part. -/
+theorem strip_ell_step2 (ArisesFromGamma0Gamma1 : ResRep F → ℕ → ℕ → Prop) (N r : ℕ) (_hr : 0 < r)
+    (_h : ArisesFromGamma0Gamma1 ρ (ℓ ^ r) (ℓ * N)) : ArisesFromGamma0Gamma1 ρ (ℓ ^ r) N := sorry
+
+/-- Step 3: `(σ⁻¹ f)^ℓ | U` lowers the `ℓ`-power of the `Γ₀` level by one, down to `Γ₀(ℓ)`. -/
+theorem strip_ell_step3 (ArisesFromGamma0Gamma1 : ResRep F → ℕ → ℕ → Prop) (N r : ℕ) (_hr : 1 < r)
+    (_h : ArisesFromGamma0Gamma1 ρ (ℓ ^ r) N) : ArisesFromGamma0Gamma1 ρ (ℓ ^ (r - 1)) N := sorry
+
+/-- Step 4: Serre's trace argument descends from `Γ₁(N) ∩ Γ₀(ℓ)` to `Γ₁(N)`, at some weight. -/
+theorem strip_ell_step4 (ArisesFromGamma0Gamma1 : ResRep F → ℕ → ℕ → Prop)
+    (ArisesFrom : ResRep F → ℕ → ℕ → Prop) (N : ℕ) (_hℓ : 3 ≤ ℓ) (_hcop : Nat.Coprime N ℓ)
+    (_h : ArisesFromGamma0Gamma1 ρ ℓ N) : ∃ k : ℕ, 2 ≤ k ∧ ArisesFrom ρ N k := sorry
+
+/-- **Theorem 2.2**: from weight `2 ≤ k ≤ ℓ + 1` at level `N` prime to `ℓ`, weight two at level `Nℓ`,
+when `ℓ > 3` or `N > 3`. -/
+theorem weight_two_at_level_N_ell (ArisesFrom : ResRep F → ℕ → ℕ → Prop) (N k : ℕ)
+    (_hcop : Nat.Coprime N ℓ) (_hk : 2 ≤ k ∧ k ≤ ℓ + 1) (_hsmall : 3 < ℓ ∨ 3 < N)
+    (_h : ArisesFrom ρ N k) : ArisesFrom ρ (N * ℓ) 2 := sorry
+
 end Coefficient
 
 /-! ## R20.5 — Combined classical optimisation and exceptions -/
