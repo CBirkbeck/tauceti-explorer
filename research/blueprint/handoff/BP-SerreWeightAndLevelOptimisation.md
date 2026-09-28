@@ -271,3 +271,34 @@ know what they cost.
    problem rather than a mathematical one. Ribet §3 is the public substitute if access does not come.
 4. **Write R20.6's case-table manifest**, as per-case hypotheses and not as a dependency edge.
 5. **Re-run the suggested Lean file** if and only if a build at the pinned commits appears.
+
+---
+
+# Third pass — 28 September 2026 (cc-fb70e5)
+
+Step 1 of the second pass's list: **Ribet §2 is decomposed.** Theorem 2.1 (stripping the ℓ-power part
+of the level) was planned only as a statement; its proof is now four nodes of R20.4, and Theorem 2.2 is
+added.
+
+| node | source |
+|---|---|
+| `R20.4/strip-ell-step1` | Step 1, p. 5 — twist away the ℓ-power character (η = ξ⁻², possible as ℓ is odd) |
+| `R20.4/strip-ell-step2` | Step 2, p. 5 — multiply by an Eisenstein series E ≡ 1 mod v, then lift |
+| `R20.4/strip-ell-step3` | Step 3, p. 5 — g := (σ⁻¹f)^ℓ \| U lowers the ℓ-power of the level |
+| `R20.4/strip-ell-step4` | Step 4, p. 6 — Serre's trace Tr(F) := F + ε⁻¹(ℓ)ℓ^{1−w/2} F\|W\|U |
+| `R20.4/weight-two-at-level-n-ell` | Theorem 2.2, p. 6 — back to weight two at level Nℓ (planet) |
+
+The Theorem 2.1 node now depends on the four steps; step 1 on Carayol's nebentypus node (the source's
+own shortcut for ℓ ≥ 5), and step 2 and Theorem 2.2 on the eigenvalue-lifting layer
+`AlgebraicModularFormsAndSerreWeights:R15.5` already requested. Every step's acceptance tests record that
+it trades ℓ-power level for weight without controlling the weight, which is why weight control stays
+R20.3's business.
+
+Excerpts are verbatim spans of the text layer cut between exact start and end phrases, after the
+Computer Modern normalisation recorded in the second pass (ℓ, ε, ≠, ≢), with the source's sha256
+checked again (`cb7bc437…`). `check_blueprint`: 0 errors, 0 warnings; 27 nodes. The Lean file gains the
+five named results; nothing compiled.
+
+**Next**: Ribet §7, the argument of Theorem 1.5 (localisation at the maximal ideal and the dimension
+count), whose inputs are now all nodes; R20.6's case-table manifest; and R20.3, still blocked on access
+to Edixhoven 1992.
