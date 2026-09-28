@@ -2077,3 +2077,107 @@ example [CompleteSpace A] (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
       (entire_eval F) atTop {a : A | ‖a‖ ≤ R} := by sorry
 end EntireGaussTests
 end
+
+/-! Entire functional input with a fixed polynomial characteristic input.
+The rank is explicit. General entire characteristic input still needs uniform estimates. -/
+noncomputable section
+open Filter
+open scoped Topology
+namespace TauCeti.NonarchimedeanFredholm
+section FiniteSpectralCoordinates
+variable {R : Type*} [CommRing R]
+lemma polynomialSpectralResultant_modByMonic (n m : ℕ) (B P : Polynomial R)
+    (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
+    polynomialSpectralResultant n m B P =
+      polynomialSpectralResultant n n (B %ₘ P.reflect n) P := sorry
+lemma polynomialSpectralResultant_natDegree_le (n m : ℕ) (B P : Polynomial R) :
+    (polynomialSpectralResultant n m B P).natDegree ≤ n := sorry
+lemma continuous_polynomialSpectralResultant_coeff [TopologicalSpace R]
+    [IsTopologicalRing R] [DecidableEq R] (n m k : ℕ) (P : Polynomial R) :
+    Continuous (fun b : Fin (m+1) → R =>
+      (polynomialSpectralResultant n m (Polynomial.ofFn (m+1) b) P).coeff k) := sorry
+end FiniteSpectralCoordinates
+
+section BoundedDegreeGauss
+variable {A : Type*} [NormedCommRing A]
+lemma tendsto_gaussNorm_of_bounded_degree {ι : Type*} (l : Filter ι)
+    (F : ι → Polynomial A) (f : Polynomial A) (d : ℕ)
+    (hF : ∀ i, (F i).natDegree ≤ d) (hf : f.natDegree ≤ d)
+    (hlim : ∀ k, Tendsto (fun i => (F i).coeff k) l (𝓝 (f.coeff k)))
+    (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun i => PowerSeries.gaussNorm norm R ((F i-f : Polynomial A) : PowerSeries A))
+      l (𝓝 0) := sorry
+
+def entirePolynomialSpectral (n : ℕ) (B : PowerSeries A) (P : Polynomial A) : Polynomial A := sorry
+lemma entirePolynomialSpectral_def (n : ℕ) (B : PowerSeries A) (P : Polynomial A) :
+    entirePolynomialSpectral n B P = polynomialSpectralResultant n n
+      (PowerSeries.trunc n (B - (P.reflect n : PowerSeries A) * entireMonicQuotient (P.reflect n) B)) P := sorry
+lemma entirePolynomialSpectral_constantCoeff (n : ℕ) (B : PowerSeries A)
+    (P : Polynomial A) (hP : P.coeff 0 = 1) :
+    (entirePolynomialSpectral n B P).coeff 0 = 1 := sorry
+lemma entirePolynomialSpectral_zero (n : ℕ) (P : Polynomial A)
+    (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) :
+    entirePolynomialSpectral n 0 P = 1 := sorry
+end BoundedDegreeGauss
+
+section EntireFixedCharacteristic
+variable {A : Type*} [NormedCommRing A] [hNormOne : NormOneClass A]
+  [hComplete : CompleteSpace A] [hNontrivial : Nontrivial A]
+variable (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
+include hA hNormOne hComplete hNontrivial
+
+lemma entirePolynomialSpectral_polynomial (n m : ℕ) (B P : Polynomial A)
+    (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
+    entirePolynomialSpectral n (B : PowerSeries A) P = polynomialSpectralResultant n m B P := sorry
+lemma tendsto_spectral_fixed_polynomial_coeff (n : ℕ) (B : PowerSeries A)
+    (hB : IsEntire B) (P : Polynomial A) (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (k : ℕ) :
+    Tendsto (fun N : ℕ => (polynomialSpectralResultant n N (PowerSeries.trunc (N+1) B) P).coeff k)
+      atTop (𝓝 ((entirePolynomialSpectral n B P).coeff k)) := sorry
+theorem tendsto_spectral_fixed_polynomial_gauss (n : ℕ) (B : PowerSeries A)
+    (hB : IsEntire B) (P : Polynomial A) (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n)
+    (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun N : ℕ => PowerSeries.gaussNorm norm R
+      ((polynomialSpectralResultant n N (PowerSeries.trunc (N+1) B) P -
+        entirePolynomialSpectral n B P : Polynomial A) : PowerSeries A)) atTop (𝓝 0) := sorry
+theorem tendsto_spectral_simultaneous_fixed_polynomial_gauss
+    (B : PowerSeries A) (hB : IsEntire B) (hB0 : B.coeff 0 = 0)
+    (P : Polynomial A) (hP : P.coeff 0 = 1) (R : ℝ) (hR : 0 < R) :
+    Tendsto (fun N : ℕ => PowerSeries.gaussNorm norm R
+      ((polynomialSpectralResultant N N (PowerSeries.trunc (N+1) B)
+        (PowerSeries.trunc (N+1) (P : PowerSeries A)) -
+        entirePolynomialSpectral P.natDegree B P : Polynomial A) : PowerSeries A)) atTop (𝓝 0) := sorry
+lemma entirePolynomialSpectral_padding (n : ℕ) (B : PowerSeries A) (hB : IsEntire B)
+    (P : Polynomial A) (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) :
+    entirePolynomialSpectral (n+1) B P = entirePolynomialSpectral n B P *
+      (1 - Polynomial.C (B.coeff 0) * Polynomial.X) := sorry
+theorem entirePolynomialSpectral_mul (n k : ℕ) (B : PowerSeries A) (hB : IsEntire B)
+    (P Q : Polynomial A) (hP : P.coeff 0 = 1) (hQ : Q.coeff 0 = 1)
+    (hn : P.natDegree ≤ n) (hk : Q.natDegree ≤ k) :
+    entirePolynomialSpectral (n+k) B (P*Q) =
+      entirePolynomialSpectral n B P * entirePolynomialSpectral k B Q := sorry
+theorem entirePolynomialSpectral_linear (B : PowerSeries A) (hB : IsEntire B) (a : A) :
+    entirePolynomialSpectral 1 B (1-Polynomial.C a*Polynomial.X) =
+      1-Polynomial.C (entire_eval B a)*Polynomial.X := sorry
+
+-- FixedSpectralTests.empty_rank
+example (B : PowerSeries A) : entirePolynomialSpectral 0 B 1 = 1 := sorry
+-- FixedSpectralTests.zero_function
+example (n : ℕ) (P : Polynomial A) (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) :
+    entirePolynomialSpectral n 0 P = 1 := sorry
+-- FixedSpectralTests.constant_padding
+example (c : A) : entirePolynomialSpectral 2 (PowerSeries.C c) 1 =
+    (1-Polynomial.C c*Polynomial.X)^2 := sorry
+-- FixedSpectralTests.linear_value
+example (B : PowerSeries A) (hB : IsEntire B) (a : A) :
+    entirePolynomialSpectral 1 B (1-Polynomial.C a*Polynomial.X) =
+      1-Polynomial.C (entire_eval B a)*Polynomial.X := sorry
+-- FixedSpectralTests.nilpotent_coefficients
+example (e : A) (he : e^2 = 0) :
+    entirePolynomialSpectral 2 (PowerSeries.X : PowerSeries A)
+      (1-Polynomial.C e*Polynomial.X^2) = 1-Polynomial.C e*Polynomial.X^2 := sorry
+-- FixedSpectralTests.unit_input_zero_constant
+example (n : ℕ) (B : PowerSeries A) (hB : IsEntire B) (hB0 : B.coeff 0 = 0) :
+    entirePolynomialSpectral n B 1 = 1 := sorry
+end EntireFixedCharacteristic
+end TauCeti.NonarchimedeanFredholm
+end

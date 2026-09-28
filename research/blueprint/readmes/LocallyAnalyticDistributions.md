@@ -1,4 +1,226 @@
-**Current entire-convergence checkpoint:** 174 unchecked nodes: 3 definitions,
+# Entire functional input at fixed characteristic degree
+
+**Current checkpoint:** 186 unchecked nodes: 3 definitions, 18 constructions,
+112 lemmas, 33 theorems and 20 comparisons; 92 API items (88 on definitions
+and constructions), 123 packet tests (76 on definitions and constructions),
+123 typed examples, 6 planets and 228 baseline citations. Eight gaps, five
+requests, two inherited source findings and zero closed stages remain.
+Numerical summaries in the earlier developments below are historical.
+
+Let A be a nontrivial complete normed commutative ring, with norm(1)=1 and
+ultrametric norm. The coefficients can be nonreduced. Let B be an entire
+power series and P a polynomial with P(0)=1. Choose an explicit rank n at
+least natDegree(P). Neither a field, a splitting of P nor B(0)=0 is assumed
+for the fixed-rank construction.
+
+Write Q_n=reflect_n(P), the native reflection at the chosen exponent n.
+It is monic of degree n, including the padded zero roots. The previous entire
+monic division gives a native polynomial remainder
+
+R_(Q_n)(B)=trunc_n(B−Q_n S_(Q_n)(B)).
+
+Define the fixed-rank spectral polynomial by
+
+E_n(B,P)=D_(n,n)(R_(Q_n)(B),P),
+
+using the preceding polynomial spectral resultant D. This uses the existing
+native polynomial and power-series types and the previously constructed
+entire quotient. It requires no normed structure on the finite quotient algebra.
+The output has degree at most n and constant coefficient one.
+
+For polynomial B, reducing it modulo Q_n leaves the spectral polynomial
+unchanged: the classes of 1−T B and 1−T R agree in the native monic quotient
+over A[T], so their algebra norms agree. Thus the construction agrees with
+the preceding polynomial spectral transform for every valid auxiliary bound.
+
+The analytic point is that this reduction fixes the dimension. If
+B_N=trunc_(N+1)(B), every coefficient of its monic remainder tends to the
+corresponding coefficient of R_(Q_n)(B). The spectral coefficients are finite
+polynomial expressions in those finitely many remainder coordinates, as the
+native Sylvester determinant shows. Consequently
+
+coeff_k D_(n,N)(B_N,P) → coeff_k E_n(B,P).
+
+All these spectral polynomials have degree at most n. A fixed-degree
+coefficient limit converges in every Gauss radius: bound its weighted
+coefficient supremum by the finite sum through degree n. This argument needs
+neither ultrametricity nor completeness once coefficient convergence is given.
+It is compatible with the preceding moving-monomial counterexample, whose
+degrees grow without bound.
+
+If B(0)=0, the source's simultaneous truncation sequence has the same limit
+E_(natDegree(P))(B,P). Once N reaches natDegree(P), the characteristic
+truncation is exactly P, and the finite padding-stability identity removes
+all excess rank. The remaining sequence is the fixed-rank sequence above.
+The general entire characteristic input is still open: its truncation degrees
+grow, so this proof supplies no estimate uniform in that degree.
+
+Passing through the finite polynomial identities gives three further laws:
+
+- E_(n+1)(B,P)=E_n(B,P)(1−B(0)T). Rank independence requires B(0)=0.
+- E_(n+k)(B,PQ)=E_n(B,P)E_k(B,Q), for normalized polynomial factors with the
+  stated degree bounds. B may have nonzero constant coefficient.
+- E_1(B,1−aT)=1−B(a)T, where B(a) is the actual entire evaluation.
+
+The first two follow coefficientwise, because each coefficient of a product
+uses only finitely many coefficients. The last uses truncation convergence
+at a Gauss radius at least norm(a) and the preceding uniform-evaluation
+criterion. No compactness of the evaluation ball is asserted.
+
+These are the polynomial-characteristic-input part of the limiting definition
+and factor identity in Coleman Appendix A3. The complete published pages
+435–436 were freshly read, with the preceding complete pages 432–436 reading
+retained. The degree bounds, fixed-coordinate reduction and Gauss argument
+are worker decompositions. The two inherited source findings retain their
+existing version and review qualifications. General entire characteristic
+input, the full A3.8 identities and infinite-operator A3.9 transport remain
+explicit obligations. Scalar character spaces stay with PMIA L0a and
+slope-adapted geometry with PadicFamilies.
+
+## Declarations, dependencies and acceptance cases
+
+The analytic entries use the hypotheses above; the first three finite
+algebraic entries state their weaker ring hypotheses explicitly. Every entry
+is a proof plan and remains unchecked.
+
+### Reduction of the functional polynomial at fixed characteristic rank
+
+`TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_modByMonic` (lemma). If P(0)=1, natDegree(P)≤n and natDegree(B)≤m, then D_(n,m)(B,P)=D_(n,n)(B modByMonic reflect_n(P),P).
+
+The existing reversal lemma makes Q_n monic of degree n. Native monic division shows that B and its remainder have the same class in AdjoinRoot Q_n. After mapping coefficients into R[T], the classes of 1−T B and 1−T remainder also agree. Use the existing spectral quotient-norm comparison on each representative. The remainder has degree less than n, so its natural degree is at most n, including the zero remainder for n=0. The resulting norms and hence spectral polynomials agree. For the zero coefficient ring use uniqueness of all polynomials; no nontriviality is silently added.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/spectral-reversed-degree`, `LocallyAnalyticDistributions:L4/spectral-quotient-norm`, `mathlib:Polynomial.modByMonic_add_div`, `mathlib:Polynomial.degree_modByMonic_lt`.
+
+Acceptance: The right output has a fixed auxiliary bound n even as m grows.
+
+### The finite spectral output has degree at most its rank
+
+`TauCeti.NonarchimedeanFredholm.polynomialSpectralResultant_natDegree_le` (lemma). For any B,P and any n,m, natDegree(D_(n,m)(B,P))≤n.
+
+Unfold the existing bounded resultant into its native Sylvester determinant over R[T]. Its first n columns come from 1−T B and have entries of output degree at most1; the other m columns come from reflected P and have constant entries. In the native determinant permutation expansion, every term uses exactly one entry in each column. Thus every product has degree at most n, and so does their finite sum. The zero polynomial has natural degree0, so n=0 is valid.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `mathlib:Polynomial.sylvester`, `mathlib:Polynomial.resultant`, `mathlib:Matrix.det_apply`.
+
+Acceptance: This holds without degree bounds or normalization of B or P. The two output and resultant variables must not be confused.
+
+### Continuity of finite spectral coefficients
+
+`TauCeti.NonarchimedeanFredholm.continuous_polynomialSpectralResultant_coeff` (lemma). Over a topological commutative ring R, fix n,m,k and P. The kth coefficient of D_(n,m)(ofFn_(m+1)(b),P) is continuous as a function of b∈R^(m+1).
+
+Native ofFn coefficients are the specified coordinates below m+1 and zero above. Each Sylvester entry is constant or affine in the output variable, with coefficient functions continuous in b. Expand the finite determinant and then its fixed output coefficient. Polynomial product coefficients are finite sums; all resulting expressions are finite sums and products of coordinate functions. Native topological-ring operations give continuity. No topology on R[T] or degree constancy is needed.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `mathlib:Polynomial.sylvester`, `mathlib:Polynomial.resultant`, `mathlib:Matrix.det_apply`, `mathlib:Polynomial.ofFn`, `mathlib:Polynomial.ofFn_coeff_eq_val_of_lt`, `mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge`.
+
+Acceptance: No claim that evaluation on R-points detects polynomials is used; the proof works over finite and nonreduced rings.
+
+### Gauss convergence of bounded-degree coefficient limits
+
+`TauCeti.NonarchimedeanFredholm.tendsto_gaussNorm_of_bounded_degree` (lemma). For any filter l, polynomials F_i and f over a normed commutative ring with all natural degrees≤d, and coefficientwise F_i→f along l, one has G_R(F_i−f)→0 for every R>0.
+
+Above d all coefficient differences vanish. Native gaussNorm_eq bounds the supremum by the finite sum of nonnegative weighted norms over k≤d. Each norm difference tends to0 by its coefficient limit. The finite sum therefore tends to0; Gauss nonnegativity and squeezing give the claim. No ultrametricity or completeness is needed.
+
+Prerequisites: `mathlib:PowerSeries.gaussNorm_eq`, `mathlib:PowerSeries.gaussNorm_nonneg`, `mathlib:Polynomial.coeff_coe`.
+
+Acceptance: The common finite degree bound is essential. The inherited moving-monomial example has coefficient limit0 but Gauss norm1 at radius1.
+
+### Spectral transform with entire functional input and fixed polynomial input
+
+`TauCeti.NonarchimedeanFredholm.entirePolynomialSpectral` (construction). Define E_n(B,P)=D_(n,n)(R_(Q_n)(B),P), a native polynomial, using the existing entire monic remainder and Q_n=reflect_n(P).
+
+The construction takes the native degree-n truncation of B−Q_n S_(Q_n)(B), then applies the existing finite polynomial spectral construction with both bounds n. No quotient topology, limit carrier or new power-series type is introduced. When B is entire and P is normalized with degree bounded by n, the preceding monic-division theorem identifies this truncation as the actual remainder. The finite spectral degree bound gives output degree at most n. The finite constant-coefficient formula gives output constant1. For B=0 the reciprocal-tail quotient vanishes; finite right-bound independence and the zero-functional formula give E_n(0,P)=1.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-monic-quotient`, `LocallyAnalyticDistributions:L4/entire-monic-division-remainder`, `LocallyAnalyticDistributions:L4/polynomial-spectral-resultant`, `LocallyAnalyticDistributions:L4/spectral-output-degree`, `LocallyAnalyticDistributions:L4/spectral-polynomial-constant`, `LocallyAnalyticDistributions:L4/spectral-right-bound`, `mathlib:PowerSeries.trunc`.
+
+API:
+
+- `entirePolynomialSpectral_def`: The value is D_(n,n) of trunc_n(B−Q_n S_(Q_n)(B)) and P.
+- `entirePolynomialSpectral_constantCoeff`: For P(0)=1, the output constant coefficient is1.
+- `entirePolynomialSpectral_zero`: For normalized P of degree at most n, E_n(0,P)=1.
+
+Typed acceptance cases:
+
+- `FixedSpectralTests.empty_rank`: E_0(B,1)=1 for every B.
+- `FixedSpectralTests.zero_function`: The zero functional input gives1.
+- `FixedSpectralTests.constant_padding`: For B=c constant and P=1, E_2(B,1)=(1−cT)^2, retaining both padded zero roots.
+- `FixedSpectralTests.linear_value`: E_1(B,1−aT)=1−B(a)T for entire B.
+- `FixedSpectralTests.nilpotent_coefficients`: If e²=0, E_2(T,1−eT²)=1−eT²; nilpotent coefficients remain visible.
+- `FixedSpectralTests.unit_input_zero_constant`: For entire B with B(0)=0, E_n(B,1)=1 at every rank.
+
+Acceptance: The formula is defined for native inputs; analytic correctness is asserted under the stated complete ultrametric hypotheses. Rank is part of the input and cannot be replaced by the actual degree when B(0)≠0.
+
+### Agreement with the polynomial spectral construction
+
+`TauCeti.NonarchimedeanFredholm.entirePolynomialSpectral_polynomial` (comparison). For polynomial B with natDegree(B)≤m, E_n(B,P)=D_(n,m)(B,P).
+
+The preceding entire-monic-quotient polynomial comparison and monic-division remainder identify R_(Q_n)(B) with native B modByMonic Q_n. Apply the new finite reduction identity. All rank and auxiliary bounds remain explicit.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-fixed-polynomial-spectral`, `LocallyAnalyticDistributions:L4/entire-monic-quotient-polynomial`, `LocallyAnalyticDistributions:L4/entire-monic-division-remainder`, `LocallyAnalyticDistributions:L4/spectral-reduce-functional-polynomial`.
+
+Acceptance: Retain the fixed rank and all explicitly stated hypotheses, including degree-zero cases.
+
+### Coefficient limits at fixed characteristic rank
+
+`TauCeti.NonarchimedeanFredholm.tendsto_spectral_fixed_polynomial_coeff` (lemma). For every k, coeff_k D_(n,N)(trunc_(N+1)(B),P) tends to coeff_k E_n(B,P) as N→∞.
+
+Native truncation gives the required degree bound N on B_N. Reduce its functional polynomial modulo the fixed Q_n by spectral-reduce-functional-polynomial. The preceding entire-remainder-truncation-limit says every coefficient of B_N modByMonic Q_n converges to the corresponding entire remainder coefficient. Both polynomials have degree less than n, hence they are recovered by native ofFn on their first n+1 coefficients. Convergence of this finite vector and the new spectral coefficient continuity give the claimed output coefficient limit. The argument includes n=0.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/spectral-reduce-functional-polynomial`, `LocallyAnalyticDistributions:L4/spectral-reversed-degree`, `LocallyAnalyticDistributions:L4/entire-remainder-truncation-limit`, `LocallyAnalyticDistributions:L4/entire-fixed-polynomial-spectral`, `LocallyAnalyticDistributions:L4/spectral-coefficient-coordinate-continuity`, `mathlib:Polynomial.ofFn_coeff_eq_val_of_lt`, `mathlib:Polynomial.ofFn_coeff_eq_zero_of_ge`, `mathlib:PowerSeries.coeff_trunc`.
+
+Acceptance: Retain the fixed rank and all explicitly stated hypotheses, including degree-zero cases.
+
+### All-radius Gauss convergence at fixed characteristic rank
+
+`TauCeti.NonarchimedeanFredholm.tendsto_spectral_fixed_polynomial_gauss` (theorem). For every R>0, G_R(D_(n,N)(trunc_(N+1)(B),P)−E_n(B,P)) tends to0.
+
+The finite spectral output-degree theorem bounds every polynomial in the sequence and its defined limit by the same n. Combine the preceding coefficient limit with the bounded-degree Gauss convergence lemma. The result holds at every positive radius with that radius fixed.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-fixed-spectral-coefficient-limit`, `LocallyAnalyticDistributions:L4/spectral-output-degree`, `LocallyAnalyticDistributions:L4/bounded-degree-gauss-limit`.
+
+Acceptance: The resulting limit is already a polynomial and therefore entire. This avoids any unsupported passage from a general coefficientwise limit to uniform evaluation.
+
+### Simultaneous truncation convergence for polynomial characteristic input
+
+`TauCeti.NonarchimedeanFredholm.tendsto_spectral_simultaneous_fixed_polynomial_gauss` (theorem). If also B(0)=0, the simultaneous D_(N,N)(trunc_(N+1)(B),trunc_(N+1)(P)) converges in every G_R to E_(natDegree(P))(B,P).
+
+For N at least natDegree(P), the second truncation is P itself. The first truncation has constant coefficient0. The existing finite padding-stability theorem reduces rank N to the fixed rank natDegree(P). The required auxiliary bound N remains valid for the first truncation. The tail of the sequence is therefore exactly the fixed-rank sequence in the preceding Gauss limit. Eventual equality transfers convergence.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-fixed-spectral-gauss-limit`, `LocallyAnalyticDistributions:L4/spectral-padding-stability`, `mathlib:PowerSeries.coeff_trunc`.
+
+Acceptance: This proves the source simultaneous limit for polynomial P only. For general entire P, the degrees are unbounded and the same proof does not apply.
+
+### The exact zero-root padding law for entire functional input
+
+`TauCeti.NonarchimedeanFredholm.entirePolynomialSpectral_padding` (lemma). E_(n+1)(B,P)=E_n(B,P)(1−B(0)T).
+
+Apply the existing finite padding formula to B_N. Its constant coefficient is B(0) for every N because trunc_(N+1) retains degree0. Pass to each output coefficient using the fixed-rank coefficient limits at n and n+1. Multiplication by the displayed fixed linear factor involves only two coefficients, so limits pass through it. Hausdorff uniqueness gives equality of every coefficient.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-fixed-spectral-coefficient-limit`, `LocallyAnalyticDistributions:L4/spectral-zero-padding`, `mathlib:PowerSeries.coeff_trunc`.
+
+Acceptance: The factor equals1 precisely under the relevant zero-constant hypothesis; no unqualified rank independence is asserted.
+
+### Factor products for polynomial characteristic inputs
+
+`TauCeti.NonarchimedeanFredholm.entirePolynomialSpectral_mul` (theorem). If Q is also normalized with natDegree(Q)≤k, then E_(n+k)(B,PQ)=E_n(B,P)E_k(B,Q).
+
+For every polynomial truncation B_N, apply the existing finite factor-product law with ranks n,k and auxiliary bound N. All three sequences converge coefficientwise by the fixed-rank theorem; the degree of PQ is at most n+k and its constant coefficient is1. A fixed coefficient of the product is a finite sum of products of convergent coefficients. Pass to the limit and use native polynomial extensionality.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-fixed-spectral-coefficient-limit`, `LocallyAnalyticDistributions:L4/spectral-factor-product`.
+
+Acceptance: This is Coleman A3.8(10) with polynomial characteristic factors and entire B. Entire characteristic factors and infinite-operator transport remain separate obligations.
+
+### Linear characteristic input evaluates the entire function
+
+`TauCeti.NonarchimedeanFredholm.entirePolynomialSpectral_linear` (theorem). For a∈A, E_1(B,1−aT)=1−B(a)T, with the preceding actual entire evaluation.
+
+The finite linear-factor formula identifies the Nth approximant with 1−B_N(a)T. The fixed-rank coefficient limit controls its output. Truncations converge in every Gauss radius. Choose any positive radius at least norm(a), then use the existing uniform-evaluation theorem to obtain B_N(a)→B(a). The constant, linear and higher coefficients of the displayed limit are explicit. Uniqueness of coefficient limits proves the polynomial identity.
+
+Prerequisites: `LocallyAnalyticDistributions:L4/entire-fixed-spectral-coefficient-limit`, `LocallyAnalyticDistributions:L4/spectral-linear-factor`, `LocallyAnalyticDistributions:L4/entire-gauss-truncation-convergence`, `LocallyAnalyticDistributions:L4/entire-gauss-uniform-evaluation`.
+
+Acceptance: No compactness of the evaluation ball or field hypothesis is needed. At a=0 the formula records the rank-one padded zero root.
+
+## Earlier Fredholm and entire-series developments
+
+**Historical entire-convergence checkpoint:** 174 unchecked nodes: 3 definitions,
 17 constructions, 106 lemmas, 29 theorems and 19 comparisons; 89 API items
 (85 on definitions/constructions), 117 packet tests (70 on definitions and
 constructions), 117 typed examples, 6 planets and 228 baseline citations.
@@ -144,7 +366,7 @@ actual distribution families retain their precise gaps. Historical checkpoint
 counts below describe their respective additions; the current counts are above.
 
 
-**Current reciprocal-resultant checkpoint:** 162 unchecked nodes:3 definitions,17 constructions,99 lemmas,26 theorems and17 comparisons;89 API items (85 on definitions/constructions),109 packet tests (70 on definitions/constructions),109 typed examples,6 planets and214 baseline citations. Eight gaps,five requests,two inherited source findings and zero closed stages remain.
+**Historical reciprocal-resultant checkpoint:** 162 unchecked nodes:3 definitions,17 constructions,99 lemmas,26 theorems and17 comparisons;89 API items (85 on definitions/constructions),109 packet tests (70 on definitions/constructions),109 typed examples,6 planets and214 baseline citations. Eight gaps,five requests,two inherited source findings and zero closed stages remain.
 
 ## Reciprocal resultants and the scalar truncation limit
 
@@ -215,7 +437,7 @@ Earlier checkpoint counts and validation paragraphs below describe their histori
 > sections and validation counts are retained as history. The infinite analytic
 > transform and the remaining L4 gaps are still open; L0–L3 remain not_read.
 
-**Current packet:** 124 unchecked nodes (13 comparison, 15 construction, 3 definition, 70 lemma, 23 theorem), 80 API entries, 86 packet tests (63 on definitions/constructions), 86 typed examples, 6 planets and 151 baseline records. Eight gaps, five requests, two findings and zero closed stages remain.
+**Historical packet:** 124 unchecked nodes (13 comparison, 15 construction, 3 definition, 70 lemma, 23 theorem), 80 API entries, 86 packet tests (63 on definitions/constructions), 86 typed examples, 6 planets and 151 baseline records. Eight gaps, five requests, two findings and zero closed stages remain.
 
 Twelve finite spectral-transform declarations extend the preceding checkpoint. Earlier validation below is historical; current evidence follows at the end.
 
@@ -656,7 +878,7 @@ does not prove infinite convergence or the analytic division theorem.
 
 ## Earlier checkpoint material
 
-**Current monic-division checkpoint:** 104 unchecked nodes (12 constructions,3 definitions,56 lemmas,23 theorems,10 comparisons),60 API entries,74 packet tests (51 on definitions/constructions),74 typed examples,six planets and110 baseline references. Two source findings,eight gaps,five requests and zero closed stages remain. Historical checkpoint counts and validations below retain their earlier scope.
+**Historical monic-division checkpoint:** 104 unchecked nodes (12 constructions,3 definitions,56 lemmas,23 theorems,10 comparisons),60 API entries,74 packet tests (51 on definitions/constructions),74 typed examples,six planets and110 baseline references. Two source findings,eight gaps,five requests and zero closed stages remain. Historical checkpoint counts and validations below retain their earlier scope.
 
 **Entire linear-division checkpoint, 27 September 2026.** The packet now has
 92 unchecked nodes (8 comparisons, 11 constructions, 3 definitions, 49 lemmas, 21 theorems), 57 API entries, 70 packet tests,
