@@ -1,10 +1,11 @@
 # Noncommutative and equivariant Iwasawa theory — blueprint
 
-This blueprint covers stages NE.0–NE.7. After the second checkpoint:
+This blueprint covers stages NE.0–NE.7. After the third checkpoint:
 - **NE.1 is source-decomposed.**
 - **NE.0 is partial.**
 - **NE.2 is partial:** CFKSV §§3–4 — the localisation sequence and characteristic elements.
-- **NE.3–NE.7 are not yet read.**
+- **NE.3 is partial:** CFKSV §3 — twists, Φ_ρ, evaluation at representations, Akashi series and Euler characteristics.
+- **NE.4–NE.7 are not yet read.**
 
 The accepted restructuring RS-16 moves the construction of completed group algebras, with restriction, induction and
 augmentation, to PadicMeasuresIwasawaAlgebras L1. NE.0 therefore keeps only:
@@ -258,6 +259,62 @@ of order p.
 Requested: GeneralAlgebraicKTheory K.5 (Quillen's localisation for Ore localisations), K.3 (resolution theorem) and
 PadicMeasuresIwasawaAlgebras L4 (characteristic power series).
 
+### NE.3, Milestone 6: evaluation at representations (partial)
+
+Library module: `TauCeti/NumberTheory/NoncommIwasawa/Evaluation`. The source is CFKSV §3, pp. 170–187.
+
+**Construction: twists** (node `twisted-module`). tw_ρ(M) = M_𝒪 ⊗ 𝒪ⁿ with the diagonal action. tw_ρ is exact,
+preserves freeness, and maps 𝔐_H(G) to itself (Lemma 3.2).
+- *API:* `twist`, `twist_exact`, `twist_free`, `twist_mem_MHG`.
+- *Tests:*
+  - ρ = 1;
+  - a character twist of Λ_𝒪(G);
+  - direct sums.
+
+**Construction: Φ_ρ** (node `twist-homomorphism`; planet). Φ_ρ : Λ(G) → M_n(Λ_𝒪(Γ)) is induced by σ ↦ ρ(σ) ⊗ σ̄, and
+its augmentation is ρ.
+- *API:* `representationRingHom`, `twistRingHom`, `twistRingHom_augmentation`, `twistRingHom_p`.
+- *Tests:*
+  - for G = Γ, ρ = 1, Φ_ρ is the identity;
+  - det Φ_ρ(σ) = det ρ(σ)σ̄ⁿ;
+  - direct sums are block diagonal.
+
+**Lemma: extension to S*** (node `twist-extends-to-localisation`). This is Lemma 3.3: Φ_ρ(s) is invertible in
+M_n(Q_𝒪(Γ)) for s ∈ S*. The proof reduces mod the maximal ideal and uses the central ℤ_p of G/J from NE.1.
+
+**Construction: evaluation** (node `artin-evaluation`; planet). Φ′_ρ : K₁(Λ(G)_{S*}) → Q_𝒪(Γ)^× is defined by Morita
+and the determinant, and ξ(ρ) = φ(Φ′_ρ(ξ)) ∈ L ∪ {∞}. Conventions: [g](ρ) = det ρ(g), and evaluation is multiplicative
+in ρ ⊕ ρ′.
+- *API:* `twistK1`, `evaluate`, `evaluate_groupElement`, `evaluate_mul`, `evaluate_directSum`, `evaluate_units`.
+- *Tests:*
+  - a known unit, [g](ρ) = det ρ(g) (Lean check for n = 2);
+  - the cyclic case (T ↦ 0, 1/T ↦ ∞);
+  - induced representations, whose determinant includes the permutation sign;
+  - evaluations do not detect K₁ (the SK₁ question, still open here).
+
+**Construction: Akashi series** (node `akashi-series`). Ak(M) = ∏f_{i,M}^{(−1)^i} on K₀(𝔐_H(G)) (Lemma 3.1, (37)–(40)),
+with N(Ak_𝒪) = Ak.
+- *API:* `akashiSeries`, `akashiSeriesO`, `akashiSeries_norm`, `homology_torsion`.
+- *Tests:*
+  - the cyclic case;
+  - H finite of order prime to p;
+  - Λ(G)/p.
+
+**Lemma: the diagram** (node `evaluation-akashi-diagram`). This is Lemma 3.7: ∂_Γ ∘ Φ′_ρ = Ak_𝒪 ∘ tw_{ρ̂} ∘ ∂_G, with
+the contragredient ρ̂(g) = ρ(g^{−1})^t, via Morita row vectors.
+
+**Theorem: Euler characteristics** (node `euler-characteristic-evaluation`; planet). This is Theorem 3.6: if
+χ(G, tw_{ρ̂}(M)) is finite, then ξ_M(ρ) ≠ 0, ∞ and χ = |ξ_M(ρ)|_p^{−[L:ℚ_p]}.
+
+**Theorem: Artin representations** (node `artin-evaluation-integral`). Theorem 3.8 and Lemma 3.9: under (51), ξ_M(ρ) ≠ ∞
+for every Artin ρ, and it is nonzero iff the Euler characteristic is finite.
+
+**Theorem: Artin formalism** (node `artin-formalism-euler`). This is Theorem 3.10:
+χ(G′, M)^{[L:ℚ_p]} = ∏_ρ χ(G, tw_ρ(M))^{n_ρ}.
+
+**Application: X₁(11) at p = 5** (node `gl2-euler-example`). This is Proposition 3.11: χ(G, tw_{ρ₁}X) = 5³ and
+χ(G, tw_{ρ₂}X) = 5, from 5¹⁶/5⁴ and 5⁸/5⁴ by Theorem 3.10. The arithmetic inputs are a gap.
+
 ## Dependencies
 
 - **NE.0 imports:**
@@ -295,7 +352,8 @@ PadicMeasuresIwasawaAlgebras L4 (characteristic power series).
 
   Also give the concrete nonabelian finite-level example.
 - **NE.2.** CFKSV §3 onward (Akashi series, localisation sequence) and Burns–Venjakob §2.2.
-- **NE.3.** Evaluation at Artin representations; reduced norms and SK₁ (Ritter–Weiss).
+- **NE.3 (partial).** Still to do: reduced norms and SK₁, and what character evaluations determine (Ritter–Weiss, with the
+  2026 uniqueness preprint); evaluation under induction and restriction.
 - **NE.4.** Equivariant Galois complexes.
 - **NE.5.** The formulation of zeta elements.
 - **NE.6.** Kakde and Ritter–Weiss.
@@ -303,7 +361,7 @@ PadicMeasuresIwasawaAlgebras L4 (characteristic power series).
 
 ## Sources
 
-- **Coates, Fukaya, Kato, Sujatha, Venjakob,** Publ. Math. IHÉS 101 (2005), Numdam. Read §§2–3 and p. 192.
+- **Coates, Fukaya, Kato, Sujatha, Venjakob,** Publ. Math. IHÉS 101 (2005), Numdam. Read §§2–3 in full and p. 192.
 - **Lazard,** Publ. Math. IHÉS 26 (1965), Numdam. Read II.2.2 and V.2.2.
 - **Ardakov–Brown,** arXiv math/0511345v1. Read §§2–4.
 - **Burns–Venjakob,** arXiv math/0511672v2. Read §2.

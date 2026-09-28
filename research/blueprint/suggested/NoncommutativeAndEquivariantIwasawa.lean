@@ -18,6 +18,8 @@ pro-p hypothesis; this file imports Mathlib only and spells the condition out.
 import Mathlib.RingTheory.OreLocalization.Ring
 import Mathlib.RingTheory.OreLocalization.NonZeroDivisors
 import Mathlib.RingTheory.Finiteness.Basic
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.LinearAlgebra.Quotient.Basic
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.Algebra.Polynomial.Basic
@@ -178,5 +180,22 @@ def IsCharacteristicElement (M ∈ 𝔐_H(G)) (ξ : K₁ Λ(G)_{S*}) : Prop := b
 theorem isSemilocal_canonicalLocalization : IsSemilocalRing Λ(G)_S                                    -- canonical-localization-semilocal
 theorem units_surjective_K₁ (hG) : Function.Surjective (Units Λ(G)_{S*} → K₁ Λ(G)_{S*})              -- units-surject-k1
 -/
+
+/-! ## NE.3 (checkpoint 3): evaluation at representations -/
+
+namespace NE3Tests
+
+/-- `NE.3/artin-evaluation`: for `n = 2`, `det (ρ(g) · ḡ) = ḡ² · det ρ(g)`, so after the augmentation
+`ḡ ↦ 1` the evaluation of the class of `g` is `det ρ(g)`. -/
+example {R : Type*} [CommRing R] (a b c d x : R) :
+    Matrix.det !![a * x, b * x; c * x, d * x] = x ^ 2 * Matrix.det !![a, b; c, d] := by
+  simp [Matrix.det_fin_two]
+  ring
+
+/-- `NE.3/gl2-euler-example`: `χ(G_{F₁}, X) = χ(G_F, X) · χ(G, tw_{ρ₁}X)⁴` with `5¹⁶ = 5⁴ · (5³)⁴`, and
+`5⁸ = 5⁴ · 5⁴` for `ρ₂`. -/
+example : (5 : ℕ) ^ 16 = 5 ^ 4 * (5 ^ 3) ^ 4 ∧ (5 : ℕ) ^ 8 = 5 ^ 4 * 5 ^ 4 := by norm_num
+
+end NE3Tests
 
 end TauCeti.NoncommIwasawa
