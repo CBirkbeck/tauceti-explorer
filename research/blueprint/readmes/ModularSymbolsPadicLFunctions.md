@@ -1,7 +1,6 @@
 # Modular symbols and analytic p-adic L-functions of modular forms — blueprint
 
-This blueprint covers stages L0–L4. After four checkpoints, **L0, L1 and L2 are source-decomposed**. Stages L3–L4 are
-not yet read.
+This blueprint covers stages L0–L4. After five checkpoints, **L0–L3 are source-decomposed** and L4 is partial.
 
 L0 plans Pollack–Stevens' **Hom-side (cohomological) modular symbols** for arbitrary coefficient modules. These are what
 L2's distribution-valued symbols need. The homological side is imported from Tau Ceti's ModularForms roadmap,
@@ -14,7 +13,8 @@ Layer 8, which the reviewed library audit AUDIT-26 lists as a duplicate of this 
 The sources are:
 - **Pollack–Stevens:** Ann. Sci. ÉNS (4) 44 (2011), §§2–6 and the §8 examples. It is open access on Numdam.
 - **Wiese:** the course notes *Computational Arithmetic of Modular Forms*, arXiv:1809.04645v1, §§1, 4–7.
-- **Pollack:** the Arizona Winter School 2011 notes, §2.
+- **Pollack:** the Arizona Winter School 2011 notes, §§2 and 6.
+- **Bellaïche:** *Critical p-adic L-functions*, arXiv:0912.2925v1, §1.4 (published in Invent. Math. 189 (2012)).
 
 ## Purpose
 
@@ -69,6 +69,9 @@ AUDIT-26 records L0 as not built.
 - **LocallyAnalyticDistributions (L2):** the spaces A[r], D[r], D(ℤ_p) (its L0), h-admissibility with Amice–Vélu/Višik
   uniqueness and bounded measures (its L2), both requested; the Riesz theory of its L4 (`finite-slope-summands`,
   `completely-continuous`) is cited directly.
+- **PadicFamilies L3 (L3):** criticality and θ-criticality, Bellaïche's theorem on the critical eigenspaces, the critical
+  and secondary p-adic L-functions and the two-variable L-function. RS-08 places the general theory there; its nodes are
+  cited directly and requested.
 
 ## Conventions
 
@@ -395,6 +398,58 @@ L_p(z^jχ) = e·α^{−n}p^{nj}τ(χ)j!/(2πi)^j·L(f_α, χ^{−1}, j+1)/Ω^±,
 saturated lattices, L_p(1_{a+pⁿℤ_p}) = α^{−n}[Y^k]φ({∞} − {a/pⁿ}) ∈ 𝒪, so L_p ∈ 𝒪⟦ℤ_p^×⟧. Arbitrary bases give only
 𝒪⟦ℤ_p^×⟧[1/p]. The higher moments need not be integral when p ≤ k.
 
+## Layer L3: critical slope
+
+Library module: `TauCeti/NumberTheory/ModularSymbols/CriticalSlope`. The sources are Pollack–Stevens §§5.4, 6.4 and 8.4
+and Bellaïche §1.4. RS-08 narrows this stage to single forms: the general critical-slope and θ-critical theory is
+PadicFamilies L3, and the nodes below specialise it and fix the normalisations.
+
+**Construction: the critical-slope L-function** (node `non-theta-critical-lift`; planet). For a refinement of slope k + 1
+that is not θ-critical, each φ^± has a unique overconvergent eigen-lift Φ^± with ρ*_k(Φ^±) = φ^±, and
+L_p(f, α; φ^±) = Φ({∞} − {0})|_{ℤ_p^×} as in L2.
+- It is (k + 1)-admissible.
+- It is Bellaïche's L⁺ + L⁻ with the scalars fixed by specialisation.
+- X₀(32) at p = 5 is excluded: the form is CM, hence decent, and its critical-slope refinement is critical, so the
+  eigenline lies in ker ρ*_k.
+
+**Theorem: interpolation at critical slope** (node `critical-slope-interpolation`). The formula of L2's
+`interpolation-and-uniqueness` holds verbatim, proved the same way from the eigen-lift. Pollack–Stevens Proposition 6.5
+prints the L-value at 1 (E6).
+
+**Lemma: interpolation does not determine the L-function** (node `critical-slope-non-uniqueness`). At h = k + 1 the
+distribution with Mellin transform log^{[k]}(s) = ∏_{i=0}^{k} log_p(γ^{−i}s) is (k + 1)-admissible and vanishes at every
+z^jχ. So uniqueness at critical slope is the uniqueness of the eigen-lift, not of an admissible distribution.
+
+**Comparison: θ-critical single forms** (node `theta-critical-comparison`). For a θ-critical refinement the eigenline lies
+in ker ρ*_k and L± vanishes at all classical characters (Bellaïche's Theorem 2). The classical interpolation is carried
+by the top secondary L-function L±_{e−1}, normalised by specialising the top generalised eigenvector.
+
+**Theorem: comparison through families** (node `family-comparison-principle`). An identity between Bellaïche's
+two-variable L±(y, ·) and an arithmetic construction that holds, up to the normalising function of y, at a Zariski-dense
+set of non-critical classical points of an affinoid V ∋ x also holds at x. By `critical-slope-non-uniqueness`, a
+comparison by values at x alone is not valid.
+
+**Application: Pollack–Stevens' examples** (node `critical-slope-examples`).
+- **8.6 (N = 11, p = 3).** The slope-one part of Symb_{Γ₀(33)}(ℚ₃) is three-dimensional: φ^±_β and an Eisenstein φ_eis,
+  all of which lift. The kernel of specialisation contains Φ⁻_eis and two symbols over ℚ₃(√−3), explained by Hida theory.
+- **8.7 (N = 11, p = 5).** X₀(11) is residually reducible, and all three symbols lift.
+- **8.8 (N = 32, p = 5).** The CM form has no lift; its unique eigensymbol specialises to 0. Bellaïche's Theorem 1 and
+  Remark 1 turn these observations into theorems.
+
+## Layer L4: examples (partial)
+
+Library module: `TauCeti/NumberTheory/ModularSymbols/Examples`.
+
+**Application: level 11** (node `level-eleven-examples`). φ_f takes the values (1/5, −3/2, 1/2) on the Manin generators.
+- At p = 11, Greenberg's lifts give L₁₁(f, T) ≈ 1490719231T + 433614230T² + …, with a trivial zero from split
+  multiplicative reduction. The linear coefficient is a unit, so μ = 0 and λ = 1.
+- The Eisenstein symbol (1, 0, 0) lifts to a symbol whose value at {0} − {∞} is the Dirac distribution at 0, so its
+  11-adic L-function on ℤ₁₁^× vanishes.
+
+**Theorem: the two Euler factors at p** (node `euler-factor-comparison`). For p ∤ N and ϕ of conductor prime to p,
+e_p(α, ϕt^j) = (1 − ϕ(p)p^j/α)(1 − ϕ̄(p)ε(p)p^{k−j}/α). The first factor comes from the distribution (L2) and the second
+from the p-stabilisation (L1), since ε(p)p^{k−j}/α = β/p^{j+1}.
+
 ## Mistakes found in the sources
 
 **E1 (error, reaches a stated result): the sign in Pollack–Stevens Theorem 2.6 and Corollary 2.7 (p. 12).** The same
@@ -428,6 +483,10 @@ which (1) omits. RJW B.1 has it as (1 − χ(p)p^j/α).
 
 No published erratum was found, either on Numdam or in the Crossref record.
 
+**E9 (misprint, reaches a stated result): Bellaïche (5), p. 8.** For the refinement f_β, the factors are printed with α:
+e_p(β, ϕt^j) = β^{−ν}(1 − ϕ̄(p)ε(p)p^{k−j}/α)(1 − ϕ(p)p^j/α). Both should have β, its U_p-eigenvalue. With α the formula is
+that of the other refinement. Only arXiv v1 was read; the Inventiones text was not obtained.
+
 ## Remaining work
 
 - **L0 is source-decomposed.** It depends on the requested inputs:
@@ -441,9 +500,11 @@ No published erratum was found, either on Numdam or in the Crossref record.
 - **L1 is source-decomposed.** It depends on ModularForms Layer 7 (L-functions), which is requested.
 - **L2 is source-decomposed.** It depends on LocallyAnalyticDistributions L0 and L2 and on ModularForms Layers 4–5,
   all requested, and cites LocallyAnalyticDistributions L4 nodes directly.
-- **L3–L4 are not yet read:**
-  - L3: critical slope (Pollack–Stevens §§5.4, 6.4 and 8.4, and Bellaïche);
-  - L4: examples.
+- **L3 is source-decomposed.** It depends on PadicFamilies L3 (requested; its nodes are cited directly).
+- **L4 is partial.** Still to read:
+  - tame twists, coefficient embeddings (Galois-conjugate forms and periods) and primitive/imprimitive level change with
+    the ℓ-Euler factors (Mazur–Tate–Teitelbaum; RJW §§6–8);
+  - both refinements at a good supersingular prime, with a worked example.
 
 ## Sources
 
@@ -452,3 +513,4 @@ No published erratum was found, either on Numdam or in the Crossref record.
 - G. Wiese, *Computational Arithmetic of Modular Forms (course notes)*, arXiv:1809.04645v1 (2018).
 - R. Pollack, *Overconvergent modular symbols*, Arizona Winter School 2011 lecture notes.
 - J. Rodrigues Jacinto and C. Williams, *An introduction to p-adic L-functions*, arXiv:2309.15692v2 (2024), Theorem B.1.
+- J. Bellaïche, *Critical p-adic L-functions*, arXiv:0912.2925v1 (2009); Invent. Math. 189 (2012) 1–60.

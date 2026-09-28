@@ -10,7 +10,7 @@
   "ModularSymbolsPadicLFunctions:L4"
  ],
  "status": "partial",
- "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain. Checkpoint 3 plans L1 (6 nodes): period lines and periods after a choice of basis, saturated integral lattices with periods canonical up to 𝒪^×, the twisted Mellin formula (Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j L(f, χ̄, j+1), checked numerically), algebraicity with the parity sign (−1)^{k−j}χ(−1), L-functions of p-stabilized forms, and the exact comparison with RJW Theorem B.1. Checkpoint 4 plans L2 (12 nodes): p-stabilisations and refinements with the refined eigenline, weight-k distributions and specialisation, overconvergent lifts, the slope decomposition, Stevens' control theorem for h < k + 1, admissibility, the p-adic L-function of a refinement, interpolation fixed to Pollack–Stevens (2) and to RJW B.1, uniqueness, and integral ordinary measures. Pollack–Stevens (1) is off by a sign on the −-part and at n = 0 (sourceIssues E4–E5).",
+ "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain. Checkpoint 3 plans L1 (6 nodes): period lines and periods after a choice of basis, saturated integral lattices with periods canonical up to 𝒪^×, the twisted Mellin formula (Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j L(f, χ̄, j+1), checked numerically), algebraicity with the parity sign (−1)^{k−j}χ(−1), L-functions of p-stabilized forms, and the exact comparison with RJW Theorem B.1. Checkpoint 4 plans L2 (12 nodes): p-stabilisations and refinements with the refined eigenline, weight-k distributions and specialisation, overconvergent lifts, the slope decomposition, Stevens' control theorem for h < k + 1, admissibility, the p-adic L-function of a refinement, interpolation fixed to Pollack–Stevens (2) and to RJW B.1, uniqueness, and integral ordinary measures. Pollack–Stevens (1) is off by a sign on the −-part and at n = 0 (sourceIssues E4–E5). Checkpoint 5 plans L3 (6 nodes) as RS-08 narrows it, importing the general critical-slope, θ-critical and secondary theory from PadicFamilies L3 (Bellaïche): the critical-slope L-function of a non-θ-critical refinement normalised by specialisation, its interpolation, the failure of uniqueness at h = k + 1 (log^{[k]}), the θ-critical single-form comparison through the top secondary L-function, comparison through families, and Pollack–Stevens' Examples 8.6–8.8. It starts L4 (2 nodes): the level-11 examples (the 11-adic trivial zero, μ = 0, λ = 1) and the two Euler factors at p; Bellaïche's (5) prints the factors of f_β with α (sourceIssues E9). Coefficient changes and supersingular refinements remain.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -360,7 +360,8 @@
     "§5.2–5.4 (Lemma 5.5, Propositions 5.6–5.7, Theorem 5.9, Lemma 5.10, Theorem 5.12 and its proof, Remark 5.13, Theorem 5.14, Remark 5.15), pp. 23–26",
     "§6.1–6.4 (Definition 6.1, Lemma 6.2, (1), (2), Proposition 6.3 and its proof, Definition 6.4, Proposition 6.5), pp. 27–29; the displayed formulas were read on the page images",
     "§8, the examples for X₀(11) at p = 3 and p = 5 (Example 8.7), pp. 35–36, and the closing remark on μ-invariants, p. 41",
-    "References, p. 42"
+    "References, p. 42",
+    "2026-09-28 (cc-39fac3, checkpoint 5): §5.4 Theorem 5.14 and Remark 5.15, pp. 25–26; §6.4 Definition 6.4, Proposition 6.5, p. 29; §8.4 Examples 8.6–8.8, pp. 35–36."
    ]
   },
   {
@@ -389,7 +390,8 @@
    "read": "2026-09-28",
    "readSections": [
     "§2.2–2.9 Modular symbols and L-values, pp. 3–11 (the Γ₀(11) fundamental-domain relation in footnote 10, the weight-k symbol ψ_f in §2.7, the L-value formula in §2.8, the general definitions in §2.9)",
-    "§2.1 formula (2), p. 3; §2 (after 2.10) the measure μ_f and its interpolation, p. 13; §5.1 formula (7), p. 24 (formulas read on the page images, since text extraction drops the bars)"
+    "§2.1 formula (2), p. 3; §2 (after 2.10) the measure μ_f and its interpolation, p. 13; §5.1 formula (7), p. 24 (formulas read on the page images, since text extraction drops the bars)",
+    "2026-09-28 (cc-39fac3, checkpoint 5): §6 Some examples (level 11, p = 11), pp. 27–28."
    ]
   },
   {
@@ -403,6 +405,17 @@
    "readSections": [
     "Definition 5.2 and Remark 5.3 (Gauss sums), pp. 29–30",
     "Appendix B.1–B.2 (Theorem B.1 read on the page image, since text extraction drops the bars), pp. 79–80"
+   ]
+  },
+  {
+   "id": "BELLAICHE-CRITICAL-2012",
+   "title": "Critical p-adic L-functions",
+   "authors": "Joël Bellaïche",
+   "edition": "arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60.",
+   "url": "https://arxiv.org/pdf/0912.2925v1",
+   "sha256": "0a1c068cfc36704c02bd741be37ef95b0ac3216db3e9293364a6368843701032",
+   "readSections": [
+    "2026-09-28 (cc-39fac3, checkpoint 5): §1.4 (Theorems 1–3, (4)–(5), Corollary 1, §1.4.5), pp. 5–11."
    ]
   }
  ],
@@ -3462,6 +3475,397 @@
    "planet": {
     "name": "Integral ordinary p-adic L-function"
    }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L3/non-theta-critical-lift",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L3",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L3"
+   ],
+   "title": "The critical-slope p-adic L-function of a non-θ-critical refinement",
+   "kind": "construction",
+   "statement": "Let (f, α) be a refinement of critical slope h = k + 1 (ModularSymbolsPadicLFunctions L2 refinement) that is not θ-critical (equivalently non-critical, by PadicFamilies L3). Then each refined eigenline φ^± has a unique overconvergent eigen-lift Φ^± ∈ Symb_Γ(D_k)^± with ρ*_k(Φ^±) = φ^±, and L_p(f, α; φ^±) := Φ({∞} − {0})|_{ℤ_p^×} with Φ = Φ⁺ + Φ⁻. It is (k + 1)-admissible, satisfies the distribution relation of L2, and its ±-parts are Bellaïche's L±(f_α, ·) with the scalars fixed by ρ*_k(Φ^±) = φ^± (so the periods Ω^± are those of L2).",
+   "hypotheses": [
+    "Critical slope and not θ-critical; the uniqueness of the lift is Pollack–Stevens' Theorem 5.14 / Bellaïche's Theorem 1 with e = 1 (PadicFamilies L3)."
+   ],
+   "proofSteps": [
+    "By PadicFamilies L3 (e = 1), ρ*_k restricts to an isomorphism of the f_α-eigenspaces, so the lifts exist and are unique; evaluate at {∞} − {0} as in L2.",
+    "Admissibility of order k + 1: the U_p-eigenvalue has valuation k + 1 (Višik's criterion)."
+   ],
+   "acceptance": [
+    "The normalisation is by specialisation, not by values: at critical slope values do not determine the distribution."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/refinement",
+    "ModularSymbolsPadicLFunctions:L2/p-adic-l-function",
+    "PadicFamilies:L3/critical-eigenspace-dimension",
+    "PadicFamilies:L3/critical-p-adic-l-function",
+    "PadicFamilies:L3/refinement-criticality"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/CriticalSlope",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.4, Definition 6.4, p. 29 (Numdam PDF page 30; printed page = PDF page − 1)",
+     "excerpt": "In light of Proposition 6.3, we make the following deﬁnition of the p-adic L-function of a critical slope form.",
+     "match": "Pollack–Stevens' definition (with the weight misprint recorded as E7)."
+    },
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.2, p. 7 (arXiv v1; printed page = PDF page)",
+     "excerpt": "When fβ is non-critical, this p-adic L-function is the same as the usual one, deﬁned by Mazur-Tate-Teitelbaum in the non-critical slope case, and by Stevens-Pollack in the critical slope non-θ-critical case.",
+     "match": "The agreement with Bellaïche's L±."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L3/critical-slope-interpolation",
+     "how": "its interpolation values."
+    },
+    {
+     "where": "KatoEulerSystems:L3",
+     "how": "critical-slope L-functions in explicit reciprocity (through families only)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.criticalSlopePadicL",
+     "role": "constructor",
+     "statement": "L_p(f, α; φ^±) for critical-slope non-θ-critical (f, α)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.criticalSlopePadicL_lift_unique",
+     "role": "characterisation",
+     "statement": "Φ^± is the unique eigen-lift of φ^±."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.criticalSlopePadicL_admissible",
+     "role": "characterisation",
+     "statement": "(k + 1)-admissible."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.criticalSlopePadicL_eq_bellaiche",
+     "role": "compatibility",
+     "statement": "Equals L⁺ + L⁻ with the specialisation normalisation."
+    }
+   ],
+   "tests": [
+    {
+     "name": "criticalSlopePadicL_11_3",
+     "kind": "example",
+     "statement": "f = X₀(11), p = 3: the slope-one refinement f_β has an eigen-lift for both signs (Pollack–Stevens Example 8.6)."
+    },
+    {
+     "name": "criticalSlopePadicL_11_5",
+     "kind": "example",
+     "statement": "f = X₀(11), p = 5 (residually reducible): the slope-one refinement still lifts (Example 8.7)."
+    },
+    {
+     "name": "criticalSlopePadicL_CM_excluded",
+     "kind": "example",
+     "statement": "f = X₀(32), p = 5 is excluded: X₀(32) is CM, so decent (Bellaïche Proposition 2.15(iv)) and its critical-slope refinement is critical, hence by Bellaïche's Theorem 1 the eigenline lies in ker ρ*_k and φ^± has no eigen-lift (Pollack–Stevens found none numerically, Example 8.8)."
+    }
+   ],
+   "planet": {
+    "name": "Critical-slope p-adic L-function"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L3/critical-slope-interpolation",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L3",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L3"
+   ],
+   "title": "Interpolation at critical slope",
+   "kind": "theorem",
+   "statement": "For (f, α) as in non-theta-critical-lift, 0 ≤ j ≤ k and χ of conductor p^n, L_p(f, α; φ^±)(z^j·χ) is given by the formula of L2's interpolation-and-uniqueness (with ± = (−1)^jχ(−1), the factor α^{−n}p^{nj}τ(χ)j!/(2πi)^j, the Euler factor 1 − p^j/α when n = 0, and L(f_α, χ^{−1}, j + 1)/Ω^±).",
+   "hypotheses": [
+    "The formula is a formal consequence of Φ being a U_p-eigensymbol lifting φ⁺ + φ⁻; Pollack–Stevens (3) prints the L-value at 1 (recorded as E6)."
+   ],
+   "proofSteps": [
+    "Evaluate Φ({∞} − {0}) on z^j·1_{a+p^nℤ_p} with the distribution relation and ρ*_k(Φ) = φ⁺ + φ⁻, then use the twisted Mellin formula of L1, exactly as in L2."
+   ],
+   "acceptance": [
+    "Only the values are proved here; uniqueness fails (critical-slope-non-uniqueness)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L3/non-theta-critical-lift",
+    "ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/CriticalSlope",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.4, Proposition 6.5, p. 29 (Numdam PDF page 30; printed page = PDF page − 1)",
+     "excerpt": "The following proposition describes the interpolation property of this critical p-adic L-function.",
+     "match": "Proposition 6.5."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L3/critical-slope-non-uniqueness",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L3",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L3"
+   ],
+   "title": "Interpolation does not determine critical-slope L-functions",
+   "kind": "lemma",
+   "statement": "At h = k + 1 there are nonzero (k + 1)-admissible distributions on ℤ_p^× vanishing at every z^j·χ (0 ≤ j ≤ k, χ of finite order): for each tame character ψ, the distribution whose Mellin transform in the variable s is log^{[k]}(s) = ∏_{i=0}^{k} log_p(γ^{−i}s). Hence the interpolation values do not determine L_p(f, α; φ^±); its uniqueness is the uniqueness of the eigen-lift, not of an admissible distribution.",
+   "hypotheses": [
+    "Amice–Vélu–Višik uniqueness holds only for h < k + 1 (LocallyAnalyticDistributions L2)."
+   ],
+   "proofSteps": [
+    "log^{[k]} has order exactly k + 1 and vanishes at s = γ^jζ for all p-power roots of unity ζ and 0 ≤ j ≤ k, which are exactly the images of the characters z^jχ.",
+    "Adding a multiple of it to L_p preserves all interpolation values and (k + 1)-admissibility."
+   ],
+   "acceptance": [
+    "Do not extend the strict inequality h < k + 1 of the uniqueness theorem by continuity."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness",
+    "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+    "PadicFamilies:L3/theta-critical-vanishing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/CriticalSlope",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.4, p. 29 (Numdam PDF page 30; printed page = PDF page − 1)",
+     "excerpt": "In this case, the interpolation property (1) does not uniquely determine a (k + 1)-admissible distribution.",
+     "match": "The failure of uniqueness."
+    },
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.3, p. 7 (arXiv v1; printed page = PDF page)",
+     "excerpt": "This is not true however in the critical-slope case vp(β) = k + 1.",
+     "match": "Bellaïche's remark."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L3/theta-critical-comparison",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L3",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L3"
+   ],
+   "title": "θ-critical single forms",
+   "kind": "comparison",
+   "statement": "For a θ-critical refinement (for example the critical-slope refinement of a CM form with p split, such as X₀(32) at p = 5), L2's construction does not apply: the eigenline of Symb_Γ(D_k)^± lies in ker ρ*_k (PadicFamilies L3, Bellaïche's theorem), Bellaïche's L± vanishes at all classical characters, and the classical interpolation is carried by the top secondary L-function L±_{e−1}, normalised by ρ*_k of the top generalised eigenvector = φ^±.",
+   "hypotheses": [
+    "e = dim Symb^±_Γ(D_k)(f_β) ≥ 2 at a θ-critical cuspidal point."
+   ],
+   "proofSteps": [
+    "Theorem 1 of Bellaïche gives the eigenline in ker ρ*_k; Theorem 2 the vanishing; §1.4.5 the interpolation of L_{e−1}."
+   ],
+   "acceptance": [
+    "Interpolation values alone are not a uniqueness theorem here: they vanish for the primary L-function."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/critical-eigenspace-dimension",
+    "PadicFamilies:L3/theta-critical-vanishing",
+    "PadicFamilies:L3/secondary-l-functions",
+    "ModularSymbolsPadicLFunctions:L2/specialisation-map"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/CriticalSlope",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§5.4, Remark 5.15, p. 26 (Numdam PDF page 27; printed page = PDF page − 1)",
+     "excerpt": "Thus, by Theorem 5.14, the specialization map is not an isomorphism on f-isotypic subspaces.",
+     "match": "The CM case."
+    },
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.5, p. 11 (arXiv v1; printed page = PDF page)",
+     "excerpt": "If i = e −1, then L± e−1(fβ, σ) satisﬁes the interpolation property (4).",
+     "match": "The top secondary L-function interpolates."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L3/family-comparison-principle",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L3",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L3"
+   ],
+   "title": "Comparing critical and arithmetic L-functions through families",
+   "kind": "theorem",
+   "statement": "Let V ∋ x be the affinoid neighbourhood of a decent critical-slope point in the eigencurve with two-variable L±(y, σ) (PadicFamilies L3). If an identity between L±(y, ·) and an arithmetic construction (e.g. Kato's) holds, up to the normalising function of y, at a Zariski-dense set of non-critical classical points y ∈ V, it holds at x; comparisons at x by interpolation values alone are not valid.",
+   "hypotheses": [
+    "Both sides analytic in y on V; the normalising function of y is nonvanishing."
+   ],
+   "proofSteps": [
+    "Two analytic functions on the reduced curve V agreeing on a Zariski-dense set agree; classical non-critical points accumulate at x (classical weights k′ ≫ 0 near k have v_p(β′) = v_p(β) < k′ + 1 on V)."
+   ],
+   "acceptance": [
+    "This is how the critical-slope functions are compared with Kato's (KatoEulerSystems L3), not by values at x."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/two-variable-l-function",
+    "ModularSymbolsPadicLFunctions:L3/critical-slope-non-uniqueness"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/CriticalSlope",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.4, Theorem 3, p. 10 (arXiv v1; printed page = PDF page)",
+     "excerpt": "There exists an aﬃnoid neighborhood V of x in C, and for any choice of the sign ±, a two-variables p-adic L-function L±(y, σ)",
+     "match": "The two-variable function used for the comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L3/critical-slope-examples",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L3",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L3"
+   ],
+   "title": "Critical-slope examples of Pollack–Stevens",
+   "kind": "application",
+   "statement": "Weight 2 (k = 0), Γ₀ = Γ₀(Np), slope one. (8.6) N = 11, p = 3: the slope-one subspace of Symb_{Γ₀(33)}(ℚ₃) is three-dimensional, spanned by φ^±_β of the critical-slope refinement f_β of X₀(11) (a₃ = −1, v₃(β) = 1) and an Eisenstein symbol φ_eis ∈ Symb⁺ with T_ℓ = ℓ + 1, U₁₁ = 1, U₃ = 3; all three lift to eigensymbols Φ^±_β, Φ⁺_eis, and the kernel of ρ*_k on the slope-one part contains a three-dimensional space of eigensymbols: Φ⁻_eis and two slope-one symbols with U₃-eigenvalues in ℚ₃(√−3), the θ-image of the weight-0 specialisation of the rank-two Hida family of tame level 11. (8.7) N = 11, p = 5: again three-dimensional (Eisenstein plus the slope-one 5-stabilisation of X₀(11), whose residual representation is reducible since X₀(11) has a rational 5-torsion point), and all three symbols lift; the ordinary 5-adic L-function of X₀(11) has positive μ-invariant. (8.8) N = 32, p = 5: three-dimensional again, but the critical-slope refinement of the CM form X₀(32) has no eigen-lift; the eigensymbol with its eigenvalues is unique up to scalar for each sign and specialises to 0.",
+   "hypotheses": [
+    "Numerical observations in 8.6 and 8.7 are recorded as tests, not as theorems. The 8.8 observations are theorems: CM forms are decent (Bellaïche Proposition 2.15(iv)) and critical-slope CM refinements are critical (his Remark 1), so Theorem 1 gives a one-dimensional eigenspace contained in ker ρ*_k."
+   ],
+   "proofSteps": [
+    "Reproduce the dimension counts from the Hecke decomposition of Symb_{Γ₀(Np)}(ℚ_p) at slope 1."
+   ],
+   "acceptance": [
+    "The 8.6 kernel symbols show the Hida algebra of tame level 11 at p = 3 is not free over Λ (Pollack–Stevens footnote)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L3/non-theta-critical-lift",
+    "ModularSymbolsPadicLFunctions:L3/theta-critical-comparison",
+    "PadicFamilies:L3/critical-eigenspace-dimension"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/CriticalSlope",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§8.4, Example 8.6, p. 35 (Numdam PDF page 36; printed page = PDF page − 1)",
+     "excerpt": "For Γ0 = Γ0(33), the slope one subspace of SymbΓ0(Q3) is three-dimensional.",
+     "match": "Example 8.6."
+    },
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§8.4, Example 8.8, p. 36 (Numdam PDF page 37; printed page = PDF page − 1)",
+     "excerpt": "In this case, the critical slope eigenform arising from this elliptic curve does not satisfy the hypotheses of Theorem 5.14.",
+     "match": "Example 8.8."
+    },
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.1, Remark 1, p. 6 (arXiv v1; printed page = PDF page)",
+     "excerpt": "For example, for the modular form attached to the CM elliptic curve X0(32) with p = 5",
+     "match": "Bellaïche's explanation of Example 8.8."
+    },
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.1, Remark 1, p. 6 (arXiv v1; printed page = PDF page)",
+     "excerpt": "slope CM forms are always critical, while critical slope Eisenstein series are never critical",
+     "match": "Critical-slope CM refinements are critical."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L4/level-eleven-examples",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L4",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L4"
+   ],
+   "title": "Weight-two examples at level 11",
+   "kind": "application",
+   "statement": "For f the newform of X₀(11): the normalised symbol φ_f = ψ⁺_f/Ω⁺ + ψ⁻_f/Ω⁻ takes the values (1/5, −3/2, 1/2) on the Manin generators D₁, D₂, D₃ of level 11. At p = 11 (no p-stabilisation is needed, as 11 | N and U₁₁φ_f = φ_f) the 11-adic L-function L₁₁(f, T) ≈ 1490719231T + 433614230T² + … vanishes at T = 0 (a trivial zero, from the split multiplicative reduction of X₀(11) at 11) and its linear coefficient is an 11-adic unit, so μ = 0 and λ = 1. The Eisenstein eigensymbol φ₁ with values (1, 0, 0) lifts to a symbol whose value at {0} − {∞} is the Dirac distribution at 0, so its 11-adic L-function on ℤ₁₁^× vanishes. At p = 3 and p = 5 see critical-slope-examples.",
+   "hypotheses": [
+    "The lifts are computed by Greenberg's lifting algorithm (lift randomly, then apply U₁₁ repeatedly; Pollack's notes §6)."
+   ],
+   "proofSteps": [
+    "Compute φ_f from the Manin presentation of level 11 (L0) and lift with U₁₁ (L2)."
+   ],
+   "acceptance": [
+    "The trivial zero comes from split multiplicative reduction (a₁₁ = 1)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/p-adic-l-function",
+    "ModularSymbolsPadicLFunctions:L0/symbols-generator-values"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Examples",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§6, p. 27",
+     "excerpt": "Let’s begin by once again letting f denote the unique normalized newform in S2(Γ0(11))",
+     "match": "The level-11 example."
+    },
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§6, p. 28",
+     "excerpt": "Thus, the µ-invariant of f is 0 and the λ-invariant is 1.",
+     "match": "μ and λ at p = 11."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L4/euler-factor-comparison",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L4",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L4"
+   ],
+   "title": "The two Euler factors at p",
+   "kind": "theorem",
+   "statement": "For a refinement (f, α) of a newform of level prime to p and a character ϕ of conductor prime to p (n = 0), the interpolation factor is e_p(α, ϕt^j) = (1 − ϕ(p)p^j/α)(1 − ϕ̄(p)ε(p)p^{k−j}/α): the first factor comes from the distribution (L2), the second from the p-stabilisation L(f_α, s) = (1 − βp^{−s})L(f, s) (L1). For conductor p^ν (ν ≥ 1) both factors are 1 and the prefactor is α^{−ν}.",
+   "hypotheses": [
+    "Bellaïche's (5) prints the factors of the refinement f_β with α in place of β (source issue E9)."
+   ],
+   "proofSteps": [
+    "Combine L2's e = 1 − p^j/α at n = 0 with L1's (1 − βp^{−j−1}) = (1 − ε(p)p^{k−j}/α) (αβ = ε(p)p^{k+1})."
+   ],
+   "acceptance": [
+    "Test at X₀(11), p = 3, j = 0: e_p = (1 − 1/α)², α the unit root of X² + X + 3."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness",
+    "ModularSymbolsPadicLFunctions:L1/p-stabilised-euler-factors"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Examples",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.3, (5), p. 8 (arXiv v1; printed page = PDF page)",
+     "excerpt": "Ω± are the two archimedean periods of f, τ(ϕ−1) is the Gauss sum of ϕ−1 and",
+     "match": "The Euler factor (5) as printed (with the misprint E9)."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -3582,6 +3986,18 @@
    ],
    "status": "open",
    "note": "L0/eigenspace-dimension requests the level-N case; the refined eigenline lives at level Np."
+  },
+  {
+   "supplier": "PadicFamilies:L3",
+   "need": "The general critical-slope, θ-critical and secondary theory (Bellaïche's theorem, critical and secondary p-adic L-functions, the two-variable function), imported per RS-08; its nodes are cited directly.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L3/non-theta-critical-lift",
+    "ModularSymbolsPadicLFunctions:L3/theta-critical-comparison",
+    "ModularSymbolsPadicLFunctions:L3/family-comparison-principle",
+    "ModularSymbolsPadicLFunctions:L3/critical-slope-examples"
+   ],
+   "status": "open",
+   "note": "PadicFamilies checkpoint 3 plans these nodes; this packet only specialises them to a single form."
   }
  ],
  "coverage": [
@@ -3605,17 +4021,18 @@
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L3",
-   "status": "not_read",
-   "remaining": [
-    "Source-decompose stage L3 (Critical slope)."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 narrows L3 to single-form specialisations and normalisation comparisons, importing the general Pollack–Stevens/Bellaïche theory from PadicFamilies L3 (checkpoint 3 of that packet). Planned: the critical-slope L-function of a non-θ-critical refinement normalised by specialisation, its interpolation, the failure of uniqueness at h = k + 1 (log^{[k]}), the θ-critical single-form comparison through the top secondary L-function, the family comparison principle, and Pollack–Stevens' Examples 8.6–8.8."
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L4",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Source-decompose stage L4 (Examples and coefficient changes)."
-   ]
+    "Tame twists, coefficient embeddings (Galois conjugate forms and periods) and primitive/imprimitive level change with the ℓ-Euler factors: sources to read (Mazur–Tate–Teitelbaum 1986; RJW §§6–8).",
+    "Both refinements at a good supersingular prime (slopes (k + 1)/2), with a worked example (e.g. X₀(11) at p = 2): Pollack's ± theory, not read."
+   ],
+   "notes": "Planned: the level-11 examples (symbol values, the 11-adic trivial zero with μ = 0, λ = 1) and the comparison of the two Euler factors at p, with Bellaïche's misprint E9 recorded."
   }
  ],
  "gaps": [],
@@ -3737,6 +4154,21 @@
     "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
    ],
    "note": "The paper only uses r ≤ 1 and r slightly above 1 (D, D† and D(ℤ_p))."
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E9",
+   "source": "BELLAICHE-CRITICAL-2012",
+   "kind": "misprint",
+   "affects": "a stated result",
+   "locator": "§1.4.3, (5), p. 8 (arXiv v1)",
+   "printed": "ep(β, ϕtj) = 1 βν (1 −¯ϕ(p)ǫ(p)pk−j α )(1 −ϕ(p)pj α )",
+   "correction": "e_p(β, ϕt^j) = β^{−ν}(1 − ϕ̄(p)ε(p)p^{k−j}/β)(1 − ϕ(p)p^j/β): the factors of the refinement f_β have β, its U_p-eigenvalue, in the denominators.",
+   "reason": "For the refinement f_β (U_p f_β = βf_β, v_p(β) = k + 1 at critical slope), the distribution contributes 1 − ϕ(p)p^j/β and the p-stabilisation L(f_β, s) = (1 − αp^{−s})L(f, s) contributes 1 − ϕ̄(p)ε(p)p^{k−j}/β at s = j + 1 (using αβ = ε(p)p^{k+1}); the prefactor β^{−ν} already has β. With α the formula would be that of the other refinement f_α (Mazur–Tate–Teitelbaum).",
+   "known": "new: arXiv v1 is the only arXiv version; the Inventiones text was not obtained",
+   "searched": [
+    "arXiv 0912.2925 (v1 only).",
+    "The published version (Invent. Math. 189 (2012)) was not obtained."
+   ]
   }
  ],
  "sourceVersions": [
@@ -3746,6 +4178,13 @@
    "citation": "Pollack and Stevens, Overconvergent modular symbols and p-adic L-functions, Ann. Sci. Éc. Norm. Sup. (4) 44 (2011), 1–42 (Numdam open-access PDF)",
    "read": "2026-09-28",
    "sha256": "62e85b8aaa08423ffa58611cdf540c4ed5de44ddd691a9f8e7147d26375275e4"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/0912.2925v1",
+   "citation": "Bellaïche, Critical p-adic L-functions, arXiv:0912.2925v1 (published Invent. Math. 189 (2012))",
+   "read": "2026-09-28",
+   "sha256": "0a1c068cfc36704c02bd741be37ef95b0ac3216db3e9293364a6368843701032"
   }
  ]
 }

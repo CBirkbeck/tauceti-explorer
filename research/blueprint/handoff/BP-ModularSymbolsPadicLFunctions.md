@@ -1,6 +1,40 @@
-# BP-ModularSymbolsPadicLFunctions: L0–L2 source-decomposed (checkpoint 4)
+# BP-ModularSymbolsPadicLFunctions: L0–L3 source-decomposed, L4 partial (checkpoint 5)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #777. **Status: partial.** L0, L1 and L2 are `source_decomposed`; L3–L4 are `not_read`.
+Claude Code — session `cc-39fac3`, 28 September 2026. Refs #777. **Status: partial.** L0–L3 are `source_decomposed`; L4 is `partial`.
+
+## Checkpoint 5: L3 (6 nodes, 1 planet) and L4 (2 nodes)
+
+Sources: Pollack–Stevens §§5.4, 6.4 and 8.4; Bellaïche, arXiv:0912.2925v1, §1.4 (new source, sha256 recorded); Pollack's
+AWS notes §6.
+
+**Scope (RS-08).** The general critical-slope, θ-critical and secondary theory is PadicFamilies L3 (checkpoint 3 of that
+packet, merged). These L3 nodes cite it directly and add only the single-form normalisations and comparisons; the new
+request to PadicFamilies L3 records the import.
+
+- **`non-theta-critical-lift`** (planet). The eigen-lift of φ^± normalised by specialisation; it equals Bellaïche's L± with
+  the scalars fixed. The test excludes X₀(32) at p = 5, which is CM, hence decent (Bellaïche Proposition 2.15(iv)), and
+  critical.
+- **`critical-slope-interpolation`.** Proposition 6.5, with E6.
+- **`critical-slope-non-uniqueness`.** log^{[k]} gives nonzero (k + 1)-admissible distributions vanishing at every z^jχ.
+- **`theta-critical-comparison`.** The θ-critical case goes through the top secondary L-function (Bellaïche §1.4.5).
+- **`family-comparison-principle`.** Comparisons at a critical point go through the two-variable function on a
+  neighbourhood (Bellaïche Theorem 3), not through values.
+- **`critical-slope-examples`.** Examples 8.6–8.8, with 8.8 made a theorem by Bellaïche's Remark 1.
+- **L4 `level-eleven-examples`.** AWS §6: φ_f = (1/5, −3/2, 1/2), the 11-adic trivial zero with unit linear
+  coefficient (μ = 0, λ = 1), and the vanishing Eisenstein L-function.
+- **L4 `euler-factor-comparison`.** The two Euler factors at p, one from the distribution and one from p-stabilisation.
+
+**New source issue: E9 (misprint, reaches a stated result).** Bellaïche (5) prints the factors of f_β with α in place of β.
+Only arXiv v1 exists on arXiv; the Inventiones version was not obtained, so it is recorded as new.
+
+**New request:** PadicFamilies L3.
+
+**Lean.** A comment block with the L3/L4 signatures, and four proved checks: the vanishing of the polynomial model of
+log^{[k]}, the Euler-factor identity ε(p)p^{k−j}/α = β/p^{j+1}, the first Greenberg lift at level 11 modulo 11², and
+11 ∤ 1490719231. It compiles with 0 errors and 69 `sorry` warnings (unchanged).
+
+**Totals.** 52 nodes, 80 API items, 63 unit tests, 16 planets, 46 baseline declarations, 13 requests and 9 source issues.
+`check_blueprint.py`: 0 errors, 0 warnings.
 
 ## Checkpoint 4: L2 (12 nodes, 5 planets)
 
@@ -136,18 +170,18 @@ New signatures:
 
 ## What a continuation should do
 
-1. **Stage L3 (critical slope).** Start from Pollack–Stevens Theorem 5.14, §6.4 and §8.4, and from Bellaïche's critical
-   p-adic L-functions. The θ exact sequence and the non-θ-critical hypothesis are the core; E6 and E7 already record the
-   misprints in §6.4.
+1. **Finish L4.** Tame twists, coefficient embeddings and level change with the ℓ-Euler factors (Mazur–Tate–Teitelbaum
+   1986; RJW §§6–8), and both refinements at a good supersingular prime with a worked example.
 2. **Integral lattices.** Compare Symb_Γ(V_k(ℤ)) with Hom(𝕄, ℤ) through divided powers. `polynomial-duality` holds only
    after inverting k!, and `integral-period-lattices` records the dependence.
-3. **Stage L4.**
+3. **Check E9 against the Inventiones text** if it can be obtained.
 
 ## Sources read
 
-- Pollack–Stevens 2011 (Numdam), §§2.1–2.6, 3–6, the §8 examples for X₀(11), and the references.
+- Pollack–Stevens 2011 (Numdam), §§2.1–2.6, 3–6, §8.4 (Examples 8.6–8.8), the §8 examples for X₀(11), and the references.
 - Wiese, arXiv:1809.04645v1, §§1.2–1.3, 4.3–4.5, 5, 6, 7.1–7.5.
-- Pollack, AWS 2011 notes, §2.
+- Pollack, AWS 2011 notes, §§2 and 6.
+- Bellaïche, arXiv:0912.2925v1, §1.4 (pp. 5–11).
 - Sage `pollack_stevens` source, only for the sign cross-check.
 
 Not used: Ash–Stevens (Duke 1986), which is not freely available. The topological comparison it proves is requested from R14.3.
