@@ -13,7 +13,7 @@
   "PadicFamilies:L5"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 (Claude Code cc-39fac3). L0a is source_decomposed at declaration granularity from Khare–Thorne §2.4, Hida (1986) §1 and ACC+ §5.2: 20 nodes, from the finite-set factorial lemma and the finite projector e_U = U^{|M|!} (identified with Mathlib's Fitting decomposition) through finite quotient systems, the profinite projector, the adic instance over noetherian local rings with finite residue field, exactness, complexes, Khare–Thorne Lemma 2.12 and Proposition 2.15. L2a carries the fourteen reviewed Buzzard nodes of the integrated decomposition with prerequisites, API and tests, and records Buzzard's printed defects as sourceIssues. L0, L1, L2, L3, L4 and L5 are not read.",
+ "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). L0a is source_decomposed (Khare–Thorne §2.4, Hida §1, ACC+ §5.2). L0 is partial after checkpoint 2: Hida's ordinary Hecke algebra from Ann. Sci. ÉNS 1986 — Katz's p-adic modular functions, the universal Hecke algebra and ordinary idempotent, duality, finiteness over Λ, the control theorem, the ordinary Eisenstein family and classical specialisation. L2a carries the fourteen reviewed Buzzard nodes. L1, L2, L3, L4 and L5 are not read.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -367,6 +367,20 @@
     "module": "Mathlib/Algebra/Homology/Homotopy.lean",
     "provides": "Chain homotopies.",
     "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "tauceti:HeckeRing.GL2.heckeUNat",
+    "kind": "abbrev",
+    "module": "TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Basic.lean",
+    "provides": "Tau Ceti's operator U_p on M_k(Γ₁(N)) for p | N (the bad-prime alias of T_p), with a(n, f|U_p) = a(np, f).",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "tauceti:HeckeRing.GL2.Newform",
+    "kind": "structure",
+    "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+    "provides": "Tau Ceti's newforms of level N.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
    }
   ]
  },
@@ -401,7 +415,8 @@
    "url": "https://www.numdam.org/item/10.24033/asens.1507.pdf",
    "sha256": "a52ea23bc8b2357746cb2191335c7af394d96c752f6e1926d3e15b995504e5a6",
    "readSections": [
-    "2026-09-28 (cc-39fac3): introduction, pp. 231–232; §1, (1.14)–(1.22), pp. 243–245 (the idempotent e attached to T(p), its compatibility with the projective limit and the ordinary part M° = eM)."
+    "2026-09-28 (cc-39fac3): introduction, pp. 231–232; §1, (1.14)–(1.22), pp. 243–245 (the idempotent e attached to T(p), its compatibility with the projective limit and the ordinary part M° = eM).",
+    "2026-09-28 (cc-39fac3, checkpoint 2): §1 (1.1)–(1.18) with Theorem 1.1 and Corollary 1.2, pp. 237–245; §2 Proposition 2.1, Theorem 2.2, Corollary 2.3, pp. 245–248; §3 Theorem 3.1 and Corollaries 3.2–3.3, pp. 249–250; §4 Lemma 4.1, Theorem 4.2, Corollary 4.2, pp. 257–258; §5 (proof of Theorem 3.1) skimmed; §7 Eisenstein component, p. 271."
    ]
   },
   {
@@ -460,6 +475,854 @@
   }
  ],
  "nodes": [
+  {
+   "id": "PadicFamilies:L0/katz-padic-modular-functions",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "Katz's p-adic modular functions and the q-expansion principle",
+   "kind": "definition",
+   "statement": "For a p-adic ring A (A = lim A/pⁿA) and N = N₀pʳ with p ∤ N₀, V(N; A) is the ring of functions on isomorphism classes of triples (E, φ, i) over p-adic A-algebras — E an elliptic curve, φ : Ê ≅ Ĝ_m a trivialisation, i a level structure compatible with φ — compatible with base change; W(N; A) ⊂ V(N; A) is the subring of functions whose values at the trivialised Tate curves lie in A[ζ_{N₀}][[q^{1/N₀}]]. Evaluation at the Tate curve embeds V(N; A) in A((q)) with A-flat cokernel (the q-expansion principle), V(N; A) = V(N₀; A), and classical forms embed via ω = φ^*(dx/x).",
+   "hypotheses": [
+    "p-adic rings in Hida's sense; the moduli of trivialised elliptic curves over p-adic rings is imported (ModularCurvesPartII R13.2 and Katz's theory of the Igusa tower)."
+   ],
+   "proofSteps": [
+    "Define V(N; A) functorially on trivialised triples; the Tate curve Tate(q) over ℤ_p((q))^ carries the canonical trivialisation.",
+    "q-expansion principle (1.8a–c): injectivity into A((q)), stability under change of A and A-flatness of the cokernel.",
+    "The compatibility condition (1.6) makes a level-N structure on a trivialised curve equivalent to a level-N₀ one, so V(N; A) = V(N₀; A).",
+    "Classical forms of weight k embed by evaluating on (E, ω = φ^*(dx/x)) (1.11)."
+   ],
+   "acceptance": [
+    "The q-expansion principle is stated with A-flat cokernel, not only injectivity.",
+    "The p-power part of the level disappears for p-adic modular functions (V(N; A) = V(N₀; A))."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R13.2",
+    "ModularCurvesPartII:R12.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, (1.6)–(1.9), p. 238 (Numdam PDF page 9; printed page = PDF page + 229)",
+     "excerpt": "Now we shall review the 7?-adic theory.",
+     "match": "Hida's review of Katz's p-adic theory (OCR renders p as '7?')."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, (1.8a–c), p. 239 (Numdam PDF page 10; printed page = PDF page + 229)",
+     "excerpt": "Thus the ^-expansion principle also holds in this case.",
+     "match": "The q-expansion principle for p-adic modular functions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L0/padic-completion-of-classical",
+     "how": "Katz's theorem identifies W(N; ℤ_p) with the p-adic closure of classical forms."
+    },
+    {
+     "where": "PadicFamilies:L2",
+     "how": "overconvergent forms are the sections over strict neighbourhoods of the ordinary locus."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.KatzPadicModular",
+     "role": "constructor",
+     "statement": "V(N; A) as a p-adic A-algebra."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.KatzPadicModular.qExpansion_injective",
+     "role": "characterisation",
+     "statement": "Evaluation at the Tate curve is injective."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.KatzPadicModular.qExpansion_flat_cokernel",
+     "role": "characterisation",
+     "statement": "The cokernel of q-expansion is A-flat."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.KatzPadicModular.level_eq",
+     "role": "equivalence",
+     "statement": "V(N₀pʳ; A) = V(N₀; A)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "katzPadicModular_E_p_minus_one",
+     "kind": "example",
+     "statement": "E_{p−1} ∈ W(1; ℤ_p) has q-expansion ≡ 1 mod p (Hida (1.11) set-up)."
+    },
+    {
+     "name": "katzPadicModular_level_p",
+     "kind": "example",
+     "statement": "V(Np; A) = V(N; A) for p ∤ N (the p-part of the level is absorbed)."
+    },
+    {
+     "name": "katzPadicModular_not_classical",
+     "kind": "example",
+     "statement": "The p-adic limit of E_{k_i} for k_i → k p-adically (k_i → ∞ archimedeanly) lies in W but in no single classical weight."
+    }
+   ],
+   "planet": {
+    "name": "Katz p-adic modular forms"
+   }
+  },
+  {
+   "id": "PadicFamilies:L0/padic-completion-of-classical",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "p-adic modular forms are limits of classical forms (Katz)",
+   "kind": "theorem",
+   "statement": "For p ≥ 5 or N₀ ≥ 3: W(N; ℤ_p) = W(N₀; ℤ_p) equals the p-adic closure M̄(N; ℤ_p) of ⊕_k M_k(Γ₁(N₀); ℤ_p) in ℤ_p[[q]], and modulo p, W(N₀; F_p) ≅ G(Γ₁(N₀); F_p)/(E_{p−1} − 1), where G is the graded algebra of mod-p modular forms of all weights; the isomorphism preserves q-expansions.",
+   "hypotheses": [
+    "Hypothesis N₀ ≥ 3 or p ≥ 5 (Katz's Theorem 1.1)."
+   ],
+   "proofSteps": [
+    "Katz's Theorem 1.1 at full level Γ(N₀), from the Igusa tower being the étale Galois cover of the ordinary locus with group Γ = 1 + pℤ_p (Katz [16] §2, Theorems 2.1–2.2).",
+    "Descend to Γ₁(N₀) with the trace Tr(f) = N₀⁻¹ Σ_{u ∈ U₀} f|u, which is uniformly continuous and fixes E_{p−1} − 1 (Corollary 1.2)."
+   ],
+   "acceptance": [
+    "The mod-p statement uses the Hasse invariant E_{p−1} ≡ 1: it is the reason p-adic weights are congruent mod p − 1."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/katz-padic-modular-functions"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, Theorem 1.1, p. 240 (Numdam PDF page 11; printed page = PDF page + 229)",
+     "excerpt": "THEOREM 1.1 (Katz).",
+     "match": "Katz's theorem as quoted."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, after Theorem 1.1, p. 241 (Numdam PDF page 12; printed page = PDF page + 229)",
+     "excerpt": "This theorem follows from [16 ] § 2 for No > 3 and § 4 for No = 1 and 2, but some explana- tion may be necessary.",
+     "match": "Hida's reduction to Katz."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0/padic-hecke-operators",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "Hecke operators and the weight action on p-adic modular forms",
+   "kind": "construction",
+   "statement": "On M̄(N; 𝒪_K) (N divisible by p) the operators T(ℓ) and T(ℓ, ℓ) are defined by Hida's q-expansion formulas (1.13), agreeing with the classical operators on each M_k(Γ₁(N); 𝒪_K); they are p-adically contracting (|f|T(ℓ)|_p ≤ |f|_p), hence extend to the p-adic closure. The profinite group Z = ℤ_p^× × (ℤ/N₀)^× acts continuously by (f|z)(E, φ, i) = f(E, z_p⁻¹φ, z₀i), which on weight-k forms is z_p^k times the diamond action.",
+   "hypotheses": [
+    "N divisible by p; the weight action is through Katz's modular interpretation."
+   ],
+   "proofSteps": [
+    "Check (1.13) against the classical formulas on each weight, then extend by uniform continuity.",
+    "(1.12): on weight k, f|z = z_p^k f|γ with γ ∈ Γ₀(N) of lower-right entry ≡ z₀."
+   ],
+   "acceptance": [
+    "T(p) = U_p for p | N; its q-expansion is a(n, f|U_p) = a(np, f)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/padic-completion-of-classical",
+    "PadicFamilies:L0/katz-padic-modular-functions",
+    "tauceti:HeckeRing.GL2.heckeUNat"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, (1.13), p. 243 (Numdam PDF page 14; printed page = PDF page + 229)",
+     "excerpt": "Now we are going to define Hecke algebras by assuming the divisibility of N by p.",
+     "match": "The Hecke operators precede the Hecke algebras."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, (1.12), p. 240 (Numdam PDF page 11; printed page = PDF page + 229)",
+     "excerpt": "Thus the compact group Z acts on V(N; A) and W(N; A) radically continuously.",
+     "match": "The weight/diamond action."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L0/universal-hecke-algebra",
+     "how": "its generators."
+    },
+    {
+     "where": "PadicFamilies:L0/weight-algebra-action",
+     "how": "the Λ-module structure through Z."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.padicHeckeT",
+     "role": "constructor",
+     "statement": "T(ℓ) on M̄(N; 𝒪)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.padicHeckeT_qExpansion",
+     "role": "characterisation",
+     "statement": "Hida's formulas (1.13)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.padicHeckeU_qExpansion",
+     "role": "simp",
+     "statement": "a(n, f|U_p) = a(np, f)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.padicWeightAction",
+     "role": "structure",
+     "statement": "The continuous action of Z = ℤ_p^× × (ℤ/N₀)^×."
+    }
+   ],
+   "tests": [
+    {
+     "name": "padicHeckeU_E2star",
+     "kind": "example",
+     "statement": "U_p on the p-stabilised E_2^{(p)} has eigenvalue 1."
+    },
+    {
+     "name": "padicHeckeT_classical",
+     "kind": "example",
+     "statement": "On a classical form of weight k, T(ℓ) agrees with the classical T_ℓ."
+    },
+    {
+     "name": "padicWeightAction_weight",
+     "kind": "example",
+     "statement": "z ∈ 1 + pℤ_p acts on a weight-k form by z^k (degenerate check on constants: weight 0 acts trivially)."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L0/universal-hecke-algebra",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "Hida's universal Hecke algebra",
+   "kind": "construction",
+   "statement": "H_j(N; 𝒪_K) is the 𝒪_K-subalgebra of End(M_j(N; 𝒪_K)) generated by the T(ℓ), T(ℓ, ℓ), where M_j = ⊕_{k≤j} M_k; the restriction maps H_{j+1} → H_j are surjective and H(N; 𝒪_K) := lim_j H_j(N; 𝒪_K) is a compact ring acting faithfully and continuously on M̄(N; 𝒪_K). It is independent of the power of p in N: H(N₀pʳ; 𝒪) = H(N₀p; 𝒪). Cusp forms give h(N; 𝒪) likewise.",
+   "hypotheses": [
+    "Each H_j is free of finite rank over 𝒪_K."
+   ],
+   "proofSteps": [
+    "Finite freeness of H_j gives compactness; the projective limit of compact rings is compact.",
+    "Independence of the p-power: restriction H(N; 𝒪) → H(N₀p; 𝒪) is surjective and injective by Corollary 1.2."
+   ],
+   "acceptance": [
+    "Over K (not 𝒪_K) the analogous limit does not act continuously; keep integral coefficients."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/padic-hecke-operators",
+    "PadicFamilies:L0/padic-completion-of-classical"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, (1.14), p. 243 (Numdam PDF page 14; printed page = PDF page + 229)",
+     "excerpt": "hence, is compact; therefore, their projective limit",
+     "match": "Compactness of H(N; 𝒪)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L0/ordinary-idempotent-hecke",
+     "how": "the compact ring in which e = lim T(p)^{n!}."
+    },
+    {
+     "where": "PadicFamilies:L0/hecke-duality",
+     "how": "the Pontryagin duality with p-adic forms."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.universalHecke",
+     "role": "constructor",
+     "statement": "H(N; 𝒪) = lim H_j."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.universalHecke_compact",
+     "role": "instance",
+     "statement": "H(N; 𝒪) is a compact topological ring."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.universalHecke_level_indep",
+     "role": "equivalence",
+     "statement": "H(N₀pʳ; 𝒪) ≃ H(N₀p; 𝒪)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.universalHecke_restrict",
+     "role": "projection",
+     "statement": "H(N; 𝒪) → H_k(Γ₁(N); 𝒪) for each weight."
+    }
+   ],
+   "tests": [
+    {
+     "name": "universalHecke_N_p",
+     "kind": "example",
+     "statement": "N = p = 5: H(5; ℤ_5) surjects onto the weight-2 Hecke algebra of Γ₁(5), which is 0 (S₂(Γ₁(5)) = 0) for cusp forms."
+    },
+    {
+     "name": "universalHecke_level_change",
+     "kind": "example",
+     "statement": "H(25; ℤ_5) ≃ H(5; ℤ_5)."
+    },
+    {
+     "name": "universalHecke_eleven",
+     "kind": "example",
+     "statement": "N = p = 11: its image in End S₂(Γ₁(11)) is ℤ_11, the space being spanned by η(z)²η(11z)², on which U_11 acts by a₁₁ = 1."
+    }
+   ],
+   "planet": {
+    "name": "Hida's universal Hecke algebra"
+   }
+  },
+  {
+   "id": "PadicFamilies:L0/ordinary-idempotent-hecke",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "Hida's ordinary idempotent",
+   "kind": "construction",
+   "statement": "e := lim_n T(p)^{n!} ∈ H(N; 𝒪_K) (and in h(N; 𝒪_K)) exists, is idempotent, is compatible with every restriction H(N; 𝒪) → H_j(N; 𝒪), and on each finite level is the ordinary projector of T(p). For a module M over H(N; 𝒪) the ordinary part is M^ord = eM.",
+   "hypotheses": [
+    "Instance of PadicFamilies L0a: each H_j is a finite 𝒪-algebra, complete for the p-adic topology."
+   ],
+   "proofSteps": [
+    "Apply ordinary-idempotent-finite-algebra to t = T(p) in each H_j (finite over 𝒪, residue field finite).",
+    "Naturality (profinite-projector-natural) makes the e_j compatible under H_{j+1} → H_j; set e = lim e_j."
+   ],
+   "acceptance": [
+    "Hida's own construction (Jordan decomposition modulo p and lifting) gives the same idempotent by uniqueness in L0a.",
+    "No averaging over a group order is used."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/universal-hecke-algebra",
+    "PadicFamilies:L0a/ordinary-idempotent-finite-algebra",
+    "PadicFamilies:L0a/profinite-projector-natural",
+    "PadicFamilies:L0a/adic-instance"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, (1.17a–b), p. 244 (Numdam PDF page 15; printed page = PDF page + 229)",
+     "excerpt": "This idempotent will be called the idempotent attached to T(p).",
+     "match": "The idempotent e."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L0/hida-control-theorem",
+     "how": "the ordinary Hecke algebra eH."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+     "how": "ordinary Hecke algebras imported by RS-08."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.hidaIdempotent",
+     "role": "constructor",
+     "statement": "e = lim T(p)^{n!}."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.hidaIdempotent_isIdempotent",
+     "role": "structure",
+     "statement": "e² = e."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.hidaIdempotent_restrict",
+     "role": "compatibility",
+     "statement": "e restricts to the finite-level ordinary projector."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryHecke",
+     "role": "data",
+     "statement": "H^ord(N; 𝒪) = eH(N; 𝒪), h^ord = eh."
+    }
+   ],
+   "tests": [
+    {
+     "name": "hidaIdempotent_Delta",
+     "kind": "example",
+     "statement": "p = 11 (a₁₁(Δ) = 534612 ≡ 1 mod 11, a unit): e fixes Δ ∈ S₁₂."
+    },
+    {
+     "name": "hidaIdempotent_nonordinary",
+     "kind": "example",
+     "statement": "p = 2: τ(2) = −24 ≡ 0 mod 2, so e kills Δ."
+    },
+    {
+     "name": "hidaIdempotent_eisenstein",
+     "kind": "example",
+     "statement": "e fixes the p-stabilised Eisenstein series E_k^{(p)} (U_p-eigenvalue 1)."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L0/hecke-duality",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "Duality between Hecke algebras and modular forms",
+   "kind": "theorem",
+   "statement": "(Proposition 2.1) For A = K or 𝒪_K, H_j(N; A) ≅ Hom_A(M_j(N; A), A) and h_j ≅ Hom_A(S_j, A) through (h, f) = a(1, f|h). (Theorem 2.2) For p ≥ 5, H(N; ℤ_p) and M(N; T_p) = M̄(N; ℚ_p/ℤ_p) are mutually compact–discrete Pontryagin dual under the induced pairing, likewise h and S; (Corollary 2.3) the ordinary parts are dual.",
+   "hypotheses": [
+    "p ≥ 5 in Theorem 2.2."
+   ],
+   "proofSteps": [
+    "Finite level: (T(m), f) = a(m, f) gives nondegeneracy over K (Miller), then integrality over 𝒪_K.",
+    "Pass to Hom(−, T_p) with 0 → ℤ_p → ℚ_p → T_p → 0 and the limit over j.",
+    "(h h′, f) = (h, f|h′) makes the duality Hecke-equivariant, so e is self-dual."
+   ],
+   "acceptance": [
+    "The duality is what makes H(N; ℤ_p) act continuously on M(N; T_p); the p-adic action alone is too weak."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/universal-hecke-algebra",
+    "PadicFamilies:L0/ordinary-idempotent-hecke",
+    "tauceti:HeckeRing.GL2.heckeUNat"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§2, Proposition 2.1, p. 245 (Numdam PDF page 16; printed page = PDF page + 229)",
+     "excerpt": "The following result was essen- tially proved in Lang [19, Th. 4.4, p. 43], where the result is attributed to V. Miller:",
+     "match": "Proposition 2.1."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§2, Theorem 2.2, p. 247 (Numdam PDF page 18; printed page = PDF page + 229)",
+     "excerpt": "mutually compact-discrete dual in the sense of Pontrjagin",
+     "match": "Theorem 2.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0/weight-algebra-action",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "The weight algebra Λ and arithmetic points",
+   "kind": "construction",
+   "statement": "Let Γ = 1 + pℤ_p with generator u = 1 + p and Λ_𝒪 = 𝒪[[Γ]] ≅ 𝒪[[X]] (γ = u ↦ 1 + X). The action of Γ ⊂ Z on M̄(N; 𝒪) commutes with the Hecke operators, making H(N; 𝒪) and H^ord(N; 𝒪) into Λ_𝒪-algebras. For k ∈ ℤ, P_k = (1 + X) − u^k ∈ Λ; the arithmetic specialisation at weight k is reduction modulo P_k. H^ord decomposes over the characters a mod p − 1 of μ_{p−1} ⊂ ℤ_p^× as ⊕_a H^ord(N, a; 𝒪).",
+   "hypotheses": [
+    "p ≥ 5 so that ℤ_p^× = μ_{p−1} × Γ."
+   ],
+   "proofSteps": [
+    "The Γ-action is by Hecke-equivariant automorphisms (the diamond action commutes with T(ℓ)), so ℤ_p[Γ] → H extends continuously to Λ = ℤ_p[[Γ]].",
+    "Idempotents of ℤ_p[μ_{p−1}] split H^ord by the character a."
+   ],
+   "acceptance": [
+    "Use the power-series coordinate of ProfiniteProPGroups Layer 9 / PadicMeasuresIwasawaAlgebras L1; do not rebuild Λ."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/padic-hecke-operators",
+    "PadicFamilies:L0/ordinary-idempotent-hecke",
+    "PadicMeasuresIwasawaAlgebras:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§3, Corollary 3.2 and the definition of P_k, p. 250 (Numdam PDF page 21; printed page = PDF page + 229)",
+     "excerpt": "The natural morphism induces the following isomorphism:",
+     "match": "The specialisation modulo P_k."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L0/hida-control-theorem",
+     "how": "freeness over Λ and specialisation modulo P_k."
+    },
+    {
+     "where": "PadicFamilies:L1",
+     "how": "family modular symbols over the same Λ."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.weightAlgebra",
+     "role": "constructor",
+     "statement": "Λ_𝒪 = 𝒪[[1 + pℤ_p]] ≅ 𝒪[[X]]."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.arithmeticPoint",
+     "role": "constructor",
+     "statement": "P_k = (1 + X) − (1 + p)^k."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryHecke_lambdaAlgebra",
+     "role": "instance",
+     "statement": "H^ord(N; 𝒪) is a Λ_𝒪-algebra."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryHecke_decomp",
+     "role": "equivalence",
+     "statement": "H^ord = ⊕_{a mod p−1} H^ord(N, a)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "arithmeticPoint_distinct",
+     "kind": "example",
+     "statement": "P_k ≠ P_{k′} for k ≠ k′ (u has infinite order)."
+    },
+    {
+     "name": "arithmeticPoint_residue",
+     "kind": "example",
+     "statement": "Λ/P_k ≅ 𝒪 by X ↦ u^k − 1."
+    },
+    {
+     "name": "arithmeticPoint_congruent",
+     "kind": "example",
+     "statement": "P_k ≡ P_{k′} mod p^{m+1} when k ≡ k′ mod p^m (weight congruences)."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L0/jochnowitz-lemma",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "Jochnowitz's lemma",
+   "kind": "lemma",
+   "statement": "For k ≥ 3 and p ≥ 5, T(p) annihilates the quotients M_{k+(p−1)}(Γ₁(N₀); F_p)/M_k(Γ₁(N₀); F_p) and S_{k+(p−1)}/S_k, where weight-k forms embed in weight k + p − 1 by multiplication by E_{p−1} ≡ 1.",
+   "hypotheses": [
+    "k ≥ 3, p ≥ 5; the proof for Γ₀(N₀) works unchanged for Γ₁(N₀)."
+   ],
+   "proofSteps": [
+    "The filtration theory of mod-p forms: U_p lowers the filtration of a form of weight k + (p − 1) to at most weight k when k ≥ 3 (Jochnowitz, via the θ-operator and the Hasse invariant)."
+   ],
+   "acceptance": [
+    "Test: p = 5, k = 4: S₈(SL₂(ℤ); F₅) = 0 so the statement is empty; nontrivial checks start at k + 4 ≥ 12."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/padic-completion-of-classical",
+    "PadicFamilies:L0/padic-hecke-operators"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§4, Lemma 4.1, p. 258 (Numdam PDF page 29; printed page = PDF page + 229)",
+     "excerpt": "T(p) annihilates the quotients:",
+     "match": "Lemma 4.1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0/ordinary-mod-p-weight-independence",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "Ordinary mod-p forms live in bounded weight",
+   "kind": "theorem",
+   "statement": "For p > 5 (Hida), there are q-expansion-preserving isomorphisms (M^ord(N; T_p)[p])^Γ ≅ ⊕_{a mod p−1} M^ord_{j(a)}(Γ₁(N₀); F_p) and similarly for cusp forms, with j(a) ∈ [3, p + 1] the representative of a.",
+   "hypotheses": [
+    "p > 5 as printed (the corollary is used for p ≥ 5)."
+   ],
+   "proofSteps": [
+    "M(N; T_p)[p] = M̄(N; ℤ_p) ⊗ F_p = W(N₀; F_p) ≅ G(Γ₁(N₀); F_p)/(E_{p−1} − 1) (Corollary 1.2), which decomposes by weights mod p − 1.",
+    "Apply e: by Jochnowitz the ordinary part of each weight class stabilises at the smallest weight j(a) ≥ 3."
+   ],
+   "acceptance": [
+    "The bound is what makes the ordinary Hecke algebra finite over Λ."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/jochnowitz-lemma",
+    "PadicFamilies:L0/padic-completion-of-classical",
+    "PadicFamilies:L0/ordinary-idempotent-hecke"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§4, Theorem 4.2, p. 258 (Numdam PDF page 29; printed page = PDF page + 229)",
+     "excerpt": "q-expansion preserving isomorphisms",
+     "match": "Theorem 4.2."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§4, proof of Theorem 4.2, p. 258 (Numdam PDF page 29; printed page = PDF page + 229)",
+     "excerpt": "Then, the assertion for modular forms is clear from Lemma 4.1 and the definition of the idempotent e in (1.17 a).",
+     "match": "Its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0/ordinary-finite-over-lambda",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "The ordinary Hecke algebra is finite over Λ",
+   "kind": "theorem",
+   "statement": "For p ≥ 5, H^ord(N; 𝒪_K) and h^ord(N; 𝒪_K) are finite Λ_𝒪-modules, and H^ord(N; 𝒪_K) = H^ord(N; ℤ_p) ⊗_{ℤ_p} 𝒪_K.",
+   "hypotheses": [
+    "p ≥ 5."
+   ],
+   "proofSteps": [
+    "By duality, finiteness over Λ is equivalent to cofiniteness of the Pontryagin dual M^ord(N; T_p) over Λ.",
+    "The Γ-invariants of its p-torsion are finite (Theorem 4.2), so by topological Nakayama over Λ (local with residue field F_p) the dual is cofinitely generated."
+   ],
+   "acceptance": [
+    "Compactness plus finiteness of the Γ-invariants of the p-torsion, not a bound on individual weights, gives finiteness."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/ordinary-mod-p-weight-independence",
+    "PadicFamilies:L0/hecke-duality",
+    "PadicFamilies:L0/weight-algebra-action",
+    "PadicFamilies:L0a/adic-instance",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§4, Corollary 4.2, p. 258 (Numdam PDF page 29; printed page = PDF page + 229)",
+     "excerpt": "Then, the assertion for modular forms is clear from Lemma 4.1 and the definition of the idempotent e in (1.17 a).",
+     "match": "The finiteness argument builds on Theorem 4.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0/hida-control-theorem",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "Hida's control theorem",
+   "kind": "theorem",
+   "statement": "For p ≥ 5 and p | N: H^ord(N; 𝒪_K) and h^ord(N; 𝒪_K) are free of finite rank over Λ_𝒪, with rank_Λ H^ord(N, a) = rank_{ℤ_p} M_k^ord(Φ; ℤ_p) for every k ≥ 3 with k ≡ a mod p − 1 (and similarly for cusp forms with k ≥ 2). Restriction induces isomorphisms H^ord(N, a)/P_k H^ord(N, a) ≅ H_k^ord(Γ₁(N₀p), ω^{a−k}; 𝒪_K) for k ≥ j(a), and h^ord(N, a)/P_k ≅ h_k^ord(Γ₁(N₀p), ω^{a−k}; 𝒪_K) for k ≥ 2.",
+   "hypotheses": [
+    "p ≥ 5 and p | N; ω the Teichmüller character; the finite-level algebras are those of weight k, level N₀p and nebentypus ω^{a−k}."
+   ],
+   "proofSteps": [
+    "Freeness: the dual M^ord(N; T_p) is Λ-cofree because its P_k-torsion has constant ℤ_p-corank equal to the rank of classical ordinary forms of weight k (Theorem 4.2 and the classical dimension count), so the finite Λ-module H^ord has no P_k-torsion for infinitely many k and is free (Λ is a two-dimensional regular local ring) (§5).",
+    "Control: (H^ord/P_k)^∨ = M^ord[P_k] is the space of ordinary forms of weight k, level N₀p and character ω^{a−k}, for k in the stated range; dualise."
+   ],
+   "acceptance": [
+    "The weight range differs for modular forms (k ≥ j(a)) and cusp forms (k ≥ 2).",
+    "Finite flatness is over Λ; do not assume the local components are Gorenstein."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/ordinary-finite-over-lambda",
+    "PadicFamilies:L0/weight-algebra-action",
+    "PadicFamilies:L0/hecke-duality",
+    "PadicFamilies:L0/ordinary-mod-p-weight-independence"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§3, Theorem 3.1, p. 250 (Numdam PDF page 21; printed page = PDF page + 229)",
+     "excerpt": "of the universal Hecke algebras are free of finite rank over",
+     "match": "Theorem 3.1."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§3, Corollary 3.2, p. 250 (Numdam PDF page 21; printed page = PDF page + 229)",
+     "excerpt": "The natural morphism induces the following isomorphism:",
+     "match": "Corollary 3.2."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§3, p. 250 (Numdam PDF page 21; printed page = PDF page + 229)",
+     "excerpt": "Theorem 3.1 and Corollaries 3.2 and 3.3 will be proved in § 5.",
+     "match": "The proof is §5."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Hida's control theorem"
+   }
+  },
+  {
+   "id": "PadicFamilies:L0/ordinary-eisenstein-family",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "The ordinary Λ-adic Eisenstein family",
+   "kind": "construction",
+   "statement": "For an even Dirichlet character ψ (conductor prime to p, allowing trivial), the Λ-adic q-expansion 𝓔_ψ = (constant term) + Σ_{n≥1} (Σ_{d|n, p∤d} ψ(d)⟨d⟩ d⁻¹) qⁿ ∈ Λ[[q]] ⊗ Frac Λ, built from DirichletPadicLFunctions L4's measure-valued q-expansion, specialises at each arithmetic point P_k (k ≥ 2, suitable parity) to the ordinary p-stabilised Eisenstein series E_k^{(p)}(ψω^{−k}) (so E_k^{(p)}(ψ) when k ≡ 0 mod p − 1), since ⟨d⟩ mod P_k = ⟨d⟩^k; it is an eigenfamily for all T(ℓ) with U_p-eigenvalue 1. Its constant term is the Kubota–Leopoldt pseudomeasure (a pole at the trivial character when ψ = 1).",
+   "hypotheses": [
+    "RS-08: the Eisenstein family is imported from DirichletPadicLFunctions L4's measure; this node only identifies it as an ordinary Λ-adic form."
+   ],
+   "proofSteps": [
+    "The positive coefficients are the Λ-valued measures of DPLF L4; their specialisations are the divisor sums of E_k^{(p)} (positive-eisenstein-series-modular-comparison).",
+    "U_p acts by 1 on the p-stabilised series (divisors prime to p), so the family is fixed by e."
+   ],
+   "acceptance": [
+    "The constant term is a pseudomeasure, not an element of Λ, when ψ = 1."
+   ],
+   "prerequisites": [
+    "DirichletPadicLFunctions:L4/positive-eisenstein-series",
+    "DirichletPadicLFunctions:L4/positive-eisenstein-series-modular-comparison",
+    "DirichletPadicLFunctions:L4/p-stabilized-eisenstein",
+    "PadicFamilies:L0/weight-algebra-action",
+    "PadicFamilies:L0/ordinary-idempotent-hecke"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§7, (7.15), p. 271 (Numdam PDF page 42; printed page = PDF page + 229)",
+     "excerpt": "Now we consider the irreducible component corresponding to the Eisenstein series.",
+     "match": "Hida's Eisenstein component and the series (7.15)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L1",
+     "how": "congruences between the Eisenstein family and cusp forms (the Eisenstein ideal)."
+    },
+    {
+     "where": "IntegralIwasawaTheory:I.5",
+     "how": "the Mazur–Wiles Eisenstein ideal."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.eisensteinFamily",
+     "role": "constructor",
+     "statement": "𝓔_ψ as a Λ-adic q-expansion."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.eisensteinFamily_specialise",
+     "role": "characterisation",
+     "statement": "𝓔_ψ mod P_k = E_k^{(p)}(ψ)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.eisensteinFamily_ordinary",
+     "role": "characterisation",
+     "statement": "U_p𝓔_ψ = 𝓔_ψ."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.eisensteinFamily_hecke",
+     "role": "characterisation",
+     "statement": "T(ℓ)𝓔_ψ = (1 + ψ(ℓ)⟨ℓ⟩ℓ⁻¹)𝓔_ψ for ℓ ∤ Np."
+    }
+   ],
+   "tests": [
+    {
+     "name": "eisensteinFamily_weight_twelve",
+     "kind": "example",
+     "statement": "ψ = 1, p = 691 is irregular: the constant term vanishes mod 691 at k = 12 (Ramanujan's congruence)."
+    },
+    {
+     "name": "eisensteinFamily_Up",
+     "kind": "example",
+     "statement": "The U_p-eigenvalue is 1 in every weight."
+    },
+    {
+     "name": "eisensteinFamily_coeff1",
+     "kind": "example",
+     "statement": "The q¹-coefficient is 1 (normalisation)."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L0/arithmetic-specialization",
+   "parentStageId": "PadicFamilies:L0",
+   "realises": [
+    "PadicFamilies:L0"
+   ],
+   "title": "Specialisation to classical ordinary forms",
+   "kind": "theorem",
+   "statement": "Let F ∈ S^ord(N, a; Λ) be a normalised Λ-adic eigenform (a Λ-algebra homomorphism h^ord(N, a) → I, I finite over Λ). For every arithmetic point P of I above P_k (k ≥ 2), F mod P is the q-expansion of a classical normalised ordinary eigenform of weight k, level N₀p (or N₀pʳ for characters of conductor pʳ), nebentypus ω^{a−k} (times the finite character); if it is old at p it is the ordinary p-stabilisation f_α(z) = f(z) − β f(pz) of a newform f of level prime to p with α the unit root of X² − a_p(f)X + p^{k−1}χ(p), and the ordinary p-stabilisation is unique.",
+   "hypotheses": [
+    "k ≥ 2; ordinary forms of level prime to p enter through their unique unit-root stabilisation."
+   ],
+   "proofSteps": [
+    "Control (Corollary 3.2) identifies h^ord/P_k with the classical ordinary Hecke algebra, so the specialised eigensystem is classical.",
+    "p-stabilisation (ModularSymbolsPadicLFunctions L2): exactly one root of X² − a_pX + p^{k−1}χ(p) is a unit when a_p is, giving a unique ordinary stabilisation; multiplicity is recorded (the other stabilisation is not ordinary)."
+   ],
+   "acceptance": [
+    "Record nebentypus, p-stabilisation and multiplicity at each arithmetic point; do not identify P with a unique vector."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/hida-control-theorem",
+    "ModularSymbolsPadicLFunctions:L2/p-stabilisation",
+    "tauceti:HeckeRing.GL2.Newform"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/HidaHecke",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§3, Corollary 3.2, p. 250 (Numdam PDF page 21; printed page = PDF page + 229)",
+     "excerpt": "The natural morphism induces the following isomorphism:",
+     "match": "The specialisation isomorphism underlying classicality."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Classical specialisation of Hida families"
+   }
+  },
   {
    "id": "PadicFamilies:L0a/factorial-iterate-stabilises",
    "parentStageId": "PadicFamilies:L0a",
@@ -2706,16 +3569,42 @@
     "PadicFamilies:L2a/global-weight-gluing"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "ModularCurvesPartII:R13.2",
+   "need": "Moduli of (generalised) elliptic curves with Γ₁(N)-structure over ℤ[1/N] and, over p-adic rings, of trivialised elliptic curves (the Igusa tower over the ordinary locus) used by Katz's p-adic modular functions.",
+   "neededBy": [
+    "PadicFamilies:L0/katz-padic-modular-functions"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ModularCurvesPartII:R12.5",
+   "need": "Weight-k modular forms as sections of ω^k with the invariant differential normalisation and Hecke operators.",
+   "neededBy": [
+    "PadicFamilies:L0/katz-padic-modular-functions"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "PadicMeasuresIwasawaAlgebras:L1",
+   "need": "Λ_𝒪 = 𝒪[[1 + pℤ_p]] with its power-series coordinate (γ ↦ 1 + X) and the continuous extension of group actions to Λ.",
+   "neededBy": [
+    "PadicFamilies:L0/weight-algebra-action"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
   {
    "stageId": "PadicFamilies:L0",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "RS-08 narrows L0: p-adic modular forms from the ordinary tower with q-expansion principle, integral level structures and diamond actions; the L0a instance for U_p (finite-quotient and continuity hypotheses); finite generation and finite flatness/control over the weight Iwasawa algebra with the exact level and residual-localization hypotheses; the ordinary Eisenstein family from DirichletPadicLFunctions L4's measure-valued q-expansion; specialisation to classical ordinary spaces with nebentypus and multiplicity. Chosen-root p-stabilisation is imported from ModularSymbolsPadicLFunctions L2.",
-    "Sources to read: Hida, Ann. Sci. ÉNS 19 (1986) §§1–3 (on disk for this checkpoint only through §1); Hida's control theorem in the form of Wiles, Invent. Math. 94 (1988), and Emerton–Pollack–Weston, Invent. Math. 163 (2006), arXiv math/0505193, §§1–2."
-   ]
+    "Katz's theory itself (the Igusa tower and the q-expansion principle for p-adic modular functions, Katz, Higher congruences between modular forms, Ann. of Math. 101 (1975), and Antwerp III) is imported through Hida's review; its source proofs are unread (not freely available).",
+    "Finite flatness and control for the residually localised (non-Eisenstein) components and the Gorenstein question: Hida §§5–6, Wiles, Invent. Math. 94 (1988), and Mazur–Tilouine are unread beyond the statements used.",
+    "Ordinary cusp forms built independently of the Eisenstein family in Wiles's Λ-adic language (Λ-adic q-expansions whose specialisations are classical) and its equivalence with Hida's Hecke-algebra definition."
+   ],
+   "notes": "Checkpoint 2 (cc-39fac3): 13 nodes from Hida, Ann. Sci. ÉNS 1986, §§1–5 and §7: Katz's p-adic modular functions and the q-expansion principle, the p-adic closure of classical forms, Hecke operators and the weight action, the universal Hecke algebra and the ordinary idempotent (an instance of L0a), the Hecke/forms duality, the weight algebra with arithmetic points, Jochnowitz's lemma, weight independence mod p, finiteness over Λ, Hida's control theorem, the ordinary Eisenstein family from DirichletPadicLFunctions L4, and classical specialisation with p-stabilisation from ModularSymbolsPadicLFunctions L2."
   },
   {
    "stageId": "PadicFamilies:L0a",

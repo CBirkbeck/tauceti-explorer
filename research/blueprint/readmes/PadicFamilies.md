@@ -1,9 +1,10 @@
 # Hida and Coleman families, period modules, and family L-functions — blueprint
 
-This blueprint covers stages L0, L0a, L1, L2, L2a, L3, L4 and L5. After the first checkpoint:
+This blueprint covers stages L0, L0a, L1, L2, L2a, L3, L4 and L5. After the second checkpoint:
 - **L0a is source-decomposed.**
 - **L2a is partial:** it carries the fourteen reviewed nodes of the integrated decomposition.
-- **L0, L1, L2, L3, L4 and L5 are not yet read.**
+- **L0 is partial:** Hida's ordinary Hecke algebra and control theorem, from Hida, Ann. Sci. ÉNS 1986.
+- **L1, L2, L3, L4 and L5 are not yet read.**
 
 The roadmap belongs to the restructured family RS-08, whose accepted proposal fixes what each layer keeps.
 - **L0a** owns the finite and profinite factorial ordinary-projector API "beyond the pinned Fitting lemma".
@@ -119,6 +120,89 @@ hypersurface).
 Library modules:
 - L0a: `TauCeti/NumberTheory/PadicFamilies/{OrdinaryProjector, OrdinaryComplex}`, namespace `TauCeti.PadicFamilies`.
 - L2a: `TauCeti/NumberTheory/PadicFamilies/Eigenvariety`, namespace `TauCeti.PadicFamilies.Eigenvariety`.
+
+### L0, Milestone 0: Hida's ordinary Hecke algebra
+
+The source is Hida, *Iwasawa modules attached to congruences of cusp forms*, Ann. Sci. ÉNS 19 (1986), §§1–5 and §7, from
+the Numdam scan.
+
+**Definition: Katz's p-adic modular functions** (node `katz-padic-modular-functions`; planet "Katz p-adic modular
+forms").
+- V(N; A) consists of functions on trivialised elliptic curves with level structure over p-adic A-algebras.
+- W(N; A) consists of those that are integral at the Tate curves.
+- **The q-expansion principle** (1.8): the q-expansion is injective with A-flat cokernel.
+- **Level:** V(N₀pʳ; A) = V(N₀; A).
+- *Unit tests.*
+  - E_{p−1} ≡ 1.
+  - The p-power part of the level is absorbed.
+  - A p-adic limit of Eisenstein series lies in no single classical weight.
+
+**Theorem: the p-adic closure of classical forms** (node `padic-completion-of-classical`; Katz's Theorem 1.1 and
+Corollary 1.2).
+- W(N; ℤ_p) is the p-adic closure of the classical forms of all weights.
+- Modulo p, W ≅ G/(E_{p−1} − 1).
+
+**Construction: Hecke operators and the weight action** (node `padic-hecke-operators`; (1.12)–(1.13)).
+- T(ℓ) and T(ℓ, ℓ) act on p-adic forms by Hida's q-expansion formulas.
+- The group Z = ℤ_p^× × (ℤ/N₀)^× acts continuously.
+- **Unit tests.**
+  - U_p fixes E₂^{(p)}.
+  - T(ℓ) is classical on each weight.
+  - Γ acts on weight k by z^k.
+
+**Construction: the universal Hecke algebra** (node `universal-hecke-algebra`; planet "Hida's universal Hecke algebra";
+(1.14)–(1.15)).
+- H(N; 𝒪) = lim_j H_j(N; 𝒪) is compact.
+- It is independent of the power of p in N.
+- *API.*
+  - `universalHecke`.
+  - `universalHecke_compact`.
+  - `universalHecke_level_indep`.
+  - `universalHecke_restrict`.
+
+**Construction: the ordinary idempotent** (node `ordinary-idempotent-hecke`; (1.17)).
+- e = lim T(p)^{n!} in H(N; 𝒪), an instance of L0a's `ordinary-idempotent-finite-algebra` on each finite H_j.
+- It is compatible with the limit.
+- *Unit tests.*
+  - p = 11 fixes Δ, since τ(11) ≡ 1 mod 11.
+  - p = 2 kills Δ.
+  - e fixes E_k^{(p)}.
+
+**Theorem: duality** (node `hecke-duality`; Proposition 2.1, Theorem 2.2, Corollary 2.3).
+- H_j ≅ Hom(M_j, A) via a(1, f|h).
+- For p ≥ 5, H(N; ℤ_p) and M(N; ℚ_p/ℤ_p) are Pontryagin dual.
+- The ordinary parts are dual.
+
+**Construction: the weight algebra** (node `weight-algebra-action`).
+- Λ = 𝒪[[1 + pℤ_p]] ≅ 𝒪[[X]] acts through the weight action.
+- The arithmetic points are P_k = (1 + X) − (1 + p)^k.
+- H^ord = ⊕_{a mod p−1} H^ord(N, a).
+
+**Lemma and theorems:**
+- `jochnowitz-lemma` (Lemma 4.1): U_p kills M_{k+p−1}/M_k mod p for k ≥ 3.
+- `ordinary-mod-p-weight-independence` (Theorem 4.2): the ordinary mod-p forms live in weights j(a) ∈ [3, p + 1].
+- `ordinary-finite-over-lambda` (Corollary 4.2): H^ord is finite over Λ, by duality and topological Nakayama.
+
+**Theorem: Hida's control theorem** (node `hida-control-theorem`; planet; Theorem 3.1 and Corollary 3.2). For p ≥ 5
+and p | N:
+- H^ord and h^ord are free of finite rank over Λ;
+- H^ord(N, a)/P_k ≅ H_k^ord(Γ₁(N₀p), ω^{a−k}) for k ≥ j(a);
+- h^ord(N, a)/P_k ≅ h_k^ord for k ≥ 2.
+
+**Construction: the ordinary Eisenstein family** (node `ordinary-eisenstein-family`). It is built from
+DirichletPadicLFunctions L4's measure-valued q-expansion (RS-08).
+- Its specialisation at P_k is E_k^{(p)}(ψω^{−k}).
+- U_p = 1.
+- Its constant term is the Kubota–Leopoldt pseudomeasure.
+- *Unit tests.*
+  - 691 divides the constant term at k = 12.
+  - U_p = 1.
+  - The q¹-coefficient is 1.
+
+**Theorem: classical specialisation** (node `arithmetic-specialization`; planet).
+- Arithmetic specialisations of Λ-adic ordinary eigenforms are classical ordinary eigenforms of weight k, level N₀pʳ and
+  nebentypus ω^{a−k}.
+- Oldforms at p enter through the unique unit-root p-stabilisation (ModularSymbolsPadicLFunctions L2).
 
 ### L0a, Milestone 1: the finite projector
 
