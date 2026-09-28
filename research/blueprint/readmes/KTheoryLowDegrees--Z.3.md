@@ -436,9 +436,9 @@ Each layer section below opens with the layer's coverage record, then states eve
 
 ## Z.3 — Tensor products, exterior powers and determinant
 
-*Coverage: partial.* All targets of the stage text are realised by nodes: the ring structure (finite-projective-monoidal, rank-ring-hom, map-ring-hom); exterior powers and the exterior filtration of an extension (projective-exterior-power, exterior-direct-sum, exterior-extension-filtration, exterior-extension-graded); the λ-ring identities on K₀ with their extension to virtual classes (total-lambda … lambda-add, ring-k0-pre-lambda, and the special identities ring-k0-special); the componentwise determinant and its comparison with Pic (determinant-projective … determinant-surjective, determinant-tensor, determinant-exterior-power, determinant-mul, rank-det-ring-hom, sk-zero); det as an additive-group homomorphism, not a ring homomorphism (determinant-hom and its non-example test); the augmentation and its relation with the γ-filtration (augmentation, ring-k0-augmented, gamma-filtration-one, gamma-filtration-two, gamma-first-graded, gamma-filtration-eq-span); and the degree-zero normalisation of the Adams operations (adams-operations, adams-first-graded, ring-k0-adams-line, ring-k0-adams-rank-det). The abstract λ-ring algebra that SchemeKTheoryOperations S.6 planned is owned here (restructure). The identities F²_γ = SK₀, det(ψ^k x) = det(x)^k and the determinant identities are proved without any splitting principle; the Sylvester–Franke identity (compound-matrix-determinant), the exterior filtration's graded pieces and the ideal/span comparison are proved from library facts, their statements being exercises or absent in the sources read. The special λ-ring theorem still needs the integral and field inputs listed in the Serre gap. The finite-free resolution comparison establishes Proposition 4; the following generic/residue-fibre continuation also decomposes §§2.4–2.7 under the stated free-coalgebra hypothesis. The coefficient and formal-character inputs for GL remain open.
+*Coverage: partial.* All targets of the stage text are realised by nodes: the ring structure (finite-projective-monoidal, rank-ring-hom, map-ring-hom); exterior powers and the exterior filtration of an extension (projective-exterior-power, exterior-direct-sum, exterior-extension-filtration, exterior-extension-graded); the λ-ring identities on K₀ with their extension to virtual classes (total-lambda … lambda-add, ring-k0-pre-lambda, and the special identities ring-k0-special); the componentwise determinant and its comparison with Pic (determinant-projective … determinant-surjective, determinant-tensor, determinant-exterior-power, determinant-mul, rank-det-ring-hom, sk-zero); det as an additive-group homomorphism, not a ring homomorphism (determinant-hom and its non-example test); the augmentation and its relation with the γ-filtration (augmentation, ring-k0-augmented, gamma-filtration-one, gamma-filtration-two, gamma-first-graded, gamma-filtration-eq-span); and the degree-zero normalisation of the Adams operations (adams-operations, adams-first-graded, ring-k0-adams-line, ring-k0-adams-rank-det). The abstract λ-ring algebra that SchemeKTheoryOperations S.6 planned is owned here (restructure). The identities F²_γ = SK₀, det(ψ^k x) = det(x)^k and the determinant identities are proved without any splitting principle; the Sylvester–Franke identity (compound-matrix-determinant), the exterior filtration's graded pieces and the ideal/span comparison are proved from library facts, their statements being exercises or absent in the sources read. The special λ-ring theorem still needs the integral and field inputs listed in the Serre gap. The finite-free resolution comparison establishes Proposition 4; the following generic/residue-fibre continuation also decomposes §§2.4–2.7 under the stated free-coalgebra hypothesis. The product coefficient square is decomposed below; integral coefficient freeness, direct-model exact K₀/character transport and field character classification remain open.
 
-- Remaining: Complete the GL coordinate-freeness bridge (or the general flat finite-hull route), the GL coefficient/torus base-change identifications, and the arbitrary-field highest-weight/descent and common character-image input. The formal-character compatibility for a specified free coalgebra and torus restriction is decomposed below. The complex ClassicalGroups request does not discharge these.
+- Remaining: Complete the GL coordinate-freeness bridge (or the general flat finite-hull route), the exact K₀/character transport across the product coefficient square, and the arbitrary-field highest-weight/descent and common character-image input. The formal-character compatibility for a specified free coalgebra and torus restriction is decomposed below. The complex ClassicalGroups request does not discharge these.
 
 ### Tensor closure of finite projectives
 
@@ -2767,7 +2767,7 @@ Let G = GL_{N₁} × ⋯ × GL_{N_r} be a product of general linear group scheme
 1. The category of ℤ[G]-comodules finite free over ℤ is an exact category (extensions of finite free modules are finite free, and the comodule structure passes to kernels and cokernels of comodule maps that are split over ℤ); take its exact K₀ (tauceti:TauCeti.ExactK0).
 2. Tensor products and exterior powers of comodules are comodules (tauceti:TauCeti.Comodule.tensor; exterior powers as quotients of tensor powers by a subcomodule); ⊗ is biexact over ℤ-free modules, giving the ring structure.
 3. For an exact sequence 0 → V′ → V → V″ → 0 of representations, the filtration of Λ^kV of Z.3/exterior-extension-filtration is by subcomodules (it is canonical, so it is preserved by every g ∈ G(A)), with graded pieces Λ^iV′ ⊗ Λ^{k−i}V″ (Z.3/exterior-extension-graded, V″ free); hence λ_t(V) = λ_t(V′)λ_t(V″) and λ_t descends to R_ℤ(G) (tauceti:TauCeti.ExactK0.lift).
-4. Use the native ℤ[X(T)]-comodule weight spaces. The additive underlying character is latticeCharacter from torus-formal-character, composed with torus restriction after the exact-carrier identification; the GL-specific coefficient and torus identifications remain an explicit gap. This is the same rank sum ch(V)=Σ_m rank(V_m)·m. Tensor products multiply weights, and exterior powers of a graded free module with weights m_j have weights the products of k distinct m_j. These calculations give the multiplicative and pre-λ compatibility of the existing ofGL.character, with no second independently chosen character map.
+4. Use the native ℤ[X(T)]-comodule weight spaces. The additive underlying character is latticeCharacter from torus-formal-character, composed with torus restriction after the exact-carrier identification; the coefficient square is supplied by gl-product-restriction-basechange; the induced exact K₀ and formal-character transport remains an explicit gap. This is the same rank sum ch(V)=Σ_m rank(V_m)·m. Tensor products multiply weights, and exterior powers of a graded free module with weights m_j have weights the products of k distinct m_j. These calculations give the multiplicative and pre-λ compatibility of the existing ofGL.character, with no second independently chosen character map.
 
 **API.**
 
@@ -3450,7 +3450,7 @@ Let C be free as a ℤ-module and let r:C→ℤ[X] be a specified coalgebra map 
 
 The pinned library supplies the actual weight spaces, their projections and internal direct sum, finite support, and morphisms preserving weights. The additions below use those objects for exact K₀, coefficient comparison and character maps. They do not plan a second comodule or grading theory. Taking weights is exact because one can project a chosen preimage; base change of a weight works because its inclusion is split. Freeness of the lattice is needed for equality of integer ranks and fibre dimensions.
 
-For every prime, Ch_𝔽p∘d_p=Ch_ℚ. If the two field characters are injective with equal images, d_p is bijective. These hypotheses are explicit: the GL coefficient-freeness and base-change identifications, arbitrary-field highest weights, descent, and common Weyl-invariant image remain in the Serre gap. No layer is closed by this continuation.
+For every prime, Ch_𝔽p∘d_p=Ch_ℚ. If the two field characters are injective with equal images, d_p is bijective. These hypotheses are explicit: GL coefficient freeness, exact K₀/character transport across the product coefficient square, arbitrary-field highest weights, descent and the common Weyl-invariant image remain in the Serre gap. No layer is closed by this continuation.
 
 ### Exactness of torus weight spaces
 
@@ -3496,7 +3496,7 @@ For a PID R and every short exact sequence of finite R[X]-comodules, taking the 
 
 `Z.3/torus-coefficient-basechange` · construction
 
-For every field k, identify k⊗ℤℤ[X] with k[X] as coalgebras by a⊗n[x]↦an[x]. Package the existing fieldBaseChange followed by native corestriction through this equivalence as torusBaseChange.
+For every field k, reuse the pinned scalarTensorBialgEquiv ℤ k and forget its algebra structure to identify k⊗ℤℤ[X] with k[X] as coalgebras, by a⊗n[x]↦an[x]. The new construction in this node is the finite-comodule functor torusBaseChange, formed by fieldBaseChange followed by native corestriction through that equivalence.
 
 **Hypotheses.**
 
@@ -3504,13 +3504,18 @@ For every field k, identify k⊗ℤℤ[X] with k[X] as coalgebras by a⊗n[x]↦
 
 **Proof route.**
 
-1. The pinned tensorCoeffEquiv, with V=k and base ℤ, identifies k⊗ℤℤ[X] with finitely supported k-valued coefficient families. Its inverse sends a single coefficient a at x to a⊗[x]. Identify these families with the existing MonoidAlgebra k X carrier.
-2. The forward and inverse maps are k-linear by checking pure tensors and single coefficients. On [x], comultiplication is [x]⊗[x] and counit is 1. Check the coalgebra identities on these basis elements and extend by linearity; bundle the inverse maps as a CoalgEquiv.
-3. Compose the existing finite-comodule base-change functor with FGComoduleCat.corestrict. The object module is k⊗ℤE, with coaction transported through the coefficient equivalence; the map on tensors is a⊗v↦a⊗f(v). No exactness on all integral finite objects is asserted.
+1. Import TauCeti.MonoidAlgebra.scalarTensorBialgEquiv. Its statement is more general: every commutative semiring extension and commutative indexing monoid. Here use ℤ→k and the character group X. Its existing coalgebra equivalence is the helper torusCoefficientBaseChange; do not reconstruct or reprove it.
+2. The pinned scalarTensorBialgEquiv_tmul and inverse-single formula give the forward and inverse coefficient formulas. This makes the specified torus coefficient comparison identical to the native comparison used in the GL diagonal base-change theorem.
+3. Compose the existing finite-comodule fieldBaseChange with FGComoduleCat.corestrict. The object module is k⊗ℤE with the transported coaction, and maps send a⊗v to a⊗f(v). No exactness on all finite integral objects is asserted.
+
+**Uses.**
+
+- `KTheoryLowDegrees:Z.3/decomposition-character-compatibility`: Computes integral formal characters of a stable lattice on its rational and residue fibres.
+- `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`: Supplies the character-compatibility step of Serre Theorem 5, conditional on the separate GL coefficient and arbitrary-field character inputs.
 
 **API.**
 
-- `TauCeti.IntegralComodule.torusCoefficientBaseChange` (equivalence): The coalgebra equivalence k⊗ℤℤ[X]≃k[X].
+- `TauCeti.IntegralComodule.torusCoefficientBaseChange` (equivalence): Reuse the coalgebra equivalence underlying the pinned scalarTensorBialgEquiv; this helper is not a new library target.
 - `TauCeti.IntegralComodule.torusCoefficientBaseChange_single` (simp): It sends a⊗n[x] to an[x], for a∈k and n∈ℤ.
 - `TauCeti.IntegralComodule.torusBaseChange` (constructor): The finite-comodule functor using fieldBaseChange and native corestriction.
 - `TauCeti.IntegralComodule.torusBaseChange_map_tmul` (functoriality): The underlying map on a pure tensor is a⊗f(v); identity and composition are inherited from the composed functors.
@@ -3523,9 +3528,9 @@ For every field k, identify k⊗ℤℤ[X] with k[X] as coalgebras by a⊗n[x]↦
 
 **Acceptance.**
 
-- Distinct basis weights stay distinct over every field, including 𝔽₂. This coefficient equivalence is not the missing GL coordinate-algebra base-change identification.
+- Distinct basis weights stay distinct over every field, including 𝔽₂. The coefficient equivalence is reused from the pinned library; only its composition with the finite-comodule base-change functor is planned here.
 
-**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-generic-map`, `tauceti:TauCeti.Comodule.tensorCoeffEquiv`, `tauceti:TauCeti.FGComoduleCat.corestrict`, `mathlib:CoalgEquiv`.
+**Prerequisites.** `KTheoryLowDegrees:Z.3/integral-comodule-generic-map`, `tauceti:TauCeti.MonoidAlgebra.scalarTensorBialgEquiv`, `tauceti:TauCeti.MonoidAlgebra.scalarTensorBialgEquiv_tmul`, `tauceti:TauCeti.MonoidAlgebra.scalarTensorBialgEquiv_symm_single`, `tauceti:TauCeti.FGComoduleCat.corestrict`.
 
 **Source.** Serre.1968, §3.4, pp. 47–48 (diagonalizable coefficient coalgebra); §3.7, p. 51 (the same character group after base change).
 
@@ -3662,7 +3667,7 @@ For k a field, let r_k:k⊗ℤC→k[X] be the base change of r followed by the t
 1. Define r_k on a⊗c as the image of a⊗r(c) under torusCoefficientBaseChange. The balancing law and the coalgebra identities of r make this a coalgebra morphism.
 2. Use native FGComoduleCat.corestrict: it keeps the underlying module and map. Thus it preserves addition and all underlying-module short exact sequences. Apply the existing ExactK0.map and compose with torusCharacter.
 3. For an integral comodule E compare the two coactions on k⊗E. Each is obtained by tensoring its coaction and then applying r_k on the coefficient factor. Equality on pure tensors gives the natural comparison isomorphism; both underlying maps are the identity. This proof uses no choice of a basis of E.
-4. The value on an object class follows from ExactK0.map_of and torusCharacter_gcls. ExactK0.hom_ext gives uniqueness. In the GL application the coefficient identification with the pinned GL model and its torus map must still be supplied.
+4. The value on an object class follows from ExactK0.map_of and torusCharacter_gcls. ExactK0.hom_ext gives uniqueness. In the GL application use the coefficient square of gl-product-restriction-basechange; its exact K₀ and formal-character transport remains to be packaged.
 
 **API.**
 
@@ -3732,7 +3737,7 @@ If Ch_ℚ and Ch_𝔽p are injective and have equal images in ℤ[X], then d_p i
 
 1. For injectivity, d_p(a)=d_p(b) implies Ch_ℚ(a)=Ch_ℚ(b) by the preceding compatibility; use injectivity of Ch_ℚ.
 2. Given b in the residue group, equality of the two character images supplies a rational class a with Ch_ℚ(a)=Ch_𝔽p(b). Compatibility and injectivity of Ch_𝔽p imply d_p(a)=b. Merely knowing that both characters land in the invariants is insufficient.
-3. When this is available at every prime, apply integral-comodule-generic-isomorphism to their surjectivity and compose with k0Equiv. The unrestricted GL theorem still depends on coordinate freeness, coordinate/torus base-change identification, and the arbitrary-field character theorem.
+3. When this is available at every prime, apply integral-comodule-generic-isomorphism to their surjectivity and compose with k0Equiv. The unrestricted GL theorem still depends on coordinate freeness, exact K₀/character transport across the product coefficient square, and the arbitrary-field character theorem.
 
 **Acceptance.**
 
@@ -3742,6 +3747,289 @@ If Ch_ℚ and Ch_𝔽p are injective and have equal images in ℤ[X], then d_p i
 **Prerequisites.** `KTheoryLowDegrees:Z.3/decomposition-character-compatibility`, `KTheoryLowDegrees:Z.3/integral-comodule-generic-isomorphism`, `KTheoryLowDegrees:Z.3/integral-comodule-k0-comparison`.
 
 **Source.** Serre.1968, §3.7, Theorem 5 proof, p. 51, deduction from the field character isomorphisms and §2.7 Theorem 3.
+
+Use the product coefficient and diagonal square recorded here. The single-factor equivalences and the torus coefficient comparison are pinned baseline declarations; retain the stated integral-freeness and arbitrary-field character-image boundaries.
+
+### Coefficient comparisons for products of general linear groups
+
+Let G=∏ᵢGL_{Nᵢ} over R, with its factors indexed by the existing finite list Ns. Its coordinate Hopf algebra is the existing iterated tensor product H_R(Ns), and its diagonal character lattice is the existing sigma-indexed direct sum X(Ns). Base change identifies K⊗_R H_R(Ns) with H_K(Ns). Under that identification, diagonal restriction commutes with the pinned coefficient equivalence K⊗_R R[X]≃K[X]. The resulting equality is an equality of bialgebra maps, so it compares coactions, including over finite fields.
+
+The single-factor GL equivalence, diagonal-torus map and its base-change theorem already exist at the pinned Tau Ceti commit. The torus coefficient equivalence also exists as scalarTensorBialgEquiv; torusBaseChange above now explicitly reuses it. The new work concerns the specific finite-product model needed by the representation ring, preserving the existing factor indices and character lattice. The previously internal glCoordinate definition is promoted unchanged.
+
+The maps permit arbitrary commutative rings and nonflat scalar extensions. They supply no freeness assertion for H_ℤ(Ns). Corestriction along the coefficient equivalence still needs packaging as an exact-category equivalence and an exact K₀ comparison with matching formal characters. Serre's arbitrary-field classification, descent and common Weyl-invariant image also remain required. All eight nodes are planning declarations.
+
+### Coefficient algebra of a product of general linear groups
+
+`Z.3/gl-product-coordinate-algebra` · definition
+
+Use the existing H_R([])=R and H_R(n::Ns)=O_R(GLₙ)⊗_R H_R(Ns), with the native tensor-product Hopf structure. Promote this previously internal glCoordinate helper to a declaration node because the coefficient comparisons consume it. For a singleton the right-unit bialgebra equivalence identifies H_R([n]) with the pinned O_R(GLₙ).
+
+**Hypotheses.**
+
+- R and K are commutative rings with a specified R-algebra structure on K whenever base change occurs. No field, flatness, nontriviality or positive-rank assumption is imposed.
+- Ns is a finite list of natural numbers, allowing the empty list and zero entries. H_R(Ns) denotes the existing iterated tensor product glCoordinate R Ns. X(Ns) is the existing character lattice ⨁ᵢ ℤ^{Nsᵢ}, indexed by the sigma type of factor and coordinate indices; write ℤ[X] with this additive lattice viewed multiplicatively.
+
+**Proof route.**
+
+1. Retain the existing glCoordinate definition verbatim. Each factor is the bundled coordinateHopfAlgebra, whose selected coalgebra is matrix multiplication, not the group-like structure of a polynomial monoid algebra.
+2. The empty product has coordinate algebra R. Recursively apply the native tensor-product Hopf structure. The right unit equivalence gives the singleton comparison x⊗r↦rx.
+3. The zero-rank factor is R: its matrix-variable type is empty and its determinant is 1, so the polynomial algebra and localization both reduce to R. Do not replace tensor products of coordinate algebras by Cartesian products of rings.
+
+**Uses.**
+
+- `KTheoryLowDegrees:Z.3/gl-product-restriction-basechange`: Identifies the actual coefficient maps in the restriction/base-change square used by Serre §3.7.
+- `KTheoryLowDegrees:Z.3/representation-ring-of-gl`: Uses the existing list of GL factors and sigma-indexed character lattice to define restriction and coefficient transport without a second representation carrier.
+- `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`: Provides coefficient identifications needed to apply the generic decomposition-character comparison; the integral freeness and field character-image hypotheses are separate.
+
+**API.**
+
+- `TauCeti.RepresentationRing.glCoordinate_nil` (simp): The empty list gives the unit Hopf algebra R.
+- `TauCeti.RepresentationRing.glCoordinate_cons` (simp): Adding a head n gives O_R(GLₙ)⊗_R H_R(Ns), with the existing tensor Hopf structure.
+- `TauCeti.RepresentationRing.glCoordinate_singleton` (equivalence): The singleton comparison is the native right-unit bialgebra equivalence, x⊗r↦rx.
+
+**Unit tests.**
+
+- `TauCeti.RepresentationRing.glCoordinate_empty_test` (computation): In H_ℤ([]), 2·3=6.
+- `TauCeti.RepresentationRing.glCoordinate_zero_rank_test` (degenerate): H_R([0]) is bialgebra-isomorphic to R.
+- `TauCeti.RepresentationRing.glCoordinate_singleton_test` (compatibility): The singleton comparison sends x⊗1 to the same x in the pinned GL coefficient algebra.
+
+**Acceptance.**
+
+- The suggested definition is the inherited one; the new node gives its API and tests. Zero-rank factors and the empty product are included without changing the existing list convention.
+
+**Prerequisites.** `tauceti:TauCeti.GeneralLinear.coordinateHopfAlgebra`, `mathlib:Bialgebra.TensorProduct.rid`.
+
+**Source.** Serre.1968, §3.7, p. 51, coefficient identifications and the first commuting diagram; §3.8, p. 52, GL example.
+
+### Inclusion of a general linear coefficient factor
+
+`Z.3/gl-product-factor-inclusion` · construction
+
+For each factor index i define ι_i:O_R(GL_{Nsᵢ})→H_R(Ns), inserting the supplied coefficient into slot i and units into all other slots. It is a bialgebra map and is injective. The counits of the other factors give a left inverse.
+
+**Hypotheses.**
+
+- R and K are commutative rings with a specified R-algebra structure on K whenever base change occurs. No field, flatness, nontriviality or positive-rank assumption is imposed.
+- Ns is a finite list of natural numbers, allowing the empty list and zero entries. H_R(Ns) denotes the existing iterated tensor product glCoordinate R Ns. X(Ns) is the existing character lattice ⨁ᵢ ℤ^{Nsᵢ}, indexed by the sigma type of factor and coordinate indices; write ℤ[X] with this additive lattice viewed multiplicatively.
+
+**Proof route.**
+
+1. Use the native bialgebra includeLeft for the head. For a tail index, compose its recursively constructed inclusion with includeRight. This uses the original list index, so repeated ranks do not identify distinct factors.
+2. On an elementary tensor, the map has the chosen element in its specified slot. The bialgebra laws follow from native composition and the tensor inclusions.
+3. Construct a left inverse by recursively applying projectLeft or projectRight and the relevant factor counits. The native projection/inclusion identities prove the left-inverse identity and hence injectivity. This argument is valid over the zero ring too.
+
+**Uses.**
+
+- `KTheoryLowDegrees:Z.3/gl-product-restriction-basechange`: Identifies the actual coefficient maps in the restriction/base-change square used by Serre §3.7.
+- `KTheoryLowDegrees:Z.3/representation-ring-of-gl`: Uses the existing list of GL factors and sigma-indexed character lattice to define restriction and coefficient transport without a second representation carrier.
+- `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`: Provides coefficient identifications needed to apply the generic decomposition-character comparison; the integral freeness and field character-image hypotheses are separate.
+
+**API.**
+
+- `TauCeti.RepresentationRing.glFactor` (constructor): The bialgebra inclusion of the factor at index i.
+- `TauCeti.RepresentationRing.glFactor_head` (simp): For n::Ns, the head inclusion is x↦x⊗1.
+- `TauCeti.RepresentationRing.glFactor_tail` (simp): For n::Ns, the successor-index inclusion is x↦1⊗ι_i(x).
+- `TauCeti.RepresentationRing.glFactor_injective` (characterisation): Each factor inclusion is injective, with the other-factor counits furnishing a left inverse.
+
+**Unit tests.**
+
+- `TauCeti.RepresentationRing.glFactor_singleton_test` (compatibility): For a singleton, the factor inclusion followed by glCoordinate_singleton is the identity.
+- `TauCeti.RepresentationRing.glFactor_scalar_test` (computation): The second inclusion for [1,1] sends the integral scalar 3 to 3.
+- `TauCeti.RepresentationRing.glFactor_distinct_test` (non-example): The generic GL₁ entry in the first slot differs from that in the second slot over ℤ. Evaluate the two coordinates at independent Laurent variables to detect the difference.
+
+**Acceptance.**
+
+- The test with two GL₁ factors distinguishes their generic entries over ℤ; the scalar test confirms that common scalars are identified in the tensor product.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/gl-product-coordinate-algebra`, `tauceti:TauCeti.Bialgebra.TensorProduct.includeLeft`, `tauceti:TauCeti.Bialgebra.TensorProduct.includeRight`, `tauceti:TauCeti.Bialgebra.TensorProduct.projectLeft_comp_includeLeft`, `tauceti:TauCeti.Bialgebra.TensorProduct.projectRight_comp_includeRight`.
+
+**Source.** Serre.1968, §3.7, p. 51, coefficient identifications and the first commuting diagram; §3.8, p. 52, GL example.
+
+### Generic entries determine a product coordinate map
+
+`Z.3/gl-product-coordinate-ext` · lemma
+
+Two R-algebra maps from H_R(Ns) to a commutative R-algebra A are equal if they agree on every ι_i(X_ab), where X_ab is the native generic entry of the i-th GL factor. There is no separate condition on inverse determinants.
+
+**Hypotheses.**
+
+- R and K are commutative rings with a specified R-algebra structure on K whenever base change occurs. No field, flatness, nontriviality or positive-rank assumption is imposed.
+- Ns is a finite list of natural numbers, allowing the empty list and zero entries. H_R(Ns) denotes the existing iterated tensor product glCoordinate R Ns. X(Ns) is the existing character lattice ⨁ᵢ ℤ^{Nsᵢ}, indexed by the sigma type of factor and coordinate indices; write ℤ[X] with this additive lattice viewed multiplicatively.
+
+**Proof route.**
+
+1. For one GL factor apply the pinned coordinateHopfAlgebra_algHom_ext. An algebra map must send an inverse determinant to the inverse of the determinant image, so generic entries suffice.
+2. Induct on the list. Agreement on the head entries identifies the restrictions to the first tensor factor; agreement on the remaining entries and induction identify the restrictions to the second factor. The universal property of the tensor product identifies the maps.
+3. For the empty list, an R-algebra map out of R is uniquely determined by scalars. A zero-rank factor has no generic entries and its coefficient algebra is likewise scalar, so the induction includes it.
+
+**Acceptance.**
+
+- Use this node as the extensionality input for the product restriction square. The hypothesis concerns algebra maps; plain linear maps are not determined by the finitely many generic entries.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/gl-product-coordinate-algebra`, `KTheoryLowDegrees:Z.3/gl-product-factor-inclusion`, `tauceti:TauCeti.GeneralLinear.coordinateHopfAlgebra_algHom_ext`.
+
+**Source.** Serre.1968, §3.7, p. 51, coefficient identifications and the first commuting diagram; §3.8, p. 52, GL example.
+
+### Base change of general linear product coefficients
+
+`Z.3/gl-product-coefficient-basechange` · construction
+
+Construct a canonical K-bialgebra equivalence β_Ns:K⊗_R H_R(Ns)≃H_K(Ns) by distributing base change over the recursive tensor product and applying the pinned single-factor GL equivalence. In the empty case β(a⊗r)=a·r. In a successor case β(a⊗(x⊗y))=β_n(a⊗x)⊗β_Ns(1⊗y).
+
+**Hypotheses.**
+
+- R and K are commutative rings with a specified R-algebra structure on K whenever base change occurs. No field, flatness, nontriviality or positive-rank assumption is imposed.
+- Ns is a finite list of natural numbers, allowing the empty list and zero entries. H_R(Ns) denotes the existing iterated tensor product glCoordinate R Ns. X(Ns) is the existing character lattice ⨁ᵢ ℤ^{Nsᵢ}, indexed by the sigma type of factor and coordinate indices; write ℤ[X] with this additive lattice viewed multiplicatively.
+
+**Proof route.**
+
+1. The empty-list map is the native right-unit bialgebra equivalence K⊗_R R≃K.
+2. For n::Ns first use native baseChangeTensorBialgEquiv to obtain (K⊗_R O_R(GLₙ))⊗_K(K⊗_R H_R(Ns)). Apply coordinateHopfAlgebraBaseChangeBialgEquiv on the first factor and the induction equivalence on the second. Tensor their forward and inverse bialgebra maps; pure tensors prove both inverse identities.
+3. The native pure-tensor formula places a in the first factor. For the inverse, two scalar coefficients multiply: β⁻¹(β_n(a⊗x)⊗β_Ns(b⊗y))=ab⊗(x⊗y). The tensor balancing relation ensures this also represents placement of a in any other factor.
+
+**Uses.**
+
+- `KTheoryLowDegrees:Z.3/gl-product-restriction-basechange`: Identifies the actual coefficient maps in the restriction/base-change square used by Serre §3.7.
+- `KTheoryLowDegrees:Z.3/representation-ring-of-gl`: Uses the existing list of GL factors and sigma-indexed character lattice to define restriction and coefficient transport without a second representation carrier.
+- `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`: Provides coefficient identifications needed to apply the generic decomposition-character comparison; the integral freeness and field character-image hypotheses are separate.
+
+**API.**
+
+- `TauCeti.RepresentationRing.glCoefficientBaseChange` (equivalence): The recursive K-bialgebra equivalence β_Ns.
+- `TauCeti.RepresentationRing.glCoefficientBaseChange_nil` (simp): In the empty case a⊗r maps to a times the image of r.
+- `TauCeti.RepresentationRing.glCoefficientBaseChange_cons` (simp): On a⊗(x⊗y), use the single-factor comparison on a⊗x and the tail comparison on 1⊗y.
+- `TauCeti.RepresentationRing.glCoefficientBaseChange_symm_cons` (simp): The inverse map multiplies the two new-base scalars a and b.
+
+**Unit tests.**
+
+- `TauCeti.RepresentationRing.glCoefficientBaseChange_empty_test` (computation): β for ℤ→ℚ and the empty list sends 2⊗3 to 6.
+- `TauCeti.RepresentationRing.glCoefficientBaseChange_nonflat_test` (non-example): For ℤ→𝔽₂, β sends 1⊗2x to zero for every list and coefficient x; no injectivity of integral reduction is asserted.
+- `TauCeti.RepresentationRing.glCoefficientBaseChange_two_factors_test` (computation): For [1,1] over ℚ, the inverse of β sends the tensor of images with scalar coefficients 2 and 3 to 6⊗(x⊗y), not to 2⊗(x⊗y) or 3⊗(x⊗y).
+
+**Acceptance.**
+
+- This is a bialgebra equivalence between the actual bundled models, not only a ring equivalence. It applies to ℤ→𝔽p, despite that scalar map being nonflat. It does not prove the integral coefficient module free.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/gl-product-coordinate-algebra`, `tauceti:TauCeti.GeneralLinear.coordinateHopfAlgebraBaseChangeBialgEquiv`, `tauceti:TauCeti.Bialgebra.TensorProduct.baseChangeTensorBialgEquiv`, `mathlib:Bialgebra.TensorProduct.map`, `mathlib:Bialgebra.TensorProduct.rid`.
+
+**Source.** Serre.1968, §3.7, p. 51, coefficient identifications and the first commuting diagram; §3.8, p. 52, GL example.
+
+### Base change respects each coefficient factor
+
+`Z.3/gl-product-basechange-factor` · lemma
+
+For every factor i, scalar a∈K and coefficient x∈O_R(GL_{Nsᵢ}), β_Ns(a⊗ι_i(x))=ι_i(β_{Nsᵢ}(a⊗x)), where the right-hand β is the pinned single-factor GL equivalence.
+
+**Hypotheses.**
+
+- R and K are commutative rings with a specified R-algebra structure on K whenever base change occurs. No field, flatness, nontriviality or positive-rank assumption is imposed.
+- Ns is a finite list of natural numbers, allowing the empty list and zero entries. H_R(Ns) denotes the existing iterated tensor product glCoordinate R Ns. X(Ns) is the existing character lattice ⨁ᵢ ℤ^{Nsᵢ}, indexed by the sigma type of factor and coordinate indices; write ℤ[X] with this additive lattice viewed multiplicatively.
+
+**Proof route.**
+
+1. Induct on Ns and split the factor index into the head or a successor. Expand the recursive definitions of β and ι, using the native tensor/base-change formula.
+2. In the head case all tail factors are units and stay units. In the successor case tensor balancing moves the scalar into the tail and the induction hypothesis applies. No freeness or exactness argument is involved.
+
+**Acceptance.**
+
+- This consumed factor-compatibility statement is a separate node. Specializing x to a generic entry gives the entry identity used in the restriction square.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/gl-product-factor-inclusion`, `KTheoryLowDegrees:Z.3/gl-product-coefficient-basechange`, `tauceti:TauCeti.Bialgebra.TensorProduct.baseChangeTensorBialgEquiv_tmul`, `tauceti:TauCeti.GeneralLinear.coordinateHopfAlgebraBaseChangeBialgEquiv_one_tmul_X`.
+
+**Source.** Serre.1968, §3.7, p. 51, coefficient identifications and the first commuting diagram; §3.8, p. 52, GL example.
+
+### Diagonal restriction for a product of general linear groups
+
+`Z.3/gl-product-diagonal-restriction` · construction
+
+Construct the bialgebra map r_R:H_R(Ns)→R[X(Ns)] induced by the product diagonal torus. For factor i, compose the pinned diagonalTorusCoordinateMap with the monoid-algebra map induced by the inclusion of its character lattice into the i-th block of X(Ns). Multiply these factor images through the tensor-product universal property. The empty-product map sends r to r[0].
+
+**Hypotheses.**
+
+- R and K are commutative rings with a specified R-algebra structure on K whenever base change occurs. No field, flatness, nontriviality or positive-rank assumption is imposed.
+- Ns is a finite list of natural numbers, allowing the empty list and zero entries. H_R(Ns) denotes the existing iterated tensor product glCoordinate R Ns. X(Ns) is the existing character lattice ⨁ᵢ ℤ^{Nsᵢ}, indexed by the sigma type of factor and coordinate indices; write ℤ[X] with this additive lattice viewed multiplicatively.
+
+**Proof route.**
+
+1. For a single factor use the pinned diagonalTorusCoordinateMap, preserving its coordinate convention. Remove its ULift index by the canonical equivalence and embed its finitely supported exponent vector in the sigma-indexed block i. The existing mapDomainBialgHom supplies the induced character-algebra map.
+2. Combine the factor maps recursively with the native tensor map followed by mulBialgHom of the commutative target bialgebra. The empty case is its scalar unit map. Thus counit and comultiplication are preserved by construction.
+3. The inverse determinant is the inverse of the diagonal determinant: its character is minus the sum of the basis weights of the factor, with coefficient 1. For rank zero the sum is zero and the image is 1. This pins Laurent, rather than polynomial, coordinates.
+
+**Uses.**
+
+- `KTheoryLowDegrees:Z.3/gl-product-restriction-basechange`: Identifies the actual coefficient maps in the restriction/base-change square used by Serre §3.7.
+- `KTheoryLowDegrees:Z.3/representation-ring-of-gl`: Uses the existing list of GL factors and sigma-indexed character lattice to define restriction and coefficient transport without a second representation carrier.
+- `KTheoryLowDegrees:Z.3/serre-representation-ring-theorem`: Provides coefficient identifications needed to apply the generic decomposition-character comparison; the integral freeness and field character-image hypotheses are separate.
+
+**API.**
+
+- `TauCeti.RepresentationRing.glDiagonal` (constructor): The bialgebra map for diagonal restriction into the original character lattice.
+- `TauCeti.RepresentationRing.glDiagonal_nil` (simp): For the empty list, r maps to the single coefficient r at weight zero.
+- `TauCeti.RepresentationRing.glDiagonal_counit` (compatibility): The target counit composed with r_R is the source counit.
+- `TauCeti.RepresentationRing.glDiagonal_det_inv` (simp): The inverse determinant of factor i maps to the monomial with exponent minus the sum of its coordinate weights and coefficient 1.
+
+**Unit tests.**
+
+- `TauCeti.RepresentationRing.glDiagonal_empty_test` (degenerate): For the empty list over ℤ, 3 maps to 3[0].
+- `TauCeti.RepresentationRing.glDiagonal_off_diagonal_test` (computation): For GL₂ over ℤ, the image of the (0,1) generic entry is zero.
+- `TauCeti.RepresentationRing.glDiagonal_factor_distinction_test` (non-example): For GL₁×GL₁ over ℤ, the two diagonal entries have unequal images: their distinct block weights must not be collapsed.
+
+**Acceptance.**
+
+- The target uses the original character lattice of representation-ring-of-gl. All factor indices, including factors of equal rank, remain distinct. No replacement torus or comodule carrier is introduced.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/gl-product-coordinate-algebra`, `KTheoryLowDegrees:Z.3/gl-product-factor-inclusion`, `tauceti:TauCeti.GeneralLinear.diagonalTorusCoordinateMap`, `mathlib:MonoidAlgebra.mapDomainBialgHom`, `mathlib:Bialgebra.TensorProduct.map`, `mathlib:Bialgebra.mulBialgHom`.
+
+**Source.** Serre.1968, §3.7, p. 51, coefficient identifications and the first commuting diagram; §3.8, p. 52, GL example.
+
+### Diagonal restriction on a factor entry
+
+`Z.3/gl-product-diagonal-entry` · lemma
+
+The product diagonal map sends ι_i(X_ab) to the basis monomial [e_{i,a}] if a=b, and to zero if a≠b. Its coefficient is 1 in the base ring. Here e_{i,a} is the original sigma-indexed basis exponent.
+
+**Hypotheses.**
+
+- R and K are commutative rings with a specified R-algebra structure on K whenever base change occurs. No field, flatness, nontriviality or positive-rank assumption is imposed.
+- Ns is a finite list of natural numbers, allowing the empty list and zero entries. H_R(Ns) denotes the existing iterated tensor product glCoordinate R Ns. X(Ns) is the existing character lattice ⨁ᵢ ℤ^{Nsᵢ}, indexed by the sigma type of factor and coordinate indices; write ℤ[X] with this additive lattice viewed multiplicatively.
+
+**Proof route.**
+
+1. Restrict the tensor-product construction of r_R to the i-th factor; all other factor units map to units.
+2. Apply the pinned diagonalTorusCoordinateMap_X. The pinned mapDomainBialgHom_single sends the ULift-indexed basis exponent to the sigma-indexed exponent e_{i,a}. It preserves the coefficient and sends zero to zero.
+
+**Acceptance.**
+
+- Promoted to its own lemma node because the restriction/base-change proof consumes it. The formula includes off-diagonal vanishing and the sign convention for positive coordinate weights.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/gl-product-factor-inclusion`, `KTheoryLowDegrees:Z.3/gl-product-diagonal-restriction`, `tauceti:TauCeti.GeneralLinear.diagonalTorusCoordinateMap_X`, `mathlib:MonoidAlgebra.mapDomainBialgHom_single`.
+
+**Source.** Serre.1968, §3.7, p. 51, coefficient identifications and the first commuting diagram; §3.8, p. 52, GL example.
+
+### The product diagonal square under base change
+
+`Z.3/gl-product-restriction-basechange` · lemma
+
+The two K-bialgebra maps from K⊗_R H_R(Ns) to K[X(Ns)] agree: r_K∘β_Ns = α_X∘(id_K⊗r_R), where α_X is the pinned scalarTensorBialgEquiv. Thus the original product GL coefficients and the original diagonal restriction identify compatibly over ℚ and every 𝔽p.
+
+**Hypotheses.**
+
+- R and K are commutative rings with a specified R-algebra structure on K whenever base change occurs. No field, flatness, nontriviality or positive-rank assumption is imposed.
+- Ns is a finite list of natural numbers, allowing the empty list and zero entries. H_R(Ns) denotes the existing iterated tensor product glCoordinate R Ns. X(Ns) is the existing character lattice ⨁ᵢ ℤ^{Nsᵢ}, indexed by the sigma type of factor and coordinate indices; write ℤ[X] with this additive lattice viewed multiplicatively.
+
+**Proof route.**
+
+1. Use tensor-product extensionality to reduce to the restriction on 1⊗H_R(Ns); the maps already agree on K-scalars. Apply gl-product-coordinate-ext to the resulting R-algebra maps.
+2. For 1⊗ι_i(X_ab), gl-product-basechange-factor and the native single-factor entry formula transport X_ab to the same generic entry over K. Apply gl-product-diagonal-entry on both sides. Native scalarTensorBialgEquiv sends the same basis monomial with coefficient 1 to itself and sends zero to zero.
+3. Consequently both maps agree on every factor entry, hence everywhere. This agrees with the pinned single-factor diagonalTorusCoordinateMap_baseChange and uses its same character group. Corestriction therefore gives compatible coactions after coefficient transport; packaging the direct-model exact K₀ and formal-character comparison is a separate remaining task.
+
+**Acceptance.**
+
+- Assert equality of bialgebra maps, not equality only on rational points. The square applies to nonflat scalar extensions and does not imply the source module is free or the formal-character image is the Weyl invariants.
+
+**Prerequisites.** `KTheoryLowDegrees:Z.3/gl-product-coordinate-ext`, `KTheoryLowDegrees:Z.3/gl-product-basechange-factor`, `KTheoryLowDegrees:Z.3/gl-product-diagonal-entry`, `tauceti:TauCeti.GeneralLinear.diagonalTorusCoordinateMap_baseChange`, `tauceti:TauCeti.MonoidAlgebra.scalarTensorBialgEquiv`, `tauceti:TauCeti.MonoidAlgebra.scalarTensorBialgEquiv_tmul`.
+
+**Source.** Serre.1968, §3.7, p. 51, coefficient identifications and the first commuting diagram; §3.8, p. 52, GL example.
 
 ### Serre's computation of R_ℤ(GL_N)
 
@@ -3757,7 +4045,7 @@ Let G = GL_{N₁} × ⋯ × GL_{N_r} over ℤ with diagonal torus T and Weyl gro
 **Proof.**
 
 1. Over a field k, the arbitrary-field highest-weight and descent input (Serre Lemma 5, recorded as a gap), Jordan–Hölder and the finite-interval triangular character argument give Theorem 4. The preceding finite-free comparison is integral-comodule-k0-comparison; integral-gl-exact-comparison identifies its carrier with the representation group. The coefficient-freeness bridge needed to apply those nodes to the integral GL coordinate algebra remains in the gap.
-2. For a free coefficient coalgebra over ℤ, the generic quotient, Euler reduction and residue-annihilation nodes construct d_p. The new torus-character-basechange and restriction-formal-character nodes prove Ch_𝔽p∘d_p=Ch_ℚ in decomposition-character-compatibility. If the two field characters are injective with the same image, decomposition-isomorphism-from-characters proves d_p bijective and the integral comparison. Applying this to the pinned GL model still needs its free integral coordinate coalgebra, compatible coefficient/torus identifications, and the arbitrary-field character theorem with common image ℤ[X]^W.
+2. For a free coefficient coalgebra over ℤ, the generic quotient, Euler reduction and residue-annihilation nodes construct d_p. The new torus-character-basechange and restriction-formal-character nodes prove Ch_𝔽p∘d_p=Ch_ℚ in decomposition-character-compatibility. If the two field characters are injective with the same image, decomposition-isomorphism-from-characters proves d_p bijective and the integral comparison. Applying this to the pinned GL model still needs its free integral coordinate coalgebra, the direct-model exact K₀/formal-character transport, and the arbitrary-field character theorem with common image ℤ[X]^W.
 3. For GL_N, ℤ[M]^W = ℤ[X₁^{±1},…,X_N^{±1}]^{Σ_N} = ℤ[λ₁,…,λ_N]_{λ_N}, λ_i = e_i(X) = ch(Λ^i std) (Serre §3.8; mathlib:MvPolynomial.esymmAlgEquiv for the polynomial part).
 4. Specialness: ch is an injective pre-λ-homomorphism into a special λ-ring, and the special axioms are identities, so they hold in R_ℤ(G) (API ofSubring of Z.3/special-lambda-ring).
 
@@ -7445,7 +7733,7 @@ The constructions on arbitrary schemes import duality, ordinary integer tensor p
 
 ### Serre's coefficient and arbitrary-field character inputs
 
-The finite-free comparison and generic/residue-fibre argument are decomposed over ℤ for a free coefficient coalgebra C. Eight further nodes now supply native torus weight exactness, coefficient and weight base-change comparisons, integral formal characters, restriction, Ch_𝔽p∘d_p=Ch_ℚ, and the conditional isomorphism from equal injective character images. This removes the generic formal-character compatibility subproblem for a specified r:C→ℤ[X], but not the GL application. Establish freeness of the pinned integral GL coordinate coalgebra using the big-cell embedding in Serre p. 51 Remark 1, or supply the general flat/noetherian finite-hull extension; localization at the determinant gives flatness but not by itself freeness. Identify the pinned GL coefficient algebra and diagonal-torus restriction after base change to ℚ and every 𝔽p, including products of GL factors. Supply Serre Lemma 5 over those fields, including absolute simplicity and descent, then finite dominance intervals and the unitriangular character proof that the images are exactly the same ℤ[X]^W. ClassicalGroups layers 3–4 provide only their complex comparison; the existing ReductiveGroups Part II proposal retains the missing owner direction without inventing a supplier stage. SchemeKTheoryOperations S.5 remains downstream.
+The finite-free comparison and generic/residue-fibre argument are decomposed over ℤ for a free coefficient coalgebra C. Eight further nodes now supply native torus weight exactness, coefficient and weight base-change comparisons, integral formal characters, restriction, Ch_𝔽p∘d_p=Ch_ℚ, and the conditional isomorphism from equal injective character images. This removes the generic formal-character compatibility subproblem for a specified r:C→ℤ[X], but not the GL application. Establish freeness of the pinned integral GL coordinate coalgebra using the big-cell embedding in Serre p. 51 Remark 1, or supply the general flat/noetherian finite-hull extension; localization at the determinant gives flatness but not by itself freeness. The pinned single-factor coefficient and diagonal-torus identifications are reused, and eight new nodes now give the finite-product coefficient algebra, factor inclusions, generator extensionality, coefficient base change, diagonal restriction and their commuting square. Package corestriction along this coefficient equivalence as an equivalence of the finite-comodule exact categories and the induced direct-model exact K₀ comparison; prove its formal-character compatibility with restrictedCharacter and the existing ofGL.character. The underlying coefficient square is now available, but these categorical and K₀ identifications are not asserted as completed by it. Supply Serre Lemma 5 over those fields, including absolute simplicity and descent, then finite dominance intervals and the unitriangular character proof that the images are exactly the same ℤ[X]^W. ClassicalGroups layers 3–4 provide only their complex comparison; the existing ReductiveGroups Part II proposal retains the missing owner direction without inventing a supplier stage. SchemeKTheoryOperations S.5 remains downstream.
 
 Needed by: `Z.3/serre-representation-ring-theorem`, `Z.3/ring-k0-special`.
 
@@ -7493,7 +7781,7 @@ Needed by: `Z.3/serre-representation-ring-theorem`.
 
 ### The special-λ question: the representation-ring route and its Serre inputs
 
-*decision.* The special λ-structure uses the representation-ring route: construct the exact representation group R_ℤ(G), embed it by formal characters into the special λ-ring ℤ[X(T)], and transport the identities along associated-projective-module maps to K₀(R), with enough GL factors to represent each virtual class and clopen reduction to constant ranks. The exact K₀ comparison in Serre Proposition 4 is decomposed for a free coefficient coalgebra over a PID. The generic/residue-fibre comparison and its formal-character compatibility are decomposed for a free coefficient coalgebra and specified torus restriction. The pinned GL coefficient-freeness and base-change bridge, and arbitrary-field highest-weight classification, descent and common character image remain distinct inputs in the Serre gap. The complex ClassicalGroups request supplies only a complex comparison. Weibel’s flag-bundle splitting-principle route uses SchemeKTheoryOperations S.5 downstream of Z.3 and cannot provide a prerequisite here. The existing F²_γ=SK₀, first graded piece, determinant formulas, and rank/determinant normalization of Adams operations retain their independent proofs.
+*decision.* The special λ-structure uses the representation-ring route: construct the exact representation group R_ℤ(G), embed it by formal characters into the special λ-ring ℤ[X(T)], and transport the identities along associated-projective-module maps to K₀(R), with enough GL factors to represent each virtual class and clopen reduction to constant ranks. The exact K₀ comparison in Serre Proposition 4 is decomposed for a free coefficient coalgebra over a PID. The generic/residue-fibre comparison and its formal-character compatibility are decomposed for a free coefficient coalgebra and specified torus restriction. The product GL coefficient/base-change square now reuses the native single-factor and torus identifications. Integral coefficient freeness, direct-model exact K₀/formal-character transport, and arbitrary-field highest-weight classification, descent and common character image remain distinct inputs in the Serre gap. The complex ClassicalGroups request supplies only a complex comparison. Weibel’s flag-bundle splitting-principle route uses SchemeKTheoryOperations S.5 downstream of Z.3 and cannot provide a prerequisite here. The existing F²_γ=SK₀, first graded piece, determinant formulas, and rank/determinant normalization of Adams operations retain their independent proofs.
 
 ### The abstract λ-ring algebra moves from SchemeKTheoryOperations S.6 to KTheoryLowDegrees Z.3: node replacement list
 
@@ -7615,6 +7903,32 @@ These five additional declarations were read in source blobs verified against th
 - `mathlib:Module.finrank_baseChange` (Mathlib/LinearAlgebra/Dimension/Constructions.lean): Freeness and strong rank conditions give finrank_R(R⊗_S M)=finrank_S(M); the integral weight is finite free in this application.
 
 These twelve declarations were read in source blobs verified against the pins. The existing baseChange_weightSpace_le_eigenspace theorem concerns an evaluated point action; it is not a replacement for equality of formal weight spaces after coefficient base change. The finrank_baseChange input requires a free weight module, which is supplied for the integral lattice here.
+
+
+### Pinned coefficient-model inputs
+
+- `tauceti:TauCeti.GeneralLinear.coordinateHopfAlgebraBaseChangeBialgEquiv` (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Coordinate/BaseChange.lean): For every commutative R-algebra K, the chosen base-changed GL coordinate Hopf algebra is K-bialgebra-isomorphic to the direct K-model; no flatness required.
+- `tauceti:TauCeti.GeneralLinear.coordinateHopfAlgebraBaseChangeBialgEquiv_one_tmul_X` (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Coordinate/BaseChange.lean): The single-factor base-change equivalence sends 1⊗X_ab to the corresponding generic entry over K.
+- `tauceti:TauCeti.GeneralLinear.coordinateHopfAlgebra_algHom_ext` (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/Coordinate/HopfAlgebra.lean): Algebra maps from the bundled GL coordinate algebra are determined by localized generic entries, including rank zero.
+- `tauceti:TauCeti.GeneralLinear.diagonalTorusCoordinateMap` (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/DiagonalTorus/Basic.lean): The native bialgebra map to the group algebra of the ULift-indexed diagonal character lattice.
+- `tauceti:TauCeti.GeneralLinear.diagonalTorusCoordinateMap_X` (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/DiagonalTorus/Basic.lean): Generic entries map to their positive coordinate monomial on the diagonal and zero off the diagonal.
+- `tauceti:TauCeti.GeneralLinear.diagonalTorusCoordinateMap_baseChange` (TauCeti/Algebra/AlgebraicGroup/GeneralLinear/DiagonalTorus/Basic.lean): The single-factor coordinate/base-change square commutes using the canonical GL and diagonalizable-group identifications.
+- `tauceti:TauCeti.MonoidAlgebra.scalarTensorBialgEquiv` (TauCeti/Algebra/Bialgebra/MonoidAlgebra/BaseChange.lean): The bialgebra equivalence K⊗_R R[X]≃K[X], for commutative semiring extensions and commutative monoids.
+- `tauceti:TauCeti.MonoidAlgebra.scalarTensorBialgEquiv_tmul` (TauCeti/Algebra/Bialgebra/MonoidAlgebra/BaseChange.lean): The forward equivalence extends coefficients and multiplies by the new-base scalar.
+- `tauceti:TauCeti.MonoidAlgebra.scalarTensorBialgEquiv_symm_single` (TauCeti/Algebra/Bialgebra/MonoidAlgebra/BaseChange.lean): The inverse sends a[x] to a⊗[x].
+- `tauceti:TauCeti.Bialgebra.TensorProduct.includeLeft` (TauCeti/Algebra/Bialgebra/TensorProduct.lean): Bialgebra inclusion x↦x⊗1.
+- `tauceti:TauCeti.Bialgebra.TensorProduct.includeRight` (TauCeti/Algebra/Bialgebra/TensorProduct.lean): Bialgebra inclusion y↦1⊗y.
+- `tauceti:TauCeti.Bialgebra.TensorProduct.projectLeft_comp_includeLeft` (TauCeti/Algebra/Bialgebra/TensorProduct.lean): The counit-based left projection retracts the left inclusion.
+- `tauceti:TauCeti.Bialgebra.TensorProduct.projectRight_comp_includeRight` (TauCeti/Algebra/Bialgebra/TensorProduct.lean): The counit-based right projection retracts the right inclusion.
+- `tauceti:TauCeti.Bialgebra.TensorProduct.baseChangeTensorBialgEquiv` (TauCeti/Algebra/Bialgebra/TensorProduct.lean): The bialgebra equivalence distributing base change over a tensor product.
+- `tauceti:TauCeti.Bialgebra.TensorProduct.baseChangeTensorBialgEquiv_tmul` (TauCeti/Algebra/Bialgebra/TensorProduct.lean): The distribution equivalence sends a⊗(x⊗y) to (a⊗x)⊗(1⊗y).
+- `mathlib:Bialgebra.TensorProduct.rid` (Mathlib/RingTheory/Bialgebra/TensorProduct.lean): The bialgebra right-unit equivalence A⊗_R R≃A, with the larger scalar ring permitted by its tower hypotheses.
+- `mathlib:Bialgebra.TensorProduct.map` (Mathlib/RingTheory/Bialgebra/TensorProduct.lean): Tensor products of bialgebra maps, allowing the base-extension scalar tower.
+- `mathlib:Bialgebra.mulBialgHom` (Mathlib/RingTheory/Bialgebra/TensorProduct.lean): Multiplication of a commutative bialgebra as a bialgebra map from its tensor square.
+- `mathlib:MonoidAlgebra.mapDomainBialgHom` (Mathlib/RingTheory/Bialgebra/MonoidAlgebra.lean): An indexing-monoid homomorphism induces a bialgebra map of monoid algebras.
+- `mathlib:MonoidAlgebra.mapDomainBialgHom_single` (Mathlib/RingTheory/Bialgebra/MonoidAlgebra.lean): The induced map sends a single coefficient at x to that coefficient at the image of x.
+
+The statements and hypotheses of these 20 declarations were read in source bytes verified against the pinned Git trees. The existing single-factor results are baseline inputs, not new blueprint targets. The torus coefficient helper is an alias of the coalgebra equivalence underlying the native bialgebra equivalence.
 
 ## What this blueprint does not claim
 

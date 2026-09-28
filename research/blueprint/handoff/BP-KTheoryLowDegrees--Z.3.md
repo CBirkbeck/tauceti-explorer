@@ -1,5 +1,112 @@
 # Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
 
+Worker: **Codex — codex-hjdg0j**, 28 September 2026. Claim 5868448334;
+winning bot reply 5868450409. Input commit
+`78f60a3ba09116b78c0bb5cd513d59c43d7ddb2b`.
+
+**Partial continuation.** All 204 inherited node IDs remain; 199 inherited
+node records and all 19 source findings are unchanged. Eight new nodes
+decompose the product GL coefficient/base-change square used in Serre §3.7.
+The existing `glCoordinate` definition is promoted unchanged. The torus
+coefficient equivalence is now explicitly reused from the pinned library,
+replacing the earlier proposed reconstruction. No stage is closed and no
+completed Lean proof is claimed.
+
+The packet has **212 nodes**: 35 theorems, 101 lemmas, 41 constructions,
+13 definitions, 12 applications and 10 comparisons. It has **377 API items,
+219 tests, 18 planets and 369 baseline declarations**. This continuation adds
+**15 API specifications, 12 tests and 20 pinned-library citations**. The
+checker counts 372 APIs and 216 tests on definition/construction nodes; the
+totals also include the inherited exact-weight lemma's five APIs and three
+tests. There remain **two gaps and six requests**.
+
+## Completed planning component
+
+- The original iterated tensor-product coefficient algebra, with empty,
+  singleton and rank-zero cases, now has an explicit declaration node.
+- Factor inclusions preserve the factor index. Other-factor counits give
+  their left inverses. Generic entries in the factors determine algebra maps.
+- Base change of the product is the recursive composition of native tensor
+  distribution and single-factor GL base-change equivalences. The inverse
+  multiplies scalar coefficients from separate factors.
+- The product diagonal map uses the existing sigma-indexed character
+  lattice and the pinned single-factor diagonal maps. Its entry formula and
+  compatibility with base change are separate consumed lemma nodes.
+- The resulting square is equality of bialgebra maps, valid for arbitrary
+  commutative base rings and nonflat extensions such as ℤ→𝔽p.
+- `torusCoefficientBaseChange` is the underlying coalgebra equivalence of
+  native `scalarTensorBialgEquiv`; the associated finite-comodule functor
+  remains the existing planned composition.
+
+Tests include the empty product, GL₀, off-diagonal vanishing, distinct GL₁
+factor coordinates, scalar multiplication across two tensor factors and
+reduction of twice an integral coefficient to zero in characteristic two.
+The signatures use the actual bundled coefficient algebras and bialgebra
+maps. The ordinary point-character interpretation is not substituted.
+
+## Resume here
+
+1. Establish freeness of the integral GL coordinate coalgebra via the
+   big-cell embedding in Serre p. 51 Remark 1, or supply the general flat
+   noetherian finite-hull extension and consistently weaken the hypotheses.
+   Determinant localization supplies flatness, not by itself freeness.
+2. Use the new product coefficient equivalence and diagonal square to
+   package the equivalence of finite-comodule exact categories under native
+   corestriction, then the induced direct-model exact K₀ comparison.
+   Identify its formal character with `restrictedCharacter` and the
+   existing `ofGL.character`. The coefficient square alone is not that
+   categorical/K₀ transport theorem.
+3. Supply Serre Lemma 5 over ℚ and every 𝔽p, absolute simplicity/descent,
+   finite dominance intervals and the unitriangular proof of the common
+   image ℤ[X]^W. Preserve the ReductiveGroups Part II scope proposal;
+   ClassicalGroups layers 3–4 are complex only.
+4. Resolve the separate general Picard duality/pullback request and its
+   three unresolved stage references. Preserve the accepted RS-18 boundaries,
+   Z.5's general-curve scope and the elliptic rational-origin convention.
+
+SchemeKTheoryOperations S.5 remains downstream of Z.3. All six supplier
+requests and the existing source-error records are retained.
+
+## Validation and source evidence
+
+The indexed blueprint checker reports **0 errors and 0 warnings**.
+The internal declaration graph has **212 nodes and 606 edges**, and
+is acyclic. This is not certification of the entire atlas graph. The four
+authorized paths pass intake validation; all new node statements, API names
+and test specifications agree across the packet, reader and suggested file.
+Source-issue and version checks preserve all 19 findings.
+
+Lean **4.34.0-rc2** elaborated the full suggested file with **0 errors,
+706 warnings, all proof placeholders**. SHA-256:
+`eecefd344170b89b022e69bd586fdeaf7c6d648e41777556a5c359ebcae0724c`.
+The import audit byte-verified **8483 Mathlib** source modules against the
+pin and existing cache sources, and **275 Tau Ceti** source modules against
+the pin. Existing pinned build outputs were reused through a local symlink
+view; **no library was built**, no Lake project was created, and only the
+assigned suggested file was elaborated.
+
+The four starting deliverables are byte-identical to this worker's merged
+PR #3169 checkpoint. Forty input files, including accepted RS-18 records,
+the atlas extract, reserved IDs, matching link maps and the previously read
+Multiquadratic and EffectiveBounds upstream examples, were byte-compared.
+The current binding protocols and reviewed AUDIT-29 rows were read. New
+native statements were read from source files whose blobs match the pins.
+Public Mathlib-PR and Zulip searches supplied no additional dependency;
+the comparison uses the pinned source statements.
+
+The [published Serre scan](https://www.numdam.org/item/PMIHES_1968__34__37_0.pdf),
+SHA-256 `09bb5044332281b29d02116a0582e41d17651b929584e76e442d8135d39e60e2`,
+was reread at printed pp. 50–52, three physical pages in one extraction.
+Earlier complete pp. 37–52 reading remains inherited evidence. This is a
+focused continuation, not a fresh audit of every inherited baseline citation
+or source finding. No source author was contacted.
+
+## Historical handoff (before this continuation)
+
+The following is retained provenance; its counts describe older checkpoints.
+
+# Handoff: BP-KTheoryLowDegrees--Z.3 (issue #765)
+
 Worker: **Codex — codex-hjdg0j**, 27 September 2026. Claim 5852190705;
 winning bot reply 5852191460. Input commit
 `7298540b6011548ad6ef0cb58ca39519116eaa38`.
