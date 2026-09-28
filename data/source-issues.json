@@ -142152,6 +142152,101 @@
    "reviewReason": null
   },
   {
+   "id": "ModularSymbolsPadicLFunctions/E4",
+   "kind": "misprint",
+   "locator": "§6.2, (1) and (2), p. 27 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "(transcribed from the page image) (1) µf(zj · χ) = 1/αn · pn(j+1)/(−2πi)j · j!/τ(χ−1) · L(f, χ−1, j + 1)/Ω±f … (2) µ±f(zj · 1a+pnZp) = 1/αn · (∫∞^{a/pn} (−pnz + a)j f(z)dz ± ∫∞^{−a/pn} (pnz + a)j f(z)dz) πi/Ω±f",
+   "correction": "With the same periods Ω^±, the distribution (2), which Proposition 6.3 identifies with Φ_f({∞} − {0})|_{ℤ_p^×}, satisfies μ_f(z^j·χ) = α^{−n}p^{nj}·τ(χ)·j!/(2πi)^j·L(f, χ^{−1}, j + 1)/Ω^±_f with ± = (−1)^jχ(−1) (n ≥ 1). This is (1) multiplied by ±, so (1) holds for (2) after replacing Ω^−_f by −Ω^−_f.",
+   "reason": "Sum (2) against χ(a): with I_j(x) = 2πi∫_{i∞}^x f(z)(z − x)^j dz and S = Σ_aχ(a)I_j(a/p^n), (2) gives α^{−n}p^{nj}(−1)^jS/Ω^± on the active sign, since Σ_aχ(a)I_j(−a/p^n) = χ(−1)S. The twisted Mellin formula S = τ(χ)j!/(−2πi)^jL(f, χ^{−1}, j+1) (this packet's L1/twisted-mellin-formula, checked numerically with non-real characters) and τ(χ)τ(χ^{−1}) = χ(−1)p^n show that (1) equals χ(−1)α^{−n}p^{nj}S/Ω^±. The ratio (1)/(2) is χ(−1)(−1)^j = ±, which is −1 on the −-part.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E5",
+   "kind": "error",
+   "locator": "§6.2, (1), p. 27 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "if χ is a ﬁnite order character of Z×p with conductor pn, and j is an integer between 0 and k, then (1) µf(zj · χ) = 1/αn · pn(j+1)/(−2πi)j · j!/τ(χ−1) · L(f, χ−1, j + 1)/Ω±f",
+   "correction": "For n = 0 (χ trivial, conductor 1) the right side needs the factor (1 − p^j/α): μ_f(z^j) = (1 − p^j/α)·j!/(2πi)^j·L(f, j + 1)/Ω^± (with E4's sign), where f is the U_p-eigenform of level Γ₀. For f the p-stabilisation of a newform f° of level prime to p, L(f, j + 1) = (1 − ε(p)p^{k−j}/α)L(f°, j + 1) gives the second Euler factor.",
+   "reason": "By the distribution relation in the proof of Proposition 6.3 (with a = 0, n = 1), Φ_f({∞} − {0})(z^j·1_{pℤ_p}) = α^{−1}p^jΦ_f({∞} − {0})(z^j), so restricting to ℤ_p^× multiplies the value on ℤ_p by 1 − p^j/α, and the value on ℤ_p is (2) with n = 0. Since p^j/α ≠ 0, the factor is never 1; for 11a1 at p = 3 with k = j = 0, (1) and the restriction differ by 1 − 1/α while L(f, 1) ≠ 0. RJW Theorem B.1 (this packet's L1/rjw-b1-comparison) carries the factor (1 − χ(p)p^j/α_p), which is 1 − p^j/α_p exactly for n = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E6",
+   "kind": "misprint",
+   "locator": "§6.4, Proposition 6.5, (3), p. 29 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "(3) µf(zj · χ) = 1/βn · pn(j+1)/(−2πi)j · j!/τ(χ−1) · L(f, χ−1, 1)/Ω±f",
+   "correction": "L(f, χ^{−1}, j + 1) in place of L(f, χ^{−1}, 1); as for (1), the sign of E4 and the n = 0 factor of E5 also apply.",
+   "reason": "The proposition is said to be 'a formal consequence ... as in Proposition 6.3', whose computation produces the value at s = j + 1, as in (1); the left side varies with j while L(f, χ^{−1}, 1) does not.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E7",
+   "kind": "misprint",
+   "locator": "§6.4, Definition 6.4, p. 29 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "Let f be an eigenform in Sk(Γ, Qp) of slope k + 1 which is not in the image of θk.",
+   "correction": "f ∈ S_{k+2}(Γ₀, ℚ̄_p).",
+   "reason": "Slope k + 1 is the critical slope for weight k + 2; θ_k takes weight −k to weight k + 2 (the paragraph before Theorem 5.14), and Theorem 5.14 states the hypothesis for 'an eigenform of S_{k+2}(Γ₀, ℚ̄_p) with slope k + 1'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E8",
+   "kind": "error",
+   "locator": "§3.3, pp. 16–17, and the proof of Lemma 6.2, p. 27 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "For each non-negative integer k, we deﬁne a weight k action of Σ0(p) on A[r] by (γ ·k f)(z) = (a + cz)k · f((b + dz)/(a + cz)) … for any µ ∈D[r] and any γ ∈Σ0(p) with det(γ) = pn, we have ||µ|γ|| r/pn ≤||µ||r.",
+   "correction": "Both hold for r < p (every r ∈ |ℂ_p^×| is allowed in §3.1); for r ≥ p the formula does not preserve A[r].",
+   "reason": "For r ≥ 1, B[ℤ_p, r] is the closed disc of radius r about 0. Take γ = (1 0; p 1) ∈ Σ₀(p), k = 0 and f(z) = z: γ ·₀ f = z/(1 + pz) has a pole at −1/p, of absolute value p, which lies in B[ℤ_p, r] when r ≥ p. For r < p, a + cz is a unit on B[ℤ_p, r] and the action and the contraction hold.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E2",
    "kind": "misprint",
    "locator": "§2.3, Lemma 2.3: arXiv v3 p. 9, standing notation p. 8; published pp. 902–904. Applications in §§3.4, 4.3, 6.",
