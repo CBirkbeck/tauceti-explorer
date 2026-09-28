@@ -4298,3 +4298,53 @@ example : positivePseudoMoment 2 3 (by omega) (kubotaLeopoldtPseudomeasure 2)=0 
 example : positivePseudoMoment 3 5 (by omega) (kubotaLeopoldtPseudomeasure 3)=0 := sorry
 end SuggestedInterpolationTests
 end DirichletPadic
+
+/-! ## A norm obstruction to integrality -/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "δ" => (diracHom (G := U) (R := Z))
+
+lemma arithmeticEulerValue_norm (k : ℕ) (hk : 0<k) (hd : p-1 ∣ 2*k) :
+    ‖((-(1-(p : ℚ)^(2*k-1))*(bernoulli (2*k)/(2*k : ℚ)) : ℚ) : ℚ_[p])‖ =
+      (p : ℝ)/‖(2*k : ℚ_[p])‖ := sorry
+
+theorem kubotaLeopoldtPseudomeasure_moment_norm (k : ℕ) (hk : 0<k)
+    (hd : p-1 ∣ 2*k) :
+    ‖positivePseudoMoment p (2*k) (by omega) (kubotaLeopoldtPseudomeasure p)‖ =
+      (p : ℝ)/‖(2*k : ℚ_[p])‖ ∧
+    (p : ℝ) ≤ ‖positivePseudoMoment p (2*k) (by omega) (kubotaLeopoldtPseudomeasure p)‖ := sorry
+
+theorem kubotaLeopoldtPseudomeasure_not_integral :
+    ¬ ∃ μ : M, Iwasawa.integral δ Q μ=kubotaLeopoldtPseudomeasure p := sorry
+
+namespace SuggestedNonintegralityTests
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+-- scalar_dyadic_second
+example : ‖((-(1-(2 : ℚ))*(bernoulli 2/2) : ℚ) : ℚ_[2])‖=4 := sorry
+-- scalar_ternary_sixth
+example : ‖((-(1-(3 : ℚ)^5)*(bernoulli 6/6) : ℚ) : ℚ_[3])‖=9 := sorry
+-- scalar_quinary_fourth
+example : ‖((-(1-(5 : ℚ)^3)*(bernoulli 4/4) : ℚ) : ℚ_[5])‖=5 := sorry
+-- moment_dyadic_second
+example : ‖positivePseudoMoment 2 2 (by omega) (kubotaLeopoldtPseudomeasure 2)‖=4 := sorry
+-- moment_dyadic_fourth
+example : ‖positivePseudoMoment 2 4 (by omega) (kubotaLeopoldtPseudomeasure 2)‖=8 := sorry
+-- moment_ternary_second
+example : ‖positivePseudoMoment 3 2 (by omega) (kubotaLeopoldtPseudomeasure 3)‖=3 := sorry
+-- not_integral_each_measure
+example (μ : M) : Iwasawa.integral δ Q μ ≠ kubotaLeopoldtPseudomeasure p := sorry
+-- not_in_integral_range
+example : (kubotaLeopoldtPseudomeasure p : Q) ∉ Set.range (algebraMap M Q) := sorry
+end SuggestedNonintegralityTests
+end DirichletPadic
