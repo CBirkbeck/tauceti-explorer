@@ -1,8 +1,8 @@
 {
   "roadmaps": 217,
-  "stages": 2834,
+  "stages": 2846,
   "originalStages": 2005,
-  "sourceRefinements": 829,
+  "sourceRefinements": 841,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -24,13 +24,6 @@
       "nodes": 14,
       "review": "accepted",
       "deferredLinks": 2
-    },
-    {
-      "roadmap": "AdicSpacesPartII",
-      "status": "partial",
-      "nodes": 24,
-      "review": "accepted",
-      "deferredLinks": 0
     },
     {
       "roadmap": "AlgebraicModularFormsAndSerreWeights",
@@ -86,7 +79,7 @@
       "status": "partial",
       "nodes": 18,
       "review": "accepted",
-      "deferredLinks": 0
+      "deferredLinks": 4
     },
     {
       "roadmap": "ClassicalArithmeticCompletion",
@@ -375,14 +368,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 2733,
+  "mathematicalStars": 2745,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 53,
   "bibliographicSources": 46,
-  "roadmapEdges": 1639,
-  "stageEdges": 7741,
+  "roadmapEdges": 1644,
+  "stageEdges": 7779,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -390,6 +383,12 @@
       "roadmap": "AdicEtaleGeometry",
       "nodes": 153,
       "reviewer": "independent-review-REV-AdicEtaleGeometry"
+    },
+    {
+      "file": "AdicSpacesPartII",
+      "roadmap": "AdicSpacesPartII",
+      "nodes": 537,
+      "reviewer": "independent-review-REV-AdicSpacesPartII"
     },
     {
       "file": "ArithmeticKTheory--N.1",
@@ -477,8 +476,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 29910548,
-  "htmlSha256": "1a6ca48f81bd4ce14ea1759f28952938399666b535f7c195b6b28703a670bf8a",
+  "htmlBytes": 29769685,
+  "htmlSha256": "ad0284fbe2d322e094405117ae9d83c63893b244e0762e7b392c0fa2c3f2c5a4",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -509,7 +508,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "e00f5dea2fe2e2aea71434aea7008768f1809ca2809fe973d82e3a62abab2aec",
+    "data/roadmap-distances.json": "f33938a501746d6264735832cca364dd6015680fb62096e6967334d7c0116383",
     "data/galaxy-layout.json": "d36eb9d7a38c5e6e3ccd31e31ffbf9849ce192348586cc0fd60d2451ce568cf3",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -569,6 +568,8 @@
     "data/decompositions/WeilConjectures.json": "532f2a6f1ccd3188a4ed372133937f0cc0057236fd5a981d640a0295c7566d41",
     "data/blueprints/AdicEtaleGeometry.json": "83b84ccbd58958b2d07727f9ad6415acd444d7ec985776ca045cb842853e7eb9",
     "data/blueprints/AdicEtaleGeometry.md": "f064b3d35d3ce3cc150b346a8980e00cb40c2cd12a6e35d3d0e36eee16cc4b74",
+    "data/blueprints/AdicSpacesPartII.json": "6550a585be72538702895ca7732888481c7823fb209bd826e392f6595d428894",
+    "data/blueprints/AdicSpacesPartII.md": "99ae97498df7949260350c09a51e3cf50944f699bb2c74d6250b26be606fa8a7",
     "data/blueprints/ArithmeticKTheory--N.1.json": "4b51ea9eb30d407f6e44b8e204e622d633398373790bbb5d84541d100d50cb7e",
     "data/blueprints/ArithmeticKTheory--N.1.md": "d305a3727d30abf8bc426bd6b28f91d972d4ed6eb5c4dc406d8e83c0bf4ccc94",
     "data/blueprints/ArithmeticKTheory--N.7.json": "c2e15013d0254a01323d4e90056fce843ce340c3531a49ddfd0cec77b57a942d",
