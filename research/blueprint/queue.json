@@ -17394,10 +17394,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsCyclotomicMainConjecture.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #725"
   },
   {
    "id": "REV-EulerSystemsCyclotomicMainConjecture",
@@ -19930,12 +19931,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularSymbolsPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #777"
+   "note": "released on GitHub issue #777"
   },
   {
    "id": "REV-ModularSymbolsPadicLFunctions",
@@ -24012,13 +24013,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-AdditiveCombinatorics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1037"
+   "note": "released on GitHub issue #1037"
   },
   {
    "id": "REV-AdditiveCombinatorics",
