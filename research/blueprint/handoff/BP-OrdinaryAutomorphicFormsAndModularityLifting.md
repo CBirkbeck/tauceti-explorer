@@ -1,9 +1,53 @@
-# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1, R21.3, R21.4 partial (checkpoint 3)
+# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1, R21.3–R21.5 partial (checkpoint 4)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #962. **Status: partial.**
 - R21.2 is `source_decomposed`.
-- R21.1, R21.3 and R21.4 are `partial`.
-- R21.5–R21.6 are `not_read`.
+- R21.1, R21.3, R21.4 and R21.5 are `partial`.
+- R21.6 is `not_read`.
+
+## Checkpoint 4: 6 nodes (R21.4: 3, R21.5: 3)
+
+Source: Skinner–Wiles §§4.4–4.6 and the statements of Propositions 8.1 and 8.4, with the proof of 8.4, read on the page
+images.
+
+**R21.4:**
+- `p2-criterion` (planet): Proposition 4.2, with its three-step proof.
+- `property-p1`: Proposition 8.4, reducing (P1) to Proposition 8.1.
+- `main-theorem` (planet).
+
+**R21.5:**
+- `hypothesis-h`.
+- `theorem-a` (planet).
+- `theorem-b` (planet), conditional on Hypothesis H.
+
+**Gaps (3 new):**
+- Proposition 8.1 (§§5–8). This is **temporary**: the source is in hand and these sections are the next checkpoint.
+- Washington's theorem for ℓ ≠ p. No stage plans it.
+- Waldschmidt's bound δ_L ≤ d_L/2. No stage plans it.
+
+**New request:** GL2AutomorphicRepresentationsAndTransfer R17.4 (solvable base change).
+
+**Source issues:**
+- E5 is extended: the "Lemma/Proposition 2.12" drift recurs in the proof of Proposition 4.2.
+- **E7:** "(vi)" for "(iv)" in the proof of Theorem B.
+
+**Lean.** One checked test, the arithmetic of Theorem B's (4.23) ⇒ (4.24). It compiles with 0 errors, 0 warnings and no
+`sorry`.
+
+**Totals.** 54 nodes, 88 API items, 62 unit tests, 22 planets, 12 requests, 4 gaps and 7 source issues.
+`check_blueprint.py`: 0 errors, 0 warnings.
+
+## What a continuation should do (after checkpoint 4)
+
+1. **Skinner–Wiles §§5–8 (R21.4):**
+   - §5 formal patching (Propositions 5.7–5.9; import DeformationAndDerivedPatchingAlgebra R03.5–R03.6);
+   - §6 cohomology estimates (Proposition 6.10; GlobalGaloisDeformations R04.5);
+   - §7 (Propositions 7.1 and 7.3);
+   - §8 (Lemma 8.2, congruence maps, Proposition 8.1).
+
+   Then remove the temporary gap.
+2. **R21.5:** Dieulefait–Pacetti's p = 3 branch and Khare's use of Theorem A.
+3. **R21.6:** exports and the independence check.
 
 ## Checkpoint 3: 14 nodes (R21.2: 8, R21.3: 1, R21.4: 4)
 
