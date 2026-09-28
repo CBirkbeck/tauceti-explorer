@@ -10377,3 +10377,103 @@ Four complete native lemmas prove the smoothing quotient sign, the rational-to-c
 Exact rational controls check480 smoothing quotients,160 rational zeta comparisons,80 odd values, five degree1 endpoints and five low even values across five primes. Exact rational Bernoulli recurrence through degree32; five primes and three positive regular smoothing candidates per prime. Quotient signs, odd vanishing and rational images of the native negative-integer zeta formula are checked exactly. At degree1 the raw zeta value is−1/2 while the Euler factor gives0. Finite checks verify scalar identities only, not the general pseudomeasure construction or the analytic zeta theorem. The largest observed discrepancy is 0 (exact rational identities).
 
 All54 captured inputs remain unchanged during this checkpoint.
+
+
+## Arithmetic nonintegrality
+
+Partial continuation preserving all308 predecessor nodes whole. Three L1 nodes compute exact Euler–Bernoulli and actual pseudomoment norms and prove nonintegrality of the arithmetic pseudomeasure for every prime. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.
+
+Complete published119–121/PDF20–22 freshly read28September2026, including the continuous-dual definition and integral-value criterion; published136–139/PDF37–40 interpolation pages were read in the immediately preceding checkpoint and retained. Published digest verified. Full supplier integral inclusion and underlying-value nodes and their suggested signatures read, together with actual positive-pseudomoment compatibility with integral measures. Native Bernoulli.padicValRat_bernoulli and all applicable prime/index hypotheses, Padic rational valuation and norm formulas, prime-power norm, nonarchimedean equality, integral norm bound and PadicInt norm/cast interfaces were read in full at the pins. Reviewed audit entries were reread in the preceding checkpoint; von Staudt–Clausen is imported from its native owner.
+
+### The norm of Euler–Bernoulli interpolation values
+
+`DirichletPadicLFunctions:L1/arithmetic-euler-value-norm` — `DirichletPadic.arithmeticEulerValue_norm`
+
+If k>0 and p−1 divides2k, then ‖r_(p,2k)‖=p/‖2k‖ in Q_p.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact inherited commutative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q. Let ζ_p be the actual kubotaLeopoldtPseudomeasure p and M_n its supplied positivePseudoMoment at degree n>0. B_n is the native ordinary Bernoulli number. Write r_(p,n)=−(1−p^(n−1))B_n/n in ℚ as notation for the already used rational scalar, with its separate native inclusion into Q_p. Norms in the statements are real-valued norms on Q_p.
+
+**Proof:**
+
+1. Native Bernoulli.padicValRat_bernoulli gives v_p(B_(2k))=−1. This implies B_(2k)≠0 because native padicValRat p 0=0. The native rational-cast valuation and norm formula therefore give ‖B_(2k)‖=p.
+2. Since2k−1>0, the native prime-power norm is strictly less than1. Compare the norms of1 and−p^(2k−1) and use native Padic.add_eq_max_of_ne to obtain ‖1−p^(2k−1)‖=1.
+3. Include the rational expression into Q_p and use norm multiplicativity, negation and division. Its norm is1·p/‖2k‖. The complete native probe verifies Bernoulli norm, Euler-factor norm and this quotient formula without placeholders.
+4. The denominator2k is nonzero in the characteristic-zero field Q_p, but need not be a unit in Z_p. The tests explicitly retain its dyadic and higher p-power contributions.
+
+**Prerequisites:** `mathlib:Bernoulli.padicValRat_bernoulli`, `mathlib:Padic.valuation_ratCast`, `mathlib:Padic.norm_eq_zpow_neg_valuation`, `mathlib:Padic.norm_p_pow`, `mathlib:Padic.add_eq_max_of_ne`.
+
+**Tests:**
+
+- `SuggestedNonintegralityTests.scalar_dyadic_second` (computation): At p=2 and degree2 the rational value1/12 has2-adic norm4.
+- `SuggestedNonintegralityTests.scalar_ternary_sixth` (computation): At p=3 and degree6 the rational interpolation value has norm9.
+- `SuggestedNonintegralityTests.scalar_quinary_fourth` (computation): At p=5 and degree4 the rational interpolation value has norm5.
+
+**Acceptance:** The divisibility condition p−1|2k is required for the cited Bernoulli valuation. The degree1 zero Euler factor is outside this positive-even-degree statement.
+
+**Source:** Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21; Theorem4.1 and Proposition4.11, published136 and138–139/PDF37 and39–40. Complete119–121 pages freshly read28September2026;136–139 retained from the preceding checkpoint. Worker diagnostic consequence of the source interpolation theorem and the integral-value criterion, using the pinned native von Staudt–Clausen Bernoulli valuation. The source does not separately state this exact norm formula. This checkpoint excludes integral Z_p-valued measures; exclusion of bounded Q_p-valued measures requires unbounded moments and is retained as subsequent work. No new generic measure norm theorem or Bernoulli theorem is planned.
+
+### Large norms of actual arithmetic pseudomoments
+
+`DirichletPadicLFunctions:L1/arithmetic-positive-moment-norm` — `DirichletPadic.kubotaLeopoldtPseudomeasure_moment_norm`
+
+If k>0 and p−1 divides2k, then ‖M_(2k)(ζ_p)‖=p/‖2k‖ and p≤‖M_(2k)(ζ_p)‖.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact inherited commutative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q. Let ζ_p be the actual kubotaLeopoldtPseudomeasure p and M_n its supplied positivePseudoMoment at degree n>0. B_n is the native ordinary Bernoulli number. Write r_(p,n)=−(1−p^(n−1))B_n/n in ℚ as notation for the already used rational scalar, with its separate native inclusion into Q_p. Norms in the statements are real-valued norms on Q_p.
+
+**Proof:**
+
+1. The preceding positive Bernoulli moment theorem identifies the actual pseudomoment with the Q_p-image of r_(p,2k). Apply the scalar norm formula for the exact equality.
+2. The native integral norm bound gives ‖2k‖≤1, and the nonzero characteristic-zero integer2k has strictly positive norm. Divide the positive real p by that norm to obtain p/‖2k‖≥p.
+3. The native probe separately proves this general lower bound; the statement does not replace the actual pseudomoment operation with a scalar model. At p=2 the second and fourth moment norms are4 and8, respectively, stronger than the uniform lower bound2.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli`, `DirichletPadicLFunctions:L1/arithmetic-euler-value-norm`, `mathlib:Padic.norm_int_le_one`.
+
+**Tests:**
+
+- `SuggestedNonintegralityTests.moment_dyadic_second` (computation): The actual second pseudomoment at p=2 has norm4.
+- `SuggestedNonintegralityTests.moment_dyadic_fourth` (computation): The actual fourth pseudomoment at p=2 has norm8.
+- `SuggestedNonintegralityTests.moment_ternary_second` (computation): The actual second pseudomoment at p=3 has norm3.
+
+**Acceptance:** These are actual admissible positive evaluations. No value at the trivial power character is asserted.
+
+**Source:** Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21; Theorem4.1 and Proposition4.11, published136 and138–139/PDF37 and39–40. Complete119–121 pages freshly read28September2026;136–139 retained from the preceding checkpoint. Worker diagnostic consequence of the source interpolation theorem and the integral-value criterion, using the pinned native von Staudt–Clausen Bernoulli valuation. The source does not separately state this exact norm formula. This checkpoint excludes integral Z_p-valued measures; exclusion of bounded Q_p-valued measures requires unbounded moments and is retained as subsequent work. No new generic measure norm theorem or Bernoulli theorem is planned.
+
+### The arithmetic pseudomeasure is not integral
+
+`DirichletPadicLFunctions:L1/arithmetic-not-integral` — `DirichletPadic.kubotaLeopoldtPseudomeasure_not_integral`
+
+There is no μ∈M with Iwasawa.integral δ Q μ=ζ_p.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact inherited commutative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q. Let ζ_p be the actual kubotaLeopoldtPseudomeasure p and M_n its supplied positivePseudoMoment at degree n>0. B_n is the native ordinary Bernoulli number. Write r_(p,n)=−(1−p^(n−1))B_n/n in ℚ as notation for the already used rational scalar, with its separate native inclusion into Q_p. Norms in the statements are real-valued norms on Q_p.
+
+**Proof:**
+
+1. Suppose such an integral μ exists. Choose k=p−1, positive by primality. Then p−1 divides2k, so the preceding norm bound gives p≤‖M_(2k)(ζ_p)‖, with p>1.
+2. The supplier positivePseudoMoment_integral identifies this value with the scalar inclusion of μ(u↦u^(2k)). The test is a native Z-valued continuous function and μ has Z-valued output. Native PadicInt.norm_le_one, transported by its norm_def, gives the opposing bound≤1.
+3. The contradiction p≤1 proves nonexistence. This uniform choice works for p=2, where k=1 and the witness degree is2. It does not require division by2 or an odd-prime restriction.
+4. For the range test, an equality alg(μ)=ζ_p in Q would, by the exact supplier integral-inclusion-value and subtype extensionality, give the excluded equality in PM. Thus the underlying fraction is also outside Set.range(algebraMap M Q).
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/arithmetic-positive-moment-norm`, `PadicMeasuresIwasawaAlgebras:L3/actual-positive-pseudomoment`, `PadicMeasuresIwasawaAlgebras:L3/integral-pseudomeasure`, `PadicMeasuresIwasawaAlgebras:L3/integral-inclusion-value`, `mathlib:PadicInt.norm_le_one`, `mathlib:PadicInt.norm_def`.
+
+**Tests:**
+
+- `SuggestedNonintegralityTests.not_integral_each_measure` (non-example): For every actual integral unit measure μ, its supplier integral inclusion differs from ζ_p.
+- `SuggestedNonintegralityTests.not_in_integral_range` (non-example): The underlying total-quotient element of ζ_p is outside the range of algebraMap M Q.
+
+**Acceptance:** This excludes Z_p-valued integral measures for every prime. A finite norm obstruction does not yet exclude bounded Q_p-valued measures; that requires a separate unboundedness argument.
+
+**Source:** Definitions3.7–3.8 and the integral-measure criterion, published119–120/PDF20–21; Theorem4.1 and Proposition4.11, published136 and138–139/PDF37 and39–40. Complete119–121 pages freshly read28September2026;136–139 retained from the preceding checkpoint. Worker diagnostic consequence of the source interpolation theorem and the integral-value criterion, using the pinned native von Staudt–Clausen Bernoulli valuation. The source does not separately state this exact norm formula. This checkpoint excludes integral Z_p-valued measures; exclusion of bounded Q_p-valued measures requires unbounded moments and is retained as subsequent work. No new generic measure norm theorem or Bernoulli theorem is planned.
+
+**Remaining:** The actual arithmetic pseudomeasure now has an exact large-moment norm formula and is outside the image of integral Z_p-valued unit measures for every prime, including2. Next strengthen the obstruction to bounded Q_p-valued measures using an unbounded sequence of positive moments, then extract pure p-power conductor twists and their field-of-values comparisons. Completed-group-algebra comparison still awaits the PMIA L1 request. Analytic branches, p-adic logarithmic values, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.
+
+### Arithmetic nonintegrality validation
+
+All 308 predecessor nodes, 375 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 3 nodes, 3 named suggested declarations and 8 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 485 reachable nodes, 2263 edges and 499 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 851 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The actual current 332-node PMIA suggested module uses the hash-verified artifact from PR3303, elaborated with zero errors and 707 expected placeholder warnings. Both the exact predecessor and the new Dirichlet module elaborate against this artifact; the supplier remains an unchecked planning interface. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Four complete native lemmas verify the Bernoulli norm from the existing valuation theorem, the Euler-factor unit norm, the exact rational quotient norm and its lower bound≥p. The native von Staudt–Clausen theorem is reused without replanning it. The probe elaborates against 2069 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact rational controls check127 Bernoulli valuations,127 Euler-factor unit norms,127 exact norm formulas and127 strict integrality obstructions, plus six uniform degree witnesses and five small values. Exact rational Bernoulli recurrence through degree80 and exact numerator/denominator prime-adic valuations. Six primes; all positive even degrees through80 divisible by p−1. The Bernoulli valuation, Euler-factor unit norm, exact quotient norm and strict integral obstruction are separately checked. A uniform degree2(p−1) witness is verified for each prime. These finite calculations do not prove the general nonintegrality theorem or rule out bounded Q_p-valued measures. The largest observed discrepancy is 0 (exact rational norm identities).
+
+All54 captured inputs remain unchanged during this checkpoint.
