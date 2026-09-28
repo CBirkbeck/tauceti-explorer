@@ -14678,8 +14678,8 @@
    ],
    "avoidAccountOf": "BP-AdicEtaleGeometry",
    "prompt": "research/blueprint/prompts/REV-AdicEtaleGeometry.md",
-   "state": "pending",
-   "note": "reopened 2026-09-28: marked done with no verdict recorded in the packet"
+   "state": "external",
+   "note": "claimed on GitHub issue #343"
   },
   {
    "id": "BP-AdicSpacesPartII",
@@ -17395,11 +17395,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsCyclotomicMainConjecture.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #725"
+   "note": "released on GitHub issue #725"
   },
   {
    "id": "REV-EulerSystemsCyclotomicMainConjecture",
@@ -18008,8 +18008,9 @@
    ],
    "avoidAccountOf": "BP-GeneralAlgebraicKTheory--K.1",
    "prompt": "research/blueprint/prompts/REV-GeneralAlgebraicKTheory--K.1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #414"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #414",
+   "finishedAt": "2026-09-28T15:17:23Z"
   },
   {
    "id": "BP-GeneralAlgebraicKTheory--K.6",
@@ -21420,10 +21421,11 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-SelmerIwasawaCohomology.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #988"
   },
   {
    "id": "REV-SelmerIwasawaCohomology",
