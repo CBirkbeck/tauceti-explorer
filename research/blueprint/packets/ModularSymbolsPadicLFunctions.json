@@ -10,7 +10,7 @@
   "ModularSymbolsPadicLFunctions:L4"
  ],
  "status": "partial",
- "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. This first checkpoint plans the algebraic core of L0 from Pollack–Stevens, 'Overconvergent modular symbols and p-adic L-functions' (Ann. Sci. ENS 2011), §2.1–2.2 and §3.4: the Steinberg module Δ₀ = Div⁰(P¹(ℚ)) with its GL₂(ℚ)-action, V-valued modular symbols for a finite-index Γ ≤ SL₂(ℤ), Manin's unimodular map d : ℤ[SL₂(ℤ)] → Δ₀ with its surjectivity (continued fractions) and kernel (the Manin relations 1 + σ, 1 + τ + τ², and 1 − (−1) over SL₂(ℤ)), the coset basis of ℤ[SL₂(ℤ)] over ℤ[Γ], the coefficient modules V_k = Sym^k with the adjugate action, the monoid Σ₀(N), the Hecke operators T_ℓ and U_q, and the involution at infinity with the plus/minus decomposition. The cohomological comparison, the explicit Manin presentation, Eichler–Shimura and stages L1–L4 remain.",
+ "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -30,32 +30,25 @@
     "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
    },
    {
-    "ref": "mathlib:Finsupp",
+    "ref": "mathlib:CongruenceSubgroup.Gamma0Map",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+    "provides": "The map Γ₀(N) → ZMod N reading the lower-right entry.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:CongruenceSubgroup.Gamma1",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ModularForms/CongruenceSubgroups.lean",
+    "provides": "Γ₁(N) ≤ SL₂(ℤ).",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:CuspForm",
     "kind": "structure",
-    "module": "Mathlib/Data/Finsupp/Defs.lean",
-    "provides": "Finitely supported functions.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
-   },
-   {
-    "ref": "mathlib:Finsupp.linearCombination",
-    "kind": "def",
-    "module": "Mathlib/LinearAlgebra/Finsupp/LinearCombination.lean",
-    "provides": "Linear combinations of a family.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
-   },
-   {
-    "ref": "mathlib:Finsupp.single",
-    "kind": "def",
-    "module": "Mathlib/Data/Finsupp/Single.lean",
-    "provides": "The indicator divisor.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
-   },
-   {
-    "ref": "mathlib:LinearMap.ker",
-    "kind": "def",
-    "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
-    "provides": "Kernel of a linear map.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+    "module": "Mathlib/NumberTheory/ModularForms/Basic.lean",
+    "provides": "Cusp forms of weight k for a subgroup Γ.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
    },
    {
     "ref": "mathlib:Matrix.GeneralLinearGroup",
@@ -93,6 +86,13 @@
     "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
    },
    {
+    "ref": "mathlib:Matrix.adjugate_mul",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/Adjugate.lean",
+    "provides": "adj A · A = det A · 1.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
     "ref": "mathlib:Module.Free",
     "kind": "class",
     "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
@@ -111,13 +111,6 @@
     "kind": "def",
     "module": "Mathlib/Algebra/MonoidAlgebra/MapDomain.lean",
     "provides": "R[H] → R[G] along a monoid hom.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
-   },
-   {
-    "ref": "mathlib:MonoidAlgebra.of",
-    "kind": "def",
-    "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
-    "provides": "The canonical map G → R[G].",
     "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
    },
    {
@@ -142,25 +135,32 @@
     "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
    },
    {
-    "ref": "mathlib:OnePoint.instGLAction",
-    "kind": "instance",
-    "module": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
-    "provides": "GL₂(K) acts on OnePoint K by linear fractional transformations.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+    "ref": "mathlib:Rep.coind",
+    "kind": "abbrev",
+    "module": "Mathlib/RepresentationTheory/Coinduced.lean",
+    "provides": "The coinduced representation.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
    },
    {
-    "ref": "mathlib:OnePoint.smul_infty_eq_ite",
-    "kind": "lemma",
-    "module": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
-    "provides": "g · ∞ = a/c or ∞.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+    "ref": "mathlib:Rep.coinvariantsAdjunction",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
+    "provides": "Coinvariants are left adjoint to the trivial-representation functor.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
    },
    {
-    "ref": "mathlib:OnePoint.smul_some_eq_ite",
-    "kind": "lemma",
-    "module": "Mathlib/Topology/Compactification/OnePoint/ProjectiveLine.lean",
-    "provides": "g · x as a fraction or ∞.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+    "ref": "mathlib:Rep.coinvariantsTensor",
+    "kind": "abbrev",
+    "module": "Mathlib/RepresentationTheory/Coinvariants.lean",
+    "provides": "Coinvariants of a tensor product of representations, as a bifunctor.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Rep.ofMulAction",
+    "kind": "abbrev",
+    "module": "Mathlib/RepresentationTheory/Rep/Basic.lean",
+    "provides": "The permutation representation as an object of Rep k G.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
    },
    {
     "ref": "mathlib:Representation",
@@ -170,11 +170,18 @@
     "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
    },
    {
-    "ref": "mathlib:Submodule.span",
+    "ref": "mathlib:Representation.linHom",
     "kind": "def",
-    "module": "Mathlib/LinearAlgebra/Span/Defs.lean",
-    "provides": "Span.",
-    "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+    "module": "Mathlib/RepresentationTheory/Basic.lean",
+    "provides": "The representation on linear maps between representations.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Representation.ofMulAction",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Basic.lean",
+    "provides": "The permutation representation k[H] of a G-set H.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
    },
    {
     "ref": "mathlib:Submonoid",
@@ -184,11 +191,123 @@
     "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
    },
    {
+    "ref": "mathlib:UpperHalfPlane",
+    "kind": "structure",
+    "module": "Mathlib/Analysis/Complex/UpperHalfPlane/Basic.lean",
+    "provides": "The upper half-plane.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:groupCohomology",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+    "provides": "Group cohomology H^n(G, A) of a k-linear representation.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:groupCohomology.H1InfRes_exact",
+    "kind": "lemma",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
+    "provides": "Exactness of inflation–restriction in degree 1.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:groupCohomology.coindIso",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Shapiro.lean",
+    "provides": "Shapiro's lemma: H^n(G, coind A) ≅ H^n(S, A).",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:groupCohomology.mapShortComplex₂_exact",
+    "kind": "lemma",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LongExactSequence.lean",
+    "provides": "Exactness of the long exact sequence at the middle term.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:groupCohomology.mapShortComplex₃_exact",
+    "kind": "lemma",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LongExactSequence.lean",
+    "provides": "Exactness of the long exact sequence at the connecting map.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:groupCohomology.resNatTrans",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Functoriality.lean",
+    "provides": "Restriction to a subgroup as a natural transformation of cohomology functors.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:groupCohomology.δ",
+    "kind": "abbrev",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LongExactSequence.lean",
+    "provides": "The connecting homomorphism of the long exact cohomology sequence.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:groupCohomologyIsoExt",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
+    "provides": "H^n(G, A) ≅ Ext^n(k, A) in Rep k G.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:CuspForm.peterssonInnerCosets_definite",
+    "kind": "theorem",
+    "module": "TauCeti/NumberTheory/ModularForms/Petersson/FiniteIndex.lean",
+    "provides": "Positive definiteness of the Petersson product on cusp forms for a finite-index subgroup.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:HeckeRing.GL2.Newform",
+    "kind": "structure",
+    "module": "TauCeti/NumberTheory/ModularForms/Newforms/Newform.lean",
+    "provides": "Newforms (normalised eigenforms away from the level).",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
     "ref": "tauceti:HeckeRing.GL2.commRingHeckeRingGamma0",
     "kind": "def",
     "module": "TauCeti/NumberTheory/HeckeRing/GL2/Gamma0/Diagonal/Composite.lean",
     "provides": "The commutative ring structure on the Γ₀(N) Hecke ring of double cosets.",
     "checked": "name, kind and module confirmed in the pinned declaration index; the suggested file elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "tauceti:HeckeRing.GL2.diamondCosetGamma1",
+    "kind": "def",
+    "module": "TauCeti/NumberTheory/HeckeRing/GL2/Gamma1/DiamondCosets.lean",
+    "provides": "The Γ₁(N) double coset of an element of Γ₀(N) (diamond cosets).",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one",
+    "kind": "theorem",
+    "module": "TauCeti/NumberTheory/ModularForms/Newforms/MultiplicityOne.lean",
+    "provides": "Multiplicity one: the newform eigenspace away from the level is one-dimensional.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:cuspFormCharSpace",
+    "kind": "def",
+    "module": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
+    "provides": "S_k(N, χ) as a simultaneous eigenspace of the diamond operators.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:diamondOp",
+    "kind": "def",
+    "module": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
+    "provides": "Diamond operators on M_k(Γ₁(N)), lower-right-entry convention.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:isInternal_cuspFormCharSpace",
+    "kind": "theorem",
+    "module": "TauCeti/NumberTheory/ModularForms/CharacterDecomp.lean",
+    "provides": "The nebentypus decomposition of S_k(Γ₁(N)) as an internal direct sum.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
    }
   ]
  },
@@ -203,106 +322,41 @@
    "readSections": [
     "§1.1–1.8 (introduction and outline)",
     "§2.1 Basic definitions and §2.2 The Manin relations, pp. 6–8",
+    "§2.3 Fundamental domains, §2.4 Solving the Manin relations, §2.5 The case of three-torsion and §2.6 Computing with modular symbols in practice, pp. 9–14 (read on the page images at the displayed relations)",
     "§3.4 Finite-dimensional quotients, p. 17",
-    "Section headings of §§2.3–2.6 and 3–4, for the remaining work"
+    "§5.1 Explicit lifts of classical symbols (Theorem 5.1 and its proof), pp. 21–22"
+   ]
+  },
+  {
+   "id": "WIESE-CAMF-2018",
+   "title": "Computational Arithmetic of Modular Forms (course notes)",
+   "authors": "Gabor Wiese",
+   "edition": "arXiv:1809.04645v1 (12 September 2018), 81 pages; printed page = PDF page. Also published in Modular Forms and Related Topics in Number Theory (Springer, 2019); the arXiv version was read.",
+   "url": "https://arxiv.org/pdf/1809.04645v1",
+   "sha256": "00b3d2e5dddc43bd165d287618bed443bc9bf49508e36171d7f1b9177c000417",
+   "read": "2026-09-28",
+   "readSections": [
+    "§1.2 The modular symbols formalism, pp. 6–12 (Definition 1.5, the modules V_n and V_n^χ, Hecke and diamond operators, Propositions 1.6 and 1.8, Theorem 1.9)",
+    "§4.3–4.5 Mayer–Vietoris for PSL₂(ℤ), parabolic group cohomology and dimension computations, pp. 47–52 (Corollary 4.12, Lemma 4.13, Proposition 4.14, Lemma 4.15, Proposition 4.16)",
+    "§5 Modular symbols and Manin symbols, pp. 54–58 (Proposition 5.1, Lemma 5.2, Proposition 5.3, Theorem 5.7, Theorem 5.9)",
+    "§6 Eichler–Shimura, pp. 59–71 (Definition 6.2, Propositions 6.3–6.9, 6.13, 6.14, Theorem 6.15)",
+    "§7.3–7.5 Hecke operators on group cohomology and compatibility, pp. 75–80 (Definition 7.21, Proposition 7.22, Definition 7.23, Proposition 7.24, Corollaries 7.31 and 7.33)"
+   ]
+  },
+  {
+   "id": "POLLACK-AWS-2011",
+   "title": "Overconvergent modular symbols (Arizona Winter School 2011 lecture notes)",
+   "authors": "Robert Pollack",
+   "edition": "Lecture notes, Arizona Winter School 2011, 29 pages, hosted by the Southwest Center for Arithmetic Geometry; printed page = PDF page.",
+   "url": "https://swc-math.github.io/aws/2011/2011PollackNotes.pdf",
+   "sha256": "e7e2548f140b0a5825134fa568c68b3c31e8c38b5c36c4aaeb969a25ae8fb14f",
+   "read": "2026-09-28",
+   "readSections": [
+    "§2.2–2.9 Modular symbols and L-values, pp. 3–11 (the Γ₀(11) fundamental-domain relation in footnote 10, the weight-k symbol ψ_f in §2.7, the L-value formula in §2.8, the general definitions in §2.9)"
    ]
   }
  ],
  "nodes": [
-  {
-   "id": "ModularSymbolsPadicLFunctions:L0/steinberg-module",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
-   "realises": [
-    "ModularSymbolsPadicLFunctions:L0"
-   ],
-   "title": "The Steinberg module Δ₀ = Div⁰(P¹(ℚ))",
-   "kind": "definition",
-   "statement": "Δ₀ ⊆ ℤ[P¹(ℚ)] is the group of degree-zero divisors on P¹(ℚ) = ℚ ∪ {∞}, a left ℤ[GL₂(ℚ)]-module through the action of GL₂(ℚ) on P¹(ℚ) by linear fractional transformations. It is generated by the divisors {b} − {a}.",
-   "hypotheses": [
-    "P¹(ℚ) is Mathlib's OnePoint ℚ with its GL₂(ℚ)-action (OnePoint.instGLAction)."
-   ],
-   "proofSteps": [
-    "Define Δ₀ as the kernel of the degree map ℤ[P¹(ℚ)] → ℤ (Finsupp.linearCombination with all weights 1).",
-    "The permutation action g·{x} = {g x} preserves the degree, hence Δ₀.",
-    "Generation: a divisor Σ n_x {x} of degree 0 equals Σ n_x ({x} − {∞})."
-   ],
-   "acceptance": [
-    "A single point {∞} is not in Δ₀.",
-    "{b} − {a} + {c} − {b} = {c} − {a}; {a} − {a} = 0.",
-    "The scalar matrices act trivially, so the action factors through PGL₂(ℚ); in particular −1 ∈ SL₂(ℤ) acts trivially."
-   ],
-   "uses": [
-    {
-     "where": "ModularSymbolsPadicLFunctions:L0/modular-symbols",
-     "how": "modular symbols are Γ-equivariant maps out of Δ₀."
-    },
-    {
-     "where": "ModularSymbolsPadicLFunctions:L1",
-     "how": "evaluation of symbols at {∞} − {0} and {∞} − {a/m} gives twisted L-values."
-    }
-   ],
-   "prerequisites": [
-    "mathlib:OnePoint",
-    "mathlib:OnePoint.instGLAction",
-    "mathlib:Matrix.GeneralLinearGroup",
-    "mathlib:Finsupp",
-    "mathlib:Finsupp.single",
-    "mathlib:Finsupp.linearCombination",
-    "mathlib:LinearMap.ker",
-    "mathlib:Representation"
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/ModularSymbols/Basic",
-    "namespace": "TauCeti.ModularSymbol"
-   },
-   "sources": [
-    {
-     "sourceId": "POLLACK-STEVENS-2011",
-     "locator": "§2.1, p. 6",
-     "match": "The definition."
-    }
-   ],
-   "implementationStatus": "unchecked",
-   "api": [
-    {
-     "name": "TauCeti.ModularSymbol.Delta0",
-     "role": "constructor",
-     "statement": "Δ₀ as a submodule of ℤ[P¹(ℚ)]."
-    },
-    {
-     "name": "TauCeti.ModularSymbol.steinbergRep",
-     "role": "structure",
-     "statement": "The GL₂(ℚ)-representation on Δ₀."
-    },
-    {
-     "name": "TauCeti.ModularSymbol.divisorOf",
-     "role": "constructor",
-     "statement": "The divisor {b} − {a}."
-    },
-    {
-     "name": "TauCeti.ModularSymbol.span_divisorOf",
-     "role": "characterisation",
-     "statement": "The {b} − {a} generate Δ₀."
-    }
-   ],
-   "tests": [
-    {
-     "name": "delta0_not_point",
-     "kind": "non-example",
-     "statement": "{∞} ∉ Δ₀."
-    },
-    {
-     "name": "divisorOf_add",
-     "kind": "example",
-     "statement": "({b} − {a}) + ({c} − {b}) = {c} − {a}."
-    },
-    {
-     "name": "divisorOf_self",
-     "kind": "example",
-     "statement": "{a} − {a} = 0."
-    }
-   ]
-  },
   {
    "id": "ModularSymbolsPadicLFunctions:L0/modular-symbols",
    "parentStageId": "ModularSymbolsPadicLFunctions:L0",
@@ -311,14 +365,14 @@
    ],
    "title": "Modular symbols",
    "kind": "definition",
-   "statement": "For Γ ≤ SL₂(ℤ) of finite index and a right ℤ[Γ]-module V, Symb_Γ(V) is the group of additive maps φ : Δ₀ → V with φ(γD) = φ(D)|γ^{-1} for all γ ∈ Γ, D ∈ Δ₀. In the formal version V carries the left representation ρ(γ)v = v|γ^{-1}, and the condition reads φ(γD) = ρ(γ)φ(D).",
+   "statement": "For Γ ≤ SL₂(ℤ) of finite index and a right ℤ[Γ]-module V, Symb_Γ(V) is the group of additive maps φ : Δ₀ → V with φ(γD) = φ(D)|γ^{-1} for all γ ∈ Γ, D ∈ Δ₀, where Δ₀ = Div⁰(P¹(ℚ)) is the degree-zero divisor module with its action of GL₂⁺(ℚ) by linear fractional transformations (imported from ModularForms Layer 8, see requests). In the formal version V carries the left representation ρ(γ)v = v|γ^{-1}, and the condition reads φ(γD) = ρ(γ)φ(D); equivalently Symb_Γ(V) = Hom_{ℤ[Γ]}(Δ₀, V).",
    "hypotheses": [
     "Γ acts on Δ₀ through SL₂(ℤ) → GL₂(ℚ).",
     "Left/right conventions: Pollack–Stevens' right action v|γ is recorded as the left representation v ↦ v|γ^{-1}."
    ],
    "proofSteps": [
     "Define symbols Γ ρ as the additive subgroup of maps Δ₀ → V satisfying the equivariance; closure under sums and negatives is immediate.",
-    "A modular symbol is determined by its values on the unimodular divisors {γ0} − {γ∞} (manin-surjectivity)."
+    "A modular symbol is determined by its values on the unimodular divisors {γ0} − {γ∞}, because these generate Δ₀ (Manin's theorem, imported from ModularForms Layer 8)."
    ],
    "acceptance": [
     "Symb_{SL₂(ℤ)}(ℤ) = 0: by the Manin relations φ({0} − {∞}) = v satisfies 2v = 0 and 3v = 0.",
@@ -336,7 +390,6 @@
     }
    ],
    "prerequisites": [
-    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
     "mathlib:Representation",
     "mathlib:AddSubgroup",
     "mathlib:Matrix.SpecialLinearGroup.map",
@@ -394,181 +447,6 @@
    }
   },
   {
-   "id": "ModularSymbolsPadicLFunctions:L0/unimodular-map",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
-   "realises": [
-    "ModularSymbolsPadicLFunctions:L0"
-   ],
-   "title": "The unimodular map d : ℤ[SL₂(ℤ)] → Δ₀",
-   "kind": "construction",
-   "statement": "d is the ℤ[SL₂(ℤ)]-linear map sending γ = (a b; c d) to {γ0} − {γ∞} = {b/d} − {a/c}, the boundary of the unimodular path [γ] from a/c to b/d.",
-   "hypotheses": [
-    "γ acts through SL₂(ℤ) → GL₂(ℚ) on P¹(ℚ)."
-   ],
-   "proofSteps": [
-    "Define d on the basis γ of ℤ[SL₂(ℤ)] by the displayed divisor and extend linearly; equivariance d(gx) = g·d(x) follows from g·({γ0} − {γ∞}) = {gγ0} − {gγ∞}."
-   ],
-   "acceptance": [
-    "d(1) = {0} − {∞}; d(σ) = {∞} − {0}, so d(1 + σ) = 0.",
-    "d(τ) = {1} − {0} and d(τ²) = {∞} − {1}, so d(1 + τ + τ²) = 0.",
-    "d(−γ) = d(γ), since −1 acts trivially."
-   ],
-   "uses": [
-    {
-     "where": "ModularSymbolsPadicLFunctions:L0/manin-relations",
-     "how": "Δ₀ ≅ ℤ[G]/ker d."
-    }
-   ],
-   "prerequisites": [
-    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
-    "mathlib:MonoidAlgebra",
-    "mathlib:MonoidAlgebra.of",
-    "mathlib:OnePoint.smul_infty_eq_ite",
-    "mathlib:OnePoint.smul_some_eq_ite"
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
-    "namespace": "TauCeti.ModularSymbol"
-   },
-   "sources": [
-    {
-     "sourceId": "POLLACK-STEVENS-2011",
-     "locator": "§2.2, p. 8",
-     "match": "The map d (Pollack–Stevens over G = PSL₂(ℤ))."
-    }
-   ],
-   "implementationStatus": "unchecked",
-   "api": [
-    {
-     "name": "TauCeti.ModularSymbol.unimodularMap",
-     "role": "constructor",
-     "statement": "d as a ℤ-linear map."
-    },
-    {
-     "name": "TauCeti.ModularSymbol.unimodularMap_of",
-     "role": "simp",
-     "statement": "d(γ) = {γ0} − {γ∞}."
-    },
-    {
-     "name": "TauCeti.ModularSymbol.unimodularMap_of_mul",
-     "role": "compatibility",
-     "statement": "d(g·γ) = g · d(γ): d is SL₂(ℤ)-equivariant."
-    }
-   ],
-   "tests": [
-    {
-     "name": "d_one_add_sigma",
-     "kind": "example",
-     "statement": "d(1 + σ) = 0."
-    },
-    {
-     "name": "d_triangle",
-     "kind": "example",
-     "statement": "d(1 + τ + τ²) = 0."
-    },
-    {
-     "name": "d_neg_one",
-     "kind": "example",
-     "statement": "d(−γ) = d(γ)."
-    }
-   ]
-  },
-  {
-   "id": "ModularSymbolsPadicLFunctions:L0/manin-surjectivity",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
-   "realises": [
-    "ModularSymbolsPadicLFunctions:L0"
-   ],
-   "title": "Every divisor is a sum of unimodular divisors",
-   "kind": "lemma",
-   "statement": "d : ℤ[SL₂(ℤ)] → Δ₀ is surjective: every degree-zero divisor on P¹(ℚ) is a ℤ-combination of unimodular divisors {γ0} − {γ∞}.",
-   "hypotheses": [
-    "None."
-   ],
-   "proofSteps": [
-    "By span_divisorOf it suffices to treat {r} − {∞} for r = a/c ∈ ℚ in lowest terms (and {∞} − {∞} = 0).",
-    "Let p_i/q_i be the convergents of the continued fraction of r, with p_{−1}/q_{−1} = 1/0 = ∞. Then {r} − {∞} = Σ_i ({p_i/q_i} − {p_{i−1}/q_{i−1}}), and p_i q_{i−1} − p_{i−1} q_i = ±1, so each term is ±d(γ_i) for γ_i = (p_{i−1} ±p_i; q_{i−1} ±q_i) ∈ SL₂(ℤ)."
-   ],
-   "acceptance": [
-    "For r = 0: {0} − {∞} = d(1).",
-    "For r = 1/2 the convergents are 0/1 and 1/2, so {1/2} − {∞} = ({0} − {∞}) + ({1/2} − {0}), and both terms are unimodular (0·2 − 1·1 = −1).",
-    "Manin's trick; the formal proof can reuse Mathlib's continued fractions (GenContFract) or Euclid's algorithm directly."
-   ],
-   "uses": [],
-   "prerequisites": [
-    "ModularSymbolsPadicLFunctions:L0/unimodular-map",
-    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
-    "mathlib:Matrix.SpecialLinearGroup"
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
-    "namespace": "TauCeti.ModularSymbol"
-   },
-   "sources": [
-    {
-     "sourceId": "POLLACK-STEVENS-2011",
-     "locator": "§2.2, p. 8",
-     "match": "The statement."
-    }
-   ],
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "ModularSymbolsPadicLFunctions:L0/manin-relations",
-   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
-   "realises": [
-    "ModularSymbolsPadicLFunctions:L0"
-   ],
-   "title": "The Manin relations",
-   "kind": "theorem",
-   "statement": "ker d is the left ideal of ℤ[SL₂(ℤ)] generated by 1 + σ, 1 + τ + τ² and 1 − (−1), where σ = (0 −1; 1 0) and τ = (0 −1; 1 −1); hence Δ₀ ≅ ℤ[SL₂(ℤ)]/ker d. Modulo 1 − (−1) this is Manin's presentation Δ₀ ≅ ℤ[PSL₂(ℤ)]/(ℤ[G](1 + τ + τ²) + ℤ[G](1 + σ)).",
-   "hypotheses": [
-    "The generator 1 − (−1) appears because the formalisation works over SL₂(ℤ), in which −1 acts trivially on P¹(ℚ)."
-   ],
-   "proofSteps": [
-    "The listed elements lie in ker d (unimodular-map).",
-    "Farey tessellation: unimodular paths are the edges and the images of the triangle 0, 1, ∞ are the faces of a PSL₂(ℤ)-invariant decomposition of H* with vertex set P¹(ℚ); PSL₂(ℤ) acts simply transitively on oriented edges and with stabiliser ⟨τ⟩ on faces.",
-    "Cellular chains relative to the vertices: the 1-chains are ℤ[G]/ℤ[G](1 + σ) (reversing an edge) and the 2-chains ℤ[G/⟨τ⟩], with boundary x ↦ x(1 + τ + τ²). Since H* is contractible, the long exact sequence of the pair identifies H₁(H*, P¹(ℚ)) with Δ₀ through the boundary map, and cellular homology computes it as C₁/∂C₂; hence ker d = ℤ[G](1 + σ) + ℤ[G](1 + τ + τ²).",
-    "Pull back along ℤ[SL₂(ℤ)] → ℤ[PSL₂(ℤ)], whose kernel is generated by 1 − (−1). Pollack–Stevens cite Manin without proof; an algebraic alternative uses PSL₂(ℤ) ≅ ℤ/2 ∗ ℤ/3."
-   ],
-   "acceptance": [
-    "For Γ torsion-free, the resulting presentation of Δ₀ as a ℤ[Γ]-module has a single relation (Pollack–Stevens Theorem 2.6, remaining work).",
-    "Symb_{SL₂(ℤ)}(ℤ) = 0 follows at once.",
-    "The ideal is a left ideal: it is not two-sided."
-   ],
-   "uses": [
-    {
-     "where": "ModularSymbolsPadicLFunctions:L0/modular-symbols",
-     "how": "a symbol is determined by a vector v_i per coset satisfying the two- and three-term Manin relations."
-    },
-    {
-     "where": "ModularSymbolsPadicLFunctions:L2",
-     "how": "the explicit presentation behind the control theorem's difference equation."
-    }
-   ],
-   "prerequisites": [
-    "ModularSymbolsPadicLFunctions:L0/unimodular-map",
-    "ModularSymbolsPadicLFunctions:L0/manin-surjectivity",
-    "mathlib:Submodule.span",
-    "mathlib:MonoidAlgebra"
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
-    "namespace": "TauCeti.ModularSymbol"
-   },
-   "sources": [
-    {
-     "sourceId": "POLLACK-STEVENS-2011",
-     "locator": "§2.2, p. 8",
-     "match": "The statement, over G = PSL₂(ℤ)."
-    }
-   ],
-   "implementationStatus": "unchecked",
-   "planet": {
-    "name": "Manin relations"
-   }
-  },
-  {
    "id": "ModularSymbolsPadicLFunctions:L0/coset-basis",
    "parentStageId": "ModularSymbolsPadicLFunctions:L0",
    "realises": [
@@ -576,7 +454,7 @@
    ],
    "title": "ℤ[SL₂(ℤ)] is free over ℤ[Γ]",
    "kind": "lemma",
-   "statement": "For Γ ≤ SL₂(ℤ), ℤ[SL₂(ℤ)] is a free left ℤ[Γ]-module, with basis any set of right coset representatives of Γ\\SL₂(ℤ).",
+   "statement": "For Γ ≤ G of finite index in a group G (here G = SL₂(ℤ) or PSL₂(ℤ)), ℤ[G] is a free left ℤ[Γ]-module with basis any set of right coset representatives {g_j} of Γ\\G; consequently Hom_{ℤ[Γ]}(ℤ[G], V) ≅ ∏_j V by F ↦ (F(g_j))_j.",
    "hypotheses": [
     "Γ acts by left multiplication through the inclusion."
    ],
@@ -589,7 +467,6 @@
    ],
    "uses": [],
    "prerequisites": [
-    "ModularSymbolsPadicLFunctions:L0/unimodular-map",
     "mathlib:Module.Free",
     "mathlib:MonoidAlgebra.mapDomainRingHom"
    ],
@@ -806,7 +683,6 @@
    "prerequisites": [
     "ModularSymbolsPadicLFunctions:L0/hecke-monoid",
     "ModularSymbolsPadicLFunctions:L0/modular-symbols",
-    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
     "tauceti:HeckeRing.GL2.commRingHeckeRingGamma0"
    ],
    "library": {
@@ -895,7 +771,6 @@
    ],
    "prerequisites": [
     "ModularSymbolsPadicLFunctions:L0/modular-symbols",
-    "ModularSymbolsPadicLFunctions:L0/steinberg-module",
     "mathlib:Matrix.GeneralLinearGroup",
     "mathlib:CongruenceSubgroup.Gamma0"
    ],
@@ -988,20 +863,1388 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/symbols-coset-description",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Modular symbols as functions on cosets (Manin symbols, cohomological side)",
+   "kind": "lemma",
+   "statement": "Let Γ ≤ SL₂(ℤ) have finite index, let {g_j} be right coset representatives of Γ\\SL₂(ℤ), and let V be a right ℤ[Γ]-module. For g ∈ SL₂(ℤ) write g = γ_g g_{j(g)} with γ_g ∈ Γ. The map φ ↦ (v_j)_j, v_j := φ({g_j 0} − {g_j ∞}), is an isomorphism from Symb_Γ(V) onto the families (v_j) ∈ ∏_j V such that, for every j, with x(g) := v_{j(g)}|γ_g^{-1}: x(g_j) + x(g_j σ) = 0, x(g_j) + x(g_j τ) + x(g_j τ²) = 0, and x(g_j) = x(−g_j), where σ = (0 −1; 1 0) and τ = (0 −1; 1 −1).",
+   "hypotheses": [
+    "Γ has finite index in SL₂(ℤ).",
+    "The relation list is the image of Manin's kernel ℤ[G](1 + σ) + ℤ[G](1 + τ + τ²) + ℤ[G](1 − (−1)) under the coset basis."
+   ],
+   "proofSteps": [
+    "By Manin's theorem (requested from ModularForms Layer 8) d : ℤ[SL₂(ℤ)] → Δ₀, g ↦ {g0} − {g∞}, is surjective with kernel the left ideal I generated by 1 + σ, 1 + τ + τ² and 1 − (−1); so Symb_Γ(V) = Hom_{ℤ[Γ]}(ℤ[SL₂(ℤ)]/I, V).",
+    "A ℤ[Γ]-linear map F : ℤ[SL₂(ℤ)] → V is determined by the values F(g_j) on the coset basis (coset-basis), with F(γ g_j) = F(g_j)|γ^{-1}.",
+    "F kills I iff F(g(1 + σ)) = F(g(1 + τ + τ²)) = F(g(1 − (−1))) = 0 for every g; by Γ-equivariance it suffices to take g = g_j, and F(g) = x(g) by the first step.",
+    "Hence evaluation at the unimodular divisors d(g_j) identifies Symb_Γ(V) with the stated set of families."
+   ],
+   "acceptance": [
+    "For Γ = SL₂(ℤ) (one coset, g₁ = 1) and V = ℤ with trivial action the conditions read 2v = 0 and 3v = 0, so Symb_{SL₂(ℤ)}(ℤ) = 0.",
+    "For Γ = Γ₀(11) (12 cosets) and V = ℤ the solution module has rank 3, matching Pollack's worked Γ₀(11) example.",
+    "Changing the coset representatives changes the isomorphism by the corresponding γ-twists and not its image."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/coset-basis",
+    "mathlib:Matrix.SpecialLinearGroup",
+    "mathlib:MonoidAlgebra"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.2, p. 8",
+     "match": "The Hom-side description by coset values and the two-term and three-term relations."
+    },
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§5.1, Definition 5.6 and Theorem 5.7, p. 56",
+     "match": "The homological Manin-symbol presentation, of which this lemma is the Hom-side dual."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/symbols-generator-values",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "A modular symbol is determined by its values on the fundamental-domain generators",
+   "kind": "theorem",
+   "statement": "Let Γ ⊊ PSL₂(ℤ) have finite index and contain T = (1 1; 0 1), and let D₁, …, D_t, D_∞, D′₁, …, D′_s, D″₁, …, D″_r be the generators of Δ₀ read off a Farey fundamental domain, with the matrices γ_i, γ′_i (order 2) and γ″_i (order 3) in Γ (Pollack–Stevens §§2.4–2.5; the presentation is imported from ModularForms Layer 8). For a right Γ-module V and v₁, …, v_t, v_∞, v′₁, …, v′_s, v″₁, …, v″_r ∈ V with v_∞|Δ = Σ_i v_i|(1 − γ_i) − Σ_i v′_i − Σ_i v″_i (Δ := T − 1), v′_i|(1 + γ′_i) = 0 and v″_i|(1 + γ″_i + γ″_i²) = 0, there is a unique φ ∈ Symb_Γ(V) with φ(D_i) = v_i, φ(D_∞) = v_∞, φ(D′_i) = v′_i and φ(D″_i) = v″_i; every φ arises so. This is Pollack–Stevens' Corollaries 2.7 and 2.10 with the sign of the D_∞ relation corrected (sourceIssues E1).",
+   "hypotheses": [
+    "Γ has finite index in PSL₂(ℤ), contains T and is proper (for the three-torsion version); for Γ ≤ SL₂(ℤ) apply it to the image Γ̄ and to V^{⟨−1⟩∩Γ}, since −1 acts trivially on Δ₀.",
+    "The relations among the generators are Σ_i (γ_i^{-1} − 1)D_i + Σ_i D′_i + Σ_i D″_i = (1 − T^{-1})D_∞, (1 + γ′_i)D′_i = 0 and (1 + γ″_i + γ″_i²)D″_i = 0."
+   ],
+   "proofSteps": [
+    "Theorem 2.6/2.9 of Pollack–Stevens, as corrected (request to ModularForms Layer 8): Δ₀ is generated over ℤ[Γ] by the D's with the displayed relations. The relation is derived from the printed boundary relation (1 − T^{-1})e_∞ + Σ(1 − γ_i^{-1})e_i + Σ e′_i ∈ J on p. 11 by applying ∂, with D′_i = −∂(e′_i).",
+    "A ℤ[Γ]-linear map out of a presented module is the same as values on the generators satisfying the relations.",
+    "Apply φ(γD) = φ(D)|γ^{-1} to the first relation: Σ v_i|(γ_i − 1) + Σ v′_i + Σ v″_i = v_∞ − v_∞|T = −v_∞|Δ; the torsion relations give v′_i|(1 + γ′_i) = 0 and v″_i|(1 + γ″_i + γ″_i²) = 0 because γ′_i, γ″_i have order 2, 3 in PSL₂(ℤ)."
+   ],
+   "acceptance": [
+    "Γ₀(2) (t = 0, s = 1, F the ideal triangle with vertices −1, 0, ∞, γ′₁ = (1 1; −2 −1)): D′₁ = (1 − T^{-1})D_∞ = {0} − {−1}; with the printed sign the relation would force 2D′₁ = 0 in the torsion-free Δ₀.",
+    "Γ₀(11) with V = V_k: the relation matches Pollack's worked example (1 − (1 −1; 0 1))({0} − {∞}) + Σ(1 − γ)D = 0 (AWS notes, footnote 10), whose γ is Pollack–Stevens' γ_i^{-1}.",
+    "For V = ℚ with trivial action the conditions reduce to Σ_i v′_i + Σ_i v″_i = 0 and v′_i = v″_i = 0 (2, 3 invertible), so dim Symb_Γ(ℚ) = t + 1."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/symbols-coset-description",
+    "mathlib:Matrix.SpecialLinearGroup",
+    "mathlib:CongruenceSubgroup.Gamma0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Presentation",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "Theorem 2.6 and Corollary 2.7, p. 12; Theorem 2.9 and Corollary 2.10, pp. 13–14",
+     "match": "The statement, with the D_∞ condition corrected from the printed v_∞|Δ = Σ v_i|(γ_i − 1) + Σ v′_i (sourceIssues E1)."
+    },
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.4, p. 11",
+     "match": "The boundary relation from which the corrected sign follows."
+    },
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2.6, footnote 10, p. 8",
+     "match": "An independent worked relation with the corrected sign."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/boundary-symbols",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Boundary symbols",
+   "kind": "definition",
+   "statement": "For Γ ≤ SL₂(ℤ) of finite index and a right ℤ[Γ]-module V, BSymb_Γ(V) := Hom_{ℤ[Γ]}(ℤ[P¹(ℚ)], V), the maps ψ : P¹(ℚ) → V with ψ(γc) = ψ(c)|γ^{-1}. Restriction along Δ₀ ⊆ ℤ[P¹(ℚ)] gives res : BSymb_Γ(V) → Symb_Γ(V), whose image Eis_Γ(V) is the module of Eisenstein (boundary) symbols. Choosing representatives c₁, …, c_ν of the finitely many cusps Γ\\P¹(ℚ) gives BSymb_Γ(V) ≅ ⊕_j V^{Γ_{c_j}}, ψ ↦ (ψ(c_j))_j, where Γ_c is the stabiliser of c.",
+   "hypotheses": [
+    "Γ has finite index, so Γ\\P¹(ℚ) is finite (P¹(ℚ) = SL₂(ℤ)/⟨±T⟩ as an SL₂(ℤ)-set).",
+    "V^{Γ_c} is the invariants for the right action, v|γ = v for γ ∈ Γ_c."
+   ],
+   "proofSteps": [
+    "ℤ[P¹(ℚ)] = ⊕_j ℤ[Γ/Γ_{c_j}] as a left ℤ[Γ]-module, since P¹(ℚ) is the disjoint union of the orbits Γc_j ≅ Γ/Γ_{c_j}.",
+    "Hom_{ℤ[Γ]}(ℤ[Γ/H], V) ≅ V^H for H ≤ Γ (Frobenius reciprocity for permutation modules), giving the cusp description.",
+    "res is ℤ-linear and Γ-compatible because Δ₀ is a ℤ[Γ]-submodule of ℤ[P¹(ℚ)]."
+   ],
+   "acceptance": [
+    "For Γ = SL₂(ℤ) and V = ℤ (one cusp, stabiliser ⟨±T⟩), BSymb ≅ ℤ consists of the constant functions and res = 0.",
+    "For Γ₀(p), p prime, there are two cusps ∞ and 0 and BSymb_{Γ₀(p)}(ℤ) ≅ ℤ².",
+    "Eis_Γ(V) is stable under the Hecke operators of hecke-operators."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "mathlib:Representation.ofMulAction",
+    "mathlib:Rep.ofMulAction",
+    "mathlib:OnePoint"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Boundary",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§1.2, Definition 1.5(b)–(e), pp. 7–8",
+     "match": "The homological boundary and Eisenstein symbols; this node is their Hom-side dual."
+    },
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§4.3, Lemma 4.13, p. 49",
+     "match": "The orbit and stabiliser description behind the cusp decomposition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/symbols-cohomology-sequence",
+     "how": "the second term of the exact sequence."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/symbols-mod-eisenstein",
+     "how": "the kernel of Symb_Γ(V) → H¹_par(Γ, V)."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/eigenspace-dimension",
+     "how": "Eisenstein symbols are separated from cuspidal eigensystems."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.bsymbols",
+     "role": "constructor",
+     "statement": "BSymb_Γ(V) = Hom_{ℤ[Γ]}(ℤ[P¹(ℚ)], V)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.bsymbols.res",
+     "role": "projection",
+     "statement": "res : BSymb_Γ(V) → Symb_Γ(V), restriction along Δ₀ ⊆ ℤ[P¹(ℚ)]."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.bsymbolsEquivCusps",
+     "role": "equivalence",
+     "statement": "BSymb_Γ(V) ≃ ⊕_{c ∈ Γ\\P¹(ℚ)} V^{Γ_c} after choosing cusp representatives."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.eisSymbols",
+     "role": "constructor",
+     "statement": "Eis_Γ(V) := range res."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.eisSymbols_hecke",
+     "role": "compatibility",
+     "statement": "Eis_Γ(V) is stable under T_ℓ, U_q, ⟨d⟩ and ι."
+    }
+   ],
+   "tests": [
+    {
+     "name": "bsymbols_SL2Z",
+     "kind": "example",
+     "statement": "BSymb_{SL₂(ℤ)}(ℤ) ≅ ℤ (one cusp)."
+    },
+    {
+     "name": "bsymbols_Gamma0_p",
+     "kind": "example",
+     "statement": "BSymb_{Γ₀(p)}(ℤ) ≅ ℤ² for p prime (cusps ∞, 0)."
+    },
+    {
+     "name": "eis_eq_bot_of_V_trivial_level_one",
+     "kind": "example",
+     "statement": "Eis_{SL₂(ℤ)}(ℤ) = 0."
+    },
+    {
+     "name": "bsymbols_res_ne_injective",
+     "kind": "non-example",
+     "statement": "res is not injective: the constant map c ↦ v with v ∈ V^Γ restricts to 0 on Δ₀."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/symbols-to-cohomology",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The map from modular symbols to group cohomology",
+   "kind": "construction",
+   "statement": "For φ ∈ Symb_Γ(V) (V with the left representation ρ(γ)v = v|γ^{-1}) and a base cusp x ∈ P¹(ℚ), c_φ(γ) := φ({γx} − {x}) is a 1-cocycle of Γ with values in (V, ρ); its class δ(φ) ∈ H¹(Γ, V) does not depend on x, and δ : Symb_Γ(V) → H¹(Γ, V) is ℤ-linear. Up to sign δ is the connecting homomorphism of Hom_Γ(−, V) applied to 0 → Δ₀ → ℤ[P¹(ℚ)] → ℤ → 0.",
+   "hypotheses": [
+    "Γ ≤ SL₂(ℤ) of finite index; V a right ℤ[Γ]-module, equivalently the left representation ρ.",
+    "H¹(Γ, V) is Mathlib's groupCohomology of the representation (V, ρ) in degree 1."
+   ],
+   "proofSteps": [
+    "Cocycle identity: c_φ(γη) = φ({γηx} − {γx}) + φ({γx} − {x}) = ρ(γ)c_φ(η) + c_φ(γ).",
+    "Base change x ↦ y changes c_φ by the coboundary γ ↦ (ρ(γ) − 1)φ({y} − {x}).",
+    "Comparison with the connecting map: extend φ to ψ : ℤ[P¹(ℚ)] → V by ψ({c}) := φ({c} − {x}); then ψ∘ρ-twisting minus ψ factors through the degree and equals −c_φ."
+   ],
+   "acceptance": [
+    "For V = ℂ trivial, Γ = Γ₀(N) and φ = ψ_f of a weight-two cusp form, δ(φ) is the homomorphism γ ↦ 2πi ∫_x^{γx} f(z) dz.",
+    "δ kills Eis_Γ(V): for φ = res(ψ), c_φ(γ) = ψ(γx) − ψ(x) = (ρ(γ) − 1)ψ(x) is a coboundary.",
+    "δ is compatible with the Hecke operators defined on H¹ by double cosets (Wiese Definition 7.21)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "mathlib:groupCohomology",
+    "mathlib:groupCohomology.δ"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§6.2, proof of Proposition 6.7(a), p. 63",
+     "match": "The same base-point cocycle and base-point independence, for period integrals."
+    },
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§5.1, Lemma 5.2, p. 55",
+     "match": "The short exact sequence whose connecting map δ is."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/symbols-cohomology-sequence",
+     "how": "the connecting map of the exact sequence."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/period-symbol",
+     "how": "the Eichler–Shimura cocycle of a cusp form."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.toH1",
+     "role": "constructor",
+     "statement": "δ : Symb_Γ(V) →ₗ H¹(Γ, V)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.toH1_cocycle",
+     "role": "characterisation",
+     "statement": "δ(φ) is represented by γ ↦ φ({γx} − {x}) for any base cusp x."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.toH1_eis",
+     "role": "simp",
+     "statement": "δ ∘ res = 0."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.toH1_hecke",
+     "role": "compatibility",
+     "statement": "δ(φ|T) = δ(φ)|T for the double-coset Hecke operators on H¹."
+    }
+   ],
+   "tests": [
+    {
+     "name": "toH1_base_point",
+     "kind": "characterisation",
+     "statement": "the classes for base cusps ∞ and 0 agree."
+    },
+    {
+     "name": "toH1_res_eq_zero",
+     "kind": "example",
+     "statement": "δ(res ψ) = 0 for every boundary symbol ψ."
+    },
+    {
+     "name": "toH1_level_one_trivial",
+     "kind": "example",
+     "statement": "δ = 0 for Γ = SL₂(ℤ) and V = ℤ, since both sides vanish."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/symbols-cohomology-sequence",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The boundary exact sequence for modular symbols",
+   "kind": "theorem",
+   "statement": "For Γ ≤ SL₂(ℤ) of finite index and any right ℤ[Γ]-module V the sequence 0 → V^Γ → BSymb_Γ(V) → Symb_Γ(V) → H¹(Γ, V) → ⊕_{c ∈ Γ\\P¹(ℚ)} H¹(Γ_c, V) is exact, where the first map sends v to the constant function, the second is res, the third is δ (symbols-to-cohomology) and the last is the product of the restrictions to the cusp stabilisers (choosing representatives).",
+   "hypotheses": [
+    "No invertibility hypothesis: the sequence is exact integrally.",
+    "The cusp stabilisers Γ_c are the conjugates of Γ ∩ ⟨±T⟩, cyclic modulo ±1."
+   ],
+   "proofSteps": [
+    "Apply Hom_{ℤ[Γ]}(−, V) to 0 → Δ₀ → ℤ[P¹(ℚ)] → ℤ → 0 (degree sequence, imported with Δ₀) and take the long exact Ext sequence.",
+    "Ext⁰ = Hom_Γ gives V^Γ, BSymb_Γ(V) and Symb_Γ(V); Ext¹_{ℤ[Γ]}(ℤ, V) = H¹(Γ, V) (groupCohomologyIsoExt).",
+    "ℤ[P¹(ℚ)] = ⊕_c ℤ[Γ/Γ_c] = ⊕_c Ind_{Γ_c}^Γ ℤ, so Ext¹_{ℤ[Γ]}(ℤ[P¹(ℚ)], V) = ⊕_c Ext¹_{ℤ[Γ_c]}(ℤ, V) = ⊕_c H¹(Γ_c, V) (Shapiro/Eckmann), and the map from H¹(Γ, V) is restriction.",
+    "Identify the connecting homomorphism with δ up to sign (symbols-to-cohomology, last step)."
+   ],
+   "acceptance": [
+    "Γ = Γ₀(11), V = ℚ: 0 → ℚ → ℚ² → ℚ³ → ℚ³ → ℚ², with H¹(Γ₀(11), ℚ) = Hom(Γ₀(11), ℚ) of dimension 3 = 2g + (c − 1) (the image of Γ₀(11) in PSL₂(ℤ) is free of rank 3), Eis of dimension 1 and image of δ the 2-dimensional parabolic part.",
+    "For V with V^{Γ_c} = 0 at every cusp the boundary terms vanish and Symb_Γ(V) ↪ H¹(Γ, V).",
+    "Exactness at Symb_Γ(V): ker δ = Eis_Γ(V)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/boundary-symbols",
+    "ModularSymbolsPadicLFunctions:L0/symbols-to-cohomology",
+    "mathlib:groupCohomologyIsoExt",
+    "mathlib:groupCohomology.coindIso",
+    "mathlib:groupCohomology.mapShortComplex₂_exact",
+    "mathlib:groupCohomology.mapShortComplex₃_exact",
+    "mathlib:groupCohomology.resNatTrans"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§4.4, Proposition 4.14, p. 50",
+     "match": "The cusp-restriction sequence and its identification of the cusp terms, used for the last map."
+    },
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§2.1, p. 7",
+     "match": "The topological form of the comparison, requested from ModularCurvesPartII R14.3; the algebraic sequence here needs no hypothesis."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Boundary exact sequence"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Parabolic cohomology",
+   "kind": "definition",
+   "statement": "H¹_par(Γ, V) := ker(H¹(Γ, V) → ⊕_{c ∈ Γ\\P¹(ℚ)} H¹(Γ_c, V)), the classes whose restriction to every cusp stabiliser vanishes; for the PSL₂(ℤ) formulation the index set is Γ\\PSL₂(ℤ)/⟨T⟩ with groups Γ ∩ ⟨gTg^{-1}⟩.",
+   "hypotheses": [
+    "Γ of finite index in SL₂(ℤ) or PSL₂(ℤ); V a left representation.",
+    "The kernel is independent of the choice of cusp representatives (conjugate restrictions have the same kernel)."
+   ],
+   "proofSteps": [
+    "Define it as the kernel of the product of restriction maps (Mathlib's resNatTrans) over chosen representatives.",
+    "Independence of representatives: restriction to Γ_{γc} = γΓ_cγ^{-1} is restriction to Γ_c composed with conjugation by γ, an isomorphism."
+   ],
+   "acceptance": [
+    "For V = ℚ and Γ = Γ₀(11), dim H¹_par = 2 = 2g.",
+    "H¹_par(SL₂(ℤ), V_k(ℚ)) = 0 for k = 0.",
+    "H¹_par is stable under Hecke operators on H¹ (Wiese Proposition 7.22)."
+   ],
+   "prerequisites": [
+    "mathlib:groupCohomology",
+    "mathlib:groupCohomology.resNatTrans",
+    "mathlib:CongruenceSubgroup.Gamma0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Cohomology",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§6.3, Definition 6.12, p. 66",
+     "match": "The definition, at the level of cocycles; the cohomology version is the kernel in Proposition 4.14."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/symbols-mod-eisenstein",
+     "how": "the target of Symb_Γ(V)/Eis_Γ(V)."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology-dimension",
+     "how": "its dimension."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism",
+     "how": "the target of the Eichler–Shimura map on cusp forms."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.H1par",
+     "role": "constructor",
+     "statement": "H¹_par(Γ, V) as a submodule of H¹(Γ, V)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.mem_H1par_iff",
+     "role": "characterisation",
+     "statement": "c ∈ H¹_par ↔ ∀ cusps c₀, res_{Γ_{c₀}} c = 0."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.H1par_hecke",
+     "role": "compatibility",
+     "statement": "H¹_par is stable under T_n and ⟨d⟩."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.H1par_baseChange",
+     "role": "functoriality",
+     "statement": "H¹_par commutes with flat base change of coefficients when V is finitely presented."
+    }
+   ],
+   "tests": [
+    {
+     "name": "H1par_Gamma0_11",
+     "kind": "example",
+     "statement": "dim_ℚ H¹_par(Γ₀(11), ℚ) = 2."
+    },
+    {
+     "name": "H1par_level_one",
+     "kind": "example",
+     "statement": "H¹_par(SL₂(ℤ), ℚ) = 0."
+    },
+    {
+     "name": "H1par_ne_H1",
+     "kind": "non-example",
+     "statement": "H¹_par(Γ₀(11), ℚ) ≠ H¹(Γ₀(11), ℚ) (dimension 2 against 3)."
+    }
+   ],
+   "planet": {
+    "name": "Parabolic cohomology"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/symbols-mod-eisenstein",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Modular symbols modulo Eisenstein symbols are parabolic cohomology",
+   "kind": "theorem",
+   "statement": "δ induces an isomorphism Symb_Γ(V)/Eis_Γ(V) ≅ H¹_par(Γ, V), compatible with the Hecke operators, the diamond operators and ι.",
+   "hypotheses": [
+    "Γ ≤ SL₂(ℤ) of finite index; any right ℤ[Γ]-module V; no invertibility hypothesis."
+   ],
+   "proofSteps": [
+    "By symbols-cohomology-sequence, ker δ = Eis_Γ(V) and the image of δ is the kernel of the restriction to the cusp stabilisers, which is H¹_par(Γ, V).",
+    "Hecke compatibility: δ commutes with T (symbols-to-cohomology API), and Eis_Γ(V) is Hecke-stable (boundary-symbols API)."
+   ],
+   "acceptance": [
+    "For V = ℚ, Γ = Γ₀(11): Symb (dimension 3) modulo Eis (dimension 1) ≅ H¹_par (dimension 2).",
+    "For V_k(ℂ) with k ≥ 1 and Γ torsion-free the Eisenstein part has dimension ν∞ (one per cusp).",
+    "The isomorphism commutes with ι, so it induces Symb^± / Eis^± ≅ H¹_par^± when 2 is invertible."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/symbols-cohomology-sequence",
+    "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology",
+    "ModularSymbolsPadicLFunctions:L0/boundary-symbols"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Cohomology",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§5.2, Theorem 5.9, p. 57",
+     "match": "The homological counterpart (cuspidal symbols = parabolic cohomology); the Hom-side statement here follows from the exact sequence without the invertibility hypothesis."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/symbols-level-descent",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Descent of modular symbols from a normal subgroup",
+   "kind": "lemma",
+   "statement": "Let Γ′ ⊴ Γ be finite-index subgroups of SL₂(ℤ) and V a right ℤ[Γ]-module. Then Γ/Γ′ acts on Symb_{Γ′}(V) by φ ↦ φ|γ, and Symb_Γ(V) = Symb_{Γ′}(V)^{Γ/Γ′}, integrally and with no division. If [Γ : Γ′] is invertible on V, then restriction gives H¹(Γ, V) ≅ H¹(Γ′, V)^{Γ/Γ′} and H¹_par(Γ, V) ≅ H¹_par(Γ′, V)^{Γ/Γ′}, and Symb_Γ(V) is a direct summand of Symb_{Γ′}(V) via the averaging idempotent e = [Γ:Γ′]^{-1} Σ_{γ ∈ Γ/Γ′} (·)|γ.",
+   "hypotheses": [
+    "Γ′ normal in Γ of finite index. In applications Γ′ = Γ ∩ Γ₁(M) with M ≥ 4 is torsion-free, so all stabilisers in H are trivial.",
+    "Only the second and third statements use that [Γ : Γ′] is invertible; the first holds over ℤ. Dividing by the order of an elliptic stabiliser is never used."
+   ],
+   "proofSteps": [
+    "(φ|γ)(D) = φ(γD)|γ is well defined on Symb_{Γ′}(V) because Γ′ is normal, and Γ′ acts trivially; a Γ′-symbol fixed by all of Γ is a Γ-symbol, and conversely.",
+    "Inflation–restriction: 0 → H¹(Γ/Γ′, V^{Γ′}) → H¹(Γ, V) → H¹(Γ′, V)^{Γ/Γ′} → H²(Γ/Γ′, V^{Γ′}); the outer groups are killed by [Γ : Γ′], hence vanish when it is invertible (H1InfRes_exact and the corestriction–restriction identity).",
+    "The same argument at every cusp stabiliser shows that the restriction isomorphism preserves the parabolic subspaces.",
+    "e is an idempotent onto the invariants when [Γ : Γ′] is invertible."
+   ],
+   "acceptance": [
+    "Γ = Γ₀(N), Γ′ = Γ₁(N): Symb_{Γ₀(N)}(V) = Symb_{Γ₁(N)}(V)^{(ℤ/N)^×} for the diamond action.",
+    "Γ = SL₂(ℤ), Γ′ = Γ(4) (normal and torsion-free): Symb_{SL₂(ℤ)}(V_k(ℤ)) = Symb_{Γ(4)}(V_k(ℤ))^{SL₂(ℤ)/Γ(4)} over ℤ, with no division by 2 or 3.",
+    "The cohomological statements need the index inverted: for V = 𝔽₂ trivial, Γ = SL₂(ℤ) and Γ′ = ker χ, χ : SL₂(ℤ) → SL₂(ℤ)^{ab} ≅ ℤ/12 → 𝔽₂, the nonzero class χ ∈ H¹(Γ, 𝔽₂) restricts to zero on Γ′."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology",
+    "mathlib:groupCohomology.H1InfRes_exact",
+    "mathlib:groupCohomology.resNatTrans",
+    "mathlib:CongruenceSubgroup.Gamma1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Descent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§6.2, Proposition 6.8, p. 64",
+     "match": "The same inflation–restriction mechanism, with the invertibility it needs made explicit."
+    },
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§4.5, Proposition 4.16, p. 51",
+     "match": "The torsion-free auxiliary levels used for descent."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/diamond-operators",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Diamond operators on modular symbols",
+   "kind": "construction",
+   "statement": "Let V be a right ℤ[Γ₀(N)]-module (for instance the restriction of a right Σ₀(N)-module). For d ∈ (ℤ/N)^× choose σ_d ∈ Γ₀(N) whose lower-right entry is ≡ d mod N, and put ⟨d⟩φ := φ|σ_d, i.e. (⟨d⟩φ)(D) = φ(σ_d D)|σ_d, for φ ∈ Symb_{Γ₁(N)}(V). This is independent of the choice of σ_d, defines a homomorphism (ℤ/N)^× → Aut(Symb_{Γ₁(N)}(V)), and commutes with T_ℓ (ℓ ∤ N), U_q (q | N) and ι.",
+   "hypotheses": [
+    "Γ₁(N) ⊴ Γ₀(N) with Γ₀(N)/Γ₁(N) ≅ (ℤ/N)^× via the lower-right entry (Mathlib's Gamma0Map).",
+    "Convention: the lower-right entry d, as in Tau Ceti's diamondOp on forms; with the upper-left entry one gets ⟨d^{-1}⟩."
+   ],
+   "proofSteps": [
+    "Well defined: two choices differ by an element of Γ₁(N), which fixes every Γ₁(N)-symbol.",
+    "Multiplicativity: σ_d σ_e has lower-right entry ≡ de, and φ|(σ_dσ_e) = (φ|σ_d)|σ_e; the group is abelian, so the order does not matter.",
+    "Commutation with T_ℓ and U_q: the double cosets Γ₁(N)(1 0; 0 ℓ)Γ₁(N) are normalised by Γ₀(N); commutation with ι: ι σ_d ι has the same lower-right entry."
+   ],
+   "acceptance": [
+    "⟨1⟩ = id and ⟨−1⟩ = (·)|(−1), which is the identity on Symb_{Γ₁(N)}(V_k) iff k is even.",
+    "Symb_{Γ₁(N)}(V)^{⟨·⟩} = Symb_{Γ₀(N)}(V) (symbols-level-descent).",
+    "Under the period-symbol map, ⟨d⟩ψ_f = ψ_{⟨d⟩f} with Tau Ceti's diamondOp on S_{k+2}(Γ₁(N))."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators",
+    "ModularSymbolsPadicLFunctions:L0/involution-at-infinity",
+    "mathlib:CongruenceSubgroup.Gamma1",
+    "mathlib:CongruenceSubgroup.Gamma0Map",
+    "tauceti:HeckeRing.GL2.diamondCosetGamma1",
+    "tauceti:diamondOp"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Hecke",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§1.2, Hecke operators, p. 10",
+     "match": "The definition on (homological) modular symbols; here transported to Hom-side symbols."
+    },
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§7.3, Definition 7.23, p. 76",
+     "match": "The same operator on group cohomology."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/nebentypus-symbols",
+     "how": "the eigenspaces defining symbols with character."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/period-symbol",
+     "how": "equivariance with diamondOp on forms."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L4",
+     "how": "tame character twists."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.diamond",
+     "role": "constructor",
+     "statement": "⟨d⟩ : Symb_{Γ₁(N)}(V) →ₗ Symb_{Γ₁(N)}(V)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.diamondHom",
+     "role": "structure",
+     "statement": "(ℤ/N)^× →* Module.End ℤ (Symb_{Γ₁(N)}(V))."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.diamond_eq_of_Gamma0Map_eq",
+     "role": "relation",
+     "statement": "⟨d⟩ depends only on the lower-right entry mod N."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.diamond_comm_hecke",
+     "role": "relation",
+     "statement": "⟨d⟩T_ℓ = T_ℓ⟨d⟩, ⟨d⟩U_q = U_q⟨d⟩, ⟨d⟩ι = ι⟨d⟩."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.fixed_diamond_eq",
+     "role": "characterisation",
+     "statement": "The ⟨·⟩-fixed symbols are the Γ₀(N)-symbols."
+    }
+   ],
+   "tests": [
+    {
+     "name": "diamond_one",
+     "kind": "simp",
+     "statement": "⟨1⟩ = id."
+    },
+    {
+     "name": "diamond_neg_one_Vk",
+     "kind": "example",
+     "statement": "⟨−1⟩ acts on Symb_{Γ₁(N)}(V_k(ℤ)) by (−1)^k."
+    },
+    {
+     "name": "diamond_trivial_Gamma0",
+     "kind": "example",
+     "statement": "On Symb_{Γ₀(N)}(V) (viewed inside Symb_{Γ₁(N)}(V)) every ⟨d⟩ is the identity."
+    },
+    {
+     "name": "diamond_upper_left_wrong",
+     "kind": "non-example",
+     "statement": "Using the upper-left entry instead gives ⟨d^{-1}⟩, which differs for N = 5, d = 2 on Symb_{Γ₁(5)}(V₁(ℂ))."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/hecke-operators-gamma1",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Hecke operators on Γ₁(N)-symbols",
+   "kind": "construction",
+   "statement": "For V a right module over the monoid Σ₁(N) generated by Γ₁(N), Γ₀(N) and the matrices (1 a; 0 ℓ), (ℓ 0; 0 1) with (ℓ, N) = 1 (inside Σ₀(N)), and φ ∈ Symb_{Γ₁(N)}(V): for a prime ℓ ∤ N, φ|T_ℓ := Σ_{a=0}^{ℓ−1} φ|(1 a; 0 ℓ) + φ|σ_ℓ(ℓ 0; 0 1), and for q | N, φ|U_q := Σ_{a=0}^{q−1} φ|(1 a; 0 q). These preserve Symb_{Γ₁(N)}(V), commute with each other and with the diamond operators, and restrict to the Γ₀(N) operators of hecke-operators on Symb_{Γ₀(N)}(V).",
+   "hypotheses": [
+    "σ_ℓ ∈ Γ₀(N) has lower-right entry ≡ ℓ mod N (so σ_ℓ(ℓ 0; 0 1) ∈ Δ¹ₗ(N)), as in the double-coset decomposition Δ^ℓ_1(N) = ⊔ Γ₁(N)σ_a(a b; 0 d).",
+    "On Symb_{Γ₀(N)}(V), σ_ℓ acts trivially and T_ℓ reduces to the Γ₀(N) formula."
+   ],
+   "proofSteps": [
+    "The matrices listed are right coset representatives of Γ₁(N)(1 0; 0 ℓ)Γ₁(N) (Wiese Proposition 7.9(b)); φ|T := Σ φ|δ_i is then Γ₁(N)-invariant because right multiplication by γ ∈ Γ₁(N) permutes the cosets.",
+    "Commutativity: the Hecke ring R(Δ₁(N), Γ₁(N)) is commutative (Wiese Corollary 7.14; Tau Ceti's Γ₀(N) Hecke ring for the Γ₀ case), and φ ↦ φ|T is a ring antihomomorphism from it, hence a homomorphism on a commutative ring.",
+    "Diamond commutation as in diamond-operators."
+   ],
+   "acceptance": [
+    "On Symb_{Γ₁(N)}(V)[ε] (nebentypus-symbols), T_ℓ reads Σ_a φ|(1 a; 0 ℓ) + ε(ℓ)φ|(ℓ 0; 0 1).",
+    "T_ℓ T_m = T_m T_ℓ for primes ℓ, m ∤ N.",
+    "Under the period-symbol map, ψ_{T_ℓ f} = ψ_f|T_ℓ with the Hecke operators on S_{k+2}(Γ₁(N))."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators",
+    "ModularSymbolsPadicLFunctions:L0/diamond-operators",
+    "ModularSymbolsPadicLFunctions:L0/hecke-monoid",
+    "mathlib:CongruenceSubgroup.Gamma1",
+    "tauceti:HeckeRing.GL2.diamondCosetGamma1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Hecke",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§7.1, Proposition 7.9(b), p. 72",
+     "match": "The coset representatives for Γ₁(N)."
+    },
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2.9, p. 10",
+     "match": "The double-coset definition on Hom-side symbols."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism",
+     "how": "Hecke equivariance at level Γ₁(N)."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/eigenspace-dimension",
+     "how": "eigensystems of newforms with character."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.heckeTGamma1",
+     "role": "constructor",
+     "statement": "T_ℓ on Symb_{Γ₁(N)}(V), ℓ ∤ N."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.heckeUGamma1",
+     "role": "constructor",
+     "statement": "U_q on Symb_{Γ₁(N)}(V), q | N."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.heckeTGamma1_comm",
+     "role": "relation",
+     "statement": "The T_ℓ, U_q and ⟨d⟩ pairwise commute."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.heckeTGamma1_restrict",
+     "role": "compatibility",
+     "statement": "On Symb_{Γ₀(N)}(V) these are the operators of hecke-operators."
+    }
+   ],
+   "tests": [
+    {
+     "name": "heckeT_Gamma1_restrict",
+     "kind": "characterisation",
+     "statement": "T_ℓ restricted to Γ₀(N)-symbols is Σ φ|(1 a; 0 ℓ) + φ|(ℓ 0; 0 1)."
+    },
+    {
+     "name": "heckeT_Gamma1_Gamma0_part",
+     "kind": "example",
+     "statement": "On the Γ₀(11)-part Symb_{Γ₁(11)}(ℚ)[1] = Symb_{Γ₀(11)}(ℚ), T₂ has characteristic polynomial (x − 3)(x + 2)², as in hecke-operators."
+    },
+    {
+     "name": "heckeT_Gamma1_missing_sigma",
+     "kind": "non-example",
+     "statement": "Omitting σ_ℓ gives an operator that does not preserve Symb_{Γ₁(N)}(V) for N = 5, ℓ = 2, V = V₁."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/nebentypus-symbols",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Modular symbols with character",
+   "kind": "definition",
+   "statement": "For a ring R, a right R[Γ₀(N)]-module V and a character ε : (ℤ/N)^× → R^×, Symb_{Γ₁(N)}(V)[ε] := {φ : ⟨d⟩φ = ε(d)φ for all d}. Equivalently it is Symb_{Γ₀(N)}(V ⊗ R_{ε}), where R_{ε} is R with the right Γ₀(N)-action r·γ = ε(d_γ)^{-1}r (d_γ the lower-right entry).",
+   "hypotheses": [
+    "ε(−1) acts compatibly: if ε(−1) ≠ (−1)^k then Symb_{Γ₁(N)}(V_k(R))[ε] = 0 when 2 is invertible.",
+    "The twist uses the lower-right entry and ε^{-1}, matching the diamond convention of diamond-operators."
+   ],
+   "proofSteps": [
+    "Unwind ⟨d_γ⟩φ = ε(d_γ)φ for γ ∈ Γ₀(N): φ(γD)|γ = ε(d_γ)φ(D), i.e. φ(γD) = ε(d_γ)·φ(D)|γ^{-1}, which is Γ₀(N)-invariance for V ⊗ R_{ε}.",
+    "The eigenspace is a Hecke-stable submodule because the diamond operators commute with T_ℓ and U_q."
+   ],
+   "acceptance": [
+    "ε = 1 gives Symb_{Γ₀(N)}(V).",
+    "For V = V_k(ℂ) and ε(−1) ≠ (−1)^k the space is zero.",
+    "Under the period-symbol map, S_{k+2}(N, ε) (Tau Ceti's cuspFormCharSpace) lands in Symb_{Γ₁(N)}(V_k(ℂ))[ε]."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/diamond-operators",
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "tauceti:cuspFormCharSpace"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Hecke",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§1.2, The modules Vn(R) and Vχn(R), pp. 8–9",
+     "match": "Symbols with character as symbols for Γ₀(N) with twisted coefficients (homological version)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/nebentypus-decomposition",
+     "how": "the summands."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/eigenspace-dimension",
+     "how": "eigenspaces of newforms with character."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L1",
+     "how": "the plus/minus eigenspaces of a newform with nebentypus."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.symbolsChar",
+     "role": "constructor",
+     "statement": "Symb_{Γ₁(N)}(V)[ε] as a submodule."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.symbolsChar_equiv",
+     "role": "equivalence",
+     "statement": "Symb_{Γ₁(N)}(V)[ε] ≃ Symb_{Γ₀(N)}(V ⊗ R_ε)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.symbolsChar_hecke",
+     "role": "compatibility",
+     "statement": "Stable under T_ℓ, U_q and ι."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.symbolsChar_one",
+     "role": "simp",
+     "statement": "Symb_{Γ₁(N)}(V)[1] = Symb_{Γ₀(N)}(V)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "symbolsChar_trivial",
+     "kind": "example",
+     "statement": "ε = 1 recovers Symb_{Γ₀(N)}(V)."
+    },
+    {
+     "name": "symbolsChar_parity",
+     "kind": "example",
+     "statement": "Symb_{Γ₁(N)}(V_k(ℂ))[ε] = 0 when ε(−1) ≠ (−1)^k."
+    },
+    {
+     "name": "symbolsChar_wrong_twist",
+     "kind": "non-example",
+     "statement": "With r·γ = ε(d_γ)r (no inverse) one gets the ε^{-1}-eigenspace instead, which differs for a non-real ε mod 5."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/nebentypus-decomposition",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The character decomposition of Γ₁(N)-symbols",
+   "kind": "theorem",
+   "statement": "If |(ℤ/N)^×| is invertible in R and R contains the values of all characters of (ℤ/N)^× (for instance R = ℤ[1/φ(N), μ_{φ(N)}] or a field of characteristic 0 containing them), then Symb_{Γ₁(N)}(V) = ⊕_ε Symb_{Γ₁(N)}(V)[ε] as an internal direct sum over the characters ε, compatibly with T_ℓ, U_q and ι.",
+   "hypotheses": [
+    "The idempotents e_ε = |G|^{-1} Σ_d ε(d)^{-1}⟨d⟩, G = (ℤ/N)^×, need |G| invertible and the values of ε in R."
+   ],
+   "proofSteps": [
+    "The e_ε are orthogonal idempotents summing to 1 in R[G] (character orthogonality).",
+    "e_ε projects onto the ε-eigenspace of the diamond action; they commute with Hecke operators and ι."
+   ],
+   "acceptance": [
+    "Over ℂ this mirrors Tau Ceti's isInternal_cuspFormCharSpace on the forms side.",
+    "Over ℤ the decomposition fails in general (the idempotents are not integral).",
+    "The ε = 1 summand is Symb_{Γ₀(N)}(V)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/nebentypus-symbols",
+    "ModularSymbolsPadicLFunctions:L0/diamond-operators",
+    "tauceti:isInternal_cuspFormCharSpace"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Hecke",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§1.2, equation (1.8), p. 8",
+     "match": "The corresponding decomposition for forms; the symbol version is the same idempotent argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/symbols-coinvariants-duality",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Hom-side symbols are the dual of homological symbols",
+   "kind": "comparison",
+   "statement": "For finite-index Γ, a left ℤ[Γ]-module W, and an abelian group M with trivial action, give Hom_ℤ(W, M) the right action (f|γ)(w) = f(γw). Then Symb_Γ(Hom_ℤ(W, M)) ≅ Hom_ℤ((Δ₀ ⊗ W)_Γ, M), φ ↦ ([D ⊗ w] ↦ φ(D)(w)), naturally in W and M. If W is a left module over a monoid Σ ⊇ Γ (Σ₀(N), Σ₁(N) or GL₂⁺(ℚ) ∩ M₂(ℤ)), the Hecke operator Σ_i φ|δ_i corresponds to precomposition with the operator [D ⊗ w] ↦ Σ_i [δ_i D ⊗ δ_i w] on the coinvariants, and likewise for ⟨d⟩ and ι. With W = Sym^{k}(ℤ²) this identifies Symb_Γ(Hom(Sym^k ℤ², M)) with the ℤ-dual (with values in M) of ModularForms Layer 8's module 𝕄, transposing its Hecke operators.",
+   "hypotheses": [
+    "(Δ₀ ⊗ W)_Γ is the Γ-coinvariants of the diagonal action; Layer 8 uses Γ = Γ₁(N) and W = Sym^{k−2}(ℤ²).",
+    "The Hecke identification needs the same coset representatives δ_i on both sides; the transpose reverses composition, and commutativity of the Hecke algebra makes this harmless."
+   ],
+   "proofSteps": [
+    "Tensor–hom adjunction: Hom_ℤ(Δ₀ ⊗ W, M) ≅ Hom_ℤ(Δ₀, Hom_ℤ(W, M)).",
+    "Γ-invariant maps on the left correspond to Γ-equivariant maps on the right (coinvariants are left adjoint to the trivial-module functor, Rep.coinvariantsAdjunction; Rep.coinvariantsTensor).",
+    "For the Hecke operators, (φ|δ)(D)(w) = (φ(δD)|δ)(w) = φ(δD)(δw), so φ|T evaluated on [D ⊗ w] is φ evaluated on Σ_i [δ_iD ⊗ δ_iw]."
+   ],
+   "acceptance": [
+    "For W = ℤ trivial and M = ℤ: Symb_Γ(ℤ) = Hom((Δ₀)_Γ, ℤ).",
+    "For Γ₀(11), W = ℤ: rank (Δ₀)_Γ = 3 = rank Symb_{Γ₀(11)}(ℤ).",
+    "Torsion in 𝕄 is invisible after Hom(−, ℤ) but visible for M = ℚ/ℤ."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators-gamma1",
+    "mathlib:Rep.coinvariantsTensor",
+    "mathlib:Rep.coinvariantsAdjunction",
+    "mathlib:Representation.linHom"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Duality",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§1.2, Definition 1.5(a), p. 7",
+     "match": "The homological symbol module, the other side of the duality."
+    },
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2.9, p. 10",
+     "match": "The Hom-side symbols."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/polynomial-duality",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The invariant pairing between V_k and Sym^k",
+   "kind": "lemma",
+   "statement": "Let W_k(R) = R[X, Y]_k with the left action (γ·Q)(X, Y) = Q((X, Y)γ) and V_k(R) the same module with the right action (P|γ)(X, Y) = P((X, Y)γ*), γ* = adj γ (polynomial-coefficients). If k! is invertible in R there is a unique R-bilinear pairing ⟨ , ⟩ : V_k(R) × W_k(R) → R with ⟨(uX + vY)^k, (sX + tY)^k⟩ = (ut − vs)^k for all u, v, s, t ∈ R; on monomials ⟨X^iY^{k−i}, X^jY^{k−j}⟩ = (−1)^{k−i}/C(k, i) if i + j = k and 0 otherwise. It is perfect and satisfies ⟨P|γ, Q⟩ = ⟨P, γ·Q⟩ for every integral γ with det γ ≠ 0; so P ↦ ⟨P, ·⟩ is an isomorphism of right modules V_k(R) ≅ Hom_R(W_k(R), R). Over ℤ the pairing takes values in ℤ[1/k!] and is not integral for k ≥ 2.",
+   "hypotheses": [
+    "k! ∈ R^× for the pairing to exist on all of V_k(R) × W_k(R); no determinant twist appears.",
+    "The integral comparison of Symb_Γ(V_k(ℤ)) with Hom(𝕄, ℤ) goes through the divided-power lattice and belongs to L1's integral-lattice work."
+   ],
+   "proofSteps": [
+    "Write ℓ_a(X, Y) = a₁X + a₂Y; then P|γ turns ℓ_a^k into ℓ_{γ*a}^k and γ·Q turns ℓ_b^k into ℓ_{γb}^k.",
+    "det(γ*a | b) = det(γ*)·det(a | γ*^{-1}b) = det γ · det(a | γb)/det γ = det(a | γb), so the formula is invariant.",
+    "Expanding both sides in monomials forces ⟨X^iY^{k−i}, X^{k−i}Y^{i}⟩·C(k, i)² = C(k, i)(−1)^{k−i}, giving the stated values; they span when k! is invertible, and the matrix is anti-diagonal with unit entries, so the pairing is perfect."
+   ],
+   "acceptance": [
+    "k = 1: ⟨uX + vY, sX + tY⟩ = ut − vs, the determinant pairing.",
+    "k = 2: ⟨XY, XY⟩ = −1/2, so the pairing is not integral.",
+    "Invariance check with γ = (1 1; 0 1), k = 2, P = X², Q = Y²."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/polynomial-coefficients",
+    "mathlib:Matrix.adjugate",
+    "mathlib:Matrix.adjugate_mul",
+    "mathlib:MvPolynomial.homogeneousSubmodule"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Duality",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§1.2, The modules Vn(R) and Vχn(R), p. 8",
+     "match": "The relation between the adjugate and the plain matrix actions on binary forms."
+    },
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2.7, p. 9",
+     "match": "The right action on V_k."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/period-symbol",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The period symbol of a cusp form",
+   "kind": "construction",
+   "statement": "For k ≥ 0, Γ ≤ SL₂(ℤ) of finite index and f ∈ S_{k+2}(Γ), ψ_f : Δ₀ → V_k(ℂ) is the additive map with ψ_f({s} − {r}) = 2πi ∫_r^s f(z)(zX + Y)^k dz (geodesic path in H, improper at cusps). Then ψ_f ∈ Symb_Γ(V_k(ℂ)), f ↦ ψ_f is ℂ-linear, ψ_{f|δ} relates to ψ_f|δ for the weight-(k+2) slash action f|δ = det(δ)^{k+1}(cz + d)^{−k−2}f(δz), so ψ_{T f} = ψ_f|T for T_ℓ, U_q and ⟨d⟩. Under polynomial-duality and symbols-coinvariants-duality, ⟨ψ_f(D), Q⟩ = 2πi · periodMap′(f)(D ⊗ w·Q) with w = (0 1; −1 0), i.e. ψ_f is Layer 8's period map transported to the Hom side.",
+   "hypotheses": [
+    "Convergence at cusps: f is a cusp form (exponential decay at every cusp); this analytic input is Layer 8's convergence milestone.",
+    "Orientation: {s} − {r} is the path from r to s; Layer 8's rawPairing integrates {α, β} from β to α."
+   ],
+   "proofSteps": [
+    "Well defined on Δ₀: additivity over paths (path independence of holomorphic integrals in H) makes the value on {s} − {r} consistent with the relations of Δ₀.",
+    "Γ-invariance: substituting z = γu gives ∫_{γr}^{γs} f(z)(zX + Y)^k dz = ∫_r^s f(u)(u X + Y)^k|γ^{-1} du, i.e. ψ_f(γD) = ψ_f(D)|γ^{-1}.",
+    "Hecke equivariance: the same substitution for δ ∈ Σ₀(N) gives ψ_{f|δ}(D) = ψ_f(δD)|δ; summing over coset representatives.",
+    "Comparison with Layer 8: ⟨(zX + Y)^k, Q⟩ = (w·Q)(z, 1) with w = (0 1; −1 0), as one checks on Q = (sX + tY)^k where both sides equal (tz − s)^k; so pairing ψ_f with Q is 2πi times Layer 8's rawPairing on D ⊗ w·Q."
+   ],
+   "acceptance": [
+    "For Γ₀(11), k = 0 and f = q∏(1 − q^n)²(1 − q^{11n})², ψ_f({0} − {∞}) = 2πi ∫_{i∞}^0 f(z) dz = L(f, 1) > 0 (AWS §§2.1–2.2).",
+    "ψ_f({0} − {∞}) = Σ_{j=0}^{k} C(k, j) j!(−2πi)^{−j} L(f, j + 1) X^jY^{k−j} (AWS §2.8), the bridge to L1.",
+    "ψ_f is cuspidal: δ(ψ_f) ∈ H¹_par(Γ, V_k(ℂ)) (Wiese Proposition 6.9)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/polynomial-coefficients",
+    "ModularSymbolsPadicLFunctions:L0/polynomial-duality",
+    "ModularSymbolsPadicLFunctions:L0/symbols-coinvariants-duality",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators-gamma1",
+    "ModularSymbolsPadicLFunctions:L0/diamond-operators",
+    "mathlib:CuspForm",
+    "mathlib:UpperHalfPlane",
+    "tauceti:diamondOp"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/PeriodSymbol",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2.7, p. 9",
+     "match": "The definition (weight k there is weight k + 2 here)."
+    },
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2.7, p. 9",
+     "match": "Γ-invariance; the computation is written out in the proof steps."
+    },
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§6.2, Proposition 6.9, p. 65",
+     "match": "Cuspidality of the cohomology class."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism",
+     "how": "the map from cusp forms."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L1",
+     "how": "the plus/minus eigensymbols and their periods; the L-value formula at {0} − {∞}."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2",
+     "how": "the classical symbol lifted to distribution-valued symbols."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.periodSymbol",
+     "role": "constructor",
+     "statement": "ψ : S_{k+2}(Γ) →ₗ[ℂ] Symb_Γ(V_k(ℂ))."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.periodSymbol_apply",
+     "role": "characterisation",
+     "statement": "ψ_f({s} − {r}) = 2πi ∫_r^s f(z)(zX + Y)^k dz."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.periodSymbol_hecke",
+     "role": "compatibility",
+     "statement": "ψ_{T f} = ψ_f|T for T_ℓ, U_q, ⟨d⟩."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.periodSymbol_eq_periodMap",
+     "role": "compatibility",
+     "statement": "⟨ψ_f(D), Q⟩ = 2πi · periodMap′(f)(D ⊗ w·Q) (Layer 8)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.periodSymbol_injective",
+     "role": "characterisation",
+     "statement": "f ↦ ψ_f is injective (Layer 8's injectivity, transported)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "periodSymbol_Gamma0_11_real",
+     "kind": "example",
+     "statement": "ψ_f({0} − {∞}) ∈ ℝ for the weight-two newform of level 11."
+    },
+    {
+     "name": "periodSymbol_Lvalue",
+     "kind": "example",
+     "statement": "The X^0Y^k coefficient of ψ_f({0} − {∞}) is L(f, 1) (j = 0 term)."
+    },
+    {
+     "name": "periodSymbol_zero",
+     "kind": "example",
+     "statement": "ψ_0 = 0."
+    },
+    {
+     "name": "periodSymbol_wrong_action",
+     "kind": "non-example",
+     "statement": "With the unadjugated action P((X, Y)γ) the map f ↦ ψ_f is not Γ₀(11)-invariant for k = 2."
+    }
+   ],
+   "planet": {
+    "name": "Period symbol"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology-dimension",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Dimension of parabolic cohomology",
+   "kind": "theorem",
+   "statement": "Let K be a field of characteristic 0 and Γ ≤ SL₂(ℤ) of finite index μ in PSL₂(ℤ) (index of the image) with trivial stabilisers in H (e.g. Γ₁(N), N ≥ 4), with ν∞ cusps. Then dim_K H¹(Γ, V_k(K)) = (k + 1)μ/6 + δ_{k,0} and dim_K H¹_par(Γ, V_k(K)) = (k + 1)μ/6 − ν∞ + 2δ_{k,0}.",
+   "hypotheses": [
+    "Characteristic 0 (the computation of T-invariants and coinvariants of V_k needs k!N to be invertible).",
+    "Trivial stabilisers, so Coind(V_k) has no invariants for the finite subgroups ⟨σ⟩, ⟨τ⟩ beyond those computed by Mayer–Vietoris."
+   ],
+   "proofSteps": [
+    "M = Coind_Γ^{PSL₂(ℤ)} V_k(K) has dimension (k + 1)μ; H¹(Γ, V_k) = H¹(PSL₂(ℤ), M) (Shapiro).",
+    "Mayer–Vietoris for PSL₂(ℤ) = ⟨σ⟩ ∗ ⟨τ⟩: 0 → M^G → M^{⟨σ⟩} ⊕ M^{⟨τ⟩} → M → H¹(G, M) → 0, with M^{⟨σ⟩} and M^{⟨τ⟩} of dimensions μ(k+1)/2 and μ(k+1)/3 when the stabilisers are trivial.",
+    "dim V_k(K)^Γ = δ_{k,0} and, at each cusp, dim H¹(⟨T^n⟩, V_k(K)) = dim V_k(K)^{⟨T^n⟩} = 1 (Wiese Lemma 4.15).",
+    "Combine with the exact row 0 → H¹_par → H¹ → ⊕_cusps H¹(Γ_c, V) → V_Γ → 0 of Wiese Proposition 4.14."
+   ],
+   "acceptance": [
+    "Γ₁(11) (μ = 60, ν∞ = 10), k = 0: dim H¹_par = 10 − 10 + 2 = 2 = 2·genus(X₁(11)) = 2·dim S₂(Γ₁(11)).",
+    "Γ₁(5) (μ = 12, ν∞ = 4): k = 0 gives dim H¹_par = 0 (X₁(5) has genus 0); k = 2 gives dim H¹_par = 2 = 2·dim S₄(Γ₁(5)).",
+    "The formula equals 2 dim S_{k+2}(Γ) by the dimension formula (request to ModularForms 10C), the input for Eichler–Shimura."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology",
+    "ModularSymbolsPadicLFunctions:L0/polynomial-coefficients",
+    "mathlib:groupCohomology",
+    "mathlib:groupCohomology.coindIso",
+    "mathlib:Rep.coind",
+    "mathlib:CongruenceSubgroup.Gamma1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Cohomology",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§4.5, Proposition 4.16, pp. 51–52",
+     "match": "The statement, with Wiese's weight k equal to our k + 2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "The Eichler–Shimura isomorphism",
+   "kind": "theorem",
+   "statement": "Let Γ ≤ SL₂(ℤ) be of finite index and k ≥ 0. The map S_{k+2}(Γ) ⊕ \\overline{S_{k+2}(Γ)} → H¹_par(Γ, V_k(ℂ)), (f, \\bar g) ↦ δ(ψ_f) + \\overline{δ(ψ_g)}, is an isomorphism compatible with the Hecke and diamond operators; for each sign ±, f ↦ δ((1 ± ι)ψ_f) is an isomorphism S_{k+2}(Γ) ≅ H¹_par(Γ, V_k(ℂ))^± when ι normalises Γ. Via symbols-mod-eisenstein the same holds for Symb_Γ(V_k(ℂ))/Eis_Γ(V_k(ℂ)).",
+   "hypotheses": [
+    "For Γ = Γ₁(N), N ≥ 4 (trivial stabilisers) this is Wiese Theorem 6.15; general Γ follows by symbols-level-descent from Γ ∩ Γ₁(M), M ≥ 4, over ℂ.",
+    "Uses the positive definite Petersson product on cusp forms (Tau Ceti CuspForm.peterssonInnerCosets_definite) and the dimension formula for S_{k+2}(Γ₁(N)) (request to ModularForms 10C)."
+   ],
+   "proofSteps": [
+    "Well defined and parabolic: δ(ψ_f) is a cocycle whose restriction to every cusp stabiliser is a coboundary (Wiese Propositions 6.7, 6.9).",
+    "Injective: the cup product and the invariant pairing on V_k give a pairing on H¹_par (Wiese Proposition 6.13, 6 invertible) which evaluates on (δψ_f, \\overline{δψ_f}) to a nonzero multiple of the Petersson norm of f (Proposition 6.14); positivity of the Petersson norm forces f = 0; likewise for \\bar g.",
+    "Dimensions: dim H¹_par(Γ₁(N), V_k(ℂ)) = (k + 1)μ/6 − ν∞ + 2δ_{k,0} (parabolic-cohomology-dimension) equals 2 dim S_{k+2}(Γ₁(N)) by the dimension formula; so the injective map is bijective.",
+    "Hecke compatibility: Wiese Proposition 7.24 (the Hecke operators on H¹ match slash operators through the period integrals), and ⟨d⟩ likewise; the ± statements follow as in Wiese Corollary 7.33 by dimension.",
+    "Descent to general Γ: apply symbols-level-descent with the Γ/Γ′-action, over ℂ."
+   ],
+   "acceptance": [
+    "Γ₀(11), k = 0: H¹_par(Γ₀(11), ℂ) is two-dimensional and S₂(Γ₀(11)) one-dimensional.",
+    "Level one, weight 12 (k = 10): H¹_par(SL₂(ℤ), V₁₀(ℂ))^± are one-dimensional, spanned by the images of Δ.",
+    "The map on the Eisenstein part: Eis_Γ(V_k(ℂ)) corresponds to Eisenstein series (Wiese Theorem 1.9(a)), not used here."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/period-symbol",
+    "ModularSymbolsPadicLFunctions:L0/symbols-to-cohomology",
+    "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology",
+    "ModularSymbolsPadicLFunctions:L0/parabolic-cohomology-dimension",
+    "ModularSymbolsPadicLFunctions:L0/symbols-mod-eisenstein",
+    "ModularSymbolsPadicLFunctions:L0/symbols-level-descent",
+    "ModularSymbolsPadicLFunctions:L0/polynomial-duality",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators-gamma1",
+    "ModularSymbolsPadicLFunctions:L0/plus-minus-decomposition",
+    "tauceti:CuspForm.peterssonInnerCosets_definite",
+    "mathlib:CuspForm"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/EichlerShimura",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§6.4, Theorem 6.15, p. 70",
+     "match": "The theorem for Γ₁(N), N ≥ 4."
+    },
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§7.5, Corollary 7.33, pp. 79–80",
+     "match": "The plus/minus versions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Eichler–Shimura isomorphism"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/symbols-base-change",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Modular symbols commute with flat base change",
+   "kind": "lemma",
+   "statement": "For Γ ≤ SL₂(ℤ) of finite index, a ring R, a right R[Γ]-module V and a flat R-algebra S, the natural map Symb_Γ(V) ⊗_R S → Symb_Γ(V ⊗_R S) is an isomorphism, compatible with Hecke, diamond and ι actions. In particular Symb_Γ(V_k(K)) ⊗_K ℂ = Symb_Γ(V_k(ℂ)) for a number field K ⊆ ℂ.",
+   "hypotheses": [
+    "Δ₀ is finitely presented as a ℤ[Γ]-module (fundamental-domain presentation, imported from Layer 8), so Symb_Γ(V) is the kernel of a map V^a → V^b given by a matrix over ℤ[Γ]."
+   ],
+   "proofSteps": [
+    "By symbols-generator-values, Symb_Γ(V) = ker(V^{a} → V^{b}) for a fixed matrix over ℤ[Γ] independent of V.",
+    "Kernels commute with flat base change."
+   ],
+   "acceptance": [
+    "Symb_{Γ₀(11)}(ℚ) ⊗ ℂ = Symb_{Γ₀(11)}(ℂ), both of dimension 3.",
+    "Flatness is needed: for p-torsion-free V, Symb_Γ(V) ⊗ 𝔽_p → Symb_Γ(V/p) is injective with cokernel Ext¹_{ℤ[Γ]}(Δ₀, V)[p], which need not vanish (Wiese's faithfulness warning after Proposition 1.8).",
+    "Hecke compatibility: T ⊗ 1 corresponds to T."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/symbols-generator-values",
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "mathlib:Module.Free"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Manin",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§1.2, Proposition 1.8, p. 10",
+     "match": "The homological analogue; the finite-presentation argument is the same."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L0/eigenspace-dimension",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L0",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "title": "Newform eigenspaces of modular symbols are one-dimensional",
+   "kind": "theorem",
+   "statement": "Let f ∈ S_{k+2}(Γ₁(N)) be a newform of level N with character ε and coefficient field K_f = ℚ(a_n(f), ε). For each sign ±, the subspace Symb_{Γ₁(N)}(V_k(K_f))^±[ε][λ_f] on which T_ℓ acts by a_ℓ(f) for every prime ℓ ∤ N is one-dimensional over K_f, it meets Eis_{Γ₁(N)} trivially, and after ⊗ℂ it is spanned by (1 ± ι)ψ_f.",
+   "hypotheses": [
+    "f a newform (Tau Ceti HeckeRing.GL2.Newform); multiplicity one: the λ_f-eigenspace of S_{k+2}(Γ₁(N)) away from N is ℂf (Tau Ceti finrank_cuspFormsNewEigenspace_eq_one).",
+    "No Eisenstein eigenform of weight k + 2 and level dividing N has T_ℓ-eigenvalues a_ℓ(f) for all ℓ ∤ N (requested from ModularForms Layer 5).",
+    "2 invertible (for ±); K_f contains the values of ε."
+   ],
+   "proofSteps": [
+    "Over ℂ: by eichler-shimura-isomorphism and symbols-mod-eisenstein, (Symb/Eis)^±[λ_f] ≅ S_{k+2}(Γ₁(N))[λ_f] = ℂf, one-dimensional.",
+    "Eis_{Γ₁(N)}(V_k(ℂ)) carries the Hecke eigenvalues of Eisenstein series of weight k + 2 (Wiese Theorem 1.9(a), proved there in Corollary 7.30); by the Layer 5 input none of them is λ_f, so Symb^±[λ_f] ∩ Eis = 0 and Symb^±[λ_f] ≅ (Symb/Eis)^±[λ_f].",
+    "Rational structure: Symb(V_k(K_f)) ⊗_{K_f} ℂ = Symb(V_k(ℂ)) (symbols-base-change), and taking λ_f-eigenspaces commutes with this flat base change because λ_f is K_f-valued; so dim_{K_f} = dim_ℂ = 1."
+   ],
+   "acceptance": [
+    "For the weight-two newform of level 11, Symb_{Γ₀(11)}(ℚ)^+[λ_f] is spanned by the plus symbol of E = X₀(11).",
+    "Level one, Δ: Symb_{SL₂(ℤ)}(V₁₀(ℚ))^±[λ_Δ] is one-dimensional over ℚ.",
+    "For an oldform eigensystem the eigenspace is at least two-dimensional; the newform hypothesis is necessary."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism",
+    "ModularSymbolsPadicLFunctions:L0/symbols-mod-eisenstein",
+    "ModularSymbolsPadicLFunctions:L0/symbols-base-change",
+    "ModularSymbolsPadicLFunctions:L0/nebentypus-symbols",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators-gamma1",
+    "ModularSymbolsPadicLFunctions:L0/plus-minus-decomposition",
+    "ModularSymbolsPadicLFunctions:L0/boundary-symbols",
+    "tauceti:HeckeRing.GL2.finrank_cuspFormsNewEigenspace_eq_one",
+    "tauceti:HeckeRing.GL2.Newform"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/EichlerShimura",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "WIESE-CAMF-2018",
+     "locator": "§1.3, Theorem 1.9, p. 12",
+     "match": "Eichler–Shimura with character: (a) places the Eisenstein eigenvalues on the boundary part and (c) gives the one-dimensionality of the plus eigenspace over ℂ."
+    },
+    {
+     "sourceId": "POLLACK-AWS-2011",
+     "locator": "§2.3, p. 4",
+     "match": "The worked level-11 example of the plus eigensymbol."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
- "requests": [],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "need": "Div⁰(P¹(ℚ)) as a left ℤ[GL₂⁺(ℚ)]-module (in particular for SL₂(ℤ), Σ₀(N) and Σ₁(N)), generated by the divisors {b} − {a}, with the degree sequence 0 → Div⁰ → ℤ[P¹(ℚ)] → ℤ → 0; Layer 8 builds its module 𝕄 from this object.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators",
+    "ModularSymbolsPadicLFunctions:L0/involution-at-infinity",
+    "ModularSymbolsPadicLFunctions:L0/boundary-symbols",
+    "ModularSymbolsPadicLFunctions:L0/symbols-cohomology-sequence"
+   ],
+   "status": "open",
+   "note": "Replaces this packet's former node L0/steinberg-module (checkpoint 1), which duplicated Layer 8 (AUDIT-26 lists Layer 8 as a duplicate of this layer)."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "need": "Manin's theorem for Div⁰ itself: d : ℤ[SL₂(ℤ)] → Div⁰, g ↦ {g0} − {g∞}, is surjective (continued fractions) with kernel the left ideal generated by 1 + σ, 1 + τ + τ² and 1 − (−1), σ = (0 −1; 1 0), τ = (0 −1; 1 −1) — Layer 8's SL₂(ℤ)-generation and Manin fundamental-domain milestone, stated for Div⁰ (not only for the coinvariants 𝕄) so that it applies to Hom_Γ(Div⁰, V) for arbitrary V.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/symbols-coset-description"
+   ],
+   "status": "open",
+   "note": "Replaces the former nodes L0/unimodular-map, L0/manin-surjectivity and L0/manin-relations (checkpoint 1)."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "need": "The fundamental-domain boundary presentation of Div⁰ over ℤ[Γ] for every finite-index Γ ≤ PSL₂(ℤ) containing T (Pollack–Stevens Theorems 2.6 and 2.9), with the D∞ relation Σ(γ_i^{-1} − 1)D_i + ΣD′_i + ΣD″_i = (1 − T^{-1})D∞ as corrected in this packet's sourceIssues E1; Layer 8's FundamentalDomainBoundary milestone, stated for Div⁰ itself.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/symbols-generator-values",
+    "ModularSymbolsPadicLFunctions:L0/symbols-base-change"
+   ],
+   "status": "open",
+   "note": "The printed sign in Pollack–Stevens Theorem 2.6 is wrong; please build from the boundary relation on their p. 11."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "need": "The homological module 𝕄 N k = (Div⁰ ⊗ Sym^{k−2}ℤ²)_{Γ₁(N)} with its Hecke and diamond operators, and the period map periodMap′ : S_k(Γ₁(N)) → Hom_ℤ(𝕄 N k, ℂ) with its convergence, Γ₁(N)-invariance, Hecke/diamond equivariance and injectivity milestones.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/symbols-coinvariants-duality",
+    "ModularSymbolsPadicLFunctions:L0/period-symbol",
+    "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism"
+   ],
+   "status": "open",
+   "note": "This packet transports these to Hom-side symbols through symbols-coinvariants-duality and polynomial-duality; it does not re-plan them."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+   "need": "The dimension formula for S_k(Γ₁(N)) (N ≥ 4, k ≥ 2) in the form dim S_k(Γ₁(N)) = (k − 1)μ/12 − ν∞/2 + δ_{k,2}, μ the index of the image of Γ₁(N) in PSL₂(ℤ) and ν∞ the number of cusps.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism"
+   ],
+   "status": "open",
+   "note": "Wiese Theorem 6.15 cites Stein §6.2 for it; the Tau Ceti pin has finite-dimensionality but not the formula."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+   "need": "Separation of cuspidal and Eisenstein eigensystems: for a newform f of weight k ≥ 2, level N and character ε, no Eisenstein eigenform of weight k and level dividing N has T_ℓ-eigenvalue a_ℓ(f) for every prime ℓ ∤ N.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0/eigenspace-dimension"
+   ],
+   "status": "open",
+   "note": "Used to show that newform eigenspaces of modular symbols meet the Eisenstein (boundary) symbols trivially; Hecke's bound gives it only in weight > 2."
+  },
+  {
+   "supplier": "ModularCurvesPartII:R14.3",
+   "need": "The comparison Symb_Γ(V) ≅ H¹_c(Y_Γ, Ṽ) of Hom-side modular symbols with compactly supported cohomology of the modular curve with the local system Ṽ, and of H¹_par(Γ, V) with the image of H¹_c → H¹, when the orders of torsion elements of Γ act invertibly on V (Ash–Stevens Proposition 4.2), functorial in Γ and Hecke-compatible.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L0"
+   ],
+   "status": "open",
+   "note": "The functorial comparison with the analytic modular-curve carrier that stage L0 asks for; this packet's algebraic sequence (symbols-cohomology-sequence) needs no hypothesis."
+  }
+ ],
  "coverage": [
   {
    "stageId": "ModularSymbolsPadicLFunctions:L0",
-   "status": "partial",
-   "remaining": [
-    "Compactly supported and parabolic cohomology of the modular curve with boundary maps, and the comparison Symb_Γ(V) ≅ H¹_c(H/Γ, Ṽ) when the orders of torsion elements are invertible on V (Ash–Stevens Proposition 4.2, cited by Pollack–Stevens).",
-    "Solving the Manin relations: fundamental domains and the presentation of Δ₀ over ℤ[Γ] (Pollack–Stevens §§2.3–2.5, Theorem 2.6), including the three-torsion case.",
-    "Diamond operators and nebentypus, and the Γ₁(N) versions of the Hecke operators.",
-    "Eichler–Shimura period maps at general level: rational structures, Hecke equivariance, injectivity and eigenspace dimensions; elliptic stabilisers through a torsion-free auxiliary level and descent; comparison with the analytic modular-curve carrier."
-   ],
-   "notes": "This checkpoint plans the algebraic core of L0 from Pollack–Stevens §2.1–2.2 and §3.4: the Steinberg module, modular symbols, the unimodular map with Manin's surjectivity and relations (over SL₂(ℤ), with −1 as an extra relation), the coset basis, the coefficient modules V_k, the monoid Σ₀(N), Hecke operators and the involution at infinity with the plus/minus decomposition. AUDIT-26 records L0 as not built; the only library inputs are Mathlib's P¹, GL₂ action, congruence subgroups and polynomial modules, and Tau Ceti's Γ₀(N) Hecke ring."
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Checkpoint 2 completes L0 on the Hom (cohomological) side for arbitrary coefficient modules, which is what L2's distribution-valued symbols need: Manin coset description and generator-value criterion (Pollack–Stevens Corollaries 2.7/2.10, sign-corrected, sourceIssues E1–E3), boundary symbols, the integral exact sequence with group cohomology, parabolic cohomology and Symb/Eis ≅ H¹_par, descent through a torsion-free auxiliary level (integral for symbols, after inverting the index for cohomology), diamond and Γ₁(N) Hecke operators, symbols with character and their decomposition, duality with ModularForms Layer 8's homological module and the invariant pairing V_k ≅ Hom(Sym^k, ·) (only after inverting k!), the period symbol ψ_f, the dimension of parabolic cohomology, the Eichler–Shimura isomorphism with ± versions, flat base change, and one-dimensionality of newform eigenspaces. Per AUDIT-26, Div⁰, Manin's theorem, the fundamental-domain presentation, 𝕄 and the period-map analysis are imported from ModularForms Layer 8 (requests), the dimension formula from ModularForms 10C, and the topological H¹_c comparison from ModularCurvesPartII R14.3. The checkpoint-1 nodes steinberg-module, unimodular-map, manin-surjectivity and manin-relations were withdrawn in favour of those requests."
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L1",
@@ -1032,5 +2275,52 @@
    ]
   }
  ],
- "gaps": []
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "ModularSymbolsPadicLFunctions/E1",
+   "source": "POLLACK-STEVENS-2011",
+   "kind": "error",
+   "locator": "Theorem 2.6 and Corollary 2.7, p. 12; Theorem 2.9 and Corollary 2.10, pp. 13–14 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "Σ_{i=1}^t (γi^{−1} − 1)Di + Σ_{i=1}^s D′i = ((1 −1; 0 1) − 1) D∞ … v∞|∆ = Σ_{i=1}^t vi|(γi − 1) + Σ_{i=1}^s v′i",
+   "correction": "The relation is Σ_i (γ_i^{-1} − 1)D_i + Σ_i D′_i (+ Σ_i D″_i) = (1 − (1 −1; 0 1))D∞, and the criterion of Corollaries 2.7/2.10 is v∞|Δ = Σ_i v_i|(1 − γ_i) − Σ_i v′_i (− Σ_i v″_i), with Δ = (1 1; 0 1) − 1.",
+   "reason": "Apply ∂ to the boundary relation printed on p. 11, (1 − (1 −1; 0 1))e∞ + Σ(1 − γ_i^{-1})e_i + Σe′_i ∈ J, with D∞ = ∂e∞, D_i = ∂e_i, D′_i = −∂e′_i: this gives (1 − T^{-1})D∞ + Σ(1 − γ_i^{-1})D_i − ΣD′_i = 0, the corrected relation. Smallest check: Γ = Γ₀(2), F the ideal triangle with vertices −1, 0, ∞, t = 0, s = 1, γ′₁ = (1 1; −2 −1), e′₁ the path from 0 to −1; then D′₁ = {0} − {−1} = (1 − T^{-1})({0} − {∞}), whereas the printed relation gives D′₁ = −(1 − T^{-1})({0} − {∞}) = −D′₁, i.e. 2D′₁ = 0 in the torsion-free group Δ₀. Pollack's own Arizona Winter School notes (2011, §2.6, footnote 10) write the Γ₀(11) relation with the corrected sign, (1 − (1 −1; 0 1))({0} − {∞}) + Σ(1 − γ)D = 0 (their γ is γ_i^{-1}), and the Sage implementation (sage.modular.pollack_stevens, by Pollack and Hanke) solves μ|Δ = t with t = Σ v_i|(γ_i − 1) minus the torsion values and sets v∞ = −μ.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 (including a filter=updates query), checked 2026-09-28: no erratum, correction or update.",
+    "Pollack's Arizona Winter School 2011 notes (swc-math.github.io): the worked Γ₀(11) relation has the corrected sign, but no erratum to the article is stated.",
+    "Sage source src/sage/modular/pollack_stevens/space.py (random_element), fetched from GitHub 2026-09-28: it forms t = Σ v_i|(γ_i − 1) minus the torsion values, solves μ|Δ = t and sets v∞ = −μ, consistent with the corrected sign, without comment."
+   ],
+   "note": "The proof of Theorem 5.1 (p. 21) uses the printed criterion (µ∞|∆ = ν∞); it works verbatim with ν∞ replaced by −ν∞."
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E2",
+   "source": "POLLACK-STEVENS-2011",
+   "kind": "misprint",
+   "locator": "§2.4, p. 11 (the relations for one-element orbits)",
+   "printed": "The source states e′i = γ′ie′i with γ′i ∈ Γ, and deduces (γ′i + 1)ei ∈ J.",
+   "correction": "(γ′_i + 1)e′_i ∈ J (the relation is on the one-element-orbit edge e′_i, whose reverse is γ′_i e′_i).",
+   "reason": "The sentence concerns the edges e′_i fixed (up to reversal) by γ′_i; e_i denotes the two-element-orbit edges, for which no such relation holds. Theorem 2.6 states the intended (1 + γ′_i)D′_i = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139, checked 2026-09-28: no erratum, correction or update."
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E3",
+   "source": "POLLACK-STEVENS-2011",
+   "kind": "misprint",
+   "locator": "Corollary 2.10, p. 14",
+   "printed": "The source imposes v′′i|(1 + γ′i + (γ′′i)2) = 0 and asserts existence and uniqueness of a modular symbol ϕ ∈ SymbΓ(V) satisfying ϕ(Di) = vi; ϕ(D′i) = m′i; ϕ(D′′i) = m′′i.",
+   "correction": "v″_i|(1 + γ″_i + (γ″_i)²) = 0, and φ(D′_i) = v′_i, φ(D″_i) = v″_i.",
+   "reason": "Theorem 2.9 has the three-term relation (1 + γ″_i + (γ″_i)²)D″_i = 0 with γ″_i throughout, and the symbols m′_i, m″_i are not defined anywhere; the data are the v′_i, v″_i of the corollary's hypothesis.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139, checked 2026-09-28: no erratum, correction or update."
+   ]
+  }
+ ]
 }
