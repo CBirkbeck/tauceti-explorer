@@ -1,0 +1,1028 @@
+{
+ "roadmapId": "GL2ModularityLifting",
+ "protocol": "blueprint-v1",
+ "part": "R22.1",
+ "scope": [
+  "GL2ModularityLifting:R22.1",
+  "GL2ModularityLifting:R22.2",
+  "GL2ModularityLifting:R22.3",
+  "GL2ModularityLifting:R22.4",
+  "GL2ModularityLifting:R22.5",
+  "GL2ModularityLifting:R22.6",
+  "GL2ModularityLifting:R32.1",
+  "GL2ModularityLifting:R32.2"
+ ],
+ "status": "partial",
+ "summary": "Blueprint for GL₂ modularity lifting (part 1: R22.1–R22.6, R32.1–R32.2), within RS-08 (accepted). Checkpoint 1 plans R22.1 and R22.2 from KW II §§7 and 9 and Gee §5. R22.1 covers the minimal-level data (definite quaternion algebra, level, weight and non-Eisenstein 𝔪 from a π fitting the lifting data), the identification of the local problem satisfied by every Hecke eigensystem at each place of S, the deformation-to-Hecke map R̄^ψ_S → 𝕋_ψ(U)_𝔪, its surjectivity from Frobenius traces, and the framed Hecke algebra and module. R22.2 covers auxiliary levels at Taylor–Wiles places with Δ_v = Δ′_v/(N-torsion) for the isotropy exponent N, Hecke algebras at level Q with the eigenvalue choice, agreement of the diamond and Galois actions of Δ_Q, freeness over 𝒪[Δ_Q] with control back to level U, the module system for patching, and the p = 2 twists of forms. Quaternionic forms, the freeness criterion and the dyadic twist are imported from HilbertModularVarietiesAndShimuraCurves (R18.3 via R18.6), Galois representations over Hecke algebras from AutomorphicGaloisRepresentations R19.6, and the global rings from GlobalGaloisDeformations R04.4–R04.6.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:IsReduced",
+    "kind": "class",
+    "module": "Mathlib/Algebra/GroupWithZero/Basic.lean",
+    "provides": "Reduced rings (no nonzero nilpotents).",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Module.Free",
+    "kind": "class",
+    "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+    "provides": "Free modules.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+    "provides": "Group algebras 𝒪[Δ].",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Polynomial.Splits",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Polynomial/Splits.lean",
+    "provides": "Splitting of polynomials (Hensel factorisation of X² − T_vX + N(v)ψ(π_v)).",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "KW2-2009",
+   "title": "Serre's modularity conjecture (II)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Authors' final version (PDF dated 30 May 2009), 98 pages, on Khare's UCLA page; published as Invent. Math. 178 (2009), 505–586. Printed page = PDF page. Its numbering is the published one.",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+   "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+   "read": "2026-09-28",
+   "readSections": [
+    "§7 (p-adic modular forms on definite quaternion algebras: Lemmas 7.1–7.4, Corollary 7.5, Proposition 7.6, Lemma 7.7), pp. 57–67",
+    "§9 opening and §9.1.1–9.1.3 (Lemma 9.1, Propositions 9.2–9.3 and their proofs), pp. 78–87",
+    "§5.1–5.6 (twists, Taylor–Wiles primes, Proposition 5.11, Lemma 5.12), pp. 46–53"
+   ]
+  },
+  {
+   "id": "GEE-MLT-2022",
+   "title": "Modularity lifting theorems",
+   "authors": "Toby Gee",
+   "edition": "Essential Number Theory 1 (2022), no. 1, 73–126; arXiv:2202.05818v2, 45 pages. The arXiv version was read; printed page = PDF page.",
+   "url": "https://arxiv.org/pdf/2202.05818v2",
+   "sha256": "878f83e189ad44603ac04f6c16ef17f4c4fe046db91a2f0933a192e048715ea5",
+   "read": "2026-09-28",
+   "readSections": [
+    "§5.2–5.9 (Theorem 5.2, integral theory of automorphic forms, Proposition 5.4, base change, patching set-up, Lemma 5.7, Propositions 5.8–5.10), pp. 29–40"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "GL2ModularityLifting:R22.1/minimal-level-data",
+   "parentStageId": "GL2ModularityLifting:R22.1",
+   "realises": [
+    "GL2ModularityLifting:R22.1"
+   ],
+   "title": "Minimal-level data for a modular residual representation",
+   "kind": "definition",
+   "statement": "Let ρ̄ : G_F → GL_2(𝔽) satisfy KW II's hypotheses with lifting data and ψ (GlobalGaloisDeformations R04.6/kw-deformation-data), and suppose, after an allowable base change, that F is totally real of even degree with [F : ℚ] + |Σ| even. Minimal-level data consist of: the definite quaternion algebra D/F ramified exactly at Σ and the infinite places; the level U = ∏_v U_v, maximal compact outside S, (𝒪_D)_v^× at v ∈ Σ (D_v^× when p = 2), and at v | p maximal compact or U_1(v) according to type (A) or (B); the weight module W_k (k = 2 if p = 2, with W_2 extended to U(𝔸_F^∞)^× when U is not compact); and a non-Eisenstein maximal ideal 𝔪 ⊂ 𝕋_ψ(U) such that ρ̄_𝔪 ≅ ρ̄ and 𝔪 comes from a cuspidal π that fits the lifting data. The data record a residual modularity witness (actual eigenform data), not an R = T statement.",
+   "hypotheses": [
+    "The spaces S_{k,ψ}(U, 𝒪), the Hecke algebra 𝕋_ψ(U) and non-Eisenstein ideals are HilbertModularVarietiesAndShimuraCurves R18.3, exported by R18.6 (requested).",
+    "The existence of π fitting the lifting data, after allowable base change, is KW II Theorem 8.4, requested from SerreWeightAndLevelOptimisation R20.6.",
+    "The roadmap convention: 'a residual modularity witness is actual eigenform/Hecke data.'"
+   ],
+   "proofSteps": [
+    "A definite D ramified exactly at Σ ∪ {∞} exists because [F : ℚ] + |Σ| is even (Hasse's parity condition).",
+    "π transfers to D^× by Jacquet–Langlands (π is discrete series at Σ), and its Hecke eigenvalues cut out 𝔪."
+   ],
+   "acceptance": [
+    "p = 2: U_v = D_v^× at v ∈ Σ, so U is not compact, and W_2 is extended in one of 2^{|Σ|} ways (KW II §7).",
+    "Gee's setting (p ≥ 5): Σ = ∅ after base change, and U_v = GL_2(𝒪_{F_v}) outside T.",
+    "A datum whose fields assert R ≅ 𝕋 is not minimal-level data: only π and 𝔪 are recorded."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.6/kw-deformation-data",
+    "HilbertModularVarietiesAndShimuraCurves:R18.6",
+    "SerreWeightAndLevelOptimisation:R20.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/HeckeMap",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§9.1.1, pp. 78–79",
+     "match": "The data."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, p. 35",
+     "match": "Gee's levels."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.MinimalLevelData",
+     "role": "structure",
+     "statement": "(D, U, W_k, ψ, 𝔪) with ρ̄_𝔪 ≅ ρ̄ and 𝔪 from π fitting the lifting data."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.MinimalLevelData.heckeAlgebra",
+     "role": "constructor",
+     "statement": "𝕋 = 𝕋_ψ(U)_𝔪."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.MinimalLevelData.heckeModule",
+     "role": "constructor",
+     "statement": "M = S_{k,ψ}(U, 𝒪)_𝔪."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.MinimalLevelData.residual_iso",
+     "role": "characterisation",
+     "statement": "ρ̄_𝔪 ≅ ρ̄."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1/deformation-to-hecke-map",
+     "how": "the target algebra."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.2/auxiliary-level-groups",
+     "how": "the level modified at the Taylor–Wiles places."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.3",
+     "how": "the finite-level module patched."
+    }
+   ],
+   "tests": [
+    {
+     "name": "minimalLevel_p2_noncompact",
+     "kind": "example",
+     "statement": "p = 2: U_v = D_v^× at v ∈ Σ and U is not compact."
+    },
+    {
+     "name": "minimalLevel_residual",
+     "kind": "characterisation",
+     "statement": "The residual representation attached to 𝔪 is ρ̄."
+    },
+    {
+     "name": "minimalLevel_no_RT_field",
+     "kind": "non-example",
+     "statement": "No field of the structure states R̄^ψ_S ≅ 𝕋_ψ(U)_𝔪."
+    }
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting:R22.1/hecke-points-local-conditions",
+   "parentStageId": "GL2ModularityLifting:R22.1",
+   "realises": [
+    "GL2ModularityLifting:R22.1"
+   ],
+   "title": "Hecke eigen-systems satisfy the lifting data at every place of S",
+   "kind": "theorem",
+   "statement": "For every 𝒪-algebra map x : 𝕋_ψ(U)_𝔪 → 𝒪′ (𝒪′ the integers of a finite extension of E), the specialisation ρ_x of ρ_𝔪 has determinant ψχ_p, is unramified outside S, and satisfies the local condition of the lifting data at each v ∈ S. At v ∈ Σ not above p it is semistable of the form (χ_pγ_v ∗; 0 γ_v) with a fixed unramified γ_v (KW II Lemma 7.2). At the infinite places it is odd. At v | p it is of type (A) (crystalline of low weight), (B) (weight two) or (C) (weight-two semistable), according to U_v. This identifies the local deformation problem represented at each place.",
+   "hypotheses": [
+    "ρ_𝔪 over 𝕋_ψ(U)_𝔪, and the compatibility of π ↦ ρ_π with the local Langlands correspondence away from p (Carayol, Taylor) and at p (Kisin, Saito, Skinner; KW II Lemma 7.7 and Corollary 7.8), are requested from AutomorphicGaloisRepresentations R19.6.",
+    "The local conditions and their rings are LocalGaloisDeformationRings R08.6 (requested)."
+   ],
+   "proofSteps": [
+    "𝒪′-points of 𝕋_ψ(U)_𝔪 correspond to the Hecke eigenforms in S_{k,ψ}(U, 𝒪)_𝔪, hence to cuspidal π with ρ̄_π ≅ ρ̄ (Jacquet–Langlands, R18.3).",
+    "At v ∈ Σ: π_v is a twist of Steinberg by an unramified character, fixed independently of the eigenform (KW II Lemma 7.2, p = 2 via U_v = D_v^×).",
+    "At v | p: U_v maximal compact means π_v unramified, so ρ_x|D_v is crystalline of weight k; U_1(v) gives weight two with the tame inertial type; v ∈ Σ above p gives semistable weight two (Corollary 7.8).",
+    "At ∞: ρ_π is totally odd."
+   ],
+   "acceptance": [
+    "For type (A) at v | p with k = 2 and π_v unramified, the specialisation is crystalline with Hodge–Tate weights {0, 1}.",
+    "γ_v does not depend on the eigenform, which is what makes a single local ring R̄^{□,ψ}_v work for all points.",
+    "Without local–global compatibility at p, the points would satisfy the condition only on inertia at almost all places, which does not identify the local problem."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.1/minimal-level-data",
+    "AutomorphicGaloisRepresentations:R19.6",
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/HeckeMap",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§9.1.1 and the proof of Lemma 9.1, pp. 79–80",
+     "match": "The identification at each place."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 7.2, pp. 60–61",
+     "match": "The places of Σ."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R22.1/deformation-to-hecke-map",
+   "parentStageId": "GL2ModularityLifting:R22.1",
+   "realises": [
+    "GL2ModularityLifting:R22.1"
+   ],
+   "title": "The deformation-to-Hecke map",
+   "kind": "construction",
+   "statement": "There is a unique map of complete local 𝒪-algebras π : R̄^ψ_S → 𝕋_ψ(U)_𝔪 carrying the universal representation ρ̄^univ_S to ρ_𝔪, up to strict equivalence. It is characterised by π(tr ρ̄^univ_S(Frob_v)) = T_v for v ∉ S. Tensoring with the framed ring gives π^□ : R̄^{□,ψ}_S → 𝕋^□_𝔪 := 𝕋_ψ(U)_𝔪 ⊗_{R̄^ψ_S} R̄^{□,ψ}_S.",
+   "hypotheses": [
+    "The factorisation through the local-condition quotient is GlobalGaloisDeformations R04.6/factorization-through-local-conditions, applied to A = 𝕋_ψ(U)_𝔪, which is reduced, 𝒪-flat and finite (R18.3).",
+    "The universal property of R^ψ_S is GlobalGaloisDeformations R04.2."
+   ],
+   "proofSteps": [
+    "ρ_𝔪 is a lift of ρ̄ with determinant ψχ_p, unramified outside S, so the universal property gives π′ : R^ψ_S → 𝕋_ψ(U)_𝔪.",
+    "Its points satisfy the local conditions (hecke-points-local-conditions), so π′ factors through R̄^ψ_S (R04.6/factorization-through-local-conditions).",
+    "Traces: π(tr ρ̄^univ(Frob_v)) = tr ρ_𝔪(Frob_v) = T_v, by the Eichler–Shimura relation."
+   ],
+   "acceptance": [
+    "Composing with an 𝒪′-point x of 𝕋 gives the point of R̄^ψ_S classifying ρ_x.",
+    "The map is not asserted injective: R = T is the conclusion of R22.3 and R22.4.",
+    "Without the local-condition factorisation one only gets R^ψ_S → 𝕋, whose kernel need not contain the local-condition ideal."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.1/hecke-points-local-conditions",
+    "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
+    "GlobalGaloisDeformations:R04.6/trace-subring-universal-representation",
+    "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+    "AutomorphicGaloisRepresentations:R19.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/HeckeMap",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 9.1, p. 80",
+     "match": "The map."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, p. 35",
+     "match": "Gee's version."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.defToHecke",
+     "role": "constructor",
+     "statement": "π : R̄^ψ_S →ₐ[𝒪] 𝕋_ψ(U)_𝔪."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.defToHecke_trace",
+     "role": "characterisation",
+     "statement": "π(tr ρ̄^univ(Frob_v)) = T_v for v ∉ S."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.defToHecke_unique",
+     "role": "universal-property",
+     "statement": "Unique with π ∘ ρ̄^univ ≅ ρ_𝔪."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.defToHeckeFramed",
+     "role": "constructor",
+     "statement": "π^□ : R̄^{□,ψ}_S → 𝕋^□_𝔪."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1/deformation-to-hecke-surjective",
+     "how": "surjectivity."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.3",
+     "how": "the map whose kernel patching controls."
+    },
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:R03.6",
+     "how": "R = T conclusions for R → T with a faithful module."
+    }
+   ],
+   "tests": [
+    {
+     "name": "defToHecke_trace_Frob",
+     "kind": "characterisation",
+     "statement": "Traces of Frobenius map to T_v."
+    },
+    {
+     "name": "defToHecke_point",
+     "kind": "example",
+     "statement": "Composing with the point of π gives the lift ρ_π."
+    },
+    {
+     "name": "defToHecke_not_injective_claim",
+     "kind": "non-example",
+     "statement": "No injectivity is part of the construction."
+    }
+   ],
+   "planet": {
+    "name": "Deformation-to-Hecke map"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting:R22.1/deformation-to-hecke-surjective",
+   "parentStageId": "GL2ModularityLifting:R22.1",
+   "realises": [
+    "GL2ModularityLifting:R22.1"
+   ],
+   "title": "Surjectivity of the deformation-to-Hecke map",
+   "kind": "theorem",
+   "statement": "π : R̄^ψ_S → 𝕋_ψ(U)_𝔪 and π^□ : R̄^{□,ψ}_S → 𝕋^□_𝔪 are surjective.",
+   "hypotheses": [
+    "𝕋_ψ(U) is generated over 𝒪 by T_v and S_v for v ∉ S, and S_v acts by the scalar ψ(π_v) ∈ 𝒪^× (R18.3)."
+   ],
+   "proofSteps": [
+    "The image of π contains T_v = π(tr ρ̄^univ(Frob_v)) for all v ∉ S, and 𝒪.",
+    "𝕋_ψ(U)_𝔪 is finite over 𝒪 and the image of a complete local ring is closed, so the image is all of 𝕋_ψ(U)_𝔪.",
+    "π^□ is the base change of π along the flat map R̄^ψ_S → R̄^{□,ψ}_S, so it is surjective as well."
+   ],
+   "acceptance": [
+    "Gee's form: surjective 'because local-global compatibility shows that the Hecke operators generating T∅ are in the image'.",
+    "At Taylor–Wiles level the same argument gives R̄^ψ_{S∪Q} ↠ 𝕋_{ψ,Q}(U_Q)_𝔪 (auxiliary-hecke-algebra).",
+    "If 𝕋 included U_v at a place of S outside the image of the traces, surjectivity could fail; KW II's 𝕋_ψ(U) uses only v ∉ S."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.1/deformation-to-hecke-map"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/HeckeMap",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Lemma 9.1, p. 81",
+     "match": "The argument."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Surjectivity from Frobenius traces"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting:R22.1/framed-hecke-module",
+   "parentStageId": "GL2ModularityLifting:R22.1",
+   "realises": [
+    "GL2ModularityLifting:R22.1"
+   ],
+   "title": "The framed Hecke algebra and module",
+   "kind": "construction",
+   "statement": "𝕋^□_𝔪 = 𝕋_ψ(U)_𝔪 ⊗_{R̄^ψ_S} R̄^{□,ψ}_S is a power series ring over 𝕋_ψ(U)_𝔪 in 4|S| − 1 variables, 𝒪-flat and reduced. The module M^□ := S_{k,ψ}(U, 𝒪)_𝔪 ⊗_{R̄^ψ_S} R̄^{□,ψ}_S is a faithful 𝕋^□_𝔪-module, finite free over 𝒪⟦y_{h+1}, …, y_{h+j}⟧ (j = 4|S| − 1, the framing variables). These are the ring and module patched in R22.3.",
+   "hypotheses": [
+    "R̄^{□,ψ}_S ≅ R̄^ψ_S⟦4|S| − 1⟧ is GlobalGaloisDeformations R04.6/trace-subring-universal-representation."
+   ],
+   "proofSteps": [
+    "Base change of a power series presentation: 𝕋 ⊗_{R̄} R̄⟦y⟧ ≅ 𝕋⟦y⟧, which is 𝒪-flat and reduced when 𝕋 is.",
+    "Faithfulness passes along the faithfully flat extension 𝕋 → 𝕋⟦y⟧, and freeness over 𝒪⟦y⟧ holds because S_{k,ψ}(U, 𝒪)_𝔪 is 𝒪-free."
+   ],
+   "acceptance": [
+    "|S| = 1: three framing variables.",
+    "M^□/(y_{h+1}, …, y_{h+j}) = S_{k,ψ}(U, 𝒪)_𝔪.",
+    "𝕋^□_𝔪 is not finite over 𝒪: the framing variables are free."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.1/deformation-to-hecke-map",
+    "GlobalGaloisDeformations:R04.6/trace-subring-universal-representation",
+    "mathlib:IsReduced",
+    "mathlib:Module.Free"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/HeckeMap",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 9.1 and §9.1.1, p. 80",
+     "match": "The framed Hecke algebra."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.framedHecke",
+     "role": "constructor",
+     "statement": "𝕋^□_𝔪 = 𝕋 ⊗_{R̄^ψ_S} R̄^{□,ψ}_S."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.framedHeckeModule",
+     "role": "constructor",
+     "statement": "M^□ = S(U)_𝔪 ⊗ R̄^{□,ψ}_S."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.framedHecke_isReduced",
+     "role": "characterisation",
+     "statement": "𝕋^□_𝔪 is reduced and 𝒪-flat."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.framedHeckeModule_faithful",
+     "role": "characterisation",
+     "statement": "M^□ is faithful over 𝕋^□_𝔪."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.3",
+     "how": "the module M and ring R of KW II's patching data."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.2/taylor-wiles-module-system",
+     "how": "the level-Q analogue."
+    }
+   ],
+   "tests": [
+    {
+     "name": "framedHecke_vars",
+     "kind": "example",
+     "statement": "|S| = 1 gives 𝕋⟦y_1, y_2, y_3⟧."
+    },
+    {
+     "name": "framedHeckeModule_quot",
+     "kind": "characterisation",
+     "statement": "Killing the framing variables recovers S(U)_𝔪."
+    },
+    {
+     "name": "framedHecke_not_finite",
+     "kind": "non-example",
+     "statement": "𝕋^□_𝔪 is not finite over 𝒪."
+    }
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting:R22.2/auxiliary-level-groups",
+   "parentStageId": "GL2ModularityLifting:R22.2",
+   "realises": [
+    "GL2ModularityLifting:R22.2"
+   ],
+   "title": "Auxiliary levels at Taylor–Wiles places",
+   "kind": "definition",
+   "statement": "Let Q be a Taylor–Wiles datum (GlobalGaloisDeformations R04.5), disjoint from S. Let N be the least common multiple of the exponents of the Sylow p-subgroups of the finite isotropy groups (U(𝔸_F^∞)^× ∩ t^{−1}D^×t)/F^× over t ∈ (D ⊗ 𝔸_F^∞)^×. For v ∈ Q let Δ′_v be the maximal p-quotient of k(v)^× and Δ_v := Δ′_v/(N-torsion). Put (U^0_Q)_v = U_0(v) and (U_Q)_v = {(a b; c d) ∈ U_0(v) : ad^{−1} ↦ 1 ∈ Δ_v}, with U_Q, U^0_Q equal to U outside Q. Then U^0_Q/U_Q ≅ Δ_Q := ∏_{v∈Q}Δ_v, and characters of Δ_Q are N-th powers of characters of Δ′_Q.",
+   "hypotheses": [
+    "The finiteness of the isotropy groups and the bound on the exponent of their Sylow p-subgroups are KW II §7.2 (R18.3, via R18.6). For p ≥ 5 unramified in F they have order prime to p (Gee §5.3), so N is prime to p and Δ_v = Δ′_v.",
+    "Quotienting by the N-torsion is what makes characters of Δ_Q kill the isotropy groups; the congruence N(v) ≡ 1 mod p^n alone does not."
+   ],
+   "proofSteps": [
+    "U_Q is normal in U^0_Q, and a ↦ ad^{−1} induces U^0_Q/U_Q ≅ ∏_v Δ_v.",
+    "Every character of Δ_v, viewed on Δ′_v, kills the N-torsion, so it is an N-th power."
+   ],
+   "acceptance": [
+    "Q = ∅: U_Q = U^0_Q = U and Δ_∅ = 1.",
+    "For p ≥ 5 unramified (Gee), N is prime to p and Δ_v is the full p-part of k(v)^×.",
+    "Using Δ′_v when the isotropy groups have p-torsion (possible for p = 2, 3) breaks the freeness of Lemma 7.4: a character of Δ′_v need not kill the isotropy."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.1/minimal-level-data",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-datum",
+    "HilbertModularVarietiesAndShimuraCurves:R18.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/AuxiliaryLevels",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§7.4, p. 63",
+     "match": "The definition of Δ_v and U_Q."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, p. 35",
+     "match": "Gee's U_Q with Δ_v the full p-part."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.auxLevel",
+     "role": "constructor",
+     "statement": "U_Q ⊆ U^0_Q ⊆ U for a Taylor–Wiles datum Q."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.auxDelta",
+     "role": "constructor",
+     "statement": "Δ_Q = ∏_v Δ′_v/(N-torsion)."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.auxLevel_quotient",
+     "role": "equivalence",
+     "statement": "U^0_Q/U_Q ≃ Δ_Q."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.auxDelta_char_pow",
+     "role": "characterisation",
+     "statement": "Characters of Δ_Q are N-th powers on Δ′_Q."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.2/delta-freeness-at-taylor-wiles-level",
+     "how": "the group over which S(U_Q) is free."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.2/auxiliary-hecke-algebra",
+     "how": "the diamond operators ⟨h⟩, h ∈ Δ_Q."
+    }
+   ],
+   "tests": [
+    {
+     "name": "auxLevel_empty",
+     "kind": "example",
+     "statement": "Q = ∅ gives U."
+    },
+    {
+     "name": "auxLevel_quotient",
+     "kind": "characterisation",
+     "statement": "U^0_Q/U_Q ≅ Δ_Q."
+    },
+    {
+     "name": "auxDelta_needs_quotient",
+     "kind": "non-example",
+     "statement": "With Δ′_v in place of Δ_v, characters need not kill p-torsion isotropy."
+    }
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting:R22.2/auxiliary-hecke-algebra",
+   "parentStageId": "GL2ModularityLifting:R22.2",
+   "realises": [
+    "GL2ModularityLifting:R22.2"
+   ],
+   "title": "Hecke algebras at Taylor–Wiles level and the map from deformations",
+   "kind": "construction",
+   "statement": "𝕋_{ψ,Q}(U_Q) is generated over 𝒪 by T_v, S_v (v ∉ S ∪ Q), U_v = [U_Q(π_v 0; 0 1)U_Q] (v ∈ Q) and the diamond operators ⟨h⟩ (h ∈ Δ_Q). By Hensel, X² − T_vX + N(v)ψ(π_v) = (X − A_v)(X − B_v) in 𝕋_ψ(U)_𝔪 with A_v ≡ α_v and B_v ≡ β_v, and 𝔪 pulls back to 𝔪_Q ∋ U_v − α̃_v for v ∈ Q. There is a surjection R̄^ψ_{S∪Q} ↠ 𝕋_{ψ,Q}(U_Q)_𝔪, with tr ρ^univ(Frob_v) ↦ T_v and γ_{α_v}(π_v) ↦ U_v, compatible with the 𝒪[Δ′_Q]-structures and, for p = 2, with the twisting actions. The natural map 𝕋_ψ(U_Q)_𝔪 → 𝕋_{ψ,Q}(U_Q)_𝔪 is bijective.",
+   "hypotheses": [
+    "U_v depends on the uniformiser π_v; so does γ_{α_v}(π_v) on the deformation side.",
+    "The choice of α̃_v (a lift of α_v) is the 'character choice' of the stage; swapping α_v and β_v changes the maximal ideal."
+   ],
+   "proofSteps": [
+    "Hensel's lemma applies because α_v ≠ β_v.",
+    "The map exists and is surjective as in deformation-to-hecke-surjective, with the local–global compatibility at v ∈ Q sending γ_{α_v}(π_v) to U_v (KW II proof of Lemma 9.1).",
+    "Bijectivity of 𝕋_ψ(U_Q)_𝔪 → 𝕋_{ψ,Q}(U_Q)_𝔪: the traces of ρ over 𝕋_{ψ,Q}(U_Q)_𝔪 lie in the image of 𝕋_ψ(U_Q), so ρ is defined over it (Carayol; KW II Remark after Lemma 9.1)."
+   ],
+   "acceptance": [
+    "Q = ∅ recovers 𝕋_ψ(U)_𝔪 and deformation-to-hecke-map.",
+    "U_v ↦ A_v under the map to level U (delta-freeness-at-taylor-wiles-level), not U_v ↦ B_v.",
+    "If ρ̄(Frob_v) had equal eigenvalues, 𝔪 would not determine a unique 𝔪_Q."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.2/auxiliary-level-groups",
+    "GL2ModularityLifting:R22.1/deformation-to-hecke-map",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
+    "mathlib:Polynomial.Splits",
+    "AutomorphicGaloisRepresentations:R19.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/AuxiliaryLevels",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§7.4 before Corollary 7.5, p. 65; §9.1.1, p. 80",
+     "match": "The maximal ideal at level U_Q."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Remark after Lemma 9.1, p. 81",
+     "match": "Surjectivity at level Q."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.auxHecke",
+     "role": "constructor",
+     "statement": "𝕋_{ψ,Q}(U_Q) with T_v, S_v, U_v, ⟨h⟩."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.auxMaxIdeal",
+     "role": "constructor",
+     "statement": "𝔪_Q from 𝔪 and the chosen α̃_v."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.defToAuxHecke",
+     "role": "constructor",
+     "statement": "R̄^ψ_{S∪Q} ↠ 𝕋_{ψ,Q}(U_Q)_𝔪."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.defToAuxHecke_Uv",
+     "role": "characterisation",
+     "statement": "γ_{α_v}(π_v) ↦ U_v."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.2/delta-actions-agree",
+     "how": "the two Δ_Q-actions."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.3",
+     "how": "the maps patched."
+    }
+   ],
+   "tests": [
+    {
+     "name": "auxHecke_empty",
+     "kind": "example",
+     "statement": "Q = ∅ gives 𝕋_ψ(U)."
+    },
+    {
+     "name": "hensel_split",
+     "kind": "characterisation",
+     "statement": "X² − T_vX + N(v)ψ(π_v) splits with roots lifting α_v, β_v."
+    },
+    {
+     "name": "auxMaxIdeal_needs_distinct",
+     "kind": "non-example",
+     "statement": "Equal eigenvalues give no distinguished U_v − α̃_v."
+    }
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting:R22.2/delta-actions-agree",
+   "parentStageId": "GL2ModularityLifting:R22.2",
+   "realises": [
+    "GL2ModularityLifting:R22.2"
+   ],
+   "title": "The diamond and Galois actions of Δ_Q agree",
+   "kind": "theorem",
+   "statement": "On S_Q := S_{k,ψ}(U_Q, 𝒪)_{𝔪_Q} the two actions of Δ_Q agree: the diamond action h ↦ ⟨h⟩ = (h̃ 0; 0 1), and the action through Δ_Q → (R̄^ψ_{S∪Q})^× → 𝕋_{ψ,Q}(U_Q)_𝔪 given by ∏_v γ_{α_v} (the character χ_α ∘ Art). Equivalently, ⟨h⟩ acts on the U_v = α̃_v-eigenspace through the character of π_v lifting α_v.",
+   "hypotheses": [
+    "The needed local–global compatibility at v ∈ Q (π_v ≅ χ₁ × χ₂ tamely ramified principal series, with eigenvalues of ρ_π(Frob_v) equal to #k(v)^{1/2}χ_i(ϖ_v)) is AutomorphicGaloisRepresentations R19.6."
+   ],
+   "proofSteps": [
+    "A point θ of 𝕋_Q gives π with π_v^{U_{Q,v}} ≠ 0, so π_v is a subquotient of χ₁ × χ₂ with χ_i tamely ramified.",
+    "(χ₁ × χ₂)^{U_{Q,v}} = ℂφ₁ ⊕ ℂφ_w, with U_ϖ φ_w = #k(v)^{1/2}χ₂(ϖ)φ_w and U_ϖ φ₁ = #k(v)^{1/2}χ₁(ϖ)φ₁ + Xφ_w.",
+    "αv ≠ βv forces χ₁/χ₂ ≠ |·|^{±1}, so π_v = χ₁ × χ₂ is irreducible and one may take χ₂(ϖ) ↔ α_v. The U_v = α̃_v-line is ℂφ_w, on which (δ 0; 0 1) acts by χ₂(δ) = χ_α ∘ Art (Gee Proposition 5.8(1))."
+   ],
+   "acceptance": [
+    "Q = ∅: nothing to check.",
+    "If one used the β_v-eigenvalue, the diamond action would match γ_{β_v} = γ_{α_v}^{−1} on inertia instead.",
+    "The agreement is what lets the patched Hecke module be a module over the patched deformation ring compatibly with 𝒪⟦y_1, …, y_h⟧."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.2/auxiliary-hecke-algebra",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
+    "AutomorphicGaloisRepresentations:R19.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/AuxiliaryLevels",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Proposition 5.8(1) and its proof, p. 36",
+     "match": "The statement and the principal-series computation."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 9.1 (compatibility with 𝒪[Δ′_{Q_n}]), p. 80",
+     "match": "KW II's form."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R22.2/delta-freeness-at-taylor-wiles-level",
+   "parentStageId": "GL2ModularityLifting:R22.2",
+   "realises": [
+    "GL2ModularityLifting:R22.2"
+   ],
+   "title": "Freeness over 𝒪[Δ_Q] and control back to level U",
+   "kind": "theorem",
+   "statement": "S_{k,ψ}(U_Q, 𝒪)_𝔪 is a free 𝒪[Δ_Q]-module, whose rank is the 𝒪-rank of S_{k,ψ}(U, 𝒪)_𝔪. Its Δ_Q-coinvariants are isomorphic to S_{k,ψ}(U, 𝒪)_𝔪, compatibly with 𝕋_{ψ,Q}(U_Q)_𝔪 → 𝕋_ψ(U)_𝔪, T_v ↦ T_v (v ∉ S ∪ Q), ⟨h⟩ ↦ 1, U_v ↦ A_v.",
+   "hypotheses": [
+    "Freeness of the full space S_{k,ψ}(U_Q, 𝒪) over 𝒪[Δ_Q] (KW II Lemma 7.4; Gee Proposition 5.4(2)) and the Ihara-type lemma (KW II Lemma 7.1) are HilbertModularVarietiesAndShimuraCurves R18.3, requested through R18.6. This node verifies their hypotheses at the Taylor–Wiles levels and adds the localisation and control.",
+    "The congruence N(v) ≡ 1 mod p^n alone does not give freeness: the isotropy hypothesis of auxiliary-level-groups is used."
+   ],
+   "proofSteps": [
+    "Characters of Δ_Q kill the isotropy groups (auxiliary-level-groups), so (U^0_Q ∩ t^{−1}D^×t)/F^× = (U_Q ∩ t^{−1}D^×t)/F^×, and double cosets for U_Q are {t_i u_j} with u_j running over Δ_Q. Hence S(U_Q, 𝒪) is 𝒪[Δ_Q]-free (Lemma 7.4).",
+    "S(U_Q)_𝔪 is a direct factor of S(U_Q) as a module over the local ring 𝒪[Δ_Q], so it is free.",
+    "The maps ξ_v(f) = A_v f − (1 0; 0 π_v)f give S(U)_𝔪 → S(U^0_Q)_𝔪. This is an isomorphism after inverting p, because no π that is Steinberg (up to twist) at v ∈ Q gives ρ̄ (N(v) ≡ 1 mod p, with distinct Frobenius eigenvalues; local–global compatibility). It is injective mod λ because the degeneracy maps have Eisenstein kernel (Lemma 7.1). So it is an isomorphism, which gives the coinvariants (Corollary 7.5)."
+   ],
+   "acceptance": [
+    "Q = ∅: the statement is the tautology S(U)_𝔪 = S(U)_𝔪.",
+    "The rank over 𝒪[Δ_Q] does not depend on Q or n, which is what patching needs.",
+    "Gee Proposition 5.9 is the same control statement, ∏_{v∈Q}(U_ϖ_v − B_v) : S_∅ ≅ S(U_{Q,0}, 𝒪)_{𝔪_Q}, with the other eigenvalue B_v."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.2/auxiliary-level-groups",
+    "GL2ModularityLifting:R22.2/auxiliary-hecke-algebra",
+    "HilbertModularVarietiesAndShimuraCurves:R18.6",
+    "AutomorphicGaloisRepresentations:R19.6",
+    "mathlib:Module.Free",
+    "mathlib:MonoidAlgebra"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/AuxiliaryLevels",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Corollary 7.5 and its proof, pp. 65–66",
+     "match": "The statement and proof."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Proposition 5.8(2) and Proposition 5.9, pp. 36–37",
+     "match": "Gee's form."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Freeness over Δ_Q"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting:R22.2/taylor-wiles-module-system",
+   "parentStageId": "GL2ModularityLifting:R22.2",
+   "realises": [
+    "GL2ModularityLifting:R22.2"
+   ],
+   "title": "The system of Hecke modules at Taylor–Wiles levels",
+   "kind": "construction",
+   "statement": "For the Taylor–Wiles data Q_n of GlobalGaloisDeformations R04.6/taylor-wiles-deformation-system, M_n := S_{k,ψ}(U_{Q_n}, 𝒪)_𝔪 ⊗_{R̄^ψ_{S∪Q_n}} R̄^{□,ψ}_{S∪Q_n} is an 𝒪[Δ_{Q_n}]⟦y_{h+1}, …, y_{h+j}⟧-module. It is finite free, of rank equal to the 𝒪-rank s of S_{k,ψ}(U, 𝒪)_𝔪, independent of n. Its (Δ_{Q_n}, y)-coinvariants are S_{k,ψ}(U, 𝒪)_𝔪, and the R̄^{□,ψ}_{S∪Q_n}-action is compatible with R04.6's 𝒪⟦y_1, …, y_{h+j}⟧-structure. This is the finite-level module input to arithmetic patching.",
+   "hypotheses": [
+    "The patching of the system (M_∞, R_∞) is R22.3, with DeformationAndDerivedPatchingAlgebra R03.5 and R03.6."
+   ],
+   "proofSteps": [
+    "Freeness over 𝒪[Δ_{Q_n}] with the right rank and coinvariants is delta-freeness-at-taylor-wiles-level; tensoring with the framing variables keeps it free.",
+    "Compatibility of the two 𝒪[Δ]-actions is delta-actions-agree; the y-structure on the ring side is R04.6."
+   ],
+   "acceptance": [
+    "Q_n = ∅: the system is the framed module of framed-hecke-module.",
+    "The annihilator 𝔟_n of M_n in 𝒪⟦y⟧ lies in ((1 + y_i)^{p^{n−a}} − 1)_{i≤h} (KW II §9.1.3, with 2^a > N for p = 2).",
+    "Without freeness over 𝒪[Δ], the patched module would not be finite free over 𝒪⟦y⟧, and the depth argument of R22.3 fails."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.2/delta-freeness-at-taylor-wiles-level",
+    "GL2ModularityLifting:R22.2/delta-actions-agree",
+    "GL2ModularityLifting:R22.1/framed-hecke-module",
+    "GlobalGaloisDeformations:R04.6/taylor-wiles-deformation-system"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/AuxiliaryLevels",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.2, p. 82",
+     "match": "The system."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.twModule",
+     "role": "constructor",
+     "statement": "M_n = S(U_{Q_n})_𝔪 ⊗ R̄^{□,ψ}_{S∪Q_n}."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.twModule_free",
+     "role": "characterisation",
+     "statement": "Finite free over 𝒪[Δ_{Q_n}]⟦y⟧ of rank s."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.twModule_coinv",
+     "role": "compatibility",
+     "statement": "Coinvariants ≅ S(U)_𝔪."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.3",
+     "how": "the modules patched into M_∞."
+    }
+   ],
+   "tests": [
+    {
+     "name": "twModule_empty",
+     "kind": "example",
+     "statement": "Q = ∅ gives the framed module at level U."
+    },
+    {
+     "name": "twModule_rank_const",
+     "kind": "characterisation",
+     "statement": "The rank does not depend on n."
+    },
+    {
+     "name": "twModule_not_free_without_isotropy",
+     "kind": "non-example",
+     "statement": "With Δ′ instead of Δ and p-torsion isotropy, freeness can fail."
+    }
+   ],
+   "planet": {
+    "name": "Taylor–Wiles module system"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting:R22.2/dyadic-twists-of-forms",
+   "parentStageId": "GL2ModularityLifting:R22.2",
+   "realises": [
+    "GL2ModularityLifting:R22.2"
+   ],
+   "title": "Twisting quaternionic forms by quadratic characters (p = 2)",
+   "kind": "construction",
+   "statement": "Let p = 2, n with 2^n > N, and χ : G_{n,2} = Gal(F^S_{Q_n}/F)/2 → 𝒪^× a character of order 2, viewed also on (𝔸_F^∞)^× and on Δ_{Q_n}. Then f ↦ f_χ(g) := f(g)χ(Nm g) preserves S_{2,ψ}(U_{Q_n}, 𝒪). It satisfies f_χ|T_v = χ(π_v)(f|T_v)_χ (v ∉ Q), f_χ|U_v = χ(π_v)(f|U_v)_χ (v ∈ Q) and (f|⟨h⟩)_χ = χ^{−1}(h)f_χ|⟨h⟩. So Hom(G_{n,2}, 𝒪^×) acts on 𝕋_{ψ,Q_n}(U_{Q_n})_𝔪 (T_v ↦ χ(π_v)T_v, U_v ↦ χ(π_v)U_v, h ↦ χ(h)h, S_v fixed) and on S_{2,ψ}(U_{Q_n}, 𝒪)_𝔪, compatibly with the twisting action on R̄^ψ_{S∪Q_n} (GlobalGaloisDeformations R04.4/twisting-action, KW II Lemma 5.12). With the choice U_v = D_v^× at v ∈ Σ and the extended W_2 (the p = 2 modifications of minimal-level-data), these are the Hecke-side inputs to 2-adic patching (R22.6).",
+   "hypotheses": [
+    "The twist f ↦ f_χ and Proposition 7.6 on quaternionic forms are R18.3's 'actual dyadic twisting input' (RS-23), requested through R18.6. This node is the compatibility with the deformation side used in KW II §9.",
+    "χ is split at the infinite places, so it defines a character of (𝔸_F^∞)^×."
+   ],
+   "proofSteps": [
+    "f_χ is invariant: χ(Nm z) = 1 as χ has order 2, and χ(Nm u) = ∏_{v∈Q} χ(det u_v) = 1, since det u_v is a square in k(v)^× for u_v ∈ (U_Q)_v.",
+    "The Hecke formulas follow from (f|U_v)(g) = Σ_i f(gu_i) with χ(Nm u_i) = χ(π_v) (KW II Proposition 7.6).",
+    "Since χ ≡ 1 mod 𝔪, the action preserves 𝔪. Compatibility with the R-side twists holds because both sides multiply Frobenius traces by χ(π_v) and act on Δ by χ (Lemma 5.12)."
+   ],
+   "acceptance": [
+    "χ trivial: the identity action.",
+    "(f|⟨h⟩)_χ = χ^{−1}(h)f_χ|⟨h⟩: the diamond operators are twisted by χ^{−1}, matching a_χ ∘ δ = χ(δ)(δ ∘ a_χ).",
+    "For p odd, order-2 characters are not residually trivial, so there is no such action on the localisation."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.2/auxiliary-hecke-algebra",
+    "GlobalGaloisDeformations:R04.4/twisting-action",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
+    "GlobalGaloisDeformations:R04.6/dyadic-patching-data",
+    "HilbertModularVarietiesAndShimuraCurves:R18.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/AuxiliaryLevels",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§7.5, Proposition 7.6 and the following paragraph, pp. 66–67",
+     "match": "The twist and its Hecke compatibility."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Lemma 9.1, p. 81",
+     "match": "Compatibility with the deformation side."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.twistForm",
+     "role": "constructor",
+     "statement": "f ↦ f_χ on S_{2,ψ}(U_{Q_n}, 𝒪)."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.twistForm_Tv",
+     "role": "compatibility",
+     "statement": "f_χ|T_v = χ(π_v)(f|T_v)_χ."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.twistForm_diamond",
+     "role": "compatibility",
+     "statement": "(f|⟨h⟩)_χ = χ^{−1}(h)f_χ|⟨h⟩."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.twistAction_compat",
+     "role": "compatibility",
+     "statement": "Compatible with the twisting action on R̄^ψ_{S∪Q_n}."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.6",
+     "how": "2-adic patching with the torus action."
+    }
+   ],
+   "tests": [
+    {
+     "name": "twistForm_one",
+     "kind": "example",
+     "statement": "The trivial character acts trivially."
+    },
+    {
+     "name": "twistForm_diamond",
+     "kind": "characterisation",
+     "statement": "The diamond operators are twisted by χ^{−1}."
+    },
+    {
+     "name": "twistForm_p_odd",
+     "kind": "non-example",
+     "statement": "For p odd there is no residually trivial character of order 2."
+    }
+   ]
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.6",
+   "need": "Definite quaternionic forms S_{τ,ψ}(U, A) with the weight modules W_k (including the p = 2 extension of W_2 to non-compact U with U_v = D_v^× at Σ), the Hecke algebras 𝕋_ψ(U) and 𝕋_{ψ,Q}(U_Q) with T_v, S_v, U_v and ⟨h⟩, non-Eisenstein localisation, finiteness, reducedness and the Jacquet–Langlands identification of 𝒪′-points with π. Also the isotropy groups and their Sylow exponents (KW II §7.2), the freeness criterion (KW II Lemma 7.4, Gee Proposition 5.4(2)), the Ihara-type lemma (KW II Lemma 7.1) and the dyadic twist f ↦ f_χ (KW II Proposition 7.6).",
+   "neededBy": [
+    "GL2ModularityLifting:R22.1/minimal-level-data",
+    "GL2ModularityLifting:R22.2/auxiliary-level-groups",
+    "GL2ModularityLifting:R22.2/delta-freeness-at-taylor-wiles-level",
+    "GL2ModularityLifting:R22.2/dyadic-twists-of-forms"
+   ],
+   "status": "open",
+   "note": "R18.3 keeps these (RS-23); R18.6 exports them to KW II §§7–9."
+  },
+  {
+   "supplier": "AutomorphicGaloisRepresentations:R19.6",
+   "need": "The Galois representation ρ_𝔪 : G_F → GL_2(𝕋_ψ(U)_𝔪) (Carayol's descent from ρ_π), and local–global compatibility for Hilbert modular forms: away from p (Carayol, Taylor, including the principal-series computation at Taylor–Wiles places and KW II Lemma 7.2), and at p (KW II Lemma 7.7 and Corollary 7.8).",
+   "neededBy": [
+    "GL2ModularityLifting:R22.1/hecke-points-local-conditions",
+    "GL2ModularityLifting:R22.1/deformation-to-hecke-map",
+    "GL2ModularityLifting:R22.2/auxiliary-hecke-algebra",
+    "GL2ModularityLifting:R22.2/delta-actions-agree",
+    "GL2ModularityLifting:R22.2/delta-freeness-at-taylor-wiles-level"
+   ],
+   "status": "open",
+   "note": "The roadmap document: R19 supplies representations over Hecke algebras."
+  },
+  {
+   "supplier": "SerreWeightAndLevelOptimisation:R20.6",
+   "need": "Existence, after an allowable base change, of a cuspidal π fitting the prescribed lifting data (KW II Theorem 8.4, using Theorem 8.2 for minimal lifts).",
+   "neededBy": [
+    "GL2ModularityLifting:R22.1/minimal-level-data"
+   ],
+   "status": "open",
+   "note": "R20 supplies the required level and weight results."
+  },
+  {
+   "supplier": "LocalGaloisDeformationRings:R08.6",
+   "need": "The local conditions of KW II's lifting data (semistable with γ_v, odd at ∞, types (A), (B), (C) at p) with their rings.",
+   "neededBy": [
+    "GL2ModularityLifting:R22.1/hecke-points-local-conditions"
+   ],
+   "status": "open",
+   "note": "Also requested by GlobalGaloisDeformations R04.6."
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "GL2ModularityLifting:R22.1",
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 keeps R22.1: the actual classical minimal deformation-to-Hecke map for the specified arithmetic problem, not an abstract ring map or R = T. Planned (5 nodes): minimal-level data, identification of the local problem at each place, the map, its surjectivity and the framed Hecke algebra and module. Quaternionic forms and Hecke algebras are R18 (requested via R18.6), ρ_𝔪 and local–global compatibility are R19.6, the existence of π is R20.6, and the global rings are GlobalGaloisDeformations R04.6."
+  },
+  {
+   "stageId": "GL2ModularityLifting:R22.2",
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 keeps R22.2: actual auxiliary levels, finite-level modules and freeness using R04.5 primes. Planned (6 nodes): auxiliary levels with the isotropy quotient Δ_v, Hecke algebras and maps at level Q with the eigenvalue choice, agreement of the Δ-actions, freeness and control (KW II Corollary 7.5, Gee Propositions 5.8–5.9), the module system for patching, and the p = 2 twists. The general freeness criterion, Ihara-type lemma and dyadic twist on forms are R18.3 (RS-23), requested."
+  },
+  {
+   "stageId": "GL2ModularityLifting:R22.3",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R22.3."
+   ]
+  },
+  {
+   "stageId": "GL2ModularityLifting:R22.4",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R22.4."
+   ]
+  },
+  {
+   "stageId": "GL2ModularityLifting:R22.5",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R22.5."
+   ]
+  },
+  {
+   "stageId": "GL2ModularityLifting:R22.6",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R22.6."
+   ]
+  },
+  {
+   "stageId": "GL2ModularityLifting:R32.1",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R32.1."
+   ]
+  },
+  {
+   "stageId": "GL2ModularityLifting:R32.2",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R32.2."
+   ]
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": []
+}
