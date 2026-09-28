@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5678 new mistakes confirmed · 1440 awaiting review · 693 already corrected in print · 88 rejected on review · 20 extractions and packets not yet checked.
+5678 new mistakes confirmed · 1441 awaiting review · 693 already corrected in print · 88 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -10919,6 +10919,7 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 - **Misprint** at §4.3, proof of Proposition 4.1, p. 64 (Numdam PDF page 61). The source says `The source invokes Proposition 2.12 to deduce dim T_{𝒟_c}/Q_1^mod ≥ dim R_𝒟/Q_1.`; it should be `Corollary 2.12.`. §2.4 has Proposition 2.11 and Corollary 2.12; the inequality dim R^ps/Q^ps ≥ dim R_𝒟/Q is Corollary 2.12, applied through the surjection R_{𝒟^ps} ↠ T_𝒟. The same label drift recurs in the proof of Proposition 4.2: 'Lemma 2.12' on pp. 67 and 70 and 'Proposition 2.12' twice on p. 69, all meaning Corollary 2.12. Recorded as `OrdinaryAutomorphicFormsAndModularityLifting/E5`; looked for an existing correction in: Numdam item page and the Crossref record of doi:10.1007/BF02698855 (filter=updates), checked 2026-09-28: no erratum..
 - **Misprint** at §4.4, proof of Proposition 4.2, p. 66 (Numdam PDF page 63). The source says `The source argues that goodness of (F, 𝒟) makes L_p(F, −1, χω) a nonunit in 𝒪, and then uses Proposition 3.14 to deduce that T_∞(U^χ, 𝒪) possesses a permissible maximal ideal m.`; it should be `Proposition 3.18.`. Proposition 3.14 is the level-by-type statement; the existence of a permissible maximal ideal of T_∞(U^χ, 𝒪) from ord_π L_p(F, −1, χω) > 0 is Proposition 3.18. Recorded as `OrdinaryAutomorphicFormsAndModularityLifting/E6`; looked for an existing correction in: As for E5..
 - **Misprint** at §4.6, proof of Theorem B, p. 78 (Numdam PDF page 75). The source says `The source lists: (i) the Galois closure over F is solvable; (ii) the degree over ℚ is even; (iii) permissibility holds for 𝒟; and (vi) (L, 𝒟_L) forms a good pair.`; it should be `(iv) is such that (L, 𝒟_L) is a good pair.`. The four conditions of the Main Theorem are numbered (i)–(iv) (p. 73) and in the proof of Theorem A (p. 76). Recorded as `OrdinaryAutomorphicFormsAndModularityLifting/E7`; looked for an existing correction in: As for E5..
+- **Misprint** at §8.4, p. 119 (Numdam PDF page 116). The source says `The source cites Proposition 7.2 for freeness of M₀ over T₀ and for ψ(𝒟_c, 𝔭) : R₀ ≅ T₀.`; it should be `Proposition 7.3.`. 7.2 is a Remark (Lemma 7.1 holds for the auxiliary data 𝒟_Q); the freeness of M̃ and the isomorphism ψ(𝒟_c, 𝔭) are Proposition 7.3 (p. 111). Recorded as `OrdinaryAutomorphicFormsAndModularityLifting/E8`; looked for an existing correction in: As for E5..
 
 ### Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707) (`OverconvergentAutomorphicForms`)
 

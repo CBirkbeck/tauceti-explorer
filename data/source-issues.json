@@ -144118,6 +144118,25 @@
    "reviewReason": null
   },
   {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E8",
+   "kind": "misprint",
+   "locator": "§8.4, p. 119 (Numdam PDF page 116)",
+   "printed": "The source cites Proposition 7.2 for freeness of M₀ over T₀ and for ψ(𝒟_c, 𝔭) : R₀ ≅ T₀.",
+   "correction": "Proposition 7.3.",
+   "reason": "7.2 is a Remark (Lemma 7.1 holds for the auxiliary data 𝒟_Q); the freeness of M̃ and the isomorphism ψ(𝒟_c, 𝔭) are Proposition 7.3 (p. 111).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "As for E5."
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OverconvergentAutomorphicForms/E1",
    "kind": "misprint",
    "locator": "§6.1, Definition 6.1, printed p. 1756 (PDF p. 49); same in arXiv v4",
