@@ -28,11 +28,12 @@ import Mathlib.RingTheory.Length
 import Mathlib.RingTheory.PowerSeries.Expand
 import Mathlib.RingTheory.Polynomial.Eisenstein.Basic
 import Mathlib.NumberTheory.Padics.PadicNumbers
+import Mathlib.FieldTheory.Finite.GaloisField
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyFree
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 
 /-!
-# Finite flat groups and integral p-adic Hodge theory — suggested declarations (R07.1–R07.4)
+# Finite flat groups and integral p-adic Hodge theory — suggested declarations (R07.1–R07.6)
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
@@ -50,6 +51,8 @@ over a completion and a localisation; the Katz–Mazur groups).
 R07.2 is in `TauCeti.Dieudonne`, R07.3 in `TauCeti.FontaineLaffaille`, and R07.4 in
 `TauCeti.BreuilKisin` (Kisin modules over `𝔖 = W(k)⟦u⟧`, the functor `V_𝔖`, and Kisin's
 classification of p-divisible groups, with the period rings and Galois groups as placeholders).
+R07.5's tame inertia, fundamental characters and peu ramifiée Kummer classes are at the end of the
+file, back in `TauCeti.FiniteFlat`.
 
 Everything is stated over an affine base, on Tau Ceti's
 `FiniteLocallyFreeCommAffineGroupSchemeCat`, whose objects are finite, flat and of finite
@@ -863,3 +866,37 @@ theorem exists_pDivisible_of_crystalline (V : Type u) [AddCommGroup V] [Module �
 end PDivisible
 
 end TauCeti.BreuilKisin
+
+namespace TauCeti.FiniteFlat
+
+/-! ## R07.5: Local residual types -/
+
+/-- R07.5/tame-inertia-characters: the tame inertia group `I_t = I/I_p` of a `p`-adic field `K`
+(placeholder for the quotient of the inertia subgroup of `Field.absoluteGaloisGroup K` by its
+pro-`p` part). -/
+def tameInertia (K : Type u) [Field K] : Type u := sorry
+
+instance (K : Type u) [Field K] : Group (tameInertia K) := sorry
+
+/-- The fundamental character of level `n`, `θ_{p^n-1} : I_t → 𝔽_{p^n}^×` (Serre 1972, §1.7). -/
+def fundamentalCharacter (p n : ℕ) [Fact p.Prime] (K : Type u) [Field K] :
+    tameInertia K →* (GaloisField p n)ˣ := sorry
+
+/-- A fundamental character of level `n` takes values in the `(p^n - 1)`-th roots of unity. -/
+theorem fundamentalCharacter_pow_eq_one (p n : ℕ) [Fact p.Prime] (hn : n ≠ 0) (K : Type u)
+    [Field K] (s : tameInertia K) : (fundamentalCharacter p n K s) ^ (p ^ n - 1) = 1 := sorry
+
+/-- R07.5/peu-tres-ramifiee, on a single Kummer generator: a class `x ∈ K₀^×/K₀^{×p}` with
+`v_p(x) = v` is peu ramifiée iff `p ∣ v` (Serre 1987, (2.4.7)). -/
+def IsPeuRamifieeClass (p : ℕ) (v : ℤ) : Prop := (p : ℤ) ∣ v
+
+/-- `p = 2`, the class of `-1` (a unit): peu ramifiée. -/
+example : IsPeuRamifieeClass 2 0 := dvd_zero _
+
+/-- `p = 2`, the class of `2`: très ramifiée. -/
+example : ¬ IsPeuRamifieeClass 2 1 := by norm_num [IsPeuRamifieeClass]
+
+/-- The class of `q` for a Tate curve with `p ∣ v(q)` is peu ramifiée (R07.5/multiplicative-torsion-inertia). -/
+example (p : ℕ) (k : ℤ) : IsPeuRamifieeClass p (p * k) := dvd_mul_right _ _
+
+end TauCeti.FiniteFlat
