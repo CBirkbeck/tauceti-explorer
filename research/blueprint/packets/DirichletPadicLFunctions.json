@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all254 predecessor nodes whole. Eight L3 nodes establish the scalar principal-log integral and its finite Gauss-kernel application to the native complex L-value at1, with branch avoidance, integrability and root normalization explicit. Five gaps, one L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all262 predecessor nodes whole. Four L3 nodes give the even-character real-log norm refinement of the complex value at1, retaining complex character coefficients and explicit primitive-conductor/Gauss hypotheses. Five gaps, one L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2268,6 +2268,55 @@
         "module": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
         "provides": "Move a real or complex scalar multiplication through the Bochner integral.",
         "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:Complex.inv_eq_conj",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Complex/Basic.lean",
+        "provides": "Inversion equals complex conjugation for a point of norm1.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The actual scalar conjugation/pairing and finite weighted averaging also elaborate in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Complex.slitPlane_arg_ne_pi",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Arg.lean",
+        "provides": "A point of the native slit plane has argument different fromπ.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The actual scalar conjugation/pairing and finite weighted averaging also elaborate in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Complex.log_conj",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "Principal logarithm commutes with complex conjugation when the argument is notπ.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The actual scalar conjugation/pairing and finite weighted averaging also elaborate in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Complex.add_conj",
+        "kind": "theorem",
+        "module": "Mathlib/Basic/Complex/Basic.lean",
+        "provides": "A complex number plus its conjugate equals twice its real part included intoℂ.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The actual scalar conjugation/pairing and finite weighted averaging also elaborate in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Complex.log_re",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "The real part of the principal complex logarithm is the real logarithm of its norm.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The actual scalar conjugation/pairing and finite weighted averaging also elaborate in the complete native probe."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.Even",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "Native evenness means that the character takes value1 at−1.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The actual scalar conjugation/pairing and finite weighted averaging also elaborate in the complete native probe."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.Even.eval_neg",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "An even Dirichlet character has the same value at x and−x.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The actual scalar conjugation/pairing and finite weighted averaging also elaborate in the complete native probe."
       }
     ]
   },
@@ -2301,7 +2350,8 @@
         "27 September 2026 Kummer continuation: complete printed115–117/PDF16–18 freshly read, printed117 visually inspected and collated with full v2PDF11–13. Five arithmetic deductions repair the unqualified congruence, explicitly acknowledging existing PMIA/E13. Earlier numerator reading on138–139 supplies the normalization; no full-paper extraction is claimed.",
         "27 September2026 character-twist continuation: complete printed139–144/PDF40–45 freshly read; full v2PDF30–32 collated; published142/144 visually inspected. Equation5-1 is decomposed on the actual arithmetic measure. Primitive Gauss/Fourier interpolation and tame construction remain gaps. E11/E12 record proof-display slips; no full-paper extraction is claimed.",
         "27 September2026 tame-kernel continuation: complete published139–147/PDF40–48 read, including downstream tame uses; fullv2PDF33–35 collated and published145 visually inspected. Finite rational arithmetic and bounded K-valued construction are worker deductions; primitive Gauss comparison, integral-ring transport and special values remain gaps. E13 records the Gauss-inverse notation slip. Older Warwick note title/pp23–25 checked as a bounded correction-search result, not the source of record.",
-        "28September2026: complete published149–150/PDF50–51 freshly read for Theorem6.1(i), its full proof, Remark6.3 and opening§6.2. The eight log-kernel nodes give a native improper-integral route to the classical formula. No new source finding, whole-paper reading or p-adic logarithmic theorem is asserted."
+        "28September2026: complete published149–150/PDF50–51 freshly read for Theorem6.1(i), its full proof, Remark6.3 and opening§6.2. The eight log-kernel nodes give a native improper-integral route to the classical formula. No new source finding, whole-paper reading or p-adic logarithmic theorem is asserted.",
+        "28September2026 even refinement: the complete published149–150/PDF50–51 reading from the immediate predecessor is reused for Remark6.3. Native conjugation, argument/slit-plane, even-character and finite-reindexing statements read with their applicable hypotheses. No new source finding or odd/p-adic logarithmic theorem is asserted."
       ]
     },
     {
@@ -16866,6 +16916,210 @@
       "planet": {
         "name": "Complex logarithmic L-value"
       }
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-inverse-conjugate",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Conjugation of the cyclotomic logarithm",
+      "kind": "lemma",
+      "statement": "log(1−α⁻¹)=conj(log(1−α)).",
+      "hypotheses": [
+        "α∈ℂ has norm1 and α≠1. All complex logarithms are the native principal branch; real logarithms are included into ℂ."
+      ],
+      "proofSteps": [
+        "The preceding complex-log-right-halfplane at t=0 gives Re(1−α)>0, hence 1−α lies in the native slit plane and its argument is not π.",
+        "Use Complex.inv_eq_conj at norm1, then 1−α⁻¹=conj(1−α). Apply Complex.log_conj with the verified branch hypothesis."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-right-halfplane",
+        "mathlib:Complex.inv_eq_conj",
+        "mathlib:Complex.slitPlane_arg_ne_pi",
+        "mathlib:Complex.log_conj"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedEvenLogTests.imaginary_conjugation",
+          "kind": "computation",
+          "statement": "log(1+i)=conj(log(1−i))."
+        },
+        {
+          "name": "SuggestedEvenLogTests.minus_one_conjugation",
+          "kind": "computation",
+          "statement": "log2=conj(log2)."
+        }
+      ],
+      "acceptance": [
+        "The branch condition is supplied, not inferred from an unrestricted identity log(conj z)=conj(log z)."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_inv_eq_conj"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51, together with Theorem6.1(i) and its proof on complete published149–150/PDF50–51, read during the immediate predecessor continuation on28September2026 and reused here.",
+          "match": "The even-character refinement is decomposed using the native principal-log conjugation formula, explicit slit-plane membership and finite negation of unit residues. Only logarithms are conjugated in the scalar step; character coefficients remain complex and are paired by evenness. The odd formula and p-adic value are not asserted in this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-inverse-pair",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Pairing inverse roots in the logarithm",
+      "kind": "lemma",
+      "statement": "log(1−α)+log(1−α⁻¹)=2·Real.log‖1−α‖ in ℂ.",
+      "hypotheses": [
+        "α∈ℂ has norm1 and α≠1. All complex logarithms are the native principal branch; real logarithms are included into ℂ."
+      ],
+      "proofSteps": [
+        "Replace the second logarithm by the conjugate of the first using the preceding node.",
+        "Native Complex.add_conj identifies their sum with twice the real part; Complex.log_re identifies that real part with Real.log‖1−α‖."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-inverse-conjugate",
+        "mathlib:Complex.add_conj",
+        "mathlib:Complex.log_re"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedEvenLogTests.imaginary_pair",
+          "kind": "computation",
+          "statement": "log(1−i)+log(1+i)=log2."
+        },
+        {
+          "name": "SuggestedEvenLogTests.minus_one_pair",
+          "kind": "computation",
+          "statement": "The fixed rootα=−1 gives log2+log2=2log2."
+        }
+      ],
+      "acceptance": [
+        "The proof allows fixed points of inversion such as−1; it does not divide a set into unordered pairs."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_add_inv"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51, together with Theorem6.1(i) and its proof on complete published149–150/PDF50–51, read during the immediate predecessor continuation on28September2026 and reused here.",
+          "match": "The even-character refinement is decomposed using the native principal-log conjugation formula, explicit slit-plane membership and finite negation of unit residues. Only logarithms are conjugated in the scalar step; character coefficients remain complex and are paired by evenness. The odd formula and p-adic value are not asserted in this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-even-weighted-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The even weighted logarithm sum",
+      "kind": "lemma",
+      "statement": "Σ_units c η⁻¹(c)log(1−ε^c)=Σ_units c η⁻¹(c)Real.log‖1−ε^c‖.",
+      "hypotheses": [
+        "D>1, η:DirichletCharacter ℂ D is even in the native sense, and ε is a primitive D-th root. Primitivity and nonprincipality of η, and Gauss nonvanishing, are not required for this finite-sum statement."
+      ],
+      "proofSteps": [
+        "Negation is a permutation of (ZMod D)ˣ. Native evenness gives η(−1)=1 and hence η⁻¹(−c)=η⁻¹(c). Root periodicity gives ε^(−c)=(ε^c)⁻¹. Reindex the same weighted sum through this permutation using the additive form of native Equiv.prod_comp.",
+        "Add the original and reindexed sums. Each rootε^c has norm1 and differs from1: primitive-root normalization and the existing denominator theorem at t=0 supply these facts for nonzero unit c. The inverse-pair node turns each pair of logarithms into twice its real log norm.",
+        "Distribute the finite sum and cancel the nonzero scalar2 in ℂ. This averaging proof also works if negation has fixed points. Character coefficients are not conjugated; they need not be real."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-inverse-pair",
+        "DirichletPadicLFunctions:L2/complex-gauss-denominator",
+        "mathlib:IsPrimitiveRoot.norm'_eq_one",
+        "mathlib:DirichletCharacter.Even",
+        "mathlib:DirichletCharacter.Even.eval_neg",
+        "mathlib:Equiv.prod_comp"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedEvenLogTests.quadratic_five_sum",
+          "kind": "computation",
+          "statement": "For quadratic η modulo5 the weighted sum is2(log‖1−ε‖−log‖1−ε²‖)."
+        },
+        {
+          "name": "SuggestedEvenLogTests.nonreal_even_coefficients",
+          "kind": "compatibility",
+          "statement": "For every even η modulo7 the weighted sum is2(log‖1−ε‖+η⁻¹(2)log‖1−ε²‖+η⁻¹(3)log‖1−ε³‖), with complex coefficients retained."
+        }
+      ],
+      "acceptance": [
+        "The result holds for principal even characters at D>1 and nonreal even characters. It does not conclude that the weighted sum is real."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_sum_even"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51, together with Theorem6.1(i) and its proof on complete published149–150/PDF50–51, read during the immediate predecessor continuation on28September2026 and reused here.",
+          "match": "The even-character refinement is decomposed using the native principal-log conjugation formula, explicit slit-plane membership and finite negation of unit residues. Only logarithms are conjugated in the scalar step; character coefficients remain complex and are paired by evenness. The odd formula and p-adic value are not asserted in this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-lvalue-one-even-log",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The even-character logarithmic L-value",
+      "kind": "theorem",
+      "statement": "η.LFunction1=−G(η⁻¹,ε)⁻¹Σ_units c η⁻¹(c)Real.log‖1−ε^c‖.",
+      "hypotheses": [
+        "D>1, η:DirichletCharacter ℂ D is primitive, nonprincipal and even, ε is a primitive D-th root, and the corresponding native inverse-character Gauss sumG is nonzero. D is the actual primitive conductor; the real log norm is included in ℂ."
+      ],
+      "proofSteps": [
+        "Apply the preceding complex L-value theorem at1 with the same character, root and Gauss normalization.",
+        "Replace its weighted complex-log sum by the preceding even weighted-sum identity. No new integral, analytic continuation or complex-to-p-adic map is needed."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-lvalue-one-log",
+        "DirichletPadicLFunctions:L3/complex-log-even-weighted-sum"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedEvenLogTests.quadratic_five_value",
+          "kind": "computation",
+          "statement": "For quadratic η modulo5, L(η,1)=2log((1+√5)/2)/√5."
+        },
+        {
+          "name": "SuggestedEvenLogTests.quadratic_eight_value",
+          "kind": "computation",
+          "statement": "For the even primitive quadratic character modulo8 with η(3)=−1 and η(7)=1, L(η,1)=log(1+√2)/√2."
+        }
+      ],
+      "acceptance": [
+        "The value may still be complex when η is nonreal. Generic Gauss nonvanishing remains an explicit input owned by ModularForms; no p-adic degree-zero value is implied."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.LFunction_one_eq_real_log_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51, together with Theorem6.1(i) and its proof on complete published149–150/PDF50–51, read during the immediate predecessor continuation on28September2026 and reused here.",
+          "match": "The even-character refinement is decomposed using the native principal-log conjugation formula, explicit slit-plane membership and finite negation of unit residues. Only logarithms are conjugated in the scalar step; character coefficients remain complex and are paired by evenness. The odd formula and p-adic value are not asserted in this checkpoint."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -16898,14 +17152,14 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, the remaining even-character and p-adic logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed. The complex primitive L-value at1 is now supplied by the L3 logarithmic chain."
+        "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, the p-adic logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed. The complex primitive L-value at1 is now supplied by the L3 logarithmic chain. Its even-character complex refinement is also supplied in L3."
       ]
     },
     {
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The primitive-conductor complex formula of Theorem6.1(i) is now decomposed through an absolutely integrable Gauss kernel, with principal-log branch control and explicit nonzero Gauss sum. Refine it to the even-character real-log norm formula in Remark6.3 and verify the odd formula with its root conventions. Construct the p-adic logarithmic/degree-zero value and analytic branches through their owners, pure p-power conductor, pole/residue analysis, complete source extraction and the PMIA L1 completed-algebra comparison. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms.",
+        "Both the complex logarithmic formula of Theorem6.1(i) and its even-character real-log norm refinement in Remark6.3 are now decomposed. Verify the odd formula with the source root conventions; construct p-adic logarithmic/degree-zero values, actual odd/dyadic analytic branches through their owners, pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms, and the PMIA L1 actual completed-algebra comparison remains requested.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -16932,12 +17186,12 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, the remaining even-character and p-adic logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed. The complex primitive L-value at1 is now supplied by the L3 logarithmic chain."
+      "detail": "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, the p-adic logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed. The complex primitive L-value at1 is now supplied by the L3 logarithmic chain. Its even-character complex refinement is also supplied in L3."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The primitive-conductor complex formula of Theorem6.1(i) is now decomposed through an absolutely integrable Gauss kernel, with principal-log branch control and explicit nonzero Gauss sum. Refine it to the even-character real-log norm formula in Remark6.3 and verify the odd formula with its root conventions. Construct the p-adic logarithmic/degree-zero value and analytic branches through their owners, pure p-power conductor, pole/residue analysis, complete source extraction and the PMIA L1 completed-algebra comparison. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
+      "detail": "Both the complex logarithmic formula of Theorem6.1(i) and its even-character real-log norm refinement in Remark6.3 are now decomposed. Verify the odd formula with the source root conventions; construct p-adic logarithmic/degree-zero values, actual odd/dyadic analytic branches through their owners, pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms, and the PMIA L1 actual completed-algebra comparison remains requested. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, constant pseudomeasure and tame-family comparisons",
@@ -17215,63 +17469,64 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All15 prior findings and sourceVersions preserved whole; no new finding or independent verdict.",
     "validation": {
-      "nodes": 262,
+      "nodes": 266,
       "kinds": {
         "definition": 1,
-        "lemma": 122,
+        "lemma": 125,
         "construction": 27,
-        "theorem": 75,
+        "theorem": 76,
         "comparison": 37
       },
       "api": 262,
-      "packetTests": 287,
+      "packetTests": 295,
       "definitionConstructionTests": 140,
-      "typedExamples": 290,
+      "typedExamples": 298,
       "planets": 24,
-      "baseline": 322,
-      "preservedWholeNodes": 254,
-      "preservedBaseline": 309,
+      "baseline": 329,
+      "preservedWholeNodes": 262,
+      "preservedBaseline": 322,
       "preservedSourceIssues": 15,
       "newSourceIssues": 0,
-      "newNodes": 8,
-      "newNamedDeclarations": 9,
-      "newTypedTests": 12,
+      "newNodes": 4,
+      "newNamedDeclarations": 4,
+      "newTypedTests": 8,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 404,
-      "dependencyEdges": 1880,
+      "reachableNodes": 408,
+      "dependencyEdges": 1895,
       "acyclic": true,
-      "baselineLeaves": 421,
+      "baselineLeaves": 428,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 101922,
+      "readerWords": 103223,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 664,
+      "compilerWarnings": 676,
       "allWarningsPlaceholders": true,
       "supplierNodes": 265,
-      "currentSupplierNodes": 304,
+      "currentSupplierNodes": 320,
       "supplierWarnings": 569,
       "supplierArtifactReused": true,
       "pinnedMathlibModules": 3595,
       "pinnedTauCetiModules": 20,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 8,
-      "scratchMathlibModules": 2515,
+      "scratchCompleteLemmas": 4,
+      "scratchMathlibModules": 1757,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "scalarIntegrals": 12,
-        "branchAndDecaySamples": 84,
-        "characterMultiplications": 188,
-        "gaussNormalizedLogValues": 22,
-        "actualKernelIntegrals": 6,
-        "rootIndependence": 16,
-        "closedForms": 3
+        "scalarConjugations": 14,
+        "scalarPairs": 14,
+        "weightedEvenSums": 27,
+        "nonrealEvenSums": 6,
+        "evenLValues": 14,
+        "oddNegativeControls": 8,
+        "closedForms": 8,
+        "fixedPointCases": 1
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -17279,18 +17534,18 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 664,
-      "sha256": "617dbcde6cf2d6f67ff24c519c605c8940d672f7ac8cf4da04657d8949a453ca",
+      "warnings": 676,
+      "sha256": "c0fdb2ddbbe1a8b3ff4f05ce8d39cbb3d2b3fe58e2f7a53aadc63f2beab94f3f",
       "nativeProbe": {
-        "completeLemmas": 8,
+        "completeLemmas": 4,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "1df894207c68c16f0cb56b2deab4315ef9c552cc589f86eee74ce25357658889"
+        "sha256": "3750331f9d1ccee42ec29497357d6ebcc2ca5b011e69ba7e1c62344b9c60ee71"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 265,
-        "currentSupplierNodes": 304,
+        "currentSupplierNodes": 320,
         "supplierWarnings": 569,
         "hashes": {
           "source": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
@@ -17298,7 +17553,7 @@
           "log": "052f501c267b2d8edeec41158188185a72b4dc4b1acb567a0a9582f12710869d"
         },
         "wholeOldBodyPreserved": true,
-        "currentSupplierSourceSha256": "ad64bfe94d36581684ae9a29fa5b76dad2dd154b24fb55b420274f6585e45432",
+        "currentSupplierSourceSha256": "d9a5079316a70e82bbe867853129fdda1a3059b11e781e270595de373778dda8",
         "nativeTauModules": 20,
         "nativeMathlibModules": 3595,
         "artifactSha256": {
@@ -17327,7 +17582,7 @@
       }
     },
     "publication": {
-      "base": "a2b7622ecf52ce11891aa8347f5272db0c5bcffe",
+      "base": "e471c4d0ca98fa689e3bc49487c092c5b5fd5371",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -21085,6 +21340,67 @@
         "closedForms": 3
       },
       "numericalMethod": "70-decimal mpmath numerical controls, tolerance1e-60; not interval-certified and not a proof of general identities. Finite unit tables, direct scalar quadrature, independent digamma values, grouped-kernel quadrature, all primitive roots and three closed forms."
+    },
+    "evenComplexLogValue": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3292,
+      "previousHead": "7a5e41bb16be0095ff6cadd8f8bc9468561460bb",
+      "previousMerge": "62319b2642d123c2409499d5ceefb94d8d61976d",
+      "preservedWholeNodes": 262,
+      "preservedBaseline": 322,
+      "preservedFindings": 15,
+      "newNodes": 4,
+      "reading": "Remark6.3, published150/PDF51, together with Theorem6.1(i) and its proof on complete published149–150/PDF50–51, read during the immediate predecessor continuation on28September2026 and reused here.",
+      "boundary": "Both the complex logarithmic formula of Theorem6.1(i) and its even-character real-log norm refinement in Remark6.3 are now decomposed. Verify the odd formula with the source root conventions; construct p-adic logarithmic/degree-zero values, actual odd/dyadic analytic branches through their owners, pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms, and the PMIA L1 actual completed-algebra comparison remains requested.",
+      "inputBase": "62319b2642d123c2409499d5ceefb94d8d61976d",
+      "publication": {
+        "base": "e471c4d0ca98fa689e3bc49487c092c5b5fd5371",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "scalarConjugations": 14,
+        "scalarPairs": 14,
+        "weightedEvenSums": 27,
+        "nonrealEvenSums": 6,
+        "evenLValues": 14,
+        "oddNegativeControls": 8,
+        "closedForms": 8,
+        "fixedPointCases": 1
+      },
+      "numericalMethod": "70-decimal numerical controls with tolerance1e-60, not interval-certified and not general proofs.",
+      "supplierRefresh": {
+        "previousBase": "62319b2642d123c2409499d5ceefb94d8d61976d",
+        "newBase": "e471c4d0ca98fa689e3bc49487c092c5b5fd5371",
+        "changedInputs": {
+          "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json": {
+            "old": "6756916ff826c8340ba3db789f6061c619a7f401",
+            "new": "16c6d308ee7a0d3a3c06cf9940a8611a3998ee4a"
+          },
+          "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean": {
+            "old": "ca2ea15141099bdb6bf17f907ea49214ccf91181",
+            "new": "5297667316eca2f56338eb246a9d16b9e7931def"
+          }
+        },
+        "oldNodes": 304,
+        "newNodes": 320,
+        "preservedWholeNodes": 304,
+        "preservedBaseline": 309,
+        "preservedFindings": 14,
+        "addedNodesRead": 16,
+        "addedBaselineRecordsRead": 6,
+        "newLeanLinesRead": 136,
+        "wholeOldLeanPreservedInOrder": true,
+        "reading": "All16 new nodes, all6 baseline records, the full Lean difference including the new import, and changed summary/L3 coverage/gap/check/provenance metadata read. Actual Dirac and character-integral maps, positive-moment separation/regularity and positive pseudomoments are supplied. No current Dirichlet declaration calls these additions. The exact completed-group-algebra comparison remains open. No independent review or compilation against the320-node revision is claimed."
+      }
     }
   },
   "requestResolutions": [
