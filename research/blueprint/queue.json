@@ -17894,12 +17894,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R22.1.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #735"
+   "note": "released on GitHub issue #735"
   },
   {
    "id": "REV-GL2ModularityLifting--R22.1",
@@ -19952,12 +19952,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularSymbolsPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #777"
+   "note": "claimed on GitHub issue #777"
   },
   {
    "id": "REV-ModularSymbolsPadicLFunctions",
