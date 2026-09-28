@@ -3,8 +3,9 @@
 This blueprint covers stages L7, L8 and R08.1–R08.6, within the boundaries of the RS-08 restructure (accepted). This
 blueprint now plans **R08.1 (unrestricted local rings)** and **R08.2 (places away from p)**, both source-decomposed. It
 also plans **R08.3 (potentially semistable rings)** and **R08.4 (finite-flat and Barsotti–Tate components)**, both
-source-decomposed, and the **bounded-height lattice moduli of L7** and **KW II's local exports in R08.6**, both partial.
-The other stages are not yet read.
+source-decomposed, and the **bounded-height lattice moduli and ordinary flag rings of L7** and **KW II's local exports in
+R08.6**, both partial. **L8 (ordinary flags versus determinant ordinary conditions)** is source-decomposed. R08.5 is not
+yet read.
 
 ## Purpose and ownership (RS-08)
 
@@ -159,7 +160,32 @@ and R08.4 import them. The source is Kisin, *Potentially semi-stable deformation
 - It is not a closed immersion integrally. For K = ℚ₂, h = 1 and trivial V_𝔽 = 𝔽₂, the lattices u^a𝔖e with
   a ∈ {0, 1} both qualify.
 
-*Remaining in L7:* ordinary full-flag moduli, Fontaine–Laffaille conditions, and ordinary functors.
+*Remaining in L7:* Fontaine–Laffaille conditions, ordinary functors for nontrivial ρ̄ in rank n > 2, and the source
+proofs behind ACC+ Proposition 6.2.10.
+
+### L7, ordinary flags (checkpoint 6)
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/Ordinary`. The sources are ACC+ §6.2.6 (arXiv:1812.09999v2) and
+Skinner–Wiles, Publ. Math. IHÉS 89 (1999), Lemma 2.2 and Corollary 2.3.
+
+**Construction: the ordinary flag scheme and R^△_v** (node `ordinary-flag-scheme`; planet). 𝒢_v ⊂ 𝓕 × Spec R^□_v is
+the closed subscheme of full flags preserved by the universal lift, with I_{F_v} acting on the graded pieces by the
+χ_i^univ of L8. It is proper over R^□_v, and R^△_v is the image of R^□_v → H⁰(𝒢_v, 𝒪). A domain point factors through
+R^△_v iff a flag exists over the algebraic closure of its fraction field.
+- *API:* `ordinaryFlagScheme`, `ordinaryFlagScheme_proper`, `ordinaryFlagImage`, `ordinaryFlagImage_points`.
+- *Tests:*
+  - for n = 1, R^△_v = R^□_v/(ρ|_I − χ^univ);
+  - the permuted-flag variants R^{△,σ}_v;
+  - a flag need not exist over R itself.
+
+**Theorem: trivial ρ̄** (node `trivial-residual-flag-ring`). This is ACC+ Proposition 6.2.10, from Thorne. For
+[F_v : ℚ_p] > n(n − 1)/2 + 1, R^△_v is 𝒪-flat, reduced and equidimensional of dimension 1 + n² + n(n + 1)[F_v:ℚ_p]/2, and
+bijective with Λ_v on generic points. Thorne's proof was not obtained, so it is recorded as a gap.
+
+**Theorem: residually split nearly ordinary rings** (node `residually-split-nearly-ordinary-ring`). This is
+Skinner–Wiles Lemma 2.2 and Corollary 2.3, for ρ_0 = χ ⊕ 1 with χ ≠ 1 and determinant χ̃. R_ord ≅
+𝒪[[x_1, …, x_{2d+2}]]/(f) if χ = ω or ω = 1, and 𝒪[[x_1, …, x_{2d+1}]] otherwise. R_ord is cut out of the versal ring by
+d + ε relations. This answers OrdinaryAutomorphicFormsAndModularityLifting R21.3's request, which named L8.
 
 ## Layer R08.3 (partial): potentially semistable deformation rings
 
@@ -301,6 +327,49 @@ the ring is a domain with regular generic fibre, of the resolution's dimension.
 - The dyadic weight-two transition.
 - The modern de Rham applications.
 
+## Layer L8: ordinary flags versus determinant ordinary conditions
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/Ordinary`. The source is ACC+ §6.2.6, pp. 138–141.
+
+**Construction: the coefficient rings** (node `ordinary-coefficient-ring`; planet "Universal character coefficient ring
+Λ_v"). Λ_v = 𝒪[[𝒪_{F_v}^×(p)ⁿ]]/𝔞, where 𝔞 is the intersection of a chosen nonempty set of minimal primes, i.e. of
+chosen torsion-character tuples. χ_i^univ is the Teichmüller lift of χ̄_i times the i-th Artin factor. Λ̃_v adds the
+Frobenius variables, and χ̃_i^univ is defined on all of G_{F_v}.
+- *API:* `ordinaryWeightRing`, `universalInertialCharacter`, `ordinaryWeightRingTilde`,
+  `universalInertialCharacter_residual`, `minimalPrimes_torsionCharacters`.
+- *Tests:*
+  - for F_v = ℚ_p, Λ_v = 𝒪[[X_1, …, X_n]];
+  - for ℚ_p(ζ_p) the torsion μ_p gives several minimal primes;
+  - the case n = 1.
+
+**Construction: the determinant-ordinary rings** (node `determinant-ordinary-ring`; planet). R̃^{det,ord}_v is the
+quotient of R^□_v ⊗ Λ̃_v by (6.2.7), det(X − ρ(g)) = ∏(X − χ̃_i(g)), and (6.2.8), the ordered products
+(ρ(g_1) − χ̃_1(g_1))⋯(ρ(g_n) − χ̃_n(g_n)) = 0. R^{det,ord}_v is the image of R^□_v in it.
+- *API:* `detOrdTilde`, `detOrd`, `detOrdTilde_charpoly`, `detOrdTilde_product`, `detOrd_universal`.
+- *Tests:*
+  - the case n = 1;
+  - diagonal lifts satisfy both relations;
+  - (6.2.7) without (6.2.8) is weaker: a unipotent ρ(g) has the right characteristic polynomial.
+
+**Lemma: finiteness** (node `det-ord-finite`). This is Lemma 6.2.9. By (6.2.7) at a uniformiser, each Frobenius
+variable is integral over R^□_v.
+
+**Lemma: point criteria** (node `ordinary-point-criteria`). R^□_v → R factors through R^{det,ord}_v when R embeds in
+an S carrying characters ψ_i with the relations. Hence Spec R^△_v ⊂ Spec R^{det,ord}_v and R^{det,ord}_v ↠ (R^△_v)_red.
+Only the reduced quotient is reached.
+
+**Lemma: flags from characteristic polynomials and ordered products** (node `distinct-characters-flag`). This is
+Lemma 6.2.11. Over a field, with pairwise distinct characters, the two identities give a flag with graded pieces K(χ_i).
+
+**Theorem: the comparison** (node `determinant-flag-comparison`; planet). This is Proposition 6.2.12. Assume ρ̄ trivial
+and [F_v : ℚ_p] > n(n + 1)/2 + 1.
+- Over the locus U of distinct characters, R^△_v and R^{det,ord}_v have the same points. Each component of Λ_v is
+  dominated by exactly one component of R^{det,ord}_v, of dimension n² + 1 + n(n + 1)[F_v:ℚ_p]/2.
+- Every other component lies over Z and has dimension ≤ n² − 1 + n(n + 1)[F_v:ℚ_p]/2. The proof uses the
+  permuted-flag rings and Geraghty's tangent computation.
+- As the stage requires, the comparison is at the level of spaces and components, never a ring isomorphism over
+  nonreduced rings.
+
 ## Remaining work
 
 - **R08.6:** KW I's types, the good-dihedral type, the dyadic transition and the modern de Rham applications.
@@ -308,8 +377,9 @@ the ring is a domain with regular generic fibre, of the resolution's dimension.
   (see the packet's `gaps`).
 - **R08.5:** dyadic cases.
 - **R08.6:** exports.
-- **L7:** ordinary full-flag moduli, Fontaine–Laffaille conditions and ordinary functors.
-- **L8:** ordinary conditions.
+- **L7:** Fontaine–Laffaille conditions, and ordinary functors for nontrivial ρ̄ in rank n > 2. A gap remains: Thorne's
+  proof of ACC+ Proposition 6.2.10 (J. Amer. Math. Soc. 2015, not obtained). Geraghty §3 is still to be read.
+- **L8 is source-decomposed** (checkpoint 6).
 
 ## Sources
 
@@ -324,6 +394,10 @@ the ring is a domain with regular generic fibre, of the resolution's dimension.
   arXiv:1908.06174v3.
 - M. Kisin, *Moduli of finite flat group schemes, and modularity*, Ann. of Math. 170 (2009): the author's preprint DVI,
   §2.
+- P. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. Le Hung, J. Newton, P. Scholze, R. Taylor and J. Thorne,
+  *Potential automorphy over CM fields*, arXiv:1812.09999v2 (Ann. of Math. 197 (2023)), §6.2.6.
+- C. M. Skinner and A. J. Wiles, *Residually reducible representations and modular forms*, Publ. Math. IHÉS 89 (1999),
+  Lemma 2.2 and Corollary 2.3 (Numdam).
 - D. Savitt, *On a conjecture of Conrad, Diamond, and Taylor*, Duke Math. J. 128 (2005): arXiv:math/0404327v3, the
   author's corrected version (Remark 1.7).
 
