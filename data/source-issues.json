@@ -135908,6 +135908,26 @@
    "reviewReason": null
   },
   {
+   "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E1",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 2.4, last paragraph, p. 420",
+   "printed": "The source takes X over R̂ and X′ over R[1/p], each extending H by G. It then says that Prop.2.3 associates to (X, X′, θ) an R-group scheme extending H by G over R.",
+   "correction": "extensions of G by H (0 → H → X → G → 0), in both places.",
+   "reason": "The step proves exactness at Ext¹_R̂(G, H) × Ext¹_{R[1/p]}(G, H), whose elements are extensions of G by H, the convention used earlier in the same proof ('let X be an extension of G by H over R') and in the definition of δ. Extensions of H by G would lie in Ext¹(H, G).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "https://www.mat.uniroma2.it/~schoof/erratacyc.txt (the author's errata for this article; its entries concern pp. 426–446)",
+    "https://www.mat.uniroma2.it/~schoof/papers.html"
+   ],
+   "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+   "citation": "René Schoof, Abelian varieties over cyclotomic fields with good reduction everywhere, Math. Ann. 325 (2003), 413–448, author copy; errata note erratacyc.txt checked; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GL2ModularityLifting/E1",
    "kind": "misprint",
    "locator": "Theorem (0.9)(2), p. 4, and Theorem (3.3.5)(2), p. 45, in the author's preprint (DVI of 21 October 2008); the published version (Invent. Math. 178 (2009)) was not accessible",
