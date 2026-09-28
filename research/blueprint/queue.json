@@ -6219,8 +6219,9 @@
    ],
    "avoidAccountOf": "PAPER-FENG-24",
    "prompt": "research/blueprint/prompts/REV-PAPER-FENG-24.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1355"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1355",
+   "finishedAt": "2026-09-28T12:29:34Z"
   },
   {
    "id": "PAPER-GAN-HARRIS-SAWIN-ETAL-24",
@@ -21457,9 +21458,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-SerreWeightAndLevelOptimisation.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #989"
+   "note": "claimed on GitHub issue #989"
   },
   {
    "id": "REV-SerreWeightAndLevelOptimisation",
@@ -44648,9 +44649,10 @@
     "research/blueprint/sources/SRC-SemisimpleAlgebras.result.json"
    ],
    "after": [],
-   "state": "pending",
+   "state": "external",
    "timeout": 21600,
-   "prompt": "research/blueprint/prompts/SRC-SemisimpleAlgebras.md"
+   "prompt": "research/blueprint/prompts/SRC-SemisimpleAlgebras.md",
+   "note": "claimed on GitHub issue #2831"
   },
   {
    "id": "REV-SRC-SemisimpleAlgebras",
