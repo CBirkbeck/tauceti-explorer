@@ -1,10 +1,10 @@
 {
-  "roadmaps": 59,
-  "stages": 598,
-  "originalStages": 1962,
+  "roadmaps": 65,
+  "stages": 641,
+  "originalStages": 641,
   "sourceRefinements": 0,
   "reviewedDecompositions": [],
-  "terminalTargets": 575,
+  "terminalTargets": 618,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -20,18 +20,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 15,
   "additionalRegions": 0,
-  "mathematicalSummaries": 59,
+  "mathematicalSummaries": 65,
   "editedRoadmapSummaries": 30,
   "curatedStagePresentations": 44,
   "administrativeStages": 0,
-  "mathematicalStars": 598,
+  "mathematicalStars": 641,
   "plainTextPlanetLabels": 81,
   "hiddenPlanets": 209,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 32,
   "bibliographicSources": 46,
   "roadmapEdges": 88,
-  "stageEdges": 310,
+  "stageEdges": 347,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -126,8 +126,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 10523595,
-  "htmlSha256": "ac8da5751965f3b1b5f9d1681e84c88f977cdbabca5ee8bd57d5a7707d949153",
+  "htmlBytes": 11078882,
+  "htmlSha256": "1293c3abf3ae78f31d05ea9bd7caba70b57d80fd7bfc0f677e440ddd3031ca9d",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -147,6 +147,7 @@
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
     "data/tauceti-progress.json": "5a797c530adc77518b4e3de1b7599fa28b8e3e4bcd40d4b358bd99d1cd27d9dd",
+    "data/tauceti-new-roadmaps.json": "aadf74491a7083c2798a03cb124beded9ff39545f105d20b34d444915236c1b3",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -319,15 +320,23 @@
   },
   "taucetiProgress": {
     "exportedAt": "2026-09-28T14:36:38Z",
-    "roadmaps": 59,
-    "unplaced": 6,
+    "roadmaps": 65,
+    "unplaced": 0,
     "layers": {
       "done": 168,
       "partial": 194,
       "untouched": 122,
       "unassessed": 68,
       "total": 552
-    }
+    },
+    "added": [
+      "tauceti:TauCetiRoadmap/AlgebraicVectorBundles",
+      "tauceti:TauCetiRoadmap/IntegralLattices",
+      "tauceti:TauCetiRoadmap/LocalGaloisGroups",
+      "tauceti:TauCetiRoadmap/OrthogonalSpinGroups",
+      "tauceti:TauCetiRoadmap/RealAlgebraicGeometry",
+      "tauceti:TauCetiRoadmap/RestrictedProducts"
+    ]
   },
   "variant": "tauceti"
 }
