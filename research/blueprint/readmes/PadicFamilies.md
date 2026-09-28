@@ -1,13 +1,15 @@
 # Hida and Coleman families, period modules, and family L-functions — blueprint
 
-This blueprint covers stages L0, L0a, L1, L2, L2a, L3, L4 and L5. After the fourth checkpoint:
+This blueprint covers stages L0, L0a, L1, L2, L2a, L3, L4 and L5. After the fifth checkpoint:
 - **L0a is source-decomposed.**
 - **L2a is partial:** it carries the fourteen reviewed nodes of the integrated decomposition.
 - **L0 is partial:** Hida's ordinary Hecke algebra and control theorem, from Hida, Ann. Sci. ÉNS 1986.
 - **L3 is partial:** critical-slope and θ-critical theory, from Bellaïche, *Critical p-adic L-functions*.
 - **L5 is partial:** Hida theory on the definite quaternionic towers of a totally real field, from Skinner–Wiles,
   Publ. Math. IHÉS 89 (1999), §3.2.
-- **L1, L2 and L4 are not yet read.**
+- **L1 is partial:** the ordinary family modular-symbol module, family periods and the two-variable measure, from
+  Emerton–Pollack–Weston, *Variation of Iwasawa invariants in Hida families*, §4.1.
+- **L2 and L4 are not yet read.**
 
 The roadmap belongs to the restructured family RS-08, whose accepted proposal fixes what each layer keeps.
 - **L0a** owns the finite and profinite factorial ordinary-projector API "beyond the pinned Fitting lemma".
@@ -552,6 +554,51 @@ and finite over Z_φ.
   out (E8).
 - `equidimensional-components`: Lemma 5.8 via Chenevier Proposition 6.4.2.
 
+### L1, Milestone 8: family modular symbols and the two-variable measure (partial)
+
+Library module: `TauCeti/NumberTheory/PadicFamilies/FamilySymbols`. The source is Emerton–Pollack–Weston
+(arXiv:math/0404484v1; Invent. Math. 163 (2006)), §4.1. RS-08 keeps here the ordinary family symbol module, family
+periods as line bundles, and the cyclotomic measure with its integral specialisation.
+
+**Construction: M_m** (node `ordinary-family-symbol-module`; planet). For a non-Eisenstein m,
+M_m = lim_r H₁(X₁(Np^r); ℤ_p)^ord_m. This equals the relative-homology limit, because the cusp term dies at m. The sign
+decomposition gives M⁺ ⊕ M⁻.
+- *API:* `familySymbols`, `familySymbols_relative`, `familySymbols.heckeModule`, `familySymbols.sign`.
+- *Tests:*
+  - at an Eisenstein m the two limits differ;
+  - the ± split needs p odd;
+  - the weight-two slice.
+
+**Theorem: control** (node `family-symbol-control`). Hida's (4.2) and M_m/ω_{r,k} ≅ (M_{r,k})_{m_{r,k}}. The source
+proofs are Hida 1986 and 1988 (not obtained), so they are recorded as a gap.
+
+**Theorem: freeness** (node `family-symbol-free-rank-one`; planet). This is EPW Proposition 4.1.1: for irreducible,
+p-distinguished ρ̄_m, M^±_m is free of rank one over (T_N)_m. The proof combines Wiles' mod-p multiplicity one
+(requested from ModularCurvesPartII R14.6) with Nakayama.
+
+**Construction: family periods** (node `family-period-line`). θ^± : T_m ≅ M^±_m is unique up to T_m^×. Mod ℘ it
+generates the saturated classical period lattice (ModularSymbolsPadicLFunctions L1), so the ambiguity is a unit, not a
+field scalar.
+- *API:* `familyPeriod`, `familyPeriod_unique_up_to_unit`, `familyPeriod_specialise`.
+- *Tests:*
+  - a change of period by u;
+  - μ-invariants are well defined;
+  - there are two periods, one per sign.
+
+**Construction: the two-variable measure** (node `family-measure`; planet). The measure is
+µ(a + p^rℤ_p) = U_p^{−r}{∞, a/p^r} ∈ M_m, additive through U_p = Σ_b (1 b; 0 p). This gives L^±(m, N) and
+L(m, N, ω^i) with sign (−1)^i.
+- *API:* `universalOrdinarySymbol`, `familyMeasure`, `familyMeasure_additive`, `twoVariablePadicL`,
+  `twoVariablePadicL_branch`.
+- *Tests:*
+  - the distribution identity (index check in Lean);
+  - the total mass;
+  - the wrong-sign projection vanishes.
+
+**Theorem: specialisation** (node `family-measure-specialisation`). This is EPW Proposition 4.1.4: at a classical ℘,
+L^±(m, N)(℘) is the canonical-period p-adic L-function of f_℘, possibly imprimitive. It is compared with
+ModularSymbolsPadicLFunctions L2.
+
 ### L5, Milestone 7: Hida theory over totally real fields (partial)
 
 Library module: `TauCeti/NumberTheory/PadicFamilies/TotallyReal`. The source is Skinner–Wiles §3.2, with F totally
@@ -601,6 +648,8 @@ algebraic primes are dense in every Spec(T_∞/Q), by lying over from Λ′_𝒪
   - LocallyAnalyticDistributions L4 (cited node ids);
   - AdicSpacesPartII R0, R2 and R3 (requested);
   - PadicMeasuresIwasawaAlgebras L0a (requested).
+- **L1 imports:** ModularSymbolsPadicLFunctions L0–L2 (cited node ids); ModularCurvesPartII R14.3 and R14.6 and ModularForms
+  Layer 8 (requested).
 - **L5 imports:**
   - OrdinaryAutomorphicFormsAndModularityLifting R21.1 and PadicMeasuresIwasawaAlgebras L1 (cited node ids);
   - HilbertModularVarietiesAndShimuraCurves R18.3 and GL2AutomorphicRepresentationsAndTransfer R16.6 (requested).
@@ -630,6 +679,10 @@ algebraic primes are dense in every Spec(T_∞/Q), by lying over from Λ′_𝒪
   - Links are genuine intertwinings.
   - Eigenpackets are classified as points, not as unique eigenvectors.
 
+- **L1:**
+  - The Eisenstein case is excluded.
+  - Periods are trivialisations, unique up to units.
+  - Specialisation holds up to O(℘)^× only.
 - **L5:**
   - Λ′_𝒪 for F = ℚ has two variables.
   - The torsion of G(U) is not a weight variable.
@@ -666,7 +719,11 @@ The packet records eleven findings.
   the ordinary Eisenstein family, and specialisation. The route is Hida §§1–3, Wiles and Emerton–Pollack–Weston. RS-08
   imports p-stabilisation from ModularSymbolsPadicLFunctions L2 and the Eisenstein measure from
   DirichletPadicLFunctions L4.
-- **L1.** The ordinary family modular-symbol module, period and congruence modules, and the cyclotomic measure.
+- **L1 (partial).** Still to do:
+  - congruence modules;
+  - the branch (newform) L-functions and the reduced Hida algebras of EPW §§2.6–2.7 and 4.2–4.3;
+  - Hida's homology control proofs (a gap);
+  - the Eisenstein case.
 - **L2.** The modular instance of L2a:
   - the compact U_p on distribution-valued cohomology;
   - the eigencurve;
@@ -690,6 +747,8 @@ The packet records eleven findings.
 - **Buzzard,** *Eigenvarieties*, author manuscript of 2 August 2006. Read §§2–5 and the opening of §6.
 - **Conrad,** *Modular curves and rigid-analytic spaces*, author manuscript (2006). Read Appendix A.1.
 - **Chenevier,** *Familles p-adiques de formes automorphes pour GL_n*, author copy. Read §§6.2–6.4 as cited.
+- **Emerton–Pollack–Weston,** *Variation of Iwasawa invariants in Hida families*, arXiv:math/0404484v1 (Invent. Math.
+  163 (2006)). Read §2.1 and §§4.1–4.2.
 - **Skinner–Wiles,** *Residually reducible representations and modular forms*, Publ. Math. IHÉS 89 (1999), 5–126,
   Numdam. Read §2.2 (δ_F), §2.5 and §3.2.
 - **Coleman–Mazur,** *The eigencurve*, Internet Archive capture of the authors' preprint. Read §1.1, §1.3 and

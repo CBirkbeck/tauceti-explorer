@@ -1,4 +1,29 @@
-# BP-PadicFamilies: checkpoint 4 (Claude Code cc-39fac3)
+# BP-PadicFamilies: checkpoint 5 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 28 September 2026. Refs #965; the bot confirmed the claim. **Status: partial.**
+
+Checkpoint 5 plans L1 from Emerton–Pollack–Weston, *Variation of Iwasawa invariants in Hida families*
+(arXiv:math/0404484v1; Invent. Math. 163 (2006)), §4.1. It has 6 nodes and 3 planets:
+- **`ordinary-family-symbol-module`** (planet): M_m = lim H₁(X₁(Np^r))^ord_m, equal to the relative-homology limit at
+  non-Eisenstein m, with its ± decomposition.
+- **`family-symbol-control`:** Hida's (4.2) and M_m/ω_{r,k} ≅ (M_{r,k})_{m_{r,k}}. Hida's 1986 and 1988 papers were not
+  obtained, so this is a **gap**.
+- **`family-symbol-free-rank-one`** (planet): EPW Proposition 4.1.1. It uses Wiles' mod-p multiplicity one, requested
+  from ModularCurvesPartII R14.6.
+- **`family-period-line`:** RS-08's line-bundle view of periods. θ^± is unique up to T_m^×, and mod ℘ it is the
+  saturated period lattice of ModularSymbolsPadicLFunctions L1.
+- **`family-measure`** (planet): µ(a + p^rℤ_p) = U_p^{−r}{∞, a/p^r}, L^±(m, N) and L(m, N, ω^i).
+- **`family-measure-specialisation`:** EPW Proposition 4.1.4, compared with ModularSymbolsPadicLFunctions L2.
+
+**New requests:** ModularCurvesPartII R14.3 (homology of X₁(M)), R14.6 (multiplicity one) and ModularForms Layer 8
+(modular-symbol paths).
+
+**Lean.** One checked test (the distribution index identity); 0 errors.
+
+**Totals.** 72 nodes, 105 API items, 78 unit tests, 25 planets, 14 requests, 7 gaps and 11 source issues.
+`check_blueprint.py`: 0 errors, 0 warnings.
+
+# Checkpoint 4 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 28 September 2026. Refs #965; the bot confirmed the claim. **Status: partial.**
 

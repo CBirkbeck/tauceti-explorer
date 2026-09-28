@@ -13,7 +13,7 @@
   "PadicFamilies:L5"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–4 (Claude Code cc-39fac3). L0a is source_decomposed; L0 is partial (Hida 1986); L3 is partial after checkpoint 3 (Bellaïche, Critical p-adic L-functions: critical/θ-critical refinements, the θ exact sequence, Bellaïche's theorem, critical and secondary p-adic L-functions); L2a carries the reviewed Buzzard nodes. L5 is partial after checkpoint 4 (Skinner–Wiles §3.2: the nearly ordinary weight algebra, Hida's freeness and finiteness over Λ′_𝒪, Hida's control theorem and density of weight-two points, on the definite quaternionic towers of OrdinaryAutomorphicFormsAndModularityLifting R21.1; E11 records a gap in the rank statement of Skinner–Wiles Proposition 3.3). L1, L2 and L4 are not read.",
+ "summary": "Checkpoints 1–5 (Claude Code cc-39fac3). L0a is source_decomposed; L0 is partial (Hida 1986); L3 is partial after checkpoint 3 (Bellaïche, Critical p-adic L-functions: critical/θ-critical refinements, the θ exact sequence, Bellaïche's theorem, critical and secondary p-adic L-functions); L2a carries the reviewed Buzzard nodes. L5 is partial after checkpoint 4 (Skinner–Wiles §3.2: the nearly ordinary weight algebra, Hida's freeness and finiteness over Λ′_𝒪, Hida's control theorem and density of weight-two points, on the definite quaternionic towers of OrdinaryAutomorphicFormsAndModularityLifting R21.1; E11 records a gap in the rank statement of Skinner–Wiles Proposition 3.3). L1 is partial after checkpoint 5 (Emerton–Pollack–Weston §4.1: the ordinary family symbol module, its freeness, family periods, the two-variable measure and its specialisation). L2 and L4 are not read.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -521,6 +521,17 @@
    "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3",
    "readSections": [
     "2026-09-28 (cc-39fac3, checkpoint 4): §2.2 definition of δ_F and §2.5, pp. 13 and 26–27; §3.2 in full, pp. 30–38, with Propositions 3.3 and 3.7, Corollary 3.4 and Lemma 3.8 read on the page images; the references [H1]–[H3]."
+   ]
+  },
+  {
+   "id": "EMERTON-POLLACK-WESTON-2006",
+   "title": "Variation of Iwasawa invariants in Hida families",
+   "authors": "Matthew Emerton, Robert Pollack and Tom Weston",
+   "edition": "arXiv:math/0404484v1 (2004), 50 pages; published in Invent. Math. 163 (2006), no. 3, 523–580. Page numbers are those of the arXiv v1 PDF (printed page = PDF page).",
+   "url": "https://arxiv.org/pdf/math/0404484v1",
+   "sha256": "d2d3fa555f638068a5edbaa94821956ccce5deb0500b3839ee37c0084ed10721",
+   "readSections": [
+    "2026-09-28 (cc-39fac3, checkpoint 5): §2.1 (Theorem 2.1.2), pp. 7–8; §4.1 in full and §4.2 (Definitions 4.2.1–4.2.2), pp. 28–32; the bibliography entries [17], [19], [34]."
    ]
   }
  ],
@@ -4529,6 +4540,414 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L1/ordinary-family-symbol-module",
+   "parentStageId": "PadicFamilies:L1",
+   "realises": [
+    "PadicFamilies:L1"
+   ],
+   "title": "The ordinary family modular-symbol module M_m",
+   "kind": "construction",
+   "statement": "Let p be odd, N prime to p, T*_N (resp. T_N) Hida's universal ordinary Hecke algebra of tame level N acting on all (resp. cuspidal) forms, and m a maximal ideal of T*_N whose residual representation ρ̄_m is irreducible. For each r ≥ 0 the relative homology sequence 0 → H₁(X₁(Np^r); ℤ_p) → H₁(X₁(Np^r), C₁(Np^r); ℤ_p) → H̃₀(C₁(Np^r); ℤ_p) → 0 (4.1) remains exact on ordinary parts, and after localising at m the reduced H₀ of the cusps vanishes. So M_m := lim_r H₁(X₁(Np^r); ℤ_p)^ord_m ≅ lim_r H₁(X₁(Np^r), cusps; ℤ_p)^ord_m is a module over (T*_N)_m ≅ (T_N)_m. Complex conjugation on X₁(Np^r) commutes with the Hecke action, and M_m = M⁺_m ⊕ M⁻_m.",
+   "hypotheses": [
+    "p odd (for the ± splitting); ρ̄_m irreducible (so the cusps disappear after localisation and (T*_N)_m = (T_N)_m)."
+   ],
+   "proofSteps": [
+    "The ordinary projector is exact (L0a), so (4.1) stays exact on ordinary parts; Eisenstein maximal ideals carry the cuspidal H̃₀, and at non-Eisenstein m it vanishes.",
+    "The transition maps in r are the corestrictions/traces on homology, compatible with the Hecke action; M_m is their inverse limit.",
+    "Complex conjugation commutes with T(ℓ), U_p and the diamond operators on homology; 2 is invertible."
+   ],
+   "acceptance": [
+    "M_m is integral (over ℤ_p) and defined before inverting p.",
+    "At an Eisenstein m the absolute and relative limits differ; the construction is only claimed for irreducible ρ̄_m."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0/universal-hecke-algebra",
+    "PadicFamilies:L0/ordinary-idempotent-hecke",
+    "PadicFamilies:L0a/ordinary-projector-exact",
+    "PadicFamilies:L0a/profinite-ordinary-projector",
+    "ModularCurvesPartII:R14.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/FamilySymbols",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§4.1, p. 28 (arXiv v1; printed page = PDF page)",
+     "match": "(4.1), the two limits and M_m^±."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L1/family-symbol-free-rank-one",
+     "how": "freeness of M^±_m."
+    },
+    {
+     "where": "PadicFamilies:L1/family-measure",
+     "how": "the universal ordinary symbol {∞, a}."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2",
+     "how": "comparison at classical points (RS-08)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.familySymbols",
+     "role": "constructor",
+     "statement": "M_m = lim_r H₁(X₁(Np^r); ℤ_p)^ord_m."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.familySymbols_relative",
+     "role": "equivalence",
+     "statement": "M_m ≅ lim_r H₁(X₁(Np^r), cusps; ℤ_p)^ord_m for irreducible ρ̄_m."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.familySymbols.heckeModule",
+     "role": "constructor",
+     "statement": "The (T_N)_m-module structure."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.familySymbols.sign",
+     "role": "constructor",
+     "statement": "Complex conjugation and M_m = M⁺_m ⊕ M⁻_m."
+    }
+   ],
+   "tests": [
+    {
+     "name": "familySymbols_eisenstein_fails",
+     "kind": "example",
+     "statement": "At an Eisenstein m (ρ̄_m reducible) the reduced H₀ of the cusps survives localisation, so the absolute and relative limits need not agree."
+    },
+    {
+     "name": "familySymbols_sign_split",
+     "kind": "example",
+     "statement": "For p odd, x = (x + cx)/2 + (x − cx)/2 splits M_m; for p = 2 this fails."
+    },
+    {
+     "name": "familySymbols_level_one_slice",
+     "kind": "example",
+     "statement": "Modulo the ideal of a classical weight-2 point of level Np the module recovers H₁(X₁(Np); ℤ_p)^ord_m (family-symbol-control)."
+    }
+   ],
+   "planet": {
+    "name": "Ordinary family modular-symbol module"
+   }
+  },
+  {
+   "id": "PadicFamilies:L1/family-symbol-control",
+   "parentStageId": "PadicFamilies:L1",
+   "realises": [
+    "PadicFamilies:L1"
+   ],
+   "title": "Control of the family symbol module",
+   "kind": "theorem",
+   "statement": "(Hida [17, Theorem 3.1], [19, Theorem 1.9], as used by Emerton–Pollack–Weston.) (lim→_r H₁(Np^r; ℚ_p/ℤ_p)^ord)^Γ ≅ H₁(Np; ℚ_p/ℤ_p)^ord (4.2); and for r, k with ω_{r,k} ⊂ Λ the product of the classical weight-k primes whose character is trivial on 1 + p^rℤ_p, T_N/ω_{r,k}T_N ≅ T_{r,k} (the ordinary Hecke algebra of S_k(Np^r)) and M_m/ω_{r,k}M_m ≅ (M_{r,k})_{m_{r,k}} with M_{r,k} = H₁(Np^r, cusps; L_{k−2}(ℤ_p)).",
+   "hypotheses": [
+    "ρ̄_m irreducible; k ≥ 2."
+   ],
+   "proofSteps": [
+    "The Hecke-algebra statement is Hida's control theorem (L0/hida-control-theorem).",
+    "The homology statements are Hida's (Invent. Math. 85 (1986), Theorem 3.1; Amer. J. Math. 110 (1988), Theorem 1.9), cited by Emerton–Pollack–Weston without proof; they are recorded as a gap."
+   ],
+   "acceptance": [
+    "The comparison with ModularSymbolsPadicLFunctions L0 is through H₁(Np^r, cusps; L_{k−2}) ≅ the modular symbols Symb(V_{k−2}) (up to the duality of L0)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L1/ordinary-family-symbol-module",
+    "PadicFamilies:L0/hida-control-theorem",
+    "ModularSymbolsPadicLFunctions:L0/symbols-to-cohomology"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/FamilySymbols",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§4.1, proof of Proposition 4.1.1, p. 29 (arXiv v1; printed page = PDF page)",
+     "match": "(4.2) and its consequence for M_m/mM_m."
+    },
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§4.1, proof of Proposition 4.1.4, p. 30 (arXiv v1; printed page = PDF page)",
+     "match": "T/ω_{r,k}T ≅ T_{r,k} and M_m/ω_{r,k}M_m ≅ (M_{r,k})_{m_{r,k}}."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L1/family-symbol-free-rank-one",
+   "parentStageId": "PadicFamilies:L1",
+   "realises": [
+    "PadicFamilies:L1"
+   ],
+   "title": "Freeness of M^±_m: the family period line",
+   "kind": "theorem",
+   "statement": "(Emerton–Pollack–Weston Proposition 4.1.1.) If ρ̄_m is irreducible and p-distinguished, each of M⁺_m and M⁻_m is a free (T_N)_m-module of rank one.",
+   "hypotheses": [
+    "ρ̄_m irreducible and p-distinguished (the two characters of ρ̄_m|_{G_{ℚ_p}} are distinct)."
+   ],
+   "proofSteps": [
+    "Wiles [34, Theorem 2.1] with Theorem 2.1.2: J₁(Np)(ℚ̄)[m]^ord is free of rank 2 over T_N/m (requested from ModularCurvesPartII R14.6).",
+    "By (4.2), Hom(M_m, ℚ_p/ℤ_p)[m] ≅ H₁(Np; ℚ_p/ℤ_p)^ord_m[m] ≅ H₁(Np; F_p)^ord_m[m] ≅ J₁(Np)[p][m]^ord, so M_m/mM_m is free of rank 2 over T_N/m.",
+    "M_m ⊗ ℚ_p is free of rank 2 over (T_N)_m ⊗ ℚ_p (Eichler–Shimura in each weight), so Nakayama makes M_m free of rank 2, and the ± parts are free of rank 1."
+   ],
+   "acceptance": [
+    "Without p-distinguishedness M^±_m need not be free; the family period is then a module, not a line."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L1/family-symbol-control",
+    "PadicFamilies:L1/ordinary-family-symbol-module",
+    "PadicFamilies:L0/hida-control-theorem",
+    "ModularCurvesPartII:R14.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/FamilySymbols",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§4.1, Proposition 4.1.1, p. 28 (arXiv v1; printed page = PDF page)",
+     "match": "Proposition 4.1.1 and the start of its proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L1/family-period-line",
+     "how": "a trivialisation T_m ≅ M^±_m."
+    }
+   ],
+   "planet": {
+    "name": "Freeness of family modular symbols"
+   }
+  },
+  {
+   "id": "PadicFamilies:L1/family-period-line",
+   "parentStageId": "PadicFamilies:L1",
+   "realises": [
+    "PadicFamilies:L1"
+   ],
+   "title": "Family periods as trivialisations of an invertible module",
+   "kind": "construction",
+   "statement": "Under the hypotheses of family-symbol-free-rank-one, a family period for the sign ± is an isomorphism θ^± : (T_N)_m ≅ M^±_m (4.3); two choices differ by a unit of (T_N)_m. At a classical height-one prime ℘ of (T_N)_m, θ^± mod ℘ is a generator of the saturated integral period lattice of the eigenform f_℘ (ModularSymbolsPadicLFunctions L1), so the single choice θ^± fixes the canonical periods of all f_℘ up to the units of the O(℘), compatibly along the family.",
+   "hypotheses": [
+    "ρ̄_m irreducible and p-distinguished."
+   ],
+   "proofSteps": [
+    "θ^± exists by freeness; Aut_{T_m}(M^±_m) = T_m^×.",
+    "Reduction mod ℘ and control identify M^±_m/℘ with the ±-part of the classical symbols of f_℘ with 𝒪(℘)-coefficients, free of rank one; its generator is the saturated lattice generator of MS L1."
+   ],
+   "acceptance": [
+    "A period line is not a globally chosen basis: θ^± is data, and statements depending on it are equalities up to T_m^× (integrally) or up to O(℘)^× at ℘, not up to a field scalar.",
+    "Where M^±_m is not free (p-distinguishedness fails) only the module, not a trivialisation, is available."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L1/family-symbol-free-rank-one",
+    "PadicFamilies:L1/family-symbol-control",
+    "ModularSymbolsPadicLFunctions:L1/integral-period-lattices",
+    "ModularSymbolsPadicLFunctions:L1/period-lines"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/FamilySymbols",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§4.1, proof of Proposition 4.1.4, p. 30 (arXiv v1; printed page = PDF page)",
+     "match": "The single identification M^±_m ≅ T_m controls the canonical periods along the family."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L1/family-measure",
+     "how": "L^±(m, N) as an element of T_m[[ℤ_p^×]]."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.familyPeriod",
+     "role": "data",
+     "statement": "A trivialisation θ^± : T_m ≅ M^±_m."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.familyPeriod_unique_up_to_unit",
+     "role": "characterisation",
+     "statement": "Two trivialisations differ by a unit of T_m."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.familyPeriod_specialise",
+     "role": "compatibility",
+     "statement": "θ^± mod ℘ generates the saturated classical period lattice of f_℘."
+    }
+   ],
+   "tests": [
+    {
+     "name": "familyPeriod_change",
+     "kind": "example",
+     "statement": "Replacing θ^± by uθ^± (u ∈ T_m^×) multiplies L^±(m, N) by u and each specialisation L^±(m, N)(℘) by u mod ℘ ∈ O(℘)^×."
+    },
+    {
+     "name": "familyPeriod_not_field_scalar",
+     "kind": "example",
+     "statement": "At ℘ the ambiguity is an O(℘)^× unit, not an arbitrary K(℘)^× scalar: μ-invariants of the specialisations are well defined."
+    },
+    {
+     "name": "familyPeriod_rank",
+     "kind": "example",
+     "statement": "M_m = M⁺_m ⊕ M⁻_m is free of rank 2, so two independent periods (one per sign) are chosen."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L1/family-measure",
+   "parentStageId": "PadicFamilies:L1",
+   "realises": [
+    "PadicFamilies:L1"
+   ],
+   "title": "The two-variable measure of a Hida family",
+   "kind": "construction",
+   "statement": "The paths [∞, a] on X₁(Np^r), a ∈ P¹(ℚ), give classes in H₁(X₁(Np^r), cusps; ℤ_p) compatible in r; projecting to ordinary parts, localising at m and passing to the limit gives a ↦ {∞, a} ∈ M_m. For a + p^rℤ_p ⊆ ℤ_p^×, µ(a + p^rℤ_p) := U_p^{−r}{∞, a/p^r} ∈ M_m (Definition 4.1.2) is additive (Proposition 4.1.3), hence defines L(m, N) ∈ M_m ⊗̂_{ℤ_p} ℤ_p[[ℤ_p^×]], with ± components L^±(m, N) ∈ M^±_m ⊗̂ ℤ_p[[ℤ_p^×]]; after a family period it lies in (T_N)_m[[ℤ_p^×]]. Projecting to the ω^i-part gives L(m, N, ω^i) ∈ (T_N)_m ⊗̂ Λ^{(i)} with sign (−1)^i (the other sign projects to 0).",
+   "hypotheses": [
+    "ρ̄_m irreducible; U_p is invertible on M_m (ordinary part)."
+   ],
+   "proofSteps": [
+    "Additivity: U_p = Σ_{b mod p}(1 b; 0 p) acts on {∞, a/p^r} as Σ_b {∞, (a + bp^r)/p^{r+1}}, so µ(a + p^rℤ_p) = Σ_b µ(a + bp^r + p^{r+1}ℤ_p).",
+    "ℤ_p[[ℤ_p^×]] is the ring of ℤ_p-valued measures (PadicMeasuresIwasawaAlgebras L1); the completed tensor product uses the m-adic topology on M_m.",
+    "The sign of the ω^i-projection: the involution z ↦ −z on ℤ_p^× corresponds to complex conjugation."
+   ],
+   "acceptance": [
+    "U_p^{−r} makes sense because U_p is a unit on the ordinary part; this is where ordinarity is used.",
+    "L(m, N) is integral: no denominators are introduced before a period is chosen."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L1/ordinary-family-symbol-module",
+    "PadicFamilies:L1/family-period-line",
+    "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/FamilySymbols",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§4.1, Definition 4.1.2, p. 29 (arXiv v1; printed page = PDF page)",
+     "match": "{∞, a}, Definition 4.1.2 and Proposition 4.1.3."
+    },
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§4.1, p. 31 (arXiv v1; printed page = PDF page)",
+     "match": "The ω^i-projection and its sign."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L1/family-measure-specialisation",
+     "how": "specialisation at classical primes."
+    },
+    {
+     "where": "PadicFamilies:L4",
+     "how": "family Selmer complexes and Iwasawa invariants (RS-08)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.universalOrdinarySymbol",
+     "role": "constructor",
+     "statement": "a ↦ {∞, a} ∈ M_m."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.familyMeasure",
+     "role": "constructor",
+     "statement": "µ(a + p^rℤ_p) = U_p^{−r}{∞, a/p^r}."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.familyMeasure_additive",
+     "role": "characterisation",
+     "statement": "µ is a measure (Proposition 4.1.3)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.twoVariablePadicL",
+     "role": "constructor",
+     "statement": "L^±(m, N) ∈ M^±_m ⊗̂ ℤ_p[[ℤ_p^×]]."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.twoVariablePadicL_branch",
+     "role": "constructor",
+     "statement": "L(m, N, ω^i) ∈ (T_N)_m ⊗̂ Λ^{(i)}."
+    }
+   ],
+   "tests": [
+    {
+     "name": "familyMeasure_distribution",
+     "kind": "example",
+     "statement": "Additivity is the identity {a/p^r} = Σ_b (a + bp^r)/p^{r+1} under U_p (checked on the level of the indices in the Lean file)."
+    },
+    {
+     "name": "familyMeasure_total",
+     "kind": "example",
+     "statement": "µ(ℤ_p^×) = Σ_{a mod p, p ∤ a} U_p^{−1}{∞, a/p}."
+    },
+    {
+     "name": "twoVariablePadicL_wrong_sign",
+     "kind": "example",
+     "statement": "Projecting L^∓(m, N) to the ω^i-part with ∓ = −(−1)^i gives 0."
+    }
+   ],
+   "planet": {
+    "name": "Two-variable p-adic L-function of a Hida family"
+   }
+  },
+  {
+   "id": "PadicFamilies:L1/family-measure-specialisation",
+   "parentStageId": "PadicFamilies:L1",
+   "realises": [
+    "PadicFamilies:L1"
+   ],
+   "title": "Specialisation to one-variable p-adic L-functions",
+   "kind": "theorem",
+   "statement": "(Emerton–Pollack–Weston Proposition 4.1.4.) Under the hypotheses of family-symbol-free-rank-one, for every classical height-one prime ℘ of (T_N)_m, L^±(m, N)(℘) ∈ O(℘)[[ℤ_p^×]] is the analytic p-adic L-function of the normalised eigenform f_℘ ∈ S_k(Np^∞, O(℘))^ord[κ_℘], computed with respect to a canonical period; f_℘ need not be new, so the specialisation may be imprimitive (Euler factors at primes dividing the tame level of an oldform removed).",
+   "hypotheses": [
+    "ρ̄_m irreducible and p-distinguished; ℘ classical of weight k ≥ 2."
+   ],
+   "proofSteps": [
+    "The one-variable construction µ_{r,k}(a + p^nℤ_p) = U_p^{−n}{∞, a/p^n} ∈ (M_{r,k})_{m_{r,k}} gives L^±_p(m_{r,k}, N).",
+    "(M_{r,k})^±_{m_{r,k}} is free of rank one over (T_{r,k})_{m_{r,k}} by control and family-symbol-free-rank-one; the family period induces its trivialisation.",
+    "By construction L^±(m, N) ≡ L^±(m_{r,k}, N) mod ω_{r,k}, hence mod ℘; reduction of the latter mod ℘_{r,k} is the p-adic L-function of f_℘ for the canonical period (ModularSymbolsPadicLFunctions L2's ordinary integral measure)."
+   ],
+   "acceptance": [
+    "The equality is up to O(℘)^× (the canonical period), not up to a field scalar.",
+    "For the primitive (newform) p-adic L-function one passes to the branch rings T(𝔞)° (Emerton–Pollack–Weston §4.2), not yet planned."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L1/family-measure",
+    "PadicFamilies:L1/family-symbol-control",
+    "PadicFamilies:L1/family-period-line",
+    "ModularSymbolsPadicLFunctions:L2/p-adic-l-function",
+    "ModularSymbolsPadicLFunctions:L2/ordinary-integral-measure"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/FamilySymbols",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "EMERTON-POLLACK-WESTON-2006",
+     "locator": "§4.1, Proposition 4.1.4, p. 30 (arXiv v1; printed page = PDF page)",
+     "match": "Proposition 4.1.4 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -4622,6 +5041,30 @@
     "PadicFamilies:L5/hida-control-nearly-ordinary"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "ModularCurvesPartII:R14.3",
+   "need": "Integral homology H₁(X₁(M); ℤ_p) and relative homology H₁(X₁(M), C₁(M); ℤ_p) of the modular curves with the relative sequence (4.1), the Hecke and diamond actions, complex conjugation, the path classes [∞, a] and the corestriction maps in the level; and H₁(X₁(M), cusps; L_{k−2}(ℤ_p)).",
+   "neededBy": [
+    "PadicFamilies:L1/ordinary-family-symbol-module"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ModularCurvesPartII:R14.6",
+   "need": "Mod-p multiplicity one at ordinary level (Wiles, Ann. of Math. 141 (1995), Theorem 2.1): for a non-Eisenstein, p-distinguished maximal ideal m of the ordinary Hecke algebra of level Np, J₁(Np)(ℚ̄)[m]^ord is free of rank 2 over T/m.",
+   "neededBy": [
+    "PadicFamilies:L1/family-symbol-free-rank-one"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "need": "The modular-symbol classes {∞, a} (paths from ∞ to a ∈ P¹(ℚ)) in relative homology of X₁(M) and the action of (1 b; 0 p) on them.",
+   "neededBy": [
+    "PadicFamilies:L1/family-measure"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -4643,11 +5086,14 @@
   },
   {
    "stageId": "PadicFamilies:L1",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "RS-08 narrows L1 to the ordinary family modular-symbol module (integral structure, sign and Hecke actions, control and comparison with ModularSymbolsPadicLFunctions L0–L2), family period and congruence modules kept as line bundles, and the cyclotomic measure from the universal ordinary symbol with its integral specialisation.",
-    "Sources to read: Emerton–Pollack–Weston (arXiv math/0505193) §§2–3; Greenberg–Stevens, Invent. Math. 111 (1993); Kitagawa, Contemp. Math. 165 (1994)."
-   ]
+    "Family congruence modules and the change-of-trivialisation formula for scalar functions beyond periods (RS-08).",
+    "The branch (newform) L-functions L(ρ̄, 𝔞, ω^i) over T(𝔞)° and the reduced Hida algebras T_Σ (Emerton–Pollack–Weston §§2.6–2.7, §4.2) with the Euler-factor comparisons of §4.3.",
+    "Hida's homology control theorems (gap).",
+    "The Eisenstein (residually reducible) case, where M_m and the relative limit differ."
+   ],
+   "notes": "Checkpoint 5 plans Emerton–Pollack–Weston §4.1 (6 nodes): the ordinary family symbol module M_m with its sign decomposition, control (Hida, a gap), freeness of M^±_m of rank one for irreducible p-distinguished ρ̄_m, family periods as trivialisations of an invertible module, the two-variable measure µ(a + p^rℤ_p) = U_p^{−r}{∞, a/p^r}, and its specialisation to canonical-period p-adic L-functions, compared with ModularSymbolsPadicLFunctions L1–L2."
   },
   {
    "stageId": "PadicFamilies:L2",
@@ -4744,6 +5190,13 @@
     "PadicFamilies:L5/hida-control-nearly-ordinary"
    ],
    "detail": "Skinner–Wiles Proposition 3.7 cites Hida, On nearly ordinary Hecke algebras for GL(2) over totally real fields, Adv. Stud. Pure Math. 17 (1989), 139–169, Corollary 2.5, without proof; that paper and Hida, Ann. of Math. 128 (1988), 295–384 ([H1]) were not obtained (Project Euclid refused automated access; the Annals is not open). The weight-two case is proved from the definitions (Skinner–Wiles p. 37). The higher-weight case needs a control statement comparing T_∞(U, 𝒪)/P_{μ,ψ,φ} with the weight-(μ + 2) nearly ordinary Hecke algebra; no other packet plans it."
+  },
+  {
+   "title": "Hida's control theorems for ordinary homology of X₁(Np^r)",
+   "neededBy": [
+    "PadicFamilies:L1/family-symbol-control"
+   ],
+   "detail": "Emerton–Pollack–Weston use Hida, Galois representations into GL₂(ℤ_p[[X]]) attached to ordinary cusp forms, Invent. Math. 85 (1986), Theorem 3.1 ((lim→ H₁(Np^r; ℚ_p/ℤ_p)^ord)^Γ ≅ H₁(Np; ℚ_p/ℤ_p)^ord), and Hida, Modules of congruence of Hecke algebras and L-functions associated with cusp forms, Amer. J. Math. 110 (1988), Theorem 1.9 (M_m/ω_{r,k} ≅ (M_{r,k})_{m_{r,k}}). Neither paper is freely available and neither was read; the cohomological proof (Hida's ordinary part of group cohomology of Γ₁(Np^r) with a Shapiro/Λ-adic argument) should be planned here once a source is obtained (e.g. Hida's Elementary theory of L-functions, ch. 7)."
   }
  ],
  "sourceIssues": [
@@ -4957,6 +5410,13 @@
    "citation": "Skinner and Wiles, Residually reducible representations and modular forms, Publ. Math. IHÉS 89 (1999), 5–126 (Numdam open-access scan)",
    "read": "2026-09-28",
    "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0404484v1",
+   "citation": "Emerton, Pollack and Weston, Variation of Iwasawa invariants in Hida families, arXiv:math/0404484v1 (Invent. Math. 163 (2006))",
+   "read": "2026-09-28",
+   "sha256": "d2d3fa555f638068a5edbaa94821956ccce5deb0500b3839ee37c0084ed10721"
   }
  ]
 }
