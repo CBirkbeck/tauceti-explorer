@@ -628,6 +628,24 @@ example (W n : ℕ) (_hnp : ¬ Nat.Prime (W * n + 1)) : modifiedVonMangoldt W n 
 -- `majorantNu.test_domination_constant`: the constant is `k⁻¹ 2^{-k-5}`, not `1`.
 example (k W R n : ℕ) : True := sorry
 
+/-! ### The Gowers-norm estimates (Green–Tao (5.5)–(5.7)), split out of the Gowers node -/
+
+/-- **The Gowers–Cauchy–Schwarz inequality** (Green–Tao (5.5)). -/
+theorem gowersInnerProduct_le_prod (d : ℕ) (_hd : 1 ≤ d) (f : (Fin d → Bool) → ZMod N → ℝ) :
+    |gowersInnerProduct d f| ≤ ∏ ω, gowersNorm d (f ω) := sorry
+
+/-- **The Gowers triangle inequality.** -/
+theorem gowersNorm_add_le (d : ℕ) (_hd : 1 ≤ d) (f g : ZMod N → ℝ) :
+    gowersNorm d (f + g) ≤ gowersNorm d f + gowersNorm d g := sorry
+
+/-- **Monotonicity in `d`** (Green–Tao (5.7)): `‖f‖_{U^d} ≤ ‖f‖_{U^{d+1}}` for `d ≥ 1`. -/
+theorem gowersNorm_le_succ (d : ℕ) (_hd : 1 ≤ d) (f : ZMod N → ℝ) :
+    gowersNorm d f ≤ gowersNorm (d + 1) f := sorry
+
+/-- **`U^d` is a norm for `d ≥ 2`**; at `d = 1` it is only a seminorm (`gowersNorm.test_U1_seminorm_only`). -/
+theorem gowersNorm_eq_zero_iff (d : ℕ) (_hd : 2 ≤ d) (f : ZMod N → ℝ) :
+    gowersNorm d f = 0 ↔ f = 0 := sorry
+
 end GreenTao
 
 end TauCeti.AdditiveFourier
