@@ -164,11 +164,19 @@ once. Keep your footprint small:
   get`, or build Mathlib or Tau Ceti. Elaborate the suggested file only with a
   build at the pinned commits that already exists on your machine; if there is
   none, do not compile it, and say so in the pull request.
-- Keep a job's scratch directory under 1 GB (source texts, notes and your
-  worklist). Once its pull request is open, delete the job's scratch
+- Keep a job's scratch directory on disk and under 1 GB (source texts, notes
+  and your worklist). `/tmp` may be memory rather than disk, so keep papers,
+  extracted text, builds and logs out of it, including a tool's scratchpad
+  under `/tmp`. Once the job's pull request is open, delete its scratch
   directory, keeping only what the handoff note refers to.
-- Run one Lean process at a time, and leave no language servers, watchers or
-  other long-running processes behind when a job ends.
+- Do not start Lean language servers (for example the lean-lsp MCP tools):
+  each one stays in memory with its own copy of Mathlib. To check the
+  suggested file, run a single `lake env lean <file>` in the existing build
+  and wait for it to finish; never run two at once.
+- Before compiling, check `free -g`. With less than 20 GB available, do not
+  compile, and say so in the pull request. Stop any compile still running
+  after 20 minutes, and leave nothing running in the background when a job
+  ends.
 
 ## Submitting
 
