@@ -10576,3 +10576,144 @@ Five complete native lemmas prove the denominator norm estimate, growth of the r
 Exact rational controls check15 growing degrees,15 exact norm formulas,15 power lower bounds, three values exceeding100 and two atom counterexamples for p=2,3,5. Exact rational Bernoulli recurrence through degree324 and exact p-adic norms on the degrees2(p−1)p^r for p=2,3,5. All selected norms agree with the preceding exact formula and exceed the stated powers; the final member for each prime exceeds100. The identity/sign atom second moments are also distinguished from the arithmetic values. Finite checks do not prove unboundedness; the complete native operator-norm and power-growth probe supports the general argument. The largest observed discrepancy is 0 (exact rational identities).
 
 All54 captured inputs remain unchanged during this checkpoint.
+
+
+## Prime-power finite Gauss decomposition
+
+Partial continuation preserving all314 predecessor nodes whole. Four L2 nodes decompose the actual pure p-power arithmetic character twist into finitely many additive-weighted smoothing measures and transport the identity through the native Amice transform. The Gauss denominator is explicitly nonzero. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.
+
+The complete published pages140–143/PDF41–44 were reread, including Lemmas5.4–5.5 and the proof of Theorem5.1. E11 already records the scalar and character-factor slips in the proof of Lemma5.5; its record remains unchanged. Fresh complete native readings cover the primitive Gauss-shift theorem, inverse-conductor equality, additive-character multiplicative shift, and the actual linear Amice transform with its coefficient formula. The existing prime-power character, arithmetic twist, integral coefficient extension, weighting and unit-restriction interfaces were read with their hypotheses. The supplier root-translation theorem only treats pth roots, so it is not used for arbitrary p-power roots.
+
+### Finite Gauss expansion of the prime-power lift
+
+`DirichletPadicLFunctions:L2/prime-power-character-gauss` — `DirichletPadic.primePowerCharacter_gauss`
+
+For every z∈Z, w_n,χ(z)=G⁻¹ Σ_(c∈ZMod(q)) χ⁻¹(c) β_c(z), including when z is a nonunit.
+
+**Hypotheses:** p is any prime, including2; Z=Z_p. K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. All continuous functions and measures use the native carriers and topologies. For n≥0 set q=p^n and red_n=PadicInt.toZModPow n. Let e be the native additive character from ZMod(q) to K. For c in ZMod(q), write β_c(z)=e(c red_n(z)), bundled as a continuous K-valued function using the finite discrete quotient and the existing continuity of red_n. This notation introduces no second generic character or weighting carrier. For the Gauss lemmas only, n≥1, χ is a primitive native DirichletCharacter K q, and G=gaussSum(χ⁻¹,e) is explicitly nonzero. No automatic nonvanishing at a composite modulus is assumed. For the arithmetic measures, a is natural with p∤a, μ_a is the existing integral smoothedMeasure and I_K is the exact imported integral coefficient extension. Write τ_n,χ,a for the existing twistedSmoothedMeasure.
+
+**Proof:**
+
+1. The native conductor_inv equality makes χ⁻¹ primitive whenever χ is primitive. Apply gaussSum_mulShift_of_isPrimitive to χ⁻¹, e and red_n(z). Its statement holds at every residue, not only units.
+2. Unfold the native Gauss sum and mulShift_apply. The resulting identity is Σ_c χ⁻¹(c)e(c red_n(z))=χ(red_n(z))G, since the inverse of χ⁻¹ is χ. Commutativity accounts for the order of the two residue factors.
+3. Multiply by G⁻¹ using the explicit nonzero hypothesis, and unfold the previously constructed character lift. No analytic series or limiting argument enters this finite equality.
+4. At z=1 the result reduces to the defining Gauss sum. At z=p the earlier nonunit-support lemma makes the value zero. These two tests distinguish normalization from support.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-character`, `DirichletPadicLFunctions:L2/prime-power-character-support`, `mathlib:DirichletCharacter.conductor_inv`, `mathlib:gaussSum_mulShift_of_isPrimitive`, `mathlib:gaussSum`, `mathlib:AddChar.mulShift_apply`.
+
+**Tests:**
+
+- `SuggestedPrimePowerGaussTests.gauss_lift_one` (compatibility): At z=1 the normalized finite sum G⁻¹Σ_cχ⁻¹(c)e(c) is1.
+- `SuggestedPrimePowerGaussTests.gauss_lift_nonunit` (non-example): At the nonunit z=p the normalized sum G⁻¹Σ_cχ⁻¹(c)e(cp) is0, also at composite q.
+
+**Acceptance:** The formula is stated for every p-adic integer. A units-only Gauss lemma would leave a gap when integrating over Z. The complete native probe checks the all-residue statement and its normalization.
+
+**Source:** Lemma5.4 and its proof, published140–141/PDF41–42, together with Lemma5.5 and the proof of Theorem5.1, published141–143/PDF42–44; all four pages read completely on28September2026. Worker decomposition of the finite Gauss step in the source arithmetic twist. The generic finite identity is imported from the pinned library; the new nodes apply it to the existing p-adic arithmetic measure. The source root-translated rational expression is not yet asserted. Explicit nonzero-Gauss and coefficient hypotheses replace any implicit division or choice of a coefficient-field root. Existing E11 is retained without a new finding or verdict.
+
+### Additive-character weights of the smoothing measure
+
+`DirichletPadicLFunctions:L2/smoothed-additive-twist` — `DirichletPadic.smoothedAdditiveTwist`
+
+Construct μ_(n,e,c,a)=weight(β_c)(I_K μ_a) in the existing D(Z,K), for every n≥0 and every c. Its value at f is I_K μ_a(β_c f). No multiplicative character, primitivity or nonzero-Gauss assumption is needed for this construction.
+
+**Hypotheses:** p is any prime, including2; Z=Z_p. K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. All continuous functions and measures use the native carriers and topologies. For n≥0 set q=p^n and red_n=PadicInt.toZModPow n. Let e be the native additive character from ZMod(q) to K. For c in ZMod(q), write β_c(z)=e(c red_n(z)), bundled as a continuous K-valued function using the finite discrete quotient and the existing continuity of red_n. This notation introduces no second generic character or weighting carrier. For the Gauss lemmas only, n≥1, χ is a primitive native DirichletCharacter K q, and G=gaussSum(χ⁻¹,e) is explicitly nonzero. No automatic nonvanishing at a composite modulus is assumed. For the arithmetic measures, a is natural with p∤a, μ_a is the existing integral smoothedMeasure and I_K is the exact imported integral coefficient extension. Write τ_n,χ,a for the existing twistedSmoothedMeasure.
+
+**Proof:**
+
+1. The imported integer-reduction-continuity node makes red_n continuous. Every function on the finite discrete ring ZMod(q) is continuous, so β_c is an actual continuous function. Apply the existing generic weight to the actual extended smoothing measure.
+2. The exact supplier weight-evaluation lemma gives the displayed evaluation formula. At c=0 or e=1 the weight is the constant1. At a=1 the earlier measure-one result makes the integral measure zero; its coefficient extension is zero by the defining bounded inverse or its uniqueness.
+3. The native coeff_amiceTransform identifies coefficient j with evaluation on the K-valued image of the integral Mahler test. This is an ordinary coefficient identity for the actual measure, with no root translation of arbitrary series.
+4. For the nontrivial dyadic test, n=1 and e(1)=−1 give β_1=1−2·1_units by the two residue cases. The imported unit-restriction evaluation and integral-test coefficient extension reduce the first moment to the integral raw moment minus twice the unit moment. Existing moment theorems give −2/3−2(2/3)=−2. This test would fail if the additive weight were discarded.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/smoothed-measure`, `DirichletPadicLFunctions:L1/measure-one`, `DirichletPadicLFunctions:L1/measure-ordinary-moment`, `DirichletPadicLFunctions:L1/unit-smoothed-moment`, `DirichletPadicLFunctions:L2/prime-power-character-support`, `PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity`, `PadicMeasuresIwasawaAlgebras:L2/integral-coefficient-extension`, `PadicMeasuresIwasawaAlgebras:L2/coefficient-extension-test-function`, `PadicMeasuresIwasawaAlgebras:L2/weight`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction-evaluation`, `mathlib:AbstractMeasure.coeff_amiceTransform`.
+
+**API:**
+
+- `DirichletPadic.smoothedAdditiveTwist_eq_weight` (characterisation): μ_(n,e,c,a)=weight(β_c)(I_Kμ_a).
+- `DirichletPadic.smoothedAdditiveTwist_apply` (data): For every continuous K-valued f, μ_(n,e,c,a)(f)=I_Kμ_a(β_c f).
+- `DirichletPadic.smoothedAdditiveTwist_zero_index` (simp): μ_(n,e,0,a)=I_Kμ_a.
+- `DirichletPadic.smoothedAdditiveTwist_trivial` (simp): μ_(n,1,c,a)=I_Kμ_a.
+- `DirichletPadic.smoothedAdditiveTwist_one_parameter` (simp): μ_(n,e,c,1)=0.
+- `DirichletPadic.smoothedAdditiveTwist_amice_coeff` (compatibility): Coefficient j of A_(μ_(n,e,c,a)) is μ_(n,e,c,a) evaluated on the K-valued image of the integral Mahler test of degree j.
+
+**Uses:**
+
+- RJW Lemma5.4 and DirichletPadicLFunctions:L2/twisted-smoothed-gauss: The actual additive-weighted measures are the finite Gauss summands whose evaluation recombines to the existing multiplicative-character twist.
+- DirichletPadicLFunctions:L2/twisted-smoothed-gauss-amice and the remaining rational-expression calculation: The native Amice transform and its coefficients give the exact arithmetic series to identify; the zero-index and trivial-character cases fix the unweighted normalization.
+- The arithmetic smoothing boundary and dyadic tests: The a=1 zero case checks dependence on the smoothing parameter; the sign-character moment verifies that the additive weight changes the arithmetic measure.
+
+**Tests:**
+
+- `SuggestedPrimePowerGaussTests.additive_zero_index` (degenerate): At c=0, the additive twist equals I_Kμ_a for every n and e.
+- `SuggestedPrimePowerGaussTests.additive_trivial_character` (compatibility): At e=1, every index c gives I_Kμ_a.
+- `SuggestedPrimePowerGaussTests.additive_one_smoothing` (degenerate): For a=1, every additive twist is zero.
+- `SuggestedPrimePowerGaussTests.additive_dyadic_sign_first_moment` (computation): For p=2,n=1,a=3,K=Q_2 and e(1)=−1, the c=1 additive twist has first ordinary moment−2, whereas the unweighted first moment is−2/3.
+
+**Acceptance:** The construction is an arithmetic application of the existing generic weight, and introduces no new measure carrier or general Fourier transform. It allows the modulus-one boundary without importing the positive-level character support claim.
+
+**Source:** Lemma5.4 and its proof, published140–141/PDF41–42, together with Lemma5.5 and the proof of Theorem5.1, published141–143/PDF42–44; all four pages read completely on28September2026. Worker decomposition of the finite Gauss step in the source arithmetic twist. The generic finite identity is imported from the pinned library; the new nodes apply it to the existing p-adic arithmetic measure. The source root-translated rational expression is not yet asserted. Explicit nonzero-Gauss and coefficient hypotheses replace any implicit division or choice of a coefficient-field root. Existing E11 is retained without a new finding or verdict.
+
+### Gauss decomposition of the arithmetic twist
+
+`DirichletPadicLFunctions:L2/twisted-smoothed-gauss` — `DirichletPadic.twistedSmoothedMeasure_gauss`
+
+In the actual D(Z,K), τ_n,χ,a=G⁻¹ • Σ_(c∈ZMod(q)) χ⁻¹(c) • μ_(n,e,c,a).
+
+**Hypotheses:** p is any prime, including2; Z=Z_p. K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. All continuous functions and measures use the native carriers and topologies. For n≥0 set q=p^n and red_n=PadicInt.toZModPow n. Let e be the native additive character from ZMod(q) to K. For c in ZMod(q), write β_c(z)=e(c red_n(z)), bundled as a continuous K-valued function using the finite discrete quotient and the existing continuity of red_n. This notation introduces no second generic character or weighting carrier. For the Gauss lemmas only, n≥1, χ is a primitive native DirichletCharacter K q, and G=gaussSum(χ⁻¹,e) is explicitly nonzero. No automatic nonvanishing at a composite modulus is assumed. For the arithmetic measures, a is natural with p∤a, μ_a is the existing integral smoothedMeasure and I_K is the exact imported integral coefficient extension. Write τ_n,χ,a for the existing twistedSmoothedMeasure.
+
+**Proof:**
+
+1. Unfold the existing arithmetic multiplicative twist and the new arithmetic additive twist into the same generic weight construction. Apply the supplier weight-evaluation statement to an arbitrary continuous test f.
+2. Insert prime-power-character-gauss pointwise in the test function. Distribute the finite sum and scalar multiplication through multiplication by f and through the native K-linear measure I_Kμ_a.
+3. The resulting evaluation is exactly the right-hand finite linear combination of additive-weighted measures. The existing toCLMEquiv identifies measures with their continuous linear functionals; extensionality there yields equality in D(Z,K). The complete native linear-transport probe checks this algebraic step independently.
+4. Specializing the common test to1 gives the total-mass test. The a=1 boundary is zero on both sides by measure-one and the definitions; no cancellation by a smoothing denominator is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/prime-power-character-gauss`, `DirichletPadicLFunctions:L2/smoothed-additive-twist`, `DirichletPadicLFunctions:L2/twisted-smoothed-measure`, `DirichletPadicLFunctions:L1/measure-one`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `mathlib:AbstractMeasure.toCLMEquiv`.
+
+**Tests:**
+
+- `SuggestedPrimePowerGaussTests.gauss_measure_total_mass` (compatibility): The total mass of τ_n,χ,a is G⁻¹Σ_cχ⁻¹(c)μ_(n,e,c,a)(1).
+- `SuggestedPrimePowerGaussTests.gauss_measure_one_smoothing` (degenerate): For a=1 the normalized finite sum of additive twists is the zero measure.
+
+**Acceptance:** Equality concerns the actual coefficient-valued arithmetic measures, not just a finite quotient, total masses or formal coefficients. Every sum is finite.
+
+**Source:** Lemma5.4 and its proof, published140–141/PDF41–42, together with Lemma5.5 and the proof of Theorem5.1, published141–143/PDF42–44; all four pages read completely on28September2026. Worker decomposition of the finite Gauss step in the source arithmetic twist. The generic finite identity is imported from the pinned library; the new nodes apply it to the existing p-adic arithmetic measure. The source root-translated rational expression is not yet asserted. Explicit nonzero-Gauss and coefficient hypotheses replace any implicit division or choice of a coefficient-field root. Existing E11 is retained without a new finding or verdict.
+
+### Amice series of the finite Gauss decomposition
+
+`DirichletPadicLFunctions:L2/twisted-smoothed-gauss-amice` — `DirichletPadic.twistedSmoothedMeasure_gauss_amice`
+
+In K[[T]], A_(τ_n,χ,a)=G⁻¹ • Σ_(c∈ZMod(q)) χ⁻¹(c) • A_(μ_(n,e,c,a)).
+
+**Hypotheses:** p is any prime, including2; Z=Z_p. K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. All continuous functions and measures use the native carriers and topologies. For n≥0 set q=p^n and red_n=PadicInt.toZModPow n. Let e be the native additive character from ZMod(q) to K. For c in ZMod(q), write β_c(z)=e(c red_n(z)), bundled as a continuous K-valued function using the finite discrete quotient and the existing continuity of red_n. This notation introduces no second generic character or weighting carrier. For the Gauss lemmas only, n≥1, χ is a primitive native DirichletCharacter K q, and G=gaussSum(χ⁻¹,e) is explicitly nonzero. No automatic nonvanishing at a composite modulus is assumed. For the arithmetic measures, a is natural with p∤a, μ_a is the existing integral smoothedMeasure and I_K is the exact imported integral coefficient extension. Write τ_n,χ,a for the existing twistedSmoothedMeasure.
+
+**Proof:**
+
+1. Apply the existing native K-linear AbstractMeasure.amiceTransform to twisted-smoothed-gauss. Its bundled linearity commutes with the two scalar actions and the finite sum.
+2. Taking coefficient zero or coefficient two yields the two typed tests. Native coeff_amiceTransform interprets these as the corresponding Mahler evaluations, with coefficient two distinguished from the ordinary second moment.
+3. This is an identity between the actual transforms of the actual measures. Identifying an additive summand with the arithmetic rational expression at a root-translated variable remains the next separate task; the current result performs no unrestricted formal substitution.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/twisted-smoothed-gauss`, `mathlib:AbstractMeasure.amiceTransform`, `mathlib:AbstractMeasure.coeff_amiceTransform`.
+
+**Tests:**
+
+- `SuggestedPrimePowerGaussTests.gauss_amice_coeff_zero` (compatibility): The constant coefficient of the twist transform equals the normalized finite sum of the constant coefficients of the additive transforms.
+- `SuggestedPrimePowerGaussTests.gauss_amice_coeff_second` (compatibility): The degree-two coefficient satisfies the same finite Gauss formula; it is a Mahler coefficient, not the ordinary second moment.
+
+**Acceptance:** Native Amice linearity suffices. No new generic Amice theorem, root-translation operator or coefficient-extension convolution law is planned.
+
+**Source:** Lemma5.4 and its proof, published140–141/PDF41–42, together with Lemma5.5 and the proof of Theorem5.1, published141–143/PDF42–44; all four pages read completely on28September2026. Worker decomposition of the finite Gauss step in the source arithmetic twist. The generic finite identity is imported from the pinned library; the new nodes apply it to the existing p-adic arithmetic measure. The source root-translated rational expression is not yet asserted. Explicit nonzero-Gauss and coefficient hypotheses replace any implicit division or choice of a coefficient-field root. Existing E11 is retained without a new finding or verdict.
+
+**Remaining:** The pure p-power character twist now has a finite Gauss decomposition as an equality of actual coefficient-valued measures and of their native Amice series, under explicit primitivity and nonzero-Gauss hypotheses. Next derive the arithmetic rational expression for the additive-weighted smoothing measure, then its Bernoulli and Dirichlet-value comparison. Finite sums do not supply a higher-root substitution theorem for arbitrary formal series. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. The L3 complex logarithmic refinements and E16 root qualification remain as previously recorded.
+
+### Prime-power finite Gauss decomposition validation
+
+All 314 predecessor nodes, 382 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 4 nodes, 10 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 492 reachable nodes, 2304 edges and 501 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 881 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The actual current 332-node PMIA suggested module uses the hash-verified artifact from PR3303, elaborated with zero errors and 707 expected placeholder warnings. Both the exact predecessor and the new Dirichlet module elaborate against this artifact; the supplier remains an unchecked planning interface. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Four complete native lemmas verify inverse primitivity, the finite Gauss identity at every residue, its normalization under the explicit nonzero denominator, and transport of the finite identity through a linear map. The probe elaborates against 2659 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact cyclotomic controls at conductors3,4,5,8,9 check195 character products, five nonzero primitive Gauss sums and product identities,29 residue expansions including11 nonunit cases,80 weighted ordinary and80 weighted Mahler finite-grid sums,160 zero-index cases, five zero-Gauss negative controls and the nontrivial dyadic additive first-moment normalization. Exact arithmetic in Q[X]/Phi_(p^n), represented by rational coefficient tuples, for conductors3,4,5,8,9. The chosen primitive characters include an order3 character at conductor9; all residue indices including nonunits are checked. Gauss products and nonzero denominators, cleared Fourier identities, and finite-grid weighted ordinary/Mahler sums are checked exactly. Finite-grid cell masses use the previously controlled rational smoothing formula; they are controls, not asserted exact moments of the p-adic measure. The trivial additive character gives a zero Gauss sum in each case, explicitly testing the need for the nonzero denominator hypothesis. No infinite series substitution or general Gauss nonvanishing proof is inferred from these finite examples. The largest observed discrepancy is 0 (exact cyclotomic identities).
+
+All54 captured inputs remain unchanged during this checkpoint.
