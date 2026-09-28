@@ -152,6 +152,29 @@ theorem strictly_conj_of_trace_eq
 
 end Carayol
 
+section Global
+
+variable {A : Type*} [CommRing A] [TopologicalSpace A] (π : A →+* 𝔽) (T : Type*)
+
+/-- **`R04.3/global-deformation-type`**. A `T`-framed lift: a lift together with framings
+`α_v ∈ Γ̂_n(A)` for `v ∈ T` (local conditions are imposed separately). -/
+structure TFramedLift where
+  lift : Lift n ρbar π
+  frame : T → strictKernel n π
+
+/-- The equivalence `(ρ, α) ∼ (β ρ β⁻¹, β α)`. -/
+instance : MulAction (strictKernel n π) (TFramedLift n ρbar π T) := sorry
+
+/-- `T`-framed deformations: `T`-framed lifts modulo simultaneous strict conjugation. -/
+def TFramedDef : Type _ := MulAction.orbitRel.Quotient (strictKernel n π) (TFramedLift n ρbar π T)
+
+/-- API: the framed local lift `α_v⁻¹ ρ α_v` (here on the whole group) is constant on classes. -/
+theorem framedLocalLift_smul (x : TFramedLift n ρbar π T) (b : strictKernel n π) (v : T) (g : G) :
+    ((b • x).frame v : GL (Fin n) A)⁻¹ * (b • x).lift.toHom g * (b • x).frame v =
+      (x.frame v : GL (Fin n) A)⁻¹ * x.lift.toHom g * x.frame v := sorry
+
+end Global
+
 /-!
 ## Signatures against Tau Ceti and the requested suppliers (comment only)
 
