@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial cyclotomic norm-valuation checkpoint: eleven new L0 declarations identify the actual integral closure with the native norm unit ball, its valuation-integers certificate, value group, units, maximal ideal, residue kernel, ideal powers and topology, including (p)=m_n^(d_n). Earlier mathematics and source findings are preserved. General normalized local-field comparison and infinite norm-compatible interpolation remain explicit gaps.",
+  "summary": "Partial arithmetic norm checkpoint: continuous relative field, integral and unit norms on the actual cyclotomic tower; Frobenius evaluation and coordinate/matrix specialization; the integral and unit Coleman norm/evaluation square; residue preservation and adjacent compatibility of norm-fixed series. Preserve the dyadic signs and leave inverse-limit construction and interpolation explicit.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1808,6 +1808,41 @@
         "module": "Mathlib/Topology/MetricSpace/Pseudo/Defs.lean",
         "provides": "For any base strictly between zero and one, closed metric balls with radii its natural powers form a neighborhood basis.",
         "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:LinearMap.continuous_of_finiteDimensional",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Module/FiniteDimension.lean",
+        "provides": "A linear map from a finite-dimensional Hausdorff topological vector space over a complete nontrivially normed field is continuous, with the stated continuous module actions.",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026; index used only as a locator."
+      },
+      {
+        "ref": "mathlib:Algebra.isIntegral_norm",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+        "provides": "The native field norm in a compatible scalar tower preserves integrality over the base commutative ring.",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026; index used only as a locator."
+      },
+      {
+        "ref": "mathlib:Continuous.units_map",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/Monoid.lean",
+        "provides": "A continuous monoid homomorphism induces a continuous map on native units, controlling the element and inverse coordinates.",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026; index used only as a locator."
+      },
+      {
+        "ref": "mathlib:PowerSeries.eq_X_mul_shift_add_const",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "A formal power series equals X times its shifted coefficient series plus its constant series.",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026; index used only as a locator."
+      },
+      {
+        "ref": "mathlib:PowerSeries.WithPiTopology.tendsto_trunc_atTop",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/PiTopology.lean",
+        "provides": "Native polynomial truncations converge to the power series in the coefficient topology over a topological commutative semiring.",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026; index used only as a locator."
       }
     ]
   },
@@ -11464,6 +11499,660 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/relative-coordinate-continuity",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Continuity of the actual relative coordinates",
+      "kind": "lemma",
+      "statement": "Each coordinate of the existing relative cyclotomic power basis K_(n+1)→K_n is continuous.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "A coordinate is K_n-linear. Restrict scalars through the already supplied ℚ_p/K_n/K_(n+1) tower, obtaining a ℚ_p-linear map.",
+        "The domain is finite-dimensional over ℚ_p and has its Hausdorff native norm topology. The native finite-dimensional linear continuity theorem applies over the complete field ℚ_p. No separately installed normed K_n-module structure is required."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis",
+        "mathlib:LinearMap.continuous_of_finiteDimensional"
+      ],
+      "acceptance": [
+        "Use the actual carrier, topology and relative scalar inclusion, including p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "continuous_relative_coordinate"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/relative-field-norm-continuity",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Continuity of the relative field norm",
+      "kind": "lemma",
+      "statement": "The actual native map Algebra.norm(K_n):K_(n+1)→K_n is continuous.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "Use native norm_eq_matrix_det with the existing relative basis. Its (i,j) entry is the ith coordinate of x times the jth fixed basis vector.",
+        "Multiplication by a fixed field element is continuous, and the preceding coordinate theorem gives continuity of every matrix entry. The native finite determinant expansion is a finite sum of products of these continuous functions."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/relative-coordinate-continuity",
+        "mathlib:Algebra.norm_eq_matrix_det",
+        "mathlib:Algebra.leftMulMatrix_eq_repr_mul",
+        "mathlib:Matrix.det_apply"
+      ],
+      "acceptance": [
+        "Use the actual carrier, topology and relative scalar inclusion, including p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "continuous_relative_norm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/integral-relative-norm",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Relative norm on the actual integral closures",
+      "kind": "construction",
+      "statement": "Corestrict the native field norm to a monoid homomorphism integralNorm_n:O_(n+1)→O_n, using native preservation of integrality.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "For x in the actual integral closure, its field value is integral over ℤ_p. Native Algebra.isIntegral_norm over the existing scalar tower proves that its relative norm is again integral over ℤ_p.",
+        "Use this witness in the existing integral-closure subtype, and restrict the native field-norm monoid homomorphism. No second general norm construction or integral-ring carrier is introduced.",
+        "Zero follows from the finite nonzero-rank field norm. On a scalar from ℤ_p, the native basis-cardinality norm formula gives the pth power. The existing relative difference norm and injectivity of the integral inclusion give the signed difference formula."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/relative-cyclotomic-degree",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis-dimension",
+        "ColemanPowerSeries:L0/relative-cyclotomic-difference-norm",
+        "mathlib:Algebra.isIntegral_norm",
+        "mathlib:Algebra.norm_algebraMap_of_basis"
+      ],
+      "acceptance": [
+        "Native Algebra.intNorm is already available for its integral-algebra setup; it is not replanned. This adapter corestricts the specified field norm to these actual subtypes without assuming that additional relative integral-algebra setup."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralNorm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "integralNorm_zero",
+          "role": "simp",
+          "statement": "The zero integral element maps to0."
+        },
+        {
+          "name": "integralNorm_scalar",
+          "role": "compatibility",
+          "statement": "A scalar a∈ℤ_p maps to the scalar a^p."
+        },
+        {
+          "name": "integralNorm_difference",
+          "role": "compatibility",
+          "statement": "The norm of ϖ_(n+1) is (−1)^(p+1)ϖ_n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RelativeNormTests.integral_zero",
+          "kind": "degenerate",
+          "statement": "The actual integral norm sends0 to0."
+        },
+        {
+          "name": "RelativeNormTests.integral_prime",
+          "kind": "computation",
+          "statement": "The rational prime maps to p^p, not to p."
+        },
+        {
+          "name": "RelativeNormTests.dyadic_difference",
+          "kind": "computation",
+          "statement": "At p=2,n=0, the norm of ζ_1−1 is+2 although ζ_0−1=−2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Section9 and Lemma10.9",
+          "how": "Provide the actual finite-level transition on the specified rings before restricting to units."
+        },
+        {
+          "where": "Norm-compatible inverse limits",
+          "how": "Use native integral values, not an unrelated abstract multiplicative map."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/integral-relative-norm-field",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The integral norm agrees with the native field norm",
+      "kind": "lemma",
+      "statement": "Including integralNorm_n(x) into K_n gives Algebra.norm(K_n) of the field value of x.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "Unfold the preceding corestriction. The integral-closure inclusion forgets only the integrality proof, leaving the original field norm."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-relative-norm"
+      ],
+      "acceptance": [
+        "Use the actual carrier, topology and relative scalar inclusion, including p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralNorm_field"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/integral-relative-norm-continuity",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Continuity of the integral norm transition",
+      "kind": "lemma",
+      "statement": "The map integralNorm_n:O_(n+1)→O_n is continuous in the inherited norm topologies.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "The domain inclusion into K_(n+1) is continuous. Compose it with the preceding continuous field norm.",
+        "The codomain O_n has its native subtype topology; the corestriction continuity criterion and the field-value identity give the result."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/relative-field-norm-continuity",
+        "ColemanPowerSeries:L0/integral-relative-norm-field"
+      ],
+      "acceptance": [
+        "Use the actual carrier, topology and relative scalar inclusion, including p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "continuous_integralNorm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/continuous-unit-norm",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Continuous norm transitions on actual units",
+      "kind": "construction",
+      "statement": "Bundle Units.map(integralNorm_n) as a native ContinuousMonoidHom from O_(n+1)ˣ to O_nˣ.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "Apply native Units.map to the existing integral norm monoid homomorphism. Inverse values are automatically the norms of the inverse units.",
+        "Native Continuous.units_map transfers the preceding continuity to the genuine units topologies, controlling both the element and its inverse. Bundle in the existing ContinuousMonoidHom carrier.",
+        "The value formula is the native Units.map value. Its inverse law is monoid-hom functoriality on groups; the scalar-unit formula follows by units extensionality and the integral scalar formula."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-relative-norm",
+        "ColemanPowerSeries:L0/integral-relative-norm-continuity",
+        "mathlib:Continuous.units_map"
+      ],
+      "acceptance": [
+        "Full units have a topological group structure. No ℤ_p-module or pro-p hypothesis is asserted for them."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "unitsNorm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "unitsNorm_coe",
+          "role": "coercion",
+          "statement": "The underlying integral element is integralNorm_n of the underlying input."
+        },
+        {
+          "name": "unitsNorm_inv",
+          "role": "functoriality",
+          "statement": "The norm of an inverse unit is the inverse norm."
+        },
+        {
+          "name": "unitsNorm_scalar",
+          "role": "compatibility",
+          "statement": "A unit a from ℤ_p maps to its pth power at the lower level."
+        }
+      ],
+      "tests": [
+        {
+          "name": "RelativeNormTests.unit_identity",
+          "kind": "degenerate",
+          "statement": "The identity unit maps to the identity."
+        },
+        {
+          "name": "RelativeNormTests.unit_minus_one",
+          "kind": "computation",
+          "statement": "The unit−1 maps to(−1)^p, including+1 at p=2."
+        },
+        {
+          "name": "RelativeNormTests.unit_root",
+          "kind": "compatibility",
+          "statement": "A unit whose value is ζ_(n+1) maps to the unit with value(−1)^(p+1)ζ_n."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW equation(9-3)",
+          "how": "Supply the continuous transition homomorphisms for the full-unit inverse limit."
+        },
+        {
+          "where": "RJW Lemma10.9 and Proposition10.10",
+          "how": "Make the arithmetic norm/evaluation square an equality in actual unit groups."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/arithmetic-frobenius-evaluation",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Frobenius substitution and the actual tower evaluation",
+      "kind": "lemma",
+      "statement": "In K_(n+1), the value of ε_(n+1)(φF) equals the inclusion of ε_n(F).",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "For polynomial F, use the existing evaluation comparison and ζ_(n+1)^p=ι(ζ_n). Substitution T↦(1+T)^p−1 therefore evaluates at ϖ_n under the lower field inclusion.",
+        "Both maps on B are continuous: write φ as the existing continuous coordinate assembly on the zeroth single-coordinate family, and use evaluation continuity and the actual field inclusion. Native polynomial truncations converge in the coefficient topology.",
+        "Pass the polynomial identity through these limits in the Hausdorff upper field. There is no evaluation at a noncontracting point."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-evaluation-polynomial",
+        "ColemanPowerSeries:L0/cyclotomic-series-evaluation",
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "ColemanPowerSeries:L0/cyclotomic-root-compatibility",
+        "ColemanPowerSeries:L1/frobenius-scalar-map",
+        "ColemanPowerSeries:L1/frobenius-coordinate-continuity",
+        "mathlib:PowerSeries.WithPiTopology.tendsto_trunc_atTop"
+      ],
+      "acceptance": [
+        "Use the actual carrier, topology and relative scalar inclusion, including p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "seriesEvaluation_phi_field"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/arithmetic-frobenius-coordinates",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Specialization of Frobenius coordinates to the relative basis",
+      "kind": "comparison",
+      "statement": "Reindex the existing relative power basis to Fin p. The ith relative coordinate of ε_(n+1)(F) is the field value of ε_n of the ith formal Frobenius coordinate of F.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "Apply ε_(n+1) to the existing formal expansion F=Σ_i φ(c_i)Y^i. It preserves the finite sum and product.",
+        "The preceding evaluation lemma sends each φ(c_i) to the inclusion of ε_n(c_i), while Y evaluates to ζ_(n+1). These are exactly the existing relative basis powers.",
+        "Use uniqueness of coordinates in that basis. Reindex only along the established dimension equality; no new basis choice or splitting field is introduced."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/arithmetic-frobenius-evaluation",
+        "ColemanPowerSeries:L1/frobenius-basis-expansion",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis-generator",
+        "ColemanPowerSeries:L0/relative-cyclotomic-basis-dimension"
+      ],
+      "acceptance": [
+        "Use the actual carrier, topology and relative scalar inclusion, including p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "seriesEvaluation_phiBasis_coordinates"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/arithmetic-multiplication-matrix",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Specialization of the actual multiplication matrix",
+      "kind": "comparison",
+      "statement": "In the reindexed relative basis, the left multiplication matrix of ε_(n+1)(F) is the formal Frobenius multiplication matrix of F with each coefficient evaluated by ε_n and included into K_n.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "The native entry formula is coordinate_i(x times basis_j). Take x to be the upper evaluation of F.",
+        "The jth relative basis vector is ε_(n+1)(Y^j). Multiplicativity of evaluation identifies the product with ε_(n+1)(F Y^j).",
+        "Apply the preceding coordinate-specialization theorem to F Y^j. The native entry formula in the explicitly selected Frobenius scalar algebra identifies its formal coordinate with the corresponding formal multiplication entry."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/arithmetic-frobenius-coordinates",
+        "ColemanPowerSeries:L1/frobenius-basis-values",
+        "mathlib:Algebra.leftMulMatrix_eq_repr_mul"
+      ],
+      "acceptance": [
+        "Use the actual carrier, topology and relative scalar inclusion, including p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "seriesEvaluation_mulMatrix"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/arithmetic-norm-evaluation",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "The arithmetic Coleman norm and evaluation square",
+      "kind": "theorem",
+      "statement": "For every F∈ℤ_p[[T]], integralNorm_n(ε_(n+1)(F))=ε_n(colemanNorm(F)) in O_n.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "Include both sides into K_n. The integral norm field-value lemma identifies the left side with the native field norm.",
+        "Use the existing relative basis determinant formula and the preceding multiplication-matrix specialization. Native RingHom.map_det commutes the lower evaluation with this finite determinant.",
+        "The existing Coleman determinant formula identifies that evaluated determinant with ε_n(colemanNorm(F)). The actual integral inclusion is injective, giving equality in O_n."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/integral-relative-norm-field",
+        "ColemanPowerSeries:L1/arithmetic-multiplication-matrix",
+        "ColemanPowerSeries:L1/coleman-norm-matrix",
+        "mathlib:Algebra.norm_eq_matrix_det",
+        "mathlib:RingHom.map_det"
+      ],
+      "acceptance": [
+        "The equality holds for all integral power series, including nonunits and zero. No extension of a character across an unrelated total quotient is involved."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralNorm_seriesEvaluation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "RelativeNormTests.evaluate_constant",
+          "kind": "computation",
+          "statement": "A constant a evaluates through the norm square to the scalar a^p."
+        },
+        {
+          "name": "RelativeNormTests.dyadic_variable",
+          "kind": "computation",
+          "statement": "At p=2,n=0, the norm of the upper evaluation of T is minus its lower evaluation."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/arithmetic-unit-norm-evaluation",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "The norm square in actual unit groups",
+      "kind": "lemma",
+      "statement": "For F∈Bˣ, applying unitsNorm_n after upper evaluation equals lower evaluation after Units.map(colemanNorm).",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "All horizontal maps are the native Units.map of the existing evaluation ring homomorphisms. Hence their inverses are evaluations of the inverse series.",
+        "Apply units extensionality, unfold the units lift, and use the preceding equality for the underlying power series."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/continuous-unit-norm",
+        "ColemanPowerSeries:L1/arithmetic-norm-evaluation"
+      ],
+      "acceptance": [
+        "Use the actual carrier, topology and relative scalar inclusion, including p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "unitsNorm_seriesEvaluation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/arithmetic-evaluation-reduction",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Reduction of finite-level series evaluation",
+      "kind": "lemma",
+      "statement": "The residue of ε_n(F) is the reduction modulo p of constantCoeff(F).",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "Use the native formal identity F=T times its shifted series plus its constant series. Evaluation and reduction are ring homomorphisms.",
+        "The residue of ϖ_n is0 by the existing root reduction, while scalar reduction agrees with PadicInt.toZMod. The shifted term therefore vanishes. No interchange of an infinite sum with reduction is needed."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-series-evaluation",
+        "ColemanPowerSeries:L0/cyclotomic-reduction-root",
+        "ColemanPowerSeries:L0/cyclotomic-reduction-scalars",
+        "mathlib:PowerSeries.eq_X_mul_shift_add_const"
+      ],
+      "acceptance": [
+        "Use the actual carrier, topology and relative scalar inclusion, including p=2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "reduction_seriesEvaluation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/unit-norm-residue",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The unit norm preserves the actual residue",
+      "kind": "lemma",
+      "statement": "For u∈O_(n+1)ˣ, the residue of unitsNorm_n(u) equals the residue of u under the fixed identifications with ZMod p.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "Choose the existing unit polynomial-series lift F of u at the upper level. The arithmetic norm square identifies its norm with the lower evaluation of colemanNorm(F).",
+        "The preceding evaluation-reduction lemma makes both residues constant-coefficient reductions. The existing Coleman congruence colemanNorm(F)≡F modulo p makes these reductions equal.",
+        "This argument avoids assuming that the relative integer ring already has a separately constructed free basis. In particular, residue1 is preserved."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-unit-series-evaluation-lift",
+        "ColemanPowerSeries:L1/arithmetic-unit-norm-evaluation",
+        "ColemanPowerSeries:L0/arithmetic-evaluation-reduction",
+        "ColemanPowerSeries:L1/coleman-norm-residue-identity"
+      ],
+      "acceptance": [
+        "This supplies preservation of the principal-unit condition, not its pro-p proof or a new module structure."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "reduction_unitsNorm"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "RelativeNormTests.principal_unit",
+          "kind": "compatibility",
+          "statement": "A unit with residue1 has norm with residue1."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/norm-fixed-arithmetic-compatibility",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Norm-fixed units give compatible finite-level evaluations",
+      "kind": "lemma",
+      "statement": "For a unit series F in the existing normFixedUnits subgroup, unitsNorm_n(ε_(n+1)(F))=ε_n(F) as actual units.",
+      "hypotheses": [
+        "Fix any prime p, including2. Use the actual fields K_n=level(p,n) inside PadicAlgCl p, integral closures O_n=integralClosure(ℤ_p,K_n), compatible roots ζ_n, and ϖ_n=ζ_n−1. The source level is n+1. The relative algebra is the existing field inclusion K_n→K_(n+1); its power basis has generator ζ_(n+1) and dimension p. Retain all native norm topologies and units topologies. Write ε_n for existing seriesEvaluation, B=ℤ_p[[T]], Y=1+T, and φ for the existing substitution T↦Y^p−1. The formal basis uses the explicitly selected Frobenius scalar algebra, never the ordinary self-algebra."
+      ],
+      "proofSteps": [
+        "The preceding unit-group norm square identifies the left side with the lower evaluation of Units.map(colemanNorm)(F).",
+        "The existing subgroup membership theorem says that the underlying series is fixed by colemanNorm. Units extensionality identifies the units, giving the required adjacent compatibility."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/arithmetic-unit-norm-evaluation",
+        "ColemanPowerSeries:L1/coleman-norm-fixed-membership"
+      ],
+      "acceptance": [
+        "This is the compatibility portion of Proposition10.10. The actual inverse-limit carrier, interpolation injectivity and surjectivity remain explicit work."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Coleman/NormTransition",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "normFixedUnits_evaluation_compatible"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Published166–169/PDF67–70, equation(10-1), Lemma10.9, Proposition10.10 and complete10.11–10.13. Complete161–164 and166–170 freshly read28 September2026.",
+          "match": "Actual-carrier decomposition of the relative norm transitions and evaluation square. The determinant proof uses specialization of the existing Frobenius and cyclotomic power bases instead of assuming the formal extension is already split. The source assumes p odd; dyadic instances keep the established signs. No norm-compatible inverse-limit carrier or principal-unit module is introduced here."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -11582,8 +12271,8 @@
       "stageId": "ColemanPowerSeries:L0",
       "status": "partial",
       "remaining": [
-        "The actual O_n is now identified with the native norm valuation ring, including its units, maximal ideal, reduction kernel and maximal-ideal neighborhood basis; (p)=m_n^(d_n). Compare this concrete norm-valuation data with the owning LocalFieldsRamification named local-field structures, normalized valuation and intrinsic ramification invariants. Establish continuous relative norm transitions and arithmetic norm/evaluation compatibility before constructing the full and principal norm-compatible inverse limits.",
-        "Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
+        "The actual norm valuation, ideal topology, integral and unit norm transitions and arithmetic norm/evaluation square are supplied. Compare the concrete fields and integral closures with the LocalFieldsRamification named structures, normalized valuations and intrinsic ramification invariants. The unit norm preserves the fixed residue, hence the principal-unit condition; no pro-p or ℤ_p-module hypothesis has been supplied by this statement.",
+        "Construct full and principal norm-compatible unit inverse limits using the supplied continuous transitions; prove closedness/compactness, the G-action, Tate-module inclusion and norm-compatible Teichmüller splitting. Verify the principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
         "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
       ]
     },
@@ -11591,8 +12280,8 @@
       "stageId": "ColemanPowerSeries:L1",
       "status": "partial",
       "remaining": [
-        "The integral trace/PMIA bounded-psi comparison, zeroth Frobenius coordinate and embedded root-sum formula are supplied. The determinant/root-product comparison and uniqueness now have exact nodes using the actual PMIA translations and native Tau Ceti evaluation/substitution. Arithmetic norm/evaluation compatibility remains required; general coefficient extensions remain supplier work.",
-        "The four RJW Lemma10.11 congruences, inverse-coordinate/norm/trace continuity, and the norm-fixed invertible limit with uniform precision and continuity are supplied. Prove the arithmetic norm/evaluation compatibility before using this limit in tower interpolation. The series construction does not itself supply an arithmetic interpolation map.",
+        "The integral trace/PMIA psi and root-product comparisons are retained. The actual arithmetic norm/evaluation square now follows from specialization of the formal Frobenius basis to the relative cyclotomic basis and their multiplication determinants. General coefficient extensions remain supplier work.",
+        "The four Lemma10.11 congruences, norm continuity and norm-fixed limit remain supplied. Norm-fixed unit series now give adjacent norm-compatible actual evaluations. Construct the actual inverse-limit map, interpolation uniqueness and compact successive approximation to prove its bijectivity; the compatibility equation alone is not that map or theorem.",
         "Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
       ]
     },
@@ -11629,14 +12318,14 @@
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
-      "detail": "The actual O_n is now identified with the native norm valuation ring, including its units, maximal ideal, reduction kernel and maximal-ideal neighborhood basis; (p)=m_n^(d_n). Compare this concrete norm-valuation data with the owning LocalFieldsRamification named local-field structures, normalized valuation and intrinsic ramification invariants. Establish continuous relative norm transitions and arithmetic norm/evaluation compatibility before constructing the full and principal norm-compatible inverse limits. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
+      "detail": "The actual norm valuation, ideal topology, integral and unit norm transitions and arithmetic norm/evaluation square are supplied. Compare the concrete fields and integral closures with the LocalFieldsRamification named structures, normalized valuations and intrinsic ramification invariants. The unit norm preserves the fixed residue, hence the principal-unit condition; no pro-p or ℤ_p-module hypothesis has been supplied by this statement. Construct full and principal norm-compatible unit inverse limits using the supplied continuous transitions; prove closedness/compactness, the G-action, Tate-module inclusion and norm-compatible Teichmüller splitting. Verify the principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
     },
     {
       "title": "L1 continuation boundary",
       "neededBy": [
         "ColemanPowerSeries:L1"
       ],
-      "detail": "The integral trace/PMIA bounded-psi comparison, zeroth Frobenius coordinate and embedded root-sum formula are supplied. The determinant/root-product comparison and uniqueness now have exact nodes using the actual PMIA translations and native Tau Ceti evaluation/substitution. Arithmetic norm/evaluation compatibility remains required; general coefficient extensions remain supplier work. The four RJW Lemma10.11 congruences, inverse-coordinate/norm/trace continuity, and the norm-fixed invertible limit with uniform precision and continuity are supplied. Prove the arithmetic norm/evaluation compatibility before using this limit in tower interpolation. The series construction does not itself supply an arithmetic interpolation map. Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
+      "detail": "The integral trace/PMIA psi and root-product comparisons are retained. The actual arithmetic norm/evaluation square now follows from specialization of the formal Frobenius basis to the relative cyclotomic basis and their multiplication determinants. General coefficient extensions remain supplier work. The four Lemma10.11 congruences, norm continuity and norm-fixed limit remain supplied. Norm-fixed unit series now give adjacent norm-compatible actual evaluations. Construct the actual inverse-limit map, interpolation uniqueness and compact successive approximation to prove its bijectivity; the compatibility equation alone is not that map or theorem. Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
     },
     {
       "title": "L2 continuation boundary",
@@ -13684,33 +14373,284 @@
       },
       "sourceBoundary": "Fresh full published RJW161–164 reading; all eleven comparison nodes are explicit worker deductions. No new source finding.",
       "supplierBoundary": "Actual PMIA304 supplier authored and checked in this continuous session. Full Dirichlet224→247 delta read, with all224 old nodes and its request unchanged."
+    },
+    "arithmeticNormSquare": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "claim": 5861384811,
+      "winningBot": 5861386093,
+      "preservedWholeNodes": 194,
+      "preservedBaseline": 258,
+      "preservedFindings": 13,
+      "newNodes": 14,
+      "historicalChecks": {
+        "validation": {
+          "nodes": 194,
+          "kinds": {
+            "definition": 2,
+            "lemma": 137,
+            "theorem": 25,
+            "comparison": 11,
+            "construction": 19
+          },
+          "api": 106,
+          "definitionConstructionAPI": 99,
+          "packetTests": 150,
+          "definitionConstructionTests": 71,
+          "typedExamples": 152,
+          "planets": 12,
+          "baseline": 258,
+          "newNodes": 11,
+          "preservedWholeNodes": 183,
+          "preservedBaseline": 246,
+          "preservedFindings": 13,
+          "newFindings": 0,
+          "reachableNodes": 265,
+          "dependencyEdges": 1142,
+          "baselineLeaves": 320,
+          "stageLeaves": [],
+          "acyclic": true,
+          "pinnedMathlibModules": 2846,
+          "pinnedTauCetiModules": 3,
+          "actualSupplierModules": 1,
+          "nativeModulesBuilt": 0,
+          "gaps": 6,
+          "requests": 12,
+          "closedStages": 0,
+          "suggestedFileSha256": "8b93ed66f15e815d1eb489869205311716d6be2ba79b62b237316c70cfe1d8dc",
+          "supplierSha256": "ad64bfe94d36581684ae9a29fa5b76dad2dd154b24fb55b420274f6585e45432",
+          "sourceAuditSha256": "d08223d94ec4895f42d1f01fc3566f43e163fc58f5a353cfeeebdd3d8adc4ee8",
+          "compileCompleted": true,
+          "compilerExit": 0,
+          "compileStatus": "full file elaborated at pinned baseline",
+          "compilerErrors": 0,
+          "compilerWarnings": 407,
+          "warningsOnlyPlaceholders": true
+        },
+        "arithmetic": {
+          "inverseIdentities": 2240,
+          "integralityComparisons": 1120,
+          "idealPowerComparisons": 10240,
+          "primeIdealComparisons": 1120,
+          "residueComparisons": 461,
+          "boundaryComparisons": 256,
+          "unitFactorComparisons": 28,
+          "cases": [
+            {
+              "prime": 2,
+              "level": 0,
+              "precision": 1,
+              "degree": 1
+            },
+            {
+              "prime": 2,
+              "level": 0,
+              "precision": 2,
+              "degree": 1
+            },
+            {
+              "prime": 2,
+              "level": 0,
+              "precision": 3,
+              "degree": 1
+            },
+            {
+              "prime": 2,
+              "level": 0,
+              "precision": 4,
+              "degree": 1
+            },
+            {
+              "prime": 2,
+              "level": 1,
+              "precision": 1,
+              "degree": 2
+            },
+            {
+              "prime": 2,
+              "level": 1,
+              "precision": 2,
+              "degree": 2
+            },
+            {
+              "prime": 2,
+              "level": 1,
+              "precision": 3,
+              "degree": 2
+            },
+            {
+              "prime": 2,
+              "level": 1,
+              "precision": 4,
+              "degree": 2
+            },
+            {
+              "prime": 2,
+              "level": 2,
+              "precision": 1,
+              "degree": 4
+            },
+            {
+              "prime": 2,
+              "level": 2,
+              "precision": 2,
+              "degree": 4
+            },
+            {
+              "prime": 2,
+              "level": 2,
+              "precision": 3,
+              "degree": 4
+            },
+            {
+              "prime": 2,
+              "level": 2,
+              "precision": 4,
+              "degree": 4
+            },
+            {
+              "prime": 3,
+              "level": 0,
+              "precision": 1,
+              "degree": 2
+            },
+            {
+              "prime": 3,
+              "level": 0,
+              "precision": 2,
+              "degree": 2
+            },
+            {
+              "prime": 3,
+              "level": 0,
+              "precision": 3,
+              "degree": 2
+            },
+            {
+              "prime": 3,
+              "level": 0,
+              "precision": 4,
+              "degree": 2
+            },
+            {
+              "prime": 3,
+              "level": 1,
+              "precision": 1,
+              "degree": 6
+            },
+            {
+              "prime": 3,
+              "level": 1,
+              "precision": 2,
+              "degree": 6
+            },
+            {
+              "prime": 3,
+              "level": 1,
+              "precision": 3,
+              "degree": 6
+            },
+            {
+              "prime": 3,
+              "level": 1,
+              "precision": 4,
+              "degree": 6
+            },
+            {
+              "prime": 5,
+              "level": 0,
+              "precision": 1,
+              "degree": 4
+            },
+            {
+              "prime": 5,
+              "level": 0,
+              "precision": 2,
+              "degree": 4
+            },
+            {
+              "prime": 5,
+              "level": 0,
+              "precision": 3,
+              "degree": 4
+            },
+            {
+              "prime": 5,
+              "level": 0,
+              "precision": 4,
+              "degree": 4
+            },
+            {
+              "prime": 7,
+              "level": 0,
+              "precision": 1,
+              "degree": 6
+            },
+            {
+              "prime": 7,
+              "level": 0,
+              "precision": 2,
+              "degree": 6
+            },
+            {
+              "prime": 7,
+              "level": 0,
+              "precision": 3,
+              "degree": 6
+            },
+            {
+              "prime": 7,
+              "level": 0,
+              "precision": 4,
+              "degree": 6
+            }
+          ],
+          "scope": "Exact rational coefficient-lattice checks in Q[X]/E_n. Membership in powers is tested by actual multiplication/division by X, against the distinct coefficient-weight thresholds; prime-ideal equality is compared to division by p. These finite samples verify indexing and boundaries, not spectral norms, completeness or the general theorems.",
+          "scriptSha256": "bd237e721d1b9db537166a1ddb2e4cec1c2d73c1668d52b73384c4b8a471f0d5"
+        },
+        "publication": {
+          "base": "6babeebf9f4f9421f5069c49ed254bf547ac2acf",
+          "publicationMain": "1412e4956da98b1afe4af5ff80c252bb84d709db",
+          "guardedInputs": 53,
+          "unchangedInputs": 53,
+          "inputChanges": {},
+          "predecessorOutputChanges": [],
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5860945083
+        },
+        "closure": "Partial: six gaps, twelve requests, zero closed stages; every implementation status unchecked."
+      },
+      "sourceBoundary": "Published161–164 and166–170 freshly read; equation10-1 andLemma10.9 actual-carrier specialization. Sourceoddp and inherited findings preserved."
     }
   },
   "checks": {
+    "agent": "Codex — codex-7e92bd",
+    "date": "2026-09-28",
+    "checkpoint": "actual continuous norm transitions and arithmetic evaluation square",
     "validation": {
-      "nodes": 194,
+      "nodes": 208,
       "kinds": {
         "definition": 2,
-        "lemma": 137,
-        "theorem": 25,
-        "comparison": 11,
-        "construction": 19
+        "lemma": 146,
+        "theorem": 26,
+        "comparison": 13,
+        "construction": 21
       },
-      "api": 106,
-      "definitionConstructionAPI": 99,
-      "packetTests": 150,
-      "definitionConstructionTests": 71,
-      "typedExamples": 152,
+      "api": 112,
+      "definitionConstructionAPI": 105,
+      "packetTests": 159,
+      "definitionConstructionTests": 77,
+      "typedExamples": 161,
       "planets": 12,
-      "baseline": 258,
-      "newNodes": 11,
-      "preservedWholeNodes": 183,
-      "preservedBaseline": 246,
+      "baseline": 263,
+      "newNodes": 14,
+      "preservedWholeNodes": 194,
+      "preservedBaseline": 258,
       "preservedFindings": 13,
       "newFindings": 0,
-      "reachableNodes": 265,
-      "dependencyEdges": 1142,
-      "baselineLeaves": 320,
+      "reachableNodes": 279,
+      "dependencyEdges": 1193,
+      "baselineLeaves": 325,
       "stageLeaves": [],
       "acyclic": true,
       "pinnedMathlibModules": 2846,
@@ -13720,208 +14660,74 @@
       "gaps": 6,
       "requests": 12,
       "closedStages": 0,
-      "suggestedFileSha256": "8b93ed66f15e815d1eb489869205311716d6be2ba79b62b237316c70cfe1d8dc",
-      "supplierSha256": "ad64bfe94d36581684ae9a29fa5b76dad2dd154b24fb55b420274f6585e45432",
-      "sourceAuditSha256": "d08223d94ec4895f42d1f01fc3566f43e163fc58f5a353cfeeebdd3d8adc4ee8",
+      "suggestedFileSha256": "a941c2713309bb1a0d35f892bd005fd98e882d91c4c502ca787d10e235702b4d",
+      "sourceAuditSha256": "5e8423bfce0b03c8061d46d7f0e07f91f3f3112b04962bf7745765639f341c63",
       "compileCompleted": true,
       "compilerExit": 0,
       "compileStatus": "full file elaborated at pinned baseline",
       "compilerErrors": 0,
-      "compilerWarnings": 407,
+      "compilerWarnings": 436,
       "warningsOnlyPlaceholders": true
     },
+    "supplierCompile": {
+      "sourceSha256": "d9a5079316a70e82bbe867853129fdda1a3059b11e781e270595de373778dda8",
+      "oleanSha256": "6762051a1771fa7c5993470c903d801117d85521f5bbc296b7b76c7982040b3b",
+      "errors": 0,
+      "warnings": 684,
+      "actualPacketNodes": 320,
+      "baselineOnly": false,
+      "note": "Actual current supplier compiled first; native library artifacts reused."
+    },
     "arithmetic": {
-      "inverseIdentities": 2240,
-      "integralityComparisons": 1120,
-      "idealPowerComparisons": 10240,
-      "primeIdealComparisons": 1120,
-      "residueComparisons": 461,
-      "boundaryComparisons": 256,
-      "unitFactorComparisons": 28,
-      "cases": [
-        {
-          "prime": 2,
-          "level": 0,
-          "precision": 1,
-          "degree": 1
-        },
-        {
-          "prime": 2,
-          "level": 0,
-          "precision": 2,
-          "degree": 1
-        },
-        {
-          "prime": 2,
-          "level": 0,
-          "precision": 3,
-          "degree": 1
-        },
-        {
-          "prime": 2,
-          "level": 0,
-          "precision": 4,
-          "degree": 1
-        },
-        {
-          "prime": 2,
-          "level": 1,
-          "precision": 1,
-          "degree": 2
-        },
-        {
-          "prime": 2,
-          "level": 1,
-          "precision": 2,
-          "degree": 2
-        },
-        {
-          "prime": 2,
-          "level": 1,
-          "precision": 3,
-          "degree": 2
-        },
-        {
-          "prime": 2,
-          "level": 1,
-          "precision": 4,
-          "degree": 2
-        },
-        {
-          "prime": 2,
-          "level": 2,
-          "precision": 1,
-          "degree": 4
-        },
-        {
-          "prime": 2,
-          "level": 2,
-          "precision": 2,
-          "degree": 4
-        },
-        {
-          "prime": 2,
-          "level": 2,
-          "precision": 3,
-          "degree": 4
-        },
-        {
-          "prime": 2,
-          "level": 2,
-          "precision": 4,
-          "degree": 4
-        },
-        {
-          "prime": 3,
-          "level": 0,
-          "precision": 1,
-          "degree": 2
-        },
-        {
-          "prime": 3,
-          "level": 0,
-          "precision": 2,
-          "degree": 2
-        },
-        {
-          "prime": 3,
-          "level": 0,
-          "precision": 3,
-          "degree": 2
-        },
-        {
-          "prime": 3,
-          "level": 0,
-          "precision": 4,
-          "degree": 2
-        },
-        {
-          "prime": 3,
-          "level": 1,
-          "precision": 1,
-          "degree": 6
-        },
-        {
-          "prime": 3,
-          "level": 1,
-          "precision": 2,
-          "degree": 6
-        },
-        {
-          "prime": 3,
-          "level": 1,
-          "precision": 3,
-          "degree": 6
-        },
-        {
-          "prime": 3,
-          "level": 1,
-          "precision": 4,
-          "degree": 6
-        },
-        {
-          "prime": 5,
-          "level": 0,
-          "precision": 1,
-          "degree": 4
-        },
-        {
-          "prime": 5,
-          "level": 0,
-          "precision": 2,
-          "degree": 4
-        },
-        {
-          "prime": 5,
-          "level": 0,
-          "precision": 3,
-          "degree": 4
-        },
-        {
-          "prime": 5,
-          "level": 0,
-          "precision": 4,
-          "degree": 4
-        },
-        {
-          "prime": 7,
-          "level": 0,
-          "precision": 1,
-          "degree": 6
-        },
-        {
-          "prime": 7,
-          "level": 0,
-          "precision": 2,
-          "degree": 6
-        },
-        {
-          "prime": 7,
-          "level": 0,
-          "precision": 3,
-          "degree": 6
-        },
-        {
-          "prime": 7,
-          "level": 0,
-          "precision": 4,
-          "degree": 6
-        }
+      "frobeniusCoordinateIdentities": 24,
+      "normResidueCongruences": 24,
+      "relativeRootProducts": 48,
+      "relativeReductionIdentities": 48,
+      "principalUnitCases": 18,
+      "scalarNorms": 4,
+      "signedRootNorms": 4,
+      "signedDifferenceNorms": 4,
+      "zeroNorms": 4,
+      "primes": [
+        2,
+        3,
+        5,
+        7
       ],
-      "scope": "Exact rational coefficient-lattice checks in Q[X]/E_n. Membership in powers is tested by actual multiplication/division by X, against the distinct coefficient-weight thresholds; prime-ideal equality is compared to division by p. These finite samples verify indexing and boundaries, not spectral norms, completeness or the general theorems.",
-      "scriptSha256": "bd237e721d1b9db537166a1ddb2e4cec1c2d73c1668d52b73384c4b8a471f0d5"
+      "relativeSteps": [
+        0,
+        1
+      ],
+      "functionalPolynomialsPerPrime": 6,
+      "scope": "Exact integer Frobenius coordinate assembly and multiplication determinants, compared independently with relative root products in the actual cyclotomic polynomial quotient. Residue and signed dyadic controls included. These finite models verify formulas and conventions, not continuity, infinite series convergence or inverse-limit existence.",
+      "scriptSha256": "fa38905844aa7cddbeb46646a768650bffc5ec7dbd3da4bfeb5e633e1e049e37"
     },
     "publication": {
-      "base": "6babeebf9f4f9421f5069c49ed254bf547ac2acf",
-      "publicationMain": "1412e4956da98b1afe4af5ff80c252bb84d709db",
+      "base": "2566939af56e4177dfd642feeb41fa7f4785e279",
+      "publicationMain": "6e864402d0548adc7a47e21755ecb1c08277efdb",
       "guardedInputs": 53,
       "unchangedInputs": 53,
       "inputChanges": {},
       "predecessorOutputChanges": [],
       "unchangedIssueBody": true,
-      "claimConfirmation": 5860945083
+      "claimConfirmation": 5861386093
     },
-    "closure": "Partial: six gaps, twelve requests, zero closed stages; every implementation status unchecked."
+    "status": "Full compilation, graph, preservation and parity passed; publication checks recorded in handoff.",
+    "publicationChecks": {
+      "indexedPacket": "208 nodes; 0 errors; 0 warnings",
+      "fourFileIntake": "4 files; 0 problems",
+      "errata": "filename-correct errata-v1 wrapper passed",
+      "whitespace": "passed",
+      "newReaderDeclarationAPIAndTestParity": true,
+      "scope": [
+        "research/blueprint/packets/ColemanPowerSeries.json",
+        "research/blueprint/readmes/ColemanPowerSeries.md",
+        "research/blueprint/suggested/ColemanPowerSeries.lean",
+        "research/blueprint/handoff/BP-ColemanPowerSeries.md"
+      ],
+      "fullCompilation": "0 errors; 436 placeholder warnings; actual PMIA320 freshly compiled first",
+      "arithmetic": "all exact comparisons passed"
+    }
   },
   "conventions": {
     "normRootProduct": "The equality lives in O[[T]]: iota(phi(N(F))) equals the product of the actual PMIA root translations. The native Vandermonde determinant is nonzero but need not be a unit. The nondiscrete coefficient substitution/evaluation theorem is imported from pinned Tau Ceti. The coefficient/base/receiving scalar maps are kept explicit."
