@@ -11,7 +11,7 @@
     "SieveMethodsAndPrimePatterns:SV.5"
   ],
   "status": "partial",
-  "summary": "Partial finite sieve and large-sieve roadmap, extended by Vaughan's exact cutoff identity, incomplete-log coefficient API, arbitrary-complex-weight Type I/II decomposition and elementary coefficient energies. Native arithmetic functions and Möbius inversion are reused. Analytic bilinear estimates, sharp large-sieve constants and Bombieri–Vinogradov remain gaps; every node is unchecked.",
+  "summary": "Partial finite sieve and large-sieve roadmap, extended by explicit primitive-character dyadic energy and bilinear bounds with exact endpoints and a retained scale-count loss. The inherited finite Vaughan interface is preserved. The discrepancy/conductor/small-modulus estimates, independent-rectangle reduction, sharp large-sieve constants and Bombieri–Vinogradov remain gaps; every node is unchecked.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -974,6 +974,48 @@
         "module": "Mathlib/Order/Interval/Finset/Nat.lean",
         "provides": "Natural positive interval cardinality b−a, including empty intervals.",
         "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Native arithmetic-function and divisor APIs checked before planning the finite Vaughan adapters."
+      },
+      {
+        "ref": "mathlib:Real.sum_mul_le_sqrt_mul_sqrt",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Real/Sqrt.lean",
+        "provides": "Finite real Cauchy–Schwarz with square-root norms; used with square-root weights over the finite primitive-character family.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-28. The baseline worktree is clean at that commit; imported source bytes match the existing build's sources."
+      },
+      {
+        "ref": "mathlib:Real.sqrt_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Real/Sqrt.lean",
+        "provides": "Factorization of a real square root when the first factor is nonnegative.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-28. The baseline worktree is clean at that commit; imported source bytes match the existing build's sources."
+      },
+      {
+        "ref": "mathlib:Real.sqrt_nonneg",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Real/Sqrt.lean",
+        "provides": "Nonnegativity of every real square root.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-28. The baseline worktree is clean at that commit; imported source bytes match the existing build's sources."
+      },
+      {
+        "ref": "mathlib:Real.sqrt_le_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Real/Sqrt.lean",
+        "provides": "The bound √x≤y is equivalent to 0≤y and x≤y²; used to prove the elementary dyadic kernel majorant.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-28. The baseline worktree is clean at that commit; imported source bytes match the existing build's sources."
+      },
+      {
+        "ref": "mathlib:Real.sqrt_le_sqrt",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Real/Sqrt.lean",
+        "provides": "Monotonicity of real square roots under a real inequality.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-28. The baseline worktree is clean at that commit; imported source bytes match the existing build's sources."
+      },
+      {
+        "ref": "mathlib:Finset.prod_Ioc_consecutive",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/BigOperators/Intervals.lean",
+        "provides": "Adjacent natural Ioc interval products for a commutative monoid. Its generated additive companion, equivalently this indexed theorem in Multiplicative ℝ, gives the adjacent real sums used in the dyadic specialization.",
+        "checked": "Statement and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-28. The baseline worktree is clean at that commit; imported source bytes match the existing build's sources."
       }
     ]
   },
@@ -1058,7 +1100,8 @@
       "readSections": [
         "Entire live Chapter 18, §§18.1–18.4 including all statements, displayed proof arguments and exercises, read. Only the exact Vaughan identity and incomplete-log finite decomposition (18.2.1)–(18.2.2), Exercises 18.4.1–2, are decomposed by this checkpoint; elementary weighted and coefficient-bound adapters are worker derivations.",
         "Author 2007 revised handout: all five pages read in extracted text; pp.3–4 visually checked for the finite identities and analytic proof issues. Its (3)–(4) match the live (18.2.1)–(18.2.2). HTML numbering is not identified with the older PDF numbering.",
-        "The analytic Lemma 18.2, Theorems 18.3–18.5, Corollary 18.6, exercise 3–5 and the exact small-modulus supplier interfaces remain undecomposed. Recorded proof defects are not a claim that the classical Bombieri–Vinogradov theorem is false."
+        "The analytic Lemma 18.2, Theorems 18.3–18.5, Corollary 18.6, exercise 3–5 and the exact small-modulus supplier interfaces remain undecomposed. Recorded proof defects are not a claim that the classical Bombieri–Vinogradov theorem is false.",
+        "2026-09-28: complete live Chapter 18 reread at the same SHA-256. The large-r dyadic subargument of Theorem 18.3 is now decomposed in SV.2 with H+8P² from the inherited large sieve and a retained J loss. No new source finding, full convolution estimate or independent review is claimed."
       ]
     }
   ],
@@ -4425,6 +4468,268 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/dyadic-primitive-energy",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Primitive character energy on a dyadic band",
+      "kind": "lemma",
+      "statement": "Σ_{P<q≤2P}φ(q)⁻¹Σχ*|Aχ|² ≤ ((H+8P²)/P)E_a.",
+      "hypotheses": [
+        "M,N are arbitrary integers; H,K are natural interval lengths; a:Fin H→ℂ and b:Fin K→ℂ are arbitrary. Write Aχ=Σ_{j<H}a_jχ(M+j+1), Bχ=Σ_{j<K}b_jχ(N+j+1), E_a=Σ|a_j|² and E_b=Σ|b_j|². Character values use the native residue cast.",
+        "φ(q) is the native totient. Every character sum is over primitive Dirichlet characters modulo the positive integer q. Write T(R,Q)=Σ_{R<q≤Q}φ(q)⁻¹Σχ*|Aχ||Bχ|; this is display notation, not a new carrier or bound predicate. Empty intervals and zero coefficients are allowed.",
+        "P is a positive natural number."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/primitive-large-sieve",
+        "mathlib:Nat.totient_pos"
+      ],
+      "proofSteps": [
+        "For each q>P, φ(q)>0 and 1/φ(q)≤q/(Pφ(q)). Multiply by the nonnegative primitive character energy.",
+        "Extend the resulting positive sum to all 1≤q≤2P, factor out 1/P, and apply primitive-large-sieve with upper cutoff 2P.",
+        "The inherited constant is H+2(2P)²=H+8P². The source sharper H−1+4P² is not substituted for it."
+      ],
+      "acceptance": [
+        "At H=0 the energy is zero for every P and M.",
+        "For P=2 the band is {3,4}: q=2 is excluded and q=4 retained.",
+        "No application of a primitive Gauss identity to imprimitive characters occurs."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Bilinear",
+        "namespace": "SieveCharacters",
+        "name": "dyadic_primitive_energy"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
+          "excerpt": "Cauchy–Schwarz",
+          "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/dyadic-primitive-bilinear",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Bilinear primitive character bound on one band",
+      "kind": "theorem",
+      "statement": "T(P,2P) ≤ P⁻¹√(H+8P²)√(K+8P²)√E_a√E_b.",
+      "hypotheses": [
+        "M,N are arbitrary integers; H,K are natural interval lengths; a:Fin H→ℂ and b:Fin K→ℂ are arbitrary. Write Aχ=Σ_{j<H}a_jχ(M+j+1), Bχ=Σ_{j<K}b_jχ(N+j+1), E_a=Σ|a_j|² and E_b=Σ|b_j|². Character values use the native residue cast.",
+        "φ(q) is the native totient. Every character sum is over primitive Dirichlet characters modulo the positive integer q. Write T(R,Q)=Σ_{R<q≤Q}φ(q)⁻¹Σχ*|Aχ||Bχ|; this is display notation, not a new carrier or bound predicate. Empty intervals and zero coefficients are allowed.",
+        "P is a positive natural number."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/dyadic-primitive-energy",
+        "mathlib:Real.sum_mul_le_sqrt_mul_sqrt",
+        "mathlib:Real.sqrt_mul",
+        "mathlib:Real.sq_sqrt",
+        "mathlib:Real.sqrt_nonneg",
+        "mathlib:Real.sqrt_le_sqrt"
+      ],
+      "proofSteps": [
+        "Flatten the finite family of pairs (q,χ), P<q≤2P and χ primitive. Apply real finite Cauchy–Schwarz to the entries |Aχ|/√φ(q) and |Bχ|/√φ(q).",
+        "The squares of these entries recover the two weighted energies because φ(q)>0. Apply dyadic-primitive-energy to each.",
+        "Factor their nonnegative square roots. The product of the two factors P^(−1/2) is P⁻¹. Neither coefficient family depends on q or χ; their integer translations can differ."
+      ],
+      "acceptance": [
+        "Setting b=a and K=H, N=M gives the same one-band energy bound.",
+        "If either family is zero, both sides are zero.",
+        "The single common character in the two factors is retained, not replaced by two independently summed characters."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Bilinear",
+        "namespace": "SieveCharacters",
+        "name": "dyadic_primitive_bilinear"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
+          "excerpt": "Cauchy–Schwarz",
+          "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/dyadic-modulus-partition",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Exact partition of the dyadic modulus interval",
+      "kind": "lemma",
+      "statement": "For R,J∈ℕ and arbitrary c:ℕ→ℝ, Σ_{R<q≤R2^J}c(q)=Σ_{i=0}^{J−1}Σ_{R2^i<q≤2R2^i}c(q).",
+      "hypotheses": [
+        "R and J are natural numbers, including zero. The real coefficient c may have either sign. Every interval is lower-open and upper-closed."
+      ],
+      "prerequisites": [
+        "mathlib:Finset.prod_Ioc_consecutive"
+      ],
+      "proofSteps": [
+        "Use the generated additive companion of the indexed prod_Ioc_consecutive, or specialize that indexed statement to Multiplicative ℝ. This supplies the already built adjacent-interval sum identity.",
+        "Induct on J. For J=0 both sides are empty. At J+1 join (R,R2^J] and (R2^J,2R2^J]; their union is (R,R2^(J+1)] and the shared endpoint lies only in the first interval.",
+        "The endpoint order follows from R≥0 and 2^J≥1. For R=0 all intervals are empty. No new general interval partition API is planned."
+      ],
+      "acceptance": [
+        "At R=2,J=2 a point mass at q=4 contributes exactly once.",
+        "At R=2,J=3 a point mass at q=16 contributes once and one at q=2 contributes zero.",
+        "Signed test coefficients verify equality, not only a bound for positive terms."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Bilinear",
+        "namespace": "SieveCharacters",
+        "name": "dyadic_modulus_partition"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
+          "excerpt": "Cauchy–Schwarz",
+          "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/dyadic-bilinear-kernel",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Finite sum of the bilinear dyadic coefficients",
+      "kind": "lemma",
+      "statement": "For real R>0, H,K≥0 and natural J, put P_i=R2^i. Then Σ_{i<J}√(H+8P_i²)√(K+8P_i²)/P_i ≤ 9R(2^J−1)+3J(√H+√K)+(2/R)(1−2^(−J))√H√K.",
+      "hypotheses": [
+        "R is a positive real number; H and K are nonnegative real numbers; J is natural, including zero. The reciprocal power is 2^(−J)=(1/2)^J, never natural subtraction in an exponent."
+      ],
+      "prerequisites": [
+        "mathlib:Real.sqrt_le_iff",
+        "mathlib:Real.sq_sqrt",
+        "mathlib:Real.sqrt_nonneg",
+        "mathlib:geom_sum_eq"
+      ],
+      "proofSteps": [
+        "For any P>0 and X≥0, square the nonnegative proposed upper bound √X+3P to prove √(X+8P²)≤√X+3P. This is deliberately weaker than using √8.",
+        "Multiply the two bounds and divide by P. The result is at most 9P+3(√H+√K)+√H√K/P.",
+        "Sum the first and last terms using the existing finite geometric-sum formula with ratios 2 and 1/2: ΣP_i=R(2^J−1) and Σ1/P_i=(2/R)(1−(1/2)^J).",
+        "The middle term does not decay with i and contributes exactly 3J(√H+√K). Retain this factor; dropping it is not justified by the block estimates. All expressions vanish at J=0."
+      ],
+      "acceptance": [
+        "At H=K=0, R=2,J=3 the left side is 112; the displayed upper bound is 126.",
+        "At J=0 both sides are zero.",
+        "The scale-independent sum over four bands is four times its summand, not once."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Bilinear",
+        "namespace": "SieveCharacters",
+        "name": "dyadic_bilinear_kernel"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
+          "excerpt": "Cauchy–Schwarz",
+          "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/primitive-bilinear-dyadic-tail",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Primitive bilinear tail through a dyadic endpoint",
+      "kind": "theorem",
+      "statement": "For R>0 and J∈ℕ, T(R,R2^J) ≤ [9R(2^J−1)+3J(√H+√K)+(2/R)(1−2^(−J))√H√K]√E_a√E_b.",
+      "hypotheses": [
+        "M,N are arbitrary integers; H,K are natural interval lengths; a:Fin H→ℂ and b:Fin K→ℂ are arbitrary. Write Aχ=Σ_{j<H}a_jχ(M+j+1), Bχ=Σ_{j<K}b_jχ(N+j+1), E_a=Σ|a_j|² and E_b=Σ|b_j|². Character values use the native residue cast.",
+        "φ(q) is the native totient. Every character sum is over primitive Dirichlet characters modulo the positive integer q. Write T(R,Q)=Σ_{R<q≤Q}φ(q)⁻¹Σχ*|Aχ||Bχ|; this is display notation, not a new carrier or bound predicate. Empty intervals and zero coefficients are allowed.",
+        "R is a positive natural number and J is any natural number. Every power and scalar factor on the right is interpreted in ℝ."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/dyadic-modulus-partition",
+        "SieveMethodsAndPrimePatterns:SV.2/dyadic-primitive-bilinear",
+        "SieveMethodsAndPrimePatterns:SV.2/dyadic-bilinear-kernel"
+      ],
+      "proofSteps": [
+        "In the exact partition set c(q)=φ(q)⁻¹Σχ*|Aχ||Bχ| for q>0, and c(0)=0. No character family at modulus zero needs to be summed.",
+        "Each band has positive lower endpoint R2^i. Apply dyadic-primitive-bilinear in each band, using the same a,b and translations.",
+        "Factor √E_a√E_b out of the scale sum and apply dyadic-bilinear-kernel. Nonnegativity of the energy factor preserves the inequality.",
+        "The R=q boundary is excluded and the top R2^J boundary is included. With J=0 the tail is exactly empty, and the complete right side is zero."
+      ],
+      "acceptance": [
+        "The empty-scale case is equality at zero, not an asymptotic exception.",
+        "For R=2,J=3 the character energy at q=16 is retained.",
+        "No coprimality between the two translations or primality of the moduli is required."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Bilinear",
+        "namespace": "SieveCharacters",
+        "name": "primitive_bilinear_dyadic_tail"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
+          "excerpt": "Cauchy–Schwarz",
+          "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SieveMethodsAndPrimePatterns:SV.2/primitive-bilinear-cutoff",
+      "parentStageId": "SieveMethodsAndPrimePatterns:SV.2",
+      "realises": [
+        "SieveMethodsAndPrimePatterns:SV.2"
+      ],
+      "title": "Primitive bilinear tail at an arbitrary cutoff",
+      "kind": "theorem",
+      "statement": "If R>0 and Q≤R2^J≤2Q, then T(R,Q) ≤ [18Q+3J(√H+√K)+(2/R)√H√K]√E_a√E_b.",
+      "hypotheses": [
+        "M,N are arbitrary integers; H,K are natural interval lengths; a:Fin H→ℂ and b:Fin K→ℂ are arbitrary. Write Aχ=Σ_{j<H}a_jχ(M+j+1), Bχ=Σ_{j<K}b_jχ(N+j+1), E_a=Σ|a_j|² and E_b=Σ|b_j|². Character values use the native residue cast.",
+        "φ(q) is the native totient. Every character sum is over primitive Dirichlet characters modulo the positive integer q. Write T(R,Q)=Σ_{R<q≤Q}φ(q)⁻¹Σχ*|Aχ||Bχ|; this is display notation, not a new carrier or bound predicate. Empty intervals and zero coefficients are allowed.",
+        "R,Q,J are natural numbers with R>0 and Q≤R2^J≤2Q. These explicit cover and size hypotheses replace a hidden logarithmic rounding convention."
+      ],
+      "prerequisites": [
+        "SieveMethodsAndPrimePatterns:SV.2/primitive-bilinear-dyadic-tail"
+      ],
+      "proofSteps": [
+        "Use the positivity of every modulus contribution to enlarge (R,Q] to (R,R2^J], rather than discarding the last partial band.",
+        "Apply primitive-bilinear-dyadic-tail. From R2^J≤2Q obtain 9R(2^J−1)≤18Q. Since 0≤(1/2)^J≤1, bound 1−(1/2)^J by one.",
+        "Preserve the middle term 3J(√H+√K). All factors multiplying these comparisons are nonnegative.",
+        "For R≤Q a valid J can be chosen as the least integer with Q≤R2^J: J=0 if Q=R, while minimality at J>0 gives R2^J<2Q. The theorem requires the explicit two inequalities and does not assert a floating-point logarithm identity. If Q<R the original tail is empty and can be treated directly."
+      ],
+      "acceptance": [
+        "R=2,Q=5,J=2 satisfies the hypotheses and keeps q=5 in the partial last band; J=1 fails the cover condition.",
+        "Zero-length or zero-coefficient families give zero without dividing by an energy.",
+        "Applying this to coprimality-filtered coefficients is valid, but extending from primitive to imprimitive characters still requires the separate conductor argument."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Sieve/Bilinear",
+        "namespace": "SieveCharacters",
+        "name": "primitive_bilinear_cutoff"
+      },
+      "sources": [
+        {
+          "sourceId": "KED-ANT-18",
+          "locator": "§18.1, Theorem 18.3 proof: large-r dyadic block estimates and their summation, after (18.1.2)",
+          "excerpt": "Cauchy–Schwarz",
+          "match": "Source-motivated finite adapter using the inherited H+2Q² large-sieve constant. The explicit constants, exact dyadic endpoints and retained J loss are worker derivations, not a quotation of the source's stronger aggregate claim. E20 remains unreviewed; no full convolution or Bombieri–Vinogradov theorem follows here."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "links": [],
@@ -4453,7 +4758,7 @@
       "status": "partial",
       "remaining": [
         "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants.",
-        "The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition and elementary coefficient energies are decomposed. Analytic Type I/II estimates and independent-rectangle reduction remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built.",
+        "The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition and coefficient energies are decomposed, as are the rectangular primitive-character dyadic block estimate and finite large-modulus summation with its explicit J loss. The dependent hyperbola-to-rectangle reduction and source-specific Type I/II estimates remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built.",
         "Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application.",
         "The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct.",
         "Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem.",
@@ -4464,8 +4769,8 @@
       "stageId": "SieveMethodsAndPrimePatterns:SV.3",
       "status": "partial",
       "remaining": [
-        "Chapter 18 has been read completely but its analytic proof is not decomposed: Definition 18.1 discrepancy API; Lemma 18.2 character bound; Theorem 18.3 convolution estimate; Theorem 18.4 averaged prime distribution; Theorem 18.5 variance; Corollary 18.6 and Exercises 18.4.3–5 remain work.",
-        "Repair E19–E26 before relying on the small-r normalization, dyadic summation, finite boundary, multiplicative partition, rectangle coverage or final balancing. The exact finite identity now supplied by SV.2 does not establish these analytic assertions.",
+        "Chapter 18 is read; the large-r primitive rectangular subargument of Theorem 18.3 now imports six explicit SV.2 nodes, with the J loss retained. Definition 18.1 discrepancy API; Lemma 18.2; conductor reduction and small-r estimates in Theorem 18.3; the totient-weighted s summation; Theorems 18.4–18.5; Corollary 18.6 and Exercises 18.4.3–5 remain work.",
+        "E20 has a weaker finite replacement, not a proof of the source's advertised uniform aggregate bound: account for its J factor in every downstream loss. E19 and E21–E26 still require repairs before use. The exact Vaughan identity and primitive rectangular bound do not establish the missing hyperbola coverage or final balancing.",
         "State every A>0, a corresponding B and sufficiently large x, the range Q≤sqrt(x)/(log x)^B, weighted moduli sums and maxima over reduced residues. Import precisely stated small-modulus/zero-density inputs from AN.3 and the existing arithmetic Dirichlet-series owners. Stronger distribution remains an explicit hypothesis."
       ]
     },
@@ -4506,14 +4811,14 @@
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.2"
       ],
-      "detail": "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants. The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition and elementary coefficient energies are decomposed. Analytic Type I/II estimates and independent-rectangle reduction remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built. Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
+      "detail": "Bombieri’s H+2/δ additive theorem and the primitive-character reduction with H+2Q² are decomposed. The sharp H−1+1/δ additive and H−1+Q² multiplicative versions still require the Chapter 15 input; this continuation does not claim those constants. The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition and coefficient energies are decomposed, as are the rectangular primitive-character dyadic block estimate and finite large-modulus summation with its explicit J loss. The dependent hyperbola-to-rectangle reduction and source-specific Type I/II estimates remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built. Chapter 16 was read completely, but §16.3 Theorem 16.4, Lemma 16.5 and Linnik’s Theorem 16.7, the least-nonresidue definition, and §16.4 exercises remain undecomposed. Repair the recorded vanishing-support, CRT, theorem-reference, prime-two and smooth-number multiplicity issues before using that application. The finite diagonal/off-diagonal bound abstracts Bennett–Siksek (34)–(35) but does not supply their arithmetic family, individual character-correlation estimate, von Mangoldt norm estimate or sufficiently-large-parameter threshold. Keep those arithmetic owners distinct. Resolve the exact quadratic-symbol bilinear large-sieve need of ArithmeticStatistics:ST.5 and polynomial Farey large-sieve need of FiniteFieldsAndCharacterSums:FF.1; neither is the finite Gram theorem. Follow RS-07 ownership SV.2→AnalyticNumberTheory:AN.3, not the obsolete reverse edge."
     },
     {
       "title": "SV.3 remaining source decomposition",
       "neededBy": [
         "SieveMethodsAndPrimePatterns:SV.3"
       ],
-      "detail": "Chapter 18 has been read completely but its analytic proof is not decomposed: Definition 18.1 discrepancy API; Lemma 18.2 character bound; Theorem 18.3 convolution estimate; Theorem 18.4 averaged prime distribution; Theorem 18.5 variance; Corollary 18.6 and Exercises 18.4.3–5 remain work. Repair E19–E26 before relying on the small-r normalization, dyadic summation, finite boundary, multiplicative partition, rectangle coverage or final balancing. The exact finite identity now supplied by SV.2 does not establish these analytic assertions. State every A>0, a corresponding B and sufficiently large x, the range Q≤sqrt(x)/(log x)^B, weighted moduli sums and maxima over reduced residues. Import precisely stated small-modulus/zero-density inputs from AN.3 and the existing arithmetic Dirichlet-series owners. Stronger distribution remains an explicit hypothesis."
+      "detail": "Chapter 18 is read; the large-r primitive rectangular subargument of Theorem 18.3 now imports six explicit SV.2 nodes, with the J loss retained. Definition 18.1 discrepancy API; Lemma 18.2; conductor reduction and small-r estimates in Theorem 18.3; the totient-weighted s summation; Theorems 18.4–18.5; Corollary 18.6 and Exercises 18.4.3–5 remain work. E20 has a weaker finite replacement, not a proof of the source's advertised uniform aggregate bound: account for its J factor in every downstream loss. E19 and E21–E26 still require repairs before use. The exact Vaughan identity and primitive rectangular bound do not establish the missing hyperbola coverage or final balancing. State every A>0, a corresponding B and sufficiently large x, the range Q≤sqrt(x)/(log x)^B, weighted moduli sums and maxima over reduced residues. Import precisely stated small-modulus/zero-density inputs from AN.3 and the existing arithmetic Dirichlet-series owners. Stronger distribution remains an explicit hypothesis."
     },
     {
       "title": "SV.4 remaining source decomposition",
@@ -4948,8 +5253,8 @@
   ],
   "checks": {
     "leanCompiled": true,
-    "lean": "Lean 4.34.0-rc2: 69 main signatures, 17 additional API signatures and 78 typed examples; exactly 164 expected proof-placeholder warnings, no errors or other warnings. All 8,482 imported Mathlib source files byte-match the pinned source tree; no Tau Ceti import.",
-    "proofProbes": "The Vaughan scratch route was explored independently, but the combined standalone proof run is not claimed to pass: an earlier run reported an unsolved concrete divisor-finset test; a later run was stopped during severe shared-host memory pressure. Its six general identities had no diagnostics in the earlier run, but no clean standalone result is counted. Passing evidence is the complete 164-placeholder signature build, exact arithmetic regressions and official packet/errata/intake checks.",
+    "lean": "Lean 4.34.0-rc2: 75 main signatures, 17 additional API signatures and 86 typed examples; exactly 178 expected proof-placeholder warnings, no errors or other warnings. The current dependency scan checks 3,362 Mathlib source files against the clean pinned baseline; existing oleans only, no library build.",
+    "proofProbes": "A separate scratch-only Lean file proves the signed dyadic partition, pointwise scalar kernel estimate and finite kernel sum, plus six examples: zero errors or warnings, and printed axiom lists omit the proof-placeholder axiom. This does not prove any primitive-character estimate. The prior Vaughan-probe limitation remains historical evidence.",
     "exactRationalRegressions": {
       "weightedDivisorInterchange": 1280,
       "legendreIdentity": 1280,
@@ -4961,9 +5266,9 @@
     },
     "regressionCoverage": "Sixteen squarefree products of subsets of {2,3,5,7}, empty support, support containing zero, rational nonnegative weights, signed coefficients, positive/zero/negative approximate mass, arbitrary prime densities strictly between zero and one, and cutoffs 0,1 and both sides of divisor endpoints. Exact source-example witnesses also checked.",
     "officialCheckerRun": true,
-    "officialChecker": "scripts/check_blueprint.py with the pinned declaration index reports zero errors and zero warnings.",
-    "sourceVersions": "Twenty-six findings and seven source-version objects; all eighteen inherited findings and five versions remain exact. New findings concern Chapter 18 and its collated 2007 author handout.",
-    "scope": "Preserve every mathematical field in all 59 inherited nodes, 122 baseline entries, eighteen findings and five source versions. Only tapered-row-large-sieve loses its planet in favor of Vaughan's identity. Ten nodes, fifteen baseline entries, one source, two source versions and eight unreviewed findings are added.",
+    "officialChecker": "Current scripts/check_blueprint.py and source_issues.py executed against the current Git-object world and pinned declaration index: zero errors and warnings. Current intake.py file checks: four authorized paths, zero errors. The shared checkout was not switched.",
+    "sourceVersions": "26 inherited, unreviewed findings retained without new verdicts; eight source-version objects, including the fresh byte-identical Chapter 18 HTML reading.",
+    "scope": "Six added nodes (three lemmas and three theorems). All 69 inherited nodes, 137 baseline entries, 26 findings and eleven planets remain exactly unchanged. Six pinned declarations and one fresh source-version record added.",
     "constructionAPI": "Five native-carrier constructions, 27 API items, ten promoted into main lemma nodes, and 23 construction tests. Native map_zero is inherited, not redeclared.",
     "residueRegressions": {
       "localSystems": 1485,
@@ -4986,7 +5291,7 @@
       "diagonalBounds": 19680
     },
     "gramRegressionCoverage": "Exact Gaussian-rational arithmetic, not floating-point checks: 0–3 vectors in dimension two drawn from {-1,0,1}² and multiplied by four indexed complex phase patterns; six test vectors, including rational complex coordinates; four rational complex coefficient families. Zero/repeated/dependent vectors, empty index sets, sharp weighted examples and the corrected-versus-printed coefficient witnesses are included.",
-    "inheritedCheckScope": "All finite-sieve, residue, Gram, taper, separation and multiplicative regression results are inherited evidence, not rerun by the Vaughan continuation.",
+    "inheritedCheckScope": "Earlier finite-sieve, residue, Gram, taper, separation, multiplicative and Vaughan regression fields are historical evidence and are not claimed rerun by this dyadic continuation.",
     "taperRegressions": {
       "conditionalRowBounds": 1280,
       "diagonalMass": 110,
@@ -5058,46 +5363,74 @@
       "rejectedMutations": 8
     },
     "vaughanRegressionCoverage": "Exact sparse integer coefficient vectors for logarithms of primes, and Gaussian-rational weights; no floating point. n=0–256, V=0–32 and nine U values for the pointwise identities; N=0–48, nine V and eight U values, and five arbitrary complex/progression/phase/nonmultiplicative weights for the finite hyperbola and Type I/II split. Coefficient-energy tests use exact integer exp(λ)≤n certificates plus Möbius square counts. Eight deliberately false mutations are rejected.",
-    "inheritedPrimitiveCharacterProofProbes": "Three complete temporary Lean proofs establish the composite primitive Gauss product, its squared norm and the standard-character integer phase adapter. Their printed axiom lists contain propext, Classical.choice and Quot.sound, with no proof-placeholder axiom. The probes are removed from the submitted seed; no planned declaration is used in them."
+    "inheritedPrimitiveCharacterProofProbes": "Three complete temporary Lean proofs establish the composite primitive Gauss product, its squared norm and the standard-character integer phase adapter. Their printed axiom lists contain propext, Classical.choice and Quot.sound, with no proof-placeholder axiom. The probes are removed from the submitted seed; no planned declaration is used in them.",
+    "dyadicRegressions": {
+      "counts": {
+        "allCharacters": 12,
+        "arbitraryCutoffCertificates": 1701,
+        "finiteKernelCertificates": 1100,
+        "inheritedGapExpressionCertificates": 30,
+        "pointwiseKernelCertificates": 5500,
+        "primitiveBandBilinearCertificates": 3240,
+        "primitiveBandEnergies": 216,
+        "primitiveCharacters": 6,
+        "signedPartitions": 324
+      },
+      "rejectedMutations": 8,
+      "arithmetic": "Exact Fraction and Gaussian-rational arithmetic, with certified rational upper bounds for square roots; no floating point.",
+      "scope": "Complete character groups for moduli 1 through 6 only; arbitrary signed partition tests, rational scales and square lengths for kernel certificates, negative translations and complex/zero coefficient families. Finite regressions, not general proofs."
+    }
   },
   "provenance": {
     "issue": 1036,
     "agent": "Codex",
     "session": "codex-a71f92",
-    "date": "2026-09-27",
-    "base": "f850a8a3d451af3b9a6f87f3ad4adc113c494920",
-    "claimComment": 5855780173,
-    "claimConfirmation": 5855781035,
-    "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
-    "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-    "ownership": "RS-07 makes SV.2 the single Vaughan/Type I–II owner, consumed by SV.3, AN.3 and ES.4. Reuse native ArithmeticFunction, convolution, Möbius and von Mangoldt rather than recreating AN.0's retired library imports. The weighted finite adapter is new; generic unweighted convolution summation is already implemented.",
+    "date": "2026-09-28",
+    "base": "78f60a3ba09116b78c0bb5cd513d59c43d7ddb2b",
+    "claimComment": 5868440951,
+    "claimConfirmation": 5868443281,
+    "reviewedAudit": "data/library-coverage.json",
+    "ownership": "Accepted RS-07 assigns the large-sieve and source-scoped bilinear estimates to SV.2; SV.3 consumes this finite large-r primitive-character result. The new bound is not the quadratic-symbol or polynomial-function-field estimate requested by other consumers.",
     "inherited": {
       "issue": 1036,
       "agent": "Codex",
-      "session": "codex-hjdg0j",
+      "session": "codex-a71f92",
       "date": "2026-09-27",
-      "base": "4d7e00c2bd4c4ba97e2e5e3c61c391ee1e609a59",
-      "claimComment": 5855373546,
-      "claimConfirmation": 5855374359,
+      "base": "f850a8a3d451af3b9a6f87f3ad4adc113c494920",
+      "claimComment": 5855780173,
+      "claimConfirmation": 5855781035,
       "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
       "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-      "ownership": "RS-07 keeps SV.2 as the large-sieve supplier to AN.3. Native characters and DFT are imported. The CA.2 Farey sequence includes both endpoints and is not recreated: this proof uses native residue units and rational uniqueness. FF.1 finite-field and FF.2 squarefree polynomial-residue Gauss norms are different statements from the composite integer-modulus argument here.",
+      "ownership": "RS-07 makes SV.2 the single Vaughan/Type I–II owner, consumed by SV.3, AN.3 and ES.4. Reuse native ArithmeticFunction, convolution, Möbius and von Mangoldt rather than recreating AN.0's retired library imports. The weighted finite adapter is new; generic unweighted convolution summation is already implemented.",
       "inherited": {
         "issue": 1036,
         "agent": "Codex",
-        "session": "codex-a71f92",
+        "session": "codex-hjdg0j",
         "date": "2026-09-27",
-        "base": "2cee3d5fe1b34a6ff392721488e843e2808f5856",
-        "claimComment": 5855112199,
-        "claimConfirmation": 5855113056,
+        "base": "4d7e00c2bd4c4ba97e2e5e3c61c391ee1e609a59",
+        "claimComment": 5855373546,
+        "claimConfirmation": 5855374359,
         "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
         "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
-        "ownership": "Accepted RS-07. Preserve all 39 old nodes; twelve additions finish the native-circle additive large sieve within SV.2. Native UnitAddCircle, rounding, EuclideanSpace, Fourier character, Basel sum and Jordan inequality are reused. No arithmetic character estimate or generic circle theory is replanned.",
-        "continuation": "Whole issue reread after confirmed claim. Six reviewed audit rows read before planning. All consulted SV4 inputs and 28 matching links were byte-identical at the initial fresh snapshot; no AGENTS.md. The complete Bombieri scan was reread visually; nineteen additional pinned statements were read. Bounded upstream PR search for large sieve returned zero; a Zulip search located Selberg-sieve discussion, not a supplier for this additive theorem."
+        "ownership": "RS-07 keeps SV.2 as the large-sieve supplier to AN.3. Native characters and DFT are imported. The CA.2 Farey sequence includes both endpoints and is not recreated: this proof uses native residue units and rational uniqueness. FF.1 finite-field and FF.2 squarefree polynomial-residue Gauss norms are different statements from the composite integer-modulus argument here.",
+        "inherited": {
+          "issue": 1036,
+          "agent": "Codex",
+          "session": "codex-a71f92",
+          "date": "2026-09-27",
+          "base": "2cee3d5fe1b34a6ff392721488e843e2808f5856",
+          "claimComment": 5855112199,
+          "claimConfirmation": 5855113056,
+          "reviewedAudit": "research/blueprint/audit/AUDIT-07.result.json",
+          "auditReview": "research/blueprint/reviews/REV-AUDIT-07.md",
+          "ownership": "Accepted RS-07. Preserve all 39 old nodes; twelve additions finish the native-circle additive large sieve within SV.2. Native UnitAddCircle, rounding, EuclideanSpace, Fourier character, Basel sum and Jordan inequality are reused. No arithmetic character estimate or generic circle theory is replanned.",
+          "continuation": "Whole issue reread after confirmed claim. Six reviewed audit rows read before planning. All consulted SV4 inputs and 28 matching links were byte-identical at the initial fresh snapshot; no AGENTS.md. The complete Bombieri scan was reread visually; nineteen additional pinned statements were read. Bounded upstream PR search for large sieve returned zero; a Zulip search located Selberg-sieve discussion, not a supplier for this additive theorem."
+        },
+        "continuation": "All 51 inherited node objects, 101 baseline entries, eleven findings and four source-version objects are preserved. Fresh Chapter 16 reading and pinned declarations supply eight additions. Three temporary independent Lean proofs have no proof-placeholder axiom; no implementation is submitted."
       },
-      "continuation": "All 51 inherited node objects, 101 baseline entries, eleven findings and four source-version objects are preserved. Fresh Chapter 16 reading and pinned declarations supply eight additions. Three temporary independent Lean proofs have no proof-placeholder axiom; no implementation is submitted."
+      "continuation": "Ten new nodes after fresh source, audit and pinned-API reading. All 59 inherited mathematical node fields are preserved; only the tapered-row-large-sieve planet is reassigned to Vaughan's identity to keep SV.2 at six planets. Preserve all 122 baseline entries, 18 findings and five source versions. AS/ES consumer objects referring to SV are unchanged at the snapshot; no new request is invented for an already owned downstream gap."
     },
-    "continuation": "Ten new nodes after fresh source, audit and pinned-API reading. All 59 inherited mathematical node fields are preserved; only the tapered-row-large-sieve planet is reassigned to Vaughan's identity to keep SV.2 at six planets. Preserve all 122 baseline entries, 18 findings and five source versions. AS/ES consumer objects referring to SV are unchanged at the snapshot; no new request is invented for an already owned downstream gap."
+    "continuation": "Six nodes added; all 69 inherited node objects, 137 baseline objects, 26 source findings, seven source-version objects and eleven planets preserved. No new construction, carrier or bound predicate. Only the four authorized deliverables are staged in scratch; the shared clone's other worker checkout is untouched."
   },
   "sourceIssueScope": "E1–E11 and their original version scopes are preserved. Seven new unreviewed findings E12–E18 concern only the acquired live author Chapter 16 HTML. The eight new nodes use §§16.1–16.2 with the explicit weaker additive constant. The separate §16.3 application remains a gap; no assertion is made that its intended large-sieve or Linnik theorem is false. Bounded correction searches are recorded without an exhaustive novelty claim. E19–E26 are new, unreviewed findings scoped to the live Chapter 18 and collated 2007 author handout. No author contact or assertion of exhaustive novelty. Finite Vaughan nodes do not depend on the defective later analytic argument.",
   "sourceVersions": [
@@ -5149,6 +5482,13 @@
       "citation": "Kiran S. Kedlaya, MIT 18.785, The Bombieri–Vinogradov theorem (proof), revised 9 May 2007. All five pages text-read; pp.3–4 visually collated.",
       "read": "2026-09-27",
       "sha256": "87ee17ecd82d46f6a6063fc53d7fc32d90767f85e5d5ed8cfdcbd040841e3256"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://kskedlaya.org/ant/chap-bombieri2.html",
+      "read": "2026-09-28",
+      "sha256": "9bd73d12d648dc61a5c09804bbee04992cb8108b15858146688ac7ae9b69f523",
+      "citation": "Kiran S. Kedlaya, live author Chapter 18, entire chapter read afresh. Byte-identical to the preceding HTML acquisition. No journal edition or fresh 2007-handout collation is claimed."
     }
   ]
 }
