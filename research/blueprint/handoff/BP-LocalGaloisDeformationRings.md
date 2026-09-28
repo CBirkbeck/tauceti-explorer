@@ -1,8 +1,8 @@
-# BP-LocalGaloisDeformationRings: R08.1 (first checkpoint)
+# BP-LocalGaloisDeformationRings: R08.1–R08.2 (checkpoint 2)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #770. **Status: partial.**
-- R08.1 is `source_decomposed`.
-- L7, L8 and R08.2–R08.6 are `not_read`.
+- R08.1 and R08.2 are `source_decomposed`.
+- L7, L8 and R08.3–R08.6 are `not_read`.
 
 This works within RS-08, whose review accepted it.
 
@@ -24,9 +24,22 @@ The generic functors and theorems are reused from the GlobalGaloisDeformations p
 - DeformationAndDerivedPatchingAlgebra R03.2: relations versus obstructions.
 - DeformationAndDerivedPatchingAlgebra R03.1: completed tensor products.
 
+## Checkpoint 2: R08.2 (9 nodes, 5 planets)
+
+- `tame-splitting`.
+- `unramified-lifting-ring`.
+- `minimally-ramified-condition` and `minimally-ramified-ring` (CHT08 §2.4.4).
+- `unrestricted-away-from-p` (CHT08 Lemma 2.4.9; Gee Theorem 3.31; BLGGT via Tung).
+- `inertial-type-quotient`.
+- `taylor-wiles-local-ring` (Gee Lemma 3.33).
+- `steinberg-condition` (Taylor II §3, with the monodromy relation).
+- `ihara-avoidance-components` (Taylor II Proposition 3.1; Gee 3.36–3.38).
+
+New sources: CHT08 and Taylor II, both open access on Numdam. The deformation-problem nodes are reused from GlobalGaloisDeformations R04.3 (#3806, merged).
+
 ## Suggested Lean file
 
-`suggested/LocalGaloisDeformationRings.lean` imports Mathlib only. It compiles against the pinned Mathlib 082e2d3 oleans with 0 errors and 3 `sorry` warnings. Its two matrix examples are proved by `simp`.
+`suggested/LocalGaloisDeformationRings.lean` imports Mathlib only. It compiles against the pinned Mathlib 082e2d3 oleans with 0 errors and 4 `sorry` warnings. Its two matrix examples are proved by `simp`.
 
 The ring-level signatures, which use the GlobalGaloisDeformations functors, are in a comment block.
 
@@ -37,12 +50,8 @@ The ring-level signatures, which use the GlobalGaloisDeformations functors, are 
 
 ## What a continuation should do
 
-1. **R08.2 (ℓ ≠ p):**
-   - the unrestricted rings: flat, reduced, complete intersection of relative dimension n² (Shotton, arXiv; BLGGT Lemma 1.3.4 via Tung Lemma 3.2.8);
-   - inertial-type components;
-   - Steinberg and minimally ramified conditions.
-2. **R08.3:** potentially semistable rings (Kisin, "Potentially semi-stable deformation rings", on arXiv or the author's page).
-3. **R08.4–R08.6, L7 and L8.**
+1. **R08.3:** potentially semistable rings (Kisin, "Potentially semi-stable deformation rings", on arXiv or the author's page).
+2. **R08.4–R08.6, L7 and L8.** For general n away from p, Shotton's explicit GL₂ equations and BLGGT (arXiv:1010.2561) §1.3 are the next free sources.
 
 ## Sources read
 
