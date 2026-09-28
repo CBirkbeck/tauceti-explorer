@@ -1,4 +1,35 @@
-# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 2 (Claude Code cc-39fac3)
+# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 3 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 28 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
+
+Checkpoint 3 plans NE.3 from CFKSV §3 (pp. 170–187). It has 10 nodes and 3 planets:
+- **Twists and Φ_ρ:** `twisted-module` (Lemma 3.2), `twist-homomorphism` (planet; (14)–(16)) and
+  `twist-extends-to-localisation` (Lemma 3.3).
+- **Evaluation:** `artin-evaluation` (planet): Φ′_ρ and ξ(ρ) ∈ L ∪ {∞}, with [g](ρ) = det ρ(g).
+- **Akashi series:** `akashi-series` (Lemma 3.1, (37)–(40)) and `evaluation-akashi-diagram` (Lemma 3.7), whose
+  contragredient convention is made explicit.
+- **Theorems:**
+  - `euler-characteristic-evaluation` (planet): Theorem 3.6;
+  - `artin-evaluation-integral`: Theorem 3.8 and Lemma 3.9;
+  - `artin-formalism-euler`: Theorem 3.10.
+- **Example:** `gl2-euler-example`, Proposition 3.11. The arithmetic of 5¹⁶/5⁴ and 5⁸/5⁴ is checked in Lean. The
+  Coates–Howson and Fisher inputs are a **gap**.
+
+**Acceptance (NE.3 stage text).**
+- A known unit is evaluated: [g](ρ) = det ρ(g).
+- For induced representations, det(Ind ψ) includes the permutation sign.
+- Contragredient: Theorem 3.6 twists by ρ̂.
+- The SK₁ ambiguity (equal evaluations do not give equal K₁ classes) is recorded as a test. The reduced-norm and SK₁
+  nodes remain, and need Ritter–Weiss.
+
+**New requests:** GeneralAlgebraicKTheory K.7 (Morita invariance and the determinant) and IntegralIwasawaTheory I.4 (Γ-
+and G-Euler characteristics via characteristic series).
+
+**Lean.** Two checked tests (the n = 2 determinant of ρ(g)ḡ, and the Proposition 3.11 arithmetic); 0 errors.
+
+**Totals.** 46 nodes, 2 gaps and 8 requests. `check_blueprint.py`: 0 errors, 0 warnings.
+
+# Checkpoint 2 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 28 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
 
