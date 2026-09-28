@@ -11,7 +11,7 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
   ],
   "status": "partial",
-  "summary": "Fourth checkpoint. R07.1 is closed; R07.2 (Dieudonné theory over perfect fields) is partial from checkpoint 3. This checkpoint plans R07.3, Fontaine–Laffaille theory at e = 1 (partial): the filtered module categories MF, MF_tor and MF_tor^{[a,b]} (abelian, artinian, stable under extensions), the ring S, the torsion functor U_S and its exactness, faithfulness and length preservation (Theorem 3.3), the simple objects M(h; i) and tame inertia (Theorem 5.3) with the weight dictionary, full faithfulness on MF′ and MF″ with the safe interval [0, p − 2] and the endpoint collision at [0, p − 1] (Theorem 6.1, §0.9), closure of the essential image under subquotients, strongly divisible lattices (7.7–7.8, 7.12), the lattice functor (7.14–7.15), Theorem 8.4 (weakly admissible of filtration length < p is admissible, U_{S_K} = dual of V_B) with Proposition 7.17 and the comparison of S with the period rings, and the lattice correspondence requested by PadicHodgeTheory. FL §9 (finite flat groups via Honda systems) remains; R07.4–R07.6 remain.",
+  "summary": "Fifth checkpoint. R07.1 is closed; R07.2 (Dieudonné theory over perfect fields) and R07.3 (Fontaine–Laffaille theory at e = 1) are partial from checkpoints 3 and 4. This checkpoint plans R07.4, Breuil–Kisin modules (partial): the coefficient rings 𝔖, 𝒪_ℰ, 𝔖^ur, 𝒪 and S (with Kisin's erratum E.3); Kisin modules of finite E-height and their torsion categories; étale φ-modules over 𝒪_ℰ for the Kummer tower with coefficients; Kisin's (φ, N_∇)-modules over the open disc, weak admissibility as slope 0 and the fully faithful embedding of weakly admissible modules into Kisin modules up to isogeny; full faithfulness of 𝔐 ↦ 𝒪_ℰ ⊗ 𝔐 with the repaired proof (E.4); uniqueness and stability of 𝔖-lattices of E-height ≤ h; semistable implies finite E-height and weakly admissible implies admissible; Breuil's conjecture on restriction to G_{K∞}; the Barsotti–Tate equivalence, Breuil's S-modules and the Tate module via A_cris; Fontaine's conjecture (crystalline weights {0, 1} are Barsotti–Tate, every p); Kisin's classification of p-divisible groups (p > 2, and up to isogeny at p = 2) and of finite flat group schemes (p > 2); the multiplicative/étale dictionary; full faithfulness of restriction on finite flat representations; and the dyadic classification (Kim; Kisin for connected groups). Descent data, weights beyond {0, 1}, the Wach comparison and the generic-fibre theory with coefficients remain; R07.5–R07.6 remain. Nine source issues are added, five new (Kisin 2006 and 2009) and four of Kisin's own errata.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -218,6 +218,34 @@
         "module": "Mathlib/RingTheory/Length.lean",
         "provides": "The length of a module, as an element of ℕ∞.",
         "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:PowerSeries",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+        "provides": "Formal power series R⟦X⟧ (an abbreviation for MvPowerSeries Unit R); 𝔖 = W⟦u⟧.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Polynomial.IsEisensteinAt",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Polynomial/Eisenstein/Basic.lean",
+        "provides": "Eisenstein polynomials at an ideal: leading coefficient outside 𝓟, lower coefficients in 𝓟, constant term outside 𝓟².",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:AdicCompletion",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "The I-adic completion of a module (Hausdorff; complete when I is finitely generated); used for the p-adic completion 𝒪_ℰ of 𝔖[1/u].",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Module.Finite",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "provides": "Finitely generated modules.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
       }
     ]
   },
@@ -367,6 +395,75 @@
         "§7 (pp. 590–595): 7.1, 7.4–7.8, 7.12, 7.14–7.17.",
         "§8 (pp. 595–596): 8.1–8.5, Theorem 8.4 and its proof.",
         "§9 (pp. 600–606): read for scope (finite Honda systems, 9.10–9.12); not planned in this checkpoint."
+      ]
+    },
+    {
+      "id": "Kisin06",
+      "title": "Crystalline representations and F-crystals",
+      "authors": "Mark Kisin",
+      "edition": "Algebraic Geometry and Number Theory (in honour of V. Drinfeld's 50th birthday), Progr. Math. 253, Birkhäuser, 2006, pp. 459–496; the author's DVI from his Harvard page (33 pages; locators use its page numbers, the published pagination was not seen); text extracted from the DVI, with the msam glyph ⩽ decoded by hand; accessed 2026-09-28",
+      "url": "http://people.math.harvard.edu/~kisin/dvifiles/wam.dvi",
+      "sha256": "b55e468374c44aab8b7b47e0e5ead91d016c819583c7c229c00ca0b7dbaa6bb4",
+      "readSections": [
+        "Introduction (pp. 1–3): Theorems (0.1)–(0.5).",
+        "§1.1 (pp. 3–5): 1.1.1, the rings 𝔖, 𝒪, λ and N_∇.",
+        "§1.2 (pp. 5–13): Lemma 1.2.2, Proposition 1.2.8, Theorem 1.2.15 (statements and outlines).",
+        "§1.3 (pp. 13–20): 1.3.1–1.3.3 (Kedlaya slopes), Theorem 1.3.8, Lemma 1.3.10, 1.3.12, Lemma 1.3.13, Corollary 1.3.15.",
+        "§2.1 (pp. 20–24): 2.1.1–2.1.5, Lemmas 2.1.9–2.1.10, Proposition 2.1.12 with proof, Corollary 2.1.14, Lemma 2.1.15.",
+        "§2.2 (pp. 25–27): 2.2.1–2.2.9.",
+        "§2.3 (pp. 27–29): 2.3.1–2.3.6.",
+        "Appendix (pp. 29–32): A.1, A.5, Proposition A.6 with the outline of its proof."
+      ]
+    },
+    {
+      "id": "Kisin08",
+      "title": "Potentially semi-stable deformation rings",
+      "authors": "Mark Kisin",
+      "edition": "J. Amer. Math. Soc. 21 (2008), no. 2, 513–546; the author's DVI from his Harvard page (35 pages; locators use its page numbers), including the section 'Errata for [Ki 2]' on the 2006 paper; accessed 2026-09-28",
+      "url": "http://people.math.harvard.edu/~kisin/dvifiles/def.dvi",
+      "sha256": "ca85f74a47caf411dfb7fe0fa356ef30928d5dbd2cd518bafcc13943cf483dee",
+      "readSections": [
+        "Introduction (pp. 1–4).",
+        "§§1.1–1.2 (pp. 4–5): 𝔖-lattices of E-height ≤ h, with coefficients.",
+        "Theorem (2.5.5) and the first paragraph of its proof (p. 19).",
+        "Errata for [Ki 2], (E.1)–(E.5) (pp. 33–34)."
+      ]
+    },
+    {
+      "id": "Kisin09",
+      "title": "Moduli of finite flat group schemes, and modularity",
+      "authors": "Mark Kisin",
+      "edition": "Ann. of Math. (2) 170 (2009), no. 3, 1085–1180; the author's DVI from his Harvard page (locators use its page numbers); accessed 2026-09-28",
+      "url": "http://people.math.harvard.edu/~kisin/dvifiles/bt.dvi",
+      "sha256": "242151c94cb831c526e67de6e3b70a370b65a002342074440e86fc88a2ec5f0f",
+      "readSections": [
+        "§1.1 (pp. 5–10): 1.1.1–1.1.16 (Breuil modules, (Mod/𝔖), Proposition 1.1.13, Lemma 1.1.15).",
+        "§1.2 (pp. 10–14): 1.2.1–1.2.11 (statements; the start of the proof of Proposition 1.2.11).",
+        "§2.2 (pp. 27–30): 2.2.16 and Corollary 2.2.22 with its proof."
+      ]
+    },
+    {
+      "id": "Kisin09b",
+      "title": "Modularity of 2-adic Barsotti–Tate representations",
+      "authors": "Mark Kisin",
+      "edition": "Invent. Math. 178 (2009), no. 3, 587–634; the author's DVI from his Harvard page (locators use its page numbers); accessed 2026-09-28",
+      "url": "http://people.math.harvard.edu/~kisin/dvifiles/serre2.dvi",
+      "sha256": "a11fdea301d662ada1cd675bea21a89ba9ab0a75955e496e4a1bcdecab97bf7d",
+      "readSections": [
+        "Introduction (pp. 1–5): Theorems (0.7)–(0.9) and the discussion of the p = 2 obstruction."
+      ]
+    },
+    {
+      "id": "Kim12",
+      "title": "The classification of p-divisible groups over 2-adic discrete valuation rings",
+      "authors": "Wansu Kim",
+      "edition": "arXiv:1007.1904v3 (30 December 2011); the journal version was not consulted; accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/1007.1904v3",
+      "sha256": "c26bf0ca34a2c94b049a6b10b5bd118c4c65791be45ae91b13bdbae67496ea34",
+      "readSections": [
+        "§1 (pp. 1–3): Conjecture 1.1 and the history of its proofs (Breuil, Kisin, Lau, Liu).",
+        "§2 (pp. 4–5): Theorem 2.3 (the results of Kisin used) and Remark 2.4.",
+        "§4 (pp. 10–11): Theorem 4.1, Proposition 4.2, Corollaries 4.3–4.4, the proof strategy and Proposition 4.5."
       ]
     }
   ],
@@ -4290,6 +4387,1402 @@
           "how": "Essential surjectivity onto G_K-stable lattices with weights in [0, p − 2] (requested 'if provable')."
         }
       ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "The Breuil–Kisin coefficient rings 𝔖, 𝒪_ℰ, 𝔖^ur, 𝒪 and S",
+      "kind": "construction",
+      "statement": "𝔖 = W⟦u⟧ with the Frobenius φ that is the Witt-vector Frobenius on W and sends u to u^p; θ_𝔖 : 𝔖 → 𝒪_K, u ↦ π, has kernel E(u)𝔖, and E(u) ≡ u^e mod p. 𝒪_ℰ is the p-adic completion of 𝔖[1/u], a complete discrete valuation ring with uniformiser p and residue field k((u)), and ℰ = 𝒪_ℰ[1/p]. With π̃ = (π_n)_n ∈ R = lim_{x↦x^p} 𝒪_K̄/p, the map u ↦ [π̃] embeds 𝔖 in W(R) compatibly with φ and θ, 𝒪_ℰ in W(Fr R) and ℰ in W(Fr R)[1/p]; ℰ^ur is the maximal unramified extension of ℰ in W(Fr R)[1/p], 𝒪̂_{ℰ^ur} the p-adic completion of its ring of integers, and 𝔖^ur = 𝒪̂_{ℰ^ur} ∩ W(R). G_{K∞} acts on these rings, fixing 𝔖 and 𝒪_ℰ. 𝒪 is the ring of rigid analytic functions on the open unit u-disc (𝔖[1/p] is its subring of bounded functions), with λ = ∏_{n≥0} φⁿ(E(u)/E(0)) and N_∇ = −uλ·d/du. S is the p-adic completion of the divided-power envelope of W[u] for the ideal (E(u)), with Fil¹S the closure of the ideal generated by the E(u)ⁱ/i!, φ(u) = u^p, φ(Fil¹S) ⊆ pS and φ₁ = φ/p on Fil¹S; u ↦ [π̃] extends to S → A_cris.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "R, W(R), θ, A_cris, B⁺_cris and B⁺_st are the period rings of PadicHodgeTheory R06.1; B⁺_st is taken with the element log[π̃] (requested).",
+        "Kisin 2006 (2.1.1) places ℰ, ℰ̂^ur and 𝔖^ur inside W(Fr R); the corrected placement is Kisin's own erratum (E.3), used here."
+      ],
+      "proofSteps": [
+        "𝔖 is a regular local ring of dimension 2, and φ : 𝔖 → 𝔖 is finite free of rank p (basis 1, u, …, u^{p−1} over φ(𝔖)), hence flat.",
+        "E(u) ≡ u^e mod p, so E(u) becomes a unit in 𝒪_ℰ, whose residue ring 𝒪_ℰ/p = k((u)) is a field (Kisin 2006, 2.1.1).",
+        "θ([π̃]) = π, so W[u] → W(R), u ↦ [π̃], extends to 𝔖 ↪ W(R), compatible with φ, with θ restricting to u ↦ π (Kisin 2006, 2.1.1).",
+        "Fr R is algebraically closed, so 𝒪_{ℰ^ur}/p is a separable closure of k((u)) (Fontaine, Grothendieck Festschrift, A.3.1.6, as cited by Kisin).",
+        "Erratum (E.3): ℰ embeds in W(Fr R)[1/p], not W(Fr R); ℰ̂^ur is the p-adic closure of ℰ^ur in W(Fr R)[1/p]; 𝔖^ur is defined as 𝒪̂_{ℰ^ur} ∩ W(R). Kisin 2008 (1.1) and Kisin 2009 (1.1.12) use this corrected form.",
+        "S: φ(E(u)) ≡ E(u)^p mod p and E(u)^p = p!·(E(u)^p/p!) ∈ pS, so φ(Fil¹S) ⊆ pS, and c = φ₁(E(u)) is a unit of S (Kisin 2009, 1.1.1)."
+      ],
+      "acceptance": [
+        "For e = 1 and π = p: E(u) = u − p and θ_𝔖 induces 𝔖/(u − p) ≅ W.",
+        "The inclusions 𝔖 ⊂ 𝔖^ur ⊂ W(R) and 𝒪_ℰ ⊂ 𝒪̂_{ℰ^ur} ⊂ W(Fr R) are φ-equivariant."
+      ],
+      "prerequisites": [
+        "PadicHodgeTheory:R06.1/crystalline-period-ring",
+        "PadicHodgeTheory:R06.1/semistable-period-ring",
+        "mathlib:PowerSeries",
+        "mathlib:WittVector",
+        "mathlib:WittVector.frobenius",
+        "mathlib:Polynomial.IsEisensteinAt",
+        "mathlib:AdicCompletion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§1.1.1, p. 4 (author DVI)",
+          "excerpt": "Let 𝔖 = W[[u]]. We denote by 𝔖n the completion of Kn+1 ⊗W 𝔖 at the maximal ideal (u − πn).",
+          "match": "𝔖 and the points π_n."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.1.1, p. 20 (author DVI)",
+          "excerpt": "Let 𝒪𝒠 be the p-adic completion of 𝔖[1/u]. Then 𝒪𝒠 is a discrete valuation ring with residue field the field of Laurent series k((u)).",
+          "match": "𝒪_ℰ."
+        },
+        {
+          "sourceId": "Kisin08",
+          "locator": "Errata for [Ki 2], (E.3), p. 34 (author DVI)",
+          "excerpt": "(E.3) In (2.1.1) 𝒠 embeds is W(Fr R)[1/p] (not W(Fr R))",
+          "match": "The corrected placement of ℰ; the erratum goes on to place ℰ̂^ur in W(Fr R)[1/p] and to define 𝔖^ur as 𝒪̂_{ℰ^ur} ∩ W(R) (hat accents are lost in the text extraction)."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§A.5, p. 31 (author DVI)",
+          "excerpt": "Denote by S the p-adic completion of the divided power envelope of W[u] with respect to the ideal E(u).",
+          "match": "Breuil's ring S."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/Rings",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules",
+          "how": "Coefficient ring of Kisin modules."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules",
+          "how": "𝒪_ℰ, 𝒪̂_{ℰ^ur} and 𝔖^ur as period rings for G_{K∞}."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-s-modules",
+          "how": "The ring S with Fil¹S and φ₁."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:L7/finite-height-lattices",
+          "how": "𝔖 = W⟦u⟧ with E(u) and 𝒪_ℰ (requested from R07.4)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.BreuilKisin.frob",
+          "role": "structure",
+          "statement": "φ on 𝔖 = PowerSeries (WittVector p k): WittVector.frobenius on coefficients and u ↦ u^p."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.eisenstein",
+          "role": "data",
+          "statement": "E(u) ∈ W[u], monic Eisenstein with E(π) = 0 and E ≡ u^e mod p."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.OE",
+          "role": "constructor",
+          "statement": "𝒪_ℰ = p-adic completion of 𝔖[1/u], with its Frobenius."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.SUr",
+          "role": "constructor",
+          "statement": "𝔖^ur = 𝒪̂_{ℰ^ur} ∩ W(R) with its G_{K∞}-action and φ."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.toWittR",
+          "role": "compatibility",
+          "statement": "𝔖 → W(R), u ↦ [π̃], φ-equivariant, with θ ∘ (𝔖 → W(R)) = θ_𝔖."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.breuilS",
+          "role": "constructor",
+          "statement": "Breuil's S with Fil¹S, φ and φ₁ = φ/p on Fil¹S."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.BreuilKisin.frob_X",
+          "kind": "value",
+          "statement": "frob u = u^p, and frob restricts to WittVector.frobenius on W."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.theta_eisenstein",
+          "kind": "value",
+          "statement": "θ_𝔖(E(u)) = 0 and ker θ_𝔖 = E(u)𝔖."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.eisenstein_not_isUnit",
+          "kind": "non-example",
+          "statement": "E(u) is not a unit of 𝔖 (θ_𝔖(E(u)) = 0) but is a unit of 𝒪_ℰ."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.eisenstein_unramified",
+          "kind": "degenerate",
+          "statement": "e = 1, π = p: E(u) = u − p."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Kisin modules of finite E-height and their torsion versions",
+      "kind": "definition",
+      "statement": "Mod^φ_{/𝔖} is the category of finite free 𝔖-modules 𝔐 with a φ-semilinear φ_𝔐 : 𝔐 → 𝔐 whose linearisation 1 ⊗ φ : φ*𝔐 = 𝔖 ⊗_{φ,𝔖} 𝔐 → 𝔐 has cokernel killed by a power of E(u); 𝔐 has E-height ≤ h if E(u)^h kills the cokernel, and BT^φ_{/𝔖} is the full subcategory of E-height ≤ 1. Morphisms are φ-compatible 𝔖-linear maps, and Mod^φ_{/𝔖} ⊗ ℚ_p is the isogeny category. Torsion versions: ′(Mod/𝔖) consists of 𝔖-modules with φ-semilinear φ whose linearisation has cokernel killed by E(u); (Mod/𝔖) is its full subcategory of modules of projective dimension 1 killed by a power of p (equivalently, iterated extensions in ′(Mod/𝔖) of finite free 𝔖/p-modules), and (Mod FI/𝔖) consists of those isomorphic to ⊕ᵢ 𝔖/p^{nᵢ}. An object of (Mod/𝔖) is multiplicative if 1 ⊗ φ is an isomorphism and étale if its image is E(u)𝔐. With coefficients in a finite ℤ_p-algebra A, 𝔖_A = 𝔖 ⊗_{ℤ_p} A and objects carry a commuting A-action.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Kisin 2009 §1 assumes k finite and p ≠ 2 throughout; the definitions themselves need neither."
+      ],
+      "proofSteps": [
+        "For 𝔐 in (Mod/𝔖), 1 ⊗ φ is injective: by dévissage reduce to p𝔐 = 0, where 𝔐 is free of rank r over 𝔖/p = k⟦u⟧ and det(1 ⊗ φ) divides u^{er}, a non-zero-divisor (Kisin 2009, 1.1.9).",
+        "In Mod^φ_{/𝔖}, 1 ⊗ φ is injective: its source and target are free of the same rank and its cokernel is torsion.",
+        "Kisin 2006 (2.3.2): a finitely generated torsion 𝔖-module has projective dimension 1 iff it has depth 1 (Auslander–Buchsbaum, 𝔖 regular of dimension 2) iff it has no nonzero section supported at the closed point; then the 𝔐[pⁱ]/𝔐[pⁱ⁻¹] are free over 𝔖/p, and 1 ⊗ φ on each has kernel killed by E(u), hence is injective.",
+        "Heights add under ⊗: if E(u)^a and E(u)^b kill the two cokernels, the image of 1 ⊗ φ on 𝔐 ⊗ 𝔐′ contains E(u)^{a+b}(𝔐 ⊗ 𝔐′)."
+      ],
+      "acceptance": [
+        "𝔖 with φ_𝔐 = φ has E-height 0; in (Mod/𝔖), 𝔖/p with φ_𝔐 = φ is multiplicative.",
+        "The rank-one module 𝔖e with φ(e) = E(u)e has E-height exactly 1, and 𝔖/p·e with φ(e) = E(u)e is étale."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings",
+        "mathlib:Module.Free",
+        "mathlib:Module.Finite"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.1.3, p. 21 (author DVI)",
+          "excerpt": "We denote by Mod ϕ /𝔖 the category of finite free 𝔖-modules equipped with a 𝔖-linear map 1 ⊗ ϕ : ϕ∗𝔐 → 𝔐 whose cokernel is killed by some power of E(u).",
+          "match": "Mod^φ_{/𝔖}."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.2.1, p. 25 (author DVI)",
+          "excerpt": "We will denote by BT ϕ /𝔖 the full subcategory of Mod ϕ /𝔖 consisting of objects 𝔐 such that 𝔐/ϕ∗(𝔐) is killed by E(u) (not just some power).",
+          "match": "BT^φ_{/𝔖}."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.3.1, p. 27 (author DVI)",
+          "excerpt": "We denote by (Mod /𝔖) the full subcategory of ′(Mod /𝔖) consisting of modules 𝔐 such that 𝔐 has projective dimension 1 as an 𝔖-module and is killed by some power of p.",
+          "match": "The torsion category."
+        },
+        {
+          "sourceId": "Kisin09",
+          "locator": "§1.1.16, p. 10 (author DVI)",
+          "excerpt": "We call an object 𝔐 of (Mod /𝔖) ´etale if the image of 1⊗φ is equal to E(u)𝔐, and multiplicative if 1⊗φ is an isomorphism.",
+          "match": "Étale and multiplicative objects."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/Modules",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Breuil–Kisin modules"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-etale-full-faithfulness",
+          "how": "Source category of 𝔐 ↦ 𝒪_ℰ ⊗ 𝔐."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-p-divisible-classification",
+          "how": "BT^φ_{/𝔖} classifies p-divisible groups."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-flat-classification",
+          "how": "(Mod/𝔖) classifies finite flat group schemes."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+          "how": "Kisin modules of E-height ≤ 1 and (Mod FI/𝔖) with coefficients (requested from R07.4)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.BreuilKisin.KisinModule",
+          "role": "structure",
+          "statement": "A finite free 𝔖-module with φ-semilinear φ whose linearisation has cokernel killed by a power of E(u)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.KisinModule.HeightLE",
+          "role": "characterisation",
+          "statement": "E(u)^h kills coker(1 ⊗ φ)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.KisinModule.category",
+          "role": "instance",
+          "statement": "The category Mod^φ_{/𝔖}, with ⊗ and the full subcategory BT^φ_{/𝔖}."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.TorsionKisinModule",
+          "role": "structure",
+          "statement": "An object of (Mod/𝔖): p-power torsion, projective dimension 1, cokernel of 1 ⊗ φ killed by E(u)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.TorsionKisinModule.IsMultiplicative",
+          "role": "characterisation",
+          "statement": "1 ⊗ φ is an isomorphism."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.TorsionKisinModule.IsEtale",
+          "role": "characterisation",
+          "statement": "The image of 1 ⊗ φ is E(u)𝔐."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.BreuilKisin.KisinModule.unit_height_zero",
+          "kind": "value",
+          "statement": "(𝔖, φ) has E-height ≤ 0."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.KisinModule.eisenstein_height_one",
+          "kind": "value",
+          "statement": "𝔖e with φ(e) = E(u)e has E-height ≤ 1 and not ≤ 0."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.KisinModule.not_finite_height",
+          "kind": "non-example",
+          "statement": "𝔖e with φ(e) = p·e is not of finite E-height: its cokernel 𝔖/p is killed by no power of E(u), since E(u) ≡ u^e is not nilpotent in k⟦u⟧."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.TorsionKisinModule.zero",
+          "kind": "degenerate",
+          "statement": "The zero module is in (Mod/𝔖) and is both étale and multiplicative."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Étale φ-modules over 𝒪_ℰ and representations of G_{K∞}",
+      "kind": "theorem",
+      "statement": "Let ΦM_{𝒪_ℰ} be the category of finitely generated 𝒪_ℰ-modules M with a φ-semilinear φ_M whose linearisation φ*M → M is an isomorphism. Then T(M) = (𝒪̂_{ℰ^ur} ⊗_{𝒪_ℰ} M)^{φ=1} is an exact equivalence from ΦM_{𝒪_ℰ} to finitely generated ℤ_p-modules with continuous G_{K∞}-action, with quasi-inverse V ↦ (𝒪̂_{ℰ^ur} ⊗_{ℤ_p} V)^{G_{K∞}}, preserving ranks, ⊗ and duals. For 𝔐 in Mod^φ_{/𝔖}, V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur) is free over ℤ_p of rank rk_𝔖 𝔐, exact in 𝔐, and equals Hom_{𝒪_ℰ,φ}(𝒪_ℰ ⊗_𝔖 𝔐, 𝒪̂_{ℰ^ur}); for 𝔐 ≅ ⊕ᵢ 𝔖/p^{nᵢ} with finite E-height, Hom_{𝔖,φ}(𝔐, 𝔖^ur[1/p]/𝔖^ur) = Hom_{𝔖,φ}(𝔐, ℰ^ur/𝒪_{ℰ^ur}) ≅ ⊕ᵢ ℤ_p/p^{nᵢ}, exact in 𝔐. With coefficients: for a local Artinian ℤ_p-algebra A and V_A free of rank d over A with continuous G_{K∞}-action, M_A = (𝒪̂_{ℰ^ur} ⊗_{ℤ_p} V_A^*)^{G_{K∞}} is free of rank d over 𝒪_ℰ ⊗_{ℤ_p} A.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "K_∞/K is strictly APF (Breuil's argument, as cited by Kisin 2009, 1.1.12), so its field of norms is k((u)) with u ↦ π̃, and G_{K∞} ≅ Gal(k((u))^sep/k((u))); this and Fontaine's equivalence for a field of characteristic p with Cohen ring 𝒪_ℰ ([Fo 1] A.1.2.6–A.1.2.7, B.1.8.4) are requested from PhiGammaModulesAndIwasawaCohomology PG.0 and PG.1.",
+        "The coefficient statement is Kisin 2008 (1.2), which cites Kisin 2009, 1.2.7(4)."
+      ],
+      "proofSteps": [
+        "Field of norms: identify G_{K∞} with the absolute Galois group of k((u)) = 𝒪_ℰ/p, compatibly with 𝒪_{ℰ^ur}/p = k((u))^sep inside Fr R (requested, PG.0).",
+        "Fontaine's equivalence for the Cohen ring 𝒪_ℰ of k((u)) (requested, PG.1) gives T, its quasi-inverse and exactness; ranks, ⊗ and duals follow from the comparison isomorphism 𝒪̂_{ℰ^ur} ⊗ M ≅ 𝒪̂_{ℰ^ur} ⊗ T(M).",
+        "Torsion V_𝔖: the comparison 𝔖^ur[1/p]/𝔖^ur ↔ ℰ^ur/𝒪_{ℰ^ur} is Fontaine B.1.8.4, the rest Fontaine §A.1.2 (Kisin 2006, 2.1.2).",
+        "Free V_𝔖: pass to the limit over 𝔐/pⁿ𝔐 using the torsion case (Kisin 2006, 2.1.4).",
+        "Coefficients: an A-action on V_A gives an 𝒪_ℰ ⊗ A-structure on M_A by functoriality; freeness follows from the local criterion over the Artinian ring A, as in Kisin 2009, 1.2.7."
+      ],
+      "acceptance": [
+        "T(𝒪_ℰ, φ) = ℤ_p with trivial action.",
+        "Rank one: M = 𝒪_ℰe with φ(e) = a·e, a ∈ W^×: by Lang's theorem there is b ∈ W(k̄)^× with φ(b)a = b, so T(M) = ℤ_p·(b ⊗ e) and G_{K∞} acts through an unramified character."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules",
+        "PhiGammaModulesAndIwasawaCohomology:PG.0",
+        "PhiGammaModulesAndIwasawaCohomology:PG.1",
+        "mathlib:Field.absoluteGaloisGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin09",
+          "locator": "§1.1.12, p. 9 (author DVI)",
+          "excerpt": "The argument of [Br 1, 2.1.1] shows that K∞ /K is a strictly APF extension in the sense of [Win]. Then [Fo, A. 1.2.6], and the constructions of [Fo, A. 3] imply that the functor T : ΦM 𝒪𝒠 → Rep ℤp (GK∞ ); M ↦→ (𝒪𝒠ur ⊗𝒪𝒠 M) φ=1 is an equivalence of abelian categories",
+          "match": "The equivalence."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.1.4, Corollary (2.1.4), p. 21 (author DVI)",
+          "excerpt": "Let 𝔐 be in Mod ϕ /𝔖 . Then V𝔖 (𝔐) := Hom 𝔖,ϕ (𝔐,𝔖ur ) is a free ℤp -module of rank r = rk 𝔖 𝔐, and the functor 𝔐 ↦→ V𝔖 (𝔐) is exact in 𝔐.",
+          "match": "V_𝔖."
+        },
+        {
+          "sourceId": "Kisin08",
+          "locator": "§1.2, p. 5 (author DVI)",
+          "excerpt": "This is a free 𝒪𝒠,A = 𝒪𝒠 ⊗ℤp A-module of rank d [Ki 1, 1.2.7(4)], equipped with an isomorphism ϕ∗MA ∼− → MA .",
+          "match": "Coefficients."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/EtalePhi",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-etale-full-faithfulness",
+          "how": "Target of 𝔐 ↦ 𝒪_ℰ ⊗ 𝔐 and the functor V_𝔖."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-height-lattices",
+          "how": "Lattices in V correspond to étale 𝒪_ℰ-lattices."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:L7/finite-height-lattices",
+          "how": "Étale φ-modules M(V) over 𝒪_ℰ with coefficients (requested from R07.4)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/phi-n-nabla-modules",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Filtered (φ, N)-modules as (φ, N_∇)-modules over the open unit disc",
+      "kind": "theorem",
+      "statement": "Let D be an effective filtered (φ, N)-module over K (Fil⁰D_K = D_K). Kisin constructs a (φ, N_∇)-module 𝓜(D) over 𝒪: a finite free 𝒪-module with φ-semilinear φ and a differential operator N_∇ over −uλ·d/du, satisfying N_∇φ = (p/c₀)E(u)φN_∇ with c₀ = E(0); and conversely a filtered (φ, N)-module D(𝓜) from 𝓜 of finite E-height. (1) coker(1 ⊗ φ : φ*𝓜(D) → 𝓜(D)) ≅ ⊕_{i≥0} (𝒪/E(u)ⁱ)^{hᵢ} with hᵢ = dim_K grⁱD_K; in particular 𝓜(D) has finite E-height, and height ≤ h iff grⁱD_K = 0 for i > h. (2) D(𝓜(D)) ≅ D as filtered (φ, N)-modules. (3) D and 𝓜 are exact quasi-inverse ⊗-equivalences between effective filtered (φ, N)-modules and Mod^{φ,N_∇}_{/𝒪}.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3).",
+        "Filtered (φ, N)-modules over K are PadicHodgeTheory R06.2's."
+      ],
+      "proofSteps": [
+        "Construct 𝓜(D) inside (𝒪[ℓ_u, 1/λ] ⊗_{K₀} D)^{N=0} from the filtration of D_K at the points π_n (Kisin 2006, 1.2.1–1.2.2); it is finite free by Kisin's Lemma (1.1.4).",
+        "Lemma (1.2.2): the cokernel of 1 ⊗ φ is ⊕ᵢ(𝒪/E(u)ⁱ)^{hᵢ}, computed at the zero π of E(u) from the filtration jumps; only the jumps ≥ 0 occur because D is effective.",
+        "Proposition (1.2.8): recover D from 𝓜(D) via 𝓜/u𝓜 with the filtration induced by ξ_{[0,r)} (1.2.6).",
+        "Theorem (1.2.15): essential surjectivity of 𝓜 by (1.2.13), and exactness and ⊗-compatibility by construction."
+      ],
+      "acceptance": [
+        "D = K₀ with φ = σ, N = 0 and Fil⁰D_K = D_K, Fil¹ = 0: 𝓜(D) = 𝒪 with φ = φ_𝒪, E-height 0.",
+        "D = K₀ with φ = pσ and Fil¹D_K = D_K, Fil² = 0 (the module of ℚ_p(1) under Kisin's contravariant convention): coker(1 ⊗ φ) ≅ 𝒪/E(u), E-height exactly 1."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings",
+        "PadicHodgeTheory:R06.2/filtered-phi-n-modules"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§1.2.2, Lemma (1.2.2), p. 6 (author DVI)",
+          "excerpt": "Suppose that D is effective. Then the operators ϕ and N? on (𝒪[`u ,1/λ]⊗K0 D) N=0 induce on 𝒨(D) the structure of a (ϕ,N? )-module over 𝒪.",
+          "match": "The construction and the cokernel formula."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§1.2.8, Proposition (1.2.8), p. 10 (author DVI)",
+          "excerpt": "Let D be an effective filtered (ϕ,N)-module. There is a natural isomorphism of filtered (ϕ,N)-modules D(𝒨(D)) ∼− → D.",
+          "match": "D(𝓜(D)) ≅ D."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§1.2.15, Theorem (1.2.15), p. 12 (author DVI)",
+          "excerpt": "The functors D and 𝒨 induce exact, quasi-inverse equivalences of ⊗-categories between effective filtered (ϕ,N)-modules and the category Mod ϕ,N? /𝒪 .",
+          "match": "The equivalence."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/Crystalline",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-crystalline-embedding",
+          "how": "The disc-level equivalence behind (1.3.15)."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/semistable-finite-height",
+          "how": "The cokernel formula bounds the E-height by the top Hodge–Tate weight."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/weakly-admissible-slope-zero",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Weak admissibility is slope 0 over the Robba ring",
+      "kind": "theorem",
+      "statement": "Let D be an effective filtered (φ, N)-module over K and 𝓜(D) its (φ, N_∇)-module over 𝒪. Then D is weakly admissible iff 𝓜(D) ⊗_𝒪 ℛ is pure of slope 0 in Kedlaya's sense, ℛ being the Robba ring (the germs at the boundary of functions on annuli (r, 1)). Consequently (Kisin 2006, 1.3.13) 𝔐 ↦ 𝔐 ⊗_𝔖 𝒪 is an equivalence of Tannakian categories from (φ, N)-modules over 𝔖 of finite E-height, up to isogeny, to the (φ, N)-modules over 𝒪 of finite E-height whose base change to ℛ is pure of slope 0.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3).",
+        "Kedlaya's slope theory is requested from PadicDifferentialEquationsAndRigidCohomology RD.1: slopes via ℛ^alg (Kedlaya 2004, Theorem 4.16), pure objects over the bounded Robba ring ℛ^b and over ℛ agree (Kedlaya, Slope filtrations revisited, Theorem 6.3.3), the slope filtration (Kedlaya 2004, Theorem 6.10), and the lemmas Kisin cites (Kedlaya 2004, Lemma 4.1, Propositions 4.4, 4.5, 5.13, 6.5)."
+      ],
+      "proofSteps": [
+        "Rank one: for D = K₀e with φ(e) = αe, 𝓜(D) = λ^{−t_H(D)}·𝒟₀, and its slope is v_p(α) − t_H(D) = t_N(D) − t_H(D) (Kisin 2006, 1.3.8, first part).",
+        "The slope filtration of 𝓜(D) ⊗ ℛ (Kedlaya) descends to a filtration of 𝓜(D) by saturated, φ- and N_∇-stable submodules (Kisin 2006, 1.3.3–1.3.7).",
+        "Hence subobjects of D correspond to saturated submodules of 𝓜(D), and the slope of the top exterior power computes t_N − t_H: D is weakly admissible iff all slopes vanish (Kisin 2006, 1.3.8).",
+        "(1.3.13): a pure slope 0 module over ℛ descends to ℛ^b, whose integral lattice glues with 𝓜 to a finite free 𝔖[1/p]-module; φ-stability and finite E-height are read off on 𝒪."
+      ],
+      "acceptance": [
+        "The rank-one module 𝓜(K₀e, φ = pσ, Fil¹ = D) (t_N = t_H = 1) is pure of slope 0; the same module with Fil⁰ = D, Fil¹ = 0 has t_H = 0 ≠ 1 = t_N and slope 1.",
+        "K = K₀, D = K₀e₁ ⊕ K₀e₂ with φ = diag(σ, pσ): with Fil¹D = K₀(e₁ + e₂) (and Fil² = 0) D is weakly admissible, so 𝓜(D) is pure of slope 0; with Fil¹D = K₀e₁ the line K₀e₁ has t_H = 1 > 0 = t_N, so 𝓜(D) is not pure of slope 0."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/phi-n-nabla-modules",
+        "PadicHodgeTheory:R06.2/weak-admissibility",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§1.3.8, Theorem (1.3.8), p. 17 (author DVI)",
+          "excerpt": "Let D be an effective filtered (ϕ,N)-module. Then D is weakly admissible if and only if 𝒨(D) is pure of slope 0.",
+          "match": "The theorem."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§1.3.2, Theorem (1.3.2), p. 14 (author DVI)",
+          "excerpt": "For any 𝒨 in Mod ϕ /𝒭 , there exists a canonical filtration - called the slope filtration - 0 = 𝒨0 ⊂ 𝒨1 ⊂ ··· ⊂ 𝒨r = 𝒨 by ϕ-stable submodules",
+          "match": "Kedlaya's slope filtration, as quoted by Kisin."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/Crystalline",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-crystalline-embedding",
+          "how": "Weak admissibility is exactly the slope-0 condition that allows descent to 𝔖."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-crystalline-embedding",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Kisin's embedding of weakly admissible modules into Kisin modules up to isogeny",
+      "kind": "theorem",
+      "statement": "There is a fully faithful ⊗-functor D ↦ 𝔐(D) from effective weakly admissible filtered (φ, N)-modules over K to Mod^{φ,N}_{/𝔖} ⊗ ℚ_p ((φ, N)-modules over 𝔖 of finite E-height up to isogeny), with 𝔐(D) ⊗_𝔖 𝒪 ≅ 𝓜(D). For 𝔐 in Mod^{φ,N}_{/𝔖} and 𝓜 = 𝔐 ⊗_𝔖 𝒪, the module 𝓜[1/λ] carries a canonical connection ∇ with φ∇ = ∇φ, and 𝔐 is in the essential image iff ∇ has only logarithmic singularities on 𝓜. On crystalline representations (N = 0) this gives a fully faithful embedding of crystalline G_K-representations with Hodge–Tate weights ≥ 0 into Mod^φ_{/𝔖} ⊗ ℚ_p, which is not essentially surjective.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3)."
+      ],
+      "proofSteps": [
+        "By (1.3.8) and (1.2.15), D ↦ 𝓜(D) is an equivalence from effective weakly admissible modules to (φ, N_∇)-modules over 𝒪 of slope 0 (Kisin 2006, 1.3.15, proof).",
+        "By (1.3.10), forgetting N_∇ to N = N_∇ mod u is fully faithful onto the modules stable under the operator N_∇ on 𝓜[1/λ], and every rank-one object is in the image.",
+        "By (1.3.13), (φ, N)-modules over 𝒪 of slope 0 are the base changes of Mod^{φ,N}_{/𝔖} ⊗ ℚ_p; compose.",
+        "The image criterion: ∇(m) = −λ⁻¹N_∇(m)·du/u, and N_∇-stability of 𝓜 inside 𝓜[1/λ] is logarithmic singularity of ∇ (Kisin 2006, 1.3.15, end of proof).",
+        "Crystalline case: V ↦ D = Hom_{G_K}(V, B⁺_cris), effective iff weights ≥ 0, with N = 0 (Kisin 2006, Theorem 0.1 in the convention HC)."
+      ],
+      "acceptance": [
+        "ℚ_p ↦ (𝔖, φ) and ℚ_p(1) ↦ (𝔖e, φ(e) = a·E(u)e) up to isogeny, with a ∈ W^× fixed by the normalisation (E(0)/p is a unit of W); E-heights 0 and 1.",
+        "The embedding is not essentially surjective (Kisin 2006, introduction): its image is cut out by the logarithmic-pole condition on ∇."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/phi-n-nabla-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/weakly-admissible-slope-zero",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules",
+        "PadicHodgeTheory:R06.2/weak-admissibility",
+        "PadicHodgeTheory:R06.2/admissible-representations"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§1.3.15, Corollary (1.3.15), p. 19 (author DVI)",
+          "excerpt": "There exists a fully faithful ⊗-functor from the category of effective weakly admissible filtered (ϕ,N)-modules to Mod ϕ,N /𝔖 ⊗ℚp .",
+          "match": "The functor."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "Introduction, Theorem (0.1), p. 2 (author DVI)",
+          "excerpt": "The category of crystalline representations with all Hodge-Tate weights ? 0, admits a fully faithful embedding into the isogeny category Mod ϕ /𝔖 ⊗ℚp of Mod ϕ /𝔖 .",
+          "match": "Crystalline case; the glyph printed as ? is ⩽ (msam10), see source issue E3."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/Crystalline",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Kisin's crystalline embedding"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/semistable-finite-height",
+          "how": "Lattices in the image have finite E-height and compute V."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bt-type-equivalence",
+          "how": "Restricted to weights {0, 1}."
+        },
+        {
+          "where": "PadicHodgeTheory:R06.2/filtered-phi-n-modules",
+          "how": "Breuil–Kisin modules map to MF^{φ,N}_K after inverting p (R06.2 names R07.4)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-etale-full-faithfulness",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Full faithfulness of 𝔐 ↦ 𝒪_ℰ ⊗ 𝔐",
+      "kind": "theorem",
+      "statement": "The functor Mod^φ_{/𝔖} → ΦM_{𝒪_ℰ}, 𝔐 ↦ 𝒪_ℰ ⊗_𝔖 𝔐, is fully faithful. Equivalently, the contravariant functor 𝔐 ↦ V_𝔖(𝔐) from Mod^φ_{/𝔖} to free ℤ_p-modules with continuous G_{K∞}-action is fully faithful. Auxiliary statements: (2.1.9) a morphism of Mod^φ_{/𝔖} that becomes an isomorphism over 𝒪_ℰ is an isomorphism; (2.1.10) for 𝔐 of rank d, Hom_{ℤ_p[G_{K∞}]}(V_𝔖(𝔐), 𝔖^ur) is free of rank d over 𝔖 and contains 𝔐.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "The proof printed in Kisin 2006 has a gap in the general case (Conrad), repaired in Kisin 2008, Errata (E.4); the repaired argument is the one planned."
+      ],
+      "proofSteps": [
+        "F(𝔐) := (𝒪_ℰ ⊗_𝔖 𝔐) ∩ 𝔐[1/p] is finite free, φ-stable and of finite E-height, and contains 𝔐 (as in Kisin 2006, 1.3.13).",
+        "(2.1.9): reduce to rank one by determinants; over 𝒪 both sides come from filtered (φ, N)-modules (1.3.13, 1.3.10), the induced map is nonzero hence an isomorphism (1.2.15), so h is multiplication by pⁱ in suitable bases, and i = 0 because h is an isomorphism over 𝒪_ℰ.",
+        "(2.1.10): 𝔐′ = Hom_{G_{K∞}}(V_𝔖(𝔐), 𝔖^ur) is p-adically separated and torsion free, and 𝔐′/p𝔐′ embeds in a free k⟦u⟧-module of rank ≤ d (Fontaine A.1.2.7), so 𝔐′ is a quotient of 𝔖^d; it contains 𝔐, so it is free of rank d.",
+        "Identity case: if 𝒪_ℰ ⊗ 𝔐₁ = 𝒪_ℰ ⊗ 𝔐₂, both lie in 𝔐′ (2.1.10), 𝔐₃ = 𝔐₁ + 𝔐₂ is finite, φ-stable, of finite E-height, and 𝔐₁ → F(𝔐₃) ← 𝔐₂ are isomorphisms by (2.1.9), so 𝔐₁ = 𝔐₂.",
+        "General h : 𝒪_ℰ ⊗ 𝔐₁ → 𝒪_ℰ ⊗ 𝔐₂ (Errata E.4): replace 𝔐₂ by 𝔐₁ ⊕ 𝔐₂ and h by its graph, so h is injective; V_𝔖(𝔐₂) → V_𝔖(𝔐₁) is surjective (2.1.4), so 𝔐₁, 𝔐₂ ⊆ Hom_{G_{K∞}}(V_𝔖(𝔐₂), 𝔖^ur) by (2.1.10); 𝔐₃ = 𝔐₁ + 𝔐₂ has rank d, F(𝔐₃) ⊗ 𝒪_ℰ ≅ 𝒪_ℰ ⊗ 𝔐₂, so F(𝔐₃) = 𝔐₂ by (2.1.9), and 𝔐₁ ⊆ 𝔐₂."
+      ],
+      "acceptance": [
+        "If (p − 1) ∤ e, there is no nonzero φ-map 𝒪_ℰe → 𝒪_ℰe′ with φ(e) = E(u)e and φ(e′) = e′: it would send e to a·e′ with φ(a) = E(u)a, and after dividing a by a power of p, reduction to k((u)) gives (p − 1)·v_u(ā) = e. So Hom in Mod^φ_{/𝔖} vanishes as well.",
+        "Faithfulness is visible directly: 𝔐 ⊂ 𝒪_ℰ ⊗ 𝔐 because 𝔐 is free and 𝔖 ⊂ 𝒪_ℰ."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-crystalline-embedding"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.1.12, Proposition (2.1.12), p. 23 (author DVI)",
+          "excerpt": "The functor Mod ϕ /𝔖 → Mod ϕ /𝒪𝒠 ; 𝔐 ↦→ 𝔐⊗𝔖 𝒪𝒠 is fully faithful.",
+          "match": "The proposition."
+        },
+        {
+          "sourceId": "Kisin08",
+          "locator": "Errata for [Ki 2], (E.4), p. 34 (author DVI)",
+          "excerpt": "There is a gap in the proof of (2.1.12). (We are grateful to Brian Conrad for pointing this out.) It is not clear that the natural map 𝒪𝒠 ⊗𝔖 𝔐3 → 𝒨3 is an isomorphism, so one cannot apply the case where h is an isomorphism to conclude that F(𝔐3 ) = F(𝔐′3 ).",
+          "match": "The gap and its repair."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/EtalePhi",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-height-lattices",
+          "how": "Uniqueness of 𝔖-lattices of finite E-height."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-restriction-full-faithfulness",
+          "how": "The bottom arrow of the square in (2.1.14)."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:L7/finite-height-lattices",
+          "how": "Kisin 2006, 2.1.12 with Errata (E.4) (requested from R07.4)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-height-lattices",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "𝔖-lattices of finite E-height: uniqueness, existence and all G_{K∞}-stable lattices",
+      "kind": "theorem",
+      "statement": "Let M be an étale φ-module over 𝒪_ℰ of rank d. An 𝔖-lattice of E-height ≤ h in M is a finite free φ-stable 𝔖-submodule 𝔐 of rank d spanning M with coker(φ*𝔐 → 𝔐) killed by E(u)^h. (1) M contains at most one 𝔖-lattice of finite E-height. (2) If 𝔐 ∈ Mod^φ_{/𝔖}, V = V_𝔖(𝔐) ⊗ ℚ_p and 𝓜 = ℰ ⊗_𝔖 𝔐, then 𝔑 ↦ V_𝔖(𝔑) is a bijection between finite free φ-stable 𝔖-submodules 𝔑 ⊂ 𝓜 of finite E-height with ℰ ⊗ 𝔑 = 𝓜 and G_{K∞}-stable ℤ_p-lattices in V; the inverse sends L to 𝒩 ∩ 𝔐[1/p], 𝒩 the étale lattice of L. (3) If one G_{K∞}-stable lattice in V has E-height ≤ h, every one does. With coefficients (Kisin 2008, 1.2): for V_A free over a local Artinian A, 𝔖_B-lattices of E-height ≤ h in M_B = M_A ⊗_A B are finite projective 𝔖_B-submodules of rank d spanning M_B, φ-stable with cokernel killed by E(u)^h, and they are stable under base change B → B′.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield."
+      ],
+      "proofSteps": [
+        "(1) Two such lattices 𝔐, 𝔐′ give the identity of M = 𝒪_ℰ ⊗ 𝔐 = 𝒪_ℰ ⊗ 𝔐′, which by full faithfulness (2.1.12) comes from mutually inverse maps 𝔐 ⇄ 𝔐′, so 𝔐 = 𝔐′ (Kisin 2008, 1.2, citing 2.1.12).",
+        "(2) Étale 𝒪_ℰ-lattices in 𝓜 correspond to G_{K∞}-stable lattices (Fontaine A.1.2.7); given 𝒩, 𝔑 = 𝒩 ∩ 𝔐[1/p] is finite free, φ-stable, of finite E-height with 𝒪_ℰ ⊗ 𝔑 = 𝒩 (as in 1.3.13), and injectivity follows from (2.1.4) and (2.1.9) (Kisin 2006, 2.1.15).",
+        "(3), derived here (Kisin 2008, 1.2, asserts it citing 2.1.15): let 𝔐 have height ≤ h and 𝔑 = 𝒩 ∩ 𝔐[1/p]. For x ∈ 𝔑, E(u)^h x lies in (1 ⊗ φ)(φ*𝔐[1/p]) and, E(u) being a unit of 𝒪_ℰ, in (1 ⊗ φ)(φ*𝒩). Since 1 ⊗ φ is injective on φ*𝓜 and φ is flat on 𝔖, the preimage lies in φ*𝔐[1/p] ∩ φ*𝒩 = φ*(𝔐[1/p] ∩ 𝒩) = φ*𝔑.",
+        "Coefficients: 𝒪_ℰ ⊗_𝔖 𝔐_B ⊗_B B′ is projective of rank d over 𝒪_ℰ ⊗ B′ and surjects onto M_{B′}, hence is isomorphic to it (Kisin 2008, 1.2)."
+      ],
+      "acceptance": [
+        "M = (𝒪_ℰ, φ): the lattice u𝔖 is φ-stable, but the image of 1 ⊗ φ on it is u^p𝔖 = u^{p−1}·(u𝔖), and 𝔖/u^{p−1} is killed by no power of E(u) (E(0) ≠ 0); only 𝔖 has finite E-height, as uniqueness requires.",
+        "ℚ_p(1): the G_{K∞}-stable lattices pⁿℤ_p(1) correspond to the lattices pⁿ𝔖e ⊂ ℰe, all of E-height 1."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-etale-full-faithfulness",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.1.15, Lemma (2.1.15), p. 24 (author DVI)",
+          "excerpt": "Then the map 𝔑 ↦→ Hom 𝔖,ϕ (𝔑,𝔖ur ) is a bijection between finite free, ϕ-stable 𝔖-submodules 𝔑 ⊂ 𝒨 such that 𝒠 ⊗𝔖 𝔑 ∼− → 𝒨 and 𝔑/ϕ∗(𝔑) is killed by a power of E(u), and GK∞ -stable ℤp -lattices L ⊂ V.",
+          "match": "Part (2)."
+        },
+        {
+          "sourceId": "Kisin08",
+          "locator": "§1.2, p. 4 (author DVI)",
+          "excerpt": "We call such a 𝔖-submodule a 𝔖-lattice of E-height ? h. By [Ki 2, 2.1.12] if a 𝔖-lattice of E-height ? h exists, then it is unique.",
+          "match": "Part (1); ? is the extraction of ⩽."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/EtalePhi",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/semistable-finite-height",
+          "how": "Every lattice of a semistable representation with weights in [0, h] has E-height ≤ h."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:L7/finite-height-lattices",
+          "how": "Lattices of E-height ≤ h and their uniqueness, with coefficients (requested from R07.4)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/semistable-finite-height",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Semistable representations have finite E-height; weakly admissible implies admissible",
+      "kind": "theorem",
+      "statement": "Let D be an effective weakly admissible filtered (φ, N)-module over K and 𝔐 ∈ Mod^{φ,N}_{/𝔖} a lattice in 𝔐(D) (the image of D under Kisin's embedding). Then there is a canonical G_{K∞}-equivariant bijection Hom_{𝔖,φ}(𝔐, 𝔖^ur) ⊗ ℚ_p ≅ Hom_{Fil,φ,N}(D, B⁺_st); both sides have dimension dim_{K₀} D, and D is admissible. Consequently: (a) weakly admissible filtered (φ, N)-modules are admissible (Colmez–Fontaine; Kisin's proof); (b) if V is semistable with Hodge–Tate weights in [0, h], every G_{K∞}-stable lattice of V has E-height ≤ h, and the filtered (φ, N)-module D_st(V) is recovered from its 𝔖-lattice by D(𝔐 ⊗ 𝒪).",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3)."
+      ],
+      "proofSteps": [
+        "Put 𝓜 = 𝔐 ⊗_𝔖 𝒪 and identify D with D(𝓜) (1.2.8). The inclusion 𝔖 ⊂ B⁺_cris extends continuously to 𝒪, sending E(u) into Fil¹B⁺_cris (Kisin 2006, 2.1.5, proof).",
+        "Compose 𝔐 → 𝔖^ur ⊂ W(R) with φ and the maps (2.1.6)–(2.1.8) to get a G_{K∞}-equivariant injection Hom_{𝔖,φ}(𝔐, 𝔖^ur) ⊗ ℚ_p → Hom_{Fil,φ,N}(D, B⁺_st).",
+        "The left side has dimension d = dim D (2.1.4), and the right side has dimension ≤ d (Colmez–Fontaine, Prop. 4.5, as cited), so the map is a bijection and D is admissible.",
+        "(b): D = D_st(V) is effective with grⁱD_K = 0 for i > h, so coker(1 ⊗ φ) on 𝓜(D) = ⊕_{i≤h}(𝒪/E(u)ⁱ)^{hᵢ} is killed by E(u)^h (1.2.2). The cokernel C of 1 ⊗ φ on 𝔐 is killed by a power of E(u), so C ⊗_𝔖 𝒪 = C[1/p], and E(u)^h C[1/p] = 0. The lattice 𝒩 ∩ 𝔐[1/p] of any G_{K∞}-stable lattice then has E-height ≤ h by the argument of R07.4/finite-height-lattices (3) (Kisin 2008, 2.5.5, cites 1.2.2 and 2.1.5 for this)."
+      ],
+      "acceptance": [
+        "V = ℚ_p(1): D has its only jump in degree 1, and every lattice has E-height exactly 1.",
+        "V = ℚ_p(2) (weight 2, h = 2): E-height 2, not ≤ 1, so ℚ_p(2) is not Barsotti–Tate."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-crystalline-embedding",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-height-lattices",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/phi-n-nabla-modules",
+        "PadicHodgeTheory:R06.1/semistable-period-ring",
+        "PadicHodgeTheory:R06.2/admissible-representations"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.1.5, Proposition (2.1.5), p. 21 (author DVI)",
+          "excerpt": "Let D be an effective, weakly admissible filtered (ϕ,N)-module, and 𝔐 in Mod ϕ,N /𝔖 a module whose image in Mod ϕ,N /𝔖 ⊗ ℚp is equal to the image of D under the functor of (1.3.15).",
+          "match": "Hypotheses of the proposition."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "Introduction, p. 2 (author DVI)",
+          "excerpt": "We also obtain a proof of Fontaine's conjecture that weakly admissible modules are admissible (see (2.1.5)).",
+          "match": "Consequence (a)."
+        },
+        {
+          "sourceId": "Kisin08",
+          "locator": "§2.5, proof of Theorem (2.5.5), p. 19 (author DVI)",
+          "excerpt": "If VB is semi-stable with Hodge-Tate weights in [0,h], then VB is of E-height ? h, by [Ki 2, 1.2.2, 2.1.5].",
+          "match": "Consequence (b)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/Crystalline",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-restriction-full-faithfulness",
+          "how": "The square in (2.1.14) commutes by (2.1.5)."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:R08.3/semistable-height-quotient",
+          "how": "Semistable with weights in [0, h] implies E-height ≤ h (requested from R07.4)."
+        },
+        {
+          "where": "PadicHodgeTheory:R06.2/colmez-fontaine-theorem",
+          "how": "Kisin's alternative proof of weakly admissible ⇒ admissible (R06.2 names R07.4)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-restriction-full-faithfulness",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Restriction from G_K to G_{K∞} is fully faithful on crystalline representations",
+      "kind": "theorem",
+      "statement": "The functor Rep^cris_{G_K} → Rep_{G_{K∞}} restricting a crystalline representation of G_K on a finite-dimensional ℚ_p-vector space to G_{K∞} = Gal(K̄/K(π_n : n ≥ 0)) is fully faithful (Breuil's conjecture).",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3)."
+      ],
+      "proofSteps": [
+        "Twisting by a power of ℚ_p(1) reduces to Rep^{cris,+}_{G_K}, the crystalline representations with Hodge–Tate weights ≥ 0 (Kisin 2006, 2.1.14, proof).",
+        "Square of functors: Rep^{cris,+} → Mod^φ_{/𝔖} ⊗ ℚ_p (D_cris followed by (1.3.15), fully faithful), Mod^φ_{/𝔖} ⊗ ℚ_p → ΦM_{𝒪_ℰ} ⊗ ℚ_p (2.1.12, fully faithful), ΦM_{𝒪_ℰ} ⊗ ℚ_p → Rep_{G_{K∞}} (Fontaine, an equivalence).",
+        "The square commutes up to natural isomorphism with restriction to G_{K∞} by (2.1.5); the other three sides are fully faithful, so restriction is fully faithful."
+      ],
+      "acceptance": [
+        "ℚ_p and ℚ_p(1): Hom_{G_K}(ℚ_p, ℚ_p(1)) = 0, so by the theorem Hom_{G_{K∞}}(ℚ_p, ℚ_p(1)) = 0 as well, i.e. K_∞ does not contain μ_{p^∞}.",
+        "The crystalline hypothesis is needed: if μ_p ⊂ K, then K(π₁)/K is Galois and totally ramified of degree p, and the permutation representation ℚ_p[Gal(K(π₁)/K)] is trivial on G_{K∞} but not on G_K; it is ramified, hence not crystalline."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-crystalline-embedding",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-etale-full-faithfulness",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/semistable-finite-height",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.1.14, Corollary (2.1.14), p. 24 (author DVI)",
+          "excerpt": "The functor Rep cris GK → Rep GK∞ obtained by restricting the action of a GK -representation to GK∞ is fully faithful.",
+          "match": "The corollary."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "Introduction, Theorem (0.2), p. 2 (author DVI)",
+          "excerpt": "The functor from crystalline representations of GK to p-adic GK∞ -representations, obtained by restricting the action of GK to GK∞ , is fully faithful.",
+          "match": "Theorem (0.2)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/Crystalline",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Restriction to the Kummer tower"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt",
+          "how": "The G_K-compatibility of T_p(G) ⊗ ℚ_p ≅ V."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/dyadic-classification",
+          "how": "Full faithfulness on Barsotti–Tate representations at p = 2 (Kim, via Kisin 2.1.14)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bt-type-equivalence",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Weakly admissible modules of Barsotti–Tate type and BT^φ_{/𝔖} ⊗ ℚ_p",
+      "kind": "theorem",
+      "statement": "A weakly admissible filtered φ-module D over K is of Barsotti–Tate type if grⁱD_K = 0 for i ≠ 0, 1. The functor of (1.3.15) restricts to an exact equivalence between weakly admissible modules of Barsotti–Tate type and BT^φ_{/𝔖} ⊗ ℚ_p. In the convention HC these are the D_cris of crystalline representations with Hodge–Tate weights in {0, 1}.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3)."
+      ],
+      "proofSteps": [
+        "For 𝔐 ∈ BT^φ_{/𝔖}, the module 𝔐 ⊗ 𝒪 lies in BT^φ_{/𝒪} (N = 0, cokernel killed by E(u)); it is pure of slope 0 by (1.3.8) and (1.2.15), and N_∇ = 0 mod u, so it lies in the image of (1.3.15) with N = 0 (Kisin 2006, 2.2.2, proof).",
+        "Conversely, if 𝔐 is the image of D, then 𝔐 ∈ BT^φ_{/𝔖} ⊗ ℚ_p iff D is of Barsotti–Tate type, by the cokernel formula (1.2.2).",
+        "Exactness is inherited from (1.2.15)."
+      ],
+      "acceptance": [
+        "D of ℚ_p(1) (weight 1) ↦ 𝔖e with φ(e) = a·E(u)e for a unit a ∈ W^×; D of ℚ_p ↦ (𝔖, φ).",
+        "D of ℚ_p(2) is not of Barsotti–Tate type, and its 𝔐 has E-height 2."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-crystalline-embedding",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/phi-n-nabla-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.2.2, Proposition (2.2.2), p. 25 (author DVI)",
+          "excerpt": "The functor of (1.3.15) induces an exact equivalence between the category of weakly admissible modules of Barsotti-Tate type and BT ϕ /𝔖 ⊗ ℚp .",
+          "match": "The proposition."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.2.1, p. 25 (author DVI)",
+          "excerpt": "We say a weakly admissible module D is of Barsotti-Tate type if gr i DK = 0 for i /= 0,1.",
+          "match": "Barsotti–Tate type."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/BarsottiTate",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt",
+          "how": "Produces 𝔐 ∈ BT^φ_{/𝔖} from V."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-s-modules",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Breuil's S-modules and the Dieudonné crystal on S",
+      "kind": "construction",
+      "statement": "BT^φ_{/S} is the category of finite free S-modules 𝓜 with an S-submodule Fil¹𝓜 and a φ-semilinear φ₁ : Fil¹𝓜 → 𝓜 such that Fil¹S·𝓜 ⊆ Fil¹𝓜 with 𝓜/Fil¹𝓜 free over 𝒪_K, and φ*(Fil¹𝓜) → 𝓜 is surjective; φ(x) = φ₁(E(u))⁻¹φ₁(E(u)x). (i) 𝔐 ↦ S ⊗_{φ,𝔖} 𝔐 with Fil¹𝓜 = {m : (1 ⊗ φ)(m) ∈ Fil¹S ⊗_𝔖 𝔐} and φ₁ = (φ₁ ⊗ 1)∘(1 ⊗ φ) is a functor BT^φ_{/𝔖} → BT^φ_{/S}. (ii) G ↦ 𝔻(G)(S), the contravariant Dieudonné crystal of Mazur–Messing evaluated on the PD thickening S → 𝒪_K, with Fil¹ the preimage of ω_G = (Lie G)^* ⊆ 𝔻(G)(𝒪_K) (Kisin, A.2), is an exact contravariant functor from p-divisible groups over 𝒪_K to BT^φ_{/S}; it is an anti-equivalence if p > 2 and an anti-equivalence of isogeny categories if p = 2.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "The Dieudonné crystal of a p-divisible group over a non-perfect base and Grothendieck–Messing deformation theory are this roadmap's R07.2 (not yet planned there; CrystallineCohomology CR.0/CR.1 supply crystals).",
+        "Kisin's proof of (ii) builds a p-divisible group over 𝒪_K/πⁱ step by step using R_i = W[u]/uⁱ as a PD thickening and Grothendieck–Messing (Kisin 2006, A.6, proof)."
+      ],
+      "proofSteps": [
+        "(i): Tor₁^𝔖(S/Fil¹S, 𝔐) = 0 for 𝔐 free, so Fil¹S ⊗ 𝔐 ⊆ S ⊗ 𝔐 and Fil¹𝓜 is well defined; 𝓜/Fil¹𝓜 embeds in 𝔐/E(u)𝔐 via 1 ⊗ φ with image that of φ*𝔐, a free 𝒪_K-module direct summand since E(u)𝔐 ⊆ im(1 ⊗ φ) (Kisin 2006, 2.2.3; Kisin 2009, 1.1.10).",
+        "(ii): 𝔻(G)(S) is a crystal evaluated on the p-adic PD thickening S → 𝒪_K; Fil¹ is the preimage of the Hodge filtration, and φ₁ = φ/p on Fil¹ comes from Frobenius on 𝔻 (Kisin 2006, A.2).",
+        "Quasi-inverse: for i ≤ e, lift 𝓜 ⊗ R_i with its filtration to p-divisible groups G_i over 𝒪_K/πⁱ by Grothendieck–Messing, compatibly in i, and algebraise (Kisin 2006, A.6, proof). For p = 2 the divided powers are not topologically nilpotent and only an isogeny statement results."
+      ],
+      "acceptance": [
+        "G = μ_{p^∞}: ω_G has full rank, so Fil¹𝓜 = 𝓜; G = ℚ_p/ℤ_p: ω_G = 0, so Fil¹𝓜 = Fil¹S·𝓜.",
+        "𝓜(G)/Fil¹𝓜(G) ≅ Lie(G^∨) is free of rank dim G^∨ over 𝒪_K (from 0 → ω_G → 𝔻(G)(𝒪_K) → Lie(G^∨) → 0)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§A.5, p. 31 (author DVI)",
+          "excerpt": "We will denote by BT ϕ /S the category of finite free S-modules 𝒨 equipped with an S-submodule Fil 1 𝒨 and a ϕ-semilinear map ϕ1 : Fil 1 𝒨 → 𝒨",
+          "match": "BT^φ_{/S}."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§A.6, Proposition (A.6), p. 31 (author DVI)",
+          "excerpt": "There is an exact contravariant functor G ↦→ 𝔻(G)(S) from the category of p-divisible groups over 𝒪K to BT ϕ /S . If p > 2 this functor is an anti-equivalence, and if p = 2 it induces an anti-equivalence of the corresponding isogeny categories.",
+          "match": "(ii)."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.2.3, p. 25 (author DVI)",
+          "excerpt": "Given a module 𝔐 in BT ϕ /𝔖 , 𝒨 = S ⊗ϕ,𝔖 𝔐 has a natural structure of an object of BT ϕ /S , where this is the category introduced in (A.5).",
+          "match": "(i)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/BarsottiTate",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/tate-module-acris",
+          "how": "T_p(G) is computed from 𝔻(G)(S) and A_cris."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-p-divisible-classification",
+          "how": "The functor 𝔐 ↦ G(𝔐) passes through BT^φ_{/S}."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/dyadic-classification",
+          "how": "Kim compares 𝔻*(G)(S) with S ⊗_{φ,𝔖} 𝔐_G at p = 2."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule",
+          "role": "structure",
+          "statement": "An object of BT^φ_{/S}: (𝓜, Fil¹𝓜, φ₁)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.ofKisin",
+          "role": "functoriality",
+          "statement": "𝔐 ↦ S ⊗_{φ,𝔖} 𝔐 with Fil¹ and φ₁."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.ofPDivisible",
+          "role": "functoriality",
+          "statement": "G ↦ 𝔻(G)(S), exact and contravariant."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.frob",
+          "role": "projection",
+          "statement": "φ(x) = φ₁(E(u))⁻¹φ₁(E(u)x)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.ofKisin_unit",
+          "kind": "value",
+          "statement": "S ⊗_{φ,𝔖} (𝔖, φ) = (S, Fil¹S, φ₁ of S)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.fil_quotient_free",
+          "kind": "value",
+          "statement": "𝓜/Fil¹𝓜 is free over 𝒪_K for every object."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.not_surjective",
+          "kind": "non-example",
+          "statement": "(S, Fil¹ = Fil¹S, φ₁ = 0) satisfies the filtration axiom but not surjectivity of φ*(Fil¹𝓜) → 𝓜."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.zero",
+          "kind": "degenerate",
+          "statement": "The zero module is an object, the image of the trivial p-divisible group."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/tate-module-acris",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "The Tate module of a p-divisible group from its Breuil module and A_cris",
+      "kind": "lemma",
+      "statement": "Let G be a p-divisible group over 𝒪_K and regard A_cris as an S-algebra via u ↦ [π̃]. There is a canonical G_{K∞}-equivariant injection T_p(G) ↪ Hom_{S,Fil,φ}(𝓜(G), A_cris), 𝓜(G) = 𝔻(G)(S); it is an isomorphism if p > 2, and its cokernel is killed by p if p = 2. For 𝔐 ∈ BT^φ_{/𝔖} and 𝓜 = S ⊗_{φ,𝔖} 𝔐, the map Hom_{𝔖,φ}(𝔐, 𝔖^ur) → Hom_{S,Fil,φ}(𝓜, A_cris) is injective with finite free source and target of the same rank, and an isomorphism if p > 2.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Faltings, Integral crystalline cohomology over very ramified valuation rings (JAMS 12, 1999), Theorem 7, as cited by Kisin; not read here."
+      ],
+      "proofSteps": [
+        "An element of T_p(G) is a map ℚ_p/ℤ_p → G over 𝒪_K̄; since A_cris is a divided-power thickening of 𝒪̂_K̄, evaluating crystals on A_cris gives 𝓜(G) ⊗_S A_cris → A_cris compatible with filtrations and φ (Kisin 2006, 2.2.4).",
+        "Injectivity, and the isomorphism for p > 2 with cokernel killed by p for p = 2, is Faltings' Theorem 7 (as cited); Breuil's calculations (Kisin 2006, 2.2.5) give the p > 2 case too.",
+        "(2.2.8): compose 𝔐 → 𝔖^ur with 𝔖^ur →^φ A_cris and extend S-linearly; both sides are free of rank d by (2.2.4) and (2.1.4), and the map is injective, hence an isomorphism after inverting p. For p > 2 a map whose composite factors through pA_cris already factors through p𝔖^ur (Breuil, as cited in Kisin 2006, 2.2.7, proof)."
+      ],
+      "acceptance": [
+        "G = ℚ_p/ℤ_p: 𝓜(G) = S with Fil¹ = Fil¹S, and the target is A_cris^{φ=1} = ℤ_p = T_p(G), for every p.",
+        "G = μ_{p^∞}: Fil¹𝓜(G) = 𝓜(G), so the target is (Fil¹A_cris)^{φ=p}, which contains t; for p = 2 it also contains t/2, since t^{p−1} ∈ pA_cris (PadicHodgeTheory R06.1/t-in-acris), which is how a cokernel killed by 2 can arise."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-s-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-tate-module",
+        "PadicHodgeTheory:R06.1/crystalline-period-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.2.4, Lemma (2.2.4), p. 26 (author DVI)",
+          "excerpt": "Let G be a p-divisible group over 𝒪K . If we regard the ring Acris of (2.1.1) as an S-algebra via u ↦→ [π ], then there is a canonical injection of GK∞ -modules Tp (G) ,→ Hom S,Fil ,ϕ (𝒨(G),Acris ). This map is an isomorphism if p > 2, and has cokernel killed by p when p = 2.",
+          "match": "The lemma."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/BarsottiTate",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt",
+          "how": "T_p(G) ⊗ ℚ_p ≅ Hom_{S,Fil,φ}(𝓜, A_cris) ⊗ ℚ_p."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-p-divisible-classification",
+          "how": "The isomorphism (2.2.8) for p > 2."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Crystalline representations with Hodge–Tate weights in {0, 1} come from p-divisible groups",
+      "kind": "theorem",
+      "statement": "For every prime p (including p = 2) and every finite K/ℚ_p: if V is a crystalline representation of G_K with all Hodge–Tate weights equal to 0 or 1, there is a p-divisible group G over 𝒪_K with V ≅ T_p(G) ⊗_{ℤ_p} ℚ_p as G_K-representations (Fontaine's conjecture). Consequently a potentially crystalline representation with Hodge–Tate weights {0, 1} is potentially Barsotti–Tate, and, for every p, G ↦ T_p(G) is an equivalence from p-divisible groups over 𝒪_K onto G_K-stable ℤ_p-lattices in crystalline representations with Hodge–Tate weights in {0, 1}. In the opposite convention HT(χ_cyc) = −1 the weights are {0, −1}.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3)."
+      ],
+      "proofSteps": [
+        "Let D = Hom_{G_K}(V, B⁺_cris), weakly admissible of Barsotti–Tate type, and 𝔐 ∈ BT^φ_{/𝔖} a lattice in its image under (2.2.2).",
+        "𝓜 = S ⊗_{φ,𝔖} 𝔐 lies in BT^φ_{/S} (2.2.3) and, up to isogeny even when p = 2, is 𝔻(G)(S) for a p-divisible group G (A.6).",
+        "By (2.2.4), T_p(G) ⊗ ℚ_p ≅ Hom_{S,Fil,φ}(𝓜, A_cris) ⊗ ℚ_p ≅ Hom_{S,Fil,φ}(D, B⁺_cris) = V as G_{K∞}-representations, using 𝓜 ⊗ ℚ_p ≅ D ⊗_W S compatibly with φ and filtrations (Breuil, as cited; or from Kisin 2006, 1.2.6).",
+        "Both sides are crystalline G_K-representations, so the G_{K∞}-isomorphism is G_K-equivariant by (2.1.14).",
+        "Potentially crystalline case: apply the theorem over a finite extension L/K over which V becomes crystalline.",
+        "Lattices: full faithfulness is Tate's theorem (R07.1/tate-generic-fibre-theorem). Given a G_K-stable lattice T in V ≅ V_p(G′), scale so that T_p(G′) ⊆ T ⊆ p^{−N}T_p(G′); the image of T/T_p(G′) in p^{−N}T_p(G′)/T_p(G′) ≅ G′[p^N](K̄) is G_K-stable, its schematic closure H is finite flat (R07.1/schematic-closure-of-generic-subgroups), and G = G′/H has T_p(G) = T. This is the step Kim uses at p = 2 (Raynaud's limit theorem)."
+      ],
+      "acceptance": [
+        "V = ℚ_p(1) = V_p(μ_{p^∞}) and V = ℚ_p = V_p(ℚ_p/ℤ_p); V = V_p(E) for an elliptic curve with good reduction.",
+        "ℚ_p(2) (weight 2) and ℚ_p(−1) (weight −1) are crystalline but not Barsotti–Tate."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bt-type-equivalence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-s-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/tate-module-acris",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-restriction-full-faithfulness",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-tate-module",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/tate-generic-fibre-theorem",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/schematic-closure-of-generic-subgroups"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.2.6, Corollary (2.2.6), p. 26 (author DVI)",
+          "excerpt": "Let V be a crystalline representation of GK with all Hodge-Tate weights equal to 0 or 1. Then there exists a p-divisible group G such that V ∼− → Tp (G)⊗ℤp ℚp .",
+          "match": "The corollary, all p."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "Introduction, Theorem (0.3), p. 3 (author DVI)",
+          "excerpt": "Any crystalline representation with all Hodge-Tate weights equal to 0 or 1 arises from a p-divisible group.",
+          "match": "Theorem (0.3)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/BarsottiTate",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fontaine's conjecture for weights {0, 1}"
+      },
+      "uses": [
+        {
+          "where": "GL2ModularityLifting:R22.6/hypothesis-h",
+          "how": "Crystalline with Hodge–Tate weights {0, 1} arises from a p-divisible group, every p (requested from R07.4)."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/flat-generic-fibre",
+          "how": "Crystalline with weights {0, 1} is Barsotti–Tate (requested from R07.4)."
+        },
+        {
+          "where": "PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion",
+          "how": "The rational criterion in weight 2 and the integral classification of lattices, every p including p = 2 (requested from R07.4)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-p-divisible-classification",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Kisin's classification of p-divisible groups by BT^φ_{/𝔖}",
+      "kind": "theorem",
+      "statement": "There is an exact functor G ↦ 𝔐(G) from p-divisible groups over 𝒪_K to BT^φ_{/𝔖} (contravariant in Kisin's and Kim's normalisation) with a natural G_{K∞}-isomorphism T_p(G) ≅ V_𝔖(𝔐(G)). If p > 2 it is an (anti-)equivalence; if p = 2 it induces an equivalence of isogeny categories. Equivalently for p > 2 (Kisin 2009, 2.2.22, via Cartier duality and Breuil's (Mod FI/S)): (Mod FI/𝔖)_{ℤ_p} = lim_n of the p-power torsion Kisin modules is equivalent to p-divisible groups over 𝒪_K.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3).",
+        "Kisin 2009 (2.2.22) assumes k finite and p ≠ 2 (standing hypothesis of its §1)."
+      ],
+      "proofSteps": [
+        "Given G, T_p(G) is a lattice in the Barsotti–Tate representation V_p(G); by (2.2.2) and (2.1.15) there is 𝔐 ∈ BT^φ_{/𝔖}, unique up to canonical isomorphism, with T_p(G) ≅ V_𝔖(𝔐), and G ↦ 𝔐(G) is functorial by (2.1.12) (Kisin 2006, 2.2.7, proof).",
+        "Given 𝔐, (2.2.3) and (A.6) produce G(𝔐). For p > 2, (2.2.4) and (2.2.8) give 𝔐(G(𝔐)) ≅ 𝔐, and T_p(G(𝔐(G))) ≅ V_𝔖(𝔐(G)) ≅ T_p(G) gives G(𝔐(G)) ≅ G by Tate's theorem.",
+        "For p = 2 the same arguments hold up to isogeny, or use (2.2.2) with (2.2.6).",
+        "Kisin 2009 (2.2.22): (Mod FI/S)_{ℤ_p} is anti-equivalent to p-divisible groups (Breuil, [Br 3] 4.2.2.9, as cited), composed with Cartier duality; (1.2.4) with A = ℤ/pⁿ and a limit gives a fully faithful functor from (Mod FI/𝔖)_{ℤ_p}, essentially surjective by lifting modulo p (1.2.5) and deformation."
+      ],
+      "acceptance": [
+        "𝔐(μ_{p^∞}) and 𝔐(ℚ_p/ℤ_p) are the rank-one objects (𝔖e, φ(e) = a·E(u)e) with a ∈ W^× and (𝔖, φ), in the order fixed by the contravariance.",
+        "p = 2: the functor is not known to be essentially surjective integrally from this argument alone (Kisin 2006, 2.2.7); R07.4/dyadic-classification removes the isogeny."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bt-type-equivalence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-s-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/tate-module-acris",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-height-lattices",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-etale-full-faithfulness",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/tate-generic-fibre-theorem",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-cartier-dual"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.2.7, Theorem (2.2.7), p. 26 (author DVI)",
+          "excerpt": "There exists an exact functor between BT ϕ /𝔖 and the category of p-divisible groups over 𝒪K . When p > 2, this functor is an equivalence, and when p = 2 it induces an equivalence between the corresponding isogeny categories.",
+          "match": "The theorem."
+        },
+        {
+          "sourceId": "Kisin09",
+          "locator": "§2.2.22, Corollary (2.2.22), p. 29 (author DVI)",
+          "excerpt": "There is an equivalence of categories between (Mod FI /𝔖)ℤp , and the category of p-divisible groups over 𝒪K .",
+          "match": "The p > 2 form of Kisin 2009."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/BarsottiTate",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Kisin's classification of p-divisible groups"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-flat-classification",
+          "how": "Isogenies of p-divisible groups ↔ two-term complexes in BT^φ_{/𝔖}."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+          "how": "Kisin's (2.2.22) for p > 2 (requested from R07.4)."
+        },
+        {
+          "where": "PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion",
+          "how": "The Kisin-module side of the classification: BT^φ_{/𝔖} ↔ p-divisible groups for p > 2 (requested from R07.4)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-flat-classification",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Classification of finite flat group schemes by (Mod/𝔖) for p > 2",
+      "kind": "theorem",
+      "statement": "Let p > 2. There is an exact anti-equivalence between (Mod/𝔖) and the category of finite flat group schemes of p-power order over 𝒪_K, compatible with the functor of R07.4/kisin-p-divisible-classification on kernels of isogenies; it restricts to an anti-equivalence between (Mod FI/𝔖) and the finite flat H such that every H[pⁿ] is finite flat. For H corresponding to 𝔐 there is a canonical G_{K∞}-isomorphism between H(K̄) and Hom_{𝔖,φ}(𝔐, 𝔖^ur[1/p]/𝔖^ur), up to Kisin 2009's twist and Cartier duality (T(𝒪_ℰ ⊗ 𝔐)(1) ≅ Gr^D(𝓜)(𝒪_K̄)).",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3).",
+        "p > 2 is needed: the proof uses the equivalence of (2.2.7), which holds only up to isogeny at p = 2. Kisin 2006 states Theorem (2.3.5) without this hypothesis (source issue E6); the p = 2 case is R07.4/dyadic-classification.",
+        "Raynaud's embedding of a finite flat group scheme into a p-divisible group (Berthelot–Breen–Messing, Théorie de Dieudonné cristalline II, Théorème 3.1.1, as cited by Kisin and Kim) is used; it is not read here and not planned elsewhere yet."
+      ],
+      "proofSteps": [
+        "(2.3.3)–(2.3.4): (Mod/𝔖) is equivalent to (Mod/𝔖)^•, two-term complexes 𝔐₁ → 𝔐₂ in BT^φ_{/𝔖} that are isogenies, modulo homotopies (Errata E.5: not homotopy equivalences) and with quasi-isomorphisms inverted; essential surjectivity by an explicit resolution 𝔐̃ ↠ 𝔐 with 𝔐̃ ∈ BT^φ_{/𝔖}.",
+        "Kernels of isogenies of p-divisible groups are finite flat, and every finite flat H embeds in a p-divisible group G₁ with G₁/H p-divisible (Raynaud), so (p-Gr/𝒪_K)^• of isogenies is equivalent to (p-Gr/𝒪_K) (Kisin 2006, 2.3.5, proof).",
+        "(2.2.7) for p > 2 gives (p-Gr/𝒪_K)^• ≃ (Mod/𝔖)^• (anti-equivalence), and compose.",
+        "(Mod FI/𝔖) case: by the formal argument of Breuil ([Br 2] 4.2.2.5 from 4.2.1.6, as cited; Kisin 2006, 2.3.6).",
+        "Galois compatibility: the torsion comparison Hom_{𝔖,φ}(𝔐, 𝔖^ur[1/p]/𝔖^ur) → Hom_{S,φ₁,Fil¹}(𝓜, A_cris[1/p]/A_cris) is an isomorphism by dévissage to p𝔐 = 0 (Kisin 2009, 1.1.13–1.1.14)."
+      ],
+      "acceptance": [
+        "μ_p and ℤ/p correspond to the rank-one objects 𝔖/p·e with φ(e) = a·E(u)e (a ∈ W^×) and φ(e) = e, in the order fixed by contravariance; the multiplicative/étale dictionary is R07.4/multiplicative-etale-dictionary.",
+        "Objects killed by p: (Mod/𝔖) and (Mod FI/𝔖) have the same objects killed by p (Kisin 2009, 1.1.8), so every H killed by p is in the (Mod FI/𝔖) part; μ_{p²} is too, since μ_{p²}[p] = μ_p is flat."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-p-divisible-classification",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-level-exactness"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin06",
+          "locator": "§2.3.5, Theorem (2.3.5), p. 28 (author DVI)",
+          "excerpt": "There is an exact anti-equivalence between (Mod /𝔖) and the category (p-Gr /𝒪K ) of finite flat group schemes over 𝒪K .",
+          "match": "The theorem as printed (no p > 2; issue E6)."
+        },
+        {
+          "sourceId": "Kisin06",
+          "locator": "Introduction, Theorem (0.5), p. 3 (author DVI)",
+          "excerpt": "For p > 2, the category (Mod /𝔖) is equivalent to the category of finite flat group schemes over 𝒪K .",
+          "match": "The hypothesis p > 2."
+        },
+        {
+          "sourceId": "Kisin09",
+          "locator": "§1.1.13, Proposition (1.1.13), p. 9 (author DVI)",
+          "excerpt": "Let 𝔐 be in (Mod /𝔖), and 𝒨 in (Mod /S) the image of 𝔐 under the functor of (1.1.11). There is a canonical isomorphism of GK∞ -representations T(𝒪𝒠 ⊗𝔖 𝔐)(1) ∼− → Gr D (𝒨)(𝒪¯K )|GK∞",
+          "match": "Galois compatibility."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/FiniteFlat",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/multiplicative-etale-dictionary",
+          "how": "The dictionary is stated on (Mod/𝔖)."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-flat-restriction-full-faithfulness",
+          "how": "The exact anti-equivalence with Galois compatibility."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+          "how": "Kisin modules of E-height ≤ 1 and finite flat group schemes, p > 2 (requested from R07.4)."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+          "how": "Finite-flat generic-fibre calculations for residual types."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/multiplicative-etale-dictionary",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Multiplicative and étale finite flat groups in terms of (Mod/𝔖)",
+      "kind": "theorem",
+      "statement": "Let p > 2 and 𝔐 ∈ (Mod/𝔖) with Breuil module 𝓜 and finite flat group Gr^D(𝓜) (Kisin 2009's covariant normalisation, composing with Cartier duality). Then Gr^D(𝓜) is étale iff 1 ⊗ φ : φ*𝔐 → 𝔐 has image E(u)𝔐, and multiplicative iff 1 ⊗ φ is an isomorphism. For a finite ℤ_p-algebra A with |A| < ∞ and 𝔐_A ∈ (Mod FI/𝔖)_A, there are a maximal multiplicative subobject 𝔐_A^m and a maximal étale quotient 𝔐_A^ét, with 𝔐_A/𝔐_A^m and ker(𝔐_A → 𝔐_A^ét) in (Mod FI/𝔖)_A, and their formation commutes with finite base change A → B.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Kisin 2009 assumes k finite and p ≠ 2 throughout §1."
+      ],
+      "proofSteps": [
+        "By dévissage reduce to p𝔐 = 0. By Breuil–Conrad–Diamond–Taylor 5.1.3 (as cited), Gr^D(𝓜) is étale (resp. multiplicative) iff Fil¹𝓜 = 𝓜 (resp. Fil¹𝓜 = Fil¹S·𝓜) (Kisin 2009, 1.1.15, proof).",
+        "1 ⊗ φ embeds 𝓜/Fil¹𝓜 into S ⊗ 𝔐/Fil¹S ⊗ 𝔐 ≅ 𝔐/E(u)𝔐 with image that of φ*𝔐, so Fil¹𝓜 = 𝓜 iff 1 ⊗ φ has image E(u)𝔐.",
+        "𝓜/Fil¹S·𝓜 ≅ φ*𝔐/E(u)φ*𝔐, so Fil¹𝓜 = Fil¹S·𝓜 iff 1 ⊗ φ is an isomorphism.",
+        "Maximal objects (Kisin 2009, 1.2.11): 1 ⊗ φ^r : (φ*)^r𝔐_A → 𝔐_A is injective for all r (φ flat), and 𝔐_A^m = ∩_r (φ*)^r𝔐_A is the maximal multiplicative submodule once it is shown projective over 𝔖_A; the étale quotient is obtained by duality, (𝔐_A^*)^m ≅ (𝔐_A^ét)^*."
+      ],
+      "acceptance": [
+        "𝔐 = 𝔖/p with φ = φ_𝔖: 1 ⊗ φ is an isomorphism, so Gr^D(𝓜) is multiplicative of order p.",
+        "𝔐 = 𝔖/p·e with φ(e) = E(u)e: the image of 1 ⊗ φ is E(u)𝔐, so Gr^D(𝓜) is étale of order p."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-flat-classification",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kisin09",
+          "locator": "§1.1.15, Lemma (1.1.15), p. 10 (author DVI)",
+          "excerpt": "Let 𝔐 and 𝒨 be as in (1.1.13). Then Gr D (𝒨) is ´etale (resp. multiplicative), if and only if the map 1⊗φ : φ∗𝔐 → 𝔐 has image equal to E(u)·𝔐 (resp. is an isomorphism).",
+          "match": "The dictionary."
+        },
+        {
+          "sourceId": "Kisin09",
+          "locator": "§1.2.11, Proposition (1.2.11), p. 13 (author DVI)",
+          "excerpt": "Suppose that |A| < ∞, and let 𝔐A be in (Mod FI /𝔖)A . There exists a maximal multiplicative subobject 𝔐mA ⊂ 𝔐A , and a maximal ´etale quotient 𝔐´etA of 𝔐A .",
+          "match": "Maximal multiplicative subobject and étale quotient."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/FiniteFlat",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/ordinary-type-of-components",
+          "how": "The multiplicative/étale dictionary (1.1.15), (1.2.11) (requested from R07.4)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-flat-restriction-full-faithfulness",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Restriction to G_{K∞} is fully faithful on finite flat representations",
+      "kind": "theorem",
+      "statement": "For every p: the functor T ↦ T|_{G_{K∞}} from p-power torsion G_K-representations of the form H(K̄), H a finite flat group scheme over 𝒪_K, to p-power torsion G_{K∞}-representations is fully faithful.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Breuil ([Bre02] Theorem 3.4.3, as cited by Kim) observed that this follows formally from the classification; that source is not read here, and the formal argument is written out below.",
+        "Input: an exact anti-equivalence H ↦ 𝔐_H from finite flat group schemes to (Mod/𝔖) with a natural G_{K∞}-isomorphism H(K̄) ≅ T*(𝔐_H) := Hom_{𝔖,φ}(𝔐_H, 𝔖^ur[1/p]/𝔖^ur): R07.4/finite-flat-classification for p > 2, R07.4/dyadic-classification for p = 2."
+      ],
+      "proofSteps": [
+        "Faithfulness is clear. Let f : H(K̄) → H′(K̄) be G_{K∞}-equivariant and Γ ⊂ (H × H′)(K̄) its graph, a G_{K∞}-stable subgroup; it suffices that Γ is G_K-stable.",
+        "Let 𝔐 = 𝔐_{H×H′} and M = 𝒪_ℰ ⊗ 𝔐. By Fontaine's equivalence (R07.4/kummer-etale-phi-modules), Γ ⊂ T*(𝔐) = T*(M) corresponds to a quotient M ↠ N of étale φ-modules. Let 𝔑 be the image of 𝔐 in N.",
+        "𝔑 ∈ (Mod/𝔖): it is finitely generated, killed by a power of p, φ-stable, and has no u-torsion (N is a module over 𝒪_ℰ, in which u is invertible), so it has depth 1 and projective dimension 1 (Kisin 2006, 2.3.2); and E(u)𝔑 lies in the image of 1 ⊗ φ because this holds for 𝔐. Moreover 𝒪_ℰ ⊗ 𝔑 = N, since 𝒪_ℰ is flat over 𝔖.",
+        "𝔎 = ker(𝔐 ↠ 𝔑) is in (Mod/𝔖): if x ∈ 𝔎 and E(u)x = (1 ⊗ φ)(y), the image of y in φ*𝔑 is killed by the injective map 1 ⊗ φ (Kisin 2009, 1.1.9), so y ∈ φ*𝔎 by flatness of φ. Thus 0 → 𝔎 → 𝔐 → 𝔑 → 0 is exact in (Mod/𝔖).",
+        "By the exact anti-equivalence, 𝔑 ↪ … corresponds to a closed finite flat subgroup scheme Γ̃ ⊆ H × H′ with Γ̃(K̄) = image of T*(𝔑) = T*(N) = Γ. Being defined over 𝒪_K, Γ̃(K̄) is G_K-stable, so Γ is, and f is G_K-equivariant."
+      ],
+      "acceptance": [
+        "H = H′ = μ_p: Hom_{G_{K∞}}(μ_p, μ_p) = Hom_{G_K}(μ_p, μ_p) = 𝔽_p.",
+        "The finite flat hypothesis is needed: let μ_p ⊂ K and V the extension 0 → μ_p → V → ℤ/p → 0 given by the Kummer class of π. On G_{K∞} the class dies (π₁ ∈ K_∞), so V ≅ μ_p ⊕ ℤ/p there but not over G_K; consistently V is not finite flat, since the fppf classes H¹(𝒪_K, μ_p) = 𝒪_K^×/(𝒪_K^×)^p do not contain the class of π."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-flat-classification",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/dyadic-classification",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kim12",
+          "locator": "§4, Corollary 4.4, p. 11 (arXiv v3)",
+          "excerpt": "The functor T T |GK∞ from the category of p∞ -torsion G K -representations coming from some finite flat group scheme over OK to the category of p∞ -torsion G K∞ -representations is fully faithful.",
+          "match": "The corollary; Kim attributes the deduction to Breuil [Bre02, Theorem 3.4.3]."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/FiniteFlat",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/flat-generic-fibre",
+          "how": "Breuil's full faithfulness of restriction from G_K to G_{K∞} on finite flat representations (requested from R07.4)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/dyadic-classification",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "The dyadic classification of p-divisible groups and finite flat group schemes",
+      "kind": "theorem",
+      "statement": "Let p = 2 and 𝒪_K a 2-adic discrete valuation ring with perfect residue field. (1) The functor G ↦ 𝔐_G = 𝔐*(T_p(G)) is an anti-equivalence from 2-divisible groups over 𝒪_K to Mod_𝔖(φ)^{≤1} = BT^φ_{/𝔖}, with a natural G_{K∞}-isomorphism T_p(G) ≅ T*_𝔖(𝔐_G). (2) 𝔻*(G)(S) = S ⊗_{φ,𝔖} 𝔐_G as strongly divisible S-lattices, and G ↦ 𝔐_G takes short exact sequences to short exact sequences. (3) There is an exact anti-equivalence H ↦ 𝔐_H from 2-power order finite flat group schemes over 𝒪_K to (Mod/𝔖)^{≤1}, with H(K̄) ≅ T*_𝔖(𝔐_H) G_{K∞}-equivariantly, 𝔐*(T_p(G)) ≅ lim_n 𝔐_{G[2ⁿ]}, and S ⊗_{φ,𝔖} 𝔐_H ≅ 𝔻*(H)(S) respecting Fil¹ and φ₁. Kisin (Invent. 2009, Theorem 0.8) proved the connected case earlier: connected objects of BT^φ_{/𝔖} (resp. (Mod/𝔖)) correspond to connected 2-divisible groups (resp. connected finite flat group schemes), in Kisin's covariant normalisation.",
+      "hypotheses": [
+        "k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield.",
+        "Conventions: HT(χ_cyc) = +1. Kisin's functors are contravariant: D = Hom_{G_K}(V, B⁺_cris) (resp. B⁺_st) and V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur); so V is effective (Fil⁰D_K = D_K) iff its Hodge–Tate weights are ≥ 0, and V_p(μ_{p^∞}) = ℚ_p(1) has weight 1. Kisin 2006's introduction uses the opposite sign in Theorem (0.1) and the paragraph before Theorem (0.3) (source issue E3).",
+        "Kim's proof of (1) shows that the G_{K∞}-stable lattice T*_𝔖(𝔐) in V_p(G′) is G_K-stable (Kim, Proposition 4.5, via Propositions 5.4–5.5), then applies Raynaud's limit theorem ([Ray74] Proposition 2.3.1). Lau (displays and windows) and Liu ((φ, Ĝ)-modules) gave independent proofs; only Kim's paper is read here.",
+        "Kisin's connected case uses Zink's windows and displays; only its statement is read here."
+      ],
+      "proofSteps": [
+        "Full faithfulness of 𝔐* ∘ T_p: Tate's theorem with Kisin's full faithfulness (Kim, Theorem 2.3(1)–(2)).",
+        "Essential surjectivity: for 𝔐 ∈ BT^φ_{/𝔖}, Kisin's isogeny statement gives G′ with 𝔐[1/2] ≅ 𝔐*(T_p(G′))[1/2]; T = T*_𝔖(𝔐) is a G_{K∞}-stable lattice in V = V_p(G′) (Kim, §4).",
+        "Kim, Proposition 4.5: T is G_K-stable (Kim §5, using Breuil's strongly divisible S-lattices at p = 2 as far as they work, Propositions 5.4–5.5).",
+        "A G_K-stable lattice in V_p(G′) is T_p of a 2-divisible group isogenous to G′: take the schematic closure of the finite subgroup cut out by the lattice (Raynaud's limit theorem; R07.1/schematic-closure-of-generic-subgroups and R07.1/raynaud-extension-of-generic-p-divisible).",
+        "(2) is Kim, Proposition 4.2 (§§5.6–5.7), using exactness of 𝔻*. (3): write H = ker(f : G → G′) for an isogeny (Raynaud), set 𝔐_H = coker 𝔐*(T_p(f)), independent of f by (2); the proof of Kisin 2006, 2.3.5 then applies (Kim, Corollary 4.3), exactness being Kim, Proposition 5.7.3."
+      ],
+      "acceptance": [
+        "μ_{2^∞} and ℚ₂/ℤ₂ correspond to the two rank-one objects; E[2^∞] of an elliptic curve with good reduction over 𝒪_K gives a rank-two object, connected iff the reduction is supersingular.",
+        "Before Kim, BT^φ_{/𝔖} at p = 2 classified 2-divisible groups only up to isogeny (Kisin 2006, 2.2.7), and integrally only the connected ones (Kisin 2009 Invent., 0.8)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-p-divisible-classification",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-s-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-height-lattices",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-restriction-full-faithfulness",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/schematic-closure-of-generic-subgroups",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-extension-of-generic-p-divisible",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/tate-generic-fibre-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kim12",
+          "locator": "§4, Theorem 4.1, p. 10 (arXiv v3)",
+          "excerpt": "Assume that OK is a 2-adic discrete valuation ring with perfect residue field. Then the functor M∗ ◦ Tp is an anti-equivalence of categories.",
+          "match": "(1)."
+        },
+        {
+          "sourceId": "Kim12",
+          "locator": "§4, Corollary 4.3, p. 10 (arXiv v3)",
+          "excerpt": "There exists an exact anti-equivalence of categories H MH from the category of p-power order finite flat group schemes over OK to (Mod /S)⩽1 which satisfies the following properties:",
+          "match": "(3)."
+        },
+        {
+          "sourceId": "Kisin09b",
+          "locator": "Introduction, Theorem (0.8), p. 4 (author DVI)",
+          "excerpt": "The category BT ϕ,f /𝔖 is equivalent to the category of connected p-divisible groups over 𝒪K . The category (Mod /𝔖) c is equivalent to the category of connected finite flat 𝒪K -group schemes of p-power order.",
+          "match": "The connected case."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/Dyadic",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The dyadic classification"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/finite-flat-restriction-full-faithfulness",
+          "how": "The classification at p = 2 with Galois compatibility."
+        },
+        {
+          "where": "PadicHodgeTheory:R06.4/barsotti-tate-crystalline-criterion",
+          "how": "The integral classification at p = 2 (Kim, Lau, Liu; requested from R07.4)."
+        }
+      ]
     }
   ],
   "requests": [
@@ -4364,6 +5857,37 @@
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-ring-S",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-period-comparison"
       ]
+    },
+    {
+      "supplier": "PhiGammaModulesAndIwasawaCohomology:PG.0",
+      "need": "The field of norms of the Kummer tower K_∞ = ∪_n K(π_n) (π_0 = π a uniformiser of K, π_{n+1}^p = π_n): K_∞/K is strictly APF, X_K(K_∞) ≅ k((u)) with u ↦ π̃ = (π_n) ∈ R, and G_{K∞} ≅ Gal(k((u))^sep/k((u))) compatibly with the embedding of k((u))^sep into Fr R (Breuil, Une application du corps des normes, 2.1.1, as cited by Kisin; Wintenberger). PG.0 plans the cyclotomic tower; this is the Kummer instance of the same input.",
+      "neededBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules"
+      ]
+    },
+    {
+      "supplier": "PhiGammaModulesAndIwasawaCohomology:PG.1",
+      "need": "Fontaine's equivalence for an arbitrary field E of characteristic p with Cohen ring 𝒪_ℰ and Frobenius lift, independent of any Γ-action: finitely generated étale φ-modules over 𝒪_ℰ (torsion or free) ↔ continuous ℤ_p-representations of G_E via M ↦ (𝒪̂_{ℰ^ur} ⊗ M)^{φ=1}, exact, with ⊗, duals and lattices (Fontaine, Représentations p-adiques des corps locaux, A.1.2.6–A.1.2.7), and the comparison B.1.8.4 used by Kisin for 𝔖^ur[1/p]/𝔖^ur ⊂ ℰ^ur/𝒪_{ℰ^ur}.",
+      "neededBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kummer-etale-phi-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-etale-full-faithfulness"
+      ]
+    },
+    {
+      "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.1",
+      "need": "Kedlaya's slope theory for φ-modules over the Robba ring ℛ = lim_{r→1} 𝒪_{(r,1)} (with φ(u) = u^p on W-coefficients): slopes via ℛ^alg (Kedlaya, A p-adic local monodromy theorem, Theorem 4.16), the equivalence of pure slope-s modules over the bounded Robba ring and over ℛ (Kedlaya, Slope filtrations revisited, Theorem 6.3.3), the slope filtration (Kedlaya 2004, Theorem 6.10), and Lemma 4.1 and Propositions 4.4, 4.5, 5.13 and 6.5 of Kedlaya 2004 as Kisin 2006 §1.3 uses them.",
+      "neededBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/weakly-admissible-slope-zero"
+      ]
+    },
+    {
+      "supplier": "PadicHodgeTheory:R06.1",
+      "need": "B⁺_st presented as B⁺_cris[log[π̃]] with log[π̃] formally adjoined for the Kummer element π̃ = (π_n) ∈ R of a uniformiser π of a ramified K (N = −d/d log[π̃], φ(log[π̃]) = p·log[π̃], G_K acting through the Kummer cocycle of π), compared with R06.1's presentation via p^♭; and Fil¹A_cris with φ₁ = φ/p on it, as Kisin 2006 §2.1.1 and Lemma 2.2.4 use.",
+      "neededBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/semistable-finite-height",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/tate-module-acris"
+      ]
     }
   ],
   "coverage": [
@@ -4393,9 +5917,14 @@
     },
     {
       "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Breuil–Kisin modules, including the dyadic theorem."
+        "Descent data and the potentially Barsotti–Tate case: Breuil–Mézard and Savitt strongly divisible modules with tame descent data (Savitt §§2–5, requested by LocalGaloisDeformationRings R08.4/savitt-weight-two-rings), and Kisin modules with descent data for the potentially Barsotti–Tate representations of KW and Kisin.",
+        "Generic-fibre comparison with coefficients: Kisin 2009 §§1.2–1.3 and §2 (finite flat models with A-coefficients, (1.2.7)–(1.2.9), moduli of finite flat models and their generic fibres) beyond the multiplicative/étale dictionary.",
+        "Weights beyond {0, 1}: Kisin modules for crystalline representations with Hodge–Tate weights {0, p − 1} and {0, p} and the reductions of Khare–Wintenberger I, Theorem 4.1 (requested by PadicHodgeTheory R06.4 (b)); the merely potentially semistable case (Kisin 2008 §2).",
+        "The comparison of Breuil–Kisin and Wach modules for K = K₀ (requested by PadicHodgeTheory for P7).",
+        "Cited but not read: Breuil's torsion S-module theory ([Br 3] 4.2.1.6, 4.2.2.5, 4.2.2.9) behind Kisin 2009 (1.1.3) and (2.2.22); Faltings 1999, Theorem 7 (Lemma 2.2.4); Raynaud's embedding theorem (BBM 3.1.1); Kim §5 (Propositions 4.5, 5.4, 5.5, 5.7.3); Kisin 2009b §1 (Zink's windows); and the independent dyadic proofs of Lau and Liu.",
+        "R07.4/breuil-s-modules takes the Dieudonné crystal on S and Grothendieck–Messing theory from R07.2, where they are still to be planned."
       ]
     },
     {
@@ -4443,6 +5972,141 @@
       "searched": [
         "Numdam item ASENS_1982_4_15_4_547_0 (no erratum attached)",
         "Annales scientifiques de l'ENS, tome 15 (1982) tables of contents on Numdam (no correction listed)"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E3",
+      "source": "Kisin06",
+      "kind": "misprint",
+      "locator": "Introduction, Theorem (0.1) and the paragraph before Theorem (0.3), pp. 2–3 (author DVI)",
+      "printed": "Theorem (0.1). The category of crystalline representations with all Hodge-Tate weights ⩽ 0, admits a fully faithful embedding … for crystalline representations with all Hodge-Tate weights equal to 0 or −1, there is a refinement of Theorem (0.1). … Theorem (0.3). Any crystalline representation with all Hodge-Tate weights equal to 0 or 1 arises from a p-divisible group.",
+      "correction": "One convention throughout: in the body's convention (HT(χ_cyc) = +1), Theorem (0.1) should say 'weights ⩾ 0' and the paragraph 'equal to 0 or 1'; Theorem (0.3) is then correct as printed.",
+      "reason": "Theorem (0.1) and the paragraph after Theorem (0.2) use HT(χ_cyc) = −1, while Theorem (0.3), the abstract ('Hodge-Tate weights 0,1'), the proof of (2.1.14) ('non-negative Hodge-Tate weights') and (2.2.6) use HT(χ_cyc) = +1, which is what effectivity of D = Hom(V, B⁺_cris) gives. Read in the convention of the preceding paragraph, Theorem (0.3) would claim that representations such as ℚ_p(−1) come from p-divisible groups. The glyph in (0.1) is msam10 character 54, ⩽, decoded from the DVI font tables.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Kisin 2008 (J. Amer. Math. Soc. 21), 'Errata for [Ki 2]', (E.1)–(E.5), author DVI pp. 33–34",
+        "http://people.math.harvard.edu/~kisin/ (the author's paper list; no other erratum listed)",
+        "Kim, arXiv:1007.1904v3, §1 (history of the classification)"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E4",
+      "source": "Kisin06",
+      "kind": "misprint",
+      "locator": "§2.3, first paragraph, p. 27 (author DVI)",
+      "printed": "In this final subsection of the paper, we use (2.2.5) to give a classification of finite flat group schemes over 𝒪K .",
+      "correction": "'we use (2.2.7)'.",
+      "reason": "(2.2.5) is a remark that Breuil's calculations also give the isomorphism of Lemma (2.2.4); the classification of finite flat group schemes rests on Theorem (2.2.7), which the proof of Theorem (2.3.5) cites.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Kisin 2008 (J. Amer. Math. Soc. 21), 'Errata for [Ki 2]', (E.1)–(E.5), author DVI pp. 33–34",
+        "http://people.math.harvard.edu/~kisin/ (the author's paper list; no other erratum listed)",
+        "Kim, arXiv:1007.1904v3, §1 (history of the classification)"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E5",
+      "source": "Kisin06",
+      "kind": "misprint",
+      "locator": "§1.3.3, first sentence, p. 14 (author DVI)",
+      "printed": "We want to show that if 𝒨 in Mod ϕ /𝒭 arises from a module 𝒨𝒪 in Mod ϕ,N? /𝒪 , then the slope filtration of (4) is induced by a filtration on 𝒨𝒪 .",
+      "correction": "'the slope filtration of (1.3.2)(2)'.",
+      "reason": "The slope filtration is part (2) of Theorem (1.3.2), which has only two parts; there is no item (4) nearby.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Kisin 2008 (J. Amer. Math. Soc. 21), 'Errata for [Ki 2]', (E.1)–(E.5), author DVI pp. 33–34",
+        "http://people.math.harvard.edu/~kisin/ (the author's paper list; no other erratum listed)",
+        "Kim, arXiv:1007.1904v3, §1 (history of the classification)"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E6",
+      "source": "Kisin06",
+      "kind": "gap",
+      "locator": "§2.3, Theorem (2.3.5) and Corollary (2.3.6), pp. 28–29 (author DVI)",
+      "printed": "Theorem (2.3.5). There is an exact anti-equivalence between (Mod /𝔖) and the category (p-Gr /𝒪K ) of finite flat group schemes over 𝒪K .",
+      "correction": "Add the hypothesis p > 2 to Theorem (2.3.5) and Corollary (2.3.6), as in Theorem (0.5) of the introduction ('For p > 2, the category (Mod /𝔖) is equivalent to the category of finite flat group schemes over 𝒪K').",
+      "reason": "The proof identifies isogenies of p-divisible groups with two-term complexes in BT^φ_{/𝔖} 'by (2.2.7)', and (2.2.7) is an equivalence only up to isogeny when p = 2, which says nothing about kernels of isogenies. The statement at p = 2 is true, but its proof came afterwards, from Kim (Corollary 4.3 of arXiv:1007.1904), Lau and Liu.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "Kisin 2008 (J. Amer. Math. Soc. 21), 'Errata for [Ki 2]', (E.1)–(E.5), author DVI pp. 33–34",
+        "http://people.math.harvard.edu/~kisin/ (the author's paper list; no other erratum listed)",
+        "Kim, arXiv:1007.1904v3, §1 (history of the classification)"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E7",
+      "source": "Kisin09",
+      "kind": "misprint",
+      "locator": "§2.2, proof of Corollary (2.2.22), p. 29 (author DVI)",
+      "printed": "By (1.2.5) there exists 𝔐1 in (Mod FI /S)𝔽p which maps to 𝒨1 under the functor of (1.2.5).",
+      "correction": "'𝔐1 in (Mod FI /𝔖)𝔽p'.",
+      "reason": "The functor of (1.2.5) (from (1.2.4)) goes from (Mod FI/𝔖)_A to (Mod FI/S)_A, and 𝔐1 is the 𝔖-module being constructed; the DVI distinguishes the Fraktur 𝔖 from the script S, so this is not an extraction artefact.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "http://people.math.harvard.edu/~kisin/ (no erratum listed for this paper)",
+        "Kisin 2008, 'Errata for [Ki 2]' (concerns only the 2006 paper)"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E8",
+      "source": "Kisin06",
+      "kind": "error",
+      "locator": "§1.3, proof of Lemma (1.3.5), p. 15 (author DVI)",
+      "printed": "Let s0 : 𝒨/u𝒨 → 𝒨 be any K0 -linear map lifting the identity on 𝒨/u𝒨. We define a new section by s = Σ_{i=0}^∞ ∇(d/du)^i(s0)(−u)^i/i! …",
+      "correction": "Kisin 2008, Errata (E.1): s = Σ sᵢuⁱ with s₀ lifting the identity, s₁ = −(1 − N)⁻¹∇(d/du)(s₀) and s_{i+1} = −(1 + i − N)⁻¹(∇(d/du) + N/u)(sᵢ), convergent for |u| small since N is nilpotent.",
+      "reason": "The printed formula does not converge in general unless N = 0 (Kisin's erratum).",
+      "affects": "the proof",
+      "known": "Kisin 2008, 'Errata for [Ki 2]', (E.1)",
+      "searched": [
+        "Kisin 2008 (J. Amer. Math. Soc. 21), 'Errata for [Ki 2]', (E.1)–(E.5), author DVI pp. 33–34"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E9",
+      "source": "Kisin06",
+      "kind": "error",
+      "locator": "§2.1.1, p. 20 (author DVI)",
+      "printed": "If Fr R denotes the field of fractions of R, then the inclusion 𝔖 ,→ W(R) extends to an inclusion 𝒠 ,→ W(Fr R). … We regard all these rings as subrings of W(R).",
+      "correction": "Kisin 2008, Errata (E.3): ℰ embeds in W(Fr R)[1/p]; ℰ̂^ur is the p-adic closure of ℰ^ur in W(Fr R)[1/p]; 𝔖^ur = 𝒪̂_{ℰ^ur} ∩ W(R).",
+      "reason": "ℰ = 𝒪_ℰ[1/p] contains 1/p, so it cannot lie in W(Fr R); and 𝒪̂_{ℰ^ur} is not contained in W(R). Used in R07.4/bk-coefficient-rings.",
+      "affects": "nothing",
+      "known": "Kisin 2008, 'Errata for [Ki 2]', (E.3)",
+      "searched": [
+        "Kisin 2008 (J. Amer. Math. Soc. 21), 'Errata for [Ki 2]', (E.1)–(E.5), author DVI pp. 33–34"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E10",
+      "source": "Kisin06",
+      "kind": "gap",
+      "locator": "§2.1, proof of Proposition (2.1.12), p. 23 (author DVI)",
+      "printed": "Now consider the case of any map h. Let 𝒨3 = h(𝒨1 ), 𝔐3 = h(𝔐1 ), …",
+      "correction": "Kisin 2008, Errata (E.4): replace 𝔐₂ by 𝔐₁ ⊕ 𝔐₂ and h by its graph, so h is injective; then 𝔐₁, 𝔐₂ ⊆ Hom_{G_{K∞}}(V_𝔖(𝔐₂), 𝔖^ur), 𝔐₃ = 𝔐₁ + 𝔐₂ has F(𝔐₃) = 𝔐₂ by (2.1.9), and 𝔐₁ ⊆ 𝔐₂.",
+      "reason": "It is not clear that 𝒪_ℰ ⊗ 𝔐₃ → 𝓜₃ is an isomorphism, so the identity case cannot be applied to conclude F(𝔐₃) = F(𝔐′₃) (found by Brian Conrad; Kisin's erratum). The proposition is true; R07.4/kisin-etale-full-faithfulness plans the repaired proof.",
+      "affects": "the proof",
+      "known": "Kisin 2008, 'Errata for [Ki 2]', (E.4)",
+      "searched": [
+        "Kisin 2008 (J. Amer. Math. Soc. 21), 'Errata for [Ki 2]', (E.1)–(E.5), author DVI pp. 33–34"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E11",
+      "source": "Kisin06",
+      "kind": "misprint",
+      "locator": "§2.3.3, p. 28 (author DVI)",
+      "printed": "Concretely, (Mod /𝔖)• is obtained by taking the category of two term complexes 𝔐• , as above, dividing by homotopy equivalences",
+      "correction": "Kisin 2008, Errata (E.5): 'dividing by homotopies'.",
+      "reason": "One divides the morphisms by null-homotopic ones (h∘d, d∘h), not by homotopy equivalences.",
+      "affects": "nothing",
+      "known": "Kisin 2008, 'Errata for [Ki 2]', (E.5)",
+      "searched": [
+        "Kisin 2008 (J. Amer. Math. Soc. 21), 'Errata for [Ki 2]', (E.1)–(E.5), author DVI pp. 33–34"
       ]
     }
   ],
@@ -4522,6 +6186,41 @@
       "citation": "Jean-Marc Fontaine and Guy Laffaille, Construction de représentations p-adiques",
       "read": "2026-09-28",
       "sha256": "c049a7bff113a45f8bbcffc93118bd2e651e84f8b4a38305f7cb24b34c2011a2"
+    },
+    {
+      "kind": "author copy",
+      "url": "http://people.math.harvard.edu/~kisin/dvifiles/wam.dvi",
+      "citation": "Mark Kisin, Crystalline representations and F-crystals",
+      "read": "2026-09-28",
+      "sha256": "b55e468374c44aab8b7b47e0e5ead91d016c819583c7c229c00ca0b7dbaa6bb4"
+    },
+    {
+      "kind": "author copy",
+      "url": "http://people.math.harvard.edu/~kisin/dvifiles/def.dvi",
+      "citation": "Mark Kisin, Potentially semi-stable deformation rings",
+      "read": "2026-09-28",
+      "sha256": "ca85f74a47caf411dfb7fe0fa356ef30928d5dbd2cd518bafcc13943cf483dee"
+    },
+    {
+      "kind": "author copy",
+      "url": "http://people.math.harvard.edu/~kisin/dvifiles/bt.dvi",
+      "citation": "Mark Kisin, Moduli of finite flat group schemes, and modularity",
+      "read": "2026-09-28",
+      "sha256": "242151c94cb831c526e67de6e3b70a370b65a002342074440e86fc88a2ec5f0f"
+    },
+    {
+      "kind": "author copy",
+      "url": "http://people.math.harvard.edu/~kisin/dvifiles/serre2.dvi",
+      "citation": "Mark Kisin, Modularity of 2-adic Barsotti–Tate representations",
+      "read": "2026-09-28",
+      "sha256": "a11fdea301d662ada1cd675bea21a89ba9ab0a75955e496e4a1bcdecab97bf7d"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/1007.1904v3",
+      "citation": "Wansu Kim, The classification of p-divisible groups over 2-adic discrete valuation rings",
+      "read": "2026-09-28",
+      "sha256": "c26bf0ca34a2c94b049a6b10b5bd118c4c65791be45ae91b13bdbae67496ea34"
     }
   ]
 }
