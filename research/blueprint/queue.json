@@ -16867,9 +16867,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-EllipticCurveModularity.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #714"
+   "note": "deliverables arrived from an external worker on issue #714",
+   "finishedAt": "2026-09-28T21:59:24Z"
   },
   {
    "id": "REV-EllipticCurveModularity",
@@ -17696,9 +17697,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #731"
+   "note": "claimed on GitHub issue #731"
   },
   {
    "id": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -19861,8 +19862,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularCurvesPartII--R14.3.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #775"
   },
   {
    "id": "REV-ModularCurvesPartII--R14.3",
