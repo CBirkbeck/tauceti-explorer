@@ -2188,5 +2188,6 @@
  "REV-ATT-SchurWeyl": 3657,
  "REV-ATT-VectorBundlesAndIsocrystals": 3658,
  "REV-ATT-WeilConjectures": 3659,
- "REV-SRC-ClassicalAdicEtaleCohomology": 3660
+ "REV-SRC-ClassicalAdicEtaleCohomology": 3660,
+ "REV-ATT-AutomorphicBundles": 3661
 }
