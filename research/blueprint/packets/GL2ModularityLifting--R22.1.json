@@ -102,7 +102,7 @@
    "authors": "Mark Kisin",
    "edition": "Author's preprint as a DVI file on Kisin's Harvard page (TeX output dated 21 October 2008), read through a text extraction of the DVI; printed page = DVI page (the preprint's own numbering). Published as Invent. Math. 178 (2009), 587–634.",
    "url": "https://people.math.harvard.edu/~kisin/dvifiles/serre2.dvi",
-   "sha256": "242151c94cb831c526e67de6e3b70a370b65a002342074440e86fc88a2ec5f0f",
+   "sha256": "a11fdea301d662ada1cd675bea21a89ba9ab0a75955e496e4a1bcdecab97bf7d",
    "read": "2026-09-28",
    "readSections": [
     "Introduction, Theorem (0.1), Corollaries (0.2) and (0.6), Theorem (0.9), pp. 1–5",
@@ -116,7 +116,7 @@
    "authors": "Mark Kisin",
    "edition": "Author's preprint as a DVI file on Kisin's Harvard page (TeX output dated 21 October 2008), read through a text extraction of the DVI; printed page = DVI page (the preprint's own numbering). Published as Ann. of Math. 170 (2009), 1085–1180.",
    "url": "https://people.math.harvard.edu/~kisin/dvifiles/bt.dvi",
-   "sha256": "a11fdea301d662ada1cd675bea21a89ba9ab0a75955e496e4a1bcdecab97bf7d",
+   "sha256": "242151c94cb831c526e67de6e3b70a370b65a002342074440e86fc88a2ec5f0f",
    "read": "2026-09-28",
    "readSections": [
     "Introduction, the main theorem over ℚ, p. 2",
@@ -2529,7 +2529,7 @@
    "url": "https://people.math.harvard.edu/~kisin/dvifiles/serre2.dvi",
    "citation": "Kisin, Modularity of 2-adic Barsotti–Tate representations, preprint DVI (TeX output 2008-10-21); published in Invent. Math. 178 (2009), 587–634, not read",
    "read": "2026-09-28",
-   "sha256": "242151c94cb831c526e67de6e3b70a370b65a002342074440e86fc88a2ec5f0f"
+   "sha256": "a11fdea301d662ada1cd675bea21a89ba9ab0a75955e496e4a1bcdecab97bf7d"
   }
  ]
 }
