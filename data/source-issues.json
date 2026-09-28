@@ -136151,6 +136151,26 @@
    "reviewReason": null
   },
   {
+   "id": "GrossZagierAndArithmeticHeights/E1",
+   "kind": "misprint",
+   "locator": "§1, 'Some conventions', p. 69 (SLMath PDF p. 4); against §9, p. 119 (PDF p. 54)",
+   "printed": "If x is a Heegner point with associated CM field K, we will write ux to denote the cardinality of the group of roots of unity in K (so ux = 2 unless K = Q(√−1) or K = Q(√−3)).",
+   "correction": "u_x is half that cardinality (u_x = 1 unless K = Q(√−1), Q(√−3), where it is 2, 3), as p. 119 uses it and as in Gross–Zagier's u = #O_K^×/2.",
+   "reason": "On p. 119 the same symbol appears in 'The group AutF(x) … has order 2ux with ux ∈ {1, 2, 3}'. Aut_F(x) is the unit group of the CM order, of order #μ(K) ∈ {2, 4, 6}, so there u_x = #μ(K)/2. The two uses differ by a factor of 2, which becomes 4 in any formula with u_x².",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The MSRI Publications volume page for Book 49: no errata listed",
+    "Conrad's Stanford papers page, which hosts the final version gzfinal.pdf: no separate errata list"
+   ],
+   "owner": "GrossZagierAndArithmeticHeights",
+   "file": "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.0.json",
+   "citation": "Brian Conrad (with an appendix by W. R. Mann), Gross–Zagier revisited, Heegner Points and Rankin L-Series, MSRI Publications 49 (2004) 67–163; SLMath library PDF; printed page = PDF page + 65; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HabiroCohomologyFoundations/E1",
    "kind": "misprint",
    "locator": "Section 1, the introductory definition of a q-Hodge filtration (Definition 1.6), the first display",

@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5545 new mistakes confirmed · 1542 awaiting review · 676 already corrected in print · 88 rejected on review · 18 extractions and packets not yet checked.
+5545 new mistakes confirmed · 1543 awaiting review · 676 already corrected in print · 88 rejected on review · 18 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -10581,6 +10581,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### Martin Henk, Successive Minima and Lattice Points, arXiv:math/0204158v1 (12 April 2002), seven-page preprint. Author bibliography lists Rend. Circ. Mat. Palermo (2), Suppl.70 (2002), 377–384; the publisher text was not obtained. (`GeometryOfNumbersAndQuadraticArithmetic`)
 
 - **Misprint** at arXiv math/0204158v1, p.2, sentence after (1.2); preprint only.. The source says `smallest integer not less than x`; it should be `For the displayed floor brackets, read greatest integer not greater than x.`. The image shows floor brackets, whereas the quoted words describe a ceiling. For x=3/2 the two operations give 1 and 2. The proof p.4 uses q_i=floor(2/λ_i+1), in particular q_i>2/λ_i; retain the floor convention and do not identify Conjecture 1.4 with the proved Theorem 1.5. Recorded as `GeometryOfNumbersAndQuadraticArithmetic/E9`; looked for an existing correction in: 2026-09-27: https://arxiv.org/abs/math/0204158 lists only v1, 12 April 2002.; 2026-09-27: https://page.math.tu-berlin.de/~henk/publications.html lists the publication and arXiv link, with no correction located.; 2026-09-27: exact title/author with errata/correction and the floor-wording search found no separate correction. The freely read preprint is the scope; the version of record was not obtained..
+
+### Brian Conrad (with an appendix by W. R. Mann), Gross–Zagier revisited, Heegner Points and Rankin L-Series, MSRI Publications 49 (2004) 67–163; SLMath library PDF; printed page = PDF page + 65; accessed 2026-09-28 (`GrossZagierAndArithmeticHeights`)
+
+- **Misprint** at §1, 'Some conventions', p. 69 (SLMath PDF p. 4); against §9, p. 119 (PDF p. 54). The source says `If x is a Heegner point with associated CM field K, we will write ux to denote the cardinality of the group of roots of unity in K (so ux = 2 unless K = Q(√−1) or K = Q(√−3)).`; it should be `u_x is half that cardinality (u_x = 1 unless K = Q(√−1), Q(√−3), where it is 2, 3), as p. 119 uses it and as in Gross–Zagier's u = #O_K^×/2.`. On p. 119 the same symbol appears in 'The group AutF(x) … has order 2ux with ux ∈ {1, 2, 3}'. Aut_F(x) is the unit group of the CM order, of order #μ(K) ∈ {2, 4, 6}, so there u_x = #μ(K)/2. The two uses differ by a factor of 2, which becomes 4 in any formula with u_x². Recorded as `GrossZagierAndArithmeticHeights/E1`; looked for an existing correction in: The MSRI Publications volume page for Book 49: no errata listed; Conrad's Stanford papers page, which hosts the final version gzfinal.pdf: no separate errata list.
 
 ### Aise Johan de Jong, Notes on Heights, Undated author-hosted course notes, linked by the Spring 2022 Schemes course page; 13-page copy accessed 2026-09-27 (`HeightsRationalPointsAndObstructions`)
 
