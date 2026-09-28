@@ -261,6 +261,17 @@
     "data/blueprints/AdicEtaleGeometry.md"
    ]
   },
+  "research/blueprint/packets/AdicSpacesPartII.json": {
+   "promotedAt": "2026-09-28T16:41:36Z",
+   "review": "0440a3b6b619199a",
+   "reviewDate": "2026-09-28",
+   "reviewer": "independent-review-REV-AdicSpacesPartII",
+   "sha256": "6550a585be72538702895ca7732888481c7823fb209bd826e392f6595d428894",
+   "to": [
+    "data/blueprints/AdicSpacesPartII.json",
+    "data/blueprints/AdicSpacesPartII.md"
+   ]
+  },
   "research/blueprint/packets/ArithmeticKTheory--N.1.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "66a047520a5fe117",
