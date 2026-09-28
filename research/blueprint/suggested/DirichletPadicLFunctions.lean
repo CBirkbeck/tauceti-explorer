@@ -1,3 +1,4 @@
+import Mathlib.Topology.Algebra.ContinuousMonoidHom
 import Mathlib.NumberTheory.LSeries.DirichletContinuation
 import Mathlib.NumberTheory.BernoulliPolynomials
 import Mathlib.Data.Nat.Choose.Vandermonde
@@ -3327,3 +3328,166 @@ example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) (hD : IsUnit (3 : ℂ)
       iteratedDeriv 2 (tameComplexKernel η) 0 / 2 := by sorry
 end
 end SuggestedComplexGaussTests
+
+
+/-! Actual tame values at native continuous unit characters.
+The generic character space and its analytic branch coordinates remain with their owners. -/
+namespace DirichletPadic
+noncomputable section
+open ContinuousMonoidHom
+variable {p : ℕ} [Fact p.Prime] {K : Type*} [NontriviallyNormedField K]
+  [IsUltrametricDist K] [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K]
+  [CompleteSpace K] {D : ℕ} [NeZero D]
+local notation "U" => (ℤ_[p])ˣ
+
+def tameCharacterValue (η : DirichletCharacter K D) (hD : IsUnit (D : K))
+    (hpD : ¬p ∣ D) (κ : U →ₜ* K) : K :=
+  AbstractMeasure.restrictUnits p K (tameZetaMeasure η hD hpD) κ.toContinuousMap
+
+theorem tameCharacterValue_def (η : DirichletCharacter K D) (hD : IsUnit (D : K))
+    (hpD : ¬p ∣ D) (κ : U →ₜ* K) :
+    tameCharacterValue η hD hpD κ =
+      AbstractMeasure.restrictUnits p K (tameZetaMeasure η hD hpD) κ.toContinuousMap := by rfl
+
+theorem tameCharacterValue_one_level (η : DirichletCharacter K 1)
+    (hD : IsUnit ((1 : ℕ) : K)) (hpD : ¬p ∣ 1) (κ : U →ₜ* K) :
+    tameCharacterValue η hD hpD κ = 0 := by sorry
+
+theorem tameCharacterValue_one (η : DirichletCharacter K D) (hD : IsUnit (D : K))
+    (hpD : ¬p ∣ D) : tameCharacterValue η hD hpD (1 : U →ₜ* K) =
+      tameZetaMeasure η hD hpD (1 : C(ℤ_[p],K)) := by sorry
+
+theorem tameCharacterValue_eq_ambient (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (κ : U →ₜ* K)
+    (f : C(ℤ_[p],K)) (hf : ∀ u : U, f (u : ℤ_[p]) = κ u) :
+    tameCharacterValue η hD hpD κ = tameZetaMeasure η hD hpD f := by sorry
+
+theorem tameCharacterValue_norm_le_one (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (κ : U →ₜ* K) :
+    ‖tameCharacterValue η hD hpD κ‖ ≤ 1 := by sorry
+
+theorem tameCharacterValue_mem_integer (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (κ : U →ₜ* K) :
+    tameCharacterValue η hD hpD κ ∈ Valuation.integer (NormedField.valuation (K := K)) := by sorry
+
+theorem tameCharacterValue_sub_norm_le (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (κ ξ : U →ₜ* K) :
+    ‖tameCharacterValue η hD hpD κ-tameCharacterValue η hD hpD ξ‖ ≤
+      ‖κ.toContinuousMap-ξ.toContinuousMap‖ := by sorry
+
+theorem tameCharacterValue_tendsto {ι : Type*} (l : Filter ι)
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (κ : ι → U →ₜ* K) (ξ : U →ₜ* K)
+    (hκ : Filter.Tendsto (fun i => (κ i).toContinuousMap) l (nhds ξ.toContinuousMap)) :
+    Filter.Tendsto (fun i => tameCharacterValue η hD hpD (κ i)) l
+      (nhds (tameCharacterValue η hD hpD ξ)) := by sorry
+
+theorem tameCharacterValue_eq_zero_of_parity (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1)
+    (κ : U →ₜ* K) (hpar : κ (-1) ≠ η (-1)) :
+    tameCharacterValue η hD hpD κ = 0 := by sorry
+
+theorem tameCharacterValue_analyticAt (η : DirichletCharacter K D)
+    (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (κ : K → U →ₜ* K) (s : K)
+    (hκ : AnalyticAt K (fun z => (κ z).toContinuousMap) s) :
+    AnalyticAt K (fun z => tameCharacterValue η hD hpD (κ z)) s := by sorry
+
+variable [CharZero K] [Algebra ℚ K]
+theorem tameCharacterValue_arithmetic (n : ℕ) (χ : DirichletCharacter K (p^n))
+    (η : DirichletCharacter K D) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D) (hη : η ≠ 1)
+    (k : ℕ) (hk : 1 ≤ k) (κ : U →ₜ* K)
+    (hκ : ∀ u : U, κ u = primePowerCharacter p n χ (u : ℤ_[p]) *
+      (algebraMap ℤ_[p] K (u : ℤ_[p]))^k) :
+    let θ : DirichletCharacter K (D*p^n) :=
+      η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    tameCharacterValue η hD hpD κ =
+      (1-θ (p : ZMod (D*p^n))*(p : K)^(k-1)) *
+      (-((D*p^n : ℕ) : K)^(k-1)/k * ∑ a : ZMod (D*p^n),
+        θ a * algebraMap ℚ K ((Polynomial.bernoulli k).eval (a.val/(D*p^n) : ℚ))) := by sorry
+
+theorem tameCharacterValue_common_special_value {E : Type*} [Field E] [CharZero E] [Algebra ℚ E]
+    (n : ℕ) (χ : DirichletCharacter E (p^n)) (η : DirichletCharacter E D) (hη : η ≠ 1)
+    (ιC : E →+* ℂ) (ιK : E →+* K) (hD : IsUnit (D : K)) (hpD : ¬p ∣ D)
+    (k : ℕ) (hk : 1 ≤ k) (κ : U →ₜ* K)
+    (hκ : ∀ u : U, κ u = primePowerCharacter p n (χ.ringHomComp ιK) (u : ℤ_[p]) *
+      (algebraMap ℤ_[p] K (u : ℤ_[p]))^k) :
+    let θ : DirichletCharacter E (D*p^n) := η.changeLevel (D.dvd_mul_right (p^n)) * χ.changeLevel ((p^n).dvd_mul_left D)
+    let b : E := (1-θ (p : ZMod (D*p^n))*(p : E)^(k-1)) *
+      (-((D*p^n : ℕ) : E)^(k-1)/k * ∑ a : ZMod (D*p^n),
+        θ a * algebraMap ℚ E ((Polynomial.bernoulli k).eval (a.val/(D*p^n) : ℚ)))
+    ιC b = (1-(θ.ringHomComp ιC) (p : ZMod (D*p^n))*(p : ℂ)^(k-1)) *
+      DirichletCharacter.LFunction (θ.ringHomComp ιC) (1-(k : ℂ)) ∧
+    ιK b = tameCharacterValue (η.ringHomComp ιK) hD hpD κ := by sorry
+end
+end DirichletPadic
+
+namespace SuggestedCharacterIntegralTests
+local instance (p : ℕ) [Fact p.Prime] : IsBoundedSMul ℤ_[p] ℚ_[p] :=
+  IsBoundedSMul.of_norm_smul_le (fun x y => by
+    change ‖(x : ℚ_[p])*y‖ ≤ ‖(x : ℚ_[p])‖*‖y‖
+    exact le_of_eq (norm_mul (x : ℚ_[p]) y))
+open DirichletPadic ContinuousMonoidHom
+noncomputable section
+-- one_level: the actual arithmetic measure is zero at modulus one.
+example (η : DirichletCharacter ℚ_[2] 1) (hD : IsUnit ((1 : ℕ) : ℚ_[2]))
+    (hpD : ¬2 ∣ 1) (κ : (ℤ_[2])ˣ →ₜ* ℚ_[2]) : tameCharacterValue η hD hpD κ = 0 := by sorry
+-- trivial_character: evaluation at the trivial character is the unit-supported mass.
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3) :
+    tameCharacterValue η hD hpD (1 : (ℤ_[2])ˣ →ₜ* ℚ_[2]) =
+      tameZetaMeasure η hD hpD (1 : C(ℤ_[2],ℚ_[2])) := by sorry
+-- identity_character: the modulus-three quadratic has first value two-thirds.
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (κ : (ℤ_[2])ˣ →ₜ* ℚ_[2]) (hκ : ∀ u, κ u = ((u : ℤ_[2]) : ℚ_[2])) :
+    tameCharacterValue η hD hpD κ = 2/3 := by sorry
+-- two_extensions: changing an ambient test away from the units changes no value.
+example (η : DirichletCharacter ℚ_[3] 4) (hD : IsUnit (4 : ℚ_[3])) (hpD : ¬3 ∣ 4)
+    (κ : (ℤ_[3])ˣ →ₜ* ℚ_[3]) (f g : C(ℤ_[3],ℚ_[3]))
+    (hf : ∀ u : (ℤ_[3])ˣ, f (u : ℤ_[3]) = κ u)
+    (hg : ∀ u : (ℤ_[3])ˣ, g (u : ℤ_[3]) = κ u) :
+    tameZetaMeasure η hD hpD f = tameZetaMeasure η hD hpD g := by sorry
+-- integral_bound: every continuous character has an integral tame value, including p=2.
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (κ : (ℤ_[2])ˣ →ₜ* ℚ_[2]) : ‖tameCharacterValue η hD hpD κ‖ ≤ 1 := by sorry
+-- identity_nonzero: the continuous-character functional is not identically zero.
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (κ : (ℤ_[2])ˣ →ₜ* ℚ_[2]) (hκ : ∀ u, κ u = ((u : ℤ_[2]) : ℚ_[2])) :
+    tameCharacterValue η hD hpD κ ≠ 0 := by sorry
+-- identical_characters: the difference bound has zero right side for identical tests.
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (κ : (ℤ_[2])ˣ →ₜ* ℚ_[2]) :
+    ‖tameCharacterValue η hD hpD (κ*1)-tameCharacterValue η hD hpD κ‖ = 0 := by sorry
+-- quadratic_weight_difference: actual finite character weights give the difference -48.
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (κ ξ : (ℤ_[2])ˣ →ₜ* ℚ_[2])
+    (hκ : ∀ u, κ u = primePowerCharacter 2 2 χ (u : ℤ_[2]) * (((u : ℤ_[2]) : ℚ_[2])^2))
+    (hξ : ∀ u, ξ u = primePowerCharacter 2 2 χ (u : ℤ_[2]) * (((u : ℤ_[2]) : ℚ_[2])^4)) :
+    tameCharacterValue η hD hpD κ-tameCharacterValue η hD hpD ξ = -48 := by sorry
+-- even_weight_vanishes: the square character has wrong sign for the odd tame measure.
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (κ : (ℤ_[2])ˣ →ₜ* ℚ_[2]) (hκ : ∀ u, κ u = (((u : ℤ_[2]) : ℚ_[2])^2)) :
+    tameCharacterValue η hD hpD κ = 0 := by sorry
+-- matching_sign_nonzero: the quadratic finite twist changes the parity and gives -2.
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (κ : (ℤ_[2])ˣ →ₜ* ℚ_[2])
+    (hκ : ∀ u, κ u = primePowerCharacter 2 2 χ (u : ℤ_[2]) * (((u : ℤ_[2]) : ℚ_[2])^2)) :
+    tameCharacterValue η hD hpD κ = -2 := by sorry
+-- fourth_arithmetic_value: the same finite twist in degree four gives 46.
+example (η : DirichletCharacter ℚ_[2] 3) (hη : η 2 = -1)
+    (χ : DirichletCharacter ℚ_[2] (2^2)) (hχ : χ 3 = -1)
+    (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (κ : (ℤ_[2])ˣ →ₜ* ℚ_[2])
+    (hκ : ∀ u, κ u = primePowerCharacter 2 2 χ (u : ℤ_[2]) * (((u : ℤ_[2]) : ℚ_[2])^4)) :
+    tameCharacterValue η hD hpD κ = 46 := by sorry
+-- constant_family: the analytic transfer includes constant actual character families.
+example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : ¬2 ∣ 3)
+    (κ : (ℤ_[2])ˣ →ₜ* ℚ_[2]) (s : ℚ_[2]) :
+    AnalyticAt ℚ_[2] (fun _ : ℚ_[2] => tameCharacterValue η hD hpD κ) s := by sorry
+end
+end SuggestedCharacterIntegralTests

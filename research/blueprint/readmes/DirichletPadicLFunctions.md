@@ -1,4 +1,4 @@
-**Current packet:** 247 unchecked nodes: 1 definition, 26 constructions, 115 lemmas, 71 theorems and 34 comparisons. 255 API entries, 263 packet tests (137 on definitions/constructions), 266 typed examples, 23 planets and 307 baseline references. Five gaps, one L1 request, 15 findings and zero closed stages remain. The final section records the complex Gauss comparison; earlier checkpoint narratives and validation are historical.
+**Current packet:** 254 unchecked nodes: 1 definition, 27 constructions, 117 lemmas, 73 theorems and 36 comparisons. 261 API entries, 275 packet tests (140 on definitions/constructions), 278 typed examples, 23 planets and 309 baseline references. Five gaps, one L1 request, 15 findings and zero closed stages remain. The final section records the actual tame character integral; earlier checkpoint narratives and validation are historical.
 
 # Dirichlet p-adic L-functions, special values, and Eisenstein measures
 
@@ -8551,12 +8551,218 @@ For η≠1, hD:IsUnit(D:ℂ) and every k≥0, fη^(k)(0)=constantCoeff(∂^[k](t
 
 **Remaining:** The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, even-character logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed.
 
-### Complex Gauss validation
 
-All 242 predecessor nodes, 303 baseline records, 15 findings and sourceVersions are preserved whole. Nine named declarations and ten typed examples are added. The indexed blueprint, four-file intake, whitespace, scoped mutation, API/test parity and versioned source-issue checks pass. The graph has 389 reachable nodes, 1805 edges and 406 native leaves, is acyclic and has only the PMIA L1 stage request leaf. Each of the five new proof routes has no stage request leaf.
+## The actual tame continuous-character integral
 
-The full suggested module elaborates with zero errors and 620 expected placeholder warnings against 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and one verified actual PMIA artifact. The full target uses the verified actual 265-node PMIA artifact. The current 304-node supplier preserves that source in order. All ten new weak-topology records and their added signatures were read during the 294-to-304 refresh; no new supplier declaration is called here. No local compile against the 304-node supplier is claimed. The requested comparison with the existing completedGroupAlgebra carrier remains open. Source, olean and original compiler-log hashes were rechecked. Existing artifacts were reused; no Mathlib or Tau Ceti build, new Lake project or cache download was run.
+The native continuous character is evaluated against the actual intrinsic unit restriction of the tame zeta measure. This arithmetic specialization supplies norm, parity and positive-value controls; analytic branch coordinates remain with their existing owners.
 
-Four complete native lemmas prove real-axis denominator nonvanishing, its primitive-root specialization, real analyticity of the reciprocal, and the finite scalar geometric identity. The general Gauss/kernel and formal/analytic comparisons remain unchecked blueprint declarations. The probe elaborates against 2025 pinned Mathlib modules with zero errors, warnings or holes. Exact cyclotomic arithmetic checks 16 Gauss normalizations, 86 finite Fourier identities, 80 kernel values, 112 origin derivatives, 112 factorial identities and 55 root-independence comparisons for five primitive characters. The nonreal quartic character modulo 5 is computed in Q(ζ20), using the actual inverse-character weights. Every computed inverse is verified by multiplication. These finite checks do not prove generic Gauss nonvanishing or real analyticity.
+### Tame values at continuous unit characters
 
-No source finding is added. The register refresh adds four unrelated HigherLocalFieldsAndHigherClassFieldTheory/E1–E4 findings awaiting independent review. All new records and the full Markdown differences were read; all previous records remain whole. No consumed Gauss or tame-kernel contract changes.
+`DirichletPadicLFunctions:L3/tame-character-value` — `DirichletPadic.tameCharacterValue` (construction).
+
+Define Vη(κ)=ν(κ.toContinuousMap) in K using the actual intrinsic restriction of ζ.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=(ℤ_p)ˣ with its native topology, ζ=tameZetaMeasure η hD hpD and ν=AbstractMeasure.restrictUnits p K ζ. A weight κ is the existing ContinuousMonoidHom U K; its underlying continuous map is κ.toContinuousMap. No weight-space, character or measure carrier is introduced.
+
+**Proof outline:**
+
+1. Apply the existing generic restrictUnits to the actual tameZetaMeasure. Evaluate its native continuous dual on the continuous-map field of the native ContinuousMonoidHom. This is an arithmetic specialization, not a general Mellin constructor.
+2. The defining API is this literal evaluation. At D=1 the actual tame zeta measure is zero, hence every character value is zero.
+3. For the trivial character the constant-one test on U is the restriction of the ambient constant-one test. The existing inclusion/projector identity and Eζ=ζ identify its value with ζ(1).
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/tame-zeta-measure`, `DirichletPadicLFunctions:L2/tame-zeta-support`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector`, `mathlib:ContinuousMonoidHom`, `mathlib:AbstractMeasure.map_apply`.
+
+**Api:**
+
+- `DirichletPadic.tameCharacterValue_def` (characterisation): Vη(κ)=restrictUnits p K ζ(κ.toContinuousMap).
+- `DirichletPadic.tameCharacterValue_one_level` (simp): At modulus one every value is zero.
+- `DirichletPadic.tameCharacterValue_one` (simp): The trivial-character value is ζ(1).
+
+**Tests:**
+
+- `SuggestedCharacterIntegralTests.one_level` (degenerate): At D=1 every actual continuous-character value vanishes.
+- `SuggestedCharacterIntegralTests.trivial_character` (compatibility): The trivial unit character evaluates to the actual unit-supported zeta mass.
+- `SuggestedCharacterIntegralTests.identity_character` (computation): At p=2 with quadratic η modulo3, the identity unit character has value2/3.
+
+**Uses:**
+
+- RJW Definition5.18 and Remark5.19, published147: Once the separately owned principal-unit character family is supplied, specialize this actual tame evaluation to χ⟨x⟩^(1−s).
+- DirichletPadicLFunctions:L3/tame-character-arithmetic: Transport the established finite-character positive moments to actual continuous unit-character evaluations.
+- DirichletPadicLFunctions:L3/tame-character-analytic-family: Evaluate a supplied analytic family through the actual native continuous linear functional without introducing another analytic-space carrier.
+
+**Acceptance:** Nonprincipality is not needed for the constructor. No complex L-value formula at degree zero follows from its definition.
+
+**Source:** Definition 5.13, Definition 5.18, Remark 5.19, Theorem 5.20 and Remarks 5.21–5.22, complete published 146–149 / PDF 47–50 freshly read from the hash-verified version of record. Complete published 132–133 / PDF 33–34 also freshly read to distinguish continuous and locally analytic test topologies. Consumer-specific decomposition of the actual tame measure evaluated at native continuous unit characters. The general character-space construction remains with PMIA L0a and the general scalar Mellin theory with LAD L3. The analytic transfer below assumes an actual analytic family in the continuous-test Banach space; it neither constructs principal-unit powers nor concludes analyticity from pointwise variation. Existing E14/E15 retain the corrected inverse-Teichmüller normalization and the level-zero Euler factor.
+
+### Comparison with ambient arithmetic tests
+
+`DirichletPadicLFunctions:L3/tame-character-ambient` — `DirichletPadic.tameCharacterValue_eq_ambient` (comparison).
+
+If f:C(ℤ_p,K) restricts to κ on U, then Vη(κ)=ζ(f).
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=(ℤ_p)ˣ with its native topology, ζ=tameZetaMeasure η hD hpD and ν=AbstractMeasure.restrictUnits p K ζ. A weight κ is the existing ContinuousMonoidHom U K; its underlying continuous map is κ.toContinuousMap. No weight-space, character or measure carrier is introduced.
+
+**Proof outline:**
+
+1. The existing map_val_restrictUnits identifies the pushforward of ν along Units.val with Eζ. Unit support gives Eζ=ζ.
+2. Apply native map_apply to evaluate that equality on f. Its pullback is exactly κ.toContinuousMap by the pointwise hypothesis and native continuous-map extensionality.
+3. Consequently any two ambient continuous extensions of the same unit character give the same value. Neither extension must vanish off U.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-character-value`, `DirichletPadicLFunctions:L2/tame-zeta-support`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector`, `mathlib:AbstractMeasure.map_apply`.
+
+**Tests:**
+
+- `SuggestedCharacterIntegralTests.two_extensions` (compatibility): Two continuous ambient functions agreeing with κ on U give equal tame zeta evaluations even if they differ off U.
+
+**Acceptance:** Use restriction to the actual unit group; a principal character at a positive finite level is not the ambient constant-one function.
+
+**Source:** Definition 5.13, Definition 5.18, Remark 5.19, Theorem 5.20 and Remarks 5.21–5.22, complete published 146–149 / PDF 47–50 freshly read from the hash-verified version of record. Complete published 132–133 / PDF 33–34 also freshly read to distinguish continuous and locally analytic test topologies. Consumer-specific decomposition of the actual tame measure evaluated at native continuous unit characters. The general character-space construction remains with PMIA L0a and the general scalar Mellin theory with LAD L3. The analytic transfer below assumes an actual analytic family in the continuous-test Banach space; it neither constructs principal-unit powers nor concludes analyticity from pointwise variation. Existing E14/E15 retain the corrected inverse-Teichmüller normalization and the level-zero Euler factor.
+
+### Integral bounds for tame character values
+
+`DirichletPadicLFunctions:L3/tame-character-bound` — `DirichletPadic.tameCharacterValue_norm_le_one` (theorem).
+
+For every native continuous unit character κ, ‖Vη(κ)‖≤1; equivalently its value lies in the native norm-valuation integer ring.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=(ℤ_p)ˣ with its native topology, ζ=tameZetaMeasure η hD hpD and ν=AbstractMeasure.restrictUnits p K ζ. A weight κ is the existing ContinuousMonoidHom U K; its underlying continuous map is κ.toContinuousMap. No weight-space, character or measure carrier is introduced.
+
+**Proof outline:**
+
+1. U is compact, using the existing unit-locus homeomorphism and compact clopen subtype. The native continuous-map supremum bound applies to κ(u^n)=κ(u)^n for every n.
+2. If ‖κ(u)‖>1, native pow_unbounded_of_one_lt produces a power larger than the fixed supremum norm, a contradiction. Applying the same inequality to u⁻¹ and using κ(u)κ(u⁻¹)=1 gives ‖κ(u)‖=1. The supremum norm is therefore1, including at u=1. This compact-group observation is an inline proof step, not a new generic character-space node.
+3. The supplied intrinsic-restriction evaluation expresses ν(f) as ζ of the transported zero extension. The existing zero-extension norm identity and the unit homeomorphism preserve its supremum norm. The preceding tame zeta norm estimate gives ‖ν(f)‖≤‖f‖.
+4. Apply this to κ.toContinuousMap. The already used native NormedField.valuation identifies norm≤1 with membership in its actual integer subring, supplying the inclusion API without defining a second coefficient ring.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-character-value`, `DirichletPadicLFunctions:L2/tame-zeta-norm`, `PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-norm`, `mathlib:ContinuousMap.norm_coe_le_norm`, `mathlib:ContinuousMap.norm_le`, `mathlib:pow_unbounded_of_one_lt`, `mathlib:Valuation.mem_integer_iff`.
+
+**Api:**
+
+- `DirichletPadic.tameCharacterValue_mem_integer` (compatibility): Vη(κ) belongs to Valuation.integer(NormedField.valuation).
+
+**Tests:**
+
+- `SuggestedCharacterIntegralTests.integral_bound` (compatibility): Every continuous unit character at p=2,D=3 has tame value of norm at most1.
+- `SuggestedCharacterIntegralTests.identity_nonzero` (non-example): The quadratic-modulo3 tame character functional is not identically zero: its identity-character value is2/3.
+
+**Acceptance:** No isometric embedding of ℤ_p into K is assumed. The theorem includes p=2 and does not split integral parity eigenspaces.
+
+**Source:** Definition 5.13, Definition 5.18, Remark 5.19, Theorem 5.20 and Remarks 5.21–5.22, complete published 146–149 / PDF 47–50 freshly read from the hash-verified version of record. Complete published 132–133 / PDF 33–34 also freshly read to distinguish continuous and locally analytic test topologies. Consumer-specific decomposition of the actual tame measure evaluated at native continuous unit characters. The general character-space construction remains with PMIA L0a and the general scalar Mellin theory with LAD L3. The analytic transfer below assumes an actual analytic family in the continuous-test Banach space; it neither constructs principal-unit powers nor concludes analyticity from pointwise variation. Existing E14/E15 retain the corrected inverse-Teichmüller normalization and the level-zero Euler factor.
+
+### Uniform stability of tame character values
+
+`DirichletPadicLFunctions:L3/tame-character-distance` — `DirichletPadic.tameCharacterValue_sub_norm_le` (lemma).
+
+For any κ,λ, ‖Vη(κ)−Vη(λ)‖≤‖κ.toContinuousMap−λ.toContinuousMap‖.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=(ℤ_p)ˣ with its native topology, ζ=tameZetaMeasure η hD hpD and ν=AbstractMeasure.restrictUnits p K ζ. A weight κ is the existing ContinuousMonoidHom U K; its underlying continuous map is κ.toContinuousMap. No weight-space, character or measure carrier is introduced.
+
+**Proof outline:**
+
+1. Native linearity of ν turns the difference of values into evaluation of the difference of continuous tests.
+2. Use the all-test contraction established inline in the preceding bound proof: transported zero extension preserves the norm and ζ has norm at most1.
+3. For a family of characters converging in the native continuous-test supremum norm, the fixed native continuous linear functional ν sends it to convergent values. This works along every filter and does not impose a topology on a newly invented character carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-character-value`, `DirichletPadicLFunctions:L3/tame-character-bound`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-norm`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousLinearMap.le_opNorm`.
+
+**Api:**
+
+- `DirichletPadic.tameCharacterValue_tendsto` (compatibility): If the underlying continuous tests tend to λ in norm along any filter, the tame values tend to Vη(λ).
+
+**Tests:**
+
+- `SuggestedCharacterIntegralTests.identical_characters` (degenerate): Replacing κ by κ·1 gives difference norm0.
+- `SuggestedCharacterIntegralTests.quadratic_weight_difference` (computation): At p=2, quadratic η modulo3 and χ modulo4, the χx² and χx⁴ characters have value difference−48.
+
+**Acceptance:** The convergence hypothesis is uniform convergence in the continuous-test norm, not pointwise convergence.
+
+**Source:** Definition 5.13, Definition 5.18, Remark 5.19, Theorem 5.20 and Remarks 5.21–5.22, complete published 146–149 / PDF 47–50 freshly read from the hash-verified version of record. Complete published 132–133 / PDF 33–34 also freshly read to distinguish continuous and locally analytic test topologies. Consumer-specific decomposition of the actual tame measure evaluated at native continuous unit characters. The general character-space construction remains with PMIA L0a and the general scalar Mellin theory with LAD L3. The analytic transfer below assumes an actual analytic family in the continuous-test Banach space; it neither constructs principal-unit powers nor concludes analyticity from pointwise variation. Existing E14/E15 retain the corrected inverse-Teichmüller normalization and the level-zero Euler factor.
+
+### Parity of continuous tame specializations
+
+`DirichletPadicLFunctions:L3/tame-character-parity` — `DirichletPadic.tameCharacterValue_eq_zero_of_parity` (lemma).
+
+If η≠1 and κ(−1)≠η(−1), then Vη(κ)=0.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=(ℤ_p)ˣ with its native topology, ζ=tameZetaMeasure η hD hpD and ν=AbstractMeasure.restrictUnits p K ζ. A weight κ is the existing ContinuousMonoidHom U K; its underlying continuous map is κ.toContinuousMap. No weight-space, character or measure carrier is introduced. Assume η≠1.
+
+**Proof outline:**
+
+1. The already established ambient reflection gives r_*ζ=η(−1)ζ. Transport it to the intrinsic unit group by the existing restriction and inclusion identities, or use the zero extension of κ and its reflected test directly.
+2. Multiplicativity gives κ(−u)=κ(−1)κ(u); the zero extension has the same identity since negation preserves the unit locus and its complement.
+3. Evaluating the reflection identity yields κ(−1)Vη(κ)=η(−1)Vη(κ). Their nonzero scalar difference is cancellable in K, forcing Vη(κ)=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-character-value`, `DirichletPadicLFunctions:L2/tame-zeta-reflection`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-inside`, `PadicMeasuresIwasawaAlgebras:L0/clopen-zero-extension-outside`, `mathlib:AbstractMeasure.map_apply`.
+
+**Tests:**
+
+- `SuggestedCharacterIntegralTests.even_weight_vanishes` (computation): For p=2 and quadratic η modulo3, the square unit character has value0.
+- `SuggestedCharacterIntegralTests.matching_sign_nonzero` (computation): The quadratic-modulo4 twist of that square character has matching sign and value−2.
+
+**Acceptance:** No division by2 or CharZero assumption is used. Matching parity is necessary, not sufficient, for a nonzero value.
+
+**Source:** Definition 5.13, Definition 5.18, Remark 5.19, Theorem 5.20 and Remarks 5.21–5.22, complete published 146–149 / PDF 47–50 freshly read from the hash-verified version of record. Complete published 132–133 / PDF 33–34 also freshly read to distinguish continuous and locally analytic test topologies. Consumer-specific decomposition of the actual tame measure evaluated at native continuous unit characters. The general character-space construction remains with PMIA L0a and the general scalar Mellin theory with LAD L3. The analytic transfer below assumes an actual analytic family in the continuous-test Banach space; it neither constructs principal-unit powers nor concludes analyticity from pointwise variation. Existing E14/E15 retain the corrected inverse-Teichmüller normalization and the level-zero Euler factor.
+
+### Arithmetic specializations of the tame character integral
+
+`DirichletPadicLFunctions:L3/tame-character-arithmetic` — `DirichletPadic.tameCharacterValue_arithmetic` (comparison).
+
+For k≥1 and κ(u)=wχ(u)x_K(u)^k, Vη(κ)=(1−θ(p)p^(k−1))(−N^(k−1)/k)Σ_(a:ZMod N)θ(a)B_k(a.val/N), where N=Dp^n and θ is the native product-level character.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=(ℤ_p)ˣ with its native topology, ζ=tameZetaMeasure η hD hpD and ν=AbstractMeasure.restrictUnits p K ζ. A weight κ is the existing ContinuousMonoidHom U K; its underlying continuous map is κ.toContinuousMap. No weight-space, character or measure carrier is introduced. Assume CharZero K, Algebra ℚ K and η≠1. Let n≥0 and χ:DirichletCharacter K (p^n). The pointwise κ equation is an explicit hypothesis, not a choice of primitive conductor.
+
+**Proof outline:**
+
+1. Take the actual ambient continuous test f=wχ·x_K^k. The assumed pointwise description of κ and the ambient comparison identify Vη(κ) with ζ(f). These arithmetic characters exist by bundling the already continuous multiplicative finite-character lift times the native algebra-map power on U; no new character carrier is needed.
+2. At k≥1, apply the preceding tame-zeta-character-shift with degree k−1, then twistedTameMeasure_unit_moment. Rewrite (k−1)+1=k to obtain the displayed finite Bernoulli element.
+3. Retain the product level N throughout. At n=0 the factor1−η(p)p^(k−1) remains. At n≥1, θ(p)=0, even for a principal χ at that positive level; there is no second Euler factor.
+4. For coefficients in a common characteristic-zero field E with separate field maps to ℂ and K, apply the preceding common-special-value theorem to the same ambient test. Its complex image is the Euler-adjusted native L(θ,1−k); its K-image is exactly this new character evaluation. No normed map from ℂ to K is used.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-character-ambient`, `DirichletPadicLFunctions:L2/tame-zeta-character-shift`, `DirichletPadicLFunctions:L2/twisted-tame-moments`, `DirichletPadicLFunctions:L2/tame-zeta-character-common-value`, `DirichletPadicLFunctions:L2/prime-power-character`.
+
+**Api:**
+
+- `DirichletPadic.tameCharacterValue_common_special_value` (compatibility): Separate maps from a common field E identify the same Euler–Bernoulli element with the native complex L-value and actual tame character evaluation.
+
+**Tests:**
+
+- `SuggestedCharacterIntegralTests.fourth_arithmetic_value` (computation): At p=2, quadratic η modulo3 and χ modulo4, the χx⁴ unit character has value46.
+
+**Acceptance:** The arithmetic formula needs k≥1. The trivial-character value at degree0 still requires separate logarithmic analysis. In source branch notation κ=χ⟨x⟩^k, the finite part is χω^(−k); omitting that factor changes the formula.
+
+**Source:** Definition 5.13, Definition 5.18, Remark 5.19, Theorem 5.20 and Remarks 5.21–5.22, complete published 146–149 / PDF 47–50 freshly read from the hash-verified version of record. Complete published 132–133 / PDF 33–34 also freshly read to distinguish continuous and locally analytic test topologies. Consumer-specific decomposition of the actual tame measure evaluated at native continuous unit characters. The general character-space construction remains with PMIA L0a and the general scalar Mellin theory with LAD L3. The analytic transfer below assumes an actual analytic family in the continuous-test Banach space; it neither constructs principal-unit powers nor concludes analyticity from pointwise variation. Existing E14/E15 retain the corrected inverse-Teichmüller normalization and the level-zero Euler factor.
+
+### Analyticity along supplied tame character families
+
+`DirichletPadicLFunctions:L3/tame-character-analytic-family` — `DirichletPadic.tameCharacterValue_analyticAt` (theorem).
+
+If z↦κ_z.toContinuousMap is AnalyticAt K at s as a map into C(U,K), then z↦Vη(κ_z) is AnalyticAt K at s.
+
+**Hypotheses:** p is any prime, including 2. K is a complete nontrivially normed ultrametric field with Algebra ℤ_p K and IsBoundedSMul ℤ_p K. D>0, η:DirichletCharacter K D, hD:IsUnit(D:K) and p∤D. Put U=(ℤ_p)ˣ with its native topology, ζ=tameZetaMeasure η hD hpD and ν=AbstractMeasure.restrictUnits p K ζ. A weight κ is the existing ContinuousMonoidHom U K; its underlying continuous map is κ.toContinuousMap. No weight-space, character or measure carrier is introduced. κ:K→ContinuousMonoidHom U K and s:K are given; the displayed AnalyticAt K hypothesis is explicit.
+
+**Proof outline:**
+
+1. The fixed arithmetic functional ν is the actual native continuous linear map C(U,K)→L[K]K through AbstractMeasure.toCLMEquiv.
+2. Native ContinuousLinearMap.analyticAt makes this functional analytic at κ_s.toContinuousMap. Compose with the given Banach-space-valued analytic family using native AnalyticAt.comp.
+3. This supplies the consuming tame specialization once the general branch family is constructed by its owner. It does not infer analytic dependence in the supremum norm from pointwise analyticity or mere continuity.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/tame-character-value`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousLinearMap.analyticAt`, `mathlib:AnalyticAt.comp`.
+
+**Tests:**
+
+- `SuggestedCharacterIntegralTests.constant_family` (degenerate): For any fixed actual unit character, the constant family has an analytic tame value at every s∈ℚ₂.
+
+**Acceptance:** The hypothesis is an actual analytic map into the existing continuous-test Banach space. No universal character, principal-unit power, rigid space or odd/dyadic coordinate theorem is constructed here. PMIA L0a and LAD L3 retain those general obligations.
+
+**Source:** Definition 5.13, Definition 5.18, Remark 5.19, Theorem 5.20 and Remarks 5.21–5.22, complete published 146–149 / PDF 47–50 freshly read from the hash-verified version of record. Complete published 132–133 / PDF 33–34 also freshly read to distinguish continuous and locally analytic test topologies. Consumer-specific decomposition of the actual tame measure evaluated at native continuous unit characters. The general character-space construction remains with PMIA L0a and the general scalar Mellin theory with LAD L3. The analytic transfer below assumes an actual analytic family in the continuous-test Banach space; it neither constructs principal-unit powers nor concludes analyticity from pointwise variation. Existing E14/E15 retain the corrected inverse-Teichmüller normalization and the level-zero Euler factor.
+
+**Remaining:** The actual tame integral on native continuous unit characters, its ambient test comparison, integral bound, uniform stability, parity and positive arithmetic specialization are decomposed. Analyticity transfers from an explicitly supplied analytic family in C(U,K). Construct the actual odd/dyadic principal-unit character families through PMIA L0a and the general scalar Mellin interfaces through LAD L3, then instantiate χ⟨x⟩^(1−s) with the corrected Teichmüller twist. Complex and p-adic logarithmic values, pure p-power conductor, pole numerator/convergence/simple-zero division, residue coordinate change and complete source extraction remain open. Retain ±1×(1+4ℤ₂); no analytic branch or rigid weight-space construction is claimed by this checkpoint.
+
+### Tame character integral validation
+
+All 247 predecessor nodes, 307 baseline records, 15 findings and sourceVersions are preserved whole. Thirteen named declarations, including the actual tame evaluation and its defining equation, and twelve typed examples are added. The indexed blueprint, four-file intake, whitespace, scoped mutation, API/test parity and versioned source-issue checks pass. The graph has 396 reachable nodes, 1845 edges and 408 native leaves, is acyclic and has only the PMIA L1 stage request leaf. Each of the seven new proof routes has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 643 expected placeholder warnings against 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and one verified actual PMIA artifact. The full target uses the verified actual 265-node PMIA artifact. The current 304-node supplier preserves that source in order; its recent weak-topology additions were read in the preceding checkpoint. No current declaration calls those additions and no local compile against the 304-node supplier is claimed. The completedGroupAlgebra comparison remains an open request. Source, olean and original compiler-log hashes were rechecked. Existing artifacts were reused; no Mathlib or Tau Ceti build, new Lake project or cache download was run.
+
+Six complete native lemmas prove the compact continuous-character norm bound, pointwise norm one, supremum norm one, contraction by a norm-one continuous linear functional, analytic composition with that functional and the actual bounded scalar action of ℤ_p on ℚ_p. The last proof also supplies a local instance for the concrete suggested tests. General tame character comparisons remain unchecked blueprint declarations. The probe elaborates against 1927 pinned Mathlib modules with zero errors, warnings or holes. Exact rational controls check 174 arithmetic values and their integrality, 486 actual finite unit-residue approximations with the expected p^r precision, 87 parity zeros and 607 finite-character multiplication identities. The dyadic χx² and χx⁴ values are −2 and46, with difference−48 of valuation4; the test-function difference is divisible by8 on all64 odd residues modulo128. These finite checks do not prove general convergence or construct analytic branches.
+
+The captured LAD supplier changed from162 to174 nodes. All twelve added nodes, fourteen new baseline records, changed source/coverage/gap metadata and the full Lean difference were read. All old nodes, baseline records, findings and sourceVersions remain whole. Its entireEvalHom signature now explicitly retains the already stated completeness hypothesis; no Dirichlet declaration calls it. The new Gauss-radius L4 results do not supply the missing L3 character-family construction. No LAD artifact is imported or locally compiled here.
