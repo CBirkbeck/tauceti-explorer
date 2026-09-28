@@ -14741,8 +14741,8 @@
    ],
    "avoidAccountOf": "BP-AdicSpacesPartII",
    "prompt": "research/blueprint/prompts/REV-AdicSpacesPartII.md",
-   "state": "pending",
-   "note": "reopened 2026-09-28: the merged review was a partial checkpoint and recorded no verdict; the blueprint was since corrected (#2927)"
+   "state": "external",
+   "note": "claimed on GitHub issue #344"
   },
   {
    "id": "BP-AlgebraicModularFormsAndSerreWeights",
@@ -19123,11 +19123,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralIwasawaTheory--I.8.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #760"
+   "note": "released on GitHub issue #760"
   },
   {
    "id": "REV-IntegralIwasawaTheory--I.8",
