@@ -20313,12 +20313,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicFamilies.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #965"
+   "note": "released on GitHub issue #965"
   },
   {
    "id": "REV-PadicFamilies",
@@ -22806,7 +22806,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-FoundationsAndLibraryIntegration",
@@ -22815,7 +22815,8 @@
     "BP-IntegralIwasawaTheory--I.1",
     "BP-IntegralIwasawaTheory--I.8",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1015"
   },
   {
    "id": "REV-NoncommutativeAndEquivariantIwasawa",
