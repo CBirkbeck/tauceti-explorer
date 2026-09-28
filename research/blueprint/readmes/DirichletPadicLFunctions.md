@@ -9794,3 +9794,225 @@ Seven complete native lemmas verify density of natural units, extension of a fix
 Exact controls cover19 unit parameters,228 independent Amice-to-numerator moments and their integrality,1287 compatible residue cells,1287 psi cell identities,1287 integral cell values,57 zero unit-mass sums,304 finite weighted approximation bounds,208 cells at each boundary parameter and4 explicit values. Exact rational arithmetic. Independently computed generalized-binomial Amice coefficients and Stirling conversion are compared with Bernoulli numerator moments. A finite residue model has mass(c mod N)=(c-u*d)/N+(u-1)/2, where d is the residue of u^{-1}c. Compatibility, psi rescaling, integrality, boundary atoms, zero unit mass and weighted Riemann-sum congruences are checked at the listed finite levels. The model and the observed congruence bounds are finite controls, not a proof that it represents the general p-adic family or a proof of continuity. The largest observed discrepancy is 0 (exact identities and valuation comparisons).
 
 All54 captured inputs remain unchanged during this checkpoint.
+
+
+## All-unit smoothing relations
+
+Partial continuation preserving all288 predecessor nodes whole. Eight L1 lemmas supply all-unit smoothing and numerator cocycles, raw reflection, intrinsic Dirac action, cross-numerator identities and integral parity. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.
+
+Complete published129–131/PDF30–32 freshly read on28 September2026, including the actual intrinsic/ambient distinction, equation3-10, Definition3.34 and all of Lemma3.36. Complete published136–139/PDF37–40 were also read in this continuation, including the smoothing measure, inverse weighting and Proposition4.11. Published digest verified. Whole supplier inverse-weight-dilation, convolution evaluation, right-convolution evaluation and algebra nodes, and their actual suggested signatures were read. The native Mahler extensionality statement and ambient coefficient hypotheses, factorial/binomial identity and finite polynomial expansion statements were read at the pin.
+
+### The smoothing cocycle for every unit
+
+`DirichletPadicLFunctions:L1/padic-measure-cocycle` — `DirichletPadic.padicSmoothedMeasure_mul`
+
+For every u,v∈U, μ_(uv)=μ_u+u·σ_uμ_v.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^×. For u∈U let μ_u, ν_u and λ_u be the preceding actual padicSmoothedMeasure, padicSmoothedNumerator and padicIntrinsicNumerator. These are on D(Z,Z), D(Z,Z) and D(U,Z), respectively. Let σ_u be native raw pushforward by z↦uz, and j the native pushforward U→Z. On D(U,Z), multiplication is the exact supplier multiplicative convolution and δ_u is native Dirac. No completed-algebra or localization identification is assumed.
+
+**Proof:**
+
+1. Evaluate the difference on x^k for every k≥0. Native map_apply and linearity identify the dilated moment as u^k μ_v(x^k); the outside scalar supplies the further factor u.
+2. Include the integral scalar values into Q_p and use the all-unit ordinary-moment formula. With B=B_(k+1)/(k+1), the required equality is (1−(uv)^(k+1))B=(1−u^(k+1))B+u^(k+1)(1−v^(k+1))B. Ring identities prove it, and injectivity of Z→Q_p returns zero ordinary moments to Z.
+3. To determine the actual integral measure from these moments, apply native AbstractMeasure.ext_mahler to the difference. For each n, the native factorial identity writes n! times the nth Mahler test as the descending Pochhammer polynomial evaluated at the identity test. Polynomial.smeval_eq_sum and Polynomial.sum express this as a finite sum of integral multiples of ordinary monomials. Measure linearity makes its value zero.
+4. Cancel the nonzero scalar n! in the integral domain Z to conclude that the nth Mahler value is zero. This uses all degrees including0 and never inverts n! in Z. The complete native scratch proof verifies exactly this moment-determination argument; no new generic separation node is introduced.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-smoothed-ordinary-moments`, `mathlib:AbstractMeasure.map`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.ext_mahler`, `mathlib:mahler_apply`, `mathlib:Ring.descPochhammer_eq_factorial_smul_choose`, `mathlib:Polynomial.smeval_eq_sum`, `mathlib:Polynomial.sum`, `mathlib:Polynomial.smul_pow`, `mathlib:PadicInt.ext`.
+
+**Tests:**
+
+- `SuggestedPadicRelationTests.raw_cocycle_scalar` (computation): At p=3,u=v=2 the raw formula has scalar2: its total mass is3/2=1/2+2·1/2.
+- `SuggestedPadicRelationTests.raw_cocycle_negative` (compatibility): At p=2, μ_(−u)=μ_u−uδ_0 for every u∈U.
+
+**Acceptance:** The outside scalar is essential. This statement is for every pair of actual units; a natural-parameter identity alone would not suffice for pseudomeasure membership.
+
+**Source:** Remark3.33 and equation3-10, Definition3.34 and Lemma3.36, published129–131/PDF30–32; Proposition4.6, equation4-3 and Proposition4.11, published137–139/PDF38–40. Complete cited pages read28September2026. Worker decomposition of the all-unit compatibility identities needed before the arithmetic pseudomeasure can be formed. The source does not state these cocycle/reflection adapters separately. The raw cocycle has scalar u, which inverse weighting cancels. Negative-unit boundary values give parity without averaging by2. All generic measure, dilation, inverse-weight and convolution operations are imported from their existing owners.
+
+### Reflection with its zero-atom correction
+
+`DirichletPadicLFunctions:L1/padic-measure-reflection` — `DirichletPadic.padicSmoothedMeasure_reflection`
+
+For every u∈U, μ_u+σ_(−1)μ_u=(u−1)δ_0.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^×. For u∈U let μ_u, ν_u and λ_u be the preceding actual padicSmoothedMeasure, padicSmoothedNumerator and padicIntrinsicNumerator. These are on D(Z,Z), D(Z,Z) and D(U,Z), respectively. Let σ_u be native raw pushforward by z↦uz, and j the native pushforward U→Z. On D(U,Z), multiplication is the exact supplier multiplicative convolution and δ_u is native Dirac. No completed-algebra or localization identification is assumed.
+
+**Proof:**
+
+1. Apply the all-unit cocycle first to (u,−1). The existing μ_(−1)=−δ_0 and native map_dirac at0 give μ_(−u)=μ_u−uδ_0.
+2. Apply the same cocycle to (−1,u). It gives μ_(−u)=−δ_0−σ_(−1)μ_u. The native unit group is commutative, so these are values at the same parameter.
+3. Equate the two expressions and rearrange in the native Z-module. The result keeps the zero-atom correction; no Bernoulli parity shortcut or inverse of2 is required.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-measure-cocycle`, `DirichletPadicLFunctions:L1/padic-smoothed-measure`, `mathlib:AbstractMeasure.map_dirac`.
+
+**Tests:**
+
+- `SuggestedPadicRelationTests.reflection_negative_boundary` (computation): At p=3,u=−1 both sides are−2δ_0.
+- `SuggestedPadicRelationTests.reflection_dyadic_correction` (non-example): At p=2,u=3 the correction is2δ_0, which is nonzero; the raw measure is not odd.
+
+**Acceptance:** The zero-atom correction is an equality in the integral ambient carrier, including p=2.
+
+**Source:** Remark3.33 and equation3-10, Definition3.34 and Lemma3.36, published129–131/PDF30–32; Proposition4.6, equation4-3 and Proposition4.11, published137–139/PDF38–40. Complete cited pages read28September2026. Worker decomposition of the all-unit compatibility identities needed before the arithmetic pseudomeasure can be formed. The source does not state these cocycle/reflection adapters separately. The raw cocycle has scalar u, which inverse weighting cancels. Negative-unit boundary values give parity without averaging by2. All generic measure, dilation, inverse-weight and convolution operations are imported from their existing owners.
+
+### The scalar-free numerator cocycle
+
+`DirichletPadicLFunctions:L1/padic-numerator-cocycle` — `DirichletPadic.padicSmoothedNumerator_mul`
+
+For every u,v∈U, ν_(uv)=ν_u+σ_uν_v.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^×. For u∈U let μ_u, ν_u and λ_u be the preceding actual padicSmoothedMeasure, padicSmoothedNumerator and padicIntrinsicNumerator. These are on D(Z,Z), D(Z,Z) and D(U,Z), respectively. Let σ_u be native raw pushforward by z↦uz, and j the native pushforward U→Z. On D(U,Z), multiplication is the exact supplier multiplicative convolution and δ_u is native Dirac. No completed-algebra or localization identification is assumed.
+
+**Proof:**
+
+1. Apply the exact supplier inverseWeight J to the raw smoothing cocycle. Its native Z-linearity carries the sum and the scalar u through J.
+2. The supplier inverse-weight-dilation identity gives Jσ_u=u⁻¹σ_uJ for the same actual unit u. The outside u therefore cancels with u⁻¹ in the existing scalar action.
+3. Substitute ν_w=Jμ_w for the three parameters. All arithmetic takes place in the existing integral module; no smoothing denominator or2 is inverted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-measure-cocycle`, `DirichletPadicLFunctions:L1/padic-smoothed-numerator`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-dilation`.
+
+**Tests:**
+
+- `SuggestedPadicRelationTests.numerator_inverse_parameters` (compatibility): At p=3, ν_u+σ_uν_(u⁻¹)=0.
+- `SuggestedPadicRelationTests.numerator_no_extra_scalar` (computation): At p=3,u=v=2 the second moment is5/2=1/2+4·1/2; an extra scalar2 would give the wrong result.
+
+**Acceptance:** This formula has raw pushforward σ_u and no extra outside scalar.
+
+**Source:** Remark3.33 and equation3-10, Definition3.34 and Lemma3.36, published129–131/PDF30–32; Proposition4.6, equation4-3 and Proposition4.11, published137–139/PDF38–40. Complete cited pages read28September2026. Worker decomposition of the all-unit compatibility identities needed before the arithmetic pseudomeasure can be formed. The source does not state these cocycle/reflection adapters separately. The raw cocycle has scalar u, which inverse weighting cancels. Negative-unit boundary values give parity without averaging by2. All generic measure, dilation, inverse-weight and convolution operations are imported from their existing owners.
+
+### Evenness of every ambient numerator
+
+`DirichletPadicLFunctions:L1/padic-numerator-even` — `DirichletPadic.padicSmoothedNumerator_even`
+
+For every u∈U, σ_(−1)ν_u=ν_u.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^×. For u∈U let μ_u, ν_u and λ_u be the preceding actual padicSmoothedMeasure, padicSmoothedNumerator and padicIntrinsicNumerator. These are on D(Z,Z), D(Z,Z) and D(U,Z), respectively. Let σ_u be native raw pushforward by z↦uz, and j the native pushforward U→Z. On D(U,Z), multiplication is the exact supplier multiplicative convolution and δ_u is native Dirac. No completed-algebra or localization identification is assumed.
+
+**Proof:**
+
+1. Apply the numerator cocycle to (u,−1). The existing ν_(−1)=0 gives ν_(−u)=ν_u.
+2. Apply it to (−1,u). The same boundary value gives ν_(−u)=σ_(−1)ν_u. Compare the two identities.
+3. This proof works integrally at p=2. Odd monomial moments vanish by the existing moment formula, or by this reflection identity followed by cancellation of the nonzero scalar2 in the domain Z; no inverse of2 is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-numerator-cocycle`, `DirichletPadicLFunctions:L1/padic-smoothed-numerator`, `DirichletPadicLFunctions:L1/padic-numerator-moments`.
+
+**Tests:**
+
+- `SuggestedPadicRelationTests.ambient_dyadic_even` (compatibility): At p=2 every ambient numerator is fixed by negation pushforward.
+- `SuggestedPadicRelationTests.ambient_odd_test` (computation): At p=2 the third ordinary moment of ν_u is0 for every u.
+
+**Acceptance:** Evenness does not require a dyadic idempotent decomposition.
+
+**Source:** Remark3.33 and equation3-10, Definition3.34 and Lemma3.36, published129–131/PDF30–32; Proposition4.6, equation4-3 and Proposition4.11, published137–139/PDF38–40. Complete cited pages read28September2026. Worker decomposition of the all-unit compatibility identities needed before the arithmetic pseudomeasure can be formed. The source does not state these cocycle/reflection adapters separately. The raw cocycle has scalar u, which inverse weighting cancels. Negative-unit boundary values give parity without averaging by2. All generic measure, dilation, inverse-weight and convolution operations are imported from their existing owners.
+
+### Dirac action on every intrinsic numerator
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-dirac` — `DirichletPadic.map_val_dirac_mul_padicIntrinsicNumerator`
+
+For every u,v∈U, j(δ_v*λ_u)=σ_vν_u.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^×. For u∈U let μ_u, ν_u and λ_u be the preceding actual padicSmoothedMeasure, padicSmoothedNumerator and padicIntrinsicNumerator. These are on D(Z,Z), D(Z,Z) and D(U,Z), respectively. Let σ_u be native raw pushforward by z↦uz, and j the native pushforward U→Z. On D(U,Z), multiplication is the exact supplier multiplicative convolution and δ_u is native Dirac. No completed-algebra or localization identification is assumed.
+
+**Proof:**
+
+1. Test the left side on an arbitrary ambient continuous f. Native map_apply, the supplier convolution evaluation and native Dirac evaluation give λ_u(w↦f(vw)). The supplier right-convolution evaluation fixes this ordered product explicitly.
+2. This test is the restriction to U of the ambient test z↦f(vz). Apply the preceding exact inclusion jλ_u=ν_u and native map_apply to obtain the right side.
+3. The statement uses multiplicative convolution only on U. It does not turn j into a homomorphism from multiplicative unit convolution to additive ambient convolution.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-inclusion`, `PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation`, `mathlib:AbstractMeasure.map_apply`, `mathlib:AbstractMeasure.dirac_apply`.
+
+**Tests:**
+
+- `SuggestedPadicRelationTests.dirac_identity_inclusion` (compatibility): At p=2, j(δ_1*λ_u)=ν_u.
+- `SuggestedPadicRelationTests.dirac_negative_zero` (degenerate): At p=3, δ_v*λ_(−1)=0 for every v.
+
+**Acceptance:** The dilation parameter and arithmetic smoothing parameter are independent actual units.
+
+**Source:** Remark3.33 and equation3-10, Definition3.34 and Lemma3.36, published129–131/PDF30–32; Proposition4.6, equation4-3 and Proposition4.11, published137–139/PDF38–40. Complete cited pages read28September2026. Worker decomposition of the all-unit compatibility identities needed before the arithmetic pseudomeasure can be formed. The source does not state these cocycle/reflection adapters separately. The raw cocycle has scalar u, which inverse weighting cancels. Negative-unit boundary values give parity without averaging by2. All generic measure, dilation, inverse-weight and convolution operations are imported from their existing owners.
+
+### The all-unit intrinsic smoothing cocycle
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-cocycle` — `DirichletPadic.padicIntrinsicNumerator_mul`
+
+For every u,v∈U, λ_(uv)=λ_u+δ_u*λ_v.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^×. For u∈U let μ_u, ν_u and λ_u be the preceding actual padicSmoothedMeasure, padicSmoothedNumerator and padicIntrinsicNumerator. These are on D(Z,Z), D(Z,Z) and D(U,Z), respectively. Let σ_u be native raw pushforward by z↦uz, and j the native pushforward U→Z. On D(U,Z), multiplication is the exact supplier multiplicative convolution and δ_u is native Dirac. No completed-algebra or localization identification is assumed.
+
+**Proof:**
+
+1. Apply the injectivity of j supplied by the actual restriction retraction rj=id. Native pushforward is Z-linear, so inclusion carries the sum to the sum.
+2. Use jλ_w=ν_w for the two bare terms and the preceding Dirac-action adapter for the convolution term. The desired identity becomes exactly the ambient scalar-free numerator cocycle.
+3. At inverse parameters this gives λ_u+δ_u*λ_(u⁻¹)=λ_1=0. At v=−1 it gives λ_(−u)=λ_u because λ_(−1)=0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-inclusion`, `DirichletPadicLFunctions:L1/padic-intrinsic-dirac`, `DirichletPadicLFunctions:L1/padic-numerator-cocycle`, `DirichletPadicLFunctions:L1/padic-intrinsic-numerator`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section`.
+
+**Tests:**
+
+- `SuggestedPadicRelationTests.intrinsic_inverse_parameters` (compatibility): At p=2, λ_u+δ_u*λ_(u⁻¹)=0.
+- `SuggestedPadicRelationTests.intrinsic_negative_parameter_change` (compatibility): At p=2, λ_(−u)=λ_u for every u.
+
+**Acceptance:** No natural representative of u or v occurs in the statement or proof.
+
+**Source:** Remark3.33 and equation3-10, Definition3.34 and Lemma3.36, published129–131/PDF30–32; Proposition4.6, equation4-3 and Proposition4.11, published137–139/PDF38–40. Complete cited pages read28September2026. Worker decomposition of the all-unit compatibility identities needed before the arithmetic pseudomeasure can be formed. The source does not state these cocycle/reflection adapters separately. The raw cocycle has scalar u, which inverse weighting cancels. Negative-unit boundary values give parity without averaging by2. All generic measure, dilation, inverse-weight and convolution operations are imported from their existing owners.
+
+### Cross-numerator identity for every pair of units
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-cross` — `DirichletPadic.padicIntrinsicNumerator_cross`
+
+For every u,v∈U, (δ_v−δ_1)*λ_u=(δ_u−δ_1)*λ_v.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^×. For u∈U let μ_u, ν_u and λ_u be the preceding actual padicSmoothedMeasure, padicSmoothedNumerator and padicIntrinsicNumerator. These are on D(Z,Z), D(Z,Z) and D(U,Z), respectively. Let σ_u be native raw pushforward by z↦uz, and j the native pushforward U→Z. On D(U,Z), multiplication is the exact supplier multiplicative convolution and δ_u is native Dirac. No completed-algebra or localization identification is assumed.
+
+**Proof:**
+
+1. Write the intrinsic cocycle for (u,v) and (v,u). Their left sides agree because uv=vu in the native abelian unit group.
+2. Equating the right sides yields δ_v*λ_u−λ_u=δ_u*λ_v−λ_v. Use the supplier ring distributivity and δ_1=1 to rewrite this as the displayed cross identity.
+3. This is an equality of actual integral measures for every unit pair, before localization. It is the numerator identity needed to clear the fixed regular denominator at p+1. It does not assert that every δ_u−δ_1 is regular.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-cocycle`, `PadicMeasuresIwasawaAlgebras:L1/convolution-algebra`.
+
+**Tests:**
+
+- `SuggestedPadicRelationTests.cross_orientation` (computation): At p=3,u=2,v=4, the second moment on the left is15 times the second moment of λ_2, namely15/2; the right is3 times5/2.
+- `SuggestedPadicRelationTests.cross_identity_parameter` (degenerate): At p=2 the cross numerator involving λ_1 is0.
+
+**Acceptance:** The factor indexed by v multiplies λ_u and the factor indexed by u multiplies λ_v. Torsion and identity parameters are allowed; no cancellation is performed.
+
+**Source:** Remark3.33 and equation3-10, Definition3.34 and Lemma3.36, published129–131/PDF30–32; Proposition4.6, equation4-3 and Proposition4.11, published137–139/PDF38–40. Complete cited pages read28September2026. Worker decomposition of the all-unit compatibility identities needed before the arithmetic pseudomeasure can be formed. The source does not state these cocycle/reflection adapters separately. The raw cocycle has scalar u, which inverse weighting cancels. Negative-unit boundary values give parity without averaging by2. All generic measure, dilation, inverse-weight and convolution operations are imported from their existing owners.
+
+### Evenness of every intrinsic numerator
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-even` — `DirichletPadic.padicIntrinsicNumerator_even`
+
+For every u∈U, δ_(−1)*λ_u=λ_u.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^×. For u∈U let μ_u, ν_u and λ_u be the preceding actual padicSmoothedMeasure, padicSmoothedNumerator and padicIntrinsicNumerator. These are on D(Z,Z), D(Z,Z) and D(U,Z), respectively. Let σ_u be native raw pushforward by z↦uz, and j the native pushforward U→Z. On D(U,Z), multiplication is the exact supplier multiplicative convolution and δ_u is native Dirac. No completed-algebra or localization identification is assumed.
+
+**Proof:**
+
+1. The intrinsic cocycle at (u,−1) and λ_(−1)=0 gives λ_(−u)=λ_u. At (−1,u), it gives λ_(−u)=δ_(−1)*λ_u.
+2. Compare the two identities in the existing integral convolution ring. This can equivalently be transported from ambient evenness through the exact Dirac-action/inclusion comparison.
+3. At p=2 the sign element is retained. This result does not average using (1+δ_(−1))/2 or assert a product decomposition of the integral unit algebra.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-cocycle`, `DirichletPadicLFunctions:L1/padic-intrinsic-numerator`, `DirichletPadicLFunctions:L1/padic-numerator-even`, `DirichletPadicLFunctions:L1/padic-intrinsic-dirac`.
+
+**Tests:**
+
+- `SuggestedPadicRelationTests.intrinsic_dyadic_even` (compatibility): At p=2, δ_(−1)*λ_u=λ_u for every smoothing unit.
+- `SuggestedPadicRelationTests.intrinsic_odd_moment` (computation): At p=2 every intrinsic numerator has third moment0.
+
+**Acceptance:** All-unit parity is available for the actual fraction once its regular denominator is cleared.
+
+**Source:** Remark3.33 and equation3-10, Definition3.34 and Lemma3.36, published129–131/PDF30–32; Proposition4.6, equation4-3 and Proposition4.11, published137–139/PDF38–40. Complete cited pages read28September2026. Worker decomposition of the all-unit compatibility identities needed before the arithmetic pseudomeasure can be formed. The source does not state these cocycle/reflection adapters separately. The raw cocycle has scalar u, which inverse weighting cancels. Negative-unit boundary values give parity without averaging by2. All generic measure, dilation, inverse-weight and convolution operations are imported from their existing owners.
+
+**Remaining:** All-unit arithmetic smoothing and numerator families now satisfy the raw scalar cocycle, the scalar-free inverse-weighted cocycle, intrinsic cross-numerator identities and parity, integrally including p=2. Construct the actual arithmetic fraction using the supplied regular Dirac difference at p+1; verify its all-unit pseudomeasure membership from the cross identity, clearing numerator, independence of regular smoothing parameters, positive interpolation and uniqueness. Compare the same object with the completed group algebra when the PMIA L1 requested comparison is supplied. Analytic branches, p-adic logarithmic values, pure p-power conductor, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.
+
+### All-unit smoothing relations validation
+
+All 288 predecessor nodes, 365 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 8 nodes, 8 named suggested declarations and 16 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 439 reachable nodes, 2071 edges and 466 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 801 expected placeholder warnings. Source and artifact audits cover 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and the verified actual 265-node PMIA artifact. The current 332-node PMIA source preserves that artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Five complete native lemmas prove finite polynomial-test vanishing, separation of integral ambient measures by all nonnegative ordinary moments through factorial cancellation and native Mahler extensionality, the scalar cocycle and cross identities, and parity from a zero cocycle value. No generic separation declaration is added to the roadmap. The probe elaborates against 2020 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact controls cover75 rational unit pairs:5200 raw residue-cell cocycles,1040 raw reflections,5200 inverse-weighted cocycle congruences,5200 cross-numerator congruences,1040 parity congruences,900 scalar moment cocycles,900 scalar cross identities and1040 zero negative-boundary cells. Exact rational finite residue model with mass(c mod N)=(c-u*d)/N+(u-1)/2, d=u^{-1}c mod N. Raw cocycle/reflection identities are checked exactly. Inverse-weighted cell models use c^{-1} mod N on unit cells and zero elsewhere; their cocycle, cross and parity errors are divisible by N=p^r at each listed finite level. Independent rational Bernoulli moments check every positive degree1–12. These finite models do not prove the general measure identities, identify exact inverse-weighted cell masses, or construct a pseudomeasure. The largest observed discrepancy is 0 (exact identities and divisibility checks).
+
+All54 captured inputs remain unchanged during this checkpoint.

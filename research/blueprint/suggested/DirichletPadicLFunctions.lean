@@ -4032,3 +4032,108 @@ example (f : C((ℤ_[3])ˣ,ℤ_[3])) :
     Filter.Tendsto (fun u : (ℤ_[3])ˣ => padicIntrinsicNumerator 3 u f)
       (nhds 1) (nhds 0) := sorry
 end SuggestedPadicNumeratorTests
+
+/-! ## All-unit smoothing relations before localization -/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local notation "σ" => (fun u : U => (AbstractMeasure.map
+  (ContinuousMap.mk (fun z : Z => (u : Z)*z) (continuous_const.mul continuous_id)) :
+    D(Z,Z) →ₗ[Z] D(Z,Z)))
+
+lemma padicSmoothedMeasure_mul (u v : U) :
+    padicSmoothedMeasure p (u*v) = padicSmoothedMeasure p u +
+      (u : Z) • σ u (padicSmoothedMeasure p v) := sorry
+lemma padicSmoothedMeasure_reflection (u : U) :
+    padicSmoothedMeasure p u + σ (-1 : U) (padicSmoothedMeasure p u) =
+      ((u : Z)-1) • dirac Z (0 : Z) := sorry
+lemma padicSmoothedNumerator_mul (u v : U) :
+    padicSmoothedNumerator p (u*v) = padicSmoothedNumerator p u +
+      σ u (padicSmoothedNumerator p v) := sorry
+lemma padicSmoothedNumerator_even (u : U) :
+    σ (-1 : U) (padicSmoothedNumerator p u) = padicSmoothedNumerator p u := sorry
+lemma map_val_dirac_mul_padicIntrinsicNumerator (u v : U) :
+    AbstractMeasure.map j (dirac Z v * padicIntrinsicNumerator p u) =
+      σ v (padicSmoothedNumerator p u) := sorry
+lemma padicIntrinsicNumerator_mul (u v : U) :
+    padicIntrinsicNumerator p (u*v) = padicIntrinsicNumerator p u +
+      dirac Z u * padicIntrinsicNumerator p v := sorry
+lemma padicIntrinsicNumerator_cross (u v : U) :
+    (dirac Z v-dirac Z (1 : U))*padicIntrinsicNumerator p u =
+      (dirac Z u-dirac Z (1 : U))*padicIntrinsicNumerator p v := sorry
+lemma padicIntrinsicNumerator_even (u : U) :
+    dirac Z (-1 : U)*padicIntrinsicNumerator p u = padicIntrinsicNumerator p u := sorry
+end DirichletPadic
+
+namespace SuggestedPadicRelationTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+-- raw_cocycle_scalar
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=2) :
+    padicSmoothedMeasure 3 (u*u) = padicSmoothedMeasure 3 u +
+      (2 : ℤ_[3]) • AbstractMeasure.map
+        (⟨fun z : ℤ_[3] => 2*z, continuous_const.mul continuous_id⟩ : C(ℤ_[3],ℤ_[3]))
+        (padicSmoothedMeasure 3 u) := sorry
+-- raw_cocycle_negative
+example (u : (ℤ_[2])ˣ) :
+    padicSmoothedMeasure 2 (-u) = padicSmoothedMeasure 2 u -
+      (u : ℤ_[2]) • dirac ℤ_[2] (0 : ℤ_[2]) := sorry
+-- reflection_negative_boundary
+example : padicSmoothedMeasure 3 (-1) +
+    AbstractMeasure.map (⟨fun z : ℤ_[3] => -z, continuous_neg⟩ : C(ℤ_[3],ℤ_[3]))
+      (padicSmoothedMeasure 3 (-1)) = (-2 : ℤ_[3]) • dirac ℤ_[3] (0 : ℤ_[3]) := sorry
+-- reflection_dyadic_correction
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2])=3) :
+    padicSmoothedMeasure 2 u +
+      AbstractMeasure.map (⟨fun z : ℤ_[2] => -z, continuous_neg⟩ : C(ℤ_[2],ℤ_[2]))
+        (padicSmoothedMeasure 2 u) = (2 : ℤ_[2]) • dirac ℤ_[2] (0 : ℤ_[2]) := sorry
+-- numerator_inverse_parameters
+example (u : (ℤ_[3])ˣ) : padicSmoothedNumerator 3 u +
+    AbstractMeasure.map
+      (⟨fun z : ℤ_[3] => (u : ℤ_[3])*z, continuous_const.mul continuous_id⟩ : C(ℤ_[3],ℤ_[3]))
+      (padicSmoothedNumerator 3 u⁻¹) = 0 := sorry
+-- numerator_no_extra_scalar
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=2) :
+    (padicSmoothedNumerator 3 (u*u) ((ContinuousMap.id ℤ_[3])^2) : ℚ_[3]) =
+      1/2 + 4*(1/2) := sorry
+-- ambient_dyadic_even
+example (u : (ℤ_[2])ˣ) :
+    AbstractMeasure.map (⟨fun z : ℤ_[2] => -z, continuous_neg⟩ : C(ℤ_[2],ℤ_[2]))
+      (padicSmoothedNumerator 2 u) = padicSmoothedNumerator 2 u := sorry
+-- ambient_odd_test
+example (u : (ℤ_[2])ˣ) :
+    padicSmoothedNumerator 2 u ((ContinuousMap.id ℤ_[2])^3) = 0 := sorry
+-- dirac_identity_inclusion
+example (u : (ℤ_[2])ˣ) :
+    AbstractMeasure.map (⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2]))
+      (dirac ℤ_[2] (1 : (ℤ_[2])ˣ)*padicIntrinsicNumerator 2 u) =
+      padicSmoothedNumerator 2 u := sorry
+-- dirac_negative_zero
+example (v : (ℤ_[3])ˣ) :
+    dirac ℤ_[3] v * padicIntrinsicNumerator 3 (-1) = 0 := sorry
+-- intrinsic_inverse_parameters
+example (u : (ℤ_[2])ˣ) :
+    padicIntrinsicNumerator 2 u + dirac ℤ_[2] u*padicIntrinsicNumerator 2 u⁻¹ = 0 := sorry
+-- intrinsic_negative_parameter_change
+example (u : (ℤ_[2])ˣ) : padicIntrinsicNumerator 2 (-u) = padicIntrinsicNumerator 2 u := sorry
+-- cross_orientation
+example (u v : (ℤ_[3])ˣ) (hu : (u : ℤ_[3])=2) (hv : (v : ℤ_[3])=4) :
+    (((dirac ℤ_[3] v - dirac ℤ_[3] 1)*padicIntrinsicNumerator 3 u) : D((ℤ_[3])ˣ,ℤ_[3]))
+      ((⟨Units.val,Units.continuous_val⟩ : C((ℤ_[3])ˣ,ℤ_[3]))^2) =
+    (15 : ℤ_[3]) * (padicIntrinsicNumerator 3 u
+      ((⟨Units.val,Units.continuous_val⟩ : C((ℤ_[3])ˣ,ℤ_[3]))^2)) := sorry
+-- cross_identity_parameter
+example (u : (ℤ_[2])ˣ) :
+    (dirac ℤ_[2] u-dirac ℤ_[2] 1)*padicIntrinsicNumerator 2 1 = 0 := sorry
+-- intrinsic_dyadic_even
+example (u : (ℤ_[2])ˣ) :
+    dirac ℤ_[2] (-1 : (ℤ_[2])ˣ)*padicIntrinsicNumerator 2 u = padicIntrinsicNumerator 2 u := sorry
+-- intrinsic_odd_moment
+example (u : (ℤ_[2])ˣ) :
+    padicIntrinsicNumerator 2 u
+      ((⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2]))^3) = 0 := sorry
+end SuggestedPadicRelationTests
