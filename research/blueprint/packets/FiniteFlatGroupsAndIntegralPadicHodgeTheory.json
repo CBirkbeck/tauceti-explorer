@@ -11,7 +11,7 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
   ],
   "status": "partial",
-  "summary": "Eighth checkpoint. R07.1 is closed; R07.2–R07.6 are partial. This checkpoint extends R07.4 with Kisin 2009 §§1.2–1.3, the theory with coefficients: Kisin modules with coefficients and their duality, the functor to Breuil modules with coefficients (an equivalence mod p), étale φ-modules and G_{K∞}-representations with finite coefficients, and crystalline representations with coefficients; the proof of Kisin's maximal multiplicative subobject (1.2.11) is completed in R07.4/multiplicative-etale-dictionary.",
+  "summary": "Ninth checkpoint. R07.1 is closed; R07.2–R07.6 are partial. This checkpoint plans Fontaine's ramification bound in R07.6 from Fontaine 1985 §§1–2 (the paper is on the author's page): Fontaine's normalisation of the ramification filtration and its translation to Serre's (G^(u) = G^{u−1}), the embedding criterion (P_m), the lifting through topologically nilpotent divided powers with the bound u_{L/K} ≤ v_K(a) + e/(p − 1), and Théorème A / Théorème 1: G_K^(u) acts trivially on J(K̄) for u > e(n + 1/(p − 1)) and v_K(𝒟_{L/K}) < e(n + 1/(p − 1)), as requested by SmallRamificationAndAbelianVarietyBaseCases R25.1.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -252,6 +252,34 @@
         "kind": "definition",
         "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
         "provides": "A Weierstrass curve over the fraction field of a DVR has good reduction: it is minimal and its discriminant has valuation 1 (is a unit).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:differentIdeal",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
+        "provides": "The different ideal of an extension of Dedekind domains, as the inverse of the trace dual.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsKrasner.krasner",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Field/Krasner.lean",
+        "provides": "Krasner's lemma for an extension L/K with IsKrasner K L (an instance for complete K).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:DividedPowers",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/DividedPowers/Basic.lean",
+        "provides": "Divided power structures on an ideal.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:KaehlerDifferential",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
+        "provides": "The module of Kähler differentials Ω¹_{S/R}.",
         "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
       }
     ]
@@ -533,6 +561,20 @@
         "§2.1 (pp. 5–11): Proposition 2.1.2.2.",
         "§4.2 (pp. 43–48): Théorèmes 4.2.1.6, 4.2.2.5, 4.2.2.9, Corollaire 4.2.2.7, Lemme 4.2.2.8, Remarque 4.2.2.6.",
         "§5 (pp. 48–52): Proposition 5.1.3, Théorème 5.3.2."
+      ]
+    },
+    {
+      "id": "Fontaine85",
+      "title": "Il n'y a pas de variété abélienne sur Z",
+      "authors": "Jean-Marc Fontaine",
+      "edition": "Invent. Math. 81 (1985), 515–538; the publisher's scan hosted on the author's page at Paris-Saclay (24 PDF pages, printed page = PDF page + 514); its text layer is poor OCR, so excerpts are transcribed from the page images; accessed 2026-09-28",
+      "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/varabZ.pdf",
+      "sha256": "c10642fb8e66929af2c60352abfdbf394bab1438b12c91fadf141bebf901fdd3",
+      "readSections": [
+        "Introduction (pp. 515–517): Théorèmes A and B and their corollaries.",
+        "§1 (pp. 517–525): 1.1–1.9 (the numbering, Propositions 1.3–1.5, 1.7, Corollary 1.8, Remarks 1.2, 1.9), with proofs.",
+        "§2 (pp. 525–526): Théorème 1 with proof and Remarks 2.2.",
+        "§3 (p. 526): read for scope; the Odlyzko bounds and the classification over number rings are SmallRamification R25."
       ]
     }
   ],
@@ -7326,6 +7368,272 @@
           "how": "E[p] at a prime of good reduction is the generic fibre of a finite flat group scheme (requested from R07.6)."
         }
       ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-numbering",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
+      ],
+      "title": "Fontaine's normalisation of the ramification filtration",
+      "kind": "definition",
+      "statement": "For L/K finite Galois with group G and g ∈ G, let i_{L/K}(g) = v_K(a_g), a_g the ideal of O_L generated by the (g − 1)x, x ∈ O_L, and for real i let G_(i) = {g : i_{L/K}(g) ≥ i}. φ_{L/K}(i) = Σ_{g∈G} min(i, i_{L/K}(g)) is piecewise linear, increasing and bijective with inverse ψ_{L/K}; u_{L/K}(g) = φ_{L/K}(i_{L/K}(g)) and G^(u) = {g : u_{L/K}(g) ≥ u}, so G^(u) = G_(ψ_{L/K}(u)). Put i_{L/K} = sup_{g≠1} i_{L/K}(g) and u_{L/K} = sup_{g≠1} u_{L/K}(g) = φ_{L/K}(i_{L/K}). Comparison with Serre's lower and upper numbering: G_j = G_((j+1)/e_{L/K}) and G^v = G^(v+1), i.e. G^(u) = G^{u−1}. The G^(u) are compatible with quotients, so they define closed subgroups G_K^(u) = lim_L Gal(L/K)^(u) of G_K, and u_{L/K} is the least u with G_K^(u+ε) ⊆ Gal(K̄/L) for all ε > 0. The different satisfies v_K(𝒟_{L/K}) = u_{L/K} − i_{L/K}.",
+      "hypotheses": [
+        "K is complete for a discrete valuation with perfect residue field k of characteristic p; v_K is normalised by v_K(K^*) = ℤ and extended to K̄; for L/K finite Galois with group G, e_{L/K} is its ramification index and a^m_{L/K} = {x ∈ O_L : v_K(x) ≥ m} (Fontaine 1985, §1).",
+        "Serre's lower and upper numbering, Herbrand's functions, compatibility with quotients (Local Fields IV, Prop. 14) and v(𝒟) = Σ i_G(g) (Local Fields IV, Prop. 4) are requested from Tau Ceti LocalFieldsRamification Layer 3."
+      ],
+      "proofSteps": [
+        "Fontaine's i_{L/K}(g) is Serre's i_G(g) divided by e_{L/K} (v_K rather than v_L), which gives G_j = G_((j+1)/e_{L/K}); Herbrand's φ is rescaled the same way, giving G^v = G^(v+1) (Fontaine 1985, 1.2(i)).",
+        "Compatibility with quotients is Serre's Local Fields IV, Prop. 14, in the shifted numbering (1.2(ii)).",
+        "v_K(𝒟_{L/K}) = Σ_{g≠1} i_{L/K}(g) = Σ_g min(i_{L/K}, i_{L/K}(g)) − i_{L/K} = φ_{L/K}(i_{L/K}) − i_{L/K} = u_{L/K} − i_{L/K} (Proposition 1.3, from Local Fields IV, Prop. 4)."
+      ],
+      "acceptance": [
+        "L = ℚ_p(ζ_{p^n}) over ℚ_p: u_{L/ℚ_p} = n, i_{L/ℚ_p} = v_p(ζ_p − 1) = 1/(p − 1) and v_p(𝒟_{L/ℚ_p}) = n − 1/(p − 1).",
+        "L/K tamely and totally ramified of degree m: i_{L/K}(g) = 1/m for g ≠ 1 and u_{L/K} = 1."
+      ],
+      "prerequisites": [
+        "mathlib:differentIdeal"
+      ],
+      "sources": [
+        {
+          "sourceId": "Fontaine85",
+          "locator": "§1.1, p. 517 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "Fontaine's lower index."
+        },
+        {
+          "sourceId": "Fontaine85",
+          "locator": "§1.2, Remarque i), p. 518 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "The dictionary with Serre."
+        },
+        {
+          "sourceId": "Fontaine85",
+          "locator": "§1.3, Proposition, p. 518 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "Proposition 1.3."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/Ramification",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fontaine's ramification numbering"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/krasner-embedding-criterion",
+          "how": "The invariant u_{L/K} controls the property (P_m)."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-bound",
+          "how": "The bound is stated in G^(u) and u_{L/K}."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/fontaine-torsion-field-bound",
+          "how": "The convention translation to the normalised different δ (requested from R07.6)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.FiniteFlat.fontaineLowerIndex",
+          "role": "data",
+          "statement": "i_{L/K}(g) = v_K(a_g) ∈ (1/e_{L/K})ℤ ∪ {∞}."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.fontaineUpper",
+          "role": "constructor",
+          "statement": "G^(u) = {g : φ_{L/K}(i_{L/K}(g)) ≥ u}."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.fontaineUpperBreak",
+          "role": "data",
+          "statement": "u_{L/K} = sup_{g≠1} u_{L/K}(g)."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.fontaineUpper_eq_serreUpper",
+          "role": "compatibility",
+          "statement": "G^(u) = G^{u−1} in Serre's upper numbering."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.valuation_different_eq",
+          "role": "characterisation",
+          "statement": "v_K(𝒟_{L/K}) = u_{L/K} − i_{L/K}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.FiniteFlat.cyclotomic_upper_break",
+          "kind": "value",
+          "statement": "u_{ℚ_p(ζ_{p^n})/ℚ_p} = n and v_p(𝒟) = n − 1/(p − 1)."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.tame_upper_break",
+          "kind": "value",
+          "statement": "A tamely and totally ramified extension has u_{L/K} = 1."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.unramified",
+          "kind": "degenerate",
+          "statement": "L/K unramified: i_{L/K}(g) = 0 for g ≠ 1, u_{L/K} = 0 and 𝒟_{L/K} = O_L."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.shift_non_example",
+          "kind": "non-example",
+          "statement": "For ℚ_p(ζ_p)/ℚ_p, Serre's G^v is trivial for v > 0 while Fontaine's G^(u) is all of G for u ≤ 1: the numberings differ by one."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/krasner-embedding-criterion",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
+      ],
+      "title": "Embeddings from approximate homomorphisms: the property (P_m)",
+      "kind": "theorem",
+      "statement": "Let L/K be finite Galois and m ≥ 0 real. Consider (P_m): for every algebraic extension E of K, if there is an O_K-algebra homomorphism O_L → O_E/a^m_{E/K}, then there is a K-embedding L → E. Then (i) if m > u_{L/K}, (P_m) holds; (ii) if (P_m) holds, m > u_{L/K} − e_{L/K}^{−1}. The key identity: for O_L = O_K[α] with minimal polynomial P and β algebraic over K, with i = sup_g v_K(β − gα) and u = v_K(P(β)), one has u = φ_{L/K}(i) and i = ψ_{L/K}(u).",
+      "hypotheses": [
+        "K is complete for a discrete valuation with perfect residue field k of characteristic p; v_K is normalised by v_K(K^*) = ℤ and extended to K̄; for L/K finite Galois with group G, e_{L/K} is its ramification index and a^m_{L/K} = {x ∈ O_L : v_K(x) ≥ m} (Fontaine 1985, §1).",
+        "Krasner's lemma is Mathlib's IsKrasner.krasner (complete base)."
+      ],
+      "proofSteps": [
+        "Prop. 1.4: v_K(β − gα) = min(i, i_{L/K}(g)) after conjugating β, so v_K(P(β)) = Σ_g min(i, i_{L/K}(g)) = φ_{L/K}(i) (Fontaine 1985, 1.4).",
+        "(i): a lift β of the image of α has v_K(P(β)) ≥ m > u_{L/K}, so i > ψ(u_{L/K}) = i_{L/K} and some conjugate g₀α is closer to β than to any other conjugate; Krasner's lemma gives g₀α ∈ K(β) ⊆ E (1.5).",
+        "(ii): reduce to L/K totally ramified with α a uniformiser and P Eisenstein; the tame case uses an extension of degree e_{L/K} − 1; in the wild case perturb P by a X^s to an Eisenstein R with a root β, and show that a K-embedding L → E would force e_{L/K}·ψ(m) ∈ ℤ, while e_{L/K}ψ(m) = e_{L/K}u_{L/K} − d^{−1} with d = |G_(i_{L/K})| (1.5)."
+      ],
+      "acceptance": [
+        "L = K: (P_m) holds for every m ≥ 0, and u_{L/K} = 0.",
+        "Tame L/K of degree m′: (P_m) holds for m > 1 and fails for m = 1 − 1/m′ (the tame case of the proof of (ii))."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-numbering",
+        "mathlib:IsKrasner.krasner"
+      ],
+      "sources": [
+        {
+          "sourceId": "Fontaine85",
+          "locator": "§1.5, Proposition, p. 519 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "Proposition 1.5."
+        },
+        {
+          "sourceId": "Fontaine85",
+          "locator": "§1.4, Proposition, p. 518 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "Proposition 1.4."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/Ramification",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/lci-lifting-and-ramification",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
+      ],
+      "title": "Lifting through topologically nilpotent divided powers and the bound on u_{L/K}",
+      "kind": "theorem",
+      "statement": "Let K have characteristic 0 and absolute ramification e = v_K(p). (a) For a finite extension L/K, a^m_{L/K} has divided powers iff m ≥ e/(p − 1), topologically nilpotent ones iff m > e/(p − 1). (b) Let B be a finite flat, locally complete intersection O_K-algebra with a ∈ O_K killing Ω¹_{B/O_K} and Ω¹_{B/O_K} flat over B/a. For S finite flat over O_K and I ⊆ S an ideal with topologically nilpotent divided powers, every O_K-homomorphism B → S/aI lifts uniquely to B → S with the same reduction to S/I; in particular B → S is determined by its reduction to S/I. (c) B_K = K ⊗ B is étale; if L is the smallest subfield of K̄ containing u(B) for all O_K-homomorphisms u : B → O_K̄, then L/K is Galois and u_{L/K} ≤ v_K(a) + e/(p − 1); hence v_K(𝒟_{L/K}) < v_K(a) + e/(p − 1), and G_K^(u) ⊆ Gal(K̄/L) for u > v_K(a) + e/(p − 1).",
+      "hypotheses": [
+        "K is complete for a discrete valuation with perfect residue field k of characteristic p; v_K is normalised by v_K(K^*) = ℤ and extended to K̄; for L/K finite Galois with group G, e_{L/K} is its ramification index and a^m_{L/K} = {x ∈ O_L : v_K(x) ≥ m} (Fontaine 1985, §1)."
+      ],
+      "proofSteps": [
+        "(a): v_p(n!) ≤ (n − 1)/(p − 1) gives the divided powers on a^m exactly when m ≥ e/(p − 1), with topological nilpotence when m > e/(p − 1) (Fontaine 1985, 1.6).",
+        "(b): reduce to B local with residue field k; lifts x_j of a basis of m_B/(m_B² + m_K B) make the dx_j a (B/a)-basis of Ω¹; B = O_K⟦X₁, …, X_h⟧/(P₁, …, P_h), and a·(∂P_i/∂X_j) = a·(invertible matrix) after dividing by a; a Newton iteration through the divided-power filtration I^{[n]} lifts u step by step, uniquely (1.7(i)).",
+        "(c): B_K is étale since Ω¹_{B_K/K} = 0; L is the compositum of the Galois closures of the factors of B_K; for m > v_K(a) + e/(p − 1), a^m_{E/K} ⊆ aI with I topologically nilpotent PD, so (b) makes J(L) → J(E) injective, which forces a K-embedding L → E: L/K satisfies (P_m) (1.7(ii)).",
+        "By Proposition 1.5(ii), u_{L/K} ≤ v_K(a) + e/(p − 1) + 1/n with n = e_{L/K}; if p ∤ n, L/K is tame and u_{L/K} = 1 ≤ v_K(a); if p | n, n(p − 1)u_{L/K} and n(p − 1)v_K(a) + ne are integers divisible by p within p − 1 of each other, so u_{L/K} ≤ v_K(a) + e/(p − 1). Corollary 1.8 follows from Proposition 1.3 since i_{L/K} > 0 when L/K is ramified."
+      ],
+      "acceptance": [
+        "a a unit: Ω¹_{B/O_K} = 0, B is étale, L/K is unramified and u_{L/K} = 0.",
+        "B = O_K[X]/(X^p − 1) (the group μ_p) with a = p: L = K(ζ_p), and u_{L/K} ≤ e + e/(p − 1); for K = ℚ_p, u = 1 ≤ 1 + 1/(p − 1)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/krasner-embedding-criterion",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-numbering",
+        "mathlib:DividedPowers",
+        "mathlib:KaehlerDifferential"
+      ],
+      "sources": [
+        {
+          "sourceId": "Fontaine85",
+          "locator": "§1.7, Proposition, pp. 520–521 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "Proposition 1.7."
+        },
+        {
+          "sourceId": "Fontaine85",
+          "locator": "§1.8, Corollaire, p. 524 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "Corollary 1.8."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/Ramification",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-bound",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
+      ],
+      "title": "Fontaine's ramification bound for finite flat group schemes",
+      "kind": "theorem",
+      "statement": "Let K have characteristic 0 and absolute ramification e, n ≥ 1, and J a finite flat commutative group scheme over O_K killed by pⁿ. Let H be the kernel of the action of G_K on J(K̄) and L = K̄^H. Then G_K^(u) ⊆ H for every u > e(n + 1/(p − 1)), and v_K(𝒟_{L/K}) < e(n + 1/(p − 1)). Equivalently: in Serre's upper numbering G_K^v acts trivially on J(K̄) for v > e(n + 1/(p − 1)) − 1; with the valuation v₀ normalised by v₀(p) = 1, v₀(𝒟_{L/K}) < n + 1/(p − 1). For K = ℚ_p and n = 1, the normalised different of L at a prime above p satisfies δ(L_λ) = v_p(𝒟_{L_λ/ℚ_p}) < 1 + 1/(p − 1).",
+      "hypotheses": [
+        "K is complete for a discrete valuation with perfect residue field k of characteristic p; v_K is normalised by v_K(K^*) = ℤ and extended to K̄; for L/K finite Galois with group G, e_{L/K} is its ramification index and a^m_{L/K} = {x ∈ O_L : v_K(x) ≥ m} (Fontaine 1985, §1).",
+        "Fontaine's proof cites Grothendieck's embedding of a finite flat group scheme in a Barsotti–Tate group (BBM or Illusie) and the identification Ω¹_{B/O_K} ≅ B ⊗ ω_J (Fontaine, Groupes p-divisibles sur les corps locaux, n° 4.3); neither was read here. For e = n = 1, the case R25.1 uses, the embedding is not needed (Fontaine 1985, 2.2(a))."
+      ],
+      "proofSteps": [
+        "Reduce to k algebraically closed (Fontaine 1985, 2.1).",
+        "(a) ω_J free over O_K/pⁿ: J_k is the product of an étale group and a connected group with affine algebra k[X₁, …, X_h]/(X₁^{p^{r₁}}, …, X_h^{p^{r_h}}) (Dieudonné), so B is a local complete intersection, and Ω¹_{B/O_K} ≅ B ⊗ ω_J is a free B/pⁿ-module; apply R07.6/lci-lifting-and-ramification with a = pⁿ, v_K(a) = ne.",
+        "(b) General J: embed J in a Barsotti–Tate group Γ; then J(K̄) ⊆ Γ_{pⁿ}(K̄), and from 0 → Γ_{pⁿ} → Γ → Γ → 0 one gets 0 → ω_Γ → ω_Γ → ω_{Γ_{pⁿ}} → 0 with ω_Γ free over O_K, so ω_{Γ_{pⁿ}} is free over O_K/pⁿ and (a) applies to Γ_{pⁿ}.",
+        "e = n = 1: O_K/p = k is a field, so ω_J is free and (a) applies directly (Remark 2.2(a)).",
+        "Translation: G^(u) = G^{u−1} (R07.6/fontaine-ramification-numbering) and v₀ = v_K/e."
+      ],
+      "acceptance": [
+        "J = μ_{pⁿ} over ℤ_p: L = ℚ_p(ζ_{pⁿ}) has u_{L/ℚ_p} = n ≤ n + 1/(p − 1) and v_p(𝒟) = n − 1/(p − 1) < n + 1/(p − 1): the bound is sharp up to 1/(p − 1).",
+        "J = ℤ/pⁿ (étale): L = K and the bound is trivially met; for the p-torsion of an elliptic curve with good reduction over ℤ_p, L_λ has δ < 1 + 1/(p − 1)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/lci-lifting-and-ramification",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-numbering",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "Fontaine85",
+          "locator": "Introduction, Théorème A, p. 515 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "Théorème A."
+        },
+        {
+          "sourceId": "Fontaine85",
+          "locator": "§2.1, Théorème 1, p. 525 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "Théorème 1."
+        },
+        {
+          "sourceId": "Fontaine85",
+          "locator": "§2.2, Remarque a), p. 526 (transcribed from the page image; the text layer of the scan is garbled)",
+          "match": "The case e = n = 1."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/Ramification",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fontaine's ramification bound"
+      },
+      "uses": [
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/fontaine-torsion-field-bound",
+          "how": "δ(L_λ) < e(1 + 1/(p − 1)) (in the v_K normalisation; 1 + 1/(p − 1) with v(p) = 1) for finite flat group schemes killed by p (requested from R07.6)."
+        }
+      ]
     }
   ],
   "requests": [
@@ -7455,6 +7763,13 @@
       "neededBy": [
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "need": "Serre's lower and upper numbering for finite Galois extensions of complete discretely valued fields with perfect residue field, Herbrand's φ and ψ, compatibility of the upper numbering with quotients (Serre, Local Fields IV, Prop. 14) and v_L(𝒟_{L/K}) = Σ_{g≠1} i_G(g) (IV, Prop. 4), in the normalisation from which Fontaine's G^(u) = G^{u−1} and i_{L/K} = i_G/e_{L/K} are defined.",
+      "neededBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/fontaine-ramification-numbering"
+      ]
     }
   ],
   "coverage": [
@@ -7507,9 +7822,9 @@
       "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
       "status": "partial",
       "remaining": [
-        "Fontaine's ramification bound (Théorème A of Il n'y a pas de variété abélienne sur Z) with the convention translation, requested by SmallRamificationAndAbelianVarietyBaseCases R25.1. Fontaine's paper is behind a login; Yoshida (arXiv:0905.1171) characterises the bound through Fontaine's property (P_m), and a public proof of the (P_m) step for finite flat group schemes is still to be found.",
         "The deformation-theoretic tangent and obstruction calculations supplied to R08, and the comparison of finite-flat models under field extension and twisting.",
-        "The Galois-module comparison for abelian-scheme torsion is planned (R07.6/abelian-scheme-torsion-finite-flat) for the p-power torsion and its generic fibre; the comparison with R10's moduli is not."
+        "The Galois-module comparison for abelian-scheme torsion with R10's moduli (the p-power torsion and its generic fibre are planned).",
+        "Cited but not read for Fontaine's bound: Grothendieck's embedding of a finite flat group scheme in a Barsotti–Tate group (BBM, Illusie), used only when e > 1 or n > 1, and Ω¹_{B/O_K} ≅ B ⊗ ω_J (Fontaine, Astérisque 47–48, n° 4.3; the author's page hosts an image-only scan)."
       ]
     }
   ],
@@ -7868,6 +8183,13 @@
       "citation": "Christophe Breuil, Groupes p-divisibles, groupes finis et modules filtrés",
       "read": "2026-09-28",
       "sha256": "563deafc1a3f01ba076bd9a4ee2ffaae21a50957e3a93da0610cc6686f23628d"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/varabZ.pdf",
+      "citation": "Jean-Marc Fontaine, Il n'y a pas de variété abélienne sur Z",
+      "read": "2026-09-28",
+      "sha256": "c10642fb8e66929af2c60352abfdbf394bab1438b12c91fadf141bebf901fdd3"
     }
   ]
 }
