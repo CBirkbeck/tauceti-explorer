@@ -124465,9 +124465,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Katharina Hübner, Adic spaces, arXiv:2405.06435v1",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed at Hübner Example 9.3 (arXiv v1, p. 42): the printed second factor is (k⟨S⟩, k◦⟨T⟩) and the result is printed as the ring k⟨T,S⟩; the next displayed line has the correct pair."
   },
   {
    "id": "AdicEtaleGeometry/E2",
@@ -124485,9 +124485,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); locators are the printed page numbers of that version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: ECD Definition 6.2(ii) (v4, p. 26) prints 'such that y ∈ Y'; with y ∈ V the condition is the local one, as in the later Lemma 11.31."
   },
   {
    "id": "AdicEtaleGeometry/E3",
@@ -124505,9 +124505,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, Perfectoid spaces, arXiv:1111.4914 (Publ. Math. IHÉS 116 (2012) 245–313); locators are the printed page numbers of the arXiv PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: Scholze 2012 Lemma 7.3(i) (p. 40) prints |X ×Z Y| → |X| ×|Z| |Y| for f: X → Y, g: Z → Y."
   },
   {
    "id": "AdicEtaleGeometry/E4",
@@ -124525,9 +124525,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "David Hansen, Kiran S. Kedlaya, Sheafiness criteria for Huber rings, living preprint served from the author's page, version dated August 6, 2026 (date printed on p. 1 of the PDF read); no version history",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: Hansen–Kedlaya Corollary 4.7 (p. 13) assumes A → B 'finite flat, locally free, locally monogenic', and the paragraph after Definition 5.7 (p. 16) applies it to any finite étale A → B. The packet's repair (infinite residue fields for Tate A give a primitive element, which spreads out) is sound."
   },
   {
    "id": "AdicEtaleGeometry/E5",
@@ -124545,9 +124545,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: foundations, arXiv:1301.0792v5 (9 May 2015), Astérisque 371 (2015); locators give the printed page number (page footer) of the arXiv PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: Kedlaya–Liu Definition 2.4.1 requires A⁺ integrally closed in A, and the proof of Lemma 2.6.2 (p. 53) takes A_i⁺ to be the image of ℤ⟦z⟧{S}, which need not be; taking the integral closure repairs it without changing Spa or the completed limit."
   },
   {
    "id": "AdicEtaleGeometry/E6",
@@ -124567,9 +124567,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, Erratum to 'p-adic Hodge theory for rigid-analytic varieties', three-page author erratum (undated), SHA-256 identical to the copy read in RS-05",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed from the erratum's own text (item (1)): read literally, every member of a corrected covering is a transfinite composition of pullbacks of surjections, hence surjective, so the summand inclusions of X ⊔ X generate no covering sieve; the packet's reading (tower followed by the pullback of a morphism of X_fét) is the one that makes the definition a topology."
   },
   {
    "id": "AdicEtaleGeometry/E7",
@@ -124588,9 +124588,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, Erratum to 'p-adic Hodge theory for rigid-analytic varieties', three-page author erratum (undated), SHA-256 identical to the copy read in RS-05",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Rejected as justified. The reason rests on the claim that the closed unit disc over an algebraically closed complete field of characteristic 0 has no nontrivial finite étale covers, which is false: over ℂ_p, ℂ_p⟨T⟩ → ℂ_p⟨U⟩, T ↦ U^p − U, is finite étale of degree p (the derivative pU^{p−1} − 1 is a unit) and connected (ℂ_p⟨U⟩ is a domain). So it is not shown that the Kummer steps over the annulus fail the X_fét form of the erratum's condition. This does not show that the packet's reading (steps pulled back from X_ét) is wrong: with it, the erratum's 'for countable limits, the definitions are unchanged' is immediate, and the packet keeps it as its chosen reading. Found by the checkpoint review of 2026-09-26 (finding F4) and confirmed here."
   },
   {
    "id": "AdicEtaleGeometry/E8",
@@ -124609,9 +124609,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2 (Forum of Mathematics, Pi 1 (2013), e1),; printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: before Proposition 3.15 (p. 19) L/K is any separable extension; for X = Spa(C, O_C), L = K^sep the base change is not locally noetherian (C ⊗̂_K C ≅ C⁰(G_K, C)), so X_{L,proét} is not defined in the paper's framework; a local-finite-type hypothesis is needed."
   },
   {
    "id": "AdicEtaleGeometry/E9",
@@ -124629,9 +124629,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2 (Forum of Mathematics, Pi 1 (2013), e1),; printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: Lemma 3.11 (p. 17) asserts 'the notions of coverings coincide'; with the erratum's corrected coverings only one inclusion is evident, and the erratum gives no argument for the other."
   },
   {
    "id": "AdicEtaleGeometry/E10",
@@ -124649,9 +124649,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2 (Forum of Mathematics, Pi 1 (2013), e1),; printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: the proof of Proposition 3.13 (p. 19) uses an open surjection T → S_x̄ of profinite sets as a covering; after erratum item (1) open surjections need not be of tower form."
   },
   {
    "id": "AdicEtaleGeometry/E11",
@@ -124668,9 +124668,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2 (Forum of Mathematics, Pi 1 (2013), e1),; printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: Remark 3.14 (p. 19) still refers to the 'profinite covers of geometric points' whose role as points was withdrawn by erratum item (2); the first sentence stands."
   },
   {
    "id": "AdicEtaleGeometry/E12",
@@ -124689,9 +124689,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, p-adic Hodge theory for rigid-analytic varieties, arXiv:1205.3463v2 (Forum of Mathematics, Pi 1 (2013), e1),; printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: the proof of Proposition 8.5 (p. 49) reduces to X = Tⁿ → Y = T^{n−d} in one sentence; charts compatible with f are needed and are not supplied by Lemma 5.2, which charts X and Y separately."
   },
   {
    "id": "AdicEtaleGeometry/E13",
@@ -124710,9 +124710,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: foundations, arXiv:1301.0792v5 (9 May 2015), Astérisque 371 (2015); locators give the printed page number (page footer) of the arXiv PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: Kedlaya–Liu Proposition 2.4.24's proof (p. 47) prints 'V₀ … is contained in V' but then uses V ⊆ V₀ ⊆ U; the example U = Spa ℚ_p⟨X⟩, V = {|X| ≤ |p|}, g = p gives V₀ = U ⊄ V."
   },
   {
    "id": "AdicEtaleGeometry/E14",
@@ -124730,9 +124730,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory, II: Imperfect period rings, arXiv:1602.06899v3 (21 October 2019); printed page numbers of this version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: in Kedlaya–Liu I, 2.7.4 is a lemma on finite glueing data (p. 57) while 2.7.7 is the Tate sheaf property (p. 58)."
   },
   {
    "id": "AdicEtaleGeometry/E15",
@@ -124751,9 +124751,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); locators are the printed page numbers of that version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: FS Proposition IV.4.19 (p. 140) characterises Zariski closed immersions by equivalent conditions but constructs none and contains no perturbation statement, so ECD 6.4(iv)'s 'see [FS26, Proposition IV.4.19]. Slightly perturbing … by the same result' (p. 28) needs the steps the packet supplies."
   },
   {
    "id": "AdicEtaleGeometry/E16",
@@ -124771,9 +124771,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Laurent Fargues, Peter Scholze, Geometrization of the local Langlands correspondence, arXiv:2102.13459v4; printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: the proof of FS Lemma IV.4.13 (p. 137) invokes 'spreading of étale maps' from V(T) to {|T| ≤ |ϖⁿ|} without a reference."
   },
   {
    "id": "AdicEtaleGeometry/E17",
@@ -124791,9 +124791,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Laurent Fargues, Peter Scholze, Geometrization of the local Langlands correspondence, arXiv:2102.13459v4; printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: the proof of FS Lemma IV.4.16 (p. 139) reduces 'by descent' to strictly totally disconnected X without stating the descent statement used; the circularity concern with ECD 6.4(iv) is recorded as the packet states it."
   },
   {
    "id": "AdicEtaleGeometry/E18",
@@ -124810,9 +124810,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: foundations, arXiv:1301.0792v5 (9 May 2015), Astérisque 371 (2015); locators give the printed page number (page footer) of the arXiv PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed, and already known: Kedlaya–Liu I Definition 2.8.1 (p. 59) states the four conditions equivalent; Kedlaya–Liu II, Appendix A (p. 189 of v3), corrects it with the same counterexample."
   },
   {
    "id": "AdicEtaleGeometry/E19",
@@ -124831,9 +124831,9 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); locators are the printed page numbers of that version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: ECD does not build completeness into 'Tate ring' (Definition 3.1 lists completeness separately for perfectoid rings), and for A = ℚ_p[T] the tower of Lemma 15.3 (p. 90) gives ℚ̄_p[T], whose uniform completion C_p⟨T⟩ is not perfectoid."
   },
   {
    "id": "AdicEtaleGeometry/E20",
@@ -124852,9 +124852,28 @@
    "owner": "AdicEtaleGeometry",
    "file": "research/blueprint/packets/AdicEtaleGeometry.json",
    "citation": "Peter Scholze, Étale cohomology of diamonds, arXiv:1709.07343v4 (14 April 2026); locators are the printed page numbers of that version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Confirmed: the proof of Lemma 15.3 (p. 90) obtains ϖ with ϖ^p | p (possibly with equality up to a unit) and then calls x^p − ϖ^p x − f finite étale; the packet's example (K = ℚ_p(p^{1/p^∞})^, ϖ = p^{1/p}, f = 1 − p, a double root at 1) shows the step needs p/ϖ^p topologically nilpotent."
+  },
+  {
+   "id": "AdicEtaleGeometry/E21",
+   "kind": "misprint",
+   "locator": "§8.2, proof of Proposition 8.2.20, p. 164 (arXiv:1301.0792v5)",
+   "printed": "The source asserts the factorization Yij → Yi → Y as Yij → Zij → Y, requiring Zij to be finite étale and describing Yij as an open immersion.",
+   "correction": "'where Zij → Y is finite étale and Yij → Zij is an open immersion'.",
+   "reason": "Zij and Yij are spaces, and the proof's condition (e) concerns Z → V finite étale followed by V → U an open immersion in exactly this sense; the node AdicEtaleGeometry:A1/etale-covering-reduction uses the corrected reading.",
+   "affects": "nothing",
+   "known": "Kedlaya–Liu II (arXiv:1602.06899v3), Appendix A, the item on Proposition 8.2.20, which makes exactly this change",
+   "searched": [
+    "Kedlaya–Liu II, Appendix A (errata to Kedlaya–Liu I), p. 189 of arXiv v3."
+   ],
+   "owner": "AdicEtaleGeometry",
+   "file": "research/blueprint/packets/AdicEtaleGeometry.json",
+   "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: foundations, arXiv:1301.0792v5 (9 May 2015), Astérisque 371 (2015); locators give the printed page number (page footer) of the arXiv PDF",
+   "status": "confirmed",
+   "reviewedBy": "REV-AdicEtaleGeometry",
+   "reviewReason": "Added by the reviewer: the printed words are on p. 164 of the version read, and the published correction is in Kedlaya–Liu II's appendix."
   },
   {
    "id": "AdicSpacesPartII/E1",
@@ -126762,6 +126781,25 @@
    "owner": "ArithmeticDynamics",
    "file": "research/blueprint/packets/ArithmeticDynamics.json",
    "citation": "Laura DeMarco, Niki Myrto Mavraki and Hexi Ye, Bounded geometry for PCF-special subvarieties, Forum Math. Pi 14 (2026) e4; read in arXiv:2405.17343v3 (the accepted version); read 2026-09-24",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ArithmeticGaloisDuality/E1",
+   "kind": "error",
+   "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
+   "printed": "Lemma 5.5 assumes Γ is profinite and that the discrete Γ-modules form a short exact sequence 0 → A → B → C → 0 which splits as abelian groups. It assigns the torsor a class [γ] ∈ H1(Γ, Hom(C, A)).",
+   "correction": "Assume C finitely generated (for example finite, as in the only application), or give Hom(C, A) the pointwise topology Hom_pt(C, A), in which case the class lies in H^1(Γ, Hom_pt(C, A)) and the formula holds by a cochain computation.",
+   "reason": "Γ = ∏_ℕ C₂, A = ⊕𝔽₂a_i, C = ⊕𝔽₂c_i with trivial actions and B = A ⊕ C with g·c_i = c_i + g_i a_i: B is a discrete module and the sequence splits additively, but γ(g)(c_i) = g_i a_i has kernel {1}, not open, so γ is not continuous into the discrete module Hom(C, A).",
+   "affects": "a stated result",
+   "known": "PAPER-HARPAZ-WITTENBERG-23/E10 (research/errata/REGISTER.md), confirmed by REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "searched": [
+    "research/errata/REGISTER.md: recorded as PAPER-HARPAZ-WITTENBERG-23/E10"
+   ],
+   "owner": "ArithmeticGaloisDuality",
+   "file": "research/blueprint/packets/ArithmeticGaloisDuality.json",
+   "citation": "Yonatan Harpaz; Olivier Wittenberg, The Massey vanishing conjecture for number fields, Author final version (33 pp., revised 9 December 2021), identical to arXiv 1904.06512v2; Duke Math. J. 172 (2023) not accessed",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
