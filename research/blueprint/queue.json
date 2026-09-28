@@ -15102,9 +15102,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ArithmeticKTheory--N.7.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #678"
+   "note": "deliverables arrived from an external worker on issue #678",
+   "finishedAt": "2026-09-28T14:46:38Z"
   },
   {
    "id": "REV-ArithmeticKTheory--N.7",
@@ -17984,9 +17985,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralAlgebraicKTheory--K.1.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #737"
+   "note": "deliverables arrived from an external worker on issue #737",
+   "finishedAt": "2026-09-28T14:46:41Z"
   },
   {
    "id": "REV-GeneralAlgebraicKTheory--K.1",
@@ -18027,9 +18029,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GeneralAlgebraicKTheory--K.6.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #738"
+   "note": "deliverables arrived from an external worker on issue #738",
+   "finishedAt": "2026-09-28T14:46:43Z"
   },
   {
    "id": "REV-GeneralAlgebraicKTheory--K.6",
