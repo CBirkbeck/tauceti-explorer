@@ -18332,11 +18332,11 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-GrossZagierAndArithmeticHeights--GZ.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #744"
+   "note": "released on GitHub issue #744"
   },
   {
    "id": "REV-GrossZagierAndArithmeticHeights--GZ.0",
@@ -31854,7 +31854,8 @@
    ],
    "avoidAccountOf": "ERRATA-PAPER-LIU-ETAL-22",
    "prompt": "research/blueprint/prompts/REV-ERRATA-PAPER-LIU-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #2196"
   },
   {
    "id": "ERRATA-PAPER-BENOIST-WITTENBERG-20",
