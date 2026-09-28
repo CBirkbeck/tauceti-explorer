@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all288 predecessor nodes whole. Eight L1 lemmas supply all-unit smoothing and numerator cocycles, raw reflection, intrinsic Dirac action, cross-numerator identities and integral parity. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all296 predecessor nodes whole. Seven L1 nodes construct the actual arithmetic pseudomeasure in the native total quotient and prove all-unit clearing, numerator comparison, independence of regular parameters, uniqueness and integral parity. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2569,6 +2569,55 @@
         "module": "Mathlib/Topology/Separation/Hausdorff.lean",
         "provides": "theorem Continuous.ext_on [T2Space X] {s : Set Y} (hs : Dense s) {f g : Y → X} (hf : Continuous f)",
         "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The separate complete probe verifies actual integral inverse-series continuity and density of natural unit parameters."
+      },
+      {
+        "ref": "mathlib:FractionRing",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Localization/FractionRing.lean",
+        "provides": "For any commutative ring R, FractionRing R is Localization (nonZeroDivisors R).",
+        "checked": "Full declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Four complete native scratch lemmas verify the exact fraction clearing, parameter independence, unit cancellation and parity interfaces."
+      },
+      {
+        "ref": "mathlib:IsLocalization.mk'",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "provides": "For a commutative localization S of R at M, mk′ S x y is x/y for x∈R and y∈M.",
+        "checked": "Full declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Four complete native scratch lemmas verify the exact fraction clearing, parameter independence, unit cancellation and parity interfaces."
+      },
+      {
+        "ref": "mathlib:IsLocalization.mk'_spec'",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "provides": "algebraMap R S y * mk′ S x y = algebraMap R S x.",
+        "checked": "Full declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Four complete native scratch lemmas verify the exact fraction clearing, parameter independence, unit cancellation and parity interfaces."
+      },
+      {
+        "ref": "mathlib:IsLocalization.mk'_eq_iff_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "provides": "mk′ S x₁ y₁ = mk′ S x₂ y₂ iff algebraMap R S (y₂*x₁) = algebraMap R S (y₁*x₂).",
+        "checked": "Full declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Four complete native scratch lemmas verify the exact fraction clearing, parameter independence, unit cancellation and parity interfaces."
+      },
+      {
+        "ref": "mathlib:IsLocalization.map_units",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Defs.lean",
+        "provides": "Every denominator y∈M maps to a unit in the localization S.",
+        "checked": "Full declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Four complete native scratch lemmas verify the exact fraction clearing, parameter independence, unit cancellation and parity interfaces."
+      },
+      {
+        "ref": "mathlib:IsFractionRing.injective",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/FractionRing.lean",
+        "provides": "The algebra map from a commutative ring into its localization at non-zero-divisors is injective; no domain hypothesis.",
+        "checked": "Full declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Four complete native scratch lemmas verify the exact fraction clearing, parameter independence, unit cancellation and parity interfaces."
+      },
+      {
+        "ref": "mathlib:IsUnit.mul_right_inj",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Units/Basic.lean",
+        "provides": "For a unit a in a monoid, a*b=a*c iff b=c.",
+        "checked": "Full declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Four complete native scratch lemmas verify the exact fraction clearing, parameter independence, unit cancellation and parity interfaces."
       }
     ]
   },
@@ -19227,6 +19276,440 @@
       "acceptance": [
         "All-unit parity is available for the actual fraction once its regular denominator is cleared."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-fraction-clearing",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "All-unit clearing of the arithmetic fraction",
+      "kind": "lemma",
+      "statement": "If a∈U has value p+1, then for every g∈U, alg(θ_g)·mk′(λ_a,θ_a)=alg(λ_g) in Q.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p, U=Z^× and M=D(U,Z) with the exact existing multiplicative convolution operations. Commutativity comes from the supplier commutative-convolution theorem. Set Q=FractionRing M, the native localization at nonZeroDivisors M, and δ=the actual supplier diracHom U→*M. PM=Iwasawa.pseudomeasures δ Q is the existing submodule. Write θ_u=δ_u−1 and λ_u=the preceding actual padicIntrinsicNumerator p u. M is not assumed to be a domain and Q is not assumed to be a field."
+      ],
+      "proofSteps": [
+        "The supplier proves θ_a∈nonZeroDivisors M from the chosen value a=p+1, including p=2. Construct the fraction with native IsLocalization.mk′ using that actual regularity proof.",
+        "Multiply the desired equality on the left by alg(θ_a). Commute the scalar factors and apply mk′_spec′. Its left side becomes alg(θ_g λ_a), and its right side becomes alg(θ_a λ_g).",
+        "The preceding all-unit cross-numerator identity makes these equal. The image alg(θ_a) is a unit by IsLocalization.map_units, so native IsUnit.mul_right_inj cancels it. The complete scratch lemma verifies this argument for any commutative ring and its total quotient."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/padic-intrinsic-cross",
+        "PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference",
+        "PadicMeasuresIwasawaAlgebras:L1/dirac-hom",
+        "PadicMeasuresIwasawaAlgebras:L1/commutative-convolution",
+        "mathlib:FractionRing",
+        "mathlib:IsLocalization.mk'",
+        "mathlib:IsLocalization.mk'_spec'",
+        "mathlib:IsLocalization.map_units",
+        "mathlib:IsUnit.mul_right_inj"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticPseudomeasure",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.arithmeticFraction_clearing"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34 and Lemma3.36, published130–131/PDF31–32; Theorem4.1, Definitions4.9–4.10 and Proposition4.11, published136–139/PDF37–40. Complete cited pages read28September2026.",
+          "match": "Worker decomposition of the arithmetic construction on the actual unit-measure ring. The source writes its fraction using a generator. Here a with value p+1 need not generate the whole unit group: supplied regularity and the preceding all-unit cross identity prove membership directly. The native total quotient and the supplier pseudomeasure submodule are reused; no integral-domain, full-generator or completed-algebra identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedActualPseudoTests.clearing_identity",
+          "kind": "degenerate",
+          "statement": "For g=1 both sides vanish, since θ_1=0 and λ_1=0."
+        },
+        {
+          "name": "SuggestedActualPseudoTests.clearing_negative",
+          "kind": "degenerate",
+          "statement": "For g=−1 the fraction is annihilated by alg(δ_(−1)−1), since λ_(−1)=0."
+        }
+      ],
+      "acceptance": [
+        "No regularity is required of θ_g. The quantified membership witness is the actual integral λ_g."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "The arithmetic Kubota–Leopoldt pseudomeasure",
+      "kind": "construction",
+      "statement": "Choose a∈U with value p+1. Define ζ_p as mk′(λ_a,θ_a), with its all-unit membership proof, in the existing PM.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p, U=Z^× and M=D(U,Z) with the exact existing multiplicative convolution operations. Commutativity comes from the supplier commutative-convolution theorem. Set Q=FractionRing M, the native localization at nonZeroDivisors M, and δ=the actual supplier diracHom U→*M. PM=Iwasawa.pseudomeasures δ Q is the existing submodule. Write θ_u=δ_u−1 and λ_u=the preceding actual padicIntrinsicNumerator p u. M is not assumed to be a domain and Q is not assumed to be a field."
+      ],
+      "proofSteps": [
+        "Use the supplier exists_one_add_prime_unit to choose a; its supplied regularity makes the native fraction well-defined. For each g the preceding clearing equality gives the integral witness λ_g required by mem_pseudomeasures_iff.",
+        "Package that fraction and membership proof into the existing pseudomeasure submodule. This is an arithmetic element, not a new generic carrier, and its measure ring keeps the inherited convolution operations.",
+        "For any second choice a with the same value p+1, the cross-numerator identity and native mk′_eq_iff_eq identify the two fractions. Thus the coercion API describes the chosen object using every such a. Independence for arbitrary regular smoothing parameters is promoted below.",
+        "Constructor tests use the promoted numerator comparison and existing λ boundary/natural/moment formulas. Nonzeroness follows because λ_a evaluated on x² is (1−p)(1−(p+1)²)/12≠0 in Q_p. If ζ_p were zero its cleared numerator λ_a would be zero by native injectivity. This argument uses a field only for the scalar moment, not for M or Q."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-fraction-clearing",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-numerator",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-natural",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-moments",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+        "PadicMeasuresIwasawaAlgebras:L3/pseudomeasures",
+        "PadicMeasuresIwasawaAlgebras:L3/pseudomeasure-membership",
+        "mathlib:IsLocalization.mk'_eq_iff_eq",
+        "mathlib:IsFractionRing.injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticPseudomeasure",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34 and Lemma3.36, published130–131/PDF31–32; Theorem4.1, Definitions4.9–4.10 and Proposition4.11, published136–139/PDF37–40. Complete cited pages read28September2026.",
+          "match": "Worker decomposition of the arithmetic construction on the actual unit-measure ring. The source writes its fraction using a generator. Here a with value p+1 need not generate the whole unit group: supplied regularity and the preceding all-unit cross identity prove membership directly. The native total quotient and the supplier pseudomeasure submodule are reused; no integral-domain, full-generator or completed-algebra identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedActualPseudoTests.constructor_identity_numerator",
+          "kind": "degenerate",
+          "statement": "The supplier numerator of ζ_p at1 is0."
+        },
+        {
+          "name": "SuggestedActualPseudoTests.constructor_sign_numerator",
+          "kind": "degenerate",
+          "statement": "The supplier numerator at−1 is0, also at p=2."
+        },
+        {
+          "name": "SuggestedActualPseudoTests.constructor_integral_numerator",
+          "kind": "compatibility",
+          "statement": "At a with value p+1 its numerator equals the earlier intrinsicSmoothedNumerator p (p+1)."
+        },
+        {
+          "name": "SuggestedActualPseudoTests.constructor_not_zero",
+          "kind": "non-example",
+          "statement": "ζ_p≠0 for every prime, since its a=p+1 numerator has nonzero second moment."
+        }
+      ],
+      "acceptance": [
+        "The construction belongs to the actual supplier pseudomeasure submodule. No topological generator of the full unit group is chosen."
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.kubotaLeopoldtPseudomeasure_coe",
+          "role": "characterisation",
+          "statement": "For any a with value p+1, the underlying element of Q is mk′(λ_a,θ_a)."
+        },
+        {
+          "name": "DirichletPadic.kubotaLeopoldtPseudomeasure_clearing",
+          "role": "compatibility",
+          "statement": "alg(θ_g)ζ_p=alg(λ_g) for every unit g; promoted below."
+        },
+        {
+          "name": "DirichletPadic.kubotaLeopoldtPseudomeasure_numerator",
+          "role": "data",
+          "statement": "The existing supplier numerator at g is exactly λ_g; promoted below."
+        },
+        {
+          "name": "DirichletPadic.kubotaLeopoldtPseudomeasure_eq_fraction",
+          "role": "compatibility",
+          "statement": "Every u whose θ_u is regular represents ζ_p as mk′(λ_u,θ_u); promoted below."
+        },
+        {
+          "name": "DirichletPadic.kubotaLeopoldtPseudomeasure_unique",
+          "role": "universal-property",
+          "statement": "The full family of specified arithmetic numerators uniquely determines ζ_p; promoted below."
+        },
+        {
+          "name": "DirichletPadic.kubotaLeopoldtPseudomeasure_even",
+          "role": "compatibility",
+          "statement": "δ_(−1) acts trivially on ζ_p, including p=2; promoted below."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Theorem4.1 and Definition4.10",
+          "how": "Provide the actual arithmetic element from integral smoothing numerators and clear every unit difference."
+        },
+        {
+          "where": "Positive interpolation and uniqueness",
+          "how": "Evaluate the same pseudomeasure on power characters after checking a nonzero denominator; still to be extracted."
+        },
+        {
+          "where": "Constant term of the Eisenstein family",
+          "how": "Supply the arithmetic pseudomeasure intended for the constant coefficient, pending the explicit completed-algebra comparison and remaining family construction."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-clearing",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Clearing every unit difference of the arithmetic pseudomeasure",
+      "kind": "lemma",
+      "statement": "For every g∈U, alg(θ_g)ζ_p=alg(λ_g) in Q.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p, U=Z^× and M=D(U,Z) with the exact existing multiplicative convolution operations. Commutativity comes from the supplier commutative-convolution theorem. Set Q=FractionRing M, the native localization at nonZeroDivisors M, and δ=the actual supplier diracHom U→*M. PM=Iwasawa.pseudomeasures δ Q is the existing submodule. Write θ_u=δ_u−1 and λ_u=the preceding actual padicIntrinsicNumerator p u. M is not assumed to be a domain and Q is not assumed to be a field."
+      ],
+      "proofSteps": [
+        "Choose a with value p+1 and rewrite the underlying ζ_p using its coercion API.",
+        "Apply arithmeticFraction_clearing for this a and the arbitrary g. In particular, the identity and sign units are valid clearing indices even though their differences cannot serve as regular denominators."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure",
+        "DirichletPadicLFunctions:L1/arithmetic-fraction-clearing",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticPseudomeasure",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure_clearing"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34 and Lemma3.36, published130–131/PDF31–32; Theorem4.1, Definitions4.9–4.10 and Proposition4.11, published136–139/PDF37–40. Complete cited pages read28September2026.",
+          "match": "Worker decomposition of the arithmetic construction on the actual unit-measure ring. The source writes its fraction using a generator. Here a with value p+1 need not generate the whole unit group: supplied regularity and the preceding all-unit cross identity prove membership directly. The native total quotient and the supplier pseudomeasure submodule are reused; no integral-domain, full-generator or completed-algebra identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedActualPseudoTests.cleared_difference_zero",
+          "kind": "degenerate",
+          "statement": "alg(θ_1)ζ_p=0."
+        },
+        {
+          "name": "SuggestedActualPseudoTests.sign_annihilator",
+          "kind": "compatibility",
+          "statement": "alg(δ_(−1)−1)ζ_p=0."
+        }
+      ],
+      "acceptance": [
+        "Every numerator is integral by construction, without interpreting ζ_p as an integral measure."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-numerator",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "The arithmetic numerator agrees with the supplier numerator",
+      "kind": "comparison",
+      "statement": "For every g∈U, Iwasawa.numerator δ Q g ζ_p=λ_g in M.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p, U=Z^× and M=D(U,Z) with the exact existing multiplicative convolution operations. Commutativity comes from the supplier commutative-convolution theorem. Set Q=FractionRing M, the native localization at nonZeroDivisors M, and δ=the actual supplier diracHom U→*M. PM=Iwasawa.pseudomeasures δ Q is the existing submodule. Write θ_u=δ_u−1 and λ_u=the preceding actual padicIntrinsicNumerator p u. M is not assumed to be a domain and Q is not assumed to be a field."
+      ],
+      "proofSteps": [
+        "The exact supplier numerator specification sends its numerator at g to alg(θ_g)ζ_p.",
+        "The arithmetic clearing lemma identifies the same expression with alg(λ_g). Use native IsFractionRing.injective for the localization at non-zero-divisors to conclude equality in M.",
+        "This comparison transports the preceding intrinsic moments unchanged. In particular its second moment is (1−p)(1−g²)/12 in Q_p and its numerator at−1 is zero."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-clearing",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-moments",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-numerator",
+        "PadicMeasuresIwasawaAlgebras:L3/cleared-numerator",
+        "PadicMeasuresIwasawaAlgebras:L3/cleared-numerator-spec",
+        "mathlib:IsFractionRing.injective"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticPseudomeasure",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure_numerator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34 and Lemma3.36, published130–131/PDF31–32; Theorem4.1, Definitions4.9–4.10 and Proposition4.11, published136–139/PDF37–40. Complete cited pages read28September2026.",
+          "match": "Worker decomposition of the arithmetic construction on the actual unit-measure ring. The source writes its fraction using a generator. Here a with value p+1 need not generate the whole unit group: supplied regularity and the preceding all-unit cross identity prove membership directly. The native total quotient and the supplier pseudomeasure submodule are reused; no integral-domain, full-generator or completed-algebra identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedActualPseudoTests.numerator_moment_second",
+          "kind": "computation",
+          "statement": "The numerator at g evaluated on x² is (1−p)(1−g²)/12 in Q_p."
+        },
+        {
+          "name": "SuggestedActualPseudoTests.numerator_negative_zero",
+          "kind": "degenerate",
+          "statement": "The supplier numerator at−1 is exactly zero in the integral measure ring."
+        }
+      ],
+      "acceptance": [
+        "The two numerator operations agree as actual measures, not merely on a finite set of tests."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-regular-parameter",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Independence of every regular smoothing parameter",
+      "kind": "comparison",
+      "statement": "For every u∈U with θ_u∈nonZeroDivisors M, ζ_p=mk′(λ_u,θ_u) in Q.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p, U=Z^× and M=D(U,Z) with the exact existing multiplicative convolution operations. Commutativity comes from the supplier commutative-convolution theorem. Set Q=FractionRing M, the native localization at nonZeroDivisors M, and δ=the actual supplier diracHom U→*M. PM=Iwasawa.pseudomeasures δ Q is the existing submodule. Write θ_u=δ_u−1 and λ_u=the preceding actual padicIntrinsicNumerator p u. M is not assumed to be a domain and Q is not assumed to be a field."
+      ],
+      "proofSteps": [
+        "Write ζ_p as its fraction for a with value p+1. The preceding cross identity gives θ_u λ_a=θ_a λ_u.",
+        "Apply native mk′_eq_iff_eq after the algebra map to conclude equality with mk′(λ_u,θ_u). This requires only the two supplied regularity proofs.",
+        "The torsion counterexample retains the regularity hypothesis: (δ_(−1)−1)(δ_(−1)+1)=0 by the Dirac homomorphism. The second factor is nonzero because evaluating it on1 gives2≠0 in Z_p, including p=2. Thus θ_(−1) is not regular. Identity and torsion still index valid cleared numerators."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-cross",
+        "PadicMeasuresIwasawaAlgebras:L1/dirac-hom",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:IsLocalization.mk'_eq_iff_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticPseudomeasure",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure_eq_fraction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34 and Lemma3.36, published130–131/PDF31–32; Theorem4.1, Definitions4.9–4.10 and Proposition4.11, published136–139/PDF37–40. Complete cited pages read28September2026.",
+          "match": "Worker decomposition of the arithmetic construction on the actual unit-measure ring. The source writes its fraction using a generator. Here a with value p+1 need not generate the whole unit group: supplied regularity and the preceding all-unit cross identity prove membership directly. The native total quotient and the supplier pseudomeasure submodule are reused; no integral-domain, full-generator or completed-algebra identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedActualPseudoTests.regular_parameter_two_choices",
+          "kind": "compatibility",
+          "statement": "The fractions for any two regular parameters u,v are equal."
+        },
+        {
+          "name": "SuggestedActualPseudoTests.torsion_is_not_regular",
+          "kind": "non-example",
+          "statement": "δ_(−1)−1 is not a non-zero-divisor for any prime, including2."
+        }
+      ],
+      "acceptance": [
+        "Neither u≠1 nor the existence of a numerator implies regularity. No fraction with a torsion denominator is formed."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-unique",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Uniqueness from the arithmetic numerators",
+      "kind": "theorem",
+      "statement": "If z∈PM has numerator λ_g for every g∈U, then z=ζ_p.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p, U=Z^× and M=D(U,Z) with the exact existing multiplicative convolution operations. Commutativity comes from the supplier commutative-convolution theorem. Set Q=FractionRing M, the native localization at nonZeroDivisors M, and δ=the actual supplier diracHom U→*M. PM=Iwasawa.pseudomeasures δ Q is the existing submodule. Write θ_u=δ_u−1 and λ_u=the preceding actual padicIntrinsicNumerator p u. M is not assumed to be a domain and Q is not assumed to be a field."
+      ],
+      "proofSteps": [
+        "Choose a with value p+1. The supplier numerator specification, the assumed numerator at a and the arithmetic clearing identity give alg(θ_a)z=alg(θ_a)ζ_p.",
+        "The regularity of θ_a makes its image a unit. Cancel it using IsUnit.mul_right_inj and conclude equality of the underlying total-quotient elements, then equality in the submodule.",
+        "Only the single numerator at such an a is needed, as the test records. Uniqueness from interpolation values is a subsequent task and is not assumed here."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-clearing",
+        "PadicMeasuresIwasawaAlgebras:L3/cleared-numerator-spec",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+        "PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference",
+        "mathlib:IsLocalization.map_units",
+        "mathlib:IsUnit.mul_right_inj"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticPseudomeasure",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34 and Lemma3.36, published130–131/PDF31–32; Theorem4.1, Definitions4.9–4.10 and Proposition4.11, published136–139/PDF37–40. Complete cited pages read28September2026.",
+          "match": "Worker decomposition of the arithmetic construction on the actual unit-measure ring. The source writes its fraction using a generator. Here a with value p+1 need not generate the whole unit group: supplied regularity and the preceding all-unit cross identity prove membership directly. The native total quotient and the supplier pseudomeasure submodule are reused; no integral-domain, full-generator or completed-algebra identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedActualPseudoTests.uniqueness_one_numerator",
+          "kind": "compatibility",
+          "statement": "A single matching numerator at a with value p+1 already forces z=ζ_p."
+        }
+      ],
+      "acceptance": [
+        "The cancellation takes place in Q using the image of a regular element, not by asserting Q is a domain."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-even",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Integral evenness of the arithmetic pseudomeasure",
+      "kind": "theorem",
+      "statement": "δ_(−1)•ζ_p=ζ_p in PM for every prime p.",
+      "hypotheses": [
+        "p is any prime, including2; Z=Z_p, U=Z^× and M=D(U,Z) with the exact existing multiplicative convolution operations. Commutativity comes from the supplier commutative-convolution theorem. Set Q=FractionRing M, the native localization at nonZeroDivisors M, and δ=the actual supplier diracHom U→*M. PM=Iwasawa.pseudomeasures δ Q is the existing submodule. Write θ_u=δ_u−1 and λ_u=the preceding actual padicIntrinsicNumerator p u. M is not assumed to be a domain and Q is not assumed to be a field."
+      ],
+      "proofSteps": [
+        "Write ζ_p as mk′(λ_a,θ_a) for a with value p+1. Its scalar action in the submodule is multiplication by alg(δ_(−1)) in Q.",
+        "Multiply both underlying elements by the unit alg(θ_a), commute factors and apply mk′_spec′. The resulting equality is alg(δ_(−1)λ_a)=alg(λ_a), precisely the preceding integral evenness of λ_a.",
+        "Cancel alg(θ_a), then use subtype extensionality. Equivalently expand the already proved sign clearing identity alg(δ_(−1)−1)ζ_p=0. Neither argument divides by2, so both retain the dyadic sign element."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure",
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-clearing",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-even",
+        "PadicMeasuresIwasawaAlgebras:L3/pseudomeasures",
+        "mathlib:IsLocalization.mk'_spec'",
+        "mathlib:IsLocalization.map_units",
+        "mathlib:IsUnit.mul_right_inj"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticPseudomeasure",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure_even"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34 and Lemma3.36, published130–131/PDF31–32; Theorem4.1, Definitions4.9–4.10 and Proposition4.11, published136–139/PDF37–40. Complete cited pages read28September2026.",
+          "match": "Worker decomposition of the arithmetic construction on the actual unit-measure ring. The source writes its fraction using a generator. Here a with value p+1 need not generate the whole unit group: supplied regularity and the preceding all-unit cross identity prove membership directly. The native total quotient and the supplier pseudomeasure submodule are reused; no integral-domain, full-generator or completed-algebra identification is assumed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedActualPseudoTests.even_sign_action",
+          "kind": "compatibility",
+          "statement": "The sign Dirac measure fixes ζ_p for all primes, including2."
+        },
+        {
+          "name": "SuggestedActualPseudoTests.identity_scalar_action",
+          "kind": "degenerate",
+          "statement": "The identity Dirac measure acts as the identity on ζ_p."
+        }
+      ],
+      "acceptance": [
+        "Integral parity does not assert a dyadic plus/minus idempotent decomposition."
+      ]
     }
   ],
   "requests": [
@@ -19250,7 +19733,7 @@
       "stageId": "DirichletPadicLFunctions:L1",
       "status": "partial",
       "remaining": [
-        "All-unit arithmetic smoothing and numerator families now satisfy the raw scalar cocycle, the scalar-free inverse-weighted cocycle, intrinsic cross-numerator identities and parity, integrally including p=2. Construct the actual arithmetic fraction using the supplied regular Dirac difference at p+1; verify its all-unit pseudomeasure membership from the cross identity, clearing numerator, independence of regular smoothing parameters, positive interpolation and uniqueness. Compare the same object with the completed group algebra when the PMIA L1 requested comparison is supplied. Analytic branches, p-adic logarithmic values, pure p-power conductor, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.",
+        "The actual arithmetic pseudomeasure in the native total quotient now has all-unit clearing, exactly the specified arithmetic numerators, independence for every regular smoothing parameter, uniqueness from its numerators and integral evenness. Next derive positive interpolation and uniqueness from moments, compare rational/complex zeta values with the k=1 zero Euler factor handled separately, and prove nonintegrality. Compare this same object with the completed group algebra when the PMIA L1 requested comparison is supplied. Analytic branches, p-adic logarithmic values, pure p-power conductor, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.",
         "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
         "The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
       ]
@@ -19288,7 +19771,7 @@
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "All-unit arithmetic smoothing and numerator families now satisfy the raw scalar cocycle, the scalar-free inverse-weighted cocycle, intrinsic cross-numerator identities and parity, integrally including p=2. Construct the actual arithmetic fraction using the supplied regular Dirac difference at p+1; verify its all-unit pseudomeasure membership from the cross identity, clearing numerator, independence of regular smoothing parameters, positive interpolation and uniqueness. Compare the same object with the completed group algebra when the PMIA L1 requested comparison is supplied. Analytic branches, p-adic logarithmic values, pure p-power conductor, pole/residue analysis, full source extraction and the complete Eisenstein family remain open. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
+      "detail": "The actual arithmetic pseudomeasure in the native total quotient now has all-unit clearing, exactly the specified arithmetic numerators, independence for every regular smoothing parameter, uniqueness from its numerators and integral evenness. Next derive positive interpolation and uniqueness from moments, compare rational/complex zeta values with the k=1 zero Euler factor handled separately, and prove nonintegrality. Compare this same object with the completed group algebra when the PMIA L1 requested comparison is supplied. Analytic branches, p-adic logarithmic values, pure p-power conductor, pole/residue analysis, full source extraction and the complete Eisenstein family remain open. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -19593,65 +20076,64 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16 predecessor source findings and sourceVersions remain whole; no new finding or independent verdict.",
     "validation": {
-      "nodes": 296,
+      "nodes": 303,
       "kinds": {
         "definition": 1,
-        "lemma": 141,
-        "construction": 31,
-        "theorem": 81,
-        "comparison": 42
+        "lemma": 143,
+        "construction": 32,
+        "theorem": 83,
+        "comparison": 44
       },
-      "api": 293,
-      "packetTests": 361,
-      "definitionConstructionTests": 155,
-      "typedExamples": 364,
+      "api": 299,
+      "packetTests": 376,
+      "definitionConstructionTests": 159,
+      "typedExamples": 379,
       "planets": 24,
-      "baseline": 365,
-      "preservedWholeNodes": 288,
+      "baseline": 372,
+      "preservedWholeNodes": 296,
       "preservedBaseline": 365,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 8,
+      "newNodes": 7,
       "newNamedDeclarations": 8,
-      "newTypedTests": 16,
+      "newTypedTests": 15,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 439,
-      "dependencyEdges": 2071,
+      "reachableNodes": 469,
+      "dependencyEdges": 2195,
       "acyclic": true,
-      "baselineLeaves": 466,
+      "baselineLeaves": 488,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 114251,
+      "readerWords": 117095,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 801,
+      "compilerWarnings": 824,
       "allWarningsPlaceholders": true,
-      "supplierNodes": 265,
+      "supplierNodes": 332,
       "currentSupplierNodes": 332,
-      "supplierWarnings": 569,
-      "supplierArtifactReused": true,
-      "pinnedMathlibModules": 3595,
-      "pinnedTauCetiModules": 20,
+      "supplierWarnings": 707,
+      "supplierArtifactReused": false,
+      "pinnedMathlibModules": 3596,
+      "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 5,
-      "scratchMathlibModules": 2020,
+      "scratchCompleteLemmas": 4,
+      "scratchMathlibModules": 894,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "unitPairs": 75,
-        "rawCellCocycles": 5200,
-        "rawCellReflections": 1040,
-        "numeratorCellCocycles": 5200,
-        "numeratorCellCrossIdentities": 5200,
-        "numeratorCellParity": 1040,
-        "scalarMomentCocycles": 900,
-        "scalarCrossMoments": 900,
-        "negativeNumeratorCells": 1040
+        "groupElements": 26,
+        "exactCrossIdentities": 676,
+        "exactParityIdentities": 26,
+        "integralLaurentNumerators": 26,
+        "clearedFractions": 2496,
+        "regularParameterComparisons": 2304,
+        "zeroDivisorWitnesses": 1,
+        "arithmeticMomentRatios": 144
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -19659,28 +20141,29 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 801,
-      "sha256": "c8c6f36274cf1805d0661e975fd0757f03f9447c787351878f7fa5670b8d7867",
+      "warnings": 824,
+      "sha256": "90438e1df64c9e0e568ab9c0c9dac1558301ae0d6a6c28516366735e0298d1d4",
       "nativeProbe": {
-        "completeLemmas": 5,
+        "completeLemmas": 4,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "f66cdcfa3444b27498010819eb802426c8da00a7357fff2ba856317af1ee10f2"
+        "sha256": "af88518ffd7faa7e73c293bf247aa75b45421645405c6a63828c7f9273d66a17"
       },
       "artifactReuse": {
-        "compiledSupplierNodes": 265,
+        "compiledSupplierNodes": 332,
         "currentSupplierNodes": 332,
-        "supplierWarnings": 569,
+        "supplierWarnings": 707,
+        "supplierFreshlyElaborated": true,
         "hashes": {
-          "source": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
-          "olean": "792990b5b54462842b15c9a9c5d18ce27b258e320f5e048c22bd1cf6189c3e25",
-          "log": "052f501c267b2d8edeec41158188185a72b4dc4b1acb567a0a9582f12710869d"
+          "source": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
+          "olean": "4b34a19961eec73bfa90a280566521896e8ecbc1ec706982525962146a7b7f88",
+          "log": "d16ae7a3163aed649ee9eba01e7d6837831e42797c510a6bdd861be97cddce75"
         },
         "wholeOldBodyPreserved": true,
         "currentSupplierSourceSha256": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
-        "nativeTauModules": 20,
-        "nativeMathlibModules": 3595,
+        "nativeTauModules": 21,
+        "nativeMathlibModules": 3596,
         "artifactSha256": {
           "TauCeti.NumberTheory.ModularForms.Degeneracy": "2016655e67266e5582e3bddcd93a5ed68af362af30b64c88734ec2e748764d72",
           "TauCeti.Data.ZMod.Divisibility": "8751616831392059bebd4351279bc07fc8a02b3687d28d1c815d0b904473ecfb",
@@ -19701,13 +20184,49 @@
           "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e595b347e823cb1e4b9340a4800cce7c61b72a523169f9545983666b47bc0e0f",
           "TauCeti.Topology.DiscreteSeparation": "b52d85d020754b97a57c629ca49e6dc747752971bb48b8ba87b31eab37e09433",
           "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "4fc5f585625b3f687d57e6dc2a136f20f232d2a374a99d9914c4ef696be306d2",
+          "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
           "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
         },
-        "scope": "Existing pinned native artifacts and actual old265-node PMIA artifact reused. No fresh library build and no compile against the newer supplier revision claimed."
+        "nativeLogSha256": {
+          "TauCeti.NumberTheory.ModularForms.Degeneracy": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.Data.ZMod.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.Algebra.GroupWithZero.Divisibility": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.NumberTheory.ModularForms.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.Data.ZMod.Units": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.NumberTheory.ModularForms.DiamondOperators": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.NumberTheory.ModularForms.SlashActionRat": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.Algebra.Group.Subgroup.Centralizer": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.RingTheory.PowerSeries.Support": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.Topology.DiscreteSeparation": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.Topology.Algebra.Group.LocallyConstant": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "supplierNativeArtifacts": {
+          "TauCeti.Topology.Algebra.Group.LocallyConstant": "e66f653b6b7dc52ed9b1d01616246f9197bc3677f7861cdb459788d889edc800",
+          "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
+        },
+        "nativeArtifactFileCount": 105,
+        "predecessorAgainstCurrentSupplier": {
+          "exitCode": 0,
+          "sourceSha256": "c8c6f36274cf1805d0661e975fd0757f03f9447c787351878f7fa5670b8d7867",
+          "modules": 3568,
+          "warnings": 801,
+          "errors": 0
+        },
+        "scope": "Actual current332-node supplier suggested file freshly elaborated, not a native library. Both unchanged predecessor and current Dirichlet file compile against it. Existing pinned native artifacts only;21Tau modules in combined source closure,105 artifact files hash-checked. Supplier used an existing two-module native build; main used21 existing native artifacts through one symlink root. Original native build receipt/source pins and zero-warning logs checked, without claiming to reread retired native-src copies. No Lake setup, update, cache fetch or native library build."
       }
     },
     "publication": {
-      "base": "3151e7d577ed6b1ca2448be05ab9e2c9312d6e3d",
+      "base": "6eb178dadeb9825c9a614fe30e3457853de13794",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -23744,6 +24263,44 @@
         "negativeNumeratorCells": 1040
       },
       "numericalMethod": "Exact rational finite residue model with mass(c mod N)=(c-u*d)/N+(u-1)/2, d=u^{-1}c mod N. Raw cocycle/reflection identities are checked exactly. Inverse-weighted cell models use c^{-1} mod N on unit cells and zero elsewhere; their cocycle, cross and parity errors are divisible by N=p^r at each listed finite level. Independent rational Bernoulli moments check every positive degree1–12. These finite models do not prove the general measure identities, identify exact inverse-weighted cell masses, or construct a pseudomeasure."
+    },
+    "actualArithmeticPseudomeasure": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3302,
+      "previousHead": "036b4571527e48079962931f80186770c5d011c3",
+      "previousMerge": "6eb178dadeb9825c9a614fe30e3457853de13794",
+      "preservedWholeNodes": 296,
+      "preservedBaseline": 365,
+      "preservedFindings": 16,
+      "newNodes": 7,
+      "reading": "Complete published129–131/PDF30–32 and136–139/PDF37–40 freshly read28September2026; published digest verified. Full supplier pseudomeasure carrier/membership, numerator/specification, one-add-prime unit and positive powers, regular Dirac differences, Dirac homomorphism and commutative convolution nodes and corresponding Lean statements were read. Native total-quotient, localization constructor/specification/cross multiplication, localization units and injectivity, and unit cancellation declarations were read with their ambient hypotheses at the pins. The current332-node PMIA suggested file was freshly elaborated using existing native builds.",
+      "boundary": "The actual arithmetic pseudomeasure in the native total quotient now has all-unit clearing, exactly the specified arithmetic numerators, independence for every regular smoothing parameter, uniqueness from its numerators and integral evenness. Next derive positive interpolation and uniqueness from moments, compare rational/complex zeta values with the k=1 zero Euler factor handled separately, and prove nonintegrality. Compare this same object with the completed group algebra when the PMIA L1 requested comparison is supplied. Analytic branches, p-adic logarithmic values, pure p-power conductor, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.",
+      "inputBase": "6eb178dadeb9825c9a614fe30e3457853de13794",
+      "sourceBoundary": "All16 source findings and sourceVersions remain whole. No new finding or independent verdict. Generic total quotients and pseudomeasure carriers are reused from their existing owners.",
+      "publication": {
+        "base": "6eb178dadeb9825c9a614fe30e3457853de13794",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "groupElements": 26,
+        "exactCrossIdentities": 676,
+        "exactParityIdentities": 26,
+        "integralLaurentNumerators": 26,
+        "clearedFractions": 2496,
+        "regularParameterComparisons": 2304,
+        "zeroDivisorWitnesses": 1,
+        "arithmeticMomentRatios": 144
+      },
+      "numericalMethod": "Exact Laurent-polynomial arithmetic in Z[C2 x Z]. The model numerator at (e,n) is (1+s)(X^n-1)/(X-1), written as an integral finite Laurent sum. Cross identities, sign parity and the nonzero zero-divisor pair (s-1,s+1) are checked symbolically. Evaluation into Q x Q at four positive X-values verifies clearing and parameter independence at the listed denominators; this does not prove their regularity in the Laurent ring or identify the model with the p-adic measure ring. Separate exact Bernoulli calculations check the arithmetic quotient sign, including the zero Euler factor at k=1. No finite control constructs the actual pseudomeasure or proves its general properties."
     }
   },
   "requestResolutions": [
