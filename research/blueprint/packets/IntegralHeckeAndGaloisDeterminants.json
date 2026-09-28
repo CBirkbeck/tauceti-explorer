@@ -1,0 +1,1452 @@
+{
+ "roadmapId": "IntegralHeckeAndGaloisDeterminants",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "IntegralHeckeAndGaloisDeterminants:IHG.0",
+  "IntegralHeckeAndGaloisDeterminants:IHG.1",
+  "IntegralHeckeAndGaloisDeterminants:IHG.2",
+  "IntegralHeckeAndGaloisDeterminants:IHG.3",
+  "IntegralHeckeAndGaloisDeterminants:IHG.4",
+  "IntegralHeckeAndGaloisDeterminants:IHG.5",
+  "IntegralHeckeAndGaloisDeterminants:IHG.6"
+ ],
+ "status": "partial",
+ "summary": "Part IHG.0 of the blueprint for integral Hecke actions, determinants and interpolation. This first checkpoint plans Chenevier's determinants on top of Mathlib's polynomial laws: homogeneous and multiplicative laws, d-dimensional determinants with their characteristic polynomial and trace, the determinant of a matrix representation, direct sums, restriction and scalar extension, the identity D(1 + rr′) = D(1 + r′r), one- and two-dimensional determinants, pseudocharacters, Amitsur's formula, the trace of a determinant as a pseudocharacter, and the comparison with pseudocharacters: injective when d! is invertible, bijective over ℚ-algebras or when (2d)! is invertible. Chenevier states injectivity without the hypothesis d! ∈ A^×, which is false in characteristic p ≤ d (source issue E1). The Lyndon factorisation theorem and Procesi's theorem are recorded as gaps; stages IHG.1–IHG.6 are not yet read.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:AlgHom",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Algebra/Hom.lean",
+    "provides": "Algebra homomorphisms.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Algebra.TensorProduct.instRing",
+    "kind": "instance",
+    "module": "Mathlib/RingTheory/TensorProduct/Basic.lean",
+    "provides": "The ring structure on a tensor product of algebras.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Algebra.TensorProduct.rid",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+    "provides": "B ⊗[R] R ≃ B.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Equiv.Perm.SameCycle",
+    "kind": "def",
+    "module": "Mathlib/GroupTheory/Perm/Cycle/Basic.lean",
+    "provides": "Two points lie in the same cycle of a permutation.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Equiv.Perm.sign",
+    "kind": "def",
+    "module": "Mathlib/GroupTheory/Perm/Sign.lean",
+    "provides": "The sign of a permutation.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Function.minimalPeriod",
+    "kind": "def",
+    "module": "Mathlib/Dynamics/PeriodicPts/Defs.lean",
+    "provides": "The least period of a point under iteration.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:LinearMap",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+    "provides": "Linear maps.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Matrix.charpoly",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+    "provides": "The characteristic polynomial of a square matrix.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Matrix.det",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "The determinant of a square matrix.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Matrix.det_conj",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean",
+    "provides": "det (P M P⁻¹) = det M.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Matrix.det_mul",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "det (M N) = det M · det N.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Matrix.det_smul",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "det (c • M) = c ^ n · det M.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Matrix.trace",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+    "provides": "The trace of a square matrix.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+    "provides": "The monoid algebra A[G].",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.mapDomainAlgHom",
+    "kind": "def",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
+    "provides": "The algebra map A[H] → A[G] induced by a monoid hom H → G.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:MvPolynomial",
+    "kind": "abbrev",
+    "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
+    "provides": "Multivariate polynomials.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:MvPowerSeries",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+    "provides": "Multivariate power series.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Polynomial",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+    "provides": "Polynomials in one variable.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Polynomial.Monic",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Polynomial/Degree/Defs.lean",
+    "provides": "Monic polynomials.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:PolynomialLaw",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+    "provides": "Polynomial laws between modules (Roby), natural in commutative coefficient algebras in the universe of the base.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:PolynomialLaw.comp",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+    "provides": "Composition of polynomial laws.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:PolynomialLaw.ground",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+    "provides": "The underlying map M → N of a polynomial law.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:PolynomialLaw.id",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/PolynomialLaw/Basic.lean",
+    "provides": "The identity polynomial law.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:RingHom.map_det",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+    "provides": "Ring homomorphisms commute with determinants.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:TensorProduct",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+    "provides": "Tensor products of modules.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+    "provides": "The cancellation isomorphism for iterated base change.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "CHENEVIER-DET",
+   "title": "The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings",
+   "authors": "Gaëtan Chenevier",
+   "edition": "arXiv:0809.0415v2 (July 2013), the final version, published in Automorphic Forms and Galois Representations, Vol. 1, LMS Lecture Note Series 414 (2014), 221–285; page numbers are those of the 56-page preprint distributed for the 2011 Durham symposium, which has the same statement numbering and text",
+   "url": "https://arxiv.org/abs/0809.0415",
+   "sha256": "b13873b906e2011600101b8a627b5dcb92ecf12f3378e56db9f68fe0af3f0a05",
+   "readSections": [
+    "§1.1–1.10 and Lemma 1.12 with its proof (Amitsur's formula (1.4)–(1.5), Newton relations (1.3)), Corollary 1.14 and Theorem 1.15, pp. 6–15",
+    "§1.26: Proposition 1.27, Remark 1.28 and Proposition 1.29, p. 20",
+    "Lemma 2.2 and its proof, p. 24",
+    "The citation of Proposition 1.27 in §3, p. 45"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/0809.0415v2",
+   "citation": "arXiv:0809.0415v2, LaTeX source archive (the latest version)",
+   "read": "2026-09-28",
+   "sha256": "b13873b906e2011600101b8a627b5dcb92ecf12f3378e56db9f68fe0af3f0a05"
+  },
+  {
+   "kind": "preprint",
+   "url": "http://www.maths.dur.ac.uk/events/Meetings/LMS/2011/GRAF11/papers/chenevier.pdf",
+   "citation": "Durham symposium preprint (PDF created 16 April 2013), 56 pages; same text as arXiv v2 for everything cited here. The published LMS version was not accessed.",
+   "read": "2026-09-28",
+   "sha256": "537d3c58e96a0c4e8bf27c59c4433b9068b5da723d88a7454a70b1cfccaed3c4"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Homogeneous polynomial laws",
+   "kind": "definition",
+   "statement": "For A-modules M and N, an A-polynomial law f : M → N (a family f_S : S ⊗_A M → S ⊗_A N natural in the commutative A-algebra S; Mathlib's PolynomialLaw) is homogeneous of degree n if f_S(s·x) = s^n·f_S(x) for every commutative A-algebra S, s ∈ S and x ∈ S ⊗_A M.",
+   "hypotheses": [
+    "A a commutative ring; S ranges over commutative A-algebras in the universe of A, as in Mathlib's PolynomialLaw, whose extension to all universes is Mathlib's toFun."
+   ],
+   "proofSteps": [
+    "Definition: IsHomogeneousOfDegree n f := ∀ S s x, f.toFun' S (s • x) = s ^ n • f.toFun' S x.",
+    "Closure under sums and composition: unfold and use f_S(s x) = s^n f_S(x) twice ((st)^{mn} bookkeeping for composition)."
+   ],
+   "acceptance": [
+    "Degree one: f is homogeneous of degree one iff f_S = S ⊗ ℓ for an A-linear ℓ : M → N (Chenevier Example 1.2(i)).",
+    "Degree matters beyond the A-points: over 𝔽_p, XY^p − X^pY on 𝔽_p² is homogeneous of degree p + 1 and vanishes on 𝔽_p-points but not as a law (Example 1.2(iii)).",
+    "A law of degree n is determined by its values on A[T_1, …, T_n]-points (Chenevier §1.1)."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+     "how": "a determinant is homogeneous of degree d."
+    },
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+     "how": "finite-quotient interpolation of polynomial laws (RS-12 owner)."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:PolynomialLaw",
+    "mathlib:PolynomialLaw.comp",
+    "mathlib:TensorProduct"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.1, p. 6",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.PolynomialLaw.isHomogeneousOfDegree_zero",
+     "role": "example",
+     "statement": "The zero law is homogeneous of every degree."
+    },
+    {
+     "name": "TauCeti.PolynomialLaw.IsHomogeneousOfDegree.add",
+     "role": "relation",
+     "statement": "Closed under addition."
+    },
+    {
+     "name": "TauCeti.PolynomialLaw.IsHomogeneousOfDegree.comp",
+     "role": "compatibility",
+     "statement": "Composition multiplies degrees."
+    },
+    {
+     "name": "TauCeti.PolynomialLaw.isHomogeneousOfDegree_one_iff",
+     "role": "characterisation",
+     "statement": "Degree one iff base change of a linear map."
+    }
+   ],
+   "tests": [
+    {
+     "name": "homogeneous_id",
+     "kind": "example",
+     "statement": "The identity law is homogeneous of degree 1."
+    },
+    {
+     "name": "homogeneous_ground_zero",
+     "kind": "example",
+     "statement": "Over 𝔽_p some degree-(p+1) law vanishes on 𝔽_p-points without being zero."
+    },
+    {
+     "name": "homogeneous_zero",
+     "kind": "example",
+     "statement": "The zero law is homogeneous of degree n for all n."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/multiplicative-polynomial-law",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Multiplicative polynomial laws",
+   "kind": "definition",
+   "statement": "For A-algebras R and B (associative, unital, not necessarily commutative), an A-polynomial law f : R → B is multiplicative if f_S(1) = 1 and f_S(xy) = f_S(x)f_S(y) for every commutative A-algebra S and x, y ∈ S ⊗_A R.",
+   "hypotheses": [
+    "The ring structure on S ⊗_A R is Mathlib's Algebra.TensorProduct ring structure."
+   ],
+   "proofSteps": [
+    "Definition: IsMultiplicative f := ∀ S, f.toFun' S 1 = 1 ∧ ∀ x y, f.toFun' S (x * y) = f.toFun' S x * f.toFun' S y.",
+    "Identity and composition: unfold."
+   ],
+   "acceptance": [
+    "Multiplicative laws homogeneous of degree one are exactly A-algebra homomorphisms (Chenevier §1.1).",
+    "Twice the identity is homogeneous of degree one but not multiplicative when 2 ≠ 1.",
+    "Multiplicativity is required after every scalar extension, not only on R itself."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+     "how": "a determinant is multiplicative."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:PolynomialLaw",
+    "mathlib:PolynomialLaw.id",
+    "mathlib:PolynomialLaw.comp",
+    "mathlib:Algebra.TensorProduct.instRing"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.1, p. 7",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.PolynomialLaw.isMultiplicative_id",
+     "role": "example",
+     "statement": "The identity is multiplicative."
+    },
+    {
+     "name": "TauCeti.PolynomialLaw.IsMultiplicative.comp",
+     "role": "compatibility",
+     "statement": "Multiplicative laws compose."
+    },
+    {
+     "name": "TauCeti.Determinant.dimOneEquiv",
+     "role": "equivalence",
+     "statement": "Multiplicative laws of degree one to A are A-algebra maps."
+    }
+   ],
+   "tests": [
+    {
+     "name": "multiplicative_id",
+     "kind": "example",
+     "statement": "The identity law is multiplicative."
+    },
+    {
+     "name": "multiplicative_det",
+     "kind": "example",
+     "statement": "The matrix determinant law M_d(A) → A is multiplicative."
+    },
+    {
+     "name": "multiplicative_two_smul",
+     "kind": "non-example",
+     "statement": "2 • id is not multiplicative over a ring of characteristic zero."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Determinants (Chenevier)",
+   "kind": "definition",
+   "statement": "A d-dimensional A-valued determinant on an A-algebra R is a multiplicative A-polynomial law D : R → A which is homogeneous of degree d (Chenevier §1.5). When R = A[G] for a group or monoid G, D is a determinant on G.",
+   "hypotheses": [
+    "R any associative unital A-algebra; A commutative.",
+    "d ≥ 0; for d = 0 the only determinant is the constant 1."
+   ],
+   "proofSteps": [
+    "Structure Determinant A R d with fields toLaw, isHomogeneous (degree d) and isMultiplicative. eval D x := D.toLaw.ground x."
+   ],
+   "acceptance": [
+    "The matrix determinant on M_d(A), and det ∘ ρ for an algebra map ρ : R → M_d(A), are determinants of dimension d.",
+    "Dimension one: determinants are A-algebra maps R → A.",
+    "The trace does not determine a determinant in characteristic p ≤ d: over (ℤ/p)[X], Y ↦ I_p and Y ↦ X·I_p on A[Y] give different determinants with the same trace 0. This is why determinants, not pseudocharacters, are used."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+     "how": "Cayley–Hamilton quotient and reconstruction (RS-12 owner)."
+    },
+    {
+     "where": "ArithmeticGaloisRepresentations:R01.5",
+     "how": "'Consume the arbitrary-degree multiplicative polynomial laws … of IntegralHeckeAndGaloisDeterminants'."
+    },
+    {
+     "where": "AutomorphicCongruences:L0",
+     "how": "imports pseudorepresentations from this roadmap."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/multiplicative-polynomial-law",
+    "mathlib:PolynomialLaw.ground"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.5, Definition, p. 9",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.eval_mul",
+     "role": "compatibility",
+     "statement": "D(xy) = D(x)D(y)."
+    },
+    {
+     "name": "TauCeti.Determinant.eval_one",
+     "role": "simp",
+     "statement": "D(1) = 1."
+    },
+    {
+     "name": "TauCeti.Determinant.eval_smul",
+     "role": "relation",
+     "statement": "D(ax) = a^d D(x)."
+    },
+    {
+     "name": "TauCeti.Determinant.isUnit_eval",
+     "role": "relation",
+     "statement": "Units go to units."
+    }
+   ],
+   "tests": [
+    {
+     "name": "det_matrix",
+     "kind": "example",
+     "statement": "eval (ofMatrix id) M = det M."
+    },
+    {
+     "name": "det_dim_zero",
+     "kind": "example",
+     "statement": "A determinant of dimension 0 is constant 1."
+    },
+    {
+     "name": "det_trace_not_injective",
+     "kind": "non-example",
+     "statement": "Over (ℤ/p)[X] two different p-dimensional determinants have the same trace."
+    }
+   ],
+   "planet": {
+    "name": "Determinants"
+   }
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Characteristic polynomial and trace of a determinant",
+   "kind": "construction",
+   "statement": "For D a d-dimensional determinant on R and x ∈ R, χ(x, t) := D_{A[t]}(t − x) ∈ A[t] = Σ_{i=0}^{d} (−1)^i Λ_i(x) t^{d−i}; it is monic of degree d, Λ_0 = 1, Λ_d = D, and Λ_1 =: Tr is an A-linear map with Tr(1) = d.",
+   "hypotheses": [
+    "A[t] is a commutative A-algebra in the universe of A, so D_{A[t]} is defined."
+   ],
+   "proofSteps": [
+    "Definition: apply D.toLaw.toFun' at S = A[t] to t ⊗ 1 − 1 ⊗ x and identify A[t] ⊗_A A with A[t] (Algebra.TensorProduct.rid).",
+    "Monic of degree d and the constant term (−1)^d D(x): homogeneity with the substitution t ↦ 0 and the leading coefficient D(1) = 1, via naturality of the law along A[t] → A[t, u].",
+    "Linearity of Λ_1: Λ_1 is a homogeneous law of degree one (Chenevier §1.10), hence linear by homogeneous-polynomial-law's degree-one characterisation."
+   ],
+   "acceptance": [
+    "χ(1, t) = (t − 1)^d and χ(0, t) = t^d.",
+    "For det ∘ ρ, χ is the characteristic polynomial of ρ(x) and Tr the matrix trace.",
+    "The Newton relations −t (d/dt)D(1 − tr)/D(1 − tr) = Σ_{n≥1} Tr(r^n)t^n hold (Chenevier (1.3))."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-injective",
+     "how": "Tr and the Newton relations determine D when d! is invertible."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
+    "mathlib:Polynomial",
+    "mathlib:Algebra.TensorProduct.rid",
+    "mathlib:Polynomial.Monic"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.10, p. 12",
+     "match": "The construction."
+    },
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.10, (1.3), p. 12",
+     "match": "Newton relations."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.charpoly_monic",
+     "role": "other",
+     "statement": "χ(x, t) is monic."
+    },
+    {
+     "name": "TauCeti.Determinant.charpoly_natDegree",
+     "role": "other",
+     "statement": "deg χ = d."
+    },
+    {
+     "name": "TauCeti.Determinant.charpoly_coeff_zero",
+     "role": "characterisation",
+     "statement": "χ(x, 0) = (−1)^d D(x)."
+    },
+    {
+     "name": "TauCeti.Determinant.traceLinear",
+     "role": "constructor",
+     "statement": "Tr as an A-linear map."
+    },
+    {
+     "name": "TauCeti.Determinant.trace_one",
+     "role": "simp",
+     "statement": "Tr(1) = d."
+    }
+   ],
+   "tests": [
+    {
+     "name": "charpoly_one",
+     "kind": "example",
+     "statement": "χ(1, t) = (t − 1)^d."
+    },
+    {
+     "name": "charpoly_ofMatrix",
+     "kind": "example",
+     "statement": "For det ∘ ρ it is Matrix.charpoly (ρ x)."
+    },
+    {
+     "name": "trace_ofMatrix",
+     "kind": "example",
+     "statement": "For det ∘ ρ, Tr = matrix trace."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-one-add-mul-comm",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "D(1 + rr′) = D(1 + r′r)",
+   "kind": "lemma",
+   "statement": "For a d-dimensional determinant D on R and r, r′ ∈ R: D(1 + rr′) = D(1 + r′r).",
+   "hypotheses": [
+    "No hypothesis on A or R."
+   ],
+   "proofSteps": [
+    "If r is invertible: D(1 + rr′) = D(r)D(r^{-1} + r′) = D(r^{-1} + r′)D(r) = D(1 + r′r), by multiplicativity and commutativity of A.",
+    "In general put r′ = 1 + u and work in R[t]/(t^{d+1}), where 1 + tu is invertible; both sides of D(1 + (1 + tu)r) = D(1 + r(1 + tu)) are polynomials in t of degree ≤ d (homogeneity), so agreeing modulo t^{d+1} they agree; evaluate at t = 1."
+   ],
+   "acceptance": [
+    "For matrices this is det(1 + XY) = det(1 + YX).",
+    "The truncation to R[t]/(t^{d+1}) needs homogeneity: an arbitrary multiplicative map need not be polynomial in t."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+    "mathlib:Polynomial"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.12(i) and its proof, pp. 12–13",
+     "match": "The statement and the invertible-case reduction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-of-matrix-representation",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "The determinant of a matrix representation",
+   "kind": "construction",
+   "statement": "For an A-algebra map ρ : R → M_d(A), D := det ∘ ρ (after each scalar extension, det_S ∘ (ρ ⊗ S)) is a d-dimensional determinant with D(x) = det ρ(x), χ(x, t) = charpoly ρ(x) and Tr = tr ∘ ρ; conjugate representations give the same determinant.",
+   "hypotheses": [
+    "ρ an A-algebra homomorphism to the full matrix algebra."
+   ],
+   "proofSteps": [
+    "Law: S ⊗_A R → M_d(S) by ρ ⊗ S (Algebra.TensorProduct.map and the matrix base change), then Matrix.det, identified with S ⊗_A A = S. Naturality is naturality of det under ring maps (RingHom.map_det).",
+    "Homogeneity: det(s·M) = s^d det M (Matrix.det_smul). Multiplicativity: Matrix.det_mul and det 1 = 1.",
+    "χ and Tr: evaluate at A[t] and compare with Matrix.charpoly (Matrix.charpoly and Matrix.trace).",
+    "Conjugation: det(P M P^{-1}) = det M (Matrix.det_conj)."
+   ],
+   "acceptance": [
+    "F = A, R = M_d(A), ρ = id: the usual determinant.",
+    "Block-diagonal ρ_1 ⊕ ρ_2 gives the product of the two determinants (determinant-direct-sum).",
+    "Agreement for finite projective rank-d modules (R → End_A(P)) needs localisation to free modules; it is recorded as remaining work."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+     "how": "determinants of actual representations; reconstruction is the converse."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+    "mathlib:Matrix.det",
+    "mathlib:Matrix.det_mul",
+    "mathlib:Matrix.det_smul",
+    "mathlib:Matrix.det_conj",
+    "mathlib:RingHom.map_det",
+    "mathlib:Matrix.charpoly",
+    "mathlib:Matrix.trace"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.5, p. 9",
+     "match": "The construction."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.eval_ofMatrix",
+     "role": "simp",
+     "statement": "D(x) = det ρ(x)."
+    },
+    {
+     "name": "TauCeti.Determinant.trace_ofMatrix",
+     "role": "simp",
+     "statement": "Tr = tr ∘ ρ."
+    },
+    {
+     "name": "TauCeti.Determinant.charpoly_ofMatrix",
+     "role": "simp",
+     "statement": "χ(x) = charpoly ρ(x)."
+    },
+    {
+     "name": "TauCeti.Determinant.ofMatrix_conj",
+     "role": "compatibility",
+     "statement": "Conjugate representations have the same determinant."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ofMatrix_id",
+     "kind": "example",
+     "statement": "ofMatrix id on M_d(A) evaluates to det."
+    },
+    {
+     "name": "ofMatrix_trace",
+     "kind": "example",
+     "statement": "Its trace is the matrix trace."
+    },
+    {
+     "name": "ofMatrix_block",
+     "kind": "example",
+     "statement": "A block-diagonal representation gives the product determinant."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-direct-sum",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Direct sums of determinants",
+   "kind": "construction",
+   "statement": "For determinants D_1, D_2 on R of dimensions d_1, d_2, the product D_1·D_2 (pointwise after each scalar extension) is a determinant of dimension d_1 + d_2, with Tr = Tr_1 + Tr_2 and χ = χ_1χ_2.",
+   "hypotheses": [
+    "A commutative, so products of multiplicative laws are multiplicative."
+   ],
+   "proofSteps": [
+    "Law: pointwise product of the two laws into S ⊗_A A = S; naturality is that of each factor.",
+    "Homogeneity: s^{d_1}s^{d_2} = s^{d_1+d_2}. Multiplicativity: commutativity of S.",
+    "χ(x, t) = χ_1(x, t)χ_2(x, t) by definition, so Tr adds."
+   ],
+   "acceptance": [
+    "det(ρ_1 ⊕ ρ_2) = det ρ_1 · det ρ_2.",
+    "Dimension 0 is the unit: D·1 = D.",
+    "Commutativity of the coefficient ring is needed; for B-valued laws with B noncommutative the product is not multiplicative."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+     "how": "reducible determinants D = D_1 D_2 in Ribet-type arguments."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Proof of Lemma 2.2, p. 24",
+     "match": "The product law on S_1 × S_2; D_1·D_2 on R is this law pulled back along the diagonal R → R × R, with commuting images since A is commutative."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.eval_mul_det",
+     "role": "simp",
+     "statement": "(D_1 D_2)(x) = D_1(x) D_2(x)."
+    },
+    {
+     "name": "TauCeti.Determinant.trace_mul_det",
+     "role": "simp",
+     "statement": "Tr(D_1 D_2) = Tr D_1 + Tr D_2."
+    },
+    {
+     "name": "TauCeti.Determinant.charpoly_mul_det",
+     "role": "simp",
+     "statement": "χ(D_1 D_2) = χ(D_1) χ(D_2)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "mul_block",
+     "kind": "example",
+     "statement": "ofMatrix of a block sum is the product."
+    },
+    {
+     "name": "mul_trace",
+     "kind": "example",
+     "statement": "Traces add."
+    },
+    {
+     "name": "mul_dim_zero",
+     "kind": "example",
+     "statement": "Multiplying by the dimension-0 determinant changes nothing."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-restriction",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Restriction of determinants",
+   "kind": "construction",
+   "statement": "For an A-algebra map φ : R′ → R and a d-dimensional determinant D on R, D ∘ φ (composition of polynomial laws with the degree-one law φ) is a d-dimensional determinant on R′. For a subgroup H ≤ G, restriction along A[H] → A[G] is restriction to H.",
+   "hypotheses": [
+    "φ an A-algebra homomorphism."
+   ],
+   "proofSteps": [
+    "Law: D.toLaw.comp (the degree-one multiplicative law of φ). Homogeneity: degree d·1 (IsHomogeneousOfDegree.comp). Multiplicativity: IsMultiplicative.comp."
+   ],
+   "acceptance": [
+    "Restriction along id is D.",
+    "Restriction of det ∘ ρ is det ∘ (ρ ∘ φ).",
+    "Restriction to a subgroup of a determinant on G."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+     "how": "restricting Galois determinants to open subgroups and along finite quotients in the interpolation."
+    },
+    {
+     "where": "Chenevier §2 (restriction to a dense subgroup, Example in §2.30)",
+     "how": "determinants on G are determined on a dense subgroup when continuous."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/multiplicative-polynomial-law",
+    "mathlib:PolynomialLaw.comp",
+    "mathlib:MonoidAlgebra.mapDomainAlgHom"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.5, p. 9 (determinants on A[G])",
+     "match": "Determinants on groups; restriction is composition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.eval_comap",
+     "role": "simp",
+     "statement": "(D ∘ φ)(x) = D(φ x)."
+    },
+    {
+     "name": "TauCeti.Determinant.comap_id",
+     "role": "simp",
+     "statement": "Restriction along the identity is D."
+    },
+    {
+     "name": "TauCeti.Determinant.comap_comp",
+     "role": "functoriality",
+     "statement": "Restriction along ψ ∘ φ is restriction along ψ then φ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "comap_id",
+     "kind": "example",
+     "statement": "Restriction along the identity."
+    },
+    {
+     "name": "comap_ofMatrix",
+     "kind": "example",
+     "statement": "Restriction of det ∘ ρ is det ∘ (ρ ∘ φ)."
+    },
+    {
+     "name": "comap_subgroup",
+     "kind": "example",
+     "statement": "Restriction to a subgroup H ≤ G."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-base-change",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Scalar extension of determinants",
+   "kind": "construction",
+   "statement": "For a commutative A-algebra S and a d-dimensional determinant D on R, D ⊗_A S is an S-valued d-dimensional determinant on S ⊗_A R, with (D ⊗ S)(1 ⊗ x) = D(x) ⊗ 1; this is the identification M^d_A(R, S) ≅ M^d_S(R ⊗_A S, S).",
+   "hypotheses": [
+    "S in the universe of A, as for Mathlib's polynomial laws."
+   ],
+   "proofSteps": [
+    "For a commutative S-algebra T, (D ⊗ S)_T := D_T via (S ⊗_A R) ⊗_S T ≅ T ⊗_A R (TensorProduct.AlgebraTensorModule.cancelBaseChange). Homogeneity and multiplicativity are those of D_T."
+   ],
+   "acceptance": [
+    "Base change along A → A is D.",
+    "Base change of det ∘ ρ is det ∘ (ρ ⊗ S).",
+    "Transitivity along A → S → T."
+   ],
+   "uses": [
+    {
+     "where": "Chenevier §1.5 (the functor det_A(R, d))",
+     "how": "B-valued determinants of R are B-valued determinants of R ⊗_A B; this identification defines the determinant functor."
+    },
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+     "how": "reconstruction over algebraically closed fields and henselian local rings passes through scalar extension."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange",
+    "mathlib:Algebra.TensorProduct.instRing"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Remark 1.4, p. 8",
+     "match": "Base change of laws."
+    },
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.5, p. 9",
+     "match": "Scalar extension of determinants."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.eval_baseChange_tmul",
+     "role": "simp",
+     "statement": "(D ⊗ S)(1 ⊗ x) = image of D(x)."
+    },
+    {
+     "name": "TauCeti.Determinant.charpoly_baseChange_tmul",
+     "role": "compatibility",
+     "statement": "χ commutes with base change."
+    },
+    {
+     "name": "TauCeti.Determinant.trace_baseChange_tmul",
+     "role": "simp",
+     "statement": "(D ⊗ S)'s trace on 1 ⊗ x is the image of Tr(x)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "baseChange_self",
+     "kind": "example",
+     "statement": "Base change to A is D."
+    },
+    {
+     "name": "baseChange_ofMatrix",
+     "kind": "example",
+     "statement": "Base change of det ∘ ρ."
+    },
+    {
+     "name": "baseChange_trans",
+     "kind": "example",
+     "statement": "Transitivity."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-dimension-one",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "One-dimensional determinants are algebra homomorphisms",
+   "kind": "comparison",
+   "statement": "The map D ↦ D_A is a bijection between 1-dimensional A-valued determinants on R and A-algebra homomorphisms R → A. For R = A[G], these are the characters G → A^×.",
+   "hypotheses": [
+    "No hypothesis on A."
+   ],
+   "proofSteps": [
+    "A degree-one law is the base change of the linear map D_A (homogeneous-polynomial-law, degree-one characterisation); multiplicativity makes it an algebra homomorphism, and conversely an algebra homomorphism is a degree-one multiplicative law."
+   ],
+   "acceptance": [
+    "For R = A[G], a character χ gives D = χ extended linearly.",
+    "Two different algebra homomorphisms give different determinants.",
+    "In dimension ≥ 2 the value map alone is not injective on laws in general, but for determinants of dimension 1 it is."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/multiplicative-polynomial-law",
+    "mathlib:AlgHom"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.5, p. 9",
+     "match": "The comparison."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/pseudocharacter",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Pseudocharacters",
+   "kind": "definition",
+   "statement": "A d-dimensional A-valued pseudocharacter on R is an A-linear T : R → A with T(1) = d, T(xy) = T(yx), and the pseudocharacter identity Σ_{σ ∈ S_{d+1}} sgn(σ)T^σ(x_1, …, x_{d+1}) = 0 for all x_i ∈ R, where T^σ(x) = ∏ over the cycles (j_1 … j_s) of σ of T(x_{j_1}⋯x_{j_s}), fixed points included.",
+   "hypotheses": [
+    "T central; A arbitrary commutative ring (the definition makes no hypothesis on d!)."
+   ],
+   "proofSteps": [
+    "cycleProduct σ x i := x_i x_{σ i} ⋯ x_{σ^{m−1} i}, m the orbit length (Function.minimalPeriod).",
+    "cycleTerm T σ x := ∏ over the least elements i of the cycles of σ (Equiv.Perm.SameCycle) of T(cycleProduct σ x i).",
+    "IsPseudocharacter d T := T 1 = d ∧ central ∧ Σ_σ sgn σ · cycleTerm T σ x = 0."
+   ],
+   "acceptance": [
+    "The trace of M_d(A) is a d-dimensional pseudocharacter (the identity is the Cayley–Hamilton polarisation).",
+    "The trace of M_2(ℚ) is not a 1-dimensional pseudocharacter.",
+    "In dimension one over ℚ-algebras pseudocharacters are algebra homomorphisms."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-rational",
+     "how": "over ℚ-algebras determinants and pseudocharacters coincide."
+    },
+    {
+     "where": "AutomorphicCongruences:L0",
+     "how": "imports pseudorepresentations from this roadmap."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:Equiv.Perm.sign",
+    "mathlib:Equiv.Perm.SameCycle",
+    "mathlib:Function.minimalPeriod",
+    "mathlib:LinearMap"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.10, Lemma 1.12(iii) and §1.26, pp. 12, 20",
+     "match": "Pseudocharacters, compared with determinants in §1.26."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.cycleProduct",
+     "role": "constructor",
+     "statement": "The product of x along a cycle."
+    },
+    {
+     "name": "TauCeti.cycleTerm",
+     "role": "constructor",
+     "statement": "T^σ(x)."
+    },
+    {
+     "name": "TauCeti.Determinant.isPseudocharacter_trace",
+     "role": "relation",
+     "statement": "The trace of a determinant is a pseudocharacter."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pseudo_matrix_trace",
+     "kind": "example",
+     "statement": "tr on M_d(A) is a d-dimensional pseudocharacter."
+    },
+    {
+     "name": "pseudo_wrong_dim",
+     "kind": "non-example",
+     "statement": "tr on M_2(ℚ) is not 1-dimensional."
+    },
+    {
+     "name": "pseudo_id",
+     "kind": "example",
+     "statement": "id : ℚ → ℚ is a 1-dimensional pseudocharacter."
+    }
+   ],
+   "planet": {
+    "name": "Pseudocharacters"
+   }
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Amitsur's formula for determinants",
+   "kind": "lemma",
+   "statement": "For a determinant D on R, r_1, …, r_n ∈ R and i ≥ 0: Λ_i(t_1r_1 + ⋯ + t_nr_n) = Σ_{ℓ(w)=i} ε(w)Λ(w) in A[t_1, …, t_n], the sum over the words w of length i in the letters t_jr_j, where for the Lyndon factorisation w = w_1^{l_1}⋯w_q^{l_q} (w_1 > ⋯ > w_q) one sets Λ(w) = Λ_{l_q}(w_q)⋯Λ_{l_1}(w_1) and ε(w) = (−1)^{(Σ l_k) − i} (Chenevier (1.5)).",
+   "hypotheses": [
+    "Words ordered lexicographically from t_1r_1 < ⋯ < t_nr_n."
+   ],
+   "proofSteps": [
+    "In R ⊗ A[t_1, …, t_n]/(t)^m, Lyndon's theorem gives (1 − Σ t_jr_j)^{-1} = ∏_w (1 − w)^{-1} over Lyndon words of length < m in decreasing order (gap: the Lyndon factorisation theorem, Lothaire Ch. 5, is not in the pinned libraries).",
+    "Apply D (multiplicative) and invert: D(1 − Σ t_jr_j) = ∏_{w Lyndon} Σ_i (−1)^i Λ_i(w) in A[[t]] (1.4); both sides are independent of m.",
+    "Take the homogeneous part of degree i."
+   ],
+   "acceptance": [
+    "For i = 1 the formula is linearity of Tr.",
+    "For matrices it is the classical Amitsur formula.",
+    "The ordering of the product matters for noncommutative coefficients (Remark 1.13)."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.0/trace-pseudocharacter",
+     "how": "its multilinear part with i = n = d + 1 is the pseudocharacter identity."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+    "mathlib:MvPolynomial",
+    "mathlib:MvPowerSeries"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.12(ii) and (1.4)–(1.5), pp. 12–14",
+     "match": "Amitsur's formula and its proof via Lyndon words."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/trace-pseudocharacter",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "The trace of a determinant is a pseudocharacter",
+   "kind": "lemma",
+   "statement": "For a d-dimensional determinant D on R, Tr = Λ_1 is a d-dimensional pseudocharacter.",
+   "hypotheses": [
+    "No hypothesis on A."
+   ],
+   "proofSteps": [
+    "Tr(1) = d and Tr(xy) = Tr(yx): characteristic-polynomial and determinant-one-add-mul-comm (compare the coefficients of t in D(1 + txy) = D(1 + tyx)).",
+    "The identity: in Amitsur's formula with i = n = d + 1, the left side vanishes since Λ_{d+1} = 0; its component of degree one in each t_j is Σ_σ sgn(σ)Tr^σ(r_1, …, r_{d+1})."
+   ],
+   "acceptance": [
+    "For det ∘ ρ this is the classical fact that the trace of a d-dimensional representation is a pseudocharacter.",
+    "The map D ↦ Tr is well defined for every A, including characteristic ≤ d, where it is not injective (determinant, third acceptance item)."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-one-add-mul-comm",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/pseudocharacter"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.12(iii) and its proof, pp. 12–14",
+     "match": "The statement; the proof takes the multilinear part of Amitsur's formula."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-injective",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "A determinant is determined by its trace when d! is invertible",
+   "kind": "lemma",
+   "statement": "If d! is invertible in A, then D ↦ Tr is injective on d-dimensional A-valued determinants on R.",
+   "hypotheses": [
+    "d! ∈ A^×. Without it the statement fails (source issue E1)."
+   ],
+   "proofSteps": [
+    "For every commutative A-algebra B and r ∈ R ⊗_A B, the Newton relations express Λ_i(r), i ≤ d, as a polynomial with coefficients in ℤ[1/d!] in the Tr(r^j), j ≤ i (characteristic-polynomial).",
+    "Hence D_B(r) = Λ_d(r) is determined by Tr ⊗ B, which is determined by Tr."
+   ],
+   "acceptance": [
+    "The hypothesis is needed: over (ℤ/p)[X] with d = p, the determinants of Y ↦ I_p and Y ↦ X·I_p have the same trace 0 (Chenevier states injectivity without the hypothesis; E1).",
+    "Over ℚ-algebras injectivity holds (and bijectivity: determinant-trace-bijective-rational)."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Proposition 1.27 and its proof, p. 20",
+     "match": "The proof, which needs d! invertible; the statement omits the hypothesis (E1)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-rational",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Over ℚ-algebras determinants are pseudocharacters",
+   "kind": "theorem",
+   "statement": "If A is a ℚ-algebra, D ↦ Tr is a bijection between d-dimensional A-valued determinants on R and d-dimensional A-valued pseudocharacters on R.",
+   "hypotheses": [
+    "A a ℚ-algebra."
+   ],
+   "proofSteps": [
+    "Injectivity: determinant-trace-injective.",
+    "Surjectivity: by the Newton relations there is a unique P ∈ ℤ[1/d!][S_1, …, S_d], homogeneous of degree d with S_i of degree i, such that P(tr(r), …, tr(r^d)) = det r for matrices r; put D := P(T(r), …, T(r^d)), a homogeneous law of degree d with D(1) = 1.",
+    "Multiplicativity: by Procesi's theorem there is a commutative A-algebra C ⊃ A and ρ : R → M_d(C) with tr ∘ ρ = T (gap: Procesi's theorem is not in the pinned libraries); then D = det ∘ ρ is multiplicative."
+   ],
+   "acceptance": [
+    "The hypothesis cannot be dropped: in characteristic p ≤ d traces lose information (E1).",
+    "Chenevier Remark 1.28 records it as open whether d! ∈ A^× suffices in general.",
+    "Used for affinoid ℚ_p-algebras in Chenevier §3."
+   ],
+   "uses": [
+    {
+     "where": "Chenevier §3, p. 45",
+     "how": "continuous determinants and pseudocharacters coincide on affinoid algebras."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-injective",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/pseudocharacter",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Proposition 1.27 and its proof, p. 20",
+     "match": "The statement; the proof uses Procesi's theorem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Determinants versus pseudocharacters"
+   }
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-small",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Determinants and pseudocharacters when (2d)! is invertible",
+   "kind": "theorem",
+   "statement": "If (2d)! is invertible in A, or d = 2 and 2 is invertible in A, then D ↦ Tr is a bijection between d-dimensional A-valued determinants and d-dimensional A-valued pseudocharacters on R.",
+   "hypotheses": [
+    "(2d)! ∈ A^×, or d = 2 and 2 ∈ A^×."
+   ],
+   "proofSteps": [
+    "d = 2: for a pseudocharacter T put f(x, y) = T(x)T(y) − T(xy), a bilinear form, and D(x) = f(x, x)/2, a quadratic law; the pseudocharacter identity of dimension 2 gives multiplicativity (Chenevier's proof of Proposition 1.29(i)).",
+    "(2d)! invertible: the (d, d)-partial polarisation of the product map (Chenevier Proposition 1.29, via Proposition 1.32), reducing multiplicativity to an identity between polynomials in the T(w) that holds for matrices."
+   ],
+   "acceptance": [
+    "For d = 2 and 2 invertible this recovers Lemma 1.9's correspondence with D(g) = (T(g)² − T(g²))/2.",
+    "Injectivity alone needs only d! invertible (determinant-trace-injective)."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-injective",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/pseudocharacter",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-dimension-two"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Proposition 1.29, p. 20",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-dimension-two",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Two-dimensional determinants on a group",
+   "kind": "comparison",
+   "statement": "For a group G, D ↦ (T, D|_G) is a bijection between 2-dimensional A-valued determinants on G and pairs (T, D) of functions G → A with D : G → A^× a homomorphism, T(1) = 2, T(gh) = T(hg) and D(g)T(g^{-1}h) − T(g)T(h) + T(gh) = 0 for all g, h.",
+   "hypotheses": [
+    "G a group (for monoids, Chenevier's form with f(g, h))."
+   ],
+   "proofSteps": [
+    "A degree-2 law on ℤ[G] is D(gU + hV) = D(g)U² + f(g, h)UV + D(h)V² with f symmetric and f(g, g) = 2D(g) (Chenevier Example 1.8).",
+    "Multiplicativity is equivalent to: D a homomorphism, f(hg, h′g) = f(h, h′)D(g), and f(hg, h′g′) + f(hg′, h′g) = f(h, h′)f(g, g′); with T(g) = f(g, 1) these become the stated identities, and f(g, h) = T(g)T(h) − T(gh) = D(h)T(gh^{-1})."
+   ],
+   "acceptance": [
+    "For det ∘ ρ with ρ : G → GL_2(A), T = tr ρ and D = det ρ.",
+    "Applying the identity to (g_1, 1, g_2, g_3) gives the 2-dimensional pseudocharacter identity for T.",
+    "The pair (T, D), not T alone, is needed when 2 is not invertible."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/multiplicative-polynomial-law",
+    "mathlib:MonoidAlgebra"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Example 1.8 and Lemma 1.9, pp. 10–11",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [],
+ "coverage": [
+  {
+   "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "status": "partial",
+   "remaining": [
+    "Representability of determinants by Γ^d_A(R)^ab (Chenevier Proposition 1.6): the grading Γ^n of Mathlib's DividedPowerAlgebra (which has dp, lift and map), the representability of degree-n homogeneous laws by Hom(Γ^n M, N), the base-change isomorphism S ⊗ Γ_A(M) ≅ Γ_S(S ⊗ M), and Γ ≅ TS for free modules (Remarks 1.3–1.4), as AUDIT-33 records.",
+    "Duality (the contragredient determinant on groups), the reduced norm of an Azumaya algebra (Example 1.7(ii)), Corollary 1.14 (the subring generated by the coefficients) and the decomposition over products of algebras (Lemma 2.2(iii)).",
+    "Continuity criteria for determinants on profinite groups (Chenevier §2.30 and Lemma 2.31: continuous iff the kernel is open).",
+    "Agreement with determinants of finite projective rank-d representations (localise to the free case), and the Cayley–Hamilton identity Lemma 1.12(iv) through Vaccarino's theorem, which IHG.1 consumes."
+   ],
+   "notes": "This checkpoint plans the core of Chenevier §1: homogeneous and multiplicative polynomial laws on Mathlib's PolynomialLaw, determinants, their characteristic polynomial and trace, the identity D(1 + rr′) = D(1 + r′r), matrix determinants, direct sums, restriction and base change, dimensions one and two, pseudocharacters, Amitsur's formula, and the comparison with pseudocharacters in its valid coefficient range (d! invertible for injectivity, ℚ-algebras or (2d)! invertible for bijectivity). RS-12 makes IHG.1 and IHG.4 the owners of generic Cayley–Hamilton reconstruction and finite-quotient interpolation, which build on these nodes. The reviewed library audit AUDIT-33 was read: Mathlib's PolynomialLaw is used as the carrier; homogeneous laws, determinants, their operations and the trace comparison are absent from both libraries."
+  },
+  {
+   "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage IHG.1 (Cayley–Hamilton algebras and reconstruction)."
+   ]
+  },
+  {
+   "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.2",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage IHG.2 (Hecke algebras acting on complexes)."
+   ]
+  },
+  {
+   "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.3",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage IHG.3 (Integral spherical normalization)."
+   ]
+  },
+  {
+   "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage IHG.4 (Interpolation through finite quotients)."
+   ]
+  },
+  {
+   "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.5",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage IHG.5 (Nilpotent descent and specialization)."
+   ]
+  },
+  {
+   "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.6",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage IHG.6 (Integral Ribet theory without residual distinctness)."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Lyndon factorisation theorem",
+   "neededBy": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula"
+   ],
+   "detail": "Every word over a totally ordered alphabet factors uniquely as a non-increasing product of Lyndon words (Lothaire, Combinatorics on Words, Ch. 5), and the resulting product formula (1 − Σ x_i)^{-1} = ∏_w (1 − w)^{-1} in noncommutative power series. Neither is in the pinned libraries or planned by a layer."
+  },
+  {
+   "title": "Procesi's theorem on pseudocharacters over ℚ-algebras",
+   "neededBy": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-rational"
+   ],
+   "detail": "For a ℚ-algebra A and a d-dimensional pseudocharacter T on R there is a commutative A-algebra C ⊃ A and an A-algebra map ρ : R → M_d(C) with tr ∘ ρ = T (Procesi, 'A formal inverse to the Cayley–Hamilton theorem', J. Algebra 107 (1987)). Not in the pinned libraries; IHG.1's reconstruction theorems are the natural owner if they are stated over ℚ-algebras."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants/E1",
+   "source": "CHENEVIER-DET",
+   "kind": "error",
+   "locator": "Proposition 1.27, p. 20 (arXiv:0809.0415v2; same in the Durham preprint)",
+   "printed": "The map D ↦ Tr defined in § 1.10 induces an injection between the set of d-dimensional A-valued determinants on R and the set of d-dimensional A-valued pseudocharacters on R. When A is a Q-algebra, it is a bijection.",
+   "correction": "Assume that d! is invertible in A. Then D ↦ Tr is injective; when A is a ℚ-algebra it is a bijection.",
+   "reason": "The proof uses that Λ_i(r) lies in the ℤ[1/d!]-algebra generated by the Tr(r^j), which needs d! invertible, and injectivity is false without it. Let p be prime, A = 𝔽_p[X], R = A[Y] and d = p; let D_1 and D_2 be the determinants of the representations Y ↦ I_p and Y ↦ X·I_p. Both traces are p·(evaluation) = 0, but D_1(Y) = 1 and D_2(Y) = X^p. The introduction and Remark 1.28 discuss only the bijectivity hypothesis; the only later use of the proposition (§3, p. 45) is over affinoid ℚ_p-algebras, where the corrected statement applies.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:0809.0415 v1–v2 listing and the v2 source (same statement)",
+    "the 2013 Durham symposium preprint (same statement)",
+    "Chenevier's publication page, which links errata for other papers but none for this one"
+   ]
+  }
+ ]
+}
