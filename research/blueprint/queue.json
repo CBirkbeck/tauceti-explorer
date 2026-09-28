@@ -18281,12 +18281,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GlobalGaloisDeformations.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #743"
+   "note": "released on GitHub issue #743"
   },
   {
    "id": "REV-GlobalGaloisDeformations",
