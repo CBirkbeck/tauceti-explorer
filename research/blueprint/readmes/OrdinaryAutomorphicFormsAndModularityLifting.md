@@ -1,14 +1,14 @@
 # Ordinary automorphic forms and ordinary modularity lifting — blueprint
 
-This blueprint covers stages R21.1–R21.6. After three checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3 and R21.4
-are partial; R21.5–R21.6 are not yet read. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
+This blueprint covers stages R21.1–R21.6. After four checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3, R21.4 and
+R21.5 are partial; R21.6 is not yet read. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
 - R21.1 only applies the ordinary projector to actual arithmetic modules;
 - R21.2 keeps the nearly ordinary and Eisenstein statements that Skinner–Wiles need beyond cuspidal Hida theory;
 - R21.3 keeps the ordinary Galois families and deformation rings, in the pseudo-representation formalism the source
   actually uses for reducible residual representations.
 
 The source is C. M. Skinner and A. J. Wiles, *Residually reducible representations and modular forms*, Publ. Math.
-IHÉS 89 (1999), 5–126, §§2–4.3 and Appendix A. It is open access on Numdam as an OCR'd scan; every formula below was checked on the
+IHÉS 89 (1999), 5–126, §§2–4 and Appendix A. It is open access on Numdam as an OCR'd scan; every formula below was checked on the
 page images.
 
 ## Purpose
@@ -416,6 +416,42 @@ good and (P1) and (P2) hold for 𝒟 and 𝒟_c, every prime of R_𝒟 is pro-mo
 - Corollary 2.12, which is printed as "Proposition 2.12" (E5);
 - the Λ_𝒪-structure, to find a nice prime.
 
+**Theorem: the criterion for (P2)** (node `p2-criterion`; planet). This is Proposition 4.2: if (F, 𝒟) is good and (P1)
+holds for all data with smaller Σ, then (P2) holds for 𝒟. There are three steps:
+1. The Eisenstein ideal of χ gives a nice pro-modular prime for 𝒟_0.
+2. Linear conditions and the dimension bounds produce a deformation of ρ_c.
+3. Show that deformation is of type 𝒟_c and pro-modular, via the level statements.
+
+**Theorem: (P1)** (node `property-p1`). Proposition 8.4 reduces (P1) to the minimal case, Proposition 8.1 (R = T at nice
+primes), by twisting. Proposition 8.1 depends on §§5–8, which are the next checkpoint and are recorded as a temporary
+gap.
+
+**Theorem: the Main Theorem** (node `main-theorem`; planet). Let ρ over any totally real F be irreducible, nearly
+ordinary of type 𝒟, with det ρ = ψε^μ, μ ≥ 1. If ρ admits a solvable, even-degree, permissible base change L with
+(L, 𝒟_L) good, then ρ is modular. The proof combines:
+- Propositions 4.1, 4.2 and 8.4;
+- Hida's control (Proposition 3.7);
+- Wiles' ρ_π;
+- solvable base change (requested from GL2AutomorphicRepresentationsAndTransfer R17.4).
+
+## Layer R21.5: Skinner–Wiles' theorems (partial)
+
+Library module: `TauCeti/NumberTheory/OrdinaryModularity/SkinnerWiles`.
+
+**Definition: Hypothesis H** (node `hypothesis-h`). There are imaginary quadratic extensions with prescribed local
+behaviour and relative class groups of p-rank ≤ c(ε)[K:ℚ]^{1−ε}. It is a hypothesis, not a theorem.
+
+**Theorem A** (node `theorem-a`; planet). For F and F(χ_1/χ_2) abelian over ℚ, an irreducible nearly ordinary ρ with
+ρ̄^ss ≅ χ_1 ⊕ χ_2, χ_1/χ_2 odd and p-distinguished, and det ρ = ψε^{k−1} is modular. The good base change is built as
+follows:
+- take cyclotomic ℤ_ℓ-towers;
+- Washington's theorem (a gap) bounds their class groups;
+- adjoin abelian p-extensions, which make L_p(L, −1, χω) a non-unit;
+- Waldschmidt's bound (a gap) finishes the count.
+
+**Theorem B** (node `theorem-b`; planet). The same for arbitrary totally real F with (χ_1/χ_2)|_{D_v} of even order,
+conditional on Hypothesis H. The tower uses totally real quadratic steps.
+
 ## Mistakes found in the sources
 
 **E1 (misprint, reaches nothing): Skinner–Wiles §3.2, before Lemma 3.10, p. 41.** "makes Λ_𝒪 a free Λ′_𝒪-module of
@@ -432,8 +468,12 @@ trace ρ^mod(g_iσ_y))" should have (β_i − α_i)^{−1}, and likewise for T_0
 Ψ_P(λ_{𝔭_i}). Twisting by Ψ ∘ det multiplies [U(1 0; 0 λ)U] by Ψ(λ), exactly as the next line does for T_y.
 
 **E5 and E6 (misprints, reach nothing): cross-references.**
-- The proof of Proposition 4.1 (p. 64) cites "Proposition 2.12" for Corollary 2.12.
+- The proof of Proposition 4.1 (p. 64) cites "Proposition 2.12" for Corollary 2.12. The same drift recurs in the proof of
+  Proposition 4.2 ("Lemma 2.12", pp. 67 and 70; "Proposition 2.12", p. 69).
 - The proof of Proposition 4.2 (p. 66) cites "Proposition 3.14" for Proposition 3.18 (existence of the permissible ideal).
+
+**E7 (misprint, reaches nothing): the proof of Theorem B, p. 78.** The four conditions are listed as (i), (ii), (iii),
+(vi); the last should be (iv).
 
 No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF02698855.
 
@@ -446,15 +486,18 @@ No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF026988
 - **R21.2 is source-decomposed** (checkpoint 3).
 - **R21.3 is partial.** The L8 determinant-versus-flag comparison is now planned in LocalGaloisDeformationRings L8, and
   is recorded here only when a consumer needs it.
-- **R21.4 is partial.** Still to do:
-  - Proposition 4.2 ((P2)) and the Main Theorem (§4.5);
-  - formal patching (§5, importing DeformationAndDerivedPatchingAlgebra R03.5–R03.6);
-  - cohomology estimates (§6, with GlobalGaloisDeformations R04.5);
-  - nice primes (§7);
-  - raising the level and (P1) (§8);
-  - the Raynaud gap.
-- **R21.5–R21.6 are not read:** Theorems A and B (§4.6), the p = 3 branch (Dieulefait–Pacetti), and Khare's use of
-  Skinner–Wiles.
+- **R21.4 is partial.** Still to do: §§5–8, which give Proposition 8.1 and are a temporary gap:
+  - formal patching (importing DeformationAndDerivedPatchingAlgebra R03.5–R03.6);
+  - cohomology estimates (GlobalGaloisDeformations R04.5);
+  - nice primes at minimum level;
+  - raising the level.
+
+  The Raynaud gap also remains.
+- **R21.5 is partial.** Still to do:
+  - the p = 3 branch (Dieulefait–Pacetti, with Berger–Li–Zhu);
+  - Khare's use of Skinner–Wiles;
+  - the Washington and Waldschmidt gaps.
+- **R21.6 is not read.**
 
 ## Sources
 

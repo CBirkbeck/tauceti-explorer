@@ -6,7 +6,7 @@ import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.Tactic.ComputeDegree
 
 /-!
-# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.4)
+# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.5)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`OrdinaryAutomorphicFormsAndModularityLifting`) is definitive. The statements below suggest Lean
@@ -159,5 +159,10 @@ dimension bound `d − 2t − 3m − 1 ≤ d − d_i` (with `m = #ℳ_c ≤ s`) 
 example (d di t m s : ℕ) (hm : m ≤ s) (hG : 2 + 2 * t + 7 * s < di) (hdi : di ≤ d) :
     ¬ (d - 2 * t - 3 * m - 1 ≤ d - di ∧ 2 * t + 3 * m + 1 ≤ d) := by
   omega
+
+/-- `R21.5/theorem-b`, (4.23) ⇒ (4.24) in outline: with `D = deg(E/ℚ) ≥ 1`, `2^{n₀−1} > 2 + 17s + 8h`
+gives `2^{n₀−1}·D > 2 + 9s + 8h` (`s = #Σ_L`, `h = dim H_{Σ_L}`). -/
+example (N D s h : ℕ) (hD : 1 ≤ D) (hN : 2 + 17 * s + 8 * h < N) : 2 + 9 * s + 8 * h < N * D := by
+  nlinarith
 
 end TauCeti.OrdinaryModularity.SuggestedTest
