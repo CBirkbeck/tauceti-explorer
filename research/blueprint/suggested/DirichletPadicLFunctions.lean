@@ -3754,3 +3754,146 @@ example : -Real.pi*Complex.I * (-2*Complex.I)⁻¹ * (-1/2 : ℂ) =
     -(Real.pi/4 : ℝ) ∧ -(Real.pi/4 : ℂ) ≠ (Real.pi/4 : ℂ) := by sorry
 end
 end SuggestedOddLogTests
+
+
+/-! Smoothing at an arbitrary integral p-adic unit. The native binomial
+coefficients give integral series at every prime, including two. -/
+namespace DirichletPadic
+open PowerSeries AbstractMeasure
+open scoped PowerSeries.WithPiTopology Topology
+noncomputable section
+variable (p : ℕ) [Fact p.Prime]
+
+def padicSmoothedSeries (u : (ℤ_[p])ˣ) : PowerSeries ℤ_[p] := by sorry
+
+theorem padicSmoothedSeries_def (u : (ℤ_[p])ˣ) :
+    padicSmoothedSeries p u =
+      (PowerSeries.mk (fun n => Ring.choose (u : ℤ_[p]) (n+2))) *
+        PowerSeries.invOfUnit (PowerSeries.mk (fun n => Ring.choose (u : ℤ_[p]) (n+1))) u := by sorry
+
+theorem padicSmoothedSeries_mul_denominator (u : (ℤ_[p])ˣ) :
+    (PowerSeries.mk (fun n => Ring.choose (u : ℤ_[p]) (n+1))) * padicSmoothedSeries p u =
+      PowerSeries.mk (fun n => Ring.choose (u : ℤ_[p]) (n+2)) := by sorry
+
+theorem padicSmoothedSeries_constantCoeff (u : (ℤ_[p])ˣ) :
+    constantCoeff (padicSmoothedSeries p u) =
+      Ring.choose (u : ℤ_[p]) 2 * ((u⁻¹ : (ℤ_[p])ˣ) : ℤ_[p]) := by sorry
+
+theorem padicSmoothedSeries_unique (u : (ℤ_[p])ˣ) (F : PowerSeries ℤ_[p])
+    (hF : (PowerSeries.mk (fun n => Ring.choose (u : ℤ_[p]) (n+1))) * F =
+      PowerSeries.mk (fun n => Ring.choose (u : ℤ_[p]) (n+2))) :
+    F = padicSmoothedSeries p u := by sorry
+
+theorem padicSmoothedSeries_one : padicSmoothedSeries p 1 = 0 := by sorry
+
+theorem padicSmoothedSeries_neg_one : padicSmoothedSeries p (-1) = -1 := by sorry
+
+theorem padicSmoothedSeries_nat (a : ℕ) (ha : IsUnit (a : ℤ_[p]))
+    (u : (ℤ_[p])ˣ) (hu : (u : ℤ_[p]) = a) :
+    padicSmoothedSeries p u = smoothedSeries ℤ_[p] a ha := by sorry
+
+theorem padicSmoothedSeries_coeff_continuous (n : ℕ) :
+    Continuous (fun u : (ℤ_[p])ˣ => coeff n (padicSmoothedSeries p u)) := by sorry
+
+theorem padicSmoothedSeries_continuous : Continuous (padicSmoothedSeries p) := by sorry
+
+def padicSmoothedMeasure (u : (ℤ_[p])ˣ) : D(ℤ_[p],ℤ_[p]) := by sorry
+
+theorem padicSmoothedMeasure_def (u : (ℤ_[p])ˣ) :
+    padicSmoothedMeasure p u =
+      AbstractMeasure.amiceTransformEquiv.symm (padicSmoothedSeries p u) := by sorry
+
+theorem amice_padicSmoothedMeasure (u : (ℤ_[p])ˣ) :
+    (padicSmoothedMeasure p u).amiceTransform = padicSmoothedSeries p u := by sorry
+
+theorem padicSmoothedMeasure_mahler (u : (ℤ_[p])ˣ) (n : ℕ) :
+    padicSmoothedMeasure p u (mahler n : C(ℤ_[p],ℤ_[p])) =
+      coeff n (padicSmoothedSeries p u) := by sorry
+
+theorem padicSmoothedMeasure_unique (u : (ℤ_[p])ˣ) (μ : D(ℤ_[p],ℤ_[p]))
+    (hμ : μ.amiceTransform = padicSmoothedSeries p u) :
+    μ = padicSmoothedMeasure p u := by sorry
+
+theorem padicSmoothedMeasure_one : padicSmoothedMeasure p 1 = 0 := by sorry
+
+theorem padicSmoothedMeasure_neg_one :
+    padicSmoothedMeasure p (-1) = -AbstractMeasure.dirac ℤ_[p] (0 : ℤ_[p]) := by sorry
+
+theorem padicSmoothedMeasure_nat (a : ℕ) (ha : ¬ p ∣ a)
+    (u : (ℤ_[p])ˣ) (hu : (u : ℤ_[p]) = a) :
+    padicSmoothedMeasure p u = smoothedMeasure p a ha := by sorry
+
+theorem padicSmoothedMeasure_continuous_weak :
+    letI : TopologicalSpace D(ℤ_[p],ℤ_[p]) := AbstractMeasure.WeakTopology
+    Continuous (padicSmoothedMeasure p) := by sorry
+
+theorem padicSmoothedMeasure_apply_continuous (f : C(ℤ_[p],ℤ_[p])) :
+    Continuous (fun u : (ℤ_[p])ˣ => padicSmoothedMeasure p u f) := by sorry
+
+theorem padicSmoothedMeasure_moment (u : (ℤ_[p])ˣ) (k : ℕ) :
+    (padicSmoothedMeasure p u ((ContinuousMap.id ℤ_[p])^k) : ℚ_[p]) =
+      (1-((u : ℤ_[p]) : ℚ_[p])^(k+1)) *
+        algebraMap ℚ ℚ_[p] (bernoulli (k+1)/(k+1)) := by sorry
+end
+end DirichletPadic
+
+namespace SuggestedPadicSmoothingTests
+open DirichletPadic PowerSeries AbstractMeasure Set Filter
+open scoped Topology PowerSeries.WithPiTopology
+noncomputable section
+-- series_identity_parameter
+example : padicSmoothedSeries 2 1 = 0 := by sorry
+-- series_negative_parameter
+example : padicSmoothedSeries 2 (-1) = -1 := by sorry
+-- dyadic_three_coefficients
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2]) = 3) :
+    ((coeff 0 (padicSmoothedSeries 2 u) : ℤ_[2]) : ℚ_[2]) = 1 ∧
+      ((coeff 1 (padicSmoothedSeries 2 u) : ℤ_[2]) : ℚ_[2]) = -2/3 := by sorry
+-- inverse_two_coefficients
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
+    ((coeff 0 (padicSmoothedSeries 3 u⁻¹) : ℤ_[3]) : ℚ_[3]) = -1/4 ∧
+      ((coeff 1 (padicSmoothedSeries 3 u⁻¹) : ℤ_[3]) : ℚ_[3]) = 1/16 := by sorry
+-- natural_two_comparison
+example (h : IsUnit (2 : ℤ_[3])) (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
+    padicSmoothedSeries 3 u = smoothedSeries ℤ_[3] 2 h := by sorry
+-- natural_three_comparison
+example (h : IsUnit (3 : ℤ_[2])) (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2]) = 3) :
+    padicSmoothedSeries 2 u = smoothedSeries ℤ_[2] 3 h := by sorry
+-- coefficient_limit_at_negative_one
+example (u : ℕ → (ℤ_[3])ˣ) (hu : ∀ n, (u n : ℤ_[3]) = 3^(n+1)-1) :
+    Tendsto (fun n => coeff 1 (padicSmoothedSeries 3 (u n))) atTop (𝓝 0) := by sorry
+-- constant_limit_at_negative_one
+example (u : ℕ → (ℤ_[2])ˣ) (hu : ∀ n, (u n : ℤ_[2]) = 2^(n+1)-1) :
+    Tendsto (fun n => coeff 0 (padicSmoothedSeries 2 (u n))) atTop (𝓝 (-1)) := by sorry
+-- measure_identity_parameter
+example : padicSmoothedMeasure 2 1 = 0 := by sorry
+-- measure_negative_parameter
+example : padicSmoothedMeasure 2 (-1) = -AbstractMeasure.dirac ℤ_[2] (0 : ℤ_[2]) := by sorry
+-- inverse_two_mass
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
+    (padicSmoothedMeasure 3 u⁻¹ 1 : ℚ_[3]) = -1/4 := by sorry
+-- negative_parameter_positive_moment
+example : padicSmoothedMeasure 3 (-1) ((ContinuousMap.id ℤ_[3])^2) = 0 := by sorry
+-- natural_measure_two
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) (h : ¬ 3 ∣ 2) :
+    padicSmoothedMeasure 3 u = smoothedMeasure 3 2 h := by sorry
+-- natural_measure_three
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2]) = 3) (h : ¬ 2 ∣ 3) :
+    padicSmoothedMeasure 2 u = smoothedMeasure 2 3 h := by sorry
+-- weak_limit_negative_parameter
+example (u : ℕ → (ℤ_[2])ˣ) (hu : ∀ n, (u n : ℤ_[2]) = 2^(n+1)-1) :
+    letI : TopologicalSpace D(ℤ_[2],ℤ_[2]) := AbstractMeasure.WeakTopology
+    Tendsto (fun n => padicSmoothedMeasure 2 (u n)) atTop
+      (𝓝 (-AbstractMeasure.dirac ℤ_[2] (0 : ℤ_[2]))) := by sorry
+-- fixed_test_limit
+example (u : ℕ → (ℤ_[3])ˣ) (hu : ∀ n, (u n : ℤ_[3]) = 3^(n+1)-1)
+    (f : C(ℤ_[3],ℤ_[3])) :
+    Tendsto (fun n => padicSmoothedMeasure 3 (u n) f) atTop (𝓝 (-f 0)) := by sorry
+-- inverse_two_first_moment
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
+    (padicSmoothedMeasure 3 u⁻¹ (ContinuousMap.id ℤ_[3]) : ℚ_[3]) = 1/16 := by sorry
+-- inverse_two_second_moment
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
+    padicSmoothedMeasure 3 u⁻¹ ((ContinuousMap.id ℤ_[3])^2) = 0 := by sorry
+end
+end SuggestedPadicSmoothingTests
