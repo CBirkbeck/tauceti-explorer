@@ -192,3 +192,82 @@ absent from the prerequisite graph. Recorded as a gap in the packet.
    problem rather than a mathematical one.
 4. Write R20.6's case-table manifest, as per-case hypotheses and not as a dependency edge.
 5. Re-run the suggested Lean file with a Tau Ceti build present.
+
+---
+
+# Second pass — 28 September 2026 (cc-fb70e5)
+
+The first pass was merged as a checkpoint (PR #2773) and the job released for continuation. This
+pass takes step 1 of the list above: **Diamond's theorem (Ribet §5) and the character-group and
+component-group machinery (Ribet §6) are now nodes of R20.2**, so the Mazur and Ribet proof steps
+depend on them instead of merely mentioning them.
+
+`check_blueprint`: **0 errors, 0 warnings**. 22 nodes (6 definitions, 16 theorems), 33 API items,
+19 unit tests, 11 planets, 8 baseline declarations, 14 requests, 5 gaps. Status stays `partial`.
+
+## What this pass added
+
+Seven nodes on R20.2, which now holds twelve and sits at the six-planet maximum:
+
+| node | source |
+|---|---|
+| `R20.2/q-new-subspace` | Ribet §5, the trace-map definition of `S^{q-new}` |
+| `R20.2/auxiliary-prime` | Ribet §5, σ = ρ̄ × χ, giving `q ≡ −1 (mod ℓ)` and Čebotarev |
+| `R20.2/level-raising-diamond` | Ribet Theorem 5.1 (Diamond), `2 ≤ k ≤ ℓ+1` |
+| `R20.2/degeneracy-map-and-eta` | Ribet Theorem 6.1, unique T-equivariant σ with σ∘δ = η = U²−1 |
+| `R20.2/character-group-of-bad-fibre` | Ribet §6, the Néron fibre, `L_p`, `X_p`, `Θ_p`, δ surjective |
+| `R20.2/ribet-exact-sequence` | Ribet (6.2)/(6.3), the Shimura-curve sequence, Čerednik–Drinfeld |
+| `R20.2/monodromy-pairing-component-group` | Ribet §6, the pairing whose cokernel is `Θ_p` |
+
+Two requests added for suppliers the new nodes consume:
+`GL2AutomorphicRepresentationsAndTransfer:R17.6` (Langlands local-global at a special prime, the
+easy direction of Diamond's criterion) and `NeronModelsAndSemistableAbelianVarieties:R11.3` (the
+Néron fibre structure that R11.4's character groups and pairing sit on top of). A third,
+`HilbertModularVarietiesAndShimuraCurves:R18.6`, supplies the Shimura curve of discriminant `pq`.
+
+**One trap pinned into a unit test.** The operator `U` acts on `J₀(N) × J₀(N)` as `[[T_q, q], [−1, 0]]`
+but on the character group `X_p` as `[[T_q, −1], [q, 0]]`. The character group is contravariant, so
+the matrix is not the one from the abelian-variety side, and copying it across is an easy and
+invisible error. `characterGroup.test_U_matrix` fails an implementation that does.
+
+## Working under the shared-machine rules
+
+These rules took effect on 28 September and changed how this job is done; a continuation should
+know what they cost.
+
+- **The declaration index is gone and was not rebuilt.** The first pass validated all 8 baseline
+  references against an index built from the pinned trees. Building that index means unpacking a
+  snapshot of two libraries, which the rules now forbid, so this pass ran `check_blueprint` without
+  `--index` and its baseline references are checked for form only. This is safe here because the
+  new nodes add no new baseline declarations — they reuse `cuspFormsOld`, `cuspFormsNew` and
+  `levelRaise`, all verified in the first pass and recorded in PR #2773. **Any continuation that
+  adds a baseline reference must verify it individually**, which can be done without unpacking
+  anything: `git -C <clone> show <pin>:<path>` and `git -C <clone> grep -n <pattern> <pin> -- '<glob>'`
+  both read straight from an existing clone's object store.
+- **The suggested Lean file was not recompiled, and should not be.** The rules allow elaboration only
+  against a build at the pinned commits that already exists on the machine. There is none: Tau Ceti
+  has no local build at all, and the available Mathlib build is at `045acef0`, not the pinned
+  `082e2d37`. The first pass's note on what was and was not checked still stands and is unchanged.
+- **Source texts go in the job's scratch on disk**, not `/tmp`, which is memory here and was wiped —
+  taking the first pass's sources and notes with it. `pdftotext` turns out to be available already in
+  the swarm's shared tools environment, which removes the need for a hand-written PDF extractor;
+  a continuation should look for it there before building one. Its Computer Modern quirks must be normalised before quoting: it renders `ℓ` as a
+  backtick (315 of 315 occurrences in Ribet), `ε` as `²` (56 of 56), `≠` as `6=` and `≢` as `6≡`.
+  Each substitution was checked over every occurrence before being applied, and the result
+  reproduces, character for character, the statement of Mazur's Principle that the first pass had
+  extracted independently with different tooling — which is the cross-validation that the cleaned
+  text is faithful.
+
+## What a continuation should do next
+
+1. **Decompose Ribet §2's proof for R20.4.** Only Theorem 2.1's statement is planned. The proof runs
+   in independent steps after the normalisation of eigenforms, and the section is public and already
+   extracted.
+2. **Decompose Ribet §7**, the proof of Theorem 1.5. Its inputs are now nodes — the auxiliary prime,
+   the character groups, the exact sequence and the monodromy pairing — but its argument, the
+   localisation at the maximal ideal and the dimension count, is not. This is the largest remaining
+   piece of R20.2 and needs no new sources.
+3. **Get Edixhoven 1992 and plan R20.3.** Still the single largest hole, and still a library-access
+   problem rather than a mathematical one. Ribet §3 is the public substitute if access does not come.
+4. **Write R20.6's case-table manifest**, as per-case hypotheses and not as a dependency edge.
+5. **Re-run the suggested Lean file** if and only if a build at the pinned commits appears.

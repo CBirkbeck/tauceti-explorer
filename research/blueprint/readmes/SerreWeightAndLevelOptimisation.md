@@ -319,7 +319,7 @@ Let ℓ ≥ 5 and let p ≠ ℓ be a prime with p ≢ 1 (mod ℓ). Let M be prim
 - ℓ = 3 is allowed by the §8 proof, so an implementation must not carry ℓ ≥ 5 as a hypothesis of the weight-two case.
 
 **Dependencies.**
-- Inside this roadmap: `R20.2/serre-level`, `R20.1/integral-old-new-exact-sequence`, `R20.1/congruence-module`
+- Inside this roadmap: `R20.2/serre-level`, `R20.1/integral-old-new-exact-sequence`, `R20.1/congruence-module`, `R20.2/character-group-of-bad-fibre`, `R20.2/monodromy-pairing-component-group`
 - On other roadmaps, by stage id: `ModularCurvesPartII:R13.6`, `NeronModelsAndSemistableAbelianVarieties:R11.4`
 
 **Sources.**
@@ -353,7 +353,7 @@ Let ℓ ≥ 3 be a prime and ρ̄ : Gal(Q̄/Q) → GL(2,F) irreducible. Suppose 
 - Taking p ramified for ρ̄ gives no conclusion.
 
 **Dependencies.**
-- Inside this roadmap: `R20.2/serre-level`, `R20.1/integral-old-new-exact-sequence`, `R20.1/congruence-module`
+- Inside this roadmap: `R20.2/serre-level`, `R20.1/integral-old-new-exact-sequence`, `R20.1/congruence-module`, `R20.2/character-group-of-bad-fibre`, `R20.2/ribet-exact-sequence`, `R20.2/monodromy-pairing-component-group`
 - On other roadmaps, by stage id: `ModularCurvesPartII:R13.6`, `ModularCurvesPartII:R14.4`, `NeronModelsAndSemistableAbelianVarieties:R11.4`
 
 **Sources.**
@@ -423,11 +423,296 @@ Let ℓ ≥ 3 and let ρ̄ be irreducible and arising from some eigenform of wei
 - Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §4, statement (4.6) Problem. The one-prime problem the iteration solves: from an eigenform of weight k on Γ₁(M) ∩ Γ₀(p) with M prime to p and ρ unramified at p, produce an eigenform on Γ₁(M).
 - Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §2, the definition of n(p, ρ) and N(ρ). The target of the descent, with its exponents: N(ρ) = ∏ p^{n(p,ρ)} for the Artin conductor exponent n(p,ρ), so the terminal level is not in general squarefree.
 
+#### `R20.2/q-new-subspace` — The q-new subspace as the kernel of the trace map
+
+*definition*
+
+Let N be prime to q and let S = S_k(Γ₁(N) ∩ Γ₀(q)). The q-new subspace S^{q-new} ⊆ S is the kernel of the natural trace map from S to the direct sum of two copies of S_k(Γ₁(N)). A residual representation ρ̄ arising from an eigenform on Γ₁(N) ∩ Γ₀(q) whose associated newform has level divisible by q is exactly one arising from an eigenform in S^{q-new}, so this subspace is the precise home of the level-raising condition. The trace map is the adjoint of the pair of degeneracy inclusions, so the definition is integral in nature even though the space here is complex; the integral form is the business of R20.1.
+
+**Hypotheses.**
+- N prime to q
+- k ≥ 2
+- S = S_k(Γ₁(N) ∩ Γ₀(q))
+
+**Construction or proof, in steps.**
+1. Construct the two degeneracy inclusions S_k(Γ₁(N)) → S given by f ↦ f and f ↦ f(qτ), whose sum embeds S_k(Γ₁(N)) ⊕ S_k(Γ₁(N)) into S as the space of oldforms.
+2. Define the trace map S → S_k(Γ₁(N)) ⊕ S_k(Γ₁(N)) as the adjoint of that embedding for the Petersson product, and set S^{q-new} to be its kernel.
+3. Check that S^{q-new} is stable under the diamond operators ⟨d⟩ for d ∈ (ℤ/Nℤ)* and under T_n for n prime to q; it is not in general stable under any splitting of U = T_q, which is why U is treated separately.
+4. Record the equivalence with the newform formulation: ρ̄ arises from an eigenform whose associated newform has level divisible by q if and only if it arises from an eigenform of S^{q-new}.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `cuspFormsQNew` | constructor | The q-new subspace of S_k(Γ₁(N) ∩ Γ₀(q)) as the kernel of the trace map. |
+| `mem_cuspFormsQNew_iff` | characterisation | f ∈ S^{q-new} ↔ the trace of f to S_k(Γ₁(N)) ⊕ S_k(Γ₁(N)) vanishes. |
+| `cuspFormsQNew_hecke_stable` | structure | S^{q-new} is stable under T_n for n prime to q and under ⟨d⟩. |
+| `cuspFormsQNew_codim` | relation | codim S^{q-new} = 2 · dim S_k(Γ₁(N)), the trace map being surjective. |
+| `cuspFormsQNew_level_one` | example | For N = 1 and k = 2, S^{q-new} = S. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `cuspFormsQNew.test_level_one` (degenerate) — For N = 1, k = 2, the old part is zero and S^{q-new} = S.
+- `cuspFormsQNew.test_oldform_excluded` (non-example) — The image of a nonzero f ∈ S_k(Γ₁(N)) under either degeneracy map is not in S^{q-new}; a definition returning all of S fails this.
+- `cuspFormsQNew.test_hecke_stable` (computation) — T_n S^{q-new} ⊆ S^{q-new} for every n prime to q.
+
+**Where it is used.**
+- `SerreWeightAndLevelOptimisation:R20.2/level-raising-diamond` — Condition I of Diamond's theorem is membership of S^{q-new}, so the criterion is a statement about this subspace.
+- `SerreWeightAndLevelOptimisation:R20.2/descend-to-serre-level` — The descent removes a prime exactly when the residual eigensystem fails to be q-new, so the subspace is what the descent must avoid.
+
+**Acceptance tests.**
+- For N = 1 the old part vanishes in weight two, so S^{q-new} = S.
+- S^{q-new} is stable under T_n for n prime to q and under the diamond operators.
+- An eigenform of S whose newform has level dividing N is not in S^{q-new}.
+- The trace map is surjective, so S^{q-new} has codimension 2 dim S_k(Γ₁(N)) in S.
+
+**Dependencies.**
+- On the pinned libraries: `tauceti:TauCeti.cuspFormsOld`, `tauceti:TauCeti.cuspFormsNew`, `tauceti:TauCeti.ModularForm.levelRaise`
+
+**Sources.**
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §5, the paragraph following (5.1) defining S^{q-new}. The definition of the q-new subspace as the kernel of the trace map to two copies of S_k(Γ₁(N)), and the statement that Condition I says exactly that ρ arises from an eigenform in it.
+
+#### `R20.2/auxiliary-prime` — Auxiliary primes and the shape of Frobenius
+
+*definition*
+
+Let σ = ρ̄ × χ be the three-dimensional representation of Gal(Q̄/Q) over F given by ρ̄ together with the mod ℓ cyclotomic character χ. An auxiliary prime is a prime q, prime to ℓN, such that σ(Frob_q) is conjugate to σ(c) for c a complex conjugation. For such a q the characteristic polynomial of ρ̄(Frob_q) coincides with that of ρ̄(c); since ρ̄ is odd, ρ̄(c) is conjugate to diag(−1, 1) and the polynomial is (T − 1)(T + 1). Since χ(Frob_q) = χ(c) = −1 one gets q ≡ −1 (mod ℓ), and the polynomial may be written (T − a)(T − qa) with a = ±1. Auxiliary primes therefore satisfy the trace condition of the level-raising criterion automatically, and by the Čebotarev density theorem the set of them has positive density, so there are infinitely many.
+
+**Hypotheses.**
+- ρ̄ : Gal(Q̄/Q) → GL(2,F) irreducible and odd
+- χ the mod ℓ cyclotomic character
+- q prime, prime to ℓN
+
+**Construction or proof, in steps.**
+1. Form σ = ρ̄ × χ as a three-dimensional representation over F and fix a complex conjugation c.
+2. Define q to be auxiliary when σ(Frob_q) is conjugate to σ(c); this is a condition on the image of σ, hence a union of conjugacy classes, which is what makes Čebotarev applicable.
+3. For auxiliary q, read off that ρ̄(Frob_q) and ρ̄(c) have the same characteristic polynomial, and that oddness gives ρ̄(c) ∼ diag(−1,1) with polynomial (T−1)(T+1).
+4. From χ(Frob_q) = χ(c) = −1 deduce q ≡ −1 (mod ℓ), and rewrite (T−1)(T+1) as (T − a)(T − qa) with a = +1 or a = −1.
+5. Apply Čebotarev to the image of σ to conclude that the auxiliary primes have positive density.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `IsAuxiliaryPrime` | constructor | IsAuxiliaryPrime ℓ ρ̄ N q : Prop, that q ∤ ℓN and σ(Frob_q) ∼ σ(c) for σ = ρ̄ × χ. |
+| `isAuxiliaryPrime.neg_one_mod` | characterisation | An auxiliary prime satisfies q ≡ −1 (mod ℓ). |
+| `isAuxiliaryPrime.charpoly` | characterisation | At an auxiliary prime the characteristic polynomial of ρ̄(Frob_q) is (T−1)(T+1), equal to (T − a)(T − qa) for a = ±1. |
+| `infinite_setOf_isAuxiliaryPrime` | structure | The set of auxiliary primes is infinite, of positive density. |
+| `isAuxiliaryPrime_odd` | compatibility | The construction uses only that ρ̄ is odd and irreducible, via ρ̄(c) ∼ diag(−1,1). |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `auxiliaryPrime.test_congruence` (computation) — Every auxiliary prime satisfies q ≡ −1 (mod ℓ).
+- `auxiliaryPrime.test_charpoly` (computation) — At an auxiliary prime the characteristic polynomial is (T−1)(T+1).
+- `auxiliaryPrime.test_ell_two_vacuous` (non-example) — For ℓ = 2 the congruence q ≡ −1 (mod 2) holds for every odd q, so the notion distinguishes nothing; an implementation that relies on it at ℓ = 2 is wrong.
+
+**Where it is used.**
+- `SerreWeightAndLevelOptimisation:R20.2/level-raising-diamond` — Auxiliary primes are the supply of primes at which Condition II holds, so that the criterion can be used to raise the level at will.
+- `SerreWeightAndLevelOptimisation:R20.2/mazur-principle` — The auxiliary prime introduced into the level is chosen by this construction in the §8 proof of Mazur's principle.
+
+**Acceptance tests.**
+- An auxiliary prime satisfies q ≡ −1 (mod ℓ).
+- The trace condition (T − a)(T − qa) holds at an auxiliary prime with a = ±1.
+- There are infinitely many auxiliary primes, by Čebotarev applied to the image of ρ̄ × χ.
+- For ℓ = 2 the condition q ≡ −1 (mod ℓ) is empty, so the notion carries no information there and the dyadic arguments of R20.5 use involutions instead.
+
+**Dependencies.**
+- Inside this roadmap: `R20.2/serre-level`
+
+**Sources.**
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §5, the definition of an auxiliary prime and the computation of ρ̄(Frob_q). The definition of an auxiliary prime as one with σ(Frob_q) conjugate to σ(c), and the deduction that ρ̄(c) is conjugate to diag(−1,1) with characteristic polynomial (T−1)(T+1). The μ…¶ marks are the text layer's rendering of the matrix delimiters.
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §5, the Čebotarev argument for the density of auxiliary primes. That the primes for which c and Frob_q map to conjugate elements in the image of ρ̄ × χ have positive density, so there are infinitely many auxiliary primes.
+
+#### `R20.2/level-raising-diamond` — Diamond's level-raising criterion (Ribet, Theorem 5.1)
+
+*theorem* · planet **Diamond's level-raising criterion**
+
+Let ρ̄ : Gal(Q̄/Q) → GL(2,F) be an irreducible mod ℓ representation arising from S_k(Γ₁(N)) with N prime to ℓ, and let q be a prime, prime to Nℓ. Consider: (I) ρ̄ arises from a weight-k eigenform on Γ₁(N) ∩ Γ₀(q) whose associated newform has level divisible by q; (II) the characteristic polynomial of ρ̄(Frob_q) is of the form (T − a)(T − qa) with a ∈ F*. If 2 ≤ k ≤ ℓ + 1 then I and II are equivalent. The implication I ⇒ II is a direct consequence of Langlands's local-global theorem: the automorphic representation at q is special, α ⊗ sp with α unramified, so ρ̄|D_q has semisimplification ᾱ ⊕ ᾱχ and Frobenius acts with eigenvalues a and qa. The weight restriction 2 ≤ k ≤ ℓ + 1 is used for II ⇒ I and is not decoration.
+
+**Hypotheses.**
+- ℓ prime, F of characteristic ℓ
+- ρ̄ irreducible, arising from S_k(Γ₁(N))
+- N prime to ℓ
+- q prime, prime to Nℓ
+- 2 ≤ k ≤ ℓ + 1
+
+**Construction or proof, in steps.**
+1. For I ⇒ II: let f be a newform of S^{q-new} giving ρ̄ and π the admissible representation of GL(2,Q_q) attached to it. Being associated with Γ₁(D) ∩ Γ₀(q) for some D | N forces π to be special, α ⊗ sp with α unramified.
+2. By Langlands's theorem ρ_λ|D_q is an extension of the character α by αχ̃, so the semisimplification of ρ̄|D_q is ᾱ ⊕ ᾱχ.
+3. Evaluate at Frob_q ∈ D_q to get diag(a, qa) with a = α(Frob_q), whose characteristic polynomial is (T − a)(T − qa). This gives II.
+4. For II ⇒ I, the essential content: compare eigenforms in S_k(Γ₁(N)) and in S. With f of level N and f'(τ) = f(qτ), both are eigenvectors for the diamond operators and for T_n with (n,q) = 1 but not in general for U = T_q.
+5. Form the two roots α, β of T² − c_q T + q^{k−1}ε(q); then f − αf' and f − βf' are U-eigenvectors with eigenvalues β and α respectively, which is the computation that converts the trace condition into membership of S^{q-new}.
+6. Follow Diamond's intermediate results, within the stated weight range, to conclude I.
+
+**Acceptance tests.**
+- The two conditions are equivalent only under 2 ≤ k ≤ ℓ + 1; an implementation without that hypothesis is not this theorem.
+- At an auxiliary prime II holds with a = ±1, so the criterion applies and the level may be raised.
+- I ⇒ II needs only Langlands's theorem and holds without the weight restriction.
+- For q dividing N neither condition is stated, q being assumed prime to Nℓ.
+
+**Dependencies.**
+- Inside this roadmap: `R20.2/q-new-subspace`, `R20.2/auxiliary-prime`, `R20.1/integral-old-new-exact-sequence`
+- On other roadmaps, by stage id: `GL2AutomorphicRepresentationsAndTransfer:R17.6`, `AutomorphicGaloisRepresentations:R19.6`
+
+**Sources.**
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §5, Conditions I and II and the statement (5.1) Theorem (Diamond). The two conditions on q, stated for ρ̄ irreducible arising from S_k(Γ₁(N)) with N prime to ℓ: Condition I on the newform level being divisible by q, and Condition II that the characteristic polynomial of ρ̄(Frob_q) is (T−a)(T−qa) with a ∈ F*.
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §5, statement (5.1) Theorem (Diamond). The theorem: for 2 ≤ k ≤ ℓ + 1, Conditions I and II are equivalent.
+
+#### `R20.2/degeneracy-map-and-eta` — The degeneracy map on Jacobians and the operator η = U² − 1 (Ribet, Theorem 6.1)
+
+*theorem*
+
+Let q be a prime and N prime to q. The two standard degeneracy coverings X₀(qN) ↠ X₀(N) induce by pullback a map δ : J₀(N) × J₀(N) → J₀(qN) with finite kernel, the antidiagonal image of the kernel of the pullback of X₁(N) → X₀(N). Writing T_q for the q-th Hecke operator on J₀(N) and U for the q-th Hecke operator on J₀(qN), one has U ∘ δ = δ ∘ U where the second U is the matrix [[T_q, q], [−1, 0]] of endomorphisms of J₀(N) × J₀(N); this is the unique action of the Hecke ring T = T_{qN} ⊆ End J₀(qN) making δ equivariant. Setting η = U² − 1 in T, there is a unique homomorphism of abelian varieties σ : J₀(qN) → J₀(N) × J₀(N) with σ ∘ δ = η, and σ is T-equivariant. All of δ, σ, T_n and U are defined over Q.
+
+**Hypotheses.**
+- q prime, N prime to q
+- T = T_{qN} the subring of End J₀(qN) generated by the T_n and U = T_q
+- η = U² − 1 in T
+
+**Construction or proof, in steps.**
+1. Construct δ by pullback along the two degeneracy coverings and identify its kernel with the antidiagonal image of the kernel of the pullback of X₁(N) → X₀(N); in particular δ has finite kernel.
+2. Compute the interaction with the q-th Hecke operators: U ∘ δ = δ ∘ U with U on the product given by [[T_q, q], [−1, 0]], and observe that this is the unique T-action making δ equivariant.
+3. Construct δ' : J₀(qN) → J₀(N) × J₀(N) by Albanese (covariant) functoriality of the Jacobian along the same coverings; the definition of T_q as a correspondence on X₀(N) gives δ' ∘ δ = [[q+1, T_q], [T_q, q+1]].
+4. Set σ = [[−1, T_q], [0, −1]] ∘ δ' and compute that σ ∘ δ = η as a matrix of endomorphisms of J₀(N).
+5. For unicity and equivariance, prove Hom(Q, J₀(N) × J₀(N)) = 0 where Q = J₀(qN)/δ(J₀(N)²): Q has purely toric reduction at q while J₀(N) has good reduction at q. Two candidate σ differ by an operator vanishing on the image of δ, hence factoring through Q, hence zero; the same argument applied to σT − Tσ gives T-equivariance.
+
+**Acceptance tests.**
+- δ has finite kernel, so δ is an isogeny onto its image.
+- The operator σ is unique; an implementation producing a second one has an error.
+- σ ∘ δ = η = U² − 1, not U² or U² + 1.
+- The unicity argument fails if J₀(N) does not have good reduction at q, so N prime to q is used.
+- All maps are defined over Q, so the construction is compatible with the Galois action.
+
+**Dependencies.**
+- Inside this roadmap: `R20.1/integral-old-new-exact-sequence`
+- On other roadmaps, by stage id: `ModularCurvesPartII:R13.6`, `ModularCurvesPartII:R14.2`, `NeronModelsAndSemistableAbelianVarieties:R11.3`
+
+**Sources.**
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §6, the definition of η and statement (6.1) Theorem. That η = U² − 1 in T, and Theorem 6.1: there is a unique homomorphism of abelian varieties σ : J₀(qN) → J₀(N) × J₀(N) with σ ∘ δ = η, and it is T-equivariant.
+
+#### `R20.2/character-group-of-bad-fibre` — The character group of the toric part and the component group at a bad prime
+
+*definition* · planet **Character group of the bad fibre**
+
+Let N = pM with p prime not dividing M, and let q be a prime not dividing N. Let J₀(pqM)/F_p be the fibre at p of the Néron model of J₀(pqM). It is an extension of a finite component group Θ_p by a connected group J₀(pqM)⁰/F_p, which is in turn an extension of a product of two copies of J₀(qM) by a torus T over F_p. Define L_p to be the character group of that torus, and L_q the character group of the analogous torus for J₀(pqM)/F_q. Define X_p to be the analogue of L_p for (J₀(pM) × J₀(pM))/F_p, and X_q with p replaced by q; X_p and X_q are naturally direct sums of two copies of the character group of a single J₀(pM)/F_p resp. J₀(qM)/F_q, so endomorphisms of X_p are two-by-two matrices over the character group of one copy. The operators T_n and U of the three abelian varieties induce maps on L_p, X_p, L_q and X_q, written with the same names; in particular U on X_p is the matrix [[T_q, −1], [q, 0]]. The map δ : L_p → X_p induced by the degeneracy map is surjective.
+
+**Hypotheses.**
+- N = pM with p prime, p ∤ M
+- q prime, q ∤ N
+- J₀(pqM) with its Néron model at p and at q
+
+**Construction or proof, in steps.**
+1. Take the fibre at p of the Néron model of J₀(pqM) and split off the finite component group Θ_p to reach the connected component J₀(pqM)⁰/F_p.
+2. Identify the connected component as an extension of J₀(qM) × J₀(qM) by a torus T over F_p; this is the bad-fibre geometry imported from the modular-curve and Néron-model roadmaps.
+3. Define L_p as the character group Hom(T, G_m) of that torus, and L_q, X_p, X_q by the same recipe at the other prime and for the product.
+4. Record the direct-sum structure of X_p and X_q, so that endomorphisms are two-by-two matrices, and compute that U acts on X_p as [[T_q, −1], [q, 0]]. Note that this matrix is not the one acting on J₀(N) × J₀(N), which is [[T_q, q], [−1, 0]]: the character group is contravariant, so the matrix is the transpose up to sign and must not be copied from the abelian-variety side.
+5. Prove that δ : L_p → X_p is surjective.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `characterGroupToricPart` | constructor | L_p, the character group of the toric part of the Néron fibre of J₀(pqM) at p. |
+| `componentGroup` | constructor | Θ_p, the finite component group of that fibre. |
+| `characterGroupProduct_eq_sum` | structure | X_p is the direct sum of two copies of the character group of J₀(pM)/F_p. |
+| `hecke_on_characterGroupProduct` | compatibility | U acts on X_p as the matrix [[T_q, −1], [q, 0]]. |
+| `surjective_delta_characterGroup` | structure | δ : L_p → X_p is surjective. |
+| `componentGroup_finite` | structure | Θ_p is finite. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `characterGroup.test_delta_surjective` (computation) — δ : L_p → X_p is surjective.
+- `characterGroup.test_U_matrix` (non-example) — U on X_p is [[T_q, −1], [q, 0]] and not [[T_q, q], [−1, 0]]; an implementation copying the covariant matrix fails.
+- `characterGroup.test_componentGroup_finite` (degenerate) — Θ_p is finite, and is trivial when the fibre is connected.
+
+**Where it is used.**
+- `SerreWeightAndLevelOptimisation:R20.2/ribet-exact-sequence` — L_p, X_p and Y_q are the three terms of the exact sequence, so the sequence is a statement about these groups.
+- `SerreWeightAndLevelOptimisation:R20.2/monodromy-pairing-component-group` — The monodromy pairing is a pairing on L_p whose cokernel is Θ_p.
+- `SerreWeightAndLevelOptimisation:R20.2/mazur-principle` — The proof works with the character group of the toric part and the component group at the removed prime rather than with a congruence of Frobenius traces.
+
+**Acceptance tests.**
+- δ : L_p → X_p is surjective.
+- U acts on X_p as [[T_q, −1], [q, 0]]; an implementation reusing [[T_q, q], [−1, 0]] here has confused the covariant and contravariant sides and fails.
+- X_p is a direct sum of two copies of the character group of J₀(pM)/F_p.
+- Θ_p is finite.
+- For M = 1 and small p the torus may be trivial, and then L_p = 0; the definitions must survive that degenerate case.
+
+**Dependencies.**
+- Inside this roadmap: `R20.2/degeneracy-map-and-eta`
+- On other roadmaps, by stage id: `ModularCurvesPartII:R13.6`, `NeronModelsAndSemistableAbelianVarieties:R11.3`, `NeronModelsAndSemistableAbelianVarieties:R11.4`
+
+**Sources.**
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §6, the Néron fibre at p and the definition of L_p, L_q, X_p and X_q. That the fibre at p of the Néron model of J₀(pqM) is an extension of a finite component group Θ_p by a connected group, itself an extension of two copies of J₀(qM) by a torus, and that L_p is the character group of that torus.
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §6, the map δ : L_p → X_p and its surjectivity. That δ denotes also the induced map L_p → X_p and that its surjectivity was established in the author's earlier paper, Theorem 3.15.
+
+#### `R20.2/ribet-exact-sequence` — The Shimura-curve exact sequence relating the character groups (Ribet, 6.2 and 6.3)
+
+*theorem*
+
+Let C be the Shimura curve attached to a quaternion algebra of discriminant pq with Γ₀(M)-type level structure, J its Jacobian, and Y_p, Y_q the analogues of L_p, L_q for J. The reductions J/F_p and J/F_q are extensions of their component groups Ψ_p, Ψ_q by tori with character groups Y_p, Y_q; by Čerednik and Drinfeld all components of C/F_p and C/F_q have genus zero, so these reductions are semiabelian with trivial abelian-variety part. Then there are exact sequences 0 → Y_q →^ι L_p →^δ X_p → 0 and, with the roles of p and q permuted, 0 → Y_p → L_q → X_q → 0. Both are compatible with the Hecke operators T_n on J and on J₀(pqM), and the operators T_p and T_q on J are involutions. Consequently the Hecke ring ℤ[…, T_n, …] ⊆ End J is naturally a quotient of the ring T attached to J₀(pqM), so T acts on J.
+
+**Hypotheses.**
+- p ≠ q primes, M prime to pq
+- C the Shimura curve of discriminant pq with Γ₀(M)-type level structure, J = Jac C
+- L_p, X_p as defined for J₀(pqM)
+
+**Construction or proof, in steps.**
+1. Construct C and J and identify the reductions J/F_p and J/F_q as extensions of Ψ_p, Ψ_q by tori with character groups Y_p, Y_q; this is the quaternionic geometry imported from the Shimura-curve roadmap.
+2. Invoke Čerednik–Drinfeld uniformisation to see that all components of C/F_p and C/F_q have genus zero, so the reductions are semiabelian with trivial abelian part.
+3. Identify the kernel of δ : L_p → X_p with Y_q, giving the exact sequence 0 → Y_q → L_p → X_p → 0; surjectivity of δ is the previous node's statement.
+4. Permute p and q to obtain the analogue 0 → Y_p → L_q → X_q → 0.
+5. Check Hecke compatibility of both sequences, and that T_p and T_q act on J as involutions.
+6. Deduce that the Hecke ring of J is a quotient of T, so that T acts on J and the sequences are sequences of T-modules.
+
+**Acceptance tests.**
+- Both sequences are exact, with δ surjective and kernel exactly Y_q resp. Y_p.
+- The sequences are T-equivariant.
+- T_p and T_q are involutions on J; in particular their squares are the identity, which an implementation must reproduce.
+- The Hecke ring of J is a quotient of T, not a subring.
+- The genus-zero statement is used, so an implementation must not assume an abelian-variety part in the reduction of J.
+
+**Dependencies.**
+- Inside this roadmap: `R20.2/character-group-of-bad-fibre`
+- On other roadmaps, by stage id: `HilbertModularVarietiesAndShimuraCurves:R18.6`, `NeronModelsAndSemistableAbelianVarieties:R11.4`
+
+**Sources.**
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §6, the Shimura curve, the genus-zero components and the exact sequences (6.2) and (6.3). That the reductions of J at p and q are semiabelian with trivial abelian-variety parts, and the exact sequences 0 → Y_q → L_p → X_p → 0 and 0 → Y_p → L_q → X_q → 0, compatible with the Hecke operators, with T_p and T_q involutions on J.
+
+#### `R20.2/monodromy-pairing-component-group` — The monodromy pairing and the component group as its cokernel
+
+*theorem*
+
+The monodromy pairing associated with L_p is a bilinear map ⟨ , ⟩ : L_p × L'_p → ℤ, where the prime denotes the dual abelian variety, and it induces an injection L'_p ↪ Hom(L_p, ℤ) with finite cokernel. That cokernel is canonically isomorphic to the component group Θ_p, so there is an exact sequence 0 → L'_p → Hom(L_p, ℤ) → Θ_p → 0, and it is T-equivariant when T_n ∈ T acts as T_n on Θ_p, as T'_n on L'_p and by the transpose on Hom(L_p, ℤ). The pairing is therefore the bridge between the character group, which carries the Hecke action used in the descent, and the component group, whose ℓ-triviality is what the congruence hypothesis of Mazur's principle delivers.
+
+**Hypotheses.**
+- L_p the character group of the toric part at p, L'_p its analogue for the dual abelian variety
+- Θ_p the component group at p
+
+**Construction or proof, in steps.**
+1. Construct the monodromy pairing ⟨ , ⟩ : L_p × L'_p → ℤ from the structure of the Néron fibre, following Grothendieck's construction in SGA 7.
+2. Prove that it induces an injection L'_p ↪ Hom(L_p, ℤ) and that the cokernel is finite.
+3. Identify the cokernel canonically with Θ_p, giving the exact sequence 0 → L'_p → Hom(L_p, ℤ) → Θ_p → 0.
+4. Check T-equivariance with the stated actions: T_n on Θ_p, T'_n on L'_p, and the transpose on Hom(L_p, ℤ). The three actions are different maps and must not be identified.
+5. Record the consequence used downstream: localising the sequence at the maximal ideal of the residual eigensystem converts a statement about Θ_p into one about the character group.
+
+**Acceptance tests.**
+- The cokernel of L'_p ↪ Hom(L_p, ℤ) is canonically Θ_p, not merely of the same order.
+- The sequence is T-equivariant for the stated actions.
+- If Θ_p is trivial then L'_p → Hom(L_p, ℤ) is an isomorphism, so the pairing is perfect.
+- The pairing is ℤ-valued and its finiteness of cokernel is part of the statement.
+
+**Dependencies.**
+- Inside this roadmap: `R20.2/character-group-of-bad-fibre`
+- On other roadmaps, by stage id: `NeronModelsAndSemistableAbelianVarieties:R11.4`
+
+**Sources.**
+- Kenneth A. Ribet, *Report on mod ℓ representations of Gal(Q̄/Q)* — §6, the monodromy pairing on L_p and the identification of the cokernel with Θ_p. That the monodromy pairing L_p × L'_p → ℤ induces an injection L'_p ↪ Hom(L_p, ℤ) with finite cokernel canonically isomorphic to Θ_p, and that the resulting exact sequence is T-equivariant with T_n acting as T_n on Θ_p and as T'_n on L'_p.
+
 **Remaining in this layer.**
-- Diamond's theorem (the source's §5) is not yet a node; it is the remaining entry in the level-lowering table and is needed for the higher-exponent cases.
-- The character-group and component-group machinery of the source's §6, including the monodromy pairing comparison cited in the proof steps, needs nodes of its own rather than being referred to inside proof steps.
 - Wild ramification at p: the descent node states that the terminal exponent equals n_p(ρ̄), but the wild case of that claim is asserted from the local invariants and needs its own lemma.
 - Coefficient fields: RS-06 requires the coefficient field of each theorem to be verified, which is recorded per node but not yet a separate statement.
+- The §7 proof of Theorem 1.5 itself — the auxiliary-prime step, the localisation at the maximal ideal and the dimension count — is not decomposed; the character-group and monodromy nodes now supply its inputs but not its argument.
+- Higher exponents: RS-06 requires the cases needed for an arbitrary prime-to-ℓ Artin conductor, and only the one-prime steps and their iteration are planned.
 
 ### R20.3 — Weight optimisation at p
 
@@ -820,6 +1105,9 @@ planned here.
 - **`FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5`** — The local finite-flat criterion at p, in the form needed for the sufficiently-large-p weight-two application of R20.4.
 - **`EllipticCurveModularity:R29.1`** — Modularity of an elliptic curve over Q at the level of its conductor, and residual irreducibility for a fixed curve, both consumed by the R20.6 export and not proved here.
 - **`AutomorphicGaloisRepresentations:R19.6`** — The residual representation attached to a newform at a prime λ of its coefficient field, with the Frobenius trace identity, used to state the R20.6 comparison.
+- **`HilbertModularVarietiesAndShimuraCurves:R18.6`** — The Shimura curve attached to a quaternion algebra of discriminant pq with Γ₀(M)-type level structure, its Jacobian, and the Čerednik–Drinfeld description of its reduction at p and q as semiabelian with genus-zero components, together with the character groups of the toric parts and the Hecke action on them. R20.2's exact sequence consumes this; it is not constructed here.
+- **`GL2AutomorphicRepresentationsAndTransfer:R17.6`** — Langlands's local-global compatibility at a prime q where the automorphic representation is special, in the form π = α ⊗ sp with α unramified and ρ_λ|D_q an extension of α by αχ̃, whose residual semisimplification is ᾱ ⊕ ᾱχ. This is what gives the easy direction of Diamond's level-raising criterion and is applied rather than proved here.
+- **`NeronModelsAndSemistableAbelianVarieties:R11.3`** — Semistable reduction of an abelian variety and the structure of the Néron fibre at a prime of bad reduction as an extension of a finite component group by a connected group with toric part, together with good reduction away from the level. R20.2's character-group nodes consume this structure; R11.4 supplies the character groups and the monodromy pairing on top of it.
 
 ## Gaps
 
@@ -863,4 +1151,3 @@ weight in Serre's conjectures on modular forms", *Invent. Math.* **109** (1992) 
 Khare–Wintenberger, "Serre's modularity conjecture (I)", *Invent. Math.* **178** (2009)
 485–504; Serre, "Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)", *Duke Math. J.*
 **54** (1987) 179–230. All three are paywalled and none appears on an author page.
-
