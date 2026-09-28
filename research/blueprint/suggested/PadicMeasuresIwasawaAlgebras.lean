@@ -2884,3 +2884,104 @@ example (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) (k : ℕ)
 end UnitCharacterEvaluation
 end
 end AbstractMeasure
+
+/-! Residue-class restrictions on the existing bounded measure carrier.
+No Fourier averaging or coefficient-field extension is implicit in these signatures. -/
+namespace PadicInt
+variable {p : ℕ} [Fact p.Prime]
+
+lemma isClopen_toZModPow_fiber (n : ℕ) (a : ZMod (p ^ n)) :
+    IsClopen {x : ℤ_[p] | toZModPow n x = a} := sorry
+
+lemma toZModPow_eq_iff_sub_dvd (n : ℕ) (x b : ℤ_[p]) :
+    toZModPow n x = toZModPow n b ↔ (p : ℤ_[p]) ^ n ∣ x - b := sorry
+end PadicInt
+
+namespace AbstractMeasure
+section ResidueRestriction
+variable (p : ℕ) [Fact p.Prime] (R : Type*) [NormedCommRing R]
+local notation "Z" => ℤ_[p]
+local notation "ρ" => PadicInt.toZModPow (p := p)
+local notation "χ" => (fun (n : ℕ) (a : ZMod (p ^ n)) =>
+  LocallyConstant.toContinuousMap (LocallyConstant.charFn R (PadicInt.isClopen_toZModPow_fiber n a)))
+
+/-- Ambient restriction; intrinsic measures on the fiber use the existing restrictClopen. -/
+def restrictResidue (n : ℕ) (a : ZMod (p ^ n)) : D(Z, R) →ₗ[R] D(Z, R) :=
+  weight (χ n a)
+
+lemma restrictResidue_apply (n : ℕ) (a : ZMod (p ^ n))
+    (μ : D(Z, R)) (f : C(Z, R)) : restrictResidue p R n a μ f = μ (χ n a * f) := sorry
+
+lemma restrictResidue_dirac (n : ℕ) (a : ZMod (p ^ n)) (x : Z) :
+    restrictResidue p R n a (dirac R x) = if ρ n x = a then dirac R x else 0 := sorry
+
+lemma restrictResidue_comp (n : ℕ) (a b : ZMod (p ^ n)) (μ : D(Z, R)) :
+    restrictResidue p R n a (restrictResidue p R n b μ) =
+      if a = b then restrictResidue p R n a μ else 0 := sorry
+
+lemma sum_restrictResidue (n : ℕ) (μ : D(Z, R)) :
+    ∑ a : ZMod (p ^ n), restrictResidue p R n a μ = μ := sorry
+
+lemma restrictResidue_zero_depth (a : ZMod (p ^ 0)) (μ : D(Z, R)) :
+    restrictResidue p R 0 a μ = μ := sorry
+
+lemma restrictResidue_refinement (m n : ℕ) (h : m ≤ n)
+    (a : ZMod (p ^ m)) (μ : D(Z, R)) :
+    restrictResidue p R m a μ =
+      ∑ b : ZMod (p ^ n), if ZMod.castHom (pow_dvd_pow p h) (ZMod (p ^ m)) b = a
+        then restrictResidue p R n b μ else 0 := sorry
+
+lemma restrictResidue_mass (n : ℕ) (a : ZMod (p ^ n)) (μ : D(Z, R)) :
+    restrictResidue p R n a μ 1 =
+      finiteProjection ⟨ρ n, PadicInt.continuous_toZModPow p n⟩ μ a := sorry
+
+lemma finiteProjection_restrictResidue (n : ℕ) (a : ZMod (p ^ n)) (μ : D(Z, R)) :
+    finiteProjection ⟨ρ n, PadicInt.continuous_toZModPow p n⟩ (restrictResidue p R n a μ) =
+      Finsupp.single a (finiteProjection ⟨ρ n, PadicInt.continuous_toZModPow p n⟩ μ a) := sorry
+
+lemma restrictResidue_map_add (n : ℕ) (a : ZMod (p ^ n)) (b : Z) (μ : D(Z, R)) :
+    restrictResidue p R n a (map ⟨fun x : Z => x + b, by fun_prop⟩ μ) =
+      map ⟨fun x : Z => x + b, by fun_prop⟩ (restrictResidue p R n (a - ρ n b) μ) := sorry
+
+lemma restrictResidue_eq_map_restrictClopen (n : ℕ) (a : ZMod (p ^ n)) (μ : D(Z, R)) :
+    let s : TopologicalSpace.Clopens Z := ⟨{x | ρ n x = a}, PadicInt.isClopen_toZModPow_fiber n a⟩
+    restrictResidue p R n a μ = map (ContinuousMap.subtypeVal s) (restrictClopen s R μ) := sorry
+
+lemma continuous_restrictResidue_weak (n : ℕ) (a : ZMod (p ^ n)) :
+    letI : TopologicalSpace D(Z, R) := WeakTopology
+    Continuous (restrictResidue p R n a) := sorry
+
+lemma restrictResidue_one_zero (μ : D(Z, R)) :
+    restrictResidue p R 1 0 μ = restrictMultiples p R μ := sorry
+
+variable [Algebra ℤ_[p] R] [ContinuousSMul ℤ_[p] R]
+lemma coeff_amiceTransform_restrictResidue (n : ℕ) (a : ZMod (p ^ n))
+    (μ : D(Z, R)) (k : ℕ) :
+    PowerSeries.coeff k (restrictResidue p R n a μ).amiceTransform =
+      μ (χ n a * ((mahler k : C(Z, Z)) • (1 : C(Z, R)))) := sorry
+end ResidueRestriction
+
+section ResidueRestrictionTests
+-- ResidueRestrictionTests.depth_zero
+example (μ : D(ℤ_[2], ℤ)) : restrictResidue 2 ℤ 0 0 μ = μ := sorry
+-- ResidueRestrictionTests.dyadic_inside
+example : restrictResidue 2 ℤ 2 1 (dirac ℤ (5 : ℤ_[2])) = dirac ℤ 5 := sorry
+-- ResidueRestrictionTests.dyadic_outside
+example : restrictResidue 2 ℤ 2 1 (dirac ℤ (3 : ℤ_[2])) = 0 := sorry
+-- ResidueRestrictionTests.signed_atoms
+example : restrictResidue 3 ℤ 2 1
+    ((2 : ℤ) • dirac ℤ (1 : ℤ_[3]) - (3 : ℤ) • dirac ℤ 10 + dirac ℤ 2) =
+      (2 : ℤ) • dirac ℤ 1 - (3 : ℤ) • dirac ℤ 10 := sorry
+-- ResidueRestrictionTests.two_distinct_fibers
+example (μ : D(ℤ_[2], ℤ)) :
+    restrictResidue 2 ℤ 2 1 (restrictResidue 2 ℤ 2 3 μ) = 0 := sorry
+-- ResidueRestrictionTests.refine_odd
+example (μ : D(ℤ_[2], ℤ)) : restrictResidue 2 ℤ 1 1 μ =
+    restrictResidue 2 ℤ 2 1 μ + restrictResidue 2 ℤ 2 3 μ := sorry
+-- ResidueRestrictionTests.translation_sign
+example : restrictResidue 3 ℤ 1 0
+    (map ⟨fun x : ℤ_[3] => x + 2, by fun_prop⟩ (dirac ℤ 1)) = dirac ℤ 3 := sorry
+-- ResidueRestrictionTests.first_moment
+example : PowerSeries.coeff 1 (restrictResidue 2 ℤ_[2] 2 1 (dirac ℤ_[2] 5)).amiceTransform = 5 := sorry
+end ResidueRestrictionTests
+end AbstractMeasure

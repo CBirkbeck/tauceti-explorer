@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "This partial checkpoint adds actual nontrivial-character pseudomeasure evaluation and continuity on open clearing loci to the existing native unit-measure ring. It retains all preceding bounded-measure and coordinate results, all fourteen source findings, eight exact gaps and zero closed stages. Evaluation targets Q_p and never extends a character over the entire total quotient.",
+  "summary": "This partial checkpoint adds residue-class restrictions at every p-power depth over normed commutative coefficient rings, with finite partition/refinement, translation, intrinsic-clopen and finite-coordinate comparisons. All 332 predecessor nodes and 14 source findings remain unchanged. The prime-power Fourier identity and all 8 broader gaps remain; no stage is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2230,6 +2230,20 @@
         "module": "Mathlib/Topology/ContinuousOn.lean",
         "provides": "A function between topological spaces is continuous if it is continuous on a family of sets that supplies a neighborhood at each domain point.",
         "checked": "Full native statement, proof and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026; native C(U,Z) evaluation instance separately read. Index used only as locator."
+      },
+      {
+        "ref": "mathlib:IsClopen.preimage",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Clopen.lean",
+        "provides": "Continuous preimages of clopen sets are clopen.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 90–92, on28 September2026; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:Ideal.mem_span_singleton",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Membership in a principal ideal of a commutative semiring is divisibility by its generator.",
+        "checked": "Statement and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, lines 177–182, on28 September2026; source blob verified against the pinned Git tree."
       }
     ]
   },
@@ -18939,6 +18953,753 @@
           "statement": "A fixed nontrivial character gives a constant continuous evaluation on any topological parameter space."
         }
       ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-fiber-clopen",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Clopen fibers of integer reduction",
+      "kind": "lemma",
+      "statement": "Every residue fiber C_(n,a) is clopen in Z.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity",
+        "mathlib:IsClopen.preimage"
+      ],
+      "proofSteps": [
+        "A singleton is both open and closed in the discrete finite ring ZMod(p^n). Apply native IsClopen.preimage to the existing continuity of ρ_n.",
+        "The same proof covers n=0: the target ring has one element, so its unique fiber is all Z."
+      ],
+      "acceptance": [
+        "No representative for a and no measure-theoretic measurable-set restriction is introduced."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.isClopen_toZModPow_fiber"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-fiber-coset",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Residue fibers as additive cosets",
+      "kind": "lemma",
+      "statement": "For x,b∈Z, ρ_n(x)=ρ_n(b) if and only if p^n divides x−b in Z. Thus the fiber at ρ_n(b) is b+p^nZ.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.ker_toZModPow",
+        "mathlib:Ideal.mem_span_singleton"
+      ],
+      "proofSteps": [
+        "Because ρ_n is a ring homomorphism, equality of the two residues is equivalent to ρ_n(x−b)=0.",
+        "Use the exact native kernel formula kerρ_n=(p^n) and the native membership criterion for a principal ideal. The divisibility witness gives the displayed affine coset."
+      ],
+      "acceptance": [
+        "The ambient group is additive. At n=0 divisibility by 1 holds for all x,b."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "PadicInt",
+        "declaration": "PadicInt.toZModPow_eq_iff_sub_dvd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Restriction to a residue class",
+      "kind": "construction",
+      "statement": "Define P_(n,a):D(Z,R)→ₗ[R]D(Z,R) to be the existing weight(χ_(n,a)).",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-fiber-clopen",
+        "PadicMeasuresIwasawaAlgebras:L2/weight",
+        "mathlib:LocallyConstant.charFn",
+        "mathlib:LocallyConstant.toContinuousMap"
+      ],
+      "proofSteps": [
+        "Use residue-fiber-clopen to form the native characteristic function, then its native continuous map.",
+        "Apply the existing weight linear map. Addition, zero and R-scalar preservation are inherited from that map; no new bounded-measure carrier is defined."
+      ],
+      "acceptance": [
+        "This is restriction as an ambient measure. The intrinsic measure on the fiber is supplied by restrictClopen and compared in residue-restriction-intrinsic."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.restrictResidue_apply",
+          "role": "characterisation",
+          "statement": "For f∈C(Z,R), (P_(n,a)μ)(f)=μ(χ_(n,a)f). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation."
+        },
+        {
+          "name": "AbstractMeasure.restrictResidue_dirac",
+          "role": "simp",
+          "statement": "P_(n,a)(δ_x)=δ_x if ρ_n(x)=a, and zero otherwise. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-dirac."
+        },
+        {
+          "name": "AbstractMeasure.restrictResidue_comp",
+          "role": "relation",
+          "statement": "P_(n,a)(P_(n,b)μ)=P_(n,a)μ when a=b, and zero when a≠b. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-composition."
+        },
+        {
+          "name": "AbstractMeasure.sum_restrictResidue",
+          "role": "relation",
+          "statement": "For every n, the sum of P_(n,a)μ over all a∈ZMod(p^n) equals μ. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-partition."
+        },
+        {
+          "name": "AbstractMeasure.restrictResidue_zero_depth",
+          "role": "simp",
+          "statement": "For every a∈ZMod(p^0), P_(0,a)μ=μ. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-zero-depth."
+        },
+        {
+          "name": "AbstractMeasure.restrictResidue_refinement",
+          "role": "functoriality",
+          "statement": "For m≤n and a∈ZMod(p^m), P_(m,a)μ is the sum of P_(n,b)μ over exactly those b with t_(m,n)(b)=a, where t_(m,n) is native ZMod.castHom. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-refinement."
+        },
+        {
+          "name": "AbstractMeasure.restrictResidue_mass",
+          "role": "compatibility",
+          "statement": "The total mass (P_(n,a)μ)(1) equals π_n(μ)(a). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-mass."
+        },
+        {
+          "name": "AbstractMeasure.finiteProjection_restrictResidue",
+          "role": "compatibility",
+          "statement": "π_n(P_(n,a)μ) is the native finitely supported function single(a,π_n(μ)(a)). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-finite-coordinate."
+        },
+        {
+          "name": "AbstractMeasure.restrictResidue_map_add",
+          "role": "functoriality",
+          "statement": "For b∈Z and the native continuous translation τ_b(x)=x+b, P_(n,a)((τ_b)_*μ)=(τ_b)_*(P_(n,a−ρ_n(b))μ). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-translation."
+        },
+        {
+          "name": "AbstractMeasure.restrictResidue_eq_map_restrictClopen",
+          "role": "compatibility",
+          "statement": "For the native clopen s=C_(n,a), P_(n,a)μ equals inclusion pushforward of restrictClopen s R μ. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-intrinsic."
+        },
+        {
+          "name": "AbstractMeasure.continuous_restrictResidue_weak",
+          "role": "relation",
+          "statement": "For fixed n,a, P_(n,a) is continuous for the native weak topology on D(Z,R). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-weak-continuity."
+        },
+        {
+          "name": "AbstractMeasure.restrictResidue_one_zero",
+          "role": "compatibility",
+          "statement": "P_(1,0)μ equals the preceding restrictMultiples p R μ. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-prime-zero."
+        },
+        {
+          "name": "AbstractMeasure.coeff_amiceTransform_restrictResidue",
+          "role": "compatibility",
+          "statement": "If R is also a ℤ_p-algebra with continuous scalar action, coeff_k(A(P_(n,a)μ))=μ(χ_(n,a)·M_(R,k)), where M_(R,k) is the native R-valued Mahler test (mahler k) acting on the constant-one function. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-amice-coefficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW §3.5.3 and Remark 3.31",
+          "how": "The defining test formula and intrinsic comparison distinguish ambient restriction from a functional on the clopen fiber."
+        },
+        {
+          "where": "RJW §3.5.4 and the paragraph opening printed 128",
+          "how": "The finite partition and refinement laws assemble restrictions from disjoint residue classes; n=1,a=0 recovers the preceding p-multiple projector."
+        },
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L1/finite-projection and L2 root-average target",
+          "how": "The mass and finite-coordinate identities provide the exact integral input to quotient computations and the still-unproved prime-power Fourier comparison."
+        }
+      ],
+      "tests": [
+        {
+          "name": "ResidueRestrictionTests.depth_zero",
+          "kind": "degenerate",
+          "statement": "At p=2 and R=ℤ, depth 0 restriction is the identity on every measure."
+        },
+        {
+          "name": "ResidueRestrictionTests.dyadic_inside",
+          "kind": "computation",
+          "statement": "At p=2 and R=ℤ, the class 1 modulo 4 keeps δ_5."
+        },
+        {
+          "name": "ResidueRestrictionTests.dyadic_outside",
+          "kind": "non-example",
+          "statement": "The same class kills δ_3; it does not keep every odd atom."
+        },
+        {
+          "name": "ResidueRestrictionTests.signed_atoms",
+          "kind": "computation",
+          "statement": "At p=3 and R=ℤ, the class 1 modulo 9 sends 2δ_1−3δ_10+δ_2 to 2δ_1−3δ_10."
+        },
+        {
+          "name": "ResidueRestrictionTests.two_distinct_fibers",
+          "kind": "characterisation",
+          "statement": "At p=2 and R=ℤ, restrictions to classes1 and3 modulo 4 have zero composite on every measure."
+        },
+        {
+          "name": "ResidueRestrictionTests.refine_odd",
+          "kind": "compatibility",
+          "statement": "At p=2 and R=ℤ, odd-class restriction equals the sum of class 1 and class 3 restrictions modulo 4."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Evaluation of residue restriction",
+      "kind": "lemma",
+      "statement": "For f∈C(Z,R), (P_(n,a)μ)(f)=μ(χ_(n,a)f).",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation"
+      ],
+      "proofSteps": [
+        "Unfold only the residue-restriction wrapper and apply the existing weight evaluation theorem."
+      ],
+      "acceptance": [
+        "There is no averaging or normalization factor."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue_apply"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-dirac",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Residue restriction of a Dirac measure",
+      "kind": "lemma",
+      "statement": "P_(n,a)(δ_x)=δ_x if ρ_n(x)=a, and zero otherwise.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:LocallyConstant.coe_charFn"
+      ],
+      "proofSteps": [
+        "Evaluate both sides at any continuous test f. Native Dirac evaluation gives χ_(n,a)(x)f(x).",
+        "Split on the actual residue equality. Native characteristic-function evaluation gives1 in the fiber and 0 outside, including for the zero coefficient ring."
+      ],
+      "acceptance": [
+        "An atom outside the fiber is killed, rather than moved to a chosen representative."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue_dirac"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-composition",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Orthogonal residue projectors",
+      "kind": "lemma",
+      "statement": "P_(n,a)(P_(n,b)μ)=P_(n,a)μ when a=b, and zero when a≠b.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "mathlib:LocallyConstant.coe_charFn"
+      ],
+      "proofSteps": [
+        "Evaluation at f gives μ(χ_(n,b)χ_(n,a)f).",
+        "At each x at most one residue equality holds. If a=b the product of indicators equals that indicator; if a≠b it vanishes. Apply continuous-dual extensionality."
+      ],
+      "acceptance": [
+        "The equal-index case is idempotence, and distinct indices give zero without a characteristic assumption on R."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue_comp"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-partition",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Finite residue decomposition of a measure",
+      "kind": "lemma",
+      "statement": "For every n, the sum of P_(n,a)μ over all a∈ZMod(p^n) equals μ.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "mathlib:LocallyConstant.coe_charFn"
+      ],
+      "proofSteps": [
+        "At a fixed x exactly the summand indexed by ρ_n(x) has characteristic value 1. Thus the finite sum of χ_(n,a)f equals f pointwise.",
+        "Linearity moves this finite sum through μ. Measure extensionality proves the identity; no infinite sum or density theorem is required."
+      ],
+      "acceptance": [
+        "The partition sum is unnormalized, even if p is a nonunit in R."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.sum_restrictResidue"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-zero-depth",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Restriction at depth zero",
+      "kind": "lemma",
+      "statement": "For every a∈ZMod(p^0), P_(0,a)μ=μ.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "mathlib:LocallyConstant.coe_charFn"
+      ],
+      "proofSteps": [
+        "The native ring ZMod 1 is a subsingleton, so every x has the unique residue a. The characteristic test is constant1.",
+        "Apply the evaluation formula and extensionality."
+      ],
+      "acceptance": [
+        "Depth zero is the whole space, not an empty fiber."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue_zero_depth"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-refinement",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Refinement of a residue restriction",
+      "kind": "lemma",
+      "statement": "For m≤n and a∈ZMod(p^m), P_(m,a)μ is the sum of P_(n,b)μ over exactly those b with t_(m,n)(b)=a, where t_(m,n) is native ZMod.castHom.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "mathlib:LocallyConstant.coe_charFn",
+        "mathlib:PadicInt.zmod_cast_comp_toZModPow"
+      ],
+      "proofSteps": [
+        "Use the native identity t_(m,n)∘ρ_n=ρ_m. At x the finite sum of fine indicators has a possible nonzero term only at b=ρ_n(x).",
+        "That term is included precisely when ρ_m(x)=a. This proves equality with the coarse indicator, pointwise.",
+        "Multiply by any continuous f, move the finite sum through μ by linearity and apply extensionality."
+      ],
+      "acceptance": [
+        "Refinement sums the fine restrictions; dividing by the number of fine fibers gives a different operator."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue_refinement"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-mass",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Mass of a residue restriction",
+      "kind": "lemma",
+      "statement": "The total mass (P_(n,a)μ)(1) equals π_n(μ)(a).",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient",
+        "mathlib:LocallyConstant.coe_charFn"
+      ],
+      "proofSteps": [
+        "The restriction evaluation at the constant-one test is μ(χ_(n,a)).",
+        "The finiteProjection coefficient formula uses the indicator obtained by pulling the a-coordinate function back along ρ_n. Compare its values inside and outside the fiber with the native characteristic function."
+      ],
+      "acceptance": [
+        "The equality is in R and uses the actual coefficient map already present in L1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue_mass"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-finite-coordinate",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Finite coordinates of a restricted measure",
+      "kind": "lemma",
+      "statement": "π_n(P_(n,a)μ) is the native finitely supported function single(a,π_n(μ)(a)).",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-mass",
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-composition"
+      ],
+      "proofSteps": [
+        "For any coordinate b, use the mass comparison to rewrite it as the mass of P_(n,b)(P_(n,a)μ).",
+        "Orthogonality makes this zero unless b=a; at b=a it is π_n(μ)(a). Native finitely supported function extensionality gives the equality."
+      ],
+      "acceptance": [
+        "It does not claim that P_(n,a)μ itself is a Dirac measure; only its depth-n coordinates are concentrated at a."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.finiteProjection_restrictResidue"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-translation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Translation covariance of residue restriction",
+      "kind": "lemma",
+      "statement": "For b∈Z and the native continuous translation τ_b(x)=x+b, P_(n,a)((τ_b)_*μ)=(τ_b)_*(P_(n,a−ρ_n(b))μ).",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:LocallyConstant.coe_charFn",
+        "mathlib:PadicInt.toZModPow"
+      ],
+      "proofSteps": [
+        "Native pushforward and the evaluation formula reduce the left side at f to μ((χ_(n,a)∘τ_b)(f∘τ_b)).",
+        "The ring-homomorphism identity ρ_n(x+b)=ρ_n(x)+ρ_n(b) identifies χ_(n,a)∘τ_b with χ_(n,a−ρ_n(b)). This gives the right side by the same two evaluation formulas."
+      ],
+      "acceptance": [
+        "The preimage class is a−ρ_n(b); a plus sign would send the restriction to the wrong fiber."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue_map_add"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ResidueRestrictionTests.translation_sign",
+          "kind": "computation",
+          "statement": "At p=3 and R=ℤ, translate δ_1 by 2 and restrict to class 0 modulo 3; the answer is δ_3."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-intrinsic",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Intrinsic and ambient residue restriction",
+      "kind": "comparison",
+      "statement": "For the native clopen s=C_(n,a), P_(n,a)μ equals inclusion pushforward of restrictClopen s R μ.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-projector-evaluation",
+        "mathlib:ContinuousMap.subtypeVal"
+      ],
+      "proofSteps": [
+        "Both ambient measures evaluate at f as μ(χ_(n,a)f), by the two existing evaluation laws.",
+        "Apply continuous-dual extensionality. The right-hand restriction remains a measure on the subtype until native inclusion pushforward is applied."
+      ],
+      "acceptance": [
+        "No second intrinsic restriction constructor is needed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue_eq_map_restrictClopen"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-weak-continuity",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Weak continuity of residue restriction",
+      "kind": "lemma",
+      "statement": "For fixed n,a, P_(n,a) is continuous for the native weak topology on D(Z,R).",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-intrinsic",
+        "PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-weak-continuous",
+        "PadicMeasuresIwasawaAlgebras:L0/pushforward-weak-continuous"
+      ],
+      "proofSteps": [
+        "The fiber is a closed subset of compact Z and hence compact.",
+        "Use the intrinsic comparison and compose the existing weak continuity of clopen restriction with weak continuity of inclusion pushforward."
+      ],
+      "acceptance": [
+        "The topology is explicitly WeakTopology on both measures; no statement equates weak and norm topologies."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.continuous_restrictResidue_weak"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-prime-zero",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "The prime-multiple residue restriction",
+      "kind": "lemma",
+      "statement": "P_(1,0)μ equals the preceding restrictMultiples p R μ.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-fiber-coset",
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L2/restriction-evaluation",
+        "mathlib:LocallyConstant.coe_charFn"
+      ],
+      "proofSteps": [
+        "Apply the coset criterion with n=1 and b=0: ρ_1(x)=0 exactly when p divides x.",
+        "The characteristic tests in the two evaluation formulas are therefore equal. Apply extensionality."
+      ],
+      "acceptance": [
+        "This recovers the existing p-multiple projector and hence its preceding φψ description."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.restrictResidue_one_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-amice-coefficient",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L2",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L2"
+      ],
+      "title": "Amice coefficients after residue restriction",
+      "kind": "comparison",
+      "statement": "If R is also a ℤ_p-algebra with continuous scalar action, coeff_k(A(P_(n,a)μ))=μ(χ_(n,a)·M_(R,k)), where M_(R,k) is the native R-valued Mahler test (mahler k) acting on the constant-one function.",
+      "hypotheses": [
+        "p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R).",
+        "For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.",
+        "For this Amice comparison only, R has an algebra structure over Z with continuous scalar action, as in the pinned Amice transform."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation",
+        "mathlib:AbstractMeasure.coeff_amiceTransform"
+      ],
+      "proofSteps": [
+        "Apply the pinned coefficient formula to the existing Amice transform of P_(n,a)μ.",
+        "Use residue-restriction-evaluation on that fixed R-valued Mahler test. This is one coefficient at a time, with no interchange of an infinite sum and a measure."
+      ],
+      "acceptance": [
+        "This coefficient identity is not the Fourier expression with p^n-th roots; convergence and integral descent for that expression remain separate targets."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/ResidueRestriction",
+        "namespace": "AbstractMeasure",
+        "declaration": "AbstractMeasure.coeff_amiceTransform_restrictResidue"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21.",
+          "match": "Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "ResidueRestrictionTests.first_moment",
+          "kind": "computation",
+          "statement": "At p=2 and R=ℤ₂, the coefficient of T after restricting δ_5 to class 1 modulo 4 is 5."
+        }
+      ]
     }
   ],
   "requests": [],
@@ -18969,10 +19730,11 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L2",
       "status": "partial",
       "remaining": [
-        "The coordinate-weighting, iterated Mahler derivative, ordinary-moment and formal exponential comparison are now supplied on the actual native coefficient-algebra measure carrier by algebra-amice-weight, algebra-amice-iterate-weight, algebra-ordinary-moment and algebra-ordinary-moment-exp. Only a normed commutative ℤ_p-algebra with continuous scalar action is needed before adding a rational algebra for formal exp. This supplies the Dirichlet coefficient-field moment request. General coefficient-lattice/finite-extension comparisons, convolution and multivariable theory, the remaining coefficient-general phi/psi/roots-of-unity comparisons, residue restrictions and multiplication by z^x with convergence hypotheses remain. The concrete unit-coordinate inverse is supplied by the L1 unit-coordinate nodes; the actual completed-algebra comparison remains a separate target.",
+        "Residue restrictions P_(n,a), their evaluation, coset identification, orthogonal partition, depth-zero identity, refinement, finite-coordinate and mass laws, translation covariance, intrinsic-clopen comparison, weak continuity and coefficient-algebra Amice coefficients are supplied by the residue-restriction nodes. The full prime-power Fourier formula (3-5), multiplication by z^x, root-translation convergence and integral descent remain; the preceding order-p root-average theorem alone does not supply them.",
+        "The coordinate-weighting, iterated Mahler derivative, ordinary-moment and formal exponential comparison are now supplied on the actual native coefficient-algebra measure carrier by algebra-amice-weight, algebra-amice-iterate-weight, algebra-ordinary-moment and algebra-ordinary-moment-exp. Only a normed commutative ℤ_p-algebra with continuous scalar action is needed before adding a rational algebra for formal exp. This supplies the Dirichlet coefficient-field moment request. General coefficient-lattice/finite-extension comparisons, convolution and multivariable theory, the remaining coefficient-general phi/psi/roots-of-unity comparisons, the root-of-unity expression for residue restrictions and multiplication by z^x with convergence hypotheses remain. The concrete unit-coordinate inverse is supplied by the L1 unit-coordinate nodes; the actual completed-algebra comparison remains a separate target.",
         "The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted.",
         "The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. The actual dilation pushforward/formal-binomial-substitution comparison, coefficientwise continuity, unit-support preservation and inverse-Mahler covariance now have exact L2 nodes. Import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward comparison does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.",
-        "The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Reduction of the actual integral psi is now identified with the explicit continuous weighted Cartier operator on native F_p power series. Its semilinearity and pole-cancelled fixed-error vanishing are supplied. This does not close the coefficient-general comparisons or the Coleman-owned characteristic-p logarithmic-derivative/Euler-product image argument.",
+        "The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; prove the prime-power Fourier expression for arbitrary residue restrictions and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Reduction of the actual integral psi is now identified with the explicit continuous weighted Cartier operator on native F_p power series. Its semilinearity and pole-cancelled fixed-error vanishing are supplied. This does not close the coefficient-general comparisons or the Coleman-owned characteristic-p logarithmic-derivative/Euler-product image argument.",
         "Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
       ]
     },
@@ -19028,7 +19790,7 @@
     {
       "title": "L2 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "The coordinate-weighting, iterated Mahler derivative, ordinary-moment and formal exponential comparison are now supplied on the actual native coefficient-algebra measure carrier by algebra-amice-weight, algebra-amice-iterate-weight, algebra-ordinary-moment and algebra-ordinary-moment-exp. Only a normed commutative ℤ_p-algebra with continuous scalar action is needed before adding a rational algebra for formal exp. This supplies the Dirichlet coefficient-field moment request. General coefficient-lattice/finite-extension comparisons, convolution and multivariable theory, the remaining coefficient-general phi/psi/roots-of-unity comparisons, residue restrictions and multiplication by z^x with convergence hypotheses remain. The concrete unit-coordinate inverse is supplied by the L1 unit-coordinate nodes; the actual completed-algebra comparison remains a separate target. Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. The actual dilation pushforward/formal-binomial-substitution comparison, coefficientwise continuity, unit-support preservation and inverse-Mahler covariance now have exact L2 nodes. Import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward comparison does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; decompose arbitrary residue classes modulo p^n and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Reduction of the actual integral psi is now identified with the explicit continuous weighted Cartier operator on native F_p power series. Its semilinearity and pole-cancelled fixed-error vanishing are supplied. This does not close the coefficient-general comparisons or the Coleman-owned characteristic-p logarithmic-derivative/Euler-product image argument. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
+      "detail": "Residue restrictions P_(n,a), their evaluation, coset identification, orthogonal partition, depth-zero identity, refinement, finite-coordinate and mass laws, translation covariance, intrinsic-clopen comparison, weak continuity and coefficient-algebra Amice coefficients are supplied by the residue-restriction nodes. The full prime-power Fourier formula (3-5), multiplication by z^x, root-translation convergence and integral descent remain; the preceding order-p root-average theorem alone does not supply them. The coordinate-weighting, iterated Mahler derivative, ordinary-moment and formal exponential comparison are now supplied on the actual native coefficient-algebra measure carrier by algebra-amice-weight, algebra-amice-iterate-weight, algebra-ordinary-moment and algebra-ordinary-moment-exp. Only a normed commutative ℤ_p-algebra with continuous scalar action is needed before adding a rational algebra for formal exp. This supplies the Dirichlet coefficient-field moment request. General coefficient-lattice/finite-extension comparisons, convolution and multivariable theory, the remaining coefficient-general phi/psi/roots-of-unity comparisons, the root-of-unity expression for residue restrictions and multiplication by z^x with convergence hypotheses remain. The concrete unit-coordinate inverse is supplied by the L1 unit-coordinate nodes; the actual completed-algebra comparison remains a separate target. Stage PadicMeasuresIwasawaAlgebras:L2 is partial. The native bounded inverse, field-valued bounded Amice coefficient map, exact operator norm, linear isometry and bounded-series range are supplied. The actual Z_p-to-Q_p integral extension is injective with image the closed dual unit ball, and every Q_p measure admits a common p-power denominator. Receiving finite-extension integer-ring instances, general coefficient-lattice/tower comparisons, convolution and multivariable theory remain. No equivalence with all K[[T]] or with a completed convolution algebra is asserted. The integral weak topology and rational unit-ball weak subspace topology now agree through the actual closed embedding; prime-power Dirac measures provide an explicit weak/strong separation. This does not settle finite-extension or completed-algebra topology comparisons. The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted. The integral inverse weight and inverse Mahler derivative on kerψ, together with inverse-factor covariance under the existing unit-dilation pushforward, are supplied. Generic clopen restriction, the comparison with native unit-group measures, and the linear identifications with the ambient and integral-series ψ kernels are supplied by the L0 clopen and L2 intrinsic-unit nodes. Decompose multiplication by z^x with genuine convergence hypotheses. The actual dilation pushforward/formal-binomial-substitution comparison, coefficientwise continuity, unit-support preservation and inverse-Mahler covariance now have exact L2 nodes. Import the P7 cyclotomic action after identifying its coefficients and topology; the raw pushforward comparison does not identify an arithmetic Galois action. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; prove the prime-power Fourier expression for arbitrary residue restrictions and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Reduction of the actual integral psi is now identified with the explicit continuous weighted Cartier operator on native F_p power series. Its semilinearity and pole-cancelled fixed-error vanishing are supplied. This does not close the coefficient-general comparisons or the Coleman-owned characteristic-p logarithmic-derivative/Euler-product image argument. Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes."
     },
     {
       "title": "L3 remaining source and interface decomposition",
@@ -19312,100 +20074,80 @@
     }
   ],
   "checks": {
-    "agent": "Codex — codex-7e92bd",
+    "agent": "Codex — codex-hjdg0j",
     "date": "2026-09-28",
-    "checkpoint": "actual nontrivial-character evaluation and continuity on clearing loci",
-    "validation": {
-      "nodes": 332,
+    "checkpoint": "arbitrary residue-class restriction and finite partition laws",
+    "counts": {
+      "nodes": 348,
       "kinds": {
-        "construction": 44,
-        "lemma": 208,
+        "construction": 45,
+        "lemma": 221,
         "definition": 2,
         "theorem": 50,
-        "comparison": 28
+        "comparison": 30
       },
-      "api": 223,
-      "definitionConstructionAPI": 220,
-      "packetTests": 231,
-      "definitionConstructionTests": 160,
-      "typedExamples": 242,
+      "apiItems": 236,
+      "definitionConstructionAPI": 233,
+      "packetTests": 239,
+      "definitionConstructionTests": 166,
+      "typedExamples": 250,
       "planets": 17,
-      "baseline": 319,
-      "newNodes": 12,
-      "preservedWholeNodes": 320,
-      "preservedBaseline": 315,
-      "preservedFindings": 14,
-      "newFindings": 0,
-      "reachableNodes": 333,
-      "dependencyEdges": 1352,
-      "baselineLeaves": 320,
-      "stageLeaves": [],
-      "acyclic": true,
-      "pinnedMathlibModules": 2815,
-      "pinnedTauCetiModules": 2,
-      "actualSupplierModules": 0,
-      "nativeModulesBuilt": 0,
+      "baseline": 321,
+      "internalEdges": 695,
       "gaps": 8,
       "requests": 0,
-      "closedStages": 0,
-      "suggestedFileSha256": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
-      "sourceAuditSha256": "d938c56ef3523607e3b20ba19f84793d0621f6d83cc6c50f42057eaaaaa02778",
-      "compileCompleted": true,
-      "compilerExit": 0,
-      "compileStatus": "full file elaborated at pinned baseline",
-      "compilerErrors": 0,
-      "compilerWarnings": 707,
-      "warningsOnlyPlaceholders": true
+      "closedStages": 0
     },
-    "arithmetic": {
-      "status": "passed",
+    "preservation": {
+      "wholeNodes": 332,
+      "baselineRecords": 319,
+      "findings": 14,
+      "originalLeanBodyIsPrefix": true
+    },
+    "compile": {
+      "exit": 0,
+      "errors": 0,
+      "warnings": 730,
+      "warningsOnlyPlaceholders": true,
+      "suggestedFileSha256": "e7de212546f181d9563c4a85debcf6ec6bbb9162355dedac5e715fafc2f2cf12"
+    },
+    "imports": {
+      "mathlibModules": 8482,
+      "tauCetiModules": 2,
+      "nativeModulesBuilt": 0,
+      "tauCetiBuildProvenance": "Existing pmia-unit-test-descent/native-build.json, source SHA256 verified against pinned source blobs."
+    },
+    "finiteChecks": {
       "counts": {
-        "signedAtomicFamilies": 24,
-        "allNumeratorIdentities": 840,
-        "kernelNumerators": 372,
-        "admissibleQuotients": 468,
-        "normBounds": 468,
-        "scalarConvolutionLaws": 1008,
-        "integerWeightIntegralCongruences": 120,
-        "cyclicQuotientContinuityBounds": 20,
-        "torsionCharacterChecks": 4,
-        "finiteC2PseudomeasureComparisons": 63,
-        "dyadicNonunitDenominator": 1
+        "partition": 228,
+        "mass": 4009,
+        "finiteCoordinate": 4009,
+        "orthogonality": 7961,
+        "translation": 12027,
+        "mahlerCoefficient": 20045,
+        "refinement": 5282,
+        "depthZero": 57,
+        "primeMultiples": 57
       },
-      "scope": "Exact signed atomic integral measures for four primes, all clearing and kernel cases, scalar convolution and p-adic integer-weight congruences. The cyclic Laurent fractions and finite C2 localization examples are separate algebraic models; neither constructs a pseudomeasure on the full unit group. Finite calculations do not prove general continuity or character separation.",
-      "scriptSha256": "1b9a3a8e6bf649bf23ee4f325092289bb891b636b13d181b4aab0b3c85d6cdd5"
-    },
-    "publication": {
-      "base": "210a64e2bbe4b6c1897517bfe72d9fbd7452147d",
-      "publicationMain": "720c7d45a4e5cf93e1de4a4c97687be45f7cf622",
-      "guardedInputs": 51,
-      "unchangedInputs": 50,
-      "inputChanges": {
-        "research/blueprint/packets/ColemanPowerSeries.json": {
-          "before": "8d93d33aa57d1e0b484eb6a6aec6a78beb328d90",
-          "now": "be61292a532b752d9fed634033cd796495cab3a2"
-        }
+      "total": 53675,
+      "negativeControls": {
+        "translationPlusSign": true,
+        "coarseInsteadOfFine": true,
+        "moveAtomToRepresentative": true,
+        "normalizedRefinement": true
       },
-      "predecessorOutputChanges": [],
-      "unchangedIssueBody": true,
-      "claimConfirmation": 5861544279
+      "scope": "Exact signed finite atomic measures on integer points, p=2,3,5, depths0–3, all residue fibers, translations−3,2,7 and Mahler coefficients0–4. These tests check the formulas and boundary cases, not arbitrary continuous duals or topological claims."
     },
-    "status": "Full compilation, graph and preservation passed; publication checks recorded in handoff.",
-    "publicationChecks": {
-      "indexedPacket": "332 nodes; 0 errors; 0 warnings",
-      "fourFileIntake": "4 files; 0 problems",
-      "errata": "filename-correct wrapper passed",
-      "whitespace": "passed",
-      "newReaderDeclarationAPIAndTestParity": true,
-      "scope": [
-        "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
-        "research/blueprint/readmes/PadicMeasuresIwasawaAlgebras.md",
-        "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean",
-        "research/blueprint/handoff/BP-PadicMeasuresIwasawaAlgebras.md"
-      ],
-      "fullCompilation": "0 errors; 707 expected placeholder warnings",
-      "arithmetic": "all exact comparisons passed"
-    }
+    "internalGraphAcyclic": true,
+    "newReaderAPISignatureTestParity": true,
+    "sourceValidationErrors": 0,
+    "publicationGuard": {
+      "base": "632e7926cc54f0df9df396a6456d433a7e63710e",
+      "checkedMain": "06b555a41c31ba9854ed15cd79063a56f2acb5ce",
+      "guardedPaths": 45,
+      "changedGuardedPaths": []
+    },
+    "status": "Pinned suggested-file compilation and source/preservation/graph/parity checks passed. Submission checker results are recorded in the handoff."
   },
   "provenance": {
     "unitInverseFollowup": {
@@ -21227,6 +21969,117 @@
         }
       },
       "sourceBoundary": "Complete published128–132 freshly reread; equation3-11 actual Z_p/Q_p specialization and topological deductions. No full-source closure."
+    },
+    "residueRestrictionFollowup": {
+      "agent": "Codex — codex-hjdg0j",
+      "date": "2026-09-28",
+      "issue": 555,
+      "claimComment": 5868803497,
+      "winningBotComment": 5868805530,
+      "base": "632e7926cc54f0df9df396a6456d433a7e63710e",
+      "newNodes": 16,
+      "preservedWholeNodes": 332,
+      "preservedFindings": 14,
+      "sourceReading": "Published RJW printed124–128/PDF25–29 and arXiv v2 PDF20–21 freshly read; hashes match the recorded editions. These readings cover the local restriction toolbox, not the full paper.",
+      "inputBoundary": "The campaign, accepted RS16 and matching links were checked against the unchanged previously read files. Current handoff and all332 node statements were read; the dependencies consumed by this addition were read in full. No new audit of all predecessor proofs is asserted.",
+      "ownership": "RS16 assigns bounded residue restrictions to L2. Native AbstractMeasure, characteristic functions, integer reduction and existing weighting/intrinsic clopen APIs are reused. No completed-algebra carrier, arithmetic action or reverse consumer dependency is added.",
+      "upstreamSearch": "28 September2026: searched open Mathlib PRs and Zulip archive. PR23791 PsiandVar restriction uses the same continuous-dual/characteristic-function shape; the current native AbstractMeasure and packet weight APIs supply it here. Its broad Amice work is not imported as pinned code. Borel/ENNReal measure restriction found by the Zulip search is a different carrier.",
+      "predecessorChecks": {
+        "agent": "Codex — codex-7e92bd",
+        "date": "2026-09-28",
+        "checkpoint": "actual nontrivial-character evaluation and continuity on clearing loci",
+        "validation": {
+          "nodes": 332,
+          "kinds": {
+            "construction": 44,
+            "lemma": 208,
+            "definition": 2,
+            "theorem": 50,
+            "comparison": 28
+          },
+          "api": 223,
+          "definitionConstructionAPI": 220,
+          "packetTests": 231,
+          "definitionConstructionTests": 160,
+          "typedExamples": 242,
+          "planets": 17,
+          "baseline": 319,
+          "newNodes": 12,
+          "preservedWholeNodes": 320,
+          "preservedBaseline": 315,
+          "preservedFindings": 14,
+          "newFindings": 0,
+          "reachableNodes": 333,
+          "dependencyEdges": 1352,
+          "baselineLeaves": 320,
+          "stageLeaves": [],
+          "acyclic": true,
+          "pinnedMathlibModules": 2815,
+          "pinnedTauCetiModules": 2,
+          "actualSupplierModules": 0,
+          "nativeModulesBuilt": 0,
+          "gaps": 8,
+          "requests": 0,
+          "closedStages": 0,
+          "suggestedFileSha256": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
+          "sourceAuditSha256": "d938c56ef3523607e3b20ba19f84793d0621f6d83cc6c50f42057eaaaaa02778",
+          "compileCompleted": true,
+          "compilerExit": 0,
+          "compileStatus": "full file elaborated at pinned baseline",
+          "compilerErrors": 0,
+          "compilerWarnings": 707,
+          "warningsOnlyPlaceholders": true
+        },
+        "arithmetic": {
+          "status": "passed",
+          "counts": {
+            "signedAtomicFamilies": 24,
+            "allNumeratorIdentities": 840,
+            "kernelNumerators": 372,
+            "admissibleQuotients": 468,
+            "normBounds": 468,
+            "scalarConvolutionLaws": 1008,
+            "integerWeightIntegralCongruences": 120,
+            "cyclicQuotientContinuityBounds": 20,
+            "torsionCharacterChecks": 4,
+            "finiteC2PseudomeasureComparisons": 63,
+            "dyadicNonunitDenominator": 1
+          },
+          "scope": "Exact signed atomic integral measures for four primes, all clearing and kernel cases, scalar convolution and p-adic integer-weight congruences. The cyclic Laurent fractions and finite C2 localization examples are separate algebraic models; neither constructs a pseudomeasure on the full unit group. Finite calculations do not prove general continuity or character separation.",
+          "scriptSha256": "1b9a3a8e6bf649bf23ee4f325092289bb891b636b13d181b4aab0b3c85d6cdd5"
+        },
+        "publication": {
+          "base": "210a64e2bbe4b6c1897517bfe72d9fbd7452147d",
+          "publicationMain": "720c7d45a4e5cf93e1de4a4c97687be45f7cf622",
+          "guardedInputs": 51,
+          "unchangedInputs": 50,
+          "inputChanges": {
+            "research/blueprint/packets/ColemanPowerSeries.json": {
+              "before": "8d93d33aa57d1e0b484eb6a6aec6a78beb328d90",
+              "now": "be61292a532b752d9fed634033cd796495cab3a2"
+            }
+          },
+          "predecessorOutputChanges": [],
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5861544279
+        },
+        "status": "Full compilation, graph and preservation passed; publication checks recorded in handoff.",
+        "publicationChecks": {
+          "indexedPacket": "332 nodes; 0 errors; 0 warnings",
+          "fourFileIntake": "4 files; 0 problems",
+          "errata": "filename-correct wrapper passed",
+          "whitespace": "passed",
+          "newReaderDeclarationAPIAndTestParity": true,
+          "scope": [
+            "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+            "research/blueprint/readmes/PadicMeasuresIwasawaAlgebras.md",
+            "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean",
+            "research/blueprint/handoff/BP-PadicMeasuresIwasawaAlgebras.md"
+          ],
+          "fullCompilation": "0 errors; 707 expected placeholder warnings",
+          "arithmetic": "all exact comparisons passed"
+        }
+      }
     }
   }
 }
