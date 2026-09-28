@@ -20164,13 +20164,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #962"
+   "note": "claimed on GitHub issue #962"
   },
   {
    "id": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -20319,12 +20319,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicFamilies.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #965"
+   "note": "released on GitHub issue #965"
   },
   {
    "id": "REV-PadicFamilies",
@@ -20520,8 +20520,9 @@
     "REV-RS-01"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicHodgeTheory--R06.5.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #969"
   },
   {
    "id": "REV-PadicHodgeTheory--R06.5",
