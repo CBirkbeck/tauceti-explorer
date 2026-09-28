@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5481 new mistakes confirmed · 1440 awaiting review · 674 already corrected in print · 85 rejected on review · 19 extractions and packets not yet checked.
+5481 new mistakes confirmed · 1440 awaiting review · 674 already corrected in print · 85 rejected on review · 22 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -15706,4 +15706,4 @@ None.
 
 ## Not yet checked
 
-These extractions and packets were written before mistakes were recorded, and are being checked: `BunGAndNewtonStrata`, `CohomologyComparisons`, `DiamondsAndVStacks`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HeckeStacksAndLocalShtukas`, `KatoEulerSystems`, `LanglandsParameterStacks`, `ModularSymbolsPadicLFunctions`, `RelativeFarguesFontaine`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`, `VectorBundlesAndIsocrystals`, `VectorBundlesAndIsocrystals`.
+These extractions and packets were written before mistakes were recorded, and are being checked: `ArithmeticKTheory`, `BunGAndNewtonStrata`, `CohomologyComparisons`, `DiamondsAndVStacks`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeneralAlgebraicKTheory`, `GeneralAlgebraicKTheory`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HeckeStacksAndLocalShtukas`, `KatoEulerSystems`, `LanglandsParameterStacks`, `ModularSymbolsPadicLFunctions`, `RelativeFarguesFontaine`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`, `VectorBundlesAndIsocrystals`, `VectorBundlesAndIsocrystals`.
