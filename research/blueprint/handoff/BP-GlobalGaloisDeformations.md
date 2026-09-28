@@ -1,14 +1,14 @@
-# BP-GlobalGaloisDeformations: R04.1–R04.3 (checkpoint 2)
+# BP-GlobalGaloisDeformations: R04.1–R04.4 (checkpoint 3)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #743. **Status: partial.**
-- R04.1, R04.2 and R04.3 are `source_decomposed`.
-- R04.4–R04.6, G7 and G8 are `not_read`.
+- R04.1, R04.2, R04.3 and R04.4 are `source_decomposed`.
+- R04.5–R04.6, G7 and G8 are `not_read`.
 
 This works within RS-08, whose review accepted it. It uses RS-08's narrowed `keeps` for R04.1 and R04.2.
 
 ## What is planned
 
-There are 20 nodes (6 definitions, 2 constructions, 5 lemmas, 7 theorems), with 34 API items, 25 unit tests and 8 planets (4 per layer).
+Across R04.1–R04.4 there are 40 nodes (10 definitions, 5 constructions, 10 lemmas, 15 theorems), with 63 API items, 46 unit tests and 18 planets. R04.1–R04.2 account for 20 of the nodes and 8 of the planets (4 per layer).
 
 **R04.1.** The deformation functors, with no representability built in:
 - the lifting functor;
@@ -42,6 +42,41 @@ New requests: ArithmeticGaloisDuality R02.4 (Poitou–Tate), R02.5 (Selmer compl
 
 New source: KW II ESI preprint 1892 (free). RS-08 uses the published numbering (Proposition 4.5, Corollary 4.7), and that correspondence was not checked.
 
+## Checkpoint 3: R04.4 (12 nodes)
+
+- `restriction-ring-map` and `restriction-finiteness`: Gee 3.25–3.26, with BLGGT Lemma 1.2.3's proof specialised to GL_n.
+  The example ℤ_p ⋊ {±1} (p odd, n = 1) gives the finite, non-flat map 𝒪⟦Y⟧ → 𝒪, as the stage asks.
+- `enlarging-ramification`: closed immersions R_{S′} ↠ R_S, with KW II Proposition 5.11 as the Taylor–Wiles case.
+- `change-of-determinant`: twisting isomorphisms. The dyadic obstruction is that ℚ(i) lies in no cyclic quartic field.
+- KW II §§2.4–2.6: `diagonalizable-groups`, `free-action-quotient` (Propositions 2.5–2.6) and `truncated-actions`
+  (Propositions 2.7–2.8).
+- `twisting-action` (§5.1) and `twist-action-free` (Lemma 5.1). The freeness proof avoids Dickson's theorem, and a
+  dihedral example has a non-trivial stabiliser.
+- `determinant-fixed-on-S` (§4.1.1): these are Newton–Thorne's R′_Q.
+- `determinant-twist-torsor` (Lemma 9.4, abstracted): Newton–Thorne's item 60.
+- `inertia-rigid-deformations` (§2.7).
+
+Planets: 6 in R04.4.
+
+**Not planned, deliberately:**
+- The descent of finiteness in KW II Theorem 10.1 stays in PotentialModularityAndCompatibleSystems R24.1, per RS-08.
+- The point-existence lemma behind Corollary 4.7 belongs to DeformationAndDerivedPatchingAlgebra R03.4 and R24.2. It is
+  noted in R04.3 `global-dimension-lower-bound`.
+- KW II Lemma 7.10 (Hecke characters, Grunwald–Wang) stays with GL2ModularityLifting.
+- Smooth resolutions (§2.8) are local.
+
+**New requests:**
+- Tau Ceti ClassFieldTheory Layer 12: finiteness of G_V.
+- Tau Ceti ModularCurves 0C: affine quotients by finite free group actions.
+- DeformationAndDerivedPatchingAlgebra R03.3: excellence and equidimensionality.
+
+**New sources:**
+- KW II authors' final version (Khare's UCLA page, May 2009, published numbering). It settles the numbering question left
+  open in checkpoint 2: preprint Proposition 4.4 and Lemma 4.5 are Proposition 4.5 and Lemma 4.6.
+- BLGGT (arXiv:1010.2561v4).
+
+**New source issue:** E2, a misprint in KW II §2.1 ("surjectivity" for "injectivity").
+
 ## Requests (RS-08 imports)
 
 - **DeformationAndDerivedPatchingAlgebra R03.1:** coefficient categories. The P7 packet has not read R03.1 yet.
@@ -50,15 +85,24 @@ New source: KW II ESI preprint 1892 (free). RS-08 uses the published numbering (
 - **ArithmeticGaloisRepresentations R01.1:** continuous representations.
 - **IntegralHeckeAndGaloisDeterminants IHG.0:** Chenevier determinants.
 
-## Source issue
+## Source issues
+
+**E2 (KW II final version, §2.1, p. 6):** the converse of the closed-immersion criterion should use the injectivity of
+Sp_C(F[ε]) → Sp_B(F[ε]), not its surjectivity.
 
 **E1 (Kisin, Lecture 1, (1.2)):** Φ_p is misstated as finiteness of Hom(G, 𝔽_p). The notes' own Exercise 1 is correct, and (∏ℤ/p) ⋊ ℤ/2 is a counterexample.
 
 ## Suggested Lean file
 
-`suggested/GlobalGaloisDeformations.lean` imports Mathlib only. It compiles with the v4.34.0-rc2 `lean` against the prebuilt Mathlib 082e2d3 oleans, with 0 errors and 13 warnings, all `declaration uses 'sorry'`.
+`suggested/GlobalGaloisDeformations.lean` imports Mathlib only. It compiles with the v4.34.0-rc2 `lean` against the prebuilt Mathlib 082e2d3 oleans, with 0 errors and 17 warnings, all `declaration uses 'sorry'`.
 
 It states `Lift`, `strictKernel`, `Def`, `def_mk_eq_iff`, `LiftDet`, `Lift.restrict`, `framed_restrict_invariant` (a group identity), `IsSchur`, `strict_of_full`, `PhiP`, `exists_unique_normalized` and `strictly_conj_of_trace_eq`. The framed-restriction identity is proved by `group`.
+
+Checkpoint 3 adds `Lift.twist`, `Lift.twist_apply`, `Lift.trace_twist` and `Lift.twist_smul`. It also adds three proved
+checks:
+- (1 + X)² − 1 ∈ (2, X)², the truncation isomorphism at p = 2, m = 1;
+- det(c • M) = c² det M;
+- the diag(1, −1) conjugation identities behind the dihedral stabiliser.
 
 Signatures that need Tau Ceti's continuous cohomology or the R03.1/R03.2 categories (the tangent-space equivalences, pro-representability and `DetDef`) are in a comment block.
 
@@ -69,13 +113,15 @@ Signatures that need Tau Ceti's continuous cohomology or the R03.1/R03.2 categor
 
 ## What a continuation should do
 
-1. **R04.4:** restriction, twisting and change of problem; KW finiteness (Gee Proposition 3.26, BLGGT Lemma 1.2.3).
-2. **R04.5–R04.6:** Taylor–Wiles primes and exports.
-3. **G7 and G8** from ACC+, arXiv:1812.09999, §6.2 (Definition 6.2.2, Theorem 6.2.3, Lemma 6.2.4, Proposition 6.2.33).
+1. **R04.5–R04.6:** Taylor–Wiles primes and exports. KW II final version §5.3–5.6 (Lemmas 5.2–5.10, Propositions 5.5
+   and 5.11) has been read and is the natural source; keep p > 2 and p = 2 separate, as the stage requires.
+2. **G7 and G8** from ACC+, arXiv:1812.09999, §6.2 (Definition 6.2.2, Theorem 6.2.3, Lemma 6.2.4, Proposition 6.2.33).
 
 ## Sources read
 
 - Gee, arXiv:2202.05818v2, §3 (pp. 11–21).
 - Kisin, Lecture 1 (all four pages).
 - Chenevier, arXiv:0809.0415v2: Theorem 2.22 (statement) and §3.1.
+- KW II authors' final version: §§2, 4, 5, 7.2–7.3, Lemma 7.10, the proof of Proposition 9.3 and §10.1.
+- BLGGT, arXiv:1010.2561v4, §1.2 (Lemma 1.2.3).
 - Böckle's Luxembourg 2012 notes were checked and do not treat deformation theory.
