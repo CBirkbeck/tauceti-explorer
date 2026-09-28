@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all314 predecessor nodes whole. Four L2 nodes decompose the actual pure p-power arithmetic character twist into finitely many additive-weighted smoothing measures and transport the identity through the native Amice transform. The Gauss denominator is explicitly nonzero. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all318 predecessor nodes whole. Eight nodes derive finite polynomial cancellation and translation identities for the arithmetic smoothing measure, its additive rational Amice expression, and the resulting rational Gauss formula. Smoothing denominators are proved nonzero; the Gauss denominator remains explicit. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2695,6 +2695,48 @@
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "For an additive character e from a ring to a commutative monoid, the native multiplicative shift at r evaluated at x is e(r*x).",
         "checked": "Complete declaration and ambient Ring/CommMonoid hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The complete native Gauss probe checks its use at the actual residue ring."
+      },
+      {
+        "ref": "mathlib:mul_geom_sum",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Ring/GeomSum.lean",
+        "provides": "Over a ring, (x−1)Σ_(i<n)x^i=x^n−1.",
+        "checked": "Complete native statement and ambient ring, monoid, natural-number or field hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The relevant exact algebraic step is verified in the complete native probe."
+      },
+      {
+        "ref": "mathlib:AddChar.map_add_eq_mul",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Group/AddChar.lean",
+        "provides": "A native additive character from an additive monoid to a monoid maps addition to multiplication.",
+        "checked": "Complete native statement and ambient ring, monoid, natural-number or field hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The relevant exact algebraic step is verified in the complete native probe."
+      },
+      {
+        "ref": "mathlib:orderOf_dvd_of_pow_eq_one",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "In a monoid, x^n=1 implies orderOf(x) divides n.",
+        "checked": "Complete native statement and ambient ring, monoid, natural-number or field hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The relevant exact algebraic step is verified in the complete native probe."
+      },
+      {
+        "ref": "mathlib:orderOf_eq_one_iff",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+        "provides": "In a monoid, orderOf(x)=1 if and only if x=1.",
+        "checked": "Complete native statement and ambient ring, monoid, natural-number or field hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The relevant exact algebraic step is verified in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Nat.eq_one_of_dvd_coprimes",
+        "kind": "theorem",
+        "module": "Mathlib/Data/Nat/GCD/Basic.lean",
+        "provides": "A natural number dividing two coprime natural numbers is1.",
+        "checked": "Complete native statement and ambient ring, monoid, natural-number or field hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The relevant exact algebraic step is verified in the complete native probe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.eq_mul_inv_iff_mul_eq",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "Over a field, if Q has nonzero constant coefficient then F=B*Q⁻¹ if and only if F*Q=B, using the native formal-series inverse.",
+        "checked": "Complete native statement and ambient ring, monoid, natural-number or field hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The relevant exact algebraic step is verified in the complete native probe."
       }
     ]
   },
@@ -20670,6 +20712,473 @@
       "acceptance": [
         "Native Amice linearity suffices. No new generic Amice theorem, root-translation operator or coefficient-extension convolution law is planned."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothing-geometric-denominator",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Geometric form of the smoothing denominator",
+      "kind": "lemma",
+      "statement": "q_a(T)=Q_a(1+T)=Σ_(i<a)(1+T)^i for every a≥0.",
+      "hypotheses": [
+        "R is a commutative ring and a is natural. Write Y=1+T, q_a=smoothingDenominator R a and F_a=smoothedSeries R a when the image of a is a unit. The symbols Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j abbreviate finite polynomial expressions, not new generic carriers or an infinite-series substitution. The empty sums at a=0 are zero."
+      ],
+      "proofSteps": [
+        "The earlier denominator-factorization gives Tq_a=Y^a−1. The native finite geometric identity gives TΣ_(i<a)Y^i=Y^a−1, since Y−1=T.",
+        "Native PowerSeries.X_mul_cancel cancels the common factor T. It works over every commutative coefficient ring, without requiring a domain or inverting T.",
+        "The zero parameter is the empty sum. At a=3 the result is1+Y+Y², equal to3+3T+T²."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/denominator-factorization",
+        "mathlib:mul_geom_sum",
+        "mathlib:PowerSeries.X_mul_cancel"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothingDenominator_geometric"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; complete page freshly read on28September2026.",
+          "match": "Worker finite-polynomial decomposition of the existing arithmetic cancellation equation. It uses finite geometric sums and multiplication-by-T injectivity over an arbitrary commutative ring. The source sign correction E1 is retained; no new finding is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAdditiveRationalTests.geometric_denominator_zero",
+          "kind": "degenerate",
+          "statement": "Over Z, q_0=0."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.geometric_denominator_three",
+          "kind": "computation",
+          "statement": "Over Z, q_3=1+(1+T)+(1+T)²."
+        }
+      ],
+      "acceptance": [
+        "This is the same existing binomial denominator, expressed in a finite geometric basis. No new denominator construction is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/smoothing-geometric-cancellation",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Finite geometric cancellation for the smoothing series",
+      "kind": "lemma",
+      "statement": "If the image of a is a unit in R, Q_a(Y)F_a=B_a(Y).",
+      "hypotheses": [
+        "R is a commutative ring and a is natural. Write Y=1+T, q_a=smoothingDenominator R a and F_a=smoothedSeries R a when the image of a is a unit. The symbols Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j abbreviate finite polynomial expressions, not new generic carriers or an infinite-series substitution. The empty sums at a=0 are zero.",
+        "The image of a in R is a unit, as required by the existing smoothedSeries."
+      ],
+      "proofSteps": [
+        "For each i, the native geometric identity gives TΣ_(j<i)Y^j=Y^i−1. Summing in i gives TB_a(Y)=Q_a(Y)−a.",
+        "Use smoothing-geometric-denominator in the existing series-cleared-equation Tq_a F_a=q_a−a. Both TQ_a(Y)F_a and TB_a(Y) equal Q_a(Y)−a.",
+        "Cancel T with the native PowerSeries.X_mul_cancel. The complete native probe verifies the two finite-sum transformations and cancellation with no domain hypothesis."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothing-geometric-denominator",
+        "DirichletPadicLFunctions:L1/series-cleared-equation",
+        "mathlib:mul_geom_sum",
+        "mathlib:PowerSeries.X_mul_cancel"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedSeries_geometric_cancellation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Proposition4.4, Definition4.5 and Proposition4.6, published137/PDF38; complete page freshly read on28September2026.",
+          "match": "Worker finite-polynomial decomposition of the existing arithmetic cancellation equation. It uses finite geometric sums and multiplication-by-T injectivity over an arbitrary commutative ring. The source sign correction E1 is retained; no new finding is made."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAdditiveRationalTests.geometric_cancellation_one",
+          "kind": "degenerate",
+          "statement": "Over Q, the a=1 geometric denominator times F_1 is0."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.geometric_cancellation_three",
+          "kind": "computation",
+          "statement": "Over Q, (1+Y+Y²)F_3=2+Y."
+        }
+      ],
+      "acceptance": [
+        "B_a is only a finite polynomial abbreviation. This equality fixes the arithmetic numerator without relying on a power-series evaluation at a nonzero constant."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/smoothed-translation-sum",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "A finite translation identity for the smoothing measure",
+      "kind": "lemma",
+      "statement": "Σ_(i<a)(τ_i)_*(I_Kμ_a)=Σ_(i<a)Σ_(j<i)δ_j in D(Z,K).",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p and K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. The natural smoothing parameter a satisfies p∤a, hence its images in Z and K are units. μ_a is the existing integral smoothing measure, I_K its exact coefficient extension and τ_i(x)=x+i the native continuous translation for a natural i. All measures lie in the actual D(Z,K).",
+        "For additive twists, n≥0, e is a native AddChar from ZMod(p^n) to K, c is a residue, ε=e(c), and β_c(x)=e(c red_n(x)). The preceding μ_(n,e,c,a)=smoothedAdditiveTwist is weight(β_c)(I_Kμ_a). Use the finite polynomial abbreviations Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Their displayed evaluations at U=ε(1+T) involve only finite sums.",
+        "For the final multiplicative-character comparison only, n≥1, χ is primitive at p^n and G=gaussSum(χ⁻¹,e) is explicitly nonzero, as in the preceding finite Gauss checkpoint. Neither primitivity nor a Gauss denominator is required for the additive rational expression."
+      ],
+      "proofSteps": [
+        "For a natural i and every Mahler degree k, native Nat.add_choose_eq and mahler_natCast_eq give the finite binomial translation formula at natural inputs. Density of naturals in Z and continuity extend it to every p-adic input.",
+        "Using native map_apply and coeff_amiceTransform, finite linearity gives A((τ_i)_*(I_Kμ_a))=Y^i A(I_Kμ_a). The same coefficient formula and dirac_apply give A(δ_j)=Y^j. A complete native proof verifies the translation formula on the actual measure and coefficient carriers.",
+        "The earlier smoothed-extension-amice identifies A(I_Kμ_a) with F_a over K. The needed unit certificate for a is the image of its integral unit certificate.",
+        "The two sides therefore have transforms Q_a(Y)F_a and B_a(Y). The preceding finite geometric cancellation equates them, and native general Amice injectivity gives the displayed equality of actual measures."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/smoothing-geometric-cancellation",
+        "DirichletPadicLFunctions:L1/smoothed-extension-amice",
+        "mathlib:AbstractMeasure.amiceTransform",
+        "mathlib:AbstractMeasure.injective_amiceTransform",
+        "mathlib:IsUnit.map",
+        "mathlib:Nat.add_choose_eq",
+        "mathlib:mahler_natCast_eq",
+        "mathlib:PadicInt.denseRange_natCast",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:Polynomial.coeff_one_add_X_pow",
+        "mathlib:Polynomial.coeff_coe",
+        "mathlib:Polynomial.coe_pow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.extend_smoothedMeasure_translation_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and its proof and the immediately following specialization to μ_a, published140–141/PDF41–42; complete pages freshly read on28September2026.",
+          "match": "Worker arithmetic derivation of the rational summands in the source Gauss expression. Finite translations and the native Mahler coefficient formula identify the actual additive-weighted smoothing measure. The result uses finite polynomials with invertible constant denominator, including the identity-root case; it never substitutes a nonzero constant into an arbitrary infinite formal series. The source two-fraction form at nonidentity roots and the subsequent complex-kernel interpolation are separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAdditiveRationalTests.translation_two",
+          "kind": "computation",
+          "statement": "At p=3,a=2,K=Q_3, I_Kμ_2+(τ_1)_*I_Kμ_2=δ_0."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.translation_three",
+          "kind": "computation",
+          "statement": "At p=2,a=3,K=Q_2, the sum of translates at0,1,2 is2δ_0+δ_1."
+        }
+      ],
+      "acceptance": [
+        "The identity is for the actual arithmetic measure. The generic finite Mahler calculation is a native proof ingredient, not a second Amice or convolution theory."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/smoothed-additive-translation",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The additive-weighted finite translation identity",
+      "kind": "lemma",
+      "statement": "Σ_(i<a)ε^i • (τ_i)_*μ_(n,e,c,a)=Σ_(i<a)Σ_(j<i)ε^j • δ_j.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p and K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. The natural smoothing parameter a satisfies p∤a, hence its images in Z and K are units. μ_a is the existing integral smoothing measure, I_K its exact coefficient extension and τ_i(x)=x+i the native continuous translation for a natural i. All measures lie in the actual D(Z,K).",
+        "For additive twists, n≥0, e is a native AddChar from ZMod(p^n) to K, c is a residue, ε=e(c), and β_c(x)=e(c red_n(x)). The preceding μ_(n,e,c,a)=smoothedAdditiveTwist is weight(β_c)(I_Kμ_a). Use the finite polynomial abbreviations Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Their displayed evaluations at U=ε(1+T) involve only finite sums.",
+        "For the final multiplicative-character comparison only, n≥1, χ is primitive at p^n and G=gaussSum(χ⁻¹,e) is explicitly nonzero, as in the preceding finite Gauss checkpoint. Neither primitivity nor a Gauss denominator is required for the additive rational expression."
+      ],
+      "proofSteps": [
+        "Native reduction is a ring homomorphism. AddChar.map_add_eq_mul and map_nsmul_eq_pow give β_c(x+i)=ε^iβ_c(x) for every natural i and every x∈Z. The complete native probe checks this identity at the actual reduction map.",
+        "Apply the existing weight(β_c) linear map to smoothed-translation-sum. The exact supplier weight-pushforward identity rewrites each translated term as (τ_i)_*weight(β_c∘τ_i)(I_Kμ_a).",
+        "Insert β_c∘τ_i=ε^iβ_c and use finite linearity and the definition of the additive arithmetic twist. On δ_j, native dirac_apply and supplier weight-evaluation give β_c(j)δ_j=ε^jδ_j.",
+        "The zero-index case has ε=1. For the dyadic sign character and a=3, the right side is2δ_0−δ_1. The exponent uses j on each atom, not its outer summation index i."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/smoothed-translation-sum",
+        "DirichletPadicLFunctions:L2/smoothed-additive-twist",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-pushforward",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-evaluation",
+        "mathlib:AddChar.map_add_eq_mul",
+        "mathlib:AddChar.map_nsmul_eq_pow",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedAdditiveTwist_translation_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and its proof and the immediately following specialization to μ_a, published140–141/PDF41–42; complete pages freshly read on28September2026.",
+          "match": "Worker arithmetic derivation of the rational summands in the source Gauss expression. Finite translations and the native Mahler coefficient formula identify the actual additive-weighted smoothing measure. The result uses finite polynomials with invertible constant denominator, including the identity-root case; it never substitutes a nonzero constant into an arbitrary infinite formal series. The source two-fraction form at nonidentity roots and the subsequent complex-kernel interpolation are separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAdditiveRationalTests.weighted_translation_zero_index",
+          "kind": "compatibility",
+          "statement": "At c=0, the weighted translation equation has all scalar factors1 and the same unweighted atom sum."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.weighted_translation_dyadic_sign",
+          "kind": "computation",
+          "statement": "For p=2,n=1,a=3,e(1)=−1, the alternating sum of translates of the additive twist is2δ_0−δ_1."
+        }
+      ],
+      "acceptance": [
+        "Finite character covariance accounts for the powers ε^i. No analytic root translation or infinite sum is used."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/smoothed-additive-amice-cancellation",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Polynomial cancellation for the additive Amice series",
+      "kind": "lemma",
+      "statement": "Q_a(εY) A_(μ_(n,e,c,a))=B_a(εY) in K[[T]].",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p and K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. The natural smoothing parameter a satisfies p∤a, hence its images in Z and K are units. μ_a is the existing integral smoothing measure, I_K its exact coefficient extension and τ_i(x)=x+i the native continuous translation for a natural i. All measures lie in the actual D(Z,K).",
+        "For additive twists, n≥0, e is a native AddChar from ZMod(p^n) to K, c is a residue, ε=e(c), and β_c(x)=e(c red_n(x)). The preceding μ_(n,e,c,a)=smoothedAdditiveTwist is weight(β_c)(I_Kμ_a). Use the finite polynomial abbreviations Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Their displayed evaluations at U=ε(1+T) involve only finite sums.",
+        "For the final multiplicative-character comparison only, n≥1, χ is primitive at p^n and G=gaussSum(χ⁻¹,e) is explicitly nonzero, as in the preceding finite Gauss checkpoint. Neither primitivity nor a Gauss denominator is required for the additive rational expression."
+      ],
+      "proofSteps": [
+        "Apply the native K-linear Amice transform to smoothed-additive-translation. Commute it with the finite sums and scalar actions.",
+        "Repeat the native finite Mahler translation calculation for this actual additive-weighted measure: A((τ_i)_*μ)=Y^i A_μ. This uses only the native binomial formula, natural-density argument and coefficient formula already checked in the complete probe.",
+        "The scalar ε^i becomes the constant power series coefficient, so ε^iY^i=(εY)^i. On the right, the transform of δ_j is Y^j. Distributing the finite sums gives precisely Q_a(εY)A_μ=B_a(εY).",
+        "At the dyadic sign character and a=3 this equation is (1+T+T²)A_μ=1−T. It determines the signs used in the following coefficient tests."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/smoothed-additive-translation",
+        "mathlib:AbstractMeasure.amiceTransform",
+        "mathlib:Nat.add_choose_eq",
+        "mathlib:mahler_natCast_eq",
+        "mathlib:PadicInt.denseRange_natCast",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:AbstractMeasure.map_apply",
+        "mathlib:AbstractMeasure.dirac_apply",
+        "mathlib:Polynomial.coeff_one_add_X_pow",
+        "mathlib:Polynomial.coeff_coe",
+        "mathlib:Polynomial.coe_pow"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedAdditiveTwist_amice_cancellation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and its proof and the immediately following specialization to μ_a, published140–141/PDF41–42; complete pages freshly read on28September2026.",
+          "match": "Worker arithmetic derivation of the rational summands in the source Gauss expression. Finite translations and the native Mahler coefficient formula identify the actual additive-weighted smoothing measure. The result uses finite polynomials with invertible constant denominator, including the identity-root case; it never substitutes a nonzero constant into an arbitrary infinite formal series. The source two-fraction form at nonidentity roots and the subsequent complex-kernel interpolation are separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAdditiveRationalTests.additive_cancellation_dyadic_sign",
+          "kind": "computation",
+          "statement": "For p=2,n=1,a=3,e(1)=−1, (1+T+T²)A_(μ_(1,e,1,3))=1−T."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.additive_cancellation_one",
+          "kind": "degenerate",
+          "statement": "For a=1 the additive Amice transform is0."
+        }
+      ],
+      "acceptance": [
+        "The identity concerns finite polynomial multiplication in the ordinary formal-series ring; no substitutability condition for an infinite series is omitted."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/smoothed-additive-denominator",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Nonvanishing of the additive smoothing denominator",
+      "kind": "lemma",
+      "statement": "Σ_(i<a)ε^i≠0. Equivalently, the constant coefficient of Q_a(εY) is nonzero.",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p and K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. The natural smoothing parameter a satisfies p∤a, hence its images in Z and K are units. μ_a is the existing integral smoothing measure, I_K its exact coefficient extension and τ_i(x)=x+i the native continuous translation for a natural i. All measures lie in the actual D(Z,K).",
+        "For additive twists, n≥0, e is a native AddChar from ZMod(p^n) to K, c is a residue, ε=e(c), and β_c(x)=e(c red_n(x)). The preceding μ_(n,e,c,a)=smoothedAdditiveTwist is weight(β_c)(I_Kμ_a). Use the finite polynomial abbreviations Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Their displayed evaluations at U=ε(1+T) involve only finite sums.",
+        "For the final multiplicative-character comparison only, n≥1, χ is primitive at p^n and G=gaussSum(χ⁻¹,e) is explicitly nonzero, as in the preceding finite Gauss checkpoint. Neither primitivity nor a Gauss denominator is required for the additive rational expression."
+      ],
+      "proofSteps": [
+        "The native additive-character multiple formula gives ε^(p^n)=e(p^n c)=e(0)=1. Since p∤a, elementary coprimality of powers gives gcd(a,p^n)=1, including n=0.",
+        "If ε=1, the sum equals the image of a in K. The native norm/coprimality and integral unit criteria make a a unit in Z, and IsUnit.map transports it to K, so the image is nonzero. A complete native lemma verifies this step without assuming a characteristic-zero structure on K.",
+        "Suppose ε≠1 but the sum were zero. The native geom_sum_mul identity then gives ε^a=1. The native orderOf_dvd_of_pow_eq_one makes orderOf(ε) divide both a and p^n. Native Nat.eq_one_of_dvd_coprimes gives orderOf(ε)=1 and orderOf_eq_one_iff gives ε=1, a contradiction.",
+        "The argument works for every residue c, including c=0 and nonunits, and for every additive character. The negative control p=2,a=2,ε=−1 shows why the hypothesis p∤a cannot be dropped."
+      ],
+      "prerequisites": [
+        "mathlib:AddChar.map_nsmul_eq_pow",
+        "mathlib:geom_sum_mul",
+        "mathlib:orderOf_dvd_of_pow_eq_one",
+        "mathlib:Nat.eq_one_of_dvd_coprimes",
+        "mathlib:orderOf_eq_one_iff",
+        "mathlib:Nat.Prime.coprime_iff_not_dvd",
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.isUnit_iff",
+        "mathlib:IsUnit.map"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedAdditiveTwist_denominator_ne_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and its proof and the immediately following specialization to μ_a, published140–141/PDF41–42; complete pages freshly read on28September2026.",
+          "match": "Worker arithmetic derivation of the rational summands in the source Gauss expression. Finite translations and the native Mahler coefficient formula identify the actual additive-weighted smoothing measure. The result uses finite polynomials with invertible constant denominator, including the identity-root case; it never substitutes a nonzero constant into an arbitrary infinite formal series. The source two-fraction form at nonidentity roots and the subsequent complex-kernel interpolation are separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAdditiveRationalTests.denominator_zero_index",
+          "kind": "compatibility",
+          "statement": "For c=0, the denominator sum equals a in K."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.denominator_dyadic_sign",
+          "kind": "computation",
+          "statement": "For ε=−1 and a=3 over Q_2 the denominator is1."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.denominator_bad_smoothing",
+          "kind": "non-example",
+          "statement": "For ε=−1 and a=2 over Q_2 the denominator is0; this parameter is excluded by2∤a."
+        }
+      ],
+      "acceptance": [
+        "This proves nonvanishing of the arithmetic smoothing denominator, separately from the explicitly assumed Gauss denominator. It imposes no primitivity or chosen primitive root."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/smoothed-additive-rational",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The rational Amice series of an additive twist",
+      "kind": "comparison",
+      "statement": "A_(μ_(n,e,c,a))=B_a(εY)·Q_a(εY)⁻¹, using the native inverse in K[[T]].",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p and K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. The natural smoothing parameter a satisfies p∤a, hence its images in Z and K are units. μ_a is the existing integral smoothing measure, I_K its exact coefficient extension and τ_i(x)=x+i the native continuous translation for a natural i. All measures lie in the actual D(Z,K).",
+        "For additive twists, n≥0, e is a native AddChar from ZMod(p^n) to K, c is a residue, ε=e(c), and β_c(x)=e(c red_n(x)). The preceding μ_(n,e,c,a)=smoothedAdditiveTwist is weight(β_c)(I_Kμ_a). Use the finite polynomial abbreviations Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Their displayed evaluations at U=ε(1+T) involve only finite sums.",
+        "For the final multiplicative-character comparison only, n≥1, χ is primitive at p^n and G=gaussSum(χ⁻¹,e) is explicitly nonzero, as in the preceding finite Gauss checkpoint. Neither primitivity nor a Gauss denominator is required for the additive rational expression."
+      ],
+      "proofSteps": [
+        "Taking constant coefficients in the finite polynomial Q_a(εY) gives Σ_(i<a)ε^i. The preceding nonvanishing result therefore meets the exact hypothesis of native PowerSeries.eq_mul_inv_iff_mul_eq.",
+        "Apply that native equivalence to smoothed-additive-amice-cancellation, commuting the product factors as needed. This identifies the actual additive-weighted measure transform with the displayed rational power series.",
+        "At ε=1 the formula is the pole-cancelled expression B_a(Y)/Q_a(Y) and agrees with F_a. For the dyadic sign and a=3 it is (1−T)/(1+T+T²), with coefficients1,−2,1 in degrees0,1,2.",
+        "The inverse here is the native unit-series inverse, justified by its constant coefficient. The notation does not assert that every nonzero formal series is invertible or identify a series field with a fraction field."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/smoothed-additive-amice-cancellation",
+        "DirichletPadicLFunctions:L2/smoothed-additive-denominator",
+        "mathlib:PowerSeries.eq_mul_inv_iff_mul_eq"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedAdditiveTwist_amice_rational"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and its proof and the immediately following specialization to μ_a, published140–141/PDF41–42; complete pages freshly read on28September2026.",
+          "match": "Worker arithmetic derivation of the rational summands in the source Gauss expression. Finite translations and the native Mahler coefficient formula identify the actual additive-weighted smoothing measure. The result uses finite polynomials with invertible constant denominator, including the identity-root case; it never substitutes a nonzero constant into an arbitrary infinite formal series. The source two-fraction form at nonidentity roots and the subsequent complex-kernel interpolation are separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAdditiveRationalTests.rational_dyadic_constant",
+          "kind": "computation",
+          "statement": "For p=2,n=1,a=3,e(1)=−1, the additive Amice constant coefficient is1."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.rational_dyadic_linear",
+          "kind": "computation",
+          "statement": "In the same dyadic case the linear coefficient is−2, agreeing with the earlier independent first-moment test."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.rational_dyadic_second",
+          "kind": "computation",
+          "statement": "In the same dyadic case the second Mahler coefficient is1; the ordinary second moment is0."
+        }
+      ],
+      "acceptance": [
+        "No general higher-root translation API is duplicated. The identity-root case is included in the finite polynomial quotient without an inverse of T."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/twisted-smoothed-gauss-rational",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Rational Gauss expression for the arithmetic twist",
+      "kind": "comparison",
+      "statement": "A_(τ_n,χ,a)=G⁻¹ • Σ_(c∈ZMod(p^n)) χ⁻¹(c) • [B_a(e(c)Y)·Q_a(e(c)Y)⁻¹].",
+      "hypotheses": [
+        "p is any prime, including2. Z=Z_p and K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. The natural smoothing parameter a satisfies p∤a, hence its images in Z and K are units. μ_a is the existing integral smoothing measure, I_K its exact coefficient extension and τ_i(x)=x+i the native continuous translation for a natural i. All measures lie in the actual D(Z,K).",
+        "For additive twists, n≥0, e is a native AddChar from ZMod(p^n) to K, c is a residue, ε=e(c), and β_c(x)=e(c red_n(x)). The preceding μ_(n,e,c,a)=smoothedAdditiveTwist is weight(β_c)(I_Kμ_a). Use the finite polynomial abbreviations Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Their displayed evaluations at U=ε(1+T) involve only finite sums.",
+        "For the final multiplicative-character comparison only, n≥1, χ is primitive at p^n and G=gaussSum(χ⁻¹,e) is explicitly nonzero, as in the preceding finite Gauss checkpoint. Neither primitivity nor a Gauss denominator is required for the additive rational expression."
+      ],
+      "proofSteps": [
+        "Start from the preceding twisted-smoothed-gauss-amice equality of actual transforms. At every residue c, replace the actual additive transform by smoothed-additive-rational.",
+        "All replacements are valid under the same p∤a hypothesis, including the zero index and nonunit indices; the multiplicative character coefficients may vanish there, but no undefined summand is introduced.",
+        "The constant coefficient is the finite sum of B_a(e(c))/Q_a(e(c)), scaled by the explicit inverse Gauss sum. Native coeff_amiceTransform at degree0 identifies it with the total mass.",
+        "At a=1 every B polynomial is zero and every Q polynomial is1. The formula gives the zero transform. Comparisons with complex roots, L-values and the source two-fraction expression remain separate statements."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/twisted-smoothed-gauss-amice",
+        "DirichletPadicLFunctions:L2/smoothed-additive-rational",
+        "mathlib:AbstractMeasure.coeff_amiceTransform"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/AdditiveRational",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_gauss_rational"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and its proof and the immediately following specialization to μ_a, published140–141/PDF41–42; complete pages freshly read on28September2026.",
+          "match": "Worker arithmetic derivation of the rational summands in the source Gauss expression. Finite translations and the native Mahler coefficient formula identify the actual additive-weighted smoothing measure. The result uses finite polynomials with invertible constant denominator, including the identity-root case; it never substitutes a nonzero constant into an arbitrary infinite formal series. The source two-fraction form at nonidentity roots and the subsequent complex-kernel interpolation are separate comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedAdditiveRationalTests.gauss_rational_total_mass",
+          "kind": "compatibility",
+          "statement": "The total mass of the actual multiplicative twist is G⁻¹Σ_cχ⁻¹(c)·[Σ_(i<a)Σ_(j<i)e(c)^j]/[Σ_(i<a)e(c)^i]."
+        },
+        {
+          "name": "SuggestedAdditiveRationalTests.gauss_rational_one_smoothing",
+          "kind": "degenerate",
+          "statement": "For a=1 the actual multiplicative twist has zero Amice transform."
+        }
+      ],
+      "acceptance": [
+        "The two denominator conditions are distinct: smoothing denominators are established here, while G≠0 remains an explicit primitive-Gauss hypothesis."
+      ]
     }
   ],
   "requests": [
@@ -20693,7 +21202,7 @@
       "stageId": "DirichletPadicLFunctions:L1",
       "status": "partial",
       "remaining": [
-        "The actual arithmetic pseudomeasure has unbounded positive moment norms along degrees2(p−1)p^r, so no bounded Q_p-valued unit measure can have all its interpolation values. The integral and field-valued obstructions are now distinct explicit results. Next extract pure p-power conductor twists, checking the actual coefficient-valued pseudomeasure/evaluation interfaces before forming any fraction or character twist. Completed-group-algebra comparison still awaits the PMIA L1 request. Analytic branches, p-adic logarithmic values, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.",
+        "The arithmetic pseudomeasure, positive interpolation and unbounded-moment obstruction remain established as planning nodes. The natural smoothing series now also has a finite geometric cancellation equation, used by the pure p-power additive rational expression in L2. Further work is listed in L2 and L3; completed-group-algebra comparison still awaits the exact PMIA L1 request. Full source extraction and the complete Eisenstein family remain open.",
         "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
         "The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
       ]
@@ -20702,7 +21211,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The pure p-power character twist now has a finite Gauss decomposition as an equality of actual coefficient-valued measures and of their native Amice series, under explicit primitivity and nonzero-Gauss hypotheses. Next derive the arithmetic rational expression for the additive-weighted smoothing measure, then its Bernoulli and Dirichlet-value comparison. Finite sums do not supply a higher-root substitution theorem for arbitrary formal series. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. The L3 complex logarithmic refinements and E16 root qualification remain as previously recorded."
+        "The actual pure p-power arithmetic twist now has an explicit finite Gauss sum of rational power series B_a(ε(1+T))/Q_a(ε(1+T)), with finite polynomials Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Every arithmetic smoothing denominator is proved nonzero at the constant term, including zero index and p=2. Next compare the eligible nonidentity-root terms with the source two-fraction expression, construct and compare the complex smoothed Gauss kernel, and derive the pure p-power Bernoulli and Dirichlet interpolation values. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. No generic higher-root substitution of arbitrary formal series is asserted."
       ]
     },
     {
@@ -20731,12 +21240,12 @@
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual arithmetic pseudomeasure has unbounded positive moment norms along degrees2(p−1)p^r, so no bounded Q_p-valued unit measure can have all its interpolation values. The integral and field-valued obstructions are now distinct explicit results. Next extract pure p-power conductor twists, checking the actual coefficient-valued pseudomeasure/evaluation interfaces before forming any fraction or character twist. Completed-group-algebra comparison still awaits the PMIA L1 request. Analytic branches, p-adic logarithmic values, pole/residue analysis, full source extraction and the complete Eisenstein family remain open. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
+      "detail": "The arithmetic pseudomeasure, positive interpolation and unbounded-moment obstruction remain established as planning nodes. The natural smoothing series now also has a finite geometric cancellation equation, used by the pure p-power additive rational expression in L2. Further work is listed in L2 and L3; completed-group-algebra comparison still awaits the exact PMIA L1 request. Full source extraction and the complete Eisenstein family remain open. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The pure p-power character twist now has a finite Gauss decomposition as an equality of actual coefficient-valued measures and of their native Amice series, under explicit primitivity and nonzero-Gauss hypotheses. Next derive the arithmetic rational expression for the additive-weighted smoothing measure, then its Bernoulli and Dirichlet-value comparison. Finite sums do not supply a higher-root substitution theorem for arbitrary formal series. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. The L3 complex logarithmic refinements and E16 root qualification remain as previously recorded."
+      "detail": "The actual pure p-power arithmetic twist now has an explicit finite Gauss sum of rational power series B_a(ε(1+T))/Q_a(ε(1+T)), with finite polynomials Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Every arithmetic smoothing denominator is proved nonzero at the constant term, including zero index and p=2. Next compare the eligible nonidentity-root terms with the source two-fraction expression, construct and compare the complex smoothed Gauss kernel, and derive the pure p-power Bernoulli and Dirichlet interpolation values. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. No generic higher-root substitution of arbitrary formal series is asserted."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -21036,41 +21545,41 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16 predecessor source findings and sourceVersions remain whole; no new finding or independent verdict.",
     "validation": {
-      "nodes": 318,
+      "nodes": 326,
       "kinds": {
         "definition": 1,
-        "lemma": 147,
+        "lemma": 153,
         "construction": 33,
         "theorem": 91,
-        "comparison": 46
+        "comparison": 48
       },
       "api": 305,
-      "packetTests": 412,
+      "packetTests": 430,
       "definitionConstructionTests": 163,
-      "typedExamples": 415,
+      "typedExamples": 433,
       "planets": 24,
-      "baseline": 383,
-      "preservedWholeNodes": 314,
-      "preservedBaseline": 382,
+      "baseline": 389,
+      "preservedWholeNodes": 318,
+      "preservedBaseline": 383,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 4,
-      "newNamedDeclarations": 10,
-      "newTypedTests": 10,
+      "newNodes": 8,
+      "newNamedDeclarations": 8,
+      "newTypedTests": 18,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 492,
-      "dependencyEdges": 2304,
+      "reachableNodes": 500,
+      "dependencyEdges": 2358,
       "acyclic": true,
-      "baselineLeaves": 501,
+      "baselineLeaves": 507,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 124984,
+      "readerWords": 128621,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 881,
+      "compilerWarnings": 907,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 332,
@@ -21080,22 +21589,20 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 4,
-      "scratchMathlibModules": 2659,
+      "scratchCompleteLemmas": 10,
+      "scratchMathlibModules": 2035,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "characterProducts": 195,
-        "primitiveGaussNonzero": 5,
-        "gaussProductIdentities": 5,
-        "allResidueExpansions": 29,
-        "nonunitExpansions": 11,
-        "weightedMomentControls": 80,
-        "weightedMahlerControls": 80,
-        "zeroIndexControls": 160,
-        "zeroGaussNegativeControls": 5,
-        "nontrivialAdditiveMomentControls": 1
+        "geometricPolynomialIdentities": 93,
+        "triangularPolynomialIdentities": 93,
+        "denominatorNonzero": 93,
+        "rationalCoefficientChecks": 837,
+        "zeroIndexMoments": 126,
+        "dyadicSignMoments": 21,
+        "badSmoothingDenominators": 6,
+        "dyadicDisplayedCoefficients": 3
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -21103,14 +21610,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 881,
-      "sha256": "4477ce76fd202ad70dadbfa3a56b622a784059ecc39a7345ee979cbf45712d5b",
+      "warnings": 907,
+      "sha256": "efea4a3df523e5050016cceddd70278a76b20bf959ebd157ae46a9d405eb77c5",
       "nativeProbe": {
-        "completeLemmas": 4,
+        "completeLemmas": 10,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "1393021b42885a8639f46dbb9a69134530ce64006869673639872020ed2e6592"
+        "sha256": "aebee2c6edc5e771cc601c6c1f92eaea6b24957642e71e40861a5db9f2671608"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -21179,16 +21686,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "fa965b58c8d09d093d3c9b852d979d81d95e87b1de37b08c99c3534c335d743d",
+          "sourceSha256": "4477ce76fd202ad70dadbfa3a56b622a784059ecc39a7345ee979cbf45712d5b",
           "modules": 3568,
-          "warnings": 861,
+          "warnings": 881,
           "errors": 0
         },
         "scope": "Actual current332-node supplier artifact reused from preceding PR3303. Both that exact predecessor and this Dirichlet checkpoint compile against it. Existing pinned native artifacts only;21Tau modules in combined source closure,105 artifact files hash-checked. Supplier used an existing two-module native build; main used21 existing native artifacts through one symlink root. Original native build receipt/source pins and zero-warning logs checked, without claiming to reread retired native-src copies. No Lake setup, update, cache fetch or native library build."
       }
     },
     "publication": {
-      "base": "43dfca75a6e239c72f12ad7df4bc668edc2c962e",
+      "base": "367652bb2a612bc8a7b11f919383d63f664d2e61",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -25409,6 +25916,44 @@
         "nontrivialAdditiveMomentControls": 1
       },
       "numericalMethod": "Exact arithmetic in Q[X]/Phi_(p^n), represented by rational coefficient tuples, for conductors3,4,5,8,9. The chosen primitive characters include an order3 character at conductor9; all residue indices including nonunits are checked. Gauss products and nonzero denominators, cleared Fourier identities, and finite-grid weighted ordinary/Mahler sums are checked exactly. Finite-grid cell masses use the previously controlled rational smoothing formula; they are controls, not asserted exact moments of the p-adic measure. The trivial additive character gives a zero Gauss sum in each case, explicitly testing the need for the nonzero denominator hypothesis. No infinite series substitution or general Gauss nonvanishing proof is inferred from these finite examples."
+    },
+    "additiveRational": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3307,
+      "previousHead": "e9b1ff5c7eb3d4f7a2c59ec2b80a1e305bb552f4",
+      "previousMerge": "367652bb2a612bc8a7b11f919383d63f664d2e61",
+      "preservedWholeNodes": 318,
+      "preservedBaseline": 383,
+      "preservedFindings": 16,
+      "newNodes": 8,
+      "reading": "Complete published page137/PDF38 and pages140–141/PDF41–42 were freshly read from the digest-verified published PDF. These contain Proposition4.4, Definition4.5, Proposition4.6, the finite Gauss transform and its arithmetic rational specialization. The preceding full pages140–143 reading is retained. All16 existing findings, including E1 and E11, remain whole. Full native readings and complete probes check finite geometric sums, multiplication-by-X cancellation, the actual Mahler/Amice translation calculation, additive-character translation and root order, finite-order divisibility, coprime divisors, and inversion of a power series with nonzero constant coefficient. The exact supplier weight-pushforward node and the earlier arithmetic cancellation and extended-Amice nodes were read completely.",
+      "boundary": "The actual pure p-power arithmetic twist now has an explicit finite Gauss sum of rational power series B_a(ε(1+T))/Q_a(ε(1+T)), with finite polynomials Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Every arithmetic smoothing denominator is proved nonzero at the constant term, including zero index and p=2. Next compare the eligible nonidentity-root terms with the source two-fraction expression, construct and compare the complex smoothed Gauss kernel, and derive the pure p-power Bernoulli and Dirichlet interpolation values. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. No generic higher-root substitution of arbitrary formal series is asserted.",
+      "inputBase": "367652bb2a612bc8a7b11f919383d63f664d2e61",
+      "sourceBoundary": "All16 source findings and sourceVersions remain whole; no new finding or verdict. The finite-polynomial arithmetic proof imports the native transform and the exact supplier weight projection formula.",
+      "publication": {
+        "base": "367652bb2a612bc8a7b11f919383d63f664d2e61",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "geometricPolynomialIdentities": 93,
+        "triangularPolynomialIdentities": 93,
+        "denominatorNonzero": 93,
+        "rationalCoefficientChecks": 837,
+        "zeroIndexMoments": 126,
+        "dyadicSignMoments": 21,
+        "badSmoothingDenominators": 6,
+        "dyadicDisplayedCoefficients": 3
+      },
+      "numericalMethod": "Exact rational arithmetic in Q[X]/Phi_(p^n), for conductors2,3,4,5,8,9. Full finite-polynomial geometric and triangular identities are compared coefficientwise; denominator inverses are certified by rational Gaussian elimination, and nine coefficients of each quotient are checked. Independent ordinary-moment controls convert the coefficients using Stirling numbers and compare with the preceding Bernoulli formula at zero index and with raw minus twice unit-restricted moments for the dyadic sign character. Bad smoothing controls remove the p-coprimality hypothesis and produce zero denominators. No numerical approximation or unrestricted substitution of a formal series is used."
     }
   },
   "requestResolutions": [

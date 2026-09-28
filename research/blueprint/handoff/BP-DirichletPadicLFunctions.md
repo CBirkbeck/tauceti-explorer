@@ -1,47 +1,47 @@
-# BP-DirichletPadicLFunctions: Prime-power finite Gauss decomposition
+# BP-DirichletPadicLFunctions: Rational expressions for additive arithmetic twists
 
-Codex / codex-7e92bd same-worker issue #713 continuation after PR #3306,
-merged 43dfca75a6e239c72f12ad7df4bc668edc2c962e with head
-5348c23675fa3f843a54cda8b8e7802c81b4bd26. Original claim 5854790528,
+Codex / codex-7e92bd same-worker issue #713 continuation after PR #3307,
+merged 367652bb2a612bc8a7b11f919383d63f664d2e61 with head
+e9b1ff5c7eb3d4f7a2c59ec2b80a1e305bb552f4. Original claim 5854790528,
 winning bot 5854791937; no additional claim. Review #390 remains unclaimed.
 
 ## Delivered and remaining
 
-Four L2 nodes give the all-residue finite Gauss expansion of the lifted primitive character, the actual additive-weighted smoothing measures, their finite decomposition of the multiplicative twist, and the induced identity of native Amice transforms. The nonzero Gauss denominator is explicit; all314 predecessor nodes remain whole.
+Eight nodes identify the actual additive-weighted smoothing measure by a finite polynomial equation, prove its smoothing denominator has nonzero constant coefficient, and give the resulting rational Gauss formula for the actual multiplicative-character twist. The route includes the identity-root and dyadic cases through finite translations and the native Amice transform. All318 predecessor nodes remain whole.
 
-Totals: 318 unchecked nodes (1 definitions, 147 lemmas, 33 constructions, 91 theorems, 46 comparisons), 305 API entries,
-412 packet tests (163 on definitions/constructions),
-415 typed examples, 24 planets and 383 baseline records.
+Totals: 326 unchecked nodes (1 definitions, 153 lemmas, 33 constructions, 91 theorems, 48 comparisons), 305 API entries,
+430 packet tests (163 on definitions/constructions),
+433 typed examples, 24 planets and 389 baseline records.
 16 findings, five gaps, one L1 request, zero closed stages.
 All16 predecessor source findings and sourceVersions remain whole; no new finding or independent verdict.
 
-The pure p-power character twist now has a finite Gauss decomposition as an equality of actual coefficient-valued measures and of their native Amice series, under explicit primitivity and nonzero-Gauss hypotheses. Next derive the arithmetic rational expression for the additive-weighted smoothing measure, then its Bernoulli and Dirichlet-value comparison. Finite sums do not supply a higher-root substitution theorem for arbitrary formal series. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. The L3 complex logarithmic refinements and E16 root qualification remain as previously recorded.
+The actual pure p-power arithmetic twist now has an explicit finite Gauss sum of rational power series B_a(ε(1+T))/Q_a(ε(1+T)), with finite polynomials Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Every arithmetic smoothing denominator is proved nonzero at the constant term, including zero index and p=2. Next compare the eligible nonidentity-root terms with the source two-fraction expression, construct and compare the complex smoothed Gauss kernel, and derive the pure p-power Bernoulli and Dirichlet interpolation values. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. No generic higher-root substitution of arbitrary formal series is asserted.
 
 ## Reading and validation
 
-The complete published pages140–143/PDF41–44 were reread, including Lemmas5.4–5.5 and the proof of Theorem5.1. E11 already records the scalar and character-factor slips in the proof of Lemma5.5; its record remains unchanged. Fresh complete native readings cover the primitive Gauss-shift theorem, inverse-conductor equality, additive-character multiplicative shift, and the actual linear Amice transform with its coefficient formula. The existing prime-power character, arithmetic twist, integral coefficient extension, weighting and unit-restriction interfaces were read with their hypotheses. The supplier root-translation theorem only treats pth roots, so it is not used for arbitrary p-power roots.
+Complete published page137/PDF38 and pages140–141/PDF41–42 were freshly read from the digest-verified published PDF. These contain Proposition4.4, Definition4.5, Proposition4.6, the finite Gauss transform and its arithmetic rational specialization. The preceding full pages140–143 reading is retained. All16 existing findings, including E1 and E11, remain whole. Full native readings and complete probes check finite geometric sums, multiplication-by-X cancellation, the actual Mahler/Amice translation calculation, additive-character translation and root order, finite-order divisibility, coprime divisors, and inversion of a power series with nonzero constant coefficient. The exact supplier weight-pushforward node and the earlier arithmetic cancellation and extended-Amice nodes were read completely.
 
-All 314 predecessor nodes, 382 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 4 nodes, 10 named suggested declarations and 10 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 492 reachable nodes, 2304 edges and 501 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+All 318 predecessor nodes, 383 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 8 nodes, 8 named suggested declarations and 18 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 500 reachable nodes, 2358 edges and 507 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
 
-The full suggested module elaborates with zero errors and 881 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The actual current 332-node PMIA suggested module uses the hash-verified artifact from PR3303, elaborated with zero errors and 707 expected placeholder warnings. Both the exact predecessor and the new Dirichlet module elaborate against this artifact; the supplier remains an unchecked planning interface. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+The full suggested module elaborates with zero errors and 907 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The actual current 332-node PMIA suggested module uses the hash-verified artifact from PR3303, elaborated with zero errors and 707 expected placeholder warnings. Both the exact predecessor and the new Dirichlet module elaborate against this artifact; the supplier remains an unchecked planning interface. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
 
-Four complete native lemmas verify inverse primitivity, the finite Gauss identity at every residue, its normalization under the explicit nonzero denominator, and transport of the finite identity through a linear map. The probe elaborates against 2659 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+Ten complete native lemmas verify the two geometric cancellation steps, the nonzero geometric denominator, the additive root order, the exact inverse-series cancellation, the Mahler translation formula, the polynomial coefficient comparison, translation of an actual coefficient-valued measure under the native Amice transform, additive-weight translation covariance, and nonvanishing of the coefficient image of a valid smoothing parameter. The probe elaborates against 2035 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
 
-Exact cyclotomic controls at conductors3,4,5,8,9 check195 character products, five nonzero primitive Gauss sums and product identities,29 residue expansions including11 nonunit cases,80 weighted ordinary and80 weighted Mahler finite-grid sums,160 zero-index cases, five zero-Gauss negative controls and the nontrivial dyadic additive first-moment normalization. Exact arithmetic in Q[X]/Phi_(p^n), represented by rational coefficient tuples, for conductors3,4,5,8,9. The chosen primitive characters include an order3 character at conductor9; all residue indices including nonunits are checked. Gauss products and nonzero denominators, cleared Fourier identities, and finite-grid weighted ordinary/Mahler sums are checked exactly. Finite-grid cell masses use the previously controlled rational smoothing formula; they are controls, not asserted exact moments of the p-adic measure. The trivial additive character gives a zero Gauss sum in each case, explicitly testing the need for the nonzero denominator hypothesis. No infinite series substitution or general Gauss nonvanishing proof is inferred from these finite examples. The largest observed discrepancy is 0 (exact cyclotomic identities).
+Exact cyclotomic controls at conductors2,3,4,5,8,9 check93 geometric and93 triangular polynomial identities,93 nonzero denominators,837 quotient coefficients,126 zero-index ordinary moments,21 dyadic-sign ordinary moments, six excluded-parameter zero denominators and three displayed dyadic coefficients. Exact rational arithmetic in Q[X]/Phi_(p^n), for conductors2,3,4,5,8,9. Full finite-polynomial geometric and triangular identities are compared coefficientwise; denominator inverses are certified by rational Gaussian elimination, and nine coefficients of each quotient are checked. Independent ordinary-moment controls convert the coefficients using Stirling numbers and compare with the preceding Bernoulli formula at zero index and with raw minus twice unit-restricted moments for the dyadic sign character. Bad smoothing controls remove the p-coprimality hypothesis and produce zero denominators. No numerical approximation or unrestricted substitution of a formal series is used. The largest observed discrepancy is 0 (exact cyclotomic and rational identities).
 
 All54 captured inputs remain unchanged during this checkpoint.
 
-The publication guard at 43dfca75a6e239c72f12ad7df4bc668edc2c962e checks 54 inputs, four
+The publication guard at 367652bb2a612bc8a7b11f919383d63f664d2e61 checks 54 inputs, four
 predecessor outputs, unchanged issue text, the original winning claim and
 unclaimed review #390.
 All54 captured inputs remain unchanged during this checkpoint.
-Suggested SHA256: `4477ce76fd202ad70dadbfa3a56b622a784059ecc39a7345ee979cbf45712d5b`.
-Native probe SHA256: `1393021b42885a8639f46dbb9a69134530ce64006869673639872020ed2e6592`.
+Suggested SHA256: `efea4a3df523e5050016cceddd70278a76b20bf959ebd157ae46a9d405eb77c5`.
+Native probe SHA256: `aebee2c6edc5e771cc601c6c1f92eaea6b24957642e71e40861a5db9f2671608`.
 
 One reusable worktree and one Lean process at a time were used. All compiler
 processes have ended. Exactly the four authorized deliverables change.
 
-Retain PrimePowerGaussProbe.lean and its compiler/result/source audit, numerical
+Retain AdditiveRationalProbe.lean and its compiler/result/source audit, numerical
 control code and results, the full suggested compiler/result/source audit,
 artifact hashes, graph/preservation/API receipts, captured inputs and guard,
 and exact submitted files with remote receipts. Retire scratch after opening
