@@ -1,0 +1,1121 @@
+{
+ "roadmapId": "ArithmeticGaloisDuality",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "ArithmeticGaloisDuality:D7",
+  "ArithmeticGaloisDuality:D8",
+  "ArithmeticGaloisDuality:R02.1",
+  "ArithmeticGaloisDuality:R02.2",
+  "ArithmeticGaloisDuality:R02.3",
+  "ArithmeticGaloisDuality:R02.4",
+  "ArithmeticGaloisDuality:R02.5",
+  "ArithmeticGaloisDuality:R02.6"
+ ],
+ "status": "partial",
+ "summary": "First checkpoint of the blueprint for global Galois duality and compact coefficients, within RS-08's boundaries. It plans R02.1: lim and lim¹ of towers with the six-term sequence and the Mittag-Leffler vanishing, the Milnor sequence for towers of complexes, continuous cochains into inverse limits and their lifting along finite surjections, the comparison with Mathlib's continuousCohomology carrier, Tate's inverse-limit theorem, continuous sections and long exact sequences, rationalisation, the discrete quotient V/T and the torsion of H¹(T), and the pointwise-Hom/splitting-torsor interface of Harpaz–Wittenberg's Lemma 5.5 in corrected form. The other stages are not yet read.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:CategoryTheory.Functor.IsMittagLeffler",
+    "kind": "def",
+    "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+    "provides": "The Mittag-Leffler condition for functors to types.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:continuousCohomology",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
+    "provides": "Continuous cohomology of a topological representation, via homogeneous cochains.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:continuous_pi_iff",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/Constructions.lean",
+    "provides": "A map into a product is continuous iff its components are.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "tauceti:TauCeti.homAction",
+    "kind": "def",
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/InternalHom.lean",
+    "provides": "The conjugation action of G on M →+ N.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "RUBIN-ES",
+   "title": "Euler systems",
+   "authors": "Karl Rubin",
+   "edition": "Author draft of Annals of Mathematics Studies 147 (2000); printed page = PDF page − 10",
+   "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+   "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50",
+   "readSections": [
+    "Chapter I §2 (Example 2.1, Lemma 2.2)",
+    "Appendix B §2 (Definition 2.1, Remark 2.2, Propositions 2.3–2.5, 2.7, Lemma 2.8)"
+   ]
+  },
+  {
+   "id": "STACKS",
+   "title": "The Stacks Project",
+   "authors": "The Stacks project authors",
+   "edition": "Online, tags 0594, 0598 (Algebra §10.86), 07KW, 07KX, 07KY (More on Algebra §15.88), read 2026-09-28",
+   "url": "https://stacks.math.columbia.edu/tag/07KW",
+   "readSections": [
+    "Definition 10.86.1",
+    "Lemma 10.86.4",
+    "Lemmas 15.88.1, 15.88.9, 15.88.10"
+   ]
+  },
+  {
+   "id": "HARPAZ-WITTENBERG-23",
+   "title": "The Massey vanishing conjecture for number fields",
+   "authors": "Yonatan Harpaz; Olivier Wittenberg",
+   "edition": "Author final version (33 pp., revised 9 December 2021), identical to arXiv 1904.06512v2; Duke Math. J. 172 (2023) not accessed",
+   "url": "https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf",
+   "sha256": "d95100ebd7210600873351ffbe1f3f1dc0fd3f36b815ca70286884801afc546f",
+   "readSections": [
+    "§5, Lemma 5.5 and its use in the proof of Proposition 5.3, pp. 19–20"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+   "citation": "K. Rubin, Euler systems, author draft (1999)",
+   "read": "2026-09-28",
+   "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://www.math.univ-paris13.fr/~wittenberg/globalmassey.pdf",
+   "citation": "Y. Harpaz and O. Wittenberg, The Massey vanishing conjecture for number fields, author final version",
+   "read": "2026-09-28",
+   "sha256": "d95100ebd7210600873351ffbe1f3f1dc0fd3f36b815ca70286884801afc546f"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/lim-one",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "lim and lim¹ of a tower",
+   "kind": "construction",
+   "statement": "For an ℕ-indexed tower of abelian groups (A_n, φ_n : A_{n+1} → A_n), lim A = ker(∏A_n → ∏A_n) and lim¹A = coker(∏A_n → ∏A_n) for the shift (a_n) ↦ (a_n − φ_n(a_{n+1})). These compute R⁰lim and R¹lim, and R^p lim = 0 for p > 1.",
+   "hypotheses": [
+    "ℕ-indexed towers only; for other index sets the derived functors are different."
+   ],
+   "proofSteps": [
+    "Definition as kernel and cokernel of the shift map.",
+    "Identification with Rlim is Stacks Lemma 15.88.1."
+   ],
+   "acceptance": [
+    "lim¹ is kept explicitly in every comparison until a Mittag-Leffler lemma removes it (RS-08)."
+   ],
+   "prerequisites": [],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "STACKS",
+     "locator": "Stacks Project, More on Algebra, Lemma 15.88.1 (tag 07KW)",
+     "excerpt": "The functor lim : Ab(N) → Ab has a right derived functor Rlim ... for any (An) in Ab(N) we have R^p lim An = 0 for p > 1, the object Rlim An of D(Ab) is represented by the complex ∏An → ∏An, (xn) ↦ (xn − f_{n+1}(x_{n+1})) sitting in degrees 0 and 1, if (An) is ML, then R^1 lim An = 0",
+     "match": "The two-term complex computing Rlim."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CompactCoefficients.Tower.lim",
+     "role": "constructor",
+     "statement": "lim A = ker(shift)."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.Tower.limOne",
+     "role": "constructor",
+     "statement": "lim¹ A = coker(shift)."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.Tower.mem_lim",
+     "role": "characterisation",
+     "statement": "a ∈ lim ↔ φ_n(a_{n+1}) = a_n for all n."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.Tower.limOne_subsingleton_of_surjective",
+     "role": "simp",
+     "statement": "Surjective transitions give lim¹ = 0."
+    }
+   ],
+   "tests": [
+    {
+     "name": "limOne_surjective_tower",
+     "kind": "degenerate",
+     "statement": "The tower ℤ/p^{n+1} ↠ ℤ/p^n has lim¹ = 0."
+    },
+    {
+     "name": "limOne_mul_p",
+     "kind": "non-example",
+     "statement": "The tower ℤ ← ℤ with multiplication by p has lim = 0 and lim¹ ≅ ℤ_p/ℤ ≠ 0."
+    },
+    {
+     "name": "lim_constant",
+     "kind": "value",
+     "statement": "The constant tower with identity maps has lim equal to the diagonal."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticGaloisDuality:R02.1/milnor-sequence",
+     "how": "the kernel term lim¹ H^{i−1}"
+    },
+    {
+     "where": "SelmerIwasawaCohomology:L0/padic-kummer-identification",
+     "how": "lim¹ μ_{p^m}(K) = 0"
+    },
+    {
+     "where": "Rubin Appendix B, Proposition 2.3",
+     "how": "the finiteness criterion"
+    }
+   ],
+   "planet": {
+    "name": "Derived limits"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/mittag-leffler",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Mittag-Leffler towers",
+   "kind": "construction",
+   "statement": "A tower is Mittag-Leffler if for every n the images of A_{n+k} → A_n stabilise as k grows.",
+   "hypotheses": [
+    "Stated on the underlying sets, as in the Stacks Project; for groups the images are subgroups."
+   ],
+   "proofSteps": [
+    "Definition through the iterated transition maps."
+   ],
+   "acceptance": [
+    "Mathlib's CategoryTheory.Functor.IsMittagLeffler is the same notion for functors to types; the tower form is the one the lim¹ lemmas consume."
+   ],
+   "prerequisites": [
+    "mathlib:CategoryTheory.Functor.IsMittagLeffler"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "STACKS",
+     "locator": "Stacks Project, Algebra, Definition 10.86.1 (tag 0594)",
+     "excerpt": "Let (Ai, φji) be a directed inverse system of sets over I. Then we say (Ai, φji) is Mittag-Leffler if for each i ∈ I, the family φji(Aj) ⊂ Ai for j ≥ i stabilizes.",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CompactCoefficients.Tower.IsMittagLeffler",
+     "role": "constructor",
+     "statement": "The stabilisation condition."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.Tower.isMittagLeffler_of_surjective",
+     "role": "simp",
+     "statement": "Surjective transitions are Mittag-Leffler."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.Tower.isMittagLeffler_of_finite",
+     "role": "simp",
+     "statement": "Towers of finite groups are Mittag-Leffler."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.Tower.isMittagLeffler_iff_functor",
+     "role": "equivalence",
+     "statement": "Agreement with Mathlib's IsMittagLeffler on the underlying functor ℕᵒᵖ ⥤ Type."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ml_finite",
+     "kind": "value",
+     "statement": "A tower of finite groups is Mittag-Leffler."
+    },
+    {
+     "name": "ml_surjective",
+     "kind": "degenerate",
+     "statement": "Surjective transitions are Mittag-Leffler."
+    },
+    {
+     "name": "ml_mul_p_fails",
+     "kind": "non-example",
+     "statement": "ℤ ← ℤ with multiplication by p is not Mittag-Leffler (images p^kℤ never stabilise)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one",
+     "how": "the vanishing criterion"
+    },
+    {
+     "where": "SelmerIwasawaCohomology:L0/roots-of-unity-mittag-leffler",
+     "how": "the tower μ_{p^m}(K)"
+    }
+   ]
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Mittag-Leffler towers have vanishing lim¹",
+   "kind": "lemma",
+   "statement": "If (A_n) is Mittag-Leffler then lim¹ A = 0.",
+   "hypotheses": [
+    "ℕ-indexed tower of abelian groups."
+   ],
+   "proofSteps": [
+    "Replace A_n by the stable images, which form a tower with surjective transitions and the same lim¹; for surjective transitions, solve a_n − φ_n(a_{n+1}) = b_n by induction on n (Stacks Lemma 15.88.1)."
+   ],
+   "acceptance": [
+    "The converse fails for uncountable systems; for towers of countable groups it holds (not needed here)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/lim-one",
+    "ArithmeticGaloisDuality:R02.1/mittag-leffler"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "STACKS",
+     "locator": "Stacks Project, More on Algebra, Lemma 15.88.1 (tag 07KW)",
+     "excerpt": "The functor lim : Ab(N) → Ab has a right derived functor Rlim ... for any (An) in Ab(N) we have R^p lim An = 0 for p > 1, the object Rlim An of D(Ab) is represented by the complex ∏An → ∏An, (xn) ↦ (xn − f_{n+1}(x_{n+1})) sitting in degrees 0 and 1, if (An) is ML, then R^1 lim An = 0",
+     "match": "'if (An) is ML, then R^1 lim An = 0'."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/lim-one-six-term",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "The six-term sequence of lim and lim¹",
+   "kind": "theorem",
+   "statement": "For a short exact sequence of towers 0 → A → B → C → 0 there is an exact sequence 0 → lim A → lim B → lim C → lim¹A → lim¹B → lim¹C → 0.",
+   "hypotheses": [
+    "Exactness levelwise; compatibility with the transition maps."
+   ],
+   "proofSteps": [
+    "Snake lemma for the map of short exact sequences 0 → ∏A → ∏B → ∏C → 0 given by the shift maps."
+   ],
+   "acceptance": [
+    "With A Mittag-Leffler, 0 → lim A → lim B → lim C → 0 is exact (Stacks Lemma 10.86.4)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/lim-one"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "STACKS",
+     "locator": "Stacks Project, More on Algebra, Lemma 15.88.1 (tag 07KW)",
+     "excerpt": "The functor lim : Ab(N) → Ab has a right derived functor Rlim ... for any (An) in Ab(N) we have R^p lim An = 0 for p > 1, the object Rlim An of D(Ab) is represented by the complex ∏An → ∏An, (xn) ↦ (xn − f_{n+1}(x_{n+1})) sitting in degrees 0 and 1, if (An) is ML, then R^1 lim An = 0",
+     "match": "Rlim is computed by the two-term complex; the long exact sequence follows."
+    },
+    {
+     "sourceId": "STACKS",
+     "locator": "Stacks Project, Algebra, Lemma 10.86.4 (tag 0598)",
+     "excerpt": "Let 0 → Ai → Bi → Ci → 0 be an exact sequence of directed inverse systems of abelian groups over I. Suppose I is countable. If (Ai) is Mittag-Leffler, then 0 → lim Ai → lim Bi → lim Ci → 0 is exact.",
+     "match": "The Mittag-Leffler special case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/milnor-sequence",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "The Milnor sequence for towers of complexes",
+   "kind": "theorem",
+   "statement": "For a tower of cochain complexes of abelian groups (K_n) with degreewise surjective transitions and limit K = lim K_n, there are short exact sequences 0 → lim¹ H^{p−1}(K_n) → H^p(K) → lim H^p(K_n) → 0.",
+   "hypotheses": [
+    "Degreewise surjective transitions, so lim K_n computes Rlim K_n."
+   ],
+   "proofSteps": [
+    "0 → K → ∏K_n → ∏K_n → 0 (shift) is a short exact sequence of complexes (surjectivity of the shift from degreewise surjective transitions).",
+    "Its long exact cohomology sequence has connecting maps whose kernels and cokernels are lim and lim¹ of H^•(K_n)."
+   ],
+   "acceptance": [
+    "The lim¹ term is kept; it vanishes under Mittag-Leffler (mittag-leffler-lim-one)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/lim-one",
+    "ArithmeticGaloisDuality:R02.1/lim-one-six-term"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "STACKS",
+     "locator": "Stacks Project, More on Algebra, Lemma 15.88.10 (tag 07KY), with Lemma 15.88.9 (tag 07KX)",
+     "excerpt": "the long exact cohomology sequence associated to the distinguished triangle breaks up into short exact sequences 0 → R^1 lim_n H^{p−1}(K_n) → H^p(Rlim K) → lim_n H^p(K_n) → 0",
+     "match": "The short exact sequences."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Milnor sequence"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/cochain-lifting",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Lifting continuous cochains along finite surjections",
+   "kind": "lemma",
+   "statement": "For a compact totally disconnected space X (for example Gⁱ with G profinite) and a surjection π : Y → Z of finite discrete sets, every continuous f : X → Z lifts to a continuous g : X → Y. Hence for a tower of finite discrete G-modules with surjective transitions, the transitions C^i(G, T_{n+1}) → C^i(G, T_n) are surjective.",
+   "hypotheses": [
+    "X compact and totally disconnected; Y, Z discrete, π surjective."
+   ],
+   "proofSteps": [
+    "f is locally constant with finitely many fibres, each clopen; compose with a set-theoretic section of π."
+   ],
+   "acceptance": [
+    "Fails for connected X mapping to a non-trivial finite set only in the trivial way; the profinite hypothesis is what makes cochain towers Milnor-admissible."
+   ],
+   "prerequisites": [],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §2, Proposition 2.3, printed p. 152 (PDF p. 162)",
+     "excerpt": "Proposition 2.3 ([T4] Corollary 2.2, [J] §2). Suppose i > 0 and T = lim← Tn where each Tn is a finite (discrete) G-module. If H^{i−1}(G, Tn) is finite for every n then Hi(G, T) = lim←n Hi(G, Tn).",
+     "match": "Tate's inverse-limit statement relies on this surjectivity."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/cochains-inverse-limit",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Continuous cochains into an inverse limit",
+   "kind": "lemma",
+   "statement": "For G profinite and T = lim T_n (inverse-limit topology), C^i(G, T) = lim C^i(G, T_n) as complexes, and the transitions of this tower are surjective when the T_n are finite discrete with surjective transitions.",
+   "hypotheses": [
+    "T closed in ∏T_n with the product topology."
+   ],
+   "proofSteps": [
+    "Continuous maps into a subspace of a product are compatible families of continuous maps into the factors (continuous_pi_iff).",
+    "Surjectivity from cochain-lifting."
+   ],
+   "acceptance": [
+    "The coboundaries commute with the limit because they are given by the same formula levelwise."
+   ],
+   "prerequisites": [
+    "mathlib:continuous_pi_iff",
+    "ArithmeticGaloisDuality:R02.1/cochain-lifting"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §2, Definition 2.1, printed pp. 151–152 (PDF pp. 161–162)",
+     "excerpt": "Following Tate [T4], we define the continuous cohomology groups Hi(G, T) as follows. Let Ci(G, T) = Maps(Gi, T). ... If 0 → T′ → T → T′′ → 0 is an exact sequence and if there is a continuous section (again a set map, not necessarily a homomorphism) from T′′ → T, then 0 → Ci(G, T′) → Ci(G, T) → Ci(G, T′′) → 0 is exact for every i and there is a long exact sequence",
+     "match": "Continuous cochains Maps(Gⁱ, T)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/carrier-comparison",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Comparison with the canonical carrier for compact coefficients",
+   "kind": "theorem",
+   "statement": "For a profinite G and a topological G-module T whose underlying module is compact (a lattice T, a finite discrete module) or a finite-dimensional ℚ_p-space, Mathlib's continuousCohomology (homogeneous cochains on the coinduced resolution) is naturally isomorphic to the cohomology of the inhomogeneous continuous cochain complex C^•(G, T).",
+   "hypotheses": [
+    "The comparison for discrete T is Tau Ceti ProfiniteCohomology Layer 3; this node extends it to compact and rational coefficients."
+   ],
+   "proofSteps": [
+    "The dehomogenisation map between homogeneous and inhomogeneous continuous cochains is a homeomorphism Gⁱ⁺¹ → Gⁱ-shape bijection, continuous in both directions for any topological module, so the discrete proof applies verbatim once continuity is checked on the compact-open topology."
+   ],
+   "acceptance": [
+    "Every later statement is on the canonical carrier, as RS-08 requires."
+   ],
+   "prerequisites": [
+    "mathlib:continuousCohomology",
+    "ArithmeticGaloisDuality:R02.1/cochains-inverse-limit"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §2, Definition 2.1, printed pp. 151–152 (PDF pp. 161–162)",
+     "excerpt": "Following Tate [T4], we define the continuous cohomology groups Hi(G, T) as follows. Let Ci(G, T) = Maps(Gi, T). ... If 0 → T′ → T → T′′ → 0 is an exact sequence and if there is a continuous section (again a set map, not necessarily a homomorphism) from T′′ → T, then 0 → Ci(G, T′) → Ci(G, T) → Ci(G, T′′) → 0 is exact for every i and there is a long exact sequence",
+     "match": "The inhomogeneous definition compared."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/tate-inverse-limit",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Tate's inverse-limit theorem",
+   "kind": "theorem",
+   "statement": "For G profinite, T = lim T_n with finite discrete G-modules T_n and surjective transitions, and i > 0, there is a short exact sequence 0 → lim¹ H^{i−1}(G, T_n) → H^i(G, T) → lim H^i(G, T_n) → 0. In particular H^i(G, T) = lim H^i(G, T_n) when every H^{i−1}(G, T_n) is finite.",
+   "hypotheses": [
+    "i > 0; finite discrete T_n; surjective transitions."
+   ],
+   "proofSteps": [
+    "cochains-inverse-limit: C^•(G, T) = lim C^•(G, T_n) with surjective transitions.",
+    "milnor-sequence gives the short exact sequence.",
+    "Finite H^{i−1}(G, T_n) form a Mittag-Leffler tower (Tower.isMittagLeffler_of_finite), so lim¹ = 0."
+   ],
+   "acceptance": [
+    "Applied with T = ℤ_p(1), i = 1: SelmerIwasawaCohomology's p-adic Kummer identification."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/cochains-inverse-limit",
+    "ArithmeticGaloisDuality:R02.1/milnor-sequence",
+    "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one",
+    "ArithmeticGaloisDuality:R02.1/carrier-comparison"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §2, Proposition 2.3, printed p. 152 (PDF p. 162)",
+     "excerpt": "Proposition 2.3 ([T4] Corollary 2.2, [J] §2). Suppose i > 0 and T = lim← Tn where each Tn is a finite (discrete) G-module. If H^{i−1}(G, Tn) is finite for every n then Hi(G, T) = lim←n Hi(G, Tn).",
+     "match": "The statement (Tate, Corollary 2.2)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Tate's inverse-limit theorem"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/continuous-section-exists",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Continuous sections of coefficient surjections",
+   "kind": "lemma",
+   "statement": "A surjection T → T'' of topological G-modules has a continuous set-theoretic section when T'' is discrete, when T' is open in T, or when T is a finitely generated ℤ_p-module or a finite-dimensional ℚ_p-vector space with its natural topology.",
+   "hypotheses": [
+    "The listed cases, as in Rubin Remark B.2.2."
+   ],
+   "proofSteps": [
+    "Discrete T'': any set-theoretic section is continuous.",
+    "Finitely generated ℤ_p-modules and finite-dimensional ℚ_p-spaces: the surjection splits ℤ_p- (resp. ℚ_p-) linearly up to a finite torsion part, which is handled by the profinite case (continuous sections of surjections of profinite groups)."
+   ],
+   "acceptance": [
+    "The section need not be a homomorphism."
+   ],
+   "prerequisites": [],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §2, Remark 2.2, printed p. 152 (PDF p. 162)",
+     "excerpt": "Note that if T′′ is topologically discrete ... then there is always a continuous section T′′ → T. This is the case whenever T′ is open in T. Also, when T is a finitely generated Zp-module, or a finite-dimensional Qp-vector space, with the usual topology, there is a continuous section.",
+     "match": "The cases."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/continuous-section-long-exact",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Long exact sequences for continuous cohomology",
+   "kind": "theorem",
+   "statement": "If 0 → T' → T → T'' → 0 is exact and has a continuous set-theoretic section T'' → T, then 0 → C^•(G, T') → C^•(G, T) → C^•(G, T'') → 0 is exact and there is a long exact sequence in continuous cohomology, natural in the sequence, agreeing with Tau Ceti's discrete one when all terms are discrete.",
+   "hypotheses": [
+    "A continuous section exists (continuous-section-exists)."
+   ],
+   "proofSteps": [
+    "Surjectivity of C^i(G, T) → C^i(G, T'') by composing with the section; the rest is the long exact sequence of a short exact sequence of complexes."
+   ],
+   "acceptance": [
+    "Without a section the cochain sequence need not be right exact."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/continuous-section-exists",
+    "ArithmeticGaloisDuality:R02.1/carrier-comparison"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §2, Definition 2.1, printed pp. 151–152 (PDF pp. 161–162)",
+     "excerpt": "Following Tate [T4], we define the continuous cohomology groups Hi(G, T) as follows. Let Ci(G, T) = Maps(Gi, T). ... If 0 → T′ → T → T′′ → 0 is an exact sequence and if there is a continuous section (again a set map, not necessarily a homomorphism) from T′′ → T, then 0 → Ci(G, T′) → Ci(G, T) → Ci(G, T′′) → 0 is exact for every i and there is a long exact sequence",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/compact-cochain-bounded",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Continuous cochains into V land in a lattice",
+   "kind": "lemma",
+   "statement": "For a compact space X, a finite free ℤ_p-module T and V = T ⊗ ℚ_p, every continuous f : X → V lands in p^{−n}T for some n; hence C(X, V) = ⋃_n C(X, p^{−n}T) = C(X, T) ⊗ ℚ_p.",
+   "hypotheses": [
+    "X compact; T finite free."
+   ],
+   "proofSteps": [
+    "f(X) is compact, hence bounded in the p-adic norm."
+   ],
+   "acceptance": [
+    "Applied with X = Gⁱ."
+   ],
+   "prerequisites": [],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §2, Proposition 2.4, printed p. 152 (PDF p. 162)",
+     "excerpt": "Proposition 2.4 ([T4] Proposition 2.3). If T is a finitely-generated Zp-module, then for every i ≥ 0, Hi(G, T) has no divisible elements and the natural map Hi(G, T) ⊗ Qp → Hi(G, T ⊗ Qp) is an isomorphism.",
+     "match": "Tate's rationalisation argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/rationalization",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Rationalisation of lattice cohomology",
+   "kind": "theorem",
+   "statement": "For G profinite and T a finitely generated ℤ_p-module with continuous action, H^i(G, T) has no nonzero divisible elements and H^i(G, T) ⊗ ℚ_p ≅ H^i(G, T ⊗ ℚ_p).",
+   "hypotheses": [
+    "T finitely generated over ℤ_p with the p-adic topology."
+   ],
+   "proofSteps": [
+    "compact-cochain-bounded: C^•(G, V) = C^•(G, T) ⊗ ℚ_p, and ⊗ ℚ_p is exact.",
+    "Divisible elements: they map to 0 in every H^i(G, T/p^n) and so lie in the lim¹ term of tate-inverse-limit, which Tate shows has no divisible elements."
+   ],
+   "acceptance": [
+    "V's cohomology is not the limit of anything; rationalisation is a colimit."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/compact-cochain-bounded",
+    "ArithmeticGaloisDuality:R02.1/tate-inverse-limit"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Appendix B, §2, Proposition 2.4, printed p. 152 (PDF p. 162)",
+     "excerpt": "Proposition 2.4 ([T4] Proposition 2.3). If T is a finitely-generated Zp-module, then for every i ≥ 0, Hi(G, T) has no divisible elements and the natural map Hi(G, T) ⊗ Qp → Hi(G, T ⊗ Qp) is an isomorphism.",
+     "match": "The statement (Tate, Proposition 2.3)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Rationalisation"
+   }
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/discrete-quotient-colimit",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Cohomology of the discrete quotient W = V/T",
+   "kind": "lemma",
+   "statement": "For T finite free over ℤ_p, W = V/T is a discrete torsion module and H^i(G, W) = colim_n H^i(G, W[p^n]), with W[p^n] ≅ T/p^nT.",
+   "hypotheses": [
+    "G profinite; W with the discrete topology (a continuous action on V/T makes it a discrete module)."
+   ],
+   "proofSteps": [
+    "A continuous cochain Gⁱ → W has compact, hence finite, image, contained in some W[p^n]; cohomology commutes with this filtered colimit (Tau Ceti ProfiniteCohomology, finite-quotient description, Layer 4)."
+   ],
+   "acceptance": [
+    "T and W have different topologies and different limiting operations, as the stage requires."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/carrier-comparison"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §2, Example 2.1, printed p. 3 (PDF p. 13)",
+     "excerpt": "H1(K, µp∞) = K× ⊗ (Qp/Zp)",
+     "match": "A discrete torsion coefficient computed by a colimit."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/lattice-torsion-sequence",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "The sequence T → V → W and the torsion of H¹(T)",
+   "kind": "lemma",
+   "statement": "For T finite free over ℤ_p, the sequence 0 → T → V → W → 0 gives V^G → W^G → H^1(G, T)_tors → 0, and ker(H^1(G, T) → H^1(G, V)) = H^1(G, T)_tors.",
+   "hypotheses": [
+    "G profinite; T finite free."
+   ],
+   "proofSteps": [
+    "continuous-section-long-exact applies because W is discrete.",
+    "rationalization identifies ker(H^1(T) → H^1(V)) with the torsion subgroup."
+   ],
+   "acceptance": [
+    "H^1(G, T) is torsion-free when W^G is divisible (for example W^G = 0)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/continuous-section-long-exact",
+    "ArithmeticGaloisDuality:R02.1/rationalization",
+    "ArithmeticGaloisDuality:R02.1/discrete-quotient-colimit"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §2, Lemma 2.2(ii) and its proof, printed pp. 3–4 (PDF pp. 13–14)",
+     "excerpt": "(ii) The bottom row of (2) induces an exact sequence V^GK → W^GK → H1(K, T)tors → 0. ... the kernel of the natural map H1(K, T) → H1(K, V) is H1(K, T)tors.",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/pointwise-hom",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Pointwise Hom of discrete modules",
+   "kind": "construction",
+   "statement": "For discrete Γ-modules C and A, Hom_pt(C, A) is the group of additive maps C → A with the topology induced from A^C (pointwise convergence) and the conjugation action (g·u)(c) = g u(g⁻¹c). Evaluation Hom_pt(C, A) × C → A is jointly continuous and equivariant, and the action is jointly continuous. For finitely generated C the topology is discrete, and Hom_pt(C, A) is Tau Ceti's InternalHom with homAction.",
+   "hypotheses": [
+    "C, A discrete; no finiteness on C for the definition."
+   ],
+   "proofSteps": [
+    "Induced topology from the product; continuity of evaluation from continuity of projections; discreteness for finitely generated C: evaluation at finitely many generators isolates 0."
+   ],
+   "acceptance": [
+    "No derived-functor (Ext) interpretation is claimed for Hom_pt with non-discrete topology."
+   ],
+   "prerequisites": [
+    "tauceti:TauCeti.homAction"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "HARPAZ-WITTENBERG-23",
+     "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
+     "excerpt": "The set of homomorphisms C → B that are sections of κ is equipped with a natural action of Γ by conjugation and then forms a torsor under the Γ-module Hom(C, A). ... the boundary map Hm(Γ, C) → H^{m+1}(Γ, A) is given by cup product with [γ]",
+     "match": "Hom(C, A) as the torsor's structure group, with the topology corrected."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CompactCoefficients.HomPt",
+     "role": "constructor",
+     "statement": "Hom(C, A) with the pointwise topology."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.continuous_eval",
+     "role": "structure",
+     "statement": "Evaluation is jointly continuous."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.discreteTopology_of_fg",
+     "role": "characterisation",
+     "statement": "Finitely generated C gives the discrete topology."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.homPt_equiv_internalHom",
+     "role": "compatibility",
+     "statement": "For finite C, Hom_pt(C, A) = Tau Ceti's InternalHom with homAction."
+    }
+   ],
+   "tests": [
+    {
+     "name": "homPt_int",
+     "kind": "value",
+     "statement": "Hom_pt(ℤ, A) ≅ A, discrete."
+    },
+    {
+     "name": "homPt_fg_discrete",
+     "kind": "value",
+     "statement": "Finitely generated C: discrete."
+    },
+    {
+     "name": "homPt_not_discrete",
+     "kind": "non-example",
+     "statement": "C = ⊕_ℕ 𝔽₂: Hom_pt(C, 𝔽₂) = 𝔽₂^ℕ is not discrete (HW23 E10)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticGaloisDuality:R02.1/splitting-torsor",
+     "how": "the structure group"
+    },
+    {
+     "where": "Harpaz–Wittenberg, Lemma 5.5",
+     "how": "the Massey obstruction as a cup product"
+    }
+   ]
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/splitting-torsor",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "The splitting torsor",
+   "kind": "construction",
+   "statement": "For an exact sequence 0 → A → B → C → 0 of discrete Γ-modules admitting an additive section, the sections form a continuous affine Hom_pt(C, A)-torsor under conjugation; a section s gives the continuous cocycle γ(g) = g s g⁻¹ − s with values in Hom_pt(C, A); replacing s by s + u changes γ by d⁰u; the class [γ] vanishes iff there is an equivariant additive section.",
+   "hypotheses": [
+    "An additive section exists; Hom_pt with the pointwise topology (not the discrete one)."
+   ],
+   "proofSteps": [
+    "Two sections differ by a map C → A; conjugation preserves sections; the cocycle identity is formal; continuity of γ into Hom_pt is pointwise continuity, which holds as B is discrete."
+   ],
+   "acceptance": [
+    "With the discrete topology on Hom(C, A), γ need not be continuous (HW23 E10)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/pointwise-hom"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "HARPAZ-WITTENBERG-23",
+     "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
+     "excerpt": "The set of homomorphisms C → B that are sections of κ is equipped with a natural action of Γ by conjugation and then forms a torsor under the Γ-module Hom(C, A). ... the boundary map Hm(Γ, C) → H^{m+1}(Γ, A) is given by cup product with [γ]",
+     "match": "The torsor, in corrected form."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CompactCoefficients.Sections",
+     "role": "constructor",
+     "statement": "The set of additive sections."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.sections_sub_mem_ker",
+     "role": "relation",
+     "statement": "Two sections differ by a map C → A."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.sections_nonempty_iff",
+     "role": "characterisation",
+     "statement": "Nonempty iff the sequence splits additively."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.splittingClass",
+     "role": "data",
+     "statement": "The class [γ] ∈ H^1(Γ, Hom_pt(C, A))."
+    },
+    {
+     "name": "TauCeti.CompactCoefficients.splittingClass_eq_zero_iff",
+     "role": "characterisation",
+     "statement": "[γ] = 0 iff an equivariant section exists."
+    }
+   ],
+   "tests": [
+    {
+     "name": "torsor_equivariant_split",
+     "kind": "degenerate",
+     "statement": "An equivariantly split sequence has [γ] = 0."
+    },
+    {
+     "name": "torsor_trivial_A",
+     "kind": "degenerate",
+     "statement": "A = 0: the only section is the identity and [γ] = 0."
+    },
+    {
+     "name": "torsor_discrete_fails",
+     "kind": "non-example",
+     "statement": "Γ = ∏ C₂, A = ⊕𝔽₂a_i, C = ⊕𝔽₂c_i, g c_i = c_i + g_i a_i: γ is not continuous into discrete Hom(C, A)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ArithmeticGaloisDuality:R02.1/connecting-cup-formula",
+     "how": "the class that computes ∂"
+    },
+    {
+     "where": "Harpaz–Wittenberg, proof of Proposition 5.3",
+     "how": "the Massey obstruction"
+    }
+   ]
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/connecting-cup-formula",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "The connecting map is cup product with the torsor class",
+   "kind": "theorem",
+   "statement": "In the situation of splitting-torsor, for every m ≥ 0 and continuous m-cocycle c with values in C, s∘c is a continuous cochain with d(s∘c)(g_0, …, g_m) = γ(g_0)(g_0 c(g_1, …, g_m)); hence the connecting map H^m(Γ, C) → H^{m+1}(Γ, A) is ∂[c] = [γ ∪ c] for the evaluation pairing Hom_pt(C, A) × C → A.",
+   "hypotheses": [
+    "As in splitting-torsor; cup products on continuous cochains with the jointly continuous evaluation pairing."
+   ],
+   "proofSteps": [
+    "Direct computation on inhomogeneous cochains; no Ext interpretation is used."
+   ],
+   "acceptance": [
+    "For finitely generated C the formula holds with discrete Hom and Tau Ceti's discrete cup product."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/splitting-torsor",
+    "ArithmeticGaloisDuality:R02.1/pointwise-hom",
+    "ArithmeticGaloisDuality:R02.1/continuous-section-long-exact"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "HARPAZ-WITTENBERG-23",
+     "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
+     "excerpt": "The set of homomorphisms C → B that are sections of κ is equipped with a natural action of Γ by conjugation and then forms a torsor under the Γ-module Hom(C, A). ... the boundary map Hm(Γ, C) → H^{m+1}(Γ, A) is given by cup product with [γ]",
+     "match": "The boundary formula, proved by cochains instead of Ext."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ArithmeticGaloisDuality:R02.1/discrete-hom-finitely-generated",
+   "parentStageId": "ArithmeticGaloisDuality:R02.1",
+   "realises": [
+    "ArithmeticGaloisDuality:R02.1"
+   ],
+   "title": "Finitely generated C: the discrete case",
+   "kind": "lemma",
+   "statement": "If C is finitely generated as an abelian group, Hom_pt(C, A) is discrete, the splitting class lies in the discrete-module cohomology H^1(Γ, Hom(C, A)), and connecting-cup-formula holds with the discrete Hom and the discrete cup product; in particular for finite C, as in every application of Harpaz–Wittenberg's Lemma 5.5.",
+   "hypotheses": [
+    "C finitely generated."
+   ],
+   "proofSteps": [
+    "discreteTopology_of_fg; then the continuous cochains of the discrete module Hom(C, A) are those of Hom_pt."
+   ],
+   "acceptance": [
+    "This is the scope in which the printed Lemma 5.5 is correct."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisDuality:R02.1/pointwise-hom",
+    "ArithmeticGaloisDuality:R02.1/connecting-cup-formula"
+   ],
+   "library": {
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/Compact",
+    "namespace": "TauCeti.CompactCoefficients"
+   },
+   "sources": [
+    {
+     "sourceId": "HARPAZ-WITTENBERG-23",
+     "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
+     "excerpt": "The set of homomorphisms C → B that are sections of κ is equipped with a natural action of Γ by conjugation and then forms a torsor under the Γ-module Hom(C, A). ... the boundary map Hm(Γ, C) → H^{m+1}(Γ, A) is given by cup product with [γ]",
+     "match": "The printed lemma, valid for finitely generated C."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-3-the-comparison-isomorphisms",
+   "need": "The comparison of Mathlib's continuousCohomology with explicit inhomogeneous continuous cochains for discrete modules, with the dehomogenisation map, which carrier-comparison extends to compact and rational coefficients.",
+   "neededBy": [
+    "ArithmeticGaloisDuality:R02.1/carrier-comparison"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-4-the-finite-quotient-colimit-description",
+   "need": "Continuous cohomology of discrete modules commutes with filtered colimits of coefficients.",
+   "neededBy": [
+    "ArithmeticGaloisDuality:R02.1/discrete-quotient-colimit"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
+   "need": "The discrete long exact sequence and its connecting maps, for agreement with continuous-section-long-exact on discrete terms.",
+   "neededBy": [
+    "ArithmeticGaloisDuality:R02.1/continuous-section-long-exact"
+   ],
+   "status": "open",
+   "note": ""
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-8-cup-products-in-low-degrees",
+   "need": "Low-degree cup products on the explicit model for an equivariant pairing, extended to the jointly continuous evaluation Hom_pt(C, A) × C → A.",
+   "neededBy": [
+    "ArithmeticGaloisDuality:R02.1/connecting-cup-formula"
+   ],
+   "status": "open",
+   "note": ""
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ArithmeticGaloisDuality:R02.1",
+   "status": "partial",
+   "remaining": [
+    "Completed tensor products of coefficients (T ⊗̂_{ℤ_p} Λ for Iwasawa algebras) with the hypotheses that make them exact, for SelmerIwasawaCohomology:L3; the discrete-module Ext comparison is not claimed for Hom_pt."
+   ]
+  },
+  {
+   "stageId": "ArithmeticGaloisDuality:D7",
+   "status": "not_read",
+   "remaining": [
+    "Compact-support fibres, restricted products and unramified subgroups in each coefficient regime, Shapiro and the projection formula for compact lattice and rational coefficients, one sign normalisation (RS-08)."
+   ]
+  },
+  {
+   "stageId": "ArithmeticGaloisDuality:D8",
+   "status": "not_read",
+   "remaining": [
+    "Dimension-general adjoint deformation–Selmer comparisons (RS-08 narrowing)."
+   ]
+  },
+  {
+   "stageId": "ArithmeticGaloisDuality:R02.2",
+   "status": "not_read",
+   "remaining": [
+    "Build the continuous Hochschild–Serre spectral sequence for compact lattice and rational coefficients with its convergence hypotheses (Rubin Proposition B.2.5 for the five-term part; Jannsen, Continuous étale cohomology, §3), restriction/corestriction identities for R02.1's coefficients, finite-extension descent, and the Harpaz–Wittenberg Remark 3.4 inputs routed here."
+   ]
+  },
+  {
+   "stageId": "ArithmeticGaloisDuality:R02.3",
+   "status": "not_read",
+   "remaining": [
+    "Define G_{F,S}; prove finiteness of H^i(G_{F,S}, M) for finite M (Rubin Proposition B.2.7), cohomological dimension with real-place exceptions, the global Euler characteristic, compact support, and the S-unit Kummer sequence requested by SelmerIwasawaCohomology:L0."
+   ]
+  },
+  {
+   "stageId": "ArithmeticGaloisDuality:R02.4",
+   "status": "not_read",
+   "remaining": [
+    "Poitou–Tate for finite modules (Milne, Arithmetic Duality Theorems, Chapter I §4), then lattice and rational versions through R02.1's limit arguments; Harpaz–Wittenberg's Sha duality items."
+   ]
+  },
+  {
+   "stageId": "ArithmeticGaloisDuality:R02.5",
+   "status": "not_read",
+   "remaining": [
+    "Deformation-theoretic Selmer calculations on SelmerIwasawaCohomology:L2's kernel (RS-08 narrowing)."
+   ]
+  },
+  {
+   "stageId": "ArithmeticGaloisDuality:R02.6",
+   "status": "not_read",
+   "remaining": [
+    "Cohomological requirements of patching."
+   ]
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "ArithmeticGaloisDuality/E1",
+   "source": "HARPAZ-WITTENBERG-23",
+   "kind": "error",
+   "locator": "§5, Lemma 5.5, p. 19 (author final version; corrected in PAPER-HARPAZ-WITTENBERG-23/E10)",
+   "printed": "Let Γ be a profinite group and 0 → A → B → C → 0 be a short exact sequence of discrete Γ-modules whose underlying sequence of abelian groups is split. ... Let [γ] ∈ H1(Γ, Hom(C, A)) be the class of this torsor.",
+   "correction": "Assume C finitely generated (for example finite, as in the only application), or give Hom(C, A) the pointwise topology Hom_pt(C, A), in which case the class lies in H^1(Γ, Hom_pt(C, A)) and the formula holds by a cochain computation.",
+   "reason": "Γ = ∏_ℕ C₂, A = ⊕𝔽₂a_i, C = ⊕𝔽₂c_i with trivial actions and B = A ⊕ C with g·c_i = c_i + g_i a_i: B is a discrete module and the sequence splits additively, but γ(g)(c_i) = g_i a_i has kernel {1}, not open, so γ is not continuous into the discrete module Hom(C, A).",
+   "affects": "a stated result",
+   "known": "PAPER-HARPAZ-WITTENBERG-23/E10 (research/errata/REGISTER.md), confirmed by REV-ERRATA-PAPER-HARPAZ-WITTENBERG-23",
+   "searched": [
+    "research/errata/REGISTER.md: recorded as PAPER-HARPAZ-WITTENBERG-23/E10"
+   ]
+  }
+ ]
+}
