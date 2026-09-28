@@ -13,7 +13,7 @@
   "GlobalGaloisDeformations:R04.6"
  ],
  "status": "partial",
- "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version.",
+ "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version. Checkpoint 4 adds R04.5 (8 nodes): Taylor–Wiles data, the distinct residual image hypotheses, local cohomology at Taylor–Wiles places, existence of Taylor–Wiles primes for odd p (KW II Lemma 5.3, Gee Proposition 5.10) with generator counts, and the separate dyadic construction (KW II §5.5: linear disjointness and Lemma 5.10), with the inertia action at the auxiliary primes (KW II Proposition 5.11).",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -142,7 +142,8 @@
    "sha256": "878f83e189ad44603ac04f6c16ef17f4c4fe046db91a2f0933a192e048715ea5",
    "read": "2026-09-28",
    "readSections": [
-    "§3 Galois deformations, pp. 11–21 (3.1–3.26 in full; 3.27–3.28 skimmed)"
+    "§3 Galois deformations, pp. 11–21 (3.1–3.26 in full; 3.27–3.28 skimmed)",
+    "§5.2 Theorem 5.2, §5.6 (pp. 33–34), Propositions 5.8–5.10 and the start of the patching argument, pp. 36–40"
    ]
   },
   {
@@ -193,9 +194,9 @@
    "readSections": [
     "§2.1–2.8, pp. 5–17 (CNL_O-algebras, lifts and deformations, quotients by group actions, diagonalizable groups, truncations, inertia-rigid deformations, resolutions)",
     "§4.1–4.2, pp. 37–46 (Proposition 4.1, Lemmas 4.3–4.4, Proposition 4.5, Lemma 4.6, Corollary 4.7)",
-    "§5.1–5.3 and §5.5–5.6, pp. 46–53 (twists, freeness, Lemma 5.10, Proposition 5.11, Lemma 5.12)",
     "§7.2–7.3 and Lemma 7.10, pp. 61–63 and 69",
-    "proof of Proposition 9.3 (patching data and Lemmas 9.4–9.5), pp. 85–87; §10.1, pp. 90–92"
+    "proof of Proposition 9.3 (patching data and Lemmas 9.4–9.5), pp. 85–87; §10.1, pp. 90–92",
+    "§5, pp. 46–53 (twists, Lemma 5.1, Lemmas 5.2–5.4, Proposition 5.5, §5.5 p = 2 with Proposition 5.6 and Lemmas 5.7–5.10, Proposition 5.11, Lemma 5.12)"
    ]
   },
   {
@@ -2864,6 +2865,492 @@
    "planet": {
     "name": "Inertia-rigid deformations"
    }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.5/taylor-wiles-datum",
+   "parentStageId": "GlobalGaloisDeformations:R04.5",
+   "realises": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "title": "Taylor–Wiles data",
+   "kind": "definition",
+   "statement": "Let F be a number field, S a finite set of places containing those above p and ∞ and those where ρ̄ : G_F → GL_2(𝔽) ramifies, and N ≥ 1. A Taylor–Wiles datum of level N is a finite set Q of finite places disjoint from S such that, for v ∈ Q, N(v) ≡ 1 mod p^N and ρ̄(Frob_v) has distinct eigenvalues, together with a choice of eigenvalue α_v (equivalently an eigenline; β_v is the other). Put Δ_v = the maximal p-quotient of k(v)^× and Δ_Q = ∏_{v∈Q} Δ_v (KW II write Δ′). The deformation problem S_Q allows arbitrary ramification at v ∈ Q (L_v = H¹(G_v, ad⁰)), so the dual Selmer condition there is L_v^⊥ = 0. For p = 2, KW II also require each v ∈ Q to split in the Kummer extension F̃_n/F (dyadic-taylor-wiles-primes).",
+   "hypotheses": [
+    "N(v) ≡ 1 mod p^N is equivalent to v splitting completely in F(ζ_{p^N}); distinct eigenvalues is equivalent to ad ρ̄(Frob_v) having an eigenvalue ≠ 1.",
+    "The local deformation rings at v ∈ Q are LocalGaloisDeformationRings R08.2/taylor-wiles-local-ring (Gee Lemma 3.33)."
+   ],
+   "proofSteps": [
+    "Δ_v is cyclic of order the p-part of N(v) − 1, which is divisible by p^N, so Δ_Q/p^N ≅ (ℤ/p^N)^{#Q}."
+   ],
+   "acceptance": [
+    "The eigenvalue choice matters: it fixes which character γ_{α_v} of taylor-wiles-inertia-action carries the Δ_v-action.",
+    "Q = ∅ is a datum of every level, with Δ_∅ = 1.",
+    "If ρ̄(Frob_v) is scalar there is no eigenline to choose, and v is not a Taylor–Wiles place."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.3/global-deformation-type",
+    "LocalGaloisDeformationRings:R08.2/taylor-wiles-local-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, p. 33",
+     "match": "The conditions on Q."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 5.3, p. 47",
+     "match": "The level-n conditions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.TaylorWilesDatum",
+     "role": "structure",
+     "statement": "(Q, (α_v)_{v∈Q}) with N(v) ≡ 1 mod p^N and distinct Frobenius eigenvalues."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.TaylorWilesDatum.delta",
+     "role": "constructor",
+     "statement": "Δ_Q = ∏_{v∈Q} (k(v)^×)_p."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.TaylorWilesDatum.deformationType",
+     "role": "constructor",
+     "statement": "S_Q, with no condition at the places of Q."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.TaylorWilesDatum.delta_quotient",
+     "role": "characterisation",
+     "statement": "Δ_Q/p^N ≅ (ℤ/p^N)^{#Q}."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
+     "how": "the data produced."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
+     "how": "the data produced for p = 2."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.2",
+     "how": "auxiliary levels U_1(Q) and freeness over 𝒪[Δ_Q]."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.6",
+     "how": "the patching exports."
+    }
+   ],
+   "tests": [
+    {
+     "name": "twDatum_empty",
+     "kind": "example",
+     "statement": "The empty set is a datum of every level."
+    },
+    {
+     "name": "twDatum_split_iff",
+     "kind": "characterisation",
+     "statement": "N(v) ≡ 1 mod p^N if and only if v splits completely in F(ζ_{p^N}) (for v ∤ p)."
+    },
+    {
+     "name": "twDatum_scalar_excluded",
+     "kind": "non-example",
+     "statement": "If ρ̄(Frob_v) is scalar, v is not a Taylor–Wiles place."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.5/image-hypotheses",
+   "parentStageId": "GlobalGaloisDeformations:R04.5",
+   "realises": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "title": "The residual image hypotheses used to choose primes",
+   "kind": "definition",
+   "statement": "Three residual hypotheses are used to choose Taylor–Wiles primes, and they are kept distinct. (1) Cyclotomic absolute irreducibility: ρ̄|G_{F(ζ_p)} is absolutely irreducible (KW II, p > 2). (2) Big image: p ≥ 5, p unramified in F, and ρ̄(G_F) ⊇ SL_2(𝔽_p) (Gee, Theorem 5.2(3)). (3) Non-solvable image: ρ̄(G_F) is not solvable (KW II, p = 2; Dickson then makes the projective image SL_2(𝔽_{2^r}) with r > 1). Adequacy (Thorne) and enormous image (ACC+ Definition 6.2.29) are further, different hypotheses, defined with their consumers (G7 and G8). Each theorem below states which one it uses; no implication between them is assumed.",
+   "hypotheses": [
+    "Dickson's classification and the cohomology vanishing H¹(SL_2(𝔽_{2^r}), M_2(𝔽)) = 0 (r > 1; KW II Lemma 4.3(5)) are requested from ArithmeticGaloisRepresentations R01.4."
+   ],
+   "proofSteps": [
+    "These are definitions; the implications that are used are proved where they are used. Gee proves ζ_p ∉ F^{ker ad ρ̄} from (2), using (Im ad ρ̄)^{ab} of order ≤ 2 and [F(ζ_p) : F] ≥ 4."
+   ],
+   "acceptance": [
+    "(1) fails for dihedral ρ̄ induced from K = F(√p*) ⊆ F(ζ_p), with p* = (−1)^{(p−1)/2}p and √p* ∉ F: ρ̄|G_{F(ζ_p)} splits as θ̄ ⊕ θ̄^c, although ρ̄ is absolutely irreducible when θ̄ ≠ θ̄^c.",
+    "For p = 2, F(ζ_2) = F, so (1) says nothing new, and KW II use (3) instead.",
+    "SL_2(𝔽_4) ≅ A_5 is not solvable, so the image SL_2(𝔽_4) satisfies (3)."
+   ],
+   "prerequisites": [
+    "ArithmeticGaloisRepresentations:R01.4",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§4, p. 37",
+     "match": "KW II's hypotheses (1) and (3)."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Theorem 5.2, p. 29",
+     "match": "Gee's hypothesis (2), with p > 3 and p unramified in F."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.IsCyclotomicAbsIrred",
+     "role": "constructor",
+     "statement": "ρ̄|G_{F(ζ_p)} is absolutely irreducible."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.HasBigImage",
+     "role": "constructor",
+     "statement": "ρ̄(G_F) ⊇ SL_2(𝔽_p)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.HasNonsolvableImage",
+     "role": "constructor",
+     "statement": "ρ̄(G_F) is not solvable."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
+     "how": "(1) for KW II, (2) for Gee."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
+     "how": "(3)."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G7",
+     "how": "adequacy and enormous image are stated there, not derived from these."
+    }
+   ],
+   "tests": [
+    {
+     "name": "sl2F4_not_solvable",
+     "kind": "example",
+     "statement": "SL_2(𝔽_4) ≅ A_5 is not solvable."
+    },
+    {
+     "name": "dihedral_not_cyclotomic_irred",
+     "kind": "non-example",
+     "statement": "Ind from F(√p*) is absolutely irreducible but reducible on G_{F(ζ_p)}."
+    },
+    {
+     "name": "cyclotomic_irred_p2_trivial",
+     "kind": "characterisation",
+     "statement": "For p = 2, (1) is plain absolute irreducibility, since F(ζ_2) = F."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.5/taylor-wiles-local-cohomology",
+   "parentStageId": "GlobalGaloisDeformations:R04.5",
+   "realises": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "title": "Local cohomology at Taylor–Wiles places",
+   "kind": "lemma",
+   "statement": "Let v be a Taylor–Wiles place (N(v) ≡ 1 mod p, ρ̄ unramified at v, ρ̄(Frob_v) = diag(α_v, β_v) with α_v ≠ β_v). Then (i) h⁰(G_v, ad⁰ρ̄(1)) = 1 and h¹(G_v, ad⁰ρ̄) = 2 = 1 + h⁰(G_v, ad⁰ρ̄) (KW II Lemma 5.4, p > 2), and (ii) H¹(G_{k(v)}, ad⁰ρ̄(1)) ≅ 𝔽 via [φ] ↦ π_v ∘ φ(Frob_v) ∘ i_v, where i_v includes 𝔽 into the α_v-eigenspace and π_v is the Frob_v-equivariant projection onto it (Gee). So a dual-Selmer class φ restricts nontrivially to the unramified cohomology at v exactly when π_v ∘ φ(Frob_v) ∘ i_v ≠ 0.",
+   "hypotheses": [
+    "Local Tate duality and the local Euler characteristic formula are requested from ArithmeticGaloisDuality R02.4 (and Tau Ceti ClassFieldTheory Layer 5 via LocalGaloisDeformationRings)."
+   ],
+   "proofSteps": [
+    "Frob_v acts on ad⁰ρ̄ with eigenvalues 1, α_v/β_v, β_v/α_v, with eigenvectors diag(1, −1), E₁₂, E₂₁; the twist (1) is trivial on G_{k(v)} since N(v) ≡ 1 mod p.",
+    "For a procyclic group H¹ is the coinvariants, which here is the 1-eigenspace, spanned by diag(1, −1); composing with π_v and i_v identifies it with 𝔽.",
+    "(i): by the Euler characteristic formula and Tate duality it suffices that h⁰(G_v, ad⁰(1)) = 1, which is the same eigenvalue count."
+   ],
+   "acceptance": [
+    "p = 2 differs. (Ad⁰)*(1) ≅ Ad/Z, and its only irreducible submodule is Ad⁰/Z = span(E₁₂, E₂₁), on which Frob_v has eigenvalues α_v/β_v and β_v/α_v, neither equal to 1. So the projection in (ii) vanishes on Ad⁰/Z, and classes with values there cannot be detected at Taylor–Wiles places (Diamond's remark to KW II).",
+    "If α_v = β_v, all of ad⁰ is fixed and the local cohomology has dimension 3, so the one-dimensional count fails.",
+    "Only the p-part of k(v)^× matters: H¹ of the tame inertia sees Δ_v."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-datum",
+    "ArithmeticGaloisDuality:R02.4",
+    "GlobalGaloisDeformations:R04.1/tangent-spaces"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 5.4, p. 48",
+     "match": "(i)."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "proof of Proposition 5.10, p. 39",
+     "match": "(ii)."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Remark after Lemma 5.3, pp. 47–48",
+     "match": "The dyadic failure."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
+   "parentStageId": "GlobalGaloisDeformations:R04.5",
+   "realises": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "title": "Existence of Taylor–Wiles primes for odd p",
+   "kind": "theorem",
+   "statement": "Let p > 2. Under either (KW II) F totally real and unramified at p with ρ̄|G_{F(ζ_p)} absolutely irreducible, or (Gee) p ≥ 5 unramified in F with ρ̄(G_F) ⊇ SL_2(𝔽_p), for every N ≥ 1 there is a Taylor–Wiles datum Q_N of level N such that #Q_N = r is independent of N and the dual Selmer group with conditions L_v^⊥ at S and 0 at Q_N vanishes: H¹_{{L_v^⊥}}(S ∪ Q_N, ad⁰ρ̄(1)) = 0. KW II take r = h¹_{{L_v^⊥}}(S, (Ad⁰)*(1)); Gee takes r = max(h¹(G_{F,T}, ad⁰ρ̄(1)), 1 + [F : ℚ] − #T).",
+   "hypotheses": [
+    "The Galois-cohomological input is ArithmeticGaloisDuality R02.6, KW II's conditional calculation: H¹(Gal(KF_m/F), Ad⁰(ρ̄)*(1)) = 0 for K the field cut out by Ad⁰ρ̄ and F_m = F(ζ_{p^m}) (KW II Lemma 5.2(1)). RS-08: R04.5 instantiates it and never proves it from prime existence.",
+    "Chebotarev's density theorem is requested from Tau Ceti Chebotarev Layer 10.",
+    "The two hypothesis sets are image-hypotheses (1) and (2); KW II's proof follows Taylor's Lemma 2.5 (Taylor, Remarks on a conjecture of Fontaine and Mazur)."
+   ],
+   "proofSteps": [
+    "It suffices, for each nonzero [φ] ∈ H¹(G_{F,S}, ad⁰(1)), to find infinitely many v ∉ S with N(v) ≡ 1 mod p^N, ρ̄(Frob_v) with distinct eigenvalues, and φ nonzero at v; then pass to a subset of size r preserving injectivity of H¹ → ⊕_{v∈Q} H¹(G_{k(v)}, ad⁰(1)).",
+    "Let E = F^{ker ad ρ̄}(ζ_{p^N}). Then H¹(Gal(E/F), ad⁰(1)) = 0 (R02.6; Gee's proof splits E/F^{ker ad ρ̄} into its p-part Γ₁ and prime-to-p part Γ₂ and uses inflation–restriction). So φ|_{G_E} is a nonzero Gal(E/F)-equivariant homomorphism.",
+    "Choose σ₀ ∈ Gal(E/F) fixing ζ_{p^N} with ρ̄(σ₀) of distinct eigenvalues. Let Ẽ/E be cut out by the classes. Either a lift σ̃₀ works, or φ(σ₁σ̃₀) = φ(σ₁) + φ(σ̃₀) for σ₁ ∈ Gal(Ẽ/E) and the span of φ(Gal(Ẽ/E)) is all of ad⁰ρ̄(1), by irreducibility, so some σ₁ gives π_{σ₀} ∘ φ(σ₁σ̃₀) ∘ i_{σ₀} ≠ 0 (taylor-wiles-local-cohomology).",
+    "Chebotarev gives infinitely many v with Frob_v = σ₁σ̃₀ in Gal(Ẽ/F).",
+    "#Q_N is bounded by the dimension of the dual Selmer group, which is independent of N; enlarge Q_N to exactly r places if needed (Gee's r ≥ 1 + [F : ℚ] − #T)."
+   ],
+   "acceptance": [
+    "r = 0 when the dual Selmer group already vanishes, and then Q_N = ∅ works for all N.",
+    "The same argument fails for p = 2 (taylor-wiles-local-cohomology), and KW II use dyadic-taylor-wiles-primes instead.",
+    "The image hypothesis is used twice: for H¹(Gal(E/F), ad⁰(1)) = 0 (R02.6), and for the irreducibility of ad⁰ρ̄(1) as a Gal(E/F)-module in the spanning step. A theorem that assumes a different hypothesis (adequacy, enormous image) must reprove both."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-datum",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-local-cohomology",
+    "GlobalGaloisDeformations:R04.5/image-hypotheses",
+    "ArithmeticGaloisDuality:R02.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 5.3 and its proof, pp. 47–48; Lemma 5.2(1), p. 47",
+     "match": "KW II's form."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Proposition 5.10 and its proof, pp. 38–39",
+     "match": "Gee's form and the Chebotarev argument transcribed above."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Taylor–Wiles primes"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.5/taylor-wiles-generator-count",
+   "parentStageId": "GlobalGaloisDeformations:R04.5",
+   "realises": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "title": "Generator counts at Taylor–Wiles levels",
+   "kind": "theorem",
+   "statement": "For the Q_N of odd-taylor-wiles-primes, the framed ring R^{□,ψ}_{S∪Q_N} is generated over R^{□,loc,ψ}_S by |Q_N| + |S| − 1 = h¹_{{L_v^⊥}}(S, (Ad⁰)*(1)) + |S| − 1 elements, in KW II's conventions: S contains the infinite places, with framing at every v ∈ S and no condition at Q_N. In Gee's conventions (T finite, framing at T), R^□_{Q_N} is generated over R^loc by #T − 1 − [F : ℚ] + r elements. The count is independent of N.",
+   "hypotheses": [
+    "The two conventions frame different sets of places and are not identified here; each count is used with its own local ring.",
+    "Wiles' formula (Greenberg–Wiles) is ArithmeticGaloisDuality R02.5."
+   ],
+   "proofSteps": [
+    "R04.3/relative-tangent-space and local-to-global-presentation give the number of generators as the dimension of the relative tangent space (KW II Lemma 4.4).",
+    "Wiles' formula (KW II §4.1.6, (2)) with the local terms at v ∈ Q_N from taylor-wiles-local-cohomology, h¹(G_v, ad⁰) − h⁰(G_v, ad⁰) = 1, and the vanishing dual Selmer group of odd-taylor-wiles-primes give the count (KW II Proposition 5.5)."
+   ],
+   "acceptance": [
+    "The count is |Q_N| + |S| − 1, not larger: the dual Selmer term is killed exactly by the choice of Q_N.",
+    "p = 2 differs: KW II Lemma 5.10(e) gives 2 + 2|Q_n| − 1 generators for R^□_{S∪Q_n}, with determinant fixed only on S (R04.4/determinant-fixed-on-S).",
+    "Independence of N is what allows patching (R04.6)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
+    "GlobalGaloisDeformations:R04.3/relative-tangent-space",
+    "GlobalGaloisDeformations:R04.3/local-to-global-presentation",
+    "ArithmeticGaloisDuality:R02.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Proposition 5.5, p. 48",
+     "match": "KW II's count."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Proposition 5.10, last bullet, p. 38",
+     "match": "Gee's count."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.5/dyadic-linear-disjointness",
+   "parentStageId": "GlobalGaloisDeformations:R04.5",
+   "realises": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "title": "Linear disjointness for dyadic auxiliary primes",
+   "kind": "lemma",
+   "statement": "Let p = 2, ρ̄ with non-solvable image, M_n = ℚ(μ_{2^n}) with totally real subfield M_n⁺ = ℚ(x_n), x_n = (ε_n + ε_n^{−1})/2, y_n = (x_n + 1)/2 = x_{n+1}², and n₀ ≥ 2 the largest n with M_n⁺ ⊆ F. For n > n₀ let κ_n ∈ H¹(G_F, μ_{2^n}) be the Kummer class of y_{n₀}, F_n = F(μ_{2^n}), F̃_n/F_n the extension it cuts out, K the splitting field of Ad ρ̄, and L the splitting field over K of the image of H¹(G_{F,S}, Ad ρ̄). Then: (Lemma 5.7) for Ω ∋ μ_{p^n} and 1 ≤ m ≤ n, [Ω(y^{1/p^m}) : Ω] = p^a with a ≥ 1 implies [Ω(y^{1/p^n}) : Ω] = p^{a+n−m}; (Lemma 5.8) F_{n₀}(y_{n₀}^{1/4})/F is dihedral of degree 8; (Lemma 5.9) F̃_n/F_n is cyclic of degree 2^{n−1} with quadratic subextension F_n(y_{n₀}^{1/4}), and κ_n is unramified outside S of order divisible by 2^{n−1}; (Proposition 5.6) L_n = L(μ_{2^n}) and F̃_n are linearly disjoint over F_n.",
+   "hypotheses": [
+    "Kummer theory over fields containing μ_{2^n} is used without further supplier; unramifiedness of x_n away from 2 uses the minimal polynomials R_n(X) = R_{n−1}(2X² − 1), with R_2 = X and R_3 = 2X² − 1."
+   ],
+   "proofSteps": [
+    "Lemma 5.7 is standard Kummer theory (KW II leave it to the reader).",
+    "Lemma 5.8: F(√y_{n₀}) = F·M_{n₀+1}⁺ is totally real quadratic and disjoint from the CM field F(i) = F_{n₀}, so the degree is 8 by Lemma 5.7, and Gal(F(i)/F) inverts μ₄.",
+    "Lemma 5.9(2): x_n is a unit away from 2, since x_n^{−1} is integral of norm a power of 2, from R_n(0) = 1 for n ≥ 4.",
+    "Proposition 5.6: K/F is simple non-cyclic and F̃_n/F is solvable, so they are disjoint. L_n/K_n is abelian of exponent 2, so it suffices that K_n(y_{n₀}^{1/4}) ⊄ L_n; that would make Gal(F_n(y_{n₀}^{1/4})/F) abelian, contradicting Lemma 5.8."
+   ],
+   "acceptance": [
+    "F = ℚ: n₀ = 2 (M₂⁺ = ℚ, M₃⁺ = ℚ(√2) ⊄ ℚ), and y₂ = (x₂ + 1)/2 = 1/2.",
+    "R_4(X) = R_3(2X² − 1) = 2(2X² − 1)² − 1 = 8X⁴ − 8X² + 1, so R_4(0) = 1 and x_4 is a unit away from 2.",
+    "For p > 2 none of this is needed: Taylor–Wiles primes come from odd-taylor-wiles-primes."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.5/image-hypotheses",
+    "ArithmeticGaloisRepresentations:R01.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§5.5.1, Proposition 5.6 and Lemmas 5.7–5.9, pp. 48–50",
+     "match": "The statements and proofs."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 5.9, p. 50",
+     "match": "The Kummer class."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
+   "parentStageId": "GlobalGaloisDeformations:R04.5",
+   "realises": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "title": "Existence of Taylor–Wiles primes for p = 2",
+   "kind": "theorem",
+   "statement": "Let p = 2, F totally real, S ⊇ {∞, places above 2, ramified places of ρ̄}, and ρ̄ with non-solvable image. For every n > n₀ there is a finite set Q_n of places with: (a) #Q_n = h¹(S, Ad) − 2; (b) for v ∈ Q_n, N(v) ≡ 1 mod 2^n, ρ̄ unramified at v with distinct Frobenius eigenvalues; (c) v splits in F̃_n/F, h⁰(D_v, Ad) = 2 and h¹_{Q_n-split}(S, Ad) = 2; (d) h¹_{S-split}(Q_n, Ad) = 2 − Σ_{v∈S} h⁰(D_v, Ad) + 2|Q_n|; (e) R^□_{S∪Q_n} is generated over R^{□,loc,ψ}_S by 2 + 2|Q_n| − 1 elements; (f) G_n = Gal(F^S_{Q_n}/F) has G_n/2^{n−2} ≅ (ℤ/2^{n−2})^t; (g) t = 2 − |S| + |Q_n|; (h) [h¹_{S-split}(Q_n, Ad) − t] + [Σ_{v∈S} h⁰(D_v, Ad) − h⁰(G_F, Ad)] = |Q_n| + |S| − 1.",
+   "hypotheses": [
+    "The dyadic cohomology inputs are KW II Lemma 5.2(2) (H¹(Gal(KF_m/F), Ad) = H¹(F_m/F, Z), of dimension 2 for m > n₀) and Lemma 4.3(5) (H¹(SL_2(𝔽_{2^r}), Ad) = 0, and the only submodules of Ad are 0, Z, Ad⁰, Ad): the first is ArithmeticGaloisDuality R02.6, the second ArithmeticGaloisRepresentations R01.4.",
+    "Unlike p > 2, the dual Selmer group is not killed; the count works with Ad (not Ad⁰) and with the twisting group G_n, which R04.4/twisting-action and determinant-twist-torsor then quotient out."
+   ],
+   "proofSteps": [
+    "For ψ ∈ H¹(G_F, Ad) nontrivial on G_{F̃_n}, find v ∉ S split in F̃_n with ρ̄(Frob_v) of distinct eigenvalues and ψ nonzero in H¹(G_{F_v}, Ad): by Chebotarev it suffices to find σ′ ∈ G_{F̃_n} with distinct eigenvalues and ψ(σ′) ∉ (σ′ − 1)Ad, using that the only nonzero irreducible submodule of Ad is Z (proof of Lemma 5.10, (1)).",
+    "ker(H¹(G_{F,S}, Ad) → H¹(G_{F̃_n}, Ad)) = H¹(F_n/F, Z), of dimension 2 (Proposition 5.6, Lemma 5.2); apply the previous step to a complement, giving (a)–(c).",
+    "(d) is Wiles' formula (3) with h¹(D_v, Ad) − h⁰(D_v, Ad) = h⁰(D_v, Ad) for v ∈ Q_n; (e) follows by Lemma 4.4.",
+    "(f)–(g): Wiles' formula for ℤ/2^n and ℤ/2 gives t = h¹_{S-split}(Q_n, 𝔽) = 2 + |Q_n| − |S|; κ_n ∈ H¹_{Q_n-split}(S, μ_{2^n}) has order divisible by 2^{n−1}, so 2^{n(2+|Q_n|−|S|)−2} divides #H¹_{S-split}(Q_n, ℤ/2^n), which is generated by t elements."
+   ],
+   "acceptance": [
+    "Lemma 5.3 (p odd) may fail for p = 2 (Diamond), which is why this separate construction exists.",
+    "The cardinality h¹(S, Ad) − 2 is independent of n, as patching requires.",
+    "(h) is the numerical coincidence used in the 2-adic patching of KW II Proposition 9.3: generators minus twisting rank equals |Q_n| + |S| − 1."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-datum",
+    "GlobalGaloisDeformations:R04.5/dyadic-linear-disjointness",
+    "GlobalGaloisDeformations:R04.5/image-hypotheses",
+    "GlobalGaloisDeformations:R04.4/determinant-fixed-on-S",
+    "GlobalGaloisDeformations:R04.4/twisting-action",
+    "ArithmeticGaloisDuality:R02.6",
+    "ArithmeticGaloisDuality:R02.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§5.5.2, Lemma 5.10 and its proof, pp. 50–53",
+     "match": "The statement (a)–(h) and the proof transcribed above."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 5.10(f)–(g), p. 51",
+     "match": "The twisting group."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Dyadic auxiliary primes"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
+   "parentStageId": "GlobalGaloisDeformations:R04.5",
+   "realises": [
+    "GlobalGaloisDeformations:R04.5"
+   ],
+   "title": "Inertia at Taylor–Wiles places and the Δ_Q-module structure",
+   "kind": "theorem",
+   "statement": "For v ∈ Q_N, the universal deformation over R̄^ψ_{S∪Q_N} restricted to D_v is γ_{α_v} ⊕ γ_{β_v}, with γ_{α_v}, γ_{β_v} characters of D_v that are residually unramified with Frob_v ↦ α_v, β_v, and γ_v := γ_{α_v}|I_v = γ_{β_v}^{−1}|I_v factoring through Δ_v. This makes R̄^ψ_{S∪Q_N} (and R̄^{□,ψ}_{S∪Q_N}) an 𝒪[Δ_{Q_N}]-algebra, whose quotient by the augmentation ideal is R̄^ψ_S (R̄^{□,ψ}_S). For p = 2, the twisting action of G*_{n,2} and the Δ_{Q_n}-action satisfy a_χ ∘ δ = χ(δ)·(δ ∘ a_χ) (KW II Lemma 5.12).",
+   "hypotheses": [
+    "The local statement is LocalGaloisDeformationRings R08.2/taylor-wiles-local-ring (Gee Lemma 3.33: R^□ ≅ 𝒪⟦x, y, B, u⟧/((1 + u)^{p^m} − 1), diagonalisable Frobenius). The quotient statement is R04.4/enlarging-ramification.",
+    "The eigenvalue choice α_v of the datum singles out γ_{α_v}."
+   ],
+   "proofSteps": [
+    "Hensel's lemma splits the characteristic polynomial of ρ^univ(Frob_v) into factors lifting (X − α_v)(X − β_v), and the local ring of R08.2 shows ρ^univ|D_v is the sum of the two characters.",
+    "Tame inertia acts through the p-part Δ_v of k(v)^× with inverse characters on the two lines, since the determinant is fixed and unramified at v.",
+    "Killing the augmentation ideal makes inertia act trivially at Q_N, which is R̄^ψ_S (R04.4/enlarging-ramification).",
+    "Lemma 5.12: δ acts by multiplication by γ_v(δ), and a_χ(γ_v(δ)) = χ(δ)γ_v(δ)."
+   ],
+   "acceptance": [
+    "Q = ∅: 𝒪[Δ_∅] = 𝒪, and the statement is empty.",
+    "The Δ_Q-action depends on the choice of α_v; swapping α_v and β_v inverts it.",
+    "Freeness of the corresponding Hecke modules over 𝒪[Δ_Q] is not claimed here; it is GL2ModularityLifting R22.2."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-datum",
+    "LocalGaloisDeformationRings:R08.2/taylor-wiles-local-ring",
+    "GlobalGaloisDeformations:R04.4/enlarging-ramification",
+    "GlobalGaloisDeformations:R04.4/twisting-action"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/TaylorWiles",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§5.6, Proposition 5.11 and Lemma 5.12, p. 53",
+     "match": "The diagonal form and the Δ′_Q-module structure."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 5.12, p. 53",
+     "match": "The dyadic compatibility."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -2924,8 +3411,9 @@
    "supplier": "ArithmeticGaloisDuality:R02.4",
    "need": "Poitou–Tate duality and the nine-term exact sequence for finite G_{F,S}-modules, with local invariants and the product formula, used to identify H²_{S,T}(ad⁰) with the dual Selmer group and in the obstruction pairing.",
    "neededBy": [
+    "GlobalGaloisDeformations:R04.3/local-to-global-presentation",
     "GlobalGaloisDeformations:R04.3/relative-tangent-space",
-    "GlobalGaloisDeformations:R04.3/local-to-global-presentation"
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-local-cohomology"
    ],
    "status": "open",
    "note": "RS-08: R04.3 deduces the bounds from R02's cohomology."
@@ -2934,7 +3422,9 @@
    "supplier": "ArithmeticGaloisDuality:R02.5",
    "need": "The Selmer complex with local conditions (mapping fibre) for ad⁰ρ̄ with framings at T, its long exact sequence, and the Greenberg–Wiles dimension formula.",
    "neededBy": [
-    "GlobalGaloisDeformations:R04.3/relative-tangent-space"
+    "GlobalGaloisDeformations:R04.3/relative-tangent-space",
+    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-generator-count"
    ],
    "status": "open",
    "note": "R02.5 imports the mapping-fibre construction from SelmerIwasawaCohomology L2."
@@ -2943,9 +3433,11 @@
    "supplier": "ArithmeticGaloisDuality:R02.6",
    "need": "The global numerical inequalities of KW II §4 with infinity and p = 2 contributions visible (trace-zero module versus its dual), exported as named dimension results.",
    "neededBy": [
-    "GlobalGaloisDeformations:R04.3/relative-tangent-space",
+    "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound",
     "GlobalGaloisDeformations:R04.3/local-to-global-presentation",
-    "GlobalGaloisDeformations:R04.3/global-dimension-lower-bound"
+    "GlobalGaloisDeformations:R04.3/relative-tangent-space",
+    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
+    "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes"
    ],
    "status": "open",
    "note": "RS-08: 'deduced from R02.6's cohomological inequalities'."
@@ -2986,6 +3478,27 @@
    ],
    "status": "open",
    "note": "R03.3 is to state catenarity and excellence hypotheses explicitly; KW II §2.7 cite Matsumura for them."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+   "need": "The Chebotarev density theorem (in Dirichlet density form) for finite Galois extensions of number fields unramified outside a finite set, to realise a prescribed element of Gal(Ẽ/F) as Frob_v for infinitely many v.",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
+    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes"
+   ],
+   "status": "open",
+   "note": "Tau Ceti Chebotarev Layer 10 (Dirichlet-density Chebotarev); the natural-density form of Layer 14 is not needed."
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.4",
+   "need": "Dickson's classification for the residual images used here: images containing SL_2(𝔽_p) have adjoint image PSL_2 or PGL_2(𝔽_{p^s}) with abelianisation of order ≤ 2; non-solvable 2-dimensional mod-2 images have projective image SL_2(𝔽_{2^r}), r > 1; and H¹(SL_2(𝔽_{2^r}), M_2(𝔽)) = 0 with the submodule list 0, Z, Ad⁰, Ad (KW II Lemma 4.3(5)).",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.5/image-hypotheses",
+    "GlobalGaloisDeformations:R04.5/dyadic-linear-disjointness",
+    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes"
+   ],
+   "status": "open",
+   "note": "R01.4 owns finite subgroups of GL_2/PGL_2 (as for PAPER-NEWTON-THORNE-21-B items 53 and 55)."
   }
  ],
  "coverage": [
@@ -3015,10 +3528,9 @@
   },
   {
    "stageId": "GlobalGaloisDeformations:R04.5",
-   "status": "not_read",
-   "remaining": [
-    "Taylor–Wiles auxiliary primes (RS-08 narrowed)."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 keeps for R04.5: actual Chebotarev auxiliary-prime existence with prescribed congruences, eigenlines and image hypotheses, instantiating R02.6's conditional dual-Selmer calculation (never the reverse). All planned (8 nodes): Taylor–Wiles data, the three image hypotheses kept distinct, local cohomology at Taylor–Wiles places, existence for p > 2 in KW II's and Gee's forms with the uniform bound, generator counts, the dyadic linear-disjointness lemmas and KW II Lemma 5.10 for p = 2, and the inertia action with the Δ_Q-module structure. Adequacy and enormous image are left to G7/G8. Chebotarev is requested from Tau Ceti; Dickson and H¹(SL_2(𝔽_{2^r}), Ad) = 0 from ArithmeticGaloisRepresentations R01.4."
   },
   {
    "stageId": "GlobalGaloisDeformations:R04.6",

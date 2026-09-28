@@ -2,8 +2,8 @@
 
 This blueprint covers stages R04.1–R04.6, G7 and G8, within the boundaries of the RS-08 restructure (accepted). This
 blueprint now plans **R04.1 (deformation functors)**, **R04.2 (representability and universal representations)**,
-**R04.3 (local conditions and global presentations)** and **R04.4 (restriction, twisting and change of problem)**, all
-source-decomposed. The other stages are not yet read.
+**R04.3 (local conditions and global presentations)**, **R04.4 (restriction, twisting and change of problem)** and
+**R04.5 (Taylor–Wiles auxiliary primes)**, all source-decomposed. The other stages are not yet read.
 
 The sources are all free:
 - Gee, *Modularity lifting theorems* (Essential Number Theory 2022; arXiv:2202.05818v2), §3.
@@ -358,6 +358,60 @@ This is Newton–Thorne's item 60.
 - The points are exactly those lifts.
 - Excellence and equidimensionality are requested from DeformationAndDerivedPatchingAlgebra R03.3.
 
+## Layer R04.5: Taylor–Wiles auxiliary primes
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/TaylorWiles`.
+
+RS-08 keeps the actual Chebotarev prime existence, with prescribed congruences, eigenlines and image hypotheses. It
+instantiates ArithmeticGaloisDuality R02.6's conditional dual-Selmer calculation, and never the reverse. The sources are
+KW II §5 (final version) and Gee §5.6–5.10. The case p > 2 and the case p = 2 are kept separate, as in KW II.
+
+**Definition: Taylor–Wiles data** (`TaylorWilesDatum`; node `taylor-wiles-datum`; Gee §5.6, KW II Lemma 5.3).
+- Q is disjoint from S, with N(v) ≡ 1 mod p^N and distinct eigenvalues of ρ̄(Frob_v).
+- A chosen eigenvalue α_v (an eigenline) is part of the datum.
+- Δ_Q = ∏ (k(v)^×)_p, and there is no condition at Q.
+
+**Definition: the image hypotheses** (node `image-hypotheses`). Three hypotheses are kept distinct:
+- cyclotomic absolute irreducibility (KW II, p > 2);
+- Im ρ̄ ⊇ SL_2(𝔽_p) with p ≥ 5 (Gee);
+- non-solvable image (KW II, p = 2).
+
+Adequacy and enormous image belong to G7/G8. Dihedral ρ̄ induced from F(√p*) is absolutely irreducible but fails the
+first hypothesis.
+
+**Lemma: local cohomology at Taylor–Wiles places** (node `taylor-wiles-local-cohomology`; KW II Lemma 5.4, Gee p. 39).
+- h¹(G_v, ad⁰) = 2.
+- H¹(G_{k(v)}, ad⁰(1)) ≅ 𝔽 via π_v ∘ φ(Frob_v) ∘ i_v. The eigenvalue computation is checked in Lean.
+- For p = 2, classes with values in Ad⁰/Z are invisible (Diamond). In Lean: tr 1 = 0 in characteristic two.
+
+**Theorem: Taylor–Wiles primes, p odd** (node `odd-taylor-wiles-primes`; planet; KW II Lemma 5.3, Gee Proposition 5.10).
+- For every N there is Q_N of fixed size r whose dual Selmer group vanishes.
+- The proof uses the inflation–restriction vanishing, the spanning argument and Chebotarev.
+
+**Theorem: generator counts** (node `taylor-wiles-generator-count`; KW II Proposition 5.5, Gee Proposition 5.10). There
+are |Q_N| + |S| − 1 generators in KW II's conventions, or #T − 1 − [F : ℚ] + r in Gee's. The conventions are kept
+apart.
+
+**Lemma: dyadic linear disjointness** (node `dyadic-linear-disjointness`; KW II Proposition 5.6 and Lemmas 5.7–5.9).
+- Kummer degrees.
+- F_{n₀}(y_{n₀}^{1/4})/F is dihedral of degree 8.
+- F̃_n/F_n is cyclic of degree 2^{n−1}.
+- L_n and F̃_n are disjoint.
+- In Lean: R₄ = 8X⁴ − 8X² + 1.
+
+**Theorem: Taylor–Wiles primes, p = 2** (node `dyadic-taylor-wiles-primes`; planet; KW II Lemma 5.10).
+- #Q_n = h¹(S, Ad) − 2, and v splits in F̃_n.
+- R^□_{S∪Q_n} has 2 + 2|Q_n| − 1 generators.
+- G_n/2^{n−2} ≅ (ℤ/2^{n−2})^t with t = 2 − |S| + |Q_n|.
+
+**Theorem: inertia at Taylor–Wiles places** (node `taylor-wiles-inertia-action`; KW II Proposition 5.11 and Lemma 5.12).
+- ρ^univ|D_v = γ_{α_v} ⊕ γ_{β_v}, which gives an 𝒪[Δ_Q]-algebra whose augmentation quotient is R_S.
+- For p = 2, a_χ ∘ δ = χ(δ)(δ ∘ a_χ).
+
+**New requests:**
+- Tau Ceti Chebotarev Layer 10.
+- ArithmeticGaloisRepresentations R01.4: Dickson, and H¹(SL_2(𝔽_{2^r}), Ad) = 0.
+
 ## Acceptance for R04.1–R04.2
 
 - **Functors:** the functors are defined without representability.
@@ -384,7 +438,6 @@ cotangent map is surjective, and Nakayama applies.
 
 ## Remaining work
 
-- **R04.5:** Taylor–Wiles primes.
 - **R04.6:** exports for patching.
 - **G7 and G8:** the polarized and variable-determinant problems of ACC+ §6.2.
 
