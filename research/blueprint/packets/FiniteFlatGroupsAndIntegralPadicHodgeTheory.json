@@ -11,7 +11,7 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
   ],
   "status": "partial",
-  "summary": "Fifth checkpoint. R07.1 is closed; R07.2 (Dieudonné theory over perfect fields) and R07.3 (Fontaine–Laffaille theory at e = 1) are partial from checkpoints 3 and 4. This checkpoint plans R07.4, Breuil–Kisin modules (partial): the coefficient rings 𝔖, 𝒪_ℰ, 𝔖^ur, 𝒪 and S (with Kisin's erratum E.3); Kisin modules of finite E-height and their torsion categories; étale φ-modules over 𝒪_ℰ for the Kummer tower with coefficients; Kisin's (φ, N_∇)-modules over the open disc, weak admissibility as slope 0 and the fully faithful embedding of weakly admissible modules into Kisin modules up to isogeny; full faithfulness of 𝔐 ↦ 𝒪_ℰ ⊗ 𝔐 with the repaired proof (E.4); uniqueness and stability of 𝔖-lattices of E-height ≤ h; semistable implies finite E-height and weakly admissible implies admissible; Breuil's conjecture on restriction to G_{K∞}; the Barsotti–Tate equivalence, Breuil's S-modules and the Tate module via A_cris; Fontaine's conjecture (crystalline weights {0, 1} are Barsotti–Tate, every p); Kisin's classification of p-divisible groups (p > 2, and up to isogeny at p = 2) and of finite flat group schemes (p > 2); the multiplicative/étale dictionary; full faithfulness of restriction on finite flat representations; and the dyadic classification (Kim; Kisin for connected groups). Descent data, weights beyond {0, 1}, the Wach comparison and the generic-fibre theory with coefficients remain; R07.5–R07.6 remain. Nine source issues are added, five new (Kisin 2006 and 2009) and four of Kisin's own errata.",
+  "summary": "Sixth checkpoint. R07.1 is closed; R07.2 (Dieudonné theory over perfect fields), R07.3 (Fontaine–Laffaille theory at e = 1) and R07.4 (Breuil–Kisin modules) are partial from checkpoints 3–5. This checkpoint plans R07.5, local residual types (partial): tame inertia and its fundamental characters; Serre's computation of the inertia action on the p-torsion of a formal group of height h and on E[p] for good ordinary, good supersingular and multiplicative reduction (Serre 1972, Propositions 9–13); peu and très ramifiée representations; finite flat extensions of ℤ/p by μ_p and their Kummer classes; Serre's criterion that a representation with det = χ̄ on inertia is finite exactly in the level-2 fundamental or peu ramifiée cases (Serre 1987, Propositions 3–4); and the dyadic dichotomy for (1 u; 0 1). It starts R07.6 (partial) with the finite flatness of abelian-scheme torsion, requested by EllipticCurveModularity. General e > 1, the general p = 2 criterion, Fontaine's ramification bound and the deformation calculations remain. One new source issue (E12, a misnumbered reference in Serre 1987).",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -246,6 +246,13 @@
         "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
         "provides": "Finitely generated modules.",
         "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.HasGoodReduction",
+        "kind": "definition",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+        "provides": "A Weierstrass curve over the fraction field of a DVR has good reduction: it is minimal and its discriminant has valuation 1 (is a unit).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
       }
     ]
   },
@@ -289,7 +296,8 @@
         "§11.3 (p. 70): Corollary 85.",
         "§7.2–7.4 (pp. 35–37): Theorems 32–34 and the construction 7.3.1 of the étale group attached to a π₁-action.",
         "§10.2–10.3 (pp. 57–62): formal groups, formal Lie groups and their dimension, p-divisible formal Lie groups, Theorem 70 (Serre–Tate) with proof.",
-        "§11.4–11.7 (pp. 71–75): Theorem 88 (Tate–Sen), Theorem 91 (Tate), Corollaries 92–94."
+        "§11.4–11.7 (pp. 71–75): Theorem 88 (Tate–Sen), Theorem 91 (Tate), Corollaries 92–94.",
+        "§9.2, example (6) (p. 56): the p-divisible group of an abelian scheme (re-read for R07.6)."
       ]
     },
     {
@@ -464,6 +472,36 @@
         "§1 (pp. 1–3): Conjecture 1.1 and the history of its proofs (Breuil, Kisin, Lau, Liu).",
         "§2 (pp. 4–5): Theorem 2.3 (the results of Kisin used) and Remark 2.4.",
         "§4 (pp. 10–11): Theorem 4.1, Proposition 4.2, Corollaries 4.3–4.4, the proof strategy and Proposition 4.5."
+      ]
+    },
+    {
+      "id": "Serre72",
+      "title": "Propriétés galoisiennes des points d'ordre fini des courbes elliptiques",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Invent. Math. 15 (1972), 259–331; the Göttingen (GDZ) digitisation of the published article, 74 PDF pages (printed page = PDF page + 257). The scan has no text layer, so excerpts are transcribed from the page images; accessed 2026-09-28",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0015/LOG_0024.pdf",
+      "sha256": "cfa08081727dfdeb8aa7ecc5f11592e2cb31bb1cf207e4b00a75f1e9409048b1",
+      "readSections": [
+        "Introduction and table of contents (pp. 259–262).",
+        "§1.1–1.8 (pp. 262–269): tame inertia, Proposition 1 (θ : I_t ≅ lim μ_d), the fundamental characters (1.7), Propositions 6–8.",
+        "§1.9 (pp. 269–270): Proposition 9 and Corollaries 1–3 (formal groups of height h, e = 1).",
+        "§1.10 (pp. 271–272): read for scope (general e, Newton polygons, Proposition 10); not planned.",
+        "§1.11 (pp. 272–276): elliptic curves with good reduction, Propositions 11–12 and their corollaries, the remarks on e > 1.",
+        "§1.12 (pp. 276–277): multiplicative reduction, Proposition 13, its corollary and the criterion for case b).",
+        "§1.13 (pp. 277–278): Raynaud's result, read for context."
+      ]
+    },
+    {
+      "id": "Serre87",
+      "title": "Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Duke Math. J. 54 (1987), 179–230; the Collège de France scan of the published article with its OCR text layer (printed page = PDF page + 178); accessed 2026-09-28",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+      "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038",
+      "readSections": [
+        "§2.1–2.4 (pp. 182–187): tame inertia, Proposition 1, the weight in levels 1 and 2, peu and très ramifiée (2.4.6)–(2.4.9) with the remarks.",
+        "§2.5–2.8 (pp. 187–190): Proposition 2, the values of k and the p = 2 example (2.6), Propositions 3 and 4 with the proof of Proposition 4.",
+        "§4.5 (pp. 205–207): Lemmas 3–4 and the remarks on group schemes of type (p, p) over ℤ, read for context."
       ]
     }
   ],
@@ -5783,6 +5821,674 @@
           "how": "The integral classification at p = 2 (Kim, Lau, Liu; requested from R07.4)."
         }
       ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "title": "Tame inertia and its fundamental characters",
+      "kind": "construction",
+      "statement": "For d prime to p and a uniformiser x of K_nr, K_d = K_nr(x^{1/d}) is totally and tamely ramified of degree d, and θ_d(s) = s(x^{1/d})/x^{1/d} defines an isomorphism Gal(K_d/K_nr) → μ_d independent of x and of the root; the θ_d assemble to an isomorphism θ : I_t → lim_d μ_d (transition maps α ↦ α^{d′}). For q = p^n, the fundamental characters of level n are the n characters I_t → μ_{q−1} = F_q^* → k̄^* obtained from θ_{q−1} and the n embeddings of F_q in k̄; they are θ_{q−1}^{p^i}, 0 ≤ i < n, and θ_{q−1}^{1+p+⋯+p^{n−1}} = θ_{p−1}. I_t acts on μ_p through θ_{p−1}^e; in particular the mod-p cyclotomic character restricts to θ_{p−1} on I_t when e = 1. For a continuous ρ : G → GL₂(F̄_p), I_p acts trivially on the semisimplification of ρ, and I_t acts on it through two characters φ, φ′ that are either both of level 1 or of level 2 and conjugate (φ′ = φ^p, φ = φ′^p).",
+      "hypotheses": [
+        "K is a field of characteristic 0, complete for a discrete valuation v with v(K^*) = ℤ, with perfect residue field k of characteristic p; e = v(p) is its absolute ramification index. K_s ⊃ K_t ⊃ K_nr ⊃ K are a separable closure and the maximal tamely ramified and unramified subextensions; G = Gal(K_s/K), I = Gal(K_s/K_nr), I_p = Gal(K_s/K_t) and I_t = I/I_p (Serre 1972, §1.2).",
+        "Characters of I_t of level 1 are the powers of θ_{p−1}; a Frobenius lift s acts on I_t by u ↦ u^p (Serre 1987, §2.1)."
+      ],
+      "proofSteps": [
+        "K_d/K_nr is a Kummer extension, totally ramified of degree d; θ_d is an isomorphism, independent of x because units of K_nr have d-th roots in K_nr (Serre 1972, §1.3).",
+        "K_t is the union of the K_d for (d, p) = 1, so I_t = lim Gal(K_d/K_nr) ≅ lim μ_d (Serre 1972, Proposition 1).",
+        "Fundamental characters: θ_{q−1} composed with the embeddings of F_q in k̄; the norm F_{q}^* → F_p^* is x ↦ x^{1+p+⋯+p^{n−1}}, which gives θ_{q−1}^{(q−1)/(p−1)} = θ_{p−1} (Serre 1972, §1.7).",
+        "μ_p: for z ∈ μ_p, z ≠ 1, v(z − 1) = e/(p − 1), and z ↦ z − 1 embeds μ_p G-equivariantly in m_α/m_α^+ with α = e/(p − 1), on which I_t acts by θ^e_{p−1} (Serre 1972, Propositions 7–8).",
+        "Semisimplification: I_p is pro-p, so it fixes a nonzero vector of every F̄_p-representation and acts trivially on V^ss; conjugation by a Frobenius lift raises I_t to the p-th power, so {φ, φ′} is stable under φ ↦ φ^p, which forces level 1 or conjugate level 2 (Serre 1987, Proposition 1)."
+      ],
+      "acceptance": [
+        "K = ℚ_p (e = 1): I_t acts on μ_p by θ_{p−1}, which is surjective onto F_p^*; for K = ℚ_p(ζ_p) (e = p − 1) it acts by θ_{p−1}^{p−1} = 1, as μ_p ⊂ K requires.",
+        "The two fundamental characters of level 2 are ψ = θ_{p²−1} and ψ^p, with ψ^{p+1} = θ_{p−1}."
+      ],
+      "prerequisites": [
+        "mathlib:Field.absoluteGaloisGroup",
+        "mathlib:IsDiscreteValuationRing"
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.3, Proposition 1, p. 263 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "Proposition 1. Les isomorphismes θ_d définissent un isomorphisme θ: I_t → lim μ_d.",
+          "match": "The structure of tame inertia."
+        },
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.7, p. 267 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "On appelle caractère fondamental de niveau n tout caractère obtenu en composant le caractère θ_{q−1}: I_t → μ_{q−1} = F_q^*, avec un automorphisme du corps F_q",
+          "match": "Fundamental characters."
+        },
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.8, Proposition 8, p. 269 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "Le caractère χ donnant l'action de I_t sur μ_p est la puissance e-ième du caractère fondamental θ_{p−1} de niveau 1.",
+          "match": "The cyclotomic character on tame inertia."
+        },
+        {
+          "sourceId": "Serre87",
+          "locator": "§2.1, Proposition 1, p. 183",
+          "excerpt": "Les caractères p et p' donnant l'action de I t sur VS' sont de niveau 1 ou 2 . S'ils sont de niveau 2, ils sont conjugués",
+          "match": "Levels of the characters of a two-dimensional representation (OCR: p, p′ are φ, φ′)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/TameInertia",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fundamental characters of tame inertia"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/formal-group-torsion-inertia",
+          "how": "The action of I_t on the p-torsion of a formal group."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-weight-two-criterion",
+          "how": "The tame types (level-2 fundamental, or 1 and χ̄) of a finite representation."
+        },
+        {
+          "where": "AlgebraicModularFormsAndSerreWeights:R15.4",
+          "how": "Serre's weight recipe is written in the fundamental characters of levels 1 and 2."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.FiniteFlat.tameInertia",
+          "role": "constructor",
+          "statement": "I_t = I/I_p as a profinite group."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.tameInertiaIso",
+          "role": "equivalence",
+          "statement": "θ : I_t ≅ lim_{(d,p)=1} μ_d."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.fundamentalCharacter",
+          "role": "constructor",
+          "statement": "The level-n fundamental character attached to an embedding F_{p^n} → k̄."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.fundamentalCharacter_pow_p",
+          "role": "relation",
+          "statement": "The level-n fundamental characters are θ_{q−1}^{p^i}, 0 ≤ i < n, permuted by φ ↦ φ^p."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.cyclotomic_restrict_tameInertia",
+          "role": "characterisation",
+          "statement": "χ̄|_{I_t} = θ_{p−1}^e."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.FiniteFlat.fundamentalCharacter_one_surjective",
+          "kind": "value",
+          "statement": "θ_{p−1} : I_t → F_p^* is surjective, and θ_{p−1}^{p−1} = 1."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.fundamentalCharacter_two_norm",
+          "kind": "value",
+          "statement": "For ψ = θ_{p²−1}: ψ^{p+1} = θ_{p−1} and ψ^{p²} = ψ, ψ^p ≠ ψ."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.cyclotomic_restrict_ne_one",
+          "kind": "non-example",
+          "statement": "For e < p − 1 the restriction χ̄|_{I_t} = θ_{p−1}^e is not trivial, so μ_p is ramified."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.theta_one",
+          "kind": "degenerate",
+          "statement": "d = 1: θ_1 is the trivial character and K_1 = K_nr."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/formal-group-torsion-inertia",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "title": "Inertia on the p-torsion of a formal group of height h (e = 1)",
+      "kind": "theorem",
+      "statement": "Let e = 1, A the ring of integers of K, F a one-parameter formal group law over A of finite height h, q = p^h, and V = {x ∈ m_s : [p](x) = 0} the p-torsion of F (an F_p-vector space of dimension h with its G-action). Then V carries a structure of F_q-vector space of dimension 1 such that (i) every s ∈ G acts σ_q-semilinearly, where σ_q is the image of s in Gal(F_q/F_p) through Gal(k_s/k); (ii) I_p acts trivially and I_t acts through the fundamental character θ_{q−1} of level h. Consequently the image of I in GL(V) is F_q^*, cyclic of order q − 1; if k = F_p, the image of G is the normaliser of the Cartan subgroup F_q^* in GL_h(F_p); and over k̄ the h characters of I_t on k̄ ⊗ V are the h fundamental characters of level h.",
+      "hypotheses": [
+        "K is a field of characteristic 0, complete for a discrete valuation v with v(K^*) = ℤ, with perfect residue field k of characteristic p; e = v(p) is its absolute ramification index. K_s ⊃ K_t ⊃ K_nr ⊃ K are a separable closure and the maximal tamely ramified and unramified subextensions; G = Gal(K_s/K), I = Gal(K_s/K_nr), I_p = Gal(K_s/K_t) and I_t = I/I_p (Serre 1972, §1.2).",
+        "e = 1 is used: v(x) = 1/(q − 1) for x ∈ V ∖ 0 requires the coefficients a_i of [p] to be divisible by p exactly for i < q."
+      ],
+      "proofSteps": [
+        "Height h means a_i ≡ 0 mod m for i < q and a_q ≢ 0 mod m in [p](X) = Σ a_i X^i, a_1 = p (Serre 1972, §1.9).",
+        "For x ∈ V ∖ 0, p + a_2 x + ⋯ + a_q x^{q−1} + ⋯ = 0, and comparing valuations gives v(x) = 1/(q − 1); set α = 1/(q − 1). Since F(x, y) ≡ x + y mod m_α^+, reduction V → m_α/m_α^+ is an injective G-homomorphism, so I_p acts trivially and I_t acts by θ_{q−1} (Serre 1972, Propositions 6–7).",
+        "θ_{q−1} is surjective onto F_q^*, so V is stable under F_q^* inside the k̄-line m_α/m_α^+; as |V| = q it is an F_q-line, and s ∈ G acts σ_q-semilinearly (Proposition 6).",
+        "Corollaries 1–3: the image of I is F_q^*; for k = F_p every semilinear automorphism of the F_q-line is realised; over k̄ the h conjugates of θ_{q−1} appear."
+      ],
+      "acceptance": [
+        "h = 1 (the multiplicative formal group X + Y + XY): V = μ_p and I_t acts by θ_{p−1}, recovering tame-inertia-characters for e = 1.",
+        "h = 2: the image of I is the non-split Cartan subgroup F_{p²}^*, of order p² − 1."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/formal-lie-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.9, Proposition 9, p. 269 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "Il existe sur V une structure de F_q-espace vectoriel de dimension 1 jouissant des propriétés suivantes",
+          "match": "The proposition."
+        },
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.9, Corollaire 3, p. 270 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "Les h caractères donnant l'action de I_t sur V_1 sont les h caractères fondamentaux I_t → k_1^* de niveau h.",
+          "match": "Corollary 3."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/TameInertia",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/supersingular-torsion-inertia",
+          "how": "Applied to the height-2 formal group of a supersingular curve."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/ordinary-torsion-inertia",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "title": "Inertia on E[p] for good ordinary reduction",
+      "kind": "theorem",
+      "statement": "Let E have good reduction of height 1 (Ẽ ordinary). There is an exact sequence 0 → X_p → E_p → Ẽ_p → 0 of G-modules, X_p the kernel of reduction (cyclic of order p); in a basis (e₁, e₂) with X_p = F_p e₁ the image of G lies in the Borel subgroup (* *; 0 *), and I_t acts on X_p by θ_{p−1}^e and on Ẽ_p trivially. If e = 1: (a) the characters of I_t on the semisimplification of E_p are 1 and θ_{p−1}; (b) if I_p acts trivially, the image of I is cyclic of order p − 1, of the form (* 0; 0 1) in a suitable basis with e₁ ∈ X_p; (c) otherwise the image of I has order p(p − 1) and the form (* *; 0 1).",
+      "hypotheses": [
+        "K is a field of characteristic 0, complete for a discrete valuation v with v(K^*) = ℤ, with perfect residue field k of characteristic p; e = v(p) is its absolute ramification index. K_s ⊃ K_t ⊃ K_nr ⊃ K are a separable closure and the maximal tamely ramified and unramified subextensions; G = Gal(K_s/K), I = Gal(K_s/K_nr), I_p = Gal(K_s/K_t) and I_t = I/I_p (Serre 1972, §1.2).",
+        "E is an elliptic curve over K with good reduction over A (a Weierstrass model with coefficients in A and discriminant a unit), Ẽ its reduction over k and E_p = E(K_s)[p]."
+      ],
+      "proofSteps": [
+        "Ẽ(k̄) has a point of order p (Hasse invariant nonzero), so reduction E_p → Ẽ_p is onto a group of order p with kernel X_p of order p.",
+        "G acts on Ẽ_p through Gal(k_s/k), so χ_Y = 1 on I; det E_p = χ̄ (Weil pairing) restricts to θ_{p−1}^e on I_t (Proposition 8), so χ_X = θ_{p−1}^e (Serre 1972, Proposition 11).",
+        "e = 1: χ_X = θ_{p−1} is surjective onto F_p^*, so the image of I is a subgroup of (* *; 0 1) of order p − 1 or p(p − 1); the first case is (b), the second (c)."
+      ],
+      "acceptance": [
+        "Serre records no simple criterion to decide between (b) and (c); it is linked to the canonical lift of Ẽ (Serre 1972, p. 274, Remarque).",
+        "The determinant of E_p on I is θ_{p−1}^e, consistent with det = χ̄."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters",
+        "ArithmeticGaloisRepresentations:R01.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.11, Proposition 11, p. 273 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "Proposition 11 (bonne réduction de hauteur 1). On a χ_X = θ^e_{p−1} et χ_Y = 1.",
+          "match": "Proposition 11."
+        },
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.11, Corollaire, p. 274 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "Si I_p n'opère pas trivialement sur E_p, l'image de I dans GL(E_p) est d'ordre p(p−1).",
+          "match": "The corollary, case c)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/EllipticTorsion",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SerreWeightAndLevelOptimisation:R20.4",
+          "how": "The ordinary local shape of E[p] at good primes."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/supersingular-torsion-inertia",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "title": "Inertia on E[p] for good supersingular reduction",
+      "kind": "theorem",
+      "statement": "Let e = 1 and E have good reduction of height 2 (Ẽ supersingular). Then (a) I_p acts trivially on E_p; (b) E_p has a structure of F_{p²}-vector space of dimension 1 on which I_t acts through the fundamental character θ_{p²−1} of level 2; (c) the image of I in GL(E_p) is the non-split Cartan subgroup C, cyclic of order p² − 1; (d) the image of G is C or its normaliser N according as k contains F_{p²} or not. Over k̄ the characters of I_t on k̄ ⊗ E_p are the two fundamental characters of level 2; in particular E_p is irreducible already as an I-module.",
+      "hypotheses": [
+        "K is a field of characteristic 0, complete for a discrete valuation v with v(K^*) = ℤ, with perfect residue field k of characteristic p; e = v(p) is its absolute ramification index. K_s ⊃ K_t ⊃ K_nr ⊃ K are a separable closure and the maximal tamely ramified and unramified subextensions; G = Gal(K_s/K), I = Gal(K_s/K_nr), I_p = Gal(K_s/K_t) and I_t = I/I_p (Serre 1972, §1.2).",
+        "E is an elliptic curve over K with good reduction over A (a Weierstrass model with coefficients in A and discriminant a unit), Ẽ its reduction over k and E_p = E(K_s)[p]."
+      ],
+      "proofSteps": [
+        "Every point of E_p reduces to the neutral element of Ẽ (no point of order p), so t = x/y identifies E_p with the kernel of [p] on the formal group F of the Néron model, of height 2 since |E_p| = p² (Serre 1972, §1.11 (2)).",
+        "Apply formal-group-torsion-inertia with h = 2: (a)–(c), and the image of G is C when G acts F_{p²}-linearly (k ⊇ F_{p²}) and N otherwise (Serre 1972, Proposition 12).",
+        "Irreducibility: an I-stable line would carry a character of level 1, but θ_{p²−1} has level 2."
+      ],
+      "acceptance": [
+        "The image of I has order p² − 1, prime to p, so ρ̄|_I is tame.",
+        "For e > 1 the characters are powers of fundamental characters determined by the Newton polygon of [p] (Serre 1972, §1.10 and Remarque p. 275); not planned in this node."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/formal-group-torsion-inertia",
+        "ArithmeticGaloisRepresentations:R01.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.11, Proposition 12, p. 275 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "Proposition 12 (bonne réduction de hauteur 2). Supposons que e = 1. Alors: a) L'action de I_p sur E_p est triviale.",
+          "match": "Proposition 12."
+        },
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.11, Corollaire, p. 275 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "L'action de I_t sur k_1 ⊗ E_p est donnée par les deux caractères fondamentaux I_t → k_1^* de niveau 2.",
+          "match": "The corollary."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/EllipticTorsion",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Supersingular torsion and the non-split Cartan"
+      },
+      "uses": [
+        {
+          "where": "SerreWeightAndLevelOptimisation:R20.4",
+          "how": "The supersingular local shape of E[p] (level-2 fundamental characters)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/multiplicative-torsion-inertia",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "title": "Inertia on E[p] for multiplicative reduction",
+      "kind": "theorem",
+      "statement": "Let E have multiplicative reduction, v(j) = −m < 0, and q ∈ m the Tate parameter with j = 1/q + 744 + ⋯. Over an unramified extension K′/K with [K′ : K] ≤ 2, E ≅ E(q) = 𝔾_m/q^ℤ and there is an exact sequence 0 → μ_p → E_p → ℤ/p → 0. The image of I in GL(E_p) lies in (* *; 0 1), and the characters of I_t are 1 and θ_{p−1}^e. If e = 1: (a) the characters of I_t on the semisimplification are 1 and θ_{p−1}; (b) if I_p acts trivially the image of I is cyclic of order p − 1, (* 0; 0 1); (c) otherwise it has the form (* *; 0 1). Case (b) holds if and only if q has a p-th root in K_nr, which forces v(j) = −v(q) ≡ 0 mod p; so v(j) ≢ 0 mod p forces case (c).",
+      "hypotheses": [
+        "K is a field of characteristic 0, complete for a discrete valuation v with v(K^*) = ℤ, with perfect residue field k of characteristic p; e = v(p) is its absolute ramification index. K_s ⊃ K_t ⊃ K_nr ⊃ K are a separable closure and the maximal tamely ramified and unramified subextensions; G = Gal(K_s/K), I = Gal(K_s/K_nr), I_p = Gal(K_s/K_t) and I_t = I/I_p (Serre 1972, §1.2).",
+        "The Tate curve over K′ and the Kummer sequence of E(q) are requested from Tau Ceti EllipticCurves Layer 4."
+      ],
+      "proofSteps": [
+        "The Néron model has type (b_m); by Ogg, the smallest extension K′ making E ≅ E(q) is unramified of degree ≤ 2 (Serre 1972, §1.12, with footnote 3: K′ = K(√−c₆)).",
+        "E(q)[p] is an extension of ℤ/p by μ_p; its class is the Kummer class of q, so I acts through (θ^e_{p−1} *; 0 1) on the associated characters (Proposition 13).",
+        "e = 1: as for good ordinary reduction, the image of I has order p − 1 or p(p − 1).",
+        "Case (b): I_p acts trivially iff q^{1/p} ∈ K_t; since q ∈ K_nr and [K_t : K_nr] is prime to p, this holds iff q^{1/p} ∈ K_nr, and then p | v(q) = −v(j)."
+      ],
+      "acceptance": [
+        "The Tate curve over ℚ_p with v(q) = 1 and p odd: v(j) = −1 ≢ 0 mod p, so case (c) holds and E_p is très ramifiée in the sense of peu-tres-ramifiee.",
+        "If p | v(q), then q = p^{v(q)}u with u ∈ ℤ_p^* has the Kummer class of the unit u, so E_p is unramified or peu ramifiée (the level-lowering case)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters"
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.12, Proposition 13, pp. 276–277 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "Proposition 13 (mauvaise réduction de type multiplicatif). L'image de I dans GL(E_p) est contenue dans un sous-groupe de type (* *; 0 1).",
+          "match": "Proposition 13."
+        },
+        {
+          "sourceId": "Serre72",
+          "locator": "§1.12, p. 277 (transcribed from the page image; the GDZ scan has no text layer)",
+          "excerpt": "il faut et il suffit que q ait une racine p-ième dans K_nr. Noter que cette condition entraîne v(j) = −v(q) ≡ 0 (mod p).",
+          "match": "The criterion for case (b)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/EllipticTorsion",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SerreWeightAndLevelOptimisation:R20.4",
+          "how": "The multiplicative local shape of E[p], peu or très ramifiée by v(q) mod p."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/peu-tres-ramifiee",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "title": "Peu ramifiée and très ramifiée representations",
+      "kind": "definition",
+      "statement": "Let ρ : G_p = Gal(ℚ̄_p/ℚ_p) → GL(V) = GL₂(F̄_p) with I_p acting nontrivially. Then D = V^{I_p} is a G_p-stable line, G_p acts on D by θ₂ = χ̄^β ε₂ and on V/D by θ₁ = χ̄^α ε₁ with ε₁, ε₂ unramified, 0 ≤ α ≤ p − 2 and 1 ≤ β ≤ p − 1. In the case β = α + 1, let K be the field cut out by ρ(I) over K₀ = ℚ_p^nr and K_t = K₀(ζ_p) its maximal tame subextension; Kummer theory gives K = K_t(x₁^{1/p}, …, x_m^{1/p}) with x_i ∈ K₀^*/K₀^{*p}, p^m = [K : K_t]. ρ is peu ramifiée if v_p(x_i) ≡ 0 mod p for all i, i.e. the x_i can be chosen among the units of K₀, and très ramifiée otherwise. For p = 2 (χ̄ = 1, α = 0, β = 1) this applies to ρ = (1 u; 0 1) with u : G₂ → ℤ/2 ramified.",
+      "hypotheses": [
+        "Serre 1987 §2.4 works over ℚ_p; only ρ|_{G_p} matters, and the definition depends only on ρ|_I and on K₀ = ℚ_p^nr."
+      ],
+      "proofSteps": [
+        "V^{I_p} ≠ 0 since I_p is pro-p; it is a line because I_p acts nontrivially; it is G_p-stable because I_p is normal (Serre 1987, §2.4).",
+        "β = α + 1 gives Gal(K_t/K₀) = (ℤ/p)^*, K_t = K₀(ζ_p), and Gal(K/K_t) = ρ(I_p) elementary abelian with the cyclotomic action of Gal(K_t/K₀); Kummer theory with the cyclotomic action puts the Kummer generators in K₀^*/K₀^{*p} (2.4.6).",
+        "The condition (2.4.7) is independent of the choice of the x_i: the subgroup they generate in K₀^*/K₀^{*p} is determined by K, and v_p induces K₀^*/K₀^{*p} → ℤ/p."
+      ],
+      "acceptance": [
+        "Très ramifiée is possible only if ε₁ = ε₂, and then m = 1 or 2 (Serre 1987, §2.4, Remarque 1).",
+        "Only the case β = α + 1 carries the distinction; otherwise Serre's weight does not depend on the wild part."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters"
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre87",
+          "locator": "§2.4, (2.4.6)–(2.4.7), p. 186",
+          "excerpt": "nous dirons que l'extension K (ou la représentation pp ) est peu ramifiée si",
+          "match": "The definition (OCR: pp is ρ_p)."
+        },
+        {
+          "sourceId": "Serre87",
+          "locator": "§2.4, p. 186",
+          "excerpt": "i .e., si les x . peuvent être choisis parmi les unités de K0 . Dans le cas contraire, nous dirons que K et pp sont très ramifiées .",
+          "match": "Units, and très ramifiée."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/PeuRamifiee",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Peu and très ramifiée representations"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-kummer-extensions",
+          "how": "Finite flat extensions of ℤ/p by μ_p are exactly the peu ramifiée ones."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/dyadic-finite-flat-dichotomy",
+          "how": "The p = 2 dichotomy."
+        },
+        {
+          "where": "AlgebraicModularFormsAndSerreWeights:R15.4",
+          "how": "Serre's weight in the extension-sensitive case β = α + 1 (k = 2 + α(p+1) or (α+1)(p+1))."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.FiniteFlat.IsPeuRamifiee",
+          "role": "characterisation",
+          "statement": "The Kummer generators of K/K_t can be chosen among units of K₀."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.IsTresRamifiee",
+          "role": "characterisation",
+          "statement": "The negation, in the case β = α + 1."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.kummerSubgroup",
+          "role": "data",
+          "statement": "The subgroup of K₀^*/K₀^{*p} generated by the x_i."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.isPeuRamifiee_iff_valuation",
+          "role": "characterisation",
+          "statement": "Peu ramifiée iff v_p vanishes mod p on the Kummer subgroup."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.isPeuRamifiee_of_unit",
+          "role": "example",
+          "statement": "A Kummer class of a unit gives a peu ramifiée representation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.FiniteFlat.isPeuRamifiee_sqrt_neg_one",
+          "kind": "value",
+          "statement": "p = 2, K = ℚ₂(√−1): the class of −1 is a unit class, so (1 u; 0 1) is peu ramifiée."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.isTresRamifiee_sqrt_two",
+          "kind": "value",
+          "statement": "p = 2, K = ℚ₂(√2): v₂(2) = 1 is odd, so (1 u; 0 1) is très ramifiée."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.not_extension_sensitive",
+          "kind": "non-example",
+          "statement": "β ≠ α + 1, e.g. ρ|_I = (χ̄² *; 0 1) nonsplit with p ≥ 5: the peu/très distinction is not defined."
+        },
+        {
+          "name": "TauCeti.FiniteFlat.tate_curve_tres",
+          "kind": "value",
+          "statement": "The p-torsion of the Tate curve E(q) over ℚ_p with v(q) = 1 is très ramifiée."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-kummer-extensions",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "title": "Finite flat extensions of ℤ/p and μ_p over ℤ_p^nr",
+      "kind": "theorem",
+      "statement": "Let R be the strict henselisation of ℤ_p, or a finite étale extension of ℤ_p over which the relevant groups are constant, and K = Frac R. (a) Every extension 0 → ℤ/p → J → μ_p → 0 of finite flat R-group schemes splits. (b) Extensions 0 → μ_p → J → ℤ/p → 0 of finite flat R-group schemes correspond to H¹_fppf(R, μ_p) = R^*/R^{*p}, and restriction to K sends the class to the Kummer class of the extension of Galois modules in K^*/K^{*p}. Consequently a Galois extension of ℤ/p by μ_p over K prolongs to a finite flat R-group scheme if and only if its Kummer class is represented by a unit, i.e. if and only if it is peu ramifiée (or unramified).",
+      "hypotheses": [
+        "K = Frac R is a field of characteristic 0, complete for a discrete valuation v with v(K^*) = ℤ, with perfect residue field k of characteristic p; e = v(p) is its absolute ramification index. K_s ⊃ K_t ⊃ K_nr ⊃ K are a separable closure and the maximal tamely ramified and unramified subextensions; G = Gal(K_s/K), I = Gal(K_s/K_nr), I_p = Gal(K_s/K_t) and I_t = I/I_p (Serre 1972, §1.2).",
+        "For p odd, R has e = 1 < p − 1, so prolongations are unique (R07.1/raynaud-uniqueness); for p = 2 the argument uses only the connected–étale sequence and Kummer theory."
+      ],
+      "proofSteps": [
+        "(a) J is finite flat over a henselian base; its connected component J⁰ maps isomorphically onto μ_p (the étale sub ℤ/p meets it trivially), giving a section (Serre 1987, §2.8, proof of Proposition 4).",
+        "(b) Over R, J → ℤ/p has fibre over 1 a μ_p-torsor, which determines J; μ_p-torsors are H¹_fppf(R, μ_p) = R^*/R^{*p} by the Kummer sequence and Pic R = 0.",
+        "On generic fibres the fppf Kummer class maps to the Galois Kummer class in K^*/K^{*p}; a class lies in the image of R^*/R^{*p} iff it is represented by a unit, which is peu ramifiée (R07.5/peu-tres-ramifiee) when the extension is ramified.",
+        "Uniqueness of the prolongation for p odd: R07.1/raynaud-uniqueness (e = 1 < p − 1)."
+      ],
+      "acceptance": [
+        "The extension of ℤ/p by μ_p attached to u = 1 + p ∈ ℤ_p^* is finite flat over ℤ_p; the one attached to p is not.",
+        "(a) fails over a non-henselian base: over ℤ[1/N] the étale and connected parts need not split."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/peu-tres-ramifiee",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/oort-tate-classification",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-uniqueness",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/finite-flat-prolongations"
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre87",
+          "locator": "§2.8, proof of Proposition 4, p. 190",
+          "excerpt": "on constate (suite exacte de Kummer) que la classe de l'extension J est donnée par un élément u E R */R *P",
+          "match": "The Kummer class of a finite flat extension is a unit class (OCR: E is ∈)."
+        },
+        {
+          "sourceId": "Serre87",
+          "locator": "§2.8, proof of Proposition 4, p. 190",
+          "excerpt": "Dans le premier cas, on voit facilement que l'extension J est scindée (utiliser la composante connexe de l'élément neutre)",
+          "match": "Part (a)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/PeuRamifiee",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-weight-two-criterion",
+          "how": "The reducible case of the criterion."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-weight-two-criterion",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "title": "Serre's finite-flat criterion: finite with det = χ̄ on inertia",
+      "kind": "theorem",
+      "statement": "Let p be odd and ρ_p : G_p → GL₂(F̄_p) continuous with det ρ_p|_I = χ̄. Then ρ_p is finite at p (the finite ℚ_p-group scheme it defines prolongs to a finite flat ℤ_p-group scheme) if and only if either (i) I_t acts through the two fundamental characters ψ, ψ^p of level 2, or (ii) ρ_p|_I ≅ (χ̄ *; 0 1) with the extension trivial on I_p or peu ramifiée. Equivalently, by Serre's Proposition 3, finite with det|_I = χ̄ is Serre's weight k(ρ_p) = 2 (Serre 1987, Proposition 4); the weight recipe itself belongs to AlgebraicModularFormsAndSerreWeights R15.4.",
+      "hypotheses": [
+        "p odd; ℚ_p has e = 1 < p − 1, so Raynaud's results apply. The p = 2 analogue in the reducible case is R07.5/dyadic-finite-flat-dichotomy; Serre treats p = 2 as 'analogous' without details."
+      ],
+      "proofSteps": [
+        "Only if: by Raynaud (R07.1/raynaud-tame-inertia (iii), Raynaud Corollary 3.4.4) the tame characters are ψ^{a+pb} with a, b ∈ {0, 1}; with ψψ′ = χ̄ this leaves (i) or {1, χ̄} (Serre 1987, §2.8).",
+        "In the level-1 case with I_p nontrivial, ρ_p and the prolongation J are reducible: 0 → A → J → B → 0 with A, B of order p, one étale and one multiplicative; over a finite étale R, either 0 → ℤ/p → J → μ_p → 0, which splits, or 0 → μ_p → J → ℤ/p → 0 with unit Kummer class, i.e. peu ramifiée (R07.5/finite-flat-kummer-extensions).",
+        "If: case (i) prolongs by Raynaud's Théorème 3.4.3 (R07.1/raynaud-tame-inertia (ii)) with exponents (1, 0); case (ii) prolongs over a finite étale R by the Kummer construction from a unit class and descends to ℤ_p (effective descent, Tau Ceti ModularCurves 0E), as in Serre 1987 §2.8, (b)."
+      ],
+      "acceptance": [
+        "E[p] for E/ℚ_p with good reduction and p odd: finite (abelian-scheme torsion), det = χ̄, and ordinary (type ii) or supersingular (type i).",
+        "Non-example: (χ̄ *; 0 1) très ramifiée, e.g. the Tate curve with v(q) = 1, is not finite; Serre's weight is then p + 1."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-kummer-extensions",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-tame-inertia",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-uniqueness"
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre87",
+          "locator": "§2.8, Proposition 4, p. 189",
+          "excerpt": "PROPOSITION 4 . On a k = 2 si et seulement si les deux conditions suivantes sont satisfaites :",
+          "match": "Proposition 4 (k = 2 iff det|_I = χ and finite at p)."
+        },
+        {
+          "sourceId": "Serre87",
+          "locator": "§2.8, proof of Proposition 4, p. 190",
+          "excerpt": "Reste à prouver que k = 2 entraîne que pP est finie en p . D'après la prop . 3, il y a deux cas à considérer :",
+          "match": "The 'if' direction and its two cases."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/PeuRamifiee",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Serre's finite-flat criterion"
+      },
+      "uses": [
+        {
+          "where": "SerreWeightAndLevelOptimisation:R20.4",
+          "how": "The local finite-flat criterion at p for the sufficiently-large-p weight-two application (requested from R07.5)."
+        },
+        {
+          "where": "AlgebraicModularFormsAndSerreWeights:R15.4",
+          "how": "Weight two exactly in the finite case (Proposition 4)."
+        },
+        {
+          "where": "EllipticCurveModularity:R29.2",
+          "how": "Weight two and trivial character for E[p] at good p."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/dyadic-finite-flat-dichotomy",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+      ],
+      "title": "The dyadic dichotomy for unipotent representations",
+      "kind": "theorem",
+      "statement": "Let p = 2, u : G₂ → ℤ/2 surjective with fixed field K = ℚ₂(√d), and ρ = (1 u; 0 1) : G₂ → GL₂(F₂). Then ρ is finite at 2 if and only if d can be chosen a 2-adic unit, i.e. K = ℚ₂(√5) (unramified), ℚ₂(√−1) or ℚ₂(√−5) (discriminant (4)); for K = ℚ₂(√±2), ℚ₂(√±10) (discriminant (8)) ρ is très ramifiée and not finite. This is the finite-flat input behind Serre's p = 2 weights: k = 2 in the first cases and k = 4 in the last.",
+      "hypotheses": [
+        "For p = 2, μ₂ = ℤ/2 as Galois modules, so ρ is simultaneously an extension of ℤ/2 by μ₂ and by ℤ/2."
+      ],
+      "proofSteps": [
+        "A finite flat model J of ρ has a closed subgroup of order 2 (the closure of the fixed line) and quotient of order 2; over ℤ₂^nr each is ℤ/2 or μ₂ (R07.1/oort-tate-classification at p = 2).",
+        "(ℤ/2, ℤ/2): J étale, so ρ is unramified: d = 5. (μ₂, μ₂): J multiplicative, so over ℤ₂^nr it is μ₂², whose generic points carry the trivial action: ρ unramified again. (ℤ/2 sub, μ₂ quotient): splits (R07.5/finite-flat-kummer-extensions (a)), impossible for u ≠ 0.",
+        "(μ₂ sub, ℤ/2 quotient): the class is a unit class of ℤ₂^* / ℤ₂^{*2} (finite-flat-kummer-extensions (b)), so d is a unit up to squares: d ∈ {5, −1, −5} mod squares. Conversely each unit class gives a finite flat model.",
+        "The discriminant of ℚ₂(√d) is (4) for d ≡ 3 mod 4, (1) for d ≡ 1 mod 4 and (8) for 2 | d, so the finite cases are exactly those of discriminant dividing 4."
+      ],
+      "acceptance": [
+        "ℚ₂(√−1): finite (peu ramifiée), weight 2; ℚ₂(√2): not finite (très ramifiée), weight 4 (Serre 1987, §2.6).",
+        "Serre 1987, §4.5, Remarque (2): the 2-torsion of y² + xy + y = x³ − x² − x − 14 (conductor 17, discriminant −17⁴) is a nonsplit extension of ℤ/2 by μ₂ that is finite flat over ℤ, with u cutting out ℚ(i); at 2 this is ℚ₂(√−1), of discriminant (4), peu ramifiée as the dichotomy requires."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-kummer-extensions",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/peu-tres-ramifiee",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/oort-tate-classification"
+      ],
+      "sources": [
+        {
+          "sourceId": "Serre87",
+          "locator": "§2.6, p. 188",
+          "excerpt": "Pour p = 2, on a k = 2 si l'action de Ip est triviale, ou peu ramifiée, et k = 4 si l'action de Ip est très ramifiée .",
+          "match": "The p = 2 dichotomy."
+        },
+        {
+          "sourceId": "Serre87",
+          "locator": "§2.6, Exemple, p. 188",
+          "excerpt": "Soit K/Q 2 l'extension quadratique correspondant au noyau de u .",
+          "match": "The example (OCR: Q 2 is ℚ₂)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/PeuRamifiee",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "AlgebraicModularFormsAndSerreWeights:R15.4",
+          "how": "The p = 2 Serre-weight dichotomy: k = 2 exactly in the finite-flat case, 4 otherwise."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
+      ],
+      "title": "Torsion of abelian schemes is finite flat, and elliptic curves with good reduction",
+      "kind": "theorem",
+      "statement": "Let A be an abelian scheme of relative dimension g over a base S. For every n ≥ 1, A[n] = ker([n]) is a finite locally free commutative S-group scheme of rank n^{2g}, and (A[p^v])_v is a p-divisible group A[p^∞] of height 2g. If S = Spec R with R a DVR of mixed characteristic (0, p) and fraction field K, the Galois module A_K[p^v](K̄) is the generic fibre of the finite flat group scheme A[p^v], and T_p(A_K) = T_p(A[p^∞]). In particular, for an elliptic curve E/ℚ with good reduction at p, its minimal Weierstrass model over ℤ_p is an elliptic curve (an abelian scheme of relative dimension 1), and E[p^v] is the generic fibre of a finite flat ℤ_p-group scheme of order p^{2v}.",
+      "hypotheses": [
+        "[n] is an isogeny, finite locally free of rank n^{2g} (AbelianSchemesAndArithmeticModuli A3, which plans it; Katz–Mazur for elliptic curves, Tau Ceti ModularCurves 7E PD-1)."
+      ],
+      "proofSteps": [
+        "A[n] is the kernel of the isogeny [n], hence finite locally free of rank n^{2g} (A3).",
+        "The levels A[p^v] satisfy the axioms of R07.1/p-divisible-group: A[p^v] ⊂ A[p^{v+1}] is the kernel of p^v, of rank p^{2gv} (Stix, §9.2 (6)).",
+        "Over a DVR the generic fibre of A[p^v] is A_K[p^v], so its K̄-points are the Galois module A_K[p^v](K̄), and the Tate modules agree (R07.1/p-divisible-tate-module).",
+        "Good reduction: a Weierstrass model over ℤ_p with unit discriminant is smooth and proper with geometrically connected genus-1 fibres, i.e. an elliptic curve over ℤ_p."
+      ],
+      "acceptance": [
+        "E = 11a1 at p = 3: E[3] is the generic fibre of a finite flat ℤ₃-group scheme of order 9.",
+        "At a prime of bad reduction the statement is false in general: for the Tate curve with v(q) = 1 and p odd, E[p] is très ramifiée and not finite (R07.5/finite-flat-weight-two-criterion)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-tate-module",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "mathlib:WeierstrassCurve.HasGoodReduction"
+      ],
+      "sources": [
+        {
+          "sourceId": "Stix12-notes",
+          "locator": "§9.2, example (6), p. 56",
+          "excerpt": "The motivating example. Let A/S be an abelian scheme of dimension g. Then multiplication by pv is an isogeny of A/S of degree p2gv , hence the kernels Gv = A[pv ] lead to a p-divisible group",
+          "match": "A[p^∞] of an abelian scheme."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/FiniteFlat/AbelianTorsion",
+        "namespace": "TauCeti.FiniteFlat"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "EllipticCurveModularity:R29.2/finite-flat-weight-two",
+          "how": "E[p] at a prime of good reduction is the generic fibre of a finite flat group scheme (requested from R07.6)."
+        }
+      ]
     }
   ],
   "requests": [
@@ -5805,19 +6511,21 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out",
-      "need": "Effective fpqc descent for finite locally free group schemes and their homomorphisms, used for base change of p-divisible groups and of F-vector schemes.",
+      "need": "Effective fpqc descent for finite locally free group schemes and their homomorphisms, used for base change of p-divisible groups and of F-vector schemes. For R07.5: descent of a finite flat extension of ℤ/p by μ_p constructed over a finite étale extension of ℤ_p back to ℤ_p.",
       "neededBy": [
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-classification"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-classification",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/finite-flat-weight-two-criterion"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
-      "need": "PD-2: the finite-level connected–étale sequence over a henselian local ring, functorial and compatible with local base change, with the special-fibre splitting over a perfect residue field; and PD-1/PD-4/PD-5 for the elliptic tests (E[p^∞], supersingular connectedness). For R07.2: PD-3 (Frobenius and Verschiebung of elliptic curves, V∘F = p = F∘V) and PD-5 (over an algebraically closed field, E₀[p^∞] ≅ μ_{p^∞} × ℚ_p/ℤ_p when ordinary, connected of height 2 when supersingular), which R07.2/elliptic-dieudonne compares with the Dieudonné modules M1 and M2.",
+      "need": "PD-2: the finite-level connected–étale sequence over a henselian local ring, functorial and compatible with local base change, with the special-fibre splitting over a perfect residue field; and PD-1/PD-4/PD-5 for the elliptic tests (E[p^∞], supersingular connectedness). For R07.2: PD-3 (Frobenius and Verschiebung of elliptic curves, V∘F = p = F∘V) and PD-5 (over an algebraically closed field, E₀[p^∞] ≅ μ_{p^∞} × ℚ_p/ℤ_p when ordinary, connected of height 2 when supersingular), which R07.2/elliptic-dieudonne compares with the Dieudonné modules M1 and M2. For R07.6: PD-1, the finite locally free p^n-torsion of an elliptic curve over a base (Katz–Mazur 2.3.1), for E over ℤ_p with good reduction.",
       "neededBy": [
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-connected-etale",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/elliptic-dieudonne"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/elliptic-dieudonne",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat"
       ]
     },
     {
@@ -5888,6 +6596,28 @@
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/semistable-finite-height",
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/tate-module-acris"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "need": "The Tate curve over a p-adic field: for E with multiplicative reduction, the parameter q with j = 1/q + 744 + ⋯ and v(q) = −v(j), an isomorphism E ≅ E(q) = 𝔾_m/q^ℤ over the unramified extension K′ = K(√−c₆) of degree ≤ 2, and the exact sequence of Galois modules 0 → μ_p → E(q)[p] → ℤ/p → 0 whose extension class is the Kummer class of q.",
+      "neededBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/multiplicative-torsion-inertia"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.6",
+      "need": "For an elliptic curve E over a p-adic field K: det E[p] = χ̄ through the Weil pairing (Λ²E_p ≅ μ_p), and, for good reduction over the ring of integers, the reduction map E_p → Ẽ_p(k̄) with kernel the p-torsion of the formal group of the Néron model (x/y as its parameter).",
+      "neededBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/ordinary-torsion-inertia",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/supersingular-torsion-inertia"
+      ]
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A3",
+      "need": "For an abelian scheme A of relative dimension g over S and n ≥ 1, [n] : A → A is finite locally free of rank n^{2g} (A3 plans it), so that A[n] is a finite locally free S-group scheme.",
+      "neededBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6/abelian-scheme-torsion-finite-flat"
+      ]
     }
   ],
   "coverage": [
@@ -5929,16 +6659,20 @@
     },
     {
       "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Local residual types and Serre-weight finite-flat calculations."
+        "General ramification e > 1: Serre 1972 §1.10 (Proposition 10, the Newton polygon of [p]) and the resulting characters on E[p] (Remarque, p. 275); Raynaud's bounds when e ≥ p − 1 belong with R07.1/raynaud-boundary-case.",
+        "p = 2 beyond the unipotent case: finiteness for representations whose tame characters have level 2 (Serre calls the p = 2 case of Proposition 4 'analogous' without details), and the general p = 2 criterion used by R15.",
+        "The conductors of the order-p characters in the peu and très ramifiée cases (Serre 1987, §2.4, Remarque 2), and the comparison of Serre's weight with Edixhoven's (owned by AlgebraicModularFormsAndSerreWeights R15.4)."
       ]
     },
     {
       "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Fontaine's ramification bound (Théorème A of Il n'y a pas de variété abélienne sur Z) with the convention translation, the local deformation calculations and the abelian-torsion comparison. Fontaine's paper is behind a login; Yoshida (arXiv:0905.1171) characterises the bound through Fontaine's property (P_m), and a public proof of the (P_m) step for finite flat group schemes is still to be found."
+        "Fontaine's ramification bound (Théorème A of Il n'y a pas de variété abélienne sur Z) with the convention translation, requested by SmallRamificationAndAbelianVarietyBaseCases R25.1. Fontaine's paper is behind a login; Yoshida (arXiv:0905.1171) characterises the bound through Fontaine's property (P_m), and a public proof of the (P_m) step for finite flat group schemes is still to be found.",
+        "The deformation-theoretic tangent and obstruction calculations supplied to R08, and the comparison of finite-flat models under field extension and twisting.",
+        "The Galois-module comparison for abelian-scheme torsion is planned (R07.6/abelian-scheme-torsion-finite-flat) for the p-power torsion and its generic fibre; the comparison with R10's moduli is not."
       ]
     }
   ],
@@ -6108,6 +6842,22 @@
       "searched": [
         "Kisin 2008 (J. Amer. Math. Soc. 21), 'Errata for [Ki 2]', (E.1)–(E.5), author DVI pp. 33–34"
       ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E12",
+      "source": "Serre87",
+      "kind": "misprint",
+      "locator": "§2.8, proof of Proposition 4, case (a), p. 190",
+      "printed": "(a) Celui où ρ_p|I est donné par les deux caractères fondamentaux ψ et ψ′. Ce cas est traité dans Raynaud [35], th. 2.4.3.",
+      "correction": "'Raynaud [35], th. 3.4.3': the prolongation criterion for schemes in F-vector spaces (Théorème 3.4.3 of Raynaud 1974, p. 270).",
+      "reason": "Reference [35] is Raynaud, Schémas en groupes de type (p, …, p), Bull. SMF 102 (1974), 241–280, as Serre's bibliography (entry 35) says. Its §2 has only 2.1–2.3 (table of contents, p. 242), so there is no Théorème 2.4.3. The statement Serre needs, that a scheme in F-vector spaces with tame character ψ = ψ_1^{n_1}⋯ prolongs iff 0 ≤ n_j ≤ e, is Théorème 3.4.3; the same proof cites the neighbouring results of that section correctly ('[35], cor. 3.4.4', '[35], prop. 3.3.2'). Checked on the page image of the scan, not only its OCR.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The Collège de France scan of the Duke article (no erratum attached)",
+        "Raynaud 1974, Numdam item BSMF_1974__102__241_0 (table of contents and §3.4)",
+        "Serre's Œuvres IV (reprint with notes): not accessible here"
+      ]
     }
   ],
   "sourceVersions": [
@@ -6221,6 +6971,20 @@
       "citation": "Wansu Kim, The classification of p-divisible groups over 2-adic discrete valuation rings",
       "read": "2026-09-28",
       "sha256": "c26bf0ca34a2c94b049a6b10b5bd118c4c65791be45ae91b13bdbae67496ea34"
+    },
+    {
+      "kind": "published",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0015/LOG_0024.pdf",
+      "citation": "Jean-Pierre Serre, Propriétés galoisiennes des points d'ordre fini des courbes elliptiques",
+      "read": "2026-09-28",
+      "sha256": "cfa08081727dfdeb8aa7ecc5f11592e2cb31bb1cf207e4b00a75f1e9409048b1"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+      "citation": "Jean-Pierre Serre, Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)",
+      "read": "2026-09-28",
+      "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038"
     }
   ]
 }
