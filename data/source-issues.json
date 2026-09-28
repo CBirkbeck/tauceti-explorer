@@ -151494,6 +151494,45 @@
    "reviewReason": null
   },
   {
+   "id": "SmallRamificationAndAbelianVarietyBaseCases/E1",
+   "kind": "misprint",
+   "locator": "§6, proof of Theorem 1.3, Case l = 2, p = 3, p. 855 (also arXiv:math/0502356, same text)",
+   "printed": "The source bounds the root discriminant δL for L in Proposition 5.2 by δL < 2 · 3^{3/2} = 10.49 . . . .",
+   "correction": "2 · 3^{3/2} = 10.392…",
+   "reason": "3^{3/2} = 5.196…, so 2 · 3^{3/2} = 10.392…; the printed digits are not the value of the displayed expression. The other numerical values of §6 (12, 20, 19.01, 14.422, 13.18, 16.82, 13.75, 10.198) check. The degree bound [L : Q] < 24 drawn from it holds a fortiori, since the unconditional totally complex bound at degree 24 is about 10.63.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Schoof's errata file for this paper, linked from mat.uniroma2.it/~schoof/papers.html (ssnewerrata.txt): it concerns only Proposition 4.1",
+    "arXiv:math/0502356: the same digits are printed"
+   ],
+   "owner": "SmallRamificationAndAbelianVarietyBaseCases",
+   "file": "research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json",
+   "citation": "René Schoof, Abelian varieties over Q with bad reduction in one prime only, Compositio Math. 141 (2005), 847–868, doi:10.1112/S0010437X05001107; author-hosted copy of the published article; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "SmallRamificationAndAbelianVarietyBaseCases/E2",
+   "kind": "gap",
+   "locator": "§4, proof of Proposition 4.1, p. 852, and proof of Corollary 4.2 (p ⩾ 5), p. 853",
+   "printed": "The source invokes Herbrand's Theorem [Was82, Theorem 6.17] to claim that the p-part of the class group for Z[ζp] has zero ω²-eigenspace.",
+   "correction": "Herbrand's theorem gives the vanishing of the ω^{−1}-eigenspace; Leopoldt's Spiegelungssatz then gives the vanishing of the ω²-eigenspace, which is what the proof uses.",
+   "reason": "Herbrand's theorem concerns the eigenspaces ω^{1−k} with k even and p ∤ B_k; the ω²-eigenspace is reached from the ω^{−1}-eigenspace by reflection. Schoof's errata note states exactly this. Nothing in this checkpoint depends on it: over ℤ with p = 2 the character group is trivial and the class group of ℤ[1/2] is trivial; the p = 3 cases of R25.4 must use the corrected step.",
+   "affects": "the proof",
+   "known": "Schoof's errata note for this article (ssnewerrata.txt, linked from https://www.mat.uniroma2.it/~schoof/papers.html)",
+   "searched": [
+    "Schoof's errata note ssnewerrata.txt, linked from his papers page next to this article"
+   ],
+   "owner": "SmallRamificationAndAbelianVarietyBaseCases",
+   "file": "research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json",
+   "citation": "René Schoof, Abelian varieties over Q with bad reduction in one prime only, Compositio Math. 141 (2005), 847–868, doi:10.1112/S0010437X05001107; author-hosted copy of the published article; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "TropicalAndBerkovichArithmetic/E1",
    "kind": "error",
    "locator": "Definition/Exercise 2.1.1.1(iv), preprint p. 4 only",
