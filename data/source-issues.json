@@ -124381,6 +124381,69 @@
    "reviewReason": "The page image (p. 491) reads 'Inst. Hautes Études Sci. Publ. Math. 7 (1960), 567.' Serre's 'Groupes proalgébriques' occupies pp. 5–67. arXiv v2 and v3 both print 'p. 5-67', and the Numdam id printed in the same entry (PMIHES_1960__7__5_0) gives start page 5. The dash was lost in production. The [Gro66] '255' and [Gro67] '361' entries follow the MR total-pages style and are harmless."
   },
   {
+   "id": "AdditiveCombinatorics/E1",
+   "kind": "misprint",
+   "locator": "Lecture notes 2, §6, printed p.11 (PDF p.37), the two inequalities immediately after (9).",
+   "printed": "Re Σ_{ξ∈Λ} |χ̂_A(ξ)|⁴ e(x,ξ) ≥ (3/4) Σ_{ξ∈Z} |χ̂_A(ξ)|⁴.",
+   "correction": "In these two immediate inequalities put Λ, not Z, in the right-hand sum. Alternatively keep Z and use 9/16 in place of 3/4.",
+   "reason": "The pointwise estimate Re e(x,ξ)>3/4 on Λ yields (3/4) times the mass on Λ. Equation (6) supplies a further factor 3/4 when converting to total mass. The complementary sum is at most one third of the mass on Λ, so the corrected argument still proves the claimed nonvanishing. This identifies the missing step/index in the printed inference; it does not assert a counterexample to every stronger inequality for actual indicator spectra.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author's 254A course archive https://www.math.ucla.edu/~tao/254a.1.03w/index.html: search index lists corrections to other notes, none to this passage; direct retrieval failed (502/certificate verification).",
+    "Searches for Tao 254A notes2 Bohr 3/4 errata; no correction located.",
+    "Repository source-issues register and blueprint errata screened for this text."
+   ],
+   "owner": "AdditiveCombinatorics",
+   "file": "research/blueprint/packets/AdditiveCombinatorics.json",
+   "citation": "Terence Tao, Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation, Undated 118-page compilation hosted by a CMU course page; not identified with Tao–Vu's published book. Recorded here to carry the inherited source findings E1–E3, which the predecessor session codex-hjdg0j raised against §6 and §7 of these notes.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdditiveCombinatorics/E2",
+   "kind": "misprint",
+   "locator": "Lecture notes 2, §7 opening, printed p.11 (PDF p.37), displayed phase-distance description of X.",
+   "printed": "X = {x ∈ Z : ||xξ/N|| < δN for all x ∈ Λ}.",
+   "correction": "Use {x ∈ Z/NZ : ||xξ/N|| < δ for every ξ∈Λ}, where ||·|| is distance to the nearest integer and δ is a fixed small phase radius.",
+   "reason": "The quantified frequency must be ξ. Phase distance is dimensionless and at most 1/2. For example N=20 and δ=1/20 makes the printed δN condition automatic, whereas x=10 and ξ=1 give character value −1 and do not satisfy (9). For comparison with the chord-radius set, choose the smaller constant in E3.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author's 254A course archive search-index result, with direct retrieval failure as in E1.",
+    "Searches for Tao notes2 Bohr phase δN correction; none located.",
+    "Repository source-issues register and blueprint errata screened."
+   ],
+   "owner": "AdditiveCombinatorics",
+   "file": "research/blueprint/packets/AdditiveCombinatorics.json",
+   "citation": "Terence Tao, Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation, Undated 118-page compilation hosted by a CMU course page; not identified with Tao–Vu's published book. Recorded here to carry the inherited source findings E1–E3, which the predecessor session codex-hjdg0j raised against §6 and §7 of these notes.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdditiveCombinatorics/E3",
+   "kind": "error",
+   "locator": "Lecture notes 2, §7, first paragraph of printed p.12 (PDF p.38), comparison with the chord radius 1/4 of (9).",
+   "printed": "one can shrink X a bit and take δ to be 1/20 for concreteness",
+   "correction": "For the asserted contained phase-distance Bohr set, use δ=1/32 (or any positive δ with 2 sin(πδ)≤1/4).",
+   "reason": "Even after correcting δN to δ, t=1/24 satisfies ||t||<1/20 but |exp(2πit)−1|=sqrt(2−(sqrt(6)+sqrt(2))/2)>1/4. The phase radius 1/20 therefore does not ensure the chord-radius condition. In contrast δ=1/32 gives |exp(2πit)−1|≤2π||t||<π/16<1/4. This changes only a harmless absolute constant, not the existence of the progression.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author's 254A course archive search-index result; direct text retrieval failed as in E1.",
+    "Searches for Tao 254A notes2 1/20 correction Bohr; no correction located.",
+    "Repository source-issues register and blueprint errata screened."
+   ],
+   "owner": "AdditiveCombinatorics",
+   "file": "research/blueprint/packets/AdditiveCombinatorics.json",
+   "citation": "Terence Tao, Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation, Undated 118-page compilation hosted by a CMU course page; not identified with Tao–Vu's published book. Recorded here to carry the inherited source findings E1–E3, which the predecessor session codex-hjdg0j raised against §6 and §7 of these notes.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AdicEtaleGeometry/E1",
    "kind": "misprint",
    "locator": "§9, Example 9.3, pp. 42–43 (arXiv:2405.06435v1)",
