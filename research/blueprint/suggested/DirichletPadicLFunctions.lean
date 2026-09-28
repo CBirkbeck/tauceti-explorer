@@ -4137,3 +4137,99 @@ example (u : (ℤ_[2])ˣ) :
     padicIntrinsicNumerator 2 u
       ((⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2]))^3) = 0 := sorry
 end SuggestedPadicRelationTests
+
+/-! ## The actual arithmetic pseudomeasure in the native total quotient -/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "δ" => (diracHom (G := U) (R := Z))
+local notation "PM" => Iwasawa.pseudomeasures δ Q
+
+lemma arithmeticFraction_clearing (a : U) (ha : (a : Z)=(p+1 : ℕ)) (g : U) :
+    algebraMap M Q (dirac Z g-1) *
+      IsLocalization.mk' Q (padicIntrinsicNumerator p a)
+        ⟨dirac Z a-1,one_add_prime_dirac_sub_one_regular p a ha⟩ =
+      algebraMap M Q (padicIntrinsicNumerator p g) := sorry
+
+def kubotaLeopoldtPseudomeasure : PM := sorry
+lemma kubotaLeopoldtPseudomeasure_coe (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    (kubotaLeopoldtPseudomeasure p : Q) =
+      IsLocalization.mk' Q (padicIntrinsicNumerator p a)
+        ⟨dirac Z a-1,one_add_prime_dirac_sub_one_regular p a ha⟩ := sorry
+lemma kubotaLeopoldtPseudomeasure_clearing (g : U) :
+    algebraMap M Q (dirac Z g-1) * (kubotaLeopoldtPseudomeasure p : Q) =
+      algebraMap M Q (padicIntrinsicNumerator p g) := sorry
+lemma kubotaLeopoldtPseudomeasure_numerator (g : U) :
+    Iwasawa.numerator δ Q g (kubotaLeopoldtPseudomeasure p) =
+      padicIntrinsicNumerator p g := sorry
+lemma kubotaLeopoldtPseudomeasure_eq_fraction (u : U)
+    (hu : dirac Z u-1 ∈ nonZeroDivisors M) :
+    (kubotaLeopoldtPseudomeasure p : Q) =
+      IsLocalization.mk' Q (padicIntrinsicNumerator p u) ⟨dirac Z u-1,hu⟩ := sorry
+theorem kubotaLeopoldtPseudomeasure_unique (z : PM)
+    (hz : ∀ g : U, Iwasawa.numerator δ Q g z = padicIntrinsicNumerator p g) :
+    z = kubotaLeopoldtPseudomeasure p := sorry
+theorem kubotaLeopoldtPseudomeasure_even :
+    dirac Z (-1 : U) • kubotaLeopoldtPseudomeasure p = kubotaLeopoldtPseudomeasure p := sorry
+
+namespace SuggestedActualPseudoTests
+-- clearing_identity
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    algebraMap M Q (dirac Z (1 : U)-1) *
+      IsLocalization.mk' Q (padicIntrinsicNumerator p a)
+        ⟨dirac Z a-1,one_add_prime_dirac_sub_one_regular p a ha⟩ = 0 := sorry
+-- clearing_negative
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    algebraMap M Q (dirac Z (-1 : U)-1) *
+      IsLocalization.mk' Q (padicIntrinsicNumerator p a)
+        ⟨dirac Z a-1,one_add_prime_dirac_sub_one_regular p a ha⟩ = 0 := sorry
+-- constructor_identity_numerator
+example : Iwasawa.numerator δ Q (1 : U) (kubotaLeopoldtPseudomeasure p) = 0 := sorry
+-- constructor_sign_numerator
+example : Iwasawa.numerator δ Q (-1 : U) (kubotaLeopoldtPseudomeasure p) = 0 := sorry
+-- constructor_integral_numerator
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) :
+    Iwasawa.numerator δ Q a (kubotaLeopoldtPseudomeasure p) =
+      intrinsicSmoothedNumerator p (p+1) (by
+        have hp := (Fact.out : p.Prime)
+        simpa using hp.not_dvd_one) := sorry
+-- constructor_not_zero
+example : kubotaLeopoldtPseudomeasure p ≠ 0 := sorry
+-- cleared_difference_zero
+example : algebraMap M Q (dirac Z (1 : U)-1) * (kubotaLeopoldtPseudomeasure p : Q) = 0 := sorry
+-- sign_annihilator
+example : algebraMap M Q (dirac Z (-1 : U)-1) * (kubotaLeopoldtPseudomeasure p : Q) = 0 := sorry
+-- numerator_moment_second
+example (g : U) :
+    (Iwasawa.numerator δ Q g (kubotaLeopoldtPseudomeasure p)
+      ((⟨Units.val,Units.continuous_val⟩ : C(U,Z))^2) : ℚ_[p]) =
+      (1-(p : ℚ_[p]))*(1-(g : ℚ_[p])^2)/12 := sorry
+-- numerator_negative_zero
+example : Iwasawa.numerator δ Q (-1 : U) (kubotaLeopoldtPseudomeasure p) = 0 := sorry
+-- regular_parameter_two_choices
+example (u v : U) (hu : dirac Z u-1 ∈ nonZeroDivisors M)
+    (hv : dirac Z v-1 ∈ nonZeroDivisors M) :
+    IsLocalization.mk' Q (padicIntrinsicNumerator p u) ⟨dirac Z u-1,hu⟩ =
+      IsLocalization.mk' Q (padicIntrinsicNumerator p v) ⟨dirac Z v-1,hv⟩ := sorry
+-- torsion_is_not_regular
+example : dirac Z (-1 : U)-1 ∉ nonZeroDivisors M := sorry
+-- uniqueness_one_numerator
+example (a : U) (ha : (a : Z)=(p+1 : ℕ)) (z : PM)
+    (hz : Iwasawa.numerator δ Q a z = padicIntrinsicNumerator p a) :
+    z = kubotaLeopoldtPseudomeasure p := sorry
+-- even_sign_action
+example : dirac Z (-1 : U) • kubotaLeopoldtPseudomeasure p = kubotaLeopoldtPseudomeasure p := sorry
+-- identity_scalar_action
+example : dirac Z (1 : U) • kubotaLeopoldtPseudomeasure p = kubotaLeopoldtPseudomeasure p := sorry
+end SuggestedActualPseudoTests
+end DirichletPadic
