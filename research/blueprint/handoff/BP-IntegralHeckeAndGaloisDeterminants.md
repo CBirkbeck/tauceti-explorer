@@ -1,6 +1,34 @@
 # BP-IntegralHeckeAndGaloisDeterminants: polynomial laws and determinants (first checkpoint)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #758. **Status: partial checkpoint.** Scope IHG.0–IHG.6. IHG.0 is `partial`; IHG.1–IHG.6 are `not_read`.
+Claude Code — session `cc-39fac3`, 28 September 2026. Refs #758. **Status: partial checkpoint.** Scope IHG.0–IHG.6. IHG.0 and IHG.1 are `partial`; IHG.2–IHG.6 are `not_read`.
+
+## Second checkpoint (same session, 28 September 2026)
+
+19 more nodes from Chenevier §1.17–1.21, Corollary 1.14 and §2.30–2.33:
+- **IHG.0:**
+  - `law-of-linear-map`;
+  - `polynomial-law-kernel`, with `polynomial-law-factors-through-kernel`, `kernel-quotient-faithful` and `kernel-base-change` (Lemma 1.18);
+  - `determinant-kernel-characterisation` and `determinant-kernel-ideal` (Lemma 1.19);
+  - `characteristic-polynomial-law` and `cayley-hamilton-identity` (Lemma 1.12(iv), via Vaccarino's theorem, a new gap);
+  - `determinant-coefficient-subring` (Corollary 1.14);
+  - `continuous-determinant`, `continuous-determinant-dense` (Example 2.31) and `continuous-iff-open-kernel` (Lemma 2.33).
+- **IHG.1 (now `partial`):**
+  - `cayley-hamilton-ideal` and `cayley-hamilton` (planet);
+  - `cayley-hamilton-base-change` and `cayley-hamilton-subalgebra`;
+  - `kernel-contains-cayley-hamilton` and `faithful-cayley-hamilton` (Lemma 1.21).
+
+**Coefficients.** χ_α is extracted through `MvPolynomial.basisMonomials` and `TensorProduct.finsuppScalarLeft`, since R may be noncommutative. The linear `MvPolynomial.scalarRTensor` is not at the pin.
+
+**New source issue.** E2 (misprint): Lemma 1.18(ii) prints R/ker(P) → S for M/ker(P) → N.
+
+**Checks for this checkpoint.**
+- The suggested file compiled at the pins: 0 errors, `sorry` warnings only.
+- `scripts/check_blueprint.py`: 0 errors.
+- `intake.py check-files`: 0 problems.
+
+**Next.**
+- IHG.1: Cayley–Hamilton representations and R(G, d) (needs IHG.0's representability), generalized matrix algebras, and reconstruction (Theorems 2.12, 2.16 and 2.22).
+- The IHG.0 remainder listed in the coverage record.
 
 ## Contents
 
