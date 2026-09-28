@@ -16890,7 +16890,8 @@
    ],
    "avoidAccountOf": "BP-EllipticCurveModularity",
    "prompt": "research/blueprint/prompts/REV-EllipticCurveModularity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #391"
   },
   {
    "id": "BP-EllipticKTheory",
@@ -17697,9 +17698,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #731"
+   "note": "released on GitHub issue #731"
   },
   {
    "id": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -19959,12 +19960,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularSymbolsPadicLFunctions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #777"
+   "note": "released on GitHub issue #777"
   },
   {
    "id": "REV-ModularSymbolsPadicLFunctions",
