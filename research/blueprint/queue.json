@@ -19948,12 +19948,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularSymbolsPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #777"
+   "note": "claimed on GitHub issue #777"
   },
   {
    "id": "REV-ModularSymbolsPadicLFunctions",
@@ -31831,8 +31831,9 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-LIU-ETAL-22.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3796"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3796",
+   "finishedAt": "2026-09-28T17:23:27Z"
   },
   {
    "id": "REV-ERRATA-PAPER-LIU-ETAL-22",
