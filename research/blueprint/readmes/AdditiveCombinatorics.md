@@ -1454,7 +1454,7 @@ For f, g : G → ℂ on a finite abelian group G of order N, nconv f g x = N⁻�
 - Associativity holds with the normalisation, since each convolution carries one factor N⁻¹ and one sum.
 
 **Dependencies.**
-- On the pinned libraries: `mathlib:DiscreteConvolution.addRingConvolution`, `mathlib:Finset.addConvolution`
+- On the pinned libraries: `mathlib:DiscreteConvolution.ringConvolution`, `mathlib:Finset.convolution`
 
 **Sources.**
 - Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 9 (physical p. 35), convolution. The definition of convolution against the normalised measure dy. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
@@ -1536,7 +1536,7 @@ For finsets A, B ⊆ G, E(A, B) = N³ ∑_χ |fourier 1_A χ|² · |fourier 1_B 
 
 **Dependencies.**
 - In this packet: `fourier-parseval`, `fourier-nconv`, `normalized-convolution`
-- On the pinned libraries: `mathlib:Finset.addEnergy`, `mathlib:Finset.addConvolution`
+- On the pinned libraries: `mathlib:Finset.mulEnergy`, `mathlib:Finset.convolution`
 
 **Sources.**
 - Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 10 (physical p. 36), Plancherel applied to χ_A ∗ χ_A. The source uses this identity, in the case A = B, by applying Plancherel to χ_A ∗ χ_A to reach the fourth moment ∑_ξ |χ̂_A(ξ)|⁴; it does not display the energy formula itself, which is the rewriting of ‖χ_A ∗ χ_B‖² as a count. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
