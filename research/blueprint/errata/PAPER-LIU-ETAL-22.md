@@ -1681,3 +1681,24 @@ These are the findings that reach a stated result or a proof. The main theorems 
 **Correction.** Add “where N_0 := N − 2(r_1 + ⋯ + r_t)”.
 
 **Effect on the main results.** None.
+
+## Independent review (REV-ERRATA-PAPER-LIU-ETAL-22)
+
+Claude Code, session cc-fb70e5, 2026-09-28 (issue #2196). **All 131 findings are confirmed.** None is rejected and none is added. Each finding now carries a `review` object with the reviewer's own reason.
+
+**What was read.**
+- The published article, in the same file as the errata worker: sha256 `dd821abd…d97`, 269 pages, printed page = PDF page + 106.
+- arXiv v3, downloaded afresh: sha256 `84dc7c83…fe46`.
+
+**How each finding was checked.**
+- Every quotation was located at its locator. Where the text layer garbles the formula, it was read on the rendered page image (pp. 139, 187, 273, 282, 285, 288, 294, 295, 301 and 259, among others).
+- Every reason was checked independently. These were re-derived:
+  - the counterexamples of E1/E23 (the golden-ratio Kummer class over ℚ(√5, i)), E2 (the matrix [[λ, 1], [0, λ]]), E5 (𝔽₅ × 𝔽₅), E9 (𝔽₉), E10 (N = 2), E21 (𝔽₂₅), E27, E28, E35 (split p) and E68 (p = 3, L = 𝔽₅);
+  - the D₄ example (i) of E31;
+  - the monodromy computation of E85;
+  - the degree counts of E7, E14, E65, E95 and E98.
+- The change of definition behind E32 was checked against arXiv v3: the composite of reflex fields there, the intersection in the published version.
+
+**Not re-derived.** The W(B₄) octic example of E31(ii)/E32. For E30, whether later Kisin–Shin–Zhu work establishes Hypothesis 3.2.10 was not checked. arXiv 2509.18615 (on the Beilinson–Bloch–Kato conjecture for polarized motives) was not read, so any later correction there is not reflected in `known`.
+
+No published erratum or corrigendum to the article was found (web search, 2026-09-28).
