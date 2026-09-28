@@ -2,9 +2,9 @@
 
 This blueprint covers stages L7, L8 and R08.1–R08.6, within the boundaries of the RS-08 restructure (accepted). This
 blueprint now plans **R08.1 (unrestricted local rings)** and **R08.2 (places away from p)**, both source-decomposed. It
-also plans **R08.3 (potentially semistable rings)**, source-decomposed, and the **bounded-height lattice moduli of L7** and
-**KW II's local exports in R08.6**, both partial. The
-other stages are not yet read.
+also plans **R08.3 (potentially semistable rings)** and **R08.4 (finite-flat and Barsotti–Tate components)**, both
+source-decomposed, and the **bounded-height lattice moduli of L7** and **KW II's local exports in R08.6**, both partial.
+The other stages are not yet read.
 
 ## Purpose and ownership (RS-08)
 
@@ -211,6 +211,57 @@ PotentialModularityAndCompatibleSystems R24 requests.
 - AlgebraicModuliForArithmeticGeometry R09.1: Grassmannians and φ-stable lattice conditions.
 - DeformationAndDerivedPatchingAlgebra R03.3: dim R = dim R[1/p] + 1.
 
+## Layer R08.4: finite-flat and Barsotti–Tate components
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/FiniteFlat`. The source is Kisin's *Moduli of finite flat group
+schemes, and modularity*, §2 (p > 2; p = 2 is R08.5), together with Savitt for the weight-two rings of tame type. RS-08
+keeps the rank-two component theorems and asks that they go through the image of the lattice moduli, not the source
+alone.
+
+**Construction: flat deformations** (node `flat-deformation-condition`). Finite flat lifts form a deformation condition
+(Ramakrishna, from Raynaud's stability, which is requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1). This
+gives R^{fl,□}, and R^fl when End V_𝔽 = 𝔽.
+
+**Construction: the moduli of finite flat models** (node `finite-flat-model-moduli`; planet). This is L7's height-lattice
+moduli with height 1.
+- 𝒢ℛ_{V_𝔽} is projective over R^fl, with the map Θ.
+- Its closed fibre parametrises finite flat models (Kisin (2.1.7)–(2.1.13)).
+- Over ℚ_p(ζ_p), μ_p and ℤ/p are two models of one generic fibre.
+
+**Theorem: small ramification** (node `small-ramification-flat`). If e < p − 1, Θ is an isomorphism (Raynaud).
+
+**Theorem: the generic fibre** (node `flat-generic-fibre`). After inverting p, flat means crystalline with weights {0, 1}.
+The generic fibre is formally smooth of dimension d² + Σ_ψ (d − v_ψ)v_ψ, which is 4 + [K : ℚ_p] in the Barsotti–Tate case
+of rank two.
+
+**Construction: Kisin's resolution** (node `hodge-type-resolution`; planet). Θ^v : 𝒢ℛ^{v,loc} → Spec R^v is projective,
+and an isomorphism after inverting p.
+
+**Theorem: local structure** (node `resolution-local-structure`). 𝒢ℛ^{v,loc} is normal and Cohen–Macaulay, and its closed
+fibre is reduced with rational singularities. This rests on Pappas–Rapoport local models, which no roadmap plans; it is
+recorded as a gap.
+
+**Theorem: components through the special fibre** (node `components-via-special-fibre`; planet; Kisin (2.4.10)).
+H₀(Spec R^v[1/p]) ≅ H₀(𝒢ℛ^{v,loc}_0). Because Θ^v[1/p] is an isomorphism, this counts components of the deformation ring
+itself.
+
+**Lemma: ordinary types** (node `ordinary-type-of-components`). The multiplicative and étale ranks are locally constant,
+and they match the unramified sub and quotient of the Galois representation.
+
+**Theorems in rank two** (d = 2, v_ψ = 1):
+- `rank-two-nonordinary-connected` (planet; Kisin (2.5.6)): with K₀ = ℚ_p, the non-ordinary locus is connected.
+- `rank-two-ordinary-locus` (Kisin (2.5.15)): the ordinary locus is one point, two points or ℙ¹.
+- `rank-two-bt-components` (planet; Kisin (2.5.16)):
+  - R^v is flat of relative dimension 4 + [K : ℚ_p] with formally smooth generic fibre.
+  - Same component forces same ordinarity. Conversely, non-ordinary points with K₀ = ℚ_p share a component, and so do
+    ordinary points with congruent cyclotomic-line characters.
+  - These are exactly Kisin's matching conditions for the auxiliary modular point.
+
+**Theorem: Savitt's weight-two rings** (node `savitt-weight-two-rings`; planet; Savitt Theorems 6.22–6.24).
+- For p odd, trivial endomorphisms and a tame type, R(2, τ, ρ̄) is 0, 𝒪⟦Y⟧, 𝒪⟦B⟧ or 𝒪⟦X₁, X₂⟧/(X₁X₂ − pw).
+- So the Breuil–Mézard conjecture holds for k = 2 with τ tame.
+- R08.6/export-weight-two-irreducible now cites this node.
+
 ## Layer R08.6 (partial): KW II's local exports
 
 Library module: `TauCeti/NumberTheory/GaloisDeformation/LocalExports`.
@@ -253,7 +304,8 @@ the ring is a domain with regular generic fibre, of the resolution's dimension.
 ## Remaining work
 
 - **R08.6:** KW I's types, the good-dihedral type, the dyadic transition and the modern de Rham applications.
-- **R08.4:** finite-flat and Barsotti–Tate components.
+- **R08.4 is source-decomposed** (checkpoint 5). One gap remains: Pappas–Rapoport local models, which no roadmap plans
+  (see the packet's `gaps`).
 - **R08.5:** dyadic cases.
 - **R08.6:** exports.
 - **L7:** ordinary full-flag moduli, Fontaine–Laffaille conditions and ordinary functors.
@@ -270,3 +322,14 @@ the ring is a domain with regular generic fibre, of the resolution's dimension.
 - M. Kisin, *Potentially semi-stable deformation rings*, J. Amer. Math. Soc. 21 (2008), 513–546 (free from the AMS).
 - S.-N. Tung, *On the modularity of 2-adic potentially semi-stable deformation rings*, Math. Z. 298 (2021);
   arXiv:1908.06174v3.
+- M. Kisin, *Moduli of finite flat group schemes, and modularity*, Ann. of Math. 170 (2009): the author's preprint DVI,
+  §2.
+- D. Savitt, *On a conjecture of Conrad, Diamond, and Taylor*, Duke Math. J. 128 (2005): arXiv:math/0404327v3, the
+  author's corrected version (Remark 1.7).
+
+## Mistakes found in the sources
+
+**E1 (error, corrected by the author): Savitt, Theorem 6.12(4) of the published version.** When i = 1 the two
+level-two characters coincide and have niveau one, so the reduction is split, not of niveau two. arXiv v3 and the
+author's corrigendum add the missing family of strongly divisible modules. The main theorems, which are what R08.4 uses,
+are unaffected.
