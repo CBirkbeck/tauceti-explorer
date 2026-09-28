@@ -12,7 +12,7 @@
   "IntegralHeckeAndGaloisDeterminants:IHG.6"
  ],
  "status": "partial",
- "summary": "Part IHG.0 of the blueprint for integral Hecke actions, determinants and interpolation. This first checkpoint plans Chenevier's determinants on top of Mathlib's polynomial laws: homogeneous and multiplicative laws, d-dimensional determinants with their characteristic polynomial and trace, the determinant of a matrix representation, direct sums, restriction and scalar extension, the identity D(1 + rr′) = D(1 + r′r), one- and two-dimensional determinants, pseudocharacters, Amitsur's formula, the trace of a determinant as a pseudocharacter, and the comparison with pseudocharacters: injective when d! is invertible, bijective over ℚ-algebras or when (2d)! is invertible. Chenevier states injectivity without the hypothesis d! ∈ A^×, which is false in characteristic p ≤ d (source issue E1). The Lyndon factorisation theorem and Procesi's theorem are recorded as gaps; stages IHG.1–IHG.6 are not yet read.",
+ "summary": "Part IHG.0 of the blueprint for integral Hecke actions, determinants and interpolation. This first checkpoint plans Chenevier's determinants on top of Mathlib's polynomial laws: homogeneous and multiplicative laws, d-dimensional determinants with their characteristic polynomial and trace, the determinant of a matrix representation, direct sums, restriction and scalar extension, the identity D(1 + rr′) = D(1 + r′r), one- and two-dimensional determinants, pseudocharacters, Amitsur's formula, the trace of a determinant as a pseudocharacter, and the comparison with pseudocharacters: injective when d! is invertible, bijective over ℚ-algebras or when (2d)! is invertible. Chenevier states injectivity without the hypothesis d! ∈ A^×, which is false in characteristic p ≤ d (source issue E1). The Lyndon factorisation theorem and Procesi's theorem are recorded as gaps; stages IHG.1–IHG.6 are not yet read. A second checkpoint adds kernels and faithfulness (Chenevier Lemmas 1.18–1.19), the characteristic polynomial law, the Cayley–Hamilton identity (via Vaccarino's theorem, a gap), Corollary 1.14, continuous determinants (§2.30, Lemma 2.33), and the start of IHG.1: the Cayley–Hamilton ideal, Cayley–Hamilton algebras and Lemma 1.21.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -197,6 +197,104 @@
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
     "provides": "The cancellation isomorphism for iterated base change.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Continuous",
+    "kind": "structure",
+    "module": "Mathlib/Topology/Defs/Basic.lean",
+    "provides": "Continuous maps.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Continuous.ext_on",
+    "kind": "theorem",
+    "module": "Mathlib/Topology/Separation/Hausdorff.lean",
+    "provides": "Continuous maps into a Hausdorff space agreeing on a dense set are equal.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:IsOpen",
+    "kind": "def",
+    "module": "Mathlib/Topology/Defs/Basic.lean",
+    "provides": "Open sets.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:LinearEquiv.rTensor",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+    "provides": "f ⊗ id as a linear equivalence.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:LinearMap.lTensor",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Map.lean",
+    "provides": "id ⊗ f.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:MonoidAlgebra.of",
+    "kind": "def",
+    "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+    "provides": "The monoid hom G → A[G].",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:MvPolynomial.basisMonomials",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPolynomial/Basic.lean",
+    "provides": "The monomial basis of MvPolynomial σ R.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Subgroup.Normal",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+    "provides": "Normal subgroups.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Submodule",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Module/Submodule/Defs.lean",
+    "provides": "Submodules.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Submodule.mkQ",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+    "provides": "The quotient map M → M/K.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:Subring.closure",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Ring/Subring/Basic.lean",
+    "provides": "The subring generated by a set.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:TensorProduct.finsuppScalarLeft",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/DirectSum/Finsupp.lean",
+    "provides": "(ι →₀ R) ⊗[R] N ≃ ι →₀ N.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:TwoSidedIdeal",
+    "kind": "structure",
+    "module": "Mathlib/RingTheory/TwoSidedIdeal/Basic.lean",
+    "provides": "Two-sided ideals of a (possibly noncommutative) ring.",
+    "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
+   },
+   {
+    "ref": "mathlib:TwoSidedIdeal.span",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/TwoSidedIdeal/Operations.lean",
+    "provides": "The two-sided ideal generated by a set.",
     "checked": "name, kind and module confirmed in the pinned declaration index for Mathlib 082e2d3; the suggested file elaborates against the pin"
    }
   ]
@@ -1376,6 +1474,1067 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/law-of-linear-map",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "The polynomial law of a linear map",
+   "kind": "construction",
+   "statement": "For an A-linear ℓ : M → N, the degree-one polynomial law with ℓ_S = S ⊗ ℓ (lTensor) for every commutative A-algebra S.",
+   "hypotheses": [
+    "None."
+   ],
+   "proofSteps": [
+    "Define toFun' S := ℓ.lTensor S; compatibility is naturality of lTensor under base change (LinearMap.rTensor of an algebra map commutes with lTensor)."
+   ],
+   "acceptance": [
+    "It is homogeneous of degree one and its value map is ℓ.",
+    "For ℓ an algebra map it is multiplicative.",
+    "Composition with it is precomposition: P ∘ ℓ."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-factors-through-kernel",
+     "how": "the quotient map M → M/K as a law."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/homogeneous-polynomial-law",
+    "mathlib:PolynomialLaw",
+    "mathlib:LinearMap.lTensor"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Example 1.2(i), p. 7",
+     "excerpt": "P_A is an A-linear map and P_B = P_A ⊗_A B",
+     "match": "Degree-one laws are base changes of linear maps."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.PolynomialLaw.ofLinearMap",
+     "role": "constructor",
+     "statement": "The law S ⊗ ℓ."
+    },
+    {
+     "name": "TauCeti.PolynomialLaw.isHomogeneousOfDegree_one_iff",
+     "role": "characterisation",
+     "statement": "Degree-one laws are exactly these."
+    },
+    {
+     "name": "TauCeti.PolynomialLaw.ofLinearMap_ground",
+     "role": "simp",
+     "statement": "(ofLinearMap ℓ).ground = ℓ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ofLinearMap_id",
+     "kind": "example",
+     "statement": "ofLinearMap id is PolynomialLaw.id."
+    },
+    {
+     "name": "ofLinearMap_ground",
+     "kind": "example",
+     "statement": "Its value map is ℓ."
+    },
+    {
+     "name": "ofLinearMap_zero",
+     "kind": "example",
+     "statement": "ofLinearMap 0 is the zero law."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-kernel",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "The kernel of a polynomial law",
+   "kind": "definition",
+   "statement": "For an A-polynomial law P : M → N, Ker(P) ⊆ M is the set of x such that P_S(b ⊗ x + m) = P_S(m) for every commutative A-algebra S, b ∈ S and m ∈ S ⊗_A M. It is an A-submodule; P is faithful if Ker(P) = 0.",
+   "hypotheses": [
+    "M, N arbitrary A-modules."
+   ],
+   "proofSteps": [
+    "Define ker f as the Submodule with that carrier; closure under addition and scalars: apply the defining identity twice, and for a·x use b·a ∈ S."
+   ],
+   "acceptance": [
+    "Equivalently x ∈ Ker(P) iff P(tx + t_1m_1 + ⋯ + t_nm_n) ∈ N[t, t_1, …, t_n] does not depend on t (Chenevier §1.17).",
+    "The identity law is faithful; the zero law has kernel M.",
+    "For the determinant on upper-triangular 2 × 2 matrices the kernel is the strictly upper-triangular part (Example 1.20(ii))."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-ideal",
+     "how": "the kernel of a determinant."
+    },
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+     "how": "faithful determinants and the Cayley–Hamilton comparison."
+    }
+   ],
+   "prerequisites": [
+    "mathlib:PolynomialLaw",
+    "mathlib:Submodule",
+    "mathlib:TensorProduct"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.17, p. 16",
+     "excerpt": "Define ker(P) ⊂ M, as the subset whose elements are the x ∈ M such that ∀B ∈ Ob(C_A), ∀ b ∈ B, ∀ m ∈ M ⊗_A B, P(x ⊗ b + m) = P(m).",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.PolynomialLaw.ker",
+     "role": "constructor",
+     "statement": "The kernel as a submodule."
+    },
+    {
+     "name": "TauCeti.PolynomialLaw.IsFaithful",
+     "role": "other",
+     "statement": "Ker(P) = 0."
+    },
+    {
+     "name": "TauCeti.PolynomialLaw.exists_factor_iff_le_ker",
+     "role": "universal-property",
+     "statement": "P factors through M/K iff K ≤ Ker(P)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ker_id",
+     "kind": "example",
+     "statement": "The identity law is faithful."
+    },
+    {
+     "name": "ker_zero",
+     "kind": "example",
+     "statement": "The zero law has kernel everything."
+    },
+    {
+     "name": "ker_upper_triangular",
+     "kind": "example",
+     "statement": "On upper-triangular 2 × 2 matrices the determinant is not faithful."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-factors-through-kernel",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Laws factor through their kernel",
+   "kind": "lemma",
+   "statement": "Ker(P) is the largest submodule K ⊆ M such that P = P̃ ∘ π for a polynomial law P̃ : M/K → N, π the quotient map: P factors through M/K iff K ≤ Ker(P).",
+   "hypotheses": [
+    "K an A-submodule of M."
+   ],
+   "proofSteps": [
+    "If P = P̃ ∘ π then K ⊆ Ker(P) since π_S(b ⊗ k + m) = π_S(m).",
+    "Conversely, for K ⊆ Ker(P) and each S put K_S = Im(S ⊗ K → S ⊗ M); then (M/K) ⊗ S ≅ (S ⊗ M)/K_S (right exactness), K_S ⊆ Ker(P ⊗ S) (kernel-base-change), so P_S is constant on K_S-cosets and descends to P̃_S; naturality of P̃ follows from that of P."
+   ],
+   "acceptance": [
+    "Homogeneity and multiplicativity pass to P̃ (formula (1.6) of the proof).",
+    "K = 0 gives P itself."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-kernel",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/law-of-linear-map",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/kernel-base-change",
+    "mathlib:Submodule.mkQ",
+    "mathlib:LinearMap.lTensor"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.18(i), p. 16",
+     "excerpt": "ker(P) is the biggest A-submodule K ⊂ M such that P admits a factorization P = P̃ ∘ π with π is the canonical A-linear surjection M → M/K",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/kernel-quotient-faithful",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "The induced law on M/Ker(P) is faithful",
+   "kind": "lemma",
+   "statement": "If P = P̃ ∘ π with π : M → M/Ker(P), then P̃ is faithful.",
+   "hypotheses": [
+    "As in polynomial-law-factors-through-kernel."
+   ],
+   "proofSteps": [
+    "From the descent formula, Ker(P̃) = Ker(P)/Ker(P) = 0."
+   ],
+   "acceptance": [
+    "Chenevier prints 'P̃ : R/ker(P) → S'; the lemma concerns modules M, N, so it is M/ker(P) → N (source issue E2)."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-factors-through-kernel",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-kernel"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.18(ii), p. 16",
+     "excerpt": "(ii) P̃ : R/ker(P) −→ S is faithful.",
+     "match": "The statement, with R, S for M, N (E2)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/kernel-base-change",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Kernels are compatible with base change",
+   "kind": "lemma",
+   "statement": "For a commutative A-algebra B, the image of Ker(P) ⊗ B in M ⊗ B lies in Ker(P ⊗ B).",
+   "hypotheses": [
+    "B commutative A-algebra."
+   ],
+   "proofSteps": [
+    "Transitivity of tensor products: for S a B-algebra, b ∈ S and x ∈ Ker(P), b ⊗ x is tested by the defining identity of Ker(P) with the A-algebra S."
+   ],
+   "acceptance": [
+    "The inclusion can be strict (kernels are not compatible with base change in general, Chenevier §1.17 remark before Example 1.20).",
+    "Used for continuity and for the faithful quotient over extensions."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-kernel",
+    "mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.18(iii), p. 16",
+     "excerpt": "If B is a commutative A-algebra, then Im(ker(P) ⊗_A B → M ⊗_A B) ⊂ ker(P ⊗_A B).",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-characterisation",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "The kernel of a determinant",
+   "kind": "lemma",
+   "statement": "For a determinant D on R: r ∈ Ker(D) iff D_S(1 + r r′) = 1 for every commutative A-algebra S and r′ ∈ S ⊗ R, iff D_S(1 + r′ r) = 1 for all such S, r′.",
+   "hypotheses": [
+    "D a d-dimensional determinant."
+   ],
+   "proofSteps": [
+    "For r ∈ Ker(D) and r′ = 1 + h, work in (S ⊗ R)[t]/(t^{d+1}) where 1 + th is invertible: D(1 + r(1 + th)) = D((1 + th)^{-1} + r)D(1 + th) = D((1 + th)^{-1})D(1 + th) = 1; both sides are polynomials of degree ≤ d in t (determinant-one-add-mul-comm's truncation).",
+    "Conversely the same computation shows D(b ⊗ r + m) = D(m) whenever m is invertible, and the general case follows by the same truncation."
+   ],
+   "acceptance": [
+    "Equivalently r ∈ Ker(D) iff Λ_i(r r′) = 0 for all i ≥ 1 and all r′ after base change.",
+    "When A is an infinite domain it suffices to test r′ ∈ R (Chenevier)."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-kernel",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-one-add-mul-comm",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.19(i), p. 17",
+     "excerpt": "ker(P) = {r ∈ R, ∀B, ∀r′ ∈ R ⊗_A B, P(1 + rr′) = 1}",
+     "match": "The characterisation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-ideal",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "The kernel of a determinant is a two-sided ideal",
+   "kind": "construction",
+   "statement": "Ker(D) is a two-sided ideal of R, proper if d > 0 and R ≠ 0; it is the largest two-sided ideal K such that D factors through a determinant of R/K.",
+   "hypotheses": [
+    "D a d-dimensional determinant."
+   ],
+   "proofSteps": [
+    "Two-sidedness: by determinant-kernel-characterisation both r r′ and r′ r tests are available.",
+    "Properness: D(1 − t) = (1 − t)^d ≠ 1 for d > 0, so 1 ∉ Ker(D).",
+    "Maximality and factorisation: polynomial-law-factors-through-kernel with multiplicativity passing to the quotient law."
+   ],
+   "acceptance": [
+    "For det on M_d(A) the kernel is 0 (faithful).",
+    "For D of dimension 0 the kernel is R.",
+    "The faithful quotient R/Ker(D) is Cayley–Hamilton (faithful-cayley-hamilton)."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.1/kernel-contains-cayley-hamilton",
+     "how": "CH(D) ⊆ Ker(D)."
+    },
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-iff-open-kernel",
+     "how": "continuity is openness of the kernel."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-characterisation",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-factors-through-kernel",
+    "mathlib:TwoSidedIdeal"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.19(ii), p. 17",
+     "excerpt": "ker(P) is a two-sided ideal of R, it is proper if d > 0 and R ≠ 0.",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.kerTwoSided",
+     "role": "constructor",
+     "statement": "Ker(D) as a two-sided ideal."
+    },
+    {
+     "name": "TauCeti.Determinant.mem_kerTwoSided",
+     "role": "simp",
+     "statement": "Membership agrees with the submodule kernel."
+    },
+    {
+     "name": "TauCeti.Determinant.kerTwoSided_ne_top",
+     "role": "relation",
+     "statement": "Proper for d > 0 and R nontrivial."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ker_det_matrix",
+     "kind": "example",
+     "statement": "det on M_d(A) is faithful."
+    },
+    {
+     "name": "ker_dim_zero",
+     "kind": "example",
+     "statement": "In dimension 0 the kernel is everything."
+    },
+    {
+     "name": "ker_upper_triangular_ideal",
+     "kind": "example",
+     "statement": "On upper-triangular matrices it is the strictly upper-triangular ideal."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial-law",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "The characteristic polynomial law χ : R → R",
+   "kind": "construction",
+   "statement": "For a determinant D, the degree-d polynomial law χ : R → R, r ↦ r^d − Λ_1(r) r^{d−1} + Λ_2(r) r^{d−2} − ⋯ + (−1)^d Λ_d(r), and its coefficients χ_α(r_1, …, r_n) ∈ R defined by χ(t_1r_1 + ⋯ + t_nr_n) = Σ_α χ_α(r_1, …, r_n) t^α.",
+   "hypotheses": [
+    "Coefficients are extracted through the monomial basis of A[t_1, …, t_n] and (ι →₀ A) ⊗ R ≅ ι →₀ R, since R may be noncommutative."
+   ],
+   "proofSteps": [
+    "Define χ_S(r) using the Λ_i of D ⊗ S (characteristic-polynomial) and the powers of r in S ⊗ R; naturality is that of the Λ_i.",
+    "χ_α := coefficient at α of χ_{A[t]}(Σ t_i ⊗ r_i) via MvPolynomial.basisMonomials and TensorProduct.finsuppScalarLeft."
+   ],
+   "acceptance": [
+    "For det ∘ ρ, ρ(χ(r)) = 0 is the Cayley–Hamilton theorem for ρ(r).",
+    "χ is homogeneous of degree d."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-ideal",
+     "how": "CH(D) is generated by the χ_α."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "mathlib:MvPolynomial.basisMonomials",
+    "mathlib:TensorProduct.finsuppScalarLeft",
+    "mathlib:LinearEquiv.rTensor"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.10, p. 12",
+     "excerpt": "this defines as well a homogeneous A-polynomial law of degree d χ(r) : R → R, r ↦ r^d − Λ1(r)r^{d−1} + Λ2(r)r^{d−2} + · · · + (−1)^d Λd(r).",
+     "match": "The law χ and its polarised coefficients χ_α."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.charpolyLaw",
+     "role": "constructor",
+     "statement": "The law χ."
+    },
+    {
+     "name": "TauCeti.Determinant.chiCoeff",
+     "role": "projection",
+     "statement": "The coefficients χ_α."
+    },
+    {
+     "name": "TauCeti.Determinant.isHomogeneousOfDegree_charpolyLaw",
+     "role": "relation",
+     "statement": "χ is homogeneous of degree d."
+    }
+   ],
+   "tests": [
+    {
+     "name": "chi_matrix",
+     "kind": "example",
+     "statement": "For det on M_d(A), χ is the zero law (Cayley–Hamilton)."
+    },
+    {
+     "name": "chi_dim_one",
+     "kind": "example",
+     "statement": "In dimension one χ(r) = r − D(r)."
+    },
+    {
+     "name": "chi_one",
+     "kind": "example",
+     "statement": "χ(1) = (1 − 1)^d = 0 for d ≥ 1."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/cayley-hamilton-identity",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "The Cayley–Hamilton identity for determinants",
+   "kind": "lemma",
+   "statement": "For a determinant D on R, r, r_1, …, r_n ∈ R and α: D(1 + χ_α(r_1, …, r_n)·r) = 1.",
+   "hypotheses": [
+    "No hypothesis on A."
+   ],
+   "proofSteps": [
+    "Vaccarino's theorem: det ∘ ρ^univ induces Γ^d_ℤ(ℤ{X})^ab ≅ E_X(d), the subring of ℤ[x_{ij}] generated by characteristic-polynomial coefficients of generic matrices (gap).",
+    "Hence for X = R there is a ring map φ : E_X(d) → A with φ ∘ (det ∘ ρ^univ) = D ∘ π as polynomial laws, and the identity follows from the Cayley–Hamilton theorem for the generic matrices ρ^univ(r_i)."
+   ],
+   "acceptance": [
+    "For i = 1 (the trace) Chenevier proves Λ_1(χ(r)r′) = 0 directly from Amitsur's formula.",
+    "Equivalently χ_α(r_1, …, r_n) ∈ Ker(D)."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.1/kernel-contains-cayley-hamilton",
+     "how": "places CH(D) inside Ker(D)."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial-law",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.12(iv) and the paragraph on Vaccarino's theorem, pp. 12–15",
+     "excerpt": "If B = A, then for all r, r1, . . . , rn ∈ R and all α ∈ I_{n,d}, D(1 + χα(r1, . . . , rn)r) = 1.",
+     "match": "The statement; the proof uses Vaccarino's Theorem 1.15."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-coefficient-subring",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "A determinant descends to the subring of its coefficients",
+   "kind": "lemma",
+   "statement": "For a determinant D on a monoid G, with values in A, and C ⊆ A the subring generated by the coefficients Λ_i(g) of χ(g, t), g ∈ G: D factors through a unique C-valued determinant on G; in particular every Λ_i(g) lies in C and every D(Σ t_j g_j) has coefficients in C.",
+   "hypotheses": [
+    "G a monoid."
+   ],
+   "proofSteps": [
+    "By Amitsur's formula, D(t_1g_1 + ⋯ + t_ng_n) is a signed sum of products of Λ_i(w) with w words in the g_j, hence in G; so its coefficients lie in C."
+   ],
+   "acceptance": [
+    "For det ∘ ρ with ρ : G → GL_d(C), the determinant is C-valued.",
+    "Used for glueing determinants over compact coefficient rings (Chenevier Example 2.32)."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+    "mathlib:Subring.closure",
+    "mathlib:MonoidAlgebra.of"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Corollary 1.14, p. 14",
+     "excerpt": "Then D factors through a (unique) B-valued determinant on G of dimension d.",
+     "match": "The statement (with B the subring generated by the Λ_i(g))."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-determinant",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Continuous determinants",
+   "kind": "definition",
+   "statement": "For a topological group G and a topological ring A, a determinant D on A[G] is continuous if every coefficient map g ↦ Λ_i(g), i ≤ d, is continuous; by Amitsur's formula this is equivalent to Chenevier's definition by continuity of the maps D^{[α]} : G^d → A.",
+   "hypotheses": [
+    "G a topological group, A a topological ring."
+   ],
+   "proofSteps": [
+    "Definition: ∀ i, Continuous (g ↦ coeff i (χ(g, t)))."
+   ],
+   "acceptance": [
+    "For det ∘ ρ with ρ continuous into GL_d(A), D is continuous.",
+    "Every determinant on a discrete group is continuous.",
+    "A continuous determinant is determined on a dense subgroup (continuous-determinant-dense)."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.4",
+     "how": "continuous Galois determinants interpolated through finite quotients."
+    },
+    {
+     "where": "ArithmeticGaloisRepresentations:R01.5",
+     "how": "'supply the arithmetic continuity'."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula",
+    "mathlib:Continuous",
+    "mathlib:MonoidAlgebra.of"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§2.30, p. 37",
+     "excerpt": "We say that D is continuous if for each α ∈ I_n, the map D^{[α]} : G^n → A defined in § 1.1 is continuous. By Amitsur's formula, D is continuous if, and only if, Λi : G → A is continuous for all i ≤ n",
+     "match": "The definition and the equivalence used here."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.IsContinuous",
+     "role": "other",
+     "statement": "Continuity of every Λ_i."
+    },
+    {
+     "name": "TauCeti.Determinant.eq_of_eqOn_dense",
+     "role": "relation",
+     "statement": "Determined on a dense subgroup."
+    },
+    {
+     "name": "TauCeti.Determinant.isContinuous_iff_exists_openNormal",
+     "role": "characterisation",
+     "statement": "For profinite G and discrete A: the kernel is open."
+    }
+   ],
+   "tests": [
+    {
+     "name": "continuous_discrete",
+     "kind": "example",
+     "statement": "On a discrete group every determinant is continuous."
+    },
+    {
+     "name": "continuous_ofMatrix",
+     "kind": "example",
+     "statement": "det ∘ ρ is continuous for continuous ρ."
+    },
+    {
+     "name": "continuous_not",
+     "kind": "non-example",
+     "statement": "A determinant of dimension one on ℤ_p with values in ℚ_p from a discontinuous character is not continuous."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-determinant-dense",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Continuous determinants are determined on a dense subgroup",
+   "kind": "lemma",
+   "statement": "If A is Hausdorff and H ≤ G is dense, two continuous determinants on G with the same characteristic polynomials on H are equal.",
+   "hypotheses": [
+    "A Hausdorff (T2)."
+   ],
+   "proofSteps": [
+    "The coefficient maps g ↦ Λ_i(g) of the two determinants are continuous and agree on the dense H, hence on G; by Amitsur's formula the Λ_i on G determine all the D^{[α]}, hence the determinants."
+   ],
+   "acceptance": [
+    "Needs Hausdorff coefficients.",
+    "Example: a continuous Galois determinant is determined by its values on Frobenius elements (Chebotarev density)."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula",
+    "mathlib:Continuous.ext_on"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Example 2.31, p. 38",
+     "excerpt": "Assume that H ⊂ G is a dense subgroup, then a continuous determinant on G is uniquely determined by its restriction to H.",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-iff-open-kernel",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "title": "Continuity is openness of the kernel",
+   "kind": "lemma",
+   "statement": "Let G be profinite and A discrete. A determinant D on A[G] is continuous iff its kernel contains J(H) = ker(A[G] → A[G/H]) for some open normal H ≤ G, i.e. g − gh ∈ Ker(D) for all g ∈ G, h ∈ H; then G → (A[G]/Ker(D))^× factors through the finite group G/H.",
+   "hypotheses": [
+    "G profinite, A (and all coefficient algebras) discrete."
+   ],
+   "proofSteps": [
+    "If Ker(D) ⊇ J(H), D factors through A[G/H] (polynomial-law-factors-through-kernel), so the Λ_i factor through the finite discrete G/H and are continuous.",
+    "Conversely, the finitely many continuous maps Λ_i : G → A (discrete) factor through some G/H; by Amitsur's formula D(t(g − gh) + Σ t_ig_i) = D(Σ t_ig_i), so g − gh ∈ Ker(D) and J(H) ⊆ Ker(D)."
+   ],
+   "acceptance": [
+    "The final assertion follows: G acts on A[G]/Ker(D) through G/H.",
+    "Discreteness of A is needed; for A = ℤ_p with its topology the kernel of a continuous determinant need not be open."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/continuous-determinant",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-ideal",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/amitsur-formula",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/polynomial-law-factors-through-kernel",
+    "mathlib:Subgroup.Normal",
+    "mathlib:IsOpen"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 2.33, p. 38",
+     "excerpt": "A B-valued determinant D on G, viewed as an element P ∈ M^d_A(A[G], B), is continuous if, and only if, ker(P) ⊂ A[G] is open (that is, contains some J(H)).",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-ideal",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "title": "The Cayley–Hamilton ideal",
+   "kind": "construction",
+   "statement": "For a determinant D on R, CH(D) ⊆ R is the two-sided ideal generated by all χ_α(r_1, …, r_n) (n ≥ 1, r_i ∈ R), the coefficients of χ(t_1r_1 + ⋯ + t_nr_n) ∈ R[t_1, …, t_n].",
+   "hypotheses": [
+    "D a determinant."
+   ],
+   "proofSteps": [
+    "Definition: TwoSidedIdeal.span of the set of all chiCoeff r α."
+   ],
+   "acceptance": [
+    "For det on M_d(A), CH = 0 (Cayley–Hamilton).",
+    "CH(D) ⊆ Ker(D) (kernel-contains-cayley-hamilton).",
+    "R/CH(D) with the induced determinant is the Cayley–Hamilton quotient used for reconstruction."
+   ],
+   "uses": [
+    {
+     "where": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton",
+     "how": "Cayley–Hamilton means CH(D) = 0."
+    },
+    {
+     "where": "RS-12, IHG.1 owner",
+     "how": "'Generic Cayley-Hamilton reconstruction with exact residual and coefficient-ring hypotheses'."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial-law",
+    "mathlib:TwoSidedIdeal.span"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/CayleyHamilton",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.17, p. 17",
+     "excerpt": "We denote by CH(D) ⊂ R the two-sided ideal of R generated by the coefficients of χ(t1r1 + · · · + tnrn) ∈ R[t1, . . . , tn]",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.chIdeal",
+     "role": "constructor",
+     "statement": "CH(D)."
+    },
+    {
+     "name": "TauCeti.Determinant.chIdeal_le_kerTwoSided",
+     "role": "relation",
+     "statement": "CH(D) ⊆ Ker(D)."
+    },
+    {
+     "name": "TauCeti.Determinant.chiCoeff_mem_chIdeal",
+     "role": "simp",
+     "statement": "Each χ_α(r_1, …, r_n) lies in CH(D)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ch_matrix",
+     "kind": "example",
+     "statement": "CH(det) = 0 on M_d(A)."
+    },
+    {
+     "name": "ch_upper_triangular",
+     "kind": "example",
+     "statement": "CH = 0 on upper-triangular matrices."
+    },
+    {
+     "name": "ch_dim_one",
+     "kind": "example",
+     "statement": "In dimension one CH(D) is generated by the r − D(r)."
+    }
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "title": "Cayley–Hamilton algebras",
+   "kind": "definition",
+   "statement": "A determinant D on R is Cayley–Hamilton if CH(D) = 0, equivalently if the law χ : R → R vanishes identically; (R, D) is then a Cayley–Hamilton A-algebra of degree d.",
+   "hypotheses": [
+    "D a determinant."
+   ],
+   "proofSteps": [
+    "Definition: chIdeal D = ⊥; the equivalence with χ = 0 is the definition of CH(D) as generated by the coefficients of χ."
+   ],
+   "acceptance": [
+    "(M_d(A), det) is Cayley–Hamilton and faithful; (T_d(A), det) is Cayley–Hamilton and not faithful (Example 1.20).",
+    "Cayley–Hamilton is stable under base change and passage to subalgebras; faithfulness is not."
+   ],
+   "uses": [
+    {
+     "where": "Chenevier §1.22–1.23",
+     "how": "Cayley–Hamilton representations and the universal Cayley–Hamilton algebra R(G, d)."
+    },
+    {
+     "where": "AutomorphicCongruences:L0",
+     "how": "generalized matrix algebras are Cayley–Hamilton algebras."
+    }
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-ideal",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial-law"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/CayleyHamilton",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.17, p. 17",
+     "excerpt": "We say that D is Cayley-Hamilton if CH(D) = 0. Equivalently, D is Cayley-Hamilton if the polynomial law χ : R −→ R is identically zero.",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.Determinant.IsCayleyHamilton",
+     "role": "other",
+     "statement": "CH(D) = 0."
+    },
+    {
+     "name": "TauCeti.Determinant.isCayleyHamilton_iff",
+     "role": "characterisation",
+     "statement": "iff χ = 0 as a law."
+    },
+    {
+     "name": "TauCeti.Determinant.IsCayleyHamilton.baseChange",
+     "role": "compatibility",
+     "statement": "Stable under base change."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ch_matrix_det",
+     "kind": "example",
+     "statement": "(M_d(A), det) is Cayley–Hamilton."
+    },
+    {
+     "name": "ch_upper_triangular_not_faithful",
+     "kind": "example",
+     "statement": "Upper-triangular matrices: Cayley–Hamilton, not faithful."
+    },
+    {
+     "name": "ch_faithful",
+     "kind": "example",
+     "statement": "A faithful determinant is Cayley–Hamilton."
+    }
+   ],
+   "planet": {
+    "name": "Cayley–Hamilton algebras"
+   }
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-base-change",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "title": "Cayley–Hamilton is stable under base change",
+   "kind": "lemma",
+   "statement": "If D is Cayley–Hamilton, so is D ⊗_A S for every commutative A-algebra S.",
+   "hypotheses": [
+    "S commutative A-algebra."
+   ],
+   "proofSteps": [
+    "χ(D ⊗ S) = χ(D) ⊗ S as polynomial laws (determinant-base-change), and χ(D) = 0."
+   ],
+   "acceptance": [
+    "Faithfulness is not stable under base change in general.",
+    "Used to pass from A to its residue fields in reconstruction."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-base-change",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial-law"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "§1.17, p. 17",
+     "excerpt": "if D : R → A is Cayley-Hamilton and if B is any commutative A-algebra, then D ⊗_A B : R ⊗_A B → B is also Cayley-Hamilton.",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-subalgebra",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "title": "Cayley–Hamilton restricts to subalgebras",
+   "kind": "lemma",
+   "statement": "If D is Cayley–Hamilton on R and φ : R′ → R is an injective A-algebra map, then D ∘ φ is Cayley–Hamilton on R′.",
+   "hypotheses": [
+    "φ injective."
+   ],
+   "proofSteps": [
+    "χ(D ∘ φ) = φ ∘ χ(D) as laws R′ → R (restriction), so φ(χ_α(r)) = χ_α(φ r) = 0 and injectivity gives χ_α(r) = 0."
+   ],
+   "acceptance": [
+    "Faithfulness does not restrict: det on upper-triangular matrices (Example 1.20(ii)).",
+    "Injectivity is needed: a quotient of a Cayley–Hamilton algebra need not be one for the pulled-back determinant."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-restriction",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/characteristic-polynomial-law"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Example 1.20(ii), p. 18",
+     "excerpt": "If D is Cayley-Hamilton and S ⊂ R is any A-subalgebra, then the restriction of D to S is obviously Cayley-Hamilton.",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.1/kernel-contains-cayley-hamilton",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "title": "The kernel contains the Cayley–Hamilton ideal",
+   "kind": "lemma",
+   "statement": "CH(D) ⊆ Ker(D) for every determinant D.",
+   "hypotheses": [
+    "No hypothesis on A."
+   ],
+   "proofSteps": [
+    "Ker(D) is a two-sided ideal (determinant-kernel-ideal), so it suffices that each χ_α(r_1, …, r_n) lies in it; by the Cayley–Hamilton identity D(1 + χ_α(r_1, …, r_n) r′) = 1 after every base change, which is membership by determinant-kernel-characterisation."
+   ],
+   "acceptance": [
+    "For det on M_d(A) both are 0.",
+    "The inclusion is strict for upper-triangular matrices (CH = 0, Ker ≠ 0)."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-ideal",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-characterisation",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/cayley-hamilton-identity",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-ideal"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.21, p. 18",
+     "excerpt": "ker(D) contains CH(D). In particular, if D is faithful then R is Cayley-Hamilton.",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants:IHG.1/faithful-cayley-hamilton",
+   "parentStageId": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+   "realises": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1"
+   ],
+   "title": "Faithful determinants are Cayley–Hamilton",
+   "kind": "lemma",
+   "statement": "If D is faithful, then (R, D) is a Cayley–Hamilton algebra. In particular the faithful quotient R/Ker(D) of any determinant is Cayley–Hamilton.",
+   "hypotheses": [
+    "D faithful."
+   ],
+   "proofSteps": [
+    "CH(D) ⊆ Ker(D) = 0 (kernel-contains-cayley-hamilton); the quotient case uses kernel-quotient-faithful."
+   ],
+   "acceptance": [
+    "The converse fails (upper-triangular matrices).",
+    "This is the starting point of reconstruction: the faithful quotient is a finite Cayley–Hamilton algebra carrying the determinant."
+   ],
+   "uses": [],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.1/kernel-contains-cayley-hamilton",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/kernel-quotient-faithful",
+    "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/PolynomialLaw/Determinant",
+    "namespace": "TauCeti"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-DET",
+     "locator": "Lemma 1.21, p. 18",
+     "excerpt": "In particular, if D is faithful then R is Cayley-Hamilton.",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [],
@@ -1385,18 +2544,21 @@
    "status": "partial",
    "remaining": [
     "Representability of determinants by Γ^d_A(R)^ab (Chenevier Proposition 1.6): the grading Γ^n of Mathlib's DividedPowerAlgebra (which has dp, lift and map), the representability of degree-n homogeneous laws by Hom(Γ^n M, N), the base-change isomorphism S ⊗ Γ_A(M) ≅ Γ_S(S ⊗ M), and Γ ≅ TS for free modules (Remarks 1.3–1.4), as AUDIT-33 records.",
-    "Duality (the contragredient determinant on groups), the reduced norm of an Azumaya algebra (Example 1.7(ii)), Corollary 1.14 (the subring generated by the coefficients) and the decomposition over products of algebras (Lemma 2.2(iii)).",
-    "Continuity criteria for determinants on profinite groups (Chenevier §2.30 and Lemma 2.31: continuous iff the kernel is open).",
-    "Agreement with determinants of finite projective rank-d representations (localise to the free case), and the Cayley–Hamilton identity Lemma 1.12(iv) through Vaccarino's theorem, which IHG.1 consumes."
+    "Duality (the contragredient determinant on groups), the reduced norm of an Azumaya algebra (Example 1.7(ii)) and the decomposition over products of algebras (Lemma 2.2(iii)).",
+    "Agreement with determinants of finite projective rank-d representations (localise to the free case).",
+    "Vaccarino's theorem (Theorem 1.15), recorded as a gap, on which the Cayley–Hamilton identity rests."
    ],
-   "notes": "This checkpoint plans the core of Chenevier §1: homogeneous and multiplicative polynomial laws on Mathlib's PolynomialLaw, determinants, their characteristic polynomial and trace, the identity D(1 + rr′) = D(1 + r′r), matrix determinants, direct sums, restriction and base change, dimensions one and two, pseudocharacters, Amitsur's formula, and the comparison with pseudocharacters in its valid coefficient range (d! invertible for injectivity, ℚ-algebras or (2d)! invertible for bijectivity). RS-12 makes IHG.1 and IHG.4 the owners of generic Cayley–Hamilton reconstruction and finite-quotient interpolation, which build on these nodes. The reviewed library audit AUDIT-33 was read: Mathlib's PolynomialLaw is used as the carrier; homogeneous laws, determinants, their operations and the trace comparison are absent from both libraries."
+   "notes": "This checkpoint plans the core of Chenevier §1: homogeneous and multiplicative polynomial laws on Mathlib's PolynomialLaw, determinants, their characteristic polynomial and trace, the identity D(1 + rr′) = D(1 + r′r), matrix determinants, direct sums, restriction and base change, dimensions one and two, pseudocharacters, Amitsur's formula, and the comparison with pseudocharacters in its valid coefficient range (d! invertible for injectivity, ℚ-algebras or (2d)! invertible for bijectivity). RS-12 makes IHG.1 and IHG.4 the owners of generic Cayley–Hamilton reconstruction and finite-quotient interpolation, which build on these nodes. The reviewed library audit AUDIT-33 was read: Mathlib's PolynomialLaw is used as the carrier; homogeneous laws, determinants, their operations and the trace comparison are absent from both libraries. A second checkpoint adds kernels of polynomial laws and of determinants (Lemmas 1.18–1.19), the characteristic polynomial law and its coefficients χ_α, the Cayley–Hamilton identity (Lemma 1.12(iv)), Corollary 1.14, and continuity (§2.30, Example 2.31, Lemma 2.33)."
   },
   {
    "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.1",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Source-decompose stage IHG.1 (Cayley–Hamilton algebras and reconstruction)."
-   ]
+    "The category of Cayley–Hamilton representations and the universal Cayley–Hamilton algebra R(G, d) (Chenevier §1.22, Proposition 1.23), which needs the representing ring Z(G, d) of IHG.0.",
+    "Faithful determinant descent, generalized matrix algebra decompositions under residual multiplicity-freeness, and reconstruction over algebraically closed fields (Theorems 2.12, 2.16) and over henselian local rings (Theorem 2.22), with residual reducibility and lifting obstructions stated rather than assumed.",
+    "Reducibility ideals, extension modules and the lattice constructions used by congruence arguments."
+   ],
+   "notes": "This checkpoint plans the Cayley–Hamilton ideal CH(D), Cayley–Hamilton algebras, their stability under base change and subalgebras, and Lemma 1.21 (CH(D) ⊆ Ker(D); faithful determinants are Cayley–Hamilton), from Chenevier §1.17."
   },
   {
    "stageId": "IntegralHeckeAndGaloisDeterminants:IHG.2",
@@ -1448,6 +2610,13 @@
     "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-trace-bijective-rational"
    ],
    "detail": "For a ℚ-algebra A and a d-dimensional pseudocharacter T on R there is a commutative A-algebra C ⊃ A and an A-algebra map ρ : R → M_d(C) with tr ∘ ρ = T (Procesi, 'A formal inverse to the Cayley–Hamilton theorem', J. Algebra 107 (1987)). Not in the pinned libraries; IHG.1's reconstruction theorems are the natural owner if they are stated over ℚ-algebras."
+  },
+  {
+   "title": "Vaccarino's theorem",
+   "neededBy": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0/cayley-hamilton-identity"
+   ],
+   "detail": "For a set X, det ∘ ρ^univ induces an isomorphism Γ^d_ℤ(ℤ{X})^ab ≅ E_X(d), the subring of ℤ[x_{ij}] generated by the coefficients of characteristic polynomials of generic matrices; in particular Γ^d_ℤ(ℤ{X})^ab is torsion-free (Vaccarino; Chenevier Theorem 1.15, relying on Donkin and Zubkov). Not in the pinned libraries and not planned by any layer; Chenevier's Remark 1.16 notes that torsion-freeness alone would suffice and is equivalent to it."
   }
  ],
  "sourceIssues": [
@@ -1465,6 +2634,22 @@
     "arXiv:0809.0415 v1–v2 listing and the v2 source (same statement)",
     "the 2013 Durham symposium preprint (same statement)",
     "Chenevier's publication page, which links errata for other papers but none for this one"
+   ]
+  },
+  {
+   "id": "IntegralHeckeAndGaloisDeterminants/E2",
+   "source": "CHENEVIER-DET",
+   "kind": "misprint",
+   "locator": "Lemma 1.18(ii), p. 16 (arXiv:0809.0415v2; same in the Durham preprint)",
+   "printed": "(ii) P̃ : R/ker(P) −→ S is faithful.",
+   "correction": "(ii) P̃ : M/ker(P) −→ N is faithful.",
+   "reason": "Lemma 1.18 concerns a polynomial law P : M → N between A-modules; R and S are the algebras of the next lemma. The proof ('Ker(P̃) = Ker(P)/K') is written for M/K → N.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:0809.0415 v1–v2 listing and the v2 source (same text)",
+    "the 2013 Durham symposium preprint (same text)",
+    "Chenevier's publication page (no errata listed for this paper)"
    ]
   }
  ]
