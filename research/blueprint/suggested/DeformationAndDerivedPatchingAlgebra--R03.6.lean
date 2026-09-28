@@ -668,7 +668,8 @@ theorem faithfulSMul_of_forall_minimalPrimes_exists_smul [IsReduced A]
 end GroupAction
 
 /-- **`nearly-faithful-lift-from-special-fibre`** (Taylor, Lemma 2.2(2)). Let `A` be a Noetherian
-local ring and `ϖ ∈ 𝔪_A`. Assume `A` is catenary (in dimension-function form), equidimensional,
+local ring and `ϖ ∈ 𝔪_A`. Assume `A` is catenary in dimension-function form (`hcat`; by R03.3's
+`Ring.isCatenary_iff_ringKrullDim_quotient_covBy` this is `Ring.IsCatenary A`), equidimensional,
 that no minimal prime contains `ϖ`, and that every prime minimal over `ϖ A` contains exactly one
 minimal prime. If `M` is finite, `ϖ` is `M`-regular and `M ⧸ ϖ M` is nearly faithful over
 `A ⧸ ϖ A`, then `M` is nearly faithful over `A`. -/

@@ -2,9 +2,25 @@
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #552.
 
-**Status: layer R03.6 is decomposed from its sources (coverage `source_decomposed`) and ready for independent blueprint review.** The packet stays `partial` for one reason: two inputs belong to layer R03.3, which the P7 part of this roadmap plans. They are filed as `requests` to `DeformationAndDerivedPatchingAlgebra:R03.3`.
+**Status: closed** (see the correction below). Ready for independent blueprint review.
 
 This continues the ChatGPT Pro checkpoint of 27 September (#3265), whose handoff this note replaces. It also follows my own checkpoint of 24 September (#2775).
+
+## Correction of 28 September 2026: the layer is closed
+
+After #3317 merged, the P7 checkpoint #3319 added the two statements this layer had requested from R03.3. This correction points the consumers at them:
+
+| Node | New prerequisite | Replaces |
+| --- | --- | --- |
+| `patching-free-conclusion` | `R03.3/free-of-maximal-depth-regular-local` (Stacks 00NT, 00O7) | the stage `DeformationAndDerivedPatchingAlgebra:R03.3` |
+| `patching-kernel-equals-ideal` | `R03.3/free-of-maximal-depth-regular-local` | the stage |
+| `nearly-faithful-lift-from-special-fibre` | `R03.3/catenary-iff-dimension-function` (Stacks 0ECF) | the stage; its `hcat` hypothesis is the dimension-function side |
+
+- The two requests are removed.
+- Every prerequisite is now a node or a baseline declaration, and the packet has no gaps or requests. So the packet and the R03.6 coverage are **closed**.
+- The domain property of regular local rings, which R03.3's Cohen–Macaulay node needs, is a recorded gap of the P7 packet, not of this layer.
+- The roadmap document and one docstring of the suggested file are updated to match.
+- The Lean file's signatures are unchanged.
 
 ## What changed
 
@@ -50,7 +66,7 @@ Aggregate prose that no declaration states is now a proof step, an acceptance ch
 - the nilpotent form for all M;
 - part (0) of the Calegari–Geraghty module theorem, which the README still derives from Milestone 4.
 
-### Requests instead of gaps
+### Requests instead of gaps (superseded by the correction above)
 
 - The two R03.3 obligations were gaps with a `supplier` field. They are now `requests`, as PROTOCOL §3 prescribes for a need owned elsewhere:
   - freeness of a nonzero finite maximal-depth module over a regular local ring (Stacks 00O7), needed by `patching-free-conclusion` and now also `patching-kernel-equals-ideal`;
@@ -86,6 +102,6 @@ Aggregate prose that no declaration states is now a proof step, an acceptance ch
 
 ## For the next worker or reviewer
 
-- R03.6 has nothing left to decompose. What remains is for R03.3 to export the two requested statements.
-- Once R03.3 exports them, replace the stage prerequisite `DeformationAndDerivedPatchingAlgebra:R03.3` in the three consuming nodes with those node ids, drop the requests, and close the coverage.
+- R03.6 has nothing left to decompose, and the packet is closed.
+- Its two R03.3 inputs now live in the P7 packet. The domain property of regular local rings (Stacks 00NP), which they rest on, is a gap there.
 - The ownership decisions of RS-08 are unchanged. R03.3 owns depth, regular-local freeness and catenarity. R03.5 and P8 own the patched constructions.

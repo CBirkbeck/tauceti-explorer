@@ -36,10 +36,12 @@ maximal Cohen–Macaulay and not nearly faithful, and it is a test in several mi
   depth M ≤ dim A/𝔭 for 𝔭 ∈ Ass M. Nonempty associated primes and finite Krull dimension of Noetherian local
   rings already belong to Mathlib: `associatedPrimes.nonempty` and `ringKrullDim_lt_top`, with the instance
   in `Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean`.
-- **Two precise R03.3 imports remain open:** maximal-depth freeness over a regular local ring (Stacks 00O7),
-  and the equivalence between catenarity and the displayed dimension-function condition (Stacks 0ECF).
-  The integrated depth node does not explicitly export these two statements. The packet files both as requests
-  to R03.3, which the P7 part of the roadmap plans.
+- **Two precise R03.3 imports** come from the P7 part of the roadmap, which plans R03.3:
+  - maximal-depth freeness over a regular local ring (`R03.3/free-of-maximal-depth-regular-local`; Stacks 00NT,
+    00O7);
+  - the equivalence between catenarity and the displayed dimension-function condition
+    (`R03.3/catenary-iff-dimension-function`; Stacks 0ECF).
+  With them every prerequisite of this layer is a node or a baseline declaration, and the packet is closed.
 - **One declaration per node.** Every lemma and theorem node carries exactly one suggested declaration. The
   thirteen former multi-declaration nodes are split into forty nodes. Each retained identifier names one of
   its former declarations, as listed with the node in Milestones 1–6, and every consumer cites the leaf that
@@ -553,7 +555,7 @@ faithful over A/pA = 𝔽_p⟦x⟧/(x²), and M is not nearly faithful (uniquene
 Calegari–Geraghty, proof of Theorem 6.4(2) and Remark 6.5, p. 94; Khare–Wintenberger II, Lemma 9.6 b), p. 88;
 Stacks 0BK4, 02CE, 0BUS, 00NF, 0FCC, 00KV, 0ECF.
 *Dependencies.* Milestones 1 and 3; the integrated R03.3 depth node for its associated-prime bound, and
-R03.3 for the still-open catenarity equivalence. Mathlib supplies nonempty associated primes and finite local
+`R03.3/catenary-iff-dimension-function` for the catenarity equivalence. Mathlib supplies nonempty associated primes and finite local
 Krull dimension; these are not new R03.3 deliverables.
 
 ### Milestone 5: R = T
@@ -777,13 +779,13 @@ that is, the image of 𝔞 in End(M∞) lies in the image of ker φ. It is weake
 
 *Proof.*
 
-1. By R03.3 (Stacks 00O7 with e = d; the open gap `G-regular-local-freeness`), M∞ is free over R∞. Its basis (`Module.Free.chooseBasis`) is nonempty because M∞ ≠ 0.
+1. By `R03.3/free-of-maximal-depth-regular-local` (Stacks 00NT; 00O7 with e = d), M∞ is free over R∞. Its basis (`Module.Free.chooseBasis`) is nonempty because M∞ ≠ 0.
 2. A nonzero free module is faithful, so Ann_{R∞}(M∞) = 0 (`Module.annihilator_eq_bot`), and (b) gives ı(𝔞)R∞ ⊆ ker φ.
 3. Let k ∈ ker φ. It acts on H as φ(k) = 0, so k ∈ Ann_{R∞}(H) = Ann_{R∞}(M∞/ı(𝔞)M∞) (`LinearEquiv.annihilator_eq`). For a basis vector b, k·b ∈ ı(𝔞)M∞. By `Submodule.mem_ideal_smul_span_iff_exists_sum`, k·b is a combination of basis vectors with coefficients in ı(𝔞)R∞, and comparing b-coordinates gives k ∈ ı(𝔞)R∞.
 
 *Acceptance.* M∞ ≠ 0 is needed: M∞ = 0 satisfies depth ≥ dim in the Stacks convention and (b) for every φ, and ker φ is then arbitrary; the Lean regular-sequence hypothesis excludes it. Regularity is needed: R∞ = S = k[ε]/(ε²), ı = id, 𝔞 = 0, M∞ = H = k, R = k and φ the augmentation satisfy (a), (b) and the depth condition with the empty sequence (dim R∞ = 0), but ker φ = (ε) ≠ 0.
 
-*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.3, mathlib:IsRegularLocalRing, mathlib:RingTheory.Sequence.IsRegular, mathlib:Module.Free.chooseBasis, mathlib:Module.annihilator_eq_bot, mathlib:LinearEquiv.annihilator_eq, mathlib:Submodule.mem_ideal_smul_span_iff_exists_sum.
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local, mathlib:IsRegularLocalRing, mathlib:RingTheory.Sequence.IsRegular, mathlib:Module.Free.chooseBasis, mathlib:Module.annihilator_eq_bot, mathlib:LinearEquiv.annihilator_eq, mathlib:Submodule.mem_ideal_smul_span_iff_exists_sum.
 
 **Lemma: freeness over a regular patched ring** (`Module.free_of_patching`; node `patching-free-conclusion`; file `Patching`). Let R be nonzero, R∞ regular local, rs an M∞-regular sequence in the maximal ideal of R∞ of length dim R∞, and φ surjective. Under (a), (b) and an R∞-linear isomorphism e: M∞/ı(𝔞)M∞ ≅ H, H is a free R-module and H ≠ 0.
 
@@ -791,14 +793,14 @@ that is, the image of 𝔞 in End(M∞) lies in the image of ker φ. It is weake
 
 *Proof.*
 
-1. M∞ is free over R∞ (R03.3, as in the kernel lemma). Take a basis (b_i) (`Module.Free.chooseBasis`), nonempty since M∞ ≠ 0, and put h_i = e(b̄_i).
+1. M∞ is free over R∞ (`R03.3/free-of-maximal-depth-regular-local`, as in the kernel lemma). Take a basis (b_i) (`Module.Free.chooseBasis`), nonempty since M∞ ≠ 0, and put h_i = e(b̄_i).
 2. The h_i span H over R: e(Σ x_i b_i mod ı(𝔞)M∞) = Σ x_i·h_i = Σ φ(x_i)·h_i.
 3. The h_i are linearly independent. Write c_i = φ(x_i), using surjectivity. If Σ c_i h_i = 0, then Σ x_i b_i ∈ ı(𝔞)M∞. By `Submodule.mem_ideal_smul_span_iff_exists_sum` and uniqueness of coordinates, each x_i lies in ı(𝔞)R∞, which is ker φ by `patching-kernel-equals-ideal`; so c_i = 0.
 4. `Module.Basis.mk` and `Module.Free.of_basis` make H free. If some h_i were 0, then b_i ∈ ı(𝔞)M∞ and its b_i-coordinate 1 would lie in ker φ, which is impossible because R ≠ 0. So H ≠ 0.
 
 *Acceptance.* R ≠ 0 is needed for H ≠ 0: R∞ = S = M∞ = k, ı = id, 𝔞 = k and R = H = 0 satisfy all other hypotheses (the empty regular sequence has length dim k = 0), but H is zero. The Lean example `patching_free_zero_quotient` records that the zero ring is a free, trivial module over itself. Regularity is needed: R∞ = S = R = k[ε]/(ε²), ı = φ = id, 𝔞 = 0 and M∞ = H = k satisfy the other hypotheses, but k is not free over k[ε]/(ε²). This is Calegari–Geraghty's Theorem 6.4(1), "H is a free R-module", with R∞ ≅ 𝒪⟦x₁, …, x_{q+j−l₀}⟧ (source issue E1).
 
-*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/patching-kernel-equals-ideal, DeformationAndDerivedPatchingAlgebra:R03.3, mathlib:Module.Free.chooseBasis, mathlib:Submodule.mem_ideal_smul_span_iff_exists_sum, mathlib:Module.Basis.mk, mathlib:Module.Free.of_basis.
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/patching-kernel-equals-ideal, DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local, mathlib:Module.Free.chooseBasis, mathlib:Submodule.mem_ideal_smul_span_iff_exists_sum, mathlib:Module.Basis.mk, mathlib:Module.Free.of_basis.
 
 Part (0) of Calegari–Geraghty's module theorem is Milestone 4 applied to M∞: `Module.isSupportedOnComponents_of_isRegular` puts Supp M∞ on irreducible components of dimension dim R∞, and `Module.NearlyFaithful.ringKrullDim_quotient_eq_of_isRegular` makes R∞ equidimensional when M∞ is nearly faithful. It is not restated here. The three declarations below are the module form of Calegari–Geraghty's Theorem 6.4(1)–(3). Each is conditional on the displayed data ı, 𝔞, φ, e and (b); none assumes H ≠ 0, completeness of R∞ or an 𝒪-algebra structure. The complex-level statement and Proposition 6.6 are P9's. Theorem 6.3 and its proof supply the module data with M∞ = H^{l₀}(P∞^□); the complex is constructed in P8, not in R03.5. This is an application of the conditional module theorems, not a prerequisite for their proofs.
 
@@ -843,7 +845,7 @@ Part (0) of Calegari–Geraghty's module theorem is Milestone 4 applied to M∞:
 
 *Sources.* Calegari–Geraghty, Theorem 6.3(iv) and Theorem 6.4 with its proof, pp. 91–94; Taylor, end of the proof of
 Theorem 4.1, p. 221; Kisin, Lemma (3.3.4); Stacks 00O7, 090V.
-*Dependencies.* Milestones 1–5; R03.3 (freeness over regular local rings). There is no prerequisite
+*Dependencies.* Milestones 1–5; `R03.3/free-of-maximal-depth-regular-local` (freeness over regular local rings). There is no prerequisite
 asserting existence of a patched module.
 
 ## Sources
