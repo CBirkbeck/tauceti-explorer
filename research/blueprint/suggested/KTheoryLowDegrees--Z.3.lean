@@ -1,3 +1,5 @@
+import TauCeti.Algebra.AlgebraicGroup.GeneralLinear.DiagonalTorus.Basic
+import TauCeti.Algebra.Bialgebra.TensorProduct
 import TauCeti.Algebra.Coalgebra.Comodule.Finite.Corestrict
 import TauCeti.Algebra.Coalgebra.Comodule.MonoidAlgebra.Basic
 import Mathlib.RingTheory.Coalgebra.Equiv
@@ -81,10 +83,8 @@ implementation, and `implementationStatus` stays `"unchecked"` for every node.
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Compiled with `lean` against the pinned commits (Mathlib `082e2d3` from the packages of a Lake
-project pinned there, and the imported Tau Ceti modules compiled from the pinned `f790474` sources
-with `lean -o` into a directory placed first on `LEAN_PATH`); the only warnings are uses of
-`sorry`.
+Elaboration status and the existing pinned build used are recorded in the accompanying handoff.
+The signatures and proof placeholders are planning material, not completed formalization.
 
 ## Pinned conventions
 
@@ -2675,7 +2675,7 @@ open TauCeti.GeneralLinear
 
 variable (k : Type) [CommRing k]
 
-/-- Helper (not a packet name): the coordinate Hopf algebra `k[G] = ⊗_i k[GL_{N_i}]` of
+/-- `Z.3/gl-product-coordinate-algebra`: the coordinate Hopf algebra `k[G] = ⊗_i k[GL_{N_i}]` of
 `G = ∏ GL_{N_i}` (a real definition, by recursion on the list of sizes). -/
 def glCoordinate : List ℕ → CommHopfAlgCat.{0} k
   | [] => CommHopfAlgCat.of k k
@@ -6014,7 +6014,8 @@ end WeightExactness
 
 /-- `Z.3/torus-coefficient-basechange`: basis-preserving coefficient identification. -/
 def torusCoefficientBaseChange (k : Type) [Field k] :
-    (k ⊗[ℤ] MonoidAlgebra ℤ X) ≃ₗc[k] MonoidAlgebra k X := by sorry
+    (k ⊗[ℤ] MonoidAlgebra ℤ X) ≃ₗc[k] MonoidAlgebra k X :=
+  (TauCeti.MonoidAlgebra.scalarTensorBialgEquiv ℤ k (G := X)).toCoalgEquiv
 
 theorem torusCoefficientBaseChange_single (k : Type) [Field k] (a : k) (x : X) (n : ℤ) :
     torusCoefficientBaseChange X k (a ⊗ₜ[ℤ] MonoidAlgebra.single x n) =
@@ -6240,3 +6241,157 @@ theorem genericFibre_bijective_of_characters
     Function.Bijective (genericFibre C) := by sorry
 end Restriction
 end TauCeti.IntegralComodule
+
+
+/-! ### Products of GL factors: coefficient models and diagonal restriction
+
+All indexing uses the existing `ofGL.CharLattice Ns`; there is no replacement lattice.
+Single-factor coordinate base change and diagonal restriction are pinned library inputs.
+These comparisons hold for arbitrary commutative base rings, including nonflat extensions.
+They do not prove freeness of the integral coordinate module or classify simple comodules.
+-/
+namespace TauCeti.RepresentationRing
+open TauCeti.GeneralLinear
+open scoped TensorProduct
+
+variable (R : Type) [CommRing R]
+
+-- API for the promoted existing definition `Z.3/gl-product-coordinate-algebra`.
+theorem glCoordinate_nil : glCoordinate R [] = CommHopfAlgCat.of R R := by sorry
+theorem glCoordinate_cons (n : ℕ) (Ns : List ℕ) :
+    glCoordinate R (n :: Ns) =
+      CommHopfAlgCat.of R (coordinateHopfAlgebra R n ⊗[R] glCoordinate R Ns) := by sorry
+def glCoordinate_singleton (n : ℕ) :
+    glCoordinate R [n] ≃ₐc[R] coordinateHopfAlgebra R n :=
+  _root_.Bialgebra.TensorProduct.rid R R (coordinateHopfAlgebra R n)
+
+-- test TauCeti.RepresentationRing.glCoordinate_empty_test
+example : (2 : glCoordinate ℤ []) * 3 = 6 := by sorry
+-- test TauCeti.RepresentationRing.glCoordinate_zero_rank_test
+example : Nonempty (glCoordinate R [0] ≃ₐc[R] R) := by sorry
+-- test TauCeti.RepresentationRing.glCoordinate_singleton_test
+example (n : ℕ) (x : coordinateHopfAlgebra R n) :
+    glCoordinate_singleton R n (x ⊗ₜ[R] (1 : R)) = x := by sorry
+
+/-- `Z.3/gl-product-factor-inclusion`: the specified tensor factor, with units in every
+other slot; recursion uses the native bialgebra tensor inclusions. -/
+def glFactor (Ns : List ℕ) (i : Fin Ns.length) :
+    coordinateHopfAlgebra R (Ns.get i) →ₐc[R] glCoordinate R Ns := by sorry
+
+theorem glFactor_head (n : ℕ) (Ns : List ℕ) (x : coordinateHopfAlgebra R n) :
+    glFactor R (n :: Ns) ⟨0, by simp⟩ x = x ⊗ₜ[R] (1 : glCoordinate R Ns) := by sorry
+theorem glFactor_tail (n : ℕ) (Ns : List ℕ) (i : Fin Ns.length)
+    (x : coordinateHopfAlgebra R (Ns.get i)) :
+    glFactor R (n :: Ns) i.succ x =
+      (1 : coordinateHopfAlgebra R n) ⊗ₜ[R] glFactor R Ns i x := by sorry
+theorem glFactor_injective (Ns : List ℕ) (i : Fin Ns.length) :
+    Function.Injective (glFactor R Ns i) := by sorry
+
+-- test TauCeti.RepresentationRing.glFactor_singleton_test
+example (n : ℕ) (x : coordinateHopfAlgebra R n) :
+    glCoordinate_singleton R n (glFactor R [n] ⟨0, by simp⟩ x) = x := by sorry
+-- test TauCeti.RepresentationRing.glFactor_scalar_test
+example : glFactor ℤ [1, 1] ⟨1, by decide⟩ (3 : coordinateHopfAlgebra ℤ 1) = 3 := by sorry
+-- test TauCeti.RepresentationRing.glFactor_distinct_test
+example : glFactor ℤ [1, 1] ⟨0, by decide⟩ (genericMatrix ℤ 1 0 0) ≠
+    glFactor ℤ [1, 1] ⟨1, by decide⟩ (genericMatrix ℤ 1 0 0) := by sorry
+
+/-- `Z.3/gl-product-coordinate-ext`: generic entries in all factors determine an algebra map.
+The inverse determinant images are forced by invertibility; zero-rank factors add no entries. -/
+theorem glCoordinate_algHom_ext (Ns : List ℕ) (A : Type) [CommRing A] [Algebra R A]
+    (f g : glCoordinate R Ns →ₐ[R] A)
+    (h : ∀ (i : Fin Ns.length) (a b : Fin (Ns.get i)),
+      f (glFactor R Ns i (genericMatrix R (Ns.get i) a b)) =
+      g (glFactor R Ns i (genericMatrix R (Ns.get i) a b))) : f = g := by sorry
+
+variable (K : Type) [CommRing K] [Algebra R K]
+
+/-- `Z.3/gl-product-coefficient-basechange`: distribute base change over the recursive tensor
+product, then use the native single-factor equivalence. -/
+def glCoefficientBaseChange (Ns : List ℕ) :
+    (K ⊗[R] glCoordinate R Ns) ≃ₐc[K] glCoordinate K Ns := by sorry
+
+theorem glCoefficientBaseChange_nil (a : K) (r : R) :
+    glCoefficientBaseChange R K [] (a ⊗ₜ[R] r) = a * algebraMap R K r := by sorry
+theorem glCoefficientBaseChange_cons (n : ℕ) (Ns : List ℕ) (a : K)
+    (x : coordinateHopfAlgebra R n) (y : glCoordinate R Ns) :
+    glCoefficientBaseChange R K (n :: Ns) (a ⊗ₜ[R] (x ⊗ₜ[R] y)) =
+      coordinateHopfAlgebraBaseChangeBialgEquiv R K n (a ⊗ₜ[R] x) ⊗ₜ[K]
+        glCoefficientBaseChange R K Ns (1 ⊗ₜ[R] y) := by sorry
+theorem glCoefficientBaseChange_symm_cons (n : ℕ) (Ns : List ℕ) (a b : K)
+    (x : coordinateHopfAlgebra R n) (y : glCoordinate R Ns) :
+    (glCoefficientBaseChange R K (n :: Ns)).symm
+      (coordinateHopfAlgebraBaseChangeBialgEquiv R K n (a ⊗ₜ[R] x) ⊗ₜ[K]
+        glCoefficientBaseChange R K Ns (b ⊗ₜ[R] y)) =
+      (a * b) ⊗ₜ[R] (x ⊗ₜ[R] y) := by sorry
+
+-- test TauCeti.RepresentationRing.glCoefficientBaseChange_empty_test
+example : glCoefficientBaseChange ℤ ℚ [] (2 ⊗ₜ[ℤ] (3 : ℤ)) = 6 := by sorry
+-- test TauCeti.RepresentationRing.glCoefficientBaseChange_nonflat_test
+example (Ns : List ℕ) (x : glCoordinate ℤ Ns) :
+    letI : Module ℤ (glCoordinate ℤ Ns) := Algebra.toModule
+    glCoefficientBaseChange ℤ (ZMod 2) Ns ((1 : ZMod 2) ⊗ₜ[ℤ] (2 * x)) = 0 := by sorry
+-- test TauCeti.RepresentationRing.glCoefficientBaseChange_two_factors_test
+example (x : coordinateHopfAlgebra ℤ 1) (y : glCoordinate ℤ [1]) :
+    letI : Module ℤ ℚ := Algebra.toModule
+    letI : Module ℤ (coordinateHopfAlgebra ℤ 1) := Algebra.toModule
+    letI : Module ℤ (glCoordinate ℤ [1]) := Algebra.toModule
+    letI : Module ℤ (glCoordinate ℤ [1, 1]) := Algebra.toModule
+    (glCoefficientBaseChange ℤ ℚ [1, 1]).symm
+      (coordinateHopfAlgebraBaseChangeBialgEquiv ℤ ℚ 1 ((2 : ℚ) ⊗ₜ[ℤ] x) ⊗ₜ[ℚ]
+        glCoefficientBaseChange ℤ ℚ [1] ((3 : ℚ) ⊗ₜ[ℤ] y)) =
+      (6 : ℚ) ⊗ₜ[ℤ] (show glCoordinate ℤ [1, 1] from x ⊗ₜ[ℤ] y) := by sorry
+
+/-- `Z.3/gl-product-basechange-factor`: the factor compatibility consumed by the restriction
+square is a separate node, not an unrecorded API premise. -/
+theorem glCoefficientBaseChange_factor (Ns : List ℕ) (i : Fin Ns.length)
+    (a : K) (x : coordinateHopfAlgebra R (Ns.get i)) :
+    glCoefficientBaseChange R K Ns (a ⊗ₜ[R] glFactor R Ns i x) =
+      glFactor K Ns i
+        (coordinateHopfAlgebraBaseChangeBialgEquiv R K (Ns.get i) (a ⊗ₜ[R] x)) := by sorry
+
+/-- `Z.3/gl-product-diagonal-restriction`: the tensor-product diagonal map, with the character
+of factor i embedded into the existing sigma-indexed character lattice. -/
+def glDiagonal (Ns : List ℕ) :
+    glCoordinate R Ns →ₐc[R] MonoidAlgebra R (Multiplicative (ofGL.CharLattice Ns)) := by sorry
+
+theorem glDiagonal_nil (r : R) :
+    glDiagonal R [] r = MonoidAlgebra.single 1 r := by sorry
+theorem glDiagonal_counit (Ns : List ℕ) (x : glCoordinate R Ns) :
+    Coalgebra.counit (R := R) (glDiagonal R Ns x) =
+      Coalgebra.counit (R := R) x := by sorry
+theorem glDiagonal_det_inv (Ns : List ℕ) (i : Fin Ns.length) :
+    glDiagonal R Ns
+      (glFactor R Ns i ((genericMatrix R (Ns.get i))⁻¹).det) =
+      MonoidAlgebra.single
+        (Multiplicative.ofAdd (-∑ a : Fin (Ns.get i), Finsupp.single ⟨i, a⟩ 1)) 1 := by sorry
+
+-- test TauCeti.RepresentationRing.glDiagonal_empty_test
+example : glDiagonal ℤ [] 3 = MonoidAlgebra.single 1 3 := by sorry
+-- test TauCeti.RepresentationRing.glDiagonal_off_diagonal_test
+example : glDiagonal ℤ [2]
+    (glFactor ℤ [2] ⟨0, by decide⟩ (genericMatrix ℤ 2 0 1)) = 0 := by sorry
+-- test TauCeti.RepresentationRing.glDiagonal_factor_distinction_test
+example : glDiagonal ℤ [1, 1]
+    (glFactor ℤ [1, 1] ⟨0, by decide⟩ (genericMatrix ℤ 1 0 0)) ≠
+      glDiagonal ℤ [1, 1]
+        (glFactor ℤ [1, 1] ⟨1, by decide⟩ (genericMatrix ℤ 1 0 0)) := by sorry
+
+/-- `Z.3/gl-product-diagonal-entry`: this generator formula is consumed by the base-change
+square, so it has its own declaration node. -/
+theorem glDiagonal_factor_entry (Ns : List ℕ) (i : Fin Ns.length) (a b : Fin (Ns.get i)) :
+    glDiagonal R Ns (glFactor R Ns i (genericMatrix R (Ns.get i) a b)) =
+      if a = b then
+        MonoidAlgebra.single (Multiplicative.ofAdd (Finsupp.single ⟨i, a⟩ 1)) 1
+      else 0 := by sorry
+
+/-- `Z.3/gl-product-restriction-basechange`: the coefficient square in Serre §3.7, now for the
+actual GL-product and torus models. The equality is of bialgebra morphisms. -/
+theorem glDiagonal_baseChange (Ns : List ℕ) :
+    (glDiagonal K Ns).comp (glCoefficientBaseChange R K Ns).toBialgHom =
+      (TauCeti.MonoidAlgebra.scalarTensorBialgEquiv R K
+        (G := Multiplicative (ofGL.CharLattice Ns))).toBialgHom.comp
+          (_root_.Bialgebra.TensorProduct.map (_root_.BialgHom.id K K)
+            (glDiagonal R Ns)) := by sorry
+
+end TauCeti.RepresentationRing
