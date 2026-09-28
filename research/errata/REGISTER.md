@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5678 new mistakes confirmed · 1431 awaiting review · 693 already corrected in print · 88 rejected on review · 20 extractions and packets not yet checked.
+5678 new mistakes confirmed · 1432 awaiting review · 693 already corrected in print · 88 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -10724,6 +10724,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### Mark Kisin, Moduli of finite flat group schemes, and modularity, Ann. of Math. (2) 170 (2009), no. 3, 1085–1180; the author's DVI from his Harvard page (locators use its page numbers); accessed 2026-09-28 (`FiniteFlatGroupsAndIntegralPadicHodgeTheory`)
 
 - **Misprint** at §2.2, proof of Corollary (2.2.22), p. 29 (author DVI). The source says `The source invokes (1.2.5) to obtain 𝔐1 in (Mod FI /S)𝔽p, with image 𝒨1 under the functor cited as (1.2.5).`; it should be `'𝔐1 in (Mod FI /𝔖)𝔽p'.`. The functor of (1.2.5) (from (1.2.4)) goes from (Mod FI/𝔖)_A to (Mod FI/S)_A, and 𝔐1 is the 𝔖-module being constructed; the DVI distinguishes the Fraktur 𝔖 from the script S, so this is not an extraction artefact. Recorded as `FiniteFlatGroupsAndIntegralPadicHodgeTheory/E7`; looked for an existing correction in: http://people.math.harvard.edu/~kisin/ (no erratum listed for this paper); Kisin 2008, 'Errata for [Ki 2]' (concerns only the 2006 paper).
+
+### Jean-Pierre Serre, Sur les représentations modulaires de degré 2 de Gal(Q̄/Q), Duke Math. J. 54 (1987), 179–230; the Collège de France scan of the published article with its OCR text layer (printed page = PDF page + 178); accessed 2026-09-28 (`FiniteFlatGroupsAndIntegralPadicHodgeTheory`)
+
+- **Misprint** at §2.8, proof of Proposition 4, case (a), p. 190. The source says `In case (a), the source takes ρ_p|I to be given by the fundamental characters ψ and ψ′, and cites Raynaud [35], th. 2.4.3 for this case.`; it should be `'Raynaud [35], th. 3.4.3': the prolongation criterion for schemes in F-vector spaces (Théorème 3.4.3 of Raynaud 1974, p. 270).`. Reference [35] is Raynaud, Schémas en groupes de type (p, …, p), Bull. SMF 102 (1974), 241–280, as Serre's bibliography (entry 35) says. Its §2 has only 2.1–2.3 (table of contents, p. 242), so there is no Théorème 2.4.3. The statement Serre needs, that a scheme in F-vector spaces with tame character ψ = ψ_1^{n_1}⋯ prolongs iff 0 ≤ n_j ≤ e, is Théorème 3.4.3; the same proof cites the neighbouring results of that section correctly ('[35], cor. 3.4.4', '[35], prop. 3.3.2'). Checked on the page image of the scan, not only its OCR. Recorded as `FiniteFlatGroupsAndIntegralPadicHodgeTheory/E12`; looked for an existing correction in: The Collège de France scan of the Duke article (no erratum attached); Raynaud 1974, Numdam item BSMF_1974__102__241_0 (table of contents and §3.4); Serre's Œuvres IV (reprint with notes): not accessible here.
 
 ### Mark Kisin, Modularity of 2-adic Barsotti–Tate representations, Author's preprint as a DVI file on Kisin's Harvard page (TeX output dated 21 October 2008), read through a text extraction of the DVI; printed page = DVI page (the preprint's own numbering). Published as Invent. Math. 178 (2009), 587–634. (`GL2ModularityLifting`)
 

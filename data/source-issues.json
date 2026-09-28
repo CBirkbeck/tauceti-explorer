@@ -136128,6 +136128,27 @@
    "reviewReason": null
   },
   {
+   "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E12",
+   "kind": "misprint",
+   "locator": "§2.8, proof of Proposition 4, case (a), p. 190",
+   "printed": "In case (a), the source takes ρ_p|I to be given by the fundamental characters ψ and ψ′, and cites Raynaud [35], th. 2.4.3 for this case.",
+   "correction": "'Raynaud [35], th. 3.4.3': the prolongation criterion for schemes in F-vector spaces (Théorème 3.4.3 of Raynaud 1974, p. 270).",
+   "reason": "Reference [35] is Raynaud, Schémas en groupes de type (p, …, p), Bull. SMF 102 (1974), 241–280, as Serre's bibliography (entry 35) says. Its §2 has only 2.1–2.3 (table of contents, p. 242), so there is no Théorème 2.4.3. The statement Serre needs, that a scheme in F-vector spaces with tame character ψ = ψ_1^{n_1}⋯ prolongs iff 0 ≤ n_j ≤ e, is Théorème 3.4.3; the same proof cites the neighbouring results of that section correctly ('[35], cor. 3.4.4', '[35], prop. 3.3.2'). Checked on the page image of the scan, not only its OCR.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The Collège de France scan of the Duke article (no erratum attached)",
+    "Raynaud 1974, Numdam item BSMF_1974__102__241_0 (table of contents and §3.4)",
+    "Serre's Œuvres IV (reprint with notes): not accessible here"
+   ],
+   "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+   "citation": "Jean-Pierre Serre, Sur les représentations modulaires de degré 2 de Gal(Q̄/Q), Duke Math. J. 54 (1987), 179–230; the Collège de France scan of the published article with its OCR text layer (printed page = PDF page + 178); accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GL2ModularityLifting/E1",
    "kind": "misprint",
    "locator": "Theorem (0.9)(2), p. 4, and Theorem (3.3.5)(2), p. 45, in the author's preprint (DVI of 21 October 2008); the published version (Invent. Math. 178 (2009)) was not accessible",
