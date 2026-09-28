@@ -261,6 +261,17 @@
     "data/blueprints/ArithmeticKTheory--N.1.md"
    ]
   },
+  "research/blueprint/packets/ArithmeticKTheory--N.7.json": {
+   "promotedAt": "2026-09-28T15:05:04Z",
+   "review": "14157099068371d4",
+   "reviewDate": "2026-09-28",
+   "reviewer": "independent-review-REV-ArithmeticKTheory--N.7",
+   "sha256": "c2e15013d0254a01323d4e90056fce843ce340c3531a49ddfd0cec77b57a942d",
+   "to": [
+    "data/blueprints/ArithmeticKTheory--N.7.json",
+    "data/blueprints/ArithmeticKTheory--N.7.md"
+   ]
+  },
   "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.6.json": {
    "promotedAt": "2026-09-28T13:45:03Z",
    "review": "918a718d825d5efb",
