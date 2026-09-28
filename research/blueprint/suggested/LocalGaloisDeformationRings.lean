@@ -4,9 +4,10 @@ import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.RingTheory.MvPowerSeries.Basic
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.Tactic.LinearCombination
 
 /-!
-# Suggested Lean forms: local Galois deformation rings (LocalGaloisDeformationRings, R08.1–R08.3, R08.6, L7)
+# Suggested Lean forms: local Galois deformation rings (LocalGaloisDeformationRings, R08.1–R08.4, R08.6, L7)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`LocalGaloisDeformationRings`) is definitive. The statements below suggest Lean forms, so that
@@ -96,6 +97,24 @@ theorem pstQuotient_points (x : R□ ρbar →+* ℚ̄_p) :
     RingHom.ker x ≥ pstQuotient τ v ↔ IsPotentiallySemistableOfType (x.comp ρ□) τ v
 theorem pstQuotient_dim (hne : pstQuotient τ v ≠ ⊤) :
     ringKrullDim (R□ ρbar ⧸ pstQuotient τ v) = 1 + d ^ 2 + v.adQuotDim
+-- R08.4/flat-deformation-condition and finite-flat-model-moduli (L7 with h = 1)
+def flatLiftingRing (ρbar) : Ideal (R□ ρbar)        -- finite flat lifts (Ramakrishna)
+def finiteFlatModels (ξ) : ProjectiveScheme R := heightLatticeModuli ξ 1
+def finiteFlatModels_toFlat : finiteFlatModels univ ⟶ Spec (R□ ρbar ⧸ flatLiftingRing ρbar)
+theorem finiteFlatModels_iso_of_small_ramification (he : e K < p - 1) :
+    IsIso finiteFlatModels_toFlat
+-- R08.4/hodge-type-resolution and components-via-special-fibre
+theorem flatResolution_generic_iso (v : HodgeType K E) : IsIso ((Θv v).baseChange F)
+theorem components_bijection (v) :
+    ConnectedComponents (Spec (Rv v)[1/p]) ≃ ConnectedComponents (flatResolution v).closedFibre
+-- R08.4/rank-two-bt-components (d = 2, v_ψ = 1)
+theorem rankTwoBT_sameComponent_iff (hK0 : K₀ = ℚ_p) (x₁ x₂ : Spec (Rv 1)[1/p])
+    (hn : ¬ IsOrdinary x₁ ∧ ¬ IsOrdinary x₂) :
+    SameIrreducibleComponent x₁ x₂
+-- R08.4/savitt-weight-two-rings
+theorem savitt_principalSeries_irreducible (hτ : τ = ω̃ ^ i ⊕ ω̃ ^ j)
+    (hρ : ρbar.restrict I_p ≅ ω₂ ^ k ⊕ ω₂ ^ (p * k)) :
+    Nonempty (R 2 τ ρbar ≃ₐ[𝒪] 𝒪⟦X₁, X₂⟧ ⧸ Ideal.span {X₁ * X₂ - p * w})
 ```
 -/
 
@@ -132,5 +151,17 @@ example {R : Type*} [CommRing R] (x b c : R) : (1 + x) ^ 2 + b * c - 1 = x ^ 2 +
 /-- `R08.6/export-completed-tensor-product`: `2[F:ℚ] + (3|S_p| + [F:ℚ]) + 3|S′| = 3|S|` with
 `|S| = [F:ℚ] + |S_p| + |S′|` (infinite places, places above `p`, other finite places). -/
 example (n sp s' : ℕ) : 2 * n + (3 * sp + n) + 3 * s' = 3 * (n + sp + s') := by ring
+
+/-- `R08.4/flat-generic-fibre`: `d² + Σ_ψ (d − v_ψ)v_ψ` with `d = 2`, `v_ψ = 1` over `n = [K : ℚ_p]`
+embeddings is `4 + n`. -/
+example (n : ℕ) : 2 ^ 2 + n * ((2 - 1) * 1) = 4 + n := by norm_num
+
+/-- `R08.4/small-ramification-flat`: `K = ℚ_p` has `e = 1 < p − 1` once `p ≥ 3`. -/
+example (p : ℕ) (hp : 3 ≤ p) : 1 < p - 1 := by omega
+
+/-- `R08.4/savitt-weight-two-rings`: rescaling by the unit `w` turns `X₁X₂ − pw` into `X₁X₂ − p`. -/
+example {R : Type*} [CommRing R] (x y p w winv : R) (h : w * winv = 1) :
+    x * y - p * w = w * ((winv * x) * y - p) := by
+  linear_combination (-(x * y)) * h
 
 end TauCeti.GaloisDeformation.Local.SuggestedTest

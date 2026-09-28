@@ -13,7 +13,7 @@
   "LocalGaloisDeformationRings:R08.6"
  ],
  "status": "partial",
- "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38). Checkpoint 3 plans R08.3 (Kisin's potentially semistable deformation rings: types, the semistable and Hodge-type quotients, pst rings of fixed type with their crystalline loci and reduced p-torsion-free integral rings, filtered (φ, N)-module deformation theory, Kisin's dimension formula with generic smoothness, smoothness for potentially crystalline rings, and change of coefficients). It also plans L7's bounded-height lattice moduli (Kisin, JAMS 2008, §1), which RS-08 makes L7 own. R08.3 and L7 are partial. Checkpoint 4 plans R08.6's exports for KW II §3 (11 nodes): smooth resolutions (Proposition 2.12), the local conditions, the archimedean, Fontaine–Laffaille, weight-two, ordinary (Proposition 3.6), semistable, endpoint and away-from-p rings with their dimensions, the completed tensor product (Proposition 3.2) and local nonemptiness, which also closes R08.3.",
+ "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38). Checkpoint 3 plans R08.3 (Kisin's potentially semistable deformation rings: types, the semistable and Hodge-type quotients, pst rings of fixed type with their crystalline loci and reduced p-torsion-free integral rings, filtered (φ, N)-module deformation theory, Kisin's dimension formula with generic smoothness, smoothness for potentially crystalline rings, and change of coefficients). It also plans L7's bounded-height lattice moduli (Kisin, JAMS 2008, §1), which RS-08 makes L7 own. R08.3 and L7 are partial. Checkpoint 4 plans R08.6's exports for KW II §3 (11 nodes): smooth resolutions (Proposition 2.12), the local conditions, the archimedean, Fontaine–Laffaille, weight-two, ordinary (Proposition 3.6), semistable, endpoint and away-from-p rings with their dimensions, the completed tensor product (Proposition 3.2) and local nonemptiness, which also closes R08.3. Checkpoint 5 plans R08.4 (12 nodes): flat deformation rings, the moduli of finite flat models (L7 with height 1), Raynaud's case, the generic fibre, Kisin's resolution with its local structure, components through the special fibre, ordinary types, the rank-two connectedness and component comparison of Kisin's Moduli paper, and Savitt's weight-two rings.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -133,6 +133,36 @@
     "§2.3 Proposition 2.2 and Corollary 2.3, pp. 8–10",
     "§2.8 smooth resolutions and Proposition 2.12, pp. 16–18",
     "§3 (Theorem 3.1, Propositions 3.2, 3.3, 3.6, Definition 3.4, Lemmas 3.5, 3.7–3.9, §§3.2.2–3.2.7, 3.3.1–3.3.4), pp. 18–37"
+   ]
+  },
+  {
+   "id": "KISIN-FFLAT-2009",
+   "title": "Moduli of finite flat group schemes, and modularity",
+   "authors": "Mark Kisin",
+   "edition": "Author's preprint as a DVI file on Kisin's Harvard page (TeX output dated 21 October 2008), read through a text extraction of the DVI; printed page = DVI page (the preprint's own numbering). Published as Ann. of Math. 170 (2009), 1085–1180.",
+   "url": "https://people.math.harvard.edu/~kisin/dvifiles/bt.dvi",
+   "sha256": "242151c94cb831c526e67de6e3b70a370b65a002342074440e86fc88a2ec5f0f",
+   "read": "2026-09-28",
+   "readSections": [
+    "§2.1, (2.1.1)–(2.1.14) with proofs, pp. 16–22",
+    "§2.2, (2.2.1)–(2.2.5) and the statement of (2.2.8), pp. 22–24",
+    "§2.3, (2.3.8)–(2.3.11), pp. 32–33",
+    "§2.4, (2.4.1)–(2.4.19), pp. 34–41",
+    "§2.5, (2.5.1)–(2.5.5), the statement and the end of the proof of (2.5.6), (2.5.15) and (2.5.16), pp. 41–49",
+    "References, pp. 78–80"
+   ]
+  },
+  {
+   "id": "SAVITT-2005",
+   "title": "On a conjecture of Conrad, Diamond, and Taylor",
+   "authors": "David Savitt",
+   "edition": "arXiv:math/0404327v3 (15 September 2010), 45 pages; published in Duke Math. J. 128 (2005). The arXiv v3 fixes an error of the published version (its Remark 1.7) and keeps the published numbering. Printed page = PDF page.",
+   "url": "https://arxiv.org/pdf/math/0404327v3",
+   "sha256": "e161ac6498c1a75fc8f981c25edd5e9390b19ceb40f174a25a1f6491390c115c",
+   "read": "2026-09-28",
+   "readSections": [
+    "§1, Conjecture 1.1, Theorems 1.2–1.3 and Remark 1.7, pp. 1–4",
+    "§6.6, Theorems 6.22–6.24 and the start of their proof, pp. 41–43"
    ]
   }
  ],
@@ -1470,6 +1500,660 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "LocalGaloisDeformationRings:R08.4/flat-deformation-condition",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "Flat deformations and the flat deformation ring",
+   "kind": "construction",
+   "statement": "The deformations of V_𝔽 over Artinian 𝒪-algebras A that are the generic fibre of a finite flat group scheme over 𝒪_K form a deformation condition: D^fl ⊆ D_{V_𝔽} is relatively representable. So the framed lifting ring R^□ (R08.1/local-lifting-ring) has a quotient R^{fl,□} classifying flat lifts, and when End_{𝔽[G_K]} V_𝔽 = 𝔽 the universal deformation ring has a quotient R^fl. An 𝒪_E-point is flat exactly when V_{𝒪_E}/p^n comes from a finite flat group scheme for every n, that is, when V_{𝒪_E} is the Tate module of a p-divisible group.",
+   "hypotheses": [
+    "K/ℚ_p is finite with p > 2 (p = 2 is stage R08.5), e = e(K/ℚ_p), K₀ the maximal unramified subfield, 𝔽 a finite field, and V_𝔽 a d-dimensional 𝔽-representation of G_K that is the generic fibre of a finite flat group scheme; 𝔖 = W(k)⟦u⟧ and E(u) are as in L7/finite-height-lattices.",
+    "Finite flat representations are stable under subobjects, quotients and direct sums (Raynaud), requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1; Ramakrishna deduces relative representability from this."
+   ],
+   "proofSteps": [
+    "Ramakrishna's criterion: a subfunctor of D_{V_𝔽} stable under subobjects, finite products and the relevant fibre products is relatively representable; Raynaud's stability supplies the hypotheses.",
+    "Framed version: impose the condition on the framed lifting functor; forgetting the frame is formally smooth (R08.1/local-forget-framing).",
+    "𝒪_E-points: a compatible system of finite flat models of V/p^n is a p-divisible group (Raynaud [Ra, 2.3.1] in Kisin)."
+   ],
+   "acceptance": [
+    "V_𝔽 = 𝔽(1) ⊕ 𝔽 (the points of μ_p ⊕ ℤ/p) is finite flat, and its flat lifts include the Tate module of a product of a multiplicative and an étale p-divisible group.",
+    "For K = ℚ_p and p > 3 the character ω² is not finite flat: finite flat characters restrict to inertia as ω^i with 0 ≤ i ≤ e.",
+    "The flat condition is not the crystalline condition integrally: R^{fl,□} is a quotient of R^□, while R08.3's crystalline ring is defined by its generic fibre; they agree after inverting p (flat-generic-fibre)."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "LocalGaloisDeformationRings:R08.1/local-forget-framing",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "(2.1.1), p. 16",
+     "excerpt": "By [Ram, § 2] the morphism D fl V𝔽 → DV𝔽 is relatively representable.",
+     "match": "The flat deformation condition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.flatLiftingRing",
+     "role": "constructor",
+     "statement": "R^{fl,□}, the quotient of R^□ classifying flat lifts."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.flatLiftingRing_points",
+     "role": "characterisation",
+     "statement": "An 𝒪_E-point is flat iff it is the Tate module of a p-divisible group."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.flatDeformationRing",
+     "role": "constructor",
+     "statement": "R^fl when End V_𝔽 = 𝔽."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+     "how": "the target of Θ."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:R08.4/rank-two-bt-components",
+     "how": "the ring whose components are compared."
+    }
+   ],
+   "tests": [
+    {
+     "name": "flat_mu_p_plus_Z_p",
+     "kind": "example",
+     "statement": "𝔽(1) ⊕ 𝔽 is finite flat."
+    },
+    {
+     "name": "flat_points_iff_pdivisible",
+     "kind": "characterisation",
+     "statement": "𝒪_E-points of R^{fl,□} are Tate modules of p-divisible groups."
+    },
+    {
+     "name": "omega_sq_not_flat",
+     "kind": "non-example",
+     "statement": "ω² over ℚ_p (p > 3) has no finite flat model."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "The moduli of finite flat models",
+   "kind": "construction",
+   "statement": "For a complete local R with residue field 𝔽 and ξ ∈ D^fl(R), the lattices of E-height ≤ 1 in M(V_R) (L7/height-lattice-moduli with h = 1: 𝔖_B-submodules 𝔐_B ⊂ M_B, projective of rank d, φ-stable, spanning, with coker(φ*𝔐_B → 𝔐_B) killed by E(u)) are represented by a projective R-scheme 𝒢ℛ_{V_𝔽,ξ}. For R = R^fl (End V_𝔽 = 𝔽), or R = R^{fl,□}, this gives a projective morphism Θ : 𝒢ℛ_{V_𝔽} → Spec R^fl sending a lattice to the flat deformation it defines. Its closed fibre 𝒢ℛ_{V_𝔽,0} is a projective 𝔽-scheme whose 𝔽′-points are the isomorphism classes of finite flat models of V_𝔽 ⊗ 𝔽′.",
+   "hypotheses": [
+    "K/ℚ_p is finite with p > 2 (p = 2 is stage R08.5), e = e(K/ℚ_p), K₀ the maximal unramified subfield, 𝔽 a finite field, and V_𝔽 a d-dimensional 𝔽-representation of G_K that is the generic fibre of a finite flat group scheme; 𝔖 = W(k)⟦u⟧ and E(u) are as in L7/finite-height-lattices.",
+    "Kisin's modules of E-height ≤ 1 and their equivalence with finite flat group schemes (p > 2), and Breuil's full faithfulness of restriction from G_K to G_{K_∞} on finite flat representations, are requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4."
+   ],
+   "proofSteps": [
+    "L7/height-lattice-moduli with h = 1 represents the lattice functor by a projective scheme; Kisin (2.1.7), (2.1.10) (bounding the lattices between u^iN and u^{−i}N, then formal GAGA).",
+    "Θ (Kisin (2.1.4)): a lattice gives a finite flat group scheme by R07.4, whose G_{K_∞}-representation extends uniquely to G_K by Breuil's full faithfulness; this is the flat deformation.",
+    "Closed fibre (2.1.13): an 𝔽′-point is a lattice killed by p, i.e. a finite flat model with 𝔽′-action, and conversely by the equivalence on objects killed by p."
+   ],
+   "acceptance": [
+    "K = ℚ_p and V_𝔽 irreducible: 𝒢ℛ_{V_𝔽,0} is one point (Raynaud, small-ramification-flat).",
+    "𝔽′-points of the closed fibre are exactly the finite flat models of V_{𝔽′}, not the flat deformations.",
+    "K = ℚ_p(ζ_p) (e = p − 1): μ_p and ℤ/p are two non-isomorphic models of the same generic fibre, so the closed fibre has more than one point and Θ is not a monomorphism."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L7/height-lattice-moduli",
+    "LocalGaloisDeformationRings:L7/finite-height-lattices",
+    "LocalGaloisDeformationRings:R08.4/flat-deformation-condition",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "Corollaries (2.1.11) and (2.1.13), p. 21",
+     "excerpt": "the set of (isomorphism classes of) finite flat models of V𝔽′ = V𝔽 ⊗𝔽 𝔽 ′ is in natural bijection with 𝔊ℜ V𝔽 ,0 (𝔽 ′ ).",
+     "match": "The closed fibre; (2.1.11) gives the projective map Θ."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.finiteFlatModels",
+     "role": "constructor",
+     "statement": "𝒢ℛ_{V_𝔽,ξ}, the projective R-scheme of E-height ≤ 1 lattices."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.finiteFlatModels_toFlat",
+     "role": "constructor",
+     "statement": "Θ : 𝒢ℛ_{V_𝔽} → Spec R^fl, projective."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.finiteFlatModels_closedFibre",
+     "role": "characterisation",
+     "statement": "𝒢ℛ_{V_𝔽,0}(𝔽′) ≃ finite flat models of V_𝔽 ⊗ 𝔽′."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:R08.4/hodge-type-resolution",
+     "how": "the resolution is its p-torsion-free Hodge-type part."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:R08.4/small-ramification-flat",
+     "how": "Θ is an isomorphism for e < p − 1."
+    }
+   ],
+   "tests": [
+    {
+     "name": "finiteFlatModels_irreducible_Qp",
+     "kind": "example",
+     "statement": "K = ℚ_p, V_𝔽 irreducible: one model."
+    },
+    {
+     "name": "finiteFlatModels_closedFibre_models",
+     "kind": "characterisation",
+     "statement": "Closed-fibre points are finite flat models."
+    },
+    {
+     "name": "finiteFlatModels_two_models_ramified",
+     "kind": "non-example",
+     "statement": "Over ℚ_p(ζ_p), μ_p and ℤ/p are two models of one generic fibre."
+    }
+   ],
+   "planet": {
+    "name": "Moduli of finite flat models"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/small-ramification-flat",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "Unique models in small ramification",
+   "kind": "theorem",
+   "statement": "If e(K/ℚ_p) < p − 1, then Θ : 𝒢ℛ_{V_𝔽,ξ} → Spec R is an isomorphism for every ξ, and in particular Θ : 𝒢ℛ_{V_𝔽} → Spec R^fl is an isomorphism: a flat deformation has a unique finite flat model.",
+   "hypotheses": [
+    "Raynaud's theorems for e < p − 1 (uniqueness of finite flat prolongations, [Ra, 3.3.3], and splitting of extensions whose generic fibre splits, [Ra, 3.3.6]) are requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1, whose stage text asks for them."
+   ],
+   "proofSteps": [
+    "The reduced closed fibre of 𝒢ℛ_{V_𝔽,ξ} is one point by Raynaud's uniqueness, so Θ is finite.",
+    "The closed fibre is reduced: an 𝔽[ε]-point is an extension of finite flat group schemes whose generic fibre splits, which splits by Raynaud, so the point factors through 𝔽.",
+    "A finite map with reduced one-point closed fibre that is a bijection on points over Artinian rings is an isomorphism."
+   ],
+   "acceptance": [
+    "K = ℚ_p, p ≥ 3 (e = 1 < p − 1): Θ is an isomorphism; flat deformation rings are the Fontaine–Laffaille rings of weight two.",
+    "e = p − 1 (K = ℚ_p(ζ_p)): the μ_p versus ℤ/p example shows the hypothesis is sharp.",
+    "For p = 2 the hypothesis e < 1 never holds; the 2-adic case is R08.5."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "Proposition (2.1.14), p. 22",
+     "excerpt": "Proposition (2.1.14). Suppose that e(K/ℚp ) < p − 1. Then the map ΘV𝔽 is an equivalence of categories.",
+     "match": "Raynaud's case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/flat-generic-fibre",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "The generic fibre of the flat deformation ring",
+   "kind": "theorem",
+   "statement": "On the generic fibre, flat deformations are the crystalline deformations with Hodge–Tate weights in {0, 1}: for an E-point ξ of R^{fl,□}, the completion of R^{fl,□}[1/p] at ξ pro-represents crystalline deformations of V_ξ, it is formally smooth over E, and if ξ has p-adic Hodge type v = (v_ψ)_ψ (v_ψ the multiplicity of the weight 1 at the embedding ψ) its dimension is d² + Σ_ψ (d − v_ψ)v_ψ. For the unframed ring (End V_𝔽 = 𝔽) the dimension is 1 + Σ_ψ (d − v_ψ)v_ψ.",
+   "hypotheses": [
+    "Crystalline with Hodge–Tate weights in {0, 1} implies Barsotti–Tate (Breuil for p > 2, Kisin), requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4.",
+    "The tangent-space count is R08.3/pcris-generic-smooth specialised to Hodge–Tate weights {0, 1}: dim ad D/Fil⁰ ad D = Σ_ψ (d − v_ψ)v_ψ."
+   ],
+   "proofSteps": [
+    "A flat 𝒪_E-lattice is the Tate module of a p-divisible group, so its generic fibre is crystalline with weights 0 and 1; conversely a crystalline deformation over an Artinian E-algebra B is a successive extension of V_ξ, has weights in {0, 1}, and contains a G_K-stable lattice that is Barsotti–Tate (Kisin (2.3.5), (2.3.8)).",
+    "Formal smoothness: the crystalline deformation functor of V_ξ is formally smooth (Kisin (2.3.9)).",
+    "Dimension: H¹_f(G_K, ad V_ξ) has dimension Σ_ψ (d − v_ψ)v_ψ + dim H⁰(G_K, ad V_ξ); adding the framing gives d² + Σ_ψ (d − v_ψ)v_ψ."
+   ],
+   "acceptance": [
+    "d = 2, v_ψ = 1 for all ψ (determinant cyclotomic up to finite order): dimension 4 + [K : ℚ_p] framed, 1 + [K : ℚ_p] unframed.",
+    "d = 1: (d − v_ψ)v_ψ = 0 for every ψ, so the generic fibre has dimension 1: a crystalline character of weight 0 or 1 deforms only by unramified twists.",
+    "Integrally R^{fl,□} need not be smooth or even normal: only the generic fibre is formally smooth."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4/flat-deformation-condition",
+    "LocalGaloisDeformationRings:R08.3/pcris-generic-smooth",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "Proposition (2.3.8) and Corollary (2.3.11), pp. 32–33",
+     "excerpt": "This shows, in particular, that Vξ is Barsotti-Tate",
+     "match": "Proposition (2.3.8): flat deformations on the generic fibre are crystalline deformations; (2.3.11) gives smoothness and the dimension."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/hodge-type-resolution",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "Kisin's resolution of the flat deformation ring",
+   "kind": "construction",
+   "statement": "Let R be R^{fl,□} ⊗ 𝒪_F (or R^fl ⊗ 𝒪_F when End V_𝔽 = 𝔽), F large enough to contain the reflex fields, and v a p-adic Hodge type. Let R^v be the quotient of R cut out by the closure of the union of the connected components of Spec R[1/p] on which the Hodge type is v. The lattices whose φ*𝔐/E(u)𝔐 has determinant ∏_ψ ψ(a)^{v_ψ} form a closed subscheme 𝒢ℛ^v ⊂ 𝒢ℛ, and its p-torsion-free part 𝒢ℛ^{v,loc} carries a projective map Θ^v : 𝒢ℛ^{v,loc} → Spec R^v that becomes an isomorphism after inverting p.",
+   "hypotheses": [
+    "K/ℚ_p is finite with p > 2 (p = 2 is stage R08.5), e = e(K/ℚ_p), K₀ the maximal unramified subfield, 𝔽 a finite field, and V_𝔽 a d-dimensional 𝔽-representation of G_K that is the generic fibre of a finite flat group scheme; 𝔖 = W(k)⟦u⟧ and E(u) are as in L7/finite-height-lattices.",
+    "Kisin's condition (2.4.5): ξ → D^fl is formally smooth, which holds for the two rings named.",
+    "That the Hodge type is constant on connected components of Spec R[1/p] is R08.3/hodge-type-components (Kisin uses Sen's theorem on Hodge–Tate weights in families)."
+   ],
+   "proofSteps": [
+    "Θ lands in Spec R^v: it suffices to check E-points of 𝒢ℛ^{v,loc}[1/p]; for such a point, D_cris(V_E)_K/Fil⁰ is computed from φ*𝔐/E(u)𝔐 (Breuil), so the Hodge type is v.",
+    "Bijection on E-points: a point of R^v is the Tate module of a p-divisible group, unique by Tate's theorem, whose Kisin module is the unique preimage.",
+    "Θ^v[1/p] is projective and bijective on closed points, hence finite; its source is normal (resolution-local-structure) and its target regular (flat-generic-fibre), so it is an isomorphism."
+   ],
+   "acceptance": [
+    "v_ψ = 1 for all ψ, d = 2: 𝒢ℛ^{v,loc} = 𝒢ℛ^v, and R^v is the cyclotomic-determinant part of the flat ring.",
+    "When e < p − 1, 𝒢ℛ ≅ Spec R^fl already, and the resolution is an isomorphism integrally (small-ramification-flat).",
+    "Θ^v is not an isomorphism integrally in general: its closed fibre is the positive-dimensional 𝒢ℛ^v_0 (for example ℙ¹ in rank-two-ordinary-locus)."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+    "LocalGaloisDeformationRings:R08.4/flat-generic-fibre",
+    "LocalGaloisDeformationRings:R08.4/resolution-local-structure",
+    "LocalGaloisDeformationRings:R08.3/hodge-type-components"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "(2.4.1)–(2.4.3) and Proposition (2.4.8), pp. 34–37",
+     "excerpt": "This map becomes an isomorphism after applying ⊗𝒪F F.",
+     "match": "Proposition (2.4.8)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.flatHodgeTypeQuotient",
+     "role": "constructor",
+     "statement": "R^v, the Hodge-type-v part of the flat ring."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.flatResolution",
+     "role": "constructor",
+     "statement": "𝒢ℛ^{v,loc} with Θ^v : 𝒢ℛ^{v,loc} → Spec R^v projective."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.flatResolution_generic_iso",
+     "role": "characterisation",
+     "statement": "Θ^v[1/p] is an isomorphism."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:R08.4/components-via-special-fibre",
+     "how": "connected components are read off the closed fibre of the resolution."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.5",
+     "how": "the component geometry behind Kisin's potentially Barsotti–Tate theorem."
+    }
+   ],
+   "tests": [
+    {
+     "name": "flatResolution_small_ramification",
+     "kind": "example",
+     "statement": "e < p − 1: Θ^v is an isomorphism integrally."
+    },
+    {
+     "name": "flatResolution_generic_iso",
+     "kind": "characterisation",
+     "statement": "Θ^v is an isomorphism after inverting p."
+    },
+    {
+     "name": "flatResolution_not_integral_iso",
+     "kind": "non-example",
+     "statement": "Θ^v has positive-dimensional closed fibre in general."
+    }
+   ],
+   "planet": {
+    "name": "Kisin's resolution of flat deformation rings"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/resolution-local-structure",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "Local structure of the resolution",
+   "kind": "theorem",
+   "statement": "𝒢ℛ^{v,loc} is normal and Cohen–Macaulay, and its closed fibre 𝒢ℛ^{v,loc}_0 is reduced and normal with rational singularities. A closed point of 𝒢ℛ^v lies in 𝒢ℛ^{v,loc} exactly when, for each σ ∈ Gal(K₀/ℚ_p), the nilpotent endomorphism π of σ-part of φ*𝔐/E(u)𝔐 has Jordan type dominated by the dual partition of v_σ. If for each σ any two of the v_ψ with ψ|K₀ = σ differ by at most 1, and either every v_ψ ∈ {0, 1} or e ≤ 2, then 𝒢ℛ^{v,loc} = 𝒢ℛ^v.",
+   "hypotheses": [
+    "The input is Pappas–Rapoport's local models for Res_{K/ℚ_p} GL_d (normality and Cohen–Macaulayness of the flat closure, reduced special fibre with rational singularities, and equality with the naive model in the stated cases), recorded as a gap: no stage of the atlas plans these local models."
+   ],
+   "proofSteps": [
+    "Kisin (2.2.11): the complete local ring of 𝒢ℛ^v at a closed point is formally smooth over the complete local ring of the local model M_v at the corresponding point (the map 𝔐 ↦ (1 ⊗ φ)φ*𝔐/E(u)𝔐).",
+    "Kisin (2.2.5), (2.2.8): M_v is a product over σ of Pappas–Rapoport models, so it inherits their properties; p-torsion-free parts correspond (completion is flat).",
+    "The properties are local and pass along formally smooth maps."
+   ],
+   "acceptance": [
+    "d = 2, v_ψ = 1 for all ψ: 𝒢ℛ^{v,loc} = 𝒢ℛ^v, the case of rank-two Barsotti–Tate representations.",
+    "The closed fibre is reduced: this is what forces idempotents on the generic fibre of the resolution to extend integrally (components-via-special-fibre).",
+    "𝒢ℛ^v and 𝒢ℛ^{v,loc} can differ, because the naive local model need not be flat (Pappas–Rapoport); that is why only the p-torsion-free part is used."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "Proposition (2.2.2), Corollary (2.2.8) and Proposition (2.4.6), pp. 23–35",
+     "excerpt": "is reduced and normal with rational singularities.",
+     "match": "Proposition (2.4.6)(2), from (2.2.2) and (2.2.8)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/components-via-special-fibre",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "Connected components through the special fibre",
+   "kind": "theorem",
+   "statement": "There is a bijection between the connected components of Spec R^v[1/p] and those of the closed fibre 𝒢ℛ^{v,loc}_0 of the resolution. Because Θ^v[1/p] is an isomorphism, this describes components of the deformation ring itself and not only of the moduli space: connectedness of the source alone would not suffice.",
+   "hypotheses": [
+    "The relevant inputs are the isomorphism on the generic fibre (hodge-type-resolution) and the reducedness of the closed fibre (resolution-local-structure)."
+   ],
+   "proofSteps": [
+    "If e is an idempotent on 𝒢ℛ^{v,loc}[1/p] and π_F^n e extends integrally with n ≥ 1 minimal, then π_F^n e reduces to a nonzero nilpotent on the reduced closed fibre; so n = 0 and H₀(𝒢ℛ^{v,loc}[1/p]) = H₀(𝒢ℛ^{v,loc}).",
+    "H₀ of 𝒢ℛ^{v,loc} equals H₀ of its completion along 𝔪_R, which has the topology of the closed fibre (Grothendieck's existence theorem [EGA III, 5.5.1, 4.1.5]).",
+    "Compose with Θ^v[1/p] ≅ Spec R^v[1/p]."
+   ],
+   "acceptance": [
+    "If the closed fibre is one point, Spec R^v[1/p] is connected.",
+    "When Spec R^v[1/p] is formally smooth (flat-generic-fibre), its connected components are its irreducible components, so the bijection counts irreducible components.",
+    "The analogous statement with 𝒢ℛ^v in place of 𝒢ℛ^{v,loc} can fail, since components supported in characteristic p are not seen by the generic fibre."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4/hodge-type-resolution",
+    "LocalGaloisDeformationRings:R08.4/resolution-local-structure",
+    "AdicSpacesPartII:F0/grothendieck-algebraization"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "Corollary (2.4.10), pp. 37–38",
+     "excerpt": "There is a bijection H0 (Spec R v [1/p]) ∼ − → H0 (𝔊ℜ v ,loc V𝔽 ,0 ).",
+     "match": "Corollary (2.4.10)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Connected components through the special fibre"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/ordinary-type-of-components",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "The ordinary type of a component",
+   "kind": "lemma",
+   "statement": "Every point 𝔐_A of the moduli has a maximal multiplicative subobject 𝔐^m_A and a maximal étale quotient 𝔐^ét_A, compatible with base change and exchanged by duality; their ranks d_m and d_ét are constant on each connected component of 𝒢ℛ^{v,loc}_0. For a pair d = (d_ét, d_m), an E-point x of Spec R^v lies on a connected component of Spec R^v[1/p] corresponding to a component of type d exactly when the maximal unramified subrepresentation of V_x(−1) has dimension d_m and the maximal unramified quotient of V_x has dimension d_ét.",
+   "hypotheses": [
+    "Kisin conjectures (2.4.16) that for End V_𝔽 = 𝔽 each type-d locus is connected; this is proved here only in rank two (rank-two-nonordinary-connected, rank-two-ordinary-locus)."
+   ],
+   "proofSteps": [
+    "Over a finite ring the maximal multiplicative submodule is ∩_r (φ*)^r 𝔐 (Kisin (1.2.11)); its rank is lower semicontinuous (a characteristic-polynomial coefficient of φ on 𝔐/u𝔐).",
+    "Upper semicontinuity: the locus with a rank-d_m unramified-twisted submodule L ⊂ V_A(−1) is a closed subspace of a Grassmannian, and near a point of rank exactly d_m it maps isomorphically; so the rank is locally constant.",
+    "On E-points, the multiplicative part corresponds to the multiplicative part of the p-divisible group, i.e. to the unramified subrepresentation of V(−1) (Kisin (1.1.15))."
+   ],
+   "acceptance": [
+    "d = 2, both ranks 1: the ordinary points, where V_x is an extension of an unramified character by an unramified twist of the cyclotomic character.",
+    "d = 2, ranks 0: the non-ordinary points (connected multiplicative-free and étale-free group schemes).",
+    "The type is not a residual invariant: V_𝔽 can have lifts on components of different types."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4/hodge-type-resolution",
+    "LocalGaloisDeformationRings:R08.4/components-via-special-fibre",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "Proposition (2.4.14), (2.4.15) and Conjecture (2.4.16), pp. 38–41",
+     "excerpt": "Then 𝔐A admits a maximal multiplicative subobject 𝔐 m A and a maximal ´etale quotient 𝔐 ´et A .",
+     "match": "Proposition (2.4.14)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/rank-two-nonordinary-connected",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "Connectedness of the non-ordinary locus in rank two",
+   "kind": "theorem",
+   "statement": "Let d = 2, v_ψ = 1 for all ψ (so 𝒢ℛ^v = 𝒢ℛ^{v,loc}), and K₀ = ℚ_p. Any two non-ordinary 𝔽′-points of 𝒢ℛ^v_0 lie on the same connected component. So the non-ordinary locus of Spec R^v[1/p] is connected.",
+   "hypotheses": [
+    "K₀ = ℚ_p means K/ℚ_p totally ramified; Kisin notes that Gee later removed this restriction, which was not read here, so it is kept.",
+    "The residual input (Kisin (2.5.3)): for V_𝔽 reducible, V_𝔽^ss|I_K ≅ ω^i ⊕ ω^j with i, j ∈ [0, e] and p − 1 | e − i − j; for V_𝔽 irreducible (𝔽 ⊇ 𝔽_{p²}), V_𝔽|I_K ≅ ω₂^i ⊕ ω₂^{pi} with i = i₀ + pi₁, i₀, i₁ ∈ [0, e], p + 1 ∤ i and p − 1 | e − i."
+   ],
+   "proofSteps": [
+    "Kisin (2.5.1): 𝔽′-points are rank-two 𝔽′⟦u⟧-lattices 𝔐 ⊂ M_{𝔽′}, φ-stable, with det φ = αu^e (α a unit).",
+    "Kisin (2.5.5): for irreducible V_𝔽, after a quadratic extension M ∼ (0 a; d 0) with v_u(ad) = e and p + 1 ∤ v_u(d) − v_u(a).",
+    "Given two non-ordinary lattices 𝔐₁, 𝔐₂ = (1 + N)𝔐₁ with N nilpotent, build a chain of lattices 𝔑_j and show successive ones lie on a common ℙ¹ inside 𝒢ℛ^v_0 (Kisin (2.5.7)–(2.5.14)); the valuation inequalities use p + 1 ∤ v_u(d) − v_u(a)."
+   ],
+   "acceptance": [
+    "K = ℚ_p (e = 1), V_𝔽 irreducible: the closed fibre is one point (small-ramification-flat), trivially connected.",
+    "K totally ramified of degree e ≥ p − 1: the closed fibre can be positive-dimensional, and the proposition still gives one non-ordinary component.",
+    "For K₀ ≠ ℚ_p (for example K = ℚ_{p²}) the argument does not apply as stated: the chain of lattices needs K₀ = ℚ_p."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4/ordinary-type-of-components",
+    "LocalGaloisDeformationRings:R08.4/components-via-special-fibre",
+    "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "Lemmas (2.5.1), (2.5.3), (2.5.5) and Proposition (2.5.6), pp. 41–48",
+     "excerpt": "Then (the images of) x1 and x2 lie on the same component of 𝔊ℜ v V𝔽 ,0 .",
+     "match": "Proposition (2.5.6)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Connectedness of the non-ordinary locus"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/rank-two-ordinary-locus",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "The ordinary locus in rank two",
+   "kind": "theorem",
+   "statement": "Let d = 2 and v_ψ = 1 for all ψ (K₀ arbitrary). The ordinary part 𝒢ℛ^{v,ord}_0 of the closed fibre, if non-empty, is a single point, unless V_𝔽 ≅ χ₁ ⊕ χ₂ with χ₁, χ₂ unramified. In that case it is two points (the models D(𝒢_{χ₁^{−1}ω}) ⊕ 𝒢_{χ₂} and D(𝒢_{χ₂^{−1}ω}) ⊕ 𝒢_{χ₁}) if χ₁ ≠ χ₂, and ℙ¹ if χ₁ = χ₂, all its models being isomorphic to D(𝒢_{χ₁^{−1}ω}) ⊕ 𝒢_{χ₁}.",
+   "hypotheses": [
+    "𝒢_χ is the finite étale extension of an unramified character χ, D is Cartier duality and ω the mod-p cyclotomic character."
+   ],
+   "proofSteps": [
+    "An ordinary A-point is an extension of an étale rank-one object by a multiplicative one, i.e. an ordinary finite flat group scheme 𝒢_A; its multiplicative part gives a G_K-stable A-line L_A ⊂ V_A with unramified quotient, and 𝒢_A is determined by L_A (as in BCDT 4.1.2).",
+    "The possible L_A: one line unless V_𝔽 is a sum of two unramified characters; two lines if they differ; every line if they agree.",
+    "In the last case the functorial isomorphism with ℙ(V_𝔽) makes the ordinary locus smooth with the point count of ℙ¹, hence ℙ¹."
+   ],
+   "acceptance": [
+    "V_𝔽 = ω ⊕ 1 over ℚ_p: ω is ramified, so V_𝔽 is not a sum of two unramified characters, and the ordinary locus is the single model μ_p ⊕ ℤ/p.",
+    "K = ℚ_p(ζ_p) (e = p − 1, so ω is trivial on G_K) and V_𝔽 = 1 ⊕ 1: the ordinary locus is ℙ¹, so the ordinary component of Spec R^v[1/p] is connected though its closed fibre is not a point. Over ℚ_p itself 1 ⊕ 1 has no lifts of this Hodge type (the inertial weights must be ω ⊕ 1).",
+    "V_𝔽 a non-split extension of 1 by ω: the ordinary locus is one point."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4/ordinary-type-of-components",
+    "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "Proposition (2.5.15), pp. 48–49",
+     "excerpt": "is non-empty then it consists of a single point, unless V𝔽 ∼ χ1 0 0 χ2 where χ1 and χ2 are unramified characters of GK .",
+     "match": "Proposition (2.5.15)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/rank-two-bt-components",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "Components of rank-two Barsotti–Tate deformation rings",
+   "kind": "theorem",
+   "statement": "Let d = 2, v_ψ = 1 for all ψ (Barsotti–Tate with cyclotomic-type determinant), R = R^{fl,□} ⊗ 𝒪_F and R^v its Hodge-type-v quotient. (1) R^v is flat over ℤ_p of pure relative dimension 4 + [K : ℚ_p], and R^v[1/p] is formally smooth; its irreducible components are its connected components. (2) If E-points x₁, x₂ lie on the same irreducible component, then V_{x₁} and V_{x₂} are both ordinary or both non-ordinary. Conversely they lie on the same component if (i) both are non-ordinary and K₀ = ℚ_p, or (ii) both are ordinary and the characters of G_K on the lines L_i ⊂ V_{x_i} where I_K acts cyclotomically have the same reduction mod π_E. The same holds for R^fl ⊗ 𝒪_F when End V_𝔽 = 𝔽, with relative dimension 1 + [K : ℚ_p]. In particular a modular point and a lift meet the same component exactly when they satisfy these matching conditions, which is how Kisin chooses his auxiliary modular forms.",
+   "hypotheses": [
+    "This is the rank-two case of Kisin's conjecture (2.4.16), with K₀ = ℚ_p in the non-ordinary case.",
+    "Potentially Barsotti–Tate representations of a nontrivial type are reduced to this case by a global solvable base change (GL2ModularityLifting R22.5), not by a local component theorem for types."
+   ],
+   "proofSteps": [
+    "(1) from flat-generic-fibre (dimension d² + Σ(d − v_ψ)v_ψ = 4 + [K : ℚ_p]) and flatness by construction; formal smoothness makes connected and irreducible components agree, and flatness matches them with components of Spec R^v.",
+    "(2) components-via-special-fibre with ordinary-type-of-components, rank-two-nonordinary-connected and rank-two-ordinary-locus.",
+    "Unframed: forgetting the frame is formally smooth of relative dimension 3."
+   ],
+   "acceptance": [
+    "V_𝔽 irreducible, K = ℚ_p: Spec R^v[1/p] is connected (no ordinary points), so every Barsotti–Tate lift is on the component of any modular Barsotti–Tate point.",
+    "K = ℚ_p(ζ_p), V_𝔽 = 1 ⊕ 1: the ordinary locus is one component (ℙ¹ closed fibre) and the non-ordinary locus another; an ordinary modular point does not control a non-ordinary lift.",
+    "Two ordinary lifts whose cyclotomic-line characters have different reductions can lie on different components: over K = ℚ_p(ζ_p), V_𝔽 = χ₁ ⊕ χ₂ with χ₁ ≠ χ₂ unramified has two ordinary components."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4/flat-generic-fibre",
+    "LocalGaloisDeformationRings:R08.4/components-via-special-fibre",
+    "LocalGaloisDeformationRings:R08.4/ordinary-type-of-components",
+    "LocalGaloisDeformationRings:R08.4/rank-two-nonordinary-connected",
+    "LocalGaloisDeformationRings:R08.4/rank-two-ordinary-locus",
+    "LocalGaloisDeformationRings:R08.1/local-forget-framing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-FFLAT-2009",
+     "locator": "Corollary (2.5.16), p. 49",
+     "excerpt": "(1) The complete local ring R v is flat over ℤp of pure relative dimension 4+[K : ℚp ], and R v [1/p] is formally smooth over F.",
+     "match": "Corollary (2.5.16)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Components of rank-two Barsotti–Tate deformation rings"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
+   "parentStageId": "LocalGaloisDeformationRings:R08.4",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.4"
+   ],
+   "title": "Savitt's weight-two deformation rings of tame type",
+   "kind": "theorem",
+   "statement": "Let p be odd, ρ̄ : G_{ℚ_p} → GL_2(k_E) with End ρ̄ = k_E, and R(2, τ, ρ̄) the quotient of the universal deformation ring by the intersection of the primes of type (2, τ) (potentially Barsotti–Tate of inertial type τ, Hodge–Tate weights (0, 1), fixed determinant). (1) If τ = ω̃^i ⊕ ω̃^j with i ≢ j mod p − 1: R(2, τ, ρ̄) = 0 unless ρ̄|I_p is (ω^{1+i} ∗; 0 ω^j), (ω^{1+j} ∗; 0 ω^i) or ω₂^k ⊕ ω₂^{pk} with k = 1 + {j − i} + (p + 1)i; it is 𝒪_E⟦Y⟧ in the two reducible cases, and 𝒪_E⟦X₁, X₂⟧/(X₁X₂ − pw) with w ∈ 𝒪_E^× in the irreducible case (E ⊇ ℚ_{p²}, √det ρ̄(Frob_p) ∈ k_E). (2) If τ = ω̃₂^m ⊕ ω̃₂^{pm} with p + 1 ∤ m: R(2, τ, ρ̄) is 𝒪_E⟦B⟧ for the reducible and irreducible shapes listed by Savitt (Theorem 6.23), and 0 otherwise. So the Breuil–Mézard conjecture holds for k = 2 and τ tame.",
+   "hypotheses": [
+    "R(2, τ, ρ̄) is the fixed-determinant, unframed version of R08.3/pst-deformation-ring for Hodge–Tate weights (0, 1) and type τ.",
+    "The construction uses Breuil–Mézard strongly divisible modules with tame descent data (Savitt §§2–5), requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4.",
+    "This is the weight-two computation that R08.6/export-weight-two-irreducible cites (the case ρ̄ irreducible with a principal-series tame type)."
+   ],
+   "proofSteps": [
+    "Explicit families: strongly divisible modules M over R(M) = 𝒪_E⟦Y⟧, 𝒪_E⟦B⟧ or 𝒪_E⟦X₁, X₂⟧/(X₁X₂ − pw) with descent data (Proposition 6.21) whose reductions are ρ̄ (Theorems 6.11, 6.12 and Corollary 6.15, which also give the vanishing cases).",
+    "Every lattice of type (2, τ) is found among them, so there is a canonical injection R(2, τ, ρ̄) → R(M); surjectivity is checked on R/(𝔪², 𝔪_E) by showing that the family does not descend to a smaller subalgebra, using the minimal Breuil module of a subcharacter.",
+    "The Breuil–Mézard multiplicities then follow as in [BM02, §5.3]."
+   ],
+   "acceptance": [
+    "ρ̄ irreducible with ρ̄|I_p = ω₂^k ⊕ ω₂^{pk} and a principal-series type: R ≅ 𝒪_E⟦X₁, X₂⟧/(X₁X₂ − pw), not formally smooth over 𝒪_E but with regular generic fibre; its special fibre k_E⟦X₁, X₂⟧/(X₁X₂) has two components and Samuel multiplicity 2.",
+    "A reducible shape from the list: R ≅ 𝒪_E⟦Y⟧, formally smooth.",
+    "ρ̄|I_p outside the list: R(2, τ, ρ̄) = 0, so no potentially Barsotti–Tate lift of type τ exists."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+    "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types",
+    "LocalGaloisDeformationRings:R08.1/local-fixed-determinant",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/FiniteFlat",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "SAVITT-2005",
+     "locator": "Theorems 6.22–6.24, pp. 41–42",
+     "excerpt": "Theorem 6.24. Conjecture 2.2.2.4 of [BM02] (and so, in particular, [CDT99, Conj. 1.2.1]) holds for k = 2 and τ tame.",
+     "match": "Theorem 6.24; the explicit rings are Theorems 6.22 and 6.23."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Savitt's weight-two deformation rings"
+   }
+  },
+  {
    "id": "LocalGaloisDeformationRings:R08.6/smooth-resolution-criterion",
    "parentStageId": "LocalGaloisDeformationRings:R08.6",
    "realises": [
@@ -1701,7 +2385,7 @@
     "Not formally smooth over 𝒪: its special fibre 𝔽⟦T₁, T₂⟧/(T₁T₂) is not regular (for unramified 𝒪 the ring itself is still regular, since T₁T₂ − p ∉ 𝔪²)."
    ],
    "prerequisites": [
-    "LocalGaloisDeformationRings:R08.4",
+    "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
     "LocalGaloisDeformationRings:R08.1/local-forget-framing"
    ],
    "library": {
@@ -2209,6 +2893,37 @@
    ],
    "status": "open",
    "note": "R03.3 plans the dimension and equidimensionality lemmas."
+  },
+  {
+   "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+   "need": "Raynaud's results on finite flat group schemes over 𝒪_K: stability of finite flat representations under subobjects, quotients and direct sums ([Ra, 2.2]); for e < p − 1, uniqueness of finite flat prolongations and splitting of extensions with split generic fibre ([Ra, 3.3.3, 3.3.6]); the inertial weights ω^i, 0 ≤ i ≤ e, of finite flat characters ([Ra, 3.4.3]); and compatible systems of finite flat models form a p-divisible group ([Ra, 2.3.1]).",
+   "neededBy": [
+    "LocalGaloisDeformationRings:R08.4/flat-deformation-condition",
+    "LocalGaloisDeformationRings:R08.4/small-ramification-flat",
+    "LocalGaloisDeformationRings:R08.4/rank-two-ordinary-locus"
+   ],
+   "status": "open",
+   "note": "The R07.1 stage text asks for Raynaud's Corollary 3.3.6."
+  },
+  {
+   "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+   "need": "For p > 2: the equivalence between Kisin modules of E-height ≤ 1 over 𝔖 and finite flat group schemes (objects killed by p) and p-divisible groups (Kisin's (2.2.22)); Breuil's full faithfulness of restriction from G_K to G_{K_∞} on finite flat representations; the multiplicative/étale dictionary (Kisin (1.1.15), (1.2.11)); and crystalline representations with Hodge–Tate weights {0, 1} are Barsotti–Tate.",
+   "neededBy": [
+    "LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli",
+    "LocalGaloisDeformationRings:R08.4/flat-generic-fibre",
+    "LocalGaloisDeformationRings:R08.4/ordinary-type-of-components"
+   ],
+   "status": "open",
+   "note": "More specific than this packet's earlier R07.4 request."
+  },
+  {
+   "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+   "need": "Breuil–Mézard strongly divisible modules in Hodge–Tate weights (0, 1) with tame descent data, their Galois lattices and reductions (Savitt §§2–5).",
+   "neededBy": [
+    "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings"
+   ],
+   "status": "open",
+   "note": "Savitt extends Breuil–Mézard to the potentially crystalline case."
   }
  ],
  "coverage": [
@@ -2232,10 +2947,9 @@
   },
   {
    "stageId": "LocalGaloisDeformationRings:R08.4",
-   "status": "not_read",
-   "remaining": [
-    "Rank-two finite-flat/Barsotti–Tate component theorems (RS-08 keeps), importing L7's lattice moduli."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Planned in 12 nodes from Kisin's Moduli paper §2 (p > 2) and Savitt, within RS-08's keeps. L7's height-lattice moduli are instantiated with height 1 as the moduli of finite flat models with the projective map Θ; Raynaud's case e < p − 1; the generic fibre (crystalline weights {0, 1}, formally smooth, dimension formula); Kisin's resolution Θ^v, an isomorphism on generic fibres, with its local structure (Pappas–Rapoport local models, recorded as a gap); components of Spec R^v[1/p] through the closed fibre, so through the image and not the source alone; ordinary types; rank-two connectedness of the non-ordinary locus (K₀ = ℚ_p) and the ordinary locus; the component comparison of Corollary (2.5.16), which says which components a modular point meets; and Savitt's weight-two rings for tame types, which R08.6/export-weight-two-irreducible now cites. The 2-adic analogues remain R08.5."
   },
   {
    "stageId": "LocalGaloisDeformationRings:R08.5",
@@ -2271,6 +2985,39 @@
    ]
   }
  ],
- "gaps": [],
- "sourceIssues": []
+ "gaps": [
+  {
+   "title": "Pappas–Rapoport local models for Res_{K/ℚ_p} GL_d are not planned anywhere",
+   "neededBy": [
+    "LocalGaloisDeformationRings:R08.4/resolution-local-structure"
+   ],
+   "detail": "Kisin (2.2.2) and (2.2.8) use Pappas–Rapoport, Local models in the ramified case I (J. Algebraic Geom. 12 (2003)), 5.3, 5.8, 5.10: the flat closure M^loc_r of the naive local model M_r is normal and Cohen–Macaulay, its special fibre is reduced and normal with rational singularities and equals the closure of the stratum of the dual partition, and M^loc_r = M_r when the r_φ differ by at most 1 and either r ≤ e or e ≤ 2. No stage of AlgebraicModuliForArithmeticGeometry, HilbertModularVarietiesAndShimuraCurves or any other roadmap in the atlas plans these local models. Only the case v_ψ ∈ {0, 1} (where M^loc = M) is needed for the rank-two Barsotti–Tate application, which narrows what a supplier must provide."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "LocalGaloisDeformationRings/E1",
+   "source": "SAVITT-2005",
+   "kind": "error",
+   "locator": "Theorem 6.12(4), in the published version (Duke Math. J. 128 (2005)); read through Remark 1.7 of arXiv v3, p. 4",
+   "printed": "The mistake is in the statement and proof of Theorem 6.12(4) of the published version. … if m = 1 + (p + 1)j — i.e., if i = 1 — then the two characters ωm+p 2 and ωpm+1 2 are both characters of niveau one, and are equal.",
+   "correction": "When i = 1 the reduction mod p of the lattice considered in Theorem 6.12(4) is split, not of niveau two; one more family of strongly divisible modules is needed, constructed in arXiv v3. The main theorems (6.22–6.24) are unaffected.",
+   "reason": "The two fundamental characters of level two named in 6.12(4) coincide and have niveau one when i = 1, so the niveau-two conclusion cannot hold there (the author's Remark 1.7).",
+   "affects": "a stated result",
+   "known": "Savitt, arXiv:math/0404327v3 (Remark 1.7) and the corrigendum on the author's website",
+   "searched": [
+    "arXiv:math/0404327v3, Remark 1.7, read 2026-09-28."
+   ],
+   "note": "Recorded so that formalisers use the corrected Theorem 6.12(4); the nodes of this packet use only Theorems 6.22–6.24."
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "author copy",
+   "url": "https://arxiv.org/pdf/math/0404327v3",
+   "citation": "Savitt, On a conjecture of Conrad, Diamond, and Taylor, arXiv v3 (2010), the author's corrected version of Duke Math. J. 128 (2005); the published version was not read",
+   "read": "2026-09-28",
+   "sha256": "e161ac6498c1a75fc8f981c25edd5e9390b19ceb40f174a25a1f6491390c115c"
+  }
+ ]
 }
