@@ -21623,8 +21623,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ShimuraData.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #992"
   },
   {
    "id": "REV-ShimuraData",
@@ -23086,7 +23087,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-ColemanIntegration",
@@ -23096,7 +23097,7 @@
     "BP-PadicHodgeTheory--R06.5",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1020"
+   "note": "released on GitHub issue #1020"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty",
