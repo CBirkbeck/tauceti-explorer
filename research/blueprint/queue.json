@@ -20164,13 +20164,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #962"
+   "note": "released on GitHub issue #962"
   },
   {
    "id": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
