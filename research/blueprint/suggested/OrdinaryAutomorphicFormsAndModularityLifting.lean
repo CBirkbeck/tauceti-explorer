@@ -6,7 +6,7 @@ import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.Tactic.ComputeDegree
 
 /-!
-# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.2)
+# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.3)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`OrdinaryAutomorphicFormsAndModularityLifting`) is definitive. The statements below suggest Lean
@@ -133,5 +133,25 @@ example : ((X + 1 : ℤ[X]) ^ 5 - 1).natDegree = 5 := by
 `τ(ℓ) ≡ 1 + ℓ^{11} mod 691` at `ℓ = 2, 3` (`τ(2) = -24`, `τ(3) = 252`). -/
 example : (-24 : ZMod 691) = 1 + 2 ^ 11 ∧ (252 : ZMod 691) = 1 + 3 ^ 11 := by
   decide
+
+/-- `R21.3/pseudo-representation`: for `ρ(σ) = (a b; c d)`, `x(σ, τ) = b_σ c_τ` satisfies the fourth
+identity `x(στ, αβ) = a(σ)a(β)x(τ, α) + a(β)d(τ)x(σ, α) + a(σ)d(α)x(τ, β) + d(τ)d(α)x(σ, β)`,
+since `b_{στ} = a_σ b_τ + b_σ d_τ` and `c_{αβ} = c_α a_β + d_α c_β`. -/
+example {R : Type*} [CommRing R] (aσ bσ bτ dτ cα dα aβ cβ : R) :
+    (aσ * bτ + bσ * dτ) * (cα * aβ + dα * cβ) =
+      aσ * aβ * (bτ * cα) + aβ * dτ * (bσ * cα) + aσ * dα * (bτ * cβ) + dτ * dα * (bσ * cβ) := by
+  ring
+
+/-- `R21.3/deformation-iwasawa-algebra` and source issue `E3`: for `ρ|_{D_i}` upper triangular with
+diagonal `(ψ₁, ψ₂)` and `g` with `ψ₁(g) = β`, `ψ₂(g) = α`, the unramified-quotient character is
+`ψ₂(σ) = (β - α)⁻¹ (β tr ρ(σ) - tr ρ(gσ))`. -/
+example {K : Type*} [Field K] (α β p₁ p₂ : K) (h : β - α ≠ 0) :
+    (β - α)⁻¹ * (β * (p₁ + p₂) - (β * p₁ + α * p₂)) = p₂ := by
+  rw [show β * (p₁ + p₂) - (β * p₁ + α * p₂) = (β - α) * p₂ by ring, ← mul_assoc,
+    inv_mul_cancel₀ h, one_mul]
+
+/-- Source issue `E3`: without the inverse the printed expression is `(β - α)² ψ₂(σ)`, not `ψ₂(σ)`;
+with `β = 3`, `α = 1`, `ψ₁(σ) = 5`, `ψ₂(σ) = 1` it gives `4`. -/
+example : ((3 : ℚ) - 1) * (3 * (5 + 1) - (3 * 5 + 1 * 1)) = 4 := by norm_num
 
 end TauCeti.OrdinaryModularity.SuggestedTest
