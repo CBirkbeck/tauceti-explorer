@@ -1,7 +1,7 @@
-# Deformation-to-Hecke maps, auxiliary levels, patching and components (layers R22.1–R22.4)
+# Deformation-to-Hecke maps, patching and the GL₂ lifting theorems (layers R22.1–R22.6)
 
-*GL₂ modularity lifting, part 1 (R22.1–R22.6, R32.1–R32.2). Checkpoints 1–2 plan R22.1–R22.4; R22.5, R22.6, R32.1 and
-R32.2 are not yet read.*
+*GL₂ modularity lifting, part 1 (R22.1–R22.6, R32.1–R32.2). Checkpoints 1–3 plan R22.1–R22.6; R32.1 and R32.2 are not
+yet read.*
 
 ## Purpose
 
@@ -14,7 +14,10 @@ finite level:
   Hecke algebras, and proves freeness over 𝒪[Δ_Q] with control back to level U. This produces the system of modules that
   R22.3 patches.
 
-Nothing here asserts R = T. That is the conclusion of R22.3–R22.4, through DeformationAndDerivedPatchingAlgebra R03.6.
+Nothing in R22.1–R22.2 asserts R = T. That is the conclusion of R22.3–R22.4, through DeformationAndDerivedPatchingAlgebra
+R03.6. R22.5 and R22.6 then state the lifting theorems themselves, each with its own hypotheses: KW II Theorem 9.7 for odd
+p and for p = 2, Kisin's potentially Barsotti–Tate theorems for odd p and for p = 2, Gee's Fontaine–Laffaille theorem, and
+Hypothesis (H) of KW I.
 
 ## Ownership (RS-08, RS-23) and imports
 
@@ -34,12 +37,31 @@ Nothing here asserts R = T. That is the conclusion of R22.3–R22.4, through Def
   - SerreWeightAndLevelOptimisation R20.6: the existence of π fitting the lifting data (KW II Theorem 8.4).
   - LocalGaloisDeformationRings R08.6: the local conditions.
   - GlobalGaloisDeformations R04.4–R04.6: the global rings, Taylor–Wiles data and twisting (packet nodes).
+- **RS-08 keeps for R22.5:** the odd-prime ordinary, finite-flat/potentially Barsotti–Tate and crystalline-range lifting
+  statements, each with its hypotheses, and which formulations avoid the global-finiteness argument (KW I Theorem 4.1 is
+  assembled in PotentialModularityAndCompatibleSystems R24.4). R21.4 is imported only on the exact ordinary overlap.
+- **RS-08 keeps for R22.6:** the 2-adic lifting theorems needed by KW I, and Kisin's 2-adic Barsotti–Tate theorem with the
+  derivation of Hypothesis (H). The Barsotti–Tate component geometry is LocalGaloisDeformationRings R08.4, and the
+  real-place and local-at-2 calculations are R08.5.
+- **New imports (checkpoint 3):**
+  - OrdinaryAutomorphicFormsAndModularityLifting R21.4: the ordinary lifting theorem.
+  - LocalGaloisDeformationRings R08.4 and R08.5: potentially Barsotti–Tate components, and the dyadic local rings.
+  - LocalGaloisDeformationRings R08.6: Fontaine–Laffaille rings for unramified F_v.
+  - GL2AutomorphicRepresentationsAndTransfer R17.4: solvable base change and descent of modularity.
+  - FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4: crystalline with Hodge–Tate weights {0, 1} is Barsotti–Tate.
+  - SerreWeightAndLevelOptimisation R20.6: Kisin's type and level changes of quaternionic eigenforms.
 
 ## Sources
 
 - C. Khare and J.-P. Wintenberger, *Serre's modularity conjecture (II)*, Invent. Math. 178 (2009): the authors' final
   version on Khare's UCLA page, §7 and §9.
-- T. Gee, *Modularity lifting theorems*, arXiv:2202.05818v2, §5.3–5.10. This is the p ≥ 5 version with Im ρ̄ ⊇ SL₂(𝔽_p).
+- T. Gee, *Modularity lifting theorems*, arXiv:2202.05818v2, §4.24–4.27 and §5.2–5.10. This is the p ≥ 5 version with
+  Im ρ̄ ⊇ SL₂(𝔽_p).
+- C. Khare and J.-P. Wintenberger, *Serre's modularity conjecture (I)*, Invent. Math. 178 (2009): the authors' version,
+  Theorem 4.1 and §9 (Hypothesis (H)).
+- M. Kisin, *Moduli of finite flat group schemes, and modularity*, Ann. of Math. 170 (2009), and *Modularity of 2-adic
+  Barsotti–Tate representations*, Invent. Math. 178 (2009): the author's preprints (DVI files on his Harvard page), read
+  through a text extraction.
 
 ## Layer R22.1: minimal deformation-to-Hecke maps
 
@@ -162,8 +184,89 @@ Library module: `TauCeti/NumberTheory/ModularityLifting/Components`.
 - For smooth local rings, M_∞ is free and R ≅ 𝕋 is a complete intersection.
 - Cohen–Macaulay, Gorenstein and complete-intersection properties pass from the local rings.
 
+## Layer R22.5: odd-prime modularity lifting
+
+Library module: `TauCeti/NumberTheory/ModularityLifting/Lifting`.
+
+**Definition: residual modularity as KW II use it** (node `kw-residual-modularity`). (α): ρ̄ ≅ ρ̄_π with π unramified
+above p and of weight k(ρ̄). (β): ρ̄ ≅ ρ̄_π with π of conductor dividing v above p and of weight 2. The lifting theorems
+take these, not "ρ̄ is modular"; converting one into the other is the weight part of Serre's conjecture, used in R24.4.
+
+**Lemma: solvable base change** (node `solvable-base-change-reduction`). Taylor's local-prescription lemma and descent of
+modularity along solvable totally real extensions (Gee 4.25, 4.27), requested from GL2AutomorphicRepresentationsAndTransfer
+R17.4.
+
+**Theorem: the Khare–Wintenberger lifting theorem for odd p** (node `kw-odd-prime-lifting`; planet; KW II Theorem 9.7).
+- Hypotheses: F unramified at p, ρ̄|G_{F(μ_p)} absolutely irreducible, (α) and (β).
+- The lift is totally odd, of type (A) crystalline of weight 2 ≤ k ≤ p + 1, (B) weight 2 and crystalline over
+  ℚ_p^{nr}(μ_p), or (C) semistable weight 2 of the form (γ_vχ_p ∗; 0 γ_v).
+- The proof is base change, then Theorem 8.4 (requested), then R22.3's generic-fibre R = T. It uses neither KW II Theorem
+  10.1 nor potential modularity.
+
+**Lemma: patching on a chosen component** (node `component-patching`; Kisin (3.3.1), (3.4.11), (3.4.12)). Replace the
+local ring by one component with geometrically integral, formally smooth generic fibre. Then every point of that
+component is modular once one modular point lies on it.
+
+**Theorem: Kisin's potentially Barsotti–Tate theorem** (node `kisin-potentially-bt-lifting`; planet; Annals (3.5.5),
+(3.5.7), (3.5.8)).
+- "Strongly residually modular" means a parallel weight 2 form with the same potential ordinarity at each 𝔭 | p.
+- Also needed: residue field 𝔽_p at non-potentially-ordinary 𝔭, cyclotomic irreducibility, and the p = 5 condition.
+- Over ℚ it becomes: potentially Barsotti–Tate at p, ρ̄ modular, ρ̄ irreducible over ℚ(√((−1)^{(p−1)/2}p)).
+
+**Theorem: Fontaine–Laffaille lifting** (node `fontaine-laffaille-lifting`; planet; Gee Theorem 5.2). p > 3, p unramified
+in F, crystalline with distinct Hodge–Tate weights at most p − 2 apart, and Im ρ̄ ⊇ SL₂(𝔽_p). It is proved by Ihara
+avoidance (R22.4).
+
+**Comparison: the ordinary overlap** (node `ordinary-overlap`). Type (C) and ordinary weight p + 1 lifts are ordinary, so
+here OrdinaryAutomorphicFormsAndModularityLifting R21.4 applies as well. Types (A) non-ordinary and (B), and Kisin's
+non-ordinary cases, stay in this layer.
+
+## Layer R22.6: dyadic lifting and Kisin's completion
+
+Library module: `TauCeti/NumberTheory/ModularityLifting/Dyadic`.
+
+**Lemma: oddness at 2** (node `dyadic-oddness`). det ρ̄(c) = −1 is empty in characteristic 2. A lift is odd if and only if
+det ρ(c) = −1. If ρ̄(c) ≠ 1 every lift is odd, but diag(1, −1) is odd with ρ̄(c) = 1. So oddness is imposed by the
+archimedean ring (LocalGaloisDeformationRings R08.6/export-archimedean), never by ρ̄(c).
+
+**Construction: dyadic patching** (node `dyadic-patched-ring`; planet; KW II Proposition 9.3 (I)). B⟦x⟧ ↠ R′_∞ ↠ R_∞ with
+a free action of the torus T and d : Sp R′_∞ → T, d(λx) = λ²d(x), Sp R_∞ = d^{−1}(1). The inputs are GlobalGaloisDeformations
+R04.4/R04.6 and R22.2's twists.
+
+**Lemma: the torsor** (node `dyadic-patched-torsor`; Lemmas 9.4–9.6).
+- R_∞ is a T[2]-torsor over R^inv_∞, and B⟦x⟧ ≅ R′_∞.
+- R_∞[1/2] is regular.
+- M_∞ is faithful, because T[2](𝒪) acts transitively on components and preserves the support.
+
+**Theorem: R = T after inverting 2** (node `dyadic-r-equals-t`; Proposition 9.3 (II)–(III)).
+
+**Theorem: the Khare–Wintenberger 2-adic lifting theorem** (node `kw-dyadic-lifting`; planet; Theorem 9.7 at p = 2, the
+content of KW I Theorem 4.1(1)).
+- Hypotheses: non-solvable image, (α) if k(ρ̄) = 2, and (β).
+- The lift is crystalline of weight 2, or semistable of weight 2 when ρ̄ is not finite at 2.
+
+**Lemma: Kisin's dyadic component criterion** (node `kisin-dyadic-component-criterion`; Kisin 2-adic (3.2.9)). ρ and ρ_f
+must match at Σ, away from Σ and in ordinarity at v | 2, with ρ̄|G_{F_v} trivial or κ(v) = 𝔽_2.
+
+**Theorem: Kisin's 2-adic Barsotti–Tate theorem** (node `kisin-dyadic-bt-lifting`; planet; (3.3.5), (0.9), (0.1)).
+- Hypotheses: ρ̄ modular with non-solvable image, and potentially Barsotti–Tate at v | 2.
+- det ρ = χψ with ψ totally even, and F_v = ℚ_2 where ρ is potentially ordinary.
+
+**Theorem: Hypothesis (H)** (node `hypothesis-h`; planet). At p = 2, (H) follows from Kisin (0.1).
+- det ρ·χ^{−1} has finite order, because G_ℚ^{ab} is generated by inertia.
+- It is even, because ρ is odd.
+- Potentially crystalline of weight 2 means potentially Barsotti–Tate (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4).
+- KW I §9 uses (H) only at p = 2.
+
+## Mistakes found in the sources
+
+**E1 (misprint, reaches nothing): Kisin, 2-adic paper, Theorems (0.9)(2) and (3.3.5)(2), in the preprint read.** They say
+"Barsotti-Tate" where the theorem is about potentially Barsotti–Tate representations. (0.9) is announced as the totally real
+version of (0.1), which says potentially Barsotti–Tate. Condition (3) and the proof refer to potentially ordinary places and to
+matching nontrivial types; for a Barsotti–Tate ρ, potentially ordinary would just mean ordinary. The published version was
+not accessible.
+
 ## Remaining work
 
-- **R22.5:** odd-prime lifting statements.
-- **R22.6:** dyadic lifting (KW II Proposition 9.3, Kisin).
+- **R22.5 and R22.6 are source-decomposed** (checkpoint 3), subject to the requested inputs listed above.
 - **R32.1–R32.2:** the modern statement table and odd-prime regular de Rham lifting.
