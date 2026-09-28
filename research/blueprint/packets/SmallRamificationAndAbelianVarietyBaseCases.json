@@ -11,7 +11,7 @@
     "SmallRamificationAndAbelianVarietyBaseCases:R25.6"
   ],
   "status": "partial",
-  "summary": "Second checkpoint (R25.1, R25.2, R25.3). R25.2 and R25.3 are closed. R25.2: Tate's theorem at p = 2 and Serre's mod-3 theorem (DP23 Theorem 1.1), planned by Tate's method with a sharpened 2-adic bound δ ≤ 2 (Minkowski's bound suffices) and a 3-adic bound 13/6 − 1/|P| against two certified Odlyzko–Poitou rows. R25.3: Fontaine's theorem, planned at p = 2 alone. Fontaine's ramification bound (imported from R07.6) gives rd < 4 for the field of points of a finite flat group scheme over ℤ killed by 2; Minkowski's bound and the local character lemma make that field a 2-extension; so the simple objects are ℤ/2ℤ and μ₂. Ext¹_ℤ(μ₂, ℤ/2ℤ) = 0 by Schoof's gluing argument. Every finite flat 2-group scheme over ℤ is then constant over diagonalizable, and counting points of 𝒜/M_n and 𝒜^∨ over a finite field forces 𝒜 = 0. R25.1 is partial: Schoof's Odlyzko rows for R25.4 remain. R25.4 has been read and not yet planned; R25.5 and R25.6 are not read. Tate's paper, Serre's note and Fontaine's paper were not accessible; the plans follow DP23, Khare, Moon–Taguchi, Jones, Ghitza–Yamauchi, Odlyzko, Fesenko–Vostokov, Schoof and Brumer–Kramer. Two issues in Schoof 2005 are recorded: a numerical misprint (new) and the class-group step of Proposition 4.1 (corrected in Schoof's errata note).",
+  "summary": "Third checkpoint (R25.1–R25.4, all closed). R25.2: Tate's and Serre's theorems (DP23 Theorem 1.1). R25.3: Fontaine's theorem at p = 2. R25.4: Schoof's Theorem 1.1 for l ∈ {2, 3, 5, 7, 13}, through his criterion (Proposition 3.1: simple objects of the semistable category D are ℤ/pℤ and μ_p, and Ext¹_{ℤ[1/l]}(μ_p, ℤ/pℤ) = 0), the Ext computation for p ∈ {2, 3} (Corollary 4.2), and the field criterion of Proposition 5.1 checked for (l, p) = (2, 3), (3, 2), (5, 2), (7, 3), (13, 2). For l = 2, 3, 5 the plan checks Proposition 5.1 in the category D directly, which gives much smaller root discriminants than Schoof's route through the tame category C (his Theorem 1.3) and needs at most one class-field step; l = 7 and 13 follow Schoof's own D arguments. All degree bounds are certified rows of the Odlyzko–Poitou bound of R25.1 (checked against Odlyzko's 1976 unconditional table), with class-number certificates for ℚ(ζ₃, ∛2), ℚ(ζ₁₂), ℚ(i, √5) and ℚ(i, √13). R25.5 and R25.6 are not read. Four issues in Schoof 2005 are recorded (three new misprints, and the class-group step of Proposition 4.1 corrected in his errata note).",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -405,6 +405,18 @@
       "sha256": "afa891235bf2c20796cf0726b2d7762585d41c287717052f287b799e6c0a1954",
       "readSections": [
         "§1 (p. 1): the statement of Fontaine's theorem and the outline of the discriminant method."
+      ]
+    },
+    {
+      "id": "Odlyzko76-tables",
+      "title": "Discriminant bounds (Tables 1–4 with descriptions)",
+      "authors": "Andrew M. Odlyzko",
+      "edition": "Unpublished tables dated 29 November 1976, hosted on the author's University of Minnesota page (discr.bound.tables.txt and discr.bound.table1–4); accessed 2026-09-28",
+      "url": "https://www-users.cse.umn.edu/~odlyzko/unpublished/index.html",
+      "sha256": "e24ab07f506b94a7e5f34962abc4a3264e3de5ac6ad2ab23832132827d3da4d0",
+      "readSections": [
+        "The description of the tables (discr.bound.tables.txt): the unconditional kernel H(x)/cosh(x/2) and the form D > A^{r1} B^{2 r2} e^{f − E}.",
+        "Table 2 (unconditional bounds for D^{1/n}, totally complex column), all rows; the SHA-256 is that of discr.bound.table2."
       ]
     }
   ],
@@ -2071,6 +2083,701 @@
       "planet": {
         "name": "Fontaine's theorem"
       }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-degree-bounds-for-schoof",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "Certified degree bounds for totally complex fields of small root discriminant",
+      "kind": "lemma",
+      "statement": "Let K be a totally complex number field of degree n. Then: (a) rd_K < 8.25 implies n ≤ 14; (b) rd_K < 6.93 implies n ≤ 10; (c) rd_K < 8.95 implies n ≤ 16; (d) rd_K < 19.02 implies n ≤ 279; (e) rd_K < 14.43 implies n ≤ 59; (f) rd_K ≤ 5.72 implies n ≤ 8; (g) rd_K ≤ 4.48 implies n ≤ 5; (h) rd_K ≤ 13.19 implies n ≤ 43; (i) rd_K ≤ 16.83 implies n ≤ 119; (j) rd_K ≤ 10.199 implies n ≤ 21.",
+      "hypotheses": [
+        "K totally complex, so r₁ = 0."
+      ],
+      "proofSteps": [
+        "By R25.1/poitou-odlyzko-inequality, rd_K ≥ exp(P(n, 0, b)/n) for every b > 0, and P(n, 0, b)/n increases with n. So each row follows from one certified evaluation at the first excluded degree n₀ and a chosen b.",
+        "Rows (n₀, b, value of exp(P(n₀, 0, b)/n₀)), computed by composite Simpson quadrature and stable under refinement: (a) (15, 41/8, 8.4171); (b) (11, 17/4, 7.0011); (c) (17, 11/2, 9.0033); (d) (280, 143/8, 19.0722); (e) (60, 79/8, 14.6087); (f) (9, 15/4, 6.1324); (g) (6, 23/8, 4.5491); (h) (44, 69/8, 13.3492); (i) (120, 13, 16.9886); (j) (22, 25/4, 10.2184). Each exceeds its threshold.",
+        "Certification as in R25.1/totally-complex-root-discriminant-thresholds: lower bounds for γ and π, and an upper bound for I₁(b) by interval quadrature. The tightest relative margins are (j) 0.2% and (d) 0.3%, so the quadrature must be accurate to better than one part in a thousand.",
+        "Odlyzko's own 1976 Table 2 (totally complex column) confirms every row: at n₀ it lists 8.423, 7.004, 9.010, 19.104, 14.634, 6.134, 4.549, 13.371, 17.020 and 10.229."
+      ],
+      "acceptance": [
+        "The thresholds are the bounds of R25.4: 2^{2/3}3^{3/2} ≈ 8.248, 3^{1/2}·4 ≈ 6.928, 5^{1/2}·4 ≈ 8.944, 3^{3/2}7^{2/3} ≈ 19.014, 4·13^{1/2} ≈ 14.422, and the root discriminants 5.719 of ℚ(ζ₃, ∛2), 4.472 of ℚ(i, √5), 13.184 and 16.829 of Schoof's fields K and K′ for l = 7, and 10.198 of ℚ(i, √13, √η).",
+        "Row (d) is weaker than Schoof's n < 270, and row (b)'s analogue at rd 12 would give only n ≤ 33 against his n < 32; the plan of R25.4 is arranged so that the weaker rows suffice."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-odlyzko-inequality",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-lower-bound",
+        "mathlib:NumberField.IsTotallyComplex",
+        "mathlib:NumberField.rootDiscr",
+        "mathlib:Real.eulerMascheroniSeq_lt_eulerMascheroniConstant",
+        "mathlib:Real.pi_gt_d2",
+        "mathlib:Real.pi_lt_d2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Odlyzko76-tables",
+          "locator": "Table 2, totally complex column",
+          "match": "The form of each row; the values quoted in step 4 are Table 2's."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, pp. 855–858",
+          "match": "Schoof's use of such rows; the rows here are the ones the plan of R25.4 needs."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/GlobalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.finrank_le_of_rootDiscr_lt_of_isTotallyComplex"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/semistable-category-d",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "The category D(p, l) of semistable p-group schemes over ℤ[1/l]",
+      "kind": "definition",
+      "statement": "Let p ≠ l be primes. D(p, l) is the full subcategory of finite flat commutative group schemes over ℤ[1/l] of p-power order consisting of those G such that (σ − 1)² = 0 on G(ℚ̄) for every σ in the inertia group of every prime of ℚ̄ above l.",
+      "hypotheses": [
+        "p ≠ l primes; objects of Tau Ceti's FiniteLocallyFreeCommAffineGroupSchemeCat over ℤ[1/l] of p-power order."
+      ],
+      "proofSteps": [
+        "Definition: the displayed condition on the Galois module G(ℚ̄), with the inertia groups of R01.2.",
+        "Since pᵏ kills G, (σ − 1)² = 0 gives σ^{pᵏ} = 1 on G(ℚ̄), so inertia at l acts through a finite p-group; as p ≠ l the action is tame.",
+        "Closure: a closed flat subgroup, a quotient, a product and the Cartier dual of objects of D are in D, because the condition is inherited by Galois submodules, quotients and sums, and the Cartier dual of G(ℚ̄) is Hom(G(ℚ̄), μ_{p^∞}) with l ≠ p, on which inertia acts through the contragredient.",
+        "Examples: ℤ/pℤ and μ_p (inertia at l acts trivially), and the Katz–Mazur schemes G_ε for units ε of ℤ[1/l] (inertia acts unipotently)."
+      ],
+      "acceptance": [
+        "ℤ/pℤ, μ_p and G_ε lie in D; the twisted constant scheme V(ρ) for a nontrivial tame character ρ of order 2 at l acting on 𝔽_3 (p = 3) does not."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat",
+        "tauceti:FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§2, Definition 2.1(ii), p. 848",
+          "match": "The definition."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§2.3, p. 849",
+          "match": "The closure properties in the API."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.SemistableCategory"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d",
+          "how": "The p-power torsion of a semistable abelian variety with good reduction outside l lies in D."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-criterion",
+          "how": "Its simple objects and extensions drive the filtration of A[pⁿ]."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion",
+          "how": "A simple object of D is shown to be ℤ/pℤ or μ_p."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SmallRamification.SemistableCategory",
+          "role": "constructor",
+          "statement": "SemistableCategory p l : the full subcategory of finite flat p-group schemes G over ℤ[1/l] with ∀ σ ∈ inertia above l, (σ − 1)² = 0 on G(ℚ̄)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.SemistableCategory.subobject",
+          "role": "other",
+          "statement": "Closed flat subgroup schemes and quotients of objects of D are in D."
+        },
+        {
+          "name": "TauCeti.SmallRamification.SemistableCategory.prod",
+          "role": "other",
+          "statement": "D is closed under finite products."
+        },
+        {
+          "name": "TauCeti.SmallRamification.SemistableCategory.cartierDual",
+          "role": "compatibility",
+          "statement": "The Cartier dual of an object of D is in D."
+        },
+        {
+          "name": "TauCeti.SmallRamification.SemistableCategory.inertia_pow",
+          "role": "other",
+          "statement": "If pᵏ kills G ∈ D then σ^{pᵏ} = 1 on G(ℚ̄) for σ in inertia above l."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SmallRamification.zModP_mem_semistableCategory",
+          "kind": "degenerate",
+          "statement": "ℤ/pℤ and μ_p are objects of D(p, l)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.katzMazur_mem_semistableCategory",
+          "kind": "value",
+          "statement": "For a unit ε of ℤ[1/l] the Katz–Mazur extension G_ε of ℤ/pℤ by μ_p is in D: inertia at l acts by (1 x; 0 1)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.not_mem_semistableCategory_quadratic_twist",
+          "kind": "non-example",
+          "statement": "For p = 3, l = 7 and ρ the character of Gal(ℚ(√−7)/ℚ) acting on 𝔽_3 by −1, an inertia generator acts by −1 and (−1 − 1)² = 4 ≠ 0 in 𝔽_3, so V(ρ) is not in D (it is in Schoof's larger tame category C)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.X0_eleven_two_torsion_mem",
+          "kind": "value",
+          "statement": "For l = 11, p = 2 the 2-torsion of J₀(11) is a simple object of D(2, 11) of order 4, so the criterion of R25.4/simple-objects-criterion must fail at l = 11."
+        }
+      ]
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "The p-power torsion of a semistable abelian variety with good reduction outside l lies in D",
+      "kind": "lemma",
+      "statement": "Let A be an abelian variety over ℚ with good reduction at every prime other than l and semistable reduction at l, and p ≠ l. A extends to an abelian scheme 𝒜 over ℤ[1/l], and for every n ≥ 1 the finite flat group scheme 𝒜[pⁿ] is an object of D(p, l) of order p^{2gn}.",
+      "hypotheses": [
+        "A as stated; g = dim A; p ≠ l."
+      ],
+      "proofSteps": [
+        "Good reduction outside l gives the abelian scheme 𝒜 over ℤ[1/l] (NeronModelsAndSemistableAbelianVarieties R11.1), and 𝒜[pⁿ] is finite flat of order p^{2gn} (AbelianSchemesAndArithmeticModuli A3).",
+        "Semistable reduction at l means inertia at l acts unipotently on the Tate module with (σ − 1)² = 0 (Grothendieck, SGA 7 IX 3.5; the monodromy criterion of R11.3, requested). The condition passes to the quotient A[pⁿ](ℚ̄) = T_p A/pⁿ."
+      ],
+      "acceptance": [
+        "J₀(11) satisfies the hypotheses at l = 11; its 2-torsion is the simple object of D(2, 11) in R25.4/semistable-category-d.",
+        "For an elliptic curve with additive reduction at l the condition fails: inertia acts through a nonunipotent group, so semistability is essential."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/semistable-category-d",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3",
+        "AbelianSchemesAndArithmeticModuli:A3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§2.1, p. 849",
+          "match": "The statement."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.torsion_mem_semistableCategory"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/constant-over-cyclotomic",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "Étale p-group schemes over ℤ[1/l] that are iterated extensions of ℤ/pℤ become constant over ℤ[1/l, ζ_l]",
+      "kind": "lemma",
+      "statement": "Let p ≠ l be primes and C a finite étale group scheme over ℤ[1/l] with a filtration whose quotients are ℤ/pℤ. Then π₁(Spec ℤ[1/l]) acts on C(ℚ̄) through Gal(ℚ(ζ_l)/ℚ), so C becomes constant over ℤ[1/l, ζ_l]. The same holds for the Cartier dual of an iterated extension of copies of μ_p, which becomes diagonalizable over ℤ[1/l, ζ_l].",
+      "hypotheses": [
+        "p ≠ l; C étale over ℤ[1/l] with all subquotients ℤ/pℤ."
+      ],
+      "proofSteps": [
+        "The Galois action on C(ℚ̄) is unipotent with respect to the filtration, so it factors through a finite p-group P, the Galois group of a p-extension of ℚ unramified outside l and ∞.",
+        "The maximal abelian p-extension of ℚ unramified outside l∞ lies in ℚ(ζ_l): by class field theory over ℚ (Tau Ceti ClassFieldTheory Layer 12, requested) an abelian extension of ℚ unramified outside l∞ lies in ℚ(ζ_{lᵏ}) for some k, and for p ≠ l the p-part of (ℤ/lᵏℤ)^× is the p-part of (ℤ/lℤ)^×, which is cyclic and belongs to ℚ(ζ_l).",
+        "So P^{ab} is cyclic, and a p-group with cyclic abelianisation is cyclic (Burnside's basis theorem). Hence P is a quotient of Gal(ℚ(ζ_l)/ℚ), and C becomes constant over ℤ[1/l, ζ_l].",
+        "Cartier duality exchanges μ_p and ℤ/pℤ, which gives the diagonalizable statement."
+      ],
+      "acceptance": [
+        "For l = 13, p = 2 the 2-part of Gal(ℚ(ζ_13)/ℚ) ≅ ℤ/12 is ℤ/4, and C can be a nonconstant twist split by the quartic subfield of ℚ(ζ_13).",
+        "Over ℤ (no l) the same argument with trivial π₁ gives R25.3/etale-group-schemes-over-integers-are-constant."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant",
+        "tauceti:FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§3, proof of Proposition 3.1, p. 850",
+          "match": "The argument."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.isConstant_baseChange_cyclotomic"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-criterion",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "Schoof's criterion (Proposition 3.1)",
+      "kind": "theorem",
+      "statement": "Let l be a prime and p ≠ l a prime such that (i) the only simple objects of D(p, l) are ℤ/pℤ and μ_p, and (ii) Ext¹_{ℤ[1/l]}(μ_p, ℤ/pℤ) = 0. Then there is no nonzero abelian variety over ℚ with good reduction at every prime other than l and semistable reduction at l.",
+      "hypotheses": [
+        "(i) and (ii) as stated."
+      ],
+      "proofSteps": [
+        "Let A be such an abelian variety of dimension g and 𝒜 its abelian scheme over ℤ[1/l]; 𝒜[pⁿ] ∈ D (R25.4/torsion-of-semistable-abelian-varieties-in-d).",
+        "Filter 𝒜[pⁿ] by closed flat subgroup schemes with simple quotients, which by (i) are ℤ/pℤ or μ_p and lie in D. By (ii) an adjacent pair (ℤ/pℤ below μ_p) splits and can be swapped, as in R25.3/multiplicative-constant-filtration. This gives 0 → M_n → 𝒜[pⁿ] → C_n → 0 with M_n an iterated extension of copies of μ_p and C_n one of ℤ/pℤ.",
+        "By R25.4/constant-over-cyclotomic, C_n is constant and M_n diagonalizable over ℤ[1/l, ζ_l].",
+        "Pick a prime 𝔮 of ℤ[1/l, ζ_l] with residue field k. As in R25.3/fontaine-theorem: #(𝒜/M_n)(k) ≥ #C_n and #𝒜^∨/C_n^∨(k) ≥ #M_n; by R25.3/point-count-isogeny-invariance and a polarization, #𝒜(k)² ≥ #M_n #C_n = p^{2gn} for all n, so g = 0."
+      ],
+      "acceptance": [
+        "Condition (ii) fails for l = 7, p = 2 (7 ≡ −1 mod 8), which is why Schoof uses p = 3 for l = 7.",
+        "At l = 11 condition (i) fails for p = 2 (the 2-torsion of J₀(11)), consistent with J₀(11) existing."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/constant-over-cyclotomic",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/semistable-category-d",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/multiplicative-constant-filtration",
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§3, Proposition 3.1, p. 850",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§3, proof of Proposition 3.1, pp. 850–851",
+          "match": "The concluding step."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.no_semistable_of_simple_and_ext"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Schoof's criterion"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/ext-mu-p-by-z-mod-p-over-z-one-over-l",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "Ext¹_{ℤ[1/l]}(μ_p, ℤ/pℤ) for p ∈ {2, 3}",
+      "kind": "theorem",
+      "statement": "Let p ∈ {2, 3} and l ≠ p a prime. Then Ext¹_{ℤ[1/l]}(μ_p, ℤ/pℤ) = 0 unless l ≡ ±1 (mod 8) when p = 2, or l ≡ ±1 (mod 9) when p = 3, in which case it has dimension 1 over 𝔽_p. In particular it vanishes for (l, p) = (2, 3), (3, 2), (5, 2), (7, 3) and (13, 2).",
+      "hypotheses": [
+        "p ∈ {2, 3}; l ≠ p."
+      ],
+      "proofSteps": [
+        "As in R25.3/extensions-of-mu-two-by-z-mod-two-over-integers, the gluing sequence (R07.1) gives an injection of Ext¹_{ℤ[1/l]}(μ_p, ℤ/pℤ) into the kernel of Ext¹_{ℤ[1/pl]} → Ext¹_{ℚ_p}, and the comparison over ℚ_p(ζ_p) with ∆ = Gal(ℚ_p(ζ_p)/ℚ_p) and its ω²-eigenspaces (Schoof05 Proposition 4.1) identifies that kernel with the kernel of (ℤ[1/pl, ζ_p]^×/p-th powers)_{ω²} → (ℚ_p(ζ_p)^×/p-th powers)_{ω²}.",
+        "The class-group term of the Kummer sequence vanishes here without Herbrand's theorem: ℤ[ζ_2] = ℤ and ℤ[ζ_3] are principal ideal domains. (For general p the step needs the correction recorded as source issue E2.)",
+        "p = 2 (∆ trivial): the middle group is generated by 2, −1, l and the right-hand one by 2, −1, 5; the map is injective unless ±l is a 2-adic square, that is l ≡ ±1 (mod 8).",
+        "p = 3 (ω² = 1, so the invariants): the middle group is generated by 3 and l, the right-hand one by 3 and 4; the map is injective unless l is a 3-adic cube, that is l ≡ ±1 (mod 9).",
+        "Check of the five pairs: 3, 5, 13 ≢ ±1 (mod 8), and 2, 7 ≢ ±1 (mod 9)."
+      ],
+      "acceptance": [
+        "For l = 7, p = 2 the group is nonzero (7 ≡ −1 mod 8), so p = 2 cannot be used at l = 7.",
+        "Equivalently, Schoof's condition (l² − 1)/24 ≢ 0 (mod p) holds for the five pairs: the values are 1/8, 1/3, 1, 2 and 7."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/extensions-of-mu-two-by-z-mod-two-over-integers",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§4, Corollary 4.2, p. 852",
+          "match": "The statement; restricted here to p ∈ {2, 3}."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§4, proof of Corollary 4.2, p. 853",
+          "match": "The p = 3 computation."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.ext_muP_zModP_eq_zero"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "Criterion for the simple objects of D(p, l) (Proposition 5.1)",
+      "kind": "theorem",
+      "statement": "Let p ≠ l be primes. Let F be the subfield of degree p of ℚ(ζ_l) if p ∣ l − 1, and F = ℚ otherwise, and M = F(ζ_{2p}, l^{1/p}). Suppose every finite Galois extension L/ℚ with (a) M ⊆ L, (b) L/M unramified at every prime not above p, and (c) v_p(δ_L) < 1 + 1/(p − 1) (the p-part of the root discriminant), has [L : ℚ(ζ_p)] a power of p. Then the only simple objects of D(p, l) are ℤ/pℤ and μ_p.",
+      "hypotheses": [
+        "p ≠ l primes; the hypothesis on the fields L as stated."
+      ],
+      "proofSteps": [
+        "Let G be simple in D; it is killed by p (as in R25.3/simple-two-group-schemes-over-integers). Put G′ = G × G_l × G_{−1} for p = 2 and G′ = G × G_l × V(ρ) for p odd, with the Katz–Mazur schemes G_ε (requested from R07.1) and, when p ∣ l − 1, V(ρ) the twisted constant scheme whose points generate F. G′ ∈ D and is killed by p.",
+        "Let L = ℚ(G′(ℚ̄)). It contains M, since the points of G_ε generate ℚ(ζ_p, ε^{1/p}) and ζ_{2p} ∈ ℚ(ζ_p, √−1) for p = 2 by G_{−1}. For σ in inertia above l, (σ − 1)² = 0 and p = 0 give σ^p = 1; tame inertia is cyclic, so the ramification indices above l divide p, and they equal p already in M: L/M is unramified above l. So (a) and (b) hold, and (c) is R25.1/fontaine-torsion-field-bound (i).",
+        "By hypothesis Gal(L/ℚ(ζ_p)) is a p-group, which fixes the simple 𝔽_p-module G(ℚ̄). So Gal(ℚ̄/ℚ) acts through ∆ = Gal(ℚ(ζ_p)/ℚ), of order p − 1 prime to p, and G(ℚ̄) is a single eigenspace of dimension 1: G has order p.",
+        "By Oort–Tate (R07.1), G ≅ ℤ/pℤ or μ_p twisted by a character χ unramified outside l∞ of order dividing p − 1. In D the ramification index of χ at l is a power of p, hence 1; so χ is unramified at every finite prime and trivial (R25.3/etale-group-schemes-over-integers-are-constant)."
+      ],
+      "acceptance": [
+        "The hypothesis on L is checked for the five pairs in R25.4/simple-objects-l2-p3, …-l3-p2, …-l5-p2, …-l7-p3 and …-l13-p2.",
+        "At l = 11, p = 2 the hypothesis fails: E[2] of J₀(11) generates the S₃-field ℚ(√−11, α), which is not a 2-extension."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/semistable-category-d",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/fontaine-torsion-field-bound",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§5, Proposition 5.1, pp. 853–854",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§5, proof of Proposition 5.1, p. 854",
+          "match": "Step 2."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.simple_eq_of_fieldCriterion"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Simple-objects criterion"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/class-number-one-certificates",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "Class number one for ℚ(ζ₃, ∛2), ℚ(ζ₁₂), ℚ(i, √5) and ℚ(i, √13)",
+      "kind": "lemma",
+      "statement": "The number fields ℚ(ζ₃, ∛2), ℚ(ζ₁₂), ℚ(i, √5) and ℚ(i, √13) have class number 1, and none has a nontrivial unramified abelian extension.",
+      "hypotheses": [
+        "None."
+      ],
+      "proofSteps": [
+        "ℚ(ζ₃, ∛2): totally complex of degree 6 with |d| = 2⁴·3⁷, rd = 2^{2/3}3^{7/6} ≈ 5.719. An unramified extension of degree 6m has the same root discriminant, so R25.1/totally-complex-degree-bounds-for-schoof (f) gives 6m ≤ 8, m = 1.",
+        "ℚ(ζ₁₂): degree 4, |d| = 144, rd = 2√3 ≈ 3.46; R25.1/minkowski-root-discriminant-thresholds (rd > 4 for n ≥ 12, rd > 3 for n ≥ 6) gives 4m < 6, m = 1.",
+        "ℚ(i, √5): degree 4, |d| = 400, rd ≈ 4.472; row (g) gives 4m ≤ 5, m = 1.",
+        "ℚ(i, √13): degree 4, |d| = 2704, rd ≈ 7.21; the Odlyzko row only gives h ≤ 2, so use the Minkowski bound (4/π)²·4!/4⁴·52 ≈ 7.90 and ClassicalArithmeticCompletion CA.5: the only prime of norm at most 7 is the prime above 2 (2 ramifies in ℚ(i) and is inert in ℚ(√13), norm 4), which is generated by 1 + i; 3, 5 and 7 have no prime factor of norm ≤ 7 (3 and 7 are inert in ℚ(i) or ℚ(√13) with residue degree 2; 5 is inert in ℚ(√13)). So the class group is trivial.",
+        "No unramified abelian extension: by class field theory the Hilbert class field has degree h over the field (these fields are totally complex, so there is no ramification at infinity)."
+      ],
+      "acceptance": [
+        "ℚ(√−13) has class number 2, and ℚ(i, √13) is its Hilbert class field, consistent with h(ℚ(i, √13)) = 1.",
+        "The Odlyzko bound for ℚ(i, √13) alone would allow h = 2; the Minkowski computation is necessary."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-degree-bounds-for-schoof",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/minkowski-root-discriminant-thresholds",
+        "ClassicalArithmeticCompletion:CA.5/class-group-generated-by-small-primes"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, pp. 855–858",
+          "match": "One of the class numbers used; the others appear in the cases l = 3, 5 and 13."
+        },
+        {
+          "sourceId": "Odlyzko76-tables",
+          "locator": "Table 2, totally complex column, n = 9 and n = 6",
+          "match": "The rows behind the first and third certificates."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.classNumber_eq_one_small_fields"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l2-p3",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "The criterion holds for (l, p) = (2, 3)",
+      "kind": "lemma",
+      "statement": "For l = 2, p = 3 (F = ℚ, M = ℚ(ζ₃, ∛2)) every Galois L satisfying (a)–(c) of R25.4/simple-objects-criterion equals M, so [L : ℚ(ζ₃)] = 3.",
+      "hypotheses": [
+        "l, p, F and M as in R25.4/simple-objects-criterion."
+      ],
+      "proofSteps": [
+        "At 2, M is tamely ramified of index 3, so the 2-part of δ_L is 2^{2/3}; with (c), rd_L < 2^{2/3}·3^{3/2} ≈ 8.248. L is totally complex, so row (a) of R25.1/totally-complex-degree-bounds-for-schoof gives [L:ℚ] ≤ 14; as 6 divides [L:ℚ], either L = M or [L : M] = 2.",
+        "If [L : M] = 2, L/M is a quadratic extension unramified outside the unique prime 𝔭 of M above 3, which has residue field 𝔽_3 (3 is totally ramified in M). By class field theory (ClassFieldTheory Layer 12) and h(M) = 1 (R25.4/class-number-one-certificates), a quadratic character of the ray class group of M modulo a power of 𝔭 factors through 𝔽_3^× modulo the image of the global units; −1 maps onto 𝔽_3^×, so there is none. Hence L = M."
+      ],
+      "acceptance": [
+        "Schoof proves the stronger tame version (category C, rd < 2·3^{3/2}, his Case l = 2, p = 3); for D the bound 8.248 makes the degree bound 14 instead of 23."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-degree-bounds-for-schoof",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/class-number-one-certificates",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, Case l = 2, p = 3, p. 855",
+          "match": "The class-field step, reused."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.fieldCriterion_two_three"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l3-p2",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "The criterion holds for (l, p) = (3, 2)",
+      "kind": "lemma",
+      "statement": "For l = 3, p = 2 (F = ℚ(√−3), M = ℚ(ζ₁₂)) every Galois L satisfying (a)–(c) has [L:ℚ] ∈ {4, 8}, a power of 2.",
+      "hypotheses": [
+        "l, p, F and M as in R25.4/simple-objects-criterion."
+      ],
+      "proofSteps": [
+        "F = ℚ(√−3) and M = F(i, √3) = ℚ(ζ₁₂), since √3 = −i√−3. At 3, M has ramification index 2, so the 3-part of δ_L is 3^{1/2}; with (c), rd_L < 3^{1/2}·2² ≈ 6.928.",
+        "L ⊇ ℚ(i) is totally complex, and row (b) of R25.1/totally-complex-degree-bounds-for-schoof gives [L:ℚ] ≤ 10. As 4 divides [L:ℚ], [L:ℚ] ∈ {4, 8}, a power of 2 = [L : ℚ(ζ₂)]."
+      ],
+      "acceptance": [
+        "No class field theory is needed. Schoof's tame version (rd < 12) needs the degree bound n < 32 and a group-theoretic analysis over ℚ(ζ₁₂)."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-degree-bounds-for-schoof",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, Case l = 3, p = 2, pp. 855–856",
+          "match": "Schoof's tame version of this case; the D version is sharper."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.fieldCriterion_three_two"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l5-p2",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "The criterion holds for (l, p) = (5, 2)",
+      "kind": "lemma",
+      "statement": "For l = 5, p = 2 (F = ℚ(√5), M = ℚ(i, √5)) every Galois L satisfying (a)–(c) has [L:ℚ] ∈ {4, 8, 16}.",
+      "hypotheses": [
+        "l, p, F and M as in R25.4/simple-objects-criterion."
+      ],
+      "proofSteps": [
+        "At 5, M has ramification index 2, so rd_L < 5^{1/2}·2² ≈ 8.944, and row (c) of R25.1/totally-complex-degree-bounds-for-schoof gives [L:ℚ] ≤ 16; 4 divides [L:ℚ].",
+        "Suppose [L:ℚ] = 12. Then L/M is cyclic of degree 3, unramified outside the prime 𝔭 of M above 2 (2 is inert in ℚ(√5) and ramified in ℚ(i), so 𝔭 is unique with residue field 𝔽_4) and tamely ramified there, so its conductor divides 𝔭. By class field theory and h(M) = 1 (R25.4/class-number-one-certificates), it corresponds to a cubic character of 𝔽_4^× modulo the image of the global units. The unit η = (1 + √5)/2 satisfies η² = η + 1, so it reduces to a generator of 𝔽_4^×: there is no such character. Hence [L:ℚ] ∈ {4, 8, 16}."
+      ],
+      "acceptance": [
+        "Schoof's tame version (rd < 20, n < 480) needs four steps of class field theory over ℚ(ζ₂₀) and F_{2(1−ζ₅)}; the D version needs one."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-degree-bounds-for-schoof",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/class-number-one-certificates",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, Case l = 5, p = 2, pp. 856–857",
+          "match": "Schoof's tame version; the D version is sharper."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.fieldCriterion_five_two"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l7-p3",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "The criterion holds for (l, p) = (7, 3)",
+      "kind": "lemma",
+      "statement": "For l = 7, p = 3 (F = ℚ(ζ₇)⁺, M = K = ℚ(ζ₃, ζ₇ + ζ₇^{−1}, ∛7), of degree 18) every Galois L satisfying (a)–(c) has [L : ℚ(ζ₃)] a power of 3.",
+      "hypotheses": [
+        "l, p, F and M as in R25.4/simple-objects-criterion."
+      ],
+      "proofSteps": [
+        "rd_L < 3^{3/2}·7^{2/3} ≈ 19.014, so [L:ℚ] ≤ 279 by row (d) and [L : K] ≤ 15; π = Gal(L/K) is solvable.",
+        "rd_K = 3^{7/6}·7^{2/3} ≈ 13.184 (conductor–discriminant formula; ℚ(ζ₃, ∛7) is cubic of conductor 3·7 over ℚ(ζ₃)). An unramified extension of K of degree 18m has the same root discriminant, so row (h) gives m ≤ 2. An unramified quadratic H/K is Galois over ℚ(ζ₃) with group of order 18 containing the central Gal(H/K); it is the compositum of K with a quadratic extension of ℚ(ζ₃) unramified everywhere, which does not exist (h(ℚ(ζ₃)) = 1, ℚ(ζ₃) totally complex). So K has no unramified extension.",
+        "The unique prime 𝔭 of K above 3 has residue field 𝔽_27 (3 is inert in ℚ(ζ₇)⁺). The units −1 and c = ζ₇ + ζ₇^{−1} generate 𝔽_27^×: c ∉ 𝔽_3, so its order in the cyclic group of order 26 is 13 or 26. By class field theory, K has no abelian extension of degree prime to 3 inside L (such an extension is tamely ramified at 𝔭 and unramified elsewhere). So π/π′ is a 3-group.",
+        "If [π : π′] = 1, π is perfect and solvable, hence trivial; if [π : π′] = 9, |π′| ≤ 1. If [π : π′] = 3, let K′ be the cubic subextension, of conductor 𝔭^a; rd_{K′} = 3^{a/9 + 7/6}7^{2/3} ≤ rd_L forces a ≤ 2, and a wildly ramified cubic character has a ≥ 2, so rd_{K′} = 3^{25/18}7^{2/3} ≈ 16.829. Row (i) gives unramified extensions of K′ of degree at most 2, excluded as for K; an abelian extension of K′ of degree prime to 3 inside L is the compositum of K′ with a cyclic extension of ℚ(ζ₃) tamely ramified at 3, excluded by the unit argument. So Gal(L/K′) (of order ≤ 5) is trivial and [L : ℚ(ζ₃)] = 27."
+      ],
+      "acceptance": [
+        "Row (d) (n ≤ 279) is weaker than Schoof's n < 270; the argument only uses [L : K] ≤ 15 and |Gal(L/K′)| ≤ 5.",
+        "Schoof's text writes the relative degree bound for K′ as 120/36; with [K′ : ℚ] = 54 it is 120/54 (source issue E3)."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-degree-bounds-for-schoof",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, Case l = 7, p = 3, pp. 857–858",
+          "match": "The case, followed step by step with Odlyzko's 1976 rows."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, Case l = 7, p = 3, p. 858",
+          "match": "The unit step."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.fieldCriterion_seven_three"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l13-p2",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "The criterion holds for (l, p) = (13, 2)",
+      "kind": "lemma",
+      "statement": "For l = 13, p = 2 (F = ℚ(√13), M = ℚ(i, √13)) every Galois L satisfying (a)–(c) has [L:ℚ] a power of 2.",
+      "hypotheses": [
+        "l, p, F and M as in R25.4/simple-objects-criterion."
+      ],
+      "proofSteps": [
+        "rd_L < 2²·13^{1/2} ≈ 14.422, so [L:ℚ] ≤ 59 by row (e) and [L : M] ≤ 14. Let π = Gal(L/ℚ).",
+        "The largest abelian subextension of L is M: an abelian field inside L is unramified outside 2·13, has ramification index at most 2 at 13, and cannot contain ℚ(ζ₈), whose 2-adic exponent δ = 2 violates (c) (v_p(δ) cannot drop in a subfield). So M is the fixed field of π′.",
+        "h(M) = 1 (R25.4/class-number-one-certificates); the prime 𝔭 of M above 2 has residue field 𝔽_4, generated by η = (3 + √13)/2 (η² = η + 1 modulo 𝔭), so M has no abelian extension of odd degree inside L and π′/π″ is a 2-group.",
+        "A quadratic character of π′/π″ has conductor 𝔭^a with v₂(δ) = 1 + a/4 < 2, so a ≤ 3; a local quadratic character over ℚ₂(i)·unramified has conductor exponent in {0, 2, 4, 5}, and it is wild, so a = 2. The ray class field of M of conductor 𝔭² has degree 2 (i ≢ 1 mod 𝔭²), namely M(√η). A larger abelian extension of M inside L would have root discriminant at least 4·13^{1/2}. So |π′/π″| ≤ 2.",
+        "If π′/π″ = 1 then π′ = 1 and [L:ℚ] = 4. Otherwise K = M(√η) is the fixed field of π″, rd_K = 2^{3/2}·13^{1/2} ≈ 10.198, and row (j) gives h(K) ≤ 2; the prime of K above 2 still has residue field 𝔽_4 generated by η, so K has no abelian extension of odd degree inside L. Since π′/π″ has order 2, π″/π‴ has odd order (a 2-group with cyclic abelianisation is cyclic), hence is trivial; π″ is perfect of order ≤ 7, hence trivial, and [L:ℚ] = 8."
+      ],
+      "acceptance": [
+        "This follows Schoof's own argument for l = 13, which already uses the category D.",
+        "Schoof writes 'cond(χ) = (1 + i)^a for some a ⩽ 2' before deriving a ⩽ 3 (source issue E4)."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-degree-bounds-for-schoof",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/class-number-one-certificates",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, Case l = 13, p = 2, p. 858",
+          "match": "The case, followed step by step."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, Case l = 13, p = 2, p. 858",
+          "match": "Row (j)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.fieldCriterion_thirteen_two"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-theorem",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4"
+      ],
+      "title": "Schoof's theorem: no semistable abelian variety over ℚ with good reduction outside l ∈ {2, 3, 5, 7, 13}",
+      "kind": "theorem",
+      "statement": "For l ∈ {2, 3, 5, 7, 13} there is no nonzero abelian variety over ℚ with good reduction at every prime different from l and semistable reduction at l.",
+      "hypotheses": [
+        "l ∈ {2, 3, 5, 7, 13}, the exact set; it is not an interval."
+      ],
+      "proofSteps": [
+        "Pair each l with p: (2, 3), (3, 2), (5, 2), (7, 3), (13, 2).",
+        "Condition (ii) of R25.4/schoof-criterion: R25.4/ext-mu-p-by-z-mod-p-over-z-one-over-l.",
+        "Condition (i): R25.4/simple-objects-criterion, whose field hypothesis is R25.4/simple-objects-l2-p3, …-l3-p2, …-l5-p2, …-l7-p3 and …-l13-p2 respectively.",
+        "Conclude by R25.4/schoof-criterion."
+      ],
+      "acceptance": [
+        "The theorem is sharp: for l ∉ {2, 3, 5, 7, 13}, J₀(l) is a nonzero semistable abelian variety with good reduction outside l; in particular l = 11 (J₀(11), conductor 11) is not covered, and the set is not the interval of primes up to 13.",
+        "Semistability is essential: y² = x³ − x has good reduction outside 2 and additive reduction at 2. And the everywhere-good case is Fontaine's theorem (R25.3), which is not obtained by deleting l here."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-criterion",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/ext-mu-p-by-z-mod-p-over-z-one-over-l",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l2-p3",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l3-p2",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l5-p2",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l7-p3",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l13-p2",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§1, Theorem 1.1, p. 847",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§1.1, Theorem 1.2, p. 3",
+          "match": "The form consumed by the modern proof (R33)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Schoof",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.no_semistable_abelianVariety_one_prime"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Schoof's theorem"
+      }
     }
   ],
   "requests": [
@@ -2128,10 +2835,11 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
-      "need": "Local class field theory for a finite abelian extension L/K of p-adic fields: the reciprocity map K^× → Gal(L/K), onto from units when L/K is totally ramified, carrying U^{(n)} onto the upper ramification group Gal(L/K)^{(n)} (Fesenko–Vostokov IV.(3.5)), and equivariant for automorphisms: rec(σ(u)) = σ̃ rec(u) σ̃^{−1} when L/K′ is Galois with K/K′ Galois and σ̃ lifts σ ∈ Gal(K/K′). Over ℚ_2 this gives: the inertia group of a finite abelian extension of exponent 2 is a quotient of ℤ_2^×/(ℤ_2^×)².",
+      "need": "Local class field theory for a finite abelian extension L/K of p-adic fields: the reciprocity map K^× → Gal(L/K), onto from units when L/K is totally ramified, carrying U^{(n)} onto the upper ramification group Gal(L/K)^{(n)} (Fesenko–Vostokov IV.(3.5)), and equivariant for automorphisms: rec(σ(u)) = σ̃ rec(u) σ̃^{−1} when L/K′ is Galois with K/K′ Galois and σ̃ lifts σ ∈ Gal(K/K′). Over ℚ_2 this gives: the inertia group of a finite abelian extension of exponent 2 is a quotient of ℤ_2^×/(ℤ_2^×)². The conductor exponents of quadratic characters of a local field K of absolute ramification e over ℚ_2: 0, the even integers at most 2e, and 2e + 1 (used with e = 2 for the case l = 13).",
       "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/three-adic-different-bound",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/three-adic-different-bound"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l13-p2"
       ]
     },
     {
@@ -2157,26 +2865,32 @@
     },
     {
       "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
-      "need": "Over ℤ and ℤ[1/N]: (a) the scheme-theoretic closure of a Galois-stable subgroup of G(ℚ̄) is a closed flat subgroup scheme, so a simple finite flat group scheme is killed by a prime and its generic Galois module is simple; (b) the Oort–Tate classification of group schemes of prime order p over ℤ[1/N]; (c) the gluing equivalence between finite flat group schemes over ℤ[1/N] and triples over ℤ[1/pN], ℤ_p and ℚ_p, with the resulting exact Hom–Ext¹ sequence (Schoof, Math. Ann. 325 (2003), Proposition 2.4); (d) the connected–étale splitting over ℤ_p of an extension of μ_p by ℤ/pℤ; (e) étale group schemes over ℤ[1/N] as Galois modules of π₁(Spec ℤ[1/N]). R07.1 plans Cartier duality, connected–étale sequences, generic subgroup closures and fpqc descent.",
+      "need": "Over ℤ and ℤ[1/N]: (a) the scheme-theoretic closure of a Galois-stable subgroup of G(ℚ̄) is a closed flat subgroup scheme, so a simple finite flat group scheme is killed by a prime and its generic Galois module is simple; (b) the Oort–Tate classification of group schemes of prime order p over ℤ[1/N]; (c) the gluing equivalence between finite flat group schemes over ℤ[1/N] and triples over ℤ[1/pN], ℤ_p and ℚ_p, with the resulting exact Hom–Ext¹ sequence (Schoof, Math. Ann. 325 (2003), Proposition 2.4); (d) the connected–étale splitting over ℤ_p of an extension of μ_p by ℤ/pℤ; (e) étale group schemes over ℤ[1/N] as Galois modules of π₁(Spec ℤ[1/N]). R07.1 plans Cartier duality, connected–étale sequences, generic subgroup closures and fpqc descent. (f) The Katz–Mazur group schemes G_ε over ℤ[1/l] for units ε (Katz–Mazur, Interlude 8.7): extensions of ℤ/pℤ by μ_p whose points generate ℚ(ζ_p, ε^{1/p}); and the twisted constant schemes V(ρ) attached to representations unramified outside l∞. (g) The same gluing sequence over ℤ[1/l].",
       "neededBy": [
         "SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/extensions-of-mu-two-by-z-mod-two-over-integers",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.3/simple-two-group-schemes-over-integers",
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/extensions-of-mu-two-by-z-mod-two-over-integers"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/constant-over-cyclotomic",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/ext-mu-p-by-z-mod-p-over-z-one-over-l",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion"
       ]
     },
     {
       "supplier": "AbelianSchemesAndArithmeticModuli:A3",
-      "need": "For an abelian scheme 𝒜 of relative dimension g over ℤ: 𝒜[n] finite flat of order n^{2g}; the quotient of 𝒜 by a finite flat subgroup scheme is an abelian scheme; the Weil pairing identifies the Cartier dual of 𝒜[n] with 𝒜^∨[n]; degrees of isogenies are multiplicative and a separable isogeny has kernel of order its degree.",
+      "need": "For an abelian scheme 𝒜 of relative dimension g over ℤ: 𝒜[n] finite flat of order n^{2g}; the quotient of 𝒜 by a finite flat subgroup scheme is an abelian scheme; the Weil pairing identifies the Cartier dual of 𝒜[n] with 𝒜^∨[n]; degrees of isogenies are multiplicative and a separable isogeny has kernel of order its degree. The same torsion, quotient and Weil-pairing statements over ℤ[1/l].",
       "neededBy": [
         "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-criterion",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d"
       ]
     },
     {
       "supplier": "AbelianSchemesAndArithmeticModuli:A2",
-      "need": "The dual abelian variety and a polarization, which is an isogeny A → A^∨, over a finite field.",
+      "need": "The dual abelian variety and a polarization, which is an isogeny A → A^∨, over a finite field. The polarization isogeny over the residue fields of ℤ[1/l, ζ_l].",
       "neededBy": [
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-criterion"
       ]
     },
     {
@@ -2188,19 +2902,37 @@
     },
     {
       "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.1",
-      "need": "An abelian variety over ℚ with good reduction at every prime extends to an abelian scheme over ℤ (its Néron model), and conversely. R11.1 plans 'Compare good reduction with an abelian-scheme model'.",
+      "need": "An abelian variety over ℚ with good reduction at every prime extends to an abelian scheme over ℤ (its Néron model), and conversely. R11.1 plans 'Compare good reduction with an abelian-scheme model'. Good reduction at every prime other than l gives an abelian scheme over ℤ[1/l].",
       "neededBy": [
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d"
+      ]
+    },
+    {
+      "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.3",
+      "need": "The monodromy criterion in the form used by Schoof: for an abelian variety over ℚ with semistable reduction at l, every σ in an inertia group above l satisfies (σ − 1)² = 0 on the p-adic Tate module for p ≠ l (Grothendieck, SGA 7 IX 3.5). RS-06 links R11.3 to R25.4.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+      "need": "Global class field theory in the explicit form used for Schoof's cases: for a number field M and a modulus 𝔪, abelian extensions of M of conductor dividing 𝔪 correspond to quotients of the ray class group Cl_𝔪(M), an extension of Cl(M) by (𝓞_M/𝔪)^× modulo the image of the global units; over ℚ this is Kronecker–Weber for conductors lᵏ∞. The conductor–discriminant formula for a relative abelian extension is used with it.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/class-number-one-certificates",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/constant-over-cyclotomic",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l13-p2",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l2-p3",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l5-p2",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l7-p3"
       ]
     }
   ],
   "coverage": [
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
-      "status": "partial",
-      "remaining": [
-        "Schoof's global comparisons for R25.4: the unconditional totally complex degree bounds he takes from Odlyzko's and Martinet's tables (rd < 10.39 ⇒ n < 24, rd < 12 ⇒ n < 32, rd < 20 ⇒ n < 480, rd < 19.01 ⇒ n < 270, rd < 14.42 ⇒ n < 60, and the Hilbert class field degree bounds at root discriminants 13.18, 16.82, 13.75 and 10.198), certified as rows of R25.1/poitou-odlyzko-inequality. The kernel of R25.1/odlyzko-kernel gives only n ≤ 32 at rd 12, so the row n < 32 needs a sharper kernel or Odlyzko's own tables."
-      ]
+      "status": "closed",
+      "remaining": []
     },
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
@@ -2214,10 +2946,8 @@
     },
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
-      "status": "not_read",
-      "remaining": [
-        "Schoof05 §§1–6 were read for this checkpoint and the plan is not yet written. It needs: the categories C and D over ℤ[1/l]; Propositions 3.1–3.2 (reusing R25.3's filtration and point count over ℤ[1/l, ζ_l]); Proposition 4.1 and Corollary 4.2 (Ext¹(μ_p, ℤ/pℤ) over ℤ[1/l], with the corrected class-group step E2); Propositions 5.1–5.2; and the five cases (l, p) = (2, 3), (3, 2), (5, 2), (7, 3), (13, 2) of §6, with their Odlyzko rows (R25.1) and class-number and unit computations. The negative tests are J₀(11) at l = 11 and non-semistable reduction."
-      ]
+      "status": "closed",
+      "remaining": []
     },
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
@@ -2263,6 +2993,36 @@
       "known": "Schoof's errata note for this article (ssnewerrata.txt, linked from https://www.mat.uniroma2.it/~schoof/papers.html)",
       "searched": [
         "Schoof's errata note ssnewerrata.txt, linked from his papers page next to this article"
+      ]
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases/E3",
+      "source": "Schoof05",
+      "kind": "misprint",
+      "locator": "§6, proof of Theorem 1.1, Case l = 7, p = 3, p. 858 (also arXiv:math/0502356)",
+      "printed": "The source uses Odlyzko's bounds to claim that every unramified extension of K′ has relative degree strictly below 120/36 < 4.",
+      "correction": "K′ is cubic over K = Q(ζ3, ζ7 + ζ7^{−1}, 7^{1/3}), which has degree 18, so [K′ : Q] = 54 and the relative degree is smaller than 120/54 < 3.",
+      "reason": "The root discriminant 3^{25/18}7^{2/3} ≈ 16.83 bounds the absolute degree of an unramified extension of K′ by 119 (Odlyzko's Table 2 gives 17.020 at n = 120); dividing by [K′ : Q] = 54, not 36, gives the relative bound. The argument only needs to exclude degrees 2 and 3, so the weaker printed bound still suffices.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Schoof's errata note for this article (ssnewerrata.txt), which concerns only Proposition 4.1",
+        "arXiv:math/0502356: the same text"
+      ]
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases/E4",
+      "source": "Schoof05",
+      "kind": "misprint",
+      "locator": "§6, proof of Theorem 1.1, Case l = 13, p = 2, p. 858 (also arXiv:math/0502356)",
+      "printed": "The source writes cond(χ) = (1 + i)^a with a ⩽ 2, then deduces a ⩽ 3 from v2(δL) < 2.",
+      "correction": "for some a ⩾ 0; the bound a ⩽ 3 then comes from v₂(δ_L) < 2, and wild ramification with the absence of conductor exponent 3 gives a = 2.",
+      "reason": "If a ⩽ 2 were known, the next sentence (a ⩽ 3) would be redundant; the parallel step in Case l = 5 (Step 1) writes 'for some a ⩾ 0'. The bound comes from v₂(δ_L) = 1 + a/4 < 2.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Schoof's errata note for this article (ssnewerrata.txt)",
+        "arXiv:math/0502356: the same text"
       ]
     }
   ],
@@ -2329,6 +3089,13 @@
       "citation": "Armand Brumer and Kenneth Kramer, Non-existence of certain semistable abelian varieties",
       "read": "2026-09-28",
       "sha256": "afa891235bf2c20796cf0726b2d7762585d41c287717052f287b799e6c0a1954"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www-users.cse.umn.edu/~odlyzko/unpublished/discr.bound.table2",
+      "citation": "Andrew M. Odlyzko, Discriminant bounds, Table 2 (29 November 1976)",
+      "read": "2026-09-28",
+      "sha256": "e24ab07f506b94a7e5f34962abc4a3264e3de5ac6ad2ab23832132827d3da4d0"
     }
   ]
 }

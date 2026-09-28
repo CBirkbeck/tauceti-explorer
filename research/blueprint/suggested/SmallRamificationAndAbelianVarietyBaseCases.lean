@@ -26,9 +26,11 @@ import TauCeti.Analysis.PositiveDefinite.AddGroup
 import TauCeti.Analysis.Bochner.BochnerTheorem
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyFree
 import TauCeti.AlgebraicGeometry.AbelianVariety.Basic
+import Mathlib.NumberTheory.NumberField.ClassNumber
+import Mathlib.RingTheory.Localization.Away.Basic
 
 /-!
-# Small ramification, Tate–Serre and Fontaine — suggested declarations (second checkpoint)
+# Small ramification, Tate–Serre, Fontaine and Schoof — suggested declarations (third checkpoint)
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
@@ -37,8 +39,9 @@ and signatures. All proposed results are unproved prototypes at the pinned basel
 
 Layers covered: R25.1 (explicit discriminant bounds: the local root-discriminant exponent,
 the 2-adic and 3-adic bounds, Minkowski thresholds, the Odlyzko–Poitou bound) and R25.2
-(Tate's theorem, Serre's mod-3 theorem, the combined base case) and R25.3 (Fontaine's theorem,
-through finite flat 2-group schemes over `ℤ`).
+(Tate's theorem, Serre's mod-3 theorem, the combined base case), R25.3 (Fontaine's theorem,
+through finite flat 2-group schemes over `ℤ`) and R25.4 (Schoof's theorem for
+`l ∈ {2, 3, 5, 7, 13}`).
 
 Objects imported from other roadmaps appear as placeholders named after their owners'
 planned declarations:
@@ -447,5 +450,60 @@ theorem dim_eq_zero_of_goodReduction_everywhere (A : TauCeti.AlgebraicGeometry.A
     (hA : HasGoodReductionEverywhere A) : A.dim = 0 := sorry
 
 end Fontaine
+
+/-! ## R25.4 — Schoof's theorem -/
+
+section Schoof
+
+/-- Finite flat commutative group schemes over `ℤ[1/l]` (Tau Ceti). -/
+abbrev FFGroupSchemeAway (l : ℕ) :=
+  TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat (CommRingCat.of (Localization.Away (l : ℤ)))
+
+/-- R07.1 placeholders over `ℤ[1/l]`. -/
+def IsSimpleAway {l : ℕ} (G : FFGroupSchemeAway l) : Prop := sorry
+def zModPAway (l p : ℕ) : FFGroupSchemeAway l := sorry
+def muPAway (l p : ℕ) : FFGroupSchemeAway l := sorry
+def Ext1VanishesAway {l : ℕ} (A B : FFGroupSchemeAway l) : Prop := sorry
+
+/-- The category `D(p, l)`: `p`-group schemes over `ℤ[1/l]` on whose points every inertia
+element above `l` satisfies `(σ − 1)² = 0` (the Galois condition is a placeholder for R01.2). -/
+def SemistableCategory (p l : ℕ) (G : FFGroupSchemeAway l) : Prop := sorry
+
+theorem SemistableCategory.zModP (p l : ℕ) : SemistableCategory p l (zModPAway l p) := sorry
+theorem SemistableCategory.muP (p l : ℕ) : SemistableCategory p l (muPAway l p) := sorry
+
+/-- R11.1/R11.3: good reduction outside `l` and semistable reduction at `l`. -/
+def IsSemistableGoodOutside (l : ℕ) (A : TauCeti.AlgebraicGeometry.AbelianVariety ℚ) : Prop :=
+  sorry
+
+/-- Schoof's criterion (Proposition 3.1). -/
+theorem no_semistable_of_simple_and_ext (l p : ℕ) (hlp : l ≠ p)
+    (hsimple : ∀ G : FFGroupSchemeAway l, SemistableCategory p l G → IsSimpleAway G →
+      Nonempty (G ≅ zModPAway l p) ∨ Nonempty (G ≅ muPAway l p))
+    (hext : Ext1VanishesAway (muPAway l p) (zModPAway l p))
+    (A : TauCeti.AlgebraicGeometry.AbelianVariety ℚ) (hA : IsSemistableGoodOutside l A) :
+    A.dim = 0 := sorry
+
+/-- Corollary 4.2 for `p ∈ {2, 3}`: the five pairs used. -/
+theorem ext_muP_zModP_eq_zero (l p : ℕ)
+    (h : (l, p) = (2, 3) ∨ (l, p) = (3, 2) ∨ (l, p) = (5, 2) ∨ (l, p) = (7, 3) ∨
+      (l, p) = (13, 2)) :
+    Ext1VanishesAway (muPAway l p) (zModPAway l p) := sorry
+
+/-- The degree bounds of R25.1 used by Schoof's cases; row (a) as an example. -/
+theorem finrank_le_of_rootDiscr_lt_of_isTotallyComplex (K : Type*) [Field K] [NumberField K]
+    [IsTotallyComplex K] (h : rootDiscr K < 8.25) : finrank ℚ K ≤ 14 := sorry
+
+/-- Unit check: `ℚ(i, √13)` has class number one (Minkowski bound ≈ 7.90). -/
+example (K : Type*) [Field K] [NumberField K]
+    [IsSplittingField ℚ K ((X ^ 2 + 1) * (X ^ 2 - 13))] : NumberField.classNumber K = 1 :=
+  sorry
+
+/-- Schoof's theorem (Theorem 1.1). -/
+theorem no_semistable_abelianVariety_one_prime (l : ℕ) (hl : l ∈ ({2, 3, 5, 7, 13} : Finset ℕ))
+    (A : TauCeti.AlgebraicGeometry.AbelianVariety ℚ) (hA : IsSemistableGoodOutside l A) :
+    A.dim = 0 := sorry
+
+end Schoof
 
 end TauCeti.SmallRamification
