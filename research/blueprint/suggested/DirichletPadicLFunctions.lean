@@ -3897,3 +3897,138 @@ example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
     padicSmoothedMeasure 3 u⁻¹ ((ContinuousMap.id ℤ_[3])^2) = 0 := by sorry
 end
 end SuggestedPadicSmoothingTests
+
+/-! ## Arithmetic numerators for every p-adic unit -/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "x" => (ContinuousMap.id Z)
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local notation "ι" => (ContinuousMap.mk PadicInt.inv PadicInt.continuous_inv : C(Z,Z))
+
+theorem psi_padicSmoothedMeasure (u : U) :
+    psiMeasure p Z (padicSmoothedMeasure p u) = padicSmoothedMeasure p u := sorry
+lemma unitRestriction_padicSmoothedMeasure (u : U) :
+    unitRestriction p Z (padicSmoothedMeasure p u) = padicSmoothedMeasure p u -
+      phiMeasure p Z (padicSmoothedMeasure p u) := sorry
+
+def padicSmoothedNumerator (u : U) : D(Z,Z) := sorry
+lemma padicSmoothedNumerator_def (u : U) :
+    padicSmoothedNumerator p u = inverseWeight p (padicSmoothedMeasure p u) := sorry
+lemma padicSmoothedNumerator_apply (u : U) (f : C(Z,Z)) :
+    padicSmoothedNumerator p u f = padicSmoothedMeasure p u (ι*f) := sorry
+lemma padicSmoothedNumerator_supported (u : U) :
+    unitRestriction p Z (padicSmoothedNumerator p u) = padicSmoothedNumerator p u := sorry
+lemma weight_padicSmoothedNumerator (u : U) :
+    weight x (padicSmoothedNumerator p u) =
+      unitRestriction p Z (padicSmoothedMeasure p u) := sorry
+lemma padicSmoothedNumerator_unique (u : U) (ν : D(Z,Z))
+    (hν : unitRestriction p Z ν = ν)
+    (hw : weight x ν = unitRestriction p Z (padicSmoothedMeasure p u)) :
+    ν = padicSmoothedNumerator p u := sorry
+lemma padicSmoothedNumerator_one : padicSmoothedNumerator p 1 = 0 := sorry
+lemma padicSmoothedNumerator_neg_one : padicSmoothedNumerator p (-1) = 0 := sorry
+lemma padicSmoothedNumerator_apply_continuous (f : C(Z,Z)) :
+    Continuous (fun u : U => padicSmoothedNumerator p u f) := sorry
+
+lemma padicSmoothedNumerator_nat (u : U) (a : ℕ) (ha : ¬ p ∣ a)
+    (hu : (u : Z) = (a : Z)) :
+    padicSmoothedNumerator p u = smoothedNumerator p a ha := sorry
+
+theorem padicSmoothedNumerator_moment (u : U) (k : ℕ) (hk : 1 ≤ k) :
+    (padicSmoothedNumerator p u (x^k) : ℚ_[p]) =
+      (1-(p : ℚ_[p])^(k-1)) * (1-(u : ℚ_[p])^k) *
+      algebraMap ℚ ℚ_[p] (bernoulli k / k) := sorry
+
+def padicIntrinsicNumerator (u : U) : D(U,Z) := sorry
+lemma padicIntrinsicNumerator_def (u : U) :
+    padicIntrinsicNumerator p u = restrictUnits p Z (padicSmoothedNumerator p u) := sorry
+lemma padicIntrinsicNumerator_unique (u : U) (η : D(U,Z))
+    (hη : AbstractMeasure.map j η = padicSmoothedNumerator p u) :
+    η = padicIntrinsicNumerator p u := sorry
+lemma padicIntrinsicNumerator_one : padicIntrinsicNumerator p 1 = 0 := sorry
+lemma padicIntrinsicNumerator_neg_one : padicIntrinsicNumerator p (-1) = 0 := sorry
+
+lemma map_val_padicIntrinsicNumerator (u : U) :
+    AbstractMeasure.map j (padicIntrinsicNumerator p u) = padicSmoothedNumerator p u := sorry
+lemma padicIntrinsicNumerator_nat (u : U) (a : ℕ) (ha : ¬ p ∣ a)
+    (hu : (u : Z) = (a : Z)) :
+    padicIntrinsicNumerator p u = intrinsicSmoothedNumerator p a ha := sorry
+theorem padicIntrinsicNumerator_moment (u : U) (k : ℕ) (hk : 1 ≤ k) :
+    (padicIntrinsicNumerator p u (j^k) : ℚ_[p]) =
+      (1-(p : ℚ_[p])^(k-1)) * (1-(u : ℚ_[p])^k) *
+      algebraMap ℚ ℚ_[p] (bernoulli k / k) := sorry
+lemma padicIntrinsicNumerator_apply_continuous (f : C(U,Z)) :
+    Continuous (fun u : U => padicIntrinsicNumerator p u f) := sorry
+lemma padicIntrinsicNumerator_continuous_weak :
+    @Continuous U D(U,Z) inferInstance AbstractMeasure.WeakTopology
+      (padicIntrinsicNumerator p) := sorry
+end DirichletPadic
+
+namespace SuggestedPadicNumeratorTests
+open scoped AbstractMeasure
+open AbstractMeasure DirichletPadic
+-- psi_negative_parameter
+example : psiMeasure 2 ℤ_[2] (padicSmoothedMeasure 2 (-1)) =
+    -dirac ℤ_[2] (0 : ℤ_[2]) := sorry
+-- psi_is_not_unit_support
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
+    psiMeasure 3 ℤ_[3] (padicSmoothedMeasure 3 u) ≠ 0 := sorry
+-- ambient_identity_parameter
+example : padicSmoothedNumerator 2 1 = 0 := sorry
+-- ambient_negative_parameter
+example : padicSmoothedNumerator 2 (-1) = 0 := sorry
+-- ambient_inverse_two_second
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = (2 : ℤ_[3]).inv) :
+    (padicSmoothedNumerator 3 u ((ContinuousMap.id ℤ_[3])^2) : ℚ_[3]) = -1/8 := sorry
+-- weighting_removes_zero_atom
+example : padicSmoothedMeasure 3 (-1) ≠ 0 ∧ padicSmoothedNumerator 3 (-1) = 0 := sorry
+-- ambient_natural_three
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2]) = 3) :
+    padicSmoothedNumerator 2 u = smoothedNumerator 2 3 (by norm_num) := sorry
+-- ambient_natural_identity
+example : padicSmoothedNumerator 3 1 = smoothedNumerator 3 1 (by norm_num) := sorry
+-- ambient_first_moment_zero
+example (u : (ℤ_[2])ˣ) :
+    padicSmoothedNumerator 2 u (ContinuousMap.id ℤ_[2]) = 0 := sorry
+-- ambient_dyadic_third_parameter
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2]) = 3) :
+    (padicSmoothedNumerator 2 u ((ContinuousMap.id ℤ_[2])^2) : ℚ_[2]) = 2/3 := sorry
+-- intrinsic_identity_parameter
+example : padicIntrinsicNumerator 2 1 = 0 := sorry
+-- intrinsic_negative_parameter
+example : padicIntrinsicNumerator 2 (-1) = 0 := sorry
+-- intrinsic_inverse_two_second
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = (2 : ℤ_[3]).inv) :
+    (padicIntrinsicNumerator 3 u
+      ((⟨Units.val,Units.continuous_val⟩ : C((ℤ_[3])ˣ,ℤ_[3]))^2) : ℚ_[3]) = -1/8 := sorry
+-- intrinsic_inclusion_test
+example (u : (ℤ_[2])ˣ) (f : C(ℤ_[2],ℤ_[2])) :
+    padicIntrinsicNumerator 2 u
+      (f.comp (⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2]))) =
+      padicSmoothedNumerator 2 u f := sorry
+-- intrinsic_natural_three
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2]) = 3) :
+    padicIntrinsicNumerator 2 u = intrinsicSmoothedNumerator 2 3 (by norm_num) := sorry
+-- intrinsic_natural_two
+example (u : (ℤ_[3])ˣ) (hu : (u : ℤ_[3]) = 2) :
+    padicIntrinsicNumerator 3 u = intrinsicSmoothedNumerator 3 2 (by norm_num) := sorry
+-- intrinsic_first_moment_zero
+example (u : (ℤ_[2])ˣ) :
+    padicIntrinsicNumerator 2 u (⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2])) = 0 := sorry
+-- intrinsic_second_integral
+example (u : (ℤ_[2])ˣ) (hu : (u : ℤ_[2]) = 3) :
+    (padicIntrinsicNumerator 2 u
+      ((⟨Units.val,Units.continuous_val⟩ : C((ℤ_[2])ˣ,ℤ_[2]))^2) : ℚ_[2]) = 2/3 := sorry
+-- fixed_test_negative_limit
+example (f : C((ℤ_[2])ˣ,ℤ_[2])) :
+    Filter.Tendsto (fun u : (ℤ_[2])ˣ => padicIntrinsicNumerator 2 u f)
+      (nhds (-1)) (nhds 0) := sorry
+-- fixed_test_identity_limit
+example (f : C((ℤ_[3])ˣ,ℤ_[3])) :
+    Filter.Tendsto (fun u : (ℤ_[3])ˣ => padicIntrinsicNumerator 3 u f)
+      (nhds 1) (nhds 0) := sorry
+end SuggestedPadicNumeratorTests
