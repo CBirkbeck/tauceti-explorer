@@ -138961,6 +138961,27 @@
    "reviewReason": null
   },
   {
+   "id": "IntegralHeckeAndGaloisDeterminants/E2",
+   "kind": "misprint",
+   "locator": "Lemma 1.18(ii), p. 16 (arXiv:0809.0415v2; same in the Durham preprint)",
+   "printed": "(ii) P̃ : R/ker(P) −→ S is faithful.",
+   "correction": "(ii) P̃ : M/ker(P) −→ N is faithful.",
+   "reason": "Lemma 1.18 concerns a polynomial law P : M → N between A-modules; R and S are the algebras of the next lemma. The proof ('Ker(P̃) = Ker(P)/K') is written for M/K → N.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:0809.0415 v1–v2 listing and the v2 source (same text)",
+    "the 2013 Durham symposium preprint (same text)",
+    "Chenevier's publication page (no errata listed for this paper)"
+   ],
+   "owner": "IntegralHeckeAndGaloisDeterminants",
+   "file": "research/blueprint/packets/IntegralHeckeAndGaloisDeterminants.json",
+   "citation": "Gaëtan Chenevier, The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings, arXiv:0809.0415v2 (July 2013), the final version, published in Automorphic Forms and Galois Representations, Vol. 1, LMS Lecture Note Series 414 (2014), 221–285; page numbers are those of the 56-page preprint distributed for the 2011 Durham symposium, which has the same statement numbering and text",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "InverseGaloisAndArithmeticFundamentalGroups/E1",
    "kind": "misprint",
    "locator": "Author working text, printed p.136 (physical p.148), sentence immediately before Definition 5.2.2",
