@@ -1,11 +1,69 @@
-# Entire functional input at fixed characteristic degree
+# Locally analytic distributions: L0–L2, and L4's entire functional input at fixed characteristic degree
 
-**Current checkpoint:** 186 unchecked nodes: 3 definitions, 18 constructions,
-112 lemmas, 33 theorems and 20 comparisons; 92 API items (88 on definitions
-and constructions), 123 packet tests (76 on definitions and constructions),
-123 typed examples, 6 planets and 228 baseline citations. Eight gaps, five
-requests, two inherited source findings and zero closed stages remain.
-Numerical summaries in the earlier developments below are historical.
+**Current checkpoint:** 199 unchecked nodes: 7 definitions, 19 constructions, 115 lemmas, 38 theorems and 20
+comparisons; 106 API items, 91 packet tests on definitions and constructions, 12 planets and 229 baseline citations.
+Eight gaps, six requests, two inherited source findings and zero closed stages remain. L1 is
+`source_decomposed`; L0 and L2 are `partial` (one variable done); L3 is `not_read`; L4 is `partial`. Numerical summaries in the
+earlier developments below are historical.
+
+## Layers L0–L2 (Claude Code, session cc-39fac3)
+
+Library module: `TauCeti/NumberTheory/Padics/LocallyAnalytic`. The sources are:
+- Colmez, *Fonctions d'une variable p-adique* (author's PDF): §§I.4, I.5, II.1–II.4.
+- Rodrigues Jacinto–Williams, arXiv:2309.15692v2: §3.7 and Appendix B.
+- Schneider–Teitelbaum, *p-adic Fourier theory*, arXiv:math/0102012: §1.
+
+RS-16's narrowed keeps are followed, and bounded measures are imported from PadicMeasuresIwasawaAlgebras.
+
+**L0: Banach spaces of locally analytic functions.**
+- `disc-analytic-functions`: An(B(a, r), L). The Gauss valuation is multiplicative and satisfies the maximum principle.
+- `locally-analytic-radius` (planet):
+  - LA_h, with orthonormal basis e_{h,n} and scalar extension.
+  - A uniform radius, by compactness.
+  - LA = lim→ LA_h.
+- `amice-mahler-basis` (planet): Amice's theorem. [n/p^h]!·C(x, n) is an orthonormal basis of LA_h, and φ is locally
+  analytic if and only if lim inf v_p(a_n(φ))/n > 0.
+- `locally-analytic-topology`: the inductive-limit topology is strictly finer than the C⁰ topology. The separating
+  sequence is p^nC(x, p^{2n}).
+- `locally-analytic-distributions` (planet): the Fréchet dual, as a projective limit of Banach duals, with the
+  injection of bounded measures.
+- `field-analytic-functions`: F-analytic against ℚ_p-analytic functions on 𝒪_F. The F-analytic ones are cut out by the
+  Cauchy–Riemann equations, and the dual map is a quotient; x ↦ σ(x) is ℚ_p-analytic but not F-analytic.
+
+**L1: the Amice transform.**
+- `amice-transform` (planet): D(ℤ_p, L) ≅ R⁺ as Fréchet spaces, with v_{B(0,u_h)}(A_μ) ≥ v_{LA_h}(μ) ≥
+  v_{B(0,u_{h+1})}(A_μ) − 1. It is compatible with the bounded transform (RJW Theorem 3.43).
+- `distribution-operations`: the toolbox extended continuously: Dirac masses, multiplication (∂), restriction,
+  derivative (log(1 + T)), σ_a, φ, ψ and convolution.
+- `division-by-x-and-primitives`:
+  - Division by x is defined up to δ₀, and is unique on unit-supported distributions.
+  - ∂^{−k} is ambiguous up to polynomials in log(1 + T), and the ambiguity cancels at p-power roots of unity.
+  - Primitives of functions exist only modulo the closure of the locally constant functions.
+
+**L2: admissible growth and uniqueness (one variable).**
+- `c-r-functions`: C^r, with its Mahler and wavelet bases. Locally polynomial functions of degree ≤ [r] are dense.
+- `order-r-distributions` (planet): distributions of order r = h-admissible distributions. The equivalent descriptions
+  are:
+  - Amice coefficients: v_p(b_n) + rℓ(n) is bounded below.
+  - Radius-wise growth.
+  - Pollack–Stevens' growth: ‖μ‖ = O(p^{rn}) on radius p^{−n}.
+  - Riemann-sum bounds.
+- `order-zero-measures`: order 0 is exactly the bounded measures.
+- `amice-velu-vishik` (planet): Colmez Theorem II.3.2. It gives extension and uniqueness from locally polynomial
+  functions of degree ≤ N when N ≥ [r], i.e. r < N + 1. At r = N + 1 the distribution d^{N+1}δ₀ is a counterexample:
+  this is the critical-slope obstruction.
+
+**Remaining:**
+- L0 and L2 in several variables: finite products of local integer rings (charts, tensor products), vector radii and
+  the corresponding uniqueness theorem.
+- L3: character spaces and Mellin transforms.
+- L4's recorded gaps.
+
+**Lean:** the L0–L2 section of the suggested file (a signature comment block and three proved examples) was compiled
+on its own against the pinned Mathlib. The whole file imports four pinned Tau Ceti modules, which are not built on this
+server, so it was not re-elaborated in this checkpoint.
+
+## L4: entire functional input at fixed characteristic degree
 
 Let A be a nontrivial complete normed commutative ring, with norm(1)=1 and
 ultrametric norm. The coefficients can be nonreduced. Let B be an entire

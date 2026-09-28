@@ -10,7 +10,7 @@
     "LocallyAnalyticDistributions:L3",
     "LocallyAnalyticDistributions:L4"
   ],
-  "summary": "Partial fixed-characteristic spectral checkpoint: construct the spectral polynomial for entire functional input and a fixed normalized polynomial characteristic input, through the native monic remainder. Prove coefficient and all-radius Gauss convergence, exact rank padding, polynomial factor multiplicativity and linear evaluation. The growing-degree estimates for general entire characteristic input and infinite-operator transport remain explicit.",
+  "summary": "Partial fixed-characteristic spectral checkpoint: construct the spectral polynomial for entire functional input and a fixed normalized polynomial characteristic input, through the native monic remainder. Prove coefficient and all-radius Gauss convergence, exact rank padding, polynomial factor multiplicativity and linear evaluation. The growing-degree estimates for general entire characteristic input and infinite-operator transport remain explicit. A later checkpoint plans L0 (locally analytic Banach spaces, Amice's Mahler theorem, the finer LF topology, distributions, F- versus ℚ_p-analyticity), L1 (the Amice transform and the distribution toolbox with division by x) and one-variable L2 (C^r, distributions of order r, measures, Amice–Vélu–Vishik).",
   "conventions": {
     "banach": "Unless a node states weaker hypotheses, K is complete for a nontrivial nonarchimedean absolute value; A is a nonzero commutative Noetherian K-Banach algebra with a compatible submultiplicative ultrametric norm. Modules are complete Hausdorff ultrametric Banach A-modules, also normed K-spaces, with compatible bounded A-action. A is not assumed to be a field, reduced, or affinoid. The zero algebra case is separated as a degenerate case.",
     "operators": "Operator norms of continuous A-linear maps are norms after restriction of scalars to K. Finite rank means image contained in a finitely generated A-submodule, not finite-dimensional over K and not necessarily free. Completely continuous means operator-norm approximable by such maps. It is not identified with Mathlib IsCompactOperator without a comparison theorem.",
@@ -1562,6 +1562,13 @@
         "module": "TauCeti/RingTheory/PowerSeries/GaussNorm.lean",
         "provides": "Native restricted power series over a normed ring have bounded weighted coefficient norms; completeness and multiplicativity are unnecessary.",
         "checked": "Full native statement and relevant ambient hypotheses read at the pinned commit on 27 September 2026. The index was used only as a locator; restrictedness and the submultiplicative norm premises are retained."
+      },
+      {
+        "ref": "mathlib:PadicInt.mahlerEquiv",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/MahlerBasis.lean",
+        "provides": "Mahler's theorem: C(ℤ_p, E) ≃ₗᵢ C₀(ℕ, E) by forward differences at 0, with inverse the Mahler series.",
+        "checked": "name, kind and module confirmed in the pinned declaration index; signature read in the pinned Mathlib 082e2d3 source (2026-09-28)"
       }
     ]
   },
@@ -1642,9 +1649,848 @@
         "27 September 2026: complete published printed 432–436 / PDF 16–20 freshly read from the hash-verified scan. Native Gauss-radius convergence and evaluation estimates are worker decompositions of the analytic limiting requirement; general spectral estimates remain open."
       ],
       "note": "Linear division is a worker deduction of the p434 division input. No full-paper coverage or transport of all Coleman hypotheses is claimed."
+    },
+    {
+      "id": "COLMEZ-FONCTIONS-2010",
+      "title": "Fonctions d'une variable p-adique",
+      "authors": "Pierre Colmez",
+      "edition": "Author's PDF on his IMJ-PRG page (47 pages, its own pagination 1–47); published in Astérisque 330 (2010). Page numbers below are those of the PDF.",
+      "url": "https://webusers.imj-prg.fr/~pierre.colmez/fonctionsdunevariable.pdf",
+      "sha256": "a18e1b0f96033dbc6d27d39dd330974bed63808286092c11d5c8d232d412c380",
+      "read": "2026-09-28",
+      "readSections": [
+        "§I.4 (analytic functions on closed discs, LA_h, Amice's Theorem I.4.7, Corollary I.4.8), pp. 13–16",
+        "§I.5.1 (functions of class C^r), and the statements of Propositions I.5.13, I.5.16, I.5.19, Theorems I.5.14, I.5.17, Corollary I.5.18, pp. 18–25",
+        "§II.1–II.3 (R⁺ and R⁺_r, Lemma II.1.1, Theorem II.2.2, Proposition II.3.1, measures, Theorem II.3.2 with proof, Proposition II.3.3), pp. 29–34",
+        "§II.4.1–II.4.6 (operations on distributions, Proposition II.4.1, Lemma II.4.2, and the statements of II.4.3–II.4.6), pp. 34–37"
+      ]
+    },
+    {
+      "id": "RJW-2024",
+      "title": "An introduction to p-adic L-functions",
+      "authors": "Joaquín Rodrigues Jacinto and Chris Williams",
+      "edition": "arXiv:2309.15692v2, 85 pages; printed page = PDF page.",
+      "url": "https://arxiv.org/pdf/2309.15692v2",
+      "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+      "read": "2026-09-28",
+      "readSections": [
+        "§3.7 (Definitions 3.40, 3.42, Remarks 3.39, 3.41, 3.44–3.46, Theorem 3.43), pp. 23–25",
+        "Appendix B.2.1 (Theorem B.1 and the remarks after it), pp. 79–80"
+      ]
+    },
+    {
+      "id": "SCHNEIDER-TEITELBAUM-2001",
+      "title": "p-adic Fourier theory",
+      "authors": "Peter Schneider and Jeremy Teitelbaum",
+      "edition": "arXiv:math/0102012v1 (1 February 2001), 37 pages; published in Doc. Math. 6 (2001). Printed page = PDF page.",
+      "url": "https://arxiv.org/pdf/math/0102012v1",
+      "sha256": "3afc0ac0a24ed69da42d3c208223f8cd686177db31b5e35cdd5fcfb93792680c",
+      "read": "2026-09-28",
+      "readSections": [
+        "Introduction, pp. 1–2",
+        "§1, Lemmas 1.1–1.3 and the construction of D(G, K), Proposition 1.4, pp. 3–6"
+      ]
     }
   ],
   "nodes": [
+    {
+      "id": "LocallyAnalyticDistributions:L0/disc-analytic-functions",
+      "parentStageId": "LocallyAnalyticDistributions:L0",
+      "realises": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "title": "Analytic functions on a closed disc",
+      "kind": "definition",
+      "statement": "For a ∈ L and r ∈ ℝ, let B(a, r) = {x ∈ ℂ_p : v_p(x − a) ≥ r}. An(B(a, r), L) is the space of φ(x) = Σ_k a_k(x − a)^k with a_k ∈ L and v_p(a_k) + kr → +∞, with the Gauss valuation v_{B(a,r)}(φ) = inf_k(v_p(a_k) + kr). It is an L-Banach space; v_{B(a,r)} is multiplicative (v(φ₁φ₂) = v(φ₁) + v(φ₂)), equals inf_{x∈B(a,r)} v_p(φ(x)) (maximum principle), and the (x − a)^k/p^{[kr]} form a Banach basis (orthonormal if r ∈ ℤ), so An(B(a, r), L) = L ⊗̂_K An(B(a, r), K) for a closed subfield K ∋ a.",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0)."
+      ],
+      "proofSteps": [
+        "Banach: the coefficient map identifies An(B(a, r), L) with a weighted c₀ space.",
+        "Multiplicativity (Colmez I.4.2): the Cauchy product gives ≥, and the product of the first coefficients where each valuation is attained gives equality.",
+        "Maximum principle (I.4.3): after rescaling to the unit disc, a unit-normalised power series has nonzero reduction, which is nonzero at some residue class."
+      ],
+      "acceptance": [
+        "φ(x) = x on B(0, 0): v_{B(0,0)}(φ) = 0, attained at the units.",
+        "Rescaling: v_{B(a, r+1)}(φ) ≥ v_{B(a,r)}(φ), so restriction to a smaller disc is norm-decreasing.",
+        "Σ x^k (k ≥ 0) is not in An(B(0, 0), ℚ_p): v_p(a_k) + 0·k = 0 does not tend to +∞, although it converges on the open disc."
+      ],
+      "prerequisites": [],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§I.4.1, Propositions I.4.2 and I.4.3, pp. 13–14",
+          "match": "The definition; multiplicativity and the maximum principle follow."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.LocallyAnalytic.discAnalytic",
+          "role": "constructor",
+          "statement": "An(B(a, r), L) with the Gauss valuation."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.gaussVal_mul",
+          "role": "characterisation",
+          "statement": "v(φ₁φ₂) = v(φ₁) + v(φ₂)."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.gaussVal_eq_inf",
+          "role": "characterisation",
+          "statement": "v_{B(a,r)}(φ) = inf_{x∈B(a,r)} v_p(φ(x))."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LocallyAnalyticDistributions:L0/locally-analytic-radius",
+          "how": "the local pieces of LA_h."
+        }
+      ],
+      "tests": [
+        {
+          "name": "gaussVal_X",
+          "kind": "example",
+          "statement": "v_{B(0,0)}(x) = 0."
+        },
+        {
+          "name": "gaussVal_restrict_le",
+          "kind": "characterisation",
+          "statement": "Restriction to B(a, r + 1) does not decrease the valuation."
+        },
+        {
+          "name": "geometric_not_closed_disc",
+          "kind": "non-example",
+          "statement": "Σ x^k is not analytic on the closed unit disc."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L0/locally-analytic-radius",
+      "parentStageId": "LocallyAnalyticDistributions:L0",
+      "realises": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "title": "Locally analytic functions of fixed radius",
+      "kind": "construction",
+      "statement": "For h ∈ ℕ, LA_h(ℤ_p, L) is the space of φ : ℤ_p → L whose restriction to each a + p^hℤ_p is the restriction of some φ_{a,h} ∈ An(B(a, h), L), with v_{LA_h}(φ) = inf_a v_{B(a,h)}(φ_{a,h}) (the infimum may be taken over any set of representatives of ℤ_p/p^h). It is an L-Banach space with orthonormal basis e_{h,n}(x) = 1_{n+p^hℤ_p}(x)·((x + i(n))/p^h)^{m(n)} (n = (m(n) + 1)p^h − i(n), 1 ≤ i(n) ≤ p^h), LA_h(ℤ_p, L) = L ⊗̂_{ℚ_p} LA_h(ℤ_p, ℚ_p), and the inclusions LA_h ⊂ LA_{h+1} are continuous of norm ≤ 1. Since ℤ_p is compact, every locally analytic function lies in some LA_h, and LA(ℤ_p, L) = lim→_h LA_h(ℤ_p, L) carries the locally convex inductive-limit topology.",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
+        "Tensor products: completed tensor products of L-Banach spaces with orthonormal bases are Colmez §I.1.4 (Proposition I.1.8, Corollary I.1.9), taken as given with the basis description."
+      ],
+      "proofSteps": [
+        "Lemma I.4.5: φ_i(x) = φ(−i + p^hx) is analytic on ℤ_p for 1 ≤ i ≤ p^h, and expanding each in powers of x gives the basis e_{h,n} with v_{LA_h}(φ) = inf of the coefficient valuations.",
+        "Corollary I.4.6 from the basis being defined over ℚ_p.",
+        "Uniform radius: a locally analytic function is analytic on a neighbourhood of each point; finitely many cosets a + p^{h_a}ℤ_p cover ℤ_p, and h = max h_a works.",
+        "Continuity of LA_h ⊂ LA_{h+1}: restriction from B(a, h) to B(b, h + 1) with b ≡ a mod p^h does not decrease the Gauss valuation."
+      ],
+      "acceptance": [
+        "Polynomials lie in LA₀ with v_{LA₀}(P) = inf of the valuations of their coefficients.",
+        "1_{a+p^hℤ_p} ∈ LA_h with valuation 0, but it is not in LA_{h−1}.",
+        "f = Σ_{n≥1} 1_{p^n+p^{2n}ℤ_p} is locally constant on ℤ_p ∖ {0} but not continuous at 0 (f(p^n) = 1, f(0) = 0), so it is not locally analytic: local analyticity needs a positive radius at every point, including 0."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L0/disc-analytic-functions"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§I.4.2, Remark I.4.4, Lemma I.4.5, Corollary I.4.6, pp. 14–15",
+          "match": "LA_h and the inductive limit."
+        },
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Definition 3.40 and the description of C^{n−an}, p. 24",
+          "match": "The same spaces in RJW's notation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.LocallyAnalytic.LAh",
+          "role": "constructor",
+          "statement": "LA_h(ℤ_p, L) with v_{LA_h}."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.LAh_mono",
+          "role": "compatibility",
+          "statement": "LA_h ⊂ LA_{h+1}, norm-decreasing."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.locallyAnalytic_iff_exists_LAh",
+          "role": "characterisation",
+          "statement": "φ is locally analytic iff φ ∈ LA_h for some h."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.LA",
+          "role": "constructor",
+          "statement": "LA(ℤ_p, L) = lim→ LA_h with the inductive-limit topology."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LocallyAnalyticDistributions:L0/amice-mahler-basis",
+          "how": "Amice's basis of LA_h."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L0/locally-analytic-distributions",
+          "how": "the duals D_h."
+        },
+        {
+          "where": "ModularSymbolsPadicLFunctions:L2/weight-k-distributions",
+          "how": "A[p^{−h}] is LA_h."
+        }
+      ],
+      "tests": [
+        {
+          "name": "indicator_mem_LAh",
+          "kind": "example",
+          "statement": "1_{a+p^hℤ_p} ∈ LA_h with valuation 0."
+        },
+        {
+          "name": "LAh_basis_orthonormal",
+          "kind": "characterisation",
+          "statement": "The e_{h,n} are an orthonormal basis."
+        },
+        {
+          "name": "indicator_not_mem_LAh_pred",
+          "kind": "non-example",
+          "statement": "1_{a+p^hℤ_p} ∉ LA_{h−1}."
+        }
+      ],
+      "planet": {
+        "name": "Locally analytic functions of fixed radius"
+      }
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L0/amice-mahler-basis",
+      "parentStageId": "LocallyAnalyticDistributions:L0",
+      "realises": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "title": "Amice's theorem on Mahler coefficients",
+      "kind": "theorem",
+      "statement": "For every h ∈ ℕ, the functions [n/p^h]!·C(x, n) (n ∈ ℕ) form an orthonormal basis of LA_h(ℤ_p, L). Consequently a continuous φ with Mahler coefficients a_n(φ) is locally analytic if and only if lim inf_n v_p(a_n(φ))/n > 0; if φ ∈ LA_h then lim inf v_p(a_n(φ))/n ≥ 1/((p − 1)p^h).",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
+        "Mahler's theorem (the C(x, n) are an orthonormal basis of C⁰(ℤ_p, L)) is Mathlib's PadicInt.mahlerEquiv."
+      ],
+      "proofSteps": [
+        "Amice's theorem is proved in Colmez §I.4.3 through the polynomials g_{n,j} of Lemma I.4.9 (reduction mod p comparison of the two bases).",
+        "Corollary I.4.8: v_p([n/p^h]!) = n/((p − 1)p^h) + O(log n), so the coefficients of φ ∈ LA_h in the Mahler basis decay at that rate; conversely a positive lim inf gives some h with ([n/p^h]!)^{−1}a_n(φ) → 0."
+      ],
+      "acceptance": [
+        "h = 0: [n]! C(x, n) = x(x − 1)⋯(x − n + 1) is the falling factorial, of valuation 0 in LA₀ (a polynomial with unit leading coefficient).",
+        "C(x, p^k) has v_{LA_h} = −v_p((p^{k−h})!) = −(p^{k−h} − 1)/(p − 1) for k ≥ h: large Mahler basis vectors are large in LA_h.",
+        "The continuous function with Mahler coefficients a_n = p^{ℓ(n)} (so v_p(a_n)/n → 0) is not locally analytic."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L0/locally-analytic-radius",
+        "mathlib:PadicInt.mahlerEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "Theorem I.4.7 and Corollary I.4.8, p. 15",
+          "match": "Theorem I.4.7 follows."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Amice's theorem on Mahler coefficients"
+      }
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L0/locally-analytic-topology",
+      "parentStageId": "LocallyAnalyticDistributions:L0",
+      "realises": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "title": "The locally analytic topology is finer",
+      "kind": "lemma",
+      "statement": "The inclusion LA(ℤ_p, L) ⊂ C⁰(ℤ_p, L) is continuous with dense image (locally constant functions are dense in C⁰), but the inductive-limit topology on LA(ℤ_p, L) is strictly finer than the topology induced from C⁰. Equality of the underlying functions is not equality of their topologies: a sequence of locally analytic functions converging uniformly need not converge in LA(ℤ_p, L).",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0)."
+      ],
+      "proofSteps": [
+        "Continuity: v_{C⁰}(φ) ≥ v_{LA_h}(φ) on each LA_h (maximum principle).",
+        "Density: locally constant functions are locally analytic and dense in C⁰ (Colmez Lemma I.3.1).",
+        "Strictness: f_n = p^n C(x, p^{2n}) → 0 in C⁰ (v_{C⁰}(f_n) = n), but by Amice's basis v_{LA_h}(f_n) = n − (p^{2n−h} − 1)/(p − 1) → −∞ for every h, while a convergent sequence in the compact-type inductive limit lies in, and converges in, a single LA_h."
+      ],
+      "acceptance": [
+        "The locally constant function 1_{a+p^nℤ_p} has C⁰-valuation and LA_n-valuation both 0.",
+        "f_n = p^n C(x, p^{2n}) is the separating sequence above.",
+        "The C⁰-closure of LA(ℤ_p, L) is all of C⁰, so LA(ℤ_p, L) is not closed in C⁰."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L0/locally-analytic-radius",
+        "LocallyAnalyticDistributions:L0/amice-mahler-basis"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Remark 3.41, p. 24",
+          "match": "Remark 3.41; density is stated there as well."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L0/locally-analytic-distributions",
+      "parentStageId": "LocallyAnalyticDistributions:L0",
+      "realises": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "title": "Locally analytic distributions",
+      "kind": "definition",
+      "statement": "D(ℤ_p, L) is the space of continuous linear forms on LA(ℤ_p, L), i.e. of linear forms whose restriction to every LA_h is continuous. With the valuations v_{LA_h}(μ) = inf_{φ≠0}(v_p(μ(φ)) − v_{LA_h}(φ)) it is a Fréchet space, equal as a topological vector space to the projective limit lim← D_h of the Banach duals D_h = LA_h(ℤ_p, L)′ (which is also its strong dual topology). Restricting a bounded measure to LA(ℤ_p, L) gives an injective continuous map M(ℤ_p, L) → D(ℤ_p, L), by density of LA in C⁰.",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
+        "Bounded measures M(ℤ_p, L) = C⁰(ℤ_p, L)′ are PadicMeasuresIwasawaAlgebras' objects (its L0).",
+        "That the projective-limit topology equals the strong dual topology uses the open mapping theorem for compact-type limits (Schneider–Teitelbaum, via [GKPS]); only the projective-limit description is used below."
+      ],
+      "proofSteps": [
+        "The dual of an inductive limit of Banach spaces is the projective limit of the duals as vector spaces; the valuations v_{LA_h} are the dual norms.",
+        "Injectivity of M → D: a measure vanishing on the dense subspace LA(ℤ_p, L) vanishes."
+      ],
+      "acceptance": [
+        "The Dirac mass δ_a (φ ↦ φ(a)) is a measure, hence a distribution.",
+        "φ ↦ φ′(0) is a distribution (continuous on each LA_h by Colmez Lemma II.4.2) that is not a measure: it is unbounded on the unit ball of C⁰.",
+        "A linear form on LA(ℤ_p, L) that is continuous for the C⁰ topology is a measure; a linear form continuous on each LA_h need not be."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L0/locally-analytic-radius",
+        "LocallyAnalyticDistributions:L0/locally-analytic-topology",
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Definition 3.42 and Remark 3.44, pp. 24–25",
+          "match": "Definition 3.42."
+        },
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.2 opening, pp. 29–30",
+          "match": "The same definition with the Fréchet valuations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.LocallyAnalytic.Dist",
+          "role": "constructor",
+          "statement": "D(ℤ_p, L), the continuous dual of LA(ℤ_p, L)."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.Dist.valLAh",
+          "role": "constructor",
+          "statement": "The Fréchet valuations v_{LA_h}."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.measureToDist",
+          "role": "constructor",
+          "statement": "M(ℤ_p, L) → D(ℤ_p, L), restriction."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.measureToDist_injective",
+          "role": "characterisation",
+          "statement": "The restriction map is injective."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LocallyAnalyticDistributions:L1/amice-transform",
+          "how": "the domain of the Amice transform."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L2/order-r-distributions",
+          "how": "the ambient space of distributions of order r."
+        },
+        {
+          "where": "ModularSymbolsPadicLFunctions:L2/weight-k-distributions",
+          "how": "the spaces D(ℤ_p), D[r] requested there."
+        }
+      ],
+      "tests": [
+        {
+          "name": "dirac_mem",
+          "kind": "example",
+          "statement": "δ_a is a distribution."
+        },
+        {
+          "name": "measureToDist_injective",
+          "kind": "characterisation",
+          "statement": "Measures embed in distributions."
+        },
+        {
+          "name": "derivative_at_zero_not_measure",
+          "kind": "non-example",
+          "statement": "φ ↦ φ′(0) is a distribution but not a measure."
+        }
+      ],
+      "planet": {
+        "name": "Locally analytic distributions"
+      }
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L0/field-analytic-functions",
+      "parentStageId": "LocallyAnalyticDistributions:L0",
+      "realises": [
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "title": "F-analytic against ℚ_p-analytic functions",
+      "kind": "lemma",
+      "statement": "Let F/ℚ_p be finite, 𝒪 = 𝒪_F viewed both as a locally F-analytic group G and, by restriction of scalars, as a locally ℚ_p-analytic group G₀ of dimension [F : ℚ_p], and K ⊆ ℂ_p complete containing F. The inclusion C^an(G, K) ⊂ C^an(G₀, K) identifies the F-analytic functions with the closed subspace of ℚ_p-analytic f satisfying the Cauchy–Riemann equations (tx)f = t·(xf) for x in the Lie algebra and t ∈ F, and is a homeomorphism onto this image. Dually D(G₀, K) → D(G, K) is a surjective quotient map of Fréchet algebras. A locally ℚ_p-analytic character χ of G₀ is F-analytic exactly when dχ is F-linear.",
+      "hypotheses": [
+        "Schneider–Teitelbaum work with a commutative locally F-analytic group; only G = 𝒪_F is used here."
+      ],
+      "proofSteps": [
+        "Lemma 1.1: comparing the expansions of f in canonical coordinates, the Cauchy–Riemann equations force the coefficients to come from a single power series in F-coordinates.",
+        "Lemma 1.2: reduce to compact G, where the map is a compact inductive limit of isometries of Banach spaces.",
+        "The dual map is surjective by Hahn–Banach for spaces of countable type and a quotient map by the open mapping theorem; Lemma 1.3 is the character case."
+      ],
+      "acceptance": [
+        "F = ℚ_p: the two notions coincide.",
+        "F/ℚ_p quadratic Galois with nontrivial σ: x ↦ σ(x) is ℚ_p-linear, hence ℚ_p-analytic, but dσ is not F-linear, so it is not F-analytic.",
+        "The F-analytic characters of 𝒪_F form a one-dimensional family (Schneider–Teitelbaum's character variety), while the ℚ_p-analytic ones form a [F : ℚ_p]-dimensional family."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L0/locally-analytic-radius"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "SCHNEIDER-TEITELBAUM-2001",
+          "locator": "Introduction, p. 1, and Lemmas 1.1–1.3, pp. 3–5",
+          "match": "Their L is our F; Lemmas 1.1–1.3 give the details."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L1/amice-transform",
+      "parentStageId": "LocallyAnalyticDistributions:L1",
+      "realises": [
+        "LocallyAnalyticDistributions:L1"
+      ],
+      "title": "The Amice transform of distributions",
+      "kind": "theorem",
+      "statement": "For μ ∈ D(ℤ_p, L) let A_μ(T) = ∫(1 + T)^x μ(x) = Σ_n T^n ∫C(x, n)μ ∈ L⟦T⟧. Then μ ↦ A_μ is an isomorphism of Fréchet spaces from D(ℤ_p, L) onto R⁺, the power series converging on the open unit disc v_p(T) > 0 with the valuations v_{B(0,u_h)}, u_h = 1/((p − 1)p^h). Precisely, v_{B(0,u_h)}(A_μ) ≥ v_{LA_h}(μ) ≥ v_{B(0,u_{h+1})}(A_μ) − 1. Moreover ∫(1 + z)^x μ = A_μ(z) for v_p(z) > 0, and on bounded measures A_μ is the bounded Amice (Mahler) transform, so D ⊃ M corresponds to R⁺ ⊃ 𝒪_L⟦T⟧ ⊗ L.",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
+        "The bounded transform on measures is PadicMeasuresIwasawaAlgebras' (its L2 nodes, e.g. bounded-inverse-amice)."
+      ],
+      "proofSteps": [
+        "Lemma II.2.1: for v_p(z) > u_h, Σ C(x, n)z^n converges to (1 + z)^x in LA_h, since z^n/[n/p^h]! → 0.",
+        "Bounds: v_p(b_n) ≥ v_{LA_h}(μ) + v_{LA_h}(C(x, n)) = v_{LA_h}(μ) − v_p([n/p^h]!) ≥ v_{LA_h}(μ) − nu_h (Amice's basis), so A_μ converges on B(0, u_h⁺); conversely, for f = Σb_nT^n ∈ R⁺, v_p([n/p^h]! b_n) ≥ v_{B(0,u_{h+1})}(f) − 1 → +∞ defines μ by ∫φ μ = Σ b_n a_n(φ).",
+        "Compatibility with measures: both transforms are Σ T^n ∫C(x, n)μ."
+      ],
+      "acceptance": [
+        "A_{δ_a} = (1 + T)^a.",
+        "log(1 + T) ∈ R⁺ is the transform of the derivative of δ₀ (φ ↦ φ′(0)), a distribution that is not a measure (log(1 + T) has unbounded coefficients).",
+        "Σ_n p^{−n}T^n converges only for v_p(T) > 1, not on the whole open unit disc, so it is the transform of no distribution."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L0/locally-analytic-distributions",
+        "LocallyAnalyticDistributions:L0/amice-mahler-basis",
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice",
+        "PadicMeasuresIwasawaAlgebras:L2/amice-dirac-natural"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "Lemma II.2.1 and Theorem II.2.2, p. 30",
+          "match": "Theorem II.2.2."
+        },
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Theorem 3.43 and (3.12), p. 25",
+          "match": "RJW Theorem 3.43, the stage's reference; RJW's proof cites Colmez."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Amice transform of distributions"
+      }
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L1/distribution-operations",
+      "parentStageId": "LocallyAnalyticDistributions:L1",
+      "realises": [
+        "LocallyAnalyticDistributions:L1"
+      ],
+      "title": "Operations on distributions",
+      "kind": "theorem",
+      "statement": "The bounded toolbox extends continuously to D(ℤ_p, L), with the following Amice transforms (∂ = (1 + T)d/dT). Dirac masses: A_{δ_a} = (1 + T)^a, and the span of Dirac masses at natural numbers is dense. Multiplication by a locally analytic function; in particular A_{xμ} = ∂A_μ and A_{z^xμ}(T) = A_μ((1 + T)z − 1) for v_p(z − 1) > 0. Restriction to b + p^nℤ_p: A_{Res μ}(T) = p^{−n}Σ_{η∈μ_{p^n}} η^{−b}A_μ((1 + T)η − 1). Derivative (∫φ dμ = ∫φ′μ): A_{dμ} = log(1 + T)·A_μ. σ_a (a ∈ ℤ_p^×), φ and ψ: A_{σ_aμ} = A_μ((1 + T)^a − 1), A_{φμ} = A_μ((1 + T)^p − 1), A_{ψμ} = ψ(A_μ), with ψφ = id, σ_a commuting with φ and ψ, ψ(μ) = 0 iff μ is supported on ℤ_p^×, and Res_{ℤ_p^×} = 1 − φψ. Convolution: A_{λ∗μ} = A_λA_μ.",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
+        "The bounded versions of these operations are PadicMeasuresIwasawaAlgebras L2 (restriction, φ, ψ, weights); here they are extended by continuity along the Amice isomorphism."
+      ],
+      "proofSteps": [
+        "Each identity is checked on (1 + T)^x, i.e. on Dirac masses at natural numbers, and extended by density and continuity (the maps are continuous on each LA_h, e.g. by Colmez Lemma II.4.2 for derivatives).",
+        "Restriction uses 1_{b+p^nℤ_p}(x) = p^{−n}Σ_η η^{x−b}.",
+        "Convolution: ∫(∫φ(x + y)λ(x))μ(y) converges by expanding φ(x + y) around x₀ with the bounds of Lemma II.4.2; on z^x it gives A_λ(z)A_μ(z)."
+      ],
+      "acceptance": [
+        "μ = δ₀: xδ₀ = 0 and ∂1 = 0.",
+        "ψ(δ₁) = 0 (δ₁ is supported on units) and φ(δ₁) = δ_p.",
+        "There is no primitive of distributions in general: it would divide A_μ by log(1 + T), which has infinitely many zeros ζ − 1 (ζ ∈ μ_{p^∞}) in the open disc."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L1/amice-transform",
+        "PadicMeasuresIwasawaAlgebras:L2/phi-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-measure",
+        "PadicMeasuresIwasawaAlgebras:L2/amice-weight",
+        "PadicMeasuresIwasawaAlgebras:L2/amice-phi"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.4.1–II.4.6, pp. 34–37",
+          "match": "Multiplication by x; the other operations follow in §II.4."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L1/division-by-x-and-primitives",
+      "parentStageId": "LocallyAnalyticDistributions:L1",
+      "realises": [
+        "LocallyAnalyticDistributions:L1"
+      ],
+      "title": "Division by x, primitives and logarithmic factors",
+      "kind": "lemma",
+      "statement": "(1) Division by x on D(ℤ_p, L) is defined only up to adding a multiple of δ₀: A_{x^{−1}μ} is a primitive of (1 + T)^{−1}A_μ. For μ supported on ℤ_p^× there is a unique x^{−1}μ supported on ℤ_p^×, without using any global function x^{−1} on ℤ_p. (2) For n ∈ ℕ, b ∈ ℤ_p and k ∈ ℤ, ∫_{b+p^nℤ_p} x^k μ = p^{−n}Σ_{η∈μ_{p^n}} η^{−b}(∂^kA_μ)(η − 1) whenever k ≥ 0, or k ≤ −1 and b ∉ p^nℤ_p. For k ≤ −1, ∂^kA_μ = ∂^{−|k|}A_μ is determined only up to a polynomial of degree ≤ |k| − 1 in log(1 + T), and the right side does not depend on this choice because log η = 0 for η ∈ μ_{p^n} and Σ_η η^{−b} = 0 for b ∉ p^nℤ_p. (3) On a function side, d/dx : C^r(ℤ_p, L) → C^{r−1}(ℤ_p, L) is surjective for r ≥ 1 with kernel the closure of the locally constant functions: primitives exist and are unique only up to adding a function in that closure, not up to a single global constant.",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
+        "C^r and its Banach basis are L2/c-r-functions; the integral (bounded) unit-support division is PadicMeasuresIwasawaAlgebras L2/inverse-mahler-unique."
+      ],
+      "proofSteps": [
+        "(1) Division by x inverts multiplication by x, i.e. ∂; the constant of integration is the ambiguity δ₀. If ψ(μ) = 0, the primitive G with ψ(G) = 0 is unique (as in the bounded case).",
+        "(2) From the restriction formula and A_{x^kμ} = ∂^kA_μ; the independence is the stated vanishing of log η and of the character sum.",
+        "(3) d/dx maps the wavelet basis e_{i,k,r} to k·e_{i,k−1,r−1} (Colmez Proposition I.5.16)."
+      ],
+      "acceptance": [
+        "μ = δ₁: x^{−1}δ₁ = δ₁, and ∫_{1+pℤ_p} x^{−1}δ₁ = 1.",
+        "For k = −1 and b ∈ pℤ_p the formula is not asserted: x^{−1} has a pole on b + p^nℤ_p ∋ 0.",
+        "x ↦ 1_{pℤ_p}(x) has derivative 0 but is not constant: the kernel of d/dx is the closure of the locally constant functions, so 'the' primitive is not unique up to a constant."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L1/distribution-operations",
+        "LocallyAnalyticDistributions:L2/c-r-functions",
+        "PadicMeasuresIwasawaAlgebras:L2/inverse-mahler-unique"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.4.2 (division par x), Proposition II.4.1, and Proposition I.5.16, pp. 24 and 35",
+          "match": "The cancellation of logarithmic ambiguities at p-power roots of unity."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L2/c-r-functions",
+      "parentStageId": "LocallyAnalyticDistributions:L2",
+      "realises": [
+        "LocallyAnalyticDistributions:L2"
+      ],
+      "title": "Functions of class C^r",
+      "kind": "definition",
+      "statement": "For r ≥ 0, φ : ℤ_p → L is of class C^r if there are φ^{(j)} (0 ≤ j ≤ [r]) with ε(x, y) = φ(x + y) − Σ_{j≤[r]} φ^{(j)}(x)y^j/j! satisfying inf_{x, y∈p^hℤ_p}(v_p(ε(x, y))) − rh → +∞. C^r(ℤ_p, L) is an L-Banach space (valuation v′_{C^r}), equivalently normed by v_{C^r}(φ) = inf_n(v_p(a_n(φ)) − rℓ(n)) on Mahler coefficients, with Banach bases p^{[rℓ(n)]}C(x, n) and the wavelet basis e_{i,k,r} (i ∈ ℕ, 0 ≤ k ≤ [r]) of locally polynomial functions of degree ≤ [r]. In particular locally polynomial functions of degree ≤ [r] are dense in C^r, LA_h ⊂ C^r with v_{C^r}(φ) ≥ v_{LA_h}(φ) − rh − C₁(r), and C⁰ is the space of continuous functions.",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0)."
+      ],
+      "proofSteps": [
+        "Theorem I.5.14 (wavelet basis) through Lemma I.5.10 and Proposition I.5.12; density of LP^{[0,r]} is Proposition I.5.13 (Taylor truncations φ_h → φ).",
+        "Theorem I.5.17 and Corollary I.5.18 (Mahler coefficients); Proposition I.5.19 (LA_h ⊂ C^r)."
+      ],
+      "acceptance": [
+        "r = 0: C⁰ is all continuous functions (Colmez Remark I.5.1).",
+        "Polynomials of degree ≤ [r] are of class C^r; LA_h ⊂ C^r for every r.",
+        "The function Σ a_n(x)p^n ↦ Σ a_n(x)p^{2n} (digit doubling) is differentiable everywhere with derivative 0 but is not locally constant near any point and has no Taylor expansion of order 2 (Colmez Remark I.5.2): pointwise differentiability does not give class C^r."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L0/amice-mahler-basis",
+        "mathlib:PadicInt.mahlerEquiv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§I.5.1, Theorem I.5.14, Propositions I.5.13 and I.5.19, Theorem I.5.17, pp. 18–25",
+          "match": "Theorem I.5.14; the definition of C^r is §I.5.1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.LocallyAnalytic.Cr",
+          "role": "constructor",
+          "statement": "C^r(ℤ_p, L) with v_{C^r}."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.Cr_mahler",
+          "role": "characterisation",
+          "statement": "φ ∈ C^r iff v_p(a_n(φ)) − rℓ(n) → +∞."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.locallyPolynomial_dense_Cr",
+          "role": "characterisation",
+          "statement": "LP^{[0,[r]]} is dense in C^r."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LocallyAnalyticDistributions:L2/order-r-distributions",
+          "how": "D_r is the dual of C^r."
+        },
+        {
+          "where": "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+          "how": "uniqueness from density of locally polynomial functions."
+        }
+      ],
+      "tests": [
+        {
+          "name": "Cr_zero_eq_continuous",
+          "kind": "example",
+          "statement": "C⁰ = continuous functions."
+        },
+        {
+          "name": "Cr_mahler_iff",
+          "kind": "characterisation",
+          "statement": "The Mahler criterion for C^r."
+        },
+        {
+          "name": "digit_doubling_not_C2",
+          "kind": "non-example",
+          "statement": "The digit-doubling function is not of class C²."
+        }
+      ]
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L2/order-r-distributions",
+      "parentStageId": "LocallyAnalyticDistributions:L2",
+      "realises": [
+        "LocallyAnalyticDistributions:L2"
+      ],
+      "title": "Distributions of order r (admissible distributions)",
+      "kind": "definition",
+      "statement": "For r ≥ 0, a distribution μ ∈ D(ℤ_p, L) has order r (is r-admissible, or h-admissible with h = r) if it extends continuously to C^r(ℤ_p, L); D_r(ℤ_p, L) = C^r(ℤ_p, L)′. The following are equivalent: (a) μ ∈ D_r; (b) the Amice transform A_μ = Σ b_nT^n has v_p(b_n) + rℓ(n) bounded below (A_μ ∈ R⁺_r); (c) inf_h(v_{B(0,u_h)}(A_μ) + rh) > −∞; (d) v_{D_r}(μ) = inf_n(v_{LA_n}(μ) + rn) > −∞, i.e. ‖μ‖_{LA_n} = O(p^{rn}) (on the ball of radius p^{−n}); (e) there is C with v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) ≥ C − rn for all a ∈ ℤ_p, k, n. The valuations of (b)–(e) are equivalent to v′_{D_r}, and μ ↦ A_μ is an isometry (D_r, v′_{D_r}) ≅ (R⁺_r, v_r). Orders add under products of transforms and under convolution.",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
+        "Pollack–Stevens' 'h-admissible' (‖μ‖_s = O(s^{−h}) as s → 0⁺, their Definition 6.1) is (d) with r = h, s = p^{−n}; ModularSymbolsPadicLFunctions L2 requests it in this form.",
+        "log(1 + T) has order 1; its powers log(1 + T)^j have order j."
+      ],
+      "proofSteps": [
+        "(a) ⇔ (b): Proposition II.3.1, a translation of the Mahler criterion for C^r (Theorem I.5.17) through the Amice isomorphism.",
+        "(b) ⇔ (c): Lemma II.1.1, optimising n/((p − 1)p^h) + rh over h.",
+        "(a) ⇒ (e): φ_{a,n,k} = 1_{a+p^nℤ_p}((x − a)/p^n)^k ∈ LA_n with valuation 0, and v_{C^r}(φ_{a,n,k}) ≥ −rn − C₁(r) (Theorem II.3.2(i)); (e) ⇒ (a) is amice-velu-vishik with N = ∞.",
+        "(d) and the equivalence of valuations: Proposition II.3.3 (open mapping)."
+      ],
+      "acceptance": [
+        "δ_a and every measure have order 0.",
+        "The derivative dδ₀ (φ ↦ φ′(0)) has transform log(1 + T), of order 1 and not of order r < 1.",
+        "A distribution whose transform has coefficients b_{p^k} = p^{−k²} is in D(ℤ_p, L) (it converges on the open disc) but of no finite order."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L2/c-r-functions",
+        "LocallyAnalyticDistributions:L1/amice-transform",
+        "LocallyAnalyticDistributions:L0/locally-analytic-distributions"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.1, Lemma II.1.1, §II.3.1, Proposition II.3.1, Theorem II.3.2(i), Proposition II.3.3, pp. 29–34",
+          "match": "The definition; the equivalences follow in §§II.1 and II.3."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.LocallyAnalytic.DistOrder",
+          "role": "constructor",
+          "statement": "D_r(ℤ_p, L) = C^r(ℤ_p, L)′ inside D(ℤ_p, L)."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.mem_distOrder_iff_amice",
+          "role": "characterisation",
+          "statement": "μ ∈ D_r iff v_p(b_n) + rℓ(n) is bounded below."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.mem_distOrder_iff_growth",
+          "role": "characterisation",
+          "statement": "μ ∈ D_r iff inf_n(v_{LA_n}(μ) + rn) > −∞ (Pollack–Stevens' h-admissibility)."
+        },
+        {
+          "name": "TauCeti.LocallyAnalytic.mem_distOrder_iff_riemann",
+          "role": "characterisation",
+          "statement": "μ ∈ D_r iff the Riemann-sum bound holds."
+        }
+      ],
+      "uses": [
+        {
+          "where": "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+          "how": "the target of the extension theorem."
+        },
+        {
+          "where": "ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility",
+          "how": "values of slope-h eigensymbols are of order h."
+        }
+      ],
+      "tests": [
+        {
+          "name": "dirac_order_zero",
+          "kind": "example",
+          "statement": "δ_a has order 0."
+        },
+        {
+          "name": "log_order_one",
+          "kind": "characterisation",
+          "statement": "log(1 + T) has order exactly 1."
+        },
+        {
+          "name": "infinite_order_example",
+          "kind": "non-example",
+          "statement": "b_{p^k} = p^{−k²} gives a distribution of no finite order."
+        }
+      ],
+      "planet": {
+        "name": "Distributions of order r"
+      }
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L2/order-zero-measures",
+      "parentStageId": "LocallyAnalyticDistributions:L2",
+      "realises": [
+        "LocallyAnalyticDistributions:L2"
+      ],
+      "title": "Order zero is bounded measures",
+      "kind": "theorem",
+      "statement": "D₀(ℤ_p, L) = C⁰(ℤ_p, L)′ is the space of bounded measures, and its Amice transforms are exactly the bounded power series 𝒪_L⟦T⟧ ⊗ L. A measure is determined by the values μ(a + p^nℤ_p), and conversely any family μ(a + p^nℤ_p) that depends only on a mod p^n, is additive (μ(a + p^nℤ_p) = Σ_{j<p} μ(a + jp^n + p^{n+1}ℤ_p)) and bounded below in valuation defines a unique measure, with ∫φ μ = lim_n Σ_{a<p^n} φ(a)μ(a + p^nℤ_p).",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
+        "Bounded measures and their integral/bounded Amice transform are PadicMeasuresIwasawaAlgebras'; this node identifies them with the order-0 part of D."
+      ],
+      "proofSteps": [
+        "C⁰ has Mahler valuation v_{C⁰} = inf v_p(a_n), so D₀ ↔ bounded coefficients by order-r-distributions with r = 0.",
+        "Riemann sums: Σ_{a<p^n} φ(a)1_{a+p^nℤ_p} → φ in C⁰, and locally constant functions are dense."
+      ],
+      "acceptance": [
+        "Haar distribution on ℤ_p (μ(a + p^nℤ_p) = p^{−n}) is unbounded, hence not a measure, but has order 1 (Riemann-sum bound with r = 1).",
+        "The Dirac mass δ_a: μ(a + p^nℤ_p) ∈ {0, 1}.",
+        "Boundedness is essential: bounded measures with values in L are 𝒪_L⟦T⟧[1/p], not 𝒪_L⟦T⟧; integrality is a further condition."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L2/order-r-distributions",
+        "PadicMeasuresIwasawaAlgebras:L2/bounded-inverse-amice",
+        "PadicMeasuresIwasawaAlgebras:L0"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "§II.3.2, pp. 31–32",
+          "match": "Measures as order-zero distributions, with the Riemann-sum construction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LocallyAnalyticDistributions:L2/amice-velu-vishik",
+      "parentStageId": "LocallyAnalyticDistributions:L2",
+      "realises": [
+        "LocallyAnalyticDistributions:L2"
+      ],
+      "title": "The Amice–Vélu–Vishik extension and uniqueness theorem",
+      "kind": "theorem",
+      "statement": "Let r ≥ 0 and N ∈ ℕ ∪ {∞} with N ≥ [r]. Let μ be a linear form on the locally polynomial functions of degree ≤ N (equivalently, compatible values ∫_{a+p^nℤ_p} x^i μ for i ≤ N) such that for some C, v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) ≥ C − rn for all a ∈ ℤ_p, k ≤ N, n ∈ ℕ. Then μ extends uniquely to a distribution of order r. In particular two distributions of order r that agree on locally polynomial functions of degree ≤ N coincide when N ≥ [r], i.e. when r < N + 1. For r = N + 1 uniqueness fails: d^{N+1}δ₀ (φ ↦ ±φ^{(N+1)}(0)) is a nonzero distribution of order N + 1 vanishing on all locally polynomial functions of degree ≤ N.",
+      "hypotheses": [
+        "L ⊆ ℂ_p is a closed subfield (a finite extension of ℚ_p in applications), v_p the valuation with v_p(p) = 1, and ℓ(n) the number of base-p digits of n (ℓ(0) = 0).",
+        "The strict threshold r < N + 1 is the small-slope condition h < k + 1 of ModularSymbolsPadicLFunctions L2 (N = k, r = h); at critical slope h = k + 1 this theorem does not apply.",
+        "One-variable only: the multivariable version with a vector of radii is still to be decomposed (coverage)."
+      ],
+      "proofSteps": [
+        "Uniqueness: locally polynomial functions of degree ≤ N ⊇ LP^{[0,[r]]} are dense in C^r (Proposition I.5.13).",
+        "Existence (Theorem II.3.2(ii)): set b_{i,k} = ∫e_{i,k,r} μ for the wavelet basis (k ≤ [r]); the bound gives v_p(b_{i,k}) ≥ v_{D_r,N}(μ) − 1, so Theorem I.5.14 gives μ̃ ∈ D_r with these values.",
+        "λ = μ − μ̃ vanishes on LP^{[0,r]}; expanding x^k on a + p^nℤ_p over the p^m sub-balls, the terms with j ≤ r vanish and those with j > r have valuation ≥ (j − r)(n + m) + v_{D_r,N}(λ) → ∞, so λ = 0 on LP^{[0,N]}."
+      ],
+      "acceptance": [
+        "r = 0, N = 0: a bounded additive function on balls is a measure (order-zero-measures).",
+        "Pollack–Stevens' μ_f for slope h < k + 1: determined by its values on z^j·1_{a+p^nℤ_p}, j ≤ k.",
+        "d^{N+1}δ₀ is the counterexample at r = N + 1."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L2/order-r-distributions",
+        "LocallyAnalyticDistributions:L2/c-r-functions"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/LocallyAnalytic",
+        "namespace": "TauCeti.LocallyAnalytic"
+      },
+      "sources": [
+        {
+          "sourceId": "COLMEZ-FONCTIONS-2010",
+          "locator": "Theorem II.3.2 and its proof, pp. 32–33",
+          "match": "Theorem II.3.2(ii)."
+        },
+        {
+          "sourceId": "RJW-2024",
+          "locator": "Theorem B.1 and the remarks after it, pp. 79–80",
+          "match": "RJW's attribution to Manin, Mazur–Swinnerton-Dyer, Amice–Vélu and Višik."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Amice–Vélu–Vishik theorem"
+      }
+    },
     {
       "id": "LocallyAnalyticDistributions:L4/completely-continuous",
       "parentStageId": "LocallyAnalyticDistributions:L4",
@@ -10421,29 +11267,25 @@
   "coverage": [
     {
       "stageId": "LocallyAnalyticDistributions:L0",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Read and decompose the locally analytic function-space sources: fixed-radius Banach spaces, uniform radius on compact manifolds, chart independence, restrictions, tensor products and inclusions.",
-        "Construct the nonarchimedean LF topology and its strong dual/projective Banach-dual comparison; prove the required density and bounded-measure injection.",
-        "Distinguish Q_p-analytic and F-analytic functions and products. The c0 operator work in L4 does not cover these targets."
-      ]
+        "Several variables: for X a finite product of local integer rings, the uniform radius, independence of charts and LA(X × Y) = LA(X) ⊗̂ LA(Y); Colmez treats ℤ_p, and Schneider–Teitelbaum 𝒪_F as a one-dimensional F-analytic group."
+      ],
+      "notes": "One-variable content planned in 6 nodes within RS-16's keeps (Colmez §I.4, RJW §3.7, Schneider–Teitelbaum §1): Gauss-norm Banach spaces on closed discs, LA_h with its orthonormal basis, scalar extension and the uniform radius, the inductive-limit topology and its strictness over the C⁰ topology, Amice's Mahler-coefficient theorem, the Fréchet dual with the bounded-measure injection (measures imported from PadicMeasuresIwasawaAlgebras L0), and the F-analytic versus ℚ_p-analytic distinction on 𝒪_F."
     },
     {
       "stageId": "LocallyAnalyticDistributions:L1",
-      "status": "not_read",
-      "remaining": [
-        "Read RJW Theorem 3.43 and its proof for the unbounded Amice transform and Frechet topology; only the source metadata was acquired in this pass.",
-        "Extend the bounded restriction/twist/phi/psi/differentiation toolbox with actual norm and continuity statements; prove division by x only on distributions supported on units.",
-        "Build local analytic primitives with locally constant ambiguity and verify logarithmic domains/cancellation at p-power roots of unity."
-      ]
+      "status": "source_decomposed",
+      "remaining": [],
+      "notes": "Planned in 3 nodes within RS-16's keeps (Colmez §§II.1–II.2, II.4; RJW Theorem 3.43): the Fréchet isomorphism D ≅ R⁺ with radius estimates and its compatibility with the bounded transform; the continuous extension of the toolbox (Dirac, multiplication, restriction, derivative, σ_a, φ, ψ, convolution); division by x with unit-supported uniqueness, the log-polynomial ambiguity of ∂^{−k} and its cancellation at p-power roots of unity, and primitives only modulo the closure of locally constant functions."
     },
     {
       "stageId": "LocallyAnalyticDistributions:L2",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Decompose order-h ball estimates, coefficient growth, the Amice-Velu/Vishik extension and strict degree bound, and the order-zero bounded-measure comparison.",
-        "State and prove the several-variable radius/growth and determining-character theorems; do not use strict small-slope uniqueness at critical slope."
-      ]
+        "Several p-adic variables: admissibility with a vector of radii and growth bounds, and the uniqueness theorem with the available locally algebraic characters (the stage text); Colmez treats one variable. A source such as Loeffler's work on ray class groups (arXiv:1304.4042) is to be read."
+      ],
+      "notes": "One-variable content planned in 4 nodes (Colmez §§I.5, II.1, II.3): C^r with Mahler and wavelet bases and density of locally polynomial functions; distributions of order r with the equivalent Amice, Fréchet, Pollack–Stevens and Riemann-sum descriptions; order zero as bounded measures; and the Amice–Vélu–Vishik extension/uniqueness theorem with its strict threshold r < N + 1 and the counterexample d^{N+1}δ₀ at r = N + 1."
     },
     {
       "stageId": "LocallyAnalyticDistributions:L3",
@@ -10505,7 +11347,7 @@
     },
     {
       "title": "Distribution stages and universal-character families",
-      "detail": "L0-L3 sources remain unread beyond the roadmap/audit; L4's actual distribution families, uniform character radii, actions, integral structures, operator estimates and specialization remain unconstructed. RJW source identified as arXiv:2309.15692, but its proof text was not read in this pass."
+      "detail": "L0 and L1 are now decomposed from Colmez, RJW and Schneider–Teitelbaum, and L2 in one variable. L2's multivariable form and L3 (character spaces and Mellin transforms) remain unread. L4's actual distribution families, uniform character radii, actions, integral structures, operator estimates and specialisation remain unconstructed."
     },
     {
       "title": "Prototype and validation boundary",
@@ -10542,6 +11384,16 @@
         "LocallyAnalyticDistributions:L4/completely-continuous"
       ],
       "need": "Extend the ordinary predicate and finite-rank/composition/closedness API of AdicSpacesPartII:R3/completely-continuous-map from its stated affinoid setting to complete modules over commutative Noetherian K-Banach algebras with compatible bounded action; use the same range-FG epsilon predicate, which the current suggested file already spells out more generally. Promote consumed API to named supplier nodes. Do not import or generalize Kiehl's strict variant as part of this request."
+    },
+    {
+      "supplier": "PadicMeasuresIwasawaAlgebras:L0",
+      "need": "Bounded measures M(X, L) = C⁰(X, L)′ on ℤ_p and ℤ_p^× with their norm, and the injectivity of restriction to a dense subspace of test functions.",
+      "neededBy": [
+        "LocallyAnalyticDistributions:L0/locally-analytic-distributions",
+        "LocallyAnalyticDistributions:L2/order-zero-measures"
+      ],
+      "status": "open",
+      "note": "RS-16 gives bounded measures to PadicMeasuresIwasawaAlgebras L0."
     }
   ],
   "sourceIssues": [
