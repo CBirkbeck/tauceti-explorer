@@ -178,7 +178,8 @@ print them:
 
 **Baseline.** 17 declarations added, each read at its pin: the torus and circle, `haarAddCircle`,
 `fourier`, `mFourier` and its density and orthonormality, the `ProbabilityMeasure` integral
-characterisations and `t2Space`, Portmanteau, `diracProba`, `pi.isAddHaarMeasure` (from `@[to_additive]`),
+characterisations and `t2Space`, Portmanteau, `diracProba`, `pi.isHaarMeasure` (whose `@[to_additive]` twin
+`pi.isAddHaarMeasure` is what the torus uses; generated names are not in the pinned index),
 `denseRange_zsmul_iff`, `ergodic_add_left`, `geom_sum_eq` and `Int.fract`. The Tau Ceti empirical-measure
 entries were already in the baseline.
 

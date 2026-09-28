@@ -1981,7 +1981,7 @@ circleHaar : ProbabilityMeasure UnitAddCircle is AddCircle.haarAddCircle, and to
 - The one-coordinate marginal of torusHaar d is circleHaar.
 
 **Dependencies.**
-- On the pinned libraries: `mathlib:UnitAddTorus`, `mathlib:UnitAddCircle`, `mathlib:AddCircle.haarAddCircle`, `mathlib:MeasureTheory.Measure.pi.isAddHaarMeasure`, `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.orthonormal_mFourier`
+- On the pinned libraries: `mathlib:UnitAddTorus`, `mathlib:UnitAddCircle`, `mathlib:AddCircle.haarAddCircle`, `mathlib:MeasureTheory.Measure.pi.isHaarMeasure`, `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.orthonormal_mFourier`
 
 **Sources.**
 - Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, before Proposition 1.1.2. Haar measure as the translation-invariant Borel probability measure, equal to Lebesgue measure on [0, 1)^d. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
