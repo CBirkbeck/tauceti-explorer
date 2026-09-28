@@ -18008,7 +18008,8 @@
    ],
    "avoidAccountOf": "BP-GeneralAlgebraicKTheory--K.1",
    "prompt": "research/blueprint/prompts/REV-GeneralAlgebraicKTheory--K.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #414"
   },
   {
    "id": "BP-GeneralAlgebraicKTheory--K.6",
@@ -18052,8 +18053,9 @@
    ],
    "avoidAccountOf": "BP-GeneralAlgebraicKTheory--K.6",
    "prompt": "research/blueprint/prompts/REV-GeneralAlgebraicKTheory--K.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #415"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #415",
+   "finishedAt": "2026-09-28T15:12:16Z"
   },
   {
    "id": "BP-GeneralizedHeegnerCycles--GH.0",
