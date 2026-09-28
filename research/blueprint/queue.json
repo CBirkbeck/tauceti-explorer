@@ -20164,13 +20164,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-OrdinaryAutomorphicFormsAndModularityLifting.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #962"
+   "note": "released on GitHub issue #962"
   },
   {
    "id": "REV-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -22813,7 +22813,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-FoundationsAndLibraryIntegration",
@@ -22823,7 +22823,7 @@
     "BP-IntegralIwasawaTheory--I.8",
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #1015"
+   "note": "claimed on GitHub issue #1015"
   },
   {
    "id": "REV-NoncommutativeAndEquivariantIwasawa",
