@@ -1,3 +1,4 @@
+import Mathlib.Topology.Algebra.ContinuousMonoidHom
 import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Extend
 import Mathlib.Topology.ContinuousMap.LocallyConstant
 import TauCeti.Topology.Algebra.Group.LocallyConstant
@@ -2652,3 +2653,138 @@ example :
     μ*μ = (-2 : ℤ_[2]) • μ := by sorry
 end UnitCoordinateTopologyTests
 end
+
+/-! Continuous-character integration and positive moments on actual unit measures.
+No completed group algebra or total-fraction-ring character extension is assumed.
+All new mathematical signatures are unchecked proof plans. -/
+namespace AbstractMeasure
+noncomputable section
+open scoped AbstractMeasure
+section CharacterIntegration
+variable {G R : Type*} [TopologicalSpace G] [Monoid G] [ContinuousMul G]
+  [LocallyCompactSpace G] [CommRing R] [TopologicalSpace R] [IsTopologicalRing R]
+
+-- This spelling follows the identified post-baseline Mathlib PR41961.
+def diracHom : G →* D(G,R) := sorry
+lemma diracHom_apply (g : G) : diracHom (R := R) g = dirac R g := sorry
+lemma diracHom_pow (g : G) (k : ℕ) : diracHom (R := R) (g^k) = (dirac R g)^k := sorry
+lemma diracHom_map {H : Type*} [TopologicalSpace H] [Monoid H]
+    (h : ContinuousMonoidHom G H) (g : G) :
+    map h.toContinuousMap (diracHom (R := R) g) = dirac R (h g) := sorry
+
+def characterIntegralAlgHom (κ : ContinuousMonoidHom G R) : D(G,R) →ₐ[R] R := sorry
+lemma characterIntegralAlgHom_apply (κ : ContinuousMonoidHom G R) (μ : D(G,R)) :
+    characterIntegralAlgHom κ μ = μ κ.toContinuousMap := sorry
+lemma characterIntegralAlgHom_dirac (κ : ContinuousMonoidHom G R) (g : G) :
+    characterIntegralAlgHom κ (dirac R g) = κ g := sorry
+lemma characterIntegralAlgHom_one_character (μ : D(G,R)) :
+    characterIntegralAlgHom (1 : ContinuousMonoidHom G R) μ = μ 1 := sorry
+lemma characterIntegralAlgHom_diracHom (κ : ContinuousMonoidHom G R) :
+    (characterIntegralAlgHom κ).toMonoidHom.comp (diracHom (R := R)) = κ.toMonoidHom := sorry
+
+-- UnitMomentTests.dirac_hom_one
+example : diracHom (G := G) (R := R) 1 = 1 := sorry
+-- UnitMomentTests.dirac_hom_zero_coefficients
+example (g : G) : diracHom (R := ZMod 1) g = 0 := sorry
+-- UnitMomentTests.dirac_hom_product
+example (g h : G) : diracHom (R := R) (g*h) = dirac R g * dirac R h := sorry
+-- UnitMomentTests.character_zero
+example (κ : ContinuousMonoidHom G R) : characterIntegralAlgHom κ 0 = 0 := sorry
+-- UnitMomentTests.character_identity_mass
+example (κ : ContinuousMonoidHom G R) : characterIntegralAlgHom κ 1 = 1 := sorry
+-- UnitMomentTests.character_scalar_atom
+example (κ : ContinuousMonoidHom G R) (c : R) (g : G) :
+    characterIntegralAlgHom κ (c • dirac R g) = c * κ g := sorry
+end CharacterIntegration
+
+section PositiveMoments
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local notation "uTest" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+local notation "j" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+
+-- The inherited ring operations are unchanged; use the existing commutativity theorem locally.
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+
+lemma polynomial_apply_eq_zero_of_positive_moments (μ : D(Z,Z))
+    (hμ : ∀ k : ℕ, 0 < k → μ ((ContinuousMap.id Z)^k) = 0)
+    (f : Polynomial Z) (hf : f.coeff 0 = 0) :
+    μ ⟨fun x => f.eval x, by fun_prop⟩ = 0 := sorry
+lemma mahler_apply_eq_zero_of_positive_moments (μ : D(Z,Z))
+    (hμ : ∀ k : ℕ, 0 < k → μ ((ContinuousMap.id Z)^k) = 0)
+    (n : ℕ) (hn : 0 < n) : μ (mahler n) = 0 := sorry
+lemma amice_eq_constant_of_positive_moments (μ : D(Z,Z))
+    (hμ : ∀ k : ℕ, 0 < k → μ ((ContinuousMap.id Z)^k) = 0) :
+    μ.amiceTransform = PowerSeries.C (μ 1) := sorry
+
+theorem units_eq_zero_of_positive_moments (μ : M)
+    (hμ : ∀ k : ℕ, 0 < k → μ (uTest^k) = 0) : μ = 0 := sorry
+lemma units_mul_moment (μ ν : M) (k : ℕ) :
+    (μ*ν) (uTest^k) = μ (uTest^k) * ν (uTest^k) := sorry
+theorem units_regular_of_positive_moments (μ : M)
+    (hμ : ∀ k : ℕ, 0 < k → μ (uTest^k) ≠ 0) : μ ∈ nonZeroDivisors M := sorry
+lemma exists_one_add_prime_unit : ∃ a : U, (a : Z) = (p+1 : ℕ) := sorry
+lemma one_add_prime_unit_pow_ne_one (a : U) (ha : (a : Z) = (p+1 : ℕ))
+    (k : ℕ) (hk : 0 < k) : (a : Z)^k ≠ 1 := sorry
+theorem dirac_sub_one_regular (a : U) (ha : ∀ k : ℕ, 0 < k → (a : Z)^k ≠ 1) :
+    dirac Z a - 1 ∈ nonZeroDivisors M := sorry
+theorem one_add_prime_dirac_sub_one_regular (a : U) (ha : (a : Z) = (p+1 : ℕ)) :
+    dirac Z a - 1 ∈ nonZeroDivisors M := sorry
+
+local notation "Q" => FractionRing M
+local notation "PM" => Iwasawa.pseudomeasures (diracHom (G := U) (R := Z)) Q
+
+def positivePseudoMoment (k : ℕ) (hk : 0 < k) : PM → ℚ_[p] := sorry
+lemma positivePseudoMoment_eq (k : ℕ) (hk : 0 < k) (a : U)
+    (ha : (a : Z) = (p+1 : ℕ)) (z : PM) :
+    positivePseudoMoment p k hk z =
+      ((Iwasawa.numerator (diracHom (G := U) (R := Z)) Q a z) (uTest^k) : ℚ_[p]) /
+        ((a : Z)^k-1 : Z) := sorry
+lemma positivePseudoMoment_integral (k : ℕ) (hk : 0 < k) (μ : M) :
+    positivePseudoMoment p k hk (Iwasawa.integral (diracHom (G := U) (R := Z)) Q μ) =
+      (μ (uTest^k) : ℚ_[p]) := sorry
+lemma positivePseudoMoment_add (k : ℕ) (hk : 0 < k) (z η : PM) :
+    positivePseudoMoment p k hk (z+η) =
+      positivePseudoMoment p k hk z + positivePseudoMoment p k hk η := sorry
+lemma positivePseudoMoment_smul (k : ℕ) (hk : 0 < k) (μ : M) (z : PM) :
+    positivePseudoMoment p k hk (μ • z) =
+      (μ (uTest^k) : ℚ_[p]) * positivePseudoMoment p k hk z := sorry
+lemma positivePseudoMoment_numerator (k : ℕ) (hk : 0 < k) (g : U) (z : PM) :
+    ((Iwasawa.numerator (diracHom (G := U) (R := Z)) Q g z) (uTest^k) : ℚ_[p]) =
+      (((g : Z)^k-1 : Z) : ℚ_[p]) * positivePseudoMoment p k hk z := sorry
+theorem pseudomeasure_eq_zero_of_positive_moments (z : PM)
+    (hz : ∀ (k : ℕ) (hk : 0 < k), positivePseudoMoment p k hk z = 0) : z = 0 := sorry
+
+theorem no_totalMass_fraction_extension :
+    ¬ ∃ F : Q →+* Z, F.comp (algebraMap M Q) =
+      (characterIntegralAlgHom (1 : ContinuousMonoidHom U Z)).toRingHom := sorry
+
+-- UnitMomentTests.ambient_zero_atom
+example : (∀ k : ℕ, 0 < k → dirac Z (0 : Z) ((ContinuousMap.id Z)^k) = 0) ∧
+    dirac Z (0 : Z) ≠ 0 := sorry
+-- UnitMomentTests.even_moments_insufficient
+example : (∀ k : ℕ, (dirac Z (1 : U)-dirac Z (-1 : U)) (uTest^(2*k)) = 0) ∧
+    dirac Z (1 : U)-dirac Z (-1 : U) ≠ 0 := sorry
+-- UnitMomentTests.torsion_difference
+example : (dirac Z (-1 : U)-1) * (dirac Z (-1 : U)+1) = 0 ∧
+    dirac Z (-1 : U)+1 ≠ 0 := sorry
+-- UnitMomentTests.regular_identity
+example : (1 : M) ∈ nonZeroDivisors M := sorry
+-- UnitMomentTests.pseudomoment_zero
+example (k : ℕ) (hk : 0 < k) : positivePseudoMoment p k hk 0 = 0 := sorry
+-- UnitMomentTests.pseudomoment_one
+example (k : ℕ) (hk : 0 < k) : positivePseudoMoment p k hk
+    (Iwasawa.integral (diracHom (G := U) (R := Z)) Q 1) = 1 := sorry
+-- UnitMomentTests.pseudomoment_sign
+example (k : ℕ) (hk : 0 < k) : positivePseudoMoment p k hk
+    (Iwasawa.integral (diracHom (G := U) (R := Z)) Q (dirac Z (-1 : U))) = (-1 : ℚ_[p])^k := sorry
+end PositiveMoments
+end
+end AbstractMeasure
