@@ -1,0 +1,3009 @@
+{
+ "roadmapId": "PadicFamilies",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "PadicFamilies:L0",
+  "PadicFamilies:L0a",
+  "PadicFamilies:L1",
+  "PadicFamilies:L2",
+  "PadicFamilies:L2a",
+  "PadicFamilies:L3",
+  "PadicFamilies:L4",
+  "PadicFamilies:L5"
+ ],
+ "status": "partial",
+ "summary": "Checkpoint 1 (Claude Code cc-39fac3). L0a is source_decomposed at declaration granularity from Khare–Thorne §2.4, Hida (1986) §1 and ACC+ §5.2: 20 nodes, from the finite-set factorial lemma and the finite projector e_U = U^{|M|!} (identified with Mathlib's Fitting decomposition) through finite quotient systems, the profinite projector, the adic instance over noetherian local rings with finite residue field, exactness, complexes, Khare–Thorne Lemma 2.12 and Proposition 2.15. L2a carries the fourteen reviewed Buzzard nodes of the integrated decomposition with prerequisites, API and tests, and records Buzzard's printed defects as sourceIssues. L0, L1, L2, L3, L4 and L5 are not read.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Finite.exists_ne_map_eq_of_infinite",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Fintype/Pigeonhole.lean",
+    "provides": "Pigeonhole: a map from an infinite type to a finite one is not injective.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Nat.dvd_factorial",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
+    "provides": "0 < m ≤ n ⇒ m ∣ n!.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Nat.self_le_factorial",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
+    "provides": "n ≤ n!.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Nat.factorial_dvd_factorial",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
+    "provides": "m ≤ n ⇒ m! ∣ n!.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Function.iterate_add",
+    "kind": "theorem",
+    "module": "Mathlib/Logic/Function/Iterate.lean",
+    "provides": "f^[m + n] = f^[m] ∘ f^[n].",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Function.iterate_mul",
+    "kind": "theorem",
+    "module": "Mathlib/Logic/Function/Iterate.lean",
+    "provides": "f^[m * n] = (f^[m])^[n].",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Set.BijOn",
+    "kind": "def",
+    "module": "Mathlib/Data/Set/Operations.lean",
+    "provides": "f maps s bijectively onto t.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Module.End",
+    "kind": "abbrev",
+    "module": "Mathlib/Algebra/Module/LinearMap/End.lean",
+    "provides": "Endomorphisms of a module as a ring.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Module.End.pow_apply",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Module/LinearMap/End.lean",
+    "provides": "(f ^ n) x = f^[n] x.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:IsIdempotentElem",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Group/Idempotent.lean",
+    "provides": "e * e = e.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Commute",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Group/Commute/Defs.lean",
+    "provides": "a * b = b * a.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.isCompl_iSup_ker_pow_iInf_range_pow",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Artinian/Module.lean",
+    "provides": "Fitting decomposition: M = (⨆ ker fⁿ) ⊕ (⨅ range fⁿ) for Artinian and Noetherian M.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.eventually_isCompl_ker_pow_range_pow",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Artinian/Module.lean",
+    "provides": "Fitting decomposition at a large finite exponent.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.eventually_iInf_range_pow_eq",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Artinian/Module.lean",
+    "provides": "The ranges of fⁿ stabilise on an Artinian module.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.eventually_iSup_ker_pow_eq",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
+    "provides": "The kernels of fⁿ stabilise on a Noetherian module.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:isArtinian_of_finite",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Artinian/Module.lean",
+    "provides": "A module that is finite as a set is Artinian.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:IsNoetherian",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Noetherian/Defs.lean",
+    "provides": "Noetherian modules (a module finite as a set is Noetherian by instance).",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.isProj_iff_isIdempotentElem",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Projection.lean",
+    "provides": "An endomorphism is a projection onto its range iff it is idempotent.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.IsProj",
+    "kind": "structure",
+    "module": "Mathlib/LinearAlgebra/Projection.lean",
+    "provides": "Projections onto a submodule.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.linearProjOfIsCompl",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Projection.lean",
+    "provides": "The projection onto p along a complement q.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:IsArtinian.bijective_of_injective_endomorphism",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Artinian/Module.lean",
+    "provides": "Injective endomorphisms of Artinian modules are bijective.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.restrict",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/Submodule/LinearMap.lean",
+    "provides": "Restriction of an endomorphism to an invariant submodule.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:IsCompl",
+    "kind": "structure",
+    "module": "Mathlib/Order/Disjoint.lean",
+    "provides": "Complementary elements of a bounded lattice.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Function.Exact.linearMap_ker_eq",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/Exact/Basic.lean",
+    "provides": "Exactness gives ker g = range f (Function.Exact is the additive MulExact).",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Submodule.map",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/Submodule/Map.lean",
+    "provides": "Image of a submodule.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Submodule.mapQ",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
+    "provides": "The map induced on quotients by a map preserving the submodules.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Submodule.mkQ",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+    "provides": "The quotient map M → M/p.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LocalizedModule",
+    "kind": "abbrev",
+    "module": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
+    "provides": "Localization of a module at a submonoid.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LocalizedModule.mk",
+    "kind": "abbrev",
+    "module": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
+    "provides": "The fraction m/s.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:IsLocalizedModule",
+    "kind": "class",
+    "module": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
+    "provides": "Characterisation of module localizations.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Module.AEval'",
+    "kind": "abbrev",
+    "module": "Mathlib/Algebra/Polynomial/Module/AEval.lean",
+    "provides": "M as an R[X]-module with X acting by a given endomorphism.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Module.AEval'.of",
+    "kind": "abbrev",
+    "module": "Mathlib/Algebra/Polynomial/Module/AEval.lean",
+    "provides": "The identification M ≃ AEval' φ.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Submonoid.powers",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Group/Submonoid/Membership.lean",
+    "provides": "The submonoid of powers of an element.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Polynomial.X",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Polynomial/Basic.lean",
+    "provides": "The polynomial variable.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Directed",
+    "kind": "def",
+    "module": "Mathlib/Order/Directed.lean",
+    "provides": "Directed families.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Functor.sections",
+    "kind": "def",
+    "module": "Mathlib/CategoryTheory/Types/Basic.lean",
+    "provides": "Sections (compatible families) of a functor to types.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:IsLocalRing.finite_quotient_iff",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/LocalRing/Quotient.lean",
+    "provides": "Over a noetherian local ring with finite residue field, R/I is finite iff I ⊇ mⁿ for some n.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Ideal.finite_quotient_pow",
+    "kind": "lemma",
+    "module": "Mathlib/RingTheory/Ideal/Quotient/Index.lean",
+    "provides": "I finitely generated and R/I finite ⇒ R/Iⁿ finite.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:IsAdicComplete",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+    "provides": "I-adic separation and completeness of a module.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:IsLocalRing.ResidueField",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
+    "provides": "The residue field R/m.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:IsLocalRing.maximalIdeal",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/LocalRing/MaximalIdeal/Defs.lean",
+    "provides": "The maximal ideal of a local ring.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Module.Finite",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+    "provides": "Finitely generated modules.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:nonempty_sections_of_finite_cofiltered_system",
+    "kind": "theorem",
+    "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+    "provides": "A cofiltered system of nonempty finite types has a section.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:nonempty_sections_of_finite_inverse_system",
+    "kind": "theorem",
+    "module": "Mathlib/CategoryTheory/CofilteredSystem.lean",
+    "provides": "Specialisation to inverse systems indexed by a directed order.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:HomologicalComplex",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
+    "provides": "Complexes in a preadditive category.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:HomologicalComplex.homologyMap",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Homology/ShortComplex/HomologicalComplex.lean",
+    "provides": "The map induced on homology by a chain map.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Algebra.adjoin",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
+    "provides": "The subalgebra generated by a set.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:LinearMap.mulLeft",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+    "provides": "Left multiplication as a linear map.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:HomotopyCategory",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Homology/HomotopyCategory.lean",
+    "provides": "The homotopy category of complexes.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Homotopy",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Homology/Homotopy.lean",
+    "provides": "Chain homotopies.",
+    "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "KHARE-THORNE-2017",
+   "title": "Potential automorphy and the Leopoldt conjecture",
+   "authors": "Chandrashekhar Khare and Jack A. Thorne",
+   "edition": "arXiv:1409.7007v2 (6 July 2016), 50 pages; published in Amer. J. Math. 139 (2017), no. 5, 1205–1273. Page numbers are those of the arXiv v2 PDF.",
+   "url": "https://arxiv.org/pdf/1409.7007v2",
+   "sha256": "f8a86b8d7dfd290b9b4199931238f21392cb9c82d609f0879060a890e58ec0b4",
+   "readSections": [
+    "2026-09-28 (cc-39fac3): §2.2 good and minimal complexes with Lemma 2.3, p. 6; §2.4 Lemmas 2.10–2.14 and Proposition 2.15 with all proofs, pp. 9–14. v1 (24 September 2014) was compared on Lemmas 2.10–2.12: the text is identical apart from page breaks, including the T₂ misprints (E10)."
+   ]
+  },
+  {
+   "id": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+   "title": "Potential automorphy over CM fields",
+   "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
+   "edition": "arXiv:1812.09999v2, 218 pages; published in Ann. of Math. (2) 197 (2023), no. 3, 897–1113. Page numbers are those of the arXiv v2 PDF (printed page = PDF page).",
+   "url": "https://arxiv.org/pdf/1812.09999v2",
+   "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c",
+   "readSections": [
+    "2026-09-28 (cc-39fac3): §5.1 ordinary Hecke algebras T^{S,ord}, pp. 94–95; §5.2 opening and §5.2.1, pp. 96–99; Lemma 5.2.14, Proposition 5.2.15 with proof and Corollary 5.2.16, pp. 103–104."
+   ]
+  },
+  {
+   "id": "HIDA-IWASAWA-MODULES-1986",
+   "title": "Iwasawa modules attached to congruences of cusp forms",
+   "authors": "Haruzo Hida",
+   "edition": "Ann. Sci. École Norm. Sup. (4) 19 (1986), no. 2, 231–273, DOI 10.24033/asens.1507; Numdam open-access scan (44 pages; printed page = PDF page + 229). The OCR text layer is garbled in displayed formulas; excerpts are taken from clean prose lines only.",
+   "url": "https://www.numdam.org/item/10.24033/asens.1507.pdf",
+   "sha256": "a52ea23bc8b2357746cb2191335c7af394d96c752f6e1926d3e15b995504e5a6",
+   "readSections": [
+    "2026-09-28 (cc-39fac3): introduction, pp. 231–232; §1, (1.14)–(1.22), pp. 243–245 (the idempotent e attached to T(p), its compatibility with the projective limit and the ordinary part M° = eM)."
+   ]
+  },
+  {
+   "id": "Buzzard-Eigenvarieties-2006",
+   "title": "Eigenvarieties",
+   "authors": "Kevin Buzzard",
+   "edition": "Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "url": "https://www.ma.imperial.ac.uk/~buzzard/maths/research/papers/eigenvarieties.pdf",
+   "sha256": "0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d",
+   "readSections": [
+    "§2, pp. 4–20: definitions and proofs of Proposition 2.1 through Lemma 2.13, including the explicitly delegated arguments",
+    "§3, pp. 20–25: resultant discussion, Lemma 3.1, Proposition 3.2 and Theorem 3.3 with their proof routes",
+    "§4, pp. 25–31: Lemmas 4.1–4.5 and proof of Theorem 4.6; pp. 29–30 also inspected as rendered PDF pages",
+    "§5, pp. 32–42: finite Hecke pieces, gluing, base change, links, Construction 5.7 and Lemmas 5.9–5.10",
+    "§6 opening, pp. 43–44: scope and explicit reliance on Coleman–Mazur; remaining modular application not read",
+    "R1-review (2026-09-15): §2 pp. 4–20, §3 pp. 20–25, §4 pp. 25–31 (pp. 29–30 rendered at 130 dpi with pdftoppm), §5 pp. 32–42 and §6 opening pp. 43–44 re-read against every node; SHA-256 of the library PDF re-verified and found identical to the copy currently served from the author's page (last updated 02/08/06; no errata listed; no arXiv version exists).",
+    "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used by the L2a nodes re-checked as an exact substring of the PDF text layer (ligatures ﬁ/ﬂ/ﬃ as printed); the printed defects of Lemmas 4.5, 5.6, 5.9, Theorem 4.6, §5 and Construction 5.7 re-read and recorded as sourceIssues E1–E9."
+   ]
+  },
+  {
+   "id": "Conrad-ModularRigid-2006",
+   "title": "Modular curves and rigid-analytic spaces",
+   "authors": "Brian Conrad",
+   "edition": "51-page author manuscript, PDF metadata 20 January 2006; internal page numbering",
+   "url": "https://math.stanford.edu/~conrad/papers/genpaper.pdf",
+   "sha256": "ab6daecb7fa0679170fdd6b92021f206a9c990f621fc246eb146c3220d64e2bc",
+   "readSections": [
+    "Appendix A.1, pp. 37–39: Theorem A.1.2, Remark A.1.3, Lemmas A.1.4–A.1.5, and the proof of A.1.2",
+    "R1-review: Theorem A.1.2 statement and proof, Remark A.1.3, Lemmas A.1.4–A.1.5 re-read (internal pp. 36–39); PDF metadata re-checked (51 pages, created 20 January 2006).",
+    "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used by the L2a nodes re-checked as an exact substring of the PDF text layer (ligatures ﬁ/ﬂ/ﬃ as printed); the printed defects of Lemmas 4.5, 5.6, 5.9, Theorem 4.6, §5 and Construction 5.7 re-read and recorded as sourceIssues E1–E9."
+   ]
+  },
+  {
+   "id": "Chenevier-FamillesGLn-2004",
+   "title": "Familles p-adiques de formes automorphes pour GL_n",
+   "authors": "Gaëtan Chenevier",
+   "edition": "Author copy glnfam.pdf (74 pages, PDF metadata 9 March 2008; internal page numbering); published in J. reine angew. Math. 570 (2004), 143–217, DOI 10.1515/crll.2004.031",
+   "url": "http://gaetan.chenevier.perso.math.cnrs.fr/articles/glnfam.pdf",
+   "sha256": "eaba21cc414dd7d2431e89cb53c637dd9c362c59773f8e193ddc507ded9f496e",
+   "readSections": [
+    "R1-review (fetched 2026-09-15 over plain http; the https host presents a mismatched certificate): Théorème C summary, internal pp. 6–7; Lemme 6.2.10, pp. 47–48; Théorème 6.3.6 statement, p. 51; §6.4.1 and Proposition 6.4.2 with proof, pp. 52–53; Lemme 6.4.3 and Corollaire 6.4.4, p. 54",
+    "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used by the L2a nodes re-checked as an exact substring of the PDF text layer (ligatures ﬁ/ﬂ/ﬃ as printed); the printed defects of Lemmas 4.5, 5.6, 5.9, Theorem 4.6, §5 and Construction 5.7 re-read and recorded as sourceIssues E1–E9."
+   ]
+  },
+  {
+   "id": "ColemanMazur-Eigencurve-1998",
+   "title": "The eigencurve",
+   "authors": "Robert Coleman and Barry Mazur",
+   "edition": "113-page author preprint (PDF produced 20 July 2008 from the authors' file) as captured by the Internet Archive on 31 October 2008 from Coleman's Berkeley page; published in Galois representations in arithmetic algebraic geometry (Durham, 1996), LMS Lecture Note Series 254, CUP 1998, pp. 1–113, DOI 10.1017/CBO9780511662010.003",
+   "url": "https://web.archive.org/web/20081031155820id_/http://math.berkeley.edu/~coleman/eigen/coleman-mazur.pdf",
+   "sha256": "bf8e96f23fb3db2f886a5106547798c6d899941b316f340079b3aabb4ad04a70",
+   "readSections": [
+    "R1-review (fetched 2026-09-15; the live Berkeley URL and Mazur's Harvard page return 404): §1.1 'nested' definition, internal p. 11; Lemma 1.3.10, Theorem 1.3.11 and Corollary 1.3.12, pp. 24–26; Chapter 7 opening, §7.1 local pieces and Theorem 7.1.1, pp. 91–93; §7.4 opening and Lemma 7.4.1, pp. 101–102; Proposition 7.4.5, p. 104; Theorem 7.5.1 statement, p. 105. Chapters 2–6 and the proofs in §§7.2–7.5 remain unread.",
+    "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used by the L2a nodes re-checked as an exact substring of the PDF text layer (ligatures ﬁ/ﬂ/ﬃ as printed); the printed defects of Lemmas 4.5, 5.6, 5.9, Theorem 4.6, §5 and Construction 5.7 re-read and recorded as sourceIssues E1–E9."
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "PadicFamilies:L0a/factorial-iterate-stabilises",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Factorial iterates of a self-map of a finite set stabilise",
+   "kind": "lemma",
+   "statement": "Let X be a finite set with m = |X| elements and f : X → X any map. For every n ≥ m, f^[n!] = f^[m!]; the map e = f^[m!] is idempotent (e ∘ e = e); its image is the eventual image ⋂_k f^[k](X); and f restricts to a bijection of that image, whose inverse there is f^[m! − 1]. Equivalently, in the finite monoid of self-maps of X, the powers f^{n!} are eventually constant, with value the unique idempotent among the powers of f.",
+   "hypotheses": [
+    "X finite (no algebraic structure is used); m = |X| ≥ 0, with 0! = 1."
+   ],
+   "proofSteps": [
+    "For x ∈ X the orbit x, f(x), f²(x), … has at most m distinct points, so (pigeonhole) there are i(x) < j(x) ≤ m with f^{i(x)}(x) = f^{j(x)}(x); put ℓ(x) = j(x) − i(x) ≤ m. Then f^{a}(x) = f^{b}(x) whenever a, b ≥ i(x) and a ≡ b mod ℓ(x).",
+    "For n ≥ m: n! ≥ n ≥ m ≥ i(x) and ℓ(x) | n! (as ℓ(x) ≤ m ≤ n), so f^{n!}(x) = f^{m!}(x) and f^{2·m!}(x) = f^{m!}(x); hence f^[n!] = f^[m!] and e ∘ e = e.",
+    "Image: e(X) ⊆ f^[k](X) for k ≤ m!, and for k ≥ m! the chain f^[k](X) is constant from k = m on (a decreasing chain of subsets of an m-element set stabilises after at most m steps), so e(X) = ⋂_k f^[k](X).",
+    "On e(X), f ∘ f^[m!−1] = f^[m!−1] ∘ f = e = id, so f is a bijection of e(X) with inverse f^[m!−1] (m! ≥ 1)."
+   ],
+   "acceptance": [
+    "The threshold is explicit: n ≥ |X|; no bound uniform in a family of sets is claimed.",
+    "No group-order averaging and no division by m! is used: the argument works in every characteristic.",
+    "Test: on ZMod 6, x ↦ 2x has f^[6!] = (x ↦ 4x), which is idempotent (16 ≡ 4 mod 6)."
+   ],
+   "prerequisites": [
+    "mathlib:Finite.exists_ne_map_eq_of_infinite",
+    "mathlib:Nat.dvd_factorial",
+    "mathlib:Nat.self_le_factorial",
+    "mathlib:Nat.factorial_dvd_factorial",
+    "mathlib:Function.iterate_add",
+    "mathlib:Function.iterate_mul",
+    "mathlib:Set.BijOn"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "there exists an integer n0 such that for all n ≥n0, T n! = e is the identity on Mord and trivial on Mnon-ord.",
+     "match": "The eventual constancy of T^{n!}; here proved for any self-map of a finite set, as the stage requires (finite-set argument)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/finite-ordinary-projector",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Hida's ordinary projector on a finite module",
+   "kind": "definition",
+   "statement": "Let R be a ring, M an R-module whose underlying set is finite, m = |M|, and U ∈ End_R(M). The ordinary projector is e_U := U^{m!} ∈ End_R(M). It satisfies e_U = U^{n!} for every n ≥ m (so e_U = lim_n U^{n!} in the discrete topology), e_U² = e_U and U e_U = e_U U. The ordinary part is M_ord := e_U M and the non-ordinary part is M_nord := ker e_U = (1 − e_U)M.",
+   "hypotheses": [
+    "R any ring (not necessarily commutative); M finite as a set, e.g. a finite module over R/I with R/I finite.",
+    "U is R-linear; the construction uses only the monoid structure of End_R(M)."
+   ],
+   "proofSteps": [
+    "Apply factorial-iterate-stabilises to the underlying map of U: U^{n!} = U^{m!} for n ≥ m and U^{m!} is idempotent.",
+    "e_U is a power of U, hence R-linear and commuting with U."
+   ],
+   "acceptance": [
+    "Changing m to any upper bound N ≥ |M| gives the same endomorphism (U^{N!} = U^{m!}).",
+    "A supplied idempotent is not a substitute: e_U is defined from U alone.",
+    "Units give e_U = 1 and nilpotents give e_U = 0."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/factorial-iterate-stabilises",
+    "mathlib:Module.End",
+    "mathlib:Module.End.pow_apply",
+    "mathlib:IsIdempotentElem",
+    "mathlib:Commute"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "the limit e = limn→∞T n! exists in EndR(M), is an idempotent, and we have Mord = eM, Mnon-ord = (1 −e)M.",
+     "match": "Khare–Thorne's projector e = lim T^{n!}; for a finite module the limit is attained at n = |M|."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, after (1.16) and (1.17a), p. 244 (Numdam PDF; printed page = PDF page + 229)",
+     "excerpt": "This idempotent will be called the idempotent attached to T(p).",
+     "match": "Hida's idempotent attached to T(p) on the finite-level Hecke algebra, the classical instance."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L0a/profinite-ordinary-projector",
+     "how": "applied to every finite quotient M/J; naturality makes the family compatible."
+    },
+    {
+     "where": "PadicFamilies:L0a/ordinary-part-complexes",
+     "how": "applied degreewise to a chain endomorphism of a complex of finite modules."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+     "how": "the ordinary projector on finite-level Hecke modules and complexes (RS-08: imported from L0a)."
+    },
+    {
+     "where": "PotentialAutomorphyInfrastructure:PA.2",
+     "how": "stabilized factorial powers on finite quotients of the arithmetic complexes (ACC+ §5)."
+    },
+    {
+     "where": "GeneralizedHeegnerCycles:GH.3",
+     "how": "the ordinary idempotent defining universal norms along the anticyclotomic tower."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryProjector",
+     "role": "constructor",
+     "statement": "e_U := U^{|M|!}."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryProjector_eq_pow_factorial",
+     "role": "characterisation",
+     "statement": "e_U = U^{n!} for all n ≥ |M|."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.isIdempotentElem_ordinaryProjector",
+     "role": "structure",
+     "statement": "e_U² = e_U."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.commute_ordinaryProjector",
+     "role": "compatibility",
+     "statement": "U e_U = e_U U."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryProjector_of_isUnit",
+     "role": "simp",
+     "statement": "U a unit ⇒ e_U = 1."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryProjector_of_isNilpotent",
+     "role": "simp",
+     "statement": "U nilpotent ⇒ e_U = 0."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryPart",
+     "role": "data",
+     "statement": "M_ord := range e_U, with nonOrdinaryPart := ker e_U."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ordinaryProjector_two_zmod_six",
+     "kind": "example",
+     "statement": "On ZMod 6 ≅ ZMod 2 × ZMod 3, e for multiplication by 2 is multiplication by 4 (the projection onto the ZMod 3 factor): a definition via 'U invertible ⇒ 1, else 0' fails."
+    },
+    {
+     "name": "ordinaryPart_two_zmod_eight",
+     "kind": "example",
+     "statement": "Multiplication by 2 on ZMod 8 is nilpotent: M_ord = 0."
+    },
+    {
+     "name": "ordinaryPart_three_zmod_eight",
+     "kind": "example",
+     "statement": "Multiplication by the unit 3 on ZMod 8: M_ord = M."
+    },
+    {
+     "name": "ordinaryProjector_one",
+     "kind": "example",
+     "statement": "e_1 = 1 (degenerate case: the identity is ordinary)."
+    },
+    {
+     "name": "ordinaryProjector_fitting",
+     "kind": "example",
+     "statement": "Agreement with Mathlib: range e_U = ⨅ₙ range Uⁿ and ker e_U = ⨆ₙ ker Uⁿ (LinearMap.isCompl_iSup_ker_pow_iInf_range_pow)."
+    }
+   ],
+   "planet": {
+    "name": "Ordinary projector"
+   }
+  },
+  {
+   "id": "PadicFamilies:L0a/finite-fitting-comparison",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "The ordinary projector is the Fitting projection",
+   "kind": "lemma",
+   "statement": "For M finite as a set and U ∈ End_R(M): range e_U = ⨅_n range(Uⁿ) and ker e_U = ⨆_n ker(Uⁿ). Hence e_U is the projection of M onto ⨅_n range(Uⁿ) along ⨆_n ker(Uⁿ) in Mathlib's Fitting decomposition LinearMap.isCompl_iSup_ker_pow_iInf_range_pow, and both chains are constant from n = |M| on.",
+   "hypotheses": [
+    "M is Artinian and Noetherian (isArtinian_of_finite; Noetherian by the finite-set instance)."
+   ],
+   "proofSteps": [
+    "range e_U = range U^{m!} ⊆ range Uⁿ for n ≤ m!, and range Uⁿ is constant for n ≥ m (factorial-iterate-stabilises, image clause), so range e_U = ⨅ range Uⁿ.",
+    "ker e_U ⊇ ker Uⁿ for n ≤ m!; if Uⁿx = 0 then e_U x = U^{N!}x = 0 for N ≥ max(m, n); so ker e_U = ⨆ ker Uⁿ.",
+    "An idempotent is the projection onto its range along its kernel (LinearMap.isProj_iff_isIdempotentElem); compare with LinearMap.linearProjOfIsCompl for the Fitting complement pair."
+   ],
+   "acceptance": [
+    "State the comparison as an equation of linear maps with the Mathlib projection, not only as equal submodules."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/finite-ordinary-projector",
+    "PadicFamilies:L0a/factorial-iterate-stabilises",
+    "mathlib:LinearMap.isCompl_iSup_ker_pow_iInf_range_pow",
+    "mathlib:LinearMap.eventually_isCompl_ker_pow_range_pow",
+    "mathlib:LinearMap.eventually_iInf_range_pow_eq",
+    "mathlib:LinearMap.eventually_iSup_ker_pow_eq",
+    "mathlib:isArtinian_of_finite",
+    "mathlib:IsNoetherian",
+    "mathlib:LinearMap.isProj_iff_isIdempotentElem",
+    "mathlib:LinearMap.IsProj",
+    "mathlib:LinearMap.linearProjOfIsCompl"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "the limit e = limn→∞T n! exists in EndR(M), is an idempotent, and we have Mord = eM, Mnon-ord = (1 −e)M.",
+     "match": "M_ord = eM and M_nord = (1 − e)M; the Fitting identification is the comparison with Mathlib's decomposition."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/ordinary-part-bijective",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "U is invertible on the ordinary part and nilpotent on the rest",
+   "kind": "lemma",
+   "statement": "For M finite as a set and U ∈ End_R(M): U maps M_ord and M_nord into themselves; U restricts to an R-linear automorphism of M_ord, whose inverse is the restriction of U^{m! − 1} (m = |M|); and U^m vanishes on M_nord.",
+   "hypotheses": [
+    "m = |M| ≥ 1 (M contains 0)."
+   ],
+   "proofSteps": [
+    "U commutes with e_U, so it preserves range e_U and ker e_U.",
+    "On M_ord, U^{m!−1} ∘ U = U ∘ U^{m!−1} = e_U = id, giving the inverse.",
+    "ker Uⁿ is an increasing chain of subgroups of an m-element group; each strict step at least doubles the size, so it is constant from n = ⌊log₂ m⌋ ≤ m on, and M_nord = ⨆ ker Uⁿ = ker U^m."
+   ],
+   "acceptance": [
+    "The exponent m on M_nord is uniform for this finite module; no uniform exponent exists for the profinite limit (profinite-ordinary-decomposition)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/finite-ordinary-projector",
+    "PadicFamilies:L0a/finite-fitting-comparison",
+    "PadicFamilies:L0a/factorial-iterate-stabilises",
+    "mathlib:IsArtinian.bijective_of_injective_endomorphism",
+    "mathlib:LinearMap.restrict",
+    "mathlib:Set.BijOn"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "which implies that T is invertible on Mord (as the constant term of A is a unit).",
+     "match": "Invertibility of T on the ordinary part (Khare–Thorne's route is via the lifted factorisation P = AB)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/finite-ordinary-decomposition-unique",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Uniqueness of the ordinary decomposition",
+   "kind": "theorem",
+   "statement": "For M finite as a set and U ∈ End_R(M), M = M_ord ⊕ M_nord with both summands U-stable, U bijective on M_ord and nilpotent on M_nord. Conversely, if M = A ⊕ B as R-modules with U mapping A bijectively onto A and every element of B killed by some power of U, then A = M_ord and B = M_nord; U-stability of B need not be assumed.",
+   "hypotheses": [
+    "M finite as a set; the summands are R-submodules."
+   ],
+   "proofSteps": [
+    "Existence: e_U is idempotent, so M = range e_U ⊕ ker e_U; apply ordinary-part-bijective.",
+    "Uniqueness: U(A) = A gives A = Uⁿ(A) ⊆ range Uⁿ for all n, so A ⊆ ⨅ range Uⁿ = M_ord; every b ∈ B lies in some ker Uⁿ, so B ⊆ ⨆ ker Uⁿ = M_nord (finite-fitting-comparison).",
+    "Since M = A ⊕ B = M_ord ⊕ M_nord are finite, |A|·|B| = |M_ord|·|M_nord| with |A| ≤ |M_ord| and |B| ≤ |M_nord|, so both inclusions are equalities."
+   ],
+   "acceptance": [
+    "The comparison is by inclusion and counting; no stability hypothesis on B is used, and U(A) = A (not merely U(A) ⊆ A with U injective on A) is what the statement asks.",
+    "Test: U = diag(1, 0) on (ZMod 2)²: the complement B = span(e₁ + e₂) of A = span(e₁) is excluded because Uⁿ(e₁ + e₂) = e₁ ≠ 0."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/finite-ordinary-projector",
+    "PadicFamilies:L0a/finite-fitting-comparison",
+    "PadicFamilies:L0a/ordinary-part-bijective",
+    "mathlib:IsCompl"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "There is a unique T -invariant decomposition M = Mord ⊕Mnon-ord with the following property",
+     "match": "Khare–Thorne Lemma 2.10(1), statement."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "T is invertible on Mord, and topolog- ically nilpotent (for the mR-adic topology) on Mnon-ord.",
+     "match": "The two defining properties; for finite modules topological nilpotence is nilpotence."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Ordinary and non-ordinary parts"
+   }
+  },
+  {
+   "id": "PadicFamilies:L0a/ordinary-projector-natural",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Naturality of the ordinary projector",
+   "kind": "lemma",
+   "statement": "Let M, N be R-modules that are finite as sets, U₁ ∈ End_R(M), U₂ ∈ End_R(N), and f : M → N R-linear with f U₁ = U₂ f. Then f e_{U₁} = e_{U₂} f; in particular f(M_ord) ⊆ N_ord and f(M_nord) ⊆ N_nord.",
+   "hypotheses": [
+    "Khare–Thorne print T₂ ∈ End_R(M); the endomorphism of N is meant (sourceIssues)."
+   ],
+   "proofSteps": [
+    "Take n ≥ max(|M|, |N|): e_{U₁} = U₁^{n!} and e_{U₂} = U₂^{n!}, and f U₁^{n!} = U₂^{n!} f by induction."
+   ],
+   "acceptance": [
+    "The same n must serve both modules; this is why the threshold n ≥ |M| (not a fixed exponent) is recorded."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/finite-ordinary-projector"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "let f ∈HomR(M, N) intertwine T1 and T2. Then we have fMord ⊂Nord, fMnon-ord ⊂Nnon-ord",
+     "match": "Khare–Thorne Lemma 2.10(2)."
+    },
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, (1.17b), p. 244",
+     "excerpt": "is compatible with the projective limit (1.14); therefore,",
+     "match": "Hida uses this compatibility along the level tower."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/ordinary-projector-exact",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Exactness of the ordinary part on finite modules",
+   "kind": "theorem",
+   "statement": "Let M' → M → M'' (maps f, g) be exact at M, with M', M, M'' R-modules finite as sets and endomorphisms U', U, U'' such that f U' = U f and g U = U'' g. Then ker g ∩ M_ord = f(M'_ord), and if g is surjective then g(M_ord) = M''_ord. Hence M ↦ M_ord and M ↦ M_nord are exact functors on U-equivariant exact sequences of finite modules.",
+   "hypotheses": [
+    "Exactness in Mathlib's sense Function.Exact f g (range f = ker g)."
+   ],
+   "proofSteps": [
+    "If x ∈ M_ord and g x = 0, write x = f y; then x = e x = e f y = f e' y ∈ f(M'_ord) (naturality). The reverse inclusion is naturality and g f = 0.",
+    "If g is surjective and z ∈ M''_ord, choose g y = z; then g(e y) = e'' g y = z with e y ∈ M_ord.",
+    "The ordinary part is a natural direct summand of the identity functor, hence a retract of an exact sequence."
+   ],
+   "acceptance": [
+    "No Mittag-Leffler or limit argument enters at finite level."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/ordinary-projector-natural",
+    "PadicFamilies:L0a/finite-ordinary-projector",
+    "mathlib:Function.Exact.linearMap_ker_eq",
+    "mathlib:Submodule.map"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.11 and proof, pp. 9–10 (arXiv v2)",
+     "excerpt": "We now show that the sequence of ordinary parts is exact.",
+     "match": "Khare–Thorne prove exactness from the lifted factorisation; naturality gives it directly."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/ordinary-projector-quotient",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Ordinary parts of quotients",
+   "kind": "lemma",
+   "statement": "For M finite as a set, U ∈ End_R(M) and a U-stable submodule P ⊆ M, the ordinary part of M/P for the induced endomorphism is the image of M_ord: (M/P)_ord = (M_ord + P)/P ≅ M_ord/(P ∩ M_ord) = M_ord/P_ord. For a two-sided ideal I of a commutative R and P = IM: (M/IM)_ord = M_ord/I·M_ord and (M/IM)_nord = M_nord/I·M_nord.",
+   "hypotheses": [
+    "P U-stable; for P = IM this holds for every R-linear U when R is commutative."
+   ],
+   "proofSteps": [
+    "Apply ordinary-projector-exact to 0 → P → M → M/P → 0.",
+    "IM = I·M_ord ⊕ I·M_nord because e_U is R-linear, so (IM)_ord = I·M_ord."
+   ],
+   "acceptance": [
+    "Test: M = ZMod 9, U = 3, P = 3M: both sides are 0."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/ordinary-projector-exact",
+    "PadicFamilies:L0a/ordinary-projector-natural",
+    "mathlib:Submodule.mapQ",
+    "mathlib:Submodule.mkQ"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10(3) and proof, p. 9 (arXiv v2)",
+     "excerpt": "(M/(I))ord = Mord/(I)",
+     "match": "Khare–Thorne Lemma 2.10(3), for a proper ideal I."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/ordinary-part-localization",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "The ordinary part is the localization at U",
+   "kind": "comparison",
+   "statement": "Let R be commutative, M an R-module finite as a set and U ∈ End_R(M); regard M as an R[X]-module with X acting by U (Module.AEval'). Then M_ord → M → M[X⁻¹] = LocalizedModule (powers X) M, x ↦ x/1, is an isomorphism; equivalently the R[X]-linear map M → M_ord, x ↦ e_U x, is a localization at the powers of X (IsLocalizedModule). In particular every U-equivariant map from M to a module on which the endomorphism is bijective kills M_nord.",
+   "hypotheses": [
+    "R commutative (so that R[X] is commutative and LocalizedModule applies)."
+   ],
+   "proofSteps": [
+    "Injective: if x ∈ M_ord and X^k x = 0 in M then U^k x = 0, so x = 0 since U is injective on M_ord.",
+    "Surjective: y/X^k = (U|_{M_ord})^{-k}(e y)/1 + ((1 − e)y)/X^k, and (1 − e)y is killed by U^m, so its fraction vanishes.",
+    "Universal property: X acts invertibly on M_ord, and M_nord is X-power torsion."
+   ],
+   "acceptance": [
+    "This is the comparison ACC+ use to identify Emerton's localization definition of ordinary parts with the direct-summand definition at finite level."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/ordinary-part-bijective",
+    "PadicFamilies:L0a/finite-ordinary-decomposition-unique",
+    "mathlib:LocalizedModule",
+    "mathlib:LocalizedModule.mk",
+    "mathlib:IsLocalizedModule",
+    "mathlib:Module.AEval'",
+    "mathlib:Module.AEval'.of",
+    "mathlib:Submonoid.powers",
+    "mathlib:Polynomial.X"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§5.2, proof of Proposition 5.2.15, p. 103 (arXiv v2)",
+     "excerpt": "is the maximal direct summand of M on which U acts invertibly, then the natural map",
+     "match": "The statement M_ord → M → M ⊗_{O/ϖ^m[U]} O/ϖ^m[U, U⁻¹] is an isomorphism."
+    },
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§5.2.1, p. 99 (arXiv v2)",
+     "excerpt": "The reader may object that the ordinary part usually denotes a direct summand, rather than a localization.",
+     "match": "ACC+'s remark that the two definitions agree for finitely generated modules."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/finite-quotient-system",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Finite quotient systems adapted to an endomorphism",
+   "kind": "definition",
+   "statement": "Let M be an R-module and U ∈ End_R(M). A finite quotient system for (M, U) indexed by a set ι is a family (J_i)_{i∈ι} of submodules of M such that: the family is directed downward (for i, j there is k with J_k ⊆ J_i ∩ J_j); each J_i is U-stable; each M/J_i is finite as a set; ⋂_i J_i = 0 (separated); and every compatible family (x_i mod J_i) is represented by one x ∈ M (complete). Then M ≅ lim_i M/J_i, and the J_i form a basis of neighbourhoods of 0 for the inverse-limit topology, in which M is compact and U is continuous.",
+   "hypotheses": [
+    "ι arbitrary; the countable case ι = ℕ with J_n decreasing is the one used by Khare–Thorne."
+   ],
+   "proofSteps": [
+    "Define the induced endomorphisms U_i of M/J_i by Submodule.mapQ.",
+    "Separation and completeness say that the canonical map M → lim M/J_i is bijective."
+   ],
+   "acceptance": [
+    "The data are the J_i, not merely a topology: coefficient and level maps must respect them (profinite-projector-natural).",
+    "A compact module with a continuous U need not admit a U-stable system: on ∏_{n∈ℕ} ZMod 2 with the left shift, the only U-stable open subgroup is the whole group, and U^{n!} does not converge pointwise."
+   ],
+   "prerequisites": [
+    "mathlib:Directed",
+    "mathlib:Submodule.mapQ",
+    "mathlib:Submodule.mkQ",
+    "mathlib:CategoryTheory.Functor.sections"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, (1.17b), p. 244",
+     "excerpt": "is compatible with the projective limit (1.14); therefore,",
+     "match": "Hida's limit over the level tower is the prototype of the inverse system."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, proof of Lemma 2.10, p. 9 (arXiv v2)",
+     "excerpt": "Replacing R by one of the quotients R/mn R, we can therefore assume that R is Artinian.",
+     "match": "Khare–Thorne's reduction to the finite quotients M/m^n M."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L0a/profinite-ordinary-projector",
+     "how": "the index of the inverse limit of finite projectors and its convergence threshold."
+    },
+    {
+     "where": "PadicFamilies:L0a/adic-instance",
+     "how": "the system (mⁿM)_n for a finite module over a complete local ring with finite residue field."
+    },
+    {
+     "where": "PadicFamilies:L0",
+     "how": "instantiate on p-adic modular forms and Hecke modules along the ordinary tower (the stage's finite-quotient and continuity hypotheses for U_p)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem",
+     "role": "structure",
+     "statement": "The bundled family J with the five axioms."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem.quotientEnd",
+     "role": "constructor",
+     "statement": "U_i := (J_i).mapQ (J_i) U."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem.mk_eq_iff",
+     "role": "extensionality",
+     "statement": "x = y iff x ≡ y mod J_i for all i."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem.equivLimit",
+     "role": "equivalence",
+     "statement": "M ≃ lim_i M/J_i."
+    }
+   ],
+   "tests": [
+    {
+     "name": "finiteQuotientSystem_padicInt",
+     "kind": "example",
+     "statement": "ℤ_p with J_n = pⁿℤ_p is a system for every ℤ_p-linear U."
+    },
+    {
+     "name": "finiteQuotientSystem_complex_empty",
+     "kind": "example",
+     "statement": "There is no system on ℂ over ℂ for U = 2: the only finite-index ℂ-submodule is ℂ itself, so separation fails (the stage's failure test)."
+    },
+    {
+     "name": "finiteQuotientSystem_finite",
+     "kind": "example",
+     "statement": "A module finite as a set has the one-element system J = 0 (degenerate case)."
+    },
+    {
+     "name": "finiteQuotientSystem_shift_nonexample",
+     "kind": "example",
+     "statement": "On ∏ ZMod 2 with the left shift, no system with U-stable J exists (a compact module is not enough)."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L0a/profinite-ordinary-projector",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "The profinite ordinary projector",
+   "kind": "construction",
+   "statement": "Let (J_i) be a finite quotient system for (M, U), U_i the induced endomorphisms of M/J_i and e_i = e_{U_i}. There is a unique e = e_U ∈ End_R(M) with e(x) ≡ e_i(x mod J_i) for all i and x. For every x and i, U^{n!}x ≡ e x mod J_i as soon as n ≥ |M/J_i|; thus U^{n!} → e pointwise in the inverse-limit topology. Moreover e² = e, eU = Ue, and e(J_i) ⊆ J_i for all i (continuity).",
+   "hypotheses": [
+    "(J_i) a finite quotient system; no uniform threshold over i is asserted."
+   ],
+   "proofSteps": [
+    "For J_k ⊆ J_i the projection M/J_k → M/J_i intertwines U_k and U_i, so it intertwines e_k and e_i (ordinary-projector-natural): (e_i(x mod J_i))_i is a compatible family.",
+    "Completeness gives e x; separation gives uniqueness; linearity follows from uniqueness.",
+    "U^{n!}x mod J_i = U_i^{n!}(x mod J_i) = e_i(x mod J_i) for n ≥ |M/J_i|.",
+    "Idempotence, commutation with U and e(J_i) ⊆ J_i hold modulo every J_k, hence exactly."
+   ],
+   "acceptance": [
+    "Pointwise convergence only: for M = ℤ_p and U = p, e = 0 but U^{n!} ≠ 0 for every n.",
+    "Independent of the chosen system among systems defining the same topology (projector_unique)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/finite-quotient-system",
+    "PadicFamilies:L0a/finite-ordinary-projector",
+    "PadicFamilies:L0a/ordinary-projector-natural",
+    "PadicFamilies:L0a/ordinary-projector-quotient"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "HIDA-IWASAWA-MODULES-1986",
+     "locator": "§1, (1.17a)–(1.17b), p. 244",
+     "excerpt": "is compatible with the projective limit (1.14); therefore,",
+     "match": "Hida defines e on the limit Hecke algebra as the limit of the finite-level idempotents."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "the limit e = limn→∞T n! exists in EndR(M), is an idempotent, and we have Mord = eM, Mnon-ord = (1 −e)M.",
+     "match": "The limit statement, here for an arbitrary finite quotient system."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L0",
+     "how": "Hida's e on the ordinary tower of p-adic modular forms and on the big Hecke algebra."
+    },
+    {
+     "where": "PadicFamilies:L5",
+     "how": "instantiated on integral Hilbert automorphic and cohomology modules."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+     "how": "applied to the modular, Hilbert and quaternionic Hecke complexes (RS-08: R21.1 imports the API)."
+    },
+    {
+     "where": "AutomorphicCongruences:L2s",
+     "how": "the generic projector imported for the semi-ordinary GU(3,1) instance."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem.projector",
+     "role": "constructor",
+     "statement": "The limit projector e."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem.mkQ_comp_projector",
+     "role": "characterisation",
+     "statement": "(J_i).mkQ ∘ e = e_{U_i} ∘ (J_i).mkQ."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem.projector_sub_pow_factorial_mem",
+     "role": "characterisation",
+     "statement": "e x − U^{n!} x ∈ J_i for n ≥ |M/J_i|."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem.isIdempotentElem_projector",
+     "role": "structure",
+     "statement": "e² = e."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem.commute_projector",
+     "role": "compatibility",
+     "statement": "Ue = eU."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.FiniteQuotientSystem.projector_mapsTo",
+     "role": "compatibility",
+     "statement": "e(J_i) ⊆ J_i."
+    }
+   ],
+   "tests": [
+    {
+     "name": "projector_padicInt_p",
+     "kind": "example",
+     "statement": "M = ℤ_p, U = p: e = 0."
+    },
+    {
+     "name": "projector_padicInt_unit",
+     "kind": "example",
+     "statement": "M = ℤ_p, U = u ∈ ℤ_p^×: e = 1 (u^{n!} → 1 because (ℤ/p^k)^× is finite)."
+    },
+    {
+     "name": "projector_diag",
+     "kind": "example",
+     "statement": "M = ℤ_p², U = diag(1, p): e = diag(1, 0)."
+    },
+    {
+     "name": "projector_finite",
+     "kind": "example",
+     "statement": "For M finite with the system J = 0, e agrees with the finite ordinaryProjector."
+    }
+   ],
+   "planet": {
+    "name": "Profinite ordinary projector"
+   }
+  },
+  {
+   "id": "PadicFamilies:L0a/profinite-ordinary-decomposition",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "The ordinary decomposition of a profinite module",
+   "kind": "theorem",
+   "statement": "With (J_i), e as in profinite-ordinary-projector: M = eM ⊕ (1 − e)M, both summands closed and U-stable; U restricts to a bijection of eM whose inverse is continuous; U is topologically nilpotent on (1 − e)M (for each x there and each i, Uⁿx ∈ J_i for all n large). Conversely e is the only idempotent in End_R(M) commuting with U, preserving every J_i, with U bijective on its range and topologically nilpotent on its kernel.",
+   "hypotheses": [
+    "No uniform exponent: the n in 'Uⁿx ∈ J_i' depends on x only through i (it can be taken |M/J_i|), but U need not be nilpotent on (1 − e)M."
+   ],
+   "proofSteps": [
+    "Each summand is the kernel of a continuous endomorphism (1 − e or e), hence closed.",
+    "Modulo J_i, U is bijective on e_i(M/J_i) and nilpotent of exponent ≤ |M/J_i| on its complement (ordinary-part-bijective); pass to the limit using completeness for the inverse U^{-1} = lim U^{n!−1} on eM.",
+    "Uniqueness: modulo each J_i a competing e' induces a decomposition of M/J_i satisfying the hypotheses of finite-ordinary-decomposition-unique, so e' ≡ e mod J_i for all i."
+   ],
+   "acceptance": [
+    "Test on ℤ_p with U = p: (1 − e)M = ℤ_p, U topologically nilpotent but not nilpotent.",
+    "Test on ℤ_p² with U = (1 1; 0 p): eM is the line spanned by (1, 0) and (1 − e)M the line spanned by (1, p − 1)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/profinite-ordinary-projector",
+    "PadicFamilies:L0a/finite-ordinary-decomposition-unique",
+    "PadicFamilies:L0a/ordinary-part-bijective",
+    "mathlib:IsCompl",
+    "mathlib:Set.BijOn"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "T is invertible on Mord, and topolog- ically nilpotent (for the mR-adic topology) on Mnon-ord.",
+     "match": "The decomposition in the adic case, generalised to finite quotient systems."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "There is a unique T -invariant decomposition M = Mord ⊕Mnon-ord with the following property",
+     "match": "Uniqueness."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/profinite-projector-natural",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Naturality of the profinite projector",
+   "kind": "lemma",
+   "statement": "Let (M, U, (J_i)) and (N, V, (K_k)) carry finite quotient systems and let f : M → N be R-linear with fU = Vf and continuous for the systems (for every k there is i with f(J_i) ⊆ K_k). Then f e_U = e_V f. In particular the ordinary part is functorial for level and coefficient maps that respect the quotient systems.",
+   "hypotheses": [
+    "Continuity is the stage's condition 'maps respecting the quotient systems'; an arbitrary R-linear map need not commute with the projectors."
+   ],
+   "proofSteps": [
+    "Given k, choose i with f(J_i) ⊆ K_k; f induces M/J_i → N/K_k intertwining U_i and V_k.",
+    "By ordinary-projector-natural, f e_U x ≡ e_V f x mod K_k for every k; separation of N gives equality."
+   ],
+   "acceptance": [
+    "For finite modules over a complete noetherian local ring every R-linear map is continuous (AdicSpacesPartII:F0/finite-module-inverse-limit), so the hypothesis is automatic in the adic instance."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/profinite-ordinary-projector",
+    "PadicFamilies:L0a/ordinary-projector-natural"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "let f ∈HomR(M, N) intertwine T1 and T2. Then we have fMord ⊂Nord, fMnon-ord ⊂Nnon-ord",
+     "match": "Khare–Thorne Lemma 2.10(2) in the adic case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/adic-instance",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Ordinary projectors on finite modules over complete local rings",
+   "kind": "theorem",
+   "statement": "Let R be a noetherian local ring with maximal ideal m and finite residue field, M a finite R-module that is m-adically separated and complete (automatic when R is complete), and U ∈ End_R(M). Then (mⁿM)_{n≥0} is a finite quotient system for (M, U). Hence e_U = lim_n U^{n!} exists in End_R(M) for the m-adic topology, is idempotent, M = M_ord ⊕ M_nord with U invertible on M_ord and topologically nilpotent on M_nord, the decomposition is unique and natural for all R-linear maps, and (M/IM)_ord = M_ord/IM_ord for every proper ideal I.",
+   "hypotheses": [
+    "Finite residue field is essential: for R = ℂ (m = 0), M = ℂ and U = 2, the powers 2^{n!} do not converge (finite generation over a complete local ring is not enough).",
+    "Topologies: the m-adic topology on End_R(M), equal to the topology of the kernels of End_R(M) → End_R(M/mⁿM)."
+   ],
+   "proofSteps": [
+    "R/mⁿ is finite (Ideal.finite_quotient_pow with R/m finite) and M/mⁿM is a finite R/mⁿ-module, hence a finite set.",
+    "mⁿM is U-stable because U is R-linear; separation and completeness are the m-adic hypotheses, supplied for finite modules over complete noetherian local rings by AdicSpacesPartII:F0/finite-module-inverse-limit.",
+    "Convergence in End_R(M): e − U^{n!} maps M into mᵏM once n ≥ |M/mᵏM|, uniformly in x.",
+    "Naturality for all R-linear maps: f(mⁿM) ⊆ mⁿN, so profinite-projector-natural applies; the quotient statement is ordinary-projector-quotient at each finite level."
+   ],
+   "acceptance": [
+    "Recover Khare–Thorne Lemma 2.10 exactly, including uniqueness and the quotient formula.",
+    "Keep the failure test R = ℂ, U = 2 as an explicit non-example of the hypotheses."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/finite-quotient-system",
+    "PadicFamilies:L0a/profinite-ordinary-projector",
+    "PadicFamilies:L0a/profinite-ordinary-decomposition",
+    "PadicFamilies:L0a/profinite-projector-natural",
+    "PadicFamilies:L0a/ordinary-projector-quotient",
+    "AdicSpacesPartII:F0/finite-module-inverse-limit",
+    "mathlib:IsLocalRing.finite_quotient_iff",
+    "mathlib:Ideal.finite_quotient_pow",
+    "mathlib:IsAdicComplete",
+    "mathlib:IsLocalRing.ResidueField",
+    "mathlib:IsLocalRing.maximalIdeal",
+    "mathlib:Module.Finite"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, opening and Lemma 2.10, p. 9 (arXiv v2)",
+     "excerpt": "Let R be a complete Noetherian local O-algebra with residue ﬁeld k.",
+     "match": "The standing hypothesis: k is the finite residue field of O."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.10 and proof, p. 9 (arXiv v2)",
+     "excerpt": "the limit e = limn→∞T n! exists in EndR(M), is an idempotent, and we have Mord = eM, Mnon-ord = (1 −e)M.",
+     "match": "Lemma 2.10(1)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Hida's projector over complete local rings"
+   }
+  },
+  {
+   "id": "PadicFamilies:L0a/finite-inverse-limit-exact",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Inverse limits of exact sequences of finite modules",
+   "kind": "lemma",
+   "statement": "Let I be a cofiltered index category and 0 → A_i → B_i → C_i → 0 a natural family of short exact sequences of R-modules with every A_i finite as a set. Then 0 → lim A_i → lim B_i → lim C_i → 0 is exact. More generally, if η : F → G is a natural transformation of functors to sets with every F(i) finite and every η_i surjective, every section of G lifts to a section of F.",
+   "hypotheses": [
+    "Only finiteness of the kernels (hence of the fibres) is needed; no countability of I."
+   ],
+   "proofSteps": [
+    "Left exactness of lim is formal.",
+    "For c ∈ lim C_i the fibres of B_i → C_i over c_i are nonempty cosets of A_i, hence finite nonempty; they form a cofiltered system of finite nonempty sets, which has a section (nonempty_sections_of_finite_cofiltered_system)."
+   ],
+   "acceptance": [
+    "This is the compactness form of the Mittag-Leffler argument; for ℕ-indexed towers of artinian modules it agrees with AdicSpacesPartII:F0/mittag-leffler-exactness."
+   ],
+   "prerequisites": [
+    "mathlib:nonempty_sections_of_finite_cofiltered_system",
+    "mathlib:nonempty_sections_of_finite_inverse_system",
+    "mathlib:CategoryTheory.Functor.sections"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, proof of Lemma 2.13, p. 11 (arXiv v2)",
+     "excerpt": "any inverse system of R-modules (Nc)c≥1 in which each Nc is a",
+     "match": "Khare–Thorne: systems of finite modules over Artinian quotients satisfy Mittag-Leffler."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/profinite-projector-exact",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Exactness of the profinite ordinary part",
+   "kind": "theorem",
+   "statement": "(a) If 0 → M' → M → M'' → 0 is exact, with finite quotient systems on the three modules, continuous U-equivariant maps, then 0 → M'_ord → M_ord → M''_ord → 0 and the non-ordinary sequence are exact. (b) If (0 → M'_c → M_c → M''_c → 0)_c is a cofiltered system of U-equivariant exact sequences of modules finite as sets, then the limit sequence is exact, its terms carry the finite quotient systems given by the kernels of the projections, and (lim M_c)_ord = lim (M_c)_ord.",
+   "hypotheses": [
+    "(b) needs only finiteness of each M'_c (compact surjectivity); for ℕ-indexed towers of artinian modules this is the Mittag-Leffler condition."
+   ],
+   "proofSteps": [
+    "(a): e is natural for continuous equivariant maps, so the ordinary sequence is a retract of the given exact sequence.",
+    "(b): the limit sequence is exact by finite-inverse-limit-exact; the kernels of lim M_c → M_c form a finite quotient system (separated and complete by construction); the limit projector agrees with the limit of the finite projectors by the uniqueness in profinite-ordinary-projector, and exactness of the ordinary parts at each c passes to the limit by finite-inverse-limit-exact again."
+   ],
+   "acceptance": [
+    "State (b) with the actual transition maps; equalities only after taking cohomology do not suffice."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/profinite-projector-natural",
+    "PadicFamilies:L0a/ordinary-projector-exact",
+    "PadicFamilies:L0a/finite-inverse-limit-exact",
+    "PadicFamilies:L0a/profinite-ordinary-projector",
+    "PadicFamilies:L0a/finite-quotient-system"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryProjector",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.11 and proof, pp. 9–10 (arXiv v2)",
+     "excerpt": "We now show that the sequence of ordinary parts is exact.",
+     "match": "Finite-level exactness."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, proof of Lemma 2.13, p. 11 (arXiv v2)",
+     "excerpt": "any inverse system of R-modules (Nc)c≥1 in which each Nc is a",
+     "match": "The Mittag-Leffler property of systems of finite modules, used to pass to limits."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/ordinary-part-complexes",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Ordinary parts of complexes and their cohomology",
+   "kind": "theorem",
+   "statement": "Let C be a complex of R-modules each finite as a set (or finite modules over a noetherian local ring with finite residue field, complete in each degree) and T : C → C a chain endomorphism. The degreewise projectors e_{T^i} form a chain map e_T with e_T² = e_T, giving C = C_ord ⊕ C_nord as complexes; for every i the induced maps give H^i(C_ord) ≅ H^i(C)_ord and H^i(C_nord) ≅ H^i(C)_nord (for the endomorphism H^i(T)); and for a chain map f : C → D with f T = T' f, f(C_ord) ⊆ D_ord and f(C_nord) ⊆ D_nord.",
+   "hypotheses": [
+    "Khare–Thorne print T₂ ∈ End_R(C•) in part 2; the endomorphism of D• is meant (sourceIssues).",
+    "In the adic case H^i(C) is a finite R-module, so its ordinary part is defined by adic-instance."
+   ],
+   "proofSteps": [
+    "The differentials intertwine T^i and T^{i+1}, so they commute with the projectors (naturality): e_T is a chain map.",
+    "Cycles, boundaries and cohomology are obtained from C by kernels and cokernels of equivariant maps; exactness of the ordinary part (finite or adic) identifies Z^i(C_ord) = Z^i(C)_ord, B^i(C_ord) = B^i(C)_ord and H^i(C_ord) = H^i(C)_ord."
+   ],
+   "acceptance": [
+    "Degreewise application only uses a chain endomorphism; an endomorphism in the derived category needs derived-ordinary-idempotent."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/ordinary-projector-natural",
+    "PadicFamilies:L0a/ordinary-projector-exact",
+    "PadicFamilies:L0a/profinite-projector-natural",
+    "PadicFamilies:L0a/profinite-projector-exact",
+    "PadicFamilies:L0a/adic-instance",
+    "mathlib:HomologicalComplex",
+    "mathlib:HomologicalComplex.homologyMap"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryComplex",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.11(1), p. 9 (arXiv v2)",
+     "excerpt": "we obtain a decomposition C• = C• ord ⊕C• non-ord of complexes of R-modules",
+     "match": "The decomposition of complexes."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.11(1), p. 9 (arXiv v2)",
+     "excerpt": "Hi(C• ord) ∼= Hi(C•)ord",
+     "match": "Compatibility with cohomology."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L0a/ordinary-idempotent-finite-algebra",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "The ordinary idempotent of an element of a finite algebra",
+   "kind": "construction",
+   "statement": "Let R be a noetherian local ring with finite residue field, A an R-algebra (not necessarily commutative) that is a finite R-module, m-adically complete, and t ∈ A. Then e_t := lim_n t^{n!} exists in A, is the value at 1 of the profinite ordinary projector of left multiplication by t, is an idempotent lying in the R-subalgebra R[t] generated by t, and commutes with every element commuting with t. For an A-module N that is a finite R-module, e_t acts on N as the ordinary projector of t|_N.",
+   "hypotheses": [
+    "R[t] = Algebra.adjoin R {t}, a finite R-submodule of A, closed and complete by Artin–Rees and Krull.",
+    "Applies to A = End_R(M) and A = End_{K(R)}(C) for a good complex C."
+   ],
+   "proofSteps": [
+    "Apply adic-instance to the finite R-module R[t] with U = left multiplication by t; put e_t = e_U(1).",
+    "Then t^{n!} = U^{n!}(1) → e_U(1); e_t² = e_U(e_U(1)) = e_t since e_U is left multiplication by e_t (it commutes with right multiplications).",
+    "For N, the map A → N, a ↦ a n, intertwines left multiplication by t with t|_N, so profinite-projector-natural gives e_t n = e_{t|N}(n)."
+   ],
+   "acceptance": [
+    "e_t is characterised inside R[t]; an abstract idempotent with the right action on cohomology is not a substitute (stage text)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/adic-instance",
+    "PadicFamilies:L0a/profinite-ordinary-projector",
+    "PadicFamilies:L0a/profinite-projector-natural",
+    "AdicSpacesPartII:F0/finite-module-inverse-limit",
+    "mathlib:Algebra.adjoin",
+    "mathlib:LinearMap.mulLeft",
+    "mathlib:IsIdempotentElem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryComplex",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.12 and proof, p. 10 (arXiv v2)",
+     "excerpt": "e is a polynomial in t",
+     "match": "Khare–Thorne's idempotent lies in the R-subalgebra generated by t."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, proof of Lemma 2.12, p. 10 (arXiv v2)",
+     "excerpt": "We see that as N →∞the endomorphism of the ﬁnite R-module H∗(C•) induced by tN! approaches the endomorphism induced by e",
+     "match": "The limit description e = lim t^{N!}."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L0a/derived-ordinary-idempotent",
+     "how": "applied to A = End_{K(R)}(C), a finite R-algebra, and t the given endomorphism."
+    },
+    {
+     "where": "PadicFamilies:L0",
+     "how": "the ordinary idempotent of U_p in the finite-level Hecke algebra, compatible along the tower."
+    },
+    {
+     "where": "PotentialAutomorphyInfrastructure:PA.2",
+     "how": "the idempotent attached to U_p in T^{S,ord} acting on the arithmetic complexes (ACC+ §5.1)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryIdempotent",
+     "role": "constructor",
+     "statement": "e_t := e_{L_t}(1)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryIdempotent_mem_adjoin",
+     "role": "characterisation",
+     "statement": "e_t ∈ Algebra.adjoin R {t}."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.isIdempotentElem_ordinaryIdempotent",
+     "role": "structure",
+     "statement": "e_t² = e_t."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.tendsto_pow_factorial_ordinaryIdempotent",
+     "role": "characterisation",
+     "statement": "e_t − t^{n!} ∈ mᵏA for n ≥ |A/mᵏA|."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.ordinaryIdempotent_smul",
+     "role": "compatibility",
+     "statement": "e_t • n = ordinary projector of t|_N applied to n."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.map_ordinaryIdempotent",
+     "role": "functoriality",
+     "statement": "φ(e_t) = e_{φ(t)} for R-algebra maps of finite algebras."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ordinaryIdempotent_padicInt",
+     "kind": "example",
+     "statement": "A = ℤ_p: e_p = 0 and e_u = 1 for u a unit."
+    },
+    {
+     "name": "ordinaryIdempotent_prod",
+     "kind": "example",
+     "statement": "A = ℤ_p × ℤ_p, t = (1, p): e_t = (1, 0)."
+    },
+    {
+     "name": "ordinaryIdempotent_matrix",
+     "kind": "example",
+     "statement": "A = M₂(ℤ_p), t = (1 1; 0 p): e_t = (1 1/(1 − p); 0 0), the projection onto the unit eigenline along the p-eigenline; its entries are integral because 1 − p is a unit."
+    },
+    {
+     "name": "ordinaryIdempotent_nilpotent",
+     "kind": "example",
+     "statement": "t nilpotent ⇒ e_t = 0."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L0a/derived-ordinary-idempotent",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "The ordinary part of a perfect complex",
+   "kind": "theorem",
+   "statement": "Let R be a complete noetherian local ring with finite residue field, C a good complex (bounded, with finite projective terms) and t ∈ End_{K(R)}(C) = End_{D(R)}(C). There is a unique idempotent e ∈ End_{K(R)}(C) such that e is a polynomial in t (e ∈ R[t]), H(t) acts invertibly on H(e)H*(C) and topologically nilpotently on (1 − H(e))H*(C); namely e = e_t = lim t^{n!}. For any chain representative T of t, the degreewise ordinary part C_{T,ord} is a direct summand subcomplex whose projection represents e, so e splits in K(R); the resulting C_ord is unique up to isomorphism in K(R), independent of T, and carries x ↦ e x e from any finite R-subalgebra of End_{K(R)}(C) commuting with t.",
+   "hypotheses": [
+    "C good in Khare–Thorne's sense (§2.2); K(R) is the homotopy category, with End_{K(R)}(C) = End_{D(R)}(C) for good C.",
+    "Uses End_{K(R)}(C), a finite R-module since R is noetherian and C has finite projective terms."
+   ],
+   "proofSteps": [
+    "End_{K(R)}(C) is a quotient of the finite R-module of chain endomorphisms, hence a finite R-algebra; apply ordinary-idempotent-finite-algebra to t.",
+    "For a representative T, e_T (ordinary-part-complexes) is a chain idempotent with e_T = T^{n!} modulo mᵏ for n large, so its class is lim t^{n!} = e: this splits e in K(R).",
+    "Properties on cohomology follow from ordinary-part-complexes.",
+    "Uniqueness: idempotents of the finite commutative R-algebra R[t] = ∏ R[t]_𝔪 (R complete) correspond to sets of maximal ideals; the cohomological conditions force the set {𝔪 : t ∉ 𝔪}."
+   ],
+   "acceptance": [
+    "Do not assume that D(R) is idempotent complete in the library: the splitting is produced from the degreewise ordinary part of a representative.",
+    "Record Khare–Thorne's standing hypothesis: R complete noetherian local with finite residue field."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/ordinary-idempotent-finite-algebra",
+    "PadicFamilies:L0a/ordinary-part-complexes",
+    "PadicFamilies:L0a/adic-instance",
+    "DeformationAndDerivedPatchingAlgebra:P7",
+    "mathlib:HomotopyCategory",
+    "mathlib:Homotopy"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryComplex",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Lemma 2.12, p. 10 (arXiv v2)",
+     "excerpt": "Then there is a unique idempotent e ∈EndD(R)(C•) with the following properties:",
+     "match": "Khare–Thorne Lemma 2.12."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.2, definition of good and minimal complexes, p. 6 (arXiv v2)",
+     "excerpt": "We say that a complex C• is good if it is bounded, and each Ci is a projective",
+     "match": "The class of complexes."
+    },
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§5.1, p. 94 (arXiv v2)",
+     "excerpt": "By the theory of ordinary parts (cf. [KT17, §2.4])",
+     "match": "ACC+ define the ordinary summand of RΓ(X_K, V_λ) by this lemma."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Ordinary part of a perfect complex"
+   }
+  },
+  {
+   "id": "PadicFamilies:L0a/ordinary-complexes-inverse-limit",
+   "parentStageId": "PadicFamilies:L0a",
+   "realises": [
+    "PadicFamilies:L0a"
+   ],
+   "title": "Ordinary parts along a tower of coefficient rings",
+   "kind": "theorem",
+   "statement": "Let R be a complete noetherian local ring with finite residue field, I_1 ⊇ I_2 ⊇ … open ideals cofinal with the powers of m, R_c = R/I_c. Suppose given perfect complexes M_c of free R_c-modules, t_c ∈ End_{D(R_c)}(M_c) and morphisms f_{c+1} : M_{c+1} ⊗ R_c → M_c with f_{c+1}(t_{c+1} ⊗ 1) = t_c f_{c+1} inducing isomorphisms H*(M_{c+1} ⊗ R_c)_ord ≅ H*(M_c)_ord. Then there are a minimal complex F_∞ over R and maps g_c : F_∞ ⊗ R_c → M_c, g'_c : M_c → F_∞ ⊗ R_c with g'_c g_c = 1, g_c g'_c the ordinary idempotent of t_c, compatible with the f_c; H*(F_∞ ⊗ R_c) ≅ H*(M_c)_ord. The triple is unique up to an isomorphism unique up to homotopy, and compatible endomorphisms s_c commuting with t_c glue to a unique s_∞ ∈ End_{D(R)}(F_∞).",
+   "hypotheses": [
+    "Cofinality of (I_c) with (mⁿ) is automatic in a complete noetherian local ring (Chevalley); it is stated as a hypothesis here.",
+    "Minimal complexes (KT Lemma 2.3) and the gluing of good complexes and homotopy classes along R_c (KT Lemmas 2.13–2.14) are imported from DeformationAndDerivedPatchingAlgebra P7."
+   ],
+   "proofSteps": [
+    "Replace each M_c by a minimal complex; choose a chain representative T_c and put F_c = (M_c)_{T_c,ord} with inclusion i_c and projection p_c; then i_c p_c = t_c^{N_c!} in D(R_c).",
+    "a_{c+1} = p_c f_{c+1}(i_{c+1} ⊗ 1) : F_{c+1} ⊗ R_c → F_c is a quasi-isomorphism of minimal complexes, hence an isomorphism; glue the F_c to F_∞ with isomorphisms b_c (P7, KT Lemma 2.13) and set g_c = i_c b_c, g'_c = b_c⁻¹ p_c.",
+    "H*(F_∞) = lim H*(F_c) by the Milnor sequence, since towers of finite modules over R_c are Mittag-Leffler.",
+    "Uniqueness and gluing of s_∞ by the homotopy-class gluing of P7 (KT Lemma 2.13(3))."
+   ],
+   "acceptance": [
+    "Keep the ordinary-cohomology compatibility hypothesis; transition maps that are isomorphisms only on the whole cohomology are not required.",
+    "The identity g_c g'_c = i_c p_c holds as chain maps, before passing to D(R_c)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/derived-ordinary-idempotent",
+    "PadicFamilies:L0a/ordinary-part-complexes",
+    "PadicFamilies:L0a/profinite-projector-exact",
+    "DeformationAndDerivedPatchingAlgebra:P7",
+    "ArithmeticGaloisDuality:R02.1/milnor-sequence",
+    "ArithmeticGaloisDuality:R02.1/mittag-leffler-lim-one"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/OrdinaryComplex",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, Proposition 2.15, statement point 3, p. 13 (arXiv v2)",
+     "excerpt": "The induced map on cohomology of gcg′ c is projection onto H∗(M • c )ord along H∗(M • c )non-ord.",
+     "match": "Khare–Thorne Proposition 2.15."
+    },
+    {
+     "sourceId": "KHARE-THORNE-2017",
+     "locator": "§2.4, proof of Proposition 2.15, p. 13 (arXiv v2)",
+     "excerpt": "ic ◦pc = tNc! c holds in EndD(Rc)(M • c )",
+     "match": "The factorial-power identity used to transport the idempotents."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Ordinary complexes along a tower"
+   }
+  },
+  {
+   "id": "PadicFamilies:L2a/spectral-hypersurface",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "The Fredholm spectral hypersurface",
+   "kind": "construction",
+   "statement": "For a compact controlling operator φ on a (Pr) Banach R-module, form Z_φ=V(det(1−Tφ)) inside Sp(R)×A¹_an. The coordinate T records the reciprocal of a nonzero φ-eigenvalue.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm.",
+    "A commutative Hecke algebra acts continuously and contains φ."
+   ],
+   "proofSteps": [
+    "Use the entire Fredholm series to define a closed rigid subspace.",
+    "Cover the analytic affine line by closed discs and construct the truncated affinoid zero loci.",
+    "Use coefficientwise determinant base change to identify the pullback spectral hypersurface."
+   ],
+   "acceptance": [
+    "Keep the nilpotent structure of the zero locus.",
+    "Verify Tφ=1 on a selected eigenline; do not reverse the reciprocal convention."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L4/summand-fredholm-theory",
+    "LocallyAnalyticDistributions:L4/fredholm-determinant",
+    "LocallyAnalyticDistributions:L4/entire-series",
+    "LocallyAnalyticDistributions:L4/projective-banach-modules",
+    "LocallyAnalyticDistributions:L4/completed-base-change"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "§4 setup, pp. 25–26; §5, p. 32",
+     "excerpt": "the reciprocals of the non-zero eigenvalues",
+     "match": "This identifies the spectral coordinate and the zero-locus construction."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L2a/flat-spectral-charts",
+     "how": "its truncations Z_r = Sp R⟨T/r⟩/(P) are the charts."
+    },
+    {
+     "where": "PadicFamilies:L2a/admissible-slope-cover",
+     "how": "the space the slope blocks cover admissibly."
+    },
+    {
+     "where": "PadicFamilies:L2",
+     "how": "Coleman–Mazur's spectral curve of U_p on overconvergent forms."
+    },
+    {
+     "where": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+     "how": "the spectral variety of the definite unitary eigenvariety (via global-weight-gluing)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.spectralVariety",
+     "role": "constructor",
+     "statement": "Z_φ := V(det(1 − Tφ)) ⊆ Sp R × 𝔸¹, as a rigid space over Sp R."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.spectralVariety_truncation",
+     "role": "characterisation",
+     "statement": "Z_φ ∩ (Sp R × B[0, r]) = Sp R⟨T/r⟩/(P)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.mem_spectralVariety_iff",
+     "role": "characterisation",
+     "statement": "(x, λ) ∈ Z_φ iff 1 − λφ_x is not invertible on M ⊗ k(x), i.e. λ⁻¹ is a nonzero eigenvalue."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.spectralVariety_baseChange",
+     "role": "compatibility",
+     "statement": "Z_{φ⊗1} over R' is the pullback of Z_φ (coefficientwise base change of the Fredholm series)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "spectralVariety_zero",
+     "kind": "example",
+     "statement": "φ = 0: det(1 − Tφ) = 1 and Z_φ = ∅."
+    },
+    {
+     "name": "spectralVariety_rankOne",
+     "kind": "example",
+     "statement": "M = R, φ = a: Z_φ = V(1 − aT) has one point T = 1/a(x) over each x with a(x) ≠ 0 and none over the zeros of a."
+    },
+    {
+     "name": "spectralVariety_nonreduced",
+     "kind": "example",
+     "statement": "M = R², φ = (1 1; 0 1): det(1 − Tφ) = (1 − T)², so Z_φ is nonreduced along T = 1 (the nilpotent structure is kept)."
+    }
+   ],
+   "planet": {
+    "name": "Fredholm spectral variety"
+   }
+  },
+  {
+   "id": "PadicFamilies:L2a/flat-spectral-charts",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Flat quasi-finite spectral charts",
+   "kind": "lemma",
+   "statement": "Each closed-disc truncation Z_r of an entire Fredholm hypersurface with constant coefficient one maps flatly and quasi-finitely to the affinoid weight base. Every affinoid subdomain of Z has the same properties.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm.",
+    "The radius lies in the divisible closure of |K×|."
+   ],
+   "proofSteps": [
+    "After extending/rescaling the radius, reduce to R⟨T⟩/(P).",
+    "Use Weierstrass preparation to prove finite fibers.",
+    "Use flatness of the Tate algebra and the nonzero image of P in each residue-field Tate algebra, followed by the local flatness criterion."
+   ],
+   "acceptance": [
+    "Track why the constant coefficient one excludes the zero function in every fiber.",
+    "This is quasi-finite flatness, not a claim that the whole spectral map is finite."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/spectral-hypersurface",
+    "AdicSpacesPartII:R0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Lemma 4.1 and Corollary 4.2, p. 27",
+     "excerpt": "Lemma 4.1. fr : Zr →B is quasi-ﬁnite and ﬂat.",
+     "match": "The proof separates Weierstrass preparation from the nonzerodivisor/local-flatness argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L2a/constant-rank-finiteness",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Constant fiber rank gives finite charts",
+   "kind": "theorem",
+   "statement": "An affinoid spectral domain over an admissible open weight domain is finite flat when all its fibers have the same finite rank. The imported general criterion requires flatness, quasi-compactness, separatedness, finite fibers and locally constant fiber rank.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm."
+   ],
+   "proofSteps": [
+    "Apply the already proved flatness of spectral charts.",
+    "Invoke Conrad’s rigid finiteness criterion; its proof passes through flat quasi-finite formal models and a scheme-theoretic fiber-rank criterion.",
+    "Verify each geometric hypothesis for the selected chart."
+   ],
+   "acceptance": [
+    "Retain quasi-compactness and separatedness, including over nondiscretely valued fields.",
+    "Require the generic formal-model supplier to provide the stated theorem, not just an object called a formal model."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/flat-spectral-charts",
+    "AdicSpacesPartII:R2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Corollary 4.3, p. 27",
+     "excerpt": "full force of Raynaud’s",
+     "match": "Buzzard explicitly identifies the formal-model dependence."
+    },
+    {
+     "sourceId": "Conrad-ModularRigid-2006",
+     "locator": "Theorem A.1.2 and proof, internal pp. 37–39",
+     "excerpt": "The map f is ﬁnite if and only if it is quasi-compact and separated with ﬁnite ﬁbers and its ﬁber-rank is locally constant on Y .",
+     "match": "The checked criterion supplies the missing finiteness implication and exposes its formal-model inputs."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L2a/newton-degree-loci",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Newton polygons and fiber-degree loci",
+   "kind": "lemma",
+   "statement": "For a fixed closed-disc radius, the loci where the truncated spectral fiber has degree at least i are finite unions of affinoid domains, vanish for sufficiently large i and form a decreasing filtration of the weight base.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm.",
+    "The defining series is entire with constant coefficient one."
+   ],
+   "proofSteps": [
+    "Choose a uniform coefficient cutoff after which |r_n|r^n<1.",
+    "Describe the locus where the weighted n-th coefficient achieves the maximum by affinoid inequalities.",
+    "Read fiber degree from the Newton polygon to express the degree-at-least-i locus as a finite union of these domains."
+   ],
+   "acceptance": [
+    "Prove a single finite cutoff valid over the whole affinoid base.",
+    "Do not assume that an arbitrary quasi-finite image of an affinoid is affinoid."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/spectral-hypersurface",
+    "LocallyAnalyticDistributions:L4/entire-series"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Lemma 4.4 and proof, p. 28",
+     "excerpt": "Then each Ui is a ﬁnite union of aﬃnoid subdomains of B, and Ui is empty for i suﬃciently large.",
+     "match": "The finite coefficient cutoff and Newton-polygon argument give exactly this admissible structure."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L2a/strict-slope-neighborhoods",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Strict neighborhoods with a fixed slope block",
+   "kind": "construction",
+   "statement": "Let r be in the divisible closure of |K×| and let V be an affinoid subdomain of B=Max(R) over which f_r:f_r^{-1}(V)→V is finite of constant degree d>0. Construct an affinoid subdomain X of B that is a strict neighbourhood of V (Buzzard's p. 28 definition: there is a finite union W of affinoid subdomains with V∩W=∅ and X∪W=B) and a radius s>r in the divisible closure of |K×| such that Y=f_s^{-1}(X) contains f_r^{-1}(V), is finite flat of degree d over X, and is open-and-closed in the full spectral preimage f^{-1}(X), so Y lies in the cover C.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm; P(T)=Σ r_n T^n is entire with r_0=1.",
+    "r lies in the divisible closure of |K×| and V is an affinoid subdomain of B.",
+    "The initial block f_r^{-1}(V)→V is finite of positive constant degree d."
+   ],
+   "proofSteps": [
+    "Newton polygons: constant fibre degree d over V means |r_d(x)|≠0 and −log|r_n(x)| ≥ (n−d)log r − log|r_d(x)| for all n, strictly for n>d; use r_0=1 at n=0 to get |r_d(x)| ≥ r^{−d} on V.",
+    "Entire decay gives N>d with −log|r_n(x)| > n log(r+1) for n≥N on all of B; the maximum modulus principle on the affinoid V gives t with r<t<r+1 such that −log|r_n(x)| ≥ (n−d)log t − log|r_d(x)| for all n on V, with equality only at n=d.",
+    "Choose γ1,γ2,δ1,δ2 in log of the divisible closure of |K×| with log r<γ1<γ2<log t and δ1 < −log|r_d| < δ2 on V. Define X by the N Laurent/rational conditions δ1 ≤ −log|r_d(x)| ≤ δ2; −log|r_n(x)|+log|r_d(x)| ≥ (n−d)γ1 for 0 ≤ n < d (the n=0 condition −log|r_d(x)| ≤ dγ1 is the uniform lower bound for |r_d| on X that the printed range 0<n<d omits); −log|r_n(x)|+log|r_d(x)| ≥ (n−d)log t for d<n<N (printed as (n−d)t). On X the bound |r_d|≥e^{−δ2} makes r_d a unit, so the ratio conditions are Weierstrass conditions inside a Laurent domain and X is an affinoid subdomain.",
+    "Strict neighbourhood: V satisfies every defining inequality strictly, so V⊂X. Let W be the union of the affinoid subdomains {|r_d| ≥ e^{−δ1}}, {|r_d| ≤ e^{−δ2}} and, for each ratio condition, {|r_d| ≥ e^{−δ2}} ∩ {reversed ratio inequality}; the intersection with the Laurent domain where r_d is a unit is needed for these pieces to be affinoid subdomains (a bare condition |r_n| ≥ c|r_d| is not an affinoid subdomain at common zeros of r_n and r_d). Then V∩W=∅ and X∪W=B; the manuscript prints X∩W=∅ and X∪V=B, which are the wrong identities.",
+    "Set s=exp(γ2). For x∈X and every n≠d one has −log|r_n(x)|+log|r_d(x)| > (n−d)γ2: for 0≤n<d from γ1<γ2, for d<n<N from γ2<log t, and for n≥N from the entire bound together with the n=0 condition (log|r_d(x)| ≥ −dγ1). Hence the Newton polygon of P_x has exactly d roots of norm ≤ s and none of norm s, so f_s^{-1}(X)→X has constant degree d and Corollary 4.3 makes it finite flat.",
+    "Y∈C: once Y→X is finite, Y is open and closed in f^{-1}(X) by footnote 2 (Grosse-Klönne; BGR 9.6.3/3 and 9.5.3/5); alternatively make the pointwise 'no root of norm s' uniform on the affinoid X by the maximum modulus principle to obtain an empty annulus s<|T|≤s' over X."
+   ],
+   "acceptance": [
+    "Recheck the displayed inequalities against the corrected statement recorded in the gap 'Printed radius and strict-neighbourhood errors': (n−d)log t not (n−d)t; V∩W=∅ and X∪W=B; the n=0 (equivalently δ2<dγ2) lower bound for |r_d| on X; affinoid pieces of W taken inside {|r_d| ≥ e^{−δ2}}.",
+    "Test the corrected construction on P(T)=1+uT over B=Sp K⟨u⟩ with V={|u|=1}, r=1, d=1: without the lower bound for |r_d|=|u| the printed X contains points with empty fibre over the disc of radius s, so the degree is not constant.",
+    "Prove the finite-flat and open-and-closed conclusions from the corrected inequalities, keeping radii and logarithmic radii distinct."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/newton-degree-loci",
+    "PadicFamilies:L2a/constant-rank-finiteness"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Lemma 4.5 and proof, pp. 29–30 (rendered PDF pages inspected by the author of the packet and again by R1-review)",
+     "excerpt": "Because functions on aﬃnoids attain their bounds",
+     "match": "This uniform bound is the core source step; the packet records, rather than silently copies, the printed defects listed in the gap."
+    },
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Definition of strict neighbourhood, p. 28",
+     "excerpt": "• U ∩S is empty, • U ∪T = B.",
+     "match": "The definition requires a witness disjoint from V (=S) whose union with X (=T) is B; this fixes the corrected identities V∩W=∅ and X∪W=B."
+    },
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "p. 30, lines 'and let W be the union of these N affinoids, then X ∩ W is empty and X ∪ V = B'",
+     "excerpt": "then X ∩W is empty and X ∪V = B.",
+     "match": "Verbatim record of the printed (incorrect) identities; X∩W is nonempty on the boundary where equality holds and X∪V=X≠B in general."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L2a/admissible-slope-cover",
+     "how": "the induction step enlarging each finite block."
+    },
+    {
+     "where": "PadicFamilies:L2a/slope-polynomials",
+     "how": "the blocks Y it produces are the charts of the cover C."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.strictNeighbourhood",
+     "role": "constructor",
+     "statement": "The affinoid X ⊇ V and radius s > r of the corrected Lemma 4.5."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.subset_strictNeighbourhood",
+     "role": "characterisation",
+     "statement": "V ⊆ X."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.strictNeighbourhood_witness",
+     "role": "characterisation",
+     "statement": "A finite union of affinoids W with V ∩ W = ∅ and X ∪ W = B."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.strictNeighbourhood_finiteFlat",
+     "role": "characterisation",
+     "statement": "f_s⁻¹(X) → X is finite flat of degree d and open-and-closed in f⁻¹(X)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "strictNeighbourhood_counterexample",
+     "kind": "example",
+     "statement": "P(T) = 1 + uT over Sp K⟨u⟩, V = {|u| = 1}, r = 1, d = 1: with the printed conditions and δ₂ > γ₂, X contains points with empty fibre over B[0, s]; with the n = 0 condition the degree is 1 on X."
+    },
+    {
+     "name": "strictNeighbourhood_constant",
+     "kind": "example",
+     "statement": "P(T) = 1 − T (a constant family): V = B gives X = B and f_s⁻¹(B) ≅ B, degree 1."
+    },
+    {
+     "name": "strictNeighbourhood_witness_identities",
+     "kind": "example",
+     "statement": "For P = 1 + uT the printed X ∩ W contains the boundary points |u| = e^{−δ₂}, while the corrected identities V ∩ W = ∅ and X ∪ W = B hold."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L2a/admissible-slope-cover",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "An admissible cover by finite slope blocks",
+   "kind": "theorem",
+   "statement": "The affinoid domains Y of Z that are finite surjective over an affinoid weight domain and open-and-closed in its full spectral preimage form an admissible cover of Z.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm."
+   ],
+   "proofSteps": [
+    "For each truncated Z_r, filter the base by the finite degree-at-least-i loci U_i of Lemma 4.4 (each a finite union of affinoids, U_{i+1}⊆U_i, empty for large i).",
+    "Start with the maximal-degree locus U_d: cover it by affinoids V_α, where the degree is exactly d, so Corollary 4.3 gives finite flatness; enlarge each block to a strict neighbourhood X_α with Y_α=f_{s_α}^{-1}(X_α) by Lemma 4.5.",
+    "Descend by induction on i: from a witness W with W∩U_i=∅ and W∪⋃X_α=B, cover W∩U_{i−1} (a finite union of affinoids on which the degree is exactly i−1) by new blocks, apply Lemma 4.5 to them, and intersect witnesses to keep a strict-neighbourhood witness for U_{i−1}.",
+    "Coverage of f_r^{-1}(U_{i−1}) needs, for the old blocks, f_r^{-1}(X_α)⊆Y_α, which holds because s_α>r; record this in the induction hypothesis H(i), since the printed H(i) only records f_r^{-1}(U_i)⊆⋃Y_α and the printed step ends without checking coverage of points of U_{i−1}∖U_i lying in some X_α.",
+    "Conclude that every Z_r is covered by finitely many selected affinoids; since Y∩Z_r is an affinoid subdomain of the affinoid Z_r, the cover is admissible."
+   ],
+   "acceptance": [
+    "Establish a finite cover on each Z_r, not merely coverage of geometric points.",
+    "Keep the strict-neighborhood induction and the finite-flatness theorem as explicit prerequisites."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/newton-degree-loci",
+    "PadicFamilies:L2a/strict-slope-neighborhoods",
+    "PadicFamilies:L2a/constant-rank-finiteness"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Theorem 4.6 and full proof, pp. 30–31",
+     "excerpt": "Theorem 4.6. C is an admissible cover of Z.",
+     "match": "The source proves admissibility by finite covers of each truncation and descending degree induction."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Admissible cover by slope blocks"
+   }
+  },
+  {
+   "id": "PadicFamilies:L2a/slope-polynomials",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "A polynomial for each spectral block",
+   "kind": "construction",
+   "statement": "For a connected affinoid weight domain A and a finite-flat spectral block Y of degree d, identify O(Y) with A[T]/(Q₀), normalize Q₀ to have constant term one, and obtain a coprime factor Q of the Fredholm series. Apply the Riesz theorem to obtain the associated finite projective Hecke-stable summand N.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm.",
+    "Y belongs to the admissible slope cover."
+   ],
+   "proofSteps": [
+    "Take the characteristic polynomial Q_0 (monic of degree d) of the spectral coordinate T acting on the finite projective module O(Y) over the connected affinoid A=O(X); Cayley–Hamilton gives A[T]/(Q_0)→O(Y).",
+    "Use the closed immersion of Y in X×B[0,r] and the equivalence of residue and finite-module Banach norms (BGR 3.7.4/1) to prove that A[T]/(Q_0)→O(Y) is surjective; equal ranks make it an isomorphism, so F_A vanishes in A{{T}}/(Q_0) and Q_0 divides F_A.",
+    "Normalise Q=a_0^{-1}Q_0 with Q(0)=1 and unit leading coefficient. The source invokes Theorem 3.3 without arguing that Q is coprime to S:=F_A/Q. Supply it: Y is open and closed in f^{-1}(X), so over each point x the roots of Q_x are the roots of F_x lying in Y_x with their full multiplicities; hence S_x has no root in common with Q_x, Res(Q,S) has no zero on Max(A), so it is a unit in the affinoid A and (Q,S)=1 by the resultant-unit criterion.",
+    "Apply the exact finite-slope theorem to obtain N with Q*(φ)=0 on N; the projector lies in the closure of A[φ], so N is stable under the commuting Hecke algebra."
+   ],
+   "acceptance": [
+    "Prove Q(0)=1 and a unit leading coefficient, and justify coprimality with the complementary factor.",
+    "Prove coprimality of Q with the cofactor S explicitly (the source omits it); test on a chart whose fibre over some point has a root of F_x of multiplicity 2 to see why the open-and-closed property is what guarantees full multiplicities in Q_x.",
+    "Keep N finite projective; a global basis is not part of the conclusion."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/admissible-slope-cover",
+    "LocallyAnalyticDistributions:L4/finite-slope-summands",
+    "LocallyAnalyticDistributions:L4/resultant-unit",
+    "LocallyAnalyticDistributions:L4/entire-resultants"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "§5, pp. 34–35",
+     "excerpt": "in general N will not be free",
+     "match": "The source derives the slope polynomial from O(Y) and invokes Theorem 3.3 with projective, not free, output."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L2a/finite-hecke-images",
+     "how": "the finite projective summand N carries the Hecke action."
+    },
+    {
+     "where": "PadicFamilies:L2a/linked-banach-families",
+     "how": "Q* has unit constant term, so φ is invertible on N by a polynomial."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.slopePolynomial",
+     "role": "constructor",
+     "statement": "Q = a₀⁻¹Q′ with Q′ the characteristic polynomial of T on O(Y)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.slopePolynomial_constantCoeff",
+     "role": "simp",
+     "statement": "Q(0) = 1 and the leading coefficient of Q is a unit."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.slopePolynomial_isCoprime",
+     "role": "characterisation",
+     "statement": "Q and F_A/Q are coprime (resultant a unit)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.slopeSummand",
+     "role": "data",
+     "statement": "N ⊆ M_A with Q*(φ) = 0 on N, finite projective of rank d, Hecke-stable."
+    }
+   ],
+   "tests": [
+    {
+     "name": "slopePolynomial_rankOne",
+     "kind": "example",
+     "statement": "M = R, φ = a, Y = Z_φ: Q = 1 − aT and N = M."
+    },
+    {
+     "name": "slopePolynomial_diagonal",
+     "kind": "example",
+     "statement": "M = R², φ = diag(a, b) with |a| ≠ |b| on X: two blocks with Q = 1 − aT and Q = 1 − bT."
+    },
+    {
+     "name": "slopePolynomial_double_root",
+     "kind": "example",
+     "statement": "φ = (a 1; 0 a): Q = (1 − aT)² and N = M; a chart cutting the double root would violate open-and-closedness."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L2a/finite-hecke-images",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Finite Hecke algebras on slope blocks",
+   "kind": "construction",
+   "statement": "Let T(Y) be the image of the commuting Hecke algebra in End_A(N). It is finite over A and over O(Y), where the spectral coordinate acts as φ⁻¹. Its affinoid spectrum D(Y) is therefore finite over Y.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm.",
+    "N is the finite projective slope summand."
+   ],
+   "proofSteps": [
+    "The Riesz projector commutes with Hecke operators, so every Hecke action restricts to N.",
+    "Use Noetherianity and finiteness of End_A(N) to prove that the Hecke image is finite.",
+    "Use the reciprocal slope polynomial and its unit constant term to express φ⁻¹ polynomially and construct O(Y)→T(Y)."
+   ],
+   "acceptance": [
+    "Retain generalized eigenspaces and nilpotents.",
+    "Verify that the finite algebra is the actual image on N, not an abstract algebra specified by desired eigenvalues."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/slope-polynomials",
+    "LocallyAnalyticDistributions:L4/riesz-commuting-stability"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "§5, pp. 34–35",
+     "excerpt": "A-algebra and hence an aﬃnoid.",
+     "match": "The source constructs the Hecke-image algebra inside End_A(N) and its spectral map."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L2a/hecke-chart-gluing",
+     "how": "the local pieces D(Y) = Max T(Y)."
+    },
+    {
+     "where": "PadicFamilies:L2a/eigenpacket-points",
+     "how": "K-points of D(Y) above P are characters of T(Y)/mT(Y)."
+    },
+    {
+     "where": "PadicFamilies:L2a/equidimensional-components",
+     "how": "T(Y) ⊆ End_A(N) is A-torsion-free after flat base change."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.heckeImage",
+     "role": "constructor",
+     "statement": "T(Y) := image of the Hecke algebra in End_A(N)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.heckeImage_finite",
+     "role": "instance",
+     "statement": "T(Y) is a finite A-algebra, hence affinoid."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.heckeImage_algebraMap",
+     "role": "compatibility",
+     "statement": "O(Y) → T(Y) sending T to φ⁻¹."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.heckeImage_le_end",
+     "role": "characterisation",
+     "statement": "T(Y) is a commutative subalgebra of End_A(N)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "heckeImage_generated_by_phi",
+     "kind": "example",
+     "statement": "Hecke algebra generated by φ: T(Y) = A[φ]|_N, a quotient of O(Y) with nilpotent kernel (Chenevier 6.4.3)."
+    },
+    {
+     "name": "heckeImage_nonreduced",
+     "kind": "example",
+     "statement": "Buzzard's example over R = K⟨X, Y⟩ (§5, p. 33): T(Z_φ) = R ⊕ I is finite, torsion-free and nonreduced."
+    },
+    {
+     "name": "heckeImage_zero",
+     "kind": "example",
+     "statement": "N = 0: T(Y) = 0 and D(Y) = ∅."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L2a/hecke-chart-gluing",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Gluing Hecke charts",
+   "kind": "construction",
+   "statement": "Construct compatible identifications of D(Y) under affinoid restriction and intersections of spectral blocks, then glue the D(Y) and their finite maps to a separated rigid eigenvariety finite over Z.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm."
+   ],
+   "proofSteps": [
+    "Restrict a block idempotent to a smaller weight affinoid and identify the Hecke algebra by flat completed base change.",
+    "For two blocks multiply their idempotents to describe the intersection and its corresponding connected components.",
+    "Check the cocycle and glue both spaces and morphisms along the admissible spectral cover."
+   ],
+   "acceptance": [
+    "Prove the overlap maps are the prescribed pullbacks.",
+    "Prove separatedness and local finiteness of the glued morphism."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/finite-hecke-images",
+    "PadicFamilies:L2a/admissible-slope-cover",
+    "AdicSpacesPartII:R3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Lemmas 5.1–5.3 and gluing argument, pp. 35–37",
+     "excerpt": "we can glue the maps",
+     "match": "The finite charts glue through the explicitly compared intersections and restriction maps."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L2a/flat-eigenvariety-base-change",
+     "how": "the glued space compared after base change."
+    },
+    {
+     "where": "PadicFamilies:L2a/global-weight-gluing",
+     "how": "the affinoid eigenvarieties glued over W."
+    },
+    {
+     "where": "PadicFamilies:L2a/eigenpacket-points",
+     "how": "points computed chart by chart."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.eigenvariety",
+     "role": "constructor",
+     "statement": "D_φ, glued from the D(Y), Y ∈ C."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.eigenvariety_toSpectral",
+     "role": "projection",
+     "statement": "The finite map D_φ → Z_φ."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.eigenvariety_restrict",
+     "role": "compatibility",
+     "statement": "D_φ ×_{Z_φ} Y ≅ D(Y) for Y ∈ C, compatible with restriction to smaller blocks."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.eigenvariety_separated",
+     "role": "instance",
+     "statement": "D_φ is separated."
+    }
+   ],
+   "tests": [
+    {
+     "name": "eigenvariety_phi_only",
+     "kind": "example",
+     "statement": "Hecke algebra = R[φ]: D_φ → Z_φ is a nil-isomorphism."
+    },
+    {
+     "name": "eigenvariety_zero",
+     "kind": "example",
+     "statement": "φ = 0: D_φ = ∅."
+    },
+    {
+     "name": "eigenvariety_single_block",
+     "kind": "example",
+     "statement": "If Z_φ ∈ C is one block, D_φ = D(Z_φ)."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L2a/flat-eigenvariety-base-change",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Flat base change of eigenvarieties",
+   "kind": "comparison",
+   "statement": "For a flat morphism R→R′ of reduced affinoid algebras, the eigenvariety formed after completed scalar extension agrees with the pullback eigenvariety. The spectral hypersurface commutes with arbitrary continuous coefficient extension, but the same assertion for the Hecke-image algebra requires a separate argument.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm.",
+    "R→R′ is flat for the eigenvariety comparison."
+   ],
+   "proofSteps": [
+    "Lemma 5.4: the spectral variety commutes with any continuous base change by Lemma 2.13.",
+    "Pull back the admissible finite-slope cover: for Y∈C its pullback Y′ lies in C′; the pulled-back blocks form an admissible cover of Z_{φ′} because finitely many of them cover each pulled-back truncation Z′_r (the source's appeal to BGR 9.1.4/2 for the separated space Z_{φ′} supplies affinoidness of intersections, not admissibility by itself).",
+    "Use flatness of R→R′ to commute taking the finite Hecke image inside End_A(N) with coefficient extension; without flatness the natural map from D(Y′) to the pullback of D(Y) need not be an isomorphism.",
+    "Glue the finite-chart comparisons along the pulled-back cover."
+   ],
+   "acceptance": [
+    "Retain the flatness hypothesis.",
+    "Use the source’s R=K⟨X,Y⟩ example to test failure after specialization X=Y=0."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/hecke-chart-gluing",
+    "PadicFamilies:L2a/spectral-hypersurface",
+    "LocallyAnalyticDistributions:L4/completed-base-change"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Lemmas 5.4–5.5 and the flatness remark, pp. 37–38",
+     "excerpt": "ﬂatness is necessary for this lemma to be true.",
+     "match": "The source distinguishes determinant base change from Hecke-image base change and gives a concrete nonflat failure."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L2a/linked-banach-families",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Radius changes and linked Banach modules",
+   "kind": "comparison",
+   "statement": "A primitive link α:M′→M with compact Hecke-equivariant c:M→M′ satisfying αc=φ and cα=φ induces an isomorphism of eigenvarieties. Finite composites of primitive links have the same property.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm.",
+    "M and M′ satisfy (Pr) and carry the same commuting Hecke actions."
+   ],
+   "proofSteps": [
+    "Use the cyclic determinant identity (Lemma 2.12; the proof on p. 40 cites Lemma 2.13 for this step, which is the base-change lemma, while p. 39 correctly cites Lemma 2.12) to identify the Fredholm hypersurfaces and hence the slope covers C and C′.",
+    "On every slope block, φ is invertible on N and N′ by a polynomial ψ(φ) in R[φ] because Q* has unit constant term.",
+    "Show ψ(φ)c is a two-sided inverse to α:N′→N on the finite projective summands (α and c commute with φ, so they respect the kernels of Q*(φ)); transport their Hecke-image algebras and glue."
+   ],
+   "acceptance": [
+    "Require genuine intertwining identities for a radius change; equality of pointwise eigenvalues is insufficient.",
+    "Check compatibility with all chart-gluing maps."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/finite-hecke-images",
+    "PadicFamilies:L2a/hecke-chart-gluing",
+    "LocallyAnalyticDistributions:L4/cyclic-determinant-identity"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Primitive links and Lemma 5.6 with proof, pp. 39–40",
+     "excerpt": "a two-sided inverse",
+     "match": "The proof gives an explicit inverse on each slope summand, which induces the eigenvariety isomorphism."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L2a/global-weight-gluing",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "The eigenvariety over weight space",
+   "kind": "construction",
+   "statement": "For a reduced rigid weight space W with (Pr) Banach modules on its affinoids, compact controlling operators, commuting Hecke actions and compatible links under restriction, glue the affinoid constructions to a rigid eigenvariety over W.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "W is a reduced rigid space; for each admissible affinoid open X⊆W, R_X=O(X) with its supremum norm carries a (Pr) Banach module M_X with a commuting action of T and compact φ_X.",
+    "For affinoid opens X_i⊆X_j there are links α_{ij}: M_{X_i} → M_{X_j} ⊗̂_{O(X_j)} O(X_i) with the cocycle α_{13} = (α_{23} ⊗̂ 1) ∘ α_{12} for X_1⊆X_2⊆X_3. The printed display 'α_ij: M_{X_i} → M_{X_i} ⊗̂_{O(X_i)} O(X_j)' on p. 41 is mis-indexed; the corrected typing above is the one used in the proof of Construction 5.7."
+   ],
+   "proofSteps": [
+    "Compare the module on a smaller affinoid with the base extension of the module on a larger one using the link theorem.",
+    "Use flat affinoid base change to compare their eigenvarieties.",
+    "Apply the compatibility of the links to verify descent and glue over W."
+   ],
+   "acceptance": [
+    "Prove canonical restriction to every affinoid and independence of the covering.",
+    "Do not infer reducedness or flatness over W from reducedness of W."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/linked-banach-families",
+    "PadicFamilies:L2a/flat-eigenvariety-base-change",
+    "PadicMeasuresIwasawaAlgebras:L0a"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Construction 5.7 and proof, pp. 40–41",
+     "excerpt": "To the above data",
+     "match": "This is the global eigenvariety machine; the displayed index conventions must be typed through the restriction maps."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L2",
+     "how": "the eigencurve over weight space (Coleman–Mazur, Buzzard §7)."
+    },
+    {
+     "where": "AutomorphicGaloisRepresentationsPartII:AG2.3",
+     "how": "definite unitary eigenvarieties from their coefficient modules and links."
+    },
+    {
+     "where": "AutomorphicPadicLFunctions:L4e",
+     "how": "Eischen–Wan finite-slope Klingen families."
+    },
+    {
+     "where": "PadicFamilies:L2a/equidimensional-components",
+     "how": "the dimension theorem for D_φ over W."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.eigenvarietyOverWeight",
+     "role": "constructor",
+     "statement": "D_φ over W from the data of Construction 5.7."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.weightMap",
+     "role": "projection",
+     "statement": "D_φ → W."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.eigenvalueMap",
+     "role": "projection",
+     "statement": "The φ-eigenvalue coordinate D_φ → 𝔾_m^{an}."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.eigenvarietyOverWeight_restrict",
+     "role": "compatibility",
+     "statement": "Canonical isomorphism with the affinoid construction over every affinoid X ⊆ W."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.Eigenvariety.eigenvarietyOverWeight_cover_indep",
+     "role": "extensionality",
+     "statement": "Independent of the admissible affinoid cover."
+    }
+   ],
+   "tests": [
+    {
+     "name": "eigenvarietyOverWeight_point",
+     "kind": "example",
+     "statement": "W = a point: recovers the eigenvariety of one (Pr) module."
+    },
+    {
+     "name": "eigenvarietyOverWeight_constant",
+     "kind": "example",
+     "statement": "M_X = M ⊗̂ O(X) with φ ⊗ 1 and identity links: D_φ = D_pt × W."
+    },
+    {
+     "name": "eigenvarietyOverWeight_links_identity",
+     "kind": "example",
+     "statement": "With identity links the gluing reduces to hecke-chart-gluing over each affinoid."
+    }
+   ],
+   "planet": {
+    "name": "Eigenvariety machine"
+   }
+  },
+  {
+   "id": "PadicFamilies:L2a/eigenpacket-points",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Points and finite-slope eigenpackets",
+   "kind": "theorem",
+   "statement": "Identify L-points of the constructed eigenvariety with φ-finite simultaneous Hecke eigensystems in the completed coefficient fibers, for complete extensions L/K. This classifies eigensystems, not a unique eigenvector or its multiplicity.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value.",
+    "R is a reduced K-affinoid algebra with its supremum norm."
+   ],
+   "proofSteps": [
+    "Reduce to K-points: the source asserts that separatedness of D_φ lets one base extend to L; the base change of the whole construction along R_X→R_X⊗̂_K L must be justified (it is a flat base change of reduced affinoids, so Lemmas 5.4–5.5 apply), which the source leaves implicit.",
+    "Reduce to a finite projective slope module N over an affinoid chart Y with base X∋P; K-points of D(Y) above P are K-algebra maps from T(Y)/mT(Y) to K.",
+    "For a residue specialization compare T(Y)/mT(Y) with its image S in End_K(N/mN); Lemma 5.10 proves the kernel is nilpotent by Cayley–Hamilton on matrices whose entries lie in m, so both have the same prime ideals, and a K-valued character of the commutative algebra S has a common eigenvector in N/mN.",
+    "Conversely an eigenvector m∈M_X⊗̂K with λ(φ)≠0 gives a point (P,λ(φ)^{-1}) of Z_φ (1−λ(φ)^{-1}φ is not injective, so by Lemma 3.1 over K the Fredholm series vanishes there); choose Y∈C containing it; then Q*_P(λ(φ))=0 and Q*(φ) is invertible on the specialised complement, so m lies in N⊗K. The source states the reduction to N⊗K without this argument."
+   ],
+   "acceptance": [
+    "Retain the distinction between the point classification and an isomorphism of possibly nonreduced specialized Hecke algebras.",
+    "Check that the controlling eigenvalue is nonzero.",
+    "Write out the two directions of the bijection separately; the source's one-sentence reduction to N⊗K and its base-change remark are not proofs."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/finite-hecke-images",
+    "PadicFamilies:L2a/flat-eigenvariety-base-change",
+    "PadicFamilies:L2a/global-weight-gluing",
+    "LocallyAnalyticDistributions:L4/summand-fredholm-theory"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Lemmas 5.9–5.10 and proofs, p. 42",
+     "excerpt": "the kernel of the map",
+     "match": "The nilpotent-kernel argument explains why eigenpackets can specialize correctly even when the full algebra does not commute with base change."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Points are finite-slope eigensystems"
+   }
+  },
+  {
+   "id": "PadicFamilies:L2a/equidimensional-components",
+   "parentStageId": "PadicFamilies:L2a",
+   "realises": [
+    "PadicFamilies:L2a"
+   ],
+   "title": "Equidimensionality and components of the eigenvariety",
+   "kind": "theorem",
+   "statement": "If the reduced weight space W is equidimensional of dimension n, then the eigenvariety D_φ of Construction 5.7 is equidimensional of dimension n, and each irreducible component of D_φ maps finitely and surjectively onto an irreducible component of the spectral variety Z_φ. Under Chenevier's additional identification of the components of Z_φ, those are Fredholm hypersurfaces cut out by prime Fredholm series and their images in W are Zariski open in components of W.",
+   "hypotheses": [
+    "K is complete for a nontrivial nonarchimedean absolute value; the data of Construction 5.7 with every affinoid X⊆W reduced and equidimensional of dimension n.",
+    "Irreducible components of rigid spaces are taken in the sense of Conrad, Irreducible components of rigid spaces (Ann. Inst. Fourier 49, 1999), which is imported unread.",
+    "The description of the components of Z_φ as prime Fredholm hypersurfaces uses Coleman–Mazur Theorem 1.3.11 over power-series rings, or Conrad's 4.3.2, and is not proved for an arbitrary reduced W."
+   ],
+   "proofSteps": [
+    "For a chart Y∈C with connected base X=Max(A), the Hecke image T(Y) is a commutative A-subalgebra of End_A(N) with N finite projective, hence T(Y) is A-torsion-free after every flat base change (Chenevier, Lemme 6.2.10, first assertion).",
+    "A finite A-algebra that is torsion-free after flat base change has every irreducible component of its spectrum mapping surjectively onto an irreducible component of Spec A, so it is equidimensional of dimension n when A is (Lemme 6.2.10, second and third assertions; the proof localises at the image of a minimal prime and uses that the fibre is discrete and that a torsion-free quotient forces the image prime to be minimal).",
+    "Apply this to A ⊂ A[φ^{-1}] ⊂ T(Y): the affinoid Y has O(Y)=A[T]/(Q) whose map to A[φ^{-1}] is a nil-isomorphism (Lemme 6.4.3: the characteristic polynomial ideal satisfies I^r⊂(P)⊂I), so Y, Max A[φ^{-1}] and D(Y) share equidimension n, and π and the projection to X send components to components.",
+    "Glue: an irreducible component Σ of D_φ meets each D(Y) in a union of components (Conrad 2.2.9), its image π(Σ) is an irreducible closed analytic subset of Z_φ (Conrad 2.2.3) of dimension n, hence a component of the n-equidimensional Z_φ (Conrad 2.2.7).",
+    "Buzzard's Lemma 5.8 states this result for the general machine and delegates the proof to Chenevier's Proposition 6.4.2; the argument above uses only T(Y)⊂End_A(N) and equidimensionality of the charts, so the delegation is legitimate in Buzzard's generality once the imported component theory is available."
+   ],
+   "acceptance": [
+    "State the torsion-freeness and equidimensionality lemma as a purely algebraic statement about finite algebras over Noetherian rings and test it on A=K⟨X,Y⟩ with the nonreduced example of Buzzard p. 33, where T(Z_φ)=R⊕I is finite and torsion-free.",
+    "Do not claim the Zariski-density statement for images of components without the Fredholm-series factorisation input (Coleman–Mazur 1.3.11 or Conrad 4.3.2)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L2a/finite-hecke-images",
+    "PadicFamilies:L2a/global-weight-gluing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/Eigenvariety",
+    "namespace": "TauCeti.PadicFamilies.Eigenvariety"
+   },
+   "sources": [
+    {
+     "sourceId": "Buzzard-Eigenvarieties-2006",
+     "locator": "Lemma 5.8 and its one-line proof, p. 41",
+     "excerpt": "This is Proposition 6.4.2 of [8].",
+     "match": "Buzzard states equidimensionality, surjectivity onto components of Z_φ and Zariski-density of images and delegates the entire proof to Chenevier."
+    },
+    {
+     "sourceId": "Chenevier-FamillesGLn-2004",
+     "locator": "Proposition 6.4.2 and proof, internal p. 53",
+     "excerpt": "Le lemme 6.2.10 s’applique à A(V ) ⊂A(V )[a(Up)−1)] ⊂H(Y )",
+     "match": "The proof reduces equidimensionality to the algebraic lemma applied to the Hecke image inside End of the finite projective slope module, which is exactly the structure available in Buzzard's machine."
+    },
+    {
+     "sourceId": "Chenevier-FamillesGLn-2004",
+     "locator": "Lemme 6.2.10 and proof, internal pp. 47–48",
+     "excerpt": "B est sans torsion sur A et ce après tout changement de base plat sur A",
+     "match": "This is the algebraic input: subalgebras of End_A(N) for projective N are torsion-free, and finite torsion-free algebras over equidimensional Noetherian rings are equidimensional with components mapping onto components."
+    },
+    {
+     "sourceId": "Chenevier-FamillesGLn-2004",
+     "locator": "Lemme 6.4.3 and Corollaire 6.4.4, internal p. 54",
+     "excerpt": "alors Ir ⊂(P) ⊂I.",
+     "match": "The nil-isomorphism between O(Y) and A[φ^{-1}] and the Zariski-open image statement."
+    },
+    {
+     "sourceId": "ColemanMazur-Eigencurve-1998",
+     "locator": "Theorem 1.3.11 and Corollary 1.3.12, internal pp. 24–26",
+     "excerpt": "Then there exist unique distinct prime Fredholm series over A, Pi(T), and positive integers ni such that",
+     "match": "The factorisation into prime Fredholm series used by Chenevier to identify the components of Z; stated for power-series rings over O, not for an arbitrary reduced affinoid base."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "DeformationAndDerivedPatchingAlgebra:P7",
+   "need": "Minimal complexes over a noetherian local ring: every good complex (bounded, finite projective terms) is quasi-isomorphic to a minimal one (differentials zero mod m), and quasi-isomorphic minimal complexes are isomorphic (Khare–Thorne Lemma 2.3); gluing along R_c = R/I_c for open ideals cofinal with mⁿ: the limit of good complexes M_c with M_{c+1} ⊗ R_c ≅ M_c is good with M_∞ ⊗ R_c ≅ M_c and H*(M_∞) = lim H*(M_c), and compatible homotopy classes of maps glue uniquely (Lemma 2.13), with the uniqueness up to homotopy of the glued minimal complex (Lemma 2.14). P7 states 'construct minimal representatives over local rings, uniqueness up to homotopy' and derived Mittag-Leffler comparisons.",
+   "neededBy": [
+    "PadicFamilies:L0a/derived-ordinary-idempotent",
+    "PadicFamilies:L0a/ordinary-complexes-inverse-limit"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "AdicSpacesPartII:R0",
+   "need": "Tate algebras R⟨T/r⟩ over a reduced affinoid R for r in the divisible closure of |K×|, affinoid products Sp R × B[0, r], Weierstrass preparation over residue fields and the residue-field fibres used in Buzzard Lemma 4.1.",
+   "neededBy": [
+    "PadicFamilies:L2a/flat-spectral-charts"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "AdicSpacesPartII:R2",
+   "need": "Admissible formal models with the flattening and quasi-finite-model theorems of Bosch–Lütkebohmert II (Theorem 5.2, Corollary 5.3) and rig-points (I, Proposition 4.7, §3.5), as used in Conrad's Theorem A.1.2; R2's stated scope covers the models but not these theorems (see the gap 'Formal-model finiteness').",
+   "neededBy": [
+    "PadicFamilies:L2a/constant-rank-finiteness"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "AdicSpacesPartII:R3",
+   "need": "Finite coherent algebras over affinoids, affinoid restriction (BGR 7.2.2/4) and coherent descent along admissible covers, for identifying and gluing the Hecke charts D(Y).",
+   "neededBy": [
+    "PadicFamilies:L2a/hecke-chart-gluing"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "PadicMeasuresIwasawaAlgebras:L0a",
+   "need": "The rigid weight space W (continuous characters of the weight group) as a reduced rigid space with its admissible affinoid cover and restriction maps O(X₂) → O(X₁), the base of Construction 5.7 (RS-08 and the roadmap text name PadicMeasuresIwasawaAlgebras L0a as the owner).",
+   "neededBy": [
+    "PadicFamilies:L2a/global-weight-gluing"
+   ],
+   "status": "open"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "PadicFamilies:L0",
+   "status": "not_read",
+   "remaining": [
+    "RS-08 narrows L0: p-adic modular forms from the ordinary tower with q-expansion principle, integral level structures and diamond actions; the L0a instance for U_p (finite-quotient and continuity hypotheses); finite generation and finite flatness/control over the weight Iwasawa algebra with the exact level and residual-localization hypotheses; the ordinary Eisenstein family from DirichletPadicLFunctions L4's measure-valued q-expansion; specialisation to classical ordinary spaces with nebentypus and multiplicity. Chosen-root p-stabilisation is imported from ModularSymbolsPadicLFunctions L2.",
+    "Sources to read: Hida, Ann. Sci. ÉNS 19 (1986) §§1–3 (on disk for this checkpoint only through §1); Hida's control theorem in the form of Wiles, Invent. Math. 94 (1988), and Emerton–Pollack–Weston, Invent. Math. 163 (2006), arXiv math/0505193, §§1–2."
+   ]
+  },
+  {
+   "stageId": "PadicFamilies:L0a",
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "All of Khare–Thorne §2.4 (Lemmas 2.10–2.15) is planned, with Hida's §1 idempotent and ACC+'s localization comparison: the finite-set factorial lemma; the finite projector e_U = U^{|M|!} with its Fitting identification (Mathlib), invertibility and nilpotence, uniqueness, naturality, exactness, quotients and localization; finite quotient systems and the profinite projector with pointwise convergence at the explicit threshold |M/J|, decomposition, topological nilpotence without a uniform exponent, uniqueness and naturality for maps respecting the systems; the adic instance over noetherian local rings with finite residue field (failure test R = ℂ, U = 2); exactness for limits of finite exact sequences by compactness; complexes and cohomology; the idempotent of an element of a finite algebra; Khare–Thorne Lemma 2.12 in the homotopy category; and Proposition 2.15 along towers. Minimal complexes and the gluing of good complexes (Lemmas 2.3, 2.13, 2.14) are requested from DeformationAndDerivedPatchingAlgebra P7; Mittag-Leffler and the Milnor sequence are imported from AdicSpacesPartII F0 and ArithmeticGaloisDuality R02.1. No averaging over a group order is used."
+  },
+  {
+   "stageId": "PadicFamilies:L1",
+   "status": "not_read",
+   "remaining": [
+    "RS-08 narrows L1 to the ordinary family modular-symbol module (integral structure, sign and Hecke actions, control and comparison with ModularSymbolsPadicLFunctions L0–L2), family period and congruence modules kept as line bundles, and the cyclotomic measure from the universal ordinary symbol with its integral specialisation.",
+    "Sources to read: Emerton–Pollack–Weston (arXiv math/0505193) §§2–3; Greenberg–Stevens, Invent. Math. 111 (1993); Kitagawa, Contemp. Math. 165 (1994)."
+   ]
+  },
+  {
+   "stageId": "PadicFamilies:L2",
+   "status": "not_read",
+   "remaining": [
+    "RS-08 narrows L2 to the arithmetic finite-slope instance (compact U_p on affinoid distribution-valued cohomology, the eigencurve with eigenvalue/weight maps and coherent eigensymbol sheaf, base change with Tor terms, classicality through ModularSymbolsPadicLFunctions L2's control theorem, local freeness/multiplicity-one hypotheses).",
+    "Coleman–Mazur, The eigencurve (Internet Archive preprint, on the source list): Chapters 2–6 and the proofs of §§7.2–7.5 remain unread; Buzzard §§6–7 (modular application) unread."
+   ]
+  },
+  {
+   "stageId": "PadicFamilies:L2a",
+   "status": "partial",
+   "remaining": [
+    "Decompose the imported analytic and rigid-geometric source proofs listed in the gaps (Bosch–Lütkebohmert formal-model theorems, Conrad A.1.2/A.1.4, Conrad's irreducible-component theory).",
+    "Refine the fourteen reviewed nodes to declaration granularity: in particular split strict-slope-neighborhoods into the corrected Lemma 4.5 inequalities (sourceIssues E1–E3), the witness W and the finite-flatness conclusion, and carry the strengthened induction hypothesis of Theorem 4.6 (E4) through admissible-slope-cover.",
+    "Construct and glue the coherent eigenmodule sheaf, with its nonreduced/generalized-eigenspace and Tor comparisons; the space construction alone does not finish the stage (gap 'Coherent eigenmodules and nonflat specialization').",
+    "Plan the characteristic polynomial of an endomorphism of a finite projective module of constant rank used in slope-polynomials (gap), or obtain it from a supplier."
+   ],
+   "notes": "The fourteen nodes of the reviewed decomposition (R1 review, 2026-09-15) are carried with their ids, statements and proof routes; this checkpoint adds their prerequisites (LocallyAnalyticDistributions L4 Fredholm and Riesz nodes, AdicSpacesPartII R0/R2/R3 and PadicMeasuresIwasawaAlgebras L0a by request), re-verified excerpts, API and unit tests for the six constructions, and records the printed defects as sourceIssues E1–E9."
+  },
+  {
+   "stageId": "PadicFamilies:L3",
+   "status": "not_read",
+   "remaining": [
+    "RS-08 makes L3 the owner of the general critical-slope, theta-critical and secondary p-adic L-function theory (Pollack–Stevens and Bellaïche), including the theta exact sequence and the distinction between slope w − 1, theta-criticality and a critical refinement; ModularSymbolsPadicLFunctions L3 imports it.",
+    "Sources to read: Bellaïche, Critical p-adic L-functions, Invent. Math. 189 (2012); Pollack–Stevens, Critical slope p-adic L-functions, J. London Math. Soc. 87 (2013)."
+   ]
+  },
+  {
+   "stageId": "PadicFamilies:L4",
+   "status": "not_read",
+   "remaining": [
+    "RS-08 narrows L4 to family Selmer and regulator constructions, big Kato classes and explicit reciprocity, and source-scoped nonordinary extensions; the ordinary big Galois representation and its filtration are imported from OrdinaryAutomorphicFormsAndModularityLifting R21.3.",
+    "Sources to read: Ochiai, Compositio 142 (2006); Kings–Loeffler–Zerbes, Rankin–Eisenstein classes and explicit reciprocity laws (arXiv 1503.02888)."
+   ]
+  },
+  {
+   "stageId": "PadicFamilies:L5",
+   "status": "not_read",
+   "remaining": [
+    "Instantiate L0a on integral Hilbert automorphic/cohomology modules (the adic-instance and derived-ordinary-idempotent nodes apply once the finite-quotient hypotheses are proved); Hida control on the ordinary loci and integral weight algebras used by OrdinaryAutomorphicFormsAndModularityLifting R21.2, with central-character and torsion-unit restrictions.",
+    "Sources to read: Hida, Ann. of Math. 128 (1988); Wiles, Invent. Math. 94 (1988); Khare–Thorne §6 (ordinary completed homology, on disk for this checkpoint only through §2)."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Formal-model finiteness beyond the existing geometric outline",
+   "neededBy": [
+    "PadicFamilies:L2a/constant-rank-finiteness",
+    "PadicFamilies:L2a/admissible-slope-cover"
+   ],
+   "detail": "Conrad A.1.2 was read through its proof (again by R1-review). It requires Bosch–Lütkebohmert, Formal and rigid geometry I (Math. Ann. 295, 1993), Proposition 4.7 and §3.5 (rig-points, via Conrad's Lemma A.1.5), and II (Math. Ann. 296, 1993), Theorem 5.2 and Corollary 5.3 (flat and quasi-finite formal models); those primary proofs remain unread. Its scheme step is Lemma A.1.4, proved by fpqc base change to a henselian local ring, the structure theorem for separated locally quasi-finite maps (EGA IV_4 18.5.11(c)), constancy of rank over the closed fibre and spreading out of finite presentation; this was read but its EGA chain remains unexpanded. Remark A.1.3 notes that the discretely valued case is Abbes–Mokrane Lemme A.1 and that local rings of formal models are not Noetherian for nondiscrete K. R1-review supplier assessment (Task 4): no stage in data/atlas.json explicitly supplies these results in the needed generality. AdicSpacesPartII:R2 constructs admissible formal schemes, admissible blow-ups and the generic-fibre functor but states no flattening, quasi-finite-model or finiteness criterion; AdicSpacesPartII:F0 restricts formal geometry to complete Noetherian adic rings (excluding O_K for nondiscrete K) and only promises properness/separatedness/smoothness comparisons with formal models; AdicEtaleGeometry:A2 supplies admissible formal models 'in the scope required by H1' (étale cohomology); ClassicalAdicEtaleCohomology:H1 treats nondiscrete valuation bases only for nearby cycles and H1:henselian constructs affinoid henselizations, not the scheme lemma A.1.4; SchemeAndStackFoundations:SF.1 owns fpqc descent on the scheme side. Closest candidates, in order: AdicSpacesPartII:R2, AdicSpacesPartII:F0, AdicEtaleGeometry:A2, ClassicalAdicEtaleCohomology:H1:henselian, SchemeAndStackFoundations:SF.1. No edge asserting supply was added; the existing R2 edge is annotated as partial."
+  },
+  {
+   "title": "Complete primary modular eigencurve proof (source now acquired, mostly unread)",
+   "neededBy": [
+    "PadicFamilies:L2"
+   ],
+   "detail": "The catalogue selects Coleman–Mazur, The eigencurve (1998), DOI 10.1017/CBO9780511662010.003. R1-review acquired the authors' 113-page preprint from the Internet Archive capture (31 October 2008) of Coleman's Berkeley page, https://web.archive.org/web/20081031155820id_/http://math.berkeley.edu/~coleman/eigen/coleman-mazur.pdf, SHA-256 bf8e96f23fb3db2f886a5106547798c6d899941b316f340079b3aabb4ad04a70, fetched 2026-09-15; the live Berkeley URL and Barry Mazur's Harvard page return 404. Read so far: §1.1 (nested spaces, p. 11), Lemma 1.3.10–Corollary 1.3.12 (pp. 24–26), Chapter 7 opening and §7.1 with Theorem 7.1.1 (pp. 91–93: the local pieces D(V) over an affinoid Y of weight space, N(V) locally free of rank deg Q_V, T(V) the image of H⊗A in End_A(N(V)), the q-expansion pairing 0→T(V)→Hom_A(N(V),A)→M→0), §7.4 opening with Lemma 7.4.1 (pp. 101–102), Proposition 7.4.5 (D reduced, nested, components generically isomorphic to Fredholm hypersurfaces, p. 104) and the statement of Theorem 7.5.1 (D ≅ C^red, p. 105). The footnote on p. 91 records that the proof of [C-BMF] Proposition A5.8 works over any K after replacing 'x∈V' by 'closed points x of V', the argument Buzzard's §4 generalises. Buzzard's opening §6 imports these constructions; this packet still does not claim to have read the complete modular proof (Chapters 2–6, §§7.2–7.5 proofs) or to derive the distribution-valued cohomology and critical-point results from the generic machine."
+  },
+  {
+   "title": "Coherent eigenmodules and nonflat specialization",
+   "neededBy": [
+    "PadicFamilies:L2a",
+    "PadicFamilies:L2"
+   ],
+   "detail": "The original stages promise the coherent eigenmodule/eigensymbol sheaf, Tor comparisons and generalized eigenspaces. The inspected finite Hecke algebra construction and flat-base-change lemma do not alone prove this entire package. Read and decompose the sheaf gluing and the modular nonflat comparison arguments, with a separate source for critical-point multiplicities. R1-review note: Coleman–Mazur §7.1 (now on disk) constructs the pairing 0→T(V)→Hom_A(N(V),A)→M→0 via q-expansions in the modular case, which is the kind of statement the coherent eigenmodule sheaf must generalise; it depends on the q-expansion principle and is not available for the generic machine."
+  },
+  {
+   "title": "Dimension theorem narrowed; dense classical points still require separate inputs",
+   "neededBy": [
+    "PadicFamilies:L2a",
+    "AutomorphicGaloisRepresentationsPartII:AG2.3"
+   ],
+   "detail": "Buzzard Lemma 5.8 delegates equidimensionality to Chenevier Proposition 6.4.2. R1-review read that proposition with its proof (author copy glnfam.pdf, internal p. 53), Lemme 6.2.10 (pp. 47–48) and Lemme 6.4.3 (p. 54): the argument uses only that the Hecke image is a commutative subalgebra of End_A(N) for N finite projective over an equidimensional reduced affinoid A, so it applies in Buzzard's generality; the new node equidimensional-components (addedBy R1-review) records it. Remaining imports: Conrad, Irreducible components of rigid spaces, results 2.1.5, 2.2.3, 2.2.7, 2.2.9 and 4.3.2, and Coleman–Mazur Theorem 1.3.11 (prime factorisation of Fredholm series over O[[T_1,…,T_m]], now on disk but its proof via Theorem 1.3.7 unread) for the identification of the components of Z_φ; these are needed for the 'components map onto Fredholm hypersurfaces' and Zariski-density clauses, not for equidimensionality. Dense classical points and unitary classicality require the application's actual overconvergent coefficient and control arguments (Chenevier §6.4.5 and §7 for unitary groups; Coleman–Mazur for the modular case). This packet does not infer them from eigenpacket-point classification."
+  },
+  {
+   "title": "Characteristic polynomials over finite projective modules",
+   "neededBy": [
+    "PadicFamilies:L2a/slope-polynomials"
+   ],
+   "detail": "Buzzard §5 (p. 34) takes 'the characteristic polynomial Q′' of T acting on O(Y), a finite projective A-module of rank d, monic of degree d, with Cayley–Hamilton. Mathlib's LinearMap.charpoly and LinearMap.aeval_self_charpoly require a free module (Mathlib/LinearAlgebra/Charpoly/Basic.lean); no packet plans the projective case (local freeness on a Zariski cover and gluing of the local characteristic polynomials, or the determinant of 1 − Tf through exterior powers). A supplier or a node is needed before slope-polynomials is closed."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "PadicFamilies/E1",
+   "source": "Buzzard-Eigenvarieties-2006",
+   "kind": "misprint",
+   "affects": "the proof",
+   "locator": "Lemma 4.5, proof, pp. 29–30 (author manuscript, 2 August 2006)",
+   "printed": "−log |rn(x)| + log |rd(x)| ≥(n −d)t for d < n < N.",
+   "correction": "−log|r_n(x)| + log|r_d(x)| ≥ (n − d) log t for d < n < N, and likewise (n − d) log t in the reversed inequalities defining W and in the parenthetical 'for all n ≥ N' on p. 30.",
+   "reason": "The preceding sentence proves the bound with (n − d) log(t), and every other quantity in the construction (γ₁, γ₂, δ₁, δ₂, log r) is logarithmic; since t > log t the printed condition is stronger than what holds on V, so V ⊂ X would fail.",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ]
+  },
+  {
+   "id": "PadicFamilies/E2",
+   "source": "Buzzard-Eigenvarieties-2006",
+   "kind": "misprint",
+   "affects": "the proof",
+   "locator": "Lemma 4.5, proof, p. 30",
+   "printed": "then X ∩W is empty and X ∪V = B.",
+   "correction": "V ∩ W is empty and X ∪ W = B.",
+   "reason": "The definition of strict neighbourhood on p. 28 asks for a finite union of affinoids U with U ∩ S = ∅ and U ∪ T = B, here S = V, T = X, U = W. The printed identities are false in general: X ∩ W contains the boundary points where equality holds, and X ∪ V = X.",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ]
+  },
+  {
+   "id": "PadicFamilies/E3",
+   "source": "Buzzard-Eigenvarieties-2006",
+   "kind": "error",
+   "affects": "the proof",
+   "locator": "Lemma 4.5, proof, p. 29",
+   "printed": "−log |rn(x)| + log |rd(x)| ≥(n −d)γ1 for 0 < n < d",
+   "correction": "Take 0 ≤ n < d: the n = 0 condition −log|r_d(x)| ≤ dγ₁ (r₀ = 1) is the uniform lower bound for |r_d| on X that the argument needs (equivalently impose δ₂ < dγ₂); then the text's count of N conditions is right.",
+   "reason": "Without it the claim that f_s⁻¹(X) → X has constant degree d fails: for P(T) = 1 + uT over the closed unit disc, V = {|u| = 1}, r = 1, d = 1, the printed X = {|u| ≥ e^{−δ₂}} with δ₂ > γ₂ contains points over which the fibre in the disc of radius s = e^{γ₂} is empty. Found by the R1 review of the integrated decomposition (2026-09-15) and re-checked here.",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ]
+  },
+  {
+   "id": "PadicFamilies/E4",
+   "source": "Buzzard-Eigenvarieties-2006",
+   "kind": "gap",
+   "affects": "the proof",
+   "locator": "Theorem 4.6, proof, pp. 30–31",
+   "printed": "f −1 r (Ui) ⊆∪n(i) α=1Yα, and ∪n(i) α=1Xα is a strict neighbourhood of Ui in B.",
+   "correction": "Add to H(i) that f_r⁻¹(X_α) ⊆ Y_α for every α (true because s_α > r), and use it to cover the points of U_{i−1} ∖ U_i lying in some old X_α.",
+   "reason": "The induction step covers W ∩ U_{i−1} by new blocks but never checks the points of f_r⁻¹(U_{i−1}) over the old X_α; the printed H(i) does not record the needed inclusion.",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ]
+  },
+  {
+   "id": "PadicFamilies/E5",
+   "source": "Buzzard-Eigenvarieties-2006",
+   "kind": "gap",
+   "affects": "the proof",
+   "locator": "§5, construction of the slope factor, p. 34",
+   "printed": "we are in a position to invoke Theorem 3.3 to give a decomposition MA = N ⊕F",
+   "correction": "Before invoking Theorem 3.3, prove that Q is coprime to F_A/Q: over each point x, since Y is open and closed in f⁻¹(X), the roots of Q_x are exactly the roots of F_x in Y_x with full multiplicity, so the resultant Res(Q, F_A/Q) has no zero on Max A and is a unit.",
+   "reason": "Theorem 3.3 requires a factorisation F = QS with (Q, S) = 1; the text only shows Q | F_A.",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ]
+  },
+  {
+   "id": "PadicFamilies/E6",
+   "source": "Buzzard-Eigenvarieties-2006",
+   "kind": "misprint",
+   "affects": "the proof",
+   "locator": "Lemma 5.6, proof, p. 40",
+   "printed": "By Lemma 2.13, Zφ and Z′ φ are equal",
+   "correction": "By Lemma 2.12 (det(1 − Xuv) = det(1 − Xvu)), Z_φ and Z′_φ are equal.",
+   "reason": "Lemma 2.13 is the base-change lemma; the equality of the Fredholm series of φ = αc and φ′ = cα is Lemma 2.12, which p. 39 cites correctly for the same step.",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ]
+  },
+  {
+   "id": "PadicFamilies/E7",
+   "source": "Buzzard-Eigenvarieties-2006",
+   "kind": "misprint",
+   "affects": "a stated result",
+   "locator": "§5, the data of Construction 5.7, p. 41",
+   "printed": "where αij denotes the map MXi → MXi b⊗O(Xi)O(Xj).",
+   "correction": "α_ij : M_{X_i} → M_{X_j} ⊗̂_{O(X_j)} O(X_i) for X_i ⊆ X_j, with α₁₃ = (α₂₃ ⊗̂ 1) ∘ α₁₂.",
+   "reason": "The link for X_i ⊆ X_j compares the module on the smaller affinoid with the base change of the module on the larger one (the sentence before the display defines α : M_Y → M_X ⊗̂ R_Y for Y ⊆ X); the printed target is mis-indexed and the composite law does not typecheck.",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ]
+  },
+  {
+   "id": "PadicFamilies/E8",
+   "source": "Buzzard-Eigenvarieties-2006",
+   "kind": "gap",
+   "affects": "the proof",
+   "locator": "Lemma 5.9, proof, p. 42",
+   "printed": "Because Dφ is separated, no pathologies occur when base extending to L and hence we may assume L = K.",
+   "correction": "Justify the reduction by the flat base change of the whole construction along R_X → R_X ⊗̂_K L (Lemmas 5.4–5.5), and prove both directions of the bijection over K, including that an eigenvector with λ(φ) ≠ 0 lies in N ⊗ K.",
+   "reason": "Separatedness alone does not identify L-points of D_φ with eigensystems over L; the reduction to N ⊗ K is asserted without argument.",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ]
+  },
+  {
+   "id": "PadicFamilies/E9",
+   "source": "Buzzard-Eigenvarieties-2006",
+   "kind": "gap",
+   "affects": "the proof",
+   "locator": "Lemma 5.5, proof, p. 37",
+   "printed": "as they cover the separated space Zφ′, and all the elements of C′ are aﬃnoids so one can use Proposition 9.1.4/2 of [1].",
+   "correction": "The pulled-back blocks form an admissible cover because finitely many of them cover each truncation Z′_r (an affinoid), as in Theorem 4.6; BGR 9.1.4/2 only gives that intersections of affinoids in a separated space are affinoid.",
+   "reason": "Covering a separated rigid space by affinoids does not make the cover admissible.",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ]
+  },
+  {
+   "id": "PadicFamilies/E10",
+   "source": "KHARE-THORNE-2017",
+   "kind": "misprint",
+   "affects": "a stated result",
+   "locator": "§2.4, Lemma 2.10(2), p. 9, and Lemma 2.11(2), p. 9 (arXiv v2)",
+   "printed": "let T1 ∈EndR(M), T2 ∈EndR(M), and let f ∈HomR(M, N)",
+   "correction": "T₂ ∈ End_R(N) in Lemma 2.10(2), and T₂ ∈ End_R(D•) in Lemma 2.11(2) (printed T₂ ∈ End_R(C•)).",
+   "reason": "f ∈ Hom_R(M, N) intertwines T₁ and T₂ and the conclusion is about N_ord, so T₂ acts on N; the proof uses B(T₂)N_non-ord = 0.",
+   "known": "new: present in arXiv v1 and v2; the published version was not checked",
+   "searched": [
+    "arXiv 1409.7007 v1 (24 September 2014) and v2 (6 July 2016): both print T₂ ∈ End_R(M).",
+    "No erratum to Amer. J. Math. 139 (2017) was found; the journal text was not obtained."
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1409.7007v2",
+   "citation": "Khare and Thorne, Potential automorphy and the Leopoldt conjecture, arXiv:1409.7007v2 (published Amer. J. Math. 139 (2017))",
+   "read": "2026-09-28",
+   "sha256": "f8a86b8d7dfd290b9b4199931238f21392cb9c82d609f0879060a890e58ec0b4"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1812.09999v2",
+   "citation": "Allen et al., Potential automorphy over CM fields, arXiv:1812.09999v2 (published Ann. of Math. 197 (2023))",
+   "read": "2026-09-28",
+   "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/10.24033/asens.1507.pdf",
+   "citation": "Hida, Iwasawa modules attached to congruences of cusp forms, Ann. Sci. ÉNS (4) 19 (1986), 231–273 (Numdam)",
+   "read": "2026-09-28",
+   "sha256": "a52ea23bc8b2357746cb2191335c7af394d96c752f6e1926d3e15b995504e5a6"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.ma.imperial.ac.uk/~buzzard/maths/research/papers/eigenvarieties.pdf",
+   "citation": "Buzzard, Eigenvarieties, author manuscript of 2 August 2006 (published in L-functions and Galois representations, LMS Lecture Note Series 320, CUP 2007)",
+   "read": "2026-09-28",
+   "sha256": "0c54243868e2da8849452c4cc5a3d4e7b118cf17dd04487d4af137ab167ef57d"
+  }
+ ]
+}
