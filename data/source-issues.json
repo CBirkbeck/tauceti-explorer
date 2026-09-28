@@ -142033,6 +142033,65 @@
    "reviewReason": null
   },
   {
+   "id": "ModularSymbolsPadicLFunctions/E1",
+   "kind": "error",
+   "locator": "Theorem 2.6 and Corollary 2.7, p. 12; Theorem 2.9 and Corollary 2.10, pp. 13–14 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "Σ_{i=1}^t (γi^{−1} − 1)Di + Σ_{i=1}^s D′i = ((1 −1; 0 1) − 1) D∞ … v∞|∆ = Σ_{i=1}^t vi|(γi − 1) + Σ_{i=1}^s v′i",
+   "correction": "The relation is Σ_i (γ_i^{-1} − 1)D_i + Σ_i D′_i (+ Σ_i D″_i) = (1 − (1 −1; 0 1))D∞, and the criterion of Corollaries 2.7/2.10 is v∞|Δ = Σ_i v_i|(1 − γ_i) − Σ_i v′_i (− Σ_i v″_i), with Δ = (1 1; 0 1) − 1.",
+   "reason": "Apply ∂ to the boundary relation printed on p. 11, (1 − (1 −1; 0 1))e∞ + Σ(1 − γ_i^{-1})e_i + Σe′_i ∈ J, with D∞ = ∂e∞, D_i = ∂e_i, D′_i = −∂e′_i: this gives (1 − T^{-1})D∞ + Σ(1 − γ_i^{-1})D_i − ΣD′_i = 0, the corrected relation. Smallest check: Γ = Γ₀(2), F the ideal triangle with vertices −1, 0, ∞, t = 0, s = 1, γ′₁ = (1 1; −2 −1), e′₁ the path from 0 to −1; then D′₁ = {0} − {−1} = (1 − T^{-1})({0} − {∞}), whereas the printed relation gives D′₁ = −(1 − T^{-1})({0} − {∞}) = −D′₁, i.e. 2D′₁ = 0 in the torsion-free group Δ₀. Pollack's own Arizona Winter School notes (2011, §2.6, footnote 10) write the Γ₀(11) relation with the corrected sign, (1 − (1 −1; 0 1))({0} − {∞}) + Σ(1 − γ)D = 0 (their γ is γ_i^{-1}), and the Sage implementation (sage.modular.pollack_stevens, by Pollack and Hanke) solves μ|Δ = t with t = Σ v_i|(γ_i − 1) minus the torsion values and sets v∞ = −μ.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 (including a filter=updates query), checked 2026-09-28: no erratum, correction or update.",
+    "Pollack's Arizona Winter School 2011 notes (swc-math.github.io): the worked Γ₀(11) relation has the corrected sign, but no erratum to the article is stated.",
+    "Sage source src/sage/modular/pollack_stevens/space.py (random_element), fetched from GitHub 2026-09-28: it forms t = Σ v_i|(γ_i − 1) minus the torsion values, solves μ|Δ = t and sets v∞ = −μ, consistent with the corrected sign, without comment."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E2",
+   "kind": "misprint",
+   "locator": "§2.4, p. 11 (the relations for one-element orbits)",
+   "printed": "Also, e′i = γ′ie′i for some γ′i ∈ Γ, and hence (γ′i + 1)ei ∈ J.",
+   "correction": "(γ′_i + 1)e′_i ∈ J (the relation is on the one-element-orbit edge e′_i, whose reverse is γ′_i e′_i).",
+   "reason": "The sentence concerns the edges e′_i fixed (up to reversal) by γ′_i; e_i denotes the two-element-orbit edges, for which no such relation holds. Theorem 2.6 states the intended (1 + γ′_i)D′_i = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E3",
+   "kind": "misprint",
+   "locator": "Corollary 2.10, p. 14",
+   "printed": "v′′i|(1 + γ′i + (γ′′i)2) = 0. Then there is a unique modular symbol ϕ ∈ SymbΓ(V) such that ϕ(Di) = vi, ϕ(D′i) = m′i and ϕ(D′′i) = m′′i.",
+   "correction": "v″_i|(1 + γ″_i + (γ″_i)²) = 0, and φ(D′_i) = v′_i, φ(D″_i) = v″_i.",
+   "reason": "Theorem 2.9 has the three-term relation (1 + γ″_i + (γ″_i)²)D″_i = 0 with γ″_i throughout, and the symbols m′_i, m″_i are not defined anywhere; the data are the v′_i, v″_i of the corollary's hypothesis.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "owner": "ModularSymbolsPadicLFunctions",
+   "file": "research/blueprint/packets/ModularSymbolsPadicLFunctions.json",
+   "citation": "Robert Pollack and Glenn Stevens, Overconvergent modular symbols and p-adic L-functions, Annales scientifiques de l'École normale supérieure (4) 44 (2011), no. 1, 1–42, DOI 10.24033/asens.2139; Numdam open-access PDF (43 pages; printed page = PDF page − 1)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MordellLawrenceVenkatesh/E2",
    "kind": "misprint",
    "locator": "§2.3, Lemma 2.3: arXiv v3 p. 9, standing notation p. 8; published pp. 902–904. Applications in §§3.4, 4.3, 6.",
@@ -170109,7 +170168,6 @@
   "HeckeStacksAndLocalShtukas",
   "KatoEulerSystems",
   "LanglandsParameterStacks",
-  "ModularSymbolsPadicLFunctions",
   "RelativeFarguesFontaine",
   "RelativeFarguesFontaine",
   "VStackSheavesAndLisseCategories",
