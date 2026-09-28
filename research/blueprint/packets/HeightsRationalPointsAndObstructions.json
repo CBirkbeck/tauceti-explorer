@@ -12,7 +12,7 @@
     "HeightsRationalPointsAndObstructions:RP.6"
   ],
   "status": "partial",
-  "summary": "First checkpoint: the real vector space of height functions modulo uniformly bounded functions, its contravariant pullback, and invariance of native Northcott finiteness under bounded error. The bounded-function submodule, quotient algebra and finite-fiber Northcott theorem are imported from Mathlib. The geometric height machine, canonical heights and RP.1–RP.6 are not claimed complete.",
+  "summary": "First checkpoint: the real vector space of height functions modulo uniformly bounded functions, its contravariant pullback, and invariance of native Northcott finiteness under bounded error. The bounded-function submodule, quotient algebra and finite-fiber Northcott theorem are imported from Mathlib. The geometric height machine, canonical heights and RP.1–RP.6 are not claimed complete. Second checkpoint (RP.2, affine case): the topology on points with values in a topological algebra, adelic points of affine varieties over a number field as a restricted product of local points, integral models, Brauer evaluation of Azumaya algebras with its finite support, the Brauer–Manin pairing and set, and the inclusion of rational points; the local invariant maps and the global reciprocity law are requested from ClassFieldTheory Layers 5 and 10.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -177,6 +177,391 @@
         "module": "Mathlib/Order/Filter/TendstoCofinite.lean",
         "provides": "The preceding class is equivalent to all singleton fibers being finite.",
         "checked": "Full statement and hypotheses read at the pinned commit; source blob verified against the pinned Git tree."
+      },
+      {
+        "ref": "mathlib:AddCircle",
+        "kind": "abbrev",
+        "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
+        "provides": "AddCircle p = 𝕜 ⧸ zmultiples p; AddCircle (1 : ℚ) is the target ℚ/ℤ of local invariants.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:AlgHom",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Algebra/Hom.lean",
+        "provides": "R-algebra homomorphisms A →ₐ[R] B, the carrier of B-valued points of Spec A.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:AlgHom.mulLeftRight",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Azumaya/Defs.lean",
+        "provides": "The R-algebra map A ⊗[R] Aᵐᵒᵖ → End_R(A), a ⊗ b ↦ (x ↦ a x b), whose bijectivity is part of IsAzumaya.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Algebra.FiniteType",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/FiniteType.lean",
+        "provides": "Finite generation of an algebra, the finiteness hypothesis on coordinate rings.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Algebra.IsCentral",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Central/Defs.lean",
+        "provides": "Centrality of an algebra over its base.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Algebra.IsCentral.instIsAzumaya",
+        "kind": "instance",
+        "module": "Mathlib/Algebra/Azumaya/Basic.lean",
+        "provides": "An Azumaya algebra which is free over its base is central (instance), used over fields.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Algebra.TensorProduct.liftEquiv",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+        "provides": "Algebra maps out of a tensor product correspond to pairs of commuting algebra maps, used for points of a product.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Algebra.adjoin",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
+        "provides": "The subalgebra generated by a set, used to build integral models from generators.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:BrauerGroup",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/BrauerGroup/Defs.lean",
+        "provides": "The Brauer group of a field as the quotient of central simple algebras by Brauer equivalence.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:DiscreteTopology",
+        "kind": "class",
+        "module": "Mathlib/Topology/Order.lean",
+        "provides": "Discreteness of a topological space, for the rational points inside the adelic points.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsAdicComplete",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Adic completeness, the completeness of O_v used to lift idempotents.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsAzumaya",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Azumaya/Defs.lean",
+        "provides": "Azumaya algebras over a commutative ring: finite, projective, faithful, with A ⊗ Aᵐᵒᵖ → End(A) bijective.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsAzumaya.matrix",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Azumaya/Matrix.lean",
+        "provides": "Matrix algebras are Azumaya.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.FiniteAdeleRing",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+        "provides": "The finite adele ring as the restricted product of the adic completions with respect to their integers.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "provides": "Height-one primes of a Dedekind domain, the finite places.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+        "provides": "The completion K_v at a finite place.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/DedekindDomain/AdicValuation.lean",
+        "provides": "The valuation ring O_v of K_v.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsLocalization.Away",
+        "kind": "abbrev",
+        "module": "Mathlib/RingTheory/Localization/Away/Basic.lean",
+        "provides": "Localisation at the powers of one element, for the rings A₀[1/N].",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsSimpleRing",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/SimpleRing/Defs.lean",
+        "provides": "Simple rings.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Module.End",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Module/LinearMap/End.lean",
+        "provides": "Endomorphism algebras of modules, the split Azumaya algebras.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Module.Free",
+        "kind": "class",
+        "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+        "provides": "Free modules.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Module.Projective",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Module/Projective.lean",
+        "provides": "Projective modules.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MvPolynomial.aeval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
+        "provides": "Evaluation of multivariate polynomials in an algebra, for presentations of coordinate rings.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.AdeleRing",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+        "provides": "The adele ring of a number field as the product of the infinite and finite adele rings, a topological K-algebra.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.AdeleRing.principalSubgroup",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/NumberField/AdeleRing.lean",
+        "provides": "The diagonal copy of K in its adele ring.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.InfiniteAdeleRing",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+        "provides": "The product of the completions at the infinite places.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.InfiniteAdeleRing.locallyCompactSpace",
+        "kind": "instance",
+        "module": "Mathlib/NumberTheory/NumberField/InfiniteAdeleRing.lean",
+        "provides": "The infinite adele ring is locally compact.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.Completion",
+        "kind": "structure",
+        "module": "Mathlib/NumberTheory/NumberField/Completion/InfinitePlace.lean",
+        "provides": "The completion K_w at an infinite place.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Pi.topologicalSpace",
+        "kind": "instance",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "provides": "The product topology on function types.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Polynomial.aeval",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/AlgebraMap.lean",
+        "provides": "Evaluation of polynomials in an algebra.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:RestrictedProduct",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+        "provides": "The restricted product of a family of types with respect to a family of subsets, along a filter (cofinite by default).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:RestrictedProduct.evalRingHom",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+        "provides": "Evaluation of a restricted product of rings at one index, as a ring homomorphism.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:RestrictedProduct.eventually",
+        "kind": "lemma",
+        "module": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
+        "provides": "An element of a restricted product lies in the chosen subsets at almost all indices.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:RestrictedProduct.isOpen_forall_mem",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+        "provides": "For open subsets, the product of the subsets is open in the restricted product.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:RestrictedProduct.locallyCompactSpace_of_group",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+        "provides": "A restricted product of locally compact groups with respect to compact open subgroups is locally compact.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:RestrictedProduct.topologicalSpace",
+        "kind": "instance",
+        "module": "Mathlib/Topology/Algebra/RestrictedProduct/TopologicalSpace.lean",
+        "provides": "The restricted-product topology.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:TopologicalSpace.induced",
+        "kind": "def",
+        "module": "Mathlib/Topology/Defs/Induced.lean",
+        "provides": "The topology induced by a map, used to define the points topology.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Topology.IsClosedEmbedding",
+        "kind": "structure",
+        "module": "Mathlib/Topology/Defs/Induced.lean",
+        "provides": "Closed embeddings.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Topology.IsEmbedding",
+        "kind": "structure",
+        "module": "Mathlib/Topology/Defs/Induced.lean",
+        "provides": "Topological embeddings.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Units.embedProduct",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Prod.lean",
+        "provides": "The embedding of the units u ↦ (u, u⁻¹) defining Mathlib's topology on units.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:NumberField.AdeleRing.instT2Space",
+        "kind": "instance",
+        "module": "TauCeti/NumberTheory/NumberField/Global/Adeles/Basic.lean",
+        "provides": "The adele ring of a number field is Hausdorff.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.baseChange",
+        "kind": "def",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "Base change of Brauer classes along a field extension, a group homomorphism.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.baseChange_mk",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "The class of the scalar extension is the base change of the class.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.instCommGroup",
+        "kind": "instance",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "The commutative group structure on the Brauer group of a field.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk",
+        "kind": "abbrev",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "The Brauer class of a central simple algebra.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk_end",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "Endomorphism algebras of nonzero finite-dimensional vector spaces have trivial class.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk_matrix",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "Matrix algebras over a central simple algebra have the same class.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk_op",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "The opposite algebra has the inverse class.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk_tensorProduct",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "The class of a tensor product is the product of the classes.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.CSA.of",
+        "kind": "abbrev",
+        "module": "TauCeti/Algebra/BrauerGroup/Basic.lean",
+        "provides": "Packaging a finite-dimensional central simple algebra as an object of CSA.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup",
+        "kind": "instance",
+        "module": "TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+        "provides": "K is discrete in its adele ring.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.GlobalNumberFields.isClosed_principalSubgroup",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Global/Adeles/Discrete.lean",
+        "provides": "K is closed in its adele ring.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsSimpleRing.isAzumaya",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Opposite.lean",
+        "provides": "A finite-dimensional central simple algebra over a field is Azumaya.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.Quaternion.brauerGroupMulEquiv",
+        "kind": "def",
+        "module": "TauCeti/Algebra/BrauerGroup/Real.lean",
+        "provides": "Br(ℝ) ≅ ℤ/2, sending the Hamilton quaternions to the generator: the invariant at a real place.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.subsingleton_brauerGroup_of_finite",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/Trivial.lean",
+        "provides": "The Brauer group of a finite field is trivial (Wedderburn).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
       }
     ]
   },
@@ -191,6 +576,28 @@
       "readSections": [
         "Read physical/printed pp.1–3 and 6–10: goals and elementary heights; coordinate estimates; all of §14, including its footnote and Steps 1–7; local-function discussion and §17. Pages 4–5 and 11–13 are not claimed read. Pages 2,6,8,9 were visually checked for the recorded source findings. The quotient and finiteness interfaces below use §14 footnote and §17 as motivation, with their elementary proofs written here. No claim that the notes prove the complete roadmap.",
         "Authorship and course context verified at https://www.math.columbia.edu/~dejong/courses/schemes-spring-2022.html. No dated revision or separate correction located on that page or the author homepage on 2026-09-27."
+      ]
+    },
+    {
+      "id": "poonen-rational-points",
+      "title": "Rational points on varieties",
+      "authors": "Bjorn Poonen",
+      "edition": "Graduate Studies in Mathematics 186, AMS 2017; author-hosted PDF (348 physical pages; printed page = PDF page − 14), accessed 2026-09-28",
+      "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+      "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
+      "readSections": [
+        "Read in full: §2.6.3 (adelic points, pp. 49–50), Exercise 3.4 (p. 95), §6.6.2–6.6.3 (cohomological and Azumaya Brauer groups, Definitions 6.6.4, 6.6.12–6.6.14, Proposition 6.6.10, Corollary 6.6.11, pp. 187–189), §6.9.1 (Proposition 6.9.1, Remark 6.9.2, Corollary 6.9.3, Example 6.9.4, pp. 198–199), §8.1 (pp. 227–229) and §8.2.1–8.2.4 (Brauer evaluation, the Brauer set, Proposition 8.2.9 and Corollary 8.2.11, pp. 229–232). Chapter 1 (§1.5, local invariants and the global reciprocity sequence) was not read; those results are consumed from the ClassFieldTheory owner."
+      ]
+    },
+    {
+      "id": "conrad-adelic-points",
+      "title": "Weil and Grothendieck approaches to adelic points",
+      "authors": "Brian Conrad",
+      "edition": "Author copy (22 pp.), file dated 2011-12-31 on the author's papers page; published in L'Enseignement Mathématique 58 (2012). Accessed 2026-09-28; the author's papers directory lists no erratum for it.",
+      "url": "https://math.stanford.edu/~conrad/papers/adelictop.pdf",
+      "sha256": "fe4a9193aff4ef575665b40971f3da32f850a74d87b3f2d0fa28bba26b9cbabb",
+      "readSections": [
+        "Read §1–§3 through the proof of Theorem 3.6 (pp. 1–8): Proposition 2.1 and its proof, Examples 2.2–2.4, Proposition 3.1, Remarks 3.2–3.5, Theorem 3.4, Theorem 3.6 and its proof. Page 3 was rendered and inspected for the misprint recorded as E8. §4–§5 not read."
       ]
     }
   ],
@@ -725,9 +1132,1312 @@
         "name": "northcott_of_pullback_eq"
       },
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/points-topology",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "The topology on points with values in a topological algebra",
+      "kind": "definition",
+      "statement": "Let R be a commutative ring, A a commutative R-algebra and B a commutative topological ring which is an R-algebra. The B-valued points of Spec A are Points_R(A, B) := A →ₐ[R] B. The points topology on Points_R(A, B) is the topology induced by the injection Points_R(A, B) → B^A, φ ↦ (φ(a))_{a ∈ A}, where B^A = (A → B) carries the product topology; equivalently, it is the coarsest topology for which every evaluation φ ↦ φ(a), a ∈ A, is continuous. Lean: `TauCeti.Points R A B`, a type synonym of `A →ₐ[R] B` carrying this topology as an instance; no topology instance is put on `A →ₐ[R] B` itself, so no existing instance is overridden.",
+      "hypotheses": [
+        "R and A commutative; B a commutative topological ring with an R-algebra structure. No finiteness of A and no separation axiom on B is assumed in the definition; the separation, closedness and local-compactness statements of RP.2/points-topology-presentation assume them."
+      ],
+      "proofSteps": [
+        "Define the topology as TopologicalSpace.induced along the coercion Points_R(A, B) → (A → B), with Pi.topologicalSpace on the target. The coercion is injective (algebra maps are determined by their values), so this is the subspace topology of the image.",
+        "Continuity into Points: a map f from a topological space Z is continuous iff every z ↦ f(z)(a) is continuous (induced topology and product topology universal properties).",
+        "Functoriality: for g : A′ →ₐ[R] A, φ ↦ φ ∘ g is continuous, because each evaluation of the composite at a′ is the evaluation at g(a′). For a continuous R-algebra map h : B → B′, φ ↦ h ∘ φ is continuous, because each evaluation of the composite is h composed with an evaluation.",
+        "Products: Algebra.TensorProduct.liftEquiv identifies Points_R(A ⊗_R A′, B) with pairs (φ, φ′) (the commutation condition is automatic since B is commutative). The map φ ↦ (φ ∘ includeLeft, φ ∘ includeRight) is continuous by functoriality, and its inverse is continuous because each element of A ⊗_R A′ is a finite sum of products a ⊗ a′, whose value (φ(a)φ′(a′) summed) is a continuous function of (φ, φ′) as B is a topological ring.",
+        "Examples: for A = R[X], Polynomial.aeval identifies Points_R(R[X], B) with B through φ ↦ φ(X), a homeomorphism since every evaluation is a polynomial function of φ(X). For A = R[X, Y]/(XY − 1), φ ↦ φ(X) is a bijection onto Bˣ, and the points topology corresponds to Mathlib's topology on units (induced by u ↦ (u, u⁻¹), Units.embedProduct), because the points topology is induced by the two evaluations at X and Y = X⁻¹."
+      ],
+      "acceptance": [
+        "Every evaluation map is continuous, and a map into Points is continuous iff all its evaluations are.",
+        "For A = R[X, Y]/(XY − 1) and B = 𝔸_ℚ, the space is 𝔸_ℚˣ with the topology in which u and u⁻¹ both vary continuously; it is not the subspace topology from 𝔸_ℚ (Conrad §3). A definition through the embedding of Spec A in the affine line would get this wrong.",
+        "No presentation of A enters the definition; that any presentation gives the same topology is a lemma (RP.2/points-topology-presentation)."
+      ],
+      "prerequisites": [
+        "mathlib:TopologicalSpace.induced",
+        "mathlib:Pi.topologicalSpace",
+        "mathlib:AlgHom",
+        "mathlib:Algebra.TensorProduct.liftEquiv",
+        "mathlib:Polynomial.aeval",
+        "mathlib:Units.embedProduct"
+      ],
+      "sources": [
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§2, Proposition 2.1, p. 2",
+          "excerpt": "Explicitly, if A is the coordinate ring of X then X(R) has the weakest topology relative to which",
+          "match": "Conrad's topological ring R is the value ring B here; his explicit description of the topology is taken as the definition."
+        },
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§3, pp. 3–4",
+          "excerpt": "shows that the unit group of a topological ring need not be a topological group with respect to the",
+          "match": "The units example of the acceptance cases."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdelicPoints/Topology",
+        "namespace": "TauCeti",
+        "name": "TauCeti.Points"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Points.continuous_eval",
+          "role": "other",
+          "statement": "For every a ∈ A the evaluation φ ↦ φ(a) is continuous on Points_R(A, B)."
+        },
+        {
+          "name": "TauCeti.Points.continuous_iff",
+          "role": "characterisation",
+          "statement": "A map f : Z → Points_R(A, B) from a topological space is continuous iff z ↦ f(z)(a) is continuous for every a ∈ A."
+        },
+        {
+          "name": "TauCeti.Points.isEmbedding_coe",
+          "role": "compatibility",
+          "statement": "The coercion Points_R(A, B) → (A → B) is a topological embedding for the product topology."
+        },
+        {
+          "name": "TauCeti.Points.precomp",
+          "role": "functoriality",
+          "statement": "An R-algebra map g : A′ → A induces a continuous map Points_R(A, B) → Points_R(A′, B), φ ↦ φ ∘ g, compatible with identities and composition."
+        },
+        {
+          "name": "TauCeti.Points.postcomp",
+          "role": "functoriality",
+          "statement": "A continuous R-algebra map h : B → B′ induces a continuous map Points_R(A, B) → Points_R(A, B′), φ ↦ h ∘ φ, compatible with identities and composition."
+        },
+        {
+          "name": "TauCeti.Points.tensorHomeomorph",
+          "role": "universal-property",
+          "statement": "Points_R(A ⊗_R A′, B) ≃ₜ Points_R(A, B) × Points_R(A′, B), φ ↦ (φ ∘ includeLeft, φ ∘ includeRight)."
+        },
+        {
+          "name": "TauCeti.Points.polynomialHomeomorph",
+          "role": "compatibility",
+          "statement": "Points_R(R[X], B) ≃ₜ B, φ ↦ φ(X)."
+        },
+        {
+          "name": "TauCeti.Points.unitsHomeomorph",
+          "role": "compatibility",
+          "statement": "Points_R(R[X, Y]/(XY − 1), B) ≃ₜ Bˣ with Mathlib's topology on units, φ ↦ the unit with value φ(X) and inverse φ(Y)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Points.tests.base",
+          "kind": "degenerate",
+          "statement": "Points_R(R, B) has exactly one element, Algebra.ofId, and hence the only topology."
+        },
+        {
+          "name": "TauCeti.Points.tests.zero_ring",
+          "kind": "degenerate",
+          "statement": "If A is the zero ring and B is nontrivial, Points_R(A, B) is empty."
+        },
+        {
+          "name": "TauCeti.Points.tests.polynomial_real",
+          "kind": "computation",
+          "statement": "For R = ℤ, A = ℤ[X] and B = ℝ, φ ↦ φ(X) is a homeomorphism onto ℝ; in particular Points is connected and not discrete."
+        },
+        {
+          "name": "TauCeti.Points.tests.units_real",
+          "kind": "compatibility",
+          "statement": "For R = ℤ, A = ℤ[X, Y]/(XY − 1) and B = ℝ, the space is homeomorphic to ℝ ∖ {0} with the subspace topology (inversion is continuous on ℝ ∖ {0}, so the units topology is the subspace topology)."
+        },
+        {
+          "name": "TauCeti.Points.tests.not_discrete",
+          "kind": "non-example",
+          "statement": "For B = ℚ_p and A = ℤ[X], the points φ_n with φ_n(X) = pⁿ converge to the point with value 0; so the points topology is not the discrete topology."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.2/adelic-points",
+          "how": "The topology of X(𝔸_K) is the points topology with values in the adele ring."
+        },
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.2/adelic-points-restricted-product",
+          "how": "The local factors X(K_v) and X₀(O_v) carry the points topology with values in K_v, and the comparison is proved through presentations."
+        },
+        {
+          "where": "AdelicAlgebraicGroups:AA.1",
+          "how": "For an affine group scheme G of finite type, G(𝔸) with its topology is the points topology of its coordinate ring; the group case consumes this construction."
+        },
+        {
+          "where": "Poonen Proposition 8.2.9 and Corollary 8.2.11 (coverage)",
+          "how": "Local constancy of Brauer evaluation is a statement about the points topology on X(K_v)."
+        }
+      ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/points-topology-presentation",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Presentations compute the points topology",
+      "kind": "lemma",
+      "statement": "Let R, A, B be as in RP.2/points-topology, n ∈ ℕ and π : R[X₁, …, X_n] → A a surjective R-algebra map (MvPolynomial (Fin n) R), with aᵢ := π(Xᵢ). Then φ ↦ (φ(a₁), …, φ(a_n)) is a topological embedding Points_R(A, B) → Bⁿ whose image is Z(ker π) := {b ∈ Bⁿ : aeval b f = 0 for all f ∈ ker π}. If B is T1, Z(ker π) is closed, so the embedding is closed and Points_R(A, B) is T1; if B is Hausdorff, Points_R(A, B) is Hausdorff; if B is locally compact Hausdorff, Points_R(A, B) is locally compact.",
+      "hypotheses": [
+        "π surjective; for the closedness statements B is T1 (resp. Hausdorff, locally compact Hausdorff)."
+      ],
+      "proofSteps": [
+        "Bijection onto Z(ker π): an R-algebra map out of the quotient A ≅ R[X]/ker π is determined by the images of the Xᵢ, and b ∈ Bⁿ is the image of such a map iff MvPolynomial.aeval b kills ker π.",
+        "Embedding: the map is continuous (n evaluations). Conversely every a ∈ A is π(f) for a polynomial f, and φ(a) = aeval (φ(a₁), …, φ(a_n)) f is a polynomial function of the coordinates, continuous because B is a topological ring; so each evaluation factors continuously through the image, and the points topology is induced from Bⁿ.",
+        "Closedness: Z(ker π) = ⋂_{f ∈ ker π} (b ↦ aeval b f)⁻¹{0}, an intersection of closed sets when {0} is closed.",
+        "Separation and local compactness pass to subspaces, and closed subspaces of locally compact Hausdorff spaces are locally compact."
+      ],
+      "acceptance": [
+        "For A = R[X]/(X² − 2) and B = ℝ, the image is {±√2} ⊂ ℝ, a closed two-point set.",
+        "Two presentations of A give homeomorphic zero sets; the homeomorphism is given by polynomial maps in both directions."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/points-topology",
+        "mathlib:MvPolynomial.aeval",
+        "mathlib:Topology.IsEmbedding",
+        "mathlib:Topology.IsClosedEmbedding"
+      ],
+      "sources": [
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§2, proof of Proposition 2.1, p. 2",
+          "excerpt": "that the topology defined using (2.1.1) is the same as the subspace topology defined by the canonical injection",
+          "match": "Independence of the presentation, which the proof deduces from the polynomial expression of every element in the generators."
+        },
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§2, proof of Proposition 2.1, p. 2",
+          "excerpt": "Likewise, we see that X(R) is closed in R^n in the Hausdorff case, so when",
+          "match": "Closedness of the image and local compactness."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdelicPoints/Topology",
+        "namespace": "TauCeti",
+        "name": "TauCeti.Points.isEmbedding_generators"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Points.isEmbedding_generators",
+          "role": "characterisation",
+          "statement": "For a surjection π from MvPolynomial (Fin n) R onto A, the evaluation at π(X₁), …, π(X_n) is a topological embedding Points_R(A, B) → Fin n → B."
+        },
+        {
+          "name": "TauCeti.Points.range_generators",
+          "role": "characterisation",
+          "statement": "Its range is the common zero set of ker π."
+        },
+        {
+          "name": "TauCeti.Points.isClosedEmbedding_generators",
+          "role": "other",
+          "statement": "If B is T1 the embedding is closed."
+        },
+        {
+          "name": "TauCeti.Points.t2Space",
+          "role": "other",
+          "statement": "If B is Hausdorff, Points_R(A, B) is Hausdorff (for every A, since the coercion to A → B is injective)."
+        },
+        {
+          "name": "TauCeti.Points.locallyCompactSpace",
+          "role": "other",
+          "statement": "If A is finitely generated and B is locally compact Hausdorff, Points_R(A, B) is locally compact."
+        }
+      ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/points-topology-base-change",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Changing the value ring",
+      "kind": "lemma",
+      "statement": "Let A be a finitely generated R-algebra and h : B → B′ a continuous R-algebra map of commutative topological R-algebras. Then postcomposition Points_R(A, B) → Points_R(A, B′) is continuous. If h is a topological embedding, so is the induced map; if h is moreover a closed (resp. open) embedding, so is the induced map; and if h(B) is discrete in B′, the image of Points_R(A, B) is discrete in Points_R(A, B′).",
+      "hypotheses": [
+        "A finitely generated; h continuous. The source's closed/open clause is stated with the roles of the two rings exchanged (sourceIssues HeightsRationalPointsAndObstructions/E8); the statement here uses the corrected orientation."
+      ],
+      "proofSteps": [
+        "Choose a presentation π : R[X₁, …, X_n] → A (A finitely generated). By RP.2/points-topology-presentation both Points spaces embed in Bⁿ and B′ⁿ as the zero sets of ker π, and the induced map is the restriction of hⁿ : Bⁿ → B′ⁿ, since h is an algebra map.",
+        "If h is an embedding (resp. closed, open embedding), so is hⁿ, and Points_R(A, B) = hⁿ⁻¹(Points_R(A, B′)) inside Bⁿ, because a tuple satisfies the equations of ker π in B iff its image does in B′ (h injective). Restrictions of (closed, open) embeddings to preimages are (closed, open) embeddings.",
+        "Discreteness: hⁿ(Bⁿ) is discrete in B′ⁿ when h(B) is discrete in B′ (finite products of discrete subspaces), and the image of Points_R(A, B) is a subset of it."
+      ],
+      "acceptance": [
+        "The inclusion K → 𝔸_K of a number field into its adele ring gives a discrete embedding of the K-points of any affine K-variety into its adelic points (RP.2/rational-points-discrete).",
+        "The inclusion of the valuation ring O_v into K_v is an open and closed embedding, so the integral points of an O_v-model are open and closed in the K_v-points."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/points-topology-presentation",
+        "mathlib:Topology.IsEmbedding",
+        "mathlib:Topology.IsClosedEmbedding",
+        "mathlib:DiscreteTopology"
+      ],
+      "sources": [
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§2, Example 2.2, p. 3",
+          "excerpt": "The same argument shows that if R is discrete in R′ then X(R) is discrete in X(R′).",
+          "match": "The discreteness clause, stated in the correct orientation in the source."
+        },
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§2, Example 2.2, p. 3",
+          "excerpt": "Moreover, if R′ is closed (resp. open) in R then X(R) → X(R′) is a closed (resp. open) embedding.",
+          "match": "The closed and open clauses; the printed hypothesis 'R′ closed in R' has the two rings exchanged (sourceIssues E8)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdelicPoints/Topology",
+        "namespace": "TauCeti",
+        "name": "TauCeti.Points.isEmbedding_postcomp"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.Points.isEmbedding_postcomp",
+          "role": "functoriality",
+          "statement": "For A finitely generated and h a topological embedding, postcomposition with h is a topological embedding."
+        },
+        {
+          "name": "TauCeti.Points.isClosedEmbedding_postcomp",
+          "role": "functoriality",
+          "statement": "The same for closed embeddings."
+        },
+        {
+          "name": "TauCeti.Points.isOpenEmbedding_postcomp",
+          "role": "functoriality",
+          "statement": "The same for open embeddings."
+        },
+        {
+          "name": "TauCeti.Points.discrete_range_postcomp",
+          "role": "other",
+          "statement": "If h(B) is discrete in B′, the image of Points_R(A, B) in Points_R(A, B′) is discrete."
+        }
+      ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/adelic-points",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Adelic points of an affine variety",
+      "kind": "definition",
+      "statement": "Let K be a number field, 𝔸_K = NumberField.AdeleRing (𝓞 K) K its adele ring (the product of the infinite adele ring and the finite adele ring), and A a finitely generated commutative K-algebra, the coordinate ring of the affine K-variety X = Spec A. The adelic points of X are X(𝔸_K) := Points_K(A, 𝔸_K) with the points topology (RP.2/points-topology). They come with: the diagonal ι : X(K) = Points_K(A, K) → X(𝔸_K), postcomposition with the algebra map K → 𝔸_K; for each finite place v (a height-one prime of 𝓞 K) the local projection X(𝔸_K) → X(K_v), K_v = v.adicCompletion K, postcomposition with the projection of the finite adeles to their v-component; and for each infinite place w the local projection X(𝔸_K) → X(K_w), K_w = w.Completion. All of these are continuous. Lean: `TauCeti.AdelicPoints K A`, with `diagonal`, `finiteProj v` and `infiniteProj w`.",
+      "hypotheses": [
+        "K a number field; A a finitely generated commutative K-algebra (so X is an affine K-scheme of finite type). Non-affine varieties are not covered by this node (coverage)."
+      ],
+      "proofSteps": [
+        "Definition: Points_K(A, 𝔸_K). The adele ring is a topological K-algebra (NumberField.AdeleRing is a topological ring with Algebra K).",
+        "Diagonal and projections: the algebra map K → 𝔸_K and the projections 𝔸_K → K_v are continuous K-algebra maps (the projection of the finite adeles to a component is RestrictedProduct.evalRingHom, continuous for the restricted-product topology; the infinite part is a product of the K_w). Postcomposition is continuous by RP.2/points-topology.",
+        "Product decomposition: since 𝔸_K = K_∞ × 𝔸_K^f, Points_K(A, 𝔸_K) ≃ₜ Points_K(A, K_∞) × Points_K(A, 𝔸_K^f) and Points_K(A, K_∞) ≃ₜ ∏_w X(K_w) (algebra maps into a product are families of algebra maps into the factors; the topologies agree because both are induced by the evaluations).",
+        "Hausdorff: 𝔸_K is Hausdorff (Tau Ceti NumberField.AdeleRing.instT2Space), so RP.2/points-topology-presentation makes X(𝔸_K) Hausdorff. Local compactness: the infinite adeles are locally compact (NumberField.InfiniteAdeleRing.locallyCompactSpace), and the finite adeles are locally compact by RestrictedProduct.locallyCompactSpace_of_group once each O_v is compact; compactness of O_v for a number field is not in the pinned libraries (gap), so the local-compactness API item waits for it."
+      ],
+      "acceptance": [
+        "X(𝔸_K) is Hausdorff, and X(K) sits in it as a discrete closed subset (RP.2/rational-points-discrete).",
+        "For K = ℚ and A = ℚ[X]/(X² + 1), X(𝔸_ℚ) is empty although X(ℚ_p) is nonempty for every p ≡ 1 mod 4, because X(ℝ) is empty."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/points-topology",
+        "HeightsRationalPointsAndObstructions:RP.2/points-topology-presentation",
+        "mathlib:NumberField.AdeleRing",
+        "mathlib:IsDedekindDomain.FiniteAdeleRing",
+        "mathlib:NumberField.InfiniteAdeleRing",
+        "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletion",
+        "mathlib:NumberField.InfinitePlace.Completion",
+        "mathlib:RestrictedProduct.evalRingHom",
+        "tauceti:NumberField.AdeleRing.instT2Space",
+        "mathlib:NumberField.InfiniteAdeleRing.locallyCompactSpace",
+        "mathlib:RestrictedProduct.locallyCompactSpace_of_group",
+        "mathlib:Algebra.FiniteType"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§2.6.3, p. 49",
+          "excerpt": "Let X be a k-variety. Since 𝐀 is a k-algebra, the set X(𝐀) of",
+          "match": "Adelic points as the A-points of X for the adele ring A of the global field k."
+        },
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§2, Example 2.3, p. 3",
+          "excerpt": "for any affine finite type F-scheme X, X(F) → X(A_F) is a topological embedding onto a discrete subset.",
+          "match": "The diagonal and its discreteness (proved in RP.2/rational-points-discrete)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdelicPoints/Basic",
+        "namespace": "TauCeti",
+        "name": "TauCeti.AdelicPoints"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Adelic points"
+      },
+      "api": [
+        {
+          "name": "TauCeti.AdelicPoints.diagonal",
+          "role": "constructor",
+          "statement": "The continuous map X(K) → X(𝔸_K) given by postcomposition with algebraMap K 𝔸_K."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.finiteProj",
+          "role": "other",
+          "statement": "For a finite place v, the continuous map X(𝔸_K) → X(K_v) given by postcomposition with the v-th projection of the finite adeles."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.infiniteProj",
+          "role": "other",
+          "statement": "For an infinite place w, the continuous map X(𝔸_K) → X(K_w) given by postcomposition with the w-th projection of the infinite adeles."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.ext",
+          "role": "extensionality",
+          "statement": "Two adelic points agree iff all their local projections agree."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.diagonal_injective",
+          "role": "other",
+          "statement": "The diagonal is injective (K → 𝔸_K is injective)."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.finiteProj_diagonal",
+          "role": "compatibility",
+          "statement": "The local projection of the diagonal image of x is x followed by K → K_v, and similarly at infinite places."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.map",
+          "role": "functoriality",
+          "statement": "A K-algebra map A′ → A induces a continuous map X(𝔸_K) → X′(𝔸_K) compatible with the diagonal and the local projections."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.t2Space",
+          "role": "other",
+          "statement": "X(𝔸_K) is Hausdorff."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.locallyCompactSpace",
+          "role": "other",
+          "statement": "X(𝔸_K) is locally compact (needs compactness of every O_v, a recorded gap)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AdelicPoints.tests.point",
+          "kind": "degenerate",
+          "statement": "For A = K, X(𝔸_K) has exactly one element, the image of the unique K-point."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.tests.affine_line",
+          "kind": "computation",
+          "statement": "For A = K[X], evaluation at X is a homeomorphism X(𝔸_K) ≃ₜ 𝔸_K, and the diagonal is the inclusion K → 𝔸_K; it is not surjective."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.tests.multiplicative_group",
+          "kind": "compatibility",
+          "statement": "For A = K[X, Y]/(XY − 1), X(𝔸_K) is homeomorphic to the unit group 𝔸_Kˣ with Mathlib's topology on units (the idele topology)."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.tests.no_real_point",
+          "kind": "non-example",
+          "statement": "For K = ℚ and A = ℚ[X]/(X² + 1), X(𝔸_ℚ) is empty, while X(ℚ₅) is not."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-pairing",
+          "how": "The pairing is a function on X(𝔸_K), and the Brauer–Manin set is a subset of it."
+        },
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.3",
+          "how": "Descent sets are subsets of X(𝔸_K) cut out by torsors."
+        },
+        {
+          "where": "Poonen §8.1 (F-obstructions)",
+          "how": "Every obstruction set is a subset of X(𝔸_K) containing the diagonal image of X(K)."
+        }
+      ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/integral-model",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Integral models and their integral local points",
+      "kind": "definition",
+      "statement": "Let K be a number field and A a finitely generated commutative K-algebra. An integral model of A is a finitely generated 𝓞_K-subalgebra A₀ ⊆ A such that K·A₀ = A (equivalently, the K-subalgebra generated by A₀ is A; then A₀ ⊗_{𝓞_K} K ≅ A). For a finite place v, its integral points at v are X₀(O_v) := {x ∈ X(K_v) : x(A₀) ⊆ O_v}, where O_v = v.adicCompletionIntegers K; for an infinite place w, X₀(O_w) := X(K_w). Lean: `TauCeti.AdelicPoints.IntegralModel K A` (a structure holding A₀, finite generation and the spanning condition) with `IntegralModel.integralPoints`.",
+      "hypotheses": [
+        "K a number field; A a finitely generated commutative K-algebra; A₀ a finitely generated 𝓞_K-subalgebra with K·A₀ = A. Models over rings of S-integers are the localisations A₀[1/N]; since the restricted product only sees almost all places, 𝓞_K-models suffice."
+      ],
+      "proofSteps": [
+        "A₀ is torsion free over 𝓞_K (a subring of the K-vector space A), so A₀ ⊗_{𝓞_K} K is the localisation of A₀ at 𝓞_K ∖ {0}, which is K·A₀ = A.",
+        "A K-algebra map x : A → K_v is determined by its restriction to A₀, and x ∈ X₀(O_v) iff that restriction lands in O_v; so X₀(O_v) is identified with the 𝓞_K-algebra maps A₀ → O_v.",
+        "If a₁, …, a_n generate A₀ over 𝓞_K, then X₀(O_v) = {x : x(aᵢ) ∈ O_v for all i}, because O_v is a subring containing the image of 𝓞_K."
+      ],
+      "acceptance": [
+        "For A = ℚ[X] and A₀ = ℤ[X], X₀(ℤ_p) is ℤ_p inside ℚ_p.",
+        "Different models may differ at finitely many places: for A = ℚ[X], A₀ = ℤ[X] and A₀′ = ℤ[X/2] have X₀(ℤ₂) = ℤ₂ ≠ 2ℤ₂ = X₀′(ℤ₂), and agree at every odd p (RP.2/integral-model-exists-unique)."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/adelic-points",
+        "mathlib:Algebra.adjoin",
+        "mathlib:Algebra.FiniteType",
+        "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§2.6.3, p. 49",
+          "excerpt": "There exists a finite set S of places and a separated finite-",
+          "match": "An integral model: a finite-type model over a ring of S-integers whose generic fibre is X."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "Exercise 3.4(b), p. 95",
+          "excerpt": "Explain why 𝒳(O_v) may be identified with a subset of X(k_v) for",
+          "match": "The integral points at v as a subset of the K_v-points."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdelicPoints/RestrictedProduct",
+        "namespace": "TauCeti",
+        "name": "TauCeti.AdelicPoints.IntegralModel"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.AdelicPoints.IntegralModel.integralPoints",
+          "role": "constructor",
+          "statement": "The set X₀(O_v) ⊆ X(K_v) of points integral on A₀, for a finite place v."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.IntegralModel.mem_integralPoints_iff",
+          "role": "characterisation",
+          "statement": "x ∈ X₀(O_v) iff x(aᵢ) ∈ O_v for a chosen finite family of 𝓞_K-algebra generators aᵢ of A₀."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.IntegralModel.isOpen_integralPoints",
+          "role": "other",
+          "statement": "X₀(O_v) is open in X(K_v)."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.IntegralModel.isCompact_integralPoints",
+          "role": "other",
+          "statement": "X₀(O_v) is compact, given compactness of O_v (recorded gap): it is closed in the compact set of points with all generator values in O_v."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.IntegralModel.ofGenerators",
+          "role": "constructor",
+          "statement": "The 𝓞_K-subalgebra generated by any finite family of K-algebra generators of A is an integral model."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.AdelicPoints.IntegralModel.tests.affine_line",
+          "kind": "computation",
+          "statement": "For K = ℚ, A = ℚ[X], A₀ = ℤ[X], X₀(ℤ_p) corresponds to ℤ_p ⊆ ℚ_p under evaluation at X."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.IntegralModel.tests.base",
+          "kind": "degenerate",
+          "statement": "For A = K and A₀ = 𝓞_K, X₀(O_v) = X(K_v) is the single point at every v."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.IntegralModel.tests.rescaled",
+          "kind": "non-example",
+          "statement": "For A = ℚ[X], the models ℤ[X] and ℤ[X/2] have different integral points at 2 (ℤ₂ versus 2ℤ₂), so the integral points depend on the model at finitely many places."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.IntegralModel.tests.no_integral_point",
+          "kind": "computation",
+          "statement": "For A = ℚ[X]/(3X − 1) and A₀ = ℤ[X]/(3X − 1) ≅ ℤ[1/3], the unique point 1/3 lies in X(ℚ₃) but X₀(ℤ₃) is empty, while X₀(ℤ_p) = X(ℚ_p) for every p ≠ 3."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.2/adelic-points-restricted-product",
+          "how": "The restricted product is taken with respect to the integral points of a model."
+        },
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.2/brauer-evaluation-finite-support",
+          "how": "Azumaya algebras are spread out over the model, and integral local points give trivial evaluations."
+        }
+      ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/integral-model-exists-unique",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Integral models exist and agree at almost all places",
+      "kind": "lemma",
+      "statement": "Let K be a number field and A a finitely generated commutative K-algebra. (a) The 𝓞_K-subalgebra generated by any finite family of K-algebra generators of A is an integral model (RP.2/integral-model). (b) For two integral models A₀, A₀′ there is a nonzero N ∈ 𝓞_K with A₀[1/N] = A₀′[1/N] inside A; consequently X₀(O_v) = X₀′(O_v) for every finite place v not dividing N, i.e. for all but finitely many v.",
+      "hypotheses": [
+        "A finitely generated over K; A₀, A₀′ finitely generated 𝓞_K-subalgebras spanning A over K."
+      ],
+      "proofSteps": [
+        "(a) The subalgebra generated by K-algebra generators a₁, …, a_n is finitely generated over 𝓞_K, and its K-span contains the aᵢ and is a K-subalgebra, hence is A.",
+        "(b) Each of the finitely many generators of A₀′ lies in A = K·A₀, so it is a/m with a ∈ A₀ and m ∈ 𝓞_K ∖ {0}; let N₁ be the product of these denominators, so A₀′ ⊆ A₀[1/N₁]. Symmetrically A₀ ⊆ A₀′[1/N₂]. With N = N₁N₂, A₀[1/N] = A₀′[1/N].",
+        "If v does not divide N, N is a unit of O_v, so a K-algebra map x : A → K_v with x(A₀) ⊆ O_v also sends A₀[1/N], hence A₀′, into O_v, and conversely.",
+        "Only finitely many height-one primes contain N ≠ 0 (a nonzero element of a Dedekind domain lies in finitely many maximal ideals)."
+      ],
+      "acceptance": [
+        "The models ℤ[X] and ℤ[X/2] of ℚ[X] satisfy (b) with N = 2."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/integral-model",
+        "mathlib:IsLocalization.Away",
+        "mathlib:IsDedekindDomain.HeightOneSpectrum"
+      ],
+      "sources": [
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§3, Theorem 3.4(3), p. 5",
+          "excerpt": "Any “descent” X_{i_0} over A_{i_0} of a finitely presented A-scheme X is essentially unique up to essentially",
+          "match": "Uniqueness of spreading out, specialised to affine models over the rings 𝓞_K[1/N] whose limit is K."
+        },
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§3, p. 6",
+          "excerpt": "Bijectivity of (3.5.1) is obvious for affine X, because if F[t_1, …, t_n]/(f_1, …, f_m) → A_F is a map of F-",
+          "match": "The denominator-chasing argument in the affine case."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdelicPoints/RestrictedProduct",
+        "namespace": "TauCeti",
+        "name": "TauCeti.AdelicPoints.IntegralModel.eventually_integralPoints_eq"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/adelic-points-restricted-product",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Adelic points as a restricted product",
+      "kind": "theorem",
+      "statement": "Let K be a number field, A a finitely generated commutative K-algebra and A₀ an integral model (RP.2/integral-model). Then the local projections give a homeomorphism X(𝔸_K) ≃ₜ (∏_{w infinite} X(K_w)) × Πʳ_{v finite} [X(K_v), X₀(O_v)], where the second factor is Mathlib's restricted product of the X(K_v) with respect to the subsets X₀(O_v) (RestrictedProduct, with its restricted-product topology). In particular an element of X(𝔸_K) is exactly a family (x_v) of local points with x_v ∈ X₀(O_v) for all but finitely many finite v, and the restricted product does not depend on the model (RP.2/integral-model-exists-unique).",
+      "hypotheses": [
+        "K a number field; A finitely generated; A₀ an integral model. The infinite places are finitely many, so their factor is an ordinary product."
+      ],
+      "proofSteps": [
+        "Product decomposition: RP.2/adelic-points reduces the statement to the finite adeles 𝔸_K^f = Πʳ_v [K_v, O_v].",
+        "Bijection: let a₁, …, a_n generate A₀ over 𝓞_K (they then generate A over K). For a K-algebra map φ : A → 𝔸_K^f, each φ(aᵢ) is a finite adele, so it lies in O_v for all v outside a finite set Tᵢ (RestrictedProduct.eventually); for v outside T = ⋃ Tᵢ the v-component x_v of φ sends every aᵢ, hence A₀, into O_v. Conversely a family (x_v) with x_v(A₀) ⊆ O_v for almost all v defines a family of adeles (x_v(a))_v for each a ∈ A (a = b/m with b ∈ A₀, and m is a unit at almost all v), and a K-algebra map into the restricted product, because ring operations in the restricted product are componentwise.",
+        "Topology: by RP.2/points-topology-presentation both sides embed as the zero set of the same ideal, the left side in (𝔸_K^f)ⁿ and the right side in Πʳ_v [K_vⁿ, O_vⁿ], through the values at a₁, …, a_n; and (𝔸_K^f)ⁿ = Πʳ_v [K_vⁿ, O_vⁿ] as topological rings (a finite product of restricted products is the restricted product of the products; open O_v). Under this identification the two embeddings agree, so the bijection is a homeomorphism.",
+        "Openness of the X₀(O_v): they are cut out by the open conditions x(aᵢ) ∈ O_v (RP.2/integral-model), which is what makes the restricted-product topology the right one (RestrictedProduct.isOpen_forall_mem).",
+        "Model independence: two models have the same integral points at almost all v, and a restricted product only depends on the subsets at almost all indices."
+      ],
+      "acceptance": [
+        "For A = K[X], the theorem is Mathlib's definition of the finite adele ring as Πʳ_v [K_v, O_v] (with the model 𝓞_K[X]).",
+        "For A = K[X, Y]/(XY − 1) with model 𝓞_K[X, Y]/(XY − 1), it describes the idele group as the restricted product of the K_vˣ with respect to the O_vˣ, as groups and topologically; this agrees with Mathlib's unitsEquiv as groups."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/adelic-points",
+        "HeightsRationalPointsAndObstructions:RP.2/integral-model",
+        "HeightsRationalPointsAndObstructions:RP.2/integral-model-exists-unique",
+        "HeightsRationalPointsAndObstructions:RP.2/points-topology-presentation",
+        "mathlib:RestrictedProduct",
+        "mathlib:RestrictedProduct.topologicalSpace",
+        "mathlib:RestrictedProduct.eventually",
+        "mathlib:RestrictedProduct.isOpen_forall_mem"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§2.6.3, p. 50",
+          "excerpt": "This bijection lets us equip X(𝐀) with a topology. First, equip each",
+          "match": "Poonen's description of X(𝔸) as the restricted product, and its topology."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "Exercise 3.4(c), p. 95",
+          "excerpt": "Prove that there is a bijection",
+          "match": "The bijection with the restricted product of local points."
+        },
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§3, Theorem 3.6, p. 6",
+          "excerpt": "Let X_S be a finite type O_{F,S}-scheme. Using the projections from A_{F,S} to F_v for v ∈ S and",
+          "match": "Conrad's theorem: the S-integral adelic points are the product of local points, homeomorphically in the affine case; passing to the limit over S gives the restricted product."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdelicPoints/RestrictedProduct",
+        "namespace": "TauCeti",
+        "name": "TauCeti.AdelicPoints.restrictedProductHomeomorph"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Adelic points as a restricted product"
+      },
+      "api": [
+        {
+          "name": "TauCeti.AdelicPoints.restrictedProductHomeomorph",
+          "role": "characterisation",
+          "statement": "X(𝔸_K) ≃ₜ (Π w, X(K_w)) × Πʳ v, [X(K_v), X₀(O_v)] for an integral model A₀, given by the local projections."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.eventually_mem_integralPoints",
+          "role": "other",
+          "statement": "For every adelic point x and every integral model, finiteProj v x ∈ X₀(O_v) for all but finitely many v."
+        },
+        {
+          "name": "TauCeti.AdelicPoints.mk_of_eventually",
+          "role": "constructor",
+          "statement": "A family of local points, integral on A₀ at almost all finite places, defines an adelic point with these projections."
+        }
+      ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/adelic-points-nonempty-iff",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Adelic points exist iff local points exist and are integral almost everywhere",
+      "kind": "lemma",
+      "statement": "Let K be a number field, A a finitely generated commutative K-algebra and A₀ an integral model. Then X(𝔸_K) is nonempty iff X(K_w) is nonempty for every infinite place w, X(K_v) is nonempty for every finite place v, and X₀(O_v) is nonempty for all but finitely many finite v. In particular X(K) ≠ ∅ implies X(𝔸_K) ≠ ∅ (through the diagonal), and X(𝔸_K) = ∅ as soon as X has no point over a single completion.",
+      "hypotheses": [
+        "As in RP.2/adelic-points-restricted-product."
+      ],
+      "proofSteps": [
+        "By RP.2/adelic-points-restricted-product, an adelic point is a family of local points integral at almost all v; such a family exists iff every local set is nonempty and the integral subsets are nonempty at almost all v (choose integral points there and arbitrary points at the finitely many remaining places).",
+        "The diagonal image of a K-point is an adelic point (RP.2/adelic-points)."
+      ],
+      "acceptance": [
+        "For A = ℚ[X]/(X² + 1): X(ℝ) = ∅, so X(𝔸_ℚ) = ∅.",
+        "Local points must exist at every place: for A = ℚ[X]/(X² − 2), X(ℚ_p) is empty for every p ≡ ±3 mod 8, so X(𝔸_ℚ) = ∅ although X(ℝ) ≠ ∅.",
+        "The lemma says nothing about X(K): the Brauer–Manin set (RP.2/brauer-manin-pairing) refines this necessary condition."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/adelic-points-restricted-product",
+        "HeightsRationalPointsAndObstructions:RP.2/adelic-points"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§8.1.1, p. 228",
+          "excerpt": "Definition 8.1.2. If X(𝐀) ≠ ∅ but X(𝐀)^F = ∅, then we say that there is",
+          "match": "Nonemptiness of X(𝔸) is the local condition that the obstructions refine."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdelicPoints/RestrictedProduct",
+        "namespace": "TauCeti",
+        "name": "TauCeti.AdelicPoints.nonempty_iff"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/rational-points-discrete",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Rational points are discrete and closed in adelic points",
+      "kind": "lemma",
+      "statement": "Let K be a number field and A a finitely generated commutative K-algebra. The diagonal ι : X(K) → X(𝔸_K) is injective, and its image is a discrete closed subset of X(𝔸_K).",
+      "hypotheses": [
+        "K a number field; A finitely generated."
+      ],
+      "proofSteps": [
+        "Choose a presentation of A. By RP.2/points-topology-presentation, X(𝔸_K) embeds as a closed subset of 𝔸_Kⁿ, compatibly with the embedding X(K) ⊆ Kⁿ, and ι is the restriction of the diagonal Kⁿ → 𝔸_Kⁿ.",
+        "K is discrete and closed in 𝔸_K (Tau Ceti discreteTopology_principalSubgroup, isClosed_principalSubgroup), so Kⁿ is discrete and closed in 𝔸_Kⁿ, and its intersection with X(𝔸_K) is the image of ι (a tuple in Kⁿ satisfies the equations in 𝔸_K iff it satisfies them in K, since K → 𝔸_K is injective).",
+        "Discreteness also follows from RP.2/points-topology-base-change."
+      ],
+      "acceptance": [
+        "For A = K[X], the image of ι is the principal subgroup K ⊆ 𝔸_K."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/adelic-points",
+        "HeightsRationalPointsAndObstructions:RP.2/points-topology-presentation",
+        "HeightsRationalPointsAndObstructions:RP.2/points-topology-base-change",
+        "tauceti:TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup",
+        "tauceti:TauCeti.GlobalNumberFields.isClosed_principalSubgroup",
+        "mathlib:NumberField.AdeleRing.principalSubgroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§2, Example 2.3, p. 3",
+          "excerpt": "Since F is discrete in A_F, so F^n is discrete in A^n_F, it follows that for any affine finite type",
+          "match": "Discreteness of the rational points in the adelic points."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/AdelicPoints/Basic",
+        "namespace": "TauCeti",
+        "name": "TauCeti.AdelicPoints.isClosed_range_diagonal"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/azumaya-base-change",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Base change of Azumaya algebras",
+      "kind": "lemma",
+      "statement": "Let R be a commutative ring, 𝒜 an Azumaya R-algebra (Mathlib IsAzumaya R 𝒜: finitely generated, projective and faithful as an R-module, with R-algebra map 𝒜 ⊗_R 𝒜ᵐᵒᵖ → End_R(𝒜) bijective), and S a commutative R-algebra. Then S ⊗_R 𝒜 is an Azumaya S-algebra. Over a field L, 𝒜 is Azumaya iff 𝒜 is a nonzero finite-dimensional central simple L-algebra.",
+      "hypotheses": [
+        "R, S commutative; 𝒜 Azumaya over R. For the field statement, L is a field."
+      ],
+      "proofSteps": [
+        "Module conditions: S ⊗_R 𝒜 is finitely generated and projective over S (base change of finite projective modules). Faithfulness: a finite projective faithful module has positive rank at every prime of R, and base change preserves positive rank at primes of S, so S ⊗_R 𝒜 is faithful.",
+        "The algebra map: S ⊗_R (𝒜 ⊗_R 𝒜ᵐᵒᵖ) ≅ (S ⊗_R 𝒜) ⊗_S (S ⊗_R 𝒜)ᵐᵒᵖ, and, since 𝒜 is finite projective, S ⊗_R End_R(𝒜) ≅ End_S(S ⊗_R 𝒜); under these isomorphisms the map for S ⊗_R 𝒜 is the base change of the bijective map for 𝒜.",
+        "Field case: over a field, Azumaya algebras are free, and Mathlib's instance Algebra.IsCentral.instIsAzumaya gives centrality. Simplicity: a two-sided ideal I of 𝒜 gives a two-sided ideal I ⊗ 𝒜ᵐᵒᵖ of 𝒜 ⊗ 𝒜ᵐᵒᵖ ≅ End_L(𝒜), which is simple, so I = 0 or I = 𝒜. Conversely a finite-dimensional central simple algebra is Azumaya (Tau Ceti IsSimpleRing.isAzumaya).",
+        "Consequently S ⊗_R 𝒜 over a field S = L is a central simple L-algebra; this is what makes Brauer evaluation (RP.2/brauer-evaluation) land in Mathlib's Brauer group of L."
+      ],
+      "acceptance": [
+        "The matrix algebra M_n(R) is Azumaya (IsAzumaya.matrix) and its base change is M_n(S).",
+        "The Hamilton quaternions over ℤ[1/2] form an Azumaya algebra; their base change to ℝ is ℍ, central simple and not split."
+      ],
+      "prerequisites": [
+        "mathlib:IsAzumaya",
+        "mathlib:AlgHom.mulLeftRight",
+        "mathlib:IsAzumaya.matrix",
+        "mathlib:Algebra.IsCentral.instIsAzumaya",
+        "mathlib:Algebra.IsCentral",
+        "mathlib:IsSimpleRing",
+        "tauceti:TauCeti.IsSimpleRing.isAzumaya",
+        "mathlib:Module.Projective",
+        "mathlib:Module.End"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§6.6.3, Definition 6.6.12(iv), p. 189",
+          "excerpt": "𝒜 is locally free as an O_X-module, and the canonical homomorphism",
+          "match": "Azumaya algebras as locally free algebras with 𝒜 ⊗ 𝒜ᵒᵖ ≅ End(𝒜), the form Mathlib's IsAzumaya takes on affine schemes; stability under base change is built into the local characterisations of Definition 6.6.12."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§6.6.3, p. 189",
+          "excerpt": "An Azumaya algebra over k is a k-algebra that becomes isomorphic to an",
+          "match": "Over a field, Azumaya algebras are the central simple algebras."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/Azumaya/BaseChange",
+        "namespace": "TauCeti",
+        "name": "TauCeti.IsAzumaya.baseChange"
+      },
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.IsAzumaya.baseChange",
+          "role": "functoriality",
+          "statement": "IsAzumaya R 𝒜 implies IsAzumaya S (S ⊗[R] 𝒜) for every commutative R-algebra S."
+        },
+        {
+          "name": "TauCeti.IsAzumaya.isSimpleRing_of_field",
+          "role": "other",
+          "statement": "An Azumaya algebra over a field is a simple ring."
+        },
+        {
+          "name": "TauCeti.IsAzumaya.iff_isCentral_isSimpleRing",
+          "role": "characterisation",
+          "statement": "Over a field L, IsAzumaya L 𝒜 iff 𝒜 is nonzero, finite-dimensional, central and simple."
+        }
+      ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/brauer-evaluation",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Evaluating an Azumaya algebra at a point",
+      "kind": "construction",
+      "statement": "Let K be a field, A a commutative K-algebra, 𝒜 an Azumaya A-algebra and L a field with a K-algebra structure. For x ∈ Points_K(A, L), the evaluation of 𝒜 at x is 𝒜(x) := [L ⊗_{A, x} 𝒜] ∈ Br(L), the Brauer class (Tau Ceti BrauerGroup.mk of CSA.of) of the central simple L-algebra obtained by base change along x (RP.2/azumaya-base-change). Properties: (a) naturality: for a field extension L → L′ compatible with the K-structures, 𝒜(x′) = baseChange_{L′/L}(𝒜(x)) for x′ the composite point (Tau Ceti BrauerGroup.baseChange); (b) multiplicativity: (𝒜 ⊗_A 𝒜′)(x) = 𝒜(x)·𝒜′(x), 𝒜ᵐᵒᵖ(x) = 𝒜(x)⁻¹, and End_A(P)(x) = 1 for a finite projective A-module P of positive rank; (c) pullback: for a K-algebra map g : A′ → A (so A is an A′-algebra) and an Azumaya A′-algebra 𝒜′, (A ⊗_{A′} 𝒜′)(x) = 𝒜′(x ∘ g); (d) constant algebras: for a central simple K-algebra D, (A ⊗_K D)(x) = baseChange_{L/K}[D]. Lean: `TauCeti.BrauerManin.eval 𝒜 x : BrauerGroup L`.",
+      "hypotheses": [
+        "K, L fields, L a K-algebra; A commutative; 𝒜 Azumaya over A. All types in one universe, as Tau Ceti's BrauerGroup group structure requires."
+      ],
+      "proofSteps": [
+        "Well-defined: L ⊗_{A,x} 𝒜 is Azumaya over L by RP.2/azumaya-base-change, hence central simple and finite-dimensional, so CSA.of applies.",
+        "(a) L′ ⊗_L (L ⊗_{A,x} 𝒜) ≅ L′ ⊗_{A,x′} 𝒜 (associativity of base change), and Tau Ceti BrauerGroup.baseChange_mk computes the class of the left side.",
+        "(b) L ⊗_A (𝒜 ⊗_A 𝒜′) ≅ (L ⊗_A 𝒜) ⊗_L (L ⊗_A 𝒜′) and L ⊗_A 𝒜ᵐᵒᵖ ≅ (L ⊗_A 𝒜)ᵐᵒᵖ; Tau Ceti mk_tensorProduct and mk_op. L ⊗_A End_A(P) ≅ End_L(L ⊗_A P) with L ⊗_A P a nonzero finite-dimensional L-vector space; Tau Ceti mk_end.",
+        "(c), (d): associativity of base change, L ⊗_{A,x} (A ⊗_{A′} 𝒜′) ≅ L ⊗_{A′, x∘g} 𝒜′ and L ⊗_A (A ⊗_K D) ≅ L ⊗_K D."
+      ],
+      "acceptance": [
+        "The trivial algebra 𝒜 = A and matrix algebras evaluate to 1 at every point.",
+        "Evaluation genuinely depends on the point: for K = ℚ, A = ℚ[t, 1/t] and the quaternion algebra 𝒜 = (−1, t)_A, 𝒜 evaluated at t = 1 in ℝ is split, and at t = −1 in ℝ it is the class of ℍ, the nontrivial element of Br(ℝ)."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/azumaya-base-change",
+        "HeightsRationalPointsAndObstructions:RP.2/points-topology",
+        "tauceti:TauCeti.BrauerGroup.mk",
+        "tauceti:TauCeti.BrauerGroup.instCommGroup",
+        "tauceti:TauCeti.CSA.of",
+        "tauceti:TauCeti.BrauerGroup.baseChange",
+        "tauceti:TauCeti.BrauerGroup.baseChange_mk",
+        "tauceti:TauCeti.BrauerGroup.mk_tensorProduct",
+        "tauceti:TauCeti.BrauerGroup.mk_op",
+        "tauceti:TauCeti.BrauerGroup.mk_end",
+        "tauceti:TauCeti.BrauerGroup.mk_matrix",
+        "mathlib:BrauerGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§8.2.1, p. 229",
+          "excerpt": "Spec L → X induces a homomorphism Br X → Br L, which maps 𝒜 to an",
+          "match": "Evaluation of a Brauer class at an L-point by pullback; for Azumaya algebras the pullback is the base change along the point."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§6.6.3.1, Definition 6.6.14, p. 189",
+          "excerpt": "The multiplication is induced by 𝒜, ℬ ↦ 𝒜 ⊗_{O_X} ℬ, the inverse is induced by",
+          "match": "The group law on Azumaya classes that evaluation respects."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BrauerManin/Evaluation",
+        "namespace": "TauCeti",
+        "name": "TauCeti.BrauerManin.eval"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Brauer evaluation"
+      },
+      "api": [
+        {
+          "name": "TauCeti.BrauerManin.eval",
+          "role": "constructor",
+          "statement": "eval 𝒜 x := BrauerGroup.mk (CSA.of L (L ⊗[A] 𝒜)) with A → L given by x."
+        },
+        {
+          "name": "TauCeti.BrauerManin.eval_baseChange",
+          "role": "compatibility",
+          "statement": "eval 𝒜 (composite of x with L → L′) = BrauerGroup.baseChange L L′ (eval 𝒜 x)."
+        },
+        {
+          "name": "TauCeti.BrauerManin.eval_tensor",
+          "role": "structure",
+          "statement": "eval (𝒜 ⊗[A] 𝒜′) x = eval 𝒜 x * eval 𝒜′ x."
+        },
+        {
+          "name": "TauCeti.BrauerManin.eval_op",
+          "role": "structure",
+          "statement": "eval 𝒜ᵐᵒᵖ x = (eval 𝒜 x)⁻¹."
+        },
+        {
+          "name": "TauCeti.BrauerManin.eval_end",
+          "role": "structure",
+          "statement": "eval (Module.End A P) x = 1 for P finite projective of positive rank; in particular eval A x = 1."
+        },
+        {
+          "name": "TauCeti.BrauerManin.eval_pullback",
+          "role": "functoriality",
+          "statement": "eval (A ⊗[A′] 𝒜′) x = eval 𝒜′ (x ∘ g) for g : A′ → A."
+        },
+        {
+          "name": "TauCeti.BrauerManin.eval_const",
+          "role": "compatibility",
+          "statement": "eval (A ⊗[K] D) x = BrauerGroup.baseChange K L (BrauerGroup.mk D) for a central simple K-algebra D."
+        },
+        {
+          "name": "TauCeti.BrauerManin.eval_congr",
+          "role": "extensionality",
+          "statement": "Isomorphic Azumaya A-algebras have equal evaluations."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.BrauerManin.tests.trivial",
+          "kind": "degenerate",
+          "statement": "eval A x = 1 for the Azumaya algebra A itself and every point x."
+        },
+        {
+          "name": "TauCeti.BrauerManin.tests.matrix",
+          "kind": "computation",
+          "statement": "eval (Matrix (Fin n) (Fin n) A) x = 1 for n ≥ 1."
+        },
+        {
+          "name": "TauCeti.BrauerManin.tests.hamilton_real",
+          "kind": "computation",
+          "statement": "For K = ℚ, A = ℚ and 𝒜 the rational Hamilton quaternions, eval 𝒜 at the embedding ℚ → ℝ is the nontrivial element of Br(ℝ) (Tau Ceti Quaternion.brauerGroupMulEquiv sends it to the generator of ℤ/2)."
+        },
+        {
+          "name": "TauCeti.BrauerManin.tests.depends_on_point",
+          "kind": "non-example",
+          "statement": "For A = ℚ[t, 1/t] and 𝒜 = (−1, t)_A, the evaluations at the real points t = 1 and t = −1 differ (1 and the class of ℍ); evaluation is not constant on X(ℝ), which has two components."
+        },
+        {
+          "name": "TauCeti.BrauerManin.tests.alg_closed",
+          "kind": "compatibility",
+          "statement": "If L is algebraically closed, eval 𝒜 x = 1 for every 𝒜 and x (Tau Ceti baseChange_eq_one_of_isAlgClosed applied through naturality, or directly since Br(L) is trivial)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-pairing",
+          "how": "The pairing sums the local invariants of the evaluations at the local components."
+        },
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.2/rational-points-in-brauer-manin-set",
+          "how": "Naturality of evaluation turns the pairing at a rational point into the reciprocity sum of one global class."
+        },
+        {
+          "where": "Poonen Proposition 8.2.9 (coverage)",
+          "how": "Local constancy is a property of x ↦ 𝒜(x) on X(K_v)."
+        }
+      ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/azumaya-spreading-out",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Spreading out an Azumaya algebra over an integral model",
+      "kind": "lemma",
+      "statement": "Let K be a number field, A a finitely generated commutative K-algebra with integral model A₀ (RP.2/integral-model), and 𝒜 an Azumaya A-algebra. Then there are a nonzero N ∈ 𝓞_K and an Azumaya A₀[1/N]-algebra 𝒜₀ with A ⊗_{A₀[1/N]} 𝒜₀ ≅ 𝒜 as A-algebras.",
+      "hypotheses": [
+        "A = A₀ ⊗_{𝓞_K} K is the filtered colimit of the rings A₀[1/N], N ∈ 𝓞_K ∖ {0}."
+      ],
+      "proofSteps": [
+        "𝒜 is finitely presented as an A-module (finite projective) and as an A-algebra; choose a finite presentation of the module and of the multiplication table. Its finitely many coefficients lie in A₀[1/N] for some N, giving an A₀[1/N]-algebra 𝒜₀ with A ⊗ 𝒜₀ ≅ 𝒜 (descent of finitely presented objects to a stage of a filtered colimit).",
+        "Projectivity: a finitely presented module whose base change to the colimit is projective is projective after enlarging N (a projective module is a direct summand of a free one; the splitting is a finite amount of data and descends).",
+        "Bijectivity of 𝒜₀ ⊗ 𝒜₀ᵐᵒᵖ → End(𝒜₀): a map of finite projective modules which becomes bijective over the colimit is bijective after enlarging N (its inverse and the two composite identities are finitely many equations). Faithfulness: positive rank at every prime holds after enlarging N, since the rank function is locally constant and positive on A.",
+        "This is the Azumaya form of Poonen's Corollary 6.6.11 (spreading out a Brauer class), which Poonen proves for cohomological Brauer classes through the limit theorem for étale cohomology."
+      ],
+      "acceptance": [
+        "A constant algebra A ⊗_K D with D central simple over K spreads out over A₀[1/N] as A₀[1/N] ⊗ D₀ for any 𝓞_K[1/N]-order D₀ of D which is Azumaya over 𝓞_K[1/N] (N divisible by the ramified primes of D)."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/integral-model",
+        "HeightsRationalPointsAndObstructions:RP.2/azumaya-base-change",
+        "mathlib:IsAzumaya",
+        "mathlib:IsLocalization.Away",
+        "mathlib:Module.Projective"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§6.6, Corollary 6.6.11, p. 189",
+          "excerpt": "Then for some finite set S of places of k, there exist a finite-type O_{k,S}-scheme",
+          "match": "Spreading out a Brauer class to an S-integral model."
+        },
+        {
+          "sourceId": "conrad-adelic-points",
+          "locator": "§3, Theorem 3.4(1), p. 5",
+          "excerpt": "There exists some i_0 and a finitely presented A_{i_0}-scheme X_{i_0} whose base change over A is isomorphic",
+          "match": "Descent of finitely presented objects to a finite stage of a filtered colimit."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BrauerManin/Evaluation",
+        "namespace": "TauCeti",
+        "name": "TauCeti.BrauerManin.exists_azumaya_model"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/azumaya-complete-dvr-split",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Azumaya algebras over the integers of a nonarchimedean local field are split",
+      "kind": "lemma",
+      "statement": "Let K be a number field, v a finite place, O_v = v.adicCompletionIntegers K with residue field κ_v (finite), and 𝒜₀ an Azumaya O_v-algebra. Then 𝒜₀ ≅ End_{O_v}(P) for a free O_v-module P of positive finite rank. Consequently K_v ⊗_{O_v} 𝒜₀ is a matrix algebra and its Brauer class in Br(K_v) is trivial.",
+      "hypotheses": [
+        "O_v is a complete discrete valuation ring with finite residue field."
+      ],
+      "proofSteps": [
+        "Residue algebra: κ_v ⊗ 𝒜₀ is Azumaya over the finite field κ_v (RP.2/azumaya-base-change), hence central simple, hence a matrix algebra M_n(κ_v), since Br(κ_v) is trivial (Tau Ceti subsingleton_brauerGroup_of_finite; Wedderburn).",
+        "Lifting an idempotent: 𝒜₀ is a finite free O_v-module, complete for the 𝔪_v-adic topology. A primitive idempotent ē of M_n(κ_v) of rank one lifts to an idempotent e ∈ 𝒜₀ (idempotents lift along the surjection 𝒜₀ → κ_v ⊗ 𝒜₀ with 𝔪-adically complete source: successive approximation e ↦ 3e² − 2e³).",
+        "P := 𝒜₀e is a direct summand of 𝒜₀, hence finite projective over the local ring O_v, hence free, of rank n since κ_v ⊗ P ≅ κ_v ⊗ 𝒜₀ ē ≅ κ_vⁿ. Left multiplication gives an O_v-algebra map 𝒜₀ → End_{O_v}(P) between free modules of rank n², which is an isomorphism modulo 𝔪_v (the matrix algebra acting on its column space), hence an isomorphism (Nakayama; a surjective endomorphism of a finite free module over a local ring with bijective reduction is bijective).",
+        "Base change to K_v gives End_{K_v}(K_v ⊗ P), whose class is 1 (Tau Ceti mk_end).",
+        "This is the Azumaya form of Poonen Corollary 6.9.3 (Br O_v = 0), which rests on Proposition 6.9.1 (Br of a complete local ring equals Br of its residue field), first proved for Azumaya algebras by Azumaya."
+      ],
+      "acceptance": [
+        "For the Hamilton quaternions over ℤ_p with p odd, the lemma gives an isomorphism with M₂(ℤ_p); over ℤ₂ the standard order is not Azumaya, consistent with ℍ being ramified at 2."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/azumaya-base-change",
+        "tauceti:TauCeti.subsingleton_brauerGroup_of_finite",
+        "tauceti:TauCeti.BrauerGroup.mk_end",
+        "mathlib:IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers",
+        "mathlib:IsAdicComplete",
+        "mathlib:Module.Free",
+        "mathlib:IsAzumaya"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§6.9.1, Corollary 6.9.3, p. 199",
+          "excerpt": "Let R be the valuation ring of a nonarchimedean local field",
+          "match": "Br O_v = 0."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§6.9.1, Proposition 6.9.1, p. 198",
+          "excerpt": "Let R be a complete local ring with residue field k. Then",
+          "match": "The residue isomorphism for complete local rings, whose Azumaya form the proof above supplies for O_v."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BrauerManin/Evaluation",
+        "namespace": "TauCeti",
+        "name": "TauCeti.BrauerManin.azumaya_split_of_adicCompletionIntegers"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/brauer-evaluation-finite-support",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Brauer evaluation is trivial at almost all places",
+      "kind": "theorem",
+      "statement": "Let K be a number field, A a finitely generated commutative K-algebra, 𝒜 an Azumaya A-algebra and x ∈ X(𝔸_K) an adelic point (RP.2/adelic-points). Then 𝒜(x_v) = 1 in Br(K_v) for all but finitely many finite places v, where x_v is the local projection of x (RP.2/brauer-evaluation).",
+      "hypotheses": [
+        "K a number field; A finitely generated; 𝒜 Azumaya over A."
+      ],
+      "proofSteps": [
+        "Choose an integral model A₀ (RP.2/integral-model-exists-unique (a)) and spread 𝒜 out to an Azumaya A₀[1/N]-algebra 𝒜₀ (RP.2/azumaya-spreading-out).",
+        "By RP.2/adelic-points-restricted-product, x_v ∈ X₀(O_v) for all but finitely many v; discard also the finitely many v dividing N. For the remaining v, x_v restricts to an 𝓞_K-algebra map A₀[1/N] → O_v (N is a unit in O_v).",
+        "Then K_v ⊗_{A, x_v} 𝒜 ≅ K_v ⊗_{O_v} (O_v ⊗_{A₀[1/N]} 𝒜₀), and O_v ⊗ 𝒜₀ is Azumaya over O_v (RP.2/azumaya-base-change), hence split (RP.2/azumaya-complete-dvr-split); so 𝒜(x_v) = 1."
+      ],
+      "acceptance": [
+        "For a constant algebra A ⊗_K D, the exceptional places are among the places where D ramifies, whatever the adelic point.",
+        "The finite set depends on x: for A = ℚ[t, 1/t] and 𝒜 = (−1, t)_A, a point with t = p at the place p gives the local class of (−1, p) over ℚ_p, which is nontrivial for p ≡ 3 mod 4."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/brauer-evaluation",
+        "HeightsRationalPointsAndObstructions:RP.2/azumaya-spreading-out",
+        "HeightsRationalPointsAndObstructions:RP.2/azumaya-complete-dvr-split",
+        "HeightsRationalPointsAndObstructions:RP.2/adelic-points-restricted-product",
+        "HeightsRationalPointsAndObstructions:RP.2/integral-model-exists-unique"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§8.2.2, Proposition 8.2.1, p. 229",
+          "excerpt": "If (x_v) ∈ X(𝐀), then 𝒜(x_v) = 0 for almost all v.",
+          "match": "The statement; Poonen writes the Brauer group additively."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§8.2.2, proof of Proposition 8.2.1, p. 229",
+          "excerpt": "may also assume that x_v ∈ 𝒳(O_v) for all v ∉ S.",
+          "match": "The spreading-out proof followed here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BrauerManin/Evaluation",
+        "namespace": "TauCeti",
+        "name": "TauCeti.BrauerManin.finite_eval_ne_one"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite support of Brauer evaluation"
+      }
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-pairing",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "The Brauer–Manin pairing and the Brauer–Manin set",
+      "kind": "construction",
+      "statement": "Let K be a number field and A a finitely generated commutative K-algebra. For each place v let inv_v : Br(K_v) → ℚ/ℤ be the local invariant (finite places: the invariant map of local class field theory, requested from ClassFieldTheory Layer 5; real places: Br(ℝ) ≅ ½ℤ/ℤ; complex places: 0). For an Azumaya A-algebra 𝒜 and x ∈ X(𝔸_K), the Brauer–Manin pairing is ⟨𝒜, x⟩ := Σ_v inv_v(𝒜(x_v)) ∈ ℚ/ℤ, a finite sum by RP.2/brauer-evaluation-finite-support (only finitely many terms are nonzero, and there are finitely many infinite places). The Brauer–Manin set of 𝒜 is X(𝔸_K)^𝒜 := {x : ⟨𝒜, x⟩ = 0}, and X(𝔸_K)^Br := ⋂_𝒜 X(𝔸_K)^𝒜 over all Azumaya A-algebras. There is a Brauer–Manin obstruction to the local-global principle for X if X(𝔸_K) ≠ ∅ and X(𝔸_K)^Br = ∅. Lean: `TauCeti.BrauerManin.pairing`, `brauerSet`, `brauerManinSet`, with ℚ/ℤ as AddCircle (1 : ℚ).",
+      "hypotheses": [
+        "K a number field; A finitely generated; the local invariant maps are the requested ClassFieldTheory Layer 5 declarations (requests), used as given homomorphisms Br(K_v) → ℚ/ℤ. Br here is the Azumaya Brauer group of the affine scheme; the comparison with Poonen's cohomological Br X is recorded as a gap."
+      ],
+      "proofSteps": [
+        "Finite support: RP.2/brauer-evaluation-finite-support at the finite places; the infinite places are finite in number.",
+        "The pairing is additive in 𝒜 (RP.2/brauer-evaluation (b) and additivity of each inv_v) and depends only on the Azumaya class; isomorphic algebras give the same sets.",
+        "X(𝔸_K)^𝒜 = X(𝔸_K) when 𝒜 is split (End_A(P)): every evaluation is 1."
+      ],
+      "acceptance": [
+        "The Brauer–Manin set of the trivial algebra is all of X(𝔸_K).",
+        "If X(𝔸_K) = ∅ there is no Brauer–Manin obstruction in this sense: the definition requires adelic points.",
+        "A nonempty Brauer–Manin set does not by itself give a rational point (Poonen §8.6); the set is only an upper bound for the closure of X(K)."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/brauer-evaluation",
+        "HeightsRationalPointsAndObstructions:RP.2/brauer-evaluation-finite-support",
+        "HeightsRationalPointsAndObstructions:RP.2/adelic-points",
+        "tauceti:TauCeti.Quaternion.brauerGroupMulEquiv",
+        "mathlib:AddCircle"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§8.2.2, Definition 8.2.5, p. 230",
+          "excerpt": "For 𝒜 ∈ Br X, define",
+          "match": "The Brauer–Manin set of one class and of the whole Brauer group."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§8.2.3, Definition 8.2.7, p. 230",
+          "excerpt": "One says that there is a Brauer–Manin obstruction to",
+          "match": "The obstruction to the local-global principle."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BrauerManin/Pairing",
+        "namespace": "TauCeti",
+        "name": "TauCeti.BrauerManin.pairing"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "The Brauer–Manin set"
+      },
+      "api": [
+        {
+          "name": "TauCeti.BrauerManin.pairing",
+          "role": "constructor",
+          "statement": "pairing 𝒜 x = Σ_v inv_v (eval 𝒜 (x_v)) in AddCircle (1 : ℚ), a finite sum."
+        },
+        {
+          "name": "TauCeti.BrauerManin.pairing_tensor",
+          "role": "structure",
+          "statement": "pairing (𝒜 ⊗[A] 𝒜′) x = pairing 𝒜 x + pairing 𝒜′ x."
+        },
+        {
+          "name": "TauCeti.BrauerManin.pairing_end",
+          "role": "structure",
+          "statement": "pairing (Module.End A P) x = 0 for P finite projective of positive rank."
+        },
+        {
+          "name": "TauCeti.BrauerManin.brauerSet",
+          "role": "constructor",
+          "statement": "brauerSet 𝒜 = {x | pairing 𝒜 x = 0}."
+        },
+        {
+          "name": "TauCeti.BrauerManin.brauerManinSet",
+          "role": "constructor",
+          "statement": "The intersection of brauerSet 𝒜 over all Azumaya A-algebras 𝒜."
+        },
+        {
+          "name": "TauCeti.BrauerManin.HasObstruction",
+          "role": "other",
+          "statement": "The proposition X(𝔸_K) ≠ ∅ ∧ brauerManinSet = ∅."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.BrauerManin.tests.pairing_trivial",
+          "kind": "degenerate",
+          "statement": "pairing A x = 0 for every adelic point x, so brauerSet A = X(𝔸_K)."
+        },
+        {
+          "name": "TauCeti.BrauerManin.tests.pairing_matrix",
+          "kind": "computation",
+          "statement": "pairing (Matrix (Fin 2) (Fin 2) A) x = 0."
+        },
+        {
+          "name": "TauCeti.BrauerManin.tests.empty",
+          "kind": "degenerate",
+          "statement": "If X(𝔸_K) is empty (for instance A = ℚ[X]/(X² + 1)), then HasObstruction is false."
+        },
+        {
+          "name": "TauCeti.BrauerManin.tests.hamilton_constant",
+          "kind": "computation",
+          "statement": "For K = ℚ, A = ℚ and 𝒜 the Hamilton quaternions, X(𝔸_ℚ) is one point and pairing 𝒜 at it is inv_∞(ℍ) + inv_2(ℍ ⊗ ℚ₂) = ½ + ½ = 0."
+        },
+        {
+          "name": "TauCeti.BrauerManin.tests.brauer_set_subset",
+          "kind": "compatibility",
+          "statement": "brauerManinSet ⊆ brauerSet 𝒜 ⊆ X(𝔸_K) for every 𝒜."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.2/rational-points-in-brauer-manin-set",
+          "how": "Rational points lie in the Brauer–Manin set."
+        },
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.3",
+          "how": "Comparison of the descent obstruction with the Brauer–Manin set."
+        },
+        {
+          "where": "HeightsRationalPointsAndObstructions:RP.6",
+          "how": "The obstruction interface of the classification register."
+        }
+      ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions:RP.2/rational-points-in-brauer-manin-set",
+      "parentStageId": "HeightsRationalPointsAndObstructions:RP.2",
+      "realises": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "title": "Rational points lie in the Brauer–Manin set",
+      "kind": "theorem",
+      "statement": "Let K be a number field and A a finitely generated commutative K-algebra. For every K-point x ∈ X(K) and every Azumaya A-algebra 𝒜, ⟨𝒜, ι(x)⟩ = 0. Hence ι(X(K)) ⊆ X(𝔸_K)^Br, and a Brauer–Manin obstruction (X(𝔸_K) ≠ ∅, X(𝔸_K)^Br = ∅) implies X(K) = ∅.",
+      "hypotheses": [
+        "As in RP.2/brauer-manin-pairing; the reciprocity law Σ_v inv_v(res_v β) = 0 for β ∈ Br(K) is the requested ClassFieldTheory Layer 10 theorem (requests)."
+      ],
+      "proofSteps": [
+        "For x ∈ X(K), the local projections of ι(x) are x followed by K → K_v, so by naturality (RP.2/brauer-evaluation (a)) 𝒜(ι(x)_v) = res_v(𝒜(x)) with 𝒜(x) ∈ Br(K).",
+        "Hence ⟨𝒜, ι(x)⟩ = Σ_v inv_v(res_v(𝒜(x))), which vanishes by the reciprocity law of the Albert–Brauer–Hasse–Noether sequence 0 → Br K → ⊕_v Br K_v → ℚ/ℤ → 0.",
+        "The inclusion in X(𝔸_K)^Br follows for all 𝒜 at once, and the obstruction statement is its contrapositive."
+      ],
+      "acceptance": [
+        "For the constant algebra A ⊗ D of a central simple K-algebra D, the pairing vanishes on every adelic point whose local components come from K-points, and more generally ⟨A ⊗ D, x⟩ = Σ_v inv_v(D_v) = 0 for every adelic point (constant algebras give no obstruction)."
+      ],
+      "prerequisites": [
+        "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-pairing",
+        "HeightsRationalPointsAndObstructions:RP.2/brauer-evaluation",
+        "HeightsRationalPointsAndObstructions:RP.2/adelic-points"
+      ],
+      "sources": [
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§8.2.2, Proposition 8.2.2, p. 230",
+          "excerpt": "Proposition 8.2.2. If x ∈ X(k) ⊆ X(𝐀), then (𝒜, x) = 0.",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "poonen-rational-points",
+          "locator": "§8.2.2, Corollary 8.2.6, p. 230",
+          "excerpt": "Corollary 8.2.6. We have X(k) ⊆ X(𝐀)^Br.",
+          "match": "The inclusion of rational points in the Brauer–Manin set."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BrauerManin/Pairing",
+        "namespace": "TauCeti",
+        "name": "TauCeti.BrauerManin.diagonal_mem_brauerManinSet"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Rational points lie in the Brauer–Manin set"
+      }
     }
   ],
-  "requests": [],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+      "need": "For each finite place v of a number field K, the local invariant inv_v : Br(K_v) → ℚ/ℤ as a group isomorphism on Mathlib's (central simple algebra) Brauer group of v.adicCompletion K, with values in AddCircle (1 : ℚ); and its compatibility with Tau Ceti's BrauerGroup group structure (inv_v of a product is the sum). At real places the invariant is Br(ℝ) ≅ ½ℤ/ℤ (Tau Ceti Quaternion.brauerGroupMulEquiv composed with ℤ/2 ≅ ½ℤ/ℤ); at complex places it is 0.",
+      "neededBy": [
+        "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-pairing"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
+      "need": "The reciprocity law Σ_v inv_v(res_v β) = 0 for every β in the Brauer group of a number field K (restriction to K_v as Tau Ceti BrauerGroup.baseChange K K_v), stated for the central-simple-algebra Brauer group, including the statement that res_v β is trivial for almost all v.",
+      "neededBy": [
+        "HeightsRationalPointsAndObstructions:RP.2/rational-points-in-brauer-manin-set"
+      ]
+    }
+  ],
   "coverage": [
     {
       "stageId": "HeightsRationalPointsAndObstructions:RP.0",
@@ -747,10 +2457,14 @@
     },
     {
       "stageId": "HeightsRationalPointsAndObstructions:RP.2",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Adelic evaluation and unramified finite support: Read Poonen Chapter 8 and the Harpaz–Wittenberg source fully. Construct actual scheme adelic points, Brauer evaluation and the carrier comparison to ClassFieldTheory Layers 5/10 invariants and global reciprocity. For the unramified pairing use the full product of local points and prove finite support there; a restricted adelic carrier cannot replace it without comparison.",
-        "Brauer constants and almost-everywhere local triviality: Process PAPER-HARPAZ-WITTENBERG-23 items 29,31,38,61: unramified Brauer classes, actual image Br₀, Br₁/Br₀, and Bω as almost-everywhere trivial localization in Brauer quotients. Do not replace this condition by constancy of evaluation functions. Prove diagonal-point orthogonality via the actual invariant maps, and the finite-subgroup tests."
+        "Local constancy and closedness: Poonen Proposition 8.2.9 (Brauer evaluation is locally constant on X(K_v); proof through the henselisation at a point and the limit property of Br) and Corollary 8.2.11 (X(𝔸)^𝒜 open and closed, X(𝔸)^Br closed, the closure of X(K) inside X(𝔸)^Br, and the weak-approximation obstruction for proper X). The Azumaya form needs 'Br_Az of a henselian local ring injects into Br of its residue field' (Poonen Remark 6.9.2), not yet decomposed.",
+        "Non-affine varieties: Weil's topology on X(𝔸_K) for finite-type K-schemes by gluing (Conrad §3, Theorem 3.6 and Proposition 3.1), the proper case X(𝔸_K) = ∏_v X(K_v) (Poonen Exercise 3.4(d)), and the comparison with Grothendieck's X(𝔸_K) = X(Spec 𝔸_K). This checkpoint covers affine X only.",
+        "The cohomological Brauer group: Poonen defines Br X := H²_ét(X, 𝔾_m) (Definition 6.6.4); this checkpoint uses Azumaya algebras. Relate the two (Br_Az X ↪ Br X always; equality with the torsion of Br X for quasi-projective X, Gabber / de Jong) before identifying X(𝔸)^Br with Poonen's set; request the étale-cohomological Br X from its owner.",
+        "The functor-obstruction formalism of Poonen §8.1 (F-obstructions, functoriality Proposition 8.1.8 and Corollaries 8.1.9–8.1.10) and the descent obstruction are RP.3's and are not yet built.",
+        "Acceptance examples: a conic (Hasse principle for conics, imported from tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy) and a variety with an actual Brauer–Manin obstruction (Iskovskikh's conic bundle, Poonen §8.2.5, which is not affine and needs the non-affine theory).",
+        "Brauer constants and almost-everywhere local triviality: Process PAPER-HARPAZ-WITTENBERG-23 items 29,31,38,61: unramified Brauer classes, actual image Br₀, Br₁/Br₀, and Bω as almost-everywhere trivial localization in Brauer quotients. Do not replace this condition by constancy of evaluation functions. Effective tests for a specified finite subgroup of Br X."
       ]
     },
     {
@@ -817,7 +2531,7 @@
       "neededBy": [
         "HeightsRationalPointsAndObstructions:RP.2"
       ],
-      "detail": "Read Poonen Chapter 8 and the Harpaz–Wittenberg source fully. Construct actual scheme adelic points, Brauer evaluation and the carrier comparison to ClassFieldTheory Layers 5/10 invariants and global reciprocity. For the unramified pairing use the full product of local points and prove finite support there; a restricted adelic carrier cannot replace it without comparison."
+      "detail": "Partly addressed by the RP.2 affine component: adelic points, Brauer evaluation, finite support and the pairing are built for affine varieties with Azumaya classes. Remaining: read the Harpaz–Wittenberg source fully; extend to non-affine varieties and to the cohomological Br X; for the unramified pairing use the full product of local points and prove finite support there; a restricted adelic carrier cannot replace it without comparison."
     },
     {
       "title": "Brauer constants and almost-everywhere local triviality",
@@ -860,6 +2574,28 @@
         "HeightsRationalPointsAndObstructions:RP.6"
       ],
       "detail": "RP.6 is a process layer in the reviewed audit but was not dropped by accepted RS-03. Keep its coverage open until its interfaces, actual Jacobian point-transfer statements and worked genus cases are specified, or the maintainer accepts the rescope proposal. Conjectures must have no proved-result consumers."
+    },
+    {
+      "title": "Azumaya versus cohomological Brauer group",
+      "neededBy": [
+        "HeightsRationalPointsAndObstructions:RP.2/brauer-manin-pairing"
+      ],
+      "detail": "The Brauer–Manin set here is defined with Azumaya algebras over the coordinate ring. Poonen's Br X is H²_ét(X, 𝔾_m) (Definition 6.6.4). The comparison (Br_Az X injects into Br X; equality with the torsion subgroup for quasi-projective X, Gabber and de Jong) is not in either library and not decomposed here; until it is, X(𝔸)^Br of this packet is the Azumaya Brauer set, which contains Poonen's."
+    },
+    {
+      "title": "Compactness of the integers of a nonarchimedean completion of a number field",
+      "neededBy": [
+        "HeightsRationalPointsAndObstructions:RP.2/adelic-points",
+        "HeightsRationalPointsAndObstructions:RP.2/integral-model"
+      ],
+      "detail": "O_v = v.adicCompletionIntegers K is compact for a number field K (complete, with finite residue field), which gives local compactness of the finite adeles through RestrictedProduct.locallyCompactSpace_of_group and of X(𝔸_K) through RP.2/points-topology-presentation. Neither pinned library states the compactness; the local-compactness API items of RP.2/adelic-points and RP.2/integral-model wait for it. No other RP.2 statement uses it."
+    },
+    {
+      "title": "Henselian local rings and local constancy of Brauer evaluation",
+      "neededBy": [
+        "HeightsRationalPointsAndObstructions:RP.2"
+      ],
+      "detail": "Poonen Proposition 8.2.9 needs Br of a henselian local ring to inject into Br of its residue field (Remark 6.9.2) and the limit property of Br along étale neighbourhoods (Theorem 6.4.3). The Azumaya form for complete discrete valuation rings with finite residue field is RP.2/azumaya-complete-dvr-split; the general henselian statement is not decomposed."
     }
   ],
   "sourceIssues": [
@@ -974,6 +2710,20 @@
         "Author homepage https://www.math.columbia.edu/~dejong/, accessed 2026-09-27; no correction to these notes located.",
         "Web searches for de Jong Notes on Heights corrections and site.math.columbia.edu heights.pdf errata on 2026-09-27; no correction found. No claim of an exhaustive bibliographic search."
       ]
+    },
+    {
+      "id": "HeightsRationalPointsAndObstructions/E8",
+      "source": "conrad-adelic-points",
+      "kind": "misprint",
+      "locator": "§2, Example 2.2, p. 3 (author copy dated 2011-12-31)",
+      "printed": "Moreover, if R′ is closed (resp. open) in R then X(R) → X(R′) is a closed (resp. open) embedding.",
+      "correction": "Moreover, if R is closed (resp. open) in R′ then X(R) → X(R′) is a closed (resp. open) embedding.",
+      "reason": "In Example 2.2, R → R′ is a continuous map of topological rings, and the preceding sentence assumes it is a topological embedding, so R is (identified with) a subring of R′; the condition must be on R inside R′. The printed condition 'R′ closed in R' makes no sense for a subring R ⊊ R′, and the proof ('closed immersions of X into an affine space over R') uses Rⁿ closed (resp. open) in R′ⁿ. The following sentence ('if R is discrete in R′ then X(R) is discrete in X(R′)') has the correct orientation, and the examples (F in A_F, O_{F,S} in A_{F,S}, O_v open in F_v) are of this form.",
+      "affects": "nothing",
+      "known": "not found: the author's papers directory lists no erratum for adelictop.pdf (checked 2026-09-28); the published version was not consulted",
+      "searched": [
+        "https://math.stanford.edu/~conrad/papers/ (directory listing, 2026-09-28)"
+      ]
     }
   ],
   "sourceVersions": [
@@ -983,6 +2733,20 @@
       "citation": "A. J. de Jong, Notes on Heights, undated 13-page course notes linked from Spring 2022 Schemes",
       "read": "2026-09-27",
       "sha256": "ad8618d15e8c940a12b975ae0c939fcdf4f4606dc22826920f2647c09e521c74"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+      "citation": "B. Poonen, Rational points on varieties, GSM 186, AMS 2017 (author PDF)",
+      "read": "2026-09-28",
+      "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://math.stanford.edu/~conrad/papers/adelictop.pdf",
+      "citation": "B. Conrad, Weil and Grothendieck approaches to adelic points, Enseign. Math. 58 (2012), author copy",
+      "read": "2026-09-28",
+      "sha256": "fe4a9193aff4ef575665b40971f3da32f850a74d87b3f2d0fa28bba26b9cbabb"
     }
   ],
   "restructure": [

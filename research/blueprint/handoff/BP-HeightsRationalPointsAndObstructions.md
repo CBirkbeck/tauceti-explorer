@@ -1,44 +1,70 @@
-# BP-HeightsRationalPointsAndObstructions — first height-class checkpoint
+# BP-HeightsRationalPointsAndObstructions — second checkpoint: RP.2, affine case
 
-Agent: Codex — codex-hjdg0j, 2026-09-27. Refs #1031.
-Claim [5855723613](https://github.com/CBirkbeck/tauceti-explorer/issues/1031#issuecomment-5855723613), confirmed by [5855724889](https://github.com/CBirkbeck/tauceti-explorer/issues/1031#issuecomment-5855724889). The full issue was read before and after confirmation. Initial repository snapshot: 2e83013ce1faed4576b3f440e2a8122e71d4a738.
+Agent: Claude Code, session cc-fb70e5, 2026-09-28. Refs #1031. The claim is comment 5873388279, confirmed by the bot. The previous checkpoint (Codex, codex-hjdg0j, 2026-09-27) is summarised at the end, and its full text remains in the history of this file.
 
-## What this checkpoint supplies
+## What this checkpoint adds
 
-This first packet covers RP.0–RP.6 honestly as partial: RP.0 has one closed foundational component; RP.1–RP.6 retain not_read coverage. No stage is closed. The component has eight declaration-sized nodes: uniform boundedness at the top filter, the real height-class quotient, its equality criterion, contravariant pullback, injectivity along a surjection, one-sided Northcott transfer, bounded-error invariance, and the bounded-error bridge for finite-fiber pullback.
+The component adds 16 RP.2 nodes, which close the dependency chain from the pinned libraries to the inclusion of rational points in the Brauer–Manin set, for affine varieties over a number field. It has the following parts:
 
-The bounded-function submodule was found in the pinned Mathlib source: Filter.boundedFilterSubmodule at the top filter. It is reused exactly. HeightClass is a transparent abbreviation for the native module quotient, its projection is mkQ, and its pullback uses mapQ with native pi/proj precomposition. Quotient lifts and their extensionality remain native. The finite-fiber Northcott theorem is imported, not reconstructed. No substitute geometric point type, Picard object, line bundle, Selmer structure, or canonical-height limit is introduced.
+1. **Points topology.** A topology on points with values in a topological algebra, taken as Conrad's explicit description (Proposition 2.1), so that no presentation is chosen. The node proves independence of the presentation and closed embeddings into affine space, and gives the value-ring change of Conrad's Example 2.2. That example's closed/open clause has the two rings exchanged, which is recorded as source issue E8, a new misprint in Conrad's author copy.
+2. **Adelic points.** Adelic points X(𝔸_K) = Points_K(A, 𝔸_K) of an affine variety, with its diagonal and local projections, together with:
+   - integral models, and their existence and agreement at almost all places;
+   - a homeomorphism with Mathlib's `RestrictedProduct` of the local points with respect to the integral points (Poonen §2.6.3 and Exercise 3.4; Conrad Theorem 3.6);
+   - the local solubility criterion;
+   - discreteness and closedness of X(K), from Tau Ceti's theorem that K is discrete and closed in 𝔸_K.
+3. **Brauer evaluation.** Brauer classes are Azumaya algebras over the coordinate ring (Mathlib `IsAzumaya`).
+   - A lemma gives base change of Azumaya algebras, and shows that over a field they are exactly the central simple algebras.
+   - Evaluation at a point lands in Mathlib's Brauer group of a field, with Tau Ceti's group structure and base change. It satisfies naturality, multiplicativity, pullback and constant-algebra rules.
+4. **Finite support.** An Azumaya algebra spreads out over an integral model; Azumaya algebras over O_v are split, using Br(𝔽_q) = 0 and idempotent lifting; and so evaluation at an adelic point is trivial at almost all places (Poonen Proposition 8.2.1).
+5. **Pairing.** The Brauer–Manin pairing, the Brauer–Manin set and the obstruction, and the inclusion of the diagonal image of X(K) in the Brauer–Manin set (Poonen Proposition 8.2.2 and Corollary 8.2.6).
 
-Totals: 8 nodes (one definition, one construction, four lemmas, two theorems), 17 API items, 11 definition/construction tests, 16 typed examples, two planets, 23 baseline declarations, one used public source, seven source findings, eleven gaps, and no requests for this baseline-only component. All implementation statuses remain unchecked.
+The packet now has 24 nodes and 78 baseline declarations, 55 of them new. There are 14 gaps and 2 requests. RP.2's coverage is partial, and every other stage is as before.
 
-## Reading and ownership
+## Requests and gaps
 
-Read the seven reviewed library-coverage rows and AUDIT-09 review, accepted RS-03 result and full explanation, its review, all current RP stages and edges, the campaign document, relevant ArithmeticDynamics nodes, and GrossZagier GZ.1/GZ.2 descriptions plus its integrated GZ.1 source node. Both link directories were screened and all 16 touching entries were read, including repeated integrated copies. No integrated RP decomposition or inherited RP packet was present. The common protocol files and two complete nearby upstream examples, ArithmeticDirichletSeries and Multiquadratic, were reused after byte equality with earlier readings in this session.
+**Requests** go to the Tau Ceti ClassFieldTheory roadmap:
 
-The proposed RP.0 component does not duplicate the ArithmeticDynamics Tate limit, the protected elliptic canonical height, or the native arithmetic height foundation. A rescope proposal records the GZ.1 general-height overlap and keeps GZ.2 arithmetic intersections in their existing owner. RP.6 is marked process in the reviewed audit but was not dropped by RS-03; its coverage remains open and a separate rescope proposal records the issue.
+- the local invariant inv_v at finite places, from Layer 5;
+- the reciprocity law Σ_v inv_v(res_v β) = 0, from Layer 10.
 
-The maintainer's Harpaz–Wittenberg routing requirements were read: items 29,31,38,61. The gaps preserve the full product for the unramified pairing, actual Br₀ images, Br₁/Br₀ quotients, Bω local quotient-triviality, actual invariant maps and global reciprocity. Reading the route is not represented as reading the primary paper.
+In the suggested file these appear as marked stand-ins, and as an explicit hypothesis `hrec` of `diagonal_mem_brauerManinSet` that the Layer 10 theorem will discharge. No invariant map is constructed here.
 
-## Sources and findings
+**New gaps:**
 
-The mathematical source used is [de Jong, Notes on Heights](https://www.math.columbia.edu/~dejong/courses/heights.pdf), the undated 13-page author copy linked from the Spring 2022 course. SHA-256 ad8618d15e8c940a12b975ae0c939fcdf4f4606dc22826920f2647c09e521c74. Read pp.1–3 and 6–10; in particular all of §14 and its quotient footnote, plus §17. Pages 2,6,8,9 were visually inspected. Pages 4–5 and 11–13 are not claimed read. No journal version is asserted.
+- the comparison of the Azumaya Brauer group with Poonen's cohomological Br X = H²_ét(X, 𝔾_m) (Gabber and de Jong);
+- compactness of O_v for a number field, which neither pinned library states and which only the local-compactness API items need;
+- the henselian input for local constancy of evaluation (Poonen Proposition 8.2.9).
 
-Seven findings await independent review: a missing logarithm in Lemma 3.1's proof, the rectangular matrix rank, nonprimitive coordinates and the maximum range in the lower-bound proof, a projective-map symbol in place of a height, a wrong numbered fact, the missing globally generated comparison in Step 7, and the zero logarithm in the local-height comparison. Each records its exact version, correction, check, and bounded correction search. None is used to claim the full geometric height machine is closed.
+The previous RP.2 gap "Adelic evaluation and unramified finite support" is updated to say what is now built.
 
-Poonen's 348-page author copy was acquired (SHA-256 42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579); only physical pages 1–3 were read for metadata and contents. Goren's 110-page course PDF was acquired (SHA-256 9cd87a5b522c289b512b4ab5345d797f004c6eee149bd49508063e5be4675d10); only physical pages 1,14,15 were inspected for triage. Neither supplies a node here.
+## Sources
+
+- **Poonen, *Rational points on varieties*.** The author PDF, whose sha256 matches the one recorded in the previous checkpoint; printed page = PDF page − 14. Read in full: §2.6.3, Exercise 3.4, §6.6.2–6.6.3, §6.9.1, §8.1 and §8.2.1–8.2.4.
+- **Conrad, *Weil and Grothendieck approaches to adelic points*.** The author copy, file dated 2011-12-31, sha256 fe4a9193…a9bb. Read in §1–§3 through the proof of Theorem 3.6; page 3 was rendered to confirm E8.
+
+Every excerpt was compared with the extracted text. The lower mechanical scores come only from pdftotext's joining of subscripts.
 
 ## Validation
 
-Lean 4.34.0-rc2 compiles the full suggested file with no errors and 39 expected proof-placeholder warnings only. Seed SHA-256: 492b74b1a38122ccebcecbede6cbe25d564626cb9f2e8ae2cf4fc6f935f8e33e. All 1480 Mathlib import-source files were checked byte-for-byte against the pinned tree and the installed cache. No Tau Ceti module is imported in this foundational component. The packet still records both required pins.
-
-The textual declaration index misses isBounded_iff_forall_norm_le, generated by to_additive at Mathlib/Analysis/Normed/Group/Bounded.lean:71, and Northcott.finite_le, the class field at Mathlib/Order/Northcott.lean:37. Their source and actual Lean names were checked; the seed contains the two baseline name checks. The packet references the indexed Metric.isBounded_iff_subset_closedBall at center zero and the indexed Northcott class including its field, so the unmodified pinned declaration index validates every reference. The initial remote check exposed this index limitation; the same-branch correction changes only baseline evidence references and prose, retaining every mathematical signature and test. The packet checker with the original pinned index, ordinary checker and four-path intake check pass. Source-finding shape and version metadata pass their validators; the standalone errata-v1 file checker is not applicable to a blueprint packet.
-
-Exact regression witnesses check the symbolic wrong-order difference 4n+3, six proposed uniform bounds, 70 rational sublevel thresholds, two-point fibers, and the coordinate/rank source counterexamples. Seven documented mutation witnesses cover pointwise versus uniform boundedness, constants-only quotients, an invalid quotient ring, reversed composition, reversed Northcott comparison, infinite fibers and negative scaling. These are arithmetic checks and elementary mathematical witnesses, not formal proofs of the prototype theorems.
-
-Local consistency checks match all node and API names to the suggested file, all 11 named tests to typed examples, all statements and proof steps to the reader, and every prerequisite path to the pinned baseline. Exactly the four authorized new files are submitted. The reader is about 4300 words and states the component's limitations explicitly.
+- `check_blueprint --index` against the pinned declaration index gives 0 errors and 0 warnings.
+- The intake file check is clean for the four files.
+- Every node's declaration name appears in the suggested file.
+- **The suggested file was not compiled.** The shared machine has no pinned build, and its rules forbid building one. The new section imports Tau Ceti modules; the previous checkpoint's Mathlib-only part compiled under Lean 4.34.0-rc2 when it was written.
 
 ## Resume
 
-Start with the geometric height-machine gap. Inspect the actual Picard and invertible-sheaf suppliers and pin the chosen scheme-point carrier. Read and decompose the coordinate and Segre bounds, very ample difference presentations, and globally generated comparison. Repair the source slips before using those arguments. Then build the tensor-compatible height assignment and its pullback law. Import arithmetic normalization and degree-bounded Northcott; do not infer Northcott on all algebraic points.
+For RP.2, the next steps are:
 
-The canonical/local-height branch must reuse DY.1's analytic limit and resolve the elliptic half-x-height, bilinear pairing and regulator scaling explicitly. The GZ overlap proposal needs an ownership decision before parallel general-height constructions grow. Preserve all RP.1–RP.6 gaps, including genuine fppf descent, full-product unramified Brauer pairing, Parshin bounds, exact Siegel conditions, and complete Mordell–Lang/Manin–Mumford/Bogomolov proofs. Do not turn the conjecture register into proved inputs.
+1. Local constancy of evaluation and closedness of the Brauer–Manin sets (Poonen Proposition 8.2.9 and Corollary 8.2.11), with the henselian Azumaya input.
+2. The non-affine theory (Conrad §3 gluing; the proper case X(𝔸) = ∏ X(K_v)).
+3. The Azumaya/cohomological comparison.
+4. The acceptance examples: a conic, imported from Tau Ceti GlobalQuadraticForms Layer 5, and Iskovskikh's surface.
+5. The Harpaz–Wittenberg items.
+
+`AdelicAlgebraicGroups:AA.1` should import RP.2/points-topology and RP.2/adelic-points for G(𝔸), rather than build a second topology.
+
+RP.0, RP.1 and RP.3–RP.6 are unchanged from the previous checkpoint. Its resume notes still apply: start RP.0 at the geometric height-machine gap, and keep the RP.1 and RP.3–RP.6 source work.
+
+## Previous checkpoint (Codex, codex-hjdg0j, 2026-09-27), in brief
+
+The first checkpoint built 8 RP.0 nodes on the real vector space of height functions modulo bounded functions (`TauCeti.HeightClass`, using Mathlib's `Filter.boundedFilterSubmodule`). It covered the equality criterion, pullback, injectivity along surjections, and Northcott transfer and invariance. Its source was de Jong's *Notes on Heights*, with seven source findings (E1–E7). Its Lean section compiled under Lean 4.34.0-rc2. It proposed a rescope with GrossZagier GZ.1 and GZ.2, and one for RP.6.
