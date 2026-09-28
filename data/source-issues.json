@@ -142688,6 +142688,46 @@
    "reviewReason": null
   },
   {
+   "id": "OverconvergentAutomorphicForms/E1",
+   "kind": "misprint",
+   "locator": "§6.1, Definition 6.1, printed p. 1756 (PDF p. 49); same in arXiv v4",
+   "printed": "Following [3], we let ρ : W → W∗ be the morphism associated to the map T(Zp) → T(Zp)×Z×p defined by x ↦ (x², N_{F/Q}(x)). For (w, t) ∈ W(Cp) we write κ = w²·(t⁻¹∘N_{F/Q}) for its image in W∗(Cp)",
+   "correction": "… associated to the map x ↦ (x², N_{F/Q}(x)⁻¹). With this map the displayed formula κ = w²·(t⁻¹∘N_{F/Q}) is the image of (w, t).",
+   "reason": "Pulling a character (w, t) back along x ↦ (x², N(x)) gives x ↦ w(x)²·t(N(x)), not w(x)²·t(N(x))⁻¹; the two differ unless t∘N is 2-torsion. The displayed formula is the one used later: after Definition 6.2 (p. 1757, ρ(w_κ, t_κ) = w_κ²·(t_κ⁻¹∘N)) and in (9.1) (p. 1781, κ⁻¹(η)w_κ(η²) = t_κ∘N(η)), which holds for the inverted map. Checked on the page images.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Centre Mersenne article page for DOI 10.5802/aif.3560 (no erratum listed)",
+    "arXiv:1902.03985 v1–v4 listing and the v4 source (same text)"
+   ],
+   "owner": "OverconvergentAutomorphicForms",
+   "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
+   "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "OverconvergentAutomorphicForms/E2",
+   "kind": "error",
+   "locator": "§6.1 after Definition 6.2, printed p. 1757 (PDF p. 50); also Definition 4.5(3), printed p. 1737, and Definition 7.7, printed p. 1761; same in arXiv v4",
+   "printed": "The weight κ is then bounded if and only if |Tκ| := sup_{(t,x)∈O×p ×U} |κ(t, x) −1| < 1",
+   "correction": "Take the supremum over a pro-p open subgroup, for instance (t, x) ∈ (1 + p^{r₀}𝒪_p) × U, as AIP's coordinate T = κ(q) − 1 of Definition 4.5(1) does. With that |T_κ| the criterion holds, and |δ_κ| = max(|p|, |T_κ|) < 1 gives ε_κ > 0 in Definitions 4.5(3) and 7.7.",
+   "reason": "For p odd and F = ℚ, the Teichmüller character ω : ℤ_p^× → ℤ_p^× is an L-point of 𝒲, hence a bounded weight, but for a primitive (p−1)-st root of unity ζ, |ω(ζ) − 1| = |ζ − 1| = 1. So the printed |T_ω| = 1, contradicting 'bounded iff |T_κ| < 1'; likewise for any weight nontrivial on the prime-to-p torsion of 𝒪_p^×. Then |δ_κ| = 1 and |p|^{ε_κ} = 1 give ε_κ = 0, contradicting '0 < ε_κ' in Definitions 4.5(3) and 7.7, so the AIP comparison (Theorems 4.8 and 7.14) is stated only over the ordinary locus for such weights. Checked on the page images.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "the Centre Mersenne article page for DOI 10.5802/aif.3560 (no erratum listed)",
+    "arXiv:1902.03985 v1–v4 listing and the v4 source (same text)"
+   ],
+   "owner": "OverconvergentAutomorphicForms",
+   "file": "research/blueprint/packets/OverconvergentAutomorphicForms--O0.json",
+   "citation": "Christopher Birkbeck, Ben Heuer and Chris Williams, Overconvergent Hilbert modular forms via perfectoid modular varieties, Annales de l'Institut Fourier 73 (2023), no. 4, 1709–1794, DOI 10.5802/aif.3560; open-access journal PDF from Centre Mersenne (87 pages; printed page = PDF page + 1707)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OverconvergentAutomorphicForms/E-O8-1",
    "kind": "error",
    "locator": "Definition 2.2.1(iv) and Remark 2.2.2, pp. 10–11 (rendered); arXiv v3 only",
