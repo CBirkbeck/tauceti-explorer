@@ -1,6 +1,246 @@
+# Actual character evaluation of unit pseudomeasures
+
+**Current checkpoint:** 332 unchecked nodes: 2 definitions, 44 constructions,
+208 lemmas, 50 theorems and 28 comparisons. There are 223 API items (220 on
+definitions/constructions), 231 packet tests (160 on definitions/constructions),
+242 typed examples, 17 planets and 319 baseline citations. Eight gaps,
+no outgoing requests, fourteen inherited source findings and zero closed
+stages remain. Numerical summaries of preceding checkpoints below are historical.
+
+For any prime p, including2, put Z=ℤ_p and U=Zˣ. The existing native measure
+ring M=D(U,Z) has its preceding commutative multiplicative convolution. Its
+Dirac homomorphism is δ, its native total quotient ring is Q=FractionRing M,
+and P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain
+structure on M or field structure on Q is assumed. Write i:M→P for the
+integral inclusion and n_g(z)∈M for the existing numerator characterized by
+its image (δ_g−1)z in Q.
+
+A native ContinuousMonoidHom κ:U→Z automatically has unit values. Its
+integral is the preceding character-integral algebra map followed by Z→ℚ_p;
+write this ring map as fκ. Thus fκ(δ_g−1)=κ(g)−1. If κ≠1, extensionality
+gives some g with κ(g)≠1. The scalar difference is nonzero in ℚ_p and hence
+invertible there. The existing generic admissible evaluation therefore gives
+an additive map Eκ:P→ℚ_p, with M acting on the target through fκ.
+
+The value is independent of the chosen g and every proof witness. For any
+admissible g it is
+
+Eκ(z)=fκ(n_g(z))/(κ(g)−1).
+
+The source clearing factor δ_g−1 need not be regular in M. It is the image
+κ(g)−1 in the target field that must be invertible for this formula. For
+example, g=−1 and κ(−1)=−1 give the denominator−2, including at p=2.
+That denominator is nonzero in ℚ₂ but is not a unit in ℤ₂. The native
+source ring can have torsion zero divisors. These facts do not prevent the
+admissible module evaluation, and do not give a ring homomorphism Q→ℚ_p.
+The inherited source correction E4 remains in force.
+
+Integral measures evaluate as Eκ(iμ)=fκ(μ), and Eκ(μz)=fκ(μ)Eκ(z).
+Dirac elements recover κ(g). These conditions characterize Eκ uniquely
+among additive maps with that scalar action. Applying fκ to the existing
+cross-multiplied numerator identity proves, for every g,
+
+fκ(n_g(z))=(κ(g)−1)Eκ(z).
+
+This last formula includes g in kerκ; its left side then vanishes. It does
+not divide by that zero factor. Positive power characters recover the
+preceding positive pseudomoments, using the infinite-order unit p+1 to verify
+nontriviality. Consequently all nontrivial Z-valued continuous characters
+separate P. No separation assertion for finite-order characters alone is made.
+The quotient formula also gives ‖Eκ(z)‖≤‖κ(g)−1‖⁻¹, since the numerator
+integral lies in Z. This bound need not stay uniform near a vanishing denominator.
+
+For the topological statement, let S be any topological space and let κ_s
+be a family such that s↦κ_s.toContinuousMap is continuous into native C(U,Z).
+This is the compact-open topology, which is uniform convergence on compact U.
+Continuity of pointwise values alone is not substituted for this hypothesis.
+For a fixed measure μ, its native continuous-dual functional gives continuity
+of s↦f_(κ_s)(μ). Evaluation at any g is continuous, so the clearing locus
+S_g={s:κ_s(g)≠1} is open. On S_g the numerator divided by κ_s(g)−1 is
+continuous by native continuity of division away from zero.
+
+Every nontrivial character belongs to some S_g. The exact quotient formula
+identifies E_(κ_s)(z) with the continuous quotient on each such neighborhood,
+so the maps give a continuous function on the native subtype {s:κ_s≠1}.
+The pseudomeasure z is fixed throughout. This constructs neither a new
+character-space carrier nor a topology on P. Rigid representability,
+analytic or meromorphic character families, joint variation of pseudomeasures,
+finite-extension/C_p-valued integral tests and behavior at the trivial
+character require the separate inputs recorded in the remaining work.
+
+The full published RJW pages128–132 were freshly read, including equation
+(3-11), the whole independence argument and Remark3.35. The actual Z/ℚ_p
+specialization and elementary continuity statements are worker deductions;
+the source's broader coefficient-valued character formula requires additional
+scalar-extension data. All fourteen inherited source findings retain their
+version and review records. The ProfiniteProPGroups Layer9 completed algebra
+and the character/Mellin parameter-space owners retain their boundaries.
+
+## Declaration graph, API and acceptance cases
+
+Every new declaration below remains unchecked. All twelve use the actual
+carriers above; the family declarations use the stated native continuous-map
+topology and a fixed pseudomeasure.
+
+### Actual nontrivial-character evaluation
+
+`AbstractMeasure.unitCharacterEval` (construction). For κ≠1, define the additive homomorphism Eκ:P→ℚ_p by the existing generic admissible evaluation, using fκ as the scalar map. No homomorphism Q→ℚ_p is constructed.
+
+The preceding characterIntegralAlgHom followed by Z→ℚ_p gives a ring homomorphism M→ℚ_p and its induced M-algebra structure. Its value on δ_g−1 is κ(g)−1. Extensionality of native continuous monoid homomorphisms gives g with κ(g)≠1. The inclusion Z→ℚ_p is injective, so this difference is a nonzero element of the field and hence a unit. Apply the existing admissible-evaluation construction with this g and forget its M-linear map to an additive homomorphism. Independence-of-clearing-factor makes the result independent of g and all witness choices. Its M-scalar action is through fκ, not through total mass.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`, `PadicMeasuresIwasawaAlgebras:L1/dirac-hom`, `PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation`, `PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor`, `mathlib:ContinuousMonoidHom`.
+
+API:
+
+- `AbstractMeasure.unitCharacterEval_eq`: For every g with κ(g)≠1, Eκ(z)=fκ(n_g(z))/(κ(g)−1); promoted to its own lemma.
+- `AbstractMeasure.unitCharacterEval_integral`: Eκ(iμ)=fκ(μ); promoted to its own lemma.
+- `AbstractMeasure.unitCharacterEval_smul`: Eκ(μ·z)=fκ(μ)Eκ(z), for the existing M-module structure on P.
+- `AbstractMeasure.unitCharacterEval_dirac`: Eκ(iδ_g)=κ(g), included in ℚ_p.
+
+Typed acceptance cases:
+
+- `UnitCharacterTests.zero`: Eκ(0)=0.
+- `UnitCharacterTests.one`: Eκ(i1)=1 for the convolution identity.
+- `UnitCharacterTests.scalar_atom`: Eκ(i(cδ_g))=cκ(g) for c∈Z and g∈U.
+
+Acceptance: The target is ℚ_p; a nonzero integral denominator need not be invertible in Z. The source clearing factor need not be regular for this evaluation formula.
+
+### The character clearing formula
+
+`AbstractMeasure.unitCharacterEval_eq` (lemma). For κ≠1 and any g with κ(g)≠1, Eκ(z)=fκ(n_g(z))/(κ(g)−1) for every z∈P.
+
+Use independence-of-clearing-factor to replace the element chosen in Eκ by the prescribed g. The generic evaluation equation gives (κ(g)−1)Eκ(z)=fκ(n_g(z)). Cancel the nonzero field denominator. This uses invertibility of its image in ℚ_p, regardless of whether δ_g−1 is a zero divisor in M.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-evaluation`, `PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor`, `PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation-spec`.
+
+Typed acceptance cases:
+
+- `UnitCharacterTests.torsion_clearing_allowed`: If κ(−1)=−1, Eκ(z)=fκ(n_(−1)(z))/(−2).
+- `UnitCharacterTests.dyadic_denominator_not_integral_unit`: −2 is nonzero in ℚ₂ but is not a unit of ℤ₂.
+
+Acceptance: At g=−1 and κ(−1)=−1 the denominator is−2, valid also for p=2; the torsion clearing factor is permitted.
+
+### Agreement with integral character integration
+
+`AbstractMeasure.unitCharacterEval_integral` (lemma). For κ≠1 and μ∈M, Eκ(iμ)=fκ(μ).
+
+Use the same character-induced M-algebra structure as in the construction. Apply evaluation-on-integral-elements to its chosen admissible g. This identifies the result with the existing character integral of μ.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-evaluation`, `PadicMeasuresIwasawaAlgebras:L3/evaluation-on-integral-elements`, `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`.
+
+Acceptance: On a Dirac element this is exactly κ(g), not its inverse or a conjugate.
+
+### Character evaluation of every numerator
+
+`AbstractMeasure.unitCharacterEval_numerator` (lemma). For κ≠1, every g∈U and z∈P, fκ(n_g(z))=(κ(g)−1)Eκ(z), including g in kerκ.
+
+Choose one h with κ(h)≠1. Apply the ring map fκ to cross-multiplied-numerators: (κ(h)−1)fκ(n_g(z))=(κ(g)−1)fκ(n_h(z)). Apply the character clearing formula at h and cancel its nonzero scalar. No division by κ(g)−1 is made, so the formula also covers a vanishing factor.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-ratio`, `PadicMeasuresIwasawaAlgebras:L3/cross-multiplied-numerators`, `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`.
+
+Typed acceptance cases:
+
+- `UnitCharacterTests.kernel_numerator`: If κ(g)=1 then fκ(n_g(z))=0.
+
+Acceptance: If κ(g)=1 then the numerator integral is0, while Eκ remains determined by another clearing element.
+
+### Uniqueness of the character extension
+
+`AbstractMeasure.unitCharacterEval_unique` (theorem). Eκ is the unique additive map L:P→ℚ_p satisfying L(μ·z)=fκ(μ)L(z) and L(iμ)=fκ(μ).
+
+These two hypotheses bundle L as an M-linear map into the M-algebra ℚ_p induced by fκ. Apply the existing uniqueness-of-evaluation theorem to a chosen g with κ(g)≠1. The resulting equality of linear maps yields the claimed equality of additive maps.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-evaluation`, `PadicMeasuresIwasawaAlgebras:L3/uniqueness-of-evaluation`.
+
+Acceptance: Uniqueness is on the pseudomeasure module with the specified scalar action, not on the whole total quotient ring.
+
+### Positive moments as character evaluations
+
+`AbstractMeasure.unitCharacterEval_eq_positivePseudoMoment` (comparison). If κ(g)=g^k for every g∈U and k>0, then Eκ(z)=positivePseudoMoment_k(z).
+
+Choose the existing unit a=p+1. Its kth power differs from1 by one-add-prime-positive-powers, so this character is nontrivial and a is admissible. Both the preceding actual positive pseudomoment construction and Eκ are the existing generic evaluation for the same power-character integral map, with the same actual Dirac homomorphism and total quotient. Native character extensionality identifies the scalar maps; independence-of-clearing-factor identifies their values.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-evaluation`, `PadicMeasuresIwasawaAlgebras:L3/actual-positive-pseudomoment`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers`, `PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor`.
+
+Typed acceptance cases:
+
+- `UnitCharacterTests.power_sign`: On iδ_(−1), the character x↦x^k gives (−1)^k.
+
+Acceptance: The comparison concerns positive k. The zero power is the trivial character and is outside this domain.
+
+### Nontrivial characters separate pseudomeasures
+
+`AbstractMeasure.unitCharacterEval_ext` (theorem). If Eκ(z)=Eκ(η) for every nontrivial native Z-valued continuous character κ of U, then z=η.
+
+For each k>0 use the native continuous monoid homomorphism g↦g^k: compose the unit inclusion with the kth power map. Existing one-add-prime-positive-powers proves its nontriviality. The positive-moment comparison converts the hypothesis into equality of all positive pseudomoments. Apply the existing actual-pseudomoment-separation theorem to z−η and use the additive law to conclude equality.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-positive-moment`, `PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-separation`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers`.
+
+Acceptance: This does not assert that finite-order characters alone or even positive powers alone separate.
+
+### A clearing-factor bound for character values
+
+`AbstractMeasure.unitCharacterEval_norm_le` (lemma). For κ≠1 and κ(g)≠1, ‖Eκ(z)‖≤‖κ(g)−1‖⁻¹, for every z∈P.
+
+The integral numerator n_g(z) evaluated on the Z-valued character belongs to Z, so its norm after inclusion into ℚ_p is at most1 by native PadicInt.norm_le_one. Apply the character quotient formula and multiplicativity of the field norm. The scalar inclusion preserves the native norm, giving the stated bound.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-ratio`, `mathlib:PadicInt.norm_le_one`.
+
+Acceptance: The bound depends on the clearing character value. It supplies no uniform bound as κ(g) approaches1.
+
+### Continuity of a fixed integral against a character family
+
+`AbstractMeasure.continuous_unitCharacterIntegral` (lemma). For every μ∈M, the function s↦f_(κ_s)(μ) is continuous S→ℚ_p.
+
+Native AbstractMeasure.toCLMEquiv identifies μ with a continuous Z-linear functional on C(U,Z). Compose this continuous map with the given continuous map s↦κ_s.toContinuousMap. Compose with the continuous scalar inclusion Z→ℚ_p. This is continuity of a fixed dual functional, so no joint continuity of the unrestricted weak-dual pairing is asserted.
+
+Prerequisites: `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:continuous_algebraMap`.
+
+Acceptance: The hypothesis is continuity in C(U,Z); pointwise-continuous families are not silently substituted.
+
+### Open character clearing loci
+
+`AbstractMeasure.isOpen_unitCharacterClearing` (lemma). For every g∈U the locus S_g={s:κ_s(g)≠1} is open in S.
+
+Apply native Continuous.eval_const to the given continuous map into C(U,Z), obtaining continuity of s↦κ_s(g). Pull back the native open complement of the singleton1 in the Hausdorff ring Z. Native character extensionality also shows that the union of these loci is precisely {s:κ_s≠1}, as used in the global continuity argument.
+
+Prerequisites: `mathlib:Continuous.eval_const`, `mathlib:isOpen_ne`, `mathlib:ContinuousMonoidHom`.
+
+Typed acceptance cases:
+
+- `UnitCharacterTests.trivial_character_no_patch`: For the trivial character, κ(g)−1=0 for every g.
+
+Acceptance: Every clearing locus is empty for the constant trivial-character family.
+
+### Continuity on a clearing locus
+
+`AbstractMeasure.continuousOn_unitCharacterClearing` (lemma). For fixed g and z, s↦f_(κ_s)(n_g(z))/(κ_s(g)−1) is continuous on S_g.
+
+The preceding integral-continuity lemma applies to the fixed actual integral numerator n_g(z). Evaluation at g, subtraction of1 and the scalar inclusion give the continuous denominator. Its value in ℚ_p is nonzero on S_g by injectivity of the inclusion Z→ℚ_p. Apply native ContinuousOn.div with precisely this nonvanishing hypothesis.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/unit-character-integral-continuity`, `PadicMeasuresIwasawaAlgebras:L3/cleared-numerator`, `mathlib:Continuous.eval_const`, `mathlib:ContinuousOn.div`, `mathlib:continuous_algebraMap`.
+
+Acceptance: The native totalized quotient exists outside S_g, but no continuity or pseudomeasure-value claim is made there.
+
+### Continuity away from the trivial character
+
+`AbstractMeasure.continuous_unitCharacterEval` (theorem). For fixed z∈P, the function s↦E_(κ_s)(z) is continuous on the native subtype {s:S | κ_s≠1}.
+
+For a point of this subtype, native character extensionality supplies g with κ_s(g)≠1. The open-locus lemma makes S_g a neighborhood of that point after restriction to the subtype. On that neighborhood the exact character quotient formula identifies E_(κ_s)(z) with the clearing quotient. The preceding patch-continuity lemma gives continuity there, independent of which g was chosen. Apply native continuous_of_cover_nhds to these clearing neighborhoods. This glues values already defined by the choice-independent algebraic construction; it introduces neither a character-space carrier nor a topology on the pseudomeasure module.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/unit-character-clearing-open`, `PadicMeasuresIwasawaAlgebras:L3/unit-character-clearing-continuity`, `PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-ratio`, `mathlib:continuous_of_cover_nhds`.
+
+Typed acceptance cases:
+
+- `UnitCharacterTests.constant_family`: A fixed nontrivial character gives a constant continuous evaluation on any topological parameter space.
+
+Acceptance: The nontrivial locus may approach the excluded trivial character. No extension across it, meromorphicity, analytic structure or simultaneous varying-pseudomeasure continuity is inferred.
+
+## Preceding measure, moment and coordinate developments
+
 # Integral unit moments and pseudomeasure separation
 
-**Current checkpoint:** 320 unchecked nodes: 2 definitions, 43 constructions,
+**Historical checkpoint:** 320 unchecked nodes: 2 definitions, 43 constructions,
 201 lemmas, 47 theorems and 27 comparisons; 219 API items (216 on definitions
 and constructions), 222 packet tests (157 on definitions and constructions),
 233 typed examples, 17 planets and 315 baseline citations. Eight gaps,
