@@ -1,12 +1,14 @@
 # Global Galois deformation rings — blueprint
 
 This blueprint covers stages R04.1–R04.6, G7 and G8, within the boundaries of the RS-08 restructure (accepted). This
-first checkpoint plans **R04.1 (deformation functors)** and **R04.2 (representability and universal
-representations)**, both source-decomposed. The other stages are not yet read.
+blueprint now plans **R04.1 (deformation functors)**, **R04.2 (representability and universal representations)** and
+**R04.3 (local conditions and global presentations)**, all source-decomposed. The other stages are not yet read.
 
 The sources are all free:
 - Gee, *Modularity lifting theorems* (Essential Number Theory 2022; arXiv:2202.05818v2), §3.
 - Kisin, *Lectures on deformations of Galois representations*, Lecture 1.
+- C. Khare and J.-P. Wintenberger, *Serre's modularity conjecture (II)*, Invent. Math. 178 (2009); preprint ESI 1892
+  (2007), which was read.
 - Chenevier, *The p-adic analytic space of pseudocharacters …* (arXiv:0809.0415v2), §3.1.
 
 ## Purpose
@@ -191,6 +193,64 @@ This fails for p | n: take p = n = 2 and G = ℤ₂.
 **Lemma: change of residue field** (node `change-of-residue-field`). R^□_{ρ̄⊗𝔽′,𝒪′} ≅ R^□_{ρ̄,𝒪} ⊗̂_𝒪 𝒪′. The same holds
 for the unframed rings when ρ̄ is Schur, and with fixed determinant.
 
+## Layer R04.3: local conditions and global presentations
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/Global`.
+
+RS-08 keeps for this layer:
+- the global ring with prescribed local rings and its local-to-global presentation;
+- the maps from the R08.1 local rings;
+- tangent and obstruction spaces via adjoint cohomology with local conditions;
+- the KW II §4 dimension and relation bounds.
+
+Imports: the Selmer complex, Poitou–Tate duality and the numerical inequalities from ArithmeticGaloisDuality
+R02.4–R02.6, and the local rings from LocalGaloisDeformationRings R08.1.
+
+**Definition: local deformation problems** (`DeformationProblem`; node `local-deformation-problem`; Gee Definition 3.16).
+These are the Clozel–Harris–Taylor axioms: closure under pushforward, detection along injections, fibre products and
+limits, and Γ̂_n-stability.
+
+*Unit tests.*
+- The unrestricted problem.
+- The residual point belongs to every problem.
+- A condition that is not conjugation-stable is not a problem.
+
+**Lemma: problems are invariant ideals** (node `deformation-problem-ideal`; Gee Lemma 3.17).
+- D ↔ I(D), a Γ̂_n-invariant radical ideal of R^□.
+- L(D) ⊆ H¹(G_v, ad ρ̄) is the annihilator of I(D).
+
+**Definition: global deformation data** (`DeformationType`, `TFramedDef`; node `global-deformation-type`; Gee
+Definition 3.21, KW II §4.1).
+- 𝒮 = (S, {D_v}, χ), with framings at T ⊆ S.
+- The classes are (ρ, {α_v}) ∼ (βρβ⁻¹, {βα_v}).
+
+**Theorem: representability** (node `global-framed-ring`; planet; Gee Lemma 3.22). R^□T_𝒮 exists for absolutely
+irreducible ρ̄. For T = ∅ it is written R^univ_𝒮.
+
+**Construction: the map from local rings** (`Rloc`, `locToGlobal`; node `local-to-global-map`; Gee §3.23).
+R^loc_{S,T} = ⊗̂_{v∈T} R^□_{ρ̄|G_v,χ}/I(D_v) maps to R^□T_𝒮 via α_v⁻¹ρ^□T|_{G_v}α_v.
+
+**Theorem: the relative tangent space** (node `relative-tangent-space`; planet; Gee Proposition 3.24(1), KW II preprint
+Lemma 4.3).
+- The relative tangent space is H¹_{S,T}(G_{F,S}, ad⁰ρ̄), for the cone complex with framings at T and conditions L(D_v)
+  at S ∖ T.
+- Its dimension is #T − Σ_{v|∞} h⁰ + Σ_{S∖T}(dim L − h⁰) + h¹_{S,T}(ad⁰(1)) − h⁰(ad⁰(1)).
+- For p = 2 the trace-zero module and its dual differ, which is KW's δ_p.
+
+**Theorem: the presentation** (node `local-to-global-presentation`; planet; KW II preprint Lemma 4.5, Gee
+Proposition 3.24(2)).
+- R^□T_𝒮 ≅ R^loc[[x₁, …, x_g]]/J, with g = h¹_{S,T}(ad⁰).
+- r(J) ≤ h¹_{S,T}(ad⁰(1)), via the obstruction pairing Σ_v inv(x_v ∪ a_v + z_v).
+
+**Theorem: the dimension bound** (node `global-dimension-lower-bound`; planet; Gee Proposition 3.24(3), KW II preprint
+Proposition 4.4).
+- Krull dim R^univ_𝒮 ≥ 1 + Σ_v (dim R_v/I(D_v) − n²) − Σ_{v|∞} h⁰ − h⁰(ad⁰(1)).
+- With KW II's data this gives dimension ≥ 1.
+
+*Version note.* RS-08 cites KW II Proposition 4.5 and Corollary 4.7 in the published numbering. The free ESI preprint read
+here numbers the relation bound Lemma 4.5 and the dimension bound Proposition 4.4. The correspondence with the published
+numbering was not checked.
+
 ## Acceptance for R04.1–R04.2
 
 - **Functors:** the functors are defined without representability.
@@ -213,8 +273,6 @@ satisfy the finiteness.
 
 ## Remaining work
 
-- **R04.3:** global rings with local conditions and the local-to-global presentation (Gee §3.23), and the KW II
-  dimension and relation bounds.
 - **R04.4:** restriction, twisting and change of problem.
 - **R04.5:** Taylor–Wiles primes.
 - **R04.6:** exports for patching.
