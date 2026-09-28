@@ -410,3 +410,30 @@ quantitative indicator interfaces (`fourier_indicator_l2`, `fourier_norm_le_l1`,
 `fourier_indicator_norm_le`) into nodes; and make the item-3 checks above (quotient fibre-cardinality,
 cyclic constructor, the one-dimensional Peter–Weyl identification, coding/ER.4). Beyond AC.0, the
 second pass's "Next" list still stands, with AC.5 the only layer that has no nodes.
+
+# Continuation — 28 September 2026, fourth pass: AC.0 indicator estimates (Claude Code, cc-fb70e5)
+
+Claimed by comment 5872194166, confirmed by the bot. **Five new AC.0 nodes**, each under the
+worksheet name it already had except the new energy lemma:
+
+- `fourier-indicator-l2` (theorem, source (1)).
+- `fourier-norm-le-l1` (lemma, source (2), first inequality).
+- `fourier-indicator-norm-le` (lemma, source (2)).
+- `fourier-indicator-fourth-le` (theorem, source (5)).
+- `add-energy-le` (lemma): E(A, B) ≤ |A|²|B| and ≤ |A||B|². This is the bound the audit records as
+  missing. The worksheet gains its two signatures `addEnergy_le_card_sq_mul_card` and
+  `addEnergy_le_card_mul_card_sq`, and nothing else changes there.
+
+**Baseline.** Ten Mathlib declarations are now listed by name: `card_mul_le`, `mulEnergy_eq_card_filter`, `mulEnergy_eq_sum_sq`,
+`le_mulEnergy`, `le_card_mul_mul_mulEnergy`, `mulEnergy_univ_left`, the two Plünnecke–Ruzsa
+inequalities, Ruzsa's triangle inequality and Ruzsa's covering lemma. Each one's `provides` names
+its `@[to_additive]` twin. The source record gains this session's re-reading of equations (1)–(5).
+Tao's equation (2) writes |f̂(ξ)| after setting f = χ_A. That is consistent notation, not a slip,
+so no finding is recorded.
+
+**Checks.** `check_blueprint --index` against the pinned declaration index gives 0 errors, with the
+same six warnings on inherited excerpts. `intake.py check-files` gives 0 problems. Nothing was compiled.
+
+**Next for AC.0:** the handoff's item-3 checks (quotient fibre-cardinality, cyclic constructor,
+one-dimensional Peter–Weyl identification, coding/ER.4). The large-coefficient count (3) belongs to
+AC.1. Beyond AC.0, the second pass's list still stands.

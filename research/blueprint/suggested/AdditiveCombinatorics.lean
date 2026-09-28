@@ -170,6 +170,13 @@ lemma fourier_energy (A B : Finset G) :
         ‖fourier (fun x => if x ∈ A then (1 : ℂ) else 0) χ‖ ^ 2 *
         ‖fourier (fun x => if x ∈ B then (1 : ℂ) else 0) χ‖ ^ 2 := by sorry
 
+/-- AC.0/add-energy-le: the trivial upper bounds (Claude Code, cc-fb70e5). -/
+lemma addEnergy_le_card_sq_mul_card (A B : Finset G) :
+    Finset.addEnergy A B ≤ A.card ^ 2 * B.card := by sorry
+
+lemma addEnergy_le_card_mul_card_sq (A B : Finset G) :
+    Finset.addEnergy A B ≤ A.card * B.card ^ 2 := by sorry
+
 variable {N : ℕ} [NeZero N]
 
 lemma zmod_character_comparison (r x : ZMod N) :
