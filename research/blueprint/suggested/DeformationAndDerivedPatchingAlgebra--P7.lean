@@ -11,6 +11,14 @@ import Mathlib.RingTheory.LocalRing.RingHom.Basic
 import Mathlib.RingTheory.Nilpotent.Lemmas
 import Mathlib.RingTheory.Ideal.AssociatedPrime.Finiteness
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.DualNumber
+import Mathlib.Algebra.MvPolynomial.Basic
+import Mathlib.RingTheory.Localization.Basic
+import Mathlib.RingTheory.RegularLocalRing.Defs
+import Mathlib.RingTheory.Regular.RegularSequence
+import Mathlib.RingTheory.Ideal.KrullsHeightTheorem
+import Mathlib.RingTheory.KrullDimension.NonZeroDivisors
+import Mathlib.RingTheory.LocalRing.Module
 
 /-!
 # Suggested forms for prime filtrations and characteristic-zero points
@@ -96,7 +104,7 @@ example
       (f : N₁ →ₗ[R] N₂) → (g : N₂ →ₗ[R] N₃) →
       Function.Injective f → Function.Surjective g → Function.Exact f g →
       motive N₁ → motive N₃ → motive N₂) : motive M := by
-  exact IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime R
+  exact IsNoetherianRing.induction_on_isQuotientEquivQuotientPrime (motive := motive) R
     (inferInstance : Module.Finite R M) hzero hprime hext
 
 end BaselineReuse
@@ -244,3 +252,87 @@ example {O : Type*} [CommRing O] (π : O) (hπ : π ≠ 0) :
   sorry
 
 end TauCeti.FiniteLocalAlgebra
+
+/-! ## R03.3: catenarity and freeness over a regular local base
+
+Two statements of layer R03.3 that layer R03.6 consumes (its requests to R03.3). Catenarity is
+Stacks Definition 10.105.1 (tag 00NI), stated on the poset `PrimeSpectrum R`; a *saturated*
+chain is an `LTSeries` each of whose steps is a covering relation `⋖`. The pinned Mathlib has no
+catenary predicate. Depth is stated, as in R03.6, by an `M`-regular sequence in the maximal ideal
+of length `ringKrullDim A`, because the pinned Mathlib has no module depth. -/
+
+namespace Ring
+
+/-- **`R03.3/catenary`** (Stacks 00NI). `R` is catenary if for all primes `p ≤ q` the lengths of
+the chains of primes from `p` to `q` are bounded, and any two saturated chains from `p` to `q`
+have the same length. -/
+def IsCatenary (R : Type*) [CommRing R] : Prop :=
+  ∀ p q : PrimeSpectrum R, p ≤ q →
+    (∃ n : ℕ, ∀ s : LTSeries (PrimeSpectrum R), s.head = p → s.last = q → s.length ≤ n) ∧
+    ∀ s t : LTSeries (PrimeSpectrum R), s.head = p → s.last = q → t.head = p → t.last = q →
+      (∀ i : Fin s.length, s (Fin.castSucc i) ⋖ s i.succ) →
+      (∀ i : Fin t.length, t (Fin.castSucc i) ⋖ t i.succ) → s.length = t.length
+
+/-- API: catenarity is invariant under ring isomorphisms. -/
+theorem IsCatenary.of_ringEquiv {R S : Type*} [CommRing R] [CommRing S] (e : R ≃+* S)
+    (h : IsCatenary R) : IsCatenary S := sorry
+
+/-- API (Stacks 00NK): a quotient of a catenary ring is catenary. -/
+theorem IsCatenary.quotient {R : Type*} [CommRing R] (I : Ideal R) (h : IsCatenary R) :
+    IsCatenary (R ⧸ I) := sorry
+
+/-- API (Stacks 00NJ): a localization of a catenary ring is catenary. -/
+theorem IsCatenary.localization {R : Type*} [CommRing R] (S : Submonoid R)
+    (L : Type*) [CommRing L] [Algebra R L] [IsLocalization S L] (h : IsCatenary R) :
+    IsCatenary L := sorry
+
+/-- API: a ring of Krull dimension at most one is catenary; every chain has length at most one. -/
+theorem isCatenary_of_ringKrullDim_le_one {R : Type*} [CommRing R] (h : ringKrullDim R ≤ 1) :
+    IsCatenary R := sorry
+
+/-- **`R03.3/catenary-iff-dimension-function`** (Stacks Lemma 10.105.10, tag 0ECF). A Noetherian
+local ring is catenary iff `p ↦ dim A/p` drops by exactly one along every covering relation of
+primes. The right-hand side is the hypothesis `hcat` of R03.6's
+`Module.NearlyFaithful.of_quotient_of_isSMulRegular`. -/
+theorem isCatenary_iff_ringKrullDim_quotient_covBy (A : Type*) [CommRing A] [IsLocalRing A]
+    [IsNoetherianRing A] :
+    IsCatenary A ↔ ∀ p q : PrimeSpectrum A, p ⋖ q →
+      ringKrullDim (A ⧸ p.asIdeal) = ringKrullDim (A ⧸ q.asIdeal) + 1 := sorry
+
+end Ring
+
+/-- **`R03.3/free-of-maximal-depth-regular-local`** (Stacks Lemma 10.106.6, tag 00NT; the case
+`e = d` of Proposition 10.110.1, tag 00O7). A finite module of maximal depth over a regular local
+ring is free. -/
+theorem Module.free_of_isRegular_of_isRegularLocalRing {A M : Type*} [CommRing A]
+    [IsRegularLocalRing A] [AddCommGroup M] [Module A M] [Module.Finite A M] (rs : List A)
+    (hreg : RingTheory.Sequence.IsRegular M rs)
+    (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal A)
+    (hlen : (rs.length : WithBot ℕ∞) = ringKrullDim A) :
+    Module.Free A M := sorry
+
+namespace SuggestedTest.Catenary
+
+/-- Unit test: a field is catenary. -/
+example (k : Type*) [Field k] : Ring.IsCatenary k := sorry
+
+/-- Unit test: `ℤ` is catenary. -/
+example : Ring.IsCatenary ℤ := sorry
+
+/-- Unit test, pinning the word *saturated*: `k[x, y]` is catenary, although its chains
+`0 ⊂ (x, y)` and `0 ⊂ (x) ⊂ (x, y)` have different lengths. -/
+example (k : Type*) [Field k] : Ring.IsCatenary (MvPolynomial (Fin 2) k) := sorry
+
+/-- Unit test, pinning the equal-length clause (Stacks 02JE, Nagata): some Noetherian local
+domain is not catenary. -/
+example : ∃ (A : Type) (_ : CommRing A), IsLocalRing A ∧ IsNoetherianRing A ∧ IsDomain A ∧
+    ¬ Ring.IsCatenary A := sorry
+
+/-- Acceptance for `R03.3/free-of-maximal-depth-regular-local`: the regular-local hypothesis is
+needed. Over the dual numbers `k[ε]` (dimension zero), the module `k = k[ε]/(ε)` has maximal
+depth (the empty sequence) but is not free. -/
+example (k : Type*) [Field k] :
+    ¬ Module.Free (DualNumber k) (DualNumber k ⧸ Ideal.span {(DualNumber.eps : DualNumber k)}) :=
+  sorry
+
+end SuggestedTest.Catenary

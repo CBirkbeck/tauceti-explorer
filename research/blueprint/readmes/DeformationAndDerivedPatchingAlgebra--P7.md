@@ -2,7 +2,7 @@
 
 ## Scope of this checkpoint
 
-The part comprises P7–P9 and R03.1–R03.5. This partial blueprint retains the existing finite-prime-filtration input of R03.3 and adds a five-node refinement of the R03.4 characteristic-zero-point argument. The packet has 27 baseline references and no new object definitions. The field, quotient, integral-closure and local-field constructions are reused from their existing owners. The stage coverage records retain the remaining work explicitly.
+The part comprises P7–P9 and R03.1–R03.5. This partial blueprint retains the existing finite-prime-filtration input of R03.3, adds a five-node refinement of the R03.4 characteristic-zero-point argument, and adds four R03.3 nodes on catenarity and on freeness over a regular local base (Section 5a). The packet has 46 baseline references and one new object definition, the catenary predicate. The field, quotient, integral-closure and local-field constructions are reused from their existing owners. The stage coverage records retain the remaining work explicitly.
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The five prime-filtration declarations in Sections 1–4 are in the same Mathlib module, `Mathlib/RingTheory/Ideal/AssociatedPrime/Finiteness.lean`; its inspected Git blob is `8981a4233c39016cfd51e882d7da6d90c368dec9`.
 
@@ -191,11 +191,112 @@ Bare formal smoothness of an arbitrary ring map is not enough for a local integr
 
 The finite-over-subring criteria, the finite-image theorem for universal deformation rings, and the arithmetic dimension estimates in the integrated decomposition remain required. This section does not reconstruct or certify those arithmetic inputs. The packet and every stage remain partial.
 
+## 5a. R03.3: catenarity and freeness over a regular local base
+
+Layer R03.6 of this roadmap asked R03.3 for two statements that the integrated depth node did not export.
+These four nodes supply them. RS-08 assigns both to R03.3: it keeps "explicit catenarity and excellence
+hypotheses" and "Cohen–Macaulay modules over a regular local base", proved compatible with ModularCurves 4D.
+Library files: `TauCeti/RingTheory/Catenary` (namespace `Ring`) and `TauCeti/RingTheory/RegularLocalRing/MaximalDepth`.
+
+### R03.3/catenary
+
+**Definition: catenary rings** (`Ring.IsCatenary`, a definition; node `catenary`; Stacks Definition 10.105.1, tag 00NI).
+A commutative ring R is catenary if, for all primes p ⊆ q:
+- the lengths of chains of primes from p to q are bounded; and
+- any two *saturated* chains from p to q, that is `LTSeries` in `PrimeSpectrum R` each of whose steps is a
+  covering relation `⋖`, have the same length.
+
+The pinned Mathlib has no catenary predicate. For a Noetherian ring, boundedness is automatic, since heights are finite.
+
+*API.*
+- `IsCatenary.of_ringEquiv`: invariance under ring isomorphisms.
+- `IsCatenary.quotient`: quotients of catenary rings are catenary (Stacks 00NK).
+- `IsCatenary.localization`: localizations of catenary rings are catenary (Stacks 00NJ).
+- `isCatenary_of_ringKrullDim_le_one`: a ring of dimension at most one is catenary.
+- `isCatenary_iff_ringKrullDim_quotient_covBy`: the lemma below.
+
+*Unit tests.*
+- A field is catenary (`isCatenary_test_field`).
+- ℤ is catenary (`isCatenary_test_int`).
+- k[x, y] is catenary although 0 ⊂ (x, y) and 0 ⊂ (x) ⊂ (x, y) differ in length (`isCatenary_test_mvPolynomial_two`).
+  This test rejects a definition without *saturated*.
+- Some Noetherian local domain is not catenary: Nagata's A[x]_{m'} of dimension 3, with a maximal chain of
+  length 2 (Stacks 02JE; `isCatenary_test_nagata`). This test rejects a definition without the equal-length clause.
+
+### R03.3/catenary-iff-dimension-function
+
+**Lemma: catenarity of a Noetherian local ring as a dimension function** (`Ring.isCatenary_iff_ringKrullDim_quotient_covBy`;
+node `catenary-iff-dimension-function`; Stacks Lemma 10.105.10, tag 0ECF). For a Noetherian local ring A:
+
+```text
+A catenary   ⟺   dim A/p = dim A/q + 1  whenever p ⋖ q in Spec A.
+```
+
+The right side is the hypothesis `hcat` of R03.6's `NearlyFaithful.of_quotient_of_isSMulRegular`.
+
+*Proof.* dim A/p is the Krull dimension of V(p) (`ringKrullDim_quotient`), and it is finite (`ringKrullDim_quotient_le`,
+`ringKrullDim_lt_top`). So chains from p have length at most dim A/p, and a longest chain from p ends at m and is
+saturated, since otherwise a prime can be inserted (`RelSeries.insertNth`).
+- (⇒) For p ⋖ q, put p in front of a longest saturated chain from q to m. This gives a saturated chain from p to m
+  of length dim A/q + 1, which must equal dim A/p.
+- (⇐) Chains from p to q are bounded by dim A/p. Along a saturated chain the hypothesis telescopes, so its length
+  is dim A/p − dim A/q.
+
+*Acceptance.*
+- Locality is needed. The semilocal ring k[x, y] localized away from (x, y) ∪ (x − 1) is catenary, but
+  (0) ⋖ (x − 1) with dimensions 2 and 0.
+- Catenarity does not give equidimensionality: k⟦x, y, z⟧/(xz, yz) satisfies the condition but has components of
+  dimensions 2 and 1. R03.6 therefore keeps its separate equidimensionality hypothesis.
+- Nagata's ring fails the condition along its chain of length 2.
+
+### R03.3/regular-local-cohen-macaulay
+
+**Lemma: a regular local ring is Cohen–Macaulay** (node `regular-local-cohen-macaulay`; Stacks Lemma 10.106.3, tag 00NQ).
+If A is regular local of dimension d, a minimal generating set x₁, …, x_d of m is an A-regular sequence. So A has an
+A-regular sequence in m of length d.
+
+*Proof.* By induction on d:
+- A is a domain, so x₁ is a nonzerodivisor.
+- dim A/(x₁) = d − 1 (`ringKrullDim_quotient_span_singleton_succ_eq_ringKrullDim_of_mem_nonZeroDivisors`), and the
+  maximal ideal of A/(x₁) is generated by d − 1 elements, so A/(x₁) is regular (`isRegularLocalRing_iff`).
+
+The domain property (Stacks 00NP, from gr_m A ≅ κ[X₁, …, X_d], 00NO) is not in the pinned Mathlib. It is recorded as a gap.
+
+*Acceptance.*
+- k⟦x, y⟧/(x², xy) has dimension 1 and depth 0, since x is killed by m.
+- k⟦x, y⟧/(xy) is Cohen–Macaulay but not regular.
+
+### R03.3/free-of-maximal-depth-regular-local
+
+**Lemma: maximal-depth modules over a regular local ring are free** (`Module.free_of_isRegular_of_isRegularLocalRing`;
+node `free-of-maximal-depth-regular-local`; Stacks Lemma 10.106.6, tag 00NT, the case e = d of Proposition 10.110.1,
+tag 00O7). If A is regular local and M is finite with an M-regular sequence in m of length dim A, then M is free.
+
+This is R03.6's form of the hypothesis "M ≠ 0 and depth M ≥ dim A".
+
+*Proof.*
+1. depth M = dim A: the given sequence gives ≥, and depth M ≤ dim Supp M ≤ dim A gives ≤.
+2. pd M < ∞, because a regular local ring has finite global dimension.
+3. depth A = dim A (`regular-local-cohen-macaulay`).
+4. Auslander–Buchsbaum gives pd M = depth A − depth M = 0.
+
+Steps 1, 2 and 4 use the integrated node `R03.3/depth-auslander-buchsbaum-and-dimension-bounds`. A finite projective
+module is flat, hence free over a local ring (`Module.Flat.of_projective`, `Module.free_of_flat_of_isLocalRing`).
+
+*Acceptance.*
+- Regularity is needed: k = k[ε]/(ε) over the dual numbers is not free.
+- Maximal depth is needed: k over k⟦x⟧ is not free.
+- **Compatibility with ModularCurves 4D.** For a finite local map A → B of regular local rings of equal dimension,
+  B has maximal depth over A. So B is free, which recovers 4D's miracle flatness instead of restating it.
+
+*Consumers.* R03.6's `patching-free-conclusion` and `patching-kernel-equals-ideal`. Once these nodes are merged,
+R03.6 can cite them in place of its requests to R03.3.
+
 ## 6. Remaining scope and ownership
 
 The accepted RS-08 keeps the generic commutative-algebra direction of R03.3, while importing the specified local regularity, completion, flatness and coherent-support statements from ModularCurves 4D. The finite-prime-filtration result above is an even earlier baseline input. It neither reconstructs 4D nor makes the rest of R03.3 complete.
 
-The remaining work for R03.3 includes its hypothesis-complete depth, Cohen–Macaulay, Auslander–Buchsbaum, complete-intersection, dimension and component-support arguments, respecting the reviewed audit's existing regular-sequence and projective-dimension declarations. Those presence/absence leads were not all re-audited in this checkpoint.
+Section 5a now supplies catenarity, Cohen–Macaulayness of regular local rings and maximal-depth freeness over a regular local base; the domain property of regular local rings (Stacks 00NP) is a recorded gap. The remaining work for R03.3 includes its hypothesis-complete depth, Cohen–Macaulay, Auslander–Buchsbaum, complete-intersection, dimension and component-support arguments, respecting the reviewed audit's existing regular-sequence and projective-dimension declarations. Those presence/absence leads were not all re-audited in this checkpoint.
 
 For P7, generic module/complex Milnor and Mittag–Leffler lemmas remain assigned to ArithmeticGaloisDuality R02.1 by RS-08; the complete-local derived applications stay here. P8 and P9 must retain their uniformity, derived-action, integral-torsion and component-support hypotheses. R03.1 and R03.2 must preserve the distinction between coefficient categories, hulls, representing objects and arithmetic Galois instances. R03.4's characteristic-zero-point theorem requires a genuine dimension or non-torsion premise. R03.5 constructs actual compatible patching data before asserting its depth and support conclusions.
 
