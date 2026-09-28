@@ -6,7 +6,7 @@ import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.Tactic.ComputeDegree
 
 /-!
-# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.3)
+# Suggested Lean forms: ordinary automorphic forms and ordinary modularity lifting (R21.1–R21.4)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`OrdinaryAutomorphicFormsAndModularityLifting`) is definitive. The statements below suggest Lean
@@ -153,5 +153,11 @@ example {K : Type*} [Field K] (α β p₁ p₂ : K) (h : β - α ≠ 0) :
 /-- Source issue `E3`: without the inverse the printed expression is `(β - α)² ψ₂(σ)`, not `ψ₂(σ)`;
 with `β = 3`, `α = 1`, `ψ₁(σ) = 5`, `ψ₂(σ) = 1` it gives `4`. -/
 example : ((3 : ℚ) - 1) * (3 * (5 + 1) - (3 * 5 + 1 * 1)) = 4 := by norm_num
+
+/-- `R21.4/pro-modularity-key-proposition`: under (G), `d_i > 2 + 2t + 7s` with `s = #Σ + dim H`, the
+dimension bound `d − 2t − 3m − 1 ≤ d − d_i` (with `m = #ℳ_c ≤ s`) is impossible. -/
+example (d di t m s : ℕ) (hm : m ≤ s) (hG : 2 + 2 * t + 7 * s < di) (hdi : di ≤ d) :
+    ¬ (d - 2 * t - 3 * m - 1 ≤ d - di ∧ 2 * t + 3 * m + 1 ≤ d) := by
+  omega
 
 end TauCeti.OrdinaryModularity.SuggestedTest

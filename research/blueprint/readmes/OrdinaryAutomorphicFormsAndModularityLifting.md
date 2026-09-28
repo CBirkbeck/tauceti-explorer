@@ -1,14 +1,14 @@
 # Ordinary automorphic forms and ordinary modularity lifting — blueprint
 
-This blueprint covers stages R21.1–R21.6. After two checkpoints, **R21.1, R21.2 and R21.3 are partial**; R21.4–R21.6
-are not yet read. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
+This blueprint covers stages R21.1–R21.6. After three checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3 and R21.4
+are partial; R21.5–R21.6 are not yet read. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
 - R21.1 only applies the ordinary projector to actual arithmetic modules;
 - R21.2 keeps the nearly ordinary and Eisenstein statements that Skinner–Wiles need beyond cuspidal Hida theory;
 - R21.3 keeps the ordinary Galois families and deformation rings, in the pseudo-representation formalism the source
   actually uses for reducible residual representations.
 
 The source is C. M. Skinner and A. J. Wiles, *Residually reducible representations and modular forms*, Publ. Math.
-IHÉS 89 (1999), 5–126, §§2–3.5. It is open access on Numdam as an OCR'd scan; every formula below was checked on the
+IHÉS 89 (1999), 5–126, §§2–4.3 and Appendix A. It is open access on Numdam as an OCR'd scan; every formula below was checked on the
 page images.
 
 ## Purpose
@@ -133,7 +133,7 @@ g(1 0; x 1) = (1 0; ϖx 1)g, and it fails for a = 1.
 pullbacks, and M_∞ = lim eH⁰(·, 𝒪)⁺ is the inverse limit along traces. Once c_{U_a} = 1, M_∞(U) ≅ Hom_𝒪(H_∞(U), K/𝒪)
 and M⁺_∞(U) ≅ Hom_𝒪(H⁺_∞(U), K/𝒪).
 
-## Layer R21.2: nearly ordinary and Eisenstein control (partial)
+## Layer R21.2: nearly ordinary and Eisenstein control
 
 Library module: `TauCeti/NumberTheory/OrdinaryModularity/Eisenstein`.
 
@@ -193,6 +193,47 @@ Auslander–Buchsbaum.
 **Theorem: auxiliary levels** (node `auxiliary-level-freeness`; planet). Take w ∤ p with the Γ₀(w)-type U′ and the
 Δ_w-reduced U″. If U′/(F^× ∩ U′) acts freely, M_∞(U″) and M⁺_∞(U″) are free over Λ′_𝒪[[Δ_w]] with Δ_w-coinvariants
 M_∞(U′) and M⁺_∞(U′). This is separate from finite flatness over weight space.
+
+**Theorem: characteristic-p primes at auxiliary level** (node `characteristic-p-primes-auxiliary`). This is
+Proposition 3.20. A prime 𝔭 ∋ p of T_∞(U″) comes from level U′ when three conditions hold:
+- det ρ_𝔭 = χ;
+- ψ_1/ψ_2 has infinite order on inertia at some v | p;
+- ρ_𝔭 is irreducible and not dihedral.
+
+The proof passes through an auxiliary prime ℓ chosen by Chebotarev.
+
+**Lemma: the trace at tame inertia** (node `auxiliary-trace-identity`). Lemma 3.21 and Remark 3.22: trace ρ^mod(σ_w)
+acts on M_∞(U″)_m as δ_w + δ_w^{−1}.
+
+**Construction: the rings T_{𝒟_Q}** (node `deformation-hecke-rings`). This is §3.6.
+- The level U_{𝒟_Q} has four local cases: unramified, Σ∖(𝒫 ∪ ℳ), ℳ and Q.
+- T_{𝒟_Q} = T_∞(U_{𝒟_Q}, 𝒪)_m, and π_{𝒟_Q} : R_{𝒟^ps_Q} ↠ T_{𝒟_Q}.
+- T^min_{𝒟_Q} is the quotient by the minimal primes with χ̃^{−1}det trivial on N_Σ (a nonempty set, by twisting).
+- The patching modules are M_{𝒟_Q} = M_∞(U^min_{𝒟_Q})_m.
+- *API:* `deformationLevel`, `deformationHeckeRing`, `pseudoToDeformationHecke`, `minimalHeckeRing`,
+  `minimalPrimes_nonempty`, `deformationHeckeModule`.
+- *Tests:*
+  - maximal level outside (Σ∖𝒫) ∪ Q;
+  - Δ_w acts at w ∈ Q;
+  - twisting reaches ℳ^min.
+
+**Theorem: T_{𝒟_Q} ≅ T^min_{𝒟_Q} ⊗ 𝒪[N_𝒟]** (node `minimal-hecke-ring-decomposition`). This is Proposition 3.23 with
+Corollary 3.24 and Lemma 3.25; Gal(L_Θ/F) ≅ N_𝒟.
+
+**Theorem: duality** (node `hecke-module-duality`). This is §3.7: λ_∞, β_∞, (3.16) and (3.17), with
+M_∞(U)_m ≅ Hom_{Λ_𝒪}(M⁺_∞(U)_m, Λ_𝒪). Skinner–Wiles quote Proposition 3.3's freeness over 𝒪[[G(U)]], which is not
+justified (PadicFamilies E11). The identifications need only Frobenius reciprocity and freeness over Λ′_𝒪.
+
+**Theorem: Ihara's lemma** (node `ihara-lemma-quaternionic`; planet "Ihara's lemma for definite quaternion algebras").
+This is Lemma 3.26. ker(f, g ↦ f + αg) is killed by [U(1 0; 0 λ^{(q)})U] − 1 − Nm(q). The proof follows Diamond–Taylor,
+using strong approximation for the norm-one group and Eichler's norm theorem (requested from
+HilbertModularVarietiesAndShimuraCurves R18.3).
+
+**Lemma: deeper levels** (node `ihara-exact-sequence`). Lemmas 3.27–3.28.
+
+**Theorem: no level raising at a good auxiliary prime** (node `level-raising-congruence-modules`). This is Lemma 3.29.
+At ℓ with p ∤ Nm(ℓ) − 1 and eigenvalue ratio ≠ Nm(ℓ)^{±1}, the Hecke algebras at levels U, U_0(ℓ) and U_1(ℓ) agree at
+𝔭, and M̂_∞(U^{(0)})_𝔭 ≅ M̂_∞(U)_𝔭².
 
 ## Layer R21.3: ordinary Galois and deformation families (partial)
 
@@ -331,6 +372,50 @@ unramified, A, B or C (Proposition 3.14), or U′_w for type B′ with p-power �
 **Lemma: twisting** (node `family-twisting`). ρ_Q ⊗ Ψ occurs at level U ∩ U_1(cond^{(p)}(Ψ)²) (Lemma 3.17). The
 twist multiplies T_0(𝔭_i) by Ψ_P(λ_{𝔭_i}); the source prints the inverse (E4).
 
+**Lemma: the reducible locus** (node `reducible-locus-dimension`). This is Lemmas 2.7–2.9.
+- dim R^red_𝒟 ≤ 1 + 2δ_F + dim H_Σ(F, k).
+- Reducible primes with finite-order determinant have dimension ≤ δ_F + dim H_Σ.
+- Diagonal deformations have dimension ≤ 1 + 2δ_F, or ≤ δ_F with finite-order determinant.
+
+## Layer R21.4: pro-modularity and R = T (partial)
+
+Library module: `TauCeti/NumberTheory/OrdinaryModularity/ProModularity`. The source is Skinner–Wiles §§4.1–4.3 and
+Appendix A.
+
+**Definition: pro-modular primes** (node `pro-modular-prime`; planet). q ⊆ R_𝒟 is pro-modular if the pseudo-deformation
+map R_{𝒟^ps} → R_𝒟/q factors through T_𝒟. The property passes to larger primes and to components.
+- *API:* `IsProModular`, `IsProModular.of_le`, `IsProModularComponent`, `IsProModular.trace`.
+- *Tests:*
+  - the maximal ideal is pro-modular;
+  - pro-modularity specialises;
+  - it does not see the extension class.
+
+**Definition: good pairs and nice primes** (node `good-pair-and-nice-primes`; planet). Goodness of (F, 𝒟) has five
+conditions:
+- d is even;
+- L_p(F, −1, χω) is a non-unit;
+- d > 2 + δ_F + 8(#Σ + dim H_{Σ_0});
+- d_{v_i} > 2 + 2t + 7(#Σ + dim H_{Σ_0});
+- a ramification condition at w ∤ p.
+
+The node also defines nice deformations and primes, and properties (P1) and (P2).
+- *API:* `IsGoodPair`, `IsNiceDeformation`, `IsNiceFor`, `PropertyP1`, `PropertyP2`, `IsGoodPair.mono`.
+- *Tests:*
+  - no datum over ℚ is good;
+  - the local degree bound;
+  - nice deformations live in characteristic p.
+
+**Lemma: components meet** (node `raynaud-connectedness-corollary`). This is Corollary A.2. For a local Cohen–Macaulay
+ring and r ≤ d − 2 relations, two nonempty classes of components meet in a prime of dimension d − r − 1. Raynaud's
+connectedness theorem (Proposition A.1) is cited without proof, and no roadmap plans it, so it is a gap.
+
+**Theorem: the key proposition** (node `pro-modularity-key-proposition`; planet). This is Proposition 4.1. If (F, 𝒟) is
+good and (P1) and (P2) hold for 𝒟 and 𝒟_c, every prime of R_𝒟 is pro-modular. The proof combines:
+- dimension counting with Proposition 2.4 and Corollary A.2;
+- irreducibility at large-dimensional primes (Lemmas 2.6–2.8);
+- Corollary 2.12, which is printed as "Proposition 2.12" (E5);
+- the Λ_𝒪-structure, to find a nice prime.
+
 ## Mistakes found in the sources
 
 **E1 (misprint, reaches nothing): Skinner–Wiles §3.2, before Lemma 3.10, p. 41.** "makes Λ_𝒪 a free Λ′_𝒪-module of
@@ -346,6 +431,10 @@ trace ρ^mod(g_iσ_y))" should have (β_i − α_i)^{−1}, and likewise for T_0
 **E4 (misprint, reaches nothing): (3.7), p. 45.** "τ_P(T_0(𝔭_i)) = (T_0(𝔭_i) mod P)·Ψ_P(λ_{𝔭_i})^{−1}" should read
 Ψ_P(λ_{𝔭_i}). Twisting by Ψ ∘ det multiplies [U(1 0; 0 λ)U] by Ψ(λ), exactly as the next line does for T_y.
 
+**E5 and E6 (misprints, reach nothing): cross-references.**
+- The proof of Proposition 4.1 (p. 64) cites "Proposition 2.12" for Corollary 2.12.
+- The proof of Proposition 4.2 (p. 66) cites "Proposition 3.14" for Proposition 3.18 (existence of the permissible ideal).
+
 No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF02698855.
 
 ## Remaining work
@@ -354,15 +443,18 @@ No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF026988
   - apply the projector to the modular-curve H¹ towers (ModularCurvesPartII R14.3; Hida 1986) and to the indefinite
     Hilbert and Shimura-curve cohomology (R18.4);
   - odd-degree F.
-- **R21.2 is partial.** Still to do: Proposition 3.20, Lemma 3.21, §3.6 (the rings T_Σ), §3.7 and §3.8. Propositions
-  3.14–3.15 and Lemmas 3.16–3.17 are now R21.3 nodes. Skinner–Wiles' Toulouse 2001 paper is not read.
-- **R21.3 is partial.** Still to do:
-  - §2.2 (the reducible locus, Lemmas 2.7–2.9), planned with R21.4 where it is used;
-  - the L8 determinant-versus-flag comparison, which is recorded only when a consumer needs it.
-- **R21.4–R21.6 are not read:**
-  - pro-modularity and the patching of Skinner–Wiles §§4–8;
-  - the p = 3 branch (Dieulefait–Pacetti);
-  - Khare's use of Skinner–Wiles.
+- **R21.2 is source-decomposed** (checkpoint 3).
+- **R21.3 is partial.** The L8 determinant-versus-flag comparison is now planned in LocalGaloisDeformationRings L8, and
+  is recorded here only when a consumer needs it.
+- **R21.4 is partial.** Still to do:
+  - Proposition 4.2 ((P2)) and the Main Theorem (§4.5);
+  - formal patching (§5, importing DeformationAndDerivedPatchingAlgebra R03.5–R03.6);
+  - cohomology estimates (§6, with GlobalGaloisDeformations R04.5);
+  - nice primes (§7);
+  - raising the level and (P1) (§8);
+  - the Raynaud gap.
+- **R21.5–R21.6 are not read:** Theorems A and B (§4.6), the p = 3 branch (Dieulefait–Pacetti), and Khare's use of
+  Skinner–Wiles.
 
 ## Sources
 
