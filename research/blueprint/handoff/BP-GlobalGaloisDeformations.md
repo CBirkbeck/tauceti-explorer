@@ -1,8 +1,40 @@
-# BP-GlobalGaloisDeformations: R04.1–R04.6 (checkpoint 5)
+# BP-GlobalGaloisDeformations: R04.1–R04.6, G7 and G8 (checkpoint 7)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #743. **Status: partial.**
-- R04.1–R04.6 are `source_decomposed`.
-- G7 and G8 are `not_read`.
+- R04.1–R04.6, G7 and G8 are `source_decomposed`.
+- The packet stays `partial` because of open requests.
+
+## Checkpoint 7: G8 (4 nodes) and G7 (7 nodes), 3 planets
+
+**G8, from ACC+ §6.2 (arXiv v2):**
+- `variable-determinant-problem`: Definition 6.2.2.
+- `variable-determinant-representability`: Theorem 6.2.3 and Lemma 6.2.4, with n²|T| − 1 framing variables.
+- `variable-determinant-presentation`: Proposition 6.2.24, with ad ρ̄ coefficients.
+- `fixed-versus-variable-determinant`: stated as separate theorems. The quotient map holds always; the product with
+  𝒪⟦G^{ab}_{F,S}(p)⟧ holds only for p ∤ n with twist-stable local problems. The p | n failure is shown in k[ε].
+
+**G7, from CHT08 §2 and ACC+:**
+- `polarized-deformation-problem`: 𝒢_n, Lemma 2.1.1's pairings, the fixed multiplier and the Schur condition.
+- `polarized-representability`: Proposition 2.2.9, with n²|T| framing variables, since the centraliser is trivial.
+- `polarized-tangent-obstruction`: Lemmas 2.2.11 and 2.3.4, and the failure of the scalar/trace-zero splitting for p | n.
+- `polarized-presentation`: Corollaries 2.2.12, 2.2.13 and 2.3.5, kept separate from the p-torsion-free and reduced
+  generic-fibre quotients.
+- `taylor-wiles-local-diamond`: ACC+ §6.2.18 and Lemma 6.2.19, in rank n.
+- `enormous-taylor-wiles-primes`: Lemma 6.2.31.
+- `enormous-taylor-wiles-presentation`: Proposition 6.2.32, g = qn − n²[F⁺ : ℚ], with the export of Δ_{Q_N}.
+
+**Numbering note:** arXiv v1 and v2 both number enormous image and the presentation as Definition 6.2.28 and Proposition
+6.2.32. The stage text's 6.2.29 and 6.2.33 presumably follow the published version, which was not read. Locators use v2.
+
+**New requests:**
+- ArithmeticGaloisRepresentations G7: polarizations, 𝒢_n and enormous image.
+- ArithmeticGaloisDuality D7: the Euler characteristic over G_{F⁺,S}.
+- ArithmeticGaloisDuality D8: Selmer complexes and dual Selmer counts in all ranks.
+
+The existing R02.4, Chebotarev and R03.2 requests gain the new consumers.
+
+**Lean:** three new proved checks: (1 + aε)^3 = 1 in characteristic 3 (so cube roots do not exist in 1 + 𝔪), the trace
+of the identity in M₃(𝔽₃) is 0, and the ACC+ count. It compiles with 0 errors, and the `sorry` count is unchanged.
 
 This works within RS-08, whose review accepted it. It uses RS-08's narrowed `keeps` for R04.1 and R04.2.
 
@@ -149,13 +181,21 @@ Signatures that need Tau Ceti's continuous cohomology or the R03.1/R03.2 categor
 
 ## What a continuation should do
 
-1. **G7 and G8** from ACC+, arXiv:1812.09999, §6.2 (Definition 6.2.2, Theorem 6.2.3, Lemma 6.2.4, Proposition 6.2.33).
+1. **Done in checkpoint 7:** G7 and G8.
+2. **Open requests**, which keep the packet `partial`:
+   - ArithmeticGaloisDuality R02.3–R02.6, D7 and D8;
+   - ArithmeticGaloisRepresentations R01.1, R01.4 and G7;
+   - LocalGaloisDeformationRings R08.1 and R08.6;
+   - the Tau Ceti class field theory and Chebotarev layers.
+   A reviewer can check the G7/G8 statements against ACC+ v2 and CHT08.
 
 ## Sources read
 
 - Gee, arXiv:2202.05818v2, §3 (pp. 11–21).
 - Kisin, Lecture 1 (all four pages).
 - Chenevier, arXiv:0809.0415v2: Theorem 2.22 (statement) and §3.1.
+- ACC+, arXiv:1812.09999v2: §6 introduction, §6.2.1, §6.2.18–6.2.24, §6.2.27–6.2.32 (pp. 135–151).
+- CHT08 (Numdam): §2.1–2.3 (pp. 7–33).
 - KW II authors' final version: §§2, 4, 5, 7.2–7.3, Lemma 7.10, the proof of Proposition 9.3 and §10.1.
 - BLGGT, arXiv:1010.2561v4, §1.2 (Lemma 1.2.3).
 - Böckle's Luxembourg 2012 notes were checked and do not treat deformation theory.
