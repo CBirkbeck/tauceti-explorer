@@ -1,71 +1,68 @@
-# Handoff: BP-SmallRamificationAndAbelianVarietyBaseCases (third checkpoint)
+# Handoff: BP-SmallRamificationAndAbelianVarietyBaseCases (fourth checkpoint)
 
 Agent: Claude Code, session cc-fb70e5. Refs #995.
 
-- Checkpoint 1 (R25.1, R25.2) merged in #3812.
-- Checkpoint 2 (R25.3) merged in #3814.
-- This checkpoint adds R25.4 and closes R25.1.
+- Checkpoints 1–3 merged in #3812 (R25.1, R25.2), #3814 (R25.3) and #3819 (R25.4).
+- This checkpoint adds R25.5 and R25.6. **All six stages are now closed.**
 
 ## What this checkpoint delivers
 
-- **Packet** `research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json`, status `partial`:
-  - 42 nodes: 5 definitions, 24 lemmas and 13 theorems;
-  - 32 API items, 21 unit tests, 13 planets;
-  - 40 baseline declarations, 17 requests, 4 source issues;
+- **Packet** `research/blueprint/packets/SmallRamificationAndAbelianVarietyBaseCases.json`, status `partial`, because requests to other roadmaps remain open:
+  - 55 nodes: 7 definitions, 29 lemmas, 18 theorems and 1 application;
+  - 41 API items, 29 unit tests, 16 planets;
+  - 42 baseline declarations and 4 source issues;
   - `scripts/check_blueprint.py` reports 0 errors and 0 warnings against the pinned declaration index.
-- **Roadmap document**, regenerated from the packet with the introduction revised for R25.4.
-- **Suggested Lean file**, extended with the Schoof section.
+- **Roadmap document**, regenerated with the introduction revised.
+- **Suggested Lean file**, extended with the Terminal and BaseCases sections.
 
-RS-06 keeps R25.4 whole and links it to A6, R35.4, R28.1, R11.3 and R34.2 (components rerouted from Faltings's R28.5). The plan follows Schoof's point-counting route, not Brumer–Kramer's isogeny-chain route, so it uses A6 and R11.3 and needs neither R28.1 nor R35.4.
+RS-06 narrows R25.5: it owns the Snowden/source realisation and the source-specific ordinary checks, and imports R21.5, R21.6 and R24.6. It keeps R25.6. The plan follows both.
 
-## Closed
+## R25.5 (closed)
 
-- **R25.1:** the Odlyzko rows for R25.4 are planned (R25.1/totally-complex-degree-bounds-for-schoof). No list of fields is used anywhere.
-- **R25.2:** Tate and Serre (checkpoint 1).
-- **R25.3:** Fontaine (checkpoint 2).
-- **R25.4 (new): Schoof's Theorem 1.1** for l ∈ {2, 3, 5, 7, 13}. The plan follows Schoof's proof in the semistable category D:
-  1. R25.4/semistable-category-d: the category D(p, l). R25.4/torsion-of-semistable-abelian-varieties-in-d: A[pⁿ] lies in D (Grothendieck, via R11.3).
-  2. R25.4/schoof-criterion (Proposition 3.1): if the simple objects of D are ℤ/pℤ and μ_p and Ext¹_{ℤ[1/l]}(μ_p, ℤ/pℤ) = 0, there is no such abelian variety. It uses the filtration and point count of R25.3, over ℤ[1/l, ζ_l] (R25.4/constant-over-cyclotomic).
-  3. R25.4/ext-mu-p-by-z-mod-p-over-z-one-over-l (Corollary 4.2) for p ∈ {2, 3}. The class-group step needs no Herbrand or Spiegelungssatz here, because ℤ and ℤ[ζ₃] are principal ideal domains.
-  4. R25.4/simple-objects-criterion (Proposition 5.1), with the field hypothesis checked in the five case lemmas:
-     - (2, 3): rd < 8.25, n ≤ 14, and one class-field step over ℚ(ζ₃, ∛2) (the unit −1 generates 𝔽₃^×).
-     - (3, 2): rd < 6.93, n ≤ 10, so [L:ℚ] ∈ {4, 8}. No class field theory is needed.
-     - (5, 2): rd < 8.95, n ≤ 16. Degree 12 is excluded by the unit η = (1 + √5)/2 generating 𝔽₄^×.
-     - (7, 3): Schoof's argument with n ≤ 279 (his n < 270). The unramified-extension rows at rd 13.18 and 16.83 are used, and the units −1 and ζ₇ + ζ₇^{−1} generate 𝔽₂₇^×.
-     - (13, 2): Schoof's argument. Class number of ℚ(i, √13) = 1 by the Minkowski bound 7.90 (CA.5), and h(ℚ(i, √13, √η)) ≤ 2 by the row at rd 10.198.
-  5. R25.4/schoof-theorem.
+- **R25.5/gl2-type-abelian-variety:** GL₂(K)-type abelian varieties over ℚ and their λ-adic representations.
+- **R25.5/snowden-realisation:** Snowden's Proposition 9.4.1 over ℚ. The route is potential modularity (R23.4), solvable descent to a field of odd degree (R17.4), Jacquet–Langlands and Shimura-curve Jacobians (R17.3, R18.6), and the descent lemma R25.5/descent-of-gl2-type-realisation (Faltings, R28.4). It needs only (A1), not a non-solvable image, and it does not use Serre's conjecture.
+- **R25.5/reduction-of-the-realisation:** the reduction type (good, or semistable), read off the λ-adic representation through Néron–Ogg–Shafarevich and the λ-independence of Weil–Deligne parameters (R11.5), with dim A ≥ 1.
+- **R25.5/level-one-dihedral-classification** (Wintenberger, Khare Lemma 5.1, with DP23 Lemma 1.13). A level-one dihedral ρ̄ needs p ≡ 3 (mod 4) and h(ℚ(√−p)) > 1, and has twist-normalised weight (p + 1)/2. So (A1) holds automatically at p ∈ {5, 7, 13} and for weights 2, 4, 6, 8, 14. This is proved here, so the plan does not import the bad-dihedral analysis of ClassicalSerreModularity R27.1/R33.2, which would create a cycle: that roadmap consumes R25.6.
+- **R25.5/ordinary-reducible-terminal-weights** at (p, k) = (3, 2), (3, 4), (5, 6), (7, 8), (13, 14):
+  - crystalline with reducible reduction implies ordinary (Fontaine–Laffaille or Berger–Li–Zhu, via R21.5);
+  - the residual shape is 1 ⊕ ω^{k−1}, which is p-distinguished;
+  - Skinner–Wiles then applies;
+  - S_k(SL₂(ℤ)) = 0 (Mathlib), so no such representation exists.
+- **R25.5/weight-two-level-one-excluded:** via Fontaine's theorem.
+- **R25.5/weight-p-plus-one-excluded-at-schoof-primes:** via Schoof's theorem at p ∈ {5, 7, 13}.
+- **R25.5/weight-fourteen-at-eleven-is-a-twist:** the θ-shift in Serre's recipe, R15.4.
+- **R25.5/small-weight-level-one-exclusion:** KW04 Theorem 4.3 and Corollary 4.4.
+- **R25.5/paso-six-terminal-cases:** DP23 Paso 6.
 
-**Deviation from Schoof.** For l = 2, 3, 5, Schoof proves the stronger Theorem 1.3 (the tame category C) and deduces Theorem 1.1. This plan proves Theorem 1.1 directly in D. The root discriminants are smaller (8.25, 6.93, 8.95 against 10.39, 12, 20), so each case needs at most one class-field step. Theorem 1.3 has no consumer in the atlas and is not planned.
+## R25.6 (closed)
 
-**Certified numerics.** Every row was evaluated with the kernel of R25.1/odlyzko-kernel and exceeds its threshold, and Odlyzko's 1976 Table 2 confirms each one. The tightest margins are:
-- 0.2% at rd 10.198 (row j);
-- 0.3% at rd 19.014 (row d).
-
-## Remaining
-
-- **R25.5** (GL₂-type and ordinary terminal cases) and **R25.6** (the base-case table): coverage `not_read`.
-  - For R25.5, read DP23 Paso 6 with Theorems 1.7–1.9, and Khare's terminal weights.
-  - The R25.6 table can already record the rows p = 2, 3 of level one (R25.2), the everywhere-good case (R25.3) and the five Schoof primes (R25.4).
+- **R25.6/base-case-table:** the nine rows, with characteristic, weights, level, image, coefficients, supplier, consumer and local check, and the degenerate branches with their outside suppliers (R17.5, R17.6, R21.5, R27.1/R33.2).
+- **R25.6/base-case-table-holds:** every row holds, independently of Serre's conjecture.
+- **Local checks at the exceptional transitions:**
+  - ordinarity at 3 for k = 2, 4;
+  - Steinberg at p implies semistable reduction;
+  - the twist at p = 11, weight 14;
+  - (A1) at level one from Wintenberger's lemma.
 
 ## Requests added in this checkpoint
 
-- R11.3: the monodromy criterion (σ − 1)² = 0.
-- R11.1: an abelian scheme over ℤ[1/l].
-- R07.1: Katz–Mazur G_ε, the twisted constant schemes V(ρ), and gluing over ℤ[1/l].
-- A2 and A3: over ℤ[1/l].
-- Tau Ceti ClassFieldTheory Layer 12: ray class groups in explicit form, Kronecker–Weber for conductors lᵏ∞, and the conductor–discriminant formula.
-- ClassFieldTheory Layer 7: conductor exponents of local quadratic characters over dyadic fields.
+- R23.4: potential modularity in Snowden's form.
+- R17.3 and R17.4: Jacquet–Langlands and solvable descent.
+- R18.6: the Shimura-curve realisation.
+- R28.4: Faltings's isogeny theorem.
+- R11.5: Néron–Ogg–Shafarevich and λ-independence.
+- R21.5: the crystalline-to-ordinary criterion at the listed (p, k), Skinner–Wiles, and the residual weights of crystalline reductions.
+- R24.3 and R24.5: the lifts and compatible systems.
+- R15.4: Serre's weight recipe.
+- A6: End⁰ and freeness of V_p.
+- R01.4: DP23 Lemma 1.13.
+- Tau Ceti ClassFieldTheory Layer 12: unramified abelian extensions and genus theory.
 
-## Source issues
+## Source notes
 
-The same four are recorded in the packet and in the local published-errata log.
+DP23 justifies the nontriviality of the residual representation on D₃ in Paso 6 by "Serre's weight is not 3". In the plan it follows directly from ω^{k−1}|I₃ ≠ 1. This is recorded in an acceptance note, not as an error.
 
-- **E1** (new): 2·3^{3/2} printed as 10.49….
-- **E2** (published in Schoof's errata note): Herbrand is cited for the ω²-eigenspace in Proposition 4.1.
-- **E3** (new): "120/36" should be 120/54 in the case l = 7.
-- **E4** (new): "for some a ⩽ 2" should be a ⩾ 0 in the case l = 13.
-
-None affects a stated result.
+No new source issues in this checkpoint. The four issues in Schoof 2005 (E1–E4) stand.
 
 ## Lean
 
@@ -75,8 +72,15 @@ The suggested file was not compiled. No pinned build is available, and the share
 
 Read in this checkpoint:
 
-- Schoof 2005: §§1–6 again, in the published author copy and on arXiv.
-- Schoof's errata note.
-- Odlyzko's 1976 tables: the description and Table 2.
+- Snowden, arXiv:0905.4266v1: the abstract, §3.1 and §9.4.
+- Khare–Wintenberger, arXiv:math/0412076v1: §§3–4.
+- Khare, arXiv:math/0504080v1: §§5 and 6.1.
+- DP23: §§1.2–1.3 and Paso 6.
 
-Earlier sources are listed in the packet. Not accessible: Fontaine 1985, Tate 1994, Serre's Œuvres III note, and Martinet's tables (Schoof's [Mar81]).
+Earlier sources are listed in the packet. Not accessible: Fontaine 1985, Tate 1994, Serre's Œuvres III note, and Martinet's tables.
+
+## What a continuation could do
+
+All stages are closed; what remains are the requests.
+
+- If Fontaine's and Tate's papers become accessible, compare their prime choices and discriminant rows with R25.2 and R25.3. The sharpened local bounds δ ≤ 2 at 2 and δ ≤ 13/6 − 1/|P| at 3 are this plan's own derivations.

@@ -28,9 +28,10 @@ import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyF
 import TauCeti.AlgebraicGeometry.AbelianVariety.Basic
 import Mathlib.NumberTheory.NumberField.ClassNumber
 import Mathlib.RingTheory.Localization.Away.Basic
+import Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula
 
 /-!
-# Small ramification, Tate–Serre, Fontaine and Schoof — suggested declarations (third checkpoint)
+# Small ramification and the base cases of Serre's conjecture — suggested declarations
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
@@ -40,8 +41,9 @@ and signatures. All proposed results are unproved prototypes at the pinned basel
 Layers covered: R25.1 (explicit discriminant bounds: the local root-discriminant exponent,
 the 2-adic and 3-adic bounds, Minkowski thresholds, the Odlyzko–Poitou bound) and R25.2
 (Tate's theorem, Serre's mod-3 theorem, the combined base case), R25.3 (Fontaine's theorem,
-through finite flat 2-group schemes over `ℤ`) and R25.4 (Schoof's theorem for
-`l ∈ {2, 3, 5, 7, 13}`).
+through finite flat 2-group schemes over `ℤ`), R25.4 (Schoof's theorem for
+`l ∈ {2, 3, 5, 7, 13}`), R25.5 (GL₂-type realisation and the terminal weights) and R25.6 (the
+base-case table).
 
 Objects imported from other roadmaps appear as placeholders named after their owners'
 planned declarations:
@@ -505,5 +507,93 @@ theorem no_semistable_abelianVariety_one_prime (l : ℕ) (hl : l ∈ ({2, 3, 5, 
     A.dim = 0 := sorry
 
 end Schoof
+
+/-! ## R25.5 — GL₂-type realisation and terminal cases -/
+
+section Terminal
+
+/-- A6 placeholder: the endomorphism algebra `End(A) ⊗ ℚ`. -/
+def endZeroAlgebra (A : TauCeti.AlgebraicGeometry.AbelianVariety ℚ) : Type := sorry
+instance (A : TauCeti.AlgebraicGeometry.AbelianVariety ℚ) : Ring (endZeroAlgebra A) := sorry
+
+/-- An abelian variety over `ℚ` of `GL₂(K)`-type. -/
+structure IsGL2Type (A : TauCeti.AlgebraicGeometry.AbelianVariety ℚ) (K : Type*) [Field K]
+    [NumberField K] where
+  toEnd : K →+* endZeroAlgebra A
+  finrank_eq : Module.finrank ℚ K = A.dim
+
+/-- R01.2/R24 placeholder: an odd, finitely ramified, weight-two `p`-adic representation. -/
+def IsOddWeightTwo {E : Type*} [Field E] (p : ℕ) (ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) E) :
+    Prop := sorry
+
+/-- Placeholder: `ρ` is `V_λ(A) ⊗ ℚ̄_p` for some GL₂-type `A` over `ℚ`. -/
+def ComesFromGL2Type {E : Type*} [Field E] (p : ℕ)
+    (ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) E) : Prop := sorry
+
+/-- Snowden's (A1) for a residual representation: absolutely irreducible over `ℚ(ζ_p)`. -/
+def SatisfiesA1Residual {F : Type*} [Field F] [TopologicalSpace F] (ρ : ResidualRep F) : Prop :=
+  sorry
+
+/-- Snowden's (A1): the residual representation is absolutely irreducible over `ℚ(ζ_p)`. -/
+def SatisfiesA1 {E : Type*} [Field E] (p : ℕ) (ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) E) :
+    Prop := sorry
+
+/-- Snowden's realisation (Proposition 9.4.1 over `ℚ`). -/
+theorem comesFromGL2Type_of_weightTwo {E : Type*} [Field E] (p : ℕ) [Fact p.Prime]
+    (ρ : Field.absoluteGaloisGroup ℚ →* GL (Fin 2) E) (hρ : IsOddWeightTwo p ρ)
+    (hA1 : SatisfiesA1 p ρ) : ComesFromGL2Type p ρ := sorry
+
+/-- R15.4 placeholder: Serre's weight, normalised by a twist to `2 ≤ k ≤ p + 1`. -/
+def serreWeight {F : Type*} [Field F] [Fintype F] [TopologicalSpace F] (ρ : ResidualRep F) : ℕ :=
+  sorry
+
+variable {F : Type*} [Field F] [Fintype F] [TopologicalSpace F] [DiscreteTopology F]
+
+/-- Wintenberger: level-one dihedral representations need `p ≡ 3 mod 4` and `h(ℚ(√−p)) > 1`;
+the consequence used is that `(A1)` holds at `p ∈ {5, 7, 13}`. -/
+theorem levelOne_dihedral_classification (p : ℕ) (hp : p ∈ ({5, 7, 13} : Finset ℕ)) [CharP F p]
+    (ρ : ResidualRep F) (hρ : IsLevelOneResidual p ρ) : SatisfiesA1Residual ρ := sorry
+
+/-- No level-one representation of Serre weight `2`. -/
+theorem not_levelOne_weight_two (p : ℕ) [Fact p.Prime] [CharP F p] (ρ : ResidualRep F)
+    (hρ : IsLevelOneResidual p ρ) : serreWeight ρ ≠ 2 := sorry
+
+/-- No level-one representation of weight `p + 1` for `p ∈ {5, 7, 13}` (Schoof). -/
+theorem not_levelOne_weight_succ_of_schoofPrime (p : ℕ) (hp : p ∈ ({5, 7, 13} : Finset ℕ))
+    [CharP F p] (ρ : ResidualRep F) (hρ : IsLevelOneResidual p ρ) : serreWeight ρ ≠ p + 1 :=
+  sorry
+
+/-- Khare–Wintenberger: no level-one representation of weight at most `8` or `14`. -/
+theorem not_levelOne_small_weight (p : ℕ) [Fact p.Prime] [CharP F p] (ρ : ResidualRep F)
+    (hρ : IsLevelOneResidual p ρ) : 8 < serreWeight ρ ∧ serreWeight ρ ≠ 14 := sorry
+
+open scoped MatrixGroups in
+/-- Unit check: the terminal weights `2, 4, 6, 8` carry no level-one cusp forms
+(Mathlib's `CuspForm.rank_eq_zero_of_weight_lt_twelve`). -/
+example (k : ℤ) (hk : k < 12) : Module.rank ℂ (CuspForm 𝒮ℒ k) = 0 := sorry
+
+end Terminal
+
+/-! ## R25.6 — the base-case table -/
+
+/-- One row of the base-case table. -/
+structure BaseCaseRow where
+  characteristic : Option ℕ
+  weights : Set ℕ
+  levelOne : Bool
+  imageCondition : String
+  coefficientCondition : String
+  supplier : String
+  consumer : String
+  localCheck : String
+
+/-- The nine rows (the degenerate branches are recorded in the roadmap document). -/
+def baseCases : List BaseCaseRow := sorry
+
+/-- The table has the nine rows listed in the roadmap document. -/
+theorem baseCases_length : baseCases.length = 9 := sorry
+
+/-- Every row names a supplier node of this roadmap or a supplier stage. -/
+theorem baseCases_supplier_ne_empty : ∀ r ∈ baseCases, r.supplier ≠ "" := sorry
 
 end TauCeti.SmallRamification
