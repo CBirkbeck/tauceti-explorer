@@ -19771,7 +19771,22 @@
       "unchangedIssueBody": true,
       "claimConfirmation": 5861544279
     },
-    "status": "Full compilation, graph and preservation passed; publication checks recorded in handoff."
+    "status": "Full compilation, graph and preservation passed; publication checks recorded in handoff.",
+    "publicationChecks": {
+      "indexedPacket": "332 nodes; 0 errors; 0 warnings",
+      "fourFileIntake": "4 files; 0 problems",
+      "errata": "filename-correct wrapper passed",
+      "whitespace": "passed",
+      "newReaderDeclarationAPIAndTestParity": true,
+      "scope": [
+        "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+        "research/blueprint/readmes/PadicMeasuresIwasawaAlgebras.md",
+        "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean",
+        "research/blueprint/handoff/BP-PadicMeasuresIwasawaAlgebras.md"
+      ],
+      "fullCompilation": "0 errors; 707 expected placeholder warnings",
+      "arithmetic": "all exact comparisons passed"
+    }
   },
   "provenance": {
     "unitInverseFollowup": {
