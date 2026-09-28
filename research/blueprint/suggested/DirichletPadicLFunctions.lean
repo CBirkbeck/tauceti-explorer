@@ -4348,3 +4348,54 @@ example (μ : M) : Iwasawa.integral δ Q μ ≠ kubotaLeopoldtPseudomeasure p :=
 example : (kubotaLeopoldtPseudomeasure p : Q) ∉ Set.range (algebraMap M Q) := sorry
 end SuggestedNonintegralityTests
 end DirichletPadic
+
+/-! ## Unbounded positive moments exclude a bounded field-valued measure -/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "K" => ℚ_[p]
+local notation "t" => (ContinuousMap.mk (fun u : U => (u : K)) (by fun_prop) : C(U,K))
+
+theorem kubotaLeopoldtPseudomeasure_growing_moments (r : ℕ) :
+    (p : ℝ)^(r+1) ≤
+      ‖positivePseudoMoment p (2*((p-1)*p^r)) (by
+        have hp := (Fact.out : p.Prime)
+        have hp0 : 0<p := hp.pos
+        have hpos : 0<p-1 := Nat.sub_pos_of_lt hp.one_lt
+        positivity) (kubotaLeopoldtPseudomeasure p)‖ := sorry
+
+theorem kubotaLeopoldtPseudomeasure_unbounded_moments (B : ℝ) :
+    ∃ (k : ℕ) (hk : 0<k), B <
+      ‖positivePseudoMoment p k hk (kubotaLeopoldtPseudomeasure p)‖ := sorry
+
+theorem kubotaLeopoldtPseudomeasure_no_field_measure :
+    ¬ ∃ μ : D(U,K), ∀ (k : ℕ) (hk : 0<k),
+      μ (t^k)=positivePseudoMoment p k hk (kubotaLeopoldtPseudomeasure p) := sorry
+
+namespace SuggestedUnboundedTests
+-- growing_dyadic_degree_four
+example : ‖positivePseudoMoment 2 4 (by omega) (kubotaLeopoldtPseudomeasure 2)‖=8 := sorry
+-- growing_ternary_degree_twelve
+example : ‖positivePseudoMoment 3 12 (by omega) (kubotaLeopoldtPseudomeasure 3)‖=9 := sorry
+-- dyadic_exceeds_one_hundred
+example : ∃ (k : ℕ) (hk : 0<k), (100 : ℝ) <
+    ‖positivePseudoMoment 2 k hk (kubotaLeopoldtPseudomeasure 2)‖ := sorry
+-- ternary_exceeds_one_hundred
+example : ∃ (k : ℕ) (hk : 0<k), (100 : ℝ) <
+    ‖positivePseudoMoment 3 k hk (kubotaLeopoldtPseudomeasure 3)‖ := sorry
+-- no_field_measure_witness_degree
+example (μ : D(U,K)) : ∃ (k : ℕ) (hk : 0<k),
+    μ (t^k) ≠ positivePseudoMoment p k hk (kubotaLeopoldtPseudomeasure p) := sorry
+-- identity_atom_fails_dyadic_second
+example : dirac ℚ_[2] (1 : ℤ_[2]ˣ)
+    ((⟨fun u : ℤ_[2]ˣ => (u : ℚ_[2]), by fun_prop⟩ : C(ℤ_[2]ˣ,ℚ_[2]))^2) ≠
+      positivePseudoMoment 2 2 (by omega) (kubotaLeopoldtPseudomeasure 2) := sorry
+-- sign_atom_fails_ternary_second
+example : dirac ℚ_[3] (-1 : ℤ_[3]ˣ)
+    ((⟨fun u : ℤ_[3]ˣ => (u : ℚ_[3]), by fun_prop⟩ : C(ℤ_[3]ˣ,ℚ_[3]))^2) ≠
+      positivePseudoMoment 3 2 (by omega) (kubotaLeopoldtPseudomeasure 3) := sorry
+end SuggestedUnboundedTests
+end DirichletPadic
