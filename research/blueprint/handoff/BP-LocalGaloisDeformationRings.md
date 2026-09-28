@@ -1,9 +1,47 @@
-# BP-LocalGaloisDeformationRings: R08.1–R08.4, part of R08.6 and part of L7 (checkpoint 5)
+# BP-LocalGaloisDeformationRings: R08.1–R08.4 and L8, parts of R08.6 and L7 (checkpoint 6)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #770. **Status: partial.**
-- R08.1, R08.2, R08.3 and R08.4 are `source_decomposed`.
+- R08.1, R08.2, R08.3, R08.4 and L8 are `source_decomposed`.
 - R08.6 and L7 are `partial`.
-- L8 and R08.5 are `not_read`.
+- R08.5 is `not_read`.
+
+## Checkpoint 6: L8 (6 nodes) and L7 ordinary flags (3 nodes)
+
+**Sources:**
+- ACC+ (arXiv:1812.09999v2) §6.2.6, pp. 137–141, from the clean text layer; the sha256 is recorded.
+- Skinner–Wiles (Publ. Math. IHÉS 89, 1999), Lemma 2.2 and Corollary 2.3, read on the page images.
+
+**L8 (source_decomposed):**
+- `ordinary-coefficient-ring` (planet): Λ_v with its chosen torsion components, χ_i^univ, Λ̃_v and χ̃_i^univ.
+- `determinant-ordinary-ring` (planet): (6.2.7)–(6.2.8), R̃^{det,ord}_v and R^{det,ord}_v.
+- `det-ord-finite`: Lemma 6.2.9.
+- `ordinary-point-criteria`: the point criteria and R^{det,ord}_v ↠ (R^△_v)_red.
+- `distinct-characters-flag`: Lemma 6.2.11.
+- `determinant-flag-comparison` (planet): Proposition 6.2.12. It is stated at the published level (spaces and
+  components, trivial ρ̄, [F_v : ℚ_p] > n(n + 1)/2 + 1), with no ring isomorphism over nonreduced rings, as the stage
+  demands.
+
+**L7 (still partial):**
+- `ordinary-flag-scheme` (planet): 𝒢_v, properness and the image R^△_v. This replaces the L7 remaining item "ordinary
+  full-flag moduli".
+- `trivial-residual-flag-ring`: ACC+ Proposition 6.2.10.
+- `residually-split-nearly-ordinary-ring`: Skinner–Wiles Lemma 2.2 and Corollary 2.3. This answers
+  OrdinaryAutomorphicFormsAndModularityLifting R21.3's request, which is filed against L8. The node lives in L7 because
+  the stage text gives L7 "ordinary deformation functors with a full invariant flag … under the source
+  genericity/distinguishedness assumptions".
+
+**New gap:** Thorne, J. Amer. Math. Soc. 28 (2015), Proposition 3.14, behind ACC+ Proposition 6.2.10. It is not on arXiv
+(only part II is) and was not obtained.
+
+**New request:** Tau Ceti ClassFieldTheory Layer 7, for the local Artin map normalisation behind Λ_v.
+
+**Lean.** Two checked tests: the n = 2 ordered-product identity for a diagonal lift, and the dimension arithmetic of
+Proposition 6.2.12. It compiles with 0 errors; the 4 warnings are the existing `sorry` declarations.
+
+**Totals.** 58 nodes, 46 API items, 36 unit tests, 27 planets, 10 requests, 2 gaps and 1 source issue.
+`check_blueprint.py`: 0 errors, 0 warnings.
+
+# Checkpoint 5
 
 ## Checkpoint 5: R08.4 (12 nodes, 6 planets)
 
