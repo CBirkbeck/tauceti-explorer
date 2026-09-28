@@ -349,6 +349,17 @@
     "data/blueprints/GeneralAlgebraicKTheory--K.6.md"
    ]
   },
+  "research/blueprint/packets/GlobalGaloisDeformations.json": {
+   "promotedAt": "2026-09-28T21:31:40Z",
+   "review": "7d35398fcfb20c15",
+   "reviewDate": "2026-09-28",
+   "reviewer": "independent-review-REV-GlobalGaloisDeformations",
+   "sha256": "49ef08d060e0c6ec84d19f71a99feb6ba004397dd6b6de128ab83be2970cfcb5",
+   "to": [
+    "data/blueprints/GlobalGaloisDeformations.json",
+    "data/blueprints/GlobalGaloisDeformations.md"
+   ]
+  },
   "research/blueprint/packets/HabiroCyclotomicCompletions.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "0e009156d6289d53",
