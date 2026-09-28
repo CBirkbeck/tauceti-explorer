@@ -13,7 +13,7 @@
   "GlobalGaloisDeformations:R04.6"
  ],
  "status": "partial",
- "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version. Checkpoint 4 adds R04.5 (8 nodes): Taylor–Wiles data, the distinct residual image hypotheses, local cohomology at Taylor–Wiles places, existence of Taylor–Wiles primes for odd p (KW II Lemma 5.3, Gee Proposition 5.10) with generator counts, and the separate dyadic construction (KW II §5.5: linear disjointness and Lemma 5.10), with the inertia action at the auxiliary primes (KW II Proposition 5.11). Checkpoint 5 adds R04.6 (6 nodes): the KW II §9 deformation data with the p = 2 real places, the trace subring and universal representation, factorisation of representations satisfying the local conditions, the Taylor–Wiles system of deformation rings with its specialisations, the patching numerology (p > 2 and p = 2), and the finite-level dyadic patching data.",
+ "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version. Checkpoint 4 adds R04.5 (8 nodes): Taylor–Wiles data, the distinct residual image hypotheses, local cohomology at Taylor–Wiles places, existence of Taylor–Wiles primes for odd p (KW II Lemma 5.3, Gee Proposition 5.10) with generator counts, and the separate dyadic construction (KW II §5.5: linear disjointness and Lemma 5.10), with the inertia action at the auxiliary primes (KW II Proposition 5.11). Checkpoint 5 adds R04.6 (6 nodes): the KW II §9 deformation data with the p = 2 real places, the trace subring and universal representation, factorisation of representations satisfying the local conditions, the Taylor–Wiles system of deformation rings with its specialisations, the patching numerology (p > 2 and p = 2), and the finite-level dyadic patching data. Checkpoint 7 plans G8 (4 nodes: ACC+'s variable-determinant problems, representability and framing, the presentation over local rings, and the comparison with fixed determinant) and G7 (7 nodes: CHT08's polarized problems, their representability, tangent/obstruction and presentations, and ACC+'s rank-n Taylor–Wiles places, primes for enormous image and presentation).",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -210,6 +210,36 @@
    "read": "2026-09-28",
    "readSections": [
     "§1.2, the universal deformation ring over G_n and Lemma 1.2.3 with its proof, pp. 15–17"
+   ]
+  },
+  {
+   "id": "ACC-2018",
+   "title": "Potential automorphy over CM fields",
+   "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
+   "edition": "arXiv:1812.09999v2 (16 June 2022), 218 pages; published in Ann. of Math. 197 (2023). The arXiv v2 was read; printed page = PDF page. Its §6.2 numbering (Definition 6.2.28, Proposition 6.2.32) is also that of arXiv v1; the stage text cites these as Definition 6.2.29 and Proposition 6.2.33, presumably the published numbering, which was not read.",
+   "url": "https://arxiv.org/pdf/1812.09999v2",
+   "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c",
+   "read": "2026-09-28",
+   "readSections": [
+    "§6 introduction (end of §6.1), p. 135",
+    "§6.2 opening, §6.2.1 (Definition 6.2.2, Theorem 6.2.3, Lemma 6.2.4), pp. 136–137",
+    "§6.2.18–6.2.21 (Lemma 6.2.19, Proposition 6.2.21), p. 143",
+    "§6.2.22 (the complex C•_{S,T}(ad ρ̄), Proposition 6.2.24 and its proof), Lemma 6.2.25 (statement), pp. 143–146",
+    "§6.2.27 (Definition 6.2.28, Lemma 6.2.29, Remark 6.2.30, the Taylor–Wiles datum, Lemma 6.2.31 and its proof, Proposition 6.2.32 and its proof), pp. 148–151"
+   ]
+  },
+  {
+   "id": "CHT08",
+   "title": "Automorphy for some l-adic lifts of automorphic mod l Galois representations",
+   "authors": "Laurent Clozel, Michael Harris and Richard Taylor",
+   "edition": "Publications mathématiques de l'IHÉS 108 (2008), 1–181; open access on Numdam. Printed page = PDF page.",
+   "url": "https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf",
+   "sha256": "9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c",
+   "read": "2026-09-28",
+   "readSections": [
+    "§2.1 (the group G_n, Lemmas 2.1.1–2.1.5, Definition 2.1.6), pp. 7–11",
+    "§2.2 (Definitions 2.2.1–2.2.2, 2.2.4, 2.2.7, 2.2.10, Lemmas 2.2.3, 2.2.5, 2.2.8, 2.2.11, 2.2.14, Proposition 2.2.9, Corollaries 2.2.12–2.2.13), pp. 16–25",
+    "§2.3 (the Galois set-up, Lemmas 2.3.1–2.3.4, Corollaries 2.3.5–2.3.6), pp. 25–33"
    ]
   }
  ],
@@ -3948,6 +3978,578 @@
      "statement": "The fixed-determinant rings R_n alone carry only the 2-torsion G*_{n,2}-action, not a torus action."
     }
    ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:G8/variable-determinant-problem",
+   "parentStageId": "GlobalGaloisDeformations:G8",
+   "realises": [
+    "GlobalGaloisDeformations:G8"
+   ],
+   "title": "Global deformation problems with variable determinant",
+   "kind": "definition",
+   "statement": "Let S be a finite set of finite places of F containing the places above p and those where ρ̄ ramifies. For v ∈ S fix Λ_v ∈ CNL_𝒪 and put Λ = ⊗̂_{v∈S} Λ_v over 𝒪. A local deformation problem for ρ̄|G_{F_v} is a subfunctor D_v of the functor D^□_v of lifts to CNL_{Λ_v}-algebras that is represented by a quotient R_v of R^□_v and is stable under conjugation by ker(GL_n(A) → GL_n(k)). A global deformation problem is a tuple 𝒮 = (ρ̄, S, {Λ_v}, {D_v}). A lift ρ : G_F → GL_n(A) (A a CNL_Λ-algebra) is of type 𝒮 if ρ|G_{F_v} ∈ D_v(A) for all v ∈ S; deformations of type 𝒮 are strict equivalence classes (conjugacy by ker(GL_n(A) → GL_n(k))); for T ⊆ S, T-framed lifts (ρ, {α_v}_{v∈T}) with α_v ∈ ker(GL_n(A) → GL_n(k)) are identified with (aρa^{−1}, {aα_v}). The determinant is not fixed.",
+   "hypotheses": [
+    "F is a number field, 𝒪 the ring of integers of a finite extension E/ℚ_p containing the images of all embeddings of F, with residue field k, and ρ̄ : G_F → GL_n(k) is continuous and absolutely irreducible, with p ∤ 2n (ACC+'s standing hypotheses).",
+    "This differs from R04.3/global-deformation-type, which fixes the determinant χ and takes coefficients in 𝒪; fixed-versus-variable-determinant compares the two.",
+    "For Λ_v = 𝒪, a quotient of R^□_v stable under strict conjugation is the same as a local deformation problem in the sense of R04.3/local-deformation-problem (R04.3/deformation-problem-ideal)."
+   ],
+   "proofSteps": [
+    "Definitions only. Type 𝒮 is stable under strict equivalence because each D_v is stable under conjugation."
+   ],
+   "acceptance": [
+    "Every D_v = D^□_v and Λ_v = 𝒪: deformations of type 𝒮 are all deformations of ρ̄ as a representation of G_{F,S}.",
+    "A lift strictly equivalent to one of type 𝒮 is of type 𝒮.",
+    "The subfunctor of lifts with ρ(σ) equal to a fixed matrix for some σ ∈ G_{F_v} is represented by a quotient of R^□_v but is not stable under conjugation, so it is not a local deformation problem."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.3/local-deformation-problem",
+    "GlobalGaloisDeformations:R04.3/deformation-problem-ideal",
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/VariableDeterminant",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-2018",
+     "locator": "§6.2.1, Definition 6.2.2, p. 136",
+     "excerpt": "This diﬀers from that of [CG18, §8.5.2] and [KT17, Deﬁnition 4.2] in that we don’t ﬁx the determinant.",
+     "match": "Definition 6.2.2 and the notions around it."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.GlobalDeformationProblem",
+     "role": "structure",
+     "statement": "(ρ̄, S, {Λ_v}, {D_v}) with D_v strict-conjugation-stable quotient-represented subfunctors."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.GlobalDeformationProblem.IsOfType",
+     "role": "constructor",
+     "statement": "ρ|G_{F_v} ∈ D_v(A) for all v ∈ S."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.GlobalDeformationProblem.framedDef",
+     "role": "constructor",
+     "statement": "The functor D^T_𝒮 of T-framed deformations of type 𝒮 on CNL_Λ."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:G8/variable-determinant-representability",
+     "how": "the functors represented."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G7/enormous-taylor-wiles-presentation",
+     "how": "ACC+'s Taylor–Wiles primes are chosen for this problem."
+    }
+   ],
+   "tests": [
+    {
+     "name": "problem_unrestricted",
+     "kind": "example",
+     "statement": "With all D_v unrestricted, type 𝒮 is no condition."
+    },
+    {
+     "name": "isOfType_strictEquiv",
+     "kind": "characterisation",
+     "statement": "Type 𝒮 is preserved by strict equivalence."
+    },
+    {
+     "name": "fixed_matrix_not_problem",
+     "kind": "non-example",
+     "statement": "Fixing ρ(σ) is not conjugation-stable."
+    }
+   ],
+   "planet": {
+    "name": "Global deformation problems with variable determinant"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:G8/variable-determinant-representability",
+   "parentStageId": "GlobalGaloisDeformations:G8",
+   "realises": [
+    "GlobalGaloisDeformations:G8"
+   ],
+   "title": "Representability and framing",
+   "kind": "theorem",
+   "statement": "For a global deformation problem 𝒮 and T ⊆ S, the functors D_𝒮 and D^T_𝒮 on CNL_Λ are representable, by R_𝒮 and R^T_𝒮. If T is nonempty and v₀ ∈ T, let 𝒯 = 𝒪⟦X_{v,i,j} : v ∈ T, 1 ≤ i, j ≤ n⟧/(X_{v₀,1,1}); a choice of representative ρ_𝒮 of the universal deformation gives R^T_𝒮 ≅ R_𝒮 ⊗̂_𝒪 𝒯, with universal T-framed deformation (ρ_𝒮, {1 + (X_{v,i,j})}_{v∈T}); so R^T_𝒮 is formally smooth over R_𝒮 of relative dimension n²|T| − 1.",
+   "hypotheses": [
+    "F is a number field, 𝒪 the ring of integers of a finite extension E/ℚ_p containing the images of all embeddings of F, with residue field k, and ρ̄ : G_F → GL_n(k) is continuous and absolutely irreducible, with p ∤ 2n (ACC+'s standing hypotheses)."
+   ],
+   "proofSteps": [
+    "Representability: lifts of type 𝒮 are represented by a quotient of R^□_{G_{F,S}} ⊗̂ Λ (R04.2/universal-lifting-ring with R04.2/phi-p-global, and the local ideals of R04.3/deformation-problem-ideal); passing to strict equivalence classes is representable because ρ̄ is absolutely irreducible, so centralisers are scalars (R04.1/strict-vs-full-conjugacy, R04.2/universal-deformation-ring). ACC+ cite [Gou01, Appendix 1].",
+    "Framing (Lemma 6.2.4): given ρ_𝒮, every T-framed deformation has a unique representative (ρ_𝒮-pullback, {α_v}) after normalising α_{v₀} by a scalar (Schur's lemma), which removes one variable; this is the argument of R04.2/framed-unframed-comparison."
+   ],
+   "acceptance": [
+    "T = ∅: R^T_𝒮 = R_𝒮 tautologically.",
+    "|T| = 1: n² − 1 framing variables, as in R04.2/framed-unframed-comparison.",
+    "Without absolute irreducibility (ρ̄ = χ₁ ⊕ χ₂) the unframed functor need not be representable, while the framed one still is."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:G8/variable-determinant-problem",
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.2/phi-p-global",
+    "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+    "GlobalGaloisDeformations:R04.2/framed-unframed-comparison",
+    "GlobalGaloisDeformations:R04.1/strict-vs-full-conjugacy",
+    "GlobalGaloisDeformations:R04.3/deformation-problem-ideal"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/VariableDeterminant",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-2018",
+     "locator": "Theorem 6.2.3 and Lemma 6.2.4, p. 137",
+     "excerpt": "The choice of a representative ρS : GF →GLn(RS) for the universal type S deformation determines a canon- ical isomorphism RT S ∼= RS“⊗OT .",
+     "match": "Lemma 6.2.4; Theorem 6.2.3 precedes it."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:G8/variable-determinant-presentation",
+   "parentStageId": "GlobalGaloisDeformations:G8",
+   "realises": [
+    "GlobalGaloisDeformations:G8"
+   ],
+   "title": "Presentation over the local rings",
+   "kind": "theorem",
+   "statement": "Let 𝒮 be a global deformation problem and T ⊆ S nonempty with Λ_v = 𝒪 for v ∈ S ∖ T, and R^{T,loc}_𝒮 = ⊗̂_{v∈T} R_v (a Λ-algebra). Let L¹_v ⊂ Z¹(F_v, ad ρ̄) be the tangent space of D_v and L_v its image in H¹(F_v, ad ρ̄), and C•_{𝒮,T}(ad ρ̄) the complex with C⁰ = C⁰(F_S/F, ad ρ̄), C¹ = C¹(F_S/F, ad ρ̄) ⊕ ⊕_{v∈T}C⁰(F_v, ad ρ̄), C² = C²(F_S/F, ad ρ̄) ⊕ ⊕_{v∈T}C¹(F_v, ad ρ̄) ⊕ ⊕_{v∈S∖T}C¹(F_v, ad ρ̄)/L¹_v. Then there is a local Λ-algebra surjection R^{T,loc}_𝒮⟦X₁, …, X_g⟧ ↠ R^T_𝒮 with g = h¹_{𝒮,T}(ad ρ̄) = h¹_{𝒮^⊥,T}(ad ρ̄(1)) − h⁰(F_S/F, ad ρ̄(1)) − Σ_{v|∞} h⁰(F_v, ad ρ̄) + Σ_{v∈S∖T}(dim_k L_v − h⁰(F_v, ad ρ̄)), where H¹_{𝒮^⊥,T}(ad ρ̄(1)) is the kernel of H¹(F_S/F, ad ρ̄(1)) → ∏_{v∈S∖T} H¹(F_v, ad ρ̄(1))/L_v^⊥.",
+   "hypotheses": [
+    "F is a number field, 𝒪 the ring of integers of a finite extension E/ℚ_p containing the images of all embeddings of F, with residue field k, and ρ̄ : G_F → GL_n(k) is continuous and absolutely irreducible, with p ∤ 2n (ACC+'s standing hypotheses).",
+    "The coefficients are ad ρ̄ = M_n(k), not ad⁰ρ̄: the determinant varies. The trace pairing identifies ad ρ̄(1) with the Tate dual of ad ρ̄.",
+    "Poitou–Tate duality and the global and local Euler characteristic formulas are requested from ArithmeticGaloisDuality (R02.4 is already requested; the Selmer and dual Selmer dimension count in all ranks is D8)."
+   ],
+   "proofSteps": [
+    "Relative tangent space: T-framed lifts to k[ε] that are trivial at v ∈ T are ((1 + εκ)ρ̄, {1 + εα_v}) with κ|G_{F_v} = (ad ρ̄ − 1)α_v for v ∈ T and κ|G_{F_v} ∈ L¹_v for v ∈ S ∖ T; modulo strict equivalence these are H¹ of C•_{𝒮,T}(ad ρ̄). This gives the surjection with g = h¹_{𝒮,T}.",
+    "Since T ≠ ∅, h⁰_{𝒮,T} = 0; p > 2 makes H^i vanish for i ≥ 3, and the Euler characteristic identity gives h¹_{𝒮,T} = h²_{𝒮,T} − h³_{𝒮,T} − Σ_{v|∞} h⁰(F_v, ad ρ̄) + Σ_{v∈S∖T}(dim L_v − h⁰(F_v, ad ρ̄)).",
+    "Comparing the long exact sequence of C• with Poitou–Tate gives h²_{𝒮,T} = h¹_{𝒮^⊥,T}(ad ρ̄(1)) and h³_{𝒮,T} = h⁰(F_S/F, ad ρ̄(1))."
+   ],
+   "acceptance": [
+    "F CM with ζ_p ∉ F and ρ̄(G_{F(ζ_p)}) enormous: h⁰(F_S/F, ad ρ̄(1)) = 0, and each complex place contributes h⁰(F_v, ad ρ̄) = n².",
+    "With ad⁰ in place of ad, the analogous count is that of the fixed-determinant ring (R04.3/local-to-global-presentation).",
+    "T = ∅ is excluded: then h⁰_{𝒮,T} = h⁰(F_S/F, ad ρ̄) = 1 (scalars) enters the count."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:G8/variable-determinant-representability",
+    "GlobalGaloisDeformations:R04.3/relative-tangent-space",
+    "ArithmeticGaloisDuality:R02.4",
+    "ArithmeticGaloisDuality:D8"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/VariableDeterminant",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-2018",
+     "locator": "§6.2.22 and Proposition 6.2.24 with its proof, pp. 143–146",
+     "excerpt": "Λ-algebra surjection RT,loc S JX1, . . . , XgK →RT S , with g = h1 S,T(ad ρ) = h1 S⊥,T(ad ρ(1)) −h0(FS/F, ad ρ(1)) −",
+     "match": "Proposition 6.2.24."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:G8/fixed-versus-variable-determinant",
+   "parentStageId": "GlobalGaloisDeformations:G8",
+   "realises": [
+    "GlobalGaloisDeformations:G8"
+   ],
+   "title": "Fixed against variable determinant",
+   "kind": "theorem",
+   "statement": "Let 𝒮 be a global deformation problem with every Λ_v = 𝒪, χ : G_{F,S} → 𝒪^× a lift of det ρ̄, and 𝒮_χ the fixed-determinant problem of R04.3/global-deformation-type with local problems D_v ∩ {det = χ}. (1) Always: R_{𝒮_χ} = R_𝒮/(det ρ_𝒮(g) − χ(g) : g ∈ G_{F,S}), so R_𝒮 ↠ R_{𝒮_χ}, and likewise for T-framed rings. (2) If p ∤ n and every D_v is stable under twisting by characters G_{F_v} → 1 + 𝔪_A, then ρ ↦ (ρ ⊗ ψ^{−1}, ψ), where ψ is the unique character with values in 1 + 𝔪_A and ψ^n = det ρ·χ^{−1}, gives R_𝒮 ≅ R_{𝒮_χ} ⊗̂_𝒪 𝒪⟦G_{F,S}^{ab}(p)⟧, where G_{F,S}^{ab}(p) is the maximal pro-p abelian quotient. R_{𝒮_χ} → R_𝒮 is then formally smooth of relative dimension r = rank_{ℤ_p} G_{F,S}^{ab}(p) exactly when G_{F,S}^{ab}(p) is torsion-free.",
+   "hypotheses": [
+    "F is a number field, 𝒪 the ring of integers of a finite extension E/ℚ_p containing the images of all embeddings of F, with residue field k, and ρ̄ : G_F → GL_n(k) is continuous and absolutely irreducible, with p ∤ 2n (ACC+'s standing hypotheses).",
+    "Part (2) is R04.2/fixed-determinant-rings (i) with local conditions. Its twisting hypothesis fails for conditions with fixed Hodge–Tate or inertial data, such as ACC+'s Fontaine–Laffaille and level-raising problems; for those only (1) is available."
+   ],
+   "proofSteps": [
+    "(1) Imposing det ρ = χ on lifts of type 𝒮 is the quotient by the displayed ideal; the local problems D_v ∩ {det = χ} are again local deformation problems.",
+    "(2) 1 + 𝔪_A is pro-p and p ∤ n, so n-th roots of characters with values in 1 + 𝔪_A exist and are unique. ρ ⊗ ψ^{−1} has determinant χ and is of type 𝒮 by twist-stability; (ρ⁰, ψ) ↦ ρ⁰ ⊗ ψ is inverse. Characters of G_{F,S} lifting the trivial character are represented by 𝒪⟦G_{F,S}^{ab}(p)⟧.",
+    "𝒪⟦Γ⟧ for a finitely generated abelian pro-p group Γ is a power series ring over 𝒪 exactly when Γ is torsion-free."
+   ],
+   "acceptance": [
+    "All D_v unrestricted: (2) applies and recovers R04.2/fixed-determinant-rings (i) for G_{F,S}.",
+    "F = ℚ, S = {p}: G_{ℚ,{p}}^{ab}(p) ≅ ℤ_p^× (p-part) ≅ ℤ_p for p odd, torsion-free of rank 1, so R_𝒮 ≅ R_{𝒮_χ}⟦X⟧ for twist-stable problems.",
+    "p | n fails: over k[ε] with n = p, the character 1 + ε has no p-th root among characters with values in 1 + 𝔪, since (1 + aε)^p = 1."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:G8/variable-determinant-representability",
+    "GlobalGaloisDeformations:R04.2/fixed-determinant-rings",
+    "GlobalGaloisDeformations:R04.1/fixed-determinant-functors",
+    "GlobalGaloisDeformations:R04.3/global-deformation-type"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/VariableDeterminant",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-2018",
+     "locator": "§6.1–6.2 opening, pp. 135–136",
+     "excerpt": "we do not ﬁx the determinant of our n-dimensional Galois representations",
+     "match": "ACC+ work with the variable-determinant problem; the comparison with fixed determinant is supplied here."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:G7/polarized-deformation-problem",
+   "parentStageId": "GlobalGaloisDeformations:G7",
+   "realises": [
+    "GlobalGaloisDeformations:G7"
+   ],
+   "title": "Polarized deformation problems",
+   "kind": "definition",
+   "statement": "Let 𝒢_n = (GL_n × GL_1) ⋊ {1, j} with j(g, μ)j^{−1} = (μ·ᵗg^{−1}, μ), and ν : 𝒢_n → GL_1 sending (g, μ) ↦ μ and j ↦ −1. Let r̄ : G_{F⁺,S} → 𝒢_n(k) be continuous with r̄^{−1}((GL_n × GL_1)(k)) = G_{F,S}, and χ : G_{F⁺,S} → 𝒪^× a lift of ν ∘ r̄. A lift of r̄ to A ∈ C_𝒪 is a continuous r : G_{F⁺,S} → 𝒢_n(A) reducing to r̄ with ν ∘ r = χ; lifts are equivalent when conjugate by 1 + M_n(𝔪_A); T-framed lifts (r; α_v)_{v∈T} are identified with (βrβ^{−1}; βα_v). A polarized global deformation problem 𝒮 = (F/F⁺, S, S̃, 𝒪, r̄, χ, {D_v}) takes for each v ∈ S a local deformation problem D_v for r̄|G_{F_ṽ} (GL_n-valued, as in R04.3); a lift is of type 𝒮 when each r|G_{F_ṽ} ∈ D_v. Equivalently (Lemma 2.1.1), for γ₀ ∈ G_{F⁺} ∖ G_F, a lift is a triple (ρ, μ, ⟨ , ⟩): ρ = r|G_F, μ = χ, and a perfect pairing with ⟨x, ρ(γ₀²)y⟩ = −μ(γ₀)⟨y, x⟩ and μ(δ)⟨x, y⟩ = ⟨ρ(δ)x, ρ(γ₀δγ₀^{−1})y⟩, i.e. an actual polarization ρ^c ≅ ρ^∨ ⊗ μ.",
+   "hypotheses": [
+    "F/F⁺ is a CM extension (F⁺ totally real, F totally imaginary quadratic over F⁺), S a finite set of finite places of F⁺ that split in F and contain the places above p, S̃ a choice of one place ṽ of F above each v ∈ S, and p odd.",
+    "The pairing, multiplier, symmetry sign and oddness sign of polarizations are requested from ArithmeticGaloisRepresentations G7; this node takes them as given.",
+    "r̄ is Schur (CHT Definition 2.1.6) when every irreducible G_F-subquotient is absolutely irreducible and no subquotient W₂ satisfies W₂^∨ ⊗ ν∘r̄ ≅ (k^n/W₁)^{γ₀}; r̄|G_F absolutely irreducible suffices.",
+    "Fixed-multiplier variant: ν ∘ r = χ is imposed. Coefficient extension along 𝒪 → 𝒪′ is as in R04.1/change-of-coefficients."
+   ],
+   "proofSteps": [
+    "Lemma 2.1.1: write r(γ₀) = (A, −μ(γ₀))j and put ⟨x, y⟩ = ᵗxA^{−1}y; the relations in 𝒢_n translate into the two pairing identities, and conversely.",
+    "At a complex conjugation c_v (v | ∞), r(c_v) = (A, −χ(c_v))j with ᵗA = −χ(c_v)A, so the pairing is symmetric or alternating according to the sign −χ(c_v) (Lemma 2.1.3's computation)."
+   ],
+   "acceptance": [
+    "n = 1: 𝒢₁-valued lifts are characters ψ of G_F with ψ^c = ψ^{−1}·χ|G_F, together with the sign data.",
+    "The correspondence of Lemma 2.1.1 is a bijection between 𝒢_n-valued homomorphisms (inducing Γ/Δ ≅ 𝒢_n/𝒢_n⁰) and triples (ρ, μ, ⟨ , ⟩).",
+    "If r̄|G_F = ψ ⊕ ψ^{c,∨}χ is reducible with the two summands exchanged by the polarization, r̄ is not Schur, and the deformation functor need not be representable."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.3/local-deformation-problem",
+    "GlobalGaloisDeformations:R04.1/change-of-coefficients",
+    "ArithmeticGaloisRepresentations:G7"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Polarized",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.1, Lemma 2.1.1, p. 7; Definitions 2.2.1 and 2.2.7, pp. 17 and 21; §2.3, p. 26",
+     "excerpt": "Homomorphisms r : Γ →Gn(R) that induce isomorphisms Γ/∆ ∼→Gn/G 0 n .",
+     "match": "Lemma 2.1.1, which identifies such homomorphisms with triples (ρ, µ, ⟨,⟩)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.GroupGn",
+     "role": "constructor",
+     "statement": "𝒢_n = (GL_n × GL_1) ⋊ {1, j} with ν."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.PolarizedDeformationProblem",
+     "role": "structure",
+     "statement": "(F/F⁺, S, S̃, 𝒪, r̄, χ, {D_v})."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.polarizedLift_equiv_triple",
+     "role": "equivalence",
+     "statement": "𝒢_n-valued lifts ≃ triples (ρ, μ, ⟨ , ⟩) (CHT Lemma 2.1.1)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:G7/polarized-representability",
+     "how": "the functor represented."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G7/polarized-presentation",
+     "how": "the rings presented over the local rings."
+    }
+   ],
+   "tests": [
+    {
+     "name": "polarized_rank_one",
+     "kind": "example",
+     "statement": "n = 1: conjugate-self-dual characters."
+    },
+    {
+     "name": "polarizedLift_triple_bijective",
+     "kind": "characterisation",
+     "statement": "The correspondence with triples is bijective."
+    },
+    {
+     "name": "polarized_not_schur",
+     "kind": "non-example",
+     "statement": "A reducible r̄|G_F with exchanged summands is not Schur."
+    }
+   ],
+   "planet": {
+    "name": "Polarized deformation problems"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:G7/polarized-representability",
+   "parentStageId": "GlobalGaloisDeformations:G7",
+   "realises": [
+    "GlobalGaloisDeformations:G7"
+   ],
+   "title": "Representability of polarized problems",
+   "kind": "theorem",
+   "statement": "If r̄ is Schur, the functor Def^{□_T}_𝒮 of T-framed polarized deformations of type 𝒮 is represented by R^{□_T}_𝒮 ∈ C_𝒪 (R^univ_𝒮 for T = ∅). There is a tautological map R^loc_{𝒮,T} := ⊗̂_{v∈T} R^loc_v/I_v → R^{□_T}_𝒮, and Hom(𝔪/(𝔪², λ, 𝔪_{R^loc}), k) ≅ H¹_{𝒮,T}(G_{F⁺,S}, ad r̄). A choice of universal lift r^univ_𝒮 gives R^{□_T}_𝒮 ≅ R^univ_𝒮⟦X_{v,i,j} : v ∈ T, 1 ≤ i, j ≤ n⟧, in n²|T| variables.",
+   "hypotheses": [
+    "F/F⁺ is a CM extension (F⁺ totally real, F totally imaginary quadratic over F⁺), S a finite set of finite places of F⁺ that split in F and contain the places above p, S̃ a choice of one place ṽ of F above each v ∈ S, and p odd.",
+    "ad r̄ is g_n = M_n(k) with 𝒢_n acting by ad(g, μ)(x) = gxg^{−1} and ad(j)(x) = −ᵗx; over ℤ[1/2], g_n^{𝒢_n} = 0.",
+    "Contrast with variable-determinant-representability: there the framing adds n²|T| − 1 variables, because scalars centralise a GL_n-valued lift; here the centraliser of r^univ in 1 + M_n(𝔪) is trivial (CHT Lemma 2.1.11), so no variable is removed."
+   ],
+   "proofSteps": [
+    "Lifts of type 𝒮 are representable (properties 1–4 of local deformation problems); passing to equivalence classes is a quotient by the smooth group functor 1 + M_n(𝔪), representable because stabilisers lift (trivially for T ≠ ∅, by Lemma 2.1.11 for T = ∅).",
+    "Tangent space: T-framed lifts to k[ε] trivial at T are ((1 + φε)r̄; 1 + a_vε) with φ ∈ Z¹(G_{F⁺,S}, ad r̄), φ|G_{F_ṽ} = (ad r̄ − 1)a_v on T and φ|G_{F_ṽ} ∈ L¹_v off T, modulo coboundaries: this is H¹ of C•_{𝒮,T}(ad r̄).",
+    "Framing: (r^univ_𝒮; 1 + (X_{v,i,j})) is universal, since the centraliser of r^univ_𝒮 in 1 + M_n(𝔪) is {1}."
+   ],
+   "acceptance": [
+    "T = ∅: R^univ_𝒮 itself.",
+    "|T| = 1: n² framing variables (not n² − 1).",
+    "Without the Schur hypothesis the unframed functor can fail to be representable, as for GL_n-valued deformations of reducible representations."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:G7/polarized-deformation-problem",
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.2/phi-p-global",
+    "GlobalGaloisDeformations:R04.3/deformation-problem-ideal"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Polarized",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "Proposition 2.2.9 and its proof, pp. 22–24",
+     "excerpt": "Then Def □T S is represented by an object R□T S of CO.",
+     "match": "Proposition 2.2.9."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:G7/polarized-tangent-obstruction",
+   "parentStageId": "GlobalGaloisDeformations:G7",
+   "realises": [
+    "GlobalGaloisDeformations:G7"
+   ],
+   "title": "Tangent and obstruction spaces of polarized problems",
+   "kind": "theorem",
+   "statement": "For a polarized problem 𝒮 with r̄ Schur and T ⊆ S: obstructions to lifting a T-framed lift of type 𝒮 along a small extension R → R/I lie in H²_{𝒮,T}(G_{F⁺,S}, ad r̄) ⊗ I (CHT Lemma 2.2.11). Moreover H^i_{𝒮,T} = 0 for i > 3; H⁰_{𝒮,T} = H⁰(G_{F⁺,S}, ad r̄) if T = ∅ and 0 otherwise; h³_{𝒮,T} = h⁰(G_{F⁺,S}, ad r̄(1)); h²_{𝒮,T} = h¹_{L^⊥,T}(G_{F⁺,S}, ad r̄(1)); and χ_{𝒮,T}(ad r̄) = Σ_{v|∞} n(n + χ(c_v))/2 + Σ_{v∈S∖T}(h⁰(G_{F_ṽ}, ad r̄) − dim L_v). When p ∤ n, g_n = g_n⁰ ⊕ k (scalars, on which j acts by −1); when p | n the scalars lie in g_n⁰, there is no such splitting, and one must work with ad r̄ = g_n rather than pass to trace zero.",
+   "hypotheses": [
+    "F/F⁺ is a CM extension (F⁺ totally real, F totally imaginary quadratic over F⁺), S a finite set of finite places of F⁺ that split in F and contain the places above p, S̃ a choice of one place ṽ of F above each v ∈ S, and p odd.",
+    "The Euler characteristic over G_{F⁺,S}, where F(S)/F⁺ may ramify outside S (CHT Lemma 2.3.3, valid since p ∤ [F : F⁺] = 2), and Poitou–Tate duality in this setting are requested from ArithmeticGaloisDuality D7; the dual Selmer dimension count in all ranks, including the trace-kernel exceptions for p | n, is D8.",
+    "dim g_n^{c=η} = n(n + η·χ(c))/2 for a complex conjugation c (CHT Lemma 2.1.3), which produces the archimedean terms."
+   ],
+   "proofSteps": [
+    "Obstruction class: pick set-theoretic lifts of r(γ) and of α_v, form the 2-cochain φ and the local 1-cochains ψ_v; (φ, (ψ_v)) is a 2-cocycle of C•_{𝒮,T} whose class vanishes exactly when a lift of type 𝒮 exists (Lemma 2.2.11).",
+    "Vanishing and H⁰, H³, H²: the long exact sequence of C• with H^i(G_{F⁺,S}, ad r̄) = H^i(G_{F,S}, ad r̄)^{Gal(F/F⁺)}, compared with the Poitou–Tate sequence (Lemma 2.3.4 (1)–(4)).",
+    "Euler characteristic: Lemma 2.2.8, the global formula of Lemma 2.3.3, the local Euler characteristic formula (Σ_{v∈S} χ(G_{F_ṽ}, ad r̄) = n²[F⁺ : ℚ]) and Lemma 2.1.3."
+   ],
+   "acceptance": [
+    "n = 1, T = S: ad r̄ = k with j acting by −1, and χ(c_v) = −1 at every v | ∞ gives archimedean contribution 1·(1 − 1)/2 = 0 each.",
+    "If χ(c_v) = −1 for all v | ∞ (the 'odd' sign for CHT's applications), the archimedean term is [F⁺ : ℚ]·n(n − 1)/2.",
+    "p = n = 3: the scalar matrix 1 has trace 3 = 0, so k·1 ⊂ g₃⁰ and g₃ ≠ g₃⁰ ⊕ k."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:G7/polarized-representability",
+    "ArithmeticGaloisDuality:D7",
+    "ArithmeticGaloisDuality:D8",
+    "ArithmeticGaloisDuality:R02.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Polarized",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "Lemmas 2.2.8, 2.2.11, 2.1.3, 2.3.3 and 2.3.4, pp. 8–32",
+     "excerpt": "Keep the notation and assumptions of the start of this section. 1. Hi S,T(GF+,S, ad r) = (0) for i > 3.",
+     "match": "Lemma 2.3.4."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:G7/polarized-presentation",
+   "parentStageId": "GlobalGaloisDeformations:G7",
+   "realises": [
+    "GlobalGaloisDeformations:G7"
+   ],
+   "title": "Presentations of polarized deformation rings",
+   "kind": "theorem",
+   "statement": "If r̄ is Schur, R^{□_T}_𝒮 is a quotient of a power series ring over R^loc_{𝒮,T} in g = h¹_{L^⊥,T}(G_{F⁺,S}, ad r̄(1)) + Σ_{v∈S∖T}(dim L_v − h⁰(G_{F_ṽ}, ad r̄)) − h⁰(G_{F⁺,S}, ad r̄(1)) − Σ_{v|∞} n(n + χ(c_v))/2 variables. If each D_v with v ∈ S ∖ T is liftable, h¹_{L^⊥,T}(G_{F⁺,S}, ad r̄(1)) relations suffice, so R^□_𝒮 has Krull dimension at least 1 + Σ_{v∈T}(dim R^loc_v/I_v − 1) + Σ_{v∈S∖T}(dim L_v − h⁰(G_{F_ṽ}, ad r̄)) − h⁰(G_{F⁺,S}, ad r̄(1)) − Σ_{v|∞} n(n + χ(c_v))/2. These statements concern R^{□_T}_𝒮 itself; its p-torsion-free quotient and the reduced ring of its generic fibre are different objects, and component statements used in patching refer to the latter.",
+   "hypotheses": [
+    "F/F⁺ is a CM extension (F⁺ totally real, F totally imaginary quadratic over F⁺), S a finite set of finite places of F⁺ that split in F and contain the places above p, S̃ a choice of one place ṽ of F above each v ∈ S, and p odd."
+   ],
+   "proofSteps": [
+    "Corollary 2.2.12: a minimal presentation over R^loc_{𝒮,T} has h¹_{𝒮,T} generators and at most h²_{𝒮,T} relations when the local problems off T are liftable.",
+    "Substitute Lemma 2.3.4 (polarized-tangent-obstruction) for h¹ and h²: this is Corollary 2.3.5.",
+    "If H²_{𝒮,T} = 0 and each D_v off T is liftable, R^{□_T}_𝒮 is a power series ring over R^loc_{𝒮,T} (Corollary 2.2.13)."
+   ],
+   "acceptance": [
+    "CHT Corollary 2.3.6: if H¹_{L^⊥} = 0, every D_v is liftable, and the L_v have the Fontaine–Laffaille/minimal dimensions, then χ(c_v) = −1 at all v | ∞ and R^univ_𝒮 = 𝒪.",
+    "T = S (fully framed): the sum over S ∖ T is empty.",
+    "Dimension bounds do not give flatness over 𝒪: R^{□_T}_𝒮 may have p-torsion, so its generic-fibre components must be studied on the p-torsion-free quotient."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:G7/polarized-tangent-obstruction",
+    "GlobalGaloisDeformations:G7/polarized-representability",
+    "DeformationAndDerivedPatchingAlgebra:R03.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Polarized",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "Corollaries 2.2.12, 2.2.13 and 2.3.5, pp. 25 and 32",
+     "excerpt": "Suppose also that r is Schur. Then R□T S is the quotient of a power series ring in dimk H1 L ⊥,T(GF+,S, ad r(1)) +",
+     "match": "Corollary 2.3.5."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:G7/taylor-wiles-local-diamond",
+   "parentStageId": "GlobalGaloisDeformations:G7",
+   "realises": [
+    "GlobalGaloisDeformations:G7"
+   ],
+   "title": "Taylor–Wiles places in rank n",
+   "kind": "lemma",
+   "statement": "Let v ∤ p with q_v ≡ 1 mod p, ρ̄|G_{F_v} unramified with n distinct k-rational eigenvalues α_{v,1}, …, α_{v,n} of ρ̄(Frob_v) in a fixed order. Every lift of ρ̄|G_{F_v} to A is GL_n(A)-conjugate to γ₁ ⊕ ⋯ ⊕ γ_n for unique characters γ_i lifting the unramified characters with Frob_v ↦ α_{v,i}. With Δ_v = k(v)^×(p)^n (k(v)^×(p) the maximal p-power quotient), the characters γ_i ∘ Art_{F_v}|𝒪^×_{F_v} give a canonical local 𝒪-algebra map 𝒪[Δ_v] → R^□_v, depending on the ordering, which is formally smooth of relative dimension n². For a Taylor–Wiles datum (Q, (α_{v,i})), the augmented problem 𝒮_Q (unrestricted D^□_v at v ∈ Q) makes R^T_{𝒮_Q} a Λ[Δ_Q]-algebra (Δ_Q = ∏_{v∈Q} Δ_v), and R^T_{𝒮_Q} → R^T_𝒮 has kernel 𝔞_Q R^T_{𝒮_Q}, 𝔞_Q the augmentation ideal.",
+   "hypotheses": [
+    "F is a number field, 𝒪 the ring of integers of a finite extension E/ℚ_p containing the images of all embeddings of F, with residue field k, and ρ̄ : G_F → GL_n(k) is continuous and absolutely irreducible, with p ∤ 2n (ACC+'s standing hypotheses).",
+    "This is the rank-n form of GlobalGaloisDeformations R04.5 (taylor-wiles-local-cohomology, taylor-wiles-inertia-action), which treats n = 2. ACC+ leave the proof of Lemma 6.2.19 to the reader, citing DDT Lemma 2.44."
+   ],
+   "proofSteps": [
+    "Diagonalisation: the tame inertia acts through a pro-p quotient on which ρ(Frob_v) acts with distinct residual eigenvalues; Hensel's lemma splits A^n into Frobenius eigenlines, each stable under inertia since q_v ≡ 1 mod p and the commutation relation σ_v φ_v σ_v^{−1} = φ_v^{q_v}.",
+    "The characters restricted to 𝒪^×_{F_v} factor through k(v)^×(p) as they are pro-p; this defines 𝒪[Δ_v] → R^□_v, formally smooth of relative dimension n² (the conjugation parameters).",
+    "Augmentation: a lift of type 𝒮_Q is of type 𝒮 exactly when all γ_i are unramified, i.e. when Δ_Q acts trivially."
+   ],
+   "acceptance": [
+    "n = 2 recovers R04.5's Taylor–Wiles places.",
+    "|k(v)^×(p)| = p^{v_p(q_v − 1)}, so q_v ≡ 1 mod p^N gives |Δ_v| ≥ p^{Nn}.",
+    "If ρ̄(Frob_v) has a repeated eigenvalue the splitting into characters fails, and R^□_v is not formally smooth over 𝒪[Δ_v]."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:G8/variable-determinant-problem",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-local-cohomology",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
+    "LocalGaloisDeformationRings:R08.2/taylor-wiles-local-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/VariableDeterminant",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-2018",
+     "locator": "§6.2.18, Lemma 6.2.19, p. 143; the Taylor–Wiles datum and 𝒮_Q, p. 149",
+     "excerpt": "There are unique continuous characters γi : GFv →A×, for 1 ≤i ≤n, such that ρ is GLn(A)- conjugate to a lift of the form γ1 ⊕· · · ⊕γn",
+     "match": "Lemma 6.2.19."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes",
+   "parentStageId": "GlobalGaloisDeformations:G7",
+   "realises": [
+    "GlobalGaloisDeformations:G7"
+   ],
+   "title": "Taylor–Wiles primes for enormous image",
+   "kind": "theorem",
+   "statement": "Let T ⊆ S, F CM with maximal totally real subfield F⁺, ζ_p ∉ F, and ρ̄(G_{F(ζ_p)}) enormous. Let q ≥ h¹_{𝒮^⊥,T}(ad ρ̄(1)). For every N ≥ 1 there is a Taylor–Wiles datum (Q_N, (α_{v,i})) with #Q_N = q, q_v ≡ 1 mod p^N and v of degree one over ℚ for each v ∈ Q_N, and h¹_{𝒮_{Q_N}^⊥,T}(ad ρ̄(1)) = 0.",
+   "hypotheses": [
+    "F is a number field, 𝒪 the ring of integers of a finite extension E/ℚ_p containing the images of all embeddings of F, with residue field k, and ρ̄ : G_F → GL_n(k) is continuous and absolutely irreducible, with p ∤ 2n (ACC+'s standing hypotheses).",
+    "Enormous (ACC+ Definition 6.2.28 in arXiv v2): H absolutely irreducible with no nontrivial p-power quotient, H⁰(H, ad⁰) = H¹(H, ad⁰) = 0, and every simple k[H]-submodule W ⊆ ad⁰ has W^h ≠ 0 for some regular semisimple h ∈ H; independent of k (Lemma 6.2.29). The definition and its invariance are requested from ArithmeticGaloisRepresentations G7, which owns residual-image conditions.",
+    "p ∤ n is used for the decomposition ad ρ̄ = k ⊕ ad⁰ρ̄. The Chebotarev density theorem is the Tau Ceti request already recorded in this packet."
+   ],
+   "proofSteps": [
+    "Induction on q: it suffices, for each nonzero class κ ∈ H¹_{𝒮^⊥,T}(ad ρ̄(1)), to find infinitely many places v of degree one, split in F(ζ_{p^N}), with ρ̄(Frob_v) regular semisimple with k-rational eigenvalues and κ|G_{F_v} ≠ 0; by Chebotarev this reduces to finding σ ∈ G_{F(ζ_{p^N})} with ρ̄(σ) regular semisimple and p_σκ(σ) ≠ 0.",
+    "ad⁰ part: since H = ρ̄(G_{F(ζ_p)}) has no p-power quotient, H = ρ̄(G_{F(ζ_{p^N})}); H⁰(H, ad⁰) = H¹(H, ad⁰) = 0 make restriction to Gal(F_S/L(ζ_{p^N})) injective, and the regular-semisimple condition gives σ₀; adjust by τ ∈ G_{L(ζ_{p^N})} if needed.",
+    "Scalar part: κ ∈ H¹(F_S/F, k(1)) is a Kummer class; as ζ_p ∉ F the Kummer extension is non-abelian over F, hence nontrivial over F(ζ_{p^N}) and disjoint from the field cut out by ρ̄."
+   ],
+   "acceptance": [
+    "n = 2 and p ≥ 7: a subgroup of GL₂(k) containing SL₂(𝔽_p) is enormous (SL₂(𝔽_p) is perfect, H⁰ and H¹ of ad⁰ vanish, and diag(a, a^{−1}) with a² ≠ 1 fixes the diagonal of ad⁰), so these primes exist. For p = 5, H¹(SL₂(𝔽₅), ad⁰) ≠ 0.",
+    "If ζ_p ∈ F the scalar part fails: Kummer classes can become trivial on G_{F(ζ_{p^N})}, and no such Q_N need exist.",
+    "If p | n no subgroup is enormous (the scalars lie in ad⁰), so the lemma is vacuous."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:G7/taylor-wiles-local-diamond",
+    "GlobalGaloisDeformations:G8/variable-determinant-presentation",
+    "ArithmeticGaloisRepresentations:G7"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/VariableDeterminant",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-2018",
+     "locator": "Definition 6.2.28, Lemma 6.2.29 and Lemma 6.2.31 with its proof, pp. 148–151",
+     "excerpt": "Assume that F is CM with maximal to- tally real subﬁeld F +, that ζp /∈F, and that ρ(GF (ζp)) is enormous.",
+     "match": "Lemma 6.2.31."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:G7/enormous-taylor-wiles-presentation",
+   "parentStageId": "GlobalGaloisDeformations:G7",
+   "realises": [
+    "GlobalGaloisDeformations:G7"
+   ],
+   "title": "The Taylor–Wiles presentation of ACC+",
+   "kind": "theorem",
+   "statement": "Take T = S and q ≥ h¹_{𝒮^⊥,T}(ad ρ̄(1)). Assume F = F⁺F₀ with F⁺ totally real and F₀ imaginary quadratic, ζ_p ∉ F, and ρ̄(G_{F(ζ_p)}) enormous. Then for every N ≥ 1 there is a Taylor–Wiles datum (Q_N, (α_{v,i})) with #Q_N = q, q_v ≡ 1 mod p^N and the rational prime below each v ∈ Q_N split in F₀, and a local Λ-algebra surjection R^{T,loc}_𝒮⟦X₁, …, X_g⟧ ↠ R^T_{𝒮_{Q_N}} with g = qn − n²[F⁺ : ℚ]. The auxiliary group Δ_{Q_N} = ∏_{v∈Q_N} k(v)^×(p)^n is a product of qn cyclic p-groups, each of order at least p^N; this is what complex patching receives.",
+   "hypotheses": [
+    "F is a number field, 𝒪 the ring of integers of a finite extension E/ℚ_p containing the images of all embeddings of F, with residue field k, and ρ̄ : G_F → GL_n(k) is continuous and absolutely irreducible, with p ∤ 2n (ACC+'s standing hypotheses).",
+    "This is ACC+ Proposition 6.2.32 in arXiv v2 (the stage text cites it as Proposition 6.2.33). The residual hypothesis is enormous image, not adequacy.",
+    "It is stated for G8's variable-determinant problem; RS-08 places it in G7 together with the Taylor–Wiles lemma."
+   ],
+   "proofSteps": [
+    "Places of degree one over ℚ lie over primes split in F₀, so enormous-taylor-wiles-primes provides Q_N, and variable-determinant-presentation applies to 𝒮_{Q_N} with T = S.",
+    "g = −h⁰(F_S/F, ad ρ̄(1)) − n²[F⁺ : ℚ] + Σ_{v∈Q_N}(dim L_v − h⁰(F_v, ad ρ̄)): F has [F⁺ : ℚ] complex places, each with h⁰ = n², and h¹_{𝒮_{Q_N}^⊥,T} = 0.",
+    "h⁰(F_S/F, ad ρ̄(1)) = 0 by enormousness and ζ_p ∉ F; for v ∈ Q_N, L_v = H¹(F_v, ad ρ̄) and dim L_v − h⁰(F_v, ad ρ̄) = h⁰(F_v, ad ρ̄(1)) = n (local duality, the Euler characteristic, q_v ≡ 1 mod p and distinct eigenvalues)."
+   ],
+   "acceptance": [
+    "n = 2, F⁺ = ℚ, F = F₀ imaginary quadratic: g = 2q − 4.",
+    "With q = h¹_{𝒮^⊥,T}(ad ρ̄(1)) exactly, the number of variables is determined by the dual Selmer group; a larger q only adds variables and auxiliary primes.",
+    "If F does not contain an imaginary quadratic F₀ in the way stated, the split-in-F₀ condition cannot be imposed, and ACC+'s local-global compatibility arguments need it."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes",
+    "GlobalGaloisDeformations:G8/variable-determinant-presentation",
+    "GlobalGaloisDeformations:G7/taylor-wiles-local-diamond"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/VariableDeterminant",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-2018",
+     "locator": "Proposition 6.2.32 and its proof, p. 151",
+     "excerpt": "There is a local Λ-algebra surjection RT,loc S JX1, . . . , XgK →RT SQN , with g = qn −n2[F + : Q].",
+     "match": "Proposition 6.2.32 (arXiv v2 numbering)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Taylor–Wiles primes for enormous image"
+   }
   }
  ],
  "requests": [
@@ -3971,7 +4573,8 @@
    "neededBy": [
     "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
     "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
-    "GlobalGaloisDeformations:R04.2/framed-unframed-comparison"
+    "GlobalGaloisDeformations:R04.2/framed-unframed-comparison",
+    "GlobalGaloisDeformations:G7/polarized-presentation"
    ],
    "status": "open",
    "note": "RS-08: representability is applied here to G_{F,S}, not re-proved in general."
@@ -4010,7 +4613,9 @@
    "neededBy": [
     "GlobalGaloisDeformations:R04.3/local-to-global-presentation",
     "GlobalGaloisDeformations:R04.3/relative-tangent-space",
-    "GlobalGaloisDeformations:R04.5/taylor-wiles-local-cohomology"
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-local-cohomology",
+    "GlobalGaloisDeformations:G8/variable-determinant-presentation",
+    "GlobalGaloisDeformations:G7/polarized-tangent-obstruction"
    ],
    "status": "open",
    "note": "RS-08: R04.3 deduces the bounds from R02's cohomology."
@@ -4082,7 +4687,8 @@
    "need": "The Chebotarev density theorem (in Dirichlet density form) for finite Galois extensions of number fields unramified outside a finite set, to realise a prescribed element of Gal(Ẽ/F) as Frob_v for infinitely many v.",
    "neededBy": [
     "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
-    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes"
+    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
+    "GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes"
    ],
    "status": "open",
    "note": "Tau Ceti Chebotarev Layer 10 (Dirichlet-density Chebotarev); the natural-density form of Layer 14 is not needed."
@@ -4106,6 +4712,35 @@
    ],
    "status": "open",
    "note": "R08.6 exports each source local condition with its ring, dimension, nonemptiness and tangent condition."
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:G7",
+   "need": "Polarizations of G_F-representations for a CM field F/F⁺ given by an actual pairing and multiplier (ρ^c ≅ ρ^∨ ⊗ μ), with symmetry sign, oddness sign at each real place and behaviour under twisting and extension; the group scheme 𝒢_n and CHT Lemma 2.1.1's dictionary; and ACC+'s enormous-image condition (Definition 6.2.28 of arXiv v2, 6.2.29 in the stage text) with its independence of the coefficient field (Lemma 6.2.29 of v2).",
+   "neededBy": [
+    "GlobalGaloisDeformations:G7/polarized-deformation-problem",
+    "GlobalGaloisDeformations:G7/enormous-taylor-wiles-primes"
+   ],
+   "status": "open",
+   "note": "The ArithmeticGaloisRepresentations G7 stage text names both."
+  },
+  {
+   "supplier": "ArithmeticGaloisDuality:D7",
+   "need": "The global Euler characteristic for Gal(E(S)/D) with E/D Galois of degree prime to p, where E(S)/D may ramify outside S (CHT Lemma 2.3.3), and Poitou–Tate duality for G_{F⁺,S} via Gal(F/F⁺)-invariants.",
+   "neededBy": [
+    "GlobalGaloisDeformations:G7/polarized-tangent-obstruction"
+   ],
+   "status": "open",
+   "note": "Dimension-general duality belongs to D7."
+  },
+  {
+   "supplier": "ArithmeticGaloisDuality:D8",
+   "need": "The Selmer complex C•_{𝒮,T}(ad ρ̄) with local conditions and framings, its comparison with deformation tangent spaces, and the dual Selmer dimension count h²_{𝒮,T} = h¹_{𝒮^⊥,T}(ad ρ̄(1)), h³_{𝒮,T} = h⁰(ad ρ̄(1)) in all ranks, including the trace-kernel exceptions when p divides n.",
+   "neededBy": [
+    "GlobalGaloisDeformations:G8/variable-determinant-presentation",
+    "GlobalGaloisDeformations:G7/polarized-tangent-obstruction"
+   ],
+   "status": "open",
+   "note": "The D8 stage text asks for exactly this."
   }
  ],
  "coverage": [
@@ -4147,17 +4782,15 @@
   },
   {
    "stageId": "GlobalGaloisDeformations:G7",
-   "status": "not_read",
-   "remaining": [
-    "Polarized dimension-n deformation problems and ACC+ Proposition 6.2.33 (RS-08 keeps)."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Planned in 7 nodes, within RS-08's keeps: CHT08's polarized problems (𝒢_n, pairing dictionary Lemma 2.1.1, fixed multiplier, Schur condition), representability with n²|T| framing variables, tangent and obstruction spaces with the Euler characteristic and the failure of the scalar/trace-zero splitting when p | n, presentations separating R^{□_T}_𝒮 from its p-torsion-free and reduced generic-fibre quotients, and ACC+'s rank-n Taylor–Wiles places, primes for enormous image (Lemma 6.2.31) and the presentation of Proposition 6.2.32 (arXiv v2; 6.2.33 in the stage text) for G8's problem. Enormous image and polarizations are requested from ArithmeticGaloisRepresentations G7; duality and dual Selmer counts from ArithmeticGaloisDuality D7/D8."
   },
   {
    "stageId": "GlobalGaloisDeformations:G8",
-   "status": "not_read",
-   "remaining": [
-    "Variable-determinant problem of ACC+ Definition 6.2.2, Theorem 6.2.3, Lemma 6.2.4 (RS-08 keeps)."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Planned in 4 nodes, within RS-08's keeps: ACC+ Definition 6.2.2 (variable determinant, Λ = ⊗̂Λ_v), Theorem 6.2.3 and Lemma 6.2.4 (n²|T| − 1 framing variables), the presentation of Proposition 6.2.24 over the local rings with ad ρ̄ coefficients, and the comparison with the fixed-determinant problem of R04.3 as separate statements: the quotient map always, and the product decomposition with 𝒪⟦G_{F,S}^{ab}(p)⟧ only for p ∤ n and twist-stable local problems, formally smooth exactly when that group is torsion-free. The local problems of ACC+ §6.2.5 (ordinary, Fontaine–Laffaille, level raising) are LocalGaloisDeformationRings'."
   }
  ],
  "gaps": [],
