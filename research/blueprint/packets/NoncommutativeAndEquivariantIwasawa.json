@@ -13,7 +13,7 @@
   "NoncommutativeAndEquivariantIwasawa:NE.7"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read.",
+ "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read. Checkpoint 3 (cc-39fac3) plans NE.3 from CFKSV §3: twists, the homomorphism Φ_ρ, evaluation at representations, Akashi series, the evaluation–Akashi diagram, the Euler characteristic formula (Theorem 3.6), Artin representations (Theorem 3.8), the Artin formalism (Theorem 3.10) and the X₁(11) example. Reduced norms and SK₁ remain.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -199,6 +199,13 @@
     "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
     "provides": "The quotient map R → R/I.",
     "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Matrix",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/Defs.lean",
+    "provides": "Matrices M_n(R), the target of Φ_ρ.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
    }
   ]
  },
@@ -212,7 +219,8 @@
    "sha256": "c0955aa2b2f15cfc68f9e136cccae41d71935bb3b2b0566ecea6021fcd074b47",
    "readSections": [
     "2026-09-28 (cc-39fac3): §1 end and §2 (Lemmas 2.1–2.2, Proposition 2.3, Theorem 2.4, Lemma 2.5, Proposition 2.6), pp. 165–170; §3 opening (S*, 𝔐_H(G), Lemmas 3.1–3.2), pp. 170–172; the exactness remark in the proof of Theorem 4.4, p. 192.",
-    "2026-09-28 (cc-39fac3, checkpoint 2): §3 Lemma 3.3, (21)–(24), Proposition 3.4 with Lemma 3.5, definition (33), pp. 172–176; §4 Lemmas 4.1, 4.3, 4.5–4.7, Proposition 4.2, Theorem 4.4 with proof, pp. 187–193."
+    "2026-09-28 (cc-39fac3, checkpoint 2): §3 Lemma 3.3, (21)–(24), Proposition 3.4 with Lemma 3.5, definition (33), pp. 172–176; §4 Lemmas 4.1, 4.3, 4.5–4.7, Proposition 4.2, Theorem 4.4 with proof, pp. 187–193.",
+    "2026-09-28 (cc-39fac3, checkpoint 3): §3 in full (Lemmas 3.1–3.3, (13)–(22), the Akashi series, Lemma 3.7, Theorems 3.6, 3.8 and 3.10, Lemma 3.9, the X₁(11) example and Proposition 3.11), pp. 170–187."
    ]
   },
   {
@@ -2324,6 +2332,643 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/twisted-module",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "Twisting modules by a representation",
+   "kind": "construction",
+   "statement": "G is a compact p-adic Lie group with a closed normal H and G/H = Γ ≅ ℤ_p (topological generator fixed, Λ(Γ) = ℤ_p[[T]]), 𝒪 the ring of integers of a finite extension L of ℚ_p, Λ_𝒪(Γ) = 𝒪[[T]] with fraction field Q_𝒪(Γ), and ρ : G → GL_n(𝒪) continuous. For a finitely generated Λ(G)-module M, tw_ρ(M) = M_𝒪 ⊗_𝒪 𝒪ⁿ with M_𝒪 = M ⊗_{ℤ_p} 𝒪 and the diagonal action σ(m ⊗ z) = σm ⊗ ρ(σ)z, extended to Λ(G) by compactness. tw_ρ is exact, tw_ρ(Λ_𝒪(G)^m) is free over Λ_𝒪(G), and if M ∈ 𝔐_H(G) then tw_ρ(M) ∈ 𝔐_H(G) (Lemma 3.2).",
+   "hypotheses": [
+    "ρ continuous; G compact p-adic Lie."
+   ],
+   "proofSteps": [
+    "Exactness: tensoring with the free 𝒪-module 𝒪ⁿ.",
+    "Freeness: Λ_𝒪(G) ⊗ 𝒪ⁿ with the diagonal action is isomorphic to Λ_𝒪(G)ⁿ with the left action (the untwisting g ⊗ z ↦ g ⊗ ρ(g)^{−1}z).",
+    "Lemma 3.2: tw_ρ(M_𝒪(p)) is killed by the same power of p, and a surjection Λ(H)^m ↠ M_𝒪/M_𝒪(p) gives a surjection from the free Λ(H)-module tw_{ρ|H}(Λ(H)^m)."
+   ],
+   "acceptance": [
+    "The action is diagonal, not ρ on the coefficients alone; tw is used with the contragredient ρ̂ in the Euler characteristic formula."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/s-torsion-iff-finitely-generated",
+    "PadicMeasuresIwasawaAlgebras:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, (13) and Lemma 3.2, p. 171 (Numdam PDF page 9; printed page = PDF page + 162)",
+     "match": "(13) and Lemma 3.2."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram",
+     "how": "Δ_ρ([M]) = Ak_𝒪(tw_{ρ̂}(M))."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.twist",
+     "role": "constructor",
+     "statement": "tw_ρ(M) = M_𝒪 ⊗ 𝒪ⁿ with the diagonal action."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.twist_exact",
+     "role": "functoriality",
+     "statement": "tw_ρ is exact."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.twist_free",
+     "role": "characterisation",
+     "statement": "tw_ρ of a free Λ_𝒪(G)-module is free."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.twist_mem_MHG",
+     "role": "characterisation",
+     "statement": "tw_ρ preserves 𝔐_H(G) (Lemma 3.2)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "twist_trivial",
+     "kind": "example",
+     "statement": "For ρ = 1 (n = 1), tw_ρ(M) = M_𝒪."
+    },
+    {
+     "name": "twist_character",
+     "kind": "example",
+     "statement": "For a character ρ = κ : G → 𝒪^×, tw_κ(Λ_𝒪(G)) ≅ Λ_𝒪(G) via g ↦ κ(g)^{−1}g."
+    },
+    {
+     "name": "twist_direct_sum",
+     "kind": "example",
+     "statement": "tw_{ρ₁ ⊕ ρ₂}(M) = tw_{ρ₁}(M) ⊕ tw_{ρ₂}(M)."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/twist-homomorphism",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "The ring homomorphism Φ_ρ : Λ(G) → M_n(Λ_𝒪(Γ))",
+   "kind": "construction",
+   "statement": "G is a compact p-adic Lie group with a closed normal H and G/H = Γ ≅ ℤ_p (topological generator fixed, Λ(Γ) = ℤ_p[[T]]), 𝒪 the ring of integers of a finite extension L of ℚ_p, Λ_𝒪(Γ) = 𝒪[[T]] with fraction field Q_𝒪(Γ), and ρ : G → GL_n(𝒪) continuous. By continuity ρ gives ρ : Λ(G) → M_n(𝒪) (14). The continuous homomorphism G → (M_n(𝒪) ⊗_{ℤ_p} Λ(Γ))^×, σ ↦ ρ(σ) ⊗ σ̄ (σ̄ the image of σ in Γ) (16), extends to a ring homomorphism Φ_ρ : Λ(G) → M_n(Λ_𝒪(Γ)) (15), with Φ_ρ(p) = pI_n; composing with the augmentation Λ_𝒪(Γ) → 𝒪 gives (14).",
+   "hypotheses": [],
+   "proofSteps": [
+    "M_n(𝒪) ⊗_{ℤ_p} Λ(Γ) = M_n(Λ_𝒪(Γ)) because 𝒪 is free of finite rank over ℤ_p.",
+    "The map on G is a continuous homomorphism into the units of a compact ring, so it extends to the completed group algebra (PadicMeasuresIwasawaAlgebras L1)."
+   ],
+   "acceptance": [
+    "Φ_ρ records the Γ-component σ̄ as well as ρ(σ); for H = 1 and ρ trivial it is the identity of Λ(Γ)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-free-over-open-subgroup",
+    "PadicMeasuresIwasawaAlgebras:L1",
+    "mathlib:Matrix"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, (14)–(16), p. 172 (Numdam PDF page 10; printed page = PDF page + 162)",
+     "match": "(14), (15) and (16)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.3/twist-extends-to-localisation",
+     "how": "the extension to Λ(G)_{S*}."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.representationRingHom",
+     "role": "constructor",
+     "statement": "ρ : Λ(G) → M_n(𝒪) (14)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.twistRingHom",
+     "role": "constructor",
+     "statement": "Φ_ρ : Λ(G) → M_n(Λ_𝒪(Γ)) (15)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.twistRingHom_augmentation",
+     "role": "compatibility",
+     "statement": "Augmentation ∘ Φ_ρ = ρ."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.twistRingHom_p",
+     "role": "characterisation",
+     "statement": "Φ_ρ(p) = pI_n."
+    }
+   ],
+   "tests": [
+    {
+     "name": "twistRingHom_trivial",
+     "kind": "example",
+     "statement": "G = Γ, H = 1, ρ = 1: Φ_ρ is the identity Λ(Γ) → Λ(Γ)."
+    },
+    {
+     "name": "twistRingHom_groupElement",
+     "kind": "example",
+     "statement": "Φ_ρ(σ) = ρ(σ)·σ̄, so det Φ_ρ(σ) = det ρ(σ)·σ̄ⁿ."
+    },
+    {
+     "name": "twistRingHom_directSum",
+     "kind": "example",
+     "statement": "Φ_{ρ₁⊕ρ₂} is block diagonal with blocks Φ_{ρ₁}, Φ_{ρ₂}."
+    }
+   ],
+   "planet": {
+    "name": "The twist homomorphism Φ_ρ"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/twist-extends-to-localisation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "Φ_ρ extends to the localisation at S*",
+   "kind": "lemma",
+   "statement": "(Lemma 3.3.) Φ_ρ extends to a ring homomorphism Φ_ρ : Λ(G)_{S*} → M_n(Q_𝒪(Γ)) (17): Φ_ρ(s) is invertible for every s ∈ S* = ∪_n pⁿS.",
+   "hypotheses": [
+    "S the canonical Ore set of NE.1."
+   ],
+   "proofSteps": [
+    "It suffices that the reduction Φ̃_ρ(s) ∈ M_n(k[[T]]) has nonzero determinant for s ∈ S.",
+    "Φ̃_ρ factors through δ : Ω(G/J) → M_n(k[[T]]) for a pro-p open J ⊆ H normal in G inside ker ρ̃ (GL_n(k) is finite).",
+    "A central Π ≅ ℤ_p of G/J inside ker ρ̃ has δ(Ω(Π)) ⊆ k[[T]]I_n, and Q(k[[T]]) is finite over R(Π); δ extends to R(Π) ⊗_{Ω(Π)} Ω(G/J), where ψ_J(s) is a unit (NE.1), so δ(ψ_J(s)) is invertible."
+   ],
+   "acceptance": [
+    "The extension is to matrices over the fraction field Q_𝒪(Γ), not over Λ_𝒪(Γ): elements of S become invertible only after inverting nonzero power series."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/twist-homomorphism",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-theorem",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/central-zp-subgroup",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/quotient-total-algebra",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/saturated-ore-set"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Lemma 3.3, p. 172 (Numdam PDF page 10; printed page = PDF page + 162)",
+     "match": "Lemma 3.3 and the start of its proof."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, proof of Lemma 3.3, p. 173 (Numdam PDF page 11; printed page = PDF page + 162)",
+     "match": "The end of the proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "Evaluation of K₁-elements at representations",
+   "kind": "construction",
+   "statement": "(17) induces Φ′_ρ : K₁(Λ(G)_{S*}) → K₁(M_n(Q_𝒪(Γ))) = Q_𝒪(Γ)^× (22) (Morita equivalence and the determinant of the field Q_𝒪(Γ)). Let φ : Λ_𝒪(Γ) → 𝒪 be the augmentation with kernel 𝔭, extended to φ : Λ_𝒪(Γ)_𝔭 → L. For ξ ∈ K₁(Λ(G)_{S*}), ξ(ρ) := φ(Φ′_ρ(ξ)) ∈ L if Φ′_ρ(ξ) ∈ Λ_𝒪(Γ)_𝔭, and ξ(ρ) := ∞ otherwise. On K₁(Λ(G)) this restricts to K₁(Λ(G)) → K₁(M_n(𝒪)) = 𝒪^× (21).",
+   "hypotheses": [
+    "ρ : G → GL_n(𝒪) continuous (Artin or not)."
+   ],
+   "proofSteps": [
+    "Morita invariance K₁(M_n(A)) ≅ K₁(A) and K₁(F) = F^× for a field (determinant) come from GeneralAlgebraicKTheory K.7.",
+    "Functoriality of K₁ along the ring maps (14) and (17), compatible with K₁(Λ(G)) → K₁(Λ(G)_{S*})."
+   ],
+   "acceptance": [
+    "Keep the conventions: Φ′_ρ is a determinant of Φ_ρ, so for a group element g, [g](ρ) = det ρ(g) (not trace, not det ρ(g^{−1})); the value ∞ is part of the definition.",
+    "Only the value at the augmentation is taken: Φ′_ρ(ξ) ∈ Q_𝒪(Γ)^× carries more information than ξ(ρ)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/twist-extends-to-localisation",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence",
+    "GeneralAlgebraicKTheory:K.7"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, (21)–(22), p. 173 (Numdam PDF page 11; printed page = PDF page + 162)",
+     "match": "The definition of ξ(ρ) ∈ L ∪ {∞}."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation",
+     "how": "Theorem 3.6."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5",
+     "how": "interpolation of zeta elements at Artin representations."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.twistK1",
+     "role": "constructor",
+     "statement": "Φ′_ρ : K₁(Λ(G)_{S*}) → Q_𝒪(Γ)^×."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.evaluate",
+     "role": "constructor",
+     "statement": "ξ ↦ ξ(ρ) ∈ L ∪ {∞}."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.evaluate_groupElement",
+     "role": "characterisation",
+     "statement": "[g](ρ) = det ρ(g) for g ∈ G ⊆ Λ(G)^×."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.evaluate_mul",
+     "role": "characterisation",
+     "statement": "(ξη)(ρ) = ξ(ρ)η(ρ) when both are finite."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.evaluate_directSum",
+     "role": "characterisation",
+     "statement": "ξ(ρ₁ ⊕ ρ₂) = ξ(ρ₁)ξ(ρ₂)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.evaluate_units",
+     "role": "compatibility",
+     "statement": "On K₁(Λ(G)) the evaluation is (21), with values in 𝒪^×."
+    }
+   ],
+   "tests": [
+    {
+     "name": "evaluate_known_unit",
+     "kind": "example",
+     "statement": "For g ∈ G, Φ′_ρ([g]) = det(ρ(g)ḡ I_n) = det ρ(g)·ḡⁿ, so [g](ρ) = det ρ(g) (augmentation ḡ ↦ 1) (checked for n = 2 in the Lean file)."
+    },
+    {
+     "name": "evaluate_trivial_group",
+     "kind": "example",
+     "statement": "G = Γ, H = 1, ρ = 1: Λ(Γ)_{S*} = Q(Γ), and ξ(1) = f(0) for ξ = f ∈ Λ(Γ)_𝔭, while ξ = T gives 0 and ξ = 1/T gives ∞."
+    },
+    {
+     "name": "evaluate_induced",
+     "kind": "example",
+     "statement": "For an open subgroup G′ ⊆ G and a character ψ of G′, [g](Ind_{G′}^G ψ) = det(Ind ψ)(g) = sgn(g on G/G′)·ψ(V(g)) with V the transfer: the sign of the permutation action survives."
+    },
+    {
+     "name": "evaluate_not_injective",
+     "kind": "example",
+     "statement": "Nonzero ξ may have ξ(ρ) = 1 for all ρ: equality of all evaluations does not imply equality in K₁ (the SK₁ question, not planned here)."
+    }
+   ],
+   "planet": {
+    "name": "Evaluation at Artin representations"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/akashi-series",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "Akashi series",
+   "kind": "construction",
+   "statement": "For M ∈ 𝔐_H(G) the H_i(H, M) are finitely generated torsion Λ(Γ)-modules, zero for i ≥ d if G has no element of order p (Lemma 3.1). With f_{i,M} a characteristic power series of H_i(H, M), Ak(M) = ∏_i f_{i,M}^{(−1)^i} mod Λ(Γ)^× (37) defines Ak : K₀(𝔐_H(G)) → Q(Γ)^×/Λ(Γ)^× (38); for an 𝒪-module M, Ak_𝒪(M) uses characteristic series over Λ_𝒪(Γ) (39), and the norm N : Λ_𝒪(Γ) → Λ(Γ) gives N(Ak_𝒪(M)) = Ak(M) (40).",
+   "hypotheses": [
+    "G without elements of order p for the vanishing statement (cd_p H = d − 1)."
+   ],
+   "proofSteps": [
+    "H_i(H, M) = Tor_i^{Λ(G)}(Λ(Γ), M) is finitely generated over Λ(Γ); torsion because H_i(H, M(p)) is killed by a power of p and H_i(H, M/M(p)) is finitely generated over ℤ_p.",
+    "Additivity on short exact sequences from the long exact sequence of H-homology and multiplicativity of characteristic series.",
+    "(40): N(g_i) = f_i mod Λ(Γ)^× (Bourbaki, Commutative Algebra VII §4.8, Prop. 18; PadicMeasuresIwasawaAlgebras L4)."
+   ],
+   "acceptance": [
+    "Ak is defined only modulo units; the Euler-characteristic formula uses its value at T = 0 up to p-adic units."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/homology-torsion",
+    "PadicMeasuresIwasawaAlgebras:L4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Lemma 3.1, p. 171 (Numdam PDF page 9; printed page = PDF page + 162)",
+     "match": "Lemma 3.1."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, (37)–(39), p. 177 (Numdam PDF page 15; printed page = PDF page + 162)",
+     "match": "The Akashi series."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, (40), p. 178 (Numdam PDF page 16; printed page = PDF page + 162)",
+     "match": "(40)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram",
+     "how": "Δ_ρ = Ak_𝒪 ∘ tw_{ρ̂}."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-integral",
+     "how": "integrality of Ak_𝒪(tw_ρ(M)) (Lemma 3.9)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.akashiSeries",
+     "role": "constructor",
+     "statement": "Ak : K₀(𝔐_H(G)) → Q(Γ)^×/Λ(Γ)^×."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.akashiSeriesO",
+     "role": "constructor",
+     "statement": "Ak_𝒪 over Λ_𝒪(Γ)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.akashiSeries_norm",
+     "role": "compatibility",
+     "statement": "N(Ak_𝒪(M)) = Ak(M)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.homology_torsion",
+     "role": "characterisation",
+     "statement": "H_i(H, M) torsion over Λ(Γ) (Lemma 3.1)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "akashiSeries_commutative",
+     "kind": "example",
+     "statement": "G = Γ, H = 1: Ak(M) is the characteristic power series of M (only H_0 = M)."
+    },
+    {
+     "name": "akashiSeries_H_finite",
+     "kind": "example",
+     "statement": "If H is finite of order prime to p, only H_0(H, M) = M_H contributes."
+    },
+    {
+     "name": "akashiSeries_p_torsion",
+     "kind": "example",
+     "statement": "For M = Λ(G)/p (H infinite), Ak(M) is a power of p up to units."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "The evaluation–Akashi diagram",
+   "kind": "lemma",
+   "statement": "(Lemma 3.7.) With Δ_ρ([M]) = Ak_𝒪(tw_{ρ̂}(M)) (41)–(42), where ρ̂(g) = ρ(g^{−1})^t is the contragredient, and ∂_Γ : Q_𝒪(Γ)^× → Q_𝒪(Γ)^×/Λ_𝒪(Γ)^×, the square ∂_Γ ∘ Φ′_ρ = Δ_ρ ∘ ∂_G (43) commutes.",
+   "hypotheses": [
+    "G without elements of order p (so ∂_G is defined on modules)."
+   ],
+   "proofSteps": [
+    "Functoriality of the localisation sequence with Morita equivalence gives (47): ∂_1 ∘ v_1 ∘ u_1 = v_0 ∘ u_0 ∘ ∂_G.",
+    "For a finite projective resolution P_• of M, u_0([M]) = Σ(−1)^i[M_n(Λ_𝒪(Γ)) ⊗_{Λ(G)} P_i] (49); the row-vector Morita functor identifies (Rⁿ)^t ⊗_{M_n(R)} M_n(R) ⊗_{Λ(G)} P_i with Λ_𝒪(Γ) ⊗_{Λ_𝒪(G)} tw_{ρ̂}(P_i) (50), since the right action (τ ⊗ x^t)g = τḡ ⊗ x^tρ(g)^t is the left action through ρ̂.",
+    "tw_{ρ̂}(P_•) resolves tw_{ρ̂}(M), and Λ_𝒪(Γ) ⊗ − computes H_i(H, tw_{ρ̂}(M)), whose alternating class is Ak_𝒪."
+   ],
+   "acceptance": [
+    "The contragredient ρ̂ appears on the module side: the evaluation at ρ corresponds to twisting by ρ̂."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/akashi-series",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/twisted-module",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-map",
+    "GeneralAlgebraicKTheory:K.7"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Lemma 3.7, p. 178 (Numdam PDF page 16; printed page = PDF page + 162)",
+     "match": "Lemma 3.7."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, proof of Lemma 3.7, p. 179 (Numdam PDF page 17; printed page = PDF page + 162)",
+     "match": "The proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "Characteristic elements compute twisted Euler characteristics",
+   "kind": "theorem",
+   "statement": "(Theorem 3.6.) Assume G has no element of order p. Let M ∈ 𝔐_H(G) with characteristic element ξ_M. For every continuous ρ : G → GL_n(𝒪) with χ(G, tw_{ρ̂}(M)) finite, ξ_M(ρ) ≠ 0, ∞ and χ(G, tw_{ρ̂}(M)) = |ξ_M(ρ)|_p^{−m_ρ}, where m_ρ = [L : ℚ_p] and |p|_p = 1/p.",
+   "hypotheses": [
+    "G has no element of order p; χ(G, tw_{ρ̂}(M)) finite."
+   ],
+   "proofSteps": [
+    "If χ(G, W) is finite (W = tw_{ρ̂}(M)), then φ(f_{i,W}) ≠ 0 for all i, φ(Ak(W)) ≠ 0, ∞ and χ(G, W) = |φ(Ak(W))|_p^{−1} (44) (Coates–Schneider–Sujatha, via Hochschild–Serre and χ(Γ, N) = |f_N(0)|_p^{−1}; requested from IntegralIwasawaTheory I.4).",
+    "By (40) and N ∘ φ = φ ∘ N, χ(G, W) = |φ(Ak_𝒪(W))|_p^{−m_ρ} (45).",
+    "Lemma 3.7 gives ∂_Γ(Φ′_ρ(ξ_M)) = Ak_𝒪(tw_{ρ̂}(M)) (46), and the value at T = 0 is ξ_M(ρ)."
+   ],
+   "acceptance": [
+    "The formula determines |ξ_M(ρ)|_p only; the unit part of ξ_M(ρ) is not an Euler-characteristic invariant."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element",
+    "IntegralIwasawaTheory:I.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Theorem 3.6, p. 177 (Numdam PDF page 15; printed page = PDF page + 162)",
+     "match": "Theorem 3.6."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, proof of Theorem 3.6, p. 178 (Numdam PDF page 16; printed page = PDF page + 162)",
+     "match": "(41)–(45)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Euler characteristics from characteristic elements"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-integral",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "Evaluation at Artin representations under a finiteness condition",
+   "kind": "theorem",
+   "statement": "(Theorem 3.8, Lemma 3.9.) Assume G has no element of order p and let M ∈ 𝔐_H(G) satisfy H_i(H′, M) finite for all i ≥ 1 and all open H′ ⊆ H normal in G (51). Then for every Artin representation ρ (ker ρ open), Ak_𝒪(tw_ρ(M)) ∈ Λ_𝒪(Γ)[1/p] modulo units (52), ξ_M(ρ) ≠ ∞, and ξ_M(ρ) ≠ 0 iff χ(G, tw_{ρ̂}(M)) is finite.",
+   "hypotheses": [
+    "G without elements of order p; (51)."
+   ],
+   "proofSteps": [
+    "With H′ = ker ρ ∩ H, W = tw_ρ(M) is M_𝒪ⁿ as an H′-module, so H_i(H′, W) is finite for i ≥ 1 (54); Hochschild–Serre for Δ = H/H′ shows H_i(H, W) is killed by a power of p for i ≥ 1, so g_{i,W} = π^{μ_i} (53).",
+    "Hence Ak_𝒪(W) = g_{0,W}∏π^{(−1)^iμ_i} (56), and φ(Ak_𝒪(W)) ≠ 0 iff φ(g_{0,W}) ≠ 0 iff χ(G, W) is finite.",
+    "Lemma 3.7 then gives Φ′_ρ(ξ_M) ∈ Λ_𝒪(Γ)_𝔭 and the finiteness criterion."
+   ],
+   "acceptance": [
+    "Condition (51) is on all open normal H′ ⊆ H; it holds for M iff it holds for M(p) and M/M(p)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram",
+    "IntegralIwasawaTheory:I.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Theorem 3.8, p. 180 (Numdam PDF page 18; printed page = PDF page + 162)",
+     "match": "Theorem 3.8."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Lemma 3.9, p. 181 (Numdam PDF page 19; printed page = PDF page + 162)",
+     "match": "Lemma 3.9."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/artin-formalism-euler",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "Artin formalism for G-Euler characteristics",
+   "kind": "theorem",
+   "statement": "(Theorem 3.10.) Let G be a compact p-adic Lie group without elements of order p (no H needed), G′ ⊆ G open normal, Δ = G/G′, V the irreducible Q̄_p-representations of Δ, all realised over L with integers 𝒪. For finitely generated M, χ(G′, M) is finite iff χ(G, tw_ρ(M)) is finite for all ρ ∈ V, and then χ(G′, M)^{[L:ℚ_p]} = ∏_{ρ∈V} χ(G, tw_ρ(M))^{n_ρ} (58).",
+   "hypotheses": [
+    "G without elements of order p."
+   ],
+   "proofSteps": [
+    "0 → 𝒪[Δ] → ⊕_ρ L_ρ^{n_ρ} → W → 0 with W finite (59); tensor with a projective resolution P_• of M_𝒪 (61).",
+    "H_i(C) = H_i(G′, M_𝒪), H_i(D_ρ) = H_i(G, tw_ρ(M)) (64)–(65).",
+    "K_i = W ⊗ C_i is finite and [C] = 0 in K₀(𝒪[Δ]) (injectivity into K₀(L[Δ])), so ∏♯H_i(K)^{(−1)^i} = θ([C]) = 1 (67)–(69)."
+   ],
+   "acceptance": [
+    "The exponent [L : ℚ_p] on the left accounts for the 𝒪-coefficients."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/twisted-module",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/k0-representation-injective",
+    "PadicMeasuresIwasawaAlgebras:L1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, p. 182 (Numdam PDF page 20; printed page = PDF page + 162)",
+     "match": "Theorem 3.10."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, proof of Theorem 3.10, p. 184 (Numdam PDF page 22; printed page = PDF page + 162)",
+     "match": "The end of the proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.3/gl2-euler-example",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3"
+   ],
+   "title": "The GL₂ example: X₁(11) at p = 5",
+   "kind": "application",
+   "statement": "(Proposition 3.11.) For E = X₁(11), p = 5, F_∞ = ℚ(E_{5^∞}), G = Gal(F_∞/ℚ), H = Gal(F_∞/ℚ^cyc), M = X(E/F_∞) ∈ 𝔐_H(G), and the degree-4 Artin representations ρ_i induced from nontrivial characters of Gal(F_i/ℚ(μ_5)) with F_1 = ℚ(E_5), F_2 = ℚ(E_{2,5}) (E_2 the conductor-11 curve with E_2(ℚ) = 0): χ(G, tw_{ρ_1}(M)) = 5³ and χ(G, tw_{ρ_2}(M)) = 5, so |ξ_{E,5}(ρ_1)|_5^{−1} = 5³ and |ξ_{E,5}(ρ_2)|_5^{−1} = 5 (ρ̂_i = ρ_i).",
+   "hypotheses": [
+    "The arithmetic inputs χ(G_F, X) = 5⁴, χ(G_{F_1}, X) = 5¹⁶, χ(G_{F_2}, X) = 5⁸ ((78)–(80)) come from Coates–Howson's Euler characteristic formula (77) and Fisher's computations, cited by CFKSV; they are recorded as a gap."
+   ],
+   "proofSteps": [
+    "Theorem 3.10 with G′ = G_F (Δ cyclic of order 4, four characters over ℚ_5) and G′ = G_{F_1} (Δ = Gal(F_1/ℚ) of order 20: the four characters and ρ_1) gives χ(G, tw_{ρ_1}X)⁴ = 5¹⁶/5⁴ = 5¹².",
+    "Likewise χ(G, tw_{ρ_2}X)⁴ = 5⁸/5⁴ = 5⁴.",
+    "Theorem 3.6 converts these into the absolute values of the evaluations."
+   ],
+   "acceptance": [
+    "Checks the Frobenius/contragredient conventions: ρ_i are self-dual, so tw_{ρ̂_i} = tw_{ρ_i}."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-formalism-euler",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/Evaluation",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Example, p. 185 (Numdam PDF page 23; printed page = PDF page + 162)",
+     "match": "The example."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Proposition 3.11, p. 186 (Numdam PDF page 24; printed page = PDF page + 162)",
+     "match": "Proposition 3.11 and (75)."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, proof of Proposition 3.11, p. 187 (Numdam PDF page 25; printed page = PDF page + 162)",
+     "match": "The computation."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -2375,9 +3020,28 @@
   },
   {
    "supplier": "PadicMeasuresIwasawaAlgebras:L4",
-   "need": "Characteristic power series/ideals of finitely generated torsion Λ(Γ)-modules with the structure theorem up to pseudo-isomorphism.",
+   "need": "Characteristic power series/ideals of finitely generated torsion Λ(Γ)-modules with the structure theorem up to pseudo-isomorphism. Also the norm of characteristic series under Λ_𝒪(Γ) → Λ(Γ) (Bourbaki VII §4.8, Prop. 18).",
    "neededBy": [
-    "NoncommutativeAndEquivariantIwasawa:NE.2/commutative-cyclic-comparison"
+    "NoncommutativeAndEquivariantIwasawa:NE.2/commutative-cyclic-comparison",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/akashi-series"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "GeneralAlgebraicKTheory:K.7",
+   "need": "Morita invariance K_i(M_n(A)) ≅ K_i(A) (i = 0, 1), compatible with the connecting maps of the localisation sequence, and K₁(F) = F^× via the determinant for a field F.",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:I.4",
+   "need": "For a finitely generated torsion Λ_𝒪(Γ)-module N with characteristic series f_N: N has finite Γ-Euler characteristic iff f_N(0) ≠ 0, and then χ(Γ, N) = |f_N(0)|_p^{−[L:ℚ_p]}; for G with G/H = Γ, the Hochschild–Serre formula χ(G, W) = ∏_i χ(Γ, H_i(H, W))^{(−1)^i} (CFKSV (44), after Coates–Schneider–Sujatha).",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation",
+    "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-integral"
    ],
    "status": "open"
   }
@@ -2410,10 +3074,13 @@
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.3",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "CFKSV §3 evaluation at Artin representations (Φ_ρ, (14)–(16)); reduced norms and SK₁ (Ritter–Weiss, arXiv 1004.2578, and 2608.22601)."
-   ]
+    "Reduced norms and the SK₁ kernel in the semisimple total quotient algebra, and what character evaluations determine (Ritter–Weiss arXiv 1004.2578; the 2026 uniqueness preprint to be read before any strengthened claim).",
+    "Functoriality of the evaluation under restriction/induction (G′ ⊆ G) and coefficient extension beyond direct sums.",
+    "The arithmetic inputs of the X₁(11) example (gap)."
+   ],
+   "notes": "Checkpoint 3 plans CFKSV §3 (10 nodes): twisting, Φ_ρ and its extension to Λ(G)_{S*}, evaluation ξ(ρ) ∈ L ∪ {∞}, Akashi series, the evaluation–Akashi diagram (with the contragredient), Theorem 3.6, Theorem 3.8, the Artin formalism Theorem 3.10 and the X₁(11) example."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.4",
@@ -2452,6 +3119,13 @@
     "NoncommutativeAndEquivariantIwasawa:NE.0/uniform-graded-polynomial"
    ],
    "detail": "The equivalence of the analytic, group-theoretic (open uniform subgroup) and linear (closed subgroup of GL_d(ℤ_p)) definitions (Lazard 1965, Chap. III; Dixon–du Sautoy–Mann–Segal, Analytic pro-p groups, Corollary 8.34 and Theorem 8.32), the closure of the class under open subgroups, closed normal subgroups and quotients, and the PBW/graded-ring theorem for uniform groups (Dixon–du Sautoy–Mann–Segal Theorems 7.23–7.24) are stated here from Ardakov–Brown's survey with their references. No roadmap in the atlas owns compact p-adic Lie groups (a search of the atlas extracts finds only this roadmap, CompletedCohomologyPartII CC.5 as a consumer, LocallyAnalyticDistributions and PadicMeasuresIwasawaAlgebras L0a for abelian groups). The Dixon–du Sautoy–Mann–Segal book is not freely available; Lazard Chap. III is on Numdam but was not read for this checkpoint. A roadmap for p-adic analytic pro-p groups, or a Part II of Tau Ceti's ProfiniteProPGroups, should own these results."
+  },
+  {
+   "title": "Arithmetic inputs of CFKSV Proposition 3.11",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.3/gl2-euler-example"
+   ],
+   "detail": "The Euler characteristic formula (77) (Coates–Howson, Theorem 1.1) and the Mordell–Weil and Tate–Shafarevich data of E = X₁(11) over ℚ(μ_5), F_1 and F_2 (CFKSV [12], [16]) are quoted, not proved; they belong to the Selmer and Euler-characteristic owners (SelmerIwasawaCohomology), which do not plan them."
   }
  ]
 }
