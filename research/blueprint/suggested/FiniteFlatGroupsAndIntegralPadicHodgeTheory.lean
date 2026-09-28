@@ -25,11 +25,14 @@ import Mathlib.RingTheory.WittVector.Identities
 import Mathlib.RingTheory.WittVector.Isocrystal
 import Mathlib.RingTheory.WittVector.DiscreteValuationRing
 import Mathlib.RingTheory.Length
+import Mathlib.RingTheory.PowerSeries.Expand
+import Mathlib.RingTheory.Polynomial.Eisenstein.Basic
+import Mathlib.NumberTheory.Padics.PadicNumbers
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyFree
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 
 /-!
-# Finite flat groups and integral p-adic Hodge theory — suggested declarations (R07.1–R07.3)
+# Finite flat groups and integral p-adic Hodge theory — suggested declarations (R07.1–R07.4)
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
@@ -43,6 +46,10 @@ tame inertia; the Oort–Tate classification, locally and over rings of integers
 groups, the dimension, Tate's Hodge–Tate and generic-fibre theorems; Raynaud's extension
 criterion; the finite part of a quasi-finite group; finite étale groups as Galois modules; gluing
 over a completion and a localisation; the Katz–Mazur groups).
+
+R07.2 is in `TauCeti.Dieudonne`, R07.3 in `TauCeti.FontaineLaffaille`, and R07.4 in
+`TauCeti.BreuilKisin` (Kisin modules over `𝔖 = W(k)⟦u⟧`, the functor `V_𝔖`, and Kisin's
+classification of p-divisible groups, with the period rings and Galois groups as placeholders).
 
 Everything is stated over an affine base, on Tau Ceti's
 `FiniteLocallyFreeCommAffineGroupSchemeCat`, whose objects are finite, flat and of finite
@@ -708,3 +715,151 @@ def IsStronglyDivisible (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k
     [PerfectRing k p] (D : Type u) [AddCommGroup D] (M : Set D) : Prop := sorry
 
 end TauCeti.FontaineLaffaille
+
+/-! ## R07.4: Breuil–Kisin modules
+
+Kisin's normalisation: `𝔖 = W(k)⟦u⟧` with `φ` the Witt vector Frobenius on coefficients and
+`u ↦ u^p`, and `E(u)` the Eisenstein polynomial of a fixed uniformiser `π` of `O = 𝒪_K`. The
+functors are contravariant and Hodge–Tate weights are taken with `HT(χ_cyc) = +1`. The period
+rings `𝒪_ℰ`, `𝔖^ur`, `S`, `A_cris`, the group `G_{K∞}` and the crystalline condition are
+placeholders for PadicHodgeTheory R06.1–R06.2 and PhiGammaModulesAndIwasawaCohomology PG.0–PG.1. -/
+
+namespace TauCeti.BreuilKisin
+
+variable (p : ℕ) [hp : Fact p.Prime] (k : Type u) [Field k] [CharP k p] [PerfectRing k p]
+
+/-- R07.4/bk-coefficient-rings: `𝔖 = W(k)⟦u⟧`. -/
+abbrev Sfrak : Type u := PowerSeries (WittVector p k)
+
+/-- The Frobenius of `𝔖`: the Witt vector Frobenius on coefficients, then `u ↦ u^p`. -/
+noncomputable def frob : Sfrak p k →+* Sfrak p k :=
+  (PowerSeries.expand p hp.out.ne_zero).toRingHom.comp (PowerSeries.map WittVector.frobenius)
+
+theorem frob_X : frob p k PowerSeries.X = PowerSeries.X ^ p := sorry
+
+theorem frob_C (a : WittVector p k) :
+    frob p k (PowerSeries.C a) = PowerSeries.C (WittVector.frobenius a) := sorry
+
+/-- An Eisenstein polynomial `E(u) ∈ W(k)[u]`, monic and Eisenstein at `(p)`. -/
+structure Eisenstein where
+  E : Polynomial (WittVector p k)
+  monic : E.Monic
+  isEisensteinAt : E.IsEisensteinAt (Ideal.span {(p : WittVector p k)})
+
+/-- R07.4/kisin-modules: a finite free `𝔖`-module with a `φ`-semilinear endomorphism whose
+linearisation `φ*𝔐 → 𝔐` has cokernel killed by a power of `E(u)`; the image of the
+linearisation is the span of `φ(𝔐)`. -/
+structure KisinModule (E : Eisenstein p k) where
+  M : Type u
+  [addCommGroup : AddCommGroup M]
+  [module : Module (Sfrak p k) M]
+  [free : Module.Free (Sfrak p k) M]
+  [finite : Module.Finite (Sfrak p k) M]
+  phi : M →ₛₗ[frob p k] M
+  finiteHeight : ∃ h : ℕ, ∀ m : M,
+    ((E.E : Sfrak p k) ^ h) • m ∈ Submodule.span (Sfrak p k) (Set.range phi)
+
+attribute [instance] KisinModule.addCommGroup KisinModule.module KisinModule.free
+  KisinModule.finite
+
+variable {p k}
+
+/-- `E(u)^h` kills the cokernel of `1 ⊗ φ`; `BT^φ_{/𝔖}` is `HeightLE 1`. -/
+def KisinModule.HeightLE {E : Eisenstein p k} (M : KisinModule p k E) (h : ℕ) : Prop :=
+  ∀ m : M.M, ((E.E : Sfrak p k) ^ h) • m ∈ Submodule.span (Sfrak p k) (Set.range M.phi)
+
+/-- Morphisms of Kisin modules: `𝔖`-linear maps commuting with `φ`. -/
+structure KisinModule.Hom {E : Eisenstein p k} (M N : KisinModule p k E) where
+  toLinearMap : M.M →ₗ[Sfrak p k] N.M
+  comm : ∀ m, toLinearMap (M.phi m) = N.phi (toLinearMap m)
+
+/-- The unit object `(𝔖, φ)`. -/
+noncomputable def KisinModule.unit (E : Eisenstein p k) : KisinModule p k E := sorry
+
+theorem KisinModule.unit_heightLE_zero (E : Eisenstein p k) :
+    (KisinModule.unit E).HeightLE 0 := sorry
+
+/-- Placeholder for `V_𝔖(𝔐) = Hom_{𝔖,φ}(𝔐, 𝔖^ur)`, a `ℤ_p`-module with an action of `G_{K∞}`
+(R07.4/kummer-etale-phi-modules). -/
+def VSfrak {E : Eisenstein p k} (M : KisinModule p k E) : Type := sorry
+
+instance {E : Eisenstein p k} (M : KisinModule p k E) : AddCommGroup (VSfrak M) := sorry
+
+instance {E : Eisenstein p k} (M : KisinModule p k E) : Module ℤ_[p] (VSfrak M) := sorry
+
+/-- Kisin 2006, 2.1.4: `V_𝔖(𝔐)` is free over `ℤ_p` of rank `rk_𝔖 𝔐`. -/
+theorem VSfrak_free {E : Eisenstein p k} (M : KisinModule p k E) :
+    Module.Free ℤ_[p] (VSfrak M) ∧
+      Module.finrank ℤ_[p] (VSfrak M) = Module.finrank (Sfrak p k) M.M := sorry
+
+/-- The contravariant map on `V_𝔖`. -/
+def vMap {E : Eisenstein p k} {M N : KisinModule p k E} (f : KisinModule.Hom M N) :
+    VSfrak N →ₗ[ℤ_[p]] VSfrak M := sorry
+
+/-- Placeholder: a `ℤ_p`-linear map commutes with the `G_{K∞}`-actions. -/
+def IsEquivariant {E : Eisenstein p k} {M N : KisinModule p k E}
+    (g : VSfrak N →ₗ[ℤ_[p]] VSfrak M) : Prop := sorry
+
+/-- R07.4/kisin-etale-full-faithfulness (Kisin 2006, 2.1.12, with the repaired proof of
+Kisin 2008, Errata E.4): `V_𝔖` is faithful … -/
+theorem vMap_injective {E : Eisenstein p k} (M N : KisinModule p k E) :
+    Function.Injective (fun f : KisinModule.Hom M N => vMap f) := sorry
+
+/-- … and full on `G_{K∞}`-equivariant maps. -/
+theorem exists_hom_of_isEquivariant {E : Eisenstein p k} {M N : KisinModule p k E}
+    (g : VSfrak N →ₗ[ℤ_[p]] VSfrak M) (hg : IsEquivariant g) :
+    ∃ f : KisinModule.Hom M N, vMap f = g := sorry
+
+section PDivisible
+
+open TauCeti.FiniteFlat
+
+variable (O : Type u) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+  [Algebra (WittVector p k) O] (π : O) (E : Eisenstein p k)
+
+/-- Placeholder for the Kisin module `𝔐(G)` of a `p`-divisible group over `O`, for `E` the
+Eisenstein polynomial of the uniformiser `π` (Kisin 2006, 2.2.7). -/
+noncomputable def kisinModuleOf {h : ℕ} (G : PDivisibleGroup O p h) : KisinModule p k E := sorry
+
+/-- `𝔐(G)` lies in `BT^φ_{/𝔖}`. -/
+theorem kisinModuleOf_heightLE_one (hπ : Polynomial.aeval π E.E = 0) {h : ℕ}
+    (G : PDivisibleGroup O p h) : (kisinModuleOf O E G).HeightLE 1 := sorry
+
+/-- R07.4/kisin-p-divisible-classification (Kisin 2006, 2.2.7), essential surjectivity for
+`p > 2`: every object of `BT^φ_{/𝔖}` is `𝔐(G)` up to isomorphism. For `p = 2` this is
+Kim's theorem (R07.4/dyadic-classification). -/
+theorem exists_pDivisible_of_heightLE_one (hπ : Polynomial.aeval π E.E = 0)
+    (M : KisinModule p k E) (hM : M.HeightLE 1) :
+    ∃ (h : ℕ) (G : PDivisibleGroup O p h) (f : KisinModule.Hom (kisinModuleOf O E G) M),
+      Function.Bijective f.toLinearMap := sorry
+
+/-- Full faithfulness of `G ↦ 𝔐(G)` (contravariant). -/
+def kisinMap {h h' : ℕ} {G : PDivisibleGroup O p h} {H : PDivisibleGroup O p h'}
+    (f : PDivisibleGroup.Hom G H) : KisinModule.Hom (kisinModuleOf O E H) (kisinModuleOf O E G) :=
+  sorry
+
+theorem kisinMap_bijective (hπ : Polynomial.aeval π E.E = 0) {h h' : ℕ}
+    (G : PDivisibleGroup O p h) (H : PDivisibleGroup O p h') :
+    Function.Bijective (fun f : PDivisibleGroup.Hom G H => kisinMap O E f) := sorry
+
+variable (K : Type u) [Field K] [Algebra O K] [IsFractionRing O K] [CharZero K]
+
+/-- Placeholder: `V` is a crystalline representation of `G_K` with Hodge–Tate weights in
+`{0, 1}` (PadicHodgeTheory R06.2, `HT(χ_cyc) = +1`). -/
+def IsCrystallineZeroOne (V : Type u) [AddCommGroup V] [Module ℚ_[p] V]
+    [DistribMulAction (Field.absoluteGaloisGroup K) V] : Prop := sorry
+
+/-- Placeholder: `V ≅ T_p(G) ⊗ ℚ_p` as `G_K`-representations. -/
+def IsRationalTateModule (V : Type u) [AddCommGroup V] [Module ℚ_[p] V]
+    [DistribMulAction (Field.absoluteGaloisGroup K) V] {h : ℕ} (G : PDivisibleGroup O p h) :
+    Prop := sorry
+
+/-- R07.4/crystalline-01-is-bt (Kisin 2006, 2.2.6), every `p` including `p = 2`: a crystalline
+representation with Hodge–Tate weights in `{0, 1}` is `V_p(G)` for a `p`-divisible group. -/
+theorem exists_pDivisible_of_crystalline (V : Type u) [AddCommGroup V] [Module ℚ_[p] V]
+    [DistribMulAction (Field.absoluteGaloisGroup K) V] (hV : IsCrystallineZeroOne (p := p) K V) :
+    ∃ (h : ℕ) (G : PDivisibleGroup O p h), IsRationalTateModule O K V G := sorry
+
+end PDivisible
+
+end TauCeti.BreuilKisin
