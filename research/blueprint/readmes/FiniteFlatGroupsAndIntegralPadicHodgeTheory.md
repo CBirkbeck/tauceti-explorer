@@ -1,6 +1,6 @@
 # Finite flat groups and integral p-adic Hodge theory
 
-This is the first blueprint checkpoint. It plans stage R07.1, finite flat groups and p-divisible groups, and leaves it partial. R07.2–R07.6 are not yet read. Every declaration is a plan.
+This is the second blueprint checkpoint. Stage R07.1, finite flat groups and p-divisible groups, is closed; R07.2–R07.6 are not yet read. Every declaration is a plan.
 
 The accepted restructuring RS-02 makes this roadmap an extension of Tau Ceti's ModularCurves roadmap ('Modular curves, following Katz–Mazur, Part II: finite flat groups and integral p-adic Hodge theory') and narrows R07.1. It owns what goes beyond the anchor:
 
@@ -8,6 +8,12 @@ The accepted restructuring RS-02 makes this roadmap an extension of Tau Ceti's M
 - closures, models and Raynaud's mixed-characteristic theory: uniqueness for e < p − 1, full faithfulness with flat kernel and cokernel, Ext injectivity;
 - the (p, …, p)-type (F-vector scheme) classification and its tame inertia characters;
 - the required tests: multiplicative, constant, ordinary nonsplit, supersingular, and distinct integral models.
+
+R07.1 also plans what other roadmaps have requested of it:
+
+- formal Lie groups, the dimension of a p-divisible group, Tate's Hodge–Tate decomposition and Tate's generic-fibre theorem, with the closure-after-a-shift lemma (FaltingsFinitenessAndIsogenyTheorems R28.2–R28.3, and the Breuil–Kisin stage R07.4);
+- the finite part of a quasi-finite group over a henselian base (FaltingsFinitenessAndIsogenyTheorems);
+- finite étale groups over ℤ[1/N] as Galois modules, the gluing equivalence with its Mayer–Vietoris sequence, and the Katz–Mazur groups (SmallRamificationAndAbelianVarietyBaseCases R25.3–R25.4).
 
 ## Scope, ownership and conventions
 
@@ -17,6 +23,7 @@ Imported from Tau Ceti's ModularCurves roadmap, as RS-02 requires, and never pla
 - **Layer 0C:** fppf quotients by finite locally free subgroups, with the Lagrange rank formula.
 - **Layer 0E:** effective fpqc descent.
 - **Layer 7E:** PD-2, the finite-level connected–étale sequence over a henselian local ring, with the special-fibre splitting over a perfect residue field; PD-1, the elliptic tower E[p^∞]; PD-4 and PD-5 for the supersingular tests. 7E schedules no Oort–Tate classification, so that classification is planned here.
+- **Elsewhere in the atlas:** Tate–Sen, the Galois cohomology of C (PadicHodgeTheory R06.1), and SGA 1's Galois theory of finite étale covers of a connected scheme (InverseGaloisAndArithmeticFundamentalGroups IG.0).
 
 Conventions pinned here:
 
@@ -25,8 +32,11 @@ Conventions pinned here:
 - F-vector schemes follow Raynaud: F has q = p^r elements, the base lies over Raynaud's Dedekind ring D ⊂ ℚ(μ_{q−1}), and condition (**) requires the eigen-sheaves of the augmentation ideal for the fundamental characters to be invertible.
 - Oort–Tate pairs (a, b) satisfy ab = w_p over the ring Λ = ℤ[ζ_{p−1}, 1/(p(p−1))] ∩ ℤ_p, and G_{a,b} = Spec R[X]/(X^p − aX). Duality swaps a and b.
 - Tate modules are inverse limits of generic points, T_p(G) = lim G_v(K̄). The duality is T_p(G^D) ≅ Hom(T_p(G), ℤ_p(1)).
+- The dimension of a p-divisible group is that of the formal Lie group of its connected part (Tate), so dim μ_{p^∞} = 1 and dim ℚ_p/ℤ_p = 0. Hodge–Tate weight 1 has multiplicity dim G.
+- An extension of G by H is an exact sequence 0 → H → X → G → 0; Ext¹(G, H) classifies them.
 
 In the suggested Lean file the imported objects are placeholders named after their owners' planned declarations, so that the statements have their final signatures.
+
 
 ## R07.1: finite flat groups and p-divisible groups
 
@@ -196,7 +206,7 @@ Source: Stix12-notes, §9.2(2)–(4) and (6), pp. 55–56; Stix12-notes, §11.2.
 
 #### The connected–étale sequence of a p-divisible group over a henselian local base
 
-Declaration: TauCeti.FiniteFlat.PDivisibleGroup.connectedEtale_exact (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-connected-etale. Planet: Connected–étale sequence.
+Declaration: TauCeti.FiniteFlat.PDivisibleGroup.connectedEtale_exact (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-connected-etale.
 
 Let R be a henselian local ring with residue field of characteristic p and G a p-divisible group of height h over R. The connected components G_v^0 and étale quotients G_v^{ét} of the levels form p-divisible groups G^0 and G^{ét}, of heights h^0 and h^{ét} with h^0 + h^{ét} = h, and 0 → G^0 → G → G^{ét} → 0 is exact levelwise, functorial in G and compatible with local base change of henselian local rings. Over a perfect residue field the special fibre of the sequence splits; over R the sequence need not split. In the opposite order an extension does split: for finite flat groups over R, every extension 0 → E → G → C → 0 with E étale and C connected is canonically G ≅ E × C.
 
@@ -220,6 +230,253 @@ Planned prerequisites: R07.1/p-divisible-group, R07.1/p-divisible-level-exactnes
 Library: `HenselianLocalRing`.
 
 Source: Stix12-notes, §8.1.1, Proposition 37, p. 38; Stix12-notes, §9.2(5), p. 56; Stix12-notes, §8.1.1, Proposition 40(4), p. 39.
+
+### Formal Lie groups, dimension and Tate's theorems
+
+#### Commutative formal Lie groups, their dimension and p-divisibility
+
+Declaration: TauCeti.FiniteFlat.FormalLieGroup (definition). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/formal-lie-group.
+
+Let Λ be a complete noetherian local ring. A commutative formal Lie group of dimension n over Λ is Spf Λ⟦X_1, …, X_n⟧ with a group law given by an n-tuple of power series Φ(X, Y) ∈ Λ⟦X, Y⟧^n satisfying Φ(X, Φ(Y, Z)) = Φ(Φ(X, Y), Z), Φ(X, 0) = X = Φ(0, X) and Φ(X, Y) = Φ(Y, X); homomorphisms are n′-tuples of power series without constant term compatible with the laws. It is p-divisible if [p]^* : Λ⟦X⟧ → Λ⟦X⟧ makes Λ⟦X⟧ a free module of finite rank over itself; the rank is then p^h, h the height.
+
+Hypotheses: Λ complete noetherian local; p a prime (p-divisibility is nontrivial only when the residue characteristic is p).
+
+Proof or construction:
+
+1. Definition as displayed (Stix §10.2.2): connected and formally smooth with a unit section is equivalent to the coordinate ring being Λ⟦X_1, …, X_n⟧, and n is the rank of I/I² for the augmentation ideal I, so the dimension is well defined.
+2. The inverse exists automatically: the left inverse λ(X) is built degree by degree, λ_{m+1} = λ_m − Φ(λ_m(X), X) modulo degree m + 2 (Stix §10.2.2), and it equals the right inverse.
+3. [p]^* is finite flat of degree p^h; its kernel is a connected finite flat group because it is represented by a quotient of Λ⟦X⟧ (Stix §10.3).
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/serre-tate-connected-p-divisible: The formal side of the equivalence.
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-dimension: The dimension of a p-divisible group is that of the formal Lie group of its connected part.
+- FaltingsFinitenessAndIsogenyTheorems:R28.2/inertia-triviality-on-the-quotient-by-the-l-divisible-group-of-the-formal-completion: The formal group Â and its l-divisible part (requested from R07.1).
+
+The API supplies:
+
+- TauCeti.FiniteFlat.FormalLieGroup (structure): structure FormalLieGroup (Λ) (n : ℕ) : law : Fin n → MvPowerSeries (Fin n ⊕ Fin n) Λ with associativity, unit and commutativity axioms.
+- TauCeti.FiniteFlat.FormalLieGroup.dim (projection): The dimension n.
+- TauCeti.FiniteFlat.FormalLieGroup.inv (constructor): The formal inverse, with Φ(X, inv X) = 0.
+- TauCeti.FiniteFlat.FormalLieGroup.mulP (constructor): [p] : the p-fold sum, an endomorphism.
+- TauCeti.FiniteFlat.FormalLieGroup.IsPDivisible (characterisation): [p]^* makes Λ⟦X⟧ free of finite rank over itself.
+- TauCeti.FiniteFlat.FormalLieGroup.height (projection): log_p of the rank of [p]^*, for a p-divisible formal Lie group.
+
+Discriminating tests:
+
+- TauCeti.FiniteFlat.FormalLieGroup.dim_multiplicative (value): Ĝ_m = (X + Y + XY) has dimension 1, and height 1 over ℤ_p.
+- TauCeti.FiniteFlat.FormalLieGroup.not_isPDivisible_additive (non-example): Over 𝔽_p, Ĝ_a (X + Y) is not p-divisible: [p] = 0 is not finite.
+- TauCeti.FiniteFlat.FormalLieGroup.dim_zero (degenerate): The zero-dimensional formal Lie group is Spf Λ, of height 0.
+- TauCeti.FiniteFlat.FormalLieGroup.height_elliptic (compatibility): For E over W(𝔽̄_p), Ê has dimension 1 and height 1 (ordinary) or 2 (supersingular) (ModularCurves 7E PD-5).
+
+Acceptance:
+
+- Ĝ_m (Φ = X + Y + XY) has dimension 1 and, over a base of residue characteristic p, height 1; the formal group Ê of an elliptic curve has dimension 1 and height 1 (ordinary) or 2 (supersingular).
+
+Library: `MvPowerSeries`, `IsAdicComplete`, `IsNoetherianRing`, `IsLocalRing`.
+
+Source: Stix12-notes, §10.2.2, p. 59; Stix12-notes, §10.3, p. 60.
+
+#### Connected p-divisible groups are p-divisible formal Lie groups
+
+Declaration: TauCeti.FiniteFlat.PDivisibleGroup.equivFormalLieGroup (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/serre-tate-connected-p-divisible.
+
+Let Λ be a complete noetherian local ring with residue field of characteristic p > 0. The functor 𝒢 ↦ 𝒢[p^∞] = (ker [p^v])_v is an equivalence between p-divisible commutative formal Lie groups over Λ and connected p-divisible groups over Λ, preserving height. Its inverse sends G = (Spec A_v) to Spf(lim A_v), whose coordinate ring is Λ⟦X_1, …, X_n⟧.
+
+Hypotheses: Λ complete noetherian local with residue characteristic p.
+
+Proof or construction:
+
+1. For 𝒢 = Spf Λ⟦X⟧ p-divisible of height h: [p]^v is finite flat of degree p^{hv}, so 𝒢[p^v] is connected finite flat of order p^{hv} and 0 → 𝒢[p^v] → 𝒢[p^{v+1}] → 𝒢[p^{v+1}] is exact.
+2. Fully faithful: [p](I) ⊆ pI + I² ⊆ MI, so [p]^v(I) → 0 M-adically and Λ⟦X⟧ = lim A_v; hence Hom(𝒢, 𝒢′) = lim Hom(A′_v, A_v) = Hom(𝒢[p^∞], 𝒢′[p^∞]) (Tate Proposition 1, Stix Theorem 70).
+3. Essentially surjective: for connected G, A = lim A_v is Λ-flat and its reduction modulo m is lim of the Frobenius kernels H_v = ker F^v; the augmentation ideals satisfy I_v/I_v² ≅ I_1/I_1², so k⟦X_1, …, X_n⟧ → A/mA is surjective, and a count of orders (#H_v = p^{nv}, from the structure of Frobenius height one, Stix Proposition 48) makes it bijective; lift to Λ by Nakayama and flatness.
+
+Acceptance:
+
+- μ_{p^∞} ↔ Ĝ_m: lim Λ[T]/(T^{p^n} − 1) = Λ⟦X⟧ with T = 1 + X.
+- For E over W(𝔽̄_p), E[p^∞]^0 ↔ Ê, of height 1 (ordinary) or 2 (supersingular).
+
+Planned prerequisites: R07.1/formal-lie-group.
+
+Library: `TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat`.
+
+Source: Tate67, (2.2), Proposition 1, p. 162; Stix12-notes, §10.3.1, Theorem 70, pp. 60–62.
+
+#### The dimension of a p-divisible group
+
+Declaration: TauCeti.FiniteFlat.PDivisibleGroup.dim (definition). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-dimension.
+
+Let Λ be a complete noetherian local ring with residue field of characteristic p and G a p-divisible group over Λ. The dimension dim G is the dimension of the p-divisible formal Lie group attached to the connected part G^0 (R07.1/serre-tate-connected-p-divisible). It is unchanged by reduction modulo the maximal ideal, and the tangent space t_G of G is that of this formal Lie group.
+
+Hypotheses: Λ complete noetherian local with residue characteristic p, so that G^0 exists (R07.1/p-divisible-connected-etale) and has a formal Lie group.
+
+Proof or construction:
+
+1. Definition as displayed (Tate (2.2)).
+2. Over a field k of characteristic p, dim G = n where ker(F : G^0 → G^{0(p)}) has order p^n (Tate, proof of Proposition 3; Stix Proposition 48), which shows invariance under reduction.
+3. t_G(Λ) = Hom(I/I², Λ) for the augmentation ideal I of Λ⟦X_1, …, X_n⟧; it is free of rank n.
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/dimension-plus-dual-dimension: dim G + dim G^D = h.
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-discriminant: The discriminant exponent n v p^{hv}.
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/hodge-tate-p-divisible: The multiplicity of the Hodge–Tate weight 1.
+- FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower: The height and dimension of the connected part (requested from R07.1).
+
+The API supplies:
+
+- TauCeti.FiniteFlat.PDivisibleGroup.dim (constructor): dim G : ℕ, the dimension of the formal Lie group of G⁰.
+- TauCeti.FiniteFlat.PDivisibleGroup.tangentSpace (constructor): t_G, a free Λ-module of rank dim G.
+- TauCeti.FiniteFlat.PDivisibleGroup.dim_baseChange (compatibility): The dimension is unchanged by local base change, in particular by reduction to the residue field.
+- TauCeti.FiniteFlat.PDivisibleGroup.dim_le_height (other): dim G ≤ height of G⁰ ≤ h.
+
+Discriminating tests:
+
+- TauCeti.FiniteFlat.PDivisibleGroup.dim_muPInfty (value): dim μ_{p^∞} = 1.
+- TauCeti.FiniteFlat.PDivisibleGroup.dim_constQpZp (value): dim ℚ_p/ℤ_p = 0.
+- TauCeti.FiniteFlat.PDivisibleGroup.dim_supersingular (non-example): For supersingular E over W(𝔽̄_p), E[p^∞] is connected of height 2 but has dimension 1: the dimension is not the height of the connected part.
+- TauCeti.FiniteFlat.PDivisibleGroup.dim_height_zero (degenerate): A height-zero p-divisible group has dimension 0.
+
+Acceptance:
+
+- dim μ_{p^∞} = 1, dim ℚ_p/ℤ_p = 0, dim A[p^∞] = dim A for an abelian scheme A.
+
+Planned prerequisites: R07.1/serre-tate-connected-p-divisible, R07.1/p-divisible-connected-etale, R07.1/formal-lie-group.
+
+Source: Tate67, (2.2), before Proposition 2, p. 164.
+
+#### dim G + dim G^D = height
+
+Declaration: TauCeti.FiniteFlat.PDivisibleGroup.dim_add_dim_cartierDual (lemma). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/dimension-plus-dual-dimension.
+
+For a p-divisible group G of height h over a complete noetherian local ring with residue characteristic p, dim G + dim G^D = h.
+
+Hypotheses: As in R07.1/p-divisible-dimension.
+
+Proof or construction:
+
+1. Both dimensions and the height are unchanged by reduction to the residue field k, so assume Λ = k of characteristic p.
+2. From V ∘ F = p on G_1 = ker p (Frobenius and Verschiebung, ModularCurves 7E PD-3 in the elliptic case; Stix §8.5 in general) one gets 0 → ker F → ker p → ker V → 0; ker p has order p^h and ker F has order p^n (F is injective on G^{ét}, and on G⁰ its kernel has order p^n).
+3. V is dual to F on G^D, so ker V has order p^{n′}; hence h = n + n′.
+
+Acceptance:
+
+- μ_{p^∞}: 1 + 0 = 1; supersingular E[p^∞]: 1 + 1 = 2.
+
+Planned prerequisites: R07.1/p-divisible-dimension, R07.1/p-divisible-cartier-dual.
+
+Source: Tate67, (2.3), Proposition 3, pp. 166–167.
+
+#### The discriminant of the levels of a p-divisible group
+
+Declaration: TauCeti.FiniteFlat.PDivisibleGroup.discr_level (lemma). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-discriminant.
+
+Let R be a complete noetherian local ring with residue characteristic p, and G = (Spec A_v) a p-divisible group of height h and dimension n over R. The discriminant ideal of the finite free R-algebra A_v is generated by p^{n v p^{hv}}. For an exact sequence 0 → H′ → H → H″ → 0 of finite groups of orders m′, m, m″, disc(H) = disc(H′)^{m″} · disc(H″)^{m′}.
+
+Hypotheses: R complete noetherian local with residue characteristic p; G of height h and dimension n.
+
+Proof or construction:
+
+1. Transitivity of discriminants gives the formula for extensions (Tate (2.2)); so reduce to the connected and étale parts, the étale part contributing a unit.
+2. For connected G with formal Lie group Spf 𝒜, 𝒜 = R⟦X_1, …, X_n⟧ is free of rank p^{hv} over itself via [p^v]; the discriminant of 𝒜 over 𝒜′ = [p^v]^*(𝒜) is generated by the norm of the Jacobian determinant a of [p^v], which is p^{nv} on invariant differentials (Tate Lemma 1, via the trace map).
+3. Base change 𝒜′ → R along the augmentation gives disc(A_v) = (N(a)) = (p^{n v p^{hv}}).
+
+Acceptance:
+
+- μ_{p^v}: A_v = R[T]/(T^{p^v} − 1) has discriminant ±p^{v p^v} (n = h = 1).
+- For étale G (n = 0) the discriminant is the unit ideal.
+
+Planned prerequisites: R07.1/p-divisible-dimension, R07.1/serre-tate-connected-p-divisible.
+
+Library: `Algebra.discr`.
+
+Source: Tate67, (2.2), Proposition 2 and Lemma 1, pp. 164–165.
+
+#### Tate's Hodge–Tate decomposition for p-divisible groups
+
+Declaration: TauCeti.FiniteFlat.PDivisibleGroup.hodgeTate (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/hodge-tate-p-divisible. Planet: Hodge–Tate decomposition for p-divisible groups.
+
+Let R be a complete discrete valuation ring with perfect residue field of characteristic p and fraction field K of characteristic 0, C the completion of an algebraic closure of K, and G a p-divisible group over R with Cartier dual G^D. (i) (Tate Theorem 3) The maps G(R) → Hom_{G_K}(T_p(G^D), 𝔘) and t_G(K) → Hom_{G_K}(T_p(G^D), C), where 𝔘 is the group of principal units of the ring of integers of C and α is induced by the Cartier pairing, are bijective. (ii) There is a unique G_K-equivariant decomposition T_p(G) ⊗_{ℤ_p} C ≅ (t_{G^D}(K)^∨ ⊗_K C) ⊕ (t_G(K) ⊗_K C(1)); so V_p(G) is Hodge–Tate with weights 0 and 1, of multiplicities dim G^D and dim G. (iii) T_p(G) determines dim G.
+
+Hypotheses: R complete DVR, perfect residue field of characteristic p, char K = 0.
+
+Proof or construction:
+
+1. Tate–Sen (requested from PadicHodgeTheory R06.1): H^0(G_K, C) = K, H^0(G_K, C(j)) = 0 and H^1(G_K, C(j)) = 0 for j ≠ 0 (Tate Theorems 1–2; Stix Theorem 88).
+2. The logarithm of the formal group gives 0 → Φ_p(G) → G(𝒪_C) → t_G(C) → 0, and the Cartier pairing gives α : G(𝒪_C) → Hom(T_p(G^D), 𝔘) with differential dα (Stix §11.3–11.5).
+3. Injectivity of α_R and dα_R: reduce to G connected or étale by exactness of G ↦ G(R) on the connected–étale sequence; G(R) contains no K-vector space (Stix Theorem 91, Steps 1–4).
+4. Surjectivity by dimensions: d = dim_K W^{G_K}, d′ = dim_K W′^{G_K} for W = Hom(T_p G, C), W′ = Hom(T_p G^D, C); the invariants pair into H^0(G_K, C(−1)) = 0, so d + d′ ≤ h = n + n′ (R07.1/dimension-plus-dual-dimension), forcing equality.
+5. (ii) The exact sequence 0 → t_G(C)(1) → T_p(G) ⊗ C → t_{G^D}(C)^∨ → 0 splits uniquely since H^1(G_K, C(1)) = 0 = H^0(G_K, C(1)) (Stix Corollaries 92–93); (iii) follows from (ii).
+
+Acceptance:
+
+- For μ_{p^∞}: T_p ⊗ C = C(1), weight 1 of multiplicity 1 = dim μ_{p^∞}; for ℚ_p/ℤ_p: weight 0.
+- det V_p(G) ⊗ C ≅ C(dim G) (Stix Corollary 94).
+
+Planned prerequisites: R07.1/p-divisible-tate-module, R07.1/p-divisible-dimension, R07.1/dimension-plus-dual-dimension, R07.1/p-divisible-cartier-dual, R07.1/serre-tate-connected-p-divisible.
+
+Source: Tate67, (4.1), Theorem 3 and its Corollary 1, pp. 179–180; Stix12-notes, §11.7, Theorem 91 and Corollaries 92–93, pp. 73–75.
+
+#### Closures of generic p-divisible subgroups become p-divisible after a shift
+
+Declaration: TauCeti.FiniteFlat.PDivisibleGroup.exists_of_tateModule_summand (lemma). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/closure-of-generic-p-divisible-subgroups.
+
+Let R be a complete DVR of mixed characteristic (0, p) with perfect residue field, F a p-divisible group over R, and M ⊆ T_p(F) a G_K-stable ℤ_p-direct summand. Let E_* ⊆ F_K be the corresponding p-divisible subgroup of the generic fibre and E_v the schematic closure of E_{*v} in F_v. Then the E_v need not form a p-divisible group, but for some i_0 the system Γ_v = E_{i_0+v}/E_{i_0} is a p-divisible group over R, with a homomorphism φ : Γ → F inducing T_p(Γ) ≅ M. The map φ need not be a closed immersion.
+
+Hypotheses: R complete DVR, mixed characteristic, perfect residue field (Tate's §4 setting).
+
+Proof or construction:
+
+1. The closures E_v ⊆ F_v are closed flat subgroups (R07.1/schematic-closure-of-generic-subgroups) with E_v ⊆ E_{v+1}; generically E_* is p-divisible, so p induces maps E_{i+v+1}/E_{i+1} → E_{i+v}/E_i that are isomorphisms on the generic fibre.
+2. The affine algebras D_i of E_{i+1}/E_i form an increasing sequence of R-orders in one finite separable K-algebra, so they stabilise: D_i = D_{i+1} for i ≥ i_0.
+3. With Γ_v = E_{i_0+v}/E_{i_0}, multiplication by p^v on Γ_{v+1} factors through an isomorphism, so its kernel is Γ_v: Γ is p-divisible, and p^{i_0} gives Γ → E ⊆ F inducing T_p(Γ) ≅ M (Tate, proof of Proposition 12).
+4. Serre's example: for an elliptic curve over R with ordinary reduction and rational p-torsion, the map φ is not injective over R.
+
+The required uses are:
+
+- FaltingsFinitenessAndIsogenyTheorems:R28.3/closure-tower-becomes-l-divisible-only-after-a-shift: The closures of a generic l-divisible subgroup form an l-divisible group after a shift (requested from R07.1).
+- FaltingsFinitenessAndIsogenyTheorems:R28.3/intersection-with-the-toric-l-divisible-group-after-a-shift: The same shift for intersections.
+
+Acceptance:
+
+- M = T_p(F) gives Γ = F (i_0 = 0).
+- This is the 'closure after a shift' used in Faltings's erratum (FaltingsFinitenessAndIsogenyTheorems R28.3).
+
+Planned prerequisites: R07.1/schematic-closure-of-generic-subgroups, R07.1/p-divisible-tate-module, R07.1/p-divisible-level-exactness.
+
+Source: Tate67, (4.2), Proposition 12, p. 181; Tate67, (4.2), proof of Proposition 12, p. 182.
+
+#### Tate's theorem: p-divisible groups are determined by their generic fibres
+
+Declaration: TauCeti.FiniteFlat.PDivisibleGroup.extend_genericFibre (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/tate-generic-fibre-theorem. Planet: Tate's theorem on p-divisible groups.
+
+Let R be an integrally closed noetherian domain whose fraction field K has characteristic 0, and G, H p-divisible groups over R. (i) Every homomorphism G_K → H_K of generic fibres extends uniquely to a homomorphism G → H. (ii) If R is a complete DVR with perfect residue field, Hom(G, H) → Hom_{G_K}(T_p G, T_p H) is bijective. (iii) A homomorphism G → H that is an isomorphism on generic fibres is an isomorphism.
+
+Hypotheses: R integrally closed noetherian domain, char K = 0; for (ii) R a complete DVR with perfect residue field.
+
+Proof or construction:
+
+1. Reduction: R = ⋂ R_𝔭 over height-one primes and each R_𝔭 is a DVR, so it suffices to treat DVRs; pass to a complete DVR R′ with algebraically closed residue field and R = R′ ∩ K. If the residue characteristic is not p, G is étale and the statement is Galois theory.
+2. (iii) first: u_v : B_v → A_v is injective (B_v free, u_v ⊗ K bijective). The discriminants of A_v and B_v are p^{n v p^{hv}} (R07.1/p-divisible-discriminant); the height is read off the generic fibre and the dimension from T_p (R07.1/hodge-tate-p-divisible (iii)), so the discriminants agree and u_v is bijective.
+3. (i) Given f : G_K → H_K, apply R07.1/closure-of-generic-p-divisible-subgroups to F = G × H and M the graph of T_p(f): the resulting Γ → G × H composed with pr_1 is an isomorphism on generic fibres, hence an isomorphism by (iii); then pr_2 ∘ φ ∘ (pr_1 ∘ φ)^{−1} extends f. Uniqueness: A_v ⊆ A_v ⊗ K.
+4. (ii) is (i) together with the equivalence between p-divisible groups over K and G_K-lattices (R07.1/etale-groups-as-galois-modules over K).
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-extension-of-generic-p-divisible: Uniqueness of the extension.
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4: Full faithfulness of G ↦ T_p(G) underlies the Breuil–Kisin classification.
+- AbelianSchemesAndArithmeticModuli:A3: p-divisible groups of abelian schemes are determined by their generic fibres (RS-02 link from R07.1).
+
+Acceptance:
+
+- Hom(ℚ_p/ℤ_p, μ_{p^∞}) = 0 over ℤ_p although both have T_p ≅ ℤ_p as modules: the Galois actions differ.
+- Contrast with finite flat groups: at e = p − 1 (for instance ℤ_2) the generic fibre does not determine the finite flat model (R07.1/raynaud-boundary-case); p-divisibility removes the ambiguity for every e.
+
+Planned prerequisites: R07.1/p-divisible-discriminant, R07.1/hodge-tate-p-divisible, R07.1/closure-of-generic-p-divisible-subgroups, R07.1/p-divisible-tate-module.
+
+Library: `IsIntegrallyClosed`, `IsNoetherianRing`.
+
+Source: Tate67, (4.2), Theorem 4, p. 180; Tate67, (4.2), Corollaries 1 and 2 of Theorem 4, p. 181.
 
 ### Closures and finite flat models
 
@@ -375,6 +632,59 @@ Library: `HenselianLocalRing`.
 
 Source: Raynaud74, §3.3, Proposition 3.3.2 3°, p. 267; Raynaud74, §3.3, Remarque 3.3.5, p. 268.
 
+#### A generic p-divisible group whose levels extend has a p-divisible extension
+
+Declaration: TauCeti.FiniteFlat.PDivisibleGroup.exists_extension_of_levels (lemma). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-extension-of-generic-p-divisible.
+
+Let R be a DVR of mixed characteristic (0, p) and G = (G_n) a p-divisible group over K. If every G_n extends to a finite flat R-group scheme, then G extends to a p-divisible group over R, unique up to isomorphism.
+
+Hypotheses: R a DVR of mixed characteristic; no bound on the ramification.
+
+Proof or construction:
+
+1. Uniqueness is Tate's theorem (R07.1/tate-generic-fibre-theorem).
+2. (a) Choose prolongations 𝒢(n) and modify them inductively so that each inclusion G_n → G_{n+1} extends to 𝒢(n) → 𝒢(n+1): dualise, take the closure of the graph of the dual epimorphism in 𝒢(n+1)′ × 𝒢(n)′, and dualise back (R07.1/schematic-closure-of-generic-subgroups).
+3. (b) Close up the filtration G_i ⊆ G_n: the successive quotients 𝒢(n)_i/𝒢(n)_{i−1} are prolongations of G_1, decreasing in n for fixed i and increasing in i for fixed n (via p).
+4. (c) By Corollary 2.2.3 (maximal and minimal prolongations, R07.1/finite-flat-prolongations) both sequences stabilise; after dividing by the stable part one may take i_0 = 1, and then the stable values of 𝒢(n) form a p-divisible group extending G (Raynaud Proposition 2.3.1).
+
+Acceptance:
+
+- For G = μ_{p^∞} over K = ℚ_p the extension is μ_{p^∞}; its levels have the unique models μ_{p^n} over ℤ_p when p is odd.
+- Over ℤ_2 the level G_1 = μ₂ has two models, but the p-divisible extension is still unique.
+
+Planned prerequisites: R07.1/finite-flat-prolongations, R07.1/schematic-closure-of-generic-subgroups, R07.1/tate-generic-fibre-theorem.
+
+Library: `IsDiscreteValuationRing`.
+
+Source: Raynaud74, §2.3, Proposition 2.3.1, p. 261.
+
+#### The finite part of a quasi-finite group scheme over a henselian base
+
+Declaration: TauCeti.FiniteFlat.finitePart (lemma). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/finite-part-of-quasi-finite-group.
+
+Let R be a henselian local ring and 𝒢 → Spec R a separated, quasi-finite, flat, finitely presented commutative group scheme. Then 𝒢 = 𝒢^f ⊔ 𝒢′ with 𝒢^f open and closed, finite over R and containing the unit section, and 𝒢′ with empty special fibre. 𝒢^f is a finite flat closed subgroup scheme. If R is a henselian DVR with fraction field K, then 𝒢^f(K̄) is the set of points of 𝒢(K̄) that extend to 𝒪_L-points for some finite extension L/K inside K̄.
+
+Hypotheses: R henselian local; 𝒢 separated, quasi-finite, flat and of finite presentation.
+
+Proof or construction:
+
+1. The special fibre is finite, so its points are isolated; by Stacks Lemma 37.41.5 there is an étale neighbourhood over which 𝒢 splits into finite pieces through these points and a part W with no points over the closed point. Since R is henselian the étale neighbourhood may be taken to be Spec R itself (Stacks Lemma 10.153.3; in the affine case this is condition (13): a quasi-finite R-algebra is A × B with A finite and B ⊗ κ = 0).
+2. 𝒢^f is finite and flat (open in 𝒢). It is a subgroup: 𝒢^f ×_R 𝒢^f is finite over R, and over a henselian base each connected component of a finite R-scheme meets the special fibre (condition (10)), so its image under multiplication lies in 𝒢^f, which is open and closed. The same argument applies to the inverse and the unit section.
+3. Points: an 𝒪_L-point with L/K finite has 𝒪_L local and finite over R, so it lands in 𝒢^f; conversely 𝒢^f is finite, hence proper, and the valuative criterion extends K̄-points of 𝒢^f.
+
+The required uses are:
+
+- FaltingsFinitenessAndIsogenyTheorems:R28.2/local-differential-computation-for-the-l-divisible-tower: The finite part of the quasi-finite group of a semiabelian scheme (requested from R07.1).
+
+Acceptance:
+
+- For a quasi-finite flat group whose generic fibre is ℤ/pℤ but whose special fibre is trivial (the open complement of the nonzero sections of ℤ/pℤ over the closed point), 𝒢^f is the unit section.
+- For finite 𝒢, 𝒢^f = 𝒢.
+
+Library: `HenselianLocalRing`, `Algebra.QuasiFinite`.
+
+Source: Stacks, Tag 02LO, Lemma 37.41.5; Stacks, Tag 04GG, Lemma 10.153.3 (13).
+
 ### F-vector schemes and tame inertia
 
 #### F-vector schemes of rank one (Raynaud)
@@ -422,7 +732,7 @@ Source: Raynaud74, §1.2, condition (**) and Proposition 1.2.2, pp. 246–247.
 
 #### Raynaud's classification of F-vector schemes
 
-Declaration: TauCeti.FiniteFlat.FVectorScheme.classification (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-classification. Planet: Raynaud's classification.
+Declaration: TauCeti.FiniteFlat.FVectorScheme.classification (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-classification.
 
 Over a D-scheme S, isomorphism classes of F-vector schemes satisfying (**) correspond to isomorphism classes of systems (𝓛_i, c_i, d_i)_{i∈ℤ/r} of invertible O_S-modules with maps c_i : 𝓛_{i+1} → 𝓛_i^{⊗p} and d_i : 𝓛_i^{⊗p} → 𝓛_{i+1} such that d_i ∘ c_i = w·id. Over a local ring R this is the data of r pairs (γ_i, δ_i) ∈ R² with γ_i δ_i = w, the group having equations X_i^p = δ_i X_{i+1}, with (γ_i, δ_i) ~ (u_i^{−p} u_{i+1} γ_i, u_i^p u_{i+1}^{−1} δ_i) for units u_i. Over a strictly henselian DVR of mixed characteristic with absolute ramification e, the classes are in bijection with families (n_i) of integers with 0 ≤ n_i ≤ e, via n_i = v(δ_i).
 
@@ -542,21 +852,152 @@ Planned prerequisites: R07.1/oort-tate-classification, R07.1/simple-finite-flat-
 
 Source: OortTate70, §3, Theorem 3, p. 20; OortTate70, §3, Lemma 4, p. 17; OortTate70, Introduction, pp. 1–2.
 
+### Groups over rings of S-integers
+
+#### Finite étale group schemes over a connected base are π₁-modules
+
+Declaration: TauCeti.FiniteFlat.etaleGroupEquivContAction (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/etale-groups-as-galois-modules.
+
+Let S = Spec R be connected with a geometric point s̄. The fibre functor G ↦ G(s̄) is an equivalence between finite étale (commutative) group schemes over S and finite (abelian) groups with a continuous action of π₁(S, s̄); constant groups correspond to trivial actions, and every finite étale group is constant over some finite étale cover. The inverse sends ρ : π₁(S, s̄) → Aut(M) to the twisted form V(ρ)(T) = M(T ⊗_R R′)^Γ, for R → R′ finite Galois with group Γ through which ρ factors. For R = ℤ[1/N] and s̄ = Spec ℚ̄, π₁ = Gal(ℚ_S/ℚ) for S the primes dividing N together with ∞, so finite étale commutative group schemes over ℤ[1/N] are the finite G_ℚ-modules unramified outside N∞. A finite flat group scheme whose order is invertible on S is étale.
+
+Hypotheses: S connected (for ℤ[1/N]: Spec ℤ[1/N] is connected and normal).
+
+Proof or construction:
+
+1. SGA 1, Exposé V (requested from InverseGaloisAndArithmeticFundamentalGroups IG.0): finite étale S-schemes form a Galois category with fibre functor F_{s̄}, and F_{s̄} is an equivalence onto finite continuous π₁(S, s̄)-sets (Mathlib's PreGaloisCategory.functorToContAction on CommAlgCat.FiniteEtale R).
+2. The equivalence preserves finite products, so group objects correspond to group objects: finite étale group schemes ↔ finite groups with continuous π₁-action (Stix Theorem 33).
+3. The inverse is the explicit twist of Stix 7.3.1, representable by fpqc descent (ModularCurves 0E); its fibre at s̄ is M with action ρ.
+4. For a normal connected S with generic point η, π₁(S, η̄) is the Galois group of the maximal extension of the function field unramified over S (SGA 1 V.8.2, requested from IG.0); for ℤ[1/N] this is Gal(ℚ_S/ℚ).
+5. Order invertible ⇒ étale: Stix Theorem 34 (Oort–Tate Lemma 5).
+
+The required uses are:
+
+- SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant: Request (e) to R07.1: étale group schemes over ℤ[1/N] as Galois modules.
+- SmallRamificationAndAbelianVarietyBaseCases:R25.4/constant-over-cyclotomic: Request (e) and the twisted constant schemes V(ρ) of (f).
+
+Acceptance:
+
+- The constant group ℤ/nℤ ↔ trivial action; μ_n over ℤ[1/n] ↔ (ℤ/n)(1), the cyclotomic character.
+- The twisted constant scheme V(ρ) of a representation ρ : G_ℚ → GL_2(𝔽_p) unramified outside l∞ is a finite étale group scheme over ℤ[1/l] (for p = l only over ℤ[1/l], as μ_p is not étale at p).
+
+Requested prerequisites: InverseGaloisAndArithmeticFundamentalGroups:IG.0.
+
+Library: `CommAlgCat.FiniteEtale`, `CategoryTheory.PreGaloisCategory.functorToContAction`, `TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat`.
+
+Source: Stix12-notes, §7.3, Theorem 33, p. 35; Stix12-notes, §7.3.1, pp. 35–36; Stix12-notes, §7.4, Theorem 34, p. 37.
+
+#### Gluing finite flat group schemes from a completion and a localisation
+
+Declaration: TauCeti.FiniteFlat.gluingEquiv (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/gluing-equivalence.
+
+Let R be a noetherian ring, p ∈ R, R̂ the p-adic completion. The functor G ↦ (G ⊗ R̂, G ⊗ R[1/p], id) is an equivalence between finite flat R-group schemes and triples (G_1, G_2, θ) of a finite flat R̂-group scheme G_1, a finite flat R[1/p]-group scheme G_2 and an isomorphism θ : G_1 ⊗ R̂[1/p] ≅ G_2 ⊗ R̂[1/p]. For R = ℤ[1/N] and p ∤ N the triples are over ℤ_p, ℤ[1/pN] and ℚ_p.
+
+Hypotheses: R noetherian; p ∈ R arbitrary.
+
+Proof or construction:
+
+1. R noetherian, so R → R̂ is flat and (R, p) is a glueing pair (Stacks Remark 15.92.8); every R-module is glueable, and Can : Mod_R → Glue(R → R̂, p) is an equivalence (Stacks Theorem 15.92.16).
+2. A module is finite projective iff both of its pieces are (Stacks Lemma 15.92.19), so the equivalence restricts to finite locally free modules.
+3. Can is compatible with tensor products, so it carries commutative algebras, Hopf-algebra structures and their morphisms along: finite flat group schemes over R ↔ triples (Schoof Proposition 2.3, which cites Artin's module version).
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/mayer-vietoris-hom-ext: The Mayer–Vietoris sequence is its derived form.
+- SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-criterion: Requests (c) and (g) to R07.1: the gluing over ℤ[1/N] and ℤ[1/l].
+
+Acceptance:
+
+- For R = ℤ[1/l] and p ≠ l: a finite flat p-group scheme over ℤ[1/l] is a G_ℚ-module unramified outside pl∞ together with a finite flat model over ℤ_p of its restriction to G_{ℚ_p}.
+- With p a unit in R, R̂ = 0 and the triples are just R-groups.
+
+Library: `TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat`, `IsNoetherianRing`, `IsAdicComplete`, `Localization.Away`.
+
+Source: Schoof03, §2, Proposition 2.3, p. 419; Stacks, Tag 0BNI, Theorem 15.92.16 and Lemma 15.92.19.
+
+#### The Mayer–Vietoris sequence for Hom and Ext¹ of finite flat groups
+
+Declaration: TauCeti.FiniteFlat.mayerVietoris_exact (theorem). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/mayer-vietoris-hom-ext.
+
+For R noetherian, p ∈ R and finite flat R-group schemes G, H there is a natural exact sequence 0 → Hom_R(G, H) → Hom_{R̂}(G, H) × Hom_{R[1/p]}(G, H) → Hom_{R̂[1/p]}(G, H) →^δ Ext¹_R(G, H) → Ext¹_{R̂}(G, H) × Ext¹_{R[1/p]}(G, H) → Ext¹_{R̂[1/p]}(G, H), where Ext¹ is the group of extensions 0 → H → X → G → 0 of finite flat group schemes and δ(φ) is the extension glued from the trivial extensions H × G over R̂ and R[1/p] along θ(h, g) = (h + φ(g), g).
+
+Hypotheses: As in R07.1/gluing-equivalence.
+
+Proof or construction:
+
+1. Injectivity of the first map: R̂ × R[1/p] is faithfully flat over R.
+2. Exactness at the second group and the construction of δ: R07.1/gluing-equivalence applied to morphisms and to H × G.
+3. At the third group: δ(φ) is split iff φ = ψ − f with ψ over R̂ and f over R[1/p], by comparing isomorphisms with the trivial extension over each piece.
+4. At Ext¹_R: an extension trivial over both pieces is δ of the difference of the two trivialisations; at the fifth group: a compatible pair of extensions glues by R07.1/gluing-equivalence (Schoof, proof of Corollary 2.4).
+
+The required uses are:
+
+- SmallRamificationAndAbelianVarietyBaseCases:R25.4/ext-mu-p-by-z-mod-p-over-z-one-over-l: Request (c)/(g): the Hom–Ext¹ sequence over ℤ[1/l].
+- SmallRamificationAndAbelianVarietyBaseCases:R25.3/extensions-of-mu-two-by-z-mod-two-over-integers: The Hom–Ext¹ sequence over ℤ.
+
+Acceptance:
+
+- Over ℤ with G = μ_p, H = ℤ/pℤ (R = ℤ, p): the sequence computes Ext¹_ℤ(μ_p, ℤ/pℤ) from Galois cohomology over ℤ[1/p] and the local extensions over ℤ_p (SmallRamification R25.3–R25.4).
+- Schoof's proof says 'extensions of H by G' in its last step where extensions of G by H are meant (source issue E1).
+
+Planned prerequisites: R07.1/gluing-equivalence.
+
+Source: Schoof03, §2, Corollary 2.4 and its proof, pp. 419–420.
+
+#### The Katz–Mazur group schemes T_ε
+
+Declaration: TauCeti.FiniteFlat.katzMazur (construction). Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/katz-mazur-groups.
+
+Let R be a ring, p a prime and ε ∈ R^×. The Katz–Mazur group scheme is T_ε = Spec ⊕_{i=0}^{p−1} R[X_i]/(X_i^p − ε^i), whose S-points (S with connected spectrum) are pairs (s, i), 0 ≤ i < p, s^p = ε^i, with (t, i)·(s, j) = (ts, i + j) if i + j < p and (ts/ε, i + j − p) otherwise. It is finite flat of order p², killed by p, and sits in 0 → μ_p → T_ε → ℤ/pℤ → 0. T_ε ≅ T_{ε′} when ε/ε′ ∈ (R^×)^p; over a field, the points of T_ε generate R(ζ_p, ε^{1/p}).
+
+Hypotheses: R any ring; ε a unit.
+
+Proof or construction:
+
+1. Construction: the algebra is free of rank p² over R; the displayed law is well defined because (ts)^p = ε^{i+j} and (ts/ε)^p = ε^{i+j−p}.
+2. The summand i = 0, R[X_0]/(X_0^p − 1), is μ_p, a closed flat subgroup; the quotient by it is ℤ/pℤ, the index i.
+3. Rescaling X_i by u^i identifies T_ε with T_{εu^p}; over a field the points are the p-th roots of ε^i, so they generate R(ζ_p, ε^{1/p}) (Katz–Mazur Interlude 8.7, as recalled by Schoof).
+4. Over ℤ[1/l] the extension class of T_ε is the Kummer class of ε, so T_ε ≅ T_{ε′} iff ε/ε′ is a p-th power of a unit (Schoof 2005 §2.4).
+
+The required uses are:
+
+- SmallRamificationAndAbelianVarietyBaseCases:R25.4/ext-mu-p-by-z-mod-p-over-z-one-over-l: Request (f) to R07.1: the Katz–Mazur extensions of ℤ/pℤ by μ_p over ℤ[1/l].
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-connected-etale: The nonsplit extensions of ℤ/pℤ by μ_p over ℤ_p in its acceptance.
+
+The API supplies:
+
+- TauCeti.FiniteFlat.katzMazur (constructor): katzMazur p ε : FLF R, for ε : Rˣ.
+- TauCeti.FiniteFlat.katzMazur_rank (other): rank (katzMazur p ε) = p ^ 2.
+- TauCeti.FiniteFlat.katzMazur_extension (other): The exact sequence 0 → μ_p → katzMazur p ε → ℤ/pℤ → 0.
+- TauCeti.FiniteFlat.katzMazurIsoOfDiv (equivalence): katzMazur p ε ≅ katzMazur p (ε * u ^ p).
+
+Discriminating tests:
+
+- TauCeti.FiniteFlat.katzMazur_one (degenerate): katzMazur p 1 ≅ μ_p × ℤ/pℤ.
+- TauCeti.FiniteFlat.katzMazur_neg_one_two (value): Over ℤ with p = 2, katzMazur 2 (−1) is nonsplit, and its points generate ℚ(i).
+- TauCeti.FiniteFlat.katzMazur_not_split (non-example): Over ℤ_p (p odd), katzMazur p (1 + p) is not isomorphic to μ_p × ℤ/pℤ, since 1 + p ∉ ℤ_p^{×p}.
+
+Acceptance:
+
+- ε = 1: T_1 ≅ μ_p × ℤ/pℤ (split).
+- R = ℤ, p = 2, ε = −1: T_{−1} is Mazur's nonsplit group of order 4, with points generating ℚ(i).
+- Over ℤ_p, T_ε is nonsplit for ε ∉ ℤ_p^{×p}, for instance ε = 1 + p with p odd.
+
+Library: `TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat`.
+
+Source: Schoof03, §2, p. 418; Schoof05, §2.4, p. 850.
+
 ## Requests
 
 - **tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality**: The general finite locally free commutative group-scheme category with constant and diagonalizable groups, kernels with base change, and Cartier duality with evaluation, biduality, rank and base change (RS-02: 'use the unchanged … carrier'); Tau Ceti already has the Hopf-algebra and affine-group-scheme Cartier duality. Needed by: R07.1/p-divisible-group, R07.1/p-divisible-cartier-dual, R07.1/f-vector-scheme.
 - **tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors**: The fppf quotient of a finite locally free group scheme by a closed finite locally free subgroup, representable and finite locally free, with the Lagrange rank formula. Needed by: R07.1/p-divisible-level-exactness, R07.1/schematic-closure-of-generic-subgroups.
 - **tauceti:TauCetiRoadmap/ModularCurves#0e-effective-descent-and-spreading-out**: Effective fpqc descent for finite locally free group schemes and their homomorphisms, used for base change of p-divisible groups and of F-vector schemes. Needed by: R07.1/p-divisible-group, R07.1/raynaud-classification.
 - **tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups**: PD-2: the finite-level connected–étale sequence over a henselian local ring, functorial and compatible with local base change, with the special-fibre splitting over a perfect residue field; and PD-1/PD-4/PD-5 for the elliptic tests (E[p^∞], supersingular connectedness). Needed by: R07.1/p-divisible-connected-etale, R07.1/p-divisible-group.
+- **PadicHodgeTheory:R06.1**: Tate–Sen: for K complete discretely valued of characteristic 0 with perfect residue field and C the completion of K̄, H^0(G_K, C) = K, H^0(G_K, C(j)) = 0 for j ≠ 0, H^1(G_K, C) one-dimensional and H^1(G_K, C(j)) = 0 for j ≠ 0 (Tate 1967 §3.3, Theorems 1–2), as part of the Galois properties of the period rings. Needed by: R07.1/hodge-tate-p-divisible.
+- **InverseGaloisAndArithmeticFundamentalGroups:IG.0**: SGA 1 Exposé V for a connected affine base Spec R: finite étale R-schemes form a Galois category whose geometric fibre functor induces an equivalence with finite continuous π₁-sets; and for normal connected S with generic point η, π₁(S, η̄) is the Galois group of the maximal extension of the function field unramified over S (so π₁(Spec ℤ[1/N]) = Gal(ℚ_S/ℚ)). Needed by: R07.1/etale-groups-as-galois-modules.
 
 ## Coverage
 
-- **R07.1** (partial):
-  - Tate's theorem (homomorphisms of p-divisible groups over a complete mixed-characteristic DVR are determined by their generic fibres) with its Hodge–Tate inputs, and Raynaud's Proposition 2.3.1 (a generic p-divisible group whose levels all extend has a unique p-divisible extension), which rests on it.
-  - SmallRamificationAndAbelianVarietyBaseCases request (c) and (g): the gluing equivalence between finite flat group schemes over ℤ[1/N] and triples over ℤ[1/pN], ℤ_p and ℚ_p, with its Hom–Ext¹ sequence (Schoof, Math. Ann. 325 (2003), Proposition 2.4); this checkpoint plans only the order-p case (Oort–Tate Lemma 4).
-  - SmallRamificationAndAbelianVarietyBaseCases request (e): étale group schemes over ℤ[1/N] as π₁(Spec ℤ[1/N])-modules, extending the field case of ModularCurves Layer 0D.
-  - SmallRamificationAndAbelianVarietyBaseCases request (f): the Katz–Mazur groups G_ε over ℤ[1/l] (Interlude 8.7) and the twisted constant schemes V(ρ).
-  - FaltingsFinitenessAndIsogenyTheorems request: the dimension of the connected part of an l-divisible group, and the finite part of a quasi-finite separated flat commutative group scheme over a henselian valuation ring.
+- **R07.1** (closed).
 - **R07.2** (not_read):
   - Dieudonné theory (RS-02 narrowing: the actual Dieudonné crystal of finite flat and p-divisible groups over perfect bases, and the consolidated Grothendieck–Messing equivalence).
 - **R07.3** (not_read):
@@ -568,12 +1009,17 @@ Source: OortTate70, §3, Theorem 3, p. 20; OortTate70, §3, Lemma 4, p. 17; Oort
 - **R07.6** (not_read):
   - Fontaine's ramification bound (Théorème A of Il n'y a pas de variété abélienne sur Z) with the convention translation, the local deformation calculations and the abelian-torsion comparison. Fontaine's paper is behind a login; Yoshida (arXiv:0905.1171) characterises the bound through Fontaine's property (P_m), and a public proof of the (P_m) step for finite flat group schemes is still to be found.
 
+## Source issues
+
+- **FiniteFlatGroupsAndIntegralPadicHodgeTheory/E1** (misprint, Schoof03, Proof of Corollary 2.4, last paragraph, p. 420). Printed: "Finally, suppose that X and X′ are extensions of H by G over the rings R̂ and R[1/p] respectively. … Then the R-group scheme that corresponds via Prop.2.3 to the triple (X, X′, θ) is an extension of H by G over R" Correction: extensions of G by H (0 → H → X → G → 0), in both places. The step proves exactness at Ext¹_R̂(G, H) × Ext¹_{R[1/p]}(G, H), whose elements are extensions of G by H, the convention used earlier in the same proof ('let X be an extension of G by H over R') and in the definition of δ. Extensions of H by G would lie in Ext¹(H, G). Affects: nothing. Known: new.
+
 ## Sources
 
 - **Raynaud74**: Michel Raynaud, *Schémas en groupes de type (p, …, p)*, Bull. Soc. Math. France 102 (1974), 241–280, Numdam copy (journal page = PDF page + 239); accessed 2026-09-28. <https://www.numdam.org/item/BSMF_1974__102__241_0/>, sha256 `05cad2f5c2c33a2eea5739d255a8bb7de724e48e38dadb30507adc5e84f2edfe`.
   - Read: §1.2–1.5 (pp. 246–259): F-vector schemes, condition (**), Theorem 1.4.1, Corollaries 1.5.1–1.5.2 and Remarks 1.5.3–1.5.4.
   - Read: §2 (pp. 259–263): schematic closure, the order on prolongations (Proposition 2.2.2, Corollary 2.2.3) and Proposition 2.3.1.
   - Read: §3 (pp. 264–271): Proposition 3.2.1, §3.3 (Propositions 3.3.1–3.3.2, Theorem 3.3.3, Remarks 3.3.4–3.3.5, Corollaries 3.3.6–3.3.7) and §3.4 (Theorems 3.4.1, 3.4.3, Corollary 3.4.4, Remarks 3.4.2, 3.4.5–3.4.7 and the example).
+  - Read: §2.3 (pp. 261–263): Proposition 2.3.1 and its proof.
 - **OortTate70**: Frans Oort and John Tate, *Group schemes of prime order*, Ann. Sci. École Norm. Sup. (4) 3 (1970), 1–21, Numdam copy; accessed 2026-09-28. <https://www.numdam.org/item/ASENS_1970_4_3_1_1_0/>, sha256 `064cec666ea2082bc23ec5748b7b6db2fe01feb7f83f8afd04736e78bc44fa5a`.
   - Read: §§1–3 (pp. 1–15): the ring Λ, the constants w_p, Theorem 2 and its proof, and the remarks after it.
 - **Stix12-notes**: Jakob Stix, *A course on finite flat group schemes and p-divisible groups*, Course notes, Heidelberg 2009, revised 18 September 2012, author-hosted PDF (76 pp.); accessed 2026-09-28. <https://www.math.uni-frankfurt.de/~stix/skripte/STIXfinflatGrpschemes20120918.pdf>, sha256 `6a618eb8c6d9ab59e91b2b3edf2a63e7a637fbabf547c0ba7ad0849e39bae489`.
@@ -581,3 +1027,19 @@ Source: OortTate70, §3, Theorem 3, p. 20; OortTate70, §3, Lemma 4, p. 17; Oort
   - Read: §8.4 (pp. 50–53): Theorem 60 (Oort–Tate).
   - Read: §9 (pp. 54–56): the definition of p-divisible groups, Lemma 61, Proposition 62, Corollary 64, examples 9.2(1)–(6), Cartier duality 9.3 and Example 65.
   - Read: §11.3 (p. 70): Corollary 85.
+  - Read: §7.2–7.4 (pp. 35–37): Theorems 32–34 and the construction 7.3.1 of the étale group attached to a π₁-action.
+  - Read: §10.2–10.3 (pp. 57–62): formal groups, formal Lie groups and their dimension, p-divisible formal Lie groups, Theorem 70 (Serre–Tate) with proof.
+  - Read: §11.4–11.7 (pp. 71–75): Theorem 88 (Tate–Sen), Theorem 91 (Tate), Corollaries 92–94.
+- **Tate67**: John T. Tate, *p-Divisible groups*, Proceedings of a Conference on Local Fields (Driebergen, 1966), Springer, 1967, pp. 158–183; scanned copy on a Purdue course page (13 two-page PDF sheets); accessed 2026-09-28. <https://www.math.purdue.edu/~tongliu/teaching/598/p-divisible.pdf>, sha256 `720bf7128d4f048853435b083d18d0d863056c1f991942192a7f00daa7e424aa`.
+  - Read: §2 (pp. 160–167): p-divisible groups, Proposition 1 (connected p-divisible groups and divisible formal Lie groups), the dimension, Proposition 2 (discriminants) and Proposition 3 (n + n′ = h).
+  - Read: §3.3 (pp. 176–177): Theorems 1 and 2 on the Galois cohomology of C.
+  - Read: §4 (pp. 177–183): Theorem 3 and its corollaries, Theorem 4 and its Corollaries 1–2, Proposition 12 with its proof and Serre's example.
+- **Schoof03**: René Schoof, *Abelian varieties over cyclotomic fields with good reduction everywhere*, Math. Ann. 325 (2003), 413–448, author copy; errata note erratacyc.txt checked; accessed 2026-09-28. <https://www.mat.uniroma2.it/~schoof/abcyc.pdf>, sha256 `e71bf55c305549030022417edb049afb67b83af70fcb93292019f47ce7a02ecc`.
+  - Read: §2 (pp. 417–420): the Katz–Mazur group schemes T_ε, Proposition 2.3 (gluing) and Corollary 2.4 (the Mayer–Vietoris sequence) with proofs.
+  - Read: The author's errata note erratacyc.txt (pages 426–446; nothing in §2).
+- **Schoof05**: René Schoof, *Abelian varieties over Q with bad reduction in one prime only*, Compositio Math. 141 (2005), 847–868, author copy; accessed 2026-09-28. <https://www.mat.uniroma2.it/~schoof/abvar1prime.pdf>, sha256 `0c44f6abd763759aaf0046e14dc054229293f440dca949e141e6adbfd3624691`.
+  - Read: §2.4 (p. 850): the Katz–Mazur group schemes G_ε over ℤ[1/l].
+- **Stacks**: The Stacks project authors, *The Stacks project*, online, tag pages 02LO, 04GG and 0BNI fetched 2026-09-28 (sha256 of the 0BNI page given; 02LO 14970678…, 04GG 698f3f4e…). <https://stacks.math.columbia.edu/tag/0BNI>, sha256 `0376af0b12014aed2c77da5820d6049b6a00f7ce19fc792cd1be676e7f3ca9c9`.
+  - Read: Tag 0BNI, Section 15.92 (the Beauville–Laszlo theorem): glueing pairs, Remark 15.92.8, the remark that every module is glueable when R → R′ is flat, Theorem 15.92.16 and Lemma 15.92.19.
+  - Read: Tag 02LO, Lemma 37.41.5 (étale localisation of separated quasi-finite morphisms).
+  - Read: Tag 04GG, Lemma 10.153.3 (characterisations of henselian local rings), conditions (9), (10) and (13).
