@@ -188,20 +188,19 @@
         "The sheaf-theoretic flasque predicate of the libraries is a different notion with the same name, and neither implies the other."
       ],
       "prerequisites": [
-        "mathlib:CategoryTheory.Idempotents.Karoubi",
         "mathlib:Matrix",
         "mathlib:RingHom"
       ],
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.2.1.3 (PDF p. 105)",
-          "match": "The definition, the swindle and the infinite sum rings, verbatim."
+          "locator": "II.2.1.3 (Example 2.1.3), printed p. 69 (PDF p. 77)",
+          "match": "The definition and the swindle. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "I.1.8, the cone ring (PDF p. 5)",
-          "match": "The cone ring, verbatim; the source records that these are infinite sum rings and hence flasque."
+          "locator": "Exercise I.1.8 (Cone Ring), printed p. 5 (PDF p. 13)",
+          "match": "The cone ring; it is an exercise, not an item I.1.8. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -257,19 +256,23 @@
       "tests": [
         {
           "name": "cone_ring_flasque",
-          "statement": "The cone ring of any ring is flasque."
+          "statement": "The cone ring of any ring is flasque.",
+          "kind": "computation"
         },
         {
           "name": "K0_vanishes",
-          "statement": "The zeroth K-group of a flasque ring is trivial."
+          "statement": "The zeroth K-group of a flasque ring is trivial.",
+          "kind": "degenerate"
         },
         {
           "name": "not_sheaf_notion",
-          "statement": "The predicate is about bimodules, not about sheaves; the pinned IsFlasque is a different statement."
+          "statement": "The predicate is about bimodules, not about sheaves; the pinned IsFlasque is a different statement.",
+          "kind": "non-example"
         },
         {
           "name": "infinite_sum_is_flasque",
-          "statement": "Every infinite sum ring is flasque, by taking the bimodule to be the ring."
+          "statement": "Every infinite sum ring is flasque, by taking the bimodule to be the ring.",
+          "kind": "computation"
         }
       ]
     },
@@ -307,8 +310,8 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.4.1.1 (PDF p. 210)",
-          "match": "The definition in full, verbatim."
+          "locator": "III.4.1.1 (Definition 4.1.1), printed p. 210 (PDF p. 218)",
+          "match": "The definition. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -361,19 +364,23 @@
       "tests": [
         {
           "name": "K0_contracted",
-          "statement": "The zeroth K-group is a contracted functor."
+          "statement": "The zeroth K-group is a contracted functor.",
+          "kind": "computation"
         },
         {
           "name": "iterate_agrees",
-          "statement": "The iterated contraction of the special first K-group is the first negative K-group."
+          "statement": "The iterated contraction of the special first K-group is the first negative K-group.",
+          "kind": "compatibility"
         },
         {
           "name": "naturality_in_t",
-          "statement": "The splitting is natural in the variable; a splitting natural only in the ring does not make the functor contracted."
+          "statement": "The splitting is natural in the variable; a splitting natural only in the ring does not make the functor contracted.",
+          "kind": "non-example"
         },
         {
           "name": "retract_closed",
-          "statement": "A natural retract of a contracted functor is contracted."
+          "statement": "A natural retract of a contracted functor is contracted.",
+          "kind": "computation"
         }
       ]
     },
@@ -411,13 +418,13 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.4.1 (PDF p. 210)",
-          "match": "The definition, verbatim."
+          "locator": "III.4.1 (Definition 4.1), printed p. 210 (PDF p. 218)",
+          "match": "The definition. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.3.7 (PDF p. 208)",
-          "match": "The theorem and the decomposition, verbatim."
+          "locator": "III.3.7 (Fundamental Theorem for K0 3.7), printed p. 206 (PDF p. 214)",
+          "match": "The first negative group from the Fundamental Theorem for K0. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -473,19 +480,23 @@
       "tests": [
         {
           "name": "regular_vanishes",
-          "statement": "For a regular noetherian ring the negative groups vanish."
+          "statement": "For a regular noetherian ring the negative groups vanish.",
+          "kind": "computation"
         },
         {
           "name": "flasque_vanishes",
-          "statement": "For a flasque ring they vanish."
+          "statement": "For a flasque ring they vanish.",
+          "kind": "computation"
         },
         {
           "name": "laurent_four_pieces",
-          "statement": "The zeroth group of the Laurent ring decomposes into four named pieces."
+          "statement": "The zeroth group of the Laurent ring decomposes into four named pieces.",
+          "kind": "computation"
         },
         {
           "name": "not_from_connective",
-          "statement": "The groups are not the negative homotopy of the connective spectrum, which is zero; a formalisation that identified them would be wrong."
+          "statement": "The groups are not the negative homotopy of the connective spectrum, which is zero; a formalisation that identified them would be wrong.",
+          "kind": "non-example"
         }
       ]
     },
@@ -524,23 +535,23 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "V.8.2 (PDF p. 430)",
-          "match": "The theorem with its splitting, verbatim."
+          "locator": "V.8.2 (Theorem 8.2), printed p. 430 (PDF p. 438)",
+          "match": "The theorem (the bracket is the source's). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "V.8.1 (PDF p. 430)",
-          "match": "The identification of the Nil terms, verbatim."
+          "locator": "V.8.1 (Theorem 8.1), printed p. 430 (PDF p. 438)",
+          "match": "The identification of the N-terms with Nil. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "V.8, the opening (PDF p. 430)",
-          "match": "The degenerate form and the hypothesis under which it holds, verbatim."
+          "locator": "V.8, the opening paragraph, printed p. 430 (PDF p. 438)",
+          "match": "The regular case. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "V.8.3 (PDF p. 431)",
-          "match": "The scheme version, verbatim."
+          "locator": "V.8.3 (Theorem 8.3), printed p. 431 (PDF p. 439)",
+          "match": "The scheme version. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked"
@@ -579,13 +590,18 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.4.4 (PDF p. 213)",
-          "match": "The four axioms, verbatim."
+          "locator": "III.4.4 (Definition 4.4), printed p. 213 (PDF p. 221)",
+          "match": "The definition. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.4.4.1 (PDF p. 213)",
-          "match": "The example that makes the axioms non-vacuous, verbatim."
+          "locator": "III.4.4, axioms (3)–(4), printed p. 213 (PDF p. 221)",
+          "match": "The last two axioms, checked against the node's list. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.4.4.1 (Example 4.4.1), printed p. 214 (PDF p. 222)",
+          "match": "Bass's groups satisfy the axioms. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -638,19 +654,23 @@
       "tests": [
         {
           "name": "bass_satisfies",
-          "statement": "Bass’s groups satisfy all four axioms."
+          "statement": "Bass’s groups satisfy all four axioms.",
+          "kind": "computation"
         },
         {
           "name": "nonunital",
-          "statement": "The second axiom is stated for non-unital rings; restricting to unital rings weakens it."
+          "statement": "The second axiom is stated for non-unital rings; restricting to unital rings weakens it.",
+          "kind": "non-example"
         },
         {
           "name": "infinite_matrices",
-          "statement": "The fourth axiom is about the infinite matrix ring, not the finite ones."
+          "statement": "The fourth axiom is about the infinite matrix ring, not the finite ones.",
+          "kind": "non-example"
         },
         {
           "name": "degree_zero",
-          "statement": "In degree zero the theory is the Grothendieck group, so the axioms extend the existing definition rather than replacing it."
+          "statement": "In degree zero the theory is the Grothendieck group, so the axioms extend the existing definition rather than replacing it.",
+          "kind": "computation"
         }
       ]
     },
@@ -685,8 +705,8 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.4.3 (PDF p. 212)",
-          "match": "The theorem and the shape of the sequence, verbatim."
+          "locator": "III.4.3 (Theorem 4.3), printed pp. 212–213 (PDF pp. 220–221)",
+          "match": "The theorem; the displayed sequence follows on p. 213. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked"
@@ -726,18 +746,23 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV.10.1 (PDF p. 349)",
-          "match": "The construction, verbatim."
+          "locator": "IV.10.1 (Definition 10.1), printed p. 349 (PDF p. 357)",
+          "match": "The construction. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV.10.2 (PDF p. 349)",
-          "match": "The comparison with the connective theory, verbatim."
+          "locator": "IV.10.2 (Fundamental Theorem 10.2), printed p. 349 (PDF p. 357)",
+          "match": "The first desuspension. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV.10.3 and IV.10.4 (PDF pp. 349 to 350)",
-          "match": "The iteration and the definition of the nonconnective spectrum, verbatim."
+          "locator": "IV.10.3 (Corollary 10.3), printed p. 349 (PDF p. 357)",
+          "match": "The iteration (the corollary's last clause carries the misprint recorded as E1). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.10.4 (Definition 10.4), printed p. 350 (PDF p. 358)",
+          "match": "The Bass spectrum. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -798,19 +823,23 @@
       "tests": [
         {
           "name": "agrees_above_zero",
-          "statement": "In non-negative degrees the homotopy groups are the K-groups of the connective spectrum."
+          "statement": "In non-negative degrees the homotopy groups are the K-groups of the connective spectrum.",
+          "kind": "non-example"
         },
         {
           "name": "degree_minus_one",
-          "statement": "In degree minus one the homotopy group is the first negative K-group."
+          "statement": "In degree minus one the homotopy group is the first negative K-group.",
+          "kind": "computation"
         },
         {
           "name": "regular_case",
-          "statement": "For a regular noetherian ring the negative homotopy vanishes."
+          "statement": "For a regular noetherian ring the negative homotopy vanishes.",
+          "kind": "computation"
         },
         {
           "name": "model_independence",
-          "statement": "Two models of connective K-theory related by a natural equivalence give equivalent nonconnective spectra."
+          "statement": "Two models of connective K-theory related by a natural equivalence give equivalent nonconnective spectra.",
+          "kind": "computation"
         }
       ]
     },
@@ -848,13 +877,18 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "V.8, the opening (PDF p. 430)",
-          "match": "The vanishing of the N-groups and the degenerate decomposition, verbatim."
+          "locator": "III.4.1, after Definition 4.1, printed p. 210 (PDF p. 218)",
+          "match": "The vanishing itself, stated by the source; the packet had not cited it. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.6.5 and I.3.7.1 (PDF pp. 132 and 24)",
-          "match": "The hypothesis, verbatim, with the stability under localisation that the induction uses."
+          "locator": "V.8, the opening paragraph, printed p. 430 (PDF p. 438)",
+          "match": "The vanishing of the N-terms. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "I.3.7.1 (Definition 3.7.1), printed p. 23 (PDF p. 31)",
+          "match": "The definition of regular; the packet's 'II.6.5 and I.3.7.1' merged two places. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked"
@@ -896,23 +930,23 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.2.7, the structure theorem (PDF p. 110)",
-          "match": "The structure theorem, verbatim."
+          "locator": "II.2.7 (Theorem 2.7), printed p. 75 (PDF p. 83)",
+          "match": "The structure theorem. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.2.7.1 (PDF p. 111)",
-          "match": "The consequence in degree zero, verbatim; the same argument gives every degree."
+          "locator": "II.2.7.1 (Corollary 2.7.1), printed p. 76 (PDF p. 84)",
+          "match": "Degree zero. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.2.7.2 (PDF p. 111)",
-          "match": "The matrix instance, verbatim."
+          "locator": "II.2.7.2 (Example 2.7.2), printed p. 76 (PDF p. 84)",
+          "match": "The matrix ring. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV.6.3.5 (PDF p. 320)",
-          "match": "The statement in every degree, for K-theory and for G-theory, verbatim."
+          "locator": "IV.6.3.5 (Morita Invariance 6.3.5), printed p. 321 (PDF p. 329)",
+          "match": "All degrees. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -963,19 +997,23 @@
       "tests": [
         {
           "name": "matrix_invariance",
-          "statement": "The K-groups of a ring and of its matrix ring agree."
+          "statement": "The K-groups of a ring and of its matrix ring agree.",
+          "kind": "compatibility"
         },
         {
           "name": "not_isomorphism",
-          "statement": "Morita equivalent rings need not be isomorphic, so the statement is not vacuous."
+          "statement": "Morita equivalent rings need not be isomorphic, so the statement is not vacuous.",
+          "kind": "non-example"
         },
         {
           "name": "respects_product",
-          "statement": "The induced isomorphism carries the external product to the external product."
+          "statement": "The induced isomorphism carries the external product to the external product.",
+          "kind": "computation"
         },
         {
           "name": "negative_degrees",
-          "statement": "The isomorphism holds in negative degrees."
+          "statement": "The isomorphism holds in negative degrees.",
+          "kind": "computation"
         }
       ]
     },
@@ -1013,18 +1051,18 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.9.1.1 and II.9.1.2 (PDF pp. 158 to 159)",
-          "match": "The data the construction consumes, verbatim."
+          "locator": "II.9.1.1 (Definition 9.1.1), printed p. 158 (PDF p. 166)",
+          "match": "The data a K-theory is built from. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.9.6.1 (PDF p. 163)",
-          "match": "The correct form of the invariance, verbatim."
+          "locator": "II.9.7 (Theorem 9.7, Approximation Theorem), printed p. 167 (PDF p. 175)",
+          "match": "The invariance statement at the level of Waldhausen categories, which is what the enhancement hypothesis provides. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
-          "locator": "Proposition 11.15 with Definition 11.1, pp. 20 and 23",
-          "match": "The enhanced statement in the precise form this node asks for: the hypothesis is a map of MODELS inducing an equivalence of derived categories, not an equivalence of the derived categories alone. The bracketed words supply from the surrounding text what the scan drops."
+          "locator": "Definition 11.1 and Proposition 11.15, pp. 20 and 22",
+          "match": "Derived invariance for maps of Frobenius pairs: the hypothesis is a map of models, not a bare triangulated equivalence. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1063,18 +1101,23 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.2.1.2 and the product statement (PDF p. 105)",
-          "match": "The product statement, verbatim."
+          "locator": "II.2, the paragraph after Example 2.1.3, printed p. 69 (PDF p. 77)",
+          "match": "Products in degree zero; the packet attributed this to II.2.1.2, which is Example 2.1.2 (simple rings). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV.6.4 (PDF p. 320)",
-          "match": "Both statements in every degree, with the proofs, verbatim from the Q-construction chapter."
+          "locator": "IV.6.4 (Elementary properties 6.4), printed p. 321 (PDF p. 329)",
+          "match": "Products in all degrees. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.6.4, the filtered-colimit clause, printed p. 321 (PDF p. 329)",
+          "match": "Filtered colimits in all degrees; the packet had no citation for the colimit half. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
-          "locator": "Lemma 6.3 and Corollary 6.4, pp. 13 to 14",
-          "match": "The same statement in non-positive degrees, verbatim; the two together cover every degree."
+          "locator": "Lemma 6.3 and Corollary 6.4, pp. 13–14",
+          "match": "Filtered colimits in negative degrees. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1115,28 +1158,28 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.7.4 (PDF p. 145)",
-          "match": "The construction, verbatim."
+          "locator": "II.7, 'Products', and Lemma 7.4, printed p. 132 (PDF p. 140)",
+          "match": "The definition and the pairing on K0. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.9.5.2 (PDF p. 162)",
-          "match": "The spectrum-level version, verbatim."
+          "locator": "II.9.5.2 (Definition 9.5.2), printed p. 165 (PDF p. 173)",
+          "match": "The Waldhausen version (the pairing of spectra is IV.8.11, not here). Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.7.4.1 (PDF p. 146)",
-          "match": "The instance that gives the ring structure, verbatim."
+          "locator": "II.7.4.1 (Application 7.4.1), printed p. 132 (PDF p. 140)",
+          "match": "The tensor product. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV, Definition 6.6 (PDF p. 321)",
-          "match": "The definition for exact categories and the map out of the Q-construction that produces the higher product, verbatim."
+          "locator": "IV.6.6 (Definition 6.6), printed p. 322 (PDF p. 330)",
+          "match": "Higher products for exact categories. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV, the pairing of spectra (PDF p. 342)",
-          "match": "The spectrum-level pairing with the associativity and commutativity hypotheses stated as natural isomorphisms of functors, verbatim."
+          "locator": "IV.8.11 (Products), printed p. 342 (PDF p. 350)",
+          "match": "The pairing of spectra. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1192,19 +1235,23 @@
       "tests": [
         {
           "name": "K0_is_a_ring",
-          "statement": "The zeroth K-group of a commutative ring is a commutative ring."
+          "statement": "The zeroth K-group of a commutative ring is a commutative ring.",
+          "kind": "computation"
         },
         {
           "name": "unit_is_the_class_of_R",
-          "statement": "The unit of the product is the class of the ring as a module over itself."
+          "statement": "The unit of the product is the class of the ring as a module over itself.",
+          "kind": "computation"
         },
         {
           "name": "tensor_of_classes",
-          "statement": "The product of the classes of two modules is the class of their tensor product; this is the pinned Tau Ceti statement."
+          "statement": "The product of the classes of two modules is the class of their tensor product; this is the pinned Tau Ceti statement.",
+          "kind": "compatibility"
         },
         {
           "name": "homotopies_are_data",
-          "statement": "The associativity and symmetry are given by transported coherence isomorphisms, not asserted."
+          "statement": "The associativity and symmetry are given by transported coherence isomorphisms, not asserted.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1242,13 +1289,13 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV.1 and the product structure (PDF p. 302)",
-          "match": "The graded commutativity, verbatim."
+          "locator": "IV.1.10 (Theorem 1.10, Loday), printed p. 266 (PDF p. 274)",
+          "match": "Graded commutativity; the packet cited 'IV.1 and the product structure (PDF p. 302)' with a formula that is not in the source. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "V.8.2 (PDF p. 430)",
-          "match": "The link between the product structure and the fundamental theorem, verbatim."
+          "locator": "V.8.2 (Theorem 8.2), printed p. 430 (PDF p. 438)",
+          "match": "Multiplication by the class of the variable. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1261,7 +1308,7 @@
       ],
       "title": "Compatibility of the product with relative groups, boundaries and transfers",
       "kind": "lemma",
-      "statement": "The external product is compatible with the other structure of the theory. It descends to relative groups, so that the product of an absolute class and a relative class is relative; it commutes with the boundary maps of the localisation sequences up to the expected sign, which is the statement that the boundary is a derivation for the product; and it satisfies the projection formula for a transfer, namely that the transfer of a product of a class pulled back along the map with a class upstairs equals the product of the first with the transfer of the second. Each is a separate assertion with its own proof and none follows from the construction of the product alone.",
+      "statement": "The external product is compatible with the other structure of the theory. It descends to relative groups, so that the product of an absolute class and a relative class is relative; it commutes with the boundary maps of the localisation sequences up to the expected sign, that is, the boundary is K_*(R)-linear up to sign (a module map, not a derivation of a ring); and it satisfies the projection formula for a transfer, namely that the transfer of a product of a class pulled back along the map with a class upstairs equals the product of the first with the transfer of the second. Each is a separate assertion with its own proof and none follows from the construction of the product alone.",
       "hypotheses": [
         "The relative groups are those of a ring map or of an ideal, as the source defines them.",
         "The boundary maps are those of the localisation and Mayer-Vietoris sequences.",
@@ -1287,13 +1334,13 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.7.4.4 (PDF p. 146)",
-          "match": "One instance of the module-structure compatibility, verbatim."
+          "locator": "V.3.12 (Projection Formula 3.12), printed p. 395 (PDF p. 403)",
+          "match": "The projection formula for the transfer. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.9.5.2 (PDF p. 162)",
-          "match": "The compatibility at the spectrum level, verbatim."
+          "locator": "IV.8.11 (Products), printed p. 342 (PDF p. 350)",
+          "match": "The spectrum-level pairing the compatibilities are statements about. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1306,7 +1353,7 @@
       ],
       "title": "The K-zero tensor comparison and multiplication by a unit in K-one",
       "kind": "lemma",
-      "statement": "Two concrete consequences of the product structure serve as the unit tests of the layer. First, the comparison in degree zero: the product of the classes of two finitely generated projective modules is the class of their tensor product, so that the map from the tensor square of the zeroth K-group to itself is determined on classes; Tau Ceti has exactly this statement for the split model and it is cited as baseline. Second, multiplication in degree one: the product of the class of a unit in the first K-group with a class in the zeroth K-group is computed by the action, and in particular multiplication by the class of a unit of the base ring is an automorphism of each K-group, inverse to multiplication by the inverse unit. The second cannot be stated against the pinned libraries, which have no first K-group.",
+      "statement": "Two concrete consequences of the product structure serve as the unit tests of the layer. First, the comparison in degree zero: the product of the classes of two finitely generated projective modules is the class of their tensor product, so that the map from the tensor square of the zeroth K-group to itself is determined on classes; Tau Ceti has exactly this statement for the split model and it is cited as baseline. Second, multiplication in degree one: the product of the class of a unit in the first K-group with a class in the zeroth K-group is computed by the action, and multiplication by the class [u] of a unit in the first K-group raises degree by one; since [u⁻¹] = −[u] in the first K-group, multiplication by [u⁻¹] is the negative of multiplication by [u] (it is not an inverse, and neither map is an automorphism of a K-group). The second cannot be stated against the pinned libraries, which have no first K-group.",
       "hypotheses": [
         "R is commutative; the modules are finitely generated projective.",
         "The unit is an element of the unit group of the ring, and its class in the first K-group is its image under the determinant-like map.",
@@ -1332,13 +1379,13 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.7.4.1 (PDF p. 146)",
-          "match": "The degree-zero comparison, verbatim."
+          "locator": "II.7.4.1 (Application 7.4.1), printed p. 132 (PDF p. 140)",
+          "match": "The K0 comparison. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         },
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.1.1 and III.1.2 (PDF p. 190)",
-          "match": "The unit map in degree one, verbatim."
+          "locator": "III.1.1.1 (Example 1.1.1, SK1), printed p. 180 (PDF p. 188)",
+          "match": "Units in K1; [u] + [u⁻¹] = [u u⁻¹] = 0 since K1 is additive in the product of units. Prose verbatim from the text layer of the author-hosted PDF; formulas transcribed."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1443,19 +1490,23 @@
       "tests": [
         {
           "name": "split_is_frobenius",
-          "statement": "The split exact structure is Frobenius; this is Tau Ceti’s pinned instance and the definition here must agree with it."
+          "statement": "The split exact structure is Frobenius; this is Tau Ceti’s pinned instance and the definition here must agree with it.",
+          "kind": "compatibility"
         },
         {
           "name": "complexes_are_a_pair",
-          "statement": "The bounded complexes over an exact category form a Frobenius pair."
+          "statement": "The bounded complexes over an exact category form a Frobenius pair.",
+          "kind": "computation"
         },
         {
           "name": "derived_is_bounded_derived",
-          "statement": "Its derived category is the bounded derived category of the exact category."
+          "statement": "Its derived category is the bounded derived category of the exact category.",
+          "kind": "computation"
         },
         {
           "name": "projinj_coincide",
-          "statement": "Dropping the coincidence of projectives and injectives breaks the triangulation; an exact category with enough projectives only is not a Frobenius category."
+          "statement": "Dropping the coincidence of projectives and injectives breaks the triangulation; an exact category with enough projectives only is not a Frobenius category.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1561,19 +1612,23 @@
       "tests": [
         {
           "name": "envelope_flasque",
-          "statement": "The countable envelope is flasque."
+          "statement": "The countable envelope is flasque.",
+          "kind": "computation"
         },
         {
           "name": "IK0_of_enlargement_vanishes",
-          "statement": "The zeroth group of an enlarged pair is zero."
+          "statement": "The zeroth group of an enlarged pair is zero.",
+          "kind": "computation"
         },
         {
           "name": "suspension_derived",
-          "statement": "The derived category of the suspension is the quotient of the enlarged derived category by the original."
+          "statement": "The derived category of the suspension is the quotient of the enlarged derived category by the original.",
+          "kind": "computation"
         },
         {
           "name": "not_sheaf_flasque",
-          "statement": "Flasque here is the swindle condition on a functor, not the sheaf-theoretic predicate of the pinned libraries."
+          "statement": "Flasque here is the swindle condition on a functor, not the sheaf-theoretic predicate of the pinned libraries.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1669,19 +1724,23 @@
       "tests": [
         {
           "name": "idempotent_complete_case",
-          "statement": "For an idempotent complete exact category the zeroth invariant is the usual zeroth K-group."
+          "statement": "For an idempotent complete exact category the zeroth invariant is the usual zeroth K-group.",
+          "kind": "computation"
         },
         {
           "name": "frobenius_instance",
-          "statement": "Frobenius pairs with the envelope and the suspension satisfy the set-up."
+          "statement": "Frobenius pairs with the envelope and the suspension satisfy the set-up.",
+          "kind": "computation"
         },
         {
           "name": "quasi_iso_invariance",
-          "statement": "A quasi-isomorphism of differential graded algebras induces isomorphisms of all the groups."
+          "statement": "A quasi-isomorphism of differential graded algebras induces isomorphisms of all the groups.",
+          "kind": "computation"
         },
         {
           "name": "cofinal_not_equivalence",
-          "statement": "The third functor of an exact sequence is required to be cofinal, not an equivalence; requiring an equivalence would exclude the intended examples."
+          "statement": "The third functor of an exact sequence is required to be cofinal, not an equivalence; requiring an equivalence would exclude the intended examples.",
+          "kind": "non-example"
         }
       ]
     },
@@ -1814,12 +1873,12 @@
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
-          "locator": "Theorem 11.10 and §11.13, pp. 22 to 23",
+          "locator": "Theorem 11.10 and §11.13, pp. 21–22",
           "match": "Localisation at the spectrum level and the instance for exact categories, verbatim."
         },
         {
           "sourceId": "Schlichting.NegativeK.2003",
-          "locator": "Proposition 11.15, p. 23",
+          "locator": "Proposition 11.15, p. 22",
           "match": "The derived-invariance statement, with the bracketed words supplying from the surrounding text what the scan drops."
         }
       ],
@@ -1970,5 +2029,161 @@
       "title": "The name 'flasque' is taken in both pinned libraries by a different notion",
       "detail": "Both trees have IsFlasque for the sheaf-theoretic predicate, and K.6 needs Karoubi's flasque rings, which are unrelated. The packet records the collision in the node, in its unit tests and here, because a formalisation that reused the name would produce a statement that reads as true and means something else. A name such as IsFlasqueRing, or Karoubi's own terminology of an infinite sum ring where that stronger notion suffices, should be fixed before any of this layer is written."
     }
-  ]
+  ],
+  "sourceIssues": [
+    {
+      "id": "GeneralAlgebraicKTheory/E1",
+      "source": "Kbook.2013",
+      "kind": "misprint",
+      "locator": "IV.10.3 (Corollary 10.3), printed p. 349 (PDF p. 357); identical in the chapter file Kbook.IV.pdf of 17 August 2012",
+      "printed": "The source gives K−k(R) ≅ πnΛk−1K(R) ≅ π−kΛkK(R).",
+      "correction": "and K−k(R) ≅ π−kΛk−1K(R) ≅ π−kΛkK(R).",
+      "reason": "n is not bound in that clause (the preceding clause is 'for n > −k'); since Λ^{k−1}K(R) is the (−k)-connective cover of Λ^kK(R), the group meant is π_{−k}Λ^{k−1}K(R), which equals π_{−k}Λ^kK(R).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Weibel's K-book page: its errata link (Kbook.errata.pdf) returned 404 on 2026-09-28.",
+        "The chapter file Kbook.IV.pdf (17 August 2012) prints the same text."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Raised by the reviewer; checked against the corollary's own first clause.",
+        "by": "REV-GeneralAlgebraicKTheory--K.6"
+      }
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "citation": "Weibel, The K-book, author draft of 29 August 2013.",
+      "read": "2026-09-28",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlneg.pdf",
+      "citation": "Schlichting, Negative K-theory of derived categories (preprint).",
+      "read": "2026-09-28",
+      "sha256": "f59620e3ba25d5a8591a108d2b9647b68b5caf04794745862d2aa71e178b5aa6"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.6",
+    "date": "2026-09-28",
+    "notes": "Checked all 22 nodes against Weibel's K-book (author PDF of 29 August 2013, sha256 reproduced) and Schlichting's 'Negative K-theory of derived categories' (sha256 reproduced), every baseline citation against the pinned index and the Lean sources (all 19 exist and say what is claimed, except the Karoubi-envelope citation on the flasque node), and the suggested file. Mathematics: two statements corrected — multiplication by the class of a unit is not an automorphism of a K-group inverse to that of the inverse unit ([u⁻¹] = −[u], degree +1), and the localisation boundary is K_*(R)-linear, not a derivation. Citations: fifteen K-book excerpts were paraphrases or mis-attributions (II.2.7, II.2.7.2, II.9.6.1, II.2.1.2, IV.6.4, II.7.4, II.9.5.2, II.7.4.1, IV.6.6, IV.1 'graded-commutative', II.7.4.4, III.1.1, the V.8 brackets, IV.10.3/10.4) and every K-book page was mislabelled (the 'PDF p.' values were printed pages in chapters III–V and wrong in chapter II); all re-pulled verbatim with 'printed p. N (PDF p. N+8)'. Added the source's own statement of the negative-K vanishing (III.4.1) and IV.6.4's filtered-colimit clause. One source misprint recorded (E1, IV.10.3). Test kinds added (none had one). Schlichting's nodes are faithful; two page numbers fixed. Accepted after these corrections.",
+    "checked": [
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/flasque-rings-and-the-swindle",
+        "verdict": "corrected",
+        "note": "corrected: removed the prerequisite mathlib:CategoryTheory.Idempotents.Karoubi, the Karoubi ENVELOPE (idempotent completion), which has nothing to do with Karoubi's flasque rings — a name coincidence of exactly the kind the node itself warns about; locator page fixed (printed 69, not 'PDF p. 105'); cone-ring citation is Exercise I.1.8."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/contracted-functors",
+        "verdict": "corrected",
+        "note": "verified; locator relabelled (printed 210)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/negative-k-groups",
+        "verdict": "corrected",
+        "note": "verified; III.3.7 is on printed p. 206 (not 208); excerpts re-pulled verbatim."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/fundamental-theorem-with-nil-terms",
+        "verdict": "corrected",
+        "note": "verified; the V.8.2 and V.8-opening excerpts had bracketed paraphrases in place of the source's words — re-pulled verbatim."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/axioms-for-negative-k-theory",
+        "verdict": "corrected",
+        "note": "verified (all four axioms match); 4.4.1 is on printed p. 214; axioms (3)–(4) added as a citation."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/mayer-vietoris-for-negative-k",
+        "verdict": "corrected",
+        "note": "verified; excerpt re-pulled verbatim; pages 212–213."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum",
+        "verdict": "corrected",
+        "note": "verified; the 10.3/10.4 excerpt was a paraphrase joining two items — split and re-pulled; source misprint in 10.3 recorded (E1)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/vanishing-for-regular-noetherian-rings",
+        "verdict": "corrected",
+        "note": "verified; added the source's own statement (III.4.1: K_n(R) = 0 for n < 0 when R is regular noetherian); the regularity excerpt re-pulled from I.3.7.1 (printed 23)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.7/morita-invariance",
+        "verdict": "corrected",
+        "note": "verified; the II.2.7 and II.2.7.2 'excerpts' were not the source's text (paraphrases) — replaced by verbatim quotations; pages 75, 76, 321."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.7/derived-morita-and-enhancements",
+        "verdict": "corrected",
+        "note": "verified; the 'II.9.6.1' citation (an exact equivalence induces a K-theory equivalence) is not what II.9.6.1 says (a lemma on cofibrations that are weak equivalences) — replaced by the Approximation Theorem II.9.7; 9.1.1 is the Waldhausen category (not 'category with cofibrations' as the excerpt had it); Proposition 11.15 is on p. 22, and its hypothesis/conclusion now quoted verbatim."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.7/invariance-under-filtered-colimits-and-products",
+        "verdict": "corrected",
+        "note": "verified; the product citation was misattributed to II.2.1.2 (simple rings) and the IV.6.4 excerpt was a paraphrase; both re-pulled, and the filtered-colimit clause of IV.6.4 added."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.7/products-from-biexact-functors",
+        "verdict": "corrected",
+        "note": "verified; four of five excerpts were paraphrases (II.7.4, II.9.5.2, II.7.4.1, IV.6.6) — re-pulled; pages 132, 165, 322, 342."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.7/graded-commutativity",
+        "verdict": "corrected",
+        "note": "verified mathematically; the graded-commutativity citation was not in the source at the cited place — replaced by Loday's Theorem IV.1.10 (printed 266)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.7/compatibility-with-relative-groups-and-transfers",
+        "verdict": "corrected",
+        "note": "corrected: 'the boundary is a derivation for the product' is wrong — the boundary of a localisation sequence is K_*(R)-linear up to sign, a module map; the two cited passages (II.7.4.4 on Nil(R), and an 'II.9.5.2' sentence not in the source) supported none of the node's claims — replaced by the Projection Formula V.3.12 and the pairing IV.8.11. The boundary compatibility has no located source and is recorded in the review as unsourced."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.7/unit-multiplication-and-K0-tensor-comparison",
+        "verdict": "corrected",
+        "note": "corrected: the claim that multiplication by the class of a unit is 'an automorphism of each K-group, inverse to multiplication by the inverse unit' is false — [u] ∈ K_1 raises degree, and [u⁻¹] = −[u]; the III.1.1/1.2 excerpt was a paraphrase — replaced by Example 1.1.1 (printed 180)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/frobenius-pairs",
+        "verdict": "verified",
+        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/frobenius-pairs-flasque-envelope-and-suspension",
+        "verdict": "verified",
+        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/schlichting-set-up",
+        "verdict": "verified",
+        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/schlichting-set-up-and-negative-localization",
+        "verdict": "verified",
+        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/additivity-and-colimits-for-negative-K",
+        "verdict": "verified",
+        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance",
+        "verdict": "corrected",
+        "note": "verified; pages fixed (11.10/11.13 on pp. 21–22, 11.15 on p. 22) and 11.15 quoted verbatim."
+      },
+      {
+        "nodeId": "GeneralAlgebraicKTheory:K.6/agreement-and-vanishing-of-negative-K",
+        "verdict": "verified",
+        "note": "verified against Schlichting (Definition 3.4, Lemma 4.2, Remark 1.9, Theorem 6.1, Lemma 8.1/Corollary 8.2 — D(E) is indeed the unbounded derived category — and §9 checked at their pages)."
+      }
+    ]
+  }
 }
