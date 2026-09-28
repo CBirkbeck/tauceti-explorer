@@ -1,4 +1,41 @@
-# BP-PadicFamilies: checkpoint 2 (Claude Code cc-39fac3)
+# BP-PadicFamilies: checkpoint 3 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 28 September 2026. Refs #965; the bot confirmed the claim. **Status: partial.**
+
+Checkpoint 3 plans L3 (critical specialisation) from Bellaïche, *Critical p-adic L-functions*, arXiv:0912.2925v1
+(Invent. Math. 2012), with 14 nodes:
+- **Refinements:** critical-slope, critical and θ-critical refinements (Definition 2.13), their equivalences (Proposition
+  2.12) and the classification (Proposition 2.14).
+- **Geometry:** decency (Definition 1, Proposition 2.15) and smoothness of the eigencurve (Theorem 2.16).
+- **Symbols:**
+  - the θ exact sequence;
+  - rank-one freeness of family symbols (Propositions 4.3–4.5);
+  - the local Hecke algebra ℚ̄_p[t]/(t^e) (Theorem 4.7);
+  - Bellaïche's theorem (Theorem 1, Corollary 4.8).
+- **L-functions:**
+  - the critical p-adic L-function;
+  - θ-critical vanishing (Theorem 2);
+  - infinitely many zeros (Corollary 1);
+  - two-variable L-functions (Theorem 3);
+  - secondary L-functions.
+
+## L3 remaining
+
+- PadicFamilies L2 (the modular eigencurve and overconvergent forms) is used as a stage prerequisite and is not yet planned.
+- Cited inputs, not decomposed:
+  - Breuil–Emerton;
+  - Bellaïche–Chenevier;
+  - Coleman's limit control theorem;
+  - Chenevier's smoothness argument;
+  - H¹_g vanishing (Kisin, Weston, Rubin).
+- Pollack–Stevens' critical-slope paper was not obtained.
+- The Eisenstein exceptional value.
+
+## Requests added
+
+GlobalGaloisDeformations R04.3: H¹_g(ad ρ_f) and refined deformations.
+
+# Checkpoint 2 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 28 September 2026. Refs #965; the bot confirmed the claim. **Status: partial.**
 
