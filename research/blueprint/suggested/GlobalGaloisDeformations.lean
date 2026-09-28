@@ -9,9 +9,10 @@ import Mathlib.Data.ZMod.Basic
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.RingTheory.Polynomial.Basic
+import Mathlib.Data.ZMod.Defs
 
 /-!
-# Suggested Lean forms: global Galois deformations (GlobalGaloisDeformations, R04.1–R04.4)
+# Suggested Lean forms: global Galois deformations (GlobalGaloisDeformations, R04.1–R04.5)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`GlobalGaloisDeformations`) is definitive. The statements below suggest Lean forms, so that
@@ -236,6 +237,15 @@ theorem freeQuotient_smooth (hG : FormallySmooth (A G)) (hfree : IsFreeAction G 
 -- R04.4/determinant-fixed-on-S and determinant-twist-torsor
 def detMap : Sp (RdetOnS S V) ⟶ DiagGroup (G_V)
 theorem detMap_twist (χ) (x) : detMap (χ • x) = χ ^ 2 * detMap x
+-- R04.5/taylor-wiles-datum and the existence theorems (Chebotarev from Tau Ceti)
+structure TaylorWilesDatum (N : ℕ) where
+  Q : Finset (FinitePlace F)
+  disjoint : Disjoint Q S
+  cong : ∀ v ∈ Q, p ^ N ∣ absNorm v - 1
+  distinct : ∀ v ∈ Q, (ρbar (Frob v)).charpoly.roots.Nodup
+  α : ∀ v ∈ Q, 𝔽                      -- the chosen eigenvalue
+theorem exists_taylorWiles_odd (hp : p ≠ 2) (h : IsCyclotomicAbsIrred ρbar) (N : ℕ) :
+    ∃ D : TaylorWilesDatum N, D.Q.card = dualSelmerDim ∧ dualSelmer (S ∪ D.Q) = ⊥
 -- R04.4/inertia-rigid-deformations
 theorem inertiaRigid_dim (C : irreducibleComponent (R□φ0fl ρ₀)) : absDim C = d ^ 2
 ```
@@ -289,5 +299,20 @@ example {A : Type*} [CommRing A] (a : A) :
 example {A : Type*} [CommRing A] (x y : A) :
     !![1, 0; 0, -1] * !![x, 0; 0, y] * !![1, 0; 0, -1] = !![x, 0; 0, y] := by
   ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- `R04.5/taylor-wiles-local-cohomology`: `Frob_v = diag(α, β)` acts on `E₁₂` by `α/β`, so
+`ad⁰` has the eigenvalues `1, α/β, β/α` and its coinvariants are one-dimensional when `α ≠ β`. -/
+example {K : Type*} [Field K] (α β : K) :
+    !![α, 0; 0, β] * !![0, 1; 0, 0] * !![α⁻¹, 0; 0, β⁻¹] = (α * β⁻¹) • !![(0 : K), 1; 0, 0] := by
+  ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- `R04.5/taylor-wiles-local-cohomology`, why `p = 2` differs: scalars are trace-free in
+characteristic two, so `Z ⊆ Ad⁰` and `Ad⁰/Z` is two-dimensional. -/
+example : (1 : Matrix (Fin 2) (Fin 2) (ZMod 2)).trace = 0 := by decide
+
+/-- `R04.5/dyadic-linear-disjointness`: KW II's recursion `R₄(X) = R₃(2X² − 1)` with
+`R₃ = 2X² − 1`, so `R₄(0) = 1` (the Chebyshev polynomial `T₄`). -/
+example : (2 * (2 * Polynomial.X ^ 2 - 1) ^ 2 - 1 : Polynomial ℤ) =
+    8 * Polynomial.X ^ 4 - 8 * Polynomial.X ^ 2 + 1 := by ring
 
 end TauCeti.GaloisDeformation.SuggestedTest
