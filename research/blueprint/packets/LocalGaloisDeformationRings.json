@@ -13,7 +13,7 @@
   "LocalGaloisDeformationRings:R08.6"
  ],
  "status": "partial",
- "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38). Checkpoint 3 plans R08.3 (Kisin's potentially semistable deformation rings: types, the semistable and Hodge-type quotients, pst rings of fixed type with their crystalline loci and reduced p-torsion-free integral rings, filtered (φ, N)-module deformation theory, Kisin's dimension formula with generic smoothness, smoothness for potentially crystalline rings, and change of coefficients). It also plans L7's bounded-height lattice moduli (Kisin, JAMS 2008, §1), which RS-08 makes L7 own. R08.3 and L7 are partial.",
+ "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38). Checkpoint 3 plans R08.3 (Kisin's potentially semistable deformation rings: types, the semistable and Hodge-type quotients, pst rings of fixed type with their crystalline loci and reduced p-torsion-free integral rings, filtered (φ, N)-module deformation theory, Kisin's dimension formula with generic smoothness, smoothness for potentially crystalline rings, and change of coefficients). It also plans L7's bounded-height lattice moduli (Kisin, JAMS 2008, §1), which RS-08 makes L7 own. R08.3 and L7 are partial. Checkpoint 4 plans R08.6's exports for KW II §3 (11 nodes): smooth resolutions (Proposition 2.12), the local conditions, the archimedean, Fontaine–Laffaille, weight-two, ordinary (Proposition 3.6), semistable, endpoint and away-from-p rings with their dimensions, the completed tensor product (Proposition 3.2) and local nonemptiness, which also closes R08.3.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -119,6 +119,20 @@
     "§2.5–2.7, pp. 529–534 (§2.1–2.4 skimmed: Proposition 2.4.7 and Lemma 2.4.6 read)",
     "§3 The local structure of potentially semi-stable deformation rings, pp. 535–541",
     "Errata for [Ki 2], pp. 544–545"
+   ]
+  },
+  {
+   "id": "KW2-2009",
+   "title": "Serre's modularity conjecture (II)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Authors' final version (PDF dated 30 May 2009), 98 pages, on Khare's UCLA page; published as Invent. Math. 178 (2009), 505–586. Printed page = PDF page; the numbering is the published one.",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+   "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+   "read": "2026-09-28",
+   "readSections": [
+    "§2.3 Proposition 2.2 and Corollary 2.3, pp. 8–10",
+    "§2.8 smooth resolutions and Proposition 2.12, pp. 16–18",
+    "§3 (Theorem 3.1, Propositions 3.2, 3.3, 3.6, Definition 3.4, Lemmas 3.5, 3.7–3.9, §§3.2.2–3.2.7, 3.3.1–3.3.4), pp. 18–37"
    ]
   }
  ],
@@ -1417,6 +1431,504 @@
    "implementationStatus": "unchecked"
   },
   {
+   "id": "LocalGaloisDeformationRings:R08.6/smooth-resolution-criterion",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Smooth resolutions of framed deformation conditions",
+   "kind": "lemma",
+   "statement": "Let R^□_X be a nonzero quotient of the framed ring R^□ by a (GL_d)_1-stable ideal. A smooth resolution is a flat 𝒪-scheme ℛ with f : ℛ → Spec R^□_X such that: (1) f is proper with 𝒪_{Spec R^□_X} → f_*𝒪_ℛ injective; (2) ℛ[1/p] → Spec R^□[1/p] is a closed immersion; (3) the fibre Y over the closed point is geometrically connected; (4) ℛ has a smooth algebraization along Y. If such a resolution exists, then R^□_X is a domain, R^□_X[1/p] is regular, the relative dimension of R^□_X over 𝒪 equals that of ℛ, and the 𝒪̄-points of D^□_X are the images of the points of ℛ specialising into Y.",
+   "hypotheses": [
+    "KW II use this for the odd archimedean ring at p = 2 (Proposition 3.3), the ordinary rings (Proposition 3.6) and the semistable weight-two rings (§3.2.6, §3.3.4).",
+    "Stein factorization, the theorem on formal functions and excellence are the commutative algebra and formal geometry inputs: AdicSpacesPartII F0 and DeformationAndDerivedPatchingAlgebra R03.3."
+   ],
+   "proofSteps": [
+    "Stein-factorize f: Γ(ℛ, 𝒪_ℛ) is finite over R^□_X, semilocal and complete, and local because Y is connected. By formal functions it is the ring of global sections of the completion, which is normal by (4); so it is a domain, and so is R^□_X, which injects into it by (1).",
+    "f induces ℛ[1/p] ≅ Spec R^□_X[1/p] by (1)–(2), which gives flatness and the dimension equality.",
+    "Regularity of R^□_X[1/p]: every point of ℛ specialises into Y (f is proper and R^□_X local), where the completion is regular by (4)."
+   ],
+   "acceptance": [
+    "f = id for a formally smooth R^□_X is a smooth resolution.",
+    "The odd archimedean ring at p = 2 with ρ̄(c) = 1: ℛ ⊆ M(X² − 1) × ℙ¹ of pairs (M, L) with M|_L = id is a smooth resolution (KW II Proposition 3.3).",
+    "Without (3) (disconnected Y), R^□_X can have several components."
+   ],
+   "prerequisites": [
+    "AdicSpacesPartII:F0/theorem-on-formal-functions",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§2.8, Proposition 2.12 and its proof, pp. 16–18",
+     "match": "The statement and proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/kw-local-conditions",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "The local conditions of KW II",
+   "kind": "definition",
+   "statement": "For a place v of a totally real F and ρ̄_v : D_v → GL_2(𝔽) with fixed determinant φ = ψχ_p, R̄^{□,ψ}_v is the flat, reduced quotient of R^{□,ψ}_v classifying, in the sense of KW II Definition 2.4, the lifts satisfying one of the following conditions X_v:\n(∞) odd lifts;\n(p) with F_v/ℚ_p unramified, and F_v = ℚ_p when ρ̄_v is irreducible or k(ρ̄_v) = p+1: low-weight crystalline lifts (crystalline of weight k(ρ̄_v) ≤ p, or ordinary of weight p+1 when k = p+1); weight-two lifts (for p odd, potentially semistable of weight 2 with inertial Weil–Deligne parameter (ω^{k−2} ⊕ 1, 0), or (1, N) with N ≠ 0 when k = p+1; for p = 2, crystalline of weight 2 if k = 2 and semistable of weight 2 if k = 4); semistable weight-two lifts (γ_vχ_p ∗; 0 γ_v) with a fixed unramified γ_v;\n(v ∤ p) semistable lifts (γ_vχ_p ∗; 0 γ_v) with fixed γ_v (§3.3.4), or inertia-rigid lifts conjugate on inertia to a fixed ρ₀ (§3.3.1–3.3.3; F_v = ℚ_q in §3.3.3).\nThe choices (an unramified character when ρ̄_v ≅ η̄₁ ⊕ η̄₂ is unramified with k = p; the characters γ_v; the lift ρ₀) are part of the datum.",
+   "hypotheses": [
+    "The choices are what make the rings domains (KW II remarks after Theorem 3.1).",
+    "Weight k and ordinary are KW II Definition 3.4 (weight k: V ⊗ ℂ_p = ℂ_p ⊕ ℂ_p(k − 1); ordinary: an unramified quotient and χ_p^a on inertia on the sub)."
+   ],
+   "proofSteps": [
+    "Each condition is (GL_2)_1-stable and closed on points, so the flat reduced quotient exists (KW II Corollary 2.3)."
+   ],
+   "acceptance": [
+    "For p = 2, the weight-two type at p is Barsotti–Tate with det|_{I_v} = χ_p when k = 2.",
+    "The ordinary choice: for ρ̄_v = η̄₁ ⊕ η̄₂ unramified and distinct, one of the two characters is chosen for the unramified quotient.",
+    "A lift that is crystalline of weight k but not ordinary with ρ̄_v ordinary does not occur for 2 ≤ k ≤ p (KW II Lemma 3.5)."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "LocalGaloisDeformationRings:R08.1/local-fixed-determinant",
+    "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§3 opening and §3.2.2, pp. 18 and 22–24",
+     "match": "The table of conditions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.KWCondition",
+     "role": "structure",
+     "statement": "A KW II local condition at v, with its choices."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.KWCondition.ring",
+     "role": "constructor",
+     "statement": "R̄^{□,ψ}_v as the flat reduced quotient classifying X_v-lifts."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.KWCondition.points",
+     "role": "characterisation",
+     "statement": "𝒪′-points of the ring are exactly the X_v-lifts."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.6",
+     "how": "the local conditions of KW II §9 (kw-deformation-data)."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "identification of the local problem satisfied by Hecke eigensystems."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.2",
+     "how": "local nonemptiness for the lifts of the required type."
+    }
+   ],
+   "tests": [
+    {
+     "name": "kwCondition_infinity",
+     "kind": "example",
+     "statement": "Odd lifts at a real place."
+    },
+    {
+     "name": "kwCondition_points",
+     "kind": "characterisation",
+     "statement": "The ring classifies exactly the X_v-lifts on 𝒪′-points."
+    },
+    {
+     "name": "kwCondition_choice_needed",
+     "kind": "non-example",
+     "statement": "For unramified ρ̄_v = η̄₁ ⊕ η̄₂ with η̄₁ ≠ η̄₂, the union over both choices of the unramified-quotient character has two components, so it is not a domain; KW II fix one choice."
+    }
+   ],
+   "planet": {
+    "name": "KW II local conditions"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/export-archimedean",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Export: odd archimedean rings",
+   "kind": "theorem",
+   "statement": "At a real place v, R̄^{□,ψ}_∞ (odd lifts) is the completion of the quadric of 2 × 2 matrices with characteristic polynomial X² − 1 at ρ̄(c). It is a domain, flat over 𝒪 of relative dimension 2, with regular generic fibre. It is formally smooth when ρ̄(c) ≠ 1, which always holds for p ≠ 2. For p = 2 and ρ̄(c) = 1 it is 𝒪⟦X₁, X₂, X₃⟧/(X₁² + X₂X₃ + 2X₁), a relative complete intersection.",
+   "hypotheses": [
+    "The rings are LocalGaloisDeformationRings R08.1 (archimedean-rings-p-odd, archimedean-odd-ring-p2); this node exports them in KW II's form."
+   ],
+   "proofSteps": [
+    "p ≠ 2: the eigenlines give GL_2/D* ≅ ℙ¹ × ℙ¹ ∖ Δ, smooth of relative dimension 2.",
+    "p = 2, ρ̄(c) = 1: the resolution by (M, L) with M|_L = id (smooth-resolution-criterion); substituting a = 1 + X₁ into a² + bc − 1 gives X₁² + bc + 2X₁."
+   ],
+   "acceptance": [
+    "Relative dimension 2 for every p.",
+    "p = 2, ρ̄(c) = (1 1; 0 1): formally smooth.",
+    "The equation X₁² + X₂X₃ + 2X₁ is R08.1's a² + bc − 1 with a = 1 + X₁."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/archimedean-rings-p-odd",
+    "LocalGaloisDeformationRings:R08.1/archimedean-odd-ring-p2",
+    "LocalGaloisDeformationRings:R08.6/smooth-resolution-criterion"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Proposition 3.3 and the Remark after it, pp. 20–21",
+     "match": "The p = 2 ring."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/export-fontaine-laffaille-irreducible",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Export: irreducible residual representation, low-weight crystalline",
+   "kind": "theorem",
+   "statement": "Let F_v = ℚ_p and ρ̄_p be irreducible of weight k ≤ p. The ring of crystalline lifts of weight k with fixed determinant is formally smooth over 𝒪 of relative dimension 1, and the framed ring R̄^{□,ψ}_v is formally smooth of relative dimension 4 = 3 + [ℚ_p : ℚ_p]. The same holds for p = 2 (k = 2).",
+   "hypotheses": [
+    "Fontaine–Laffaille theory (the filtered Dieudonné module has basis v₁, v₂ with v₂ spanning Fil^{k−1} and φ = (λ p^{k−1}; α 0), with α a unit fixed by the determinant and λ ∈ 𝔪) is the Fontaine–Laffaille part of this roadmap's L7; KW II extend Ramakrishna's argument to k = p and p = 2 using irreducibility."
+   ],
+   "proofSteps": [
+    "The unframed ring is 𝒪⟦λ⟧ by the Fontaine–Laffaille description.",
+    "End(ρ̄_p) = 𝔽, so the framed ring is a PGL_2-torsor over it: relative dimension 1 + 3 = 4 (R08.1/local-forget-framing)."
+   ],
+   "acceptance": [
+    "3 + [F_v : ℚ_p] = 4 for F_v = ℚ_p.",
+    "The unframed ring has relative dimension 1.",
+    "For reducible ρ̄_v the ring is not of this form; see export-ordinary."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.1/local-forget-framing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§3.2.3, p. 24",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/export-weight-two-irreducible",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Export: irreducible residual representation, weight two",
+   "kind": "theorem",
+   "statement": "Let p ≠ 2, F_v = ℚ_p and ρ̄_p irreducible. After enlarging 𝒪, the fixed-determinant ring of weight-two potentially semistable lifts of the prescribed inertial type is 𝒪⟦T₁, T₂⟧/(T₁T₂ − p), and every 𝒪′-point is of the required type. The framed ring R̄^{□,ψ}_v ≅ 𝒪⟦T₁, …, T₅⟧/(T₁T₂ − p) is a domain, flat of relative dimension 4, with regular generic fibre, and it is not formally smooth.",
+   "hypotheses": [
+    "The computation is Savitt, 'On a conjecture of Conrad, Diamond, and Taylor' (Duke Math. J. 128 (2005)), Theorems 6.22(3) and 6.24, cited by KW II. It is to be planned with this roadmap's R08.4 (potentially Barsotti–Tate rings); Savitt was not read in this checkpoint."
+   ],
+   "proofSteps": [
+    "Take Savitt's description of the unframed ring and add 3 framing variables (R08.1/local-forget-framing)."
+   ],
+   "acceptance": [
+    "𝒪⟦T₁, T₂⟧/(T₁T₂ − p) is a domain whose special fibre 𝔽⟦T₁, T₂⟧/(T₁T₂) has two components.",
+    "Relative dimension 1 unframed and 4 framed.",
+    "Not formally smooth over 𝒪: its special fibre 𝔽⟦T₁, T₂⟧/(T₁T₂) is not regular (for unramified 𝒪 the ring itself is still regular, since T₁T₂ − p ∉ 𝔪²)."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.4",
+    "LocalGaloisDeformationRings:R08.1/local-forget-framing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§3.2.4, p. 24",
+     "match": "The framed ring."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/export-ordinary",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Export: ordinary rings of low weight or weight two",
+   "kind": "theorem",
+   "statement": "Let F_v/ℚ_p be unramified, ρ̄_v ordinary with k(ρ̄_v) ≤ p, and X_v the low-weight crystalline or weight-two potentially Barsotti–Tate condition, with the chosen unramified character. Then R̄^{□,ψ}_v is a domain, flat over 𝒪 of relative dimension 3 + [F_v : ℚ_p], with regular generic fibre. It is formally smooth if ρ̄_v is ramified or ρ̄_v ≅ η₁ ⊕ η₂ with η₁ ≠ η₂ unramified. Every lift of this type is (χ₁η₁ ∗; 0 η₂) with η₁, η₂ unramified, where χ₁ = χ_p^{k−1} (crystalline) or χ_pω^{k−2} (weight two).",
+   "hypotheses": [
+    "Ordinarity of the lifts is KW II Lemma 3.5, which uses Fontaine–Laffaille theory for crystalline weight k ≤ p, Berger–Li–Zhu for k = p+1 over ℚ_p, and Breuil–Diamond–Taylor Lemma 2.1.2 for weight two crystalline over ℚ_p^nr(μ_p)."
+   ],
+   "proofSteps": [
+    "The unramified characters are parametrized by A = 𝒪⟦T⟧ (η₁ = [η̄₁]η_T with η_T(Frob) = 1 + T).",
+    "Lemma 3.7: the finite cocycles Z¹_f(B(Ξ)), Ξ = χ₁η₁η₂^{−1}, form a free B-module of rank 1 + [F_v : ℚ_p], compatibly with base change. (Finite cocycles are the kernel of the Kummer valuation map v_Z when k = 2.)",
+    "The lines L stabilized by D_v with the ordinary action form a ℙ¹-type space, over which the lifts form a torsor under Z¹_f. This gives a smooth resolution (smooth-resolution-criterion) of relative dimension 1 + 1 + (1 + [F_v : ℚ_p]) = 3 + [F_v : ℚ_p].",
+    "When ρ̄_v is ramified, or split with distinct unramified characters, the stable line is unique and the resolution is an isomorphism, so the ring is formally smooth."
+   ],
+   "acceptance": [
+    "F_v = ℚ_p: relative dimension 4.",
+    "ρ̄_v = η̄ ⊕ η̄ (scalar on D_v): the line space is all of ℙ¹, and the ring is a domain but not formally smooth.",
+    "Relative dimension 3 + [F_v : ℚ_p] matches Kisin's formula d² + dim ad D/Fil⁰ − 1 (fixed determinant) with distinct Hodge–Tate weights at each embedding (R08.3/pst-generic-fibre)."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.6/kw-local-conditions",
+    "LocalGaloisDeformationRings:R08.6/smooth-resolution-criterion",
+    "LocalGaloisDeformationRings:L7",
+    "LocalGaloisDeformationRings:R08.3/pst-generic-fibre"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§3.2.5, Proposition 3.6, Lemma 3.7 and their proofs, pp. 24–30",
+     "match": "The statement and proof."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 3.5, p. 22",
+     "match": "Ordinarity."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Ordinary local rings"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/export-semistable-weight-two-at-p",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Export: semistable weight-two rings above p",
+   "kind": "theorem",
+   "statement": "Let ρ̄_v = (γ̄_vχ̄_p ∗; 0 γ̄_v) with γ̄_v unramified, and X_v the semistable weight-two lifts (γ_vχ_p ∗; 0 γ_v) with a fixed unramified γ_v lifting γ̄_v and γ_v²χ_p = φ. R̄^{□,ψ}_v is formally smooth over 𝒪 of relative dimension 3 + [F_v : ℚ_p], unless p = 2 and D_v acts by homotheties. In that case it is a domain, faithfully flat of relative dimension 3 + [F_v : ℚ_p], with regular generic fibre.",
+   "hypotheses": [
+    "The dyadic exception belongs to this roadmap's R08.5 (dyadic and endpoint cases)."
+   ],
+   "proofSteps": [
+    "Z¹(D_v, N(χ_p)) has cardinality |N|^{2+[F_v:ℚ_p]} for finite N, which gives a smooth resolution as in export-ordinary.",
+    "Unless p = 2 with D_v acting by homotheties, the stable line is unique and the resolution is an isomorphism; otherwise use smooth-resolution-criterion."
+   ],
+   "acceptance": [
+    "F_v = ℚ_p, p odd: 𝒪⟦T₁, …, T₄⟧.",
+    "The dyadic homothety case is not formally smooth, but is a domain.",
+    "The character γ_v is fixed, not deformed: without fixing it the dimension is one larger."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.6/smooth-resolution-criterion",
+    "LocalGaloisDeformationRings:R08.6/export-ordinary",
+    "LocalGaloisDeformationRings:R08.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§3.2.6, pp. 30",
+     "match": "The generic case; the dyadic homothety case follows in the same paragraph."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/export-endpoint-weight",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Export: crystalline lifts of weight p + 1",
+   "kind": "theorem",
+   "statement": "Let p ≠ 2, F_v/ℚ_p unramified and k(ρ̄_v) = p + 1. The framed ring of crystalline (hence ordinary) lifts of weight p + 1 is formally smooth over 𝒪 of relative dimension 3 + [F_v : ℚ_p]. The map to the space of characters of the stable line is not formally smooth.",
+   "hypotheses": [
+    "Crystalline lifts of weight p + 1 are ordinary (Berger–Li–Zhu, KW II Lemma 3.5(i) for F_v = ℚ_p); the endpoint weight belongs to this roadmap's R08.5."
+   ],
+   "proofSteps": [
+    "Tangent space: modulo π the lifts are those of export-semistable-weight-two-at-p; the 'très ramifiée' cocycle forces η₁ = η₂, which gives dimension 3 + [F_v : ℚ_p].",
+    "Lifting along small extensions: lift the stable line; the obstruction f_γ is in H²(𝔽(χ_p)), one-dimensional, and it varies with an unramified γ by the cup product with a 'très ramifiée' class, which is nonzero by local class field theory. So some γ kills it."
+   ],
+   "acceptance": [
+    "F_v = ℚ_p: 𝒪⟦T₁, …, T₄⟧.",
+    "The Remark: the stable-line character map is not formally smooth.",
+    "p = 2 is excluded (k(ρ̄) ≤ 4 there, and the endpoint is handled by the semistable case)."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.6/export-semistable-weight-two-at-p",
+    "LocalGaloisDeformationRings:R08.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§3.2.7 and the Remark, pp. 31–32",
+     "match": "The statement and proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/export-away-from-p",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Export: rings at finite places away from p",
+   "kind": "theorem",
+   "statement": "Let v ∤ p. (a) Semistable condition (γ_vχ_p ∗; 0 γ_v) with a fixed character γ_v (Teichmüller on inertia, γ_v²χ_p = φ): R̄^{□,ψ}_v is a domain, flat of relative dimension 3, with regular generic fibre (§3.3.4). (b) Inertia-rigid conditions (minimally ramified, abelian with fixed inertial character, non-abelian of level two with F_v = ℚ_q): after enlarging 𝒪 there is a lift ρ₀ with finite ρ₀(I_v) and determinant φ. The ring is flat, each component of relative dimension 3, with regular generic fibre (GlobalGaloisDeformations R04.4/inertia-rigid-deformations with d = 2, fixed determinant).",
+   "hypotheses": [
+    "The Steinberg condition is LocalGaloisDeformationRings R08.2/steinberg-condition; the inertia-rigid rings are GlobalGaloisDeformations R04.4 (KW II §2.7), placed there by RS-08."
+   ],
+   "proofSteps": [
+    "(a): as export-semistable-weight-two-at-p, with the unramified twist γ_v and |Z¹(G, A(χ_p))| = |A|² (smooth resolution).",
+    "(b): construct ρ₀. In the minimal case, lift ρ̄_v(I_v) isomorphically when its projective image has order prime to p, and use the dihedral or S₄ constructions otherwise (§3.3.1). In the abelian case with χ′ ≡ χ, use Lemma 3.9 to lift commuting unipotents. In the level-two case, use explicit ρ(F), ρ(σ) with int(ρ(F))ρ(σ) = ρ(σ)^q (§3.3.3). Then apply the inertia-rigid theorem: absolute dimension d² = 4 with fixed determinant gives relative dimension 3."
+   ],
+   "acceptance": [
+    "Relative dimension 3 in every case away from p.",
+    "The minimal lift's conductor equals the conductor of ρ̄_v, and det|_{I_v} is the Teichmüller lift.",
+    "Inertia-rigid rings need not be domains (several components), unlike the semistable ones."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.2/steinberg-condition",
+    "LocalGaloisDeformationRings:R08.2/minimally-ramified-condition",
+    "GlobalGaloisDeformations:R04.4/inertia-rigid-deformations",
+    "LocalGaloisDeformationRings:R08.6/smooth-resolution-criterion"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Theorem 3.1 and §3.3, pp. 18–19 and 32–37",
+     "match": "The inertia-rigid case; the semistable case is the preceding bullet."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Local rings away from p"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/export-completed-tensor-product",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Export: the completed tensor product of KW II's local rings",
+   "kind": "theorem",
+   "statement": "For S a finite set of places and conditions X_v of kw-local-conditions at each v ∈ S, after enlarging 𝒪, R̄^{□,loc,ψ} = ⊗̂_{v∈S} R̄^{□,ψ}_v is flat over 𝒪, each component has relative dimension 3|S| when F is totally real and S contains the infinite places and the places above p, and R̄^{□,loc,ψ}[1/p] is regular. If the conditions at the finite places of S not above p are semistable, it is a domain. It has points over the integers of a finite extension of E.",
+   "hypotheses": [
+    "KW II Proposition 2.2 (the completed tensor product of flat domains with regular generic fibres and an 𝒪-point is again one) is DeformationAndDerivedPatchingAlgebra R03.1/R03.3 commutative algebra."
+   ],
+   "proofSteps": [
+    "Relative dimensions: 2 at each infinite place ([F : ℚ] of them), 3 + [F_v : ℚ_p] above p (summing to 3|S_p| + [F : ℚ]), and 3 at the other finite places; the total is 3|S|.",
+    "Flatness, regularity and the domain property pass to completed tensor products (Proposition 2.2(ii)); points exist by Proposition 2.2(i)."
+   ],
+   "acceptance": [
+    "F = ℚ, S = {∞, p}: 2 + 4 = 6 = 3|S|.",
+    "With an inertia-rigid place the tensor product can have several components, each of relative dimension 3|S|.",
+    "This is the ring B of GlobalGaloisDeformations R04.6."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.6/export-archimedean",
+    "LocalGaloisDeformationRings:R08.6/export-ordinary",
+    "LocalGaloisDeformationRings:R08.6/export-away-from-p",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Proposition 3.2, p. 19",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Completed local ring"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.6/local-nonemptiness",
+   "parentStageId": "LocalGaloisDeformationRings:R08.6",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "title": "Nonemptiness of KW II's local rings",
+   "kind": "theorem",
+   "statement": "For every condition X_v of kw-local-conditions (with the hypotheses of KW II Theorem 3.1), R̄^{□,ψ}_v ≠ 0, and it has a point over the integers 𝒪′ of a finite extension of E, that is, a lift of ρ̄_v of type X_v. The same holds for their completed tensor product.",
+   "hypotheses": [
+    "This is the local nonemptiness that PotentialModularityAndCompatibleSystems R24.2 combines with global finiteness; it is not assumed for other types (R08.3/pst-deformation-ring gives an empty example)."
+   ],
+   "proofSteps": [
+    "Each ring is flat over 𝒪 and nonzero, because an explicit lift exists. At ∞: ρ̄(c) lifted to a matrix of characteristic polynomial X² − 1. At p: for ordinary ρ̄_v, lift the characters and then the extension class, which is possible because Z¹_f is free and commutes with base change (KW II Lemma 3.7); a Fontaine–Laffaille lift for irreducible ρ̄_v; Savitt's 𝒪⟦T₁, T₂⟧/(T₁T₂ − p) ≠ 0; the formally smooth endpoint ring. Away from p: ρ₀ of export-away-from-p, or a semistable lift with the fixed γ_v.",
+    "A nonzero flat complete local Noetherian 𝒪-algebra has an 𝒪′-point (KW II Proposition 2.2(i))."
+   ],
+   "acceptance": [
+    "Contrast: for p > 2, ω with trivial type and Hodge–Tate weight 0 has no lift (R08.3/pst-deformation-ring), so nonemptiness is specific to KW's types.",
+    "The completed tensor product has an 𝒪′-point by combining points at each v.",
+    "Flatness alone is not enough (the zero ring is flat): the explicit lift gives nonzeroness."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.6/kw-local-conditions",
+    "LocalGaloisDeformationRings:R08.6/export-completed-tensor-product",
+    "LocalGaloisDeformationRings:R08.6/export-away-from-p",
+    "LocalGaloisDeformationRings:R08.6/export-ordinary",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalExports",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Theorem 3.1, p. 19",
+     "match": "Points for each condition."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
    "id": "LocalGaloisDeformationRings:L7/finite-height-lattices",
    "parentStageId": "LocalGaloisDeformationRings:L7",
    "realises": [
@@ -1632,7 +2144,10 @@
    "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
    "need": "dim R = dim R[1/p] + 1 for a nonzero p-torsion-free complete local Noetherian 𝒪-algebra, and equidimensionality passing between R and R[1/p].",
    "neededBy": [
-    "LocalGaloisDeformationRings:R08.3/pst-generic-fibre"
+    "LocalGaloisDeformationRings:R08.3/pst-generic-fibre",
+    "LocalGaloisDeformationRings:R08.6/export-completed-tensor-product",
+    "LocalGaloisDeformationRings:R08.6/local-nonemptiness",
+    "LocalGaloisDeformationRings:R08.6/smooth-resolution-criterion"
    ],
    "status": "open",
    "note": "R03.3 plans the dimension and equidimensionality lemmas."
@@ -1653,11 +2168,9 @@
   },
   {
    "stageId": "LocalGaloisDeformationRings:R08.3",
-   "status": "partial",
-   "remaining": [
-    "Nonemptiness for the particular local types that PotentialModularityAndCompatibleSystems R24 requests (KW II §3.2's explicit lifts at places above p), to be planned with R08.6's exports; pst-deformation-ring only records that nonemptiness is not automatic."
-   ],
-   "notes": "RS-08 keeps for R08.3: the potentially semistable fixed Hodge/inertial-type quotient and its precise characteristic-zero point, flatness and reducedness properties, with nonemptiness not automatic. Planned (7 nodes) from Kisin, JAMS 2008, §§2–3: Hodge and Galois types, the semistable quotient of bounded weight, Hodge-type components, the pst rings of fixed type with the crystalline locus and the reduced p-torsion-free integral ring, the deformation theory of filtered (φ, N)-modules, the dimension formula with generic smoothness, smoothness in the crystalline case, and change of coefficients. Kisin §4 (local–global compatibility for Hilbert modular forms) belongs to the automorphic side and is not planned here."
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 keeps for R08.3: the potentially semistable fixed Hodge/inertial-type quotient and its precise characteristic-zero point, flatness and reducedness properties, with nonemptiness not automatic. Planned (7 nodes) from Kisin, JAMS 2008, §§2–3: Hodge and Galois types, the semistable quotient of bounded weight, Hodge-type components, the pst rings of fixed type with the crystalline locus and the reduced p-torsion-free integral ring, the deformation theory of filtered (φ, N)-modules, the dimension formula with generic smoothness, smoothness in the crystalline case, and change of coefficients. Kisin §4 (local–global compatibility for Hilbert modular forms) belongs to the automorphic side and is not planned here. Checkpoint 4 closes the remaining item: nonemptiness for the local types that R24 requests is R08.6/local-nonemptiness (KW II Theorem 3.1 with explicit lifts)."
   },
   {
    "stageId": "LocalGaloisDeformationRings:R08.4",
@@ -1675,10 +2188,12 @@
   },
   {
    "stageId": "LocalGaloisDeformationRings:R08.6",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Local deformation statements for the global arguments."
-   ]
+    "Entries for KW I Theorem 5.1's lift types, the good-dihedral auxiliary type and the dyadic weight-two transition.",
+    "The modern general de Rham lifting applications (their local conditions; general de Rham lifting itself is R32)."
+   ],
+   "notes": "RS-08 keeps for R08.6: exports of the proved local conditions, dimensions and component/tangent data, with no dependency on the global theorems they support. Checkpoint 4 plans KW II §3's exports (11 nodes): the smooth-resolution criterion (Proposition 2.12), the table of conditions, the archimedean, irreducible Fontaine–Laffaille, irreducible weight-two (Savitt, to be read in R08.4), ordinary (Proposition 3.6, proved here), semistable weight-two, endpoint weight p + 1 and away-from-p rings, their completed tensor product (Proposition 3.2), and local nonemptiness. The Fontaine–Laffaille, Barsotti–Tate and dyadic/endpoint proofs are cited to L7, R08.4 and R08.5."
   },
   {
    "stageId": "LocalGaloisDeformationRings:L7",

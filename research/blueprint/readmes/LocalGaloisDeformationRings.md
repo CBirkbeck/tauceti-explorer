@@ -2,7 +2,8 @@
 
 This blueprint covers stages L7, L8 and R08.1–R08.6, within the boundaries of the RS-08 restructure (accepted). This
 blueprint now plans **R08.1 (unrestricted local rings)** and **R08.2 (places away from p)**, both source-decomposed. It
-also plans **R08.3 (potentially semistable rings)** and the **bounded-height lattice moduli of L7**, both partial. The
+also plans **R08.3 (potentially semistable rings)**, source-decomposed, and the **bounded-height lattice moduli of L7** and
+**KW II's local exports in R08.6**, both partial. The
 other stages are not yet read.
 
 ## Purpose and ownership (RS-08)
@@ -202,17 +203,56 @@ derived.
 
 **Lemma: change of coefficients** (node `pst-coefficient-change`). R^{□,τ,v} ⊗_{𝒪_E} 𝒪_{E′} is the ring over 𝒪_{E′}.
 
-*Remaining in R08.3:* nonemptiness for the local types that PotentialModularityAndCompatibleSystems R24 requests (KW II
-§3.2's lifts), with R08.6.
+R08.3 is closed by R08.6/local-nonemptiness, which proves nonemptiness for the local types that
+PotentialModularityAndCompatibleSystems R24 requests.
 
 **New requests:**
 - FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4: Breuil–Kisin modules, E-height and uniqueness.
 - AlgebraicModuliForArithmeticGeometry R09.1: Grassmannians and φ-stable lattice conditions.
 - DeformationAndDerivedPatchingAlgebra R03.3: dim R = dim R[1/p] + 1.
 
+## Layer R08.6 (partial): KW II's local exports
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/LocalExports`.
+
+RS-08 keeps the exports of the proved local conditions, dimensions and component and tangent data, with no dependency on
+the global theorems. The source is KW II (final version) §3, Theorem 3.1 and Proposition 3.2. GlobalGaloisDeformations
+R04.6 and GL2ModularityLifting R22.1 request these exports.
+
+**Lemma: smooth resolutions** (node `smooth-resolution-criterion`; KW II Proposition 2.12). Conditions (1)–(4) imply that
+the ring is a domain with regular generic fibre, of the resolution's dimension.
+
+**Definition: KW II's local conditions** (`KWCondition`; node `kw-local-conditions`; planet).
+- ∞: odd.
+- p: low-weight crystalline, weight two, or semistable weight two.
+- v ∤ p: semistable with γ_v, or inertia-rigid.
+- The choices (character, γ_v, ρ₀) are part of the datum.
+
+**Exports:**
+- `export-archimedean`: relative dimension 2, and 𝒪⟦X₁, X₂, X₃⟧/(X₁² + X₂X₃ + 2X₁) at p = 2 with ρ̄(c) = 1 (checked in Lean
+  against R08.1's form).
+- `export-fontaine-laffaille-irreducible`: formally smooth of relative dimension 4 (L7).
+- `export-weight-two-irreducible`: 𝒪⟦T₁, …, T₅⟧/(T₁T₂ − p) (Savitt, to be read in R08.4).
+- `export-ordinary` (planet): KW II Proposition 3.6.
+  - Relative dimension 3 + [F_v : ℚ_p].
+  - Formally smooth unless ρ̄_v is scalar.
+  - Proved here through Lemma 3.7's free Z¹_f.
+- `export-semistable-weight-two-at-p`: the dyadic homothety exception is left to R08.5.
+- `export-endpoint-weight`: k = p + 1, formally smooth (R08.5).
+- `export-away-from-p` (planet): relative dimension 3. Semistable rings are domains, and inertia-rigid rings come from
+  GlobalGaloisDeformations R04.4.
+- `export-completed-tensor-product` (planet): relative dimension 3|S| (checked in Lean), with regular generic fibre.
+- `local-nonemptiness`: explicit lifts, plus KW II Proposition 2.2.
+
+*Remaining in R08.6:*
+- KW I Theorem 5.1's lift types.
+- The good-dihedral type.
+- The dyadic weight-two transition.
+- The modern de Rham applications.
+
 ## Remaining work
 
-- **R08.3:** nonemptiness for R24's local types.
+- **R08.6:** KW I's types, the good-dihedral type, the dyadic transition and the modern de Rham applications.
 - **R08.4:** finite-flat and Barsotti–Tate components.
 - **R08.5:** dyadic cases.
 - **R08.6:** exports.
@@ -225,6 +265,8 @@ derived.
 - M. Kisin, *Lectures on deformations of Galois representations*, Lecture 1.
 - L. Clozel, M. Harris and R. Taylor, *Automorphy for some l-adic lifts …*, Publ. Math. IHÉS 108 (2008) (Numdam).
 - R. Taylor, *Automorphy for some l-adic lifts … II*, Publ. Math. IHÉS 108 (2008) (Numdam).
+- C. Khare and J.-P. Wintenberger, *Serre's modularity conjecture (II)*, Invent. Math. 178 (2009), §3; authors' final
+  version on Khare's UCLA page.
 - M. Kisin, *Potentially semi-stable deformation rings*, J. Amer. Math. Soc. 21 (2008), 513–546 (free from the AMS).
 - S.-N. Tung, *On the modularity of 2-adic potentially semi-stable deformation rings*, Math. Z. 298 (2021);
   arXiv:1908.06174v3.
