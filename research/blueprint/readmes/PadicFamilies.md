@@ -1,11 +1,13 @@
 # Hida and Coleman families, period modules, and family L-functions — blueprint
 
-This blueprint covers stages L0, L0a, L1, L2, L2a, L3, L4 and L5. After the third checkpoint:
+This blueprint covers stages L0, L0a, L1, L2, L2a, L3, L4 and L5. After the fourth checkpoint:
 - **L0a is source-decomposed.**
 - **L2a is partial:** it carries the fourteen reviewed nodes of the integrated decomposition.
 - **L0 is partial:** Hida's ordinary Hecke algebra and control theorem, from Hida, Ann. Sci. ÉNS 1986.
 - **L3 is partial:** critical-slope and θ-critical theory, from Bellaïche, *Critical p-adic L-functions*.
-- **L1, L2, L4 and L5 are not yet read.**
+- **L5 is partial:** Hida theory on the definite quaternionic towers of a totally real field, from Skinner–Wiles,
+  Publ. Math. IHÉS 89 (1999), §3.2.
+- **L1, L2 and L4 are not yet read.**
 
 The roadmap belongs to the restructured family RS-08, whose accepted proposal fixes what each layer keeps.
 - **L0a** owns the finite and profinite factorial ordinary-projector API "beyond the pinned Fitting lemma".
@@ -83,7 +85,16 @@ hypersurface).
   - Riesz slope summands and their Hecke stability (`finite-slope-summands`, `riesz-commuting-stability`);
   - resultants (`entire-resultants`, `resultant-unit`).
 
+- **OrdinaryAutomorphicFormsAndModularityLifting R21.1 (for L5):** the ordinary projector on definite quaternionic
+  forms and the towers M_∞, H_∞ (`quaternionic-ordinary-projector`, `quaternionic-nearly-ordinary-hecke-algebra`,
+  `ordinary-level-independence`, `ordinary-towers-duality`). RS-08 gives the arithmetic application of the projector to
+  that roadmap, and L5 proves Hida's theorems on its modules.
+- **PadicMeasuresIwasawaAlgebras L1 (for L5):** the completed group ring (`convolution-algebra`).
+
 **Requested (stage suppliers):**
+- **HilbertModularVarietiesAndShimuraCurves R18.3 (for L5):** free action after an auxiliary prime (Skinner–Wiles
+  Lemma 3.5, Corollary 3.6), and invariants of the quaternionic sets under free action.
+- **GL2AutomorphicRepresentationsAndTransfer R16.6 (for L5):** Hilbert cusp forms of parallel weight with their newforms.
 - **DeformationAndDerivedPatchingAlgebra P7:**
   - minimal complexes (Khare–Thorne Lemma 2.3);
   - gluing of good complexes and of homotopy classes along R/I_c (Lemmas 2.13–2.14).
@@ -541,6 +552,44 @@ and finite over Z_φ.
   out (E8).
 - `equidimensional-components`: Lemma 5.8 via Chenevier Proposition 6.4.2.
 
+### L5, Milestone 7: Hida theory over totally real fields (partial)
+
+Library module: `TauCeti/NumberTheory/PadicFamilies/TotallyReal`. The source is Skinner–Wiles §3.2, with F totally
+real of even degree and the definite quaternion algebra D ramified exactly at the infinite places. The modules and
+the projector are OrdinaryAutomorphicFormsAndModularityLifting R21.1. L5 proves Hida's theorems about them.
+
+**Construction: the weight algebra** (node `totally-real-weight-algebra`; planet "Nearly ordinary weight algebra of a
+totally real field"). G(U) ≅ (𝒪_F ⊗ ℤ_p)^× × Z(U), where Z(U) is the idelic centre modulo global units. The free part
+of Z(U) has rank δ_F = 1 + the Leopoldt defect, so Λ′_𝒪 = 𝒪[[X_1, …, X_{δ_F}, Y^{(i)}_j]] has δ_F + d variables, and
+𝒪[[G(U)]] is finite free over it. The weight-two arithmetic points (finite characters φ, ψ) are Zariski dense.
+- *API:* `nearlyOrdinaryWeightAlgebra`, `heckeGroup`, `groupRing_free`, `deltaF_eq_rank`, `arithmeticPoint`,
+  `arithmeticPoints_dense`.
+- *Tests:*
+  - for F = ℚ, Λ′_𝒪 = 𝒪[[X, Y]] (weight and twist);
+  - a real quadratic abelian F has 3 variables;
+  - the density of the points (1 + X − ζ);
+  - the torsion of G(U) is not a weight variable.
+
+**Theorem: Hida's freeness** (node `hida-freeness`; planet "Hida's freeness theorem"). This is Skinner–Wiles
+Proposition 3.3, after Hida [H2, Theorem 3.8]. If U/(U ∩ F^×) acts freely on D^×\G^D(A_f), M_∞(U) and M⁺_∞(U) are
+projective over 𝒪[[G(U)]], hence free over Λ′_𝒪.
+- The proof: the free action makes the dual of H⁰(X(U_a), K/𝒪) free over 𝒪[G(U_a)]. The e-part is then a direct
+  summand, and level independence (OAFML R21.1) bounds its generators in the limit.
+- The stated rank rank_𝒪 eH⁰(X(U⁰_1), 𝒪) × #G(U)_tors needs equal ranks on all characters of the prime-to-p torsion
+  (E11).
+
+**Theorem: finiteness** (node `hida-hecke-finite`). This is Corollary 3.4. T_∞(U, 𝒪) is finite and torsion-free over
+Λ′_𝒪, semilocal and complete. The proof shrinks U at an auxiliary prime ℓ ∤ 6 to get a free action (R18.3), embeds
+M_∞(U) ↪ M_∞(V), and uses the faithful action.
+
+**Theorem: Hida's control** (node `hida-control-nearly-ordinary`; planet). This is Proposition 3.7, after Hida [H2,
+Corollary 2.5]. A λ with λ|_{Z(U)} = ψε^μ and finite torus character comes from a nearly ordinary π of parallel weight
+(μ + 2)·t. The weight-two case follows from the definitions. For μ > 0 the proof is cited, unread, and recorded as a gap.
+
+**Lemma: density on components** (node `algebraic-primes-dense`). This is Lemma 3.8 with Corollary 3.9. Weight-two
+algebraic primes are dense in every Spec(T_∞/Q), by lying over from Λ′_𝒪 and a dimension count, which the source calls
+"immediate". A minimal prime whose dense set of points factors through a larger level comes from that level.
+
 ## Dependencies
 
 - **Within this roadmap:** L0a supplies L0, L1 and L5 (RS-08). L2a supplies L2 and, through it, L3.
@@ -552,7 +601,12 @@ and finite over Z_φ.
   - LocallyAnalyticDistributions L4 (cited node ids);
   - AdicSpacesPartII R0, R2 and R3 (requested);
   - PadicMeasuresIwasawaAlgebras L0a (requested).
+- **L5 imports:**
+  - OrdinaryAutomorphicFormsAndModularityLifting R21.1 and PadicMeasuresIwasawaAlgebras L1 (cited node ids);
+  - HilbertModularVarietiesAndShimuraCurves R18.3 and GL2AutomorphicRepresentationsAndTransfer R16.6 (requested).
 - **Consumers:**
+  - of L5: OrdinaryAutomorphicFormsAndModularityLifting R21.2 (its request for Propositions 3.3 and 3.7, Corollary 3.4
+    and Lemma 3.8);
   - of L0a: OrdinaryAutomorphicFormsAndModularityLifting R21.1–R21.2, PotentialAutomorphyInfrastructure PA.2,
     AutomorphicCongruences L2s, GeneralizedHeegnerCycles GH.3;
   - of L2a: AutomorphicGaloisRepresentationsPartII AG2.3 and AutomorphicPadicLFunctions L4e.
@@ -576,9 +630,15 @@ and finite over Z_φ.
   - Links are genuine intertwinings.
   - Eigenpackets are classified as points, not as unique eigenvectors.
 
+- **L5:**
+  - Λ′_𝒪 for F = ℚ has two variables.
+  - The torsion of G(U) is not a weight variable.
+  - Freeness is proved over Λ′_𝒪, and the rank formula is flagged (E11).
+  - The control theorem gives parallel weights only.
+
 ## Source issues
 
-The packet records ten findings.
+The packet records eleven findings.
 - **E1–E9:** Buzzard's manuscript.
   - E1: (n − d)t for (n − d) log t in Lemma 4.5.
   - E2: the printed witness identities X ∩ W = ∅ and X ∪ V = B.
@@ -594,6 +654,11 @@ The packet records ten findings.
   text layer and are now filed as source issues.
 - **E10:** Khare–Thorne print T₂ ∈ End_R(M) in Lemma 2.10(2), and T₂ ∈ End_R(C•) in Lemma 2.11(2). The target's
   endomorphism is meant.
+- **E11 (gap, reaches a stated result):** Skinner–Wiles Proposition 3.3 states a rank
+  rank_𝒪 eH⁰(X(U⁰_1), 𝒪) × #G(U)_tors, and its proof says it "clearly suffices" to argue without e. Dropping e gives
+  only projectivity over 𝒪[G(U_a)]. The e-part is free of that rank only if all characters of the prime-to-p torsion
+  of G(U_a) contribute equal 𝒪-rank, which the proof does not compare. Freeness over Λ′_𝒪, the only form used later,
+  does follow. Hida's cited [H2] was not obtained.
 
 ## Remaining layers
 
@@ -608,7 +673,11 @@ The packet records ten findings.
   - classicality through ModularSymbolsPadicLFunctions L2.
 - **L3.** Critical-slope and theta-critical theory (Pollack–Stevens, Bellaïche).
 - **L4.** Family Selmer complexes, regulators and big Kato classes.
-- **L5.** The Hilbert instance of L0a and Hida control over totally real fields.
+- **L5 (partial).** Still to do:
+  - Hida's control in weight μ + 2 > 2 (a gap: Hida [H1], [H2] are not obtained);
+  - the indefinite Hilbert and Shimura-curve cohomology (R18.4) and odd-degree F;
+  - period modules;
+  - the comparison of the F = ℚ slice with L0.
 
 ## Sources
 
@@ -621,5 +690,7 @@ The packet records ten findings.
 - **Buzzard,** *Eigenvarieties*, author manuscript of 2 August 2006. Read §§2–5 and the opening of §6.
 - **Conrad,** *Modular curves and rigid-analytic spaces*, author manuscript (2006). Read Appendix A.1.
 - **Chenevier,** *Familles p-adiques de formes automorphes pour GL_n*, author copy. Read §§6.2–6.4 as cited.
+- **Skinner–Wiles,** *Residually reducible representations and modular forms*, Publ. Math. IHÉS 89 (1999), 5–126,
+  Numdam. Read §2.2 (δ_F), §2.5 and §3.2.
 - **Coleman–Mazur,** *The eigencurve*, Internet Archive capture of the authors' preprint. Read §1.1, §1.3 and
   §§7.1, 7.4–7.5 (statements).
