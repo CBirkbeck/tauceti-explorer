@@ -17894,11 +17894,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GL2ModularityLifting--R22.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
-   ]
+   ],
+   "note": "claimed on GitHub issue #735"
   },
   {
    "id": "REV-GL2ModularityLifting--R22.1",
@@ -21770,9 +21771,9 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-SmallRamificationAndAbelianVarietyBaseCases.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #995"
+   "note": "released on GitHub issue #995"
   },
   {
    "id": "REV-SmallRamificationAndAbelianVarietyBaseCases",
