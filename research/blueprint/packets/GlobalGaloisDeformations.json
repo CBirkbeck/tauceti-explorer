@@ -13,7 +13,7 @@
   "GlobalGaloisDeformations:R04.6"
  ],
  "status": "partial",
- "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1).",
+ "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -142,7 +142,7 @@
    "sha256": "878f83e189ad44603ac04f6c16ef17f4c4fe046db91a2f0933a192e048715ea5",
    "read": "2026-09-28",
    "readSections": [
-    "§3 Galois deformations, pp. 11–21 (3.1–3.24 in full; 3.25–3.28 skimmed)"
+    "§3 Galois deformations, pp. 11–21 (3.1–3.26 in full; 3.27–3.28 skimmed)"
    ]
   },
   {
@@ -174,12 +174,40 @@
    "id": "KW2-ESI-2007",
    "title": "Serre's modularity conjecture (II)",
    "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
-   "edition": "Preprint ESI 1892, Erwin Schrödinger Institute, Vienna (14 February 2007), 75 pages; published as Invent. Math. 178 (2009), 505–586. The ESI preprint was read; its numbering in §4 differs from the published version (RS-08 cites the published Proposition 4.5 and Corollary 4.7). Printed page = PDF page − 1.",
+   "edition": "Preprint ESI 1892, Erwin Schrödinger Institute, Vienna (14 February 2007), 75 pages; published as Invent. Math. 178 (2009), 505–586. Printed page = PDF page − 1. Its numbering differs from the published one: compared with the authors' final version (KW2-2009), preprint Proposition 4.4 is Proposition 4.5, preprint Lemma 4.5 is Lemma 4.6, and preprint §§2.3–2.4 are §§2.7–2.8; §§2.4–2.6 of the final version (group actions, diagonalizable groups, truncations) are not in the preprint.",
    "url": "https://www.esi.ac.at/preprints/esi1892.pdf",
    "sha256": "d4c8a6d1c722e904d4255d9fcfa78ba955fb78aa15b8578501acd444bb05020d",
    "read": "2026-09-28",
    "readSections": [
     "§4.1 Presentations, pp. 29–33 (Definition 4.1, Lemmas 4.2, 4.3, 4.5, Proposition 4.4)"
+   ]
+  },
+  {
+   "id": "KW2-2009",
+   "title": "Serre's modularity conjecture (II)",
+   "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+   "edition": "Authors' final version (PDF dated 30 May 2009), 98 pages, on Khare's UCLA page; published as Invent. Math. 178 (2009), 505–586. Printed page = PDF page. Its numbering is the published one cited by RS-08 (Proposition 4.5, Corollary 4.7) and by Newton–Thorne (§2.4, Propositions 2.5 and 9.3, Lemma 5.10); the pagination of the Inventiones article was not compared.",
+   "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+   "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+   "read": "2026-09-28",
+   "readSections": [
+    "§2.1–2.8, pp. 5–17 (CNL_O-algebras, lifts and deformations, quotients by group actions, diagonalizable groups, truncations, inertia-rigid deformations, resolutions)",
+    "§4.1–4.2, pp. 37–46 (Proposition 4.1, Lemmas 4.3–4.4, Proposition 4.5, Lemma 4.6, Corollary 4.7)",
+    "§5.1–5.3 and §5.5–5.6, pp. 46–53 (twists, freeness, Lemma 5.10, Proposition 5.11, Lemma 5.12)",
+    "§7.2–7.3 and Lemma 7.10, pp. 61–63 and 69",
+    "proof of Proposition 9.3 (patching data and Lemmas 9.4–9.5), pp. 85–87; §10.1, pp. 90–92"
+   ]
+  },
+  {
+   "id": "BLGGT-2014",
+   "title": "Potential automorphy and change of weight",
+   "authors": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor",
+   "edition": "Ann. of Math. (2) 179 (2014), 501–609; arXiv:1010.2561v4, 93 pages. The arXiv version was read; printed page = PDF page.",
+   "url": "https://arxiv.org/pdf/1010.2561v4",
+   "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
+   "read": "2026-09-28",
+   "readSections": [
+    "§1.2, the universal deformation ring over G_n and Lemma 1.2.3 with its proof, pp. 15–17"
    ]
   }
  ],
@@ -1975,7 +2003,7 @@
    "statement": "R^□T_𝒮 ≅ R^loc_{S,T}[[x₁, …, x_g]]/J with g = h¹_{S,T}(G_{F,S}, ad⁰ρ̄), inducing an isomorphism on relative tangent spaces, and the minimal number of generators r(J) = dim J/𝔪J satisfies r(J) ≤ h²_{S,T}(ad⁰ρ̄) = h¹_{S,T}(G_{F,S}, ad⁰ρ̄(1)) (the dual Selmer group with conditions L(D_v)^⊥).",
    "hypotheses": [
     "The obstruction pairing uses Poitou–Tate duality and the product formula for local invariants (ArithmeticGaloisDuality R02.4); the relation-count algebra is DeformationAndDerivedPatchingAlgebra R03.2.",
-    "RS-08 cites this in the form of KW II Proposition 4.5 (published numbering); in the ESI preprint read here it is Lemma 4.5 (n = 2, T = S)."
+    "RS-08 cites the KW II form of this bound through Proposition 4.5 (published numbering), whose proof contains it as Lemma 4.6; the ESI preprint numbers it Lemma 4.5 (n = 2, T = S)."
    ],
    "proofSteps": [
     "Choose g elements lifting a basis of the relative cotangent space: R^loc[[x]] ↠ R^□T by relative Nakayama (relative-tangent-space).",
@@ -2011,6 +2039,12 @@
      "locator": "Proposition 3.24(2), p. 18",
      "excerpt": "R□T S is the quotient of a power series ring in dimF H1S,T(GF,S, ad0ρ) variables over Rloc S,T.",
      "match": "The number of variables."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§4.2, Lemma 4.6, p. 43",
+     "excerpt": "Lemma 4.6. We have the inequality: r(J) ≤ dimF(H1{L⊥v}(S, (Ad0)∗(1))).",
+     "match": "The same bound in the published numbering."
     }
    ],
    "implementationStatus": "unchecked",
@@ -2038,7 +2072,8 @@
    "acceptance": [
     "KW II data: Σ over S of (relative local dimension − 3) plus the infinite places gives exactly 1, the source of characteristic-zero points after finiteness.",
     "If some local ring has the expected dimension and h⁰(ad⁰(1)) = 0, the bound is 1 + Σ_v (expected excess).",
-    "The bound is only a lower bound; equality needs R = T."
+    "The bound is only a lower bound; equality needs R = T.",
+    "KW II Corollary 4.7: once R̄^ψ_S is finite over ℤ_p, this bound (dimension ≥ 1) gives a map R̄^ψ_S → 𝒪′ to the integers of a finite extension of ℚ_p. The commutative-algebra lemma is DeformationAndDerivedPatchingAlgebra R03.4 and the application is PotentialModularityAndCompatibleSystems R24.2; a finite 𝒪-algebra such as 𝔽 has no such point, so the dimension bound is the hypothesis this node supplies."
    ],
    "prerequisites": [
     "GlobalGaloisDeformations:R04.3/local-to-global-presentation",
@@ -2062,12 +2097,844 @@
      "sourceId": "KW2-ESI-2007",
      "locator": "§4.1, Proposition 4.4, p. 32",
      "excerpt": "Proposition 4.4. The absolute dimension of ¯Rψ S is ≥ 1.",
-     "match": "The KW II form (RS-08 cites the published Corollary 4.7)."
+     "match": "The KW II form (preprint numbering)."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§4.2, Proposition 4.5, p. 42",
+     "excerpt": "Proposition 4.5. The absolute dimension of ¯RψS is ≥ 1.",
+     "match": "The KW II form in the published numbering cited by RS-08."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§4.2, Corollary 4.7, p. 45",
+     "excerpt": "Corollary 4.7. If ¯RψS is a finitely generated Zp-module, then there is a map of CNLO-algebras π : ¯RψS → O′ for O′ the ring of integers of a finite extension of Qp.",
+     "match": "The consumer of the bound (RS-08's 'KW II 4.5/4.7 hypotheses')."
     }
    ],
    "implementationStatus": "unchecked",
    "planet": {
     "name": "Global dimension bound"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/restriction-ring-map",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Restriction to a finite extension as a ring map",
+   "kind": "construction",
+   "statement": "Let F′/F be a finite extension and S′ the places of F′ above S. Restricting lifts along G_{F′,S′} → G_{F,S} gives a local 𝒪-algebra map res : R^□_{ρ̄|G_{F′,S′}} → R^□_{ρ̄} of framed rings and, with fixed determinant, R^□_{ρ̄|,χ|G_{F′}} → R^□_{ρ̄,χ}. If ρ̄|G_{F′,S′} is absolutely irreducible it gives res : R^univ_{ρ̄|G_{F′,S′}} → R^univ_{ρ̄} on unframed rings. If for each v′ | v the local problem D_{v′} contains the restrictions to G_{F′_{v′}} of the lifts in D_v, res descends to the rings with local conditions, R̄_{F′} → R̄_F (KW II's γ).",
+   "hypotheses": [
+    "Absolute irreducibility of ρ̄|G_{F′,S′} is what makes the unframed ring of the restriction exist (R04.2/universal-deformation-ring); the framed map needs no hypothesis.",
+    "The compatibility of local problems is checked in each application; KW II choose F′ so that it holds (proof of Theorem 10.1)."
+   ],
+   "proofSteps": [
+    "G_{F′} → G_F → G_{F,S} factors through G_{F′,S′}, since a place of F′ not above S is unramified in F′F_S/F′.",
+    "Restriction of lifts and of strict classes is natural in A (R04.1/restriction-of-deformations); the Yoneda lemma gives the ring map, and det(ρ|G_{F′}) = (det ρ)|G_{F′}.",
+    "Under the compatibility hypothesis the restriction of the universal lift over R̄_F lies in D_{v′} at every v′, so res factors through R̄_{F′}."
+   ],
+   "acceptance": [
+    "F′ = F gives the identity, and for F ⊆ F′ ⊆ F″ the maps compose.",
+    "res is in general neither injective, surjective nor flat (restriction-finiteness gives a finite, non-flat example)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+    "GlobalGaloisDeformations:R04.1/restriction-of-deformations",
+    "GlobalGaloisDeformations:R04.3/global-deformation-type"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Global",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.25, p. 18",
+     "excerpt": "Then restricting the universal deformation ρuniv of ρ to GF′,S′ gives a ring homomorphism Runiv ρ|GF′,S′ → Runiv ρ.",
+     "match": "The unframed map."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§10.1, proof of Theorem 10.1, p. 91",
+     "excerpt": "As ¯ρ and ¯ρ|GF are absolutely irreducible, we have by functoriality CNLO-algebra morphisms π1 : RψF F → ¯R□,ψF F , π2 : Rψ Q,S → ¯R□,ψ Q,S , and also β : RψF F → Rψ Q,S and α : ¯R□,ψF F → ¯R□,ψ Q,S",
+     "match": "The maps with fixed determinant and local conditions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.resRing",
+     "role": "constructor",
+     "statement": "The framed restriction map R^□_{ρ̄|H} → R^□_{ρ̄} for a continuous H → G."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.resRingUnframed",
+     "role": "constructor",
+     "statement": "The unframed restriction map, for absolutely irreducible ρ̄|H."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.resRing_classifies",
+     "role": "characterisation",
+     "statement": "resRing classifies the restriction of the universal lift."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.resRing_comp",
+     "role": "compatibility",
+     "statement": "Restriction along a composite is the composite of the maps."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.4/restriction-finiteness",
+     "how": "the map whose finiteness is proved."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.1",
+     "how": "the map γ : R̄_{F′} → R̄_F in the proof of KW II Theorem 10.1."
+    }
+   ],
+   "tests": [
+    {
+     "name": "resRing_id",
+     "kind": "example",
+     "statement": "Restriction along the identity is the identity map."
+    },
+    {
+     "name": "resRing_comp_apply",
+     "kind": "characterisation",
+     "statement": "For H′ → H → G, resRing_{H′→G} = resRing_{H→G} ∘ resRing_{H′→H}."
+    },
+    {
+     "name": "resRing_not_flat",
+     "kind": "non-example",
+     "statement": "For p odd, G = ℤ_p ⋊ {±1}, H = ℤ_p, n = 1, ρ̄ = 1: resRing is 𝒪⟦Y⟧ → 𝒪, Y ↦ 0, which is not flat."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/restriction-finiteness",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Finiteness of restriction maps",
+   "kind": "theorem",
+   "statement": "Let Γ be a profinite group satisfying Φ_p, Σ ⊆ Γ an open subgroup and ρ̄ : Γ → GL_n(𝔽) with ρ̄|Σ absolutely irreducible. Then the restriction map R^univ_{ρ̄|Σ} → R^univ_{ρ̄} makes R^univ_{ρ̄} a finitely generated R^univ_{ρ̄|Σ}-module. In particular, for F′/F finite with ρ̄|G_{F′,S′} absolutely irreducible, R^univ_{ρ̄} is finite over R^univ_{ρ̄|G_{F′,S′}} (Khare–Wintenberger). Nothing is claimed about flatness or injectivity: finite flatness of a restriction map is a separate theorem when it holds.",
+   "hypotheses": [
+    "BLGGT prove this for 𝒢_n-valued representations (and for twists and for I(r)); Gee states the GL_n case. The proof below is BLGGT's specialised to GL_n, with Carayol's theorem (R04.2/carayol-trace-theorem) in place of CHT08 Lemma 2.1.12.",
+    "Absolute irreducibility of ρ̄|Σ is used twice: for R^univ_{ρ̄|Σ} to exist, and (through ρ̄) so that traces generate R^univ_{ρ̄}."
+   ],
+   "proofSteps": [
+    "Write R = R^univ_{ρ̄}, R_Σ = R^univ_{ρ̄|Σ} and 𝔪 = 𝔪_{R_Σ}. The image of Γ in GL_n(R/𝔪R) is finite: modulo 𝔪, ρ^univ|Σ is conjugate to ρ̄|Σ, so the kernel contains ker(ρ̄|Σ), which is open in Γ.",
+    "Let m be the order of that image, γ₁, …, γ_m representatives, and f(T) = ∏_{(ζ₁,…,ζ_n)∈μ_m(𝔽̄)^n}(T − (ζ₁ + ⋯ + ζ_n)) ∈ 𝔽[T]. In the universal algebra 𝔽[X_{ij}]/(X^m = 1) all eigenvalues of X are m-th roots of unity, so f(tr X) lies in every prime and f(tr X)^a = 0 for some a.",
+    "Hence T_i ↦ tr ρ^univ(γ_i) defines 𝔽[T₁, …, T_m]/(f(T_i)^a) → R/𝔪R. R is topologically generated over 𝒪 by the traces (Carayol), and tr ρ^univ(γ) ≡ tr ρ^univ(γ_i) mod 𝔪R when γ and γ_i have the same image, so the map has dense image; its source is finite, so it is surjective and R/𝔪R is finite over 𝔽.",
+    "R is 𝔪_R-adically complete and separated and 𝔪R ⊆ 𝔪_R, so the complete Nakayama lemma makes R finite over R_Σ."
+   ],
+   "acceptance": [
+    "Finite but not flat: p odd, Γ = ℤ_p ⋊ {±1} (−1 acting by inversion), Σ = ℤ_p, n = 1, ρ̄ = 1. Commutators are the elements a^{−2}, so Γ^{ab,(p)} = 1 while Σ^{ab,(p)} = ℤ_p; the map is R_Σ = 𝒪⟦Y⟧ → R = 𝒪, Y ↦ 0, finite and not flat.",
+    "The same example shows finiteness does not pass from R to R_Σ: R = 𝒪 is finite over 𝒪 but 𝒪⟦Y⟧ is not.",
+    "Σ = Γ gives the identity.",
+    "Consequence used by PotentialModularityAndCompatibleSystems R24.1 (KW II Theorem 10.1): if the local conditions are compatible under restriction and R̄_{F′} is finite over 𝒪, then R̄_F, a quotient of R^univ_F and so finite over R̄_{F′}, is finite over 𝒪. The implication runs one way only (first example)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.4/restriction-ring-map",
+    "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
+    "GlobalGaloisDeformations:R04.2/universal-deformation-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Global",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Proposition 3.26, p. 18",
+     "excerpt": "3.26. Proposition. The ring Runiv ρ is a ﬁnitely generated Runiv ρ|GF′,S′ -module.",
+     "match": "The GL_n statement."
+    },
+    {
+     "sourceId": "BLGGT-2014",
+     "locator": "Lemma 1.2.3(1) and its proof, pp. 16–17",
+     "excerpt": "Then the natural map Runiv O,r|Σ → Runiv O,r induced by runiv|Σ makes Runiv O,r a ﬁnitely generated Runiv O,r|Σ- module.",
+     "match": "The proof transcribed above (𝒢_n-valued in the source)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Finiteness under restriction"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/enlarging-ramification",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Enlarging the ramification set gives closed immersions",
+   "kind": "lemma",
+   "statement": "Let S ⊆ S′ be finite sets of places of F containing the places above p and ∞, with ρ̄ unramified outside S. Inflation along G_{F,S′} ↠ G_{F,S} identifies lifts unramified outside S with lifts over G_{F,S′} that are trivial on the inertia groups at the places of S′ ∖ S. The induced maps R^□_{S′} → R^□_S, R_{S′} → R_S (ρ̄ absolutely irreducible) and their fixed-determinant versions are surjective, with kernel the ideal generated by the entries of ρ^univ(σ) − 1 for σ in the inertia groups at places above S′ ∖ S. The same holds with local conditions when the condition at v ∈ S′ ∖ S is 'unramified'.",
+   "hypotheses": [
+    "A map B → C of complete local Noetherian 𝒪-algebras is surjective (a closed immersion) exactly when Sp_C(A) → Sp_B(A) is injective for all A, and it suffices to test A = 𝔽[ε] (KW II §2.1)."
+   ],
+   "proofSteps": [
+    "ker(G_{F,S′} → G_{F,S}) is the closed normal subgroup generated by the inertia groups at places above S′ ∖ S, so the two functors of lifts agree.",
+    "The subfunctor inclusion is injective on 𝔽[ε]-points, so the cotangent map is surjective and the ring map is surjective by complete Nakayama.",
+    "The quotient by the stated ideal classifies exactly the lifts trivial on those inertia groups: conjugate inertia elements give entries in the same ideal, and ideals of a Noetherian complete local ring are closed.",
+    "For unframed rings the ideal is independent of the representative in the strict class, since conjugation preserves it."
+   ],
+   "acceptance": [
+    "S′ = S gives the identity.",
+    "KW II Proposition 5.11: for Taylor–Wiles places Q, R̄^ψ_{S∪Q} modulo the augmentation ideal of 𝒪[Δ′_Q] is R̄^ψ_S.",
+    "The map is not injective in general: its tangent map is H¹(G_{F,S}, ad) ↪ H¹(G_{F,S′}, ad), usually a strict inclusion."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+    "GlobalGaloisDeformations:R04.1/tangent-spaces"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Global",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§2.1, p. 6",
+     "excerpt": "A morphism f : B → C of CNLO-algebras is called a closed immersion if it is surjective. If f is a closed immersion, it is clear that for every CNLO-algebra A, the map SpC(A) → SpB(A) is injective.",
+     "match": "The closed-immersion criterion (see E2 for the converse)."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Proposition 5.11, p. 53",
+     "excerpt": "This naturally endows ¯Rψ S∪Qn (and hence ¯R□,ψ S∪Qn) with a O[∆′ Qn] = ⊗v∈QnO[∆′ v] module structure, and its quotient by the augmentation ideal of O[∆′ Qn] is isomorphic to ¯Rψ S (resp., ¯R□,ψ S ).",
+     "match": "The auxiliary-prime case."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/change-of-determinant",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Twisting isomorphisms and change of determinant",
+   "kind": "lemma",
+   "statement": "Let μ : G_{F,S} → 𝒪^× be a continuous character. Twisting ρ ↦ μ ⊗ ρ gives isomorphisms R^□_{ρ̄} ≅ R^□_{μ̄⊗ρ̄} and, when they exist, R^univ_{ρ̄} ≅ R^univ_{μ̄⊗ρ̄}, carrying the determinant-χ quotients to the determinant-μ^nχ quotients and each local problem D_v to μ|G_v ⊗ D_v. If χ′χ^{−1} = μ^n with μ residually trivial then R_{ρ̄,χ} ≅ R_{ρ̄,χ′}. For n = 2 and p > 2 every residually trivial ν is μ² with μ residually trivial, so the determinant can be changed freely within its residual class; for p = 2 it cannot, and KW II change it only after a solvable totally real base change split at prescribed places (Lemma 7.10, via Grunwald–Wang).",
+   "hypotheses": [
+    "For p ∤ n the decomposition R^□ ≅ R^□_χ ⊗̂ 𝒪⟦G^{ab,(p)}⟧ is R04.2/fixed-determinant-rings; this node supplies the maps between different χ and the twists of local problems.",
+    "KW II Lemma 7.10 is a statement about Hecke characters; it is not planned here and stays with its consumer (GL2ModularityLifting). Its Grunwald–Wang input is outside the Tau Ceti ClassFieldTheory roadmap and is planned under InverseGaloisAndArithmeticFundamentalGroups IG.4."
+   ],
+   "proofSteps": [
+    "μ ⊗ − is a bijection on lifts, natural in A, with inverse μ^{−1} ⊗ −, and it commutes with strict conjugation; Yoneda gives the ring isomorphisms.",
+    "det(μ ⊗ ρ) = μ^n det ρ, and local problems are transported by the same bijection at each v.",
+    "For p odd, 1 + π𝒪 is a pro-p abelian group on which squaring is bijective, so ν^{1/2} is a continuous residually trivial character."
+   ],
+   "acceptance": [
+    "μ = 1 gives the identity, and (μμ′) ⊗ − = μ ⊗ (μ′ ⊗ −).",
+    "p = 2, F = ℚ: the character ν of Gal(ℚ(i)/ℚ) is residually trivial (−1 ≡ 1 mod 2), but ν = μ² would make μ of order 4 with ℚ(i) inside the cyclic quartic field it cuts out, and ℚ(i) lies in no cyclic quartic extension of ℚ (−1 is not a sum of two squares). So twisting cannot move the determinant χ to χν.",
+    "Twisting by μ changes the ring only by relabelling: tr(μ ⊗ ρ) = μ · tr ρ."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/fixed-determinant-rings",
+    "GlobalGaloisDeformations:R04.1/fixed-determinant-functors",
+    "GlobalGaloisDeformations:R04.3/local-deformation-problem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Twisting",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 7.10 and its proof, p. 69",
+     "excerpt": "For p > 2 the lemma is trivial (and we may take F ′ = F). For p = 2 we use the Grunwald-Wang theorem",
+     "match": "The dyadic obstruction to changing determinant by twisting, and the base-change remedy."
+    },
+    {
+     "sourceId": "BLGGT-2014",
+     "locator": "Lemma 1.2.3(2), p. 16",
+     "excerpt": "Then the natural map Runiv O,r⊗s → Runiv O,r induced by runiv ⊗ s makes Runiv O,r a ﬁnitely generated Runiv O,r⊗s-module.",
+     "match": "The twisting map in the 𝒢_n setting, where it is only shown to be finite."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/diagonalizable-groups",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Diagonalizable groups on complete local algebras",
+   "kind": "definition",
+   "statement": "For a finitely generated abelian group a whose torsion has p-power order, the diagonalizable group (a)* on complete local Noetherian 𝒪-algebras is the completion of the diagonalizable group scheme D(a) at the identity of its special fibre: (a)*(A) = Hom(a, 1 + 𝔪_A), with affine algebra the completion of 𝒪[a] at (π, augmentation ideal). T = (ℤ^t)* = Ĝ_m^t is the split formal torus and T_{p^m} = ((ℤ/p^m)^t)* = μ_{p^m}^t. Truncation: the closed immersion T_{p^m} ↪ T is an isomorphism after truncation at level m + 1 (A ↦ A/𝔪^{m+1}), because (1 + X)^{p^m} − 1 ∈ (p, X)^{m+1}.",
+   "hypotheses": [
+    "KW II use these for the twisting groups G*_V (V a set of auxiliary places) and for the torus T of 2-adic patching."
+   ],
+   "proofSteps": [
+    "(a)*(A) = Hom(a, 1 + 𝔪_A): points of D(a) are homomorphisms a → A^×, and completing at the identity of the special fibre keeps those reducing to 1.",
+    "Truncation: the coefficient of X^k in (1 + X)^{p^m} − 1 has p-adic valuation m − v_p(k), and k − v_p(k) ≥ 1, so each term lies in (p, X)^{m+1}."
+   ],
+   "acceptance": [
+    "a = ℤ: (a)*(A) = 1 + 𝔪_A, with affine algebra 𝒪⟦X⟧.",
+    "a = ℤ/p^m: (a)*(A) = μ_{p^m}(A), since p^m-th roots of 1 in a local ring with residue field of characteristic p reduce to 1.",
+    "For p = 2, m = 1: (1 + X)² − 1 = 2X + X² ∈ (2, X)²."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/GroupAction",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§2.5, p. 12",
+     "excerpt": "Let a be an abelian ﬁnitely generated group whose torsion is of order a power of p. We deﬁne the diagonalizable group with character group a in the CNLO category as the completion of the usual diagonalizable group ([15] exp.8) at the neutral element of the special ﬁber.",
+     "match": "The definition."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§2.6, Proposition 2.8 and its proof, p. 14",
+     "excerpt": "Then, the closed immersion Tpm ↪ T induces an isomorphism of truncated group schemes T[m+1] pm ≃ T[m+1].",
+     "match": "The truncation isomorphism."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.DiagGroup",
+     "role": "constructor",
+     "statement": "(a)* as a group functor on complete local 𝒪-algebras, with its representing algebra."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DiagGroup.points",
+     "role": "characterisation",
+     "statement": "(a)*(A) ≃ Hom(a, 1 + 𝔪_A)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DiagGroup.torus",
+     "role": "constructor",
+     "statement": "The formal torus Ĝ_m^t = (ℤ^t)*."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DiagGroup.truncation_iso",
+     "role": "compatibility",
+     "statement": "T_{p^m} → T is an isomorphism after truncation at level m + 1."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.4/twisting-action",
+     "how": "the twisting groups G*_V and G*_{V,2}."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.4/free-action-quotient",
+     "how": "quotients by free diagonalizable actions."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.6",
+     "how": "the torus acting on the 2-adic patched ring."
+    }
+   ],
+   "tests": [
+    {
+     "name": "diagGroup_int_points",
+     "kind": "example",
+     "statement": "(ℤ)*(A) = 1 + 𝔪_A."
+    },
+    {
+     "name": "one_add_X_sq_sub_one_mem",
+     "kind": "characterisation",
+     "statement": "(1 + X)² − 1 ∈ (2, X)² in ℤ[X], the case p = 2, m = 1 of the truncation isomorphism (proved in the suggested Lean file)."
+    },
+    {
+     "name": "diagGroup_prime_to_p_trivial",
+     "kind": "non-example",
+     "statement": "For a = ℤ/ℓ with ℓ ≠ p, Hom(a, 1 + 𝔪_A) is trivial for Artinian A (1 + 𝔪_A is a p-group), which is why torsion prime to p is excluded."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/free-action-quotient",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Quotients by free actions",
+   "kind": "theorem",
+   "statement": "Let G be a group functor on complete local Noetherian 𝒪-algebras represented by a formally smooth algebra, acting freely on X = Sp A(X): the map G × X → X × X, (g, x) ↦ (x, gx), is a closed immersion, equivalently G(A) acts without fixed points on X(A) for every A. Then the orbit functor O is represented by the invariant algebra A(X)⁰ = {a : γ(a) = 1 ⊗ a}, X → O is smooth, t_O = t_X/t_G, and X ≅ O × G as a trivial G-torsor over O; so dim A(X) = dim A(X)⁰ + dim G. If instead D = (a)* is diagonalizable (possibly finite) and acts freely, the quotient D\\X exists with affine algebra A(X)⁰, X is a D-torsor over it, and for a ↠ a′ the quotient can be taken in stages.",
+   "hypotheses": [
+    "Schlessinger's criterion is imported from DeformationAndDerivedPatchingAlgebra R03.2.",
+    "For finite diagonalizable D, KW II cite SGA 3, Exp. VIII, Theorem 5.1 (quotients by finite diagonalizable groups); the affine free-action quotient is requested from Tau Ceti ModularCurves 0C. KW II call the general diagonalizable case 'dévissage de routine'; the planned proof filters a by its torsion subgroup and uses the quotient in stages."
+   ],
+   "proofSteps": [
+    "Schlessinger (H1), surjectivity: lift g_A ∈ G(A) along B₁ ↠ A using smoothness of G, then glue.",
+    "(H1), injectivity: two elements of X(B₁ ×_A B₂) with the same image differ by g_i ∈ G(B_i) whose images in G(A) agree by freeness, so they differ by an element of G(B₁ ×_A B₂).",
+    "(H2): t_X → t_O is surjective and linear, so t_O is finite-dimensional; freeness makes t_G → t_X injective and t_O = t_X/t_G.",
+    "Smoothness of X → O: lift the element of G(A) relating two points, again by smoothness of G. A section s of the smooth map gives X ≅ G × O, x ↦ (g, x̄) with x = g·s(x̄).",
+    "Functions on G × O constant on G-orbits are exactly A(O), so A(O) = A(X)⁰."
+   ],
+   "acceptance": [
+    "G trivial: A(X)⁰ = A(X).",
+    "Ĝ_m acting on Sp 𝒪⟦x, y⟧ by λ·(x, y) = (λ(1 + x) − 1, y) is free, with invariant ring 𝒪⟦y⟧ and quotient map smooth of relative dimension 1.",
+    "Ĝ_m acting trivially on Sp 𝒪 is not free, and Sp 𝒪 ≇ O × Ĝ_m: freeness is needed.",
+    "With G = Ĝ_m^γ this gives the smoothness of relative dimension γ used by Newton–Thorne (PAPER-NEWTON-THORNE-21-B item 60)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.4/diagonalizable-groups",
+    "DeformationAndDerivedPatchingAlgebra:R03.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/GroupAction",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§2.4, p. 10",
+     "excerpt": "We say that the action of G on X is free if the map G × X → X × X corresponding to (g, x) 7→ (x, gx) is a closed immersion i.e. for every A, G(A) acts on X(A) without ﬁxed points.",
+     "match": "Freeness."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Proposition 2.5 and its proof, pp. 11–12",
+     "excerpt": "Proposition 2.5. Let G be a group acting on X as above. One supposes that G is smooth and that the action of G on X is free. Then, A(X)0 is a CNLO-algebra and the functor of orbits is represented by A(X)0. The map X → O is smooth.",
+     "match": "The smooth case."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Proposition 2.6, pp. 12–13",
+     "excerpt": "Proposition 2.6. Let X be a representable set in CNLO and D = (a)∗ be a diagonalizable group in CNLO acting freely on X. Then : 1) A quotient D\\X exists in CNLO",
+     "match": "The diagonalizable case and quotients in stages."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Quotients by free actions"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/truncated-actions",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Free actions assembled from truncated actions",
+   "kind": "lemma",
+   "statement": "For m ≥ 1 let C^{[m]} be the complete local 𝒪-algebras with 𝔪^m = 0, and define group chunks and group-action chunks of level m by truncating the group-scheme axioms, products being truncated ((A₁ ⊗ A₂)^{[m]}). Let C be a complete local 𝒪-algebra with compatible surjections C ↠ A_m (A_m ∈ C^{[m]}), A_∞ = lim A_m, and G a representable group with compatible action chunks of G^{[m]} on Sp A_m. Then there is a unique action of G on Sp A_∞ compatible with the chunks, and it is free if the chunks are. With the truncation isomorphism of diagonalizable-groups, free actions of the finite groups T_{p^n} give free action chunks of the torus T, and hence free T-actions on patched limits.",
+   "hypotheses": [
+    "This is the device by which KW II obtain the free Ĝ_m^t-action on the 2-adic patched ring from the twisting actions of the finite groups G*_{Q_n} (proof of Proposition 9.3)."
+   ],
+   "proofSteps": [
+    "For each m some n has Sp(A_∞)^{[m]} ↪ Sp A_n, so the given chunks restrict to the truncations of Sp A_∞.",
+    "The immersions G^{[m]} × X^{[m]}_∞ → (G^{[2m]} × X^{[2m]}_∞)^{[2m]} define the action map G × X_∞ → X_∞ in the limit; uniqueness is by the truncations.",
+    "A map is a closed immersion if and only if all its truncations are, so freeness of the chunks gives freeness of the limit action."
+   ],
+   "acceptance": [
+    "Constant systems A_m = A^{[m]} recover an action of G on Sp A.",
+    "A(Y) → A(X) is surjective if and only if A(Y)^{[m]} → A(X)^{[m]} is surjective for some m ≥ 2.",
+    "A₁ ⊗_𝒪 A₂ need not lie in C^{[m]} when A₁, A₂ do, which is why chunks use the truncated product."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.4/diagonalizable-groups",
+    "GlobalGaloisDeformations:R04.4/free-action-quotient"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/GroupAction",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§2.6, Proposition 2.7 and its proof, pp. 13–14",
+     "excerpt": "Proposition 2.7. Then we have a unique group action of G on X∞ such that for each m the group action chunk of level m of G[m] on X[m] ∞ is com- patible with the given group action chunk of G[m] on Xm via the immersion Xm → X[m] ∞.",
+     "match": "The statement and proof."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.3, pp. 86–87",
+     "excerpt": "The group chunk free actions of T[r′ m] 2m on SpD′m deﬁne the free action of T on X′ ∞by Propositions 2.7 and 2.8.",
+     "match": "The application to the patched ring."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/twisting-action",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "The action of twisting characters",
+   "kind": "construction",
+   "statement": "Let W = S ∪ V with S ∩ V = ∅, S containing the places above p and ∞ (KW II §4.1). Let G_V = Gal(F^S_V/F), the Galois group of the maximal abelian p-extension of F unramified outside V and split at S; it is a finite abelian p-group. The diagonalizable group G*_V (G*_V(A) = residually trivial Hom(G_V, A^×)) acts on Sp R^□_{S∪V} (determinant fixed only on S) by χ·(ρ, (ρ_v), (g_v)) = (χ ⊗ ρ, (ρ_v), (g_v)); each χ ∈ G*_V(𝒪) gives an automorphism a_χ with a_χ ∘ ρ^univ = χ ⊗ ρ^univ, commuting with the ∏_{v∈S}(GL_2)_1 action on frames. For p = 2 the subgroup G*_{V,2} of characters of G_V/2G_V preserves the determinant and acts on Sp R^{□,ψ}_{S∪V}. The actions descend to the quotients with local conditions at S and to the unframed (trace) subrings.",
+   "hypotheses": [
+    "Finiteness of G_V is class field theory: G_V is the p-part of a ray class group of modulus supported on V (tame, as V has no place above p) modulo the classes of places in S; requested from Tau Ceti ClassFieldTheory.",
+    "For n = 2 as in KW II; for general n the determinant changes by χ^n."
+   ],
+   "proofSteps": [
+    "χ ⊗ ρ is unramified outside W; for v ∈ S, χ|D_v = 1 because χ is split at v, so (χ ⊗ ρ)|D_v = ρ|D_v, the framed local data (ρ_v, g_v) are unchanged and det(χ ⊗ ρ)|D_v = ψχ_p.",
+    "The twist is natural in A, which gives the action of the group functor G*_V, and Yoneda gives a_χ for χ with values in 𝒪^×.",
+    "The frame action changes only (ρ_v, g_v), so the two actions commute.",
+    "For χ ∈ G*_{V,2}(A), χ² = 1, so det(χ ⊗ ρ) = χ² det ρ = det ρ.",
+    "Local conditions at S are untouched, and a_χ(tr ρ^univ(g)) = χ(g) tr ρ^univ(g) with χ(g) ∈ 𝒪, so the trace subrings are preserved."
+   ],
+   "acceptance": [
+    "χ = 1 acts trivially and a_χ a_{χ′} = a_{χχ′}.",
+    "For p odd G*_{V,2} is trivial (χ² = 1 with χ of p-power order forces χ = 1), so twisting gives no action on fixed-determinant rings.",
+    "KW II Lemma 5.12: on R̄^ψ_{S∪Q_n}, a_χ ∘ δ = χ(δ)(δ ∘ a_χ) for δ ∈ Δ′_{Q_n}, since a_χ(γ_v(δ)) = χ(δ)γ_v(δ) (the compatibility with R04.5's diamond action)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.4/diagonalizable-groups",
+    "GlobalGaloisDeformations:R04.4/determinant-fixed-on-S",
+    "GlobalGaloisDeformations:R04.3/global-deformation-type",
+    "GlobalGaloisDeformations:R04.2/framed-unframed-comparison"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Twisting",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§5.1, p. 46",
+     "excerpt": "For A ∈ CNLO, G∗ V (A) is the group Hom(GV , A∗) of continuous characters that reduce to the trivial character modulo mA. We have an action of G∗ V on SpR□ S∪V .",
+     "match": "The action and its properties."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§5.1, p. 46",
+     "excerpt": "Then, if χ ∈ G∗ V,2(A), we have χ2 = 1 and det(χ ⊗ ρA) = det(ρA). It follows that G∗ V,2 acts on SpR□,ψ S∪V .",
+     "match": "The dyadic action on fixed-determinant rings."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.twistAction",
+     "role": "constructor",
+     "statement": "The action of G*_V on the framed functor with determinant fixed on S."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.twistAut",
+     "role": "constructor",
+     "statement": "a_χ for χ : G_V → 𝒪^× residually trivial."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.twistAut_univ",
+     "role": "characterisation",
+     "statement": "a_χ ∘ ρ^univ = χ ⊗ ρ^univ."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.twistAction_comm_frame",
+     "role": "compatibility",
+     "statement": "Twisting commutes with the frame action."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.twistAction_det",
+     "role": "compatibility",
+     "statement": "det(χ ⊗ ρ) = χ² det ρ; for χ² = 1 the determinant is preserved."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.4/twist-action-free",
+     "how": "freeness of this action for p = 2."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.4/determinant-twist-torsor",
+     "how": "the equivariance of the determinant map."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.5",
+     "how": "compatibility with the Δ′_Q-module structure at Taylor–Wiles places (KW II Lemma 5.12)."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.6",
+     "how": "twists of modular forms for p = 2 and the patched torus action."
+    }
+   ],
+   "tests": [
+    {
+     "name": "twistAction_one",
+     "kind": "example",
+     "statement": "The trivial character acts as the identity."
+    },
+    {
+     "name": "twist_det",
+     "kind": "characterisation",
+     "statement": "For 2 × 2 matrices, det(c • M) = c² det M (proved in the suggested Lean file)."
+    },
+    {
+     "name": "twist_not_fixed_det_odd",
+     "kind": "non-example",
+     "statement": "For p odd and χ ≠ 1, χ ⊗ − does not preserve the fixed-determinant locus, since χ² ≠ 1."
+    }
+   ],
+   "planet": {
+    "name": "Twisting by characters"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/twist-action-free",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Freeness of dyadic twisting and its stabilisers",
+   "kind": "lemma",
+   "statement": "Let p = 2 and suppose ρ̄ : G_F → GL_2(𝔽) has non-solvable image. For every A and every non-trivial χ ∈ Hom(G_V, A^×) residually trivial, no lift ρ_A is equivalent to χ ⊗ ρ_A. Hence the actions of G*_V on Sp R^□_{S∪V}, of G*_{V,2} on Sp R^{□,ψ}_{S∪V}, and on their unframed and local-condition quotients, are free: every stabiliser is trivial. Without the image hypothesis stabilisers can be non-trivial.",
+   "hypotheses": [
+    "KW II deduce the image fact from Dickson's theorem (projective image SL_2(𝔽_{2^r}), r > 1); step 1 below uses only non-solvability."
+   ],
+   "proofSteps": [
+    "Let H = ker χ, so G_F/H is an abelian 2-group. ρ̄|H is absolutely irreducible: over 𝔽̄, if H fixed a unique line then G_F would fix it and ρ̄ would land in a Borel (solvable); if exactly two lines, G_F would permute them and the projective image would be an extension of a subgroup of ℤ/2 by a torus (solvable); if all lines, H would act by scalars and the projective image would be a quotient of G_F/H (abelian).",
+    "By Burnside the 𝔽-span of ρ̄(H) is M_2(𝔽). The trace form is non-degenerate, so for g₀ with χ(g₀) ≠ 1 there is h ∈ H with tr ρ̄(g₀h) ≠ 0; put g = g₀h, so χ(g) = χ(g₀) ≠ 1.",
+    "tr(χ ⊗ ρ_A)(g) − tr ρ_A(g) = (χ(g) − 1) tr ρ_A(g) ≠ 0 because tr ρ_A(g) is a unit, while equivalent lifts have equal traces.",
+    "Freeness in the sense of free-action-quotient is the absence of fixed points on A-points, which is what was shown."
+   ],
+   "acceptance": [
+    "Dihedral stabiliser (p = 2): if ρ = Ind_{G_K}^{G_F} θ with K/F quadratic, unramified outside V and split at S, and ε = ε_{K/F} (values ±1, residually trivial), then ε ⊗ ρ = MρM^{−1} with M = diag(1, −1) ≡ 1 mod 2 in the induced basis, so ρ is fixed by ε and the action is not free; here ρ̄ = Ind θ̄ has solvable image.",
+    "For p odd the same trace argument applies whenever ρ̄|ker χ is absolutely irreducible.",
+    "Freeness is what makes the twisted quotients representable (free-action-quotient) and gives the torsor of determinant-twist-torsor."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.4/twisting-action",
+    "GlobalGaloisDeformations:R04.4/free-action-quotient",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Twisting",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§5.2, Lemma 5.1 and its proof, pp. 46–47",
+     "excerpt": "Lemma 5.1. If A is a CNLO-algebra, then a lift ρA : GF → GL(VA) of ¯ρ : GF → GL2(F) is not equivalent to any of its twists by a non-trivial character χ ∈ Hom(GV , A∗).",
+     "match": "The statement and the trace argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/determinant-fixed-on-S",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Rings with determinant fixed only on S, and the determinant map",
+   "kind": "definition",
+   "statement": "(KW II §4.1.1, n = 2.) R^□_{S∪V} represents tuples (V_A, (β_{v,A})_{v∈S}) with V_A a deformation of ρ̄ as a G_{F,S∪V}-representation such that det V_A|D_v = ψχ_p for v ∈ S, and β_{v,A} lifts of the chosen basis; R^{□,ψ}_{S∪V} is the same with det V_A = ψχ_p globally. Both are R^{□,loc,ψ}_S-algebras, and R̄ denotes base change to the local-condition quotient R̄^{□,loc,ψ}_S. The determinant map d : Sp R^□_{S∪V} → G*_V, ρ ↦ det ρ · (ψχ_p)^{−1}, satisfies d(χ ⊗ ρ) = χ² d(ρ), and Sp R^{□,ψ}_{S∪V} = d^{−1}(1) is a closed subfunctor.",
+   "hypotheses": [
+    "These are Newton–Thorne's R′_Q and R′^□_Q for p = 2 with V = Q a set of Taylor–Wiles places (PAPER-NEWTON-THORNE-21-B item 7).",
+    "The unframed variants are the trace subrings; the framed rings are power series in 4|S| − 1 variables over them (KW II Proposition 4.1, R04.2/framed-unframed-comparison)."
+   ],
+   "proofSteps": [
+    "det ρ · (ψχ_p)^{−1} is residually trivial, unramified outside S ∪ V and trivial on D_v for v ∈ S, so it is split at S and unramified outside V; its values lie in the pro-p group 1 + 𝔪_A, so it factors through G_V.",
+    "det(χ ⊗ ρ) = χ² det ρ for 2 × 2 matrices.",
+    "d^{−1}(1) is cut out by the ideal generated by d^*(g) − 1, g ∈ G_V."
+   ],
+   "acceptance": [
+    "If G_V = 1 then R^□_{S∪V} = R^{□,ψ}_{S∪V}.",
+    "For p odd squaring is bijective on G*_V(A), so ρ ↦ (d(ρ)^{−1/2} ⊗ ρ, d(ρ)^{1/2}) gives Sp R^□_{S∪V} ≅ Sp R^{□,ψ}_{S∪V} × G*_V.",
+    "For p = 2, (x, χ) ↦ χ ⊗ x from Sp R^{□,ψ} × G*_V to Sp R^□ is not injective when G_V ≠ 1 (G*_V[2] acts on both factors) and misses the points where d is not a square; this is why KW II pass through the invariant ring (determinant-twist-torsor)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.3/global-deformation-type",
+    "GlobalGaloisDeformations:R04.3/local-to-global-map",
+    "GlobalGaloisDeformations:R04.4/diagonalizable-groups",
+    "GlobalGaloisDeformations:R04.2/fixed-determinant-rings"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Twisting",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§4.1.1, pp. 37–38",
+     "excerpt": "Consider the CNLO-algebra R□,ψ S∪V (resp., R□ S∪V ) which represents the functor obtained by assigning to A, the isomorphism classes of tuples (VA, {βv,A}v∈S) where VA is a deformation of the GW -representation ¯ρ to A having determinant ψχp (resp., VA|Dv has determinant ψχp for v ∈ S)",
+     "match": "The two rings."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.3, p. 86",
+     "excerpt": "If to a lift ρA of ¯ρ with values in a CNLO-algebra A, one associates the Galois character detρA × (χpψ)−1, one deﬁnes a map of functors from X′ n to the diagonalizable group G∗ n.",
+     "match": "The determinant map."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.RdetOnS",
+     "role": "constructor",
+     "statement": "The framed ring with determinant fixed only at the places of S."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.detMap",
+     "role": "constructor",
+     "statement": "d : Sp R^□_{S∪V} → G*_V."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.detMap_twist",
+     "role": "compatibility",
+     "statement": "d(χ ⊗ ρ) = χ² d(ρ)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.fixedDet_eq_fiber",
+     "role": "characterisation",
+     "statement": "Sp R^{□,ψ}_{S∪V} = d^{−1}(1)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.4/twisting-action",
+     "how": "the space acted on by G*_V."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.4/determinant-twist-torsor",
+     "how": "the equivariant map d."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.5",
+     "how": "generator counts for R^□_{S∪Q_n} over R^{□,loc,ψ}_S (KW II Lemma 5.10(e))."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.6",
+     "how": "Newton–Thorne's R′_Q and the patched ring R′_∞."
+    }
+   ],
+   "tests": [
+    {
+     "name": "detMap_trivial_group",
+     "kind": "example",
+     "statement": "If G_V = 1, the two rings coincide."
+    },
+    {
+     "name": "fixedDet_iff_detMap_one",
+     "kind": "characterisation",
+     "statement": "A point lies in Sp R^{□,ψ} if and only if d of it is 1."
+    },
+    {
+     "name": "twist_map_not_injective_p2",
+     "kind": "non-example",
+     "statement": "For p = 2 and G_V ≠ 1, (x, χ) ↦ χ ⊗ x is not injective: (x, χ) and (η ⊗ x, ηχ) have the same image for η ∈ G*_V[2]."
+    }
+   ],
+   "planet": {
+    "name": "Determinant fixed on S"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/determinant-twist-torsor",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "The determinant torsor for dyadic twisting",
+   "kind": "theorem",
+   "statement": "Let T = Ĝ_m^γ act freely on X′ = Sp R′ with invariant ring R^inv (free-action-quotient), and let d : X′ → T satisfy d(λx) = λ² d(x). Put X = d^{−1}(1) = Sp R. Then X′ → Sp R^inv is smooth of relative dimension γ, T₂ = T[2] acts freely on X, and X → Sp R^inv is a T₂-torsor; hence R is finite flat of degree 2^γ over R^inv and dim R = dim R^inv = dim R′ − γ.",
+   "hypotheses": [
+    "KW II prove this for the 2-adic patched rings (Lemma 9.4, with T the torus through which the twisting groups G*_{Q_n} are patched); Newton–Thorne state it for R′_∞ (PAPER-NEWTON-THORNE-21-B item 60). The statement here is the abstract form of KW II's proof.",
+    "T must be a torus: squaring T → T is finite flat with kernel T₂ (1 + X ↦ (1 + X)² is 2X + X², a distinguished polynomial of degree 2), which fails for finite diagonalizable groups."
+   ],
+   "proofSteps": [
+    "Form X′ ×_T T = {(x, λ) : d(x) = λ²}. T acts diagonally, λ′·(x, λ) = (λ′x, λ′λ), which preserves it since d(λ′x) = λ′²λ²; T₂ acts by translation on λ. It is a torsor over Sp R^inv under T × T₂.",
+    "(x, λ) ↦ (λ^{−1}x, λ) is an isomorphism X′ ×_T T ≅ X × T, with inverse (y, λ) ↦ (λy, λ). Under it T acts trivially on X and by translation on T, and η ∈ T₂ acts by (y, λ) ↦ (ηy, ηλ).",
+    "Taking the quotient by T first (free-action-quotient) leaves X with a free T₂-action whose quotient is Sp R^inv (quotients in stages).",
+    "Smoothness of relative dimension γ of X′ → Sp R^inv is free-action-quotient with G = T, and a finite flat torsor preserves Krull dimension."
+   ],
+   "acceptance": [
+    "γ = 0: T is trivial and R = R′ = R^inv.",
+    "If d(λx) = λ d(x) instead, then x ↦ (d(x)^{−1}x, d(x)) gives X′ ≅ X × T and X → Sp R^inv is an isomorphism, not a T₂-torsor: the squaring is what produces T₂.",
+    "KW II Lemma 9.5 uses dim R = dim R^inv = dim R′ − γ to show that R′_∞ is a power series ring."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.4/free-action-quotient",
+    "GlobalGaloisDeformations:R04.4/determinant-fixed-on-S",
+    "GlobalGaloisDeformations:R04.4/twist-action-free",
+    "GlobalGaloisDeformations:R04.4/truncated-actions"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Twisting",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.3, Lemma 9.4 and its proof, p. 87",
+     "excerpt": "Lemma 9.4. The natural map Rinv ∞→R∞makes R∞a torsor on Rinv ∞with group the 2-torsion T2 of the torus T.",
+     "match": "The torsor statement and the fibre-product proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Determinant torsor"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.4/inertia-rigid-deformations",
+   "parentStageId": "GlobalGaloisDeformations:R04.4",
+   "realises": [
+    "GlobalGaloisDeformations:R04.4"
+   ],
+   "title": "Inertia-rigid deformation rings",
+   "kind": "theorem",
+   "statement": "Let G be profinite with a finite normal subgroup I and G/I ≅ ℤ̂, F ∈ G mapping to a generator, ρ̄ : G → GL_d(𝔽) and ρ₀ : G → GL_d(𝒪) a lift with determinant φ. Let M_{φ,0} be the affine 𝒪-scheme of DATA (ρ_I : I → GL_d, f ∈ GL_d with int(f)ρ_I = ρ_I ∘ int(F), det ρ_I = φ|I, det f = φ(F)) whose characteristic polynomials ρ_I(τ) equal those of ρ₀(τ) for τ ∈ I, and R^□_{φ,0,fl} the completion at the point ξ_{ρ̄} of its p-torsion-free quotient. Then ξ_{ρ̄} lies on the flat part, every irreducible component of Spec R^□_{φ,0,fl} is faithfully flat over 𝒪 of absolute dimension d², R^□_{φ,0,fl}[1/p] is regular, and its 𝒪′-points are exactly the lifts with determinant φ whose restriction to I is conjugate over E′ to ρ₀|I. So it is the quotient of R^□ classifying these lifts.",
+   "hypotheses": [
+    "Applied (KW II §3.3) to G = G_{F_v}/ker(ρ₀|I_{F_v}) for v ∤ p, whose inertia image is finite once ρ₀ is fixed. LocalGaloisDeformationRings R08.2 plans fixed-inertial-type quotients in general; this node is KW II's explicit model for finite inertial image, which RS-08 places here.",
+    "Excellence of finite-type 𝒪-algebras, regularity of completion maps and equidimensionality (KW II cite Matsumura, Commutative Algebra §34 and Theorem 79, and Commutative Ring Theory Theorem 31.6) are requested from DeformationAndDerivedPatchingAlgebra R03.3."
+   ],
+   "proofSteps": [
+    "M_{φ,0} → GL_d^{|I|+1} is a closed immersion cut out by the multiplication table of I, the action of int(F) and the determinant; ρ₀ gives an 𝒪-point specialising to ξ_{ρ̄}, so ξ_{ρ̄} lies on the flat part (Lemma 2.9).",
+    "Forgetting f maps M_{φ,0}[1/p] to M_I ≅ GL_d/C* (conjugates of ρ₀|I, C the commutant) and makes it a torsor under C*₁ (determinant 1), so it is smooth of dimension d² − dim C* + dim C*₁ = d² − 1.",
+    "Finite-type 𝒪-algebras are excellent, so the completion map is regular and R^□_{φ,0,fl}[1/p] is regular; faithful flatness gives each component of the localisation dimension d², and R^□_{φ,0,fl} is equidimensional.",
+    "Representations of the finite group I over E′ are determined by their characters, so equal characteristic polynomials mean ρ|I ⊗ E′ ≅ ρ₀|I ⊗ E′ (Proposition 2.11)."
+   ],
+   "acceptance": [
+    "d = 1: ρ_I = φ|I and f = φ(F) are forced, so M_{φ,0} = Spec 𝒪 and R^□_{φ,0,fl} = 𝒪, of absolute dimension 1 = d².",
+    "I = 1 (unramified lifts with fixed determinant): M_{φ,0} = {f ∈ GL_d : det f = φ(F)} and R^□_{φ,0,fl} ≅ 𝒪⟦x₁, …, x_{d²−1}⟧.",
+    "R^□_{φ,0,fl} is characterised by its 𝒪′-points (KW II Corollary 2.3), not as a functor on Artinian rings."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.1/fixed-determinant-functors",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/InertiaRigid",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§2.7, Proposition 2.10, p. 15",
+     "excerpt": "Proposition 2.10. Each irreducible component of Spec(R □ φ,0,ﬂ) is faithfully ﬂat of absolute dimension d2 ; R □ φ,0,ﬂ[1/p] is regular.",
+     "match": "Flatness, dimension and regularity."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§2.7, Proposition 2.11, p. 16",
+     "excerpt": "Proposition 2.11. The lifts ρξ are exactly the lifts ρ of ¯ρ with values in GLd(O′) which have determinant φ and are such that the restriction of ρ⊗E′ to I is conjugate to (ρ0)|I ⊗E′.",
+     "match": "The points."
+    },
+    {
+     "sourceId": "KW2-ESI-2007",
+     "locator": "§2.3, Propositions 2.6–2.7, pp. 9–11",
+     "excerpt": "We consider inertia-rigid lifts (2.3), i.e. lifts whose restriction of inertia is conjugate to the restriction of ρ0 to inertia and whose determinant is φ.",
+     "match": "The same material in the preprint numbering (quoted from its §3.3, p. 24)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Inertia-rigid deformations"
    }
   }
  ],
@@ -2164,6 +3031,33 @@
    ],
    "status": "open",
    "note": "Planned in the LocalGaloisDeformationRings packet (PR #3805)."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+   "need": "Finiteness of Gal(F^S_V/F), the maximal abelian p-extension unramified outside V and split at S (V containing no place above p), via the global class field correspondence and finiteness of ray class groups.",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.4/twisting-action"
+   ],
+   "status": "open",
+   "note": "Tau Ceti ClassFieldTheory Layer 12 (global correspondence); KW II §5.1 uses it without proof."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors",
+   "need": "Quotients of affine schemes by finite locally free (here finite diagonalizable) group schemes acting freely, as affine torsors (SGA 3, Exp. V, Théorème 4.1 in the affine case; KW II cite SGA 3, Exp. VIII, Theorem 5.1).",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.4/free-action-quotient"
+   ],
+   "status": "open",
+   "note": "Tau Ceti ModularCurves 0C plans the affine free-action quotient; the completed (complete local) version is derived in free-action-quotient."
+  },
+  {
+   "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
+   "need": "Excellence of finite-type 𝒪-algebras with regular completion maps, and equidimensionality of the completion of an equidimensional excellent local ring, stated as hypotheses in R03.3's dimension lemmas.",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.4/inertia-rigid-deformations"
+   ],
+   "status": "open",
+   "note": "R03.3 is to state catenarity and excellence hypotheses explicitly; KW II §2.7 cite Matsumura for them."
   }
  ],
  "coverage": [
@@ -2187,10 +3081,9 @@
   },
   {
    "stageId": "GlobalGaloisDeformations:R04.4",
-   "status": "not_read",
-   "remaining": [
-    "Restriction, twisting and change of problem (RS-08 narrowed)."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 keeps for R04.4: restriction, twisting, determinant changes and inertial rigidifications, with nontrivial stabilizers and dyadic actions tracked. All planned (12 nodes): the restriction ring map and its finiteness (Gee 3.26, BLGGT 1.2.3) with a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant with the dyadic obstruction, diagonalizable groups, quotients by free actions and truncated actions (KW II §§2.4–2.6), the twisting action, its freeness for non-solvable image and a dihedral stabiliser, the rings with determinant fixed only on S, the determinant torsor (KW II Lemma 9.4), and inertia-rigid rings (KW II §2.7). KW II Lemma 7.10 (a Hecke-character statement using Grunwald–Wang) is left to its consumer in GL2ModularityLifting; smooth resolutions (KW II §2.8) are local and left to LocalGaloisDeformationRings."
   },
   {
    "stageId": "GlobalGaloisDeformations:R04.5",
@@ -2235,6 +3128,22 @@
    "known": "new",
    "searched": [
     "Kisin's Harvard notes page (people.math.harvard.edu/~kisin/notes/), fetched 2026-09-28: a single 4-page PDF, no revision or errata listed."
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations/E2",
+   "source": "KW2-2009",
+   "kind": "misprint",
+   "locator": "§2.1, p. 6",
+   "printed": "The converse is also true, as one sees easily using the surjectivity of SpC(A) → SpB(A) for A = F[ϵ] ([45]).",
+   "correction": "“… using the injectivity of Sp_C(A) → Sp_B(A) for A = 𝔽[ε]”: injectivity on tangent spaces makes the cotangent map surjective, and complete Nakayama then makes B → C surjective.",
+   "reason": "The converse assumes that Sp_C(A) → Sp_B(A) is injective for all A; surjectivity of this map is neither given nor true for a proper closed immersion (for B = 𝒪⟦x⟧ → C = 𝒪, the tangent map t_C = 0 → t_B = 𝔽 is not surjective). The argument that works uses injectivity at A = 𝔽[ε].",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Khare's UCLA papers page, 2026-09-28: the final version read here, with no errata file.",
+    "The ESI preprint 1892 (2007): the sentence is absent (its §2 has no criterion for closed immersions), so it entered in the final version.",
+    "The Inventiones article (Springer, paywalled) was not accessible; whether its §2.1 corrects the word was not checked."
    ]
   }
  ]
