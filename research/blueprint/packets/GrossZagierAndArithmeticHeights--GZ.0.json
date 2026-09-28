@@ -1,7 +1,7 @@
 {
   "roadmapId": "GrossZagierAndArithmeticHeights",
   "protocol": "blueprint-v1",
-  "part": null,
+  "part": "GZ.0",
   "scope": [
     "GrossZagierAndArithmeticHeights:GZ.0",
     "GrossZagierAndArithmeticHeights:GZ.1",

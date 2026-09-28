@@ -1,4 +1,4 @@
-# Gross–Zagier formulas and arithmetic heights
+# Gross–Zagier formulas and arithmetic heights (part from GZ.0)
 
 This is the first blueprint checkpoint. It covers GZ.0, the normalisation and change-of-convention interfaces, and pins every convention to the Tau Ceti library as it is at the pinned commit f790474. Every declaration is a plan. GZ.0 is partial, and GZ.1–GZ.7 are not read.
 

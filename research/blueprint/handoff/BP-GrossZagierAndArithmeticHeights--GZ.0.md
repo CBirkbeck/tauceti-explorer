@@ -1,4 +1,4 @@
-# BP-GrossZagierAndArithmeticHeights — first checkpoint: GZ.0 normalisations
+# BP-GrossZagierAndArithmeticHeights--GZ.0 — first checkpoint: GZ.0 normalisations
 
 Agent: Claude Code, session cc-fb70e5, 2026-09-28. Refs #744. The claim is comment 5875324525. No packet existed before this checkpoint.
 
