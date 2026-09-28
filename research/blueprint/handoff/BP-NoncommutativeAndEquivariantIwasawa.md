@@ -1,4 +1,32 @@
-# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 1 (Claude Code cc-39fac3)
+# BP-NoncommutativeAndEquivariantIwasawa: checkpoint 2 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 28 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
+
+Checkpoint 2 plans NE.2 from CFKSV §§3–4, with 13 new NE.2 nodes and one NE.0 node:
+- **NE.0:** finite global dimension.
+- **K-theory set-up:** K₀ under complete ideals; the localisation sequence and the boundary map, with the sign fixed.
+- **Detecting K₀:** injectivity at a finite level and through characters; H-homology of 𝔐_H(G); twists.
+- **Characteristic elements:** surjectivity of ∂_G, and characteristic elements with their K₁(Λ(G)) ambiguity.
+- **Units:** semilocality of Λ(G)_S (Λ(G)_{S*} is not semilocal), and units surjecting onto K₁.
+- **Acceptance:** the commutative one-variable comparison.
+
+## NE.2 remaining
+
+- Relative K₀ of perfect S*-torsion complexes and Fukaya–Kato's K₁(R, Σ_S) (Burns–Venjakob §2.2).
+- Groups with p-torsion.
+- Vaserstein's and Brumer's theorems are cited, not decomposed; their sources are not free.
+
+## Requests added
+
+- GeneralAlgebraicKTheory K.5 and K.3.
+- PadicMeasuresIwasawaAlgebras L4.
+
+## Lean
+
+K-theory of rings is not in the pinned libraries, so NE.2's signatures are recorded as comments. The file still
+elaborates against Mathlib 082e2d3 with the pinned toolchain: 0 errors, and the only warnings are for `sorry`.
+
+# Checkpoint 1 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 28 September 2026. Refs #1015; the bot confirmed the claim. **Status: partial.**
 

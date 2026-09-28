@@ -13,7 +13,7 @@
   "NoncommutativeAndEquivariantIwasawa:NE.7"
  ],
  "status": "partial",
- "summary": "Checkpoint 1 (Claude Code cc-39fac3). NE.1 is source_decomposed from Coates–Fukaya–Kato–Sujatha–Venjakob §§2–3 and Burns–Venjakob §2: the canonical Ore set S and its criteria, S-torsion = finite generation over Λ(H), the Ore theorem, Schneider's prime-radical description, S*, the localisation through Mathlib's OreLocalization, flatness, 𝔐_H(G) and Σ_S. NE.0 is partial: after RS-16 it keeps Lazard's noetherian theorem and the module-finiteness facts, planned with the uniform-group input stated from Ardakov–Brown; the uniform-group theory itself has no owner (gap). NE.2–NE.7 are not read.",
+ "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). NE.1 is source_decomposed (CFKSV §§2–3, Burns–Venjakob §2). NE.2 is partial after checkpoint 2: CFKSV §§3–4 — the localisation sequence, the boundary map, surjectivity of ∂_G, characteristic elements with their ambiguity, semilocality of Λ(G)_S and units surjecting onto K₁, and the commutative comparison. NE.0 is partial (Lazard's noetherian theorem, finite global dimension; uniform-group theory unowned). NE.3–NE.7 are not read.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -192,6 +192,13 @@
     "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
     "provides": "Complexes.",
     "checked": "name, kind and module confirmed in the pinned declaration index; used by the suggested file, which elaborates against Mathlib 082e2d3"
+   },
+   {
+    "ref": "mathlib:Ideal.Quotient.mk",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+    "provides": "The quotient map R → R/I.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
    }
   ]
  },
@@ -204,7 +211,8 @@
    "url": "https://www.numdam.org/item/10.1007/s10240-004-0029-3.pdf",
    "sha256": "c0955aa2b2f15cfc68f9e136cccae41d71935bb3b2b0566ecea6021fcd074b47",
    "readSections": [
-    "2026-09-28 (cc-39fac3): §1 end and §2 (Lemmas 2.1–2.2, Proposition 2.3, Theorem 2.4, Lemma 2.5, Proposition 2.6), pp. 165–170; §3 opening (S*, 𝔐_H(G), Lemmas 3.1–3.2), pp. 170–172; the exactness remark in the proof of Theorem 4.4, p. 192."
+    "2026-09-28 (cc-39fac3): §1 end and §2 (Lemmas 2.1–2.2, Proposition 2.3, Theorem 2.4, Lemma 2.5, Proposition 2.6), pp. 165–170; §3 opening (S*, 𝔐_H(G), Lemmas 3.1–3.2), pp. 170–172; the exactness remark in the proof of Theorem 4.4, p. 192.",
+    "2026-09-28 (cc-39fac3, checkpoint 2): §3 Lemma 3.3, (21)–(24), Proposition 3.4 with Lemma 3.5, definition (33), pp. 172–176; §4 Lemmas 4.1, 4.3, 4.5–4.7, Proposition 4.2, Theorem 4.4 with proof, pp. 187–193."
    ]
   },
   {
@@ -796,6 +804,47 @@
      "sourceId": "LAZARD-1965",
      "locator": "Chap. II, (2.2.2), p. 59",
      "match": "The topological input."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-finite-global-dimension",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.0",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.0"
+   ],
+   "title": "Finite global dimension without p-torsion",
+   "kind": "theorem",
+   "statement": "If the compact p-adic analytic group G of dimension d has no element of order p, then Λ(G) (and Λ_𝒪(G)) has finite global dimension d + 1 on either side; in particular every finitely generated Λ(G)-module has a finite resolution by finitely generated projective modules.",
+   "hypotheses": [
+    "No element of order p is essential: ℤ_p[ℤ/p] has infinite global dimension."
+   ],
+   "proofSteps": [
+    "cd_p(G) = d for G without p-torsion (Lazard V.2.2.3 for p-valued groups, Serre's theorem that cd_p is inherited by open subgroups when there is no p-torsion).",
+    "Brumer: for a pro-p (or virtually pro-p) group without p-torsion, gl.dim Λ(G) = cd_p(G) + 1 (minimal resolutions of ℤ_p over the local ring Λ(U), then Serre's theorem for the finite extension Λ(G) ⊃ Λ(U))."
+   ],
+   "acceptance": [
+    "Brumer's paper (J. Algebra 1966) and Serre's cd theorem are not freely available; the node records the route through Lazard's minimal complexes (V.2.2.5), read on Numdam."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/AnalyticGroup",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
+     "match": "The statement as CFKSV use it (citing Brumer)."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
+     "match": "The hypothesis."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1695,6 +1744,586 @@
      "statement": "R (in degree 0) is not in Σ_S unless R_S = 0."
     }
    ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/k0-complete-quotient",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "K₀ is insensitive to complete ideals",
+   "kind": "lemma",
+   "statement": "If I is a two-sided ideal of R and R is I-adically complete, then K₀(R) → K₀(R/I) is an isomorphism; in particular K₀(Λ(G)) ≅ K₀(Ω(G)) ≅ K₀(F_p[G/U]) ≅ K₀(F_p[G/U]/Jac) for U open normal pro-p.",
+   "hypotheses": [
+    "I-adic completeness; idempotents lift modulo I."
+   ],
+   "proofSteps": [
+    "Surjectivity: idempotent matrices lift modulo I (completeness).",
+    "Injectivity: a projective P with P/IP free is free (Nakayama for the complete ideal I ⊂ Jac(R))."
+   ],
+   "acceptance": [
+    "Test: R = ℤ_p, I = pℤ_p: K₀(ℤ_p) = ℤ = K₀(F_p)."
+   ],
+   "prerequisites": [
+    "GeneralAlgebraicKTheory:K.3",
+    "mathlib:Ideal.Quotient.mk"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§4, Lemma 4.1, p. 187 (Numdam PDF page 25; printed page = PDF page + 162)",
+     "match": "Lemma 4.1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "The localisation sequence for the canonical Ore set",
+   "kind": "theorem",
+   "statement": "If G has no element of order p, there is an exact sequence K₁(Λ(G)) → K₁(Λ(G)_{S*}) →^{∂_G} K₀(𝔐_H(G)) → K₀(Λ(G)) → K₀(Λ(G)_{S*}) → 0, where K₀(𝔐_H(G)) is the Grothendieck group of the abelian category 𝔐_H(G); likewise for S in place of S* with the S-torsion category.",
+   "hypotheses": [
+    "S* is an Ore set of nonzero divisors (NE.1); finite global dimension identifies K₀(Λ(G)) with G₀ and 𝔐_H(G) with the category of S*-torsion modules of finite projective dimension."
+   ],
+   "proofSteps": [
+    "Quillen's localisation theorem for the Ore localisation Λ → Λ_{S*} (GeneralAlgebraicKTheory K.5, support K-theory for A → S⁻¹A) with the category of finitely generated S*-torsion modules of projective dimension ≤ 1 (Swan, Grayson).",
+    "Finite global dimension: dévissage/resolution identifies that category's K₀ with K₀(𝔐_H(G)) (K.3)."
+   ],
+   "acceptance": [
+    "Keep the hypothesis 'no element of order p'; without it one works with perfect complexes (Σ_S*) instead of modules."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-theorem",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/saturated-ore-set",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/ore-localization-flat",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-finite-global-dimension",
+    "GeneralAlgebraicKTheory:K.5",
+    "GeneralAlgebraicKTheory:K.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, (24), p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
+     "match": "The localisation sequence (24)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element",
+     "how": "a characteristic element is a preimage under ∂_G."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5",
+     "how": "the main conjecture is formulated through ∂_G."
+    }
+   ],
+   "planet": {
+    "name": "Localisation sequence"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-map",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "The boundary map ∂_G",
+   "kind": "construction",
+   "statement": "∂_G : K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)) is the connecting map of the localisation sequence, normalised so that for s ∈ S* (a nonzero divisor, unit in Λ(G)_{S*}), ∂_G([s]) = [Λ(G)/Λ(G)s] = [coker(x ↦ xs)]; it is a homomorphism, natural for the maps induced by G → G′ with H ↦ H′.",
+   "hypotheses": [
+    "The sign convention is the one of CFKSV §4 (∂(f(a)) = [Coker α] for right multiplication α by a)."
+   ],
+   "proofSteps": [
+    "For a matrix A ∈ GL_n(Λ_{S*}) ∩ M_n(Λ) acting by right multiplication on Λⁿ, ∂_G[A] = [coker A] (Swan's description).",
+    "Every class of K₁(Λ_{S*}) is represented by such matrices up to units of Λ (clearing denominators)."
+   ],
+   "acceptance": [
+    "Fix the sign: ∂[s] = +[Λ/Λs]; the opposite convention changes characteristic elements to their inverses."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§4, proof of Lemma 4.6, p. 191 (Numdam PDF page 29; printed page = PDF page + 162)",
+     "match": "The explicit description of ∂."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element",
+     "how": "defines the characteristic elements."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective",
+     "how": "its surjectivity."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.boundaryMap",
+     "role": "constructor",
+     "statement": "∂_G : K₁(Λ(G)_{S*}) → K₀(𝔐_H(G))."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.boundaryMap_unit",
+     "role": "simp",
+     "statement": "∂_G[s] = [Λ(G)/Λ(G)s] for s ∈ S*."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.boundaryMap_exact",
+     "role": "characterisation",
+     "statement": "ker ∂_G = image of K₁(Λ(G))."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.boundaryMap_natural",
+     "role": "functoriality",
+     "statement": "Compatible with the maps induced by quotients G → G/N."
+    }
+   ],
+   "tests": [
+    {
+     "name": "boundaryMap_padic",
+     "kind": "example",
+     "statement": "G = Γ, H = 1: ∂[f] = [Λ(Γ)/(f)] for 0 ≠ f ∈ Λ(Γ)."
+    },
+    {
+     "name": "boundaryMap_unit_trivial",
+     "kind": "example",
+     "statement": "∂[u] = 0 for u ∈ Λ(G)^× (degenerate case)."
+    },
+    {
+     "name": "boundaryMap_p",
+     "kind": "example",
+     "statement": "∂[p] = [Ω(G)] = [Λ(G)/p] ∈ K₀(𝔐_H(G))."
+    }
+   ]
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/k0-finite-level-injective",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "K₀(Λ(G)) injects into K₀ of a finite level",
+   "kind": "lemma",
+   "statement": "For P an open normal pro-p subgroup of G, K₀(Λ(G)) → K₀(ℤ_p[G/P]) is injective.",
+   "hypotheses": [
+    "P pro-p (Nakayama over Λ(P))."
+   ],
+   "proofSteps": [
+    "Lift a ℤ_p[Δ]-isomorphism M/IM ⊕ ℤ_p[Δ]^r ≅ N/IN ⊕ ℤ_p[Δ]^r to β : M ⊕ Λ^r → N ⊕ Λ^r (M projective).",
+    "coker(β)_P = 0 gives coker β = 0 by Nakayama; H₁(P, N ⊕ Λ^r) = 0 gives ker(β)_P = 0, hence ker β = 0."
+   ],
+   "acceptance": [
+    "P must be pro-p for Nakayama."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-free-over-open-subgroup",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Lemma 3.5, p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
+     "match": "Lemma 3.5."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/k0-representation-injective",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "Detecting K₀(Λ(G)) by characters of a finite quotient",
+   "kind": "lemma",
+   "statement": "With Δ = G/P and L ⊃ ℚ_p splitting ℚ̄_p[Δ], the composite λ : K₀(Λ(G)) → K₀(ℤ_p[Δ]) → K₀(ℚ_p[Δ]) → K₀(L[Δ]) ≅ ⊕_{ρ ∈ Irr(Δ)} K₀(L) ≅ ⊕_ρ ℤ is injective, and λ([M]) = ⊕_ρ j(τ[tw_ρ(M)]) with τ[U] = Σ_i (−1)^i [H_i(G, U)] for finitely generated M (finite global dimension).",
+   "hypotheses": [
+    "Uses the Cartan–Brauer injectivity K₀(ℤ_p[Δ]) → K₀(ℚ_p[Δ]) and K₀(ℚ_p[Δ]) → K₀(L[Δ]) (Serre, Linear representations, 16 Theorem 34 Cor. 2 and 14.6; not freely available)."
+   ],
+   "proofSteps": [
+    "Compose the four maps; λ₁ is injective by k0-finite-level-injective, λ₂, λ₃ by the representation theory of finite groups, λ₄ is an isomorphism (Wedderburn and Morita).",
+    "Compute τ on modules through a finite projective resolution: τ[U] = Σ(−1)^i[Tor_i^{Λ(G)}(𝒪, U)] = Σ(−1)^i[H_i(G, U)], and similarly ε with Λ(Γ) and H_i(H, −)."
+   ],
+   "acceptance": [
+    "The Euler-characteristic formula needs finite global dimension (no element of order p)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/k0-finite-level-injective",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-finite-global-dimension"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, proof of Proposition 3.4, p. 175 (Numdam PDF page 13; printed page = PDF page + 162)",
+     "match": "Injectivity of λ."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, (29), p. 176 (Numdam PDF page 14; printed page = PDF page + 162)",
+     "match": "The formula for τ."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/homology-torsion",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "H-homology of modules in 𝔐_H(G)",
+   "kind": "lemma",
+   "statement": "For M ∈ 𝔐_H(G) the homology groups H_i(H, M) = Tor_i^{Λ(G)}(Λ(Γ), M) are finitely generated torsion Λ(Γ)-modules for all i ≥ 0, and vanish for i ≥ d if G has no element of order p.",
+   "hypotheses": [
+    "cd_p(H) = d − 1 when H has no p-torsion."
+   ],
+   "proofSteps": [
+    "Finite generation over Λ(Γ): Tor over Λ(G) of finitely generated modules.",
+    "M(p) is killed by p^t, so H_i(H, M(p)) is torsion; M_f = M/M(p) is finitely generated over Λ(H), so H_i(H, M_f) is a finitely generated ℤ_p-module, hence torsion over Λ(Γ); long exact sequence."
+   ],
+   "acceptance": [
+    "Test: G = Γ, H = 1: H₀(1, M) = M is a torsion Λ(Γ)-module and higher homology vanishes."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/saturated-ore-set",
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Lemma 3.1, p. 171 (Numdam PDF page 9; printed page = PDF page + 162)",
+     "match": "Lemma 3.1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/twist-preserves-MHG",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "Twisting preserves 𝔐_H(G)",
+   "kind": "lemma",
+   "statement": "For a continuous ρ : G → GL_n(𝒪) and M ∈ 𝔐_H(G), the diagonal twist tw_ρ(M) = (M ⊗ 𝒪) ⊗_𝒪 𝒪ⁿ lies in 𝔐_H(G).",
+   "hypotheses": [
+    "𝒪 finite free over ℤ_p."
+   ],
+   "proofSteps": [
+    "M ⊗ 𝒪 ∈ 𝔐_H(G); tw_ρ of the p-power torsion is killed by the same power of p.",
+    "tw_{ρ|H}(Λ(H)^m) is free of finite rank over Λ(H), so tw_ρ(M_f) is finitely generated over Λ(H)."
+   ],
+   "acceptance": [
+    "Needed to evaluate characteristic elements at twists (NE.3)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Lemma 3.2, p. 171 (Numdam PDF page 9; printed page = PDF page + 162)",
+     "match": "Lemma 3.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "Surjectivity of ∂_G",
+   "kind": "theorem",
+   "statement": "If G has no element of order p, then ∂_G : K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)) is surjective; equivalently every M ∈ 𝔐_H(G) has [M] = 0 in K₀(Λ(G)).",
+   "hypotheses": [
+    "No element of order p."
+   ],
+   "proofSteps": [
+    "By exactness, surjectivity of ∂_G is equivalent to [M] ↦ 0 in K₀(Λ(G)).",
+    "For each ρ ∈ Irr(Δ): H_i(H, tw_ρ M) is Λ_𝒪(Γ)-torsion, so ε[tw_ρ M] = 0 in K₀(Λ_𝒪(Γ)) ≅ ℤ (rank), hence τ = 0.",
+    "λ[M] = ⊕ j(τ[tw_ρ M]) = 0 and λ is injective."
+   ],
+   "acceptance": [
+    "For G = Γ this is the statement that finitely generated torsion Λ(Γ)-modules have zero class in K₀(Λ(Γ)) = ℤ."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/k0-representation-injective",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/homology-torsion",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/twist-preserves-MHG"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, Proposition 3.4, p. 174 (Numdam PDF page 12; printed page = PDF page + 162)",
+     "match": "Proposition 3.4."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "Characteristic elements",
+   "kind": "definition",
+   "statement": "For M ∈ 𝔐_H(G) (G without element of order p), a characteristic element of M is any ξ_M ∈ K₁(Λ(G)_{S*}) with ∂_G(ξ_M) = [M]. Characteristic elements exist (boundary-surjective) and two of them differ by an element of the image of K₁(Λ(G)) → K₁(Λ(G)_{S*}).",
+   "hypotheses": [
+    "A characteristic element is a lift of a class, not a canonical scalar; its ambiguity is exactly the image of K₁(Λ(G))."
+   ],
+   "proofSteps": [
+    "Existence by surjectivity of ∂_G; ambiguity by exactness at K₁(Λ(G)_{S*})."
+   ],
+   "acceptance": [
+    "Recover the characteristic power series up to Λ(Γ)^× for G = Γ (commutative-cyclic-comparison)."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-map",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§3, definition (33), p. 176 (Numdam PDF page 14; printed page = PDF page + 162)",
+     "match": "The definition."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§1, introduction, p. 163 (Numdam PDF page 1; printed page = PDF page + 162)",
+     "match": "The analogy with the commutative case."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.3",
+     "how": "evaluation of ξ_M at Artin representations and Euler characteristics."
+    },
+    {
+     "where": "NoncommutativeAndEquivariantIwasawa:NE.5",
+     "how": "the main conjecture compares ξ_{X(E/F∞)} with the p-adic L-function."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.NoncommIwasawa.IsCharacteristicElement",
+     "role": "structure",
+     "statement": "∂_G ξ = [M]."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.exists_characteristicElement",
+     "role": "constructor",
+     "statement": "Existence for M ∈ 𝔐_H(G)."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.characteristicElement_unique",
+     "role": "characterisation",
+     "statement": "Two characteristic elements differ by the image of K₁(Λ(G))."
+    },
+    {
+     "name": "TauCeti.NoncommIwasawa.characteristicElement_exact",
+     "role": "compatibility",
+     "statement": "ξ_M = ξ_{M′}ξ_{M″} up to K₁(Λ(G)) for 0 → M′ → M → M″ → 0."
+    }
+   ],
+   "tests": [
+    {
+     "name": "characteristicElement_cyclic",
+     "kind": "example",
+     "statement": "M = Λ(G)/Λ(G)s with s ∈ S*: ξ_M = [s]."
+    },
+    {
+     "name": "characteristicElement_zero",
+     "kind": "example",
+     "statement": "M = 0: ξ_M ∈ image of K₁(Λ(G)) (degenerate case)."
+    },
+    {
+     "name": "characteristicElement_padic",
+     "kind": "example",
+     "statement": "G = Γ: ξ_M is the characteristic power series of M up to Λ(Γ)^×."
+    }
+   ],
+   "planet": {
+    "name": "Characteristic elements"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/canonical-localization-semilocal",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "Λ(G)_S is semilocal, Λ(G)_{S*} need not be",
+   "kind": "theorem",
+   "statement": "Λ(G)_S is a semilocal ring: for J ≤ H pro-p, open in H and normal in G, the image S_J of S consists of all nonzero divisors of Ω(G/J), Ω(G/J)_{S_J} is Artinian (= Ω(G/J) localised at the central Ω(Π) ∖ 0), and the kernel of Λ(G)_S → Ω(G/J)_S lies in the Jacobson radical. For G = ℤ_p² with H one factor, Λ(G)_{S*} = ℤ_p[[U, V]]_{(p,U)}[1/p] has infinitely many maximal ideals.",
+   "hypotheses": [
+    "G, H as in NE.1."
+   ],
+   "proofSteps": [
+    "Lemma 4.3: every s ∈ S_J is integral over the central Ω(Π) with nonzero constant term, so invertible after inverting Ω(Π) ∖ 0; Ω(G/J)_Σ is finite-dimensional over R(Π).",
+    "For x = s⁻¹θ with θ ∈ ker ψ_J, s − θ ∈ S, so 1 − x = s⁻¹(s − θ) is a unit: ker ⊂ Jac."
+   ],
+   "acceptance": [
+    "Keep the non-semilocal example for S*."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-localization",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-set-left-criteria",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/quotient-total-algebra",
+    "NoncommutativeAndEquivariantIwasawa:NE.1/central-zp-subgroup"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§4, Proposition 4.2, p. 188 (Numdam PDF page 26; printed page = PDF page + 162)",
+     "match": "Proposition 4.2."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§4, p. 189 (Numdam PDF page 27; printed page = PDF page + 162)",
+     "match": "The counterexample."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/units-surject-k1",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "Units surject onto K₁ of the localisations",
+   "kind": "theorem",
+   "statement": "If G has no element of order p, the natural maps Λ(G)_S^× → K₁(Λ(G)_S) and Λ(G)_{S*}^× → K₁(Λ(G)_{S*}) are surjective. Hence characteristic elements can be represented by units of Λ(G)_{S*}.",
+   "hypotheses": [
+    "Vaserstein: units of a semilocal ring surject onto K₁ (not freely available; cited)."
+   ],
+   "proofSteps": [
+    "Λ(G)_S is semilocal (Proposition 4.2): surjectivity for S by Vaserstein.",
+    "For S*: the localisation sequence K₁(Λ(G)_S) → K₁(Λ(G)_{S*}) → K₀(Ω′(G)) and the surjectivity of (Λ(G)[1/p])^× → K₀(Ω(G)) through the classes [P/pP] of direct summands (Lemmas 4.5–4.6: right multiplication by a = α(1) with α = p on P and 1 on P′, ∂(a) = [P/pP])."
+   ],
+   "acceptance": [
+    "The second assertion uses the explicit boundary ∂(a) = [coker α], fixing the sign convention."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/canonical-localization-semilocal",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/k0-complete-quotient",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-map",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§4, Theorem 4.4, p. 189 (Numdam PDF page 27; printed page = PDF page + 162)",
+     "match": "Theorem 4.4."
+    },
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§4, p. 189 (Numdam PDF page 27; printed page = PDF page + 162)",
+     "match": "The semilocal input."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa:NE.2/commutative-cyclic-comparison",
+   "parentStageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
+   "realises": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2"
+   ],
+   "title": "The commutative one-variable case",
+   "kind": "comparison",
+   "statement": "For G = Γ ≅ ℤ_p and H = 1: S* = Λ(Γ) ∖ {0}, Λ(Γ)_{S*} = Q(Γ) is the fraction field, K₁(Q(Γ)) = Q(Γ)^×, K₀(𝔐_H(G)) is the Grothendieck group of finitely generated torsion Λ(Γ)-modules, and ∂ sends f/g to [Λ/f] − [Λ/g]. A characteristic element of a torsion module M is its characteristic power series char(M) (PadicMeasuresIwasawaAlgebras L4) up to Λ(Γ)^×.",
+   "hypotheses": [
+    "Λ(Γ) ≅ ℤ_p[[T]] is a regular local ring of dimension 2; K₁(Λ(Γ)) = Λ(Γ)^×."
+   ],
+   "proofSteps": [
+    "Q(Γ) is a field, so K₁ = units by the determinant.",
+    "For M ≅ ⊕Λ/(f_i) up to pseudo-isomorphism, [M] = Σ[Λ/f_i]: a pseudo-null (finite) module has class 0 in K₀(𝔐), e.g. 0 → Λ/p →^T Λ/p → F_p → 0 gives [F_p] = 0; then ∂(∏ f_i) = [M]."
+   ],
+   "acceptance": [
+    "The ambiguity K₁(Λ(Γ)) = Λ(Γ)^× is exactly 'up to units'.",
+    "Check a pseudo-null (finite) module: its characteristic element is a unit."
+   ],
+   "prerequisites": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-map",
+    "PadicMeasuresIwasawaAlgebras:L4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement",
+    "namespace": "TauCeti.NoncommIwasawa"
+   },
+   "sources": [
+    {
+     "sourceId": "CFKSV-2005",
+     "locator": "§2–3, p. 170 (Numdam PDF page 8; printed page = PDF page + 162)",
+     "match": "The commutative specialisation."
+    }
+   ],
+   "implementationStatus": "unchecked"
   }
  ],
  "requests": [
@@ -1726,6 +2355,31 @@
     "NoncommutativeAndEquivariantIwasawa:NE.1/torsion-perfect-complexes"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "GeneralAlgebraicKTheory:K.5",
+   "need": "Quillen's localisation sequence for a (noncommutative) Ore localisation A → S⁻¹A by nonzero divisors: K₁(A) → K₁(S⁻¹A) → K₀(S-torsion modules of projective dimension ≤ 1) → K₀(A) → K₀(S⁻¹A), with the connecting map ∂[s] = [A/As] for s ∈ S (Swan, Grayson).",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "GeneralAlgebraicKTheory:K.3",
+   "need": "The resolution theorem: for a noetherian ring of finite global dimension, K₀ of finitely generated projectives equals G₀ of finitely generated modules, and the corresponding statement for Serre subcategories; lifting of idempotents modulo a complete ideal.",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence",
+    "NoncommutativeAndEquivariantIwasawa:NE.2/k0-complete-quotient"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "PadicMeasuresIwasawaAlgebras:L4",
+   "need": "Characteristic power series/ideals of finitely generated torsion Λ(Γ)-modules with the structure theorem up to pseudo-isomorphism.",
+   "neededBy": [
+    "NoncommutativeAndEquivariantIwasawa:NE.2/commutative-cyclic-comparison"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -1736,7 +2390,7 @@
     "Decompose the uniform-group theory imported by citation (gap 'Lazard's theory of p-adic analytic groups has no owner'): powerful groups, the lower p-series of uniform groups, the PBW basis (DDMS 7.23) and gr Ω(G) ≅ F_p[X₁, …, X_d] (DDMS 7.24), and the characterisation of compact p-adic analytic groups.",
     "Acceptance examples: O⟦ℤ_p⟧ ≅ O⟦T⟧ (imported from ProfiniteProPGroups Layer 9 and PadicMeasuresIwasawaAlgebras) and the finite-level group ring of a concrete nonabelian quotient, e.g. ℤ_p ⋊ ℤ_p^× modulo p^n."
    ],
-   "notes": "RS-16 (accepted) moves the completed group algebra construction, restriction/induction and augmentation to PadicMeasuresIwasawaAlgebras L1; NE.0 keeps the noetherian and module-finiteness facts, planned here: free over open subgroups (Lazard II.2.2.7), local iff pro-p (Lazard II.2.2.2, Ardakov–Brown 4.1), Lazard's noetherian theorem (V.2.2.4) through Zariskian filtrations, and compact Nakayama."
+   "notes": "RS-16 (accepted) moves the completed group algebra construction, restriction/induction and augmentation to PadicMeasuresIwasawaAlgebras L1; NE.0 keeps the noetherian and module-finiteness facts, planned here: free over open subgroups (Lazard II.2.2.7), local iff pro-p (Lazard II.2.2.2, Ardakov–Brown 4.1), Lazard's noetherian theorem (V.2.2.4) through Zariskian filtrations, and compact Nakayama. Checkpoint 2 adds finite global dimension d + 1 without p-torsion (Brumer, cited by CFKSV)."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.1",
@@ -1746,10 +2400,13 @@
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.2",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "CFKSV §3 (Akashi series, Lemma 3.1, twisting Lemma 3.2 onward) and the localisation sequence K₁(Λ(G)) → K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)) → 0 (CFKSV Proposition 3.4), with GeneralAlgebraicKTheory K.5–K.6; Burns–Venjakob §2.2 for K₁(R, Σ_S) ≅ K₁(R_S)."
-   ]
+    "Classes of perfect S*-torsion complexes in relative K₀ and the Fukaya–Kato localized K₁(R, Σ_S) ≅ K₁(R_S) (Burns–Venjakob §2.2), with additivity on exact sequences and mapping cones.",
+    "The groups with p-torsion, where modules must be replaced by perfect complexes.",
+    "Vaserstein's theorem (units of a semilocal ring surject onto K₁) and Brumer's global dimension theorem are cited, not decomposed (sources not freely available)."
+   ],
+   "notes": "Checkpoint 2 (cc-39fac3): CFKSV §3 (Lemmas 3.1, 3.2, 3.5, Proposition 3.4, the definition of characteristic elements) and §4 (Lemma 4.1, Proposition 4.2 with Lemma 4.3, Theorem 4.4 with Lemmas 4.5–4.6): the localisation sequence, the boundary map with its sign, K₀ detection by finite-level characters, surjectivity of ∂_G, characteristic elements with their K₁(Λ(G)) ambiguity, semilocality of Λ(G)_S and the non-semilocal S* example, units surjecting onto K₁, and the commutative one-variable comparison."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.3",

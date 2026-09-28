@@ -1,9 +1,10 @@
 # Noncommutative and equivariant Iwasawa theory — blueprint
 
-This blueprint covers stages NE.0–NE.7. After the first checkpoint:
+This blueprint covers stages NE.0–NE.7. After the second checkpoint:
 - **NE.1 is source-decomposed.**
 - **NE.0 is partial.**
-- **NE.2–NE.7 are not yet read.**
+- **NE.2 is partial:** CFKSV §§3–4 — the localisation sequence and characteristic elements.
+- **NE.3–NE.7 are not yet read.**
 
 The accepted restructuring RS-16 moves the construction of completed group algebras, with restriction, induction and
 augmentation, to PadicMeasuresIwasawaAlgebras L1. NE.0 therefore keeps only:
@@ -197,6 +198,65 @@ equivalently those with M/M(p) finitely generated over Λ(H).
 with R_S ⊗ C acyclic. It is:
 - closed under quasi-isomorphism, shifts and extensions;
 - described cohomologically, through flatness.
+
+### NE.2, Milestone 5: the localisation sequence and characteristic elements
+
+The source is CFKSV §3 (pp. 172–176) and §4 (pp. 187–193). Library module:
+`TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement`.
+
+**Theorem: finite global dimension** (NE.0 node `iwasawa-finite-global-dimension`). If G has no element of order p,
+then gl.dim Λ(G) = d + 1 (Brumer).
+
+**Lemma: K₀ and complete ideals** (node `k0-complete-quotient`; Lemma 4.1). K₀(R) ≅ K₀(R/I) for R I-adically complete.
+
+**Theorem: the localisation sequence** (node `localization-sequence`; planet "Localisation sequence"; (24)). The exact
+sequence
+K₁(Λ(G)) → K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)) → K₀(Λ(G)) → K₀(Λ(G)_{S*}) → 0.
+
+**Construction: the boundary map** (node `boundary-map`).
+- ∂_G[s] = [Λ(G)/Λ(G)s]. The sign is fixed by CFKSV's ∂(f(a)) = [coker α].
+- *API.*
+  - `boundaryMap_unit`.
+  - `boundaryMap_exact`.
+  - `boundaryMap_natural`.
+- *Unit tests.*
+  - For G = Γ, ∂[f] = [Λ/f].
+  - ∂ of a unit is 0.
+  - ∂[p] = [Λ/p].
+
+**Lemma: detection at a finite level** (node `k0-finite-level-injective`; Lemma 3.5). K₀(Λ(G)) → K₀(ℤ_p[G/P]) is
+injective for P pro-p.
+
+**Lemma: detection by characters** (node `k0-representation-injective`). λ = ⊕_ρ j∘τ∘tw_ρ is injective, with
+τ[U] = Σ(−1)^i[H_i(G, U)].
+
+**Lemmas: 𝔐_H(G) inputs:**
+- `homology-torsion` (Lemma 3.1): H_i(H, M) is a finitely generated torsion Λ(Γ)-module.
+- `twist-preserves-MHG` (Lemma 3.2).
+
+**Theorem: surjectivity of ∂_G** (node `boundary-surjective`; Proposition 3.4). ∂_G is surjective when G has no element
+of order p.
+
+**Definition: characteristic elements** (node `characteristic-element`; planet "Characteristic elements"; (33)).
+- ξ_M satisfies ∂_G ξ_M = [M].
+- It is unique up to the image of K₁(Λ(G)).
+- *Unit tests.*
+  - A cyclic module Λ/Λs has ξ = [s].
+  - M = 0.
+  - For G = Γ, the characteristic power series up to units.
+
+**Theorem: semilocality** (node `canonical-localization-semilocal`; Proposition 4.2, Lemma 4.3).
+- Λ(G)_S is semilocal.
+- Λ(ℤ_p²)_{S*} is not.
+
+**Theorem: units and K₁** (node `units-surject-k1`; Theorem 4.4). Units surject onto K₁(Λ(G)_S) and K₁(Λ(G)_{S*}).
+
+**Comparison: one variable** (node `commutative-cyclic-comparison`). For G = Γ:
+- K₁(Q(Γ)) = Q(Γ)^×;
+- the characteristic element is char(M) up to Λ(Γ)^×.
+
+Requested: GeneralAlgebraicKTheory K.5 (Quillen's localisation for Ore localisations), K.3 (resolution theorem) and
+PadicMeasuresIwasawaAlgebras L4 (characteristic power series).
 
 ## Dependencies
 
