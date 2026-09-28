@@ -19005,9 +19005,9 @@
     "REV-RS-24"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralHeckeAndGaloisDeterminants.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #758"
+   "note": "released on GitHub issue #758"
   },
   {
    "id": "REV-IntegralHeckeAndGaloisDeterminants",
