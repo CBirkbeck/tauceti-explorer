@@ -21624,9 +21624,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ShimuraData.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #992"
+   "note": "released on GitHub issue #992"
   },
   {
    "id": "REV-ShimuraData",
@@ -21910,8 +21910,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #998"
   },
   {
    "id": "REV-SpecialValuesBirchTate",
@@ -44214,9 +44215,10 @@
     "SRC-LocalFieldsRamification"
    ],
    "avoidAccountOf": "SRC-LocalFieldsRamification",
-   "state": "pending",
+   "state": "external",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-SRC-LocalFieldsRamification.md"
+   "prompt": "research/blueprint/prompts/REV-SRC-LocalFieldsRamification.md",
+   "note": "claimed on GitHub issue #3777"
   },
   {
    "id": "SRC-ModularCurves",
@@ -45016,9 +45018,11 @@
     "COL-LEMKEOLIVER-WANG-WOOD-25"
    ],
    "avoidAccountOf": "COL-LEMKEOLIVER-WANG-WOOD-25",
-   "state": "pending",
+   "state": "done",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-COL-LEMKEOLIVER-WANG-WOOD-25.md"
+   "prompt": "research/blueprint/prompts/REV-COL-LEMKEOLIVER-WANG-WOOD-25.md",
+   "note": "deliverables arrived from an external worker on issue #3739",
+   "finishedAt": "2026-09-28T16:46:43Z"
   },
   {
    "id": "ATT-AInfCohomology",
