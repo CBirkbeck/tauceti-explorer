@@ -432,6 +432,20 @@ theorem criticalPadicL_eq_zero_of_thetaCritical (h : IsThetaCritical fβ) (j ≤
 
 end CriticalSlope
 
+/-! ## L1. Family modular symbols (checkpoint 5)
+
+The homology of modular curves is not in the pinned libraries; the distribution relation of the two-variable
+measure is checked on indices. -/
+
+section FamilySymbols
+
+/-- `PadicFamilies:L1/family-measure`: the balls `a + b p^r + p^{r+1}ℤ_p` (`0 ≤ b < p`) refine
+`a + p^rℤ_p`; on indices, `a + b p^r ≡ a mod p^r`. -/
+example (a b p r : ℕ) : (a + b * p ^ r) % p ^ r = a % p ^ r := by
+  simp [Nat.add_mul_mod_self_right]
+
+end FamilySymbols
+
 /-! ## L5. Hida theory over totally real fields (checkpoint 4)
 
 The definite quaternionic towers M_∞, H_∞ and the algebra T_∞(U, 𝒪) are
