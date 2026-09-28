@@ -1,6 +1,6 @@
 # Finite flat groups and integral p-adic Hodge theory
 
-This is the third blueprint checkpoint. Stage R07.1, finite flat groups and p-divisible groups, is closed. Stage R07.2, Dieudonné theory, is partial: the theory over a perfect field is planned, crystals and deformations are not yet. R07.3–R07.6 are not yet read. Every declaration is a plan.
+This is the fourth blueprint checkpoint. Stage R07.1, finite flat groups and p-divisible groups, is closed. Stage R07.2, Dieudonné theory, is partial: the theory over a perfect field is planned, crystals and deformations are not yet. Stage R07.3, Fontaine–Laffaille theory, is partial: FL §§1–8 are planned, the finite-flat dictionary of FL §9 is not yet. R07.4–R07.6 are not yet read. Every declaration is a plan.
 
 The accepted restructuring RS-02 makes this roadmap an extension of Tau Ceti's ModularCurves roadmap ('Modular curves, following Katz–Mazur, Part II: finite flat groups and integral p-adic Hodge theory') and narrows R07.1. It owns what goes beyond the anchor:
 
@@ -23,7 +23,7 @@ Imported from Tau Ceti's ModularCurves roadmap, as RS-02 requires, and never pla
 - **Layer 0C:** fppf quotients by finite locally free subgroups, with the Lagrange rank formula.
 - **Layer 0E:** effective fpqc descent.
 - **Layer 7E:** PD-2, the finite-level connected–étale sequence over a henselian local ring, with the special-fibre splitting over a perfect residue field; PD-1, the elliptic tower E[p^∞]; PD-4 and PD-5 for the supersingular tests. 7E schedules no Oort–Tate classification, so that classification is planned here.
-- **Elsewhere in the atlas:** the Dieudonné–Manin classification of isocrystals (VectorBundlesAndIsocrystals VB0, which RS-02 names as R07.2's rational supplier); Tate–Sen, the Galois cohomology of C (PadicHodgeTheory R06.1), and SGA 1's Galois theory of finite étale covers of a connected scheme (InverseGaloisAndArithmeticFundamentalGroups IG.0).
+- **Elsewhere in the atlas:** filtered φ-modules, weak admissibility and V_cris/D_cris (PadicHodgeTheory R06.2), and the period rings A_cris, B_dR with the comparison of Fontaine–Laffaille's ring S (R06.1), for R07.3; the Dieudonné–Manin classification of isocrystals (VectorBundlesAndIsocrystals VB0, which RS-02 names as R07.2's rational supplier); Tate–Sen, the Galois cohomology of C (PadicHodgeTheory R06.1), and SGA 1's Galois theory of finite étale covers of a connected scheme (InverseGaloisAndArithmeticFundamentalGroups IG.0).
 
 Conventions pinned here:
 
@@ -35,8 +35,10 @@ Conventions pinned here:
 - The dimension of a p-divisible group is that of the formal Lie group of its connected part (Tate), so dim μ_{p^∞} = 1 and dim ℚ_p/ℤ_p = 0. Hodge–Tate weight 1 has multiplicity dim G.
 - An extension of G by H is an exact sequence 0 → H → X → G → 0; Ext¹(G, H) classifies them.
 - Dieudonné theory is **contravariant** (Demazure, Fontaine, Pink): M(G) = lim Hom(G, W_n) (with the W_n^m in the local–local case), F on M(G) comes from F_G and V from V_G. Then M(ℚ_p/ℤ_p) = (W, F = σ), M(μ_{p^∞}) = (W, F = pσ), dim G = dim_k M/FM, and the slope of M_{a,b} = W[F, V]/(F^a − V^b) is b/(a + b), so étale groups have slope 0 and multiplicative ones slope 1. The covariant module is the dual M^t; the comparison belongs with the covariant Cartier–Dieudonné theory, still to be planned.
+- Fontaine–Laffaille theory follows FL 1982 at e = 1 (A = W(k), π = p): Fil^i and σ-semilinear φ^i with φ^i|Fil^{i+1} = pφ^{i+1}; MF_tor^{[a,b]} means Fil^a = M and Fil^{b+1} = 0 (FL's MF_tor^{f,p} is [0, p − 1]). U_S is contravariant, and a filtration jump in degree i gives the character ω^i on inertia (Hodge–Tate weight i in the convention HT(χ_cyc) = +1). The torsion functor is fully faithful on the safe interval [0, p − 2] (and on FL's restricted categories MF′, MF″ at the endpoint); rationally, weakly admissible modules of filtration length < p are admissible (FL 8.4), a separate statement.
 
 In the suggested Lean file the imported objects are placeholders named after their owners' planned declarations, so that the statements have their final signatures.
+
 
 
 
@@ -1452,6 +1454,455 @@ Requested prerequisites: VectorBundlesAndIsocrystals:VB0.
 
 Source: Yu26-arXiv, §2.2, Theorem 5 and the definition of the slope sequence, pp. 3–4.
 
+## R07.3: Fontaine–Laffaille theory
+
+### Filtered modules and the ring S
+
+#### Fontaine–Laffaille modules
+
+Kind: definition. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-filtered-modules. Planet: Fontaine–Laffaille modules.
+
+A (Fontaine–Laffaille) filtered module over W(k) is a W(k)-module M with a decreasing, exhaustive, separated filtration (Fil^i M)_{i∈ℤ} by submodules and, for each i, a σ-semilinear map φ^i : Fil^i M → M such that φ^i(x) = p·φ^{i+1}(x) for x ∈ Fil^{i+1} M. MF_tor is the full subcategory of objects of finite length with Σ_i φ^i(Fil^i M) = M; MF_tor^{[a,b]} requires moreover Fil^a M = M and Fil^{b+1} M = 0 (FL write MF_tor^{f,p} for [0, p − 1]).
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p.
+
+Proof or construction:
+
+1. Definition as displayed (FL 1.2 and 0.4 with π = p; 1.5 for MF_tor; 3.2 for the range condition).
+2. Equivalently (FL 1.4(b)) one gives the filtered module and a single σ-semilinear map φ_M from the colimit M̃ of the diagram of the Fil^i M (the inclusions and multiplication by p) to M; for finite length, M ∈ MF_tor iff φ_M is surjective iff injective iff bijective, because length M̃ = length M (FL Proposition 1.6, Lemma 1.7).
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/mf-tor-abelian: MF_tor is abelian and artinian.
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-functor-torsion: The source of U_S.
+- PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison: The categories MF, MF_tor^{f,p} requested from R07.3.
+- LocalGaloisDeformationRings:L7: Fontaine–Laffaille deformation conditions (stage link from R07.3).
+
+The API supplies:
+
+- TauCeti.FontaineLaffaille.FLModule (structure): A W(k)-module with a decreasing exhaustive separated filtration and σ-semilinear φ^i with φ^i|Fil^{i+1} = p φ^{i+1}.
+- TauCeti.FontaineLaffaille.FLModule.Hom (structure): W(k)-linear maps preserving the filtrations and commuting with every φ^i.
+- TauCeti.FontaineLaffaille.FLModule.IsTorsion (characterisation): Finite length and Σ φ^i(Fil^i M) = M; equivalent to bijectivity of φ_M : M̃ → M (FL 1.6).
+- TauCeti.FontaineLaffaille.FLModule.weights (projection): The interval [a, b] with Fil^a = M and Fil^{b+1} = 0.
+- TauCeti.FontaineLaffaille.FLModule.twist (constructor): The shift M(j): Fil^i M(j) = Fil^{i−j} M, φ^i_{M(j)} = φ^{i−j}_M.
+
+Discriminating tests:
+
+- TauCeti.FontaineLaffaille.FLModule.unit (value): W(k)/p with Fil^0 = M, Fil^1 = 0, φ^0 = σ is in MF_tor^{[0,0]}.
+- TauCeti.FontaineLaffaille.FLModule.not_strongly_divisible (non-example): W(k)/p with Fil^0 = M, Fil^1 = 0 and φ^0 = 0 is a filtered module but not in MF_tor: Σ Im φ^i = 0 ≠ M.
+- TauCeti.FontaineLaffaille.FLModule.zero (degenerate): The zero module is in every MF_tor^{[a,b]}.
+- TauCeti.FontaineLaffaille.FLModule.isTorsion_iff (characterisation): For finite length M: M ∈ MF_tor iff φ_M is injective (FL 1.6).
+
+Acceptance:
+
+- The unit object W(k)/p with Fil^0 = everything, Fil^1 = 0 and φ^0 = σ is in MF_tor^{[0,0]}; its twist with Fil^i = everything for i ≤ j, 0 above, and φ^j = σ lies in MF_tor^{[j,j]}.
+
+Planned prerequisites: R07.2/dieudonne-ring.
+
+Library: `WittVector`, `WittVector.frobeniusEquiv`, `Module.length`.
+
+Source: FL82, §0.4, p. 550; FL82, §1.5, p. 555.
+
+#### MF_tor is an abelian artinian category, stable under extensions in each range
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/mf-tor-abelian.
+
+MF_tor is abelian and artinian; kernels and cokernels of its morphisms are kernels and cokernels in MF, with the induced filtrations, so morphisms are strict. For every a ≤ b, MF_tor^{[a,b]} is closed under subobjects, quotients and extensions in MF_tor. MF embeds fully faithfully in an abelian O-linear category \widetilde{MF}, in which Ext groups are computed.
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p.
+
+Proof or construction:
+
+1. Lemma 1.9: for a subobject L ⊆ M with L̃ → M̃ injective and M of finite length, Fil^i L = L ∩ Fil^i M.
+2. Kernel: the kernel of the underlying map with the induced filtration is a kernel in MF; φ restricts, and Proposition 1.6 (injectivity of φ) shows it lies in MF_tor.
+3. Image and cokernel: the image with the image filtration has L̃ ≅ L via φ, so Fil^i L = L ∩ Fil^i M (Lemma 1.9), and image = coimage; the cokernel inherits a surjective φ (FL 1.10).
+4. Range: if 0 → M′ → M → M″ → 0 is exact in MF_tor, M ∈ MF_tor^{[a,b]} iff M′ and M″ are (FL 3.2).
+5. \widetilde{MF}: objects (M, M^i, α^i, β^i, φ^i) with the displayed compatibilities (FL 1.11); MF is the full subcategory with α, β injective, and kernels and cokernels of MF_tor-morphisms agree in both.
+
+Acceptance:
+
+- The identity of W(k)/p from the weight-0 object to the weight-1 object respects the filtrations but is not a morphism: φ⁰ = σ on the source while φ⁰ = pφ¹ = 0 on the target.
+- An extension of two objects of weights [0, 1] has weights [0, 1].
+
+Planned prerequisites: R07.3/fl-filtered-modules.
+
+Source: FL82, §1.8, Proposition 1.8, p. 556; FL82, §3.2, p. 562.
+
+#### The Fontaine–Laffaille ring S
+
+Kind: construction. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-ring-S.
+
+Let C be the completion of K̄, R = lim_{x↦x^p} 𝒪_{K̄}/p, W(R) its Witt vectors with θ : W(R)[1/p] → C, and ξ a generator of ker θ. The ring S is W(R)[[x]/p] ⊆ W(R)[1/p] for any x ∈ R with v_R(x) = p (FL 2.7; equivalently the elements Σ p^n[u_n] with v_R(u_{−m}) ≥ mp for m > 0), filtered by Fil^i S = {x ∈ S : Φx ∈ p^i S} and with φ^i = p^{−i}Φ on Fil^i S. It is a filtered module over W(k), stable under Gal(K̄/K), whose Galois action commutes with Φ and preserves the filtration; its p-adic completion Ŝ = lim S/p^n S and S_K = K ⊗ S are the rings used for lattices and for rational representations.
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p. The perfectoid ring R and W(R) with θ are imported from PadicHodgeTheory R06.1 (requested).
+
+Proof or construction:
+
+1. R, W(R), W_K(R) and θ with its principal kernel (FL 2.1–2.5, citing Fontaine [F2] Proposition 2.4).
+2. W_K(R) as a filtered module (FL 2.6) and the subring S with its filtration and φ^i (FL 2.7).
+3. The Galois group acts continuously on R, hence on W(R) and S, commuting with Φ and preserving Fil^i S (FL 3.1).
+4. S̄ := coker(p on S) in \widetilde{MF} and Ŝ = lim S/p^n S.
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-functor-torsion: U_S(M) = Ext¹(M, S).
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-functor: U_S(M) = Hom(M, Ŝ) for lattices.
+- PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison: The ring S, Ŝ and its comparison with the period rings (requested from R07.3).
+
+The API supplies:
+
+- TauCeti.FontaineLaffaille.ringS (constructor): S ⊆ W(R)[1/p] as a W(k)-algebra with filtration Fil^i S and φ^i = p^{−i}Φ.
+- TauCeti.FontaineLaffaille.ringS.galoisAction (structure): Continuous action of Field.absoluteGaloisGroup K commuting with Φ and preserving Fil^i.
+- TauCeti.FontaineLaffaille.ringS.completion (constructor): Ŝ = lim S/p^n S.
+- TauCeti.FontaineLaffaille.ringS.reduction (constructor): S̄ = coker(p on S) in \widetilde{MF}.
+
+Discriminating tests:
+
+- TauCeti.FontaineLaffaille.ringS.contains_WR (value): W(R) ⊆ S, with Fil^0 S = S.
+- TauCeti.FontaineLaffaille.ringS.phi_teichmuller (value): Φ[x] = [x^p] for x ∈ R.
+- TauCeti.FontaineLaffaille.ringS.not_WR (non-example): S ≠ W(R): [x]/p ∈ S for v_R(x) = p, and [x]/p ∉ W(R).
+- TauCeti.FontaineLaffaille.ringS.galois_fixed (degenerate): The Galois action is trivial on the image of W(k) ⊆ S.
+
+Acceptance:
+
+- Φ acts on [x] by Φ([x]) = [x^p] and is σ-semilinear over W(k).
+- S ⊆ W_K(R) contains W(R); for E = ℚ_p, S_K is identified with a filtered Galois subring of Fontaine's period rings (R07.3/fl-period-comparison).
+
+Planned prerequisites: R07.3/fl-filtered-modules.
+
+Requested prerequisites: PadicHodgeTheory:R06.1.
+
+Library: `WittVector`, `Field.absoluteGaloisGroup`.
+
+Source: FL82, §2.1, p. 559; FL82, §0.5, p. 550.
+
+#### S_K as a filtered Galois subring of the crystalline period ring
+
+Kind: lemma. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-period-comparison.
+
+For E = ℚ_p, the K-algebra S_K = K ⊗ S with its filtration, Φ and G_K-action is identified with a filtered Galois subring of Fontaine's crystalline period ring (the ring written B in [F2] §4, now B_cris⁺-type rings); under the modern identification, Ŝ ⊆ A_cris with Φ compatible and Fil^i S_K = S_K ∩ Fil^i B_dR.
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p. A_cris, B_cris, B_dR with Frobenius, filtration and Galois action are imported from PadicHodgeTheory R06.1 (requested); FL predates A_cris and states the identification with the ring of [F2] §4.
+
+Proof or construction:
+
+1. FL, proof of Theorem 8.4: with a the ideal of R of elements of valuation ≥ p, S_K is identified, as a filtered Galois ring, with Fontaine's ring of [F2] §4.
+2. Both rings are built from W(R) by adjoining divided powers of the generator of ker θ; S is generated by W(R) and the allowed divided powers (R07.3/fl-ring-S), which lie in A_cris, and θ extends compatibly, which gives Ŝ ⊆ A_cris and the filtration comparison (R06.1).
+
+Acceptance:
+
+- ξ = [p̃] − p (p̃ ∈ R with p̃^{(0)} = p) lies in Fil^1 S, since Φ(ξ) = [p̃]^p − p ∈ pS, matching ξ ∈ Fil^1 B_dR.
+- The comparison respects Φ: Φ[x] = [x^p] on both sides, and [p̃]^p/p ∈ S lies in A_cris.
+
+Planned prerequisites: R07.3/fl-ring-S.
+
+Requested prerequisites: PadicHodgeTheory:R06.1.
+
+Source: FL82, §8.4, proof of Theorem 8.4, p. 595.
+
+### The torsion functor
+
+#### The Fontaine–Laffaille functor on torsion modules
+
+Kind: construction. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-functor-torsion.
+
+For M ∈ MF_tor put U_S(M) = Ext¹_{\widetilde{MF}}(M, S) (FL 3.2), a ℤ_p-module with a linear action of G_K through the action on S; for M killed by p^n it is Hom(M, S_n) with S_n the cokernel of p^n on S (FL 7.14). This gives a contravariant ℤ_p-linear functor U_S : MF_tor → Rep_tor(G_K), and its restriction to MF_tor^{[0,p−1]}.
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p.
+
+Proof or construction:
+
+1. The O[G]-module structure on S makes Ext¹(M, S) a left ℤ_p[G_K]-module (FL 3.2).
+2. For M killed by p^n, the long exact sequence of 0 → S →^{p^n} S → S_n → 0 identifies Ext¹(M, S) with Hom(M, S_n) (FL 7.14).
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-exact-faithful: Theorem 3.3.
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-full-faithfulness: Theorem 6.1.
+- PadicHodgeTheory:R06.4/fontaine-laffaille-sign-dictionary: The functor U_S on torsion objects (requested from R07.3).
+
+The API supplies:
+
+- TauCeti.FontaineLaffaille.flFunctor (constructor): U_S : (MF_tor)ᵒᵖ ⥤ Rep_tor(G_K), M ↦ Ext¹(M, S).
+- TauCeti.FontaineLaffaille.flFunctor_eq_hom (characterisation): For M killed by p^n, U_S(M) ≅ Hom(M, S/p^n S), G_K-equivariantly.
+- TauCeti.FontaineLaffaille.flFunctor_map (functoriality): Contravariant functoriality in M.
+
+Discriminating tests:
+
+- TauCeti.FontaineLaffaille.flFunctor_unit (value): U_S of the weight-0 unit object W(k)/p is 𝔽_p with trivial action.
+- TauCeti.FontaineLaffaille.flFunctor_zero (degenerate): U_S(0) = 0.
+- TauCeti.FontaineLaffaille.flFunctor_not_covariant (non-example): U_S is contravariant: an injection M′ ↪ M gives a surjection U_S(M) ↠ U_S(M′), not an injection.
+
+Acceptance:
+
+- U_S(W(k)/p with weight 0) is 𝔽_p with trivial action (FL 0.9: U_S(M(1; 0)) ≅ 𝔽_p).
+- U_S is additive and contravariant.
+
+Planned prerequisites: R07.3/fl-ring-S, R07.3/mf-tor-abelian.
+
+Source: FL82, §0.6, p. 550.
+
+#### Theorem 3.3: U_S is exact, faithful and length-preserving
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-exact-faithful. Planet: Fontaine–Laffaille functor.
+
+For M ∈ MF_tor^{[0,p−1]}, U_S(M) has finite ℤ_p-length equal to the W(k)-length of M; the contravariant functor U_S : MF_tor^{[0,p−1]} → Rep_tor(G_K) is exact and faithful. Moreover M and U_S(M) have the same invariant factors: W(k) ⊗ U_S(M) ≅ M as W(k)-modules (not canonically).
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p.
+
+Proof or construction:
+
+1. Reduction to k algebraically closed by the base change M ↦ W(k′) ⊗ M, which is exact and faithful (FL §3).
+2. Dévissage to simple objects of MF_tor killed by p: it suffices that dim_𝔽 Hom(M, S̄) = dim_k M and Ext¹(M, S̄) = 0 for every simple M (FL 0.6, end of §3).
+3. The simple objects are the M(h; i) (R07.3/fl-simple-objects) and Theorem 5.3 (R07.3/fl-tame-inertia) gives both statements when 0 ≤ i_n ≤ p − 1.
+4. Exactness and length additivity then follow from the long exact Ext sequence; faithfulness from exactness and length preservation.
+
+Acceptance:
+
+- Length: U_S(M(1; i)) has length 1 for 0 ≤ i ≤ p − 1.
+- Remark 3.4: W(k)/p² with weight 0 goes to ℤ/p² (same invariant factors).
+
+Planned prerequisites: R07.3/fl-functor-torsion, R07.3/fl-simple-objects, R07.3/fl-tame-inertia, R07.3/mf-tor-abelian.
+
+Source: FL82, §3.3, Theorem 3.3, p. 562; FL82, §3.4, Remark, p. 562.
+
+#### The simple objects M(h; i)
+
+Kind: lemma. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-simple-objects.
+
+Let k be algebraically closed. For h ≥ 1 and i : ℤ/h → ℤ, M(h; i) is k^{ℤ/h} with basis (e_m), Fil^j = ⊕_{i_m ≥ j} k e_m and φ^{i_m}(e_m) = e_{m+1}. It is simple in MF_tor iff the period of i is h, and then End(M) ≅ 𝔽_{p^h} via v_a(e_m) = a^{p^{−m}} e_m (suitably normalised). Every simple object of MF_tor is killed by p and is isomorphic, with its 𝔽_{p^h}-action, to a unique M(h; i) with i of period h.
+
+Hypotheses: k algebraically closed (the general case is reached by base change, FL §3).
+
+Proof or construction:
+
+1. Simple objects are killed by p, hence are k-vector spaces with φ_M : gr M → M bijective and σ-semilinear (FL §4).
+2. Classify semilinear bijections by the Dieudonné–Manin style argument over k̄: the cycle structure of φ on a graded basis gives M(h; i) (FL 4.1–4.3).
+3. Simplicity iff period h, and End = 𝔽_{p^h} (FL Proposition 4.4).
+
+Acceptance:
+
+- M(1; 0) and M(1; p − 1) are simple and non-isomorphic in MF_tor^{[0,p−1]}.
+- M(2; (0, 0)) has period 1, so it is not simple: it is M(1; 0)².
+
+Planned prerequisites: R07.3/mf-tor-abelian.
+
+Source: FL82, §4.4, Proposition 4.4, p. 566.
+
+#### Theorem 5.3: tame inertia on the simple objects, and the weight dictionary
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-tame-inertia. Planet: Tame inertia of Fontaine–Laffaille modules.
+
+Let k be algebraically closed, ϖ ∈ K̄ with ϖ^{p^h − 1} = p, and χ_h : G_K → 𝔽_{p^h}^× the character g ↦ image of gϖ/ϖ. For i : ℤ/h → ℤ of period h with 0 ≤ i_n ≤ p − 1 and M = M(h; i): (i) Ext¹(M, S̄) = 0; (ii) U_S(M) = Hom(M, S̄) is one-dimensional over 𝔽_{p^h}; (iii) g·u = χ_h(g)^{i_0 + p i_1 + ⋯ + p^{h−1} i_{h−1}}·u. In particular (h = 1) U_S(M(1; i)) is the character ω^i, ω the mod-p cyclotomic character on inertia: a filtration jump in degree i corresponds to Hodge–Tate weight i in the convention where χ_cyc has weight +1.
+
+Hypotheses: k algebraically closed, 0 ≤ i_n ≤ p − 1.
+
+Proof or construction:
+
+1. Explicit description of S (FL Lemma 5.4) and reduction of the computation to a system of equations over the valuation ring of K̄ (FL 5.5 onward).
+2. Solve for the homomorphisms M(h; i) → S̄: they are determined by ϖ^{…} with exponent Σ i_m p^m, giving one-dimensionality and the Galois action (iii).
+3. The weight dictionary: for h = 1, χ_1 = ω on inertia (ϖ^{p−1} = p), so U_S(M(1; i)) ≅ ω^i. The rational sign is R07.3/fl-admissibility (U_{S_K} is the dual of V_B).
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5: Serre weights: the tame inertia characters of Fontaine–Laffaille residual representations.
+- PadicHodgeTheory:R06.4/fontaine-laffaille-sign-dictionary: The HT(χ) = +1 translation (requested from R07.3).
+
+Acceptance:
+
+- U_S(M(1; 0)) and U_S(M(1; p − 1)) are both the trivial character, since ω^{p−1} = 1 (FL 0.9): the endpoint collision.
+- M(2; (1, 0)) gives the fundamental character of level two, χ_2^{1}, which is not a power of ω on inertia.
+
+Planned prerequisites: R07.3/fl-simple-objects, R07.3/fl-functor-torsion, R07.3/fl-ring-S.
+
+Library: `Field.absoluteGaloisGroup`.
+
+Source: FL82, §5.3, Theorem 5.3, p. 570; FL82, §0.8, p. 551.
+
+#### Theorem 6.1: full faithfulness away from the endpoint collision
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-full-faithfulness. Planet: Fontaine–Laffaille full faithfulness.
+
+Let MF′ ⊆ MF_tor^{[0,p−1]} consist of the objects with no nonzero quotient N with Fil^{p−1} N = N, and MF″ of those with no nonzero subobject N with Fil^1 N = 0. (i) Each is closed under subobjects, quotients and extensions in MF_tor^{[0,p−1]}; over k̄, M ∈ MF′ (resp. MF″) iff no Jordan–Hölder factor is M(1; p − 1) (resp. M(1; 0)). (ii) U_S restricted to MF′, and to MF″, is fully faithful. In particular MF_tor^{[0,p−2]} ⊆ MF′, so U_S is exact and fully faithful on the safe interval [0, p − 2]; on all of MF_tor^{[0,p−1]} it is not full (U_S(M(1; 0)) ≅ U_S(M(1; p − 1))). For p = 2 the safe interval is [0, 0].
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p. FL prove Proposition 6.6 (Ext¹-injectivity) for MF′ and only indicate the proof for MF″ (FL 6.6); the MF″ half is to be completed by the dual argument, while the safe interval [0, p − 2] needs only MF′.
+
+Proof or construction:
+
+1. (i): Ext¹(M(1; p−1), M(1; p−1)) = 0 and Lemma 6.3 show that objects with N = Fil^{p−1}N are sums of copies of M(1; p − 1), and MF′ is the class with no such Jordan–Hölder quotient (FL 6.4); similarly for MF″ with M(1; 0).
+2. (ii) on simple objects: Hom_MF(M, N) = 0 for M ≇ N and End = 𝔽_{p^h} (Proposition 4.4), and Theorem 5.3 gives the same on the Galois side within MF′ or MF″ (FL 6.5).
+3. Induction on length reduces to injectivity of Ext¹_{MF}(M, N) → Ext¹_{G}(U_S(N), U_S(M)) for simple M, N (FL Proposition 6.6), proved via the field L cut out by U_S(M) (Proposition 6.7).
+4. Safe interval: if Fil^{p−1}M = 0, every quotient N has Fil^{p−1}N = 0 ≠ N, so M ∈ MF′.
+5. Endpoint: U_S(M(1; 0)) ≅ U_S(M(1; p − 1)) ≅ 𝔽_p trivial, but M(1; 0) ≇ M(1; p − 1) (FL 0.9).
+
+The required uses are:
+
+- PadicHodgeTheory:R06.4/fontaine-laffaille-endpoint-non-example: The [0, p − 1] endpoint collision (requested from R07.3).
+- PadicHodgeTheory:R06.4/weight-p-endpoint-branch: The restricted categories MF′, MF″ (requested from R07.3).
+
+Acceptance:
+
+- p = 2: [0, p − 2] = [0, 0]; weight-one objects such as the Dieudonné data of μ₂ are outside the safe range and are handled by Breuil–Kisin (R07.4).
+- The two restricted subcategories are different: M(1; 0) ∈ MF′ ∖ MF″ and M(1; p − 1) ∈ MF″ ∖ MF′.
+
+Planned prerequisites: R07.3/fl-exact-faithful, R07.3/fl-simple-objects, R07.3/fl-tame-inertia, R07.3/mf-tor-abelian.
+
+Source: FL82, §6.1, Theorem 6.1, p. 581; FL82, §0.9, p. 551; FL82, §6.6, p. 584.
+
+#### The essential image on the safe interval is closed under subquotients
+
+Kind: lemma. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-essential-image-subquotients.
+
+The essential image of U_S : MF_tor^{[0,p−2]} → Rep_tor(G_K) is closed under G_K-stable submodules and quotients: every G_K-submodule of U_S(M) is U_S(M/K′) for a unique subobject K′ ⊆ M, and every quotient is U_S(K′) for a subobject. The same holds on MF′ and on MF″.
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p. Derived here from Theorems 3.3, 5.3 and 6.1; FL do not state it, and remark (p. 589) that no reasonable characterisation of the whole essential image is apparent.
+
+Proof or construction:
+
+1. U_S sends simple objects to simple 𝔽_p[G_K]-modules: over k̄ the character χ_h^{Σ i_m p^m} of Theorem 5.3 has field of values 𝔽_{p^h} because i has period h; the general case follows by descent (FL §3).
+2. A simple G_K-submodule T ⊆ U_S(M) is isomorphic to a Jordan–Hölder factor U_S(S) (exactness); full faithfulness gives the map as U_S(f) for a surjection f : M ↠ S, so T = U_S(S) inside U_S(M).
+3. Induction on length: with K = ker f, a submodule Y ⊇ T gives Y/T ⊆ U_S(K) = U_S(M)/T, so Y/T = U_S(K/K′) by induction, and exactness identifies Y with U_S(M/K′). Quotients are dual.
+
+Acceptance:
+
+- Every G_K-subrepresentation of U_S(M(1; 0) ⊕ M(1; 1)) = 𝔽_p ⊕ ω is U_S of a quotient.
+- On all of [0, p − 1] the lemma needs MF′ or MF″: U_S is not full there.
+
+Planned prerequisites: R07.3/fl-full-faithfulness, R07.3/fl-exact-faithful, R07.3/fl-tame-inertia.
+
+Source: FL82, §6, remark before 7, p. 589.
+
+### Lattices and rational representations
+
+#### Strongly divisible lattices
+
+Kind: definition. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/strongly-divisible-lattices. Planet: Strongly divisible lattices.
+
+Let D be a filtered φ-module over K₀ (a finite-dimensional K₀-vector space with a bijective σ-semilinear Φ and a decreasing exhaustive separated filtration). A lattice M ⊆ D (a finitely generated W(k)-submodule with K₀ ⊗ M = D) is strongly divisible if Σ_i p^{−i}Φ(M ∩ Fil^i D) = M. With Fil^i M = M ∩ Fil^i D and φ^i = p^{−i}Φ, M is an object of MF with (fd₁) M torsion free, (fd₂) each Fil^i M a direct summand, (fd₃) Σ Im φ^i = M; conversely such objects give (D, M). A strongly divisible lattice exists iff D is weakly admissible (t_H(D) = t_N(D) and t_H(D′) ≤ t_N(D′) for all Φ-stable D′), and then M is strongly divisible iff φ^i(Fil^i M) ⊆ M for all i and (fd₃) holds.
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p. Weak admissibility and the Hodge and Newton numbers t_H, t_N are imported from PadicHodgeTheory R06.2 (requested).
+
+Proof or construction:
+
+1. Definition as displayed (FL 7.7) and the dictionary with MF (FL 7.12).
+2. Existence iff weakly admissible: reduce to slopes ≥ 0 and apply Laffaille's theorem on adapted lattices (FL Proposition 7.8, citing [L1] Theorem 3.2).
+3. For M strongly divisible and Fil^0 D = D, Fil^p D = 0, each M/p^n M lies in MF_tor^{[0,p−1]} (FL 7.14).
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-functor: The source of the lattice functor.
+- PadicHodgeTheory:P7/wach-fontaine-laffaille-comparison: Strongly divisible lattices compared with Wach modules (requested from R07.3).
+- PadicHodgeTheory:R06.4/small-weight-admissibility: Strongly divisible lattices and Proposition 7.8 (requested from R07.3).
+
+The API supplies:
+
+- TauCeti.FontaineLaffaille.IsStronglyDivisible (characterisation): Σ_i p^{−i} Φ(M ∩ Fil^i D) = M.
+- TauCeti.FontaineLaffaille.StronglyDivisibleLattice (structure): A weakly admissible D with a strongly divisible lattice M.
+- TauCeti.FontaineLaffaille.StronglyDivisibleLattice.toFLModule (functoriality): (D, M) ↦ M with Fil^i M = M ∩ Fil^i D and φ^i = p^{−i}Φ, satisfying (fd₁)–(fd₃).
+- TauCeti.FontaineLaffaille.exists_stronglyDivisible_iff (characterisation): A strongly divisible lattice exists iff D is weakly admissible (FL 7.8).
+
+Discriminating tests:
+
+- TauCeti.FontaineLaffaille.sdl_slope_zero (value): D = (K₀, Φ = σ, Fil^0 = D, Fil^1 = 0): W(k) is strongly divisible.
+- TauCeti.FontaineLaffaille.sdl_slope_one (value): D = (K₀, Φ = pσ, Fil^1 = D, Fil^2 = 0): W(k) is strongly divisible.
+- TauCeti.FontaineLaffaille.sdl_not_weakly_admissible (non-example): D = (K₀, Φ = σ, Fil^1 = D, Fil^2 = 0) has t_H = 1 ≠ t_N = 0, so it has no strongly divisible lattice: p^{−1}Φ(M) = p^{−1}M ≠ M for every lattice M.
+- TauCeti.FontaineLaffaille.sdl_zero (degenerate): D = 0 has the unique strongly divisible lattice 0.
+
+Acceptance:
+
+- D = K₀ with Fil^0 = D, Fil^1 = 0, Φ = σ: M = W(k) is strongly divisible (slope 0).
+- D = K₀ with Fil^1 = D, Fil^2 = 0, Φ = pσ: M = W(k) is strongly divisible, since p^{−1}Φ(M) = M.
+
+Planned prerequisites: R07.3/fl-filtered-modules.
+
+Requested prerequisites: PadicHodgeTheory:R06.2.
+
+Library: `WittVector.Isocrystal`.
+
+Source: FL82, §7.7, Definition, p. 591; FL82, §7.8, Proposition 7.8, p. 592; FL82, §7.4, p. 591.
+
+#### The lattice functor: Propositions 7.14–7.15
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-functor.
+
+For a strongly divisible lattice M with Fil^0 = M and Fil^p = 0, the reductions M_n = M/p^n M lie in MF_tor^{[0,p−1]}, each U_S(M_n) = Hom(M_n, S_n) is free over ℤ/p^n of rank rk M, and U_S(M) := lim_n U_S(M_n) = Hom(M, Ŝ) is a free ℤ_p-module of rank rk_{W(k)} M with continuous G_K-action. The functor M ↦ U_S(M) is exact and faithful, with rk U_S(M) = rk M, and its restriction to the lattices with M/pM ∈ MF′ (resp. MF″) is fully faithful; in particular it is fully faithful on the lattices with Fil^{p−1} = 0.
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p.
+
+Proof or construction:
+
+1. Levels: multiplication by p induces monomorphisms M_n ↪ M_{n+1}, hence epimorphisms U_S(M_{n+1}) ↠ U_S(M_n), and each U_S(M_n) is free of rank h by Theorem 3.3 and Remark 3.4 (FL 7.14).
+2. Exactness, faithfulness and rank: pass to the limit in Theorem 3.3 (FL Proposition 7.15(i)).
+3. Full faithfulness: from Theorem 6.1 at each level and a limit argument (FL Proposition 7.15(ii)).
+
+Acceptance:
+
+- The slope-zero lattice W(k) (weight 0) goes to ℤ_p with trivial action; the slope-one lattice of weight 1 goes to ℤ_p(1) (R07.3/fl-tame-inertia and R07.3/fl-admissibility).
+- Rank is preserved: rk U_S(M) = rk M.
+
+Planned prerequisites: R07.3/strongly-divisible-lattices, R07.3/fl-exact-faithful, R07.3/fl-full-faithfulness, R07.3/fl-ring-S.
+
+Source: FL82, §7.15, Proposition 7.15, pp. 593–594; FL82, §7.14, p. 593.
+
+#### Theorem 8.4: weakly admissible modules of filtration length < p are admissible
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-admissibility. Planet: Admissibility of weakly admissible modules of small weight.
+
+Let D be a weakly admissible filtered φ-module over K₀ with Fil^j D = D and Fil^{j+p} D = 0 for some j (filtration length < p). Then D is admissible (crystalline), and U_{S_K}(D) := ℚ_p ⊗ U_S(M), for any strongly divisible lattice M of D, is naturally the dual of V_B(D) = V_cris(D). With Fil^0 D = D, dim_{ℚ_p} U_{S_K}(D) = dim_{K₀} D and D ↪ Hom_{G_K}(U_{S_K}(D), S_K) (Proposition 7.17). This rational statement is distinct from the torsion full faithfulness, whose safe interval is [0, p − 2].
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p. Admissibility, V_B/V_cris and D_cris are imported from PadicHodgeTheory R06.2 (requested); the filtered Galois ring S_K is identified with Fontaine's period ring in R07.3/fl-period-comparison.
+
+Proof or construction:
+
+1. Proposition 7.17: dim U_{S_K}(D) = dim D from rank preservation (7.15(i)); the canonical map D → Hom_{G}(U_{S_K}(D), S_K) is injective by comparing with the torsion levels M_n → Hom_G(U_S(M_n), S_n).
+2. Theorem 8.4: S_K is a filtered Galois subring of Fontaine's period ring (8.4 proof), so dim Hom_G(V, S_K) ≥ dim D forces D to be admissible, and U_{S_K}(D) = V_B(D)^∨ naturally.
+3. Twist to j = 0 using R07.3/fl-filtered-modules' shift; the range 0 ≤ weights ≤ p − 1 is allowed rationally (length < p), unlike the torsion safe interval.
+
+The required uses are:
+
+- PadicHodgeTheory:R06.4/small-weight-admissibility: Theorem 8.4 (requested from R07.3).
+- PadicHodgeTheory:R06.4/fontaine-laffaille-rational-consequences: U_{S_K} = dual of V_B (requested from R07.3).
+
+Acceptance:
+
+- D = K₀ with Φ = pσ, Fil^1 = D, Fil^2 = 0 (weight 1) is admissible and U_{S_K}(D) = ℚ_p(1): in the convention HT(χ_cyc) = +1, a filtration jump at 1 is Hodge–Tate weight 1.
+- A weakly admissible D with weights {0, p} (length p + 1 > p) is outside the theorem; such weights need Breuil–Kisin (R07.4).
+
+Planned prerequisites: R07.3/fl-lattice-functor, R07.3/strongly-divisible-lattices, R07.3/fl-period-comparison.
+
+Requested prerequisites: PadicHodgeTheory:R06.2.
+
+Source: FL82, §8.4, Theorem 8.4, p. 595; FL82, §7.17, Proposition 7.17, p. 594.
+
+#### G_K-stable lattices of crystalline representations of weights in [0, p − 2]
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-lattice-correspondence.
+
+Let V be crystalline with Hodge–Tate weights in [0, p − 2] (in the convention HT(χ_cyc) = +1), so V ≅ U_{S_K}(D) for the weakly admissible D = D_cris(V^∨) with Fil^0 D = D and Fil^{p−1} D = 0. Then M ↦ U_S(M) is an inclusion-reversing bijection between strongly divisible lattices M ⊆ D and G_K-stable ℤ_p-lattices T ⊆ V, compatible with the torsion functor on quotients: T/p^n T = U_S(M/p^n M).
+
+Hypotheses: K = K₀ = W(k)[1/p] with k perfect of characteristic p (absolutely unramified, e = 1); FL's general (A, τ, π) is specialised to A = W(k), τ = σ, π = p, E = ℚ_p, q = p. Derived here from Proposition 7.8, Proposition 7.15, Theorem 8.4 and R07.3/fl-essential-image-subquotients; FL do not state it, and PadicHodgeTheory asks for it explicitly.
+
+Proof or construction:
+
+1. Injectivity and order: U_S reverses inclusions (M ⊆ M′ gives U_S(M′) ⊆ U_S(M), restriction along M ⊆ M′ being injective since Ŝ is p-torsion free). If U_S(M) = U_S(M′) inside V, full faithfulness (R07.3/fl-lattice-functor) turns the identity into an isomorphism M′ ≅ M compatible with the embeddings in D, so M = M′.
+2. Surjectivity: choose a strongly divisible N (Proposition 7.8) scaled so that U_S(N) ⊆ T ⊆ p^{−a}U_S(N) = U_S(p^a N). Then T/U_S(N) ⊆ U_S(p^a N)/U_S(N) ≅ U_S(N/p^a N) is a G_K-submodule, hence equals U_S(Q) for a quotient N/p^a N ↠ Q in MF_tor^{[0,p−2]} (R07.3/fl-essential-image-subquotients).
+3. Let M = ker(N → Q), a lattice between p^a N and N. The filtration of Q is the image filtration (strictness, R07.3/mf-tor-abelian), so 0 → Fil^i M → Fil^i N → Fil^i Q → 0 is exact for all i, and the five lemma with φ_N, φ_Q bijective shows φ_M bijective: M is strongly divisible. The long exact sequence of Hom(−, Ŝ) gives U_S(M)/U_S(N) = Ext¹(Q, Ŝ) = U_S(Q), so U_S(M) = T.
+4. The convention: V = V_cris(D)^∨-type duality of Theorem 8.4 and the weight dictionary of Theorem 5.3 fix D = D_cris(V^∨) and HT(χ_cyc) = +1.
+
+The required uses are:
+
+- PadicHodgeTheory:P7/wach-fontaine-laffaille-comparison: The Fontaine–Laffaille correspondence for lattices, with covariance and HT(χ) = +1 (requested from R07.3).
+- PadicHodgeTheory:R06.4/fontaine-laffaille-crystalline-comparison: Essential surjectivity onto G_K-stable lattices with weights in [0, p − 2] (requested 'if provable').
+
+Acceptance:
+
+- V = ℚ_p(1), D = (K₀, Φ = pσ, Fil^1 = D, Fil^2 = 0): every lattice p^{−n}W(k) is strongly divisible, and they correspond, reversing inclusions, to the G_K-stable lattices p^n ℤ_p(1).
+- p = 2: [0, p − 2] = [0, 0], so only unramified representations are covered.
+
+Planned prerequisites: R07.3/fl-lattice-functor, R07.3/fl-essential-image-subquotients, R07.3/fl-admissibility, R07.3/strongly-divisible-lattices, R07.3/mf-tor-abelian.
+
+Source: FL82, §7.15, Proposition 7.15(ii), p. 594.
+
 ## Requests
 
 - **tauceti:TauCetiRoadmap/ModularCurves#0b-finite-locally-free-group-schemes-and-cartier-duality**: The general finite locally free commutative group-scheme category with constant and diagonalizable groups, kernels with base change, and Cartier duality with evaluation, biduality, rank and base change (RS-02: 'use the unchanged … carrier'); Tau Ceti already has the Hopf-algebra and affine-group-scheme Cartier duality. Needed by: R07.1/p-divisible-group, R07.1/p-divisible-cartier-dual, R07.1/f-vector-scheme.
@@ -1461,6 +1912,8 @@ Source: Yu26-arXiv, §2.2, Theorem 5 and the definition of the slope sequence, p
 - **PadicHodgeTheory:R06.1**: Tate–Sen: for K complete discretely valued of characteristic 0 with perfect residue field and C the completion of K̄, H^0(G_K, C) = K, H^0(G_K, C(j)) = 0 for j ≠ 0, H^1(G_K, C) one-dimensional and H^1(G_K, C(j)) = 0 for j ≠ 0 (Tate 1967 §3.3, Theorems 1–2), as part of the Galois properties of the period rings. Needed by: R07.1/hodge-tate-p-divisible.
 - **InverseGaloisAndArithmeticFundamentalGroups:IG.0**: SGA 1 Exposé V for a connected affine base Spec R: finite étale R-schemes form a Galois category whose geometric fibre functor induces an equivalence with finite continuous π₁-sets; and for normal connected S with generic point η, π₁(S, η̄) is the Galois group of the maximal extension of the function field unramified over S (so π₁(Spec ℤ[1/N]) = Gal(ℚ_S/ℚ)). Needed by: R07.1/etale-groups-as-galois-modules.
 - **VectorBundlesAndIsocrystals:VB0**: The Dieudonné–Manin classification over W(k̄)[1/p] (k̄ algebraically closed of characteristic p): every isocrystal is a direct sum of the standard simple isocrystals of rational slope s/r (in the convention pinned by VB0), with unique multiplicities, Hom between simple objects and their endomorphism division algebras; and the translation to Dieudonné modules M_{a,b} = W(𝔽_p)[F, V]/(F^a − V^b) of slope b/(a + b), recording the sign and normalisation of the slope convention. Needed by: R07.2/dieudonne-slopes, R07.2/isogeny-classification.
+- **PadicHodgeTheory:R06.2**: For K = K₀ unramified: filtered φ-modules over K₀ with Hodge and Newton numbers t_H, t_N; weak admissibility (t_H(D) = t_N(D), t_H(D′) ≤ t_N(D′) for Φ-stable D′); admissibility with V_cris / V_B and D_cris as quasi-inverse equivalences (in the covariance fixed by R06.2, with the dual used by Fontaine–Laffaille's Theorem 8.4 stated explicitly), and Fontaine's theorem that admissible implies weakly admissible. Needed by: R07.3/strongly-divisible-lattices, R07.3/fl-admissibility.
+- **PadicHodgeTheory:R06.1**: The perfectoid ring R = lim_{x↦x^p} 𝒪_{K̄}/p, W(R) with θ and its principal kernel, and A_cris, B_cris, B_dR with Frobenius, filtration and G_K-action, including the identification of Fontaine–Laffaille's ring S (FL §2.7) with a filtered Galois subring: Ŝ ⊆ A_cris and Fil^i S_K = S_K ∩ Fil^i B_dR. Needed by: R07.3/fl-ring-S, R07.3/fl-period-comparison.
 
 ## Coverage
 
@@ -1470,8 +1923,10 @@ Source: Yu26-arXiv, §2.2, Theorem 5 and the definition of the slope sequence, p
   - The consolidated Grothendieck–Messing equivalence: p-divisible lifts over nilpotent PD thickenings correspond to lifts of the Hodge filtration, with morphisms, Cartier duality and effectivity, keeping ordinary, PD and p-nilpotence hypotheses separate (RS-02).
   - Covariant Cartier–Dieudonné theory over general bases of characteristic p (Zink's displays) and the Norman–Oort description of deformations (Yu §§2.3–2.4), with the comparison D*(G) ≅ M(G)^t of covariant and contravariant conventions.
   - Ordinary/supersingular and isogeny comparisons in families, and descent of Dieudonné data over non-perfect fields.
-- **R07.3** (not_read):
-  - Fontaine–Laffaille theory with the [0, p − 2] and restricted [0, p − 1] ranges.
+- **R07.3** (partial):
+  - FL §9: finite flat p-group schemes over W(k) (p odd, or unipotent when p = 2) and the torsion category MF_tor^{[0,1]} via Fontaine's finite Honda systems (FL 9.4–9.12, J(Ā) = U_S(M)). FL's Proposition 9.10 is elementary, but the classification of p-groups by Honda systems is Fontaine's [F3] (Astérisque 47–48), not freely available; the Dieudonné side belongs with R07.2.
+  - Coefficients: the E-linear version (FL §§7–8 with E/ℚ_p finite, Proposition 8.12) when used by consumers with coefficients.
+  - The rational/torsion comparison of reductions: how torsion subquotients and reductions change the filtration beyond the lattice correspondence (stage text), and the tensor-product stability of FL Corollary 7.9.
 - **R07.4** (not_read):
   - Breuil–Kisin modules, including the dyadic theorem.
 - **R07.5** (not_read):
@@ -1482,6 +1937,7 @@ Source: Yu26-arXiv, §2.2, Theorem 5 and the definition of the slope sequence, p
 ## Source issues
 
 - **FiniteFlatGroupsAndIntegralPadicHodgeTheory/E1** (misprint, Schoof03, Proof of Corollary 2.4, last paragraph, p. 420). Printed: "Finally, suppose that X and X′ are extensions of H by G over the rings R̂ and R[1/p] respectively. … Then the R-group scheme that corresponds via Prop.2.3 to the triple (X, X′, θ) is an extension of H by G over R" Correction: extensions of G by H (0 → H → X → G → 0), in both places. The step proves exactness at Ext¹_R̂(G, H) × Ext¹_{R[1/p]}(G, H), whose elements are extensions of G by H, the convention used earlier in the same proof ('let X be an extension of G by H over R') and in the definition of δ. Extensions of H by G would lie in Ext¹(H, G). Affects: nothing. Known: new.
+- **FiniteFlatGroupsAndIntegralPadicHodgeTheory/E2** (misprint, FL82, §6.5, first sentence, p. 584). Printed: "6.5. DÉMONSTRATION DU (ii) DU THÉORÈME 6.1. — D'après le théorème 4.3 le foncteur U_S est exact et fidèle." Correction: “D'après le théorème 3.3 …”: exactness and faithfulness of U_S is Theorem 3.3. 4.3 is a definition (A-objects of the category of simple p-torsion objects, p. 566), not a theorem; the exactness and faithfulness of U_S is Theorem 3.3 (p. 562), as the introduction (0.6, 'cf. th. 3.3') also says. Checked on the page image of the Numdam scan, not only its OCR. Affects: nothing. Known: new.
 
 ## Sources
 
@@ -1523,3 +1979,14 @@ Source: Yu26-arXiv, §2.2, Theorem 5 and the definition of the slope sequence, p
   - Read: §§2.3–2.4 (pp. 5–6): Cartier–Dieudonné theory and the construction of deformations (read for scope; not used in this checkpoint).
 - **Demazure72-nLab**: nLab contributors, transcribing Michel Demazure (LNM 302, Springer 1972), *Demazure, lectures on p-divisible groups, III.8, Dieudonné modules (p-divisible groups)*, nLab page, last revised 9 June 2012 (revision 2); fetched 2026-09-28. The book itself is not freely available; this transcription gives the lemma and theorem of III.8 (Demazure pp. 71–72).. <https://ncatlab.org/nlab/show/Demazure,+lectures+on+p-divisible+groups,+III.8,+Dieudonn%C3%A9+modules+(p-divisible+groups)>.
   - Read: The whole page: the limit lemma, the definition of p-torsion formal groups, the theorem and the remark (base change, p-divisibility, height, Serre duality).
+- **FL82**: Jean-Marc Fontaine and Guy Laffaille, *Construction de représentations p-adiques*, Ann. Sci. École Norm. Sup. (4) 15 (1982), no. 4, 547–608, Numdam copy (journal page = PDF page + 545); accessed 2026-09-28. <https://www.numdam.org/item/ASENS_1982_4_15_4_547_0/>, sha256 `c049a7bff113a45f8bbcffc93118bd2e651e84f8b4a38305f7cb24b34c2011a2`.
+  - Read: Introduction §§0.1–0.12 (pp. 547–554).
+  - Read: §1 (pp. 554–559): filtered modules, 1.2–1.11 (Propositions 1.6, 1.8, the abelian envelope 1.11).
+  - Read: §2 (pp. 559–561): the rings R, W(R), W_K(R) and S (2.1–2.7).
+  - Read: §3 (pp. 561–565): the Galois action on S, 3.2, Theorem 3.3, Remark 3.4 and the reduction to k algebraically closed.
+  - Read: §4 (pp. 565–570): the simple objects M(h; i), Proposition 4.4.
+  - Read: §5 (p. 570 and the outline after it): Theorem 5.3.
+  - Read: §6 (pp. 581–590): Theorem 6.1, Lemma 6.3, 6.4–6.6 (Proposition 6.6 proved for MF′ only, with indications for MF″), the remark on the essential image (p. 589).
+  - Read: §7 (pp. 590–595): 7.1, 7.4–7.8, 7.12, 7.14–7.17.
+  - Read: §8 (pp. 595–596): 8.1–8.5, Theorem 8.4 and its proof.
+  - Read: §9 (pp. 600–606): read for scope (finite Honda systems, 9.10–9.12); not planned in this checkpoint.
