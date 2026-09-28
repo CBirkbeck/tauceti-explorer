@@ -21771,9 +21771,10 @@
     "REV-RS-06"
    ],
    "prompt": "research/blueprint/prompts/BP-SmallRamificationAndAbelianVarietyBaseCases.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #995"
+   "note": "deliverables arrived from an external worker on issue #995",
+   "finishedAt": "2026-09-28T20:20:24Z"
   },
   {
    "id": "REV-SmallRamificationAndAbelianVarietyBaseCases",
