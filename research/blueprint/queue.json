@@ -14320,11 +14320,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #641"
+   "note": "claimed on GitHub issue #641"
   },
   {
    "id": "REV-LocallyAnalyticDistributions",
@@ -17695,9 +17695,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-FiniteFlatGroupsAndIntegralPadicHodgeTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #731"
+   "note": "claimed on GitHub issue #731"
   },
   {
    "id": "REV-FiniteFlatGroupsAndIntegralPadicHodgeTheory",
@@ -18282,12 +18282,13 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GlobalGaloisDeformations.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #743"
+   "note": "deliverables arrived from an external worker on issue #743",
+   "finishedAt": "2026-09-28T20:55:45Z"
   },
   {
    "id": "REV-GlobalGaloisDeformations",
