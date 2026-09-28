@@ -16121,11 +16121,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-ColemanPowerSeries.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #699"
+   "note": "released on GitHub issue #699"
   },
   {
    "id": "REV-ColemanPowerSeries",
