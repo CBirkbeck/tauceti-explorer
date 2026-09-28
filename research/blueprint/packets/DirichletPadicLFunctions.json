@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all262 predecessor nodes whole. Four L3 nodes give the even-character real-log norm refinement of the complex value at1, retaining complex character coefficients and explicit primitive-conductor/Gauss hypotheses. Five gaps, one L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all266 predecessor nodes whole. Six L3 nodes give the canonically normalized odd-character L-value, through scalar phase and finite unit pairing, with one native L(0) API and twelve typed examples. E16 records the missing root qualification of Remark6.3. Five gaps, one L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2317,6 +2317,139 @@
         "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
         "provides": "An even Dirichlet character has the same value at x and−x.",
         "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The actual scalar conjugation/pairing and finite weighted averaging also elaborate in the complete native probe."
+      },
+      {
+        "ref": "mathlib:Complex.exp_mul_I",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "theorem exp_mul_I : exp (x * I) = cos x + sin x * I :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Complex.ofReal_sin",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "theorem ofReal_sin (x : ℝ) : (Real.sin x : ℂ) = sin x :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Complex.ofReal_cos",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "theorem ofReal_cos (x : ℝ) : (Real.cos x : ℂ) = cos x :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Real.cos_two_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "nonrec theorem cos_two_mul : cos (2 * x) = 2 * cos x ^ 2 - 1 :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Real.sin_two_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "nonrec theorem sin_two_mul : sin (2 * x) = 2 * sin x * cos x :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Real.cos_sub",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "theorem cos_sub : cos (x - y) = cos x * cos y + sin x * sin y := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Real.sin_sub",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "theorem sin_sub : sin (x - y) = sin x * cos y - cos x * sin y := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Real.sin_sq_add_cos_sq",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "nonrec theorem sin_sq_add_cos_sq : sin x ^ 2 + cos x ^ 2 = 1 :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Real.sin_pi_div_two",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean",
+        "provides": "theorem sin_pi_div_two : sin (π / 2) = 1 :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Real.cos_pi_div_two",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean",
+        "provides": "theorem cos_pi_div_two : cos (π / 2) = 0 := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Real.sin_pos_of_pos_of_lt_pi",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean",
+        "provides": "theorem sin_pos_of_pos_of_lt_pi {x : ℝ} (h0x : 0 < x) (hxp : x < π) : 0 < sin x :=",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Complex.exp_ne_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Exponential.lean",
+        "provides": "theorem exp_ne_zero : exp x ≠ 0 := fun h =>",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Complex.log_ofReal_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "theorem log_ofReal_mul {r : ℝ} (hr : 0 < r) {x : ℂ} (hx : x ≠ 0) :",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Complex.log_exp",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "theorem log_exp {x : ℂ} (hx₁ : -π < x.im) (hx₂ : x.im ≤ π) : log (exp x) = x := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Complex.norm_exp_ofReal_mul_I",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "theorem norm_exp_ofReal_mul_I (x : ℝ) : ‖exp (x * I)‖ = 1 := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Polynomial.bernoulli_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/BernoulliPolynomials.lean",
+        "provides": "theorem bernoulli_one : bernoulli 1 = X - C 2⁻¹ := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.Odd",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "def Odd : Prop := ψ (-1) = -1",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:DirichletCharacter.Odd.eval_neg",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/DirichletCharacter/Basic.lean",
+        "provides": "lemma Odd.eval_neg (x : ZMod m) (hψ : ψ.Odd) : ψ (-x) = - ψ x := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
+      },
+      {
+        "ref": "mathlib:Complex.isPrimitiveRoot_exp",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/RootsOfUnity/Complex.lean",
+        "provides": "theorem isPrimitiveRoot_exp (n : ℕ) (h0 : n ≠ 0) : IsPrimitiveRoot (exp (2 * π * I / n)) n := by",
+        "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Scalar polar/phase identities also checked by a complete native Lean probe."
       }
     ]
   },
@@ -17386,6 +17519,338 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-polar-factor",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Polar factorization of the cyclotomic difference",
+      "kind": "lemma",
+      "statement": "1−exp(2ti)=2sin(t)·exp((t−π/2)i).",
+      "hypotheses": [
+        "t is any real number; real quantities are included in ℂ."
+      ],
+      "proofSteps": [
+        "Expand both complex exponentials by Complex.exp_mul_I and the real-to-complex sine/cosine compatibility.",
+        "The real part follows from cos(2t), cos(t−π/2) and sin²t+cos²t=1. The imaginary part follows from sin(2t) and sin(t−π/2). The native π/2 sine/cosine values and ring arithmetic finish both equalities."
+      ],
+      "prerequisites": [
+        "mathlib:Complex.exp_mul_I",
+        "mathlib:Complex.ofReal_sin",
+        "mathlib:Complex.ofReal_cos",
+        "mathlib:Real.cos_two_mul",
+        "mathlib:Real.sin_two_mul",
+        "mathlib:Real.cos_sub",
+        "mathlib:Real.sin_sub",
+        "mathlib:Real.sin_sq_add_cos_sq",
+        "mathlib:Real.sin_pi_div_two",
+        "mathlib:Real.cos_pi_div_two"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedOddLogTests.factor_zero_endpoint",
+          "kind": "degenerate",
+          "statement": "At t=0 the difference is0."
+        },
+        {
+          "name": "SuggestedOddLogTests.factor_half_pi",
+          "kind": "computation",
+          "statement": "At t=π/2 the difference is2."
+        }
+      ],
+      "acceptance": [
+        "The identity itself includes endpoints and all real t; positivity is a separate hypothesis of the logarithm lemma."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_polar_factor"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51; root conventions in Definition5.2 on published140/PDF41 and the extension on144/PDF45. Corresponding v2 pages29,32,37 collated.",
+          "excerpt": "If θ is odd",
+          "match": "Worker decomposition of the odd-character refinement through the principal logarithm phase, finite negation of units and the existing complex value theorem. The root is explicitly exp(2πi/D), as required by E16; no new generalized Bernoulli carrier or native functional equation is planned. The scalar polar and branch lemmas are worker deductions, not separately numbered assertions in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-canonical-phase",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The principal logarithm phase",
+      "kind": "lemma",
+      "statement": "log(1−exp(2ti))=Real.log(2sin t)+(t−π/2)i.",
+      "hypotheses": [
+        "0<t<π. The logarithm is the native principal complex branch."
+      ],
+      "proofSteps": [
+        "Use the preceding polar factorization. Native sine positivity makes 2sin t strictly positive, and the complex exponential is nonzero.",
+        "Apply Complex.log_ofReal_mul. The imaginary part of (t−π/2)i lies strictly between−π/2 andπ/2, hence in the native log_exp strip (−π,π]. The exponential logarithm therefore equals (t−π/2)i."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-polar-factor",
+        "mathlib:Real.sin_pos_of_pos_of_lt_pi",
+        "mathlib:Complex.exp_ne_zero",
+        "mathlib:Complex.log_ofReal_mul",
+        "mathlib:Complex.log_exp"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedOddLogTests.quarter_pi_phase",
+          "kind": "computation",
+          "statement": "log(1−i)=Real.log2/2−πi/4."
+        },
+        {
+          "name": "SuggestedOddLogTests.half_pi_phase",
+          "kind": "computation",
+          "statement": "At t=π/2 the principal logarithm is Real.log2."
+        }
+      ],
+      "acceptance": [
+        "The strict interval ensures both a positive polar radius and the branch inequalities. No unrestricted multiplicative logarithm rule is used."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_phase"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51; root conventions in Definition5.2 on published140/PDF41 and the extension on144/PDF45. Corresponding v2 pages29,32,37 collated.",
+          "excerpt": "If θ is odd",
+          "match": "Worker decomposition of the odd-character refinement through the principal logarithm phase, finite negation of units and the existing complex value theorem. The root is explicitly exp(2πi/D), as required by E16; no new generalized Bernoulli carrier or native functional equation is planned. The scalar polar and branch lemmas are worker deductions, not separately numbered assertions in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-canonical-inverse-difference",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Difference of logarithms at inverse roots",
+      "kind": "lemma",
+      "statement": "For α=exp(2πix), log(1−α)−log(1−α⁻¹)=2πi(x−1/2).",
+      "hypotheses": [
+        "x is real and0<x<1."
+      ],
+      "proofSteps": [
+        "Set t=πx. Native norm_exp_ofReal_mul_I gives normα=1. The polar factorization and sin(t)>0 show 1−α≠0, so α≠1.",
+        "Apply the preceding phase formula and the earlier inverse-root conjugation node. Subtract the conjugate: the real logarithms cancel and twice the imaginary term remains. Ring arithmetic gives2πi(x−1/2)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-canonical-phase",
+        "DirichletPadicLFunctions:L3/complex-log-polar-factor",
+        "DirichletPadicLFunctions:L3/complex-log-inverse-conjugate",
+        "mathlib:Complex.norm_exp_ofReal_mul_I",
+        "mathlib:Real.sin_pos_of_pos_of_lt_pi",
+        "mathlib:Complex.exp_ne_zero"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedOddLogTests.quarter_inverse_difference",
+          "kind": "computation",
+          "statement": "At x=1/4 the inverse-log difference is−πi/2."
+        },
+        {
+          "name": "SuggestedOddLogTests.three_quarters_inverse_difference",
+          "kind": "computation",
+          "statement": "At x=3/4 the difference is+πi/2."
+        }
+      ],
+      "acceptance": [
+        "The orientation is tied to the canonical positive exponential; replacing the root by its inverse reverses the sign."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_sub_inv_exp"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51; root conventions in Definition5.2 on published140/PDF41 and the extension on144/PDF45. Corresponding v2 pages29,32,37 collated.",
+          "excerpt": "If θ is odd",
+          "match": "Worker decomposition of the odd-character refinement through the principal logarithm phase, finite negation of units and the existing complex value theorem. The root is explicitly exp(2πi/D), as required by E16; no new generalized Bernoulli carrier or native functional equation is planned. The scalar polar and branch lemmas are worker deductions, not separately numbered assertions in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-odd-unit-residue",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The logarithm difference at a unit residue",
+      "kind": "lemma",
+      "statement": "log(1−ε^c)−log(1−(ε^c)⁻¹)=2πi·algebraMap(B₁(c.val/D)), with B₁=Polynomial.bernoulli1.",
+      "hypotheses": [
+        "D>1, c is a unit of ZModD, and ε=exp(2πi/D). Powers use the least nonnegative representative. The Bernoulli polynomial is evaluated in ℚ before inclusion into ℂ."
+      ],
+      "proofSteps": [
+        "A unit c in the nontrivial ring ZModD is nonzero. The native least representative therefore satisfies0<c.val<D. The real number x=c.val/D lies in(0,1).",
+        "Complex.exp_nat_mul and cast/division arithmetic identify ε^c.val with exp(2πix). Apply the preceding scalar inverse-difference theorem.",
+        "Native Polynomial.bernoulli_one is X−C(1/2), so its rational evaluation maps to x−1/2 in ℂ. This is a direct evaluation of the existing polynomial, not a new generalized Bernoulli definition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-canonical-inverse-difference",
+        "mathlib:Complex.exp_nat_mul",
+        "mathlib:ZMod.val_lt",
+        "mathlib:Polynomial.bernoulli_one"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedOddLogTests.residue_three_one",
+          "kind": "computation",
+          "statement": "D=3 and c=1 give−πi/3."
+        },
+        {
+          "name": "SuggestedOddLogTests.residue_four_three",
+          "kind": "computation",
+          "statement": "D=4 and c=3 give+πi/2."
+        }
+      ],
+      "acceptance": [
+        "The formula uses the actual least representative and the canonical root. D=1 and nonunit residues are excluded."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_sub_inv_unit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51; root conventions in Definition5.2 on published140/PDF41 and the extension on144/PDF45. Corresponding v2 pages29,32,37 collated.",
+          "excerpt": "If θ is odd",
+          "match": "Worker decomposition of the odd-character refinement through the principal logarithm phase, finite negation of units and the existing complex value theorem. The root is explicitly exp(2πi/D), as required by E16; no new generalized Bernoulli carrier or native functional equation is planned. The scalar polar and branch lemmas are worker deductions, not separately numbered assertions in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-odd-weighted-sum",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The odd weighted logarithm sum",
+      "kind": "lemma",
+      "statement": "Σ_units c η⁻¹(c)log(1−ε^c)=πi Σ_(a:ZModD)η⁻¹(a)·algebraMap(B₁(a.val/D)).",
+      "hypotheses": [
+        "D>1, η:DirichletCharacter ℂ D is odd, and ε=exp(2πi/D). This finite-sum result does not require primitivity or nonprincipality of η, or a nonzero Gauss sum."
+      ],
+      "proofSteps": [
+        "Negation is a permutation of the unit residues. Native oddness gives η⁻¹(−c)=−η⁻¹(c); taking inverses of η(−1)=−1 proves inverse-character oddness. Reindex the original sum by this permutation.",
+        "Complex.isPrimitiveRoot_exp supplies root periodicity. Thus ε^(−c)=(ε^c)⁻¹, and the original sum equals the negative of the inverse-root sum. Subtract to obtain twice the original sum as the weighted sum of the scalar logarithm differences.",
+        "Apply the unit-residue identity termwise and cancel2 in ℂ. Extend the Bernoulli sum from units to all residues using MulChar.map_nonunit; terms at nonunits, including0, are zero. Character coefficients are not conjugated."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-odd-unit-residue",
+        "mathlib:DirichletCharacter.Odd",
+        "mathlib:DirichletCharacter.Odd.eval_neg",
+        "mathlib:Complex.isPrimitiveRoot_exp",
+        "mathlib:Equiv.prod_comp",
+        "mathlib:MulChar.map_nonunit"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedOddLogTests.quadratic_four_weighted",
+          "kind": "computation",
+          "statement": "For quadratic η modulo4, the canonical weighted log sum is−πi/2."
+        },
+        {
+          "name": "SuggestedOddLogTests.quartic_five_weighted",
+          "kind": "computation",
+          "statement": "For η modulo5 with η(2)=i, the inverse-character B₁ sum is(−3+i)/5, and the weighted log sum isπi(−3+i)/5."
+        }
+      ],
+      "acceptance": [
+        "Works for imprimitive odd characters too. The sum need not be purely imaginary: the modulo5 test retains nonreal coefficients."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_sum_odd"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51; root conventions in Definition5.2 on published140/PDF41 and the extension on144/PDF45. Corresponding v2 pages29,32,37 collated.",
+          "excerpt": "If θ is odd",
+          "match": "Worker decomposition of the odd-character refinement through the principal logarithm phase, finite negation of units and the existing complex value theorem. The root is explicitly exp(2πi/D), as required by E16; no new generalized Bernoulli carrier or native functional equation is planned. The scalar polar and branch lemmas are worker deductions, not separately numbered assertions in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-lvalue-one-odd-bernoulli",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The odd-character value at one",
+      "kind": "theorem",
+      "statement": "η.LFunction1=−πi·G(η⁻¹,ε)⁻¹·Σ_(a:ZModD)η⁻¹(a)algebraMap(B₁(a.val/D)).",
+      "hypotheses": [
+        "D>1 is the actual primitive conductor, η is primitive, nonprincipal and odd, ε is primitive with the explicit equality ε=exp(2πi/D), and G=gaussSum η⁻¹(AddChar.zmodChar D ε) is nonzero. All values and the Gauss sum are in ℂ."
+      ],
+      "proofSteps": [
+        "Apply the earlier complex L-value logarithm theorem with the same η, ε and G. Replace the finite log sum by the preceding odd weighted-sum identity and rearrange scalar multiplication.",
+        "For the API form, η⁻¹ is nonprincipal because its inverse isη. Apply L2/tame-complex-special-values to η⁻¹ at k=0: its native LFunction0 equals the negative finite B₁ sum. Substitution gives+πi G⁻¹ L(η⁻¹,0).",
+        "The canonical-root hypothesis is necessary for this B₁ numerator. For a root exp(2πik/D), reindexing the finite Gauss sum multiplies G by η(k). Record E16 and the modulo4 opposite-root control; the general logarithmic formula remains root-independent when both its numerator and denominator change together."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-lvalue-one-log",
+        "DirichletPadicLFunctions:L3/complex-log-odd-weighted-sum",
+        "DirichletPadicLFunctions:L2/tame-complex-special-values"
+      ],
+      "tests": [
+        {
+          "name": "SuggestedOddLogTests.quadratic_four_value",
+          "kind": "computation",
+          "statement": "For quadratic η modulo4, L(η,1)=π/4."
+        },
+        {
+          "name": "SuggestedOddLogTests.noncanonical_root_negative_control",
+          "kind": "non-example",
+          "statement": "Replacing i by−i gives G=−2i and the unchanged B₁=−1/2, so the unqualified printed expression is−π/4≠π/4."
+        }
+      ],
+      "acceptance": [
+        "E16 records the missing canonical-root qualification of Remark6.3; no independent verdict is assigned. Generic Gauss nonvanishing stays an explicit input. No p-adic degree-zero formula or replacement native functional equation is claimed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.LFunction_one_eq_odd_bernoulli"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Remark6.3, published150/PDF51; root conventions in Definition5.2 on published140/PDF41 and the extension on144/PDF45. Corresponding v2 pages29,32,37 collated.",
+          "excerpt": "If θ is odd",
+          "match": "Worker decomposition of the odd-character refinement through the principal logarithm phase, finite negation of units and the existing complex value theorem. The root is explicitly exp(2πi/D), as required by E16; no new generalized Bernoulli carrier or native functional equation is planned. The scalar polar and branch lemmas are worker deductions, not separately numbered assertions in the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "DirichletPadic.LFunction_one_eq_odd_zero_value",
+          "role": "compatibility",
+          "statement": "Under the same primitive, odd, canonical-root and nonzero-Gauss hypotheses, η.LFunction1=πi·G⁻¹·(η⁻¹).LFunction0."
+        }
+      ]
     }
   ],
   "requests": [
@@ -17418,14 +17883,14 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, the p-adic logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed. The complex primitive L-value at1 is now supplied by the L3 logarithmic chain. Its even-character complex refinement is also supplied in L3."
+        "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, the p-adic logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed. The complex primitive L-value at1 is now supplied by the L3 logarithmic chain. Its even-character complex refinement is also supplied in L3. The canonical odd complex refinement is now supplied in L3, with the root qualification of E16."
       ]
     },
     {
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "Both the complex logarithmic formula of Theorem6.1(i) and its even-character real-log norm refinement in Remark6.3 are now decomposed. Verify the odd formula with the source root conventions; construct p-adic logarithmic/degree-zero values, actual odd/dyadic analytic branches through their owners, pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms, and the PMIA L1 actual completed-algebra comparison remains requested.",
+        "The complex logarithmic formula and its even and canonically normalized odd refinements are decomposed. Construct the p-adic logarithmic/degree-zero values, actual odd/dyadic analytic branches through their owners, pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing, generalized Bernoulli carriers and conductor/product comparisons remain with ModularForms. The PMIA L1 actual completed-algebra comparison remains requested.",
         "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
@@ -17728,48 +18193,65 @@
         "The journal article-page request failed in the current web tool; the hash-verified publication itself was available. Bounded title/identifier+5.20+correction/errata and author+errata searches found no correcting notice; unrelated results were discarded. This is not an exhaustive absence or priority claim, and no authors were contacted.",
         "The63 relevant source-register locators and Dirichlet/PMIA/Coleman packet findings were screened. The distinct modD/modN misprint in the next proof is already ColemanIntegration/E20 and is credited without adding a duplicate local record."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions/E16",
+      "source": "RJW-published",
+      "kind": "error",
+      "locator": "Remark6.3, odd-character displayed formula, published150/PDF51; arXiv v2PDF37. Read with Definition5.2 on published140/PDF41 (v2PDF29), extension of Gauss notation on144/PDF45 (v2PDF32), and Theorem6.1 on149/PDF50 (v2PDF36).",
+      "printed": "L(θ,1)=−iπ·G(θ⁻¹)⁻¹·B₁,θ⁻¹",
+      "correction": "Require the canonical complex root ε=exp(2πi/N). If the chosen primitive root is exp(2πik/N), insert the factor θ(k) in the numerator. The canonical formula itself is correct.",
+      "reason": "Definition5.2 permits a compatible root system and parenthetically says one can choose the exponential system after an isomorphism; it does not impose that choice. Theorem6.1 allows a primitive N-th root. For the primitive odd quadratic character modulo4, B₁,θ⁻¹=−1/2 and the canonical Gauss sum at i is2i. At the also allowed root−i the finite Gauss sum is−2i. Exact arithmetic in ℚ(i) makes the displayed right side−π/4, while L(θ,1)=π/4. More generally, reindexing a↦ka gives G(θ⁻¹,ε^k)=θ(k)G(θ⁻¹,ε), so the numerator must change by the same factor.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "28September2026: Remark6.3 and Theorem6.1(i), complete published149–150/PDF50–51; Definition5.2 and extension of Gauss notation, complete published140–145/PDF41–46; corresponding complete arXiv v2 pages29,32,36,37. Read on28 September2026; published140/150 and v2 37 images inspected. Both source digests rechecked. Full native statements and ambient hypotheses for the newly cited declarations read at the pinned Mathlib commit.",
+        "Current arXiv abstract https://arxiv.org/abs/2309.15692 lists v2 of19December2024 as latest. Article entries at https://chriswilliams1404.wixsite.com/website/publications-preprints and https://sites.google.com/site/joaquinrj/home link the article/preprint and showed no separate correction at those entries.",
+        "The request for https://msp.org/ent/2025/4-1/p03.xhtml failed in the current web tool. The cached publication was available and its stored digest was verified before reading. Bounded title+6.3+correction, author+errata+Gauss and2309.15692+erratum searches found no correcting notice; unrelated and older-note results were discarded. This is not an exhaustive absence or priority claim. No authors were contacted.",
+        "The67 relevant Dirichlet/PMIA/ColemanIntegration/ColemanPowerSeries register locators were screened; no root-normalization record for Remark6.3 was found. ColemanIntegration/E23 already records the different boundary Fourier-series proof gap in Theorem6.1(i); that whole record was read and is credited, with no duplicate finding. The preceding integral route avoids that boundary-series step."
+      ]
     }
   ],
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All15 prior findings and sourceVersions preserved whole; no new finding or independent verdict.",
+    "sourceIssues": "One new unreviewed finding, E16, records the missing canonical complex-root qualification in Remark6.3; all fifteen prior findings and sourceVersions are preserved whole.",
     "validation": {
-      "nodes": 266,
+      "nodes": 272,
       "kinds": {
         "definition": 1,
-        "lemma": 125,
+        "lemma": 130,
         "construction": 27,
-        "theorem": 76,
+        "theorem": 77,
         "comparison": 37
       },
-      "api": 262,
-      "packetTests": 295,
+      "api": 263,
+      "packetTests": 307,
       "definitionConstructionTests": 140,
-      "typedExamples": 298,
+      "typedExamples": 310,
       "planets": 24,
-      "baseline": 329,
-      "preservedWholeNodes": 262,
-      "preservedBaseline": 322,
+      "baseline": 348,
+      "preservedWholeNodes": 266,
+      "preservedBaseline": 329,
       "preservedSourceIssues": 15,
-      "newSourceIssues": 0,
-      "newNodes": 4,
-      "newNamedDeclarations": 4,
-      "newTypedTests": 8,
+      "newSourceIssues": 1,
+      "newNodes": 6,
+      "newNamedDeclarations": 7,
+      "newTypedTests": 12,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 408,
-      "dependencyEdges": 1895,
+      "reachableNodes": 414,
+      "dependencyEdges": 1929,
       "acyclic": true,
-      "baselineLeaves": 428,
+      "baselineLeaves": 447,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 103223,
+      "readerWords": 105222,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 676,
+      "compilerWarnings": 695,
       "allWarningsPlaceholders": true,
       "supplierNodes": 265,
       "currentSupplierNodes": 320,
@@ -17785,14 +18267,18 @@
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "scalarConjugations": 14,
-        "scalarPairs": 14,
-        "weightedEvenSums": 27,
-        "nonrealEvenSums": 6,
-        "evenLValues": 14,
-        "oddNegativeControls": 8,
-        "closedForms": 8,
-        "fixedPointCases": 1
+        "polarFactorizations": 21,
+        "scalarPhases": 19,
+        "inverseLogDifferences": 19,
+        "unitResidueDifferences": 24,
+        "characterMultiplications": 244,
+        "oddWeightedSums": 6,
+        "nonrealOddSums": 2,
+        "oddLValues": 5,
+        "zeroValueComparisons": 5,
+        "rootChangeComparisons": 18,
+        "exactGaussControls": 2,
+        "exactBernoulliControls": 2
       },
       "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
@@ -17800,14 +18286,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 676,
-      "sha256": "c0fdb2ddbbe1a8b3ff4f05ce8d39cbb3d2b3fe58e2f7a53aadc63f2beab94f3f",
+      "warnings": 695,
+      "sha256": "dc939616c8a798a9fb179ad9231dfc88b07df450990b633cc264a62ceb79e41e",
       "nativeProbe": {
         "completeLemmas": 4,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "3750331f9d1ccee42ec29497357d6ebcc2ca5b011e69ba7e1c62344b9c60ee71"
+        "sha256": "6867437bee8ef4858fb4d78c54a47e1b6622c540d4353dcdc65388277ad1ebb0"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 265,
@@ -17848,7 +18334,7 @@
       }
     },
     "publication": {
-      "base": "e471c4d0ca98fa689e3bc49487c092c5b5fd5371",
+      "base": "6e864402d0548adc7a47e21755ecb1c08277efdb",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -21667,6 +22153,69 @@
         "wholeOldLeanPreservedInOrder": true,
         "reading": "All16 new nodes, all6 baseline records, the full Lean difference including the new import, and changed summary/L3 coverage/gap/check/provenance metadata read. Actual Dirac and character-integral maps, positive-moment separation/regularity and positive pseudomoments are supplied. No current Dirichlet declaration calls these additions. The exact completed-group-algebra comparison remains open. No independent review or compilation against the320-node revision is claimed."
       }
+    },
+    "oddComplexLogValue": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3294,
+      "previousHead": "e4ac4d2f0d51740f32dcddf63325549d3b7c8c5e",
+      "previousMerge": "2566939af56e4177dfd642feeb41fa7f4785e279",
+      "preservedWholeNodes": 266,
+      "preservedBaseline": 329,
+      "preservedFindings": 15,
+      "newNodes": 6,
+      "newSourceFindings": [
+        "DirichletPadicLFunctions/E16"
+      ],
+      "reading": "Remark6.3 and Theorem6.1(i), complete published149–150/PDF50–51; Definition5.2 and extension of Gauss notation, complete published140–145/PDF41–46; corresponding complete arXiv v2 pages29,32,36,37. Read on28 September2026; published140/150 and v2 37 images inspected. Both source digests rechecked. Full native statements and ambient hypotheses for the newly cited declarations read at the pinned Mathlib commit.",
+      "boundary": "The complex logarithmic formula and its even and canonically normalized odd refinements are decomposed. Construct the p-adic logarithmic/degree-zero values, actual odd/dyadic analytic branches through their owners, pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing, generalized Bernoulli carriers and conductor/product comparisons remain with ModularForms. The PMIA L1 actual completed-algebra comparison remains requested.",
+      "inputBase": "2566939af56e4177dfd642feeb41fa7f4785e279",
+      "sourceRegisterCredit": "ColemanIntegration/E23 owns the Fourier-series boundary gap; the previous integral/log route avoids it. ColemanIntegration/E20 owns the modD/modN misprint. Neither is duplicated.",
+      "baselineScreen": "All five exact Dirichlet library-audit records reread. Pinned declaration index searched in both libraries; native Dirichlet functional equation/root number, gammaFactor and standard additive character statements read as an existing alternative, not replanned. No exact scalar phase or odd B₁-normalization theorem located. Overbroad truncated searches were excluded from reading claims.",
+      "supplierRefresh": {
+        "oldBase": "2566939af56e4177dfd642feeb41fa7f4785e279",
+        "newBase": "6e864402d0548adc7a47e21755ecb1c08277efdb",
+        "changedInputs": {
+          "research/blueprint/packets/LocallyAnalyticDistributions.json": {
+            "old": "fe4572bf3f04ab70da88b6c73330002573aac767",
+            "new": "74caa66f91d8b994a61fbd1c21d2f266e5525f77"
+          }
+        },
+        "preservedNodes": 174,
+        "newNodes": 12,
+        "preservedBaseline": 228,
+        "preservedSourceIssues": 2,
+        "newLeanLines": 104,
+        "wholeOldLeanPreserved": true,
+        "reading": "The LAD packet changed from174 to186 nodes. All12 added L4 nodes, the complete104-line Lean addition and changed coverage/gap/check/provenance metadata were read; all174 old nodes,228 baseline records,2 findings and sourceVersions remain whole. The fixed-polynomial spectral construction does not supply analytic-character families or L3 Mellin theory. The current Dirichlet file neither imports a LAD artifact nor calls its new declarations. The sole guarded packet blob was refreshed; compiled sources and imported artifacts are unchanged."
+      },
+      "publication": {
+        "base": "6e864402d0548adc7a47e21755ecb1c08277efdb",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "polarFactorizations": 21,
+        "scalarPhases": 19,
+        "inverseLogDifferences": 19,
+        "unitResidueDifferences": 24,
+        "characterMultiplications": 244,
+        "oddWeightedSums": 6,
+        "nonrealOddSums": 2,
+        "oddLValues": 5,
+        "zeroValueComparisons": 5,
+        "rootChangeComparisons": 18,
+        "exactGaussControls": 2,
+        "exactBernoulliControls": 2
+      },
+      "numericalMethod": "Exact Fraction-pair arithmetic in Q(i) for two modulo4 Gauss sums and the modulo4/5 Bernoulli sums; all analytic controls use70 decimal digits and tolerance1e-60, not interval-certified or general proofs."
     }
   },
   "requestResolutions": [

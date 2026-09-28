@@ -3653,3 +3653,104 @@ example (η : DirichletCharacter ℂ 8) (hη3 : η 3 = -1) (hη7 : η 7 = 1) :
     η.LFunction 1 = (Real.log (1+Real.sqrt 2)/Real.sqrt 2 : ℝ) := by sorry
 end
 end SuggestedEvenLogTests
+
+
+/-! Odd-character refinement with the canonical complex exponential root.
+The Bernoulli expression uses the existing rational polynomial directly. -/
+namespace DirichletPadic
+noncomputable section
+
+theorem tameLog_polar_factor (t : ℝ) :
+    1-Complex.exp ((2*t : ℝ)*Complex.I) =
+      (2*Real.sin t : ℝ)*Complex.exp ((t-Real.pi/2 : ℝ)*Complex.I) := by sorry
+
+theorem tameLog_phase (t : ℝ) (h0 : 0 < t) (hp : t < Real.pi) :
+    Complex.log (1-Complex.exp ((2*t : ℝ)*Complex.I)) =
+      (Real.log (2*Real.sin t) : ℂ) + (t-Real.pi/2 : ℝ)*Complex.I := by sorry
+
+theorem tameLog_sub_inv_exp (x : ℝ) (h0 : 0 < x) (h1 : x < 1) :
+    Complex.log (1-Complex.exp ((2*Real.pi*x : ℝ)*Complex.I)) -
+      Complex.log (1-(Complex.exp ((2*Real.pi*x : ℝ)*Complex.I))⁻¹) =
+        (2*Real.pi*(x-1/2) : ℝ)*Complex.I := by sorry
+
+section OddGauss
+variable {D : ℕ} [NeZero D]
+
+theorem tameLog_sub_inv_unit (hD : 1 < D) (c : (ZMod D)ˣ)
+    (ε : ℂ) (hcanonical : ε = Complex.exp (2*Real.pi*Complex.I/D)) :
+    Complex.log (1-ε^(c : ZMod D).val) -
+      Complex.log (1-(ε^(c : ZMod D).val)⁻¹) =
+        2*Real.pi*Complex.I * algebraMap ℚ ℂ
+          ((Polynomial.bernoulli 1).eval ((c : ZMod D).val/(D : ℚ))) := by sorry
+
+theorem tameLog_sum_odd (η : DirichletCharacter ℂ D) (hη : η.Odd)
+    (hD : 1 < D) (ε : ℂ) (hcanonical : ε = Complex.exp (2*Real.pi*Complex.I/D)) :
+    (∑ c : (ZMod D)ˣ, η⁻¹ (c : ZMod D) * Complex.log (1-ε^(c : ZMod D).val)) =
+      Real.pi*Complex.I * ∑ a : ZMod D, η⁻¹ a * algebraMap ℚ ℂ
+        ((Polynomial.bernoulli 1).eval (a.val/(D : ℚ))) := by sorry
+
+theorem LFunction_one_eq_odd_bernoulli (η : DirichletCharacter ℂ D)
+    (hη : η.IsPrimitive) (hη0 : η ≠ 1) (hodd : η.Odd) (hD : 1 < D)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hcanonical : ε = Complex.exp (2*Real.pi*Complex.I/D))
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    η.LFunction 1 = -Real.pi*Complex.I *
+      (gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ a : ZMod D, η⁻¹ a * algebraMap ℚ ℂ
+        ((Polynomial.bernoulli 1).eval (a.val/(D : ℚ))) := by sorry
+
+theorem LFunction_one_eq_odd_zero_value (η : DirichletCharacter ℂ D)
+    (hη : η.IsPrimitive) (hη0 : η ≠ 1) (hodd : η.Odd) (hD : 1 < D)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hcanonical : ε = Complex.exp (2*Real.pi*Complex.I/D))
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    η.LFunction 1 = Real.pi*Complex.I *
+      (gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ * (η⁻¹).LFunction 0 := by sorry
+end OddGauss
+end
+end DirichletPadic
+
+namespace SuggestedOddLogTests
+open DirichletPadic
+noncomputable section
+-- factor_zero_endpoint
+example : 1-Complex.exp ((2*(0 : ℝ) : ℝ)*Complex.I) = 0 := by sorry
+-- factor_half_pi
+example : 1-Complex.exp ((2*(Real.pi/2) : ℝ)*Complex.I) = 2 := by sorry
+-- quarter_pi_phase
+example : Complex.log (1-Complex.I) =
+    (Real.log 2/2 : ℝ) - (Real.pi/4 : ℝ)*Complex.I := by sorry
+-- half_pi_phase
+example : Complex.log (1-Complex.exp ((2*(Real.pi/2) : ℝ)*Complex.I)) =
+    (Real.log 2 : ℂ) := by sorry
+-- quarter_inverse_difference
+example : Complex.log (1-Complex.I)-Complex.log (1+Complex.I) =
+    -(Real.pi/2 : ℝ)*Complex.I := by sorry
+-- three_quarters_inverse_difference
+example : Complex.log (1+Complex.I)-Complex.log (1-Complex.I) =
+    (Real.pi/2 : ℝ)*Complex.I := by sorry
+-- residue_three_one
+example : Complex.log (1-Complex.exp (2*Real.pi*Complex.I/3)) -
+    Complex.log (1-(Complex.exp (2*Real.pi*Complex.I/3))⁻¹) =
+      -(Real.pi/3 : ℝ)*Complex.I := by sorry
+-- residue_four_three
+example : Complex.log (1-(Complex.exp (2*Real.pi*Complex.I/4))^3) -
+    Complex.log (1-((Complex.exp (2*Real.pi*Complex.I/4))^3)⁻¹) =
+      (Real.pi/2 : ℝ)*Complex.I := by sorry
+-- quadratic_four_weighted
+example (η : DirichletCharacter ℂ 4) (hη : η 3 = -1) :
+    (∑ c : (ZMod 4)ˣ, η⁻¹ (c : ZMod 4) * Complex.log (1-Complex.I^(c : ZMod 4).val)) =
+      -(Real.pi/2 : ℝ)*Complex.I := by sorry
+-- quartic_five_weighted
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = Complex.I) :
+    (∑ c : (ZMod 5)ˣ, η⁻¹ (c : ZMod 5) *
+      Complex.log (1-(Complex.exp (2*Real.pi*Complex.I/5))^(c : ZMod 5).val)) =
+        Real.pi*Complex.I*((-3+Complex.I)/5) := by sorry
+-- quadratic_four_value
+example (η : DirichletCharacter ℂ 4) (hη : η 3 = -1) :
+    η.LFunction 1 = (Real.pi/4 : ℝ) := by sorry
+-- noncanonical_root_negative_control
+example : -Real.pi*Complex.I * (-2*Complex.I)⁻¹ * (-1/2 : ℂ) =
+    -(Real.pi/4 : ℝ) ∧ -(Real.pi/4 : ℂ) ≠ (Real.pi/4 : ℂ) := by sorry
+end
+end SuggestedOddLogTests
