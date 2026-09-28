@@ -23199,14 +23199,15 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-AnalyticNumberTheory--AN.8.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdelicAlgebraicGroups",
     "BP-ArithmeticLocallySymmetricSpaces",
     "BP-AutomorphicLFunctionsAndLocalFactors",
     "BP-AutomorphicSpectralTheory",
     "BP-FoundationsAndLibraryIntegration"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1022"
   },
   {
    "id": "REV-AnalyticNumberTheory--AN.8",
@@ -44701,10 +44702,11 @@
     "SRC-SemisimpleAlgebras"
    ],
    "avoidAccountOf": "SRC-SemisimpleAlgebras",
-   "state": "external",
+   "state": "done",
    "timeout": 14400,
    "prompt": "research/blueprint/prompts/REV-SRC-SemisimpleAlgebras.md",
-   "note": "claimed on GitHub issue #3781"
+   "note": "deliverables arrived from an external worker on issue #3781",
+   "finishedAt": "2026-09-28T17:21:39Z"
   },
   {
    "id": "SRC-ShimuraCompactifications",
