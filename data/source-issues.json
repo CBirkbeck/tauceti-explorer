@@ -139005,6 +139005,25 @@
    "reviewReason": null
   },
   {
+   "id": "HeightsRationalPointsAndObstructions/E8",
+   "kind": "misprint",
+   "locator": "§2, Example 2.2, p. 3 (author copy dated 2011-12-31)",
+   "printed": "Moreover, if R′ is closed (resp. open) in R then X(R) → X(R′) is a closed (resp. open) embedding.",
+   "correction": "Moreover, if R is closed (resp. open) in R′ then X(R) → X(R′) is a closed (resp. open) embedding.",
+   "reason": "In Example 2.2, R → R′ is a continuous map of topological rings, and the preceding sentence assumes it is a topological embedding, so R is (identified with) a subring of R′; the condition must be on R inside R′. The printed condition 'R′ closed in R' makes no sense for a subring R ⊊ R′, and the proof ('closed immersions of X into an affine space over R') uses Rⁿ closed (resp. open) in R′ⁿ. The following sentence ('if R is discrete in R′ then X(R) is discrete in X(R′)') has the correct orientation, and the examples (F in A_F, O_{F,S} in A_{F,S}, O_v open in F_v) are of this form.",
+   "affects": "nothing",
+   "known": "not found: the author's papers directory lists no erratum for adelictop.pdf (checked 2026-09-28); the published version was not consulted",
+   "searched": [
+    "https://math.stanford.edu/~conrad/papers/ (directory listing, 2026-09-28)"
+   ],
+   "owner": "HeightsRationalPointsAndObstructions",
+   "file": "research/blueprint/packets/HeightsRationalPointsAndObstructions.json",
+   "citation": "Brian Conrad, Weil and Grothendieck approaches to adelic points, Author copy (22 pp.), file dated 2011-12-31 on the author's papers page; published in L'Enseignement Mathématique 58 (2012). Accessed 2026-09-28; the author's papers directory lists no erratum for it.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "HigherLocalFieldsAndHigherClassFieldTheory/E1",
    "kind": "error",
    "locator": "Zhukov, Part I §1.1, printed p. 6 (physical p. 18), paragraph preceding Classification Theorem; published MSP volume.",
