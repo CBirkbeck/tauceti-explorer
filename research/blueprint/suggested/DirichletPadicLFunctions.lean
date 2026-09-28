@@ -4505,3 +4505,127 @@ example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPri
       ∑ c : ZMod (p^n), χ⁻¹ c * (smoothedAdditiveTwist p n e c a ha).amiceTransform.coeff 2 := sorry
 end SuggestedPrimePowerGaussTests
 end DirichletPadic
+
+/-! ## Finite polynomial equations for additive arithmetic twists -/
+namespace DirichletPadic
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure PowerSeries
+
+lemma smoothingDenominator_geometric (R : Type*) [CommRing R] (a : ℕ) :
+    smoothingDenominator R a = ∑ i ∈ Finset.range a, (1+X : R⟦X⟧)^i := sorry
+
+lemma smoothedSeries_geometric_cancellation (R : Type*) [CommRing R]
+    (a : ℕ) (ha : IsUnit (a : R)) :
+    (∑ i ∈ Finset.range a, (1+X : R⟦X⟧)^i) * smoothedSeries R a ha =
+      ∑ i ∈ Finset.range a, ∑ j ∈ Finset.range i, (1+X : R⟦X⟧)^j := sorry
+
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[p] K]
+
+lemma extend_smoothedMeasure_translation_sum (a : ℕ) (ha : ¬p∣a) :
+    (∑ i ∈ Finset.range a, AbstractMeasure.map
+      (ContinuousMap.mk (fun x : ℤ_[p] => x+(i : ℤ_[p])) (by fun_prop))
+      (extendIntegralCoefficients (R := K) (smoothedMeasure p a ha))) =
+    ∑ i ∈ Finset.range a, ∑ j ∈ Finset.range i, dirac K (j : ℤ_[p]) := sorry
+
+lemma smoothedAdditiveTwist_translation_sum (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) :
+    (∑ i ∈ Finset.range a, e c ^ i • AbstractMeasure.map
+      (ContinuousMap.mk (fun x : ℤ_[p] => x+(i : ℤ_[p])) (by fun_prop))
+      (smoothedAdditiveTwist p n e c a ha)) =
+    ∑ i ∈ Finset.range a, ∑ j ∈ Finset.range i, e c ^ j • dirac K (j : ℤ_[p]) := sorry
+
+lemma smoothedAdditiveTwist_amice_cancellation (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) :
+    (∑ i ∈ Finset.range a, (C (e c) * (1+X))^i) *
+      (smoothedAdditiveTwist p n e c a ha).amiceTransform =
+    ∑ i ∈ Finset.range a, ∑ j ∈ Finset.range i, (C (e c) * (1+X))^j := sorry
+
+lemma smoothedAdditiveTwist_denominator_ne_zero (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) : ∑ i ∈ Finset.range a, e c ^ i ≠ 0 := sorry
+
+lemma smoothedAdditiveTwist_amice_rational (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) :
+    (smoothedAdditiveTwist p n e c a ha).amiceTransform =
+      (∑ i ∈ Finset.range a, ∑ j ∈ Finset.range i, (C (e c) * (1+X))^j) *
+      (∑ i ∈ Finset.range a, (C (e c) * (1+X))^i)⁻¹ := sorry
+
+lemma twistedSmoothedMeasure_gauss_rational (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0)
+    (a : ℕ) (ha : ¬p∣a) :
+    (twistedSmoothedMeasure p n χ a ha).amiceTransform =
+      (gaussSum χ⁻¹ e)⁻¹ • ∑ c : ZMod (p^n), χ⁻¹ c •
+        ((∑ i ∈ Finset.range a, ∑ j ∈ Finset.range i, (C (e c) * (1+X))^j) *
+          (∑ i ∈ Finset.range a, (C (e c) * (1+X))^i)⁻¹) := sorry
+
+namespace SuggestedAdditiveRationalTests
+-- geometric_denominator_zero
+example : smoothingDenominator ℤ 0 = 0 := sorry
+-- geometric_denominator_three
+example : smoothingDenominator ℤ 3 = 1+(1+X)+(1+X)^2 := sorry
+-- geometric_cancellation_one
+example : (∑ i ∈ Finset.range 1, (1+X : ℚ⟦X⟧)^i) *
+    smoothedSeries ℚ 1 (by norm_num) = 0 := sorry
+-- geometric_cancellation_three
+example : (1+(1+X)+(1+X)^2 : ℚ⟦X⟧) * smoothedSeries ℚ 3 (by norm_num) = 2+(1+X) := sorry
+-- translation_two
+example [IsBoundedSMul ℤ_[3] ℚ_[3]] :
+    extendIntegralCoefficients (R := ℚ_[3]) (smoothedMeasure 3 2 (by norm_num)) +
+      AbstractMeasure.map (ContinuousMap.mk (fun x : ℤ_[3] => x+1) (by fun_prop))
+        (extendIntegralCoefficients (R := ℚ_[3]) (smoothedMeasure 3 2 (by norm_num))) =
+      dirac ℚ_[3] (0 : ℤ_[3]) := sorry
+-- translation_three
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] :
+    (∑ i ∈ Finset.range 3, AbstractMeasure.map
+      (ContinuousMap.mk (fun x : ℤ_[2] => x+(i : ℤ_[2])) (by fun_prop))
+      (extendIntegralCoefficients (R := ℚ_[2]) (smoothedMeasure 2 3 (by norm_num)))) =
+    2 • dirac ℚ_[2] (0 : ℤ_[2]) + dirac ℚ_[2] (1 : ℤ_[2]) := sorry
+-- weighted_translation_zero_index
+example (n : ℕ) (e : AddChar (ZMod (p^n)) K) (a : ℕ) (ha : ¬p∣a) :
+    (∑ i ∈ Finset.range a, AbstractMeasure.map
+      (ContinuousMap.mk (fun x : ℤ_[p] => x+(i : ℤ_[p])) (by fun_prop))
+      (smoothedAdditiveTwist p n e 0 a ha)) =
+    ∑ i ∈ Finset.range a, ∑ j ∈ Finset.range i, dirac K (j : ℤ_[p]) := sorry
+-- weighted_translation_dyadic_sign
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (e : AddChar (ZMod 2) ℚ_[2]) (he : e 1 = -1) :
+    (∑ i ∈ Finset.range 3, (-1 : ℚ_[2])^i • AbstractMeasure.map
+      (ContinuousMap.mk (fun x : ℤ_[2] => x+(i : ℤ_[2])) (by fun_prop))
+      (smoothedAdditiveTwist 2 1 e 1 3 (by norm_num))) =
+    2 • dirac ℚ_[2] (0 : ℤ_[2]) - dirac ℚ_[2] (1 : ℤ_[2]) := sorry
+-- additive_cancellation_dyadic_sign
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (e : AddChar (ZMod 2) ℚ_[2]) (he : e 1 = -1) :
+    (1+X+X^2) * (smoothedAdditiveTwist 2 1 e 1 3 (by norm_num)).amiceTransform = 1-X := sorry
+-- additive_cancellation_one
+example (n : ℕ) (e : AddChar (ZMod (p^n)) K) (c : ZMod (p^n)) (h1 : ¬p∣1) :
+    (smoothedAdditiveTwist p n e c 1 h1).amiceTransform = 0 := sorry
+-- denominator_zero_index
+example (n : ℕ) (e : AddChar (ZMod (p^n)) K) (a : ℕ) :
+    (∑ i ∈ Finset.range a, e 0 ^ i) = (a : K) := sorry
+-- denominator_dyadic_sign
+example : (∑ i ∈ Finset.range 3, (-1 : ℚ_[2])^i) = 1 := sorry
+-- denominator_bad_smoothing
+example : (∑ i ∈ Finset.range 2, (-1 : ℚ_[2])^i) = 0 := sorry
+-- rational_dyadic_constant
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (e : AddChar (ZMod 2) ℚ_[2]) (he : e 1 = -1) :
+    (smoothedAdditiveTwist 2 1 e 1 3 (by norm_num)).amiceTransform.coeff 0 = 1 := sorry
+-- rational_dyadic_linear
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (e : AddChar (ZMod 2) ℚ_[2]) (he : e 1 = -1) :
+    (smoothedAdditiveTwist 2 1 e 1 3 (by norm_num)).amiceTransform.coeff 1 = -2 := sorry
+-- rational_dyadic_second
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (e : AddChar (ZMod 2) ℚ_[2]) (he : e 1 = -1) :
+    (smoothedAdditiveTwist 2 1 e 1 3 (by norm_num)).amiceTransform.coeff 2 = 1 := sorry
+-- gauss_rational_total_mass
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0) (a : ℕ) (ha : ¬p∣a) :
+    twistedSmoothedMeasure p n χ a ha 1 = (gaussSum χ⁻¹ e)⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c *
+        ((∑ i ∈ Finset.range a, ∑ j ∈ Finset.range i, e c ^ j) /
+          (∑ i ∈ Finset.range a, e c ^ i)) := sorry
+-- gauss_rational_one_smoothing
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0) (h1 : ¬p∣1) :
+    (twistedSmoothedMeasure p n χ 1 h1).amiceTransform = 0 := sorry
+end SuggestedAdditiveRationalTests
+end DirichletPadic
