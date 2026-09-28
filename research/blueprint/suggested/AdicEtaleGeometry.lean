@@ -3740,14 +3740,16 @@ def IsNaturallyComplete (B : Type*) (N : Type*) [CommRing B] [TopologicalSpace B
 variable {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A]
   [IsTateRing A] [CompleteSpace A] [T2Space A]
 
-/-- A3/natural-topology-strict-exactness (d): over a complete Tate ring, a finitely generated
-submodule of a module complete for its natural topology is closed and complete (Kedlaya–Liu II,
-Corollary 1.2.11). Clause (a) is Mathlib's `IsModuleTopology` (every linear map out of `M` is
+/-- A3/natural-topology-strict-exactness (d): over a complete Tate ring, a submodule of a module
+complete for its natural topology whose closure is finitely generated is closed and complete
+(Kedlaya–Liu II, Corollary 1.2.11); finite generation of the submodule itself does not suffice.
+Clause (a) is Mathlib's `IsModuleTopology` (every linear map out of `M` is
 continuous, `IsModuleTopology.continuous_of_linearMap`); clause (b) is the open mapping theorem
 of Tau Ceti's `TauCeti.Topology.Algebra.OpenMapping` modules; clause (f) is
 AdicSpacesPartII:R0/strict-complex-completion-exact. -/
 theorem finite_submodule_isClosed {M : Type*} [AddCommGroup M] [Module A M] [TopologicalSpace M]
-    [IsModuleTopology A M] (hM : IsNaturallyComplete A M) (N : Submodule A M) (hN : N.FG) :
+    [IsModuleTopology A M] (hM : IsNaturallyComplete A M) (N : Submodule A M)
+    (hN : ∃ N' : Submodule A M, N'.FG ∧ (N' : Set M) = closure (N : Set M)) :
     IsClosed (N : Set M) ∧ IsNaturallyComplete A N := sorry
 
 /-- A3/natural-topology-strict-exactness (c): a finitely generated module Hausdorff for its
@@ -4866,7 +4868,8 @@ theorem StandardEtalePresentation.isStablyPseudoCoherent_ker_sousperfectoid (p :
 
 -- PerfectoidSpace.exists_local_equations: not stated here; needs Zariski closed immersions of
 --   affinoid étale perfectoid spaces into `B^N_X` (supplier: PerfectoidSpaces:P3, AdicSpaces
---   Layer 5). The tube it produces is `Huber.tubeSet` with `k = 0`.
+--   Layer 5). The tube it produces is `Huber.tubeSet` of the rescaled equations `ϖ ^ a • e`
+--   (in `A⁺⟨T⟩`) with `k = a * N`.
 
 /-! ## AdicEtaleGeometry:A3/global-standard-etale-presentation (theorem) -/
 
