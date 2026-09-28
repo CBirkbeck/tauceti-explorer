@@ -21910,9 +21910,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-SpecialValuesBirchTate.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #998"
+   "note": "released on GitHub issue #998"
   },
   {
    "id": "REV-SpecialValuesBirchTate",
@@ -44701,9 +44701,10 @@
     "SRC-SemisimpleAlgebras"
    ],
    "avoidAccountOf": "SRC-SemisimpleAlgebras",
-   "state": "pending",
+   "state": "external",
    "timeout": 14400,
-   "prompt": "research/blueprint/prompts/REV-SRC-SemisimpleAlgebras.md"
+   "prompt": "research/blueprint/prompts/REV-SRC-SemisimpleAlgebras.md",
+   "note": "claimed on GitHub issue #3781"
   },
   {
    "id": "SRC-ShimuraCompactifications",
