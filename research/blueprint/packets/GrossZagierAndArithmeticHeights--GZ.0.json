@@ -1,0 +1,1282 @@
+{
+  "roadmapId": "GrossZagierAndArithmeticHeights",
+  "protocol": "blueprint-v1",
+  "part": "GZ.0",
+  "scope": [
+    "GrossZagierAndArithmeticHeights:GZ.0",
+    "GrossZagierAndArithmeticHeights:GZ.1",
+    "GrossZagierAndArithmeticHeights:GZ.2",
+    "GrossZagierAndArithmeticHeights:GZ.3",
+    "GrossZagierAndArithmeticHeights:GZ.4",
+    "GrossZagierAndArithmeticHeights:GZ.5",
+    "GrossZagierAndArithmeticHeights:GZ.6",
+    "GrossZagierAndArithmeticHeights:GZ.7"
+  ],
+  "status": "partial",
+  "summary": "First checkpoint (GZ.0): the normalisation table for heights, regulators, periods, centres and CM constants, pinned to the Tau Ceti library as it is at f790474. Tau Ceti's canonicalHeight is the (O)-normalised height (½·lim h(x(2ⁿP))/4ⁿ), and its regulator uses the halved pairing, so the BSD regulator (the LMFDB/Müller–Stoll convention) is 2^r times Tau Ceti's regulator (37.a1: 0.0511 against 0.0256). The x-height ĥ_x, the BSD pairing and the BSD regulator are defined, a request goes to EllipticCurves Layer 7, and the discrepancy with Layer 6's pinned normalisation is recorded. Also: Gram-determinant rescaling, the canonical height on E(K) ⊗ ℚ with the trace/average factor, the centres s = 1 and 1/2 and Λ′(E,1), the unit index u = #μ(K)/2, the Artin-map convention, and the full real period with c∞. New source issue GrossZagierAndArithmeticHeights/E1 (Conrad's u_x). GZ.1–GZ.7 are not read.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:Complex.Gamma_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "Γ(1) = 1.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℂ",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "Γ_ℂ(s) = 2(2π)^{−s}Γ(s).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Complex.Gammaℂ_def",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
+        "provides": "The defining formula of Γ_ℂ.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto",
+        "kind": "def",
+        "module": "Mathlib/Order/Filter/Defs.lean",
+        "provides": "Limits.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:HasDerivAt.mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Mul.lean",
+        "provides": "The product rule for HasDerivAt.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsGalois",
+        "kind": "class",
+        "module": "Mathlib/FieldTheory/Galois/Basic.lean",
+        "provides": "Galois extensions H/K.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:LinearMap.BilinMap",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
+        "provides": "Bilinear maps, the type of the height pairings.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Matrix.det",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "Determinants, for Gram determinants.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Matrix.det_smul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
+        "provides": "det (c • A) = c^n det A.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Matrix.of",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/Defs.lean",
+        "provides": "Matrices from functions, for Gram matrices.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.lintegral",
+        "kind": "irreducible_def",
+        "module": "Mathlib/MeasureTheory/Integral/Lebesgue/Basic.lean",
+        "provides": "The period integral, as EllipticCurves Layer 7 states it.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Module.finrank",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+        "provides": "The rank r.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.torsionOrder",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/Units/Basic.lean",
+        "provides": "#μ(K), the order of the torsion units.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuadraticMap",
+        "kind": "structure",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "Quadratic maps.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.associated",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "The halved polar form (associated bilinear form).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.map_smul",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "Q(c • x) = c²Q(x).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.polar",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "The polar form Q(x + y) − Q(x) − Q(y).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:QuadraticMap.polarBilin",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/QuadraticForm/Basic.lean",
+        "provides": "The polar form as a bilinear map.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.sqrt",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Real/Sqrt.lean",
+        "provides": "Square roots in the period integral.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:TensorProduct",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "E(K) ⊗ ℚ.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.b₂",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "The b-invariants in D_W(x) = 4x³ + b₂x² + 2b₄x + b₆.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Δ",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "The discriminant, whose sign gives c∞.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:deriv_mul",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/Deriv/Mul.lean",
+        "provides": "The product rule.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+        "provides": "Tau Ceti's canonical height, ½ lim h(x(2ⁿP))/4ⁿ (the (O)-normalised height).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_nsmul",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+        "provides": "ĥ(nP) = n²ĥ(P).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.Point.naiveHeight",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/NaiveHeight.lean",
+        "provides": "The naïve height of the x-coordinate, a Mathlib logHeight for the supplied AdmissibleAbsValues.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+        "provides": "The defining limit of the canonical height exists.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.PointModTorsion",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
+        "provides": "E(K) modulo torsion.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.canonicalHeightQuadratic",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+        "provides": "The canonical height as a ℤ-quadratic map.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.neronTateGramMatrix",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
+        "provides": "The Gram matrix of neronTatePairing on a basis.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.neronTatePairing",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+        "provides": "Tau Ceti's pairing, QuadraticMap.associated' of ĥ (the halved polar form).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.neronTatePairing_apply",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+        "provides": "neronTatePairing W P Q = (ĥ(P+Q) − ĥ(P) − ĥ(Q))/2.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.neronTatePairing_self",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
+        "provides": "neronTatePairing W P P = ĥ(P).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.regulator",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+        "provides": "Tau Ceti's regulator, |det| of the Gram matrix of neronTatePairing.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.regulator_eq_abs_det_neronTateGramMatrix",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+        "provides": "Any basis computes the regulator.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+        "provides": "The regulator is 1 in rank 0.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "muller-stoll-2016",
+      "title": "Computing canonical heights on elliptic curves in quasi-linear time",
+      "authors": "J. Steffen Müller and Michael Stoll",
+      "edition": "arXiv:1509.08748v2 (22 Dec 2015); published in LMS J. Comput. Math. 19 (2016); accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/1509.08748v2",
+      "sha256": "10576e85c77e8e7c590671840586bc4680e638d03daf7802e230a4897ac3384c",
+      "readSections": [
+        "§1 Introduction and §3 Heights, through Remark 3.1 (pp. 1–4)."
+      ]
+    },
+    {
+      "id": "lmfdb-2026",
+      "title": "The L-functions and modular forms database",
+      "authors": "The LMFDB Collaboration",
+      "edition": "Web pages read 2026-09-28: elliptic curve 37.a1, and the knowls ec.canonical_height and ec.q.real_period",
+      "url": "https://www.lmfdb.org/EllipticCurve/Q/37/a/1",
+      "readSections": [
+        "Curve 37.a1: regulator, real period, L′(E,1), Tamagawa product, torsion, analytic Ш, height of (0,0) and the BSD check; knowl ec.canonical_height; knowl ec.q.real_period."
+      ]
+    },
+    {
+      "id": "cai-shu-tian-2014",
+      "title": "Explicit Gross–Zagier and Waldspurger formulae",
+      "authors": "Li Cai, Jie Shu and Ye Tian",
+      "edition": "arXiv:1408.1733v2 (Nov 2014); published in Algebra & Number Theory 8 (2014) 2523–2572; accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/1408.1733v2",
+      "sha256": "8d908543404abfbd9c1708ad9af696c4fb71595701bd67cb5bff11b3a8d6ac43",
+      "readSections": [
+        "§1: Theorem 1.1 and the BSD comparison after it (pp. 1–2), and §1.2 on L(s, π_A) and L_v(s, A, M) (pp. 4–5)."
+      ]
+    },
+    {
+      "id": "conrad-2004",
+      "title": "Gross–Zagier revisited",
+      "authors": "Brian Conrad (with an appendix by W. R. Mann)",
+      "edition": "Heegner Points and Rankin L-Series, MSRI Publications 49 (2004) 67–163; SLMath library PDF; printed page = PDF page + 65; accessed 2026-09-28",
+      "url": "https://library.slmath.org/books/Book49/files/05conrad.pdf",
+      "sha256": "31396cc7f513d6237155b6afa923c6ef76d2f37101db598d58bea25f0aa677ca",
+      "readSections": [
+        "§1 Introduction and 'Some conventions' (pp. 67–70); §9 (p. 119), the paragraph on Aut_F(x)."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/gram-determinant-rescaling",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "Rescaling a pairing rescales its Gram determinant by c^r",
+      "kind": "theorem",
+      "statement": "Let R be a commutative ring, M an R-module, B : M →ₗ M →ₗ R a bilinear map and v : Fin r → M. For c ∈ R the Gram matrix of c • B on v is c • (Gram matrix of B on v), so det Gram(c • B, v) = c^r · det Gram(B, v). For a real-valued pairing on a free ℤ-module of rank r, the regulator |det Gram| rescales by |c|^r.",
+      "hypotheses": [
+        "R commutative; r the length of the family."
+      ],
+      "proofSteps": [
+        "Gram(c • B, v)_{ij} = c·B(v_i, v_j), so the Gram matrix is c • Gram(B, v).",
+        "Matrix.det_smul: det(c • A) = c^r det A for an r × r matrix.",
+        "Taking absolute values gives the regulator statement."
+      ],
+      "acceptance": [
+        "c = 2, r = 1: a rank-one regulator doubles, which is the factor between Tau Ceti's regulator and the BSD regulator (GZ.0/bsd-regulator).",
+        "c = [K:ℚ]: passing from absolute heights to heights over K multiplies a rank-r regulator by [K:ℚ]^r."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.det_smul",
+        "mathlib:Matrix.det",
+        "mathlib:Matrix.of",
+        "mathlib:LinearMap.BilinMap"
+      ],
+      "sources": [
+        {
+          "sourceId": "muller-stoll-2016",
+          "locator": "Remark 3.1, p. 4 (arXiv v2)",
+          "excerpt": "our canonical height is twice the canonical height in Silverman’s paper [Sil88] and in his books on elliptic curves",
+          "match": "The x-height normalisation is twice Silverman's; Tau Ceti's canonicalHeight is Silverman's."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/HeightConventions",
+        "namespace": "TauCeti.GrossZagier",
+        "name": "TauCeti.GrossZagier.det_gram_smul"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Gram determinant rescaling"
+      }
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "The x-height canonical height ĥ_x",
+      "kind": "definition",
+      "statement": "For an elliptic curve given by a Weierstrass equation W over a field K with admissible absolute values, the x-height canonical height is ĥ_x(P) = lim_{n→∞} h(x(2ⁿP))/4ⁿ, where h is Tau Ceti's naïve height of the x-coordinate (Point.naiveHeight). It equals 2 · Point.canonicalHeight P, where Tau Ceti's canonicalHeight carries the factor 1/2 and is the height attached to the divisor (O) (Silverman's normalisation). ĥ_x is the height attached to 2(O), and it is the normalisation of Cremona–Prickett–Siksek, Müller–Stoll and the LMFDB, in which the BSD regulator is computed.",
+      "hypotheses": [
+        "W elliptic ([W.toAffine.IsElliptic]); K with Height.AdmissibleAbsValues."
+      ],
+      "proofSteps": [
+        "Tau Ceti's Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow: h(2ⁿP)/(2·4ⁿ) tends to canonicalHeight P, so h(2ⁿP)/4ⁿ tends to 2·canonicalHeight P. Hence ĥ_x is a limit, not a junk limUnder value.",
+        "Consequences: ĥ_x(nP) = n²ĥ_x(P) (Point.canonicalHeight_nsmul), ĥ_x ≥ 0, and ĥ_x(P) = 0 iff P is torsion."
+      ],
+      "acceptance": [
+        "For 37.a1 (y² + y = x³ − x) and P = (0, 0): ĥ_x(P) = 0.0511114082… (LMFDB), so canonicalHeight P = 0.0255557041…."
+      ],
+      "prerequisites": [
+        "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
+        "tauceti:WeierstrassCurve.Affine.Point.naiveHeight",
+        "tauceti:WeierstrassCurve.Affine.Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow",
+        "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_nsmul",
+        "mathlib:Filter.Tendsto"
+      ],
+      "sources": [
+        {
+          "sourceId": "muller-stoll-2016",
+          "locator": "§3, p. 3 (arXiv v2)",
+          "excerpt": "exists and is called the canonical height (or Néron-Tate height) of P",
+          "match": "ĥ(P) = lim h(nP)/n² with h the x-coordinate height: the x-height normalisation."
+        },
+        {
+          "sourceId": "muller-stoll-2016",
+          "locator": "Remark 3.1, p. 4 (arXiv v2)",
+          "excerpt": "our canonical height is twice the canonical height in Silverman’s paper [Sil88] and in his books on elliptic curves",
+          "match": "The x-height normalisation is twice Silverman's; Tau Ceti's canonicalHeight is Silverman's."
+        },
+        {
+          "sourceId": "lmfdb-2026",
+          "locator": "Knowl ec.canonical_height (accessed 2026-09-28)",
+          "excerpt": "A normalised height which is invariant under base-change is given by",
+          "match": "LMFDB's ĥ is the x-height limit over K, and dividing by [K:ℚ] makes it absolute."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/HeightConventions",
+        "namespace": "WeierstrassCurve.Affine",
+        "name": "WeierstrassCurve.Affine.Point.xCanonicalHeight"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "x-height canonical height"
+      },
+      "uses": [
+        {
+          "where": "GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing",
+          "how": "Its associated bilinear form is the BSD pairing."
+        },
+        {
+          "where": "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
+          "how": "The BSD regulator is its Gram determinant."
+        },
+        {
+          "where": "RankZeroOneBSD:BSD.3",
+          "how": "The rank-one BSD formula reads L′(E,1)/Ω = ĥ_x(P)·#Ш·∏c_p/#E(ℚ)²_tors."
+        },
+        {
+          "where": "GrossZagierAndArithmeticHeights:GZ.1",
+          "how": "The Poincaré-biextension height of GZ.1 is compared with it."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeierstrassCurve.Affine.Point.xCanonicalHeight",
+          "role": "constructor",
+          "statement": "Point.xCanonicalHeight P := 2 * P.canonicalHeight."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.Point.tendsto_naiveHeight_div_four_pow",
+          "role": "characterisation",
+          "statement": "Tendsto (fun n ↦ ((2^n) • P).naiveHeight / 4^n) atTop (𝓝 P.xCanonicalHeight)."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.Point.xCanonicalHeight_eq_two_mul",
+          "role": "compatibility",
+          "statement": "P.xCanonicalHeight = 2 * P.canonicalHeight (the comparison with Tau Ceti's normalisation)."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.Point.xCanonicalHeight_nsmul",
+          "role": "simp",
+          "statement": "(n • P).xCanonicalHeight = n^2 * P.xCanonicalHeight."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.Point.xCanonicalHeight_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "P.xCanonicalHeight = 0 ↔ IsOfFinAddOrder P, under Northcott finiteness as for canonicalHeight."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.Affine.Point.xCanonicalHeight_zero",
+          "kind": "degenerate",
+          "statement": "(0 : W.Point).xCanonicalHeight = 0."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.Point.xCanonicalHeight_ne_canonicalHeight",
+          "kind": "non-example",
+          "statement": "For a point of infinite order, xCanonicalHeight P ≠ canonicalHeight P: the two normalisations differ by the factor 2."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.Point.xCanonicalHeight_two_nsmul",
+          "kind": "value",
+          "statement": "((2 : ℕ) • P).xCanonicalHeight = 4 * P.xCanonicalHeight."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.Point.xCanonicalHeight_eq_neronTatePairing",
+          "kind": "comparison",
+          "statement": "P.xCanonicalHeight = 2 * neronTatePairing W P P: Tau Ceti's pairing on the diagonal is half of ĥ_x."
+        }
+      ]
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "The BSD height pairing",
+      "kind": "definition",
+      "statement": "The BSD height pairing is ⟨P, Q⟩_BSD = ĥ(P + Q) − ĥ(P) − ĥ(Q) with ĥ = Tau Ceti's canonicalHeight, the polar form of the (O)-normalised height. Equivalently it is the halved polar form of ĥ_x, and ⟨P, Q⟩_BSD = 2 · neronTatePairing W P Q, where Tau Ceti's neronTatePairing is QuadraticMap.associated', the halved polar form of ĥ. On the diagonal ⟨P, P⟩_BSD = ĥ_x(P) = 2ĥ(P). This is the pairing whose Gram determinant is the regulator in the Birch–Swinnerton-Dyer formula.",
+      "hypotheses": [
+        "W elliptic."
+      ],
+      "proofSteps": [
+        "⟨,⟩_BSD = QuadraticMap.polar of canonicalHeightQuadratic, which is bilinear because ĥ satisfies the parallelogram law exactly.",
+        "neronTatePairing_apply gives neronTatePairing W P Q = (ĥ(P + Q) − ĥ(P) − ĥ(Q))/2, so ⟨,⟩_BSD = 2 • neronTatePairing W.",
+        "On the diagonal: polar(ĥ)(P, P) = ĥ(2P) − 2ĥ(P) = 2ĥ(P) = ĥ_x(P)."
+      ],
+      "acceptance": [
+        "For 37.a1: ⟨(0,0), (0,0)⟩_BSD = 0.0511114082…, the LMFDB regulator, while neronTatePairing W (0,0) (0,0) = 0.0255557041…."
+      ],
+      "prerequisites": [
+        "GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height",
+        "tauceti:WeierstrassCurve.Affine.canonicalHeightQuadratic",
+        "tauceti:WeierstrassCurve.Affine.neronTatePairing",
+        "tauceti:WeierstrassCurve.Affine.neronTatePairing_apply",
+        "tauceti:WeierstrassCurve.Affine.neronTatePairing_self",
+        "mathlib:QuadraticMap.polar",
+        "mathlib:QuadraticMap.polarBilin",
+        "mathlib:QuadraticMap.associated"
+      ],
+      "sources": [
+        {
+          "sourceId": "muller-stoll-2016",
+          "locator": "§1, p. 1 (arXiv v2)",
+          "excerpt": "computing the regulator appearing in the conjecture of Birch and Swinnerton-Dyer, one needs to compute ĥ(P)",
+          "match": "The x-height normalisation is the one used for the BSD regulator."
+        },
+        {
+          "sourceId": "lmfdb-2026",
+          "locator": "Elliptic curve 37.a1, BSD invariants (accessed 2026-09-28)",
+          "excerpt": "Regulator: 0.051111408239968840235886099757",
+          "match": "The BSD regulator of 37.a1, equal to the x-height ĥ of the generator (0, 0)."
+        },
+        {
+          "sourceId": "muller-stoll-2016",
+          "locator": "Remark 3.1, p. 4 (arXiv v2)",
+          "excerpt": "our canonical height is twice the canonical height in Silverman’s paper [Sil88] and in his books on elliptic curves",
+          "match": "The x-height normalisation is twice Silverman's; Tau Ceti's canonicalHeight is Silverman's."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/HeightConventions",
+        "namespace": "WeierstrassCurve.Affine",
+        "name": "WeierstrassCurve.Affine.bsdHeightPairing"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "BSD height pairing"
+      },
+      "uses": [
+        {
+          "where": "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
+          "how": "Its Gram determinant is the BSD regulator."
+        },
+        {
+          "where": "GrossZagierAndArithmeticHeights:GZ.1",
+          "how": "The pairing induced by the Poincaré biextension and the principal polarisation is compared with it."
+        },
+        {
+          "where": "RankZeroOneBSD:BSD.3",
+          "how": "The BSD consumers state their regulators against it."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing",
+          "role": "constructor",
+          "statement": "bsdHeightPairing W : LinearMap.BilinMap ℤ W.Point ℝ := QuadraticMap.polarBilin (canonicalHeightQuadratic W)."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing_apply",
+          "role": "characterisation",
+          "statement": "bsdHeightPairing W P Q = (P + Q).canonicalHeight − P.canonicalHeight − Q.canonicalHeight."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing_eq_two_smul",
+          "role": "compatibility",
+          "statement": "bsdHeightPairing W = 2 • neronTatePairing W."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing_self",
+          "role": "simp",
+          "statement": "bsdHeightPairing W P P = P.xCanonicalHeight."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing_comm",
+          "role": "relation",
+          "statement": "bsdHeightPairing W P Q = bsdHeightPairing W Q P."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing_eq_zero_of_isOfFinAddOrder_left",
+          "role": "other",
+          "statement": "The pairing kills torsion."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing_self_zero",
+          "kind": "degenerate",
+          "statement": "bsdHeightPairing W 0 0 = 0."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing_ne_neronTatePairing",
+          "kind": "non-example",
+          "statement": "For P of infinite order, bsdHeightPairing W P P ≠ neronTatePairing W P P."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing_two_nsmul",
+          "kind": "value",
+          "statement": "bsdHeightPairing W (2 • P) P = 2 * P.xCanonicalHeight."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdHeightPairing_self_eq_two_mul",
+          "kind": "comparison",
+          "statement": "bsdHeightPairing W P P = 2 * P.canonicalHeight."
+        }
+      ]
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "The BSD regulator, and Tau Ceti's regulator",
+      "kind": "definition",
+      "statement": "For W elliptic with E(K)/tors finitely generated of rank r, the BSD regulator is Reg_BSD = |det Gram(⟨,⟩_BSD)| on any ℤ-basis of E(K)/tors, and it equals 2^r · regulator W, where Tau Ceti's regulator is the Gram determinant of the halved pairing neronTatePairing. The Birch–Swinnerton-Dyer quotient is stated with Reg_BSD. Tau Ceti's regulator agrees with it only in rank 0.",
+      "hypotheses": [
+        "W elliptic; [Module.Finite ℤ (PointModTorsion W)]; r = finrank ℤ (PointModTorsion W)."
+      ],
+      "proofSteps": [
+        "⟨,⟩_BSD = 2 • neronTatePairing (GZ.0/bsd-height-pairing), so on any basis Gram(⟨,⟩_BSD) = 2 • neronTateGramMatrix.",
+        "GZ.0/gram-determinant-rescaling gives |det| = 2^r |det neronTateGramMatrix| = 2^r regulator W (regulator_eq_abs_det_neronTateGramMatrix); basis independence is inherited."
+      ],
+      "acceptance": [
+        "37.a1 (rank 1): Reg_BSD = 0.0511114082… and Ω = 5.9869172924…, so Ω·Reg_BSD = 0.3059997738… = L′(E, 1), with Ш, c_p and torsion all 1 (LMFDB). Tau Ceti's regulator is 0.0255557041… there, and Ω·regulator = L′(E,1)/2.",
+        "Rank 0: Reg_BSD = regulator = 1 (regulator_eq_one_of_finrank_eq_zero)."
+      ],
+      "prerequisites": [
+        "GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing",
+        "GrossZagierAndArithmeticHeights:GZ.0/gram-determinant-rescaling",
+        "tauceti:WeierstrassCurve.Affine.regulator",
+        "tauceti:WeierstrassCurve.Affine.regulator_eq_abs_det_neronTateGramMatrix",
+        "tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero",
+        "tauceti:WeierstrassCurve.Affine.neronTateGramMatrix",
+        "tauceti:WeierstrassCurve.Affine.PointModTorsion",
+        "mathlib:Module.finrank"
+      ],
+      "sources": [
+        {
+          "sourceId": "lmfdb-2026",
+          "locator": "Elliptic curve 37.a1, BSD invariants (accessed 2026-09-28)",
+          "excerpt": "Regulator: 0.051111408239968840235886099757",
+          "match": "The BSD regulator of 37.a1, equal to the x-height ĥ of the generator (0, 0)."
+        },
+        {
+          "sourceId": "muller-stoll-2016",
+          "locator": "§1, p. 1 (arXiv v2)",
+          "excerpt": "computing the regulator appearing in the conjecture of Birch and Swinnerton-Dyer, one needs to compute ĥ(P)",
+          "match": "The x-height normalisation is the one used for the BSD regulator."
+        },
+        {
+          "sourceId": "muller-stoll-2016",
+          "locator": "Remark 3.1, p. 4 (arXiv v2)",
+          "excerpt": "our canonical height is twice the canonical height in Silverman’s paper [Sil88] and in his books on elliptic curves",
+          "match": "The x-height normalisation is twice Silverman's; Tau Ceti's canonicalHeight is Silverman's."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/HeightConventions",
+        "namespace": "WeierstrassCurve.Affine",
+        "name": "WeierstrassCurve.Affine.bsdRegulator"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "BSD regulator"
+      },
+      "uses": [
+        {
+          "where": "RankZeroOneBSD:BSD.3",
+          "how": "The BSD quotient for rank one uses Reg_BSD."
+        },
+        {
+          "where": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+          "how": "The arithmetic BSD quotient of Layer 7 must use Reg_BSD, not regulator (request below)."
+        },
+        {
+          "where": "GrossZagierAndArithmeticHeights:GZ.8",
+          "how": "Explicit Gross–Zagier specialisations compare ĥ with L′ through this regulator."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeierstrassCurve.Affine.bsdRegulator",
+          "role": "constructor",
+          "statement": "bsdRegulator W := |det (2 • neronTateGramMatrix W (Module.finBasis ℤ (PointModTorsion W)))|, the Gram determinant of the BSD pairing descended to E(K)/tors."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdRegulator_eq_two_pow_mul_regulator",
+          "role": "compatibility",
+          "statement": "bsdRegulator W = 2 ^ finrank ℤ (PointModTorsion W) * regulator W."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdRegulator_eq_abs_det",
+          "role": "characterisation",
+          "statement": "Any ℤ-basis of PointModTorsion W computes bsdRegulator W."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdRegulator_of_finrank_eq_zero",
+          "role": "simp",
+          "statement": "bsdRegulator W = 1 in rank 0."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdRegulator_of_finrank_eq_one",
+          "role": "characterisation",
+          "statement": "In rank 1 with generator P of E(K)/tors, bsdRegulator W = P.xCanonicalHeight."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.Affine.bsdRegulator_rank_zero",
+          "kind": "degenerate",
+          "statement": "In rank 0, bsdRegulator W = regulator W = 1."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdRegulator_rank_one",
+          "kind": "value",
+          "statement": "In rank 1, bsdRegulator W = 2 * regulator W."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdRegulator_ne_regulator",
+          "kind": "non-example",
+          "statement": "In positive rank, bsdRegulator W ≠ regulator W: the two differ by 2^r."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.bsdRegulator_eq_xCanonicalHeight",
+          "kind": "comparison",
+          "statement": "In rank 1, bsdRegulator W equals ĥ_x of a generator, the LMFDB value 0.0511114082… for 37.a1."
+        }
+      ]
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "The dictionary of height conventions",
+      "kind": "comparison",
+      "statement": "At the pinned Tau Ceti (f790474): canonicalHeight = ½·lim h_x(2ⁿP)/4ⁿ is the (O)-normalised height (Silverman's); neronTatePairing = QuadraticMap.associated' of it, with ⟨P, P⟩ = canonicalHeight P; regulator = |det| of that Gram matrix. In the normalisation of Cremona–Prickett–Siksek, Müller–Stoll and the LMFDB, ĥ = lim h(x(nP))/n² = 2·canonicalHeight, and the BSD regulator is the Gram determinant of the pairing with ⟨P, P⟩ = that ĥ, so Reg_BSD = 2^r·regulator. Two statements in the Tau Ceti corpus disagree with the implementation. (i) The EllipticCurves roadmap pins 'ĥ(P) = lim_n h(x(n • P))/n²' and says the regulator and BSD quotient are stated against it; the implemented ĥ is half of that. (ii) The CanonicalHeight module says the (O)-height is 'the one the Néron–Tate pairing, the regulator and the BSD formula are stated with'. The BSD formula needs Reg_BSD, which is 2^r times the regulator built from that height's halved pairing. Heights over K versus absolute heights differ by [K:ℚ]; Tau Ceti's naïve height is the Mathlib height of the supplied AdmissibleAbsValues instance, and no number-field instance exists at the pin, so that factor is not yet fixed.",
+      "hypotheses": [
+        "None."
+      ],
+      "proofSteps": [
+        "The Tau Ceti side is read off the definitions of canonicalHeight, neronTatePairing and regulator (GZ.0/x-height-canonical-height, GZ.0/bsd-height-pairing, GZ.0/bsd-regulator).",
+        "The other side is Müller–Stoll's §3 and Remark 3.1 together with the LMFDB values for 37.a1, where Ω·ĥ_x((0,0)) = L′(E,1) to 30 digits."
+      ],
+      "acceptance": [
+        "No consumer infers a factor of 2 from the name 'Néron–Tate': every formula states which of canonicalHeight, xCanonicalHeight, neronTatePairing or bsdHeightPairing it uses.",
+        "A BSD consumer that uses Tau Ceti's regulator W directly is off by 2^r; in rank 1 this is a factor of 2 in the 2-part of Ш."
+      ],
+      "prerequisites": [
+        "GrossZagierAndArithmeticHeights:GZ.0/x-height-canonical-height",
+        "GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing",
+        "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
+        "tauceti:WeierstrassCurve.Affine.Point.naiveHeight"
+      ],
+      "sources": [
+        {
+          "sourceId": "muller-stoll-2016",
+          "locator": "Remark 3.1, p. 4 (arXiv v2)",
+          "excerpt": "our canonical height is twice the canonical height in Silverman’s paper [Sil88] and in his books on elliptic curves",
+          "match": "The x-height normalisation is twice Silverman's; Tau Ceti's canonicalHeight is Silverman's."
+        },
+        {
+          "sourceId": "muller-stoll-2016",
+          "locator": "§3, p. 3 (arXiv v2)",
+          "excerpt": "exists and is called the canonical height (or Néron-Tate height) of P",
+          "match": "ĥ(P) = lim h(nP)/n² with h the x-coordinate height: the x-height normalisation."
+        },
+        {
+          "sourceId": "lmfdb-2026",
+          "locator": "Elliptic curve 37.a1, BSD invariants (accessed 2026-09-28)",
+          "excerpt": "Regulator: 0.051111408239968840235886099757",
+          "match": "The BSD regulator of 37.a1, equal to the x-height ĥ of the generator (0, 0)."
+        },
+        {
+          "sourceId": "lmfdb-2026",
+          "locator": "Knowl ec.canonical_height (accessed 2026-09-28)",
+          "excerpt": "A normalised height which is invariant under base-change is given by",
+          "match": "LMFDB's ĥ is the x-height limit over K, and dividing by [K:ℚ] makes it absolute."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/HeightConventions",
+        "namespace": "TauCeti.GrossZagier",
+        "name": "TauCeti.GrossZagier.heightConventions"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/canonical-height-rational",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "The canonical height on E(K) ⊗ ℚ",
+      "kind": "construction",
+      "statement": "The canonical height extends uniquely to a quadratic form ĥ_ℚ on the ℚ-vector space E(K) ⊗_ℤ ℚ with ĥ_ℚ(P ⊗ q) = q²·ĥ(P); torsion goes to zero. The same holds for ĥ_x and the two pairings. Averages of points, such as a normalised average of a Galois orbit, live here.",
+      "hypotheses": [
+        "W elliptic."
+      ],
+      "proofSteps": [
+        "ĥ is a ℤ-quadratic map W.Point → ℝ (canonicalHeightQuadratic) and ℝ is a ℚ-vector space; a ℤ-quadratic map into a ℚ-vector space extends uniquely along M → M ⊗ ℚ, because M ⊗ ℚ is the localisation of M at the nonzero integers and ĥ(nP) = n²ĥ(P) forces the value on P ⊗ (1/n).",
+        "Torsion maps to zero in M ⊗ ℚ, consistently with ĥ vanishing on torsion."
+      ],
+      "acceptance": [
+        "ĥ_ℚ(P ⊗ (1/m)) = ĥ(P)/m²."
+      ],
+      "prerequisites": [
+        "tauceti:WeierstrassCurve.Affine.canonicalHeightQuadratic",
+        "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_nsmul",
+        "mathlib:QuadraticMap",
+        "mathlib:TensorProduct",
+        "mathlib:QuadraticMap.map_smul"
+      ],
+      "sources": [
+        {
+          "sourceId": "cai-shu-tian-2014",
+          "locator": "§1, after Theorem 1.1, p. 2 (arXiv v2)",
+          "excerpt": "write PK(f) := TrHK/K f(P) ∈ E(K)",
+          "match": "The Heegner point over K is a trace, not an average."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/HeightConventions",
+        "namespace": "WeierstrassCurve.Affine",
+        "name": "WeierstrassCurve.Affine.canonicalHeightRat"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Canonical height on E(K) ⊗ ℚ"
+      },
+      "uses": [
+        {
+          "where": "GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average",
+          "how": "Heights of averages of Galois orbits are computed in E(K) ⊗ ℚ."
+        },
+        {
+          "where": "GrossZagierAndArithmeticHeights:GZ.8",
+          "how": "Gross–Zagier formulas are identities of pairings on A(K)_ℚ ⊗ A∨(K)_ℚ."
+        },
+        {
+          "where": "HeegnerPointEulerSystems:HE.1",
+          "how": "Normalised Heegner points with denominators u are points of E(K) ⊗ ℚ."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeierstrassCurve.Affine.canonicalHeightRat",
+          "role": "constructor",
+          "statement": "canonicalHeightRat W : QuadraticMap ℚ (W.Point ⊗[ℤ] ℚ) ℝ."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.canonicalHeightRat_tmul",
+          "role": "simp",
+          "statement": "canonicalHeightRat W (P ⊗ₜ q) = q^2 * P.canonicalHeight."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.canonicalHeightRat_unique",
+          "role": "universal-property",
+          "statement": "It is the unique ℚ-quadratic map agreeing with canonicalHeight on P ⊗ₜ 1."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.canonicalHeightRat_nonneg",
+          "role": "other",
+          "statement": "canonicalHeightRat W x ≥ 0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "WeierstrassCurve.Affine.canonicalHeightRat_inv_nat",
+          "kind": "value",
+          "statement": "canonicalHeightRat W (P ⊗ₜ (1/m : ℚ)) = P.canonicalHeight / m^2."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.canonicalHeightRat_torsion",
+          "kind": "degenerate",
+          "statement": "For torsion P, canonicalHeightRat W (P ⊗ₜ 1) = 0."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.canonicalHeightRat_one",
+          "kind": "comparison",
+          "statement": "canonicalHeightRat W (P ⊗ₜ 1) = P.canonicalHeight."
+        },
+        {
+          "name": "WeierstrassCurve.Affine.canonicalHeightRat_not_linear",
+          "kind": "non-example",
+          "statement": "canonicalHeightRat W (P ⊗ₜ 2) ≠ 2 * P.canonicalHeight for P of infinite order: the extension is quadratic, not linear."
+        }
+      ]
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "Trace versus normalised average of a Galois orbit",
+      "kind": "lemma",
+      "statement": "Let H/K be a finite Galois extension of degree h and P ∈ E(H). The trace Tr(P) = Σ_{σ ∈ Gal(H/K)} σP lies in E(K), and the normalised average Av(P) = (1/h)·Tr(P) lies in E(K) ⊗ ℚ. Then ĥ_ℚ(Av(P)) = ĥ(Tr P)/h², and the same factor relates any pairing of averages to the pairing of traces. A formula written with averages and one written with traces differ by h² in every height.",
+      "hypotheses": [
+        "H/K Galois of degree h; the heights over H and over K are compared by the same normalisation."
+      ],
+      "proofSteps": [
+        "Av(P) = Tr(P) ⊗ (1/h), and GZ.0/canonical-height-rational gives the factor (1/h)²."
+      ],
+      "acceptance": [
+        "Cai–Shu–Tian take the trace P_K(f) = Tr_{H_K/K} f(P) ∈ E(K); an average-based statement of the same formula carries h_K² in its constant."
+      ],
+      "prerequisites": [
+        "GrossZagierAndArithmeticHeights:GZ.0/canonical-height-rational",
+        "mathlib:IsGalois"
+      ],
+      "sources": [
+        {
+          "sourceId": "cai-shu-tian-2014",
+          "locator": "§1, after Theorem 1.1, p. 2 (arXiv v2)",
+          "excerpt": "write PK(f) := TrHK/K f(P) ∈ E(K)",
+          "match": "The Heegner point over K is a trace, not an average."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/HeightConventions",
+        "namespace": "WeierstrassCurve.Affine",
+        "name": "WeierstrassCurve.Affine.canonicalHeightRat_average"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/unitary-and-motivic-centres",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "The motivic centre s = 1 and the unitary centre s = 1/2",
+      "kind": "lemma",
+      "statement": "Let L(E, s) be the motivic L-function of an elliptic curve over ℚ of conductor N (centre s = 1), L(s, π_E) := L(E, s + 1/2) its unitary normalisation (centre s = 1/2), and Λ(E, s) := N^{s/2}·Γ_ℂ(s)·L(E, s) the completed function with Mathlib's Γ_ℂ(s) = 2(2π)^{−s}Γ(s). If L(E, ·) is differentiable at 1 and L(E, 1) = 0, then (d/ds)L(s, π_E) at s = 1/2 equals L′(E, 1), and Λ′(E, 1) = N^{1/2}·π^{−1}·L′(E, 1). With the other common convention Λ = N^{s/2}(2π)^{−s}Γ(s)L, the factor is N^{1/2}(2π)^{−1}.",
+      "hypotheses": [
+        "L(E, ·) differentiable at 1 with L(E, 1) = 0 (the case of odd analytic rank)."
+      ],
+      "proofSteps": [
+        "The shift s ↦ s + 1/2 has derivative 1.",
+        "Product rule (deriv_mul) at a zero of L: (G·L)′(1) = G(1)·L′(1) + G′(1)·L(1) = G(1)·L′(1).",
+        "G(1) = N^{1/2}·Γ_ℂ(1) = N^{1/2}·2(2π)^{−1}Γ(1) = N^{1/2}/π (Complex.Gammaℂ_def, Complex.Gamma_one)."
+      ],
+      "acceptance": [
+        "The factor 2 between Γ_ℂ and (2π)^{−s}Γ(s) is a convention and must be written, not absorbed.",
+        "Cai–Shu–Tian write L_v(s, A, M) = L(s − 1/2, π_v) at finite places, and the complete L(s, π_A) includes the archimedean factors."
+      ],
+      "prerequisites": [
+        "mathlib:Complex.Gammaℂ",
+        "mathlib:Complex.Gammaℂ_def",
+        "mathlib:Complex.Gamma_one",
+        "mathlib:deriv_mul",
+        "mathlib:HasDerivAt.mul"
+      ],
+      "sources": [
+        {
+          "sourceId": "cai-shu-tian-2014",
+          "locator": "§1.2, p. 4 (arXiv v2)",
+          "excerpt": "then Lv(s, A, M) = L(s − 1/2, πv) for all finite places v of F",
+          "match": "The motivic L-function is the automorphic one shifted by 1/2: centre s = 1 against s = 1/2."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/LFunctionConventions",
+        "namespace": "TauCeti.GrossZagier",
+        "name": "TauCeti.GrossZagier.deriv_completed_at_one_of_eq_zero"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/heegner-unit-index",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "The unit index u",
+      "kind": "definition",
+      "statement": "For an imaginary quadratic field K, u(K) = [O_K^× : ℤ^×] = #μ(K)/2, the number that appears squared in the Gross–Zagier constant. In Mathlib terms, u(K) = NumberField.Units.torsionOrder K / 2. So u(K) = 1 except u(ℚ(√−1)) = 2 and u(ℚ(√−3)) = 3.",
+      "hypotheses": [
+        "K imaginary quadratic."
+      ],
+      "proofSteps": [
+        "O_K^× is finite for K imaginary quadratic, so it equals its torsion μ(K), and ℤ^× = {±1} has index #μ(K)/2."
+      ],
+      "acceptance": [
+        "Conrad's §1 defines u_x as #μ(K) itself, but his §9 uses u_x ∈ {1, 2, 3}; the Gross–Zagier constant needs #μ(K)/2 (GrossZagierAndArithmeticHeights/E1)."
+      ],
+      "prerequisites": [
+        "mathlib:NumberField.Units.torsionOrder"
+      ],
+      "sources": [
+        {
+          "sourceId": "cai-shu-tian-2014",
+          "locator": "§1, Theorem 1.1, p. 2 (arXiv v2)",
+          "excerpt": "u = [O×c : Z×] is half of the number of roots of unity in Oc",
+          "match": "u = #μ(K)/2 for c = 1; its square appears in the Gross–Zagier constant."
+        },
+        {
+          "sourceId": "conrad-2004",
+          "locator": "§1, 'Some conventions', p. 69; corrected in GrossZagierAndArithmeticHeights/E1",
+          "excerpt": "we will write ux to denote the cardinality of the group of roots of unity in K",
+          "match": "Read with the correction E1: u_x is half that cardinality, as on p. 119."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/CMConventions",
+        "namespace": "TauCeti.GrossZagier",
+        "name": "TauCeti.GrossZagier.unitIndex"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "GrossZagierAndArithmeticHeights:GZ.8",
+          "how": "The explicit Gross–Zagier constant has u² in the denominator."
+        },
+        {
+          "where": "HeegnerPointEulerSystems:HE.1",
+          "how": "Heegner points over K are normalised by 1/u."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GrossZagier.unitIndex",
+          "role": "constructor",
+          "statement": "unitIndex K := NumberField.Units.torsionOrder K / 2 for K imaginary quadratic."
+        },
+        {
+          "name": "TauCeti.GrossZagier.two_mul_unitIndex",
+          "role": "characterisation",
+          "statement": "2 * unitIndex K = torsionOrder K."
+        },
+        {
+          "name": "TauCeti.GrossZagier.unitIndex_eq_one_iff",
+          "role": "characterisation",
+          "statement": "unitIndex K = 1 ↔ K ≠ ℚ(√−1), ℚ(√−3)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GrossZagier.unitIndex_gaussian",
+          "kind": "value",
+          "statement": "unitIndex ℚ(√−1) = 2."
+        },
+        {
+          "name": "TauCeti.GrossZagier.unitIndex_eisenstein",
+          "kind": "value",
+          "statement": "unitIndex ℚ(√−3) = 3."
+        },
+        {
+          "name": "TauCeti.GrossZagier.unitIndex_sqrt_neg_seven",
+          "kind": "degenerate",
+          "statement": "unitIndex ℚ(√−7) = 1."
+        },
+        {
+          "name": "TauCeti.GrossZagier.unitIndex_ne_torsionOrder",
+          "kind": "non-example",
+          "statement": "unitIndex K ≠ torsionOrder K for every K: Conrad's p. 69 u_x is twice the Gross–Zagier u."
+        }
+      ]
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/artin-map-convention",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "The Artin-map convention and the Galois action on Heegner points",
+      "kind": "comparison",
+      "statement": "The Gross–Zagier and Conrad convention sends uniformisers to arithmetic Frobenius elements. The opposite (geometric) convention is its composite with inversion on Gal(H/K). Under the arithmetic convention [a] ∈ Cl_K acts on the Heegner point ([b], n) by ([b][a]⁻¹, n). Every formula indexed by class-group characters χ changes χ to χ⁻¹ when the convention changes; a Gross–Zagier formula pairs χ with χ⁻¹ and is therefore stated together with its convention.",
+      "hypotheses": [
+        "K imaginary quadratic with Hilbert class field H."
+      ],
+      "proofSteps": [
+        "The two reciprocity maps Cl_K → Gal(H/K) differ by inversion, by definition.",
+        "The action on Heegner points is Conrad's statement, p. 69, which he derives from the analytic description C/b → C/n⁻¹b."
+      ],
+      "acceptance": [
+        "A reciprocity law stated without its convention is not accepted."
+      ],
+      "prerequisites": [
+        "mathlib:IsGalois"
+      ],
+      "sources": [
+        {
+          "sourceId": "conrad-2004",
+          "locator": "§1, 'Some conventions', p. 69",
+          "excerpt": "we normalize the Artin map of class field theory to associate uniformizers to arithmetic Frobenius elements",
+          "match": "The Artin-map convention of Gross–Zagier, which Conrad follows."
+        },
+        {
+          "sourceId": "conrad-2004",
+          "locator": "§1, 'Some conventions', p. 69",
+          "excerpt": "The appearance of inversion is due to our decision to send uniformizers to arithmetic (rather than geometric) Frobenius elements",
+          "match": "Changing the Artin convention inverts the Galois action on Heegner points."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/CMConventions",
+        "namespace": "TauCeti.GrossZagier",
+        "name": "TauCeti.GrossZagier.artinConvention"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "GrossZagierAndArithmeticHeights:GZ.0/real-period-components",
+      "parentStageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "realises": [
+        "GrossZagierAndArithmeticHeights:GZ.0"
+      ],
+      "title": "Full real period, identity-component period and c∞",
+      "kind": "comparison",
+      "statement": "For E/ℚ with a minimal Weierstrass equation and Néron differential ω, let Ω⁰ be the least positive real period (∫ of |ω| over the identity component E(ℝ)⁰) and c∞ = #π₀(E(ℝ)), which is 2 if Δ > 0 and 1 if Δ < 0. The BSD real period is Ω = c∞·Ω⁰ = ∫_{E(ℝ)}|ω|, and it is what EllipticCurves Layer 7's integral 2∫_{D_W > 0} dx/√D_W computes. A formula stated with Ω⁰ must carry c∞ separately, and a formula stated with Ω must not multiply by c∞ again.",
+      "hypotheses": [
+        "E/ℚ; minimal model; Δ ≠ 0."
+      ],
+      "proofSteps": [
+        "E(ℝ) has two components exactly when the cubic 4x³ + b₂x² + 2b₄x + b₆ has three real roots, i.e. Δ > 0.",
+        "The integral over E(ℝ) is the sum over its components, which have equal ∫|ω| because translation by a point of the non-identity component preserves |ω|."
+      ],
+      "acceptance": [
+        "37.a1 has Δ = 37 > 0, so c∞ = 2, and the LMFDB real period 5.9869172924… is the full period Ω = 2Ω⁰."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve.Δ",
+        "mathlib:WeierstrassCurve.b₂",
+        "mathlib:Real.sqrt",
+        "mathlib:MeasureTheory.lintegral"
+      ],
+      "sources": [
+        {
+          "sourceId": "lmfdb-2026",
+          "locator": "Knowl ec.q.real_period (accessed 2026-09-28)",
+          "excerpt": "the least positive element of Λ∩ℝ multiplied by the number of components of E(ℝ)",
+          "match": "The BSD real period includes the factor c∞ = #π₀(E(ℝ))."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GrossZagier/HeightConventions",
+        "namespace": "TauCeti.GrossZagier",
+        "name": "TauCeti.GrossZagier.realPeriod_eq_card_components_mul"
+      },
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "need": "State the arithmetic BSD quotient Ω(E)·Reg·#Ш·∏c_p/#E(K)²_tors with the BSD regulator Reg_BSD = 2^r · regulator W (GZ.0/bsd-regulator), or with a regulator built from the polar form of canonicalHeight. At f790474 the implemented canonicalHeight carries the factor 1/2 and regulator is the Gram determinant of the halved pairing, so it is 2^{−r}·Reg_BSD (37.a1: 0.02556 against LMFDB 0.05111). Layer 6's text pins ĥ = lim h(x(nP))/n², which is twice the implemented one. The same Layer 7 supplies the full real period Ω = 2∫_{D_W>0} dx/√D_W that GZ.0/real-period-components compares with c∞·Ω⁰.",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
+        "GrossZagierAndArithmeticHeights:GZ.0/real-period-components",
+        "GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.0",
+      "status": "partial",
+      "remaining": [
+        "Haar-measure and torus-volume normalisations (the global volume 2L(1, η) of the torus measure) and the comparison maps for differentials, polarisations and coefficient embeddings, from AutomorphicLFunctionsAndLocalFactors AL.0–AL.3.",
+        "The [K:ℚ] height normalisation (gap) and the Poincaré-pairing comparison (gap).",
+        "Isogenies: ĥ_{E′}(φP) = deg φ·ĥ_E(P) and the change of Néron differential φ*ω′ = c·ω, from EllipticCurves Layers 6–7."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.1",
+      "status": "not_read",
+      "remaining": [
+        "Point heights on abelian varieties from ArakelovGeometryAndAbelianHeights R35.1–R35.2 and the Poincaré biextension pairing."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.2",
+      "status": "not_read",
+      "remaining": [
+        "Admissible pairings on arithmetic surfaces (Zhang; Hriljac)."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.3",
+      "status": "not_read",
+      "remaining": [
+        "Rational automorphic realisations and modular degrees."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.4",
+      "status": "not_read",
+      "remaining": [
+        "Local toric multiplicity one, the dichotomy and test vectors (Tunnell, Saito; YZZ Ch. 1)."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.5",
+      "status": "not_read",
+      "remaining": [
+        "Coherent theta kernels and the Waldspurger formula (YZZ Ch. 2–4)."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.6",
+      "status": "not_read",
+      "remaining": [
+        "Arithmetic generating series and incoherent analytic kernels (YZZ Ch. 5–6)."
+      ]
+    },
+    {
+      "stageId": "GrossZagierAndArithmeticHeights:GZ.7",
+      "status": "not_read",
+      "remaining": [
+        "Local arithmetic identities and boundary contributions (YZZ Ch. 7–8; Gross–Zagier Ch. III)."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "The [K:ℚ] normalisation of heights over number fields",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary",
+        "GrossZagierAndArithmeticHeights:GZ.0/trace-versus-average"
+      ],
+      "detail": "Tau Ceti's naïve height is Mathlib's logHeight for whatever Height.AdmissibleAbsValues instance is supplied, and neither library has an instance for number fields (Mathlib's Height/Basic.lean lists it as a TODO). Whether ĥ over K is the height over K (as in Cai–Shu–Tian's ĥ_K) or the absolute height (the LMFDB's base-change-invariant ĥ/[K:ℚ]) is therefore not yet fixed; the factor is [K:ℚ], and [K:ℚ]^r on regulators."
+    },
+    {
+      "title": "The Poincaré-biextension pairing against ⟨,⟩_BSD",
+      "neededBy": [
+        "GrossZagierAndArithmeticHeights:GZ.0/bsd-height-pairing"
+      ],
+      "detail": "Cai–Shu–Tian's pairing A(K̄)_ℚ ⊗ A∨(K̄)_ℚ → ℝ, restricted to an elliptic curve through the principal polarisation P ↦ [P] − [O], should be ⟨,⟩_BSD (with the height over K). That comparison needs GZ.1's Poincaré construction, which this checkpoint does not plan."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "GrossZagierAndArithmeticHeights/E1",
+      "source": "conrad-2004",
+      "kind": "misprint",
+      "locator": "§1, 'Some conventions', p. 69 (SLMath PDF p. 4); against §9, p. 119 (PDF p. 54)",
+      "printed": "If x is a Heegner point with associated CM field K, we will write ux to denote the cardinality of the group of roots of unity in K (so ux = 2 unless K = Q(√−1) or K = Q(√−3)).",
+      "correction": "u_x is half that cardinality (u_x = 1 unless K = Q(√−1), Q(√−3), where it is 2, 3), as p. 119 uses it and as in Gross–Zagier's u = #O_K^×/2.",
+      "reason": "On p. 119 the same symbol appears in 'The group AutF(x) … has order 2ux with ux ∈ {1, 2, 3}'. Aut_F(x) is the unit group of the CM order, of order #μ(K) ∈ {2, 4, 6}, so there u_x = #μ(K)/2. The two uses differ by a factor of 2, which becomes 4 in any formula with u_x².",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The MSRI Publications volume page for Book 49: no errata listed",
+        "Conrad's Stanford papers page, which hosts the final version gzfinal.pdf: no separate errata list"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/1509.08748v2",
+      "read": "2026-09-28",
+      "sha256": "10576e85c77e8e7c590671840586bc4680e638d03daf7802e230a4897ac3384c"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/1408.1733v2",
+      "read": "2026-09-28",
+      "sha256": "8d908543404abfbd9c1708ad9af696c4fb71595701bd67cb5bff11b3a8d6ac43"
+    },
+    {
+      "kind": "published",
+      "url": "https://library.slmath.org/books/Book49/files/05conrad.pdf",
+      "citation": "Conrad, Gross–Zagier revisited, MSRI Publications 49 (2004)",
+      "read": "2026-09-28",
+      "sha256": "31396cc7f513d6237155b6afa923c6ef76d2f37101db598d58bea25f0aa677ca"
+    }
+  ]
+}
