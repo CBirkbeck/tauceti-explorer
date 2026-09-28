@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5678 new mistakes confirmed · 1429 awaiting review · 693 already corrected in print · 88 rejected on review · 21 extractions and packets not yet checked.
+5678 new mistakes confirmed · 1429 awaiting review · 693 already corrected in print · 88 rejected on review · 20 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -15986,4 +15986,4 @@ None.
 
 ## Not yet checked
 
-These extractions and packets were written before mistakes were recorded, and are being checked: `BunGAndNewtonStrata`, `CohomologyComparisons`, `DiamondsAndVStacks`, `EllipticCurveModularity`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HeckeStacksAndLocalShtukas`, `KatoEulerSystems`, `LanglandsParameterStacks`, `ModularCurvesPartII`, `NoncommutativeAndEquivariantIwasawa`, `RelativeFarguesFontaine`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`, `VectorBundlesAndIsocrystals`, `VectorBundlesAndIsocrystals`.
+These extractions and packets were written before mistakes were recorded, and are being checked: `BunGAndNewtonStrata`, `CohomologyComparisons`, `DiamondsAndVStacks`, `EnhancedDerivedSheaves`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `ExcursionOperatorsAndSpectralAction`, `GeometricSatakeAndFusion`, `GeometricSatakeAndFusion`, `GlobalShtukasAndFunctionFieldLanglands`, `HeckeStacksAndLocalShtukas`, `KatoEulerSystems`, `LanglandsParameterStacks`, `ModularCurvesPartII`, `NoncommutativeAndEquivariantIwasawa`, `RelativeFarguesFontaine`, `RelativeFarguesFontaine`, `VStackSheavesAndLisseCategories`, `VectorBundlesAndIsocrystals`, `VectorBundlesAndIsocrystals`.
