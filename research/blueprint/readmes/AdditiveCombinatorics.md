@@ -1541,9 +1541,118 @@ For finsets A, B ⊆ G, E(A, B) = N³ ∑_χ |fourier 1_A χ|² · |fourier 1_B 
 **Sources.**
 - Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 10 (physical p. 36), Plancherel applied to χ_A ∗ χ_A. The source uses this identity, in the case A = B, by applying Plancherel to χ_A ∗ χ_A to reach the fourth moment ∑_ξ |χ̂_A(ξ)|⁴; it does not display the energy formula itself, which is the rewriting of ‖χ_A ∗ χ_B‖² as a count. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
 
+### AC.0, third pass: indicator estimates and the energy bound
+
+The worksheet's AC.0 indicator interfaces become nodes, under the worksheet's names: the source's equations (1), (2) and (5), and the trivial energy bound, which the audit records as missing from Mathlib. The sumset, energy and Plünnecke–Ruzsa results that Mathlib has are now listed in the baseline by name. The index knows only their multiplicative declarations; the additive twins are named in each `provides`.
+
+#### `fourier-indicator-l2` — The L² mass of the transform of an indicator
+
+*theorem*
+
+∑_χ |fourier 1_A χ|² = |A|/N, the density of A (worksheet fourier_indicator_l2).
+
+**Proof, in steps.**
+1. Apply Plancherel (fourier-parseval) to f = 1_A: ∑_χ |fourier 1_A χ|² = N⁻¹ ∑_x |1_A(x)|².
+2. |1_A(x)|² = 1_A(x), so the right side is |A|/N.
+
+**Acceptance tests.**
+- For A = G it gives 1: fourier 1_G is the indicator of the trivial character.
+- For A = ∅ both sides are 0.
+- For A a singleton it gives 1/N, while each of the N coefficients has modulus 1/N.
+
+**Dependencies.**
+- In this packet: `fourier-parseval`, `fourier-transform`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A* — §6, printed p. 9 (physical p. 35), equation (1). Equation (1), with c = |A|/N. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
+#### `fourier-norm-le-l1` — The transform is bounded by the normalised L¹ norm
+
+*lemma*
+
+For f : G → ℂ and every character χ, |fourier f χ| ≤ N⁻¹ ∑_x |f(x)| (worksheet fourier_norm_le_l1).
+
+**Proof, in steps.**
+1. fourier_apply writes fourier f χ = N⁻¹ ∑_x f(x) conj(χ(x)); take norms, use the triangle inequality and |χ(x)| = 1.
+
+**Acceptance tests.**
+- Equality for f = χ (both sides equal 1).
+- For f = 0 both sides are 0.
+- The bound is uniform in χ.
+
+**Dependencies.**
+- In this packet: `fourier-transform`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A* — §6, printed p. 9 (physical p. 35), equation (2). The first inequality of (2), for a general f. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
+#### `fourier-indicator-norm-le` — Pointwise bound for the transform of an indicator
+
+*lemma*
+
+|fourier 1_A χ| ≤ |A|/N for every character χ, with equality at the trivial character (worksheet fourier_indicator_norm_le).
+
+**Proof, in steps.**
+1. fourier-norm-le-l1 with f = 1_A, since ∑_x |1_A(x)| = |A|.
+2. At the trivial character fourier 1_A 1 = |A|/N.
+
+**Acceptance tests.**
+- Equality at χ = 1.
+- For A = G every nontrivial coefficient is 0, far below the bound.
+- For A = ∅ the bound is 0.
+
+**Dependencies.**
+- In this packet: `fourier-norm-le-l1`, `fourier-transform`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A* — §6, printed p. 9 (physical p. 35), equation (2). Equation (2) for the indicator. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
+#### `fourier-indicator-fourth-le` — The fourth moment of an indicator's transform is at most the cubed density
+
+*theorem*
+
+∑_χ |fourier 1_A χ|⁴ ≤ (|A|/N)³ (worksheet fourier_indicator_fourth_le). By fourier-energy this is the trivial bound E(A, A) ≤ |A|³.
+
+**Proof, in steps.**
+1. Bound |fourier 1_A χ|⁴ ≤ (max_χ |fourier 1_A χ|)² · |fourier 1_A χ|² ≤ (|A|/N)² |fourier 1_A χ|² by fourier-indicator-norm-le.
+2. Sum over χ and apply fourier-indicator-l2: (|A|/N)² · |A|/N.
+
+**Acceptance tests.**
+- Equality for A = G (both sides 1).
+- Through fourier-energy, N³ times the left side is E(A, A), and the bound is E(A, A) ≤ |A|³, add-energy-le at B = A.
+- Against the source's (4), small doubling |A + A| ≤ K|A| gives the matching lower bound (|A|/N)³/K.
+
+**Dependencies.**
+- In this packet: `fourier-indicator-norm-le`, `fourier-indicator-l2`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A* — §6, printed p. 10 (physical p. 36), equation (5). Equation (5). Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+- Terence Tao, *Lecture notes 2 for 254A* — §6, printed p. 10 (physical p. 36), equation (4). The matching lower bound under small doubling, for the acceptance test. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
+#### `add-energy-le` — The trivial upper bound for additive energy
+
+*lemma*
+
+For finite subsets A, B of an abelian group, E(A, B) ≤ |A|² |B| and E(A, B) ≤ |A| |B|², where E is Mathlib's Finset.addEnergy. The reviewed audit records these bounds as missing from the pinned Mathlib, which has only the lower bounds |A||B| ≤ E(A, B) and |A|²|B|² ≤ |A + B| E(A, B) and the equality E(G, B) = |G||B|².
+
+**Proof, in steps.**
+1. E(A, B) counts (a₁, b₁, a₂, b₂) ∈ A × B × A × B with a₁ + b₁ = a₂ + b₂ (addEnergy_eq_card_filter).
+2. The map (a₁, b₁, a₂, b₂) ↦ (a₁, a₂, b₁) is injective on that set, since b₂ = a₁ + b₁ − a₂; so E(A, B) ≤ |A|² |B|.
+3. Symmetrically (a₁, b₁, a₂, b₂) ↦ (a₁, b₁, b₂) gives E(A, B) ≤ |A| |B|².
+
+**Acceptance tests.**
+- For A = G, E(G, B) = |G| |B|² (Mathlib's addEnergy_univ_left): the second bound is attained.
+- For A = B a subgroup, E(A, A) = |A|³: both bounds are attained.
+- Without cancellation the injectivity fails; the lemma is stated for groups.
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:Finset.mulEnergy`, `mathlib:Finset.mulEnergy_eq_card_filter`, `mathlib:Finset.mulEnergy_univ_left`, `mathlib:Finset.le_mulEnergy`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A* — §6, printed p. 10 (physical p. 36), equation (5). The source proves the Fourier form for A = B (equation (5), which fourier-energy converts into E(A, A) ≤ |A|³). The combinatorial bound for two sets is the elementary count in the proof steps; no source was needed for it. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
 ### Remaining in AC.0
 
-- Sumsets, additive energy and the Plünnecke–Ruzsa, Ruzsa triangle and Ruzsa covering inequalities are in the pinned Mathlib, as the reviewed audit records, and are baseline citations rather than nodes; their declarations are not yet listed in the baseline by name.
-- The trivial upper bound E(A, B) ≤ |A|²|B|, which the audit records as not stated in Mathlib, has no node yet.
-- The worksheet's AC.0 quantitative indicator interfaces (fourier_indicator_l2, fourier_norm_le_l1, fourier_indicator_norm_le) are not yet nodes.
+- Sumsets, additive energy and the Plünnecke–Ruzsa, Ruzsa triangle and Ruzsa covering inequalities are baseline citations, listed by name through their multiplicative declarations (the pinned index has only those; the additive twins are named in provides).
 - The checks the handoff lists for AC.0 — quotient fibre-cardinality, the cyclic constructor, the one-dimensional Peter–Weyl identification (fourier_eq_haarIntegral) and the coding/ER.4 specialisations — are not done; the nodes carry those interfaces as the worksheet states them.
+- The source's count of large coefficients (3), |{ξ : |χ̂_A(ξ)| ≥ εc}| ≤ ε⁻²c⁻¹, belongs to AC.1's large-spectrum layer (worksheet largeSpectrum_indicator_card_mul_sq_le) and is not an AC.0 node.

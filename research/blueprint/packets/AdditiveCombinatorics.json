@@ -92,6 +92,76 @@
     "module": "Mathlib/Combinatorics/Additive/Energy.lean",
     "provides": "The multiplicative energy of two finsets. Its @[to_additive] twin Finset.addEnergy, the number of quadruples with a₁ + b₁ = a₂ + b₂, is the one the nodes use.",
     "checked": "Read at the pin: `def mulEnergy (s t : Finset α) : ℕ` at line 58 of Mathlib/Combinatorics/Additive/Energy.lean, `namespace Finset`, with `@[to_additive]`. The additive name is generated, so the pinned declaration index lists only this one."
+   },
+   {
+    "ref": "mathlib:Finset.card_mul_le",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Group/Pointwise/Finset/Basic.lean",
+    "provides": "#(s * t) ≤ #s * #t. The index lists only this multiplicative declaration; its @[to_additive] twin Finset.card_add_le bounds a sumset.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Finset.mulEnergy_eq_sum_sq",
+    "kind": "lemma",
+    "module": "Mathlib/Combinatorics/Additive/Energy.lean",
+    "provides": "Over a finite type, Eₘ[s, t] = ∑ a, #{(x, y) ∈ s ×ˢ t | x * y = a}². The index lists only this multiplicative declaration; its @[to_additive] twin addEnergy_eq_sum_sq is energy as the sum of squared representation counts.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Finset.mulEnergy_eq_card_filter",
+    "kind": "lemma",
+    "module": "Mathlib/Combinatorics/Additive/Energy.lean",
+    "provides": "Eₘ[s, t] = #{x ∈ (s ×ˢ t) ×ˢ s ×ˢ t | x.1.1 * x.1.2 = x.2.1 * x.2.2}. The index lists only this multiplicative declaration; its @[to_additive] twin addEnergy_eq_card_filter is the defining count.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Finset.le_mulEnergy",
+    "kind": "lemma",
+    "module": "Mathlib/Combinatorics/Additive/Energy.lean",
+    "provides": "#s * #t ≤ Eₘ[s, t]. The index lists only this multiplicative declaration; its @[to_additive] twin le_addEnergy is the trivial lower bound.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Finset.le_card_mul_mul_mulEnergy",
+    "kind": "lemma",
+    "module": "Mathlib/Combinatorics/Additive/Energy.lean",
+    "provides": "#s² #t² ≤ #(s * t) Eₘ[s, t] (Cauchy–Schwarz). The index lists only this multiplicative declaration; its @[to_additive] twin le_card_add_mul_addEnergy links energy to doubling.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Finset.mulEnergy_univ_left",
+    "kind": "lemma",
+    "module": "Mathlib/Combinatorics/Additive/Energy.lean",
+    "provides": "In a finite group, Eₘ[univ, t] = #G · #t². The index lists only this multiplicative declaration; its @[to_additive] twin addEnergy_univ_left is the equality case of the trivial upper bound.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Finset.pluennecke_ruzsa_inequality_pow_mul",
+    "kind": "theorem",
+    "module": "Mathlib/Combinatorics/Additive/PluenneckeRuzsa.lean",
+    "provides": "For A nonempty, #(B ^ n) ≤ (#(A * B)/#A)^n · #A. The index lists only this multiplicative declaration; its @[to_additive] twin is the Plünnecke–Ruzsa inequality for iterated sumsets nB.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Finset.pluennecke_ruzsa_inequality_pow_div_pow_mul",
+    "kind": "theorem",
+    "module": "Mathlib/Combinatorics/Additive/PluenneckeRuzsa.lean",
+    "provides": "For A nonempty, #(B^m / B^n) ≤ (#(A * B)/#A)^(m+n) · #A. The index lists only this multiplicative declaration; its @[to_additive] twin bounds mB − nB.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Finset.ruzsa_triangle_inequality_div_div_div",
+    "kind": "theorem",
+    "module": "Mathlib/Combinatorics/Additive/PluenneckeRuzsa.lean",
+    "provides": "#(A / C) · #B ≤ #(A / B) · #(C / B). The index lists only this multiplicative declaration; its @[to_additive] twin is Ruzsa's triangle inequality |A − C||B| ≤ |A − B||C − B|.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
+   },
+   {
+    "ref": "mathlib:Finset.ruzsa_covering_mul",
+    "kind": "theorem",
+    "module": "Mathlib/Combinatorics/Additive/RuzsaCovering.lean",
+    "provides": "If #(A * B) ≤ K #B with B nonempty, some F ⊆ A with #F ≤ K has A ⊆ F * (B / B). The index lists only this multiplicative declaration; its @[to_additive] twin ruzsa_covering_add is Ruzsa's covering lemma.",
+    "checked": "Read at the Mathlib pin 082e2d37 on 2026-09-28."
    }
   ]
  },
@@ -123,7 +193,8 @@
    "sha256": "961b333259ff9db8289e6e8a59c10a7a418d6709694fc99f33252ee91694ffe9",
    "readSections": [
     "Not read by this session. The predecessor records reading physical PDF pp. 34–38 (notes 2 printed pp. 8–12), §6 and the opening §7 transition, on 2026-09-27; the sha256 above is its record. This packet transfers the findings E1–E3 with their ids unchanged, as that handoff directs, and makes no claim to have re-read the passages.",
-    "Read by cc-fb70e5 on 2026-09-28, the file's sha256 re-verified as above: physical pp. 34–36 (notes 2 printed pp. 8–10) — the bi-character and its canonical dual-group alternative, normalised counting measure, the Fourier identities of Exercise 3 (inversion, Parseval, Plancherel, convolution, reflection) and their application to χ_A up to the fourth moment. These pages carry the AC.0 citations; nothing beyond them was read for AC.0."
+    "Read by cc-fb70e5 on 2026-09-28, the file's sha256 re-verified as above: physical pp. 34–36 (notes 2 printed pp. 8–10) — the bi-character and its canonical dual-group alternative, normalised counting measure, the Fourier identities of Exercise 3 (inversion, Parseval, Plancherel, convolution, reflection) and their application to χ_A up to the fourth moment. These pages carry the AC.0 citations; nothing beyond them was read for AC.0.",
+    "Re-read by cc-fb70e5 on 2026-09-28 (same file, sha256 re-verified): equations (1)–(5) on printed pp. 9–10 (physical pp. 35–36), for the AC.0 indicator estimates."
    ]
   }
  ],
@@ -1421,6 +1492,207 @@
    "planet": {
     "name": "Additive energy via Fourier"
    }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.0/fourier-indicator-l2",
+   "parentStageId": "AdditiveCombinatorics:AC.0",
+   "realises": [
+    "AdditiveCombinatorics:AC.0"
+   ],
+   "title": "The L² mass of the transform of an indicator",
+   "kind": "theorem",
+   "statement": "∑_χ |fourier 1_A χ|² = |A|/N, the density of A (worksheet fourier_indicator_l2).",
+   "hypotheses": [
+    "G a finite abelian group, N = |G|",
+    "A a finite subset of G; 1_A its indicator"
+   ],
+   "proofSteps": [
+    "Apply Plancherel (fourier-parseval) to f = 1_A: ∑_χ |fourier 1_A χ|² = N⁻¹ ∑_x |1_A(x)|².",
+    "|1_A(x)|² = 1_A(x), so the right side is |A|/N."
+   ],
+   "acceptance": [
+    "For A = G it gives 1: fourier 1_G is the indicator of the trivial character.",
+    "For A = ∅ both sides are 0.",
+    "For A a singleton it gives 1/N, while each of the N coefficients has modulus 1/N."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.0/fourier-parseval",
+    "AdditiveCombinatorics:AC.0/fourier-transform"
+   ],
+   "sources": [
+    {
+     "sourceId": "tao-254a-notes2-cmu",
+     "locator": "§6, printed p. 9 (physical p. 35), equation (1)",
+     "match": "Equation (1), with c = |A|/N. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti.Combinatorics.Additive.Fourier",
+    "namespace": "TauCeti.AdditiveFourier"
+   }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.0/fourier-norm-le-l1",
+   "parentStageId": "AdditiveCombinatorics:AC.0",
+   "realises": [
+    "AdditiveCombinatorics:AC.0"
+   ],
+   "title": "The transform is bounded by the normalised L¹ norm",
+   "kind": "lemma",
+   "statement": "For f : G → ℂ and every character χ, |fourier f χ| ≤ N⁻¹ ∑_x |f(x)| (worksheet fourier_norm_le_l1).",
+   "hypotheses": [
+    "G a finite abelian group, N = |G|",
+    "f : G → ℂ; χ ∈ AddChar G ℂ"
+   ],
+   "proofSteps": [
+    "fourier_apply writes fourier f χ = N⁻¹ ∑_x f(x) conj(χ(x)); take norms, use the triangle inequality and |χ(x)| = 1."
+   ],
+   "acceptance": [
+    "Equality for f = χ (both sides equal 1).",
+    "For f = 0 both sides are 0.",
+    "The bound is uniform in χ."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.0/fourier-transform"
+   ],
+   "sources": [
+    {
+     "sourceId": "tao-254a-notes2-cmu",
+     "locator": "§6, printed p. 9 (physical p. 35), equation (2)",
+     "match": "The first inequality of (2), for a general f. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti.Combinatorics.Additive.Fourier",
+    "namespace": "TauCeti.AdditiveFourier"
+   }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.0/fourier-indicator-norm-le",
+   "parentStageId": "AdditiveCombinatorics:AC.0",
+   "realises": [
+    "AdditiveCombinatorics:AC.0"
+   ],
+   "title": "Pointwise bound for the transform of an indicator",
+   "kind": "lemma",
+   "statement": "|fourier 1_A χ| ≤ |A|/N for every character χ, with equality at the trivial character (worksheet fourier_indicator_norm_le).",
+   "hypotheses": [
+    "G a finite abelian group, N = |G|",
+    "A a finite subset of G; 1_A its indicator",
+    "χ ∈ AddChar G ℂ"
+   ],
+   "proofSteps": [
+    "fourier-norm-le-l1 with f = 1_A, since ∑_x |1_A(x)| = |A|.",
+    "At the trivial character fourier 1_A 1 = |A|/N."
+   ],
+   "acceptance": [
+    "Equality at χ = 1.",
+    "For A = G every nontrivial coefficient is 0, far below the bound.",
+    "For A = ∅ the bound is 0."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.0/fourier-norm-le-l1",
+    "AdditiveCombinatorics:AC.0/fourier-transform"
+   ],
+   "sources": [
+    {
+     "sourceId": "tao-254a-notes2-cmu",
+     "locator": "§6, printed p. 9 (physical p. 35), equation (2)",
+     "match": "Equation (2) for the indicator. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti.Combinatorics.Additive.Fourier",
+    "namespace": "TauCeti.AdditiveFourier"
+   }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.0/fourier-indicator-fourth-le",
+   "parentStageId": "AdditiveCombinatorics:AC.0",
+   "realises": [
+    "AdditiveCombinatorics:AC.0"
+   ],
+   "title": "The fourth moment of an indicator's transform is at most the cubed density",
+   "kind": "theorem",
+   "statement": "∑_χ |fourier 1_A χ|⁴ ≤ (|A|/N)³ (worksheet fourier_indicator_fourth_le). By fourier-energy this is the trivial bound E(A, A) ≤ |A|³.",
+   "hypotheses": [
+    "G a finite abelian group, N = |G|",
+    "A a finite subset of G; 1_A its indicator"
+   ],
+   "proofSteps": [
+    "Bound |fourier 1_A χ|⁴ ≤ (max_χ |fourier 1_A χ|)² · |fourier 1_A χ|² ≤ (|A|/N)² |fourier 1_A χ|² by fourier-indicator-norm-le.",
+    "Sum over χ and apply fourier-indicator-l2: (|A|/N)² · |A|/N."
+   ],
+   "acceptance": [
+    "Equality for A = G (both sides 1).",
+    "Through fourier-energy, N³ times the left side is E(A, A), and the bound is E(A, A) ≤ |A|³, add-energy-le at B = A.",
+    "Against the source's (4), small doubling |A + A| ≤ K|A| gives the matching lower bound (|A|/N)³/K."
+   ],
+   "prerequisites": [
+    "AdditiveCombinatorics:AC.0/fourier-indicator-norm-le",
+    "AdditiveCombinatorics:AC.0/fourier-indicator-l2"
+   ],
+   "sources": [
+    {
+     "sourceId": "tao-254a-notes2-cmu",
+     "locator": "§6, printed p. 10 (physical p. 36), equation (5)",
+     "match": "Equation (5). Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
+    },
+    {
+     "sourceId": "tao-254a-notes2-cmu",
+     "locator": "§6, printed p. 10 (physical p. 36), equation (4)",
+     "match": "The matching lower bound under small doubling, for the acceptance test. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti.Combinatorics.Additive.Fourier",
+    "namespace": "TauCeti.AdditiveFourier"
+   }
+  },
+  {
+   "id": "AdditiveCombinatorics:AC.0/add-energy-le",
+   "parentStageId": "AdditiveCombinatorics:AC.0",
+   "realises": [
+    "AdditiveCombinatorics:AC.0"
+   ],
+   "title": "The trivial upper bound for additive energy",
+   "kind": "lemma",
+   "statement": "For finite subsets A, B of an abelian group, E(A, B) ≤ |A|² |B| and E(A, B) ≤ |A| |B|², where E is Mathlib's Finset.addEnergy. The reviewed audit records these bounds as missing from the pinned Mathlib, which has only the lower bounds |A||B| ≤ E(A, B) and |A|²|B|² ≤ |A + B| E(A, B) and the equality E(G, B) = |G||B|².",
+   "hypotheses": [
+    "A, B finite subsets of an additive commutative group (cancellation is what is used)"
+   ],
+   "proofSteps": [
+    "E(A, B) counts (a₁, b₁, a₂, b₂) ∈ A × B × A × B with a₁ + b₁ = a₂ + b₂ (addEnergy_eq_card_filter).",
+    "The map (a₁, b₁, a₂, b₂) ↦ (a₁, a₂, b₁) is injective on that set, since b₂ = a₁ + b₁ − a₂; so E(A, B) ≤ |A|² |B|.",
+    "Symmetrically (a₁, b₁, a₂, b₂) ↦ (a₁, b₁, b₂) gives E(A, B) ≤ |A| |B|²."
+   ],
+   "acceptance": [
+    "For A = G, E(G, B) = |G| |B|² (Mathlib's addEnergy_univ_left): the second bound is attained.",
+    "For A = B a subgroup, E(A, A) = |A|³: both bounds are attained.",
+    "Without cancellation the injectivity fails; the lemma is stated for groups."
+   ],
+   "prerequisites": [
+    "mathlib:Finset.mulEnergy",
+    "mathlib:Finset.mulEnergy_eq_card_filter",
+    "mathlib:Finset.mulEnergy_univ_left",
+    "mathlib:Finset.le_mulEnergy"
+   ],
+   "sources": [
+    {
+     "sourceId": "tao-254a-notes2-cmu",
+     "locator": "§6, printed p. 10 (physical p. 36), equation (5)",
+     "match": "The source proves the Fourier form for A = B (equation (5), which fourier-energy converts into E(A, A) ≤ |A|³). The combinatorial bound for two sets is the elementary count in the proof steps; no source was needed for it. Prose verbatim from the text layer of the compilation; displayed formulas transcribed."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti.Combinatorics.Additive.Fourier",
+    "namespace": "TauCeti.AdditiveFourier"
+   }
   }
  ],
  "coverage": [
@@ -1428,10 +1700,9 @@
    "stageId": "AdditiveCombinatorics:AC.0",
    "status": "partial",
    "remaining": [
-    "Sumsets, additive energy and the Plünnecke–Ruzsa, Ruzsa triangle and Ruzsa covering inequalities are in the pinned Mathlib, as the reviewed audit records, and are baseline citations rather than nodes; their declarations are not yet listed in the baseline by name.",
-    "The trivial upper bound E(A, B) ≤ |A|²|B|, which the audit records as not stated in Mathlib, has no node yet.",
-    "The worksheet's AC.0 quantitative indicator interfaces (fourier_indicator_l2, fourier_norm_le_l1, fourier_indicator_norm_le) are not yet nodes.",
-    "The checks the handoff lists for AC.0 — quotient fibre-cardinality, the cyclic constructor, the one-dimensional Peter–Weyl identification (fourier_eq_haarIntegral) and the coding/ER.4 specialisations — are not done; the nodes carry those interfaces as the worksheet states them."
+    "Sumsets, additive energy and the Plünnecke–Ruzsa, Ruzsa triangle and Ruzsa covering inequalities are baseline citations, listed by name through their multiplicative declarations (the pinned index has only those; the additive twins are named in provides).",
+    "The checks the handoff lists for AC.0 — quotient fibre-cardinality, the cyclic constructor, the one-dimensional Peter–Weyl identification (fourier_eq_haarIntegral) and the coding/ER.4 specialisations — are not done; the nodes carry those interfaces as the worksheet states them.",
+    "The source's count of large coefficients (3), |{ξ : |χ̂_A(ξ)| ≥ εc}| ≤ ε⁻²c⁻¹, belongs to AC.1's large-spectrum layer (worksheet largeSpectrum_indicator_card_mul_sq_le) and is not an AC.0 node."
    ]
   },
   {
