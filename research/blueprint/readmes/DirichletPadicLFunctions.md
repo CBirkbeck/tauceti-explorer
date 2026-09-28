@@ -8766,3 +8766,219 @@ The full suggested module elaborates with zero errors and 643 expected placehold
 Six complete native lemmas prove the compact continuous-character norm bound, pointwise norm one, supremum norm one, contraction by a norm-one continuous linear functional, analytic composition with that functional and the actual bounded scalar action of ℤ_p on ℚ_p. The last proof also supplies a local instance for the concrete suggested tests. General tame character comparisons remain unchecked blueprint declarations. The probe elaborates against 1927 pinned Mathlib modules with zero errors, warnings or holes. Exact rational controls check 174 arithmetic values and their integrality, 486 actual finite unit-residue approximations with the expected p^r precision, 87 parity zeros and 607 finite-character multiplication identities. The dyadic χx² and χx⁴ values are −2 and46, with difference−48 of valuation4; the test-function difference is divisible by8 on all64 odd residues modulo128. These finite checks do not prove general convergence or construct analytic branches.
 
 The captured LAD supplier changed from162 to174 nodes. All twelve added nodes, fourteen new baseline records, changed source/coverage/gap metadata and the full Lean difference were read. All old nodes, baseline records, findings and sourceVersions remain whole. Its entireEvalHom signature now explicitly retains the already stated completeness hypothesis; no Dirichlet declaration calls it. The new Gauss-radius L4 results do not supply the missing L3 character-family construction. No LAD artifact is imported or locally compiled here.
+
+
+## Classical logarithmic value at one
+
+Partial continuation preserving all254 predecessor nodes whole. Eight L3 nodes establish the scalar principal-log integral and its finite Gauss-kernel application to the native complex L-value at1, with branch avoidance, integrability and root normalization explicit. Five gaps, one L1 request and zero closed stages remain.
+
+Use qα(t)=α/(exp(t)−α) and hα(t)=log(1−α exp(−t)). The logarithm is the native principal branch; the integral is the native absolutely convergent Bochner integral on Ioi0. No new carrier is introduced.
+
+### The cyclotomic logarithm stays in the right half-plane
+
+`DirichletPadicLFunctions:L3/complex-log-right-halfplane` — `DirichletPadic.tameLog_argument_re_pos`
+
+For t≥0, Re(1−α exp(−t))>0.
+
+**Hypotheses:** α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure.
+
+**Proof:**
+
+1. Complex.re_le_norm gives Reα≤1. Equality would force Imα=0 by Complex.abs_re_eq_norm and hence α=1; therefore Reα<1.
+2. With r=exp(−t), 0<r≤1. The real part is (1−r)+r(1−Reα)>0. In particular the log argument is in the native slit plane, including at t=0.
+
+**Prerequisites:** `mathlib:Complex.re_le_norm`, `mathlib:Complex.abs_re_eq_norm`, `mathlib:Complex.mem_slitPlane_iff`.
+
+**Tests:**
+
+- `SuggestedComplexLogTests.minus_one_argument` (computation): For α=−1 and t=0 the log argument has real part2.
+- `SuggestedComplexLogTests.excluded_root_one` (non-example): For α=1 and t=0 the log argument is0 and is outside the slit plane.
+
+**Acceptance:** The branch justification includes the endpoint; norm-one alone would allow the excluded root1.
+
+**Source:** Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2. An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted.
+
+### Exponential bound for the logarithmic kernel
+
+`DirichletPadicLFunctions:L3/complex-log-kernel-bound` — `DirichletPadic.tameLog_kernel_norm_le`
+
+For t≥0, ‖qα(t)‖≤δ⁻¹ exp(−t), where δ=min(1,1−Reα)>0.
+
+**Hypotheses:** α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure.
+
+**Proof:**
+
+1. The preceding right-half-plane result at0 gives 1−Reα>0, so δ>0 and δ≤1, δ≤1−Reα.
+2. Write E=exp(t)≥1. Then E−Reα−δE=(1−δ)(E−1)+(1−Reα−δ)≥0. Complex.re_le_norm gives δE≤‖E−α‖.
+3. The numerator has norm1; divide the preceding positive lower bound to obtain ‖qα(t)‖≤1/(δE)=δ⁻¹ exp(−t).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/complex-log-right-halfplane`, `mathlib:Complex.re_le_norm`.
+
+**Tests:**
+
+- `SuggestedComplexLogTests.minus_one_bound` (computation): At α=−1,t=0 the bound reads1/2≤1.
+
+**Acceptance:** δ depends on α; no uniform positive bound over roots tending to1 is claimed.
+
+**Source:** Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2. An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted.
+
+### Absolute integrability of the logarithmic kernel
+
+`DirichletPadicLFunctions:L3/complex-log-kernel-integrable` — `DirichletPadic.tameLog_kernel_integrable`
+
+qα is IntegrableOn (Ioi 0).
+
+**Hypotheses:** α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure.
+
+**Proof:**
+
+1. For t≥0, exp(t)−Reα>0, so exp(t)−α≠0. The quotient is continuous on Ioi0 and therefore almost everywhere strongly measurable for restricted Lebesgue measure.
+2. The bound node dominates its norm by δ⁻¹ exp(−t). Apply native integrableOn_exp_neg_Ioi, constant multiplication and MeasureTheory.Integrable.mono' to prove integrability.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/complex-log-right-halfplane`, `DirichletPadicLFunctions:L3/complex-log-kernel-bound`, `mathlib:ContinuousOn.aestronglyMeasurable`, `mathlib:integrableOn_exp_neg_Ioi`, `mathlib:MeasureTheory.Integrable.mono'`.
+
+**Tests:**
+
+- `SuggestedComplexLogTests.imaginary_kernel_integrable` (compatibility): The native complex kernel i/(exp(t)−i) is integrable on Ioi0.
+
+**Acceptance:** Integrability is proved as an input to improper FTC, never assumed silently.
+
+**Source:** Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2. An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted.
+
+### Derivative of the principal-logarithm primitive
+
+`DirichletPadicLFunctions:L3/complex-log-kernel-derivative` — `DirichletPadic.tameLog_hasDerivAt`
+
+For t≥0, HasDerivAt hα (qα(t)) t, with scalar field ℝ.
+
+**Hypotheses:** α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure.
+
+**Proof:**
+
+1. Differentiate the real exponential exp(−t), include its derivative into ℂ, multiply by α and subtract from1.
+2. The right-half-plane node supplies the native slit-plane hypothesis to HasDerivAt.clog_real. The resulting derivative is α exp(−t)/(1−α exp(−t)).
+3. Use exp(−t)=exp(t)⁻¹ and the nonzero denominators from the same real-part bound to rewrite the derivative as α/(exp(t)−α).
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/complex-log-right-halfplane`, `mathlib:HasDerivAt.clog_real`, `mathlib:HasDerivAt.ofReal_comp`.
+
+**Tests:**
+
+- `SuggestedComplexLogTests.minus_one_derivative` (computation): At α=−1,t=0 the derivative of log(1+exp(−t)) is−1/2.
+
+**Acceptance:** This is a real derivative of a complex-valued function, including at the endpoint0.
+
+**Source:** Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2. An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted.
+
+### Vanishing of the logarithmic primitive at infinity
+
+`DirichletPadicLFunctions:L3/complex-log-kernel-limit` — `DirichletPadic.tameLog_tendsto_zero`
+
+For every α∈ℂ, hα(t) tends to0 as t tends to+∞.
+
+**Hypotheses:** α∈ℂ is arbitrary; no norm or nontriviality hypothesis is needed for this limit.
+
+**Proof:**
+
+1. Native exp(−t)→0 implies 1−α exp(−t)→1 in ℂ.
+2. Apply Filter.Tendsto.clog at1, which lies in the native slit plane, and simplify log1=0.
+
+**Prerequisites:** `mathlib:Real.tendsto_exp_neg_atTop_nhds_zero`, `mathlib:Filter.Tendsto.clog`, `mathlib:Complex.one_mem_slitPlane`.
+
+**Tests:**
+
+- `SuggestedComplexLogTests.root_one_limit` (degenerate): The limit still holds for α=1, despite its singular endpoint0.
+
+**Acceptance:** The eventual limit does not assert regularity or integrability at the endpoint for α=1.
+
+**Source:** Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2. An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted.
+
+### The cyclotomic logarithm integral
+
+`DirichletPadicLFunctions:L3/complex-log-kernel-integral` — `DirichletPadic.tameLog_integral`
+
+∫_(0,∞)qα(t)dt=−Complex.log(1−α).
+
+**Hypotheses:** α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure.
+
+**Proof:**
+
+1. Apply the native improper fundamental theorem integral_Ioi_of_hasDerivAt_of_tendsto' with the preceding derivative on Ici0, separately proved integrability on Ioi0, and limit0 at infinity.
+2. The value is0−hα(0)=−Complex.log(1−α). The integral is an ordinary absolutely convergent Bochner integral.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/complex-log-kernel-derivative`, `DirichletPadicLFunctions:L3/complex-log-kernel-integrable`, `DirichletPadicLFunctions:L3/complex-log-kernel-limit`, `mathlib:MeasureTheory.integral_Ioi_of_hasDerivAt_of_tendsto'`.
+
+**Tests:**
+
+- `SuggestedComplexLogTests.minus_one_integral` (computation): ∫_(0,∞)−1/(exp(t)+1)dt=−log2.
+- `SuggestedComplexLogTests.imaginary_integral` (computation): ∫_(0,∞)i/(exp(t)−i)dt=−log(1−i), fixing the root orientation.
+
+**Acceptance:** The formula excludes α=1; totalized log0 does not justify an integral there.
+
+**Source:** Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2. An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted.
+
+### Integration of the actual finite Gauss kernel
+
+`DirichletPadicLFunctions:L3/complex-gauss-log-integral` — `DirichletPadic.tameComplexKernel_integral_log`
+
+∫_(0,∞)tameComplexKernel η t dt = η(−1)G⁻¹ Σ_(c∈(ZMod D)ˣ)η⁻¹(c)log(1−ε^c).
+
+**Hypotheses:** D>1, η:DirichletCharacter ℂ D primitive and nonprincipal, ε a primitive D-th complex root and G=gaussSum(η⁻¹,AddChar.zmodChar D ε)≠0. The level D is the actual primitive conductor. All powers use native least nonnegative ZMod representatives; logs are the principal complex logarithm. Gauss nonvanishing is an explicit hypothesis, with its general theory retained by ModularForms.
+
+**Proof:**
+
+1. Use the preceding actual complex Gauss-kernel comparison fη(t)=−G⁻¹Σ_a η⁻¹(a)/(ε^a exp(t)−1).
+2. Remove all nonunit terms by MulChar.map_nonunit, including a=0. The inclusion of units is injective and its image is exactly the unit residues, so finite sum reindexing gives a sum over (ZMod D)ˣ. This step precedes any claim of summand integrability.
+3. For each unit c, c≠0 moduloD. Primitivity gives ε^c≠1 and norm(ε^c)=1. Set α=(ε^c)⁻¹; algebraically 1/(ε^c exp(t)−1)=qα(t). Apply the scalar integral and integrability nodes, then native finite-sum and constant-multiplication integration. The result is G⁻¹Σ_c η⁻¹(c)log(1−(ε^c)⁻¹).
+4. Reindex by the permutation c↦−c of the unit group. Root periodicity gives ε^(−c)=(ε^c)⁻¹, and η⁻¹(−c)=η⁻¹(−1)η⁻¹(c). Since η(−1)^2=1, η⁻¹(−1)=η(−1). This proves the stated sign.
+
+**Prerequisites:** `DirichletPadicLFunctions:L2/complex-gauss-kernel-comparison`, `DirichletPadicLFunctions:L2/complex-gauss-denominator`, `DirichletPadicLFunctions:L3/complex-log-kernel-integral`, `DirichletPadicLFunctions:L3/complex-log-kernel-integrable`, `mathlib:IsPrimitiveRoot.norm'_eq_one`, `mathlib:MulChar.map_nonunit`, `mathlib:MeasureTheory.integral_finsetSum`, `mathlib:MeasureTheory.integral_const_mul`.
+
+**Tests:**
+
+- `SuggestedComplexLogTests.quadratic_three_integral` (computation): For the quadratic character modulo3, ∫_(0,∞)tameComplexKernel η =π/(3√3).
+
+**Acceptance:** No individual integrability is asserted for the unweighted a=0 summand. Nonreal character values retain η⁻¹ weights; conjugating the whole weighted sum is not used.
+
+**Source:** Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2. An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted.
+
+### The complex logarithmic value at one
+
+`DirichletPadicLFunctions:L3/complex-lvalue-one-log` — `DirichletPadic.LFunction_one_eq_log_sum`
+
+η.LFunction 1=−G⁻¹Σ_(c∈(ZMod D)ˣ)η⁻¹(c)Complex.log(1−ε^c).
+
+**Hypotheses:** D>1, η:DirichletCharacter ℂ D primitive and nonprincipal, ε a primitive D-th complex root and G=gaussSum(η⁻¹,AddChar.zmodChar D ε)≠0. The level D is the actual primitive conductor. All powers use native least nonnegative ZMod representatives; logs are the principal complex logarithm. Gauss nonvanishing is an explicit hypothesis, with its general theory retained by ModularForms.
+
+**Proof:**
+
+1. The actual tame kernel is smooth on the nonnegative half-line and all its within derivatives have positive-rate exponential decay by the preceding regularity and decay nodes. Thus the supplied initial-half-plane normalized Mellin identity applies at s=1; the Mellin convergence node also explicitly supplies convergence for Re(s)>0. Its Mellin power is t^0=1 and Complex.Gamma_one=1, so the normalized value is the ordinary integral of fη.
+2. The entire tame Mellin comparison identifies that same value with−η(−1)η.LFunction1. Combine with the preceding Gauss-log integral and cancel η(−1), whose square is1, to obtain the displayed minus sign.
+3. For two primitive roots with their respective nonzero Gauss sums, apply the identity twice. The Gauss-normalized log sums are equal. Changing only the root in the logarithms while holding the Gauss sum fixed is not the root-independence statement.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/complex-gauss-log-integral`, `DirichletPadicLFunctions:L2/tame-complex-regularity`, `DirichletPadicLFunctions:L2/tame-complex-derivative-decay`, `DirichletPadicLFunctions:L2/tame-complex-mellin-convergent`, `DirichletPadicLFunctions:L2/tame-complex-mellin-comparison`, `DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane`, `mathlib:Complex.Gamma_one`.
+
+**API:**
+
+- `DirichletPadic.LFunction_log_sum_root_independent`: The Gauss-normalized finite principal-log sums agree for any two primitive D-th roots with nonzero corresponding Gauss sums.
+
+**Tests:**
+
+- `SuggestedComplexLogTests.quadratic_three_value` (computation): For the quadratic character modulo3, L(η,1)=π/(3√3).
+- `SuggestedComplexLogTests.quadratic_four_value` (computation): For the quadratic character modulo4, L(η,1)=π/4.
+- `SuggestedComplexLogTests.quadratic_five_value` (computation): For the quadratic character modulo5, L(η,1)=2log((1+√5)/2)/√5.
+
+**Acceptance:** The statement allows real or nonreal characters and arbitrary primitive ε with simultaneous Gauss normalization. The native L-function is evaluated at1, without claiming absolute convergence of its defining Dirichlet series there.
+
+**Source:** Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2. An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted.
+
+**Remaining:** The primitive-conductor complex formula of Theorem6.1(i) is now decomposed through an absolutely integrable Gauss kernel, with principal-log branch control and explicit nonzero Gauss sum. Refine it to the even-character real-log norm formula in Remark6.3 and verify the odd formula with its root conventions. Construct the p-adic logarithmic/degree-zero value and analytic branches through their owners, pure p-power conductor, pole/residue analysis, complete source extraction and the PMIA L1 completed-algebra comparison. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms.
+
+### Complex logarithmic value validation
+
+All254 predecessor nodes,309 baseline records,15 findings and sourceVersions remain whole. Eight nodes, nine named suggested declarations and twelve typed examples are added. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has404 reachable nodes,1880 edges and421 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and664 expected placeholder warnings. Source and artifact audits cover3595 pinned Mathlib modules,20 pinned Tau Ceti modules and the verified actual265-node PMIA artifact. The current304-node PMIA source preserves that artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Eight complete native lemmas prove the real-part gap, positive log-argument real part, slit-plane membership, real derivative, limit at infinity, exponential norm bound, integrability and improper scalar integral. The native probe elaborates against2515 pinned Mathlib modules with zero errors, warnings or placeholders. Its integral theorem has no integrability assumption: that hypothesis is discharged by the separately proved bound and domination argument. These complete scalar proofs do not implement the general Gauss/L-function comparisons, whose blueprint status remains unchecked.
+
+Numerical controls at70 decimal digits check12 scalar integrals,84 branch/decay samples,188 finite-character multiplication identities,22 Gauss-normalized logarithmic values,6 independently grouped-kernel integrals,16 root comparisons and3 closed forms. The six primitive characters include odd quartic modulo5 and even nonreal cubic modulo7. The tolerance is10⁻⁶⁰; the largest observed discrepancy is6.53014305057e-71. These controls are neither interval-certified nor proofs of general statements.

@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all 247 predecessor nodes whole. Seven L3 consumer nodes evaluate the actual tame measure at native continuous unit characters, compare arithmetic tests, give norm/parity control, and transfer analyticity from supplied Banach-valued families. Five gaps, one L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all254 predecessor nodes whole. Eight L3 nodes establish the scalar principal-log integral and its finite Gauss-kernel application to the native complex L-value at1, with branch avoidance, integrability and root normalization explicit. Five gaps, one L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2177,6 +2177,97 @@
         "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
         "provides": "Native continuous multiplicative homomorphisms, including their existing continuous-map field.",
         "checked": "Full declaration and ambient hypotheses read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The native compact-character norm and continuous-linear evaluation steps are proved in the local native probe."
+      },
+      {
+        "ref": "mathlib:Complex.re_le_norm",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/Norm.lean",
+        "provides": "The real part of a complex number is at most its norm.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:Complex.abs_re_eq_norm",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Complex/Norm.lean",
+        "provides": "Equality of absolute real part and norm is equivalent to zero imaginary part.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:Complex.mem_slitPlane_iff",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Complex/Basic.lean",
+        "provides": "A complex point belongs to the slit plane exactly when its real part is positive or its imaginary part is nonzero.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:ContinuousOn.aestronglyMeasurable",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntegrableOn.lean",
+        "provides": "Continuity on a measurable set gives restricted almost-everywhere strong measurability under the stated second-countability hypotheses, satisfied by ℝ and ℂ.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:integrableOn_exp_neg_Ioi",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/ImproperIntegrals.lean",
+        "provides": "The real exponential exp(−t) is integrable over every right half-line.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Integrable.mono'",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Function/L1Space/Integrable.lean",
+        "provides": "An almost-everywhere strongly measurable normed-group-valued function dominated in norm by an integrable real function is integrable.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:HasDerivAt.clog_real",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/LogDeriv.lean",
+        "provides": "Real differentiation of a complex logarithm under the native slit-plane hypothesis.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:Real.tendsto_exp_neg_atTop_nhds_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Exp.lean",
+        "provides": "The real exponential exp(−t) tends to0 as t tends to+∞.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:Filter.Tendsto.clog",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Log.lean",
+        "provides": "Continuity of the principal logarithm along a convergent filter with limit in the slit plane.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:Complex.one_mem_slitPlane",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/Complex/Basic.lean",
+        "provides": "The complex point1 lies in the native logarithm slit plane.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_Ioi_of_hasDerivAt_of_tendsto'",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/IntegralEqImproper.lean",
+        "provides": "For a complete real normed target, an integrable derivative on Ioi a, derivatives on Ici a and a limiting primitive imply that the improper integral is the limit minus the endpoint.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_finsetSum",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+        "provides": "Interchange a finite sum and the Bochner integral when every summand is integrable.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_const_mul",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+        "provides": "Move a real or complex scalar multiplication through the Bochner integral.",
+        "checked": "Full native statement and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. The complete scalar branch/bound/derivative/integrability/limit/FTC chain also elaborates in the native probe without holes."
       }
     ]
   },
@@ -2209,7 +2300,8 @@
         "27 September 2026 intrinsic-numerator continuation: full printed 127–129/PDF28–30 and printed 138–139/PDF39–40 freshly read. Source Remark 3.33 distinguishes multiplicative unit convolution from additive ambient convolution. Nine arithmetic adapters are worker deductions using exact existing supplier nodes; no full-paper reading or new finding is claimed.",
         "27 September 2026 Kummer continuation: complete printed115–117/PDF16–18 freshly read, printed117 visually inspected and collated with full v2PDF11–13. Five arithmetic deductions repair the unqualified congruence, explicitly acknowledging existing PMIA/E13. Earlier numerator reading on138–139 supplies the normalization; no full-paper extraction is claimed.",
         "27 September2026 character-twist continuation: complete printed139–144/PDF40–45 freshly read; full v2PDF30–32 collated; published142/144 visually inspected. Equation5-1 is decomposed on the actual arithmetic measure. Primitive Gauss/Fourier interpolation and tame construction remain gaps. E11/E12 record proof-display slips; no full-paper extraction is claimed.",
-        "27 September2026 tame-kernel continuation: complete published139–147/PDF40–48 read, including downstream tame uses; fullv2PDF33–35 collated and published145 visually inspected. Finite rational arithmetic and bounded K-valued construction are worker deductions; primitive Gauss comparison, integral-ring transport and special values remain gaps. E13 records the Gauss-inverse notation slip. Older Warwick note title/pp23–25 checked as a bounded correction-search result, not the source of record."
+        "27 September2026 tame-kernel continuation: complete published139–147/PDF40–48 read, including downstream tame uses; fullv2PDF33–35 collated and published145 visually inspected. Finite rational arithmetic and bounded K-valued construction are worker deductions; primitive Gauss comparison, integral-ring transport and special values remain gaps. E13 records the Gauss-inverse notation slip. Older Warwick note title/pp23–25 checked as a bounded correction-search result, not the source of record.",
+        "28September2026: complete published149–150/PDF50–51 freshly read for Theorem6.1(i), its full proof, Remark6.3 and opening§6.2. The eight log-kernel nodes give a native improper-integral route to the classical formula. No new source finding, whole-paper reading or p-adic logarithmic theorem is asserted."
       ]
     },
     {
@@ -16368,6 +16460,412 @@
           "statement": "For any fixed actual unit character, the constant family has an analytic tame value at every s∈ℚ₂."
         }
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-right-halfplane",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The cyclotomic logarithm stays in the right half-plane",
+      "kind": "lemma",
+      "statement": "For t≥0, Re(1−α exp(−t))>0.",
+      "hypotheses": [
+        "α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure."
+      ],
+      "proofSteps": [
+        "Complex.re_le_norm gives Reα≤1. Equality would force Imα=0 by Complex.abs_re_eq_norm and hence α=1; therefore Reα<1.",
+        "With r=exp(−t), 0<r≤1. The real part is (1−r)+r(1−Reα)>0. In particular the log argument is in the native slit plane, including at t=0."
+      ],
+      "prerequisites": [
+        "mathlib:Complex.re_le_norm",
+        "mathlib:Complex.abs_re_eq_norm",
+        "mathlib:Complex.mem_slitPlane_iff"
+      ],
+      "acceptance": [
+        "The branch justification includes the endpoint; norm-one alone would allow the excluded root1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_argument_re_pos"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2.",
+          "match": "An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedComplexLogTests.minus_one_argument",
+          "kind": "computation",
+          "statement": "For α=−1 and t=0 the log argument has real part2."
+        },
+        {
+          "name": "SuggestedComplexLogTests.excluded_root_one",
+          "kind": "non-example",
+          "statement": "For α=1 and t=0 the log argument is0 and is outside the slit plane."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-kernel-bound",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Exponential bound for the logarithmic kernel",
+      "kind": "lemma",
+      "statement": "For t≥0, ‖qα(t)‖≤δ⁻¹ exp(−t), where δ=min(1,1−Reα)>0.",
+      "hypotheses": [
+        "α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure."
+      ],
+      "proofSteps": [
+        "The preceding right-half-plane result at0 gives 1−Reα>0, so δ>0 and δ≤1, δ≤1−Reα.",
+        "Write E=exp(t)≥1. Then E−Reα−δE=(1−δ)(E−1)+(1−Reα−δ)≥0. Complex.re_le_norm gives δE≤‖E−α‖.",
+        "The numerator has norm1; divide the preceding positive lower bound to obtain ‖qα(t)‖≤1/(δE)=δ⁻¹ exp(−t)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-right-halfplane",
+        "mathlib:Complex.re_le_norm"
+      ],
+      "acceptance": [
+        "δ depends on α; no uniform positive bound over roots tending to1 is claimed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_kernel_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2.",
+          "match": "An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedComplexLogTests.minus_one_bound",
+          "kind": "computation",
+          "statement": "At α=−1,t=0 the bound reads1/2≤1."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-kernel-integrable",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Absolute integrability of the logarithmic kernel",
+      "kind": "lemma",
+      "statement": "qα is IntegrableOn (Ioi 0).",
+      "hypotheses": [
+        "α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure."
+      ],
+      "proofSteps": [
+        "For t≥0, exp(t)−Reα>0, so exp(t)−α≠0. The quotient is continuous on Ioi0 and therefore almost everywhere strongly measurable for restricted Lebesgue measure.",
+        "The bound node dominates its norm by δ⁻¹ exp(−t). Apply native integrableOn_exp_neg_Ioi, constant multiplication and MeasureTheory.Integrable.mono' to prove integrability."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-right-halfplane",
+        "DirichletPadicLFunctions:L3/complex-log-kernel-bound",
+        "mathlib:ContinuousOn.aestronglyMeasurable",
+        "mathlib:integrableOn_exp_neg_Ioi",
+        "mathlib:MeasureTheory.Integrable.mono'"
+      ],
+      "acceptance": [
+        "Integrability is proved as an input to improper FTC, never assumed silently."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_kernel_integrable"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2.",
+          "match": "An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedComplexLogTests.imaginary_kernel_integrable",
+          "kind": "compatibility",
+          "statement": "The native complex kernel i/(exp(t)−i) is integrable on Ioi0."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-kernel-derivative",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Derivative of the principal-logarithm primitive",
+      "kind": "lemma",
+      "statement": "For t≥0, HasDerivAt hα (qα(t)) t, with scalar field ℝ.",
+      "hypotheses": [
+        "α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure."
+      ],
+      "proofSteps": [
+        "Differentiate the real exponential exp(−t), include its derivative into ℂ, multiply by α and subtract from1.",
+        "The right-half-plane node supplies the native slit-plane hypothesis to HasDerivAt.clog_real. The resulting derivative is α exp(−t)/(1−α exp(−t)).",
+        "Use exp(−t)=exp(t)⁻¹ and the nonzero denominators from the same real-part bound to rewrite the derivative as α/(exp(t)−α)."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-right-halfplane",
+        "mathlib:HasDerivAt.clog_real",
+        "mathlib:HasDerivAt.ofReal_comp"
+      ],
+      "acceptance": [
+        "This is a real derivative of a complex-valued function, including at the endpoint0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_hasDerivAt"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2.",
+          "match": "An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedComplexLogTests.minus_one_derivative",
+          "kind": "computation",
+          "statement": "At α=−1,t=0 the derivative of log(1+exp(−t)) is−1/2."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-kernel-limit",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Vanishing of the logarithmic primitive at infinity",
+      "kind": "lemma",
+      "statement": "For every α∈ℂ, hα(t) tends to0 as t tends to+∞.",
+      "hypotheses": [
+        "α∈ℂ is arbitrary; no norm or nontriviality hypothesis is needed for this limit."
+      ],
+      "proofSteps": [
+        "Native exp(−t)→0 implies 1−α exp(−t)→1 in ℂ.",
+        "Apply Filter.Tendsto.clog at1, which lies in the native slit plane, and simplify log1=0."
+      ],
+      "prerequisites": [
+        "mathlib:Real.tendsto_exp_neg_atTop_nhds_zero",
+        "mathlib:Filter.Tendsto.clog",
+        "mathlib:Complex.one_mem_slitPlane"
+      ],
+      "acceptance": [
+        "The eventual limit does not assert regularity or integrability at the endpoint for α=1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_tendsto_zero"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2.",
+          "match": "An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedComplexLogTests.root_one_limit",
+          "kind": "degenerate",
+          "statement": "The limit still holds for α=1, despite its singular endpoint0."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-log-kernel-integral",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The cyclotomic logarithm integral",
+      "kind": "theorem",
+      "statement": "∫_(0,∞)qα(t)dt=−Complex.log(1−α).",
+      "hypotheses": [
+        "α∈ℂ, ‖α‖=1 and α≠1. Put qα(t)=α/(exp(t)−α), hα(t)=Complex.log(1−α exp(−t)); real exponentials are included into ℂ. These are native expressions, not new function carriers. Integrals use real Lebesgue measure."
+      ],
+      "proofSteps": [
+        "Apply the native improper fundamental theorem integral_Ioi_of_hasDerivAt_of_tendsto' with the preceding derivative on Ici0, separately proved integrability on Ioi0, and limit0 at infinity.",
+        "The value is0−hα(0)=−Complex.log(1−α). The integral is an ordinary absolutely convergent Bochner integral."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-log-kernel-derivative",
+        "DirichletPadicLFunctions:L3/complex-log-kernel-integrable",
+        "DirichletPadicLFunctions:L3/complex-log-kernel-limit",
+        "mathlib:MeasureTheory.integral_Ioi_of_hasDerivAt_of_tendsto'"
+      ],
+      "acceptance": [
+        "The formula excludes α=1; totalized log0 does not justify an integral there."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameLog_integral"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2.",
+          "match": "An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedComplexLogTests.minus_one_integral",
+          "kind": "computation",
+          "statement": "∫_(0,∞)−1/(exp(t)+1)dt=−log2."
+        },
+        {
+          "name": "SuggestedComplexLogTests.imaginary_integral",
+          "kind": "computation",
+          "statement": "∫_(0,∞)i/(exp(t)−i)dt=−log(1−i), fixing the root orientation."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-gauss-log-integral",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "Integration of the actual finite Gauss kernel",
+      "kind": "comparison",
+      "statement": "∫_(0,∞)tameComplexKernel η t dt = η(−1)G⁻¹ Σ_(c∈(ZMod D)ˣ)η⁻¹(c)log(1−ε^c).",
+      "hypotheses": [
+        "D>1, η:DirichletCharacter ℂ D primitive and nonprincipal, ε a primitive D-th complex root and G=gaussSum(η⁻¹,AddChar.zmodChar D ε)≠0. The level D is the actual primitive conductor. All powers use native least nonnegative ZMod representatives; logs are the principal complex logarithm. Gauss nonvanishing is an explicit hypothesis, with its general theory retained by ModularForms."
+      ],
+      "proofSteps": [
+        "Use the preceding actual complex Gauss-kernel comparison fη(t)=−G⁻¹Σ_a η⁻¹(a)/(ε^a exp(t)−1).",
+        "Remove all nonunit terms by MulChar.map_nonunit, including a=0. The inclusion of units is injective and its image is exactly the unit residues, so finite sum reindexing gives a sum over (ZMod D)ˣ. This step precedes any claim of summand integrability.",
+        "For each unit c, c≠0 moduloD. Primitivity gives ε^c≠1 and norm(ε^c)=1. Set α=(ε^c)⁻¹; algebraically 1/(ε^c exp(t)−1)=qα(t). Apply the scalar integral and integrability nodes, then native finite-sum and constant-multiplication integration. The result is G⁻¹Σ_c η⁻¹(c)log(1−(ε^c)⁻¹).",
+        "Reindex by the permutation c↦−c of the unit group. Root periodicity gives ε^(−c)=(ε^c)⁻¹, and η⁻¹(−c)=η⁻¹(−1)η⁻¹(c). Since η(−1)^2=1, η⁻¹(−1)=η(−1). This proves the stated sign."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/complex-gauss-kernel-comparison",
+        "DirichletPadicLFunctions:L2/complex-gauss-denominator",
+        "DirichletPadicLFunctions:L3/complex-log-kernel-integral",
+        "DirichletPadicLFunctions:L3/complex-log-kernel-integrable",
+        "mathlib:IsPrimitiveRoot.norm'_eq_one",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:MeasureTheory.integral_finsetSum",
+        "mathlib:MeasureTheory.integral_const_mul"
+      ],
+      "acceptance": [
+        "No individual integrability is asserted for the unweighted a=0 summand. Nonreal character values retain η⁻¹ weights; conjugating the whole weighted sum is not used."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.tameComplexKernel_integral_log"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2.",
+          "match": "An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedComplexLogTests.quadratic_three_integral",
+          "kind": "computation",
+          "statement": "For the quadratic character modulo3, ∫_(0,∞)tameComplexKernel η =π/(3√3)."
+        }
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L3/complex-lvalue-one-log",
+      "parentStageId": "DirichletPadicLFunctions:L3",
+      "realises": [
+        "DirichletPadicLFunctions:L3"
+      ],
+      "title": "The complex logarithmic value at one",
+      "kind": "theorem",
+      "statement": "η.LFunction 1=−G⁻¹Σ_(c∈(ZMod D)ˣ)η⁻¹(c)Complex.log(1−ε^c).",
+      "hypotheses": [
+        "D>1, η:DirichletCharacter ℂ D primitive and nonprincipal, ε a primitive D-th complex root and G=gaussSum(η⁻¹,AddChar.zmodChar D ε)≠0. The level D is the actual primitive conductor. All powers use native least nonnegative ZMod representatives; logs are the principal complex logarithm. Gauss nonvanishing is an explicit hypothesis, with its general theory retained by ModularForms."
+      ],
+      "proofSteps": [
+        "The actual tame kernel is smooth on the nonnegative half-line and all its within derivatives have positive-rate exponential decay by the preceding regularity and decay nodes. Thus the supplied initial-half-plane normalized Mellin identity applies at s=1; the Mellin convergence node also explicitly supplies convergence for Re(s)>0. Its Mellin power is t^0=1 and Complex.Gamma_one=1, so the normalized value is the ordinary integral of fη.",
+        "The entire tame Mellin comparison identifies that same value with−η(−1)η.LFunction1. Combine with the preceding Gauss-log integral and cancel η(−1), whose square is1, to obtain the displayed minus sign.",
+        "For two primitive roots with their respective nonzero Gauss sums, apply the identity twice. The Gauss-normalized log sums are equal. Changing only the root in the logarithms while holding the Gauss sum fixed is not the root-independence statement."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L3/complex-gauss-log-integral",
+        "DirichletPadicLFunctions:L2/tame-complex-regularity",
+        "DirichletPadicLFunctions:L2/tame-complex-derivative-decay",
+        "DirichletPadicLFunctions:L2/tame-complex-mellin-convergent",
+        "DirichletPadicLFunctions:L2/tame-complex-mellin-comparison",
+        "DirichletPadicLFunctions:L0/normalized-mellin-initial-halfplane",
+        "mathlib:Complex.Gamma_one"
+      ],
+      "acceptance": [
+        "The statement allows real or nonreal characters and arbitrary primitive ε with simultaneous Gauss normalization. The native L-function is evaluated at1, without claiming absolute convergence of its defining Dirichlet series there."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ComplexLogValue",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.LFunction_one_eq_log_sum"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2.",
+          "match": "An integral proof of the classical logarithmic formula, using the already planned actual tame complex Gauss kernel and Mellin continuation. The scalar lemmas are worker deductions through the native principal logarithm and improper fundamental theorem of calculus. This makes branch avoidance and absolute integrability explicit instead of relying on an unexplained boundary substitution in the Fourier series. No p-adic logarithmic comparison or new source finding is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedComplexLogTests.quadratic_three_value",
+          "kind": "computation",
+          "statement": "For the quadratic character modulo3, L(η,1)=π/(3√3)."
+        },
+        {
+          "name": "SuggestedComplexLogTests.quadratic_four_value",
+          "kind": "computation",
+          "statement": "For the quadratic character modulo4, L(η,1)=π/4."
+        },
+        {
+          "name": "SuggestedComplexLogTests.quadratic_five_value",
+          "kind": "computation",
+          "statement": "For the quadratic character modulo5, L(η,1)=2log((1+√5)/2)/√5."
+        }
+      ],
+      "api": [
+        {
+          "name": "DirichletPadic.LFunction_log_sum_root_independent",
+          "role": "compatibility",
+          "statement": "The Gauss-normalized finite principal-log sums agree for any two primitive D-th roots with nonzero corresponding Gauss sums."
+        }
+      ],
+      "planet": {
+        "name": "Complex logarithmic L-value"
+      }
     }
   ],
   "requests": [
@@ -16400,14 +16898,15 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, even-character logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed."
+        "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, the remaining even-character and p-adic logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed. The complex primitive L-value at1 is now supplied by the L3 logarithmic chain."
       ]
     },
     {
       "stageId": "DirichletPadicLFunctions:L3",
       "status": "partial",
       "remaining": [
-        "The actual tame integral on native continuous unit characters, its ambient test comparison, integral bound, uniform stability, parity and positive arithmetic specialization are decomposed. Analyticity transfers from an explicitly supplied analytic family in C(U,K). Construct the actual odd/dyadic principal-unit character families through PMIA L0a and the general scalar Mellin interfaces through LAD L3, then instantiate χ⟨x⟩^(1−s) with the corrected Teichmüller twist. Complex and p-adic logarithmic values, pure p-power conductor, pole numerator/convergence/simple-zero division, residue coordinate change and complete source extraction remain open. Retain ±1×(1+4ℤ₂); no analytic branch or rigid weight-space construction is claimed by this checkpoint."
+        "The primitive-conductor complex formula of Theorem6.1(i) is now decomposed through an absolutely integrable Gauss kernel, with principal-log branch control and explicit nonzero Gauss sum. Refine it to the even-character real-log norm formula in Remark6.3 and verify the odd formula with its root conventions. Construct the p-adic logarithmic/degree-zero value and analytic branches through their owners, pure p-power conductor, pole/residue analysis, complete source extraction and the PMIA L1 completed-algebra comparison. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms.",
+        "The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
       ]
     },
     {
@@ -16433,12 +16932,12 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, even-character logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed."
+      "detail": "The actual complex finite Gauss expression is now compared with the root-free tame kernel at every real point, including zero, under explicit primitive-root and nonzero-Gauss hypotheses. Its root independence, normalized Mellin comparison and the formal/analytic derivative and factorial interfaces are decomposed. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, the remaining even-character and p-adic logarithmic/degree-zero values, pure p-power conductor, full source extraction and the PMIA L1 completed-algebra comparison. No generic composite-modulus Gauss theorem or unrestricted evaluation of formal series is claimed. The complex primitive L-value at1 is now supplied by the L3 logarithmic chain."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual tame integral on native continuous unit characters, its ambient test comparison, integral bound, uniform stability, parity and positive arithmetic specialization are decomposed. Analyticity transfers from an explicitly supplied analytic family in C(U,K). Construct the actual odd/dyadic principal-unit character families through PMIA L0a and the general scalar Mellin interfaces through LAD L3, then instantiate χ⟨x⟩^(1−s) with the corrected Teichmüller twist. Complex and p-adic logarithmic values, pure p-power conductor, pole numerator/convergence/simple-zero division, residue coordinate change and complete source extraction remain open. Retain ±1×(1+4ℤ₂); no analytic branch or rigid weight-space construction is claimed by this checkpoint."
+      "detail": "The primitive-conductor complex formula of Theorem6.1(i) is now decomposed through an absolutely integrable Gauss kernel, with principal-log branch control and explicit nonzero Gauss sum. Refine it to the even-character real-log norm formula in Remark6.3 and verify the odd formula with its root conventions. Construct the p-adic logarithmic/degree-zero value and analytic branches through their owners, pure p-power conductor, pole/residue analysis, complete source extraction and the PMIA L1 completed-algebra comparison. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms. The actual tame integral and analytic transfer from supplied C(U,K)-valued families remain supplied. Actual odd/dyadic principal-unit families belong to PMIA L0a and scalar Mellin theory to LAD L3; instantiate the corrected Teichmüller twist when those interfaces are supplied."
     },
     {
       "title": "L4 completed-algebra, constant pseudomeasure and tame-family comparisons",
@@ -16714,43 +17213,43 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All 15 old findings and sourceVersions remain whole; no new finding or independent verdict. Versioned errata checks pass.",
+    "sourceIssues": "All15 prior findings and sourceVersions preserved whole; no new finding or independent verdict.",
     "validation": {
-      "nodes": 254,
+      "nodes": 262,
       "kinds": {
         "definition": 1,
-        "lemma": 117,
+        "lemma": 122,
         "construction": 27,
-        "theorem": 73,
-        "comparison": 36
+        "theorem": 75,
+        "comparison": 37
       },
-      "api": 261,
-      "packetTests": 275,
+      "api": 262,
+      "packetTests": 287,
       "definitionConstructionTests": 140,
-      "typedExamples": 278,
-      "planets": 23,
-      "baseline": 309,
-      "preservedWholeNodes": 247,
-      "preservedBaseline": 307,
+      "typedExamples": 290,
+      "planets": 24,
+      "baseline": 322,
+      "preservedWholeNodes": 254,
+      "preservedBaseline": 309,
       "preservedSourceIssues": 15,
       "newSourceIssues": 0,
-      "newNodes": 7,
-      "newNamedDeclarations": 13,
+      "newNodes": 8,
+      "newNamedDeclarations": 9,
       "newTypedTests": 12,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 396,
-      "dependencyEdges": 1845,
+      "reachableNodes": 404,
+      "dependencyEdges": 1880,
       "acyclic": true,
-      "baselineLeaves": 408,
+      "baselineLeaves": 421,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 99594,
+      "readerWords": 101922,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 643,
+      "compilerWarnings": 664,
       "allWarningsPlaceholders": true,
       "supplierNodes": 265,
       "currentSupplierNodes": 304,
@@ -16760,53 +17259,75 @@
       "pinnedTauCetiModules": 20,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 6,
-      "scratchMathlibModules": 1927,
+      "scratchCompleteLemmas": 8,
+      "scratchMathlibModules": 2515,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "arithmeticValues": 174,
-        "finiteResidueIntegrals": 486,
-        "precisionBounds": 486,
-        "parityZeros": 87,
-        "integralValues": 174,
-        "characterMultiplications": 607
+        "scalarIntegrals": 12,
+        "branchAndDecaySamples": 84,
+        "characterMultiplications": 188,
+        "gaussNormalizedLogValues": 22,
+        "actualKernelIntegrals": 6,
+        "rootIndependence": 16,
+        "closedForms": 3
       },
+      "numericalControlsCertified": false,
       "newRoutesStageLeaves": []
     },
     "lean": {
-      "suggestedFileSha256": "8433e868847455efc89f3e417f1c9f83a876756b6667679d86a09a30975af54a",
-      "sourceAuditSha256": "77d6b50eff052ac867ffe2341526ac8e28fb9c9e9463ff3b90dabc0209430936",
+      "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 643,
-      "warningsOnlyPlaceholders": true,
-      "mathlibModules": 3595,
-      "tauCetiModules": 20,
-      "actualSupplierModules": 1,
-      "supplierNodes": 265,
-      "currentSupplierNodes": 304,
-      "supplierWarnings": 569,
-      "supplierReuse": "The full target uses the verified actual 265-node PMIA artifact. The current 304-node supplier preserves that source in order; its recent weak-topology additions were read in the preceding checkpoint. No current declaration calls those additions and no local compile against the 304-node supplier is claimed. The completedGroupAlgebra comparison remains an open request.",
-      "supplierHashes": {
-        "source": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
-        "olean": "792990b5b54462842b15c9a9c5d18ce27b258e320f5e048c22bd1cf6189c3e25",
-        "log": "052f501c267b2d8edeec41158188185a72b4dc4b1acb567a0a9582f12710869d"
-      },
-      "nativeTauCetiBuild": "All 20 existing pinned artifacts reused; source and original zero-warning build logs verified. No native library build.",
-      "scratch": {
-        "sha256": "12f2cd94b157bfeed9b8a67cfc69dfd99ff5828e9ecb97c3f0aec30bd6a3a28b",
-        "provedLemmas": 6,
-        "actualDefinitions": 0,
-        "mathlibModules": 1927,
+      "warnings": 664,
+      "sha256": "617dbcde6cf2d6f67ff24c519c605c8940d672f7ac8cf4da04657d8949a453ca",
+      "nativeProbe": {
+        "completeLemmas": 8,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "scope": "Six complete native lemmas prove the compact continuous-character norm bound, pointwise norm one, supremum norm one, contraction by a norm-one continuous linear functional, analytic composition with that functional and the actual bounded scalar action of ℤ_p on ℚ_p. The last proof also supplies a local instance for the concrete suggested tests. General tame character comparisons remain unchecked blueprint declarations."
+        "sha256": "1df894207c68c16f0cb56b2deab4315ef9c552cc589f86eee74ce25357658889"
+      },
+      "artifactReuse": {
+        "compiledSupplierNodes": 265,
+        "currentSupplierNodes": 304,
+        "supplierWarnings": 569,
+        "hashes": {
+          "source": "7e810b665e46357baa4c233df66a64b68e46cbecf85333bcf9ec72a36520e09d",
+          "olean": "792990b5b54462842b15c9a9c5d18ce27b258e320f5e048c22bd1cf6189c3e25",
+          "log": "052f501c267b2d8edeec41158188185a72b4dc4b1acb567a0a9582f12710869d"
+        },
+        "wholeOldBodyPreserved": true,
+        "currentSupplierSourceSha256": "ad64bfe94d36581684ae9a29fa5b76dad2dd154b24fb55b420274f6585e45432",
+        "nativeTauModules": 20,
+        "nativeMathlibModules": 3595,
+        "artifactSha256": {
+          "TauCeti.NumberTheory.ModularForms.Degeneracy": "2016655e67266e5582e3bddcd93a5ed68af362af30b64c88734ec2e748764d72",
+          "TauCeti.Data.ZMod.Divisibility": "8751616831392059bebd4351279bc07fc8a02b3687d28d1c815d0b904473ecfb",
+          "TauCeti.Algebra.GroupWithZero.Divisibility": "d8f4bf8a1728da45f6c53fbb8286c5b895d7047cd08d9fcd81b64b2505889f84",
+          "TauCeti.NumberTheory.ModularForms.Basic": "23899f59f71dc847a8e2cc6bc8e6fef776dcbef1c538aa5d9fd0b3e5d3f5929d",
+          "TauCeti.Analysis.Complex.UpperHalfPlane.MoebiusAction": "35132289eb0fe82abae95efcdb82c26d34adc763bb74f2a9fa8fd50d6267a3a6",
+          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Units": "a65d2c3defc8a95cd90dd7b8f43f41658852796d48f07b9c5b8ffa6e57106c47",
+          "TauCeti.NumberTheory.ModularForms.CongruenceSubgroups.Basic": "b50d612d695c8ebc257b7f401492ccc81f0da0da760434d2f2474ff214ea0eb6",
+          "TauCeti.LinearAlgebra.Matrix.SpecialLinearGroup.Basic": "43f818e123177d26034bf712256845a86d470751829665e2c0861c981cb8d139",
+          "TauCeti.Data.ZMod.Units": "851735abe5f1587518dc31c25d6e8fdc68bc24ac70f610d37582c6476649f0f2",
+          "TauCeti.NumberTheory.ModularForms.DiamondOperators": "25e75934b43aaf1b6399341ce62e404762eeb64e5a03e65e6399616c340499fd",
+          "TauCeti.NumberTheory.ModularForms.SlashActionRat": "03a81db422f21dabda08a5e8d7d8229cf6b861f0fc6dd95fd1daa6db58d8753e",
+          "TauCeti.NumberTheory.HeckeRing.GLn.Basic": "e509998eda8d398e9f141bbc6fe3e256179342c9a4d5f8c3b7d37c6839620cfd",
+          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.DoubleCoset": "9b1098ef93027f0455e3be9d88879f194716b5ecb045f7d5830438af95e8dccc",
+          "TauCeti.LinearAlgebra.Matrix.GeneralLinearGroup.Diagonal.Basic": "c924051ab73a640801b370eea23b81f03fee7e6f772bfbcea91189d68af72d16",
+          "TauCeti.Algebra.Group.Subgroup.Centralizer": "4d86210849b3b8c4752b76f32658a419b4419e82955a0288a9c2a57bba91474e",
+          "TauCeti.RingTheory.PowerSeries.Support": "9834a0db712ca2c2512559efad99b5c027e374069de17a1266fdc0457488a67f",
+          "TauCeti.Analysis.Complex.UpperHalfPlane.Manifold": "e595b347e823cb1e4b9340a4800cce7c61b72a523169f9545983666b47bc0e0f",
+          "TauCeti.Topology.DiscreteSeparation": "b52d85d020754b97a57c629ca49e6dc747752971bb48b8ba87b31eab37e09433",
+          "TauCeti.NumberTheory.ModularForms.Cusps.Basic": "4fc5f585625b3f687d57e6dc2a136f20f232d2a374a99d9914c4ef696be306d2",
+          "TauCeti.NumberTheory.LocalField.UnitFiltration.Basic": "dd5e0cf19ea201a93a943cb43a135eaa20b7a2a23585fb4697ebb55080aa6ed8"
+        },
+        "scope": "Existing pinned native artifacts and actual old265-node PMIA artifact reused. No fresh library build and no compile against the newer supplier revision claimed."
       }
     },
     "publication": {
-      "base": "1412e4956da98b1afe4af5ff80c252bb84d709db",
+      "base": "a2b7622ecf52ce11891aa8347f5272db0c5bcffe",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -20528,6 +21049,42 @@
       "reading": "Definition 5.13, Definition 5.18, Remark 5.19, Theorem 5.20 and Remarks 5.21–5.22, complete published 146–149 / PDF 47–50 freshly read from the hash-verified version of record. Complete published 132–133 / PDF 33–34 also freshly read to distinguish continuous and locally analytic test topologies. Existing tame measure/support/norm/reflection, finite-character arithmetic comparison and actual clopen/unit restriction interfaces were reread with their signatures. No full-paper or independent-review claim.",
       "boundary": "The actual tame integral on native continuous unit characters, its ambient test comparison, integral bound, uniform stability, parity and positive arithmetic specialization are decomposed. Analyticity transfers from an explicitly supplied analytic family in C(U,K). Construct the actual odd/dyadic principal-unit character families through PMIA L0a and the general scalar Mellin interfaces through LAD L3, then instantiate χ⟨x⟩^(1−s) with the corrected Teichmüller twist. Complex and p-adic logarithmic values, pure p-power conductor, pole numerator/convergence/simple-zero division, residue coordinate change and complete source extraction remain open. Retain ±1×(1+4ℤ₂); no analytic branch or rigid weight-space construction is claimed by this checkpoint.",
       "inputBase": "1412e4956da98b1afe4af5ff80c252bb84d709db"
+    },
+    "complexLogValue": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3290,
+      "previousHead": "5128996eb844f624135e78668c1ec74df81b196a",
+      "previousMerge": "f5c4260e92ce037b4f23d4d3640bd7d71e5dca98",
+      "preservedWholeNodes": 254,
+      "preservedBaseline": 309,
+      "preservedFindings": 15,
+      "newNodes": 8,
+      "reading": "Theorem6.1(i) and its complete proof in §6.1, published149–150/PDF50–51; complete pages freshly read on28 September2026, including Remark6.3 and the opening of§6.2. Full native log differentiation, principal-log continuity, exponential integrability, real/complex derivative transport and improper FTC with ambient hypotheses read. The prior source/protocol/audit readings persist; no exhaustive native absence search is asserted.",
+      "boundary": "The primitive-conductor complex formula of Theorem6.1(i) is now decomposed through an absolutely integrable Gauss kernel, with principal-log branch control and explicit nonzero Gauss sum. Refine it to the even-character real-log norm formula in Remark6.3 and verify the odd formula with its root conventions. Construct the p-adic logarithmic/degree-zero value and analytic branches through their owners, pure p-power conductor, pole/residue analysis, complete source extraction and the PMIA L1 completed-algebra comparison. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms.",
+      "inputBase": "f5c4260e92ce037b4f23d4d3640bd7d71e5dca98",
+      "publication": {
+        "base": "a2b7622ecf52ce11891aa8347f5272db0c5bcffe",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "scalarIntegrals": 12,
+        "branchAndDecaySamples": 84,
+        "characterMultiplications": 188,
+        "gaussNormalizedLogValues": 22,
+        "actualKernelIntegrals": 6,
+        "rootIndependence": 16,
+        "closedForms": 3
+      },
+      "numericalMethod": "70-decimal mpmath numerical controls, tolerance1e-60; not interval-certified and not a proof of general identities. Finite unit tables, direct scalar quadrature, independent digamma values, grouped-kernel quadrature, all primitive roots and three closed forms."
     }
   },
   "requestResolutions": [
