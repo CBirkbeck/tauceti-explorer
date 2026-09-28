@@ -1,4 +1,300 @@
-**Current unit-coordinate topology checkpoint:** 304 unchecked nodes: 2 definitions,
+# Integral unit moments and pseudomeasure separation
+
+**Current checkpoint:** 320 unchecked nodes: 2 definitions, 43 constructions,
+201 lemmas, 47 theorems and 27 comparisons; 219 API items (216 on definitions
+and constructions), 222 packet tests (157 on definitions and constructions),
+233 typed examples, 17 planets and 315 baseline citations. Eight gaps,
+no outgoing requests, fourteen inherited source findings and zero closed
+stages remain. The earlier developments below retain their mathematical
+content; their numerical summaries describe historical checkpoints.
+
+Fix any prime p, including 2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), the native space
+of measures with the preceding multiplicative convolution. Its commutative
+ring structure retains exactly those operations. Write δ for the actual
+Dirac monoid homomorphism, Q=FractionRing M for the native total quotient,
+and P for the existing generic pseudomeasure module specialized to δ and Q.
+The test t_k is the actual continuous function u↦(u:Z)^k. The moment of μ
+is μ(t_k). No comparison with the completed group algebra is assumed here.
+
+Two algebraic constructions precede the specialization. For any locally
+compact topological monoid G with continuous multiplication and any topological
+commutative ring R, `AbstractMeasure.diracHom` bundles the actual atoms.
+For a native continuous monoid homomorphism κ:G→R,
+`AbstractMeasure.characterIntegralAlgHom` bundles μ↦μ(κ) as an R-algebra map.
+Right-handed convolution evaluates this character as
+μ(x↦ν(y↦κ(xy))). Multiplicativity of κ and linearity of each functional give
+μ(κ)ν(κ). This calculation needs no Fubini theorem, commutativity of G,
+compactness of G, norm, field or completeness assumption.
+
+Positive moment separation is first reduced to an ambient calculation on Z.
+A measure killing every x^k for k>0 kills every integral polynomial with zero
+constant coefficient. For n>0, the descending Pochhammer polynomial has zero
+constant coefficient and evaluates to n! times the nth Mahler function.
+Cancel the nonzero n! in the characteristic-zero domain Z. The factorial
+need not be a unit. Thus the Amice transform is the constant series μ(1).
+For a measure pushed forward from U, the existing unit-measure Amice
+comparison puts this constant in the kernel of ψ. Since ψ fixes constants,
+it is zero, and the measure is zero. Unit support is essential: the ambient
+atom δ_0 has all positive moments zero.
+
+Convolution multiplies moments. Consequently a measure with every positive
+moment nonzero is regular: any annihilated measure has all positive moments
+zero. The integral unit a with value p+1 has a^k≠1 for every k>0. Hence
+δ_a−1 is regular, including at p=2. Choosing merely a≠1 is insufficient:
+δ_(−1)−1 has the nonzero annihilator δ_(−1)+1. Likewise, all even moments
+fail to detect δ_1−δ_(−1).
+
+For k>0 the existing admissible-evaluation construction now gives the actual
+positive pseudomoment m_k:P→ℚ_p. With a=p+1 its formula is
+
+m_k(z)=moment_k(numerator(a,z))/(a^k−1).
+
+The numerator is the existing integral measure determined by
+ι(numerator(a,z))=(δ_a−1)z in Q. The denominator is nonzero in ℚ_p.
+Clearing-factor independence is inherited from the generic construction.
+For any g∈U, even when g^k=1, cross multiplication gives
+
+moment_k(numerator(g,z))=(g^k−1)m_k(z).
+
+If all m_k(z) vanish, the numerator for a=p+1 is zero by integral moment
+separation. The image of the regular δ_a−1 is a unit in Q, so z=0.
+The same regular factor is killed by total mass. Therefore total mass cannot
+extend to a ring homomorphism Q→Z. No fraction-field assumption on Q is used.
+
+The complete published RJW pages 128–132 were freshly read, including
+Definition 3.34, Remark 3.35 and all three parts of Lemma 3.36. This is the
+ℤ_p/ℚ_p case, with the existing infinite-order correction E3 and the
+whole-total-quotient obstruction E4 preserved. The generic completed algebra
+remains owned by ProfiniteProPGroups Layer 9. Its comparison, general
+finite-extension coefficient lattices, continuous-character specializations
+beyond positive integer powers, and analytic families remain explicit work.
+
+The exact `diracHom` spelling follows the fully read
+[Mathlib convolution PR #41961](https://github.com/leanprover-community/mathlib4/pull/41961),
+merged after the pinned baseline. It is an upstream compatibility target,
+not a declaration available at the programme's pin. Character integration
+uses the existing native ContinuousMonoidHom bundle.
+
+## New declarations, dependencies and acceptance cases
+
+The following entries use the common actual-unit hypotheses above, except
+that the first two use the stated general G and R. Each proof plan is a
+worker decomposition of the source passage, not a claim of formalization.
+
+### The actual Dirac monoid homomorphism
+
+`AbstractMeasure.diracHom` (construction). Bundle g↦δ_g as a monoid homomorphism G→D(G,R).
+
+Use the native Dirac map on the existing measure carrier. The preceding Dirac convolution formula supplies multiplication and the preceding convolution unit is δ_1. Its powers follow from monoid-hom functoriality. For a continuous monoid homomorphism h:G→H, native pushforward sends δ_g to δ_(h(g)), giving the displayed naturality API.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L1/convolution-algebra`, `PadicMeasuresIwasawaAlgebras:L1/convolution-dirac`, `mathlib:AbstractMeasure.dirac`, `mathlib:AbstractMeasure.map_dirac`.
+
+API:
+
+- `AbstractMeasure.diracHom_apply`: The value at g is the actual native Dirac measure δ_g.
+- `AbstractMeasure.diracHom_pow`: δ_(g^k)=δ_g^k for every natural k.
+- `AbstractMeasure.diracHom_map`: Pushforward by a continuous monoid homomorphism h sends diracHom(g) to δ_(h(g)).
+
+Typed acceptance cases:
+
+- `UnitMomentTests.dirac_hom_one`: The image of the monoid identity is the convolution identity.
+- `UnitMomentTests.dirac_hom_zero_coefficients`: Over ZMod1 every Dirac value is zero.
+- `UnitMomentTests.dirac_hom_product`: The image of gh is δ_g∗δ_h, preserving the order of factors.
+
+Acceptance: Follow the exact diracHom spelling in the identified post-baseline Mathlib PR41961; its implementation is not copied or treated as pinned.
+
+### Continuous-character integration as an algebra map
+
+`AbstractMeasure.characterIntegralAlgHom` (construction). For a native ContinuousMonoidHom κ:G→R, define the R-algebra homomorphism D(G,R)→R by μ↦μ(κ.toContinuousMap).
+
+Evaluation of the native continuous dual is additive and R-linear. The convolution identity evaluates κ at1, giving1; scalars evaluate to their own values. The preceding right-handed convolution formula evaluates μ∗ν as μ(x↦ν(y↦κ(xy))). Multiplicativity of κ identifies the inner test with κ(x) times κ(y). Pull each scalar through its native R-linear functional to obtain μ(κ)ν(κ). No Fubini theorem or commutativity of G is needed. Bundle these identities in the native AlgHom. Dirac evaluation recovers κ(g). The trivial character is the constant-one test, hence gives total mass. Composition with diracHom recovers κ as a monoid homomorphism.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L1/convolution-algebra`, `PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/dirac-hom`, `mathlib:ContinuousMonoidHom`, `mathlib:AbstractMeasure.dirac_apply`.
+
+API:
+
+- `AbstractMeasure.characterIntegralAlgHom_apply`: The value is evaluation on κ.toContinuousMap.
+- `AbstractMeasure.characterIntegralAlgHom_dirac`: The value of δ_g is κ(g).
+- `AbstractMeasure.characterIntegralAlgHom_one_character`: The trivial character gives μ(1), the existing total mass.
+- `AbstractMeasure.characterIntegralAlgHom_diracHom`: Composition with diracHom is κ.toMonoidHom.
+
+Typed acceptance cases:
+
+- `UnitMomentTests.character_zero`: The zero measure evaluates to zero.
+- `UnitMomentTests.character_identity_mass`: The convolution identity evaluates to1 for every character.
+- `UnitMomentTests.character_scalar_atom`: The value of cδ_g is cκ(g).
+
+Acceptance: This is scalar-valued integration against existing continuous tests. The character-space and locally analytic Mellin theories stay with their owners.
+
+### Positive moments kill polynomials without a constant term
+
+`AbstractMeasure.polynomial_apply_eq_zero_of_positive_moments` (lemma). If μ∈D(Z,Z) kills x^k for every k>0, then μ(f)=0 for every f∈Z[X] with constant coefficient zero, evaluated as an actual continuous function.
+
+Native polynomial evaluation is the finite sum of coefficients times x^k. Regard this as equality of continuous maps by extensionality. Pull the finite sum and each Z-scalar through μ. The degree-zero term vanishes by the coefficient hypothesis; every positive-degree term vanishes by the moment hypothesis.
+
+Prerequisites: `mathlib:Polynomial.eval_eq_sum_range`.
+
+Typed acceptance cases:
+
+- `UnitMomentTests.ambient_zero_atom`: The ambient nonzero measure δ_0 kills every strictly positive moment.
+
+Acceptance: The coefficient ring is integral. There is no claim that positive monomials alone detect the ambient atom δ_0.
+
+### Positive moments kill positive Mahler coefficients
+
+`AbstractMeasure.mahler_apply_eq_zero_of_positive_moments` (lemma). If μ∈D(Z,Z) kills every strictly positive ordinary moment, then μ(mahler n)=0 for each n>0.
+
+The native descending Pochhammer polynomial of positive order n has zero constant coefficient. Apply the preceding polynomial-vanishing result after mapping its integer coefficients into Z. Native Ring.descPochhammer_eq_factorial_smul_choose and mahler_apply identify its evaluated function with n! times mahler n. Therefore n!·μ(mahler n)=0. The natural factorial is nonzero in the characteristic-zero domain Z, so cancel it. It is generally not a unit; neither invert it in Z nor silently use a rational polynomial as an integral test.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/positive-polynomial-vanishing`, `mathlib:descPochhammer_ne_zero_eval_zero`, `mathlib:Polynomial.coeff_zero_eq_eval_zero`, `mathlib:Ring.descPochhammer_eq_factorial_smul_choose`, `mathlib:mahler_apply`.
+
+Acceptance: The zero Mahler coefficient is not forced to vanish here.
+
+### The constant Amice transform of positive-moment vanishing
+
+`AbstractMeasure.amice_eq_constant_of_positive_moments` (comparison). If μ∈D(Z,Z) kills every positive ordinary moment, its native Amice transform equals the constant series with value μ(1).
+
+Use coefficient extensionality. Each positive coefficient is μ(mahler n), zero by the preceding lemma. The zeroth Mahler function is the constant1. Native coeff_amiceTransform therefore gives μ(1) at degree0, exactly the constant series.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/positive-mahler-vanishing`, `mathlib:AbstractMeasure.coeff_amiceTransform`, `mathlib:mahler_apply`.
+
+Acceptance: This is the correct ambient conclusion, exemplified by δ_0. Unit support removes the remaining constant in the next theorem.
+
+### Positive moments determine integral unit measures
+
+`AbstractMeasure.units_eq_zero_of_positive_moments` (theorem). If μ∈M satisfies μ(t_k)=0 for every k>0, then μ=0.
+
+Push μ along the actual inclusion U→Z. Native map_apply identifies every positive ordinary moment of the pushforward with μ(t_k), so its Amice transform is constant by the preceding comparison. The existing unitsMeasureAmiceEquiv puts that same Amice transform in kerψ. Since ψ is Z-linear and ψ(1)=1, it fixes constant series. Hence the constant is zero. Injectivity of the existing unit-measure Amice equivalence gives μ=0. This is the integral version of RJW Lemma3.36(i), including p=2.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/positive-moments-constant-amice`, `PadicMeasuresIwasawaAlgebras:L2/unit-measure-amice-kernel-equivalence`, `PadicMeasuresIwasawaAlgebras:L2/psi-series`, `mathlib:AbstractMeasure.map_apply`.
+
+Typed acceptance cases:
+
+- `UnitMomentTests.even_moments_insufficient`: The nonzero measure δ_1−δ_(−1) kills every even moment, including at p=2.
+
+Acceptance: Both all positive degrees and actual unit support are needed. No arithmetic progression of moments is substituted without a separate density theorem.
+
+### Multiplicativity of ordinary unit moments
+
+`AbstractMeasure.units_mul_moment` (lemma). For μ,ν∈M and every k≥0, (μ∗ν)(t_k)=μ(t_k)ν(t_k).
+
+Bundle u↦(u:Z)^k as a native ContinuousMonoidHom, using the native unit inclusion, continuity and the power map in a commutative ring. Specialize characterIntegralAlgHom to this character and use its multiplicativity. The degree-zero case recovers the established total-mass formula.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`.
+
+Acceptance: Retain the exact coefficient ring, actual carrier and stated positivity hypotheses.
+
+### Nonvanishing positive moments imply regularity
+
+`AbstractMeasure.units_regular_of_positive_moments` (theorem). If μ∈M has μ(t_k)≠0 for every k>0, then μ belongs to native nonZeroDivisors M.
+
+If μ∗ν=0, evaluate every positive moment and use the preceding multiplicativity. Since Z is a domain and μ(t_k)≠0, every ν(t_k) is zero. The preceding separation theorem gives ν=0. The same argument handles ν∗μ=0, or use the existing commutativity theorem. These are exactly the two native non-zero-divisor conditions. No domain structure on M is assumed.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/unit-convolution-moments`, `PadicMeasuresIwasawaAlgebras:L3/unit-positive-moment-separation`, `mathlib:mem_nonZeroDivisors_iff`.
+
+Typed acceptance cases:
+
+- `UnitMomentTests.regular_identity`: The identity measure is regular.
+- `UnitMomentTests.torsion_difference`: (δ_(−1)−1)(δ_(−1)+1)=0 and δ_(−1)+1 is nonzero; the torsion Dirac difference is not regular, also at p=2.
+
+Acceptance: The group-measure ring has torsion-related zero divisors, so nonzeroness of μ alone is not enough.
+
+### The integral unit represented by p plus one
+
+`AbstractMeasure.exists_one_add_prime_unit` (lemma). There exists a∈U whose underlying p-adic integer is the natural number p+1.
+
+The consecutive integers p and p+1 are coprime. Native norm_natCast_eq_one_iff gives norm1 for p+1 in Z. Native PadicInt.isUnit_iff gives a unit with that value. This is an existence statement in the existing units type.
+
+Prerequisites: `mathlib:PadicInt.norm_natCast_eq_one_iff`, `mathlib:PadicInt.isUnit_iff`.
+
+Acceptance: Retain the exact coefficient ring, actual carrier and stated positivity hypotheses.
+
+### The positive powers of the selected unit are nontrivial
+
+`AbstractMeasure.one_add_prime_unit_pow_ne_one` (lemma). For a∈U with underlying value p+1 and every k>0, (a:Z)^k≠1.
+
+Primality gives p+1>1. Its positive natural powers are strictly greater than1 in ℕ. The natural-number map into the characteristic-zero ring Z is injective and preserves powers. Transfer the natural inequality to non-equality in Z.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`.
+
+Acceptance: The unit need not topologically generate U. The argument works for p=2 and never uses a procyclic decomposition.
+
+### Regular Dirac differences from infinite-order units
+
+`AbstractMeasure.dirac_sub_one_regular` (theorem). If a∈U satisfies (a:Z)^k≠1 for every k>0, then δ_a−1 is regular in M.
+
+Native Dirac evaluation and the convolution unit formula give the kth moment (a:Z)^k−1. It is nonzero by hypothesis. Apply the preceding positive-moment regularity theorem.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/unit-moment-regularity`, `PadicMeasuresIwasawaAlgebras:L1/convolution-algebra`, `mathlib:AbstractMeasure.dirac_apply`.
+
+Acceptance: An arbitrary a≠1 does not suffice: a=−1 fails at every positive even degree. This retains the packet’s existing source correction E3.
+
+### A concrete regular clearing factor
+
+`AbstractMeasure.one_add_prime_dirac_sub_one_regular` (theorem). For any a∈U with underlying value p+1, the actual measure δ_a−1 is regular.
+
+The preceding nontrivial-power lemma verifies every positive moment hypothesis of regular-dirac-difference. Use the existing unit-existence lemma whenever a concrete clearing element is needed. The factor has total mass zero, a useful obstruction to whole-fraction-ring evaluation.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers`, `PadicMeasuresIwasawaAlgebras:L3/regular-dirac-difference`.
+
+Acceptance: Retain the exact coefficient ring, actual carrier and stated positivity hypotheses.
+
+### Positive moments of actual unit pseudomeasures
+
+`AbstractMeasure.positivePseudoMoment` (construction). For k>0 define positivePseudoMoment(k):P→ℚ_p by the existing admissible evaluation for the power character u↦(u:Z)^k, included into ℚ_p.
+
+The actual character-integral algebra map, composed with Z→ℚ_p, gives a ring homomorphism f_k:M→ℚ_p. Equip ℚ_p with precisely its induced M-algebra structure inside the construction. Choose the unit a with value p+1 supplied above. The image f_k(δ_a−1)=(p+1)^k−1 is nonzero in ℚ_p and hence a unit. Apply the existing Iwasawa.evalAt with that actual δ, native total quotient Q, and this algebra structure. The existing clearing-factor independence proves independence of the witness a and of any other admissible clearing element. Its specification gives the quotient formula; its integral law gives ordinary unit moments. Its existing linearity gives additivity and the displayed M-scalar formula. The local commutative-ring structure used for FractionRing retains the existing ring operations and the previous commutativity proof. Total disconnectedness of U is transported through the existing unit-locus homeomorphism using the native embedding criterion; it is not an unproved extra field.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L1/dirac-hom`, `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`, `PadicMeasuresIwasawaAlgebras:L1/commutative-convolution`, `PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers`, `PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation`, `PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation-spec`, `PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor`, `PadicMeasuresIwasawaAlgebras:L3/evaluation-on-integral-elements`, `mathlib:FractionRing`, `mathlib:Topology.IsEmbedding.isTotallyDisconnected_range`, `mathlib:isTotallyDisconnected_of_totallyDisconnectedSpace`.
+
+API:
+
+- `AbstractMeasure.positivePseudoMoment_eq`: For any a with value p+1, the value is the kth numerator moment divided by (a^k−1), interpreted in ℚ_p.
+- `AbstractMeasure.positivePseudoMoment_integral`: On the existing integral inclusion of μ∈M, the value is μ(t_k) included into ℚ_p.
+- `AbstractMeasure.positivePseudoMoment_add`: Values add under addition in the existing pseudomeasure module.
+- `AbstractMeasure.positivePseudoMoment_smul`: For μ∈M and z∈P, the value on μ·z is μ(t_k) times the value on z.
+
+Typed acceptance cases:
+
+- `UnitMomentTests.pseudomoment_zero`: Every positive pseudomoment of zero is zero.
+- `UnitMomentTests.pseudomoment_one`: The integral identity measure has all positive pseudomoments1.
+- `UnitMomentTests.pseudomoment_sign`: The integral atom at−1 has kth positive pseudomoment(−1)^k, including the dyadic case.
+
+Acceptance: Only positive integer degrees are supplied. No value at k=0, analytic family, finite-extension coefficient lattice or algebra homeomorphism with the completed group algebra is asserted.
+
+### Positive moments after an arbitrary Dirac clearing factor
+
+`AbstractMeasure.positivePseudoMoment_numerator` (lemma). For z∈P, g∈U and k>0, the kth moment of numerator(g,z), included into ℚ_p, is ((g:Z)^k−1)·positivePseudoMoment(k,z).
+
+Choose a with value p+1. The existing cross-multiplied numerator identity is (δ_a−1) numerator(g,z)=(δ_g−1) numerator(a,z). Apply the actual kth character-integral ring homomorphism and include into ℚ_p. Its value on δ_a−1 is nonzero, so divide by this factor and use the defining positive-pseudomoment formula. The equation is valid even when g^k=1; it does not divide by that possibly zero factor.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/actual-positive-pseudomoment`, `PadicMeasuresIwasawaAlgebras:L3/cross-multiplied-numerators`, `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers`.
+
+Acceptance: For g=1 the numerator is zero. Admissibility of g is needed only if this identity is solved for the pseudomoment.
+
+### Positive moments determine actual unit pseudomeasures
+
+`AbstractMeasure.pseudomeasure_eq_zero_of_positive_moments` (theorem). If z∈P has every positivePseudoMoment(k,z)=0 for k>0, then z=0.
+
+Choose a with value p+1. The numerator-moment identity makes every positive moment of the integral measure numerator(a,z) vanish in ℚ_p, hence in Z by injectivity of the coefficient inclusion. The unit-measure separation theorem makes this numerator zero. Its defining equation gives ι(δ_a−1)z=0 in the native total quotient. The explicit clearing factor is regular by regular-one-add-prime-difference. Native localization sends it to a unit, so cancel it to obtain the underlying fraction zero; native subtype extensionality proves z=0.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-numerator`, `PadicMeasuresIwasawaAlgebras:L3/unit-positive-moment-separation`, `PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `PadicMeasuresIwasawaAlgebras:L3/cleared-numerator-spec`, `mathlib:IsLocalization.map_units`.
+
+Acceptance: This realizes the ℤ_p/ℚ_p actual-measure case of Lemma3.36(iii), with the source’s infinite-order correction. The total quotient need not be a field.
+
+### Total mass does not extend to the actual total quotient
+
+`AbstractMeasure.no_totalMass_fraction_extension` (theorem). There is no ring homomorphism Q→Z whose restriction to M is the actual total-mass character integral.
+
+Choose a with value p+1. The regular element δ_a−1 is killed by total mass, since both atoms have mass1. Apply the already decomposed generic no_fraction_extension theorem with this actual ring, native total quotient and actual character-integral ring homomorphism. The target Z is nontrivial.
+
+Prerequisites: `PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom`, `PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit`, `PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference`, `PadicMeasuresIwasawaAlgebras:L3/obstruction-to-fraction-extension`.
+
+Acceptance: This concrete obstruction is not a new source finding. It demonstrates why the positive-pseudomoment constructor uses admissible factors, rather than assuming a map on the whole total quotient.
+
+## Earlier measure, topology and coefficient developments
+
+**Historical unit-coordinate topology checkpoint:** 304 unchecked nodes: 2 definitions,
 40 constructions, 195 lemmas, 41 theorems and 26 comparisons; 208 API items,
 209 packet tests (148 on definitions/constructions), 220 typed examples,
 17 planets and 309 baseline citations. Eight gaps, no outgoing requests,
@@ -114,7 +410,7 @@ targets remain recorded gaps. Historical checkpoint counts below describe
 their respective additions; the current counts and topology are those above.
 
 
-**Current unit-coordinate checkpoint:** 294 unchecked nodes: 2 definitions, 40 constructions, 190 lemmas, 37 theorems and 25 comparisons; 208 API items, 201 packet tests (148 on definitions/constructions), 212 typed examples, 17 planets and 297 baseline citations. Eight gaps, no outgoing requests, fourteen inherited source findings and zero closed stages remain.
+**Historical unit-coordinate checkpoint:** 294 unchecked nodes: 2 definitions, 40 constructions, 190 lemmas, 37 theorems and 25 comparisons; 208 API items, 201 packet tests (148 on definitions/constructions), 212 typed examples, 17 planets and 297 baseline citations. Eight gaps, no outgoing requests, fourteen inherited source findings and zero closed stages remain.
 
 ## Recovering a measure from its finite unit coordinates
 
@@ -162,7 +458,7 @@ ProfiniteProPGroups Layer 9 carrier, actual quotient equivalences and cofinality
 and must prove the algebra and joint coefficient/group topological comparison.
 The coordinate recovery here does not itself identify those topologies.
 
-**Current coefficient-algebra moment checkpoint:** 282 unchecked nodes: 38 constructions, 181 lemmas, 2 definitions, 36 theorems and 25 comparisons; 196 API items, 193 packet tests (142 on definitions/constructions), 204 typed examples, 17 planets and 289 baseline declarations. Eight gaps, no requests, fourteen source findings and zero closed stages remain.
+**Historical coefficient-algebra moment checkpoint:** 282 unchecked nodes: 38 constructions, 181 lemmas, 2 definitions, 36 theorems and 25 comparisons; 196 API items, 193 packet tests (142 on definitions/constructions), 204 typed examples, 17 planets and 289 baseline declarations. Eight gaps, no requests, fourteen source findings and zero closed stages remain.
 
 ## Ordinary moments over a coefficient algebra
 
@@ -222,15 +518,15 @@ algebra comparisons remain separate mathematical targets.
 
 The mathematical interfaces below remain part of the roadmap. Earlier checkpoint counts and validation paragraphs describe their historical scopes; the current handoff records current validation.
 
-**Current unit-test checkpoint:** 276 unchecked nodes (38 construction, 178 lemma, 2 definition, 34 theorem, 24 comparison), 196 API items, 185 packet tests (142 on definitions/constructions), 196 typed examples, 17 planets and 287 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
+**Historical unit-test checkpoint:** 276 unchecked nodes (38 construction, 178 lemma, 2 definition, 34 theorem, 24 comparison), 196 API items, 185 packet tests (142 on definitions/constructions), 196 typed examples, 17 planets and 287 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
 
 Eleven L1 declarations supply concrete finite-test descent and measure separation. Earlier checkpoint counts and validation passages below are historical; current evidence and scope are at the end.
 
-**Current unit-quotient checkpoint:** 265 unchecked nodes (38 construction, 171 lemma, 2 definition, 30 theorem, 24 comparison), 196 API items, 181 packet tests (142 on definitions/constructions), 192 typed examples, 17 planets and 274 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
+**Historical unit-quotient checkpoint:** 265 unchecked nodes (38 construction, 171 lemma, 2 definition, 30 theorem, 24 comparison), 196 API items, 181 packet tests (142 on definitions/constructions), 192 typed examples, 17 planets and 274 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
 
 Sixteen L1 adapters now supply the concrete unit residue system. Earlier checkpoint counts and verification paragraphs below are historical; current evidence and scope are at the end.
 
-**Current packet:** 249 unchecked nodes (36 construction, 161 lemma, 2 definition, 28 theorem, 22 comparison), 189 API items, 171 packet tests (134 on definitions/constructions), 182 typed examples, 17 planets and 245 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
+**Historical packet:** 249 unchecked nodes (36 construction, 161 lemma, 2 definition, 28 theorem, 22 comparison), 189 API items, 171 packet tests (134 on definitions/constructions), 182 typed examples, 17 planets and 245 baseline records. Eight gaps, no requests, fourteen findings and zero closed stages remain.
 
 Seventeen L1 entries now specify convolution and finite algebra coordinates. Earlier validation below is historical; the current evidence is recorded at the end.
 
@@ -531,7 +827,7 @@ p^n, multiplication by z^x and multivariable theory remain in the explicit gaps.
 
 ## Earlier checkpoint material
 
-**Current finite-projection checkpoint:** 225 unchecked nodes (30 constructions,145 lemmas,2 definitions,28 theorems,20 comparisons),169 API entries,146 packet tests (116 on definitions/constructions),157 typed examples,15 planets and215 baseline references. Fourteen source findings,eight gaps,zero requests and zero closed stages remain. Historical checkpoint counts and validations below retain their earlier scope.
+**Historical finite-projection checkpoint:** 225 unchecked nodes (30 constructions,145 lemmas,2 definitions,28 theorems,20 comparisons),169 API entries,146 packet tests (116 on definitions/constructions),157 typed examples,15 planets and215 baseline references. Fourteen source findings,eight gaps,zero requests and zero closed stages remain. Historical checkpoint counts and validations below retain their earlier scope.
 
 **Residue averaging checkpoint, 27 September 2026.** The packet now has 209
 unchecked nodes (28 constructions, 134 lemmas, 2 definitions, 26 theorems, 19 comparisons), 163 API entries, 140 packet tests,
