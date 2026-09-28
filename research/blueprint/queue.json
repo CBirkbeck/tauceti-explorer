@@ -19005,9 +19005,9 @@
     "REV-RS-24"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralHeckeAndGaloisDeterminants.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #758"
+   "note": "claimed on GitHub issue #758"
   },
   {
    "id": "REV-IntegralHeckeAndGaloisDeterminants",
@@ -22389,11 +22389,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-DrinfeldModulesAndTModules--DM.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-FunctionFieldArithmetic",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1008"
   },
   {
    "id": "REV-DrinfeldModulesAndTModules--DM.0",
@@ -24010,13 +24011,13 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-AdditiveCombinatorics.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-ClassicalArithmeticCompletion",
     "BP-FoundationsAndLibraryIntegration",
     "BP-SieveMethodsAndPrimePatterns"
    ],
-   "note": "claimed on GitHub issue #1037"
+   "note": "released on GitHub issue #1037"
   },
   {
    "id": "REV-AdditiveCombinatorics",
@@ -24172,14 +24173,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-ExponentialSumsAndCircleMethod",
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "note": "claimed on GitHub issue #1041"
+   "note": "released on GitHub issue #1041"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory",
