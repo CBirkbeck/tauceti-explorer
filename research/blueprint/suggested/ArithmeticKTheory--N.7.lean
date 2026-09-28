@@ -15,7 +15,9 @@ The reviewed audit AUDIT-27 records both layers as NOT BUILT. What the pinned
 libraries DO have is imported and never redefined:
 
 * `bernoulli` (B₁ = -1/2, this roadmap's arithmetic convention) and `bernoulli'`
-  (B₁ = +1/2), with `bernoulli_eq_bernoulli'_of_ne_one` relating them.
+  (B₁ = +1/2), with `bernoulli_eq_bernoulli'_of_ne_one` relating them; von Staudt–Clausen
+  (`Bernoulli.vonStaudt_clausen`). The source's topologists' `B_k` is `|bernoulli (2k)|`,
+  not `bernoulli'` (reviewer's correction).
 * `IsCyclotomicExtension`, `NumberField.RingOfIntegers`, `NumberField.classNumber`
   and `ClassGroup`: everything the definition of a regular prime is built from.
 * `Ideal.ramificationIdx` and `Ideal.inertiaDeg`: Mathlib proves that p has a
@@ -38,6 +40,7 @@ the Birch-Tate formula (SpecialValuesBirchTate B.3). These appear as `variable`s
 or as `True` placeholders, never as invented definitions.
 -/
 import Mathlib.NumberTheory.Bernoulli
+import Mathlib.Algebra.Squarefree.Basic
 import Mathlib.NumberTheory.BernoulliPolynomials
 import Mathlib.NumberTheory.Cyclotomic.Basic
 import Mathlib.NumberTheory.NumberField.Basic
@@ -55,45 +58,89 @@ namespace TauCeti.ArithKTheory
 
 /-! ## N.7 Regular primes and Bernoulli numbers -/
 
-/-- N.7/bernoulli-conventions: this roadmap's convention is Mathlib's `bernoulli`,
-with `B₁ = -1/2`. The other numbering is `bernoulli'`; they agree away from one. -/
+/-- N.7/bernoulli-conventions: this roadmap's convention is Mathlib's `bernoulli`
+(`B₁ = -1/2`). The SOURCE (Weibel) uses the topologists' numbers `B_k^top = |B_{2k}|`,
+which are NOT Mathlib's `bernoulli'` (that one differs from `bernoulli` only at index one).
+Reviewer's correction (REV-ArithmeticKTheory--N.7): every formula quoted from the source is
+re-indexed `k ↦ 2k`. -/
 theorem bernoulli_convention_one : bernoulli 1 = -1/2 := by sorry
 
 theorem bernoulli_convert (n : ℕ) (hn : n ≠ 1) : bernoulli n = bernoulli' n := by sorry
 
-/-- The denominator of `B_k` is the product of the primes `p` with `(p-1) ∣ 2k`;
-it is squarefree and divisible by six. -/
-theorem bernoulli_denominator (k : ℕ) : True := by sorry
+/-- The source's topologists' Bernoulli numbers, used only when quoting Weibel. -/
+def bernoulliTop (k : ℕ) : ℚ := (-1) ^ (k + 1) * bernoulli (2 * k)
+
+theorem bernoulliTop_eq_abs (k : ℕ) (hk : 1 ≤ k) : bernoulliTop k = |bernoulli (2 * k)| := by
+  sorry
+
+/-- von Staudt–Clausen, in the pinned Mathlib (`Bernoulli.vonStaudt_clausen`,
+`Bernoulli.dvd_den_bernoulli`, `Bernoulli.not_sq_dvd_den_bernoulli`). -/
+theorem bernoulli_denominator (k : ℕ) (hk : 1 ≤ k) :
+    (bernoulli (2 * k)).den =
+      ∏ p ∈ (Finset.range (2 * k + 2)).filter (fun p => p.Prime ∧ (p - 1) ∣ 2 * k), p := by
+  sorry
+
+theorem bernoulli_denominator_squarefree (k : ℕ) (hk : 1 ≤ k) :
+    Squarefree (bernoulli (2 * k)).den ∧ 6 ∣ (bernoulli (2 * k)).den := by
+  sorry
+
+/-- b_twelve_denominator: the source's `B_6 = 691/2730` is `bernoulli 12`. -/
+example : bernoulli 12 = -691 / 2730 ∧ bernoulli 6 = 1 / 42 := by sorry
+
+/-- top_not_primed -/
+example : bernoulliTop 1 = 1 / 6 ∧ bernoulli' 1 = 1 / 2 := by sorry
+
+/-- five_divides_top_b_five: the source's `B_5 = 5/66` is `bernoulli 10`. -/
+example : bernoulliTop 5 = 5 / 66 ∧ bernoulli 5 = 0 := by sorry
 
 /-- N.7/w-invariant: `w_i(F)` is the largest `m` on whose `i`-th twist of the roots
-of unity the Galois group acts trivially. Over `ℚ` it is `2` for odd `i` and the
-denominator of `B_k/4k` for `i = 2k`. -/
+of unity the Galois group acts trivially. -/
 def wInvariant (F : Type) [Field F] [NumberField F] (i : ℕ) : ℕ := by sorry
 
-theorem wInvariant_odd_rat (i : ℕ) (hi : Odd i) : True := by sorry
+theorem wInvariant_odd_rat (i : ℕ) (hi : Odd i) : wInvariant ℚ i = 2 := by sorry
 
-theorem wInvariant_even_rat (k : ℕ) : True := by sorry
+/-- Over `ℚ`, `w_{2k}` is the denominator of `B_{2k}/4k` (the source's `B_k/4k`). -/
+theorem wInvariant_even_rat (k : ℕ) (hk : 1 ≤ k) :
+    wInvariant ℚ (2 * k) = (bernoulli (2 * k) / (4 * k)).den := by sorry
 
-theorem wInvariant_two_rat : True := by sorry  -- `w₂(ℚ) = 24`
+theorem wInvariant_prime_divides (i : ℕ) (hi : Even i) (hi0 : 0 < i) (l : ℕ) (hl : l.Prime) :
+    l ∣ wInvariant ℚ i ↔ (l - 1) ∣ i := by sorry
+
+theorem wInvariant_two_rat : wInvariant ℚ 2 = 24 := by sorry
+
+/-- w_four_rat: `240`, where the unconverted formula would give `48`. -/
+example : wInvariant ℚ 4 = 240 := by sorry
 
 /-- N.7/regular-prime: `p` is irregular when it divides the class number of the
 `p`-th cyclotomic field. Neither pinned library defines this. -/
-def IsRegularPrime (p : ℕ) [Fact (Nat.Prime p)] : Prop := by sorry
+def IsRegularPrime (p : ℕ) : Prop :=
+  ¬ p ∣ NumberField.classNumber (CyclotomicField p ℚ)
 
-theorem isRegularPrime_iff_not_dvd_classNumber (p : ℕ) [Fact (Nat.Prime p)] :
-    True := by sorry
+theorem isRegularPrime_iff_not_dvd_classNumber (p : ℕ) :
+    IsRegularPrime p ↔ ¬ p ∣ NumberField.classNumber (CyclotomicField p ℚ) := Iff.rfl
 
-/-- Iwasawa's equivalent form: no `p`-power torsion in the Picard group. -/
-theorem isRegularPrime_iwasawa (p : ℕ) [Fact (Nat.Prime p)] : True := by sorry
+/-- Iwasawa's form (as the source states it): the whole tower `ℚ(μ_{p^ν})`. -/
+theorem isRegularPrime_iwasawa (p : ℕ) (hp : p.Prime) :
+    IsRegularPrime p ↔
+      ∀ ν : ℕ, 1 ≤ ν → ¬ p ∣ NumberField.classNumber (CyclotomicField (p ^ ν) ℚ) := by
+  sorry
 
-theorem not_isRegularPrime_37 : True := by sorry
+theorem not_isRegularPrime_37 : ¬ IsRegularPrime 37 := by sorry
 
-/-- N.7/kummer-criterion: `p` is irregular exactly when it divides the numerator of
-some `B_k` with `k ≤ (p-3)/2`. Quoted from the source, which cites Washington. -/
-theorem kummer_criterion (p : ℕ) [Fact (Nat.Prime p)] : True := by sorry
+theorem isRegularPrime_of_lt_37 (p : ℕ) (hp : p.Prime) (h : p < 37) : IsRegularPrime p := by sorry
+
+/-- N.7/kummer-criterion: an odd prime `p` is irregular exactly when it divides the
+numerator of one of `B_2, B_4, …, B_{p-3}` (the source's `B_k`, `k ≤ (p-3)/2`).
+Quoted from the source, which cites Washington. -/
+theorem kummer_criterion (p : ℕ) (hp : p.Prime) (hodd : Odd p) :
+    ¬ IsRegularPrime p ↔
+      ∃ k ∈ Finset.Icc 1 ((p - 3) / 2), (p : ℤ) ∣ (bernoulli (2 * k)).num := by
+  sorry
 
 /-- N.7/eigenspaces-and-herbrand-ribet. The projectors need `(l-1)⁻¹`, which exists
-mod `l`; an integral statement using them would be wrong. -/
+mod `l`; an integral statement using them would be wrong. Herbrand–Ribet: for
+`1 ≤ k ≤ (l-3)/2`, `l` divides the numerator of `B_{2k}` (the source's `B_k`) iff the
+eigenspace of index `l - 2k` is nonzero. -/
 def eigenspace (l : ℕ) (j : ℕ) : Type := by sorry
 
 theorem herbrand_ribet (l k : ℕ) : True := by sorry
