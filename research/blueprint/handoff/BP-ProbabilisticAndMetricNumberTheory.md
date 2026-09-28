@@ -117,3 +117,89 @@ deduction remain open. PM.2–PM.5 gaps and supplier ownership are unchanged.
 
 Opening the PR ends the claim. Continue the ordered queue; never unclaim
 submitted work or manually merge, close or label.
+
+# Continuation — 28 September 2026: PM.2, asymptotic equidistribution (Claude Code, cc-fb70e5)
+
+Claimed by comment 5871456192, confirmed by the bot. This pass leaves PM.0 and PM.1 alone: all 76 earlier
+nodes and their baseline entries, sources, findings and source versions are unchanged. It starts PM.2, which
+the reviewed audit records as not built. Neither library has a notion of an equidistributed sequence;
+Mathlib has only density (`AddCircle.denseRange_zsmul_iff`) and ergodicity (`AddCircle.ergodic_add_left`)
+of an irrational rotation.
+
+## Delivered
+
+Ten PM.2 nodes (three definitions, one construction, six theorems; six planets):
+
+| node | kind | source: Tao, *Higher order Fourier analysis*, §1.1.1 |
+|---|---|---|
+| `asymptotic-equidistribution` | definition, 10 API, 5 tests | (1.1), Exercises 1.1.1–1.1.2, Example 1.1.1 |
+| `total-asymptotic-equidistribution` | definition, 3 API, 3 tests | p. 4 |
+| `torus-haar-probability` | construction, 7 API, 4 tests | p. 5 |
+| `torus-irrational` | definition, 6 API, 4 tests | Exercise 1.1.5 (iv), the dot product |
+| `weyl-criterion` | theorem | Proposition 1.1.2 |
+| `weyl-criterion-projections` | theorem | Corollary 1.1.3 |
+| `linear-equidistribution` | theorem | Exercise 1.1.5 (i), (ii), (iv) |
+| `van-der-corput-lemma` | theorem | Corollary 1.1.7 |
+| `weyl-polynomial-equidistribution` | theorem | Corollary 1.1.9 |
+| `uniform-distribution-mod-one` | theorem | Exercise 1.1.1 on the circle, with Proposition 1.1.2 |
+
+**No new carrier.** The definition is `Tendsto (TauCeti.Probability.empiricalMeasure x) atTop (𝓝 μ)` in
+Mathlib's `ProbabilityMeasure` topology. The torus is Mathlib's `UnitAddTorus`, with its characters
+`mFourier`, the density theorem `span_mFourier_closure_eq_top` and `AddCircle.haarAddCircle`. The
+construction node only packages those Haar measures as `ProbabilityMeasure`s.
+
+**Van der Corput's inequality is not replanned.** `ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound` at
+r = 1 with a ≡ 1 is the source's Lemma 1.1.6 in exact form, so the difference theorem cites that node
+directly. The audit's duplicate note (ES.0's Weyl differencing is PM.2's proof engine) is honoured this way.
+
+**Indexing.** `empiricalMeasure x n` averages x 0, …, x n, while the source averages x(1), …, x(N).
+`asympEquidistributed_comp_add_iff` and the test `asympEquidistributed.test_update_first_term` make the
+reconciliation explicit. The ℤ-indexed statements are left for later.
+
+## Source and findings
+
+Tao, *Higher order Fourier analysis* (AMS GSM 142), in the author's preliminary version of 5 June 2012,
+which his book page links (sha256 `278a9b48…ce7bbd`). I read §1.1.1 in full, from the definition through
+Exercise 1.1.7, plus Remark 1.1.19. I compared it passage by passage with the 2010 blog notes it came from,
+and they agree. This replaces the Kuipers–Niederreiter proofs the gap named, which were not used. The PM.2
+gap and coverage say so.
+
+Four misprints, E5–E8, all new and all affecting nothing. None is on the author's maintained errata list
+(20 items) or among the blog's corrected-typo comments, and both the book copy and the live blog still
+print them:
+
+- E5: "left-hand side" should be "right-hand side" in the proof of the van der Corput inequality.
+- E6: "leading coefficient shα_s n^{s−1}" should be "leading coefficient shα_s" in the proof of Weyl's
+  polynomial theorem.
+- E7: "this torus T is uniquely determined by α" should say T′, after Proposition 1.1.5.
+- E8: "Example 1.1.7" should be "Exercise 1.1.7" in Remark 1.1.19.
+
+`sourceVersions` gains both copies read.
+
+**Baseline.** 17 declarations added, each read at its pin: the torus and circle, `haarAddCircle`,
+`fourier`, `mFourier` and its density and orthonormality, the `ProbabilityMeasure` integral
+characterisations and `t2Space`, Portmanteau, `diracProba`, `pi.isHaarMeasure` (whose `@[to_additive]` twin
+`pi.isAddHaarMeasure` is what the torus uses; generated names are not in the pinned index),
+`denseRange_zsmul_iff`, `ergodic_add_left`, `geom_sum_eq` and `Int.fract`. The Tau Ceti empirical-measure
+entries were already in the baseline.
+
+## Checks
+
+- `check_blueprint`: 0 errors and 0 warnings; 86 nodes, 14 planets.
+- `intake.py check-files` on the four deliverables: 0 problems.
+- Every PM.2 API and test name appears in the suggested file, checked by script.
+- **Nothing was compiled.** No build at the pinned commits exists on this machine, and the shared-server
+  rules forbid making one. The new Lean section says so in its header. The earlier passes' elaboration
+  record covers only their own declarations. The new section adds five imports
+  (`Mathlib.Analysis.Fourier.AddCircleMulti`, `Mathlib.MeasureTheory.Measure.Portmanteau`,
+  `Mathlib.MeasureTheory.Measure.DiracProba`, `Mathlib.Probability.Distributions.Uniform` and
+  `Mathlib.Analysis.Real.Sqrt`) and its own namespace, `TauCeti.Equidistribution`. The next worker with a
+  pinned build should elaborate it first.
+
+## Resume for PM.2
+
+From the same section: the ℤ-indexed versions; Exercise 1.1.4 (rational twists); Exercise 1.1.6 (the full
+polynomial criterion, no nonzero k killing α_1, …, α_s); and the abelian Ratner decompositions
+(Proposition 1.1.5, Exercise 1.1.7). Beyond it: discrepancy (Erdős–Turán, Koksma) and normal numbers
+(Borel), which need a source. GN.4 plans equidistribution for lattice points and homogeneous flows, and it
+should reuse `AsympEquidistributed` rather than define its own. PM.3–PM.5 are unchanged.

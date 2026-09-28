@@ -723,6 +723,108 @@
         "module": "Mathlib.Data.ZMod.Basic",
         "provides": "A natural n casts to zero in ZMod q exactly when q divides n, including q=1.",
         "checked": "Actual statement and proof read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-09-27."
+      },
+      {
+        "ref": "mathlib:UnitAddTorus",
+        "module": "Mathlib.Topology.Instances.AddCircle.Real",
+        "provides": "abbrev UnitAddTorus d := d → UnitAddCircle, the standard torus T^d as a product of copies of ℝ/ℤ.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:UnitAddCircle",
+        "module": "Mathlib.Topology.Instances.AddCircle.Real",
+        "provides": "abbrev UnitAddCircle := AddCircle (1 : ℝ), the circle ℝ/ℤ.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:AddCircle.haarAddCircle",
+        "module": "Mathlib.Analysis.Fourier.AddCircle",
+        "provides": "Haar measure on AddCircle T normalised to total mass one, with an IsProbabilityMeasure instance; for T = 1 it equals volume (volume_eq_smul_haarAddCircle).",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:fourier",
+        "module": "Mathlib.Analysis.Fourier.AddCircle",
+        "provides": "fourier n : C(AddCircle T, ℂ), x ↦ toCircle (n • x), the character e(n x) of the circle.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:UnitAddTorus.mFourier",
+        "module": "Mathlib.Analysis.Fourier.AddCircleMulti",
+        "provides": "mFourier n : C(UnitAddTorus d, ℂ), x ↦ ∏ i, fourier (n i) (x i), the character e(n · x) of the torus; mFourier_zero, mFourier_add, mFourier_neg, mFourier_norm.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:UnitAddTorus.span_mFourier_closure_eq_top",
+        "module": "Mathlib.Analysis.Fourier.AddCircleMulti",
+        "provides": "The linear span of the mFourier n is dense in C(UnitAddTorus d, ℂ) for the uniform topology.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:UnitAddTorus.orthonormal_mFourier",
+        "module": "Mathlib.Analysis.Fourier.AddCircleMulti",
+        "provides": "The mFourier n are orthonormal in L²(UnitAddTorus d) for the product Haar probability measure; its proof computes ∫ mFourier n = [n = 0].",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto",
+        "module": "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+        "provides": "Convergence in ProbabilityMeasure Ω (the topology of convergence in distribution) is convergence of ∫ f for every bounded continuous real f.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto",
+        "module": "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+        "provides": "The same characterisation with bounded continuous 𝕜-valued test functions, 𝕜 = ℝ or ℂ.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.ProbabilityMeasure.t2Space",
+        "module": "Mathlib.MeasureTheory.Measure.ProbabilityMeasure",
+        "provides": "ProbabilityMeasure Ω is Hausdorff when Ω has HasOuterApproxClosed and BorelSpace; every pseudo-metrizable space has HasOuterApproxClosed.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto",
+        "module": "Mathlib.MeasureTheory.Measure.Portmanteau",
+        "provides": "Portmanteau: if μs → μ then μs E → μ E for every E with μ (frontier E) = 0.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.diracProba",
+        "module": "Mathlib.MeasureTheory.Measure.DiracProba",
+        "provides": "The Dirac mass at x as a ProbabilityMeasure.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.pi.isHaarMeasure",
+        "module": "Mathlib.MeasureTheory.Constructions.Pi",
+        "provides": "A finite product of Haar measures is a Haar measure. Its @[to_additive] twin MeasureTheory.Measure.pi.isAddHaarMeasure, for additive groups such as the torus, is the instance torus-haar-probability uses.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28: `instance pi.isHaarMeasure` at line 648 of Mathlib/MeasureTheory/Constructions/Pi.lean, `namespace MeasureTheory.Measure`, with `@[to_additive]`. The additive name is generated, so the pinned declaration index lists only this one."
+      },
+      {
+        "ref": "mathlib:AddCircle.denseRange_zsmul_iff",
+        "module": "Mathlib.Topology.Instances.AddCircle.DenseSubgroup",
+        "provides": "For a : AddCircle p, the orbit n ↦ n • a (n ∈ ℤ) is dense iff a has infinite additive order: the density statement the audit records, weaker than equidistribution.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:AddCircle.ergodic_add_left",
+        "module": "Mathlib.Dynamics.Ergodic.AddCircleAdd",
+        "provides": "The rotation y ↦ a + y of AddCircle p is ergodic iff addOrderOf a = 0.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:geom_sum_eq",
+        "module": "Mathlib.Algebra.Field.GeomSum",
+        "provides": "For x ≠ 1 in a division ring, ∑_{i<n} x^i = (x^n − 1)/(x − 1).",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28 from the clone's object store."
+      },
+      {
+        "ref": "mathlib:Int.fract",
+        "module": "Mathlib.Algebra.Order.Floor.Defs",
+        "provides": "The fractional part x − ⌊x⌋ ∈ [0, 1) of a real number.",
+        "checked": "Exact statement read at the Mathlib pin 082e2d37 on 2026-09-28: `def fract (a : α) : α := a - floor a` at line 256 of Mathlib/Algebra/Order/Floor/Defs.lean, `namespace Int`."
       }
     ]
   },
@@ -938,6 +1040,19 @@
         "Analysis/Complex/Exponential.lean lines 213–259,304–317,672–687: finite sums, natural multiples, exponential quotient, factorial bound, order and finite product majorant; SpecialFunctions/Log/Basic.lean lines 52–67: positive exp-log inverse.",
         "Algebra/Ring/GeomSum.lean ring context and lines 232–240; Algebra/Order/Field/GeomSum.lean complete file; BigOperators/Ring/Finset.lean finite product-of-sums passages; BigOperators/Intervals.lean lines 207–236, including additive telescoping generator.",
         "Data/Nat/Prime/Basic.lean lines 200–218: distinct prime powers coprime; Factorization/Basic.lean lines 130–175: factorization cutoff and divisibility; Data/ZMod/Basic.lean lines 509–524: zero residue iff divisibility. Existing CRT and empirical-measure contracts are reused."
+      ]
+    },
+    {
+      "id": "TAO-HOFA-1.1",
+      "title": "Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori",
+      "authors": "Terence Tao",
+      "edition": "Graduate Studies in Mathematics 142, American Mathematical Society, 2012; read in the author's preliminary version of 5 June 2012, 'made available with permission of the publisher', linked from the author's book page. Section 1.1 is the 2010 lecture notes '254B, Notes 1', which were also read.",
+      "url": "https://terrytao.wordpress.com/wp-content/uploads/2012/12/gsm-142-tao7-higher-book-05june2012.pdf",
+      "sha256": "278a9b48c7ba09dc541371f6703ed3cfc3c72d75b5157107dd99539336ce7bbd",
+      "readSections": [
+        "Read in full by cc-fb70e5 on 2026-09-28: Section 1.1.1 'Asymptotic equidistribution theory', printed pp. 3–9 (PDF pp. 11–17), from the definition of asymptotic equidistribution through Corollary 1.1.9 and Exercises 1.1.6–1.1.7; and Remark 1.1.19 on printed p. 17 (PDF p. 25).",
+        "Compared, passage by passage, with the blog notes '254B, Notes 1: Equidistribution of polynomial sequences in tori' (28 March 2010), §1: the statements and proofs agree; the book numbers them (Proposition 1 = Proposition 1.1.2, Corollary 2 = 1.1.3, Exercise 5 = 1.1.5, Lemma 4 = 1.1.6, Corollary 5 = 1.1.7, Corollary 6 = 1.1.9) and adds to Exercise 1.1.1 the question of what happens without the null-boundary condition.",
+        "Not read: Section 1.1.2 onwards (single-scale and ultralimit theory) beyond Remark 1.1.19."
       ]
     }
   ],
@@ -4523,6 +4638,797 @@
           "statement": "At s=2,k=0 the scaled moment is 1 for every positive sample."
         }
       ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Asymptotic equidistribution of a sequence",
+      "kind": "definition",
+      "statement": "For a topological space X with its Borel σ-algebra, a sequence x : ℕ → X and a Borel probability measure μ, AsympEquidistributed x μ means that the empirical measures of x converge to μ in ProbabilityMeasure X: Tendsto (TauCeti.Probability.empiricalMeasure x) atTop (𝓝 μ). Equivalently (1.1): (n+1)⁻¹ ∑_{i≤n} f(x i) → ∫ f dμ for every bounded continuous f, which for compact X is every f ∈ C(X). Tau Ceti's empiricalMeasure x n averages x 0, …, x n where the source averages x(1), …, x(N); the two notions agree because equidistribution ignores any finite shift of the index.",
+      "hypotheses": [
+        "X a topological space with a measurable structure for which open sets are measurable (OpensMeasurableSpace); compactness and metrizability are needed only for the Portmanteau and uniqueness items, never for the definition.",
+        "x : ℕ → X; μ : ProbabilityMeasure X."
+      ],
+      "proofSteps": [
+        "Define AsympEquidistributed x μ := Tendsto (empiricalMeasure x) atTop (𝓝 μ); no new measure or averaging carrier is introduced.",
+        "Characterise it by bounded continuous test functions: combine ProbabilityMeasure.tendsto_iff_forall_integral_tendsto (and its RCLike form for complex tests) with Tau Ceti's integral_empiricalMeasure, which evaluates ∫ f against the empirical measure as the average.",
+        "Index shift: the averages of x and of n ↦ x (n + m) differ by at most 2m‖f‖∞/(n+1) → 0, so the two notions coincide; this reconciles the ℕ-indexing with the source's [N] = {1, …, N}.",
+        "Uniqueness of μ from the Hausdorff property of ProbabilityMeasure X (instance t2Space, under HasOuterApproxClosed and BorelSpace), the formal counterpart of the source's appeal to the Riesz representation theorem.",
+        "Frequencies: Portmanteau (tendsto_measure_of_null_frontier_of_tendsto) applied to the empirical measures gives #{i ≤ n : x i ∈ E}/(n+1) → μ E whenever μ (frontier E) = 0, via empiricalMeasure_apply_toReal.",
+        "Positive lower density of visits to an open U with μ U > 0 (Exercise 1.1.2) from the lim-inf half of Portmanteau for open sets, and density of the range when μ charges every nonempty open set."
+      ],
+      "acceptance": [
+        "A constant sequence at p is equidistributed for diracProba p and for nothing else.",
+        "The source's Example 1.1.1 sequence is equidistributed for no μ at all.",
+        "Changing finitely many terms, or shifting the index, never changes equidistribution."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.Probability.empiricalMeasure",
+        "tauceti:TauCeti.Probability.integral_empiricalMeasure",
+        "tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal",
+        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto",
+        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto",
+        "mathlib:MeasureTheory.ProbabilityMeasure.t2Space",
+        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto",
+        "mathlib:MeasureTheory.diracProba"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 3, the definition (1.1)",
+          "match": "The definition: vague convergence of the empirical measures µ_N, equivalently convergence of the averages (1.1). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 4, after (1.1)",
+          "match": "Uniqueness of the limit measure. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
+          "match": "The frequency characterisation; the node keeps the Portmanteau direction as API and plans the converse on the circle in uniform-distribution-mod-one. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 4, Exercise 1.1.2",
+          "match": "Positive lower density and dense range. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 4, Example 1.1.1",
+          "match": "The non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      },
+      "api": [
+        {
+          "name": "AsympEquidistributed",
+          "role": "constructor",
+          "statement": "Tendsto (TauCeti.Probability.empiricalMeasure x) atTop (𝓝 μ)."
+        },
+        {
+          "name": "asympEquidistributed_iff_integral_tendsto",
+          "role": "characterisation",
+          "statement": "AsympEquidistributed x μ ↔ ∀ f : X →ᵇ ℝ, (n+1)⁻¹ ∑_{i≤n} f (x i) → ∫ f dμ."
+        },
+        {
+          "name": "asympEquidistributed_iff_integral_tendsto_complex",
+          "role": "characterisation",
+          "statement": "The same with bounded continuous complex-valued f; this is the form the Weyl criterion uses."
+        },
+        {
+          "name": "asympEquidistributed_comp_add_iff",
+          "role": "structure",
+          "statement": "AsympEquidistributed (fun n => x (n + m)) μ ↔ AsympEquidistributed x μ."
+        },
+        {
+          "name": "AsympEquidistributed.congr_of_eventuallyEq",
+          "role": "structure",
+          "statement": "Sequences that agree for all large n are equidistributed for the same measures."
+        },
+        {
+          "name": "AsympEquidistributed.unique",
+          "role": "structure",
+          "statement": "Under HasOuterApproxClosed X and BorelSpace X, a sequence is equidistributed for at most one μ."
+        },
+        {
+          "name": "AsympEquidistributed.tendsto_frequency",
+          "role": "relation",
+          "statement": "If μ (frontier E) = 0 then #{i ≤ n : x i ∈ E}/(n+1) → μ E (Portmanteau)."
+        },
+        {
+          "name": "AsympEquidistributed.eventually_frequency_ge",
+          "role": "relation",
+          "statement": "For open U with μ U > 0 there is c > 0 with #{i ≤ n : x i ∈ U}/(n+1) ≥ c for all large n."
+        },
+        {
+          "name": "AsympEquidistributed.denseRange",
+          "role": "relation",
+          "statement": "If μ charges every nonempty open set, then x has dense range."
+        },
+        {
+          "name": "asympEquidistributed_const_iff",
+          "role": "example",
+          "statement": "AsympEquidistributed (fun _ => p) μ ↔ μ = diracProba p."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/total-asymptotic-equidistribution",
+          "how": "Total equidistribution asks for this along every progression q n + r."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion",
+          "how": "The Weyl criterion characterises this notion on the torus by exponential sums."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/linear-equidistribution",
+          "how": "Linear sequences n α + β are equidistributed in this sense exactly when α is irrational."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/van-der-corput-lemma",
+          "how": "The difference theorem deduces this notion from the same notion for every difference sequence."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/weyl-polynomial-equidistribution",
+          "how": "Weyl's polynomial theorem is a statement in this notion."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/uniform-distribution-mod-one",
+          "how": "Uniform distribution mod 1 of a real sequence is this notion for its image in ℝ/ℤ."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.4",
+          "how": "Birkhoff averages along Gauss-map orbits are averages against these empirical measures."
+        }
+      ],
+      "tests": [
+        {
+          "name": "asympEquidistributed.test_const_dirac",
+          "kind": "computation",
+          "statement": "AsympEquidistributed (fun _ => p) (diracProba p): the empirical measures are all diracProba p."
+        },
+        {
+          "name": "asympEquidistributed.test_dyadic_blocks",
+          "kind": "non-example",
+          "statement": "Source Example 1.1.1: on Bool, x n = true iff 2^{2j} ≤ n < 2^{2j+1} for some j is equidistributed for no μ, since the frequency of true oscillates between about 1/3 and 2/3. A definition by a lim inf or along a subsequence would accept it."
+        },
+        {
+          "name": "asympEquidistributed.test_alternating",
+          "kind": "computation",
+          "statement": "x n = decide (n % 2 = 1) on Bool is equidistributed for the uniform measure (PMF.uniformOfFintype Bool).toMeasure."
+        },
+        {
+          "name": "asympEquidistributed.test_update_first_term",
+          "kind": "degenerate",
+          "statement": "Changing x 0 does not change equidistribution: the source's [N] omits x(0), Tau Ceti's empiricalMeasure includes it."
+        },
+        {
+          "name": "asympEquidistributed.test_zero_not_haar",
+          "kind": "non-example",
+          "statement": "The constant sequence 0 in UnitAddCircle is not equidistributed for circleHaar: it is for diracProba 0, and limits are unique."
+        }
+      ],
+      "planet": {
+        "name": "Asymptotic equidistribution"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/total-asymptotic-equidistribution",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Total asymptotic equidistribution",
+      "kind": "definition",
+      "statement": "TotallyAsympEquidistributed x μ means AsympEquidistributed (fun n => x (q * n + r)) μ for every q ≥ 1 and r ≥ 0: equidistribution along every infinite arithmetic progression of indices.",
+      "hypotheses": [
+        "The hypotheses of asymptotic-equidistribution.",
+        "q, r : ℕ with q ≥ 1."
+      ],
+      "proofSteps": [
+        "Define TotallyAsympEquidistributed x μ := ∀ q r : ℕ, 0 < q → AsympEquidistributed (fun n => x (q * n + r)) μ.",
+        "Taking q = 1 and r = 0 gives plain equidistribution.",
+        "Along n ↦ q' n + r', the sequence n ↦ x (q n + r) becomes n ↦ x ((q q') n + (q r' + r)), again a progression with q q' ≥ 1, so the notion is stable under passing to x (q n + r)."
+      ],
+      "acceptance": [
+        "Total equidistribution implies equidistribution.",
+        "n (1/2) in ℝ/ℤ is equidistributed for (δ₀ + δ_{1/2})/2 but not totally, for any μ.",
+        "Constant sequences are totally equidistributed for their Dirac measure."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 4, after (1.1)",
+          "match": "The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      },
+      "api": [
+        {
+          "name": "TotallyAsympEquidistributed",
+          "role": "constructor",
+          "statement": "∀ q r : ℕ, 0 < q → AsympEquidistributed (fun n => x (q * n + r)) μ."
+        },
+        {
+          "name": "TotallyAsympEquidistributed.asympEquidistributed",
+          "role": "structure",
+          "statement": "Total equidistribution implies equidistribution (q = 1, r = 0)."
+        },
+        {
+          "name": "TotallyAsympEquidistributed.comp_affine",
+          "role": "structure",
+          "statement": "If x is totally equidistributed then so is n ↦ x (q * n + r) for q ≥ 1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/linear-equidistribution",
+          "how": "Statement (ii) of the equidistribution theorem is total equidistribution of n α + β."
+        }
+      ],
+      "tests": [
+        {
+          "name": "totallyAsympEquidistributed.test_half_rotation",
+          "kind": "non-example",
+          "statement": "n ↦ n • (1/2 : ℝ/ℤ) is totally equidistributed for no μ: along 2n it is constantly 0 and along 2n + 1 constantly 1/2, though it is equidistributed for the average of the two Dirac masses."
+        },
+        {
+          "name": "totallyAsympEquidistributed.test_const",
+          "kind": "computation",
+          "statement": "The constant sequence at p is totally equidistributed for diracProba p."
+        },
+        {
+          "name": "totallyAsympEquidistributed.test_implies_plain",
+          "kind": "degenerate",
+          "statement": "q = 1, r = 0: TotallyAsympEquidistributed x μ → AsympEquidistributed x μ."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Haar probability measure on the circle and the standard torus",
+      "kind": "construction",
+      "statement": "circleHaar : ProbabilityMeasure UnitAddCircle is AddCircle.haarAddCircle, and torusHaar d : ProbabilityMeasure (UnitAddTorus d) is Measure.pi (fun _ : d => AddCircle.haarAddCircle), for a finite index type d. They package the existing Haar measures as the probability measures that equidistribution on T and T^d refers to, and introduce no new measure.",
+      "hypotheses": [
+        "d a finite type (Fintype d); UnitAddTorus d = d → UnitAddCircle with the product topology and σ-algebra."
+      ],
+      "proofSteps": [
+        "Define both as subtypes of Measure with the IsProbabilityMeasure instances of haarAddCircle and of a finite product of probability measures.",
+        "Show torusHaar d is an additive Haar measure (pi.isAddHaarMeasure) and equals volume, since volume on AddCircle 1 is 1 • haarAddCircle.",
+        "Compute ∫ mFourier k d(torusHaar d) = [k = 0], as in the proof of orthonormal_mFourier: the integral factorises over coordinates and ∫ fourier n dhaarAddCircle = [n = 0]."
+      ],
+      "acceptance": [
+        "For k ≠ 0 the character mFourier k integrates to 0; for k = 0 to 1.",
+        "The zero-dimensional torus is a point and torusHaar is its Dirac mass.",
+        "The one-coordinate marginal of torusHaar d is circleHaar."
+      ],
+      "prerequisites": [
+        "mathlib:UnitAddTorus",
+        "mathlib:UnitAddCircle",
+        "mathlib:AddCircle.haarAddCircle",
+        "mathlib:MeasureTheory.Measure.pi.isHaarMeasure",
+        "mathlib:UnitAddTorus.mFourier",
+        "mathlib:UnitAddTorus.orthonormal_mFourier"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
+          "match": "Haar measure as the translation-invariant Borel probability measure, equal to Lebesgue measure on [0, 1)^d. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      },
+      "api": [
+        {
+          "name": "circleHaar",
+          "role": "constructor",
+          "statement": "⟨AddCircle.haarAddCircle, inferInstance⟩ : ProbabilityMeasure UnitAddCircle."
+        },
+        {
+          "name": "torusHaar",
+          "role": "constructor",
+          "statement": "⟨Measure.pi (fun _ : d => AddCircle.haarAddCircle), _⟩ : ProbabilityMeasure (UnitAddTorus d)."
+        },
+        {
+          "name": "torusHaar_eq_volume",
+          "role": "compatibility",
+          "statement": "(torusHaar d : Measure (UnitAddTorus d)) = volume."
+        },
+        {
+          "name": "circleHaar_eq_volume",
+          "role": "compatibility",
+          "statement": "(circleHaar : Measure UnitAddCircle) = volume."
+        },
+        {
+          "name": "isAddHaarMeasure_torusHaar",
+          "role": "structure",
+          "statement": "torusHaar d is an additive Haar measure, in particular translation invariant."
+        },
+        {
+          "name": "integral_mFourier_torusHaar",
+          "role": "characterisation",
+          "statement": "∫ x, mFourier k x ∂torusHaar d = if k = 0 then 1 else 0."
+        },
+        {
+          "name": "integral_fourier_circleHaar",
+          "role": "characterisation",
+          "statement": "∫ y, fourier n y ∂circleHaar = if n = 0 then 1 else 0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion",
+          "how": "The criterion is for equidistribution with respect to torusHaar d."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/uniform-distribution-mod-one",
+          "how": "Uniform distribution mod 1 is equidistribution with respect to circleHaar."
+        }
+      ],
+      "tests": [
+        {
+          "name": "torusHaar.test_character_integral",
+          "kind": "computation",
+          "statement": "On UnitAddTorus (Fin 2), ∫ mFourier k d(torusHaar) = 0 for k = (1, −1); a counting or unnormalised measure gives a wrong value at k = 0."
+        },
+        {
+          "name": "torusHaar.test_zero_dim",
+          "kind": "degenerate",
+          "statement": "torusHaar (Fin 0) is the Dirac mass at the unique point 0 of the zero-dimensional torus."
+        },
+        {
+          "name": "torusHaar.test_marginal",
+          "kind": "compatibility",
+          "statement": "The pushforward of torusHaar (Fin 1) under x ↦ x 0 is circleHaar."
+        },
+        {
+          "name": "circleHaar.test_volume",
+          "kind": "compatibility",
+          "statement": "circleHaar is Mathlib's volume on UnitAddCircle, so interval lengths agree with Lebesgue measure on [0, 1)."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Irrational points of the torus",
+      "kind": "definition",
+      "statement": "α ∈ UnitAddTorus d is irrational if ∑ i, k i • α i ≠ 0 in UnitAddCircle for every nonzero k : d → ℤ, i.e. k · α ≠ 0 for every nonzero frequency. Equivalently mFourier k α ≠ 1 for every k ≠ 0. For one coordinate it is Mathlib's addOrderOf a = 0, the condition of AddCircle.denseRange_zsmul_iff and AddCircle.ergodic_add_left.",
+      "hypotheses": [
+        "d a finite type; α : UnitAddTorus d; the pairing k · α := ∑ i, k i • α i ∈ UnitAddCircle."
+      ],
+      "proofSteps": [
+        "Define TorusIrrational α := ∀ k : d → ℤ, k ≠ 0 → ∑ i, k i • α i ≠ 0.",
+        "Relate to characters: mFourier k α = fourier 1 (∑ i, k i • α i), since toCircle is additive, and fourier 1 y = 1 iff y = 0 on UnitAddCircle.",
+        "For d with one element, identify it with addOrderOf a = 0: k • a = 0 for k ≠ 0 is exactly finite order.",
+        "Stability: m • α is irrational for every nonzero integer m, because k · (m • α) = (m k) · α and m k ≠ 0."
+      ],
+      "acceptance": [
+        "(√2, 1/2) is not irrational (k = (0, 2)), although √2 is.",
+        "(√2, √3) is irrational.",
+        "For an empty index type every point is irrational, matching the fact that every sequence equidistributes on a point."
+      ],
+      "prerequisites": [
+        "mathlib:UnitAddTorus",
+        "mathlib:UnitAddTorus.mFourier",
+        "mathlib:fourier",
+        "mathlib:AddCircle.denseRange_zsmul_iff"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
+          "match": "The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 5, after (1.2)",
+          "match": "The pairing Z^d × T^d → T used in the definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 6, after Remark 1.1.4",
+          "match": "The rational extreme, for the non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      },
+      "api": [
+        {
+          "name": "TorusIrrational",
+          "role": "constructor",
+          "statement": "∀ k : d → ℤ, k ≠ 0 → ∑ i, k i • α i ≠ 0."
+        },
+        {
+          "name": "torusIrrational_iff_mFourier",
+          "role": "characterisation",
+          "statement": "TorusIrrational α ↔ ∀ k ≠ 0, mFourier k α ≠ 1."
+        },
+        {
+          "name": "mFourier_eq_fourier_sum",
+          "role": "compatibility",
+          "statement": "mFourier k α = fourier 1 (∑ i, k i • α i)."
+        },
+        {
+          "name": "torusIrrational_unique_iff",
+          "role": "compatibility",
+          "statement": "For d with exactly one element, TorusIrrational α ↔ addOrderOf (α default) = 0."
+        },
+        {
+          "name": "TorusIrrational.zsmul",
+          "role": "structure",
+          "statement": "If α is irrational and m ≠ 0 then m • α is irrational."
+        },
+        {
+          "name": "TorusIrrational.nsmul",
+          "role": "structure",
+          "statement": "If α is irrational and m ≠ 0 then m • α is irrational, for m : ℕ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/linear-equidistribution",
+          "how": "The equidistribution theorem is the equivalence of equidistribution of n α + β with irrationality of α."
+        },
+        {
+          "where": "ProbabilisticAndMetricNumberTheory:PM.2/weyl-polynomial-equidistribution",
+          "how": "Weyl's theorem assumes the leading coefficient irrational; the induction uses TorusIrrational.nsmul."
+        }
+      ],
+      "tests": [
+        {
+          "name": "torusIrrational.test_mixed",
+          "kind": "non-example",
+          "statement": "![√2, 1/2] is not irrational: k = (0, 2) kills it. A definition testing coordinates one at a time accepts it wrongly."
+        },
+        {
+          "name": "torusIrrational.test_sqrt2_sqrt3",
+          "kind": "computation",
+          "statement": "![√2, √3] is irrational, by ℚ-linear independence of 1, √2, √3."
+        },
+        {
+          "name": "torusIrrational.test_empty",
+          "kind": "degenerate",
+          "statement": "Every α : UnitAddTorus (Fin 0) is irrational: there is no nonzero k."
+        },
+        {
+          "name": "torusIrrational.test_one_dim",
+          "kind": "compatibility",
+          "statement": "For a : UnitAddCircle, TorusIrrational (fun _ : Unit => a) ↔ addOrderOf a = 0, Mathlib's condition for dense and ergodic rotation."
+        }
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Weyl equidistribution criterion",
+      "kind": "theorem",
+      "statement": "A sequence x : ℕ → UnitAddTorus d is equidistributed for torusHaar d if and only if, for every nonzero k : d → ℤ, (n+1)⁻¹ ∑_{i≤n} mFourier k (x i) → 0.",
+      "hypotheses": [
+        "d a finite type; x : ℕ → UnitAddTorus d."
+      ],
+      "proofSteps": [
+        "Only if: mFourier k is a bounded continuous complex function with ∫ mFourier k d(torusHaar d) = 0 for k ≠ 0; apply the complex integral characterisation of the definition.",
+        "If: the hypothesis and the value 1 at k = 0 give convergence of the averages for every mFourier k, hence by linearity for every trigonometric polynomial, the span of the mFourier k.",
+        "The span is dense in C(UnitAddTorus d, ℂ) (span_mFourier_closure_eq_top). For f continuous and ε > 0 pick a trigonometric polynomial within ε uniformly; averages and integrals of f and of it differ by at most ε, so the lim sup of |average − ∫ f| is at most 2ε.",
+        "Every bounded continuous real function on the compact torus is a continuous complex function; conclude with the real integral characterisation."
+      ],
+      "acceptance": [
+        "For d empty the right side is vacuous and every sequence is equidistributed on the point.",
+        "For d nonempty a constant sequence fails the criterion: its average at any k ≠ 0 is mFourier k (x 0), of modulus one.",
+        "Only nonzero k are tested; the k = 0 average is identically 1."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution",
+        "ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability",
+        "mathlib:UnitAddTorus.span_mFourier_closure_eq_top",
+        "mathlib:UnitAddTorus.mFourier",
+        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 5, Proposition 1.1.2",
+          "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 5, proof of Proposition 1.1.2",
+          "match": "The density step of the proof. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      },
+      "planet": {
+        "name": "Weyl equidistribution criterion"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion-projections",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Equidistribution in T^d through one-dimensional projections",
+      "kind": "theorem",
+      "statement": "x : ℕ → UnitAddTorus d is equidistributed for torusHaar d if and only if, for every nonzero k : d → ℤ, the sequence n ↦ ∑ i, k i • x n i in UnitAddCircle is equidistributed for circleHaar.",
+      "hypotheses": [
+        "d a finite type; x : ℕ → UnitAddTorus d."
+      ],
+      "proofSteps": [
+        "Apply weyl-criterion on T^d and on T (d = one point).",
+        "For nonzero k and nonzero m ∈ ℤ, fourier m (k · x) = mFourier (m k) x, and m k ≠ 0; so the one-dimensional criteria for all k · x are the d-dimensional criterion for all nonzero frequencies, each frequency m k being reached from k."
+      ],
+      "acceptance": [
+        "For d a single point it is weyl-criterion itself.",
+        "Coordinatewise equidistribution is not enough: (√2 n, √2 n) has equidistributed coordinates but k = (1, −1) gives the constant 0.",
+        "The frequency m k with m ≠ 0 is again nonzero, so no frequency is lost or gained."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion",
+        "ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability",
+        "mathlib:fourier",
+        "mathlib:UnitAddTorus.mFourier"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 6, Corollary 1.1.3",
+          "match": "The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/linear-equidistribution",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Equidistribution theorem for linear sequences",
+      "kind": "theorem",
+      "statement": "For α, β ∈ UnitAddTorus d the following are equivalent: (i) n ↦ n • α + β is equidistributed for torusHaar d; (ii) it is totally equidistributed; (iii) α is irrational (TorusIrrational α).",
+      "hypotheses": [
+        "d a finite type; α, β : UnitAddTorus d; n acts by natural-number scalar multiplication."
+      ],
+      "proofSteps": [
+        "(iii) ⇒ (i): by weyl-criterion it suffices that the averages of mFourier k (n α + β) = mFourier k β · ζⁿ vanish in the limit, where ζ = mFourier k α ≠ 1 by irrationality; the geometric sum ∑_{i≤n} ζ^i = (ζ^{n+1} − 1)/(ζ − 1) is bounded by 2/|ζ − 1|.",
+        "(iii) ⇒ (ii): along q n + r the sequence is n ↦ n • (q α) + (r α + β), and q α is irrational (TorusIrrational.nsmul); apply (iii) ⇒ (i).",
+        "(ii) ⇒ (i) is TotallyAsympEquidistributed.asympEquidistributed.",
+        "(i) ⇒ (iii): if k · α = 0 with k ≠ 0 then mFourier k (n α + β) = mFourier k β is constant of modulus one, so its averages do not tend to 0, contradicting weyl-criterion."
+      ],
+      "acceptance": [
+        "For d = 1, (i) implies Mathlib's density of the orbit (denseRange_zsmul_iff) via denseRange, and (iii) is its hypothesis addOrderOf α = 0.",
+        "α = (√2, 1/2): not irrational, and the sequence is not equidistributed on T² (it lives on T × {0, 1/2}).",
+        "β plays no role: the conditions do not depend on it."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion",
+        "ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution",
+        "ProbabilisticAndMetricNumberTheory:PM.2/total-asymptotic-equidistribution",
+        "ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational",
+        "mathlib:geom_sum_eq",
+        "mathlib:AddCircle.denseRange_zsmul_iff",
+        "mathlib:AddCircle.ergodic_add_left"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 6, Exercise 1.1.5",
+          "match": "Statements (i) and (ii); (iii) there is the ℤ-indexed version, not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 6, Exercise 1.1.5 (iv)",
+          "match": "Statement (iv), the irrationality condition. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      },
+      "planet": {
+        "name": "Equidistribution theorem"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/van-der-corput-lemma",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Van der Corput's difference theorem",
+      "kind": "theorem",
+      "statement": "If x : ℕ → UnitAddTorus d is such that for every h ≥ 1 the difference sequence n ↦ x (n + h) − x n is equidistributed for torusHaar d, then x is equidistributed for torusHaar d.",
+      "hypotheses": [
+        "d a finite type; x : ℕ → UnitAddTorus d; the hypothesis for every positive integer h."
+      ],
+      "proofSteps": [
+        "By weyl-criterion fix k ≠ 0 and put b(n) = mFourier k (x (n − 1)) for 1 ≤ n ≤ N and 0 otherwise, so |b| ≤ 1 and b vanishes outside (0, N].",
+        "Apply ES.0/q-vdc-lag-bound with A = 0, r = 1 and a ≡ 1 (1-periodic, bounded by one): H²|∑_{n≤N} b(n)|² ≤ (N + H − 1)(H·N + 2∑_{h=1}^{H−1} (H − h)|C(h)|), with C(h) = ∑_{n=1}^{N−h} b(n + h) conj b(n). This is the source's Lemma 1.1.6, which is therefore not replanned here.",
+        "For fixed h ≥ 1, C(h)/N = average of mFourier k (x (n + h) − x n) over n < N − h, up to O(h/N): it tends to 0 by weyl-criterion applied to the difference sequence (mFourier k is a character, so b(n+h) conj b(n) = mFourier k (x(n+h−1) − x(n−1))).",
+        "Divide by H²N² and let N → ∞ with H fixed: lim sup |average of mFourier k (x i)|² ≤ 1/H. Let H → ∞."
+      ],
+      "acceptance": [
+        "For x n = n² α with α = a/q rational the difference at h = q is constantly 0, so the hypothesis fails, as it must: x is periodic and not equidistributed.",
+        "With d empty the statement is trivial.",
+        "Only h ≥ 1 is assumed; the difference at h = 0 is constantly 0 and is never equidistributed for d nonempty."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion",
+        "ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability",
+        "ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 8, Corollary 1.1.7",
+          "match": "The statement; the ℤ-indexed version is not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 7, Lemma 1.1.6",
+          "match": "The inequality the proof uses; ES.0/q-vdc-lag-bound at r = 1 supplies it in exact form. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 8, end of the proof of Corollary 1.1.7",
+          "match": "The limiting step. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      },
+      "planet": {
+        "name": "van der Corput lemma"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/weyl-polynomial-equidistribution",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Weyl's equidistribution theorem for polynomials",
+      "kind": "theorem",
+      "statement": "Let s ≥ 1 and α : ℕ → UnitAddTorus d with α s irrational. Then n ↦ ∑_{j=0}^{s} n^j • α j is equidistributed for torusHaar d.",
+      "hypotheses": [
+        "d a finite type; s ≥ 1; α 0, …, α s ∈ UnitAddTorus d, the higher values of α ignored; TorusIrrational (α s)."
+      ],
+      "proofSteps": [
+        "Induct on s. For s = 1 the sequence is n • α 1 + α 0, and linear-equidistribution applies.",
+        "For s > 1 and h ≥ 1, P(n + h) − P(n) = ∑_{j<s} n^j • β_j with β_{s−1} = (s h) • α s, by the binomial theorem in each coefficient (n^j • is additive in the coefficient). Its leading coefficient s h α_s is irrational by TorusIrrational.nsmul.",
+        "By the induction hypothesis every difference sequence is equidistributed; conclude by van-der-corput-lemma."
+      ],
+      "acceptance": [
+        "For s = 1 it is the linear case, and the constant term plays no role.",
+        "n² α with α rational, of denominator q, is periodic mod q and not equidistributed: the irrationality hypothesis cannot be dropped.",
+        "Only the leading coefficient needs to be irrational: n² √2 + n/2 is equidistributed."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.2/van-der-corput-lemma",
+        "ProbabilisticAndMetricNumberTheory:PM.2/linear-equidistribution",
+        "ProbabilisticAndMetricNumberTheory:PM.2/torus-irrational",
+        "ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 8, Corollary 1.1.9",
+          "match": "The statement; the node is the ℕ-indexed half. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 9, proof of Corollary 1.1.9",
+          "match": "The induction step. The printed 'leading coefficient shα_s n^{s−1}' is the leading term; the coefficient is shα_s (recorded as a misprint). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      },
+      "planet": {
+        "name": "Weyl equidistribution theorem for polynomials"
+      }
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory:PM.2/uniform-distribution-mod-one",
+      "parentStageId": "ProbabilisticAndMetricNumberTheory:PM.2",
+      "realises": [
+        "ProbabilisticAndMetricNumberTheory:PM.2"
+      ],
+      "title": "Uniform distribution modulo one",
+      "kind": "theorem",
+      "statement": "For a real sequence u : ℕ → ℝ the following are equivalent: (a) n ↦ (u n : ℝ/ℤ) is equidistributed for circleHaar; (b) for all 0 ≤ a ≤ b ≤ 1, #{i ≤ n : Int.fract (u i) ∈ [a, b)}/(n+1) → b − a; (c) for every nonzero integer k, (n+1)⁻¹ ∑_{i≤n} e(k u i) → 0. This is the classical definition of uniform distribution mod 1 and Weyl's criterion for it.",
+      "hypotheses": [
+        "u : ℕ → ℝ; UnitAddCircle = ℝ/ℤ with circleHaar; fourier k (u i) = e(k u i)."
+      ],
+      "proofSteps": [
+        "(a) ⇔ (c) is weyl-criterion for d a single point, since fourier k of the class of u i is e(k u i).",
+        "(a) ⇒ (b): the image of [a, b) in ℝ/ℤ has frontier of at most two points, which are circleHaar-null, and its measure is b − a; apply AsympEquidistributed.tendsto_frequency.",
+        "(b) ⇒ (a): by (b) the averages of the indicator of every such arc converge to its length, hence by linearity for every step function on arcs. A continuous f on ℝ/ℤ is uniformly continuous, so it is within ε of a step function uniformly; conclude as in weyl-criterion. This is the circle case of the source's Exercise 1.1.1."
+      ],
+      "acceptance": [
+        "u n = n √2 satisfies all three.",
+        "u n = log n satisfies none: its frequencies in [0, 1/2) oscillate.",
+        "u n = n/2: the frequency of [0, 1/4) tends to 1/2, not 1/4, so (b) fails, although the frequency of [0, 1/2) is the correct 1/2."
+      ],
+      "prerequisites": [
+        "ProbabilisticAndMetricNumberTheory:PM.2/asymptotic-equidistribution",
+        "ProbabilisticAndMetricNumberTheory:PM.2/torus-haar-probability",
+        "ProbabilisticAndMetricNumberTheory:PM.2/weyl-criterion",
+        "mathlib:Int.fract",
+        "mathlib:fourier",
+        "mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto"
+      ],
+      "sources": [
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 4, Exercise 1.1.1",
+          "match": "The frequency characterisation, specialised to arcs of the circle. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 5, before Proposition 1.1.2",
+          "match": "Haar measure on T as Lebesgue measure on [0, 1). Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        },
+        {
+          "sourceId": "TAO-HOFA-1.1",
+          "locator": "§1.1.1, printed p. 5, Proposition 1.1.2",
+          "match": "The criterion, at d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti.Probability.Equidistribution",
+        "namespace": "TauCeti.Equidistribution"
+      },
+      "planet": {
+        "name": "Uniform distribution modulo one"
+      }
     }
   ],
   "links": [],
@@ -4548,10 +5454,12 @@
     },
     {
       "stageId": "ProbabilisticAndMetricNumberTheory:PM.2",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Read the selected Kuipers/Niederreiter proofs of Weyl criterion, polynomial equidistribution, discrepancy and normal-number consequences.",
-        "Pin interval endpoints, irrational-coefficient hypotheses and ES.0 differencing inputs; distinguish dense orbit from equidistribution."
+        "Asymptotic equidistribution, total equidistribution, the Haar probability measures on T and T^d, irrational points, the Weyl criterion and its projection form, the linear equidistribution theorem, van der Corput's difference theorem, Weyl's polynomial theorem and uniform distribution mod 1 are decomposed (ℕ-indexed), from Tao, Higher order Fourier analysis §1.1.1. Van der Corput's inequality is ES.0/q-vdc-lag-bound at r = 1 and is not replanned.",
+        "Still to decompose from the same section: the ℤ-indexed versions ((iii) of Exercises 1.1.5 and 1.1.6); total equidistribution by rational twists (Exercise 1.1.4); Exercise 1.1.6, the full polynomial criterion that no nonzero k kills α_1, …, α_s; and the abelian Ratner decompositions (Proposition 1.1.5, Exercise 1.1.7).",
+        "Discrepancy (Erdős–Turán, Koksma) and the normal-number consequences (Borel's theorem, linking Mathlib's digit expansions and Tau Ceti's Bernoulli-shift ergodicity) still need a source read and nodes; the audit records both as absent.",
+        "Single-scale (quantitative) equidistribution, §1.1.2 of the same source, is not planned; ES and AC consumers should say whether they need it."
       ]
     },
     {
@@ -4599,7 +5507,7 @@
       "neededBy": [
         "ProbabilisticAndMetricNumberTheory:PM.2"
       ],
-      "detail": "Read the selected Kuipers/Niederreiter proofs of Weyl criterion, polynomial equidistribution, discrepancy and normal-number consequences. Pin interval endpoints, irrational-coefficient hypotheses and ES.0 differencing inputs; distinguish dense orbit from equidistribution."
+      "detail": "Updated by cc-fb70e5 on 2026-09-28. The asymptotic core of PM.2 is decomposed from Tao, Higher order Fourier analysis §1.1.1, a freely readable author copy, in place of the Kuipers–Niederreiter proofs named before, which were not used. Interval endpoints are pinned as half-open arcs [a, b) with 0 ≤ a ≤ b ≤ 1; the irrationality hypothesis is k · α ≠ 0 for all nonzero k; ES.0's differencing input is q-vdc-lag-bound at r = 1; and density of an orbit (AddCircle.denseRange_zsmul_iff) is kept apart from equidistribution, which implies it. Still open: discrepancy, normal numbers, the ℤ-indexed and Ratner-decomposition statements, and any single-scale version (see coverage)."
     },
     {
       "title": "PM.3: source and proof completion",
@@ -4685,6 +5593,70 @@
       "searched": [
         "The directly acquired author HTML retains the display. Bounded title/Exercise 11 correction searches on 2026-09-27 and an occurrence screen of the current-page comments found no applicable correction.",
         "No full comment-thread collation or published-book comparison was performed. The finding is restricted to the acquired author HTML and does not assert priority beyond this bounded search."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E5",
+      "source": "TAO-HOFA-1.1",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 1.1.6, printed p. 8 (PDF p. 16); the same sentence in the proof of Lemma 4 of the blog notes.",
+      "printed": "The proof says it expands the left-hand side, giving E_{n∈[N]} a_n ≪ (E_{h,h'∈[H]} E_{n∈[N]} a_{n+h} conj(a_{n+h'}))^{1/2} + H/N.",
+      "correction": "'We expand out the right-hand side as'.",
+      "reason": "The display expands the square |E_{h∈[H]} a_{n+h}|² on the right-hand side of the preceding Cauchy–Schwarz display; the left-hand side E a_n is unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The maintained errata list for the book (https://teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 corrections, and the older book page it replaces): not listed.",
+        "The reader comments on the 2010 blog post, including every '[Corrected, thanks – T.]' reply: not raised.",
+        "The blog post as it stands on 2026-09-28 and the book's author copy of 5 June 2012: both still print it."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E6",
+      "source": "TAO-HOFA-1.1",
+      "kind": "misprint",
+      "locator": "Proof of Corollary 1.1.9, printed p. 9 (PDF p. 17); the same sentence in the proof of Corollary 6 of the blog notes.",
+      "printed": "The source assigns degree s − 1 in n to the polynomial P(n + h) − P(n), and identifies its leading coefficient as shα_s n^{s−1}.",
+      "correction": "'with leading coefficient shα_s' (equivalently, 'with leading term shα_s n^{s−1}').",
+      "reason": "By the binomial theorem the n^{s−1} coefficient of P(n + h) − P(n) is s h α_s; the next sentence treats shα_s as the coefficient, whose irrationality is what the induction uses.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The maintained errata list for the book (https://teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 corrections, and the older book page it replaces): not listed.",
+        "The reader comments on the 2010 blog post, including every '[Corrected, thanks – T.]' reply: not raised.",
+        "The blog post as it stands on 2026-09-28 and the book's author copy of 5 June 2012: both still print it."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E7",
+      "source": "TAO-HOFA-1.1",
+      "kind": "misprint",
+      "locator": "Paragraph after the proof of Proposition 1.1.5, printed p. 7 (PDF p. 15); the same sentence after the proof of Proposition 3 of the blog notes.",
+      "printed": "The source considers n ↦ nα + β, a linear sequence on a torus T, and asserts equidistribution over a union of finitely many cosets of a subtorus T′. It then claims that α uniquely determines the torus T.",
+      "correction": "'this torus T′ is uniquely determined by α'.",
+      "reason": "T is the ambient torus, given in advance; the object that α determines is the subtorus T′ of Proposition 1.1.5.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The maintained errata list for the book (https://teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 corrections, and the older book page it replaces): not listed.",
+        "The reader comments on the 2010 blog post, including every '[Corrected, thanks – T.]' reply: not raised.",
+        "The blog post as it stands on 2026-09-28 and the book's author copy of 5 June 2012: both still print it."
+      ]
+    },
+    {
+      "id": "ProbabilisticAndMetricNumberTheory/E8",
+      "source": "TAO-HOFA-1.1",
+      "kind": "misprint",
+      "locator": "Remark 1.1.19, printed p. 17 (PDF p. 25); Remark 5 of the blog notes, which says 'Example 7'.",
+      "printed": "The source compares the result to the analogue for asymptotic equidistribution that it locates in Example 1.1.7.",
+      "correction": "'in Exercise 1.1.7' (the blog notes: 'in Exercise 7').",
+      "reason": "There is no Example 1.1.7. The result being compared is the single-scale theorem for abelian polynomial sequences, which the text introduces with 'This gives us the following analogue of Exercise 1.1.7'; Exercise 1.1.7 is the asymptotic equidistribution theorem for abelian polynomial sequences.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The maintained errata list for the book (https://teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 corrections, and the older book page it replaces): not listed.",
+        "The reader comments on the 2010 blog post, including every '[Corrected, thanks – T.]' reply: not raised.",
+        "The blog post as it stands on 2026-09-28 and the book's author copy of 5 June 2012: both still print it."
       ]
     }
   ],
@@ -4876,6 +5848,20 @@
       "citation": "Tao 5 January 2010 author HTML; selected Section 1/2 passages, not a full-source reading. E4 is scoped only to this HTML, with no print-version comparison.",
       "read": "2026-09-27",
       "sha256": "ffa97487e6339d8cef52ad1c0609373738520c027b06ba24a89e8af2caad332d"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://terrytao.wordpress.com/wp-content/uploads/2012/12/gsm-142-tao7-higher-book-05june2012.pdf",
+      "citation": "Tao, Higher order Fourier analysis (AMS GSM 142), author's preliminary version of 5 June 2012, Section 1.1.",
+      "read": "2026-09-28",
+      "sha256": "278a9b48c7ba09dc541371f6703ed3cfc3c72d75b5157107dd99539336ce7bbd"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://terrytao.wordpress.com/2010/03/28/254b-notes-1-equidistribution-of-polynomial-sequences-in-tori/",
+      "citation": "Tao, 254B Notes 1 (blog, 28 March 2010), §1, including its reader comments and the corrections acknowledged there. The page is dynamic, so the digest of the copy read identifies that copy only.",
+      "read": "2026-09-28",
+      "sha256": "103489bf62f90e3291f52208971265c85abc9e31b844c573a33340ee3ce5d7ec"
     }
   ]
 }
