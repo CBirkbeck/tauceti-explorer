@@ -14136,7 +14136,8 @@
    ],
    "avoidAccountOf": "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
    "prompt": "research/blueprint/prompts/REV-DeformationAndDerivedPatchingAlgebra--R03.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #143"
   },
   {
    "id": "BP-FoundationsAndLibraryIntegration",
