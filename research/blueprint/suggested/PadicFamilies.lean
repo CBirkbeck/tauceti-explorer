@@ -27,6 +27,7 @@ import Mathlib.Data.Nat.Factorial.Basic
 import Mathlib.Data.Fintype.Pigeonhole
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Analysis.Complex.Basic
+import Mathlib.RingTheory.PowerSeries.Basic
 
 open scoped Nat
 
@@ -359,5 +360,42 @@ Their signatures are recorded as comments; the Fredholm theory they consume is p
 --   Construction 5.7), eigenpacket-points (Lemmas 5.9–5.10),
 --   equidimensional-components (Lemma 5.8; Chenevier Proposition 6.4.2).
 -/
+
+/-! ## L0. Hida's ordinary Hecke algebra (checkpoint 2)
+
+Katz's p-adic modular functions, the universal Hecke algebra and the control theorem need modular curves over p-adic
+rings, which the pinned libraries do not have; the q-expansion formula for U_p and the weight algebra are prototyped
+against Mathlib. -/
+
+section HidaL0
+
+open PowerSeries
+
+variable {R : Type*} [CommRing R]
+
+/-- `PadicFamilies:L0/padic-hecke-operators`: the q-expansion action of U_p, a(n, f|U_p) = a(np, f). -/
+noncomputable def qExpansionU (p : ℕ) (f : PowerSeries R) : PowerSeries R := PowerSeries.mk fun n => coeff (n * p) f
+
+theorem coeff_qExpansionU (p n : ℕ) (f : PowerSeries R) : coeff n (qExpansionU p f) = coeff (n * p) f := sorry
+
+/-- U_p is additive. -/
+theorem qExpansionU_add (p : ℕ) (f g : PowerSeries R) : qExpansionU p (f + g) = qExpansionU p f + qExpansionU p g := sorry
+
+/-- `PadicFamilies:L0/weight-algebra-action`: the arithmetic point P_k = (1 + X) − u^k of Λ = R[[X]] for u ∈ R. -/
+noncomputable def arithmeticPoint (u : R) (k : ℕ) : PowerSeries R := 1 + X - C (u ^ k)
+
+/-- The constant coefficient of P_k is 1 − u^k, so P_k is a unit in Λ = R[[X]] exactly when 1 − u^k is a unit of R. -/
+theorem constantCoeff_arithmeticPoint (u : R) (k : ℕ) :
+    constantCoeff (arithmeticPoint u k) = 1 - u ^ k := sorry
+
+-- Unit tests.
+/-- U_p fixes the constant power series 1 in degree 0 and kills higher coefficients of 1. -/
+example (p : ℕ) : coeff 0 (qExpansionU (R := ℤ) p 1) = 1 := sorry
+/-- U_p on a series supported in degrees prime to p kills all positive coefficients (p = 2, f = X). -/
+example : coeff 1 (qExpansionU (R := ℤ) 2 X) = 0 := sorry
+/-- Distinct weights give distinct arithmetic points when u has infinite order (u = 1 + 5 in ℤ). -/
+example : arithmeticPoint (6 : ℤ) 1 ≠ arithmeticPoint 6 2 := sorry
+
+end HidaL0
 
 end TauCeti.PadicFamilies

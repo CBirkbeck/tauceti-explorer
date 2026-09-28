@@ -1,4 +1,44 @@
-# BP-PadicFamilies: checkpoint 1 (Claude Code cc-39fac3)
+# BP-PadicFamilies: checkpoint 2 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 28 September 2026. Refs #965; the bot confirmed the claim. **Status: partial.**
+
+Checkpoint 2 plans layer L0 from Hida, Ann. Sci. ÉNS 19 (1986), §§1–5 and §7, with 13 nodes:
+- Katz's p-adic modular functions and the q-expansion principle;
+- the p-adic closure of classical forms (Katz Theorem 1.1, Corollary 1.2);
+- Hecke operators and the weight action;
+- the universal Hecke algebra;
+- the ordinary idempotent, as an instance of L0a;
+- Hecke/forms duality (Proposition 2.1, Theorem 2.2, Corollary 2.3);
+- the weight algebra Λ with arithmetic points;
+- Jochnowitz's lemma;
+- mod-p weight independence (Theorem 4.2) and finiteness over Λ (Corollary 4.2);
+- Hida's control theorem (Theorem 3.1, Corollary 3.2);
+- the ordinary Eisenstein family, imported from DirichletPadicLFunctions L4 per RS-08;
+- classical specialisation, with p-stabilisation from ModularSymbolsPadicLFunctions L2.
+
+## L0 remaining
+
+- **Katz's theory.** The Igusa tower and the p-adic q-expansion principle are imported through Hida's review; Katz's
+  papers are not freely available.
+- **Local components.** Finite flatness and Gorenstein questions for residually localised components: Hida §§5–6, Wiles
+  1988 and Mazur–Tilouine.
+- **Wiles's definition.** Wiles's Λ-adic forms and their equivalence with Hida's Hecke-algebra definition.
+
+## Requests added
+
+- ModularCurvesPartII R13.2 and R12.5: moduli of trivialised elliptic curves, and ω^k with Hecke normalisation.
+- PadicMeasuresIwasawaAlgebras L1: Λ and its power-series coordinate.
+
+## Lean
+
+`suggested/PadicFamilies.lean` gains an L0 section:
+- the q-expansion U_p operator;
+- the arithmetic points P_k in ℤ_p[[X]], with tests.
+
+The whole file (Mathlib-only) elaborates against Mathlib 082e2d3 with the pinned toolchain: 0 errors, and the only
+warnings are for `sorry`.
+
+# Checkpoint 1 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 28 September 2026. Refs #965; the bot confirmed the claim. **Status: partial.**
 
