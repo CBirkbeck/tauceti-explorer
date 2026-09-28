@@ -20,11 +20,16 @@ import Mathlib.RingTheory.QuasiFinite.Basic
 import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
 import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.CategoryTheory.Galois.Equivalence
+import Mathlib.RingTheory.WittVector.Frobenius
+import Mathlib.RingTheory.WittVector.Identities
+import Mathlib.RingTheory.WittVector.Isocrystal
+import Mathlib.RingTheory.WittVector.DiscreteValuationRing
+import Mathlib.RingTheory.Length
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyFree
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 
 /-!
-# Finite flat groups and integral p-adic Hodge theory — suggested declarations (R07.1)
+# Finite flat groups and integral p-adic Hodge theory — suggested declarations (R07.1–R07.2)
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
@@ -539,3 +544,96 @@ def katzMazurIsoOfDiv {R : Type u} [CommRing R] (p : ℕ) (ε u : Rˣ) :
     katzMazur p ε ≅ katzMazur p (ε * u ^ p) := sorry
 
 end TauCeti.FiniteFlat
+
+
+/-! ## R07.2: Dieudonné theory over a perfect field
+
+Contravariant convention (Demazure, Fontaine, Pink): `F` on `M(G)` comes from `F_G`, and
+`M(ℚ_p/ℤ_p) = (𝕎 k, F = σ)`, `M(μ_{p^∞}) = (𝕎 k, F = p σ)`. -/
+
+namespace TauCeti.Dieudonne
+
+open TauCeti.FiniteFlat
+
+section
+
+variable (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p] [PerfectRing k p]
+
+/-- R07.2/dieudonne-ring: a Dieudonné module over `k`, i.e. a `𝕎 k`-module with a σ-linear `F`,
+a σ⁻¹-linear `V` and `F V = V F = p` (equivalently a left module over the Dieudonné ring). -/
+structure DieudonneModule where
+  M : Type u
+  [addCommGroup : AddCommGroup M]
+  [module : Module (WittVector p k) M]
+  F : M →+ M
+  V : M →+ M
+  F_smul : ∀ (a : WittVector p k) (x : M), F (a • x) = WittVector.frobenius a • F x
+  V_smul : ∀ (a : WittVector p k) (x : M), V (WittVector.frobenius a • x) = a • V x
+  F_V : ∀ x, F (V x) = (p : WittVector p k) • x
+  V_F : ∀ x, V (F x) = (p : WittVector p k) • x
+
+attribute [instance] DieudonneModule.addCommGroup DieudonneModule.module
+
+/-- Morphisms of Dieudonné modules: `𝕎 k`-linear maps commuting with `F` and `V`. -/
+structure DieudonneModule.Hom (M N : DieudonneModule p k) where
+  toLinearMap : M.M →ₗ[WittVector p k] N.M
+  comm_F : ∀ x, toLinearMap (M.F x) = N.F (toLinearMap x)
+  comm_V : ∀ x, toLinearMap (M.V x) = N.V (toLinearMap x)
+
+/-- R07.2/frobenius-verschiebung: the relative Frobenius `F_G : G → G^{(p)}` (its target, the
+Frobenius twist, is recorded through `frobeniusTwist`). -/
+def frobeniusTwist (G : FLF k) : FLF k := sorry
+
+def frobeniusHom (G : FLF k) : G ⟶ frobeniusTwist p k G := sorry
+
+def verschiebungHom (G : FLF k) : frobeniusTwist p k G ⟶ G := sorry
+
+/-- Pink Theorem 14.4: `V_G ∘ F_G = p`. -/
+theorem frobeniusHom_comp_verschiebungHom (G : FLF k) :
+    frobeniusHom p k G ≫ verschiebungHom p k G = nsmulHom G p := sorry
+
+/-- R07.2/dieudonne-module-finite: the contravariant Dieudonné module of a finite commutative
+`p`-group scheme. -/
+def dieudonneModuleFinite (G : FLF k) : DieudonneModule p k := sorry
+
+/-- Functoriality (contravariant). -/
+def dieudonneMap {G H : FLF k} (f : G ⟶ H) :
+    DieudonneModule.Hom p k (dieudonneModuleFinite p k H) (dieudonneModuleFinite p k G) := sorry
+
+/-- R07.2/dieudonne-equivalence-finite (Pink Theorem 28.3): full faithfulness. -/
+theorem dieudonneMap_bijective (G H : FLF k) (hG : ∃ n, rank G = p ^ n)
+    (hH : ∃ n, rank H = p ^ n) :
+    Function.Bijective (dieudonneMap p k (G := G) (H := H)) := sorry
+
+/-- Pink Theorem 28.3: `length M(G) = log_p |G|`. -/
+theorem length_dieudonneModuleFinite (G : FLF k) (n : ℕ) (hG : rank G = p ^ n) :
+    Module.length (WittVector p k) (dieudonneModuleFinite p k G).M = n := sorry
+
+/-- R07.2/dieudonne-p-divisible: the Dieudonné module `lim M(G_n)` of a `p`-divisible group. -/
+def dieudonneModulePDiv {h : ℕ} (G : PDivisibleGroup k p h) : DieudonneModule p k := sorry
+
+/-- Demazure III.8: `M(G)` is free of rank equal to the height. -/
+theorem dieudonneModulePDiv_free {h : ℕ} (G : PDivisibleGroup k p h) :
+    Module.Free (WittVector p k) (dieudonneModulePDiv p k G).M ∧
+      Module.finrank (WittVector p k) (dieudonneModulePDiv p k G).M = h := sorry
+
+/-- The image of `F`, a `𝕎 k`-submodule because `σ` is surjective on `𝕎 k` for perfect `k`. -/
+def imageF (M : DieudonneModule p k) : Submodule (WittVector p k) M.M := sorry
+
+theorem coe_imageF (M : DieudonneModule p k) : (imageF p k M : Set M.M) = Set.range M.F := sorry
+
+/-- R07.2/dieudonne-lie-algebra: `dim G = length_{𝕎 k} (M(G)/F M(G))` (Yu, p. 3). -/
+theorem length_coker_F_eq_dim [IsAdicComplete (IsLocalRing.maximalIdeal k) k]
+    [HenselianLocalRing k] {h : ℕ} (G : PDivisibleGroup k p h) :
+    Module.length (WittVector p k)
+      ((dieudonneModulePDiv p k G).M ⧸ imageF p k (dieudonneModulePDiv p k G)) = G.dim := sorry
+
+end
+
+/-- R07.2/standard-dieudonne-modules: rationally, `M(μ_{p^∞})` is Mathlib's standard isocrystal of
+slope one (and `M(ℚ_p/ℤ_p)` that of slope zero); the rational module is recorded through the
+placeholder `rationalIsocrystal`. -/
+def rationalIsocrystal (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p]
+    [PerfectRing k p] {h : ℕ} (_G : PDivisibleGroup k p h) : Type u := sorry
+
+end TauCeti.Dieudonne
