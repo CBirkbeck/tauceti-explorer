@@ -11,7 +11,7 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
   ],
   "status": "partial",
-  "summary": "Second checkpoint: R07.1 is closed. The first checkpoint planned p-divisible groups of arbitrary height (levels, Cartier dual, Tate module, tower connected–étale sequence), closures over Dedekind bases, simple objects and Deligne's theorem, finite flat models, Raynaud's e < p − 1 uniqueness and the e = p − 1 boundary, F-vector schemes with Raynaud's classification and tame inertia bound, and Oort–Tate locally and over rings of integers. This checkpoint adds commutative formal Lie groups and the Serre–Tate equivalence with connected p-divisible groups, the dimension with dim G + dim G^D = h and Tate's discriminant formula, Tate's Hodge–Tate decomposition, Tate's theorem that p-divisible groups over an integrally closed noetherian domain are determined by their generic fibres (with the closure-after-a-shift lemma), Raynaud's extension criterion, the finite part of a quasi-finite group over a henselian base, finite étale groups as π₁-modules with the twisted constant schemes, the gluing equivalence and Mayer–Vietoris sequence over a completion and a localisation, and the Katz–Mazur groups T_ε. This answers every request other roadmaps have made of R07.1. R07.2–R07.6 remain.",
+  "summary": "Third checkpoint. R07.1 is closed (checkpoints 1–2: p-divisible groups, finite flat models, Raynaud and Oort–Tate, Tate's theorems, gluing, Katz–Mazur). This checkpoint begins R07.2 (partial): Frobenius and Verschiebung of commutative group schemes, the canonical decomposition over a perfect field, finite Witt group schemes, the Dieudonné ring, the contravariant Dieudonné module and Pink's classification of finite commutative p-group schemes with duality and the tangent space, base change and Galois descent, Demazure's classification of p-divisible groups by W-free Dieudonné modules with height, dimension, duality and the standard examples, the ordinary/supersingular classification of elliptic curves, slopes and the isogeny classification (Dieudonné–Manin imported from VectorBundlesAndIsocrystals VB0). Crystals, Grothendieck–Messing and deformations remain in R07.2; R07.3–R07.6 remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -141,6 +141,76 @@
         "module": "Mathlib/GroupTheory/MonoidLocalization/Away.lean",
         "provides": "The localisation R[1/f].",
         "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WittVector",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/WittVector/Defs.lean",
+        "provides": "The ring 𝕎 R of p-typical Witt vectors.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:TruncatedWittVector",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/WittVector/Truncated.lean",
+        "provides": "Witt vectors of length n, the points of the group scheme W_n.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WittVector.frobenius",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+        "provides": "The Frobenius ring endomorphism σ of 𝕎 R.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WittVector.verschiebung",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/WittVector/Verschiebung.lean",
+        "provides": "The Verschiebung additive endomorphism V of 𝕎 R.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WittVector.frobeniusEquiv",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/WittVector/Frobenius.lean",
+        "provides": "For a perfect ring, σ as a ring automorphism of 𝕎 R.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WittVector.isDiscreteValuationRing",
+        "kind": "instance",
+        "module": "Mathlib/RingTheory/WittVector/DiscreteValuationRing.lean",
+        "provides": "𝕎 k is a discrete valuation ring for a perfect field k of characteristic p.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:PerfectField",
+        "kind": "definition",
+        "module": "Mathlib/FieldTheory/Perfect.lean",
+        "provides": "Perfect fields.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WittVector.Isocrystal",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+        "provides": "Isocrystals: K(p, k)-vector spaces with a Frobenius-semilinear automorphism.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WittVector.StandardOneDimIsocrystal",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+        "provides": "The one-dimensional isocrystal K(p, k) with Frobenius x ↦ p^m φ(x).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:WittVector.isocrystal_classification",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+        "provides": "Over an algebraically closed k, every one-dimensional isocrystal is isomorphic to StandardOneDimIsocrystal p k m for some m ∈ ℤ.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
       }
     ]
   },
@@ -235,6 +305,42 @@
         "Tag 04GG, Lemma 10.153.3 (characterisations of henselian local rings), conditions (9), (10) and (13)."
       ],
       "sha256": "0376af0b12014aed2c77da5820d6049b6a00f7ce19fc792cd1be676e7f3ca9c9"
+    },
+    {
+      "id": "Pink05-notes",
+      "title": "Finite group schemes (lecture course, WS 2004/05)",
+      "authors": "Richard Pink (notes by the participants)",
+      "edition": "ETH Zürich lecture notes, February 2005, 78 pp. (printed page = PDF page − 4); accessed 2026-09-28",
+      "url": "https://people.math.ethz.ch/~pink/ftp/FGS/CompleteNotes.pdf",
+      "readSections": [
+        "§11 (p. 24): Galois descent, Theorem 11.2.",
+        "§§14–15 (pp. 28–35): Frobenius and Verschiebung (Propositions 14.1, 14.3, Theorem 14.4) and the canonical decomposition (Theorem 15.5).",
+        "§§22–28 (pp. 48–73): finite Witt group schemes, the Dieudonné ring E, the Dieudonné functor in the local-local case (Proposition 23.1, Theorem 23.2, Proposition 23.3), duality (Propositions 26.1–26.2, Theorem 26.3), the étale case (Theorem 27.1, Proposition 27.3 and the descent proof), the general case ((28.1), Lemma 28.2, Theorem 28.3, Proposition 28.4)."
+      ],
+      "sha256": "c0a4e517b5a0dcf31ebbc9c65cf097eb85c8d68941dcca4fde6af13e819cdc3b"
+    },
+    {
+      "id": "Yu26-arXiv",
+      "title": "Introduction to Dieudonné modules and supersingular abelian varieties revisited",
+      "authors": "Chia-Fu Yu",
+      "edition": "arXiv:2603.11506v1 (12 March 2026); accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/2603.11506",
+      "readSections": [
+        "§2.1 (pp. 2–3): Definition 1, Example 2, Theorem 3, the dual M^t, height and Lie algebra, Lemma 4.",
+        "§2.2 (pp. 3–4): the modules M_{a,b}, slopes, Theorem 5 (Manin–Dieudonné) and a-numbers.",
+        "§§2.3–2.4 (pp. 5–6): Cartier–Dieudonné theory and the construction of deformations (read for scope; not used in this checkpoint)."
+      ],
+      "sha256": "570212cc2f50224ea6d762be67306a67474fd5805e82f046b8b9fcd17fe2c7ef"
+    },
+    {
+      "id": "Demazure72-nLab",
+      "title": "Demazure, lectures on p-divisible groups, III.8, Dieudonné modules (p-divisible groups)",
+      "authors": "nLab contributors, transcribing Michel Demazure (LNM 302, Springer 1972)",
+      "edition": "nLab page, last revised 9 June 2012 (revision 2); fetched 2026-09-28. The book itself is not freely available; this transcription gives the lemma and theorem of III.8 (Demazure pp. 71–72).",
+      "url": "https://ncatlab.org/nlab/show/Demazure,+lectures+on+p-divisible+groups,+III.8,+Dieudonn%C3%A9+modules+(p-divisible+groups)",
+      "readSections": [
+        "The whole page: the limit lemma, the definition of p-torsion formal groups, the theorem and the remark (base change, p-divisibility, height, Serre duality)."
+      ]
     }
   ],
   "nodes": [
@@ -2232,6 +2338,1003 @@
           "statement": "Over ℤ_p (p odd), katzMazur p (1 + p) is not isomorphic to μ_p × ℤ/pℤ, since 1 + p ∉ ℤ_p^{×p}."
         }
       ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/frobenius-verschiebung",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "Relative Frobenius and Verschiebung of commutative group schemes",
+      "kind": "construction",
+      "statement": "Let k be a field of characteristic p. For a k-scheme X put X^{(p)} = X ⊗_{k,σ} k; the relative Frobenius F_X : X → X^{(p)} is induced by the absolute Frobenius and is functorial in X, compatible with products and with base extension. For an affine commutative group scheme G over k, F_G : G → G^{(p)} is a homomorphism, and the Verschiebung V_G : G^{(p)} → G is the homomorphism defined through the symmetric-tensor map A ⊗_{k,σ} k → (A^{⊗p})^{S_p}; it is functorial, compatible with products and base extension, and for finite G it is the Cartier dual of F_{G^*}. Moreover V_G ∘ F_G = p·id_G and F_G ∘ V_G = p·id_{G^{(p)}}.",
+      "hypotheses": [
+        "k a field of characteristic p; G affine commutative over k (finite for the duality statement)."
+      ],
+      "proofSteps": [
+        "F_X: the absolute Frobenius σ_X is functorial and compatible with products; factor it through X^{(p)} (Pink Proposition 14.1).",
+        "V_G: from the comultiplication and the map λ_A : A ⊗_{k,σ} k → (A^{⊗p})^{S_p} defined by symmetric tensors (Pink §14); functoriality, products and base change (Proposition 14.3). For finite G, V_G = (F_{G^*})^* under the Cartier duality of Tau Ceti's FiniteLocallyFreeCommAffineGroupSchemeCat.",
+        "V_G ∘ F_G = p and F_G ∘ V_G = p: on algebras, F_A and V_A compose to the p-th power of the comultiplication followed by multiplication (Pink Theorem 14.4)."
+      ],
+      "acceptance": [
+        "For elliptic curves these are the F and V of ModularCurves 7E PD-3, with V∘F = p = F∘V.",
+        "On 𝔾_a: F(x) = x^p and V = 0; on 𝔾_m: F(x) = x^p and V = id after identifying 𝔾_m^{(p)} = 𝔾_m."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat",
+        "tauceti:FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+        "mathlib:PerfectField"
+      ],
+      "sources": [
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§14, Theorem 14.4, p. 31",
+          "excerpt": "Theorem 14.4. For any affine commutative group scheme G, (a) VG ◦ FG = p · idG , (b) FG ◦ VG = p · idG(p) .",
+          "match": "The relations."
+        },
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§14, Proposition 14.3, p. 30",
+          "excerpt": "Proposition 14.3. (a) VG is functorial in G … (b) VG is compatible with products … (c) VG is compatible with base extensions",
+          "match": "Functoriality of V."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/FrobeniusVerschiebung",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/canonical-decomposition",
+          "how": "The types are read off F and V."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-module-finite",
+          "how": "F_G and V_G induce the operators F and V on Dieudonné modules."
+        },
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A4",
+          "how": "Frobenius and Verschiebung of abelian schemes in characteristic p (RS-02: A4 imports R07.2)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Dieudonne.frobeniusHom",
+          "role": "constructor",
+          "statement": "F_G : G ⟶ G^{(p)}, a homomorphism of group schemes."
+        },
+        {
+          "name": "TauCeti.Dieudonne.verschiebungHom",
+          "role": "constructor",
+          "statement": "V_G : G^{(p)} ⟶ G."
+        },
+        {
+          "name": "TauCeti.Dieudonne.verschiebung_comp_frobenius",
+          "role": "characterisation",
+          "statement": "V_G ∘ F_G = p • 𝟙 G."
+        },
+        {
+          "name": "TauCeti.Dieudonne.frobenius_comp_verschiebung",
+          "role": "characterisation",
+          "statement": "F_G ∘ V_G = p • 𝟙 G^{(p)}."
+        },
+        {
+          "name": "TauCeti.Dieudonne.frobeniusHom_naturality",
+          "role": "functoriality",
+          "statement": "F and V are natural in G and commute with base extension."
+        },
+        {
+          "name": "TauCeti.Dieudonne.verschiebungHom_eq_cartierDual",
+          "role": "compatibility",
+          "statement": "For finite G, V_G = (F_{G^*})^*."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Dieudonne.frobenius_constZModP_iso",
+          "kind": "value",
+          "statement": "For G = ℤ/pℤ, F_G is an isomorphism and V_G = 0."
+        },
+        {
+          "name": "TauCeti.Dieudonne.verschiebung_muP_iso",
+          "kind": "value",
+          "statement": "For G = μ_p, F_G = 0 and V_G is an isomorphism."
+        },
+        {
+          "name": "TauCeti.Dieudonne.frobenius_alphaP_zero",
+          "kind": "degenerate",
+          "statement": "For G = α_p, F_G = V_G = 0 although α_p ≠ 0."
+        },
+        {
+          "name": "TauCeti.Dieudonne.verschiebung_not_inverse",
+          "kind": "non-example",
+          "statement": "V_G is not an inverse of F_G: on μ_p, F_G = 0 while V_G ≠ 0, and V_G ∘ F_G = p = 0."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/canonical-decomposition",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "The canonical decomposition of finite commutative group schemes over a perfect field",
+      "kind": "theorem",
+      "statement": "Let k be perfect and G a finite commutative group scheme over k. Call G reduced (= étale) or local (= connected), and say G is of x–y type if G is x and its Cartier dual G* is y. Then there is a unique and functorial decomposition G = G_rr ⊕ G_rl ⊕ G_lr ⊕ G_ll into summands of reduced–reduced, reduced–local, local–reduced and local–local type. If G has p-power order then G_rr = 0. G_rl is étale with F_G an isomorphism, G_lr is of multiplicative type with V_G an isomorphism, and on G_ll both F_G and V_G are nilpotent.",
+      "hypotheses": [
+        "k perfect of characteristic p."
+      ],
+      "proofSteps": [
+        "Over a perfect field the connected–étale sequence splits canonically by the reduced subgroup (Stix Proposition 39; compare R07.1/p-divisible-connected-etale over a henselian base).",
+        "Apply the splitting to G and to G* and combine (Pink Theorem 15.5); the group orders of the four types are computed in Pink §17, which gives G_rr = 0 for p-power order.",
+        "F_G is an isomorphism exactly on reduced groups and nilpotent on local ones (Pink §15); dually for V_G via V_G = (F_{G*})*."
+      ],
+      "acceptance": [
+        "ℤ/pℤ is reduced–local, μ_p local–reduced, α_p local–local; ℤ/ℓℤ (ℓ ≠ p) is reduced–reduced.",
+        "E[p] for an ordinary elliptic curve over 𝔽̄_p is μ_p ⊕ ℤ/pℤ; for a supersingular one it is local–local."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/frobenius-verschiebung",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-connected-etale",
+        "tauceti:FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality"
+      ],
+      "sources": [
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§15, Theorem 15.5, p. 33",
+          "excerpt": "Theorem 15.5. There is a unique and functorial decomposition of G as G = Grr ⊕ Grℓ ⊕ Gℓr ⊕ Gℓℓ where the direct summands are of reduced-reduced, reduced-local, local-reduced, and local-local type, respectively.",
+          "match": "The decomposition."
+        },
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§28, p. 72",
+          "excerpt": "Recall from Theorems 15.5 and 17.1 that any finite commutative group scheme of p-power order has a unique decomposition G = Grℓ ⊕ Gℓr ⊕ Gℓℓ .",
+          "match": "The p-power case."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/FrobeniusVerschiebung",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/witt-group-schemes",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "Finite Witt group schemes W_n^m",
+      "kind": "construction",
+      "statement": "Let k be perfect. W_n is the additive group scheme of Witt vectors of length n over k (its R-points are the truncated Witt vectors W_n(R)), and W_n^m = ker(F^m : W_n → W_n). Truncation r : W_{n+1} ↠ W_n, Verschiebung v : W_n ↪ W_{n+1}, inclusion i : W_n^m ↪ W_n^{m+1} and Frobenius f : W_n^{m+1} ↠ W_n^m satisfy rv = vr = V and if = fi = F, with short exact sequences 0 → W_{n′}^m → W_{n+n′}^m → W_n^m → 0 and 0 → W_n^m → W_n^{m+m′} → W_n^{m′} → 0. The W_n^m form a direct system under v and i, and the Dieudonné ring acts on each W_n^m, ξ ∈ W(k) acting by σ^{−n}(ξ), compatibly with the system.",
+      "hypotheses": [
+        "k perfect of characteristic p; n, m ≥ 1."
+      ],
+      "proofSteps": [
+        "W_n(R) = TruncatedWittVector p n R is functorial in k-algebras R and represented by an affine space; the group law is the Witt addition (Mathlib).",
+        "The exact sequences: r^{n′} has the scheme-theoretic splitting x ↦ (x, 0, …, 0) (Pink §22), and the F-kernel sequences follow by restriction.",
+        "The action of R07.2/dieudonne-ring: F(ξx) = σ(ξ)F(x) and ξV(x) = V(σ(ξ)x) on Witt vectors, so letting ξ act by σ^{−n}(ξ) on W_n^m is compatible with F, V and the transition maps (Pink Proposition 23.1)."
+      ],
+      "acceptance": [
+        "W_1 = 𝔾_a and W_1^1 = α_p.",
+        "W_n^m(k̄) = 0 for all n, m (W_n^m is infinitesimal)."
+      ],
+      "prerequisites": [
+        "mathlib:TruncatedWittVector",
+        "mathlib:WittVector",
+        "mathlib:WittVector.frobenius",
+        "mathlib:WittVector.verschiebung",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/frobenius-verschiebung"
+      ],
+      "sources": [
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§22, p. 48",
+          "excerpt": "For any integers n, m ≥ 1 we let Wnm denote the kernel of F m on Wn . As above, truncation induces natural epimorphisms r : Wn+1 ↠ Wnm , and Verschiebung induces natural monomorphisms v : Wnm ↪ Wn+1 m , such that rv = vr = V .",
+          "match": "The construction."
+        },
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§23, Proposition 23.1, p. 54",
+          "excerpt": "Proposition 23.1. There exist unique ring homomorphisms E → Aut(Wnm ) for all m, n such that F and V act as such and ξ ∈ W (k) acts through multiplication by σ −n (ξ).",
+          "match": "The E-action."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/WittGroupSchemes",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-module-finite",
+          "how": "M(G_ll) = lim Hom(G, W_n^m) and M(G_rl) = lim Hom(G, W_n)."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-equivalence-finite",
+          "how": "E/(EF^m + EV^n) ≅ End(W_n^m) ≅ M(W_n^m) drives the local–local case."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-tangent-space",
+          "how": "W_1 = ker(V | W_n) computes the tangent space."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Dieudonne.wittGroup",
+          "role": "constructor",
+          "statement": "W_n as an affine commutative group scheme over k, R ↦ TruncatedWittVector p n R."
+        },
+        {
+          "name": "TauCeti.Dieudonne.wittGroupKer",
+          "role": "constructor",
+          "statement": "W_n^m := ker(F^m on W_n), a finite local–local group scheme."
+        },
+        {
+          "name": "TauCeti.Dieudonne.wittGroup_exact",
+          "role": "characterisation",
+          "statement": "The two short exact sequences."
+        },
+        {
+          "name": "TauCeti.Dieudonne.wittGroupKer_dieudonneAction",
+          "role": "structure",
+          "statement": "The E-action on W_n^m with ξ acting by σ^{−n}(ξ), compatible with v and i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Dieudonne.wittGroup_one",
+          "kind": "value",
+          "statement": "W_1 ≅ 𝔾_a and W_1^1 ≅ α_p."
+        },
+        {
+          "name": "TauCeti.Dieudonne.wittGroupKer_order",
+          "kind": "value",
+          "statement": "W_n^m has order p^{nm}."
+        },
+        {
+          "name": "TauCeti.Dieudonne.wittGroupKer_points_zero",
+          "kind": "degenerate",
+          "statement": "W_n^m(k̄) = 0: the group is infinitesimal."
+        },
+        {
+          "name": "TauCeti.Dieudonne.wittGroup_not_constant",
+          "kind": "non-example",
+          "statement": "W_n is not the constant group ℤ/p^n: its k-points form W_n(k), and for k = 𝔽_p these are ℤ/p^n, but W_n is a smooth group of dimension n."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-ring",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "The Dieudonné ring",
+      "kind": "definition",
+      "statement": "Let k be perfect of characteristic p, W(k) its Witt vectors and σ the Frobenius of W(k). The Dieudonné ring E = D_k is the ring of noncommutative polynomials over W(k) in F and V with Fξ = σ(ξ)F, Vσ(ξ) = ξV (ξ ∈ W(k)) and FV = VF = p. A Dieudonné module is a left E-module; equivalently a W(k)-module M with a σ-linear F and a σ^{−1}-linear V such that FV = VF = p.",
+      "hypotheses": [
+        "k perfect of characteristic p, so that σ is an automorphism of W(k) (Mathlib WittVector.frobeniusEquiv)."
+      ],
+      "proofSteps": [
+        "Definition as displayed (Pink §23; Yu Definition 1, where it is written A_k).",
+        "E is a free left, and a free right, W(k)-module with basis {…, V², V, 1, F, F², …}, from the relations and FV = p."
+      ],
+      "acceptance": [
+        "k = 𝔽_p: E = ℤ_p[F, V]/(FV − p), a regular commutative ring of Krull dimension 2.",
+        "E/(EF + EV) ≅ k."
+      ],
+      "prerequisites": [
+        "mathlib:WittVector",
+        "mathlib:WittVector.frobeniusEquiv",
+        "mathlib:WittVector.isDiscreteValuationRing",
+        "mathlib:PerfectField"
+      ],
+      "sources": [
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§23, Definition, p. 54",
+          "excerpt": "Definition. Let E be the ring of “noncommutative polynomials” over W (k) in two variables F and V , subject to the following relations: • F · ξ = σ(ξ) · F ∀ξ ∈ W (k) • V · σ(ξ) = ξ · V ∀ξ ∈ W (k) • FV = V F = p",
+          "match": "The definition."
+        },
+        {
+          "sourceId": "Yu26-arXiv",
+          "locator": "§2.1, Definition 1, p. 2",
+          "excerpt": "A Dieudonné module over k is a finite W -module M together with a σ-linear map F (Frobenius) and a σ −1 -linear map V (Verschiebung) on M such that F V = V F = p.",
+          "match": "Dieudonné modules."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/Finite",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Dieudonné ring"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-module-finite",
+          "how": "Dieudonné modules of finite group schemes are left E-modules of finite length."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+          "how": "W-free Dieudonné modules."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+          "how": "Fontaine–Laffaille modules refine Dieudonné modules with a filtration."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Dieudonne.DieudonneRing",
+          "role": "constructor",
+          "statement": "The ring E over W(k) with generators F, V and the displayed relations."
+        },
+        {
+          "name": "TauCeti.Dieudonne.DieudonneRing.F_mul",
+          "role": "simp",
+          "statement": "F * ξ = σ ξ * F."
+        },
+        {
+          "name": "TauCeti.Dieudonne.DieudonneRing.mul_V",
+          "role": "simp",
+          "statement": "V * σ ξ = ξ * V."
+        },
+        {
+          "name": "TauCeti.Dieudonne.DieudonneRing.F_mul_V",
+          "role": "simp",
+          "statement": "F * V = p and V * F = p."
+        },
+        {
+          "name": "TauCeti.Dieudonne.DieudonneRing.basis",
+          "role": "structure",
+          "statement": "E is a free left W(k)-module with basis V^i, 1, F^j."
+        },
+        {
+          "name": "TauCeti.Dieudonne.DieudonneModule",
+          "role": "structure",
+          "statement": "A W(k)-module with σ-linear F, σ^{−1}-linear V and FV = VF = p, equivalently a left E-module."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Dieudonne.DieudonneRing.comm_of_Fp",
+          "kind": "value",
+          "statement": "For k = 𝔽_p, E is commutative and ≅ ℤ_p[F, V]/(FV − p)."
+        },
+        {
+          "name": "TauCeti.Dieudonne.DieudonneRing.not_comm",
+          "kind": "non-example",
+          "statement": "For k = 𝔽_{p²}, F ξ ≠ ξ F for ξ = [a] with a ∉ 𝔽_p, so E is not commutative and the naive commutative ring W(k)[F, V]/(FV − p) is wrong."
+        },
+        {
+          "name": "TauCeti.Dieudonne.DieudonneRing.quot_F_V",
+          "kind": "value",
+          "statement": "E/(EF + EV) ≅ k."
+        },
+        {
+          "name": "TauCeti.Dieudonne.DieudonneModule.zero",
+          "kind": "degenerate",
+          "statement": "The zero module is a Dieudonné module (of the trivial group)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-module-finite",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "The contravariant Dieudonné module of a finite commutative p-group scheme",
+      "kind": "construction",
+      "statement": "Let k be perfect and G a finite commutative group scheme of p-power order over k, decomposed as G = G_rl ⊕ G_lr ⊕ G_ll (R07.2/canonical-decomposition). Define M(G_ll) = lim_{n,m} Hom(G_ll, W_n^m), M(G_rl) = lim_n Hom(G_rl, W_n), and, for a finite-length W(k)-module N with F, V, N* = Hom_{W(k)}(N, W(k)[1/p]/W(k)) with (Fℓ)(n) = σ(ℓ(Vn)) and (Vℓ)(n) = σ^{−1}(ℓ(Fn)). Then M(G) := M(G_rl) ⊕ M(G_lr*)* ⊕ M(G_ll) is a left E-module of finite length, contravariant in G, with F and V induced by F_G and V_G.",
+      "hypotheses": [
+        "k perfect; G finite commutative of p-power order."
+      ],
+      "proofSteps": [
+        "M(G_ll): the E-action on the direct system W_n^m (R07.2/witt-group-schemes) makes lim Hom(G, W_n^m) a left E-module (Pink §23).",
+        "M(G_rl): the same with the W_n (Pink §27).",
+        "N ↦ N* is an anti-equivalence on finite-length W(k)-modules with N ≅ N** (Pink Proposition 26.1), and on left E-modules (Proposition 26.2); since G_lr* is reduced–local, M(G_lr*)* is defined, and (28.1) assembles M(G)."
+      ],
+      "acceptance": [
+        "M(ℤ/pℤ) = k with F = σ and V = 0; M(μ_p) = k with F = 0 and V = σ^{−1}; M(α_p) = k with F = V = 0.",
+        "M(ℤ/p^nℤ) = W_n(k) with F = σ."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/canonical-decomposition",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/witt-group-schemes",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-ring",
+        "tauceti:FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality"
+      ],
+      "sources": [
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§28, (28.1), p. 72",
+          "excerpt": "In §23 and §27 we have already defined M(Gℓℓ ) and M(Grℓ ). Since G∗ℓr is of reduced-local type, we can define: (28.1) M(G) := M(Grℓ ) ⊕ M(G∗ℓr )∗ ⊕ M(Gℓℓ ) .",
+          "match": "The definition."
+        },
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§26, Proposition 26.1, p. 64",
+          "excerpt": "The functor N 7→ N ∗ := HomW (k) (N, T ) defines an anti-equivalence from the category of finite length W (k)-modules to itself, and there is a functorial isomorphism N ∼= (N ∗ )∗ .",
+          "match": "The dual module."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/Finite",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-equivalence-finite",
+          "how": "The functor of the classification theorem."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+          "how": "M(G) = lim M(G_n) for p-divisible G."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3",
+          "how": "Fontaine–Laffaille and Breuil modules reduce to Dieudonné modules of finite flat group schemes over the residue field."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Dieudonne.dieudonneModule",
+          "role": "constructor",
+          "statement": "M : (finite commutative p-group schemes over k)ᵒᵖ ⥤ (left E-modules of finite length)."
+        },
+        {
+          "name": "TauCeti.Dieudonne.dualModule",
+          "role": "constructor",
+          "statement": "N* = Hom_{W(k)}(N, W(k)[1/p]/W(k)) with the twisted F, V."
+        },
+        {
+          "name": "TauCeti.Dieudonne.dieudonneModule_F",
+          "role": "compatibility",
+          "statement": "F on M(G) is induced by F_G, and V by V_G."
+        },
+        {
+          "name": "TauCeti.Dieudonne.dieudonneModule_prod",
+          "role": "compatibility",
+          "statement": "M(G × H) ≅ M(G) ⊕ M(H)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Dieudonne.dieudonneModule_zmodp",
+          "kind": "value",
+          "statement": "M(ℤ/pℤ) ≅ k with F = σ, V = 0."
+        },
+        {
+          "name": "TauCeti.Dieudonne.dieudonneModule_muP",
+          "kind": "value",
+          "statement": "M(μ_p) ≅ k with F = 0, V = σ^{−1}."
+        },
+        {
+          "name": "TauCeti.Dieudonne.dieudonneModule_alphaP",
+          "kind": "value",
+          "statement": "M(α_p) ≅ k with F = V = 0."
+        },
+        {
+          "name": "TauCeti.Dieudonne.dieudonneModule_trivial",
+          "kind": "degenerate",
+          "statement": "M(0) = 0."
+        },
+        {
+          "name": "TauCeti.Dieudonne.dieudonneModule_not_covariant",
+          "kind": "non-example",
+          "statement": "M is contravariant: the inclusion μ_p ↪ μ_{p²} induces the surjection M(μ_{p²}) ↠ M(μ_p), not an injection."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-equivalence-finite",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "Dieudonné classification of finite commutative p-group schemes",
+      "kind": "theorem",
+      "statement": "Let k be perfect. The functor M of R07.2/dieudonne-module-finite is an anti-equivalence from finite commutative group schemes of p-power order over k to left E-modules of finite length over W(k); length_{W(k)} M(G) = log_p |G|, and M(G*) ≅ M(G)* functorially. Under it, G is étale iff F is bijective on M(G), of multiplicative type iff V is bijective, and local–local iff F and V are nilpotent; these match the unique decomposition M = M_rl ⊕ M_lr ⊕ M_ll of finite-length E-modules.",
+      "hypotheses": [
+        "k perfect of characteristic p."
+      ],
+      "proofSteps": [
+        "Local–local case (Pink Theorem 23.2): E_n^m := E/(EF^m + EV^n) ≅ End(W_n^m) ≅ M(W_n^m) and length M(G) = log_p |G| (Proposition 23.3); every local–local G embeds in a sum of W_n^m, and the functor is fully faithful and essentially surjective by the resulting resolutions.",
+        "Étale case (Pink Theorem 27.1): over k̄, M(G) = W(k̄) ⊗_{ℤ_p} Hom(Γ, ℚ_p/ℤ_p) for the constant group Γ, and Lang's theorem (Proposition 27.3) shows every finite-length module with bijective F is of this form; descend by R07.2/dieudonne-galois-descent.",
+        "Duality: M(G*) ≅ M(G)* in the local–local case (Theorem 26.3, via (W_n^n)* ≅ W_n^n); the multiplicative part is defined by duality.",
+        "Lemma 28.2: every finite-length E-module splits uniquely as M_rl ⊕ M_lr ⊕ M_ll according to F and V; together with R07.2/canonical-decomposition this assembles the equivalence (Theorem 28.3)."
+      ],
+      "acceptance": [
+        "|μ_p| = p and length M(μ_p) = 1; |W_n^m| = p^{nm} and M(W_n^m) = E/(EF^m + EV^n) has length nm.",
+        "The simple objects are ℤ/pℤ, μ_p and α_p over k̄ (compare Stix Theorem 54 and Corollary 55)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-module-finite",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/canonical-decomposition",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/witt-group-schemes",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-ring",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-galois-descent"
+      ],
+      "sources": [
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§28, Theorem 28.3, p. 73",
+          "excerpt": "Theorem 28.3. The functor M defined by (28.1) induces an anti-equivalence of categories … Moreover lengthW (k) M(G) = logp |G|, and there is a functorial isomorphism M(G∗ ) ∼= M(G)∗ .",
+          "match": "The theorem."
+        },
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§23, Theorem 23.2, p. 55",
+          "excerpt": "Theorem 23.2. The functor M induces an anti-equivalence of categories",
+          "match": "The local–local case."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/Finite",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Dieudonné classification of finite group schemes"
+      }
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-tangent-space",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "The tangent space of a finite group scheme from its Dieudonné module",
+      "kind": "lemma",
+      "statement": "For a finite commutative group scheme G of p-power order over a perfect field k there is a natural isomorphism T_{G,0} ≅ (M(G)/FM(G))*, the k-dual of the cokernel of F.",
+      "hypotheses": [
+        "k perfect; G finite commutative of p-power order."
+      ],
+      "proofSteps": [
+        "Reduce to the three types. For G_rl both sides vanish: T_{G,0} = 0 and F is bijective.",
+        "For G_lr and G_ll, T_{G,0} ≅ Hom(G*, 𝔾_a) = Hom(G*, W_1) (Pink Proposition 13.1), and W_1 = ker(V | W_n) gives Hom(G*, W_1) = ker(V | M(G*)) = ker(V | M(G)*) = coker(F | M(G))* (Pink Proposition 28.4)."
+      ],
+      "acceptance": [
+        "α_p: T = k and M/FM = k.",
+        "μ_p: T = k and M(μ_p)/F = k (F = 0).",
+        "ℤ/pℤ: T = 0 and F is bijective."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-equivalence-finite",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/witt-group-schemes"
+      ],
+      "sources": [
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§28, Proposition 28.4, p. 73",
+          "excerpt": "Proposition 28.4. There is a natural isomorphism TG,0 ∼= M(G)/F M(G) ∗ .",
+          "match": "The statement and proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/Finite",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-galois-descent",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "Base change and Galois descent for Dieudonné modules",
+      "kind": "lemma",
+      "statement": "Let k be perfect with algebraic closure k̄. (i) For a perfect extension K/k, M(G_K) ≅ W(K) ⊗_{W(k)} M(G) functorially, for finite commutative p-group schemes and for p-divisible groups. (ii) M(G) = M(G_{k̄})^{Gal(k̄/k)}, and G ↦ (M(G_{k̄}), its continuous σ-semilinear Gal(k̄/k)-action commuting with F and V) is an anti-equivalence onto finite-length W(k̄)-modules with such an action; so the forms over k of a group G₀ over k̄ correspond to the Galois-semilinear structures on M(G₀). (iii) Over k̄, a finite-length W(k̄)-module N with a bijective σ-linear F satisfies N ≅ W(k̄) ⊗_{ℤ_p} N^{F=1} (Lang).",
+      "hypotheses": [
+        "k perfect; Gal(k̄/k) with its Krull topology."
+      ],
+      "proofSteps": [
+        "(i) The functors lim Hom(−, W_n) and lim Hom(−, W_n^m) commute with perfect base change because W_n(K) = W(K) ⊗_{W(k)} W_n(k) for perfect K/k (Demazure via nLab; Yu Theorem 3 and the remark after it).",
+        "(ii) Finite Galois descent for vector spaces (Pink Theorem 11.2) passes to W_n(k′)-modules and to affine group schemes; passing to the limit over finite Galois subextensions of k̄/k gives descent for Hopf algebras and for finite-length W(k̄)-modules with continuous semilinear action; M(G_{k̄})^{Gal} = lim Hom(G_{k̄}, W_{n,k̄})^{Gal} = lim Hom(G, W_n) = M(G) (Pink, proof of Theorem 27.1).",
+        "(iii) Pink Proposition 27.3: choose W(k̄)-bases, write F = φgσφ^{−1} with g in the connected group Aut_{W(k̄)}(N) and apply Lang's theorem to write g = h^{−1}σ(h)."
+      ],
+      "acceptance": [
+        "Over 𝔽_p (p odd), the twist G of ℤ/pℤ on which the Frobenius of Gal(𝔽̄_p/𝔽_p) acts by −1 has M(G) = 𝔽_p with F = −1, not isomorphic to M(ℤ/pℤ) = 𝔽_p with F = 1; over k̄ both become k̄ with F = σ, and only the Galois actions tell them apart.",
+        "length is preserved: length_{W(k)} M(G) = length_{W(k̄)} M(G_{k̄})."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-module-finite",
+        "mathlib:WittVector",
+        "mathlib:PerfectField"
+      ],
+      "sources": [
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§27, proof of Theorem 27.1, p. 71",
+          "excerpt": "Since M(Gk̄ )Gal(k̄/k) = lim Hom(Gk̄ , Wn,k̄ )Gal(k̄/k) = lim Hom(G, Wn ) = M(G), the whole diagram commutes, and therefore the upper horizontal arrow is an anti-equivalence, too.",
+          "match": "Descent from k̄."
+        },
+        {
+          "sourceId": "Pink05-notes",
+          "locator": "§27, Proposition 27.3, p. 70",
+          "excerpt": "Let N be a W (k)-module of finite length together with a σ-linear automorphism F : N → N. Then N F := { n ∈ N | F n = n } is a finite commutative p-group, and the natural homomorphism W (k) ⊗Zp N F −→ N , x ⊗ n 7−→ xn is an isomorphism.",
+          "match": "Part (iii)."
+        },
+        {
+          "sourceId": "Demazure72-nLab",
+          "locator": "III.8, Remark (Demazure pp. 71–72)",
+          "excerpt": "For any perfect extension K/k , there is a functorial isomorphism M(G⊗k K)≃W(K)⊗W(k) M(G) .",
+          "match": "Part (i)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/Finite",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "Dieudonné classification of p-divisible groups",
+      "kind": "theorem",
+      "statement": "Let k be perfect. For a p-divisible group G = (G_n) of height h over k put M(G) = lim_n M(G_n). Then G ↦ M(G) is an anti-equivalence from p-divisible groups over k to W(k)-free Dieudonné modules of finite rank (free W(k)-modules with σ-linear F, σ^{−1}-linear V, FV = VF = p). Moreover M(G_n) ≅ M(G)/p^n M(G), rank_{W(k)} M(G) = h, M is exact and commutes with perfect base change, and M(G^D) ≅ M(G)^t := Hom_{W(k)}(M(G), W(k)) with (Ff)(x) = σ(f(Vx)) and (Vf)(x) = σ^{−1}(f(Fx)).",
+      "hypotheses": [
+        "k perfect; p-divisible groups as in R07.1/p-divisible-group, over Spec k."
+      ],
+      "proofSteps": [
+        "Limit lemma (Demazure III.8, via nLab): for a system … → M_{n+1} → M_n → … → M_1 of finite-length W(k)-modules with M_{n+1} →^{p^n} M_{n+1} → M_n → 0 exact, M = lim M_n is finitely generated and M ↠ M_n identifies M_n = M/p^n M.",
+        "Apply it to M_n = M(G_n): R07.1/p-divisible-level-exactness gives 0 → G_n → G_{n+1} →^{p^n} G_{n+1}, and M, being exact and contravariant (R07.2/dieudonne-equivalence-finite), turns it into the required right-exact sequences.",
+        "M(G) is torsion free because multiplication by p on G is an epimorphism with finite kernel; lengths give rank_{W(k)} M(G) = h (length M(G_1) = log_p |G_1| = h).",
+        "Conversely a W-free Dieudonné module M gives G_n with M(G_n) = M/p^n M, and the G_n form a p-divisible group; full faithfulness passes to the limit.",
+        "Duality: M(G_n^D) = M(G_n)* = Hom(M/p^n M, W(k)[1/p]/W(k)) = M^t/p^n M^t, compatible in n, with the twisted F, V of R07.2/dieudonne-module-finite; base change from R07.2/dieudonne-galois-descent."
+      ],
+      "acceptance": [
+        "M(ℚ_p/ℤ_p) = W(k) with F = σ and V = pσ^{−1}; M(μ_{p^∞}) = W(k) with F = pσ and V = σ^{−1} (R07.2/standard-dieudonne-modules).",
+        "The height is the rank: E[p^∞] has a rank-two module (R07.2/elliptic-dieudonne)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-equivalence-finite",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-galois-descent",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-ring",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-level-exactness",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-cartier-dual"
+      ],
+      "sources": [
+        {
+          "sourceId": "Demazure72-nLab",
+          "locator": "III.8, Theorem and Remark (Demazure pp. 71–72)",
+          "excerpt": "G is p -divisible iff M(G) is torsion-less (= free) and height(G)=dim M(G) . … If G is p -divisible with Serre dual ? G′ then M(G′)=Mod_{W(k)}(M(G),W(k)",
+          "match": "Freeness, height and duality."
+        },
+        {
+          "sourceId": "Demazure72-nLab",
+          "locator": "III.8, Lemma",
+          "excerpt": "M_n is of finite length. then M:=lim M_n is a finitely generated W(k) -module and the canonical map M→M_n identifies M_n≃M/p^n M",
+          "match": "The limit lemma."
+        },
+        {
+          "sourceId": "Yu26-arXiv",
+          "locator": "§2.1, Theorem 3 and the paragraph after it, p. 2",
+          "excerpt": "Theorem 3 (cf. [3, p. 69–70]). There is an anti-equivalence of categories between the category of p-divisible groups over k and the category of W -free Dieudonné modules over k.",
+          "match": "The theorem, with exactness, base change and the dual M^t."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/PDivisible",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Dieudonné classification of p-divisible groups"
+      },
+      "uses": [
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A4",
+          "how": "Dieudonné modules of abelian varieties over perfect fields (RS-02)."
+        },
+        {
+          "where": "IgusaVarietiesAndTorsionConcentration:IG.0",
+          "how": "Dieudonné theory of the p-divisible groups in the Igusa tower (stage link from R07.2)."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+          "how": "Breuil–Kisin modules specialise to Dieudonné modules over the residue field."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-lie-algebra",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "Lie algebra, dimension and height from the Dieudonné module",
+      "kind": "lemma",
+      "statement": "For a p-divisible group G over a perfect field k with M = M(G): Lie(G) ≅ Hom_k(M/FM, k), so dim G = dim_k M/FM; dim G^D = dim_k M/VM; and h = rank M = dim G + dim G^D.",
+      "hypotheses": [
+        "k perfect; G p-divisible (the dimension of R07.1/p-divisible-dimension, over a field)."
+      ],
+      "proofSteps": [
+        "Lie(G) = Lie(G[p]) because d[p] = p = 0 on tangent spaces; M(G[p]) = M/pM, and (M/pM)/F = M/FM, so R07.2/dieudonne-tangent-space gives Lie(G) ≅ (M/FM)^∨ (Yu p. 3).",
+        "dim G^D = dim M^t/FM^t = dim M/VM, by the formula for F on M^t.",
+        "F is injective on the free module M, and F(x) ∈ pM = FVM iff x ∈ VM, so 0 → M/VM →^{F} M/pM → M/FM → 0 is exact and h = dim M/pM = dim G + dim G^D. This reproves R07.1/dimension-plus-dual-dimension over perfect fields."
+      ],
+      "acceptance": [
+        "μ_{p^∞}: M/FM = W/pW, dim 1; ℚ_p/ℤ_p: F bijective, dim 0.",
+        "Elliptic curves: dim M/FM = dim M/VM = 1 (Yu p. 3)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-tangent-space",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-dimension",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/dimension-plus-dual-dimension"
+      ],
+      "sources": [
+        {
+          "sourceId": "Yu26-arXiv",
+          "locator": "§2.1, p. 3",
+          "excerpt": "Moreover, we have h(G) = rankW M and there is a natural isomorphism Lie(G) ≃ Homk (M/F M, k).",
+          "match": "Height and Lie algebra."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/PDivisible",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/standard-dieudonne-modules",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "The Dieudonné modules of μ_{p^∞}, ℚ_p/ℤ_p and the rank-two models",
+      "kind": "lemma",
+      "statement": "Over a perfect field k: (i) M(ℚ_p/ℤ_p) = W(k)e with Fe = e, Ve = pe; (ii) M(μ_{p^∞}) = W(k)e with Fe = pe, Ve = e; (iii) the rank-two modules M1 = ⟨e₁, e₂⟩ with Fe₁ = e₁, Ve₁ = pe₁, Fe₂ = pe₂, Ve₂ = e₂ (M1 = M(ℚ_p/ℤ_p) ⊕ M(μ_{p^∞})) and M2 = ⟨e₁, e₂⟩ with Fe₁ = Ve₁ = e₂, Fe₂ = Ve₂ = pe₁ are W-free Dieudonné modules of height 2 and dimension 1. Rationally, M(ℚ_p/ℤ_p) ⊗ L and M(μ_{p^∞}) ⊗ L are the standard one-dimensional isocrystals of slope 0 and 1.",
+      "hypotheses": [
+        "k perfect; L = W(k)[1/p]."
+      ],
+      "proofSteps": [
+        "(i) M(ℤ/p^nℤ) = lim_m Hom(ℤ/p^n, W_m) = W_n(k) with F = σ; take the limit (R07.2/dieudonne-p-divisible).",
+        "(ii) μ_{p^∞} is the Cartier dual of ℚ_p/ℤ_p (R07.1/p-divisible-cartier-dual), so M(μ_{p^∞}) = M(ℚ_p/ℤ_p)^t: for f the dual basis vector, (Ff)(e) = σ(f(Ve)) = p and (Vf)(e) = σ^{−1}(f(Fe)) = 1.",
+        "(iii) FV = VF = p on the displayed bases; dim M/FM = 1 in both (R07.2/dieudonne-lie-algebra).",
+        "Rationally, F acts on M(ℚ_p/ℤ_p) ⊗ L by φ and on M(μ_{p^∞}) ⊗ L by pφ, which are Mathlib's StandardOneDimIsocrystal 0 and 1."
+      ],
+      "acceptance": [
+        "dim μ_{p^∞} = 1 and dim ℚ_p/ℤ_p = 0 via M/FM, agreeing with R07.1/p-divisible-dimension.",
+        "M2 has no F-stable line on which F is bijective, so it has no étale part."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-lie-algebra",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-cartier-dual",
+        "mathlib:WittVector.StandardOneDimIsocrystal"
+      ],
+      "sources": [
+        {
+          "sourceId": "Yu26-arXiv",
+          "locator": "§2.1, Example 2, p. 2",
+          "excerpt": "M1 = ⟨e1 , e2 ⟩ is a free W -module of rank two with relations F (e1 ) = e1 , V (e1 ) = pe1 , F (e2 ) = pe2 , V (e2 ) = e2 . (2) M2 = ⟨e1 , e2 ⟩ is a free W -module of rank two with relations F (e1 ) = V (e1 ) = e2 , F (e2 ) = V (e2 ) = pe1 .",
+          "match": "The rank-two models."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/PDivisible",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/elliptic-dieudonne",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "Dieudonné modules of elliptic curves: ordinary and supersingular",
+      "kind": "theorem",
+      "statement": "Let k be algebraically closed of characteristic p and E/k an elliptic curve with M = M(E[p^∞]). Then M ≅ M1 or M ≅ M2 (R07.2/standard-dieudonne-modules), and E is ordinary iff M ≅ M1 and supersingular iff M ≅ M2.",
+      "hypotheses": [
+        "k algebraically closed."
+      ],
+      "proofSteps": [
+        "M has rank 2 with dim M/FM = dim M/VM = 1 (R07.2/dieudonne-lie-algebra, E[p^∞] self-dual).",
+        "If FM̄ ≠ VM̄ in M̄ = M/pM: F and V are bijective on FM̄ and VM̄; F^∞M = ⋂ F^mM and V^∞M are free of rank one, with generators e₁ = Fe₁ and e₂ = Ve₂, so M ≅ M1, and F^∞M is the étale part: E is ordinary.",
+        "If FM̄ = VM̄: F²M = pM, the skeleton {m : F²m = pm} is a Dieudonné module over 𝔽_{p²} with M^⋄ ⊗ W(k) ≅ M; e₁ ∉ (F, V)M^⋄ and e₂ = Fe₁ give M ≅ M2, with no étale part: E is supersingular (Yu Lemma 4)."
+      ],
+      "acceptance": [
+        "Ordinary: M ≅ M(μ_{p^∞}) ⊕ M(ℚ_p/ℤ_p), matching ModularCurves 7E PD-5 (E₀[p^∞] ≅ μ_{p^∞} × ℚ_p/ℤ_p).",
+        "Supersingular: M2 ⊗ L is simple of slope 1/2 (R07.2/dieudonne-slopes), matching the connected height-two group of PD-5."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/standard-dieudonne-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-lie-algebra",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible"
+      ],
+      "sources": [
+        {
+          "sourceId": "Yu26-arXiv",
+          "locator": "§2.1, Lemma 4, p. 3",
+          "excerpt": "Lemma 4. Assume that k is algebraically closed. Then M = M (E) is either isomorphic to M1 or isomorphic to M2 in Example 2. Moreover, E is ordinary (resp. supersingular) if M ≃ M1 (resp. M ≃ M2 ).",
+          "match": "The statement and proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/PDivisible",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "Slopes, Newton polygon and a-number of a Dieudonné module",
+      "kind": "definition",
+      "statement": "For coprime (a, b) ≠ (0, 0) with a, b ≥ 0 let M_{a,b} = W(𝔽_p)[F, V]/(F^a − V^b), of slope λ = b/(a + b) ∈ [0, 1]. For a W-free Dieudonné module M over an algebraically closed k, the Dieudonné–Manin theorem gives M ⊗_W L ≅ ⊕_i (M_{a_i,b_i} ⊗ L)^{m_i}; the slope sequence of M lists λ_i with multiplicity (a_i + b_i)m_i. Over a perfect k the slopes are those of M ⊗ W(k̄). The a-number is a(M) = dim_k M/(F, V)M. For a p-divisible group G these are defined through M(G).",
+      "hypotheses": [
+        "k perfect; the Dieudonné–Manin classification of isocrystals is imported from VectorBundlesAndIsocrystals VB0 (requested)."
+      ],
+      "proofSteps": [
+        "Definitions as displayed (Yu §2.2); well defined by the uniqueness in Dieudonné–Manin (VB0) and by base-change invariance (R07.2/dieudonne-galois-descent).",
+        "The sum of the multiplicities is rank M; the slopes lie in [0, 1] because F(M) ⊆ M and V(M) ⊆ M."
+      ],
+      "acceptance": [
+        "M(ℚ_p/ℤ_p): slope 0; M(μ_{p^∞}): slope 1; M2: slope 1/2 twice.",
+        "a(M1) = 0 and a(M2) = 1."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/standard-dieudonne-modules",
+        "VectorBundlesAndIsocrystals:VB0",
+        "mathlib:WittVector.Isocrystal",
+        "mathlib:WittVector.isocrystal_classification"
+      ],
+      "sources": [
+        {
+          "sourceId": "Yu26-arXiv",
+          "locator": "§2.2, p. 3",
+          "excerpt": "To any relatively prime nonnegative integers a and b with (a, b) ̸= (0, 0), one associates a Dieudonné module over Fp Ma,b := W (Fp )[F, V ]/(F a − V b ). The rational number λ = b/(a + b) is called the slope of Ma,b .",
+          "match": "The standard modules and slopes."
+        },
+        {
+          "sourceId": "Yu26-arXiv",
+          "locator": "§2.2, Theorem 5, p. 3",
+          "excerpt": "Theorem 5 (Manin-Dieudonné [15, Chap. II, “Classification Theorem”, p. 35]). Assume that k is algebraically closed. For every Dieudonné module M over k, there exist relatively prime pairs (ai , bi ) ̸= (0, 0) of nonnegative integers and integers mi ≥ 1",
+          "match": "The classification imported from VB0."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/Slopes",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Slopes of Dieudonné modules"
+      },
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification",
+          "how": "Isogeny classes are slope sequences."
+        },
+        {
+          "where": "IgusaVarietiesAndTorsionConcentration:IG.0",
+          "how": "Newton strata are defined by slope sequences (stage link from R07.2)."
+        },
+        {
+          "where": "AbelianSchemesAndArithmeticModuli:A4",
+          "how": "Slopes and a-numbers of abelian varieties over perfect fields."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.Dieudonne.standardDieudonne",
+          "role": "constructor",
+          "statement": "M_{a,b} = W(𝔽_p)[F, V]/(F^a − V^b) for coprime (a, b) ≠ (0, 0)."
+        },
+        {
+          "name": "TauCeti.Dieudonne.slopeSequence",
+          "role": "constructor",
+          "statement": "The slope sequence of a W-free Dieudonné module, a multiset of rationals in [0, 1] of size rank M."
+        },
+        {
+          "name": "TauCeti.Dieudonne.aNumber",
+          "role": "constructor",
+          "statement": "a(M) = dim_k M/(F, V)M."
+        },
+        {
+          "name": "TauCeti.Dieudonne.slopeSequence_baseChange",
+          "role": "compatibility",
+          "statement": "Slopes are invariant under perfect base change."
+        },
+        {
+          "name": "TauCeti.Dieudonne.slopeSequence_dual",
+          "role": "compatibility",
+          "statement": "The slopes of M^t are 1 − λ_i."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.Dieudonne.slope_constQpZp",
+          "kind": "value",
+          "statement": "M(ℚ_p/ℤ_p) = M_{1,0}: slope 0."
+        },
+        {
+          "name": "TauCeti.Dieudonne.slope_muPInfty",
+          "kind": "value",
+          "statement": "M(μ_{p^∞}) = M_{0,1}: slope 1."
+        },
+        {
+          "name": "TauCeti.Dieudonne.slope_supersingular",
+          "kind": "value",
+          "statement": "M2 = M_{1,1}: slope 1/2 with multiplicity 2."
+        },
+        {
+          "name": "TauCeti.Dieudonne.slope_out_of_range",
+          "kind": "non-example",
+          "statement": "The isocrystal StandardOneDimIsocrystal 2 (F = p²φ) has slope 2 and contains no F,V-stable lattice: V = pF^{−1} would not preserve it. So it is not M ⊗ L for any Dieudonné module."
+        },
+        {
+          "name": "TauCeti.Dieudonne.aNumber_M1",
+          "kind": "degenerate",
+          "statement": "a(M1) = 0 while a(M2) = 1."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2"
+      ],
+      "title": "Isogeny classification of p-divisible groups over a perfect field",
+      "kind": "theorem",
+      "statement": "Let k be perfect and L = W(k)[1/p]. (i) Hom(G, H) ⊗ ℚ ≅ Hom_{F}(M(H) ⊗ L, M(G) ⊗ L) (maps of isocrystals), so G and H are isogenous iff M(G) ⊗ L ≅ M(H) ⊗ L. (ii) Over k algebraically closed, isogeny classes of p-divisible groups correspond to finite multisets of slopes in [0, 1] satisfying the Dieudonné–Manin integrality (each slope b/(a+b) occurring with multiplicity divisible by a + b); height = number of slopes and dim G = the sum of the slopes. (iii) G is étale iff all slopes are 0, of multiplicative type iff all are 1, and E[p^∞] is ordinary iff its slopes are {0, 1}.",
+      "hypotheses": [
+        "k perfect (algebraically closed in (ii))."
+      ],
+      "proofSteps": [
+        "(i) M is an anti-equivalence (R07.2/dieudonne-p-divisible). A map of isocrystals f satisfies p^N f(M(H)) ⊆ M(G) for large N and commutes with F, hence with V = pF^{−1}; so it comes from Hom(G, H) ⊗ ℚ. An isogeny induces an isomorphism after ⊗ L, and conversely an isomorphism of isocrystals scaled into lattices is an isogeny.",
+        "(ii) Every isocrystal with slopes in [0, 1] contains an F,V-stable W-lattice, namely ⊕ (M_{a,b} ⊗ W)^{m}; Dieudonné–Manin (VB0) classifies the isocrystals.",
+        "dim G = dim_k M/FM = v_p(det F) (length of the cokernel of a σ-linear injective endomorphism of a free module), and on M_{a,b} ⊗ L, F^{a+b} = p^b·(unit), so v_p(det F) is the sum of the slopes (R07.2/dieudonne-lie-algebra).",
+        "(iii) F bijective iff slope 0 only, V bijective iff slope 1 only (R07.2/dieudonne-equivalence-finite and R07.2/standard-dieudonne-modules)."
+      ],
+      "acceptance": [
+        "Supersingular elliptic curves: slopes {1/2, 1/2}, dim 1, height 2.",
+        "The slope multiset {1/2} (multiplicity 1) is excluded: slope 1/2 needs multiplicity divisible by 2."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-p-divisible",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-lie-algebra",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/standard-dieudonne-modules",
+        "VectorBundlesAndIsocrystals:VB0"
+      ],
+      "sources": [
+        {
+          "sourceId": "Yu26-arXiv",
+          "locator": "§2.2, Theorem 5 and the definition of the slope sequence, pp. 3–4",
+          "excerpt": "The slope sequence of M is defined to be the tuple … ordered so that λi < λi+1 for all i, where λi := bi /(ai + bi ), and the rational numbers λ1 , . . . , λr are called the slopes of M .",
+          "match": "Slope sequences; the isogeny statement is derived here from Theorem 3 and Theorem 5."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Dieudonne/Slopes",
+        "namespace": "TauCeti.Dieudonne"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Isogeny classification of p-divisible groups"
+      }
     }
   ],
   "requests": [
@@ -2262,10 +3365,11 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ModularCurves#7e-p-divisible-groups",
-      "need": "PD-2: the finite-level connected–étale sequence over a henselian local ring, functorial and compatible with local base change, with the special-fibre splitting over a perfect residue field; and PD-1/PD-4/PD-5 for the elliptic tests (E[p^∞], supersingular connectedness).",
+      "need": "PD-2: the finite-level connected–étale sequence over a henselian local ring, functorial and compatible with local base change, with the special-fibre splitting over a perfect residue field; and PD-1/PD-4/PD-5 for the elliptic tests (E[p^∞], supersingular connectedness). For R07.2: PD-3 (Frobenius and Verschiebung of elliptic curves, V∘F = p = F∘V) and PD-5 (over an algebraically closed field, E₀[p^∞] ≅ μ_{p^∞} × ℚ_p/ℤ_p when ordinary, connected of height 2 when supersingular), which R07.2/elliptic-dieudonne compares with the Dieudonné modules M1 and M2.",
       "neededBy": [
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-connected-etale",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/elliptic-dieudonne"
       ]
     },
     {
@@ -2281,6 +3385,14 @@
       "neededBy": [
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/etale-groups-as-galois-modules"
       ]
+    },
+    {
+      "supplier": "VectorBundlesAndIsocrystals:VB0",
+      "need": "The Dieudonné–Manin classification over W(k̄)[1/p] (k̄ algebraically closed of characteristic p): every isocrystal is a direct sum of the standard simple isocrystals of rational slope s/r (in the convention pinned by VB0), with unique multiplicities, Hom between simple objects and their endomorphism division algebras; and the translation to Dieudonné modules M_{a,b} = W(𝔽_p)[F, V]/(F^a − V^b) of slope b/(a + b), recording the sign and normalisation of the slope convention.",
+      "neededBy": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/isogeny-classification"
+      ]
     }
   ],
   "coverage": [
@@ -2291,9 +3403,12 @@
     },
     {
       "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
-      "status": "not_read",
+      "status": "partial",
       "remaining": [
-        "Dieudonné theory (RS-02 narrowing: the actual Dieudonné crystal of finite flat and p-divisible groups over perfect bases, and the consolidated Grothendieck–Messing equivalence)."
+        "The Dieudonné crystal of finite flat and p-divisible groups over non-perfect bases (Grothendieck; Berthelot–Breen–Messing), with covariance, F/V and linearisation conventions, built on CrystallineCohomology CR.0/CR.1 (RS-02).",
+        "The consolidated Grothendieck–Messing equivalence: p-divisible lifts over nilpotent PD thickenings correspond to lifts of the Hodge filtration, with morphisms, Cartier duality and effectivity, keeping ordinary, PD and p-nilpotence hypotheses separate (RS-02).",
+        "Covariant Cartier–Dieudonné theory over general bases of characteristic p (Zink's displays) and the Norman–Oort description of deformations (Yu §§2.3–2.4), with the comparison D*(G) ≅ M(G)^t of covariant and contravariant conventions.",
+        "Ordinary/supersingular and isogeny comparisons in families, and descent of Dieudonné data over non-perfect fields."
       ]
     },
     {
@@ -2392,6 +3507,26 @@
       "citation": "The Stacks project authors, The Stacks project",
       "read": "2026-09-28",
       "sha256": "0376af0b12014aed2c77da5820d6049b6a00f7ce19fc792cd1be676e7f3ca9c9"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://people.math.ethz.ch/~pink/ftp/FGS/CompleteNotes.pdf",
+      "citation": "Richard Pink (notes by the participants), Finite group schemes (lecture course, WS 2004/05)",
+      "read": "2026-09-28",
+      "sha256": "c0a4e517b5a0dcf31ebbc9c65cf097eb85c8d68941dcca4fde6af13e819cdc3b"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/2603.11506",
+      "citation": "Chia-Fu Yu, Introduction to Dieudonné modules and supersingular abelian varieties revisited",
+      "read": "2026-09-28",
+      "sha256": "570212cc2f50224ea6d762be67306a67474fd5805e82f046b8b9fcd17fe2c7ef"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://ncatlab.org/nlab/show/Demazure,+lectures+on+p-divisible+groups,+III.8,+Dieudonn%C3%A9+modules+(p-divisible+groups)",
+      "citation": "nLab contributors, transcribing Michel Demazure (LNM 302, Springer 1972), Demazure, lectures on p-divisible groups, III.8, Dieudonné modules (p-divisible groups)",
+      "read": "2026-09-28"
     }
   ]
 }
