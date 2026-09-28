@@ -2788,3 +2788,99 @@ example (k : ℕ) (hk : 0 < k) : positivePseudoMoment p k hk
 end PositiveMoments
 end
 end AbstractMeasure
+
+namespace AbstractMeasure
+noncomputable section
+open scoped AbstractMeasure
+section UnitCharacterEvaluation
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "δ" => (diracHom (G := U) (R := Z))
+local notation "PM" => Iwasawa.pseudomeasures δ Q
+local notation "uTest" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
+
+/-- The actual integral-character specialization, on the pseudomeasure module only. -/
+def unitCharacterEval (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) : PM →+ ℚ_[p] := sorry
+lemma unitCharacterEval_eq (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1)
+    (g : U) (hg : κ g ≠ 1) (z : PM) :
+    unitCharacterEval p κ hκ z =
+      ((Iwasawa.numerator δ Q g z) κ.toContinuousMap : ℚ_[p]) / ((κ g-1 : Z) : ℚ_[p]) := sorry
+lemma unitCharacterEval_integral (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) (μ : M) :
+    unitCharacterEval p κ hκ (Iwasawa.integral δ Q μ) = (μ κ.toContinuousMap : ℚ_[p]) := sorry
+lemma unitCharacterEval_smul (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) (μ : M) (z : PM) :
+    unitCharacterEval p κ hκ (μ • z) =
+      (μ κ.toContinuousMap : ℚ_[p]) * unitCharacterEval p κ hκ z := sorry
+lemma unitCharacterEval_dirac (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) (g : U) :
+    unitCharacterEval p κ hκ (Iwasawa.integral δ Q (dirac Z g)) = (κ g : ℚ_[p]) := sorry
+lemma unitCharacterEval_numerator (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1)
+    (g : U) (z : PM) :
+    ((Iwasawa.numerator δ Q g z) κ.toContinuousMap : ℚ_[p]) =
+      ((κ g-1 : Z) : ℚ_[p]) * unitCharacterEval p κ hκ z := sorry
+
+theorem unitCharacterEval_unique (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1)
+    (L : PM →+ ℚ_[p])
+    (hL : ∀ (μ : M) (z : PM), L (μ • z) = (μ κ.toContinuousMap : ℚ_[p]) * L z)
+    (hI : ∀ μ : M, L (Iwasawa.integral δ Q μ) = (μ κ.toContinuousMap : ℚ_[p])) :
+    L = unitCharacterEval p κ hκ := sorry
+lemma unitCharacterEval_eq_positivePseudoMoment (κ : ContinuousMonoidHom U Z)
+    (hκ : κ ≠ 1) (k : ℕ) (hk : 0 < k) (hpow : ∀ g : U, κ g = (g : Z)^k) (z : PM) :
+    unitCharacterEval p κ hκ z = positivePseudoMoment p k hk z := sorry
+theorem unitCharacterEval_ext (z η : PM)
+    (h : ∀ (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1),
+      unitCharacterEval p κ hκ z = unitCharacterEval p κ hκ η) : z = η := sorry
+lemma unitCharacterEval_norm_le (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1)
+    (g : U) (hg : κ g ≠ 1) (z : PM) :
+    ‖unitCharacterEval p κ hκ z‖ ≤ ‖κ g-1‖⁻¹ := sorry
+
+variable {S : Type*} [TopologicalSpace S]
+lemma continuous_unitCharacterIntegral (κ : S → ContinuousMonoidHom U Z)
+    (hκ : Continuous (fun s => (κ s).toContinuousMap)) (μ : M) :
+    Continuous (fun s => (μ (κ s).toContinuousMap : ℚ_[p])) := sorry
+lemma isOpen_unitCharacterClearing (κ : S → ContinuousMonoidHom U Z)
+    (hκ : Continuous (fun s => (κ s).toContinuousMap)) (g : U) :
+    IsOpen {s : S | κ s g ≠ 1} := sorry
+lemma continuousOn_unitCharacterClearing (κ : S → ContinuousMonoidHom U Z)
+    (hκ : Continuous (fun s => (κ s).toContinuousMap)) (g : U) (z : PM) :
+    ContinuousOn (fun s => ((Iwasawa.numerator δ Q g z) (κ s).toContinuousMap : ℚ_[p]) /
+      ((κ s g-1 : Z) : ℚ_[p])) {s : S | κ s g ≠ 1} := sorry
+theorem continuous_unitCharacterEval (κ : S → ContinuousMonoidHom U Z)
+    (hκ : Continuous (fun s => (κ s).toContinuousMap)) (z : PM) :
+    Continuous (fun s : {s : S // κ s ≠ 1} => unitCharacterEval p (κ s.val) s.property z) := sorry
+
+-- UnitCharacterTests.zero
+example (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) : unitCharacterEval p κ hκ 0 = 0 := sorry
+-- UnitCharacterTests.one
+example (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) :
+    unitCharacterEval p κ hκ (Iwasawa.integral δ Q 1) = 1 := sorry
+-- UnitCharacterTests.scalar_atom
+example (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) (c : Z) (g : U) :
+    unitCharacterEval p κ hκ (Iwasawa.integral δ Q (c • dirac Z g)) = (c*κ g : Z) := sorry
+-- UnitCharacterTests.trivial_character_no_patch
+example (g : U) : (1 : ContinuousMonoidHom U Z) g-1 = 0 := sorry
+-- UnitCharacterTests.torsion_clearing_allowed
+example (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) (hs : κ (-1) = -1) (z : PM) :
+    unitCharacterEval p κ hκ z =
+      ((Iwasawa.numerator δ Q (-1) z) κ.toContinuousMap : ℚ_[p]) / (-2) := sorry
+-- UnitCharacterTests.kernel_numerator
+example (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) (g : U) (hg : κ g = 1) (z : PM) :
+    ((Iwasawa.numerator δ Q g z) κ.toContinuousMap : ℚ_[p]) = 0 := sorry
+-- UnitCharacterTests.dyadic_denominator_not_integral_unit
+example : (-2 : ℚ_[2]) ≠ 0 ∧ ¬ IsUnit (-2 : ℤ_[2]) := sorry
+-- UnitCharacterTests.constant_family
+example (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) (z : PM) :
+    Continuous (fun _s : S => unitCharacterEval p κ hκ z) := sorry
+-- UnitCharacterTests.power_sign
+example (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) (k : ℕ)
+    (hpow : ∀ g : U, κ g = (g : Z)^k) :
+    unitCharacterEval p κ hκ (Iwasawa.integral δ Q (dirac Z (-1))) = (-1 : ℚ_[p])^k := sorry
+end UnitCharacterEvaluation
+end
+end AbstractMeasure
