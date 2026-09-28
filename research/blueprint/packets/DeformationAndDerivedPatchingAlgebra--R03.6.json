@@ -5,8 +5,8 @@
   "scope": [
     "DeformationAndDerivedPatchingAlgebra:R03.6"
   ],
-  "status": "partial",
-  "summary": "Layer R03.6 develops the commutative algebra with which a patching argument concludes. It introduces nearly faithful modules in the radical form Ann_R(M) ⊆ √0, which agrees with Taylor's nilpotent form over Noetherian rings and is characterised for finite modules by full support, and modules supported on a union of irreducible components. Supports are transported along arbitrary base change of finite modules and flat base change of arbitrary modules, along surjections, through coefficient changes and through the removal of framing variables; minimal primes and near faithfulness are compared before and after inverting a nonzerodivisor ϖ. A nonzero module of maximal depth over a Noetherian local ring is supported on top-dimensional components but need not be nearly faithful; it is nearly faithful when the ring has one minimal prime, and near faithfulness then forces equidimensionality. Near faithfulness spreads along a group acting transitively on components and lifts from the special fibre under Taylor's catenarity hypotheses. For any finite module with the stated patching, depth and quotient data these results give the Calegari–Geraghty conclusions: near faithfulness of H over R and (R∞/𝔞)_red ≅ R_red, or, over a regular R∞, freeness and ker φ∞ = 𝔞R∞. Three R = T theorems close the layer: R_red ≅ T exactly when T is reduced, R^tf ≅ T exactly when H[1/ϖ] is faithful, and R ≅ T exactly when H is faithful. Every lemma and theorem node carries one declaration: support base change is split into unconditional inclusion, finite-module equality and flat-map equality, and the quotient, base-change, inverting-ϖ, maximal-depth, group-action, patching and R = T results are each split into their separate declarations.",
+  "status": "closed",
+  "summary": "Layer R03.6 develops the commutative algebra with which a patching argument concludes. It introduces nearly faithful modules in the radical form Ann_R(M) ⊆ √0, which agrees with Taylor's nilpotent form over Noetherian rings and is characterised for finite modules by full support, and modules supported on a union of irreducible components. Supports are transported along arbitrary base change of finite modules and flat base change of arbitrary modules, along surjections, through coefficient changes and through the removal of framing variables; minimal primes and near faithfulness are compared before and after inverting a nonzerodivisor ϖ. A nonzero module of maximal depth over a Noetherian local ring is supported on top-dimensional components but need not be nearly faithful; it is nearly faithful when the ring has one minimal prime, and near faithfulness then forces equidimensionality. Near faithfulness spreads along a group acting transitively on components and lifts from the special fibre under Taylor's catenarity hypotheses. For any finite module with the stated patching, depth and quotient data these results give the Calegari–Geraghty conclusions: near faithfulness of H over R and (R∞/𝔞)_red ≅ R_red, or, over a regular R∞, freeness and ker φ∞ = 𝔞R∞. Three R = T theorems close the layer: R_red ≅ T exactly when T is reduced, R^tf ≅ T exactly when H[1/ϖ] is faithful, and R ≅ T exactly when H is faithful. Every lemma and theorem node carries one declaration: support base change is split into unconditional inclusion, finite-module equality and flat-map equality, and the quotient, base-change, inverting-ϖ, maximal-depth, group-action, patching and R = T results are each split into their separate declarations. Its two R03.3 inputs, maximal-depth freeness over a regular local ring and catenarity as a dimension function, are nodes of the P7 packet, so the layer is closed.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3733,7 +3733,7 @@
         "M finite, and ϖ a nonzerodivisor on M (M is 𝒪-torsion-free)."
       ],
       "proofSteps": [
-        "The displayed dimension-function hypothesis is the input to the prime-chain argument. Its equivalence with catenarity for a Noetherian local ring is Stacks 0ECF; importing that equivalence remains a specific R03.3 obligation. Neither equidimensionality nor catenarity is inferred from Noetherianity.",
+        "The displayed dimension-function hypothesis is the input to the prime-chain argument. Its equivalence with catenarity for a Noetherian local ring is R03.3's catenary-iff-dimension-function (Stacks 0ECF), so this hypothesis is Taylor's 'A catenary'. Neither equidimensionality nor catenarity is inferred from Noetherianity.",
         "Let P be a minimal prime of A. As ϖ ∈ 𝔪, P + ϖA is proper; let ℘ be a prime minimal over it (Mathlib Ideal.exists_minimalPrimes_le). Krull's principal ideal theorem in the domain A/P (Mathlib Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes; Stacks 00KV) shows that no prime lies strictly between P and ℘, and P ≠ ℘ because ϖ ∉ P.",
         "The dimension-function hypothesis gives dim A/℘ = dim A/P − 1 = dim A − 1. For a prime 𝔮 ⊊ ℘, dim A/𝔮 ≥ dim A/℘ + 1 = dim A (Mathlib ringKrullDim_quotient), so dim A/𝔮 = dim A and 𝔮 is a minimal prime (dim A is finite by Mathlib ringKrullDim_lt_top and its Noetherian-local instance). So ϖ ∉ 𝔮 for every 𝔮 ⊊ ℘, ℘ is minimal over ϖA, P is the only minimal prime inside ℘, and every prime strictly inside ℘ equals P.",
         "M/ϖM is finite and nearly faithful over A/ϖA, so Ann_A(M/ϖM) ⊆ √(ϖA) (nearly-faithful-restrict-scalars-surjective) and ℘ ∈ V(ϖA) ⊆ Supp_A(M/ϖM) (Mathlib Module.support_eq_zeroLocus). Since Supp_A(M/ϖM) = Supp M ∩ V(ϖ) (Mathlib Module.support_quotient), ℘ ∈ Supp M, i.e. Ann M ⊆ ℘.",
@@ -3757,7 +3757,7 @@
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful",
         "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-restrict-scalars-surjective",
-        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/catenary-iff-dimension-function",
         "mathlib:Ideal.exists_minimalPrimes_le",
         "mathlib:Ideal.height_le_one_of_isPrincipal_of_mem_minimalPrimes",
         "mathlib:ringKrullDim_quotient",
@@ -4084,7 +4084,7 @@
         "φ need not be surjective, R may be zero, and there is no near-faithfulness hypothesis."
       ],
       "proofSteps": [
-        "A finite module of maximal depth over a regular local ring is free (Stacks 00O7 with e = d; Auslander–Buchsbaum, Stacks 090V). This is supplied by layer R03.3 and is recorded as the open gap G-regular-local-freeness. So M∞ is free over R∞. It is nonzero because the regular sequence includes M∞ ≠ (rs)M∞, so its basis (Mathlib Module.Free.chooseBasis) is nonempty.",
+        "A finite module of maximal depth over a regular local ring is free: R03.3's free-of-maximal-depth-regular-local (Stacks 00NT; 00O7 with e = d), applied to the given M∞-regular sequence. So M∞ is free over R∞. It is nonzero because the regular sequence includes M∞ ≠ (rs)M∞, so its basis (Mathlib Module.Free.chooseBasis) is nonempty.",
         "A nonzero free module is faithful (the FaithfulSMul instance built from Mathlib Module.Free.chooseBasis). Hence Ann_{R∞}(M∞) = 0 (Mathlib Module.annihilator_eq_bot), and (b) becomes I ⊆ ker φ.",
         "Let k ∈ ker φ. Since R∞ acts on H through φ, k acts as φ(k) = 0, so k ∈ Ann_{R∞}(H) = Ann_{R∞}(M∞/I·M∞) (Mathlib LinearEquiv.annihilator_eq, applied to e). For a basis vector b, k·b ∈ I·M∞. By Mathlib Submodule.mem_ideal_smul_span_iff_exists_sum, k·b is a combination of basis vectors with coefficients in I; comparing b-coordinates gives k ∈ I. Hence ker φ ⊆ I, and ker φ = I."
       ],
@@ -4108,7 +4108,7 @@
         }
       ],
       "prerequisites": [
-        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local",
         "mathlib:IsRegularLocalRing",
         "mathlib:RingTheory.Sequence.IsRegular",
         "mathlib:IsLocalRing.maximalIdeal",
@@ -4189,7 +4189,7 @@
         "e: M∞/I·M∞ ≅ H is an R∞-linear isomorphism."
       ],
       "proofSteps": [
-        "As in patching-kernel-equals-ideal, M∞ is free over R∞ (layer R03.3, open gap G-regular-local-freeness). Take a basis (b_i) (Mathlib Module.Free.chooseBasis); it is nonempty since M∞ ≠ 0. Put h_i = e(b̄_i).",
+        "As in patching-kernel-equals-ideal, M∞ is free over R∞ (R03.3's free-of-maximal-depth-regular-local). Take a basis (b_i) (Mathlib Module.Free.chooseBasis); it is nonempty since M∞ ≠ 0. Put h_i = e(b̄_i).",
         "The h_i span H over R: every element of H is e(m̄) with m = Σ x_i b_i, and e(m̄) = Σ x_i·h_i = Σ φ(x_i)·h_i.",
         "The h_i are linearly independent over R. Write c_i = φ(x_i), using surjectivity of φ. If Σ c_i h_i = 0, then e(Σ x_i b_i mod I·M∞) = 0, so Σ x_i b_i ∈ I·M∞. By Mathlib Submodule.mem_ideal_smul_span_iff_exists_sum and uniqueness of coordinates, every x_i lies in I, which is ker φ by patching-kernel-equals-ideal; so c_i = 0.",
         "Mathlib Module.Basis.mk makes (h_i) an R-basis of H, and Mathlib Module.Free.of_basis makes H free. If some h_i were 0, then b_i ∈ I·M∞ and its b_i-coordinate 1 would lie in I = ker φ, which is impossible because R is nontrivial. So H is nontrivial."
@@ -4219,7 +4219,7 @@
       ],
       "prerequisites": [
         "DeformationAndDerivedPatchingAlgebra:R03.6/patching-kernel-equals-ideal",
-        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local",
         "mathlib:IsRegularLocalRing",
         "mathlib:RingTheory.Sequence.IsRegular",
         "mathlib:IsLocalRing.maximalIdeal",
@@ -5287,29 +5287,13 @@
       ]
     }
   ],
-  "requests": [
-    {
-      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
-      "need": "Maximal-depth freeness over a regular local ring. R03.3 must supply a declaration for freeness of a nonzero finite module of maximal depth over a regular local ring (Stacks 00O7 with e = d), used by patching-free-conclusion and patching-kernel-equals-ideal. The integrated depth/Auslander–Buchsbaum node gives ingredients but does not explicitly export this regular-module freeness conclusion.",
-      "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.6/patching-free-conclusion",
-        "DeformationAndDerivedPatchingAlgebra:R03.6/patching-kernel-equals-ideal"
-      ]
-    },
-    {
-      "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
-      "need": "Catenarity as the quotient-dimension function. R03.3 must supply the equivalence between catenarity and the function p ↦ dim A/p being a dimension function on the spectrum of a Noetherian local ring (Stacks 0ECF), used by nearly-faithful-lift-from-special-fibre. Its current Lean signature assumes the dimension-function form explicitly.",
-      "neededBy": [
-        "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-lift-from-special-fibre"
-      ]
-    }
-  ],
+  "requests": [],
   "coverage": [
     {
       "stageId": "DeformationAndDerivedPatchingAlgebra:R03.6",
-      "status": "source_decomposed",
+      "status": "closed",
       "remaining": [],
-      "notes": "Calegari–Geraghty Proposition 6.6 (comparison of two patched systems) and every complex-level statement (support of perfect complexes, H*(C∞), ACC+ Proposition 6.3.8, derived Ihara avoidance) belong to layer DeformationAndDerivedPatchingAlgebra:P9, which consumes this layer; they are not planned here. Supp(M/IM) = Supp M ∩ V(I) is Mathlib's Module.support_quotient, cited as a baseline declaration. Faithful flatness of power series rings is not needed: removing framing variables is the quotient by the variables together with base change. The associated-prime depth bound now uses the precise integrated R03.3 node; nonempty associated primes and finite local Krull dimension are pinned Mathlib results. The assembled patching theorem is conditional on explicit module data and has no R03.5 or P8 construction prerequisite. P8 owns Calegari–Geraghty Theorem 6.3; P9 owns the complex-support/comparison application. Neither construction is replanned here. Adjoining framing variables uses a retraction for arbitrary σ, whereas the augmentation-kernel and quotient nodes assume σ finite. Every theorem and lemma node now carries exactly one suggested declaration: the thirteen former aggregates were split into forty single-declaration nodes, keeping each retained identifier for one declaration and rewiring every consumer to the leaf it actually uses. Two inputs belong to layer R03.3, which the P7 part of this roadmap plans: freeness of a nonzero finite module of maximal depth over a regular local ring (Stacks 00O7) and the equivalence between catenarity and the quotient-dimension function (Stacks 0ECF). They are filed as requests to DeformationAndDerivedPatchingAlgebra:R03.3 and cited through that stage, so the packet stays partial until R03.3 exports them, but nothing in R03.6 itself remains to be decomposed."
+      "notes": "Calegari–Geraghty Proposition 6.6 (comparison of two patched systems) and every complex-level statement (support of perfect complexes, H*(C∞), ACC+ Proposition 6.3.8, derived Ihara avoidance) belong to layer DeformationAndDerivedPatchingAlgebra:P9, which consumes this layer; they are not planned here. Supp(M/IM) = Supp M ∩ V(I) is Mathlib's Module.support_quotient, cited as a baseline declaration. Faithful flatness of power series rings is not needed: removing framing variables is the quotient by the variables together with base change. The associated-prime depth bound now uses the precise integrated R03.3 node; nonempty associated primes and finite local Krull dimension are pinned Mathlib results. The assembled patching theorem is conditional on explicit module data and has no R03.5 or P8 construction prerequisite. P8 owns Calegari–Geraghty Theorem 6.3; P9 owns the complex-support/comparison application. Neither construction is replanned here. Adjoining framing variables uses a retraction for arbitrary σ, whereas the augmentation-kernel and quotient nodes assume σ finite. Every theorem and lemma node now carries exactly one suggested declaration: the thirteen former aggregates were split into forty single-declaration nodes, keeping each retained identifier for one declaration and rewiring every consumer to the leaf it actually uses. The two inputs owned by layer R03.3 are nodes of the P7 part of this roadmap: freeness of maximal-depth modules over a regular local ring (R03.3/free-of-maximal-depth-regular-local, Stacks 00NT and 00O7) and catenarity as the quotient-dimension function (R03.3/catenary-iff-dimension-function, Stacks 0ECF). Every prerequisite is now a node or a baseline declaration, and the packet has no gaps or requests."
     }
   ],
   "gaps": [],
