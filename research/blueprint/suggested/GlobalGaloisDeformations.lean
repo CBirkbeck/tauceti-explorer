@@ -258,6 +258,29 @@ theorem factor_through_localConditions (A) [IsReduced A] [Module.Flat 𝒪 A] [M
     ∃! φ : D.unframedRing →ₐ[𝒪] A, φ.comp D.univRep = ρ
 -- R04.4/inertia-rigid-deformations
 theorem inertiaRigid_dim (C : irreducibleComponent (R□φ0fl ρ₀)) : absDim C = d ^ 2
+-- R04.3/relative-tangent-space (T nonempty, p > 2, finite S and T; the constant is #T − 1)
+theorem relTangent_finrank (hT : T.Nonempty) :
+    finrank 𝔽 (relTangent D T) = T.card - 1 - (∑ v ∈ infPlaces F, h0 v ad0) +
+      (∑ v ∈ S \ T, (finrank 𝔽 (L v) - h0 v ad0)) + dualSelmerDim D T - h0Global ad0Twist
+-- G8/variable-determinant-problem and variable-determinant-representability (ACC+ 6.2.2–6.2.4)
+structure GlobalDeformationProblem where
+  S : Finset (FinitePlace F)
+  Λ : ∀ v ∈ S, CNL 𝒪                                      -- Λ = ⊗̂_v Λ_v
+  D : ∀ v ∈ S, LocalDeformationProblem (ρbar.restrict v)   -- strict-conjugation-stable quotients of R□_v
+theorem framedRing_iso (𝒮 : GlobalDeformationProblem) (hT : T.Nonempty) (v₀ ∈ T) :
+    R T 𝒮 ≃ₐ[Λ] R ∅ 𝒮 ⊗̂ (MvPowerSeries (T × Fin n × Fin n) 𝒪 ⧸ Ideal.span {X (v₀, 0, 0)})   -- n²|T| − 1 variables
+-- G8/variable-determinant-presentation (ad ρ̄, not ad⁰ρ̄)
+theorem presentation (hT : T.Nonempty) :
+    ∃ f : MvPowerSeries (Fin (h1ST 𝒮 T ad)) (Rloc 𝒮 T) →ₐ[Λ] R T 𝒮, Function.Surjective f
+-- G7/polarized-deformation-problem and polarized-representability (CHT §2.2–2.3)
+def GroupGn (n : ℕ) : Type _   -- (GL_n × GL_1) ⋊ {1, j}, with ν : 𝒢_n → GL_1
+theorem polarized_framedRing_iso (hS : IsSchur r̄) :
+    R□T 𝒮 ≃ₐ[𝒪] MvPowerSeries (T × Fin n × Fin n) (Runiv 𝒮)   -- n²|T| variables: the centraliser is trivial
+-- G7/enormous-taylor-wiles-presentation (ACC+ 6.2.32)
+theorem exists_twPresentation (hE : Enormous (ρbar.restrict (F⟮ζ p⟯))) (hζ : ζ p ∉ F) (N : ℕ) :
+    ∃ Q : TaylorWilesDatum N, Q.card = q ∧
+      ∃ f : MvPowerSeries (Fin (q * n - n ^ 2 * finrank ℚ F⁺)) (Rloc 𝒮 S) →ₐ[Λ] R S (𝒮.addQ Q),
+        Function.Surjective f
 ```
 -/
 
