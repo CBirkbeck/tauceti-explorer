@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
@@ -398,6 +398,41 @@ def accepted_routes(pid):
         return []
     accepted = {entry.get("route") for entry in review.get("routes", []) if entry.get("verdict") == "accept"}
     return [route for number, route in enumerate(result.get("routes", []), 1) if number in accepted]
+
+
+def paper_designs(calls, roadmaps):
+    """One design job for each roadmap the paper extractions call for (PROTOCOL.md sections 15 and 16).
+
+    Every Part II proposal for the same parent, from whichever paper, becomes one
+    job planning a single "<parent>, Part II": proposals from different papers
+    overlap, and planning them separately would duplicate work. Where the atlas
+    already has that Part II, the job plans a Part III on top of it. A new roadmap
+    that several papers call for is one job too. calls: (route, paper, origin)."""
+    grouped = {}
+    for route, paper, origin in calls:
+        key = ("part-ii", route["parent"]) if route["route"] == "part-ii" else ("new", route["roadmap"])
+        grouped.setdefault(key, []).append((route, paper, origin))
+    designs = []
+    for (kind, name), members in grouped.items():
+        area = Counter(route.get("area") for route, _, _ in members).most_common(1)[0][0]
+        proposals = "\n".join(f"- \"{route['title']}\", from {paper['citation']}: {route['brief']}{origin}" for route, paper, origin in members)
+        if kind == "part-ii":
+            base = name.split("/")[-1].split(":")[-1]
+            part, rid, built = "Part II", base + "PartII", ""
+            if rid in roadmaps:
+                part, rid = "Part III", base + "PartIII"
+                built = f" {base}PartII is already in the atlas and continues {name}: build on it, and plan here only what it does not."
+            title = f"{roadmaps.get(name, {}).get('title', base)}, {part}"
+            count = f"{len(members)} continuation{'s' if len(members) > 1 else ''}"
+            brief = (f"The roadmap is \"{title}\": it extends {name} and starts where that roadmap stops (PROTOCOL.md section 15).{built} "
+                     f"The paper extractions propose {count} in this direction. Plan them as this one roadmap, merging what overlaps; if they "
+                     "split into independent directions, plan the first here and record a restructure proposal for the rest.\n" + proposals)
+        else:
+            rid, title = name, members[0][0]["title"]
+            several = f", which {len(members)} paper extractions call for: plan them as this one roadmap" if len(members) > 1 else ""
+            brief = f"The roadmap is \"{title}\"{several}.\n" + proposals
+        designs.append(("DESIGN-" + rid, rid, area, brief, title))
+    return designs
 
 
 def area_parts(members, links, size=8):
@@ -819,7 +854,7 @@ def main():
     # blueprint sources and design jobs.
     registry = json.loads((BP / "papers" / "papers.json").read_text()) if (BP / "papers" / "papers.json").exists() else {}
     guides = "\n".join(f"- {g['citation']}: " + "; ".join(r["summary"] for r in g["routes"]) + "." for g in registry.get("guides", []))
-    paper_designs = []
+    calls = []
     for number, paper in enumerate(registry.get("papers", []), 1):
         pid, link = paper["id"], paper.get("link", "")
         result, report = f"research/blueprint/papers/{pid}.result.json", f"research/blueprint/papers/{pid}.md"
@@ -837,9 +872,7 @@ def main():
                 ADDED_SOURCES.setdefault(route["roadmap"], []).append(
                     f"{paper['citation']} ({link}), for {', '.join(route['stages'])}: {route['reason']}{origin}")
             else:
-                extends = (f" The roadmap is \"{route['title']}\": it extends {route['parent']} and starts where that roadmap stops (PROTOCOL.md section 15)."
-                           if route["route"] == "part-ii" else f" The roadmap is \"{route['title']}\".")
-                paper_designs.append(("DESIGN-" + route["roadmap"], route["roadmap"], route["area"], route["brief"] + extends + origin, route["title"]))
+                calls.append((route, paper, origin))
     # Priority 1: the new roadmaps and the Zagier suppliers.
     designs = [("DESIGN-LV", "MordellLawrenceVenkatesh", "arithmeticgeometry", LV_BRIEF, None),
                ("DESIGN-ZAGIER", "ZagierConjecturePolylogarithms", "ktheory", ZAGIER_BRIEF, None),
@@ -848,7 +881,7 @@ def main():
                ("DESIGN-PAN", "LocallyAnalyticCompletedCohomology", "langlands", PAN_BRIEF, None),
                ("DESIGN-SKINNER", "RankOneConverse", "iwasawa", SKINNER_BRIEF, None),
                ("DESIGN-BETTS-STIX", "GaloisSectionsPadicPeriodMaps", "arithmeticgeometry", BETTS_STIX_BRIEF, None)]
-    designs += [d for d in paper_designs if d[0] not in {x[0] for x in designs}]
+    designs += [d for d in paper_designs(calls, roadmaps) if d[0] not in {x[0] for x in designs}]
     for position, (job_id, rid, group, brief, name) in enumerate(designs, 1):
         output = f"research/blueprint/packets/{rid}.json"
         suggested = f"research/blueprint/suggested/{rid}.lean"
