@@ -12,6 +12,14 @@ import Mathlib.LinearAlgebra.FreeModule.Basic
 import Mathlib.LinearAlgebra.FreeModule.Finite.Basic
 import Mathlib.RingTheory.DedekindDomain.Basic
 import Mathlib.NumberTheory.NumberField.Basic
+import Mathlib.RingTheory.MvPowerSeries.Basic
+import Mathlib.RingTheory.AdicCompletion.Basic
+import Mathlib.RingTheory.Discriminant
+import Mathlib.RingTheory.Etale.Finite
+import Mathlib.RingTheory.QuasiFinite.Basic
+import Mathlib.RingTheory.IntegralClosure.IntegrallyClosed
+import Mathlib.RingTheory.Localization.Away.Basic
+import Mathlib.CategoryTheory.Galois.Equivalence
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyFree
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 
@@ -26,7 +34,10 @@ and signatures. All proposed results are unproved prototypes at the pinned basel
 Layer covered: R07.1 (p-divisible groups of arbitrary height with duality, Tate modules and
 the connected–étale sequence; schematic closure and finite flat models; Raynaud's uniqueness
 theorem for `e < p - 1` and the boundary case; F-vector schemes, Raynaud's classification and
-tame inertia; the Oort–Tate classification, locally and over rings of integers).
+tame inertia; the Oort–Tate classification, locally and over rings of integers; formal Lie
+groups, the dimension, Tate's Hodge–Tate and generic-fibre theorems; Raynaud's extension
+criterion; the finite part of a quasi-finite group; finite étale groups as Galois modules; gluing
+over a completion and a localisation; the Katz–Mazur groups).
 
 Everything is stated over an affine base, on Tau Ceti's
 `FiniteLocallyFreeCommAffineGroupSchemeCat`, whose objects are finite, flat and of finite
@@ -38,7 +49,10 @@ named after their owners' planned declarations:
   ModularCurves 7E PD-2 (the finite-level connected–étale sequence over a henselian base);
 * `genericFibre`, `genericPoints` — generic fibres and their Galois modules (ModularCurves 0D
   for the field case);
-* `muPow`, `constZModPow` — the groups `μ_{p^v}` and `ℤ/p^vℤ` of ModularCurves 0B.
+* `muPow`, `constZModPow` — the groups `μ_{p^v}` and `ℤ/p^vℤ` of ModularCurves 0B;
+* `CK` — the completion of an algebraic closure of `K` (PadicHodgeTheory R06.1);
+* `IsUnramifiedOutside` — unramified Galois modules (InverseGaloisAndArithmeticFundamentalGroups
+  IG.0, via SGA 1 V.8.2).
 -/
 
 noncomputable section
@@ -122,9 +136,9 @@ namespace PDivisibleGroup
 
 variable {R : Type u} [CommRing R] {p h : ℕ}
 
-/-- Homomorphisms: compatible families of level maps. -/
+/-- Homomorphisms: compatible families of level maps. The heights may differ. -/
 @[ext]
-structure Hom (G H : PDivisibleGroup R p h) where
+structure Hom {h' : ℕ} (G : PDivisibleGroup R p h) (H : PDivisibleGroup R p h') where
   app : ∀ v, G.level v ⟶ H.level v
   comm : ∀ v, G.incl v ≫ app (v + 1) = app v ≫ H.incl v
 
@@ -312,5 +326,216 @@ theorem cartierDual_oortTateGroup {R : Type u} [CommRing R] (p : ℕ) (a b : R) 
 is `ℤ/pℤ` or `μ_p`. -/
 theorem group_of_order_p_over_int (p : ℕ) [Fact p.Prime] (G : FLF ℤ) (hG : rank G = p) :
     Nonempty (G ≅ constZModPow p 1) ∨ Nonempty (G ≅ muPow p 1) := sorry
+
+/-! ## Formal Lie groups, dimension and Tate's theorems -/
+
+/-- R07.1/formal-lie-group: the axioms of an `n`-dimensional commutative formal group law
+`Φ(X, Y)`: associativity, `Φ(X, 0) = X = Φ(0, X)` and commutativity, by substitution. -/
+def IsCommFormalGroupLaw {Λ : Type u} [CommRing Λ] {n : ℕ}
+    (Φ : Fin n → MvPowerSeries (Fin n ⊕ Fin n) Λ) : Prop := sorry
+
+/-- R07.1/formal-lie-group: a commutative formal Lie group `Spf Λ⟦X_1, …, X_n⟧`. -/
+structure FormalLieGroup (Λ : Type u) [CommRing Λ] (n : ℕ) where
+  law : Fin n → MvPowerSeries (Fin n ⊕ Fin n) Λ
+  isLaw : IsCommFormalGroupLaw law
+
+namespace FormalLieGroup
+
+variable {Λ : Type u} [CommRing Λ] {n : ℕ}
+
+/-- The dimension. -/
+def dim (_𝒢 : FormalLieGroup Λ n) : ℕ := n
+
+/-- `[p]^*` makes `Λ⟦X⟧` a free module of finite rank over itself. -/
+def IsPDivisible (𝒢 : FormalLieGroup Λ n) (p : ℕ) : Prop := sorry
+
+/-- The height: `[p]^*` has rank `p ^ height`. -/
+def height (𝒢 : FormalLieGroup Λ n) (p : ℕ) : ℕ := sorry
+
+/-- `Ĝ_m`, with law `X + Y + XY`. -/
+def multiplicative (Λ : Type u) [CommRing Λ] : FormalLieGroup Λ 1 := sorry
+
+theorem height_multiplicative (p : ℕ) [Fact p.Prime] :
+    (multiplicative (ZMod p)).height p = 1 := sorry
+
+/-- R07.1/serre-tate-connected-p-divisible: the connected `p`-divisible group `𝒢[p^∞]`. -/
+def pDivisibleGroup (𝒢 : FormalLieGroup Λ n) (p : ℕ) (_hp : 𝒢.IsPDivisible p) :
+    PDivisibleGroup Λ p (𝒢.height p) := sorry
+
+end FormalLieGroup
+
+namespace PDivisibleGroup
+
+section Complete
+
+variable {R : Type u} [CommRing R] [IsLocalRing R] [IsNoetherianRing R]
+  [IsAdicComplete (IsLocalRing.maximalIdeal R) R] [HenselianLocalRing R] {p h : ℕ} [Fact p.Prime]
+
+/-- Serre–Tate (Tate Proposition 1, Stix Theorem 70): a connected `p`-divisible group over a
+complete noetherian local ring comes from a `p`-divisible formal Lie group. -/
+theorem exists_formalLieGroup (G : PDivisibleGroup R p h) (hG : ∀ v, IsConnected (G.level v)) :
+    ∃ (n : ℕ) (𝒢 : FormalLieGroup R n) (hp : 𝒢.IsPDivisible p) (f : Hom (𝒢.pDivisibleGroup p hp) G),
+      ∀ v, IsIso (f.app v) := sorry
+
+/-- R07.1/p-divisible-dimension: the dimension of the formal Lie group of `G⁰`. -/
+def dim (G : PDivisibleGroup R p h) : ℕ := sorry
+
+theorem dim_muPInfty : (muPInfty R p).dim = 1 := sorry
+
+theorem dim_constQpZp : (constQpZp R p).dim = 0 := sorry
+
+/-- R07.1/dimension-plus-dual-dimension (Tate Proposition 3). -/
+theorem dim_add_dim_cartierDual (G : PDivisibleGroup R p h) : G.dim + (cartierDual G).dim = h :=
+  sorry
+
+/-- R07.1/p-divisible-discriminant (Tate Proposition 2): the discriminant of the `v`-th level is
+generated by `p ^ (n v p^{h v})`. Stated through a placeholder for the discriminant ideal. -/
+theorem discr_level (discrIdeal : FLF R → Ideal R) (G : PDivisibleGroup R p h) (v : ℕ) :
+    discrIdeal (G.level v) = Ideal.span {(p : R) ^ (G.dim * v * p ^ (h * v))} := sorry
+
+end Complete
+
+section TateTheorems
+
+variable {R : Type u} [CommRing R] [IsDomain R] (K : Type u) [Field K] [Algebra R K]
+  [IsFractionRing R K] [CharZero K] {p : ℕ} [Fact p.Prime]
+
+instance {h : ℕ} (G : PDivisibleGroup R p h) :
+    DistribMulAction (Field.absoluteGaloisGroup K) (tateModule K G) := sorry
+
+/-- The homomorphism of generic fibres induced by `f`. -/
+def Hom.genericFibre {h h' : ℕ} {G : PDivisibleGroup R p h} {H : PDivisibleGroup R p h'}
+    (f : Hom G H) : Hom (G.baseChange K) (H.baseChange K) := sorry
+
+/-- The `ℤ_p`-linear map of Tate modules induced by `f`. -/
+def Hom.tateModuleMap {h h' : ℕ} {G : PDivisibleGroup R p h} {H : PDivisibleGroup R p h'}
+    (f : Hom G H) : tateModule K G →ₗ[ℤ_[p]] tateModule K H := sorry
+
+/-- R07.1/tate-generic-fibre-theorem (Tate Theorem 4): over an integrally closed noetherian domain
+with fraction field of characteristic zero, homomorphisms of generic fibres extend uniquely. -/
+theorem extend_genericFibre [IsIntegrallyClosed R] [IsNoetherianRing R] {h h' : ℕ}
+    (G : PDivisibleGroup R p h) (H : PDivisibleGroup R p h')
+    (f : Hom (G.baseChange K) (H.baseChange K)) :
+    ∃! g : Hom G H, g.genericFibre K = f := sorry
+
+/-- Tate Theorem 4, Corollary 2: a homomorphism that is an isomorphism generically is one. -/
+theorem isIso_of_isIso_genericFibre [IsIntegrallyClosed R] [IsNoetherianRing R] {h h' : ℕ}
+    {G : PDivisibleGroup R p h} {H : PDivisibleGroup R p h'} (g : Hom G H)
+    (hg : ∀ v, IsIso ((g.genericFibre K).app v)) : ∀ v, IsIso (g.app v) := sorry
+
+/-- R07.1/closure-of-generic-p-divisible-subgroups (Tate Proposition 12): a Galois-stable
+direct summand of `T_p(F)` is the Tate module of a `p`-divisible group mapping to `F`. -/
+theorem exists_of_tateModule_summand [IsDiscreteValuationRing R] {h : ℕ}
+    (F : PDivisibleGroup R p h) (M : Submodule ℤ_[p] (tateModule K F))
+    (hsummand : ∃ M' : Submodule ℤ_[p] (tateModule K F), IsCompl M M')
+    (hstable : ∀ σ : Field.absoluteGaloisGroup K, ∀ x ∈ M, σ • x ∈ M) :
+    ∃ (h' : ℕ) (Γ : PDivisibleGroup R p h') (φ : Hom Γ F),
+      Function.Injective (φ.tateModuleMap K) ∧ LinearMap.range (φ.tateModuleMap K) = M := sorry
+
+/-- PadicHodgeTheory R06.1: `C`, the completion of an algebraic closure of `K`. -/
+def CK : Type u := sorry
+
+instance : Field (CK K) := sorry
+
+instance : Algebra K (CK K) := sorry
+
+/-- `Hom_{ℤ_p}(T_p(G), C)^{G_K}`, a `K`-vector space. -/
+def hodgeTateInvariants {h : ℕ} (G : PDivisibleGroup R p h) : Type u := sorry
+
+instance {h : ℕ} (G : PDivisibleGroup R p h) : AddCommGroup (hodgeTateInvariants K G) := sorry
+
+instance {h : ℕ} (G : PDivisibleGroup R p h) : Module K (hodgeTateInvariants K G) := sorry
+
+/-- R07.1/hodge-tate-p-divisible (Tate Theorem 3; Stix Corollary 92): `Hom(T_p G, C)^{G_K}` has
+dimension `dim G^D`, so `V_p(G)` is Hodge–Tate with weights `0` and `1`. -/
+theorem finrank_hodgeTateInvariants [IsLocalRing R] [IsNoetherianRing R]
+    [IsAdicComplete (IsLocalRing.maximalIdeal R) R] [HenselianLocalRing R]
+    [IsDiscreteValuationRing R] {h : ℕ} (G : PDivisibleGroup R p h) :
+    Module.finrank K (hodgeTateInvariants K G) = (cartierDual G).dim := sorry
+
+end TateTheorems
+
+end PDivisibleGroup
+
+/-- R07.1/raynaud-extension-of-generic-p-divisible (Raynaud Proposition 2.3.1): a `p`-divisible
+group over `K` whose levels all have finite flat models extends to one over `R`. -/
+theorem PDivisibleGroup.exists_extension_of_levels {R : Type u} [CommRing R] [IsDomain R]
+    [IsDiscreteValuationRing R] (K : Type u) [Field K] [Algebra R K] [IsFractionRing R K]
+    [CharZero K] {p h : ℕ} [Fact p.Prime] (G : PDivisibleGroup K p h)
+    (hG : ∀ v, Nonempty (Prolongation (R := R) K (G.level v))) :
+    ∃ (𝓖 : PDivisibleGroup R p h) (f : PDivisibleGroup.Hom (𝓖.baseChange K) G),
+      ∀ v, IsIso (f.app v) := sorry
+
+/-! ## Groups over rings of S-integers -/
+
+/-- A separated, quasi-finite, flat, finitely presented commutative group scheme over `R`
+(owned here; the carrier of R07.1/finite-part-of-quasi-finite-group). -/
+def QFGroup (R : Type u) [CommRing R] : Type (u + 1) := sorry
+
+/-- R07.1/finite-part-of-quasi-finite-group: the open and closed finite part `𝒢^f`. -/
+def QFGroup.finitePart {R : Type u} [CommRing R] [HenselianLocalRing R] (𝒢 : QFGroup R) :
+    FLF R := sorry
+
+/-- InverseGaloisAndArithmeticFundamentalGroups IG.0 / SGA 1 V.8.2: the `G_ℚ`-module `M` is
+unramified at every prime not dividing `N`. -/
+def IsUnramifiedOutside (N : ℕ) (M : Type) [AddCommGroup M]
+    [DistribMulAction (Field.absoluteGaloisGroup ℚ) M] : Prop := sorry
+
+section Etale
+
+variable (N : ℕ)
+
+/-- R07.1/etale-groups-as-galois-modules: the finite étale group scheme `V(ρ)` over `ℤ[1/N]`
+attached to a finite `G_ℚ`-module unramified outside `N∞`. -/
+def etaleGroupOfGaloisModule (M : Type) [AddCommGroup M] [Finite M]
+    [DistribMulAction (Field.absoluteGaloisGroup ℚ) M] (_hM : IsUnramifiedOutside N M) :
+    FLF (Localization.Away (N : ℤ)) := sorry
+
+theorem isEtale_etaleGroupOfGaloisModule (M : Type) [AddCommGroup M] [Finite M]
+    [DistribMulAction (Field.absoluteGaloisGroup ℚ) M] (hM : IsUnramifiedOutside N M) :
+    IsEtale (etaleGroupOfGaloisModule N M hM) := sorry
+
+/-- Every finite étale commutative group scheme over `ℤ[1/N]` arises this way. -/
+theorem exists_galoisModule_of_isEtale (G : FLF (Localization.Away (N : ℤ))) (hG : IsEtale G) :
+    ∃ (M : Type) (_ : AddCommGroup M) (_ : Finite M)
+      (_ : DistribMulAction (Field.absoluteGaloisGroup ℚ) M) (hM : IsUnramifiedOutside N M),
+      Nonempty (G ≅ etaleGroupOfGaloisModule N M hM) := sorry
+
+end Etale
+
+/-- R07.1/gluing-equivalence: a gluing datum `(G₁, G₂, θ)` over `R̂` and `R[1/p]`; the
+isomorphism `θ` over `R̂[1/p]` is recorded through the placeholder `GluingIso`. -/
+def GluingIso {R : Type u} [CommRing R] (p : R) (G₁ : FLF (AdicCompletion (Ideal.span {p}) R))
+    (G₂ : FLF (Localization.Away p)) : Type u := sorry
+
+structure GluingDatum (R : Type u) [CommRing R] (p : R) where
+  G₁ : FLF (AdicCompletion (Ideal.span {p}) R)
+  G₂ : FLF (Localization.Away p)
+  θ : GluingIso p G₁ G₂
+
+/-- The gluing datum of a finite flat `R`-group. -/
+def toGluingDatum {R : Type u} [CommRing R] (p : R) (G : FLF R) : GluingDatum R p := sorry
+
+/-- Schoof Proposition 2.3 (essential surjectivity): every gluing datum comes from a finite
+flat `R`-group, for `R` noetherian. -/
+theorem exists_of_gluingDatum {R : Type u} [CommRing R] [IsNoetherianRing R] (p : R)
+    (D : GluingDatum R p) :
+    ∃ (G : FLF R) (e₁ : (toGluingDatum p G).G₁ ≅ D.G₁), Nonempty ((toGluingDatum p G).G₂ ≅ D.G₂) :=
+  sorry
+
+/-- R07.1/katz-mazur-groups: `T_ε = Spec ⊕_{i<p} R[X_i]/(X_i^p - ε^i)`. -/
+def katzMazur {R : Type u} [CommRing R] (p : ℕ) (ε : Rˣ) : FLF R := sorry
+
+theorem katzMazur_rank {R : Type u} [CommRing R] (p : ℕ) [Fact p.Prime] (ε : Rˣ) :
+    rank (katzMazur p ε) = p ^ 2 := sorry
+
+/-- `0 → μ_p → T_ε → ℤ/pℤ → 0`. -/
+theorem katzMazur_extension {R : Type u} [CommRing R] (p : ℕ) [Fact p.Prime] (ε : Rˣ) :
+    ∃ (i : muPow p 1 ⟶ katzMazur p ε) (j : katzMazur p ε ⟶ constZModPow p 1),
+      IsShortExact i j := sorry
+
+/-- `T_ε ≅ T_{ε u^p}`. -/
+def katzMazurIsoOfDiv {R : Type u} [CommRing R] (p : ℕ) (ε u : Rˣ) :
+    katzMazur p ε ≅ katzMazur p (ε * u ^ p) := sorry
 
 end TauCeti.FiniteFlat
