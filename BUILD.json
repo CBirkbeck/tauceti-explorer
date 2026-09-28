@@ -379,7 +379,7 @@
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
-  "libraryAuditStatuses": 110,
+  "libraryAuditStatuses": 53,
   "bibliographicSources": 46,
   "roadmapEdges": 1639,
   "stageEdges": 7704,
@@ -477,13 +477,13 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 30338151,
-  "htmlSha256": "bd227e95dc7a1d2b4fde4802afef87373fc8b536f752c694295125e4fef3c08b",
+  "htmlBytes": 29354978,
+  "htmlSha256": "ec4d22abcf998a894ed106bbad5aee32592dcbb90c352597091496d33949df83",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
-    "src/shell.html": "94e96d2570725fb35cad2cc9fec0e3e74345ad1dd2fbb2cd87f5eb12eff97007",
-    "src/style.css": "5ba2d2a1e408e403396fd2b759fc633124b4ec9e682b83e2d2a7dee0535813a3",
+    "src/shell.html": "3197357ee56d7b24713fb8e4904afaacb81e4496aca5822d5f4d0777e053ea28",
+    "src/style.css": "4bedd0d5e1257683cfc8d1cc7fcedc021bd8a292dad841dc1dcb4ea443b19fb6",
     "vendor/d3.v5.15.0.min.js": "9b442622c05770e322113466a53dea836210fe2d2a6b3240da68821f33a64b56",
     "vendor/katex.v0.16.28.min.js": "5e4f3b03c66a3360fe5c070da797900dd74437f58f23957443f4cbd26149f74e",
     "src/markdown.js": "506d454a15eb4447dccea27d2a7d24555c8b190489bb1a79c1b72d79b74ddcc5",
@@ -494,9 +494,10 @@
     "src/landmarks.js": "0785c99a8e93d71eeb7bfb8a17da1fa07da8d45f0502e5098ef26b853f06d47a",
     "src/presentation.js": "b5d24d0492940f53fcc64759e37fe3eabcb5fd66331f6c361d53383730e0bf05",
     "src/references.js": "9b640060068c4a9c73928fee162489e15f1d03c962650e95df9a317f55f8ce55",
-    "src/app.js": "029346c7881d9507defd63c02ac38407bd672d4d54898417754857aa021fccbe",
+    "src/app.js": "0508e75d5a788659f863af267b47b08fdf06f1aeeaac9684e7bbbcff5ff1e00f",
     "data/atlas.json": "62ab6c2ccb94ee9c4d99813da02b69656941721d30fc29384e2b7e6e86361c56",
     "data/status.json": "7b9fe0072201b427ed600ee7066bd729d34b2632450823e1f877a8d5d3f7ad2e",
+    "data/tauceti-progress.json": "5a797c530adc77518b4e3de1b7599fa28b8e3e4bcd40d4b358bd99d1cd27d9dd",
     "data/galaxies.json": "90d5131f4073e762260faa5614e53cbe41f194012b424f81db67afac16610599",
     "data/roadmap-retirements.json": "d572bc6f66332331ea507db17f12bdad008f73228b2dc9b5197f7e4c86334c9f",
     "data/library-coverage.json": "6fe73095d574e7f98497e0dcc0eeec3a9ab0a2c04b4eed98ded8e678a3adea7a",
@@ -666,5 +667,18 @@
     "data/restructure/RS-31.result.json": "94a04e4db8b11620051fa80855225a351c66aa090d7beffaec986fc281dc3f7e",
     "data/restructure/RS-32.md": "4ac437ae3ad7a2a00529adcd5337a3cb4332506531c3d7efdea5454e2401c1ab",
     "data/restructure/RS-32.result.json": "90d2bcaed8bf32f0d9086254a357431995371cd6352ea2aefeea869a8cc93f5d"
-  }
+  },
+  "taucetiProgress": {
+    "exportedAt": "2026-09-28T14:36:38Z",
+    "roadmaps": 59,
+    "unplaced": 6,
+    "layers": {
+      "done": 168,
+      "partial": 194,
+      "untouched": 122,
+      "unassessed": 68,
+      "total": 552
+    }
+  },
+  "variant": "atlas"
 }
