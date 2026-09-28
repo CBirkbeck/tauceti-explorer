@@ -5,7 +5,7 @@ import Mathlib.Data.ZMod.QuotientRing
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: GPT-6 Astra Pro (astra-20260926-pm-83c1), Codex (codex-a71f92)
+Authors: GPT-6 Astra Pro (astra-20260926-pm-83c1), Codex (codex-a71f92), Claude Code (cc-fb70e5)
 -/
 import Mathlib.NumberTheory.ArithmeticFunction.Misc
 import Mathlib.Data.Nat.Factorization.Basic
@@ -25,6 +25,11 @@ import Mathlib.Algebra.Order.BigOperators.Ring.Finset
 import Mathlib.Data.Nat.Choose.Sum
 import TauCeti.Probability.Process.EmpiricalMeasure
 import TauCeti.Probability.Distributions.Gaussian.Moments
+import Mathlib.Analysis.Fourier.AddCircleMulti
+import Mathlib.MeasureTheory.Measure.Portmanteau
+import Mathlib.MeasureTheory.Measure.DiracProba
+import Mathlib.Probability.Distributions.Uniform
+import Mathlib.Analysis.Real.Sqrt
 
 /-!
 # Suggested finite arithmetic probability signatures
@@ -1117,3 +1122,265 @@ example : (∫ n : ℕ, |factorExcess n / 2|^(2 : ℕ) ∂uLaw 7) = 5/32 := by s
 /-- scaled_zeroth_moment -/
 example (m : ℕ) : (∫ n : ℕ, |factorExcess n / 2|^(0 : ℕ) ∂uLaw m) = 1 := by sorry
 end TauCeti.Probability.Arithmetic
+
+/-! ## PM.2: asymptotic equidistribution on tori
+
+Claude Code (cc-fb70e5), 2026-09-28. Source: Tao, *Higher order Fourier analysis*, §1.1.1.
+Signatures only: every body is `sorry`, and this section has not been elaborated (the machine that
+wrote it has no build at the pinned commits). The carrier is Tau Ceti's `empiricalMeasure` in
+Mathlib's `ProbabilityMeasure` topology; the torus is Mathlib's `UnitAddTorus` with its characters
+`UnitAddTorus.mFourier`. Van der Corput's inequality is
+`ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound` at `r = 1` and is not restated here.
+Sequences are indexed by `ℕ` and averaged over `0, …, n`; equidistribution ignores finite shifts.
+-/
+
+namespace TauCeti.Equidistribution
+
+open MeasureTheory Filter Topology
+open scoped Classical
+
+section General
+
+variable {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X]
+
+/-- PM.2/asymptotic-equidistribution: the empirical measures of `x` converge to `μ`. -/
+def AsympEquidistributed (x : ℕ → X) (μ : ProbabilityMeasure X) : Prop :=
+  Tendsto (TauCeti.Probability.empiricalMeasure x) atTop (𝓝 μ)
+
+theorem asympEquidistributed_iff_integral_tendsto (x : ℕ → X) (μ : ProbabilityMeasure X) :
+    AsympEquidistributed x μ ↔ ∀ f : X →ᵇ ℝ,
+      Tendsto (fun n : ℕ => ((n + 1 : ℕ) : ℝ)⁻¹ * ∑ i ∈ Finset.range (n + 1), f (x i)) atTop
+        (𝓝 (∫ y, f y ∂(μ : Measure X))) := by
+  sorry
+
+theorem asympEquidistributed_iff_integral_tendsto_complex (x : ℕ → X)
+    (μ : ProbabilityMeasure X) :
+    AsympEquidistributed x μ ↔ ∀ f : X →ᵇ ℂ,
+      Tendsto (fun n : ℕ => ((n + 1 : ℕ) : ℂ)⁻¹ * ∑ i ∈ Finset.range (n + 1), f (x i)) atTop
+        (𝓝 (∫ y, f y ∂(μ : Measure X))) := by
+  sorry
+
+theorem asympEquidistributed_comp_add_iff (x : ℕ → X) (μ : ProbabilityMeasure X) (m : ℕ) :
+    AsympEquidistributed (fun n => x (n + m)) μ ↔ AsympEquidistributed x μ := by
+  sorry
+
+theorem AsympEquidistributed.congr_of_eventuallyEq {x y : ℕ → X} {μ : ProbabilityMeasure X}
+    (h : AsympEquidistributed x μ) (hxy : x =ᶠ[atTop] y) : AsympEquidistributed y μ := by
+  sorry
+
+/-- The source's appeal to the Riesz representation theorem, as Hausdorffness of the topology. -/
+theorem AsympEquidistributed.unique [HasOuterApproxClosed X] [BorelSpace X] {x : ℕ → X}
+    {μ ν : ProbabilityMeasure X} (hμ : AsympEquidistributed x μ)
+    (hν : AsympEquidistributed x ν) : μ = ν := by
+  sorry
+
+/-- Portmanteau: frequencies of visits to a set whose frontier is `μ`-null. -/
+theorem AsympEquidistributed.tendsto_frequency [HasOuterApproxClosed X] {x : ℕ → X}
+    {μ : ProbabilityMeasure X} (h : AsympEquidistributed x μ) {E : Set X}
+    (hE : MeasurableSet E) (hbd : (μ : Measure X) (frontier E) = 0) :
+    Tendsto (fun n : ℕ =>
+      (((Finset.range (n + 1)).filter (fun i => x i ∈ E)).card : ℝ) / (n + 1))
+      atTop (𝓝 ((μ : Measure X) E).toReal) := by
+  sorry
+
+theorem AsympEquidistributed.eventually_frequency_ge [HasOuterApproxClosed X] {x : ℕ → X}
+    {μ : ProbabilityMeasure X} (h : AsympEquidistributed x μ) {U : Set X} (hU : IsOpen U)
+    (hμU : 0 < (μ : Measure X) U) :
+    ∃ c : ℝ, 0 < c ∧ ∀ᶠ n in atTop,
+      c ≤ (((Finset.range (n + 1)).filter (fun i => x i ∈ U)).card : ℝ) / (n + 1) := by
+  sorry
+
+theorem AsympEquidistributed.denseRange [HasOuterApproxClosed X] {x : ℕ → X}
+    {μ : ProbabilityMeasure X} (h : AsympEquidistributed x μ)
+    (hμ : ∀ U : Set X, IsOpen U → U.Nonempty → 0 < (μ : Measure X) U) : DenseRange x := by
+  sorry
+
+theorem asympEquidistributed_const_iff [HasOuterApproxClosed X] [BorelSpace X] (p : X)
+    (μ : ProbabilityMeasure X) :
+    AsympEquidistributed (fun _ : ℕ => p) μ ↔ μ = diracProba p := by
+  sorry
+
+/-- PM.2/total-asymptotic-equidistribution: equidistribution along every progression `q n + r`. -/
+def TotallyAsympEquidistributed (x : ℕ → X) (μ : ProbabilityMeasure X) : Prop :=
+  ∀ q r : ℕ, 0 < q → AsympEquidistributed (fun n => x (q * n + r)) μ
+
+theorem TotallyAsympEquidistributed.asympEquidistributed {x : ℕ → X}
+    {μ : ProbabilityMeasure X} (h : TotallyAsympEquidistributed x μ) :
+    AsympEquidistributed x μ := by
+  sorry
+
+theorem TotallyAsympEquidistributed.comp_affine {x : ℕ → X} {μ : ProbabilityMeasure X}
+    (h : TotallyAsympEquidistributed x μ) {q : ℕ} (hq : 0 < q) (r : ℕ) :
+    TotallyAsympEquidistributed (fun n => x (q * n + r)) μ := by
+  sorry
+
+end General
+
+section Torus
+
+variable {d : Type*} [Fintype d]
+
+/-- PM.2/torus-haar-probability: the Haar probability measure on `ℝ/ℤ`. -/
+def circleHaar : ProbabilityMeasure UnitAddCircle :=
+  ⟨AddCircle.haarAddCircle, inferInstance⟩
+
+/-- PM.2/torus-haar-probability: the Haar probability measure on `(ℝ/ℤ)^d`. -/
+def torusHaar (d : Type*) [Fintype d] : ProbabilityMeasure (UnitAddTorus d) :=
+  ⟨Measure.pi (fun _ : d => AddCircle.haarAddCircle), by sorry⟩
+
+theorem torusHaar_eq_volume : (torusHaar d : Measure (UnitAddTorus d)) = volume := by
+  sorry
+
+theorem circleHaar_eq_volume : (circleHaar : Measure UnitAddCircle) = volume := by
+  sorry
+
+instance isAddHaarMeasure_torusHaar :
+    (torusHaar d : Measure (UnitAddTorus d)).IsAddHaarMeasure := by
+  sorry
+
+theorem integral_mFourier_torusHaar (k : d → ℤ) :
+    ∫ x, UnitAddTorus.mFourier k x ∂(torusHaar d : Measure (UnitAddTorus d)) =
+      if k = 0 then 1 else 0 := by
+  sorry
+
+theorem integral_fourier_circleHaar (n : ℤ) :
+    ∫ y, fourier n y ∂(circleHaar : Measure UnitAddCircle) = if n = 0 then 1 else 0 := by
+  sorry
+
+/-- PM.2/torus-irrational: `k · α ≠ 0` for every nonzero frequency `k`. -/
+def TorusIrrational (α : UnitAddTorus d) : Prop :=
+  ∀ k : d → ℤ, k ≠ 0 → ∑ i, k i • α i ≠ 0
+
+theorem mFourier_eq_fourier_sum (k : d → ℤ) (α : UnitAddTorus d) :
+    UnitAddTorus.mFourier k α = fourier 1 (∑ i, k i • α i) := by
+  sorry
+
+theorem torusIrrational_iff_mFourier (α : UnitAddTorus d) :
+    TorusIrrational α ↔ ∀ k : d → ℤ, k ≠ 0 → UnitAddTorus.mFourier k α ≠ 1 := by
+  sorry
+
+theorem torusIrrational_unique_iff [Unique d] (α : UnitAddTorus d) :
+    TorusIrrational α ↔ addOrderOf (α default) = 0 := by
+  sorry
+
+theorem TorusIrrational.zsmul {α : UnitAddTorus d} (h : TorusIrrational α) {m : ℤ}
+    (hm : m ≠ 0) : TorusIrrational (m • α) := by
+  sorry
+
+theorem TorusIrrational.nsmul {α : UnitAddTorus d} (h : TorusIrrational α) {m : ℕ}
+    (hm : m ≠ 0) : TorusIrrational (m • α) := by
+  sorry
+
+/-- PM.2/weyl-criterion (Tao, Proposition 1.1.2). -/
+theorem weyl_criterion (x : ℕ → UnitAddTorus d) :
+    AsympEquidistributed x (torusHaar d) ↔ ∀ k : d → ℤ, k ≠ 0 →
+      Tendsto (fun n : ℕ => ((n + 1 : ℕ) : ℂ)⁻¹ *
+        ∑ i ∈ Finset.range (n + 1), UnitAddTorus.mFourier k (x i)) atTop (𝓝 0) := by
+  sorry
+
+/-- PM.2/weyl-criterion-projections (Tao, Corollary 1.1.3). -/
+theorem asympEquidistributed_iff_projections (x : ℕ → UnitAddTorus d) :
+    AsympEquidistributed x (torusHaar d) ↔ ∀ k : d → ℤ, k ≠ 0 →
+      AsympEquidistributed (fun n => ∑ i, k i • x n i) circleHaar := by
+  sorry
+
+/-- PM.2/linear-equidistribution (Tao, Exercise 1.1.5, the `ℕ`-indexed statements). -/
+theorem linear_equidistribution_tfae (α β : UnitAddTorus d) :
+    List.TFAE [AsympEquidistributed (fun n : ℕ => n • α + β) (torusHaar d),
+      TotallyAsympEquidistributed (fun n : ℕ => n • α + β) (torusHaar d),
+      TorusIrrational α] := by
+  sorry
+
+/-- PM.2/van-der-corput-lemma (Tao, Corollary 1.1.7). -/
+theorem asympEquidistributed_of_forall_sub (x : ℕ → UnitAddTorus d)
+    (hx : ∀ h : ℕ, 0 < h → AsympEquidistributed (fun n => x (n + h) - x n) (torusHaar d)) :
+    AsympEquidistributed x (torusHaar d) := by
+  sorry
+
+/-- PM.2/weyl-polynomial-equidistribution (Tao, Corollary 1.1.9, on `ℕ`). -/
+theorem weyl_polynomial (s : ℕ) (hs : 1 ≤ s) (α : ℕ → UnitAddTorus d)
+    (hα : TorusIrrational (α s)) :
+    AsympEquidistributed (fun n : ℕ => ∑ j ∈ Finset.range (s + 1), (n ^ j) • α j)
+      (torusHaar d) := by
+  sorry
+
+/-- PM.2/uniform-distribution-mod-one: the classical definition and Weyl's criterion. -/
+theorem uniformDistribution_mod_one_tfae (u : ℕ → ℝ) :
+    List.TFAE [AsympEquidistributed (fun n => (u n : UnitAddCircle)) circleHaar,
+      ∀ a b : ℝ, 0 ≤ a → a ≤ b → b ≤ 1 →
+        Tendsto (fun n : ℕ => (((Finset.range (n + 1)).filter
+          (fun i => Int.fract (u i) ∈ Set.Ico a b)).card : ℝ) / (n + 1)) atTop (𝓝 (b - a)),
+      ∀ k : ℤ, k ≠ 0 → Tendsto (fun n : ℕ => ((n + 1 : ℕ) : ℂ)⁻¹ *
+        ∑ i ∈ Finset.range (n + 1), fourier k (u i : UnitAddCircle)) atTop (𝓝 0)] := by
+  sorry
+
+end Torus
+
+/-! Unit tests for the PM.2 definitions, named as in the packet. -/
+
+/-- asympEquidistributed.test_const_dirac -/
+example {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X] (p : X) :
+    AsympEquidistributed (fun _ : ℕ => p) (diracProba p) := by sorry
+
+/-- asympEquidistributed.test_dyadic_blocks (Tao, Example 1.1.1) -/
+example : ¬ ∃ μ : ProbabilityMeasure Bool, AsympEquidistributed
+    (fun n : ℕ => decide (∃ j : ℕ, 2 ^ (2 * j) ≤ n ∧ n < 2 ^ (2 * j + 1))) μ := by sorry
+
+/-- asympEquidistributed.test_alternating -/
+example : AsympEquidistributed (fun n : ℕ => decide (n % 2 = 1))
+    ⟨(PMF.uniformOfFintype Bool).toMeasure, inferInstance⟩ := by sorry
+
+/-- asympEquidistributed.test_update_first_term -/
+example {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X]
+    (x : ℕ → X) (p : X) (μ : ProbabilityMeasure X) :
+    AsympEquidistributed (Function.update x 0 p) μ ↔ AsympEquidistributed x μ := by sorry
+
+/-- asympEquidistributed.test_zero_not_haar -/
+example : ¬ AsympEquidistributed (fun _ : ℕ => (0 : UnitAddCircle)) circleHaar := by sorry
+
+/-- totallyAsympEquidistributed.test_half_rotation -/
+example : ¬ ∃ μ : ProbabilityMeasure UnitAddCircle,
+    TotallyAsympEquidistributed (fun n : ℕ => n • ((1 / 2 : ℝ) : UnitAddCircle)) μ := by sorry
+
+/-- totallyAsympEquidistributed.test_const -/
+example {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X] (p : X) :
+    TotallyAsympEquidistributed (fun _ : ℕ => p) (diracProba p) := by sorry
+
+/-- totallyAsympEquidistributed.test_implies_plain -/
+example {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X]
+    (x : ℕ → X) (μ : ProbabilityMeasure X) (h : TotallyAsympEquidistributed x μ) :
+    AsympEquidistributed x μ := by sorry
+
+/-- torusHaar.test_character_integral -/
+example : ∫ x, UnitAddTorus.mFourier (![1, -1] : Fin 2 → ℤ) x
+    ∂(torusHaar (Fin 2) : Measure (UnitAddTorus (Fin 2))) = 0 := by sorry
+
+/-- torusHaar.test_zero_dim -/
+example : (torusHaar (Fin 0) : Measure (UnitAddTorus (Fin 0))) = Measure.dirac 0 := by sorry
+
+/-- torusHaar.test_marginal -/
+example : (torusHaar (Fin 1) : Measure (UnitAddTorus (Fin 1))).map (fun x => x 0) =
+    (circleHaar : Measure UnitAddCircle) := by sorry
+
+/-- circleHaar.test_volume -/
+example : (circleHaar : Measure UnitAddCircle) = volume := by sorry
+
+/-- torusIrrational.test_mixed -/
+example : ¬ TorusIrrational
+    (![((Real.sqrt 2 : ℝ) : UnitAddCircle), ((1 / 2 : ℝ) : UnitAddCircle)] :
+      UnitAddTorus (Fin 2)) := by
+  sorry
+
+/-- torusIrrational.test_sqrt2_sqrt3 -/
+example : TorusIrrational
+    (![((Real.sqrt 2 : ℝ) : UnitAddCircle), ((Real.sqrt 3 : ℝ) : UnitAddCircle)] :
+      UnitAddTorus (Fin 2)) := by
+  sorry
+
+/-- torusIrrational.test_empty -/
+example (α : UnitAddTorus (Fin 0)) : TorusIrrational α := by sorry
+
+/-- torusIrrational.test_one_dim -/
+example (a : UnitAddCircle) : TorusIrrational (fun _ : Unit => a) ↔ addOrderOf a = 0 := by sorry
+
+end TauCeti.Equidistribution

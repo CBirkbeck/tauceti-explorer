@@ -1816,3 +1816,393 @@ the construction API/tests, four findings and five version records. Only the Tao
 The other fifteen sources, PM.1–PM.5 coverage/gaps and all eight planets are unchanged.
 Packet, source-envelope, preservation/DAG and four-file intake checks are run,
 with a fresh consulted-input/link guard before publication.
+
+## PM.2: asymptotic equidistribution on tori
+
+The reviewed audit found PM.2 unbuilt. Neither library has a notion of an equidistributed sequence; Mathlib has only the density of an irrational rotation's orbit (`AddCircle.denseRange_zsmul_iff`) and its ergodicity (`AddCircle.ergodic_add_left`). This section decomposes the asymptotic core from Tao, *Higher order Fourier analysis*, §1.1.1, read in full in the author's copy (the 2010 blog notes are the same text, and were compared passage by passage). Everything reuses existing carriers. The definition is convergence of Tau Ceti's `empiricalMeasure` in Mathlib's `ProbabilityMeasure` topology; the torus is Mathlib's `UnitAddTorus` with its characters `mFourier`; and van der Corput's inequality is `ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound` at r = 1, which is not replanned.
+
+Sequences are indexed by ℕ and averaged over 0, …, n, as `empiricalMeasure` does, whereas the source averages over 1, …, N. Equidistribution ignores any finite shift, and the API proves that (`asympEquidistributed_comp_add_iff`). The source's ℤ-indexed statements are left for a later pass.
+
+Reading the section turned up four misprints, recorded as `ProbabilisticAndMetricNumberTheory/E5`–`E8`. None is in the author's maintained errata list or the blog's corrected comments, and all four affect nothing:
+
+- "left-hand side" for "right-hand side" in the proof of the van der Corput inequality;
+- "leading coefficient shα_s n^{s−1}" for "shα_s" in the proof of Weyl's theorem;
+- "this torus T" for "T′" after Proposition 1.1.5;
+- "Example 1.1.7" for "Exercise 1.1.7" in Remark 1.1.19.
+
+### `asymptotic-equidistribution` — Asymptotic equidistribution of a sequence
+
+*definition* · planet **Asymptotic equidistribution**
+
+For a topological space X with its Borel σ-algebra, a sequence x : ℕ → X and a Borel probability measure μ, AsympEquidistributed x μ means that the empirical measures of x converge to μ in ProbabilityMeasure X: Tendsto (TauCeti.Probability.empiricalMeasure x) atTop (𝓝 μ). Equivalently (1.1): (n+1)⁻¹ ∑_{i≤n} f(x i) → ∫ f dμ for every bounded continuous f, which for compact X is every f ∈ C(X). Tau Ceti's empiricalMeasure x n averages x 0, …, x n where the source averages x(1), …, x(N); the two notions agree because equidistribution ignores any finite shift of the index.
+
+**Hypotheses.**
+- X a topological space with a measurable structure for which open sets are measurable (OpensMeasurableSpace); compactness and metrizability are needed only for the Portmanteau and uniqueness items, never for the definition.
+- x : ℕ → X; μ : ProbabilityMeasure X.
+
+**Construction or proof, in steps.**
+1. Define AsympEquidistributed x μ := Tendsto (empiricalMeasure x) atTop (𝓝 μ); no new measure or averaging carrier is introduced.
+2. Characterise it by bounded continuous test functions: combine ProbabilityMeasure.tendsto_iff_forall_integral_tendsto (and its RCLike form for complex tests) with Tau Ceti's integral_empiricalMeasure, which evaluates ∫ f against the empirical measure as the average.
+3. Index shift: the averages of x and of n ↦ x (n + m) differ by at most 2m‖f‖∞/(n+1) → 0, so the two notions coincide; this reconciles the ℕ-indexing with the source's [N] = {1, …, N}.
+4. Uniqueness of μ from the Hausdorff property of ProbabilityMeasure X (instance t2Space, under HasOuterApproxClosed and BorelSpace), the formal counterpart of the source's appeal to the Riesz representation theorem.
+5. Frequencies: Portmanteau (tendsto_measure_of_null_frontier_of_tendsto) applied to the empirical measures gives #{i ≤ n : x i ∈ E}/(n+1) → μ E whenever μ (frontier E) = 0, via empiricalMeasure_apply_toReal.
+6. Positive lower density of visits to an open U with μ U > 0 (Exercise 1.1.2) from the lim-inf half of Portmanteau for open sets, and density of the range when μ charges every nonempty open set.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `AsympEquidistributed` | constructor | Tendsto (TauCeti.Probability.empiricalMeasure x) atTop (𝓝 μ). |
+| `asympEquidistributed_iff_integral_tendsto` | characterisation | AsympEquidistributed x μ ↔ ∀ f : X →ᵇ ℝ, (n+1)⁻¹ ∑_{i≤n} f (x i) → ∫ f dμ. |
+| `asympEquidistributed_iff_integral_tendsto_complex` | characterisation | The same with bounded continuous complex-valued f; this is the form the Weyl criterion uses. |
+| `asympEquidistributed_comp_add_iff` | structure | AsympEquidistributed (fun n => x (n + m)) μ ↔ AsympEquidistributed x μ. |
+| `AsympEquidistributed.congr_of_eventuallyEq` | structure | Sequences that agree for all large n are equidistributed for the same measures. |
+| `AsympEquidistributed.unique` | structure | Under HasOuterApproxClosed X and BorelSpace X, a sequence is equidistributed for at most one μ. |
+| `AsympEquidistributed.tendsto_frequency` | relation | If μ (frontier E) = 0 then #{i ≤ n : x i ∈ E}/(n+1) → μ E (Portmanteau). |
+| `AsympEquidistributed.eventually_frequency_ge` | relation | For open U with μ U > 0 there is c > 0 with #{i ≤ n : x i ∈ U}/(n+1) ≥ c for all large n. |
+| `AsympEquidistributed.denseRange` | relation | If μ charges every nonempty open set, then x has dense range. |
+| `asympEquidistributed_const_iff` | example | AsympEquidistributed (fun _ => p) μ ↔ μ = diracProba p. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `asympEquidistributed.test_const_dirac` (computation) — AsympEquidistributed (fun _ => p) (diracProba p): the empirical measures are all diracProba p.
+- `asympEquidistributed.test_dyadic_blocks` (non-example) — Source Example 1.1.1: on Bool, x n = true iff 2^{2j} ≤ n < 2^{2j+1} for some j is equidistributed for no μ, since the frequency of true oscillates between about 1/3 and 2/3. A definition by a lim inf or along a subsequence would accept it.
+- `asympEquidistributed.test_alternating` (computation) — x n = decide (n % 2 = 1) on Bool is equidistributed for the uniform measure (PMF.uniformOfFintype Bool).toMeasure.
+- `asympEquidistributed.test_update_first_term` (degenerate) — Changing x 0 does not change equidistribution: the source's [N] omits x(0), Tau Ceti's empiricalMeasure includes it.
+- `asympEquidistributed.test_zero_not_haar` (non-example) — The constant sequence 0 in UnitAddCircle is not equidistributed for circleHaar: it is for diracProba 0, and limits are unique.
+
+**Where it is used.**
+- `total-asymptotic-equidistribution` — Total equidistribution asks for this along every progression q n + r.
+- `weyl-criterion` — The Weyl criterion characterises this notion on the torus by exponential sums.
+- `linear-equidistribution` — Linear sequences n α + β are equidistributed in this sense exactly when α is irrational.
+- `van-der-corput-lemma` — The difference theorem deduces this notion from the same notion for every difference sequence.
+- `weyl-polynomial-equidistribution` — Weyl's polynomial theorem is a statement in this notion.
+- `uniform-distribution-mod-one` — Uniform distribution mod 1 of a real sequence is this notion for its image in ℝ/ℤ.
+- `ProbabilisticAndMetricNumberTheory:PM.4` — Birkhoff averages along Gauss-map orbits are averages against these empirical measures.
+
+**Acceptance tests.**
+- A constant sequence at p is equidistributed for diracProba p and for nothing else.
+- The source's Example 1.1.1 sequence is equidistributed for no μ at all.
+- Changing finitely many terms, or shifting the index, never changes equidistribution.
+
+**Dependencies.**
+- On the pinned libraries: `tauceti:TauCeti.Probability.empiricalMeasure`, `tauceti:TauCeti.Probability.integral_empiricalMeasure`, `tauceti:TauCeti.Probability.empiricalMeasure_apply_toReal`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`, `mathlib:MeasureTheory.ProbabilityMeasure.t2Space`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`, `mathlib:MeasureTheory.diracProba`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 3, the definition (1.1). The definition: vague convergence of the empirical measures µ_N, equivalently convergence of the averages (1.1). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, after (1.1). Uniqueness of the limit measure. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Exercise 1.1.1. The frequency characterisation; the node keeps the Portmanteau direction as API and plans the converse on the circle in uniform-distribution-mod-one. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Exercise 1.1.2. Positive lower density and dense range. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Example 1.1.1. The non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### `total-asymptotic-equidistribution` — Total asymptotic equidistribution
+
+*definition*
+
+TotallyAsympEquidistributed x μ means AsympEquidistributed (fun n => x (q * n + r)) μ for every q ≥ 1 and r ≥ 0: equidistribution along every infinite arithmetic progression of indices.
+
+**Hypotheses.**
+- The hypotheses of asymptotic-equidistribution.
+- q, r : ℕ with q ≥ 1.
+
+**Construction or proof, in steps.**
+1. Define TotallyAsympEquidistributed x μ := ∀ q r : ℕ, 0 < q → AsympEquidistributed (fun n => x (q * n + r)) μ.
+2. Taking q = 1 and r = 0 gives plain equidistribution.
+3. Along n ↦ q' n + r', the sequence n ↦ x (q n + r) becomes n ↦ x ((q q') n + (q r' + r)), again a progression with q q' ≥ 1, so the notion is stable under passing to x (q n + r).
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `TotallyAsympEquidistributed` | constructor | ∀ q r : ℕ, 0 < q → AsympEquidistributed (fun n => x (q * n + r)) μ. |
+| `TotallyAsympEquidistributed.asympEquidistributed` | structure | Total equidistribution implies equidistribution (q = 1, r = 0). |
+| `TotallyAsympEquidistributed.comp_affine` | structure | If x is totally equidistributed then so is n ↦ x (q * n + r) for q ≥ 1. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `totallyAsympEquidistributed.test_half_rotation` (non-example) — n ↦ n • (1/2 : ℝ/ℤ) is totally equidistributed for no μ: along 2n it is constantly 0 and along 2n + 1 constantly 1/2, though it is equidistributed for the average of the two Dirac masses.
+- `totallyAsympEquidistributed.test_const` (computation) — The constant sequence at p is totally equidistributed for diracProba p.
+- `totallyAsympEquidistributed.test_implies_plain` (degenerate) — q = 1, r = 0: TotallyAsympEquidistributed x μ → AsympEquidistributed x μ.
+
+**Where it is used.**
+- `linear-equidistribution` — Statement (ii) of the equidistribution theorem is total equidistribution of n α + β.
+
+**Acceptance tests.**
+- Total equidistribution implies equidistribution.
+- n (1/2) in ℝ/ℤ is equidistributed for (δ₀ + δ_{1/2})/2 but not totally, for any μ.
+- Constant sequences are totally equidistributed for their Dirac measure.
+
+**Dependencies.**
+- In this packet: `asymptotic-equidistribution`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, after (1.1). The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### `torus-haar-probability` — Haar probability measure on the circle and the standard torus
+
+*construction*
+
+circleHaar : ProbabilityMeasure UnitAddCircle is AddCircle.haarAddCircle, and torusHaar d : ProbabilityMeasure (UnitAddTorus d) is Measure.pi (fun _ : d => AddCircle.haarAddCircle), for a finite index type d. They package the existing Haar measures as the probability measures that equidistribution on T and T^d refers to, and introduce no new measure.
+
+**Hypotheses.**
+- d a finite type (Fintype d); UnitAddTorus d = d → UnitAddCircle with the product topology and σ-algebra.
+
+**Construction or proof, in steps.**
+1. Define both as subtypes of Measure with the IsProbabilityMeasure instances of haarAddCircle and of a finite product of probability measures.
+2. Show torusHaar d is an additive Haar measure (pi.isAddHaarMeasure) and equals volume, since volume on AddCircle 1 is 1 • haarAddCircle.
+3. Compute ∫ mFourier k d(torusHaar d) = [k = 0], as in the proof of orthonormal_mFourier: the integral factorises over coordinates and ∫ fourier n dhaarAddCircle = [n = 0].
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `circleHaar` | constructor | ⟨AddCircle.haarAddCircle, inferInstance⟩ : ProbabilityMeasure UnitAddCircle. |
+| `torusHaar` | constructor | ⟨Measure.pi (fun _ : d => AddCircle.haarAddCircle), _⟩ : ProbabilityMeasure (UnitAddTorus d). |
+| `torusHaar_eq_volume` | compatibility | (torusHaar d : Measure (UnitAddTorus d)) = volume. |
+| `circleHaar_eq_volume` | compatibility | (circleHaar : Measure UnitAddCircle) = volume. |
+| `isAddHaarMeasure_torusHaar` | structure | torusHaar d is an additive Haar measure, in particular translation invariant. |
+| `integral_mFourier_torusHaar` | characterisation | ∫ x, mFourier k x ∂torusHaar d = if k = 0 then 1 else 0. |
+| `integral_fourier_circleHaar` | characterisation | ∫ y, fourier n y ∂circleHaar = if n = 0 then 1 else 0. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `torusHaar.test_character_integral` (computation) — On UnitAddTorus (Fin 2), ∫ mFourier k d(torusHaar) = 0 for k = (1, −1); a counting or unnormalised measure gives a wrong value at k = 0.
+- `torusHaar.test_zero_dim` (degenerate) — torusHaar (Fin 0) is the Dirac mass at the unique point 0 of the zero-dimensional torus.
+- `torusHaar.test_marginal` (compatibility) — The pushforward of torusHaar (Fin 1) under x ↦ x 0 is circleHaar.
+- `circleHaar.test_volume` (compatibility) — circleHaar is Mathlib's volume on UnitAddCircle, so interval lengths agree with Lebesgue measure on [0, 1).
+
+**Where it is used.**
+- `weyl-criterion` — The criterion is for equidistribution with respect to torusHaar d.
+- `uniform-distribution-mod-one` — Uniform distribution mod 1 is equidistribution with respect to circleHaar.
+
+**Acceptance tests.**
+- For k ≠ 0 the character mFourier k integrates to 0; for k = 0 to 1.
+- The zero-dimensional torus is a point and torusHaar is its Dirac mass.
+- The one-coordinate marginal of torusHaar d is circleHaar.
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:UnitAddTorus`, `mathlib:UnitAddCircle`, `mathlib:AddCircle.haarAddCircle`, `mathlib:MeasureTheory.Measure.pi.isAddHaarMeasure`, `mathlib:UnitAddTorus.mFourier`, `mathlib:UnitAddTorus.orthonormal_mFourier`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, before Proposition 1.1.2. Haar measure as the translation-invariant Borel probability measure, equal to Lebesgue measure on [0, 1)^d. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### `torus-irrational` — Irrational points of the torus
+
+*definition*
+
+α ∈ UnitAddTorus d is irrational if ∑ i, k i • α i ≠ 0 in UnitAddCircle for every nonzero k : d → ℤ, i.e. k · α ≠ 0 for every nonzero frequency. Equivalently mFourier k α ≠ 1 for every k ≠ 0. For one coordinate it is Mathlib's addOrderOf a = 0, the condition of AddCircle.denseRange_zsmul_iff and AddCircle.ergodic_add_left.
+
+**Hypotheses.**
+- d a finite type; α : UnitAddTorus d; the pairing k · α := ∑ i, k i • α i ∈ UnitAddCircle.
+
+**Construction or proof, in steps.**
+1. Define TorusIrrational α := ∀ k : d → ℤ, k ≠ 0 → ∑ i, k i • α i ≠ 0.
+2. Relate to characters: mFourier k α = fourier 1 (∑ i, k i • α i), since toCircle is additive, and fourier 1 y = 1 iff y = 0 on UnitAddCircle.
+3. For d with one element, identify it with addOrderOf a = 0: k • a = 0 for k ≠ 0 is exactly finite order.
+4. Stability: m • α is irrational for every nonzero integer m, because k · (m • α) = (m k) · α and m k ≠ 0.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `TorusIrrational` | constructor | ∀ k : d → ℤ, k ≠ 0 → ∑ i, k i • α i ≠ 0. |
+| `torusIrrational_iff_mFourier` | characterisation | TorusIrrational α ↔ ∀ k ≠ 0, mFourier k α ≠ 1. |
+| `mFourier_eq_fourier_sum` | compatibility | mFourier k α = fourier 1 (∑ i, k i • α i). |
+| `torusIrrational_unique_iff` | compatibility | For d with exactly one element, TorusIrrational α ↔ addOrderOf (α default) = 0. |
+| `TorusIrrational.zsmul` | structure | If α is irrational and m ≠ 0 then m • α is irrational. |
+| `TorusIrrational.nsmul` | structure | If α is irrational and m ≠ 0 then m • α is irrational, for m : ℕ. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `torusIrrational.test_mixed` (non-example) — ![√2, 1/2] is not irrational: k = (0, 2) kills it. A definition testing coordinates one at a time accepts it wrongly.
+- `torusIrrational.test_sqrt2_sqrt3` (computation) — ![√2, √3] is irrational, by ℚ-linear independence of 1, √2, √3.
+- `torusIrrational.test_empty` (degenerate) — Every α : UnitAddTorus (Fin 0) is irrational: there is no nonzero k.
+- `torusIrrational.test_one_dim` (compatibility) — For a : UnitAddCircle, TorusIrrational (fun _ : Unit => a) ↔ addOrderOf a = 0, Mathlib's condition for dense and ergodic rotation.
+
+**Where it is used.**
+- `linear-equidistribution` — The equidistribution theorem is the equivalence of equidistribution of n α + β with irrationality of α.
+- `weyl-polynomial-equidistribution` — Weyl's theorem assumes the leading coefficient irrational; the induction uses TorusIrrational.nsmul.
+
+**Acceptance tests.**
+- (√2, 1/2) is not irrational (k = (0, 2)), although √2 is.
+- (√2, √3) is irrational.
+- For an empty index type every point is irrational, matching the fact that every sequence equidistributes on a point.
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:UnitAddTorus`, `mathlib:UnitAddTorus.mFourier`, `mathlib:fourier`, `mathlib:AddCircle.denseRange_zsmul_iff`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5 (iv). The definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, after (1.2). The pairing Z^d × T^d → T used in the definition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, after Remark 1.1.4. The rational extreme, for the non-example test. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### `weyl-criterion` — Weyl equidistribution criterion
+
+*theorem* · planet **Weyl equidistribution criterion**
+
+A sequence x : ℕ → UnitAddTorus d is equidistributed for torusHaar d if and only if, for every nonzero k : d → ℤ, (n+1)⁻¹ ∑_{i≤n} mFourier k (x i) → 0.
+
+**Hypotheses.**
+- d a finite type; x : ℕ → UnitAddTorus d.
+
+**Proof, in steps.**
+1. Only if: mFourier k is a bounded continuous complex function with ∫ mFourier k d(torusHaar d) = 0 for k ≠ 0; apply the complex integral characterisation of the definition.
+2. If: the hypothesis and the value 1 at k = 0 give convergence of the averages for every mFourier k, hence by linearity for every trigonometric polynomial, the span of the mFourier k.
+3. The span is dense in C(UnitAddTorus d, ℂ) (span_mFourier_closure_eq_top). For f continuous and ε > 0 pick a trigonometric polynomial within ε uniformly; averages and integrals of f and of it differ by at most ε, so the lim sup of |average − ∫ f| is at most 2ε.
+4. Every bounded continuous real function on the compact torus is a continuous complex function; conclude with the real integral characterisation.
+
+**Acceptance tests.**
+- For d empty the right side is vacuous and every sequence is equidistributed on the point.
+- For d nonempty a constant sequence fails the criterion: its average at any k ≠ 0 is mFourier k (x 0), of modulus one.
+- Only nonzero k are tested; the k = 0 average is identically 1.
+
+**Dependencies.**
+- In this packet: `asymptotic-equidistribution`, `torus-haar-probability`
+- On the pinned libraries: `mathlib:UnitAddTorus.span_mFourier_closure_eq_top`, `mathlib:UnitAddTorus.mFourier`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_iff_forall_integral_rclike_tendsto`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, Proposition 1.1.2. The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, proof of Proposition 1.1.2. The density step of the proof. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### `weyl-criterion-projections` — Equidistribution in T^d through one-dimensional projections
+
+*theorem*
+
+x : ℕ → UnitAddTorus d is equidistributed for torusHaar d if and only if, for every nonzero k : d → ℤ, the sequence n ↦ ∑ i, k i • x n i in UnitAddCircle is equidistributed for circleHaar.
+
+**Hypotheses.**
+- d a finite type; x : ℕ → UnitAddTorus d.
+
+**Proof, in steps.**
+1. Apply weyl-criterion on T^d and on T (d = one point).
+2. For nonzero k and nonzero m ∈ ℤ, fourier m (k · x) = mFourier (m k) x, and m k ≠ 0; so the one-dimensional criteria for all k · x are the d-dimensional criterion for all nonzero frequencies, each frequency m k being reached from k.
+
+**Acceptance tests.**
+- For d a single point it is weyl-criterion itself.
+- Coordinatewise equidistribution is not enough: (√2 n, √2 n) has equidistributed coordinates but k = (1, −1) gives the constant 0.
+- The frequency m k with m ≠ 0 is again nonzero, so no frequency is lost or gained.
+
+**Dependencies.**
+- In this packet: `weyl-criterion`, `torus-haar-probability`
+- On the pinned libraries: `mathlib:fourier`, `mathlib:UnitAddTorus.mFourier`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Corollary 1.1.3. The statement. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### `linear-equidistribution` — Equidistribution theorem for linear sequences
+
+*theorem* · planet **Equidistribution theorem**
+
+For α, β ∈ UnitAddTorus d the following are equivalent: (i) n ↦ n • α + β is equidistributed for torusHaar d; (ii) it is totally equidistributed; (iii) α is irrational (TorusIrrational α).
+
+**Hypotheses.**
+- d a finite type; α, β : UnitAddTorus d; n acts by natural-number scalar multiplication.
+
+**Proof, in steps.**
+1. (iii) ⇒ (i): by weyl-criterion it suffices that the averages of mFourier k (n α + β) = mFourier k β · ζⁿ vanish in the limit, where ζ = mFourier k α ≠ 1 by irrationality; the geometric sum ∑_{i≤n} ζ^i = (ζ^{n+1} − 1)/(ζ − 1) is bounded by 2/|ζ − 1|.
+2. (iii) ⇒ (ii): along q n + r the sequence is n ↦ n • (q α) + (r α + β), and q α is irrational (TorusIrrational.nsmul); apply (iii) ⇒ (i).
+3. (ii) ⇒ (i) is TotallyAsympEquidistributed.asympEquidistributed.
+4. (i) ⇒ (iii): if k · α = 0 with k ≠ 0 then mFourier k (n α + β) = mFourier k β is constant of modulus one, so its averages do not tend to 0, contradicting weyl-criterion.
+
+**Acceptance tests.**
+- For d = 1, (i) implies Mathlib's density of the orbit (denseRange_zsmul_iff) via denseRange, and (iii) is its hypothesis addOrderOf α = 0.
+- α = (√2, 1/2): not irrational, and the sequence is not equidistributed on T² (it lives on T × {0, 1/2}).
+- β plays no role: the conditions do not depend on it.
+
+**Dependencies.**
+- In this packet: `weyl-criterion`, `asymptotic-equidistribution`, `total-asymptotic-equidistribution`, `torus-irrational`
+- On the pinned libraries: `mathlib:geom_sum_eq`, `mathlib:AddCircle.denseRange_zsmul_iff`, `mathlib:AddCircle.ergodic_add_left`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5. Statements (i) and (ii); (iii) there is the ℤ-indexed version, not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 6, Exercise 1.1.5 (iv). Statement (iv), the irrationality condition. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### `van-der-corput-lemma` — Van der Corput's difference theorem
+
+*theorem* · planet **van der Corput lemma**
+
+If x : ℕ → UnitAddTorus d is such that for every h ≥ 1 the difference sequence n ↦ x (n + h) − x n is equidistributed for torusHaar d, then x is equidistributed for torusHaar d.
+
+**Hypotheses.**
+- d a finite type; x : ℕ → UnitAddTorus d; the hypothesis for every positive integer h.
+
+**Proof, in steps.**
+1. By weyl-criterion fix k ≠ 0 and put b(n) = mFourier k (x (n − 1)) for 1 ≤ n ≤ N and 0 otherwise, so |b| ≤ 1 and b vanishes outside (0, N].
+2. Apply ES.0/q-vdc-lag-bound with A = 0, r = 1 and a ≡ 1 (1-periodic, bounded by one): H²|∑_{n≤N} b(n)|² ≤ (N + H − 1)(H·N + 2∑_{h=1}^{H−1} (H − h)|C(h)|), with C(h) = ∑_{n=1}^{N−h} b(n + h) conj b(n). This is the source's Lemma 1.1.6, which is therefore not replanned here.
+3. For fixed h ≥ 1, C(h)/N = average of mFourier k (x (n + h) − x n) over n < N − h, up to O(h/N): it tends to 0 by weyl-criterion applied to the difference sequence (mFourier k is a character, so b(n+h) conj b(n) = mFourier k (x(n+h−1) − x(n−1))).
+4. Divide by H²N² and let N → ∞ with H fixed: lim sup |average of mFourier k (x i)|² ≤ 1/H. Let H → ∞.
+
+**Acceptance tests.**
+- For x n = n² α with α = a/q rational the difference at h = q is constantly 0, so the hypothesis fails, as it must: x is periodic and not equidistributed.
+- With d empty the statement is trivial.
+- Only h ≥ 1 is assumed; the difference at h = 0 is constantly 0 and is never equidistributed for d nonempty.
+
+**Dependencies.**
+- In this packet: `weyl-criterion`, `torus-haar-probability`
+- From other roadmaps: `ExponentialSumsAndCircleMethod:ES.0/q-vdc-lag-bound`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 8, Corollary 1.1.7. The statement; the ℤ-indexed version is not planned in this pass. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 7, Lemma 1.1.6. The inequality the proof uses; ES.0/q-vdc-lag-bound at r = 1 supplies it in exact form. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 8, end of the proof of Corollary 1.1.7. The limiting step. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### `weyl-polynomial-equidistribution` — Weyl's equidistribution theorem for polynomials
+
+*theorem* · planet **Weyl equidistribution theorem for polynomials**
+
+Let s ≥ 1 and α : ℕ → UnitAddTorus d with α s irrational. Then n ↦ ∑_{j=0}^{s} n^j • α j is equidistributed for torusHaar d.
+
+**Hypotheses.**
+- d a finite type; s ≥ 1; α 0, …, α s ∈ UnitAddTorus d, the higher values of α ignored; TorusIrrational (α s).
+
+**Proof, in steps.**
+1. Induct on s. For s = 1 the sequence is n • α 1 + α 0, and linear-equidistribution applies.
+2. For s > 1 and h ≥ 1, P(n + h) − P(n) = ∑_{j<s} n^j • β_j with β_{s−1} = (s h) • α s, by the binomial theorem in each coefficient (n^j • is additive in the coefficient). Its leading coefficient s h α_s is irrational by TorusIrrational.nsmul.
+3. By the induction hypothesis every difference sequence is equidistributed; conclude by van-der-corput-lemma.
+
+**Acceptance tests.**
+- For s = 1 it is the linear case, and the constant term plays no role.
+- n² α with α rational, of denominator q, is periodic mod q and not equidistributed: the irrationality hypothesis cannot be dropped.
+- Only the leading coefficient needs to be irrational: n² √2 + n/2 is equidistributed.
+
+**Dependencies.**
+- In this packet: `van-der-corput-lemma`, `linear-equidistribution`, `torus-irrational`, `asymptotic-equidistribution`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 8, Corollary 1.1.9. The statement; the node is the ℕ-indexed half. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 9, proof of Corollary 1.1.9. The induction step. The printed 'leading coefficient shα_s n^{s−1}' is the leading term; the coefficient is shα_s (recorded as a misprint). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### `uniform-distribution-mod-one` — Uniform distribution modulo one
+
+*theorem* · planet **Uniform distribution modulo one**
+
+For a real sequence u : ℕ → ℝ the following are equivalent: (a) n ↦ (u n : ℝ/ℤ) is equidistributed for circleHaar; (b) for all 0 ≤ a ≤ b ≤ 1, #{i ≤ n : Int.fract (u i) ∈ [a, b)}/(n+1) → b − a; (c) for every nonzero integer k, (n+1)⁻¹ ∑_{i≤n} e(k u i) → 0. This is the classical definition of uniform distribution mod 1 and Weyl's criterion for it.
+
+**Hypotheses.**
+- u : ℕ → ℝ; UnitAddCircle = ℝ/ℤ with circleHaar; fourier k (u i) = e(k u i).
+
+**Proof, in steps.**
+1. (a) ⇔ (c) is weyl-criterion for d a single point, since fourier k of the class of u i is e(k u i).
+2. (a) ⇒ (b): the image of [a, b) in ℝ/ℤ has frontier of at most two points, which are circleHaar-null, and its measure is b − a; apply AsympEquidistributed.tendsto_frequency.
+3. (b) ⇒ (a): by (b) the averages of the indicator of every such arc converge to its length, hence by linearity for every step function on arcs. A continuous f on ℝ/ℤ is uniformly continuous, so it is within ε of a step function uniformly; conclude as in weyl-criterion. This is the circle case of the source's Exercise 1.1.1.
+
+**Acceptance tests.**
+- u n = n √2 satisfies all three.
+- u n = log n satisfies none: its frequencies in [0, 1/2) oscillate.
+- u n = n/2: the frequency of [0, 1/4) tends to 1/2, not 1/4, so (b) fails, although the frequency of [0, 1/2) is the correct 1/2.
+
+**Dependencies.**
+- In this packet: `asymptotic-equidistribution`, `torus-haar-probability`, `weyl-criterion`
+- On the pinned libraries: `mathlib:Int.fract`, `mathlib:fourier`, `mathlib:MeasureTheory.ProbabilityMeasure.tendsto_measure_of_null_frontier_of_tendsto`
+
+**Sources.**
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 4, Exercise 1.1.1. The frequency characterisation, specialised to arcs of the circle. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, before Proposition 1.1.2. Haar measure on T as Lebesgue measure on [0, 1). Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+- Terence Tao, *Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori* — §1.1.1, printed p. 5, Proposition 1.1.2. The criterion, at d = 1. Prose verbatim from the text layer of the author's PDF; formulas transcribed.
+
+### Remaining in PM.2
+
+- Asymptotic equidistribution, total equidistribution, the Haar probability measures on T and T^d, irrational points, the Weyl criterion and its projection form, the linear equidistribution theorem, van der Corput's difference theorem, Weyl's polynomial theorem and uniform distribution mod 1 are decomposed (ℕ-indexed), from Tao, Higher order Fourier analysis §1.1.1. Van der Corput's inequality is ES.0/q-vdc-lag-bound at r = 1 and is not replanned.
+- Still to decompose from the same section: the ℤ-indexed versions ((iii) of Exercises 1.1.5 and 1.1.6); total equidistribution by rational twists (Exercise 1.1.4); Exercise 1.1.6, the full polynomial criterion that no nonzero k kills α_1, …, α_s; and the abelian Ratner decompositions (Proposition 1.1.5, Exercise 1.1.7).
+- Discrepancy (Erdős–Turán, Koksma) and the normal-number consequences (Borel's theorem, linking Mathlib's digit expansions and Tau Ceti's Bernoulli-shift ergodicity) still need a source read and nodes; the audit records both as absent.
+- Single-scale (quantitative) equidistribution, §1.1.2 of the same source, is not planned; ES and AC consumers should say whether they need it.
