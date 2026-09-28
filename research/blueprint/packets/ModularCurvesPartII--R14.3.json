@@ -1,0 +1,962 @@
+{
+ "roadmapId": "ModularCurvesPartII",
+ "protocol": "blueprint-v1",
+ "part": "R14.3",
+ "scope": [
+  "ModularCurvesPartII:R14.3",
+  "ModularCurvesPartII:R14.4",
+  "ModularCurvesPartII:R14.5",
+  "ModularCurvesPartII:R14.6"
+ ],
+ "status": "partial",
+ "summary": "Checkpoint 1 of the R14.3 part (Claude Code cc-39fac3), under the accepted RS-06, from Conrad's appendix to Ribet–Stein (The Shimura construction in weight 2). R14.5: the modular abelian variety A_f = J₁(N)/p_f J₁(N), Shimura's dimension theorem, differentials, the J₀(N) version and the nonconstant Abel–Jacobi composite (oldform multiplicity planned, primary source unread). R14.6: Hecke operators on the Néron model, the Eichler–Shimura relation and cusp-normalised Abel–Jacobi maps. R14.3: the weight-two Betti inputs (Shimura isomorphism, pairings, rank-two freeness). R14.4 not read.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": []
+ },
+ "sources": [
+  {
+   "id": "RIBET-STEIN-SERRE-LECTURES",
+   "title": "Lectures on Serre's conjectures (with an appendix by Brian Conrad, The Shimura construction in weight 2, and by Kevin Buzzard)",
+   "authors": "Kenneth A. Ribet and William A. Stein (appendices by Brian Conrad and Kevin Buzzard)",
+   "edition": "Author PDF from W. Stein's site (the version published in Arithmetic Algebraic Geometry, IAS/Park City Math. Ser. 9, AMS 2001, 143–232); printed page = PDF page − 4.",
+   "url": "https://wstein.org/papers/serre/ribet-stein.pdf",
+   "sha256": "e1bf2b5cd14de064bcb48c4ca843251198db74dd8bcfaad63c26f6773f63f604",
+   "readSections": [
+    "2026-09-28 (cc-39fac3): Chapter 2, §2.3.1 (Shimura's construction, Hecke operators on J₁(N), A_f), pp. 28–29; Chapter 5 (Conrad's appendix), §§5.1–5.3: Theorems 5.1, 5.2, Corollary 5.3, Lemma 5.4, Definitions 5.5–5.6, Lemma 5.7, Theorem 5.8, Corollary 5.9, Lemma 5.11, Theorem 5.12, Definition 5.13, Theorem 5.14, Corollary 5.15, Theorem 5.16 (statement and set-up), pp. 63–75."
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
+   "parentStageId": "ModularCurvesPartII:R14.3",
+   "realises": [
+    "ModularCurvesPartII:R14.3"
+   ],
+   "title": "The weight-two Shimura isomorphism is Hecke-equivariant",
+   "kind": "theorem",
+   "statement": "For N ≥ 5, the Hodge decomposition gives S₂(Γ₁(N), ℂ) ⊕ S̄₂(Γ₁(N), ℂ) ≅ H¹(X₁(N)^an, ℤ) ⊗ ℂ, and it identifies ⟨n⟩ ⊕ ⟨n⟩̄ with ⟨n⟩^*, T_p ⊕ T̄_p with T_p^* = (π₁^{(p)})_* ∘ (π₂^{(p)})^* and w_N ⊕ w̄_N with w^*_{e^{2πi/N}}, where π₁^{(p)}, π₂^{(p)} : X₁(N, p) → X₁(N) are the degeneracy maps and (π₁^{(p)})_* is the trace.",
+   "hypotheses": [
+    "N ≥ 5 (for N < 5 both sides vanish); the Betti-side integral structure is Tau Ceti ModularForms Layer 8's modular-symbol lattice, whose comparison with H¹(X₁(N)^an, ℤ) is part of this stage."
+   ],
+   "proofSteps": [
+    "Hodge decomposition of the compact Riemann surface X₁(N)^an with H⁰(Ω¹) = S₂(Γ₁(N), ℂ).",
+    "Compute T_p^* on H¹ through the trace along π₁^{(p)} (stalkwise sum with ramification multiplicities) and pullback along π₂^{(p)}; compare with the double-coset action on cusp forms.",
+    "Diamond operators and w_ζ are induced by automorphisms, so pullback commutes with the Hodge decomposition."
+   ],
+   "acceptance": [
+    "Conrad omits the proof of the compatibility; a complete proof must check the trace formula against the classical double coset (ModularCurvesPartII R12.5 normalises the differentials and Hecke operators)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.2",
+    "ModularCurvesPartII:R12.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 64 (printed page; PDF page 68)",
+     "excerpt": "This will be called the (weight-2) Shimura isomorphism.",
+     "match": "The isomorphism."
+    },
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 65 (printed page; PDF page 69)",
+     "excerpt": "A fundamental compatibility, whose proof we omit for reasons of space, is:",
+     "match": "Theorem 5.1."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Weight-two Shimura isomorphism"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R14.3/cup-product-petersson",
+   "parentStageId": "ModularCurvesPartII:R14.3",
+   "realises": [
+    "ModularCurvesPartII:R14.3"
+   ],
+   "title": "Cup product and the Petersson product",
+   "kind": "theorem",
+   "statement": "With H²(X₁(N)^an, ℤ) ≅ ℤ by the i-orientation, the cup product pairing on H¹(X₁(N)^an, ℤ) and the non-normalised Petersson product satisfy (Sh(f₁ + ḡ₁), Sh(f₂ + ḡ₂)) = 4π(⟨f₁, g₂⟩ − ⟨f₂, g₁⟩).",
+   "hypotheses": [
+    "The cup-product pairing is perfect; the Petersson integral converges by exponential decay at the cusps."
+   ],
+   "proofSteps": [
+    "Represent classes by harmonic 1-forms f dz + ḡ dz̄ and compute ∫ α ∧ β with dz ∧ dz̄ = −2i dx dy."
+   ],
+   "acceptance": [
+    "Only adjoints matter downstream; the factor 4π is harmless."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
+    "ModularCurvesPartII:R12.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 66 (printed page; PDF page 70)",
+     "excerpt": "The extra factor of 4π is harmless for our purposes since it does not aﬀect formation of adjoints.",
+     "match": "Theorem 5.2 and its use."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularCurvesPartII:R14.3/hecke-twisted-self-adjoint",
+   "parentStageId": "ModularCurvesPartII:R14.3",
+   "realises": [
+    "ModularCurvesPartII:R14.3"
+   ],
+   "title": "Hecke operators are self-adjoint for the w_ζ-twisted pairing",
+   "kind": "lemma",
+   "statement": "With [x, y] = (x, w^*_ζ y) for ζ = e^{2πi/N}, every T ∈ T₁(N) is self-adjoint on H¹(X₁(N)^an, ℤ); for (·,·) the adjoint of T_p^* (p ∤ N) is ⟨p⁻¹⟩^* T_p^* and that of ⟨n⟩^* is ⟨n⁻¹⟩^*. The same holds for any primitive N-th root ζ.",
+   "hypotheses": [
+    "T₁(N) ⊂ End_ℤ H¹(X₁(N)^an, ℤ) generated by the T_p^* and ⟨n⟩^*; commutative and finite flat over ℤ (Tau Ceti ModularForms Layer 8 owns the integral Hecke algebra)."
+   ],
+   "proofSteps": [
+    "Transport the classical Petersson adjoints (T_p for p | N via w_N) through cup-product-petersson.",
+    "w^*_{ζ^j} ∘ w^*_ζ = ⟨j⟩^*, a unit commuting with T₁(N), reduces general ζ to e^{2πi/N}."
+   ],
+   "acceptance": [
+    "The case T = T_p^* with p | N is the subtle one; keep it."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.3/cup-product-petersson",
+    "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
+    "ModularCurvesPartII:R14.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 66 (printed page; PDF page 70)",
+     "excerpt": "the action of T1(N) on H1(X1(N)an, Z) is equivariant.",
+     "match": "Corollary 5.3."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularCurvesPartII:R14.3/betti-free-rank-two",
+   "parentStageId": "ModularCurvesPartII:R14.3",
+   "realises": [
+    "ModularCurvesPartII:R14.3"
+   ],
+   "title": "H¹ is free of rank two over the Hecke algebra",
+   "kind": "theorem",
+   "statement": "H¹(X₁(N)^an, ℚ) is free of rank 2 over ℚ ⊗ T₁(N), and Hom_ℚ(ℚ ⊗ T₁(N), ℚ) is free of rank 1 (ℚ ⊗ T₁(N) is Gorenstein). Consequently V_ℓ(N) = ℚ_ℓ ⊗ T_ℓ(J₁(N)) is free of rank 2 over ℚ_ℓ ⊗ T₁(N) for either Hecke action.",
+   "hypotheses": [
+    "Characteristic zero coefficients; integral freeness is not claimed (it can fail at Eisenstein maximal ideals)."
+   ],
+   "proofSteps": [
+    "Self-duality H¹ ≅ Hom(H¹, ℚ) as ℚ ⊗ T-modules via [·,·].",
+    "Semilocal: local freeness of constant rank is free; check after base change to ℂ.",
+    "The pairing S₂(Γ₁(N), ℂ) × (ℂ ⊗ T₁(N)) → ℂ, (f, T) ↦ a₁(Tf) is perfect (a₁(T_n f) = a_n(f) and T ↪ End S₂), so S₂ is free of rank 1 over ℂ ⊗ T and H¹ ⊗ ℂ = S₂ ⊕ S̄₂ is free of rank 2."
+   ],
+   "acceptance": [
+    "Integral freeness after localising at a non-Eisenstein maximal ideal is a separate statement (remaining work)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.3/hecke-twisted-self-adjoint",
+    "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 69 (printed page; PDF page 73)",
+     "excerpt": "The Qℓ⊗ZT1(N)-module Vℓ(N) is free of rank 2 for either action",
+     "match": "Corollary 5.9."
+    },
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 70 (printed page; PDF page 74)",
+     "excerpt": "Since Q ⊗T1(N) is semilocal, a ﬁnite module over this ring is locally free of constant rank if and only if it is free of that rank.",
+     "match": "The key reduction in the proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Rank-two freeness over the Hecke algebra"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R14.5/newform-hecke-prime",
+   "parentStageId": "ModularCurvesPartII:R14.5",
+   "realises": [
+    "ModularCurvesPartII:R14.5"
+   ],
+   "title": "The Hecke prime and coefficient field of a newform",
+   "kind": "definition",
+   "statement": "For a newform f ∈ S₂(Γ₁(N), ℂ), K_f ⊂ ℂ is the number field generated by the a_p(f), p ∤ N (it contains all a_n(f) and the values of the character χ_f), and p_f = ker(T₁(N) → K_f, T ↦ eigenvalue of T on f) is a minimal prime of T₁(N) with (T₁(N)/p_f) ⊗ ℚ ≅ K_f.",
+   "hypotheses": [
+    "f a normalised newform of weight 2 and level exactly N (Tau Ceti ModularForms Layer 4)."
+   ],
+   "proofSteps": [
+    "The eigenvalue map T₁(N) → ℂ has image the order ℤ[a_n(f)] ⊂ K_f; its kernel is prime.",
+    "Minimality: T₁(N) ⊗ ℚ is reduced on the newform part (multiplicity one), so p_f is minimal."
+   ],
+   "acceptance": [
+    "Weak multiplicity one gives a_n(f) ∈ K_f for all n."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.3/hecke-twisted-self-adjoint",
+    "ModularCurvesPartII:R14.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 73 (printed page; PDF page 77)",
+     "excerpt": "Let Kf ⊂C be the number ﬁeld generated by ap(f) for all p ∤N",
+     "match": "K_f."
+    },
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 73 (printed page; PDF page 77)",
+     "excerpt": "Let pf ⊂T1(N) be the minimal prime corresponding to f",
+     "match": "p_f."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularCurvesPartII:R14.5/modular-quotient",
+     "how": "A_f = J₁(N)/p_f J₁(N)."
+    },
+    {
+     "where": "AutomorphicGaloisRepresentations:R19.6",
+     "how": "the λ-adic representation on V_ℓ(A_f)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.heckePrime",
+     "role": "constructor",
+     "statement": "p_f ⊂ T₁(N)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.coeffField",
+     "role": "data",
+     "statement": "K_f."
+    },
+    {
+     "name": "TauCeti.ModularCurves.heckePrime_quotient_equiv",
+     "role": "equivalence",
+     "statement": "(T₁(N)/p_f) ⊗ ℚ ≃ K_f."
+    }
+   ],
+   "tests": [
+    {
+     "name": "heckePrime_11",
+     "kind": "example",
+     "statement": "N = 11: T₁(11) ⊗ ℚ acts on the new part; for f = η(z)²η(11z)², K_f = ℚ."
+    },
+    {
+     "name": "coeffField_23",
+     "kind": "example",
+     "statement": "N = 23, trivial character: the newforms have K_f = ℚ(√5)."
+    },
+    {
+     "name": "heckePrime_no_newform",
+     "kind": "example",
+     "statement": "N = 22, trivial character: S₂(Γ₀(22)) is two-dimensional and entirely old (from level 11), so no p_f exists at level 22 for trivial character."
+    }
+   ]
+  },
+  {
+   "id": "ModularCurvesPartII:R14.5/modular-quotient",
+   "parentStageId": "ModularCurvesPartII:R14.5",
+   "realises": [
+    "ModularCurvesPartII:R14.5"
+   ],
+   "title": "The modular abelian variety A_f",
+   "kind": "construction",
+   "statement": "A_f := J₁(N)/p_f J₁(N), the quotient of the Jacobian J₁(N) = Pic⁰_{X₁(N)/ℚ} by the abelian subvariety generated by the images of the elements of p_f (acting through the Picard action). It is an abelian variety over ℚ with good reduction over ℤ[1/N], with an action of T₁(N)/p_f, hence of K_f in the isogeny category. For trivial χ_f, A_f is isogenous to the analogous quotient of J₀(N) (trivial-character-J0).",
+   "hypotheses": [
+    "N ≥ 5 (for N < 5, S₂(Γ₁(N)) = 0).",
+    "Convention: Conrad takes the Picard ( )^* action of T₁(N) on Pic⁰; Ribet–Stein take the quotient by the image of the annihilator of f in T; the two give isogenous quotients."
+   ],
+   "proofSteps": [
+    "Form the abelian subvariety Σ_{t ∈ p_f} t(J₁(N)) (finitely many generators of p_f suffice) and take the quotient abelian variety over ℚ (AbelianSchemesAndArithmeticModuli A2).",
+    "Good reduction over ℤ[1/N]: J₁(N) is the Néron model of an abelian scheme over ℤ[1/N] and quotients of abelian schemes by abelian subschemes are abelian schemes (or Néron–Ogg–Shafarevich)."
+   ],
+   "acceptance": [
+    "A_f is nonzero when f exists (modular-quotient-dimension).",
+    "Do not assert a quotient of a modular-curve Jacobian for weight > 2."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.5/newform-hecke-prime",
+    "ModularCurvesPartII:R14.2",
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 73 (printed page; PDF page 77)",
+     "excerpt": "Deﬁnition 5.13. Af is the quotient of Pic0 X1(N)/Q by pf ⊂T1(N).",
+     "match": "Definition 5.13."
+    },
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 73 (printed page; PDF page 77)",
+     "excerpt": "By construction, Af has good reduction over Z[ 1 N ]",
+     "match": "Good reduction."
+    },
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Chapter 2, §2.3.1.2, p. 29 (printed; PDF page 33)",
+     "excerpt": "Recall that A = Af is the quotient of J1(N) by the image of the annihilator in T of f.",
+     "match": "Ribet–Stein's formulation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "EllipticCurveModularity:R29.5",
+     "how": "A_{F_E} for the newform of an elliptic curve (K_f = ℚ)."
+    },
+    {
+     "where": "AutomorphicGaloisRepresentations:R19.6",
+     "how": "the Galois representation on the λ-adic Tate module."
+    },
+    {
+     "where": "SerreWeightAndLevelOptimisation:R20.1",
+     "how": "mod-ℓ representations in A_f[λ] for level lowering."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.modularQuotient",
+     "role": "constructor",
+     "statement": "A_f = J₁(N)/p_f J₁(N) over ℚ."
+    },
+    {
+     "name": "TauCeti.ModularCurves.modularQuotient.map",
+     "role": "projection",
+     "statement": "The quotient morphism J₁(N) → A_f."
+    },
+    {
+     "name": "TauCeti.ModularCurves.modularQuotient.goodReduction",
+     "role": "characterisation",
+     "statement": "A_f has good reduction at every p ∤ N."
+    },
+    {
+     "name": "TauCeti.ModularCurves.modularQuotient.coeffAction",
+     "role": "structure",
+     "statement": "K_f → End⁰(A_f)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "modularQuotient_11",
+     "kind": "example",
+     "statement": "N = 11, f = η(z)²η(11z)²: A_f ≅ X₀(11) = 11a1 up to isogeny."
+    },
+    {
+     "name": "modularQuotient_23",
+     "kind": "example",
+     "statement": "N = 23: A_f is an abelian surface with real multiplication by ℚ(√5)."
+    },
+    {
+     "name": "modularQuotient_small_level",
+     "kind": "example",
+     "statement": "N ≤ 4: there is no newform and nothing to construct (degenerate case)."
+    }
+   ],
+   "planet": {
+    "name": "Modular abelian variety A_f"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R14.5/quotient-tate-exact",
+   "parentStageId": "ModularCurvesPartII:R14.5",
+   "realises": [
+    "ModularCurvesPartII:R14.5"
+   ],
+   "title": "Tate modules of quotients",
+   "kind": "lemma",
+   "statement": "For an exact sequence B′ → B → A → 0 of abelian varieties over a field of characteristic prime to ℓ, the sequence V_ℓ(B′) → V_ℓ(B) → V_ℓ(A) → 0 is exact.",
+   "hypotheses": [
+    "Rational Tate modules; integrally the sequence can fail to be exact."
+   ],
+   "proofSteps": [
+    "Reduce to an algebraically closed field; by Poincaré complete reducibility B is isogenous to (image of B′) × A′ with A′ → A an isogeny; isogenies induce isomorphisms on V_ℓ."
+   ],
+   "acceptance": [
+    "Test: an isogeny B → A with kernel of order ℓ is surjective on V_ℓ but not on T_ℓ."
+   ],
+   "prerequisites": [
+    "AbelianSchemesAndArithmeticModuli:A6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 73 (printed page; PDF page 77)",
+     "excerpt": "for any exact sequence B′ →B →A →0 of abelian varieties over a ﬁeld of characteristic prime to ℓ, we claim",
+     "match": "The claim in the proof of Theorem 5.14."
+    },
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 73 (printed page; PDF page 77)",
+     "excerpt": "We may assume the base ﬁeld is algebraically closed, and then may appeal to Poincar´e reducibility",
+     "match": "Its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularCurvesPartII:R14.5/modular-quotient-dimension",
+   "parentStageId": "ModularCurvesPartII:R14.5",
+   "realises": [
+    "ModularCurvesPartII:R14.5"
+   ],
+   "title": "Shimura's theorem: dim A_f = [K_f : ℚ]",
+   "kind": "theorem",
+   "statement": "dim A_f = [K_f : ℚ], and V_ℓ(A_f) = V_ℓ(J₁(N))/p_f V_ℓ(J₁(N)) is free of rank 2 over ℚ_ℓ ⊗_ℚ K_f. In particular A_f ≠ 0 and dim V_ℓ(A_f) = 2[K_f : ℚ].",
+   "hypotheses": [
+    "The Frobenius characteristic polynomial on V_ℓ(A_f) is AutomorphicGaloisRepresentations R19.1/R19.6's statement, not a defining property of A_f."
+   ],
+   "proofSteps": [
+    "V_ℓ(J₁(N)) is free of rank 2 over ℚ_ℓ ⊗ T₁(N) (betti-free-rank-two).",
+    "quotient-tate-exact applied to p_f J₁(N) → J₁(N) → A_f → 0 identifies V_ℓ(A_f) with V_ℓ(J₁(N))/p_f.",
+    "Hence V_ℓ(A_f) is free of rank 2 over ℚ_ℓ ⊗ T₁(N)/p_f = ℚ_ℓ ⊗ K_f, of ℚ_ℓ-dimension 2[K_f : ℚ] = 2 dim A_f."
+   ],
+   "acceptance": [
+    "Check on N = 11 (dimension 1) and N = 23 (dimension 2)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.5/modular-quotient",
+    "ModularCurvesPartII:R14.5/quotient-tate-exact",
+    "ModularCurvesPartII:R14.3/betti-free-rank-two"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 73 (printed page; PDF page 77)",
+     "excerpt": "Theorem 5.14 (Shimura). We have dim Af = [Kf : Q] and Vℓ(Af) is free of rank 2 over Qℓ⊗Q Kf",
+     "match": "Theorem 5.14."
+    },
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Chapter 2, §2.3.1, p. 28 (printed; PDF page 32)",
+     "excerpt": "Shimura described how to associate to f an abelian variety A = Af over Q of dimension [E : Q]",
+     "match": "Ribet–Stein's statement."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Shimura's dimension theorem"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R14.5/modular-quotient-differentials",
+   "parentStageId": "ModularCurvesPartII:R14.5",
+   "realises": [
+    "ModularCurvesPartII:R14.5"
+   ],
+   "title": "Differentials on A_f",
+   "kind": "theorem",
+   "statement": "Pullback along J₁(N) → A_f identifies H⁰(A_f, Ω¹) ⊗ ℂ with the span of the Galois conjugates f^σ (σ : K_f ↪ ℂ) in S₂(Γ₁(N), ℂ) = Cot₀(J₁(N)_ℂ), when T₁(N) acts on J₁(N) through the Albanese action (T_p)_*, whose cotangent action is the classical one; with the Picard action T_p^* the image is w_ζ of that span.",
+   "hypotheses": [
+    "Conrad's warning: the Picard action on Cot₀ is the Petersson adjoint of the classical action; w_ζ conjugates one action into the other."
+   ],
+   "proofSteps": [
+    "Cot₀(A_f) ↪ Cot₀(J₁(N)) is the subspace killed by p_f for the induced action on cotangent spaces.",
+    "For the Albanese action this is the classical action; the p_f-eigenspace of S₂(Γ₁(N), ℂ) is ⊕_σ ℂ f^σ (multiplicity one for newforms), of dimension [K_f : ℚ] = dim A_f."
+   ],
+   "acceptance": [
+    "Fix the Hecke-action convention before identifying differentials; the two choices differ by w_ζ."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.5/modular-quotient",
+    "ModularCurvesPartII:R14.5/modular-quotient-dimension",
+    "ModularCurvesPartII:R14.3/hecke-twisted-self-adjoint"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 68 (printed page; PDF page 72)",
+     "excerpt": "We must warn the reader that under the canonical isomorphism of C-vector spaces",
+     "match": "The cotangent identification and the adjoint warning."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularCurvesPartII:R14.5/trivial-character-J0",
+   "parentStageId": "ModularCurvesPartII:R14.5",
+   "realises": [
+    "ModularCurvesPartII:R14.5"
+   ],
+   "title": "Trivial character: the quotient of J₀(N)",
+   "kind": "comparison",
+   "statement": "If χ_f is trivial, let p_f⁰ ⊂ T₀(N) be the kernel of the eigenvalue map on the Hecke algebra of J₀(N). Then A_f⁰ := J₀(N)/p_f⁰J₀(N) is an abelian variety over ℚ of dimension [K_f : ℚ], and the map J₀(N) → J₁(N) (pullback along X₁(N) → X₀(N)) induces an isogeny A_f⁰ → A_f compatible with the K_f-actions.",
+   "hypotheses": [
+    "The pullback J₀(N) → J₁(N) is Hecke-equivariant with finite kernel."
+   ],
+   "proofSteps": [
+    "Apply the J₁ argument to J₀(N) with H¹(X₀(N)) free of rank 2 over ℚ ⊗ T₀(N) (same proof as betti-free-rank-two).",
+    "The composite J₀(N) → J₁(N) → A_f kills p_f⁰J₀(N) and is nonzero on V_ℓ; compare dimensions."
+   ],
+   "acceptance": [
+    "Consumers (EllipticCurveModularity R29.5) use the J₀(N) quotient; keep the isogeny explicit."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.5/modular-quotient",
+    "ModularCurvesPartII:R14.5/modular-quotient-dimension",
+    "ModularCurvesPartII:R14.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Chapter 2, §2.3.1.2, p. 29 (printed; PDF page 33)",
+     "excerpt": "Recall that A = Af is the quotient of J1(N) by the image of the annihilator in T of f.",
+     "match": "The construction applied to J₀(N)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularCurvesPartII:R14.5/oldform-comparison",
+   "parentStageId": "ModularCurvesPartII:R14.5",
+   "realises": [
+    "ModularCurvesPartII:R14.5"
+   ],
+   "title": "Oldforms: A_f inside J₁(M) for N | M",
+   "kind": "lemma",
+   "statement": "For N | M, the p_f-isotypic part (for the anemic Hecke algebra of level M) of J₁(M) is isogenous to A_f^{σ₀(M/N)}, embedded through the σ₀(M/N) degeneracy maps J₁(N) → J₁(M) attached to the divisors d | M/N; hence A_f is determined up to isogeny by the eigensystem of f and not by the level at which it is viewed.",
+   "hypotheses": [
+    "The primary source for this multiplicity statement was not read (see coverage)."
+   ],
+   "proofSteps": [
+    "The oldspace of f at level M is spanned by f(dz), d | M/N (Atkin–Lehner–Li), so the f-part of S₂(Γ₁(M)) has dimension σ₀(M/N)[K_f : ℚ].",
+    "The degeneracy maps give J₁(N)^{σ₀(M/N)} → J₁(M), injective up to finite kernel on the f-part (the Ihara-type statement of R14.4 in characteristic zero); compare dimensions."
+   ],
+   "acceptance": [
+    "State the multiplicity σ₀(M/N) explicitly; do not identify the level-M quotient with A_f itself."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.5/modular-quotient",
+    "ModularCurvesPartII:R14.5/modular-quotient-dimension",
+    "ModularCurvesPartII:R14.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 73 (printed page; PDF page 77)",
+     "excerpt": "Let pf ⊂T1(N) be the minimal prime corresponding to f",
+     "match": "The minimal prime at level N, whose level-M analogue is not minimal-multiplicity one."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularCurvesPartII:R14.5/abel-jacobi-composite-nonzero",
+   "parentStageId": "ModularCurvesPartII:R14.5",
+   "realises": [
+    "ModularCurvesPartII:R14.5"
+   ],
+   "title": "The Abel–Jacobi composite to A_f is nonconstant",
+   "kind": "theorem",
+   "statement": "For any rational cusp c of X₁(N) (or ∞ on X₀(N)), the composite X₁(N) → J₁(N) → A_f, x ↦ [x − c] mod p_f, is a nonconstant morphism over ℚ sending c to 0.",
+   "hypotheses": [
+    "A_f ≠ 0; the Abel–Jacobi map and its universal property are Tau Ceti JacobianChallenge Layer F."
+   ],
+   "proofSteps": [
+    "The image of a curve under Abel–Jacobi generates its Jacobian; J₁(N) → A_f is surjective with A_f ≠ 0, so the composite cannot be constant."
+   ],
+   "acceptance": [
+    "No isogeny to a target curve is asserted here (that is EllipticCurveModularity R29.5)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.5/modular-quotient",
+    "ModularCurvesPartII:R14.5/modular-quotient-dimension",
+    "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 74 (printed page; PDF page 78)",
+     "excerpt": "Using an Fp-rational base point P (e.g., the cusp 0), we get",
+     "match": "Conrad's use of a rational cusp as base point."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularCurvesPartII:R14.6/neron-hecke-extension",
+   "parentStageId": "ModularCurvesPartII:R14.6",
+   "realises": [
+    "ModularCurvesPartII:R14.6"
+   ],
+   "title": "Hecke operators extend to the Néron model",
+   "kind": "lemma",
+   "statement": "T_p^* and (T_p)_* (defined through X₁(N, p) over ℤ[1/Np]) extend uniquely to endomorphisms of the abelian scheme Pic⁰_{X₁(N)/ℤ[1/N]}, so they act on the reduction J_p = Pic⁰_{X₁(N)/F_p} for p ∤ N.",
+   "hypotheses": [
+    "Pic⁰_{X₁(N)/ℤ[1/N]} is an abelian scheme, hence the Néron model of its generic fibre."
+   ],
+   "proofSteps": [
+    "Néron mapping property: a homomorphism of generic fibres extends uniquely over ℤ[1/N]."
+   ],
+   "acceptance": [
+    "The degeneracy maps π_i^{(p)} themselves do not exist over ℤ[1/N] near p; only the induced endomorphisms extend."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.2",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 72 (printed page; PDF page 76)",
+     "excerpt": "A key point is that by the N´eronian property, T ∗ p and (Tp)∗ uniquely extend to endomorphisms of Pic0 X1(N)/Z[ 1 N ]",
+     "match": "The extension."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
+   "parentStageId": "ModularCurvesPartII:R14.6",
+   "realises": [
+    "ModularCurvesPartII:R14.6"
+   ],
+   "title": "The Eichler–Shimura relation",
+   "kind": "theorem",
+   "statement": "For p ∤ N, in End_{F_p}(J_p) with J_p = Pic⁰_{X₁(N)/F_p} and F the absolute Frobenius: (T_p)_* = F + ⟨p⟩_* F^∨, and w_ζ⁻¹ F w_ζ = ⟨p⟩_*⁻¹ F.",
+   "hypotheses": [
+    "T₁(N) acts through the Albanese action; F^∨ is the dual (Verschiebung-type) morphism."
+   ],
+   "proofSteps": [
+    "Check on a Zariski-dense set of points of X₁(N)_{F̄_p}: over F̄_p the correspondence X₁(N, p) splits into the graph of Frobenius and the transpose of Frobenius twisted by ⟨p⟩ (the Kronecker congruence relation), using p-isogenies of ordinary elliptic curves (Frobenius and Verschiebung).",
+    "Pass to Albanese functoriality.",
+    "The w_ζ relation follows from the Galois action on ζ (Frobenius sends ζ to ζ^p)."
+   ],
+   "acceptance": [
+    "The extra w_ζ relation is part of the statement; it is used to identify the characteristic polynomial of Frobenius (AutomorphicGaloisRepresentations R19.1)."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.6/neron-hecke-extension",
+    "ModularCurvesPartII:R14.2",
+    "ModularCurvesPartII:R13.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 74 (printed page; PDF page 78)",
+     "excerpt": "Theorem 5.16 (Eichler-Shimura). In EndFp(Jp),",
+     "match": "Theorem 5.16."
+    },
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 74 (printed page; PDF page 78)",
+     "excerpt": "(Tp)∗= F + ⟨p⟩∗F ∨,",
+     "match": "The relation."
+    },
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 74 (printed page; PDF page 78)",
+     "excerpt": "The extra relation involving wζ is crucial.",
+     "match": "The second relation."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Eichler–Shimura relation"
+   }
+  },
+  {
+   "id": "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi",
+   "parentStageId": "ModularCurvesPartII:R14.6",
+   "realises": [
+    "ModularCurvesPartII:R14.6"
+   ],
+   "title": "Cusp-normalised Abel–Jacobi maps",
+   "kind": "construction",
+   "statement": "The cusp ∞ ∈ X₀(N)(ℚ) and a ℚ-rational cusp c of X₁(N) (the cusp 0 in the (E, P) moduli model) give Abel–Jacobi morphisms AJ_∞ : X₀(N) → J₀(N), x ↦ [x − ∞], and AJ_c : X₁(N) → J₁(N) over ℚ; they are closed immersions for genus ≥ 1, Hecke-compatible on divisors, and compatible with the degeneracy maps.",
+   "hypotheses": [
+    "Which cusp is rational depends on the moduli model of X₁(N) (µ_N-embedding versus point of exact order N); fix the model before naming the cusp."
+   ],
+   "proofSteps": [
+    "Rationality of the cusp from the moduli description of the cusps (R12.3).",
+    "Instantiate Tau Ceti JacobianChallenge Layer F's Abel–Jacobi morphism with this base point."
+   ],
+   "acceptance": [
+    "No modular parametrisation of an elliptic curve is asserted here."
+   ],
+   "prerequisites": [
+    "ModularCurvesPartII:R14.2",
+    "ModularCurvesPartII:R12.3",
+    "ModularCurvesPartII:R13.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularCurves/ModularQuotient",
+    "namespace": "TauCeti.ModularCurves"
+   },
+   "sources": [
+    {
+     "sourceId": "RIBET-STEIN-SERRE-LECTURES",
+     "locator": "Appendix by B. Conrad, p. 74 (printed page; PDF page 78)",
+     "excerpt": "Using an Fp-rational base point P (e.g., the cusp 0), we get",
+     "match": "The base-point choice."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularCurvesPartII:R14.5/abel-jacobi-composite-nonzero",
+     "how": "the composite with the quotient to A_f."
+    },
+    {
+     "where": "EllipticCurveModularity:R29.5",
+     "how": "the modular parametrisation X₀(N) → E."
+    },
+    {
+     "where": "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
+     "how": "the Albanese description F = Alb(F_X)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.ModularCurves.abelJacobiInfty",
+     "role": "constructor",
+     "statement": "AJ_∞ : X₀(N) → J₀(N)."
+    },
+    {
+     "name": "TauCeti.ModularCurves.abelJacobiInfty_cusp",
+     "role": "simp",
+     "statement": "AJ_∞(∞) = 0."
+    },
+    {
+     "name": "TauCeti.ModularCurves.abelJacobiInfty_injective",
+     "role": "characterisation",
+     "statement": "A closed immersion when the genus is positive."
+    },
+    {
+     "name": "TauCeti.ModularCurves.abelJacobi_hecke",
+     "role": "compatibility",
+     "statement": "Hecke correspondences act compatibly on divisors and on J₀(N)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "abelJacobi_X011",
+     "kind": "example",
+     "statement": "N = 11: X₀(11) has genus 1 and AJ_∞ is an isomorphism X₀(11) ≅ J₀(11)."
+    },
+    {
+     "name": "abelJacobi_genus0",
+     "kind": "example",
+     "statement": "N = 1: X₀(1) has genus 0 and J₀(1) = 0 (degenerate case)."
+    },
+    {
+     "name": "abelJacobi_cusp0",
+     "kind": "example",
+     "statement": "On X₀(N) the cusp 0 is also rational; AJ_0 and AJ_∞ differ by the class of 0 − ∞ (torsion by Manin–Drinfeld)."
+    }
+   ],
+   "planet": {
+    "name": "Cusp-normalised Abel–Jacobi maps"
+   }
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "ModularCurvesPartII:R14.2",
+   "need": "J₁(N) = Pic⁰_{X₁(N)} and J₀(N) over ℤ[1/N] with the Picard (T_p^*, ⟨n⟩^*) and Albanese ((T_p)_*, ⟨n⟩_*) Hecke actions from the correspondences X₁(N, p), and w_ζ over ℤ[1/N, ζ_N] (this roadmap's R13.3 part).",
+   "neededBy": [
+    "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
+    "ModularCurvesPartII:R14.5/modular-quotient",
+    "ModularCurvesPartII:R14.6/neron-hecke-extension"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ModularCurvesPartII:R13.2",
+   "need": "X₁(N) and X₁(N, p) as proper smooth curves over ℤ[1/N] (resp. ℤ[1/Np]) representing the moduli problems, with the degeneracy maps and geometrically connected fibres.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.6/special-fibre-eichler-shimura",
+    "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ModularCurvesPartII:R12.5",
+   "need": "The identification H⁰(X₁(N)^an, Ω¹) = S₂(Γ₁(N), ℂ) with the normalisation of Hecke operators on differentials.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.3/weight-two-shimura-isomorphism",
+    "ModularCurvesPartII:R14.3/cup-product-petersson"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "ModularCurvesPartII:R12.3",
+   "need": "The cusps of X₀(N), X₁(N) with their fields of definition in each moduli model.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "AbelianSchemesAndArithmeticModuli:A2",
+   "need": "Quotients of abelian varieties by abelian subvarieties over a field, and Pic⁰/Albanese functoriality for finite maps of curves.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.5/modular-quotient"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "AbelianSchemesAndArithmeticModuli:A6",
+   "need": "Poincaré complete reducibility and the isogeny category of abelian varieties.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.5/quotient-tate-exact"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+   "need": "The Néron mapping property for abelian schemes over a Dedekind base.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.5/modular-quotient",
+    "ModularCurvesPartII:R14.6/neron-hecke-extension"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+   "need": "Newforms of weight 2 on Γ₁(N) with their coefficient fields and weak/strong multiplicity one.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.5/newform-hecke-prime"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+   "need": "The integral Hecke algebra T₁(N) as a commutative finite flat ℤ-algebra and the modular-symbol lattice (the Betti-side input RS-06 imports).",
+   "neededBy": [
+    "ModularCurvesPartII:R14.3/hecke-twisted-self-adjoint",
+    "ModularCurvesPartII:R14.5/newform-hecke-prime"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-8g-galois-stability-the-character-field-and-rationality",
+   "need": "Galois conjugates of newforms and the coefficient field K_f.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.5/modular-quotient-differentials"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+   "need": "The Abel–Jacobi morphism of a curve with a rational point, its universal property and the generation of the Jacobian by the image.",
+   "neededBy": [
+    "ModularCurvesPartII:R14.6/rational-cusp-abel-jacobi",
+    "ModularCurvesPartII:R14.5/abel-jacobi-composite-nonzero"
+   ],
+   "status": "open"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "ModularCurvesPartII:R14.3",
+   "status": "partial",
+   "remaining": [
+    "Integral étale H¹ and its comparison with Betti H¹ (EtaleDualityAndPerverseSheaves EDC.2 pairings, the CohomologicalPointCounting étale–Betti comparison), Poincaré duality at finite level, parabolic versus ordinary/compactly supported cohomology with the boundary, the symmetric-power local systems of weight k > 2, and the torsion/freeness statements after localising at a non-Eisenstein maximal ideal.",
+    "The comparison of Tau Ceti ModularForms Layer 8's modular-symbol lattice with H¹(X₁(N)^an, ℤ)."
+   ],
+   "notes": "The weight-two Betti inputs are planned from Conrad's appendix §5.1: the Hecke-equivariant Shimura isomorphism, cup product versus Petersson, twisted self-adjointness and rational rank-two freeness (Gorenstein)."
+  },
+  {
+   "stageId": "ModularCurvesPartII:R14.4",
+   "status": "not_read",
+   "remaining": [
+    "Ihara's lemma and degeneracy-map saturation in the modular-curve settings consumed by R20/R22: Ribet–Stein §3 (Mazur's principle, Ihara's lemma through the Bruhat–Tits tree/character groups) is on disk for this checkpoint but was not decomposed."
+   ]
+  },
+  {
+   "stageId": "ModularCurvesPartII:R14.5",
+   "status": "partial",
+   "remaining": [
+    "Read a primary source for the oldform multiplicity σ₀(M/N) (Diamond–Im §6.6 or Shimura, Introduction to the arithmetic theory of automorphic functions, Theorem 7.14, neither freely available) to source the node oldform-comparison, which is planned with its proof."
+   ],
+   "notes": "A_f = J₁(N)/p_f J₁(N) (Conrad Definition 5.13), good reduction, Shimura's dimension theorem dim A_f = [K_f:ℚ] with V_ℓ(A_f) free of rank 2 over ℚ_ℓ ⊗ K_f (Theorem 5.14), differentials with the Picard/Albanese warning, the J₀(N) quotient for trivial character, and the nonconstant Abel–Jacobi composite. The λ-adic Galois identification belongs to AutomorphicGaloisRepresentations R19.1/R19.6 (RS-06)."
+  },
+  {
+   "stageId": "ModularCurvesPartII:R14.6",
+   "status": "partial",
+   "remaining": [
+    "Character-group and monodromy exact sequences at p ∥ N from R13.5's semistable models (Ribet–Stein §3.9–3.10, NeronModelsAndSemistableAbelianVarieties R11.4/R11.6), with degeneracy maps and Hecke action.",
+    "The finite-level freeness statements for Taylor–Wiles modules."
+   ],
+   "notes": "Planned: extension of the Hecke operators to the Néron model, the special-fibre Eichler–Shimura relation (T_p)_* = F + ⟨p⟩_*F^∨ with the w_ζ relation (Conrad Theorem 5.16), and the cusp-normalised Abel–Jacobi maps used by R29."
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Oldform multiplicity has no freely available primary source read",
+   "neededBy": [
+    "ModularCurvesPartII:R14.5/oldform-comparison"
+   ],
+   "detail": "The statement that the f-part of J₁(M) is isogenous to A_f^{σ₀(M/N)} for N | M is standard (Shimura's book, Theorem 7.14 and §7.5; Diamond–Im §6.6), but neither source is freely available and Conrad's appendix does not treat level change. The node records the proof through Atkin–Lehner–Li and the characteristic-zero injectivity of degeneracy maps (R14.4)."
+  }
+ ]
+}
