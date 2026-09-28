@@ -29,6 +29,8 @@ import Mathlib.RingTheory.PowerSeries.Expand
 import Mathlib.RingTheory.Polynomial.Eisenstein.Basic
 import Mathlib.NumberTheory.Padics.PadicNumbers
 import Mathlib.FieldTheory.Finite.GaloisField
+import Mathlib.Algebra.Ring.Action.Basic
+import Mathlib.Algebra.Module.Equiv.Defs
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyFree
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 
@@ -900,3 +902,26 @@ example : ¬ IsPeuRamifieeClass 2 1 := by norm_num [IsPeuRamifieeClass]
 example (p : ℕ) (k : ℤ) : IsPeuRamifieeClass p (p * k) := dvd_mul_right _ _
 
 end TauCeti.FiniteFlat
+
+namespace TauCeti.BreuilKisin
+
+/-! ## R07.4: descent data in weight two (Savitt 2005, §§3–4) -/
+
+/-- R07.4/strongly-divisible-modules-descent-data: semilinear descent data on a module `M`
+over a ring `S` on which `Γ = Gal(F/F′)` acts by ring automorphisms `s ↦ ĝ(s)`: bijections
+`ĝ : M → M` with `ĝ(s • m) = ĝ(s) • ĝ(m)` and `ĝ₁ ∘ ĝ₂ = (g₁ g₂)^` (Savitt, Definition 3.7).
+Compatibility with `Fil`, `φ₁` and `N` is added on the strongly divisible module itself. -/
+structure SemilinearDescentData (Γ S M : Type*) [Group Γ] [CommRing S] [AddCommGroup M]
+    [Module S M] [MulSemiringAction Γ S] where
+  act : Γ → M ≃+ M
+  act_smul : ∀ (g : Γ) (s : S) (m : M), act g (s • m) = (g • s) • act g m
+  act_mul : ∀ g h : Γ, act (g * h) = (act h).trans (act g)
+  act_one : act 1 = AddEquiv.refl M
+
+/-- The cocycle condition in the form `ĝ₁ (ĝ₂ m) = (g₁ g₂)^ m`. -/
+theorem SemilinearDescentData.act_mul_apply {Γ S M : Type*} [Group Γ] [CommRing S]
+    [AddCommGroup M] [Module S M] [MulSemiringAction Γ S] (D : SemilinearDescentData Γ S M)
+    (g h : Γ) (m : M) : D.act (g * h) m = D.act g (D.act h m) := by
+  rw [D.act_mul]; rfl
+
+end TauCeti.BreuilKisin
