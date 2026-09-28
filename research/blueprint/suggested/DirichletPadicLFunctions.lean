@@ -4399,3 +4399,109 @@ example : dirac ℚ_[3] (-1 : ℤ_[3]ˣ)
       positivePseudoMoment 3 2 (by omega) (kubotaLeopoldtPseudomeasure 3) := sorry
 end SuggestedUnboundedTests
 end DirichletPadic
+
+/-! ## Finite Gauss decomposition of the actual smoothed measure -/
+namespace DirichletPadic
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[p] K]
+
+lemma primePowerCharacter_gauss (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0) (z : ℤ_[p]) :
+    primePowerCharacter p n χ z = (gaussSum χ⁻¹ e)⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c * e (c*PadicInt.toZModPow n z) := sorry
+
+def smoothedAdditiveTwist (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) : D(ℤ_[p],K) := sorry
+lemma smoothedAdditiveTwist_eq_weight (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) :
+    smoothedAdditiveTwist p n e c a ha = weight
+      (ContinuousMap.mk (fun z : ℤ_[p] => e (c*PadicInt.toZModPow n z))
+        ((continuous_of_discreteTopology : Continuous (fun x : ZMod (p^n) => e (c*x))).comp
+          (PadicInt.continuous_toZModPow p n)))
+      (extendIntegralCoefficients (R := K) (smoothedMeasure p a ha)) := sorry
+lemma smoothedAdditiveTwist_apply (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) (f : C(ℤ_[p],K)) :
+    smoothedAdditiveTwist p n e c a ha f =
+      extendIntegralCoefficients (R := K) (smoothedMeasure p a ha)
+        ((ContinuousMap.mk (fun z : ℤ_[p] => e (c*PadicInt.toZModPow n z))
+          ((continuous_of_discreteTopology : Continuous (fun x : ZMod (p^n) => e (c*x))).comp
+            (PadicInt.continuous_toZModPow p n))) * f) := sorry
+lemma smoothedAdditiveTwist_zero_index (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (a : ℕ) (ha : ¬p∣a) :
+    smoothedAdditiveTwist p n e 0 a ha =
+      extendIntegralCoefficients (R := K) (smoothedMeasure p a ha) := sorry
+lemma smoothedAdditiveTwist_trivial (n : ℕ) (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) :
+    smoothedAdditiveTwist p n (1 : AddChar (ZMod (p^n)) K) c a ha =
+      extendIntegralCoefficients (R := K) (smoothedMeasure p a ha) := sorry
+lemma smoothedAdditiveTwist_one_parameter (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (h1 : ¬p∣1) : smoothedAdditiveTwist p n e c 1 h1 = 0 := sorry
+lemma smoothedAdditiveTwist_amice_coeff (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) (j : ℕ) :
+    (smoothedAdditiveTwist p n e c a ha).amiceTransform.coeff j =
+      smoothedAdditiveTwist p n e c a ha
+        ((mahler j : C(ℤ_[p],ℤ_[p])) • (1 : C(ℤ_[p],K))) := sorry
+
+lemma twistedSmoothedMeasure_gauss (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0)
+    (a : ℕ) (ha : ¬p∣a) :
+    twistedSmoothedMeasure p n χ a ha =
+      (gaussSum χ⁻¹ e)⁻¹ • ∑ c : ZMod (p^n), χ⁻¹ c • smoothedAdditiveTwist p n e c a ha := sorry
+lemma twistedSmoothedMeasure_gauss_amice (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0)
+    (a : ℕ) (ha : ¬p∣a) :
+    (twistedSmoothedMeasure p n χ a ha).amiceTransform =
+      (gaussSum χ⁻¹ e)⁻¹ • ∑ c : ZMod (p^n), χ⁻¹ c •
+        (smoothedAdditiveTwist p n e c a ha).amiceTransform := sorry
+
+namespace SuggestedPrimePowerGaussTests
+-- gauss_lift_one
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0) :
+    (1 : K)=(gaussSum χ⁻¹ e)⁻¹ * ∑ c : ZMod (p^n), χ⁻¹ c * e c := sorry
+-- gauss_lift_nonunit
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0) :
+    (gaussSum χ⁻¹ e)⁻¹ * ∑ c : ZMod (p^n), χ⁻¹ c * e (c*(p : ZMod (p^n))) = 0 := sorry
+-- additive_zero_index
+example (n : ℕ) (e : AddChar (ZMod (p^n)) K) (a : ℕ) (ha : ¬p∣a) :
+    smoothedAdditiveTwist p n e 0 a ha =
+      extendIntegralCoefficients (R := K) (smoothedMeasure p a ha) := sorry
+-- additive_trivial_character
+example (n : ℕ) (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) :
+    smoothedAdditiveTwist p n (1 : AddChar (ZMod (p^n)) K) c a ha =
+      extendIntegralCoefficients (R := K) (smoothedMeasure p a ha) := sorry
+-- additive_one_smoothing
+example (n : ℕ) (e : AddChar (ZMod (p^n)) K) (c : ZMod (p^n)) (h1 : ¬p∣1) :
+    smoothedAdditiveTwist p n e c 1 h1 = 0 := sorry
+-- additive_dyadic_sign_first_moment
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (e : AddChar (ZMod (2^1)) ℚ_[2])
+    (he : e 1 = -1) :
+    smoothedAdditiveTwist 2 1 e 1 3 (by norm_num)
+      ((ContinuousMap.id ℤ_[2]) • (1 : C(ℤ_[2],ℚ_[2]))) = -2 := sorry
+-- gauss_measure_total_mass
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0) (a : ℕ) (ha : ¬p∣a) :
+    twistedSmoothedMeasure p n χ a ha 1 = (gaussSum χ⁻¹ e)⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c * smoothedAdditiveTwist p n e c a ha 1 := sorry
+-- gauss_measure_one_smoothing
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0) (h1 : ¬p∣1) :
+    (gaussSum χ⁻¹ e)⁻¹ • ∑ c : ZMod (p^n), χ⁻¹ c • smoothedAdditiveTwist p n e c 1 h1 = 0 := sorry
+-- gauss_amice_coeff_zero
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0) (a : ℕ) (ha : ¬p∣a) :
+    (twistedSmoothedMeasure p n χ a ha).amiceTransform.coeff 0 = (gaussSum χ⁻¹ e)⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c * (smoothedAdditiveTwist p n e c a ha).amiceTransform.coeff 0 := sorry
+-- gauss_amice_coeff_second
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (e : AddChar (ZMod (p^n)) K) (hG : gaussSum χ⁻¹ e ≠ 0) (a : ℕ) (ha : ¬p∣a) :
+    (twistedSmoothedMeasure p n χ a ha).amiceTransform.coeff 2 = (gaussSum χ⁻¹ e)⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c * (smoothedAdditiveTwist p n e c a ha).amiceTransform.coeff 2 := sorry
+end SuggestedPrimePowerGaussTests
+end DirichletPadic
