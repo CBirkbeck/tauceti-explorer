@@ -14261,9 +14261,9 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #555"
+   "note": "claimed on GitHub issue #555"
   },
   {
    "id": "REV-PadicMeasuresIwasawaAlgebras",
@@ -23952,12 +23952,12 @@
     "REV-RS-07"
    ],
    "prompt": "research/blueprint/prompts/BP-SieveMethodsAndPrimePatterns.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8"
    ],
-   "note": "released on GitHub issue #1036"
+   "note": "claimed on GitHub issue #1036"
   },
   {
    "id": "REV-SieveMethodsAndPrimePatterns",
