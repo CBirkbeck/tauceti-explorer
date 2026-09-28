@@ -1,8 +1,8 @@
 {
   "roadmaps": 217,
-  "stages": 2872,
+  "stages": 2873,
   "originalStages": 2005,
-  "sourceRefinements": 867,
+  "sourceRefinements": 868,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -155,13 +155,6 @@
       "roadmap": "DiophantineApproximationAndTranscendence",
       "status": "partial",
       "nodes": 7,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "EllipticCurveModularity",
-      "status": "partial",
-      "nodes": 6,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -368,14 +361,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 2771,
+  "mathematicalStars": 2772,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 53,
   "bibliographicSources": 46,
   "roadmapEdges": 1645,
-  "stageEdges": 7809,
+  "stageEdges": 7804,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -407,6 +400,12 @@
       "roadmap": "DeformationAndDerivedPatchingAlgebra",
       "nodes": 53,
       "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.6"
+    },
+    {
+      "file": "EllipticCurveModularity",
+      "roadmap": "EllipticCurveModularity",
+      "nodes": 21,
+      "reviewer": "independent-review-REV-EllipticCurveModularity"
     },
     {
       "file": "EllipticKTheory",
@@ -482,8 +481,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 29843752,
-  "htmlSha256": "59a674ddd2168373d7d6c997381a799f311bc3bc55c2911acc2bf12afada21a3",
+  "htmlBytes": 29751065,
+  "htmlSha256": "fa43dab7cae34c5efd2dadae82c5cada061a4360fec8e72915b80d03d8acb16f",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -514,7 +513,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "817fceab76a642737ad2e6af3375430ae32f753a27d8f5bad197f1496de2dd96",
+    "data/roadmap-distances.json": "5a342f2c9216295603bf5ba20ab01af6fe5d086f9eaa2c3880bbf9a5d826e3f4",
     "data/galaxy-layout.json": "d36eb9d7a38c5e6e3ccd31e31ffbf9849ce192348586cc0fd60d2451ce568cf3",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -582,6 +581,8 @@
     "data/blueprints/ArithmeticKTheory--N.7.md": "35ccec306ac1e5a26abaebbf240c9643df611fb6bd35d2bab67411f06206ceb0",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.json": "7d5095850eca12bc0d5930af24e45a800c675c46a491d99a38bf1eed5f5930be",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md": "5cb32739e0e0e2d6b2a7497f810abcee961f72e8c8cbb434012ef9811e3649c4",
+    "data/blueprints/EllipticCurveModularity.json": "5eb2631efd9128f36e333420d4c67e10720b1e462134ada41b5dcc073d62364e",
+    "data/blueprints/EllipticCurveModularity.md": "5ecf52cec3c71eedbca1ba81c7d1342ac7b816d1eeb39ca32b6786835434109b",
     "data/blueprints/EllipticKTheory.json": "a267374bf1844e6c3ae1a85cd815f9c146e795b6c5d7b0351f7a0150b3aade04",
     "data/blueprints/EllipticKTheory.md": "c254d197a539eef155a823d0dfd3f179ba9b91982fa113dbc003b18d1de4903f",
     "data/blueprints/EllipticRegulators.json": "8c8adb88398485e13e93ecebc5eadfe8600d684cd94b0a273d1327588f9fa766",
