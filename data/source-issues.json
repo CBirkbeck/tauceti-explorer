@@ -144061,6 +144061,44 @@
    "reviewReason": null
   },
   {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E5",
+   "kind": "misprint",
+   "locator": "§4.3, proof of Proposition 4.1, p. 64 (Numdam PDF page 61)",
+   "printed": "The source invokes Proposition 2.12 to deduce dim T_{𝒟_c}/Q_1^mod ≥ dim R_𝒟/Q_1.",
+   "correction": "Corollary 2.12.",
+   "reason": "§2.4 has Proposition 2.11 and Corollary 2.12; the inequality dim R^ps/Q^ps ≥ dim R_𝒟/Q is Corollary 2.12, applied through the surjection R_{𝒟^ps} ↠ T_𝒟.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page and the Crossref record of doi:10.1007/BF02698855 (filter=updates), checked 2026-09-28: no erratum."
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E6",
+   "kind": "misprint",
+   "locator": "§4.4, proof of Proposition 4.2, p. 66 (Numdam PDF page 63)",
+   "printed": "The source argues that goodness of (F, 𝒟) makes L_p(F, −1, χω) a nonunit in 𝒪, and then uses Proposition 3.14 to deduce that T_∞(U^χ, 𝒪) possesses a permissible maximal ideal m.",
+   "correction": "Proposition 3.18.",
+   "reason": "Proposition 3.14 is the level-by-type statement; the existence of a permissible maximal ideal of T_∞(U^χ, 𝒪) from ord_π L_p(F, −1, χω) > 0 is Proposition 3.18.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "As for E5."
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OverconvergentAutomorphicForms/E1",
    "kind": "misprint",
    "locator": "§6.1, Definition 6.1, printed p. 1756 (PDF p. 49); same in arXiv v4",
