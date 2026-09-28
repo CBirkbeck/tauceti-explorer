@@ -13,7 +13,7 @@
   "GlobalGaloisDeformations:R04.6"
  ],
  "status": "partial",
- "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version. Checkpoint 4 adds R04.5 (8 nodes): Taylor–Wiles data, the distinct residual image hypotheses, local cohomology at Taylor–Wiles places, existence of Taylor–Wiles primes for odd p (KW II Lemma 5.3, Gee Proposition 5.10) with generator counts, and the separate dyadic construction (KW II §5.5: linear disjointness and Lemma 5.10), with the inertia action at the auxiliary primes (KW II Proposition 5.11).",
+ "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). Checkpoints 1–2 plan the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0. Checkpoint 2 adds R04.3: local deformation problems and their ideals, global deformation data with T-framings and representability, the map from local rings, the relative tangent space as an adjoint Selmer group, the presentation R^loc[[x₁..x_g]]/J with r(J) bounded by the dual Selmer group, and the dimension lower bound (Gee §3.16–3.24, KW II §4.1). Checkpoint 3 adds R04.4 (12 nodes): restriction to a finite extension with its finiteness and a finite non-flat example, closed immersions from enlarging S, twisting isomorphisms and change of determinant, KW II's diagonalizable groups, free-action quotients and truncated actions, the twisting action with its dyadic freeness and stabilisers, the rings with determinant fixed only on S and the determinant torsor, and inertia-rigid deformation rings (KW II §§2.4–2.7, 4.1, 5.1–5.2, 9, 10.1; Gee 3.25–3.26; BLGGT 1.2.3). It also records how KW II Corollary 4.7 uses the R04.3 dimension bound, and records the published numbering of KW II from the authors' final version. Checkpoint 4 adds R04.5 (8 nodes): Taylor–Wiles data, the distinct residual image hypotheses, local cohomology at Taylor–Wiles places, existence of Taylor–Wiles primes for odd p (KW II Lemma 5.3, Gee Proposition 5.10) with generator counts, and the separate dyadic construction (KW II §5.5: linear disjointness and Lemma 5.10), with the inertia action at the auxiliary primes (KW II Proposition 5.11). Checkpoint 5 adds R04.6 (6 nodes): the KW II §9 deformation data with the p = 2 real places, the trace subring and universal representation, factorisation of representations satisfying the local conditions, the Taylor–Wiles system of deformation rings with its specialisations, the patching numerology (p > 2 and p = 2), and the finite-level dyadic patching data.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -196,7 +196,8 @@
     "§4.1–4.2, pp. 37–46 (Proposition 4.1, Lemmas 4.3–4.4, Proposition 4.5, Lemma 4.6, Corollary 4.7)",
     "§7.2–7.3 and Lemma 7.10, pp. 61–63 and 69",
     "proof of Proposition 9.3 (patching data and Lemmas 9.4–9.5), pp. 85–87; §10.1, pp. 90–92",
-    "§5, pp. 46–53 (twists, Lemma 5.1, Lemmas 5.2–5.4, Proposition 5.5, §5.5 p = 2 with Proposition 5.6 and Lemmas 5.7–5.10, Proposition 5.11, Lemma 5.12)"
+    "§5, pp. 46–53 (twists, Lemma 5.1, Lemmas 5.2–5.4, Proposition 5.5, §5.5 p = 2 with Proposition 5.6 and Lemmas 5.7–5.10, Proposition 5.11, Lemma 5.12)",
+    "§9 opening, §9.1.1–9.1.2 (Lemma 9.1, Proposition 9.2 and its proof), §9.1.3 opening (Proposition 9.3 statement, patching data of level m), pp. 78–86"
    ]
   },
   {
@@ -3351,6 +3352,500 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.6/kw-deformation-data",
+   "parentStageId": "GlobalGaloisDeformations:R04.6",
+   "realises": [
+    "GlobalGaloisDeformations:R04.6"
+   ],
+   "title": "The global deformation data of KW II §9",
+   "kind": "definition",
+   "statement": "Let F be totally real, ρ̄ : G_F → GL_2(𝔽) as in KW II §8 with lifting data and ψ, Σ the places where the lifting data ramify away from p (together with the places above p in case (C), or when p = 2 and k(ρ̄) = 4), and S = Σ ∪ {v | ∞} ∪ {v | p}. For v ∈ S, R̄^{□,ψ}_v is the local ring classifying: semistable lifts with a fixed unramified character γ_v at finite v ∤ p (§3.3.4); odd lifts at the infinite places (§3.1, including the ring of LocalGaloisDeformationRings R08.1 at p = 2); and at v | p lifts of type (A) low-weight crystalline, (B) weight two (p > 2, k(ρ̄) ≤ p) or (C) weight-two semistable. Each R̄^{□,ψ}_v is a domain, flat over 𝒪, of relative dimension 3 (v ∤ p∞), 3 + [F_v : ℚ_p] (v | p) or 2 (v | ∞), with regular generic fibre. Hence R̄^{□,loc,ψ}_S = ⊗̂_{v∈S} R̄^{□,ψ}_v is a flat domain of relative dimension 3|S| with regular generic fibre, and R̄^{□,ψ}_S = R^{□,ψ}_S ⊗̂_{R^{□,loc,ψ}_S} R̄^{□,loc,ψ}_S.",
+   "hypotheses": [
+    "The local rings and their properties are KW II Theorem 3.1 and Proposition 3.2, exported by LocalGaloisDeformationRings R08.6 (requested). The completed tensor product of flat domains with regular generic fibres and an 𝒪-point is again one (KW II Proposition 2.2(ii); DeformationAndDerivedPatchingAlgebra R03.1/R03.3).",
+    "Gee's version (§5.6) uses the problems 𝒮_Q, 𝒮′_Q, with the two local rings agreeing modulo λ and (R^{loc,′})^{red} irreducible. It is the same export with other local conditions."
+   ],
+   "proofSteps": [
+    "Relative dimension: Σ_{v∤p∞} 3 + Σ_{v|p}(3 + [F_v : ℚ_p]) + Σ_{v|∞} 2 = 3|S_f| + [F : ℚ] + 2[F : ℚ] = 3|S|, since F is totally real with [F : ℚ] infinite places.",
+    "Domain, flatness and regularity pass to the completed tensor product (KW II Proposition 2.2(ii)).",
+    "R̄^{□,ψ}_S is the base change of the global framed ring along R^{□,loc,ψ}_S → R̄^{□,loc,ψ}_S (R04.3/local-to-global-map)."
+   ],
+   "acceptance": [
+    "The real places contribute relative dimension 2 each for every p, and for p = 2 their ring is the explicit odd ring 𝒪⟦a, b, c⟧/(a² + bc − 1) (LocalGaloisDeformationRings R08.1).",
+    "F = ℚ and S = {∞, p}: relative dimension 2 + (3 + 1) = 6 = 3|S|.",
+    "Global finiteness of R̄^ψ_S over 𝒪 is not part of this export (PotentialModularityAndCompatibleSystems R24.1)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.3/global-deformation-type",
+    "GlobalGaloisDeformations:R04.3/local-to-global-map",
+    "LocalGaloisDeformationRings:R08.1/archimedean-odd-ring-p2",
+    "LocalGaloisDeformationRings:R08.1/archimedean-rings-p-odd",
+    "LocalGaloisDeformationRings:R08.2/steinberg-condition",
+    "LocalGaloisDeformationRings:R08.6",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Exports",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§9.1.1, pp. 78–79",
+     "match": "The data."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§9.1.1, p. 79",
+     "match": "The local-ring properties."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.KWDeformationData",
+     "role": "structure",
+     "statement": "S, ψ and the local conditions at v ∈ S of KW II §9.1.1."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.KWDeformationData.localRing",
+     "role": "constructor",
+     "statement": "R̄^{□,loc,ψ}_S = ⊗̂_v R̄^{□,ψ}_v."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.KWDeformationData.localRing_isDomain",
+     "role": "characterisation",
+     "statement": "R̄^{□,loc,ψ}_S is a flat domain with regular generic fibre."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.KWDeformationData.localRing_relDim",
+     "role": "characterisation",
+     "statement": "Relative dimension 3|S|."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "the deformation problem represented by the Hecke algebra."
+    },
+    {
+     "where": "PotentialModularityAndCompatibleSystems:R24.1",
+     "how": "the ring whose finiteness over 𝒪 is proved."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.6/patching-numerology",
+     "how": "d = 3|S|."
+    }
+   ],
+   "tests": [
+    {
+     "name": "relDim_Q",
+     "kind": "example",
+     "statement": "F = ℚ, S = {∞, p}: relative dimension 6."
+    },
+    {
+     "name": "relDim_formula",
+     "kind": "characterisation",
+     "statement": "3|S_f| + [F : ℚ] + 2[F : ℚ] = 3|S| for totally real F."
+    },
+    {
+     "name": "not_finite_claim",
+     "kind": "non-example",
+     "statement": "A nonzero framed ring R̄^{□,ψ}_S is never finite over 𝒪 when |S| ≥ 1: it is a power series ring over R̄^ψ_S in 4|S| − 1 ≥ 3 variables."
+    }
+   ],
+   "planet": {
+    "name": "KW II deformation data"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.6/trace-subring-universal-representation",
+   "parentStageId": "GlobalGaloisDeformations:R04.6",
+   "realises": [
+    "GlobalGaloisDeformations:R04.6"
+   ],
+   "title": "The unframed ring as a trace subring, with its universal representation",
+   "kind": "construction",
+   "statement": "R̄^ψ_S is the subring of R̄^{□,ψ}_S generated by the traces of the universal representation. Equivalently, it is the image of the unframed ring R^ψ_S. R̄^{□,ψ}_S is a power series ring over R̄^ψ_S in j = 4|S| − 1 variables, being a torsor under (∏_{v∈S}(GL_2)_1)/Ĝ_m. The universal representation descends to ρ̄^univ_S : G_{F,S} → GL_2(R̄^ψ_S): the traces lie in R̄^ψ_S and ρ̄ is absolutely irreducible (Carayol). The same holds with Q_n added, giving R̄^ψ_{S∪Q_n}, R̄^{□,ψ}_{S∪Q_n} and ρ̄^univ_{S∪Q_n}.",
+   "hypotheses": [
+    "Carayol's descent to the subring generated by traces is R04.2/carayol-trace-theorem; the framed–unframed torsor is R04.2/framed-unframed-comparison with T = S (KW II Proposition 4.1)."
+   ],
+   "proofSteps": [
+    "KW II Proposition 4.1: the tuples (ρ, (ρ_v), (g_v)) form a torsor over the unframed ring under (GL_2)_1 × ∏_v(GL_2)_1/Ĝ_m. Passing to the local-condition quotient keeps the torsor structure, and 4|S| − 1 = dim ∏_v(GL_2)_1 − dim Ĝ_m.",
+    "The trace subring is the image of R^ψ_S, because traces are invariant under the framing change.",
+    "Carayol: an absolutely irreducible residual representation with traces in a closed subring descends to it."
+   ],
+   "acceptance": [
+    "|S| = 1: j = 3, the framing of GL_2 modulo scalars.",
+    "R̄^{□,ψ}_S/(y_{h+1}, …, y_{h+j}) ≅ R̄^ψ_S when the y's are the framing variables (KW II §9.1.2).",
+    "Without absolute irreducibility of ρ̄ the unframed functor need not be representable, and no trace-subring description is claimed."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.6/kw-deformation-data",
+    "GlobalGaloisDeformations:R04.2/framed-unframed-comparison",
+    "GlobalGaloisDeformations:R04.2/carayol-trace-theorem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Exports",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§4.1.2, Proposition 4.1, p. 38",
+     "match": "The trace subring and the 4|S| − 1 variables."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§9.1.1, p. 80",
+     "match": "Smoothness over the trace subring."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.KWDeformationData.unframedRing",
+     "role": "constructor",
+     "statement": "R̄^ψ_S as the trace subring of R̄^{□,ψ}_S."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.KWDeformationData.univRep",
+     "role": "constructor",
+     "statement": "ρ̄^univ_S : G_{F,S} → GL_2(R̄^ψ_S)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.KWDeformationData.framed_powerSeries",
+     "role": "equivalence",
+     "statement": "R̄^{□,ψ}_S ≃ R̄^ψ_S⟦y_1, …, y_{4|S|−1}⟧."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.1",
+     "how": "the universal representation compared with ρ_𝔪."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
+     "how": "the ring through which Hecke representations factor."
+    }
+   ],
+   "tests": [
+    {
+     "name": "framingVars_one_place",
+     "kind": "example",
+     "statement": "|S| = 1 gives 3 framing variables."
+    },
+    {
+     "name": "trace_subring_eq_image",
+     "kind": "characterisation",
+     "statement": "The trace subring equals the image of the unframed ring."
+    },
+    {
+     "name": "framed_not_trace_generated",
+     "kind": "non-example",
+     "statement": "R̄^{□,ψ}_S is not generated by traces when |S| ≥ 1: the framing variables are not traces."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.6/factorization-through-local-conditions",
+   "parentStageId": "GlobalGaloisDeformations:R04.6",
+   "realises": [
+    "GlobalGaloisDeformations:R04.6"
+   ],
+   "title": "Representations satisfying the local conditions factor through the quotient",
+   "kind": "theorem",
+   "statement": "Let A be a reduced, 𝒪-flat, finite 𝒪-algebra and ρ : G_{F,S} → GL_2(A) a lift of ρ̄ with determinant ψχ_p, such that for every 𝒪-algebra map x : A → 𝒪′ (𝒪′ the integers of a finite extension) the specialisation ρ_x satisfies the local condition at every v ∈ S. Then the classifying map R^ψ_S → A factors through R̄^ψ_S, uniquely, compatibly with the universal representations. The framed version factors through R̄^{□,ψ}_S. With Q_n added, the factorisation is compatible with the 𝒪[Δ′_{Q_n}]-structures, and for p = 2 with the twisting actions.",
+   "hypotheses": [
+    "This is the deformation-theoretic half of KW II Lemma 9.1. The Hecke algebra 𝕋_ψ(U)_𝔪, its Galois representation ρ_𝔪, local–global compatibility and surjectivity are GL2ModularityLifting R22.1.",
+    "The local-condition quotients are reduced, flat and classify their 𝒪′-points (KW II Definition 2.4 and Corollary 2.3)."
+   ],
+   "proofSteps": [
+    "For each x, the map R^ψ_S → 𝒪′ has kernel ℘_x ⊇ ker(R^ψ_S → R̄^ψ_S), because the condition at each v holds for ρ_x and R̄^{□,ψ}_v classifies such points.",
+    "A is reduced and 𝒪-flat and finite, so ∩_x ker(x) = 0 (A[1/p] is a finite product of fields); hence ker(R^ψ_S → A) = ∩_x ℘_x contains ker(R^ψ_S → R̄^ψ_S).",
+    "Compatibility with Δ′_{Q_n} and with twists: both sides are defined by the same universal properties (R04.5/taylor-wiles-inertia-action, R04.4/twisting-action)."
+   ],
+   "acceptance": [
+    "A = 𝒪 with ρ a single lift satisfying the conditions: the factorisation is the 𝒪-point of R̄^ψ_S.",
+    "Reducedness and flatness are needed: over A = 𝒪[ε]/(ε², πε), every map to 𝒪′ kills ε, so a first-order deformation violating the conditions passes the specialisation test.",
+    "The Hecke algebra 𝕋_ψ(U)_𝔪 is reduced and 𝒪-flat, which is how KW II apply this (Lemma 9.1)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.6/trace-subring-universal-representation",
+    "GlobalGaloisDeformations:R04.6/kw-deformation-data",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
+    "GlobalGaloisDeformations:R04.4/twisting-action"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Exports",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Lemma 9.1 and its proof, pp. 80–81",
+     "match": "The factorisation argument."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Definition 2.4, p. 10",
+     "match": "Quotients classifying points."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Factorisation through local conditions"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.6/taylor-wiles-deformation-system",
+   "parentStageId": "GlobalGaloisDeformations:R04.6",
+   "realises": [
+    "GlobalGaloisDeformations:R04.6"
+   ],
+   "title": "The Taylor–Wiles system of deformation rings",
+   "kind": "construction",
+   "statement": "Let p > 2, B = R̄^{□,loc,ψ}_S, d = 3|S|, h = h¹_{{L_v^⊥}}(S, (Ad⁰)*(1)), j = 4|S| − 1, and Q_n (n ≥ 1) the Taylor–Wiles data of R04.5/odd-taylor-wiles-primes, with Q_n = {v_1, …, v_h} and generators δ_i of Δ′_{v_i}. For each n there are surjections of B-algebras B⟦x_1, …, x_{h+j−d}⟧ ↠ R̄^{□,ψ}_{S∪Q_n} ↠ R̄^{□,ψ}_S. R̄^{□,ψ}_{S∪Q_n} is an 𝒪⟦y_1, …, y_{h+j}⟧-algebra, with y_i ↦ δ_i − 1 (i ≤ h) from Δ′_{Q_n} and y_{h+1}, …, y_{h+j} the framing variables. Then R̄^{□,ψ}_{S∪Q_n}/(y_1, …, y_h) ≅ R̄^{□,ψ}_S and R̄^{□,ψ}_{S∪Q_n}/(y_1, …, y_{h+j}) ≅ R̄^ψ_S. The kernel of 𝒪⟦y_1, …, y_h⟧ → 𝒪[Δ′_{Q_n}] is generated by the (1 + y_i)^{#Δ′_{v_i}} − 1, so it lies in ((1 + y_1)^{p^n} − 1, …, (1 + y_h)^{p^n} − 1), since p^n divides #Δ′_{v_i}. This is the finite-level system exported to patching.",
+   "hypotheses": [
+    "The patching itself, with R_∞, M_∞ and the Hecke modules S_{k,ψ}(U_{Q_n}, 𝒪)_𝔪, is GL2ModularityLifting R22.3 (with DeformationAndDerivedPatchingAlgebra R03.5's abstract patching); only the deformation-ring side is exported here.",
+    "Gee's version (§5.10 and after) uses R^□_{Q_N} over R^loc with #T − 1 − [F : ℚ] + r generators and J_∞ = 𝒥⟦y_1, …, y_r⟧."
+   ],
+   "proofSteps": [
+    "Generators: |Q_n| + |S| − 1 = h + j − d (R04.5/taylor-wiles-generator-count), which gives the first surjection; the second kills the ramification at Q_n (R04.4/enlarging-ramification).",
+    "The Δ′_{Q_n}-module structure and its coinvariants are R04.5/taylor-wiles-inertia-action; the framing variables are trace-subring-universal-representation.",
+    "R̄^{□,ψ}_S ≅ R̄^ψ_S ⊗_{R̄^ψ_{S∪Q_n}} R̄^{□,ψ}_{S∪Q_n}, so killing all h + j variables leaves R̄^ψ_S (KW II §9.1.2)."
+   ],
+   "acceptance": [
+    "h = 0 (the dual Selmer group vanishes already): no auxiliary primes, and the system is constant.",
+    "The number of x-variables, h + j − d, is independent of n. This uniformity is what patching needs.",
+    "The p = 2 system is different: it uses R̄^□_{S∪Q_n} with determinant fixed only on S and a torus action (dyadic-patching-data)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.6/kw-deformation-data",
+    "GlobalGaloisDeformations:R04.6/trace-subring-universal-representation",
+    "GlobalGaloisDeformations:R04.5/odd-taylor-wiles-primes",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-generator-count",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
+    "GlobalGaloisDeformations:R04.4/enlarging-ramification"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Exports",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.2, (∗∗), p. 82",
+     "match": "The system at level n."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "after Proposition 5.10, p. 39",
+     "match": "Gee's version of the y-variables."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.TWSystem",
+     "role": "structure",
+     "statement": "For each n, R̄^{□,ψ}_{S∪Q_n} with its B⟦x⟧-presentation and 𝒪⟦y⟧-algebra structure."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.TWSystem.quot_y_eq",
+     "role": "characterisation",
+     "statement": "R̄^{□,ψ}_{S∪Q_n}/(y_1, …, y_h) ≅ R̄^{□,ψ}_S."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.TWSystem.quot_all_eq",
+     "role": "characterisation",
+     "statement": "R̄^{□,ψ}_{S∪Q_n}/(y_1, …, y_{h+j}) ≅ R̄^ψ_S."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.TWSystem.numVars_const",
+     "role": "compatibility",
+     "statement": "The number h + j − d of x-variables is independent of n."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.3",
+     "how": "the input to arithmetic patching."
+    },
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:R03.5",
+     "how": "abstract patching of such systems."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.6/patching-numerology",
+     "how": "the dimension count."
+    }
+   ],
+   "tests": [
+    {
+     "name": "twSystem_h_zero",
+     "kind": "example",
+     "statement": "h = 0: the system is constant."
+    },
+    {
+     "name": "twSystem_specialisation",
+     "kind": "characterisation",
+     "statement": "Killing y_1, …, y_h recovers R̄^{□,ψ}_S."
+    },
+    {
+     "name": "twSystem_not_p2",
+     "kind": "non-example",
+     "statement": "For p = 2 the fixed-determinant rings do not form such a system (the dual Selmer group is not killed); use dyadic-patching-data."
+    }
+   ],
+   "planet": {
+    "name": "Taylor–Wiles system"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.6/patching-numerology",
+   "parentStageId": "GlobalGaloisDeformations:R04.6",
+   "realises": [
+    "GlobalGaloisDeformations:R04.6"
+   ],
+   "title": "The numerical coincidence for patching",
+   "kind": "theorem",
+   "statement": "With d = 3|S|, h and j = 4|S| − 1 as in taylor-wiles-deformation-system (p > 2), the Krull dimension of B⟦x_1, …, x_{h+j−d}⟧ is 1 + d + (h + j − d) = 1 + h + j = dim 𝒪⟦y_1, …, y_{h+j}⟧. For p = 2, with h = |Q_n| and t = 2 − |S| + |Q_n| (R04.5/dyadic-taylor-wiles-primes), R̄^□_{S∪Q_n} is generated over B by 2h + 1 = h + j + t − d elements, and dim B⟦x_1, …, x_{h+j+t−d}⟧ = 1 + h + j + t. In Gee's conventions, dim R_∞ = dim J_∞ = 4#T + r.",
+   "hypotheses": [
+    "dim B = 1 + d, from kw-deformation-data (relative dimension 3|S| and 𝒪-flat)."
+   ],
+   "proofSteps": [
+    "p > 2: B is 𝒪-flat of relative dimension d, so dim B = 1 + d, and adding h + j − d power series variables gives 1 + h + j.",
+    "p = 2: 2h + 1 generators (R04.5/dyadic-taylor-wiles-primes (e)), and h + j + t − d = h + (4|S| − 1) + (2 − |S| + h) − 3|S| = 2h + 1.",
+    "The coincidence is what makes the patched module, finite free over 𝒪⟦y⟧, have full support on a domain of the same dimension (used in R22.3 and KW II Proposition 9.2 (II))."
+   ],
+   "acceptance": [
+    "F = ℚ, S = {∞, p}, h = 3: d = 6, j = 7, h + j − d = 4, and 1 + d + 4 = 11 = 1 + h + j.",
+    "The p = 2 identity 2h + 1 = h + j + t − d uses t = 2 − |S| + h; with the wrong t (for example t = h) it fails.",
+    "The count does not imply R = T by itself: that needs the domain property of B and the faithful patched module (R22.3)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.6/kw-deformation-data",
+    "GlobalGaloisDeformations:R04.6/taylor-wiles-deformation-system",
+    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Exports",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.2, (II), p. 83",
+     "match": "The dimension count, p > 2."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.3, p. 86",
+     "match": "The dyadic count."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, p. 40",
+     "match": "Gee's form."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.6/dyadic-patching-data",
+   "parentStageId": "GlobalGaloisDeformations:R04.6",
+   "realises": [
+    "GlobalGaloisDeformations:R04.6"
+   ],
+   "title": "The finite-level data for 2-adic patching",
+   "kind": "construction",
+   "statement": "Let p = 2, h = |Q_n| (R04.5/dyadic-taylor-wiles-primes), t = h¹_{S-split}(Q_n, 𝔽), G_n = Gal(F^S_{Q_n}/F), G′_n = G_n/2^{n−2}G_n ≅ (ℤ/2^{n−2})^t, and T = Hom(ℤ^t, Ĝ_m). For each n > n₀ this construction gives: R′_n = R̄^□_{S∪Q_n} (determinant fixed only on S, R04.4/determinant-fixed-on-S) and R_n = R̄^{□,ψ}_{S∪Q_n}; a choice of ℤ^t ↠ G′_n, identifying (G′_n)* with T_{2^{n−2}} ⊂ T; the determinant map d_n : Sp R′_n → G*_n ⊂ T, ρ ↦ det ρ·(χ_pψ)^{−1}, with Sp R_n = d_n^{−1}(1) and d_n(λρ) = λ²d_n(ρ); the free twisting action of G*_n on Sp R′_n (R04.4/twist-action-free); a presentation B⟦x_1, …, x_{h+j+t−d}⟧ ↠ R′_n; and the Δ′_{Q_n}-structure compatible with the twists (a_χ ∘ δ = χ(δ)·(δ ∘ a_χ)). These are the level-n inputs to KW II's patching data (D_m, L_m, D′_m).",
+   "hypotheses": [
+    "The patched limit, with R′_∞, its free T-action and d(tx′) = t²d(x′), is GL2ModularityLifting R22.6; R04.4/truncated-actions and determinant-twist-torsor supply the group-action statements it uses.",
+    "KW II take a ≥ 2 and restrict the G′*_{n+a}-action to T_{2^n}; the truncation isomorphism T_{2^m} ≅ T at level m + 1 (R04.4/diagonalizable-groups) turns these into action chunks of T."
+   ],
+   "proofSteps": [
+    "G′_n ≅ (ℤ/2^{n−2})^t is R04.5/dyadic-taylor-wiles-primes (f); choosing ℤ^t ↠ G′_n compatibly in n identifies the characters with the 2^{n−2}-torsion of T.",
+    "d_n lands in G*_n because det ρ·(χ_pψ)^{−1} is split at S and unramified outside Q_n (R04.4/determinant-fixed-on-S).",
+    "Freeness of the twist action is R04.4/twist-action-free (non-solvable image); the generator count is (e) of dyadic-taylor-wiles-primes."
+   ],
+   "acceptance": [
+    "t = 0 (when |Q_n| = |S| − 2): T is trivial, and the fixed-determinant and fixed-on-S rings coincide.",
+    "d_n(λρ) = λ²d_n(ρ) is the squaring equivariance that makes d^{−1}(1) a T[2]-torsor over the invariants (R04.4/determinant-twist-torsor).",
+    "For p odd none of this is needed, since the determinant can be fixed by twisting (R04.4/determinant-fixed-on-S)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.5/dyadic-taylor-wiles-primes",
+    "GlobalGaloisDeformations:R04.4/determinant-fixed-on-S",
+    "GlobalGaloisDeformations:R04.4/twist-action-free",
+    "GlobalGaloisDeformations:R04.4/diagonalizable-groups",
+    "GlobalGaloisDeformations:R04.5/taylor-wiles-inertia-action",
+    "GlobalGaloisDeformations:R04.6/kw-deformation-data"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Exports",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§9.1.3, Proposition 9.3 (I)(3), p. 84",
+     "match": "What the finite-level data patch to."
+    },
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.3, p. 84",
+     "match": "The twisting group at level n."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.DyadicPatchingDatum",
+     "role": "structure",
+     "statement": "(R′_n, R_n, ℤ^t ↠ G′_n, d_n, twisting action, presentation) at level n."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DyadicPatchingDatum.fiber_eq",
+     "role": "characterisation",
+     "statement": "Sp R_n = d_n^{−1}(1)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DyadicPatchingDatum.d_sq",
+     "role": "compatibility",
+     "statement": "d_n(λρ) = λ²d_n(ρ)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DyadicPatchingDatum.action_free",
+     "role": "characterisation",
+     "statement": "The twisting action is free."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.6",
+     "how": "2-adic patching (KW II Proposition 9.3)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "dyadic_t_zero",
+     "kind": "example",
+     "statement": "t = 0: T is trivial and R′_n = R_n."
+    },
+    {
+     "name": "dyadic_d_sq",
+     "kind": "characterisation",
+     "statement": "d_n(λρ) = λ²d_n(ρ)."
+    },
+    {
+     "name": "dyadic_not_fixed_det",
+     "kind": "non-example",
+     "statement": "The fixed-determinant rings R_n alone carry only the 2-torsion G*_{n,2}-action, not a torus action."
+    }
+   ]
   }
  ],
  "requests": [
@@ -3474,7 +3969,8 @@
    "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
    "need": "Excellence of finite-type 𝒪-algebras with regular completion maps, and equidimensionality of the completion of an equidimensional excellent local ring, stated as hypotheses in R03.3's dimension lemmas.",
    "neededBy": [
-    "GlobalGaloisDeformations:R04.4/inertia-rigid-deformations"
+    "GlobalGaloisDeformations:R04.4/inertia-rigid-deformations",
+    "GlobalGaloisDeformations:R04.6/kw-deformation-data"
    ],
    "status": "open",
    "note": "R03.3 is to state catenarity and excellence hypotheses explicitly; KW II §2.7 cite Matsumura for them."
@@ -3499,6 +3995,15 @@
    ],
    "status": "open",
    "note": "R01.4 owns finite subgroups of GL_2/PGL_2 (as for PAPER-NEWTON-THORNE-21-B items 53 and 55)."
+  },
+  {
+   "supplier": "LocalGaloisDeformationRings:R08.6",
+   "need": "The local rings R̄^{□,ψ}_v of KW II's lifting data (semistable with fixed γ_v away from p; odd at ∞, including p = 2; types (A), (B), (C) at p), each a flat domain with regular generic fibre of relative dimension 3, 3 + [F_v : ℚ_p] or 2 (KW II Theorem 3.1, Proposition 3.2).",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.6/kw-deformation-data"
+   ],
+   "status": "open",
+   "note": "R08.6 exports each source local condition with its ring, dimension, nonemptiness and tangent condition."
   }
  ],
  "coverage": [
@@ -3534,10 +4039,9 @@
   },
   {
    "stageId": "GlobalGaloisDeformations:R04.6",
-   "status": "not_read",
-   "remaining": [
-    "Arithmetic exports for patching and global lifts (RS-08 narrowed)."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 keeps for R04.6: the export of the global rings and universal representations to the arithmetic R-to-Hecke maps; global finiteness stays in PotentialModularityAndCompatibleSystems R24.1. All planned (6 nodes): KW II's deformation data (including the real places at p = 2), the trace subring with its universal representation, factorisation through the local conditions (the deformation half of Lemma 9.1), the Taylor–Wiles system with its y-variables and specialisations, the patching numerology, and the finite-level dyadic data. Hecke algebras, the maps to them and the patching are GL2ModularityLifting R22.1/R22.3/R22.6."
   },
   {
    "stageId": "GlobalGaloisDeformations:G7",

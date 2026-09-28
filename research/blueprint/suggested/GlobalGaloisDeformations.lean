@@ -12,7 +12,7 @@ import Mathlib.RingTheory.Polynomial.Basic
 import Mathlib.Data.ZMod.Defs
 
 /-!
-# Suggested Lean forms: global Galois deformations (GlobalGaloisDeformations, R04.1–R04.5)
+# Suggested Lean forms: global Galois deformations (GlobalGaloisDeformations, R04.1–R04.6)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`GlobalGaloisDeformations`) is definitive. The statements below suggest Lean forms, so that
@@ -246,6 +246,14 @@ structure TaylorWilesDatum (N : ℕ) where
   α : ∀ v ∈ Q, 𝔽                      -- the chosen eigenvalue
 theorem exists_taylorWiles_odd (hp : p ≠ 2) (h : IsCyclotomicAbsIrred ρbar) (N : ℕ) :
     ∃ D : TaylorWilesDatum N, D.Q.card = dualSelmerDim ∧ dualSelmer (S ∪ D.Q) = ⊥
+-- R04.6/kw-deformation-data, taylor-wiles-deformation-system, factorization-through-local-conditions
+structure KWDeformationData where
+  S : Finset (Place F)
+  cond : ∀ v ∈ S, LocalCondition v                       -- from LocalGaloisDeformationRings R08.6
+theorem KWDeformationData.localRing_relDim : relDim (D.localRing) = 3 * D.S.card
+theorem factor_through_localConditions (A) [IsReduced A] [Module.Flat 𝒪 A] [Module.Finite 𝒪 A]
+    (ρ : Lift ρbar A) (h : ∀ x : A →ₐ[𝒪] 𝒪', (ρ.map x).SatisfiesConditions D) :
+    ∃! φ : D.unframedRing →ₐ[𝒪] A, φ.comp D.univRep = ρ
 -- R04.4/inertia-rigid-deformations
 theorem inertiaRigid_dim (C : irreducibleComponent (R□φ0fl ρ₀)) : absDim C = d ^ 2
 ```
@@ -314,5 +322,16 @@ example : (1 : Matrix (Fin 2) (Fin 2) (ZMod 2)).trace = 0 := by decide
 `R₃ = 2X² − 1`, so `R₄(0) = 1` (the Chebyshev polynomial `T₄`). -/
 example : (2 * (2 * Polynomial.X ^ 2 - 1) ^ 2 - 1 : Polynomial ℤ) =
     8 * Polynomial.X ^ 4 - 8 * Polynomial.X ^ 2 + 1 := by ring
+
+/-- `R04.6/patching-numerology`, `p > 2`: the number of generators `h + j − d` with `j = 4|S| − 1`,
+`d = 3|S|` equals `h + |S| − 1`. -/
+example (h S : ℤ) : h + (4 * S - 1) - 3 * S = h + S - 1 := by ring
+
+/-- `p = 2`: with `t = 2 − |S| + h`, `h + j + t − d = 2h + 1`. -/
+example (h S : ℤ) : h + (4 * S - 1) + (2 - S + h) - 3 * S = 2 * h + 1 := by ring
+
+/-- `R04.6/kw-deformation-data`: `3|S_f| + [F : ℚ] + 2[F : ℚ] = 3|S|` for totally real `F`, whose
+infinite places number `[F : ℚ]`. -/
+example (Sf n : ℕ) : 3 * Sf + n + 2 * n = 3 * (Sf + n) := by ring
 
 end TauCeti.GaloisDeformation.SuggestedTest
