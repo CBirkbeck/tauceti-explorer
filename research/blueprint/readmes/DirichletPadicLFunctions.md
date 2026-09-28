@@ -9510,3 +9510,287 @@ The native probe contains three scratch definitions of the shifted coefficient s
 Exact rational controls cover19 prime/parameter cases,247 integral coefficients,247 independent Stirling/Bernoulli ordinary-moment identities,117 natural compatibility checks,13 coefficients at each boundary parameter1 and−1,513 coefficients of natural approximations, and4 explicit low-degree values. Exact rational arithmetic only: generalized binomial coefficients, independent Stirling-to-ordinary-moment conversion and Bernoulli recurrence, plus p-adic valuations of finite natural approximations. These are finite controls, not proofs of continuity or the general moment theorem. The largest observed discrepancy is 0 (exact equality).
 
 The automatic source-register aggregation of predecessor finding E16 was read in full and matches the authored finding, still awaiting independent review. Before publication, PMIA advanced from320 to332 nodes. All twelve additions, four new baseline records,96 added suggested lines and changed metadata were read; all320 predecessor nodes,315 baseline records,14 findings and sourceVersions remain whole. The added character-evaluation and continuity interfaces are not called here; the verified actual265-node supplier artifact remains sufficient.
+
+
+## Arithmetic numerators for every p-adic unit
+
+Partial continuation preserving all279 predecessor nodes whole. Nine L1 nodes extend psi invariance and the actual ambient/intrinsic arithmetic numerators to every p-adic unit, with natural compatibility, positive moments and weak continuity. All sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.
+
+Complete published136–139/PDF37–40 freshly read on28 September2026, including Lemma4.7, Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11. Published-source digest verified. The extension to every p-adic unit is a worker deduction from the preceding weakly continuous smoothing family. Whole supplier nodes and actual signatures for psi evaluation, inverse weighting, unit restriction, its retraction and projector, and their test-function formulas were read. The five reviewed library-audit entries and the relevant native measure and topology statements were reread.
+
+### Psi invariance at every smoothing unit
+
+`DirichletPadicLFunctions:L1/padic-measure-psi-fixed` — `DirichletPadic.psi_padicSmoothedMeasure`
+
+For every u∈U, ψμ_u=μ_u. Consequently Eμ_u=μ_u−φμ_u.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit.
+
+**Proof:**
+
+1. Fix an arbitrary integral continuous test f. The exact psi evaluation is (ψμ_u)(f)=μ_u(χ_pZ·(f∘divideByP)). The transformed test is fixed as u varies. Both sides of the asserted equality are continuous in u by the preceding fixed-test continuity; this argument requires no unstated operator-norm topology.
+2. Units whose values are natural numbers form a dense subset: pull back native natural-number density in Z along the open unit-value map. A natural number equal to a unit has norm1, hence p does not divide it, by the native unit and natural norm criteria.
+3. On that dense set, exact natural compatibility reduces the assertion to the existing psi_smoothedMeasure. Apply Continuous.ext_on to each fixed test and then native functional extensionality. The argument includes u=−1 and p=2.
+4. The supplier gives E=id−P and φψ=P. Substituting ψμ_u=μ_u gives the displayed unit-restriction API.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-smoothed-measure-weak-continuity`, `DirichletPadicLFunctions:L1/padic-smoothed-measure-natural`, `DirichletPadicLFunctions:L1/measure-psi-fixed`, `PadicMeasuresIwasawaAlgebras:L2/psi-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/unit-restriction`, `PadicMeasuresIwasawaAlgebras:L2/phi-psi`, `mathlib:PadicInt.denseRange_natCast`, `mathlib:Units.isOpenMap_val`, `mathlib:Topology.Dense.preimage`, `mathlib:PadicInt.norm_units`, `mathlib:PadicInt.norm_natCast_lt_one_iff`, `mathlib:Continuous.ext_on`, `mathlib:AbstractMeasure.toCLMEquiv`.
+
+**API:**
+
+- `DirichletPadic.unitRestriction_padicSmoothedMeasure` (relation): Eμ_u=μ_u−φμ_u for every smoothing unit.
+
+**Tests:**
+
+- `SuggestedPadicNumeratorTests.psi_negative_parameter` (compatibility): At p=2, ψμ_(−1)=−δ_0.
+- `SuggestedPadicNumeratorTests.psi_is_not_unit_support` (non-example): At p=3,u=2, ψμ_u is nonzero; psi invariance does not mean unit support.
+
+**Acceptance:** The existing E3 restriction on the complex rapidly decreasing kernel is unchanged. This proof concerns integral p-adic measures only.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+### Ambient arithmetic numerator at a p-adic unit
+
+`DirichletPadicLFunctions:L1/padic-smoothed-numerator` — `DirichletPadic.padicSmoothedNumerator`
+
+Define ν_u=Jμ_u in D(Z,Z), for every u∈U.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit.
+
+**Proof:**
+
+1. Apply the actual supplier inverseWeight to the existing μ_u. Its evaluation is μ_u(ιf), its output satisfies Eν_u=ν_u, and multiplication by x gives Eμ_u. These follow directly from the exact supplier evaluation, support and two weight-composition laws.
+2. For uniqueness, if Eν=ν and Wν=Eμ_u, apply J. The identity JW=E gives ν=J(Eμ_u)=Jμ_u. This uses support rather than cancellation at x=0.
+3. At u=1, μ_u=0 and linearity gives ν_u=0. At u=−1, μ_u=−δ_0 and the supplier inverse-weight Dirac law, together with native PadicInt.inv(0)=0, gives ν_u=0.
+4. For a fixed test f, the transformed test ιf is independent of u. The preceding continuity of μ_u at that fixed test gives continuity of ν_u(f). No new generic weighting operator or topology is defined.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-smoothed-measure`, `DirichletPadicLFunctions:L1/padic-smoothed-measure-weak-continuity`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-support`, `PadicMeasuresIwasawaAlgebras:L2/weight-inverse-weight`, `PadicMeasuresIwasawaAlgebras:L2/inverse-weight-weight`, `mathlib:PadicInt.inv`.
+
+**Uses:**
+
+- Equation4-3 and Definition4.10: Supply the actual inverse-weighted numerator for every group element before denominator clearing.
+- Intrinsic arithmetic numerator and all-unit cross identities: Provide the unit-supported ambient measure whose actual restriction is used in the multiplicative measure ring.
+
+**API:**
+
+- `DirichletPadic.padicSmoothedNumerator_def` (characterisation): ν_u=Jμ_u.
+- `DirichletPadic.padicSmoothedNumerator_apply` (characterisation): ν_u(f)=μ_u(ιf).
+- `DirichletPadic.padicSmoothedNumerator_supported` (relation): Eν_u=ν_u.
+- `DirichletPadic.weight_padicSmoothedNumerator` (relation): Wν_u=Eμ_u.
+- `DirichletPadic.padicSmoothedNumerator_unique` (universal-property): Eν=ν and Wν=Eμ_u imply ν=ν_u.
+- `DirichletPadic.padicSmoothedNumerator_one` (simp): ν_1=0.
+- `DirichletPadic.padicSmoothedNumerator_neg_one` (simp): ν_(−1)=0.
+- `DirichletPadic.padicSmoothedNumerator_apply_continuous` (compatibility): For each fixed integral continuous test f, u↦ν_u(f) is continuous.
+
+**Tests:**
+
+- `SuggestedPadicNumeratorTests.ambient_identity_parameter` (degenerate): At p=2, ν_1=0.
+- `SuggestedPadicNumeratorTests.ambient_negative_parameter` (degenerate): At p=2, ν_(−1)=0.
+- `SuggestedPadicNumeratorTests.ambient_inverse_two_second` (computation): At p=3,u=1/2, the second moment of ν_u in Q_3 is−1/8.
+- `SuggestedPadicNumeratorTests.weighting_removes_zero_atom` (non-example): At p=3, μ_(−1) is nonzero but ν_(−1)=0.
+
+**Acceptance:** Both boundary parameters vanish after inverse weighting, although μ_(−1) does not vanish. The actual numerator is integral at p=2.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+### Natural compatibility of ambient numerators
+
+`DirichletPadicLFunctions:L1/padic-numerator-natural` — `DirichletPadic.padicSmoothedNumerator_nat`
+
+If a∈N, p∤a and (u:Z)=a, then ν_u=smoothedNumerator p a.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit. The equality of the unit value with the natural number is explicit.
+
+**Proof:**
+
+1. Apply J to the exact natural-parameter comparison μ_u=smoothedMeasure p a. Both numerators are defined by this same linear map, so their values agree in the existing integral measure carrier.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-smoothed-numerator`, `DirichletPadicLFunctions:L1/padic-smoothed-measure-natural`, `DirichletPadicLFunctions:L1/smoothed-numerator`.
+
+**Tests:**
+
+- `SuggestedPadicNumeratorTests.ambient_natural_three` (compatibility): At p=2,u=3 the new and old ambient numerators coincide.
+- `SuggestedPadicNumeratorTests.ambient_natural_identity` (compatibility): At p=3,u=1 the zero new numerator agrees with the old natural one.
+
+**Acceptance:** No choice of a natural representative is part of the new construction.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+### Positive moments of all-unit ambient numerators
+
+`DirichletPadicLFunctions:L1/padic-numerator-moments` — `DirichletPadic.padicSmoothedNumerator_moment`
+
+For k≥1, the image of ν_u(x^k) in Q_p is (1−p^(k−1))(1−u^k)·algebraMap_Q,Q_p(B_k/k).
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit. k is a positive natural number. B_k is the native rational bernoulli with B_1=−1/2; u and p are included in Q_p on the right.
+
+**Proof:**
+
+1. Write k=(k−1)+1. Evaluate the constructor API Wν_u=Eμ_u at x^(k−1). The supplier weight evaluation identifies its left side with ν_u(x^k).
+2. Use the preceding Eμ_u=μ_u−φμ_u. The exact Frobenius evaluation is raw pushforward by x↦px; the monomial test pulls back to p^(k−1) times itself. Native linearity therefore gives ν_u(x^k)=(1−p^(k−1))μ_u(x^(k−1)) in Z.
+3. Include this scalar identity into Q_p and substitute the all-unit ordinary moment formula for μ_u. Normalize (k−1)+1=k and the algebra map of the rational Bernoulli value. All divisions by k take place in Q before inclusion.
+4. At k=1 the Euler factor is zero, so the first moment vanishes for every u, including p=2. At u=−1 all positive moments vanish: even k have 1−u^k=0, odd k>1 have B_k=0, and k=1 has the Euler factor.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-smoothed-numerator`, `DirichletPadicLFunctions:L1/padic-measure-psi-fixed`, `DirichletPadicLFunctions:L1/padic-smoothed-ordinary-moments`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/phi-evaluation`, `mathlib:AbstractMeasure.map_apply`, `mathlib:bernoulli_eq_zero_of_odd`.
+
+**Tests:**
+
+- `SuggestedPadicNumeratorTests.ambient_first_moment_zero` (degenerate): At p=2 every ν_u has first moment0.
+- `SuggestedPadicNumeratorTests.ambient_dyadic_third_parameter` (computation): At p=2,u=3 the second moment is2/3 in Q_2.
+
+**Acceptance:** No k=0 interpolation formula is claimed. In particular the total mass of ν_u is not set to zero by totalized division at k=0.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+### Integral numerator on units for every smoothing unit
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-numerator` — `DirichletPadic.padicIntrinsicNumerator`
+
+Define λ_u=rν_u in D(U,Z).
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit.
+
+**Proof:**
+
+1. Apply the exact supplier restrictUnits to the actual ambient ν_u. The codomain is the native group U with its existing topology. This does not identify ambient and intrinsic measures definitionally.
+2. The boundary values λ_1=λ_(−1)=0 follow from the corresponding ambient values and linearity of restriction.
+3. If an intrinsic η has jη=ν_u, apply r and use the supplier retraction rj=id. It follows that η=rν_u=λ_u. The inclusion identity is promoted below.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-smoothed-numerator`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-section`.
+
+**Uses:**
+
+- Definition4.10 and Proposition4.11: Supply integral numerators indexed by every unit, as required by actual pseudomeasure membership.
+- All-unit cocycle and cross-numerator identity: Make both numerator parameters elements of the same native multiplicative unit group.
+
+**API:**
+
+- `DirichletPadic.padicIntrinsicNumerator_def` (characterisation): λ_u=rν_u.
+- `DirichletPadic.padicIntrinsicNumerator_unique` (universal-property): If jη=ν_u then η=λ_u.
+- `DirichletPadic.padicIntrinsicNumerator_one` (simp): λ_1=0.
+- `DirichletPadic.padicIntrinsicNumerator_neg_one` (simp): λ_(−1)=0.
+- `DirichletPadic.map_val_padicIntrinsicNumerator` (compatibility): jλ_u=ν_u; promoted to the inclusion node.
+- `DirichletPadic.padicIntrinsicNumerator_moment` (data): Positive moments have the exact Euler and smoothing factors; promoted to the intrinsic moment node.
+
+**Tests:**
+
+- `SuggestedPadicNumeratorTests.intrinsic_identity_parameter` (degenerate): At p=2, λ_1=0.
+- `SuggestedPadicNumeratorTests.intrinsic_negative_parameter` (degenerate): At p=2, λ_(−1)=0.
+- `SuggestedPadicNumeratorTests.intrinsic_inverse_two_second` (computation): At p=3,u=1/2, λ_u has second moment−1/8 in Q_3.
+
+**Acceptance:** This constructs integral elements of the actual unit-measure ring, with no fraction or completed-algebra identification.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+### Inclusion of the all-unit intrinsic numerator
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-inclusion` — `DirichletPadic.map_val_padicIntrinsicNumerator`
+
+For every u∈U, jλ_u=ν_u as actual ambient integral measures.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit.
+
+**Proof:**
+
+1. Substitute λ_u=rν_u and apply the exact supplier projector identity jr=E. The ambient numerator support API gives Eν_u=ν_u.
+2. Native map_apply makes this equality available on every continuous ambient test, not just monomials.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-numerator`, `DirichletPadicLFunctions:L1/padic-smoothed-numerator`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-extension-projector`, `mathlib:AbstractMeasure.map_apply`.
+
+**Tests:**
+
+- `SuggestedPadicNumeratorTests.intrinsic_inclusion_test` (compatibility): At p=2, evaluating λ_u on the restriction of any ambient continuous test equals evaluating ν_u on that test.
+
+**Acceptance:** The support identity is essential; jr is not the identity on arbitrary ambient measures.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+### Natural compatibility of intrinsic numerators
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-natural` — `DirichletPadic.padicIntrinsicNumerator_nat`
+
+If a∈N, p∤a and (u:Z)=a, then λ_u=intrinsicSmoothedNumerator p a.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit. The equality of the unit value with the natural number is explicit.
+
+**Proof:**
+
+1. Apply the same intrinsic restriction map r to the ambient natural comparison. The old intrinsic numerator is exactly r applied to the old ambient numerator.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-numerator`, `DirichletPadicLFunctions:L1/padic-numerator-natural`, `DirichletPadicLFunctions:L1/intrinsic-numerator`.
+
+**Tests:**
+
+- `SuggestedPadicNumeratorTests.intrinsic_natural_three` (compatibility): At p=2,u=3 the new and old intrinsic numerators coincide.
+- `SuggestedPadicNumeratorTests.intrinsic_natural_two` (compatibility): At p=3,u=2 the new and old intrinsic numerators coincide.
+
+**Acceptance:** All existing natural-parameter statements retain their original objects and proof certificates.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+### Positive moments of intrinsic all-unit numerators
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-moments` — `DirichletPadic.padicIntrinsicNumerator_moment`
+
+For every k≥1, the image of λ_u(v↦v^k) in Q_p is (1−p^(k−1))(1−u^k)·algebraMap_Q,Q_p(B_k/k).
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit. k is a positive natural number; all scalar inclusions and Bernoulli conventions are those of the ambient moment theorem.
+
+**Proof:**
+
+1. Evaluate jλ_u=ν_u on the ambient monomial x^k. Native map_apply identifies the pulled-back test with the kth power of the continuous unit-value map.
+2. Apply the ambient numerator moment theorem with the same positive k. No coefficient-extension measure is required: evaluate the integral measure first, then include its scalar value into Q_p.
+3. In particular k=1 gives zero by the Euler factor. This assertion makes no claim at degree0.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-inclusion`, `DirichletPadicLFunctions:L1/padic-numerator-moments`, `mathlib:AbstractMeasure.map_apply`, `mathlib:Units.continuous_val`.
+
+**Tests:**
+
+- `SuggestedPadicNumeratorTests.intrinsic_first_moment_zero` (degenerate): At p=2 every λ_u has first moment0.
+- `SuggestedPadicNumeratorTests.intrinsic_second_integral` (computation): At p=2,u=3 the second moment is2/3 in Q_2.
+
+**Acceptance:** The denominator k is a rational scalar included in Q_p. No inverse of k or2 in Z_p is assumed.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+### Weak continuity of intrinsic arithmetic numerators
+
+`DirichletPadicLFunctions:L1/padic-intrinsic-continuity` — `DirichletPadic.padicIntrinsicNumerator_apply_continuous`
+
+For every fixed f∈C(U,Z), u↦λ_u(f) is continuous. Thus u↦λ_u is continuous for native AbstractMeasure.WeakTopology.
+
+**Hypotheses:** p is any prime, including2. Put Z=Z_p and U=Z^× with the existing topologies, and μ_u=padicSmoothedMeasure p u for u∈U. All measures use the native AbstractMeasure carrier. Write E, φ, ψ, J and r for the exact supplier unitRestriction, phiMeasure, psiMeasure, inverseWeight and restrictUnits; j is native pushforward along Units.val. The inverse test ι is the existing PadicInt.inv, continuous by the supplier and zero on every nonunit.
+
+**Proof:**
+
+1. The exact supplier restriction evaluation gives λ_u(f)=ν_u(z_V(f∘h⁻¹)), where h:U≃the clopen unit locus and z_V is its existing continuous extension by zero. This transformed ambient test is fixed as u varies.
+2. Apply the ambient numerator fixed-test continuity to that test. Its proof ultimately evaluates the original smoothing measure at ι times a fixed continuous test.
+3. The native weak topology is induced by the map taking a measure to all its test evaluations. The preceding continuity for every f gives continuity into the product and therefore the stated weak continuity. No topology on a pseudomeasure module or operator-norm continuity is asserted.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/padic-intrinsic-numerator`, `DirichletPadicLFunctions:L1/padic-smoothed-numerator`, `PadicMeasuresIwasawaAlgebras:L2/intrinsic-unit-restriction-evaluation`, `mathlib:AbstractMeasure.WeakTopology`.
+
+**API:**
+
+- `DirichletPadic.padicIntrinsicNumerator_continuous_weak` (continuity): The actual intrinsic numerator family is continuous into the native weak measure topology.
+
+**Tests:**
+
+- `SuggestedPadicNumeratorTests.fixed_test_negative_limit` (compatibility): At p=2, λ_u(f) tends to0 as u tends to−1, for every fixed integral unit test.
+- `SuggestedPadicNumeratorTests.fixed_test_identity_limit` (compatibility): At p=3, λ_u(f) tends to0 as u tends to1, for every fixed integral unit test.
+
+**Acceptance:** This is a parameter-continuity theorem for the specific arithmetic family. No generic measure operator is replanned.
+
+**Source:** Lemma4.7 and Proposition4.8, equation4-3, Definitions4.9–4.10 and Proposition4.11 with proof, published137–139/PDF38–40; complete published136–139 freshly read28September2026. Worker extension of the arithmetic numerator to every unit of Z_p using the preceding integral smoothing family, the existing psi/inverse-weight operators and the exact intrinsic restriction. Generic operators and topologies remain with PMIA and Mathlib. The k=1 Euler factor is retained as zero; E4 and all predecessor findings remain unchanged. No complex kernel for negative parameters is asserted.
+
+**Remaining:** The integral smoothing measures and their actual ambient and intrinsic inverse-weighted numerators now exist at every p-adic unit, with natural compatibility, weak continuity and positive Bernoulli moments. Prove the all-unit smoothing cocycle, cross-numerator identity and parity. Then use the supplied regular Dirac difference at p+1 to construct the actual arithmetic fraction, verify its all-unit pseudomeasure membership, parameter independence, positive interpolation and uniqueness. The completed-group-algebra comparison remains requested from PMIA L1. Analytic branches, logarithmic p-adic values, pure p-power conductor, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.
+
+### Arithmetic numerators for every p-adic unit validation
+
+All 279 predecessor nodes, 365 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 9 nodes, 23 named suggested declarations and 20 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 431 reachable nodes, 2036 edges and 466 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 777 expected placeholder warnings. Source and artifact audits cover 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and the verified actual 265-node PMIA artifact. The current 332-node PMIA source preserves that artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Seven complete native lemmas verify density of natural units, extension of a fixed-test identity from that dense set, continuity after a fixed test transformation, the native weak-continuity criterion, monomial pushforward scaling, the Euler-factor calculation and the zero value of the native partial inverse. The dense-set lemma takes the stated test identity as an explicit input; it is not a completed proof of the roadmap psi theorem. The probe elaborates against 2012 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact controls cover19 unit parameters,228 independent Amice-to-numerator moments and their integrality,1287 compatible residue cells,1287 psi cell identities,1287 integral cell values,57 zero unit-mass sums,304 finite weighted approximation bounds,208 cells at each boundary parameter and4 explicit values. Exact rational arithmetic. Independently computed generalized-binomial Amice coefficients and Stirling conversion are compared with Bernoulli numerator moments. A finite residue model has mass(c mod N)=(c-u*d)/N+(u-1)/2, where d is the residue of u^{-1}c. Compatibility, psi rescaling, integrality, boundary atoms, zero unit mass and weighted Riemann-sum congruences are checked at the listed finite levels. The model and the observed congruence bounds are finite controls, not a proof that it represents the general p-adic family or a proof of continuity. The largest observed discrepancy is 0 (exact identities and valuation comparisons).
+
+All54 captured inputs remain unchanged during this checkpoint.
