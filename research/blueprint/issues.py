@@ -434,6 +434,21 @@ def deliverables_complete(job, root=REPO):
             covered = {entry.get("roadmapId") for entry in result}
             return (set(job.get("roadmapIds") or []) <= covered
                     and not any(entry.get("assessmentStatus") == "partial" for entry in result))
+        if job["kind"] == "review":
+            # A blueprint or design review finishes when it records its verdict in the
+            # packet's review object, naming itself; a checkpoint writes only its report.
+            if any(target.startswith(("BP-", "DESIGN-")) for target in job.get("after") or []):
+                packet_path = next((path for path in paths if path.parent.name == "packets"), None)
+                if packet_path is not None:
+                    review = json.loads(packet_path.read_text()).get("review") or {}
+                    return (review.get("reviewer") == f"independent-review-{job['id']}"
+                            and review.get("status") in ("accepted", "needs_changes", "rejected"))
+            # A red-team verification finishes when every finding has a verdict.
+            verdicts = next((path for path in paths if path.parent.name == "redteam" and path.name.endswith(".review.json")), None)
+            if verdicts is not None:
+                result = json.loads(verdicts.with_name(verdicts.name.replace(".review.json", ".result.json")).read_text())
+                judged = {item.get("finding") for item in json.loads(verdicts.read_text()).get("findings", []) if item.get("verdict")}
+                return {item.get("id") for item in result.get("findings", [])} <= judged
         if job["kind"] in ("link", "paper", "redteam"):
             return json.loads(paths[0].read_text()).get("status") == "complete"
         if job["kind"] == "errata":
