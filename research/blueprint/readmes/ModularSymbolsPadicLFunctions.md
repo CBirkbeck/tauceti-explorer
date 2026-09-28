@@ -1,6 +1,7 @@
 # Modular symbols and analytic p-adic L-functions of modular forms — blueprint
 
-This blueprint covers stages L0–L4. After two checkpoints, **L0 is source-decomposed**. Stages L1–L4 are not yet read.
+This blueprint covers stages L0–L4. After three checkpoints, **L0 and L1 are source-decomposed**. Stages L2–L4 are not
+yet read.
 
 L0 plans Pollack–Stevens' **Hom-side (cohomological) modular symbols** for arbitrary coefficient modules. These are what
 L2's distribution-valued symbols need. The homological side is imported from Tau Ceti's ModularForms roadmap,
@@ -280,6 +281,53 @@ trivially, and after ⊗ℂ it is spanned by (1 ± ι)ψ_f. It rests on:
 
 This is the input for L1's period lines.
 
+## Layer L1: periods and critical values
+
+Library module: `TauCeti/NumberTheory/ModularSymbols/Periods`.
+
+RS-08 keeps for L1:
+- signed period lines and saturated integral lattices;
+- the twisted Mellin formula, with every normalization tracked;
+- algebraicity with the parity sign;
+- the RJW B.1 comparison.
+
+It imports the classical L-functions from Tau Ceti ModularForms Layer 7 (requested) and the coefficient field from
+Layer 8. The one-dimensional eigenspaces are L0's `eigenspace-dimension`.
+
+**Definition: period lines** (`periodLine`, `period`; node `period-lines`; planet). L_f^± = Symb(V_k(K_f))^±[λ_f] is a
+K_f-line, and ψ_f^± = (1 ± ι)ψ_f lies in L_f^± ⊗ ℂ. A period is defined only after a basis is chosen, and
+Ω(λφ) = λ⁻¹Ω(φ); this identity is proved in Lean.
+
+**Construction: integral lattices** (node `integral-period-lattices`). The saturated lattice L_f^± ∩ Symb(V_k(𝒪)) is
+free of rank one, so the integral period is canonical up to 𝒪^×.
+- It depends on V_k(𝒪) versus its dual when p ≤ k.
+- Multiplicity one is needed only to compare with Hecke-module generators.
+
+**Theorem: the twisted Mellin formula** (node `twisted-mellin-formula`; planet).
+- The formula: Σ_{a mod m} χ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)·j!/(−2πi)^j·L(f, χ̄, j+1).
+- Its proof: Birch's lemma plus Mellin, with the χ versus χ̄, Gauss sum, path, sign of a/m and 2πi conventions all
+  explicit.
+- Numerical check with PARI/GP 2.17.2, for characters of order 3 and 6 modulo 7:
+  - 11a1: agreement to 10⁻¹⁴;
+  - the level-5 weight-4 newform with j = 0, 1, 2: agreement to 10⁻¹¹.
+
+  The reading with L(f, χ, j+1) fails.
+
+**Theorem: algebraicity** (node `critical-value-algebraicity`; planet). The twisted sum sees only the sign
+ε = (−1)^{k−j}χ(−1), which is (−1)^jχ(−1) for even k. Hence τ(χ)j!/(−2πi)^j·L(f, χ̄, j+1)/Ω_f^ε ∈ K_f(χ).
+
+**Lemma: p-stabilized forms** (node `p-stabilised-euler-factors`).
+- L(f_α, s) = (1 − βp^{−s})L(f°, s).
+- The twisted L-functions agree for conductor pⁿ with n ≥ 1.
+
+**Theorem: the RJW B.1 comparison** (node `rjw-b1-comparison`; planet).
+- For n ≥ 1, B.1's right side is exactly (−1)^{j+1}/(2πiΩ) times the Riemann sum through the cusps a/pⁿ. It is also
+  −ε(−1)^k/(2πiΩ) times the sum through −a/pⁿ; only this second prefactor depends on the sign alone.
+- So L2 must normalize through −a/pⁿ (as Pollack–Stevens (1) does) for B.1 to hold with sign-only periods.
+- n = 0 gives the two Euler factors.
+- RJW's printed B.1 has χ̄. The stage text's "L(f,chi,j+1)" drops the bar, so no source correction is needed. The bars
+  were read on the page images, because text extraction loses them.
+
 ## Mistakes found in the sources
 
 **E1 (error, reaches a stated result): the sign in Pollack–Stevens Theorem 2.6 and Corollary 2.7 (p. 12).** The same
@@ -307,10 +355,10 @@ No published erratum was found, either on Numdam or in the Crossref record.
   - ModularForms 10C: the dimension formula;
   - ModularCurvesPartII R14.3: the topological comparison.
 
-  The integral comparison of Symb_Γ(V_k(ℤ)) with Hom(𝕄, ℤ) goes through the divided-power lattice. It belongs with
-  L1's integral lattices.
-- **L1–L4 are not yet read:**
-  - L1: periods and critical values;
+  The integral comparison of Symb_Γ(V_k(ℤ)) with Hom(𝕄, ℤ) goes through the divided-power lattice. L1's
+  `integral-period-lattices` records the dependence on this choice.
+- **L1 is source-decomposed.** It depends on ModularForms Layer 7 (L-functions), which is requested.
+- **L2–L4 are not yet read:**
   - L2: small slope and the control theorem;
   - L3: critical slope;
   - L4: examples.
@@ -321,3 +369,4 @@ No published erratum was found, either on Numdam or in the Crossref record.
   DOI 10.24033/asens.2139 (Numdam open access).
 - G. Wiese, *Computational Arithmetic of Modular Forms (course notes)*, arXiv:1809.04645v1 (2018).
 - R. Pollack, *Overconvergent modular symbols*, Arizona Winter School 2011 lecture notes.
+- J. Rodrigues Jacinto and C. Williams, *An introduction to p-adic L-functions*, arXiv:2309.15692v2 (2024), Theorem B.1.
