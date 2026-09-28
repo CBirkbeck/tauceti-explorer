@@ -1,4 +1,54 @@
-# BP-PadicFamilies: checkpoint 3 (Claude Code cc-39fac3)
+# BP-PadicFamilies: checkpoint 4 (Claude Code cc-39fac3)
+
+Claude Code, session `cc-39fac3`, 28 September 2026. Refs #965; the bot confirmed the claim. **Status: partial.**
+
+Checkpoint 4 plans L5 (Hida theory over totally real fields) from Skinner–Wiles, *Residually reducible
+representations and modular forms*, Publ. Math. IHÉS 89 (1999), §3.2. It is a Numdam open-access scan with an OCR
+text layer; the sha256 is recorded, and the formulas were read on the page images. There are 5 nodes and 3 planets:
+- **`totally-real-weight-algebra`** (planet). G(U) ≅ (𝒪_F ⊗ ℤ_p)^× × Z(U). δ_F is the rank of the free part of Z(U),
+  which is 1 + the Leopoldt defect. Λ′_𝒪 has δ_F + d variables, 𝒪[[G(U)]] is finite free over it, and the weight-two
+  arithmetic points are dense.
+- **`hida-freeness`** (planet): Proposition 3.3. M_∞(U) and M⁺_∞(U) are free over Λ′_𝒪 when the action is free.
+- **`hida-hecke-finite`**: Corollary 3.4. T_∞(U, 𝒪) is finite and torsion-free over Λ′_𝒪, semilocal and complete.
+- **`hida-control-nearly-ordinary`** (planet): Proposition 3.7. It gives parallel weight (μ + 2)·t. The weight-two case
+  is proved from the definitions; for μ > 0, Hida [H2, Corollary 2.5] is cited and unread, and recorded as a gap.
+- **`algebraic-primes-dense`**: Lemma 3.8 and Corollary 3.9, with the lying-over and dimension step written out.
+
+**Division of labour (RS-08).** The quaternionic modules, the ordinary projector on them and the towers M_∞, H_∞ belong
+to OrdinaryAutomorphicFormsAndModularityLifting R21.1 (PR #3841, merged before this one); its nodes are cited directly.
+- L5 proves Hida's theorems on those modules. This answers OAFML's request to PadicFamilies L5, except for Proposition
+  3.7 in weight > 2 and Wiles' Λ-adic forms.
+- OAFML R21.1's `quaternionic-nearly-ordinary-hecke-algebra` describes the Λ′_𝒪-structure itself. Its next checkpoint
+  should cite `totally-real-weight-algebra` for Λ′_𝒪.
+
+**New source issue: E11 (gap, reaches a stated result).** Proposition 3.3 states the rank
+rank_𝒪 eH⁰(X(U⁰_1), 𝒪) × #G(U)_tors, and its proof says it "clearly suffices" to prove the claim without e.
+- Removing e only gives projectivity over 𝒪[G(U_a)]. Constant rank needs the components of all prime-to-p torsion
+  characters to agree, which the argument does not show.
+- Freeness over Λ′_𝒪, the only form used downstream, does follow.
+- Hida's [H2] was not obtained: Project Euclid refused automated access. The Lean file has a ℤ/6 model of
+  projective-but-not-free.
+
+**New gap:** Hida's control theorem in weight μ + 2 > 2.
+
+**New requests:** HilbertModularVarietiesAndShimuraCurves R18.3 (free action at an auxiliary prime, invariants under
+free action) and GL2AutomorphicRepresentationsAndTransfer R16.6 (Hilbert cusp forms).
+
+**Lean.** An L5 section adds `weightVariables`, `NearlyOrdinaryWeightAlgebra` (an `MvPowerSeries` abbreviation), three
+checked tests and signature comments. It compiles with 0 errors, and the 60 warnings are all for `sorry`.
+
+**Totals.** 66 nodes, 93 API items, 69 unit tests, 22 planets, 56 baseline declarations, 11 requests, 6 gaps and 11
+source issues. `check_blueprint.py`: 0 errors, 0 warnings.
+
+## L5 remaining
+
+- Hida's control in weight > 2 (the gap above), from Hida, Ann. of Math. 128 (1988) and ASPM 17 (1989).
+- The indefinite Hilbert and Shimura-curve cohomology (R18.4), and odd-degree F.
+- Residual localisation and trace in p-power level beyond the quaternionic towers.
+- Period modules as invertible modules.
+- The comparison of the F = ℚ slice with L0.
+
+# Checkpoint 3 (Claude Code cc-39fac3)
 
 Claude Code, session `cc-39fac3`, 28 September 2026. Refs #965; the bot confirmed the claim. **Status: partial.**
 

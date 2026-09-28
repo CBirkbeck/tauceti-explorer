@@ -28,6 +28,7 @@ import Mathlib.Data.Fintype.Pigeonhole
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Analysis.Complex.Basic
 import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.RingTheory.MvPowerSeries.Basic
 
 open scoped Nat
 
@@ -430,5 +431,44 @@ theorem criticalPadicL_eq_zero_of_thetaCritical (h : IsThetaCritical fβ) (j ≤
 -/
 
 end CriticalSlope
+
+/-! ## L5. Hida theory over totally real fields (checkpoint 4)
+
+The definite quaternionic towers M_∞, H_∞ and the algebra T_∞(U, 𝒪) are
+OrdinaryAutomorphicFormsAndModularityLifting R21.1; Hilbert modular forms are not in the pinned libraries.
+The weight algebra is prototyped against Mathlib. -/
+
+section TotallyReal
+
+/-- `PadicFamilies:L5/totally-real-weight-algebra`: Λ′_𝒪 has δ_F + d variables (δ_F for the free part of
+Z(U), d = [F : ℚ] for the torus at p). -/
+def weightVariables (d δ : ℕ) : ℕ := δ + d
+
+/-- `Λ′_𝒪 = 𝒪[[X_1, …, X_{δ_F}, Y_1, …, Y_d]]`. -/
+abbrev NearlyOrdinaryWeightAlgebra (O : Type*) [CommRing O] (d δ : ℕ) : Type _ :=
+  MvPowerSeries (Fin (weightVariables d δ)) O
+
+-- Unit tests.
+/-- F = ℚ: d = δ_ℚ = 1, two variables (weight and twist). -/
+example : weightVariables 1 1 = 2 := rfl
+/-- F real quadratic with Leopoldt's conjecture: three variables. -/
+example : weightVariables 2 1 = 3 := rfl
+/-- Source issue `E11`, in miniature: `3` is an idempotent of `ℤ/6 ≅ 𝔽₂ × 𝔽₃`, and `3 · ℤ/6 ≅ 𝔽₂` is a
+direct summand (projective) that is not free, since 2 is not a power of 6. A direct summand of a free module
+over a product of local rings need not be free of the rank seen on one factor. -/
+example : (3 : ZMod 6) * 3 = 3 := by decide
+
+/-
+Signatures (OrdinaryAutomorphicFormsAndModularityLifting R21.1 supplies mInfinity, hidaHeckeAlgebra):
+theorem mInfinity_free (hfree : FixedPointFree U) : Module.Free Λ′ (mInfinity U 𝒪)            -- hida-freeness
+theorem hidaHeckeAlgebra_finite : Module.Finite Λ′ (hidaHeckeAlgebra U 𝒪)                        -- hida-hecke-finite
+theorem exists_nearlyOrdinary (λ : hidaHeckeAlgebra U 𝒪 →ₐ[𝒪] ℚ̄_p) (hZ : λ ∘ S = ψ * ε ^ μ)
+    (hψ : IsOfFinOrder ψ) (hφ : IsOfFinOrder φ) :
+    ∃ π, IsNearlyOrdinary π ∧ π.weight = (μ + 2) • t ∧ ∀ ℓ ∉ bad U, λ (T ℓ) = π.eigenvalue (T ℓ)   -- hida-control-nearly-ordinary
+theorem algebraicPrimes_dense (Q ∈ minimalPrimes (hidaHeckeAlgebra U 𝒪)) :
+    Dense {P : PrimeSpectrum (hidaHeckeAlgebra U 𝒪 ⧸ Q) | IsAlgebraicOfWeightTwo P}           -- algebraic-primes-dense
+-/
+
+end TotallyReal
 
 end TauCeti.PadicFamilies
