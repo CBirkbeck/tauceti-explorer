@@ -1,0 +1,41 @@
+{
+ "roadmap": "SemisimpleAlgebras",
+ "edits": [
+  {
+   "file": "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md",
+   "line": 375,
+   "old": "- T. Y. Lam, *A First Course in Noncommutative Rings*, 2nd ed., Springer GTM 131 (2001) - semisimple rings,",
+   "new": "- P. L. Clark, *Noncommutative algebra*, lecture notes, University of Georgia (2012), §§2–4, with Mathlib's `jacobson_density` for the density theorem - semisimple rings,"
+  }
+ ],
+ "citations": [
+  {
+   "book": "LAM-FIRST-COURSE-NONCOMMUTATIVE-RINGS",
+   "file": "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md",
+   "line": 375,
+   "statement": "A reference-list entry, continued on line 376. It supports the whole roadmap on five topics: semisimple rings, the Jacobson radical, the (Jacobson–Chevalley) density theorem, the Wedderburn–Artin theorem, and an introduction to Brauer groups. These are the topics of Layers 0–3 and the entry to Layer 6. The layers carry their own pins to Mathlib; this line is the general textbook reference behind them.",
+   "outcome": "replaced",
+   "source": "CLARK-NONCOMMUTATIVE-ALGEBRA",
+   "locator": "Clark, Noncommutative Algebra (2012): §2.1 (semisimple modules and rings, Proposition 2.4 and Corollary 2.6, pp. 18–20); Theorems 2.8, 2.16 and 2.19 (Wedderburn–Artin, Parts I–III, pp. 21, 24, 26); §3, Proposition 3.6, Theorem 3.9 and Corollaries 3.11–3.13 (the Jacobson radical, pp. 31–33); §4.2, Theorem 4.8 (the Brauer group, p. 44), with §§4.3–4.4 (Skolem–Noether, double centralizer). Density theorem: Mathlib 082e2d3, Mathlib/RingTheory/SimpleModule/Basic.lean, jacobson_density (line 560) and Module.Finite.toModuleEnd_moduleEnd_surjective (line 572).",
+   "url": "http://alpha.math.uga.edu/~pete/noncommutativealgebra.pdf",
+   "evidence": "The file is the author's own copy, in his directory at the University of Georgia. It is 81 pages, marked '© Pete L. Clark, 2012'; the PDF metadata give a creation date of 30 June 2015. The author's host alpha.math.uga.edu did not answer from here on 28 September 2026, on either http or https. The file was therefore read from the Internet Archive's capture of that exact URL (timestamp 20241118181457): 677325 bytes, SHA-256 6f3f590c703d46f6acd84e94880de20330f5ec229ee0663d0f896a9b6920f906. Four of the five topics were read there with proofs, for arbitrary rings as in Lam:\n- semisimple modules and rings, §2.1;\n- Wedderburn–Artin in three parts: M_n(D) is simple and semisimple (Theorem 2.8, p. 21); a left semisimple ring is a finite product of matrix rings over the division rings End(V_i) (Theorem 2.16, p. 24); for a simple ring, left Artinian ⇔ minimal left ideal ⇔ semisimple ⇔ ≅ M_n(D) (Theorem 2.19, p. 26);\n- the Jacobson radical, as the common annihilator of simple modules (Proposition 3.6), Nakayama's lemma (Theorem 3.9), left–right symmetry (Corollary 3.11), its characterisations (Corollary 3.12) and 'an Artinian ring is semisimple iff rad R = 0' (Corollary 3.13);\n- the Brauer group of a field as a commutative group under tensor product, with inverse the opposite algebra (Theorem 4.8, p. 44), after the first properties of central simple algebras (§4.1), and followed by Skolem–Noether and the double centralizer theorem (§§4.3–4.4) and splitting fields (§6).\nThe notes do not contain the Jacobson density theorem: a search of the full text finds no occurrence of 'density' in that sense. So the density theorem is cited to Mathlib instead. At the pinned commit, jacobson_density states that for a semisimple R-module M, every f ∈ End_{End_R M}(M) agrees on any finite set with the action of some r ∈ R. That is the Jacobson–Chevalley density theorem in Lam's form (Lam, Theorem 11.16), and the roadmap's own Mathlib section (line 104) already names it. Line 376, which continues the sentence and lists the five topics, is unchanged: the claim is the same and only the references change. The title is written in sentence case because the register's pattern for Farb–Dennis's book of the same title, \\*Noncommutative\\ Algebra\\*, would otherwise also claim this citation.",
+   "reason": null
+  }
+ ],
+ "register": [
+  {
+   "id": "CLARK-NONCOMMUTATIVE-ALGEBRA",
+   "title": "Pete L. Clark, Noncommutative Algebra (lecture notes, 2012)",
+   "kind": "notes",
+   "access": "free",
+   "urls": [
+    "http://alpha.math.uga.edu/~pete/noncommutativealgebra.pdf"
+   ],
+   "match": [
+    "Clark, \\*Noncommutative algebra\\*",
+    "alpha\\.math\\.uga\\.edu/~pete/noncommutativealgebra"
+   ],
+   "note": "The author's own lecture notes, 81 pages with proofs, posted by him in his directory at the University of Georgia (alpha.math.uga.edu/~pete/) among his expository notes. They cover semisimple rings and Wedderburn–Artin, radicals, central simple algebras and the Brauer group, quaternion algebras, splitting fields, reduced norms and cyclic algebras. They do not cover the density theorem. The host did not answer on 28 September 2026; the Internet Archive holds captures of the same URL (for example 20241118181457). The title is the same as Farb–Dennis's GTM 144, whose register pattern is \\*Noncommutative\\ Algebra\\*, so cite these notes as 'Clark, *Noncommutative algebra*'."
+  }
+ ]
+}
