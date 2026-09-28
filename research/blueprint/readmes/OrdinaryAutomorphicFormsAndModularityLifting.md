@@ -1,6 +1,6 @@
 # Ordinary automorphic forms and ordinary modularity lifting — blueprint
 
-This blueprint covers stages R21.1–R21.6. After four checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3, R21.4 and
+This blueprint covers stages R21.1–R21.6. After five checkpoints, **R21.2 is source-decomposed**; R21.1, R21.3, R21.4 and
 R21.5 are partial; R21.6 is not yet read. The roadmap belongs to the restructured family RS-08, whose `keeps` are followed:
 - R21.1 only applies the ordinary projector to actual arithmetic modules;
 - R21.2 keeps the nearly ordinary and Eisenstein statements that Skinner–Wiles need beyond cuspidal Hida theory;
@@ -8,7 +8,7 @@ R21.5 are partial; R21.6 is not yet read. The roadmap belongs to the restructure
   actually uses for reducible residual representations.
 
 The source is C. M. Skinner and A. J. Wiles, *Residually reducible representations and modular forms*, Publ. Math.
-IHÉS 89 (1999), 5–126, §§2–4 and Appendix A. It is open access on Numdam as an OCR'd scan; every formula below was checked on the
+IHÉS 89 (1999), 5–126, §§2–8 and Appendix A. It is open access on Numdam as an OCR'd scan; every formula below was checked on the
 page images.
 
 ## Purpose
@@ -422,9 +422,43 @@ holds for all data with smaller Σ, then (P2) holds for 𝒟. There are three st
 2. Linear conditions and the dimension bounds produce a deformation of ρ_c.
 3. Show that deformation is of type 𝒟_c and pro-modular, via the level statements.
 
-**Theorem: (P1)** (node `property-p1`). Proposition 8.4 reduces (P1) to the minimal case, Proposition 8.1 (R = T at nice
-primes), by twisting. Proposition 8.1 depends on §§5–8, which are the next checkpoint and are recorded as a temporary
-gap.
+**Theorem: (P1)** (node `property-p1`). Proposition 8.4 reduces (P1) to Proposition 8.1 (R = T at nice primes) by
+twisting.
+
+**Definition: formal patching data** (node `formal-patching-datum`). These are the axioms (5.1)–(5.11) over A = k[[T]]:
+- rings R^{(N)}_a, finite free over A, with the level algebras A_N ⊇ B_N;
+- trace subrings R^{tr(N)};
+- modules M^{(N)}_a, free over A_a ⊗ K;
+- the element x^{(N)}.
+
+The patching is on deformation rings. Abstract patching is imported from DeformationAndDerivedPatchingAlgebra R03.5.
+
+**Theorem: formal patching** (node `formal-patching-theorem`; planet). This is Lemmas 5.1–5.6 and Propositions 5.7–5.9.
+R_∞ = K[[x_1, …, x_n]], M_∞ is free, M^{(0)} ⊗ K ≅ (R^{(0)} ⊗ K)^e, and R^{(0)} ⊗ K is a complete intersection. The
+proof uses Auslander–Buchsbaum and de Smit–Rubin–Schoof Lemma 4.1 (R03.3).
+
+**Lemma: characteristic-p irreducibility** (node `char-p-adjoint-irreducibility`). This is Lemmas 6.1–6.5, for ρ over
+A = k[[λ]]: ad⁰ρ is irreducible, and there are elements with infinite-order eigenvalues in A.
+
+**Theorem: auxiliary primes** (node `auxiliary-prime-sets`). This is Proposition 6.10: there are sets Q of r primes with
+Nm(w) ≡ 1 mod p^m, prescribed Frobenius, and lim H_{Σ_Q} ≅ (K/A)^r ⊕ bounded. The proof combines Wiles' formula (6.3),
+the local estimates (6.4)–(6.9), Lemma 6.9 and Chebotarev (R04.5).
+
+**Lemma: ψ(𝒟, 𝔭)** (node `minimum-level-surjection`). This is Lemma 7.1: a surjection (R̃^min)_{𝔭̃} ↠ (T̃^min)_{𝔭̃} at a
+nice prime, through Proposition 2.15.
+
+**Theorem: R = T at minimal level** (node `minimum-level-r-equals-t`). This is Proposition 7.3, for 𝒟 = 𝒟_c:
+- ψ is an isomorphism;
+- the ring is a reduced complete intersection over Λ̃_{𝒪,P};
+- M̃ is free.
+
+The §5 data are built from the Q_N of Proposition 6.10 and Lemmas 3.19, 3.21 and 3.29.
+
+**Lemma: congruence maps** (node `level-raising-congruence-maps`). This is §8.2: Lemma 8.2 and the maps Φ_i, Φ̂_i, Ψ_i,
+Θ_i with the level-raising factors η_i.
+
+**Theorem: R = T at nice primes** (node `nice-prime-r-equals-t`; planet). This is Proposition 8.1. It is proved by
+induction along 𝒟_c ≤ ⋯ ≤ 𝒟 with de Smit–Rubin–Schoof Criterion I, via (8.4), (8.5) and (8.7).
 
 **Theorem: the Main Theorem** (node `main-theorem`; planet). Let ρ over any totally real F be irreducible, nearly
 ordinary of type 𝒟, with det ρ = ψε^μ, μ ≥ 1. If ρ admits a solvable, even-degree, permissible base change L with
@@ -472,6 +506,8 @@ trace ρ^mod(g_iσ_y))" should have (β_i − α_i)^{−1}, and likewise for T_0
   Proposition 4.2 ("Lemma 2.12", pp. 67 and 70; "Proposition 2.12", p. 69).
 - The proof of Proposition 4.2 (p. 66) cites "Proposition 3.14" for Proposition 3.18 (existence of the permissible ideal).
 
+**E8 (misprint, reaches nothing): §8.4, p. 119.** "By Proposition 7.2" should read Proposition 7.3; 7.2 is a Remark.
+
 **E7 (misprint, reaches nothing): the proof of Theorem B, p. 78.** The four conditions are listed as (i), (ii), (iii),
 (vi); the last should be (iv).
 
@@ -486,13 +522,8 @@ No erratum was found on Numdam or in the Crossref record of doi:10.1007/BF026988
 - **R21.2 is source-decomposed** (checkpoint 3).
 - **R21.3 is partial.** The L8 determinant-versus-flag comparison is now planned in LocalGaloisDeformationRings L8, and
   is recorded here only when a consumer needs it.
-- **R21.4 is partial.** Still to do: §§5–8, which give Proposition 8.1 and are a temporary gap:
-  - formal patching (importing DeformationAndDerivedPatchingAlgebra R03.5–R03.6);
-  - cohomology estimates (GlobalGaloisDeformations R04.5);
-  - nice primes at minimum level;
-  - raising the level.
-
-  The Raynaud gap also remains.
+- **R21.4 is partial.** Only the Raynaud gap remains. The verification of (5.10)–(5.11) and §8.3's commutative algebra
+  are summarised inside the proof steps.
 - **R21.5 is partial.** Still to do:
   - the p = 3 branch (Dieulefait–Pacetti, with Berger–Li–Zhu);
   - Khare's use of Skinner–Wiles;
