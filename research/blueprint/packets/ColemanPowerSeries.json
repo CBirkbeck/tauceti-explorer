@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial arithmetic norm checkpoint: continuous relative field, integral and unit norms on the actual cyclotomic tower; Frobenius evaluation and coordinate/matrix specialization; the integral and unit Coleman norm/evaluation square; residue preservation and adjacent compatibility of norm-fixed series. Preserve the dyadic signs and leave inverse-limit construction and interpolation explicit.",
+  "summary": "This partial checkpoint constructs actual compact full and principal norm-compatible unit groups, their common residue and the continuous closed-image arithmetic evaluation from norm-fixed series. It retains all preceding cyclotomic, norm and Coleman-map plans,13 inherited source findings,6 gaps,12 requests and zero closed stages; interpolation bijectivity and module/action structures remain precise targets.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1843,6 +1843,55 @@
         "module": "Mathlib/RingTheory/PowerSeries/PiTopology.lean",
         "provides": "Native polynomial truncations converge to the power series in the coefficient topology over a topological commutative semiring.",
         "checked": "Full native declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026; index used only as a locator."
+      },
+      {
+        "ref": "mathlib:MonoidHom.eqLocus",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "The native subgroup equalizer of two monoid homomorphisms from a group to a monoid.",
+        "checked": "Full native statement, body and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Index only locator; generic unit compactness and ProfiniteGrp limits separately inspected, not replanned."
+      },
+      {
+        "ref": "mathlib:Subgroup.coe_iInf",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Group/Subgroup/Lattice.lean",
+        "provides": "The carrier of a native infimum of subgroups is the intersection of their carriers.",
+        "checked": "Full native statement, body and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Index only locator; generic unit compactness and ProfiniteGrp limits separately inspected, not replanned."
+      },
+      {
+        "ref": "mathlib:MonoidHom.ker",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+        "provides": "The native kernel subgroup of a group homomorphism, consisting of elements mapped to1.",
+        "checked": "Full native statement, body and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Index only locator; generic unit compactness and ProfiniteGrp limits separately inspected, not replanned."
+      },
+      {
+        "ref": "mathlib:IsLocallyConstant.iff_exists_open",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "Local constancy is equivalent to having at each domain point an open neighborhood on which the function has that point’s value.",
+        "checked": "Full native statement, body and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Index only locator; generic unit compactness and ProfiniteGrp limits separately inspected, not replanned."
+      },
+      {
+        "ref": "mathlib:IsLocallyConstant.continuous",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
+        "provides": "A locally constant function is continuous for any topology on its codomain.",
+        "checked": "Full native statement, body and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Index only locator; generic unit compactness and ProfiniteGrp limits separately inspected, not replanned."
+      },
+      {
+        "ref": "mathlib:isClosed_iInter",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Basic.lean",
+        "provides": "An arbitrary intersection of closed sets is closed.",
+        "checked": "Full native statement, body and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Index only locator; generic unit compactness and ProfiniteGrp limits separately inspected, not replanned."
+      },
+      {
+        "ref": "mathlib:IsClosed.isCompact",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Compactness/Compact.lean",
+        "provides": "A closed subset of a compact topological space is compact.",
+        "checked": "Full native statement, body and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Index only locator; generic unit compactness and ProfiniteGrp limits separately inspected, not replanned."
       }
     ]
   },
@@ -12153,6 +12202,749 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-reduction-continuity",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Continuity of cyclotomic reduction",
+      "kind": "lemma",
+      "statement": "For every n, red_n:O_n→ZMod p is continuous.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "For x,y∈O_n, the ring-homomorphism laws and cyclotomic-reduction-norm-kernel give red_n(y)=red_n(x) whenever ‖y−x‖<1.",
+        "The open norm ball of radius1 around x therefore lies in the fiber through x. Native IsLocallyConstant.iff_exists_open gives local constancy, and its continuity theorem gives the result for the native finite discrete residue topology."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-reduction-norm-kernel",
+        "mathlib:IsLocallyConstant.iff_exists_open",
+        "mathlib:IsLocallyConstant.continuous"
+      ],
+      "acceptance": [
+        "This uses the fixed residue identification of the actual integral closure, not a newly chosen local-field structure."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "continuous_reduction"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/norm-compatible-units",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The actual norm-compatible unit group",
+      "kind": "construction",
+      "statement": "Define normCompatibleUnits(p) as the native subgroup of V consisting of u with N_n(u_(n+1))=u_n for every n. It has the inherited product-subtype topology.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "For each n, form the native equalizer subgroup of N_n composed with the successor coordinate and the nth coordinate projection. Take their infimum in the native complete subgroup lattice.",
+        "The native equalizer and infimum carrier formulas give exactly the displayed compatibility condition. Multiplication, inversion, identity and all integer powers are inherited coordinatewise. Native subtype extensionality gives equality from equality of every coordinate.",
+        "Coordinate evaluation is continuous as a product projection after the subtype inclusion. For a continuous monoid homomorphism f:H→V satisfying all adjacent equations, corestrict f to the subgroup; native induced-topology continuity supplies its continuous lift. Coordinate extensionality proves uniqueness. No general inverse-limit functor is rebuilt."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/continuous-unit-norm",
+        "mathlib:MonoidHom.eqLocus",
+        "mathlib:Subgroup.coe_iInf",
+        "mathlib:Subgroup"
+      ],
+      "acceptance": [
+        "Adjacent equations determine the entire sequential norm diagram by iteration. No surjectivity of the finite norm maps or of the coordinate projections is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "normCompatibleUnits"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "mem_normCompatibleUnits",
+          "role": "characterisation",
+          "statement": "Membership is equivalent to every adjacent norm equation."
+        },
+        {
+          "name": "normCompatibleUnits_ext",
+          "role": "extensionality",
+          "statement": "Two compatible units are equal when all their coordinates agree."
+        },
+        {
+          "name": "continuous_normCompatibleUnits_eval",
+          "role": "projection",
+          "statement": "Every coordinate projection from the compatible-unit subtype is continuous."
+        },
+        {
+          "name": "normCompatibleUnits_lift_unique",
+          "role": "universal-property",
+          "statement": "For any topological monoid H and continuous monoid homomorphism f:H→V satisfying adjacent compatibility, there is a unique continuous monoid homomorphism H→normCompatibleUnits(p) with the given coordinates."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NormLimitTests.identity_family",
+          "kind": "degenerate",
+          "statement": "The constant identity family is norm-compatible."
+        },
+        {
+          "name": "NormLimitTests.inverse_family",
+          "kind": "compatibility",
+          "statement": "The coordinatewise inverse of any compatible family is compatible."
+        },
+        {
+          "name": "NormLimitTests.dyadic_minus_one_incompatible",
+          "kind": "non-example",
+          "statement": "The constant−1 family is not norm-compatible for p=2, since its relative norm is+1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW(9-3) and Theorems10.2/10.13",
+          "how": "Supply the actual arithmetic target and its residue-one subgroup for Coleman interpolation."
+        },
+        {
+          "where": "ColemanPowerSeries:L2–L4",
+          "how": "The subsequent arithmetic Coleman map and its exact sequence need these carriers and evaluation laws before importing module structures or a G-action."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/norm-compatible-units-closed",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Closedness of the compatible unit locus",
+      "kind": "lemma",
+      "statement": "The subset normCompatibleUnits(p)⊆V is closed.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "For each n, the successor coordinate followed by the existing continuous N_n and the nth projection are continuous into the Hausdorff unit group U_n. Native isClosed_eq makes their equality locus closed.",
+        "The actual carrier is the intersection of those loci. Use the native infimum carrier formula and isClosed_iInter. This argument needs no finite-level norm surjectivity."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/norm-compatible-units",
+        "ColemanPowerSeries:L0/continuous-unit-norm",
+        "mathlib:isClosed_eq",
+        "mathlib:isClosed_iInter",
+        "mathlib:Subgroup.coe_iInf"
+      ],
+      "acceptance": [
+        "Closedness is for the actual product of native unit topologies."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "isClosed_normCompatibleUnits"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/norm-compatible-units-compact",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Compactness of the compatible unit group",
+      "kind": "lemma",
+      "statement": "The actual normCompatibleUnits(p) subtype is a compact space.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "Each O_n is compact by the preceding cyclotomic-integers-compact instance. Native Units.isClosedEmbedding_embedProduct and its existing compact-unit-group instance give CompactSpace U_n; this finite-level fact is not replanned.",
+        "Native Pi.compactSpace makes V compact. Apply IsClosed.isCompact to the preceding compatible-locus closedness theorem and transport to the subtype using isCompact_iff_compactSpace."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/norm-compatible-units-closed",
+        "ColemanPowerSeries:L0/cyclotomic-integers-compact",
+        "mathlib:Units.isClosedEmbedding_embedProduct",
+        "mathlib:Pi.compactSpace",
+        "mathlib:IsClosed.isCompact",
+        "mathlib:isCompact_iff_compactSpace"
+      ],
+      "acceptance": [
+        "The resulting compact commutative topological group is not declared a ℤ_p-module."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "compact_normCompatibleUnits"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/norm-compatible-residue-constant",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "A compatible tower has constant residue",
+      "kind": "lemma",
+      "statement": "For u∈normCompatibleUnits(p) and every n, red_n(u_n)=red_0(u_0) in ZMod p.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "The adjacent norm equation and the preceding unit-norm-residue identity imply red_(n+1)(u_(n+1))=red_n(u_n).",
+        "Induct on n, starting from the identity at0. The fixed identifications of every residue field with ZMod p are essential to this equality."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/norm-compatible-units",
+        "ColemanPowerSeries:L0/unit-norm-residue"
+      ],
+      "acceptance": [
+        "This is residue preservation, not a construction of a norm-compatible Teichmüller section."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "normCompatibleUnits_residue_constant"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/norm-limit-residue",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The residue of an infinite compatible unit",
+      "kind": "construction",
+      "statement": "Define normLimitResidue(p):normCompatibleUnits(p)→(ZMod p)ˣ as a native continuous monoid homomorphism, by reduction of coordinate0.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "Compose coordinate0 with native Units.map of red_0. Continuity follows from continuous_reduction, native Continuous.units_map and continuity of the product-subtype coordinate.",
+        "The residue-constant lemma identifies the same map with unit reduction of every coordinate n; units extensionality passes from equality in ZMod p to equality of residue units. Native homomorphism laws give multiplicativity and inversion."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/norm-compatible-units",
+        "ColemanPowerSeries:L0/cyclotomic-reduction-continuity",
+        "ColemanPowerSeries:L0/norm-compatible-residue-constant",
+        "mathlib:Units.map",
+        "mathlib:Continuous.units_map"
+      ],
+      "acceptance": [
+        "The target is the fixed native residue unit group. Surjectivity and a continuous section remain unasserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "normLimitResidue"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "normLimitResidue_eq",
+          "role": "compatibility",
+          "statement": "For every n the map equals Units.map(red_n)(u_n)."
+        },
+        {
+          "name": "normLimitResidue_coe",
+          "role": "coercion",
+          "statement": "After coercion to ZMod p its value is red_0(u_0)."
+        },
+        {
+          "name": "normLimitResidue_inv",
+          "role": "simp",
+          "statement": "The residue of the inverse is the inverse residue."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NormLimitTests.residue_identity",
+          "kind": "degenerate",
+          "statement": "The identity compatible unit has residue1."
+        },
+        {
+          "name": "NormLimitTests.residue_inverse",
+          "kind": "compatibility",
+          "statement": "The residue of u·u⁻¹ is1."
+        },
+        {
+          "name": "NormLimitTests.dyadic_residue",
+          "kind": "computation",
+          "statement": "Every compatible dyadic unit has residue1 in (ZMod2)ˣ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW(9-3) and Theorems10.2/10.13",
+          "how": "Supply the actual arithmetic target and its residue-one subgroup for Coleman interpolation."
+        },
+        {
+          "where": "ColemanPowerSeries:L2–L4",
+          "how": "The subsequent arithmetic Coleman map and its exact sequence need these carriers and evaluation laws before importing module structures or a G-action."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/principal-norm-compatible-units",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The principal compatible unit subgroup",
+      "kind": "construction",
+      "statement": "Define principalNormCompatibleUnits(p) as the native kernel subgroup of normLimitResidue(p), inside normCompatibleUnits(p).",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "Use native MonoidHom.ker of the residue map. This is the actual residue-one subgroup with the inherited subtype topology and commutative group operations.",
+        "The residue-constant lemma identifies membership with red_n(u_n)=1 at all levels; this characterization is promoted to the following node. Coordinate equality yields the subtype extensionality API and multiplication remains coordinatewise."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/norm-limit-residue",
+        "mathlib:MonoidHom.ker"
+      ],
+      "acceptance": [
+        "This realizes the inverse limit of the residue-one unit groups as a subgroup of the full compatible limit; it does not rebuild the owner’s general finite-level principal-unit theory."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "principalNormCompatibleUnits"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "mem_principalNormCompatibleUnits",
+          "role": "characterisation",
+          "statement": "Membership is equivalent to residue1 at every coordinate; promoted to its own lemma."
+        },
+        {
+          "name": "principalNormCompatibleUnits_ext",
+          "role": "extensionality",
+          "statement": "Two principal compatible units are equal if every actual unit coordinate agrees."
+        },
+        {
+          "name": "principalNormCompatibleUnits_coe_mul",
+          "role": "coercion",
+          "statement": "The nth coordinate of a product is the product of the nth coordinates."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NormLimitTests.principal_identity",
+          "kind": "degenerate",
+          "statement": "The identity compatible unit belongs to the principal subgroup."
+        },
+        {
+          "name": "NormLimitTests.principal_product",
+          "kind": "compatibility",
+          "statement": "Every coordinate of a product of two principal compatible units has residue1."
+        },
+        {
+          "name": "NormLimitTests.dyadic_principal_all",
+          "kind": "computation",
+          "statement": "For p=2 the principal subgroup of the full compatible unit group is the whole group."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW(9-3) and Theorems10.2/10.13",
+          "how": "Supply the actual arithmetic target and its residue-one subgroup for Coleman interpolation."
+        },
+        {
+          "where": "ColemanPowerSeries:L2–L4",
+          "how": "The subsequent arithmetic Coleman map and its exact sequence need these carriers and evaluation laws before importing module structures or a G-action."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/principal-norm-compatible-membership",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The coordinatewise principal condition",
+      "kind": "lemma",
+      "statement": "For u∈normCompatibleUnits(p), u belongs to principalNormCompatibleUnits(p) if and only if red_n(u_n)=1 for every n.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "Unfold the native kernel condition: the coordinate0 residue unit equals1 if and only if its underlying element of ZMod p equals1.",
+        "Use the residue-constant lemma for all n; conversely the all-coordinate condition includes n=0. The proof uses the already fixed norm transitions and residue identifications."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/principal-norm-compatible-units",
+        "ColemanPowerSeries:L0/norm-compatible-residue-constant"
+      ],
+      "acceptance": [
+        "The principal condition is modulo the actual maximal ideal generated by ζ_n−1, not modulo a new choice of coefficient prime power."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "mem_principalNormCompatibleUnits"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/principal-norm-compatible-compact",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Compactness of principal compatible units",
+      "kind": "lemma",
+      "statement": "The actual principalNormCompatibleUnits(p) subtype is compact.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "The principal subgroup is the equality locus of the continuous normLimitResidue and the constant1 map into the Hausdorff finite residue unit group. Native isClosed_eq makes it closed.",
+        "The full compatible unit group is compact. Apply native IsClosed.isCompact and isCompact_iff_compactSpace to its closed kernel subtype."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/principal-norm-compatible-units",
+        "ColemanPowerSeries:L0/norm-limit-residue",
+        "ColemanPowerSeries:L0/norm-compatible-units-compact",
+        "mathlib:isClosed_eq",
+        "mathlib:IsClosed.isCompact",
+        "mathlib:isCompact_iff_compactSpace"
+      ],
+      "acceptance": [
+        "Compactness alone does not supply pro-p or ℤ_p-scalar structure; those hypotheses must be verified separately."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "compact_principalNormCompatibleUnits"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-series-evaluation-continuity",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Continuity of actual cyclotomic series evaluation",
+      "kind": "lemma",
+      "statement": "For every n, the existing seriesEvaluation_n:B→O_n is continuous for the native coefficientwise p-adic topology on B=ℤ_p⟦T⟧ and inherited norm topology on O_n.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "Promote the existing evaluation API statement; its unchanged suggested signature already appears in the predecessor. No new evaluation map or second declaration is introduced.",
+        "The existing scalar-norm comparison gives continuity of the coefficient map. Compactness makes the inherited uniform target complete; its norm makes it Hausdorff and a uniform topological ring, and its linear topology is supplied.",
+        "The strict contraction of ζ_n−1 supplies native HasEval. Apply native PowerSeries.continuous_eval₂ and the defining identification of seriesEvaluation with native evaluation."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-series-evaluation",
+        "ColemanPowerSeries:L0/cyclotomic-scalar-norm",
+        "ColemanPowerSeries:L0/cyclotomic-integers-compact",
+        "ColemanPowerSeries:L0/cyclotomic-integers-linear-topology",
+        "ColemanPowerSeries:L0/cyclotomic-difference-contraction",
+        "mathlib:PowerSeries.continuous_eval₂"
+      ],
+      "acceptance": [
+        "The existing suggested signature is reused byte-for-byte; this promotion gives consuming nodes a precise prerequisite."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "continuous_seriesEvaluation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/norm-fixed-evaluation-map",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "The arithmetic evaluation map into the unit limit",
+      "kind": "construction",
+      "statement": "Construct normFixedEvaluation(p):normFixedUnits(p)→normCompatibleUnits(p) as a native continuous monoid homomorphism, with nth coordinate Units.map(seriesEvaluation_n)(F).",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "At each n, apply the existing ring homomorphism seriesEvaluation_n to units. The existing norm-fixed-arithmetic-compatibility lemma supplies every adjacent norm equation, so the family corestricts to the actual compatible subgroup.",
+        "The existing continuous_seriesEvaluation API and native Continuous.units_map make each unit-valued coordinate continuous; the domain subgroup has its native topology. Native continuity into a product and then its subtype gives continuity of the family.",
+        "The coordinatewise unit maps are monoid homomorphisms. Bundle their common corestriction as ContinuousMonoidHom. Its coordinate formula, product and inverse laws give the API."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/norm-compatible-units",
+        "ColemanPowerSeries:L0/cyclotomic-series-evaluation-continuity",
+        "ColemanPowerSeries:L1/norm-fixed-arithmetic-compatibility",
+        "mathlib:Units.map",
+        "mathlib:Continuous.units_map"
+      ],
+      "acceptance": [
+        "This is the evaluation direction from norm-fixed series to compatible units. No injectivity, surjectivity, inverse or Coleman interpolation bijection is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "normFixedEvaluation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "normFixedEvaluation_apply",
+          "role": "projection",
+          "statement": "Its nth coordinate is Units.map(seriesEvaluation_n)(F)."
+        },
+        {
+          "name": "normFixedEvaluation_mul",
+          "role": "simp",
+          "statement": "Evaluation carries products of norm-fixed units to products of compatible towers."
+        },
+        {
+          "name": "normFixedEvaluation_inv",
+          "role": "simp",
+          "statement": "Evaluation carries inverse to inverse."
+        }
+      ],
+      "tests": [
+        {
+          "name": "NormLimitTests.evaluation_identity",
+          "kind": "degenerate",
+          "statement": "The norm-fixed identity series evaluates to1 at every coordinate."
+        },
+        {
+          "name": "NormLimitTests.evaluation_inverse",
+          "kind": "compatibility",
+          "statement": "The nth coordinate of the inverse-series evaluation is the inverse of the nth evaluated unit."
+        },
+        {
+          "name": "NormLimitTests.ternary_constant_evaluation",
+          "kind": "computation",
+          "statement": "A norm-fixed constant−1 unit series at p=3 evaluates to the constant−1 tower."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW(9-3) and Theorems10.2/10.13",
+          "how": "Supply the actual arithmetic target and its residue-one subgroup for Coleman interpolation."
+        },
+        {
+          "where": "ColemanPowerSeries:L2–L4",
+          "how": "The subsequent arithmetic Coleman map and its exact sequence need these carriers and evaluation laws before importing module structures or a G-action."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L1/norm-fixed-evaluation-residue",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "The residue of a norm-fixed evaluation",
+      "kind": "lemma",
+      "statement": "For a norm-fixed unit series F, the residue of normFixedEvaluation(F), coerced to ZMod p, is toZMod(constantCoeff F).",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "By the definitions of the residue and evaluation maps, their composite on underlying ring elements is red_0(seriesEvaluation_0(F)).",
+        "Apply the existing arithmetic-evaluation-reduction lemma. This uses a fixed coordinate only; the preceding residue-constant theorem makes it valid at every coordinate."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/norm-fixed-evaluation-map",
+        "ColemanPowerSeries:L0/norm-limit-residue",
+        "ColemanPowerSeries:L0/arithmetic-evaluation-reduction"
+      ],
+      "acceptance": [
+        "Only the integral constant coefficient modulo p occurs; no Teichmüller section or scalar decomposition is assumed."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "normFixedEvaluation_residue"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/norm-fixed-evaluation-principal",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "The principal-image criterion",
+      "kind": "lemma",
+      "statement": "The evaluated tower of a norm-fixed unit series F is principal if and only if toZMod(constantCoeff F)=1.",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "Unfold the native residue-kernel definition of principalNormCompatibleUnits.",
+        "Use units extensionality and norm-fixed-evaluation-residue to identify the kernel equation with the stated constant-coefficient condition."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/principal-norm-compatible-units",
+        "ColemanPowerSeries:L1/norm-fixed-evaluation-residue"
+      ],
+      "acceptance": [
+        "The criterion characterizes which supplied evaluations are principal; it does not prove that every principal tower is an evaluation."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "normFixedEvaluation_principal_iff"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L1/norm-fixed-evaluation-closed-image",
+      "parentStageId": "ColemanPowerSeries:L1",
+      "realises": [
+        "ColemanPowerSeries:L1"
+      ],
+      "title": "Closed image of arithmetic evaluation",
+      "kind": "theorem",
+      "statement": "The image of normFixedEvaluation(p) is closed in normCompatibleUnits(p).",
+      "hypotheses": [
+        "p is any prime, including2. K_n is the existing actual level p n inside the p-adic algebraic closure, O_n its native integral closure of ℤ_p, and U_n=O_nˣ with native unit topology. The source level is n+1. Let V=∏_(n≥0)U_n with its native product topology. N_n:U_(n+1)→U_n is the existing continuous unitsNorm, and red_n:O_n→ZMod p is the fixed reduction map.",
+        "All compatible carriers are native Subgroup subtypes, with inherited commutative group operations and product/subtype topologies. Full unit groups are not assigned a ℤ_p-module structure. No pro-p certificate, Galois action, Teichmüller splitting or Tate-module inclusion is assumed."
+      ],
+      "proofSteps": [
+        "Install the preceding compactSpace_normFixedUnits theorem on the existing norm-fixed-series subgroup. The supplied evaluation map is continuous, so the image of the whole compact domain is compact.",
+        "The target has the native Hausdorff topology as a subgroup of the product of Hausdorff unit groups. Native IsCompact.isClosed makes the image closed. No bijectivity is needed for this step."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L1/norm-fixed-evaluation-map",
+        "ColemanPowerSeries:L3/norm-fixed-units-compact",
+        "mathlib:IsCompact.image",
+        "mathlib:IsCompact.isClosed"
+      ],
+      "acceptance": [
+        "Closed image is preparation for the source’s compact interpolation argument, not a replacement for uniqueness or surjectivity."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Coleman/UnitNormLimits",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "isClosed_range_normFixedEvaluation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70. Complete161–164 and168–170 freshly reread28September2026;167 read in preceding norm-transition checkpoint.",
+          "match": "Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. The inherited finding concerning full units and Z_p-module structure remains unchanged."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -12272,7 +13064,7 @@
       "status": "partial",
       "remaining": [
         "The actual norm valuation, ideal topology, integral and unit norm transitions and arithmetic norm/evaluation square are supplied. Compare the concrete fields and integral closures with the LocalFieldsRamification named structures, normalized valuations and intrinsic ramification invariants. The unit norm preserves the fixed residue, hence the principal-unit condition; no pro-p or ℤ_p-module hypothesis has been supplied by this statement.",
-        "Construct full and principal norm-compatible unit inverse limits using the supplied continuous transitions; prove closedness/compactness, the G-action, Tate-module inclusion and norm-compatible Teichmüller splitting. Verify the principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
+        "Actual full norm-compatible units and their principal residue-kernel subgroup now have native product/subtype carriers, closedness and compactness; residue is constant along the tower. Supply the G-action, Tate-module inclusion with the correct dyadic norm convention and norm-compatible Teichmüller splitting. Verify principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
         "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
       ]
     },
@@ -12281,7 +13073,7 @@
       "status": "partial",
       "remaining": [
         "The integral trace/PMIA psi and root-product comparisons are retained. The actual arithmetic norm/evaluation square now follows from specialization of the formal Frobenius basis to the relative cyclotomic basis and their multiplication determinants. General coefficient extensions remain supplier work.",
-        "The four Lemma10.11 congruences, norm continuity and norm-fixed limit remain supplied. Norm-fixed unit series now give adjacent norm-compatible actual evaluations. Construct the actual inverse-limit map, interpolation uniqueness and compact successive approximation to prove its bijectivity; the compatibility equation alone is not that map or theorem.",
+        "The four Lemma10.11 congruences, norm continuity and norm-fixed limit remain supplied. Actual arithmetic evaluation is now a continuous monoid homomorphism from norm-fixed unit series to the full compatible-unit limit, with closed image and the precise principal-image criterion. Prove interpolation uniqueness and compact successive approximation to establish injectivity and surjectivity; the constructed map and closed image do not supply either assertion.",
         "Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
       ]
     },
@@ -12318,14 +13110,14 @@
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
-      "detail": "The actual norm valuation, ideal topology, integral and unit norm transitions and arithmetic norm/evaluation square are supplied. Compare the concrete fields and integral closures with the LocalFieldsRamification named structures, normalized valuations and intrinsic ramification invariants. The unit norm preserves the fixed residue, hence the principal-unit condition; no pro-p or ℤ_p-module hypothesis has been supplied by this statement. Construct full and principal norm-compatible unit inverse limits using the supplied continuous transitions; prove closedness/compactness, the G-action, Tate-module inclusion and norm-compatible Teichmüller splitting. Verify the principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
+      "detail": "The actual norm valuation, ideal topology, integral and unit norm transitions and arithmetic norm/evaluation square are supplied. Compare the concrete fields and integral closures with the LocalFieldsRamification named structures, normalized valuations and intrinsic ramification invariants. The unit norm preserves the fixed residue, hence the principal-unit condition; no pro-p or ℤ_p-module hypothesis has been supplied by this statement. Actual full norm-compatible units and their principal residue-kernel subgroup now have native product/subtype carriers, closedness and compactness; residue is constant along the tower. Supply the G-action, Tate-module inclusion with the correct dyadic norm convention and norm-compatible Teichmüller splitting. Verify principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
     },
     {
       "title": "L1 continuation boundary",
       "neededBy": [
         "ColemanPowerSeries:L1"
       ],
-      "detail": "The integral trace/PMIA psi and root-product comparisons are retained. The actual arithmetic norm/evaluation square now follows from specialization of the formal Frobenius basis to the relative cyclotomic basis and their multiplication determinants. General coefficient extensions remain supplier work. The four Lemma10.11 congruences, norm continuity and norm-fixed limit remain supplied. Norm-fixed unit series now give adjacent norm-compatible actual evaluations. Construct the actual inverse-limit map, interpolation uniqueness and compact successive approximation to prove its bijectivity; the compatibility equation alone is not that map or theorem. Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
+      "detail": "The integral trace/PMIA psi and root-product comparisons are retained. The actual arithmetic norm/evaluation square now follows from specialization of the formal Frobenius basis to the relative cyclotomic basis and their multiplication determinants. General coefficient extensions remain supplier work. The four Lemma10.11 congruences, norm continuity and norm-fixed limit remain supplied. Actual arithmetic evaluation is now a continuous monoid homomorphism from norm-fixed unit series to the full compatible-unit limit, with closed image and the precise principal-image criterion. Prove interpolation uniqueness and compact successive approximation to establish injectivity and surjectivity; the constructed map and closed image do not supply either assertion. Import pinned Weierstrass through PMIA L4 with its nonzero hypothesis; prove interpolation uniqueness, compact successive approximation and surjectivity onto the entire norm-compatible tower. Recover Theorems10.2 and10.13, and specify the unramified coefficient/Frobenius variants exactly. The present algebraic basis proof is over ℤ_p only."
     },
     {
       "title": "L2 continuation boundary",
@@ -14621,36 +15413,152 @@
         "closure": "Partial: six gaps, twelve requests, zero closed stages; every implementation status unchecked."
       },
       "sourceBoundary": "Published161–164 and166–170 freshly read; equation10-1 andLemma10.9 actual-carrier specialization. Sourceoddp and inherited findings preserved."
+    },
+    "actualUnitNormLimits": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "claim": 5861666324,
+      "winningBot": 5861667505,
+      "preservedWholeNodes": 208,
+      "preservedBaseline": 263,
+      "preservedFindings": 13,
+      "newNodes": 14,
+      "historicalChecks": {
+        "agent": "Codex — codex-7e92bd",
+        "date": "2026-09-28",
+        "checkpoint": "actual continuous norm transitions and arithmetic evaluation square",
+        "validation": {
+          "nodes": 208,
+          "kinds": {
+            "definition": 2,
+            "lemma": 146,
+            "theorem": 26,
+            "comparison": 13,
+            "construction": 21
+          },
+          "api": 112,
+          "definitionConstructionAPI": 105,
+          "packetTests": 159,
+          "definitionConstructionTests": 77,
+          "typedExamples": 161,
+          "planets": 12,
+          "baseline": 263,
+          "newNodes": 14,
+          "preservedWholeNodes": 194,
+          "preservedBaseline": 258,
+          "preservedFindings": 13,
+          "newFindings": 0,
+          "reachableNodes": 279,
+          "dependencyEdges": 1193,
+          "baselineLeaves": 325,
+          "stageLeaves": [],
+          "acyclic": true,
+          "pinnedMathlibModules": 2846,
+          "pinnedTauCetiModules": 3,
+          "actualSupplierModules": 1,
+          "nativeModulesBuilt": 0,
+          "gaps": 6,
+          "requests": 12,
+          "closedStages": 0,
+          "suggestedFileSha256": "a941c2713309bb1a0d35f892bd005fd98e882d91c4c502ca787d10e235702b4d",
+          "sourceAuditSha256": "5e8423bfce0b03c8061d46d7f0e07f91f3f3112b04962bf7745765639f341c63",
+          "compileCompleted": true,
+          "compilerExit": 0,
+          "compileStatus": "full file elaborated at pinned baseline",
+          "compilerErrors": 0,
+          "compilerWarnings": 436,
+          "warningsOnlyPlaceholders": true
+        },
+        "supplierCompile": {
+          "sourceSha256": "d9a5079316a70e82bbe867853129fdda1a3059b11e781e270595de373778dda8",
+          "oleanSha256": "6762051a1771fa7c5993470c903d801117d85521f5bbc296b7b76c7982040b3b",
+          "errors": 0,
+          "warnings": 684,
+          "actualPacketNodes": 320,
+          "baselineOnly": false,
+          "note": "Actual current supplier compiled first; native library artifacts reused."
+        },
+        "arithmetic": {
+          "frobeniusCoordinateIdentities": 24,
+          "normResidueCongruences": 24,
+          "relativeRootProducts": 48,
+          "relativeReductionIdentities": 48,
+          "principalUnitCases": 18,
+          "scalarNorms": 4,
+          "signedRootNorms": 4,
+          "signedDifferenceNorms": 4,
+          "zeroNorms": 4,
+          "primes": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "relativeSteps": [
+            0,
+            1
+          ],
+          "functionalPolynomialsPerPrime": 6,
+          "scope": "Exact integer Frobenius coordinate assembly and multiplication determinants, compared independently with relative root products in the actual cyclotomic polynomial quotient. Residue and signed dyadic controls included. These finite models verify formulas and conventions, not continuity, infinite series convergence or inverse-limit existence.",
+          "scriptSha256": "fa38905844aa7cddbeb46646a768650bffc5ec7dbd3da4bfeb5e633e1e049e37"
+        },
+        "publication": {
+          "base": "2566939af56e4177dfd642feeb41fa7f4785e279",
+          "publicationMain": "6e864402d0548adc7a47e21755ecb1c08277efdb",
+          "guardedInputs": 53,
+          "unchangedInputs": 53,
+          "inputChanges": {},
+          "predecessorOutputChanges": [],
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5861386093
+        },
+        "status": "Full compilation, graph, preservation and parity passed; publication checks recorded in handoff.",
+        "publicationChecks": {
+          "indexedPacket": "208 nodes; 0 errors; 0 warnings",
+          "fourFileIntake": "4 files; 0 problems",
+          "errata": "filename-correct errata-v1 wrapper passed",
+          "whitespace": "passed",
+          "newReaderDeclarationAPIAndTestParity": true,
+          "scope": [
+            "research/blueprint/packets/ColemanPowerSeries.json",
+            "research/blueprint/readmes/ColemanPowerSeries.md",
+            "research/blueprint/suggested/ColemanPowerSeries.lean",
+            "research/blueprint/handoff/BP-ColemanPowerSeries.md"
+          ],
+          "fullCompilation": "0 errors; 436 placeholder warnings; actual PMIA320 freshly compiled first",
+          "arithmetic": "all exact comparisons passed"
+        }
+      }
     }
   },
   "checks": {
     "agent": "Codex — codex-7e92bd",
     "date": "2026-09-28",
-    "checkpoint": "actual continuous norm transitions and arithmetic evaluation square",
+    "checkpoint": "compact compatible unit groups and actual continuous evaluation",
     "validation": {
-      "nodes": 208,
+      "nodes": 222,
       "kinds": {
         "definition": 2,
-        "lemma": 146,
-        "theorem": 26,
+        "lemma": 155,
+        "theorem": 27,
         "comparison": 13,
-        "construction": 21
+        "construction": 25
       },
-      "api": 112,
-      "definitionConstructionAPI": 105,
-      "packetTests": 159,
-      "definitionConstructionTests": 77,
-      "typedExamples": 161,
+      "api": 125,
+      "definitionConstructionAPI": 118,
+      "packetTests": 171,
+      "definitionConstructionTests": 89,
+      "typedExamples": 173,
       "planets": 12,
-      "baseline": 263,
+      "baseline": 270,
       "newNodes": 14,
-      "preservedWholeNodes": 194,
-      "preservedBaseline": 258,
+      "preservedWholeNodes": 208,
+      "preservedBaseline": 263,
       "preservedFindings": 13,
       "newFindings": 0,
-      "reachableNodes": 279,
-      "dependencyEdges": 1193,
-      "baselineLeaves": 325,
+      "reachableNodes": 293,
+      "dependencyEdges": 1248,
+      "baselineLeaves": 331,
       "stageLeaves": [],
       "acyclic": true,
       "pinnedMathlibModules": 2846,
@@ -14660,63 +15568,56 @@
       "gaps": 6,
       "requests": 12,
       "closedStages": 0,
-      "suggestedFileSha256": "a941c2713309bb1a0d35f892bd005fd98e882d91c4c502ca787d10e235702b4d",
-      "sourceAuditSha256": "5e8423bfce0b03c8061d46d7f0e07f91f3f3112b04962bf7745765639f341c63",
+      "suggestedFileSha256": "9cbf104254ff44917f0b1f7aa48c33a1f90d972bf4080d8bf121aa498590d617",
+      "sourceAuditSha256": "c74acdf283509afae0696be40a6cc2b5c8b72b20d8b3ecdfd8445bf3f91787d0",
       "compileCompleted": true,
       "compilerExit": 0,
       "compileStatus": "full file elaborated at pinned baseline",
       "compilerErrors": 0,
-      "compilerWarnings": 436,
+      "compilerWarnings": 473,
       "warningsOnlyPlaceholders": true
     },
     "supplierCompile": {
-      "sourceSha256": "d9a5079316a70e82bbe867853129fdda1a3059b11e781e270595de373778dda8",
-      "oleanSha256": "6762051a1771fa7c5993470c903d801117d85521f5bbc296b7b76c7982040b3b",
-      "errors": 0,
-      "warnings": 684,
-      "actualPacketNodes": 320,
-      "baselineOnly": false,
-      "note": "Actual current supplier compiled first; native library artifacts reused."
+      "sourceSha256": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
+      "oleanSha256": "4b34a19961eec73bfa90a280566521896e8ecbc1ec706982525962146a7b7f88",
+      "exit": 0,
+      "warnings": 707,
+      "onlyPlaceholderWarnings": true
     },
     "arithmetic": {
-      "frobeniusCoordinateIdentities": 24,
-      "normResidueCongruences": 24,
-      "relativeRootProducts": 48,
-      "relativeReductionIdentities": 48,
-      "principalUnitCases": 18,
-      "scalarNorms": 4,
-      "signedRootNorms": 4,
-      "signedDifferenceNorms": 4,
-      "zeroNorms": 4,
-      "primes": [
-        2,
-        3,
-        5,
-        7
-      ],
-      "relativeSteps": [
-        0,
-        1
-      ],
-      "functionalPolynomialsPerPrime": 6,
-      "scope": "Exact integer Frobenius coordinate assembly and multiplication determinants, compared independently with relative root products in the actual cyclotomic polynomial quotient. Residue and signed dyadic controls included. These finite models verify formulas and conventions, not continuity, infinite series convergence or inverse-limit existence.",
-      "scriptSha256": "fa38905844aa7cddbeb46646a768650bffc5ec7dbd3da4bfeb5e633e1e049e37"
+      "status": "passed",
+      "counts": {
+        "threeLevelUnitTowers": 23,
+        "adjacentNormEquations": 46,
+        "principalKernelComparisons": 23,
+        "dyadicFullPrincipalCases": 8,
+        "coordinateProductNorms": 18,
+        "residueProducts": 9,
+        "signedRootNorms": 12,
+        "ordinaryRootSigns": 12,
+        "constantMinusOneNorms": 12,
+        "signedRootPowerTowers": 36,
+        "stationaryMinusOneCriterion": 4,
+        "dyadicStationaryNegativeControl": 1
+      },
+      "scope": "Exact multiplication determinants in actual cyclotomic polynomial quotients. Three-level prefixes, residue kernels, products, scalar signs and signed-root powers only; no finite calculation proves compactness, infinite compatibility, principal pro-p structure or interpolation surjectivity.",
+      "scriptSha256": "f02985f3d0df560fdda8dd6451b4aff05f7ba281d9f9dc6bdb3b3630ab59c496"
     },
     "publication": {
-      "base": "2566939af56e4177dfd642feeb41fa7f4785e279",
-      "publicationMain": "6e864402d0548adc7a47e21755ecb1c08277efdb",
+      "base": "eb168d99081c2c90ba13c6ec3f29e889278ef8ce",
+      "publicationMain": "eb168d99081c2c90ba13c6ec3f29e889278ef8ce",
       "guardedInputs": 53,
       "unchangedInputs": 53,
       "inputChanges": {},
       "predecessorOutputChanges": [],
       "unchangedIssueBody": true,
-      "claimConfirmation": 5861386093
+      "claimConfirmation": 5861667505
     },
-    "status": "Full compilation, graph, preservation and parity passed; publication checks recorded in handoff.",
+    "status": "Full compilation, graph and preservation passed; final publication checks recorded in handoff.",
     "publicationChecks": {
-      "indexedPacket": "208 nodes; 0 errors; 0 warnings",
+      "indexedPacket": "222 nodes; 0 errors; 0 warnings",
       "fourFileIntake": "4 files; 0 problems",
-      "errata": "filename-correct errata-v1 wrapper passed",
+      "errata": "filename-correct wrapper passed",
       "whitespace": "passed",
       "newReaderDeclarationAPIAndTestParity": true,
       "scope": [
@@ -14725,7 +15626,7 @@
         "research/blueprint/suggested/ColemanPowerSeries.lean",
         "research/blueprint/handoff/BP-ColemanPowerSeries.md"
       ],
-      "fullCompilation": "0 errors; 436 placeholder warnings; actual PMIA320 freshly compiled first",
+      "fullCompilation": "0 errors; 473 expected placeholder warnings; actual PMIA332 freshly compiled first",
       "arithmetic": "all exact comparisons passed"
     }
   },

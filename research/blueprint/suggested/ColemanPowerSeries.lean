@@ -1713,3 +1713,94 @@ example (n : ℕ) (u : (O (n+1))ˣ) (hu : reduction p (n+1) (u : O (n+1)) = 1) :
     reduction p n (unitsNorm p n u : O n) = 1 := sorry
 end ColemanCyclotomic
 end
+
+/-! Actual compatible unit towers with their native product/subtype topology. -/
+noncomputable section
+namespace ColemanCyclotomic
+open scoped PowerSeries.WithPiTopology
+open TauCetiRoadmap.Campaign.ColemanPowerSeries
+variable (p : ℕ) [Fact p.Prime]
+local notation "O" => fun n => integralClosure ℤ_[p] (level p n)
+local notation "B" => PowerSeries ℤ_[p]
+set_option quotPrecheck false in
+local notation "V" => ((n : ℕ) → (O n)ˣ)
+
+lemma continuous_reduction (n : ℕ) : Continuous (reduction p n) := sorry
+
+def normCompatibleUnits : Subgroup V := sorry
+lemma mem_normCompatibleUnits (u : V) :
+    u ∈ normCompatibleUnits p ↔ ∀ n, unitsNorm p n (u (n+1)) = u n := sorry
+lemma normCompatibleUnits_ext (u v : normCompatibleUnits p) (h : ∀ n, u.val n = v.val n) :
+    u = v := sorry
+lemma continuous_normCompatibleUnits_eval (n : ℕ) :
+    Continuous (fun u : normCompatibleUnits p => u.val n) := sorry
+lemma normCompatibleUnits_lift_unique {H : Type*} [TopologicalSpace H] [Monoid H]
+    (f : ContinuousMonoidHom H V) (hf : ∀ h n, unitsNorm p n (f h (n+1)) = f h n) :
+    ∃! L : ContinuousMonoidHom H (normCompatibleUnits p), ∀ h n, (L h).val n = f h n := sorry
+lemma isClosed_normCompatibleUnits : IsClosed (normCompatibleUnits p : Set V) := sorry
+instance compact_normCompatibleUnits : CompactSpace (normCompatibleUnits p) := sorry
+lemma normCompatibleUnits_residue_constant (u : normCompatibleUnits p) (n : ℕ) :
+    reduction p n (u.val n : O n) = reduction p 0 (u.val 0 : O 0) := sorry
+
+def normLimitResidue : ContinuousMonoidHom (normCompatibleUnits p) (ZMod p)ˣ := sorry
+lemma normLimitResidue_eq (u : normCompatibleUnits p) (n : ℕ) :
+    normLimitResidue p u = Units.map (reduction p n).toMonoidHom (u.val n) := sorry
+lemma normLimitResidue_coe (u : normCompatibleUnits p) :
+    (normLimitResidue p u : ZMod p) = reduction p 0 (u.val 0 : O 0) := sorry
+lemma normLimitResidue_inv (u : normCompatibleUnits p) :
+    normLimitResidue p u⁻¹ = (normLimitResidue p u)⁻¹ := sorry
+
+def principalNormCompatibleUnits : Subgroup (normCompatibleUnits p) := sorry
+lemma mem_principalNormCompatibleUnits (u : normCompatibleUnits p) :
+    u ∈ principalNormCompatibleUnits p ↔ ∀ n, reduction p n (u.val n : O n) = 1 := sorry
+lemma principalNormCompatibleUnits_ext (u v : principalNormCompatibleUnits p)
+    (h : ∀ n, u.val.val n = v.val.val n) : u = v := sorry
+lemma principalNormCompatibleUnits_coe_mul (u v : principalNormCompatibleUnits p) (n : ℕ) :
+    (u*v).val.val n = u.val.val n*v.val.val n := sorry
+instance compact_principalNormCompatibleUnits : CompactSpace (principalNormCompatibleUnits p) := sorry
+
+def normFixedEvaluation : ContinuousMonoidHom (normFixedUnits p) (normCompatibleUnits p) := sorry
+lemma normFixedEvaluation_apply (F : normFixedUnits p) (n : ℕ) :
+    (normFixedEvaluation p F).val n = Units.map (seriesEvaluation p n).toMonoidHom (F : Bˣ) := sorry
+lemma normFixedEvaluation_mul (F G : normFixedUnits p) :
+    normFixedEvaluation p (F*G) = normFixedEvaluation p F*normFixedEvaluation p G := sorry
+lemma normFixedEvaluation_inv (F : normFixedUnits p) :
+    normFixedEvaluation p F⁻¹ = (normFixedEvaluation p F)⁻¹ := sorry
+lemma normFixedEvaluation_residue (F : normFixedUnits p) :
+    (normLimitResidue p (normFixedEvaluation p F) : ZMod p) =
+      PadicInt.toZMod (PowerSeries.constantCoeff (F : Bˣ).val) := sorry
+lemma normFixedEvaluation_principal_iff (F : normFixedUnits p) :
+    normFixedEvaluation p F ∈ principalNormCompatibleUnits p ↔
+      PadicInt.toZMod (PowerSeries.constantCoeff (F : Bˣ).val) = 1 := sorry
+theorem isClosed_range_normFixedEvaluation : IsClosed (Set.range (normFixedEvaluation p)) := sorry
+
+-- NormLimitTests.identity_family
+example : (fun n => (1 : (O n)ˣ)) ∈ normCompatibleUnits p := sorry
+-- NormLimitTests.inverse_family
+example (u : V) (hu : ∀ n, unitsNorm p n (u (n+1)) = u n) :
+    (fun n => (u n)⁻¹) ∈ normCompatibleUnits p := sorry
+-- NormLimitTests.dyadic_minus_one_incompatible
+example : (fun n => (-1 : (integralClosure ℤ_[2] (level 2 n))ˣ)) ∉ normCompatibleUnits 2 := sorry
+-- NormLimitTests.residue_identity
+example : normLimitResidue p 1 = 1 := sorry
+-- NormLimitTests.residue_inverse
+example (u : normCompatibleUnits p) : normLimitResidue p (u*u⁻¹) = 1 := sorry
+-- NormLimitTests.dyadic_residue
+example (u : normCompatibleUnits 2) : normLimitResidue 2 u = 1 := sorry
+-- NormLimitTests.principal_identity
+example : (1 : normCompatibleUnits p) ∈ principalNormCompatibleUnits p := sorry
+-- NormLimitTests.principal_product
+example (u v : principalNormCompatibleUnits p) (n : ℕ) :
+    reduction p n ((u*v).val.val n : O n) = 1 := sorry
+-- NormLimitTests.dyadic_principal_all
+example : principalNormCompatibleUnits 2 = ⊤ := sorry
+-- NormLimitTests.evaluation_identity
+example (n : ℕ) : (normFixedEvaluation p 1).val n = 1 := sorry
+-- NormLimitTests.evaluation_inverse
+example (F : normFixedUnits p) (n : ℕ) :
+    (normFixedEvaluation p F⁻¹).val n = ((normFixedEvaluation p F).val n)⁻¹ := sorry
+-- NormLimitTests.ternary_constant_evaluation
+example (F : normFixedUnits 3) (hF : (F : (PowerSeries ℤ_[3])ˣ) = -1) (n : ℕ) :
+    (normFixedEvaluation 3 F).val n = -1 := sorry
+end ColemanCyclotomic
+end
