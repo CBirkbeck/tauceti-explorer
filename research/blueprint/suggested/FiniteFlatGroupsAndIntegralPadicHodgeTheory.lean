@@ -29,7 +29,7 @@ import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyF
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 
 /-!
-# Finite flat groups and integral p-adic Hodge theory — suggested declarations (R07.1–R07.2)
+# Finite flat groups and integral p-adic Hodge theory — suggested declarations (R07.1–R07.3)
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
@@ -637,3 +637,74 @@ def rationalIsocrystal (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k 
     [PerfectRing k p] {h : ℕ} (_G : PDivisibleGroup k p h) : Type u := sorry
 
 end TauCeti.Dieudonne
+
+
+/-! ## R07.3: Fontaine–Laffaille theory at `e = 1`
+
+Fontaine–Laffaille 1982 with `A = W(k)`, `π = p`: filtered modules with `σ`-semilinear `φ^i`,
+`φ^i = p φ^{i+1}` on `Fil^{i+1}`. The functor `U_S` is contravariant; the safe torsion interval is
+`[0, p − 2]`. -/
+
+namespace TauCeti.FontaineLaffaille
+
+section
+
+variable (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p] [PerfectRing k p]
+
+/-- R07.3/fl-filtered-modules: a Fontaine–Laffaille filtered module over `W(k)`. -/
+structure FLModule where
+  M : Type u
+  [addCommGroup : AddCommGroup M]
+  [module : Module (WittVector p k) M]
+  fil : ℤ → Submodule (WittVector p k) M
+  fil_antitone : Antitone fil
+  fil_exhaustive : ∃ a, fil a = ⊤
+  fil_separated : ∃ b, fil b = ⊥
+  phi : ∀ i, fil i →ₛₗ[(WittVector.frobenius : WittVector p k →+* WittVector p k)] M
+  phi_succ : ∀ (i : ℤ) (x : fil (i + 1)),
+    phi i ⟨x, fil_antitone (by omega : i ≤ i + 1) x.2⟩ = (p : WittVector p k) • phi (i + 1) x
+
+attribute [instance] FLModule.addCommGroup FLModule.module
+
+/-- `M ∈ MF_tor^{[a,b]}`: finite length, `Σ φ^i(Fil^i) = M`, `Fil^a = M`, `Fil^{b+1} = 0`. -/
+def FLModule.IsTorsionIn (M : FLModule p k) (a b : ℤ) : Prop :=
+  Module.length (WittVector p k) M.M < ⊤ ∧
+    (⨆ i, AddMonoidHom.range (M.phi i).toAddMonoidHom) = (⊤ : AddSubgroup M.M) ∧
+    M.fil a = ⊤ ∧ M.fil (b + 1) = ⊥
+
+/-- R07.3/fl-functor-torsion: the `G_K`-module `U_S(M) = Ext¹(M, S)`, recorded as a type with a
+continuous Galois action (placeholder; the ring `S` is R07.3/fl-ring-S). -/
+def flFunctor (M : FLModule p k) : Type := sorry
+
+instance (M : FLModule p k) : AddCommGroup (flFunctor p k M) := sorry
+
+/-- R07.3/fl-exact-faithful (FL Theorem 3.3): `length_{ℤ_p} U_S(M) = length_{W(k)} M` on
+`MF_tor^{[0, p−1]}`. -/
+theorem length_flFunctor (M : FLModule p k) (hM : M.IsTorsionIn p k 0 (p - 1)) :
+    Module.length ℤ (flFunctor p k M) = Module.length (WittVector p k) M.M := sorry
+
+/-- Morphisms of Fontaine–Laffaille modules. -/
+structure FLModule.Hom (M N : FLModule p k) where
+  toLinearMap : M.M →ₗ[WittVector p k] N.M
+  map_fil : ∀ i, (M.fil i).map toLinearMap ≤ N.fil i
+  comm_phi : ∀ i (x : M.fil i), toLinearMap (M.phi i x) =
+    N.phi i ⟨toLinearMap x, map_fil i ⟨x, x.2, rfl⟩⟩
+
+/-- The induced map on Galois modules (contravariant). -/
+def flMap {M N : FLModule p k} (f : FLModule.Hom p k M N) : flFunctor p k N →+ flFunctor p k M :=
+  sorry
+
+/-- R07.3/fl-full-faithfulness (FL Theorem 6.1): on the safe interval `[0, p − 2]` every
+`G_K`-equivariant map comes from a unique morphism. -/
+theorem flMap_bijective (M N : FLModule p k) (hM : M.IsTorsionIn p k 0 (p - 2))
+    (hN : N.IsTorsionIn p k 0 (p - 2)) :
+    Function.Bijective (fun f : FLModule.Hom p k M N => flMap p k f) := sorry
+
+end
+
+/-- R07.3/strongly-divisible-lattices: `Σ_i p^{−i} Φ(M ∩ Fil^i D) = M` for a lattice `M` in a
+filtered `φ`-module `D` over `K₀` (recorded through placeholders for `D` and `M`). -/
+def IsStronglyDivisible (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p]
+    [PerfectRing k p] (D : Type u) [AddCommGroup D] (M : Set D) : Prop := sorry
+
+end TauCeti.FontaineLaffaille
