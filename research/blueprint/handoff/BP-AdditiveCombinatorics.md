@@ -319,3 +319,40 @@ this pass adds no compile claim, and the new `GreenTao` section is unelaborated.
 5. **AC.0 and AC.5 have no nodes.** AC.0's material is partly the audit's duplicates, so its
    planning is mostly a matter of stating what is imported; AC.5 needs the two further Green–Tao
    papers the stage itself names.
+
+---
+
+# Continuation — 28 September 2026, second pass (Claude Code, cc-fb70e5)
+
+Item 2 of the previous pass's list: **the Gowers-norm estimates now have their own nodes.** The accepted
+Gowers node cites Green–Tao (5.5)–(5.7) in its sources but states only the definitions, and AC.3 could
+not close while the Gowers–Cauchy–Schwarz inequality was only an API line. Four nodes are added under
+AC.3; the accepted node, and every accepted field of the nine accepted nodes, is unchanged — verified
+again by a canonical comparison against the integrated file.
+
+| node | source |
+|---|---|
+| `AC.3/gowers-cauchy-schwarz` | (5.5), printed p. 12 — planet "Gowers–Cauchy–Schwarz inequality" |
+| `AC.3/gowers-triangle-inequality` | the paragraph after (5.5), p. 12 |
+| `AC.3/gowers-norm-monotone` | (5.7), p. 13 |
+| `AC.3/gowers-norm-is-norm` | after (5.7), p. 13, with the U² positivity example on p. 12 |
+
+Sources: the arXiv v6 PDF, whose sha256 `d03dd615…d7256e1` equals the one the accepted review recorded,
+for the page numbers; and the arXiv v6 LaTeX source for the text, so the prose of every excerpt is
+verbatim and only the displayed formulas are transcribed.
+
+**Dependency edges were taken from the source, and my first draft had them wrong.** I had attached
+monotonicity to Proposition 5.3 and the triangle inequality to the Koopman–von Neumann theorem. The
+source says otherwise: `\eqref{ud-monotone}` is invoked in the proof of Lemma 5.2 ("By (5.7) it suffices
+to prove the claim for d = k − 1"), so monotonicity now feeds `pseudorandom-measures-are-U-d-close-to-one`;
+and `\eqref{gcz}` is invoked in Lemma 6.1 and in the lemma behind Proposition 6.2, the Section 6
+machinery behind Koopman–von Neumann, so Gowers–Cauchy–Schwarz now feeds
+`koopman-von-neumann-structure-theorem`. No edge was added that the source does not show.
+
+`check_blueprint`: 0 errors, the same 6 deliberate warnings on inherited excerpts. 13 nodes, 8 planets
+(2 on AC.3). The Lean worksheet gains the four named theorems in its `GreenTao` section; nothing was
+compiled, as before. The document gains the four node sections, generated from the packet.
+
+**Next** is unchanged otherwise: AC.1's Bohr-to-progression thread at the previous passes' resume point;
+AC.2's selected proof route for Szemerédi's theorem; the unread Section 10 interior behind
+`majorantNu_isKPseudorandom`; and nodes for AC.0 and AC.5.
