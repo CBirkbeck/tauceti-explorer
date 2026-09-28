@@ -400,6 +400,15 @@ def accepted_routes(pid):
     return [route for number, route in enumerate(result.get("routes", []), 1) if number in accepted]
 
 
+def excerpt(text, size=500):
+    """The opening of a text, cut at a sentence."""
+    text = " ".join(str(text).split())
+    if len(text) <= size:
+        return text
+    cut = text[:size].rsplit(". ", 1)[0]
+    return (cut if len(cut) > size // 3 else text[:size].rsplit(" ", 1)[0]) + " …"
+
+
 def paper_designs(calls, roadmaps):
     """One design job for each roadmap the paper extractions call for (PROTOCOL.md sections 15 and 16).
 
@@ -415,7 +424,10 @@ def paper_designs(calls, roadmaps):
     designs = []
     for (kind, name), members in grouped.items():
         area = Counter(route.get("area") for route, _, _ in members).most_common(1)[0][0]
-        proposals = "\n".join(f"- \"{route['title']}\", from {paper['citation']}: {route['brief']}{origin}" for route, paper, origin in members)
+        # A proposal's brief can run to tens of thousands of characters: the job
+        # quotes its opening and points to the full brief and items.
+        proposals = "\n".join(f"- \"{route['title']}\", from {paper['citation']} ({len(route.get('items') or [])} items): {excerpt(route['brief'])} "
+                               f"Full brief and items: research/blueprint/papers/{paper['id']}.result.json, the route to {route['roadmap']}." for route, paper, _ in members)
         if kind == "part-ii":
             base = name.split("/")[-1].split(":")[-1]
             part, rid, built = "Part II", base + "PartII", ""

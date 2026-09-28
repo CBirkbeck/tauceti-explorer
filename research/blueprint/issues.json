@@ -1870,5 +1870,11 @@
  "DESIGN-AREA-OptimizationControl": 3081,
  "DESIGN-AREA-AlgorithmsComputationalComplexity": 3082,
  "DESIGN-AREA-SetTheory": 3083,
- "DESIGN-AREA-ComputabilityProofTheory": 3084
+ "DESIGN-AREA-ComputabilityProofTheory": 3084,
+ "DESIGN-ModularIwasawaMainConjecturesPartII": 3338,
+ "DESIGN-RankZeroOneBSDPartII": 3339,
+ "DESIGN-ArakelovGeometryAndAbelianHeightsPartII": 3340,
+ "DESIGN-JacobianChallengePartII": 3341,
+ "DESIGN-StableReductionPartII": 3342,
+ "DESIGN-HeightsRationalPointsAndObstructionsPartII": 3343
 }
