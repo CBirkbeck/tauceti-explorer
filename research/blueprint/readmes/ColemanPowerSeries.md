@@ -1,10 +1,276 @@
+# Continuous arithmetic norms and the evaluation square
+
+**Current checkpoint:** 208 unchecked nodes: 2 definitions, 21 constructions,
+146 lemmas, 26 theorems and 13 comparisons; 112 API items (105 on definitions
+and constructions), 159 packet tests (77 on definitions and constructions),
+161 typed examples, 12 planets and 263 baseline citations. Six gaps, twelve
+requests, thirteen inherited source findings and zero closed stages remain.
+Earlier numerical checkpoint summaries below are historical.
+
+Fix any prime p, including 2. Use the actual cyclotomic fields K_n inside
+the p-adic algebraic closure, their native integral closures O_n over ℤ_p,
+the compatible roots ζ_n and ϖ_n=ζ_n−1. The paper's level is n+1. All
+fields, rings and units keep their native topologies. The relative scalar
+map is the existing inclusion K_n→K_(n+1), and the relative basis consists
+of the first p powers of ζ_(n+1).
+
+Each relative coordinate K_(n+1)→K_n is continuous. Restrict its scalars
+to ℚ_p, then apply the native continuity theorem for linear maps from a
+finite-dimensional Hausdorff space over a complete nontrivially normed field.
+This requires no new normed K_n-module instance. The relative field norm
+is the determinant of the multiplication matrix in this basis. Each entry
+is a continuous relative coordinate after multiplication by a fixed basis
+vector, so the finite determinant expansion proves continuity.
+
+Native preservation of integrality corestricts this field norm to
+`ColemanCyclotomic.integralNorm`, a monoid homomorphism O_(n+1)→O_n.
+It is continuous for the inherited subtype topologies and agrees exactly
+with the field norm after inclusion. On scalars a∈ℤ_p it gives a^p; on the
+uniformizer it gives (−1)^(p+1)ϖ_n. This specializes the specified field
+norm on the existing integral closures. The general native Algebra.intNorm
+construction is already available for its integral-algebra setup and is
+not rebuilt here.
+
+Native Units.map and its continuity theorem now give
+`ColemanCyclotomic.unitsNorm`, a continuous monoid homomorphism between
+actual unit groups. Its value is the integral norm, its inverse law is the
+native group-homomorphism law, and scalar units again map to their pth powers.
+Full units are treated as topological groups. A ℤ_p-module structure is not
+asserted for them.
+
+Write B=ℤ_p[[T]], Y=1+T, φ(T)=Y^p−1, and ε_n for the existing convergent
+seriesEvaluation at ϖ_n. Equation (10-1) becomes an equality in K_(n+1):
+
+ε_(n+1)(φF)=ι(ε_n(F)).
+
+First prove it on polynomials using ζ_(n+1)^p=ι(ζ_n). Both maps are
+continuous in the coefficient topology, so native polynomial truncation
+convergence proves it for every integral series. Frobenius continuity follows
+from the existing coordinate assembly on the zeroth single-coordinate family.
+
+Apply this equation to the formal basis expansion F=Σ_i φ(c_i)Y^i.
+The upper evaluation is Σ_i ι(ε_n(c_i))ζ_(n+1)^i. Uniqueness in the existing
+relative basis identifies its coordinates with those lower evaluations.
+Applying the coordinate formula to F Y^j identifies the entire multiplication
+matrix of ε_(n+1)(F) with the formal Frobenius multiplication matrix of F,
+entrywise evaluated by ε_n. The formal matrix retains the explicit Frobenius
+scalar algebra; replacing it with the ordinary self-algebra gives the wrong
+matrix and norm.
+
+Taking determinants and using native commutation of determinants with ring
+homomorphisms proves the actual integral arithmetic square:
+
+integralNorm_n(ε_(n+1)(F))=ε_n(colemanNorm(F)).
+
+This holds for every integral series, including zero and nonunits. Native
+unit maps and units extensionality give the square of actual unit groups in
+Lemma 10.9. The determinant proof needs no claim that the formal extension
+has already split over its original coefficient ring.
+
+Reduction of ε_n(F) is the reduction modulo p of the constant coefficient of
+F. Use the native decomposition into the constant term and T times the shifted
+series; the residue of ϖ_n is zero. Given any upper unit, use its existing
+unit polynomial-series lift. The arithmetic square and colemanNorm(F)≡F
+modulo p then show that unitsNorm preserves its residue in ZMod p. In
+particular it preserves residue-one units. A norm-fixed unit series therefore
+has adjacent norm-compatible actual evaluations. The inverse-limit carrier
+and interpolation bijection remain to be constructed.
+
+The full published RJW pages 161–164 and 166–170 were freshly read,
+including equation (10-1), all of Lemma 10.9 and the interpolation argument.
+The source assumes p odd. Here the dyadic signs are explicit: at p=2,n=0,
+the norm of ζ_1−1 is +2 while ζ_0−1=−2, and the root itself has norm −ζ_0.
+No unqualified norm compatibility of the dyadic root sequence is inferred.
+The thirteen inherited source findings retain their version and review status.
+The named local-field, normalized valuation and ramification interfaces remain
+with LocalFieldsRamification; general coefficient variants stay explicit.
+
+## Declarations, dependencies and acceptance cases
+
+Each entry uses the actual-carrier conventions above and remains unchecked.
+
+### Continuity of the actual relative coordinates
+
+`ColemanCyclotomic.continuous_relative_coordinate` (lemma). Each coordinate of the existing relative cyclotomic power basis K_(n+1)→K_n is continuous.
+
+A coordinate is K_n-linear. Restrict scalars through the already supplied ℚ_p/K_n/K_(n+1) tower, obtaining a ℚ_p-linear map. The domain is finite-dimensional over ℚ_p and has its Hausdorff native norm topology. The native finite-dimensional linear continuity theorem applies over the complete field ℚ_p. No separately installed normed K_n-module structure is required.
+
+Prerequisites: `ColemanPowerSeries:L0/local-cyclotomic-level`, `ColemanPowerSeries:L0/relative-cyclotomic-basis`, `mathlib:LinearMap.continuous_of_finiteDimensional`.
+
+Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
+
+### Continuity of the relative field norm
+
+`ColemanCyclotomic.continuous_relative_norm` (lemma). The actual native map Algebra.norm(K_n):K_(n+1)→K_n is continuous.
+
+Use native norm_eq_matrix_det with the existing relative basis. Its (i,j) entry is the ith coordinate of x times the jth fixed basis vector. Multiplication by a fixed field element is continuous, and the preceding coordinate theorem gives continuity of every matrix entry. The native finite determinant expansion is a finite sum of products of these continuous functions.
+
+Prerequisites: `ColemanPowerSeries:L0/relative-coordinate-continuity`, `mathlib:Algebra.norm_eq_matrix_det`, `mathlib:Algebra.leftMulMatrix_eq_repr_mul`, `mathlib:Matrix.det_apply`.
+
+Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
+
+### Relative norm on the actual integral closures
+
+`ColemanCyclotomic.integralNorm` (construction). Corestrict the native field norm to a monoid homomorphism integralNorm_n:O_(n+1)→O_n, using native preservation of integrality.
+
+For x in the actual integral closure, its field value is integral over ℤ_p. Native Algebra.isIntegral_norm over the existing scalar tower proves that its relative norm is again integral over ℤ_p. Use this witness in the existing integral-closure subtype, and restrict the native field-norm monoid homomorphism. No second general norm construction or integral-ring carrier is introduced. Zero follows from the finite nonzero-rank field norm. On a scalar from ℤ_p, the native basis-cardinality norm formula gives the pth power. The existing relative difference norm and injectivity of the integral inclusion give the signed difference formula.
+
+Prerequisites: `ColemanPowerSeries:L0/relative-cyclotomic-degree`, `ColemanPowerSeries:L0/relative-cyclotomic-basis`, `ColemanPowerSeries:L0/relative-cyclotomic-basis-dimension`, `ColemanPowerSeries:L0/relative-cyclotomic-difference-norm`, `mathlib:Algebra.isIntegral_norm`, `mathlib:Algebra.norm_algebraMap_of_basis`.
+
+API:
+
+- `integralNorm_zero`: The zero integral element maps to0.
+- `integralNorm_scalar`: A scalar a∈ℤ_p maps to the scalar a^p.
+- `integralNorm_difference`: The norm of ϖ_(n+1) is (−1)^(p+1)ϖ_n.
+
+Typed acceptance cases:
+
+- `RelativeNormTests.integral_zero`: The actual integral norm sends0 to0.
+- `RelativeNormTests.integral_prime`: The rational prime maps to p^p, not to p.
+- `RelativeNormTests.dyadic_difference`: At p=2,n=0, the norm of ζ_1−1 is+2 although ζ_0−1=−2.
+
+Acceptance: Native Algebra.intNorm is already available for its integral-algebra setup; it is not replanned. This adapter corestricts the specified field norm to these actual subtypes without assuming that additional relative integral-algebra setup.
+
+### The integral norm agrees with the native field norm
+
+`ColemanCyclotomic.integralNorm_field` (lemma). Including integralNorm_n(x) into K_n gives Algebra.norm(K_n) of the field value of x.
+
+Unfold the preceding corestriction. The integral-closure inclusion forgets only the integrality proof, leaving the original field norm.
+
+Prerequisites: `ColemanPowerSeries:L0/integral-relative-norm`.
+
+Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
+
+### Continuity of the integral norm transition
+
+`ColemanCyclotomic.continuous_integralNorm` (lemma). The map integralNorm_n:O_(n+1)→O_n is continuous in the inherited norm topologies.
+
+The domain inclusion into K_(n+1) is continuous. Compose it with the preceding continuous field norm. The codomain O_n has its native subtype topology; the corestriction continuity criterion and the field-value identity give the result.
+
+Prerequisites: `ColemanPowerSeries:L0/relative-field-norm-continuity`, `ColemanPowerSeries:L0/integral-relative-norm-field`.
+
+Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
+
+### Continuous norm transitions on actual units
+
+`ColemanCyclotomic.unitsNorm` (construction). Bundle Units.map(integralNorm_n) as a native ContinuousMonoidHom from O_(n+1)ˣ to O_nˣ.
+
+Apply native Units.map to the existing integral norm monoid homomorphism. Inverse values are automatically the norms of the inverse units. Native Continuous.units_map transfers the preceding continuity to the genuine units topologies, controlling both the element and its inverse. Bundle in the existing ContinuousMonoidHom carrier. The value formula is the native Units.map value. Its inverse law is monoid-hom functoriality on groups; the scalar-unit formula follows by units extensionality and the integral scalar formula.
+
+Prerequisites: `ColemanPowerSeries:L0/integral-relative-norm`, `ColemanPowerSeries:L0/integral-relative-norm-continuity`, `mathlib:Continuous.units_map`.
+
+API:
+
+- `unitsNorm_coe`: The underlying integral element is integralNorm_n of the underlying input.
+- `unitsNorm_inv`: The norm of an inverse unit is the inverse norm.
+- `unitsNorm_scalar`: A unit a from ℤ_p maps to its pth power at the lower level.
+
+Typed acceptance cases:
+
+- `RelativeNormTests.unit_identity`: The identity unit maps to the identity.
+- `RelativeNormTests.unit_minus_one`: The unit−1 maps to(−1)^p, including+1 at p=2.
+- `RelativeNormTests.unit_root`: A unit whose value is ζ_(n+1) maps to the unit with value(−1)^(p+1)ζ_n.
+
+Acceptance: Full units have a topological group structure. No ℤ_p-module or pro-p hypothesis is asserted for them.
+
+### Frobenius substitution and the actual tower evaluation
+
+`ColemanCyclotomic.seriesEvaluation_phi_field` (lemma). In K_(n+1), the value of ε_(n+1)(φF) equals the inclusion of ε_n(F).
+
+For polynomial F, use the existing evaluation comparison and ζ_(n+1)^p=ι(ζ_n). Substitution T↦(1+T)^p−1 therefore evaluates at ϖ_n under the lower field inclusion. Both maps on B are continuous: write φ as the existing continuous coordinate assembly on the zeroth single-coordinate family, and use evaluation continuity and the actual field inclusion. Native polynomial truncations converge in the coefficient topology. Pass the polynomial identity through these limits in the Hausdorff upper field. There is no evaluation at a noncontracting point.
+
+Prerequisites: `ColemanPowerSeries:L0/cyclotomic-evaluation-polynomial`, `ColemanPowerSeries:L0/cyclotomic-series-evaluation`, `ColemanPowerSeries:L0/local-cyclotomic-level`, `ColemanPowerSeries:L0/cyclotomic-root-compatibility`, `ColemanPowerSeries:L1/frobenius-scalar-map`, `ColemanPowerSeries:L1/frobenius-coordinate-continuity`, `mathlib:PowerSeries.WithPiTopology.tendsto_trunc_atTop`.
+
+Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
+
+### Specialization of Frobenius coordinates to the relative basis
+
+`ColemanCyclotomic.seriesEvaluation_phiBasis_coordinates` (comparison). Reindex the existing relative power basis to Fin p. The ith relative coordinate of ε_(n+1)(F) is the field value of ε_n of the ith formal Frobenius coordinate of F.
+
+Apply ε_(n+1) to the existing formal expansion F=Σ_i φ(c_i)Y^i. It preserves the finite sum and product. The preceding evaluation lemma sends each φ(c_i) to the inclusion of ε_n(c_i), while Y evaluates to ζ_(n+1). These are exactly the existing relative basis powers. Use uniqueness of coordinates in that basis. Reindex only along the established dimension equality; no new basis choice or splitting field is introduced.
+
+Prerequisites: `ColemanPowerSeries:L1/arithmetic-frobenius-evaluation`, `ColemanPowerSeries:L1/frobenius-basis-expansion`, `ColemanPowerSeries:L0/relative-cyclotomic-basis`, `ColemanPowerSeries:L0/relative-cyclotomic-basis-generator`, `ColemanPowerSeries:L0/relative-cyclotomic-basis-dimension`.
+
+Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
+
+### Specialization of the actual multiplication matrix
+
+`ColemanCyclotomic.seriesEvaluation_mulMatrix` (comparison). In the reindexed relative basis, the left multiplication matrix of ε_(n+1)(F) is the formal Frobenius multiplication matrix of F with each coefficient evaluated by ε_n and included into K_n.
+
+The native entry formula is coordinate_i(x times basis_j). Take x to be the upper evaluation of F. The jth relative basis vector is ε_(n+1)(Y^j). Multiplicativity of evaluation identifies the product with ε_(n+1)(F Y^j). Apply the preceding coordinate-specialization theorem to F Y^j. The native entry formula in the explicitly selected Frobenius scalar algebra identifies its formal coordinate with the corresponding formal multiplication entry.
+
+Prerequisites: `ColemanPowerSeries:L1/arithmetic-frobenius-coordinates`, `ColemanPowerSeries:L1/frobenius-basis-values`, `mathlib:Algebra.leftMulMatrix_eq_repr_mul`.
+
+Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
+
+### The arithmetic Coleman norm and evaluation square
+
+`ColemanCyclotomic.integralNorm_seriesEvaluation` (theorem). For every F∈ℤ_p[[T]], integralNorm_n(ε_(n+1)(F))=ε_n(colemanNorm(F)) in O_n.
+
+Include both sides into K_n. The integral norm field-value lemma identifies the left side with the native field norm. Use the existing relative basis determinant formula and the preceding multiplication-matrix specialization. Native RingHom.map_det commutes the lower evaluation with this finite determinant. The existing Coleman determinant formula identifies that evaluated determinant with ε_n(colemanNorm(F)). The actual integral inclusion is injective, giving equality in O_n.
+
+Prerequisites: `ColemanPowerSeries:L0/integral-relative-norm-field`, `ColemanPowerSeries:L1/arithmetic-multiplication-matrix`, `ColemanPowerSeries:L1/coleman-norm-matrix`, `mathlib:Algebra.norm_eq_matrix_det`, `mathlib:RingHom.map_det`.
+
+Typed acceptance cases:
+
+- `RelativeNormTests.evaluate_constant`: A constant a evaluates through the norm square to the scalar a^p.
+- `RelativeNormTests.dyadic_variable`: At p=2,n=0, the norm of the upper evaluation of T is minus its lower evaluation.
+
+Acceptance: The equality holds for all integral power series, including nonunits and zero. No extension of a character across an unrelated total quotient is involved.
+
+### The norm square in actual unit groups
+
+`ColemanCyclotomic.unitsNorm_seriesEvaluation` (lemma). For F∈Bˣ, applying unitsNorm_n after upper evaluation equals lower evaluation after Units.map(colemanNorm).
+
+All horizontal maps are the native Units.map of the existing evaluation ring homomorphisms. Hence their inverses are evaluations of the inverse series. Apply units extensionality, unfold the units lift, and use the preceding equality for the underlying power series.
+
+Prerequisites: `ColemanPowerSeries:L0/continuous-unit-norm`, `ColemanPowerSeries:L1/arithmetic-norm-evaluation`.
+
+Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
+
+### Reduction of finite-level series evaluation
+
+`ColemanCyclotomic.reduction_seriesEvaluation` (lemma). The residue of ε_n(F) is the reduction modulo p of constantCoeff(F).
+
+Use the native formal identity F=T times its shifted series plus its constant series. Evaluation and reduction are ring homomorphisms. The residue of ϖ_n is0 by the existing root reduction, while scalar reduction agrees with PadicInt.toZMod. The shifted term therefore vanishes. No interchange of an infinite sum with reduction is needed.
+
+Prerequisites: `ColemanPowerSeries:L0/cyclotomic-series-evaluation`, `ColemanPowerSeries:L0/cyclotomic-reduction-root`, `ColemanPowerSeries:L0/cyclotomic-reduction-scalars`, `mathlib:PowerSeries.eq_X_mul_shift_add_const`.
+
+Acceptance: Use the actual carrier, topology and relative scalar inclusion, including p=2.
+
+### The unit norm preserves the actual residue
+
+`ColemanCyclotomic.reduction_unitsNorm` (lemma). For u∈O_(n+1)ˣ, the residue of unitsNorm_n(u) equals the residue of u under the fixed identifications with ZMod p.
+
+Choose the existing unit polynomial-series lift F of u at the upper level. The arithmetic norm square identifies its norm with the lower evaluation of colemanNorm(F). The preceding evaluation-reduction lemma makes both residues constant-coefficient reductions. The existing Coleman congruence colemanNorm(F)≡F modulo p makes these reductions equal. This argument avoids assuming that the relative integer ring already has a separately constructed free basis. In particular, residue1 is preserved.
+
+Prerequisites: `ColemanPowerSeries:L0/cyclotomic-unit-series-evaluation-lift`, `ColemanPowerSeries:L1/arithmetic-unit-norm-evaluation`, `ColemanPowerSeries:L0/arithmetic-evaluation-reduction`, `ColemanPowerSeries:L1/coleman-norm-residue-identity`.
+
+Typed acceptance cases:
+
+- `RelativeNormTests.principal_unit`: A unit with residue1 has norm with residue1.
+
+Acceptance: This supplies preservation of the principal-unit condition, not its pro-p proof or a new module structure.
+
+### Norm-fixed units give compatible finite-level evaluations
+
+`ColemanCyclotomic.normFixedUnits_evaluation_compatible` (lemma). For a unit series F in the existing normFixedUnits subgroup, unitsNorm_n(ε_(n+1)(F))=ε_n(F) as actual units.
+
+The preceding unit-group norm square identifies the left side with the lower evaluation of Units.map(colemanNorm)(F). The existing subgroup membership theorem says that the underlying series is fixed by colemanNorm. Units extensionality identifies the units, giving the required adjacent compatibility.
+
+Prerequisites: `ColemanPowerSeries:L1/arithmetic-unit-norm-evaluation`, `ColemanPowerSeries:L1/coleman-norm-fixed-membership`.
+
+Acceptance: This is the compatibility portion of Proposition10.10. The actual inverse-limit carrier, interpolation injectivity and surjectivity remain explicit work.
+
+## Earlier cyclotomic, norm and Coleman-map developments
+
 > Current checkpoint: the final “Cyclotomic norm valuation and ideal topology”
 > section identifies the actual integral closure with the native norm valuation
 > ring, its maximal ideal and reduction kernel, and its ideal-power topology.
 > Earlier counts and open boundaries retain their historical scope. The owning
 > normalized local-field comparison and infinite interpolation remain open.
 
-**Current packet:** 194 unchecked nodes (2 definitions, 19 constructions,
+**Historical packet:** 194 unchecked nodes (2 definitions, 19 constructions,
 137 lemmas, 25 theorems and 11 comparisons), 106 API items (99 on definitions
 and constructions), 150 packet tests (71 on those objects), 152 typed examples,
 12 planets and 258 baseline declarations. Six gaps, twelve requests, thirteen
