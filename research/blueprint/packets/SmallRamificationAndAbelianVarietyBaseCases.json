@@ -1,0 +1,1861 @@
+{
+  "roadmapId": "SmallRamificationAndAbelianVarietyBaseCases",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+    "SmallRamificationAndAbelianVarietyBaseCases:R25.6"
+  ],
+  "status": "partial",
+  "summary": "First checkpoint (R25.1, R25.2). R25.2 is closed: Tate's theorem (p = 2) and Serre's mod-3 theorem, and their combination in the form of DP23 Theorem 1.1, with the coefficient-field issue handled through finite image. The proof plan follows Tate's method. The tame case is excluded by Minkowski's bound. In the wild case the decomposition group lies in a Borel, and local class field theory over an unramified or tame quadratic base computes the upper ramification filtration. This gives δ ≤ 2 at 2 (sharper than Tate's 5/2) and δ ≤ 13/6 − 1/|P| at 3. Dickson's classification then forces a large degree. For p = 2 Minkowski's bound (rd > 4 for n ≥ 12, rd > 3 for n ≥ 6) finishes the proof with no analytic input. For p = 3 the Odlyzko–Poitou explicit-formula bound with the kernel (1 − |x|)cos πx + sin π|x|/π gives rd > 10 for totally complex n ≥ 24 and rd > 12 for n ≥ 36, against 3^{11/6} ≈ 7.49 and 3^{13/6} ≈ 10.81. No list of number fields is used. R25.1 is partial: the torsion-field bounds of Fontaine and Schoof remain. R25.3–R25.6 are not yet read. Tate's paper (Contemp. Math. 174) and Serre's note (Œuvres III, p. 710) were not accessible, so the plan was checked against DP23, Khare, Moon–Taguchi, Jones and Ghitza–Yamauchi.",
+  "baseline": {
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "declarations": [
+      {
+        "ref": "mathlib:NumberField.abs_discr_ge'",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+        "provides": "Minkowski's bound n^(2n)/((4/π)^(2r₂)·n!²) ≤ |d_K| for a number field K of degree n with r₂ complex places.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.abs_discr_gt_two",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+        "provides": "2 < |d_K| when 1 < [K:ℚ]; so a number field unramified at every prime is ℚ.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.rootDiscr",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+        "provides": "The root discriminant rd_K = |d_K|^(1/[K:ℚ]).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.rootDiscr_def",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
+        "provides": "rootDiscr K = |discr K| ^ (finrank ℚ K)⁻¹.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.discr",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
+        "provides": "The absolute discriminant d_K ∈ ℤ of a number field.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.absNorm_differentIdeal",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Different.lean",
+        "provides": "The absolute norm of the different ideal of 𝓞_K over ℤ is |d_K|.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.not_dvd_discr_iff_isUnramifiedIn",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/Discriminant/Different.lean",
+        "provides": "A prime p does not divide d_K if and only if p is unramified in 𝓞_K.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:differentIdeal",
+        "kind": "definition",
+        "module": "Mathlib/RingTheory/DedekindDomain/Different.lean",
+        "provides": "The different ideal of a finite extension of Dedekind domains.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "The number r₂ of complex places of a number field.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.IsTotallyComplex",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+        "provides": "The class of number fields all of whose infinite places are complex.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:NumberField.nrRealPlaces_eq_zero_iff",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+        "provides": "r₁ = 0 if and only if the number field is totally complex.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.pi_gt_d2",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+        "provides": "3.14 < π.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.pi_lt_d2",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Real/Pi/Bounds.lean",
+        "provides": "π < 3.15.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.eulerMascheroniConstant",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+        "provides": "Euler's constant γ as the limit of H_n − log(n+1).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.eulerMascheroniSeq",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+        "provides": "The sequence H_n − log(n+1), increasing to γ.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.eulerMascheroniSeq_lt_eulerMascheroniConstant",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+        "provides": "H_n − log(n+1) < γ for every n: certified lower bounds for γ.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.cosh",
+        "kind": "definition",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "The real hyperbolic cosine.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.sinh",
+        "kind": "definition",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "The real hyperbolic sine.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.cos",
+        "kind": "definition",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "The real cosine.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Real.sin",
+        "kind": "definition",
+        "module": "Mathlib/Analysis/Complex/Trigonometric.lean",
+        "provides": "The real sine.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.convolution",
+        "kind": "definition",
+        "module": "Mathlib/Analysis/Convolution.lean",
+        "provides": "Convolution of functions on a group with respect to a bilinear map.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Nat.factorial",
+        "kind": "definition",
+        "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
+        "provides": "The factorial n!.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Padic",
+        "kind": "definition",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "The field ℚ_p of p-adic numbers.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsGalois",
+        "kind": "definition",
+        "module": "Mathlib/FieldTheory/Galois/Basic.lean",
+        "provides": "Galois field extensions.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Field.absoluteGaloisGroup",
+        "kind": "definition",
+        "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+        "provides": "The absolute Galois group Gal(K̄/K) with its Krull topology.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:ContinuousMonoidHom",
+        "kind": "definition",
+        "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+        "provides": "Continuous monoid homomorphisms between topological monoids.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup",
+        "kind": "definition",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "The group GL_n(R) of invertible matrices.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup",
+        "kind": "definition",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "provides": "The group SL_n(R).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Representation.IsIrreducible",
+        "kind": "definition",
+        "module": "Mathlib/RepresentationTheory/Irreducible.lean",
+        "provides": "Irreducibility of a group representation.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:AlgebraicClosure",
+        "kind": "definition",
+        "module": "Mathlib/FieldTheory/IsAlgClosed/AlgebraicClosure.lean",
+        "provides": "An algebraic closure of a field.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:IsPGroup",
+        "kind": "definition",
+        "module": "Mathlib/GroupTheory/PGroup.lean",
+        "provides": "p-groups.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Subgroup.normalizer",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "provides": "The normaliser of a subgroup.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsPositiveDefiniteSub",
+        "kind": "definition",
+        "module": "TauCeti/Analysis/PositiveDefinite/AddGroup.lean",
+        "provides": "Positive-definite functions F on an additive group: Σ c_i c̄_j F(v_i − v_j) ≥ 0.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsPositiveDefiniteSub.mul",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/PositiveDefinite/AddGroup.lean",
+        "provides": "The pointwise product of positive-definite functions is positive definite (Schur product).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.bochner",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/Bochner/BochnerTheorem.lean",
+        "provides": "Bochner's theorem: a continuous positive-definite function on a finite-dimensional real inner-product space is the Fourier transform of a unique finite positive measure.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:Ideal.isUnramifiedAt_iff_inertia_eq_bot",
+        "kind": "theorem",
+        "module": "TauCeti/NumberTheory/NumberField/Frobenius/DecompositionGroup.lean",
+        "provides": "A prime of a Galois number field is unramified exactly when its inertia group is trivial.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "DP23-arXiv",
+      "title": "A simplified proof of Serre's conjecture",
+      "authors": "Luis Dieulefait and Ariel Pacetti",
+      "edition": "arXiv:2108.07577v2 (3 May 2022); published in RACSAM 117 (2023), article 153; accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/2108.07577",
+      "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+      "readSections": [
+        "§1.1, Theorems 1.1 and 1.2 with their proofs (p. 3).",
+        "§2, Paso 6 (p. 14 of the arXiv text): the use of Theorem 1.1 at p = 3."
+      ]
+    },
+    {
+      "id": "Khare05-arXiv",
+      "title": "On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Q̄/Q) unramified outside p",
+      "authors": "Chandrashekhar Khare",
+      "edition": "arXiv:math/0504080v1 (5 April 2005); published as 'Serre's modularity conjecture: the level one case', Duke Math. J. 134 (2006), 557–589; accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/math/0504080",
+      "sha256": "3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f",
+      "readSections": [
+        "§1 and §1.1 (p. 2): the definition of level one and the history of the cases p = 2, 3.",
+        "§§7.2 and 8 (pp. 29–30): the remarks on discriminant bounds and on the limits of Tate's method."
+      ]
+    },
+    {
+      "id": "MoonTaguchi07-arXiv",
+      "title": "The non-existence of certain mod 2 Galois representations of some small quadratic fields",
+      "authors": "Hyunsuk Moon and Yuichiro Taguchi",
+      "edition": "arXiv:0710.1319v1 (5 October 2007); accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/0710.1319",
+      "sha256": "d3646b4a940ef8049843eea5033e1739f30bdd645e2d36791baddf3b4f4f487c",
+      "readSections": [
+        "§2 (pp. 2–5): the Borel normal form (2.1) and Lemmas 1–3 with their proofs.",
+        "§3 (pp. 5–7): the solvable and non-solvable cases of their theorem."
+      ]
+    },
+    {
+      "id": "Jones10-preprint",
+      "title": "Wild ramification bounds and simple group Galois extensions ramified only at 2",
+      "authors": "John W. Jones",
+      "edition": "Author preprint (PDF dated 2 April 2010), hosted at hobbes.la.asu.edu; the published version was not consulted; accessed 2026-09-28",
+      "url": "https://hobbes.la.asu.edu/papers/simple2.pdf",
+      "sha256": "cc52105e5e2d35dc1b3de6450f79e8e9f8dd61663033d0611c3ca2e492793322",
+      "readSections": [
+        "§1.1, equations (1)–(3) (pp. 2–3): the discriminant exponent in terms of the upper ramification filtration.",
+        "§2.2 (pp. 8–9): the comparison with Moon's and Tate's bounds."
+      ]
+    },
+    {
+      "id": "GhitzaYamauchi25-arXiv",
+      "title": "The non-existence of some Galois representations of moderate dimension in small characteristic",
+      "authors": "Alexandru Ghitza and Takuya Yamauchi",
+      "edition": "arXiv:2509.00635v2 (31 October 2025); accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/2509.00635",
+      "sha256": "c4d5cb6c180e1a7f6ec5e3019775d7e7e01070b0046133b8bf73a23f0ce12036",
+      "readSections": [
+        "§2.2–2.3 (pp. 4–6): Corollary 2.5, Lemma 2.6 and Proposition 2.7 (Moon's discriminant bound).",
+        "§3, Propositions 3.2 and 3.3 with proofs (p. 7)."
+      ]
+    },
+    {
+      "id": "Odlyzko90-JTNB",
+      "title": "Bounds for discriminants and related estimates for class numbers, regulators and zeros of zeta functions: a survey of recent results",
+      "authors": "Andrew M. Odlyzko",
+      "edition": "Journal de Théorie des Nombres de Bordeaux 2 (1990), 119–141, Numdam copy; accessed 2026-09-28",
+      "url": "https://www.numdam.org/item/JTNB_1990__2_1_119_0/",
+      "sha256": "2c862713fc7f981ded3b4ac22f338b9905097850bbd9bc235eed77c298b5b852",
+      "readSections": [
+        "§1 (pp. 119–121): Stark's identity and the bound (1.5).",
+        "§2, (2.1)–(2.5) (pp. 121–122): the explicit formula for log D, the positivity requirement and the asymptotic unconditional bound."
+      ]
+    },
+    {
+      "id": "FesenkoVostokov-LF",
+      "title": "Local Fields and Their Extensions (second edition)",
+      "authors": "Ivan B. Fesenko and Sergei V. Vostokov",
+      "edition": "Author-hosted PDF of the second edition (American Mathematical Society, 2002), 355 pages; accessed 2026-09-28",
+      "url": "https://ivanfesenko.org/wp-content/uploads/2021/10/vol.pdf",
+      "sha256": "019f09b449c8a5310a699855d88dfd43d202d2697f44b0a0fd1378c9dd257ec0",
+      "readSections": [
+        "Ch. I, (5.7)–(5.8) (pp. 14–16): the p-th power map on the unit filtration.",
+        "Ch. IV, (3.5) Theorem and proof (pp. 135–136): the reciprocity map carries U_n to the n-th upper ramification group."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/local-root-discriminant-exponent",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "The local root-discriminant exponent δ(E/ℚ_p)",
+      "kind": "definition",
+      "statement": "Let p be a prime and E/ℚ_p a finite extension with ramification index e(E/ℚ_p) and different exponent d(E/ℚ_p) = v_E(𝔡_{E/ℚ_p}) (LocalFieldsRamification, Layer 3). The local root-discriminant exponent is the rational number δ(E) = d(E/ℚ_p)/e(E/ℚ_p). Equivalently δ(E) = v_p(disc(E/ℚ_p))/[E:ℚ_p], the p-adic valuation of the different normalised by v_p(p) = 1. It is the exponent with which p enters the root discriminant of a Galois number field whose completion at a prime above p is E (R25.1/root-discriminant-of-galois-field).",
+      "hypotheses": [
+        "p prime; E/ℚ_p a finite extension, carrying the unique extension of the p-adic valuation.",
+        "d and e are the different exponent and ramification index of LocalFieldsRamification Layer 3, not the global objects."
+      ],
+      "proofSteps": [
+        "Definition: δ(E) := (d(E/ℚ_p) : ℚ)/e(E/ℚ_p); e ≥ 1, so the quotient is defined.",
+        "The discriminant form: the local discriminant exponent is f(E/ℚ_p)·d(E/ℚ_p) (LocalFieldsRamification Layer 3, discriminantExponent_eq_inertiaDegree_mul_differentExponent) and e·f = [E:ℚ_p], so v_p(disc)/[E:ℚ_p] = f d/(e f) = δ(E).",
+        "Upper-numbering form, for E/ℚ_p Galois with group G and upper filtration G^u (Jones (1), requested from LocalFieldsRamification Layer 3): δ(E) = Σ_u (1/|G^{u+}| − 1/|G^u|)(u + 1), the sum over the finitely many jumps u ≥ 0 of the upper filtration.",
+        "Tame form: if p ∤ e then d = e − 1 (the exact tame exponent, Tau Ceti), so δ(E) = 1 − 1/e < 1.",
+        "δ(E) = 0 exactly when e = 1, since d = 0 iff E/ℚ_p is unramified; δ is unchanged under an unramified extension E'/E, because then d and e are unchanged."
+      ],
+      "acceptance": [
+        "δ(ℚ_2(√−1)) = 1, δ(ℚ_2(√2)) = 3/2, δ(ℚ_3(ζ_3, ∛3)) = 11/6, and δ(E) = 0 for E/ℚ_p unramified.",
+        "For a Galois number field K unramified outside p, rd_K = p^{δ(K_𝔭)} (R25.1/root-discriminant-of-galois-field)."
+      ],
+      "prerequisites": [
+        "mathlib:Padic",
+        "mathlib:differentIdeal"
+      ],
+      "sources": [
+        {
+          "sourceId": "Jones10-preprint",
+          "locator": "§1.1, equation (1), p. 2",
+          "excerpt": "Let F be a finite Galois extension of Qp with Galois group G. … If we write the discriminant of F/Qp as (p^{c_F}), then we have c_F = Σ_{i≥−1} ([G : G^{i+}] − [G : G^i])(i + 1).",
+          "match": "The discriminant exponent c_F; δ(E) = c_E/[E:ℚ_p] is Jones's mean slope (3)."
+        },
+        {
+          "sourceId": "Jones10-preprint",
+          "locator": "§1.1, equation (3), p. 3",
+          "excerpt": "With an eye toward root discriminants, we define the mean slope of F/Qp by MS(F) := c_F/[F : Qp].",
+          "match": "δ(E) is the mean slope MS(E); the name here records its role as a root-discriminant exponent."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/LocalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.localRootDiscrExp"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/root-discriminant-of-galois-field",
+          "how": "The root discriminant of a Galois number field is the product of p^{δ(K_𝔭)} over the ramified p."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
+          "how": "The quantity bounded: δ(E) ≤ 2 for the 2-adic fields cut out by mod-2 representations."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/three-adic-different-bound",
+          "how": "The quantity bounded: δ(E) ≤ 13/6 − 1/|P| for the 3-adic fields cut out by mod-3 representations."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tame-level-one-excluded",
+          "how": "The tame formula δ = 1 − 1/e < 1 bounds the root discriminant by p."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+          "how": "Fontaine's bound for the torsion fields of an abelian scheme over ℤ is δ < 1 + 1/(p − 1) (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6), applied in the next checkpoint."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp",
+          "role": "constructor",
+          "statement": "localRootDiscrExp p E : ℚ := (differentExponent ℚ_[p] E : ℚ) / ramificationIndex ℚ_[p] E."
+        },
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_eq_discriminantExponent_div",
+          "role": "characterisation",
+          "statement": "localRootDiscrExp p E = discriminantExponent ℚ_[p] E / [E : ℚ_[p]]."
+        },
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_eq_sum_upper",
+          "role": "characterisation",
+          "statement": "For E/ℚ_p Galois with group G: localRootDiscrExp p E = Σ over the jumps u of the upper filtration of (1/|G^{u+}| − 1/|G^u|)(u + 1)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "localRootDiscrExp p E = 0 ↔ E/ℚ_p is unramified."
+        },
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_of_tame",
+          "role": "other",
+          "statement": "If p ∤ e(E/ℚ_p) then localRootDiscrExp p E = 1 − 1/e(E/ℚ_p)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_of_isUnramified",
+          "role": "compatibility",
+          "statement": "If E'/E is unramified then localRootDiscrExp p E' = localRootDiscrExp p E."
+        },
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_congr",
+          "role": "relation",
+          "statement": "An isomorphism E ≃ₐ[ℚ_p] E' gives equal exponents."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_two_adic_i",
+          "kind": "value",
+          "statement": "localRootDiscrExp 2 ℚ_2(√−1) = 1 (discriminant 2², degree 2)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_two_adic_sqrt_two",
+          "kind": "value",
+          "statement": "localRootDiscrExp 2 ℚ_2(√2) = 3/2. The unnormalised different exponent is 3 and the discriminant exponent is 3, so a definition dividing by neither or by the wrong one of e and [E:ℚ_p] fails."
+        },
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_three_adic_pure_cubic",
+          "kind": "value",
+          "statement": "localRootDiscrExp 3 ℚ_3(ζ_3, ∛3) = 11/6: degree 6, totally ramified, discriminant exponent 11 = 2·5 + 1 from the tower ℚ_3 ⊂ ℚ_3(∛3) ⊂ ℚ_3(∛3, √−3)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.localRootDiscrExp_self",
+          "kind": "degenerate",
+          "statement": "localRootDiscrExp p ℚ_p = 0, and the exponent of the unramified quadratic extension of ℚ_p is 0."
+        }
+      ],
+      "planet": {
+        "name": "Local root-discriminant exponent"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/root-discriminant-of-galois-field",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "The root discriminant of a Galois number field is local",
+      "kind": "theorem",
+      "statement": "Let K/ℚ be a finite Galois extension of degree n, p a prime, 𝔭 a prime of 𝓞_K above p and K_𝔭 the completion. Then v_p(|d_K|) = n·δ(K_𝔭), where δ is R25.1/local-root-discriminant-exponent; δ(K_𝔭) does not depend on 𝔭. Consequently rd_K = ∏_{p ∣ d_K} p^{δ(K_𝔭)}, and if K is unramified at every prime other than p then rd_K = p^{δ(K_𝔭)}.",
+      "hypotheses": [
+        "K/ℚ finite Galois (IsGalois ℚ K); p prime; 𝔭 ∣ p."
+      ],
+      "proofSteps": [
+        "|d_K| = N(𝔡_K), the absolute norm of the different ideal of 𝓞_K over ℤ (NumberField.absNorm_differentIdeal).",
+        "𝔡_K = ∏_𝔓 𝔓^{d_𝔓}, and the exponent d_𝔓 at a prime above p is the local different exponent d(K_𝔓/ℚ_p) (NumberFieldArithmetic Layer 6, requested). Gal(K/ℚ) permutes the primes above p transitively, so d_𝔓, e and f are the same for all of them, and the g primes above p satisfy e f g = n.",
+        "v_p(N(𝔡_K)) = Σ_{𝔓∣p} f·d = g f d = n·d/e = n·δ(K_𝔭).",
+        "By NumberField.not_dvd_discr_iff_isUnramifiedIn only the ramified p divide d_K; take n-th roots (NumberField.rootDiscr_def)."
+      ],
+      "acceptance": [
+        "For K = ℚ(√−3): n = 2, δ(ℚ_3(√−3)) = 1/2 and rd_K = 3^{1/2} = √3 = |−3|^{1/2}.",
+        "For K = ℚ(ζ_9)^+: n = 3, δ = 4/3 and |d_K| = 3^4 = 81."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/local-root-discriminant-exponent",
+        "mathlib:NumberField.absNorm_differentIdeal",
+        "mathlib:NumberField.not_dvd_discr_iff_isUnramifiedIn",
+        "mathlib:NumberField.rootDiscr_def",
+        "mathlib:NumberField.discr",
+        "mathlib:IsGalois"
+      ],
+      "sources": [
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§3, proof of the Theorem, pp. 6–7",
+          "excerpt": "We denote by d_{K/Q} the discriminant of K/Q, and d_K^{1/n} = |d_{K/Q}|^{1/n} the root discriminant of K, where n = [K : Q].",
+          "match": "The root discriminant compared with the local different bounds in Tate's method."
+        },
+        {
+          "sourceId": "Jones10-preprint",
+          "locator": "§1.1, equation (1), p. 2",
+          "excerpt": "If we write the discriminant of F/Qp as (p^{c_F}), then we have c_F = Σ_{i≥−1} ([G : G^{i+}] − [G : G^i])(i + 1).",
+          "match": "The local exponent entering the global root discriminant."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/GlobalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.rootDiscr_eq_prod_rpow_localRootDiscrExp"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/prime-to-p-character-inertia",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "Local characters of order prime to p have inertia image of order dividing p − 1",
+      "kind": "lemma",
+      "statement": "Let E/ℚ_p be a finite Galois extension with group D, inertia subgroup I and wild inertia subgroup P ⊆ I, and let ψ : D → F^× be a homomorphism, F a finite field of characteristic p. Then ψ(P) = 1 and ψ(I) is cyclic of order dividing p − 1. In particular for p = 2 every such ψ is unramified, and for p = 3, ψ(I) ⊆ {±1}.",
+      "hypotheses": [
+        "F finite of characteristic p, so F^× has order prime to p."
+      ],
+      "proofSteps": [
+        "P is a p-group (LocalFieldsRamification Layer 3) and |F^×| = |F| − 1 is prime to p, so ψ(P) = 1.",
+        "I/P is cyclic and a Frobenius lift φ ∈ D acts on it by τ ↦ τ^p (the tame quotient, LocalFieldsRamification Layer 4, requested).",
+        "F^× is abelian, so ψ(τ) = ψ(φτφ^{−1}) = ψ(τ^p) = ψ(τ)^p, hence ψ(τ)^{p−1} = 1 for every τ ∈ I."
+      ],
+      "acceptance": [
+        "p = 2: the characters ψ_1, ψ_2 on the diagonal of a mod-2 local representation are unramified (Tate's 'tame degree 1').",
+        "p = 3: the mod-3 cyclotomic character ω restricted to I_3 has image exactly {±1}, so the bound p − 1 = 2 is attained."
+      ],
+      "prerequisites": [
+        "mathlib:IsPGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§2, after (2.1), p. 2",
+          "excerpt": "where ψi : D → F̄2^× are characters of D. Note that the ψi's have odd order, so that they are at most tamely ramified.",
+          "match": "The first step; the Frobenius argument then makes them unramified over ℚ_2."
+        },
+        {
+          "sourceId": "Jones10-preprint",
+          "locator": "§2.2, p. 9",
+          "excerpt": "Tate also shows that the tame degree must be 1, which in turn can be used to show that all slopes are either 2 or 3, and that at most one of them is 3.",
+          "match": "The p = 2 case: no tame ramification in the diagonal characters."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/LocalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.orderOf_map_inertia_dvd_sub_one"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/unit-filtration-power-maps",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "The p-th power map on principal units in the three small cases",
+      "kind": "lemma",
+      "statement": "Write U^{(i)} = 1 + 𝔪^i for the principal units of a finite extension of ℚ_p. (a) If E_0/ℚ_2 is unramified then U^{(3)} ⊆ (U^{(1)})², and U^{(2)}·(U^{(1)})² has index at most 2 over U^{(3)}·(U^{(1)})² = (U^{(1)})². (b) If E_0/ℚ_3 is unramified then U^{(2)} ⊆ (U^{(1)})³. (c) If E_1/ℚ_3 has absolute ramification index 2 then (U^{(1)})³ ⊆ U^{(3)}, U^{(4)} ⊆ (U^{(1)})³, and U^{(3)} has index at most 3 over U^{(4)}·(U^{(3)} ∩ (U^{(1)})³). (d) If moreover E_1/E_0 is a ramified quadratic extension with nontrivial automorphism τ, then for u ∈ U^{(i)}, τ(u) ≡ u^{(−1)^i} modulo U^{(i+1)}.",
+      "hypotheses": [
+        "Complete discretely valued fields of characteristic 0 with finite residue field of characteristic p ∈ {2, 3}."
+      ],
+      "proofSteps": [
+        "All four parts are Fesenko–Vostokov I.(5.7)–(5.8) with e the absolute ramification index: the p-th power maps U^{(i)} onto U^{(i+e)} for i > e/(p − 1), and U^{(i)} ⊆ (U^{(i−e)})^p for i > pe/(p − 1) (Corollary 2 of (5.8)).",
+        "(a) e = 1, p = 2: pe/(p − 1) = 2, so U^{(3)} ⊆ (U^{(2)})² ⊆ (U^{(1)})². The squares of 1 + 2x are 1 + 4(x + x²) modulo 8, so the image of U^{(2)} in U^{(1)}/(U^{(1)})² is the cokernel of the Artin–Schreier map x ↦ x² + x on the residue field, which has order 2 (case (2) of (5.7), θ_0 = 1).",
+        "(b) e = 1, p = 3: 3e/2 = 3/2 < 2, so U^{(2)} ⊆ (U^{(1)})³.",
+        "(c) e = 2, p = 3: e/(p − 1) = 1, so cubing sends U^{(1)} into U^{(3)} (case (2) of (5.7): (1 + aπ)³ ≡ 1 + (a³ + θ_0 a)π³ modulo π⁴); U^{(4)} ⊆ (U^{(2)})³ since 4 > pe/(p − 1) = 3; and the cokernel of the additive map a ↦ a³ + θ_0 a on the residue field has order at most 3 because its kernel has order at most 3.",
+        "(d) E_1 = E_0(π) with π² ∈ E_0 a uniformiser of E_0 up to a unit square (p odd, tame), so τ(π) = −π; τ is trivial on the residue field, so τ(1 + aπ^i) ≡ 1 + a(−π)^i modulo π^{i+1}."
+      ],
+      "acceptance": [
+        "(a) is attained over ℚ_2: 5 = 1 + 4·1 is not a square in ℚ_2, and (1 + 2x)² ∈ 1 + 8ℤ_2 for x even.",
+        "(c) is attained over ℚ_3(√−3): the Kummer class of 3 has conductor exponent 4 and that of 2 = −(1 − 3) has conductor exponent 2."
+      ],
+      "prerequisites": [],
+      "sources": [
+        {
+          "sourceId": "FesenkoVostokov-LF",
+          "locator": "Ch. I, (5.7) Proposition, pp. 14–15",
+          "excerpt": "Then the homomorphism ↑p maps Ui to Upi for i ⩽ e/(p − 1), and Ui to Ui+e for i > e/(p − 1).",
+          "match": "The p-th power map on the unit filtration, used in all four parts."
+        },
+        {
+          "sourceId": "FesenkoVostokov-LF",
+          "locator": "Ch. I, (5.8) Corollary 2, p. 16",
+          "excerpt": "Corollary 2. Let F be a complete field. Let i > pe/(p − 1). Then Ui ⊂ U^p_{i−e}.",
+          "match": "The inclusions U^{(3)} ⊆ squares (e = 1, p = 2), U^{(2)} ⊆ cubes (e = 1, p = 3) and U^{(4)} ⊆ cubes (e = 2, p = 3)."
+        },
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§2, proof of Lemma 1, p. 3",
+          "excerpt": "Just as in [17], we can show that the index (X5 : X4) is 1 or 2, since the image of (1 + π^4 A) in (1 + πA)/(1 + πA)^2 has order 2.",
+          "match": "The Artin–Schreier cokernel argument of part (a), there over a ramified quadratic base."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/LocalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.principalUnits_pow_subset"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "Tate's 2-adic bound: δ(E) ≤ 2 for fields cut out by mod-2 representations",
+      "kind": "theorem",
+      "statement": "Let F be a finite field of characteristic 2, E/ℚ_2 a finite Galois extension with group D, inertia I and wild inertia P ⊆ I, and ι : D → GL_2(F) an injective homomorphism. (i) If P = 1 then E/ℚ_2 is tame and δ(E) = 1 − 1/|I| < 1. (ii) If P ≠ 1 then I = P, P is an elementary abelian 2-group, and after conjugation in GL_2(F̄) the image ι(D) is upper triangular with ι(P) unipotent and unramified diagonal characters ψ_1, ψ_2. (iii) If P ≠ 1 and D is non-abelian then δ(E) = 2 − 2/|P|. (iv) If P ≠ 1 and D is abelian then |P| ≤ 4 and δ(E) ≤ 2. In every case δ(E) ≤ 2, and δ(E) ≤ 3/2 when |P| ≤ 2.",
+      "hypotheses": [
+        "F finite, characteristic 2; E/ℚ_2 finite Galois; ι injective. δ is R25.1/local-root-discriminant-exponent."
+      ],
+      "proofSteps": [
+        "(i) With P = 1 the extension is tame, and δ = 1 − 1/e with e = |I| (local-root-discriminant-exponent, tame form).",
+        "(ii) A nontrivial 2-subgroup of GL_2(F̄) fixes a unique line, and its normaliser lies in the stabiliser of that line, the Borel subgroup; its 2-elements are unipotent (ArithmeticGaloisRepresentations R01.4, requested). P is normal in D, so ι(D) is upper triangular with diagonal characters ψ_1, ψ_2 : D → F̄^×. By R25.1/prime-to-p-character-inertia (p = 2) both are unramified, so ι(I) is unipotent: I = P ≅ a subgroup of (F̄, +), elementary abelian.",
+        "Let E_0 = E^I, the maximal unramified subextension. E/E_0 is totally ramified abelian with group P of exponent 2. By local class field theory (ClassFieldTheory Layer 7, requested; Fesenko–Vostokov IV.(3.5)) the reciprocity map U_{E_0} → P is onto and sends U^{(n)} onto the upper ramification group P^{(n)} of E/E_0; it kills squares and the prime-to-2 part of U_{E_0}. So P^{(1)} = P, P^{(3)} = 1 by R25.1/unit-filtration-power-maps (a), and a := |P^{(2)}| ∈ {1, 2}.",
+        "E_0/ℚ_2 is unramified, so on inertia the upper filtration of D over ℚ_2 is that of P over E_0 (the Herbrand function of an unramified extension is the identity). The upper-numbering formula for δ gives, with jumps at u = 1 and u = 2, δ(E) = 2(1/a − 1/|P|) + 3(1 − 1/a) = 3 − 1/a − 2/|P|, which is 2 − 2/|P| if a = 1 and 5/2 − 2/|P| if a = 2.",
+        "(iii) If D is non-abelian then ψ_1 ≠ ψ_2 on D, so λ = (ψ_1ψ_2^{−1})(φ) ≠ 1 for a Frobenius lift φ; λ has odd order. Conjugation by φ acts on P ⊆ (F̄, +) as multiplication by λ, which fixes no nonzero vector. The reciprocity map is equivariant for the Frobenius of E_0/ℚ_2, which preserves each U^{(n)}, so P^{(2)} is λ-stable. A λ-stable subgroup {0, x} of order 2 would force λx = x; hence a = 1 and δ(E) = 2 − 2/|P|.",
+        "(iv) If D is abelian then E/ℚ_2 is abelian and, by local class field theory over ℚ_2, I = P is a quotient of ℤ_2^×/(ℤ_2^×)² ≅ (ℤ/2)², so |P| ≤ 4 and δ(E) ≤ 5/2 − 2/4 = 2.",
+        "Finally, 3 − 1/a − 2/|P| ≤ 3/2 when |P| ≤ 2 (then a ≤ |P|, and a = |P| = 2 gives 3/2)."
+      ],
+      "acceptance": [
+        "ℚ_2(√−1, √2), with D = (ℤ/2)² embedded as the unipotent group of GL_2(𝔽_4), has δ = 2: the four characters of (ℤ/2)² have conductor exponents 0, 2, 3, 3 and (0 + 2 + 3 + 3)/4 = 2. So the bound δ ≤ 2 is sharp.",
+        "ℚ_2(√2) embedded in the unipotent group of GL_2(𝔽_2) has δ = 3/2, the bound for |P| ≤ 2."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/local-root-discriminant-exponent",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/prime-to-p-character-inertia",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/unit-filtration-power-maps",
+        "ArithmeticGaloisRepresentations:R01.4",
+        "mathlib:Matrix.GeneralLinearGroup",
+        "mathlib:IsPGroup",
+        "mathlib:Subgroup.normalizer"
+      ],
+      "sources": [
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§2, before Lemma 1, p. 2",
+          "excerpt": "Since G1 is normal in G and the normalizer of G1 in GL2(F̄2) is (∗ ∗; ∗), we may assume that ρ is of the form ρ = (ψ1 ∗; ψ2).",
+          "match": "Step (ii): the Borel normal form."
+        },
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§2, proof of Lemma 3, pp. 4–5",
+          "excerpt": "If e1 = 1 … we have {1} = X1 ⊂ X2 ⊂ X3 = X and (X3 : X2) ≤ 2. … If ρ is non-abelian (i.e. ψ1 ≠ ψ2), then as in the last part of the proof of Lemma 1, we have X3 = X2, and hence v2(DE/F) = (1/2^m)((2^m − 1) × 2) = 2 − 1/2^{m−1}.",
+          "match": "Steps (iii): the same computation over an unramified base, with |P| = 2^m, giving 2 − 2/|P|."
+        },
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§2, proof of Lemma 1, p. 3",
+          "excerpt": "Each orbit by this action has odd cardinality |Im(ψ1ψ2^{−1})|, while X5 ∖ X4 has 2-power cardinality if it is non-empty. Thus we must have X5 = X4.",
+          "match": "The Frobenius-equivariance argument of step (iii), stated there on the character group."
+        },
+        {
+          "sourceId": "Jones10-preprint",
+          "locator": "§2.2, pp. 8–9",
+          "excerpt": "In that case, the Sylow 2-subgroup of PSL2(2^j) is elementary abelian, so the maximum slope is 3. Tate also shows that the tame degree must be 1, which in turn can be used to show that all slopes are either 2 or 3, and that at most one of them is 3.",
+          "match": "Tate's own bound, δ ≤ 5/2 − 2/|P|; steps (iii) and (iv) sharpen it to δ ≤ 2."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/LocalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.localRootDiscrExp_le_two_of_char_two"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tate's 2-adic bound"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/three-adic-different-bound",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "The 3-adic bound: δ(E) ≤ 13/6 − 1/|P| for fields cut out by mod-3 representations",
+      "kind": "theorem",
+      "statement": "Let F be a finite field of characteristic 3, E/ℚ_3 a finite Galois extension with group D, inertia I and wild inertia P ⊆ I, and ι : D → GL_2(F) an injective homomorphism. (i) If P = 1 then δ(E) = 1 − 1/|I| < 1. (ii) If P ≠ 1 then P is an elementary abelian 3-group, [I : P] ∈ {1, 2}, and δ(E) ≤ 13/6 − 1/|P|. More precisely: if I = P then δ(E) = 2 − 2/|P|; if [I : P] = 2 then δ(E) = 5/2 − 1/|P| − 1/a with a ∈ {1, 3} when the tame inertia acts on P by −1, and δ(E) = 2 − 3/(2|P|) when it acts trivially.",
+      "hypotheses": [
+        "F finite, characteristic 3; E/ℚ_3 finite Galois; ι injective."
+      ],
+      "proofSteps": [
+        "(i) As in the 2-adic case: tame, δ = 1 − 1/e.",
+        "(ii) Borel normal form as in R25.1/two-adic-different-bound, step (ii), with p = 3: ι(D) upper triangular, ι(P) unipotent, so P is elementary abelian. By R25.1/prime-to-p-character-inertia (p = 3), ψ_1(I), ψ_2(I) ⊆ {±1}, so e_0 := [I : P] ∈ {1, 2}.",
+        "e_0 = 1: E/E_0 (E_0 = E^I, unramified over ℚ_3) is totally ramified abelian of exponent 3. By local class field theory the upper groups are P^{(n)} = rec(U^{(n)}_{E_0}); by R25.1/unit-filtration-power-maps (b), P^{(2)} = 1. The only jump is u = 1, and δ = 2(1 − 1/|P|).",
+        "e_0 = 2: let E_1 = E^P, a ramified quadratic extension of E_0 with automorphism τ, and τ̃ ∈ I a lift. P = Gal(E/E_1) is abelian of exponent 3 and rec : U^{(1)}_{E_1} → P is onto, with rec(U^{(v)}) = P^{(v)} (upper numbering over E_1). By R25.1/unit-filtration-power-maps (c), P^{(4)} = 1 and |P^{(3)}| ≤ 3.",
+        "Equivariance: rec(τ(u)) = τ̃ rec(u) τ̃^{−1} = rec(u)^ε with ε = (ψ_1ψ_2^{−1})(τ̃) ∈ {±1}. For u ∈ U^{(v)}, R25.1/unit-filtration-power-maps (d) gives τ(u) = u^{(−1)^v} w with w ∈ U^{(v+1)}, so rec(u)^{ε − (−1)^v} ∈ P^{(v+1)}. If ε ≠ (−1)^v the exponent is ±2, invertible modulo 3, so P^{(v)} = P^{(v+1)}. Hence ε = −1 gives P^{(2)} = P^{(3)} =: A, and ε = +1 gives P^{(1)} = P^{(2)} = P and P^{(3)} = 1.",
+        "Herbrand: the upper filtration of D over ℚ_3 is D^0 = I, D^u = P^{(2u)} for u > 0, since φ_{E_1/E_0}(x) = x/2 for x ≥ 0 (tame quadratic) and E_0/ℚ_3 is unramified.",
+        "Upper-numbering formula: the u = 0 jump contributes 1/|P| − 1/(2|P|) = 1/(2|P|). For ε = −1, with a = |A|: δ = 1/(2|P|) + (3/2)(1/a − 1/|P|) + (5/2)(1 − 1/a) = 5/2 − 1/|P| − 1/a ≤ 13/6 − 1/|P|. For ε = +1: δ = 1/(2|P|) + 2(1 − 1/|P|) = 2 − 3/(2|P|) < 13/6 − 1/|P|. Also 2 − 2/|P| < 13/6 − 1/|P|."
+      ],
+      "acceptance": [
+        "ℚ_3(ζ_3, ∛3), with D ≅ S_3 embedded as {(±1, b; 0, 1)} ⊆ GL_2(𝔽_3), has δ = 11/6 = 13/6 − 1/3: the bound is sharp for |P| = 3.",
+        "ℚ_3(ζ_9)^+, with D = ℤ/3 unipotent in GL_2(𝔽_3), has e_0 = 1 and δ = 2 − 2/3 = 4/3, matching |d| = 81 for ℚ(ζ_9)^+."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/local-root-discriminant-exponent",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/prime-to-p-character-inertia",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/unit-filtration-power-maps",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
+        "ArithmeticGaloisRepresentations:R01.4",
+        "mathlib:Matrix.GeneralLinearGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "GhitzaYamauchi25-arXiv",
+          "locator": "§2.3, Lemma 2.6, p. 5",
+          "excerpt": "Let F/Qp be a finite unramified extension. Let E/F be a totally ramified extension with Galois group I. Suppose I has p-length N … Then the different of E/F divides p^C, where C = N + 1 + N/(p−1) − (1/e_N + (1/(p−1)) Σ 1/p^{m_i−1} + (r/(p−1))(1/e_0 − 1/e_N)).",
+          "match": "Moon's bound; for p = 3, N = 1, e_0 = 2 it gives 5/2 − 2/|P|, weaker than 13/6 − 1/|P| here and equal to it at |P| = 3."
+        },
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§1.1, proof of Theorem 1.1, p. 3",
+          "excerpt": "The result was proved by Tate ([Tat94]) for p = 2, and … Serre observed that the exact same argument worked for p = 3 ([Ser13, page 710]).",
+          "match": "Serre's 3-adic step is the analogue of Tate's bound; this node supplies it."
+        },
+        {
+          "sourceId": "FesenkoVostokov-LF",
+          "locator": "Ch. IV, (3.5) Theorem, p. 135",
+          "excerpt": "Then for every integer n ⩾ −1 the reciprocity map ΨL/F maps the quotient group Un,F NL/F L∗/NL/F L∗ isomorphically onto the ramification group G(n) = Gh(n).",
+          "match": "The identification of the upper ramification groups with images of unit groups."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/LocalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.localRootDiscrExp_le_of_char_three"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "3-adic bound"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/minkowski-root-discriminant-thresholds",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "Minkowski thresholds for the root discriminant",
+      "kind": "lemma",
+      "statement": "For every number field K of degree n: if n ≥ 3 then rd_K > 2; if n ≥ 6 then rd_K > 3; if n ≥ 12 then rd_K > 4.",
+      "hypotheses": [
+        "K a number field of degree n = [K:ℚ]; rd_K = NumberField.rootDiscr K."
+      ],
+      "proofSteps": [
+        "NumberField.abs_discr_ge': |d_K| ≥ M_{r_2}(n) := n^{2n}/((4/π)^{2r_2} (n!)²). Since 2r_2 ≤ n and π/4 < 1, M_{r_2}(n) ≥ M(n) := (π/4)^n (n^n/n!)².",
+        "rd_K > c is equivalent to |d_K| > c^n (NumberField.rootDiscr_def), so it suffices that M(n) > c^n.",
+        "Base cases, with π > 3.14 (Real.pi_gt_d2): M(3) > 0.785³·(9/2)² > 9.79 > 8 = 2³; M(6) > 0.785⁶·64.8² > 983 > 729 = 3⁶; M(12) > 0.785¹²·(12¹²/12!)² > 1.89·10⁷ > 4¹² = 16777216.",
+        "Induction: M(n+1)/M(n) = (π/4)(1 + 1/n)^{2n} ≥ 0.785·(64/27)² > 4.41 for n ≥ 3, since (1 + 1/n)^n is increasing; 4.41 > c for c ∈ {2, 3, 4}, so M(n) > c^n propagates from the base case."
+      ],
+      "acceptance": [
+        "For n = 11 with r_2 = 5 the Minkowski bound 4.56·10⁶ already exceeds 4¹¹ = 4194304, and for n = 10 it does not (6.8·10⁵ < 4¹⁰); the threshold 12 is the one used.",
+        "The thresholds are consistent with the smallest fields: ℚ(√−3) (n = 2, rd = 1.73) and the totally complex sextic of discriminant −9747 (rd = 4.61 > 3)."
+      ],
+      "prerequisites": [
+        "mathlib:NumberField.abs_discr_ge'",
+        "mathlib:NumberField.rootDiscr_def",
+        "mathlib:NumberField.InfinitePlace.nrComplexPlaces",
+        "mathlib:Real.pi_gt_d2",
+        "mathlib:Nat.factorial"
+      ],
+      "sources": [
+        {
+          "sourceId": "Odlyzko90-JTNB",
+          "locator": "§1, p. 119",
+          "excerpt": "For K = Q, D = 1, and one of Minkowski's fundamental results was the proof that D > 1 for n > 1. … a lower bound for D that was exponential in n.",
+          "match": "Minkowski's exponential lower bound, used here with explicit thresholds."
+        },
+        {
+          "sourceId": "GhitzaYamauchi25-arXiv",
+          "locator": "§3, proof of Proposition 3.2, p. 7",
+          "excerpt": "With N = 0 and p = 2, we get from Proposition 2.7 that |dK|^{1/n} < 2, and then from Odlyzko's (unconditional) Table 2 that n < 3, so the Galois group is abelian.",
+          "match": "The same deduction in the tame case; Minkowski's bound already gives n ≤ 2 from rd < 2."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/GlobalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.two_lt_rootDiscr"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/odlyzko-kernel",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "The kernel g(x) = (1 − |x|)cos πx + sin π|x|/π",
+      "kind": "definition",
+      "statement": "The even function g : ℝ → ℝ with g(x) = (1 − |x|) cos(πx) + sin(π|x|)/π for |x| ≤ 1 and g(x) = 0 for |x| ≥ 1. Equivalently g = 2·(h ⋆ h), the convolution square of h(x) = cos(πx)·1_{[−1/2, 1/2]}(x). Hence g is continuous, continuously differentiable (g′(x) = −π(1 − x) sin(πx) on [0, 1]), nonnegative, supported in [−1, 1], positive definite (its Fourier transform 2|ĥ|² is nonnegative), and g(0) = 1.",
+      "hypotheses": [
+        "None: g is an explicit real function."
+      ],
+      "proofSteps": [
+        "Definition by cases on |x| ≤ 1, with Real.cos, Real.sin and Real.pi.",
+        "Convolution identity: for 0 ≤ x ≤ 1, (h ⋆ h)(x) = ∫_{x−1/2}^{1/2} cos(πy) cos(π(x − y)) dy = ½(1 − x) cos(πx) + ½ ∫_{x−1/2}^{1/2} cos(π(2y − x)) dy = ½[(1 − x) cos(πx) + sin(πx)/π]; for x ≥ 1 the supports are disjoint; both sides are even.",
+        "Nonnegativity: h ≥ 0, so h ⋆ h ≥ 0. Positive definiteness: h ⋆ h̃ with h̃(x) = h(−x) = h(x) is positive definite (Σ c_i c̄_j (h ⋆ h̃)(v_i − v_j) = ∫ |Σ c_i h(v_i − y)|² dy ≥ 0), which is TauCeti.IsPositiveDefiniteSub.",
+        "g(0) = 2∫ cos²(πy) dy over [−1/2, 1/2] = 1, and ∫_0^1 g = ∫_0^1 (1 − x) cos(πx) dx + ∫_0^1 sin(πx)/π dx = 2/π² + 2/π² = 4/π²."
+      ],
+      "acceptance": [
+        "g(3/4) = √2/(2π) − √2/8 ≈ 0.0483 > 0, while (1 − |x|) cos(πx) alone is negative on (1/2, 1): the sine term is what makes g ≥ 0.",
+        "∫_0^1 g = 4/π², which produces the pole term 16b/π² in R25.1/poitou-lower-bound."
+      ],
+      "prerequisites": [
+        "mathlib:Real.cos",
+        "mathlib:Real.sin",
+        "mathlib:MeasureTheory.convolution",
+        "tauceti:TauCeti.IsPositiveDefiniteSub"
+      ],
+      "sources": [
+        {
+          "sourceId": "Odlyzko90-JTNB",
+          "locator": "§2, (2.4)–(2.5), p. 122",
+          "excerpt": "The above nonnegativity conditions on F(x) and Φ(s) are equivalent to the requirement that F(x) = f(x)/cosh(x/2), where f(x) ≥ 0 and f(x) has nonnegative Fourier transform. The best currently known unconditional bounds are obtained by selecting f(x) = g(x/b) for some parameter b.",
+          "match": "g is a kernel meeting (2.4): g ≥ 0 with nonnegative Fourier transform. It is the classical self-convolution kernel, not Tartar's optimal one; the thresholds of R25.1/totally-complex-root-discriminant-thresholds only need this one."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/GlobalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.odlyzkoKernel"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-lower-bound",
+          "how": "The test function F(x) = g(x/b)/cosh(x/2) in the explicit formula."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-kernel-positivity",
+          "how": "Supplies f = g(·/b) ≥ 0 with nonnegative Fourier transform."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-root-discriminant-thresholds",
+          "how": "The certified evaluations at b = 13/2 and b = 8 integrate this explicit g."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel",
+          "role": "constructor",
+          "statement": "odlyzkoKernel x = if |x| ≤ 1 then (1 − |x|) * cos (π * x) + sin (π * |x|) / π else 0."
+        },
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel_eq_two_mul_convolution",
+          "role": "characterisation",
+          "statement": "odlyzkoKernel = 2 • (h ⋆ h) for h = indicator [−1/2, 1/2] (fun y => cos (π * y))."
+        },
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel_nonneg",
+          "role": "other",
+          "statement": "0 ≤ odlyzkoKernel x."
+        },
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel_zero",
+          "role": "simp",
+          "statement": "odlyzkoKernel 0 = 1."
+        },
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel_neg",
+          "role": "simp",
+          "statement": "odlyzkoKernel (−x) = odlyzkoKernel x."
+        },
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel_eq_zero_of_one_le_abs",
+          "role": "other",
+          "statement": "1 ≤ |x| → odlyzkoKernel x = 0."
+        },
+        {
+          "name": "TauCeti.SmallRamification.isPositiveDefiniteSub_odlyzkoKernel",
+          "role": "other",
+          "statement": "IsPositiveDefiniteSub (fun x => (odlyzkoKernel x : ℂ))."
+        },
+        {
+          "name": "TauCeti.SmallRamification.contDiff_odlyzkoKernel",
+          "role": "other",
+          "statement": "ContDiff ℝ 1 odlyzkoKernel."
+        },
+        {
+          "name": "TauCeti.SmallRamification.integral_odlyzkoKernel_Ioi",
+          "role": "other",
+          "statement": "∫ x in Ioi 0, odlyzkoKernel x = 4 / π^2."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel_zero",
+          "kind": "value",
+          "statement": "odlyzkoKernel 0 = 1 (normalisation F(0) = 1 of the explicit formula)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel_half",
+          "kind": "value",
+          "statement": "odlyzkoKernel (1/2) = 1/π."
+        },
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel_three_quarters_pos",
+          "kind": "non-example",
+          "statement": "0 < odlyzkoKernel (3/4); the variant without the sine term, (1 − |x|) cos(πx), is negative at 3/4 and fails."
+        },
+        {
+          "name": "TauCeti.SmallRamification.odlyzkoKernel_one",
+          "kind": "degenerate",
+          "statement": "odlyzkoKernel 1 = 0 and odlyzkoKernel 2 = 0 (support in [−1, 1])."
+        },
+        {
+          "name": "TauCeti.SmallRamification.integral_odlyzkoKernel_Ioi",
+          "kind": "value",
+          "statement": "∫ x in Ioi 0, odlyzkoKernel x = 4/π²; a variant with sin(π|x|) instead of sin(π|x|)/π integrates to 2/π² + 2/π and fails."
+        }
+      ]
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-kernel-positivity",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "Positivity of the test function F = f/cosh(x/2) on primes and zeros",
+      "kind": "lemma",
+      "statement": "Let f : ℝ → ℝ be even, continuous, compactly supported, f ≥ 0 and positive definite. Put F(x) = f(x)/cosh(x/2) and Φ(s) = ∫_ℝ F(x) e^{(s−1/2)x} dx. Then F ≥ 0, F(−x) = F(x), and Re Φ(s) ≥ 0 for every s with 0 ≤ Re s ≤ 1.",
+      "hypotheses": [
+        "f even, continuous, compactly supported, nonnegative and positive definite (TauCeti.IsPositiveDefiniteSub)."
+      ],
+      "proofSteps": [
+        "F ≥ 0 and F even are immediate; compact support gives the decay (2.1) of the explicit formula, and Φ is entire.",
+        "Write s = 1/2 + a + it with |a| ≤ 1/2. Since F is even, the odd part sinh(ax) cos(tx) integrates to 0 and Re Φ(s) = ∫ f(x) (cosh(ax)/cosh(x/2)) cos(tx) dx.",
+        "For |a| < 1/2 the function x ↦ cosh(ax)/cosh(x/2) is positive definite: its Fourier transform is 4π cos(πa) cosh(πξ)/(cos(2πa) + cosh(2πξ)) > 0. For |a| = 1/2 it is the constant 1.",
+        "The product f(x) cosh(ax)/cosh(x/2) is continuous, integrable and positive definite (TauCeti.IsPositiveDefiniteSub.mul). By Bochner's theorem (TauCeti.bochner) it is the Fourier transform of a finite positive measure; being integrable, that measure has a nonnegative density, which is its Fourier transform. Its value at t is Re Φ(s), so Re Φ(s) ≥ 0."
+      ],
+      "acceptance": [
+        "With f = odlyzkoKernel(·/b), F is the test function of R25.1/poitou-lower-bound.",
+        "Without the factor 1/cosh(x/2), f alone does not give Re Φ(s) ≥ 0 off the critical line, because e^{ax} is not positive definite."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.IsPositiveDefiniteSub",
+        "tauceti:TauCeti.IsPositiveDefiniteSub.mul",
+        "tauceti:TauCeti.bochner",
+        "mathlib:Real.cosh"
+      ],
+      "sources": [
+        {
+          "sourceId": "Odlyzko90-JTNB",
+          "locator": "§2, text before (2.4), p. 122",
+          "excerpt": "one selects F(x) ≥ 0 for all x and Re(Φ(s)) ≥ 0 for all s in the critical strip, so that the contributions of the prime ideals and zeros are nonnegative. The above nonnegativity conditions on F(x) and Φ(s) are equivalent to the requirement that F(x) = f(x)/cosh(x/2)",
+          "match": "The sufficiency direction of this equivalence, which is all that is used."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/GlobalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.re_poitouTransform_nonneg"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-lower-bound",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "The Poitou–Odlyzko lower-bound function P(n, r₁, b)",
+      "kind": "definition",
+      "statement": "For natural numbers n, r₁ and a real b > 0, let F_b(x) = g(x/b)/cosh(x/2) with g = R25.1/odlyzko-kernel, and set P(n, r₁, b) = r₁π/2 + n(γ + log 8π) − n·I₁(b) − r₁·I₂(b) − 16b/π², where γ is Euler's constant, I₁(b) = ∫_0^∞ (1 − F_b(x))/(2 sinh(x/2)) dx and I₂(b) = ∫_0^∞ (1 − F_b(x))/(2 cosh(x/2)) dx. The term 16b/π² equals 4∫_0^∞ F_b(x) cosh(x/2) dx.",
+      "hypotheses": [
+        "b > 0; the integrands are integrable: near 0, 1 − F_b(x) = O(x²) against 1/sinh(x/2) = O(1/x); for x ≥ b, F_b = 0 and the integrands decay like e^{−x/2}."
+      ],
+      "proofSteps": [
+        "Definition as displayed, with Real.eulerMascheroniConstant, Real.log, Real.pi and set integrals over (0, ∞).",
+        "Tail evaluation: for x ≥ b, 1 − F_b = 1, and ∫_b^∞ dx/(2 sinh(x/2)) = −log tanh(b/4), ∫_b^∞ dx/(2 cosh(x/2)) = π − 2 arctan(e^{b/2}); so only integrals over [0, b] need numerical work.",
+        "Pole term: 4∫_0^∞ F_b(x) cosh(x/2) dx = 4∫_0^∞ g(x/b) dx = 4b·(4/π²) = 16b/π² (odlyzkoKernel API, integral_odlyzkoKernel_Ioi).",
+        "For fixed r₁/n and b, P(n, r₁, b)/n is increasing in n, because only −16b/(π² n) depends on n."
+      ],
+      "acceptance": [
+        "exp(P(24, 0, 13/2)/24) ≈ 10.63 and exp(P(36, 0, 8)/36) ≈ 12.48 (R25.1/totally-complex-root-discriminant-thresholds).",
+        "The asymptotic value is consistent with Odlyzko (2.5): for totally complex fields the main term is below 4πe^γ ≈ 22.38, which no kernel can exceed."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/odlyzko-kernel",
+        "mathlib:Real.eulerMascheroniConstant",
+        "mathlib:Real.cosh",
+        "mathlib:Real.sinh"
+      ],
+      "sources": [
+        {
+          "sourceId": "Odlyzko90-JTNB",
+          "locator": "§2, (2.3), p. 122",
+          "excerpt": "log D = r1π/2 + n(C + log(8π)) − n ∫_0^∞ (1 − F(x))/(2 sinh(x/2)) dx − r1 ∫_0^∞ (1 − F(x))/(2 cosh(x/2)) dx − 4 ∫_0^∞ F(x) cosh(x/2) dx + Σ′_ρ Φ(ρ) + 2 Σ_𝔓 Σ_{m≥1} (log N𝔓/N𝔓^{m/2}) F(m log N𝔓).",
+          "match": "P(n, r₁, b) is the right-hand side with F = F_b and the zero and prime sums removed (C = γ)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/GlobalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.poitouLowerBound"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-odlyzko-inequality",
+          "how": "log |d_K| ≥ P(n, r₁, b) for every number field K and every b > 0."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-root-discriminant-thresholds",
+          "how": "Certified lower bounds for P(n, 0, b)/n at two parameters."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SmallRamification.poitouLowerBound",
+          "role": "constructor",
+          "statement": "poitouLowerBound n r₁ b = r₁ * π / 2 + n * (γ + log (8 * π)) − n * I₁ b − r₁ * I₂ b − 16 * b / π ^ 2."
+        },
+        {
+          "name": "TauCeti.SmallRamification.integrableOn_poitouIntegrand_sinh",
+          "role": "other",
+          "statement": "For 0 < b, the I₁ integrand is integrable on (0, ∞); similarly for I₂."
+        },
+        {
+          "name": "TauCeti.SmallRamification.poitouLowerBound_eq_explicit",
+          "role": "characterisation",
+          "statement": "poitouLowerBound n r₁ b = r₁π/2 + n(γ + log 8π) − n∫(1 − F_b)/(2 sinh) − r₁∫(1 − F_b)/(2 cosh) − 4∫_0^∞ F_b(x) cosh(x/2) dx, the explicit-formula right-hand side without zeros and primes."
+        },
+        {
+          "name": "TauCeti.SmallRamification.poitouIntegral_sinh_eq",
+          "role": "other",
+          "statement": "I₁ b = ∫ x in 0..b, (1 − F_b x)/(2 sinh(x/2)) − log (tanh (b/4))."
+        },
+        {
+          "name": "TauCeti.SmallRamification.poitouLowerBound_div_mono",
+          "role": "relation",
+          "statement": "For fixed b, n ≤ m → poitouLowerBound n 0 b / n ≤ poitouLowerBound m 0 b / m."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SmallRamification.poitouLowerBound_rat_nonpos",
+          "kind": "value",
+          "statement": "poitouLowerBound 1 1 b ≤ 0 for b ∈ {1/2, 1, 2}, as it must be since log |d_ℚ| = 0; numerically −0.051, −0.083 and −0.883."
+        },
+        {
+          "name": "TauCeti.SmallRamification.poitouLowerBound_sqrt_neg_three",
+          "kind": "value",
+          "statement": "poitouLowerBound 2 0 1 ≤ log 3 (the field ℚ(√−3)); numerically exp(P/2) ≈ 1.698 < √3. With the sign of the pole term reversed the value exceeds log 3 (exp(P/2) ≈ 8.59), so that wrong definition fails."
+        },
+        {
+          "name": "TauCeti.SmallRamification.poitouLowerBound_sqrt_five",
+          "kind": "value",
+          "statement": "poitouLowerBound 2 2 (3/2) ≤ log 5 (the field ℚ(√5)); numerically exp(P/2) ≈ 2.2226 < √5 ≈ 2.2361, which checks the r₁ terms."
+        },
+        {
+          "name": "TauCeti.SmallRamification.poitouLowerBound_div_mono",
+          "kind": "degenerate",
+          "statement": "At fixed b the normalised bound increases with n, and as n → ∞ it tends to γ + log 8π − I₁(b), below log(4πe^γ)."
+        }
+      ]
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-odlyzko-inequality",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "The Odlyzko–Poitou unconditional discriminant bound",
+      "kind": "theorem",
+      "statement": "For every number field K of degree n with r₁ real places and every b > 0: log |d_K| ≥ P(n, r₁, b), with P = R25.1/poitou-lower-bound. In particular rd_K ≥ exp(P(n, r₁, b)/n).",
+      "hypotheses": [
+        "K a number field; b > 0. No Riemann hypothesis is assumed."
+      ],
+      "proofSteps": [
+        "Apply the explicit formula for log |d_K| (Odlyzko (2.3); requested from AnalyticNumberTheory AN.3, which rests on the completed Dedekind zeta function of AN.4) to F_b(x) = g(x/b)/cosh(x/2). F_b is even, F_b(0) = 1 and, g being C¹ with compact support, F_b satisfies the decay hypothesis (2.1).",
+        "By R25.1/poitou-kernel-positivity with f = g(·/b) (nonnegative and positive definite by the odlyzko-kernel API), F_b ≥ 0 and Re Φ(ρ) ≥ 0 for every zero ρ in the critical strip. So the zero sum Σ′ Φ(ρ) (ρ and ρ̄ together, a real number) and the prime sum 2Σ (log N𝔓/N𝔓^{m/2}) F_b(m log N𝔓) are both ≥ 0.",
+        "Dropping them leaves log |d_K| ≥ r₁π/2 + n(γ + log 8π) − n I₁(b) − r₁ I₂(b) − 4∫_0^∞ F_b(x) cosh(x/2) dx = P(n, r₁, b), by the poitou-lower-bound characterisation."
+      ],
+      "acceptance": [
+        "For K = ℚ the statement is P(1, 1, b) ≤ 0, and for ℚ(√−3) and ℚ(√5) it gives the unit tests of R25.1/poitou-lower-bound.",
+        "For totally complex fields of degree 8 the best value over b is rd ≥ 5.65, below the smallest actual value 5.79 (discriminant 1257728)."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-lower-bound",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-kernel-positivity",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/odlyzko-kernel",
+        "AnalyticNumberTheory:AN.3",
+        "mathlib:NumberField.discr"
+      ],
+      "sources": [
+        {
+          "sourceId": "Odlyzko90-JTNB",
+          "locator": "§2, (2.3)–(2.5), p. 122",
+          "excerpt": "In the absence of any special knowledge about zeros and prime ideals … one selects F(x) ≥ 0 for all x and Re(Φ(s)) ≥ 0 for all s in the critical strip, so that the contributions of the prime ideals and zeros are nonnegative.",
+          "match": "The method; the theorem is its instance for F_b."
+        },
+        {
+          "sourceId": "Odlyzko90-JTNB",
+          "locator": "§1, p. 121",
+          "excerpt": "Serre [B7] introduced the use of the explicit formulas of Guinand and Weil to discriminant bounds. … Serre's approach was extended to provide unconditional bounds by the author, and further improvements were made by Poitou and the author [B9, B10].",
+          "match": "Attribution of the unconditional explicit-formula bound."
+        },
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§3, p. 6",
+          "excerpt": "Next we prove the non-solvable case. This is done by the comparison of the Tate and Odlyzko bounds for discriminants.",
+          "match": "The role of the bound in Tate's method."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/GlobalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.poitouLowerBound_le_log_abs_discr"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Odlyzko–Poitou bound"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-root-discriminant-thresholds",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "Certified thresholds: rd_K > 10 for n ≥ 24 and rd_K > 12 for n ≥ 36 (K totally complex)",
+      "kind": "lemma",
+      "statement": "Let K be a totally complex number field of degree n. If n ≥ 24 then rd_K > 10; if n ≥ 36 then rd_K > 12.",
+      "hypotheses": [
+        "K totally complex (NumberField.IsTotallyComplex), so r₁ = 0 (NumberField.nrRealPlaces_eq_zero_iff)."
+      ],
+      "proofSteps": [
+        "By R25.1/poitou-odlyzko-inequality, log rd_K ≥ P(n, 0, b)/n for every b > 0, and P(n, 0, b)/n is increasing in n (poitou-lower-bound API). So it suffices that P(24, 0, 13/2)/24 > log 10 and P(36, 0, 8)/36 > log 12.",
+        "Certified evaluation: P(n, 0, b)/n = γ + log 8π − I₁(b) − 16b/(π² n). Bound γ below by an explicit term of Real.eulerMascheroniSeq (Real.eulerMascheroniSeq_lt_eulerMascheroniConstant; n = 100 gives γ > 0.5722), π by Real.pi_gt_d2 and Real.pi_lt_d2, and I₁(b) above by −log tanh(b/4) plus a certified quadrature of the integrand over [0, b] (partition into 2000 intervals with an explicit Lipschitz bound, or interval arithmetic).",
+        "Target values, computed with composite Simpson quadrature and stable to eight digits under refinement: I₁(13/2) = 0.99897…, giving exp(P(24, 0, 13/2)/24) = 10.6266…; I₁(8) = 0.91713…, giving exp(P(36, 0, 8)/36) = 12.4784…. The margins log(10.6266/10) = 0.061 and log(12.478/12) = 0.039 absorb the certified error."
+      ],
+      "acceptance": [
+        "The thresholds exceed the 3-adic bounds used in R25.2: 3^{11/6} ≈ 7.49 < 10 and 3^{13/6} ≈ 10.81 < 12.",
+        "They are consistent with Odlyzko's asymptotic value 22.38 for totally complex fields and with the smallest known fields."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-odlyzko-inequality",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-lower-bound",
+        "mathlib:NumberField.IsTotallyComplex",
+        "mathlib:NumberField.nrRealPlaces_eq_zero_iff",
+        "mathlib:Real.eulerMascheroniSeq_lt_eulerMascheroniConstant",
+        "mathlib:Real.eulerMascheroniSeq",
+        "mathlib:Real.pi_gt_d2",
+        "mathlib:Real.pi_lt_d2",
+        "mathlib:NumberField.rootDiscr"
+      ],
+      "sources": [
+        {
+          "sourceId": "Odlyzko90-JTNB",
+          "locator": "§2, (2.5), p. 122",
+          "excerpt": "rd = D^{1/n} ≥ (4πe^{1+C})^{r1/n}(4πe^C)^{2r2/n} − O(n^{−2/3}) = (60.8395…)^{r1/n}(22.3816…)^{2r2/n} − O(n^{−2/3}).",
+          "match": "The asymptotic form of the bound; the lemma certifies the explicit values needed at n = 24 and n = 36."
+        },
+        {
+          "sourceId": "GhitzaYamauchi25-arXiv",
+          "locator": "§3, proof of Proposition 3.3, p. 7",
+          "excerpt": "This gives an initial bound |dK|^{1/n} < 2^3 = 8, for which Odlyzko's Table 2 produces the constraint n < 14.",
+          "match": "The same use of an unconditional table: a root-discriminant upper bound turned into a degree bound."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/GlobalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.ten_lt_rootDiscr_of_isTotallyComplex"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/level-one-residual-representation",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2"
+      ],
+      "title": "Level-one residual representations IsLevelOneResidual p ρ̄",
+      "kind": "definition",
+      "statement": "Let p be a prime, F a finite field of characteristic p (discrete topology) and ρ̄ : G_ℚ → GL_2(F) a continuous homomorphism, G_ℚ = Field.absoluteGaloisGroup ℚ. ρ̄ is a level-one residual representation (IsLevelOneResidual p ρ̄) if (a) it is absolutely irreducible: F̄² has no G_ℚ-stable line after extending scalars to an algebraic closure F̄; (b) it is odd: det ρ̄(c) = −1 for a complex conjugation c ∈ G_ℚ; (c) it is unramified outside p: ρ̄(I_ℓ) = 1 for every prime ℓ ≠ p and every inertia subgroup I_ℓ above ℓ. Condition (c) says the prime-to-p Artin conductor N(ρ̄) is 1, which is Khare's 'level 1'. For p = 2, (b) holds for every ρ̄, since −1 = 1 in F. The representations, their inertia subgroups and the oddness condition are the carriers of ArithmeticGaloisRepresentations R01.1–R01.2.",
+      "hypotheses": [
+        "p prime; F finite of characteristic p; ρ̄ continuous for the Krull topology on G_ℚ and the discrete topology on GL_2(F)."
+      ],
+      "proofSteps": [
+        "Definition: the conjunction of (a), (b), (c), each a predicate supplied by ArithmeticGaloisRepresentations R01.1–R01.2 (absolute irreducibility, oddness, unramifiedness at ℓ).",
+        "Kernel field: ρ̄ has finite image (G_ℚ compact, GL_2(F) finite and discrete), so K = ℚ̄^{ker ρ̄} is a finite Galois extension with Gal(K/ℚ) ≅ ρ̄(G_ℚ). Condition (c) holds iff K/ℚ is unramified at every ℓ ≠ p (Ideal.isUnramifiedAt_iff_inertia_eq_bot at the primes above ℓ).",
+        "For p odd, (b) gives ρ̄(c) ≠ 1, so every complex conjugation acts nontrivially on the Galois field K: K is totally complex.",
+        "Scalar extension along F ⊆ F′ preserves (a)–(c): (a) is defined over F̄ ⊇ F′, and (b), (c) are equalities of matrices."
+      ],
+      "acceptance": [
+        "1 ⊕ ω̄ (p = 3, ω̄ the mod-3 cyclotomic character) satisfies (b) and (c) but not (a).",
+        "The mod-2 representation on E[2] for E : y² + y = x³ − x² − 10x − 20 (conductor 11) satisfies (a) but not (c)."
+      ],
+      "prerequisites": [
+        "mathlib:Field.absoluteGaloisGroup",
+        "mathlib:ContinuousMonoidHom",
+        "mathlib:Matrix.GeneralLinearGroup",
+        "mathlib:AlgebraicClosure",
+        "mathlib:Representation.IsIrreducible",
+        "tauceti:Ideal.isUnramifiedAt_iff_inertia_eq_bot",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "Khare05-arXiv",
+          "locator": "§1, p. 2",
+          "excerpt": "Fix a continuous, absolutely irreducible, 2-dimensional, odd, mod p representation ρ̄ : Gal(Q̄/Q) → GL2(F) with F a finite field of characteristic p. … If ρ̄ is unramified outside p, we say that it is of level 1. This corresponds to the case when N(ρ̄) is 1.",
+          "match": "The definition: (a)–(c), with the finite coefficient field F."
+        },
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§1.1, Theorem 1.1, p. 3",
+          "excerpt": "There are no continuous, odd, absolutely irreducible two dimensional Galois representations of the absolute Galois group of Q unramified outside p and with values on a finite field of characteristic p, for p = 2 or 3.",
+          "match": "The same hypotheses, as consumed by the modern proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/TateSerre",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.IsLevelOneResidual"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-serre-base-case",
+          "how": "The hypothesis whose satisfiability is refuted for p = 2, 3."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-theorem",
+          "how": "Conditions (a) and (c) at p = 2."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/serre-mod-three-theorem",
+          "how": "Conditions (a)–(c) at p = 3; (b) makes the kernel field totally complex."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.6",
+          "how": "The base-case table records the rows p = 2 and p = 3 of level one with this predicate."
+        },
+        {
+          "where": "ClassicalSerreModularity:R26.1",
+          "how": "Khare's level-one induction starts from these two characteristics."
+        },
+        {
+          "where": "ClassicalSerreModularity:R33.4",
+          "how": "Paso 6 of the modern proof reduces a system to a residual representation unramified outside 3 and applies the p = 3 case."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SmallRamification.IsLevelOneResidual",
+          "role": "constructor",
+          "statement": "IsLevelOneResidual p ρ̄ := IsAbsolutelyIrreducible ρ̄ ∧ IsOdd ρ̄ ∧ ∀ ℓ ≠ p, IsUnramifiedAt ℓ ρ̄."
+        },
+        {
+          "name": "TauCeti.SmallRamification.isLevelOneResidual_iff_kernelField",
+          "role": "characterisation",
+          "statement": "IsLevelOneResidual p ρ̄ ↔ the kernel field K is unramified at every ℓ ≠ p, Gal(K/ℚ) ≅ ρ̄(G_ℚ) acts absolutely irreducibly, and det ρ̄(c) = −1."
+        },
+        {
+          "name": "TauCeti.SmallRamification.IsLevelOneResidual.map",
+          "role": "compatibility",
+          "statement": "IsLevelOneResidual p ρ̄ ↔ IsLevelOneResidual p (ρ̄ extended along a field embedding F → F′)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.IsLevelOneResidual.conj",
+          "role": "relation",
+          "statement": "The predicate is invariant under conjugation by GL_2(F)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.isOdd_of_ringChar_two",
+          "role": "other",
+          "statement": "If ringChar F = 2 then every ρ̄ is odd."
+        },
+        {
+          "name": "TauCeti.SmallRamification.IsLevelOneResidual.isTotallyComplex",
+          "role": "other",
+          "statement": "For p odd the kernel field of a level-one residual representation is totally complex."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SmallRamification.not_isLevelOneResidual_one_add_omega",
+          "kind": "non-example",
+          "statement": "p = 3: ρ̄ = 1 ⊕ ω̄ is continuous, odd (det = ω̄, ω̄(c) = −1) and unramified outside 3, but not absolutely irreducible; so IsLevelOneResidual fails and irreducibility is a real hypothesis."
+        },
+        {
+          "name": "TauCeti.SmallRamification.not_isLevelOneResidual_X0_eleven_two_torsion",
+          "kind": "non-example",
+          "statement": "p = 2: the representation on E[2] for E : y² + y = x³ − x² − 10x − 20 is absolutely irreducible (4x³ − 4x² − 40x − 79 has no rational root, image S₃ ≅ GL_2(𝔽_2)) and ramified at 11 (its splitting field contains ℚ(√−11)); so IsLevelOneResidual fails through (c)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.isOdd_of_ringChar_two",
+          "kind": "degenerate",
+          "statement": "For F = 𝔽_2 every continuous ρ̄ is odd, since det ρ̄(c) = 1 = −1."
+        },
+        {
+          "name": "TauCeti.SmallRamification.IsLevelOneResidual.map",
+          "kind": "compatibility",
+          "statement": "For ρ̄ : G_ℚ → GL_2(𝔽_2) and its extension to GL_2(𝔽_4), one satisfies the predicate iff the other does: the coefficient field is not part of the condition."
+        }
+      ],
+      "planet": {
+        "name": "Level-one residual representation"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/determinant-level-one-mod-two",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2"
+      ],
+      "title": "A mod-2 representation unramified outside 2 has trivial determinant",
+      "kind": "lemma",
+      "statement": "Let F be a finite field of characteristic 2 and ρ̄ : G_ℚ → GL_2(F) continuous and unramified outside 2. Then det ρ̄ = 1, so ρ̄ takes values in SL_2(F).",
+      "hypotheses": [
+        "F finite of characteristic 2; ρ̄ continuous and unramified at every ℓ ≠ 2."
+      ],
+      "proofSteps": [
+        "det ρ̄ : G_ℚ → F^× has finite image, a subgroup of F^× of odd order dividing |F| − 1; its kernel field L is cyclic of odd degree over ℚ.",
+        "L is unramified at every ℓ ≠ 2 by hypothesis. At 2, the inertia image of det ρ̄ is trivial by R25.1/prime-to-p-character-inertia with p = 2, applied to the completion of L at a prime above 2.",
+        "So L/ℚ is unramified at every prime and d_L = ±1 (NumberField.not_dvd_discr_iff_isUnramifiedIn); by NumberField.abs_discr_gt_two, [L:ℚ] = 1, and det ρ̄ is trivial."
+      ],
+      "acceptance": [
+        "In odd characteristic the analogue fails: for p = 3 the determinant of a level-one representation is the ramified character ω̄."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/prime-to-p-character-inertia",
+        "mathlib:NumberField.not_dvd_discr_iff_isUnramifiedIn",
+        "mathlib:NumberField.abs_discr_gt_two",
+        "mathlib:Matrix.SpecialLinearGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§3, p. 5",
+          "excerpt": "If G is solvable, then it sits in an exact sequence 1 → H → G → Z/2Z → 1, H ⊂ F̄2^× × F̄2^×, as in Theorem 1 in §22 of [16]. Hence K is an abelian extension of odd degree, unramified outside {2, ∞}, over the quadratic extension K′/F corresponding to H.",
+          "match": "The same class of odd-degree abelian extensions unramified outside 2; over ℚ they are trivial, as here."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/TateSerre",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.det_eq_one_of_char_two"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tame-level-one-excluded",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2"
+      ],
+      "title": "The tame case: no absolutely irreducible ρ̄ tamely ramified at p ∈ {2, 3}",
+      "kind": "lemma",
+      "statement": "Let p ∈ {2, 3}, F finite of characteristic p, and ρ̄ : G_ℚ → GL_2(F) continuous, unramified outside p, with ρ̄ trivial on the wild inertia subgroup at p. Then ρ̄ is not absolutely irreducible.",
+      "hypotheses": [
+        "p ∈ {2, 3}; the image of the wild inertia at p is trivial."
+      ],
+      "proofSteps": [
+        "Let K be the kernel field, n = [K:ℚ] = |ρ̄(G_ℚ)|. K is unramified outside p and tamely ramified at p, so δ(K_𝔭) = 1 − 1/e < 1 (R25.1/local-root-discriminant-exponent, tame form) and rd_K = p^{δ} < p (R25.1/root-discriminant-of-galois-field).",
+        "By R25.1/minkowski-root-discriminant-thresholds: for p = 2, rd_K < 2 forces n ≤ 2; for p = 3, rd_K < 3 forces n ≤ 5.",
+        "Every group of order at most 5 is abelian. A finite abelian subgroup of GL_2(F̄) of commuting matrices has a common eigenvector over the algebraically closed F̄, so ρ̄ ⊗ F̄ has a stable line: ρ̄ is not absolutely irreducible."
+      ],
+      "acceptance": [
+        "The irreducible ρ̄ with image of order prime to p (for instance dihedral images at p = 3) are all tame at p and are excluded here, without class field theory."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/local-root-discriminant-exponent",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/root-discriminant-of-galois-field",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/minkowski-root-discriminant-thresholds",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/level-one-residual-representation"
+      ],
+      "sources": [
+        {
+          "sourceId": "GhitzaYamauchi25-arXiv",
+          "locator": "§3, Proposition 3.2 and proof, p. 7",
+          "excerpt": "If p ∈ {2, 3}, there exist no irreducible representations ρ : GQ → GLd(F̄p) with Qρ = K and p-ramified. Proof. With N = 0 and p = 2, we get … |dK|^{1/n} < 2, and then from Odlyzko's (unconditional) Table 2 that n < 3, so the Galois group is abelian … With p = 3 we get |dK|^{1/n} < 3, so Odlyzko's Table 2 gives n < 4.",
+          "match": "The same statement for the tame case (p-length 0); Minkowski's bound replaces Odlyzko's table."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/TateSerre",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.not_isAbsolutelyIrreducible_of_tame"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/irreducible-subgroups-characteristic-two",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2"
+      ],
+      "title": "Irreducible finite subgroups of SL_2(F̄_2)",
+      "kind": "lemma",
+      "statement": "Let G ⊆ SL_2(F̄_2) be a finite subgroup acting irreducibly on F̄_2². Then either G is dihedral of order 2r with r odd, r ≥ 3, and every subgroup Q ⊆ G of order 2 is its own normaliser in G; or G is conjugate to SL_2(𝔽_q) for some q = 2^j ≥ 4, and |G| = q(q² − 1) ≥ 60.",
+      "hypotheses": [
+        "G finite, irreducible on F̄_2²."
+      ],
+      "proofSteps": [
+        "In characteristic 2, SL_2(F̄_2) ≅ PSL_2(F̄_2) ≅ PGL_2(F̄_2). Dickson's classification (ArithmeticGaloisRepresentations R01.4, requested) lists its finite subgroups: subgroups of a Borel, cyclic groups, dihedral groups D_{2r} with r odd, and conjugates of SL_2(𝔽_q); A_4 and S_4 do not occur irreducibly (A_4 has a normal Klein four-group, a 2-group, so lies in a Borel; S_4 has a non-abelian Sylow 2-subgroup, while those of SL_2(F̄_2) are elementary abelian), and A_5 ≅ SL_2(𝔽_4).",
+        "Irreducibility excludes Borel and cyclic subgroups (a cyclic group has an eigenvector). D_6 ≅ S_3 ≅ SL_2(𝔽_2) is dihedral with r = 3.",
+        "In D_{2r} with r odd a reflection commutes only with itself and 1, so a subgroup of order 2 is self-normalising."
+      ],
+      "acceptance": [
+        "SL_2(𝔽_2) ≅ S_3 appears as the dihedral case r = 3, and SL_2(𝔽_4) ≅ A_5 of order 60 is the smallest non-dihedral case."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.4",
+        "mathlib:Matrix.SpecialLinearGroup",
+        "mathlib:Subgroup.normalizer"
+      ],
+      "sources": [
+        {
+          "sourceId": "Jones10-preprint",
+          "locator": "§2.2, pp. 8–9",
+          "excerpt": "In that case, the Sylow 2-subgroup of PSL2(2^j) is elementary abelian, so the maximum slope is 3.",
+          "match": "The elementary abelian Sylow 2-subgroups of SL_2(𝔽_{2^j}) used in the 2-adic bound and here."
+        },
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§3, p. 5",
+          "excerpt": "As in [17], we distinguish the two cases where G is solvable and non-solvable.",
+          "match": "The two cases of Tate's argument: dihedral (solvable) and SL_2(𝔽_q) with q ≥ 4 (non-solvable)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/TateSerre",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.dihedral_or_SL2_of_irreducible_char_two"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/irreducible-subgroups-characteristic-three",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2"
+      ],
+      "title": "Irreducible finite subgroups of GL_2(F̄_3) of order divisible by 3",
+      "kind": "lemma",
+      "statement": "Let G ⊆ GL_2(F̄_3) be a finite subgroup acting irreducibly on F̄_3² with 3 ∣ |G|. Then −1 ∈ G, 24 ∣ |G|, and either the 3-part of |G| is 3 or |G| ≥ 720.",
+      "hypotheses": [
+        "G finite, irreducible, 3 ∣ |G|."
+      ],
+      "proofSteps": [
+        "Let Z = G ∩ F̄_3^× (scalars, of order prime to 3) and H = G/Z ⊆ PGL_2(F̄_3). By Dickson (ArithmeticGaloisRepresentations R01.4, requested) H is cyclic, dihedral, A_4 ≅ PSL_2(𝔽_3), S_4 ≅ PGL_2(𝔽_3), A_5, PSL_2(𝔽_q) or PGL_2(𝔽_q) with q = 3^j, or lies in a Borel.",
+        "Irreducibility excludes the Borel and cyclic cases. For dihedral H = D_{2r}: if 3 ∣ r the normal cyclic subgroup contains a unipotent element and H lies in a Borel; if 3 ∤ r then 3 ∤ |H| = |G|/|Z|, contradicting 3 ∣ |G|.",
+        "Each remaining H contains a Klein four-group V. Lift two distinct commuting involutions of V to g_1, g_2 ∈ G. If they commuted, being semisimple of order prime to 3, they would be simultaneously diagonal, and the only nonscalar diagonal involution up to scalars is diag(1, −1), so their images in H would coincide. Hence g_1g_2g_1^{−1}g_2^{−1} is a nontrivial scalar of determinant 1, that is −1 ∈ Z.",
+        "So |Z| is even, and |G| = |H|·|Z| with 12 ∣ |H|, hence 24 ∣ |G|. The 3-part of |H| is 3 for A_4, S_4, A_5 and for q = 3; for q ≥ 9, |H| ≥ |PSL_2(𝔽_9)| = 360 and |G| ≥ 720."
+      ],
+      "acceptance": [
+        "SL_2(𝔽_3) (order 24, projective image A_4) and GL_2(𝔽_3) (order 48) are the smallest cases.",
+        "The dihedral and small-order irreducible groups have order prime to 3 and are handled by R25.2/tame-level-one-excluded."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.4",
+        "mathlib:Matrix.GeneralLinearGroup"
+      ],
+      "sources": [
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§1.1, proof of Theorem 1.3, p. 3",
+          "excerpt": "By Dickson's classification, any solvable subgroup of PGL2(F̄p) is isomorphic to a cyclic group, a dihedral group, A4 or S4.",
+          "match": "Dickson's classification, as used in the same source for p odd."
+        },
+        {
+          "sourceId": "GhitzaYamauchi25-arXiv",
+          "locator": "§3, proof of Proposition 3.3, p. 7",
+          "excerpt": "since the 3-length is 1, the 3-Sylow subgroup of G is elementary abelian, so if the prime-to-3 part is 2 then G ≅ (Z/3Z)^m ⋊ (Z/2Z), therefore irreducible representations of dimension ⩾ 2 are ruled out.",
+          "match": "The same kind of group-order restriction, obtained there case by case."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/TateSerre",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.twentyFour_dvd_card_of_irreducible_char_three"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-theorem",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2"
+      ],
+      "title": "Tate's theorem: no absolutely irreducible mod-2 representation unramified outside 2",
+      "kind": "theorem",
+      "statement": "Let F be a finite field of characteristic 2. There is no continuous, absolutely irreducible ρ̄ : G_ℚ → GL_2(F) unramified outside 2. (Oddness is automatic in characteristic 2 and is not assumed.)",
+      "hypotheses": [
+        "F finite of characteristic 2."
+      ],
+      "proofSteps": [
+        "Suppose ρ̄ exists; let K be its kernel field, G = ρ̄(G_ℚ) ≅ Gal(K/ℚ), n = |G|. By R25.2/determinant-level-one-mod-two, G ⊆ SL_2(F).",
+        "If ρ̄ is trivial on wild inertia at 2, R25.2/tame-level-one-excluded gives a contradiction. Otherwise let E = K_𝔭 for 𝔭 ∣ 2, D = Gal(E/ℚ_2) ≅ the decomposition group, P ≠ 1 its wild inertia. R25.1/two-adic-different-bound gives δ(E) ≤ 2, and δ(E) ≤ 3/2 if |P| ≤ 2; by R25.1/root-discriminant-of-galois-field, rd_K = 2^{δ(E)}.",
+        "By R25.2/irreducible-subgroups-characteristic-two, G is dihedral of order 2r ≥ 6 or conjugate to SL_2(𝔽_q) with q ≥ 4.",
+        "Dihedral case: the 2-subgroups of a dihedral group of order 2r with r odd have order at most 2, so |P| = 2 (indeed D ⊆ N_G(P) = P) and rd_K ≤ 2^{3/2} < 3. But n = 2r ≥ 6, so rd_K > 3 by R25.1/minkowski-root-discriminant-thresholds.",
+        "SL_2(𝔽_q) case: n ≥ 60 ≥ 12, so rd_K > 4 ≥ 2^{δ(E)} = rd_K by the same lemma. Both cases are contradictory."
+      ],
+      "acceptance": [
+        "The proof uses only Minkowski's bound, not the analytic Odlyzko bound, because R25.1/two-adic-different-bound sharpens Tate's 5/2 − 2/|P| to 2.",
+        "The mod-2 representation of the conductor-11 curve (R25.2/level-one-residual-representation, second non-example) is ramified at 11 and is not a counterexample."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/determinant-level-one-mod-two",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tame-level-one-excluded",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/irreducible-subgroups-characteristic-two",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/root-discriminant-of-galois-field",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/minkowski-root-discriminant-thresholds",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/level-one-residual-representation"
+      ],
+      "sources": [
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§1.1, proof of Theorem 1.1, p. 3",
+          "excerpt": "The result was proved by Tate ([Tat94]) for p = 2",
+          "match": "The statement at p = 2."
+        },
+        {
+          "sourceId": "Khare05-arXiv",
+          "locator": "§1.1, p. 2",
+          "excerpt": "Tate replied to Serre first on June 11, and then on July 2, 1973: in the second letter, he proved the conjecture for p = 2.",
+          "match": "History and attribution."
+        },
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§3, pp. 5–7",
+          "excerpt": "Next we prove the non-solvable case. This is done by the comparison of the Tate and Odlyzko bounds for discriminants.",
+          "match": "Tate's method over quadratic fields; over ℚ the sharpened local bound lets Minkowski's bound do the comparison."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/TateSerre",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.tate_no_levelOne_char_two"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tate's theorem"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/serre-mod-three-theorem",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2"
+      ],
+      "title": "Serre's theorem: no odd absolutely irreducible mod-3 representation unramified outside 3",
+      "kind": "theorem",
+      "statement": "Let F be a finite field of characteristic 3. There is no continuous, odd, absolutely irreducible ρ̄ : G_ℚ → GL_2(F) unramified outside 3.",
+      "hypotheses": [
+        "F finite of characteristic 3; ρ̄ odd (det ρ̄(c) = −1)."
+      ],
+      "proofSteps": [
+        "Suppose ρ̄ exists; K, G, n as before. Oddness makes K totally complex (R25.2/level-one-residual-representation API).",
+        "If ρ̄ is trivial on wild inertia at 3, R25.2/tame-level-one-excluded gives a contradiction. Otherwise 3 ∣ n and, by R25.2/irreducible-subgroups-characteristic-three, 24 ∣ n and either v_3(n) = 1 or n ≥ 720.",
+        "Let E = K_𝔭 (𝔭 ∣ 3) with wild inertia P ≠ 1, |P| ≤ 3^{v_3(n)}. R25.1/three-adic-different-bound gives δ(E) ≤ 13/6 − 1/|P|, and rd_K = 3^{δ(E)} (R25.1/root-discriminant-of-galois-field).",
+        "If v_3(n) = 1 then |P| = 3, rd_K ≤ 3^{11/6} < 7.5, while n ≥ 24 gives rd_K > 10 (R25.1/totally-complex-root-discriminant-thresholds).",
+        "If n ≥ 720 then rd_K < 3^{13/6} < 10.81, while n ≥ 36 gives rd_K > 12. Both cases are contradictory."
+      ],
+      "acceptance": [
+        "The analytic input is needed: 3^{11/6} ≈ 7.49 exceeds Minkowski's asymptotic value πe²/4 ≈ 5.80 for totally complex fields.",
+        "The reducible 1 ⊕ ω̄ is odd and unramified outside 3; irreducibility is essential."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/level-one-residual-representation",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tame-level-one-excluded",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/irreducible-subgroups-characteristic-three",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/three-adic-different-bound",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/root-discriminant-of-galois-field",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/totally-complex-root-discriminant-thresholds"
+      ],
+      "sources": [
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§1.1, proof of Theorem 1.1, p. 3",
+          "excerpt": "… Serre observed that the exact same argument worked for p = 3 ([Ser13, page 710]).",
+          "match": "The statement at p = 3 and its attribution."
+        },
+        {
+          "sourceId": "Khare05-arXiv",
+          "locator": "§1.1, p. 2",
+          "excerpt": "it being already known for p = 2, 3 because of a method of Tate, see [51] for p = 2, which was … applied to the case of p = 3 by Serre, see page 710 of [45].",
+          "match": "Serre's note (Œuvres III, p. 710) applies Tate's method; the proof here follows the method with the local bound of R25.1."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/TateSerre",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.serre_no_levelOne_char_three"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Serre's mod-3 theorem"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-serre-base-case",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2"
+      ],
+      "title": "The Tate–Serre base case of Serre's conjecture",
+      "kind": "theorem",
+      "statement": "For p ∈ {2, 3} and every finite field F of characteristic p there is no continuous ρ̄ : G_ℚ → GL_2(F) with IsLevelOneResidual p ρ̄. Equivalently, there is no continuous, odd, absolutely irreducible ρ̄ : G_ℚ → GL_2(F̄_p) unramified outside p, where F̄_p carries the discrete topology.",
+      "hypotheses": [
+        "p ∈ {2, 3}."
+      ],
+      "proofSteps": [
+        "p = 2: R25.2/tate-theorem (oddness unused). p = 3: R25.2/serre-mod-three-theorem.",
+        "Coefficient field: a continuous ρ̄ into GL_2(F̄_p) has finite image, so it takes values in GL_2(F) for the finite subfield F generated by its matrix entries (ArithmeticGaloisRepresentations R01.1, requested), and absolute irreducibility, oddness and unramifiedness do not depend on the choice of F (R25.2/level-one-residual-representation API)."
+      ],
+      "acceptance": [
+        "The statement is DP23 Theorem 1.1 and the p = 2, 3 input of Khare's level-one theorem.",
+        "The analogue fails for p = 11: the reduction of the representation attached to Δ is absolutely irreducible, odd and unramified outside 11. The method gives nothing unconditional beyond p = 3."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/serre-mod-three-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/level-one-residual-representation",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§1.1, Theorem 1.1, p. 3",
+          "excerpt": "There are no continuous, odd, absolutely irreducible two dimensional Galois representations of the absolute Galois group of Q unramified outside p and with values on a finite field of characteristic p, for p = 2 or 3.",
+          "match": "Exactly the statement."
+        },
+        {
+          "sourceId": "Khare05-arXiv",
+          "locator": "§8, pp. 29–30",
+          "excerpt": "For a related reason the method of Tate cannot be used to prove Theorem 1.1 for large primes p (perhaps p = 5 is the limit of this method, even assuming the GRH: see [51] and the discussion in [8]).",
+          "match": "Why the base case stops at p = 3 unconditionally."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/TateSerre",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.not_isLevelOneResidual_of_le_three"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Tate–Serre base case"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.4",
+      "need": "Finite linear groups in characteristic p ∈ {2, 3}: (1) Dickson's classification of the finite subgroups of PGL_2(F̄_p) (cyclic, dihedral, A_4, S_4, A_5, PSL_2(𝔽_q), PGL_2(𝔽_q), subgroups of a Borel), and of SL_2(F̄_2) ≅ PGL_2(F̄_2); (2) a nontrivial p-subgroup of GL_2(F̄_p) fixes a unique line, its normaliser lies in the stabilising Borel, and its elements are unipotent; (3) a finite abelian subgroup of GL_2(F̄) has a common eigenvector. RS-06 assigns the generic finite GL_2/PGL_2 image classification to R01.4.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/three-adic-different-bound",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/irreducible-subgroups-characteristic-two",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/irreducible-subgroups-characteristic-three",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tame-level-one-excluded"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.1",
+      "need": "Coefficient-field descent for residual representations: a continuous ρ̄ : G_ℚ → GL_2(F̄_p) (discrete topology) has finite image and takes values in GL_2(F) for a finite subfield F; absolute irreducibility is defined over F̄ and invariant under extension of scalars along F ⊆ F′. RS-06 assigns the finite coefficient-field carrier to R01.1.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/level-one-residual-representation",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-serre-base-case"
+      ]
+    },
+    {
+      "supplier": "ArithmeticGaloisRepresentations:R01.2",
+      "need": "The local carriers of a continuous ρ̄ : G_ℚ → GL_2(F): decomposition and inertia subgroups at a prime ℓ, the predicate 'unramified at ℓ' (ρ̄(I_ℓ) = 1), wild inertia at p, oddness det ρ̄(c) = −1 for complex conjugation, and the identification of ρ̄ restricted to a decomposition group at p with an injective homomorphism Gal(K_𝔭/ℚ_p) → GL_2(F) for the kernel field K, carrying inertia and wild inertia to their images.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/level-one-residual-representation",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tame-level-one-excluded",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/serre-mod-three-theorem"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "need": "For a finite extension E/ℚ_p: the different exponent d(E/ℚ_p), the ramification index, discriminantExponent = f·d, the exact tame exponent d = e − 1, and for E/ℚ_p Galois the upper ramification filtration with Herbrand functions (the identity for unramified extensions and x ↦ x/2 on [0, ∞) for a tame quadratic one), and the discriminant exponent in upper numbering, c = Σ_{i ≥ −1} ([G : G^{i+}] − [G : G^i])(i + 1) (Jones (1)). Upstream Layer 3 plans the different, the Hilbert valuation formula and the upper numbering; the displayed formula is the form consumed here.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/local-root-discriminant-exponent",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/three-adic-different-bound"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "need": "The tame quotient: I/P is procyclic and a Frobenius lift σ acts on it by τ ↦ τ^q (upstream Layer 4, 'σ τ σ⁻¹ = τ^q'), in the finite form for Gal(E/ℚ_p).",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/prime-to-p-character-inertia"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group",
+      "need": "The unit filtration U(K, i) of a nonarchimedean local field, on which R25.1/unit-filtration-power-maps proves the p-th power inclusions of Fesenko–Vostokov I.(5.7)–(5.8) in the three small cases used here.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/unit-filtration-power-maps"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "need": "Local class field theory for a finite abelian extension L/K of p-adic fields: the reciprocity map K^× → Gal(L/K), onto from units when L/K is totally ramified, carrying U^{(n)} onto the upper ramification group Gal(L/K)^{(n)} (Fesenko–Vostokov IV.(3.5)), and equivariant for automorphisms: rec(σ(u)) = σ̃ rec(u) σ̃^{−1} when L/K′ is Galois with K/K′ Galois and σ̃ lifts σ ∈ Gal(K/K′). Over ℚ_2 this gives: the inertia group of a finite abelian extension of exponent 2 is a quotient of ℤ_2^×/(ℤ_2^×)².",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/three-adic-different-bound"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+      "need": "For a finite Galois number field K and a prime 𝔓 of 𝓞_K above p: the exponent of 𝔓 in the different ideal equals the local different exponent d(K_𝔓/ℚ_p), and (with Layer 5) Gal(K_𝔓/ℚ_p) is identified with the decomposition group of 𝔓, compatibly with inertia and ramification groups.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/root-discriminant-of-galois-field"
+      ]
+    },
+    {
+      "supplier": "AnalyticNumberTheory:AN.3",
+      "need": "The explicit formula for the discriminant (Odlyzko 1990, (2.3)): for a number field K and an even differentiable F : ℝ → ℝ with F(0) = 1 and |F(x)|, |F′(x)| ≤ c e^{−(1/2+ε)|x|}, log |d_K| = r₁π/2 + n(γ + log 8π) − n∫_0^∞ (1 − F)/(2 sinh(x/2)) − r₁∫_0^∞ (1 − F)/(2 cosh(x/2)) − 4∫_0^∞ F(x) cosh(x/2) dx + Σ′_ρ Φ(ρ) + 2Σ_𝔓 Σ_{m≥1} (log N𝔓/N𝔓^{m/2}) F(m log N𝔓), with Φ(s) = ∫ F(x) e^{(s−1/2)x} dx and ρ over the nontrivial zeros of ζ_K. It rests on the completed Dedekind zeta function of AnalyticNumberTheory AN.4 (continuation, functional equation, Hadamard product). AN.3 plans the explicit formulas.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-odlyzko-inequality"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "status": "partial",
+      "remaining": [
+        "The torsion-field bounds of FONTAINE85 and SCHOOF05: the root discriminant of ℚ(A[p]) for an abelian scheme over ℤ, and for a semistable abelian variety with good reduction outside one prime ℓ, from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6's bound δ < 1 + 1/(p − 1) for finite flat group schemes, at the primes p those sources use, with the global comparison rows they need (Minkowski or R25.1/poitou-odlyzko-inequality).",
+        "Any finite exceptional list of number fields used by FONTAINE85 or SCHOOF05, with its completeness proof and validation. R25.2 as planned here uses no list."
+      ]
+    },
+    {
+      "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.2",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+      "status": "not_read",
+      "remaining": [
+        "Read FONTAINE85 (Invent. Math. 81 (1985), 515–538) and plan: the ramification bound for ℚ(A[p]) via R07.6, the resulting degree bounds, and the step from the torsion restrictions to a contradiction in every dimension."
+      ]
+    },
+    {
+      "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
+      "status": "not_read",
+      "remaining": [
+        "Read SCHOOF05 (Compositio Math. 141 (2005)) Theorem 1.1 and plan: the classification of the relevant finite flat group schemes over ℤ[1/ℓ] and their extensions for ℓ ∈ {2, 3, 5, 7, 13}, and the global argument from torsion to the abelian variety; the negative tests at ℓ = 11 and for non-semistable reduction."
+      ]
+    },
+    {
+      "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "status": "not_read",
+      "remaining": [
+        "Read DP23 Paso 6 and Theorems 1.7–1.9 and Khare's weight-reduction terminal cases, and plan the geometric realisation of the weight-two compatible systems and the local crystalline-to-ordinary checks at the terminal weights (importing R21.5, R21.6, R24.6)."
+      ]
+    },
+    {
+      "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.6",
+      "status": "not_read",
+      "remaining": [
+        "Assemble the base-case table for R26 and R33: each row with characteristic, weight, ramification, image, coefficient field and supplier. The rows p = 2, 3 of level one are R25.2/tate-serre-base-case."
+      ]
+    }
+  ],
+  "gaps": [],
+  "sourceIssues": [],
+  "sourceVersions": [
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/2108.07577",
+      "citation": "Luis Dieulefait and Ariel Pacetti, A simplified proof of Serre's conjecture",
+      "read": "2026-09-28",
+      "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/math/0504080",
+      "citation": "Chandrashekhar Khare, On Serre's modularity conjecture for 2-dimensional mod p representations of Gal(Q̄/Q) unramified outside p",
+      "read": "2026-09-28",
+      "sha256": "3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/0710.1319",
+      "citation": "Hyunsuk Moon and Yuichiro Taguchi, The non-existence of certain mod 2 Galois representations of some small quadratic fields",
+      "read": "2026-09-28",
+      "sha256": "d3646b4a940ef8049843eea5033e1739f30bdd645e2d36791baddf3b4f4f487c"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://hobbes.la.asu.edu/papers/simple2.pdf",
+      "citation": "John W. Jones, Wild ramification bounds and simple group Galois extensions ramified only at 2",
+      "read": "2026-09-28",
+      "sha256": "cc52105e5e2d35dc1b3de6450f79e8e9f8dd61663033d0611c3ca2e492793322"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/2509.00635",
+      "citation": "Alexandru Ghitza and Takuya Yamauchi, The non-existence of some Galois representations of moderate dimension in small characteristic",
+      "read": "2026-09-28",
+      "sha256": "c4d5cb6c180e1a7f6ec5e3019775d7e7e01070b0046133b8bf73a23f0ce12036"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/JTNB_1990__2_1_119_0/",
+      "citation": "Andrew M. Odlyzko, Bounds for discriminants and related estimates for class numbers, regulators and zeros of zeta functions: a survey of recent results",
+      "read": "2026-09-28",
+      "sha256": "2c862713fc7f981ded3b4ac22f338b9905097850bbd9bc235eed77c298b5b852"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://ivanfesenko.org/wp-content/uploads/2021/10/vol.pdf",
+      "citation": "Ivan B. Fesenko and Sergei V. Vostokov, Local Fields and Their Extensions (second edition)",
+      "read": "2026-09-28",
+      "sha256": "019f09b449c8a5310a699855d88dfd43d202d2697f44b0a0fd1378c9dd257ec0"
+    }
+  ]
+}
