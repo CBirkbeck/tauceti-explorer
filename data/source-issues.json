@@ -135346,6 +135346,26 @@
    "reviewReason": null
   },
   {
+   "id": "GeneralAlgebraicKTheory/E1",
+   "kind": "misprint",
+   "locator": "IV.10.3 (Corollary 10.3), printed p. 349 (PDF p. 357); identical in the chapter file Kbook.IV.pdf of 17 August 2012",
+   "printed": "and K−k(R) ≅ πnΛk−1K(R) ≅ π−kΛkK(R)",
+   "correction": "and K−k(R) ≅ π−kΛk−1K(R) ≅ π−kΛkK(R).",
+   "reason": "n is not bound in that clause (the preceding clause is 'for n > −k'); since Λ^{k−1}K(R) is the (−k)-connective cover of Λ^kK(R), the group meant is π_{−k}Λ^{k−1}K(R), which equals π_{−k}Λ^kK(R).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Weibel's K-book page: its errata link (Kbook.errata.pdf) returned 404 on 2026-09-28.",
+    "The chapter file Kbook.IV.pdf (17 August 2012) prints the same text."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory--K.6.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-GeneralAlgebraicKTheory--K.6",
+   "reviewReason": "Raised by the reviewer; checked against the corollary's own first clause."
+  },
+  {
    "id": "GeneralizedHeegnerCycles/E-GH8-1",
    "kind": "error",
    "locator": "Published Section 4.4, printed p. 593, display defining S^{r-1}(B); also present in the 2 July 2022 author revision, Section 4.4",
@@ -165689,7 +165709,6 @@
   "ExcursionOperatorsAndSpectralAction",
   "ExcursionOperatorsAndSpectralAction",
   "ExcursionOperatorsAndSpectralAction",
-  "GeneralAlgebraicKTheory",
   "GeneralAlgebraicKTheory",
   "GeometricSatakeAndFusion",
   "GeometricSatakeAndFusion",
