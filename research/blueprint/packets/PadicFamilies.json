@@ -13,7 +13,7 @@
   "PadicFamilies:L5"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–2 (Claude Code cc-39fac3). L0a is source_decomposed (Khare–Thorne §2.4, Hida §1, ACC+ §5.2). L0 is partial after checkpoint 2: Hida's ordinary Hecke algebra from Ann. Sci. ÉNS 1986 — Katz's p-adic modular functions, the universal Hecke algebra and ordinary idempotent, duality, finiteness over Λ, the control theorem, the ordinary Eisenstein family and classical specialisation. L2a carries the fourteen reviewed Buzzard nodes. L1, L2, L3, L4 and L5 are not read.",
+ "summary": "Checkpoints 1–3 (Claude Code cc-39fac3). L0a is source_decomposed; L0 is partial (Hida 1986); L3 is partial after checkpoint 3 (Bellaïche, Critical p-adic L-functions: critical/θ-critical refinements, the θ exact sequence, Bellaïche's theorem, critical and secondary p-adic L-functions); L2a carries the reviewed Buzzard nodes. L1, L2, L4 and L5 are not read.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -471,6 +471,17 @@
    "readSections": [
     "R1-review (fetched 2026-09-15; the live Berkeley URL and Mazur's Harvard page return 404): §1.1 'nested' definition, internal p. 11; Lemma 1.3.10, Theorem 1.3.11 and Corollary 1.3.12, pp. 24–26; Chapter 7 opening, §7.1 local pieces and Theorem 7.1.1, pp. 91–93; §7.4 opening and Lemma 7.4.1, pp. 101–102; Proposition 7.4.5, p. 104; Theorem 7.5.1 statement, p. 105. Chapters 2–6 and the proofs in §§7.2–7.5 remain unread.",
     "2026-09-28 (cc-39fac3): SHA-256 re-verified against a fresh download; every excerpt used by the L2a nodes re-checked as an exact substring of the PDF text layer (ligatures ﬁ/ﬂ/ﬃ as printed); the printed defects of Lemmas 4.5, 5.6, 5.9, Theorem 4.6, §5 and Construction 5.7 re-read and recorded as sourceIssues E1–E9."
+   ]
+  },
+  {
+   "id": "BELLAICHE-CRITICAL-2012",
+   "title": "Critical p-adic L-functions",
+   "authors": "Joël Bellaïche",
+   "edition": "arXiv:0912.2925v1 (15 December 2009), 44 pages; published in Invent. Math. 189 (2012), 1–60. Page numbers are those of the arXiv PDF (printed page = PDF page).",
+   "url": "https://arxiv.org/pdf/0912.2925v1",
+   "sha256": "0a1c068cfc36704c02bd741be37ef95b0ac3216db3e9293364a6368843701032",
+   "readSections": [
+    "2026-09-28 (cc-39fac3, checkpoint 3): §1 (Definition 1, Theorems 1–3, Corollary 1, secondary L-functions), pp. 1–11; §2.2 Lemma 2.11, Propositions 2.12, 2.14, 2.15, Definition 2.13, pp. 17–20; Theorem 2.16, p. 20; §3.2.3 (θ exact sequence, Theorem 3.5), p. 27; §4.1–4.2 Lemma 4.1, Propositions 4.3, 4.5, Corollary 4.4, Theorem 4.7, Corollary 4.8, pp. 33–36; §4.3 statements, pp. 38–40."
    ]
   }
  ],
@@ -1302,6 +1313,739 @@
    "planet": {
     "name": "Classical specialisation of Hida families"
    }
+  },
+  {
+   "id": "PadicFamilies:L3/refinement-criticality",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Critical-slope, critical and θ-critical refinements",
+   "kind": "definition",
+   "statement": "Let f be a newform (cuspidal or Eisenstein) of weight k + 2 and level Γ₁(N), p ∤ N, with Hecke polynomial X² − a_pX + ε(p)p^{k+1} having distinct roots α, β. The refinement f_β (the p-stabilisation with U_p-eigenvalue β) has critical slope if v_p(β) = k + 1; it is critical if the equivalent conditions of criticality-equivalences hold (non-classical overconvergent generalised eigenforms, equivalently the eigencurve is not étale over weight space at f_β, equivalently ρ_f|_{D_p} is split with β on the weight-filtration line); it is θ-critical if f_β lies in the image of θ^{k+1} : M†_{−k} → M†_{k+2}. Critical implies critical slope; for cuspidal f, critical ⇔ θ-critical.",
+   "hypotheses": [
+    "α ≠ β; ρ_f is Bellaïche's preferred representation (crystalline at p, indecomposable)."
+   ],
+   "proofSteps": [
+    "Record the three notions separately: slope (valuation), criticality (local Galois/eigencurve geometry), θ-criticality (image of θ^{k+1} on overconvergent forms)."
+   ],
+   "acceptance": [
+    "RS-08: keep 'slope k + 1', 'θ-critical' and 'critical refinement' distinct; ModularSymbolsPadicLFunctions L3 imports this distinction."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/refinement",
+    "ModularSymbolsPadicLFunctions:L2/p-stabilisation",
+    "PadicFamilies:L2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§2.2.2, p. 18 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Critical slope."
+    },
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§2.2.2, Definition 2.13, p. 19 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Critical and θ-critical."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L3/critical-eigenspace-dimension",
+     "how": "the dichotomy critical / non-critical."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L3",
+     "how": "single-form critical-slope and θ-critical specialisations (RS-08 import)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.IsCriticalSlope",
+     "role": "structure",
+     "statement": "v_p(β) = k + 1."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.IsCriticalRefinement",
+     "role": "structure",
+     "statement": "Any of the equivalent conditions of Proposition 2.12."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.IsThetaCritical",
+     "role": "structure",
+     "statement": "f_β ∈ θ^{k+1}(M†_{−k})."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.IsCriticalRefinement.isCriticalSlope",
+     "role": "projection",
+     "statement": "Critical ⇒ critical slope."
+    }
+   ],
+   "tests": [
+    {
+     "name": "criticalSlope_ordinary",
+     "kind": "example",
+     "statement": "f ordinary (v_p(a_p) = 0): its non-ordinary refinement has critical slope."
+    },
+    {
+     "name": "critical_CM_split",
+     "kind": "example",
+     "statement": "f = the weight-2 form of X₀(32) (CM by ℚ(i)), p = 5 split: the critical-slope refinement is critical and θ-critical."
+    },
+    {
+     "name": "not_critical_supersingular",
+     "kind": "example",
+     "statement": "a_p = 0 (supersingular): both refinements have slope (k + 1)/2, neither is of critical slope."
+    }
+   ],
+   "planet": {
+    "name": "Critical and θ-critical refinements"
+   }
+  },
+  {
+   "id": "PadicFamilies:L3/criticality-equivalences",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Equivalent forms of criticality",
+   "kind": "theorem",
+   "statement": "For a refined form f_β the following are equivalent: (i) M_{k+2}(Γ)(f_β) ⊊ M†_{k+2}(Γ)(f_β) (non-classical generalised eigenforms); (i′) dim M†_{k+2}(Γ)(f_β) ≥ 2; (ii) v_p(β) > 0 and the eigencurve C is not étale over weight space at x = f_β; (iii) v_p(β) > 0 and ρ_f|_{D_p} is a direct sum of two characters; (iv) the β-line of D_cris(ρ_f|_{D_p}) equals the weight-filtration line. Then v_p(β) = k + 1. For cuspidal f these are equivalent to (v) θ-criticality; for Eisenstein f, (v) always holds.",
+   "hypotheses": [
+    "The equivalences (iii) ⇔ (v) (Breuil–Emerton), (i) ⇔ (iii) for Eisenstein series (Bellaïche–Chenevier) and Coleman's limit control theorem are cited by Bellaïche and not decomposed here."
+   ],
+   "proofSteps": [
+    "(i) ⇔ (i′) ⇔ (ii): Bellaïche Lemma 2.9 (étaleness of the weight map at x versus the dimension of the generalised eigenspace of overconvergent forms).",
+    "(iii) ⇔ (iv): weak admissibility of D_cris.",
+    "(v): Coleman's limit control theorem makes coker θ^{k+1} on the generalised eigenspace equal to S_{k+2}(Γ)(x)."
+   ],
+   "acceptance": [
+    "Keep the cited inputs visible in hypotheses; they are not proved here."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/refinement-criticality",
+    "PadicFamilies:L2",
+    "ModularSymbolsPadicLFunctions:L2/control-theorem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§2.2.2, Proposition 2.12, p. 18 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Proposition 2.12."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L3/critical-slope-classification",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Which newforms have critical-slope refinements",
+   "kind": "theorem",
+   "statement": "A newform f has a refinement of critical slope iff (a) f is cuspidal, not CM and ordinary at p; (b) f is cuspidal CM by K with p split in K; or (c) f is Eisenstein; the critical-slope refinement is then unique. In case (b) it is critical (hence θ-critical); in case (c) it is θ-critical, and non-critical when p is regular; in case (a) non-criticality is conjectural.",
+   "hypotheses": [
+    "v_p(α) + v_p(β) = k + 1."
+   ],
+   "proofSteps": [
+    "v_p(β) = k + 1 forces v_p(α) = 0, i.e. f ordinary; for CM forms this means p split.",
+    "CM: ρ_f|_{D_p} is a sum of two characters, so (iii) holds."
+   ],
+   "acceptance": [
+    "Test on X₀(32) (CM, p ≡ 1 mod 4) and on an Eisenstein series of level Γ₀(11), p = 3."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/criticality-equivalences"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§2.2.3, Proposition 2.14, p. 19 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Proposition 2.14."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L3/decent-refinement",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Decent refinements",
+   "kind": "definition",
+   "statement": "f_β is decent if (i) f is Eisenstein, or (ii) f_β is non-critical, or (iii) f is cuspidal and H¹_g(G_ℚ, ad ρ_f) = 0. Sufficient conditions for (iii) (Proposition 2.15): ρ̄_f|_{G_L} absolutely irreducible for the quadratic L ⊂ ℚ(ζ_{p³}); or ρ̄_f reducible with characters distinct on G_{ℚ(ζ_{p^∞})}; or f non-CM and cuspidal/special at all primes dividing N; or f CM.",
+   "hypotheses": [
+    "H¹_g is the Bloch–Kato geometric Selmer group; its vanishing is proved by Kisin/Weston/Rubin in the listed cases (cited)."
+   ],
+   "proofSteps": [
+    "Record the three alternatives; the listed criteria are cited results."
+   ],
+   "acceptance": [
+    "Every CM form is decent; cuspidal non-CM forms are conjecturally doubly decent."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/refinement-criticality",
+    "GlobalGaloisDeformations:R04.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.1, Definition 1, p. 5 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Definition 1."
+    },
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§2.2.4, Proposition 2.15, p. 20 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "The criteria."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "PadicFamilies:L3/eigencurve-smooth-decent",
+     "how": "smoothness of the eigencurve at decent points."
+    },
+    {
+     "where": "PadicFamilies:L3/critical-eigenspace-dimension",
+     "how": "the standing hypothesis of Bellaïche's Theorem 1."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.IsDecent",
+     "role": "structure",
+     "statement": "Eisenstein, or non-critical, or H¹_g(ad ρ_f) = 0."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.isDecent_of_nonCritical",
+     "role": "constructor",
+     "statement": "Non-critical refinements are decent."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.isDecent_of_CM",
+     "role": "constructor",
+     "statement": "CM forms are decent (Rubin)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.isDecent_of_squarefree",
+     "role": "constructor",
+     "statement": "Non-CM forms of squarefree level with trivial character are decent."
+    }
+   ],
+   "tests": [
+    {
+     "name": "isDecent_X0_32",
+     "kind": "example",
+     "statement": "The CM form of X₀(32) is decent."
+    },
+    {
+     "name": "isDecent_eisenstein",
+     "kind": "example",
+     "statement": "Every Eisenstein refinement is decent (condition (i))."
+    },
+    {
+     "name": "isDecent_11a",
+     "kind": "example",
+     "statement": "The form of 11a1 is decent at every p ∤ 11 (squarefree level, trivial character)."
+    }
+   ]
+  },
+  {
+   "id": "PadicFamilies:L3/eigencurve-smooth-decent",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "The eigencurve is smooth at decent points",
+   "kind": "theorem",
+   "statement": "If f is decent (and v_p(β) ≠ 0 when f is Eisenstein), the eigencurve C (and its cuspidal part C₀) is smooth at the point x of f_β; its weight map has some ramification index e ≥ 1 at x, with e > 1 iff f_β is critical.",
+   "hypotheses": [
+    "Chenevier's argument through the tangent space of the Galois deformation functor (cited)."
+   ],
+   "proofSteps": [
+    "Bound the tangent space of C at x by the refined deformation space of ρ_f, of dimension ≤ 1 + dim H¹_g(ad ρ_f) = 1 under decency; C is equidimensional of dimension 1, so smooth."
+   ],
+   "acceptance": [
+    "Smoothness is what makes the local Hecke algebra a DVR (family-symbols-free-rank-one)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/decent-refinement",
+    "PadicFamilies:L3/criticality-equivalences",
+    "PadicFamilies:L2",
+    "PadicFamilies:L2a/eigenpacket-points"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§2.3, Theorem 2.16, p. 20 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Theorem 2.16."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L3/theta-exact-sequence",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "The θ exact sequence",
+   "kind": "theorem",
+   "statement": "There is an exact sequence of ℚ_p[S₀(p)]-modules 0 → D_{−2−k}(k + 1) →^{Θ_k} D_k →^{ρ_k} V_k → 0, where ρ_k(μ) = ∫(Y − zX)^k dμ(z) and Θ_k is dual to the k-th derivative (the (k + 1) is a determinant twist); it induces an exact, Hecke- and ι-equivariant sequence 0 → Symb_Γ(D_{−2−k})(k + 1) →^{Θ*_k} Symb_Γ(D_k) →^{ρ*_k} Symb_Γ(V_k).",
+   "hypotheses": [
+    "D_k are the weight-k distribution modules of ModularSymbolsPadicLFunctions L2."
+   ],
+   "proofSteps": [
+    "Dualise 0 → P_k → A → A →^{d^{k+1}} … : the kernel of the (k + 1)-st derivative on locally analytic functions is the polynomials of degree ≤ k.",
+    "Apply Hom_Γ(Δ₀, −), which is left exact."
+   ],
+   "acceptance": [
+    "The sequence of symbols is exact only on the left three terms; surjectivity of ρ*_k is part of Stevens' control theorem."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/weight-k-distributions",
+    "ModularSymbolsPadicLFunctions:L2/specialisation-map"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§3.2.3, p. 27 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "The θ exact sequence (Stevens)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "θ exact sequence"
+   }
+  },
+  {
+   "id": "PadicFamilies:L3/family-symbols-free-rank-one",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Family modular symbols are free of rank one at decent points",
+   "kind": "theorem",
+   "statement": "Let T±_{W,ν} be the Hecke algebra acting on Symb±_Γ(R ⊗̂ D)_{≤ν} over an affinoid W = Sp R of weight space and C±_{W,ν} the corresponding piece of the eigencurve. If x is a smooth point, the localisation Symb±_Γ(R ⊗̂ D)_(x) is free of finite rank over (T±_{W,ν})_(x) (a DVR), and the specialisation (T±_{W,ν})_(x) ⊗ ℚ̄_p → (T±_{w,ν})_(x) is an isomorphism; if x is a decent refined newform, the rank is one.",
+   "hypotheses": [
+    "DVR lemma: a module over a DVR R that is finite over a finite free R-algebra T which is itself a DVR, and free over R, is free over T (Lemma 4.1; false for T merely local, Remark 4.2)."
+   ],
+   "proofSteps": [
+    "Lemma 4.1 at the smooth point x (C reduced, so the local ring is a DVR).",
+    "Rank one: near x all classical points are étale newform points with one-dimensional eigenspaces (Prop 3.18, Lemma 2.9)."
+   ],
+   "acceptance": [
+    "Test the DVR lemma's failure for T local but not a DVR (Remark 4.2)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/eigencurve-smooth-decent",
+    "PadicFamilies:L2a/finite-hecke-images",
+    "PadicFamilies:L2a/global-weight-gluing",
+    "LocallyAnalyticDistributions:L4/finite-slope-summands"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§4.1, Proposition 4.3, p. 34 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Proposition 4.3."
+    },
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§4.1, Proposition 4.5, p. 35 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Proposition 4.5."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L3/local-hecke-algebra-structure",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "The generalised eigenspace at a decent point",
+   "kind": "theorem",
+   "statement": "For decent f_β with weight-map ramification index e at x: (T±_{k,ν})_(f_β) ≅ ℚ̄_p[t]/(t^e), and Symb±_Γ(D_k)(f_β) is a free module of rank one over it, of dimension e.",
+   "hypotheses": [
+    "The local ring of C at x is a DVR R(k)[t]/(t^e − u) over the weight DVR R(k)."
+   ],
+   "proofSteps": [
+    "(T±_{k,ν})_(x) = (T±_{W,ν})_(x) ⊗_{R(k)} ℚ̄_p = R(k)[t]/(t^e − u) ⊗ R(k)/(u) = ℚ̄_p[t]/(t^e).",
+    "Specialise the rank-one freeness."
+   ],
+   "acceptance": [
+    "e = 1 iff f_β is non-critical."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/family-symbols-free-rank-one"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§4.2, Theorem 4.7, p. 36 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Theorem 4.7."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L3/critical-eigenspace-dimension",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Bellaïche's theorem on critical eigensymbols",
+   "kind": "theorem",
+   "statement": "For a decent refinement f_β (v_p(β) > 0 if f is Eisenstein), Symb±_Γ(D_k)[f_β] is one-dimensional for both signs, and the following are equivalent: (i) f_β is critical; (ii) the generalised eigenspaces Symb±_Γ(D_k)(f_β) have dimension > 1; (iii) ρ*_k(Symb±_Γ(D_k)[f_β]) = 0 for both signs. For cuspidal f, (TS±) for one sign implies it for the other; for Eisenstein f, (TS^{−ε(f_β)}) always holds.",
+   "hypotheses": [
+    "Decency; this extends Stevens (non-critical slope) and Pollack–Stevens (non-θ-critical) to the θ-critical case."
+   ],
+   "proofSteps": [
+    "The eigenspace is the socle t^{e−1}Symb±(f_β) of the free rank-one ℚ̄_p[t]/(t^e)-module: dimension 1.",
+    "If e > 1 the eigenline is t^{e−1}·(generator) and ρ*_k kills it (Corollary 4.8); if e = 1 its image is the classical eigenline for cuspidal f."
+   ],
+   "acceptance": [
+    "Distinguish critical slope from failure of ρ*_k to be an isomorphism: the latter is criticality."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/local-hecke-algebra-structure",
+    "PadicFamilies:L3/theta-exact-sequence",
+    "PadicFamilies:L3/refinement-criticality",
+    "ModularSymbolsPadicLFunctions:L2/control-theorem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.1, Theorem 1, p. 6 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Theorem 1."
+    },
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§4.2, Corollary 4.8, p. 36 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Corollary 4.8."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Bellaïche's theorem"
+   }
+  },
+  {
+   "id": "PadicFamilies:L3/critical-p-adic-l-function",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "The critical p-adic L-function",
+   "kind": "construction",
+   "statement": "For decent f_β and a generator Φ±_{f_β} of Symb±_Γ(D_k)[f_β], L±(f_β, σ) := Φ±_{f_β}({∞} − {0})(σ) for continuous σ : ℤ_p^× → ℂ_p^× (extended by 0 on pℤ_p); L(f_β, σ) = L⁺ + L⁻. It is analytic in σ (a power series in s on |s − 1| < 1 for each tame character), of order ≤ v_p(β), defined up to a nonzero scalar for each sign, and equals the Mazur–Tate–Teitelbaum / Pollack–Stevens p-adic L-function when f_β is not θ-critical.",
+   "hypotheses": [
+    "Decency, so that the eigenline is one-dimensional."
+   ],
+   "proofSteps": [
+    "Evaluate at {∞} − {0}, restrict to ℤ_p^×, take the Mellin transform (Amice).",
+    "Order ≤ v_p(β): the distribution Φ±({∞} − {0}) is v_p(β)-admissible (Višik)."
+   ],
+   "acceptance": [
+    "Interpolation determines L± only when v_p(β) < k + 1; at critical slope it does not."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/critical-eigenspace-dimension",
+    "ModularSymbolsPadicLFunctions:L2/p-adic-l-function",
+    "ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness",
+    "LocallyAnalyticDistributions:L2/amice-velu-vishik"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.2, p. 6 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L3",
+     "how": "single-form critical-slope L-functions and normalisation comparisons."
+    },
+    {
+     "where": "PadicFamilies:L3/theta-critical-vanishing",
+     "how": "its vanishing at classical characters in the θ-critical case."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.criticalPadicL",
+     "role": "constructor",
+     "statement": "L±(f_β, σ) = Φ±({∞} − {0})(σ)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.criticalPadicL_analytic",
+     "role": "characterisation",
+     "statement": "Analytic in s on the open unit ball for each tame character."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.criticalPadicL_order",
+     "role": "characterisation",
+     "statement": "Of order ≤ v_p(β)."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.criticalPadicL_eq_classical",
+     "role": "compatibility",
+     "statement": "Agrees with the Pollack–Stevens L-function when f_β is not θ-critical."
+    }
+   ],
+   "tests": [
+    {
+     "name": "criticalPadicL_support",
+     "kind": "example",
+     "statement": "L±(f_β, σ) = 0 when σ(−1) ≠ ±1 (disjoint supports)."
+    },
+    {
+     "name": "criticalPadicL_ordinary",
+     "kind": "example",
+     "statement": "For the ordinary refinement (slope 0) it is the Mazur–Tate–Teitelbaum measure, bounded."
+    },
+    {
+     "name": "criticalPadicL_eisenstein_minus",
+     "kind": "example",
+     "statement": "f Eisenstein, θ-critical: L^{−ε(f_β)} ≡ 0 although Φ^{−ε(f_β)} ≠ 0."
+    }
+   ],
+   "planet": {
+    "name": "Critical p-adic L-functions"
+   }
+  },
+  {
+   "id": "PadicFamilies:L3/theta-critical-vanishing",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Vanishing at classical characters in the θ-critical case",
+   "kind": "theorem",
+   "statement": "If f_β is θ-critical then L±(f_β, ϕt^j) = 0 for every finite-order ϕ and 0 ≤ j ≤ k, except when f is Eisenstein, f_β non-critical, ± = ε(f_β), ϕ trivial and j = k. Equivalently each s ↦ L±(f_β, ψχ_s) is divisible by log^{[k]}(s) = ∏_{i=0}^{k} log_p(γ^{−i}s) (by log^{[k]}(s)/(s − γ^k) in the exceptional case).",
+   "hypotheses": [
+    "θ-criticality: the eigensymbol lies in the image of Θ*_k."
+   ],
+   "proofSteps": [
+    "Φ± ∈ image of Θ*_k ⇒ the distribution Φ±({∞} − {0}) kills polynomials of degree ≤ k twisted by finite-order characters (Θ_k is dual to d^{k+1}), so the classical values vanish.",
+    "The Eisenstein exception: the value at t^k is detected by the constant term (Bellaïche §4.2)."
+   ],
+   "acceptance": [
+    "Interpolation values alone are not a uniqueness theorem here (they all vanish)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/critical-p-adic-l-function",
+    "PadicFamilies:L3/theta-exact-sequence",
+    "PadicFamilies:L3/critical-eigenspace-dimension"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.3, Theorem 2, p. 8 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Theorem 2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L3/critical-slope-infinitely-many-zeros",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Critical-slope L-functions have infinitely many zeros",
+   "kind": "theorem",
+   "statement": "If v_p(β) = k + 1 then for every tame character ψ the function s ↦ L±(f_β, ψχ_s) has infinitely many zeros.",
+   "hypotheses": [
+    "Critical slope (for the θ-critical case via Theorem 2; for non-θ-critical via the interpolation and the order)."
+   ],
+   "proofSteps": [
+    "An analytic function of order k + 1 on the open unit ball with prescribed behaviour at the zeros of log^{[k]} has infinitely many zeros (Weierstrass/Lazard theory of zeros)."
+   ],
+   "acceptance": [
+    "Test: supersingular a_p = 0 has infinitely many zeros by Pollack's ± decomposition (not critical slope, for contrast)."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/theta-critical-vanishing",
+    "PadicFamilies:L3/critical-p-adic-l-function"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.3, Corollary 1, p. 8 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Corollary 1."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "PadicFamilies:L3/two-variable-l-function",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Two-variable p-adic L-functions near a decent point",
+   "kind": "theorem",
+   "statement": "For decent f_β at x ∈ C there are an affinoid neighbourhood V of x and, for each sign, L±(y, σ) on V × (characters), jointly analytic, well defined up to a nonvanishing analytic function of y; every refined newform point y ∈ V is decent and L±(y, σ) = c_y L±(f′_{β′}, σ) with c_y ≠ 0.",
+   "hypotheses": [
+    "Built from a generator of the rank-one family module (family-symbols-free-rank-one)."
+   ],
+   "proofSteps": [
+    "Choose a generator Φ of Symb±_Γ(R ⊗̂ D)_(x) over the local Hecke algebra; evaluate at {∞} − {0} and Mellin-transform in families (Prop 4.11).",
+    "Specialisation at y gives a generator of the eigenline of y (Lemmas 4.12–4.13, Prop 4.14)."
+   ],
+   "acceptance": [
+    "Retain the sheaf-valued object; a scalar function requires a chosen trivialisation of the rank-one module."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/family-symbols-free-rank-one",
+    "PadicFamilies:L3/critical-p-adic-l-function",
+    "PadicFamilies:L2a/global-weight-gluing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.4, Theorem 3, p. 10 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "Theorem 3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Two-variable p-adic L-function"
+   }
+  },
+  {
+   "id": "PadicFamilies:L3/secondary-l-functions",
+   "parentStageId": "PadicFamilies:L3",
+   "realises": [
+    "PadicFamilies:L3"
+   ],
+   "title": "Secondary critical p-adic L-functions",
+   "kind": "construction",
+   "statement": "For critical f_β with e = dim Symb±_Γ(D_k)(f_β) > 1, L±_i(f_β, σ) := ∂^i L±(y, σ)/∂y^i at y = x (i = 0, …, e − 1) for a uniformiser y of C at x; the flag F₀ ⊂ … ⊂ F_{e−1} they span is well defined, is the Mellin image of the generalised-eigenvector flag, each L±_i has order ≤ k + 1, satisfies (6) for i ≤ e − 2 and (4) for i = e − 1 (cuspidal f), and has infinitely many zeros.",
+   "hypotheses": [
+    "C smooth at x (eigencurve-smooth-decent)."
+   ],
+   "proofSteps": [
+    "Differentiate the two-variable function along the smooth curve; the flag is independent of choices."
+   ],
+   "acceptance": [
+    "The individual L±_i depend on choices; only the flag is intrinsic."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L3/two-variable-l-function",
+    "PadicFamilies:L3/local-hecke-algebra-structure",
+    "PadicFamilies:L3/eigencurve-smooth-decent"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/PadicFamilies/CriticalSlope",
+    "namespace": "TauCeti.PadicFamilies"
+   },
+   "sources": [
+    {
+     "sourceId": "BELLAICHE-CRITICAL-2012",
+     "locator": "§1.4.5, p. 10 (arXiv v1 PDF; printed page = PDF page)",
+     "match": "The secondary L-functions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L3",
+     "how": "secondary p-adic L-functions in the critical case."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.PadicFamilies.secondaryPadicL",
+     "role": "constructor",
+     "statement": "L±_i(f_β, σ) = ∂^i L±/∂y^i at x."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.secondaryPadicL_flag",
+     "role": "characterisation",
+     "statement": "The flag F_i is independent of choices."
+    },
+    {
+     "name": "TauCeti.PadicFamilies.secondaryPadicL_interpolation",
+     "role": "characterisation",
+     "statement": "L±_{e−1} satisfies the classical interpolation (4)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "secondaryPadicL_noncritical",
+     "kind": "example",
+     "statement": "e = 1: only L₀ = L exists (degenerate case)."
+    },
+    {
+     "name": "secondaryPadicL_CM",
+     "kind": "example",
+     "statement": "X₀(32), p = 5: e ≥ 2 and L₁ is a genuinely new function (Bellaïche)."
+    },
+    {
+     "name": "secondaryPadicL_top_interpolates",
+     "kind": "example",
+     "statement": "The top secondary function recovers the classical L-values up to the Euler factor."
+    }
+   ]
   },
   {
    "id": "PadicFamilies:L0a/factorial-iterate-stabilises",
@@ -3518,6 +4262,14 @@
     "PadicFamilies:L0/weight-algebra-action"
    ],
    "status": "open"
+  },
+  {
+   "supplier": "GlobalGaloisDeformations:R04.3",
+   "need": "The Bloch–Kato group H¹_g(G_ℚ, ad ρ_f) and its identification with refined deformations (tangent space of the eigencurve at a refined point), for decency and smoothness.",
+   "neededBy": [
+    "PadicFamilies:L3/decent-refinement"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -3566,11 +4318,14 @@
   },
   {
    "stageId": "PadicFamilies:L3",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "RS-08 makes L3 the owner of the general critical-slope, theta-critical and secondary p-adic L-function theory (Pollack–Stevens and Bellaïche), including the theta exact sequence and the distinction between slope w − 1, theta-criticality and a critical refinement; ModularSymbolsPadicLFunctions L3 imports it.",
-    "Sources to read: Bellaïche, Critical p-adic L-functions, Invent. Math. 189 (2012); Pollack–Stevens, Critical slope p-adic L-functions, J. London Math. Soc. 87 (2013)."
-   ]
+    "PadicFamilies L2 (the modular eigencurve and overconvergent forms) is not yet planned; L3 uses it as a stage prerequisite.",
+    "Inputs cited by Bellaïche and not decomposed: Breuil–Emerton ((iii) ⇔ (v)), Bellaïche–Chenevier (Eisenstein criticality), Coleman's limit control theorem, Chenevier's smoothness argument, and the vanishing of H¹_g in Proposition 2.15's cases (Kisin, Weston, Rubin).",
+    "Pollack–Stevens, Critical slope p-adic L-functions (J. LMS 2013) was not obtained; its non-θ-critical construction is used through Bellaïche's restatement.",
+    "The Eisenstein exceptional value and the Stevens 'wild guess' comparisons (Bellaïche §4.2, Example 4.10)."
+   ],
+   "notes": "Checkpoint 3 (cc-39fac3): Bellaïche, Critical p-adic L-functions — refinements (critical slope, critical, θ-critical) with Proposition 2.12 and the classification 2.14, decency, smoothness of the eigencurve, the θ exact sequence, freeness of family symbols at decent points, the local Hecke algebra ℚ̄_p[t]/(t^e), Bellaïche's Theorem 1, the critical p-adic L-function, θ-critical vanishing, infinitely many zeros, the two-variable function and secondary L-functions."
   },
   {
    "stageId": "PadicFamilies:L4",

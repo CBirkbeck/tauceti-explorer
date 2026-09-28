@@ -1,10 +1,11 @@
 # Hida and Coleman families, period modules, and family L-functions — blueprint
 
-This blueprint covers stages L0, L0a, L1, L2, L2a, L3, L4 and L5. After the second checkpoint:
+This blueprint covers stages L0, L0a, L1, L2, L2a, L3, L4 and L5. After the third checkpoint:
 - **L0a is source-decomposed.**
 - **L2a is partial:** it carries the fourteen reviewed nodes of the integrated decomposition.
 - **L0 is partial:** Hida's ordinary Hecke algebra and control theorem, from Hida, Ann. Sci. ÉNS 1986.
-- **L1, L2, L3, L4 and L5 are not yet read.**
+- **L3 is partial:** critical-slope and θ-critical theory, from Bellaïche, *Critical p-adic L-functions*.
+- **L1, L2, L4 and L5 are not yet read.**
 
 The roadmap belongs to the restructured family RS-08, whose accepted proposal fixes what each layer keeps.
 - **L0a** owns the finite and profinite factorial ordinary-projector API "beyond the pinned Fitting lemma".
@@ -389,6 +390,75 @@ t_c and compatible ordinary cohomology.
 - Commuting endomorphisms glue.
 
 *Imported.* Minimal complexes and gluing (P7) and the Milnor sequence (ArithmeticGaloisDuality R02.1).
+
+### L3, Milestone 6: critical slope, θ-criticality and critical p-adic L-functions
+
+The source is Bellaïche, *Critical p-adic L-functions*, arXiv:0912.2925 (Invent. Math. 189 (2012)). RS-08 makes this
+layer the owner of the general critical-slope, θ-critical and secondary theory; ModularSymbolsPadicLFunctions L3
+imports it.
+
+**Definition: refinements and their criticality** (node `refinement-criticality`; planet; §2.2, Definition 2.13). Three
+separate notions:
+- critical slope: v_p(β) = k + 1;
+- critical: Proposition 2.12's equivalent conditions;
+- θ-critical: f_β lies in θ^{k+1}(M†_{−k}).
+
+*Unit tests.*
+- The non-ordinary refinement of an ordinary form has critical slope.
+- X₀(32) with p = 5 is critical and θ-critical.
+- A supersingular form has no critical-slope refinement.
+
+**Theorem: equivalent forms of criticality** (node `criticality-equivalences`; Proposition 2.12). The conditions are:
+- non-classical generalised overconvergent eigenforms;
+- non-étaleness of the weight map;
+- a split local representation;
+- a critical line in D_cris;
+- θ-criticality (for cuspidal f).
+
+**Theorem: classification** (node `critical-slope-classification`; Proposition 2.14). Critical-slope refinements exist
+exactly in three cases:
+- ordinary non-CM forms;
+- CM forms with p split;
+- Eisenstein series.
+
+**Definition: decent refinements** (node `decent-refinement`; Definition 1, Proposition 2.15). f_β is decent if it is
+Eisenstein, or non-critical, or has H¹_g(ad ρ_f) = 0.
+
+**Theorem: smoothness** (node `eigencurve-smooth-decent`; Theorem 2.16). The eigencurve is smooth at decent points.
+
+**Theorem: the θ exact sequence** (node `theta-exact-sequence`; planet; §3.2.3).
+- 0 → D_{−2−k}(k + 1) → D_k → V_k → 0.
+- On symbols this gives 0 → Symb(D_{−2−k}) → Symb(D_k) → Symb(V_k).
+
+**Theorem: freeness in families** (node `family-symbols-free-rank-one`; Propositions 4.3–4.5). Family symbols are free
+of rank one over the DVR local Hecke algebra at decent points.
+
+**Theorem: the local Hecke algebra** (node `local-hecke-algebra-structure`; Theorem 4.7).
+- The local Hecke algebra is ℚ̄_p[t]/(t^e).
+- The generalised eigenspace has dimension e.
+
+**Theorem: Bellaïche's theorem** (node `critical-eigenspace-dimension`; planet; Theorem 1, Corollary 4.8).
+- The eigenline is one-dimensional.
+- critical ⇔ e > 1 ⇔ ρ*_k kills the eigenline.
+
+**Construction: the critical p-adic L-function** (node `critical-p-adic-l-function`; planet; §1.4.2).
+L±(f_β, σ) = Φ±({∞} − {0})(σ).
+- It is analytic, of order ≤ v_p(β).
+- It equals the Pollack–Stevens L-function when f_β is not θ-critical.
+- *Unit tests.*
+  - Disjoint supports for the two signs.
+  - The ordinary case recovers Mazur–Tate–Teitelbaum.
+  - The Eisenstein minus-sign L-function vanishes.
+
+**Theorems: consequences** (Theorem 2, Corollary 1).
+- `theta-critical-vanishing`: divisibility by log^{[k]}.
+- `critical-slope-infinitely-many-zeros`.
+
+**Theorem: two-variable L-functions** (node `two-variable-l-function`; planet; Theorem 3). They exist on an affinoid
+neighbourhood in the eigencurve.
+
+**Construction: secondary L-functions** (node `secondary-l-functions`; §1.4.5). The L±_i = ∂^iL±/∂y^i and their
+intrinsic flag.
 
 ### L2a, Milestone 4: spectral variety and slope cover
 

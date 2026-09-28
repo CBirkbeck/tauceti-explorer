@@ -398,4 +398,37 @@ example : arithmeticPoint (6 : ℤ) 1 ≠ arithmeticPoint 6 2 := sorry
 
 end HidaL0
 
+/-! ## L3. Critical slope (checkpoint 3)
+
+The critical-slope theory needs the eigencurve and overconvergent modular symbols (PadicFamilies L2, L2a;
+ModularSymbolsPadicLFunctions L2); the arithmetic definitions are prototyped here. -/
+
+section CriticalSlope
+
+/-- `PadicFamilies:L3/refinement-criticality`: a refinement of weight k + 2 has critical slope when the valuation of
+its U_p-eigenvalue is k + 1. -/
+def IsCriticalSlope (k : ℕ) (vβ : ℚ) : Prop := vβ = k + 1
+
+/-- The two slopes of the refinements of a newform of weight k + 2 add up to k + 1. -/
+theorem slope_add (k : ℕ) (vα vβ : ℚ) (h : vα + vβ = k + 1) (hβ : IsCriticalSlope k vβ) : vα = 0 := sorry
+
+/-- log^{[k]}, the product of the `k + 1` shifted p-adic logarithms, has zeros exactly at γ^j ζ. Recorded through the
+number of its factors. -/
+def logBracketDegree (k : ℕ) : ℕ := k + 1
+
+-- Unit tests.
+example : IsCriticalSlope 0 1 := sorry
+example : ¬ IsCriticalSlope 2 (3 / 2) := sorry
+example : logBracketDegree 0 = 1 := rfl
+
+/-
+Signatures (suppliers: PadicFamilies L2/L2a, ModularSymbolsPadicLFunctions L2):
+theorem symb_eigenspace_finrank_one (hdec : IsDecent fβ) : finrank (Symb± Γ (D k))[fβ] = 1           -- critical-eigenspace-dimension
+theorem isCritical_iff (hdec) : IsCriticalRefinement fβ ↔ ρ*_k (Symb± Γ (D k))[fβ] = 0
+noncomputable def criticalPadicL (fβ) (σ : ℤ_[p]ˣ →* ℂ_[p]ˣ) : ℂ_[p] := Φ±({∞} − {0}) σ              -- critical-p-adic-l-function
+theorem criticalPadicL_eq_zero_of_thetaCritical (h : IsThetaCritical fβ) (j ≤ k) : criticalPadicL fβ (ϕ·t^j) = 0
+-/
+
+end CriticalSlope
+
 end TauCeti.PadicFamilies
