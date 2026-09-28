@@ -213,3 +213,109 @@ a claim of author confirmation or priority. No author contact was made.
 
 Canonical files outside this issue remain untouched. Rejected findings do not
 force a latest-bound/PFR programme, an AC.2/AC.3 cycle or a coding-stage prerequisite.
+
+---
+
+# Continuation — 28 September 2026 (Claude Code, cc-fb70e5)
+
+This pass does one thing: **remaining contract 2 above**, the reconciliation that the previous pass
+named as the gate on a packet existing at all. `research/blueprint/packets/AdditiveCombinatorics.json`
+now exists, carrying the nine accepted Green–Tao nodes at packet granularity.
+
+`check_blueprint`: **0 errors, 6 warnings**, all of them `excerpt longer than 400 characters` on
+inherited source references — see "Why those six warnings stay" below. 9 nodes (2 definitions,
+4 theorems, 1 lemma, 1 construction, 1 application), 19 API items, 12 unit tests, 7 planets,
+3 baseline declarations, 7 requests, 7 gaps, 3 `sourceIssues`. Status `partial`; no layer closed.
+
+## What was preserved, and how it was checked
+
+The previous pass's constraint was that a narrow packet must not displace the nine accepted nodes.
+So for all nine, the fields the review accepted — `id`, `parentStageId`, `title`, `kind`,
+`statement`, `hypotheses`, `proofSteps`, `acceptance` and `sources` — are copied **byte-identical**.
+That is not an assertion: it was verified by comparing a canonical JSON dump of each field against
+the integrated file, and all nine match on all nine fields, with the id set equal. The seven gaps
+are carried unchanged, and the three `sourceIssues` are transferred with their ids
+`AdditiveCombinatorics/E1`–`E3` and their `tao-254a-notes2-cmu` source id, as directed.
+
+I am the packet's author, not its reviewer, so **no verdict was added to E1–E3**. They remain
+unreviewed, and the source record for Tao's notes says plainly that this session did not read them
+and that the sha256 is the predecessor's record.
+
+## What was added — the declaration granularity
+
+Only what a decomposition lacks and a packet needs:
+
+- `realises` and `prerequisites` on all nine, forming an acyclic chain: the Gowers norms and the
+  `k`-pseudorandomness conditions feed the generalised von Neumann estimate and the Koopman–von
+  Neumann decomposition; those two plus the imported functional Szemerédi give the relative
+  Szemerédi theorem; and that with the W-trick majorant gives the prime-progressions endgame.
+- An `api`, `uses` and unit tests on the two definitions and the one construction, as PROTOCOL §4
+  and §12 require. Three tests are chosen to fail a plausible wrong definition rather than to
+  restate the right one:
+  - `isKPseudorandom.test_nonproportional_forms` — the linear forms condition requires the
+    `t`-tuples to be non-zero **and pairwise non-proportional**; dropping that makes the condition
+    false, so an implementation omitting it fails.
+  - `isKPseudorandom.test_coincident_shifts` — the correlation condition quantifies over shifts
+    "not necessarily distinct". A version restricted to distinct `h_i` is strictly weaker, and the
+    majorant's verification needs the coincident case.
+  - `modifiedVonMangoldt.test_shifted_primality` — `Λ̃(n) = 0` unless **`Wn + 1`** is prime.
+    Testing primality of `n` instead defeats the W-trick, which exists precisely to move the primes
+    into one residue class coprime to `W`.
+- Planets: 7 in total, 5 on AC.4, within the six-per-layer limit. The eight candidate names the
+  previous pass recorded for AC.0 and AC.1 are **not** used, because those layers still have no
+  nodes and a planet needs one.
+
+## The audit's duplicates became requests, not nodes
+
+Unlike some roadmaps, this one has a reviewed library audit for all six layers (AC.0 and AC.2 partly
+built, the rest not built), and it records seven duplicate findings. The job rules say a layer that
+duplicates another roadmap's is planned once by its owner with a request here, so all seven are
+requests. One bears directly on the inherited work and is worth naming: AC.4 duplicates
+`SieveMethodsAndPrimePatterns:SV.1`, "Selberg sieve weights, of which the Goldston–Yildirim
+truncated divisor sum used for the majorant is a variant". The W-trick node therefore imports the
+sieve weights and plans only the Green–Tao-specific verification that `ν` satisfies the two
+conditions. `AnalyticNumberTheory:AN.2` is likewise the owner of the prime-distribution inputs that
+two of the gaps turn on.
+
+## Why those six warnings stay
+
+`check_blueprint` warns when a source excerpt exceeds 400 characters. All six warnings are on
+inherited source references of the accepted nodes. Trimming them would edit fields that an
+independent review accepted and that the previous pass required to stay byte-identical, which is a
+worse outcome than a style warning. They are deliberate, and a reviewer should read them as such.
+
+For the same reason one phrase in the document may look like a rule violation and is not: an
+inherited accepted proof step says the instances of Definition 3.1 are "used later", meaning later
+in the source. It is a description of the paper's structure, not deferred work.
+
+## Document and Lean file
+
+The reader's AC.0 and AC.1 material is the previous passes' and is untouched; its sections cover the
+Fourier/spectrum/Bohr thread and mention none of the nine nodes. The Green–Tao material is therefore
+**appended** as a new part, generated from the packet so the two agree by construction. The Lean
+worksheet likewise keeps all its existing declarations and gains a `GreenTao` section carrying the
+three definitions with their API items and unit tests, so that every name the packet gives appears
+in the file as PROTOCOL §13 requires.
+
+**Nothing was compiled.** The shared-machine rules allow elaborating the suggested file only against
+a build at the pinned commits that already exists, and there is none here: the worksheet imports
+`TauCeti.*` and Tau Ceti has no local build. The previous pass's compile record stands as its own;
+this pass adds no compile claim, and the new `GreenTao` section is unelaborated.
+
+## What a continuation should do next
+
+1. **AC.1, where the previous passes were working.** Their resume point is unchanged and remains the
+   most detailed thread here: after Tao notes 2 §6 equation (9), at the Bohr-to-progression
+   transition in §7, using E2–E3 for the phase-radius comparison. Nothing in this pass touched it.
+2. **Give the Gowers–Cauchy–Schwarz inequality its own node.** It is currently an API item of the
+   Gowers norm node, and AC.3 cannot close while the estimate that makes the norm useful is only an
+   API line.
+3. **AC.2's proof route.** Szemerédi's theorem is imported, and the layer asks for one selected
+   complete proof route. Until that exists AC.2 stays partial, and the packet says so rather than
+   implying the Green–Tao chain supplies it.
+4. **The unread interior behind `majorantNu_isKPseudorandom`**: Section 10 and Appendix A beyond
+   Lemma A.3, which carry Propositions 9.5 and 9.6. This is the largest mathematical hole under the
+   nodes this packet now carries.
+5. **AC.0 and AC.5 have no nodes.** AC.0's material is partly the audit's duplicates, so its
+   planning is mostly a matter of stating what is imported; AC.5 needs the two further Green–Tao
+   papers the stage itself names.
