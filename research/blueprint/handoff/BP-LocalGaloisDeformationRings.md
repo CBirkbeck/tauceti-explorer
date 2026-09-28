@@ -1,9 +1,49 @@
-# BP-LocalGaloisDeformationRings: R08.1–R08.3, part of R08.6 and part of L7 (checkpoint 4)
+# BP-LocalGaloisDeformationRings: R08.1–R08.4, part of R08.6 and part of L7 (checkpoint 5)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #770. **Status: partial.**
-- R08.1, R08.2 and R08.3 are `source_decomposed`.
+- R08.1, R08.2, R08.3 and R08.4 are `source_decomposed`.
 - R08.6 and L7 are `partial`.
-- L8, R08.4 and R08.5 are `not_read`.
+- L8 and R08.5 are `not_read`.
+
+## Checkpoint 5: R08.4 (12 nodes, 6 planets)
+
+The source is Kisin's Annals paper §2, read from the author's DVI through a text extraction, and Savitt (arXiv v3).
+
+**Moduli and generic fibre:**
+- `flat-deformation-condition`, from Ramakrishna and Raynaud.
+- `finite-flat-model-moduli`: L7's height-lattice moduli with h = 1, the map Θ, and the closed fibre as finite flat
+  models.
+- `small-ramification-flat`: e < p − 1, Raynaud.
+- `flat-generic-fibre`: crystalline with weights {0, 1}, formally smooth, dimension d² + Σ(d − v_ψ)v_ψ.
+
+**Resolution and components:**
+- `hodge-type-resolution`: Θ^v, an isomorphism after inverting p.
+- `resolution-local-structure`: normal and Cohen–Macaulay with a reduced closed fibre. The input is Pappas–Rapoport
+  local models, which no roadmap plans, so it is **recorded as a gap**.
+- `components-via-special-fibre`: Kisin (2.4.10). It uses the image, as RS-08 demands.
+- `ordinary-type-of-components`: (2.4.14)–(2.4.16).
+
+**Rank two:**
+- `rank-two-nonordinary-connected`: (2.5.6), K₀ = ℚ_p.
+- `rank-two-ordinary-locus`: (2.5.15).
+- `rank-two-bt-components`: (2.5.16). This is which components a modular point meets, i.e. Kisin's matching conditions.
+
+**Weight two:** `savitt-weight-two-rings` (Savitt 6.22–6.24). R08.6/export-weight-two-irreducible now cites it instead of
+the stage.
+
+**Source issue E1 (error, corrected by the author):** Savitt's published Theorem 6.12(4). It is `known` via arXiv v3,
+Remark 1.7, and the author's corrigendum. `sourceVersions` records the arXiv v3 file.
+
+**New requests:** FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 (Raynaud) and R07.4 (Kisin modules ↔ finite flat
+and p-divisible groups, Breuil's full faithfulness, and strongly divisible modules with descent data).
+
+**Not covered:**
+- The 2-adic analogues are stage R08.5.
+- Potentially Barsotti–Tate lifts of a nontrivial type reach this layer through a global base change (GL2ModularityLifting
+  R22.5), so no local component theorem for types is claimed.
+
+**Lean:** three new proved checks (the 4 + [K : ℚ_p] count, e = 1 < p − 1, and the unit rescaling in X₁X₂ − pw), and new
+signatures. It compiles with 0 errors and 4 `sorry` warnings (unchanged).
 
 This works within RS-08, whose review accepted it.
 
@@ -121,10 +161,9 @@ The ring-level signatures, which use the GlobalGaloisDeformations functors, are 
 
 ## What a continuation should do
 
-0. **R08.4 now also owes** Savitt's weight-two computation (Duke 2005, Theorems 6.22 and 6.24), which is cited by
-   R08.6/export-weight-two-irreducible.
-1. **R08.4:** instantiate L7's `height-lattice-moduli` with h = 1 in rank two (Kisin's Moduli paper, Annals 2009, and
-   the 2-adic paper). The connectedness and component statements need the image, not just the source.
+0. **Done in checkpoint 5:** R08.4 and Savitt's weight-two computation.
+1. **R08.5:** Kisin's 2-adic paper §§1–2 (DVI serre2.dvi on his page: connected finite flat group schemes at p = 2,
+   flat connected deformation rings, rank two, ordinary deformations), and KW II's endpoint and dyadic calculations.
 2. **R08.3 nonemptiness and R08.6:** KW II §3.2 (the authors' final version is free on Khare's UCLA page; see the
    GlobalGaloisDeformations packet) constructs the lifts at places above p.
 3. **R08.5, the rest of L7, and L8.** For general n away from p, Shotton's explicit GL₂ equations and BLGGT (arXiv:1010.2561) §1.3 are the next free sources.
@@ -136,3 +175,5 @@ The ring-level signatures, which use the GlobalGaloisDeformations functors, are 
 - Tung, arXiv:1908.06174v3, §3.2.5.
 - Kisin, JAMS 21 (2008): Introduction, §1, §2.5–2.7, §3 and the Errata for [Ki 2].
 - Gee, §3.27–3.28.
+- Kisin, *Moduli of finite flat group schemes, and modularity* (author's DVI): §2.1–2.5.
+- Savitt, arXiv:math/0404327v3: §1 and §6.6.
