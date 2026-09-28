@@ -136163,6 +136163,48 @@
    "reviewReason": null
   },
   {
+   "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E13",
+   "kind": "misprint",
+   "locator": "§3.1, Definition 3.1, p. 12 (arXiv v3; the same in v1 and v2)",
+   "printed": "If G is a p-divisible group over OF , then descent data relative to F ′ is a collection of maps [g] : G → g G for each g ∈ Gal(F ′ /F ) satisfying [gh] = (g [h]) ◦ [g].",
+   "correction": "'for each g ∈ Gal(F/F′)'.",
+   "reason": "F′ ⊆ F with F/F′ Galois (§2.2 and Hypotheses 3.5), so Gal(F′/F) is not defined; the maps are indexed by Gal(F/F′), which is what the preceding paragraph constructs ('if g ∈ Gal(F/F′), let g̃ be any extension') and what Corollary 3.6 and Definition 3.7 use. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0404327 v1, v2 and v3 (same text)",
+    "The author's corrigendum, Appendix A of Gee–Savitt arXiv:0909.1278v2 (concerns only Theorem 6.12(4))",
+    "The published Duke text on the author's site (behind a browser challenge, not seen)"
+   ],
+   "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+   "citation": "David Savitt, On a conjecture of Conrad, Diamond, and Taylor, Duke Math. J. 128 (2005), 141–197; read in arXiv:math/0404327v3 (45 pages, printed page = PDF page), which folds in the author's corrigendum to Theorem 6.12(4) (also Appendix A of Gee–Savitt, arXiv:0909.1278) and keeps the published numbering; §§2–5 were compared with arXiv v1 and v2. The published text on the author's site is behind a browser challenge and was not seen; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E14",
+   "kind": "misprint",
+   "locator": "§3.5, the paragraph before Lemma 3.13 and the last line of its proof, p. 20 (arXiv v3; the same in v1 and v2)",
+   "printed": "If D is a filtered (ϕ, N, F/F ′ , Zp )-module, we say M is contained in S[1/p] ⊗F0 D … Thus D is actually a filtered (ϕ, N, F/F ′ , Zp )-module.",
+   "correction": "'(ϕ, N, F/F′, Qp)-module' in both places, as in the statement of Lemma 3.13.",
+   "reason": "Filtered (φ, N, F/F′, E)-modules are defined for E a finite extension of ℚ_p (Definition 2.7: free F₀ ⊗_{ℚ_p} E-modules); Lemma 3.13 itself states 'a filtered (ϕ, N, F/F′, Qp)-module', and D = ker N on M ⊗_{W(k)} F₀ is a ℚ_p-vector space. Checked on the page image.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:math/0404327 v1, v2 and v3 (same text)",
+    "The author's corrigendum, Appendix A of Gee–Savitt arXiv:0909.1278v2",
+    "The published Duke text (not seen)"
+   ],
+   "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+   "citation": "David Savitt, On a conjecture of Conrad, Diamond, and Taylor, Duke Math. J. 128 (2005), 141–197; read in arXiv:math/0404327v3 (45 pages, printed page = PDF page), which folds in the author's corrigendum to Theorem 6.12(4) (also Appendix A of Gee–Savitt, arXiv:0909.1278) and keeps the published numbering; §§2–5 were compared with arXiv v1 and v2. The published text on the author's site is behind a browser challenge and was not seen; accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GL2ModularityLifting/E1",
    "kind": "misprint",
    "locator": "Theorem (0.9)(2), p. 4, and Theorem (3.3.5)(2), p. 45, in the author's preprint (DVI of 21 October 2008); the published version (Invent. Math. 178 (2009)) was not accessible",
