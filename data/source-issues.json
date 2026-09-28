@@ -165625,6 +165625,7 @@
  ],
  "older": [],
  "unchecked": [
+  "ArithmeticKTheory",
   "BunGAndNewtonStrata",
   "CohomologyComparisons",
   "DiamondsAndVStacks",
@@ -165632,6 +165633,8 @@
   "ExcursionOperatorsAndSpectralAction",
   "ExcursionOperatorsAndSpectralAction",
   "ExcursionOperatorsAndSpectralAction",
+  "GeneralAlgebraicKTheory",
+  "GeneralAlgebraicKTheory",
   "GeometricSatakeAndFusion",
   "GeometricSatakeAndFusion",
   "GlobalShtukasAndFunctionFieldLanglands",
