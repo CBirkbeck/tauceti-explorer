@@ -1,65 +1,46 @@
-# BP-DirichletPadicLFunctions: complex logarithmic value at one
+# BP-DirichletPadicLFunctions: Even-character logarithmic value
 
-Codex / codex-7e92bd same-worker issue #713 continuation after PR #3290,
-mergedf5c4260e92ce037b4f23d4d3640bd7d71e5dca98 with head
-5128996eb844f624135e78668c1ec74df81b196a. Original claim5854790528,
-winning bot5854791937; no additional claim. Review #390 remains unclaimed.
+Codex / codex-7e92bd same-worker issue #713 continuation after PR #3292,
+merged 62319b2642d123c2409499d5ceefb94d8d61976d with head
+7a5e41bb16be0095ff6cadd8f8bc9468561460bb. Original claim 5854790528,
+winning bot 5854791937; no additional claim. Review #390 remains unclaimed.
 
 ## Delivered and remaining
 
-Eight L3 nodes decompose the classical formula
-L(η,1)=−G(η⁻¹,ε)⁻¹Σ_units c η⁻¹(c)log(1−ε^c).
-The scalar kernel α/(exp(t)−α) has an explicit exponential bound, is
-absolutely integrable, and integrates to−log(1−α). The branch stays in the
-right half-plane for t≥0. Finite Gauss integration removes the zero and other
-nonunit summands before applying integrability, then reindexes c↦−c.
-The existing normalized Mellin comparison at1 fixes the final minus sign.
-Primitive conductor, nonprincipal character, primitive root and nonzero Gauss
-sum are explicit. Root independence changes the Gauss normalization together
-with the root. No generic Gauss theorem is reassigned from ModularForms.
+Four L3 nodes refine the complex L-value at1 to a finite sum of real log norms for even characters. They verify the principal-log conjugation hypothesis, pair inverse roots, average the finite unit sum and apply the existing classical formula. Complex character coefficients remain unchanged; evenness does not imply real values. The finite-sum identity permits principal even characters, while the L-value statement retains primitive conductor, nonprincipality and a nonzero Gauss sum. Eight typed examples include the quadratic values modulo5 and8 and the full complex coefficient pattern modulo7.
 
-Totals:262 unchecked nodes (1 definition,27 constructions,122 lemmas,
-75 theorems,37 comparisons),262 API entries,287 packet tests (140 on
-definitions/constructions),290 typed examples,24 planets and322 baseline
-records. Fifteen findings, five gaps, one L1 request, zero closed stages.
+Totals: 266 unchecked nodes (1 definitions, 125 lemmas, 27 constructions, 76 theorems, 37 comparisons), 262 API entries,
+295 packet tests (140 on definitions/constructions),
+298 typed examples, 24 planets and 329 baseline records.
+Fifteen findings, five gaps, one L1 request, zero closed stages.
 
-Resume with the even-character real-log norm formula of Remark6.3.
-Read the root conventions before using its odd Bernoulli formula. The p-adic
-logarithmic value, analytic odd/dyadic branches through PMIA L0a and LAD L3,
-pure p-power conductor, pole/residue analysis and full source extraction
-remain open. The PMIA L1 actual completed-algebra comparison remains requested.
+Resume by reading the source root conventions before treating the odd Bernoulli formula of Remark6.3. The p-adic logarithmic/degree-zero value and actual odd/dyadic branches remain open through PMIA L0a and LAD L3, together with pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing and conductor/product comparisons stay with ModularForms. The PMIA L1 actual completed-algebra comparison remains requested.
 
 ## Reading and validation
 
-Complete published149–150/PDF50–51 were freshly read on28September2026 from
-the hash-verified version of record: Theorem6.1, the whole proof of part(i),
-Remark6.3 and the opening of§6.2. Native log derivatives, principal-log
-continuity, exponential integrability, complex norm, real-derivative transport,
-finite integral linearity and improper FTC were read with all applicable
-ambient hypotheses. The source proof uses boundary Fourier series; this
-checkpoint supplies an alternative integral proof. The already recorded
-ColemanIntegration/E20 owns the adjacent modulus typo. All local findings
-remain unchanged. No full-paper reading, new finding or independent review
-is asserted.
+The complete published149–150/PDF50–51 reading from the immediate predecessor is reused for Theorem6.1(i), its proof and Remark6.3. Native complex conjugation, log real part, argument/slit-plane conditions, character evenness and finite reindexing statements were read with their applicable ambient hypotheses at the pin. The indexed Equiv.prod_comp also generates its additive companion, used in the complete native finite-sum probe. Previous source/protocol/audit readings remain recorded. No fresh full-paper reading, new finding or independent review is asserted.
 
-All254 predecessor nodes,309 baseline records,15 findings and sourceVersions remain whole. Eight nodes, nine named suggested declarations and twelve typed examples are added. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has404 reachable nodes,1880 edges and421 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+All 262 predecessor nodes, 322 baseline records, 15 findings and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 8 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 408 reachable nodes, 1895 edges and 428 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
 
-The full suggested module elaborates with zero errors and664 expected placeholder warnings. Source and artifact audits cover3595 pinned Mathlib modules,20 pinned Tau Ceti modules and the verified actual265-node PMIA artifact. The current304-node PMIA source preserves that artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+The full suggested module elaborates with zero errors and 676 expected placeholder warnings. Source and artifact audits cover 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and the verified actual 265-node PMIA artifact. The current 320-node PMIA source preserves that artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
 
-Eight complete native lemmas prove the real-part gap, positive log-argument real part, slit-plane membership, real derivative, limit at infinity, exponential norm bound, integrability and improper scalar integral. The native probe elaborates against2515 pinned Mathlib modules with zero errors, warnings or placeholders. Its integral theorem has no integrability assumption: that hypothesis is discharged by the separately proved bound and domination argument. These complete scalar proofs do not implement the general Gauss/L-function comparisons, whose blueprint status remains unchecked.
+Four complete native lemmas prove the norm-one real-part gap, conjugation of the logarithm at inverse roots, their log-norm pairing, and finite weighted averaging under an explicit permutation. The last proof retains arbitrary complex weights and needs no freeness of the permutation. The probe elaborates against 1757 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
 
-Numerical controls at70 decimal digits check12 scalar integrals,84 branch/decay samples,188 finite-character multiplication identities,22 Gauss-normalized logarithmic values,6 independently grouped-kernel integrals,16 root comparisons and3 closed forms. The six primitive characters include odd quartic modulo5 and even nonreal cubic modulo7. The tolerance is10⁻⁶⁰; the largest observed discrepancy is6.53014305057e-71. These controls are neither interval-certified nor proofs of general statements.
+70-digit numerical controls check14 scalar conjugations and14 pairs,27 even weighted sums including6 nonreal cubic-character cases,14 primitive even L-values,8 root instances of the quadratic5/8 closed forms,8 odd-character negative controls and the fixed-point case D=2. The nonreal even weighted sums have nonzero imaginary part; the odd weighted log-norm sums vanish while their complex-log sums do not. 70-decimal numerical controls with tolerance1e-60, not interval-certified and not general proofs. The largest observed discrepancy is 1.68506211426e-70.
 
-The publication guard ata2b7622ecf52ce11891aa8347f5272db0c5bcffe checks54 inputs, four
+The PMIA supplier changed from304 to320 nodes. All16 new nodes,6 added baseline records, the full136-line Lean addition and changed source-scope/check metadata were read. All304 old nodes,309 baseline records,14 findings and sourceVersions remain whole; old Lean remains in order. These additions supply actual positive moments and regularity, but the requested completed-algebra comparison remains open. No current Dirichlet declaration calls them. The two guarded supplier blobs were refreshed after this check.
+
+The publication guard at e471c4d0ca98fa689e3bc49487c092c5b5fd5371 checks 54 inputs, four
 predecessor outputs, unchanged issue text, the original winning claim and
-unclaimed review #390. No captured input changed during this checkpoint.
-Suggested SHA256: `617dbcde6cf2d6f67ff24c519c605c8940d672f7ac8cf4da04657d8949a453ca`.
-Native probe SHA256: `1df894207c68c16f0cb56b2deab4315ef9c552cc589f86eee74ce25357658889`.
+unclaimed review #390.
+The PMIA supplier changed from304 to320 nodes. All16 new nodes,6 added baseline records, the full136-line Lean addition and changed source-scope/check metadata were read. All304 old nodes,309 baseline records,14 findings and sourceVersions remain whole; old Lean remains in order. These additions supply actual positive moments and regularity, but the requested completed-algebra comparison remains open. No current Dirichlet declaration calls them. The two guarded supplier blobs were refreshed after this check.
+Suggested SHA256: `c0fdb2ddbbe1a8b3ff4f05ce8d39cbb3d2b3fe58e2f7a53aadc63f2beab94f3f`.
+Native probe SHA256: `3750331f9d1ccee42ec29497357d6ebcc2ca5b011e69ba7e1c62344b9c60ee71`.
 
 One reusable worktree and one Lean process at a time were used. All compiler
 processes have ended. Exactly the four authorized deliverables change.
 
-Retain ComplexLogProbe.lean and its compiler/result/source audit, numerical
+Retain EvenLogProbe.lean and its compiler/result/source audit, numerical
 control code and results, the full suggested compiler/result/source audit,
 artifact hashes, graph/preservation/API receipts, captured inputs and guard,
 and exact submitted files with remote receipts. Retire scratch after opening

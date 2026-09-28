@@ -8982,3 +8982,119 @@ The full suggested module elaborates with zero errors and664 expected placeholde
 Eight complete native lemmas prove the real-part gap, positive log-argument real part, slit-plane membership, real derivative, limit at infinity, exponential norm bound, integrability and improper scalar integral. The native probe elaborates against2515 pinned Mathlib modules with zero errors, warnings or placeholders. Its integral theorem has no integrability assumption: that hypothesis is discharged by the separately proved bound and domination argument. These complete scalar proofs do not implement the general Gauss/L-function comparisons, whose blueprint status remains unchecked.
 
 Numerical controls at70 decimal digits check12 scalar integrals,84 branch/decay samples,188 finite-character multiplication identities,22 Gauss-normalized logarithmic values,6 independently grouped-kernel integrals,16 root comparisons and3 closed forms. The six primitive characters include odd quartic modulo5 and even nonreal cubic modulo7. The tolerance is10⁻⁶⁰; the largest observed discrepancy is6.53014305057e-71. These controls are neither interval-certified nor proofs of general statements.
+
+
+## Even-character real-log norm refinement
+
+Partial continuation preserving all262 predecessor nodes whole. Four L3 nodes give the even-character real-log norm refinement of the complex value at1, retaining complex character coefficients and explicit primitive-conductor/Gauss hypotheses. Five gaps, one L1 request and zero closed stages remain.
+
+### Conjugation of the cyclotomic logarithm
+
+`DirichletPadicLFunctions:L3/complex-log-inverse-conjugate` — `DirichletPadic.tameLog_inv_eq_conj`
+
+log(1−α⁻¹)=conj(log(1−α)).
+
+**Hypotheses:** α∈ℂ has norm1 and α≠1. All complex logarithms are the native principal branch; real logarithms are included into ℂ.
+
+**Proof:**
+
+1. The preceding complex-log-right-halfplane at t=0 gives Re(1−α)>0, hence 1−α lies in the native slit plane and its argument is not π.
+2. Use Complex.inv_eq_conj at norm1, then 1−α⁻¹=conj(1−α). Apply Complex.log_conj with the verified branch hypothesis.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/complex-log-right-halfplane`, `mathlib:Complex.inv_eq_conj`, `mathlib:Complex.slitPlane_arg_ne_pi`, `mathlib:Complex.log_conj`.
+
+**Tests:**
+
+- `SuggestedEvenLogTests.imaginary_conjugation` (computation): log(1+i)=conj(log(1−i)).
+- `SuggestedEvenLogTests.minus_one_conjugation` (computation): log2=conj(log2).
+
+**Acceptance:** The branch condition is supplied, not inferred from an unrestricted identity log(conj z)=conj(log z).
+
+**Source:** Remark6.3, published150/PDF51, together with Theorem6.1(i) and its proof on complete published149–150/PDF50–51, read during the immediate predecessor continuation on28September2026 and reused here. The even-character refinement is decomposed using the native principal-log conjugation formula, explicit slit-plane membership and finite negation of unit residues. Only logarithms are conjugated in the scalar step; character coefficients remain complex and are paired by evenness. The odd formula and p-adic value are not asserted in this checkpoint.
+
+### Pairing inverse roots in the logarithm
+
+`DirichletPadicLFunctions:L3/complex-log-inverse-pair` — `DirichletPadic.tameLog_add_inv`
+
+log(1−α)+log(1−α⁻¹)=2·Real.log‖1−α‖ in ℂ.
+
+**Hypotheses:** α∈ℂ has norm1 and α≠1. All complex logarithms are the native principal branch; real logarithms are included into ℂ.
+
+**Proof:**
+
+1. Replace the second logarithm by the conjugate of the first using the preceding node.
+2. Native Complex.add_conj identifies their sum with twice the real part; Complex.log_re identifies that real part with Real.log‖1−α‖.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/complex-log-inverse-conjugate`, `mathlib:Complex.add_conj`, `mathlib:Complex.log_re`.
+
+**Tests:**
+
+- `SuggestedEvenLogTests.imaginary_pair` (computation): log(1−i)+log(1+i)=log2.
+- `SuggestedEvenLogTests.minus_one_pair` (computation): The fixed rootα=−1 gives log2+log2=2log2.
+
+**Acceptance:** The proof allows fixed points of inversion such as−1; it does not divide a set into unordered pairs.
+
+**Source:** Remark6.3, published150/PDF51, together with Theorem6.1(i) and its proof on complete published149–150/PDF50–51, read during the immediate predecessor continuation on28September2026 and reused here. The even-character refinement is decomposed using the native principal-log conjugation formula, explicit slit-plane membership and finite negation of unit residues. Only logarithms are conjugated in the scalar step; character coefficients remain complex and are paired by evenness. The odd formula and p-adic value are not asserted in this checkpoint.
+
+### The even weighted logarithm sum
+
+`DirichletPadicLFunctions:L3/complex-log-even-weighted-sum` — `DirichletPadic.tameLog_sum_even`
+
+Σ_units c η⁻¹(c)log(1−ε^c)=Σ_units c η⁻¹(c)Real.log‖1−ε^c‖.
+
+**Hypotheses:** D>1, η:DirichletCharacter ℂ D is even in the native sense, and ε is a primitive D-th root. Primitivity and nonprincipality of η, and Gauss nonvanishing, are not required for this finite-sum statement.
+
+**Proof:**
+
+1. Negation is a permutation of (ZMod D)ˣ. Native evenness gives η(−1)=1 and hence η⁻¹(−c)=η⁻¹(c). Root periodicity gives ε^(−c)=(ε^c)⁻¹. Reindex the same weighted sum through this permutation using the additive form of native Equiv.prod_comp.
+2. Add the original and reindexed sums. Each rootε^c has norm1 and differs from1: primitive-root normalization and the existing denominator theorem at t=0 supply these facts for nonzero unit c. The inverse-pair node turns each pair of logarithms into twice its real log norm.
+3. Distribute the finite sum and cancel the nonzero scalar2 in ℂ. This averaging proof also works if negation has fixed points. Character coefficients are not conjugated; they need not be real.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/complex-log-inverse-pair`, `DirichletPadicLFunctions:L2/complex-gauss-denominator`, `mathlib:IsPrimitiveRoot.norm'_eq_one`, `mathlib:DirichletCharacter.Even`, `mathlib:DirichletCharacter.Even.eval_neg`, `mathlib:Equiv.prod_comp`.
+
+**Tests:**
+
+- `SuggestedEvenLogTests.quadratic_five_sum` (computation): For quadratic η modulo5 the weighted sum is2(log‖1−ε‖−log‖1−ε²‖).
+- `SuggestedEvenLogTests.nonreal_even_coefficients` (compatibility): For every even η modulo7 the weighted sum is2(log‖1−ε‖+η⁻¹(2)log‖1−ε²‖+η⁻¹(3)log‖1−ε³‖), with complex coefficients retained.
+
+**Acceptance:** The result holds for principal even characters at D>1 and nonreal even characters. It does not conclude that the weighted sum is real.
+
+**Source:** Remark6.3, published150/PDF51, together with Theorem6.1(i) and its proof on complete published149–150/PDF50–51, read during the immediate predecessor continuation on28September2026 and reused here. The even-character refinement is decomposed using the native principal-log conjugation formula, explicit slit-plane membership and finite negation of unit residues. Only logarithms are conjugated in the scalar step; character coefficients remain complex and are paired by evenness. The odd formula and p-adic value are not asserted in this checkpoint.
+
+### The even-character logarithmic L-value
+
+`DirichletPadicLFunctions:L3/complex-lvalue-one-even-log` — `DirichletPadic.LFunction_one_eq_real_log_sum`
+
+η.LFunction1=−G(η⁻¹,ε)⁻¹Σ_units c η⁻¹(c)Real.log‖1−ε^c‖.
+
+**Hypotheses:** D>1, η:DirichletCharacter ℂ D is primitive, nonprincipal and even, ε is a primitive D-th root, and the corresponding native inverse-character Gauss sumG is nonzero. D is the actual primitive conductor; the real log norm is included in ℂ.
+
+**Proof:**
+
+1. Apply the preceding complex L-value theorem at1 with the same character, root and Gauss normalization.
+2. Replace its weighted complex-log sum by the preceding even weighted-sum identity. No new integral, analytic continuation or complex-to-p-adic map is needed.
+
+**Prerequisites:** `DirichletPadicLFunctions:L3/complex-lvalue-one-log`, `DirichletPadicLFunctions:L3/complex-log-even-weighted-sum`.
+
+**Tests:**
+
+- `SuggestedEvenLogTests.quadratic_five_value` (computation): For quadratic η modulo5, L(η,1)=2log((1+√5)/2)/√5.
+- `SuggestedEvenLogTests.quadratic_eight_value` (computation): For the even primitive quadratic character modulo8 with η(3)=−1 and η(7)=1, L(η,1)=log(1+√2)/√2.
+
+**Acceptance:** The value may still be complex when η is nonreal. Generic Gauss nonvanishing remains an explicit input owned by ModularForms; no p-adic degree-zero value is implied.
+
+**Source:** Remark6.3, published150/PDF51, together with Theorem6.1(i) and its proof on complete published149–150/PDF50–51, read during the immediate predecessor continuation on28September2026 and reused here. The even-character refinement is decomposed using the native principal-log conjugation formula, explicit slit-plane membership and finite negation of unit residues. Only logarithms are conjugated in the scalar step; character coefficients remain complex and are paired by evenness. The odd formula and p-adic value are not asserted in this checkpoint.
+
+**Remaining:** Both the complex logarithmic formula of Theorem6.1(i) and its even-character real-log norm refinement in Remark6.3 are now decomposed. Verify the odd formula with the source root conventions; construct p-adic logarithmic/degree-zero values, actual odd/dyadic analytic branches through their owners, pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing and conductor/product comparisons remain with ModularForms, and the PMIA L1 actual completed-algebra comparison remains requested.
+
+### Even-character logarithmic value validation
+
+All 262 predecessor nodes, 322 baseline records, 15 findings and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 8 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 408 reachable nodes, 1895 edges and 428 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 676 expected placeholder warnings. Source and artifact audits cover 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and the verified actual 265-node PMIA artifact. The current 320-node PMIA source preserves that artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Four complete native lemmas prove the norm-one real-part gap, conjugation of the logarithm at inverse roots, their log-norm pairing, and finite weighted averaging under an explicit permutation. The last proof retains arbitrary complex weights and needs no freeness of the permutation. The probe elaborates against 1757 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+70-digit numerical controls check14 scalar conjugations and14 pairs,27 even weighted sums including6 nonreal cubic-character cases,14 primitive even L-values,8 root instances of the quadratic5/8 closed forms,8 odd-character negative controls and the fixed-point case D=2. The nonreal even weighted sums have nonzero imaginary part; the odd weighted log-norm sums vanish while their complex-log sums do not. 70-decimal numerical controls with tolerance1e-60, not interval-certified and not general proofs. The largest observed discrepancy is 1.68506211426e-70.
+
+The PMIA supplier changed from304 to320 nodes. All16 new nodes,6 added baseline records, the full136-line Lean addition and changed source-scope/check metadata were read. All304 old nodes,309 baseline records,14 findings and sourceVersions remain whole; old Lean remains in order. These additions supply actual positive moments and regularity, but the requested completed-algebra comparison remains open. No current Dirichlet declaration calls them. The two guarded supplier blobs were refreshed after this check.
