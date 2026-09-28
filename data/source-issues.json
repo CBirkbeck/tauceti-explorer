@@ -144038,6 +144038,44 @@
    "reviewReason": null
   },
   {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E3",
+   "kind": "misprint",
+   "locator": "§3.3, proof of Lemma 3.11, p. 42 (Numdam PDF page 39)",
+   "printed": "T_y = (β_i − α_i)(β_i trace ρ^mod(σ_y) − trace ρ^mod(g_iσ_y)) ∈ T^S … T_0(𝔭_i) = (β_i − α_i)(β_i trace ρ^mod(τ_i) − trace ρ^mod(g_iτ_i)) ∈ T^S",
+   "correction": "T_y = (β_i − α_i)^{−1}(β_i trace ρ^mod(σ_y) − trace ρ^mod(g_iσ_y)), and likewise for T_0(𝔭_i).",
+   "reason": "At a minimal prime ρ_Q|_{D_i} ≅ (ψ_1 *; 0 ψ_2) with ψ_2 ≡ 1 and ψ_1 ≡ χ modulo m, so α_i = ψ_2(g_i) and β_i = ψ_1(g_i); then β_i trace ρ(σ) − trace ρ(g_iσ) = (β_i − α_i)ψ_2(σ), and ψ_2(σ_y) = T_y by (3.4)(vi). The printed expression is (β_i − α_i)²T_y. Since β_i − α_i ≡ χ(g_i) − 1 is a unit of T^S, membership in T^S, which is all the lemma needs, is unaffected; §2.5 has the correct form (division by β_i − α_i).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page http://www.numdam.org/item/PMIHES_1999__89__5_0/ and the Crossref record of doi:10.1007/BF02698855 with a filter=updates query, checked 2026-09-28: no erratum."
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E4",
+   "kind": "misprint",
+   "locator": "§3.3, proof of Lemma 3.17, (3.7), p. 45 (Numdam PDF page 42)",
+   "printed": "τ_P(T_0(𝔭_i)) = (T_0(𝔭_i) mod P) · Ψ_P(λ^{(𝔭_i)}_{𝔭_i})^{−1} for i = 1, …, t; τ_P(T_y) = (T_y mod P) · Ψ_P(y)",
+   "correction": "τ_P(T_0(𝔭_i)) = (T_0(𝔭_i) mod P) · Ψ_P(λ^{(𝔭_i)}_{𝔭_i}).",
+   "reason": "τ_P is the eigensystem of π ⊗ (Ψ_P ∘ det). T_0(𝔭_i) = (λ^{(𝔭_i)}_{𝔭_i})^{−v}[U(1 0; 0 λ^{(𝔭_i)}_{𝔭_i})U] (p. 30) and T_y = [U(1 0; 0 y)U] are both multiplied by Ψ_P of the determinant, Ψ_P(λ) and Ψ_P(y); on the Galois side ψ_2 ↦ ψ_2Ψ and (3.4)(vi) gives the same. The printed inverse is inconsistent with the line for T_y. The proof only needs some τ_P attached to π ⊗ Ψ_P, so nothing downstream changes.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page and Crossref record as for E3, checked 2026-09-28."
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OverconvergentAutomorphicForms/E1",
    "kind": "misprint",
    "locator": "§6.1, Definition 6.1, printed p. 1756 (PDF p. 49); same in arXiv v4",
