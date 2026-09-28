@@ -261,6 +261,17 @@
     "data/blueprints/ArithmeticKTheory--N.1.md"
    ]
   },
+  "research/blueprint/packets/DeformationAndDerivedPatchingAlgebra--R03.6.json": {
+   "promotedAt": "2026-09-28T13:45:03Z",
+   "review": "918a718d825d5efb",
+   "reviewDate": "2026-09-28",
+   "reviewer": "independent-review-REV-DeformationAndDerivedPatchingAlgebra--R03.6",
+   "sha256": "7d5095850eca12bc0d5930af24e45a800c675c46a491d99a38bf1eed5f5930be",
+   "to": [
+    "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.json",
+    "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md"
+   ]
+  },
   "research/blueprint/packets/EllipticKTheory.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "1f540a8f0f3fa1f9",
