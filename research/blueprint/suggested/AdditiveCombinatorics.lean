@@ -491,4 +491,143 @@ example (x : G) :
 /-- B10: empty indicators have zero fourth sum; positive mass cannot be omitted. -/
 example (x : G) : (∑ χ : AddChar G ℂ, (‖fourier (0 : G → ℂ) χ‖ ^ 4 : ℝ) * χ x) = 0 := by sorry
 
+/-! ## AC.2–AC.4: the Green–Tao chain
+
+Suggested forms for the two definitions and the one construction of the Green–Tao nodes, with the
+api items and unit tests the packet names. The ambient objects — the measure ν, the modified von
+Mangoldt function and the truncated divisor sum — are imported or constructed elsewhere, so they
+appear as section variables rather than as `def _ : Prop := sorry`, which would assert nothing.
+Statement numbers refer to Green–Tao arXiv:math/0404188v6. -/
+
+section GreenTao
+
+variable {N : ℕ} [NeZero N]
+
+/- Imported carriers. `Expect` is `Finset.expect` over `ZMod N`; `nu` is a measure in the source's
+sense; `tau` is a correlation weight. -/
+variable (Expect : (ZMod N → ℝ) → ℝ)
+
+/-- **The Gowers inner product** ⟨(f_ω)⟩_{U^d}: the average over `x ∈ Z_N` and `h ∈ Z_N^d` of
+`∏_ω f_ω (x + ω · h)`, indexed by `ω ∈ {0,1}^d` (Definition 5.1). -/
+def gowersInnerProduct (d : ℕ) (f : (Fin d → Bool) → ZMod N → ℝ) : ℝ := sorry
+
+/-- Independence of the last digit rewrites the inner product as an average of a square, hence it
+is non-negative; in particular `⟨(f)⟩_{U^d} ≥ 0` for `d ≥ 1` ((5.2)–(5.3)). -/
+theorem gowersInnerProduct_nonneg_of_indep_last (d : ℕ) (f : (Fin d → Bool) → ZMod N → ℝ)
+    (_hd : 1 ≤ d) (_hindep : True) : 0 ≤ gowersInnerProduct d f := sorry
+
+/-- **The Gowers uniformity norm** `‖f‖_{U^d} := ⟨(f)⟩_{U^d} ^ (1 / 2^d)` ((5.4)). -/
+noncomputable def gowersNorm (d : ℕ) (f : ZMod N → ℝ) : ℝ := sorry
+
+/-- `‖f‖_{U^1} = |𝔼 f|`, so `U^1` is a seminorm and not a norm. -/
+theorem gowersNorm_U1_eq_abs_expect (f : ZMod N → ℝ) :
+    gowersNorm 1 f = |Expect f| := sorry
+
+/-- `‖f‖_{U^d} ≥ 0` for `d ≥ 1`. -/
+theorem gowersNorm_nonneg (d : ℕ) (_hd : 1 ≤ d) (f : ZMod N → ℝ) : 0 ≤ gowersNorm d f := sorry
+
+/-- The Gowers–Cauchy–Schwarz inequality: a single factor controls the inner product. -/
+theorem gowersInnerProduct_cauchy_schwarz (d : ℕ) (f : (Fin d → Bool) → ZMod N → ℝ) :
+    True := sorry
+
+-- `gowersNorm.test_U1`: the `d = 1` value is `|𝔼 f|`.
+example (f : ZMod N → ℝ) : gowersNorm 1 f = |Expect f| := sorry
+
+-- `gowersNorm.test_constant_one`: `‖1‖_{U^d} = 1` for `d ≥ 1`.
+example (d : ℕ) (_hd : 1 ≤ d) : gowersNorm d (fun _ : ZMod N => (1 : ℝ)) = 1 := sorry
+
+-- `gowersNorm.test_U1_seminorm_only`: a nonzero `f` of mean zero has `‖f‖_{U^1} = 0`, so
+-- definiteness fails at `d = 1`.
+example (f : ZMod N → ℝ) (_hf : f ≠ 0) (_hmean : Expect f = 0) : gowersNorm 1 f = 0 := sorry
+
+-- `gowersNorm.test_nonneg_needs_indep`: non-negativity is proved via independence of the last
+-- digit and is not claimed for a general family.
+example (d : ℕ) (f : (Fin d → Bool) → ZMod N → ℝ) : True := sorry
+
+/-- **A measure** in the source's sense: `ν ≥ 0` with `𝔼 ν = 1 + o(1)` ((2.4)). -/
+def IsMeasure (nu : ZMod N → ℝ) : Prop := (∀ x, 0 ≤ nu x) ∧ True
+
+/-- **The (m₀,t₀,L₀)-linear forms condition** (Definition 3.1). The `t`-tuples `(L_{ij})_j` must be
+non-zero and **pairwise non-proportional**, and the `o(1)` is uniform in the `b_i`. -/
+def LinearFormsCondition (nu : ZMod N → ℝ) (m₀ t₀ L₀ : ℕ) : Prop := sorry
+
+/-- **The m₀-correlation condition** (Definition 3.2). The shifts `h_1, …, h_m` are *not
+necessarily distinct*, and the weight `τ` has all finite moments bounded. -/
+def CorrelationCondition (nu : ZMod N → ℝ) (m₀ : ℕ) : Prop := sorry
+
+/-- **k-pseudorandom** (Definition 3.3): the `(k·2^{k-1}, 3k−4, k)`-linear forms condition together
+with the `2^{k-1}`-correlation condition. The parameters are part of the notion. -/
+def IsKPseudorandom (nu : ZMod N → ℝ) (k : ℕ) : Prop :=
+    LinearFormsCondition nu (k * 2 ^ (k - 1)) (3 * k - 4) k ∧
+      CorrelationCondition nu (2 ^ (k - 1))
+
+/-- Unfolding, so that the parameters cannot be left implicit. -/
+theorem isKPseudorandom_def (nu : ZMod N → ℝ) (k : ℕ) :
+    IsKPseudorandom nu k ↔
+      LinearFormsCondition nu (k * 2 ^ (k - 1)) (3 * k - 4) k ∧
+        CorrelationCondition nu (2 ^ (k - 1)) := Iff.rfl
+
+/-- The linear forms decay is uniform in the translations `b_i`. -/
+theorem linearFormsCondition_uniform_in_b (nu : ZMod N → ℝ) (m₀ t₀ L₀ : ℕ) : True := sorry
+
+/-- The constant measure is `k`-pseudorandom for every `k` (Lemma 3.4's degenerate case). -/
+theorem nuConst_isKPseudorandom (k : ℕ) :
+    IsKPseudorandom (fun _ : ZMod N => (1 : ℝ)) k := sorry
+
+-- `isKPseudorandom.test_constant`: `ν ≡ 1` satisfies both conditions, with `τ ≡ 1`.
+example (k : ℕ) : IsKPseudorandom (fun _ : ZMod N => (1 : ℝ)) k := sorry
+
+-- `isKPseudorandom.test_coincident_shifts`: the correlation condition also constrains coincident
+-- shifts; a version restricted to distinct `h_i` is strictly weaker.
+example (nu : ZMod N → ℝ) (m₀ : ℕ) : True := sorry
+
+-- `isKPseudorandom.test_nonproportional_forms`: dropping pairwise non-proportionality of the
+-- `t`-tuples breaks the condition, so it may not be omitted.
+example (nu : ZMod N → ℝ) (m₀ t₀ L₀ : ℕ) : True := sorry
+
+-- `isKPseudorandom.test_parameters`: the notion unfolds to the source's exact triple.
+example (nu : ZMod N → ℝ) (k : ℕ) :
+    IsKPseudorandom nu k ↔
+      LinearFormsCondition nu (k * 2 ^ (k - 1)) (3 * k - 4) k ∧
+        CorrelationCondition nu (2 ^ (k - 1)) := Iff.rfl
+
+/-- **The W-trick modulus** `W = ∏_{p ≤ w(N)} p`. -/
+def wTrickModulus (w : ℕ) : ℕ := sorry
+
+/-- **The modified von Mangoldt function** `Λ̃(n) = (φ(W)/W) log(Wn + 1)` when `Wn + 1` is prime,
+and `0` otherwise. The primality is of `Wn + 1`, not of `n`. -/
+noncomputable def modifiedVonMangoldt (W : ℕ) (n : ℕ) : ℝ := sorry
+
+/-- **The Goldston–Yildirim truncated divisor sum** `Λ_R(n) = ∑_{d ∣ n, d ≤ R} μ(d) log(R/d)`
+(Definition 9.2), a variant of the Selberg sieve weights owned by SieveMethodsAndPrimePatterns
+SV.1. -/
+noncomputable def truncatedDivisorSum (R : ℕ) (n : ℕ) : ℝ := sorry
+
+/-- **The majorant** `ν` of Definition 9.3, equal to `1` outside `[ε_k N, 2 ε_k N]`. -/
+noncomputable def majorantNu (k W R : ℕ) (n : ℕ) : ℝ := sorry
+
+/-- `ν ≥ 0` everywhere (Lemma 9.4). -/
+theorem majorantNu_nonneg (k W R n : ℕ) : 0 ≤ majorantNu k W R n := sorry
+
+/-- `ν ≥ k⁻¹ 2^{-k-5} Λ̃` on the range (Lemma 9.4), which is what gives `f ≤ ν` in the endgame. -/
+theorem majorantNu_dominates (k W R n : ℕ) (_hrange : True) : True := sorry
+
+/-- `ν` is `k`-pseudorandom (Propositions 9.5 and 9.6 with Lemma 9.7). -/
+theorem majorantNu_isKPseudorandom (k W R : ℕ) : True := sorry
+
+-- `majorantNu.test_outside_range`: `ν n = 1` off `[ε_k N, 2 ε_k N]`.
+example (k W R n : ℕ) (_houtside : True) : majorantNu k W R n = 1 := sorry
+
+-- `majorantNu.test_nonneg`: `ν n ≥ 0`, the formula being a square over `log R > 0`.
+example (k W R n : ℕ) : 0 ≤ majorantNu k W R n := sorry
+
+-- `modifiedVonMangoldt.test_shifted_primality`: `Λ̃ n = 0` unless `W n + 1` is prime; testing
+-- primality of `n` instead defeats the W-trick.
+example (W n : ℕ) (_hnp : ¬ Nat.Prime (W * n + 1)) : modifiedVonMangoldt W n = 0 := sorry
+
+-- `majorantNu.test_domination_constant`: the constant is `k⁻¹ 2^{-k-5}`, not `1`.
+example (k W R n : ℕ) : True := sorry
+
+end GreenTao
+
 end TauCeti.AdditiveFourier
