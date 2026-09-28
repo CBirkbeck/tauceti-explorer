@@ -11,7 +11,7 @@
     "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6"
   ],
   "status": "partial",
-  "summary": "Sixth checkpoint. R07.1 is closed; R07.2 (Dieudonné theory over perfect fields), R07.3 (Fontaine–Laffaille theory at e = 1) and R07.4 (Breuil–Kisin modules) are partial from checkpoints 3–5. This checkpoint plans R07.5, local residual types (partial): tame inertia and its fundamental characters; Serre's computation of the inertia action on the p-torsion of a formal group of height h and on E[p] for good ordinary, good supersingular and multiplicative reduction (Serre 1972, Propositions 9–13); peu and très ramifiée representations; finite flat extensions of ℤ/p by μ_p and their Kummer classes; Serre's criterion that a representation with det = χ̄ on inertia is finite exactly in the level-2 fundamental or peu ramifiée cases (Serre 1987, Propositions 3–4); and the dyadic dichotomy for (1 u; 0 1). It starts R07.6 (partial) with the finite flatness of abelian-scheme torsion, requested by EllipticCurveModularity. General e > 1, the general p = 2 criterion, Fontaine's ramification bound and the deformation calculations remain. One new source issue (E12, a misnumbered reference in Serre 1987).",
+  "summary": "Seventh checkpoint. R07.1 is closed; R07.2, R07.3, R07.4, R07.5 and R07.6 are partial. This checkpoint extends R07.4 with Savitt's theory of descent data in weight two: filtered (φ, N, F/F′, E)-modules and Galois types, the equivalence with representations semistable over F, the weakly admissible modules of tame type, p-divisible groups with descent data, strongly divisible modules with tame descent data and the classification of potentially Barsotti–Tate lattices, strongly divisible R-modules and T_st with coefficients, Breuil modules (maximal and minimal), and the modules of characters — requested by LocalGaloisDeformationRings for Savitt's weight-two deformation rings. Breuil 2000 is now read for the results Kisin and Savitt cite. Two new source issues (E13–E14, misprints in Savitt 2005).",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -502,6 +502,36 @@
         "§2.1–2.4 (pp. 182–187): tame inertia, Proposition 1, the weight in levels 1 and 2, peu and très ramifiée (2.4.6)–(2.4.9) with the remarks.",
         "§2.5–2.8 (pp. 187–190): Proposition 2, the values of k and the p = 2 example (2.6), Propositions 3 and 4 with the proof of Proposition 4.",
         "§4.5 (pp. 205–207): Lemmas 3–4 and the remarks on group schemes of type (p, p) over ℤ, read for context."
+      ]
+    },
+    {
+      "id": "Savitt05",
+      "title": "On a conjecture of Conrad, Diamond, and Taylor",
+      "authors": "David Savitt",
+      "edition": "Duke Math. J. 128 (2005), 141–197; read in arXiv:math/0404327v3 (45 pages, printed page = PDF page), which folds in the author's corrigendum to Theorem 6.12(4) (also Appendix A of Gee–Savitt, arXiv:0909.1278) and keeps the published numbering; §§2–5 were compared with arXiv v1 and v2. The published text on the author's site is behind a browser challenge and was not seen; accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/math/0404327v3",
+      "sha256": "e161ac6498c1a75fc8f981c25edd5e9390b19ceb40f174a25a1f6491390c115c",
+      "readSections": [
+        "§1 (pp. 1–4): Conjecture 1.1, Theorems 1.2–1.6, Remark 1.7 (the corrigendum).",
+        "§2 (pp. 4–10): (F, E, G)-modules, Definitions 2.6–2.8, 2.15, Proposition 2.9, Corollaries 2.10, 2.12, Examples 2.13–2.16, Propositions 2.17–2.21.",
+        "§3 (pp. 11–21): Definition 3.1, Proposition 3.2, Breuil's categories (§3.2), Propositions 3.3, 3.11, Corollaries 3.4, 3.6, Definitions 3.7–3.8, Theorems 3.10, 3.14, Lemma 3.13.",
+        "§4 (pp. 21–25): Definitions 4.1, 4.4, 4.11, Lemmas 4.6, 4.9, 4.10, 4.14, Corollaries 4.7, 4.12, Proposition 4.13, Breuil modules.",
+        "§5 (pp. 26–27): Propositions 5.1–5.4, Remarks 5.5–5.6.",
+        "Appendix A of Gee–Savitt, arXiv:0909.1278v2 (the corrigendum), read to confirm it concerns only Theorem 6.12(4)."
+      ]
+    },
+    {
+      "id": "Breuil00",
+      "title": "Groupes p-divisibles, groupes finis et modules filtrés",
+      "authors": "Christophe Breuil",
+      "edition": "Ann. of Math. (2000), 489–549; the author's copy from his publications page (with its own pagination); read for the statements cited by Kisin and Savitt; accessed 2026-09-28",
+      "url": "https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/p-divisibles.pdf",
+      "sha256": "563deafc1a3f01ba076bd9a4ee2ffaae21a50957e3a93da0610cc6686f23628d",
+      "readSections": [
+        "Sommaire and §1 (pp. 1–5).",
+        "§2.1 (pp. 5–11): Proposition 2.1.2.2.",
+        "§4.2 (pp. 43–48): Théorèmes 4.2.1.6, 4.2.2.5, 4.2.2.9, Corollaire 4.2.2.7, Lemme 4.2.2.8, Remarque 4.2.2.6.",
+        "§5 (pp. 48–52): Proposition 5.1.3, Théorème 5.3.2."
       ]
     }
   ],
@@ -5674,6 +5704,718 @@
       ]
     },
     {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/filtered-modules-with-descent-data",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Filtered (φ, N, F/F′, E)-modules and Weil–Deligne types",
+      "kind": "definition",
+      "statement": "A filtered (φ, N, F/F′, E)-module of rank n is a free F₀ ⊗_{ℚ_p} E-module D of rank n with an F₀-semilinear, E-linear automorphism φ, a nilpotent F₀ ⊗ E-linear N with Nφ = pφN, a decreasing exhaustive separated filtration on D_F = F ⊗_{F₀} D, and an F₀-semilinear, E-linear action of Gal(F/F′) commuting with φ and N and preserving the filtration. It is weakly admissible if the underlying filtered (φ, N)-module over F (forgetting the Gal(F/F′)-action) is weakly admissible. The Weil group W_{F′} acts on D in two commuting ways, through Gal(F/F′) and by φ^{α(g)} (α(Frob) = 1), which defines a Weil–Deligne representation WD(D); for V an E-representation of G_{ℚ_p} semistable over F, WD(V) = WD(D^F_st(V)) and the Galois type τ(V) = WD(V)|_{I_p}, independent of F. Structure: when F ⊆ E, every (F, E, G)-module (an F ⊗_K E-module with semilinear G = Gal(F/K)-action) is free and isomorphic to ∐_{σ: F ↪ E} V for an E-vector space V.",
+      "hypotheses": [
+        "p is odd; E and F are finite extensions of ℚ_p inside ℚ̄_p, F′ ⊆ F with F/F′ Galois, F₀ the maximal unramified subfield of F, and the uniformiser p of ℚ_p fixes the embedding B_st ⊂ B_dR (Savitt, §2.2)."
+      ],
+      "proofSteps": [
+        "(F, E, G)-modules are free by Galois descent: M = F ⊗_K M^G and M^G is an E-vector space (Savitt, Lemma 2.1).",
+        "For F ⊆ E, θ : F ⊗_K E ≅ ∐_σ E, f ⊗ e ↦ (σ(f)e)_σ, is an isomorphism of (F, E, G)-modules, and M ≅ ∐_σ M_σ with the M_σ identified by the G-action (Lemma 2.2, Proposition 2.4).",
+        "WD_σ(h)(m_σ) = h^{−1}·₂ h·₁ m_σ defines a representation of the Weil group on each M_σ, all isomorphic (Definition 2.6).",
+        "Weak admissibility is that of Breuil–Mézard for the underlying module (Definition 2.8); the properties of WD(V) (independence of F, ⊗, WD(ε_F) unramified) are from Conrad–Diamond–Taylor, App. B.2, as recalled by Savitt."
+      ],
+      "acceptance": [
+        "For F = F′ the descent data is trivial and the category is that of filtered (φ, N)-modules over F with E-coefficients.",
+        "D^F_st(V) = (B_st ⊗ V)^{G_F} is an object whenever V is semistable over F (Savitt, after Definition 2.7)."
+      ],
+      "prerequisites": [
+        "PadicHodgeTheory:R06.2/filtered-phi-n-modules",
+        "PadicHodgeTheory:R06.2/weak-admissibility"
+      ],
+      "sources": [
+        {
+          "sourceId": "Savitt05",
+          "locator": "§2.2, Definition 2.7, p. 6",
+          "match": "The definition."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§2.2, Definition 2.8, p. 6",
+          "match": "Weak admissibility."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§2.2, Definition 2.15, p. 8",
+          "match": "The Galois type."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/DescentData",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/potentially-semistable-descent-equivalence",
+          "how": "The target of D^F_st."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/tame-type-weight-two-filtered-modules",
+          "how": "The explicit modules of tame type."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
+          "how": "Filtered modules with descent data and the Galois type τ (Savitt §2, requested from R07.4)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.BreuilKisin.FilteredPhiNModuleDD",
+          "role": "structure",
+          "statement": "A filtered (φ, N, F/F′, E)-module."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.FilteredPhiNModuleDD.galoisAction",
+          "role": "structure",
+          "statement": "The semilinear Gal(F/F′)-action commuting with φ and N and preserving the filtration."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.FilteredPhiNModuleDD.IsWeaklyAdmissible",
+          "role": "characterisation",
+          "statement": "Weak admissibility of the underlying filtered (φ, N)-module."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.FilteredPhiNModuleDD.weilDeligne",
+          "role": "constructor",
+          "statement": "WD(D) from the two commuting W_{F′}-actions."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.galoisType",
+          "role": "projection",
+          "statement": "τ(V) = WD(V)|_{I_p}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.BreuilKisin.dst_cyclotomic_teichmuller",
+          "kind": "value",
+          "statement": "For F₁ = ℚ_p(ζ_p): D^{F₁}_{st,k}(ε^i ω̃^j λ_a) = E·e with N = 0, φ(e) = p^{k−i−1}a^{−1}e and g·e = ω̃^j(g)e (Savitt, Example 2.13)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.trivial_descent",
+          "kind": "degenerate",
+          "statement": "F′ = F: the Gal(F/F′)-action is trivial and the object is a filtered (φ, N)-module with coefficients."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.not_commuting_action",
+          "kind": "non-example",
+          "statement": "A Gal(F/F′)-action that does not commute with φ does not define an object, even if D_F with its filtration is weakly admissible."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.galoisType_principal_series",
+          "kind": "value",
+          "statement": "τ(V) for V = ω̃^i ⊕ ω̃^j (unramified twists) is ω̃^i ⊕ ω̃^j on I_p (Example 2.16)."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/potentially-semistable-descent-equivalence",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Potentially semistable representations and filtered modules with descent data",
+      "kind": "theorem",
+      "statement": "D^F_st(V) = (B_st ⊗ V)^{G_F} and V^{F′}_st(D) = (B_st ⊗_{F₀} D)^{φ=1, N=0} ∩ Fil⁰(B_dR ⊗_F D_F) are quasi-inverse equivalences between E-representations of G_{F′} that become semistable over F and weakly admissible filtered (φ, N, F/F′, E)-modules. With D^F_{st,k}(V) = D^F_st(V(1 − k)) and V^{F′}_{st,k}(D) = (B_st ⊗ D)^{φ=p^{k−1}, N=0} ∩ Fil^{k−1}(B_dR ⊗ D_F) ≅ V^{F′}_st(D)(k − 1), V^{F′}_{st,k} is an equivalence from weakly admissible D with Fil⁰D_F = D_F and Fil^k D_F = 0 to representations semistable over F with Hodge–Tate weights in {0, …, k − 1}.",
+      "hypotheses": [
+        "p is odd; E and F are finite extensions of ℚ_p inside ℚ̄_p, F′ ⊆ F with F/F′ Galois, F₀ the maximal unramified subfield of F, and the uniformiser p of ℚ_p fixes the embedding B_st ⊂ B_dR (Savitt, §2.2).",
+        "Colmez–Fontaine (weakly admissible implies admissible) is used through [CF00], as Savitt cites it; PadicHodgeTheory R06.2 owns it."
+      ],
+      "proofSteps": [
+        "G_{F′} acts on B_st and, through Gal(F/F′), on D, and B_st ⊂ B_dR is Galois-equivariant, so D^F_st(V) carries the descent data and V^{F′}_st(D) is a G_{F′}-representation, semistable over F of dimension rk D by [CF00] (Savitt, §2.2).",
+        "The natural map B_st ⊗ V^{F′}_st(D) → B_st ⊗ D is G_{F′}-equivariant; its G_F-invariants give D^F_st(V^{F′}_st(D)) ≅ D, an isomorphism of (φ, N, F, E)-modules that respects Gal(F/F′) (Proposition 2.9); similarly V ≅ V^{F′}_st(D^F_st(V)).",
+        "V^{F′}_{st,k}(D) ≅ V^{F′}_st(D)(k − 1) as in Breuil–Mézard, Lemme 3.1.1.2 (Lemma 2.11), which gives the weight-range statement (Corollary 2.12)."
+      ],
+      "acceptance": [
+        "k = 2: potentially Barsotti–Tate representations (Hodge–Tate weights {0, 1}, semistable over F) correspond to weakly admissible D with Fil⁰ = D_F and Fil² = 0.",
+        "F = F′ recovers the Colmez–Fontaine equivalence for semistable representations with coefficients."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/filtered-modules-with-descent-data",
+        "PadicHodgeTheory:R06.2/admissible-representations",
+        "PadicHodgeTheory:R06.2/colmez-fontaine-theorem",
+        "PadicHodgeTheory:R06.1/semistable-period-ring"
+      ],
+      "sources": [
+        {
+          "sourceId": "Savitt05",
+          "locator": "§2.2, Proposition 2.9, p. 6",
+          "match": "The equivalence (OCR drops the super- and subscripts F, F′)."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§2.2, Corollary 2.12, p. 7",
+          "match": "The weight range."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/DescentData",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/tame-type-weight-two-filtered-modules",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Weakly admissible modules of Hodge–Tate weights (0, 1) and tame type",
+      "kind": "theorem",
+      "statement": "Let V be a 2-dimensional potentially semistable E-representation of G_{ℚ_p} with Hodge–Tate weights (0, 1) and tame type τ(V). Then τ(V) = ω̃^i ⊕ ω̃^j (principal series) or ω̃₂^m ⊕ ω̃₂^{pm} with p + 1 ∤ m (supercuspidal). (1) If τ(V) = ω̃^i ⊕ ω̃^j with i ≢ j mod p − 1 and V is indecomposable, V is crystalline over F₁ = ℚ_p((−p)^{1/(p−1)}) and D^{F₁}_{st,2}(V) = D_{x₁,x₂}: E e₁ ⊕ E e₂ with φ(e_i) = x_i e_i, N = 0, Fil¹ = (F₁ ⊗ E)(π^{j−i}e₁ + e₂), g·e₁ = ω̃(g)^i e₁, g·e₂ = ω̃(g)^j e₂, x_i ∈ O_E and v_p(x₁x₂) = 1; over F₂ the analogous D′_{x₁,x₂} with (D′_{x₁,x₂})^{Gal(F₂/F₁)} = D_{x₁,x₂}. (2) If E ⊇ ℚ_{p²} and τ(V) = ω̃₂^m ⊕ ω̃₂^{pm}, m = i + (p + 1)j with i ∈ {1, …, p}, V is crystalline over F₂ = ℚ_{p²}((−p)^{1/(p²−1)}) and D^{F₂}_{st,2}(V) = D_{m,[a:b]}: φ(e₁) = e₂, φ(e₂) = (1 ⊗ x)e₁ with v_p(x) = 1, Fil¹ = (F₂ ⊗ E)((ϖ^{(p−1)i} ⊗ a)e₁ + (1 ⊗ b)e₂), with the descent data of Proposition 2.18. (3) All of these filtered modules are weakly admissible.",
+      "hypotheses": [
+        "p is odd; E and F are finite extensions of ℚ_p inside ℚ̄_p, F′ ⊆ F with F/F′ Galois, F₀ the maximal unramified subfield of F, and the uniformiser p of ℚ_p fixes the embedding B_st ⊂ B_dR (Savitt, §2.2).",
+        "The types are recalled from Conrad–Diamond–Taylor; ω̃ is the Teichmüller lift of the mod-p cyclotomic character and ω̃₂(g) = g(ϖ)/ϖ for ϖ = (−p)^{1/(p²−1)}."
+      ],
+      "proofSteps": [
+        "A nonscalar tame type forces potentially crystalline (Breuil–Mézard, Lemme 2.2.2.2), and τ|_{I_{F₁}} (resp. I_{F₂}) is trivial, so V is crystalline over F₁ (resp. F₂) and N = 0 (Savitt, Proposition 2.17).",
+        "The Galois action diagonalises D on a basis with characters ω̃^i, ω̃^j; φ commutes with it, so φ is diagonal; the Gal-stable filtration line is (π^{j−i}a e₁ + b e₂), and indecomposability forces a, b ≠ 0.",
+        "Supercuspidal case: the two embeddings σ₁, σ₂ of ℚ_{p²} split D; g_φ swaps them with g_φ g g_φ = g^p, and φ swaps them, which gives the normal form D_{m,[a:b]} (Proposition 2.18); the second principal-series form over F₂ is Proposition 2.20.",
+        "Weak admissibility: every φ-stable proper submodule of D_{m,[a:b]} is generated by u(ae₁ + be₂), v(bxe₁ + ae₂) for the idempotents u, v of ℚ_{p²} ⊗ E, and has t_H = 0 ≤ t_N (Proposition 2.21)."
+      ],
+      "acceptance": [
+        "x₁ = 1, x₂ = p (the ordinary case): D_{1,p} is weakly admissible; the unit root line is E e₁.",
+        "The supercuspidal modules match Fontaine–Mazur's 'type IV' when E = ℚ_p (Savitt, Remark 2.19)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/potentially-semistable-descent-equivalence",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/filtered-modules-with-descent-data"
+      ],
+      "sources": [
+        {
+          "sourceId": "Savitt05",
+          "locator": "§2.2, Proposition 2.17, pp. 8–9",
+          "match": "Principal series."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§2.2, Proposition 2.18, p. 9",
+          "match": "Supercuspidal."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§2.2, Proposition 2.21, p. 10",
+          "match": "Weak admissibility."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/DescentData",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
+          "how": "The filtered modules D_{x₁,x₂}, D′_{x₁,x₂}, D_{m,[a:b]} of tame type in weight two."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/descent-data-p-divisible-groups",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Lattices in potentially Barsotti–Tate representations and p-divisible groups with descent data",
+      "kind": "theorem",
+      "statement": "Descent data relative to F′ on a p-divisible group G over O_F is a collection of morphisms [g] : G → ᵍG, g ∈ Gal(F/F′), of p-divisible groups over O_F with [gh] = (ᵍ[h]) ∘ [g] (ᵍG the base change by g). Sending a G_{F′}-stable ℤ_p-lattice T to the p-divisible group over O_F prolonging the generic group Γ = ∪Γ(n) of the T/pⁿ, with its descent data, is an equivalence between G_{F′}-stable lattices in potentially crystalline representations that become crystalline over F with Hodge–Tate weights in {0, 1}, and p-divisible groups over O_F with descent data relative to F′; the inverse is G ↦ lim_n G(n)(O_{ℚ̄_p}) with its G_{F′}-action.",
+      "hypotheses": [
+        "p is odd; E and F are finite extensions of ℚ_p inside ℚ̄_p, F′ ⊆ F with F/F′ Galois, F₀ the maximal unramified subfield of F, and the uniformiser p of ℚ_p fixes the embedding B_st ⊂ B_dR (Savitt, §2.2).",
+        "Savitt prints the index set of Definition 3.1 as Gal(F′/F); since F′ ⊆ F the group meant is Gal(F/F′) (source issue E13)."
+      ],
+      "proofSteps": [
+        "Γ(n) = Spec Maps_{G_F}(T/pⁿ, ℚ̄_p) carries a Gal(F/F′)-action g·f = g̃ ∘ f ∘ g̃^{−1}, independent of the lift g̃ and compatible in n, giving g-semilinear ⟨g⟩ : Γ → Γ and [g] : Γ → ᵍΓ with [gh] = (ᵍ[h]) ∘ [g] (Savitt, §3.1).",
+        "Γ prolongs to a p-divisible group over O_F: crystalline with Hodge–Tate weights in {0, 1} gives one lattice from a p-divisible group (Breuil 2000, Th. 5.3.2 for p ≠ 2 and finite residue field; for every p, R07.4/crystalline-01-is-bt), and schematic closure transports it to every lattice (Raynaud, §§2.2–2.3).",
+        "Tate's full faithfulness extends each [g] uniquely to the prolongation, and the cocycle relation persists (Savitt, §3.1).",
+        "Conversely descent data gives compatible Gal(F/F′)-actions on the bigebras R_n of G(n), and σ·f = σ ∘ f ∘ (σ^{−1}|_F) defines a G_{F′}-action on lim G(n)(O_{ℚ̄_p}); the two constructions are inverse (Proposition 3.2)."
+      ],
+      "acceptance": [
+        "F = F′: no descent data, and the statement is the lattice form of R07.4/crystalline-01-is-bt.",
+        "A potentially Barsotti–Tate lattice of tame type becoming crystalline over F₁ = ℚ_p(ζ_p) gives a p-divisible group over ℤ_p[ζ_p] with an action of Gal(F₁/ℚ_p) ≅ (ℤ/p)^×."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/tate-generic-fibre-theorem",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/schematic-closure-of-generic-subgroups",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/p-divisible-group"
+      ],
+      "sources": [
+        {
+          "sourceId": "Savitt05",
+          "locator": "§3.1, Definition 3.1, p. 12",
+          "match": "The definition, with the misprinted index (E13)."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§3.1, Proposition 3.2, p. 12",
+          "match": "The equivalence."
+        },
+        {
+          "sourceId": "Breuil00",
+          "locator": "Théorème 5.3.2, p. 51 (author copy)",
+          "match": "Breuil's theorem as Savitt uses it (OCR: 6= is ≠)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/DescentData",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/strongly-divisible-modules-descent-data",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Strongly divisible modules with tame descent data",
+      "kind": "construction",
+      "statement": "Let R = O_F with ramification e, S = S_R the p-adic completion of W(k)[u, u^{ie}/i!], with φ(u) = u^p, N(u) = −u, Fil^{k−1}S and φ_{k−1} = φ/p^{k−1} (k ≤ p), c = φ₁(E(u)). Mod^{k−1}_0 (strongly divisible modules of weight k) consists of free S-modules M with Fil^{k−1}M ⊇ (Fil^{k−1}S)M, Fil^{k−1}M ∩ pM = p Fil^{k−1}M, and φ_{k−1} : Fil^{k−1}M → M semilinear with φ_{k−1}(Fil^{k−1}M) generating M; Mod^{k−1}_{cris} adds a derivation N with N(M) ⊆ IM. Under Hypotheses 3.5, Mod_dd adds additive bijections ĝ, g ∈ Gal(F/F′), with ĝ(sx) = ĝ(s)ĝ(x), preserving Fil^{k−1} and commuting with φ_{k−1} (and N), and ĝ₁ ∘ ĝ₂ = (g₁g₂)^. Mod^1_{0,dd} (≅ Mod^1_{cris,dd} with its canonical N) is the category of strongly divisible modules with tame descent data (of weight 2). For a p-divisible group G over O_F, M_π(G) = lim_n Hom_{(Ab/R)}(G(n), O^cris_{n,π}) with Fil¹ from J^cris and φ₁ is a strongly divisible module (p ≠ 2), and descent data on G relative to F′ is equivalent to descent data ĝ on M_π(G).",
+      "hypotheses": [
+        "p is odd; E and F are finite extensions of ℚ_p inside ℚ̄_p, F′ ⊆ F with F/F′ Galois, F₀ the maximal unramified subfield of F, and the uniformiser p of ℚ_p fixes the embedding B_st ⊂ B_dR (Savitt, §2.2).",
+        "Savitt's Hypotheses 3.5: F/F′ is tamely ramified, π is a uniformiser of F with π^{e(F/F′)} ∈ F′, and g(π) = h_g π with h_g ∈ W(k) for g ∈ Gal(F/F′); ĝ acts on S = S_{O_F} by ĝ(Σ w_i u^i/⌊i/e⌋!) = Σ g(w_i) h_g^i u^i/⌊i/e⌋!.",
+        "Breuil 2000 (Annals of Math.) is read for the results Savitt cites: Théorèmes 4.2.1.6, 4.2.2.5, 4.2.2.9 (p ≠ 2) and 5.3.2, Corollaire 4.2.2.7, Lemme 4.2.2.8, Propositions 2.1.2.2 and 5.1.3.",
+        "The syntomic sheaves O^cris_{n,π}, J^cris_{n,π} and the construction M_π are Breuil's (Breuil 2000, §§2.3, 4.2); the comparison with the Dieudonné crystal of R07.4/breuil-s-modules is not used."
+      ],
+      "proofSteps": [
+        "Breuil's functor: M_π(G(n)) ∈ Mod^1_0 and M_π(G) is a strongly divisible module (Breuil 2000, Cor. 4.2.2.7 and Lemme 4.2.2.8), and G ↦ M_π(G) is an anti-equivalence with strongly divisible modules for p ≠ 2 (Th. 4.2.2.9).",
+        "Base change: for g with g(π) = h_g π, M_π(G) ⊗_{S,ĝ} S ≅ M_π(ᵍG) compatibly with Fil¹, φ₁ and morphisms, and cocycles compose (Savitt, Proposition 3.3, after BCDT01 Cor. 5.4.5).",
+        "A g-semilinear ⟨g⟩ : G → G with [g] a morphism over R is the same as an additive ĝ on M_π(G) that is ĝ-semilinear and commutes with Fil¹ and φ₁ (Corollary 3.4); with the cocycle condition this is descent data (Corollary 3.6, Definition 3.7).",
+        "Canonical N: every strongly divisible module has a unique N with N(sx) = N(s)x + sN(x), Nφ₁ = φN and N(M) ⊆ IM (Breuil 2000, Prop. 5.1.3(1)); ĝ commutes with φ, since ĝ(E(u)) = E(u) when π^{e(F/F′)} ∈ F′, hence with N by uniqueness (Savitt, §3.5)."
+      ],
+      "acceptance": [
+        "F = F′ and k = 2: Mod^1_{0,dd} is Breuil's category of strongly divisible modules, anti-equivalent to p-divisible groups over O_F for p ≠ 2.",
+        "S itself is an object of Mod^{k−1}_{cris}, and each S_n = S/pⁿ is an object of Mod^{k−1}."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-s-modules",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-coefficient-rings",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/descent-data-p-divisible-groups"
+      ],
+      "sources": [
+        {
+          "sourceId": "Savitt05",
+          "locator": "§3.2, p. 14",
+          "match": "Strongly divisible modules."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§3.3, Definition 3.8, p. 17",
+          "match": "The category with descent data."
+        },
+        {
+          "sourceId": "Breuil00",
+          "locator": "Théorème 4.2.2.9, p. 46 (author copy)",
+          "match": "Breuil's classification (p ≠ 2)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/DescentData",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/descent-data-lattice-classification",
+          "how": "The source category of T_st."
+        },
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/strongly-divisible-modules-coefficients",
+          "how": "The Z_p-theory to which coefficients are added."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
+          "how": "Strongly divisible modules with tame descent data (requested from R07.4)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleModule",
+          "role": "structure",
+          "statement": "An object of Mod^{k−1}_0: free S-module with Fil^{k−1}, φ_{k−1}."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleModule.descentData",
+          "role": "structure",
+          "statement": "The semilinear bijections ĝ, g ∈ Gal(F/F′), with the cocycle condition."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleModule.monodromy",
+          "role": "data",
+          "statement": "Breuil's canonical N (Prop. 5.1.3), commuting with the ĝ."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleModule.ofPDivisible",
+          "role": "functoriality",
+          "statement": "G ↦ M_π(G), with descent data transported (Corollary 3.6)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleModule.ofPDivisible_antiequiv",
+          "role": "equivalence",
+          "statement": "Breuil: an anti-equivalence with p-divisible groups over O_F for p ≠ 2."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.BreuilKisin.unit_is_object",
+          "kind": "value",
+          "statement": "S with Fil^{k−1}S and φ_{k−1} is an object of Mod^{k−1}_{cris}."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.rank_one_character",
+          "kind": "value",
+          "statement": "For E = ℚ_p: S·e with Fil¹ = Fil¹S·e, φ(e) = a^{−1}e (a ∈ ℤ_p^×), ĝ(e) = ω̃^j(g)e is an object (Savitt, Proposition 5.1)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.not_strongly_divisible",
+          "kind": "non-example",
+          "statement": "M = S e with Fil¹M = Fil¹S·e + pM contains (Fil¹S)M, but e ∉ Fil¹M, so Fil¹M ∩ pM = pM ≠ p Fil¹M: not strongly divisible."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.zero",
+          "kind": "degenerate",
+          "statement": "The zero module, corresponding to the trivial p-divisible group."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/descent-data-lattice-classification",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Strongly divisible modules with descent data classify potentially Barsotti–Tate lattices",
+      "kind": "theorem",
+      "statement": "Assume Hypotheses 3.5. (1) If G is a p-divisible group over O_F with descent data relative to F′ and M its strongly divisible module with descent data, T_p(G) ≅ Hom_{′Mod^1_0}(M, Â_cris) as G_{F′}-lattices, and Â_cris ⊂ Â_st induces Hom_{′Mod^1}(M, Â_cris) = Hom_{′Mod^1}(M, Â_st). (2) Every strongly divisible module M with tame descent data is contained in S[1/p] ⊗_{F₀} D for a filtered (φ, N, F/F′, ℚ_p)-module D with N = 0, Fil⁰D_F = D_F and Fil²D_F = 0. (3) If ρ : G_{F′} → GL(V) becomes crystalline over F with Hodge–Tate weights in {0, 1}, then T^{F′}_{st,2}(M) = (lim_n Hom_{′Mod^1}(M/pⁿM, Â_{st,∞}))^∧(1) is an equivalence between strongly divisible modules with tame descent data contained in S[1/p] ⊗_{F₀} D^F_{st,2}(V) and G_{F′}-stable lattices in ρ.",
+      "hypotheses": [
+        "p is odd; E and F are finite extensions of ℚ_p inside ℚ̄_p, F′ ⊆ F with F/F′ Galois, F₀ the maximal unramified subfield of F, and the uniformiser p of ℚ_p fixes the embedding B_st ⊂ B_dR (Savitt, §2.2).",
+        "Savitt's Hypotheses 3.5: F/F′ is tamely ramified, π is a uniformiser of F with π^{e(F/F′)} ∈ F′, and g(π) = h_g π with h_g ∈ W(k) for g ∈ Gal(F/F′); ĝ acts on S = S_{O_F} by ĝ(Σ w_i u^i/⌊i/e⌋!) = Σ g(w_i) h_g^i u^i/⌊i/e⌋!.",
+        "Breuil 2000 (Annals of Math.) is read for the results Savitt cites: Théorèmes 4.2.1.6, 4.2.2.5, 4.2.2.9 (p ≠ 2) and 5.3.2, Corollaire 4.2.2.7, Lemme 4.2.2.8, Propositions 2.1.2.2 and 5.1.3.",
+        "Breuil's period rings Â_cris ⊂ Â_st (Breuil 1999, §2.2.2) are used as Savitt describes them; Savitt twice writes 'filtered (φ, N, F/F′, ℤ_p)-module' where ℚ_p is meant (source issue E14)."
+      ],
+      "proofSteps": [
+        "G(n)(O_{ℚ̄_p}) = Hom_{′Mod^1_0}(M/pⁿM, O^cris_{n,π}(O_{ℚ̄_p})) as G_F-modules (Breuil 2000, Th. 4.2.2.9 and §4.2.1); it is G_{F′}-equivariant: for A with a Gal(F/F′)-semilinear G_{F′}-action, the bijection G(n)(A) ≅ Hom_{(φ₁,Fil¹)}(M(G(n)), O^cris_{n,π}(A)) commutes with g̃ by a diagram of functorial squares and untwisting maps; pass to the limit (Savitt, Theorem 3.10).",
+        "Â_cris ⊂ Â_st: an Â_st-valued morphism lands in Â_cris[1/p] (Breuil 2000, Prop. 5.1.3 and N = 0 on A_cris), and the divisibility p | φ₁((u − π)^i/i!) for i ≥ 2 (p odd) shows that γ(M) ⊆ pÂ_st implies γ(M) ⊆ pÂ_cris (Proposition 3.11).",
+        "(2): forgetting descent data, Breuil 2000 Prop. 5.1.3(2) gives D with M ⊗ F₀ ≅ S[1/p] ⊗ D and D = ker N; ĝ commutes with N, so it acts on D (Lemma 3.13).",
+        "(3): by (2), Theorem 3.10, Corollary 3.6 and Propositions 3.2, 3.11 it remains that T^{F′}_{st,2}(M) is a G_{F′}-lattice in ρ, which is Breuil–Mézard's Lemme 3.2.3.1 with G_{F′}-maps in place of G_F-maps (Theorem 3.14)."
+      ],
+      "acceptance": [
+        "F = F′: Breuil's classification of lattices in crystalline representations with Hodge–Tate weights {0, 1} for p ≠ 2.",
+        "Rank one: the strongly divisible module of Proposition 5.1 gives the lattice O_E(ε ω̃^j λ_a) (Savitt, §5)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/strongly-divisible-modules-descent-data",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/descent-data-p-divisible-groups",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/potentially-semistable-descent-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "Savitt05",
+          "locator": "§3.4, Theorem 3.10, p. 18",
+          "match": "Theorem 3.10."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§3.5, Theorem 3.14, p. 21",
+          "match": "Theorem 3.14."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§3.5, Lemma 3.13 and the paragraph before it, p. 20",
+          "match": "The ℤ_p for ℚ_p slip (E14)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/DescentData",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
+          "how": "Every lattice of type (2, τ) is T_st,2 of a strongly divisible module with tame descent data."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/strongly-divisible-modules-coefficients",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Strongly divisible R-modules with tame descent data and the functor T_st",
+      "kind": "construction",
+      "statement": "Let R be a complete local noetherian flat O_E-algebra with residue field finite over k_E, and S_R = {Σ r_j u^j/⌊j/e⌋! : r_j ∈ W(k_F) ⊗ R, r_j → 0 m_R-adically}. A strongly divisible R-module with tame descent data is a finitely generated free S_R-module M with Fil^{k−1}M ⊇ (Fil^{k−1}S_R)M, Fil^{k−1}M ∩ IM = I Fil^{k−1}M for every ideal I of R, φ semilinear with φ(Fil^{k−1}M) ⊆ p^{k−1}M generating it, N a derivation with Nφ = pφN, E(u)N(Fil^{k−1}M) ⊆ Fil^{k−1}M and N(M) ⊆ JM, and descent data ĝ commuting with φ, N and preserving Fil^{k−1}. T^{F′}_{st,k}(M) = lim_n T^{F′}_{st,k}(M/m_R^n M), with T^{F′}_{st,k}(N) = Hom_{′Mod^{k−1}}(N, Â_{st,∞})^∧(k − 1), is a free R-module of rank rk M with continuous G_{F′}-action, compatible with reduction mod m_R^n and with base change R → R′ when M ⊗_R R′ is strongly divisible. For k = 2 and R = O_E every G_{F′}-stable O_E-lattice in a potentially Barsotti–Tate representation becoming crystalline over F is T^{F′}_{st,2}(M) for some strongly divisible O_E-module with descent data M.",
+      "hypotheses": [
+        "p is odd; E and F are finite extensions of ℚ_p inside ℚ̄_p, F′ ⊆ F with F/F′ Galois, F₀ the maximal unramified subfield of F, and the uniformiser p of ℚ_p fixes the embedding B_st ⊂ B_dR (Savitt, §2.2).",
+        "Savitt's Hypotheses 3.5: F/F′ is tamely ramified, π is a uniformiser of F with π^{e(F/F′)} ∈ F′, and g(π) = h_g π with h_g ∈ W(k) for g ∈ Gal(F/F′); ĝ acts on S = S_{O_F} by ĝ(Σ w_i u^i/⌊i/e⌋!) = Σ g(w_i) h_g^i u^i/⌊i/e⌋!.",
+        "Savitt's exposition follows Breuil–Mézard §3.2; the lemmas of [BM02] and [Bre99] it invokes (BM02 Lemmes 3.2.2.1–3.2.2.2 and 3.2.3.1, Prop. 3.2.3.2; Bre99 Lemmes 2.3.1.1–2.3.1.3) are cited, not read here."
+      ],
+      "proofSteps": [
+        "IS_R ∩ Fil^{k−1}S_R = I Fil^{k−1}S_R, using the unique expansion Σ r_j(u)E(u)^j/j! with deg r_j < e (Savitt, §4).",
+        "Reduction: for I ⊇ m_R^n, M/IM with the image filtration is an object of Mod^{k−1}_dd with R/I-action; base change to Artinian R′ is allowed if N = M/IM or R′ is free over R/(p^r, I) (Lemma 4.6); finite local R → R′ surjective, or with every ideal of R′ having a power (p^r), preserves strong divisibility (Corollary 4.7).",
+        "T^{F′}_{st,k}(M/IM) → T^{F′}_{st,k}(M/I′M) is surjective and T^{F′}_{st,k}(M/IM) is free of rank d over R/I (Lemma 4.9), with base change (Lemma 4.10); pass to the limit (Definition 4.11, Corollary 4.12).",
+        "Every O_E-lattice: T is ℤ_p-isomorphic to T_st,2 of a strongly divisible ℤ_p-module M with descent data; O_E acts on the p-divisible group by Tate, hence on M; M/(Fil¹S)M is O_E-torsion free, and Breuil–Mézard's Prop. 3.2.3.2 argument makes M a strongly divisible O_E-module (Proposition 4.13)."
+      ],
+      "acceptance": [
+        "R = O_E = ℤ_p, k = 2 gives Mod^1_{cris,dd} (Example 4.2); F = F′ = ℚ_p gives Breuil–Mézard's strongly divisible R-modules with N(M) ⊆ JM, i.e. the crystalline ones (Example 4.3).",
+        "R → O_{E′} for a finite extension E′/E preserves strong divisibility (Remark 4.8)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/strongly-divisible-modules-descent-data",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/descent-data-lattice-classification"
+      ],
+      "sources": [
+        {
+          "sourceId": "Savitt05",
+          "locator": "§4, Definition 4.1, p. 22",
+          "match": "The definition."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§4, Corollary 4.12, p. 24",
+          "match": "Freeness of T_st (OCR drops the superscript F′)."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§4, Proposition 4.13, p. 24",
+          "match": "Every lattice arises."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/DescentData",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-modules-descent-data",
+          "how": "Reduction mod p of a strongly divisible module is a Breuil module."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
+          "how": "Families over R = O_E⟦Y⟧, O_E⟦B⟧, O_E⟦X₁, X₂⟧/(X₁X₂ − pw) and the functor T_st (Savitt §4)."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleRModule",
+          "role": "structure",
+          "statement": "A strongly divisible R-module with tame descent data (Definition 4.1)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleRModule.tst",
+          "role": "functoriality",
+          "statement": "T^{F′}_{st,k}(M), an R[G_{F′}]-module."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleRModule.tst_free",
+          "role": "characterisation",
+          "statement": "T^{F′}_{st,k}(M) is free of rank rk M (Corollary 4.12)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleRModule.baseChange",
+          "role": "functoriality",
+          "statement": "M ⊗_R R′ under Corollary 4.7, with T_st(M) ⊗ R′ ≅ T_st(M ⊗ R′)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.StronglyDivisibleRModule.exists_of_lattice",
+          "role": "characterisation",
+          "statement": "Proposition 4.13: every O_E-lattice arises."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.BreuilKisin.zp_coefficients",
+          "kind": "value",
+          "statement": "R = ℤ_p, k = 2: the category is Mod^1_{cris,dd} (Example 4.2)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.no_descent_qp",
+          "kind": "degenerate",
+          "statement": "F = F′ = ℚ_p: these are Breuil–Mézard strongly divisible R-modules with N(M) ⊆ JM (Example 4.3)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.semistable_excluded",
+          "kind": "non-example",
+          "statement": "A Breuil–Mézard strongly divisible module with N(M) ⊄ JM (semistable, not crystalline) is not an object."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.tst_rank_one",
+          "kind": "value",
+          "statement": "For the rank-one module of Proposition 5.1, T_st,2(M) ≅ O_E(ε ω̃^j λ_a) is free of rank one."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-modules-descent-data",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Breuil modules with descent data, and the maximal and minimal ones",
+      "kind": "definition",
+      "statement": "A Breuil module over O_F is a triple (M′, Fil¹M′, φ₁) with M′ a free k_F[u]/u^{ep}-module of finite rank, Fil¹M′ ⊇ u^e M′ a submodule and φ₁ : Fil¹M′ → M′ additive with φ₁(hv) = h^p φ₁(v) and φ₁(Fil¹M′) generating M′. M ↦ M ⊗_{S₁} k_F[u]/u^{ep} is an equivalence T₀ from objects of Mod¹ killed by p to Breuil modules (quasi-inverse M′ ↦ M′ ⊗ S₁), extending to descent data and to R/I-actions. If M′ is a Breuil module with descent data with Fil¹M′ = u^e M′ and M″ another with T^{F′}_{st,2}(M′) = T^{F′}_{st,2}(M″), there is a nontrivial map M″ → M′: M′ is the maximal Breuil module of M″; dually Fil¹M′ = M′ gives the minimal one.",
+      "hypotheses": [
+        "p is odd; E and F are finite extensions of ℚ_p inside ℚ̄_p, F′ ⊆ F with F/F′ Galois, F₀ the maximal unramified subfield of F, and the uniformiser p of ℚ_p fixes the embedding B_st ⊂ B_dR (Savitt, §2.2).",
+        "Savitt's Hypotheses 3.5: F/F′ is tamely ramified, π is a uniformiser of F with π^{e(F/F′)} ∈ F′, and g(π) = h_g π with h_g ∈ W(k) for g ∈ Gal(F/F′); ĝ acts on S = S_{O_F} by ĝ(Σ w_i u^i/⌊i/e⌋!) = Σ g(w_i) h_g^i u^i/⌊i/e⌋!.",
+        "Breuil 2000, Prop. 2.1.2.2 gives the equivalence T; the compatibility with Dieudonné modules (BCDT01 Th. 5.1.3(3)) and Raynaud's maximal prolongation are used in the maximality argument."
+      ],
+      "proofSteps": [
+        "T₀ is an equivalence on objects killed by p (Breuil 2000, Prop. 2.1.2.2), compatible with descent data (Savitt, Remark 3.9) and with R/I-actions (Breuil 1998, Prop. 2.2.2.1, as cited).",
+        "Fil¹M′ = u^e M′: the group scheme G′ = G_π(M′) is étale (BCDT01 Th. 5.1.3(3)), so it equals the maximal prolongation (G′)⁺ of its generic fibre by the universal property of the connected–étale sequence; hence for G″ = G_π(M″) with the same generic fibre there is G′ → G″, and so M″ → M′ (Savitt, Lemma 4.14).",
+        "Minimal: the dual argument with multiplicative G′ (Remark 4.15)."
+      ],
+      "acceptance": [
+        "Breuil modules arising as reductions of strongly divisible O_E-modules are free over (k_F ⊗ k_E)[u]/u^{ep}; general ones with an action of R/I need not be (Savitt, §4).",
+        "The Breuil modules of Propositions 5.3–5.4 are maximal (Remark 5.6)."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/strongly-divisible-modules-coefficients",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/finite-flat-prolongations"
+      ],
+      "sources": [
+        {
+          "sourceId": "Savitt05",
+          "locator": "§4, Objects killed by p, p. 25",
+          "match": "Breuil modules."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§4, Lemma 4.14, p. 25",
+          "match": "Maximal Breuil modules."
+        },
+        {
+          "sourceId": "Breuil00",
+          "locator": "Proposition 2.1.2.2, p. 9 (author copy)",
+          "match": "The equivalence T."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/DescentData",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/strongly-divisible-modules-for-characters",
+          "how": "The rank-one Breuil modules M_E(F/F′, e, a^{−1}, j)."
+        },
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
+          "how": "Minimal and maximal Breuil modules in Savitt's surjectivity argument."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule",
+          "role": "structure",
+          "statement": "A Breuil module over k_F[u]/u^{ep}, with descent data and R/I-action as extra structure."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.T0",
+          "role": "equivalence",
+          "statement": "Objects of Mod¹ killed by p ≃ Breuil modules."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.IsMaximal",
+          "role": "characterisation",
+          "statement": "Fil¹M′ = u^e M′."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.IsMinimal",
+          "role": "characterisation",
+          "statement": "Fil¹M′ = M′."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.BreuilModule.exists_hom_to_maximal",
+          "role": "universal-property",
+          "statement": "Lemma 4.14: a nonzero map M″ → M′ to the maximal one with the same T_st."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.BreuilKisin.rank_one_maximal",
+          "kind": "value",
+          "statement": "M′ = (k_E[u]/u^{e₁p})e with Fil¹ = u^{e₁}M′, φ₁(u^{e₁}e) = a^{−1}e is maximal (Remark 5.6)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.minimal_example",
+          "kind": "value",
+          "statement": "Fil¹M′ = M′ with φ₁ bijective semilinear: the minimal Breuil module (Remark 4.15)."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.not_generating",
+          "kind": "non-example",
+          "statement": "Fil¹M′ = u^e M′ with φ₁ = 0 does not generate M′ and is not a Breuil module."
+        },
+        {
+          "name": "TauCeti.BreuilKisin.zero",
+          "kind": "degenerate",
+          "statement": "The zero module."
+        }
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/strongly-divisible-modules-for-characters",
+      "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+      "realises": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+      ],
+      "title": "Strongly divisible modules and Breuil modules of characters",
+      "kind": "theorem",
+      "statement": "Let F₁ = ℚ_p(ζ_p) with π = (−p)^{1/(p−1)}, e₁ = p − 1, and F₂ = ℚ_{p²}(ϖ), ϖ = (−p)^{1/(p²−1)}, e₂ = p² − 1. (1) M = S_{O_E}·e, Fil¹M = Fil¹S_{O_E}·e, φ(e) = a^{−1}e, Ne = 0, ĝ(e) = ω̃^j(g)e is a strongly divisible O_E-module in S_{O_E} ⊗ D^{F₁}_{st,2}(ε ω̃^j λ_a); the same over F₂, and for ω̃₂^m(ελ_a)|_{G_{ℚ_{p²}}} with ĝ(e) = (1 ⊗ ω̃₂^m(g))e. (2) The Breuil module M_E(F₁/ℚ_p, e₁, a^{−1}, j) = (k_E[u]/u^{e₁p})e, Fil¹ = u^{e₁}M′, φ₁(u^{e₁}e) = ā^{−1}e, ĝ(e) = ω^j(g)e has T^{ℚ_p}_{st,2} = λ_ā ω^{j+1}; over F₂, M_E(F₂/ℚ_p, e₂, a^{−1}, j) has T = λ_ā ω^{j+1} and M_E(F₂/ℚ_{p²}, e₂, a^{−1}, m) has T = λ_ā|_{G_{ℚ_{p²}}} ω₂^{m+p+1}. These Breuil modules are maximal.",
+      "hypotheses": [
+        "p is odd; E and F are finite extensions of ℚ_p inside ℚ̄_p, F′ ⊆ F with F/F′ Galois, F₀ the maximal unramified subfield of F, and the uniformiser p of ℚ_p fixes the embedding B_st ⊂ B_dR (Savitt, §2.2).",
+        "Savitt's Hypotheses 3.5: F/F′ is tamely ramified, π is a uniformiser of F with π^{e(F/F′)} ∈ F′, and g(π) = h_g π with h_g ∈ W(k) for g ∈ Gal(F/F′); ĝ acts on S = S_{O_F} by ĝ(Σ w_i u^i/⌊i/e⌋!) = Σ g(w_i) h_g^i u^i/⌊i/e⌋!.",
+        "T_st is a Tate twist of the dual of V_st, so Savitt's characters differ by duality and a twist from those of Savitt 2004, Th. 6.3 (Savitt, Remark 5.5)."
+      ],
+      "proofSteps": [
+        "(1): Fil¹D^{F₁}_{st,2}(ε ω̃^j λ_a) = 0 forces Fil¹M = {s(u)e : s(π) = 0} = Fil¹S_{O_E}·e; φ and the descent data are read off Examples 2.13–2.14 (Propositions 5.1–5.2).",
+        "(2): the Breuil module is the reduction of (1) mod m_E: (u^{e₁} + p)e ∈ Fil¹M gives u^{e₁}e ∈ Fil¹M′, and φ₁((u^{e₁} + p)e) = (u^{e₁p}/p + 1)a^{−1}e gives φ₁(u^{e₁}e) = ā^{−1}e; then Corollary 4.12(1) (Propositions 5.3–5.4).",
+        "Maximality from Fil¹M′ = u^e M′ and Lemma 4.14 (Remark 5.6)."
+      ],
+      "acceptance": [
+        "j = 0, a = 1: the Breuil module with T = ω, i.e. the mod-p cyclotomic character, is M_E(F₁/ℚ_p, e₁, 1, 0).",
+        "The characters of level 2 appear only over F₂ and through ω̃₂^m."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-modules-descent-data",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/strongly-divisible-modules-coefficients",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/tame-type-weight-two-filtered-modules"
+      ],
+      "sources": [
+        {
+          "sourceId": "Savitt05",
+          "locator": "§5, Proposition 5.1, p. 26",
+          "match": "Rank-one strongly divisible modules."
+        },
+        {
+          "sourceId": "Savitt05",
+          "locator": "§5, Proposition 5.3, p. 26",
+          "match": "Rank-one Breuil modules."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/BreuilKisin/DescentData",
+        "namespace": "TauCeti.BreuilKisin"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "LocalGaloisDeformationRings:R08.4/savitt-weight-two-rings",
+          "how": "The Breuil modules of characters used to compute reductions (Savitt §5)."
+        }
+      ]
+    },
+    {
       "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5/tame-inertia-characters",
       "parentStageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
       "realises": [
@@ -6479,11 +7221,11 @@
       "stageId": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
       "status": "partial",
       "remaining": [
-        "Descent data and the potentially Barsotti–Tate case: Breuil–Mézard and Savitt strongly divisible modules with tame descent data (Savitt §§2–5, requested by LocalGaloisDeformationRings R08.4/savitt-weight-two-rings), and Kisin modules with descent data for the potentially Barsotti–Tate representations of KW and Kisin.",
+        "Descent data beyond Savitt's weight-two tame case: Breuil–Mézard's semistable strongly divisible modules and higher weights (k > 2), wild descent data, and Kisin modules with descent data for the potentially Barsotti–Tate representations of KW and Kisin; Savitt §6 (the explicit families and deformation rings) belongs to LocalGaloisDeformationRings R08.4.",
         "Generic-fibre comparison with coefficients: Kisin 2009 §§1.2–1.3 and §2 (finite flat models with A-coefficients, (1.2.7)–(1.2.9), moduli of finite flat models and their generic fibres) beyond the multiplicative/étale dictionary.",
         "Weights beyond {0, 1}: Kisin modules for crystalline representations with Hodge–Tate weights {0, p − 1} and {0, p} and the reductions of Khare–Wintenberger I, Theorem 4.1 (requested by PadicHodgeTheory R06.4 (b)); the merely potentially semistable case (Kisin 2008 §2).",
         "The comparison of Breuil–Kisin and Wach modules for K = K₀ (requested by PadicHodgeTheory for P7).",
-        "Cited but not read: Breuil's torsion S-module theory ([Br 3] 4.2.1.6, 4.2.2.5, 4.2.2.9) behind Kisin 2009 (1.1.3) and (2.2.22); Faltings 1999, Theorem 7 (Lemma 2.2.4); Raynaud's embedding theorem (BBM 3.1.1); Kim §5 (Propositions 4.5, 5.4, 5.5, 5.7.3); Kisin 2009b §1 (Zink's windows); and the independent dyadic proofs of Lau and Liu.",
+        "Cited but not read: Faltings 1999, Theorem 7 (Lemma 2.2.4); Raynaud's embedding theorem (BBM 3.1.1); Kim §5 (Propositions 4.5, 5.4, 5.5, 5.7.3); Kisin 2009b §1 (Zink's windows); the dyadic proofs of Lau and Liu; for Savitt, Breuil–Mézard 2002 §3.2, BCDT01 §§5.1–5.6 and Breuil 1999 §2.2.2 (the rings Â_cris ⊂ Â_st). Breuil 2000 (Kisin's [Br 3]) is now read for Théorèmes 4.2.1.6, 4.2.2.5 and 4.2.2.9.",
         "R07.4/breuil-s-modules takes the Dieudonné crystal on S and Grothendieck–Messing theory from R07.2, where they are still to be planned."
       ]
     },
@@ -6688,6 +7430,38 @@
         "Raynaud 1974, Numdam item BSMF_1974__102__241_0 (table of contents and §3.4)",
         "Serre's Œuvres IV (reprint with notes): not accessible here"
       ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E13",
+      "source": "Savitt05",
+      "kind": "misprint",
+      "locator": "§3.1, Definition 3.1, p. 12 (arXiv v3; the same in v1 and v2)",
+      "printed": "For a p-divisible group G over OF, the source defines descent data relative to F ′ using [g] : G → g G, with one map for every g ∈ Gal(F ′ /F ) and relation [gh] = (g [h]) ◦ [g].",
+      "correction": "'for each g ∈ Gal(F/F′)'.",
+      "reason": "F′ ⊆ F with F/F′ Galois (§2.2 and Hypotheses 3.5), so Gal(F′/F) is not defined; the maps are indexed by Gal(F/F′), which is what the preceding paragraph constructs ('if g ∈ Gal(F/F′), let g̃ be any extension') and what Corollary 3.6 and Definition 3.7 use. Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:math/0404327 v1, v2 and v3 (same text)",
+        "The author's corrigendum, Appendix A of Gee–Savitt arXiv:0909.1278v2 (concerns only Theorem 6.12(4))",
+        "The published Duke text on the author's site (behind a browser challenge, not seen)"
+      ]
+    },
+    {
+      "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E14",
+      "source": "Savitt05",
+      "kind": "misprint",
+      "locator": "§3.5, the paragraph before Lemma 3.13 and the last line of its proof, p. 20 (arXiv v3; the same in v1 and v2)",
+      "printed": "The source describes D as a module of filtered type (ϕ, N, F/F ′ , Zp ) and places M in S[1/p] ⊗F0 D. It concludes by again assigning D the filtered module type (ϕ, N, F/F ′ , Zp ).",
+      "correction": "'(ϕ, N, F/F′, Qp)-module' in both places, as in the statement of Lemma 3.13.",
+      "reason": "Filtered (φ, N, F/F′, E)-modules are defined for E a finite extension of ℚ_p (Definition 2.7: free F₀ ⊗_{ℚ_p} E-modules); Lemma 3.13 itself states 'a filtered (ϕ, N, F/F′, Qp)-module', and D = ker N on M ⊗_{W(k)} F₀ is a ℚ_p-vector space. Checked on the page image.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv:math/0404327 v1, v2 and v3 (same text)",
+        "The author's corrigendum, Appendix A of Gee–Savitt arXiv:0909.1278v2",
+        "The published Duke text (not seen)"
+      ]
     }
   ],
   "sourceVersions": [
@@ -6815,6 +7589,20 @@
       "citation": "Jean-Pierre Serre, Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)",
       "read": "2026-09-28",
       "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/math/0404327v3",
+      "citation": "David Savitt, On a conjecture of Conrad, Diamond, and Taylor",
+      "read": "2026-09-28",
+      "sha256": "e161ac6498c1a75fc8f981c25edd5e9390b19ceb40f174a25a1f6491390c115c"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/p-divisibles.pdf",
+      "citation": "Christophe Breuil, Groupes p-divisibles, groupes finis et modules filtrés",
+      "read": "2026-09-28",
+      "sha256": "563deafc1a3f01ba076bd9a4ee2ffaae21a50957e3a93da0610cc6686f23628d"
     }
   ]
 }
