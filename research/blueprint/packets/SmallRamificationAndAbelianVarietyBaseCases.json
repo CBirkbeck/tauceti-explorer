@@ -11,7 +11,7 @@
     "SmallRamificationAndAbelianVarietyBaseCases:R25.6"
   ],
   "status": "partial",
-  "summary": "Third checkpoint (R25.1–R25.4, all closed). R25.2: Tate's and Serre's theorems (DP23 Theorem 1.1). R25.3: Fontaine's theorem at p = 2. R25.4: Schoof's Theorem 1.1 for l ∈ {2, 3, 5, 7, 13}, through his criterion (Proposition 3.1: simple objects of the semistable category D are ℤ/pℤ and μ_p, and Ext¹_{ℤ[1/l]}(μ_p, ℤ/pℤ) = 0), the Ext computation for p ∈ {2, 3} (Corollary 4.2), and the field criterion of Proposition 5.1 checked for (l, p) = (2, 3), (3, 2), (5, 2), (7, 3), (13, 2). For l = 2, 3, 5 the plan checks Proposition 5.1 in the category D directly, which gives much smaller root discriminants than Schoof's route through the tame category C (his Theorem 1.3) and needs at most one class-field step; l = 7 and 13 follow Schoof's own D arguments. All degree bounds are certified rows of the Odlyzko–Poitou bound of R25.1 (checked against Odlyzko's 1976 unconditional table), with class-number certificates for ℚ(ζ₃, ∛2), ℚ(ζ₁₂), ℚ(i, √5) and ℚ(i, √13). R25.5 and R25.6 are not read. Four issues in Schoof 2005 are recorded (three new misprints, and the class-group step of Proposition 4.1 corrected in his errata note).",
+  "summary": "Fourth checkpoint: all six stages closed. R25.1 discriminant bounds; R25.2 Tate–Serre; R25.3 Fontaine; R25.4 Schoof. R25.5: Snowden's realisation of odd weight-two representations of G_ℚ by GL₂-type abelian varieties (Proposition 9.4.1 over ℚ, with his descent lemma) and the reduction type of the realising variety; Wintenberger's classification of level-one dihedral representations, which makes (A1) automatic in every terminal case; the ordinary residually reducible checks at (p, k) = (3, 2), (3, 4), (5, 6), (7, 8), (13, 14) (Berger–Li–Zhu and Skinner–Wiles, with S_k(SL₂(ℤ)) = 0); the exclusions of level-one weight 2 (Fontaine) and weight p + 1 for p ∈ {5, 7, 13} (Schoof), the twist at p = 11, weight 14; Khare–Wintenberger's small-weight theorem (no level-one ρ̄ of weight ≤ 8 or 14); and DP23 Paso 6. R25.6: the base-case table with its nine rows, local transition checks and suppliers, and the theorem that every row holds without using Serre's conjecture. The primary sources of Tate, Serre and Fontaine were not accessible; the plans follow the published accounts, and four misprints and gaps in Schoof 2005 are recorded.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -295,6 +295,20 @@
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
         "provides": "The dimension of an abelian variety.",
         "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:CuspForm.rank_eq_zero_of_weight_lt_twelve",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean",
+        "provides": "There are no nonzero cusp forms of level one and weight k < 12.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:ModularForm.dimension_level_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean",
+        "provides": "The dimension formula for level-one modular forms of even weight (so dim S₁₄(SL₂(ℤ)) = dim M₁₄ − 1 = 0).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
       }
     ]
   },
@@ -308,7 +322,9 @@
       "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
       "readSections": [
         "§1.1, Theorems 1.1 and 1.2 with their proofs (p. 3).",
-        "§2, Paso 6 (p. 14 of the arXiv text): the use of Theorem 1.1 at p = 3."
+        "§2, Paso 6 (p. 14 of the arXiv text): the use of Theorem 1.1 at p = 3.",
+        "§1.2–1.3 (pp. 4–6): Theorems 1.6, 1.7 and 1.9.",
+        "§2, Paso 6 in full (pp. 14–15)."
       ]
     },
     {
@@ -320,7 +336,8 @@
       "sha256": "3012a51759ad10695792bc8a2d1af75890f38d6ebacd37fb61e01bfdb89c9c2f",
       "readSections": [
         "§1 and §1.1 (p. 2): the definition of level one and the history of the cases p = 2, 3.",
-        "§§7.2 and 8 (pp. 29–30): the remarks on discriminant bounds and on the limits of Tate's method."
+        "§§7.2 and 8 (pp. 29–30): the remarks on discriminant bounds and on the limits of Tate's method.",
+        "§1, pp. 2–3 (the use of [31] for weights 2, 4, 6) and §6.1 (pp. 23–25)."
       ]
     },
     {
@@ -417,6 +434,31 @@
       "readSections": [
         "The description of the tables (discr.bound.tables.txt): the unconditional kernel H(x)/cosh(x/2) and the form D > A^{r1} B^{2 r2} e^{f − E}.",
         "Table 2 (unconditional bounds for D^{1/n}, totally complex column), all rows; the SHA-256 is that of discr.bound.table2."
+      ]
+    },
+    {
+      "id": "Snowden09-arXiv",
+      "title": "On two dimensional weight two odd representations of totally real fields",
+      "authors": "Andrew Snowden",
+      "edition": "arXiv:0905.4266v1 (26 May 2009); accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/0905.4266",
+      "sha256": "b0c0008a55489b000d6a7b2004f6412c8829243b7254ba0efe152ac6e5fc06a2",
+      "readSections": [
+        "Abstract and §1 (pp. 1–2): the definition of weight two.",
+        "§3.1 (p. 6): hypotheses (A1)–(A4).",
+        "§9.4 (pp. 29–30): Propositions 9.4.1–9.4.2, Lemmas 9.4.3–9.4.4 and the proof of Proposition 9.4.1."
+      ]
+    },
+    {
+      "id": "KW04-arXiv",
+      "title": "On Serre's reciprocity conjecture for 2-dimensional mod p representations of Gal(Q̄/Q)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "edition": "arXiv:math/0412076v1 (3 December 2004); published as 'On Serre's conjecture for 2-dimensional mod p representations of Gal(Q̄/Q)', Ann. of Math. 169 (2009), 229–253; accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/math/0412076",
+      "sha256": "bbb14357e34811b1a3459ef62d61be9e9803c21a63613da9469088c16ee17274",
+      "readSections": [
+        "§3, Theorem 3.1 with its proof (pp. 15–18).",
+        "§4, Theorem 4.1, Corollary 4.2, Theorem 4.3 with its proof, and Corollary 4.4 (pp. 18–21)."
       ]
     }
   ],
@@ -2778,18 +2820,768 @@
       "planet": {
         "name": "Schoof's theorem"
       }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "Abelian varieties of GL₂-type over ℚ and their λ-adic representations",
+      "kind": "definition",
+      "statement": "An abelian variety A over ℚ is of GL₂(K)-type, for a number field K, if it is given with a ring homomorphism K → End⁰_ℚ(A) = End_ℚ(A) ⊗ ℚ such that [K : ℚ] = dim A. For a prime λ of K above p, V_λ(A) = V_p(A) ⊗_{K ⊗ ℚ_p} K_λ is then a two-dimensional K_λ-representation of G_ℚ, and 'ρ comes from A' means ρ ≅ V_λ(A) ⊗_{K_λ} ℚ̄_p for some embedding K → ℚ̄_p inducing λ.",
+      "hypotheses": [
+        "A an abelian variety over ℚ (TauCeti.AlgebraicGeometry.AbelianVariety ℚ); K a number field acting through End⁰."
+      ],
+      "proofSteps": [
+        "Definition: the pair (A, K → End⁰(A)) with [K:ℚ] = dim A; End⁰ and V_p are supplied by AbelianSchemesAndArithmeticModuli A6 and A3.",
+        "V_p(A) is free of rank 2 over K ⊗ ℚ_p, because it has ℚ_p-dimension 2 dim A = 2[K : ℚ] and K ⊗ ℚ_p acts faithfully (a standard lemma for GL₂-type varieties; A6); hence each V_λ(A) has K_λ-dimension 2.",
+        "The V_λ(A) are odd, weight two (Hodge–Tate weights 0 and −1 at p) and form a compatible system as λ varies; this is the form in which Snowden and Khare–Wintenberger use them."
+      ],
+      "acceptance": [
+        "An elliptic curve over ℚ is of GL₂(ℚ)-type; J₀(23) is of GL₂(ℚ(√5))-type (dimension 2).",
+        "E × E for an elliptic curve E is not of GL₂(ℚ)-type (dimension 2 ≠ 1), though it is of GL₂(K)-type for no field K ⊇ ℚ of degree 2 unless End⁰ contains one."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.dim",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "AbelianSchemesAndArithmeticModuli:A3"
+      ],
+      "sources": [
+        {
+          "sourceId": "Snowden09-arXiv",
+          "locator": "§9.4, before Lemma 9.4.3, p. 29",
+          "match": "The definition used."
+        },
+        {
+          "sourceId": "KW04-arXiv",
+          "locator": "§3, Theorem 3.1(ii), p. 16",
+          "match": "The same notion in Khare–Wintenberger's form."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.IsGL2Type"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/snowden-realisation",
+          "how": "The output of the realisation theorem."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/reduction-of-the-realisation",
+          "how": "Its reduction type is read off the λ-adic representation."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-p-plus-one-excluded-at-schoof-primes",
+          "how": "The semistable abelian variety to which Schoof's theorem is applied."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded",
+          "how": "The abelian variety with good reduction everywhere to which Fontaine's theorem is applied."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SmallRamification.IsGL2Type",
+          "role": "constructor",
+          "statement": "IsGL2Type A K : a ring homomorphism K →+* End⁰(A) with finrank ℚ K = A.dim."
+        },
+        {
+          "name": "TauCeti.SmallRamification.IsGL2Type.lambdaAdicRep",
+          "role": "data",
+          "statement": "The two-dimensional K_λ-representation V_λ(A) of G_ℚ for a prime λ of K."
+        },
+        {
+          "name": "TauCeti.SmallRamification.IsGL2Type.finrank_lambdaAdicRep",
+          "role": "other",
+          "statement": "V_λ(A) has K_λ-dimension 2."
+        },
+        {
+          "name": "TauCeti.SmallRamification.IsGL2Type.isogeny",
+          "role": "compatibility",
+          "statement": "The GL₂(K)-type structure transfers along a K-equivariant isogeny, with the same λ-adic representations."
+        },
+        {
+          "name": "TauCeti.SmallRamification.ComesFromGL2Type",
+          "role": "characterisation",
+          "statement": "ρ comes from a GL₂-type abelian variety iff ∃ K, A, embedding K → ℚ̄_p, ρ ≅ V_λ(A) ⊗ ℚ̄_p."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SmallRamification.isGL2Type_ellipticCurve",
+          "kind": "value",
+          "statement": "An elliptic curve over ℚ with K = ℚ is of GL₂-type, and V_p is its rational Tate module."
+        },
+        {
+          "name": "TauCeti.SmallRamification.isGL2Type_J0_23",
+          "kind": "value",
+          "statement": "J₀(23), of dimension 2 with ℚ(√5) acting through Hecke operators, is of GL₂(ℚ(√5))-type."
+        },
+        {
+          "name": "TauCeti.SmallRamification.not_isGL2Type_prod_rat",
+          "kind": "non-example",
+          "statement": "E × E with K = ℚ is not of GL₂(ℚ)-type: [K:ℚ] = 1 ≠ 2 = dim; a definition without the dimension condition would admit it and give four-dimensional V_λ."
+        },
+        {
+          "name": "TauCeti.SmallRamification.isGL2Type_zero",
+          "kind": "degenerate",
+          "statement": "The zero abelian variety is of GL₂-type for no number field (dimension 0 < [K:ℚ])."
+        }
+      ]
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/descent-of-gl2-type-realisation",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "Descent of a GL₂-type realisation along a finite extension (Snowden Lemma 9.4.4)",
+      "kind": "lemma",
+      "statement": "Let F be a number field, ρ : G_F → GL₂(ℚ̄_p) irreducible, and F′/F finite with ρ|G_{F′} irreducible and coming from a GL₂-type abelian variety over F′. Then ρ comes from a GL₂-type abelian variety over F.",
+      "hypotheses": [
+        "ρ irreducible, and still irreducible on G_{F′}."
+      ],
+      "proofSteps": [
+        "Let A′/F′ be of GL₂(K′)-type with ρ|G_{F′} ≅ T_p A′ ⊗_{O_{K′}} ℚ̄_p, and B = Res_{F′/F} A′ with End_{F,K′}(B) = ⊕_{i∈I} K_i′, K_i′ simple K′-algebras attached to the simple factors A_i′ of B.",
+        "Faltings's isogeny theorem (FaltingsFinitenessAndIsogenyTheorems R28.4) gives End_{F,K′}(B) ⊗_{K′} ℚ̄_p = End_{ℚ̄_p[G_F]}(Ind_{F′}^F (ρ|G_{F′})).",
+        "By Frobenius reciprocity Hom_{G_F}(Ind(ρ|G_{F′}), ρ) = End_{G_{F′}}(ρ|G_{F′}) = ℚ̄_p, so ρ occurs with multiplicity one in the semisimple Ind(ρ|G_{F′}), and its isotypic projector is a canonical factor ℚ̄_p of the endomorphism algebra.",
+        "That factor lies in a unique K_i′ ⊗ ℚ̄_p, forcing K_i′ = K to be a field; A = A_i′ is of GL₂(K)-type and ρ ≅ T_p A ⊗_{O_K} ℚ̄_p."
+      ],
+      "acceptance": [
+        "For F′ = F the lemma is trivial; Snowden applies it with F′ of odd degree obtained from potential modularity."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "Snowden09-arXiv",
+          "locator": "§9.4, Lemma 9.4.4 and proof, pp. 29–30",
+          "match": "The lemma and its proof, which Snowden takes from Taylor's Corollary 2.4."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.comesFromGL2Type_of_restrict"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/snowden-realisation",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "Snowden's realisation: odd weight-two representations of G_ℚ come from GL₂-type abelian varieties",
+      "kind": "theorem",
+      "statement": "Let ρ : G_ℚ → GL₂(ℚ̄_p) be continuous, finitely ramified, odd and of weight two (de Rham at p with Hodge–Tate weights 0 and −1), and suppose ρ̄|G_{ℚ(ζ_p)} is absolutely irreducible (Snowden's (A1); his (A2) is automatic over ℚ). Then there are a number field K, an embedding K → ℚ̄_p and an abelian variety A/ℚ of GL₂(K)-type with ρ ≅ T_p A ⊗_{O_K} ℚ̄_p.",
+      "hypotheses": [
+        "ρ as stated; F = ℚ, which has odd degree."
+      ],
+      "proofSteps": [
+        "Potential modularity (Snowden Theorem 5.1.2; PotentialModularityAndCompatibleSystems R23.4, requested): there is a finite totally real Galois extension F″/ℚ, linearly disjoint from the kernel field of ρ̄, and a parallel weight two Hilbert eigenform f″ over F″ with ρ|G_{F″} ≅ ρ_{f″}.",
+        "Let H be a 2-Sylow subgroup of Gal(F″/ℚ) and F′ = (F″)^H, of odd degree over ℚ. Since H is solvable, cyclic base change and descent (GL2AutomorphicRepresentationsAndTransfer R17.4) give a parallel weight two Hilbert eigenform f′ over F′ with ρ|G_{F′} ≅ ρ_{f′}; ρ|G_{F′} stays irreducible by linear disjointness.",
+        "F′ has odd degree, so f′ transfers by Jacquet–Langlands (R17.3) to a quaternion algebra split at exactly one infinite place, and ρ_{f′} occurs in the Jacobian of the associated Shimura curve (Hida, Theorem 4.12; HilbertModularVarietiesAndShimuraCurves R18.6): ρ|G_{F′} comes from a GL₂-type abelian variety over F′ (Snowden Lemma 9.4.3).",
+        "R25.5/descent-of-gl2-type-realisation descends it to ℚ."
+      ],
+      "acceptance": [
+        "Khare–Wintenberger's Theorem 3.1(ii) obtains the same abelian variety over ℚ by Blasius–Rogawski, Galois descent and Faltings; both routes rest on potential modularity, not on Serre's conjecture, so there is no circularity with R26/R33.",
+        "The hypothesis (A1) is needed for potential modularity; at level one it is supplied by R25.5/level-one-dihedral-classification in every case used here (DP23 Remark 5 makes the same point at p = 5)."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/descent-of-gl2-type-realisation",
+        "PotentialModularityAndCompatibleSystems:R23.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+        "HilbertModularVarietiesAndShimuraCurves:R18.6"
+      ],
+      "sources": [
+        {
+          "sourceId": "Snowden09-arXiv",
+          "locator": "§9.4, Proposition 9.4.1, p. 29",
+          "match": "The statement, applied with F = ℚ."
+        },
+        {
+          "sourceId": "Snowden09-arXiv",
+          "locator": "§9.4, proof of Proposition 9.4.1, p. 30",
+          "match": "Steps 1–3."
+        },
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§2, Paso 6, p. 14",
+          "match": "The use in the modern proof."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.comesFromGL2Type_of_weightTwo"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Snowden's realisation"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/reduction-of-the-realisation",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "The reduction type of the realising abelian variety",
+      "kind": "lemma",
+      "statement": "In the situation of R25.5/snowden-realisation, let A be the GL₂(K)-type abelian variety with ρ ≅ V_λ(A) ⊗ ℚ̄_p. (i) If ρ is unramified at a prime ℓ ≠ p, A has good reduction at ℓ; if the Weil–Deligne representation of ρ at ℓ has unramified semisimple part, A has semistable reduction at ℓ. (ii) If ρ|G_{ℚ_p} is crystalline, A has good reduction at p; if it is semistable with Weil–Deligne type a twist of Steinberg, A has semistable (multiplicative) reduction at p. (iii) dim A = [K : ℚ] ≥ 1.",
+      "hypotheses": [
+        "A of GL₂(K)-type realising ρ."
+      ],
+      "proofSteps": [
+        "The λ′-adic representations V_{λ′}(A), for all primes λ′ of K, form a compatible system whose Weil–Deligne representations at each prime ℓ are defined over K and independent of λ′ ∤ ℓ (NeronModelsAndSemistableAbelianVarieties R11.5, requested; for λ′ ∣ ℓ via the p-adic comparison of R06).",
+        "(i) Néron–Ogg–Shafarevich and Grothendieck's criterion (R11.5, R11.3): good reduction at ℓ iff inertia acts trivially on V_{λ′}(A) for λ′ ∤ ℓ, semistable iff it acts unipotently. The Weil–Deligne representation of V_λ(A) at ℓ is that of ρ; by independence the same holds for every λ′.",
+        "(ii) At p, crystalline (resp. semistable) V_λ(A) has unramified Weil–Deligne representation with N = 0 (resp. unramified semisimple part); by independence the ℓ-adic members (ℓ ≠ p) are unramified (resp. unipotent) at p, and (i) at the prime p gives good (resp. semistable) reduction.",
+        "(iii) is the dimension condition of R25.5/gl2-type-abelian-variety; A ≠ 0 since V_λ(A) ≅ ρ is nonzero."
+      ],
+      "acceptance": [
+        "A weight-two lift that is Steinberg at 5 and unramified elsewhere gives A semistable at 5 with good reduction outside 5 (DP23 Paso 6).",
+        "A crystalline weight-two lift unramified outside p gives A with good reduction everywhere (KW04 Theorem 4.1(i))."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/snowden-realisation",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety",
+        "NeronModelsAndSemistableAbelianVarieties:R11.5",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3"
+      ],
+      "sources": [
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§2, Paso 6, p. 14",
+          "match": "Statement (ii) at p = 5, with (i)."
+        },
+        {
+          "sourceId": "KW04-arXiv",
+          "locator": "§3, proof of Theorem 3.1, p. 18",
+          "match": "The same step in Khare–Wintenberger."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.reduction_of_comesFromGL2Type"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/level-one-dihedral-classification",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "Level-one dihedral residual representations (Wintenberger)",
+      "kind": "lemma",
+      "statement": "Let p be an odd prime and ρ̄ : G_ℚ → GL₂(F̄_p) odd, absolutely irreducible and unramified outside p. (i) If ρ̄|G_{ℚ(ζ_p)} is reducible, the projective image of ρ̄ is dihedral. (ii) If the projective image is dihedral, then p ≡ 3 (mod 4), the class number of ℚ(√−p) is greater than 1, the image of I_p in the projective image has order 2, and a twist of ρ̄ has Serre weight (p + 1)/2. Consequently (A1) holds for ρ̄ whenever p ≡ 1 (mod 4), or p ∈ {3, 7, 11, 19, 43, 67, 163}, or the twist-normalised weight k(ρ̄) differs from (p + 1)/2; in particular for p ∈ {5, 7, 13} and for k(ρ̄) ∈ {2, 4, 6, 8, 14}.",
+      "hypotheses": [
+        "p odd; ρ̄ odd, absolutely irreducible, unramified outside p; weights are normalised by a twist to 2 ≤ k(ρ̄) ≤ p + 1."
+      ],
+      "proofSteps": [
+        "(i) DP23 Lemma 1.13: reducibility over ℚ(ζ_p) forces a solvable image; by Dickson's classification (ArithmeticGaloisRepresentations R01.4) the image lies in the normaliser of a Cartan subgroup (A₄ and S₄ have no normal subgroup with the required quotient), so the projective image is dihedral, attached to the quadratic subfield ℚ(√p*) of ℚ(ζ_p).",
+        "(ii) Let the projective image be D_{2t}. t is odd, since otherwise D_{2t} has a quotient (ℤ/2)² and ℚ would have an unramified quadratic extension. The unique quadratic character η of D_{2t} cuts out a field K ramified at p; oddness puts complex conjugation outside the cyclic part, so K is imaginary, K = ℚ(√−p) and p ≡ 3 (mod 4).",
+        "The field cut out by the projective image is unramified over K (a generator of the image of I_p has order 2, being inverted by η), so t divides the class number h_K (class field theory, Tau Ceti ClassFieldTheory Layer 12); h_K is odd, and t > 1 gives h_K > 1. The decomposition group at p then maps onto the order-2 subgroup, I_p acts through characters of niveau 1, and after twisting they are 1 and ω^{k−1} with ω^{k−1} of order 2, so k − 1 = (p − 1)/2.",
+        "Consequences: p ≡ 1 (mod 4) or h(ℚ(√−p)) = 1 excludes a dihedral projective image; for p ∈ {5, 13} the first and for p = 7 the second applies (h(ℚ(√−7)) = 1). For k ∈ {2, 4, 6, 8, 14}, (p + 1)/2 = k would force p ∈ {3, 7, 11, 15, 27}, and for p ∈ {3, 7, 11} the class number of ℚ(√−p) is 1."
+      ],
+      "acceptance": [
+        "p = 23: Δ mod 23 is dihedral of weight 12 = (23 + 1)/2, and h(ℚ(√−23)) = 3, consistent with the lemma.",
+        "The lemma removes the hypothesis (A1) from the terminal theorems at p ∈ {5, 7, 13} without importing the bad-dihedral analysis of ClassicalSerreModularity, which consumes this roadmap."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.4",
+        "AlgebraicModularFormsAndSerreWeights:R15.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "Khare05-arXiv",
+          "locator": "§5, Lemma 5.1 (Wintenberger) and proof, pp. 20–21",
+          "match": "Part (ii)."
+        },
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§1.2, Lemma 1.13, p. 8",
+          "match": "Part (i)."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.levelOne_dihedral_classification"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/ordinary-reducible-terminal-weights",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "Ordinary residually reducible members at the terminal weights are modular of level one",
+      "kind": "lemma",
+      "statement": "Let (p, k) ∈ {(3, 2), (3, 4), (5, 6), (7, 8), (13, 14)} and let ρ : G_ℚ → GL₂(ℚ̄_p) be odd, irreducible, unramified outside p and crystalline at p with Hodge–Tate weights {0, k − 1}, with reducible reduction ρ̄. Then ρ̄^{ss} ≅ 1 ⊕ ω^{k−1} up to twist, ρ is ordinary and p-distinguished at p, and ρ arises from a newform in S_k(SL₂(ℤ)). As S_k(SL₂(ℤ)) = 0 for these k, no such ρ exists.",
+      "hypotheses": [
+        "(p, k) in the stated list; in particular k ≤ p + 1 and k is even."
+      ],
+      "proofSteps": [
+        "Ordinarity: for k ≤ p + 1, a crystalline representation with Hodge–Tate weights {0, k − 1} and reducible reduction is ordinary. This is Fontaine–Laffaille for k ≤ p (here (3, 2)) and the Berger–Li–Zhu calculation for k = p + 1 (here (3, 4), (5, 6), (7, 8), (13, 14)); OrdinaryAutomorphicFormsAndModularityLifting R21.5 supplies it as the crystalline-to-ordinary criterion.",
+        "Shape: ordinarity gives ρ|I_p ≅ (χ_p^{k−1} ∗; 0 1). The two characters of ρ̄^{ss} are unramified outside p and are determined by their restrictions to I_p, since ℚ has no unramified extension (R25.3/etale-group-schemes-over-integers-are-constant); so ρ̄^{ss} ≅ 1 ⊕ ω^{k−1}. As k − 1 is odd and p − 1 is even, ω^{k−1}|I_p ≠ 1: ρ is p-distinguished and ρ̄|D_p is nontrivial.",
+        "Skinner–Wiles (R21.5; DP23 Theorem 1.7 at p = 3) then gives modularity by a newform of weight k; the level is 1 because ρ is unramified outside p and crystalline at p.",
+        "S_k(SL₂(ℤ)) = 0 for k ∈ {2, 4, 6, 8} (CuspForm.rank_eq_zero_of_weight_lt_twelve) and for k = 14 (ModularForm.dimension_level_one: dim M₁₄ = 1, spanned by E₁₄). So ρ does not exist."
+      ],
+      "acceptance": [
+        "At (p, k) = (11, 12) the argument must fail: Δ gives an irreducible level-one system of weight 12 whose 11-adic member has irreducible reduction.",
+        "DP23 justifies the nontriviality on D_3 by 'Serre's weight is not 3'; here it follows from ω^{k−1}|I_3 ≠ 1 for k ∈ {2, 4}."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+        "mathlib:CuspForm.rank_eq_zero_of_weight_lt_twelve",
+        "mathlib:ModularForm.dimension_level_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§2, Paso 6, p. 14",
+          "match": "The case p = 3, k ∈ {2, 4}."
+        },
+        {
+          "sourceId": "KW04-arXiv",
+          "locator": "§4, proof of Theorem 4.3, p. 20",
+          "match": "The case (5, 6); the cases (7, 8) and (13, 14) are the same argument on pp. 20–21."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.no_levelOne_crystalline_of_reducible_terminal"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "No level-one residual representation of Serre weight 2",
+      "kind": "theorem",
+      "statement": "Let p be a prime. There is no continuous, odd, absolutely irreducible ρ̄ : G_ℚ → GL₂(F̄_p), unramified outside p, with Serre weight k(ρ̄) = 2.",
+      "hypotheses": [
+        "Serre's weight k(ρ̄) (AlgebraicModularFormsAndSerreWeights R15.4), normalised by a twist to 2 ≤ k(ρ̄) ≤ p + 1."
+      ],
+      "proofSteps": [
+        "p = 2, 3: R25.2/tate-serre-base-case.",
+        "p ≥ 5: (A1) holds by R25.5/level-one-dihedral-classification, since (p + 1)/2 = 2 would force p = 3.",
+        "p ≥ 5: a minimally ramified crystalline lift ρ with Hodge–Tate weights {0, 1}, unramified outside p (Khare–Wintenberger lifting, DP23 Theorem 1.9(3); PotentialModularityAndCompatibleSystems R24.3, requested), is odd and of weight two.",
+        "R25.5/snowden-realisation gives a GL₂-type A/ℚ with ρ ≅ V_λ(A) ⊗ ℚ̄_p; by R25.5/reduction-of-the-realisation A has good reduction everywhere and dim A ≥ 1.",
+        "This contradicts R25.3/fontaine-theorem."
+      ],
+      "acceptance": [
+        "For p ≥ 5 this is KW04 Theorem 4.1(i), whose finite-flat form is: there is no irreducible finite flat group scheme of type (p, p) over ℤ.",
+        "Snowden's realisation needs only (A1), not a non-solvable image, so the soluble images with (A1) are covered here as well."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-serre-base-case",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/level-one-dihedral-classification",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/snowden-realisation",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/reduction-of-the-realisation",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
+        "PotentialModularityAndCompatibleSystems:R24.3",
+        "AlgebraicModularFormsAndSerreWeights:R15.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "KW04-arXiv",
+          "locator": "§4, Theorem 4.1(i), p. 18",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "KW04-arXiv",
+          "locator": "§4, proof of Theorem 4.1, pp. 18–19",
+          "match": "The route through Fontaine's theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.not_levelOne_weight_two"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-p-plus-one-excluded-at-schoof-primes",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "No level-one residual representation of weight p + 1 for p ∈ {5, 7, 13}",
+      "kind": "theorem",
+      "statement": "Let p ∈ {5, 7, 13}. There is no continuous, odd, absolutely irreducible ρ̄ : G_ℚ → GL₂(F̄_p), unramified outside p, with k(ρ̄) = p + 1.",
+      "hypotheses": [
+        "p ∈ {5, 7, 13}; k(ρ̄) = p + 1."
+      ],
+      "proofSteps": [
+        "(A1) holds by R25.5/level-one-dihedral-classification (5, 13 ≡ 1 mod 4; h(ℚ(√−7)) = 1).",
+        "A lift ρ with Hodge–Tate weights {0, 1}, Steinberg Weil–Deligne type (ω₁ ⊕ 1, N ≠ 0) at p and unramified elsewhere exists (DP23 Theorem 1.9(4), due to Gee and Snowden; KW04 Theorem 3.1 in the weight p + 1 semistable case; R24.3).",
+        "R25.5/snowden-realisation and R25.5/reduction-of-the-realisation give a GL₂-type A/ℚ, dim A ≥ 1, semistable at p with good reduction at every other prime.",
+        "R25.4/schoof-theorem at l = p ∈ {5, 7, 13} excludes A."
+      ],
+      "acceptance": [
+        "DP23's Paso 6 uses p = 5 (weight 6); KW04 Theorems 4.1(iii) and 4.3 use p = 5, 7, 13 (weights 6, 8, 14).",
+        "At p = 11 the statement is false in spirit: J₀(11) is semistable with good reduction outside 11, and Schoof's theorem does not cover 11."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/level-one-dihedral-classification",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/snowden-realisation",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/reduction-of-the-realisation",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-theorem",
+        "PotentialModularityAndCompatibleSystems:R24.3",
+        "AlgebraicModularFormsAndSerreWeights:R15.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "KW04-arXiv",
+          "locator": "§4, Theorem 4.1(iii), p. 18",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§2, Paso 6, p. 14",
+          "match": "The case p = 5."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.not_levelOne_weight_succ_of_schoofPrime"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-fourteen-at-eleven-is-a-twist",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "At p = 11, a level-one representation of weight 14 is a twist of one of weight 2",
+      "kind": "lemma",
+      "statement": "Let ρ̄ : G_ℚ → GL₂(F̄_11) be odd, irreducible and unramified outside 11 with k(ρ̄) = 14. Then ρ̄ ⊗ ω^{−1} is unramified outside 11 with k(ρ̄ ⊗ ω^{−1}) = 2, where ω is the mod-11 cyclotomic character; so no such ρ̄ exists by R25.5/weight-two-level-one-excluded.",
+      "hypotheses": [
+        "p = 11, k(ρ̄) = 14."
+      ],
+      "proofSteps": [
+        "Serre's weight recipe (AlgebraicModularFormsAndSerreWeights R15.4): for 2 ≤ k′ ≤ p − 1, twisting by ω raises the weight by p + 1 (the effect of the θ-operator), k(ρ̄′ ⊗ ω) = k′ + p + 1. For p = 11 and k(ρ̄) = 14 = 2 + 12, the recipe applied to ρ̄|I_11 shows k(ρ̄ ⊗ ω^{−1}) = 2.",
+        "Twisting by ω preserves irreducibility, oddness and ramification outside 11, and (A1) is preserved.",
+        "R25.5/weight-two-level-one-excluded applies to ρ̄ ⊗ ω^{−1}."
+      ],
+      "acceptance": [
+        "This is the exceptional transition 'k = 14 at p = 11' of KW04 Theorem 4.3; it needs Serre's weight recipe, not a discriminant bound."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded",
+        "AlgebraicModularFormsAndSerreWeights:R15.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "KW04-arXiv",
+          "locator": "§4, proof of Theorem 4.3, p. 21",
+          "match": "The statement and its justification."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.weight_fourteen_eleven_twist"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/small-weight-level-one-exclusion",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "Khare–Wintenberger: no level-one representation of weight at most 8 or 14",
+      "kind": "theorem",
+      "statement": "There is no continuous, odd, absolutely irreducible ρ̄ : G_ℚ → GL₂(F̄_p) (any p), unramified outside p, with 2 ≤ k(ρ̄) ≤ 8 or k(ρ̄) = 14 (weights normalised by a twist to 2 ≤ k ≤ p + 1). In particular, for p ∈ {2, 3, 5, 7} there is no odd absolutely irreducible ρ̄ unramified outside p.",
+      "hypotheses": [
+        "Weights normalised as in R25.5/level-one-dihedral-classification; k(ρ̄) is even for level one."
+      ],
+      "proofSteps": [
+        "k(ρ̄) is even (det ρ̄ = ω^{k−1} is odd), and (A1) holds for every weight in the list by R25.5/level-one-dihedral-classification.",
+        "Residual weights of the auxiliary members: the ℓ-adic member of a level-one crystalline system of weight k = ℓ + 1 (or 2) has reduction of Serre weight ℓ + 1 or 2 up to twist (R15.4 with R21.5); so once those weights are excluded at ℓ, the reduction is reducible.",
+        "k = 2: R25.5/weight-two-level-one-excluded.",
+        "k = 4, p > 3: the level-one crystalline system of weight 4 through a minimal lift (R24.3, R24.5) has a 3-adic member crystalline at 3 with reducible reduction (R25.2/serre-mod-three-theorem), excluded by R25.5/ordinary-reducible-terminal-weights at (3, 4); for p ≤ 3, R25.2.",
+        "k = 6: p = 5 by R25.5/weight-p-plus-one-excluded-at-schoof-primes; p > 5 by the 5-adic member and (5, 6), its reduction having weight 6 or 2 up to twist and hence being reducible by the cases already done at p = 5.",
+        "k = 8: p = 7 by R25.5/weight-p-plus-one-excluded-at-schoof-primes; p > 7 by the 7-adic member and (7, 8), its reduction having weight 8 or 2.",
+        "k = 14: p = 11 by R25.5/weight-fourteen-at-eleven-is-a-twist; p = 13 by R25.5/weight-p-plus-one-excluded-at-schoof-primes; p > 13 by the 13-adic member and (13, 14), its reduction having weight 14 or 2.",
+        "The last sentence: every level-one ρ̄ mod p has, after twisting, even weight at most p + 1 ≤ 8 for p ≤ 7, all excluded."
+      ],
+      "acceptance": [
+        "The list stops at 8 and 14: weight 12 carries Δ, and weight 10 needs the weight-reduction argument of Khare's §6.1, which uses the level-one weight-2 case proved here.",
+        "The final proof of R26 lists these exceptional weights explicitly, as R26.5 requires."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/ordinary-reducible-terminal-weights",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-p-plus-one-excluded-at-schoof-primes",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-fourteen-at-eleven-is-a-twist",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/level-one-dihedral-classification",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/serre-mod-three-theorem",
+        "PotentialModularityAndCompatibleSystems:R24.5",
+        "PotentialModularityAndCompatibleSystems:R24.3",
+        "AlgebraicModularFormsAndSerreWeights:R15.4",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5"
+      ],
+      "sources": [
+        {
+          "sourceId": "KW04-arXiv",
+          "locator": "§4, Theorem 4.3, p. 19",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "KW04-arXiv",
+          "locator": "§4, Corollary 4.4, p. 21",
+          "match": "The corollary."
+        },
+        {
+          "sourceId": "Khare05-arXiv",
+          "locator": "§1.1, p. 3",
+          "match": "How R26 consumes the theorem."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.not_levelOne_small_weight"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Small-weight level-one exclusion"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.5/paso-six-terminal-cases",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5"
+      ],
+      "title": "The terminal characteristic-five step of the modern proof (DP23 Paso 6)",
+      "kind": "application",
+      "statement": "Let {ρ_ℓ} be an almost strictly compatible system with empty ramification set whose reduction ρ̄₅ at 5 is irreducible and not bad-dihedral. If k(ρ̄₅) ∈ {2, 4}, the system containing a minimal crystalline lift of ρ̄₅ has a modular 3-adic member; if k(ρ̄₅) = 6, the case does not occur.",
+      "hypotheses": [
+        "Level one at 5; ρ̄₅ irreducible. It is automatically not bad-dihedral, that is (A1) holds, by R25.5/level-one-dihedral-classification (5 ≡ 1 mod 4)."
+      ],
+      "proofSteps": [
+        "k ∈ {2, 4}: the 3-adic member ρ̃₃ of the system through the minimal crystalline lift (DP23 Theorem 1.9(3)) is crystalline at 3 with Hodge–Tate weights {0, k − 1} and unramified outside 3. Its reduction is reducible by R25.2/serre-mod-three-theorem, and R25.5/ordinary-reducible-terminal-weights at (3, k) shows it is ordinary, 3-distinguished and modular of level one (in fact it cannot exist, as S₂ = S₄ = 0).",
+        "k = 6: R25.5/weight-p-plus-one-excluded-at-schoof-primes at p = 5."
+      ],
+      "acceptance": [
+        "This is exactly what ClassicalSerreModularity R33.4 consumes: the dimension, reduction and local type of the abelian variety are verified in R25.5/reduction-of-the-realisation before Schoof's theorem is applied."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/ordinary-reducible-terminal-weights",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-p-plus-one-excluded-at-schoof-primes",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/level-one-dihedral-classification",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/serre-mod-three-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§2, Paso 6, p. 14",
+          "match": "The two branches."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Terminal",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.paso_six"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.6/base-case-table",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.6",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.6"
+      ],
+      "title": "The base-case table for Serre's conjecture",
+      "kind": "definition",
+      "statement": "The finite table BaseCases whose rows record, for each base case used by ClassicalSerreModularity R26 and R33: the residual characteristic, the weights, the ramification (level) condition, the image condition, the coefficient assumptions, the proving node or supplier stage, the consuming stage, and the local check at the transition. The rows are: (1) p = 2, level one, any weight, any image — Tate, R25.2/tate-theorem — used by R26 (initial characteristic) and DP23 Theorem 1.1. (2) p = 3, level one, odd, any weight — Serre, R25.2/serre-mod-three-theorem — R26, R33.4 (3-adic members). (3) abelian varieties over ℚ with good reduction everywhere, every dimension — Fontaine, R25.3/fontaine-theorem — R26.5 via weight 2 at level one. (4) semistable abelian varieties with good reduction outside l ∈ {2, 3, 5, 7, 13} (exact set) — Schoof, R25.4/schoof-theorem — R26.5 (weights p + 1, p ∈ {5, 7, 13}; conductor l in KW04 Theorem 4.1(ii)) and R33.4 (l = 5). (5) level one, k = 2, any p — R25.5/weight-two-level-one-excluded. (6) level one, k = p + 1, p ∈ {5, 7, 13} — R25.5/weight-p-plus-one-excluded-at-schoof-primes. (7) crystalline level-one p-adic members with reducible reduction at (p, k) ∈ {(3, 2), (3, 4), (5, 6), (7, 8), (13, 14)} — R25.5/ordinary-reducible-terminal-weights — R33.4 (p = 3) and R26.5. (8) level one, 2 ≤ k ≤ 8 or k = 14 — R25.5/small-weight-level-one-exclusion — R26.5. (9) Paso 6 at p = 5 — R25.5/paso-six-terminal-cases — R33.4. Degenerate branches recorded with their suppliers outside R25: soluble image (Langlands–Tunnell, R17.5; characteristic two, Rohrlich–Tunnell, R17.6), residually reducible (Skinner–Wiles, R21.5; Pan), failure of (A1) away from level one (bad-dihedral, R27.1 and R33.2).",
+      "hypotheses": [
+        "None: a finite list of records."
+      ],
+      "proofSteps": [
+        "Definition: a List of records with the listed fields; the proving field names a node of this packet or a supplier stage.",
+        "Each exceptional transition carries its own local check rather than a clause 'small primes': ordinarity at 3 for k = 2, 4 (row 7, Berger–Li–Zhu); Steinberg at p implies semistable reduction at p (row 6, R25.5/reduction-of-the-realisation); the twist at p = 11, k = 14 (row 8, R25.5/weight-fourteen-at-eleven-is-a-twist); (A1) at level one from R25.5/level-one-dihedral-classification (rows 5, 6, 8, 9)."
+      ],
+      "acceptance": [
+        "Every row consumed by R26 or R33 names a terminal theorem, as the roadmap's consumer contract requires."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/serre-mod-three-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-p-plus-one-excluded-at-schoof-primes",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/ordinary-reducible-terminal-weights",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/small-weight-level-one-exclusion",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/paso-six-terminal-cases"
+      ],
+      "sources": [
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§1.1, pp. 3–4",
+          "match": "The modern proof's base cases: Theorems 1.1–1.3."
+        },
+        {
+          "sourceId": "Khare05-arXiv",
+          "locator": "§1.1, pp. 2–3",
+          "match": "Khare's base cases."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/BaseCases",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.baseCases"
+      },
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "ClassicalSerreModularity:R26.5",
+          "how": "Reads the exceptional characteristics and weights and their terminal theorems."
+        },
+        {
+          "where": "ClassicalSerreModularity:R33.4",
+          "how": "Reads rows 2, 4, 7 and 9 for the terminal characteristic five."
+        },
+        {
+          "where": "ClassicalSerreModularity:R26.1",
+          "how": "Reads rows 1 and 2 for the initial characteristics."
+        },
+        {
+          "where": "SmallRamificationAndAbelianVarietyBaseCases:R25.6/base-case-table-holds",
+          "how": "Each row is proved."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.SmallRamification.BaseCaseRow",
+          "role": "structure",
+          "statement": "Record: characteristic : ℕ, weights : Set ℕ, levelOne : Bool or ramification set, imageCondition, coefficientCondition, supplier : String, consumer : String, localCheck : String."
+        },
+        {
+          "name": "TauCeti.SmallRamification.baseCases",
+          "role": "constructor",
+          "statement": "baseCases : List BaseCaseRow, the nine rows and the recorded degenerate branches."
+        },
+        {
+          "name": "TauCeti.SmallRamification.BaseCaseRow.statement",
+          "role": "projection",
+          "statement": "The Prop asserted by a row (the nonexistence or modularity statement)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.baseCases_schoof_primes",
+          "role": "characterisation",
+          "statement": "The Schoof row's prime set is exactly {2, 3, 5, 7, 13}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.SmallRamification.baseCases_schoof_primes",
+          "kind": "value",
+          "statement": "The Schoof row's prime set is {2, 3, 5, 7, 13}; 11 is not in it, and a table with 'all primes at most 13' would wrongly exclude J₀(11)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.baseCases_tate_no_oddness",
+          "kind": "degenerate",
+          "statement": "The p = 2 row carries no oddness hypothesis (automatic in characteristic two)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.baseCases_weight_list",
+          "kind": "non-example",
+          "statement": "No level-one row covers weight 12: Δ gives an irreducible level-one ρ̄ of weight 12 mod 11 (and mod primes other than the exceptional ones)."
+        },
+        {
+          "name": "TauCeti.SmallRamification.baseCases_fontaine_schoof_distinct",
+          "kind": "value",
+          "statement": "The Fontaine row (good reduction everywhere) and the Schoof row (semistable, one bad prime) are distinct rows with distinct suppliers."
+        }
+      ]
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.6/base-case-table-holds",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.6",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.6"
+      ],
+      "title": "Every row of the base-case table holds",
+      "kind": "theorem",
+      "statement": "For every row r of R25.6/base-case-table, the statement of r holds; the degenerate branches are recorded with their supplier stages and are not proved here.",
+      "hypotheses": [
+        "None."
+      ],
+      "proofSteps": [
+        "Rows 1–2: R25.2. Row 3: R25.3/fontaine-theorem. Row 4: R25.4/schoof-theorem. Rows 5–9: the R25.5 nodes named in the row.",
+        "None of the proofs uses Serre's conjecture: the inputs are discriminant bounds (R25.1), finite flat group schemes, potential modularity (R23), ordinary lifting (R21) and Faltings (R28.4), so the table can initialise the induction of R26 and R33."
+      ],
+      "acceptance": [
+        "The table is independent of the Serre theorem it initialises, as R25.6 requires."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.6/base-case-table",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tate-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/serre-mod-three-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-p-plus-one-excluded-at-schoof-primes",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/ordinary-reducible-terminal-weights",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/small-weight-level-one-exclusion",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/paso-six-terminal-cases"
+      ],
+      "sources": [
+        {
+          "sourceId": "DP23-arXiv",
+          "locator": "§2, end of the proof in odd characteristic, p. 15",
+          "match": "The role of the table."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/BaseCases",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.baseCases_holds"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Base-case table"
+      }
     }
   ],
   "requests": [
     {
       "supplier": "ArithmeticGaloisRepresentations:R01.4",
-      "need": "Finite linear groups in characteristic p ∈ {2, 3}: (1) Dickson's classification of the finite subgroups of PGL_2(F̄_p) (cyclic, dihedral, A_4, S_4, A_5, PSL_2(𝔽_q), PGL_2(𝔽_q), subgroups of a Borel), and of SL_2(F̄_2) ≅ PGL_2(F̄_2); (2) a nontrivial p-subgroup of GL_2(F̄_p) fixes a unique line, its normaliser lies in the stabilising Borel, and its elements are unipotent; (3) a finite abelian subgroup of GL_2(F̄) has a common eigenvector. RS-06 assigns the generic finite GL_2/PGL_2 image classification to R01.4.",
+      "need": "Finite linear groups in characteristic p ∈ {2, 3}: (1) Dickson's classification of the finite subgroups of PGL_2(F̄_p) (cyclic, dihedral, A_4, S_4, A_5, PSL_2(𝔽_q), PGL_2(𝔽_q), subgroups of a Borel), and of SL_2(F̄_2) ≅ PGL_2(F̄_2); (2) a nontrivial p-subgroup of GL_2(F̄_p) fixes a unique line, its normaliser lies in the stabilising Borel, and its elements are unipotent; (3) a finite abelian subgroup of GL_2(F̄) has a common eigenvector. RS-06 assigns the generic finite GL_2/PGL_2 image classification to R01.4. DP23 Lemma 1.13: for odd p and odd ρ̄, absolute irreducibility over ℚ(√p*) is equivalent to absolute irreducibility over ℚ(ζ_p), with the dihedral conclusion when it fails.",
       "neededBy": [
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.1/three-adic-different-bound",
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/irreducible-subgroups-characteristic-two",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/two-adic-different-bound",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.2/irreducible-subgroups-characteristic-three",
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tame-level-one-excluded"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/irreducible-subgroups-characteristic-two",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.2/tame-level-one-excluded",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/level-one-dihedral-classification"
       ]
     },
     {
@@ -2877,12 +3669,13 @@
     },
     {
       "supplier": "AbelianSchemesAndArithmeticModuli:A3",
-      "need": "For an abelian scheme 𝒜 of relative dimension g over ℤ: 𝒜[n] finite flat of order n^{2g}; the quotient of 𝒜 by a finite flat subgroup scheme is an abelian scheme; the Weil pairing identifies the Cartier dual of 𝒜[n] with 𝒜^∨[n]; degrees of isogenies are multiplicative and a separable isogeny has kernel of order its degree. The same torsion, quotient and Weil-pairing statements over ℤ[1/l].",
+      "need": "For an abelian scheme 𝒜 of relative dimension g over ℤ: 𝒜[n] finite flat of order n^{2g}; the quotient of 𝒜 by a finite flat subgroup scheme is an abelian scheme; the Weil pairing identifies the Cartier dual of 𝒜[n] with 𝒜^∨[n]; degrees of isogenies are multiplicative and a separable isogeny has kernel of order its degree. The same torsion, quotient and Weil-pairing statements over ℤ[1/l]. Tate modules of GL₂-type abelian varieties over ℚ.",
       "neededBy": [
         "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.4/schoof-criterion",
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety"
       ]
     },
     {
@@ -2895,9 +3688,10 @@
     },
     {
       "supplier": "AbelianSchemesAndArithmeticModuli:A6",
-      "need": "For an abelian variety A over 𝔽_q: the q-power Frobenius endomorphism F, the separability of 1 − F (its differential is the identity), and #A(𝔽_q) = deg(1 − F).",
+      "need": "For an abelian variety A over 𝔽_q: the q-power Frobenius endomorphism F, the separability of 1 − F (its differential is the identity), and #A(𝔽_q) = deg(1 − F). End⁰ of an abelian variety over ℚ and the freeness of V_p(A) over K ⊗ ℚ_p for GL₂(K)-type A.",
       "neededBy": [
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/gl2-type-abelian-variety"
       ]
     },
     {
@@ -2910,21 +3704,100 @@
     },
     {
       "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.3",
-      "need": "The monodromy criterion in the form used by Schoof: for an abelian variety over ℚ with semistable reduction at l, every σ in an inertia group above l satisfies (σ − 1)² = 0 on the p-adic Tate module for p ≠ l (Grothendieck, SGA 7 IX 3.5). RS-06 links R11.3 to R25.4.",
+      "need": "The monodromy criterion in the form used by Schoof: for an abelian variety over ℚ with semistable reduction at l, every σ in an inertia group above l satisfies (σ − 1)² = 0 on the p-adic Tate module for p ≠ l (Grothendieck, SGA 7 IX 3.5). RS-06 links R11.3 to R25.4. The same criterion is used for the realising abelian varieties of R25.5.",
       "neededBy": [
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/torsion-of-semistable-abelian-varieties-in-d",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/reduction-of-the-realisation"
       ]
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
-      "need": "Global class field theory in the explicit form used for Schoof's cases: for a number field M and a modulus 𝔪, abelian extensions of M of conductor dividing 𝔪 correspond to quotients of the ray class group Cl_𝔪(M), an extension of Cl(M) by (𝓞_M/𝔪)^× modulo the image of the global units; over ℚ this is Kronecker–Weber for conductors lᵏ∞. The conductor–discriminant formula for a relative abelian extension is used with it.",
+      "need": "Global class field theory in the explicit form used for Schoof's cases: for a number field M and a modulus 𝔪, abelian extensions of M of conductor dividing 𝔪 correspond to quotients of the ray class group Cl_𝔪(M), an extension of Cl(M) by (𝓞_M/𝔪)^× modulo the image of the global units; over ℚ this is Kronecker–Weber for conductors lᵏ∞. The conductor–discriminant formula for a relative abelian extension is used with it. An abelian extension of a number field unramified at every place has degree dividing the class number; and for p ≡ 3 (mod 4) the class number of ℚ(√−p) is odd (genus theory).",
       "neededBy": [
         "SmallRamificationAndAbelianVarietyBaseCases:R25.4/class-number-one-certificates",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.4/constant-over-cyclotomic",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l13-p2",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l2-p3",
         "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l5-p2",
-        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l7-p3"
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.4/simple-objects-l7-p3",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/level-one-dihedral-classification"
+      ]
+    },
+    {
+      "supplier": "PotentialModularityAndCompatibleSystems:R23.4",
+      "need": "Potential modularity of a given weight-two lift in Snowden's form (his Theorem 5.1.2): for ρ : G_ℚ → GL₂(ℚ̄_p) finitely ramified, odd, of weight two with (A1), a finite totally real Galois F″/ℚ linearly disjoint from any given finite extension, and a parallel weight two Hilbert eigenform over F″ realising ρ|G_{F″}.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/snowden-realisation"
+      ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+      "need": "Solvable descent: along a Galois extension with 2-group Galois group, a parallel weight two Hilbert eigenform realising ρ upstairs descends to one realising ρ on the fixed field.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/snowden-realisation"
+      ]
+    },
+    {
+      "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+      "need": "Jacquet–Langlands to a quaternion algebra over a totally real field of odd degree split at exactly one infinite place, preserving Hecke eigenvalues.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/snowden-realisation"
+      ]
+    },
+    {
+      "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.6",
+      "need": "For a parallel weight two eigenform transferred to such a quaternion algebra, its Galois representation occurs in the Tate module of the Jacobian of the Shimura curve (Hida, Theorem 4.12), giving a GL₂-type abelian variety (Snowden Lemma 9.4.3).",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/snowden-realisation"
+      ]
+    },
+    {
+      "supplier": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+      "need": "Faltings's isogeny theorem over number fields, End ⊗ ℚ_p = End_{G_F}(V_p), used for restrictions of scalars in Snowden's descent lemma.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/descent-of-gl2-type-realisation"
+      ]
+    },
+    {
+      "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.5",
+      "need": "Néron–Ogg–Shafarevich and Grothendieck's criteria in λ-adic form for GL₂-type abelian varieties, the independence of λ of their Weil–Deligne representations (including λ above the residue characteristic, through the p-adic comparison of R06), and good/semistable reduction at p from crystalline/semistable V_λ.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/reduction-of-the-realisation"
+      ]
+    },
+    {
+      "supplier": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+      "need": "At (p, k) ∈ {(3, 2), (3, 4), (5, 6), (7, 8), (13, 14)}: the crystalline-to-ordinary criterion (Fontaine–Laffaille for k ≤ p, Berger–Li–Zhu for k = p + 1) for crystalline representations with Hodge–Tate weights {0, k − 1} and reducible reduction, and Skinner–Wiles modularity for the resulting ordinary p-distinguished representations with residual 1 ⊕ ω^{k−1}; also the Serre weight (ℓ + 1 or 2 up to twist) of the reduction of a crystalline representation with Hodge–Tate weights {0, ℓ} or {0, 1}.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/ordinary-reducible-terminal-weights",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/small-weight-level-one-exclusion"
+      ]
+    },
+    {
+      "supplier": "PotentialModularityAndCompatibleSystems:R24.3",
+      "need": "The lifts of DP23 Theorem 1.9(3)–(4) and KW04 Theorem 3.1: a minimal crystalline lift of Hodge–Tate weights {0, k(ρ̄) − 1}, and for k(ρ̄) = p + 1 a weight-two lift of Steinberg type at p, unramified outside p for level-one ρ̄.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/small-weight-level-one-exclusion",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-p-plus-one-excluded-at-schoof-primes",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded"
+      ]
+    },
+    {
+      "supplier": "PotentialModularityAndCompatibleSystems:R24.5",
+      "need": "The compatible system through such a lift, with good reduction everywhere (crystalline at the places of odd residue characteristic) in the level-one crystalline case (KW04 Theorem 3.1(i)).",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/small-weight-level-one-exclusion"
+      ]
+    },
+    {
+      "supplier": "AlgebraicModularFormsAndSerreWeights:R15.4",
+      "need": "Serre's weight recipe in the forms used: the normalisation 2 ≤ k ≤ p + 1 by twisting, parity (k even at level one), the θ-shift k(ρ̄ ⊗ ω) = k + p + 1 for 2 ≤ k ≤ p − 1, and the weights of niveau-one dihedral representations.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/level-one-dihedral-classification",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/small-weight-level-one-exclusion",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-fourteen-at-eleven-is-a-twist",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-p-plus-one-excluded-at-schoof-primes",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.5/weight-two-level-one-excluded"
       ]
     }
   ],
@@ -2951,17 +3824,13 @@
     },
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.5",
-      "status": "not_read",
-      "remaining": [
-        "Read DP23 Paso 6 and Theorems 1.7–1.9 and Khare's weight-reduction terminal cases, and plan the geometric realisation of the weight-two compatible systems and the local crystalline-to-ordinary checks at the terminal weights (importing R21.5, R21.6, R24.6)."
-      ]
+      "status": "closed",
+      "remaining": []
     },
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.6",
-      "status": "not_read",
-      "remaining": [
-        "Assemble the base-case table for R26 and R33: each row with characteristic, weight, ramification, image, coefficient field and supplier. The rows p = 2, 3 of level one are R25.2/tate-serre-base-case."
-      ]
+      "status": "closed",
+      "remaining": []
     }
   ],
   "gaps": [],
@@ -3096,6 +3965,20 @@
       "citation": "Andrew M. Odlyzko, Discriminant bounds, Table 2 (29 November 1976)",
       "read": "2026-09-28",
       "sha256": "e24ab07f506b94a7e5f34962abc4a3264e3de5ac6ad2ab23832132827d3da4d0"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/0905.4266",
+      "citation": "Andrew Snowden, On two dimensional weight two odd representations of totally real fields",
+      "read": "2026-09-28",
+      "sha256": "b0c0008a55489b000d6a7b2004f6412c8829243b7254ba0efe152ac6e5fc06a2"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/math/0412076",
+      "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, On Serre's reciprocity conjecture for 2-dimensional mod p representations of Gal(Q̄/Q)",
+      "read": "2026-09-28",
+      "sha256": "bbb14357e34811b1a3459ef62d61be9e9803c21a63613da9469088c16ee17274"
     }
   ]
 }
