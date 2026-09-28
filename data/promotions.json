@@ -250,6 +250,17 @@
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
   },
+  "research/blueprint/packets/AdicEtaleGeometry.json": {
+   "promotedAt": "2026-09-28T15:46:47Z",
+   "review": "41176a02cc56b4d7",
+   "reviewDate": "2026-09-28",
+   "reviewer": "independent-review-REV-AdicEtaleGeometry",
+   "sha256": "83b84ccbd58958b2d07727f9ad6415acd444d7ec985776ca045cb842853e7eb9",
+   "to": [
+    "data/blueprints/AdicEtaleGeometry.json",
+    "data/blueprints/AdicEtaleGeometry.md"
+   ]
+  },
   "research/blueprint/packets/ArithmeticKTheory--N.1.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "66a047520a5fe117",
