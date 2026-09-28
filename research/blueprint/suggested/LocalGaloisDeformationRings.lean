@@ -3,9 +3,10 @@ import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.RingTheory.MvPowerSeries.Basic
 import Mathlib.LinearAlgebra.Matrix.ToLin
+import Mathlib.RingTheory.PowerSeries.Basic
 
 /-!
-# Suggested Lean forms: local Galois deformation rings (LocalGaloisDeformationRings, R08.1)
+# Suggested Lean forms: local Galois deformation rings (LocalGaloisDeformationRings, R08.1–R08.3, L7)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`LocalGaloisDeformationRings`) is definitive. The statements below suggest Lean forms, so that
@@ -56,6 +57,19 @@ kernels of `(A - 1)^i` have the expected rank (here stated as freeness of rank `
 def KernelsHaveRank {m : ℕ} (A : Matrix (Fin m) (Fin m) R) (r : ℕ → ℕ) : Prop :=
   ∀ i, Nonempty (Module.Basis (Fin (r i)) R (LinearMap.ker (Matrix.toLin' ((A - 1) ^ i))))
 
+/-- **`R08.3/hodge-and-galois-types`**: the dimension `(d² − Σ mⱼ²)/2` of the partial flag variety
+of a filtration with jump multiplicities `m`, the contribution of one embedding to
+`dim ad D/Fil⁰ ad D` in Kisin's dimension formula. -/
+def flagDim (m : List ℕ) : ℕ := (m.sum ^ 2 - (m.map (· ^ 2)).sum) / 2
+
+/-- **`L7/finite-height-lattices`**, the non-example: `u` never divides a power of an element
+whose constant term is a non-zero-divisor (such as `E(u)`, with `E(0) = p · unit`), so
+`𝔖/u𝔖` is killed by no power of `E(u)`. -/
+theorem X_not_dvd_pow {A : Type*} [CommRing A] [IsDomain A] (f : PowerSeries A)
+    (hf : PowerSeries.constantCoeff f ≠ 0) (h : ℕ) : ¬ (PowerSeries.X ∣ f ^ h) := by
+  rw [PowerSeries.X_dvd_iff, map_pow]
+  exact pow_ne_zero _ hf
+
 /-!
 ## Signatures against the GlobalGaloisDeformations functors (comment only)
 
@@ -68,6 +82,20 @@ theorem krullDim_localLiftingRing_ge (hℓp : ℓ = p) :
     1 + n ^ 2 + n ^ 2 * [K : ℚ_p] ≤ ringKrullDim (R□ ρbar)
 -- R08.1/archimedean-odd-ring-p2
 theorem oddArchimedeanRing_isDomain : IsDomain (MvPowerSeries (Fin 3) 𝒪 ⧸ Ideal.span {oddArchimedeanEquation a₀ b₀ c₀})
+-- L7/finite-height-lattices and height-lattice-moduli (𝔖 = W⟦u⟧, E(u), M(V) from R07.4)
+structure HeightLattice (h : ℕ) (M : EtalePhiModule 𝒪ℰ_B) where
+  carrier : Submodule 𝔖_B M
+  projective : Module.Projective 𝔖_B carrier
+  spans : Submodule.span 𝒪ℰ_B carrier = ⊤
+  phi_stable : ∀ x ∈ carrier, M.φ x ∈ carrier
+  coker_killed : E ^ h • (carrier : Submodule 𝔖_B M) ≤ Submodule.span 𝔖_B (M.φ '' carrier)
+theorem heightLatticeModuli_closedImmersion_generic : IsClosedImmersion ((Θ A h).baseChange ℚ_p)
+-- R08.3/pst-deformation-ring and pst-generic-fibre
+def pstQuotient (τ : GaloisType K E) (v : HodgeType K E) : Ideal (R□ ρbar)   -- reduced, p-torsion-free
+theorem pstQuotient_points (x : R□ ρbar →+* ℚ̄_p) :
+    RingHom.ker x ≥ pstQuotient τ v ↔ IsPotentiallySemistableOfType (x.comp ρ□) τ v
+theorem pstQuotient_dim (hne : pstQuotient τ v ≠ ⊤) :
+    ringKrullDim (R□ ρbar ⧸ pstQuotient τ v) = 1 + d ^ 2 + v.adQuotDim
 ```
 -/
 
@@ -84,5 +112,17 @@ example : (!![(1 : ℤ), 0; 0, -1]) * !![(1 : ℤ), 0; 0, -1] = 1 := by
 /-- The unipotent `!![1, 1; 0, -1]` over `ℤ` lifts `!![1, 1; 0, 1]` mod 2 and is an involution. -/
 example : (!![(1 : ℤ), 1; 0, -1]) * !![(1 : ℤ), 1; 0, -1] = 1 := by
   ext i j; fin_cases i <;> fin_cases j <;> simp
+
+/-- `R08.3/hodge-and-galois-types`: regular weights in rank two give `1`, the Barsotti–Tate case. -/
+example : flagDim [1, 1] = 1 := by decide
+
+/-- Rank three with multiplicities `(2, 1)`: the flag variety is `ℙ²`. -/
+example : flagDim [2, 1] = 2 := by decide
+
+/-- Regular weights in rank three: `3 = 3·2/2`. -/
+example : flagDim [1, 1, 1] = 3 := by decide
+
+/-- Parallel weights contribute nothing. -/
+example : flagDim [3] = 0 := by decide
 
 end TauCeti.GaloisDeformation.Local.SuggestedTest

@@ -13,7 +13,7 @@
   "LocalGaloisDeformationRings:R08.6"
  ],
  "status": "partial",
- "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38).",
+ "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38). Checkpoint 3 plans R08.3 (Kisin's potentially semistable deformation rings: types, the semistable and Hodge-type quotients, pst rings of fixed type with their crystalline loci and reduced p-torsion-free integral rings, filtered (φ, N)-module deformation theory, Kisin's dimension formula with generic smoothness, smoothness for potentially crystalline rings, and change of coefficients). It also plans L7's bounded-height lattice moduli (Kisin, JAMS 2008, §1), which RS-08 makes L7 own. R08.3 and L7 are partial.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -52,6 +52,7 @@
    "read": "2026-09-28",
    "readSections": [
     "§3.1–3.19, pp. 11–15",
+    "§3.27–3.28 (local deformation rings with l = p), pp. 18–19",
     "§3.29–3.38 (ℓ ≠ p, n = 2), pp. 19–21"
    ]
   },
@@ -102,6 +103,22 @@
    "read": "2026-09-28",
    "readSections": [
     "§3, the deformation problems D^{(χ)}, D^{Stein} and Proposition 3.1, p. 196"
+   ]
+  },
+  {
+   "id": "KISIN-PST-2008",
+   "title": "Potentially semi-stable deformation rings",
+   "authors": "Mark Kisin",
+   "edition": "J. Amer. Math. Soc. 21 (2008), no. 2, 513–546 (electronically published 20 September 2007); the AMS PDF, freely downloadable from ams.org, was read. Printed page = PDF page + 512. It ends with 'Errata for [Ki 2]' (pp. 544–545), corrections to Kisin, Crystalline representations and F-crystals (2006).",
+   "url": "https://www.ams.org/journals/jams/2008-21-02/S0894-0347-07-00576-0/S0894-0347-07-00576-0.pdf",
+   "sha256": "3e70d1f74f1c396d4c520f8f127c18556221139f02a69babc25cfdd50b885556",
+   "read": "2026-09-28",
+   "readSections": [
+    "Introduction, pp. 513–516",
+    "§1 Representations of finite E-height, (1.1)–(1.7), pp. 516–522",
+    "§2.5–2.7, pp. 529–534 (§2.1–2.4 skimmed: Proposition 2.4.7 and Lemma 2.4.6 read)",
+    "§3 The local structure of potentially semi-stable deformation rings, pp. 535–541",
+    "Errata for [Ki 2], pp. 544–545"
    ]
   }
  ],
@@ -971,6 +988,595 @@
    "planet": {
     "name": "Ihara avoidance components"
    }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types",
+   "parentStageId": "LocalGaloisDeformationRings:R08.3",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "title": "p-adic Hodge types and Galois types",
+   "kind": "definition",
+   "statement": "Let E/ℚ_p be finite. A p-adic Hodge type v = (D_E, Fil^i D_{E,K}, 0 ≤ i ≤ h) is a finite-dimensional E-vector space D_E with a filtration of D_{E,K} = D_E ⊗_{ℚ_p} K by E ⊗ K-submodules whose graded pieces lie in degrees [0, h]. For a finite E-algebra B, a de Rham B-representation V_B of G_K is of p-adic Hodge type v if its Hodge–Tate weights lie in [0, h] and gr^i Hom_{B[G_K]}(V_B, B_dR ⊗ B) ≅ gr^i D_{E,K} ⊗_E B for all i. A Galois type is τ : I_K → GL_r(E) with open kernel; a potentially semistable V_B is of type τ if tr(γ | D*_pst(V_B)) = tr τ(γ) for all γ ∈ I_K. The number that enters dimension formulas is dim_E ad D_{E,K}/Fil⁰ad D_{E,K} = Σ_{σ : K → Ē} (d² − Σ_j m_{σ,j}²)/2, with m_{σ,j} the multiplicities of the jumps of the σ-component.",
+   "hypotheses": [
+    "Kisin's functors are contravariant (Hom(V_B, B_•)). With PadicHodgeTheory R06.2's convention HT(χ_p) = +1, 'Hodge–Tate weights in [0, h]' reads the same, and Barsotti–Tate means weights {0, 1}.",
+    "D*_pst and its inertia action are PadicHodgeTheory R06.3/potentially-semistable-dieudonne-module; the Galois type is the inertial part of WD(V) (R06.3/weil-deligne-parameter)."
+   ],
+   "proofSteps": [
+    "The formula for dim ad D/Fil⁰ad D: after ⊗_{ℚ_p}Ē, each embedding σ gives a filtered d-dimensional space with jump multiplicities m_{σ,j}, and ad/Fil⁰ad is the tangent space of the partial flag variety, of dimension (d² − Σ_j m_{σ,j}²)/2."
+   ],
+   "acceptance": [
+    "Regular weights (all multiplicities 1): dim ad D/Fil⁰ = [K : ℚ_p]·d(d − 1)/2.",
+    "d = 2, K = ℚ_p, weights {0, 1}: dim ad D/Fil⁰ = 1.",
+    "Parallel weights (one jump of multiplicity d): dim ad D/Fil⁰ = 0."
+   ],
+   "prerequisites": [
+    "PadicHodgeTheory:R06.2/hodge-tate-weight-convention",
+    "PadicHodgeTheory:R06.3/potentially-semistable-dieudonne-module",
+    "PadicHodgeTheory:R06.3/weil-deligne-parameter",
+    "PadicHodgeTheory:R06.2/filtered-vector-spaces"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "(2.6), p. 531",
+     "match": "Hodge type."
+    },
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "(2.7), pp. 532–533",
+     "match": "Galois type."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.HodgeType",
+     "role": "structure",
+     "statement": "(D_E, Fil^• D_{E,K}) with jumps in [0, h]."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.GaloisType",
+     "role": "structure",
+     "statement": "τ : I_K → GL_r(E) with open kernel."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.IsOfType",
+     "role": "constructor",
+     "statement": "V_B is potentially semistable of type (τ, v)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.HodgeType.adQuotDim",
+     "role": "characterisation",
+     "statement": "dim_E ad D_{E,K}/Fil⁰ = Σ_σ (d² − Σ_j m_{σ,j}²)/2."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+     "how": "the conditions cut out."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:R08.3/pst-generic-fibre",
+     "how": "the dimension formula."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:R08.6",
+     "how": "the types of KW I Theorem 5.1 and of R24's lifts."
+    }
+   ],
+   "tests": [
+    {
+     "name": "adQuotDim_regular",
+     "kind": "example",
+     "statement": "Regular weights give [K : ℚ_p]·d(d − 1)/2 (for d = 2, K = ℚ_p: 1)."
+    },
+    {
+     "name": "adQuotDim_formula",
+     "kind": "characterisation",
+     "statement": "(d² − Σ m_j²)/2 counts pairs of weights in different jumps; checked for d = 3 with multiplicities (2, 1): (9 − 5)/2 = 2."
+    },
+    {
+     "name": "galoisType_open_kernel",
+     "kind": "non-example",
+     "statement": "The restriction to I_K of the cyclotomic character has infinite image, so it is not a Galois type."
+    }
+   ],
+   "planet": {
+    "name": "Hodge and Galois types"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.3/semistable-height-quotient",
+   "parentStageId": "LocalGaloisDeformationRings:R08.3",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "title": "The semistable quotient with Hodge–Tate weights in [0, h]",
+   "kind": "theorem",
+   "statement": "Let A° be a complete local Noetherian W(𝔽)-algebra, A = A°[1/p], V_{A°} finite free of rank r with continuous G_K-action, and h ≥ 0. There is a quotient A_{st,h} of A such that a map ζ : A → B to a finite ℚ_p-algebra factors through A_{st,h} if and only if V_B = V_A ⊗ B is semistable with Hodge–Tate weights in [0, h]. It carries a projective W_{A_{st,h}}-module D of rank r with semilinear φ and linear N, and for such ζ, D ⊗ B ≅ Hom_{B[G_K]}(V_B, B⁺_st ⊗ B) compatibly with φ and N.",
+   "hypotheses": [
+    "Semistable with weights in [0, h] implies E-height ≤ h (Kisin 2006, 1.2.2 and 2.1.5; requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4), so one may first pass to A°^{≤h} (L7/height-lattice-moduli).",
+    "B_st with coefficients and D_st are PadicHodgeTheory R06.1–R06.2 (semistable-period-ring, dst-exact-tensor-fully-faithful)."
+   ],
+   "proofSteps": [
+    "Replace A° by A°^{≤h} and take D_A = 𝔐/u𝔐 from L7/height-lattice-moduli (4).",
+    "Proposition 2.4.7: the maps N : D_B → D_B with pφN = Nφ for which D_B ⊗ B⁺_cris → Hom(V_B, B⁺_st) is G_K-compatible are represented by a quotient A_st; Spec A_st → Spec A is a proper monomorphism, hence closed.",
+    "Proposition 2.5.4: ζ factors through A_st exactly when V_B is semistable; the Hodge–Tate bound follows from the uniqueness of lattices of height ≤ h (Theorem 2.5.5)."
+   ],
+   "acceptance": [
+    "h = 0: all Hodge–Tate weights 0 forces slope 0 and N = 0 by weak admissibility, so A_{st,0} is the unramified locus.",
+    "The quotient is of A = A°[1/p]; nothing is claimed about an integral model at this step.",
+    "Rank one, K = ℚ_p: A_{st,h} cuts out the characters χ_p^i·(unramified) with 0 ≤ i ≤ h, since semistable characters of G_{ℚ_p} are crystalline."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L7/height-lattice-moduli",
+    "LocalGaloisDeformationRings:L7/finite-height-lattices",
+    "PadicHodgeTheory:R06.1/semistable-period-ring",
+    "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Theorem (2.5.5) and its proof, pp. 530–531; Propositions (2.4.7), (2.5.4)",
+     "match": "The statement and construction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.3/hodge-type-components",
+   "parentStageId": "LocalGaloisDeformationRings:R08.3",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "title": "Fixing the p-adic Hodge type selects components",
+   "kind": "lemma",
+   "statement": "Fix a p-adic Hodge type v over E and suppose A is an E-algebra. There is a quotient A_{st,v} of A_{st,h}, corresponding to a union of connected components of Spec A_{st,h}, such that ζ : A → B (B a finite E-algebra) factors through A_{st,v} exactly when V_B is semistable of p-adic Hodge type v.",
+   "hypotheses": [
+    "The filtration on D_B ⊗_{K_0} K is read off from 𝔐: Fil^i φ*(𝔐) = (1 ⊗ φ)^{−1}(E(u)^i𝔐), whose graded pieces are finite projective over K_A = W_A ⊗_{K_0} K (Lemma 2.6.1)."
+   ],
+   "proofSteps": [
+    "Projective graded pieces have locally constant rank, so the locus where gr^i ≅ gr^i D_{E,K} ⊗ A_𝔭 for all i is open and closed.",
+    "At a point, the filtration from 𝔐 agrees with the one from the weakly admissible module of V_B (Kisin 2006, 1.2.8, and uniqueness of lattices), so the locus is the Hodge-type-v locus."
+   ],
+   "acceptance": [
+    "Different v with the same Hodge–Tate weights give disjoint unions of components.",
+    "d = 1: v fixes the single Hodge–Tate weight, and A_{st,v} is the locus of χ_p^i·(unramified) for that i."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.3/semistable-height-quotient",
+    "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Corollary (2.6.2) and Lemma (2.6.1), pp. 531–532",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+   "parentStageId": "LocalGaloisDeformationRings:R08.3",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "title": "Potentially semistable deformation rings of fixed type",
+   "kind": "theorem",
+   "statement": "Let V_𝔽 be a d-dimensional 𝔽-representation of G_K, R^□ = R^□_{V_𝔽} its framed deformation ring over 𝒪_E (R08.1/local-lifting-ring), and (τ, v) a Galois type and a p-adic Hodge type. (1) There is a quotient (R^□[1/p])^{τ,v} of R^□[1/p] such that a map to a finite E-algebra B factors through it exactly when V_B is potentially semistable of type τ and p-adic Hodge type v. It is a union of connected components of the Hodge-type-v locus of the semistable-over-L quotient, for any finite Galois L/K with I_L ⊆ ker τ. (2) The locus (R^□[1/p])^{τ,v}_cr where V_B is potentially crystalline is its closed subscheme N = 0. (3) R^{□,τ,v} denotes the reduced, p-torsion-free quotient of R^□ with R^{□,τ,v}[1/p] = ((R^□[1/p])^{τ,v})_red; its ℚ̄_p-points are exactly the lifts that are potentially semistable of type (τ, v). The same holds for R_{V_𝔽} when End_{𝔽[G_K]}V_𝔽 = 𝔽, and with fixed determinant.",
+   "hypotheses": [
+    "The characterisation in (1) is on points with values in all finite E-algebras B, not only fields, so it determines the closed subscheme.",
+    "(3) is the reduced closure used by Gee (Theorem 3.28 in the crystalline case) and by later work. Reducedness of (R^□[1/p])^{τ,v} itself is not asserted by Kisin, so the integral ring is defined through the reduced subscheme.",
+    "Nonemptiness is not automatic: R^{□,τ,v} can be 0."
+   ],
+   "proofSteps": [
+    "Choose L/K finite Galois with I_L ⊆ ker τ. hodge-type-components over L gives A_{pst,v}, and Proposition 2.7.2 gives D_A ≅ Hom_{A[G_L]}(V_A, B⁺_st,A), a finite free W_{L,A}-module with a semilinear Gal(L/K)-action.",
+    "For σ ∈ I_{L/K}, tr(σ) lies in (W_{L,A})^{φ=1} = A and is locally constant on Spec A; take the components where tr(σ) = tr τ(σ) for all σ (Theorem 2.7.6).",
+    "Potentially crystalline: impose N = 0 on D (Corollary 2.7.7).",
+    "(3): take the scheme-theoretic closure of the reduced subscheme in Spec R^□; ℚ̄_p-points of a p-torsion-free reduced quotient are determined by its generic fibre."
+   ],
+   "acceptance": [
+    "Empty for p > 2: d = 1, K = ℚ_p, V_𝔽 = ω (the mod p cyclotomic character), τ trivial and Hodge–Tate weight 0. Such lifts would be crystalline characters of weight 0, hence unramified, and cannot reduce to the ramified ω; so R^{□,τ,v} = 0.",
+    "d = 1, V_𝔽 trivial, τ trivial, weight 0: R^{□,τ,v} is the unramified quotient 𝒪_E⟦x⟧ (Frob ↦ 1 + x), of generic dimension 1 = d² + 0.",
+    "Different (τ, v) give disjoint unions of components of Spec R^□[1/p]."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.3/hodge-type-components",
+    "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types",
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "LocalGaloisDeformationRings:R08.1/local-forget-framing",
+    "LocalGaloisDeformationRings:R08.1/local-fixed-determinant",
+    "PadicHodgeTheory:R06.3/potentially-semistable-dieudonne-module"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Theorem (2.7.6) and its proof, p. 534",
+     "match": "(1)."
+    },
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Corollary (2.7.7), p. 534",
+     "match": "(2)."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Theorem 3.28, pp. 18–19",
+     "match": "(3), the integral ring as a reduced p-torsion-free quotient (crystalline case)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Potentially semistable deformation rings"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.3/filtered-phi-N-deformations",
+   "parentStageId": "LocalGaloisDeformationRings:R08.3",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "title": "Deformation theory of filtered (φ, N)-modules with descent data",
+   "kind": "lemma",
+   "statement": "For L/K finite Galois and d ≥ 1, let Mod_{φ,N}(A) (A a ℚ_p-algebra) be the groupoid of finite projective L_0 ⊗ A-modules D_A of rank d, locally free, with semilinear Gal(L/K)-action, nilpotent N and semilinear bijective φ with pφN = Nφ; Mod_{F,φ,N} adds a Gal(L/K)-stable filtration of D_{A,L} by projective submodules. Let C•(D) be the total complex of (ad D)^{G_{L/K}} with the maps 1 − φ, N and pφ − 1, and H•(D) its cohomology. For a small extension A → A/I of local ℚ_p-algebras: if H²(D_{A/𝔪}) = 0 a lift exists; lifts form a torsor under H¹ ⊗ I (with H¹_F, involving ad D_L/Fil⁰ad D_L, in the filtered case); forgetting the filtration is formally smooth. For D_A over Noetherian A with A → Mod_{φ,N} formally smooth, the complement of the support of H²(D_A) is dense and formally smooth over ℚ_p. For the potentially semistable quotients, the completion at each maximal ideal maps formally smoothly to Mod_{F,φ,N} (Proposition 3.3.1).",
+   "hypotheses": [
+    "Filtered (φ, N, Gal(L/K))-modules and weak admissibility are PadicHodgeTheory R06.2 (filtered-phi-n-modules-with-descent-data, weak-admissibility); weakly admissible modules over Artinian thickenings are admissible as successive extensions (Colmez–Fontaine, R06.2/colmez-fontaine-theorem)."
+   ],
+   "proofSteps": [
+    "Obstruction and torsor: lift the underlying module, compare two lifts of φ and N by an element of (ad D)^{G_{L/K}} ⊗ I; the class in H² is the obstruction, and lifts differ by H¹ (Proposition 3.1.2, after Fontaine–Perrin-Riou and Emerton–Kisin).",
+    "Filtrations lift freely because Grassmannians are smooth; the extra term in H¹_F is ad D_L/Fil⁰ad D_L (Lemma 3.2.1).",
+    "Density of the H² = 0 locus is checked on the versal family B_{φ,N} over X_{φ,N} (Lemma 3.1.5, Proposition 3.1.6).",
+    "Proposition 3.3.1: lift points of Â^{τ,v}_𝔪 step by step, using that weakly admissible = admissible along Artinian thickenings and the formal smoothness of the framed lifting ring (Kisin's Moduli paper, 2.3.2–2.3.3)."
+   ],
+   "acceptance": [
+    "Rank one, L = K, N = 0: ad D = E with φ = 1 and N = 0, so C• is E → E ⊕ E → E with maps 0 and (a, b) ↦ ±(p − 1)b; H⁰ = E, H¹ = E (deforming the Frobenius eigenvalue) and H² = 0.",
+    "H² can be nonzero: for rank 2, L = K = ℚ_p, φ = diag(1, p) and N = 0, pφ − 1 vanishes on E·E_{12}, so H² ⊇ E·E_{12}. Turning on N with Ne₂ = e₁ kills it, since [N, E_{22}] = E_{12}. Kisin proves smoothness only where H² = 0.",
+    "Crystalline case N = 0: the complex is ad D → ad D (1 − φ), with no degree-2 term, so Mod_φ is formally smooth (proof of Theorem 3.3.8)."
+   ],
+   "prerequisites": [
+    "PadicHodgeTheory:R06.2/filtered-phi-n-modules-with-descent-data",
+    "PadicHodgeTheory:R06.2/weak-admissibility",
+    "PadicHodgeTheory:R06.2/colmez-fontaine-theorem",
+    "LocalGaloisDeformationRings:R08.3/pst-deformation-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "(3.1.1), Proposition (3.1.2), Corollary (3.1.3), Lemma (3.1.5), Proposition (3.1.6), pp. 535–538",
+     "match": "Obstructions and lifts."
+    },
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Lemma (3.2.1), Proposition (3.3.1), pp. 538–540",
+     "match": "The filtered case and the comparison with deformation rings."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.3/pst-generic-fibre",
+   "parentStageId": "LocalGaloisDeformationRings:R08.3",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "title": "Dimension and generic smoothness of potentially semistable rings",
+   "kind": "theorem",
+   "statement": "Spec (R^□_{V_𝔽}[1/p])^{τ,v} is equidimensional of dimension d² + dim_E ad D_{E,K}/Fil⁰ad D_{E,K} and has a formally smooth dense open subscheme. If End_{𝔽[G_K]}V_𝔽 = 𝔽, the same holds for (R_{V_𝔽}[1/p])^{τ,v} with dimension 1 + dim_E ad D_{E,K}/Fil⁰ad D_{E,K}. Consequently a nonzero R^{□,τ,v} has Krull dimension 1 + d² + dim_E ad D_{E,K}/Fil⁰ad D_{E,K}, and fixing the determinant lowers these dimensions by one.",
+   "hypotheses": [
+    "The passage from the generic fibre to the Krull dimension of the p-torsion-free ring R^{□,τ,v} (dim R = dim R[1/p] + 1 for p-torsion-free complete local Noetherian 𝒪-algebras) is requested from DeformationAndDerivedPatchingAlgebra R03.3.",
+    "Fixing the determinant removes the one-dimensional deformation space of the determinant (LocalGaloisDeformationRings R08.1/local-fixed-determinant)."
+   ],
+   "proofSteps": [
+    "filtered-phi-N-deformations gives a formally smooth dense open U where H²_F(D_A) = 0.",
+    "At a closed point x ∈ U, dim of the tangent space = dim Ext¹_pst(V_x, V_x) + d² − dim (ad V_x)^{G_K} (Kisin's Moduli paper, 2.3.5).",
+    "Ext¹_pst(V_x, V_x) ≅ Ext¹(D_x, D_x) in Mod_{F,φ,N} (Fontaine), = dim H¹_F(D_x) = dim (ad D_{x,L}/Fil⁰)^{G_{L/K}} + dim H⁰_F(D_x), and the first term is dim_E ad D_{E,K}/Fil⁰ by Hilbert 90; H⁰_F(D_x) = (ad V_x)^{G_K} cancels.",
+    "Unframed: R^□ → R is formally smooth of relative dimension d² − 1."
+   ],
+   "acceptance": [
+    "d = 2, K = ℚ_p, crystalline with weights {0, 1} (Barsotti–Tate), τ trivial: dimension 4 + 1 = 5; with fixed determinant 4 = 3 + [K : ℚ_p], the relative dimension KW II §4.1.3 records for places above p.",
+    "Regular weights: d² + [K : ℚ_p]·d(d − 1)/2, and with fixed determinant the Krull dimension of the integral ring is d² + [K : ℚ_p]·d(d − 1)/2 (Gee Theorem 3.28).",
+    "Generic smoothness is only on a dense open. Ordinary semistable representations with weights {0, 1} give two components meeting in codimension one (Kisin, p. 514, footnote 1), so Breuil–Mézard's Conjecture 2.2.2.4(ii) (formal smoothness) fails."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+    "LocalGaloisDeformationRings:R08.3/filtered-phi-N-deformations",
+    "LocalGaloisDeformationRings:R08.3/hodge-and-galois-types",
+    "LocalGaloisDeformationRings:R08.1/local-forget-framing",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Theorem (3.3.4) and its proof, pp. 540–541",
+     "match": "The statement and the tangent-space computation."
+    },
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Introduction, p. 514, footnote 1",
+     "match": "Why only a dense open is smooth."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Kisin's dimension formula"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.3/pcris-generic-smooth",
+   "parentStageId": "LocalGaloisDeformationRings:R08.3",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "title": "Potentially crystalline rings are generically smooth",
+   "kind": "theorem",
+   "statement": "Spec (R^□_{V_𝔽}[1/p])^{τ,v}_cr is formally smooth and equidimensional of dimension d² + dim_E ad D_{E,K}/Fil⁰ad D_{E,K}; for End_{𝔽[G_K]}V_𝔽 = 𝔽 the unframed version has dimension 1 + dim_E ad D_{E,K}/Fil⁰ad D_{E,K}. In particular (R^□[1/p])^{τ,v}_cr is reduced, and R^{□,τ,v}_cr[1/p] = (R^□[1/p])^{τ,v}_cr. In the Fontaine–Laffaille range (K/ℚ_p unramified, τ trivial, distinct weights whose maximum minus minimum is ≤ p − 2) the fixed-determinant ring is formally smooth over 𝒪, a power series ring in d² − 1 + [K : ℚ_p]·d(d − 1)/2 variables.",
+   "hypotheses": [
+    "The Fontaine–Laffaille statement is Gee Theorem 3.28 (after Ramakrishna and CHT08 §2.4); Fontaine–Laffaille theory itself is PadicHodgeTheory R06.4 and FiniteFlatGroupsAndIntegralPadicHodgeTheory. Here it is quoted as a special case; its integral smoothness is not a consequence of Kisin's generic-fibre theorem."
+   ],
+   "proofSteps": [
+    "With N = 0 the complex loses its N-terms and Mod_φ, Mod_{F,φ} are formally smooth, so every completion maps formally smoothly to Mod_{F,φ} (Proposition 3.3.1) and is formally smooth.",
+    "Ext¹ in Mod_{F,φ} is the cokernel of (ad D)^{G_{L/K}} → (ad D)^{G_{L/K}} ⊕ (ad D_L/Fil⁰)^{G_{L/K}}, and the dimension count is as in pst-generic-fibre.",
+    "Formally smooth ⇒ regular ⇒ reduced, so the reduced closure changes nothing on the generic fibre."
+   ],
+   "acceptance": [
+    "d = 2, K = ℚ_p, weights {0, 1}, τ trivial (crystalline Barsotti–Tate): the generic fibre is smooth of dimension 5.",
+    "d = 1, K = ℚ_p: crystalline characters of weight i are χ_p^i·(unramified), so the ring, when nonzero, is 𝒪⟦x⟧: formally smooth, of generic dimension 1 = d² + 0.",
+    "The semistable analogue fails (pst-generic-fibre, the ordinary weight-{0, 1} example): smoothness is special to N = 0."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+    "LocalGaloisDeformationRings:R08.3/filtered-phi-N-deformations",
+    "LocalGaloisDeformationRings:R08.3/pst-generic-fibre"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Theorem (3.3.8) and its proof, p. 541",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Theorem 3.28, pp. 18–19",
+     "match": "The Fontaine–Laffaille case."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Potentially crystalline rings"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.3/pst-coefficient-change",
+   "parentStageId": "LocalGaloisDeformationRings:R08.3",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.3"
+   ],
+   "title": "Potentially semistable rings under change of coefficients",
+   "kind": "lemma",
+   "statement": "For a finite extension 𝒪_E → 𝒪_{E′} (possibly with a residue field extension 𝔽 ⊆ 𝔽′), R^{□,τ,v}_{V_𝔽 ⊗ 𝔽′, 𝒪_{E′}} ≅ R^{□,τ,v}_{V_𝔽, 𝒪_E} ⊗_{𝒪_E} 𝒪_{E′}, compatibly with R^□_{V_𝔽⊗𝔽′,𝒪_{E′}} ≅ R^□_{V_𝔽,𝒪_E} ⊗̂_{𝒪_E} 𝒪_{E′} (R08.1/local-residue-field-change); likewise for the crystalline and unframed variants.",
+   "hypotheses": [
+    "Types (τ, v) over E are viewed over E′ by extension of scalars."
+   ],
+   "proofSteps": [
+    "R^{□,τ,v}_{𝒪_E} ⊗ 𝒪_{E′} is p-torsion-free, because 𝒪_{E′} is flat over 𝒪_E.",
+    "It is reduced: its generic fibre is R^{□,τ,v}[1/p] ⊗_E E′, reduced because E′/E is separable, and it embeds into its generic fibre.",
+    "Its ℚ̄_p-points are the same lifts as those of R^{□,τ,v}_{𝒪_{E′}}, and a reduced p-torsion-free quotient of R^□_{𝒪_{E′}} is determined by its ℚ̄_p-points."
+   ],
+   "acceptance": [
+    "E′ = E gives the identity.",
+    "Nonemptiness is insensitive to the coefficients, since ℚ̄_p-points do not change.",
+    "The same argument fails for a non-reduced quotient: nilpotent structure on the generic fibre need not be controlled by points, which is why R^{□,τ,v} is defined reduced."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.3/pst-deformation-ring",
+    "LocalGaloisDeformationRings:R08.1/local-residue-field-change",
+    "PadicHodgeTheory:R06.2/coefficient-field-base-change"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "(2.7.5), p. 534",
+     "match": "The coefficients over which the quotients are formed; the base-change lemma is derived from the point characterisation."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/finite-height-lattices",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "Lattices of finite E-height",
+   "kind": "definition",
+   "statement": "Let K/ℚ_p be finite with residue field k, W = W(k), e = [K : W[1/p]], π a uniformiser with Eisenstein polynomial E(u) ∈ W[u], 𝔖 = W⟦u⟧ with φ(u) = u^p and the Frobenius on W, 𝒪_ℰ the p-adic completion of 𝔖[1/u], and K_∞ = ∪_n K(π_n) for compatible p^n-th roots π_n of π. For V a finite free module of rank d over ℤ_p (or over a complete local ring A with finite residue field) with continuous G_{K_∞}-action, M(V) = (𝒪_{ℰ^ur}^∧ ⊗̂ V*)^{G_{K_∞}} is a finite free 𝒪_ℰ-module (𝒪_{ℰ,A}-module) with φ*M ≅ M. For an A-algebra B, an 𝔖_B-lattice of E-height ≤ h in M_B = M ⊗_A B is an 𝔖_B-submodule 𝔐_B that is finite projective of rank d, generates M_B over 𝒪_ℰ ⊗ B, is φ-stable, and has coker(φ*𝔐_B → 𝔐_B) killed by E(u)^h. V has E-height ≤ h if M(V) contains such a lattice. Over finite flat ℤ_p-algebras the lattice is then unique, and a ℚ_p-representation has E-height ≤ h if one, and then every, G_{K_∞}-stable lattice does.",
+   "hypotheses": [
+    "Uniqueness is Kisin, Crystalline representations and F-crystals (2006), 2.1.12. Its published proof had a gap, found by Conrad, and Kisin 2008 (Errata (E.4), p. 545) repairs it. Uniqueness, the étale φ-modules M(V) and the classification of semistable representations by 𝔖-modules are requested from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 (Breuil–Kisin modules).",
+    "Lattices are functorial in B: 𝒪_ℰ ⊗_𝔖 𝔐_B ⊗_B B′ is projective of rank d and surjects onto M_{B′}, so it is isomorphic to it."
+   ],
+   "proofSteps": [
+    "Base change (Kisin 2008, §1.2): a surjection of projective 𝒪_{ℰ,B′}-modules of the same rank is an isomorphism, so 𝔐_B ⊗_B B′ is an 𝔖_{B′}-lattice of E-height ≤ h.",
+    "Uniqueness (Errata (E.4)): replace two lattices by the graph of the comparison map, view both inside Hom_{ℤ_p[G_{K_∞}]}(V_𝔖(𝔐₂), 𝔖^ur), and show 𝔐₁ ⊆ 𝔐₁ + 𝔐₂ ⊆ F(𝔐₁ + 𝔐₂) = 𝔐₂."
+   ],
+   "acceptance": [
+    "Rank one with φ(e) = E(u)e has E-height exactly 1 (cokernel 𝔖/E(u)).",
+    "E-height ≤ 0 means φ*𝔐 → 𝔐 is an isomorphism (a surjection between free modules of the same rank).",
+    "φ(e) = u·e has infinite E-height: 𝔖/u𝔖 is killed by no E(u)^h, since E(0) = p·(unit) is not divisible by u."
+   ],
+   "prerequisites": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/HeightLattices",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "(1.2), pp. 516–517",
+     "match": "The definition (𝔖 and 𝔐 print as S and M in the extracted text)."
+    },
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "(1.2), p. 517",
+     "match": "Uniqueness."
+    },
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Errata for [Ki 2], (E.4), p. 545",
+     "match": "The repaired uniqueness proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.HeightLattice",
+     "role": "structure",
+     "statement": "An 𝔖_B-lattice of E-height ≤ h in M_B."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.HasEHeightLE",
+     "role": "constructor",
+     "statement": "V has E-height ≤ h."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.HeightLattice.baseChange",
+     "role": "functoriality",
+     "statement": "Base change along B → B′."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.HeightLattice.unique",
+     "role": "characterisation",
+     "statement": "Uniqueness over finite flat ℤ_p-algebras."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:L7/height-lattice-moduli",
+     "how": "the moduli functor of these lattices."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:R08.3/semistable-height-quotient",
+     "how": "semistable with Hodge–Tate weights in [0, h] implies E-height ≤ h."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:R08.4",
+     "how": "h = 1, the finite-flat and Barsotti–Tate case in rank two."
+    }
+   ],
+   "tests": [
+    {
+     "name": "height_rank_one_E",
+     "kind": "example",
+     "statement": "𝔐 = 𝔖e with φ(e) = E(u)e has E-height exactly 1."
+    },
+    {
+     "name": "height_zero_iff_etale",
+     "kind": "characterisation",
+     "statement": "E-height ≤ 0 if and only if φ*𝔐 → 𝔐 is an isomorphism."
+    },
+    {
+     "name": "height_u_not_finite",
+     "kind": "non-example",
+     "statement": "φ(e) = ue: E(u)^h is never divisible by u in 𝔖 (E(0) = p·unit), so 𝔖/u𝔖 is killed by no power of E(u)."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/height-lattice-moduli",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "Moduli of lattices of bounded E-height and their image",
+   "kind": "theorem",
+   "statement": "Let A be a complete local Noetherian ring with finite residue field 𝔽 and V_A finite free of rank d with continuous G_{K_∞}-action. (1) On A-algebras B with 𝔪_A^i B = 0 for some i, B ↦ {𝔖_B-lattices of E-height ≤ h in M_B} is represented by a projective A-scheme Θ_A : 𝓛^{≤h}_{V_A} → Spec A, compatible with base change and carrying a canonical very ample line bundle. (2) Θ_A becomes a closed immersion after inverting p. (3) If A^{≤h} is the quotient of A cut out by the scheme-theoretic image of Θ_A, then for every finite W(𝔽)[1/p]-algebra B, A → B factors through A^{≤h} exactly when V_B has E-height ≤ h. (4) There is a finite 𝔖_{A^{≤h}}-module 𝔐 with φ*𝔐 → 𝔐 of cokernel killed by E(u)^h, locally free after inverting p, which specialises at each such B to the unique lattice.",
+   "hypotheses": [
+    "Artinian case (Proposition 1.3): Beauville–Laszlo realise the functor as a closed sub-ind-scheme of the affine Grassmannian of Res_{W(k)/ℤ_p}GL_d, and the height bound confines 𝔐 to u^iN ⊆ 𝔐 ⊆ u^{−i}N with i ≤ (esh + r)/(p − 1), so it lies in a finite Grassmannian of u^{−i}N/u^iN. Grassmannians and the closedness of Frobenius-stable lattice conditions are requested from AlgebraicModuliForArithmeticGeometry R09.1.",
+    "From Artinian to complete A: formal GAGA (AdicSpacesPartII F0/grothendieck-algebraization) with the canonical very ample bundle.",
+    "RS-08 makes L7 the owner of this rank-general construction; R08.4 instantiates it in rank two with h = 1."
+   ],
+   "proofSteps": [
+    "(1) The Artinian case is the bounded affine Grassmannian, whose canonical line bundle is very ample on closed subschemes of finite type (Faltings). For complete A, the compatible projective schemes over A/𝔪^i form a formal scheme with an ample bundle, which formal GAGA algebraises (Corollary 1.5.1).",
+    "(2) Over a finite flat W(𝔽)-algebra C the map on C-points is injective, by uniqueness of lattices. Every B-point (B finite local over W(𝔽)[1/p]) comes from some C ∈ Int_B, and for 𝓛 by the valuative criterion, so the map is injective on B-points. B = E gives a quasi-finite, hence finite, map injective on closed points; B = E[ε] gives surjectivity on tangent spaces. So it is a closed immersion after inverting p.",
+    "(3) A B-point of the image lifts to a C-point of 𝓛, which is a lattice. Conversely, build a lattice over some C′ ⊇ C by lifting an 𝔖-basis of the unique lattice of M_{𝒪_E}; E(u)^h kills the cokernel because it is a successive extension of p-torsion-free pieces (Proposition 1.6.4).",
+    "(4) Push forward the universal module on 𝓛 × Spf 𝔖_A, algebraised by formal GAGA; the scheme-theoretic image is Spec 𝔖_{A^{≤h}} (Corollary 1.7)."
+   ],
+   "acceptance": [
+    "Θ_A need not be a closed immersion before inverting p. Take K = ℚ₂, h = 1 and V_𝔽 = 𝔽₂ with trivial action: M = 𝔽₂((u))e with φ(e) = e, and u^a·𝔖_{𝔽₂}e is φ-stable of E-height ≤ 1 (E(u) ≡ u mod 2) exactly for a ∈ {0, 1}. So 𝓛^{≤1} has two 𝔽₂-points over Spec 𝔽₂. For V_𝔽 = 𝔽_p trivial, u^a𝔖e qualifies exactly when 0 ≤ (p − 1)a ≤ eh, since E(u) ≡ u^e mod p.",
+    "For h ≥ 2, A^{≤h} is larger than the semistable locus. Finite E-height is a condition on G_{K_∞}, and it gives semistable representations only for E-height ≤ 1 (Kisin, Introduction, p. 515).",
+    "Base change: 𝓛^{≤h}_{V_A} ⊗_A A′ ≅ 𝓛^{≤h}_{V_{A′}} for local Artinian A → A′."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L7/finite-height-lattices",
+    "AdicSpacesPartII:F0/grothendieck-algebraization",
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/HeightLattices",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Proposition (1.3), p. 517",
+     "match": "(1), Artinian case."
+    },
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Corollary (1.5.1), p. 518",
+     "match": "(1), complete case."
+    },
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Proposition (1.6.4) and its proof, pp. 520–521",
+     "match": "(2) and (3)."
+    },
+    {
+     "sourceId": "KISIN-PST-2008",
+     "locator": "Corollary (1.7), pp. 521–522",
+     "match": "(4)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Height-lattice moduli"
+   }
   }
  ],
  "requests": [
@@ -1002,6 +1608,34 @@
    ],
    "status": "open",
    "note": "RS-08: R08.1 imports R03.1 algebra."
+  },
+  {
+   "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+   "need": "Breuil–Kisin theory over 𝔖 = W⟦u⟧ with E(u): étale φ-modules M(V) over 𝒪_ℰ with coefficients, lattices of E-height ≤ h and their uniqueness (Kisin 2006, 2.1.12 with the repaired proof of Kisin 2008, Errata (E.4)), and 'semistable with Hodge–Tate weights in [0, h] ⇒ E-height ≤ h' with the identification of filtrations (Kisin 2006, 1.2.2, 1.2.8, 2.1.5).",
+   "neededBy": [
+    "LocalGaloisDeformationRings:L7/finite-height-lattices",
+    "LocalGaloisDeformationRings:R08.3/semistable-height-quotient"
+   ],
+   "status": "open",
+   "note": "R07.4 is to construct the power-series coefficient ring and the height bound determined by the Eisenstein polynomial."
+  },
+  {
+   "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
+   "need": "Grassmannians of finite projective modules over Artinian rings, very ample line bundles, and the closedness of the conditions defining φ-stable lattices, for the bounded affine Grassmannian in which lattices of E-height ≤ h live.",
+   "neededBy": [
+    "LocalGaloisDeformationRings:L7/height-lattice-moduli"
+   ],
+   "status": "open",
+   "note": "R09.1 includes 'the closedness of the equations defining invariant subbundles and Frobenius-stable lattices'."
+  },
+  {
+   "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
+   "need": "dim R = dim R[1/p] + 1 for a nonzero p-torsion-free complete local Noetherian 𝒪-algebra, and equidimensionality passing between R and R[1/p].",
+   "neededBy": [
+    "LocalGaloisDeformationRings:R08.3/pst-generic-fibre"
+   ],
+   "status": "open",
+   "note": "R03.3 plans the dimension and equidimensionality lemmas."
   }
  ],
  "coverage": [
@@ -1019,10 +1653,11 @@
   },
   {
    "stageId": "LocalGaloisDeformationRings:R08.3",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Potentially semistable deformation spaces (Kisin) (RS-08 narrowed)."
-   ]
+    "Nonemptiness for the particular local types that PotentialModularityAndCompatibleSystems R24 requests (KW II §3.2's explicit lifts at places above p), to be planned with R08.6's exports; pst-deformation-ring only records that nonemptiness is not automatic."
+   ],
+   "notes": "RS-08 keeps for R08.3: the potentially semistable fixed Hodge/inertial-type quotient and its precise characteristic-zero point, flatness and reducedness properties, with nonemptiness not automatic. Planned (7 nodes) from Kisin, JAMS 2008, §§2–3: Hodge and Galois types, the semistable quotient of bounded weight, Hodge-type components, the pst rings of fixed type with the crystalline locus and the reduced p-torsion-free integral ring, the deformation theory of filtered (φ, N)-modules, the dimension formula with generic smoothness, smoothness in the crystalline case, and change of coefficients. Kisin §4 (local–global compatibility for Hilbert modular forms) belongs to the automorphic side and is not planned here."
   },
   {
    "stageId": "LocalGaloisDeformationRings:R08.4",
@@ -1047,10 +1682,13 @@
   },
   {
    "stageId": "LocalGaloisDeformationRings:L7",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Local models and arbitrary dimension."
-   ]
+    "Ordinary full-flag moduli, their properness and scheme-theoretic image (RS-08 keep).",
+    "Fontaine–Laffaille deformation conditions in the unramified small-weight range, with tangent spaces (the stage text); Gee Theorem 3.28 is quoted in R08.3/pcris-generic-smooth only.",
+    "Ordinary deformation functors with a full invariant flag, and the rank-n interface with R08.2's conditions away from p."
+   ],
+   "notes": "Checkpoint 3 plans the bounded-height lattice part of L7 that RS-08 assigns to it and R08.3 and R08.4 import (Kisin, JAMS 2008, §1): lattices of finite E-height and the projective moduli 𝓛^{≤h} with its scheme-theoretic image, closed immersion after inverting p and universal module."
   },
   {
    "stageId": "LocalGaloisDeformationRings:L8",

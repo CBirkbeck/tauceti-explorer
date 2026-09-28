@@ -1,7 +1,8 @@
 # Local Galois deformation rings — blueprint
 
 This blueprint covers stages L7, L8 and R08.1–R08.6, within the boundaries of the RS-08 restructure (accepted). This
-blueprint now plans **R08.1 (unrestricted local rings)** and **R08.2 (places away from p)**, both source-decomposed. The
+blueprint now plans **R08.1 (unrestricted local rings)** and **R08.2 (places away from p)**, both source-decomposed. It
+also plans **R08.3 (potentially semistable rings)** and the **bounded-height lattice moduli of L7**, both partial. The
 other stages are not yet read.
 
 ## Purpose and ownership (RS-08)
@@ -130,13 +131,92 @@ Proposition 3.37 and Theorem 3.38).
 - The Steinberg ring is irreducible.
 - For n = 2 the minimal primes are √P_ur, √P_m and √P_ζ.
 
+## Layer L7 (partial): bounded-height lattice moduli
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/HeightLattices`.
+
+RS-08 makes L7 the owner of rank-general bounded-height lattices, with their properness and scheme-theoretic image. R08.3
+and R08.4 import them. The source is Kisin, *Potentially semi-stable deformation rings*, JAMS 21 (2008), §1.
+
+**Definition: lattices of finite E-height** (`HeightLattice`, `HasEHeightLE`; node `finite-height-lattices`).
+- 𝔖 = W⟦u⟧ with φ(u) = u^p, and E(u) the Eisenstein polynomial of π.
+- An 𝔖_B-lattice of E-height ≤ h in M(V)_B is finite projective, φ-stable and spanning, with cokernel of φ*𝔐 → 𝔐 killed
+  by E(u)^h.
+- It is unique over finite flat ℤ_p-algebras. This is Kisin 2006, 2.1.12, whose proof had a gap that Kisin 2008 Errata
+  (E.4) repairs.
+
+*Unit tests.*
+- φ(e) = E(u)e has height 1.
+- Height 0 is étale.
+- φ(e) = ue has no finite height, since u ∤ E(u)^h. This is proved in Lean as `X_not_dvd_pow`.
+
+**Theorem: the moduli 𝓛^{≤h} and its image** (node `height-lattice-moduli`; planet; Kisin 1.3, 1.5.1, 1.6.4, 1.7).
+- 𝓛^{≤h}_{V_A} → Spec A is projective, built from a bounded affine Grassmannian and formal GAGA.
+- It is a closed immersion after inverting p.
+- Its image A^{≤h} classifies the points of E-height ≤ h.
+- A universal module 𝔐 exists.
+- It is not a closed immersion integrally. For K = ℚ₂, h = 1 and trivial V_𝔽 = 𝔽₂, the lattices u^a𝔖e with
+  a ∈ {0, 1} both qualify.
+
+*Remaining in L7:* ordinary full-flag moduli, Fontaine–Laffaille conditions, and ordinary functors.
+
+## Layer R08.3 (partial): potentially semistable deformation rings
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/PotentiallySemistable`.
+
+RS-08 keeps the fixed Hodge/inertial-type quotient with its characteristic-zero point, flatness and reducedness
+properties. Nonemptiness is not automatic. The source is Kisin 2008, §§2–3, with Gee Theorem 3.28. D_pst, WD(V), weak
+admissibility and the Hodge–Tate convention HT(χ_p) = +1 are PadicHodgeTheory R06.1–R06.3 nodes, reused.
+
+**Definition: types** (`HodgeType`, `GaloisType`, `IsOfType`; node `hodge-and-galois-types`; planet; Kisin §2.6–2.7).
+- p-adic Hodge type v = (D_E, Fil^•D_{E,K}).
+- Galois type τ : I_K → GL_r(E) with open kernel, matched through traces on D*_pst.
+- dim ad D/Fil⁰ = Σ_σ (d² − Σ m²)/2. The function `flagDim` is checked in Lean on [1,1], [2,1], [1,1,1] and [3].
+
+**Theorem: the semistable quotient** (node `semistable-height-quotient`; Kisin Theorem 2.5.5). For semistable
+representations with weights in [0, h], a quotient of A°[1/p] carries D with φ and N. It is built from L7's A^{≤h} and
+the representability of N.
+
+**Lemma: Hodge-type components** (node `hodge-type-components`; Corollary 2.6.2). Fixing v selects a union of
+connected components.
+
+**Theorem: pst rings of fixed type** (node `pst-deformation-ring`; planet; Theorem 2.7.6, Corollary 2.7.7, Gee 3.28).
+- (R^□[1/p])^{τ,v} is characterised on points with values in finite E-algebras.
+- The crystalline locus is N = 0.
+- R^{□,τ,v} is the reduced p-torsion-free closure.
+- It can be 0: for p > 2, ω with trivial type and weight 0 has no lift.
+
+**Lemma: deformations of filtered (φ, N)-modules** (node `filtered-phi-N-deformations`; Kisin 3.1.2–3.3.1).
+- The complex (ad D)^{G_{L/K}} with 1 − φ, N and pφ − 1 governs deformations: H² obstructs and H¹ is a torsor.
+- The H² = 0 locus is dense.
+- H² ≠ 0 occurs, for example with φ = diag(1, p) and N = 0.
+
+**Theorem: Kisin's dimension formula** (node `pst-generic-fibre`; planet; Theorem 3.3.4).
+- Equidimensional of dimension d² + dim ad D/Fil⁰, and formally smooth on a dense open.
+- Only a dense open is smooth: Kisin's footnote gives two ordinary components meeting in codimension one.
+- Barsotti–Tate over ℚ_p gives 5, or 3 + [K : ℚ_p] with fixed determinant, matching KW II §4.1.3.
+
+**Theorem: potentially crystalline rings** (node `pcris-generic-smooth`; planet; Theorem 3.3.8, Gee 3.28). The generic
+fibre is formally smooth, hence reduced. The Fontaine–Laffaille ring is formally smooth integrally; this is quoted, not
+derived.
+
+**Lemma: change of coefficients** (node `pst-coefficient-change`). R^{□,τ,v} ⊗_{𝒪_E} 𝒪_{E′} is the ring over 𝒪_{E′}.
+
+*Remaining in R08.3:* nonemptiness for the local types that PotentialModularityAndCompatibleSystems R24 requests (KW II
+§3.2's lifts), with R08.6.
+
+**New requests:**
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4: Breuil–Kisin modules, E-height and uniqueness.
+- AlgebraicModuliForArithmeticGeometry R09.1: Grassmannians and φ-stable lattice conditions.
+- DeformationAndDerivedPatchingAlgebra R03.3: dim R = dim R[1/p] + 1.
+
 ## Remaining work
 
-- **R08.3:** potentially semistable deformation rings.
+- **R08.3:** nonemptiness for R24's local types.
 - **R08.4:** finite-flat and Barsotti–Tate components.
 - **R08.5:** dyadic cases.
 - **R08.6:** exports.
-- **L7:** local models.
+- **L7:** ordinary full-flag moduli, Fontaine–Laffaille conditions and ordinary functors.
 - **L8:** ordinary conditions.
 
 ## Sources
@@ -145,5 +225,6 @@ Proposition 3.37 and Theorem 3.38).
 - M. Kisin, *Lectures on deformations of Galois representations*, Lecture 1.
 - L. Clozel, M. Harris and R. Taylor, *Automorphy for some l-adic lifts …*, Publ. Math. IHÉS 108 (2008) (Numdam).
 - R. Taylor, *Automorphy for some l-adic lifts … II*, Publ. Math. IHÉS 108 (2008) (Numdam).
+- M. Kisin, *Potentially semi-stable deformation rings*, J. Amer. Math. Soc. 21 (2008), 513–546 (free from the AMS).
 - S.-N. Tung, *On the modularity of 2-adic potentially semi-stable deformation rings*, Math. Z. 298 (2021);
   arXiv:1908.06174v3.
