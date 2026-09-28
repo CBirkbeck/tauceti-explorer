@@ -6,16 +6,17 @@
   "agent": "Codex",
   "session": "codex-7e92bd",
   "date": "2026-09-26",
-  "summary": "One new medium extraction error: the Ding global-triangulation item omits compatible ordered analytic parameters and the strict/noncritical hypotheses of its sources. Existing restructuring decisions, partial-packet gaps and neighboring red-team findings already cover the other concrete overlap/dependency leads examined. No new missing-library theorem is asserted.",
+  "summary": "Three extraction findings: the previously reviewed Ding triangulation contract (medium), a missing rational-slope Hom multiplicity in CN25 (high), and confirmed CN25 corrections not propagated to theorem statements (medium). Findings /2 and /3 are supplemental and await independent verification; the existing review covers only /1. Existing restructuring decisions and neighboring red-team findings remain excluded.",
   "checked": [
     "Seven complete roadmap documents and all 58 primary stage descriptions and prerequisite lists: DiamondEtaleCohomology C0-C9; DiamondSixOperations S0-S6; PerfectoidShimuraVarieties S0-S6 and S0.general; PhiGammaModulesAndIwasawaCohomology PG.0-PG.7; TropicalAndBerkovichArithmetic TB.0-TB.7; VectorBundlesAndIsocrystals VB0-VB4 including split and aggregate stages; upstream TauCetiRoadmap/AdicSpaces Layers 0-6. Compared the extracts with data/atlas.json and the roadmap documents; the upstream roadmap is an import boundary, not work to re-plan.",
     "Titles and full layer descriptions of the other 16 roadmaps named in issue #1515: AdicEtaleGeometry, AdicSpacesPartII, DiamondsAndVStacks, FarguesFontaineDiamonds, HodgeTateAndCanonicalSubgroups, PerfectoidQuotients, PerfectoidSpaces, RelativeFarguesFontaine, AInfCohomology, CohomologyComparisons, CrystallineCohomology, DerivedDeRhamCohomology, FiniteFlatGroupsAndIntegralPadicHodgeTheory, PadicDifferentialEquationsAndRigidCohomology, PadicHodgeTheory, PrismaticCohomology. These were read for cross-part ownership, not given a second full source audit.",
     "TropicalAndBerkovichArithmetic integrated decomposition: all four nodes, coverage, source/proof gaps and review. VectorBundlesAndIsocrystals: all 24 nodes in the two partial VB0/VB3 packets, including statements, hypotheses, proof steps, APIs, tests, requests, restructuring suggestions and gaps; compared the 23 integrated nodes field by field with those packets. The mathematical fields agree; some integrated source annotations differ. The packets are partial, not accepted completed blueprints.",
     "Scope-facing owner, layer and dependency decisions in RS-02, RS-05, RS-08, RS-15, RS-16, RS-20, RS-25, RS-26 and RS-32. In particular, RS-15 already specifies the isocrystal coefficient field and sign, constant-polygon/local-system hypotheses and Banach-Colmez proof-order repair; RS-26 separates shared annulus rings from cyclotomic actions and Herr/Iwasawa theory. RS-20 remains qualified by its recorded RF3 blocker.",
     "Area-facing routes and extracted item contracts in the following 32 paper result files (including proposed Part II contracts and their recorded review status): PAPER-ANDRE-18, PAPER-ANDRE-18-B, PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18, PAPER-ANGLES-NGODAC-TAVARESRIBEIRO-22, PAPER-BHATT-SCHOLZE-22, PAPER-BOXER-CALEGARI-GEE-PILLONI-21, PAPER-BOXER-CALEGARI-GEE-PILLONI-25, PAPER-BOXER-PILLONI-26, PAPER-BREUIL-HELLMANN-SCHRAEN-19, PAPER-CARAIANI-SCHOLZE-17, PAPER-CARAIANI-SCHOLZE-24, PAPER-COLMEZ-DOSPINESCU-NIZIOL-20, PAPER-COLMEZ-DOSPINESCU-NIZIOL-20-B, PAPER-COLMEZ-NIZIOL-17, PAPER-COLMEZ-NIZIOL-25, PAPER-DEMARCO-KRIEGER-YE-20, PAPER-DING-25, PAPER-DOSPINESCU-LEBRAS-17, PAPER-GLEASON-LIM-XU-26, PAPER-GUO-REINECKE-24, PAPER-HANSEN-KALETHA-WEINSTEIN-22, PAPER-HOWE-KLEVDAL-26, PAPER-KISIN-ZHOU-25, PAPER-LE-LEHUNG-LEVIN-ETAL-20, PAPER-LIU-ZHU-17, PAPER-NEWTON-THORNE-21, PAPER-PAN-26, PAPER-PILLONI-20, PAPER-SCHOLZE-26, PAPER-TSUZUKI-23, PAPER-YUAN-26, PAPER-ZAVYALOV-25. This means the routed slices, not a line-by-line re-reading of every original paper. Partial/rejected routes were treated as leads. Own LLHLM23 and KMPS22 work and the ZHU17 supplier reference were excluded from attack.",
-    "Generated data/library-coverage.json and scoped AUDIT-39 target/overlap records (review accepted), distinguishing complete upstream plans from partial pinned implementations. AUDIT-36 and AUDIT-38 were inspected as unreviewed leads, not authority. No new library-absence finding is made. The pins remain Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; no Lean compilation or kernel verification was performed.",
+    "Generated data/library-coverage.json and scoped AUDIT-39 target/overlap records (review accepted), distinguishing complete upstream plans from partial pinned implementations. Scoped AUDIT-36 and AUDIT-38 records were consulted as leads, without independently verifying their library assertions. The generated coverage file omits these roadmaps; this does not imply that a separate audit-review report is absent. No new library-absence finding is made. The pins remain Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369; no Lean compilation or kernel verification was performed.",
     "Scope-touching stage edges and 50 link/overlap entries from the AdicSpaces, ModularCurves, EllipticCurves, ClassFieldTheory, LocalFieldsRamification and ProfiniteProPGroups link maps. Read the neighboring EC4 and Neron/Raynaud contracts when checking TB.7. Existing RT-AREA-padic-1 and RT-AREA-padic-2 claims and the confirmed RT-LINK-tauceti_TauCetiRoadmap_EllipticCurves finding were used to avoid reporting the same repair twice; their findings were not independently re-verified here.",
-    "Direct source checks for the reported finding: Ding published PDF pp. 62, 68-69, especially Proposition 4.17 proof; KPX published PDF Definition 6.3.1-6.3.2, Corollary 6.3.10 and Remark 6.3.11, pp. 1102-1103, 1108-1109. Compared KPX arXiv v3 at those statements, then used the published contract. Also checked Fargues-Scholze v4 Corollary II.2.4 and Proposition II.2.5 with surrounding argument (pp. 60-63) for divisor base fields, affinoid H1 vanishing and the perfectoid-ball slope bound. These are passage-level checks, not whole-book or whole-paper verification."
+    "Direct source checks for the reported finding: Ding published PDF pp. 62, 68-69, especially Proposition 4.17 proof; KPX published PDF Definition 6.3.1-6.3.2, Corollary 6.3.10 and Remark 6.3.11, pp. 1102-1103, 1108-1109. Compared KPX arXiv v3 at those statements, then used the published contract. Also checked Fargues-Scholze v4 Corollary II.2.4 and Proposition II.2.5 with surrounding argument (pp. 60-63) for divisor base fields, affinoid H1 vanishing and the perfectoid-ball slope bound. These are passage-level checks, not whole-book or whole-paper verification.",
+    "Supplemental CN25 check, 2026-09-26: reread accepted PAPER-COLMEZ-NIZIOL-25 items /320, /326 and /327, sourceIssues E31/E3, the independent paper review, and author copy CN5.pdf pp. 16–18 (rendered p. 17 included). The target item statements remain unchanged at the supplementary snapshot. The DOI endpoint was attempted again but the version of record remained unavailable. No new paper-wide certification is claimed."
   ],
   "findings": [
     {
@@ -26,6 +27,24 @@
       "claim": "The extracted theorem replaces compatible triangulation data and a suitable base point by a bare Zariski-dense set of pointwise trianguline fibres. It claims that a family of Galois representations over any reduced affinoid with such fibres is trianguline after shrinking. That is not the hypothesis package of the cited Ding application or KPX theorem: Ding has an ordered analytic character family and a noncritical, phi-generic point, while KPX requires densely pointwise STRICT triangulinity with fixed ordered analytic parameters. The item must not be exported as the broader theorem currently written.",
       "evidence": "Ding, published PMIHES 142 (2025), proof of Proposition 4.17, p. 69, https://pmihes.centre-mersenne.org/item/10.1007/s10240-025-00156-2.pdf (read 2026-09-26): after constructing rho_X and the natural ordered character delta_X, the argument invokes Bergdall because D is \"non-critical and (φ-)generic\". It obtains successive extensions with parameters delta_X,i times |.|_K^(2i-(n+1)) epsilon^(1-i), after shrinking around the specified point. KPX, published JAMS text hosted at https://www.mathi.uni-heidelberg.de/~otmar/lehre/seminare/KPX.pdf (read 2026-09-26), Definition 6.3.2, pp. 1102-1103, requires global continuous ordered characters delta_1,...,delta_d whose specializations give strict triangulations on the dense subset. Corollary 6.3.10, p. 1108, says \"with respect to the ordered parameters\" and supplies a proper birational modification, a coherent filtration and an exceptional closed locus; graded pieces embed into the parameter modules tensored with line bundles. Pointwise existence of unspecified triangulations omits this compatibility data. The older arXiv v3 additionally assumes irreducible connected components; the published corollary does not, so that older restriction is NOT part of the requested repair.",
       "fix": "Keep PG.7 as owner. Replace the item with Ding Proposition 4.17 proof's local eigenvariety application, carrying its ambient hypotheses, the ordered analytic characters (including the twists), and the noncritical phi-generic base point. If the item is instead intended as a general KPX export, separately state published Definition 6.3.2 and Corollary 6.3.10, including strict triangulinity with global ordered parameters, proper birational modification, exceptional locus and line-bundle graded pieces. A shrinking-only corollary must specify the locus retained and justify passage from that theorem; do not promise a triangulation near an arbitrary prescribed point from density alone. No change to the source papers or the owner graph is requested."
+    },
+    {
+      "id": "RT-AREA-padic-3/2",
+      "kind": "error",
+      "severity": "high",
+      "where": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json, item PAPER-COLMEZ-NIZIOL-25/320, source route to VectorBundlesAndIsocrystals:VB1–VB3",
+      "claim": "The rational-slope Hom formula drops the multiplicity of the Hom bundle. At λ1 = λ2 = 1/2 it identifies End(O(1/2)) with H⁰(O) = Q_p, contradicting the division-algebra assertion in the same item: that endomorphism algebra has Q_p-dimension 4. The routed input is therefore false even as a vector-space isomorphism.",
+      "evidence": "The author copy CN5.pdf of Colmez–Nizioł, On the cohomology of p-adic analytic spaces II, §3.2.6(2), p. 17, prints “Hom(O(λ1),O(λ2)) = Hom(O,O(λ2−λ1))”; the extraction reproduces it. The page image was checked, so this is not OCR. URL https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf, read 2026-09-26, SHA-256 bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a. The publisher DOI page returned an unavailable challenge page; this finding concerns the recorded extraction and this author copy, and makes no claim about the published Duke text. Countercheck: O(1/2) has rank 2. Its dual tensor itself has rank 4 and slope 0, hence is O^4 by the stated classification. Consequently its global sections have dimension 4, whereas the displayed right side has dimension 1. The extraction's preceding tensor-product multiplicity h1*h2/h and the author copy's division-algebra assertion independently expose the loss. The printed tensor multiplicity has its own typographical issue; this finding is about the Hom formula.",
+      "fix": "Use Hom_X(O(λ1),O(λ2)) = H⁰(X,O(λ1)^∨ ⊗ O(λ2)). After choosing a slope decomposition, this is H⁰(X,O(λ2−λ1)) to the direct-sum power N, where N = h1*h2/h and h is the positive denominator of λ2−λ1 in lowest terms. Do not make the chosen splitting canonical or identify the endomorphism algebra with a product algebra. Add the half-slope dimension-4 check and an integral-slope N=1 check to the VB1/VB2 planning interface. Record the source discrepancy with its author-copy version metadata; do not accuse the unexamined published version of the error."
+    },
+    {
+      "id": "RT-AREA-padic-3/3",
+      "kind": "error",
+      "severity": "medium",
+      "where": "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json, items PAPER-COLMEZ-NIZIOL-25/326 and /327; sourceIssues E31 and E3",
+      "claim": "Two accepted source corrections remain only in notes/sourceIssues while the theorem statements routed into VB3 still assert the known false versions: /326(b) omits nonzero W, and /327(iv) identifies every height-zero quotient of nonnegative curvature as curvature zero. PROTOCOL §18 requires the items themselves to use corrected statements. This is a failure to propagate already confirmed corrections, not two new source-error discoveries.",
+      "evidence": "The extraction records confirmed E31 and E3 and supplies counterexamples in the corresponding item notes. Their statements nonetheless retain the uncorrected conclusions. Independently checked in the same CN5 author copy, p. 18, Corollaries 3.20(b), 3.21(iv), §3.2.8 and footnote 9: W=0 violates the strict height conclusion; a torsion object supported at x≠∞ has height 0 and positive curvature, and its identity quotient violates /327(iv). The finding is scoped to that author copy and the extraction; the version of record was unavailable. The short printed assertion “curvature < 0 implies height > 0” is the strict conclusion at issue in /326(b).",
+      "fix": "In /326(b), require W≠0 for positive height, or state height≥0 with equality exactly at W=0. Replace /327(iv) by the existing E3 correction: the quotient has HN slope zero and is a sum of torsion contributions at closed points; curvature zero requires support at ∞. Preserve the original text only in sourceIssues, retain the independent verdicts, and link both corrected items to E31/E3. Keep VB3 as the owner."
     }
   ],
   "sourceVersions": [
@@ -56,21 +75,68 @@
       "read": "2026-09-26",
       "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
       "passages": "arXiv v4, pp. 60-63, Corollary II.2.4 and Proposition II.2.5"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf",
+      "citation": "Colmez–Nizioł, On the cohomology of p-adic analytic spaces II, CN5.pdf",
+      "read": "2026-09-26",
+      "sha256": "bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a",
+      "passages": "§3.2.6–§3.2.8, pp. 16–18, including rendered p. 17. Findings /2 and /3 concern this author copy and its extraction. DOI 10.1215/00127094-2024-0074 did not serve the text (publisher challenge on the initial attempt; browser retry unavailable). No assertion is made about the unexamined published Duke text."
     }
   ],
-  "independence": "PAPER-DING-25 was extracted by Claude Code cc-442dc5 and independently accepted by Claude Code cc-d67081, as recorded in PAPER-DING-25.review.json. Codex/codex-7e92bd did neither job. Own consumer/supplier references were used only as context and are not attacked.",
+  "independence": "PAPER-DING-25 was extracted by Claude Code cc-442dc5 and independently accepted by Claude Code cc-d67081, as recorded in PAPER-DING-25.review.json. Codex/codex-7e92bd did neither job. Own consumer/supplier references were used only as context and are not attacked. PAPER-COLMEZ-NIZIOL-25 was extracted by Claude Code cc-fb70e5 and accepted by Claude Code cc-7b31c4 (REV-PAPER-COLMEZ-NIZIOL-25, #1307); neither is this session. The existing red-team verification is preserved and does not verify the supplemental findings.",
   "limitations": [
     "Complete denotes completion of this scoped red-team pass, not mathematical completeness of the area.",
     "No new proof of nonexistence in the pinned libraries, full-paper certification, Lean compilation or formalization is claimed.",
     "The finding concerns source faithfulness of the extracted contract; no counterexample to every possible interpretation of an unspecified shrinking is claimed."
   ],
   "validation": {
-    "redteamChecker": "pass",
-    "intake": "2 files, 0 problems",
-    "leanCompiled": false,
-    "publicationBase": "919bf760943644067515a97924a98953309d4123",
-    "unchangedInputBlobs": 160,
-    "claimComment": 5808762430,
-    "claimConfirmation": 5808764418
+    "originalSubmission": {
+      "redteamChecker": "pass",
+      "intake": "2 files, 0 problems",
+      "leanCompiled": false,
+      "publicationBase": "919bf760943644067515a97924a98953309d4123",
+      "unchangedInputBlobs": 160,
+      "claimComment": 5808762430,
+      "claimConfirmation": 5808764418
+    },
+    "supplement": {
+      "redteamChecker": "pass",
+      "intake": "2 files, 0 problems",
+      "originalFindingPreserved": true,
+      "leanCompiled": false,
+      "publicationBase": "faf7465b83943b530bb811435ad60c8808b9256a",
+      "unchangedInputBlobs": 12,
+      "originalReview": "completed; maintainer handling required",
+      "originalClaim": 5808762430
+    }
+  },
+  "supplement": {
+    "date": "2026-09-26",
+    "findings": [
+      "RT-AREA-padic-3/2",
+      "RT-AREA-padic-3/3"
+    ],
+    "reviewStatus": "awaiting independent verification",
+    "previousReviewScope": [
+      "RT-AREA-padic-3/1"
+    ],
+    "publicationPolicy": "Maintainer handling under WORKERS.md: own-job correction after the original review was claimed/completed.",
+    "inputBase": "faf7465b83943b530bb811435ad60c8808b9256a",
+    "inputBlobs": {
+      "research/blueprint/WORKERS.md": "8324311aab95579cf49d6659fd686c0f323a32d6",
+      "research/blueprint/PROTOCOL.md": "aa7191562aec431d14fb4add435dc5609d30f094",
+      "research/blueprint/redteam/RT-AREA-padic-3.result.json": "40abc3e663bad2dc7955a64f502b4a0ff7c827cd",
+      "research/blueprint/redteam/RT-AREA-padic-3.md": "22a0c1705cd939e1b999f5f30a9ca70290d7e053",
+      "research/blueprint/redteam/RT-AREA-padic-3.review.json": "84c56e0f91aab5c4e7fd9a7a94634280afb33bbe",
+      "research/blueprint/reviews/REV-RT-AREA-padic-3.md": "ff6a2d34dbaa8d5b077a3154ba22c34196a37efb",
+      "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.result.json": "77237e55f59c7bc8e637059215ad1e51f0283020",
+      "research/blueprint/papers/PAPER-COLMEZ-NIZIOL-25.review.json": "f91a80588d7e5b089e03565371abc30330d4bb28",
+      "research/blueprint/reviews/REV-PAPER-COLMEZ-NIZIOL-25.md": "d9e9024a0c3f05e5f0775e95027f6e71f2c7d964",
+      "scripts/check_redteam.py": "c736ae33fd46ec11c6e718be27479d9d5a520211",
+      "research/blueprint/intake.py": "484d41ad68ff03596f0f8a9f5f3f4fa30adc46bf",
+      "research/blueprint/issues.py": "54760180e7d86e0211304afb8f28bd6ee0e798b6"
+    }
   }
 }
