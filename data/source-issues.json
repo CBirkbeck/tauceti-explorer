@@ -145846,6 +145846,26 @@
    "reviewReason": null
   },
   {
+   "id": "PadicFamilies/E11",
+   "kind": "gap",
+   "locator": "§3.2, Proposition 3.3 and its proof, pp. 35–36 (Numdam PDF pages 32–33)",
+   "printed": "Proposition 3.3 assumes that each element of U/U∩F^× acts without fixed points on D^×\\G^D(A^f). It claims that M_∞(U) and M⁺_∞(U) are free over Λ′_𝒪, with rank rank_𝒪 eH⁰(X(U⁰_1), 𝒪) times the order of the torsion subgroup of G(U). The proof says it suffices to establish this before applying e.",
+   "correction": "The argument shows that the Pontryagin dual of eH⁰(X(U_a), K/𝒪) is projective over 𝒪[G(U_a)] and that M_∞(U), M⁺_∞(U) are projective over 𝒪[[G(U)]], hence free over Λ′_𝒪, of rank rank_𝒪(M_∞(U) ⊗_{Λ′_𝒪} 𝒪). The stated rank, and freeness over 𝒪[G(U_a)], need in addition that the ordinary parts have equal 𝒪-rank on the factors of 𝒪[G(U_a)] belonging to the different characters of the prime-to-p torsion of G(U_a).",
+   "reason": "e is an 𝒪[G(U_a)]-linear idempotent on the free 𝒪[G(U_a)]-module dual to H⁰(X(U_a), K/𝒪), so the dual of the e-part is a direct summand, i.e. projective. 𝒪[G(U_a)] is a product of local rings indexed by the (Galois orbits of) characters of the prime-to-p part of G(U_a), and a projective module is free of the stated rank only if its ranks on these factors agree; the proof's coinvariant computation sees only the trivial character. The components correspond to nearly ordinary forms with different tame characters at p, whose dimensions the argument does not compare. Corollary 3.4 and Lemmas 3.10 and 3.19 use only freeness over Λ′_𝒪, which the argument does give.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Numdam item page http://www.numdam.org/item/PMIHES_1999__89__5_0/ and the Crossref record of doi:10.1007/BF02698855 with a filter=updates query, checked 2026-09-28: no erratum.",
+    "Hida, On nearly ordinary Hecke algebras for GL(2) over totally real fields, Adv. Stud. Pure Math. 17 (1989), 139–169 (doi:10.2969/aspm/01710139), the cited source [H2, Theorem 3.8], was not obtained: Project Euclid refused automated access."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PadicHodgeRegulators/E301",
    "kind": "error",
    "locator": "Published Proposition 5.11, first sentence of proof, p. 1129; compare arXiv:1006.5163v2 Proposition 5.11 and Remark 5.12, p. 25.",
