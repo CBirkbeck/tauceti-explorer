@@ -18282,12 +18282,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-GlobalGaloisDeformations.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "released on GitHub issue #743"
+   "note": "claimed on GitHub issue #743"
   },
   {
    "id": "REV-GlobalGaloisDeformations",
@@ -19616,12 +19616,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-LocalGaloisDeformationRings.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6"
    ],
-   "note": "claimed on GitHub issue #770"
+   "note": "released on GitHub issue #770"
   },
   {
    "id": "REV-LocalGaloisDeformationRings",
