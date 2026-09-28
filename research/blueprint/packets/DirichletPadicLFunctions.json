@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all296 predecessor nodes whole. Seven L1 nodes construct the actual arithmetic pseudomeasure in the native total quotient and prove all-unit clearing, numerator comparison, independence of regular parameters, uniqueness and integral parity. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all303 predecessor nodes whole. Five L1 nodes supply positive Bernoulli moments of the actual arithmetic pseudomeasure, its complex comparison through a shared rational value, interpolation, uniqueness from positive moments and odd vanishing. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2618,6 +2618,27 @@
         "module": "Mathlib/Algebra/Group/Units/Basic.lean",
         "provides": "For a unit a in a monoid, a*b=a*c iff b=c.",
         "checked": "Full declaration and applicable ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. Four complete native scratch lemmas verify the exact fraction clearing, parameter independence, unit cancellation and parity interfaces."
+      },
+      {
+        "ref": "mathlib:riemannZeta_neg_nat_eq_bernoulli'",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/HurwitzZetaValues.lean",
+        "provides": "For every n∈N, riemannZeta(−n)=−bernoulli′(n+1)/(n+1), including n=0.",
+        "checked": "Full native declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The complete native probe verifies complex Euler comparison, its degree1 boundary and ordinary Bernoulli sign convention."
+      },
+      {
+        "ref": "mathlib:bernoulli_eq_bernoulli'_of_ne_one",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Bernoulli.lean",
+        "provides": "If n≠1, ordinary bernoulli n equals bernoulli′ n.",
+        "checked": "Full native declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The complete native probe verifies complex Euler comparison, its degree1 boundary and ordinary Bernoulli sign convention."
+      },
+      {
+        "ref": "mathlib:riemannZeta_zero",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "riemannZeta 0=−1/2.",
+        "checked": "Full native declaration and ambient hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The complete native probe verifies complex Euler comparison, its degree1 boundary and ordinary Bernoulli sign convention."
       }
     ]
   },
@@ -20013,6 +20034,277 @@
       "acceptance": [
         "Integral parity does not assert a dyadic plus/minus idempotent decomposition."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Positive Bernoulli moments of the arithmetic pseudomeasure",
+      "kind": "theorem",
+      "statement": "For every k>0, M_k(ζ_p)=−(1−p^(k−1))·alg_Q,Q_p(B_k/k), equivalently the Q_p-image of r_(p,k).",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact existing commutative multiplicative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q for the actual Dirac homomorphism. Let ζ_p be the preceding kubotaLeopoldtPseudomeasure p. For k>0 write M_k for the exact supplier positivePseudoMoment p k hk. B_k is the native ordinary Bernoulli convention B_1=−1/2. The rational expression r_(p,k)=−(1−p^(k−1))B_k/k is notation, not a new scalar carrier or definition. Its inclusions into C and Q_p are separate native rational casts."
+      ],
+      "proofSteps": [
+        "Choose a∈U with value p+1. The exact supplier positivePseudoMoment_eq expresses M_k(ζ_p) as the kth moment of its numerator at a divided by a^k−1 in Q_p.",
+        "Use the actual numerator comparison to replace the supplier numerator by λ_a, then use the existing all-unit intrinsic moment formula: λ_a(x^k)=(1−p^(k−1))(1−a^k)·alg(B_k/k).",
+        "The supplier proves a^k≠1 in Z for k>0. The injective Z→Q_p inclusion keeps this denominator nonzero. Cancel (1−a^k)/(a^k−1)=−1 in Q_p. The complete native probe verifies the exact scalar identity. No factor k or a^k−1 is inverted in Z.",
+        "At k=1, the Euler factor vanishes. At p=3,k=2 the value is1/6; at p=2,k=4 it is−7/120. These tests detect a sign error when removing the smoothing factor."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-numerator",
+        "DirichletPadicLFunctions:L1/padic-intrinsic-moments",
+        "PadicMeasuresIwasawaAlgebras:L3/actual-positive-pseudomoment",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers",
+        "mathlib:PadicInt.ext",
+        "mathlib:bernoulli_two"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticInterpolation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma3.36(iii), published130–131/PDF31–32; Theorem4.1 and Proposition4.11 with its complete proof, published136 and138–139/PDF37 and39–40. Complete cited pages read28September2026.",
+          "excerpt": "for all k > 0",
+          "match": "Worker decomposition of actual arithmetic positive interpolation and uniqueness. Generic positive evaluation and separation are supplied by PMIA. Complex special values are native Mathlib results, compared through one explicit rational value. Existing E4 handles the false unqualified odd-value assertion in the source proof: k=1 uses the zero Euler factor, while ζ(0)=−1/2 is nonzero. No additional finding or verdict is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedInterpolationTests.positive_first_zero",
+          "kind": "degenerate",
+          "statement": "For every prime, M_1(ζ_p)=0."
+        },
+        {
+          "name": "SuggestedInterpolationTests.positive_second_ternary",
+          "kind": "computation",
+          "statement": "At p=3 the second moment is1/6 in Q_3."
+        },
+        {
+          "name": "SuggestedInterpolationTests.positive_fourth_dyadic",
+          "kind": "computation",
+          "statement": "At p=2 the fourth moment is−7/120 in Q_2."
+        }
+      ],
+      "acceptance": [
+        "Only positive degrees are evaluated. The rational Bernoulli quotient is included into Q_p; no integral scalar inverse is assumed."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-euler-zeta-comparison",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "The rational Euler value and complex zeta",
+      "kind": "comparison",
+      "statement": "For k>0, the complex image of r_(p,k) equals (1−p^(k−1))riemannZeta(1−k).",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact existing commutative multiplicative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q for the actual Dirac homomorphism. Let ζ_p be the preceding kubotaLeopoldtPseudomeasure p. For k>0 write M_k for the exact supplier positivePseudoMoment p k hk. B_k is the native ordinary Bernoulli convention B_1=−1/2. The rational expression r_(p,k)=−(1−p^(k−1))B_k/k is notation, not a new scalar carrier or definition. Its inclusions into C and Q_p are separate native rational casts."
+      ],
+      "proofSteps": [
+        "Separate k=1 first. Both sides vanish because 1−p^0=0; the raw complex value remains ζ(0)=−1/2. This retains the endpoint correction E4.",
+        "For k>1 apply native riemannZeta_neg_nat_eq_bernoulli′ at k−1. The exponent identity −(k−1)=1−k and (k−1)+1=k give ζ(1−k)=−B′_k/k.",
+        "Since k≠1, native bernoulli_eq_bernoulli′_of_ne_one identifies B′_k with B_k. Multiply by the Euler factor and use native rational casts. The complete scratch proof verifies the statement including all natural-number subtraction and field-cast details.",
+        "This is an arithmetic scalar comparison used by this pseudomeasure, not a new proof of analytic continuation or the native special-value theorem."
+      ],
+      "prerequisites": [
+        "mathlib:riemannZeta_neg_nat_eq_bernoulli'",
+        "mathlib:bernoulli_eq_bernoulli'_of_ne_one",
+        "mathlib:riemannZeta_zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticInterpolation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.arithmeticEulerValue_complex"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma3.36(iii), published130–131/PDF31–32; Theorem4.1 and Proposition4.11 with its complete proof, published136 and138–139/PDF37 and39–40. Complete cited pages read28September2026.",
+          "excerpt": "for all k > 0",
+          "match": "Worker decomposition of actual arithmetic positive interpolation and uniqueness. Generic positive evaluation and separation are supplied by PMIA. Complex special values are native Mathlib results, compared through one explicit rational value. Existing E4 handles the false unqualified odd-value assertion in the source proof: k=1 uses the zero Euler factor, while ζ(0)=−1/2 is nonzero. No additional finding or verdict is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedInterpolationTests.complex_endpoint_euler",
+          "kind": "degenerate",
+          "statement": "(1−p^0)ζ(0)=0."
+        },
+        {
+          "name": "SuggestedInterpolationTests.complex_endpoint_nonzero",
+          "kind": "non-example",
+          "statement": "The unsmoothed value ζ(0)=−1/2 is nonzero."
+        },
+        {
+          "name": "SuggestedInterpolationTests.complex_second_ternary",
+          "kind": "computation",
+          "statement": "(1−3)ζ(−1)=1/6."
+        }
+      ],
+      "acceptance": [
+        "The assertion is true at k=1 because of the Euler factor, not because ζ(0) vanishes."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-positive-interpolation",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Interpolation through a shared rational value",
+      "kind": "theorem",
+      "statement": "For every k>0 there is a unique r∈Q whose complex image is (1−p^(k−1))ζ(1−k) and whose Q_p-image is M_k(ζ_p).",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact existing commutative multiplicative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q for the actual Dirac homomorphism. Let ζ_p be the preceding kubotaLeopoldtPseudomeasure p. For k>0 write M_k for the exact supplier positivePseudoMoment p k hk. B_k is the native ordinary Bernoulli convention B_1=−1/2. The rational expression r_(p,k)=−(1−p^(k−1))B_k/k is notation, not a new scalar carrier or definition. Its inclusions into C and Q_p are separate native rational casts."
+      ],
+      "proofSteps": [
+        "Take the explicit rational r=r_(p,k). The preceding complex comparison proves its first property and the actual Bernoulli moment theorem proves its second after native rational-cast simplification.",
+        "If another rational has both properties, its complex image agrees with this one. Injectivity of the rational map into C makes the rational values equal. This injectivity step is also checked by a complete native scratch lemma.",
+        "The result makes the source interpolation equation precise without any comparison map C→Q_p. At degree1 the unique rational is0; at p=2,k=2 it is1/12."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli",
+        "DirichletPadicLFunctions:L1/arithmetic-euler-zeta-comparison"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticInterpolation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure_interpolation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma3.36(iii), published130–131/PDF31–32; Theorem4.1 and Proposition4.11 with its complete proof, published136 and138–139/PDF37 and39–40. Complete cited pages read28September2026.",
+          "excerpt": "for all k > 0",
+          "match": "Worker decomposition of actual arithmetic positive interpolation and uniqueness. Generic positive evaluation and separation are supplied by PMIA. Complex special values are native Mathlib results, compared through one explicit rational value. Existing E4 handles the false unqualified odd-value assertion in the source proof: k=1 uses the zero Euler factor, while ζ(0)=−1/2 is nonzero. No additional finding or verdict is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedInterpolationTests.rational_dyadic_second",
+          "kind": "compatibility",
+          "statement": "The same rational1/12 has complex image (1−2)ζ(−1) and Q_2-image M_2(ζ_2)."
+        },
+        {
+          "name": "SuggestedInterpolationTests.rational_first_zero",
+          "kind": "degenerate",
+          "statement": "The shared rational at k=1 is0 in both target fields."
+        }
+      ],
+      "acceptance": [
+        "Existence and uniqueness concern a rational scalar included into two fields. The actual positive-pseudomoment operation remains the supplier operation."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-interpolation-unique",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Uniqueness from every positive interpolation value",
+      "kind": "theorem",
+      "statement": "If z∈PM satisfies M_k(z)=−(1−p^(k−1))alg(B_k/k) for all k>0, then z=ζ_p.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact existing commutative multiplicative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q for the actual Dirac homomorphism. Let ζ_p be the preceding kubotaLeopoldtPseudomeasure p. For k>0 write M_k for the exact supplier positivePseudoMoment p k hk. B_k is the native ordinary Bernoulli convention B_1=−1/2. The rational expression r_(p,k)=−(1−p^(k−1))B_k/k is notation, not a new scalar carrier or definition. Its inclusions into C and Q_p are separate native rational casts."
+      ],
+      "proofSteps": [
+        "The actual positive Bernoulli theorem gives the same values for ζ_p. Apply additivity and the supplier M-scalar law at−1 to see that every positive moment of z−ζ_p is zero. The scalar test value of−1 is−1 since the convolution identity is δ_1.",
+        "Invoke the exact supplier pseudomeasure_eq_zero_of_positive_moments on z−ζ_p, then subtract-zero extensionality gives z=ζ_p. No new generic separation theorem is planned.",
+        "Existence is the preceding actual ζ_p, so the typed test states unique existence of an object with these values. If the input interpolation is instead supplied by shared rational values as in the preceding node, their unique complex rational representatives first identify them with r_(p,k), reducing to this hypothesis."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli",
+        "DirichletPadicLFunctions:L1/arithmetic-positive-interpolation",
+        "PadicMeasuresIwasawaAlgebras:L3/actual-positive-pseudomoment",
+        "PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-separation"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticInterpolation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure_unique_of_moments"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma3.36(iii), published130–131/PDF31–32; Theorem4.1 and Proposition4.11 with its complete proof, published136 and138–139/PDF37 and39–40. Complete cited pages read28September2026.",
+          "excerpt": "for all k > 0",
+          "match": "Worker decomposition of actual arithmetic positive interpolation and uniqueness. Generic positive evaluation and separation are supplied by PMIA. Complex special values are native Mathlib results, compared through one explicit rational value. Existing E4 handles the false unqualified odd-value assertion in the source proof: k=1 uses the zero Euler factor, while ζ(0)=−1/2 is nonzero. No additional finding or verdict is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedInterpolationTests.unique_interpolating_object",
+          "kind": "characterisation",
+          "statement": "There exists exactly one actual PM element with all the specified positive Bernoulli moments."
+        }
+      ],
+      "acceptance": [
+        "All positive degrees are quantified. Evenness or finitely many values alone is not used as a uniqueness criterion."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L1/arithmetic-odd-moments",
+      "parentStageId": "DirichletPadicLFunctions:L1",
+      "realises": [
+        "DirichletPadicLFunctions:L1"
+      ],
+      "title": "Vanishing of every odd positive interpolation value",
+      "kind": "lemma",
+      "statement": "If k is odd, then M_k(ζ_p)=0, including k=1 and p=2.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=Z_p, U=Z^×, M=D(U,Z) with the exact existing commutative multiplicative convolution operations, Q=FractionRing M and PM=Iwasawa.pseudomeasures δ Q for the actual Dirac homomorphism. Let ζ_p be the preceding kubotaLeopoldtPseudomeasure p. For k>0 write M_k for the exact supplier positivePseudoMoment p k hk. B_k is the native ordinary Bernoulli convention B_1=−1/2. The rational expression r_(p,k)=−(1−p^(k−1))B_k/k is notation, not a new scalar carrier or definition. Its inclusions into C and Q_p are separate native rational casts."
+      ],
+      "proofSteps": [
+        "Oddness implies k>0, so apply the actual positive Bernoulli formula.",
+        "At k=1 use the zero Euler factor. For odd k>1 use native bernoulli_eq_zero_of_odd. These two cases also give an exact rational scalar proof in the native scratch module.",
+        "This value-level consequence agrees with integral evenness of the actual pseudomeasure; the present proof neither averages by2 nor makes a dyadic idempotent decomposition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli",
+        "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure-even",
+        "mathlib:bernoulli_eq_zero_of_odd"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/ArithmeticInterpolation",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.kubotaLeopoldtPseudomeasure_odd_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma3.36(iii), published130–131/PDF31–32; Theorem4.1 and Proposition4.11 with its complete proof, published136 and138–139/PDF37 and39–40. Complete cited pages read28September2026.",
+          "excerpt": "for all k > 0",
+          "match": "Worker decomposition of actual arithmetic positive interpolation and uniqueness. Generic positive evaluation and separation are supplied by PMIA. Complex special values are native Mathlib results, compared through one explicit rational value. Existing E4 handles the false unqualified odd-value assertion in the source proof: k=1 uses the zero Euler factor, while ζ(0)=−1/2 is nonzero. No additional finding or verdict is asserted."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedInterpolationTests.odd_third_dyadic",
+          "kind": "computation",
+          "statement": "M_3(ζ_2)=0."
+        },
+        {
+          "name": "SuggestedInterpolationTests.odd_fifth_ternary",
+          "kind": "computation",
+          "statement": "M_5(ζ_3)=0."
+        }
+      ],
+      "acceptance": [
+        "The endpoint is proved by its Euler factor, keeping raw ζ(0) distinct."
+      ]
     }
   ],
   "requests": [
@@ -20036,7 +20328,7 @@
       "stageId": "DirichletPadicLFunctions:L1",
       "status": "partial",
       "remaining": [
-        "The actual arithmetic pseudomeasure in the native total quotient now has all-unit clearing, exactly the specified arithmetic numerators, independence for every regular smoothing parameter, uniqueness from its numerators and integral evenness. Next derive positive interpolation and uniqueness from moments, compare rational/complex zeta values with the k=1 zero Euler factor handled separately, and prove nonintegrality. Compare this same object with the completed group algebra when the PMIA L1 requested comparison is supplied. Analytic branches, p-adic logarithmic values, pure p-power conductor, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.",
+        "The actual arithmetic pseudomeasure now interpolates all positive powers, including degree1, through a shared rational Euler–Bernoulli value in C and Q_p. All positive moments determine it uniquely, and its odd positive values vanish. Next establish nonintegrality using pinned Bernoulli valuation results, then extract the pure p-power conductor twists and their field-of-values comparisons. Completed-group-algebra comparison still awaits the PMIA L1 request. Analytic branches, p-adic logarithmic values, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.",
         "Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×.",
         "The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
       ]
@@ -20074,7 +20366,7 @@
     {
       "title": "L1 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual arithmetic pseudomeasure in the native total quotient now has all-unit clearing, exactly the specified arithmetic numerators, independence for every regular smoothing parameter, uniqueness from its numerators and integral evenness. Next derive positive interpolation and uniqueness from moments, compare rational/complex zeta values with the k=1 zero Euler factor handled separately, and prove nonintegrality. Compare this same object with the completed group algebra when the PMIA L1 requested comparison is supplied. Analytic branches, p-adic logarithmic values, pure p-power conductor, pole/residue analysis, full source extraction and the complete Eisenstein family remain open. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
+      "detail": "The actual arithmetic pseudomeasure now interpolates all positive powers, including degree1, through a shared rational Euler–Bernoulli value in C and Q_p. All positive moments determine it uniquely, and its odd positive values vanish. Next establish nonintegrality using pinned Bernoulli valuation results, then extract the pure p-power conductor twists and their field-of-values comparisons. Completed-group-algebra comparison still awaits the PMIA L1 request. Analytic branches, p-adic logarithmic values, pole/residue analysis, full source extraction and the complete Eisenstein family remain open. Prove independence of the smoothing parameter, full pseudomeasure interpolation for every k≥1 (including the zero Euler factor at k=1) and parity descent in the actual completed algebra. Finite-combination and weight-period congruences for the actual integral smoothed numerator, plus removal for integral-unit smoothing denominators, are now explicit. Complete any stronger character/branch or denominator-cleared pseudomeasure congruences required by the source after specifying their hypotheses. The measure results include p=2 but do not construct a dyadic pseudomeasure splitting or choose a nonexistent single topological generator of ℤ₂×. The actual ambient arithmetic measures now have Q_p-valued coefficient extensions with moment comparisons; μ_a has its Amice characterization over every eligible coefficient ring and unique integral descent from Q_p. Complete the further coefficient-field/descent comparisons required by the character and logarithmic applications, with their chosen embeddings and convergence hypotheses. The intrinsic numerator coefficient/inclusion square is now explicit; the actual completed-algebra comparison remains in the first L1 work item."
     },
     {
       "title": "L2 remaining source decomposition and interfaces",
@@ -20377,66 +20669,63 @@
   "checks": {
     "blueprint": "Zero errors and warnings with the unmodified pinned index.",
     "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All16 predecessor source findings and sourceVersions remain whole; no new finding or independent verdict.",
+    "sourceIssues": "All16 predecessor source findings and sourceVersions remain whole; existing E4 is retained at degree1, with no new finding or independent verdict.",
     "validation": {
-      "nodes": 303,
+      "nodes": 308,
       "kinds": {
         "definition": 1,
-        "lemma": 143,
+        "lemma": 144,
         "construction": 32,
-        "theorem": 83,
-        "comparison": 44
+        "theorem": 86,
+        "comparison": 45
       },
       "api": 299,
-      "packetTests": 376,
+      "packetTests": 387,
       "definitionConstructionTests": 159,
-      "typedExamples": 379,
+      "typedExamples": 390,
       "planets": 24,
-      "baseline": 372,
-      "preservedWholeNodes": 296,
-      "preservedBaseline": 365,
+      "baseline": 375,
+      "preservedWholeNodes": 303,
+      "preservedBaseline": 372,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 7,
-      "newNamedDeclarations": 8,
-      "newTypedTests": 15,
+      "newNodes": 5,
+      "newNamedDeclarations": 5,
+      "newTypedTests": 11,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 469,
-      "dependencyEdges": 2195,
+      "reachableNodes": 482,
+      "dependencyEdges": 2249,
       "acyclic": true,
-      "baselineLeaves": 488,
+      "baselineLeaves": 493,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 117095,
+      "readerWords": 119200,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 824,
+      "compilerWarnings": 840,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 332,
       "supplierWarnings": 707,
-      "supplierArtifactReused": false,
+      "supplierArtifactReused": true,
       "pinnedMathlibModules": 3596,
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
       "scratchCompleteLemmas": 4,
-      "scratchMathlibModules": 894,
+      "scratchMathlibModules": 3001,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "groupElements": 26,
-        "exactCrossIdentities": 676,
-        "exactParityIdentities": 26,
-        "integralLaurentNumerators": 26,
-        "clearedFractions": 2496,
-        "regularParameterComparisons": 2304,
-        "zeroDivisorWitnesses": 1,
-        "arithmeticMomentRatios": 144
+        "momentRatios": 480,
+        "oddValues": 80,
+        "sharedRationalZetaValues": 160,
+        "endpointZeroValues": 5,
+        "smallValues": 5
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -20444,20 +20733,20 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 824,
-      "sha256": "90438e1df64c9e0e568ab9c0c9dac1558301ae0d6a6c28516366735e0298d1d4",
+      "warnings": 840,
+      "sha256": "00869f9f0b28089ed49f2f9bc27f59c5b5df4414ee7b06a3ec2acfe32ee37390",
       "nativeProbe": {
         "completeLemmas": 4,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "af88518ffd7faa7e73c293bf247aa75b45421645405c6a63828c7f9273d66a17"
+        "sha256": "435939fd31367b8b36d8b34574f8e484319b1dd63040ecf4b9b5d0117331507b"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
         "currentSupplierNodes": 332,
         "supplierWarnings": 707,
-        "supplierFreshlyElaborated": true,
+        "supplierFreshlyElaborated": false,
         "hashes": {
           "source": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
           "olean": "4b34a19961eec73bfa90a280566521896e8ecbc1ec706982525962146a7b7f88",
@@ -20520,16 +20809,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "c8c6f36274cf1805d0661e975fd0757f03f9447c787351878f7fa5670b8d7867",
+          "sourceSha256": "90438e1df64c9e0e568ab9c0c9dac1558301ae0d6a6c28516366735e0298d1d4",
           "modules": 3568,
-          "warnings": 801,
+          "warnings": 824,
           "errors": 0
         },
-        "scope": "Actual current332-node supplier suggested file freshly elaborated, not a native library. Both unchanged predecessor and current Dirichlet file compile against it. Existing pinned native artifacts only;21Tau modules in combined source closure,105 artifact files hash-checked. Supplier used an existing two-module native build; main used21 existing native artifacts through one symlink root. Original native build receipt/source pins and zero-warning logs checked, without claiming to reread retired native-src copies. No Lake setup, update, cache fetch or native library build."
+        "scope": "Actual current332-node supplier artifact reused from preceding PR3303. Both that exact predecessor and this Dirichlet checkpoint compile against it. Existing pinned native artifacts only;21Tau modules in combined source closure,105 artifact files hash-checked. Supplier used an existing two-module native build; main used21 existing native artifacts through one symlink root. Original native build receipt/source pins and zero-warning logs checked, without claiming to reread retired native-src copies. No Lake setup, update, cache fetch or native library build."
       }
     },
     "publication": {
-      "base": "6eb178dadeb9825c9a614fe30e3457853de13794",
+      "base": "2781e9f2f166d2948563d93cde3f8334a6e64af2",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -24604,6 +24893,41 @@
         "arithmeticMomentRatios": 144
       },
       "numericalMethod": "Exact Laurent-polynomial arithmetic in Z[C2 x Z]. The model numerator at (e,n) is (1+s)(X^n-1)/(X-1), written as an integral finite Laurent sum. Cross identities, sign parity and the nonzero zero-divisor pair (s-1,s+1) are checked symbolically. Evaluation into Q x Q at four positive X-values verifies clearing and parameter independence at the listed denominators; this does not prove their regularity in the Laurent ring or identify the model with the p-adic measure ring. Separate exact Bernoulli calculations check the arithmetic quotient sign, including the zero Euler factor at k=1. No finite control constructs the actual pseudomeasure or proves its general properties."
+    },
+    "actualPositiveInterpolation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3303,
+      "previousHead": "093f595aa20b122ba8f5099c1fad14f565a93000",
+      "previousMerge": "2781e9f2f166d2948563d93cde3f8334a6e64af2",
+      "preservedWholeNodes": 303,
+      "preservedBaseline": 372,
+      "preservedFindings": 16,
+      "newNodes": 5,
+      "reading": "Complete published130–131/PDF31–32 and136–139/PDF37–40 freshly read28September2026; published digest verified. Full actual positive-pseudomoment, numerator-moment, separation and one-add-prime positive-power supplier nodes and their suggested signatures read. All five reviewed library-audit entries were reread. Native negative-integer Riemann zeta formulas in both Bernoulli conventions, the ordinary/primed Bernoulli comparison, low Bernoulli values, odd vanishing and ζ(0) were read in full at the pin. No analytic zeta theorem is replanned.",
+      "boundary": "The actual arithmetic pseudomeasure now interpolates all positive powers, including degree1, through a shared rational Euler–Bernoulli value in C and Q_p. All positive moments determine it uniquely, and its odd positive values vanish. Next establish nonintegrality using pinned Bernoulli valuation results, then extract the pure p-power conductor twists and their field-of-values comparisons. Completed-group-algebra comparison still awaits the PMIA L1 request. Analytic branches, p-adic logarithmic values, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.",
+      "inputBase": "2781e9f2f166d2948563d93cde3f8334a6e64af2",
+      "sourceBoundary": "All16 source findings and sourceVersions remain whole. Existing E4 is applied explicitly at degree1; no new finding or verdict. Native complex zeta values and supplied positive evaluation/separation are reused.",
+      "publication": {
+        "base": "2781e9f2f166d2948563d93cde3f8334a6e64af2",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "momentRatios": 480,
+        "oddValues": 80,
+        "sharedRationalZetaValues": 160,
+        "endpointZeroValues": 5,
+        "smallValues": 5
+      },
+      "numericalMethod": "Exact rational Bernoulli recurrence through degree32; five primes and three positive regular smoothing candidates per prime. Quotient signs, odd vanishing and rational images of the native negative-integer zeta formula are checked exactly. At degree1 the raw zeta value is−1/2 while the Euler factor gives0. Finite checks verify scalar identities only, not the general pseudomeasure construction or the analytic zeta theorem."
     }
   },
   "requestResolutions": [

@@ -4233,3 +4233,68 @@ example : dirac Z (-1 : U) • kubotaLeopoldtPseudomeasure p = kubotaLeopoldtPse
 example : dirac Z (1 : U) • kubotaLeopoldtPseudomeasure p = kubotaLeopoldtPseudomeasure p := sorry
 end SuggestedActualPseudoTests
 end DirichletPadic
+
+/-! ## Positive interpolation of the actual arithmetic pseudomeasure -/
+namespace DirichletPadic
+open scoped AbstractMeasure
+open AbstractMeasure
+variable (p : ℕ) [Fact p.Prime]
+local notation "Z" => ℤ_[p]
+local notation "U" => Zˣ
+local notation "M" => D(U,Z)
+local instance : TotallyDisconnectedSpace U :=
+  (PadicInt.unitsHomeomorphIsUnit p).isEmbedding.isTotallyDisconnected_range.mp
+    (isTotallyDisconnected_of_totallyDisconnectedSpace _)
+local instance : CommRing M :=
+  { (inferInstance : Ring M) with mul_comm := mul_comm_of_commMonoid }
+local notation "Q" => FractionRing M
+local notation "PM" => Iwasawa.pseudomeasures (diracHom (G := U) (R := Z)) Q
+
+theorem kubotaLeopoldtPseudomeasure_moment (k : ℕ) (hk : 0 < k) :
+    positivePseudoMoment p k hk (kubotaLeopoldtPseudomeasure p) =
+      -(1-(p : ℚ_[p])^(k-1))*algebraMap ℚ ℚ_[p] (bernoulli k/(k : ℚ)) := sorry
+
+lemma arithmeticEulerValue_complex (k : ℕ) (hk : 0 < k) :
+    ((-(1-(p : ℚ)^(k-1))*(bernoulli k/(k : ℚ)) : ℚ) : ℂ) =
+      (1-(p : ℂ)^(k-1))*riemannZeta (1-(k : ℂ)) := sorry
+
+theorem kubotaLeopoldtPseudomeasure_interpolation (k : ℕ) (hk : 0 < k) :
+    ∃! r : ℚ, (r : ℂ)=(1-(p : ℂ)^(k-1))*riemannZeta (1-(k : ℂ)) ∧
+      (r : ℚ_[p])=positivePseudoMoment p k hk (kubotaLeopoldtPseudomeasure p) := sorry
+
+theorem kubotaLeopoldtPseudomeasure_unique_of_moments (z : PM)
+    (hz : ∀ (k : ℕ) (hk : 0 < k), positivePseudoMoment p k hk z =
+      -(1-(p : ℚ_[p])^(k-1))*algebraMap ℚ ℚ_[p] (bernoulli k/(k : ℚ))) :
+    z=kubotaLeopoldtPseudomeasure p := sorry
+
+lemma kubotaLeopoldtPseudomeasure_odd_moment (k : ℕ) (hk : Odd k) :
+    positivePseudoMoment p k hk.pos (kubotaLeopoldtPseudomeasure p)=0 := sorry
+
+namespace SuggestedInterpolationTests
+-- positive_first_zero
+example : positivePseudoMoment p 1 (by omega) (kubotaLeopoldtPseudomeasure p)=0 := sorry
+-- positive_second_ternary
+example : positivePseudoMoment 3 2 (by omega) (kubotaLeopoldtPseudomeasure 3)=1/6 := sorry
+-- positive_fourth_dyadic
+example : positivePseudoMoment 2 4 (by omega) (kubotaLeopoldtPseudomeasure 2)= -7/120 := sorry
+-- complex_endpoint_euler
+example : (1-(p : ℂ)^0)*riemannZeta 0=0 := sorry
+-- complex_endpoint_nonzero
+example : riemannZeta 0= -(1:ℂ)/2 ∧ riemannZeta 0 ≠ 0 := sorry
+-- complex_second_ternary
+example : (1-(3 : ℂ))*riemannZeta (-1)=1/6 := sorry
+-- rational_dyadic_second
+example : ((1/12 : ℚ) : ℂ)=(1-(2 : ℂ))*riemannZeta (-1) ∧
+    ((1/12 : ℚ) : ℚ_[2])=positivePseudoMoment 2 2 (by omega) (kubotaLeopoldtPseudomeasure 2) := sorry
+-- rational_first_zero
+example : ((0 : ℚ) : ℂ)=(1-(p : ℂ)^0)*riemannZeta 0 ∧
+    ((0 : ℚ) : ℚ_[p])=positivePseudoMoment p 1 (by omega) (kubotaLeopoldtPseudomeasure p) := sorry
+-- unique_interpolating_object
+example : ∃! z : PM, ∀ (k : ℕ) (hk : 0 < k), positivePseudoMoment p k hk z =
+    -(1-(p : ℚ_[p])^(k-1))*algebraMap ℚ ℚ_[p] (bernoulli k/(k : ℚ)) := sorry
+-- odd_third_dyadic
+example : positivePseudoMoment 2 3 (by omega) (kubotaLeopoldtPseudomeasure 2)=0 := sorry
+-- odd_fifth_ternary
+example : positivePseudoMoment 3 5 (by omega) (kubotaLeopoldtPseudomeasure 3)=0 := sorry
+end SuggestedInterpolationTests
+end DirichletPadic
