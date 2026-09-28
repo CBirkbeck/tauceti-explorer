@@ -1,7 +1,7 @@
-# Minimal deformation-to-Hecke maps and auxiliary levels (layers R22.1–R22.2)
+# Deformation-to-Hecke maps, auxiliary levels, patching and components (layers R22.1–R22.4)
 
-*GL₂ modularity lifting, part 1 (R22.1–R22.6, R32.1–R32.2). Checkpoint 1 plans R22.1 and R22.2; the other stages are not
-yet read.*
+*GL₂ modularity lifting, part 1 (R22.1–R22.6, R32.1–R32.2). Checkpoints 1–2 plan R22.1–R22.4; R22.5, R22.6, R32.1 and
+R32.2 are not yet read.*
 
 ## Purpose
 
@@ -117,11 +117,53 @@ rank over 𝒪[Δ_{Q_n}]⟦y⟧, compatibly with R04.6's Taylor–Wiles system.
 - It satisfies T_v ↦ χ(π_v)T_v, U_v ↦ χ(π_v)U_v and ⟨h⟩ ↦ χ^{−1}(h)⟨h⟩.
 - It is compatible with the deformation-side twists (R04.4, R04.5).
 
+## Layer R22.3: arithmetic patching
+
+Library module: `TauCeti/NumberTheory/ModularityLifting/Patching`.
+
+RS-08 narrows R22.3 to the arithmetic instance. The abstract inverse-limit patching (R03.5) and the Auslander–Buchsbaum
+step (R03.3) are requested; DeformationAndDerivedPatchingAlgebra R03.6's support nodes are reused.
+
+**Construction: patching data** (node `arithmetic-patching-data`; KW II Proposition 9.2 (I), Gee §5.6).
+- (D_m, L_m) of level m, from the R04.6 and R22.2 systems.
+- The annihilator bound makes L_m free over 𝒪⟦y⟧/c_m.
+- There are finitely many classes at each level.
+
+**Theorem: the patched ring and module** (node `patched-ring-and-module`; planet).
+- B⟦x⟧ ↠ R_∞ ↠ R̄^{□,ψ}_S.
+- M_∞ is finite free over 𝒪⟦y⟧, faithful at level U after specialisation.
+
+**Theorem: support** (node `patched-support`; planet). Depth ≥ dim gives support on components. When B is a domain,
+R_∞ ≅ B⟦x⟧ and the support is full.
+
+**Theorem: finiteness of the minimal ring** (node `minimal-ring-finite`). R̄^ψ_S is finite over 𝒪 at the minimal level;
+global finiteness is R24.1.
+
+**Theorem: R = T after inverting p** (node `generic-fibre-r-equals-t`; planet). Auslander–Buchsbaum over R_∞[1/p] shows the
+kernel is p-power torsion.
+
+## Layer R22.4: components and nonminimal levels
+
+Library module: `TauCeti/NumberTheory/ModularityLifting/Components`.
+
+**Construction: the Ihara-avoidance pair** (node `ihara-avoidance-comparison`; Gee §5.6, Taylor).
+- 𝒮_Q uses unipotent conditions at T_r, and 𝒮′_Q uses (ζ, ζ^{−1}).
+- They agree mod λ, and (R^{loc,′})^red is irreducible (LocalGaloisDeformationRings R08.2).
+
+**Theorem: transfer of support** (node `support-transfer-mod-lambda`; planet).
+- S′_∞ has full support.
+- Full support passes to S_∞/λ, then to S_∞, because the components of R_∞ and R_∞/λ correspond.
+- It then descends to S_∅.
+
+**Theorem: modularity from full support** (node `modularity-from-full-support`; planet; Gee Lemma 5.7).
+(R^univ_∅)^red ≅ 𝕋_∅, and points of type 𝒮_∅ are modular.
+
+**Theorem: integral R = T** (node `integral-r-equals-t-when-smooth`; planet; KW II §4.2).
+- For smooth local rings, M_∞ is free and R ≅ 𝕋 is a complete intersection.
+- Cohen–Macaulay, Gorenstein and complete-intersection properties pass from the local rings.
+
 ## Remaining work
 
-- **R22.3:** arithmetic patching. Apply DeformationAndDerivedPatchingAlgebra R03.5/R03.6 to the systems of R04.6 and
-  R22.2 (KW II Proposition 9.2).
-- **R22.4:** components and nonminimal levels.
 - **R22.5:** odd-prime lifting statements.
 - **R22.6:** dyadic lifting (KW II Proposition 9.3, Kisin).
 - **R32.1–R32.2:** the modern statement table and odd-prime regular de Rham lifting.
