@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "Partial actual-unit-moment checkpoint: bundle the actual Dirac homomorphism and character-integral algebra map; decompose integral positive-moment uniqueness, regular Dirac differences, actual positive pseudomoments and their uniqueness. Preserve the corrected infinite-order clearing choice p+1 and the whole-total-quotient obstruction. The completed-algebra comparison, arbitrary coefficient lattices and remaining source coverage stay explicit.",
+  "summary": "This partial checkpoint adds actual nontrivial-character pseudomeasure evaluation and continuity on open clearing loci to the existing native unit-measure ring. It retains all preceding bounded-measure and coordinate results, all fourteen source findings, eight exact gaps and zero closed stages. Evaluation targets Q_p and never extends a character over the entire total quotient.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2202,6 +2202,34 @@
         "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
         "provides": "The p-adic norm of a natural cast is one precisely when that natural number is coprime to p.",
         "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026. The complete suggested import closure is byte-checked against the pinned source."
+      },
+      {
+        "ref": "mathlib:Continuous.eval_const",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Hom/ContinuousEvalConst.lean",
+        "provides": "Continuity of a parameter family in a bundled mapping space implies continuity of evaluation at a fixed source point when the native ContinuousEvalConst instance exists. Native C(U,Z) has this instance.",
+        "checked": "Full native statement, proof and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026; native C(U,Z) evaluation instance separately read. Index used only as locator."
+      },
+      {
+        "ref": "mathlib:isOpen_ne",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Separation/Basic.lean",
+        "provides": "In a T1 space the complement of a singleton is open.",
+        "checked": "Full native statement, proof and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026; native C(U,Z) evaluation instance separately read. Index used only as locator."
+      },
+      {
+        "ref": "mathlib:ContinuousOn.div",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/Algebra/GroupWithZero.lean",
+        "provides": "In a topological group with zero, continuous multiplication and continuous inversion away from zero, a quotient of functions continuous on a set is continuous there when its denominator is nonzero at every point of the set.",
+        "checked": "Full native statement, proof and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026; native C(U,Z) evaluation instance separately read. Index used only as locator."
+      },
+      {
+        "ref": "mathlib:continuous_of_cover_nhds",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/ContinuousOn.lean",
+        "provides": "A function between topological spaces is continuous if it is continuous on a family of sets that supplies a neighborhood at each domain point.",
+        "checked": "Full native statement, proof and ambient hypotheses read at pinned082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026; native C(U,Z) evaluation instance separately read. Index used only as locator."
       }
     ]
   },
@@ -18712,6 +18740,586 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-evaluation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Actual nontrivial-character evaluation",
+      "kind": "construction",
+      "statement": "For κ≠1, define the additive homomorphism Eκ:P→ℚ_p by the existing generic admissible evaluation, using fκ as the scalar map. No homomorphism Q→ℚ_p is constructed.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier."
+      ],
+      "proofSteps": [
+        "The preceding characterIntegralAlgHom followed by Z→ℚ_p gives a ring homomorphism M→ℚ_p and its induced M-algebra structure. Its value on δ_g−1 is κ(g)−1.",
+        "Extensionality of native continuous monoid homomorphisms gives g with κ(g)≠1. The inclusion Z→ℚ_p is injective, so this difference is a nonzero element of the field and hence a unit.",
+        "Apply the existing admissible-evaluation construction with this g and forget its M-linear map to an additive homomorphism. Independence-of-clearing-factor makes the result independent of g and all witness choices. Its M-scalar action is through fκ, not through total mass."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom",
+        "PadicMeasuresIwasawaAlgebras:L1/dirac-hom",
+        "PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor",
+        "mathlib:ContinuousMonoidHom"
+      ],
+      "acceptance": [
+        "The target is ℚ_p; a nonzero integral denominator need not be invertible in Z. The source clearing factor need not be regular for this evaluation formula."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "unitCharacterEval"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.unitCharacterEval_eq",
+          "role": "characterisation",
+          "statement": "For every g with κ(g)≠1, Eκ(z)=fκ(n_g(z))/(κ(g)−1); promoted to its own lemma."
+        },
+        {
+          "name": "AbstractMeasure.unitCharacterEval_integral",
+          "role": "compatibility",
+          "statement": "Eκ(iμ)=fκ(μ); promoted to its own lemma."
+        },
+        {
+          "name": "AbstractMeasure.unitCharacterEval_smul",
+          "role": "compatibility",
+          "statement": "Eκ(μ·z)=fκ(μ)Eκ(z), for the existing M-module structure on P."
+        },
+        {
+          "name": "AbstractMeasure.unitCharacterEval_dirac",
+          "role": "simp",
+          "statement": "Eκ(iδ_g)=κ(g), included in ℚ_p."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UnitCharacterTests.zero",
+          "kind": "degenerate",
+          "statement": "Eκ(0)=0."
+        },
+        {
+          "name": "UnitCharacterTests.one",
+          "kind": "compatibility",
+          "statement": "Eκ(i1)=1 for the convolution identity."
+        },
+        {
+          "name": "UnitCharacterTests.scalar_atom",
+          "kind": "computation",
+          "statement": "Eκ(i(cδ_g))=cκ(g) for c∈Z and g∈U."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW equation(3-11) and DirichletPadicLFunctions:L1",
+          "how": "Specialize actual pseudomeasures at nontrivial continuous integral characters independently of a smoothing element."
+        },
+        {
+          "where": "L3 varying-character evaluation",
+          "how": "The exact quotient formula on open clearing loci gives continuity in prescribed continuous families; analytic families retain their owners."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-ratio",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "The character clearing formula",
+      "kind": "lemma",
+      "statement": "For κ≠1 and any g with κ(g)≠1, Eκ(z)=fκ(n_g(z))/(κ(g)−1) for every z∈P.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier."
+      ],
+      "proofSteps": [
+        "Use independence-of-clearing-factor to replace the element chosen in Eκ by the prescribed g.",
+        "The generic evaluation equation gives (κ(g)−1)Eκ(z)=fκ(n_g(z)). Cancel the nonzero field denominator. This uses invertibility of its image in ℚ_p, regardless of whether δ_g−1 is a zero divisor in M."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor",
+        "PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation-spec"
+      ],
+      "acceptance": [
+        "At g=−1 and κ(−1)=−1 the denominator is−2, valid also for p=2; the torsion clearing factor is permitted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "unitCharacterEval_eq"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCharacterTests.torsion_clearing_allowed",
+          "kind": "compatibility",
+          "statement": "If κ(−1)=−1, Eκ(z)=fκ(n_(−1)(z))/(−2)."
+        },
+        {
+          "name": "UnitCharacterTests.dyadic_denominator_not_integral_unit",
+          "kind": "non-example",
+          "statement": "−2 is nonzero in ℚ₂ but is not a unit of ℤ₂."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-integral",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Agreement with integral character integration",
+      "kind": "lemma",
+      "statement": "For κ≠1 and μ∈M, Eκ(iμ)=fκ(μ).",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier."
+      ],
+      "proofSteps": [
+        "Use the same character-induced M-algebra structure as in the construction.",
+        "Apply evaluation-on-integral-elements to its chosen admissible g. This identifies the result with the existing character integral of μ."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L3/evaluation-on-integral-elements",
+        "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom"
+      ],
+      "acceptance": [
+        "On a Dirac element this is exactly κ(g), not its inverse or a conjugate."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "unitCharacterEval_integral"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-numerator",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Character evaluation of every numerator",
+      "kind": "lemma",
+      "statement": "For κ≠1, every g∈U and z∈P, fκ(n_g(z))=(κ(g)−1)Eκ(z), including g in kerκ.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier."
+      ],
+      "proofSteps": [
+        "Choose one h with κ(h)≠1. Apply the ring map fκ to cross-multiplied-numerators: (κ(h)−1)fκ(n_g(z))=(κ(g)−1)fκ(n_h(z)).",
+        "Apply the character clearing formula at h and cancel its nonzero scalar. No division by κ(g)−1 is made, so the formula also covers a vanishing factor."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-ratio",
+        "PadicMeasuresIwasawaAlgebras:L3/cross-multiplied-numerators",
+        "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom"
+      ],
+      "acceptance": [
+        "If κ(g)=1 then the numerator integral is0, while Eκ remains determined by another clearing element."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "unitCharacterEval_numerator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCharacterTests.kernel_numerator",
+          "kind": "degenerate",
+          "statement": "If κ(g)=1 then fκ(n_g(z))=0."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-uniqueness",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Uniqueness of the character extension",
+      "kind": "theorem",
+      "statement": "Eκ is the unique additive map L:P→ℚ_p satisfying L(μ·z)=fκ(μ)L(z) and L(iμ)=fκ(μ).",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier."
+      ],
+      "proofSteps": [
+        "These two hypotheses bundle L as an M-linear map into the M-algebra ℚ_p induced by fκ.",
+        "Apply the existing uniqueness-of-evaluation theorem to a chosen g with κ(g)≠1. The resulting equality of linear maps yields the claimed equality of additive maps."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L3/uniqueness-of-evaluation"
+      ],
+      "acceptance": [
+        "Uniqueness is on the pseudomeasure module with the specified scalar action, not on the whole total quotient ring."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "unitCharacterEval_unique"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-positive-moment",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Positive moments as character evaluations",
+      "kind": "comparison",
+      "statement": "If κ(g)=g^k for every g∈U and k>0, then Eκ(z)=positivePseudoMoment_k(z).",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier."
+      ],
+      "proofSteps": [
+        "Choose the existing unit a=p+1. Its kth power differs from1 by one-add-prime-positive-powers, so this character is nontrivial and a is admissible.",
+        "Both the preceding actual positive pseudomoment construction and Eκ are the existing generic evaluation for the same power-character integral map, with the same actual Dirac homomorphism and total quotient. Native character extensionality identifies the scalar maps; independence-of-clearing-factor identifies their values."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L3/actual-positive-pseudomoment",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers",
+        "PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor"
+      ],
+      "acceptance": [
+        "The comparison concerns positive k. The zero power is the trivial character and is outside this domain."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "unitCharacterEval_eq_positivePseudoMoment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCharacterTests.power_sign",
+          "kind": "computation",
+          "statement": "On iδ_(−1), the character x↦x^k gives (−1)^k."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-separation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Nontrivial characters separate pseudomeasures",
+      "kind": "theorem",
+      "statement": "If Eκ(z)=Eκ(η) for every nontrivial native Z-valued continuous character κ of U, then z=η.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier."
+      ],
+      "proofSteps": [
+        "For each k>0 use the native continuous monoid homomorphism g↦g^k: compose the unit inclusion with the kth power map. Existing one-add-prime-positive-powers proves its nontriviality.",
+        "The positive-moment comparison converts the hypothesis into equality of all positive pseudomoments. Apply the existing actual-pseudomoment-separation theorem to z−η and use the additive law to conclude equality."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-positive-moment",
+        "PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-separation",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers"
+      ],
+      "acceptance": [
+        "This does not assert that finite-order characters alone or even positive powers alone separate."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "unitCharacterEval_ext"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-norm-bound",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "A clearing-factor bound for character values",
+      "kind": "lemma",
+      "statement": "For κ≠1 and κ(g)≠1, ‖Eκ(z)‖≤‖κ(g)−1‖⁻¹, for every z∈P.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier."
+      ],
+      "proofSteps": [
+        "The integral numerator n_g(z) evaluated on the Z-valued character belongs to Z, so its norm after inclusion into ℚ_p is at most1 by native PadicInt.norm_le_one.",
+        "Apply the character quotient formula and multiplicativity of the field norm. The scalar inclusion preserves the native norm, giving the stated bound."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-ratio",
+        "mathlib:PadicInt.norm_le_one"
+      ],
+      "acceptance": [
+        "The bound depends on the clearing character value. It supplies no uniform bound as κ(g) approaches1."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "unitCharacterEval_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/unit-character-integral-continuity",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Continuity of a fixed integral against a character family",
+      "kind": "lemma",
+      "statement": "For every μ∈M, the function s↦f_(κ_s)(μ) is continuous S→ℚ_p.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier.",
+        "S is any topological space, κ:S→ContinuousMonoidHom U Z is a family such that s↦κ_s.toContinuousMap is continuous into native C(U,Z) with the compact-open topology. Since U is compact this is the uniform topology; pointwise continuity alone is not assumed sufficient. The pseudomeasure z is fixed. No topology on P or rigid analytic parameter space is asserted."
+      ],
+      "proofSteps": [
+        "Native AbstractMeasure.toCLMEquiv identifies μ with a continuous Z-linear functional on C(U,Z). Compose this continuous map with the given continuous map s↦κ_s.toContinuousMap.",
+        "Compose with the continuous scalar inclusion Z→ℚ_p. This is continuity of a fixed dual functional, so no joint continuity of the unrestricted weak-dual pairing is asserted."
+      ],
+      "prerequisites": [
+        "mathlib:AbstractMeasure.toCLMEquiv",
+        "mathlib:continuous_algebraMap"
+      ],
+      "acceptance": [
+        "The hypothesis is continuity in C(U,Z); pointwise-continuous families are not silently substituted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "continuous_unitCharacterIntegral"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/unit-character-clearing-open",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Open character clearing loci",
+      "kind": "lemma",
+      "statement": "For every g∈U the locus S_g={s:κ_s(g)≠1} is open in S.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier.",
+        "S is any topological space, κ:S→ContinuousMonoidHom U Z is a family such that s↦κ_s.toContinuousMap is continuous into native C(U,Z) with the compact-open topology. Since U is compact this is the uniform topology; pointwise continuity alone is not assumed sufficient. The pseudomeasure z is fixed. No topology on P or rigid analytic parameter space is asserted."
+      ],
+      "proofSteps": [
+        "Apply native Continuous.eval_const to the given continuous map into C(U,Z), obtaining continuity of s↦κ_s(g).",
+        "Pull back the native open complement of the singleton1 in the Hausdorff ring Z. Native character extensionality also shows that the union of these loci is precisely {s:κ_s≠1}, as used in the global continuity argument."
+      ],
+      "prerequisites": [
+        "mathlib:Continuous.eval_const",
+        "mathlib:isOpen_ne",
+        "mathlib:ContinuousMonoidHom"
+      ],
+      "acceptance": [
+        "Every clearing locus is empty for the constant trivial-character family."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "isOpen_unitCharacterClearing"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCharacterTests.trivial_character_no_patch",
+          "kind": "non-example",
+          "statement": "For the trivial character, κ(g)−1=0 for every g."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/unit-character-clearing-continuity",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Continuity on a clearing locus",
+      "kind": "lemma",
+      "statement": "For fixed g and z, s↦f_(κ_s)(n_g(z))/(κ_s(g)−1) is continuous on S_g.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier.",
+        "S is any topological space, κ:S→ContinuousMonoidHom U Z is a family such that s↦κ_s.toContinuousMap is continuous into native C(U,Z) with the compact-open topology. Since U is compact this is the uniform topology; pointwise continuity alone is not assumed sufficient. The pseudomeasure z is fixed. No topology on P or rigid analytic parameter space is asserted."
+      ],
+      "proofSteps": [
+        "The preceding integral-continuity lemma applies to the fixed actual integral numerator n_g(z). Evaluation at g, subtraction of1 and the scalar inclusion give the continuous denominator.",
+        "Its value in ℚ_p is nonzero on S_g by injectivity of the inclusion Z→ℚ_p. Apply native ContinuousOn.div with precisely this nonvanishing hypothesis."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/unit-character-integral-continuity",
+        "PadicMeasuresIwasawaAlgebras:L3/cleared-numerator",
+        "mathlib:Continuous.eval_const",
+        "mathlib:ContinuousOn.div",
+        "mathlib:continuous_algebraMap"
+      ],
+      "acceptance": [
+        "The native totalized quotient exists outside S_g, but no continuity or pseudomeasure-value claim is made there."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "continuousOn_unitCharacterClearing"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/unit-character-evaluation-continuity",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Continuity away from the trivial character",
+      "kind": "theorem",
+      "statement": "For fixed z∈P, the function s↦E_(κ_s)(z) is continuous on the native subtype {s:S | κ_s≠1}.",
+      "hypotheses": [
+        "p is any prime, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z) with the preceding commutative convolution ring and actual Dirac homomorphism δ. Q=FractionRing M is its native total quotient; P is the existing Iwasawa pseudomeasure M-submodule of Q. No domain or field structure on M or Q is assumed.",
+        "κ is a native ContinuousMonoidHom U Z. Its values are units since U is a group. Write fκ(μ) for the image in ℚ_p of μ(κ.toContinuousMap), n_g(z) for the existing integral numerator, and i for the existing integral inclusion M→P. Characters are not replaced by a new carrier.",
+        "S is any topological space, κ:S→ContinuousMonoidHom U Z is a family such that s↦κ_s.toContinuousMap is continuous into native C(U,Z) with the compact-open topology. Since U is compact this is the uniform topology; pointwise continuity alone is not assumed sufficient. The pseudomeasure z is fixed. No topology on P or rigid analytic parameter space is asserted."
+      ],
+      "proofSteps": [
+        "For a point of this subtype, native character extensionality supplies g with κ_s(g)≠1. The open-locus lemma makes S_g a neighborhood of that point after restriction to the subtype.",
+        "On that neighborhood the exact character quotient formula identifies E_(κ_s)(z) with the clearing quotient. The preceding patch-continuity lemma gives continuity there, independent of which g was chosen.",
+        "Apply native continuous_of_cover_nhds to these clearing neighborhoods. This glues values already defined by the choice-independent algebraic construction; it introduces neither a character-space carrier nor a topology on the pseudomeasure module."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/unit-character-clearing-open",
+        "PadicMeasuresIwasawaAlgebras:L3/unit-character-clearing-continuity",
+        "PadicMeasuresIwasawaAlgebras:L3/actual-unit-character-ratio",
+        "mathlib:continuous_of_cover_nhds"
+      ],
+      "acceptance": [
+        "The nontrivial locus may approach the excluded trivial character. No extension across it, meromorphicity, analytic structure or simultaneous varying-pseudomeasure continuity is inferred."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitCharacters",
+        "namespace": "AbstractMeasure",
+        "declaration": "continuous_unitCharacterEval"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Definition3.34, equation(3-11), its full independence argument and Remark3.35, published129–130/PDF30–31; entire published128–132 freshly read28September2026.",
+          "excerpt": "This definition does not depend on the choice of g",
+          "match": "Actual Z_p-valued continuous characters on the native integral unit-measure ring, with values evaluated in Q_p. The source allows C_p-valued characters with additional coefficient-extension data; that broader target is not inferred here. The continuity and norm estimates are worker deductions from the formula and native continuous-dual topology. Existing E4 corrects the whole-total-quotient extension claim."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitCharacterTests.constant_family",
+          "kind": "degenerate",
+          "statement": "A fixed nontrivial character gives a constant continuous evaluation on any topological parameter space."
+        }
+      ]
     }
   ],
   "requests": [],
@@ -18757,7 +19365,7 @@
         "Compare the R-span of all Dirac differences with the completed augmentation kernel, with the required closure and topology stated; do not silently identify algebraic span with a closed ideal.",
         "Lemma3.36(i)–(iii) now has exact actual-measure nodes for integral ℤ_p coefficients and positive moments in ℚ_p, including regularity, numerator identities and the concrete infinite-order clearing element p+1. Extend these comparisons to the stipulated finite-extension coefficient lattices and the owned completed algebra; no unrestricted coefficient or whole-source closure is claimed.",
         "Decompose the procyclic augmentation-kernel/principal-generator argument and prove the chosen denominator regular before forming the Lemma 3.38 fraction. Keep the dyadic ℤ₂ˣ ≅ C₂ × ℤ₂ case separate; ℤ₂[C₂] is not an integral product of character components.",
-        "Construct admissible continuous-character specializations beyond the supplied positive integer moments, with their varying-character loci and the topology required by downstream L-functions. General analytic families belong to the character/Mellin owners and are not supplied by these algebraic maps."
+        "Actual nontrivial native Z_p-valued continuous characters now have choice-independent Q_p-valued pseudomeasure evaluation, its scalar and numerator laws, uniqueness, positive-moment comparison and separation, and continuity for a fixed pseudomeasure in any prescribed compact-open-continuous character family on its nontrivial locus. Finite-extension/C_p coefficient-valued integral tests require explicit scalar extension and lattice data. Joint varying-pseudomeasure topology, rigid character-space representability, analytic/meromorphic families and behavior at the trivial character remain distinct targets of the specified owners. The elementary topological family result closes none of those targets."
       ]
     },
     {
@@ -18809,7 +19417,7 @@
         "PadicMeasuresIwasawaAlgebras:L3/pseudomeasures",
         "PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation"
       ],
-      "detail": "The actual Dirac homomorphism and character-integral algebra maps on the existing convolution ring are supplied, and the generic pseudomeasure module and admissible evaluations are instantiated on M=D(ℤ_pˣ,ℤ_p) with Q=FractionRing M. Compare this same ring and its exact Dirac/projection maps with the owned completed-group-algebra carrier. General finite-extension coefficient lattices and character-valued scalar extensions remain to be supplied. Compare the R-span of all Dirac differences with the completed augmentation kernel, with the required closure and topology stated; do not silently identify algebraic span with a closed ideal. Lemma3.36(i)–(iii) now has exact actual-measure nodes for integral ℤ_p coefficients and positive moments in ℚ_p, including regularity, numerator identities and the concrete infinite-order clearing element p+1. Extend these comparisons to the stipulated finite-extension coefficient lattices and the owned completed algebra; no unrestricted coefficient or whole-source closure is claimed. Decompose the procyclic augmentation-kernel/principal-generator argument and prove the chosen denominator regular before forming the Lemma 3.38 fraction. Keep the dyadic ℤ₂ˣ ≅ C₂ × ℤ₂ case separate; ℤ₂[C₂] is not an integral product of character components. Construct admissible continuous-character specializations beyond the supplied positive integer moments, with their varying-character loci and the topology required by downstream L-functions. General analytic families belong to the character/Mellin owners and are not supplied by these algebraic maps."
+      "detail": "The actual Dirac homomorphism and character-integral algebra maps on the existing convolution ring are supplied, and the generic pseudomeasure module and admissible evaluations are instantiated on M=D(ℤ_pˣ,ℤ_p) with Q=FractionRing M. Compare this same ring and its exact Dirac/projection maps with the owned completed-group-algebra carrier. General finite-extension coefficient lattices and character-valued scalar extensions remain to be supplied. Compare the R-span of all Dirac differences with the completed augmentation kernel, with the required closure and topology stated; do not silently identify algebraic span with a closed ideal. Lemma3.36(i)–(iii) now has exact actual-measure nodes for integral ℤ_p coefficients and positive moments in ℚ_p, including regularity, numerator identities and the concrete infinite-order clearing element p+1. Extend these comparisons to the stipulated finite-extension coefficient lattices and the owned completed algebra; no unrestricted coefficient or whole-source closure is claimed. Decompose the procyclic augmentation-kernel/principal-generator argument and prove the chosen denominator regular before forming the Lemma 3.38 fraction. Keep the dyadic ℤ₂ˣ ≅ C₂ × ℤ₂ case separate; ℤ₂[C₂] is not an integral product of character components. Actual nontrivial native Z_p-valued continuous characters now have choice-independent Q_p-valued pseudomeasure evaluation, its scalar and numerator laws, uniqueness, positive-moment comparison and separation, and continuity for a fixed pseudomeasure in any prescribed compact-open-continuous character family on its nontrivial locus. Finite-extension/C_p coefficient-valued integral tests require explicit scalar extension and lattice data. Joint varying-pseudomeasure topology, rigid character-space representability, analytic/meromorphic families and behavior at the trivial character remain distinct targets of the specified owners. The elementary topological family result closes none of those targets."
     },
     {
       "title": "L4 remaining source and interface decomposition",
@@ -19087,31 +19695,31 @@
   "checks": {
     "agent": "Codex — codex-7e92bd",
     "date": "2026-09-28",
-    "checkpoint": "actual integral unit moments",
+    "checkpoint": "actual nontrivial-character evaluation and continuity on clearing loci",
     "validation": {
-      "nodes": 320,
+      "nodes": 332,
       "kinds": {
-        "construction": 43,
-        "lemma": 201,
+        "construction": 44,
+        "lemma": 208,
         "definition": 2,
-        "theorem": 47,
-        "comparison": 27
+        "theorem": 50,
+        "comparison": 28
       },
-      "api": 219,
-      "definitionConstructionAPI": 216,
-      "packetTests": 222,
-      "definitionConstructionTests": 157,
-      "typedExamples": 233,
+      "api": 223,
+      "definitionConstructionAPI": 220,
+      "packetTests": 231,
+      "definitionConstructionTests": 160,
+      "typedExamples": 242,
       "planets": 17,
-      "baseline": 315,
-      "newNodes": 16,
-      "preservedWholeNodes": 304,
-      "preservedBaseline": 309,
+      "baseline": 319,
+      "newNodes": 12,
+      "preservedWholeNodes": 320,
+      "preservedBaseline": 315,
       "preservedFindings": 14,
       "newFindings": 0,
-      "reachableNodes": 321,
-      "dependencyEdges": 1311,
-      "baselineLeaves": 316,
+      "reachableNodes": 333,
+      "dependencyEdges": 1352,
+      "baselineLeaves": 320,
       "stageLeaves": [],
       "acyclic": true,
       "pinnedMathlibModules": 2815,
@@ -19121,58 +19729,49 @@
       "gaps": 8,
       "requests": 0,
       "closedStages": 0,
-      "suggestedFileSha256": "d9a5079316a70e82bbe867853129fdda1a3059b11e781e270595de373778dda8",
+      "suggestedFileSha256": "f50d6790f3f03e302b3622fe57b99d2bd81ed0c722a9274d2875c3886864ebf4",
       "sourceAuditSha256": "d938c56ef3523607e3b20ba19f84793d0621f6d83cc6c50f42057eaaaaa02778",
       "compileCompleted": true,
       "compilerExit": 0,
       "compileStatus": "full file elaborated at pinned baseline",
       "compilerErrors": 0,
-      "compilerWarnings": 684,
+      "compilerWarnings": 707,
       "warningsOnlyPlaceholders": true
     },
     "arithmetic": {
-      "momentProducts": 312,
-      "finiteCharacterMoments": 1248,
-      "regularClearingValues": 48,
-      "integralNumeratorMoments": 312,
-      "crossNumeratorIdentities": 936,
-      "cyclicFractionComparisons": 288,
-      "positiveAtomicDeterminants": 20,
-      "torsionAnnihilators": 4,
-      "evenMomentCounterexamples": 48,
-      "ambientZeroAtomChecks": 48,
-      "primes": [
-        2,
-        3,
-        5,
-        7
-      ],
-      "atomicFamilies": 24,
-      "scope": "Exact signed atomic measures and multiplicative convolution, coefficient/group reductions, positive powers of p+1, numerator identities, dyadic torsion and positive-moment Vandermonde determinants. The extra cyclic Laurent fraction model checks denominator orientation for positive and negative clearing powers; it does not construct a pseudomeasure on the entire p-adic unit group or prove infinite moment separation.",
-      "scriptSha256": "832b033fe24bf189eba8381ffc45555fcb707eb5a26daa79e282ecd259652559"
+      "status": "passed",
+      "counts": {
+        "signedAtomicFamilies": 24,
+        "allNumeratorIdentities": 840,
+        "kernelNumerators": 372,
+        "admissibleQuotients": 468,
+        "normBounds": 468,
+        "scalarConvolutionLaws": 1008,
+        "integerWeightIntegralCongruences": 120,
+        "cyclicQuotientContinuityBounds": 20,
+        "torsionCharacterChecks": 4,
+        "finiteC2PseudomeasureComparisons": 63,
+        "dyadicNonunitDenominator": 1
+      },
+      "scope": "Exact signed atomic integral measures for four primes, all clearing and kernel cases, scalar convolution and p-adic integer-weight congruences. The cyclic Laurent fractions and finite C2 localization examples are separate algebraic models; neither constructs a pseudomeasure on the full unit group. Finite calculations do not prove general continuity or character separation.",
+      "scriptSha256": "1b9a3a8e6bf649bf23ee4f325092289bb891b636b13d181b4aab0b3c85d6cdd5"
     },
-    "commands": [
-      "python3 scripts/check_blueprint.py research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json --index <pinned-declaration-index>",
-      "python3 research/blueprint/intake.py check-files <four authorized files>",
-      "python3 scripts/check_errata.py <filename-correct packet wrapper>",
-      "git diff --check"
-    ],
-    "status": "Full suggested compilation, indexed packet checker, four-file intake, errata wrapper, whitespace, graph, preservation and parity all passed.",
     "publication": {
-      "base": "f5c4260e92ce037b4f23d4d3640bd7d71e5dca98",
-      "publicationMain": "a2b7622ecf52ce11891aa8347f5272db0c5bcffe",
+      "base": "210a64e2bbe4b6c1897517bfe72d9fbd7452147d",
+      "publicationMain": "720c7d45a4e5cf93e1de4a4c97687be45f7cf622",
       "guardedInputs": 51,
       "unchangedInputs": 50,
       "inputChanges": {
         "research/blueprint/packets/ColemanPowerSeries.json": {
-          "before": "e7c58b467eac5d759ae858f8b7eb7eaf936b34c5",
-          "now": "8d93d33aa57d1e0b484eb6a6aec6a78beb328d90"
+          "before": "8d93d33aa57d1e0b484eb6a6aec6a78beb328d90",
+          "now": "be61292a532b752d9fed634033cd796495cab3a2"
         }
       },
       "predecessorOutputChanges": [],
       "unchangedIssueBody": true,
-      "claimConfirmation": 5861074947
-    }
+      "claimConfirmation": 5861544279
+    },
+    "status": "Full compilation, graph and preservation passed; publication checks recorded in handoff."
   },
   "provenance": {
     "unitInverseFollowup": {
@@ -20893,6 +21492,107 @@
       },
       "sourceBoundary": "Complete published RJW128–132 freshly read; E3 and E4 preserved with corrected statements. Native integral carrier, p+1 clearing element, positive integer moments only.",
       "upstream": "Full Monoid.lean at PR41961 head7abfb91a8f1dedb3538783e1d6c0df461cdaba05 reread; now merged beyond the pin. Exact diracHom vocabulary adopted, without copying code."
+    },
+    "actualUnitCharacterEvaluation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "claim": 5861543088,
+      "winningBot": 5861544279,
+      "preservedWholeNodes": 320,
+      "preservedBaseline": 315,
+      "preservedFindings": 14,
+      "newNodes": 12,
+      "historicalChecks": {
+        "agent": "Codex — codex-7e92bd",
+        "date": "2026-09-28",
+        "checkpoint": "actual integral unit moments",
+        "validation": {
+          "nodes": 320,
+          "kinds": {
+            "construction": 43,
+            "lemma": 201,
+            "definition": 2,
+            "theorem": 47,
+            "comparison": 27
+          },
+          "api": 219,
+          "definitionConstructionAPI": 216,
+          "packetTests": 222,
+          "definitionConstructionTests": 157,
+          "typedExamples": 233,
+          "planets": 17,
+          "baseline": 315,
+          "newNodes": 16,
+          "preservedWholeNodes": 304,
+          "preservedBaseline": 309,
+          "preservedFindings": 14,
+          "newFindings": 0,
+          "reachableNodes": 321,
+          "dependencyEdges": 1311,
+          "baselineLeaves": 316,
+          "stageLeaves": [],
+          "acyclic": true,
+          "pinnedMathlibModules": 2815,
+          "pinnedTauCetiModules": 2,
+          "actualSupplierModules": 0,
+          "nativeModulesBuilt": 0,
+          "gaps": 8,
+          "requests": 0,
+          "closedStages": 0,
+          "suggestedFileSha256": "d9a5079316a70e82bbe867853129fdda1a3059b11e781e270595de373778dda8",
+          "sourceAuditSha256": "d938c56ef3523607e3b20ba19f84793d0621f6d83cc6c50f42057eaaaaa02778",
+          "compileCompleted": true,
+          "compilerExit": 0,
+          "compileStatus": "full file elaborated at pinned baseline",
+          "compilerErrors": 0,
+          "compilerWarnings": 684,
+          "warningsOnlyPlaceholders": true
+        },
+        "arithmetic": {
+          "momentProducts": 312,
+          "finiteCharacterMoments": 1248,
+          "regularClearingValues": 48,
+          "integralNumeratorMoments": 312,
+          "crossNumeratorIdentities": 936,
+          "cyclicFractionComparisons": 288,
+          "positiveAtomicDeterminants": 20,
+          "torsionAnnihilators": 4,
+          "evenMomentCounterexamples": 48,
+          "ambientZeroAtomChecks": 48,
+          "primes": [
+            2,
+            3,
+            5,
+            7
+          ],
+          "atomicFamilies": 24,
+          "scope": "Exact signed atomic measures and multiplicative convolution, coefficient/group reductions, positive powers of p+1, numerator identities, dyadic torsion and positive-moment Vandermonde determinants. The extra cyclic Laurent fraction model checks denominator orientation for positive and negative clearing powers; it does not construct a pseudomeasure on the entire p-adic unit group or prove infinite moment separation.",
+          "scriptSha256": "832b033fe24bf189eba8381ffc45555fcb707eb5a26daa79e282ecd259652559"
+        },
+        "commands": [
+          "python3 scripts/check_blueprint.py research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json --index <pinned-declaration-index>",
+          "python3 research/blueprint/intake.py check-files <four authorized files>",
+          "python3 scripts/check_errata.py <filename-correct packet wrapper>",
+          "git diff --check"
+        ],
+        "status": "Full suggested compilation, indexed packet checker, four-file intake, errata wrapper, whitespace, graph, preservation and parity all passed.",
+        "publication": {
+          "base": "f5c4260e92ce037b4f23d4d3640bd7d71e5dca98",
+          "publicationMain": "a2b7622ecf52ce11891aa8347f5272db0c5bcffe",
+          "guardedInputs": 51,
+          "unchangedInputs": 50,
+          "inputChanges": {
+            "research/blueprint/packets/ColemanPowerSeries.json": {
+              "before": "e7c58b467eac5d759ae858f8b7eb7eaf936b34c5",
+              "now": "8d93d33aa57d1e0b484eb6a6aec6a78beb328d90"
+            }
+          },
+          "predecessorOutputChanges": [],
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5861074947
+        }
+      },
+      "sourceBoundary": "Complete published128–132 freshly reread; equation3-11 actual Z_p/Q_p specialization and topological deductions. No full-source closure."
     }
   }
 }
