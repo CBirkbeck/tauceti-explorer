@@ -14678,9 +14678,8 @@
    ],
    "avoidAccountOf": "BP-AdicEtaleGeometry",
    "prompt": "research/blueprint/prompts/REV-AdicEtaleGeometry.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #343",
-   "finishedAt": "2026-09-26T16:07:47Z"
+   "state": "pending",
+   "note": "reopened 2026-09-28: marked done with no verdict recorded in the packet"
   },
   {
    "id": "BP-AdicSpacesPartII",
@@ -14735,9 +14734,8 @@
    ],
    "avoidAccountOf": "BP-AdicSpacesPartII",
    "prompt": "research/blueprint/prompts/REV-AdicSpacesPartII.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #344",
-   "finishedAt": "2026-09-26T15:08:49Z"
+   "state": "pending",
+   "note": "reopened 2026-09-28: the merged review was a partial checkpoint and recorded no verdict; the blueprint was since corrected (#2927)"
   },
   {
    "id": "BP-AlgebraicModularFormsAndSerreWeights",
@@ -30010,9 +30008,8 @@
     "RT-AREA-padic-3"
    ],
    "prompt": "research/blueprint/prompts/REV-RT-AREA-padic-3.md",
-   "state": "done",
-   "note": "deliverables arrived from an external worker on issue #1514",
-   "finishedAt": "2026-09-26T19:00:18Z"
+   "state": "pending",
+   "note": "reopened 2026-09-28: supplement #3016 added findings 2 and 3, which need independent verdicts"
   },
   {
    "id": "RT-AREA-etale",
