@@ -168,12 +168,14 @@ section SupportCharacterisation
 
 variable {R M : Type*} [CommRing R] [AddCommGroup M] [Module R M] [Module.Finite R M]
 
-/-- **L4**, (i) ⇔ (ii): for finite `M` over any ring, nearly faithful iff `Supp M = Spec R`. -/
+/-- **L4**, (i) ⇔ (ii): for finite `M` over any ring, nearly faithful iff `Supp M = Spec R`.
+Node: `nearly-faithful-iff-support-eq-univ`. -/
 theorem nearlyFaithful_iff_support_eq_univ :
     NearlyFaithful R M ↔ Module.support R M = Set.univ := sorry
 
 /-- **L4**, (i) ⇔ (iii): for finite `M`, nearly faithful iff every minimal prime of `R` lies in
-`Supp M`. -/
+`Supp M`.
+Node: `nearly-faithful-iff-minimal-primes-mem-support`. -/
 theorem nearlyFaithful_iff_forall_minimalPrimes_mem_support :
     NearlyFaithful R M ↔
       ∀ p : PrimeSpectrum R, p.asIdeal ∈ minimalPrimes R → p ∈ Module.support R M := sorry
@@ -199,18 +201,21 @@ variable {A M : Type*} [CommRing A] [AddCommGroup M] [Module A M] [Module.Finite
 /-- **L5**, the common support calculation: the quotient annihilator has the same radical
 as `I`. Indeed, `Supp M = Spec A`, so `Module.support_quotient` and
 `Module.support_eq_zeroLocus` identify both zero loci. No Noetherian or local hypothesis.
-This is a prerequisite of quotient near faithfulness, not a consequence of it. -/
+This is a prerequisite of quotient near faithfulness, not a consequence of it.
+Node: `radical-annihilator-quotient`. -/
 theorem NearlyFaithful.radical_annihilator_quotient (I : Ideal A) :
     (Module.annihilator A (M ⧸ (I • ⊤ : Submodule A M))).radical = I.radical := sorry
 
 /-- **L5** (Taylor, Lemma 2.2(1)). If `M` is finite and nearly faithful over `A`, then
-`M ⧸ I M` is nearly faithful over `A ⧸ I`. No Noetherian hypothesis is needed. -/
+`M ⧸ I M` is nearly faithful over `A ⧸ I`. No Noetherian hypothesis is needed.
+Node: `nearly-faithful-quotient`. -/
 theorem NearlyFaithful.quotient (I : Ideal A) :
     NearlyFaithful (A ⧸ I) (M ⧸ (I • ⊤ : Submodule A M)) := sorry
 
 /-- **L5**, the kernel bound for any compatible coefficient map `A → B`.
 Surjectivity is not needed: the kernel annihilates `N`, and the linear equivalence transports
-its annihilator to that of `M ⧸ I M`, whose radical is `√I`. -/
+its annihilator to that of `M ⧸ I M`, whose radical is `√I`.
+Node: `quotient-action-kernel-bound`. -/
 theorem NearlyFaithful.ker_le_radical_of_equiv_quotient (I : Ideal A) {B N : Type*} [CommRing B]
     [Algebra A B] [AddCommGroup N] [Module A N]
     [Module B N] [IsScalarTower A B N] (e : (M ⧸ (I • ⊤ : Submodule A M)) ≃ₗ[A] N) :
@@ -218,7 +223,8 @@ theorem NearlyFaithful.ker_le_radical_of_equiv_quotient (I : Ideal A) {B N : Typ
 
 /-- **L5**, scalar descent: surjectivity of `A → B` and the reverse inclusion `I ⊆ √J`
 (for instance `I ⊆ J`) imply that `N` is nearly faithful over `B`.
-Neither hypothesis follows from the preceding kernel bound; see the concrete tests below. -/
+Neither hypothesis follows from the preceding kernel bound; see the concrete tests below.
+Node: `quotient-action-nearly-faithful`. -/
 theorem NearlyFaithful.of_equiv_quotient (I : Ideal A) {B N : Type*} [CommRing B]
     [Algebra A B] (hf : Function.Surjective (algebraMap A B)) [AddCommGroup N] [Module A N]
     [Module B N] [IsScalarTower A B N] (e : (M ⧸ (I • ⊤ : Submodule A M)) ≃ₗ[A] N)
@@ -421,17 +427,20 @@ section BaseChange
 variable {A B : Type*} [CommRing A] [CommRing B] [Algebra A B]
   (M : Type*) [AddCommGroup M] [Module A M] [Module.Finite A M]
 
-/-- **L6** (a), ascent along any ring map. -/
+/-- **L6** (a), ascent along any ring map.
+Node: `nearly-faithful-base-change`. -/
 theorem NearlyFaithful.baseChange [NearlyFaithful A M] : NearlyFaithful B (B ⊗[A] M) := sorry
 
-/-- **L6** (b), descent when every minimal prime of `A` is the contraction of a prime of `B`. -/
+/-- **L6** (b), descent when every minimal prime of `A` is the contraction of a prime of `B`.
+Node: `nearly-faithful-of-base-change`. -/
 theorem NearlyFaithful.of_baseChange
     (hmin : ∀ p ∈ minimalPrimes A, ∃ q : PrimeSpectrum B,
       Ideal.comap (algebraMap A B) q.asIdeal = p)
     (h : NearlyFaithful B (B ⊗[A] M)) : NearlyFaithful A M := sorry
 
 /-- **L6** (a) and (b) for a faithfully flat map; (c) is the case `B = A ⊗[𝒪] 𝒪'` of a
-coefficient change along a faithfully flat `𝒪 → 𝒪'`. -/
+coefficient change along a faithfully flat `𝒪 → 𝒪'`.
+Node: `nearly-faithful-base-change-iff`. -/
 theorem nearlyFaithful_baseChange_iff [Module.FaithfullyFlat A B] :
     NearlyFaithful B (B ⊗[A] M) ↔ NearlyFaithful A M := sorry
 
@@ -499,8 +508,10 @@ example (O O' A M : Type*) [CommRing O] [CommRing O'] [CommRing A] [Algebra O O'
     Module.NearlyFaithful (A ⊗[O] O') ((A ⊗[O] O') ⊗[A] M) ↔ Module.NearlyFaithful A M :=
   Module.nearlyFaithful_baseChange_iff M
 
--- Acceptance for L6 (b) (the surjectivity hypothesis is needed): along the first projection
--- `k × k → k`, `M = k × 0` becomes faithful, but `M` is not nearly faithful over `k × k`.
+-- Acceptance for `nearly-faithful-of-base-change` (the minimal-prime hypothesis `hmin` is needed):
+-- along the first projection `k × k → k`, the base change of `M = k × 0` is `k`, which is faithful
+-- over `k`, but `M` is not nearly faithful over `k × k`; the minimal prime `k × 0` of `k × k` is not
+-- the contraction of a prime of `k`.
 example (k : Type*) [Field k] :
     ¬ Module.NearlyFaithful (k × k) ((k × k) ⧸ Ideal.span {((0 : k), (1 : k))}) := sorry
 
@@ -527,12 +538,14 @@ namespace Module
 
 variable {R M : Type*} [CommRing R] [AddCommGroup M] [Module R M]
 
-/-- **L10**, (i) ⇔ (ii) (Calegari–Geraghty, proof of Theorem 6.4). No Noetherian hypothesis. -/
+/-- **L10**, (i) ⇔ (ii) (Calegari–Geraghty, proof of Theorem 6.4). No Noetherian hypothesis.
+Node: `nearly-faithful-after-inverting`. -/
 theorem nearlyFaithful_iff_localizedModule_away {ϖ : R} (hϖ : ϖ ∈ nonZeroDivisors R)
     [Module.Finite R M] :
     NearlyFaithful R M ↔ NearlyFaithful (Localization.Away ϖ) (LocalizedModule.Away ϖ M) := sorry
 
-/-- **L10**, (i) ⇔ (iii): every irreducible component of `Spec R[1/ϖ]` lies in `Supp M[1/ϖ]`. -/
+/-- **L10**, (i) ⇔ (iii): every irreducible component of `Spec R[1/ϖ]` lies in `Supp M[1/ϖ]`.
+Node: `nearly-faithful-iff-minimal-primes-away-mem-support`. -/
 theorem nearlyFaithful_iff_forall_minimalPrimes_away_mem_support {ϖ : R}
     (hϖ : ϖ ∈ nonZeroDivisors R) [Module.Finite R M] :
     NearlyFaithful R M ↔ ∀ p : PrimeSpectrum (Localization.Away ϖ),
@@ -540,7 +553,8 @@ theorem nearlyFaithful_iff_forall_minimalPrimes_away_mem_support {ϖ : R}
         p ∈ Module.support (Localization.Away ϖ) (LocalizedModule.Away ϖ M) := sorry
 
 /-- **L10**, (iv) ⇔ (v): if `R[1/ϖ]` is reduced, faithfulness can be tested after inverting `ϖ`
-(Khare–Wintenberger II, Lemma 9.6 b); Kisin (3.3.1)). -/
+(Khare–Wintenberger II, Lemma 9.6 b); Kisin (3.3.1)).
+Node: `faithful-iff-after-inverting`. -/
 theorem faithfulSMul_iff_localizedModule_away {ϖ : R} (hϖ : ϖ ∈ nonZeroDivisors R)
     [IsReduced (Localization.Away ϖ)] [Module.Finite R M] :
     FaithfulSMul R M ↔ FaithfulSMul (Localization.Away ϖ) (LocalizedModule.Away ϖ M) := sorry
@@ -560,7 +574,8 @@ variable {A : Type*} [CommRing A] [IsLocalRing A] [IsNoetherianRing A]
 
 /-- **L11**, associated primes: if `M ≠ 0` has depth `≥ dim A` (a maximal regular sequence; see
 the module docstring), every associated prime of `M` is a minimal prime of `A` of maximal
-dimension. -/
+dimension.
+Node: `maximal-depth-associated-primes-minimal`. -/
 theorem mem_minimalPrimes_of_mem_associatedPrimes_of_isRegular (rs : List A)
     (hreg : RingTheory.Sequence.IsRegular M rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal A)
@@ -568,7 +583,8 @@ theorem mem_minimalPrimes_of_mem_associatedPrimes_of_isRegular (rs : List A)
     (hP : P ∈ associatedPrimes A M) :
     P ∈ minimalPrimes A ∧ ringKrullDim (A ⧸ P) = ringKrullDim A := sorry
 
-/-- **L11**, primes minimal over the annihilator have maximal dimension. -/
+/-- **L11**, primes minimal over the annihilator have maximal dimension.
+Node: `maximal-depth-annihilator-primes-top-dimensional`. -/
 theorem ringKrullDim_quotient_eq_of_isRegular (rs : List A)
     (hreg : RingTheory.Sequence.IsRegular M rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal A)
@@ -576,7 +592,8 @@ theorem ringKrullDim_quotient_eq_of_isRegular (rs : List A)
     (hP : P ∈ (Module.annihilator A M).minimalPrimes) :
     ringKrullDim (A ⧸ P) = ringKrullDim A := sorry
 
-/-- **L11**, `Supp M` is a union of (top-dimensional) irreducible components of `Spec A`. -/
+/-- **L11**, `Supp M` is a union of (top-dimensional) irreducible components of `Spec A`.
+Node: `maximal-cm-support-top-components`. -/
 theorem isSupportedOnComponents_of_isRegular (rs : List A)
     (hreg : RingTheory.Sequence.IsRegular M rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal A)
@@ -592,7 +609,8 @@ theorem NearlyFaithful.ringKrullDim_quotient_eq_of_isRegular [NearlyFaithful A M
     (hP : P ∈ minimalPrimes A) : ringKrullDim (A ⧸ P) = ringKrullDim A := sorry
 
 /-- **L12** (Taylor, Lemma 2.3, with `M ≠ 0`). If `A` has a unique minimal prime, a nonzero
-module of maximal depth is nearly faithful. -/
+module of maximal depth is nearly faithful.
+Node: `maximal-cm-nearly-faithful-irreducible`. -/
 theorem nearlyFaithful_of_isRegular_of_subsingleton_minimalPrimes (rs : List A)
     (hreg : RingTheory.Sequence.IsRegular M rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal A)
@@ -601,7 +619,8 @@ theorem nearlyFaithful_of_isRegular_of_subsingleton_minimalPrimes (rs : List A)
     NearlyFaithful A M := sorry
 
 /-- **L12**, corollary (Calegari–Geraghty, Theorem 6.4(2)): if `ϖ` is a nonzerodivisor of `A` and
-`Spec A[1/ϖ]` is irreducible, a nonzero module of maximal depth is nearly faithful. -/
+`Spec A[1/ϖ]` is irreducible, a nonzero module of maximal depth is nearly faithful.
+Node: `maximal-depth-nearly-faithful-irreducible-away`. -/
 theorem nearlyFaithful_of_isRegular_of_subsingleton_minimalPrimes_away (rs : List A)
     (hreg : RingTheory.Sequence.IsRegular M rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal A)
@@ -617,25 +636,29 @@ variable {G A M : Type*} [Group G] [CommRing A] [MulSemiringAction G A]
   [AddCommGroup M] [Module A M] [DistribMulAction G M] [SMulDistribClass G A M]
 
 /-- **L13**, first part: for a semilinear action (`g • (a • m) = (g • a) • (g • m)`), the
-annihilator of `M` is `G`-stable. -/
+annihilator of `M` is `G`-stable.
+Node: `annihilator-group-stable`. -/
 theorem smul_mem_annihilator_of_smulDistribClass (g : G) {a : A}
     (ha : a ∈ Module.annihilator A M) : g • a ∈ Module.annihilator A M := sorry
 
-/-- **L13**, second part: `Supp M` is `G`-stable. -/
+/-- **L13**, second part: `Supp M` is `G`-stable.
+Node: `support-group-stable`. -/
 theorem comap_mulSemiringAction_mem_support (g : G) {p : PrimeSpectrum A}
     (hp : p ∈ Module.support A M) :
     PrimeSpectrum.comap (MulSemiringAction.toRingHom G A g) p ∈ Module.support A M := sorry
 
 /-- **L13**, third part: if `G` acts transitively on the minimal primes of `A` and `Supp M`
 contains one of them, then `M` is nearly faithful. No finiteness of `G` or `M` and no Noetherian
-hypothesis. -/
+hypothesis.
+Node: `support-group-transitive`. -/
 theorem nearlyFaithful_of_forall_minimalPrimes_exists_smul
     (htrans : ∀ p ∈ minimalPrimes A, ∀ q ∈ minimalPrimes A,
       ∃ g : G, Ideal.comap (MulSemiringAction.toRingHom G A g) p = q)
     (p : PrimeSpectrum A) (hp : p.asIdeal ∈ minimalPrimes A) (hpM : p ∈ Module.support A M) :
     NearlyFaithful A M := sorry
 
-/-- **L13**, fourth part: over a reduced ring the conclusion is faithfulness. -/
+/-- **L13**, fourth part: over a reduced ring the conclusion is faithfulness.
+Node: `faithful-group-transitive`. -/
 theorem faithfulSMul_of_forall_minimalPrimes_exists_smul [IsReduced A]
     (htrans : ∀ p ∈ minimalPrimes A, ∀ q ∈ minimalPrimes A,
       ∃ g : G, Ideal.comap (MulSemiringAction.toRingHom G A g) p = q)
@@ -692,7 +715,8 @@ variable {S Rinf R : Type*} [CommRing S] [CommRing Rinf] [CommRing R] [Algebra S
 
 /-- **L14**, radical comparison. `S → R_∞` carries the patching and framing variables,
 `φ = algebraMap R_∞ R` is surjective, `H ≅ M_∞ ⧸ 𝔞 M_∞` is an `R`-module through `φ` (hypothesis
-(a)), and `ha` is hypothesis (b): `ı(𝔞) ⊆ ker φ + Ann(M_∞)`. -/
+(a)), and `ha` is hypothesis (b): `ı(𝔞) ⊆ ker φ + Ann(M_∞)`.
+Node: `patching-radical-comparison`. -/
 theorem NearlyFaithful.radical_map_eq_radical_ker [NearlyFaithful Rinf Minf]
     (hφ : Function.Surjective (algebraMap Rinf R))
     (ha : a.map (algebraMap S Rinf) ≤
@@ -700,7 +724,8 @@ theorem NearlyFaithful.radical_map_eq_radical_ker [NearlyFaithful Rinf Minf]
     (e : (Minf ⧸ (a.map (algebraMap S Rinf) • ⊤ : Submodule Rinf Minf)) ≃ₗ[Rinf] H) :
     (a.map (algebraMap S Rinf)).radical = (RingHom.ker (algebraMap Rinf R)).radical := sorry
 
-/-- **L14**, `H` is nearly faithful over `R` (Calegari–Geraghty, Theorem 6.4(2)–(3) algebra). -/
+/-- **L14**, `H` is nearly faithful over `R` (Calegari–Geraghty, Theorem 6.4(2)–(3) algebra).
+Node: `patching-nearly-faithful-descends`. -/
 theorem NearlyFaithful.of_patching [NearlyFaithful Rinf Minf]
     (hφ : Function.Surjective (algebraMap Rinf R))
     (ha : a.map (algebraMap S Rinf) ≤
@@ -708,7 +733,8 @@ theorem NearlyFaithful.of_patching [NearlyFaithful Rinf Minf]
     (e : (Minf ⧸ (a.map (algebraMap S Rinf) • ⊤ : Submodule Rinf Minf)) ≃ₗ[Rinf] H) :
     NearlyFaithful R H := sorry
 
-/-- **L14**, `(R_∞ ⧸ 𝔞 R_∞)_red ≅ R_red`, compatibly with the canonical maps. -/
+/-- **L14**, `(R_∞ ⧸ 𝔞 R_∞)_red ≅ R_red`, compatibly with the canonical maps.
+Node: `patching-reduced-quotient-iso`. -/
 theorem NearlyFaithful.exists_ringEquiv_nilradical_of_patching [NearlyFaithful Rinf Minf]
     (hφ : Function.Surjective (algebraMap Rinf R))
     (ha : a.map (algebraMap S Rinf) ≤
@@ -720,7 +746,8 @@ theorem NearlyFaithful.exists_ringEquiv_nilradical_of_patching [NearlyFaithful R
         Ideal.Quotient.mk _ (algebraMap Rinf R x) := sorry
 
 /-- **L15**, `ker φ = 𝔞 R_∞` (Calegari–Geraghty, Theorem 6.4(1) algebra). `R_∞` is regular local
-and `M_∞ ≠ 0` has maximal depth; no near-faithfulness hypothesis. -/
+and `M_∞ ≠ 0` has maximal depth; no near-faithfulness hypothesis.
+Node: `patching-kernel-equals-ideal`. -/
 theorem ker_algebraMap_eq_map_of_patching [IsRegularLocalRing Rinf] (rs : List Rinf)
     (hreg : RingTheory.Sequence.IsRegular Minf rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal Rinf)
@@ -731,7 +758,8 @@ theorem ker_algebraMap_eq_map_of_patching [IsRegularLocalRing Rinf] (rs : List R
     RingHom.ker (algebraMap Rinf R) = a.map (algebraMap S Rinf) := sorry
 
 /-- **L15**, `H` is free and nonzero over the nonzero quotient ring `R`.
-If `R = 0`, the quotient can be zero even when `M_∞` is nonzero. -/
+If `R = 0`, the quotient can be zero even when `M_∞` is nonzero.
+Node: `patching-free-conclusion`. -/
 theorem free_of_patching [Nontrivial R] [IsRegularLocalRing Rinf] (rs : List Rinf)
     (hreg : RingTheory.Sequence.IsRegular Minf rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal Rinf)
@@ -743,7 +771,8 @@ theorem free_of_patching [Nontrivial R] [IsRegularLocalRing Rinf] (rs : List Rin
     Module.Free R H ∧ Nontrivial H := sorry
 
 /-- **`patched-module-support-theorem`**, part (2) (Calegari–Geraghty, Theorem 6.4(2), module
-form): `R_∞` Noetherian local with a unique minimal prime and `M_∞` of maximal depth. -/
+form): `R_∞` Noetherian local with a unique minimal prime and `M_∞` of maximal depth.
+Node: `patched-module-support-theorem`. -/
 theorem NearlyFaithful.of_patching_of_subsingleton_minimalPrimes [IsLocalRing Rinf]
     [IsNoetherianRing Rinf] (rs : List Rinf)
     (hreg : RingTheory.Sequence.IsRegular Minf rs)
@@ -758,7 +787,8 @@ theorem NearlyFaithful.of_patching_of_subsingleton_minimalPrimes [IsLocalRing Ri
 
 /-- **`patched-module-support-theorem`**, part (3) (Calegari–Geraghty, Theorem 6.4(3), module
 form): `ϖ` a nonzerodivisor of `R_∞` and every component of `Spec R_∞[1/ϖ]` in the support of
-`M_∞[1/ϖ]`. -/
+`M_∞[1/ϖ]`.
+Node: `patched-module-away-support`. -/
 theorem NearlyFaithful.of_patching_of_away {ϖ : Rinf} (hϖ : ϖ ∈ nonZeroDivisors Rinf)
     (hsupp : ∀ p : PrimeSpectrum (Localization.Away ϖ),
       p.asIdeal ∈ minimalPrimes (Localization.Away ϖ) →
@@ -771,7 +801,8 @@ theorem NearlyFaithful.of_patching_of_away {ϖ : Rinf} (hϖ : ϖ ∈ nonZeroDivi
 
 /-- **`patched-module-support-theorem`**, part (1) (Calegari–Geraghty, Theorem 6.4(1), module
 form): for `R_∞` regular, a surjective map from `R` to a commutative algebra `T` acting
-faithfully and compatibly on `H` is bijective. Surjectivity is essential. -/
+faithfully and compatibly on `H` is bijective. Surjectivity is essential.
+Node: `patched-module-r-equals-t`. -/
 theorem bijective_algebraMap_of_patching [IsRegularLocalRing Rinf] (rs : List Rinf)
     (hreg : RingTheory.Sequence.IsRegular Minf rs)
     (hmem : ∀ r ∈ rs, r ∈ IsLocalRing.maximalIdeal Rinf)
@@ -794,59 +825,70 @@ section RT
 variable {R T H : Type*} [CommRing R] [CommRing T] [Algebra R T]
   [AddCommGroup H] [Module R H] [Module T H] [IsScalarTower R T H] [FaithfulSMul T H]
 
-/-- **L16**, the kernel of `R → T` lies in the nilradical. -/
+/-- **L16**, the kernel of `R → T` lies in the nilradical.
+Node: `r-to-t-kernel-nil`. -/
 theorem NearlyFaithful.ker_algebraMap_le_nilradical [NearlyFaithful R H] :
     RingHom.ker (algebraMap R T) ≤ nilradical R := sorry
 
-/-- **L16**, over a Noetherian ring the kernel is nilpotent. -/
+/-- **L16**, over a Noetherian ring the kernel is nilpotent.
+Node: `r-to-t-kernel-nilpotent`. -/
 theorem NearlyFaithful.isNilpotent_ker_algebraMap [IsNoetherianRing R] [NearlyFaithful R H] :
     IsNilpotent (RingHom.ker (algebraMap R T)) := sorry
 
-/-- **L16**, `R_red ≅ T_red`. -/
+/-- **L16**, `R_red ≅ T_red`.
+Node: `r-red-equals-t-red`. -/
 theorem NearlyFaithful.exists_ringEquiv_nilradical [NearlyFaithful R H]
     (hsurj : Function.Surjective (algebraMap R T)) :
     ∃ e : (R ⧸ nilradical R) ≃+* (T ⧸ nilradical T),
       ∀ r : R, e (Ideal.Quotient.mk _ r) = Ideal.Quotient.mk _ (algebraMap R T r) := sorry
 
 /-- **L16**, `T` is reduced iff `ker (R → T) = √0`, i.e. iff `R_red → T` is an isomorphism:
-"`T` reduced" is necessary and sufficient. -/
+"`T` reduced" is necessary and sufficient.
+Node: `t-reduced-iff-kernel-nilradical`. -/
 theorem NearlyFaithful.isReduced_iff_ker_eq_nilradical [NearlyFaithful R H]
     (hsurj : Function.Surjective (algebraMap R T)) :
     IsReduced T ↔ RingHom.ker (algebraMap R T) = nilradical R := sorry
 
-/-- **L16**, if `T` is reduced, `R_red ≅ T` (Taylor, Theorem 4.1). -/
+/-- **L16**, if `T` is reduced, `R_red ≅ T` (Taylor, Theorem 4.1).
+Node: `r-equals-t-reduced`. -/
 theorem NearlyFaithful.exists_ringEquiv_of_isReduced [NearlyFaithful R H] [IsReduced T]
     (hsurj : Function.Surjective (algebraMap R T)) :
     ∃ e : (R ⧸ nilradical R) ≃+* T, ∀ r : R, e (Ideal.Quotient.mk _ r) = algebraMap R T r :=
   sorry
 
 /-- **L17** (a): if `ϖ` is `H`-regular, `R → T` kills the ϖ-power torsion of `R`, so it factors
-through `R^tf`. -/
+through `R^tf`.
+Node: `torsion-in-kernel`. -/
 theorem ker_away_le_ker_algebraMap (ϖ : R) (hH : IsSMulRegular H ϖ) :
     RingHom.ker (algebraMap R (Localization.Away ϖ)) ≤ RingHom.ker (algebraMap R T) := sorry
 
 /-- **L17** (b), the torsion-free `R = T`: `R^tf ≅ T` iff `H[1/ϖ]` is faithful over `R[1/ϖ]`
-(Kisin (3.3.1); Khare–Wintenberger II, Proposition 9.2(III)). -/
+(Kisin (3.3.1); Khare–Wintenberger II, Proposition 9.2(III)).
+Node: `r-equals-t-torsion-free-quotient`. -/
 theorem exists_ringEquiv_torsionFree_iff_faithfulSMul (ϖ : R) (hH : IsSMulRegular H ϖ)
     (hsurj : Function.Surjective (algebraMap R T)) :
     (∃ e : (R ⧸ RingHom.ker (algebraMap R (Localization.Away ϖ))) ≃+* T,
         ∀ r : R, e (Ideal.Quotient.mk _ r) = algebraMap R T r) ↔
       FaithfulSMul (Localization.Away ϖ) (LocalizedModule.Away ϖ H) := sorry
 
-/-- **L17** (c): for nearly faithful `H`, the ϖ-power torsion of `R` lies in the nilradical. -/
+/-- **L17** (c): for nearly faithful `H`, the ϖ-power torsion of `R` lies in the nilradical.
+Node: `torsion-in-nilradical`. -/
 theorem NearlyFaithful.ker_away_le_nilradical [NearlyFaithful R H] (ϖ : R)
     (hH : IsSMulRegular H ϖ) :
     RingHom.ker (algebraMap R (Localization.Away ϖ)) ≤ nilradical R := sorry
 
-/-- **L17** (c): `T` is reduced iff `T[1/ϖ]` is. -/
+/-- **L17** (c): `T` is reduced iff `T[1/ϖ]` is.
+Node: `t-reduced-iff-after-inverting`. -/
 theorem isReduced_iff_isReduced_away (ϖ : R) (hH : IsSMulRegular H ϖ) :
     IsReduced T ↔ IsReduced (Localization.Away (algebraMap R T ϖ)) := sorry
 
-/-- **L18**, the integral `R = T`: `R → T` is an isomorphism iff `H` is faithful over `R`. -/
+/-- **L18**, the integral `R = T`: `R → T` is an isomorphism iff `H` is faithful over `R`.
+Node: `r-equals-t-free`. -/
 theorem bijective_algebraMap_iff_faithfulSMul (hsurj : Function.Surjective (algebraMap R T)) :
     Function.Bijective (algebraMap R T) ↔ FaithfulSMul R H := sorry
 
-/-- **L18**, free form: a nonzero free `R`-module is faithful, so `R ≅ T`. -/
+/-- **L18**, free form: a nonzero free `R`-module is faithful, so `R ≅ T`.
+Node: `r-equals-t-of-free`. -/
 theorem bijective_algebraMap_of_free [Module.Free R H] [Nontrivial H]
     (hsurj : Function.Surjective (algebraMap R T)) : Function.Bijective (algebraMap R T) := sorry
 
