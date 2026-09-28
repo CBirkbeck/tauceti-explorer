@@ -11,7 +11,7 @@
     "SmallRamificationAndAbelianVarietyBaseCases:R25.6"
   ],
   "status": "partial",
-  "summary": "First checkpoint (R25.1, R25.2). R25.2 is closed: Tate's theorem (p = 2) and Serre's mod-3 theorem, and their combination in the form of DP23 Theorem 1.1, with the coefficient-field issue handled through finite image. The proof plan follows Tate's method. The tame case is excluded by Minkowski's bound. In the wild case the decomposition group lies in a Borel, and local class field theory over an unramified or tame quadratic base computes the upper ramification filtration. This gives δ ≤ 2 at 2 (sharper than Tate's 5/2) and δ ≤ 13/6 − 1/|P| at 3. Dickson's classification then forces a large degree. For p = 2 Minkowski's bound (rd > 4 for n ≥ 12, rd > 3 for n ≥ 6) finishes the proof with no analytic input. For p = 3 the Odlyzko–Poitou explicit-formula bound with the kernel (1 − |x|)cos πx + sin π|x|/π gives rd > 10 for totally complex n ≥ 24 and rd > 12 for n ≥ 36, against 3^{11/6} ≈ 7.49 and 3^{13/6} ≈ 10.81. No list of number fields is used. R25.1 is partial: the torsion-field bounds of Fontaine and Schoof remain. R25.3–R25.6 are not yet read. Tate's paper (Contemp. Math. 174) and Serre's note (Œuvres III, p. 710) were not accessible, so the plan was checked against DP23, Khare, Moon–Taguchi, Jones and Ghitza–Yamauchi.",
+  "summary": "Second checkpoint (R25.1, R25.2, R25.3). R25.2 and R25.3 are closed. R25.2: Tate's theorem at p = 2 and Serre's mod-3 theorem (DP23 Theorem 1.1), planned by Tate's method with a sharpened 2-adic bound δ ≤ 2 (Minkowski's bound suffices) and a 3-adic bound 13/6 − 1/|P| against two certified Odlyzko–Poitou rows. R25.3: Fontaine's theorem, planned at p = 2 alone. Fontaine's ramification bound (imported from R07.6) gives rd < 4 for the field of points of a finite flat group scheme over ℤ killed by 2; Minkowski's bound and the local character lemma make that field a 2-extension; so the simple objects are ℤ/2ℤ and μ₂. Ext¹_ℤ(μ₂, ℤ/2ℤ) = 0 by Schoof's gluing argument. Every finite flat 2-group scheme over ℤ is then constant over diagonalizable, and counting points of 𝒜/M_n and 𝒜^∨ over a finite field forces 𝒜 = 0. R25.1 is partial: Schoof's Odlyzko rows for R25.4 remain. R25.4 has been read and not yet planned; R25.5 and R25.6 are not read. Tate's paper, Serre's note and Fontaine's paper were not accessible; the plans follow DP23, Khare, Moon–Taguchi, Jones, Ghitza–Yamauchi, Odlyzko, Fesenko–Vostokov, Schoof and Brumer–Kramer. Two issues in Schoof 2005 are recorded: a numerical misprint (new) and the class-group step of Proposition 4.1 (corrected in Schoof's errata note).",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -267,6 +267,34 @@
         "module": "TauCeti/NumberTheory/NumberField/Frobenius/DecompositionGroup.lean",
         "provides": "A prime of a Galois number field is unramified exactly when its inertia group is trivial.",
         "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat",
+        "kind": "definition",
+        "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
+        "provides": "The category of finite locally free commutative affine group schemes over an affine base Spec S.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+        "kind": "definition",
+        "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/CartierDuality/FiniteLocallyFree.lean",
+        "provides": "Cartier duality, an anti-equivalence of finite locally free commutative affine group schemes over Spec R (full name TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality).",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
+        "kind": "definition",
+        "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+        "provides": "Abelian varieties over a field, bundled as proper geometrically integral group schemes.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.dim",
+        "kind": "definition",
+        "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
+        "provides": "The dimension of an abelian variety.",
+        "checked": "Declaration head and hypotheses read in the pinned source tree (workers/baseline, Mathlib 082e2d3 / Tau Ceti f790474); name confirmed in the pinned declaration index."
       }
     ]
   },
@@ -353,6 +381,30 @@
       "readSections": [
         "Ch. I, (5.7)–(5.8) (pp. 14–16): the p-th power map on the unit filtration.",
         "Ch. IV, (3.5) Theorem and proof (pp. 135–136): the reciprocity map carries U_n to the n-th upper ramification group."
+      ]
+    },
+    {
+      "id": "Schoof05",
+      "title": "Abelian varieties over Q with bad reduction in one prime only",
+      "authors": "René Schoof",
+      "edition": "Compositio Math. 141 (2005), 847–868, doi:10.1112/S0010437X05001107; author-hosted copy of the published article; accessed 2026-09-28",
+      "url": "https://www.mat.uniroma2.it/~schoof/abvar1prime.pdf",
+      "sha256": "0c44f6abd763759aaf0046e14dc054229293f440dca949e141e6adbfd3624691",
+      "readSections": [
+        "§1 (pp. 847–848): Theorems 1.1–1.3 and the outline, including the comparison with Fontaine's method.",
+        "§§2–4 (pp. 848–853): the categories C and D, Propositions 3.1–3.2 with proofs, Proposition 4.1 and Corollary 4.2 with proofs.",
+        "§§5–6 (pp. 853–858): Propositions 5.1–5.2 and the case-by-case proofs of Theorems 1.1 and 1.3."
+      ]
+    },
+    {
+      "id": "BrumerKramer00-arXiv",
+      "title": "Non-existence of certain semistable abelian varieties",
+      "authors": "Armand Brumer and Kenneth Kramer",
+      "edition": "arXiv:math/0011270v1 (2 November 2000); published in Manuscripta Math. 106 (2001), 291–304; accessed 2026-09-28",
+      "url": "https://arxiv.org/abs/math/0011270",
+      "sha256": "afa891235bf2c20796cf0726b2d7762585d41c287717052f287b799e6c0a1954",
+      "readSections": [
+        "§1 (p. 1): the statement of Fontaine's theorem and the outline of the discriminant method."
       ]
     }
   ],
@@ -547,20 +599,21 @@
       "realises": [
         "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
       ],
-      "title": "Local characters of order prime to p have inertia image of order dividing p − 1",
+      "title": "Local abelian quotients of order prime to p have inertia image of exponent dividing q − 1",
       "kind": "lemma",
-      "statement": "Let E/ℚ_p be a finite Galois extension with group D, inertia subgroup I and wild inertia subgroup P ⊆ I, and let ψ : D → F^× be a homomorphism, F a finite field of characteristic p. Then ψ(P) = 1 and ψ(I) is cyclic of order dividing p − 1. In particular for p = 2 every such ψ is unramified, and for p = 3, ψ(I) ⊆ {±1}.",
+      "statement": "Let K be a finite extension of ℚ_p with residue field of q elements, E/K a finite Galois extension with group D, inertia subgroup I and wild inertia subgroup P ⊆ I, and ψ : D → B a homomorphism to an abelian group B of order prime to p (for example B = F^× with F a finite field of characteristic p). Then ψ(P) = 1 and ψ(I) is cyclic of order dividing q − 1. In particular, if q = 2 then ψ is unramified, and if q = 3 then ψ(I) has order at most 2.",
       "hypotheses": [
-        "F finite of characteristic p, so F^× has order prime to p."
+        "K/ℚ_p finite with residue field 𝔽_q; B abelian of order prime to p."
       ],
       "proofSteps": [
-        "P is a p-group (LocalFieldsRamification Layer 3) and |F^×| = |F| − 1 is prime to p, so ψ(P) = 1.",
-        "I/P is cyclic and a Frobenius lift φ ∈ D acts on it by τ ↦ τ^p (the tame quotient, LocalFieldsRamification Layer 4, requested).",
-        "F^× is abelian, so ψ(τ) = ψ(φτφ^{−1}) = ψ(τ^p) = ψ(τ)^p, hence ψ(τ)^{p−1} = 1 for every τ ∈ I."
+        "P is a p-group (LocalFieldsRamification Layer 3) and |B| is prime to p, so ψ(P) = 1.",
+        "I/P is cyclic and a Frobenius lift φ ∈ D acts on it by τ ↦ τ^q (the tame quotient, LocalFieldsRamification Layer 4, requested).",
+        "B is abelian, so ψ(τ) = ψ(φτφ^{−1}) = ψ(τ^q) = ψ(τ)^q, hence ψ(τ)^{q−1} = 1 for every τ ∈ I; ψ(I) is a quotient of the cyclic group I/P."
       ],
       "acceptance": [
-        "p = 2: the characters ψ_1, ψ_2 on the diagonal of a mod-2 local representation are unramified (Tate's 'tame degree 1').",
-        "p = 3: the mod-3 cyclotomic character ω restricted to I_3 has image exactly {±1}, so the bound p − 1 = 2 is attained."
+        "K = ℚ_2: the diagonal characters of a mod-2 local representation are unramified (Tate's 'tame degree 1').",
+        "K = ℚ_3: the mod-3 cyclotomic character restricted to I_3 has image exactly {±1}, so the bound q − 1 = 2 is attained.",
+        "K = ℚ_2(√−1) (q = 2): an abelian extension of K of odd degree is unramified, which is used for dihedral 2-division fields in R25.3."
       ],
       "prerequisites": [
         "mathlib:IsPGroup"
@@ -582,7 +635,7 @@
       "library": {
         "module": "TauCeti/NumberTheory/SmallRamification/LocalBounds",
         "namespace": "TauCeti.SmallRamification",
-        "name": "TauCeti.SmallRamification.orderOf_map_inertia_dvd_sub_one"
+        "name": "TauCeti.SmallRamification.orderOf_map_inertia_dvd_card_residueField_sub_one"
       },
       "implementationStatus": "unchecked"
     },
@@ -1684,6 +1737,396 @@
       "planet": {
         "name": "Tate–Serre base case"
       }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.1/fontaine-torsion-field-bound",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1"
+      ],
+      "title": "The root discriminant of the field of p-torsion points of a finite flat group scheme",
+      "kind": "lemma",
+      "statement": "Let p be a prime, N ≥ 1 an integer prime to p, and G a finite flat commutative group scheme over ℤ[1/N] killed by p. Let L = ℚ(G(ℚ̄)), a finite Galois extension of ℚ unramified outside pN. (i) For every prime λ of L above p, δ(L_λ) < 1 + 1/(p − 1). (ii) If moreover at each prime ℓ ∣ N the inertia groups act on G(ℚ̄) through a group of order prime to ℓ, with ramification index e_ℓ in L, then rd_L < p^{1+1/(p−1)} · ∏_{ℓ∣N} ℓ^{1−1/e_ℓ}. In particular, for G over ℤ (N = 1), rd_L < p^{1+1/(p−1)}: rd_L < 4 for p = 2 and rd_L < 3^{3/2} for p = 3.",
+      "hypotheses": [
+        "G finite flat over ℤ[1/N] and killed by p; p ∤ N."
+      ],
+      "proofSteps": [
+        "G is étale over ℤ[1/pN], so L/ℚ is unramified outside pN; it is Galois as the field of definition of a Galois-stable finite set.",
+        "(i) G ⊗ ℤ_p is finite flat over ℤ_p (absolute ramification e = 1) and killed by p. Fontaine's ramification theorem (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6, requested; Il n'y a pas de variété abélienne sur Z, Théorème A) bounds the upper ramification of Gal(L_λ/ℚ_p), and R07.6's convention translation gives the normalised different bound δ(L_λ) < e(1 + 1/(p − 1)) = 1 + 1/(p − 1).",
+        "(ii) At ℓ ∣ N the ramification is tame of index e_ℓ, so δ(L_{λ′}) = 1 − 1/e_ℓ (R25.1/local-root-discriminant-exponent, tame form). R25.1/root-discriminant-of-galois-field multiplies the local contributions: rd_L = p^{δ(L_λ)} ∏_ℓ ℓ^{1−1/e_ℓ}."
+      ],
+      "acceptance": [
+        "p = 2, G = the 2-torsion of an abelian scheme over ℤ: rd_L < 4, the bound that feeds R25.3/division-fields-of-two-group-schemes-over-integers.",
+        "Schoof's case l = 2, p = 3: rd_L < 2 · 3^{3/2} ≈ 10.39, as in Schoof05 §6 (he writes 10.49)."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/local-root-discriminant-exponent",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/root-discriminant-of-galois-field",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+        "tauceti:TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§5, Proposition 5.1, pp. 853–854",
+          "excerpt": "the p-adic valuation of the root discriminant δL of L is strictly smaller than 1 + [1/(p − 1)], … The estimates of Abraškin [Abr87] and Fontaine [Fon85] for the ramification at the prime p imply that the third condition is satisfied.",
+          "match": "Part (i): Fontaine's bound, as used by Schoof."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§6, proof of Theorem 1.3, p. 855",
+          "excerpt": "Indeed, since the primes of L that lie over l are at most tamely ramified, the l-adic contribution to the root discriminant of L is of the form l^{(e−1)/e} < l where e is the ramification index e of any of the primes over l.",
+          "match": "Part (ii): the tame contribution at l."
+        },
+        {
+          "sourceId": "BrumerKramer00-arXiv",
+          "locator": "§1, p. 1",
+          "excerpt": "Restrictions on the ramification in ρ imply an upper bound for the discriminant of the ℓ-division field L = Q(A[ℓ]). Odlyzko's work [Od] on discriminants then limits the possible fields L.",
+          "match": "The role of the bound in Fontaine's method."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/GlobalBounds",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.rootDiscr_torsionField_lt"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3"
+      ],
+      "title": "Finite étale group schemes over ℤ are constant",
+      "kind": "lemma",
+      "statement": "Every finite étale commutative group scheme over ℤ is constant; equivalently, ℚ has no nontrivial finite extension unramified at every prime, so the fundamental group of Spec ℤ is trivial.",
+      "hypotheses": [
+        "None."
+      ],
+      "proofSteps": [
+        "A connected finite étale ℤ-algebra is the ring of integers 𝓞_K of a number field K unramified at every prime (finite étale implies normal and unramified).",
+        "By NumberField.not_dvd_discr_iff_isUnramifiedIn no prime divides d_K, so |d_K| = 1, and NumberField.abs_discr_gt_two forces [K:ℚ] = 1.",
+        "A finite étale group scheme over ℤ is determined by the Galois set of its points with the action of π₁(Spec ℤ); that group is trivial, so the group scheme is constant (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1: étale group schemes and Galois modules)."
+      ],
+      "acceptance": [
+        "Over ℤ[1/2] the lemma fails: ℚ(i) is unramified outside 2, and the twisted form of ℤ/4ℤ it defines is étale and not constant.",
+        "Consequently every extension of ℤ/2ℤ by ℤ/2ℤ that is étale over ℤ is constant."
+      ],
+      "prerequisites": [
+        "mathlib:NumberField.not_dvd_discr_iff_isUnramifiedIn",
+        "mathlib:NumberField.abs_discr_gt_two",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§3, proof of Proposition 3.1, p. 850",
+          "excerpt": "It follows that Cn is étale and that the fundamental group of Z[1/l] acts on its points through a finite p-group P.",
+          "match": "The same step; over ℤ the fundamental group is trivial and the étale part is constant at once."
+        },
+        {
+          "sourceId": "Odlyzko90-JTNB",
+          "locator": "§1, p. 119",
+          "excerpt": "For K = Q, D = 1, and one of Minkowski's fundamental results was the proof that D > 1 for n > 1.",
+          "match": "Minkowski's theorem, the input that makes π₁(Spec ℤ) trivial."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Fontaine",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.isConstant_of_etale_over_int"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.3/division-fields-of-two-group-schemes-over-integers",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3"
+      ],
+      "title": "A Galois field unramified outside 2 with rd < 4 has 2-power degree",
+      "kind": "lemma",
+      "statement": "Let L/ℚ be a finite Galois extension unramified at every odd prime with rd_L < 4. Then [L:ℚ] is a power of 2.",
+      "hypotheses": [
+        "L/ℚ finite Galois, unramified at every odd prime, rd_L < 4."
+      ],
+      "proofSteps": [
+        "Let n = [L:ℚ] and H = Gal(L/ℚ). By R25.1/minkowski-root-discriminant-thresholds (rd > 4 for n ≥ 12), n ≤ 11.",
+        "H^{ab} is a 2-group: the subfield L′ fixed by the 2-Sylow subgroup of H^{ab} is abelian of odd degree over ℚ and unramified at odd primes; at 2 its local Galois group is an abelian quotient of odd order, whose inertia image is trivial by R25.1/prime-to-p-character-inertia with q = 2. So L′ is unramified everywhere and L′ = ℚ by R25.3/etale-group-schemes-over-integers-are-constant.",
+        "The groups of order at most 11 whose abelianisation is a 2-group are the 2-groups, S₃ and the dihedral group D₁₀ (every group of order 1–5, 7, 9 or 11 is abelian, and ℤ/6, ℤ/10 have odd abelian quotients).",
+        "If H ≅ S₃ or D₁₀, let k be the quadratic subfield fixed by the normal cyclic subgroup of odd order r ∈ {3, 5}. It is ramified only at 2, so rd_k ∈ {2, 2√2}, and its residue field at the prime above 2 is 𝔽_2. L/k is cyclic of odd degree r, so by R25.1/prime-to-p-character-inertia with q = 2 it is unramified at the prime above 2, hence at every finite prime. Then d_L = ± d_k^r and rd_L = rd_k ≤ 2√2 < 3, while n = 2r ≥ 6 gives rd_L > 3 by R25.1/minkowski-root-discriminant-thresholds. So H is a 2-group."
+      ],
+      "acceptance": [
+        "ℚ(ζ_8) has discriminant 2^8 and degree 4, so rd = 4 exactly: the strict inequality of R25.1/fontaine-torsion-field-bound is what the lemma needs, and ℚ(ζ_8) itself has 2-power degree.",
+        "The field ℚ(√−1) generated by the points of Mazur's group scheme D = G_{−1} over ℤ has rd = 2 and degree 2, as the lemma predicts."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/minkowski-root-discriminant-thresholds",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/prime-to-p-character-inertia",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant",
+        "mathlib:NumberField.rootDiscr",
+        "mathlib:IsGalois"
+      ],
+      "sources": [
+        {
+          "sourceId": "MoonTaguchi07-arXiv",
+          "locator": "§3, p. 5",
+          "excerpt": "If G is solvable, then it sits in an exact sequence 1 → H → G → Z/2Z → 1 … Hence K is an abelian extension of odd degree, unramified outside {2, ∞}, over the quadratic extension K′/F corresponding to H.",
+          "match": "The same dihedral step, there with class field theory over quadratic fields; here the residue field 𝔽_2 makes the odd abelian step unramified and Minkowski's bound concludes."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§5, conclusion of Proposition 5.1, p. 853",
+          "excerpt": "has the property that the degree [L : Q(ζp)] is a power of p.",
+          "match": "The property established here for p = 2, where ℚ(ζ_2) = ℚ."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Fontaine",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.isPGroup_two_of_rootDiscr_lt_four"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.3/simple-two-group-schemes-over-integers",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3"
+      ],
+      "title": "The simple finite flat 2-group schemes over ℤ are ℤ/2ℤ and μ₂",
+      "kind": "theorem",
+      "statement": "Let G be a finite flat commutative group scheme of 2-power order over ℤ with no closed flat subgroup schemes other than 0 and G. Then G ≅ ℤ/2ℤ or G ≅ μ₂.",
+      "hypotheses": [
+        "G an object of TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat ℤ of 2-power order, simple."
+      ],
+      "proofSteps": [
+        "G is killed by 2: the scheme-theoretic closure of G(ℚ̄)[2] in G is a nonzero closed flat subgroup scheme (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1: closures of generic subgroups over a Dedekind base), so it is G. For the same reason G(ℚ̄) is a simple 𝔽_2[Gal(ℚ̄/ℚ)]-module.",
+        "Let L = ℚ(G(ℚ̄)). By R25.1/fontaine-torsion-field-bound with p = 2 and N = 1, L is unramified at odd primes and rd_L < 4, so [L:ℚ] is a power of 2 (R25.3/division-fields-of-two-group-schemes-over-integers).",
+        "A simple 𝔽_2-representation of a 2-group is trivial, so G(ℚ̄) ≅ 𝔽_2 with trivial action and G has order 2.",
+        "By the Oort–Tate classification of group schemes of order 2 over ℤ (requested from R07.1), G ≅ ℤ/2ℤ or μ₂; the parameters (a, b) with ab = 2 up to units ±1 give exactly these two."
+      ],
+      "acceptance": [
+        "Over ℤ[1/11] the analogue fails: the 2-torsion of J₀(11) is a simple object of order 4 (Schoof05 §7), so the base ℤ is essential.",
+        "Over ℤ, ℤ/2ℤ and μ₂ are not isomorphic (μ₂ is connected at 2, ℤ/2ℤ is étale), so both occur."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/fontaine-torsion-field-bound",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/division-fields-of-two-group-schemes-over-integers",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "tauceti:TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§5, proof of Proposition 5.1, p. 854",
+          "excerpt": "Since G(Q̄) is a simple Galois module of p-power order, it is fixed by the p-group Gal(L/Q(ζp)). … It follows that G has order p. Since p is prime in the ring Z[1/l], the classification of Tate and Oort [TO70] implies that G ≅ Z/pZ or µp possibly twisted by a character χ",
+          "match": "The same argument over ℤ[1/l]; over ℤ with p = 2 there is no twist, since ℚ(ζ_2) = ℚ and characters unramified everywhere are trivial."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§5, proof of Proposition 5.1, p. 854",
+          "excerpt": "Since G is simple, it is killed by p.",
+          "match": "The first step."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Fontaine",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.simple_two_groupScheme_over_int"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Simple 2-group schemes over ℤ"
+      }
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.3/extensions-of-mu-two-by-z-mod-two-over-integers",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3"
+      ],
+      "title": "Ext¹_ℤ(μ₂, ℤ/2ℤ) = 0",
+      "kind": "lemma",
+      "statement": "Every extension 0 → ℤ/2ℤ → E → μ₂ → 0 of finite flat commutative group schemes over ℤ splits.",
+      "hypotheses": [
+        "Extensions in the category of finite flat commutative group schemes over ℤ."
+      ],
+      "proofSteps": [
+        "Gluing (FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1, fpqc descent; the Mayer–Vietoris sequence of Schoof 2003, Proposition 2.4): finite flat group schemes over ℤ are triples (over ℤ[1/2], over ℤ_2, an isomorphism over ℚ_2), which gives an exact sequence of Hom and Ext¹ groups.",
+        "Hom_{ℤ_2}(μ₂, ℤ/2ℤ) = 0 (μ₂ is connected over ℤ_2 and ℤ/2ℤ étale), Hom_{ℤ[1/2]}(μ₂, ℤ/2ℤ) → Hom_{ℚ_2}(μ₂, ℤ/2ℤ) is an isomorphism (both of order 2), and Ext¹_{ℤ_2}(μ₂, ℤ/2ℤ) = 0 (the connected–étale sequence splits such an extension). So Ext¹_ℤ(μ₂, ℤ/2ℤ) injects into the kernel of Ext¹_{ℤ[1/2]}(μ₂, ℤ/2ℤ) → Ext¹_{ℚ_2}(μ₂, ℤ/2ℤ).",
+        "Over ℤ[1/2] and ℚ_2 both group schemes are étale and μ₂ ≅ ℤ/2ℤ. As in Schoof05 Proposition 4.1 (with no prime l), a snake-lemma comparison of the sequences 0 → μ₂ → Ext¹(ℤ/2, μ₂) → H¹(−, μ₂) → 0 over ℤ[1/2] and over ℚ_2 identifies the kernel with the kernel of H¹(G_{ℤ[1/2]}, μ₂) → H¹(G_{ℚ_2}, μ₂).",
+        "H¹(G_{ℤ[1/2]}, μ₂) = Hom(G_{ℤ[1/2]}, ℤ/2) classifies the quadratic fields unramified outside 2: ℚ(√−1), ℚ(√2), ℚ(√−2) (discriminants −4, 8, −8). Each is ramified at 2, so none becomes trivial over ℚ_2: the restriction map is injective, and Ext¹_ℤ(μ₂, ℤ/2ℤ) = 0."
+      ],
+      "acceptance": [
+        "Over ℤ[1/7] the group is nonzero: 7 ≡ −1 (mod 8), so ±7 is a 2-adic square and Schoof05 Corollary 4.2 gives dimension 1.",
+        "The opposite group Ext¹_ℤ(ℤ/2ℤ, μ₂) is nonzero: the Katz–Mazur scheme G_{−1} (Mazur's D) is a nonsplit extension of ℤ/2ℤ by μ₂ over ℤ. The order of the two factors matters."
+      ],
+      "prerequisites": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "tauceti:TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§4, Proposition 4.1, p. 851",
+          "excerpt": "Then there is a natural exact sequence 0 → Ext¹_{Z[1/l]}(µp, Z/pZ) → (Z[1/pl, ζp]*/(Z[1/pl, ζp]*)^p)_{ω²} −→ (Qp(ζp)*/(Qp(ζp)*)^p)_{ω²}.",
+          "match": "The same sequence with ℤ in place of ℤ[1/l]; for p = 2 the ω²-part is everything."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§4, proof of Corollary 4.2, p. 853",
+          "excerpt": "When p = 2, the group ∆ is trivial and ω = 1. The middle and rightmost groups in the exact sequence of Proposition 4.1 are each of dimension three over F2. The middle one is generated by 2, −1 and l while the rightmost group is generated by 2, −1 and 5.",
+          "match": "Over ℤ the middle group is generated by 2 and −1 only, and the map is injective."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Fontaine",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.ext_muTwo_zModTwo_eq_zero"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.3/multiplicative-constant-filtration",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3"
+      ],
+      "title": "Finite flat 2-group schemes over ℤ are extensions of constant by diagonalizable",
+      "kind": "lemma",
+      "statement": "Every finite flat commutative group scheme G of 2-power order over ℤ has a closed flat subgroup scheme M with 0 → M → G → C → 0, where C is constant and M is diagonalizable (its Cartier dual is constant). In particular #M · #C = #G.",
+      "hypotheses": [
+        "G an object of TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat ℤ of 2-power order."
+      ],
+      "proofSteps": [
+        "Choose a filtration of G by closed flat subgroup schemes with simple quotients; by R25.3/simple-two-group-schemes-over-integers each quotient is ℤ/2ℤ or μ₂.",
+        "If two consecutive quotients are ℤ/2ℤ (below) and μ₂ (above), the corresponding subquotient is an extension of μ₂ by ℤ/2ℤ, which splits by R25.3/extensions-of-mu-two-by-z-mod-two-over-integers; replacing the middle step by the preimage of the μ₂ summand swaps them. Repeating, all μ₂ quotients come below all ℤ/2ℤ quotients.",
+        "Let M be the step where the μ₂ quotients end and C = G/M. C is an iterated extension of copies of ℤ/2ℤ, hence étale, hence constant (R25.3/etale-group-schemes-over-integers-are-constant).",
+        "Under Cartier duality (FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality) μ₂ and ℤ/2ℤ are exchanged, so the dual of M is an iterated extension of copies of ℤ/2ℤ, étale, hence constant: M is diagonalizable."
+      ],
+      "acceptance": [
+        "For G = 𝒜[2^n] with 𝒜 an abelian scheme over ℤ this is the input of R25.3/fontaine-theorem; the point count then forces 𝒜 = 0.",
+        "Mazur's D = G_{−1}, a nonsplit extension of ℤ/2ℤ by μ₂, already has the stated shape with M = μ₂, C = ℤ/2ℤ."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/simple-two-group-schemes-over-integers",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/extensions-of-mu-two-by-z-mod-two-over-integers",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant",
+        "tauceti:FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDuality",
+        "tauceti:TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§3, proof of Proposition 3.1, p. 850",
+          "excerpt": "By the second assumption, any extension 0 → Z/pZ → G → µp → 0 splits over Z[1/l]. Therefore, we can modify the filtration of A[p^n] and obtain for every n ⩾ 1 an exact sequence of finite flat Z[1/l]-group schemes 0 → Mn → A[p^n] → Cn → 0",
+          "match": "The same reordering; over ℤ the constancy is immediate."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Fontaine",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.exists_diagonalizable_constant_filtration"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3"
+      ],
+      "title": "Isogenous abelian varieties over a finite field have the same number of points",
+      "kind": "lemma",
+      "statement": "If φ : A → B is an isogeny of abelian varieties over a finite field k, then #A(k) = #B(k).",
+      "hypotheses": [
+        "A, B abelian varieties over the finite field k with q elements; φ an isogeny."
+      ],
+      "proofSteps": [
+        "Let F_A, F_B be the q-power Frobenius endomorphisms. The endomorphism 1 − F_A is an isogeny with kernel A(k); it is separable because d(1 − F_A) = 1, so #A(k) = deg(1 − F_A) (AbelianSchemesAndArithmeticModuli A6 and A3, requested).",
+        "φ ∘ (1 − F_A) = (1 − F_B) ∘ φ since φ is defined over k, and degrees of isogenies multiply (A3), so deg(1 − F_A) = deg(1 − F_B)."
+      ],
+      "acceptance": [
+        "For elliptic curves this is the equality of traces of Frobenius for isogenous curves.",
+        "Isomorphic over k̄ is not enough: quadratic twists can have different point counts, so φ must be defined over k."
+      ],
+      "prerequisites": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schoof05",
+          "locator": "§3, proof of Proposition 3.1, p. 850",
+          "excerpt": "The abelian variety A/Mn has at least #Cn rational points over kp. Since A is isogenous to A/Mn, it has the same number of points over kp as A/Mn.",
+          "match": "The use of this lemma."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Fontaine",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.card_points_eq_of_isogeny"
+      },
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
+      "parentStageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
+      "realises": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3"
+      ],
+      "title": "Fontaine's theorem: no abelian variety over ℚ has good reduction everywhere",
+      "kind": "theorem",
+      "statement": "There is no abelian variety of positive dimension over ℚ with good reduction at every prime. Equivalently, every abelian scheme over ℤ is zero.",
+      "hypotheses": [
+        "A an abelian variety over ℚ (TauCeti.AlgebraicGeometry.AbelianVariety ℚ) with good reduction at every prime; the conclusion is A.dim = 0."
+      ],
+      "proofSteps": [
+        "Good reduction everywhere means A extends to an abelian scheme 𝒜 over ℤ (its Néron model; NeronModelsAndSemistableAbelianVarieties R11.1, requested). Let g = dim A.",
+        "For n ≥ 1, 𝒜[2^n] is finite flat over ℤ of order 2^{2gn} (AbelianSchemesAndArithmeticModuli A3). By R25.3/multiplicative-constant-filtration there is 0 → M_n → 𝒜[2^n] → C_n → 0 with C_n constant and M_n diagonalizable.",
+        "Fix a prime q and k = 𝔽_q. The quotient 𝒜/M_n is an abelian scheme (A3) containing C_n = 𝒜[2^n]/M_n. C_n is constant, so its #C_n points are k-rational and #(𝒜/M_n)(k) ≥ #C_n. By R25.3/point-count-isogeny-invariance, #𝒜(k) ≥ #C_n.",
+        "Cartier duality and the Weil pairing (A3) give 𝒜[2^n]^∨ ≅ 𝒜^∨[2^n] and a sequence 0 → C_n^∨ → 𝒜^∨[2^n] → M_n^∨ → 0 with M_n^∨ constant, so #𝒜^∨(k) ≥ #M_n. A polarization (A2) is an isogeny 𝒜_k → 𝒜^∨_k, so #𝒜(k) ≥ #M_n.",
+        "Hence #𝒜(k)² ≥ #M_n · #C_n = 2^{2gn} for every n, while #𝒜(k) is a fixed finite number. So g = 0."
+      ],
+      "acceptance": [
+        "The theorem covers every dimension; for g = 1 it recovers the absence of elliptic curves of conductor 1.",
+        "It is special to ℚ: over ℚ(√29) there is an elliptic curve with good reduction everywhere. And J₀(11) has good reduction outside 11, so allowing one bad prime changes the answer (R25.4 at 11 is not a theorem)."
+      ],
+      "prerequisites": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/multiplicative-constant-filtration",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1",
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.dim"
+      ],
+      "sources": [
+        {
+          "sourceId": "BrumerKramer00-arXiv",
+          "locator": "§1, p. 1",
+          "excerpt": "Thus, Fontaine [Fo] proved there do not exist abelian varieties over Z, i.e. with everywhere good reduction.",
+          "match": "The statement."
+        },
+        {
+          "sourceId": "Schoof05",
+          "locator": "§3, proof of Proposition 3.1, pp. 850–851",
+          "excerpt": "The proof is very similar to that in [Fon85, § 3.4.3]. … It follows that #A(kp)² is at least the product of the orders of Mn and Cn, which is equal to #A[p^n] = p^{2ng}. This leads to a contradiction when n → ∞ unless g = 0.",
+          "match": "Fontaine's concluding argument, in Schoof's form; over ℤ no base change to ℤ[1/l, ζ_l] is needed."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/SmallRamification/Fontaine",
+        "namespace": "TauCeti.SmallRamification",
+        "name": "TauCeti.SmallRamification.dim_eq_zero_of_goodReduction_everywhere"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Fontaine's theorem"
+      }
     }
   ],
   "requests": [
@@ -1760,6 +2203,51 @@
       "neededBy": [
         "SmallRamificationAndAbelianVarietyBaseCases:R25.1/poitou-odlyzko-inequality"
       ]
+    },
+    {
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.6",
+      "need": "Fontaine's ramification bound (Il n'y a pas de variété abélienne sur Z, Théorème A) for a finite flat group scheme killed by p over a complete DVR of absolute ramification e, exported in the normalisation of R25.1: the field L generated by its points satisfies δ(L_λ) < e(1 + 1/(p − 1)) at primes above p. R07.6 already plans this bound and the convention translation.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.1/fontaine-torsion-field-bound"
+      ]
+    },
+    {
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+      "need": "Over ℤ and ℤ[1/N]: (a) the scheme-theoretic closure of a Galois-stable subgroup of G(ℚ̄) is a closed flat subgroup scheme, so a simple finite flat group scheme is killed by a prime and its generic Galois module is simple; (b) the Oort–Tate classification of group schemes of prime order p over ℤ[1/N]; (c) the gluing equivalence between finite flat group schemes over ℤ[1/N] and triples over ℤ[1/pN], ℤ_p and ℚ_p, with the resulting exact Hom–Ext¹ sequence (Schoof, Math. Ann. 325 (2003), Proposition 2.4); (d) the connected–étale splitting over ℤ_p of an extension of μ_p by ℤ/pℤ; (e) étale group schemes over ℤ[1/N] as Galois modules of π₁(Spec ℤ[1/N]). R07.1 plans Cartier duality, connected–étale sequences, generic subgroup closures and fpqc descent.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/simple-two-group-schemes-over-integers",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/extensions-of-mu-two-by-z-mod-two-over-integers"
+      ]
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A3",
+      "need": "For an abelian scheme 𝒜 of relative dimension g over ℤ: 𝒜[n] finite flat of order n^{2g}; the quotient of 𝒜 by a finite flat subgroup scheme is an abelian scheme; the Weil pairing identifies the Cartier dual of 𝒜[n] with 𝒜^∨[n]; degrees of isogenies are multiplicative and a separable isogeny has kernel of order its degree.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem",
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance"
+      ]
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A2",
+      "need": "The dual abelian variety and a polarization, which is an isogeny A → A^∨, over a finite field.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem"
+      ]
+    },
+    {
+      "supplier": "AbelianSchemesAndArithmeticModuli:A6",
+      "need": "For an abelian variety A over 𝔽_q: the q-power Frobenius endomorphism F, the separability of 1 − F (its differential is the identity), and #A(𝔽_q) = deg(1 − F).",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/point-count-isogeny-invariance"
+      ]
+    },
+    {
+      "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "need": "An abelian variety over ℚ with good reduction at every prime extends to an abelian scheme over ℤ (its Néron model), and conversely. R11.1 plans 'Compare good reduction with an abelian-scheme model'.",
+      "neededBy": [
+        "SmallRamificationAndAbelianVarietyBaseCases:R25.3/fontaine-theorem"
+      ]
     }
   ],
   "coverage": [
@@ -1767,8 +2255,7 @@
       "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.1",
       "status": "partial",
       "remaining": [
-        "The torsion-field bounds of FONTAINE85 and SCHOOF05: the root discriminant of ℚ(A[p]) for an abelian scheme over ℤ, and for a semistable abelian variety with good reduction outside one prime ℓ, from FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6's bound δ < 1 + 1/(p − 1) for finite flat group schemes, at the primes p those sources use, with the global comparison rows they need (Minkowski or R25.1/poitou-odlyzko-inequality).",
-        "Any finite exceptional list of number fields used by FONTAINE85 or SCHOOF05, with its completeness proof and validation. R25.2 as planned here uses no list."
+        "Schoof's global comparisons for R25.4: the unconditional totally complex degree bounds he takes from Odlyzko's and Martinet's tables (rd < 10.39 ⇒ n < 24, rd < 12 ⇒ n < 32, rd < 20 ⇒ n < 480, rd < 19.01 ⇒ n < 270, rd < 14.42 ⇒ n < 60, and the Hilbert class field degree bounds at root discriminants 13.18, 16.82, 13.75 and 10.198), certified as rows of R25.1/poitou-odlyzko-inequality. The kernel of R25.1/odlyzko-kernel gives only n ≤ 32 at rd 12, so the row n < 32 needs a sharper kernel or Odlyzko's own tables."
       ]
     },
     {
@@ -1778,16 +2265,14 @@
     },
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.3",
-      "status": "not_read",
-      "remaining": [
-        "Read FONTAINE85 (Invent. Math. 81 (1985), 515–538) and plan: the ramification bound for ℚ(A[p]) via R07.6, the resulting degree bounds, and the step from the torsion restrictions to a contradiction in every dimension."
-      ]
+      "status": "closed",
+      "remaining": []
     },
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCases:R25.4",
       "status": "not_read",
       "remaining": [
-        "Read SCHOOF05 (Compositio Math. 141 (2005)) Theorem 1.1 and plan: the classification of the relevant finite flat group schemes over ℤ[1/ℓ] and their extensions for ℓ ∈ {2, 3, 5, 7, 13}, and the global argument from torsion to the abelian variety; the negative tests at ℓ = 11 and for non-semistable reduction."
+        "Schoof05 §§1–6 were read for this checkpoint and the plan is not yet written. It needs: the categories C and D over ℤ[1/l]; Propositions 3.1–3.2 (reusing R25.3's filtration and point count over ℤ[1/l, ζ_l]); Proposition 4.1 and Corollary 4.2 (Ext¹(μ_p, ℤ/pℤ) over ℤ[1/l], with the corrected class-group step E2); Propositions 5.1–5.2; and the five cases (l, p) = (2, 3), (3, 2), (5, 2), (7, 3), (13, 2) of §6, with their Odlyzko rows (R25.1) and class-number and unit computations. The negative tests are J₀(11) at l = 11 and non-semistable reduction."
       ]
     },
     {
@@ -1806,7 +2291,37 @@
     }
   ],
   "gaps": [],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases/E1",
+      "source": "Schoof05",
+      "kind": "misprint",
+      "locator": "§6, proof of Theorem 1.3, Case l = 2, p = 3, p. 855 (also arXiv:math/0502356, same text)",
+      "printed": "The root discriminant δL of the field L of Proposition 5.2 satisfies δL < 2 · 3^{3/2} = 10.49 . . . .",
+      "correction": "2 · 3^{3/2} = 10.392…",
+      "reason": "3^{3/2} = 5.196…, so 2 · 3^{3/2} = 10.392…; the printed digits are not the value of the displayed expression. The other numerical values of §6 (12, 20, 19.01, 14.422, 13.18, 16.82, 13.75, 10.198) check. The degree bound [L : Q] < 24 drawn from it holds a fortiori, since the unconditional totally complex bound at degree 24 is about 10.63.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Schoof's errata file for this paper, linked from mat.uniroma2.it/~schoof/papers.html (ssnewerrata.txt): it concerns only Proposition 4.1",
+        "arXiv:math/0502356: the same digits are printed"
+      ]
+    },
+    {
+      "id": "SmallRamificationAndAbelianVarietyBaseCases/E2",
+      "source": "Schoof05",
+      "kind": "gap",
+      "locator": "§4, proof of Proposition 4.1, p. 852, and proof of Corollary 4.2 (p ⩾ 5), p. 853",
+      "printed": "By Herbrand's Theorem [Was82, Theorem 6.17], the ω²-eigenspace of the p-part of the class group of the ring Z[ζp] vanishes.",
+      "correction": "Herbrand's theorem gives the vanishing of the ω^{−1}-eigenspace; Leopoldt's Spiegelungssatz then gives the vanishing of the ω²-eigenspace, which is what the proof uses.",
+      "reason": "Herbrand's theorem concerns the eigenspaces ω^{1−k} with k even and p ∤ B_k; the ω²-eigenspace is reached from the ω^{−1}-eigenspace by reflection. Schoof's errata note states exactly this. Nothing in this checkpoint depends on it: over ℤ with p = 2 the character group is trivial and the class group of ℤ[1/2] is trivial; the p = 3 cases of R25.4 must use the corrected step.",
+      "affects": "the proof",
+      "known": "Schoof's errata note for this article (ssnewerrata.txt, linked from https://www.mat.uniroma2.it/~schoof/papers.html)",
+      "searched": [
+        "Schoof's errata note ssnewerrata.txt, linked from his papers page next to this article"
+      ]
+    }
+  ],
   "sourceVersions": [
     {
       "kind": "preprint",
@@ -1856,6 +2371,20 @@
       "citation": "Ivan B. Fesenko and Sergei V. Vostokov, Local Fields and Their Extensions (second edition)",
       "read": "2026-09-28",
       "sha256": "019f09b449c8a5310a699855d88dfd43d202d2697f44b0a0fd1378c9dd257ec0"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.mat.uniroma2.it/~schoof/abvar1prime.pdf",
+      "citation": "René Schoof, Abelian varieties over Q with bad reduction in one prime only",
+      "read": "2026-09-28",
+      "sha256": "0c44f6abd763759aaf0046e14dc054229293f440dca949e141e6adbfd3624691"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/math/0011270",
+      "citation": "Armand Brumer and Kenneth Kramer, Non-existence of certain semistable abelian varieties",
+      "read": "2026-09-28",
+      "sha256": "afa891235bf2c20796cf0726b2d7762585d41c287717052f287b799e6c0a1954"
     }
   ]
 }

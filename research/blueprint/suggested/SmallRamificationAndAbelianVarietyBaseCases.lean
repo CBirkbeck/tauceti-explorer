@@ -24,9 +24,11 @@ import Mathlib.GroupTheory.SpecificGroups.Dihedral
 import Mathlib.Topology.Algebra.ContinuousMonoidHom
 import TauCeti.Analysis.PositiveDefinite.AddGroup
 import TauCeti.Analysis.Bochner.BochnerTheorem
+import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyFree
+import TauCeti.AlgebraicGeometry.AbelianVariety.Basic
 
 /-!
-# Small ramification and the Tate–Serre base case — suggested declarations (first checkpoint)
+# Small ramification, Tate–Serre and Fontaine — suggested declarations (second checkpoint)
 
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 The statements suggest Lean forms so that contributors and reviewers converge on names
@@ -35,7 +37,8 @@ and signatures. All proposed results are unproved prototypes at the pinned basel
 
 Layers covered: R25.1 (explicit discriminant bounds: the local root-discriminant exponent,
 the 2-adic and 3-adic bounds, Minkowski thresholds, the Odlyzko–Poitou bound) and R25.2
-(Tate's theorem, Serre's mod-3 theorem, the combined base case).
+(Tate's theorem, Serre's mod-3 theorem, the combined base case) and R25.3 (Fontaine's theorem,
+through finite flat 2-group schemes over `ℤ`).
 
 Objects imported from other roadmaps appear as placeholders named after their owners'
 planned declarations:
@@ -45,7 +48,11 @@ planned declarations:
 * `IsCompletionAbove` — Tau Ceti NumberFieldArithmetic, Layers 5–6;
 * `IsAbsolutelyIrreducible`, `IsOdd`, `IsUnramifiedAt`, `wildInertiaImage` —
   ArithmeticGaloisRepresentations R01.1–R01.2;
-* `IsIrreducibleSubgroup` — ArithmeticGaloisRepresentations R01.4 (Dickson).
+* `IsIrreducibleSubgroup` — ArithmeticGaloisRepresentations R01.4 (Dickson);
+* `IsSimpleGroupScheme`, `zModTwoScheme`, `muTwoScheme`, `IsConstantGroupScheme`,
+  `IsDiagonalizableGroupScheme`, `Ext1Vanishes` — FiniteFlatGroupsAndIntegralPadicHodgeTheory
+  R07.1, on Tau Ceti's `FiniteLocallyFreeCommAffineGroupSchemeCat`;
+* `HasGoodReductionEverywhere` — NeronModelsAndSemistableAbelianVarieties R11.1.
 
 The explicit formula for the discriminant (AnalyticNumberTheory AN.3) and local class field
 theory (Tau Ceti ClassFieldTheory, Layer 7) enter only through proofs, so they have no
@@ -169,11 +176,13 @@ theorem rootDiscr_eq_prod_rpow_localRootDiscrExp (K : Type*) [Field K] [NumberFi
     (hE : IsCompletionAbove K p E) :
     rootDiscr K = (p : ℝ) ^ (localRootDiscrExp p E : ℝ) := sorry
 
-/-- Local characters of order prime to `p` have inertia image of order dividing `p − 1`. -/
-theorem orderOf_map_inertia_dvd_sub_one (p : ℕ) [Fact p.Prime] (E : Type*) [Field E]
-    [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E] [IsGalois ℚ_[p] E]
-    {F : Type*} [Field F] [Fintype F] [CharP F p] (ψ : (E ≃ₐ[ℚ_[p]] E) →* Fˣ)
-    {σ : E ≃ₐ[ℚ_[p]] E} (hσ : σ ∈ inertiaSubgroup p E) : orderOf (ψ σ) ∣ p - 1 := sorry
+/-- Local abelian quotients of order prime to `p` have inertia image of exponent dividing
+`q − 1`, stated here over `ℚ_p` (`q = p`); the node allows any finite `K/ℚ_p`. -/
+theorem orderOf_map_inertia_dvd_card_residueField_sub_one (p : ℕ) [Fact p.Prime] (E : Type*)
+    [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E] [IsGalois ℚ_[p] E]
+    {B : Type*} [CommGroup B] [Finite B] (hB : Nat.Coprime (Nat.card B) p)
+    (ψ : (E ≃ₐ[ℚ_[p]] E) →* B) {σ : E ≃ₐ[ℚ_[p]] E} (hσ : σ ∈ inertiaSubgroup p E) :
+    orderOf (ψ σ) ∣ p - 1 := sorry
 
 /-- Part (a): over an unramified extension of `ℚ₂`, `U^{(3)} ⊆ (U^{(1)})²`. -/
 theorem principalUnits_pow_subset (E : Type*) [Field E] [Algebra ℚ_[2] E]
@@ -351,5 +360,92 @@ theorem twentyFour_dvd_card_of_irreducible_char_three
     (G : Subgroup (GL (Fin 2) (AlgebraicClosure (ZMod 3)))) [Finite G]
     (hG : IsIrreducibleSubgroup G) (h3 : 3 ∣ Nat.card G) :
     24 ∣ Nat.card G ∧ (padicValNat 3 (Nat.card G) = 1 ∨ 720 ≤ Nat.card G) := sorry
+
+/-! ## Finite flat group schemes over `ℤ` (placeholders; owned by R07.1) -/
+
+/-- The category of finite flat commutative group schemes over `ℤ` (Tau Ceti). -/
+abbrev FFGroupScheme := TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat (CommRingCat.of ℤ)
+
+/-- The order (rank) of a finite flat group scheme. -/
+def order (G : FFGroupScheme) : ℕ := sorry
+
+/-- `G` is killed by `n`. -/
+def IsKilledBy (G : FFGroupScheme) (n : ℕ) : Prop := sorry
+
+/-- No closed flat subgroup schemes other than `0` and `G`. -/
+def IsSimpleGroupScheme (G : FFGroupScheme) : Prop := sorry
+
+/-- Étale, constant and diagonalizable (Cartier dual constant) group schemes. -/
+def IsEtaleGroupScheme (G : FFGroupScheme) : Prop := sorry
+def IsConstantGroupScheme (G : FFGroupScheme) : Prop := sorry
+def IsDiagonalizableGroupScheme (G : FFGroupScheme) : Prop := sorry
+
+/-- The constant group scheme `ℤ/2ℤ` and the diagonalizable `μ₂` over `ℤ`. -/
+def zModTwoScheme : FFGroupScheme := sorry
+def muTwoScheme : FFGroupScheme := sorry
+
+/-- `0 → M → G → C → 0` is exact, with `M` a closed flat subgroup scheme. -/
+def IsShortExact (M G C : FFGroupScheme) : Prop := sorry
+
+/-- Every extension `0 → B → E → A → 0` splits. -/
+def Ext1Vanishes (A B : FFGroupScheme) : Prop := sorry
+
+/-- The field `ℚ(G(ℚ̄))` generated by the points of `G`. -/
+def torsionField (G : FFGroupScheme) : IntermediateField ℚ (AlgebraicClosure ℚ) := sorry
+
+/-! ## R25.1 — the torsion-field bound -/
+
+/-- Fontaine's bound over `ℤ`: `rd < p^{1 + 1/(p − 1)}` for the field of points of a group
+scheme killed by `p`. -/
+theorem rootDiscr_torsionField_lt (p : ℕ) [Fact p.Prime]
+    (G : FFGroupScheme) (hG : IsKilledBy G p) :
+    rootDiscr (torsionField G) < (p : ℝ) ^ ((1 : ℝ) + 1 / (p - 1)) := sorry
+
+/-! ## R25.3 — Fontaine's theorem -/
+
+section Fontaine
+
+/-- R11.1: good reduction at every prime. -/
+def HasGoodReductionEverywhere (A : TauCeti.AlgebraicGeometry.AbelianVariety ℚ) : Prop := sorry
+
+theorem isConstant_of_etale_over_int (G : FFGroupScheme) (hG : IsEtaleGroupScheme G) :
+    IsConstantGroupScheme G := sorry
+
+theorem isPGroup_two_of_rootDiscr_lt_four (L : IntermediateField ℚ (AlgebraicClosure ℚ))
+    [FiniteDimensional ℚ L] [IsGalois ℚ L]
+    (hL : ∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 2 → ¬ (ℓ : ℤ) ∣ NumberField.discr L)
+    (hrd : NumberField.rootDiscr L < 4) : ∃ k : ℕ, finrank ℚ L = 2 ^ k := sorry
+
+theorem simple_two_groupScheme_over_int (G : FFGroupScheme) (h2 : ∃ k, order G = 2 ^ k)
+    (hG : IsSimpleGroupScheme G) : Nonempty (G ≅ zModTwoScheme) ∨ Nonempty (G ≅ muTwoScheme) :=
+  sorry
+
+theorem ext_muTwo_zModTwo_eq_zero : Ext1Vanishes muTwoScheme zModTwoScheme := sorry
+
+theorem exists_diagonalizable_constant_filtration (G : FFGroupScheme)
+    (h2 : ∃ k, order G = 2 ^ k) :
+    ∃ (M C : FFGroupScheme), IsDiagonalizableGroupScheme M ∧ IsConstantGroupScheme C ∧
+      IsShortExact M G C ∧ order M * order C = order G := sorry
+
+/-- Unit check: `μ₂` and `ℤ/2ℤ` are different over `ℤ` (connected versus étale at `2`). -/
+example : IsEmpty (muTwoScheme ≅ zModTwoScheme) := sorry
+
+/-- A2/A3 placeholder: `A` and `B` are isogenous over `k`. -/
+def IsIsogenous {k : Type*} [Field k] (A B : TauCeti.AlgebraicGeometry.AbelianVariety k) :
+    Prop := sorry
+
+/-- A6 placeholder: the number of `k`-rational points of `A`. -/
+def numPoints {k : Type*} [Field k] (A : TauCeti.AlgebraicGeometry.AbelianVariety k) : ℕ :=
+  sorry
+
+theorem card_points_eq_of_isogeny {k : Type*} [Field k] [Fintype k]
+    (A B : TauCeti.AlgebraicGeometry.AbelianVariety k) (h : IsIsogenous A B) :
+    numPoints A = numPoints B := sorry
+
+/-- Fontaine's theorem. -/
+theorem dim_eq_zero_of_goodReduction_everywhere (A : TauCeti.AlgebraicGeometry.AbelianVariety ℚ)
+    (hA : HasGoodReductionEverywhere A) : A.dim = 0 := sorry
+
+end Fontaine
 
 end TauCeti.SmallRamification
