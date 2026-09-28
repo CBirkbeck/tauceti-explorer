@@ -1,6 +1,6 @@
 # Finite flat groups and integral p-adic Hodge theory
 
-This is the seventh blueprint checkpoint. Stage R07.1, finite flat groups and p-divisible groups, is closed. Stage R07.2, Dieudonné theory, is partial: the theory over a perfect field is planned, crystals and deformations are not yet. Stage R07.3, Fontaine–Laffaille theory, is partial: FL §§1–8 are planned, the finite-flat dictionary of FL §9 is not yet. Stage R07.4, Breuil–Kisin modules, is partial: Kisin's theory of 𝔖-modules, the classification of p-divisible groups and finite flat group schemes, the dyadic classification and Savitt's weight-two theory of tame descent data are planned; weights beyond {0, 1}, the generic-fibre theory with coefficients and the Wach comparison are not yet. Stage R07.5, local residual types, is partial: tame inertia, Serre's inertia computations for elliptic-curve torsion, peu and très ramifiée representations and the finite-flat criteria at e = 1 are planned; general e and the general p = 2 criterion are not yet. Stage R07.6 is partial: only the finite flatness of abelian-scheme torsion is planned. Every declaration is a plan.
+This is the eighth blueprint checkpoint. Stage R07.1, finite flat groups and p-divisible groups, is closed. Stage R07.2, Dieudonné theory, is partial: the theory over a perfect field is planned, crystals and deformations are not yet. Stage R07.3, Fontaine–Laffaille theory, is partial: FL §§1–8 are planned, the finite-flat dictionary of FL §9 is not yet. Stage R07.4, Breuil–Kisin modules, is partial: Kisin's theory of 𝔖-modules, the classification of p-divisible groups and finite flat group schemes, the dyadic classification, Savitt's weight-two theory of tame descent data and Kisin's theory with coefficients are planned; weights beyond {0, 1} and the Wach comparison are not yet. Stage R07.5, local residual types, is partial: tame inertia, Serre's inertia computations for elliptic-curve torsion, peu and très ramifiée representations and the finite-flat criteria at e = 1 are planned; general e and the general p = 2 criterion are not yet. Stage R07.6 is partial: only the finite flatness of abelian-scheme torsion is planned. Every declaration is a plan.
 
 The accepted restructuring RS-02 makes this roadmap an extension of Tau Ceti's ModularCurves roadmap ('Modular curves, following Katz–Mazur, Part II: finite flat groups and integral p-adic Hodge theory') and narrows R07.1. It owns what goes beyond the anchor:
 
@@ -2462,7 +2462,7 @@ Source: Kisin06, §2.3.5, Theorem (2.3.5), p. 28 (author DVI); Kisin06, Introduc
 
 Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/multiplicative-etale-dictionary.
 
-Let p > 2 and 𝔐 ∈ (Mod/𝔖) with Breuil module 𝓜 and finite flat group Gr^D(𝓜) (Kisin 2009's covariant normalisation, composing with Cartier duality). Then Gr^D(𝓜) is étale iff 1 ⊗ φ : φ*𝔐 → 𝔐 has image E(u)𝔐, and multiplicative iff 1 ⊗ φ is an isomorphism. For a finite ℤ_p-algebra A with |A| < ∞ and 𝔐_A ∈ (Mod FI/𝔖)_A, there are a maximal multiplicative subobject 𝔐_A^m and a maximal étale quotient 𝔐_A^ét, with 𝔐_A/𝔐_A^m and ker(𝔐_A → 𝔐_A^ét) in (Mod FI/𝔖)_A, and their formation commutes with finite base change A → B.
+Let p > 2 and 𝔐 ∈ (Mod/𝔖) with Breuil module 𝓜 and finite flat group Gr^D(𝓜) (Kisin 2009's covariant normalisation, composing with Cartier duality). Then Gr^D(𝓜) is étale iff 1 ⊗ φ : φ*𝔐 → 𝔐 has image E(u)𝔐, and multiplicative iff 1 ⊗ φ is an isomorphism. For a finite ℤ_p-algebra A with |A| < ∞ and 𝔐_A ∈ (Mod FI/𝔖)_A, there are a maximal multiplicative subobject 𝔐_A^m and a maximal étale quotient 𝔐_A^ét, with 𝔐_A/𝔐_A^m and ker(𝔐_A → 𝔐_A^ét) in (Mod FI/𝔖)_A, and their formation commutes with finite base change A → B, and there are natural isomorphisms (𝔐_A^*)^m ≅ (𝔐_A^ét)^* and (𝔐_A^*)^ét ≅ (𝔐_A^m)^*.
 
 Hypotheses: k is a perfect field of characteristic p, W = W(k), K₀ = W[1/p], and K/K₀ is finite and totally ramified of degree e, with a uniformiser π, its Eisenstein polynomial E(u) ∈ W[u], and π_n ∈ K̄ with π_0 = π and π_{n+1}^p = π_n; K_∞ = ∪_n K(π_n) and G_{K∞} = Gal(K̄/K_∞). A general finite K/ℚ_p is of this form over its maximal unramified subfield. Kisin 2009 assumes k finite and p ≠ 2 throughout §1.
 
@@ -2471,7 +2471,8 @@ Proof or construction:
 1. By dévissage reduce to p𝔐 = 0. By Breuil–Conrad–Diamond–Taylor 5.1.3 (as cited), Gr^D(𝓜) is étale (resp. multiplicative) iff Fil¹𝓜 = 𝓜 (resp. Fil¹𝓜 = Fil¹S·𝓜) (Kisin 2009, 1.1.15, proof).
 2. 1 ⊗ φ embeds 𝓜/Fil¹𝓜 into S ⊗ 𝔐/Fil¹S ⊗ 𝔐 ≅ 𝔐/E(u)𝔐 with image that of φ*𝔐, so Fil¹𝓜 = 𝓜 iff 1 ⊗ φ has image E(u)𝔐.
 3. 𝓜/Fil¹S·𝓜 ≅ φ*𝔐/E(u)φ*𝔐, so Fil¹𝓜 = Fil¹S·𝓜 iff 1 ⊗ φ is an isomorphism.
-4. Maximal objects (Kisin 2009, 1.2.11): 1 ⊗ φ^r : (φ*)^r𝔐_A → 𝔐_A is injective for all r (φ flat), and 𝔐_A^m = ∩_r (φ*)^r𝔐_A is the maximal multiplicative submodule once it is shown projective over 𝔖_A; the étale quotient is obtained by duality, (𝔐_A^*)^m ≅ (𝔐_A^ét)^*.
+4. Maximal objects (Kisin 2009, 1.2.11): 1 ⊗ φ^r : (φ*)^r𝔐_A → 𝔐_A is injective for all r (φ flat, 1.2.2(1)); put 𝔐_A^m = ∩_r (φ*)^r𝔐_A. 𝔐_A/𝔐_A^m is u-torsion free (Artin–Rees), and 𝔐_A^m/u𝔐_A^m equals the unit part of the decomposition 𝔐_A/u𝔐_A = (nil) ⊕ (unit) for φ (a limit of lifts φ^r(x̃_r)), so it is a direct summand; lifting a basis and Nakayama make 𝔐_A^m free, hence the maximal multiplicative submodule.
+5. Base change: 𝔐_A/𝔐_A^m is projective over 𝔖_A, and modulo u both 𝔐_A/𝔐_A^m ⊗ B and 𝔐_B/𝔐_B^m are the nilpotent part, of equal B-rank, so the formation commutes with A → B; 𝔐_A^ét = ((𝔐_A^*)^m)^* is the maximal étale quotient because duality exchanges étale and multiplicative, which gives the isomorphisms of (3).
 
 The required uses are:
 
@@ -2482,9 +2483,9 @@ Acceptance:
 - 𝔐 = 𝔖/p with φ = φ_𝔖: 1 ⊗ φ is an isomorphism, so Gr^D(𝓜) is multiplicative of order p.
 - 𝔐 = 𝔖/p·e with φ(e) = E(u)e: the image of 1 ⊗ φ is E(u)𝔐, so Gr^D(𝓜) is étale of order p.
 
-Planned prerequisites: R07.4/finite-flat-classification, R07.4/kisin-modules.
+Planned prerequisites: R07.4/finite-flat-classification, R07.4/kisin-modules, R07.4/kisin-modules-with-coefficients.
 
-Source: Kisin09, §1.1.15, Lemma (1.1.15), p. 10 (author DVI); Kisin09, §1.2.11, Proposition (1.2.11), p. 13 (author DVI).
+Source: Kisin09, §1.1.15, Lemma (1.1.15), p. 10 (author DVI); Kisin09, §1.2.11, Proposition (1.2.11) and its proof, pp. 13–14 (author DVI).
 
 #### Restriction to G_{K∞} is fully faithful on finite flat representations
 
@@ -2544,6 +2545,137 @@ Acceptance:
 Planned prerequisites: R07.4/kisin-p-divisible-classification, R07.4/breuil-s-modules, R07.4/finite-height-lattices, R07.4/crystalline-restriction-full-faithfulness, R07.1/schematic-closure-of-generic-subgroups, R07.1/raynaud-extension-of-generic-p-divisible, R07.1/tate-generic-fibre-theorem.
 
 Source: Kim12, §4, Theorem 4.1, p. 10 (arXiv v3); Kim12, §4, Corollary 4.3, p. 10 (arXiv v3); Kisin09b, Introduction, Theorem (0.8), p. 4 (author DVI).
+
+### Coefficients (Kisin 2009, §§1.2–1.3)
+
+#### Kisin modules with coefficients
+
+Kind: definition. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/kisin-modules-with-coefficients.
+
+For a ℤ_p-algebra A, ′(Mod/𝔖)_A consists of pairs (𝔐, ι) with 𝔐 ∈ ′(Mod/𝔖) and ι : A → End(𝔐) a ℤ_p-algebra map, and (Mod FI/𝔖)_A is its full subcategory of objects that are finite projective 𝔖_A-modules; similarly (Mod FI/S)_A: finite projective S_A-modules 𝓜 with 𝓜/Fil¹𝓜 finite projective over A and φ₁(Fil¹𝓜) generating 𝓜. For 𝔐 ∈ (Mod FI/𝔖)_A: (1) 1 ⊗ φ : φ*𝔐 → 𝔐 is injective; (2) its cokernel is a finite projective A-module; (3) (1 ⊗ φ)(φ*𝔐)/E(u)𝔐 is finite projective over A; (4) if |A| < ∞, 𝔐 is free over 𝔖_A locally on Spec A. Base change 𝔐 ↦ 𝔐 ⊗_A A′ preserves the categories. 𝔐_A is étale (resp. multiplicative) if the image of 1 ⊗ φ is E(u)𝔐_A (resp. 1 ⊗ φ is an isomorphism); the dual 𝔐_A^* = Hom_{𝔖_A}(𝔐_A, 𝔖_A), with the Frobenius built from E(u)𝔐_A ⊂ φ*𝔐_A, is again an object, 𝔐_A is étale iff 𝔐_A^* is multiplicative, and 𝔐_A^{**} ≅ 𝔐_A.
+
+Hypotheses: Kisin 2009's standing hypotheses in §1: k is finite, p ≠ 2, K/K₀ is totally ramified with uniformiser π and Eisenstein polynomial E(u). For a ℤ_p-algebra A, 𝔖_A = 𝔖 ⊗_{ℤ_p} A and S_A = S ⊗_{ℤ_p} A.
+
+Proof or construction:
+
+1. (1): for 𝔐 of constant rank r, det(1 ⊗ φ) divides E(u)^r, which is a non-zero-divisor of 𝔖 ⊗ A because 𝔖/E(u)^r is ℤ_p-flat (Kisin 2009, 1.2.2).
+2. (2)–(3): 1 ⊗ φ stays injective after ⊗_A A/I, so its cokernel is A-flat, and finite as a quotient of 𝔐/E(u)𝔐; (3) from 0 → (1 ⊗ φ)(φ*𝔐)/E(u)𝔐 → 𝔐/E(u)𝔐 → coker → 0.
+3. (4): over a finite field A, φ permutes the maximal ideals of 𝔖_A transitively and 1 ⊗ φ embeds φ*𝔐 in 𝔐, so the local ranks r_𝔭 ≤ r_{φ(𝔭)} are all equal, and 𝔐 is free.
+4. Base change: Fil¹𝓜 ⊗_A A′ ⊂ 𝓜 ⊗_A A′ because 𝓜/Fil¹𝓜 is A-projective (1.2.3); duality as in (1.2.10).
+
+The required uses are:
+
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-modules-with-coefficients: The source of 𝔐 ↦ S ⊗_{φ,𝔖} 𝔐 with A-action.
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/multiplicative-etale-dictionary: The maximal multiplicative subobject and étale quotient are formed in (Mod FI/𝔖)_A.
+- LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli: Kisin modules with coefficients A, the objects the moduli of finite flat models parametrise (requested from R07.4).
+
+The API supplies:
+
+- TauCeti.BreuilKisin.KisinModuleCoeff (structure): An object of (Mod FI/𝔖)_A: a finite projective 𝔖_A-module with φ and A-action.
+- TauCeti.BreuilKisin.KisinModuleCoeff.baseChange (functoriality): 𝔐 ↦ 𝔐 ⊗_A A′ (Lemma 1.2.3).
+- TauCeti.BreuilKisin.KisinModuleCoeff.dual (constructor): 𝔐^* = Hom_{𝔖_A}(𝔐, 𝔖_A) with the dual Frobenius (1.2.10).
+- TauCeti.BreuilKisin.KisinModuleCoeff.coker_projective (characterisation): coker(1 ⊗ φ) is finite projective over A (Lemma 1.2.2(2)).
+- TauCeti.BreuilKisin.KisinModuleCoeff.free_of_finite (characterisation): For |A| < ∞, locally free over 𝔖_A (Lemma 1.2.2(4)).
+
+Discriminating tests:
+
+- TauCeti.BreuilKisin.coeff_zp (value): A = ℤ_p: (𝔖, φ) with its evident A-action is an object, and it is multiplicative.
+- TauCeti.BreuilKisin.dual_etale_multiplicative (value): The rank-one étale object 𝔖_A e with φ(e) = E(u)e has dual the rank-one multiplicative object.
+- TauCeti.BreuilKisin.not_projective (non-example): A = ℤ/p², 𝔐 = 𝔖/p with its A-action is not in (Mod FI/𝔖)_{ℤ/p²}: it is not projective over 𝔖 ⊗ ℤ/p².
+- TauCeti.BreuilKisin.zero (degenerate): The zero module, étale and multiplicative at once.
+
+Acceptance:
+
+- A = ℤ_p: (Mod FI/𝔖)_{ℤ_p} is BT^φ_{/𝔖}, finite free 𝔖-modules of E-height ≤ 1 (compare R07.4/kisin-modules).
+- A = ℤ/pⁿ: objects are finite projective 𝔖/pⁿ-modules, i.e. p-power-torsion Kisin modules of the (Mod FI/𝔖) type killed by pⁿ.
+
+Planned prerequisites: R07.4/kisin-modules, R07.4/bk-coefficient-rings.
+
+Source: Kisin09, §1.2.1, p. 10 (author DVI); Kisin09, §1.2.2, Lemma (1.2.2), p. 10 (author DVI); Kisin09, §1.2.10, p. 13 (author DVI).
+
+#### Breuil modules with coefficients and the functor from Kisin modules
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/breuil-modules-with-coefficients.
+
+Let A be a ℤ_p-algebra with |A| < ∞. The functor 𝔐 ↦ S ⊗_{φ,𝔖} 𝔐 of Kisin 2009 (1.1.10) induces an exact, fully faithful functor (Mod FI/𝔖)_A → (Mod FI/S)_A; it is an equivalence if moreover p·A = 0.
+
+Hypotheses: Kisin 2009's standing hypotheses in §1: k is finite, p ≠ 2, K/K₀ is totally ramified with uniformiser π and Eisenstein polynomial E(u). For a ℤ_p-algebra A, 𝔖_A = 𝔖 ⊗_{ℤ_p} A and S_A = S ⊗_{ℤ_p} A.
+
+Proof or construction:
+
+1. 𝓜 = S ⊗_{φ,𝔖} 𝔐 is an object of (Mod FI/S) by (1.1.10), with A acting by functoriality; 𝓜/Fil¹𝓜 embeds via 1 ⊗ φ into 𝔐/E(u)𝔐 with image that of φ*𝔐, which is A-projective by (1.2.2)(3) (Kisin 2009, 1.2.4).
+2. Exactness and full faithfulness come from (1.1.11), which holds for p-power-torsion objects without coefficients.
+3. pA = 0: 𝓜 comes from 𝔐 ∈ (Mod FI/𝔖) by (1.1.11); if 𝓜 is free of rank d over S_A, W ⊗_𝔖 𝔐 ≅ W ⊗_S 𝓜 is free of rank d over k ⊗ A, so a surjection 𝔖_A^d → 𝔐 exists, and it is an isomorphism by comparing ranks after S ⊗_{φ,𝔖} (1.2.5).
+
+The required uses are:
+
+- LocalGaloisDeformationRings:R08.4/finite-flat-model-moduli: Passing between Kisin and Breuil modules with coefficients (requested from R07.4).
+
+Acceptance:
+
+- A = 𝔽_p: the equivalence of objects killed by p of (1.1.11), with trivial coefficients.
+- For A = ℤ/p², the functor is only fully faithful in general: Kisin proves no equivalence.
+
+Planned prerequisites: R07.4/kisin-modules-with-coefficients, R07.4/breuil-s-modules.
+
+Source: Kisin09, §1.2.4, Lemma (1.2.4), p. 11 (author DVI); Kisin09, §1.2.5, Lemma (1.2.5), p. 12 (author DVI).
+
+#### Étale φ-modules and G_{K∞}-representations with finite coefficients
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/etale-phi-modules-with-coefficients.
+
+Let A be a ℤ_p-algebra with |A| < ∞ and ΦM_{𝒪_ℰ,A} the étale φ-modules over 𝒪_ℰ with an A-action. (1) T induces an equivalence of abelian categories T_A : ΦM_{𝒪_ℰ,A} → Rep′_A(G_{K∞}) (continuous representations on finite A-modules). (2) For A → A′ finite, T_A(M) ⊗_A A′ ≅ T_{A′}(M ⊗_A A′). (3) T_A(M) is free of rank r over A iff M is free of rank r over 𝒪_ℰ ⊗_{ℤ_p} A. (4) For A local, T_{𝔖,A}(𝔐) = T_A(𝒪_ℰ ⊗_𝔖 𝔐) is a functor (Mod FI/𝔖)_A → Rep_A(G_{K∞}) (free A-modules), compatible with finite base change.
+
+Hypotheses: Kisin 2009's standing hypotheses in §1: k is finite, p ≠ 2, K/K₀ is totally ramified with uniformiser π and Eisenstein polynomial E(u). For a ℤ_p-algebra A, 𝔖_A = 𝔖 ⊗_{ℤ_p} A and S_A = S ⊗_{ℤ_p} A.
+
+Proof or construction:
+
+1. (1) from Fontaine's equivalence T (R07.4/kummer-etale-phi-modules) with A-actions by functoriality.
+2. (2): T_A(M) ⊗_A N → T_A(M ⊗_A N) is an isomorphism for N free and both sides are right exact in N, so for all finite N by a presentation and the five lemma (Kisin 2009, (1.2.8)).
+3. (3): reduce to A Artinian local; M is A-flat iff T_A(M) is; for A a field, 𝒪_ℰ ⊗ A is a product of fields, M is projective, and the Frobenius argument of (1.2.2)(4) makes it free; ranks agree by Fontaine A.1.2.4(i) (1.2.7).
+4. (4): 𝒪_ℰ ⊗_𝔖 𝔐 is free over 𝒪_ℰ ⊗ A by (1.2.2)(4) and (3) (1.2.9).
+
+The required uses are:
+
+- LocalGaloisDeformationRings:L7/finite-height-lattices: Étale φ-modules with coefficients and the freeness of M_A (requested from R07.4; Kisin 2008 (1.2) cites 1.2.7(4)).
+
+Acceptance:
+
+- A = ℤ/pⁿ: finite free ℤ/pⁿ-representations of G_{K∞} correspond to étale φ-modules free over 𝒪_ℰ/pⁿ.
+- The rank statement fails without flatness: a representation that is not A-flat gives an M that is not free over 𝒪_ℰ ⊗ A.
+
+Planned prerequisites: R07.4/kummer-etale-phi-modules, R07.4/kisin-modules-with-coefficients.
+
+Source: Kisin09, §1.2.7, Lemma (1.2.7), p. 12 (author DVI); Kisin09, §1.2.9, Lemma (1.2.9), p. 13 (author DVI).
+
+#### Crystalline representations with coefficients and weakly admissible modules
+
+Kind: theorem. Node: FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-with-coefficients.
+
+Let A be a finite local ℚ_p-algebra. (Mod/K₀)_A is the category of weakly admissible filtered φ-modules with A-action, and (Mod/K₀)_{A-fr} the full subcategory of those 𝓜 with gr^•𝓜_K a projective A-module. Then (1) for 𝓜 ∈ (Mod/K₀)_{A-fr}, gr^•𝓜_K is finite projective over A ⊗_{ℚ_p} K and 𝓜 is free over A ⊗_{ℚ_p} K₀; (2) D_cris and V_cris induce exact equivalences between Rep^cris_A (G_K-representations on finite free A-modules, crystalline over ℚ_p) and (Mod/K₀)_{A-fr}; (3) both commute with finite base change A → A′ within these categories.
+
+Hypotheses: Kisin 2009's standing hypotheses in §1: k is finite, p ≠ 2, K/K₀ is totally ramified with uniformiser π and Eisenstein polynomial E(u). For a ℤ_p-algebra A, 𝔖_A = 𝔖 ⊗_{ℤ_p} A and S_A = S ⊗_{ℤ_p} A. Colmez–Fontaine's D_cris ≃ V_cris on crystalline representations (PadicHodgeTheory R06.2) is the input.
+
+Proof or construction:
+
+1. (1): Hom_{A⊗K}(𝓜_K, −) ≅ Hom_{K⊗K}(K, Hom_A(𝓜_K, −)) is exact because K is projective over K ⊗ K, and descent gives projectivity over A ⊗ K₀; freeness by the Frobenius argument of (1.2.7) (Kisin 2009, 1.3.2).
+2. (2): 𝓜 ⊗_A N lies in (Mod/K₀)_A (an abelian category), V_cris(𝓜) ⊗_A N ≅ V_cris(𝓜 ⊗_A N), hence V_cris(𝓜) is A-free; conversely D_cris(V) ⊗_A N ≅ D_cris(V ⊗_A N) and strictness of morphisms makes gr^• exact, so gr^•D_cris(V)_K is A-free (1.3.4).
+3. (3): as in (1.2.7), since D_cris and V_cris commute with ⊗_A N (1.3.5).
+
+The required uses are:
+
+- LocalGaloisDeformationRings:R08.3/semistable-height-quotient: Crystalline and weakly admissible modules with coefficients.
+
+Acceptance:
+
+- A = ℚ_p: Colmez–Fontaine's equivalence for crystalline representations.
+- A = E a finite extension of ℚ_p: E-linear crystalline representations correspond to weakly admissible modules free over E ⊗_{ℚ_p} K₀ with E-projective graded pieces.
+
+Planned prerequisites: R07.4/kisin-crystalline-embedding.
+
+Requested prerequisites: PadicHodgeTheory:R06.2/admissible-representations, PadicHodgeTheory:R06.2/colmez-fontaine-theorem.
+
+Source: Kisin09, §1.3.4, Proposition (1.3.4), p. 15 (author DVI); Kisin09, §1.3.1, p. 14 (author DVI).
 
 ### Descent data in weight two (Savitt)
 
@@ -3222,7 +3354,7 @@ Source: Stix12-notes, §9.2, example (6), p. 56.
   - The rational/torsion comparison of reductions: how torsion subquotients and reductions change the filtration beyond the lattice correspondence (stage text), and the tensor-product stability of FL Corollary 7.9.
 - **R07.4** (partial):
   - Descent data beyond Savitt's weight-two tame case: Breuil–Mézard's semistable strongly divisible modules and higher weights (k > 2), wild descent data, and Kisin modules with descent data for the potentially Barsotti–Tate representations of KW and Kisin; Savitt §6 (the explicit families and deformation rings) belongs to LocalGaloisDeformationRings R08.4.
-  - Generic-fibre comparison with coefficients: Kisin 2009 §§1.2–1.3 and §2 (finite flat models with A-coefficients, (1.2.7)–(1.2.9), moduli of finite flat models and their generic fibres) beyond the multiplicative/étale dictionary.
+  - Kisin 2009 §2 (moduli of finite flat models GR_{V_𝔽}, their generic fibres and connected components) is the consumer's: LocalGaloisDeformationRings R08.4/finite-flat-model-moduli plans it from the coefficient theory of §§1.2–1.3 now planned here.
   - Weights beyond {0, 1}: Kisin modules for crystalline representations with Hodge–Tate weights {0, p − 1} and {0, p} and the reductions of Khare–Wintenberger I, Theorem 4.1 (requested by PadicHodgeTheory R06.4 (b)); the merely potentially semistable case (Kisin 2008 §2).
   - The comparison of Breuil–Kisin and Wach modules for K = K₀ (requested by PadicHodgeTheory for P7).
   - Cited but not read: Faltings 1999, Theorem 7 (Lemma 2.2.4); Raynaud's embedding theorem (BBM 3.1.1); Kim §5 (Propositions 4.5, 5.4, 5.5, 5.7.3); Kisin 2009b §1 (Zink's windows); the dyadic proofs of Lau and Liu; for Savitt, Breuil–Mézard 2002 §3.2, BCDT01 §§5.1–5.6 and Breuil 1999 §2.2.2 (the rings Â_cris ⊂ Â_st). Breuil 2000 (Kisin's [Br 3]) is now read for Théorèmes 4.2.1.6, 4.2.2.5 and 4.2.2.9.
@@ -3321,7 +3453,8 @@ Source: Stix12-notes, §9.2, example (6), p. 56.
   - Read: Errata for [Ki 2], (E.1)–(E.5) (pp. 33–34).
 - **Kisin09**: Mark Kisin, *Moduli of finite flat group schemes, and modularity*, Ann. of Math. (2) 170 (2009), no. 3, 1085–1180; the author's DVI from his Harvard page (locators use its page numbers); accessed 2026-09-28. <http://people.math.harvard.edu/~kisin/dvifiles/bt.dvi>, sha256 `242151c94cb831c526e67de6e3b70a370b65a002342074440e86fc88a2ec5f0f`.
   - Read: §1.1 (pp. 5–10): 1.1.1–1.1.16 (Breuil modules, (Mod/𝔖), Proposition 1.1.13, Lemma 1.1.15).
-  - Read: §1.2 (pp. 10–14): 1.2.1–1.2.11 (statements; the start of the proof of Proposition 1.2.11).
+  - Read: §1.2 (pp. 10–14): 1.2.1–1.2.11 with proofs (Kisin modules and Breuil modules with coefficients, Lemmas 1.2.2–1.2.9, Proposition 1.2.11).
+  - Read: §1.3 (pp. 14–15): 1.3.1–1.3.5 (weakly admissible modules with coefficients).
   - Read: §2.2 (pp. 27–30): 2.2.16 and Corollary 2.2.22 with its proof.
 - **Kisin09b**: Mark Kisin, *Modularity of 2-adic Barsotti–Tate representations*, Invent. Math. 178 (2009), no. 3, 587–634; the author's DVI from his Harvard page (locators use its page numbers); accessed 2026-09-28. <http://people.math.harvard.edu/~kisin/dvifiles/serre2.dvi>, sha256 `a11fdea301d662ada1cd675bea21a89ba9ab0a75955e496e4a1bcdecab97bf7d`.
   - Read: Introduction (pp. 1–5): Theorems (0.7)–(0.9) and the discussion of the p = 2 obstruction.
