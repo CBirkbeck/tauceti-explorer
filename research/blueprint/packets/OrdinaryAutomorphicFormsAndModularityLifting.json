@@ -1,0 +1,1325 @@
+{
+ "roadmapId": "OrdinaryAutomorphicFormsAndModularityLifting",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+  "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+  "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+  "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+  "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+  "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
+ ],
+ "status": "partial",
+ "summary": "Checkpoint 1 (Claude Code cc-39fac3), under RS-08. R21.1 and R21.2 are partial; R21.3–R21.6 are not read. The source is Skinner–Wiles, Residually reducible representations and modular forms (Publ. IHÉS 89, 1999), §§3.1–3.5. R21.1 (8 nodes) applies PadicFamilies L0a's ordinary projector to the definite quaternionic forms of HilbertModularVarietiesAndShimuraCurves R18.3: Skinner–Wiles' exponent p^n(p^m − 1) gives L0a's projector; it kills norm-factoring forms; the nearly ordinary Hecke algebra T_∞(U, 𝒪) over Λ′_𝒪; the stabiliser-weighted pairing with Hecke adjoints, traces between levels, the Γ₀(p^a) level drop, and the Pontryagin duality M_∞ ≅ H_∞^∨. R21.2 (7 nodes) keeps the nearly ordinary and Eisenstein statements: v-good lines and nearly ordinary representations, the two definitions of the Hecke algebra, permissible (Eisenstein) maximal ideals, their existence from the Deligne–Ribet p-adic L-function (Proposition 3.18), the weight algebra Λ_𝒪 at m, finiteness and freeness at m (Lemma 3.10), and freeness over an auxiliary Δ_w-group (Lemma 3.19). Hida's control over Λ′_𝒪 is requested from PadicFamilies L5. Two misprints are recorded (E1: the rank of Λ_𝒪 over Λ′_𝒪 is p^{Σ r_j}, not Σ r_j).",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Module.Free",
+    "kind": "class",
+    "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+    "provides": "Free modules (freeness of M_∞(U)_m and of Λ_𝒪 over Λ′_𝒪).",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Module.Finite",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+    "provides": "Finite modules (finiteness of T_∞(U, 𝒪)_m over Λ_𝒪).",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:MvPowerSeries",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+    "provides": "Multivariable power series rings, the carriers of Λ′_𝒪 and Λ_𝒪.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsLocalRing",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
+    "provides": "Local rings (the localisation at m and the local ring 𝒪/πⁿ[Δ_w]).",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsIdempotentElem",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Group/Idempotent.lean",
+    "provides": "Idempotent elements (the ordinary projector e).",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Fintype.prod_fiberwise",
+    "kind": "lemma",
+    "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+    "provides": "Fibrewise products over a map of finite types; its additive form sum_fiberwise gives the trace/restriction adjunction.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:ZMod.pow_totient",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/Finite/Basic.lean",
+    "provides": "Euler: x^φ(n) = 1 for units of ZMod n; the model for u^{p^n(p−1)} → 1.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsDedekindDomain.FiniteAdeleRing",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/DedekindDomain/FiniteAdeleRing.lean",
+    "provides": "Finite adeles A_f of a number field.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:NumberField.IsTotallyReal",
+    "kind": "class",
+    "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/TotallyRealComplex.lean",
+    "provides": "Totally real number fields.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:QuaternionAlgebra",
+    "kind": "structure",
+    "module": "Mathlib/Algebra/Quaternion.lean",
+    "provides": "Quaternion algebras ℍ[R, a, b]; the definite algebra D is one over F.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:CharacterModule",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Module/CharacterModule.lean",
+    "provides": "Character modules Hom(M, ℚ/ℤ), the nearest Mathlib notion to Pontryagin duals Hom_𝒪(−, K/𝒪) of discrete torsion modules.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Matrix.GeneralLinearGroup",
+    "kind": "abbrev",
+    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+    "provides": "GL_n(R), for GL₂(A_f) and its open compact subgroups.",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "SKINNER-WILES-1999",
+   "title": "Residually reducible representations and modular forms",
+   "authors": "C. M. Skinner and A. J. Wiles",
+   "edition": "Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
+   "url": "http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf",
+   "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3",
+   "readSections": [
+    "2026-09-28 (cc-39fac3, checkpoint 1): Introduction, pp. 6–9; §2.1 opening and §2.5, pp. 9 and 26–27; §3.1–3.2 in full, pp. 27–45, with Proposition 3.3, Corollary 3.4 and Lemma 3.10 read on the page images; §3.4 (Proposition 3.18 and proof), pp. 46–48; §3.5 up to Proposition 3.20, pp. 48–51; §3.6 opening, pp. 52–53. The OCR text layer is noisy; every formula used was checked on the page images."
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/projector-exponent-comparison",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1"
+   ],
+   "title": "Skinner–Wiles' exponent gives the factorial projector",
+   "kind": "lemma",
+   "statement": "Let A be an 𝒪-algebra that is a finite 𝒪-module and t ∈ A. Let m be divisible by [k_i : F_p] for every residue field k_i of the commutative finite 𝒪-algebra 𝒪[t]. Then lim_{n→∞} t^{p^n(p^m − 1)} exists in A and equals the ordinary idempotent e_t = lim_n t^{n!} of PadicFamilies L0a. In particular Skinner–Wiles' operator e = lim_n T₀(p)^{p^n(p^m−1)} is L0a's ordinary projector of T₀(p).",
+   "hypotheses": [
+    "𝒪 complete with finite residue field; A finite over 𝒪 (so 𝒪[t] is a finite product of complete local rings)."
+   ],
+   "proofSteps": [
+    "𝒪[t] = ∏_i 𝒪[t]_{m_i}, each factor complete local with residue field k_i ⊆ F_{p^m}.",
+    "If t is a unit in the i-th factor, t^{p^m−1} ∈ 1 + m_i, and (1 + x)^{p^n} ∈ 1 + m_i^{n+1} for x ∈ m_i since p ∈ m_i; so t^{p^n(p^m−1)} → 1 there. If t ∈ m_i, t^N → 0.",
+    "The limit is therefore the idempotent of the factors where t is a unit, which is e_t by L0a's characterisation (t invertible on e_tA, topologically nilpotent on (1 − e_t)A)."
+   ],
+   "acceptance": [
+    "No second projector API is built: SW's exponent is compared with L0a's n!."
+   ],
+   "prerequisites": [
+    "PadicFamilies:L0a/ordinary-idempotent-finite-algebra",
+    "PadicFamilies:L0a/finite-ordinary-projector",
+    "mathlib:IsIdempotentElem",
+    "mathlib:ZMod.pow_totient"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/QuaternionicHida",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 32 (Numdam PDF page 29; printed page = PDF page + 3)",
+     "excerpt": "Suppose k is parallel (i.e., v = 0). We now give an alternate (but equivalent) definition",
+     "match": "The operator e = lim T₀(p)^{p^n(p^m−1)} in the second definition of T_k(U_a, 𝒪)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1"
+   ],
+   "title": "Hida's ordinary projector on definite quaternionic forms",
+   "kind": "construction",
+   "statement": "F is a totally real field of even degree d, p an odd prime, D/F the quaternion algebra ramified exactly at the infinite places, X(U) = D^×\\G^D(A_f)/U and H⁰(X(U), R) the R-valued functions on it (HilbertModularVarietiesAndShimuraCurves R18.3), for open compact U ⊆ GL₂(𝒪_F ⊗ Ẑ) with U_v = GL₂(𝒪_{F,v}) for v | p; U_a = U ∩ U(p^a), U⁰_a = U ∩ U₀(p^a). 𝒪 is the ring of integers of a finite extension K of ℚ_p with uniformiser π and residue field k. Let T₀(p) = [U_a (1 0; 0 ϖ_p) U_a] on H⁰(X(U_a), R), ϖ_p the finite idele with a uniformiser at each v | p and 1 elsewhere. For every 𝒪-module R that is finite as a set, e := lim_n T₀(p)^{p^n(p^m−1)} (m sufficiently divisible) is L0a's ordinary projector of T₀(p); for R = 𝒪 it is L0a's adic projector on the finite free module H⁰(X(U_a), 𝒪), and for R = K/𝒪 = colim 𝒪/πⁿ it is the colimit of the finite projectors. e is an idempotent in End_𝒪(H⁰(X(U_a), R)) commuting with the Hecke algebra T(U_a, 𝒪) generated by T₀(p), T₀(p_i) (i = 1, …, t), G(U_a) and T(ℓ), S(ℓ) for ℓ ∤ p with U_ℓ = GL₂(𝒪_{F,ℓ}); it commutes with change of coefficients R → R′ and with the level-change maps (pullback and trace) between U_b and U_a, b ≥ a.",
+   "hypotheses": [
+    "[F : ℚ] even, so that D exists (a quaternion algebra is ramified at an even number of places).",
+    "U_v = GL₂(𝒪_{F,v}) for v | p; the Hecke operators are those of R18.3."
+   ],
+   "proofSteps": [
+    "For R finite apply L0a/finite-ordinary-projector to T₀(p); by projector-exponent-comparison SW's exponent gives the same idempotent.",
+    "For R = 𝒪, H⁰(X(U_a), 𝒪) is finite free (R18.3); apply L0a/adic-instance. For R = K/𝒪 take the colimit over 𝒪/πⁿ, using naturality for the inclusions.",
+    "Commutation with Hecke operators, coefficient change, pullback and trace: these maps commute with T₀(p) (R18.3 and ordinary-trace-compatibility), so L0a/ordinary-projector-natural applies."
+   ],
+   "acceptance": [
+    "The projector is defined on integral or torsion coefficients and extended K-linearly, never by a limit in End_K.",
+    "Level change is compatible with e in both directions (pullback and trace)."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/projector-exponent-comparison",
+    "PadicFamilies:L0a/adic-instance",
+    "PadicFamilies:L0a/finite-ordinary-projector",
+    "PadicFamilies:L0a/ordinary-projector-natural",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "mathlib:IsIdempotentElem",
+    "mathlib:QuaternionAlgebra"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/QuaternionicHida",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 34 (Numdam PDF page 31; printed page = PDF page + 3)",
+     "excerpt": "Moreover, e annihilates",
+     "match": "The operator e on H⁰(X(U), R) for an 𝒪-module R."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 33 (Numdam PDF page 30; printed page = PDF page + 3)",
+     "excerpt": "The principal goal of this subsection is to show that",
+     "match": "The quaternionic setting introduced for the Λ-adic theory."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
+     "how": "T₂(U_a, 𝒪) = eT(U_a, 𝒪)."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-towers-duality",
+     "how": "the ordinary towers H_∞, M_∞."
+    },
+    {
+     "where": "PadicFamilies:L5",
+     "how": "the totally real control theorems are stated for these ordinary parts."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.ordinaryProjector",
+     "role": "constructor",
+     "statement": "e on H⁰(X(U_a), R) for R finite, 𝒪 or K/𝒪."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.ordinaryProjector_isIdempotentElem",
+     "role": "characterisation",
+     "statement": "e² = e."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.ordinaryProjector_eq_factorial",
+     "role": "compatibility",
+     "statement": "e agrees with PadicFamilies L0a's lim T₀(p)^{n!}."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.ordinaryProjector_comm_hecke",
+     "role": "characterisation",
+     "statement": "e commutes with every element of T(U_a, 𝒪)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.ordinaryProjector_pullback",
+     "role": "compatibility",
+     "statement": "e commutes with pullback H⁰(X(U_a)) → H⁰(X(U_b))."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.ordinaryProjector_trace",
+     "role": "compatibility",
+     "statement": "e commutes with tr(U_b, U_a)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ordinaryProjector_residue_field",
+     "kind": "example",
+     "statement": "For R = k and a line on which T₀(p) acts by u ∈ F_{p^m}^×, e acts by 1, since u^{p^m−1} = 1; if T₀(p) acts nilpotently, e acts by 0."
+    },
+    {
+     "name": "ordinaryProjector_norm_forms",
+     "kind": "example",
+     "statement": "e kills the norm-factoring functions I^D(U_a, ℤ) ⊗ R (ordinary-part-kills-norm-forms)."
+    },
+    {
+     "name": "ordinaryProjector_level_one_icosian",
+     "kind": "example",
+     "statement": "F = ℚ(√5), D = (−1, −1)_F (unramified at all finite places), U = GL₂(𝒪_F ⊗ Ẑ): the icosian maximal order has class number one, so X(U) is one point and H⁰(X(U), 𝒪) = 𝒪 consists of norm-factoring functions; its cuspidal quotient is 0, matching S₂(GL₂(𝒪_F ⊗ Ẑ)) = 0 for ℚ(√5)."
+    },
+    {
+     "name": "ordinaryProjector_not_over_K",
+     "kind": "example",
+     "statement": "Non-example: over K the powers T₀(p)^{p^n(p^m−1)} need not converge in End_K(H⁰(X(U_a), K)) with the discrete topology; e is defined on the lattice and extended."
+    }
+   ],
+   "planet": {
+    "name": "Hida's ordinary projector on quaternionic forms"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-part-kills-norm-forms",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1"
+   ],
+   "title": "The ordinary projector kills norm-factoring forms",
+   "kind": "lemma",
+   "statement": "Let I^D(U_a, ℤ) ⊆ H⁰(X(U_a), ℤ) be the functions factoring through the reduced norm ν_D : G^D(A_f)/U_a → A_f^×/ν_D(U_a), for a ≥ 1. Then e annihilates I^D(U_a, ℤ) ⊗ R for every 𝒪-module R.",
+   "hypotheses": [
+    "a ≥ 1, so that U_{a,v} is pro-p at each v | p."
+   ],
+   "proofSteps": [
+    "For f = h ∘ ν_D and g = (1 0; 0 ϖ_p), T₀(p)f(x) = Σ_i f(x g_i) over U_a g U_a = ⊔ g_i U_a, and ν_D(x g_i) ≡ ν_D(x)ν_D(ϖ_p) mod ν_D(U_a) for all i.",
+    "So T₀(p)f = N·(f translated by ν_D(ϖ_p)) with N = [U_a : U_a ∩ gU_ag^{−1}], a positive power of p.",
+    "Hence T₀(p) is topologically nilpotent on I^D(U_a, ℤ) ⊗ R and e = lim T₀(p)^{p^n(p^m−1)} is 0 there."
+   ],
+   "acceptance": [
+    "Only the cuspidal quotient S^D(U_a) = H⁰/I^D survives the projector; the Jacquet–Langlands comparison is on S^D."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/QuaternionicHida",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 34 (Numdam PDF page 31; printed page = PDF page + 3)",
+     "excerpt": "Moreover, e annihilates",
+     "match": "e annihilates I^D(U_a, ℤ) ⊗ R."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1"
+   ],
+   "title": "The nearly ordinary Hecke algebra T_∞(U, 𝒪)",
+   "kind": "construction",
+   "statement": "F is a totally real field of even degree d, p an odd prime, D/F the quaternion algebra ramified exactly at the infinite places, X(U) = D^×\\G^D(A_f)/U and H⁰(X(U), R) the R-valued functions on it (HilbertModularVarietiesAndShimuraCurves R18.3), for open compact U ⊆ GL₂(𝒪_F ⊗ Ẑ) with U_v = GL₂(𝒪_{F,v}) for v | p; U_a = U ∩ U(p^a), U⁰_a = U ∩ U₀(p^a). 𝒪 is the ring of integers of a finite extension K of ℚ_p with uniformiser π and residue field k. T(U_a, 𝒪) ⊆ End_𝒪(H⁰(X(U_a), 𝒪)) is generated over 𝒪 by T₀(p), T₀(p_i), G(U_a), T(ℓ) and S(ℓ) (ℓ ∤ p, U_ℓ maximal), and T₂(U_a, 𝒪) := eT(U_a, 𝒪), the image of T(U_a, 𝒪) in End_𝒪(eH⁰(X(U_a), 𝒪)). By the Jacquet–Langlands–Shimizu isomorphism S^D(U) ≅ S₂(U) this is Skinner–Wiles' eT*₂(U_a, 𝒪). The maps T₂(U_b, 𝒪) → T₂(U_a, 𝒪) (b ≥ a) are surjective, and T_∞(U, 𝒪) := lim_a T₂(U_a, 𝒪). With G(U) = lim_a G(U_a) ≅ (𝒪_F ⊗ ℤ_p)^× × Z(U) there is a continuous 𝒪[[G(U)]] → T_∞(U, 𝒪), and T_∞(U, 𝒪) is an algebra over Λ′_𝒪 = 𝒪[[X_1, …, X_{δ_F}, Y^{(1)}_1, …, Y^{(t)}_{d_t}]] via X_i ↦ S_{x_i} − 1 and Y^{(i)}_j ↦ T_{y^{(i)}_j} − 1, where the x_i generate a maximal ℤ_p-free summand of Z(U) and the y^{(i)}_j a free summand of rank d_i of 𝒰_{v_i}.",
+   "hypotheses": [
+    "[F : ℚ] even; G(U_a) ≅ (𝒪_F/p^a)^× × Z(U_a) via (a b; c d) ↦ (∏_{v|p}(a^{−1}d)_v, a)."
+   ],
+   "proofSteps": [
+    "The generators commute (R18.3), so T(U_a, 𝒪) is a commutative finite 𝒪-algebra; e ∈ T(U_a, 𝒪) by projector-exponent-comparison, and eT(U_a, 𝒪) acts faithfully on eH⁰(X(U_a), 𝒪).",
+    "The comparison with forms on GL₂ is R17.3 on S^D = H⁰/I^D, which e sees entirely (ordinary-part-kills-norm-forms).",
+    "Pullback H⁰(X(U_a)) → H⁰(X(U_b)) is Hecke-equivariant (G(U_b) → G(U_a)), so restriction of operators gives T₂(U_b, 𝒪) → T₂(U_a, 𝒪), surjective because generators map to generators.",
+    "The group elements give compatible maps 𝒪[G(U_a)] → T₂(U_a, 𝒪), hence 𝒪[[G(U)]] → T_∞(U, 𝒪) (the completed group ring of PadicMeasuresIwasawaAlgebras L1)."
+   ],
+   "acceptance": [
+    "Λ′_𝒪 has δ_F variables X_i for the ℤ_p-free part of Z(U) and d = Σ d_i variables Y for the torus at p, after the choices of x_i and y^{(i)}_j; no variable is attached to the class group."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-part-kills-norm-forms",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+    "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+    "mathlib:IsDedekindDomain.FiniteAdeleRing",
+    "mathlib:Matrix.GeneralLinearGroup",
+    "mathlib:MvPowerSeries"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/QuaternionicHida",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 32 (Numdam PDF page 29; printed page = PDF page + 3)",
+     "excerpt": "yields the same ring as did the previous one can be seen as follows",
+     "match": "The two definitions of T₂(U_a, 𝒪)."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 33 (Numdam PDF page 30; printed page = PDF page + 3)",
+     "excerpt": "A theorem of Jacquet, Langlands, and Shimizu [J-L], [Shi] states that there is a system of isomorphisms",
+     "match": "The Jacquet–Langlands–Shimizu comparison used to pass to D."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-maximal-ideal",
+     "how": "maximal ideals of T_∞(U, 𝒪)."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/nearly-ordinary-hecke-algebra-comparison",
+     "how": "comparison with the definition by v-good lines."
+    },
+    {
+     "where": "PadicFamilies:L5",
+     "how": "finiteness and control over Λ′_𝒪 (Skinner–Wiles Corollary 3.4, Proposition 3.7)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.quaternionicHeckeAlgebra",
+     "role": "constructor",
+     "statement": "T(U_a, 𝒪) ⊆ End_𝒪(H⁰(X(U_a), 𝒪))."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.nearlyOrdinaryHeckeAlgebra",
+     "role": "constructor",
+     "statement": "T₂(U_a, 𝒪) = eT(U_a, 𝒪)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.nearlyOrdinaryHeckeAlgebra.transition_surjective",
+     "role": "characterisation",
+     "statement": "T₂(U_b, 𝒪) → T₂(U_a, 𝒪) is onto."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaHeckeAlgebra",
+     "role": "constructor",
+     "statement": "T_∞(U, 𝒪) = lim_a T₂(U_a, 𝒪)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaHeckeAlgebra.groupRingHom",
+     "role": "constructor",
+     "statement": "𝒪[[G(U)]] → T_∞(U, 𝒪)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.hidaHeckeAlgebra.lambdaAlgebra",
+     "role": "constructor",
+     "statement": "The Λ′_𝒪-algebra structure X_i ↦ S_{x_i} − 1, Y ↦ T_y − 1."
+    }
+   ],
+   "tests": [
+    {
+     "name": "nearlyOrdinaryHeckeAlgebra_commutative",
+     "kind": "example",
+     "statement": "T₂(U_a, 𝒪) is commutative and finite over 𝒪."
+    },
+    {
+     "name": "nearlyOrdinaryHeckeAlgebra_icosian",
+     "kind": "example",
+     "statement": "F = ℚ(√5), U = GL₂(𝒪_F ⊗ Ẑ), level a = 0: X(U) is one point, the cuspidal part is 0 and T₂ acts through the Eisenstein (norm) quotient, which e kills once a ≥ 1."
+    },
+    {
+     "name": "transition_sends_generators",
+     "kind": "example",
+     "statement": "The transition map sends T₀(p) ↦ T₀(p), T₀(p_i) ↦ T₀(p_i) and g ∈ G(U_b) to its image in G(U_a)."
+    },
+    {
+     "name": "lambdaAlgebra_diamond",
+     "kind": "example",
+     "statement": "S_{x} for x ∈ Z(U) of finite order acts through a finite quotient; the X_i see only the ℤ_p-free part."
+    }
+   ],
+   "planet": {
+    "name": "Nearly ordinary Hecke algebra T_∞(U, 𝒪)"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-hecke-adjoint-pairing",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1"
+   ],
+   "title": "The stabiliser-weighted pairing and Hecke adjoints",
+   "kind": "construction",
+   "statement": "For open compact U put Ū = U/(U ∩ F^×) and, for x ∈ G^D(A_f), c_U(x) = #{u ∈ Ū : xu = x} in D^×\\G^D(A_f). For an 𝒪-algebra R in which every c_U(x) is invertible, ⟨f, g⟩_U = Σ_{x ∈ X(U)} c_U(x)^{−1} f(x)g(x) is a perfect R-bilinear pairing on H⁰(X(U), R), and f ↦ ⟨f, ·⟩_U is an isomorphism H⁰(X(U), R) ≅ Hom_R(H⁰(X(U), R), R) functorial in R. It satisfies ⟨[UgU]f, h⟩_U = ⟨f, [Ug^{−1}U]h⟩_U for g ∈ G^D(A_f), so every t ∈ T(U_a, 𝒪) has an adjoint t⁺, and t ↦ t⁺ is an 𝒪-algebra isomorphism T(U_a, 𝒪) ≅ T⁺(U_a, 𝒪). Writing H⁰(X(U_a), R)⁺ for H⁰ with t acting by t⁺, the pairing induces a perfect pairing of T₂(U_a, 𝒪)-modules eH⁰(X(U_a), R) × eH⁰(X(U_a), R)⁺ → R.",
+   "hypotheses": [
+    "Every c_U(x) invertible in R (automatic for R an 𝒪-algebra once a is large, R18.3)."
+   ],
+   "proofSteps": [
+    "c_U(x) is the order of the finite stabiliser of x (D^× discrete, Ū compact modulo the centre).",
+    "Adjointness: expand both sides over the single cosets of UgU and Ug^{−1}U and change variables; the weights c_U account for the non-free points.",
+    "e⁺ is the adjoint idempotent; eH⁰ and (1 − e⁺)H⁰ are orthogonal, so the pairing restricts to a perfect pairing between eH⁰ and e⁺H⁰ = eH⁰(X(U_a), R)⁺."
+   ],
+   "acceptance": [
+    "The pairing is not Hecke-equivariant; only the twisted module H⁰(·)⁺ is paired."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/QuaternionicHida",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 34 (Numdam PDF page 31; printed page = PDF page + 3)",
+     "excerpt": "is not Hecke-equivariant, but a straight-forward calculation shows that",
+     "match": "The adjointness formula and the twisted module H⁰(X(U_a), R)⁺."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-towers-duality",
+     "how": "M_∞ as the Pontryagin dual of H_∞."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-localisation-finite",
+     "how": "equal ranks of M_∞(U)_m and M⁺_∞(U)_m."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.stabiliserCount",
+     "role": "constructor",
+     "statement": "c_U(x) = #Stab_Ū(x)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.quaternionicPairing",
+     "role": "constructor",
+     "statement": "⟨f, g⟩_U = Σ c_U(x)^{−1} f(x)g(x)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.quaternionicPairing_perfect",
+     "role": "characterisation",
+     "statement": "H⁰ ≅ Hom_R(H⁰, R) when all c_U(x) are units."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.quaternionicPairing_hecke_adjoint",
+     "role": "characterisation",
+     "statement": "⟨[UgU]f, h⟩ = ⟨f, [Ug^{−1}U]h⟩."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.heckeAdjoint",
+     "role": "constructor",
+     "statement": "t ↦ t⁺, an isomorphism T(U_a, 𝒪) ≅ T⁺(U_a, 𝒪)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.ordinaryPairing_perfect",
+     "role": "characterisation",
+     "statement": "eH⁰ × eH⁰⁺ → R is perfect."
+    }
+   ],
+   "tests": [
+    {
+     "name": "quaternionicPairing_free",
+     "kind": "example",
+     "statement": "If Ū acts freely (all c_U(x) = 1), ⟨f, g⟩ = Σ f(x)g(x) and the Gram matrix in the basis of point indicators is the identity."
+    },
+    {
+     "name": "quaternionicPairing_one_point",
+     "kind": "example",
+     "statement": "X(U) one point with stabiliser order c: ⟨f, g⟩ = c^{−1}fg, perfect iff c is a unit in R; over 𝒪 with p | c the pairing is not defined."
+    },
+    {
+     "name": "heckeAdjoint_central",
+     "kind": "example",
+     "statement": "For central g = z ∈ A_f^×, [UzU] is translation by z and its adjoint is translation by z^{−1}."
+    }
+   ]
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-trace-compatibility",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1"
+   ],
+   "title": "Trace maps between levels",
+   "kind": "lemma",
+   "statement": "For V ⊆ U open compact and Ū = ⊔_i V̄x_i, tr(V, U) : H⁰(X(V), R) → H⁰(X(U), R), tr(V, U)f(x) = Σ_i f(x x_i^{−1}). For V = U_b, U = U_a (b ≥ a) it is independent of the coset representatives and commutes with t and t⁺ for t ∈ T₂(U_b, 𝒪) (acting on level U_a through the transition map), hence with e; and whenever both pairings are defined, ⟨f, tr(V, U)h⟩_U = ⟨f|_V, h⟩_V for f ∈ H⁰(X(U), R) and h ∈ H⁰(X(V), R): restriction and trace are adjoint.",
+   "hypotheses": [
+    "b ≥ a (U_b is normal in U_a, so the representatives can be chosen in U_a and the sum is well defined)."
+   ],
+   "proofSteps": [
+    "Independence: U_b is normal in U_a and f is right U_b-invariant.",
+    "Hecke compatibility: T₀(p), T₀(p_i), T(ℓ), S(ℓ) and G(U_b) commute with right translation by U_a/U_b.",
+    "Adjunction: split the sum over X(V) along the fibres of X(V) → X(U); the stabiliser weights match (c_V(y) sums to c_U(x)·#fibre)."
+   ],
+   "acceptance": [
+    "The traces are the transition maps of M_∞; the pullbacks are those of H_∞."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-hecke-adjoint-pairing",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "mathlib:Fintype.prod_fiberwise"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/QuaternionicHida",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 35 (Numdam PDF page 32; printed page = PDF page + 3)",
+     "excerpt": "then it is easy to see that this is independent of the chosen coset representatives",
+     "match": "The trace map tr(V, U) and its compatibilities."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-level-independence",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1"
+   ],
+   "title": "The ordinary part does not grow in Γ₀(p^a)-level",
+   "kind": "lemma",
+   "statement": "For a ≥ 2, U⁰_a (1 0; 0 ϖ_p) U⁰_a = U⁰_a (1 0; 0 ϖ_p) U⁰_{a−1}; hence T₀(p) maps H⁰(X(U⁰_a), K/𝒪) into H⁰(X(U⁰_{a−1}), K/𝒪) and eH⁰(X(U⁰_a), K/𝒪) = eH⁰(X(U⁰_1), K/𝒪). Moreover H⁰(X(U⁰_a), K/𝒪) = H⁰(X(U_a), K/𝒪)^{G(U_a)}.",
+   "hypotheses": [
+    "a ≥ 2; U⁰_a = U ∩ U₀(p^a)."
+   ],
+   "proofSteps": [
+    "U⁰_{a−1} = N⁻(p^{a−1})U⁰_a with N⁻(c) = {(1 0; x 1) : x ∈ c}, and g(1 0; x 1) = (1 0; ϖx 1)g for g = (1 0; 0 ϖ).",
+    "So gU⁰_{a−1} = N⁻(p^a)gU⁰_a ⊆ U⁰_a g U⁰_a, giving the double-coset identity and the level drop of T₀(p).",
+    "e is a limit of powers of T₀(p), so its image lies in level U⁰_{a−1}, and by induction in level U⁰_1."
+   ],
+   "acceptance": [
+    "The identity fails for a = 1 (U⁰_0 = U is not N⁻·U⁰_1)."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/QuaternionicHida",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, proof of Proposition 3.3, p. 36 (Numdam PDF page 33; printed page = PDF page + 3)",
+     "excerpt": "The same argument applies to the Pontryagin dual of",
+     "match": "The level drop eH⁰(X(U⁰_a), K/𝒪) = eH⁰(X(U⁰_1), K/𝒪)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-towers-duality",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1"
+   ],
+   "title": "Pontryagin duality for the ordinary quaternionic towers",
+   "kind": "theorem",
+   "statement": "Put H_∞(U) = lim→_a eH⁰(X(U_a), K/𝒪) and H⁺_∞(U) = lim→_a eH⁰(X(U_a), K/𝒪)⁺ along pullbacks, and M_∞(U) = lim←_a eH⁰(X(U_a), 𝒪)⁺, M⁺_∞(U) = lim←_a eH⁰(X(U_a), 𝒪) along the traces tr(U_b, U_a). These are T_∞(U, 𝒪)-modules, and since c_{U_a}(x) = 1 for all x once a is large, the pairings give T_∞(U, 𝒪)-isomorphisms M_∞(U) ≅ Hom_𝒪(H_∞(U), K/𝒪) and M⁺_∞(U) ≅ Hom_𝒪(H⁺_∞(U), K/𝒪).",
+   "hypotheses": [
+    "c_{U_a}(x) = 1 for all x ∈ X(U_a) for a large (R18.3 stabilisers)."
+   ],
+   "proofSteps": [
+    "For large a the ordinary pairing identifies eH⁰(X(U_a), 𝒪)⁺ with Hom_𝒪(eH⁰(X(U_a), 𝒪), 𝒪), compatibly with trace and restriction (ordinary-trace-compatibility).",
+    "For L finite free, Hom_𝒪(L, 𝒪) ≅ Hom_𝒪(L ⊗ K/𝒪, K/𝒪), and eH⁰(X(U_a), K/𝒪) = eH⁰(X(U_a), 𝒪) ⊗ K/𝒪.",
+    "Hom_𝒪(−, K/𝒪) turns the colimit H_∞ into the limit, giving M_∞(U) ≅ Hom_𝒪(H_∞(U), K/𝒪); likewise for ⁺."
+   ],
+   "acceptance": [
+    "The duality is between M_∞ (twisted action) and H_∞ (untwisted); do not drop the ⁺.",
+    "Skinner–Wiles write H⁺_∞(U_a) for the limit H⁺_∞(U) (E2)."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-hecke-adjoint-pairing",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-trace-compatibility",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "mathlib:CharacterModule"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/QuaternionicHida",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 35 (Numdam PDF page 32; printed page = PDF page + 3)",
+     "excerpt": "The following proposition is due to Hida [H2, Theorem 3.8].",
+     "match": "The definitions of M_∞, M⁺_∞ and their identification with Pontryagin duals, just before Proposition 3.3."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-localisation-finite",
+     "how": "freeness of M_∞(U)_m."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-level-freeness",
+     "how": "Δ_w-freeness and coinvariants."
+    },
+    {
+     "where": "PadicFamilies:L5",
+     "how": "Hida's freeness of M_∞(U) over Λ′_𝒪 (Skinner–Wiles Proposition 3.3)."
+    }
+   ],
+   "planet": {
+    "name": "Pontryagin duality of the ordinary towers"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/nearly-ordinary-representations",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "Nearly ordinary automorphic representations",
+   "kind": "definition",
+   "statement": "Let k = Σ_τ k_ττ with every k_τ ≥ 2, π ∈ Π_k(U_a) a cuspidal automorphic representation of GL₂(A_F) of weight k with V_π^{U_a} ≠ 0, and v | p with prime p_v. A line in V_{π,v}^{U_{a,v}} on which T₀(p_v) acts through an element of F̄ that is a unit in the ring of integers of Q̄_p is unique if it exists; it is called v-good. A v-good line exists iff π_v is a principal series π(η_v|·|_v^{−1/2}, ξ_v|·|_v^{−1/2}) or a special representation π(ξ_v|·|_v^{−1/2}, ξ_v|·|_v^{1/2}) with λ_v^{−v}ξ_v(λ_v^{−1}) a p-adic unit (λ_v the uniformiser used in T₀(p_v)). π is nearly ordinary if a v-good line exists for every v | p, and ordinary if moreover ξ_v is unramified for every v | p; a newform is (nearly) ordinary if its automorphic representation is. Π^{n.o.}_k(U_a) ⊆ Π_k(U_a) is the set of nearly ordinary π (Skinner–Wiles write Π^ord_k(U_a)).",
+   "hypotheses": [
+    "F totally real of any degree (the definition does not need the quaternion algebra); v = (v_τ) with m + 2v ∈ ℤt, m = k − 2t, as in Skinner–Wiles §3.1."
+   ],
+   "proofSteps": [
+    "Uniqueness and the criterion are Hida's classification of unit U_p-eigenlines ([H3, Corollary 2.2]) on the local newform theory of R16.6."
+   ],
+   "acceptance": [
+    "Keep 'nearly ordinary' (ξ_v arbitrary) and 'ordinary' (ξ_v unramified) apart: twisting by a character ramified at v | p preserves the first but not the second."
+   ],
+   "prerequisites": [
+    "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+    "mathlib:NumberField.IsTotallyReal"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 31 (Numdam PDF page 28; printed page = PDF page + 3)",
+     "excerpt": "Call such a line v-good.",
+     "match": "The v-good line and nearly ordinary representations."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/nearly-ordinary-hecke-algebra-comparison",
+     "how": "eV_π = v-good lines."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence",
+     "how": "the p-stabilised newform f₂ spans v-good lines."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.IsVGoodLine",
+     "role": "data",
+     "statement": "A T₀(p_v)-stable line with p-adic unit eigenvalue."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsNearlyOrdinary",
+     "role": "data",
+     "statement": "A v-good line exists for every v | p."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsOrdinary",
+     "role": "data",
+     "statement": "Nearly ordinary with ξ_v unramified for every v | p."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.vGoodLine_unique",
+     "role": "characterisation",
+     "statement": "At most one v-good line."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.isNearlyOrdinary_twist",
+     "role": "compatibility",
+     "statement": "Nearly ordinarity is preserved by twisting by finite characters."
+    }
+   ],
+   "tests": [
+    {
+     "name": "isOrdinary_X0_11",
+     "kind": "example",
+     "statement": "F = ℚ, weight 2: the newform of X₀(11) has a₃ = −1, a unit, so it is ordinary at 3; a₂ = −2 is not a 2-adic unit, so it is not ordinary at 2."
+    },
+    {
+     "name": "isNearlyOrdinary_not_ordinary",
+     "kind": "example",
+     "statement": "The twist of an ordinary π by a finite character ramified at v | p is nearly ordinary but not ordinary."
+    },
+    {
+     "name": "supercuspidal_not_nearlyOrdinary",
+     "kind": "example",
+     "statement": "If π_v is supercuspidal, T₀(p_v) has no unit eigenvalue on V_{π,v}^{U_{a,v}}, so π is not nearly ordinary."
+    },
+    {
+     "name": "vGoodLine_unique_product",
+     "kind": "example",
+     "statement": "Two unit eigenvalues cannot both occur: the product of the two T₀(p_v)-eigenvalues of a principal series has positive valuation for k_τ ≥ 2."
+    }
+   ],
+   "planet": {
+    "name": "Nearly ordinary automorphic representation"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/nearly-ordinary-hecke-algebra-comparison",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "The two definitions of the nearly ordinary Hecke algebra",
+   "kind": "comparison",
+   "statement": "For parallel k and U_v = GL₂(𝒪_{F,v}) (v | p): let S*_k(U_a) be spanned by vectors w(π) = ⊗_v w(π, v) with w(π, v) spanning the v-good line, π ∈ Π^{n.o.}_k(U_a), and T_k(U_a) ⊆ End(S*_k(U_a)) the ℤ_p-algebra generated by the Hecke operators. Then T_k(U_a) is finite, flat, commutative and reduced, T_k(U_a) ↪ ∏_{π ∈ Π^{n.o.}_k(U_a)} Q̄_p, and T_k(U_a) ⊗ 𝒪 = eT*_k(U_a, 𝒪), since eV_π^{U_a} = 0 for π ∉ Π^{n.o.}_k(U_a) and eV_π^{U_a} = {⊗x_v : x_v spans a v-good line for every v | p} otherwise. For k = 2 this is T₂(U_a, 𝒪) of R21.1, and 𝒪-algebra maps λ : T_∞(U, 𝒪) → Q̄_p whose restrictions to Z(U) and to (𝒪_F ⊗ ℤ_p)^× have finite order factor through some T₂(U_a, 𝒪) and correspond to π ∈ ⋃_a Π^{n.o.}_2(U_a) with an eigenvector in the v-good lines.",
+   "hypotheses": [
+    "Parallel weight for the comparison with e; general weights through Hida's control (Skinner–Wiles Proposition 3.7, requested from PadicFamilies L5)."
+   ],
+   "proofSteps": [
+    "e acts on V_π^{U_a} = ⊗_v V_{π,v}^{U_{a,v}} factor by factor at v | p; on each factor it is the projector onto the unit-eigenvalue line of T₀(p_v), which is the v-good line or 0.",
+    "Reducedness and the injection come from the semisimplicity of the Hecke action on S*_k with one-dimensional eigenspaces w(π).",
+    "A weight-two λ with finite-order restrictions factors through a finite level by the definition of T_∞ and corresponds to the unique π whose v-good vector has those eigenvalues."
+   ],
+   "acceptance": [
+    "The comparison is between the same classical newform on GL₂ and on D (through R21.1's Jacquet–Langlands step); the Galois family is compared in R21.3."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/nearly-ordinary-representations",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+    "PadicFamilies:L5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 31 (Numdam PDF page 28; printed page = PDF page + 3)",
+     "excerpt": "is a finite, flat, commutative, reduced",
+     "match": "The first definition of T_k(U_a)."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 32 (Numdam PDF page 29; printed page = PDF page + 3)",
+     "excerpt": "yields the same ring as did the previous one can be seen as follows",
+     "match": "Agreement of the two definitions."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 37 (Numdam PDF page 34; printed page = PDF page + 3)",
+     "excerpt": "Therefore there is a correspondence between homomorphisms as at the start of this paragraph and nearly ordinary automorphic representations",
+     "match": "Weight-two arithmetic homomorphisms and nearly ordinary representations."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-maximal-ideal",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "Permissible (Eisenstein) maximal ideals",
+   "kind": "definition",
+   "statement": "Let k be a finite field of characteristic p and χ : Gal(F̄/F) → k^× a character with χ|_{D_{v_i}} ≠ 1 for every v_i | p and χ(c_j) = −1 for every complex conjugation c_j; let 𝒪 have residue field k, χ̃ the Teichmüller lift and ω the Teichmüller character. A maximal ideal m of T_∞(U, 𝒪) is permissible if (3.9): m ∩ 𝒪[[G(U)]] is the maximal ideal of the character G(U) → Z(U) --χω^{−1}--> k; m contains T₀(p_i) − 1 for i = 1, …, t; and m contains T(ℓ) − 1 − χ̃(Frob_ℓ) for every ℓ ∤ p with U_ℓ = GL₂(𝒪_{F,ℓ}). The same conditions define permissible maximal ideals of T₂(U_a, 𝒪), and each determines one of T_∞(U, 𝒪).",
+   "hypotheses": [
+    "p odd; F of even degree (T_∞ is built from D); χ totally odd and p-distinguished (χ|_{D_v} ≠ 1 at every v | p)."
+   ],
+   "proofSteps": [
+    "Skinner–Wiles' first definition replaces the third condition by ρ̄_m ≅ χ ⊕ 1 for the residual pseudo-representation; the two agree by Chebotarev and Brauer–Nesbitt once R21.3 supplies ρ̄_m (p > 2)."
+   ],
+   "acceptance": [
+    "Uniqueness of a permissible ideal and the value of S(ℓ) mod m use det ρ̄_m = χ (R21.3); they are not derived from (3.9) alone."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
+     "excerpt": "Such a maximal ideal, if it exists, is unique.",
+     "match": "The first definition, with ρ̄_m ≅ χ ⊕ 1."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.4, p. 46 (Numdam PDF page 43; printed page = PDF page + 3)",
+     "excerpt": "An equivalent definition of permissible maximal ideal is a maximal ideal",
+     "match": "The Hecke-theoretic definition (3.9)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence",
+     "how": "existence from the p-adic L-function."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-localisation-finite",
+     "how": "the localisation T_∞(U, 𝒪)_m."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+     "how": "ρ̄_m ≅ χ ⊕ 1 and the pseudo-deformation of type (𝒪, Σ)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.IsPermissible",
+     "role": "data",
+     "statement": "The three conditions (3.9) on a maximal ideal of T_∞(U, 𝒪)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsPermissible.ofLevel",
+     "role": "constructor",
+     "statement": "A permissible ideal of T₂(U_a, 𝒪) gives one of T_∞(U, 𝒪)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsPermissible.T0_sub_one_mem",
+     "role": "characterisation",
+     "statement": "T₀(p_i) − 1 ∈ m."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsPermissible.T_sub_mem",
+     "role": "characterisation",
+     "statement": "T(ℓ) − 1 − χ̃(Frob_ℓ) ∈ m."
+    }
+   ],
+   "tests": [
+    {
+     "name": "permissible_ramanujan_691",
+     "kind": "example",
+     "statement": "Degree-one analogue (outside the even-degree hypothesis): p = 691, χ = ω^{11}; Ramanujan's congruence τ(ℓ) ≡ 1 + ℓ^{11} mod 691 is the weight-12 form of the condition T(ℓ) ≡ 1 + χ(Frob_ℓ)."
+    },
+    {
+     "name": "permissible_distinguished_fails",
+     "kind": "example",
+     "statement": "If χ|_{D_v} = 1 at some v | p (e.g. χ unramified with χ(Frob_v) = 1), χ ⊕ 1 is not p-distinguished and the definition is not made."
+    },
+    {
+     "name": "permissible_weight_two_twist",
+     "kind": "example",
+     "statement": "The weight-two Eisenstein series E₂(1, ψ), ψ = χω^{−1}, has T(ℓ)-eigenvalue 1 + ψ(ℓ)Nm(ℓ) ≡ 1 + χ(Frob_ℓ) mod π, since Nm(ℓ) ≡ ω(Frob_ℓ); using ψ in place of χ in (3.9) would be wrong."
+    }
+   ],
+   "planet": {
+    "name": "Permissible Eisenstein maximal ideal"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "Existence of permissible maximal ideals",
+   "kind": "theorem",
+   "statement": "Let n be the prime-to-p part of the conductor of χω^{−1}; for ℓ | n let ℓ^{r(ℓ)} ∥ n and Δ_ℓ be the Sylow p-subgroup of (𝒪_F/ℓ^{r(ℓ)})^×. Let U^χ = ∏_ℓ U^χ_ℓ with U^χ_ℓ = {(a b; c d) ∈ GL₂(𝒪_{F,ℓ}) : c ∈ ℓ^{r(ℓ)}, a mod ℓ^{r(ℓ)} ∈ Δ_ℓ} for ℓ | n and GL₂(𝒪_{F,ℓ}) otherwise, and let L_p(F, s, χω) be the Deligne–Ribet p-adic L-function. If ord_π(L_p(F, −1, χω)) > 0, then some T₂(U^χ_a, 𝒪), and hence T_∞(U^χ, 𝒪), has a permissible maximal ideal.",
+   "hypotheses": [
+    "F of even degree; χ totally odd and p-distinguished, as in permissible-maximal-ideal."
+   ],
+   "proofSteps": [
+    "Put ψ = χω^{−1}. The Eisenstein series E_n(φ₁, φ₂) ∈ M_n(pn, ψ) with Dirichlet series L(F, s, φ₁)L(F, s − n + 1, φ₂) span a complement of S_n(n, ψ), and a_i(E_n(1, ψ), 0) = 2^{−d}L(F, 1 − n, ψ)Nm(t_i)^{n/2} (3.10) (AutomorphicPadicLFunctions L3).",
+    "With f = ord_p(ε(γ) − 1), choose n = 2 + p^f(p − 1)m so large that Chai's form g ∈ M_n(np, ψ) ∩ M_n(np, 𝒪) with a_i(g, 0) = 2^{−d}Nm(t_i)^{n/2} (3.11) exists; the p-adic L-function gives ord_π(L(F, 1 − n, ψ)) > 0, so E₀ = E_n(1, ψ) is integral and f₀ = L(F, 1 − n, ψ)g − E₀ has all constant terms 0.",
+    "E₁ = eE₀ is the eigenform with Dirichlet series ζ_F(s)L^{(p)}(s − n + 1, ψ); for its idempotent ε₀, the Eisenstein part of ε₀f₀ is a combination of E_n(λ, λ^{−1}ψ) with zero constant terms, hence 0 (Wiles [W3, Prop. 1.6]).",
+    "So F₁ = ε₀ef₀ is a cusp form with F₁ ≡ E₁ ≢ 0 mod π, giving an ordinary newform f₁ congruent to E₁ at the Dirichlet coefficients.",
+    "Wiles' Λ-adic forms ([W2, Theorem 1.4.1], PadicFamilies L5) give a weight-two p-stabilised newform f₂ ∈ S₂(np^a, ψ) with the same congruence; it spans v-good lines (nearly-ordinary-hecke-algebra-comparison), and its maximal ideal satisfies (3.9).",
+    "Local–global compatibility at ℓ | n ([W2, Theorem 2.1.3] or (3.3); AutomorphicGaloisRepresentations R19.4) puts π_{f₂} in Π^{n.o.}_2(U^χ_a)."
+   ],
+   "acceptance": [
+    "The hypothesis is on the p-adic L-value at s = −1; the congruence is built in weight n ≡ 2 mod (p − 1)p^f and moved to weight 2 by Hida theory, not by a weight-two construction.",
+    "The maximal ideal lives at level U^χ (Γ₀-type at n with Δ-reduced diagonal), not at U₁(n)."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-maximal-ideal",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/nearly-ordinary-hecke-algebra-comparison",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
+    "AutomorphicPadicLFunctions:L3",
+    "PadicFamilies:L5",
+    "AutomorphicGaloisRepresentations:R19.4",
+    "GL2AutomorphicRepresentationsAndTransfer:R16.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.4, p. 46 (Numdam PDF page 43; printed page = PDF page + 3)",
+     "excerpt": "In this subsection we establish sufficient conditions for the existence of a permissible ideal",
+     "match": "Proposition 3.18 and its set-up."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.4, proof of Proposition 3.18, p. 47 (Numdam PDF page 44; printed page = PDF page + 3)",
+     "excerpt": "The existence of such a g for large n is proven in [Ch, §4.5].",
+     "match": "Chai's form with prescribed constant terms."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.4, proof of Proposition 3.18, p. 48 (Numdam PDF page 45; printed page = PDF page + 3)",
+     "excerpt": "It remains to show that this maximal ideal occurs in",
+     "match": "The final level check at U^χ."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Existence of Eisenstein maximal ideals"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-weight-algebra",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "The weight algebra at a permissible maximal ideal",
+   "kind": "construction",
+   "statement": "Let m be a permissible maximal ideal of T_∞(U, 𝒪) and γ_1, …, γ_{δ_F} ∈ Gal(F̄/F), r_1, …, r_{δ_F} as in Skinner–Wiles §2.5 (the γ_j generate a free summand G₀ of Gal(L₀/F) and the γ_j^{p^{r_j}} generate I₀, with images x_j ∈ Z(U)). Let D : Gal(F̄/F) → T_∞(U, 𝒪)_m^× be the continuous character given by the central action composed with reciprocity, times ε; so D(Frob_ℓ) = S(ℓ)Nm(ℓ) for ℓ ∤ np and D(x) = S_xε(x) on Z(U) (Skinner–Wiles' det ρ^mod_m). Then T_∞(U, 𝒪)_m is an algebra over Λ_𝒪 = 𝒪[[T_1, …, T_{δ_F}, Y^{(i)}_j]] via 1 + Y^{(i)}_j ↦ T_{y^{(i)}_j} and 1 + T_j ↦ D(γ_j), and the map Λ′_𝒪 → Λ_𝒪, 1 + X_j ↦ (1 + T_j)^{p^{r_j}}ε(γ_j^{−p^{r_j}}), Y ↦ Y, is compatible with the Λ′_𝒪-structure of R21.1 and makes Λ_𝒪 a free Λ′_𝒪-module of rank p^{Σ_j r_j}.",
+   "hypotheses": [
+    "m permissible; the choices of γ_j, r_j and y^{(i)}_j of Skinner–Wiles §2.5."
+   ],
+   "proofSteps": [
+    "The centre A_f^× acts on H⁰(X(U_a), 𝒪) through the finite group A_f^×/F^×(U_a ∩ A_f^×); with class field theory and ε this gives D, continuous in the limit over a; at Frob_ℓ it is translation by ϖ_ℓ times Nm(ℓ).",
+    "Compatibility: D(γ_j^{p^{r_j}}) = D(x_j) = S_{x_j}ε(x_j), i.e. S_{x_j} = (1 + T_j)^{p^{r_j}}ε(γ_j^{−p^{r_j}}).",
+    "Freeness: ε(γ_j^{−p^{r_j}}) ∈ 1 + pℤ_p, so u(1 + T)^{p^r} − 1 is a unit times a distinguished polynomial of degree p^r; Weierstrass division gives the basis T^i, 0 ≤ i < p^r, in each variable."
+   ],
+   "acceptance": [
+    "The rank is p^{Σ r_j}; Skinner–Wiles print Σ r_j (E1). Only freeness and finiteness are used."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-maximal-ideal",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
+    "mathlib:MvPowerSeries",
+    "mathlib:Module.Free"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
+     "excerpt": "Consequently, we obtain the following lemma.",
+     "match": "The Λ_𝒪-structure at a permissible m and the map Λ′_𝒪 → Λ_𝒪, just before Lemma 3.10."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-localisation-finite",
+     "how": "Lemma 3.10 over Λ_𝒪."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+     "how": "the Λ_𝒪-algebra structure of the pseudo-deformation rings (Skinner–Wiles §2.5)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.centralDeterminant",
+     "role": "constructor",
+     "statement": "D : Gal(F̄/F) → T_∞(U, 𝒪)_m^×."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.centralDeterminant_frob",
+     "role": "characterisation",
+     "statement": "D(Frob_ℓ) = S(ℓ)Nm(ℓ) for ℓ ∤ np."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.permissibleLambdaAlgebra",
+     "role": "constructor",
+     "statement": "The Λ_𝒪-algebra structure on T_∞(U, 𝒪)_m."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.lambdaPrimeToLambda_free",
+     "role": "characterisation",
+     "statement": "Λ_𝒪 is free of rank p^{Σ r_j} over Λ′_𝒪."
+    }
+   ],
+   "tests": [
+    {
+     "name": "lambdaPrimeToLambda_rank_one_variable",
+     "kind": "example",
+     "statement": "δ_F = 1, r_1 = 1: 𝒪[[T]] over 𝒪[[X]] with 1 + X ↦ u(1 + T)^p has basis 1, T, …, T^{p−1}, rank p (not r_1 = 1)."
+    },
+    {
+     "name": "lambdaPrimeToLambda_r_zero",
+     "kind": "example",
+     "statement": "If every r_j = 0, Λ′_𝒪 → Λ_𝒪 is an isomorphism."
+    },
+    {
+     "name": "centralDeterminant_on_Z",
+     "kind": "example",
+     "statement": "On x ∈ Z(U), D(x) = S_xε(x), recovering the X-structure of R21.1."
+    }
+   ]
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-localisation-finite",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "Finiteness and freeness at a permissible maximal ideal",
+   "kind": "theorem",
+   "statement": "If m is a permissible maximal ideal of T_∞(U, 𝒪), then (i) T_∞(U, 𝒪)_m is a torsion-free finite Λ_𝒪-algebra; (ii) if every element of U/(U ∩ F^×) acts on D^×\\G^D(A_f) without fixed points, M_∞(U)_m and M⁺_∞(U)_m are free Λ_𝒪-modules of equal rank.",
+   "hypotheses": [
+    "m permissible; for (ii) the fixed-point-free hypothesis of Skinner–Wiles Proposition 3.3."
+   ],
+   "proofSteps": [
+    "T_∞(U, 𝒪) is finite and torsion-free over Λ′_𝒪 and semilocal complete (Skinner–Wiles Corollary 3.4, from PadicFamilies L5), so T_∞(U, 𝒪)_m is a direct factor, finite over Λ′_𝒪 and hence over Λ_𝒪.",
+    "Torsion-freeness over Λ_𝒪: if λt = 0 with 0 ≠ λ ∈ Λ_𝒪, the norm N(λ) ∈ Λ′_𝒪 is nonzero and kills t.",
+    "M_∞(U) is free over Λ′_𝒪 (Proposition 3.3, PadicFamilies L5); M_∞(U)_m is a direct summand, so free over Λ′_𝒪; a finite Λ_𝒪-module free over Λ′_𝒪 has depth dim Λ_𝒪, so it is free over the regular local ring Λ_𝒪 (Auslander–Buchsbaum).",
+    "Equal ranks: the ordinary pairing makes the m-parts of eH⁰(X(U_a), 𝒪) and eH⁰(X(U_a), 𝒪)⁺ mutually 𝒪-dual."
+   ],
+   "acceptance": [
+    "T_∞(U, 𝒪)_m is only torsion-free and finite over Λ_𝒪; flatness is not asserted. Freeness is proved for M_∞(U)_m and M⁺_∞(U)_m under the fixed-point-free hypothesis."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-weight-algebra",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-towers-duality",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-hecke-adjoint-pairing",
+    "PadicFamilies:L5",
+    "mathlib:Module.Free",
+    "mathlib:Module.Finite",
+    "mathlib:IsLocalRing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.2, Lemma 3.10, p. 41 (Numdam PDF page 38; printed page = PDF page + 3)",
+     "excerpt": "Consequently, we obtain the following lemma.",
+     "match": "Lemma 3.10."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Finiteness of the localised nearly ordinary Hecke algebra"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-level-freeness",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "Freeness over an auxiliary Δ_w-group",
+   "kind": "theorem",
+   "statement": "Let w ∤ p be a place with U_w = GL₂(𝒪_{F,w}), Δ_w the Sylow p-subgroup of (𝒪_F/ℓ_w)^× and Δ′_w a complement; U′_w = {(a b; c d) ∈ GL₂(𝒪_{F,w}) : c ∈ ℓ_w}, U″_w = {(a b; c d) ∈ U′_w : ad^{−1} mod ℓ_w ∈ Δ′_w}, U′ = U′_w∏_{v≠w}U_v and U″ = U″_w∏_{v≠w}U_v. Then U′_a/U″_a ≅ Δ_w via (a b; c d) ↦ the image of (ad^{−1})_w (3.12); Δ_w acts on H⁰(X(U″_a), R) commuting with G(U″_a), T₀(p_i), T(ℓ) and S(ℓ) (ℓ ∤ pw), compatibly in a, and H⁰(X(U″_a), R)^{Δ_w} = H⁰(X(U′_a), R) (3.13). If every element of U′/(F^× ∩ U′) acts on D^×\\G^D(A_f) without fixed points, then (i) M_∞(U″) and M⁺_∞(U″) are free Λ′_𝒪[[Δ_w]]-modules, and (ii) M_∞(U″)_{Δ_w} = M_∞(U′) and M⁺_∞(U″)_{Δ_w} = M⁺_∞(U′).",
+   "hypotheses": [
+    "w ∤ p with U_w maximal; the fixed-point-free hypothesis is at level U′."
+   ],
+   "proofSteps": [
+    "(3.12) and (3.13) are statements about the quaternionic sets and their change of level (R18.3).",
+    "#H⁰(X(U″_a), 𝒪/πⁿ)_{Δ_w} = #H⁰(X(U″_a), 𝒪/πⁿ)^{Δ_w} = #H⁰(X(U′_a), 𝒪/πⁿ), and the hypothesis gives #X(U″_a) = #Δ_w·#X(U′_a).",
+    "So H⁰(X(U″_a), 𝒪/πⁿ) is free over the local ring 𝒪/πⁿ[Δ_w]: its minimal number of generators is #X(U′_a) and its order is #(𝒪/πⁿ[Δ_w])^{#X(U′_a)}.",
+    "Pass to ordinary parts (e commutes with Δ_w) and to the limit with Proposition 3.3 (PadicFamilies L5)."
+   ],
+   "acceptance": [
+    "Freeness over the auxiliary group Δ_w and finite flatness over weight space are separate statements; this one needs the fixed-point-free hypothesis at level U′."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-towers-duality",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "PadicFamilies:L5",
+    "mathlib:Module.Free",
+    "mathlib:IsLocalRing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.5, Lemma 3.19, p. 49 (Numdam PDF page 46; printed page = PDF page + 3)",
+     "excerpt": "then much more is true, as the following lemma shows",
+     "match": "Lemma 3.19 and (3.12)–(3.13)."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.5, proof of Lemma 3.19, p. 50 (Numdam PDF page 47; printed page = PDF page + 3)",
+     "excerpt": "Combining these observations we find that",
+     "match": "The counting argument."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Freeness over the auxiliary Δ_w-group"
+   }
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.3",
+   "need": "Definite quaternionic forms over a totally real F of even degree, for D ramified exactly at the infinite places: X(U) = D^×\\G^D(A_f)/U finite; H⁰(X(U), R) = H⁰(X(U), ℤ) ⊗ R free of rank #X(U); the Hecke operators [UgU′] (T(ℓ), S(ℓ), T₀(p_v), T₀(p) and the action of G(U_a)) commuting and preserving integrality; the norm-factoring subspace I^D(U); pullback and trace between levels; stabiliser orders c_U(x) with c_{U_a}(x) = 1 for a large; free action after an auxiliary level (Skinner–Wiles Lemma 3.5 and Corollary 3.6); and finite-level freeness over 𝒪/πⁿ[Δ_w] for a fixed-point-free action.",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-part-kills-norm-forms",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-hecke-adjoint-pairing",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-trace-compatibility",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-level-independence",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-towers-duality",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-level-freeness"
+   ],
+   "status": "open",
+   "note": "R18.3 owns the quaternionic sets, their Hecke action, change of level and Taylor–Wiles freeness; R21.1 only applies the ordinary projector and passes to the ordinary towers."
+  },
+  {
+   "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+   "need": "The Jacquet–Langlands–Shimizu isomorphism S^D(U) = H⁰(X(U), ℂ)/I^D(U) ≅ S₂(U), compatible with all [UgU′], for the definite quaternion algebra over an even-degree totally real field unramified at all finite places.",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+   "need": "Adelic Hilbert modular forms M_k(U), S_k(U) of weight k ∈ ℤ[I] with Fourier expansions and Shimura's integrality M_k(n, A) = M_k(n, ℤ) ⊗ A; the Hecke operators T(ℓ), S(ℓ), T₀(p_v); local newform theory (dim V_{π,v}^{U_v} = 1 at unramified v) and Hida's classification of unit T₀(p_v)-eigenlines ([H3, Corollary 2.2]).",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/nearly-ordinary-representations",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/nearly-ordinary-hecke-algebra-comparison",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "PadicFamilies:L5",
+   "need": "Hida's totally real theory on the quaternionic ordinary towers of R21.1 (Skinner–Wiles §3.2): M_∞(U) and M⁺_∞(U) free over Λ′_𝒪 of rank rank_𝒪 eH⁰(X(U⁰_1), 𝒪) × #(G(U)_tors) under the fixed-point-free hypothesis (Proposition 3.3, Hida [H2, Theorem 3.8]); T_∞(U, 𝒪) finite torsion-free over Λ′_𝒪 and semilocal complete (Corollary 3.4); control in all weights (Proposition 3.7, Hida [H2, Corollary 2.5]); density of weight-two algebraic primes on each component (Lemma 3.8, Corollary 3.9); and Wiles' Λ-adic forms ([W2, Theorem 1.4.1]).",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/nearly-ordinary-hecke-algebra-comparison",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-localisation-finite",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-level-freeness"
+   ],
+   "status": "open",
+   "note": "RS-08: R21.2 imports the cuspidal totally real Hida control from PadicFamilies L5 and keeps only the additional nearly ordinary and Eisenstein statements."
+  },
+  {
+   "supplier": "AutomorphicPadicLFunctions:L3",
+   "need": "The Deligne–Ribet p-adic L-function L_p(F, s, χω) with its interpolation of L^{(p)}(F, 1 − n, χω^{1−n}); Hilbert Eisenstein series E_n(φ₁, φ₂) of parallel weight n, spanning a complement of the cusp forms, with constant terms a_i(E_n(1, ψ), 0) = 2^{−d}L(F, 1 − n, ψ)Nm(t_i)^{n/2} (Skinner–Wiles (3.10)); Chai's integral form g with a_i(g, 0) = 2^{−d}Nm(t_i)^{n/2} for large n ≡ 2 mod (p − 1)p^f ([Ch, §4.5], (3.11)); and Wiles' vanishing of Eisenstein combinations with zero constant terms ([W3, Proposition 1.6]).",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence"
+   ],
+   "status": "open"
+  },
+  {
+   "supplier": "AutomorphicGaloisRepresentations:R19.4",
+   "need": "Local–global compatibility away from p for the Galois representations of nearly ordinary Hilbert eigenforms: π_v ≅ π_v(ρ_π) for v ∤ p (Skinner–Wiles (3.3), [W2, Theorem 2.1.3]).",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence"
+   ],
+   "status": "open"
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.1",
+   "status": "partial",
+   "remaining": [
+    "Apply the projector to the modular-curve cohomology of ModularCurvesPartII R14.3 (Hida's H¹ towers, Hida, Invent. Math. 85 (1986) and ASENS 19 (1986)) and to the indefinite Hilbert/Shimura-curve cohomology of HilbertModularVarietiesAndShimuraCurves R18.4.",
+    "Odd-degree F: Skinner–Wiles prove the Λ-adic statements only for even degree (the definite algebra D needs it); the odd case goes through a Shimura curve or base change, not read."
+   ],
+   "notes": "RS-08 narrows R21.1 to the application of the projector to actual arithmetic modules. Planned for the definite quaternionic modules of Skinner–Wiles §3.2 (8 nodes); the projector API is PadicFamilies L0a and the modules are R18.3."
+  },
+  {
+   "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "status": "partial",
+   "remaining": [
+    "The level and type control of minimal primes (Skinner–Wiles Propositions 3.14–3.15, Lemmas 3.16–3.17), the characteristic-p primes at auxiliary level (Proposition 3.20, Lemma 3.21), the rings T_Σ and their quotients (§3.6) and the congruence maps (§3.8): they use Hida's family representation ρ_Q ((3.4)) and are planned with R21.3.",
+    "Skinner–Wiles, Nearly ordinary deformations of irreducible residual representations (Ann. Fac. Sci. Toulouse 10 (2001)), for the residually irreducible nearly ordinary control: not read."
+   ],
+   "notes": "Planned: nearly ordinary representations and the Hecke-algebra comparison, permissible maximal ideals, their existence (Proposition 3.18), the weight algebra and Lemma 3.10, and Lemma 3.19 (7 nodes). Hida's totally real control (Proposition 3.3, Corollary 3.4, Proposition 3.7, Lemma 3.8) is requested from PadicFamilies L5 per RS-08."
+  },
+  {
+   "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R21.3."
+   ]
+  },
+  {
+   "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R21.4."
+   ]
+  },
+  {
+   "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R21.5."
+   ]
+  },
+  {
+   "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.6",
+   "status": "not_read",
+   "remaining": [
+    "Source-decompose stage R21.6."
+   ]
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E1",
+   "source": "SKINNER-WILES-1999",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§3.2, paragraph before Lemma 3.10, p. 41 (Numdam PDF page 38)",
+   "printed": "The homomorphism Λ′_𝒪 → Λ_𝒪 determined by 1 + X_j ↦ (1 + T_j)^{p^{r_j}} ε(γ_j^{−p^{r_j}}) is compatible with the Λ′_𝒪-algebra structure of T_∞(U, 𝒪)_m and makes Λ_𝒪 a free Λ′_𝒪-module of rank r = Σr_j.",
+   "correction": "Λ_𝒪 is a free Λ′_𝒪-module of rank p^{Σ r_j} = ∏_j p^{r_j}.",
+   "reason": "In each variable 1 + X ↦ u(1 + T)^{p^r} with u ∈ 1 + pℤ_p, and u(1 + T)^{p^r} − 1 is a unit times a distinguished polynomial of degree p^r, so 𝒪[[T]] is free of rank p^r over 𝒪[[X]] (Weierstrass division); the ranks multiply over the δ_F variables. Lemma 3.10 uses only that Λ_𝒪 is finite free over Λ′_𝒪, and r is not used again.",
+   "known": "new",
+   "searched": [
+    "Numdam item page http://www.numdam.org/item/PMIHES_1999__89__5_0/ and the Crossref record of doi:10.1007/BF02698855 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ]
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E2",
+   "source": "SKINNER-WILES-1999",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§3.2, p. 35 (Numdam PDF page 32), first displayed definition",
+   "printed": "Put H⁺_∞(U_a) = lim→ eH⁰(X(U_a), K/𝒪)⁺.",
+   "correction": "H⁺_∞(U) = lim→_a eH⁰(X(U_a), K/𝒪)⁺, the analogue of H_∞(U) on p. 34.",
+   "reason": "The right side is a direct limit over a, so it depends on U, not on U_a; M⁺_∞(U) is later identified with the Pontryagin dual of H⁺_∞(U).",
+   "known": "new",
+   "searched": [
+    "Numdam item page and Crossref record as for E1, checked 2026-09-28."
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf",
+   "citation": "Skinner and Wiles, Residually reducible representations and modular forms, Publ. Math. IHÉS 89 (1999), 5–126 (Numdam open-access scan)",
+   "read": "2026-09-28",
+   "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3"
+  }
+ ]
+}
