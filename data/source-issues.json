@@ -143937,6 +143937,44 @@
    "reviewReason": null
   },
   {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E1",
+   "kind": "misprint",
+   "locator": "§3.2, paragraph before Lemma 3.10, p. 41 (Numdam PDF page 38)",
+   "printed": "The homomorphism Λ′_𝒪 → Λ_𝒪 determined by 1 + X_j ↦ (1 + T_j)^{p^{r_j}} ε(γ_j^{−p^{r_j}}) is compatible with the Λ′_𝒪-algebra structure of T_∞(U, 𝒪)_m and makes Λ_𝒪 a free Λ′_𝒪-module of rank r = Σr_j.",
+   "correction": "Λ_𝒪 is a free Λ′_𝒪-module of rank p^{Σ r_j} = ∏_j p^{r_j}.",
+   "reason": "In each variable 1 + X ↦ u(1 + T)^{p^r} with u ∈ 1 + pℤ_p, and u(1 + T)^{p^r} − 1 is a unit times a distinguished polynomial of degree p^r, so 𝒪[[T]] is free of rank p^r over 𝒪[[X]] (Weierstrass division); the ranks multiply over the δ_F variables. Lemma 3.10 uses only that Λ_𝒪 is finite free over Λ′_𝒪, and r is not used again.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page http://www.numdam.org/item/PMIHES_1999__89__5_0/ and the Crossref record of doi:10.1007/BF02698855 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E2",
+   "kind": "misprint",
+   "locator": "§3.2, p. 35 (Numdam PDF page 32), first displayed definition",
+   "printed": "Put H⁺_∞(U_a) = lim→ eH⁰(X(U_a), K/𝒪)⁺.",
+   "correction": "H⁺_∞(U) = lim→_a eH⁰(X(U_a), K/𝒪)⁺, the analogue of H_∞(U) on p. 34.",
+   "reason": "The right side is a direct limit over a, so it depends on U, not on U_a; M⁺_∞(U) is later identified with the Pontryagin dual of H⁺_∞(U).",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page and Crossref record as for E1, checked 2026-09-28."
+   ],
+   "owner": "OrdinaryAutomorphicFormsAndModularityLifting",
+   "file": "research/blueprint/packets/OrdinaryAutomorphicFormsAndModularityLifting.json",
+   "citation": "C. M. Skinner and A. J. Wiles, Residually reducible representations and modular forms, Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (123 pages, OCR text layer; printed page = PDF page + 3). The article's own title reads 'reducible'; the Numdam and Crossref records read 'reductible'.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "OverconvergentAutomorphicForms/E1",
    "kind": "misprint",
    "locator": "§6.1, Definition 6.1, printed p. 1756 (PDF p. 49); same in arXiv v4",
