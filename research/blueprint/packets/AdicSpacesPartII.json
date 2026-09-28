@@ -166,6 +166,13 @@
     "checked": "statement read at the pinned commit: [Algebra.FiniteType R S] [IsNoetherianRing R] : IsNoetherianRing S"
    },
    {
+    "ref": "mathlib:Algebra.FormallyEtale.equivPiOfIsSepClosed",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Etale/Field.lean",
+    "provides": "An étale algebra over a separably closed field is a finite product of copies of the field",
+    "checked": "statement read at the pinned commit: def equivPiOfIsSepClosed [EssFiniteType K A] [FormallyEtale K A] [IsSepClosed K] : A ≃ₐ[K] (PrimeSpectrum A → K), for a field K and a K-algebra A"
+   },
+   {
     "ref": "mathlib:Algebra.FormallyEtale.iff_comp_bijective",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Etale/Basic.lean",
@@ -1405,6 +1412,13 @@
     "checked": "statement read at the pinned commit: def IsTopologicallyNilpotent a := Tendsto (a ^ ·) atTop (𝓝 0)."
    },
    {
+    "ref": "mathlib:IsUltrametricDist",
+    "kind": "class",
+    "module": "Mathlib/Topology/MetricSpace/Ultra/Basic.lean",
+    "provides": "Ultrametric (nonarchimedean) distances",
+    "checked": "statement read at the pinned commit: class IsUltrametricDist (X) [Dist X] : Prop with dist_triangle_max : dist x z ≤ max (dist x y) (dist y z)"
+   },
+   {
     "ref": "mathlib:KaehlerDifferential",
     "kind": "def",
     "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
@@ -1591,7 +1605,7 @@
     "kind": "class",
     "module": "Mathlib/Algebra/Module/Projective.lean",
     "provides": "Projective modules",
-    "checked": "statement read at the pinned commit: class Module.Projective R P with out : ∃ s : P →ₗ[R] P →₀ R, LeftInverse (Finsupp.linearCombination R id) s"
+    "checked": "statement read at the pinned commit: class Module.Projective R P : Prop, ∃ s : P →ₗ[R] P →₀ R, LeftInverse (Finsupp.linearCombination R id) s"
    },
    {
     "ref": "mathlib:Module.Projective.tensorProduct",
@@ -1667,8 +1681,8 @@
     "ref": "mathlib:NormedSpace",
     "kind": "class",
     "module": "Mathlib/Analysis/Normed/Module/Basic.lean",
-    "provides": "Normed vector spaces",
-    "checked": "statement read at the pinned commit: class NormedSpace 𝕜 E extends Module 𝕜 E with ‖a • b‖ ≤ ‖a‖‖b‖, for a normed field 𝕜 and seminormed group E"
+    "provides": "Normed spaces over a normed field",
+    "checked": "statement read at the pinned commit: class NormedSpace (𝕜 E) [NormedField 𝕜] [SeminormedAddCommGroup E] extends Module 𝕜 E with norm_smul_le : ‖a • b‖ ≤ ‖a‖ * ‖b‖"
    },
    {
     "ref": "mathlib:PrimeSpectrum",
@@ -1842,8 +1856,15 @@
     "ref": "mathlib:TensorProduct",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
-    "provides": "Algebraic tensor products of modules.",
-    "checked": "statement read at the pinned commit: def TensorProduct (R) (M N) := (addConGen (TensorProduct.Eqv R M N)).Quotient"
+    "provides": "Algebraic tensor products of modules",
+    "checked": "statement read at the pinned commit: def TensorProduct (R) (M N) := (addConGen (TensorProduct.Eqv R M N)).Quotient, notation M ⊗[R] N"
+   },
+   {
+    "ref": "mathlib:TensorProduct.lift",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/TensorProduct/Basic.lean",
+    "provides": "The linear map out of a tensor product induced by a bilinear map",
+    "checked": "statement read at the pinned commit: def lift (f' : M →ₛₗ[σ₁₂] N →ₛₗ[σ₁₂] P₂) : M ⊗[R] N →ₛₗ[σ₁₂] P₂, with lift.tmul : lift f' (x ⊗ₜ y) = f' x y"
    },
    {
     "ref": "mathlib:TopCat.Presheaf.IsFlasque",
@@ -1886,6 +1907,13 @@
     "module": "Mathlib/Topology/UniformSpace/Completion.lean",
     "provides": "The image of α is dense in its completion.",
     "checked": "statement read at the pinned commit: DenseRange ((↑) : α → Completion α)."
+   },
+   {
+    "ref": "mathlib:UniformSpace.Completion.extension",
+    "kind": "def",
+    "module": "Mathlib/Topology/UniformSpace/Completion.lean",
+    "provides": "Extension of a uniformly continuous map to the completion",
+    "checked": "statement read at the pinned commit: protected def extension (f : α → β) : Completion α → β := cPkg.extend f, for β a uniform space; for uniformly continuous f into a complete separated β it extends f"
    },
    {
     "ref": "mathlib:UniformSpace.Completion.extensionHom",
@@ -1935,6 +1963,13 @@
     "module": "Mathlib/RingTheory/WittVector/Frobenius.lean",
     "provides": "the Frobenius endomorphism of Witt vectors",
     "checked": "statement read at the pinned commit: frobenius : 𝕎 R →+* 𝕎 R, the Witt-vector Frobenius; frobenius_eq_map_frobenius identifies it with W(Frob) in characteristic p"
+   },
+   {
+    "ref": "mathlib:ZeroAtInftyContinuousMap",
+    "kind": "structure",
+    "module": "Mathlib/Topology/ContinuousMap/ZeroAtInfty.lean",
+    "provides": "Continuous functions vanishing at infinity, C₀(α, β); for discrete α the null families",
+    "checked": "statement read at the pinned commit: structure ZeroAtInftyContinuousMap (α β) [TopologicalSpace α] [Zero β] [TopologicalSpace β] extends ContinuousMap α β with zero_at_infty' : Tendsto toFun (cocompact α) (𝓝 0); normed by the supremum norm (instNormedAddCommGroup)"
    },
    {
     "ref": "mathlib:associatedPrimes",
@@ -2899,6 +2934,7 @@
     "§4: Propositions 4.1–4.3, Lemma 4.4 with proof, Proposition 4.5, Remark 4.6, pp. 538–543",
     "§2, printed pp. 524-525: natural module topology, Theorem 2.2, Lemmas 2.3-2.4, Theorem 2.5",
     "§3, printed pp. 532-536: analytic points, Remark 3.1, adic morphisms, Proposition 3.2, A⟨X⟩_M, Lemma 3.3, Corollary 3.4, affinoid A⟨X⟩_M, quotient mappings, Lemma 3.5, definition of locally of finite type, Proposition 3.6, statement of Proposition 3.7",
+    "§2, Proposition 2.1 (morphisms into affinoid adic spaces), printed p. 522",
     "§3, pp. 532–538: Definitions of analytic points and adic morphisms, Lemma 3.3, Corollary 3.4, Lemma 3.5, Proposition 3.6, Proposition 3.7 with proof, Proposition 3.8 with proof, Lemma 3.9 with proof",
     "§4, pp. 538–544: introduction, Proposition 4.1–4.2 (statements), Proposition 4.3 with proof, Lemma 4.4 with proof, Proposition 4.5 with proof, Remark 4.6",
     "§4, pp. 538–544: Propositions 4.1 (with proof), 4.2 (with proof), 4.3, Lemma 4.4, Proposition 4.5, Remark 4.6(i)–(iv)",
@@ -2935,6 +2971,8 @@
     "§6.4–6.7: Lemma 6.20, Proposition 6.21, Remark 6.22, Definition 6.23, Example 6.24, Propositions 6.25–6.26, Definition 6.28, Proposition and Definition 6.29 with proof, Proposition 6.31, Example 6.32, Propositions 6.33–6.35, 6.36–6.37, Example 6.38",
     "§7.5–7.6: Remark 7.40, Lemmas 7.45–7.47, Proposition 7.48",
     "§8.2–8.7: Definitions 8.21–8.22, Remarks 8.23–8.24, Proposition 8.25, Definition 8.26, Theorem 8.28 (statement), Proposition 8.36, Definition 8.38, Proposition 8.39, Corollary 8.40, §8.5 Remark and Definition 8.41 – Remark 8.52, §8.6 Definition 8.54 – Proposition 8.60, §8.7 Proposition and Definition 8.61, Proposition 8.63 with proof",
+    "§8.1, Proposition 8.19 (morphisms of pre-adic affinoid spectra), p. 79",
+    "§8.2, Definitions 8.21-8.22, Remark 8.24, Proposition 8.25, pp. 79-80",
     "§5.7 Definitions 5.57–Proposition 5.61",
     "§7.7 Definition 7.56, Examples 7.57–7.58",
     "§8.7 Proposition and Definition 8.61 with proof, Remark 8.62, Proposition 8.63 with proof, Definition 8.64, Example 8.65",
@@ -2952,6 +2990,7 @@
     "§9 The fiber product of adic spaces: Definition 9.1, Theorem 9.2 with the idea of proof, Examples 9.3–9.5, pp. 40–43",
     "§2 (affinoid fields, Exercises 2.2-2.3, Lemma 2.4)",
     "§7 (morphisms of finite type, Definitions 7.1-7.13) for conventions",
+    "§3, Example 3.5 (a non-sheafy Tate Huber pair: O_X(X) → O_X(U) ⊕ O_X(V) not injective)",
     "§4 Example 4.3 (affine line) and the projective line",
     "§10 Analytification: Definition 10.1, Proposition 10.2 with proof, Definition 10.3, Example 10.4",
     "§8 Formal schemes: Theorem 8.1, Exercises 8.2–8.3, Definitions 8.4–8.5, Examples 8.6–8.7, Theorems 8.8–8.9, pp. 37–40"
@@ -2986,8 +3025,11 @@
     "§2.3 Theorem 2.3.10, Remark 2.3.11",
     "§2.4 Definition 2.4.3, Remark 2.4.4",
     "§2.8 Definition 2.8.1, Remarks 2.8.3, 2.8.5",
+    "§2.1, Definitions 2.1.1-2.1.10 (seminorms, product seminorm, completed tensor product), pp. 25-27",
+    "§2.2, Definition 2.2.7, Theorem 2.2.8, Lemma 2.2.9 with proof, Definition 2.2.10, Remark 2.2.11, Lemma 2.2.12 (Banach modules), pp. 31-32",
     "§1.2 (Definition 1.2.1 and the discussion of FÉt(R))",
     "§8.2: Definitions 8.2.11, 8.2.16, Lemma 8.2.12, Lemma 8.2.17, Remark 8.2.18",
+    "§8.2, Definition 8.2.16 and Lemma 8.2.17(c) (stability of étale morphisms under fibred products), p. 162",
     "§2.1 Definitions 2.1.7–2.1.10",
     "§2.3 Theorem 2.3.10 and Remark 2.3.11",
     "§2.5 Hypothesis 2.5.1 to Remark 2.5.23 (Lemmas 2.5.2, 2.5.4, Corollaries 2.5.5–2.5.7, Definition 2.5.8, Lemmas 2.5.9–2.5.10, Theorem 2.5.11, Lemma 2.5.12, Propositions 2.5.14–2.5.18, Theorem 2.5.20)",
@@ -3022,7 +3064,8 @@
     "§3.2 Theorem 3.2.2, Definition 3.2.3, Examples 3.2.5, 3.2.9",
     "§3.3 Raynaud's formal models: Lemma 3.3.2, Exercises 3.3.1–3.3.12, Definition 3.3.5, Examples 3.3.9–3.3.14, pp. 30–34",
     "§4.1, p. 35",
-    "§5.2 Example 5.2.5 and Remark 5.2.9 context, pp. 50–53"
+    "§5.2 Example 5.2.5 and Remark 5.2.9 context, pp. 50–53",
+    "§3.1, Example 3.1.4 (differentials of affinoid algebras via the completed diagonal)"
    ]
   },
   {
@@ -3051,6 +3094,7 @@
    "sha256": "921b077a7854fb3410df1c08bcf09e3795d37e5e371be3331810aebf493adadb",
    "readSections": [
     "Lecture 2–3 list of examples and pathologies: Cont(K⟨T⟩) and its plus ring, '(Fiber products do not exist in general.)', the open unit disc",
+    "Lecture 4, Proposition 4.3.4 (open mapping theorem for Banach modules over analytic Huber rings), p. 34",
     "Lecture 7.5: Definition 7.5.1 and the remark on Huber Lemma 2.2.8, Proposition 7.5.2",
     "Lecture 17.4: Definitions 17.4.3, 17.4.5, 17.4.7, Propositions 17.4.4, 17.4.6, Corollary 17.4.8",
     "Lecture 4, examples: adic closed unit disc, adic affine line, closure of the disc in the affine line",
@@ -3085,6 +3129,7 @@
    "sha256": "6c24974a82da0f192c2a88fce2c1cdb4919c7ad207ab3363471afae7a2d32652",
    "readSections": [
     "Remark 7.2 (tensor products and uniformity)",
+    "§7, Remark 7.8 (Schauder bases of separable Banach spaces over a nonarchimedean field), p. 26",
     "§2 Definitions 2.3, 2.10, Remark 2.11",
     "§6 proof of Proposition 6.7",
     "§7 Remark 7.2",
@@ -3142,6 +3187,9 @@
     "Tag 01W5 (Lemma 29.42.6)",
     "Tag 01W6 (Lemma 29.42.7)",
     "Tag 03GN (Lemma 29.42.9)",
+    "Tag 02GO (Lemma 29.37.4)",
+    "Tag 01VB (Lemma 29.35.5)",
+    "Tag 02GA (Lemma 29.36.5)",
     "Tags 01I1, 01I4, 01JN, 01KJ, 01OX, 005Z, 0060, 02JQ, 0200, 03GN, 02OG, 01V9, 00TT, 023M, 047I, 0474, 02G1",
     "Tag 039R (Étale Morphisms, Theorem 41.15.2)",
     "Tag 04DY (Section 59.45) and Tag 04DZ (Theorem 59.45.2): topological invariance of the small étale site",
@@ -3202,6 +3250,24 @@
    "sha256": "301c7f98624ae28c58e4ff55458771d0b7a876f5f193f638b8e4417e47bc0213"
   },
   {
+   "id": "CHJ-OverconvergentPerfectoidShimuraCurves-2017",
+   "title": "Overconvergent modular forms and perfectoid Shimura curves",
+   "authors": "Przemyslaw Chojecki, David Hansen, Christian Johansson",
+   "edition": "arXiv:1507.04875v2 (22 Aug 2016), published in Documenta Math. 22 (2017); printed page numbers of the arXiv PDF",
+   "url": "https://arxiv.org/abs/1507.04875",
+   "sha256": "b68d2bcb4d78f42a8cf010c42a30483712a34190409ee5d579168f9c02214e8f",
+   "readSections": [
+    "§2, Proposition 2.22 and Lemma 2.23 with proof (invariants of completed tensor products), pp. 19-20",
+    "§6.1, Definitions 6.1, 6.3, 6.6 and Lemma 6.7 (mixed completed tensor products), pp. 45-48",
+    "§1 introduction: ω_A and the Hodge–Tate map",
+    "§1.4 notation and small Z_p-algebras (pp. 7-8)",
+    "§2, Propositions 2.22 and Lemma 2.23 (pp. 19-20)",
+    "§6.1 in full: Definition 6.1, Proposition 6.2, Definition 6.3, Proposition 6.4, Corollary 6.5, Definition 6.6, Lemma 6.7 (pp. 45-48)",
+    "§6.2 statements of Proposition 6.8 and Corollary 6.9 (p. 48)",
+    "§6.3 in full: Lemma 6.13 with proof, Definition 6.14, Propositions 6.15-6.16 with proofs, Remark 6.17, Definition 6.18, Lemma 6.19, Theorem 6.20, Lemma 6.21, Remark 6.22 (pp. 50-53)"
+   ]
+  },
+  {
    "id": "Zavyalov-QuotientsFiniteGroups-2024",
    "title": "Quotients of admissible formal schemes and adic spaces by finite groups",
    "authors": "Bogdan Zavyalov",
@@ -3229,6 +3295,7 @@
     "§7 Lemma 7.3 with proof, Lemma 7.13 with proof",
     "§8 Lemma 8.7(iii)",
     "§9 Theorem 9.1, Proposition 9.2 with proof, Theorem 9.3, bibliography [1],[8],[12]-[14]",
+    "§6, Definition 6.8 (sheaves of differentials and structural de Rham sheaves on the pro-étale site), p. 37",
     "§3, pp. 13-21: Definitions 3.1, 3.3, 3.4, 3.9; Propositions 3.2, 3.5, 3.7, 3.12, 3.13, 3.15; Lemmas 3.6, 3.10, 3.11, 3.16; Corollaries 3.8, 3.17; Remark 3.14"
    ]
   },
@@ -3281,6 +3348,22 @@
     "§2.1 analytic points, wide neighbourhoods, Lemma 2.1.1, Remark 2.1.2",
     "§3.1 Observations 3.1.1–3.1.3, Proposition 3.1.4 with proof, Lemmas 3.1.5–3.1.6, Proposition 3.1.7",
     "§3.2 Proposition 3.2.2 (sheaf criterion) with proof"
+   ]
+  },
+  {
+   "id": "DiaoLanLiuZhu-LogAdicFoundations",
+   "title": "Logarithmic adic spaces: some foundational results",
+   "authors": "Hansheng Diao, Kai-Wen Lan, Ruochuan Liu, Xinwen Zhu",
+   "edition": "arXiv:1912.09836v2 (30 Oct 2022); PDF page = printed page",
+   "url": "https://arxiv.org/abs/1912.09836",
+   "sha256": "da5e61cb7c4f63a04c19df73c721be42ed8868446950c37dc2ceccd74532404b",
+   "readSections": [
+    "§1, conventions on unramified, smooth and étale morphisms (following Huber 1996 §§1.6-1.7), p. 4",
+    "§3.3, Definitions 3.3.8-3.3.10 and Remark 3.3.12 (formally log smooth, unramified and étale morphisms; stability under base change), pp. 36-37",
+    "§3.2, (3.2.6)-(3.2.8) (log differentials of log Huber rings in terms of Huber's continuous differentials), p. 28",
+    "§3.3, Definition 3.3.1, Construction 3.3.2, Lemma 3.3.5, Definition 3.3.6, Proposition 3.3.7, Lemma 3.3.15, Theorem 3.3.17, pp. 34-40",
+    "§2.3, Examples 2.3.16-2.3.18, pp. 16-17",
+    "§4.6, proof of Lemma 4.6.2, p. 69"
    ]
   },
   {
@@ -3348,22 +3431,6 @@
    ]
   },
   {
-   "id": "CHJ-OverconvergentPerfectoidShimuraCurves-2017",
-   "title": "Overconvergent modular forms and perfectoid Shimura curves",
-   "authors": "Przemysław Chojecki, David Hansen, Christian Johansson",
-   "edition": "arXiv:1507.04875v2",
-   "url": "https://arxiv.org/abs/1507.04875",
-   "sha256": "b68d2bcb4d78f42a8cf010c42a30483712a34190409ee5d579168f9c02214e8f",
-   "readSections": [
-    "§1 introduction: ω_A and the Hodge–Tate map",
-    "§1.4 notation and small Z_p-algebras (pp. 7-8)",
-    "§2, Propositions 2.22 and Lemma 2.23 (pp. 19-20)",
-    "§6.1 in full: Definition 6.1, Proposition 6.2, Definition 6.3, Proposition 6.4, Corollary 6.5, Definition 6.6, Lemma 6.7 (pp. 45-48)",
-    "§6.2 statements of Proposition 6.8 and Corollary 6.9 (p. 48)",
-    "§6.3 in full: Lemma 6.13 with proof, Definition 6.14, Propositions 6.15-6.16 with proofs, Remark 6.17, Definition 6.18, Lemma 6.19, Theorem 6.20, Lemma 6.21, Remark 6.22 (pp. 50-53)"
-   ]
-  },
-  {
    "id": "BoschLutkebohmert-FormalRigidI-1993",
    "title": "Formal and rigid geometry I. Rigid spaces",
    "authors": "Siegfried Bosch, Werner Lütkebohmert",
@@ -3390,6 +3457,7 @@
    "sha256": "f75311cc7638b225ec79a528d59abdc71f3cf7e3270ff081287c328d60cb071b",
    "readSections": [
     "§1: proofs of Proposition 1.5 and Proposition 1.6(2)",
+    "§4, 4.1 (differentials of dagger algebras, coherent locally free Ωⁱ, comparison with the rigid space), p. 19",
     "Introduction",
     "§1 (1.1–1.18, Prop. 1.5, 1.6, Thm 1.7, Lemma 1.8, 1.9, Lemma 1.10, 1.11, Thm 1.12, Prop. 1.13, 1.14, Lemma 1.15)",
     "§2 (2.1–2.27)",
@@ -3437,6 +3505,7 @@
    "sha256": "7cbeaafe86da50493bff7c129434611b547c4d32cab18cfe6f2550fbcbcda321",
    "readSections": [
     "§2.2–2.6: strictly semi-stable formal pairs, 2.3 (specialisation and tubes), Theorem 2.4 proof step (v), Lemma 2.6 with proof, pp. 17–21",
+    "§1, 1.1-1.2 (relative differentials Ω¹_{X/Y} = J/J² and the de Rham complex), p. 4",
     "Introduction (Theorems A, C, Corollary B)",
     "§0 (dagger spaces, Lemma 0.1)",
     "§1 (1.1–1.18)",
@@ -3511,6 +3580,17 @@
    ]
   },
   {
+   "id": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
+   "title": "Relative p-adic Hodge theory, II: Imperfect period rings",
+   "authors": "Kiran S. Kedlaya, Ruochuan Liu",
+   "edition": "arXiv:1602.06899v3 (21 Oct 2019); locators give the printed page numbers of the arXiv PDF",
+   "url": "https://arxiv.org/abs/1602.06899",
+   "sha256": "97383900492daf1c6778959c37e993f67dd5ad379ac03c31049b870382e5d42c",
+   "readSections": [
+    "Appendix A, Errata for [Kedlaya–Liu, Relative p-adic Hodge theory: foundations], items Lemma 1.5.2 to Lemma 3.5.4, in particular the item on Definition 2.8.1, p. 189"
+   ]
+  },
+  {
    "id": "Scholze-PadicHodgeRigid-Erratum",
    "title": "Erratum to 'p-adic Hodge theory for rigid-analytic varieties'",
    "authors": "Peter Scholze",
@@ -3522,18 +3602,6 @@
    ]
   },
   {
-   "id": "DiaoLanLiuZhu-LogAdicFoundations",
-   "title": "Logarithmic adic spaces: some foundational results",
-   "authors": "Hansheng Diao, Kai-Wen Lan, Ruochuan Liu, Xinwen Zhu",
-   "edition": "arXiv:1912.09836v2 (30 Oct 2022); PDF page = printed page",
-   "url": "https://arxiv.org/abs/1912.09836",
-   "sha256": "da5e61cb7c4f63a04c19df73c721be42ed8868446950c37dc2ceccd74532404b",
-   "readSections": [
-    "§2.3, Examples 2.3.16-2.3.18, pp. 16-17",
-    "§4.6, proof of Lemma 4.6.2, p. 69"
-   ]
-  },
-  {
    "id": "DiaoLanLiuZhu-LogRiemannHilbert",
    "title": "Logarithmic Riemann-Hilbert correspondences for rigid varieties",
    "authors": "Hansheng Diao, Kai-Wen Lan, Ruochuan Liu, Xinwen Zhu",
@@ -3542,6 +3610,18 @@
    "sha256": "6428b9263775c2967b5a82896fbe0f99a59d7e3ec1516cc5a38f77223172f2e2",
    "readSections": [
     "§2.1, Example 2.1.2 and the paragraph on Kummer étale and pro-Kummer étale sites, pp. 10-11"
+   ]
+  },
+  {
+   "id": "Scholze-EtaleCohomologyDiamonds",
+   "title": "Étale cohomology of diamonds",
+   "authors": "Peter Scholze",
+   "edition": "arXiv:1709.07343v4 (14 Apr 2026); locators give the printed page numbers of the arXiv PDF",
+   "url": "https://arxiv.org/abs/1709.07343",
+   "sha256": "78ca42bba46f1d43c894b0dbfdfb41105efab4959ba5ba6e32e1e5cf7ef33efc",
+   "readSections": [
+    "§7, Definition 7.15 and Proposition 7.16 with proof (strictly totally disconnected spaces; splitting of étale covers of Spa(C, C⁺)), p. 36",
+    "§14, Proposition 14.3 with proof (points of the étale site given by Spa(C(y), C(y)⁺)), p. 82"
    ]
   },
   {
@@ -8612,7 +8692,7 @@
    "uses": [
     {
      "where": "Kedlaya–Liu, Definition 2.1.9 and Definition 2.8.1(b)",
-     "how": "the spectral seminorm and the definition of uniform Banach rings as those whose norm is equivalent to it"
+     "how": "the spectral seminorm, and uniform Banach rings as those whose norm is equivalent to it (criterion (b), which is equivalent to (a) and (c) but in general stronger than boundedness of A°; Kedlaya–Liu II, Appendix A)"
     },
     {
      "where": "Hansen–Kedlaya, Definition 2.10",
@@ -8941,7 +9021,7 @@
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, Definition 2.8.1(b),(d), p. 59",
      "excerpt": "(d) The subring A◦ of A is bounded.",
-     "match": "Equivalence of the norm-theoretic and the boundedness forms of uniformity."
+     "match": "Condition (d) (A° bounded), the form of uniformity used in (vi). Its equivalence with the norm-theoretic forms (a)-(c) holds for the norms α_d of R0/tate-ring-norm (AdicSpacesPartII:R3/uniform-iff-power-bound (iii)) but not for every norm, contrary to the source (Kedlaya–Liu II, Appendix A)."
     }
    ],
    "implementationStatus": "unchecked",
@@ -9406,6 +9486,264 @@
    ]
   },
   {
+   "id": "AdicSpacesPartII:R0/completed-tensor-banach-module",
+   "parentStageId": "AdicSpacesPartII:R0",
+   "realises": [
+    "AdicSpacesPartII:R0"
+   ],
+   "title": "Completed tensor products of Banach modules over complete Tate rings",
+   "kind": "construction",
+   "statement": "Let A be a complete Tate ring (Tau Ceti IsTateRing, complete and Hausdorff) with a norm datum d = (A₀, ϖ, r) and norm α_d (AdicSpacesPartII:R0/tate-ring-norm); for instance A = L a complete nonarchimedean field with its absolute value. A Banach A-module is a complete Hausdorff topological A-module V whose topology is defined by an additive subgroup V₀ stable under A₀ with V = ⋃ₙ ϖ⁻ⁿV₀, the ϖⁿV₀ forming a basis of neighbourhoods of 0; equivalently, an A-module complete for a norm |·| with |av| ≤ c·α_d(a)·|v| (Kedlaya–Liu Definition 2.2.7), the lattice being {|·| ≤ 1}. For Banach A-modules V, W the completed tensor product V ⊗̂_A W is the Hausdorff completion of V ⊗_A W for the tensor topology, in which the images of ϖⁿ·(V₀ ⊗_{A₀} W₀), n ≥ 0, form a basis of neighbourhoods of 0. Equivalently it is the completion for the product seminorm |x| = inf max_i |v_i|·|w_i| over presentations x = Σ v_i ⊗ w_i (Kedlaya–Liu Definition 2.1.10, stated there for rings). It is a Banach A-module whose lattice is the closure of the image of V₀ ⊗ W₀; up to equivalence of norms it does not depend on the lattices. (a) Universal property: (v, w) ↦ v ⊗ w is a continuous A-bilinear map whose image spans a dense submodule. Every continuous A-bilinear map β: V × W → M into a complete Hausdorff topological A-module M (continuity is equivalent to boundedness: β(V₀ × W₀) ⊆ ϖ⁻ᵏM₀ for some k) factors uniquely as β = β̂ ∘ ⊗ with β̂: V ⊗̂_A W → M continuous and A-linear. (b) Functoriality: continuous A-linear f: V → V' and g: W → W' induce f ⊗̂ g, compatibly with identities and composition, and A ⊗̂_A V ≅ V. (c) Compatibility: if V = B and W = C are complete Huber A-algebras (adic structure maps; B₀, C₀ rings of definition containing the images of A₀), then V ⊗̂_A W is B ⊗̂_A C of AdicSpacesPartII:R0/completed-tensor-product as a topological A-module, and its multiplication is the continuous extension of that of B ⊗_A C. (d) Exactness: − ⊗̂_A W carries a topologically split short exact sequence of Banach A-modules (continuous maps with a continuous retraction and a continuous section) to a topologically split short exact sequence. If A = L is a field, V ⊗_L W → V ⊗̂_L W is injective; for a continuous f: V → W and any Banach X, ker(f) ⊗̂ X → ker(f ⊗̂ X) is bijective, and f ⊗̂ X is strict when f is (Kedlaya–Liu Lemma 2.2.9). (e) Finite projective modules: for a finite projective A-module P with its natural topology (a finite Banach module, Kedlaya–Liu Lemma 2.2.12), P ⊗_A W → P ⊗̂_A W is an isomorphism. (f) Orthonormal bases: let A = L be a complete nonarchimedean field and let V have an orthonormal basis (e_i)_{i∈I}: every v ∈ V is uniquely Σ c_i e_i with c_i → 0 along the cofinite filter, and |v| = max |c_i|. Then for every Banach L-module E, E ⊗̂_L V ≅ c₀(I, E), the Banach module of I-indexed families in E tending to 0 with the supremum norm, via x ⊗ Σ c_i e_i ↦ (c_i x)_i, isometrically. If (e_i) is only t-orthogonal for some 0 < t ≤ 1 (t·max|c_i| ≤ |Σ c_i e_i| ≤ max|c_i|), the same map is a topological isomorphism with t·|·|_sup ≤ |·| ≤ |·|_sup. (g) Base change: for a continuous homomorphism A → A' of complete Tate rings, A' ⊗̂_A V is a Banach A'-module, and A'' ⊗̂_{A'} (A' ⊗̂_A V) ≅ A'' ⊗̂_A V for A → A' → A''. In particular M ⊗̂_A A⟨T/s⟩ is defined for a Banach A-module M and a rational localisation A → A⟨T/s⟩; it equals M ⊗_A A⟨T/s⟩ when M is finite projective (e) or finite over a strongly noetherian A (Huber 1994 Lemma 2.4(ii)). Conventions: the orthonormal description uses null families (c₀), not bounded families: E ⊗̂_L c₀(I, L) = c₀(I, E), whereas the mixed completed tensor product of AdicSpacesPartII:R5/mixed-completed-tensor with the profinite flat module ∏_I O gives bounded families. The existence of orthonormal or t-orthogonal bases, for instance for Banach spaces of countable type (Bosch–Güntzer–Remmert 2.7.2/3, cited by Hansen–Kedlaya Remark 7.8), is a hypothesis of (f), not part of this node.",
+   "hypotheses": [
+    "A complete Hausdorff Tate ring with a norm datum (R0/tate-ring-norm); for (d) second part and (f), A = L a complete nonarchimedean field",
+    "V, W Banach A-modules; for (a), M a complete Hausdorff topological A-module",
+    "For (f): an orthonormal, or t-orthogonal, basis of V"
+   ],
+   "proofSteps": [
+    "Lattices and norms: for a lattice V₀, |v| = inf{rⁿ : v ∈ ϖⁿV₀} is a norm with |av| ≤ α_d(a)·|v| for a ∈ A₀ and |ϖv| = r|v|, and conversely {|·| ≤ 1} is a lattice (Kedlaya–Liu Definition 2.2.7 with the norm α_d of R0/tate-ring-norm). Two lattices defining the same topology satisfy ϖᵏV₀ ⊆ V₀' ⊆ ϖ⁻ᵏV₀. The topology of a complete Tate ring's Banach module is determined by its module structure up to continuous isomorphism by the open mapping theorem (Berkeley Proposition 4.3.4 after Huber 1993 Lemma 2.4(i); anchor Layer 0.6).",
+    "Tensor topology: the images of ϖⁿ(V₀ ⊗_{A₀} W₀) are additive subgroups, stable under A₀ and with ϖ acting bijectively on V ⊗_A W, so they define an A-module topology; changing lattices changes n by a bounded amount. The product seminorm's balls are sandwiched between these images, so both define the same topology. The Hausdorff completion is Mathlib's UniformSpace.Completion of the additive group, and the A-action extends by uniform continuity.",
+    "(a): for continuous β there is k with β(ϖᵏV₀ × ϖᵏW₀) ⊆ M₀ for a lattice M₀, so the induced A-linear map V ⊗_A W → M (Mathlib TensorProduct.lift) is continuous for the tensor topology; it extends uniquely to the completion because M is complete and Hausdorff (Mathlib UniformSpace.Completion.extension); uniqueness from density of the image of V ⊗_A W.",
+    "(b): apply (a) to (v, w) ↦ f(v) ⊗ g(w) and to (a, v) ↦ av (A ⊗_A V = V is already complete for the tensor topology, whose lattice is the image of A₀ ⊗ V₀ = V₀).",
+    "(c): for Tate A the ideal ϖA₀ is an ideal of definition of A₀, so R0's tensor topology {Iⁿ·F} (F the image of B₀ ⊗_{A₀} C₀, AdicSpacesPartII:R0/completed-tensor-product) has the same basis {ϖⁿF}; the two completions coincide, and the ring structure extends by continuity.",
+    "(d): a topological splitting V ≅ V' ⊕ V'' (continuous projections) passes through the additive functor − ⊗̂_A W. Over a field: Kedlaya–Liu Lemma 2.2.9, whose proof reduces to separable Banach modules and uses Schauder bases.",
+    "(e): P is a direct summand of Aⁿ with continuous projections (Kedlaya–Liu Lemma 2.2.12); Aⁿ ⊗_A W = Wⁿ is complete and Hausdorff, hence so is the summand P ⊗_A W, so no completion occurs.",
+    "(f): (x, Σ c_i e_i) ↦ (c_i x)_i is bilinear with |c_i x| ≤ |x|·max|c_j|, so it factors through E ⊗̂_L V by (a). On a finite sum Σ_j x_j ⊗ e_j the product norm equals max_j |x_j|, because the coordinate functionals of an orthonormal basis have norm ≤ 1. So the map is isometric, and its image contains the dense subspace of finitely supported families; hence it is an isometric isomorphism. For a t-orthogonal basis the same estimates hold up to the factor t. This is the computation behind CHJ Lemma 2.23(2).",
+    "(g): the A'-action on A' ⊗̂_A V extends that on A' ⊗_A V by continuity; transitivity follows from (a) applied to both sides, which represent the same continuous multilinear maps."
+   ],
+   "acceptance": [
+    "K⟨T⟩ ⊗̂_K K⟨S⟩ ≅ K⟨T, S⟩ via Tᵐ ⊗ Sⁿ ↦ TᵐSⁿ (orthonormal bases of monomials), agreeing with the completed tensor product of Huber pairs.",
+    "Σ pⁿTⁿSⁿ ∈ ℚ_p⟨T, S⟩ is not in the image of the algebraic tensor product ℚ_p⟨T⟩ ⊗ ℚ_p⟨S⟩: the coefficient matrix of an element of that image has finite rank.",
+    "For a finite extension L/K of complete nonarchimedean fields and any Banach K-space V, L ⊗_K V → L ⊗̂_K V is an isomorphism."
+   ],
+   "uses": [
+    {
+     "where": "PerfectoidSpaces:P9/invariants-of-completed-tensor-with-banach-space",
+     "how": "(A_∞ ⊗̂_L V)^G = A ⊗̂_L V by the (t-)orthogonal description (f): invariant null families are null families of invariants"
+    },
+    {
+     "where": "PerfectoidSpaces:P8/quotient-scalar-extension",
+     "how": "A^G ⊗̂_K L → (A ⊗̂_K L)^G via an orthonormal basis of L over K (f) and the compatibility with completed tensor products of Huber pairs (c)"
+    },
+    {
+     "where": "PerfectoidSpaces:P8/rational-invariants-order-invertible",
+     "how": "base change M ⊗̂_{A^G} A^G⟨f/h⟩ of Banach modules along a rational localisation (g)"
+    },
+    {
+     "where": "AdicEtaleGeometry:A0/supplier-contract-fibre-products (A0 routes PerfectoidSpaces P8/P9's request for completed tensor products of Banach spaces to R0)",
+     "how": "the construction with its universal property, functoriality, exactness on split sequences and orthonormal description"
+    },
+    {
+     "where": "AdicSpacesPartII:R3/affinoid-completed-field-extension and AdicSpacesPartII:R3/proper-coherent-cohomology-field-extension",
+     "how": "K' ⊗̂_K M for finite modules over affinoid algebras and for Čech complexes"
+    },
+    {
+     "where": "AdicSpacesPartII:R3/countable-type-closed-subspace-section",
+     "how": "K' ⊗̂_K (−) preserves strict exact sequences of countable type (d)"
+    },
+    {
+     "where": "AdicSpacesPartII:R3/stably-uniform-sheafy",
+     "how": "A → A ⊗̂_K L is a strict injection (Kedlaya–Liu Lemma 2.2.9(c)), part (d)"
+    },
+    {
+     "where": "AdicSpacesPartII:R5/mixed-completed-tensor",
+     "how": "the Banach-module tensor product gives null families where the mixed completed tensor product with a profinite flat module gives bounded families"
+    }
+   ],
+   "tests": [
+    {
+     "name": "banachCompletedTensor_test_tateAlgebra",
+     "kind": "computation",
+     "statement": "ℚ_p⟨T⟩ ⊗̂_{ℚ_p} ℚ_p⟨S⟩ ≅ ℚ_p⟨T, S⟩ as Banach ℚ_p-modules, Tᵐ ⊗ Sⁿ ↦ TᵐSⁿ."
+    },
+    {
+     "name": "banachCompletedTensor_test_notAlgebraic",
+     "kind": "non-example",
+     "statement": "The map ℚ_p⟨T⟩ ⊗_{ℚ_p} ℚ_p⟨S⟩ → ℚ_p⟨T⟩ ⊗̂_{ℚ_p} ℚ_p⟨S⟩ is injective but not surjective: Σ pⁿTⁿSⁿ is not in its image. The uncompleted tensor product is the wrong object."
+    },
+    {
+     "name": "banachCompletedTensor_test_unit",
+     "kind": "degenerate",
+     "statement": "A ⊗̂_A V ≅ V for every Banach A-module V, a ⊗ v ↦ av."
+    },
+    {
+     "name": "banachCompletedTensor_test_nullSequences",
+     "kind": "characterisation",
+     "statement": "With the standard orthonormal basis of c₀(ℕ, ℚ_p), ℂ_p ⊗̂_{ℚ_p} c₀(ℕ, ℚ_p) ≅ c₀(ℕ, ℂ_p). The bounded sequence (1, 1, …) is not in it, whereas the mixed completed tensor product of R5 with ∏_ℕ ℤ_p contains it: a definition by bounded families fails."
+    },
+    {
+     "name": "banachCompletedTensor_test_finiteExtension",
+     "kind": "compatibility",
+     "statement": "For a finite extension L/K of complete nonarchimedean fields and a Banach K-space V, L ⊗_K V → L ⊗̂_K V is an isomorphism (L is finite free over K, part (e))."
+    }
+   ],
+   "api": [
+    {
+     "name": "Huber.IsBanachModule",
+     "role": "structure",
+     "statement": "V is a Banach module over the complete Tate ring A: complete Hausdorff topological A-module with a lattice V₀ stable under A₀, V = ⋃ ϖ⁻ⁿV₀, the ϖⁿV₀ a basis of neighbourhoods of 0."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor",
+     "role": "constructor",
+     "statement": "V ⊗̂_A W, the Hausdorff completion of V ⊗[A] W for the tensor topology (equivalently the product seminorm)."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.tmul",
+     "role": "data",
+     "statement": "The continuous A-bilinear map (v, w) ↦ v ⊗ w into V ⊗̂_A W, whose image spans a dense submodule."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.lift",
+     "role": "universal-property",
+     "statement": "A continuous A-bilinear β: V × W → M into a complete Hausdorff module induces the continuous A-linear β̂: V ⊗̂_A W → M."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.lift_tmul",
+     "role": "simp",
+     "statement": "lift β (v ⊗ w) = β v w."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.ext",
+     "role": "extensionality",
+     "statement": "Continuous A-linear maps out of V ⊗̂_A W into a Hausdorff module agreeing on all v ⊗ w are equal."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.map",
+     "role": "functoriality",
+     "statement": "f ⊗̂ g for continuous A-linear f: V → V', g: W → W', with map_id and map_comp."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.lid",
+     "role": "equivalence",
+     "statement": "A ⊗̂_A V ≅ V for a Banach A-module V."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.equivCompletedTensor",
+     "role": "compatibility",
+     "statement": "For complete Huber A-algebras B, C (adic structure maps): B ⊗̂_A C (Banach modules) ≅ Huber.CompletedTensor A B C (R0/completed-tensor-product) as topological A-modules."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.exact_of_split",
+     "role": "other",
+     "statement": "− ⊗̂_A W carries topologically split short exact sequences to split short exact sequences."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.injective_tensorProduct_of_field",
+     "role": "compatibility",
+     "statement": "Over a complete nonarchimedean field, V ⊗_L W → V ⊗̂_L W is injective (Kedlaya–Liu Lemma 2.2.9(a))."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.ker_map_of_field",
+     "role": "relation",
+     "statement": "Over a field, ker(f) ⊗̂ X ≅ ker(f ⊗̂ X), and f ⊗̂ X is strict when f is (Kedlaya–Liu Lemma 2.2.9(b), (c))."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.finiteProjectiveEquiv",
+     "role": "compatibility",
+     "statement": "For a finite projective A-module P with its natural topology, P ⊗_A W ≅ P ⊗̂_A W."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.orthonormalEquiv",
+     "role": "characterisation",
+     "statement": "If V has an orthonormal basis (e_i)_{i∈I} over L, E ⊗̂_L V ≅ c₀(I, E) isometrically, x ⊗ Σ c_i e_i ↦ (c_i x)_i."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.orthogonalEquiv",
+     "role": "characterisation",
+     "statement": "For a t-orthogonal basis (0 < t ≤ 1), E ⊗̂_L V ≅ c₀(I, E) topologically, with t·|·|_sup ≤ |·| ≤ |·|_sup."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.baseChange",
+     "role": "functoriality",
+     "statement": "For a continuous A → A' of complete Tate rings, the Banach A'-module A' ⊗̂_A V (e.g. M ⊗̂_A A⟨T/s⟩ for a rational localisation)."
+    },
+    {
+     "name": "Huber.BanachModule.CompletedTensor.cancelBaseChange",
+     "role": "equivalence",
+     "statement": "A'' ⊗̂_{A'} (A' ⊗̂_A V) ≅ A'' ⊗̂_A V for A → A' → A''."
+    }
+   ],
+   "prerequisites": [
+    "AdicSpacesPartII:R0/tate-ring-norm",
+    "AdicSpacesPartII:R0/completed-tensor-product",
+    "tauceti:TauCeti.Huber.IsTateRing",
+    "tauceti:TauCeti.Huber.PairOfDefinition",
+    "mathlib:TensorProduct",
+    "mathlib:TensorProduct.lift",
+    "mathlib:UniformSpace.Completion",
+    "mathlib:UniformSpace.Completion.extension",
+    "mathlib:NormedSpace",
+    "mathlib:IsUltrametricDist",
+    "mathlib:ZeroAtInftyContinuousMap",
+    "mathlib:Module.Projective",
+    "mathlib:IsModuleTopology"
+   ],
+   "library": {
+    "module": "TauCeti/RingTheory/Huber/CompletedTensor/Banach",
+    "namespace": "TauCeti.Huber"
+   },
+   "sources": [
+    {
+     "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+     "locator": "§2.1, Definition 2.1.10, p. 27",
+     "excerpt": "Let A, B, C be rings equipped with submultiplicative seminorms α, β, γ, and let A → B, A → C be bounded homomorphisms. The product seminorm on the ring B ⊗A C is definedPby taking f ∈ B ⊗A C to the infimum of maxi {β(bi )γ(ci )} over all presentations",
+     "match": "The product seminorm whose separated completion is the completed tensor product; the same formula on modules defines V ⊗̂_A W."
+    },
+    {
+     "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+     "locator": "§2.2, Definition 2.2.7, p. 31",
+     "excerpt": "A Banach module over R is an R-module M whose additive group is complete for a norm | · |M for which for some c > 0, we have |rv|M ≤ c|r||v|M for all r ∈ R, v ∈ M.",
+     "match": "The Banach modules the construction applies to."
+    },
+    {
+     "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+     "locator": "§2.2, Lemma 2.2.9(b), p. 31",
+     "excerpt": "Let f : V → W be a bounded homomorphism and let fX : V ⊗ bKX → W ⊗ b K X be the induced map. Then the natural map ker(f ) b ⊗K X → ker(fX ) is a bijection.",
+     "match": "Exactness property (d) over a field (with (a) injectivity and (c) strictness in the same lemma)."
+    },
+    {
+     "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+     "locator": "§2.2, proof of Lemma 2.2.9, p. 31",
+     "excerpt": "All three parts reduce immediately to the case where V, W, X contain dense K-vector subspaces of at most countable dimension (i.e., they are separable Banach modules). In this setting, (a) follows from the existence of Schauder bases for V and W",
+     "match": "The proof of (d) over a field through Schauder bases, as in (f)."
+    },
+    {
+     "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+     "locator": "§2.2, Lemma 2.2.12(a), p. 32",
+     "excerpt": "(a) The subspace norm on P for the inclusion into Rn is equivalent to the quotient norm for the projection from Rn , and gives P the structure of a finite Banach module over R.",
+     "match": "Finite projective modules as finite Banach modules, direct summands of Rⁿ, used in (e)."
+    },
+    {
+     "sourceId": "CHJ-OverconvergentPerfectoidShimuraCurves-2017",
+     "locator": "§2, Lemma 2.23(2), p. 19",
+     "excerpt": "(2) Let V be a Banach space over Qp (in particular V could be a reduced affinoid Qp -algebra topologically of finite type). Equip V with the trivial G-action. Then (A∞ ⊗ b Qp V )G = Ab⊗Qp V .",
+     "match": "The consumer statement (PerfectoidSpaces P9) proved with the orthonormal description (f)."
+    },
+    {
+     "sourceId": "CHJ-OverconvergentPerfectoidShimuraCurves-2017",
+     "locator": "§2, proof of Lemma 2.23, p. 20",
+     "excerpt": "The proof of (2) is similar, using an orthonormal basis instead of a pseudobasis.",
+     "match": "The orthonormal description of A ⊗̂ V, as opposed to the pseudobasis description of the mixed tensor product (bounded families)."
+    },
+    {
+     "sourceId": "HansenKedlaya-SheafinessCriteria",
+     "locator": "§7, Remark 7.8, p. 26",
+     "excerpt": "Then every separable Banach space over K admits a Schauder basis, i.e., it is isomorphic to a finite or countable product of copies of K topologized with the supremum norm [14, Proposition 2.7.2/3].",
+     "match": "Existence of bases for separable Banach spaces, which (f) takes as a hypothesis (the cited Bosch–Güntzer–Remmert result is not public)."
+    },
+    {
+     "sourceId": "ScholzeWeinstein-Berkeley-2020",
+     "locator": "Lecture 4, Proposition 4.3.4, p. 34",
+     "excerpt": "That is, if A is an analytic Huber ring, and M and N are complete Banach A-modules, then any continuous surjective map M → N is also open.",
+     "match": "The open mapping theorem that makes the topology of a Banach module over a Tate ring intrinsic."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "importsFromTauCetiRoadmaps": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
+   ]
+  },
+  {
    "id": "AdicSpacesPartII:R0/separated-morphism",
    "parentStageId": "AdicSpacesPartII:R0",
    "realises": [
@@ -9509,7 +9847,7 @@
     {
      "name": "AdicSpace.IsSeparated.baseChange",
      "role": "functoriality",
-     "statement": "Separatedness is stable under base change along adic morphisms (the statement is part of R0/base-change-stability)."
+     "statement": "Separatedness is stable under base change along adic morphisms (R0/proper-base-change)."
     },
     {
      "name": "AdicSpace.IsSeparated.of_isOpenImmersion",
@@ -9800,7 +10138,7 @@
     {
      "name": "AdicSpace.IsProper.baseChange",
      "role": "functoriality",
-     "statement": "Proper morphisms are stable under base change along adic morphisms (part of R0/base-change-stability)."
+     "statement": "Proper morphisms are stable under base change along adic morphisms (R0/proper-base-change)."
     },
     {
      "name": "AdicSpace.IsProper.iff_isPartiallyProper_and_quasiCompact",
@@ -11375,7 +11713,7 @@
     {
      "name": "AdicSpace.IsFinite.baseChange",
      "role": "functoriality",
-     "statement": "Finite morphisms are stable under base change, with affinoid formula (B ⊗_A C, integral closure) (part of R0/base-change-stability; Huber 1.4.5(i))."
+     "statement": "Finite morphisms are stable under base change, with affinoid formula (B ⊗_A C, integral closure) where B ⊗_A C is complete (R0/finite-algebra-tensor-complete (ii) with R0/affinoid-fibre-product; Huber 1.4.5(i))."
     },
     {
      "name": "AdicSpace.IsFinite.of_isClosedImmersion",
@@ -12474,7 +12812,7 @@
    ],
    "title": "Module of continuous differentials of a topologically finite type map",
    "kind": "construction",
-   "statement": "Let φ: A → B be a continuous homomorphism of complete Huber rings (complete Hausdorff f-adic rings) which is topologically of finite type (tauceti TauCeti.Huber.IsTopologicallyFiniteType). Let m: B ⊗̂_A B → B be the continuous extension of b ⊗ b' ↦ bb' to the completed tensor product (R0/completed-tensor-product) and I = ker m. The module of continuous differentials is Ωᶜ_{B/A} := I/I², a B-module via (B ⊗̂_A B)/I ≅ B, with the natural B-module topology, and d = d_{B/A}: B → Ωᶜ_{B/A}, d(b) = class of 1 ⊗ b − b ⊗ 1 (Huber 1996, (1.6.2)). Properties: (a) for every finite N ⊆ B with A[N] dense in B, I is generated by the 1 ⊗ n − n ⊗ 1 (n ∈ N); hence Ωᶜ_{B/A} is a finitely generated B-module generated by d(N). (b) d is a continuous A-derivation and is universal: for every complete Hausdorff topological B-module M and every continuous A-derivation D: B → M there is a unique continuous B-linear u: Ωᶜ_{B/A} → M with u ∘ d = D. (c) If A⟨X₁,…,Xₙ⟩_M → B is a quotient mapping with kernel 𝔞, then Ωᶜ_{B/A} ≅ (⊕ᵢ B dXᵢ)/(B-span of Σᵢ (∂P/∂Xᵢ) dXᵢ, P ∈ 𝔞), where ∂/∂Xᵢ are the termwise partial derivatives (which preserve A⟨X⟩_M); in particular Ωᶜ_{A⟨X⟩_M/A} is free with basis dX₁,…,dXₙ. (d) If B is a finite A-module, the canonical B-linear map Ω[B⁄A] → Ωᶜ_{B/A} from Mathlib's KaehlerDifferential (induced by d) is an isomorphism. Convention: when B is noetherian (B strongly noetherian Tate, or with a noetherian ring of definition) Ωᶜ_{B/A} is complete and Hausdorff; no Hausdorffness is asserted in general. The sheaf Ω_{X/Y} on an adic space is glued from these modules by the localisation compatibility (API) and belongs to the coherent-sheaf layer AdicSpacesPartII:R3 (see requests).",
+   "statement": "Let φ: A → B be a continuous homomorphism of complete Huber rings (complete Hausdorff f-adic rings) which is topologically of finite type (tauceti TauCeti.Huber.IsTopologicallyFiniteType). Let m: B ⊗̂_A B → B be the continuous extension of b ⊗ b' ↦ bb' to the completed tensor product (R0/completed-tensor-product) and I = ker m. The module of continuous differentials is Ωᶜ_{B/A} := I/I², a B-module via (B ⊗̂_A B)/I ≅ B, with the natural B-module topology, and d = d_{B/A}: B → Ωᶜ_{B/A}, d(b) = class of 1 ⊗ b − b ⊗ 1 (Huber 1996, (1.6.2)). Properties: (a) for every finite N ⊆ B with A[N] dense in B, I is generated by the 1 ⊗ n − n ⊗ 1 (n ∈ N); hence Ωᶜ_{B/A} is a finitely generated B-module generated by d(N). (b) d is a continuous A-derivation and is universal: for every complete Hausdorff topological B-module M and every continuous A-derivation D: B → M there is a unique continuous B-linear u: Ωᶜ_{B/A} → M with u ∘ d = D. (c) If A⟨X₁,…,Xₙ⟩_M → B is a quotient mapping with kernel 𝔞, then Ωᶜ_{B/A} ≅ (⊕ᵢ B dXᵢ)/(B-span of Σᵢ (∂P/∂Xᵢ) dXᵢ, P ∈ 𝔞), where ∂/∂Xᵢ are the termwise partial derivatives (which preserve A⟨X⟩_M); in particular Ωᶜ_{A⟨X⟩_M/A} is free with basis dX₁,…,dXₙ. (d) If B is a finite A-module, the canonical B-linear map Ω[B⁄A] → Ωᶜ_{B/A} from Mathlib's KaehlerDifferential (induced by d) is an isomorphism. Convention: when B is noetherian (B strongly noetherian Tate, or with a noetherian ring of definition) Ωᶜ_{B/A} is complete and Hausdorff; no Hausdorffness is asserted in general. The coherent sheaf Ω¹_{X/Y} on a locally noetherian analytic adic space is glued from these modules by the localisation compatibility (API localizationEquiv); it is AdicSpacesPartII:R3/sheaf-of-continuous-differentials.",
    "hypotheses": [
     "A → B continuous, topologically of finite type, between complete Huber rings",
     "M ranges over complete Hausdorff topological B-modules in the universal property"
@@ -12512,7 +12850,7 @@
      "how": "comparison Ω_{X^ad/K} ≅ (Ω_{X/K})^ad for X locally of finite type over K"
     },
     {
-     "where": "AdicSpacesPartII:R3 (coherent sheaves) and AdicSpacesPartII:R4/smooth-pair",
+     "where": "AdicSpacesPartII:R3/sheaf-of-continuous-differentials and AdicSpacesPartII:R4/smooth-pair",
      "how": "the coherent sheaf Ω¹_{X/Y} and logarithmic differentials of smooth pairs are built from these modules"
     },
     {
@@ -12625,7 +12963,7 @@
     {
      "name": "Huber.ContinuousKaehlerDifferential.localizationEquiv",
      "role": "compatibility",
-     "statement": "For a rational localisation B → B⟨T/s⟩: Ωᶜ[B⟨T/s⟩⁄A] ≅ B⟨T/s⟩ ⊗_B Ωᶜ[B⁄A] (Huber 1.6.3); this is the gluing datum for the sheaf Ω_{X/Y}."
+     "statement": "For a rational localisation B → B⟨T/s⟩: Ωᶜ[B⟨T/s⟩⁄A] ≅ B⟨T/s⟩ ⊗_B Ωᶜ[B⁄A] (Huber 1.6.3); this is the gluing datum for the sheaf Ω¹_{X/Y} (AdicSpacesPartII:R3/sheaf-of-continuous-differentials)."
     }
    ],
    "prerequisites": [
@@ -13038,6 +13376,10 @@
     {
      "where": "AdicSpacesPartII:R3/finite-etale-trace-pairing",
      "how": "ramification (failure of unramifiedness) is what makes the geometric-point count differ from the trace"
+    },
+    {
+     "where": "AdicSpacesPartII:R0/smooth-etale-base-change",
+     "how": "stability under base change along any morphism for which the fibre product exists (API baseChange)"
     }
    ],
    "tests": [
@@ -13086,7 +13428,7 @@
     {
      "name": "AdicSpace.Unramified.baseChange",
      "role": "functoriality",
-     "statement": "Stable under base change (part of R0/base-change-stability)."
+     "statement": "Stable under base change along any morphism for which the fibre product exists (R0/smooth-etale-base-change)."
     },
     {
      "name": "AdicSpace.Unramified.of_isImmersion",
@@ -13190,6 +13532,10 @@
     {
      "where": "AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
      "how": "A2 imports smoothness from R0"
+    },
+    {
+     "where": "AdicSpacesPartII:R0/smooth-etale-base-change",
+     "how": "stability under base change along any morphism for which the fibre product exists (API baseChange)"
     }
    ],
    "tests": [
@@ -13238,7 +13584,7 @@
     {
      "name": "AdicSpace.Smooth.baseChange",
      "role": "functoriality",
-     "statement": "Stable under base change (part of R0/base-change-stability)."
+     "statement": "Stable under base change along any morphism for which the fibre product exists, preserving the relative dimension (R0/smooth-etale-base-change)."
     },
     {
      "name": "AdicSpace.Smooth.restrictedPowerSeries",
@@ -13364,6 +13710,10 @@
     {
      "where": "Kedlaya–Liu, Definition 8.2.16 and Lemma 8.2.17",
      "how": "their ad hoc étale morphisms and FÉt(A) ≃ finite étale spaces over Spa(A, A⁺) (R0/finite-etale-algebra-comparison)"
+    },
+    {
+     "where": "AdicSpacesPartII:R0/smooth-etale-base-change",
+     "how": "stability under base change along any morphism for which the fibre product exists (API baseChange)"
     }
    ],
    "tests": [
@@ -13417,7 +13767,7 @@
     {
      "name": "AdicSpace.Etale.baseChange",
      "role": "functoriality",
-     "statement": "Stable under base change (part of R0/base-change-stability)."
+     "statement": "Stable under base change along any morphism for which the fibre product exists (R0/smooth-etale-base-change)."
     },
     {
      "name": "AdicSpace.Etale.of_comp",
@@ -13823,6 +14173,143 @@
    "importsFromTauCetiRoadmaps": [
     "tauceti:TauCetiRoadmap/AdicSpaces#layer-2-affinoid-spectra-and-rational-subsets",
     "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf"
+   ]
+  },
+  {
+   "id": "AdicSpacesPartII:R0/smooth-etale-base-change",
+   "parentStageId": "AdicSpacesPartII:R0",
+   "realises": [
+    "AdicSpacesPartII:R0"
+   ],
+   "title": "Base change of unramified, smooth and étale morphisms",
+   "kind": "lemma",
+   "statement": "Let f: X → S and g: Y → S be morphisms of adic spaces such that the fibre product exists by R0/fibre-products-existence, case (a): Y is covered by open affinoids Spa(B, B⁺) with B complete and stably sheafy (for instance Y locally noetherian) and f is locally of finite type; g is arbitrary (not necessarily adic). Let Z = X ×_S Y with projections p: Z → X and q: Z → Y. If f is unramified (R0/unramified-morphism), resp. smooth (R0/smooth-morphism), resp. étale (R0/differentials-unramified-smooth-etale), then q is unramified, resp. smooth, resp. étale. If f is smooth of relative dimension n at p(z), then q is smooth of relative dimension n at z; affinoid-locally Ωᶜ_{Z/Y} ≅ O_Z ⊗ Ωᶜ_{X/S} (R0/continuous-differentials). Every unramified, smooth or étale morphism is locally of finite type, so the fibre product exists for every such g. The lifting conditions are Huber's (Definition 1.6.5) with the test objects of R0: Spa T for complete Huber pairs (T, T⁺), not necessarily sheafy, and closed ideals I ⊆ T with I² = 0. Flatness is not part of this lemma: base change of flat morphisms is stated only for locally quasi-finite ones (R0/flat-morphism, Huber 1996 1.6.4(ii)), and étale morphisms of analytic adic spaces are flat by R0/etale-flat-unramified.",
+   "hypotheses": [
+    "f: X → S locally of finite type and unramified, smooth or étale; g: Y → S any morphism of adic spaces with Y covered by open affinoids with complete stably sheafy coordinate rings (the hypotheses of R0/fibre-products-existence, case (a))."
+   ],
+   "proofSteps": [
+    "Finiteness conditions: q is locally of finite type if f is and locally of finite presentation if f is (R0/base-change-stability (i), (iv)).",
+    "Morphisms from test objects into affinoids: for complete Huber pairs (T, T⁺) and (D, D⁺), morphisms of pre-adic spaces Spa T → Spa D correspond bijectively to continuous ring homomorphisms D → T carrying D⁺ into T⁺ (Huber 1994 Proposition 2.1(i); Wedhorn Proposition 8.19 for the category of pre-adic spaces, so T need not be sheafy). T/I is again a complete Huber pair because I is closed (tauceti TauCeti.Huber.Pair.quotient), and Spa(T/I) → Spa T is a homeomorphism.",
+    "Chart case, universal property against test objects: let S = Spa A, X = Spa C with A → C topologically of finite type, Y = Spa B, and Z = X ×_S Y. Claim: for every complete Huber pair T the map Hom(Spa T, Z) → Hom(Spa T, X) ×_{Hom(Spa T, S)} Hom(Spa T, Y) is bijective. If A → B is adic, Z = Spa(C ⊗̂_A B) (R0/affinoid-fibre-product, R0/fibre-product-along-finite-type (4)) and the claim is the previous step together with the universal property of C ⊗̂_A B among complete Huber pairs (R0/completed-tensor-product-universal-property), which uses no sheafiness of T. In general Z is the increasing union of the affinoid opens W_m = Spa(B⟨X⟩_{M_{L,m}}/J_m) (R0/fibre-product-along-finite-type); Spa T is quasi-compact, so a morphism Spa T → Z lands in some W_m and factors uniquely through it, and a compatible pair (C → T, B → T) factors through W_m as soon as ℓ·tᵢ ∈ T⁺ for ℓ ∈ Lᵐ, tᵢ the image of Xᵢ (universal property of restricted power series, Huber 1994 Lemma 3.5(i)), which holds for m large because the images of the finitely many elements of L are topologically nilpotent.",
+    "Lifting in the chart case, using the claim for T and for T/I. Unramified: two Y-morphisms u₁, u₂: Spa T → Z restricting to the same ū on Spa(T/I) satisfy q∘u₁ = q∘u₂, and p∘u₁, p∘u₂ are S-morphisms restricting to p∘ū, so p∘u₁ = p∘u₂ because f is unramified; by injectivity in the claim u₁ = u₂. Smooth: given k: Spa T → Y and a Y-morphism ū: Spa(T/I) → Z, smoothness of f (test morphism g∘k: Spa T → S) extends p∘ū to h: Spa T → X with f∘h = g∘k; by surjectivity in the claim (h, k) comes from some u: Spa T → Z, and u restricts to ū because both have the same composites with p and q (injectivity for T/I). Étale: both.",
+    "Restriction to open subspaces: if f is unramified (smooth, étale) and U ⊆ X, V ⊆ S are open with f(U) ⊆ V, then f|_U: U → V is unramified (smooth, étale): a morphism from Spa T to X whose underlying map lands in U factors uniquely through the open subspace U (anchor Layer 5), and a lift of a morphism Spa(T/I) → U lands in U because Spa(T/I) → Spa T is a homeomorphism.",
+    "General case: Z is covered by the open subspaces Z_{ijk} = X_j ×_{S_i} Y_k, for affinoid opens S_i ⊆ S, X_j ⊆ f⁻¹(S_i) with O_S(S_i) → O_X(X_j) topologically of finite type, and Y_k ⊆ g⁻¹(S_i) (R0/fibre-products-existence). By the two previous steps Z_{ijk} → Y_k is unramified (smooth, étale), and so is Z_{ijk} → Y, a composite with the open embedding Y_k ⊆ Y (R0/open-embedding-etale, R0/etale-smooth-composition). Hence q is unramified (smooth, étale) by locality on the source (R0/etale-smooth-locality). This step inherits the gap recorded for locality on the source: for a test object Spa T with T not sheafy, morphisms Spa T → Z are not determined by their restrictions to a rational covering of Spa T, and for smooth morphisms local lifts must also be glued.",
+    "Relative dimension: in the chart case Ωᶜ of the coordinate ring of Z over B is that ring tensored over C with Ωᶜ_{C/A}: for adic A → B by the base-change isomorphism of R0/continuous-differentials (API baseChangeEquiv), and for the W_m because B⟨X⟩_{M_{L,m}}/J_m has the presentation of C with the same generators dXᵢ and relations dP, P in the kernel of A⟨X⟩_M → C (R0/continuous-differentials (c)). So the local rank of Ωᶜ, which is the relative dimension (R0/smooth-differentials-locally-free), is preserved."
+   ],
+   "acceptance": [
+    "For a complete extension L/K of nonarchimedean fields, the base change of the étale Kummer map on the unit annulus Spa(K⟨T^{±1}⟩) → Spa(K⟨S^{±1}⟩), S ↦ Tⁿ (n ∈ K^×), along Spa(L, L°) → Spa(K, K°) is the Kummer map on the unit annulus over L, again étale.",
+    "The relative polydisc Spa A⟨X₁,…,Xₙ⟩ → Spa A pulled back along an adic Spa B → Spa A is Spa B⟨X₁,…,Xₙ⟩ → Spa B, smooth of relative dimension n (R0/restricted-power-series-smooth).",
+    "Non-adic g: the open embedding Spa(ℚ_p, ℤ_p) → Spa(ℤ_p, ℤ_p), which is étale, pulled back along Spa(ℤ_p⟦T⟧, ℤ_p⟦T⟧) → Spa(ℤ_p, ℤ_p) is the open embedding of the open unit disc over ℚ_p (the analytic locus of Spa ℤ_p⟦T⟧), étale and not quasi-compact (R0/base-change-stability)."
+   ],
+   "uses": [
+    {
+     "where": "AdicSpacesPartII:R0/unramified-morphism, R0/smooth-morphism, R0/differentials-unramified-smooth-etale",
+     "how": "their API items AdicSpace.Unramified.baseChange, AdicSpace.Smooth.baseChange and AdicSpace.Etale.baseChange are this lemma"
+    },
+    {
+     "where": "AdicSpacesPartII:R4/etale-site-on-analytic-carriers and AdicSpacesPartII:R4/etale-site-functoriality",
+     "how": "fibre products in Et/X and the base-change functor f*: Et/Y → Et/X, V ↦ V ×_Y X, stay étale"
+    },
+    {
+     "where": "AdicSpacesPartII:R4/geometric-points-pullback",
+     "how": "a covering pulled back to a geometric point Spa(C, C⁺) is an étale covering of Spa(C, C⁺)"
+    },
+    {
+     "where": "AdicSpacesPartII:R0/etale-affinoid-finite-etale-embedding",
+     "how": "the projection Y ×_X V → V of an étale Y → X is étale"
+    },
+    {
+     "where": "AdicSpacesPartII:R3/sheaf-of-continuous-differentials",
+     "how": "base change of Ω¹_{X/Y} along the cartesian square of a smooth morphism"
+    },
+    {
+     "where": "AdicEtaleGeometry:A2 (request to R0: base change of unramified, smooth and étale morphisms, Huber 1996 (1.6.7)) and AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth",
+     "how": "smooth charts and étale maps pulled back along arbitrary morphisms"
+    }
+   ],
+   "tests": [],
+   "api": [],
+   "prerequisites": [
+    "AdicSpacesPartII:R0/unramified-morphism",
+    "AdicSpacesPartII:R0/smooth-morphism",
+    "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
+    "AdicSpacesPartII:R0/base-change-stability",
+    "AdicSpacesPartII:R0/fibre-products-existence",
+    "AdicSpacesPartII:R0/affinoid-fibre-product",
+    "AdicSpacesPartII:R0/fibre-product-along-finite-type",
+    "AdicSpacesPartII:R0/completed-tensor-product-universal-property",
+    "AdicSpacesPartII:R0/open-embedding-etale",
+    "AdicSpacesPartII:R0/etale-smooth-composition",
+    "AdicSpacesPartII:R0/etale-smooth-locality",
+    "AdicSpacesPartII:R0/continuous-differentials",
+    "AdicSpacesPartII:R0/smooth-differentials-locally-free",
+    "tauceti:TauCeti.Huber.Pair.quotient",
+    "tauceti:TauCeti.Huber.restrictedMvPowerSeriesCompletion"
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/AdicSpace/Morphisms/Etale",
+    "namespace": "TauCeti.AdicSpace"
+   },
+   "sources": [
+    {
+     "sourceId": "Huber-EtaleCohomology-1996",
+     "locator": "§1.6, Definition 1.6.5, p. 78",
+     "excerpt": "for any affinoid ring A, any ideal I of A^▷ with I^2 = {0} and any morphism Spa A -> Y, the mapping Hom_Y(Spa A, X) -> Hom_Y(Spa A/I, X) is injective (resp. surjective, resp. bijective).",
+     "match": "The lifting conditions whose stability under base change is asserted; test objects as in R0's convention."
+    },
+    {
+     "sourceId": "Huber-EtaleCohomology-1996",
+     "locator": "§1.6, before Proposition 1.6.7, p. 79",
+     "excerpt": "The following propositions (1.6.7), (1.6.8) and (1.6.9) can be proved similarly as for schemes (cf. [EGA], [I]).",
+     "match": "Huber states the permanence properties of §1.6 without proof; the text of Proposition 1.6.7 is not among the reviewed excerpts, so the statement is sourced publicly below and the proof steps are the scheme argument carried out for adic spaces."
+    },
+    {
+     "sourceId": "KedlayaLiu-RelativeFoundations-2015",
+     "locator": "§8.2, Definition 8.2.16 and Lemma 8.2.17(c), p. 162",
+     "excerpt": "(c) The properties introduced in Definition 8.2.16 are stable under compositions and fibred products.",
+     "match": "Étale morphisms (Kedlaya–Liu's definition: locally an open immersion followed by a finite étale morphism followed by an open immersion) are stable under fibre products; for locally noetherian analytic adic spaces this is Huber's étale by R0/etale-local-open-finite-etale-factorisation."
+    },
+    {
+     "sourceId": "DiaoLanLiuZhu-LogAdicFoundations",
+     "locator": "§3.3, Remark 3.3.12(1), p. 37",
+     "excerpt": "Formally log smooth (resp. formally log unramiﬁed, resp. formally log ´ etale) morphisms are stable under compositions and base changes (when d eﬁned).",
+     "match": "The infinitesimal lifting conditions (for trivial log structures, Huber's unramified, smooth and étale, whose basic properties the paper takes from Huber 1996 §§1.6-1.7) are stable under base change whenever the fibre product is defined."
+    },
+    {
+     "sourceId": "Huber-GeneralizationFormalRigid-1994",
+     "locator": "§2, Proposition 2.1(i), printed p. 522",
+     "excerpt": "Then every continuous ring homomorphism A —> В induces in a canonical way a morphism of adic spaces X —^ Y. Thus we have a mapping from the set of continuous ring homomorphisms A —^ В to the set of morphisms of adic spaces SpaB -^ SpaA. If В is complete then this mapping is bijective.",
+     "match": "Morphisms from Spa of a complete pair into an affinoid are continuous ring homomorphisms (step 2)."
+    },
+    {
+     "sourceId": "Wedhorn-AdicSpaces-2019",
+     "locator": "§8.1, Proposition 8.19, p. 79",
+     "excerpt": "Let A and B affinoid rings. If B is complete, the map Hom(Affd) (A, B) → HomV pre (Spa B, Spa A)",
+     "match": "The same bijection in the category of pre-adic spaces, where Spa B need not be sheafy: this covers Huber's test objects."
+    },
+    {
+     "sourceId": "Stacks-Project",
+     "locator": "Tag 02GO (Lemma 29.37.4)",
+     "excerpt": "The base change of a morphism which is étale is étale.",
+     "match": "The scheme model of the étale case."
+    },
+    {
+     "sourceId": "Stacks-Project",
+     "locator": "Tag 01VB (Lemma 29.35.5)",
+     "excerpt": "The base change of a morphism which is smooth is smooth.",
+     "match": "The scheme model of the smooth case."
+    },
+    {
+     "sourceId": "Stacks-Project",
+     "locator": "Tag 02GA (Lemma 29.36.5)",
+     "excerpt": "The base change of a morphism which is unramified is unramified.",
+     "match": "The scheme model of the unramified case."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "importsFromTauCetiRoadmaps": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-3-rational-localisation-and-the-structure-presheaf",
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry"
    ]
   },
   {
@@ -14555,7 +15042,7 @@
     "Reduction (proof of dJvdP 3.1.4): every point of X is a specialisation of a rank-one point (anchor Layer 2), and rational subsets containing the closure of a point contain its specialisations; by compactness of M(X) finitely many wide neighbourhoods cover X, so (ii) follows from (i).",
     "Fibre: f is unramified, so its fibres are finite (R0/unramified-locally-quasi-finite); by dJvdP Lemma 3.1.6 a wide neighbourhood of a splits f⁻¹ according to the points b over a, and it suffices to treat one b, whose completed residue field F_b is finite separable over F_a (dJvdP Observation 3.1.3).",
     "Finite étale cover: by dJvdP Lemma 2.1.1 and Remark 2.1.2 (henselian local rings at analytic points) there are a wide neighbourhood U of a and a finite étale V = Spa(C, C°) → U with one point v over a and F_v ≅ F_b (R0/finite-algebra-over-affinoid, R0/finite-etale-algebra-comparison).",
-    "Open embedding: the projection Y ×_X V → V is étale (Y ×_X V = Spa(B ⊗_A C), R0/finite-algebra-tensor-complete, R0/affinoid-fibre-product) with a point c over (b, v) such that F_c = F_v; by dJvdP Lemma 3.1.5 a wide neighbourhood of c maps isomorphically onto an open affinoid subdomain of V, and the other projection is finite étale onto f⁻¹(U). Shrinking U (Lemma 3.1.6) identifies f⁻¹(U) with an open subspace of V: this is h, with Z = V.",
+    "Open embedding: the projection Y ×_X V → V is étale (base change, R0/smooth-etale-base-change; Y ×_X V = Spa(B ⊗_A C), R0/finite-algebra-tensor-complete, R0/affinoid-fibre-product) with a point c over (b, v) such that F_c = F_v; by dJvdP Lemma 3.1.5 a wide neighbourhood of c maps isomorphically onto an open affinoid subdomain of V, and the other projection is finite étale onto f⁻¹(U). Shrinking U (Lemma 3.1.6) identifies f⁻¹(U) with an open subspace of V: this is h, with Z = V.",
     "Rational refinements: every quasi-compact open subset of an affinoid adic space is a finite union of rational subsets, and a rational subset of a rational subset is rational (anchor Layer 2); a rational subset of Z contained in the affinoid h(f⁻¹(U)) is rational there, hence in Y."
    ],
    "acceptance": [
@@ -14588,7 +15075,8 @@
     "AdicSpacesPartII:R0/finite-etale-algebra-comparison",
     "AdicSpacesPartII:R0/finite-algebra-tensor-complete",
     "AdicSpacesPartII:R0/affinoid-fibre-product",
-    "AdicSpacesPartII:R0/finite-morphism"
+    "AdicSpacesPartII:R0/finite-morphism",
+    "AdicSpacesPartII:R0/smooth-etale-base-change"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Morphisms/Etale",
@@ -27102,7 +27590,7 @@
     "Uniqueness: by (i) and (ii), each of two ideals of coefficients factors through the other's closed subscheme, so they coincide.",
     "Base change: (i) and (ii) for 𝒥O_{Z'} over T' follow from those for 𝒥 by composing base changes (fibre products of formal schemes, node F0/formal-fibre-product).",
     "Set-theoretic description: apply (i) and (ii) to the points Spec k(t) → T_0 → T.",
-    "Remark 2.2, for h faithfully flat (the case in which ideals of coefficients are constructed): by (i), Z ×_T V(𝒞) lies in V(𝒥) ⊆ V(ϖ^N O_Z), so ϖ^N ∈ 𝒞O_Z, and 𝒞O_Z ∩ O_T = 𝒞 by faithful flatness, whence ϖ^N ∈ 𝒞. Without surjectivity the remark fails (sourceIssues AdicSpacesPartII/E-R2-BL2-2).",
+    "Remark 2.2, for h faithfully flat (the case in which ideals of coefficients are constructed): by (i), Z ×_T V(𝒞) lies in V(𝒥) ⊆ V(ϖ^N O_Z), so ϖ^N ∈ 𝒞O_Z, and 𝒞O_Z ∩ O_T = 𝒞 by faithful flatness, whence ϖ^N ∈ 𝒞. Without surjectivity the remark fails (sourceIssues AdicSpacesPartII/E19).",
     "Affine formula: b ⊆ Bc means every f_j lies in the closure of Bc, i.e. all coordinates a_{ij} lie in c when c is finitely generated (closed, node flat-tft-is-tfp (b)); conversely b ⊆ Ba since each f_j = Σ a_{ij}e_i converges in the closed ideal Ba (a finitely generated)."
    ],
    "acceptance": [
@@ -29400,7 +29888,7 @@
    ],
    "proofSteps": [
     "Let t be a generic point of T_0 ∖ U_0 (T_0 is a noetherian space, node admissible-formal-scheme) and x ∈ X_0 a generic point of an m-dimensional component of the non-flat locus of ℳ̄(1) above t; there are finitely many such x (X quasi-compact). It suffices to find T(2) → T(1), with centre outside U_0(1), making the strict transform flat at all points above x: repeating for the finitely many x (composites of admissible blow-ups, node admissible-blow-up) makes it flat in dimension ≥ m above t, and upper semicontinuity of fibre dimension then yields W_0 ∋ t.",
-    "It suffices to work locally around t: blow-ups of open neighbourhoods extend to T (node admissible-blow-up, extension; Bosch–Lütkebohmert cite [FI, 2.5], see sourceIssues AdicSpacesPartII/E-R2-BL2-1).",
+    "It suffices to work locally around t: blow-ups of open neighbourhoods extend to T (node admissible-blow-up, extension; Bosch–Lütkebohmert cite [FI, 2.5], see sourceIssues AdicSpacesPartII/E18).",
     "Reduction to a dévissage over T: node formal-devissage-existence gives elementary étale affine neighbourhoods (X', x') → (X, x), (T', t') → (T, t) and a dévissage of ℳ' at x' in dimensions n¹ > … > n^r = m. A blow-up of T(1)' = T(1) ×_T T' with centre outside U(1)'_0 near t' is induced by one of T(1): after shrinking, the closure of t' maps isomorphically onto an open of the closure of t, and étale maps inducing isomorphisms on reductions are isomorphisms on thickenings (node formal-etale-site-invariance), so the centre is a subscheme of T(1); rig-flatness pulls back and flatness of strict transforms descends along the étale T' → T (nodes rig-flat-in-dimension, flat-in-dimension).",
     "By node devissage-injectivity-and-rig-flatness, after shrinking, α^i is T-universally injective for i ≤ r − 1, hence an isomorphism at ζ^i (surjective by Nakayama); base change to T(1) gives a T(1)-dévissage of ℳ(1) at every point above x with the α^i (i ≤ r − 1) still injective.",
     "Let 𝒩̄^i, 𝒫̄^i, ℳ̄^i be the strict transforms along T(1) → T. By node devissage-torsion-lemma, (D̄¹, …, D̄^{r−1}) is a T(1)-dévissage in dimensions ≥ m + 1; 𝒩̄^r := g^r_*𝒫̄^{r−1} on Z^r is T(1)-flat in dimension ≥ m over U_0 (node devissage-flatness-criterion) and rig-flat in dimension ≥ n (node devissage-injectivity-and-rig-flatness), and Z^r → T is smooth with geometrically irreducible fibres of dimension m.",
@@ -34085,6 +34573,253 @@
    ]
   },
   {
+   "id": "AdicSpacesPartII:R3/sheaf-of-continuous-differentials",
+   "parentStageId": "AdicSpacesPartII:R3",
+   "realises": [
+    "AdicSpacesPartII:R3"
+   ],
+   "title": "The coherent sheaf of continuous differentials Ω¹_{X/Y} and its exterior powers",
+   "kind": "construction",
+   "statement": "Let f: X → Y be a morphism locally of finite type (anchor Layer 5.2) between locally noetherian analytic adic spaces (AdicSpacesPartII:R0/locally-noetherian-adic-space). There is a coherent O_X-module Ω¹_{X/Y} (AdicSpacesPartII:R3/coherent-sheaf) with an f⁻¹O_Y-linear derivation d = d_{X/Y}: O_X → Ω¹_{X/Y}, characterised as follows. For every pair of affinoid opens U = Spa(B, B⁺) ⊆ X and V = Spa(A, A⁺) ⊆ Y with f(U) ⊆ V and A → B topologically of finite type (such U cover X), Ω¹_{X/Y}|_U ≅ (Ωᶜ_{B/A})~ (AdicSpacesPartII:R3/associated-module-sheaf), with d = d_{B/A} on sections over U (AdicSpacesPartII:R0/continuous-differentials). The identifications on a rational U' = Spa(B⟨T/s⟩) ⊆ U are the localisation isomorphisms Ωᶜ_{B⟨T/s⟩/A} ≅ B⟨T/s⟩ ⊗_B Ωᶜ_{B/A}. Shrinking V to a rational V' ⊇ f(U), A' = A⟨T'/s'⟩, does not change Ωᶜ_{B/A} = Ωᶜ_{B/A'}. Properties: (a) universal property: for every coherent O_X-module F, Hom_{O_X}(Ω¹_{X/Y}, F) is the set of f⁻¹O_Y-linear derivations D: O_X → F that are continuous on sections over affinoid opens, via u ↦ u ∘ d; (b) exact sequences: for X → Y → Z (both locally of finite type) the sequence f*Ω¹_{Y/Z} → Ω¹_{X/Z} → Ω¹_{X/Y} → 0 is exact, and for a closed embedding i: X → P over Y with coherent ideal 𝓘 (AdicSpacesPartII:R3/coherent-ideal-closed-subspace), 𝓘/𝓘² → i*Ω¹_{P/Y} → Ω¹_{X/Y} → 0 is exact; (c) f is unramified iff Ω¹_{X/Y} = 0; if f is smooth of relative dimension n at x, Ω¹_{X/Y} is a vector bundle of rank n near x (AdicSpacesPartII:R3/locally-free-sheaf), and for X → Y → Z with f smooth the sequence of (b) is left exact and locally split; if f is étale, f*Ω¹_{Y/Z} ≅ Ω¹_{X/Z}, in particular u*Ω¹_{X/Y} ≅ Ω¹_{U/Y} for every étale u: U → X, which makes U ↦ Ω¹_{U/Y}(U) a sheaf on the small étale site of X; (d) base change: for a cartesian square X' = X ×_Y Y' (AdicSpacesPartII:R0/fibre-products-existence) with projection p: X' → X, p*Ω¹_{X/Y} ≅ Ω¹_{X'/Y'} compatibly with d; (e) analytification: for a morphism h of schemes locally of finite type over a complete nonarchimedean field K, Ω¹_{X^ad/Y^ad} ≅ (Ω¹_{X/Y})^ad compatibly with d (AdicSpacesPartII:R1/analytic-kahler-differentials); (f) exterior powers: Ωⁱ_{X/Y} := ⋀ⁱ_{O_X} Ω¹_{X/Y}, the sheaf associated with U ↦ ⋀ⁱ_{O(U)} Ω¹_{X/Y}(U), is coherent, with sections (⋀ⁱ_B Ωᶜ_{B/A})~ over U as above; for f smooth of relative dimension n it is a vector bundle of rank C(n, i); d extends uniquely to f⁻¹O_Y-linear maps d: Ωⁱ_{X/Y} → Ωⁱ⁺¹_{X/Y} with d ∘ d = 0 and d(ω ∧ η) = dω ∧ η + (−1)ⁱ ω ∧ dη, the relative de Rham complex Ω•_{X/Y}. Conventions: this is the coherent sheaf of the continuous differentials of R0 (Huber 1996 (1.6.2)); Mathlib's algebraic KaehlerDifferential of the rings O_X(U) is not the object (it is not finitely generated). The Kähler differentials of rigid and dagger spaces (Grosse-Klönne) and the log differentials of Diao–Lan–Liu–Zhu with trivial log structures are the same sheaf. The sheaf on the étale site in (c) and the pro-étale sheaves built from it are AdicEtaleGeometry A2's and PadicHodgeTheory's.",
+   "hypotheses": [
+    "f: X → Y locally of finite type; X, Y locally noetherian analytic adic spaces (every point has an affinoid neighbourhood with a strongly noetherian complete Tate ring)",
+    "For (b): the second morphism locally of finite type; for (c): f unramified, smooth or étale as in R0; for (d): the hypotheses of R0/fibre-products-existence, case (a)"
+   ],
+   "proofSteps": [
+    "Local pieces: for U, V as in the statement, Ωᶜ_{B/A} is a finite B-module (AdicSpacesPartII:R0/continuous-differentials (a)), and B is strongly noetherian Tate, so (Ωᶜ_{B/A})~ is a coherent sheaf on U (AdicSpacesPartII:R3/associated-module-sheaf, AdicSpacesPartII:R3/tate-acyclicity-finite-modules, AdicSpacesPartII:R3/coherent-sheaf).",
+    "Gluing data: on a rational U' = Spa(B⟨T/s⟩) ⊆ U the restriction (Ωᶜ_{B/A})~|_{U'} is (B⟨T/s⟩ ⊗_B Ωᶜ_{B/A})~ (API tildeRestrictIso), which is (Ωᶜ_{B⟨T/s⟩/A})~ by the localisation isomorphism of R0/continuous-differentials (API localizationEquiv). Independence of V: if A' = A⟨T'/s'⟩ with f(U) ⊆ Spa A', every continuous A-derivation of B kills the dense image of A[T'/s'] (D(t/s) = (s·Dt − t·Ds)/s² = 0), hence A', so Ωᶜ_{B/A} = Ωᶜ_{B/A'}. Two affinoid opens intersect in a union of opens that are rational in both, so the isomorphisms satisfy the cocycle condition on triple intersections; the sheaves glue along the open cover (anchor Layer 5.3; sheaves of modules glue on open covers), and the derivations d_{B/A} glue to d.",
+    "Independence of choices and (a): a coherent F is (F(U))~ on each affinoid U (AdicSpacesPartII:R3/tate-kiehl-affinoid), and a derivation continuous on sections is, on each U, a continuous A-derivation B → F(U), which factors uniquely through Ωᶜ_{B/A} (API lift of R0/continuous-differentials; F(U) is complete and Hausdorff as a finite module over the noetherian B). These factorisations are compatible with restriction, so glue to a unique O_X-linear map (morphisms of sheaves are local). Applied to another choice of covering, this gives a unique isomorphism compatible with d.",
+    "(b): on affinoid pieces these are the first fundamental and conormal sequences of R0/first-fundamental-sequence and R0/conormal-sequence; M ↦ M̃ is exact (API tilde_exact) and pullback of coherent sheaves is computed by M ⊗_A B on affinoids (AdicSpacesPartII:R3/coherent-sheaf-operations, API pullback_tilde); exactness of sheaves is local.",
+    "(c): unramified ⇔ Ωᶜ = 0 on affinoid pieces (AdicSpacesPartII:R0/infinitesimal-criteria). Smooth: Ωᶜ is finite free of rank n on small affinoid neighbourhoods (AdicSpacesPartII:R0/smooth-differentials-locally-free); locally f is étale over a relative polydisc (AdicSpacesPartII:R0/smooth-local-structure), and the differential criterion (AdicSpacesPartII:R0/differential-criterion-morphism) makes the sequence of (b) split injective on the left. Étale: Ω¹_{X/Y} = 0 and the sequence of (b) is left exact, so f*Ω¹_{Y/Z} ≅ Ω¹_{X/Z}; for u: U → X étale and X → Y this gives u*Ω¹_{X/Y} ≅ Ω¹_{U/Y}, and the étale-sheaf property follows from these isomorphisms and the sheaf property of coherent sheaves for étale covers of affinoids (AdicSpacesPartII:R3/finite-projective-etale-descent for the finite étale pieces; R0/etale-local-open-finite-etale-factorisation).",
+    "(d): on affinoid charts with adic base change, Ωᶜ_{(B ⊗̂_A A')/A'} ≅ (B ⊗̂_A A') ⊗_B Ωᶜ_{B/A} (R0/continuous-differentials, API baseChangeEquiv); along a non-adic Y' → Y the charts W_m of R0/fibre-product-along-finite-type have the presentation of B with the same generators dXᵢ and relations (R0/continuous-differentials (c)); these glue by the uniqueness in (a). Stability of smooth and étale morphisms under the same base change is AdicSpacesPartII:R0/smooth-etale-base-change.",
+    "(e): AdicSpacesPartII:R1/analytic-kahler-differentials gives the isomorphism on the affine charts of the analytification (AdicSpacesPartII:R1/analytification-of-modules for (·)^ad); by (a) it agrees with the glued sheaf.",
+    "(f): the exterior power of a coherent sheaf is coherent (it is (⋀ⁱ_B M)~ on affinoid pieces, M finite; Mathlib exteriorPower, compatible with base change B → B⟨T/s⟩), and ⋀ⁱ of a free module of rank n is free of rank C(n, i). The de Rham differential is defined on affinoid pieces by d(b db₁ ∧ … ∧ dbᵢ) = db ∧ db₁ ∧ … ∧ dbᵢ, well defined by the universal property of Ωᶜ and d(db) = 0, and it commutes with the localisation isomorphisms; d ∘ d = 0 and the Leibniz rule are checked on these generators."
+   ],
+   "acceptance": [
+    "For the closed unit disc X = Spa(K⟨T⟩, K°⟨T⟩) over Spa(K, K°), Ω¹_{X/K} = O_X dT is free of rank one, d f = f' dT, and Ω²_{X/K} = 0; on the annulus {|T| = 1}, dT/T is a generator.",
+    "For P¹ over K, (Ω¹_{P¹/K})^ad = Ω¹_{P^{1,ad}/K} ≅ O(−2)^ad, whose H⁰ is 0 and H¹ is K (AdicSpacesPartII:R3/proper-gaga).",
+    "For the node Spa(K⟨T₁, T₂⟩/(T₁T₂)) → Spa(K, K°), Ω¹ is coherent with fibre of dimension 2 at the origin and 1 elsewhere: it is not a vector bundle, and the map is not smooth."
+   ],
+   "uses": [
+    {
+     "where": "PadicHodgeTheory:P7 request to AdicEtaleGeometry:A2 (neededBy PadicHodgeTheory:P8:local-rational/structural-de-rham-sheaf-connection, PadicHodgeTheory:P8:local-rational/poincare-lemma-and-faltings-extension, PadicHodgeTheory:P8:local-rational/relative-poincare-lemma, PadicHodgeTheory:P8/filtered-module-with-integrable-connection)",
+     "how": "the sheaf Ω¹ of continuous Kähler differentials of a smooth adic space, locally free of rank dim X, with Ωⁱ = ⋀ⁱΩ¹ and relative Ω¹_{X/Y}; the connection ∇: OB_dR → OB_dR ⊗ Ω¹ (Scholze 2013 Definition 6.8)"
+    },
+    {
+     "where": "AdicEtaleGeometry:A2 (request to AdicSpacesPartII:R3: the coherent sheaf Ω¹_{X/Y}, Ωⁱ, the first fundamental sequence, and u*Ω¹_{X/Y} ≅ Ω¹_{U/Y} for étale u)",
+     "how": "smooth morphisms of pure relative dimension and the sheaf Ω¹_{X_ét} on the étale site"
+    },
+    {
+     "where": "AdicSpacesPartII:F1/dagger-differentials and AdicSpacesPartII:F1/dagger-de-rham-complex",
+     "how": "the completion of the dagger differentials is Ω¹ of the associated rigid space ((Ωⁱ_X)' = Ωⁱ_{X'}, Grosse-Klönne 4.1)"
+    },
+    {
+     "where": "AdicSpacesPartII:R1/analytic-invariant-differentials",
+     "how": "Ω¹_{G^ad/Y^ad} ≅ (f^ad)*ω_{G^ad/Y^ad} and ω = e*Ω¹ for analytified group schemes"
+    },
+    {
+     "where": "AdicSpacesPartII:R4/smooth-pair",
+     "how": "the logarithmic differentials Ω¹_X(log D) ⊇ Ω¹_X of a smooth pair"
+    },
+    {
+     "where": "AdicSpacesPartII:R0/continuous-differentials, R0/infinitesimal-criteria, R0/smooth-differentials-locally-free",
+     "how": "their affinoid-local statements, glued"
+    }
+   ],
+   "tests": [
+    {
+     "name": "AdicSpace.relativeDifferentials.test_disc",
+     "kind": "computation",
+     "statement": "Notation: K complete nonarchimedean field with nontrivial rank-one valuation, K° its valuation ring, D = Spa(K⟨T⟩, K°⟨T⟩). Ω¹_{D/Spa K} ≅ O_D, generated by dT, with d(Σ aₙTⁿ) = (Σ n aₙTⁿ⁻¹) dT, and Ω²_{D/Spa K} = 0."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.test_openEmbedding",
+     "kind": "degenerate",
+     "statement": "For an open embedding j: U → X, Ω¹_{U/X} = 0 and j*Ω¹_{X/Y} ≅ Ω¹_{U/Y}; Ω¹_{Y/Y} = 0 for every Y."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.test_notAlgebraic",
+     "kind": "non-example",
+     "statement": "The presheaf U ↦ Ω[O_D(U)⁄K] of Mathlib's algebraic Kähler differentials on the disc D is not a coherent O_D-module (its value on D is not a finitely generated K⟨T⟩-module), whereas Ω¹_{D/K}(D) = K⟨T⟩ dT: a definition through algebraic Kähler differentials fails."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.test_analytification",
+     "kind": "compatibility",
+     "statement": "For X = A¹_K, (Ω¹_{A¹/K})^ad ≅ Ω¹_{A^{1,ad}/K} = O dT; for P¹_K, Ω¹_{P^{1,ad}/K} ≅ O(−2)^ad (AdicSpacesPartII:R1/analytic-kahler-differentials)."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.test_derivations",
+     "kind": "characterisation",
+     "statement": "On D, Hom_{O_D}(Ω¹_{D/K}, O_D) is the O_D(D)-module of continuous K-derivations of K⟨T⟩, free on d/dT; the node T₁T₂ = 0 has a nonzero torsion section T₁ dT₂ of Ω¹ whose support is the origin."
+    }
+   ],
+   "api": [
+    {
+     "name": "AdicSpace.relativeDifferentials",
+     "role": "constructor",
+     "statement": "Ω¹_{X/Y} as a sheaf of O_X-modules (Mathlib SheafOfModules), for f locally of finite type between locally noetherian analytic adic spaces."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.d",
+     "role": "data",
+     "statement": "The f⁻¹O_Y-linear derivation d: O_X → Ω¹_{X/Y}."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.isCoherent",
+     "role": "instance",
+     "statement": "Ω¹_{X/Y} is coherent (AdicSpacesPartII:R3/coherent-sheaf)."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.affinoidIso",
+     "role": "characterisation",
+     "statement": "For affinoid U = Spa B, V = Spa A with f(U) ⊆ V and A → B topologically of finite type: Ω¹_{X/Y}|_U ≅ (Ωᶜ[B⁄A])~ compatibly with d."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.homEquiv",
+     "role": "universal-property",
+     "statement": "For coherent F: Hom_{O_X}(Ω¹_{X/Y}, F) ≃ continuous f⁻¹O_Y-linear derivations O_X → F, u ↦ u ∘ d."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.map",
+     "role": "functoriality",
+     "statement": "A commutative square (g: X' → X over h: Y' → Y) induces g*Ω¹_{X/Y} → Ω¹_{X'/Y'}; map_id, map_comp."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.exact_firstFundamental",
+     "role": "relation",
+     "statement": "For X → Y → Z: f*Ω¹_{Y/Z} → Ω¹_{X/Z} → Ω¹_{X/Y} → 0 is exact (R0/first-fundamental-sequence)."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.exact_conormal",
+     "role": "relation",
+     "statement": "For a closed embedding i: X → P over Y with ideal 𝓘: 𝓘/𝓘² → i*Ω¹_{P/Y} → Ω¹_{X/Y} → 0 is exact (R0/conormal-sequence)."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.eq_zero_iff_unramified",
+     "role": "characterisation",
+     "statement": "Ω¹_{X/Y} = 0 ↔ f is unramified (R0/infinitesimal-criteria)."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.isVectorBundle_of_smooth",
+     "role": "compatibility",
+     "statement": "If f is smooth of relative dimension n, Ω¹_{X/Y} is a vector bundle of rank n (R3/locally-free-sheaf), and the first fundamental sequence is left exact and locally split."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.pullbackEtaleIso",
+     "role": "compatibility",
+     "statement": "For u: U → X étale: u*Ω¹_{X/Y} ≅ Ω¹_{U/Y}, compatibly with composition of étale maps."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.baseChangeIso",
+     "role": "compatibility",
+     "statement": "For X' = X ×_Y Y' with projection p: p*Ω¹_{X/Y} ≅ Ω¹_{X'/Y'} compatibly with d."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.analytificationIso",
+     "role": "compatibility",
+     "statement": "(Ω¹_{X/Y})^ad ≅ Ω¹_{X^ad/Y^ad} for schemes locally of finite type over K (R1/analytic-kahler-differentials)."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.exteriorPower",
+     "role": "constructor",
+     "statement": "Ωⁱ_{X/Y} = ⋀ⁱ Ω¹_{X/Y}, coherent; a vector bundle of rank C(n, i) for f smooth of relative dimension n."
+    },
+    {
+     "name": "AdicSpace.relativeDifferentials.deRhamComplex",
+     "role": "structure",
+     "statement": "The relative de Rham complex (Ω•_{X/Y}, d): f⁻¹O_Y-linear d: Ωⁱ → Ωⁱ⁺¹ with d ∘ d = 0 and the graded Leibniz rule."
+    }
+   ],
+   "prerequisites": [
+    "AdicSpacesPartII:R3/coherent-sheaf",
+    "AdicSpacesPartII:R3/associated-module-sheaf",
+    "AdicSpacesPartII:R3/tate-acyclicity-finite-modules",
+    "AdicSpacesPartII:R3/tate-kiehl-affinoid",
+    "AdicSpacesPartII:R3/coherent-sheaf-operations",
+    "AdicSpacesPartII:R3/coherent-ideal-closed-subspace",
+    "AdicSpacesPartII:R3/locally-free-sheaf",
+    "AdicSpacesPartII:R3/finite-projective-etale-descent",
+    "AdicSpacesPartII:R0/locally-noetherian-adic-space",
+    "AdicSpacesPartII:R0/continuous-differentials",
+    "AdicSpacesPartII:R0/first-fundamental-sequence",
+    "AdicSpacesPartII:R0/conormal-sequence",
+    "AdicSpacesPartII:R0/infinitesimal-criteria",
+    "AdicSpacesPartII:R0/smooth-differentials-locally-free",
+    "AdicSpacesPartII:R0/smooth-local-structure",
+    "AdicSpacesPartII:R0/differential-criterion-morphism",
+    "AdicSpacesPartII:R0/smooth-morphism",
+    "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
+    "AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation",
+    "AdicSpacesPartII:R0/fibre-products-existence",
+    "AdicSpacesPartII:R0/fibre-product-along-finite-type",
+    "AdicSpacesPartII:R0/smooth-etale-base-change",
+    "AdicSpacesPartII:R1/analytic-kahler-differentials",
+    "AdicSpacesPartII:R1/analytification-of-modules",
+    "mathlib:SheafOfModules",
+    "mathlib:SheafOfModules.pullback",
+    "mathlib:Derivation",
+    "mathlib:ExteriorAlgebra.exteriorPower"
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/AdicSpace/Coherent/Differentials",
+    "namespace": "TauCeti.AdicSpace"
+   },
+   "sources": [
+    {
+     "sourceId": "DiaoLanLiuZhu-LogAdicFoundations",
+     "locator": "§3.3, Construction 3.3.2, p. 34",
+     "excerpt": "Let Ω log Y /X denote the coherent sheaf on Y´ etassociated with Ω log B/A (see (3.2.6)).",
+     "match": "The sheaf is the coherent sheaf associated with the finite module of continuous differentials on affinoid charts (here for log structures; with trivial log structures Ω^log_{B/A} is Huber's Ω_{B/A})."
+    },
+    {
+     "sourceId": "DiaoLanLiuZhu-LogAdicFoundations",
+     "locator": "§3.3, Lemma 3.3.5, p. 35",
+     "excerpt": "among all derivations of Y overX. As a result, (Ω log Y /X,d Y /X,δ Y /X) is well deﬁned, i.e., independent of the choice of ´ etale coverings; and its deﬁnition extends to all lft morphisms f :Y →X of locally noetherian coherent log adic spaces.",
+     "match": "Universal property (a) and independence of the charts, for all lft morphisms of locally noetherian spaces."
+    },
+    {
+     "sourceId": "DiaoLanLiuZhu-LogAdicFoundations",
+     "locator": "§3.3, Proposition 3.3.7, pp. 35-36",
+     "excerpt": "resp. fs) log adic spaces in which Y→X is lft. Then f ∗(Ω log Y /X)∼= Ω log Y ′/X ′.",
+     "match": "Base change (d)."
+    },
+    {
+     "sourceId": "DiaoLanLiuZhu-LogAdicFoundations",
+     "locator": "§3.3, Theorem 3.3.17(2), p. 39",
+     "excerpt": "(2) If f is a log smooth morphism of locally noetherian fs log adic spa ces, then f ∗(Ω log X/S)→ Ω log Y /S is injective, and Ω log",
+     "match": "Smooth case of (c): left exactness of the first fundamental sequence and local freeness (the sentence continues 'is a locally free O_Y-module of finite rank')."
+    },
+    {
+     "sourceId": "Scholze-PadicHodgeRigid-2013",
+     "locator": "§6, Definition 6.8(i), p. 37",
+     "excerpt": "(i) The sheaf of differentials Ω1X = ν ∗ Ω1Xét , and its exterior powers ΩiX .",
+     "match": "The consumer (PadicHodgeTheory): the sheaf of differentials of a smooth adic space and its exterior powers, pulled back to the pro-étale site."
+    },
+    {
+     "sourceId": "GrosseKlonne-FinitenessDeRham-2002",
+     "locator": "§1, 1.1, p. 4",
+     "excerpt": "For a morphism X → Y of smooth spaces with J = Ker(OX×Y X → OX , f ⊗ g 7→ f g) we define Ω1X/Y = J/J 2 . By means of d : OX → Ω1X/Y , a 7→ (1 ⊗ a − a ⊗ 1)",
+     "match": "The relative sheaf Ω¹_{X/Y} = J/J² with d(a) = 1 ⊗ a − a ⊗ 1 for rigid (and dagger) spaces, the local form used here."
+    },
+    {
+     "sourceId": "GrosseKlonne-DaggerSpaces-2000",
+     "locator": "§4, 4.1, p. 19",
+     "excerpt": "In the usual way we get for a smooth dagger space X a k-linear complex Ω•X with all ΩiX being coherent locally free OX -modules such that (ΩiX )′ = ΩiX ′",
+     "match": "The de Rham complex of coherent locally free Ωⁱ and its comparison with the rigid space X', which is this node's Ω• on X'."
+    },
+    {
+     "sourceId": "Conrad-SeveralApproaches-AWS2007",
+     "locator": "§3.1, Example 3.1.4",
+     "excerpt": "is a finite module over (B ⊗A B)/I = B.",
+     "match": "The affinoid pieces I/I² are finite modules, so the glued sheaf is coherent."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "importsFromTauCetiRoadmaps": [
+    "tauceti:TauCetiRoadmap/AdicSpaces#layer-5-adic-spaces-and-elementary-geometry"
+   ]
+  },
+  {
    "id": "AdicSpacesPartII:R3/glueing-square-finite-projective-descent",
    "parentStageId": "AdicSpacesPartII:R3",
    "realises": [
@@ -34409,25 +35144,33 @@
    "realises": [
     "AdicSpacesPartII:R3"
    ],
-   "title": "Uniformity of a Banach ring via the square bound",
+   "title": "Uniformity of a Banach ring via the square bound, and its relation to boundedness of A°",
    "kind": "lemma",
-   "statement": "Let A be a complete Tate ring metrised by a submultiplicative norm (KL Remark 2.4.4), for instance the norm α_d of a norm datum (AdicSpacesPartII:R0/tate-ring-norm). The following are equivalent: (a) the norm is equivalent to a power-multiplicative norm; (b) the norm is equivalent to the spectral seminorm |x|_sp = lim |xⁿ|^{1/n} (AdicSpacesPartII:R0/spectral-seminorm); (c) there is c > 0 with |x²| ≥ c|x|² for all x; (d) the subring A° of power-bounded elements is bounded. A is uniform when they hold (anchor Layer 4.2 uses (d), Hansen–Kedlaya Definition 2.3).",
+   "statement": "Let A be a complete Tate ring metrised by a submultiplicative norm |·| defining its topology (KL Remark 2.4.4), for instance the norm α_d of a norm datum (AdicSpacesPartII:R0/tate-ring-norm). (i) The following are equivalent: (a) |·| is equivalent to a power-multiplicative norm; (b) |·| is equivalent to the spectral seminorm |x|_sp = lim |xⁿ|^{1/n} (AdicSpacesPartII:R0/spectral-seminorm); (c) there is c > 0 with |x²| ≥ c|x|² for all x. A is a uniform Banach ring when they hold (Kedlaya–Liu Definition 2.8.1 as corrected in Kedlaya–Liu II, Appendix A). (ii) (a)–(c) imply (d): the subring A° of power-bounded elements is bounded; and (d) alone implies that |·|_sp is a norm defining the topology of A. (iii) If A contains a topologically nilpotent unit z with |z|·|z⁻¹| = 1, then (d) implies (a)–(c). This holds for the norms α_d, with z = ϖ: α_d(ϖ) = r and α_d(ϖ⁻¹) = r⁻¹ when A ≠ 0 is Hausdorff (R0/tate-ring-norm, API tateNorm_pseudoUniformizer_mul). So for a complete Tate ring the topological condition (d), which is uniformity in the anchor (Layer 4.2) and in Hansen–Kedlaya Definition 2.3, is equivalent to (a)–(c) for every norm α_d. (iv) Without the hypothesis of (iii), (d) does not imply (a)–(c): on a complete nonarchimedean field K the function |x|' = |x| for |x| ≤ 1 and |x|' = |x|(1 + log|x|) for |x| > 1 is a submultiplicative norm defining the topology of K, with K° bounded, and it is not equivalent to its spectral norm |·| (Kedlaya–Liu II, Appendix A). Kedlaya–Liu I, Definition 2.8.1 states the four conditions as equivalent for every Banach ring; that is false, and only (i)–(iii) are asserted here.",
    "hypotheses": [
-    "A complete Tate with a norm defining its topology"
+    "A complete Tate ring with a submultiplicative norm defining its topology",
+    "For (iii): a topologically nilpotent unit z with |z|·|z⁻¹| = 1 (automatic for the norms α_d of R0/tate-ring-norm)"
    ],
    "proofSteps": [
     "(a)⇒(c): for a power-multiplicative norm |x²|' = |x|'²; transport the constant through the equivalence.",
     "(c)⇒(b): iterating gives |x^{2^k}| ≥ c^{2^k − 1}|x|^{2^k}, so |x|_sp = lim_k |x^{2^k}|^{2^{−k}} ≥ c|x|; since |x|_sp ≤ |x| always, the spectral seminorm is a norm equivalent to |·|.",
-    "(b)⇒(a): the spectral seminorm is power-multiplicative.",
-    "(b)⇔(d): A° = {x : |x|_sp ≤ 1} up to the equivalence constants; boundedness of A° ⇔ the unit ball of |·|_sp is bounded for |·| ⇔ equivalence (using a pseudouniformiser to rescale)."
+    "(b)⇒(a): the spectral seminorm is power-multiplicative (Mathlib isPowMul_smoothingFun, AdicSpacesPartII:R0/spectral-seminorm).",
+    "(b)⇒(d): a power-bounded x has |x|_sp ≤ 1 (bounded |xⁿ|), so A° ⊆ {|·|_sp ≤ 1} ⊆ {|·| ≤ C}, which is bounded because |·| defines the topology. (d) ⇒ |·|_sp defines the topology: {|·|_sp < 1} = A°° (R0/spectral-seminorm, API spectralSeminorm_lt_one_iff) and, A° being bounded, the sets zⁿA°° form a basis of neighbourhoods of 0 (R0/spectral-topology (vi)).",
+    "(iii): from |z||z⁻¹| = 1 and submultiplicativity, |zx| ≤ |z||x| ≤ |z||z⁻¹||zx| = |zx|, so |zⁿx| = |z|ⁿ|x| for n ∈ ℤ, and likewise |zⁿx|_sp = |z|ⁿ|x|_sp. Let A° ⊆ {|·| ≤ C}. If |x|_sp > 0, choose n ∈ ℤ with |z|^{n+1} < |x|_sp ≤ |z|ⁿ; then y = z^{1−n}x has |y|_sp ≤ |z| < 1, so y is topologically nilpotent, hence power-bounded, and |y| ≤ C gives |x| = |z|^{n−1}|y| ≤ C|z|^{−2}|x|_sp. If |x|_sp = 0, the same argument gives |z^{−n}x| ≤ C for all n, so x = 0. Hence |·| ≤ C|z|^{−2}|·|_sp, which is (b).",
+    "(iv) is the example of Kedlaya–Liu II, Appendix A: the norm |·|' dominates |·|, its spectral norm is |·| (|x|'^{1/n} of xⁿ tends to |x|), and |x|'/|x| = 1 + log|x| is unbounded; K° is the unit ball of |·|, bounded for |·|'."
    ],
    "acceptance": [
-    "K⟨T⟩ with the Gauss norm is uniform; K[ε]/(ε²) with any Banach norm is not: every aε (a ∈ K) squares to 0, so A° ⊇ K·ε is unbounded."
+    "K⟨T⟩ with the Gauss norm is uniform; K[ε]/(ε²) with any Banach norm is not: every aε (a ∈ K) squares to 0, so A° ⊇ K·ε is unbounded.",
+    "Non-example to the four-way equivalence: K = ℚ_p with |x|' = |x| for |x| ≤ 1 and |x|(1 + log|x|) otherwise satisfies (d) but not (a)–(c); here |p|'·|p⁻¹|' = 1 + log p > 1, so (iii) does not apply."
    ],
    "uses": [
     {
      "where": "AdicSpacesPartII:R3/stably-uniform-sheafy",
-     "how": "uniformity of A is checked by criterion (c) through a split injection"
+     "how": "uniformity of A is checked by criterion (c) through a split injection; criterion (c) for B comes from (d) by (iii) for the norm α_d"
+    },
+    {
+     "where": "AdicSpacesPartII:R3/uniform-spectral-seminorm",
+     "how": "the spectral norm of a uniform complete Tate ring is a norm defining its topology ((ii), (iii))"
     }
    ],
    "tests": [],
@@ -34435,7 +35178,8 @@
    "prerequisites": [
     "tauceti:TauCeti.Huber.IsTateRing",
     "AdicSpacesPartII:R0/tate-ring-norm",
-    "AdicSpacesPartII:R0/spectral-seminorm"
+    "AdicSpacesPartII:R0/spectral-seminorm",
+    "AdicSpacesPartII:R0/spectral-topology"
    ],
    "library": {
     "module": "TauCeti/RingTheory/Huber/Uniform/PowerBound",
@@ -34452,7 +35196,19 @@
      "sourceId": "KedlayaLiu-RelativeFoundations-2015",
      "locator": "§2.8, Definition 2.8.1(d), p. 59",
      "excerpt": "(d) The subring A◦ of A is bounded.",
-     "match": "Criterion (d), the anchor's definition of uniformity."
+     "match": "Condition (d), the anchor's definition of uniformity; stated in the source as equivalent to (a)-(c), which is corrected below."
+    },
+    {
+     "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
+     "locator": "Appendix A (Errata for [91]), item 'Definition 2.8.1', p. 189",
+     "excerpt": "Definition 2.8.1: the stated equivalence is false; conditions (a)–(c) are equivalent and should be taken as the definition of a uniform Banach ring. Condition (d) follows from (a)–(c), and implies that the spectral norm defines the same norm topology as the original norm, but does not imply (a)–(c)",
+     "match": "Parts (i), (ii) and (iv): (a)-(c) equivalent, (d) a consequence, (d) not sufficient in general."
+    },
+    {
+     "sourceId": "KedlayaLiu-RelativeII-ImperfectPeriodRings",
+     "locator": "Appendix A (Errata for [91]), item 'Definition 2.8.1', p. 189",
+     "excerpt": "That said, if A is a Banach ring containing a topologically nilpotent unit z for which |z| |z −1 | = 1, then one may check that (d) does imply (a)–(c).",
+     "match": "Part (iii), with the argument written out in the proof steps."
     },
     {
      "sourceId": "HansenKedlaya-SheafinessCriteria",
@@ -34481,10 +35237,10 @@
     "A → B has a continuous A-linear retraction"
    ],
    "proofSteps": [
-    "Uniformity of A: a split injection of Banach A-modules is strict (s bounded), so |x²|_A ≍ |x²|_B ≥ c|x|_B² ≍ c|x|_A²; conclude by criterion (c) (AdicSpacesPartII:R3/uniform-iff-power-bound).",
+    "Uniformity of A: norm A by α_d and B by α_{d'} with d' = (B₀, image of ϖ, r) (AdicSpacesPartII:R0/tate-ring-norm). B° is bounded and |ϖ|·|ϖ⁻¹| = 1 for α_{d'}, so B satisfies criterion (c), |x²|_B ≥ c|x|_B² (AdicSpacesPartII:R3/uniform-iff-power-bound (iii)). A split injection of Banach A-modules is strict (s bounded), so |x²|_A ≍ |x²|_B ≥ c|x|_B² ≍ c|x|_A²; hence A satisfies (c), and A° is bounded (AdicSpacesPartII:R3/uniform-iff-power-bound (ii)).",
     "The splitting persists under rational localisation: for a rational localisation A → A' = A⟨T/s⟩ with B' = B ⊗̂_A A' (the rational localisation of B at the image of (T, s); AdicSpacesPartII:R0/completed-tensor-rational-localisation), s ⊗̂ id_{A'} is a continuous A'-linear retraction of A' → B' (AdicSpacesPartII:R0/completed-tensor-product).",
     "Hence every rational localisation of A is uniform: A is stably uniform; sheafiness is the anchor's Buzzard–Verberkmoes theorem.",
-    "Field-extension variant: A → A ⊗̂_K L is a strict injection (KL Lemma 2.2.9(c), K → L being isometric), which already suffices for criterion (c); every rational localisation B of A has B ⊗̂_K L a rational localisation of A ⊗̂_K L (AdicSpacesPartII:R0/completed-tensor-rational-localisation) and B → B ⊗̂_K L is again strict."
+    "Field-extension variant: A → A ⊗̂_K L is a strict injection (KL Lemma 2.2.9(c), K → L being isometric; AdicSpacesPartII:R0/completed-tensor-banach-module (d)), which already suffices for criterion (c); every rational localisation B of A has B ⊗̂_K L a rational localisation of A ⊗̂_K L (AdicSpacesPartII:R0/completed-tensor-rational-localisation) and B → B ⊗̂_K L is again strict."
    ],
    "acceptance": [
     "Sousperfectoid rings (ScholzeWeinstein Berkeley Definition 6.3.1) are stably uniform and sheafy: R → R̃ perfectoid splits as topological R-modules (Berkeley Proposition 6.3.4, owned by AdicSpacesPartII:R5).",
@@ -34505,7 +35261,9 @@
    "prerequisites": [
     "AdicSpacesPartII:R3/uniform-iff-power-bound",
     "AdicSpacesPartII:R0/completed-tensor-product",
-    "AdicSpacesPartII:R0/completed-tensor-rational-localisation"
+    "AdicSpacesPartII:R0/completed-tensor-rational-localisation",
+    "AdicSpacesPartII:R0/tate-ring-norm",
+    "AdicSpacesPartII:R0/completed-tensor-banach-module"
    ],
    "library": {
     "module": "TauCeti/RingTheory/Huber/Uniform/Splitting",
@@ -34553,7 +35311,7 @@
    "proofSteps": [
     "Submetric: |φ(xⁿ)| ≤ C|xⁿ| for the bounded φ; take n-th roots and n → ∞.",
     "If M(B) → M(A) is surjective: |x|_sp = sup_{α∈M(A)} α(x) = sup_{β∈M(B)} β(φ(x)) = |φ(x)|_sp (spectral radius theorem, from TB.0).",
-    "The spectral norm of a uniform ring is a norm defining its topology (AdicSpacesPartII:R3/uniform-iff-power-bound), so 'isometric' is meaningful for the chosen norms."
+    "The spectral norm of a uniform complete Tate ring (A° bounded) is a norm defining its topology, and it is equivalent to α_d (AdicSpacesPartII:R3/uniform-iff-power-bound (ii), (iii); |ϖ|·|ϖ⁻¹| = 1 for α_d), so 'isometric' is meaningful for the chosen norms."
    ],
    "acceptance": [
     "For A = K⟨T⟩ → B = K⟨T/ϖ⟩ (restriction to the disc |T| ≤ |ϖ|), M(B) → M(A) misses the Gauss point and the map is not isometric: |T|_{sp,A} = 1 while |T|_{sp,B} = |ϖ|.",
@@ -35397,7 +36155,7 @@
    ],
    "proofSteps": [
     "E has, for every t ∈ (0, 1), a t-orthogonal Schauder basis (Banach spaces of countable type); choose one adapted to F by a Gram–Schmidt procedure on a countable dense sequence (BGR 2.7.1/4, as used by Conrad).",
-    "Split exact sequences are preserved by any additive functor, in particular by K' ⊗̂_K (−)."
+    "Split exact sequences are preserved by any additive functor, in particular by K' ⊗̂_K (−) (AdicSpacesPartII:R0/completed-tensor-banach-module (d))."
    ],
    "acceptance": [
     "For E = K⟨T⟩ (countable type) and F = T·K⟨T⟩, the constant-term projection splits E → E/F ≅ K."
@@ -35416,7 +36174,8 @@
    "api": [],
    "prerequisites": [
     "mathlib:NormedSpace",
-    "mathlib:UniformSpace.Completion"
+    "mathlib:UniformSpace.Completion",
+    "AdicSpacesPartII:R0/completed-tensor-banach-module"
    ],
    "library": {
     "module": "TauCeti/Analysis/Nonarchimedean/CountableType",
@@ -35453,7 +36212,7 @@
    ],
    "proofSteps": [
     "For finite M, A' ⊗_A M → A' ⊗̂_A M is a topological isomorphism (finite modules over the noetherian Banach ring A'; BGR 3.7.3 via Conrad).",
-    "Flatness: an injection M → N of finite A-modules is a closed embedding of countable-type K-Banach spaces, hence split (AdicSpacesPartII:R3/countable-type-closed-subspace-section); so K' ⊗̂_K M → K' ⊗̂_K N is injective, and A' ⊗̂_A M = K' ⊗̂_K M.",
+    "Flatness: an injection M → N of finite A-modules is a closed embedding of countable-type K-Banach spaces, hence split (AdicSpacesPartII:R3/countable-type-closed-subspace-section); so K' ⊗̂_K M → K' ⊗̂_K N is injective (AdicSpacesPartII:R0/completed-tensor-banach-module (d)), and A' ⊗̂_A M = K' ⊗̂_K M (transitivity of completed base change, same node (g)).",
     "Faithfulness: A'/𝔪A' = K' ⊗̂_K A/𝔪 = K' ⊗_K A/𝔪 ≠ 0 for every maximal 𝔪 (A/𝔪 finite over K)."
    ],
    "acceptance": [
@@ -35474,7 +36233,8 @@
    "prerequisites": [
     "AdicSpacesPartII:R3/countable-type-closed-subspace-section",
     "AdicSpacesPartII:R0/completed-tensor-product",
-    "AdicSpacesPartII:R0/affinoid-residue-fields-finite"
+    "AdicSpacesPartII:R0/affinoid-residue-fields-finite",
+    "AdicSpacesPartII:R0/completed-tensor-banach-module"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Proper/FieldExtension",
@@ -35514,7 +36274,7 @@
    "proofSteps": [
     "Compute Hⁱ(X, F) by the Čech complex C• of a finite affinoid covering: its terms are finite products of Banach A-modules of countable type over K, and its differentials are strict (AdicSpacesPartII:R3/proper-affinoid-cohomology-finite).",
     "The Čech complex of F' for the base-changed covering is K' ⊗̂_K C• (affinoid algebras and finite modules: AdicSpacesPartII:R3/affinoid-completed-field-extension; base change of X along K → K' via AdicSpacesPartII:R0/fibre-products-existence).",
-    "K' ⊗̂_K (−) preserves the strict exact sequences 0 → Zⁱ → Cⁱ → Bⁱ⁺¹ → 0 and 0 → Bⁱ → Zⁱ → Hⁱ → 0 (AdicSpacesPartII:R3/countable-type-closed-subspace-section), so Hⁱ(K' ⊗̂ C•) = K' ⊗̂_K Hⁱ(X, F) = A' ⊗_A Hⁱ(X, F) (finite A-module)."
+    "K' ⊗̂_K (−) preserves the strict exact sequences 0 → Zⁱ → Cⁱ → Bⁱ⁺¹ → 0 and 0 → Bⁱ → Zⁱ → Hⁱ → 0 (AdicSpacesPartII:R3/countable-type-closed-subspace-section, with the completed tensor product of Banach spaces of AdicSpacesPartII:R0/completed-tensor-banach-module), so Hⁱ(K' ⊗̂ C•) = K' ⊗̂_K Hⁱ(X, F) = A' ⊗_A Hⁱ(X, F) (finite A-module)."
    ],
    "acceptance": [
     "Scholze 2013 Lemma 7.13: for X proper smooth over k and a locally free 𝒜, Hⁱ(X, 𝒜) ⊗_k k̂̄ ≅ Hⁱ(X_{k̂̄}, 𝒜) — the case A = k, K' = completed algebraic closure.",
@@ -35533,7 +36293,8 @@
     "AdicSpacesPartII:R3/affinoid-completed-field-extension",
     "AdicSpacesPartII:R3/countable-type-closed-subspace-section",
     "AdicSpacesPartII:R0/fibre-products-existence",
-    "AdicSpacesPartII:R3/kiehl-proper-mapping-theorem"
+    "AdicSpacesPartII:R3/kiehl-proper-mapping-theorem",
+    "AdicSpacesPartII:R0/completed-tensor-banach-module"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Proper/FieldExtension",
@@ -37491,7 +38252,7 @@
    "proofSteps": [
     "Objects: by AdicSpacesPartII:R0/differentials-unramified-smooth-etale étale morphisms are defined infinitesimally; by AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation (Huber Lemma 2.2.8; for X locally of finite type over a field, de Jong–van der Put Proposition 3.1.4), which A1 re-exports they are exactly the morphisms that are locally an open immersion followed by a finite étale morphism followed by an open immersion; hence A1's objects over X and R0's étale X-spaces are the same adic spaces with the same structure maps.",
     "Morphisms: a morphism g: U -> V of étale X-spaces is étale by the cancellation property of étale morphisms (AdicSpacesPartII:R0/infinitesimal-criteria, Huber 1.6.7).",
-    "Finite limits: étale morphisms are locally of finite type, so AdicSpacesPartII:R0/fibre-products-existence (case (a)) gives U ×_V W for U, W étale over V; the projections are étale by AdicSpacesPartII:R0/base-change-stability; X is final.",
+    "Finite limits: étale morphisms are locally of finite type, so AdicSpacesPartII:R0/fibre-products-existence (case (a)) gives U ×_V W for U, W étale over V; the projections are étale by AdicSpacesPartII:R0/smooth-etale-base-change (and locally of finite type by AdicSpacesPartII:R0/base-change-stability); X is final.",
     "Coverings: jointly surjective families are stable under composition and contain isomorphisms (set-theoretic); stability under base change uses the surjectivity of |U ×_V W| onto the compatible pairs of points (Corollary 1.2.3(d), part of AdicSpacesPartII:R0/fibre-products-existence).",
     "So the jointly surjective families form a pretopology (mathlib:CategoryTheory.Pretopology) whose generated topology (mathlib:CategoryTheory.GrothendieckTopology) is the topology of AdicEtaleGeometry:A1/etale-site-and-geometric-points.",
     "Open immersions are étale (AdicSpacesPartII:R0/infinitesimal-criteria, Huber 1.6.7), so open subspaces of X (anchor Layer 5) are objects and open covers are coverings."
@@ -37527,7 +38288,8 @@
     "AdicEtaleGeometry:A1/etale-morphisms-local-description-and-comparison",
     "mathlib:CategoryTheory.Pretopology",
     "mathlib:CategoryTheory.GrothendieckTopology",
-    "AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation"
+    "AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation",
+    "AdicSpacesPartII:R0/smooth-etale-base-change"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Site/Etale",
@@ -37584,7 +38346,7 @@
     "Values of sheaves in any category A admitting the sheafification used by mathlib's sheafPullback (sets, abelian groups, modules)."
    ],
    "proofSteps": [
-    "Well defined: V -> Y étale is locally of finite type, so V ×_Y X exists (AdicSpacesPartII:R0/fibre-products-existence, case (a)) and V ×_Y X -> X is étale (AdicSpacesPartII:R0/base-change-stability).",
+    "Well defined: V -> Y étale is locally of finite type, so V ×_Y X exists (AdicSpacesPartII:R0/fibre-products-existence, case (a)) and V ×_Y X -> X is étale (AdicSpacesPartII:R0/smooth-etale-base-change).",
     "Finite limits: base change commutes with fibre products over Y by pasting of cartesian squares, and Y ×_Y X = X.",
     "Coverings: if Y' = ∪ g_i(V_i) then Y' ×_Y X = ∪ images of V_i ×_Y X, by the point-surjectivity of fibre products (Corollary 1.2.3(d) in AdicSpacesPartII:R0/fibre-products-existence).",
     "A functor between sites that preserves coverings and finite limits is continuous and cocontinuous-compatible in mathlib's sense (compatible-preserving by flatness); mathlib:CategoryTheory.Functor.IsContinuous gives the pushforward mathlib:CategoryTheory.Functor.sheafPushforwardContinuous and mathlib:CategoryTheory.Functor.sheafPullback its left adjoint.",
@@ -37612,7 +38374,8 @@
     "AdicSpacesPartII:R0/base-change-stability",
     "mathlib:CategoryTheory.Functor.IsContinuous",
     "mathlib:CategoryTheory.Functor.sheafPushforwardContinuous",
-    "mathlib:CategoryTheory.Functor.sheafPullback"
+    "mathlib:CategoryTheory.Functor.sheafPullback",
+    "AdicSpacesPartII:R0/smooth-etale-base-change"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Site/Etale",
@@ -38550,20 +39313,22 @@
    ],
    "title": "Geometric points of A1 as points of the étale site, and their compatibility with pullback",
    "kind": "comparison",
-   "statement": "Let X be a locally noetherian analytic adic space. A geometric point of X (AdicEtaleGeometry:A1/etale-site-and-geometric-points) is a morphism ξ: Spa(C, C⁺) -> X with C an algebraically closed complete nonarchimedean field and C⁺ ⊆ C an open valuation subring (higher-rank C⁺ allowed). (a) The fibre functor ε_ξ: X_ét -> Set, U ↦ Hom_X(Spa(C, C⁺), U), is a point of the site X_ét in mathlib's sense (mathlib:CategoryTheory.GrothendieckTopology.Point): its category of elements (étale neighbourhoods of ξ) is cofiltered and initially small, and coverings are sent to jointly surjective families; the stalk F_ξ = colim over étale neighbourhoods of F(U). (b) For a morphism f: X -> Y, f∘ξ is a geometric point of Y and ε_{f∘ξ} ≅ ε_ξ ∘ f* naturally, where f* is the base change of AdicSpacesPartII:R4/etale-site-functoriality; hence (f^{-1}G)_ξ ≅ G_{f∘ξ} for every sheaf G on Y_ét, naturally in G. (c) On the pro-étale site of AdicSpacesPartII:R4/proetale-site-on-analytic-carriers, for a point x ∈ X with Y_x = Spa(K, K⁺) -> X, Scholze's morphism of topoi i_x: Sh(Y_x,profét) -> Sh(X_proét) is compatible with pullback: for f: X -> Y, f_proét ∘ i_x ≅ i_{f(x)} ∘ (Y_x -> Y_{f(x)})_profét. Stalks at geometric points alone are not conservative on X_proét, and the deleted final sentence of Scholze Proposition 3.13 (enough points given by profinite covers of geometric points) is not used; both topoi are coherent and have enough points abstractly.",
+   "statement": "Let X be a locally noetherian analytic adic space. A geometric point of X (AdicEtaleGeometry:A1/etale-site-and-geometric-points) is a morphism ξ: Spa(C, C⁺) -> X with C an algebraically closed complete nonarchimedean field and C⁺ ⊆ C an open valuation subring (higher-rank C⁺ allowed). (a) The fibre functor ε_ξ: X_ét -> Set, U ↦ Hom_X(Spa(C, C⁺), U), is a point of the site X_ét in mathlib's sense (mathlib:CategoryTheory.GrothendieckTopology.Point): its category of elements (étale neighbourhoods of ξ) is cofiltered and initially small, and coverings are sent to jointly surjective families; the stalk F_ξ = colim over étale neighbourhoods of F(U). The covering property rests on the splitting of étale covers of a geometric point: every jointly surjective family of étale morphisms to Spa(C, C⁺) has a member that admits a section (Scholze, Étale cohomology of diamonds, Proposition 14.3). An étale space over Spa(C, C⁺) is only locally on the source an open subspace of Spa(C, C⁺): when C⁺ ≠ O_C, Spa(C, C⁺) is a chain of at least two specializations and an étale space over it need not be a disjoint union of open subspaces of copies of Spa(C, C⁺). (b) For a morphism f: X -> Y, f∘ξ is a geometric point of Y and ε_{f∘ξ} ≅ ε_ξ ∘ f* naturally, where f* is the base change of AdicSpacesPartII:R4/etale-site-functoriality; hence (f^{-1}G)_ξ ≅ G_{f∘ξ} for every sheaf G on Y_ét, naturally in G. (c) On the pro-étale site of AdicSpacesPartII:R4/proetale-site-on-analytic-carriers, for a point x ∈ X with Y_x = Spa(K, K⁺) -> X, Scholze's morphism of topoi i_x: Sh(Y_x,profét) -> Sh(X_proét) is compatible with pullback: for f: X -> Y, f_proét ∘ i_x ≅ i_{f(x)} ∘ (Y_x -> Y_{f(x)})_profét. Stalks at geometric points alone are not conservative on X_proét, and the deleted final sentence of Scholze Proposition 3.13 (enough points given by profinite covers of geometric points) is not used; both topoi are coherent and have enough points abstractly.",
    "hypotheses": [
     "X locally noetherian analytic; geometric points in Huber's sense with arbitrary valuation subring C⁺.",
     "The conservativity of the family (ε_ξ) and the description of strict localizations are A1's (Huber §2.5, via the A1 node)."
    ],
    "proofSteps": [
-    "(a) Cofilteredness: X_ét has fibre products and equalizers (the equalizer of two X-maps U ⇉ V is the preimage of the open diagonal of the unramified V -> X, Huber 1.6.8(c) in AdicSpacesPartII:R0/infinitesimal-criteria), so the category of elements of the left exact functor ε_ξ is cofiltered; joint surjectivity on coverings: a jointly surjective family (U_i -> U) pulled back to Spa(C, C⁺) is a jointly surjective étale family over Spa(C, C⁺), and étale spaces over Spa(C, C⁺) with C algebraically closed are disjoint unions of open subspaces of copies of Spa(C, C⁺), and an open subspace containing the closed point of Spa(C, C⁺) is everything (every point specializes to it); so the member of the pulled-back family whose image contains the closed point has a section, i.e. ξ lifts (AdicEtaleGeometry:A1/etale-site-and-geometric-points).",
+    "(a) Cofilteredness: X_ét has fibre products and equalizers (the equalizer of two X-maps U ⇉ V is the preimage of the open diagonal of the unramified V -> X, Huber 1.6.8(c) in AdicSpacesPartII:R0/infinitesimal-criteria), so the category of elements of the left exact functor ε_ξ is cofiltered and the colimit defining F_ξ is filtered (as in Scholze, Étale cohomology of diamonds, proof of Proposition 14.3).",
+    "(a) Coverings: let (U_i -> U) be a jointly surjective family in X_ét and ξ_U: Spa(C, C⁺) -> U an X-morphism. The fibre products V_i = U_i ×_U Spa(C, C⁺) exist, V_i -> Spa(C, C⁺) is étale (AdicSpacesPartII:R0/fibre-products-existence, case (a); AdicSpacesPartII:R0/smooth-etale-base-change), and the V_i cover Spa(C, C⁺) (point-surjectivity, Huber 1.2.3(d) in AdicSpacesPartII:R0/fibre-products-existence). Choose i and v ∈ V_i over the closed point s of Spa(C, C⁺). Near v, V_i -> Spa(C, C⁺) is an open embedding W -> Z followed by a finite étale Z -> W' and an open embedding W' ⊆ Spa(C, C⁺) (AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation). Every point of Spa(C, C⁺) is a generalization of s, so the open W' ∋ s is Spa(C, C⁺); a finite étale C-algebra is C^n because C is algebraically closed (mathlib:Algebra.FormallyEtale.equivPiOfIsSepClosed), with plus ring (C⁺)^n, so Z is a disjoint union of n copies of Spa(C, C⁺); the copy containing v has v as its closed point, so it lies in the open W. Hence V_i contains an open subspace mapped isomorphically onto Spa(C, C⁺), which is a section, and ξ_U lifts to U_i. This is the splitting of étale covers of Spa(C, C⁺) (Scholze, Étale cohomology of diamonds, Proposition 14.3 and Definition 7.15 with Proposition 7.16, stated there for perfectoid Spa(C, C⁺); the argument here uses only the local structure of étale morphisms). Only the member through the closed point is split: no global decomposition of étale spaces over Spa(C, C⁺) is used, and none holds (see the non-example in the acceptance).",
     "(b) Hom_Y(Spa(C, C⁺), V) = Hom_X(Spa(C, C⁺), V ×_Y X) by the universal property of the fibre product (AdicSpacesPartII:R0/fibre-products-existence); taking colimits over neighbourhoods gives the stalk formula (mathlib:CategoryTheory.Functor.sheafPullback commutes with fibre functors because f* is a continuous left exact functor).",
     "(c) Scholze Proposition 3.13 (without its last sentence, per the erratum) in AdicEtaleGeometry:A1/pro-etale-site-corrected, and functoriality AdicSpacesPartII:R4/proetale-site-functoriality."
    ],
    "acceptance": [
     "For X = Spa(K, K°) with K a complete field and ξ: Spa(C, O_C) -> X a completed algebraic closure, ε_ξ identifies Sh(X_ét) with continuous Gal(K^sep/K)-sets, and stalks are the underlying sets.",
     "For f = j: U -> X the boundary-complement inclusion of a smooth pair and ξ a geometric point of U, (j^{-1}G)_ξ = G_{j∘ξ}; for a geometric point of X not factoring through U, (j_!G)_ξ = 0.",
-    "Pro-étale non-example: on X_proét there are nonzero sheaves all of whose stalks at geometric points vanish (Scholze Remark 3.14), so geometric-point stalks are used only on X_ét."
+    "Pro-étale non-example: on X_proét there are nonzero sheaves all of whose stalks at geometric points vanish (Scholze Remark 3.14), so geometric-point stalks are used only on X_ét.",
+    "Non-example (C⁺ ≠ O_C): let C⁺ have rank two, s the closed point and η the rank-one point of Spa(C, C⁺); {η} = {|a| ≤ 1} for any a ∈ O_C ∖ C⁺ is open. Gluing two copies of Spa(C, C⁺) along {η} gives a surjective, non-separated adic space Y -> Spa(C, C⁺) which is locally on Y an open embedding, hence étale; Y is not a disjoint union of open subspaces of copies of Spa(C, C⁺) (it is connected and not isomorphic to Spa(C, C⁺)), while each copy is a section of the cover {Y -> Spa(C, C⁺)}."
    ],
    "uses": [
     {
@@ -38587,7 +39352,10 @@
     "AdicSpacesPartII:R0/fibre-products-existence",
     "AdicSpacesPartII:R0/infinitesimal-criteria",
     "mathlib:CategoryTheory.GrothendieckTopology.Point",
-    "mathlib:CategoryTheory.Functor.sheafPullback"
+    "mathlib:CategoryTheory.Functor.sheafPullback",
+    "AdicSpacesPartII:R0/smooth-etale-base-change",
+    "AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation",
+    "mathlib:Algebra.FormallyEtale.equivPiOfIsSepClosed"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/AdicSpace/Site/Etale",
@@ -38617,6 +39385,30 @@
      "locator": "item (2), p. 1",
      "excerpt": "Proposition 3.8 and the last sentence of Proposition 3.13 (concerning points) should be removed",
      "match": "The deleted point assertions are not reinstated."
+    },
+    {
+     "sourceId": "Scholze-EtaleCohomologyDiamonds",
+     "locator": "§14, proof of Proposition 14.3, p. 82",
+     "excerpt": "But note that any surjective étale map to Spa(C(y), C(y)+ ) splits and Spa(C(y), C(y)+ ) is connected, so the functor of global sections is exact and commutes with all colimits, i.e. defines a point.",
+     "match": "Geometric points Spa(C, C⁺) with C algebraically closed and C⁺ an open bounded valuation subring (any rank) give points of the étale site because étale covers of Spa(C, C⁺) split; this is the covering property of (a)."
+    },
+    {
+     "sourceId": "Scholze-EtaleCohomologyDiamonds",
+     "locator": "§14, proof of Proposition 14.3, p. 82",
+     "excerpt": "Note that equalizers exist in Yét , so the colimit defining Fy is filtered.",
+     "match": "Cofilteredness of étale neighbourhoods from equalizers, as in (a)."
+    },
+    {
+     "sourceId": "Scholze-EtaleCohomologyDiamonds",
+     "locator": "§7, Definition 7.15 and Proposition 7.16, p. 36",
+     "excerpt": "A perfectoid space X is strictly totally disconnected if it is qcqs and every étale cover splits.",
+     "match": "Splitting of étale covers is the property used; Proposition 7.16 shows it for every Spa(C, C⁺) with C algebraically closed (a single connected component)."
+    },
+    {
+     "sourceId": "Scholze-EtaleCohomologyDiamonds",
+     "locator": "§7, proof of Proposition 7.16, p. 36",
+     "excerpt": "But any étale cover of any connected component Spa(C, C + ) splits, and then the splitting extends to a small neighborhood by Proposition 6.4.",
+     "match": "The statement is splitting of covers (a section), not a decomposition of every étale space over Spa(C, C⁺)."
     }
    ],
    "implementationStatus": "unchecked"
@@ -46529,7 +47321,7 @@
     "Quotients: for A = W_n/I, Ω^1_A = Ω^1_{W_n} ⊗ A/(dI) satisfies the universal property (derivations of A are derivations of W_n killing I). Independence of the presentation: universality.",
     "J/J^2 description: J/J^2 for A ⊗† A (F1/dagger-tensor-product) is finite, generated by 1 ⊗ X_i − X_i ⊗ 1, and is universal by the same argument (Kedlaya 3.1.2).",
     "Sheafification: Ω^1_{A⟨f/g⟩†} = Ω^1_A ⊗_A A⟨f/g⟩† (universal property and F1/dagger-rational-localisation), so U ↦ Ω^1_{O(U)} is Ω^1_A ⊗ O_X, coherent (F1/dagger-coherent-module).",
-    "Completion: Ω^1_A ⊗_A Â is the module of continuous differentials of the affinoid Â (AdicSpacesPartII:R0/continuous-differentials for complete f-adic rings topologically of finite type over K), giving (Ω^i_X)' = Ω^i_{X'}."
+    "Completion: Ω^1_A ⊗_A Â is the module of continuous differentials of the affinoid Â (AdicSpacesPartII:R0/continuous-differentials for complete f-adic rings topologically of finite type over K), giving (Ω^i_X)' = Ω^i_{X'}; on the rigid space X' these modules glue to the coherent sheaf Ωⁱ of AdicSpacesPartII:R3/sheaf-of-continuous-differentials (API affinoidIso), which is the sheaf (Ωⁱ_X)'."
    ],
    "acceptance": [
     "Ω^1_{K⟨X, X^{-1}⟩†} is free on dX (or dX/X).",
@@ -46670,7 +47462,8 @@
     "mathlib:Derivation",
     "mathlib:ExteriorAlgebra.exteriorPower",
     "mathlib:Module.Projective",
-    "AdicSpacesPartII:R0/continuous-differentials"
+    "AdicSpacesPartII:R0/continuous-differentials",
+    "AdicSpacesPartII:R3/sheaf-of-continuous-differentials"
    ],
    "library": {
     "module": "TauCeti/RingTheory/Dagger/Differentials",
@@ -49062,6 +49855,7 @@
     "AdicSpacesPartII:R0/affinoid-noether-normalisation",
     "AdicSpacesPartII:R0/affinoid-power-bounded-integral",
     "AdicSpacesPartII:R0/algebraically-finite-type-ring-map",
+    "AdicSpacesPartII:R0/completed-tensor-banach-module",
     "AdicSpacesPartII:R0/completed-tensor-product",
     "AdicSpacesPartII:R0/completed-tensor-rational-localisation",
     "AdicSpacesPartII:R0/completed-tensor-restricted-power-series",
@@ -49186,6 +49980,7 @@
     "AdicSpacesPartII:R0/noetherian-type-stably-sheafy",
     "AdicSpacesPartII:R0/quasi-finite-stalk-criterion",
     "AdicSpacesPartII:R0/quasi-finite-stalk-differentials",
+    "AdicSpacesPartII:R0/smooth-etale-base-change",
     "AdicSpacesPartII:R0/smooth-morphism",
     "AdicSpacesPartII:R0/unramified-morphism",
     "AdicSpacesPartII:R1/affine-chart-analytification",
@@ -49276,6 +50071,7 @@
     "AdicSpacesPartII:R0/restricted-power-series-smooth",
     "AdicSpacesPartII:R0/separated-diagonal-closed-embedding",
     "AdicSpacesPartII:R0/separated-morphism",
+    "AdicSpacesPartII:R0/smooth-etale-base-change",
     "AdicSpacesPartII:R0/smooth-morphism",
     "AdicSpacesPartII:R0/smooth-toric-chart",
     "AdicSpacesPartII:R0/universally-closed-and-proper-morphism",
@@ -49302,6 +50098,7 @@
     "AdicSpacesPartII:R3/locally-free-sheaf",
     "AdicSpacesPartII:R3/quasi-stein-space",
     "AdicSpacesPartII:R3/relatively-compact-affinoid",
+    "AdicSpacesPartII:R3/sheaf-of-continuous-differentials",
     "AdicSpacesPartII:R4/boundary-complement-restriction",
     "AdicSpacesPartII:R4/etale-site-on-analytic-carriers",
     "AdicSpacesPartII:R4/smooth-pair",
@@ -49544,9 +50341,10 @@
     "AdicSpacesPartII:R0/smooth-differentials-locally-free",
     "AdicSpacesPartII:R0/jacobian-criterion-closed-subspace",
     "AdicSpacesPartII:R0/differential-criterion-morphism",
-    "AdicSpacesPartII:R0/smooth-local-structure"
+    "AdicSpacesPartII:R0/smooth-local-structure",
+    "AdicSpacesPartII:R0/smooth-etale-base-change"
    ],
-   "detail": "The source says 'can be proved similarly as for schemes (cf. [EGA], [I])'. The nodes transport the EGA IV §17 arguments; each is a proof obligation. For injectivity (unramified, étale) and for the examples (open embeddings, relative polydiscs, monomorphisms) the transport is direct. For locality of smoothness on the source (1.6.7), the scheme proof glues local lifts using vanishing of H¹ of a quasi-coherent module on an affine; the test objects Spa A of Definition 1.6.5 are affinoid pre-adic spaces of arbitrary complete Huber pairs, for which Čech acyclicity of M ⊗ O on rational covers is only known under noetherian hypotheses (Huber 1994 Theorem 2.5; anchor Layer 4). Next action: either prove the needed H¹-vanishing for the torsor of lifts (the module Hom(ḡ*Ω, I) with I square-zero) directly, or restrict the test objects in Definition 1.6.5 and prove equivalence with Huber's definition for locally noetherian X, Y."
+   "detail": "The source says 'can be proved similarly as for schemes (cf. [EGA], [I])'. The nodes transport the EGA IV §17 arguments; each is a proof obligation. For injectivity (unramified, étale) and for the examples (open embeddings, relative polydiscs, monomorphisms) the transport is direct. For locality of smoothness on the source (1.6.7), the scheme proof glues local lifts using vanishing of H¹ of a quasi-coherent module on an affine; the test objects Spa A of Definition 1.6.5 are affinoid pre-adic spaces of arbitrary complete Huber pairs, for which Čech acyclicity of M ⊗ O on rational covers is only known under noetherian hypotheses (Huber 1994 Theorem 2.5; anchor Layer 4). Next action: either prove the needed H¹-vanishing for the torsor of lifts (the module Hom(ḡ*Ω, I) with I square-zero) directly, or restrict the test objects in Definition 1.6.5 and prove equivalence with Huber's definition for locally noetherian X, Y. Locality on the source also needs, for a test object Spa A with A not sheafy, that two morphisms Spa A → X agreeing on a rational covering of Spa A are equal; this fails in general, since O_{Spa A}(Spa A) → ∏ O(Wⱼ) need not be injective (Hübner, Example 3.5, after Buzzard–Verberkmoes): for κ ≠ 0 in the kernel and m large, the continuous maps K⟨X⟩ → A, X ↦ 0 and X ↦ ϖᵐκ, give distinct morphisms Spa A → Spa K⟨X⟩ that agree on every Wⱼ. So the unramified and étale cases of locality on the source, and the global step of R0/smooth-etale-base-change (whose chart case is unconditional), are proved here for sheafy test objects; the same next action (restricting the test objects to sheafy A and proving the equivalence with Huber's definition for locally noetherian X, Y) closes both."
   },
   {
    "title": "Huber's habilitation [Hu4] imports for finite morphisms; the transcribed converse of (1.4.2) needs a hypothesis",
@@ -50072,6 +50870,242 @@
    "detail": "The classical affinoid theory is owned by AdicSpacesPartII:R1 (Noether normalisation, residue fields, Jacobson property, maximal ideals of Tate algebras, supremum seminorm, maximum modulus, power-boundedness, reduced affinoids, automatic continuity, integrality of A°, finiteness of reductions, affinoid subdomains, flatness, Gerritzen–Grauert, Tate acyclicity for affinoid coverings, local rings), and norms on finite modules and strictness of finite maps are Tau Ceti (IsTateRing.isModuleTopology, LinearMap.isStrictMap_of_module_finite). The following BGR inputs of F1 are planned nowhere and were not read: 5.2.7/8 (ideals of T_n are strictly closed; F1/overconvergent-tate-algebra-properties (2)); excellence of affinoid algebras (Kedlaya–Liu Remark 2.5.3, Kiehl; F1/dagger-completion-comparison (3)); 6.3.2/1–2 (lifting integral equations from reductions; F1/dagger-finite-morphism-comparison (b)); 7.3.3/5 and 8.2.1/4 (open immersions of affinoid spaces and their images; F1/dagger-affinoid-subdomain-completion (a), F1/dagger-g-topology (a)); the proof pattern of 8.2.1/1 and 8.2.2 transported to dagger algebras (F1/dagger-tate-acyclicity); 9.2.3/1 (extension of sheaves from affinoid subdomains to the strong G-topology; F1/dagger-coherent-module); 7.2.3/3 and 7.2.4/1 (Runge immersions; F1/dagger-to-rigid-functor (6))."
   }
  ],
+ "restructure": [
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "AdicSpacesPartII",
+    "PadicDifferentialEquationsAndRigidCohomology"
+   ],
+   "detail": "Grosse-Klönne's finiteness theorem for de Rham cohomology of dagger spaces reduces, through semistable tubes, to the finite-dimensionality of Monsky–Washnitzer cohomology of smooth affine schemes over the residue field (Berthelot 1997, Mebkhout 1997). In the atlas that finiteness is owned by PadicDifferentialEquationsAndRigidCohomology RD.5 (finiteness, duality and Künneth), and RD.0–RD.5 consume AdicSpacesPartII F1 (dagger algebras, fringe topology, dagger spaces, de Rham complexes). Citing RD.5 from F1 would create the stage cycle F1 → RD.5 → F1, so six F1 nodes currently rest on the gap 'Finiteness of Monsky–Washnitzer cohomology … cannot be a prerequisite of F1': AdicSpacesPartII:F1/dagger-semistable-tube-finiteness (uses MW finiteness directly for H_dR(Sp B), B = D† ⊗ K), AdicSpacesPartII:F1/quasi-algebraic-affinoid-finiteness (uses it through the semistable tubes of a de Jong alteration), AdicSpacesPartII:F1/dagger-de-rham-finiteness-and-base-change (Grosse-Klönne Theorems 3.6/4.4/4.9, via the previous node), AdicSpacesPartII:F1/dagger-strict-differentials (the Stein case closes only with finite-dimensional H^{i+1}_dR, and the affinoid case reduces to the Stein interiors X_ρ, whose finiteness is the previous node), AdicSpacesPartII:F1/dagger-de-rham-kunneth and AdicSpacesPartII:F1/dagger-poincare-duality (both assume or use the finiteness and the strictness). No other F1 node depends on them (checked on the prerequisite graph).",
+   "proposal": "Move these six nodes, unchanged in statement, to PadicDifferentialEquationsAndRigidCohomology RD.5 as applications of MW finiteness to dagger spaces: AdicSpacesPartII:F1/dagger-semistable-tube-finiteness, AdicSpacesPartII:F1/quasi-algebraic-affinoid-finiteness, AdicSpacesPartII:F1/dagger-de-rham-finiteness-and-base-change, AdicSpacesPartII:F1/dagger-strict-differentials, AdicSpacesPartII:F1/dagger-de-rham-kunneth, AdicSpacesPartII:F1/dagger-poincare-duality. F1 keeps every input they use that does not need finiteness (dagger-semistable-tube-invariance, dagger-polyannulus-de-rham-cohomology, de-rham-cohomology-with-supports, dagger-local-cohomology-comparison, dagger-resolution-lemma, dagger-finite-etale-trace, dagger-proper-modification-sequence, dagger-de-rham-finite-field-extension, dagger-serre-duality, compact-support-de-rham, fringe-topology), so the moved nodes depend on F1 and on RD.5's MW finiteness, and the order F1 → RD.5 stays acyclic. F1's stage text 'Prove local acyclicity/base-change statements with convergence and finiteness hypotheses explicit' is then met with finiteness as an explicit hypothesis, and RD.5's description gains 'finite-dimensionality, Künneth and Poincaré duality for the de Rham cohomology of smooth dagger spaces (Grosse-Klönne, Finiteness §§3–4)'. AutomorphicGaloisRepresentationsPartII AG2.4, which uses F1/dagger-de-rham-finiteness-and-base-change, gains a link RD.5 → AG2.4. The F1 gap on MW finiteness is then deleted."
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "AdicSpacesPartII"
+   ],
+   "detail": "R1's description ends its first paragraph with 'Establish the properness comparison and the proper GAGA results required for algebraic coefficient sheaves.' Proper GAGA needs coherent sheaves on adic spaces, Kiehl's theorem on affinoids and the proper mapping theorem, which are R3's (R3 depends on R0–R2 and R2 on R1), so R1 cannot prove it. The packet realises it by AdicSpacesPartII:R3/proper-gaga, AdicSpacesPartII:R3/proper-gaga-coherent-equivalence and AdicSpacesPartII:R3/gaga-finite-covers (the PerfectoidSpaces P8 request), whose realises lists name R1 as well as R3, and by AdicSpacesPartII:R3/analytification-coherent (coherence of F^an).",
+   "proposal": "Move the target 'proper GAGA' from R1 to R3. R1 keeps: 'Establish the properness comparison (X proper ⇔ X^ad proper) and the analytification of coherent modules as sheaves of O_{X^ad}-modules (exactness, tensor and pullback compatibility).' R3 gains: 'Prove proper GAGA over an affinoid base: coherence of F^an, the comparison (R^i f_* F)^an ≅ R^i f^an_* F^an for proper f, the equivalence of coherent sheaves on proper X and X^an, and the algebraicity of finite analytic covers of X^an for proper X.' The realises lists of R3/proper-gaga and R3/gaga-finite-covers then name R3 only, and the link R1 → R3 (already implied by R1 → R2 → R3) carries R1/analytification-of-modules, R1/analytification-separated-proper and R1/analytification-reflects-finite-closed-immersion."
+  },
+  {
+   "action": "split",
+   "roadmaps": [
+    "AdicSpacesPartII"
+   ],
+   "detail": "Layer R0 has 121 nodes (PROTOCOL §14: a layer too broad to read as one star may be divided). Its nodes fall into four groups: the classical affinoid algebras (Noether normalisation, residue fields, supremum seminorm, integrality of A°, reductions); with a clear dependency order: affinoid products and fibre products (the ring-level inputs, Huber 1994 Theorem 2.2 Case I, uniformization, completed tensor products, fibre products, adic and finite-type classes, closed subspaces); separated, proper, finite and quasi-finite morphisms (Huber 1996 §§1.3–1.5); differentials, smooth and étale morphisms (Huber 1996 §§1.6–1.7). The R0 planets fall 0 / 2 / 2 / 2.",
+   "proposal": "Divide R0 into four sub-layers, each a parent node of AdicSpacesPartII (parentStageId of its members), in this order.",
+   "subLayers": [
+    {
+     "title": "R0o Classical affinoid algebras",
+     "parentStageId": "AdicSpacesPartII:R0",
+     "nodes": [
+      "AdicSpacesPartII:R0/affinoid-noether-normalisation",
+      "AdicSpacesPartII:R0/affinoid-residue-fields-finite",
+      "AdicSpacesPartII:R0/affinoid-jacobson",
+      "AdicSpacesPartII:R0/tate-algebra-maximal-ideals-polynomial",
+      "AdicSpacesPartII:R0/affinoid-supremum-seminorm",
+      "AdicSpacesPartII:R0/affinoid-maximum-modulus",
+      "AdicSpacesPartII:R0/affinoid-power-bounded-iff-sup",
+      "AdicSpacesPartII:R0/reduced-affinoid-supremum-norm",
+      "AdicSpacesPartII:R0/affinoid-homomorphism-continuous",
+      "AdicSpacesPartII:R0/affinoid-power-bounded-integral",
+      "AdicSpacesPartII:R0/affinoid-reduction-finite",
+      "AdicSpacesPartII:R0/reduced-reduction-ring-of-definition"
+     ]
+    },
+    {
+     "title": "R0a Completed tensor products and fibre products",
+     "parentStageId": "AdicSpacesPartII:R0",
+     "nodes": [
+      "AdicSpacesPartII:R0/noetherian-type-huber-ring",
+      "AdicSpacesPartII:R0/noetherian-adic-completion",
+      "AdicSpacesPartII:R0/adic-ring-homomorphism",
+      "AdicSpacesPartII:R0/topologically-finite-type-is-adic",
+      "AdicSpacesPartII:R0/topologically-finite-type-noetherian-type",
+      "AdicSpacesPartII:R0/noetherian-type-ideals-closed",
+      "AdicSpacesPartII:R0/localization-cech-complex-exact",
+      "AdicSpacesPartII:R0/strict-complex-completion-exact",
+      "AdicSpacesPartII:R0/noetherian-rod-module-topology-strict",
+      "AdicSpacesPartII:R0/noetherian-rod-module-complete",
+      "AdicSpacesPartII:R0/noetherian-rod-module-completion-tensor",
+      "AdicSpacesPartII:R0/open-subring-spec-isomorphism",
+      "AdicSpacesPartII:R0/submodule-blow-up",
+      "AdicSpacesPartII:R0/submodule-blow-up-isomorphism-away",
+      "AdicSpacesPartII:R0/blow-up-cech-artin-rees",
+      "AdicSpacesPartII:R0/blow-up-cech-filtration-neighbourhoods",
+      "AdicSpacesPartII:R0/noetherian-rod-laurent-cech-strict",
+      "AdicSpacesPartII:R0/noetherian-rod-sheafy",
+      "AdicSpacesPartII:R0/discrete-huber-pair-sheafy",
+      "AdicSpacesPartII:R0/noetherian-type-stably-sheafy",
+      "AdicSpacesPartII:R0/completed-tensor-product",
+      "AdicSpacesPartII:R0/completed-tensor-product-universal-property",
+      "AdicSpacesPartII:R0/completed-tensor-restricted-power-series",
+      "AdicSpacesPartII:R0/completed-tensor-noetherian-stability",
+      "AdicSpacesPartII:R0/completed-tensor-rational-localisation",
+      "AdicSpacesPartII:R0/valuation-amalgamation",
+      "AdicSpacesPartII:R0/affinoid-fibre-product",
+      "AdicSpacesPartII:R0/fibre-product-along-finite-type",
+      "AdicSpacesPartII:R0/fibre-products-existence",
+      "AdicSpacesPartII:R0/fibre-product-points",
+      "AdicSpacesPartII:R0/base-change-stability",
+      "AdicSpacesPartII:R0/adic-morphism",
+      "AdicSpacesPartII:R0/adic-iff-analytic-locus",
+      "AdicSpacesPartII:R0/finite-type-morphism-classes",
+      "AdicSpacesPartII:R0/plus-weakly-finite-type",
+      "AdicSpacesPartII:R0/locally-finite-presentation",
+      "AdicSpacesPartII:R0/locally-noetherian-adic-space",
+      "AdicSpacesPartII:R0/closed-adic-subspaces-and-embeddings",
+      "AdicSpacesPartII:R0/diagonal-locally-closed",
+      "AdicSpacesPartII:R0/tate-ring-norm",
+      "AdicSpacesPartII:R0/spectral-seminorm",
+      "AdicSpacesPartII:R0/spectral-topology",
+      "AdicSpacesPartII:R0/spectral-topology-cont-eq",
+      "AdicSpacesPartII:R0/uniformization",
+      "AdicSpacesPartII:R0/uniform-completed-tensor-product"
+     ]
+    },
+    {
+     "title": "R0b Separated, proper, finite and quasi-finite morphisms",
+     "parentStageId": "AdicSpacesPartII:R0",
+     "nodes": [
+      "AdicSpacesPartII:R0/separated-morphism",
+      "AdicSpacesPartII:R0/universally-closed-morphism",
+      "AdicSpacesPartII:R0/universally-closed-and-proper-morphism",
+      "AdicSpacesPartII:R0/universally-specializing-morphism",
+      "AdicSpacesPartII:R0/partially-proper-morphism",
+      "AdicSpacesPartII:R0/adic-valuation-rings-and-centres",
+      "AdicSpacesPartII:R0/valuative-criterion-separated",
+      "AdicSpacesPartII:R0/valuative-criterion-specializing",
+      "AdicSpacesPartII:R0/separated-proper-partially-proper",
+      "AdicSpacesPartII:R0/proper-iff-partially-proper-quasi-compact",
+      "AdicSpacesPartII:R0/valuation-ring-space-spectral",
+      "AdicSpacesPartII:R0/partially-proper-closure-quasi-compact",
+      "AdicSpacesPartII:R0/separated-diagonal-closed-embedding",
+      "AdicSpacesPartII:R0/closed-embedding-proper",
+      "AdicSpacesPartII:R0/proper-base-change",
+      "AdicSpacesPartII:R0/proper-comp",
+      "AdicSpacesPartII:R0/proper-of-comp-separated",
+      "AdicSpacesPartII:R0/universally-closed-of-surjective",
+      "AdicSpacesPartII:R0/finite-huber-pair-hom",
+      "AdicSpacesPartII:R0/finite-morphism",
+      "AdicSpacesPartII:R0/finite-algebra-over-affinoid",
+      "AdicSpacesPartII:R0/finiteness-criterion-monic-relations",
+      "AdicSpacesPartII:R0/finite-morphisms",
+      "AdicSpacesPartII:R0/closed-embedding-finite",
+      "AdicSpacesPartII:R0/fibre-nilpotence-spreading",
+      "AdicSpacesPartII:R0/finite-from-proper-fibre",
+      "AdicSpacesPartII:R0/finiteness-faithfully-flat-descent",
+      "AdicSpacesPartII:R0/finite-algebra-tensor-complete",
+      "AdicSpacesPartII:R0/quasi-finite-morphism",
+      "AdicSpacesPartII:R0/quasi-finite-fibre-criteria",
+      "AdicSpacesPartII:R0/quasi-finite-stalk-criterion",
+      "AdicSpacesPartII:R0/quasi-finite-and-finiteness-criteria",
+      "AdicSpacesPartII:R0/partially-proper-quasi-finite-local-finiteness"
+     ]
+    },
+    {
+     "title": "R0c Differentials, smooth and étale morphisms",
+     "parentStageId": "AdicSpacesPartII:R0",
+     "nodes": [
+      "AdicSpacesPartII:R0/continuous-differentials",
+      "AdicSpacesPartII:R0/first-fundamental-sequence",
+      "AdicSpacesPartII:R0/conormal-sequence",
+      "AdicSpacesPartII:R0/quasi-finite-stalk-differentials",
+      "AdicSpacesPartII:R0/flat-morphism",
+      "AdicSpacesPartII:R0/unramified-morphism",
+      "AdicSpacesPartII:R0/smooth-morphism",
+      "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
+      "AdicSpacesPartII:R0/open-embedding-etale",
+      "AdicSpacesPartII:R0/immersion-unramified",
+      "AdicSpacesPartII:R0/restricted-power-series-smooth",
+      "AdicSpacesPartII:R0/etale-smooth-composition",
+      "AdicSpacesPartII:R0/etale-smooth-cancellation",
+      "AdicSpacesPartII:R0/etale-smooth-locality",
+      "AdicSpacesPartII:R0/unramified-locally-quasi-finite",
+      "AdicSpacesPartII:R0/infinitesimal-criteria",
+      "AdicSpacesPartII:R0/smooth-differentials-locally-free",
+      "AdicSpacesPartII:R0/jacobian-criterion-closed-subspace",
+      "AdicSpacesPartII:R0/differential-criterion-morphism",
+      "AdicSpacesPartII:R0/finite-etale-algebra-comparison",
+      "AdicSpacesPartII:R0/algebraically-finite-type-ring-map",
+      "AdicSpacesPartII:R0/etale-local-structure",
+      "AdicSpacesPartII:R0/etale-presentation-perturbation",
+      "AdicSpacesPartII:R0/etale-algebraic-model",
+      "AdicSpacesPartII:R0/smooth-local-structure",
+      "AdicSpacesPartII:R0/etale-affinoid-finite-etale-embedding",
+      "AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation",
+      "AdicSpacesPartII:R0/smooth-toric-chart",
+      "AdicSpacesPartII:R0/etale-flat-unramified",
+      "AdicSpacesPartII:R0/etale-ring-flatness",
+      "AdicSpacesPartII:R0/smooth-morphism-open"
+     ]
+    }
+   ]
+  },
+  {
+   "action": "rescope",
+   "roadmaps": [
+    "AdicSpacesPartII"
+   ],
+   "detail": "Owners fixed by this reconciliation, which the stage descriptions do not yet state. (1) Huber 1994 Theorem 2.2, Case I (sheafiness of complete Huber pairs with a noetherian ring of definition, and the discrete case, Wedhorn 8.28(c)) had no owner: the anchor's Layer 4 covers only strongly noetherian Tate rings and Buzzard–Verberkmoes. It is now planned in R0 (AdicSpacesPartII:R0/noetherian-rod-sheafy, AdicSpacesPartII:R0/discrete-huber-pair-sheafy and their lemmas, including Huber's (1.3) for finite modules, AdicSpacesPartII:R0/noetherian-rod-laurent-cech-strict, moved from R3). (2) Uniformization of completed tensor products (AdicEtaleGeometry A0's supplier contract; consumed by PerfectoidSpaces P2) is planned in R0 (AdicSpacesPartII:R0/spectral-seminorm, AdicSpacesPartII:R0/uniformization, AdicSpacesPartII:R0/uniform-completed-tensor-product). (3) Kedlaya–Liu Theorem 2.4.23 (Čech acyclicity of O for every sheafy Tate pair) extends the anchor's Layer 4 and is planned in R3 (AdicSpacesPartII:R3/sheafy-cech-acyclicity); RS-05's narrowing of R3 ('import anchor structure-sheaf acyclicity') assumed the anchor states it, which it does only for strongly noetherian rings. (4) Classical affinoid-algebra theory had no owner: its algebraic half (Noether normalisation, Nullstellensatz and the Jacobson property, supremum seminorm and maximum modulus, power-boundedness, integrality of A°, reductions) is planned in R0 (section R0.0), which uses it in Huber 1.5.2; affinoid subdomains, Gerritzen–Grauert, Tate acyclicity for affinoid coverings and the rigid local rings are planned in R1 (section R1.0). (6) EGA 0_I (7.3.1), noetherianity of adic completions, is owned by F0 (AdicSpacesPartII:F0/adic-completion-noetherian); AdicSpacesPartII:R0/noetherian-adic-completion keeps only its Huber-ring consequence. (5) The local structure of étale morphisms (de Jong–van der Put 3.1.4; Huber 1996 Lemma 2.2.8) is R0's (AdicSpacesPartII:R0/etale-affinoid-finite-etale-embedding, AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation); R4 and R5 cite R0, not AdicEtaleGeometry A1.",
+   "proposal": "Add to the stage descriptions: R0 — 'Prove sheafiness of complete Huber pairs with a noetherian ring of definition (Huber 1994 Theorem 2.2, Case I) and of discrete pairs; construct the spectral seminorm and the uniformization of complete Tate pairs and of completed tensor products, with its universal property among uniform pairs and Spa unchanged; prove the local structure of étale morphisms (de Jong–van der Put 3.1.4, Huber 1996 2.2.8).' R0's Dependencies gain AdicSpacesPartII F0 (EGA III 3.3.2 Artin–Rees for cohomology, used in Huber's step (1.3.1)) and tauceti JacobianChallenge Layer B; the stage edge F0 → R0 creates no cycle (F0 has no prerequisite in R0–R5 or F1). R0 also — 'Develop the classical affinoid algebras over a complete rank-one field: Noether normalisation, Nullstellensatz and the Jacobson property, supremum seminorm, maximum modulus, power-boundedness, integrality of A°, reductions.' R1 — 'Develop affinoid subdomains, the Gerritzen–Grauert theorem, Tate acyclicity for affinoid coverings and the local rings at classical points; and the identity principle for connected normal rigid spaces.' R3 — replace 'import anchor structure-sheaf acyclicity' by 'prove Čech acyclicity of the structure sheaf on every sheafy Tate affinoid (Kedlaya–Liu 2.4.21–2.4.23), importing the sheaf property from the anchor'. Record owners: Huber 1994 Theorem 2.2 Case I → AdicSpacesPartII:R0 (formerly none); uniformization → AdicSpacesPartII:R0 (formerly undecided between R0 and PerfectoidSpaces:P2); Kedlaya–Liu 2.4.23 → AdicSpacesPartII:R3 (formerly requested from tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity); classical affinoid algebras → AdicSpacesPartII:R1 (formerly none; used by R1, R2, R3, F1); local structure of étale morphisms → AdicSpacesPartII:R0 (formerly requested from AdicEtaleGeometry:A1 by R4 and R5).",
+   "owners": [
+    {
+     "target": "Huber 1994 Theorem 2.2 Case I (sheafiness with a noetherian ring of definition) and Huber (1.3) for finite modules",
+     "owner": "AdicSpacesPartII:R0",
+     "formerly": [
+      "AdicSpacesPartII:R3"
+     ]
+    },
+    {
+     "target": "Uniformization of complete Tate pairs and of completed tensor products",
+     "owner": "AdicSpacesPartII:R0",
+     "formerly": [
+      "PerfectoidSpaces:P2"
+     ]
+    },
+    {
+     "target": "Kedlaya–Liu Theorem 2.4.23: Čech acyclicity of O on sheafy Tate affinoids",
+     "owner": "AdicSpacesPartII:R3",
+     "formerly": [
+      "AdicSpacesPartII:R3"
+     ]
+    },
+    {
+     "target": "Classical affinoid algebras: Noether normalisation, Nullstellensatz and Jacobson property, supremum seminorm, maximum modulus, power-boundedness, integrality of A°, reductions (BGR Chapters 5–6 as used)",
+     "owner": "AdicSpacesPartII:R0",
+     "formerly": [
+      "AdicSpacesPartII:R1",
+      "AdicSpacesPartII:F1",
+      "AdicSpacesPartII:R2"
+     ]
+    },
+    {
+     "target": "Affinoid subdomains, Gerritzen–Grauert, Tate acyclicity for affinoid coverings, rigid local rings (BGR Chapters 7–8 as used)",
+     "owner": "AdicSpacesPartII:R1",
+     "formerly": [
+      "AdicSpacesPartII:F1",
+      "AdicSpacesPartII:R2"
+     ]
+    },
+    {
+     "target": "Local structure of étale morphisms (de Jong–van der Put 3.1.4; Huber 1996 Lemma 2.2.8)",
+     "owner": "AdicSpacesPartII:R0",
+     "formerly": [
+      "AdicEtaleGeometry:A1"
+     ]
+    },
+    {
+     "target": "EGA 0_I (7.3.1): the adic completion of a noetherian ring is noetherian",
+     "owner": "AdicSpacesPartII:F0",
+     "formerly": [
+      "AdicSpacesPartII:R0"
+     ]
+    }
+   ]
+  }
+ ],
  "sourceIssues": [
   {
    "id": "AdicSpacesPartII/E1",
@@ -50371,6 +51405,20 @@
   },
   {
    "id": "AdicSpacesPartII/E21",
+   "source": "KedlayaLiu-RelativeFoundations-2015",
+   "kind": "error",
+   "locator": "§2.8, Definition 2.8.1, p. 59 (arXiv:1301.0792v5)",
+   "printed": "Definition 2.8.1. The following conditions on a Banach ring A are equivalent. (a) The norm on A is equivalent to some power-multiplicative norm. (b) The norm on A is equivalent to its spectral seminorm ... (c) There exists c > 0 such that |x2 | ≥ c |x|2 for all x ∈ A. ... (d) The subring A◦ of A is bounded.",
+   "correction": "(a)-(c) are equivalent and define uniformity; they imply (d), and (d) implies that the spectral norm defines the topology; (d) implies (a)-(c) when A contains a topologically nilpotent unit z with |z|·|z⁻¹| = 1 (for instance for the norms of AdicSpacesPartII:R0/tate-ring-norm), but not in general.",
+   "reason": "On a complete nonarchimedean field K the norm |x| for |x| ≤ 1 and |x|(1 + log|x|) for |x| > 1 is submultiplicative, defines the topology of K (so K° is bounded) and is not equivalent to its spectral norm |·|; so (d) does not imply (b). The authors record this in the errata to the paper.",
+   "affects": "a stated result",
+   "known": "Kedlaya–Liu II (arXiv:1602.06899v3), Appendix A, item on Definition 2.8.1",
+   "searched": [
+    "Kedlaya–Liu II Appendix A (read)"
+   ]
+  },
+  {
+   "id": "AdicSpacesPartII/E22",
    "source": "Scholze-PadicHodgeRigid-Erratum",
    "kind": "gap",
    "locator": "item (1), p. 1, in the three-page erratum (SHA-256 3cfa56b9…)",
@@ -50386,7 +51434,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E22",
+   "id": "AdicSpacesPartII/E23",
    "source": "Scholze-PadicHodgeRigid-2013",
    "kind": "error",
    "locator": "§3, Proposition 3.7(i), p. 14 (arXiv v2)",
@@ -50400,7 +51448,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E23",
+   "id": "AdicSpacesPartII/E24",
    "source": "Scholze-PadicHodgeRigid-2013",
    "kind": "error",
    "locator": "§3, Corollary 3.8 and the last sentence of Proposition 3.13, pp. 15 and 18 (arXiv v2)",
@@ -50414,7 +51462,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E24",
+   "id": "AdicSpacesPartII/E25",
    "source": "BHW-OverconvergentHilbert-2023",
    "kind": "misprint",
    "locator": "§3.1, Corollary 3.4, p. 1724 (journal); same wording in arXiv:1902.03985v4, Corollary 3.4",
@@ -50429,7 +51477,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E25",
+   "id": "AdicSpacesPartII/E26",
    "source": "BHW-OverconvergentHilbert-2023",
    "kind": "gap",
    "locator": "§3.1, proof of Corollary 3.4, p. 1725 (journal); same in arXiv v4",
@@ -50445,7 +51493,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E26",
+   "id": "AdicSpacesPartII/E27",
    "source": "BHW-OverconvergentHilbert-2023",
    "kind": "gap",
    "locator": "§3.1, proof of Corollary 3.5, p. 1725 (journal); same in arXiv v4",
@@ -50460,7 +51508,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E27",
+   "id": "AdicSpacesPartII/E28",
    "source": "CHJ-OverconvergentPerfectoidShimuraCurves-2017",
    "kind": "gap",
    "locator": "§6.3, after Lemma 6.13, p. 51, and proof of Proposition 6.15, p. 52 (arXiv v2)",
@@ -50475,7 +51523,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E28",
+   "id": "AdicSpacesPartII/E29",
    "source": "CHJ-OverconvergentPerfectoidShimuraCurves-2017",
    "kind": "misprint",
    "locator": "§6.1, Definition 6.3, p. 46 (arXiv v2)",
@@ -50490,7 +51538,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E29",
+   "id": "AdicSpacesPartII/E30",
    "source": "GrosseKlonne-DaggerSpaces-2000",
    "kind": "gap",
    "locator": "§4, Lemma 4.7, printed p. 21 (arXiv:1408.3329v1); J. reine angew. Math. 519 (2000), Lemma 4.7",
@@ -50513,7 +51561,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E30",
+   "id": "AdicSpacesPartII/E31",
    "source": "GrosseKlonne-DaggerSpaces-2000",
    "kind": "gap",
    "locator": "§4, proof of Lemma 4.7, Stein case, printed p. 21 (arXiv v1)",
@@ -50536,7 +51584,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E31",
+   "id": "AdicSpacesPartII/E32",
    "source": "GrosseKlonne-DaggerSpaces-2000",
    "kind": "misprint",
    "locator": "§2, proof of Theorem 2.16, printed p. 13 (arXiv v1)",
@@ -50558,7 +51606,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E32",
+   "id": "AdicSpacesPartII/E33",
    "source": "GrosseKlonne-FinitenessDeRham-2002",
    "kind": "misprint",
    "locator": "§2, Lemma 2.1 (b), printed p. 15 (arXiv:1408.3327v1)",
@@ -50580,7 +51628,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E33",
+   "id": "AdicSpacesPartII/E34",
    "source": "Kedlaya-FinitenessRigidCoefficients-2006",
    "kind": "error",
    "locator": "§3.2, Definition 3.2.1 (arXiv:math/0208027v6)",
@@ -50608,7 +51656,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E34",
+   "id": "AdicSpacesPartII/E35",
    "source": "Kedlaya-FinitenessRigidCoefficients-2006",
    "kind": "error",
    "locator": "§2.3, Remark 2.3.6 (arXiv:math/0208027v6)",
@@ -50636,7 +51684,7 @@
    ]
   },
   {
-   "id": "AdicSpacesPartII/E35",
+   "id": "AdicSpacesPartII/E36",
    "source": "Kedlaya-FinitenessRigidCoefficients-2006",
    "kind": "error",
    "locator": "§2.2, Lemma 2.2.3 and §2.3, Remark 2.3.9 (arXiv:math/0208027v6)",
@@ -50659,242 +51707,6 @@
      "kind": "author copy",
      "url": "https://kskedlaya.org/papers/finiteness-errata.txt",
      "read": "2026-09-26"
-    }
-   ]
-  }
- ],
- "restructure": [
-  {
-   "action": "rescope",
-   "roadmaps": [
-    "AdicSpacesPartII",
-    "PadicDifferentialEquationsAndRigidCohomology"
-   ],
-   "detail": "Grosse-Klönne's finiteness theorem for de Rham cohomology of dagger spaces reduces, through semistable tubes, to the finite-dimensionality of Monsky–Washnitzer cohomology of smooth affine schemes over the residue field (Berthelot 1997, Mebkhout 1997). In the atlas that finiteness is owned by PadicDifferentialEquationsAndRigidCohomology RD.5 (finiteness, duality and Künneth), and RD.0–RD.5 consume AdicSpacesPartII F1 (dagger algebras, fringe topology, dagger spaces, de Rham complexes). Citing RD.5 from F1 would create the stage cycle F1 → RD.5 → F1, so six F1 nodes currently rest on the gap 'Finiteness of Monsky–Washnitzer cohomology … cannot be a prerequisite of F1': AdicSpacesPartII:F1/dagger-semistable-tube-finiteness (uses MW finiteness directly for H_dR(Sp B), B = D† ⊗ K), AdicSpacesPartII:F1/quasi-algebraic-affinoid-finiteness (uses it through the semistable tubes of a de Jong alteration), AdicSpacesPartII:F1/dagger-de-rham-finiteness-and-base-change (Grosse-Klönne Theorems 3.6/4.4/4.9, via the previous node), AdicSpacesPartII:F1/dagger-strict-differentials (the Stein case closes only with finite-dimensional H^{i+1}_dR, and the affinoid case reduces to the Stein interiors X_ρ, whose finiteness is the previous node), AdicSpacesPartII:F1/dagger-de-rham-kunneth and AdicSpacesPartII:F1/dagger-poincare-duality (both assume or use the finiteness and the strictness). No other F1 node depends on them (checked on the prerequisite graph).",
-   "proposal": "Move these six nodes, unchanged in statement, to PadicDifferentialEquationsAndRigidCohomology RD.5 as applications of MW finiteness to dagger spaces: AdicSpacesPartII:F1/dagger-semistable-tube-finiteness, AdicSpacesPartII:F1/quasi-algebraic-affinoid-finiteness, AdicSpacesPartII:F1/dagger-de-rham-finiteness-and-base-change, AdicSpacesPartII:F1/dagger-strict-differentials, AdicSpacesPartII:F1/dagger-de-rham-kunneth, AdicSpacesPartII:F1/dagger-poincare-duality. F1 keeps every input they use that does not need finiteness (dagger-semistable-tube-invariance, dagger-polyannulus-de-rham-cohomology, de-rham-cohomology-with-supports, dagger-local-cohomology-comparison, dagger-resolution-lemma, dagger-finite-etale-trace, dagger-proper-modification-sequence, dagger-de-rham-finite-field-extension, dagger-serre-duality, compact-support-de-rham, fringe-topology), so the moved nodes depend on F1 and on RD.5's MW finiteness, and the order F1 → RD.5 stays acyclic. F1's stage text 'Prove local acyclicity/base-change statements with convergence and finiteness hypotheses explicit' is then met with finiteness as an explicit hypothesis, and RD.5's description gains 'finite-dimensionality, Künneth and Poincaré duality for the de Rham cohomology of smooth dagger spaces (Grosse-Klönne, Finiteness §§3–4)'. AutomorphicGaloisRepresentationsPartII AG2.4, which uses F1/dagger-de-rham-finiteness-and-base-change, gains a link RD.5 → AG2.4. The F1 gap on MW finiteness is then deleted."
-  },
-  {
-   "action": "rescope",
-   "roadmaps": [
-    "AdicSpacesPartII"
-   ],
-   "detail": "R1's description ends its first paragraph with 'Establish the properness comparison and the proper GAGA results required for algebraic coefficient sheaves.' Proper GAGA needs coherent sheaves on adic spaces, Kiehl's theorem on affinoids and the proper mapping theorem, which are R3's (R3 depends on R0–R2 and R2 on R1), so R1 cannot prove it. The packet realises it by AdicSpacesPartII:R3/proper-gaga, AdicSpacesPartII:R3/proper-gaga-coherent-equivalence and AdicSpacesPartII:R3/gaga-finite-covers (the PerfectoidSpaces P8 request), whose realises lists name R1 as well as R3, and by AdicSpacesPartII:R3/analytification-coherent (coherence of F^an).",
-   "proposal": "Move the target 'proper GAGA' from R1 to R3. R1 keeps: 'Establish the properness comparison (X proper ⇔ X^ad proper) and the analytification of coherent modules as sheaves of O_{X^ad}-modules (exactness, tensor and pullback compatibility).' R3 gains: 'Prove proper GAGA over an affinoid base: coherence of F^an, the comparison (R^i f_* F)^an ≅ R^i f^an_* F^an for proper f, the equivalence of coherent sheaves on proper X and X^an, and the algebraicity of finite analytic covers of X^an for proper X.' The realises lists of R3/proper-gaga and R3/gaga-finite-covers then name R3 only, and the link R1 → R3 (already implied by R1 → R2 → R3) carries R1/analytification-of-modules, R1/analytification-separated-proper and R1/analytification-reflects-finite-closed-immersion."
-  },
-  {
-   "action": "split",
-   "roadmaps": [
-    "AdicSpacesPartII"
-   ],
-   "detail": "Layer R0 has 121 nodes (PROTOCOL §14: a layer too broad to read as one star may be divided). Its nodes fall into four groups: the classical affinoid algebras (Noether normalisation, residue fields, supremum seminorm, integrality of A°, reductions); with a clear dependency order: affinoid products and fibre products (the ring-level inputs, Huber 1994 Theorem 2.2 Case I, uniformization, completed tensor products, fibre products, adic and finite-type classes, closed subspaces); separated, proper, finite and quasi-finite morphisms (Huber 1996 §§1.3–1.5); differentials, smooth and étale morphisms (Huber 1996 §§1.6–1.7). The R0 planets fall 0 / 2 / 2 / 2.",
-   "proposal": "Divide R0 into four sub-layers, each a parent node of AdicSpacesPartII (parentStageId of its members), in this order.",
-   "subLayers": [
-    {
-     "title": "R0o Classical affinoid algebras",
-     "parentStageId": "AdicSpacesPartII:R0",
-     "nodes": [
-      "AdicSpacesPartII:R0/affinoid-noether-normalisation",
-      "AdicSpacesPartII:R0/affinoid-residue-fields-finite",
-      "AdicSpacesPartII:R0/affinoid-jacobson",
-      "AdicSpacesPartII:R0/tate-algebra-maximal-ideals-polynomial",
-      "AdicSpacesPartII:R0/affinoid-supremum-seminorm",
-      "AdicSpacesPartII:R0/affinoid-maximum-modulus",
-      "AdicSpacesPartII:R0/affinoid-power-bounded-iff-sup",
-      "AdicSpacesPartII:R0/reduced-affinoid-supremum-norm",
-      "AdicSpacesPartII:R0/affinoid-homomorphism-continuous",
-      "AdicSpacesPartII:R0/affinoid-power-bounded-integral",
-      "AdicSpacesPartII:R0/affinoid-reduction-finite",
-      "AdicSpacesPartII:R0/reduced-reduction-ring-of-definition"
-     ]
-    },
-    {
-     "title": "R0a Completed tensor products and fibre products",
-     "parentStageId": "AdicSpacesPartII:R0",
-     "nodes": [
-      "AdicSpacesPartII:R0/noetherian-type-huber-ring",
-      "AdicSpacesPartII:R0/noetherian-adic-completion",
-      "AdicSpacesPartII:R0/adic-ring-homomorphism",
-      "AdicSpacesPartII:R0/topologically-finite-type-is-adic",
-      "AdicSpacesPartII:R0/topologically-finite-type-noetherian-type",
-      "AdicSpacesPartII:R0/noetherian-type-ideals-closed",
-      "AdicSpacesPartII:R0/localization-cech-complex-exact",
-      "AdicSpacesPartII:R0/strict-complex-completion-exact",
-      "AdicSpacesPartII:R0/noetherian-rod-module-topology-strict",
-      "AdicSpacesPartII:R0/noetherian-rod-module-complete",
-      "AdicSpacesPartII:R0/noetherian-rod-module-completion-tensor",
-      "AdicSpacesPartII:R0/open-subring-spec-isomorphism",
-      "AdicSpacesPartII:R0/submodule-blow-up",
-      "AdicSpacesPartII:R0/submodule-blow-up-isomorphism-away",
-      "AdicSpacesPartII:R0/blow-up-cech-artin-rees",
-      "AdicSpacesPartII:R0/blow-up-cech-filtration-neighbourhoods",
-      "AdicSpacesPartII:R0/noetherian-rod-laurent-cech-strict",
-      "AdicSpacesPartII:R0/noetherian-rod-sheafy",
-      "AdicSpacesPartII:R0/discrete-huber-pair-sheafy",
-      "AdicSpacesPartII:R0/noetherian-type-stably-sheafy",
-      "AdicSpacesPartII:R0/completed-tensor-product",
-      "AdicSpacesPartII:R0/completed-tensor-product-universal-property",
-      "AdicSpacesPartII:R0/completed-tensor-restricted-power-series",
-      "AdicSpacesPartII:R0/completed-tensor-noetherian-stability",
-      "AdicSpacesPartII:R0/completed-tensor-rational-localisation",
-      "AdicSpacesPartII:R0/valuation-amalgamation",
-      "AdicSpacesPartII:R0/affinoid-fibre-product",
-      "AdicSpacesPartII:R0/fibre-product-along-finite-type",
-      "AdicSpacesPartII:R0/fibre-products-existence",
-      "AdicSpacesPartII:R0/fibre-product-points",
-      "AdicSpacesPartII:R0/base-change-stability",
-      "AdicSpacesPartII:R0/adic-morphism",
-      "AdicSpacesPartII:R0/adic-iff-analytic-locus",
-      "AdicSpacesPartII:R0/finite-type-morphism-classes",
-      "AdicSpacesPartII:R0/plus-weakly-finite-type",
-      "AdicSpacesPartII:R0/locally-finite-presentation",
-      "AdicSpacesPartII:R0/locally-noetherian-adic-space",
-      "AdicSpacesPartII:R0/closed-adic-subspaces-and-embeddings",
-      "AdicSpacesPartII:R0/diagonal-locally-closed",
-      "AdicSpacesPartII:R0/tate-ring-norm",
-      "AdicSpacesPartII:R0/spectral-seminorm",
-      "AdicSpacesPartII:R0/spectral-topology",
-      "AdicSpacesPartII:R0/spectral-topology-cont-eq",
-      "AdicSpacesPartII:R0/uniformization",
-      "AdicSpacesPartII:R0/uniform-completed-tensor-product"
-     ]
-    },
-    {
-     "title": "R0b Separated, proper, finite and quasi-finite morphisms",
-     "parentStageId": "AdicSpacesPartII:R0",
-     "nodes": [
-      "AdicSpacesPartII:R0/separated-morphism",
-      "AdicSpacesPartII:R0/universally-closed-morphism",
-      "AdicSpacesPartII:R0/universally-closed-and-proper-morphism",
-      "AdicSpacesPartII:R0/universally-specializing-morphism",
-      "AdicSpacesPartII:R0/partially-proper-morphism",
-      "AdicSpacesPartII:R0/adic-valuation-rings-and-centres",
-      "AdicSpacesPartII:R0/valuative-criterion-separated",
-      "AdicSpacesPartII:R0/valuative-criterion-specializing",
-      "AdicSpacesPartII:R0/separated-proper-partially-proper",
-      "AdicSpacesPartII:R0/proper-iff-partially-proper-quasi-compact",
-      "AdicSpacesPartII:R0/valuation-ring-space-spectral",
-      "AdicSpacesPartII:R0/partially-proper-closure-quasi-compact",
-      "AdicSpacesPartII:R0/separated-diagonal-closed-embedding",
-      "AdicSpacesPartII:R0/closed-embedding-proper",
-      "AdicSpacesPartII:R0/proper-base-change",
-      "AdicSpacesPartII:R0/proper-comp",
-      "AdicSpacesPartII:R0/proper-of-comp-separated",
-      "AdicSpacesPartII:R0/universally-closed-of-surjective",
-      "AdicSpacesPartII:R0/finite-huber-pair-hom",
-      "AdicSpacesPartII:R0/finite-morphism",
-      "AdicSpacesPartII:R0/finite-algebra-over-affinoid",
-      "AdicSpacesPartII:R0/finiteness-criterion-monic-relations",
-      "AdicSpacesPartII:R0/finite-morphisms",
-      "AdicSpacesPartII:R0/closed-embedding-finite",
-      "AdicSpacesPartII:R0/fibre-nilpotence-spreading",
-      "AdicSpacesPartII:R0/finite-from-proper-fibre",
-      "AdicSpacesPartII:R0/finiteness-faithfully-flat-descent",
-      "AdicSpacesPartII:R0/finite-algebra-tensor-complete",
-      "AdicSpacesPartII:R0/quasi-finite-morphism",
-      "AdicSpacesPartII:R0/quasi-finite-fibre-criteria",
-      "AdicSpacesPartII:R0/quasi-finite-stalk-criterion",
-      "AdicSpacesPartII:R0/quasi-finite-and-finiteness-criteria",
-      "AdicSpacesPartII:R0/partially-proper-quasi-finite-local-finiteness"
-     ]
-    },
-    {
-     "title": "R0c Differentials, smooth and étale morphisms",
-     "parentStageId": "AdicSpacesPartII:R0",
-     "nodes": [
-      "AdicSpacesPartII:R0/continuous-differentials",
-      "AdicSpacesPartII:R0/first-fundamental-sequence",
-      "AdicSpacesPartII:R0/conormal-sequence",
-      "AdicSpacesPartII:R0/quasi-finite-stalk-differentials",
-      "AdicSpacesPartII:R0/flat-morphism",
-      "AdicSpacesPartII:R0/unramified-morphism",
-      "AdicSpacesPartII:R0/smooth-morphism",
-      "AdicSpacesPartII:R0/differentials-unramified-smooth-etale",
-      "AdicSpacesPartII:R0/open-embedding-etale",
-      "AdicSpacesPartII:R0/immersion-unramified",
-      "AdicSpacesPartII:R0/restricted-power-series-smooth",
-      "AdicSpacesPartII:R0/etale-smooth-composition",
-      "AdicSpacesPartII:R0/etale-smooth-cancellation",
-      "AdicSpacesPartII:R0/etale-smooth-locality",
-      "AdicSpacesPartII:R0/unramified-locally-quasi-finite",
-      "AdicSpacesPartII:R0/infinitesimal-criteria",
-      "AdicSpacesPartII:R0/smooth-differentials-locally-free",
-      "AdicSpacesPartII:R0/jacobian-criterion-closed-subspace",
-      "AdicSpacesPartII:R0/differential-criterion-morphism",
-      "AdicSpacesPartII:R0/finite-etale-algebra-comparison",
-      "AdicSpacesPartII:R0/algebraically-finite-type-ring-map",
-      "AdicSpacesPartII:R0/etale-local-structure",
-      "AdicSpacesPartII:R0/etale-presentation-perturbation",
-      "AdicSpacesPartII:R0/etale-algebraic-model",
-      "AdicSpacesPartII:R0/smooth-local-structure",
-      "AdicSpacesPartII:R0/etale-affinoid-finite-etale-embedding",
-      "AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation",
-      "AdicSpacesPartII:R0/smooth-toric-chart",
-      "AdicSpacesPartII:R0/etale-flat-unramified",
-      "AdicSpacesPartII:R0/etale-ring-flatness",
-      "AdicSpacesPartII:R0/smooth-morphism-open"
-     ]
-    }
-   ]
-  },
-  {
-   "action": "rescope",
-   "roadmaps": [
-    "AdicSpacesPartII"
-   ],
-   "detail": "Owners fixed by this reconciliation, which the stage descriptions do not yet state. (1) Huber 1994 Theorem 2.2, Case I (sheafiness of complete Huber pairs with a noetherian ring of definition, and the discrete case, Wedhorn 8.28(c)) had no owner: the anchor's Layer 4 covers only strongly noetherian Tate rings and Buzzard–Verberkmoes. It is now planned in R0 (AdicSpacesPartII:R0/noetherian-rod-sheafy, AdicSpacesPartII:R0/discrete-huber-pair-sheafy and their lemmas, including Huber's (1.3) for finite modules, AdicSpacesPartII:R0/noetherian-rod-laurent-cech-strict, moved from R3). (2) Uniformization of completed tensor products (AdicEtaleGeometry A0's supplier contract; consumed by PerfectoidSpaces P2) is planned in R0 (AdicSpacesPartII:R0/spectral-seminorm, AdicSpacesPartII:R0/uniformization, AdicSpacesPartII:R0/uniform-completed-tensor-product). (3) Kedlaya–Liu Theorem 2.4.23 (Čech acyclicity of O for every sheafy Tate pair) extends the anchor's Layer 4 and is planned in R3 (AdicSpacesPartII:R3/sheafy-cech-acyclicity); RS-05's narrowing of R3 ('import anchor structure-sheaf acyclicity') assumed the anchor states it, which it does only for strongly noetherian rings. (4) Classical affinoid-algebra theory had no owner: its algebraic half (Noether normalisation, Nullstellensatz and the Jacobson property, supremum seminorm and maximum modulus, power-boundedness, integrality of A°, reductions) is planned in R0 (section R0.0), which uses it in Huber 1.5.2; affinoid subdomains, Gerritzen–Grauert, Tate acyclicity for affinoid coverings and the rigid local rings are planned in R1 (section R1.0). (6) EGA 0_I (7.3.1), noetherianity of adic completions, is owned by F0 (AdicSpacesPartII:F0/adic-completion-noetherian); AdicSpacesPartII:R0/noetherian-adic-completion keeps only its Huber-ring consequence. (5) The local structure of étale morphisms (de Jong–van der Put 3.1.4; Huber 1996 Lemma 2.2.8) is R0's (AdicSpacesPartII:R0/etale-affinoid-finite-etale-embedding, AdicSpacesPartII:R0/etale-local-open-finite-etale-factorisation); R4 and R5 cite R0, not AdicEtaleGeometry A1.",
-   "proposal": "Add to the stage descriptions: R0 — 'Prove sheafiness of complete Huber pairs with a noetherian ring of definition (Huber 1994 Theorem 2.2, Case I) and of discrete pairs; construct the spectral seminorm and the uniformization of complete Tate pairs and of completed tensor products, with its universal property among uniform pairs and Spa unchanged; prove the local structure of étale morphisms (de Jong–van der Put 3.1.4, Huber 1996 2.2.8).' R0's Dependencies gain AdicSpacesPartII F0 (EGA III 3.3.2 Artin–Rees for cohomology, used in Huber's step (1.3.1)) and tauceti JacobianChallenge Layer B; the stage edge F0 → R0 creates no cycle (F0 has no prerequisite in R0–R5 or F1). R0 also — 'Develop the classical affinoid algebras over a complete rank-one field: Noether normalisation, Nullstellensatz and the Jacobson property, supremum seminorm, maximum modulus, power-boundedness, integrality of A°, reductions.' R1 — 'Develop affinoid subdomains, the Gerritzen–Grauert theorem, Tate acyclicity for affinoid coverings and the local rings at classical points; and the identity principle for connected normal rigid spaces.' R3 — replace 'import anchor structure-sheaf acyclicity' by 'prove Čech acyclicity of the structure sheaf on every sheafy Tate affinoid (Kedlaya–Liu 2.4.21–2.4.23), importing the sheaf property from the anchor'. Record owners: Huber 1994 Theorem 2.2 Case I → AdicSpacesPartII:R0 (formerly none); uniformization → AdicSpacesPartII:R0 (formerly undecided between R0 and PerfectoidSpaces:P2); Kedlaya–Liu 2.4.23 → AdicSpacesPartII:R3 (formerly requested from tauceti:TauCetiRoadmap/AdicSpaces#layer-4-sheafiness-and-tate-acyclicity); classical affinoid algebras → AdicSpacesPartII:R1 (formerly none; used by R1, R2, R3, F1); local structure of étale morphisms → AdicSpacesPartII:R0 (formerly requested from AdicEtaleGeometry:A1 by R4 and R5).",
-   "owners": [
-    {
-     "target": "Huber 1994 Theorem 2.2 Case I (sheafiness with a noetherian ring of definition) and Huber (1.3) for finite modules",
-     "owner": "AdicSpacesPartII:R0",
-     "formerly": [
-      "AdicSpacesPartII:R3"
-     ]
-    },
-    {
-     "target": "Uniformization of complete Tate pairs and of completed tensor products",
-     "owner": "AdicSpacesPartII:R0",
-     "formerly": [
-      "PerfectoidSpaces:P2"
-     ]
-    },
-    {
-     "target": "Kedlaya–Liu Theorem 2.4.23: Čech acyclicity of O on sheafy Tate affinoids",
-     "owner": "AdicSpacesPartII:R3",
-     "formerly": [
-      "AdicSpacesPartII:R3"
-     ]
-    },
-    {
-     "target": "Classical affinoid algebras: Noether normalisation, Nullstellensatz and Jacobson property, supremum seminorm, maximum modulus, power-boundedness, integrality of A°, reductions (BGR Chapters 5–6 as used)",
-     "owner": "AdicSpacesPartII:R0",
-     "formerly": [
-      "AdicSpacesPartII:R1",
-      "AdicSpacesPartII:F1",
-      "AdicSpacesPartII:R2"
-     ]
-    },
-    {
-     "target": "Affinoid subdomains, Gerritzen–Grauert, Tate acyclicity for affinoid coverings, rigid local rings (BGR Chapters 7–8 as used)",
-     "owner": "AdicSpacesPartII:R1",
-     "formerly": [
-      "AdicSpacesPartII:F1",
-      "AdicSpacesPartII:R2"
-     ]
-    },
-    {
-     "target": "Local structure of étale morphisms (de Jong–van der Put 3.1.4; Huber 1996 Lemma 2.2.8)",
-     "owner": "AdicSpacesPartII:R0",
-     "formerly": [
-      "AdicEtaleGeometry:A1"
-     ]
-    },
-    {
-     "target": "EGA 0_I (7.3.1): the adic completion of a noetherian ring is noetherian",
-     "owner": "AdicSpacesPartII:F0",
-     "formerly": [
-      "AdicSpacesPartII:R0"
-     ]
     }
    ]
   }
