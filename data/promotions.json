@@ -305,6 +305,17 @@
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--R03.6.md"
    ]
   },
+  "research/blueprint/packets/EllipticCurveModularity.json": {
+   "promotedAt": "2026-09-28T22:43:59Z",
+   "review": "d9dc43eb371ca681",
+   "reviewDate": "2026-09-28",
+   "reviewer": "independent-review-REV-EllipticCurveModularity",
+   "sha256": "5eb2631efd9128f36e333420d4c67e10720b1e462134ada41b5dcc073d62364e",
+   "to": [
+    "data/blueprints/EllipticCurveModularity.json",
+    "data/blueprints/EllipticCurveModularity.md"
+   ]
+  },
   "research/blueprint/packets/EllipticKTheory.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "1f540a8f0f3fa1f9",
