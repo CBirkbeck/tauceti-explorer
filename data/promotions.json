@@ -305,6 +305,17 @@
     "data/blueprints/EllipticRegulators.md"
    ]
   },
+  "research/blueprint/packets/GeneralAlgebraicKTheory--K.1.json": {
+   "promotedAt": "2026-09-28T15:17:43Z",
+   "review": "da4dbd15147b37dc",
+   "reviewDate": "2026-09-28",
+   "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.1",
+   "sha256": "6d99ed94515665f97711483d11547ac5f74fdecc5ab4f73270602feea1ead6b4",
+   "to": [
+    "data/blueprints/GeneralAlgebraicKTheory--K.1.json",
+    "data/blueprints/GeneralAlgebraicKTheory--K.1.md"
+   ]
+  },
   "research/blueprint/packets/GeneralAlgebraicKTheory--K.6.json": {
    "promotedAt": "2026-09-28T15:12:31Z",
    "review": "9bf03ba2712b4422",
