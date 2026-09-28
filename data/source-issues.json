@@ -139135,6 +139135,26 @@
    "reviewReason": null
   },
   {
+   "id": "IntegralIwasawaTheory/E81",
+   "kind": "misprint",
+   "locator": "§12.3, Corollary 12.19 and its proof, p. 63 (arXiv v2)",
+   "printed": "γn,b = (ξ^{a^r}_pn − 1)/(ξpn − 1) = ∏_{i=0}^{r−1} (ξ^{a^{i+1}}_pn − 1)/(ξ^{a^i}_pn − 1) = ∏ (γn,a)^{σ^i_a}.",
+   "correction": "c_n(b) = (ξ^{a^r} − 1)/(ξ − 1) = ∏_{i<r} σ_a^i(c_n(a)); multiplying by ξ^{(1−b)/2} = ∏_{i<r} σ_a^i(ξ^{(1−a)/2}) gives γ_{n,b} = ∏_{i<r} σ_a^i(γ_{n,a}).",
+   "reason": "γ_{n,b} = ξ^{(1−b)/2} c_n(b), so the first equality drops the root-of-unity factor, and the middle product is c_n(a)-quotients, not γ_{n,a}'s. The telescoping of the exponents ∑_{i<r} a^i(1 − a) = 1 − a^r restores the stated conclusion.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md: RJW entries exist, none for Corollary 12.19",
+    "the published version (Essential Number Theory 4, 2025) was not accessed"
+   ],
+   "owner": "IntegralIwasawaTheory",
+   "file": "research/blueprint/packets/IntegralIwasawaTheory--I.8.json",
+   "citation": "Joaquín Rodrigues Jacinto; Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (19 December 2024); Essential Number Theory 4 (2025) not accessed",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "InverseGaloisAndArithmeticFundamentalGroups/E1",
    "kind": "misprint",
    "locator": "Author working text, printed p.136 (physical p.148), sentence immediately before Definition 5.2.2",
