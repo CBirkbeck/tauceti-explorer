@@ -11,7 +11,7 @@
   "OrdinaryAutomorphicFormsAndModularityLifting:R21.6"
  ],
  "status": "partial",
- "summary": "Checkpoints 1–2 (Claude Code cc-39fac3), under RS-08. R21.1, R21.2 and R21.3 are partial; R21.4–R21.6 are not read. The source is Skinner–Wiles, Residually reducible representations and modular forms (Publ. IHÉS 89, 1999), §§3.1–3.5. R21.1 (8 nodes) applies PadicFamilies L0a's ordinary projector to the definite quaternionic forms of HilbertModularVarietiesAndShimuraCurves R18.3: Skinner–Wiles' exponent p^n(p^m − 1) gives L0a's projector; it kills norm-factoring forms; the nearly ordinary Hecke algebra T_∞(U, 𝒪) over Λ′_𝒪; the stabiliser-weighted pairing with Hecke adjoints, traces between levels, the Γ₀(p^a) level drop, and the Pontryagin duality M_∞ ≅ H_∞^∨. R21.2 (7 nodes) keeps the nearly ordinary and Eisenstein statements: v-good lines and nearly ordinary representations, the two definitions of the Hecke algebra, permissible (Eisenstein) maximal ideals, their existence from the Deligne–Ribet p-adic L-function (Proposition 3.18), the weight algebra Λ_𝒪 at m, finiteness and freeness at m (Lemma 3.10), and freeness over an auxiliary Δ_w-group (Lemma 3.19). Hida's control over Λ′_𝒪 is requested from PadicFamilies L5. Two misprints are recorded (E1: the rank of Λ_𝒪 over Λ′_𝒪 is p^{Σ r_j}, not Σ r_j). Checkpoint 2 plans R21.3 (19 nodes) from Skinner–Wiles §§2 and 3.3: deformation data, the nearly ordinary deformation rings R_𝒟 with their presentation and dimension bound, Wiles pseudo-representations and pseudo-deformation rings with the lifting Proposition 2.15, the Λ_𝒪-structures, Hida's family representation ρ_Q, the pseudo-representation into T_m with R_{𝒟^ps} ↠ T_m, and the level, type and twisting statements. Two more misprints: E3 (Lemma 3.11 omits (β_i − α_i)^{−1}) and E4 ((3.7) inverts Ψ_P at T_0(𝔭_i)).",
+ "summary": "Checkpoints 1–3 (Claude Code cc-39fac3), under RS-08. R21.2 is source_decomposed; R21.1, R21.3 and R21.4 are partial; R21.5–R21.6 are not read. The source is Skinner–Wiles, Residually reducible representations and modular forms (Publ. IHÉS 89, 1999), §§3.1–3.5. R21.1 (8 nodes) applies PadicFamilies L0a's ordinary projector to the definite quaternionic forms of HilbertModularVarietiesAndShimuraCurves R18.3: Skinner–Wiles' exponent p^n(p^m − 1) gives L0a's projector; it kills norm-factoring forms; the nearly ordinary Hecke algebra T_∞(U, 𝒪) over Λ′_𝒪; the stabiliser-weighted pairing with Hecke adjoints, traces between levels, the Γ₀(p^a) level drop, and the Pontryagin duality M_∞ ≅ H_∞^∨. R21.2 (7 nodes) keeps the nearly ordinary and Eisenstein statements: v-good lines and nearly ordinary representations, the two definitions of the Hecke algebra, permissible (Eisenstein) maximal ideals, their existence from the Deligne–Ribet p-adic L-function (Proposition 3.18), the weight algebra Λ_𝒪 at m, finiteness and freeness at m (Lemma 3.10), and freeness over an auxiliary Δ_w-group (Lemma 3.19). Hida's control over Λ′_𝒪 is requested from PadicFamilies L5. Two misprints are recorded (E1: the rank of Λ_𝒪 over Λ′_𝒪 is p^{Σ r_j}, not Σ r_j). Checkpoint 2 plans R21.3 (19 nodes) from Skinner–Wiles §§2 and 3.3: deformation data, the nearly ordinary deformation rings R_𝒟 with their presentation and dimension bound, Wiles pseudo-representations and pseudo-deformation rings with the lifting Proposition 2.15, the Λ_𝒪-structures, Hida's family representation ρ_Q, the pseudo-representation into T_m with R_{𝒟^ps} ↠ T_m, and the level, type and twisting statements. Two more misprints: E3 (Lemma 3.11 omits (β_i − α_i)^{−1}) and E4 ((3.7) inverts Ψ_P at T_0(𝔭_i)). Checkpoint 3 completes R21.2 (Proposition 3.20, Lemma 3.21, the rings T_𝒟 and T^min with Proposition 3.23, the §3.7 duality, the quaternionic Ihara lemma and Lemmas 3.27–3.29), adds §2.2's reducible locus to R21.3, and starts R21.4 with pro-modular primes, good pairs, nice primes, (P1)/(P2), Corollary A.2 (Raynaud's connectedness theorem is a gap) and the key Proposition 4.1. E5 and E6 are cross-reference misprints.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -112,7 +112,8 @@
    "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3",
    "readSections": [
     "2026-09-28 (cc-39fac3, checkpoint 1): Introduction, pp. 6–9; §2.1 opening and §2.5, pp. 9 and 26–27; §3.1–3.2 in full, pp. 27–45, with Proposition 3.3, Corollary 3.4 and Lemma 3.10 read on the page images; §3.4 (Proposition 3.18 and proof), pp. 46–48; §3.5 up to Proposition 3.20, pp. 48–51; §3.6 opening, pp. 52–53. The OCR text layer is noisy; every formula used was checked on the page images.",
-    "2026-09-28 (cc-39fac3, checkpoint 2): §2.1 (with Lemma 2.2, Corollary 2.3, Proposition 2.4 and Lemmas 2.5–2.6), §2.3, §2.4 (Lemma 2.10 to Proposition 2.15), §2.5, pp. 9–27, read on the page images; §3.3 from (3.2) to Lemma 3.17, pp. 38–46, on the page images; §2.2 (Lemmas 2.7–2.9) skimmed only."
+    "2026-09-28 (cc-39fac3, checkpoint 2): §2.1 (with Lemma 2.2, Corollary 2.3, Proposition 2.4 and Lemmas 2.5–2.6), §2.3, §2.4 (Lemma 2.10 to Proposition 2.15), §2.5, pp. 9–27, read on the page images; §3.3 from (3.2) to Lemma 3.17, pp. 38–46, on the page images; §2.2 (Lemmas 2.7–2.9) skimmed only.",
+    "2026-09-28 (cc-39fac3, checkpoint 3): §2.2 (Lemmas 2.7–2.9), pp. 15–17; §3.5 from Lemma 3.19 to Lemma 3.21, §3.6, §3.7 and §3.8, pp. 49–61; §4.1–4.3 and the opening of §4.4, pp. 61–66; Appendix A, pp. 123–124; all on the page images."
    ]
   }
  ],
@@ -2414,21 +2415,761 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/characteristic-p-primes-auxiliary",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "Characteristic-p primes at auxiliary level come from level U′",
+   "kind": "theorem",
+   "statement": "(Proposition 3.20.) With w, U′, U″ as in auxiliary-level-freeness (no hypothesis on U′/(U′ ∩ F^×)), let 𝔭 ⊆ T_∞(U″, 𝒪) be a prime with p ∈ 𝔭, det ρ_𝔭 = χ, ρ_𝔭|_{D_v} ≅ (ψ_1 *; 0 ψ_2) with (ψ_1/ψ_2)|_{I_v} of infinite order for some v | p, and ρ_𝔭 irreducible but not dihedral. Then 𝔭 is the inverse image of a prime of T_∞(U′, 𝒪).",
+   "hypotheses": [
+    "F of even degree; ρ_𝔭 is the representation over the residue field of 𝔭 (R21.3/hida-family-representation)."
+   ],
+   "proofSteps": [
+    "Choose σ ∈ I_w with ω(σ) = 1, det ρ_𝔭(σ) = 1 and ρ_𝔭(σ) of infinite order, and (non-dihedral) τ with ω(τ) ≠ 1 and ρ_𝔭(σ^{n_0}τ) of infinite order; Chebotarev gives ℓ ∤ 6 unramified with Frob_ℓ close to σ^{n_0}τ.",
+    "At V′ = U′ ∩ U(ℓ), V″ = U″ ∩ U(ℓ) the action is free (R18.3), so M_∞(V″) is free over Λ′_𝒪[[Δ_w]] and M_∞(V″)_{Δ_w} = M_∞(V′) (auxiliary-level-freeness); since 𝔭 ⊇ (δ − 1 : δ ∈ Δ_w) in the ring T generated by Δ_w and T_∞(V″, 𝒪), T_∞(V″)/𝔭 = T_∞(V′)/im 𝔭.",
+    "The minimal prime Q ⊆ 𝔭_2 of T_∞(V′) is unramified at ℓ (types A and C are excluded by the choice of ℓ), so it comes from T_∞(U′) by level-type-control."
+   ],
+   "acceptance": [
+    "No freeness hypothesis at level U′ is needed: the auxiliary prime ℓ supplies it."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-level-freeness",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hida-family-representation",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/ramification-types",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/level-type-control",
+    "HilbertModularVarietiesAndShimuraCurves:R18.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.5, Proposition 3.20, p. 50 (Numdam PDF page 47; printed page = PDF page + 3)",
+     "match": "Proposition 3.20."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.5, proof of Proposition 3.20, p. 51 (Numdam PDF page 48; printed page = PDF page + 3)",
+     "match": "The end of the proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-trace-identity",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "The trace at tame inertia acts through δ_w + δ_w^{−1}",
+   "kind": "lemma",
+   "statement": "(Lemma 3.21, Remark 3.22.) Assume T_∞(U, 𝒪) has a permissible maximal ideal m and χ(Frob_w) = 1 = ω(Frob_w). Let σ_w ∈ I_w generate the p-part of tame inertia, identified with an element of 𝒪_{F,w}^× by local reciprocity; δ_w = (σ_w 0; 0 1) generates Δ_w through (3.12). Then trace ρ^mod(σ_w) ∈ T_∞(U″, 𝒪)_m acts on M_∞(U″)_m as δ_w + δ_w^{−1}; so δ_w + δ_w^{−1} lies in T_∞(U″, 𝒪)_m, compatibly with change of U.",
+   "hypotheses": [
+    "χ(Frob_w) = 1 = ω(Frob_w)."
+   ],
+   "proofSteps": [
+    "On a T_∞(U″)-eigenspace V ⊆ eH⁰(X(U″_a), 𝒪)_m ⊗ Q̄_p, π_w is not supercuspidal (that would force type C and χ(Frob_w) = −1).",
+    "If π_w is special, μ_1 is unramified and δ_w acts by 1; if principal series π(μ_1, μ_2) with μ_1μ_2 unramified, δ_w acts by μ_1(σ_w) or μ_1^{−1}(σ_w).",
+    "By (3.3), ρ_P(σ_w) = (μ_1(σ_w) *; 0 μ_1^{−1}(σ_w)), so trace ρ_P(σ_w) = δ_w + δ_w^{−1} on V."
+   ],
+   "acceptance": [
+    "The identity is on M_∞(U″)_m, where both T_∞(U″)_m and Δ_w act."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-level-freeness",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hecke-pseudo-representation",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+    "AutomorphicGaloisRepresentations:R19.4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.5, Lemma 3.21, p. 51 (Numdam PDF page 48; printed page = PDF page + 3)",
+     "match": "Lemma 3.21 and Remark 3.22."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/deformation-hecke-rings",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "The Hecke rings T_{𝒟_Q}, T^min_{𝒟_Q} and modules M_{𝒟_Q}",
+   "kind": "construction",
+   "statement": "Assume L_p(F, −1, χω) is integral but not a unit, so permissible ideals exist (eisenstein-ideal-existence). For an augmented datum 𝒟_Q = (𝒪, Σ, c, ℳ)_Q with r(w) given by ℓ_w^{r(w)} ∥ cond(χ_w^{−1}), put U_{𝒟_Q} = ∏_w U_{𝒟_Q,w} with U_{𝒟_Q,w} = GL₂(𝒪_{F,w}) for w ∉ (Σ∖𝒫) ∪ Q; {c, a − 1 ∈ ℓ_w^{max(2, r(w)+1)}} for w ∈ Σ∖(𝒫 ∪ ℳ); {c ∈ ℓ_w^{max(1, r(w))}, a mod ℓ_w^{max(1, r(w))} ∈ Δ_w} for w ∈ ℳ; {c ∈ ℓ_w, ad^{−1} mod ℓ_w ∈ Δ′_w} for w ∈ Q. Then T_{𝒟_Q} = T_∞(U_{𝒟_Q}, 𝒪)_m with the pseudo-deformation ρ^mod_{𝒟_Q} of type 𝒟^ps_Q and surjections π_𝒟 : R_{𝒟^ps} ↠ T_𝒟, π_{𝒟_Q} : R_{𝒟^ps_Q} ↠ T_{𝒟_Q}; T^min_{𝒟_Q} = T_{𝒟_Q}/∩_{q ∈ ℳ^min(𝒟_Q)} q, where ℳ^min(𝒟_Q) (nonempty) is the set of minimal primes q with (χ̃^{−1}det ρ_q)|_{N_Σ} trivial; M_{𝒟_Q} = M_∞(U^min_{𝒟_Q})_m for the level U^min_{𝒟_Q} of Skinner–Wiles p. 55; π^min_𝒟 : R_{𝒟^ps} → T^min_𝒟.",
+   "hypotheses": [
+    "F of even degree; L_p(F, −1, χω) integral and not a unit."
+   ],
+   "proofSteps": [
+    "ρ^mod_{𝒟_Q} is of type 𝒟^ps_Q because of the level at Q (det unramified there) and Σ.",
+    "ℳ^min ≠ ∅: write det ρ^mod = Θ·Ψ·χ̃ with Ψ trivial on N_𝒟 and Θ trivial on the free part M_𝒟, choose Φ² = Θ, and use Lemma 3.17 to twist any q to q_Φ with ρ_{q_Φ} ≅ ρ_q ⊗ Φ^{−1}, which is minimal."
+   ],
+   "acceptance": [
+    "χ̃^{−1}det ρ_q (not det ρ_q) is the character restricted to N_Σ.",
+    "The levels depend on the datum through r(w), Q and ℳ; M_{𝒟_Q} uses the auxiliary level U^min, not U_{𝒟_Q}."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hecke-pseudo-representation",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hecke-generation",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/family-twisting",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/deformation-of-type"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.6, p. 52 (Numdam PDF page 49; printed page = PDF page + 3)",
+     "match": "§3.6: U_{𝒟_Q}, T_{𝒟_Q}, T^min."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/pro-modular-prime",
+     "how": "π_𝒟 : R_{𝒟^ps} ↠ T_𝒟."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+     "how": "the patching modules M_{𝒟_Q} (Skinner–Wiles §5)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.deformationLevel",
+     "role": "constructor",
+     "statement": "U_{𝒟_Q} ⊆ GL₂(𝒪_F ⊗ Ẑ)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.deformationHeckeRing",
+     "role": "constructor",
+     "statement": "T_{𝒟_Q} = T_∞(U_{𝒟_Q}, 𝒪)_m."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.pseudoToDeformationHecke",
+     "role": "constructor",
+     "statement": "π_{𝒟_Q} : R_{𝒟^ps_Q} ↠ T_{𝒟_Q}."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.minimalHeckeRing",
+     "role": "constructor",
+     "statement": "T^min_{𝒟_Q}."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.minimalPrimes_nonempty",
+     "role": "characterisation",
+     "statement": "ℳ^min(𝒟_Q) ≠ ∅."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.deformationHeckeModule",
+     "role": "constructor",
+     "statement": "M_{𝒟_Q} = M_∞(U^min_{𝒟_Q})_m."
+    }
+   ],
+   "tests": [
+    {
+     "name": "deformationLevel_unramified",
+     "kind": "example",
+     "statement": "For w ∉ (Σ∖𝒫) ∪ Q the level is maximal, so T(ℓ_w) and S(ℓ_w) are available."
+    },
+    {
+     "name": "deformationLevel_Q",
+     "kind": "example",
+     "statement": "At w ∈ Q the level is U″_w of Lemma 3.19, so Δ_w acts on M_{𝒟_Q}."
+    },
+    {
+     "name": "minimalHeckeRing_twist",
+     "kind": "example",
+     "statement": "Twisting by Φ with Φ² = Θ moves any minimal prime into ℳ^min."
+    }
+   ]
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/minimal-hecke-ring-decomposition",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "T_{𝒟_Q} ≅ T^min_{𝒟_Q} ⊗ 𝒪[N_𝒟]",
+   "kind": "theorem",
+   "statement": "(Proposition 3.23, Corollary 3.24, Lemma 3.25.) The splitting field L_Θ of Θ has Gal(L_Θ/F) ≅ N_𝒟, and there is an isomorphism of Λ_𝒪-algebras T^min_{𝒟_Q} ⊗_𝒪 𝒪[N_𝒟] ≅ T_{𝒟_Q} with T(ℓ) ⊗ n ↦ T(ℓ)·Φ(Frob_ℓ^{−1}·n) and S(ℓ) ⊗ n ↦ S(ℓ)·Θ(Frob_ℓ^{−1}·n). Hence T^min_{𝒟_Q} is a finite, torsion-free Λ_𝒪-algebra, and δ_w + δ_w^{−1} ∈ T^min_{𝒟_Q} maps to δ_w + δ_w^{−1} ∈ T_{𝒟_Q}.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Gal(L_Θ/F) ≅ N_𝒟: for a character ξ of N_𝒟, Lemma 3.17 gives P_ξ with ρ_{P_ξ} ≅ ρ_P ⊗ ξ, so ξ² = Θ mod P_ξ; as ξ² ranges over all characters (odd order), Θ|_{N_𝒟} is injective.",
+    "For q ∈ ℳ^min and ξ ∈ X(𝒟), Lemma 3.17 gives τ(q, ξ) : T_{𝒟_Q} → R(q, ξ) (3.14) and φ(q, ξ) : T^min ⊗ 𝒪[N_𝒟] → R(q, ξ) (3.15); ℳ′ = {q_ξ} = ℳ(𝒟_Q).",
+    "τ = ∏τ(q, ξ) and φ = ∏φ(q, ξ) have the same image, which gives the isomorphism."
+   ],
+   "acceptance": [
+    "The twist is by Φ (a square root of Θ) on T(ℓ) and by Θ on S(ℓ)."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/deformation-hecke-rings",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/family-twisting",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-trace-identity",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-localisation-finite"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.6, p. 54 (Numdam PDF page 51; printed page = PDF page + 3)",
+     "match": "Gal(L_Θ/F) ≅ N_𝒟, (3.14)–(3.15)."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.6, Proposition 3.23, p. 55 (Numdam PDF page 52; printed page = PDF page + 3)",
+     "match": "Proposition 3.23, Corollary 3.24, Lemma 3.25 and M_{𝒟_Q}."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/hecke-module-duality",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "Duality between M_∞ and M⁺_∞ over Λ",
+   "kind": "theorem",
+   "statement": "(§3.7.) If U/(U ∩ F^×) acts freely on D^×\\G^D(A_f): for each a, Hom_{𝒪[[G(U)]]}(M⁺_∞(U), 𝒪[[G(U_a)]]) = Hom_𝒪(eH⁰(X(U_a), 𝒪), 𝒪) = eH⁰(X(U_a), 𝒪)⁺ (λ_a, via the trace 𝒪[[G(U_a)]] → 𝒪 and the pairing), compatibly with tr(U_b, U_a); hence λ_∞ : Hom_{𝒪[[G(U)]]}(M⁺_∞(U), 𝒪[[G(U)]]) ≅ M_∞(U) and β_∞(U) : Hom_{Λ′_𝒪}(M⁺_∞(U), Λ′_𝒪) ≅ M_∞(U), natural for maps compatible with G(U) → G(V). At a prime 𝔭 of T_∞(U, 𝒪) with P = Λ′_𝒪 ∩ 𝔭, M̂_∞(U)_𝔭 ≅ Hom_{Λ̂′_P}(M̂⁺_∞(U)_𝔭, Λ̂′_P) (3.16); at a permissible m, M_∞(U)_m ≅ Hom_{Λ_𝒪}(M⁺_∞(U)_m, Λ_𝒪) (3.17).",
+   "hypotheses": [
+    "Free action of U/(U ∩ F^×) on D^×\\G^D(A_f)."
+   ],
+   "proofSteps": [
+    "λ_a: under free action M⁺_∞(U) ⊗_{𝒪[[G(U)]]} 𝒪[G(U_a)] = eH⁰(X(U_a), 𝒪); Frobenius reciprocity for the finite group G(U_a) identifies Hom_{𝒪[G]}(M, 𝒪[G]) with Hom_𝒪(M, 𝒪) through the coefficient of the identity; the pairing does the rest (R21.1).",
+    "𝒪[[G(U)]] = Λ′_𝒪[Z_0] with Z_0 finite, and Hom over Λ′_𝒪 and over 𝒪[[G(U)]] agree through the trace (again Frobenius reciprocity), giving β_∞.",
+    "(3.17): M_∞(U)_m, M⁺_∞(U)_m are free over Λ_𝒪 (Lemma 3.10) and Λ_𝒪 is free over Λ′_𝒪, so the trace Λ_𝒪 → Λ′_𝒪 identifies the two Hom's."
+   ],
+   "acceptance": [
+    "Skinner–Wiles open §3.7 by quoting Proposition 3.3 for freeness over 𝒪[[G(U)]]; that rank statement is not justified (PadicFamilies E11), but the identifications above use only Frobenius reciprocity and Λ′_𝒪-freeness."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-towers-duality",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-hecke-adjoint-pairing",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-trace-compatibility",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/permissible-localisation-finite",
+    "PadicFamilies:L5/hida-freeness"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Eisenstein",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.7, p. 56 (Numdam PDF page 53; printed page = PDF page + 3)",
+     "match": "λ_a, λ_∞, β_∞."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.7, (3.17), p. 57 (Numdam PDF page 54; printed page = PDF page + 3)",
+     "match": "(3.16)–(3.17)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/ihara-lemma-quaternionic",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "Ihara's lemma for definite quaternionic forms",
+   "kind": "theorem",
+   "statement": "(Lemma 3.26.) Let U = ∏U_w with U_0(𝔫) ⊇ U ⊇ U(𝔫), w ∤ p with U_w = GL₂(𝒪_{F,w}), ℓ = ℓ_w, λ = λ^{(ℓ)}, V = U ∩ U_0(ℓ), (αf)(g) = f(g(1 0; 0 λ)) and ξ_1 : H⁰(X(U), R)² → H⁰(X(V), R), (f, g) ↦ f + αg (R an 𝒪-module). Then ker ξ_1 is annihilated by [U(1 0; 0 λ^{(q)})U] − 1 − Nm(q) for every prime q of F splitting completely in the ray class field of conductor 𝔫·∞.",
+   "hypotheses": [
+    "q splits completely in the ray class field of conductor 𝔫∞."
+   ],
+   "proofSteps": [
+    "For (f_1, f_2) ∈ ker ξ_1, f_1(gu) = f_1(g) for u ∈ δ^{−1}GL₂(𝒪_{F,w})δ, δ = diag(1, λ^{−1}); as SL₂(𝒪_{F,w}) and its δ-conjugate generate SL₂(F_w), f_1(gu) = f_1(g) for u ∈ U·SL₂(F_w) (3.18) (Diamond–Taylor, Lemma 2, generalised).",
+    "q has a totally positive generator π ≡ 1 mod 𝔫; by Eichler's norm theorem there is δ_0 ∈ D^× with ν_D(δ_0) = π, and strong approximation for the norm-one group G^D_1 (with G^D_1(F_w) = SL₂(F_w)) gives f_1(gγ) = f_1(g) for ν_D(γ) = π^{−1} (3.19) (both requested from R18.3).",
+    "U(1 0; 0 λ^{(q)})U is a union of Nm(q) + 1 cosets Ug_i with ν_D(g_i) = π, so the operator acts on f_1 by 1 + Nm(q)."
+   ],
+   "acceptance": [
+    "This is the Ihara-type statement at a place w ∤ p for definite quaternion algebras; the annihilator is Eisenstein-type."
+   ],
+   "prerequisites": [
+    "HilbertModularVarietiesAndShimuraCurves:R18.3",
+    "mathlib:QuaternionAlgebra"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Congruences",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.8, Lemma 3.26, p. 57 (Numdam PDF page 54; printed page = PDF page + 3)",
+     "match": "Lemma 3.26 (the text layer reads 'lhara')."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.8, proof of Lemma 3.26, p. 58 (Numdam PDF page 55; printed page = PDF page + 3)",
+     "match": "The proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Ihara's lemma for definite quaternion algebras"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/ihara-exact-sequence",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "Exactness at deeper Γ₁(ℓ^r)-level and the three-copy Ihara lemma",
+   "kind": "lemma",
+   "statement": "(Lemmas 3.27–3.28.) With U^{(r)} = U ∩ U_1(ℓ^r), for r ≥ 1 the sequence H⁰(X(U^{(r−1)}), R) --δ--> H⁰(X(U^{(r)}), R)² --γ--> H⁰(X(U^{(r+1)}), R), δ(f) = (f, −αf), γ(f_1, f_2) = αf_1 + f_2, is exact; and the kernel of ξ : H⁰(X(U), R)³ → H⁰(X(U^{(2)}), R), ξ(f_1, f_2, f_3) = f_1 + αf_2 + α²f_3, is annihilated by [U(1 0; 0 λ^{(r)})U] − 1 − Nm(r) for every prime r splitting completely in the ray class field of conductor 𝔫∞.",
+   "hypotheses": [
+    "r ≥ 1."
+   ],
+   "proofSteps": [
+    "Lemma 3.27: if αf_1 = −f_2 then f_1 = −α^{−1}f_2 is invariant under U′ = {a − 1 ∈ ℓ^r, c ∈ ℓ^{r−1}, b ∈ ℓ}, and U^{(r)} and U′ generate U^{(r−1)}.",
+    "Lemma 3.28: factor ξ through H⁰(X(U), R)⁴ → H⁰(X(U^{(1)}), R)² → H⁰(X(U^{(2)}), R) and apply Lemmas 3.26 and 3.27."
+   ],
+   "acceptance": [
+    "Lemma 3.27 is used only through the three-copy statement of Lemma 3.28, in the level-raising arguments of §8."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/ihara-lemma-quaternionic"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Congruences",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.8, Lemmas 3.27–3.28, p. 59 (Numdam PDF page 56; printed page = PDF page + 3)",
+     "match": "Lemma 3.28."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.8, Lemma 3.27, p. 58 (Numdam PDF page 55; printed page = PDF page + 3)",
+     "match": "Lemma 3.27 follows on this page."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/level-raising-congruence-modules",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+   ],
+   "title": "No level raising at a non-Eisenstein auxiliary prime",
+   "kind": "theorem",
+   "statement": "(Lemma 3.29.) Let (𝔫, p) = 1, 𝔭 ⊆ T_∞(U, 𝒪) a prime with p ∈ 𝔭, ρ_𝔭 irreducible and not dihedral, contained in a permissible m; let ℓ ∤ 𝔫p with p ∤ Nm(ℓ) − 1 and the ratio of the eigenvalues of ρ_𝔭(Frob_ℓ) not Nm(ℓ)^{±1}; U^{(0)} = U ∩ U_0(ℓ), U^{(1)} = U ∩ U_1(ℓ). Then (i) T_∞(U^{(1)}, 𝒪)_𝔭 ≅ T_∞(U^{(0)}, 𝒪)_𝔭 ≅ T_∞(U, 𝒪)_𝔭; (ii) M̂_∞(U^{(1)})_𝔭 ≅ M̂_∞(U^{(0)})_𝔭 ≅ M̂_∞(U)_𝔭² and M̂⁺_∞(U^{(1)})_𝔭 ≅ M̂⁺_∞(U^{(0)})_𝔭 ≅ M̂⁺_∞(U)_𝔭² as T̂_∞(U^{(1)}, 𝒪)_𝔭-modules.",
+   "hypotheses": [
+    "The three conditions on ℓ; ρ_𝔭 irreducible and not dihedral."
+   ],
+   "proofSteps": [
+    "(i): the surjections of Corollary 3.12 are isomorphisms after localisation because every minimal prime of T_∞(U^{(1)})_m in 𝔭 has ρ_Q unramified at ℓ (the eigenvalue condition), hence comes from level U (Proposition 3.14).",
+    "(ii): with ξ = lim ξ_a : M⁺_∞(U)² → M⁺_∞(U^{(1)}) and I = ker(T_∞(U^{(0)}) → T_∞(U)), Jacquet–Langlands and newform theory give eH⁰(X(U_a), K)[I_a] = im(ξ_a ⊗ K) (3.21); the snake lemma embeds the cokernel C into a quotient of lim ker(ξ_a ⊗ K/𝒪).",
+    "Lemma 3.26 and Chebotarev over the ray class fields F_a make trace ρ_m(σ) − 1 − ε(σ) kill C_m for σ ∈ Gal(F′/F_∞); if C_𝔭 ≠ 0, ρ_𝔭 would be reducible or dihedral. So M⁺_∞(U)²_𝔭 ≅ M⁺_∞(U^{(0)})[I]_𝔭 (3.20), whence (3.22), and M⁺_∞(U^{(0)}) = M⁺_∞(U^{(1)})[S(ℓ) − 1] gives (3.23)."
+   ],
+   "acceptance": [
+    "The hypothesis on ρ_𝔭(Frob_ℓ) is what prevents level raising at ℓ; without it T_∞(U^{(0)})_𝔭 can be larger."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/ihara-lemma-quaternionic",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/level-type-control",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hecke-generation",
+    "GL2AutomorphicRepresentationsAndTransfer:R17.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Congruences",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.8, Lemma 3.29, p. 59 (Numdam PDF page 56; printed page = PDF page + 3)",
+     "match": "Lemma 3.29."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§3.8, proof of Lemma 3.29, p. 61 (Numdam PDF page 58; printed page = PDF page + 3)",
+     "match": "The Chebotarev step and (3.22)–(3.23)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/reducible-locus-dimension",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3"
+   ],
+   "title": "Dimension of the reducible and diagonal loci",
+   "kind": "lemma",
+   "statement": "(Lemmas 2.7–2.9.) With R^red_𝒟 = R_𝒟/I (I generated by the lower-left entries c_σ in a basis with ρ_𝒟(z_1) = diag(1, −1)) the universal reducible deformation ring: dim R^red_𝒟 ≤ 1 + 2δ_F + dim_k H_Σ(F, k); if q ⊆ R_𝒟 contains p, ρ_𝒟 mod q is reducible and its determinant has finite order, then dim R_𝒟/q ≤ δ_F + dim_k H_Σ(F, k). For the universal diagonal deformation (φ_1 0; 0 φ_2) of 1 ⊕ χ of type (𝒪, Σ), dim R^diag ≤ 1 + 2δ_F, and ≤ δ_F modulo a prime containing p with det of finite order.",
+   "hypotheses": [],
+   "proofSteps": [
+    "Write G = Gal(L(Σ)(χ)/F) ≅ Δ × Γ × ℤ_p^{δ_F} (Γ a finite p-group) and A = ℤ_p[[G]]; reducible deformations factor through the maximal abelian pro-p extension M of L(Σ)(χ) unramified outside Σ∖𝒫 on which Δ acts through χ^{−1}.",
+    "H = Gal(M/L(Σ)(χ)) is an A-module generated by m = dim_k H_Σ(F, k) elements; a presentation 𝔞 → ⊕Ae_i ↠ H with e_m ↦ an element with ρ_c = (1 u; 0 1), u ≠ 0, gives the explicit universal reducible deformation over B ⊗̂ A_2 (Skinner–Wiles p. 17), from which the dimension bounds are read."
+   ],
+   "acceptance": [
+    "These bounds are what make the reducible locus of small codimension after the base changes of §4.6."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/deformation-of-type",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/global-presentation-bound",
+    "PadicFamilies:L5/totally-real-weight-algebra"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/Deformations",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§2.2, p. 15 (Numdam PDF page 12; printed page = PDF page + 3)",
+     "match": "§2.2 opening (the text layer reads ρ_c as 'p,')."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§2.2, Lemmas 2.7–2.9, p. 17 (Numdam PDF page 14; printed page = PDF page + 3)",
+     "match": "Lemmas 2.7–2.9."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/pro-modular-prime",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4"
+   ],
+   "title": "Pro-modular primes and components of R_𝒟",
+   "kind": "definition",
+   "statement": "Let F have even degree, L_p(F, −1, χω) not a unit (so T_𝒟 exists), and 𝒟^ps = (𝒪, Σ). A prime q of R_𝒟 is pro-modular if φ_q : R_{𝒟^ps} → R_𝒟/q, the map of the pseudo-deformation of ρ_𝒟 mod q, factors through π_𝒟 : R_{𝒟^ps} ↠ T_𝒟, i.e. φ_q = θ_q ∘ π_𝒟 (4.1) for some θ_q : T_𝒟 → R_𝒟/q; then θ_q(T(ℓ)) = trace ρ_𝒟(Frob_ℓ) mod q for ℓ ∉ Σ. A deformation is pro-modular if its kernel is. If q is pro-modular so is every 𝔭 ⊇ q; a component of Spec R_𝒟 is pro-modular if its minimal prime is.",
+   "hypotheses": [
+    "F of even degree; L_p(F, −1, χω) ∈ 𝒪 not a unit."
+   ],
+   "proofSteps": [
+    "Specialisation: if q ⊆ 𝔭, compose θ_q with R_𝒟/q ↠ R_𝒟/𝔭."
+   ],
+   "acceptance": [
+    "Pro-modularity is a statement about pseudo-deformations (traces), which is all that the Hecke side sees in the residually reducible case."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/deformation-hecke-rings",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/pseudo-to-deformation-map"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/ProModularity",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§4.1, p. 61 (Numdam PDF page 58; printed page = PDF page + 3)",
+     "match": "Pro-modular primes, (4.1)."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§4.1, p. 62 (Numdam PDF page 59; printed page = PDF page + 3)",
+     "match": "Specialisation and pro-modular components."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/pro-modularity-key-proposition",
+     "how": "the conclusion of Proposition 4.1."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+     "how": "Theorems A and B deduce modularity from pro-modularity."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.IsProModular",
+     "role": "data",
+     "statement": "φ_q factors through π_𝒟."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsProModular.of_le",
+     "role": "characterisation",
+     "statement": "Pro-modularity passes to larger primes."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsProModularComponent",
+     "role": "data",
+     "statement": "The minimal prime of the component is pro-modular."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsProModular.trace",
+     "role": "characterisation",
+     "statement": "θ_q(T(ℓ)) = trace ρ_𝒟(Frob_ℓ) mod q."
+    }
+   ],
+   "tests": [
+    {
+     "name": "isProModular_maximal",
+     "kind": "example",
+     "statement": "The maximal ideal of R_𝒟 is pro-modular: ρ_0 = {1, χ, 0} is the residual pseudo-representation of T_𝒟 at the permissible m."
+    },
+    {
+     "name": "isProModular_specialise",
+     "kind": "example",
+     "statement": "If a minimal prime is pro-modular, every prime of its component is."
+    },
+    {
+     "name": "isProModular_not_representation",
+     "kind": "example",
+     "statement": "Pro-modularity of q says nothing about the extension class of ρ_𝒟 mod q; two ρ_c with the same traces are both pro-modular or both not."
+    }
+   ],
+   "planet": {
+    "name": "Pro-modular primes"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/good-pair-and-nice-primes",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4"
+   ],
+   "title": "Good pairs, nice primes and the properties (P1), (P2)",
+   "kind": "definition",
+   "statement": "(F, 𝒟) is good if d is even; L_p(F, −1, χω) ∈ 𝒪 ∖ 𝒪^×; d > 2 + δ_F + 8(#Σ + dim_k H_{Σ_0}(F, k)); d_{v_i} > 2 + 2t + 7(#Σ + dim_k H_{Σ_0}(F, k)) for every v_i | p; and, for w ∤ p with ρ_c|_{I_w} ≠ 1, either χ|_{I_w} ≠ 1 or χ|_{D_w} = 1. A nice deformation (§2.3) is one over a one-dimensional domain of characteristic p, of type 𝒟_c, with ψ^{(i)}_1/ψ^{(i)}_2 of infinite order at each v_i. A dimension-one prime 𝔭 of T_𝒟 is nice for 𝒟 if ρ_𝔭 is irreducible, 𝔭 comes from T_{𝒟_c}, the class c′ of Lemma 2.13 for ρ_𝔭 is a scalar multiple of c, and a conjugate of the associated ρ is a nice deformation of type (𝒪′, Σ, c, ℳ); then R_𝒟 → A gives the nice prime 𝔭_𝒟. A prime of R_𝒟 is good if ρ_𝒟 mod 𝔭 is nice, and nice if moreover it is the inverse image of a pro-modular prime of R_{𝒟_c}. (P1): for every prime 𝔭 ⊆ T_𝒟 nice for 𝒟, every Q ⊆ 𝔭_𝒟 is pro-modular. (P2): R_{𝒟_c} has a pro-modular prime whose deformation is nice.",
+   "hypotheses": [
+    "Σ_0 is the set of places where χ ramifies, with 𝒫; 𝒟_c = (𝒪, Σ_c, c, ℳ_c) as in §2.3."
+   ],
+   "proofSteps": [
+    "For 𝔭 of dimension one with ρ_𝔭 irreducible, Lemma 2.13 gives ρ over the normalisation A of T_𝒟/𝔭 deforming some ρ_{c′}; (3.4) and permissibility (T_0(𝔭_i) ≡ 1) force ρ|_{D_i} to be split or (ψ_1 *; 0 ψ_2) with ψ_2 ≡ 1, so c′ is admissible and ρ is of type (𝒪′, Σ, c′, ∅)."
+   ],
+   "acceptance": [
+    "Goodness is preserved by shrinking Σ but not by base change; §4.6 exploits that a base change can become good."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/pro-modular-prime",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/lattice-reduction-lemma",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hida-family-representation",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/deformation-of-type"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/ProModularity",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§4.2, p. 62 (Numdam PDF page 59; printed page = PDF page + 3)",
+     "match": "Good pairs."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§4.2, p. 63 (Numdam PDF page 60; printed page = PDF page + 3)",
+     "match": "Nice primes and (P1)."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§4.2, p. 63 (Numdam PDF page 60; printed page = PDF page + 3)",
+     "match": "(P2)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/pro-modularity-key-proposition",
+     "how": "the hypotheses of Proposition 4.1."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+     "how": "(P1) for all data (Proposition 8.4) and (P2) (Proposition 4.2)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.OrdinaryModularity.IsGoodPair",
+     "role": "data",
+     "statement": "The five conditions on (F, 𝒟)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsNiceDeformation",
+     "role": "data",
+     "statement": "One-dimensional, characteristic p, type 𝒟_c, ψ_1/ψ_2 of infinite order."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsNiceFor",
+     "role": "data",
+     "statement": "A prime of T_𝒟 nice for 𝒟."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.PropertyP1",
+     "role": "data",
+     "statement": "(P1)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.PropertyP2",
+     "role": "data",
+     "statement": "(P2)."
+    },
+    {
+     "name": "TauCeti.OrdinaryModularity.IsGoodPair.mono",
+     "role": "characterisation",
+     "statement": "(F, 𝒟) good and Σ′ ⊆ Σ ⇒ (F, 𝒟′) good."
+    }
+   ],
+   "tests": [
+    {
+     "name": "isGoodPair_degree_bound",
+     "kind": "example",
+     "statement": "d must exceed 2 + δ_F + 8(#Σ + dim H_{Σ_0}): for F = ℚ (d = 1) no datum is good, which is why §4.6 base changes to large even-degree F."
+    },
+    {
+     "name": "isGoodPair_local_degree",
+     "kind": "example",
+     "statement": "Each d_{v_i} must exceed 2 + 2t + 7(#Σ + dim H_{Σ_0}), so p must be highly ramified or inert in F."
+    },
+    {
+     "name": "isNiceDeformation_characteristic",
+     "kind": "example",
+     "statement": "A nice deformation lives in characteristic p: in characteristic 0 the definition does not apply."
+    }
+   ],
+   "planet": {
+    "name": "Good pairs and nice primes"
+   }
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/raynaud-connectedness-corollary",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4"
+   ],
+   "title": "Components of A/(f_1, …, f_r) meet in large dimension",
+   "kind": "lemma",
+   "statement": "(Corollary A.2.) Let A be a local Cohen–Macaulay ring of dimension d and I = (f_1, …, f_r) with r ≤ d − 2. If the set of irreducible components of Spec(A/I) is partitioned into two nonempty sets 𝒞_1 ⊔ 𝒞_2, there are C_1 ∈ 𝒞_1 and C_2 ∈ 𝒞_2 with C_1 ∩ C_2 containing a prime of dimension d − r − 1.",
+   "hypotheses": [
+    "A local Cohen–Macaulay; r ≤ d − 2."
+   ],
+   "proofSteps": [
+    "Proposition A.1 (Raynaud, Corollaire 4.2): Spec(A/I) ∖ {m_A} is connected (recorded as a gap).",
+    "Induction on d − r: for d − r = 2 this is the proposition; otherwise pick a one-dimensional 𝔭 in C′_1 ∩ C′_2 and pass to A_𝔭 (Cohen–Macaulay of dimension d − 1), where the decomposition stays nontrivial."
+   ],
+   "acceptance": [
+    "The linchpin of the Main Theorem: it produces pro-modular and non-pro-modular components meeting in large dimension."
+   ],
+   "prerequisites": [
+    "mathlib:IsLocalRing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/ProModularity",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "Appendix A, Corollary A.2, p. 123 (Numdam PDF page 120; printed page = PDF page + 3)",
+     "match": "Proposition A.1 and Corollary A.2."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "Appendix A, proof of Corollary A.2, p. 123 (Numdam PDF page 120; printed page = PDF page + 3)",
+     "match": "The proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/pro-modularity-key-proposition",
+   "parentStageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
+   "realises": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4"
+   ],
+   "title": "The key proposition: every prime of R_𝒟 is pro-modular",
+   "kind": "theorem",
+   "statement": "(Proposition 4.1.) Let 𝒟 be a deformation datum for F. If (F, 𝒟) is good and (P1) and (P2) hold for 𝒟 and 𝒟_c, then every prime of R_𝒟 is pro-modular.",
+   "hypotheses": [
+    "(F, 𝒟) good; (P1) and (P2) for 𝒟 and 𝒟_c."
+   ],
+   "proofSteps": [
+    "Case 𝒟 = 𝒟_c, step one: a component containing a nice prime is pro-modular by (P1); with (P2) some component is.",
+    "Step two: if a non-pro-modular component C_2 existed, Proposition 2.4 and Corollary A.2 give C_1 pro-modular with C_1 ∩ C_2 ⊇ Q of dimension d − 2t + δ_F − 3#ℳ_c; a minimal Q_1 over (Q, p, det ρ(γ_i) − 1) has dimension ≥ d − 2t − 3#ℳ_c − 1 > 1 + δ_F + (#Σ + dim H_{Σ_0}) by (G), so ρ mod Q_1 is irreducible (Lemma 2.6 with Lemmas 2.7–2.8).",
+    "Q_1 is pro-modular; by Corollary 2.12 (printed 'Proposition 2.12', E5) dim T/Q^mod_1 ≥ dim R/Q_1, and T is integral over Λ_𝒪; if Q^mod_1 contained all Y^{(i)}_j then dim ≤ d − d_i, contradicting (G), so some Y^{(i)}_1 ∉ Q_1.",
+    "A one-dimensional 𝔭 ⊇ Q_1 avoiding c_{σ_0} and the Y^{(i)}_1 is nice (ψ_2(y_1) = 1 + Y_1 of infinite order and det = χ), hence C_2 is pro-modular by step one: contradiction.",
+    "General 𝒟: good primes of R_𝒟 come from nice primes of R_{𝒟_c}, so components with a good prime are pro-modular; a minimal Q with a minimal Q_2 over (Q, I_2) of dimension ≥ d − 7#Σ − 1 lies in a good prime."
+   ],
+   "acceptance": [
+    "The argument is dimension counting under (G); no R = T isomorphism is claimed at this stage."
+   ],
+   "prerequisites": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/good-pair-and-nice-primes",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/raynaud-connectedness-corollary",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/global-presentation-bound",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/pseudo-deformation-localisation",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/matrix-entry-subring",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hecke-generation",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/deformation-iwasawa-algebra",
+    "PadicFamilies:L5/hida-hecke-finite"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/OrdinaryModularity/ProModularity",
+    "namespace": "TauCeti.OrdinaryModularity"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§4.3, Proposition 4.1, p. 63 (Numdam PDF page 60; printed page = PDF page + 3)",
+     "match": "Proposition 4.1."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§4.3, proof of Proposition 4.1, p. 64 (Numdam PDF page 61; printed page = PDF page + 3)",
+     "match": "The step citing Corollary 2.12 (E5)."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§4.3, end of the proof, p. 66 (Numdam PDF page 63; printed page = PDF page + 3)",
+     "match": "The end of the proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Skinner–Wiles key proposition on pro-modularity"
+   }
   }
  ],
  "requests": [
   {
    "supplier": "HilbertModularVarietiesAndShimuraCurves:R18.3",
-   "need": "Definite quaternionic forms over a totally real F of even degree, for D ramified exactly at the infinite places: X(U) = D^×\\G^D(A_f)/U finite; H⁰(X(U), R) = H⁰(X(U), ℤ) ⊗ R free of rank #X(U); the Hecke operators [UgU′] (T(ℓ), S(ℓ), T₀(p_v), T₀(p) and the action of G(U_a)) commuting and preserving integrality; the norm-factoring subspace I^D(U); pullback and trace between levels; stabiliser orders c_U(x) with c_{U_a}(x) = 1 for a large; free action after an auxiliary level (Skinner–Wiles Lemma 3.5 and Corollary 3.6); and finite-level freeness over 𝒪/πⁿ[Δ_w] for a fixed-point-free action.",
+   "need": "Definite quaternionic forms over a totally real F of even degree, for D ramified exactly at the infinite places: X(U) = D^×\\G^D(A_f)/U finite; H⁰(X(U), R) = H⁰(X(U), ℤ) ⊗ R free of rank #X(U); the Hecke operators [UgU′] (T(ℓ), S(ℓ), T₀(p_v), T₀(p) and the action of G(U_a)) commuting and preserving integrality; the norm-factoring subspace I^D(U); pullback and trace between levels; stabiliser orders c_U(x) with c_{U_a}(x) = 1 for a large; free action after an auxiliary level (Skinner–Wiles Lemma 3.5 and Corollary 3.6); and finite-level freeness over 𝒪/πⁿ[Δ_w] for a fixed-point-free action. Also: Eichler's norm theorem for D (every totally positive element of F is a reduced norm) and strong approximation for the norm-one group G^D_1 at a place w where D splits (used in Skinner–Wiles Lemma 3.26).",
    "neededBy": [
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-part-kills-norm-forms",
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-hecke-adjoint-pairing",
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-trace-compatibility",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-level-independence",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-part-kills-norm-forms",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-towers-duality",
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-level-freeness"
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/ordinary-trace-compatibility",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-ordinary-projector",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-level-freeness",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/characteristic-p-primes-auxiliary",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/ihara-lemma-quaternionic"
    ],
    "status": "open",
    "note": "R18.3 owns the quaternionic sets, their Hecke action, change of level and Taylor–Wiles freeness; R21.1 only applies the ordinary projector and passes to the ordinary towers."
@@ -2437,7 +3178,9 @@
    "supplier": "GL2AutomorphicRepresentationsAndTransfer:R17.3",
    "need": "The Jacquet–Langlands–Shimizu isomorphism S^D(U) = H⁰(X(U), ℂ)/I^D(U) ≅ S₂(U), compatible with all [UgU′], for the definite quaternion algebra over an even-degree totally real field unramified at all finite places.",
    "neededBy": [
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra"
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.1/quaternionic-nearly-ordinary-hecke-algebra",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-trace-identity",
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/level-raising-congruence-modules"
    ],
    "status": "open"
   },
@@ -2475,6 +3218,7 @@
    "supplier": "AutomorphicGaloisRepresentations:R19.4",
    "need": "Local–global compatibility away from p for the Galois representations of nearly ordinary Hilbert eigenforms: π_v ≅ π_v(ρ_π) for v ∤ p (Skinner–Wiles (3.3), [W2, Theorem 2.1.3]).",
    "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/auxiliary-trace-identity",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.2/eisenstein-ideal-existence",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/hida-family-representation",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/inertia-character-constraints",
@@ -2537,29 +3281,28 @@
   },
   {
    "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
-   "status": "partial",
-   "remaining": [
-    "Proposition 3.20 and Lemma 3.21 (characteristic-p primes at auxiliary level and the trace of ρ^mod at σ_w), the rings T_Σ and their quotients (§3.6), duality (§3.7) and the congruence maps (§3.8).",
-    "Skinner–Wiles, Nearly ordinary deformations of irreducible residual representations (Ann. Fac. Sci. Toulouse 10 (2001)), for the residually irreducible nearly ordinary control: not read."
-   ],
-   "notes": "Planned: nearly ordinary representations and the Hecke-algebra comparison, permissible maximal ideals, their existence (Proposition 3.18), the weight algebra and Lemma 3.10, and Lemma 3.19 (7 nodes). Hida's totally real control (Proposition 3.3, Corollary 3.4, Proposition 3.7, Lemma 3.8) is requested from PadicFamilies L5 per RS-08. Checkpoint 2 plans the Galois-dependent level statements (Propositions 3.14–3.15, Lemmas 3.16–3.17) in R21.3, after the family representation."
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Planned: nearly ordinary representations and the Hecke-algebra comparison, permissible maximal ideals, their existence (Proposition 3.18), the weight algebra and Lemma 3.10, and Lemma 3.19 (7 nodes). Hida's totally real control (Proposition 3.3, Corollary 3.4, Proposition 3.7, Lemma 3.8) is requested from PadicFamilies L5 per RS-08. Checkpoint 2 plans the Galois-dependent level statements (Propositions 3.14–3.15, Lemmas 3.16–3.17) in R21.3, after the family representation. Checkpoint 3 completes R21.2 with Proposition 3.20, Lemma 3.21, the Hecke rings of §3.6 (Proposition 3.23), the duality of §3.7 and the congruence maps of §3.8 (Lemmas 3.26–3.29). Skinner–Wiles' Toulouse 2001 paper (residually irreducible nearly ordinary control) is not needed for the Skinner–Wiles 1999 route and is left to a consumer that needs it."
   },
   {
    "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
    "status": "partial",
    "remaining": [
-    "Reducible deformations and the dimension of the reducible locus (§2.2, Lemmas 2.7–2.9): skimmed, to be planned with R21.4, where they are used.",
     "The ordinary determinant-versus-flag comparison of LocalGaloisDeformationRings L8 for nonreduced rings (RS-08): not needed by Skinner–Wiles, whose local conditions are on representations; record when a consumer needs it.",
     "Comparison of the local tangent conditions with the Hecke side at the auxiliary places (§3.6 onwards)."
    ],
-   "notes": "Checkpoint 2 (19 nodes) plans Skinner–Wiles §§2.1, 2.3–2.5 and 3.3: deformation data and ρ_c, nearly ordinary deformations of type 𝒟 with R_𝒟, R_{𝒟_Q} and R^min, permissible base change, the presentation g − r ≥ d + δ_F − 2t − 3#ℳ (Proposition 2.4), the Wiles pseudo-representation formalism with the universal pseudo-deformation ring, r_𝒟, Proposition 2.11 and Corollary 2.12, Lemma 2.13, Proposition 2.15, the Λ_𝒪-structures, Hida's ρ_Q (3.4), the pseudo-representation into T_m and the surjection R_{𝒟^ps} ↠ T_m (Lemma 3.11, Corollaries 3.12–3.13), and the level and twisting statements (Propositions 3.14–3.15, Lemmas 3.16–3.17). Local nearly ordinary rings are requested from LocalGaloisDeformationRings L8."
+   "notes": "Checkpoint 2 (19 nodes) plans Skinner–Wiles §§2.1, 2.3–2.5 and 3.3: deformation data and ρ_c, nearly ordinary deformations of type 𝒟 with R_𝒟, R_{𝒟_Q} and R^min, permissible base change, the presentation g − r ≥ d + δ_F − 2t − 3#ℳ (Proposition 2.4), the Wiles pseudo-representation formalism with the universal pseudo-deformation ring, r_𝒟, Proposition 2.11 and Corollary 2.12, Lemma 2.13, Proposition 2.15, the Λ_𝒪-structures, Hida's ρ_Q (3.4), the pseudo-representation into T_m and the surjection R_{𝒟^ps} ↠ T_m (Lemma 3.11, Corollaries 3.12–3.13), and the level and twisting statements (Propositions 3.14–3.15, Lemmas 3.16–3.17). Local nearly ordinary rings are requested from LocalGaloisDeformationRings L8. Checkpoint 3 adds the reducible and diagonal loci (§2.2, Lemmas 2.7–2.9)."
   },
   {
    "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
-   "status": "not_read",
+   "status": "partial",
    "remaining": [
-    "Source-decompose stage R21.4."
-   ]
+    "Conditions for (P2) (§4.4, Proposition 4.2) and the Main Theorem (§4.5).",
+    "The formal patching argument (§5, deformation-ring patching, importing DeformationAndDerivedPatchingAlgebra R03.5 and R03.6), cohomology estimates (§6, with GlobalGaloisDeformations R04.5 prime selection), nice primes at minimum level (§7) and raising the level for nice primes (§8, Proposition 8.4 = (P1)).",
+    "Raynaud's connectedness theorem (gap)."
+   ],
+   "notes": "Checkpoint 3 plans §4.1–4.3 (4 nodes): pro-modular primes, good pairs, nice primes and (P1)/(P2), Corollary A.2, and the key Proposition 4.1. RS-08 keeps the arithmetic R = T argument here and imports the abstract patching (R03.5, R03.6) and prime selection (R04.5), which Skinner–Wiles' §§5–7 will use."
   },
   {
    "stageId": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
@@ -2576,7 +3319,15 @@
    ]
   }
  ],
- "gaps": [],
+ "gaps": [
+  {
+   "title": "Raynaud's connectedness theorem (Skinner–Wiles Proposition A.1)",
+   "neededBy": [
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.4/raynaud-connectedness-corollary"
+   ],
+   "detail": "If A is a local Cohen–Macaulay ring of dimension d and I is generated by r ≤ d − 2 elements, Spec(A/I) ∖ {m_A} is connected (Raynaud, Anneaux locaux henséliens, Corollaire 4.2; a form of Grothendieck's connectedness theorem, SGA 2 XIII). Skinner–Wiles cite it without proof. No roadmap stage in the atlas plans it and Mathlib does not have it; it should go to a commutative-algebra owner."
+  }
+ ],
  "sourceIssues": [
   {
    "id": "OrdinaryAutomorphicFormsAndModularityLifting/E1",
@@ -2632,6 +3383,34 @@
    "known": "new",
    "searched": [
     "Numdam item page and Crossref record as for E3, checked 2026-09-28."
+   ]
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E5",
+   "source": "SKINNER-WILES-1999",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§4.3, proof of Proposition 4.1, p. 64 (Numdam PDF page 61)",
+   "printed": "The source invokes Proposition 2.12 to deduce dim T_{𝒟_c}/Q_1^mod ≥ dim R_𝒟/Q_1.",
+   "correction": "Corollary 2.12.",
+   "reason": "§2.4 has Proposition 2.11 and Corollary 2.12; the inequality dim R^ps/Q^ps ≥ dim R_𝒟/Q is Corollary 2.12, applied through the surjection R_{𝒟^ps} ↠ T_𝒟.",
+   "known": "new",
+   "searched": [
+    "Numdam item page and the Crossref record of doi:10.1007/BF02698855 (filter=updates), checked 2026-09-28: no erratum."
+   ]
+  },
+  {
+   "id": "OrdinaryAutomorphicFormsAndModularityLifting/E6",
+   "source": "SKINNER-WILES-1999",
+   "kind": "misprint",
+   "affects": "nothing",
+   "locator": "§4.4, proof of Proposition 4.2, p. 66 (Numdam PDF page 63)",
+   "printed": "The source argues that goodness of (F, 𝒟) makes L_p(F, −1, χω) a nonunit in 𝒪, and then uses Proposition 3.14 to deduce that T_∞(U^χ, 𝒪) possesses a permissible maximal ideal m.",
+   "correction": "Proposition 3.18.",
+   "reason": "Proposition 3.14 is the level-by-type statement; the existence of a permissible maximal ideal of T_∞(U^χ, 𝒪) from ord_π L_p(F, −1, χω) > 0 is Proposition 3.18.",
+   "known": "new",
+   "searched": [
+    "As for E5."
    ]
   }
  ],
