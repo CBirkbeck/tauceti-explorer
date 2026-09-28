@@ -819,3 +819,91 @@ example (w : ℕ → ℂ) : (∑ n ∈ Ioc 0 (0 : ℕ), (Λ n : ℂ) * w n) = 0 
 example : (μ 4 : ℝ) ^ 2 = 0 := by sorry
 
 end SieveVaughan
+namespace SieveCharacters
+
+attribute [local instance] Classical.propDecidable
+open scoped BigOperators
+
+-- Display abbreviations only; no competing character, norm or bound predicate.
+set_option quotPrecheck false
+local notation "twist" => (fun {q H : ℕ} (M : ℤ) (a : Fin H → ℂ)
+  (χ : DirichletCharacter ℂ q) =>
+    ∑ j, a j * χ ((M + j.val + 1 : ℤ) : ZMod q))
+local notation "energy" => (fun {H : ℕ} (a : Fin H → ℂ) => ∑ j, ‖a j‖^2)
+local notation "band" => (fun (P Q : ℕ)
+  (F : (q : Fin Q) → DirichletCharacter ℂ (q.val+1) → ℝ) =>
+    ∑ q : Fin Q, if P < q.val+1 then
+      (1 / ((q.val+1).totient : ℝ)) *
+        ∑ χ ∈ (Finset.univ : Finset (DirichletCharacter ℂ (q.val+1))).filter
+          DirichletCharacter.IsPrimitive, F q χ else 0)
+set_option quotPrecheck true
+
+/-- SV.2/dyadic-primitive-energy. Lower endpoint excluded, upper endpoint retained. -/
+theorem dyadic_primitive_energy (P H : ℕ) (hP : 0 < P)
+    (M : ℤ) (a : Fin H → ℂ) :
+    band P (2*P) (fun _ χ => ‖twist M a χ‖^2) ≤
+      (((H : ℝ) + 8*(P : ℝ)^2) / P) * energy a := by sorry
+
+/-- SV.2/dyadic-primitive-bilinear. Weighted Cauchy--Schwarz at a common modulus. -/
+theorem dyadic_primitive_bilinear (P H K : ℕ) (hP : 0 < P)
+    (M N : ℤ) (a : Fin H → ℂ) (b : Fin K → ℂ) :
+    band P (2*P) (fun _ χ => ‖twist M a χ‖ * ‖twist N b χ‖) ≤
+      (Real.sqrt ((H : ℝ)+8*(P : ℝ)^2) *
+        Real.sqrt ((K : ℝ)+8*(P : ℝ)^2) / P) *
+      Real.sqrt (energy a) * Real.sqrt (energy b) := by sorry
+
+/-- SV.2/dyadic-modulus-partition. This finite identity does not assume a sign on c. -/
+theorem dyadic_modulus_partition (R J : ℕ) (c : ℕ → ℝ) :
+    (∑ q ∈ Finset.Ioc R (R*2^J), c q) =
+      ∑ i ∈ Finset.range J,
+        ∑ q ∈ Finset.Ioc (R*2^i) (2*(R*2^i)), c q := by sorry
+
+/-- SV.2/dyadic-bilinear-kernel. J is retained on the scale-independent terms. -/
+theorem dyadic_bilinear_kernel (R : ℝ) (hR : 0 < R) (J : ℕ)
+    (H K : ℝ) (hH : 0 ≤ H) (hK : 0 ≤ K) :
+    (∑ i ∈ Finset.range J,
+      Real.sqrt (H+8*(R*2^i)^2) * Real.sqrt (K+8*(R*2^i)^2) / (R*2^i)) ≤
+      9*R*(2^J-1) + 3*(J : ℝ)*(Real.sqrt H+Real.sqrt K) +
+        (2/R)*(1-(1/2 : ℝ)^J)*Real.sqrt H*Real.sqrt K := by sorry
+
+/-- SV.2/primitive-bilinear-dyadic-tail. Both translations and empty intervals are allowed. -/
+theorem primitive_bilinear_dyadic_tail (R J H K : ℕ) (hR : 0 < R)
+    (M N : ℤ) (a : Fin H → ℂ) (b : Fin K → ℂ) :
+    band R (R*2^J) (fun _ χ => ‖twist M a χ‖ * ‖twist N b χ‖) ≤
+      (9*(R : ℝ)*((2 : ℝ)^J-1) +
+        3*(J : ℝ)*(Real.sqrt H+Real.sqrt K) +
+        (2/(R : ℝ))*(1-(1/2 : ℝ)^J)*Real.sqrt H*Real.sqrt K) *
+      Real.sqrt (energy a) * Real.sqrt (energy b) := by sorry
+
+/-- SV.2/primitive-bilinear-cutoff. The final partial dyadic band is bounded, not discarded. -/
+theorem primitive_bilinear_cutoff (R Q J H K : ℕ) (hR : 0 < R)
+    (hcover : Q ≤ R*2^J) (hsize : R*2^J ≤ 2*Q)
+    (M N : ℤ) (a : Fin H → ℂ) (b : Fin K → ℂ) :
+    band R Q (fun _ χ => ‖twist M a χ‖ * ‖twist N b χ‖) ≤
+      (18*(Q : ℝ) + 3*(J : ℝ)*(Real.sqrt H+Real.sqrt K) +
+        (2/(R : ℝ))*Real.sqrt H*Real.sqrt K) *
+      Real.sqrt (energy a) * Real.sqrt (energy b) := by sorry
+
+/-- dyadic_boundary_once: q=4 is assigned to the first band, not the next. -/
+example : (∑ i ∈ Finset.range 2,
+    ∑ q ∈ Finset.Ioc (2*2^i) (2*(2*2^i)), if q=4 then (1 : ℝ) else 0) = 1 := by sorry
+/-- dyadic_excluded_lower: q=R does not enter the tail. -/
+example : (∑ q ∈ Finset.Ioc 2 (2*2^3), if q=2 then (1 : ℝ) else 0) = 0 := by sorry
+/-- dyadic_last_endpoint: q=R*2^J is retained. -/
+example : (∑ i ∈ Finset.range 3,
+    ∑ q ∈ Finset.Ioc (2*2^i) (2*(2*2^i)), if q=16 then (1 : ℝ) else 0) = 1 := by sorry
+/-- dyadic_empty_scales -/
+example (R : ℕ) (c : ℕ → ℝ) : (∑ q ∈ Finset.Ioc R (R*2^0), c q) = 0 := by sorry
+/-- dyadic_zero_support -/
+example (P : ℕ) (M : ℤ) (a : Fin 0 → ℂ) :
+    band P (2*P) (fun _ χ => ‖twist M a χ‖^2) = 0 := by sorry
+/-- dyadic_scale_loss: the scale-independent term sums to J, not to one. -/
+example : (∑ _i ∈ Finset.range 4, (1 : ℝ)) = 4 := by sorry
+/-- dyadic_zero_kernel: fixes the factor eight inherited from Q=2P. -/
+example : (∑ i ∈ Finset.range 3,
+    Real.sqrt (8*((2 : ℝ)*2^i)^2) *
+      Real.sqrt (8*((2 : ℝ)*2^i)^2) / (2*2^i)) = 112 := by sorry
+/-- dyadic_cutoff_not_power: Q=5 requires the band (4,8], not just (2,4]. -/
+example : 5 ≤ 2*2^2 ∧ 2*2^2 ≤ 2*5 ∧ ¬5 ≤ 2*2^1 := by sorry
+
+end SieveCharacters

@@ -4,7 +4,7 @@
 
 A sieve estimates a nonnegative weighted population after excluding specified local divisibility conditions. Its finite algebra must be separated from the analytic assertion that a remainder is small. This roadmap develops that algebra on the existing Mathlib sieve carrier, then uses it as the foundation for dimension estimates, combinatorial and quadratic weights, large-sieve inequalities, distribution of primes and prime-pattern applications.
 
-The specification contains twenty finite SV.0 declarations and forty-nine SV.2 declarations: weighted sieve and residue interfaces; Selberg and Bombieri–Selberg inequalities; tapered Fourier vectors, circular packing and the H+2/δ additive large sieve; the H+2Q² primitive-character large sieve; and the finite Vaughan/incomplete-log Type I–II decomposition. Empty inputs, cutoff equality, zero coefficients and the small-number boundary are explicit. SV.0–SV.3 remain partial; SV.4–SV.5 remain not read. Sharp constants, analytic bilinear and distribution estimates, and the recorded application gaps are not supplied by these finite identities. Every declaration is a specification, not an implementation claim.
+The specification contains twenty finite SV.0 declarations and fifty-five SV.2 declarations: weighted sieve and residue interfaces; Selberg and Bombieri–Selberg inequalities; tapered Fourier vectors, circular packing and the H+2/δ additive large sieve; the H+2Q² primitive-character large sieve; the finite Vaughan/incomplete-log Type I–II decomposition; and primitive-character rectangular bilinear bounds with an explicit dyadic-scale loss. Empty inputs, cutoff equality, zero coefficients and the small-number boundary are explicit. SV.0–SV.3 remain partial; SV.4–SV.5 remain not read. Sharp constants, hyperbolic Type I/II and distribution estimates, and the recorded application gaps are not supplied by these finite identities. Every declaration is a specification, not an implementation claim.
 
 Use the existing BoundingSieve and SelbergSieve types. Do not construct a competing record of sieve data, redefine the Möbius function, or package a single coefficient inequality into a new predicate. Generic multiplicative functions, Dirichlet convolution, finite sums, prime factorization and Selberg quadratic-form diagonalization are library inputs.
 
@@ -359,7 +359,7 @@ Uses which determine the API:
 
 - Kedlaya Definition 11.6 and weighted Lemma 11.2: Realize arbitrary sets of excluded residue classes, with the original indexed weights, in the pinned sieve carrier.
 - SieveMethodsAndPrimePatterns:SV.0/residue-legendre-error: Make the existing Legendre error theorem applicable to those local conditions; deleting zero densities keeps its Euler product unchanged.
-- SV.1–SV.5 local-data inputs: Separate the exact finite representation from dimension, distribution and analytic cutoff hypotheses needed by later sieve estimates.
+- SV.1–SV.5 local-data inputs: Separate the exact finite representation from dimension, distribution and analytic cutoff hypotheses needed by downstream sieve estimates.
 
 Planning API:
 
@@ -809,7 +809,7 @@ N,L∈ℕ and x∈ℝ; L may be zero.
 
 Proof outline:
 
-1. Evaluate the native finite vector constructor at k. This is the promoted coordinate API, allowing the later inner-product proof to avoid unfolding a new abstraction.
+1. Evaluate the native finite vector constructor at k. This is the promoted coordinate API, allowing the dependent inner-product proof to avoid unfolding a new abstraction.
 
 Acceptance:
 
@@ -936,7 +936,7 @@ Source: Bombieri, pp.403–404, reduction to (5) and its diagonal/off-diagonal d
 
 ### Source-proof corrections and library boundary
 
-E10 records that the displayed Gram modulus on p.403 is equated to a signed kernel difference. For N=L=1 and phase difference 1/2 the difference is −1, whereas the modulus is 1. Taking the absolute value of the difference repairs the identity. Because both kernels lie between zero and the same cosecant-square bound, their difference has modulus at most that bound; the later estimate does not acquire a factor two.
+E10 records that the displayed Gram modulus on p.403 is equated to a signed kernel difference. For N=L=1 and phase difference 1/2 the difference is −1, whereas the modulus is 1. Taking the absolute value of the difference repairs the identity. Because both kernels lie between zero and the same cosecant-square bound, their difference has modulus at most that bound; the resulting estimate does not acquire a factor two.
 
 E11 records the incomplete bin coverage at the start of p.404. Requiring (m+1)δ≤1/2 discards the final partial bin and can discard the antipodal endpoint. With δ=3/10 and points 0,2/5, the permitted bins miss distance 2/5. The radial-bin lemma below keeps every floor bin, including the final piece and the antipodal endpoint, and proves the at-most-two count using two oriented half-circles. The antipodal representative belongs only to the negative half.
 
@@ -1621,7 +1621,7 @@ Proof route:
 
 2. In the native commutative convolution ring, μ*(h_V*ζ)=h_V*(μ*ζ)=h_V by the already implemented Möbius–zeta inverse.
 
-3. Evaluate at n. In particular, this is an identity for all natural n rather than a formula requiring the later small-number error to be discarded.
+3. Evaluate at n. In particular, this is an identity for all natural n rather than a formula requiring the small-number error to be discarded.
 
 Acceptance cases:
 
@@ -1739,7 +1739,7 @@ Proof route:
 
 3. Use the native |μ(m)|≤1, cast from ℤ to ℝ, square and sum. The two constant sums have cardinal M−L by the native interval cardinality formula.
 
-4. These coefficient-only upper bounds are available to a later bilinear Cauchy–Schwarz step. They claim no cancellation and do not turn the dependent hyperbola into a rectangle.
+4. These coefficient-only upper bounds are available to a bilinear Cauchy–Schwarz step. They claim no cancellation and do not turn the dependent hyperbola into a rectangle.
 
 Acceptance cases:
 
@@ -1767,7 +1767,7 @@ The finite identities above do not use the following eight unreviewed findings. 
 
 - E21 (misprint, §18.2, boundary explanation following (18.2.2); 2007 p.3 after (4)): The omitted small-number part includes n≤x^(1/5), including a prime-power endpoint. For x=32 the cutoff is 2. At n=2 the incomplete-log convolution is zero but Λ(2)=log 2. The discrepancy boundary must include this endpoint. The stated order-of-magnitude error can still absorb it.
 
-- E22 (misprint, §18.2, multiplicative partition parameter after (18.2.3); 2007 p.3, last paragraph): At minimum the lower bound must be changed to permit 0<δ≤1 for x>1; the expected small negative power and all needed lower-range constraints require a fresh proof. For x>1 the printed interval is empty. The later choice δ=Δ^(1/2) is at most one and cannot satisfy its lower bound. This checkpoint does not silently substitute an unverified exponent.
+- E22 (misprint, §18.2, multiplicative partition parameter after (18.2.3); 2007 p.3, last paragraph): At minimum the lower bound must be changed to permit 0<δ≤1 for x>1; the expected small negative power and all needed lower-range constraints require a fresh proof. For x>1 the printed interval is empty. The subsequent choice δ=Δ^(1/2) is at most one and cannot satisfy its lower bound. This checkpoint does not silently substitute an unverified exponent.
 
 - E23 (gap, §18.2, multiplicative partition and rectangles after (18.2.3); 2007 pp.3–4): Specify the actual covered interval and count, the rectangle selection below the hyperbola and every boundary strip. A partition of [1,x] into consecutive multiplicative intervals generally needs a log x factor. After k consecutive intervals of ratio 1+δ starting at 1, the endpoint is (1+δ)^k, so reaching x requires k≥log x/log(1+δ). Moreover the printed boxes have ℓ>L and m>M with LM=x, hence ℓm>x throughout: they cannot cover terms with ℓm≤x. The original proof may intend a different restricted interval and selection, but it must be stated and justified.
 
@@ -1779,18 +1779,256 @@ The finite identities above do not use the following eight unreviewed findings. 
 
 ### Remaining analytic work
 
-Chapter 18 has been read completely but its analytic proof is not decomposed: Definition 18.1 discrepancy API; Lemma 18.2 character bound; Theorem 18.3 convolution estimate; Theorem 18.4 averaged prime distribution; Theorem 18.5 variance; Corollary 18.6 and Exercises 18.4.3–5 remain work.
+Chapter 18 has been read completely; the large-r primitive rectangular subargument of Theorem 18.3 is decomposed below, but the following analytic work remains: Definition 18.1 discrepancy API; Lemma 18.2 character bound; Theorem 18.3 convolution estimate; Theorem 18.4 averaged prime distribution; Theorem 18.5 variance; Corollary 18.6 and Exercises 18.4.3–5 remain work.
 
 Repair E19–E26 before relying on the small-r normalization, dyadic summation, finite boundary, multiplicative partition, rectangle coverage or final balancing. The exact finite identity now supplied by SV.2 does not establish these analytic assertions.
 
 State every A>0, a corresponding B and sufficiently large x, the range Q≤sqrt(x)/(log x)^B, weighted moduli sums and maxima over reduced residues. Import precisely stated small-modulus/zero-density inputs from AN.3 and the existing arithmetic Dirichlet-series owners. Stronger distribution remains an explicit hypothesis.
 
-The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition and elementary coefficient energies are decomposed. Analytic Type I/II estimates and independent-rectangle reduction remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built.
+The exact Vaughan cutoff identity, incomplete logarithm, arbitrary-weight hyperbola/Type I–II decomposition, elementary coefficient energies and finite primitive rectangular estimates below are decomposed. The hyperbolic Type I/II estimates and independent-rectangle reduction remain open. Read Chapter 15 for the sharp additive input and squared-inequality duality adapter; native operator-norm duality is already built.
+
+### Inherited Vaughan-checkpoint validation
+
+The prior Vaughan packet had 69 nodes (five constructions, forty-eight lemmas and sixteen theorems), 27 API items, 23 construction tests, 78 typed examples, eleven planets, 137 baseline references, six sources, 26 source findings, seven source-version records and six open gaps. All inherited mathematical node fields are preserved, with only the documented planet reassignment. SV.0–SV.3 are partial; SV.4–SV.5 remain not read.
+
+The prior suggested file passed Lean 4.34.0-rc2 with no errors and exactly 164 expected proof-placeholder warnings, no others. It contains signatures and typed examples only; every node remains unchecked. All 8,482 imported Mathlib source files match the pin. The packet and source-issue/version checks pass. The separate standalone proof run is not counted as passing evidence: an earlier concrete divisor example required repair, and a subsequent run was stopped under severe shared-host memory pressure. That limitation does not alter the separate passing full signature build.
+
+Exact sparse prime-log coefficient vectors and Gaussian-rational weights verify 8,481 incomplete-log/convolution cases, 76,329 three-term identities, 17,640 weighted hyperbola/Type I–II decompositions and 41,280 support pairs. There are 20,825 coefficient-energy certificates using integer exponential bounds and twenty dyadic-gap certificates. Eight mutations reject the false boundary, cutoff, prime-power, coefficient and weight variants. These finite regressions are not general proofs. Earlier regression results are inherited evidence, not rerun by this continuation.
+
+## SV.2: primitive rectangular bilinear estimates
+
+### Domain, weights and exact endpoints
+
+This continuation isolates the large-conductor rectangular step in Kedlaya's Chapter 18, §18.1, proof of Theorem 18.3. It uses the already planned primitive-character large sieve, whose constant is H+2Q². It does not replace this by the sharper source constant, and it does not assert the source's full convolution theorem.
+
+Let H,K be natural lengths, M,N arbitrary integers, and a:Fin H→ℂ, b:Fin K→ℂ arbitrary coefficients. They do not depend on the modulus or the character. Set Aχ=Σ_{j<H}a_jχ(M+j+1), Bχ=Σ_{j<K}b_jχ(N+j+1), E_a=Σ|a_j|² and E_b=Σ|b_j|². The integer argument is cast to the native residue ring before evaluating the native Dirichlet character. Negative translations are permitted. The norms are the usual complex norms; empty coefficients have zero energy.
+
+For natural R,Q write T(R,Q)=Σ_{R<q≤Q}φ(q)⁻¹Σχ*|Aχ||Bχ|. The star means primitive characters modulo q. The character in the two factors is the same. All contributing moduli are positive; φ(q)>0. In the suggested signatures q ranges through the positive labels q.val+1 of Fin Q and an explicit strict lower-cutoff test. There is no finite character enumeration at modulus zero. For Q≤R the sum is empty.
+
+These letters are display abbreviations, not new definitions or bound predicates. All character and finite-sum carriers are imported. The six declaration-sized steps are owned by SV.2 under RS-07. SV.3 may consume the resulting finite estimate, but that does not import an unstated conductor decomposition or small-modulus theorem.
+
+### Primitive character energy on a dyadic band
+
+Node SV.2/dyadic-primitive-energy; proposed declaration SieveCharacters.dyadic_primitive_energy.
+
+Σ_{P<q≤2P}φ(q)⁻¹Σχ*|Aχ|² ≤ ((H+8P²)/P)E_a.
+
+Hypotheses:
+
+- M,N are arbitrary integers; H,K are natural interval lengths; a:Fin H→ℂ and b:Fin K→ℂ are arbitrary. Write Aχ=Σ_{j<H}a_jχ(M+j+1), Bχ=Σ_{j<K}b_jχ(N+j+1), E_a=Σ|a_j|² and E_b=Σ|b_j|². Character values use the native residue cast.
+
+- φ(q) is the native totient. Every character sum is over primitive Dirichlet characters modulo the positive integer q. Write T(R,Q)=Σ_{R<q≤Q}φ(q)⁻¹Σχ*|Aχ||Bχ|; this is display notation, not a new carrier or bound predicate. Empty intervals and zero coefficients are allowed.
+
+- P is a positive natural number.
+
+Proof route:
+
+1. For each q>P, φ(q)>0 and 1/φ(q)≤q/(Pφ(q)). Multiply by the nonnegative primitive character energy.
+
+2. Extend the resulting positive sum to all 1≤q≤2P, factor out 1/P, and apply primitive-large-sieve with upper cutoff 2P.
+
+3. The inherited constant is H+2(2P)²=H+8P². The source sharper H−1+4P² is not substituted for it.
+
+Acceptance cases:
+
+- At H=0 the energy is zero for every P and M.
+
+- For P=2 the band is {3,4}: q=2 is excluded and q=4 retained.
+
+- No application of a primitive Gauss identity to imprimitive characters occurs.
+
+Prerequisites: SieveMethodsAndPrimePatterns:SV.2/primitive-large-sieve, mathlib:Nat.totient_pos.
+
+### Bilinear primitive character bound on one band
+
+Node SV.2/dyadic-primitive-bilinear; proposed declaration SieveCharacters.dyadic_primitive_bilinear.
+
+T(P,2P) ≤ P⁻¹√(H+8P²)√(K+8P²)√E_a√E_b.
+
+Hypotheses:
+
+- M,N are arbitrary integers; H,K are natural interval lengths; a:Fin H→ℂ and b:Fin K→ℂ are arbitrary. Write Aχ=Σ_{j<H}a_jχ(M+j+1), Bχ=Σ_{j<K}b_jχ(N+j+1), E_a=Σ|a_j|² and E_b=Σ|b_j|². Character values use the native residue cast.
+
+- φ(q) is the native totient. Every character sum is over primitive Dirichlet characters modulo the positive integer q. Write T(R,Q)=Σ_{R<q≤Q}φ(q)⁻¹Σχ*|Aχ||Bχ|; this is display notation, not a new carrier or bound predicate. Empty intervals and zero coefficients are allowed.
+
+- P is a positive natural number.
+
+Proof route:
+
+1. Flatten the finite family of pairs (q,χ), P<q≤2P and χ primitive. Apply real finite Cauchy–Schwarz to the entries |Aχ|/√φ(q) and |Bχ|/√φ(q).
+
+2. The squares of these entries recover the two weighted energies because φ(q)>0. Apply dyadic-primitive-energy to each.
+
+3. Factor their nonnegative square roots. The product of the two factors P^(−1/2) is P⁻¹. Neither coefficient family depends on q or χ; their integer translations can differ.
+
+Acceptance cases:
+
+- Setting b=a and K=H, N=M gives the same one-band energy bound.
+
+- If either family is zero, both sides are zero.
+
+- The single common character in the two factors is retained, not replaced by two independently summed characters.
+
+Prerequisites: SieveMethodsAndPrimePatterns:SV.2/dyadic-primitive-energy, mathlib:Real.sum_mul_le_sqrt_mul_sqrt, mathlib:Real.sqrt_mul, mathlib:Real.sq_sqrt, mathlib:Real.sqrt_nonneg, mathlib:Real.sqrt_le_sqrt.
+
+### Exact partition of the dyadic modulus interval
+
+Node SV.2/dyadic-modulus-partition; proposed declaration SieveCharacters.dyadic_modulus_partition.
+
+For R,J∈ℕ and arbitrary c:ℕ→ℝ, Σ_{R<q≤R2^J}c(q)=Σ_{i=0}^{J−1}Σ_{R2^i<q≤2R2^i}c(q).
+
+Hypotheses:
+
+- R and J are natural numbers, including zero. The real coefficient c may have either sign. Every interval is lower-open and upper-closed.
+
+Proof route:
+
+1. Use the generated additive companion of the indexed prod_Ioc_consecutive, or specialize that indexed statement to Multiplicative ℝ. This supplies the already built adjacent-interval sum identity.
+
+2. Induct on J. For J=0 both sides are empty. At J+1 join (R,R2^J] and (R2^J,2R2^J]; their union is (R,R2^(J+1)] and the shared endpoint lies only in the first interval.
+
+3. The endpoint order follows from R≥0 and 2^J≥1. For R=0 all intervals are empty. No new general interval partition API is planned.
+
+Acceptance cases:
+
+- At R=2,J=2 a point mass at q=4 contributes exactly once.
+
+- At R=2,J=3 a point mass at q=16 contributes once and one at q=2 contributes zero.
+
+- Signed test coefficients verify equality, not only a bound for positive terms.
+
+Prerequisites: mathlib:Finset.prod_Ioc_consecutive.
+
+### Finite sum of the bilinear dyadic coefficients
+
+Node SV.2/dyadic-bilinear-kernel; proposed declaration SieveCharacters.dyadic_bilinear_kernel.
+
+For real R>0, H,K≥0 and natural J, put P_i=R2^i. Then Σ_{i<J}√(H+8P_i²)√(K+8P_i²)/P_i ≤ 9R(2^J−1)+3J(√H+√K)+(2/R)(1−2^(−J))√H√K.
+
+Hypotheses:
+
+- R is a positive real number; H and K are nonnegative real numbers; J is natural, including zero. The reciprocal power is 2^(−J)=(1/2)^J, never natural subtraction in an exponent.
+
+Proof route:
+
+1. For any P>0 and X≥0, square the nonnegative proposed upper bound √X+3P to prove √(X+8P²)≤√X+3P. This is deliberately weaker than using √8.
+
+2. Multiply the two bounds and divide by P. The result is at most 9P+3(√H+√K)+√H√K/P.
+
+3. Sum the first and last terms using the existing finite geometric-sum formula with ratios 2 and 1/2: ΣP_i=R(2^J−1) and Σ1/P_i=(2/R)(1−(1/2)^J).
+
+4. The middle term does not decay with i and contributes exactly 3J(√H+√K). Retain this factor; dropping it is not justified by the block estimates. All expressions vanish at J=0.
+
+Acceptance cases:
+
+- At H=K=0, R=2,J=3 the left side is 112; the displayed upper bound is 126.
+
+- At J=0 both sides are zero.
+
+- The scale-independent sum over four bands is four times its summand, not once.
+
+Prerequisites: mathlib:Real.sqrt_le_iff, mathlib:Real.sq_sqrt, mathlib:Real.sqrt_nonneg, mathlib:geom_sum_eq.
+
+### Primitive bilinear tail through a dyadic endpoint
+
+Node SV.2/primitive-bilinear-dyadic-tail; proposed declaration SieveCharacters.primitive_bilinear_dyadic_tail.
+
+For R>0 and J∈ℕ, T(R,R2^J) ≤ [9R(2^J−1)+3J(√H+√K)+(2/R)(1−2^(−J))√H√K]√E_a√E_b.
+
+Hypotheses:
+
+- M,N are arbitrary integers; H,K are natural interval lengths; a:Fin H→ℂ and b:Fin K→ℂ are arbitrary. Write Aχ=Σ_{j<H}a_jχ(M+j+1), Bχ=Σ_{j<K}b_jχ(N+j+1), E_a=Σ|a_j|² and E_b=Σ|b_j|². Character values use the native residue cast.
+
+- φ(q) is the native totient. Every character sum is over primitive Dirichlet characters modulo the positive integer q. Write T(R,Q)=Σ_{R<q≤Q}φ(q)⁻¹Σχ*|Aχ||Bχ|; this is display notation, not a new carrier or bound predicate. Empty intervals and zero coefficients are allowed.
+
+- R is a positive natural number and J is any natural number. Every power and scalar factor on the right is interpreted in ℝ.
+
+Proof route:
+
+1. In the exact partition set c(q)=φ(q)⁻¹Σχ*|Aχ||Bχ| for q>0, and c(0)=0. No character family at modulus zero needs to be summed.
+
+2. Each band has positive lower endpoint R2^i. Apply dyadic-primitive-bilinear in each band, using the same a,b and translations.
+
+3. Factor √E_a√E_b out of the scale sum and apply dyadic-bilinear-kernel. Nonnegativity of the energy factor preserves the inequality.
+
+4. The R=q boundary is excluded and the top R2^J boundary is included. With J=0 the tail is exactly empty, and the complete right side is zero.
+
+Acceptance cases:
+
+- The empty-scale case is equality at zero, not an asymptotic exception.
+
+- For R=2,J=3 the character energy at q=16 is retained.
+
+- No coprimality between the two translations or primality of the moduli is required.
+
+Prerequisites: SieveMethodsAndPrimePatterns:SV.2/dyadic-modulus-partition, SieveMethodsAndPrimePatterns:SV.2/dyadic-primitive-bilinear, SieveMethodsAndPrimePatterns:SV.2/dyadic-bilinear-kernel.
+
+### Primitive bilinear tail at an arbitrary cutoff
+
+Node SV.2/primitive-bilinear-cutoff; proposed declaration SieveCharacters.primitive_bilinear_cutoff.
+
+If R>0 and Q≤R2^J≤2Q, then T(R,Q) ≤ [18Q+3J(√H+√K)+(2/R)√H√K]√E_a√E_b.
+
+Hypotheses:
+
+- M,N are arbitrary integers; H,K are natural interval lengths; a:Fin H→ℂ and b:Fin K→ℂ are arbitrary. Write Aχ=Σ_{j<H}a_jχ(M+j+1), Bχ=Σ_{j<K}b_jχ(N+j+1), E_a=Σ|a_j|² and E_b=Σ|b_j|². Character values use the native residue cast.
+
+- φ(q) is the native totient. Every character sum is over primitive Dirichlet characters modulo the positive integer q. Write T(R,Q)=Σ_{R<q≤Q}φ(q)⁻¹Σχ*|Aχ||Bχ|; this is display notation, not a new carrier or bound predicate. Empty intervals and zero coefficients are allowed.
+
+- R,Q,J are natural numbers with R>0 and Q≤R2^J≤2Q. These explicit cover and size hypotheses replace a hidden logarithmic rounding convention.
+
+Proof route:
+
+1. Use the positivity of every modulus contribution to enlarge (R,Q] to (R,R2^J], rather than discarding the last partial band.
+
+2. Apply primitive-bilinear-dyadic-tail. From R2^J≤2Q obtain 9R(2^J−1)≤18Q. Since 0≤(1/2)^J≤1, bound 1−(1/2)^J by one.
+
+3. Preserve the middle term 3J(√H+√K). All factors multiplying these comparisons are nonnegative.
+
+4. For R≤Q a valid J can be chosen as the least integer with Q≤R2^J: J=0 if Q=R, while minimality at J>0 gives R2^J<2Q. The theorem requires the explicit two inequalities and does not assert a floating-point logarithm identity. If Q<R the original tail is empty and can be treated directly.
+
+Acceptance cases:
+
+- R=2,Q=5,J=2 satisfies the hypotheses and keeps q=5 in the partial last band; J=1 fails the cover condition.
+
+- Zero-length or zero-coefficient families give zero without dividing by an energy.
+
+- Applying this to coprimality-filtered coefficients is valid, but extending from primitive to imprimitive characters still requires the separate conductor argument.
+
+Prerequisites: SieveMethodsAndPrimePatterns:SV.2/primitive-bilinear-dyadic-tail.
+
+### Why the scale count stays in the estimate
+
+On a band of lower scale P, the inherited primitive large sieve at 2P gives H+8P², not H−1+4P². Weighted Cauchy–Schwarz therefore gives the scalar coefficient √(H+8P²)√(K+8P²)/P. Its elementary upper bound is 9P+3(√H+√K)+√H√K/P. The first and last terms sum geometrically; the middle term is constant in P and occurs J times. This is why the finite coefficient contains 3J(√H+√K).
+
+The J factor cannot simply be deleted from this argument. E20 records that the source's displayed sharper block-bound expressions do not, by summing alone, imply its stated uniform aggregate expression. The present theorem is a weaker replacement for that one step, with fully explicit constants and endpoint conventions. It neither confirms E20 by independent review nor disproves the classical theorem. Whether the additional loss can be absorbed into the downstream logarithmic exponents is a further proof obligation, not a conclusion of this checkpoint.
+
+For a cutoff Q between dyadic endpoints, keep the least covering scale rather than the last scale below Q. In particular R=2,Q=5 needs J=2, so that the band (4,8] controls the modulus 5. Positivity allows enlarging to 8; it does not permit deleting the contribution at 5. No norm is divided out, so empty or zero-energy families need no special nonzero assumption.
+
+### Library and ownership checks
+
+The additional baseline declarations are Real.sum_mul_le_sqrt_mul_sqrt, Real.sqrt_mul, Real.sqrt_nonneg, Real.sqrt_le_sqrt, Real.sqrt_le_iff and Finset.prod_Ioc_consecutive. Their statements were read at Mathlib 082e2d3. The last is the indexed multiplicative declaration generating the additive interval identity; equivalently specialize it to Multiplicative ℝ. The native general interval API is not replanned. The existing Real.sq_sqrt, geom_sum_eq and Nat.totient_pos supply the remaining named scalar inputs.
+
+The current six reviewed audit rows, accepted RS-07 ownership, the upstream Arithmetic Dirichlet series and Modular forms readers, and the 28 link-map screening entries mentioning this roadmap were inspected. Those link-map entries assert no exact supply relation; a negative screen is not a proof that no relation exists. Current consumer packets do not identify the present rectangular estimate with the quadratic-symbol bilinear input needed by ArithmeticStatistics:ST.5 or the polynomial Farey large sieve needed by FiniteFieldsAndCharacterSums:FF.1. Those distinct contracts remain explicit gaps, not satisfied requests. The unchanged generic character carriers remain library-owned.
+
+### Source-version boundary
+
+The full live author Chapter 18 was read afresh on 28 September 2026 at https://kskedlaya.org/ant/chap-bombieri2.html. The acquired HTML has SHA-256 9bd73d12d648dc61a5c09804bbee04992cb8108b15858146688ac7ae9b69f523, identical to the prior acquisition. It is an author copy, not a claimed journal edition. The prior revised-2007 handout reading and its collation are inherited, not freshly repeated. All 26 inherited source findings and all seven prior source-version records are retained verbatim; there is one new acquisition record and no new finding or review verdict. The explicit constants and retained J loss are worker derivations motivated by the source, not source quotations.
 
 ### Current checkpoint validation
 
-The current packet has 69 nodes (five constructions, forty-eight lemmas and sixteen theorems), 27 API items, 23 construction tests, 78 typed examples, eleven planets, 137 baseline references, six sources, 26 source findings, seven source-version records and six open gaps. All inherited mathematical node fields are preserved, with only the documented planet reassignment. SV.0–SV.3 are partial; SV.4–SV.5 remain not read.
+There are 75 nodes: five constructions, fifty-one lemmas and nineteen theorems. All 69 inherited node objects are preserved exactly. The five constructions retain 27 API items (ten promoted into main nodes and seventeen additional signatures) and 23 construction tests. The suggested file has 92 named declarations and 86 typed examples, including eight new endpoint, zero, constant and cutoff examples. The eleven planets are unchanged: five in SV.0 and six in SV.2. There are 143 pinned baseline references, six sources, 26 findings, eight source-version records, six open gaps and no requests. SV.0–SV.3 remain partial; SV.4–SV.5 remain not read.
 
-The suggested file passed Lean 4.34.0-rc2 with no errors and exactly 164 expected proof-placeholder warnings, no others. It contains signatures and typed examples only; every node remains unchecked. All 8,482 imported Mathlib source files match the pin. The packet and source-issue/version checks pass. The optional standalone proof run is not counted as passing evidence: an earlier concrete divisor example required repair, and a later run was stopped under severe shared-host memory pressure. That limitation does not alter the separate passing full signature build.
+The full suggested file elaborated with Lean 4.34.0-rc2: no errors, exactly 178 expected proof-placeholder warnings, and no other warnings. Its 3,362-file Mathlib source dependency closure was compared with the clean pinned baseline, using existing oleans only. No library build or new Lake environment was made. This file contains specifications, not implementations; all nodes remain unchecked.
 
-Exact sparse prime-log coefficient vectors and Gaussian-rational weights verify 8,481 incomplete-log/convolution cases, 76,329 three-term identities, 17,640 weighted hyperbola/Type I–II decompositions and 41,280 support pairs. There are 20,825 coefficient-energy certificates using integer exponential bounds and twenty dyadic-gap certificates. Eight mutations reject the false boundary, cutoff, prime-power, coefficient and weight variants. These finite regressions are not general proofs. Earlier regression results are inherited evidence, not rerun by this continuation.
+A separate scratch-only Lean probe proves the general signed dyadic interval partition, the pointwise scalar kernel inequality and its finite geometric sum, plus six endpoint/scale examples. It has no errors or warnings; the three printed axiom lists contain only propext, Classical.choice and Quot.sound. It does not prove the primitive-character inequalities or use the planned character large sieve as an axiom.
+
+Independent exact arithmetic tests cover 324 signed partitions, 5,500 pointwise and 1,100 finite kernel certificates, 216 primitive band energies, 3,240 bilinear band certificates and 1,701 arbitrary-cutoff certificates. The character cases enumerate all twelve characters and six primitive characters for moduli 1 through 6, using exact Gaussian-rational values and certified rational upper bounds for square roots. Negative starts, complex and zero coefficients, empty lengths and final partial bands occur. Thirty certificates test E20's displayed-expression obstruction, not the actual character sum. Eight endpoint, scale, geometric-sum and character-family mutations are rejected. These are finite regressions, not general proofs. Earlier test results above remain inherited evidence and were not rerun.
+
+The current official blueprint checker and four-file intake checks pass without errors or warnings, with the pinned declaration index and current Git-object world. Preservation, declaration/example counts, source-version fields and the local dependency DAG are also checked.
+
+### Exact continuation boundary
+
+The finite rectangular estimate is now available at SV.2/primitive-bilinear-cutoff. To continue Chapter 18, define the discrepancy with its actual maximum and coprimality convention, decompose Lemma 18.2, and justify the primitive/imprimitive conductor transition and totient-weighted cofactor summation. Keep the small-conductor bound, and its normalization repair E19, separate from this large-conductor estimate. Every downstream use must carry or absorb the explicit J loss through a proved estimate.
+
+The Vaughan hyperbola has dependent inner limits; this rectangular theorem alone does not supply the required covering, boundary-strip estimates or final balancing. Repair E21–E25 and state the exact analytic Type I/II estimates before using Theorem 18.4. The variance route, Corollary 18.6 and exercises remain open, as do the sharp Chapter 15 constants, Chapter 16 applications, remaining finite-sieve analysis and the unread SV.4–SV.5 sources. No coverage status is promoted.
