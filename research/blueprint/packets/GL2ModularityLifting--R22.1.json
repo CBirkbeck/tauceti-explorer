@@ -13,7 +13,7 @@
   "GL2ModularityLifting:R32.2"
  ],
  "status": "partial",
- "summary": "Blueprint for GL₂ modularity lifting (part 1: R22.1–R22.6, R32.1–R32.2), within RS-08 (accepted). Checkpoint 1 plans R22.1 and R22.2 from KW II §§7 and 9 and Gee §5. R22.1 covers the minimal-level data (definite quaternion algebra, level, weight and non-Eisenstein 𝔪 from a π fitting the lifting data), the identification of the local problem satisfied by every Hecke eigensystem at each place of S, the deformation-to-Hecke map R̄^ψ_S → 𝕋_ψ(U)_𝔪, its surjectivity from Frobenius traces, and the framed Hecke algebra and module. R22.2 covers auxiliary levels at Taylor–Wiles places with Δ_v = Δ′_v/(N-torsion) for the isotropy exponent N, Hecke algebras at level Q with the eigenvalue choice, agreement of the diamond and Galois actions of Δ_Q, freeness over 𝒪[Δ_Q] with control back to level U, the module system for patching, and the p = 2 twists of forms. Quaternionic forms, the freeness criterion and the dyadic twist are imported from HilbertModularVarietiesAndShimuraCurves (R18.3 via R18.6), Galois representations over Hecke algebras from AutomorphicGaloisRepresentations R19.6, and the global rings from GlobalGaloisDeformations R04.4–R04.6.",
+ "summary": "Blueprint for GL₂ modularity lifting (part 1: R22.1–R22.6, R32.1–R32.2), within RS-08 (accepted). Checkpoint 1 plans R22.1 and R22.2 from KW II §§7 and 9 and Gee §5. R22.1 covers the minimal-level data (definite quaternion algebra, level, weight and non-Eisenstein 𝔪 from a π fitting the lifting data), the identification of the local problem satisfied by every Hecke eigensystem at each place of S, the deformation-to-Hecke map R̄^ψ_S → 𝕋_ψ(U)_𝔪, its surjectivity from Frobenius traces, and the framed Hecke algebra and module. R22.2 covers auxiliary levels at Taylor–Wiles places with Δ_v = Δ′_v/(N-torsion) for the isotropy exponent N, Hecke algebras at level Q with the eigenvalue choice, agreement of the diamond and Galois actions of Δ_Q, freeness over 𝒪[Δ_Q] with control back to level U, the module system for patching, and the p = 2 twists of forms. Quaternionic forms, the freeness criterion and the dyadic twist are imported from HilbertModularVarietiesAndShimuraCurves (R18.3 via R18.6), Galois representations over Hecke algebras from AutomorphicGaloisRepresentations R19.6, and the global rings from GlobalGaloisDeformations R04.4–R04.6. Checkpoint 2 plans R22.3 (patching data, patched ring and module, support by depth, finiteness of the minimal ring, generic-fibre R = T; KW II Proposition 9.2 and Gee §5.6) and R22.4 (Taylor's Ihara-avoidance pair, transfer of support mod λ, modularity from full support, integral R = T for smooth or Cohen–Macaulay local rings), reusing DeformationAndDerivedPatchingAlgebra R03.6.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -60,7 +60,8 @@
    "readSections": [
     "§7 (p-adic modular forms on definite quaternion algebras: Lemmas 7.1–7.4, Corollary 7.5, Proposition 7.6, Lemma 7.7), pp. 57–67",
     "§9 opening and §9.1.1–9.1.3 (Lemma 9.1, Propositions 9.2–9.3 and their proofs), pp. 78–87",
-    "§5.1–5.6 (twists, Taylor–Wiles primes, Proposition 5.11, Lemma 5.12), pp. 46–53"
+    "§5.1–5.6 (twists, Taylor–Wiles primes, Proposition 5.11, Lemma 5.12), pp. 46–53",
+    "§4.2, remarks after Lemma 4.6 (Cohen–Macaulay, Gorenstein, complete intersection), p. 45"
    ]
   },
   {
@@ -72,7 +73,8 @@
    "sha256": "878f83e189ad44603ac04f6c16ef17f4c4fe046db91a2f0933a192e048715ea5",
    "read": "2026-09-28",
    "readSections": [
-    "§5.2–5.9 (Theorem 5.2, integral theory of automorphic forms, Proposition 5.4, base change, patching set-up, Lemma 5.7, Propositions 5.8–5.10), pp. 29–40"
+    "§5.2–5.9 (Theorem 5.2, integral theory of automorphic forms, Proposition 5.4, base change, patching set-up, Lemma 5.7, Propositions 5.8–5.10), pp. 29–40",
+    "§5.6 end of the proof of Theorem 5.2 (the patching diagram, depth count and support transfer mod λ), pp. 39–41"
    ]
   }
  ],
@@ -920,6 +922,488 @@
      "statement": "For p odd there is no residually trivial character of order 2."
     }
    ]
+  },
+  {
+   "id": "GL2ModularityLifting:R22.3/arithmetic-patching-data",
+   "parentStageId": "GL2ModularityLifting:R22.3",
+   "realises": [
+    "GL2ModularityLifting:R22.3"
+   ],
+   "title": "Patching data of level m from the Taylor–Wiles systems",
+   "kind": "construction",
+   "statement": "Let p > 2, B = R̄^{□,loc,ψ}_S, and let (R_n = R̄^{□,ψ}_{S∪Q_n}, M_n) be the deformation and module systems of GlobalGaloisDeformations R04.6/taylor-wiles-deformation-system and taylor-wiles-module-system (R22.2), over 𝒪⟦y_1, …, y_{h+j}⟧. For m ≥ 1 put c_m = (π^m, (1 + y_i)^{p^m} − 1 (i ≤ h), y_{h+i}^{p^m} (i ≤ j)). A patching datum of level m is (D_m, L_m): a quotient D_m of B⟦x_1, …, x_{h+j−d}⟧ of bounded length, finite over 𝒪⟦y⟧/c_m, with D_m/(y_1, …, y_h) ≅ R̄^{□,ψ}_S/(c_m + 𝔪^{(r_m)}), together with a D_m-module L_m finite free over 𝒪⟦y⟧/c_m of rank s = rank_𝒪 S_{k,ψ}(U, 𝒪)_𝔪, and L_m/(y_1, …, y_h) ≅ M^□/c_m. The level-n data (R_{n+a}/(c_m + 𝔪^{(r_m)}), M_{n+a}/c_m) are patching data of level m for n ≥ m, and there are only finitely many isomorphism classes at each level.",
+   "hypotheses": [
+    "The abstract construction (inverse limits along a diagonal subsequence, finite generation and the power-series action) is DeformationAndDerivedPatchingAlgebra R03.5 (requested). This node verifies its hypotheses for the actual systems: presentations, the annihilator bound 𝔟_n ⊆ ((1 + y_i)^{p^{n}} − 1) and the specialisation.",
+    "For p = 2 the data also carry a torus action (KW II §9.1.3); that is R22.6."
+   ],
+   "proofSteps": [
+    "R_n is a quotient of B⟦x_1, …, x_{h+j−d}⟧ (R04.6), and M_n is finite free over 𝒪[Δ_{Q_n}]⟦y⟧ with the right coinvariants (R22.2). Since 𝒪[Δ_{Q_n}] = 𝒪⟦y_1, …, y_h⟧/((1 + y_i)^{#Δ_{v_i}} − 1) with p^n | #Δ_{v_i}, M_n/c_m is free over 𝒪⟦y⟧/c_m for m ≤ n.",
+    "Finiteness of isomorphism classes: B⟦x⟧^{[r′_m]} is finite, and so is the set of such (D_m, L_m)."
+   ],
+   "acceptance": [
+    "h = 0: the data are constant in n.",
+    "The rank s of L_m over 𝒪⟦y⟧/c_m does not depend on m or n.",
+    "Without the bound 𝔟_n ⊆ ((1 + y_i)^{p^n} − 1), L_m would not be free over 𝒪⟦y⟧/c_m."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.2/taylor-wiles-module-system",
+    "GlobalGaloisDeformations:R04.6/taylor-wiles-deformation-system",
+    "GlobalGaloisDeformations:R04.6/patching-numerology",
+    "DeformationAndDerivedPatchingAlgebra:R03.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/Patching",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.2 (I), pp. 81–83; the level-m data in the proof of Proposition 9.3, pp. 84–86",
+     "match": "The patching data."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, pp. 39–40",
+     "match": "Gee's version with c_N and d_N."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.PatchingDatum",
+     "role": "structure",
+     "statement": "(D_m, L_m) of level m."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.PatchingDatum.ofLevel",
+     "role": "constructor",
+     "statement": "The datum of level m obtained from (R_{n+a}, M_{n+a})."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.PatchingDatum.finite_iso_classes",
+     "role": "characterisation",
+     "statement": "Finitely many isomorphism classes at each level."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.3/patched-ring-and-module",
+     "how": "the inverse limit over a diagonal subsequence."
+    },
+    {
+     "where": "GL2ModularityLifting:R22.6",
+     "how": "the p = 2 version with the torus action."
+    }
+   ],
+   "tests": [
+    {
+     "name": "patchingDatum_h_zero",
+     "kind": "example",
+     "statement": "h = 0: the data are constant."
+    },
+    {
+     "name": "patchingDatum_rank",
+     "kind": "characterisation",
+     "statement": "L_m has rank s over 𝒪⟦y⟧/c_m."
+    },
+    {
+     "name": "patchingDatum_needs_bound",
+     "kind": "non-example",
+     "statement": "Without the annihilator bound the modules are not free mod c_m."
+    }
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting:R22.3/patched-ring-and-module",
+   "parentStageId": "GL2ModularityLifting:R22.3",
+   "realises": [
+    "GL2ModularityLifting:R22.3"
+   ],
+   "title": "The patched ring and module",
+   "kind": "theorem",
+   "statement": "There are surjections of B-algebras B⟦x_1, …, x_{h+j−d}⟧ ↠ R_∞ ↠ R̄^{□,ψ}_S, with R_∞ an 𝒪⟦y_1, …, y_{h+j}⟧-algebra and R_∞/(y_1, …, y_h) ≅ R̄^{□,ψ}_S. There is an R_∞-module M_∞, finite free over 𝒪⟦y_1, …, y_{h+j}⟧, with M_∞/(y_1, …, y_h) ≅ M^□ (R22.1/framed-hecke-module) as 𝕋^□_𝔪-modules, faithful over 𝕋^□_𝔪, and with R_∞ → End(M_∞) compatible with 𝒪⟦y⟧. Moreover R_∞/(y_1, …, y_{h+j}) ≅ R̄^ψ_S.",
+   "hypotheses": [
+    "The inverse-limit construction is R03.5 (requested), applied to arithmetic-patching-data."
+   ],
+   "proofSteps": [
+    "Take a subsequence along which the level-m data stabilise, and pass to the limit: R_∞ = lim D_m, M_∞ = lim L_m (R03.5).",
+    "The specialisations hold at each level, hence in the limit: killing y_1, …, y_h recovers level U, and the framing variables give R̄^ψ_S."
+   ],
+   "acceptance": [
+    "With h = 0, R_∞ = R̄^{□,ψ}_S and M_∞ = M^□.",
+    "M_∞/(y_1, …, y_{h+j}) ≅ S_{k,ψ}(U, 𝒪)_𝔪.",
+    "Integral and inverted-π assertions are kept separate: M_∞ is free over 𝒪⟦y⟧ integrally."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.3/arithmetic-patching-data",
+    "GL2ModularityLifting:R22.1/framed-hecke-module",
+    "DeformationAndDerivedPatchingAlgebra:R03.5"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/Patching",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Proposition 9.2 (I), p. 81",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, p. 40",
+     "match": "Gee's diagram."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Patched ring and module"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting:R22.3/patched-support",
+   "parentStageId": "GL2ModularityLifting:R22.3",
+   "realises": [
+    "GL2ModularityLifting:R22.3"
+   ],
+   "title": "Support of the patched module",
+   "kind": "theorem",
+   "statement": "dim R_∞ ≤ 1 + h + j and depth_{R_∞}(M_∞) ≥ 1 + h + j, so every minimal prime of Supp_{R_∞}(M_∞) is a minimal prime of R_∞ of maximal dimension. Supp M_∞ is a union of irreducible components of Spec R_∞. If B is a domain (KW II: semistable conditions at the finite places of S not above p), then B⟦x⟧ → R_∞ → End(M_∞) is injective, R_∞ ≅ B⟦x_1, …, x_{h+j−d}⟧, and Supp M_∞ = Spec R_∞.",
+   "hypotheses": [
+    "The dimension count is GlobalGaloisDeformations R04.6/patching-numerology; the depth-to-support implication is DeformationAndDerivedPatchingAlgebra R03.6 (maximal-cm-support-top-components, maximal-cm-nearly-faithful-irreducible)."
+   ],
+   "proofSteps": [
+    "depth_{𝒪⟦y⟧}(M_∞) = 1 + h + j because M_∞ is free, and the 𝒪⟦y⟧-action factors through R_∞, so depth_{R_∞} M_∞ ≥ 1 + h + j ≥ dim R_∞.",
+    "A module of maximal depth is supported on top-dimensional components (R03.6).",
+    "If B is a domain, B⟦x⟧ is a domain of dimension 1 + h + j. The image in End(M_∞) has dimension ≥ 1 + h + j because it is a finite faithful 𝒪⟦y⟧-module, so the composite is injective and R_∞ ≅ B⟦x⟧."
+   ],
+   "acceptance": [
+    "Gee's setting: dim R_∞ = dim J_∞ = 4#T + r, and R′_∞ has a unique minimal prime, so Supp S′_∞ = Spec R′_∞.",
+    "If B has several components (for example with an inertia-rigid place), the support is only known to be a union of components; component matching is R22.4.",
+    "Maximal depth alone does not give full support: R03.6's example k⟦x, y⟧/(xy) with M = A/(x)."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.3/patched-ring-and-module",
+    "GlobalGaloisDeformations:R04.6/patching-numerology",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-support-top-components",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-nearly-faithful-irreducible"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/Patching",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "proof of Proposition 9.2 (II), p. 83",
+     "match": "The domain case."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, pp. 40–41",
+     "match": "The depth argument."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Support of the patched module"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting:R22.3/minimal-ring-finite",
+   "parentStageId": "GL2ModularityLifting:R22.3",
+   "realises": [
+    "GL2ModularityLifting:R22.3"
+   ],
+   "title": "Finiteness of the minimal deformation ring",
+   "kind": "theorem",
+   "statement": "In the situation of patched-support with B a domain, R̄^{□,ψ}_S is finite over 𝒪⟦y_{h+1}, …, y_{h+j}⟧ and R̄^ψ_S is finite over 𝒪.",
+   "hypotheses": [
+    "This is finiteness at the minimal level of a modular ρ̄, as a consequence of patching. The global finiteness used for arbitrary ρ̄ (KW II Theorem 10.1, by base change) is PotentialModularityAndCompatibleSystems R24.1, not this node."
+   ],
+   "proofSteps": [
+    "R_∞ ≅ B⟦x⟧ embeds in End_{𝒪⟦y⟧}(M_∞), which is finite over 𝒪⟦y⟧, so R_∞ is finite over 𝒪⟦y⟧.",
+    "Killing y_1, …, y_h gives R̄^{□,ψ}_S finite over 𝒪⟦y_{h+1}, …, y_{h+j}⟧; killing the framing variables gives R̄^ψ_S finite over 𝒪."
+   ],
+   "acceptance": [
+    "R̄^{□,ψ}_S itself is never finite over 𝒪 (it has j = 4|S| − 1 framing variables).",
+    "With finiteness and dim ≥ 1 (GlobalGaloisDeformations R04.3), R̄^ψ_S has characteristic-zero points.",
+    "The statement is for the minimal-level ring of a modular ρ̄ only."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.3/patched-support"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/Patching",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Proposition 9.2 (II), p. 81",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GL2ModularityLifting:R22.3/generic-fibre-r-equals-t",
+   "parentStageId": "GL2ModularityLifting:R22.3",
+   "realises": [
+    "GL2ModularityLifting:R22.3"
+   ],
+   "title": "R = T after inverting p",
+   "kind": "theorem",
+   "statement": "If B is a domain, the surjection π^□ : R̄^{□,ψ}_S → 𝕋^□_𝔪 of R22.1 has p-power torsion kernel. Equivalently, R̄^{□,ψ}_S[1/p] ≅ 𝕋^□_𝔪[1/p], and likewise R̄^ψ_S[1/p] ≅ 𝕋_ψ(U)_𝔪[1/p].",
+   "hypotheses": [
+    "Auslander–Buchsbaum over the regular ring R_∞[1/p] (Kisin, Moduli, Lemma 3.3.4), requested from DeformationAndDerivedPatchingAlgebra R03.3; the R = T bookkeeping is R03.6 (torsion-in-kernel, r-equals-t-torsion-free-quotient)."
+   ],
+   "proofSteps": [
+    "R_∞[1/p] ≅ B⟦x⟧[1/p] is a regular Noetherian domain (B[1/p] is regular, KW II Theorem 3.1).",
+    "M_∞ ⊗ E is finite free over 𝒪⟦y⟧[1/p], so by Auslander–Buchsbaum it is a finite projective faithful R_∞[1/p]-module.",
+    "Hence M_∞ ⊗ E/(y_1, …, y_h) is faithful over R̄^{□,ψ}_S[1/p], and the action factors through 𝕋^□_𝔪. So the kernel of π^□ is killed by a power of p."
+   ],
+   "acceptance": [
+    "When 𝕋 is 𝒪-flat and reduced, this gives (R̄^ψ_S)^{tf} ≅ 𝕋 (R03.6/r-equals-t-torsion-free-quotient).",
+    "The integral isomorphism needs more: see integral-r-equals-t-when-smooth (R22.4).",
+    "If B is not a domain, one gets only a component-by-component statement (R22.4)."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.3/patched-support",
+    "GL2ModularityLifting:R22.1/deformation-to-hecke-surjective",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/torsion-in-kernel",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-torsion-free-quotient",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/Patching",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "Proposition 9.2 (III) and its proof, pp. 81 and 83",
+     "match": "The statement and proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Generic-fibre R = T"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting:R22.4/ihara-avoidance-comparison",
+   "parentStageId": "GL2ModularityLifting:R22.4",
+   "realises": [
+    "GL2ModularityLifting:R22.4"
+   ],
+   "title": "Two deformation problems that agree modulo λ",
+   "kind": "construction",
+   "statement": "Let T_r be the places v ∤ p where ρ̄ or the lift is ramified, with ρ̄|_{G_{F_v}} trivial and #k(v) ≡ 1 mod p. Let ζ ≠ 1 be a p-th root of unity. The problems 𝒮_Q (lifts with char ρ(σ_v) = (X − 1)² at v ∈ T_r) and 𝒮′_Q (char ρ(σ_v) = (X − ζ)(X − ζ^{−1})) have local rings with R^loc/λ = R^{loc,′}/λ and global rings with R_Q/λ = R′_Q/λ. The corresponding level structures (the trivial character ψ versus ψ′ through ζ at T_r) give S(U_∅, 𝒪)/λ = S(U′_∅, 𝒪)/λ. The two patchings can be carried out compatibly modulo λ, giving (R_∞, S_∞) and (R′_∞, S′_∞) with R_∞/λ = R′_∞/λ and S_∞/λ = S′_∞/λ.",
+   "hypotheses": [
+    "The local geometry used is LocalGaloisDeformationRings R08.2/ihara-avoidance-components (Taylor II Proposition 3.1): (R^{loc,′})^red is irreducible, O-flat of Krull dimension 1 + 3#T + [F : ℚ], and the components of R^loc biject with those of R^loc/λ.",
+    "This is Taylor's Ihara avoidance, which replaces Ihara's lemma in passing to nonminimal levels."
+   ],
+   "proofSteps": [
+    "ζ ≡ 1 mod λ, so the two local conditions agree modulo λ, and so do the characters ψ ≡ ψ′.",
+    "Choose the patching data for both problems simultaneously, with the same auxiliary primes and compatible choices mod λ (Gee §5.6)."
+   ],
+   "acceptance": [
+    "T_r = ∅: the two problems coincide.",
+    "Each ring's generic fibre sees a different inertial type (unipotent versus (ζ, ζ^{−1})), although the special fibres coincide.",
+    "Without #k(v) ≡ 1 mod p there is no nontrivial ζ-type at v."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.3/patched-ring-and-module",
+    "LocalGaloisDeformationRings:R08.2/ihara-avoidance-components"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/Components",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, pp. 33–35",
+     "match": "The two problems."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularityLifting.avoidancePair",
+     "role": "constructor",
+     "statement": "The problems 𝒮_Q and 𝒮′_Q with their local rings and levels."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.avoidancePair_mod_lambda",
+     "role": "compatibility",
+     "statement": "R^loc/λ = R^{loc,′}/λ and S/λ = S′/λ."
+    },
+    {
+     "name": "TauCeti.ModularityLifting.avoidancePair_irreducible",
+     "role": "characterisation",
+     "statement": "(R^{loc,′})^red is irreducible."
+    }
+   ],
+   "uses": [
+    {
+     "where": "GL2ModularityLifting:R22.4/support-transfer-mod-lambda",
+     "how": "the comparison."
+    }
+   ],
+   "tests": [
+    {
+     "name": "avoidancePair_Tr_empty",
+     "kind": "example",
+     "statement": "T_r = ∅ gives equal problems."
+    },
+    {
+     "name": "avoidancePair_mod_lambda",
+     "kind": "characterisation",
+     "statement": "The local conditions agree modulo λ."
+    },
+    {
+     "name": "avoidancePair_types_differ",
+     "kind": "non-example",
+     "statement": "The generic fibres carry different inertial types."
+    }
+   ]
+  },
+  {
+   "id": "GL2ModularityLifting:R22.4/support-transfer-mod-lambda",
+   "parentStageId": "GL2ModularityLifting:R22.4",
+   "realises": [
+    "GL2ModularityLifting:R22.4"
+   ],
+   "title": "Transfer of full support across the special fibre",
+   "kind": "theorem",
+   "statement": "In the setting of ihara-avoidance-comparison, Supp_{R′_∞}(S′_∞) = Spec R′_∞. Hence Supp_{R_∞/λ}(S_∞/λ) = Spec R_∞/λ, and since the irreducible components of Spec R_∞ biject with those of Spec R_∞/λ, Supp_{R_∞}(S_∞) = Spec R_∞. Specialising along 𝔞_∞, Supp_{R^univ_∅}(S_∅) = Spec R^univ_∅.",
+   "hypotheses": [
+    "The components of Spec R_∞ versus Spec R_∞/λ come from R^loc (R08.2/ihara-avoidance-components, Gee Theorem 3.38). The lift of near faithfulness from the special fibre and its descent along the patching ideal are DeformationAndDerivedPatchingAlgebra R03.6."
+   ],
+   "proofSteps": [
+    "R′_∞ has a unique minimal prime and S′_∞ has maximal depth, so its support is all of Spec R′_∞ (patched-support, R03.6/maximal-cm-nearly-faithful-irreducible).",
+    "Reduce mod λ: S′_∞/λ = S_∞/λ and R′_∞/λ = R_∞/λ, so S_∞/λ has full support.",
+    "Supp S_∞ is a union of components (maximal depth) containing all of Spec R_∞/λ, and the components biject, so Supp S_∞ = Spec R_∞ (R03.6/nearly-faithful-lift-from-special-fibre).",
+    "Descend along 𝔞_∞ = (𝔞, y_1, …, y_r) (R03.6/patching-nearly-faithful-descends)."
+   ],
+   "acceptance": [
+    "T_r = ∅: the primed and unprimed problems agree, and the argument is patched-support.",
+    "The unprimed R^loc may have several components (unipotent types); the primed one is irreducible, which is the point of the comparison.",
+    "The conclusion is support, that is near faithfulness, not an integral R = T."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.4/ihara-avoidance-comparison",
+    "GL2ModularityLifting:R22.3/patched-support",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-lift-from-special-fibre",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/patching-nearly-faithful-descends",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-nearly-faithful-irreducible"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/Components",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§5.6, p. 41",
+     "match": "The transfer."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Ihara avoidance"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting:R22.4/modularity-from-full-support",
+   "parentStageId": "GL2ModularityLifting:R22.4",
+   "realises": [
+    "GL2ModularityLifting:R22.4"
+   ],
+   "title": "Modularity from full support",
+   "kind": "theorem",
+   "statement": "If Supp_{R^univ_∅}(S_∅) = Spec R^univ_∅, then ker(R^univ_∅ → 𝕋_∅) is nilpotent, (R^univ_∅)^red ≅ 𝕋_∅, and every lift ρ of type 𝒮_∅ over 𝒪 is modular: it corresponds to a homomorphism 𝕋_∅ → 𝒪, hence to a cuspidal π of weight (k, η) with ρ ≅ ρ_{π,ı}.",
+   "hypotheses": [
+    "𝕋_∅ acts faithfully on S_∅ by definition; the ring-theoretic step is DeformationAndDerivedPatchingAlgebra R03.6 (r-to-t-kernel-nil, r-red-equals-t-red)."
+   ],
+   "proofSteps": [
+    "Full support means S_∅ is nearly faithful over R^univ_∅, so the kernel of R^univ_∅ → 𝕋_∅ ⊆ End(S_∅) is nil (R03.6/r-to-t-kernel-nil).",
+    "An 𝒪-point of R^univ_∅ factors through the reduced quotient, which is 𝕋_∅, and 𝒪-points of 𝕋_∅ are eigenforms (R18.3 via R18.6, Jacquet–Langlands)."
+   ],
+   "acceptance": [
+    "This is Gee Lemma 5.7.",
+    "Only the reduced quotient is identified: nilpotents in R^univ_∅ are not excluded.",
+    "The conclusion is modularity of points of the given type, not of arbitrary lifts."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.4/support-transfer-mod-lambda",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/r-to-t-kernel-nil",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/r-red-equals-t-red",
+    "HilbertModularVarietiesAndShimuraCurves:R18.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/Components",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Lemma 5.7, p. 35",
+     "match": "The statement and proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Modularity from full support"
+   }
+  },
+  {
+   "id": "GL2ModularityLifting:R22.4/integral-r-equals-t-when-smooth",
+   "parentStageId": "GL2ModularityLifting:R22.4",
+   "realises": [
+    "GL2ModularityLifting:R22.4"
+   ],
+   "title": "When the R = T statement is integral",
+   "kind": "theorem",
+   "statement": "Suppose B = R̄^{□,loc,ψ}_S is formally smooth over 𝒪, as when every local condition is formally smooth (Fontaine–Laffaille, ordinary with ρ̄_v ramified, odd archimedean for p ≠ 2). Then R_∞ ≅ B⟦x⟧ is a power series ring over 𝒪, M_∞ is free over R_∞, R̄^ψ_S ≅ 𝕋_ψ(U)_𝔪 integrally, S_{k,ψ}(U, 𝒪)_𝔪 is free over 𝕋_ψ(U)_𝔪, and R̄^ψ_S is a complete intersection. More generally, if each R̄^{□,ψ}_v is Cohen–Macaulay (resp. Gorenstein, resp. a complete intersection), so is R̄^ψ_S, once it is finite over 𝒪.",
+   "hypotheses": [
+    "Maximal depth over a regular local ring gives freeness (DeformationAndDerivedPatchingAlgebra R03.3/free-of-maximal-depth-regular-local); integral R = T from a free module is R03.6/r-equals-t-of-free and patched-module-r-equals-t."
+   ],
+   "proofSteps": [
+    "R_∞ ≅ B⟦x⟧ is regular, and M_∞ has maximal depth, so M_∞ is free over R_∞ (R03.3).",
+    "M_∞ is free over R_∞, and y_1, …, y_{h+j} is regular on it, so S(U)_𝔪 = M_∞/(y) is free over R_∞/(y) = R̄^ψ_S. Hence R̄^ψ_S → 𝕋 is an isomorphism (R03.6/r-equals-t-of-free).",
+    "Cohen–Macaulay version: with R̄^{□,ψ}_S ≅ B⟦x_1, …, x_g⟧/J (GlobalGaloisDeformations R04.3) and R̄^ψ_S finite over 𝒪, the framing variables, generators r_1, …, r_{r(J)} of J, and p form a system of parameters of B⟦x⟧ (KW II remark after Lemma 4.6). It is a regular sequence when B is Cohen–Macaulay.",
+    "Complete intersection: a regular ring modulo a regular sequence."
+   ],
+   "acceptance": [
+    "Wiles and Taylor–Wiles minimal case: R ≅ 𝕋 is a complete intersection.",
+    "With a non-smooth local factor (for example Savitt's 𝒪⟦T₁, …, T₅⟧/(T₁T₂ − p)), only the generic-fibre statement generic-fibre-r-equals-t is obtained without further input.",
+    "Faithfulness of S(U)_𝔪 over R̄ is exactly equivalent to integral R = T (R03.6/r-equals-t-free); freeness is stronger."
+   ],
+   "prerequisites": [
+    "GL2ModularityLifting:R22.3/patched-support",
+    "DeformationAndDerivedPatchingAlgebra:R03.3/free-of-maximal-depth-regular-local",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-of-free",
+    "DeformationAndDerivedPatchingAlgebra:R03.6/patched-module-r-equals-t",
+    "LocalGaloisDeformationRings:R08.6"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularityLifting/Components",
+    "namespace": "TauCeti.ModularityLifting"
+   },
+   "sources": [
+    {
+     "sourceId": "KW2-2009",
+     "locator": "§4.2, remarks after Lemma 4.6, p. 45",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Integral R = T"
+   }
   }
  ],
  "requests": [
@@ -961,10 +1445,30 @@
    "supplier": "LocalGaloisDeformationRings:R08.6",
    "need": "The local conditions of KW II's lifting data (semistable with γ_v, odd at ∞, types (A), (B), (C) at p) with their rings.",
    "neededBy": [
-    "GL2ModularityLifting:R22.1/hecke-points-local-conditions"
+    "GL2ModularityLifting:R22.1/hecke-points-local-conditions",
+    "GL2ModularityLifting:R22.4/integral-r-equals-t-when-smooth"
    ],
    "status": "open",
    "note": "Also requested by GlobalGaloisDeformations R04.6."
+  },
+  {
+   "supplier": "DeformationAndDerivedPatchingAlgebra:R03.5",
+   "need": "Inverse-limit patching from finite-level rings, modules and presentations (the diagonal-subsequence argument), finite generation of the patched module, its power-series action and specialisation, with integral assertions separated from those after inverting π.",
+   "neededBy": [
+    "GL2ModularityLifting:R22.3/arithmetic-patching-data",
+    "GL2ModularityLifting:R22.3/patched-ring-and-module"
+   ],
+   "status": "open",
+   "note": "RS-08: R22.3 applies R03.3/R03.5; R03.5 is not yet planned in the P7 packet."
+  },
+  {
+   "supplier": "DeformationAndDerivedPatchingAlgebra:R03.3",
+   "need": "Auslander–Buchsbaum over the regular ring R_∞[1/p] (Kisin's Moduli paper, Lemma 3.3.4): a finite module, free over a regular subring of full dimension, is projective and faithful over R_∞[1/p].",
+   "neededBy": [
+    "GL2ModularityLifting:R22.3/generic-fibre-r-equals-t"
+   ],
+   "status": "open",
+   "note": "The P7 packet plans parts of R03.3 (free-of-maximal-depth-regular-local)."
   }
  ],
  "coverage": [
@@ -982,17 +1486,15 @@
   },
   {
    "stageId": "GL2ModularityLifting:R22.3",
-   "status": "not_read",
-   "remaining": [
-    "Source-decompose stage R22.3."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 narrows R22.3 to arithmetic module patching: construct the actual compatible modules and verify presentations, bounds, depth, freeness and the support conclusion, applying R03.3/R03.5. Planned (5 nodes): patching data from the R04.6 and R22.2 systems, the patched ring and module (KW II Proposition 9.2 (I), Gee §5.6), support by the depth count, finiteness of the minimal ring, and R = T after inverting p (Proposition 9.2 (II)–(III)). R03.5 (abstract patching) and the Auslander–Buchsbaum step of R03.3 are requested; R03.6's support nodes are reused."
   },
   {
    "stageId": "GL2ModularityLifting:R22.4",
-   "status": "not_read",
-   "remaining": [
-    "Source-decompose stage R22.4."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 narrows R22.4 to arithmetic component matching, passage to nonminimal levels and the claimed R = T comparison, importing R03.6 and the local component geometry. Planned (4 nodes): Taylor's Ihara-avoidance pair 𝒮_Q/𝒮′_Q (with LocalGaloisDeformationRings R08.2/ihara-avoidance-components), transfer of full support mod λ, modularity from full support (Gee Lemma 5.7), and the integral R = T when the local rings are smooth or Cohen–Macaulay (KW II §4.2). Kisin's finite-flat component comparisons belong to LocalGaloisDeformationRings R08.4 and GL2ModularityLifting R22.6."
   },
   {
    "stageId": "GL2ModularityLifting:R22.5",
