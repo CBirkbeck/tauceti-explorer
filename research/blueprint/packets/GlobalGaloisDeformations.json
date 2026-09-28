@@ -1,0 +1,1623 @@
+{
+ "roadmapId": "GlobalGaloisDeformations",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "GlobalGaloisDeformations:G7",
+  "GlobalGaloisDeformations:G8",
+  "GlobalGaloisDeformations:R04.1",
+  "GlobalGaloisDeformations:R04.2",
+  "GlobalGaloisDeformations:R04.3",
+  "GlobalGaloisDeformations:R04.4",
+  "GlobalGaloisDeformations:R04.5",
+  "GlobalGaloisDeformations:R04.6"
+ ],
+ "status": "partial",
+ "summary": "Blueprint for global Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans the retained parts of R04.1 and R04.2: the lifting (framed) functor, module deformations and their identification with lifts up to strict conjugation, strict versus full conjugacy, restriction to subgroups and the invariance of framed local restrictions, fixed-determinant variants, change of coefficients, the separate determinant (pseudorepresentation) deformation functor with its comparison, and tangent spaces (R04.1); Mazur's condition Φ_p and its verification for G_{F,S} and G_K, the universal lifting ring and continuous universal lift, the universal deformation ring for Schur residual representations, the framed-unframed comparison with n² − 1 variables, Carayol's theorem, fixed-determinant rings with the change-of-determinant decomposition for p ∤ n, and change of residue field (R04.2). Coefficient categories and Schlessinger's criterion are imported from DeformationAndDerivedPatchingAlgebra R03.1/R03.2, global finiteness from ArithmeticGaloisDuality R02.3, determinants from IntegralHeckeAndGaloisDeterminants IHG.0.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Algebra.FormallySmooth",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Smooth/Basic.lean",
+    "provides": "Formally smooth algebras.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:ContinuousMonoidHom",
+    "kind": "structure",
+    "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+    "provides": "Continuous group homomorphisms.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:IsAdicComplete",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+    "provides": "I-adically complete and separated modules/rings.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:IsArtinianRing",
+    "kind": "abbrev",
+    "module": "Mathlib/RingTheory/Artinian/Defs.lean",
+    "provides": "Artinian rings.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:IsLocalRing",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
+    "provides": "Local rings.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:IsPGroup",
+    "kind": "def",
+    "module": "Mathlib/GroupTheory/PGroup.lean",
+    "provides": "p-groups.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Matrix.GeneralLinearGroup",
+    "kind": "abbrev",
+    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+    "provides": "GL_n(A) as the units of M_n(A).",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Matrix.GeneralLinearGroup.det",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+    "provides": "The determinant GL_n(A) →* Aˣ.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Matrix.GeneralLinearGroup.map",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+    "provides": "GL_n(f) for a ring homomorphism f.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Module.Free",
+    "kind": "class",
+    "module": "Mathlib/LinearAlgebra/FreeModule/Basic.lean",
+    "provides": "Free modules.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:MonoidHom.ker",
+    "kind": "def",
+    "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
+    "provides": "Kernels of group homomorphisms.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:MvPowerSeries",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+    "provides": "Multivariable power series rings.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:ProfiniteGrp",
+    "kind": "structure",
+    "module": "Mathlib/Topology/Algebra/Category/ProfiniteGrp/Basic.lean",
+    "provides": "Profinite groups.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:TauCeti.ContCohomology.B1",
+    "kind": "def",
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+    "provides": "Continuous 1-coboundaries.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:TauCeti.ContCohomology.H1",
+    "kind": "abbrev",
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+    "provides": "Continuous H¹(G, M) as Z¹/B¹.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:TauCeti.ContCohomology.Z1",
+    "kind": "def",
+    "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
+    "provides": "Continuous 1-cocycles G → M.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "GEE-MLT-2022",
+   "title": "Modularity lifting theorems",
+   "authors": "Toby Gee",
+   "edition": "Essential Number Theory 1 (2022), no. 1, 73–126; arXiv:2202.05818v2 (17 October 2022), 45 pages; updated Arizona Winter School 2013 notes. The arXiv version was read; printed page = PDF page.",
+   "url": "https://arxiv.org/pdf/2202.05818v2",
+   "sha256": "878f83e189ad44603ac04f6c16ef17f4c4fe046db91a2f0933a192e048715ea5",
+   "read": "2026-09-28",
+   "readSections": [
+    "§3 Galois deformations, pp. 11–21 (3.1–3.23 in full)"
+   ]
+  },
+  {
+   "id": "KISIN-LECTURES",
+   "title": "Lectures on deformations of Galois representations (Lecture 1)",
+   "authors": "Mark Kisin",
+   "edition": "Lecture notes on the author's Harvard page, 4 pages (Lecture 1: deformations of representations of profinite groups).",
+   "url": "https://people.math.harvard.edu/~kisin/notes/notes.pdf",
+   "sha256": "9f3698a791b6a96318b8eded26962f2da7d3f34628ab47d855df7e36cd5712c6",
+   "read": "2026-09-28",
+   "readSections": [
+    "Lecture 1, (1.1)–(1.5), pp. 1–4 (all of it)"
+   ]
+  },
+  {
+   "id": "CHENEVIER-2014",
+   "title": "The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings",
+   "authors": "Gaëtan Chenevier",
+   "edition": "Automorphic Forms and Galois Representations, vol. 1, LMS Lecture Note Series 414 (2014), 221–285; arXiv:0809.0415v2, 56 pages. The arXiv version was read.",
+   "url": "https://arxiv.org/pdf/0809.0415v2",
+   "sha256": "f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953",
+   "read": "2026-09-28",
+   "readSections": [
+    "§2.4 Theorem 2.22 (statement)",
+    "§3.1 Lemma 3.2, Proposition 3.3, Example 3.4, pp. 41–43"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "GlobalGaloisDeformations:R04.1/lifting-functor",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "The lifting (framed deformation) functor",
+   "kind": "definition",
+   "statement": "Setting: G is a profinite group, 𝒪 is the ring of integers of a finite extension of ℚ_p (or W(𝔽)) with residue field 𝔽 finite of characteristic p, n ≥ 1, and ρ̄ : G → GL_n(𝔽) is continuous. Art_𝒪 is the category of Artinian local 𝒪-algebras with residue field 𝔽 and C_𝒪 that of complete local Noetherian 𝒪-algebras with residue field 𝔽 (both imported from DeformationAndDerivedPatchingAlgebra R03.1). Γ̂_n(A) := ker(GL_n(A) → GL_n(𝔽)). The lifting functor Lift_ρ̄ : Art_𝒪 → Set sends A to the set of continuous homomorphisms ρ : G → GL_n(A) (A discrete) with ρ mod m_A = ρ̄; a morphism f : A → B acts by ρ ↦ GL_n(f)∘ρ. On C_𝒪 it is extended by continuity: Lift_ρ̄(A) is the set of continuous lifts for the m_A-adic topology, and equals lim_k Lift_ρ̄(A/m_A^k).",
+   "hypotheses": [
+    "Pro-representability is not part of the definition (RS-08): Lift_ρ̄ is a plain functor; its representability is universal-lifting-ring.",
+    "Continuity: for A Artinian, GL_n(A) is finite and discrete, so ρ is continuous iff it factors through an open normal subgroup."
+   ],
+   "proofSteps": [
+    "Functoriality: GL_n(f) is a continuous group homomorphism and preserves the reduction to 𝔽 because f is a local 𝒪-algebra map inducing the identity on 𝔽.",
+    "The limit description on C_𝒪: a homomorphism into GL_n(A) = lim GL_n(A/m_A^k) is continuous iff each reduction is, since A is m_A-adically complete and separated."
+   ],
+   "acceptance": [
+    "For n = 1 and ρ̄ = 1, Lift(A) = Hom_cont(G, 1 + m_A), which for G = ℤ_p is 1 + m_A.",
+    "For A = 𝔽, Lift_ρ̄(𝔽) = {ρ̄}.",
+    "For G finite of order prime to p every lift is conjugate to the Teichmüller lift (H¹ = 0), but Lift(A) is not a single point in general."
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "ArithmeticGaloisRepresentations:R01.1",
+    "mathlib:Matrix.GeneralLinearGroup",
+    "mathlib:Matrix.GeneralLinearGroup.map",
+    "mathlib:IsArtinianRing",
+    "mathlib:IsLocalRing",
+    "mathlib:ContinuousMonoidHom"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Functors",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.1, p. 12",
+     "match": "The lifting functor on C_𝒪."
+    },
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, (1.1.1)–(1.1.2), p. 1",
+     "match": "The same functor on Artinian coefficient rings."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+     "how": "quotient by strict conjugation."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+     "how": "the functor that R^□ represents."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.3",
+     "how": "local lifting rings at the places v ∈ S and the global framed ring."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:R08.1",
+     "how": "local lifting rings of G_K (RS-08 supplies this functor to R08.1)."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Lift",
+     "role": "constructor",
+     "statement": "Lift ρ̄ : Art_𝒪 ⥤ Type, A ↦ continuous lifts of ρ̄ to GL_n(A)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Lift.map",
+     "role": "functoriality",
+     "statement": "A local 𝒪-algebra map f induces Lift(A) → Lift(B), ρ ↦ GL_n(f) ∘ ρ."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Lift.reduce",
+     "role": "projection",
+     "statement": "Every lift reduces to ρ̄ modulo m_A."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Lift.conj",
+     "role": "structure",
+     "statement": "Γ̂_n(A) acts on Lift(A) by conjugation."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Lift.limEquiv",
+     "role": "equivalence",
+     "statement": "For A ∈ C_𝒪, Lift(A) ≃ lim_k Lift(A/m_A^k)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "lift_trivial_char_Zp",
+     "kind": "example",
+     "statement": "For G = ℤ_p, n = 1, ρ̄ = 1: Lift(A) ≅ 1 + m_A, via ρ ↦ ρ(1)."
+    },
+    {
+     "name": "lift_residue",
+     "kind": "example",
+     "statement": "Lift_ρ̄(𝔽) is a singleton."
+    },
+    {
+     "name": "lift_not_continuous",
+     "kind": "non-example",
+     "statement": "For G = ∏_ℕ ℤ/p, n = 1, ρ̄ = 1 and A = 𝔽[ε], a homomorphism G → 1 + ε𝔽 ≅ 𝔽 given by an 𝔽_p-linear functional that vanishes on no open subgroup is not in Lift(A)."
+    },
+    {
+     "name": "lift_functorial",
+     "kind": "characterisation",
+     "statement": "Lift.map (g ∘ f) = Lift.map g ∘ Lift.map f."
+    }
+   ],
+   "planet": {
+    "name": "Lifting functor"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/module-deformation-functor",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Deformations as modules with a residual identification",
+   "kind": "definition",
+   "statement": "Setting: G is a profinite group, 𝒪 is the ring of integers of a finite extension of ℚ_p (or W(𝔽)) with residue field 𝔽 finite of characteristic p, n ≥ 1, and ρ̄ : G → GL_n(𝔽) is continuous. Art_𝒪 is the category of Artinian local 𝒪-algebras with residue field 𝔽 and C_𝒪 that of complete local Noetherian 𝒪-algebras with residue field 𝔽 (both imported from DeformationAndDerivedPatchingAlgebra R03.1). Γ̂_n(A) := ker(GL_n(A) → GL_n(𝔽)). Fix V̄ = 𝔽^n with G acting by ρ̄ and its standard basis β. A deformation of V̄ to A ∈ Art_𝒪 is a pair (V_A, ι) with V_A a finite free A-module with a continuous A-linear G-action and ι : V_A ⊗_A 𝔽 ≅ V̄ a G-equivariant isomorphism; a framed deformation adds an A-basis β_A of V_A lifting β through ι. Isomorphisms are G-equivariant A-linear isomorphisms compatible with ι (and with the bases). Def^mod_ρ̄(A) and Def^{mod,□}_ρ̄(A) are the sets of isomorphism classes.",
+   "hypotheses": [
+    "Bases lifting β exist for every (V_A, ι) because V_A is free and V_A → V_A ⊗ 𝔽 is surjective (Nakayama)."
+   ],
+   "proofSteps": [
+    "Base change along f : A → B sends (V_A, ι) to (V_A ⊗_A B, ι ⊗ 𝔽), compatibly with bases; isomorphisms go to isomorphisms."
+   ],
+   "acceptance": [
+    "Def^{mod,□}_ρ̄(𝔽) and Def^mod_ρ̄(𝔽) are singletons.",
+    "For ρ̄ = 1 (n = 1) Def^mod(A) = Hom_cont(G, 1 + m_A), since automorphisms of rank-one modules are scalars and act trivially.",
+    "An isomorphism of deformations is required to be compatible with ι; dropping this gives a different (coarser) functor."
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "mathlib:Module.Free",
+    "mathlib:IsLocalRing"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Functors",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, (1.1.1), p. 1",
+     "match": "The definition; the framed version adds a lift of the chosen basis."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.1/module-deformations-are-strict-classes",
+     "how": "compared with lifts modulo strict conjugation."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.1/tangent-spaces",
+     "how": "tangent vectors as extensions of V̄ by V̄."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.ModDef",
+     "role": "constructor",
+     "statement": "Def^mod_ρ̄ : Art_𝒪 ⥤ Type, isomorphism classes of (V_A, ι)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.ModDefFramed",
+     "role": "constructor",
+     "statement": "Def^{mod,□}_ρ̄, adding a basis lifting β."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.ModDef.baseChange",
+     "role": "functoriality",
+     "statement": "Base change along local 𝒪-algebra maps."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.ModDef.exists_basis_lift",
+     "role": "characterisation",
+     "statement": "Every (V_A, ι) has a basis lifting β."
+    }
+   ],
+   "tests": [
+    {
+     "name": "moddef_residue",
+     "kind": "example",
+     "statement": "Def^mod_ρ̄(𝔽) is a singleton."
+    },
+    {
+     "name": "moddef_rank_one",
+     "kind": "example",
+     "statement": "For n = 1 and ρ̄ = χ̄, Def^mod(A) = {χ̃ψ : ψ ∈ Hom_cont(G, 1 + m_A)} for a fixed lift χ̃."
+    },
+    {
+     "name": "moddef_needs_iota",
+     "kind": "non-example",
+     "statement": "For ρ̄ = 1 ⊕ 1 and A = 𝔽[ε], the lifts diag(1 + εx, 1) and diag(1, 1 + εx) give G-modules that are isomorphic (swap the basis vectors) but not isomorphic as deformations, because the swap is not compatible with ι."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Deformations up to strict equivalence",
+   "kind": "definition",
+   "statement": "Setting: G is a profinite group, 𝒪 is the ring of integers of a finite extension of ℚ_p (or W(𝔽)) with residue field 𝔽 finite of characteristic p, n ≥ 1, and ρ̄ : G → GL_n(𝔽) is continuous. Art_𝒪 is the category of Artinian local 𝒪-algebras with residue field 𝔽 and C_𝒪 that of complete local Noetherian 𝒪-algebras with residue field 𝔽 (both imported from DeformationAndDerivedPatchingAlgebra R03.1). Γ̂_n(A) := ker(GL_n(A) → GL_n(𝔽)). The deformation functor Def_ρ̄ : Art_𝒪 → Set is A ↦ Lift_ρ̄(A)/Γ̂_n(A), lifts up to conjugation by Γ̂_n(A) = ker(GL_n(A) → GL_n(𝔽)) (strict equivalence). It is defined for every ρ̄; its representability needs End_{𝔽[G]}(ρ̄) = 𝔽 (universal-deformation-ring).",
+   "hypotheses": [
+    "Strict equivalence, not GL_n(A)-conjugacy: the two agree when ρ̄ is Schur (strict-vs-full-conjugacy) but not in general."
+   ],
+   "proofSteps": [
+    "Γ̂_n(A) is a normal subgroup of GL_n(A) and conjugation preserves the reduction ρ̄ (the conjugating matrix reduces to 1), so the quotient is well defined.",
+    "Functoriality: GL_n(f) maps Γ̂_n(A) into Γ̂_n(B) and is equivariant."
+   ],
+   "acceptance": [
+    "Def_ρ̄(𝔽) is a singleton.",
+    "For n = 1, Def = Lift (Γ̂_1 is central).",
+    "Def_ρ̄(𝔽[ε]) ≅ H¹(G, ad ρ̄) (tangent-spaces)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "mathlib:Matrix.GeneralLinearGroup",
+    "mathlib:MonoidHom.ker"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Functors",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Definition 3.4, p. 12",
+     "match": "The strict equivalence relation; the parenthetical equivalence holds only for Schur ρ̄, which is strict-vs-full-conjugacy."
+    },
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, Remark (1.1.2)(1), p. 1",
+     "match": "The same definition, for every ρ̄."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+     "how": "the functor R_ρ̄ represents when ρ̄ is Schur."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.1/determinant-comparison",
+     "how": "the map to determinant deformations."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G8",
+     "how": "the unframed global problem with variable determinant."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Def",
+     "role": "constructor",
+     "statement": "Def ρ̄ A := Lift ρ̄ A ⧸ Γ̂_n(A)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Def.mk",
+     "role": "constructor",
+     "statement": "The class of a lift."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Def.mk_eq_mk_iff",
+     "role": "characterisation",
+     "statement": "[ρ] = [ρ′] ↔ ∃ a ∈ Γ̂_n(A), ρ′ = aρa⁻¹."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Def.map",
+     "role": "functoriality",
+     "statement": "Functoriality in A."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Def.toModDef",
+     "role": "equivalence",
+     "statement": "Def ≃ Def^mod (module-deformations-are-strict-classes)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "def_residue",
+     "kind": "example",
+     "statement": "Def_ρ̄(𝔽) is a singleton."
+    },
+    {
+     "name": "def_rank_one_eq_lift",
+     "kind": "example",
+     "statement": "For n = 1, Def = Lift."
+    },
+    {
+     "name": "def_not_full_conj",
+     "kind": "non-example",
+     "statement": "For ρ̄ = 1 ⊕ 1, the lifts diag(1 + εx, 1) and diag(1, 1 + εx) to 𝔽[ε] (x a nonzero continuous character G → 𝔽) are distinct strict classes although GL₂(𝔽[ε])-conjugate."
+    }
+   ],
+   "planet": {
+    "name": "Deformation functor"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/module-deformations-are-strict-classes",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Module deformations are lifts up to strict conjugation",
+   "kind": "lemma",
+   "statement": "Choosing bases lifting β gives natural bijections Lift_ρ̄(A) ≅ Def^{mod,□}_ρ̄(A) and Lift_ρ̄(A)/Γ̂_n(A) ≅ Def^mod_ρ̄(A), compatible with base change: the equivalence relation on lifts that corresponds to isomorphism of module deformations is exactly conjugation by Γ̂_n(A).",
+   "hypotheses": [
+    "A ∈ Art_𝒪; the same holds on C_𝒪 with continuity for the m_A-adic topology."
+   ],
+   "proofSteps": [
+    "To (V_A, ι, β_A) attach the matrix of the G-action in β_A: a continuous lift of ρ̄ because β_A reduces to β.",
+    "Two bases of V_A lifting β differ by a matrix in Γ̂_n(A), and changing the basis conjugates the matrix by it.",
+    "An isomorphism (V_A, ι) ≅ (V′_A, ι′) compatible with ι sends bases lifting β to bases lifting β, so isomorphic deformations give strictly equivalent lifts, and conversely a conjugating matrix in Γ̂_n(A) defines such an isomorphism.",
+    "Every (V_A, ι) has a basis lifting β (module-deformation-functor), so the maps are surjective."
+   ],
+   "acceptance": [
+    "For A = 𝔽[ε] this recovers Ext¹_G(V̄, V̄) ≅ H¹(G, ad ρ̄) (Kisin Lemma 1.3.1).",
+    "The bijection commutes with Lift.map and ModDef.baseChange.",
+    "Replacing Γ̂_n(A) by GL_n(A) gives isomorphism classes of G-modules forgetting ι, which differ for non-Schur ρ̄."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "GlobalGaloisDeformations:R04.1/module-deformation-functor",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Functors",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, Remark (1.1.2)(1), p. 1",
+     "match": "The statement; the proof steps spell out the basis-change argument."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/strict-vs-full-conjugacy",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Strict and full conjugacy agree for Schur residual representations",
+   "kind": "lemma",
+   "statement": "If End_{𝔽[G]}(ρ̄) = 𝔽 (ρ̄ is Schur; e.g. ρ̄ absolutely irreducible), then two lifts ρ, ρ′ ∈ Lift_ρ̄(A) that are conjugate by some a ∈ GL_n(A) are conjugate by some b ∈ Γ̂_n(A). Without the Schur hypothesis this fails.",
+   "hypotheses": [
+    "End_{𝔽[G]}(ρ̄) = 𝔽 (Schur's lemma gives this for absolutely irreducible ρ̄)."
+   ],
+   "proofSteps": [
+    "Reducing aρa^{-1} = ρ′ modulo m_A shows that ā ∈ GL_n(𝔽) commutes with ρ̄, so ā = c ∈ 𝔽^× by the Schur hypothesis.",
+    "Let c̃ ∈ 𝒪^× lift c (e.g. its Teichmüller lift) and b := c̃^{-1}a; then b ∈ Γ̂_n(A) and bρb^{-1} = aρa^{-1} = ρ′ because scalars are central."
+   ],
+   "acceptance": [
+    "For ρ̄ absolutely irreducible over a finite field the hypothesis holds.",
+    "Counterexample without Schur: ρ̄ = 1 ⊕ 1, A = 𝔽[ε], ρ = diag(1 + εx, 1), ρ′ = diag(1, 1 + εx) with x : G → 𝔽 a nonzero continuous homomorphism: conjugate by the swap matrix, but Γ̂₂(𝔽[ε]) acts trivially on lifts of the scalar ρ̄.",
+    "This is the equivalence stated parenthetically in Gee Definition 3.4."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "mathlib:Matrix.GeneralLinearGroup"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Functors",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Definition 3.4, p. 12",
+     "match": "The equivalence under the Schur hypothesis of Definition 3.4; the proof is the two proof steps."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/restriction-of-deformations",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Restriction of lifts and deformations is well defined",
+   "kind": "lemma",
+   "statement": "Let ι : H → G be a continuous homomorphism of profinite groups (e.g. a decomposition group G_v → G_{F,S}). Composition gives a natural transformation Lift_ρ̄ → Lift_{ρ̄∘ι} which is Γ̂_n-equivariant, hence induces Def_ρ̄ → Def_{ρ̄∘ι}. Moreover, on pairs (ρ, α) with ρ ∈ Lift_ρ̄(A) and α ∈ Γ̂_n(A), modulo (ρ, α) ∼ (βρβ^{-1}, βα) for β ∈ Γ̂_n(A), the local lift α^{-1}(ρ∘ι)α ∈ Lift_{ρ̄∘ι}(A) depends only on the class.",
+   "hypotheses": [
+    "The last statement is what makes the framed local restriction of a T-framed global deformation (R04.3, G8) well defined."
+   ],
+   "proofSteps": [
+    "Composition with a continuous homomorphism preserves continuity and the reduction to ρ̄∘ι.",
+    "(βρβ^{-1})∘ι = β(ρ∘ι)β^{-1}, so strict classes go to strict classes.",
+    "(βα)^{-1}(βρβ^{-1}∘ι)(βα) = α^{-1}(ρ∘ι)α."
+   ],
+   "acceptance": [
+    "Restriction to an open subgroup of an absolutely irreducible ρ̄ need not be Schur, so Def_ρ̄ → Def_{ρ̄|H} can land in a non-representable functor.",
+    "For ι the identity the transformation is the identity.",
+    "The framed restriction is invariant: replacing (ρ, α) by (βρβ^{-1}, βα) gives the same local lift."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "mathlib:ContinuousMonoidHom"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Functors",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.20–3.21, p. 15",
+     "match": "The invariance of the framed local restriction."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/fixed-determinant-functors",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Lifts and deformations with fixed determinant",
+   "kind": "definition",
+   "statement": "Let χ : G → 𝒪^× be continuous with χ mod λ = det ρ̄. Lift_{ρ̄,χ}(A) := {ρ ∈ Lift_ρ̄(A) : det ρ = χ_A}, χ_A the composite G → 𝒪^× → A^×; it is stable under Γ̂_n(A), and Def_{ρ̄,χ} := Lift_{ρ̄,χ}/Γ̂_n. These are subfunctors of Lift_ρ̄ and Def_ρ̄.",
+   "hypotheses": [
+    "The determinant is not fixed in the variable-determinant problems of G8; this is the separate fixed-determinant variant."
+   ],
+   "proofSteps": [
+    "det(aρa^{-1}) = det ρ, and det commutes with GL_n(f), so the conditions are functorial and conjugation-stable."
+   ],
+   "acceptance": [
+    "For n = 1, Lift_{ρ̄,χ}(A) = {χ_A}.",
+    "If p ∤ n, the tangent space of Lift_{ρ̄,χ} is Z¹(G, ad⁰ρ̄), ad⁰ the trace-zero matrices (Gee Exercise 3.19).",
+    "If p | n, ad⁰ρ̄ need not be a direct summand of ad ρ̄, and the tangent space must be computed with ad⁰ itself."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "mathlib:Matrix.GeneralLinearGroup.det"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Functors",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.18, p. 15",
+     "match": "The fixed-determinant functors."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.2/fixed-determinant-rings",
+     "how": "their representing rings."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G8",
+     "how": "the fixed-determinant variant of the variable-determinant problem."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.LiftDet",
+     "role": "constructor",
+     "statement": "Lift_{ρ̄,χ} as a subfunctor of Lift_ρ̄."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DefDet",
+     "role": "constructor",
+     "statement": "Def_{ρ̄,χ} as a subfunctor of Def_ρ̄."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.LiftDet.conj",
+     "role": "structure",
+     "statement": "Γ̂_n(A) preserves Lift_{ρ̄,χ}(A)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.mem_LiftDet_iff",
+     "role": "characterisation",
+     "statement": "ρ ∈ Lift_{ρ̄,χ}(A) ↔ det ∘ ρ = χ_A."
+    }
+   ],
+   "tests": [
+    {
+     "name": "liftDet_rank_one",
+     "kind": "example",
+     "statement": "For n = 1, Lift_{ρ̄,χ}(A) is the singleton {χ_A}."
+    },
+    {
+     "name": "liftDet_residue",
+     "kind": "example",
+     "statement": "Lift_{ρ̄,χ}(𝔽) = {ρ̄}."
+    },
+    {
+     "name": "liftDet_wrong_char",
+     "kind": "non-example",
+     "statement": "If χ mod λ ≠ det ρ̄ the functor is empty on 𝔽, so the hypothesis is needed."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/change-of-coefficients",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Change of coefficient ring and residue field",
+   "kind": "construction",
+   "statement": "Let 𝒪 → 𝒪′ be a local homomorphism of such coefficient rings, finite, with residue extension 𝔽 ⊆ 𝔽′, and ρ̄′ := ρ̄ ⊗_𝔽 𝔽′. Restriction along 𝒪 → 𝒪′ identifies Lift^{𝒪′}_{ρ̄′}(A′) with the set of lifts of ρ̄ to A′ in the sense of local 𝒪-algebras whose residue map 𝔽 → 𝔽′ is the given inclusion, naturally in A′ ∈ Art_{𝒪′}; the same holds for Def, for fixed determinant, and for Schur ρ̄ (End_{𝔽′[G]}(ρ̄′) = End_{𝔽[G]}(ρ̄) ⊗ 𝔽′ = 𝔽′).",
+   "hypotheses": [
+    "The categories Art_{𝒪′} and the residue-field-extension API come from DeformationAndDerivedPatchingAlgebra R03.1."
+   ],
+   "proofSteps": [
+    "A lift of ρ̄′ to A′ is a continuous homomorphism G → GL_n(A′) reducing to ρ̄ ⊗ 𝔽′; this is intrinsic to A′ and ρ̄.",
+    "Strict conjugation and determinants are compatible with the change of rings.",
+    "Schur is preserved: End_{𝔽′[G]}(ρ̄ ⊗ 𝔽′) = End_{𝔽[G]}(ρ̄) ⊗_𝔽 𝔽′ because taking G-invariants of ad ρ̄ commutes with the field extension."
+   ],
+   "acceptance": [
+    "For ρ̄ a character and 𝔽 = 𝔽′, changing 𝒪 to a ramified extension 𝒪′ changes the representing ring by ⊗̂_𝒪 𝒪′.",
+    "Absolute irreducibility and Schur are preserved by 𝔽 → 𝔽′.",
+    "Irreducibility (not absolute) is not preserved: an irreducible ρ̄ over 𝔽 can split over 𝔽′."
+   ],
+   "prerequisites": [
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "GlobalGaloisDeformations:R04.1/fixed-determinant-functors"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Functors",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.1, p. 12",
+     "match": "The coefficient setting that the change of coefficients varies; the argument is the proof steps."
+    },
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, (1.1.1), p. 1",
+     "match": "The W(𝔽) coefficient case, of which 𝒪 is a finite extension."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.2/change-of-residue-field",
+     "how": "the representing rings change by completed base change."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G8",
+     "how": "change of residual coefficient field in the variable-determinant problem."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Lift.changeCoeff",
+     "role": "equivalence",
+     "statement": "Lift^{𝒪′}_{ρ̄⊗𝔽′}(A′) ≃ lifts of ρ̄ to A′ as an 𝒪-algebra."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Def.changeCoeff",
+     "role": "equivalence",
+     "statement": "The same for strict classes."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.isSchur_baseChange",
+     "role": "compatibility",
+     "statement": "ρ̄ Schur ↔ ρ̄ ⊗ 𝔽′ Schur."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.LiftDet.changeCoeff",
+     "role": "equivalence",
+     "statement": "The same with fixed determinant χ composed with 𝒪 → 𝒪′."
+    }
+   ],
+   "tests": [
+    {
+     "name": "changeCoeff_id",
+     "kind": "example",
+     "statement": "For 𝒪 = 𝒪′ the change of coefficients is the identity."
+    },
+    {
+     "name": "changeCoeff_schur",
+     "kind": "characterisation",
+     "statement": "ρ̄ Schur iff ρ̄ ⊗ 𝔽′ Schur."
+    },
+    {
+     "name": "changeCoeff_irreducible_fails",
+     "kind": "non-example",
+     "statement": "The representation of ℤ/(ℓ²−1) through an element of 𝔽_{ℓ²}^× of order ℓ²−1 viewed over 𝔽_ℓ is irreducible of dimension 2 but splits over 𝔽_{ℓ²}."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/determinant-deformation-functor",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Deformations of a residual determinant",
+   "kind": "definition",
+   "statement": "Let D̄ := det ∘ ρ̄ : 𝔽[G] → 𝔽, a continuous determinant of dimension n in Chenevier's sense (a multiplicative polynomial law homogeneous of degree n; the foundations are imported from IntegralHeckeAndGaloisDeterminants IHG.0). Def_{D̄}(A) is the set of continuous determinants D : A[G] → A of dimension n with D ⊗_A 𝔽 = D̄, for A ∈ Art_𝒪 (and by continuity for A ∈ C_𝒪). It is a separate functor: it is not assumed equivalent to Def_ρ̄ (determinant-comparison).",
+   "hypotheses": [
+    "Continuity of a determinant: its characteristic-polynomial coefficients g ↦ Λ_i(g) are continuous (Chenevier §2.30)."
+   ],
+   "proofSteps": [
+    "Functoriality: base change of polynomial laws along local 𝒪-algebra maps preserves dimension, multiplicativity and continuity."
+   ],
+   "acceptance": [
+    "For n = 1, a determinant is a character and Def_{D̄} = Lift_{χ̄} = Def_{χ̄}.",
+    "Def_{D̄}(𝔽) = {D̄}.",
+    "For ρ̄ = χ₁ ⊕ χ₂ reducible, Def_{D̄} depends only on {χ₁, χ₂} and not on an extension class."
+   ],
+   "prerequisites": [
+    "IntegralHeckeAndGaloisDeterminants:IHG.0",
+    "DeformationAndDerivedPatchingAlgebra:R03.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Determinants",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-2014",
+     "locator": "§3.1, Proposition 3.3, p. 42",
+     "match": "The deformation functor of a residual determinant and its representing object."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.1/determinant-comparison",
+     "how": "the comparison with representation deformations."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+     "how": "pseudodeformation rings for residually reducible problems."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.DetDef",
+     "role": "constructor",
+     "statement": "Def_{D̄} : Art_𝒪 ⥤ Type, continuous n-dimensional determinants lifting D̄."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DetDef.map",
+     "role": "functoriality",
+     "statement": "Base change of determinants."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DetDef.charpoly",
+     "role": "projection",
+     "statement": "The characteristic-polynomial coefficients of a lifted determinant."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.DetDef.rank_one",
+     "role": "equivalence",
+     "statement": "For n = 1, Def_{D̄} ≃ Lift_{χ̄}."
+    }
+   ],
+   "tests": [
+    {
+     "name": "detDef_rank_one",
+     "kind": "example",
+     "statement": "For n = 1 the functor is Lift_{χ̄}."
+    },
+    {
+     "name": "detDef_residue",
+     "kind": "example",
+     "statement": "Def_{D̄}(𝔽) = {D̄}."
+    },
+    {
+     "name": "detDef_ignores_extension",
+     "kind": "characterisation",
+     "statement": "Two residual representations with the same semisimplification have the same Def_{D̄}."
+    }
+   ],
+   "planet": {
+    "name": "Determinant deformations"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/determinant-comparison",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Representation deformations versus determinant deformations",
+   "kind": "theorem",
+   "statement": "ρ ↦ det ∘ ρ (the determinant of the A-linear extension A[G] → M_n(A)) induces a natural transformation Def_ρ̄ → Def_{det∘ρ̄}. If ρ̄ is absolutely irreducible it is an isomorphism of functors. In general it is not injective.",
+   "hypotheses": [
+    "The isomorphism uses Chenevier's Theorem 2.22 (a determinant over a henselian local ring with split absolutely irreducible residue is det∘ρ for a unique-up-to-conjugation ρ) together with Carayol's lemma."
+   ],
+   "proofSteps": [
+    "Well defined: det(aρa^{-1}) = det ρ as polynomial laws.",
+    "Surjectivity for absolutely irreducible ρ̄: for A Artinian (hence henselian), a determinant D lifting det∘ρ̄ with split absolutely irreducible residue is det∘ρ_D for some representation ρ_D : A[G] → M_n(A) (Chenevier Theorem 2.22(i)); ρ_D reduces to a conjugate of ρ̄, and conjugating gives a lift.",
+    "Injectivity for absolutely irreducible ρ̄: equal determinants give equal traces, and Carayol's lemma (carayol-trace-theorem) gives strict conjugacy.",
+    "Non-injectivity in general: for ρ̄ a non-split extension of χ₂ by χ₁ with dim Ext¹(χ₂, χ₁) > 1 there are non-isomorphic deformations with the same traces (Kisin Exercise 3), hence the same determinant."
+   ],
+   "acceptance": [
+    "For n = 1 the transformation is the identity.",
+    "For ρ̄ absolutely irreducible, the universal rings agree: R_ρ̄ ≅ the determinant deformation ring.",
+    "For ρ̄ = 1 ⊕ 1 the transformation forgets the extension data and is not injective on 𝔽[ε]-points."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "GlobalGaloisDeformations:R04.1/determinant-deformation-functor",
+    "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
+    "IntegralHeckeAndGaloisDeterminants:IHG.0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Determinants",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "CHENEVIER-2014",
+     "locator": "§3.1, Example 3.4, p. 42",
+     "match": "The comparison under absolute irreducibility."
+    },
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, (1.5) Exercise 3, p. 4",
+     "match": "The failure of injectivity in general."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Determinant comparison"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.1/tangent-spaces",
+   "parentStageId": "GlobalGaloisDeformations:R04.1",
+   "realises": [
+    "GlobalGaloisDeformations:R04.1"
+   ],
+   "title": "Tangent spaces of the lifting and deformation functors",
+   "kind": "lemma",
+   "statement": "Let 𝔽[ε] = 𝔽[X]/(X²) and ad ρ̄ = M_n(𝔽) with G acting by conjugation through ρ̄. Then φ ↦ (1 + εφ)ρ̄ is a bijection Z¹(G, ad ρ̄) ≅ Lift_ρ̄(𝔽[ε]) (continuous cocycles), inducing H¹(G, ad ρ̄) ≅ Def_ρ̄(𝔽[ε]); the fibres of Lift_ρ̄(𝔽[ε]) → Def_ρ̄(𝔽[ε]) are torsors under ad ρ̄/(ad ρ̄)^G. Hence, when these are finite, dim_𝔽 Lift_ρ̄(𝔽[ε]) = dim H¹(G, ad ρ̄) + n² − dim H⁰(G, ad ρ̄). With fixed determinant (p ∤ n), ad is replaced by ad⁰.",
+   "hypotheses": [
+    "G acts on ad ρ̄ by g·X = ρ̄(g)Xρ̄(g)^{-1}; ad ρ̄ is a finite discrete G-module, so continuous cochains are locally constant.",
+    "The vector space structures come from the fibre-product structure of Art_𝒪 (R03.1)."
+   ],
+   "proofSteps": [
+    "(1 + εφ(gh))ρ̄(gh) = (1 + εφ(g))ρ̄(g)(1 + εφ(h))ρ̄(h) ⟺ φ(gh) = φ(g) + g·φ(h), the cocycle identity.",
+    "Conjugating by 1 + εB ∈ Γ̂_n(𝔽[ε]) changes φ by the coboundary g ↦ B − g·B.",
+    "The stabiliser of a lift under Γ̂_n(𝔽[ε]) ≅ ad ρ̄ is (ad ρ̄)^G, so fibres are torsors under ad ρ̄/(ad ρ̄)^G; the dimension formula follows from 0 → (ad ρ̄)^G → ad ρ̄ → Z¹ → H¹ → 0."
+   ],
+   "acceptance": [
+    "n = 1, ρ̄ = 1, G = G_{ℚ,{p}}: Lift(𝔽[ε]) = Hom(G, 𝔽) = 𝔽 for p odd (the cyclotomic ℤ_p-extension).",
+    "ρ̄ absolutely irreducible: dim Lift(𝔽[ε]) = dim H¹(G, ad ρ̄) + n² − 1.",
+    "The torsor statement fails for Γ̂_n replaced by GL_n: the fibres are then quotients by a larger group."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "tauceti:TauCeti.ContCohomology.Z1",
+    "tauceti:TauCeti.ContCohomology.B1",
+    "tauceti:TauCeti.ContCohomology.H1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Functors",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, Lemma (1.3.1), p. 3",
+     "match": "The statement and the torsor argument."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Exercise 3.11 and Corollary 3.12, p. 13",
+     "match": "The explicit cocycle–lift correspondence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.2/phi-p-condition",
+   "parentStageId": "GlobalGaloisDeformations:R04.2",
+   "realises": [
+    "GlobalGaloisDeformations:R04.2"
+   ],
+   "title": "Mazur's finiteness condition Φ_p",
+   "kind": "definition",
+   "statement": "A profinite group G satisfies Φ_p if for every open subgroup Δ ≤ G the group Hom_cont(Δ, 𝔽_p) is finite; equivalently, the maximal pro-p quotient of every open subgroup is topologically finitely generated.",
+   "hypotheses": [
+    "The condition quantifies over all open subgroups; finiteness of Hom(G, 𝔽_p) alone is weaker (sourceIssues E1)."
+   ],
+   "proofSteps": [
+    "Equivalence: Hom_cont(Δ, 𝔽_p) is the dual of the Frattini quotient Δ^{(p)}/Φ(Δ^{(p)}) of the maximal pro-p quotient, which is finite iff Δ^{(p)} is topologically finitely generated (Burnside basis theorem for pro-p groups)."
+   ],
+   "acceptance": [
+    "Topologically finitely generated profinite groups satisfy Φ_p.",
+    "G_K for K/ℚ_ℓ finite satisfies Φ_p (K^×/K^{×p} is finite); G_{F,S} does too (phi-p-global).",
+    "Non-example: G = (∏_ℕ ℤ/p) ⋊ ℤ/2 (p odd, ℤ/2 acting by inversion) has Hom(G, 𝔽_p) = 0 but its index-2 subgroup has infinite Hom to 𝔽_p."
+   ],
+   "prerequisites": [
+    "mathlib:ProfiniteGrp",
+    "mathlib:ContinuousMonoidHom",
+    "mathlib:IsPGroup"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Representability",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.1, p. 12",
+     "match": "The definition."
+    },
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, (1.2), p. 1, and Exercise 1, p. 4",
+     "match": "The equivalence as stated in Kisin's Exercise 1 (his §1.2 misstates it; sourceIssues E1)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+     "how": "the finiteness hypothesis for representability."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.2/phi-p-global",
+     "how": "verification for G_{F,S} and G_K."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.PhiP",
+     "role": "constructor",
+     "statement": "The predicate Φ_p on profinite groups."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.phiP_iff_fg",
+     "role": "characterisation",
+     "statement": "Φ_p ↔ every open subgroup has topologically finitely generated maximal pro-p quotient."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.PhiP.open",
+     "role": "compatibility",
+     "statement": "Φ_p passes to open subgroups."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.phiP_of_fg",
+     "role": "instance",
+     "statement": "Topologically finitely generated profinite groups satisfy Φ_p."
+    }
+   ],
+   "tests": [
+    {
+     "name": "phiP_Zp",
+     "kind": "example",
+     "statement": "ℤ_p satisfies Φ_p."
+    },
+    {
+     "name": "phiP_open",
+     "kind": "characterisation",
+     "statement": "If G satisfies Φ_p, so does every open subgroup."
+    },
+    {
+     "name": "phiP_not_of_Hom",
+     "kind": "non-example",
+     "statement": "(∏_ℕ ℤ/p) ⋊ ℤ/2, p odd, has Hom(G, 𝔽_p) = 0 but fails Φ_p."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.2/phi-p-global",
+   "parentStageId": "GlobalGaloisDeformations:R04.2",
+   "realises": [
+    "GlobalGaloisDeformations:R04.2"
+   ],
+   "title": "Global and local Galois groups satisfy Φ_p",
+   "kind": "theorem",
+   "statement": "For a number field F and a finite set S of places, G_{F,S} = Gal(F_S/F) satisfies Φ_p; for a finite extension K/ℚ_ℓ (ℓ possibly = p), G_K satisfies Φ_p.",
+   "hypotheses": [
+    "F_S is the maximal extension of F unramified outside S and the infinite places."
+   ],
+   "proofSteps": [
+    "Every open subgroup of G_{F,S} is G_{F′,S′} for a finite extension F′/F inside F_S and S′ the places above S.",
+    "Hom_cont(G_{F′,S′}, 𝔽_p) classifies cyclic degree-p extensions of F′ unramified outside S′, of bounded discriminant; they are finitely many (Hermite–Minkowski, or class field theory via the finiteness of the ray class group modulo p-power conductor at S′): this finiteness is imported from ArithmeticGaloisDuality R02.3.",
+    "Locally, Hom(G_K, 𝔽_p) = Hom(K^×/K^{×p}, 𝔽_p) by local class field theory, and K^×/K^{×p} is finite; open subgroups are G_{K′} for finite K′/K."
+   ],
+   "acceptance": [
+    "G_{ℚ,{p,∞}} satisfies Φ_p although it is not known to be topologically finitely generated.",
+    "dim Hom(G_{ℚ_p}, 𝔽_p) = 2 for p odd (unramified and cyclotomic directions).",
+    "The proof never uses topological finite generation of G_{F,S}."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/phi-p-condition",
+    "ArithmeticGaloisDuality:R02.3"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Representability",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.1, p. 12",
+     "match": "The statement, with the class-field-theory proof indicated."
+    },
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, (1.2), p. 2",
+     "match": "The same examples."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+   "parentStageId": "GlobalGaloisDeformations:R04.2",
+   "realises": [
+    "GlobalGaloisDeformations:R04.2"
+   ],
+   "title": "The universal lifting ring",
+   "kind": "theorem",
+   "statement": "If G satisfies Φ_p then Lift_ρ̄ is pro-represented by a complete local Noetherian 𝒪-algebra R^□_ρ̄ ∈ C_𝒪 with a universal lift ρ^□ : G → GL_n(R^□_ρ̄): for every A ∈ C_𝒪, Hom_{C_𝒪}(R^□_ρ̄, A) ≅ Lift_ρ̄(A), f ↦ GL_n(f)∘ρ^□. In particular this holds for G = G_{F,S} and G = G_K.",
+   "hypotheses": [
+    "Uses the framed representability construction of DeformationAndDerivedPatchingAlgebra R03.2 and the finiteness Φ_p."
+   ],
+   "proofSteps": [
+    "Let G′ = ker ρ̄ (open, normal). Every lift sends G′ into Γ̂_n(A), a pro-p group, hence factors through G/H with H the kernel of G′ → G′^{(p)} (maximal pro-p quotient); H is normal in G.",
+    "By Φ_p, G′^{(p)} and hence G/H are topologically finitely generated; choose generators γ₁, …, γ_s.",
+    "Lift_ρ̄ satisfies Schlessinger's conditions exactly: Lift(A ×_C B) = Lift(A) ×_{Lift(C)} Lift(B) for Artinian fibre products, and its tangent space Z¹(G, ad ρ̄) is finite (tangent-spaces, Φ_p); R03.2 then gives a pro-representing ring.",
+    "Concretely R^□_ρ̄ is a quotient of 𝒪[[X^{(i)}_{jk}]], i ≤ s, j, k ≤ n, with ρ^□(γ_i) = [ρ̄(γ_i)] + (X^{(i)}_{jk}), [·] the Teichmüller lift (Kisin's proof)."
+   ],
+   "acceptance": [
+    "For n = 1, ρ̄ = 1: R^□ = 𝒪[[G^{ab,(p)}]], the completed group algebra of the maximal abelian pro-p quotient.",
+    "dim_𝔽 m/(m², λ) = dim Z¹(G, ad ρ̄) (tangent-spaces).",
+    "If H²(G, ad ρ̄) = 0 then R^□ is formally smooth of relative dimension dim Z¹(G, ad ρ̄) (Gee Corollary 3.14)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/phi-p-condition",
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "GlobalGaloisDeformations:R04.1/tangent-spaces",
+    "DeformationAndDerivedPatchingAlgebra:R03.2",
+    "mathlib:MvPowerSeries",
+    "mathlib:IsAdicComplete"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Representability",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, Proposition (1.2.1)(1) and its proof, p. 2",
+     "match": "The statement; Kisin's proof reduces to the maximal pro-p quotient of ker ρ̄."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Lemma 3.2 and Definition 3.3, p. 12",
+     "match": "The statement on C_𝒪."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Universal lifting ring"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.2/universal-continuous-lift",
+   "parentStageId": "GlobalGaloisDeformations:R04.2",
+   "realises": [
+    "GlobalGaloisDeformations:R04.2"
+   ],
+   "title": "The universal continuous lift over the inverse-limit ring",
+   "kind": "construction",
+   "statement": "ρ^□ : G → GL_n(R^□_ρ̄) = lim_k GL_n(R^□_ρ̄/m^k) is the continuous homomorphism obtained from the compatible universal lifts over the Artinian quotients R^□_ρ̄/m^k; it is continuous for the m-adic topology and, for A ∈ C_𝒪, every continuous lift to GL_n(A) is GL_n(f)∘ρ^□ for a unique f ∈ Hom_{C_𝒪}(R^□_ρ̄, A). The same construction gives ρ^univ over R_ρ̄ (Schur) and the fixed-determinant versions.",
+   "hypotheses": [
+    "R^□_ρ̄ is complete and separated for its maximal-ideal topology (R03.1: objects of C_𝒪 are inverse limits of Artinian quotients)."
+   ],
+   "proofSteps": [
+    "The pro-representing system (R^□/m^k, ρ_k) is compatible; the limit homomorphism is continuous because each ρ_k is.",
+    "For A ∈ C_𝒪 a continuous lift ρ_A gives compatible Artinian lifts ρ_A mod m_A^j, hence compatible maps R^□ → A/m_A^j, hence f : R^□ → A with GL_n(f)∘ρ^□ = ρ_A."
+   ],
+   "acceptance": [
+    "For n = 1, ρ̄ = 1: ρ^□ is the tautological character G → G^{ab,(p)} → 𝒪[[G^{ab,(p)}]]^×.",
+    "ρ^□ mod m = ρ̄.",
+    "Uniqueness: two maps f, f′ with the same composite agree modulo every m_A^j, hence agree."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "mathlib:IsAdicComplete"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Representability",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Definition 3.3, p. 12",
+     "match": "The universal lift."
+    },
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, Remark (1.2.2)(2), p. 2",
+     "match": "The universal object from the identity map."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:R04.2/framed-unframed-comparison",
+     "how": "the explicit framed universal lift (1 + X)ρ^univ(1 + X)^{-1}."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.3",
+     "how": "restriction to decomposition groups gives the maps from local framed rings."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.univLift",
+     "role": "constructor",
+     "statement": "ρ^□ : G →* GL_n(R^□_ρ̄), continuous."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.univLift_reduce",
+     "role": "simp",
+     "statement": "ρ^□ mod m = ρ̄."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.liftEquivHom",
+     "role": "universal-property",
+     "statement": "Lift_ρ̄(A) ≃ (R^□_ρ̄ →ₐ[𝒪] A) local, for A ∈ C_𝒪."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.univLift_continuous",
+     "role": "characterisation",
+     "statement": "ρ^□ is continuous for the m-adic topology."
+    }
+   ],
+   "tests": [
+    {
+     "name": "univLift_rank_one_trivial",
+     "kind": "example",
+     "statement": "For n = 1, ρ̄ = 1, ρ^□ is the tautological character into 𝒪[[G^{ab,(p)}]]^×."
+    },
+    {
+     "name": "univLift_residue",
+     "kind": "simp",
+     "statement": "ρ^□ reduces to ρ̄."
+    },
+    {
+     "name": "univLift_not_Artinian",
+     "kind": "non-example",
+     "statement": "R^□ is not Artinian in general (G = ℤ_p, n = 1: R^□ = 𝒪[[T]]), so the universal lift is not defined over an Artinian quotient."
+    }
+   ]
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+   "parentStageId": "GlobalGaloisDeformations:R04.2",
+   "realises": [
+    "GlobalGaloisDeformations:R04.2"
+   ],
+   "title": "The universal deformation ring",
+   "kind": "theorem",
+   "statement": "If G satisfies Φ_p and ρ̄ is Schur (End_{𝔽[G]}(ρ̄) = 𝔽; e.g. absolutely irreducible), then Def_ρ̄ is pro-represented by R_ρ̄ ∈ C_𝒪 with a universal deformation class [ρ^univ]; without the Schur hypothesis Def_ρ̄ has a hull but need not be pro-representable.",
+   "hypotheses": [
+    "Schlessinger's criterion and the hull/representing-object distinction come from R03.2; R03.2 also warns not to identify a hull with a representing ring when automorphisms obstruct."
+   ],
+   "proofSteps": [
+    "Tangent space: Def_ρ̄(𝔽[ε]) = H¹(G, ad ρ̄), finite by Φ_p (tangent-spaces).",
+    "H1–H2: Def(A ×_C B) → Def(A) ×_{Def(C)} Def(B) is surjective for C ← B small, and bijective when C = 𝔽: glue lifts after conjugating one of them.",
+    "H4: bijectivity for A = B → C small uses that the centraliser of any lift ρ_C in Γ̂_n(C) is Γ̂_n(C) ∩ C^× and lifts: under Schur, Z_{GL_n(A)}(ρ_A) = A^× by induction on length (Gee Lemma 3.7(1) for absolutely irreducible ρ̄).",
+    "Alternatively R_ρ̄ is the invariant subring under the free action of the formal group P̂GL_n on Spf R^□_ρ̄ (Kisin's remark), giving framed-unframed-comparison."
+   ],
+   "acceptance": [
+    "For n = 1: R_ρ̄ = R^□_ρ̄ = 𝒪[[G^{ab,(p)}]].",
+    "For ρ̄ absolutely irreducible and H²(G, ad ρ̄) = 0, R_ρ̄ ≅ 𝒪[[x₁, …, x_d]] with d = dim H¹(G, ad ρ̄).",
+    "For ρ̄ = 1 ⊕ 1 the centraliser of a lift can be all of Γ̂₂(A), the situation in which R03.2 warns that a hull need not represent; the theorem does not apply."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/phi-p-condition",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "GlobalGaloisDeformations:R04.1/strict-vs-full-conjugacy",
+    "GlobalGaloisDeformations:R04.1/tangent-spaces",
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "DeformationAndDerivedPatchingAlgebra:R03.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Representability",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, Proposition (1.2.1)(2), p. 2",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Lemma 3.5, p. 12",
+     "match": "The statement on C_𝒪."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Universal deformation ring"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.2/framed-unframed-comparison",
+   "parentStageId": "GlobalGaloisDeformations:R04.2",
+   "realises": [
+    "GlobalGaloisDeformations:R04.2"
+   ],
+   "title": "Framed rings are power series over unframed rings",
+   "kind": "theorem",
+   "statement": "If ρ̄ is Schur and G satisfies Φ_p, then R^□_ρ̄ ≅ R_ρ̄[[X_{ij} : 1 ≤ i, j ≤ n]]/(X_{11}), a power series ring in n² − 1 variables, with universal lift ρ^□ = (1_n + X)ρ^univ(1_n + X)^{-1}; the map R_ρ̄ → R^□_ρ̄ is formally smooth of relative dimension n² − 1. The same holds with fixed determinant χ, with the same n² − 1 variables.",
+   "hypotheses": [
+    "Schur ρ̄: the centraliser of a lift in Γ̂_n(A) is the scalars 1 + m_A (strict-vs-full-conjugacy, Carayol for absolutely irreducible ρ̄)."
+   ],
+   "proofSteps": [
+    "Every lift ρ to A is strictly conjugate to a unique-up-to-scalars lift of the class; given a class [ρ] and a representative, the lifts in the class are aρa^{-1} with a ∈ Γ̂_n(A), and a is determined up to (1 + m_A)·1.",
+    "Normalising the (1,1) entry of a − 1 to 0 picks a unique representative of a modulo scalars, so the lifts in a class are parametrised by (m_A)^{n²−1}.",
+    "Hence Lift_ρ̄ ≅ Def_ρ̄ × Ĝ_a^{n²−1} functorially, which on representing rings is R^□ ≅ R[[X_{ij}]]/(X_{11}).",
+    "Fixed determinant: conjugation preserves the determinant, so the same parametrisation applies to Lift_{ρ̄,χ} → Def_{ρ̄,χ}."
+   ],
+   "acceptance": [
+    "n = 1: n² − 1 = 0 and R^□ = R.",
+    "Tangent dimensions: dim Z¹ − dim H¹ = n² − dim H⁰ = n² − 1 for Schur ρ̄ (tangent-spaces).",
+    "Without Schur (ρ̄ = 1 ⊕ 1) no such comparison exists because Def_ρ̄ is not representable."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+    "GlobalGaloisDeformations:R04.2/universal-continuous-lift",
+    "GlobalGaloisDeformations:R04.1/fixed-determinant-functors",
+    "DeformationAndDerivedPatchingAlgebra:R03.2",
+    "mathlib:MvPowerSeries",
+    "mathlib:Algebra.FormallySmooth"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Representability",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Exercise 3.9, p. 13",
+     "match": "The comparison and the explicit universal lift."
+    },
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, Remark (1.2.2)(3), p. 2",
+     "match": "Formal smoothness."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Framed–unframed comparison"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.2/carayol-trace-theorem",
+   "parentStageId": "GlobalGaloisDeformations:R04.2",
+   "realises": [
+    "GlobalGaloisDeformations:R04.2"
+   ],
+   "title": "Carayol's theorem: absolutely irreducible deformations are determined by traces",
+   "kind": "theorem",
+   "statement": "Suppose ρ̄ is absolutely irreducible and let R ∈ C_𝒪 and ρ : G → GL_n(R) a lift. (1) If a ∈ GL_n(R) and aρa^{-1} = ρ then a ∈ R^×. (2) If ρ′ is another lift with tr ρ′ = tr ρ, then ρ′ = aρa^{-1} for some a ∈ Γ̂_n(R). (3) If S ⊆ R is a closed subring in C_𝒪 with m_S = m_R ∩ S and tr ρ(G) ⊆ S, then ρ is Γ̂_n(R)-conjugate to a lift into GL_n(S). Consequently R_ρ̄ is topologically generated over 𝒪 by the traces of ρ^univ.",
+   "hypotheses": [
+    "Absolute irreducibility gives Burnside: ρ̄(𝔽[G]) = M_n(𝔽)."
+   ],
+   "proofSteps": [
+    "Reduce to R Artinian and induct on length, with I ⊆ R an ideal killed by m_R and ρ ≡ ρ′ mod I; write ρ = ρ′ + δ with δ(σ) ∈ M_n(I) of trace 0.",
+    "Multiplicativity gives δ(σ₁σ₂) = ρ̄(σ₁)δ(σ₂) + δ(σ₁)ρ̄(σ₂); for σ₂ ∈ ker ρ̄ this gives tr(ρ̄(σ₁)δ(σ₂)) = 0 for all σ₁, so δ(σ₂) = 0 by Burnside.",
+    "Hence δ is a derivation M_n(𝔽) → M_n(I), which is inner: δ(σ) = ρ̄(σ)U − Uρ̄(σ), and ρ′ = (1 − U)ρ(1 + U).",
+    "(1) and (3) are proved in the same inductive way (CHT08 Lemmas 2.1.8, 2.1.10)."
+   ],
+   "acceptance": [
+    "For n = 1 the statement is trivial.",
+    "The subring generated by the traces of ρ^univ is dense in R_ρ̄ (Gee Exercise 3.8).",
+    "Fails without absolute irreducibility (Kisin Exercise 3(1))."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "mathlib:Matrix.GeneralLinearGroup"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Representability",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "KISIN-LECTURES",
+     "locator": "Lecture 1, Theorem (1.4.1) and its proof, pp. 3–4",
+     "match": "Statement (2) and Carayol's argument."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Lemma 3.7, pp. 12–13",
+     "match": "Statements (1)–(3)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Carayol's theorem"
+   }
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.2/fixed-determinant-rings",
+   "parentStageId": "GlobalGaloisDeformations:R04.2",
+   "realises": [
+    "GlobalGaloisDeformations:R04.2"
+   ],
+   "title": "Fixed-determinant rings and change of determinant",
+   "kind": "theorem",
+   "statement": "Under Φ_p, Lift_{ρ̄,χ} is pro-represented by R^□_{ρ̄,χ} = R^□_ρ̄/(det ρ^□(g) − χ(g) : g ∈ G), and, for Schur ρ̄, Def_{ρ̄,χ} by R_{ρ̄,χ} = R_ρ̄/(det ρ^univ(g) − χ(g)). If p ∤ n: (i) R^□_ρ̄ ≅ R^□_{ρ̄,χ} ⊗̂_𝒪 Λ, Λ = 𝒪[[G^{ab,(p)}]] the universal deformation ring of the trivial character, via ρ ↦ (ρ ⊗ ψ^{-1}, ψ) with ψ = (χ_A^{-1} det ρ)^{1/n}; (ii) for another lift χ′ of det ρ̄, twisting by (χ′χ^{-1})^{1/n} gives R^□_{ρ̄,χ} ≅ R^□_{ρ̄,χ′} (and R_{ρ̄,χ} ≅ R_{ρ̄,χ′}).",
+   "hypotheses": [
+    "p ∤ n: n-th roots exist and are unique in 1 + m_A (a pro-p group) for A ∈ C_𝒪."
+   ],
+   "proofSteps": [
+    "Representability: the fixed-determinant condition is the closed condition det ρ = χ, cut out by the stated ideal.",
+    "(i): ψ := (χ^{-1} det ρ)^{1/n} is a continuous character with values in 1 + m_A; ρ ⊗ ψ^{-1} has determinant χ; the inverse map is (ρ₀, ψ) ↦ ρ₀ ⊗ ψ, and ψ is a lift of the trivial character, represented by Λ.",
+    "(ii): twisting by the n-th root of χ′χ^{-1} ≡ 1 is a natural bijection Lift_{ρ̄,χ} ≅ Lift_{ρ̄,χ′}, compatible with strict conjugation."
+   ],
+   "acceptance": [
+    "For n = 1, R^□_{ρ̄,χ} = 𝒪.",
+    "For p | n the decomposition (i) can fail: n-th roots of characters in 1 + m_A need not exist (e.g. p = n = 2, G = ℤ₂).",
+    "Tangent space of R^□_{ρ̄,χ} is Z¹(G, ad⁰ρ̄) when p ∤ n."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/fixed-determinant-functors",
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+    "GlobalGaloisDeformations:R04.2/phi-p-condition",
+    "mathlib:Matrix.GeneralLinearGroup.det"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Representability",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.18 and Exercise 3.19, p. 15",
+     "match": "The fixed-determinant theory for p ∤ n; the change-of-determinant decomposition is the proof steps."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "GlobalGaloisDeformations:R04.2/change-of-residue-field",
+   "parentStageId": "GlobalGaloisDeformations:R04.2",
+   "realises": [
+    "GlobalGaloisDeformations:R04.2"
+   ],
+   "title": "Representing rings under change of coefficients",
+   "kind": "lemma",
+   "statement": "For a finite local homomorphism 𝒪 → 𝒪′ with residue extension 𝔽 ⊆ 𝔽′ and ρ̄′ = ρ̄ ⊗ 𝔽′: R^□_{ρ̄′,𝒪′} ≅ R^□_{ρ̄,𝒪} ⊗̂_𝒪 𝒪′ compatibly with the universal lifts; for Schur ρ̄, R_{ρ̄′,𝒪′} ≅ R_{ρ̄,𝒪} ⊗̂_𝒪 𝒪′; and likewise with fixed determinant.",
+   "hypotheses": [
+    "Completed tensor products over 𝒪 and residue-field extension come from R03.1, which also records when they stay Noetherian and local (here: 𝒪′ finite over 𝒪)."
+   ],
+   "proofSteps": [
+    "By change-of-coefficients, Lift^{𝒪′}_{ρ̄′}(A′) = {lifts of ρ̄ to A′ as an 𝒪-algebra with residue map 𝔽 → 𝔽′} = Hom_{𝒪, local}(R^□_{ρ̄,𝒪}, A′) = Hom_{𝒪′}(R^□_{ρ̄,𝒪} ⊗̂_𝒪 𝒪′, A′).",
+    "The representing object is unique up to unique isomorphism, and the universal lifts correspond.",
+    "Schur is preserved (change-of-coefficients), so the unframed statement follows in the same way."
+   ],
+   "acceptance": [
+    "𝒪′ = 𝒪: identity.",
+    "n = 1, ρ̄ = 1: 𝒪[[G^{ab,(p)}]] ⊗̂_𝒪 𝒪′ = 𝒪′[[G^{ab,(p)}]].",
+    "Tangent spaces change by ⊗_𝔽 𝔽′: H¹(G, ad ρ̄′) = H¹(G, ad ρ̄) ⊗ 𝔽′."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/change-of-coefficients",
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+    "DeformationAndDerivedPatchingAlgebra:R03.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Representability",
+    "namespace": "TauCeti.GaloisDeformation"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.1, p. 12",
+     "match": "The coefficient setting; the base-change argument is the proof steps."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "DeformationAndDerivedPatchingAlgebra:R03.1",
+   "need": "The coefficient categories Art_𝒪 and C_𝒪 (𝒪 the ring of integers of a finite extension of ℚ_p, or W(𝔽)), presentation of objects of C_𝒪 as inverse limits of Artinian quotients, fibre products and small extensions of Artinian rings, completed tensor products over 𝒪 and residue-field extension, as the API for functors on these categories.",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "GlobalGaloisDeformations:R04.1/module-deformation-functor",
+    "GlobalGaloisDeformations:R04.1/change-of-coefficients",
+    "GlobalGaloisDeformations:R04.1/determinant-deformation-functor",
+    "GlobalGaloisDeformations:R04.2/universal-continuous-lift",
+    "GlobalGaloisDeformations:R04.2/change-of-residue-field"
+   ],
+   "status": "open",
+   "note": "RS-08: R04.1 imports the coefficient categories from R03.1. The P7 packet has not yet read R03.1."
+  },
+  {
+   "supplier": "DeformationAndDerivedPatchingAlgebra:R03.2",
+   "need": "Schlessinger's criterion (H1–H4, finite tangent space, hulls versus pro-representing objects) and the generic framed representability construction, plus formal smoothness of power-series extensions.",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.2/universal-lifting-ring",
+    "GlobalGaloisDeformations:R04.2/universal-deformation-ring",
+    "GlobalGaloisDeformations:R04.2/framed-unframed-comparison"
+   ],
+   "status": "open",
+   "note": "RS-08: representability is applied here to G_{F,S}, not re-proved in general."
+  },
+  {
+   "supplier": "ArithmeticGaloisDuality:R02.3",
+   "need": "Finiteness of Hom_cont(G_{F′,S′}, 𝔽_p) for every finite extension F′/F inside F_S (and of Hom(G_K, 𝔽_p) for local K), i.e. Mazur's Φ_p for G_{F,S}, from Hermite–Minkowski or class field theory.",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.2/phi-p-global"
+   ],
+   "status": "open",
+   "note": "RS-08: R04.2 imports R02.3 finiteness."
+  },
+  {
+   "supplier": "ArithmeticGaloisRepresentations:R01.1",
+   "need": "Continuous representations G → GL_n(A) of profinite groups over topological local rings, their determinants and adjoint representations, and conjugation of representations.",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.1/lifting-functor"
+   ],
+   "status": "open",
+   "note": "The dependency listed by the R04.1 stage."
+  },
+  {
+   "supplier": "IntegralHeckeAndGaloisDeterminants:IHG.0",
+   "need": "Chenevier's determinants (multiplicative polynomial laws of degree n on A[G]), continuity, base change, characteristic polynomials, and Theorem 2.22 (a determinant over a henselian local ring with split absolutely irreducible residue is det∘ρ).",
+   "neededBy": [
+    "GlobalGaloisDeformations:R04.1/determinant-deformation-functor",
+    "GlobalGaloisDeformations:R04.1/determinant-comparison"
+   ],
+   "status": "open",
+   "note": "IHG.0 owns polynomial laws and determinants."
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "GlobalGaloisDeformations:R04.1",
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 keeps for R04.1: framed and strict unframed functors over Artinian coefficient rings with continuity, determinant-fixed variants and change of coefficients; the identification of the equivalence relation with strict conjugacy and well-defined restriction; the separate determinant deformation functor not assumed equivalent. All planned; coefficient categories and determinants are imported (requests)."
+  },
+  {
+   "stageId": "GlobalGaloisDeformations:R04.2",
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "RS-08 keeps for R04.2: Φ_p for G_{F,S}, universal framed rings, unframed rings under Schur/absolute irreducibility, the universal continuous representation over the inverse-limit ring, the framed-to-unframed comparison with n² − 1 variables, changes of determinant and residual coefficient field. All planned; Schlessinger (R03.2) and global finiteness (R02.3) are imported."
+  },
+  {
+   "stageId": "GlobalGaloisDeformations:R04.3",
+   "status": "not_read",
+   "remaining": [
+    "Global deformation rings with local conditions: completed fibre product/quotient with prescribed local rings, local-to-global presentation over completed tensor products (Gee §3.23), tangent/obstruction by adjoint cohomology with local conditions, and the dimension and relation bounds of KW II Proposition 4.5/Corollary 4.7 (RS-08 keeps)."
+   ]
+  },
+  {
+   "stageId": "GlobalGaloisDeformations:R04.4",
+   "status": "not_read",
+   "remaining": [
+    "Restriction, twisting and change of problem (RS-08 narrowed)."
+   ]
+  },
+  {
+   "stageId": "GlobalGaloisDeformations:R04.5",
+   "status": "not_read",
+   "remaining": [
+    "Taylor–Wiles auxiliary primes (RS-08 narrowed)."
+   ]
+  },
+  {
+   "stageId": "GlobalGaloisDeformations:R04.6",
+   "status": "not_read",
+   "remaining": [
+    "Arithmetic exports for patching and global lifts (RS-08 narrowed)."
+   ]
+  },
+  {
+   "stageId": "GlobalGaloisDeformations:G7",
+   "status": "not_read",
+   "remaining": [
+    "Polarized dimension-n deformation problems and ACC+ Proposition 6.2.33 (RS-08 keeps)."
+   ]
+  },
+  {
+   "stageId": "GlobalGaloisDeformations:G8",
+   "status": "not_read",
+   "remaining": [
+    "Variable-determinant problem of ACC+ Definition 6.2.2, Theorem 6.2.3, Lemma 6.2.4 (RS-08 keeps)."
+   ]
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "GlobalGaloisDeformations/E1",
+   "source": "KISIN-LECTURES",
+   "kind": "misprint",
+   "locator": "Lecture 1, (1.2), p. 1",
+   "printed": "The source defines condition Φp for G by requiring the maximal pro-p quotient of each finite index subgroup G′ ⊂ G to have finitely many topological generators. It claims equivalence with finite dimensionality of Hom(G, Fp).",
+   "correction": "“This is equivalent to asking that Hom(G′, 𝔽_p) is finite dimensional for every open G′ ⊂ G” (as the same notes' Exercise 1 states).",
+   "reason": "Finiteness of Hom(G, 𝔽_p) for G alone is strictly weaker: for p odd, G = (∏_ℕ ℤ/p) ⋊ ℤ/2 with ℤ/2 acting by inversion has abelianisation ℤ/2 (the commutators a^{-2} fill ∏ ℤ/p since 2 is invertible), so Hom(G, 𝔽_p) = 0, while its open subgroup ∏_ℕ ℤ/p of index 2 has infinite Hom to 𝔽_p and is not topologically finitely generated. Exercise 1 on p. 4 of the same notes states the correct equivalence with all open subgroups.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Kisin's Harvard notes page (people.math.harvard.edu/~kisin/notes/), fetched 2026-09-28: a single 4-page PDF, no revision or errata listed."
+   ]
+  }
+ ]
+}
