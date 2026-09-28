@@ -1,0 +1,1923 @@
+{
+ "roadmapId": "EulerSystemsCyclotomicMainConjecture",
+ "protocol": "blueprint-v1",
+ "part": null,
+ "scope": [
+  "EulerSystemsCyclotomicMainConjecture:L0",
+  "EulerSystemsCyclotomicMainConjecture:L1",
+  "EulerSystemsCyclotomicMainConjecture:L2",
+  "EulerSystemsCyclotomicMainConjecture:L3",
+  "EulerSystemsCyclotomicMainConjecture:L4"
+ ],
+ "status": "partial",
+ "summary": "First checkpoint of the blueprint for Euler systems and the unconditional cyclotomic main conjecture. It decomposes layer L0 from Rubin's Euler systems (Chapter III §2.1–2.4 with the Chapter I–II definitions it uses) and RJW §10.2 and §10.5. The layer contains: the distribution relation for 1 − ζ over any cyclotomic step, with the sign dictionary to Rubin's ζ − 1 form (whose ℓ = 2 case is wrong as printed); the p-extended cyclotomic numbers c̃_m and their real norms, with the tower and auxiliary-prime relations and non-torsion; the comparison with the smoothed units c(a) and the smoothing divisor θ_a; the Kummer classes and the theorem that they form an Euler system for (ℤ_p(1), ℚ^ab, p); χ-components and twisted sums; the χ-cyclotomic generators and units; and Rubin's c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}. The carrier, the tower and the cohomology are imported by six requests. Layers L1–L4 are not yet read.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Algebra.norm_algebraMap",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Norm/Defs.lean",
+    "provides": "norm_K(algebraMap K L x) = x^{finrank K L}.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Algebra.norm_eq_prod_automorphisms",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+    "provides": "For L/K Galois, algebraMap (norm_K x) = ∏_{σ ∈ Gal(L/K)} σ x.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Algebra.norm_norm",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+    "provides": "Transitivity of the norm in a tower.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IntermediateField.adjoin.finrank",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
+    "provides": "[K(x) : K] = deg minpoly_K(x) for integral x.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.Rat.eq_span_zeta_sub_one_of_liesOver",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
+    "provides": "In ℚ(μ_{p^{k+1}}), every prime above p equals (ζ − 1).",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.autEquivPow",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Cyclotomic/Gal.lean",
+    "provides": "Gal(L/K) ≃* (ZMod n)ˣ, σ ↦ k with σ ζ = ζ^k, for cyclotomic n K irreducible.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.finrank",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+    "provides": "finrank K L = n.totient for a cyclotomic extension with cyclotomic n K irreducible.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+    "provides": "ζ − 1 and ζ^j − 1 are associated for j coprime to n.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.geom_sum_isUnit",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+    "provides": "∑_{i<j} ζ^i is a unit for a primitive n-th root ζ in a domain, n ≥ 2 and j coprime to n.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.sub_one_norm_eq_eval_cyclotomic",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
+    "provides": "norm_K(ζ − 1) = eval 1 (cyclotomic n ℤ) for 2 < n and cyclotomic n K irreducible.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Module.finrank_mul_finrank",
+    "kind": "theorem",
+    "module": "Mathlib/LinearAlgebra/Dimension/Free.lean",
+    "provides": "The tower law finrank F K · finrank K A = finrank F A.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Nat.totient_mul",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Totient.lean",
+    "provides": "φ(mn) = φ(m)φ(n) for coprime m, n.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Nat.totient_mul_of_prime_of_dvd",
+    "kind": "theorem",
+    "module": "Mathlib/Data/Nat/Totient.lean",
+    "provides": "φ(p·n) = p·φ(n) when p is prime and p ∣ n.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:NumberField.RingOfIntegers",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
+    "provides": "The ring of integers 𝓞 K; its units are the global units.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Polynomial.cyclotomic.irreducible_rat",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean",
+    "provides": "cyclotomic n ℚ is irreducible for n > 0.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Polynomial.eval_one_cyclotomic_prime",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Eval.lean",
+    "provides": "eval 1 (cyclotomic p R) = p for p prime.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Representation.averageMap",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Invariants.lean",
+    "provides": "The averaging map |G|^{−1}∑ ρ g onto invariants.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Representation.invariants",
+    "kind": "def",
+    "module": "Mathlib/RepresentationTheory/Invariants.lean",
+    "provides": "The submodule of Δ-invariants of a representation.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:Representation.mem_invariants",
+    "kind": "theorem",
+    "module": "Mathlib/RepresentationTheory/Invariants.lean",
+    "provides": "v ∈ invariants ρ ↔ ∀ g, ρ g v = v.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:ZMod.unitOfCoprime",
+    "kind": "def",
+    "module": "Mathlib/Data/ZMod/Basic.lean",
+    "provides": "The unit of ZMod n given by x coprime to n.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:isUnit_of_dvd_unit",
+    "kind": "theorem",
+    "module": "Mathlib/Algebra/Divisibility/Units.lean",
+    "provides": "A divisor of a unit is a unit.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:minpoly.dvd",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/Minpoly/Field.lean",
+    "provides": "The minimal polynomial divides every polynomial vanishing at x.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "mathlib:sub_one_dvd_natCast_of_pow_eq_one",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+    "provides": "ζ − 1 divides n when ζ^n = 1 and ζ ≠ 1, in a domain.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "tauceti:TauCeti.KummerCoeff",
+    "kind": "abbrev",
+    "module": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
+    "provides": "μ_n ⊆ (Kˢ)ˣ as a discrete G_K-module, written additively.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "tauceti:TauCeti.kummerMap",
+    "kind": "def",
+    "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+    "provides": "The Kummer map Kˣ →* H¹(G_K, μ_n) for n invertible in K, the connecting map of the Kummer sequence.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   },
+   {
+    "ref": "tauceti:TauCeti.kummerMap_eq_one_iff",
+    "kind": "theorem",
+    "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
+    "provides": "kummerMap a = 1 iff a is an n-th power in K.",
+    "checked": "statement read in the source file at the pinned commit; name confirmed in the pinned declaration index"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "RUBIN-ES",
+   "title": "Euler systems",
+   "authors": "Karl Rubin",
+   "edition": "Author draft of Annals of Mathematics Studies 147 (Princeton, 2000), distributed with the 1999 Arizona Winter School notes; chapter and section numbering agree with the monograph. Printed page = PDF page − 10.",
+   "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+   "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50",
+   "readSections": [
+    "Chapter I §2, Example 2.1 (p. 3)",
+    "Chapter I §6.2, Definition 6.2 and Proposition 6.1 (pp. 13–15)",
+    "Chapter II §1, Definition 1.1 and Remarks 1.2–1.4 (pp. 21–23)",
+    "Chapter II §4, Definition 4.1, Proposition 4.2, Lemma 4.3 (pp. 30–31)",
+    "Chapter III §1, Lemma 1.1 (p. 33)",
+    "Chapter III §2.1–2.4, Remark 2.1, Definition 2.2, Theorem 2.3 with proof, Corollary 2.4 (pp. 33–36)"
+   ]
+  },
+  {
+   "id": "RJW-PADIC-L",
+   "title": "An introduction to p-adic L-functions",
+   "authors": "Joaquín Rodrigues Jacinto; Chris Williams",
+   "edition": "arXiv:2309.15692v2 (19 December 2024); the version in Essential Number Theory 4 (2025) was not accessed",
+   "url": "https://arxiv.org/abs/2309.15692v2",
+   "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+   "readSections": [
+    "§10.1–10.2, Theorem 10.2, Example 10.2 (c_n(a)) and Lemma 10.3 (pp. 47–48)",
+    "§10.5, the Kummer map (10.5)–(10.7), the elements c_m, Definition 10.16 (pp. 52–53)"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+   "citation": "K. Rubin, Euler systems, author draft (1999 Arizona Winter School); published as Annals of Mathematics Studies 147 (2000), which was not accessed",
+   "read": "2026-09-28",
+   "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2309.15692v2",
+   "citation": "J. Rodrigues Jacinto and C. Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "read": "2026-09-28",
+   "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/minpoly-step-of-dvd",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Minimal polynomial of a cyclotomic step when ℓ divides m",
+   "kind": "lemma",
+   "statement": "Let ℓ be prime with ℓ ∣ m, K = ℚ(μ_m) ⊆ L = ℚ(μ_{mℓ}), ζ ∈ L a primitive mℓ-th root of unity and η = ζ^ℓ ∈ K. Then the minimal polynomial of ζ over K is X^ℓ − η.",
+   "hypotheses": [
+    "ℓ is prime and m ≥ 1; K and L are cyclotomic over ℚ of conductors m and mℓ (Mathlib's IsCyclotomicExtension {m} ℚ K and {mℓ} ℚ L), with L a K-algebra.",
+    "ζ ∈ L is a primitive mℓ-th root of unity and η ∈ K satisfies η = ζ^ℓ in L, so η is a primitive m-th root; this is the compatibility ζ_{mℓ}^ℓ = ζ_m that Rubin fixes before (2).",
+    "ℓ ∣ m."
+   ],
+   "proofSteps": [
+    "[L : ℚ] = φ(mℓ) = ℓ·φ(m) because ℓ ∣ m (Nat.totient_mul_of_prime_of_dvd), and [K : ℚ] = φ(m); both from IsCyclotomicExtension.finrank with the irreducibility of the rational cyclotomic polynomials.",
+    "By the tower law (Module.finrank_mul_finrank), [L : K] = ℓ. L is generated over ℚ, hence over K, by ζ, so deg minpoly_K(ζ) = ℓ (IntermediateField.adjoin.finrank).",
+    "ζ is a root of the monic degree-ℓ polynomial X^ℓ − η ∈ K[X], so minpoly_K(ζ) divides it (minpoly.dvd); both are monic of degree ℓ, so they are equal."
+   ],
+   "acceptance": [
+    "m = 2, ℓ = 2: the minimal polynomial of i over ℚ is X² + 1 = X² − ζ₂.",
+    "m = p^{n−1}, ℓ = p: this is RJW's X^p − ξ_{p^{n−1}} in the proof of Lemma 10.3."
+   ],
+   "prerequisites": [
+    "mathlib:IsCyclotomicExtension.finrank",
+    "mathlib:Polynomial.cyclotomic.irreducible_rat",
+    "mathlib:Nat.totient_mul_of_prime_of_dvd",
+    "mathlib:Module.finrank_mul_finrank",
+    "mathlib:IntermediateField.adjoin.finrank",
+    "mathlib:minpoly.dvd"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§10.2, proof of Lemma 10.3, printed p. 48 (arXiv v2)",
+     "excerpt": "Since the minimal polynomial of ξ_{p^n} over K_{n−1} is X^p − ξ_{p^{n−1}}, for any b prime to p we see that N_{n,n−1}(ξ^b_{p^n} − 1) = ∏_{η∈µp}(ξ^b_{p^n}η − 1) = ξ^{bp}_{p^n} − 1 = ξ^b_{p^{n−1}} − 1",
+     "match": "The local version of the step m = p^{n−1}, ℓ = p."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
+     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
+     "match": "The first case of (2) rests on this minimal polynomial."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/minpoly-step-of-not-dvd",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Minimal polynomial of a cyclotomic step when ℓ does not divide m",
+   "kind": "lemma",
+   "statement": "Let ℓ be prime with ℓ ∤ m, and let ℓ' satisfy ℓℓ' ≡ 1 (mod m). With K, L, ζ, η as before, η^{ℓ'} ∈ K is a root of X^ℓ − η, and minpoly_K(ζ)·(X − η^{ℓ'}) = X^ℓ − η. So the conjugates of ζ over K are the ℓ-th roots of η other than η^{ℓ'}, the unique one of order dividing m.",
+   "hypotheses": [
+    "ℓ is prime and m ≥ 1; K and L are cyclotomic over ℚ of conductors m and mℓ (Mathlib's IsCyclotomicExtension {m} ℚ K and {mℓ} ℚ L), with L a K-algebra.",
+    "ζ ∈ L is a primitive mℓ-th root of unity and η ∈ K satisfies η = ζ^ℓ in L, so η is a primitive m-th root; this is the compatibility ζ_{mℓ}^ℓ = ζ_m that Rubin fixes before (2).",
+    "ℓ ∤ m and ℓℓ' ≡ 1 (mod m); for m = 1 every ℓ' works and η = 1."
+   ],
+   "proofSteps": [
+    "[L : ℚ] = φ(m)(ℓ − 1) (Nat.totient_mul for coprime m, ℓ, and φ(ℓ) = ℓ − 1), so [L : K] = ℓ − 1 by the tower law.",
+    "(η^{ℓ'})^ℓ = η^{ℓℓ'} = η because η^m = 1, so X − η^{ℓ'} divides X^ℓ − η in K[X]; the quotient g is monic of degree ℓ − 1.",
+    "ζ ≠ η^{ℓ'} since ζ has order mℓ and η^{ℓ'} has order dividing m, so g(ζ) = 0; hence minpoly_K(ζ) divides g, and equality follows from the degrees."
+   ],
+   "acceptance": [
+    "m = 3, ℓ = 2: L = ℚ(μ_6) = K, and minpoly is X − ζ_6 with ζ_6 = −ζ_3² (the other root of X² − ζ_3 is ζ_3², the one of order 3)."
+   ],
+   "prerequisites": [
+    "mathlib:IsCyclotomicExtension.finrank",
+    "mathlib:Polynomial.cyclotomic.irreducible_rat",
+    "mathlib:Nat.totient_mul",
+    "mathlib:Module.finrank_mul_finrank",
+    "mathlib:IntermediateField.adjoin.finrank",
+    "mathlib:minpoly.dvd"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
+     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
+     "match": "The second case of (2) rests on this minimal polynomial."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-dvd",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Distribution relation, ℓ dividing m",
+   "kind": "lemma",
+   "statement": "With K = ℚ(μ_m) ⊆ L = ℚ(μ_{mℓ}), ζ = ζ_{mℓ}, η = ζ^ℓ = ζ_m and ℓ ∣ m: N_{L/K}(1 − ζ) = 1 − η.",
+   "hypotheses": [
+    "ℓ is prime and m ≥ 1; K and L are cyclotomic over ℚ of conductors m and mℓ (Mathlib's IsCyclotomicExtension {m} ℚ K and {mℓ} ℚ L), with L a K-algebra.",
+    "ζ ∈ L is a primitive mℓ-th root of unity and η ∈ K satisfies η = ζ^ℓ in L, so η is a primitive m-th root; this is the compatibility ζ_{mℓ}^ℓ = ζ_m that Rubin fixes before (2).",
+    "ℓ ∣ m.",
+    "The 1 − ζ convention; Rubin's ζ − 1 form differs by (−1)^ℓ (distribution-relation-rubin-convention)."
+   ],
+   "proofSteps": [
+    "L/K is Galois (cyclotomic), so N_{L/K}(1 − ζ) = ∏_{σ ∈ Gal(L/K)} (1 − σζ) (Algebra.norm_eq_prod_automorphisms).",
+    "The σζ are the roots of minpoly_K(ζ) = X^ℓ − η, each once, so the product is the value of X^ℓ − η at X = 1, namely 1 − η."
+   ],
+   "acceptance": [
+    "m = 2, ℓ = 2: N_{ℚ(i)/ℚ}(1 − i) = (1 − i)(1 + i) = 2 = 1 − ζ_2."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/minpoly-step-of-dvd",
+    "mathlib:Algebra.norm_eq_prod_automorphisms"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
+     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
+     "match": "First case of (2), in the 1 − ζ convention."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§10.2, proof of Lemma 10.3, printed p. 48 (arXiv v2)",
+     "excerpt": "Since the minimal polynomial of ξ_{p^n} over K_{n−1} is X^p − ξ_{p^{n−1}}, for any b prime to p we see that N_{n,n−1}(ξ^b_{p^n} − 1) = ∏_{η∈µp}(ξ^b_{p^n}η − 1) = ξ^{bp}_{p^n} − 1 = ξ^b_{p^{n−1}} − 1",
+     "match": "The same computation for ℓ = p, m = p^{n−1}."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-not-dvd",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Distribution relation, ℓ not dividing m",
+   "kind": "theorem",
+   "statement": "With K = ℚ(μ_m) ⊆ L = ℚ(μ_{mℓ}), ζ = ζ_{mℓ}, η = ζ_m, ℓ ∤ m and ℓℓ' ≡ 1 (mod m): N_{L/K}(1 − ζ)·(1 − η^{ℓ'}) = 1 − η. For m > 1 both factors are nonzero, so N_{L/K}(1 − ζ_{mℓ}) = (1 − ζ_m)^{1 − Fr_ℓ^{−1}}, Fr_ℓ^{−1} acting by ζ_m ↦ ζ_m^{ℓ'}.",
+   "hypotheses": [
+    "ℓ is prime and m ≥ 1; K and L are cyclotomic over ℚ of conductors m and mℓ (Mathlib's IsCyclotomicExtension {m} ℚ K and {mℓ} ℚ L), with L a K-algebra.",
+    "ζ ∈ L is a primitive mℓ-th root of unity and η ∈ K satisfies η = ζ^ℓ in L, so η is a primitive m-th root; this is the compatibility ζ_{mℓ}^ℓ = ζ_m that Rubin fixes before (2).",
+    "ℓ ∤ m and ℓℓ' ≡ 1 (mod m).",
+    "For m = 1 the identity reads 0 = 0; the conductor-one value is distribution-relation-conductor-one."
+   ],
+   "proofSteps": [
+    "N_{L/K}(1 − ζ) = ∏_σ (1 − σζ) (Algebra.norm_eq_prod_automorphisms), and the σζ are the roots of minpoly_K(ζ).",
+    "Evaluate minpoly_K(ζ)·(X − η^{ℓ'}) = X^ℓ − η (minpoly-step-of-not-dvd) at X = 1."
+   ],
+   "acceptance": [
+    "m = 3, ℓ = 2: N(1 − ζ_6) = 1 − ζ_6 = −ζ_3 = (1 − ζ_3)/(1 − ζ_3²).",
+    "The relation holds for every prime ℓ, including ℓ = 2, with no sign; the ζ − 1 form of Rubin's (2) fails at ℓ = 2 (sourceIssues E1)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/minpoly-step-of-not-dvd",
+    "mathlib:Algebra.norm_eq_prod_automorphisms"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
+     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
+     "match": "Second case of (2), in the 1 − ζ convention."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Distribution relation"
+   }
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-frobenius",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Distribution relation with the arithmetic Frobenius",
+   "kind": "lemma",
+   "statement": "Let σ ∈ Gal(ℚ(μ_m)/ℚ) be the inverse of the arithmetic Frobenius Fr_ℓ (ζ_m ↦ ζ_m^ℓ), that is the image of ℓ^{−1} ∈ (ℤ/m)^× under Mathlib's autEquivPow. For ℓ ∤ m, N_{ℚ(μ_{mℓ})/ℚ(μ_m)}(1 − ζ_{mℓ})·σ(1 − ζ_m) = 1 − ζ_m.",
+   "hypotheses": [
+    "ℓ is prime and m ≥ 1; K and L are cyclotomic over ℚ of conductors m and mℓ (Mathlib's IsCyclotomicExtension {m} ℚ K and {mℓ} ℚ L), with L a K-algebra.",
+    "ζ ∈ L is a primitive mℓ-th root of unity and η ∈ K satisfies η = ζ^ℓ in L, so η is a primitive m-th root; this is the compatibility ζ_{mℓ}^ℓ = ζ_m that Rubin fixes before (2).",
+    "ℓ is coprime to m."
+   ],
+   "proofSteps": [
+    "σ(ζ_m) = ζ_m^{ℓ'} for any ℓ' ≡ ℓ^{−1} (mod m), by the defining property of autEquivPow.",
+    "Substitute into distribution-relation-of-not-dvd."
+   ],
+   "acceptance": [
+    "Fr_ℓ is the arithmetic Frobenius, as in Rubin and in RJW Definition 10.16 (σ_ℓ the image of Frob_ℓ); the Euler factor involves Fr_ℓ^{−1}."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-not-dvd",
+    "mathlib:IsCyclotomicExtension.autEquivPow",
+    "mathlib:ZMod.unitOfCoprime"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
+     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
+     "match": "The exponent 1 − Fr_ℓ^{−1} of (2)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-rubin-convention",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "The ζ − 1 convention and its sign",
+   "kind": "comparison",
+   "statement": "For any finite field extension L/K and ζ ∈ L, N_{L/K}(ζ − 1) = (−1)^{[L:K]} N_{L/K}(1 − ζ). Hence, for the cyclotomic step, N(ζ_{mℓ} − 1) = (−1)^{ℓ+1}(ζ_m − 1) if ℓ ∣ m and N(ζ_{mℓ} − 1) = (−1)^{ℓ−1}(ζ_m − 1)^{1 − Fr_ℓ^{−1}} if ℓ ∤ m, m > 1. For odd ℓ these are Rubin's formulas (2); for ℓ = 2 his first two cases need the sign −1.",
+   "hypotheses": [
+    "[L : K] = ℓ when ℓ ∣ m and ℓ − 1 when ℓ ∤ m (the two minimal-polynomial nodes)."
+   ],
+   "proofSteps": [
+    "N is multiplicative and N_{L/K}(−1) = (−1)^{[L:K]} (the norm of an element of K is its [L:K]-th power, Algebra.norm_algebraMap).",
+    "Combine with distribution-relation-of-dvd and distribution-relation-of-not-dvd."
+   ],
+   "acceptance": [
+    "Counterexample to the printed (2) at ℓ = 2: N_{ℚ(i)/ℚ}(i − 1) = 2 while ζ_2 − 1 = −2.",
+    "Second counterexample: ℓ = 2, m = 3 gives ζ_6 − 1 = ζ_3 while (ζ_3 − 1)^{1 − Fr_2^{−1}} = −ζ_3."
+   ],
+   "prerequisites": [
+    "mathlib:Algebra.norm_algebraMap",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-dvd",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-not-dvd"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
+     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
+     "match": "The printed formula, corrected at ℓ = 2 (sourceIssues E1)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-conductor-one",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Distribution relation at conductor one",
+   "kind": "lemma",
+   "statement": "For every prime ℓ and primitive ℓ-th root ζ_ℓ, N_{ℚ(μ_ℓ)/ℚ}(1 − ζ_ℓ) = ℓ; equivalently N(ζ_ℓ − 1) = (−1)^{ℓ−1}ℓ, Rubin's third case.",
+   "hypotheses": [
+    "ℓ prime, including ℓ = 2 where ℚ(μ_2) = ℚ and ζ_2 = −1."
+   ],
+   "proofSteps": [
+    "For ℓ odd, N(ζ − 1) = Φ_ℓ(1) = ℓ (IsPrimitiveRoot.sub_one_norm_eq_eval_cyclotomic with 2 < ℓ, and Polynomial.eval_one_cyclotomic_prime), and N(1 − ζ) = (−1)^{ℓ−1}N(ζ − 1) = ℓ (distribution-relation-rubin-convention).",
+    "For ℓ = 2, 1 − ζ_2 = 2 ∈ ℚ."
+   ],
+   "acceptance": [
+    "ℓ = 3: (1 − ζ_3)(1 − ζ_3²) = 3.",
+    "ℓ = 2: the value is 2, and N(ζ_2 − 1) = −2 = (−1)^{1}·2."
+   ],
+   "prerequisites": [
+    "mathlib:IsPrimitiveRoot.sub_one_norm_eq_eval_cyclotomic",
+    "mathlib:Polynomial.eval_one_cyclotomic_prime",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-rubin-convention"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)",
+     "excerpt": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
+     "match": "Third case of (2)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "The p-extended cyclotomic numbers c̃_m",
+   "kind": "construction",
+   "statement": "Fix a prime p and the compatible roots ζ_m with the tower ℚ(μ_m) (requested from IntegralIwasawaTheory:L0). For m ≥ 1 put c̃_m = N_{ℚ(μ_{mp})/ℚ(μ_m)}(1 − ζ_{mp}) ∈ ℚ(μ_m)^×. This is Rubin's c̃_{m∞} in the 1 − ζ convention: Rubin's element N(ζ_{mp} − 1) equals (−1)^{[ℚ(μ_{mp}):ℚ(μ_m)]}c̃_m.",
+   "hypotheses": [
+    "p prime; m ≥ 1. No coprimality between m and p is assumed.",
+    "The extra norm from level mp is what makes the family norm-compatible in the p-direction (Rubin, Remark 2.1); it loses information when p ∤ m."
+   ],
+   "proofSteps": [
+    "Definition as a relative norm.",
+    "API: c̃_m = 1 − ζ_m if p ∣ m (distribution-relation-of-dvd with ℓ = p); c̃_1 = p (distribution-relation-conductor-one); c̃_m ≠ 0 (1 − ζ_{mp} ≠ 0 as mp > 1); the Rubin sign (distribution-relation-rubin-convention)."
+   ],
+   "acceptance": [
+    "The family is not torsion (p-extended-nontorsion), unlike RJW's (ξ^{−1} − 1)/(ξ − 1) = −ξ^{−1}.",
+    "Individual c̃_m can be torsion: for p = 5, c̃_3 = −ζ_3."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-dvd",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-conductor-one",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-rubin-convention"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
+     "excerpt": "For every m ≥ 1 we define c̃m∞ = N_{Q(µmp)/Q(µm)}(ζmp − 1) ∈ Q(µm)^× ⊂ H1(Q(µm), Zp(1)) and c̃m = N_{Q(µm)/Q(µm)+}(c̃m∞).",
+     "match": "The definition of c̃_{m∞} and c̃_m."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, Remark 2.1, printed p. 34 (PDF p. 44)",
+     "excerpt": "If p | m then (2) shows that c̃m∞ = ζm − 1. But if p ∤ m, our definition takes into account that our Euler system must satisfy N_{Q(µmp)/Q(µm)} c̃mp = c̃m.",
+     "match": "The value for p ∣ m and the reason for the extra norm."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycNumber_of_dvd",
+     "role": "simp",
+     "statement": "If p ∣ m then c̃_m = 1 − ζ_m."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycNumber_one",
+     "role": "simp",
+     "statement": "c̃_1 = p."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycNumber_ne_zero",
+     "role": "other",
+     "statement": "c̃_m ≠ 0 for m ≥ 1."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.relNorm_zeta_sub_one_eq",
+     "role": "compatibility",
+     "statement": "Rubin's c̃_{m∞} = N(ζ_{mp} − 1) equals (−1)^{[ℚ(μ_{mp}):ℚ(μ_m)]}c̃_m; for p odd the sign is a p-adic unit of order 2 and is invisible in H¹(ℚ(μ_m), ℤ_p(1))."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pCycNumber_three_one",
+     "kind": "value",
+     "statement": "For p = 3, c̃_1 = 3."
+    },
+    {
+     "name": "pCycNumber_five_three",
+     "kind": "value",
+     "statement": "For p = 5, c̃_3 = −ζ_3: an individual c̃_m can be a root of unity."
+    },
+    {
+     "name": "pCycNumber_five_five",
+     "kind": "value",
+     "statement": "For p = 5, c̃_5 = 1 − ζ_5."
+    },
+    {
+     "name": "rjw_ratio_torsion",
+     "kind": "non-example",
+     "statement": "(ζ^{−1} − 1)/(ζ − 1) = −ζ^{−1} for every root of unity ζ ≠ 1: RJW's c_m is torsion."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Rubin, Chapter III §2.1",
+     "how": "the Euler system for ℤ_p(1) is {c̃_{m∞}, c̃_m} via the Kummer map"
+    },
+    {
+     "where": "Rubin, Chapter III (4) and (6)",
+     "how": "c̃_f and its norm give the twisted class c_ℚ"
+    },
+    {
+     "where": "EulerSystemsAndKolyvaginSystems:ES.2",
+     "how": "acceptance: genuine cyclotomic units, not the torsion expression −ζ^{−1}"
+    },
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L1",
+     "how": "the class c_ℚ fed to Rubin's Theorem II.2.2"
+    }
+   ],
+   "planet": {
+    "name": "Cyclotomic units c̃_m"
+   }
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/p-extended-tower-relation",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Tower relation for c̃",
+   "kind": "lemma",
+   "statement": "For every m ≥ 1, N_{ℚ(μ_{mp})/ℚ(μ_m)}(c̃_{mp}) = c̃_m.",
+   "hypotheses": [
+    "m ≥ 1, p prime."
+   ],
+   "proofSteps": [
+    "c̃_{mp} = 1 − ζ_{mp} since p ∣ mp (pCycNumber_of_dvd, from distribution-relation-of-dvd).",
+    "The left side is then N(1 − ζ_{mp}) = c̃_m by definition."
+   ],
+   "acceptance": [
+    "This is the Euler-system relation at ℓ = p, where no Euler factor enters (N is divisible by p)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-dvd"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, Remark 2.1, printed p. 34 (PDF p. 44)",
+     "excerpt": "our Euler system must satisfy N_{Q(µmp)/Q(µm)} c̃mp = c̃m.",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Auxiliary-prime relation for c̃",
+   "kind": "lemma",
+   "statement": "For a prime ℓ ≠ p and m ≥ 1: N_{ℚ(μ_{mℓ})/ℚ(μ_m)}(c̃_{mℓ}) = c̃_m^{1 − Fr_ℓ^{−1}} if ℓ ∤ m, and = c̃_m if ℓ ∣ m. Here Fr_ℓ ∈ Gal(ℚ(μ_m)/ℚ). The case m = 1 is included (then Fr_ℓ = 1 and the norm is 1).",
+   "hypotheses": [
+    "ℓ prime, ℓ ≠ p; m ≥ 1.",
+    "The conductor-one exception of (2) never occurs, because c̃ is a norm from level mp > 1."
+   ],
+   "proofSteps": [
+    "Norms are transitive in the square ℚ(μ_m) ⊆ ℚ(μ_{mp}), ℚ(μ_{mℓ}) ⊆ ℚ(μ_{mℓp}) (Algebra.norm_norm), so the left side is N_{ℚ(μ_{mp})/ℚ(μ_m)}(N_{ℚ(μ_{mℓp})/ℚ(μ_{mp})}(1 − ζ_{mℓp})).",
+    "Apply distribution-relation-of-dvd (ℓ ∣ mp) or distribution-relation-frobenius (ℓ ∤ mp) at level mp.",
+    "The norm N_{ℚ(μ_{mp})/ℚ(μ_m)} commutes with the Galois action (the extensions are abelian), and Fr_ℓ on ℚ(μ_{mp}) restricts to Fr_ℓ on ℚ(μ_m) (IntegralIwasawaTheory:L0)."
+   ],
+   "acceptance": [
+    "Checked numerically for p ∈ {2, 3, 5, 7}, m < 30 and ℓ ≤ 13: 812 cases, no failure, including p = 2 and ℓ = 2."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-dvd",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-frobenius",
+    "mathlib:Algebra.norm_norm",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
+     "excerpt": "The distribution relation (2) shows that the collection {c̃m∞, c̃m} is an Euler system for (Zp(1), Qab, p) (see Definition II.1.1 and Remark II.1.3), since for every prime ℓ ≠ p, det(1 − Fr_ℓ^{−1}x|Zp(1)∗) = det(1 − Fr_ℓ^{−1}x|Zp) = 1 − x.",
+     "match": "The Euler-system relation with Euler polynomial 1 − x."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/p-extended-nontorsion",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "The cyclotomic family is not torsion",
+   "kind": "lemma",
+   "statement": "c̃_1 = p, and for k ≥ 1, c̃_{p^k} = 1 − ζ_{p^k} with N_{ℚ(μ_{p^k})/ℚ}(1 − ζ_{p^k}) = p. Neither is of finite order, since roots of unity have norm ±1.",
+   "hypotheses": [
+    "p prime, k ≥ 1."
+   ],
+   "proofSteps": [
+    "c̃_{p^k} = 1 − ζ_{p^k} (pCycNumber_of_dvd).",
+    "Iterating distribution-relation-of-dvd down the tower and using Algebra.norm_norm, N_{ℚ(μ_{p^k})/ℚ(μ_p)}(1 − ζ_{p^k}) = 1 − ζ_p; then distribution-relation-conductor-one gives p.",
+    "A root of unity has norm a root of unity in ℚ, that is ±1 ≠ p."
+   ],
+   "acceptance": [
+    "Contrast: RJW's c_m = −ξ_m^{−1} is a root of unity (sourceIssues E2)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-dvd",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-conductor-one",
+    "mathlib:Algebra.norm_norm"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§10.5, printed p. 52 (arXiv v2)",
+     "excerpt": "Let m = Dp^n, n ≥ 1, and define c_m := (ξ_m^{−1} − 1)/(ξ_m − 1) ∈ O^×_{Q(µm)}, a generalisation of the cyclotomic units c_n(−1) (where D = 1) from Example 10.2",
+     "match": "The torsion choice this node rules out."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/real-p-extended-number",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "The real cyclotomic numbers c̃_m^+",
+   "kind": "construction",
+   "statement": "c̃_m^+ = N_{ℚ(μ_m)/ℚ(μ_m)^+}(c̃_m) ∈ (ℚ(μ_m)^+)^×, Rubin's c̃_m, attached to the ray class field modulo m (the real subfield) while c̃_m is attached to modulo m∞.",
+   "hypotheses": [
+    "m ≥ 1; for m ≤ 2, ℚ(μ_m)^+ = ℚ(μ_m) = ℚ and c̃_m^+ = c̃_m."
+   ],
+   "proofSteps": [
+    "Definition as a relative norm (real subfield and complex conjugation from IntegralIwasawaTheory:L0).",
+    "For m > 2, Gal(ℚ(μ_m)/ℚ(μ_m)^+) = {1, complex conjugation}, so c̃_m^+ = c̃_m·c̄̃_m."
+   ],
+   "acceptance": [
+    "c̃_m^+ is real and, for m > 2, positive (a squared absolute value)."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0",
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
+     "excerpt": "For every m ≥ 1 we define c̃m∞ = N_{Q(µmp)/Q(µm)}(ζmp − 1) ∈ Q(µm)^× ⊂ H1(Q(µm), Zp(1)) and c̃m = N_{Q(µm)/Q(µm)+}(c̃m∞).",
+     "match": "The definition of c̃_m."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycNumberReal_eq_mul_conj",
+     "role": "characterisation",
+     "statement": "For m > 2, c̃_m^+ = c̃_m·conj(c̃_m) in ℂ."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycNumberReal_of_le_two",
+     "role": "simp",
+     "statement": "For m ≤ 2, c̃_m^+ = c̃_m."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycNumberReal_ne_zero",
+     "role": "other",
+     "statement": "c̃_m^+ ≠ 0."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pCycNumberReal_three_three",
+     "kind": "value",
+     "statement": "For p = 3, ℚ(μ_3)^+ = ℚ and c̃_3^+ = N(1 − ζ_3) = 3."
+    },
+    {
+     "name": "pCycNumberReal_one",
+     "kind": "degenerate",
+     "statement": "c̃_1^+ = c̃_1 = p."
+    },
+    {
+     "name": "pCycNumberReal_five_five",
+     "kind": "value",
+     "statement": "For p = 5, c̃_5^+ = (1 − ζ_5)(1 − ζ_5^{−1}) = 2 − ζ_5 − ζ_5^{−1} = (5 − √5)/2, which is not c̃_5."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Rubin, Chapter III §2.1 and Remark II.1.3",
+     "how": "the classes on the ray class fields modulo m (no archimedean place)"
+    },
+    {
+     "where": "Rubin, Chapter III (4)",
+     "how": "c_ℚ is the χ-twisted product of the δc̃_f over Gal(ℚ(μ_f)^+/ℚ)"
+    }
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/real-relations",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Relations for the real cyclotomic numbers",
+   "kind": "lemma",
+   "statement": "The family c̃^+ satisfies the relations of c̃: N_{ℚ(μ_{mp})^+/ℚ(μ_m)^+}(c̃_{mp}^+) = c̃_m^+, and for a prime ℓ ≠ p, N_{ℚ(μ_{mℓ})^+/ℚ(μ_m)^+}(c̃_{mℓ}^+) = (c̃_m^+)^{1 − Fr_ℓ^{−1}} if ℓ ∤ m and = c̃_m^+ if ℓ ∣ m. Moreover N_{ℚ(μ_m)/ℚ(μ_m)^+}(c̃_m) = c̃_m^+ by definition, the relation between conductors m∞ and m.",
+   "hypotheses": [
+    "m ≥ 1; ℓ ≠ p prime."
+   ],
+   "proofSteps": [
+    "N_{ℚ(μ_m)/ℚ(μ_m)^+} commutes with the norms between levels, by transitivity in the square of real and full cyclotomic fields (Algebra.norm_norm), and with the Galois action.",
+    "Apply p-extended-tower-relation and p-extended-auxiliary-relation."
+   ],
+   "acceptance": [
+    "Both relations are proved simultaneously by the same commutation."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/real-p-extended-number",
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-tower-relation",
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
+    "mathlib:Algebra.norm_norm"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
+     "excerpt": "The distribution relation (2) shows that the collection {c̃m∞, c̃m} is an Euler system for (Zp(1), Qab, p) (see Definition II.1.1 and Remark II.1.3), since for every prime ℓ ≠ p, det(1 − Fr_ℓ^{−1}x|Zp(1)∗) = det(1 − Fr_ℓ^{−1}x|Zp) = 1 − x.",
+     "match": "The Euler-system relations for the whole collection {c̃_{m∞}, c̃_m}."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/smoothed-unit-comparison",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Smoothed cyclotomic units and the smoothing divisor",
+   "kind": "comparison",
+   "statement": "Let m ≥ 2 and a ∈ ℕ coprime to m. Then c_m(a) = (1 − ζ_m^a)/(1 − ζ_m) = ∑_{i<a} ζ_m^i is a unit of ℤ[ζ_m] and equals σ_a(1 − ζ_m)/(1 − ζ_m). If p ∣ m it equals σ_a(c̃_m)/c̃_m = c̃_m^{σ_a − 1}; for m = p^n it is RJW's c_n(a) = (ξ^a − 1)/(ξ − 1). The operator σ_a − 1 is the image of the smoothing divisor θ_a = δ_a − δ_1 (the denominator of DirichletPadicLFunctions:L1/arithmetic-pseudomeasure) under the finite projection Λ(ℤ_p^×) → ℤ_p[(ℤ/p^n)^×] ≅ ℤ_p[Gal(ℚ(μ_{p^n})/ℚ)], δ_u ↦ σ_{u mod p^n}. The smoothed family {c̃_m^{σ_a − 1} : (m, a) = 1} satisfies the relations of p-extended-tower-relation and p-extended-auxiliary-relation for the primes ℓ ∤ a.",
+   "hypotheses": [
+    "m ≥ 2 and gcd(a, m) = 1; a need not be prime to p for the unit statement, but the family indexed by all m requires the primes dividing a to be excluded, since σ_a is defined only on ℚ(μ_m) with (a, m) = 1.",
+    "a = ±1 gives the torsion elements 1 and −ζ_m^{−1}; the nondegenerate smoothing uses a ∉ {0, ±1}."
+   ],
+   "proofSteps": [
+    "The quotient is the geometric sum, a unit by IsPrimitiveRoot.geom_sum_isUnit.",
+    "σ_a(1 − ζ_m) = 1 − ζ_m^a by definition of σ_a (IntegralIwasawaTheory:L0); for p ∣ m use pCycNumber_of_dvd.",
+    "Under the finite projection (PadicMeasuresIwasawaAlgebras:L1/finite-projection-algebra-map) with the Dirac homomorphism (PadicMeasuresIwasawaAlgebras:L1/dirac-hom) and unit reduction (PadicMeasuresIwasawaAlgebras:L1/unit-reduction), δ_a − δ_1 maps to [a mod p^n] − [1], which acts as σ_a − 1.",
+    "σ_a commutes with the relative norms, so the relations transfer."
+   ],
+   "acceptance": [
+    "The signs of the ζ − 1 and 1 − ζ conventions cancel in the quotient."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-tower-relation",
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
+    "mathlib:IsPrimitiveRoot.geom_sum_isUnit",
+    "IntegralIwasawaTheory:L0",
+    "DirichletPadicLFunctions:L1/arithmetic-pseudomeasure",
+    "PadicMeasuresIwasawaAlgebras:L1/finite-projection-algebra-map",
+    "PadicMeasuresIwasawaAlgebras:L1/dirac-hom",
+    "PadicMeasuresIwasawaAlgebras:L1/unit-reduction"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§10.2, definition of c_n(a) and Lemma 10.3, printed p. 48 (arXiv v2)",
+     "excerpt": "Let a ∈ Z prime to p, and define c_n(a) := (ξ^a_{p^n} − 1)/(ξ_{p^n} − 1) ∈ U_n. This is indeed a unit, as both ξ^a_{p^n} − 1 and ξ_{p^n} − 1 are uniformisers in K_n.",
+     "match": "The smoothed units compared here."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "ℚ^ab and N = p satisfy the Euler-system hypotheses",
+   "kind": "lemma",
+   "statement": "The pair (𝒦, N) = (ℚ^ab, p) satisfies Rubin's Definition II.1.1: (i) 𝒦 contains ℚ(q) for every prime q ≠ p; (ii) 𝒦 contains the cyclotomic ℤ_p-extension ℚ_∞, in which no finite prime splits completely. In the conductor-indexed presentation of Remark II.1.3, the fields are 𝒦 ∩ ℚ[m∞] = ℚ(μ_m) and 𝒦 ∩ ℚ[m] = ℚ(μ_m)^+.",
+   "hypotheses": [
+    "p prime (Rubin's §2.1 takes any p; the applications take p > 2)."
+   ],
+   "proofSteps": [
+    "(i) ℚ(q) lies in the ray class field modulo q, which is ℚ(μ_q)^+ ⊆ ℚ^ab (class field theory over ℚ).",
+    "(ii) ℚ_∞ ⊆ ℚ(μ_{p^∞}) ⊆ ℚ^ab with Gal(ℚ_∞/ℚ) ≅ ℤ_p; p is totally ramified, and for q ≠ p the Frobenius of q has image q in ℤ_p^×, which is not a root of unity, so its image in ℤ_p has infinite order and the decomposition group is infinite (Rubin, Remark II.1.2).",
+    "The ray class fields of ℚ modulo m∞ and m are ℚ(μ_m) and ℚ(μ_m)^+."
+   ],
+   "acceptance": [
+    "Every hypothesis of Definition II.1.1 is checked for this 𝒦 and N, not assumed."
+   ],
+   "prerequisites": [
+    "EulerSystemsAndKolyvaginSystems:ES.2",
+    "IntegralIwasawaTheory:I.1",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter II, Definition 1.1, printed p. 21 (PDF p. 31)",
+     "excerpt": "Suppose K is an (infinite) abelian extension of K and N is an ideal of K divisible by p and by all primes where T is ramified, such that (i) K contains K(q) for every prime q of K not dividing N, (ii) K contains an extension K∞ of K such that Gal(K∞/K) ≅ Z^d_p for some d ≥ 1, no (finite) prime of K splits completely in K∞/K.",
+     "match": "The hypotheses verified."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter II, Remark 1.2, printed p. 22 (PDF p. 32)",
+     "excerpt": "The condition that no finite prime splits completely in K∞/K is satisfied, for example, if K∞ contains the cyclotomic Zp-extension of K.",
+     "match": "Condition (ii) for ℚ_∞."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-kummer-classes",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Kummer classes of the cyclotomic numbers",
+   "kind": "construction",
+   "statement": "For N ≥ 0 and m ≥ 1, κ_N(c̃_m) ∈ H¹(G_{ℚ(μ_m)}, μ_{p^N}) is the Tau Ceti Kummer class of c̃_m (TauCeti.kummerMap, n = p^N invertible in characteristic 0), and likewise κ_N(c̃_m^+) over ℚ(μ_m)^+. The classes are compatible in N, and define κ(c̃_m) ∈ H¹(ℚ(μ_m), ℤ_p(1)) = lim_N H¹(ℚ(μ_m), μ_{p^N}) = (ℚ(μ_m)^×)^, Rubin's (1).",
+   "hypotheses": [
+    "p prime; p^N is invertible in every number field.",
+    "The inverse limit and the identification with the p-adic completion are requested from SelmerIwasawaCohomology:L0."
+   ],
+   "proofSteps": [
+    "Apply TauCeti.kummerMap to c̃_m and c̃_m^+.",
+    "Compatibility in N: the p-th power map μ_{p^{N+1}} → μ_{p^N} commutes with the Kummer maps (connecting maps of compatible Kummer sequences; SelmerIwasawaCohomology:L0).",
+    "Norm compatibility: Cor ∘ κ = κ ∘ N (ProfiniteCohomology Layer 9, kummerIso_norm)."
+   ],
+   "acceptance": [
+    "κ_1(c̃_1) = κ_1(p) ≠ 0 in H¹(G_ℚ, μ_p), as p is not a p-th power in ℚ (TauCeti.kummerMap_eq_one_iff).",
+    "For p = 5, κ_N(c̃_3) = κ_N(−ζ_3) = 0: −ζ_3 has order 6, prime to 5, so it is a 5^N-th power."
+   ],
+   "prerequisites": [
+    "tauceti:TauCeti.kummerMap",
+    "tauceti:TauCeti.kummerMap_eq_one_iff",
+    "tauceti:TauCeti.KummerCoeff",
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
+    "EulerSystemsCyclotomicMainConjecture:L0/real-p-extended-number",
+    "SelmerIwasawaCohomology:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
+     "excerpt": "For every extension F of Q, as in Example I.2.1 Kummer theory shows that H1(F, Zp(1)) = lim←n H1(F, µpn) = lim←n F×/(F×)^{pn} = (F×)ˆ (1) where (F×)ˆ is the p-adic completion of F×.",
+     "match": "The identification used to view c̃ as cohomology classes."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§10.5, (10.5)–(10.7), printed p. 52 (arXiv v2)",
+     "excerpt": "Take a ∈ F× and take any b ∈ Q̄× such that b^{p^n} = a. Then c_a : σ ↦ σ(b)/b defines a 1-cocycle on GF and it is a coboundary if and only if a is a p^n-th power in F×",
+     "match": "The finite-level Kummer map, as in TauCeti.kummerMap_eq_kummerCocycleClass."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycKummerClass_eq_zero_iff",
+     "role": "characterisation",
+     "statement": "κ_N(c̃_m) = 0 iff c̃_m is a p^N-th power in ℚ(μ_m) (from TauCeti.kummerMap_eq_one_iff)."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycKummerClass_neg",
+     "role": "simp",
+     "statement": "For p odd, κ_N(−x) = κ_N(x): −1 = (−1)^{p^N}."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycKummerClass_cor",
+     "role": "compatibility",
+     "statement": "Cor_{ℚ(μ_{mℓ})/ℚ(μ_m)} κ_N(x) = κ_N(N x) (ProfiniteCohomology Layer 9)."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycKummerClass_galois",
+     "role": "functoriality",
+     "statement": "σ κ_N(x) = κ_N(σ x) for σ ∈ Gal(ℚ(μ_m)/ℚ)."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.pCycKummerClass_compatible",
+     "role": "relation",
+     "statement": "The image of κ_{N+1}(x) under μ_{p^{N+1}} → μ_{p^N} is κ_N(x)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "kummer_p_ne_zero",
+     "kind": "value",
+     "statement": "κ_1(c̃_1) = κ_1(p) ≠ 0 in H¹(G_ℚ, μ_p)."
+    },
+    {
+     "name": "kummer_pth_power",
+     "kind": "degenerate",
+     "statement": "κ_N(x^{p^N}) = 0 for every x."
+    },
+    {
+     "name": "kummer_torsion_invisible",
+     "kind": "non-example",
+     "statement": "For p = 5, κ_N(c̃_3) = 0 because c̃_3 = −ζ_3 has order prime to 5; RJW's −ξ^{−1} behaves the same way away from p."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Rubin, Chapter III §2.1 (1)",
+     "how": "c̃ is read in H¹(ℚ(μ_m), ℤ_p(1))"
+    },
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L1",
+     "how": "the derivative classes are built from these Kummer classes (ES.3)"
+    }
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-euler-system",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "The Euler system of cyclotomic units",
+   "kind": "theorem",
+   "statement": "The classes κ(c̃_m) ∈ H¹(ℚ(μ_m), ℤ_p(1)) and κ(c̃_m^+) ∈ H¹(ℚ(μ_m)^+, ℤ_p(1)) form an Euler system for (ℤ_p(1), ℚ^ab, p) in the sense of EulerSystemsAndKolyvaginSystems:ES.2 (Rubin, Definition II.1.1, through the conductor presentation of Remark II.1.3). For every m and prime q ≠ p, Cor κ(c̃_{mq}) = P(Fr_q^{−1} | ℤ_p(1)^*; Fr_q^{−1}) κ(c̃_m) = (1 − Fr_q^{−1})κ(c̃_m) if q ∤ m and = κ(c̃_m) if q ∣ m; Cor κ(c̃_{mp}) = κ(c̃_m); the same holds for c̃^+; and Cor_{ℚ(μ_m)/ℚ(μ_m)^+} κ(c̃_m) = κ(c̃_m^+). RJW's Definition 10.16 convention, P_ℓ(V^*(1), σ_ℓ^{−1}) with V = ℚ_p(1), gives the same factor 1 − σ_ℓ^{−1}.",
+   "hypotheses": [
+    "p prime, 𝒦 = ℚ^ab, N = p.",
+    "ℤ_p(1)^* = Hom(ℤ_p(1), ℤ_p(1)) = ℤ_p with trivial action, so P(Fr_q^{−1}|T^*; x) = 1 − x."
+   ],
+   "proofSteps": [
+    "The hypotheses on (𝒦, N) hold (qab-euler-hypotheses).",
+    "Kummer classes turn norms into corestrictions (cyclotomic-kummer-classes).",
+    "The unit relations are p-extended-tower-relation, p-extended-auxiliary-relation and real-relations.",
+    "ES.2's conductor presentation turns these relations into an Euler system for the fields in ℚ^ab."
+   ],
+   "acceptance": [
+    "The system is not torsion (p-extended-nontorsion); in particular it is not RJW's c_m."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-kummer-classes",
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-tower-relation",
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
+    "EulerSystemsCyclotomicMainConjecture:L0/real-relations",
+    "EulerSystemsAndKolyvaginSystems:ES.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.1, printed p. 34 (PDF p. 44)",
+     "excerpt": "The distribution relation (2) shows that the collection {c̃m∞, c̃m} is an Euler system for (Zp(1), Qab, p) (see Definition II.1.1 and Remark II.1.3), since for every prime ℓ ≠ p, det(1 − Fr_ℓ^{−1}x|Zp(1)∗) = det(1 − Fr_ℓ^{−1}x|Zp) = 1 − x.",
+     "match": "The theorem."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§10.5, Definition 10.16, printed p. 53 (arXiv v2)",
+     "excerpt": "cores_{Q(µmℓ)/Q(µm)}(z_{mℓ}) = z_m if ℓ = p, P_ℓ(V∗(1), σ_ℓ^{−1})z_m if ℓ ≠ p",
+     "match": "The same Euler factor in RJW's convention."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Euler system of cyclotomic units"
+   }
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/chi-component",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "χ-components",
+   "kind": "construction",
+   "statement": "Let O be a commutative ring, Δ a finite group, M an O[Δ]-module and χ : Δ → O^× a character. The χ-component is M^χ = {x ∈ M : δx = χ(δ)x for all δ ∈ Δ}, an O-submodule. For a ℤ[Δ]-module B, Rubin's B^χ is (B̂ ⊗_{ℤ_p} O)^χ, with B̂ the p-adic completion (B ⊗ ℤ_p for B finitely generated). Equivalently B^χ ≅ (B̂ ⊗ O_{χ^{−1}})^Δ after fixing a generator of O_{χ^{−1}}.",
+   "hypotheses": [
+    "For exactness and the decomposition B̂ ⊗ O = ⊕_χ B^χ, |Δ| must be invertible in O (Rubin: [L : K] prime to p) and O must contain the values of all characters.",
+    "When p divides |Δ| the character functors are those of layer L4 (Greither); this node is the prime-to-p case."
+   ],
+   "proofSteps": [
+    "Definition as an eigen-submodule; closure under 0, + and O-scalars uses only that O is commutative.",
+    "The twist description is Mathlib's invariants (Representation.invariants) of ρ ⊗ χ^{−1}.",
+    "Exactness and the decomposition use the idempotents |Δ|^{−1}∑ χ(δ)^{−1}δ (chi-sum), as for Representation.averageMap."
+   ],
+   "acceptance": [
+    "The trivial character gives the invariants."
+   ],
+   "prerequisites": [
+    "mathlib:Representation.invariants",
+    "mathlib:Representation.mem_invariants",
+    "mathlib:Representation.averageMap"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §6.2, Definition 6.2, printed p. 14 (PDF p. 24)",
+     "excerpt": "Define the χ-component of B, B^χ = {b ∈ B̂ ⊗_{Zp} O : γb = χ(γ)b for every γ ∈ ∆}. We fix once and for all an O-generator of Oχ−1, and with this choice we get an isomorphism B^χ = (B̂ ⊗ Oχ−1)^∆.",
+     "match": "The definition."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter I, §6.2, printed p. 15 (PDF p. 25)",
+     "excerpt": "Since [L : K] is prime to p, taking χ-components is an exact functor and B̂ ⊗_{Zp} O = ⊕χB^χ.",
+     "match": "The exactness and decomposition API."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.mem_chiComponent",
+     "role": "characterisation",
+     "statement": "x ∈ M^χ iff δx = χ(δ)x for all δ."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.mem_chiComponent_iff_twist",
+     "role": "equivalence",
+     "statement": "x ∈ M^χ iff χ(δ)^{−1}δx = x for all δ: M^χ is the Δ-invariants of the twist by χ^{−1}, Rubin's (B̂ ⊗ O_{χ^{−1}})^Δ."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiComponent_map",
+     "role": "functoriality",
+     "statement": "Δ-equivariant O-linear maps send M^χ into N^χ."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiComponent_map_eq",
+     "role": "structure",
+     "statement": "If |Δ| ∈ O^×, M ↦ M^χ is exact: an equivariant surjection maps M^χ onto N^χ; and M = ⊕_χ M^χ when O contains all character values."
+    }
+   ],
+   "tests": [
+    {
+     "name": "chiComponent_one",
+     "kind": "compatibility",
+     "statement": "For χ = 1, M^χ is Mathlib's ρ.invariants."
+    },
+    {
+     "name": "chiComponent_trivial_rep",
+     "kind": "degenerate",
+     "statement": "Trivial action and χ(δ) − 1 a nonzerodivisor for some δ: M^χ = 0."
+    },
+    {
+     "name": "chiComponent_regular",
+     "kind": "value",
+     "statement": "For |Δ| ∈ O^×, O[Δ]^χ is free of rank one on ∑_δ χ(δ)^{−1}[δ]."
+    },
+    {
+     "name": "chiComponent_not_split",
+     "kind": "non-example",
+     "statement": "Δ = ℤ/p, O = M = 𝔽_p with trivial action: 𝔽_p[Δ] is not the direct sum of its χ-components, the only character being trivial and 𝔽_p[Δ]^Δ one-dimensional."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Rubin, Chapter III (3)",
+     "how": "H¹(ℚ_n, T^*) ≅ (L_n^×)^χ"
+    },
+    {
+     "where": "Rubin, Chapter III Definition 2.2",
+     "how": "E_n^χ and C_{n,χ}"
+    },
+    {
+     "where": "Rubin, Chapter III Theorem 2.3",
+     "how": "|A_L^χ| and [E_L^χ : C_{L,χ}]"
+    },
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L2",
+     "how": "the Λ-modules A_∞^χ, E_∞^χ, C_{∞,χ}"
+    }
+   ],
+   "planet": {
+    "name": "χ-components"
+   }
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/chi-sum",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Twisted sums",
+   "kind": "construction",
+   "statement": "For an O[Δ]-module M, χ : Δ → O^× and x ∈ M, chiSum_χ(x) = ∑_{δ∈Δ} χ(δ)^{−1} δx. For M = L^× ⊗ O written additively this is the product ∏_δ (δx)^{χ^{−1}(δ)} of Rubin's (4) and Definition 2.2.",
+   "hypotheses": [
+    "Δ finite; no invertibility of |Δ| is needed to define it."
+   ],
+   "proofSteps": [
+    "Finite sum.",
+    "χ(δε)^{−1} = χ(δ)^{−1}χ(ε)^{−1} gives ε·chiSum(x) = χ(ε)chiSum(x), so chiSum lands in M^χ."
+   ],
+   "acceptance": [
+    "On M^χ, chiSum is multiplication by |Δ|."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-component"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.2, display (4), printed p. 35 (PDF p. 45)",
+     "excerpt": "The Euler system c̃ for Zp(1) constructed in §2.1 gives rise (by Proposition II.4.2) to an Euler system c = c̃^{χ−1} for (T∗, Qab, pf). By Lemma II.4.3, the image of cQ in L× ⊗̂ O under (3) is ∏_{δ∈Gal(Q(µf)+/Q)} (δc̃f)^{χ−1(δ)} = ∏_{δ∈Gal(Q(µfp)/Q)} (ζ^δ_{fp} − 1)^{χ−1(δ)}. (4)",
+     "match": "The twisted products are chiSum."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)",
+     "excerpt": "We define the group of χ-cyclotomic units Cn,χ to be the subgroup of E^χ_n generated over O[Gal(Ln/Q)] by ξn,χ = ∏_{δ∈Gal(Q(µf)/Q)} (ζ^δ_f − 1)^{χ−1(δ)} if n = 0, ∏_{δ∈Gal(Qn(µ_{fp^{n+1}})/Qn)} (ζ^δ_{fp^{n+1}} − 1)^{χ−1(δ)} if n > 0.",
+     "match": "ξ_{n,χ} is a twisted product."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiSum_mem",
+     "role": "other",
+     "statement": "chiSum_χ(x) ∈ M^χ."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiSum_add",
+     "role": "simp",
+     "statement": "chiSum_χ is additive, indeed O-linear."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiSum_of_mem",
+     "role": "simp",
+     "statement": "For x ∈ M^χ, chiSum_χ(x) = |Δ|·x."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiSum_chiSum",
+     "role": "relation",
+     "statement": "chiSum_χ ∘ chiSum_χ = |Δ|·chiSum_χ; for |Δ| ∈ O^× this gives the idempotent projection onto M^χ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "chiSum_trivial",
+     "kind": "degenerate",
+     "statement": "Trivial character on a trivial module: chiSum_1(x) = |Δ|·x."
+    },
+    {
+     "name": "chiSum_trivial_group",
+     "kind": "degenerate",
+     "statement": "For the trivial group, chiSum is the identity."
+    },
+    {
+     "name": "chiSum_frobenius_one",
+     "kind": "value",
+     "statement": "chiSum(u − ρ(1)u) = 0, the case φ = 1 of chi-sum-frobenius."
+    }
+   ],
+   "uses": [
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
+     "how": "ξ_{L,χ} = chiSum(1 ⊗ u)"
+    },
+    {
+     "where": "Rubin, Chapter III (6)",
+     "how": "the identity c_ℚ = ξ^{1 − χ^{−1}(p)}"
+    }
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/chi-sum-frobenius",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "Twisted sums and the Frobenius factor",
+   "kind": "lemma",
+   "statement": "For φ ∈ Δ and u ∈ M: chiSum_χ(u − φ^{−1}u) = (1 − χ(φ)^{−1})·chiSum_χ(u).",
+   "hypotheses": [
+    "Δ finite, χ : Δ → O^× a homomorphism; Δ need not be abelian."
+   ],
+   "proofSteps": [
+    "chiSum_χ(φ^{−1}u) = ∑_δ χ(δ)^{−1}δφ^{−1}u; reindex δ' = δφ^{−1}, so χ(δ)^{−1} = χ(δ')^{−1}χ(φ)^{−1}."
+   ],
+   "acceptance": [
+    "φ = 1 gives 0 = 0; for χ(φ) = 1 the right side vanishes."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-sum"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)",
+     "excerpt": "Identifying ξL,χ with its image in H1(Q, T∗), it follows from (2) and (4) that cQ = ξ^{1−χ−1(p)}_{L,χ} (6) where χ(p) = 0 if p | f. Since χ(p) ≠ 1 and χ has order prime to p, 1−χ−1(p) ∈ O× so cQ generates CL,χ.",
+     "match": "The algebra behind (6), with φ the Frobenius of p."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/one-sub-root-of-unity-unit",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "1 − ω is a unit for roots of unity of invertible order",
+   "kind": "lemma",
+   "statement": "In a commutative domain O, if ω^n = 1, ω ≠ 1 and n ∈ O^×, then 1 − ω ∈ O^×. In particular, for χ of order prime to p and χ(p) ≠ 1, 1 − χ^{−1}(p) ∈ O^×.",
+   "hypotheses": [
+    "O a domain; n a unit of O (for O the integers of a finite extension of ℚ_p: p ∤ n)."
+   ],
+   "proofSteps": [
+    "(ω − 1) divides n (sub_one_dvd_natCast_of_pow_eq_one), and n is a unit, so ω − 1 and 1 − ω are units (isUnit_of_dvd_unit)."
+   ],
+   "acceptance": [
+    "Fails without invertibility: 1 − (−1) = 2 is not a unit of ℤ_2."
+   ],
+   "prerequisites": [
+    "mathlib:sub_one_dvd_natCast_of_pow_eq_one",
+    "mathlib:isUnit_of_dvd_unit"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)",
+     "excerpt": "Identifying ξL,χ with its image in H1(Q, T∗), it follows from (2) and (4) that cQ = ξ^{1−χ−1(p)}_{L,χ} (6) where χ(p) = 0 if p | f. Since χ(p) ≠ 1 and χ has order prime to p, 1−χ−1(p) ∈ O× so cQ generates CL,χ.",
+     "match": "Since χ(p) ≠ 1 and χ has order prime to p, 1 − χ^{−1}(p) ∈ O×."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "The χ-cyclotomic generators ξ_{n,χ}",
+   "kind": "construction",
+   "statement": "Let χ be an even nontrivial character of G_ℚ of finite order prime to p, with conductor f, fixed field L and Δ = Gal(L/ℚ); let ℚ_n ⊆ ℚ(μ_{p^{n+1}}) be the layers of ℚ_∞ and L_n = Lℚ_n, so Gal(L_n/ℚ_n) = Δ. Put u_0 = N_{ℚ(μ_f)/L}(1 − ζ_f) and, for n > 0, u_n = N_{ℚ(μ_{fp^{n+1}})/L_n}(1 − ζ_{fp^{n+1}}). Then ξ_{n,χ} = chiSum_χ(1 ⊗ u_n) ∈ (O ⊗ L_n^×)^χ. It equals Rubin's ∏_{δ∈Gal(ℚ(μ_f)/ℚ)} (ζ_f^δ − 1)^{χ^{−1}(δ)} (n = 0), respectively the product over Gal(ℚ_n(μ_{fp^{n+1}})/ℚ_n) (n > 0).",
+   "hypotheses": [
+    "χ even, nontrivial, of order prime to p (Rubin §III.2.2); χ is viewed as a Dirichlet character modulo f with χ(q) = 0 for q ∣ f.",
+    "The sign convention is immaterial: ∑ χ^{−1}(δ) = 0 over each group, since χ is nontrivial on it, so (−1) contributes (−1)^0."
+   ],
+   "proofSteps": [
+    "Rewrite Rubin's product over Gal(ℚ(μ_f)/ℚ) by grouping δ by its restriction to L: χ^{−1}(δ) depends only on δ|_L, and the inner product is the norm to L. This keeps ξ in L_n^× ⊗ O without a descent step (p may divide [ℚ(μ_f) : L]).",
+    "chiSum lands in the χ-component (chiSum_mem)."
+   ],
+   "acceptance": [
+    "For χ the quadratic character of conductor 5 and p = 3: L = ℚ(√5), u_0 = (1 − ζ_5)(1 − ζ_5^{−1}) = (5 − √5)/2 and ξ_{L,χ} = u_0/σ(u_0) = (3 − √5)/2 = ε^{−2}, with ε = (1 + √5)/2."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-sum",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-component",
+    "IntegralIwasawaTheory:L0",
+    "IntegralIwasawaTheory:I.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)",
+     "excerpt": "We define the group of χ-cyclotomic units Cn,χ to be the subgroup of E^χ_n generated over O[Gal(Ln/Q)] by ξn,χ = ∏_{δ∈Gal(Q(µf)/Q)} (ζ^δ_f − 1)^{χ−1(δ)} if n = 0, ∏_{δ∈Gal(Qn(µ_{fp^{n+1}})/Qn)} (ζ^δ_{fp^{n+1}} − 1)^{χ−1(δ)} if n > 0.",
+     "match": "The definition of ξ_{n,χ} and C_{n,χ}."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.2, printed pp. 34–35 (PDF pp. 44–45)",
+     "excerpt": "we fix a character χ : GQ → O× of finite, prime-to-p order, and we assume now that χ is even and nontrivial. Let f denote the conductor of χ, and recall that L is the field cut out by χ.",
+     "match": "The standing hypotheses."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.xiChi_mem",
+     "role": "other",
+     "statement": "ξ_{n,χ} ∈ (O ⊗ L_n^×)^χ."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.xiChi_neg",
+     "role": "compatibility",
+     "statement": "The ζ − 1 and 1 − ζ conventions give the same ξ for χ ≠ 1."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.xiChi_eq_prod",
+     "role": "characterisation",
+     "statement": "ξ_{n,χ} is Rubin's product over Gal(ℚ(μ_f)/ℚ) (n = 0) or Gal(ℚ(μ_{fp^{n+1}})/ℚ_n) (n > 0)."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.xiChi_smul",
+     "role": "simp",
+     "statement": "δ ξ_{n,χ} = χ(δ) ξ_{n,χ} for δ ∈ Δ."
+    }
+   ],
+   "tests": [
+    {
+     "name": "xiChi_conductor_five",
+     "kind": "value",
+     "statement": "χ quadratic of conductor 5, p = 3: ξ_{L,χ} = ε^{−2}."
+    },
+    {
+     "name": "xiChi_sign",
+     "kind": "compatibility",
+     "statement": "Replacing 1 − ζ_f by ζ_f − 1 leaves ξ unchanged."
+    },
+    {
+     "name": "xiChi_trivial_character",
+     "kind": "non-example",
+     "statement": "For χ = 1 and f = ℓ^k the analogous product Φ_{ℓ^k}(1) = ℓ is not a unit: nontriviality is needed."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Rubin, Chapter III Definition 2.2",
+     "how": "generator of C_{n,χ}"
+    },
+    {
+     "where": "Rubin, Chapter III (6)",
+     "how": "c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}"
+    },
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L2",
+     "how": "C_{∞,χ} = lim C_{n,χ}"
+    }
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator-unit",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "ξ_{n,χ} is a unit",
+   "kind": "lemma",
+   "statement": "For χ ≠ 1, ξ_{n,χ} lies in the image of O ⊗ E_n → O ⊗ L_n^×, E_n the global units of L_n; so ξ_{n,χ} ∈ E_n^χ.",
+   "hypotheses": [
+    "χ nontrivial; conductors as in chi-cyclotomic-generator."
+   ],
+   "proofSteps": [
+    "If the conductor g (f, respectively fp^{n+1}) of the root is not a prime power, 1 − ζ_g is a unit (IntegralIwasawaTheory:L0), so u_n ∈ E_n.",
+    "If g = ℓ^k, the ideal (1 − ζ_g) is the unique prime above ℓ in ℚ(μ_g) (IsCyclotomicExtension.Rat.eq_span_zeta_sub_one_of_liesOver, with conjugates associated by IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime); its norm to L_n is a Δ-invariant ideal, and ∑ χ^{−1}(δ) = 0 kills it in the ideal group ⊗ O.",
+    "L_n^×/E_n is torsion-free (principal ideals), so O ⊗ E_n → O ⊗ L_n^× is injective with image the elements of trivial valuation."
+   ],
+   "acceptance": [
+    "The prime-power case (for example f = 5) is where the χ-part argument is needed."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
+    "mathlib:IsCyclotomicExtension.Rat.eq_span_zeta_sub_one_of_liesOver",
+    "mathlib:IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime",
+    "mathlib:NumberField.RingOfIntegers",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)",
+     "excerpt": "We define the group of χ-cyclotomic units Cn,χ to be the subgroup of E^χ_n generated over O[Gal(Ln/Q)] by ξn,χ = ∏_{δ∈Gal(Q(µf)/Q)} (ζ^δ_f − 1)^{χ−1(δ)} if n = 0, ∏_{δ∈Gal(Qn(µ_{fp^{n+1}})/Qn)} (ζ^δ_{fp^{n+1}} − 1)^{χ−1(δ)} if n > 0.",
+     "match": "Rubin places ξ_{n,χ} in E^χ_n."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "The χ-cyclotomic units C_{n,χ}",
+   "kind": "construction",
+   "statement": "C_{n,χ} is the O[Gal(L_n/ℚ)]-submodule of E_n^χ generated by ξ_{n,χ}. Since Δ acts on E_n^χ through χ, it is the O[Gal(L_n/L)]-span of ξ_{n,χ}; for n = 0, C_{L,χ} = O·ξ_{L,χ}.",
+   "hypotheses": [
+    "χ even, nontrivial, of order prime to p."
+   ],
+   "proofSteps": [
+    "Span of the generator; chi-cyclotomic-generator-unit places it in E_n^χ."
+   ],
+   "acceptance": [
+    "For n = 0, [E_L^χ : C_{L,χ}] is finite; this is the index formula of IntegralIwasawaTheory:L0 (L(1, χ) ≠ 0)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator-unit",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-component",
+    "IntegralIwasawaTheory:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)",
+     "excerpt": "We define the group of χ-cyclotomic units Cn,χ to be the subgroup of E^χ_n generated over O[Gal(Ln/Q)] by ξn,χ = ∏_{δ∈Gal(Q(µf)/Q)} (ζ^δ_f − 1)^{χ−1(δ)} if n = 0, ∏_{δ∈Gal(Qn(µ_{fp^{n+1}})/Qn)} (ζ^δ_{fp^{n+1}} − 1)^{χ−1(δ)} if n > 0.",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiCyclotomicUnits_le",
+     "role": "other",
+     "statement": "C_{n,χ} ⊆ E_n^χ ⊆ (O ⊗ L_n^×)^χ."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiCyclotomicUnits_stable",
+     "role": "structure",
+     "statement": "C_{n,χ} is Gal(L_n/ℚ)-stable."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiCyclotomicUnits_eq_span",
+     "role": "characterisation",
+     "statement": "The O[Δ]-span of ξ_{L,χ} equals its O-span, so C_{L,χ} = O·ξ_{L,χ}."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiCyclotomicUnits_index_finite",
+     "role": "other",
+     "statement": "[E_L^χ : C_{L,χ}] < ∞ (index formula requested from IntegralIwasawaTheory:L0)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "chiCyclotomicUnits_conductor_five",
+     "kind": "value",
+     "statement": "χ quadratic of conductor 5, p = 3: E_L^χ = ℤ_3·ε and C_{L,χ} = ℤ_3·ε^{−2} have index 1, matching |A_L^χ| = 1 (h(ℚ(√5)) = 1) in Rubin's Corollary 2.4."
+    },
+    {
+     "name": "chiCyclotomicUnits_conductor_five_p5",
+     "kind": "value",
+     "statement": "The same χ with p = 5 (so p ∣ f and χ(p) = 0): again index 1."
+    },
+    {
+     "name": "chiCyclotomicUnits_torsion_choice",
+     "kind": "non-example",
+     "statement": "Built from RJW's torsion c_m, the span would be 0 in E_L^χ."
+    }
+   ],
+   "uses": [
+    {
+     "where": "Rubin, Chapter III Theorem 2.3",
+     "how": "|A_L^χ| divides [E_L^χ : C_{L,χ}]"
+    },
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L1",
+     "how": "the index of divisibility ind_O(c) = ℓ_O(E_L^χ/C_{L,χ})"
+    }
+   ],
+   "planet": {
+    "name": "χ-cyclotomic units"
+   }
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-formula",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "The twisted class c_ℚ",
+   "kind": "theorem",
+   "statement": "Let c = c̃^{χ^{−1}} be the twist by χ^{−1} of the Euler system of cyclotomic units (ES.2, Rubin Proposition II.4.2), an Euler system for (T^*, ℚ^ab, pf) with T = O_χ, T^* = ℤ_p(1) ⊗ χ^{−1}. Under the restriction–Kummer isomorphism H¹(ℚ, T^*) ≅ (L^×)^χ ⊆ L^× ⊗̂ O (Rubin (3)), c_ℚ corresponds to chiSum_χ(1 ⊗ N_{ℚ(μ_{fp})/L}(1 − ζ_{fp})) = ∏_{δ∈Gal(ℚ(μ_{fp})/ℚ)} (1 − ζ_{fp}^δ)^{χ^{−1}(δ)}.",
+   "hypotheses": [
+    "χ even, nontrivial, of order prime to p, conductor f; [L : ℚ] prime to p."
+   ],
+   "proofSteps": [
+    "ES.2's twisting lemma (Rubin Lemma II.4.3) with F = ℚ and L' = ℚ(μ_f)^+, which has the same conductor as L because χ is even, gives ∏_{δ∈Gal(ℚ(μ_f)^+/ℚ)} (δc̃_f^+)^{χ^{−1}(δ)}.",
+    "c̃_f^+ = N_{ℚ(μ_f)/ℚ(μ_f)^+}N_{ℚ(μ_{fp})/ℚ(μ_f)}(1 − ζ_{fp}), so the product is the one over Gal(ℚ(μ_{fp})/ℚ); the sign convention is immaterial for χ ≠ 1."
+   ],
+   "acceptance": [
+    "For p ∣ f the norm N_{ℚ(μ_{fp})/ℚ(μ_f)}(1 − ζ_{fp}) is 1 − ζ_f."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-euler-system",
+    "EulerSystemsCyclotomicMainConjecture:L0/real-p-extended-number",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-sum",
+    "EulerSystemsAndKolyvaginSystems:ES.2",
+    "SelmerIwasawaCohomology:L0"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.2, display (4), printed p. 35 (PDF p. 45)",
+     "excerpt": "The Euler system c̃ for Zp(1) constructed in §2.1 gives rise (by Proposition II.4.2) to an Euler system c = c̃^{χ−1} for (T∗, Qab, pf). By Lemma II.4.3, the image of cQ in L× ⊗̂ O under (3) is ∏_{δ∈Gal(Q(µf)+/Q)} (δc̃f)^{χ−1(δ)} = ∏_{δ∈Gal(Q(µfp)/Q)} (ζ^δ_{fp} − 1)^{χ−1(δ)}. (4)",
+     "match": "The theorem."
+    },
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, §2.2, display (3), printed p. 35 (PDF p. 45)",
+     "excerpt": "The restriction map gives an isomorphism (using (1)) H1(Qn, T∗) ≅ H1(Ln, T∗)^∆ ≅ (L×n ⊗̂ Oχ−1)^∆ ≅ (L×n)^χ ⊂ L×n ⊗̂ O",
+     "match": "The dictionary (3), requested from SelmerIwasawaCohomology:L0."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-eq-xi-power",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)}",
+   "kind": "theorem",
+   "statement": "With χ as above and χ(p) = 0 when p ∣ f: c_ℚ = ξ_{L,χ}^{1 − χ^{−1}(p)} in (L^×)^χ, that is chiSum_χ(1 ⊗ N_{ℚ(μ_{fp})/L}(1 − ζ_{fp})) = (1 − χ^{−1}(p))·ξ_{L,χ}.",
+   "hypotheses": [
+    "χ even, nontrivial, of order prime to p, conductor f."
+   ],
+   "proofSteps": [
+    "By twisted-class-formula, c_ℚ is chiSum_χ(1 ⊗ u') with u' = N_{ℚ(μ_f)/L}(N_{ℚ(μ_{fp})/ℚ(μ_f)}(1 − ζ_{fp})).",
+    "If p ∤ f, the inner norm is (1 − ζ_f)^{1 − Fr_p^{−1}} (distribution-relation-frobenius), so u' = u_0 − Fr_p^{−1}u_0 additively; chi-sum-frobenius with φ = Fr_p|_L gives (1 − χ(Fr_p)^{−1})ξ_{L,χ} = (1 − χ^{−1}(p))ξ_{L,χ}.",
+    "If p ∣ f, the inner norm is 1 − ζ_f (distribution-relation-of-dvd), so c_ℚ = ξ_{L,χ} = ξ_{L,χ}^{1 − 0}."
+   ],
+   "acceptance": [
+    "For χ(p) = 1 the class c_ℚ is trivial: this is the source of Rubin's hypothesis χ(p) ≠ 1 (Remark III.2.1)."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-formula",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-sum-frobenius",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-frobenius",
+    "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-dvd"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)",
+     "excerpt": "Identifying ξL,χ with its image in H1(Q, T∗), it follows from (2) and (4) that cQ = ξ^{1−χ−1(p)}_{L,χ} (6) where χ(p) = 0 if p | f. Since χ(p) ≠ 1 and χ has order prime to p, 1−χ−1(p) ∈ O× so cQ generates CL,χ.",
+     "match": "Equation (6)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Twisted cyclotomic class"
+   }
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-generates",
+   "parentStageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "realises": [
+    "EulerSystemsCyclotomicMainConjecture:L0"
+   ],
+   "title": "c_ℚ generates C_{L,χ} when χ(p) ≠ 1",
+   "kind": "lemma",
+   "statement": "If χ(p) ≠ 1, then 1 − χ^{−1}(p) ∈ O^× and c_ℚ generates C_{L,χ} = O·ξ_{L,χ}.",
+   "hypotheses": [
+    "χ of order prime to p, χ(p) ≠ 1 (including χ(p) = 0 when p ∣ f)."
+   ],
+   "proofSteps": [
+    "χ^{−1}(p) is 0 or a root of unity ω ≠ 1 of order dividing ord χ, prime to p; then one-sub-root-of-unity-unit makes 1 − ω a unit.",
+    "c_ℚ = (1 − χ^{−1}(p))ξ_{L,χ} (twisted-class-eq-xi-power) and C_{L,χ} = O·ξ_{L,χ} (chi-cyclotomic-units)."
+   ],
+   "acceptance": [
+    "For χ(p) = 1 the conclusion fails: c_ℚ = 0."
+   ],
+   "prerequisites": [
+    "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-eq-xi-power",
+    "EulerSystemsCyclotomicMainConjecture:L0/one-sub-root-of-unity-unit",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/EulerSystem/Cyclotomic",
+    "namespace": "TauCeti.CyclotomicEulerSystem"
+   },
+   "sources": [
+    {
+     "sourceId": "RUBIN-ES",
+     "locator": "Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)",
+     "excerpt": "Identifying ξL,χ with its image in H1(Q, T∗), it follows from (2) and (4) that cQ = ξ^{1−χ−1(p)}_{L,χ} (6) where χ(p) = 0 if p | f. Since χ(p) ≠ 1 and χ has order prime to p, 1−χ−1(p) ∈ O× so cQ generates CL,χ.",
+     "match": "The last sentence."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "IntegralIwasawaTheory:L0",
+   "need": "The cyclotomic tower: a compatible system ζ_m (ζ_{mn}^n = ζ_m) in a fixed algebraic closure or ℂ; the fields ℚ(μ_m) = ℚ(ζ_m) with inclusions for m ∣ n; Gal(ℚ(μ_m)/ℚ) ≅ (ℤ/m)^× by σ_a(ζ_m) = ζ_m^a, compatible with restriction; the real subfields ℚ(μ_m)^+ and complex conjugation; the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} and N_{ℚ(μ_m)/L} to subfields, with transitivity and Galois equivariance; the Galois action on L^× ⊗ O and on the global units E_L of subfields L; the fact that 1 − ζ_g is a unit when g is not a prime power; and the index formula making [E_L^χ : C_{L,χ}] finite for even χ ≠ 1.",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
+    "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
+    "EulerSystemsCyclotomicMainConjecture:L0/real-p-extended-number",
+    "EulerSystemsCyclotomicMainConjecture:L0/smoothed-unit-comparison",
+    "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator-unit",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units"
+   ],
+   "status": "open",
+   "note": "RS-16 routes the global cyclotomic-unit definitions to IntegralIwasawaTheory:L0, which has no packet yet. The suggested file uses stand-ins zeta, Qmu, QmuPlus, unitsTensorRep only to state signatures."
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:I.1",
+   "need": "The cyclotomic ℤ_p-extension ℚ_∞/ℚ with layers ℚ_n ⊆ ℚ(μ_{p^{n+1}}) and Gal(ℚ_∞/ℚ) ≅ ℤ_p; decomposition groups: p totally ramified and every q ≠ p with infinite decomposition group; and L_n = Lℚ_n with Gal(L_n/ℚ_n) ≅ Gal(L/ℚ) when [L : ℚ] is prime to p.",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
+    "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator"
+   ],
+   "status": "open",
+   "note": "Stage-level request; IntegralIwasawaTheory:I.1 is claimable as issue #759."
+  },
+  {
+   "supplier": "EulerSystemsAndKolyvaginSystems:ES.2",
+   "need": "The Euler-system carrier for (T, 𝒦, N) with Rubin's Definition II.1.1 hypotheses on (𝒦, N, 𝒦_∞) as explicit predicates, the conductor-indexed presentation of Remark II.1.3 including archimedean conductors, the Euler polynomial P(Fr_q^{−1}|T^*; x) = det(1 − Fr_q^{−1}x | T^*), twisting by finite-order characters (Definition II.4.1, Proposition II.4.2) and the restriction formula of Lemma II.4.3.",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-euler-system",
+    "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-formula"
+   ],
+   "status": "open",
+   "note": "ES.2's acceptance asks the cyclotomic owner (this layer) for genuine units and Kummer classes, which cyclotomic-euler-system supplies. EulerSystemsAndKolyvaginSystems has no packet; its blueprint issues are blocked."
+  },
+  {
+   "supplier": "SelmerIwasawaCohomology:L0",
+   "need": "Continuous cohomology H¹(F, ℤ_p(1)) = lim_N H¹(F, μ_{p^N}) with the Kummer identification (F^×)^ (Rubin (1), Example I.2.1), corestriction and restriction compatible with the limit, and the restriction isomorphism H¹(ℚ, T^*) ≅ H¹(L, T^*)^Δ ≅ (L^× ⊗̂ O_{χ^{−1}})^Δ = (L^×)^χ for [L : ℚ] prime to p (Rubin III (3)).",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-kummer-classes",
+    "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-formula"
+   ],
+   "status": "open",
+   "note": "Stage-level request; SelmerIwasawaCohomology has no packet."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory",
+   "need": "The two Kummer squares of Layer 9 at μ_{p^N}: kummerIso_norm (corestriction corresponds to the norm N_{L/K}) and kummerIso_res (restriction corresponds to the inclusion) for finite separable L/K with a chosen embedding, together with Hilbert 90 surjectivity.",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-kummer-classes",
+    "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-euler-system"
+   ],
+   "status": "open",
+   "note": "Tau Ceti at the pin has kummerMap and its kernel but not the norm square."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+   "need": "Over ℚ: the ray class field modulo m∞ is ℚ(μ_m) and modulo m is ℚ(μ_m)^+, and the maximal p-subextension ℚ(q) of the ray class field modulo q lies in ℚ(μ_q).",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses"
+   ],
+   "status": "open",
+   "note": "Used only to match Rubin's Remark II.1.3 fields with the cyclotomic fields."
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "EulerSystemsCyclotomicMainConjecture:L0",
+   "status": "source_decomposed",
+   "remaining": []
+  },
+  {
+   "stageId": "EulerSystemsCyclotomicMainConjecture:L1",
+   "status": "not_read",
+   "remaining": [
+    "Read Rubin Chapter III §2.3–2.4 (the Selmer group (5), Theorem 2.3 with its proof) with Chapters IV–V (derivative classes, Theorem II.2.2) and decompose: the verification of Hyp(ℚ, T^*) with τ = 1, the vanishing of n_{W*} and n^*_{W*} by Lemma III.1.1, the index of divisibility ind_O(c) = ℓ_O(E_L^χ/C_{L,χ}) using the Dirichlet unit theorem (E_L^χ free of rank one), H¹_f(ℚ_p, W) = 0 for χ(p) ≠ 1, and |A_L^χ| ∣ [E_L^χ : C_{L,χ}]. Import ES.1, ES.3 and ES.4 through requests.",
+    "Corollary III.2.4 (equality by the analytic class number formula over all χ) is cited by Rubin to [Ru3] Theorem 4.2; decompose it from a readable source or record it as a gap."
+   ]
+  },
+  {
+   "stageId": "EulerSystemsCyclotomicMainConjecture:L2",
+   "status": "not_read",
+   "remaining": [
+    "Read Rubin Chapter II §3 (Theorems 3.2–3.4, Hyp(K_∞/K)) and Chapter III §2.5–2.7 (Proposition 2.6 and the diagram of the local-global comparison, Theorem 2.7 with the augmentation correction when χ(p) = 1) and decompose char(A_∞^χ) ∣ char(E_∞^χ/C_{∞,χ}); import ES.8 and the Leopoldt input of IntegralIwasawaTheory:L4."
+   ]
+  },
+  {
+   "stageId": "EulerSystemsCyclotomicMainConjecture:L3",
+   "status": "not_read",
+   "remaining": [
+    "Read Rubin Chapter III §2.8–2.10 (Corollary 2.8, Theorem 2.9, Theorem 2.10) and RJW §13 (Theorem 13.8, Proposition 13.13, Corollary 13.14) and decompose the equality, the local-unit theorem from ColemanPowerSeries:L4, the four-term sequence and the trivial-character component; RJW's Proposition 13.13 inverse-limit step needs the corrected argument recorded in the register."
+   ]
+  },
+  {
+   "stageId": "EulerSystemsCyclotomicMainConjecture:L4",
+   "status": "not_read",
+   "remaining": [
+    "Read Greither, Class groups of abelian fields, and the main conjecture (Ann. Inst. Fourier 42 (1992), Numdam), §§1–3 in full and §4 where Theorems B and C are derived: semilocal units, the character functors with bounded errors when p divides the group order, circular units, the local-unit characteristic computation, the Euler-system inequality, Kummer duality and Theorem 3.2 with the one-half normalisation, including p = 2."
+   ]
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E1",
+   "source": "RUBIN-ES",
+   "kind": "error",
+   "locator": "Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44); also Remark 2.1 for p = 2",
+   "printed": "For every m ≥ 1 and prime ℓ we have the relation N_{Q(µmℓ)/Q(µm)}(ζmℓ − 1) = (ζm − 1) if ℓ | m; (ζm − 1)^{1−Fr_ℓ^{−1}} if ℓ ∤ m and m > 1; (−1)^{ℓ−1}ℓ if m = 1, where Frℓ is the Frobenius of ℓ in Gal(Q(µm)/Q)",
+   "correction": "N(ζ_{mℓ} − 1) = (−1)^{ℓ+1}(ζ_m − 1) if ℓ ∣ m and (−1)^{ℓ−1}(ζ_m − 1)^{1 − Fr_ℓ^{−1}} if ℓ ∤ m, m > 1. Equivalently, in the 1 − ζ convention: N(1 − ζ_{mℓ}) = 1 − ζ_m, (1 − ζ_m)^{1 − Fr_ℓ^{−1}}, and ℓ for m = 1, with no sign. The printed formula holds for odd ℓ.",
+   "reason": "N(ζ − 1) = (−1)^d N(1 − ζ) with d = [ℚ(μ_{mℓ}) : ℚ(μ_m)] = ℓ or ℓ − 1, and the 1 − ζ form has no sign. For ℓ = m = 2: N_{ℚ(i)/ℚ}(i − 1) = (i − 1)(−i − 1) = 2, while ζ_2 − 1 = −2. For ℓ = 2, m = 3: ℚ(μ_6) = ℚ(μ_3) and ζ_6 − 1 = ζ_3, while (ζ_3 − 1)^{1 − Fr_2^{−1}} = −ζ_3. A numerical check over m < 40 and ℓ ≤ 13 finds failures exactly at ℓ = 2. Remark 2.1's 'c̃_{m∞} = ζ_m − 1 for p ∣ m' inherits the sign at p = 2. The Euler-system conclusions are unaffected: for odd p, −1 is a p^N-th power, so the sign vanishes in H¹(F, ℤ_p(1)), and ℓ = 2 occurs only as an auxiliary prime.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md: no entry for Rubin's Euler systems",
+    "the author's UCI home page: no content was returned",
+    "the integrated decomposition data/decompositions/EulerSystemsCyclotomicMainConjecture.json quotes (2) without the sign"
+   ]
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E2",
+   "source": "RJW-PADIC-L",
+   "kind": "error",
+   "locator": "§10.5, printed p. 52 (arXiv v2), the definition of c_m and its norm relations",
+   "printed": "Let m = Dp^n, n ≥ 1, and define c_m := (ξ_m^{−1} − 1)/(ξ_m − 1) ∈ O^×_{Q(µm)}, a generalisation of the cyclotomic units c_n(−1) (where D = 1) from Example 10.2. One can show that these elements satisfy N_{Q(µmℓ)/Q(µm)}(c_{mℓ}) = c_m if ℓ | m, (1 − ℓ^{−1})c_m if ℓ ∤ m.",
+   "correction": "Use c_m(a) = (ξ_m^a − 1)/(ξ_m − 1) for a fixed integer a ∉ {0, ±1}, over the m prime to a (the primes dividing a join Σ), or Rubin's unsmoothed N_{ℚ(μ_{mp})/ℚ(μ_m)}(1 − ξ_{mp}). For ℓ ∤ m (and ℓ ∤ a) the relation is N(c_{mℓ}(a)) = c_m(a)^{1 − σ_ℓ^{−1}}, σ_ℓ the Frobenius of ℓ in Gal(ℚ(μ_m)/ℚ).",
+   "reason": "ξ^{−1} − 1 = −ξ^{−1}(ξ − 1), so c_m = −ξ_m^{−1} is a root of unity and z_m = δ(c_m) is torsion; the family is zero after ⊗ ℚ_p and carries no arithmetic. Example 10.2 admits a = −1 among 'a prime to p', which is exactly this degenerate choice. The relation '(1 − ℓ^{−1})c_m' is not defined in ℚ(μ_m)^×; the operator meant is 1 − σ_ℓ^{−1}, as in the corestriction relation and Definition 10.16 that follow.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md: several RJW entries (for example Definition 10.14/Theorem 10.15), none for §10.5",
+    "the atlas text of stage EulerSystemsCyclotomicMainConjecture:L0 flags the torsion choice; it is not a published correction",
+    "the published version (Essential Number Theory 4, 2025) was not accessed"
+   ]
+  }
+ ]
+}
