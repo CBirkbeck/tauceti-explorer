@@ -13,7 +13,7 @@
   "LocalGaloisDeformationRings:R08.6"
  ],
  "status": "partial",
- "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain.",
+ "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38).",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -23,6 +23,13 @@
     "kind": "def",
     "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
     "provides": "Multivariable power series rings.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:ProfiniteGrp",
+    "kind": "structure",
+    "module": "Mathlib/Topology/Algebra/Category/ProfiniteGrp/Basic.lean",
+    "provides": "Profinite groups.",
     "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
    },
    {
@@ -44,7 +51,8 @@
    "sha256": "878f83e189ad44603ac04f6c16ef17f4c4fe046db91a2f0933a192e048715ea5",
    "read": "2026-09-28",
    "readSections": [
-    "§3.1–3.19, pp. 11–15"
+    "§3.1–3.19, pp. 11–15",
+    "§3.29–3.38 (ℓ ≠ p, n = 2), pp. 19–21"
    ]
   },
   {
@@ -68,7 +76,32 @@
    "sha256": "a601da3762c35dab9ebdac5fb5106f1e3f627304dfc2390ac43fe2ac862c6de8",
    "read": "2026-09-28",
    "readSections": [
-    "§3.2.5 Odd deformations, Proposition 3.2.7, p. 15"
+    "§3.2.5 Odd deformations, Proposition 3.2.7, and §3.2.6, Lemma 3.2.8, p. 15"
+   ]
+  },
+  {
+   "id": "CHT08",
+   "title": "Automorphy for some l-adic lifts of automorphic mod l Galois representations",
+   "authors": "Laurent Clozel, Michael Harris and Richard Taylor",
+   "edition": "Publications mathématiques de l'IHÉS 108 (2008), 1–181; open access on Numdam. Printed page = PDF page.",
+   "url": "https://www.numdam.org/item/10.1007/s10240-008-0016-1.pdf",
+   "sha256": "9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c",
+   "read": "2026-09-28",
+   "readSections": [
+    "§2.4.3 Unrestricted deformations, Lemma 2.4.9, p. 40",
+    "§2.4.4 Minimal deformations, Lemmas 2.4.10–2.4.22, pp. 41–47"
+   ]
+  },
+  {
+   "id": "TAYLOR-II-2008",
+   "title": "Automorphy for some l-adic lifts of automorphic mod l Galois representations. II",
+   "authors": "Richard Taylor",
+   "edition": "Publications mathématiques de l'IHÉS 108 (2008), 183–239; open access on Numdam. Printed page = PDF page + 182.",
+   "url": "https://www.numdam.org/item/10.1007/s10240-008-0015-2.pdf",
+   "sha256": "f9014a899bcccaa56035314f196b15b581abe63d56cb9d9a285ce9e93f1030bc",
+   "read": "2026-09-28",
+   "readSections": [
+    "§3, the deformation problems D^{(χ)}, D^{Stein} and Proposition 3.1, p. 196"
    ]
   }
  ],
@@ -387,6 +420,557 @@
     }
    ],
    "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.2/tame-splitting",
+   "parentStageId": "LocalGaloisDeformationRings:R08.2",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.2"
+   ],
+   "title": "The tame quotient and the reduction to tame pieces",
+   "kind": "lemma",
+   "statement": "K/ℚ_ℓ is finite with ℓ ≠ p, residue field k of order q, ρ̄ : G_K → GL_n(𝔽) continuous; lifts are to C_𝒪. Let P_K ⊆ I_K be the kernel of a surjection I_K ↠ ℤ_p (pro-order prime to p). Then G_K = P_K ⋊ T_K with T_K = G_K/P_K ≅ ℤ_p ⋊ ℤ (Frobenius acting by q). For an irreducible k[P_K]-module τ with stabiliser G_τ, deformations of ρ̄ are equivalent to tuples of deformations of the multiplicity spaces ρ̄_τ = Hom_{P_K}(τ, ρ̄) as T_τ-representations.",
+   "hypotheses": [
+    "P_K has pro-order prime to p, so every lift is determined on P_K by ρ̄ (no deformations of P_K-representations)."
+   ],
+   "proofSteps": [
+    "Splitting: choose a Sylow pro-p subgroup S of I_K and a Frobenius lift φ normalising it (CHT08 Lemma 2.4.10).",
+    "Clifford theory: τ lifts uniquely to 𝒪 and extends to G_τ with determinant of order prime to p (Lemma 2.4.11).",
+    "M ≅ ⊕_[τ] Ind_{G_τ}^{G_K}(τ ⊗ M_τ) and Hom_{G_K}(M, M′) ≅ ⊕ Hom_{T_τ}(M_τ, M′_τ) (Lemma 2.4.12), giving the equivalence on deformations (Corollary 2.4.13)."
+   ],
+   "acceptance": [
+    "ρ̄ unramified: only τ = 1 occurs and ρ̄_1 = ρ̄ as a T_K-representation factoring through ℤ.",
+    "ρ̄ tamely ramified: P_K acts trivially.",
+    "Without the prime-to-p pro-order of P_K the reduction fails (wild ramification at ℓ = p is R08.3's subject)."
+   ],
+   "prerequisites": [
+    "GlobalGaloisDeformations:R04.1/lifting-functor",
+    "GlobalGaloisDeformations:R04.1/strict-deformation-functor",
+    "mathlib:ProfiniteGrp"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.4, Lemma 2.4.10 and Corollary 2.4.13, pp. 41–43",
+     "match": "The splitting; Corollary 2.4.13 gives the reduction to tame pieces."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.2/unramified-lifting-ring",
+   "parentStageId": "LocalGaloisDeformationRings:R08.2",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.2"
+   ],
+   "title": "Unramified lifts",
+   "kind": "theorem",
+   "statement": "K/ℚ_ℓ is finite with ℓ ≠ p, residue field k of order q, ρ̄ : G_K → GL_n(𝔽) continuous; lifts are to C_𝒪. If ρ̄ is unramified, the unramified lifts form a deformation problem, and its ring is formally smooth over 𝒪 in n² variables (n² − 1 with fixed unramified determinant): an unramified lift is determined by ρ(φ) ∈ GL_n(A) lifting ρ̄(φ), for a Frobenius lift φ.",
+   "hypotheses": [
+    "ρ̄ unramified; for the fixed-determinant version, χ unramified."
+   ],
+   "proofSteps": [
+    "G_K/I_K ≅ ℤ̂ and lifts of ρ̄(φ) to A form the formal neighbourhood of ρ̄(φ) in GL_n, of dimension n²; continuity is automatic since the lift of a topological generator of ℤ̂ into a pro-p neighbourhood extends uniquely.",
+    "The deformation-problem axioms hold (unramifiedness is detected on points and stable under conjugation).",
+    "With fixed determinant, det ρ(φ) = χ(φ) removes one variable."
+   ],
+   "acceptance": [
+    "n = 2, ρ̄ trivial, χ trivial: the unramified quotient R^□_{χ,ur} is formally smooth of relative dimension 3 (Gee Theorem 3.38(2)).",
+    "Unramified lifts are exactly the minimally ramified lifts when ρ̄ is unramified (CHT08 after Definition 2.4.14).",
+    "Tangent space: H¹(G_K/I_K, ad ρ̄) = coker(ρ̄(φ) − 1 on ad ρ̄), plus the n² − h⁰ framing directions."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.2/tame-splitting",
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "GlobalGaloisDeformations:R04.3/local-deformation-problem",
+    "GlobalGaloisDeformations:R04.3/deformation-problem-ideal",
+    "mathlib:MvPowerSeries"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Definition 3.36(1) and Theorem 3.38(2), p. 21",
+     "match": "The n = 2 case; the general case is the proof steps."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.4, remark after Definition 2.4.14, p. 43",
+     "match": "Unramified = minimally ramified for unramified ρ̄."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Unramified lifting ring"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.2/minimally-ramified-condition",
+   "parentStageId": "LocalGaloisDeformationRings:R08.2",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.2"
+   ],
+   "title": "Minimally ramified lifts",
+   "kind": "definition",
+   "statement": "K/ℚ_ℓ is finite with ℓ ≠ p, residue field k of order q, ρ̄ : G_K → GL_n(𝔽) continuous; lifts are to C_𝒪. A lift ρ of an m-dimensional representation ρ̄ of T_q = ℤ_p ⋊ ℤ is minimally ramified if ker(ρ(σ_q) − 1)^i ⊗_R 𝔽 → ker(ρ̄(σ_q) − 1)^i is an isomorphism for all i; a lift of ρ̄ : G_K → GL_n(𝔽) is minimally ramified if each tame piece ρ_τ (tame-splitting) is. Equivalently, the filtration Fil^i = ker(ρ(σ_q) − 1)^i is by direct summands lifting the residual one, with σ_q acting trivially on the graded pieces.",
+   "hypotheses": [
+    "The definition is independent of the generator σ_q of ℤ_p and invariant under Γ̂_n-conjugation (CHT08 remarks after Definition 2.4.14)."
+   ],
+   "proofSteps": [
+    "Γ̂_n-stability and independence of σ_q: ker(ρ(σ′) − 1)^i = ker(ρ(σ) − 1)^i for σ′ = σ^a, a prime to p.",
+    "The kernel conditions are stable under pushforward and detected along injections (CHT08 Lemma 2.4.15, Corollaries 2.4.16–2.4.17), so minimally ramified lifts form a deformation problem (Corollary 2.4.18)."
+   ],
+   "acceptance": [
+    "ρ̄ unramified: minimally ramified = unramified.",
+    "ρ̄ = (1 1; 0 1) on σ_q: a minimally ramified lift keeps ρ(σ_q) unipotent with a rank-one kernel filtration lifting the residual one.",
+    "Non-example: for ρ̄(σ_q) = 1, the lift ρ(σ_q) = (1 x; 0 1) with x ∈ m_A∖0 is not minimally ramified (the kernel drops rank)."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.2/tame-splitting",
+    "GlobalGaloisDeformations:R04.3/local-deformation-problem"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.4, Definition 2.4.14 and Corollary 2.4.18, pp. 43–44",
+     "match": "The definition; Corollary 2.4.18 shows it is a deformation problem."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.IsMinimallyRamified",
+     "role": "constructor",
+     "statement": "The minimally ramified condition on lifts of ρ̄|_{T_q} and of ρ̄."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.isMinimallyRamified_iff_filtration",
+     "role": "characterisation",
+     "statement": "Equivalent to a σ_q-unipotent filtration by direct summands lifting the residual kernel filtration."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.IsMinimallyRamified.conj",
+     "role": "compatibility",
+     "statement": "Stable under Γ̂_n-conjugation."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.minimallyRamified_deformationProblem",
+     "role": "instance",
+     "statement": "Minimally ramified lifts form a deformation problem."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:R08.2/minimally-ramified-ring",
+     "how": "its representing quotient."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.3",
+     "how": "local conditions at places v ∤ p in minimal global problems."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:L7",
+     "how": "L7's rank-n minimally ramified conditions build on this (RS-08 link)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "minRam_unramified",
+     "kind": "example",
+     "statement": "For unramified ρ̄, minimally ramified = unramified."
+    },
+    {
+     "name": "minRam_conj",
+     "kind": "characterisation",
+     "statement": "Conjugating by Γ̂_n preserves the condition."
+    },
+    {
+     "name": "minRam_non_example",
+     "kind": "non-example",
+     "statement": "ρ(σ_q) = (1 x; 0 1), x ∈ m_A∖0, lifting ρ̄(σ_q) = 1, is not minimally ramified."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.2/minimally-ramified-ring",
+   "parentStageId": "LocalGaloisDeformationRings:R08.2",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.2"
+   ],
+   "title": "The minimally ramified deformation ring",
+   "kind": "theorem",
+   "statement": "K/ℚ_ℓ is finite with ℓ ≠ p, residue field k of order q, ρ̄ : G_K → GL_n(𝔽) continuous; lifts are to C_𝒪. The minimally ramified problem D_v is liftable, its tangent space L_v has dimension h⁰(G_K, ad ρ̄), and R^loc/I(D_v) is a power series ring in n² variables over 𝒪. If p ∤ #ρ̄(I_K), a lift is minimally ramified iff it vanishes on ker ρ̄|_{I_K}, and L_v = H¹(G_K/I_K, (ad ρ̄)^{I_K}).",
+   "hypotheses": [
+    "No hypothesis on ρ̄ beyond continuity; the p ∤ #ρ̄(I_K) description is a special case."
+   ],
+   "proofSteps": [
+    "For T_q: the flag of residual kernels defines a point of a flag variety; minimally ramified lifts are lifts preserving a lifting flag with unipotent action of σ_q, and the functor is formally smooth of relative dimension m² (CHT08 Lemma 2.4.19).",
+    "dim L_v(D_T) = dim H⁰(T_q, ad ρ̄) (Corollary 2.4.20); summing over tame pieces with H⁰(G_K, ad ρ̄) = ⊕ H⁰(T_τ, ad ρ̄_τ) gives the G_K statement (Corollary 2.4.21).",
+    "If p ∤ #ρ̄(I_K): H¹(ρ̄(I_K), ad ρ̄) = 0, so minimal lifts factor through G_K/ker ρ̄|_{I_K} (Lemma 2.4.22)."
+   ],
+   "acceptance": [
+    "ρ̄ unramified: recovers unramified-lifting-ring (n² variables).",
+    "n = 2, ρ̄(I_K) of order prime to p (e.g. a tamely ramified principal series with distinct characters): the minimal ring is 𝒪[[4 variables]].",
+    "dim L_v − h⁰ = 0, the local contribution used in the global count of GlobalGaloisDeformations R04.3."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.2/minimally-ramified-condition",
+    "LocalGaloisDeformationRings:R08.2/tame-splitting",
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "GlobalGaloisDeformations:R04.3/deformation-problem-ideal",
+    "mathlib:MvPowerSeries"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.4, Corollary 2.4.21, p. 46",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.4, Lemma 2.4.22, p. 47",
+     "match": "The prime-to-p inertia case (CHT's l is our p)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Minimally ramified ring"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p",
+   "parentStageId": "LocalGaloisDeformationRings:R08.2",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.2"
+   ],
+   "title": "Structure of unrestricted lifting rings away from p",
+   "kind": "theorem",
+   "statement": "K/ℚ_ℓ is finite with ℓ ≠ p, residue field k of order q, ρ̄ : G_K → GL_n(𝔽) continuous; lifts are to C_𝒪. (1) If H⁰(G_K, (ad ρ̄)(1)) = 0 then H²(G_K, ad ρ̄) = 0 and R^□_ρ̄ is a power series ring in n² variables over 𝒪. (2) For n = 2 and fixed determinant χ: R^□_{ρ̄,χ} is equidimensional of Krull dimension 4, R^□_{ρ̄,χ}[1/p] has dimension 3, its irreducible components are regular and finitely many, and the restriction to inertia of the Weil–Deligne type (forgetting N) is constant on each component.",
+   "hypotheses": [
+    "(2) is stated for n = 2 as in Gee (who cites Böckle's survey Theorem 3.3.1); the general-n component statement is recorded through BLGGT Lemma 1.3.4 as quoted by Tung."
+   ],
+   "proofSteps": [
+    "(1): local Tate duality gives H² ≅ H⁰(ad(1))^∨ = 0, so the local ring is unobstructed of tangent dimension h¹ + n² − h⁰ = n² (local Euler characteristic 0 for ℓ ≠ p) (CHT08 Lemma 2.4.9; local-tangent-obstruction).",
+    "(2): by tame-splitting the lifts are determined by ρ(σ) and ρ(φ) with φσφ^{-1} = σ^q; the resulting explicit rings have the stated structure (Gee Theorem 3.31, Shotton for complete equations)."
+   ],
+   "acceptance": [
+    "For ρ̄ with H⁰(ad(1)) = 0 (e.g. q ≢ 1 mod p and ρ̄(φ) with eigenvalue ratios ≠ q^{±1}), R^□ is smooth.",
+    "Points on the same component of R^□[1/p] have isomorphic semisimplified restriction to inertia (Tung Lemma 3.2.8, quoting BLGGT Lemma 1.3.4).",
+    "ρ̄ trivial with q ≡ 1 mod p: R^□ is not smooth; its components are described in ihara-avoidance-components."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "LocalGaloisDeformationRings:R08.1/local-tangent-obstruction",
+    "LocalGaloisDeformationRings:R08.2/tame-splitting"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "CHT08",
+     "locator": "§2.4.3, Lemma 2.4.9, p. 40",
+     "match": "Part (1)."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Theorem 3.31, p. 19",
+     "match": "Part (2)."
+    },
+    {
+     "sourceId": "TUNG-2021",
+     "locator": "§3.2.6, Lemma 3.2.8, p. 15",
+     "match": "The general-n component statement (BLGGT Lemma 1.3.4)."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Unrestricted rings away from p"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.2/inertial-type-quotient",
+   "parentStageId": "LocalGaloisDeformationRings:R08.2",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.2"
+   ],
+   "title": "Fixed inertial type quotients",
+   "kind": "definition",
+   "statement": "For n = 2, ℓ ≠ p and an inertial Weil–Deligne type τ, R^□_{ρ̄,χ,τ} is the unique reduced p-torsion-free quotient of R^□_{ρ̄,χ} whose ℚ̄_p-points are exactly the lifts whose Weil–Deligne representation restricted to inertia is τ; it is nonzero for finitely many τ and then of Krull dimension 4 (a union of components of R^□_{ρ̄,χ}).",
+   "hypotheses": [
+    "Existence uses unrestricted-away-from-p (2): the type is constant on components of the generic fibre."
+   ],
+   "proofSteps": [
+    "Take the union of the components of Spec R^□[1/p] on which the type is τ, and the reduced p-torsion-free closure in Spec R^□."
+   ],
+   "acceptance": [
+    "τ trivial on inertia with N = 0: the unramified component.",
+    "For ρ̄ trivial, τ = (ζ, ζ^{-1}) with ζ ≠ 1 gives the components P_ζ of ihara-avoidance-components.",
+    "Only finitely many τ give nonzero quotients."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p",
+    "GlobalGaloisDeformations:R04.3/deformation-problem-ideal"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.31, after Theorem 3.31, pp. 19–20",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.typeQuotient",
+     "role": "constructor",
+     "statement": "R^□_{ρ̄,χ,τ} as a quotient of R^□_{ρ̄,χ}."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.typeQuotient_points",
+     "role": "characterisation",
+     "statement": "ℚ̄_p-points are the lifts of inertial type τ."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.typeQuotient_krullDim",
+     "role": "characterisation",
+     "statement": "Nonzero ⇒ Krull dimension 4 (n = 2)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.typeQuotient_finite",
+     "role": "relation",
+     "statement": "Only finitely many τ give nonzero quotients."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:R08.6",
+     "how": "fixed-type local conditions in global arguments."
+    },
+    {
+     "where": "GlobalGaloisDeformations:R04.3",
+     "how": "local rings R^□_v/I(D_v) of fixed type."
+    }
+   ],
+   "tests": [
+    {
+     "name": "typeQuotient_unramified",
+     "kind": "example",
+     "statement": "The trivial type with N = 0 gives the unramified quotient."
+    },
+    {
+     "name": "typeQuotient_finite",
+     "kind": "characterisation",
+     "statement": "Only finitely many types occur."
+    },
+    {
+     "name": "typeQuotient_not_torsion",
+     "kind": "non-example",
+     "statement": "The naive quotient by the equations of the type need not be p-torsion free; the definition takes the flat closure."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.2/taylor-wiles-local-ring",
+   "parentStageId": "LocalGaloisDeformationRings:R08.2",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.2"
+   ],
+   "title": "Local rings at Taylor–Wiles primes",
+   "kind": "theorem",
+   "statement": "Let n = 2, ℓ ≠ p, ρ̄ unramified with ρ̄(Frob_K) having distinct eigenvalues, q ≡ 1 mod p with p^m ∥ q − 1, and χ unramified. Then R^□_{ρ̄,χ} ≅ 𝒪[[x, y, B, u]]/((1 + u)^{p^m} − 1), with ρ^□(φ) = (1 y; x 1)^{-1} diag(α + B, χ(φ)/(α + B)) (1 y; x 1) and ρ^□(σ) = (1 y; x 1)^{-1} diag(1 + u, (1 + u)^{-1}) (1 y; x 1).",
+   "hypotheses": [
+    "Distinct Frobenius eigenvalues α ≠ β in 𝔽 and q ≡ 1 mod p."
+   ],
+   "proofSteps": [
+    "ρ^□(P_K) = 1 (pro-ℓ into pro-p); lifts are determined by ρ(φ), ρ(σ) with φ^{-1}σφ = σ^q.",
+    "By Hensel's lemma diagonalise ρ(φ) by (1 y; x 1) with eigenvalues α + a, β + b.",
+    "The relation with σ forces ρ(σ) diagonal in the same basis; χ unramified gives the second entry (1 + u)^{-1}; (1 + u)^q = 1 + u gives (1 + u)^{q−1} = 1, hence (1 + u)^{p^m} = 1."
+   ],
+   "acceptance": [
+    "m = 0 (q ≢ 1 mod p): R^□ = 𝒪[[x, y, B]], formally smooth.",
+    "The ring is flat over 𝒪[u]/((1 + u)^{p^m} − 1), the group ring of the p-part of k^×; this is the diamond operator action used in patching (R04.5).",
+    "Distinct eigenvalues are necessary: for ρ̄(Frob) scalar the ring is the Ihara-avoidance ring instead."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p",
+    "LocalGaloisDeformationRings:R08.2/tame-splitting",
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "§3.32, Lemma 3.33 and Exercise 3.34, p. 20",
+     "match": "The statement; Exercise 3.34 gives the proof steps."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Taylor–Wiles local ring"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.2/steinberg-condition",
+   "parentStageId": "LocalGaloisDeformationRings:R08.2",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.2"
+   ],
+   "title": "Steinberg (unipotent-monodromy) lifts",
+   "kind": "definition",
+   "statement": "Let ℓ ≠ p, ρ̄ trivial of dimension n, q ≡ 1 mod p. D^Stein,1 consists of the lifts ρ with char ρ(σ)(X) = (X − 1)^n for σ ∈ I_K and char ρ(φ)(X) ∈ Pol_n({n}, q), i.e. Frobenius eigenvalues of the form α, qα, …, q^{n−1}α; D^Stein is its flat closure (the quotient by λ-power torsion). For n = 2 this is Gee's P_m: char ρ(σ) = (X − 1)² and q(tr ρ(φ))² = (1 + q)² det ρ(φ). The condition records the monodromy relation; it is not the same as scalar (unipotent) inertial semisimplification, which is D^{(1,…,1)}.",
+   "hypotheses": [
+    "RS-08/stage text: a special/Steinberg condition includes monodromy and is not synonymous with a scalar inertial semisimplification."
+   ],
+   "proofSteps": [
+    "The conditions are closed, Γ̂_n-stable and detected on points, so they form deformation problems; taking the λ-torsion-free quotient keeps this (Taylor II §3)."
+   ],
+   "acceptance": [
+    "For n = 2 and ρ(σ) = (1 1; 0 1), the relation on ρ(φ) is forced: φσφ^{-1} = σ^q makes the eigenvalue ratio q.",
+    "D^Stein ⊊ D^{(1,1)}: the unramified lifts satisfy the inertia condition but not the Frobenius relation in general.",
+    "Characteristic-zero points of D^Stein have monodromy N ≠ 0 generically."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.2/tame-splitting",
+    "GlobalGaloisDeformations:R04.3/local-deformation-problem",
+    "GlobalGaloisDeformations:R04.3/deformation-problem-ideal"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "TAYLOR-II-2008",
+     "locator": "§3, definition of D^{Stein,1} and D^{Stein} before Proposition 3.1, p. 196",
+     "match": "The general-n definition."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Definition 3.36(3), p. 21",
+     "match": "The n = 2 form."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.SteinbergLifts",
+     "role": "constructor",
+     "statement": "D^Stein,1 and its flat closure D^Stein."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.steinberg_charpoly_frob",
+     "role": "characterisation",
+     "statement": "Frobenius eigenvalues in ratio q."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.steinberg_le_unipotentInertia",
+     "role": "relation",
+     "statement": "D^Stein ⊆ D^{(1,…,1)}."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.steinberg_n_two",
+     "role": "characterisation",
+     "statement": "For n = 2, the relation q(tr ρ(φ))² = (1 + q)² det ρ(φ)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:R08.2/ihara-avoidance-components",
+     "how": "the Steinberg component."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:L7",
+     "how": "L7's rank-n Steinberg conditions build on this (RS-08 link)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "stein_n_two_relation",
+     "kind": "example",
+     "statement": "For n = 2 the Steinberg relation is q(tr ρ(φ))² = (1 + q)² det ρ(φ)."
+    },
+    {
+     "name": "stein_subset_unipotent",
+     "kind": "characterisation",
+     "statement": "Every Steinberg lift has unipotent inertia."
+    },
+    {
+     "name": "stein_not_unipotent_only",
+     "kind": "non-example",
+     "statement": "An unramified lift with Frobenius eigenvalue ratio ≠ q has unipotent inertia but is not Steinberg."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:R08.2/ihara-avoidance-components",
+   "parentStageId": "LocalGaloisDeformationRings:R08.2",
+   "realises": [
+    "LocalGaloisDeformationRings:R08.2"
+   ],
+   "title": "Components for Ihara avoidance",
+   "kind": "theorem",
+   "statement": "Let ℓ ≠ p, ρ̄ trivial, q ≡ 1 mod p, characters χ_i : I_K → 1 + λ trivial mod λ. (1) If the χ_i are distinct, Spec R^□/I^{(χ_i)} is irreducible with characteristic-zero generic point and Krull dimension n² + 1. (2) R^□/(λ, I^{(χ_i)}) = R^□/(λ, I^{(1,…,1)}). (3) All components of Spec R^□/I^{(1,…,1)} have dimension n² + 1 with characteristic-zero generic points, and each prime minimal over λ contains a unique minimal prime. (4) Spec R^□/I^Stein is irreducible of dimension n² + 1. For n = 2 with χ trivial: the minimal primes of R^□_{ρ̄,χ} are √P_ur, √P_m and √P_ζ (ζ ≠ 1), with √P₁ = √P_ur ∩ √P_m, and R^□_{χ,1}/λ = R^□_{χ,ζ}/λ.",
+   "hypotheses": [
+    "These are Taylor's 'Ihara avoidance' rings; they compare Galois representations with different ramification at v ∤ p."
+   ],
+   "proofSteps": [
+    "Taylor II §3 analyses the rings through characteristic polynomials of ρ(σ) and ρ(φ) and the subschemes Pol_n(σ, q) (Proposition 3.1).",
+    "For n = 2 the rings can be written down explicitly (Shotton) and give Gee's Proposition 3.37 and Theorem 3.38."
+   ],
+   "acceptance": [
+    "n = 2: R^□_{χ,ur} is formally smooth of relative dimension 3 and R^□_{χ,m}[1/p], R^□_{χ,ζ}[1/p] are geometrically irreducible of dimension 3.",
+    "The equality of special fibres (2) is the key input to Taylor's avoidance of Ihara's lemma.",
+    "Spec R^□_{χ,1} = Spec R^□_{χ,ur} ∪ Spec R^□_{χ,m} has exactly two components."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.2/steinberg-condition",
+    "LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p",
+    "LocalGaloisDeformationRings:R08.2/inertial-type-quotient"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "TAYLOR-II-2008",
+     "locator": "§3, Proposition 3.1, p. 196",
+     "match": "Part (1); parts (2)–(4) follow in the same proposition."
+    },
+    {
+     "sourceId": "GEE-MLT-2022",
+     "locator": "Proposition 3.37 and Theorem 3.38, p. 21",
+     "match": "The n = 2 form."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Ihara avoidance components"
+   }
   }
  ],
  "requests": [
@@ -429,10 +1013,9 @@
   },
   {
    "stageId": "LocalGaloisDeformationRings:R08.2",
-   "status": "not_read",
-   "remaining": [
-    "Places away from p: unrestricted ℓ ≠ p lifting rings (flat, reduced, complete intersection of relative dimension n²), inertial types and minimally ramified/Steinberg conditions (RS-08 narrowed)."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "R08.2 (kept in full by RS-08) is planned: the tame splitting and reduction, unramified lifts, the minimally ramified condition and ring (CHT08), the unrestricted rings away from p with their components (CHT08 Lemma 2.4.9; Gee Theorem 3.31 for n = 2; BLGGT via Tung), fixed-type quotients, Taylor–Wiles local rings, Steinberg lifts including the monodromy relation, and Taylor's Ihara-avoidance components (Taylor II Proposition 3.1; Gee 3.36–3.38). Each residual hypothesis is stated in the node."
   },
   {
    "stageId": "LocalGaloisDeformationRings:R08.3",

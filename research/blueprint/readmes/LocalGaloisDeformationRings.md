@@ -1,8 +1,8 @@
 # Local Galois deformation rings — blueprint
 
 This blueprint covers stages L7, L8 and R08.1–R08.6, within the boundaries of the RS-08 restructure (accepted). This
-first checkpoint plans **R08.1 (unrestricted local rings)**, which is now source-decomposed. The other stages are not
-yet read.
+blueprint now plans **R08.1 (unrestricted local rings)** and **R08.2 (places away from p)**, both source-decomposed. The
+other stages are not yet read.
 
 ## Purpose and ownership (RS-08)
 
@@ -76,10 +76,62 @@ after Khare–Wintenberger II Proposition 3.3). Take p = n = 2 and fixed determi
 **Lemma: change of coefficients** (node `local-residue-field-change`). R^□_{ρ̄⊗𝔽′,𝒪′} ≅ R^□_{ρ̄,𝒪} ⊗̂_𝒪 𝒪′. The
 cohomological invariants and dimension bounds are unchanged.
 
+## Layer R08.2: places away from p
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/LocalAwayFromP`.
+
+Throughout, ℓ ≠ p and q = #k. RS-08 keeps R08.2 in full. Its conditions are what L7 builds on, rather than constructing
+them again.
+
+**Lemma: tame splitting** (node `tame-splitting`; CHT08 Lemma 2.4.10, Corollary 2.4.13).
+- G_K = P_K ⋊ (ℤ_p ⋊ ℤ).
+- Deformations reduce to the tame pieces ρ̄_τ = Hom_{P_K}(τ, ρ̄).
+
+**Theorem: unramified lifts** (node `unramified-lifting-ring`; planet; Gee Theorem 3.38(2), CHT08). For unramified ρ̄
+the unramified ring is 𝒪[[n² variables]], or 𝒪[[n² − 1]] with fixed determinant.
+
+**Definition: minimally ramified lifts** (`IsMinimallyRamified`; node `minimally-ramified-condition`; CHT08
+Definition 2.4.14, Corollary 2.4.18).
+- The condition: ker(ρ(σ_q) − 1)^i ⊗ 𝔽 ≅ ker(ρ̄(σ_q) − 1)^i on each tame piece.
+- The condition is independent of σ_q and Γ̂_n-stable, and defines a deformation problem.
+
+*Unit tests.*
+- For unramified ρ̄ it is the unramified condition.
+- It is conjugation-stable.
+- ρ(σ_q) = (1 x; 0 1) lifting 1 is not minimally ramified.
+
+**Theorem: the minimally ramified ring** (node `minimally-ramified-ring`; planet; CHT08 Corollary 2.4.21, Lemma
+2.4.22).
+- The problem is liftable, dim L_v = h⁰(G_K, ad ρ̄), and the ring is 𝒪[[n² variables]].
+- If p ∤ #ρ̄(I_K), then L_v = H¹(G_K/I_K, (ad ρ̄)^{I_K}).
+
+**Theorem: unrestricted rings away from p** (node `unrestricted-away-from-p`; planet; CHT08 Lemma 2.4.9, Gee Theorem
+3.31, Tung Lemma 3.2.8).
+- If H⁰(ad ρ̄(1)) = 0, the ring is 𝒪[[n²]].
+- For n = 2 with fixed determinant, R^□ is equidimensional of dimension 4, its generic fibre has dimension 3 with
+  regular components, and the inertial type is constant on components.
+
+**Definition: fixed inertial type quotients** (node `inertial-type-quotient`; Gee §3.31). R^□_{ρ̄,χ,τ} is reduced,
+p-torsion free and of dimension 4, and is nonzero for finitely many τ.
+
+**Theorem: Taylor–Wiles local rings** (node `taylor-wiles-local-ring`; planet; Gee Lemma 3.33). When ρ̄(Frob) has
+distinct eigenvalues and p^m ∥ q − 1, the ring is 𝒪[[x, y, B, u]]/((1 + u)^{p^m} − 1).
+
+**Definition: Steinberg lifts** (node `steinberg-condition`; Taylor II §3, Gee Definition 3.36(3)).
+- Unipotent inertia together with Frobenius eigenvalues in ratio q: char ρ(φ) ∈ Pol_n({n}, q).
+- For n = 2 the relation is q(tr ρ(φ))² = (1 + q)² det ρ(φ).
+- The monodromy is part of the condition. It is not the scalar-inertia condition.
+
+**Theorem: Ihara-avoidance components** (node `ihara-avoidance-components`; planet; Taylor II Proposition 3.1, Gee
+Proposition 3.37 and Theorem 3.38).
+- For distinct characters on inertia the ring is irreducible, of dimension n² + 1.
+- All these rings have the same special fibre.
+- The unipotent-inertia ring has components of dimension n² + 1.
+- The Steinberg ring is irreducible.
+- For n = 2 the minimal primes are √P_ur, √P_m and √P_ζ.
+
 ## Remaining work
 
-- **R08.2:** places away from p. The unrestricted ℓ ≠ p rings are flat, reduced complete intersections of relative
-  dimension n²; also inertial types, and minimally ramified and Steinberg conditions.
 - **R08.3:** potentially semistable deformation rings.
 - **R08.4:** finite-flat and Barsotti–Tate components.
 - **R08.5:** dyadic cases.
@@ -91,5 +143,7 @@ cohomological invariants and dimension bounds are unchanged.
 
 - T. Gee, *Modularity lifting theorems*, arXiv:2202.05818v2.
 - M. Kisin, *Lectures on deformations of Galois representations*, Lecture 1.
+- L. Clozel, M. Harris and R. Taylor, *Automorphy for some l-adic lifts …*, Publ. Math. IHÉS 108 (2008) (Numdam).
+- R. Taylor, *Automorphy for some l-adic lifts … II*, Publ. Math. IHÉS 108 (2008) (Numdam).
 - S.-N. Tung, *On the modularity of 2-adic potentially semi-stable deformation rings*, Math. Z. 298 (2021);
   arXiv:1908.06174v3.
