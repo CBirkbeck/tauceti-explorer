@@ -1,6 +1,388 @@
-# Actual character evaluation of unit pseudomeasures
+# Residue-class restrictions of bounded p-adic measures
 
-**Current checkpoint:** 332 unchecked nodes: 2 definitions, 44 constructions,
+**Current checkpoint:** 348 unchecked nodes: 2 definitions, 45 constructions, 221 lemmas, 50 theorems and 30 comparisons; 236 API items (233 on definitions/constructions), 239 packet tests (166 on definitions/constructions), 250 typed examples, 17 planets and 321 baseline references. All 332 predecessor nodes and 14 source
+findings are preserved. Eight gaps, no outgoing requests and zero closed stages
+remain. Every implementation status is unchecked.
+
+For any prime p and depth n≥0, let ρ_n:ℤ_p→ZMod(p^n) be the native reduction.
+Its fibers are clopen. The fiber of ρ_n(b) is b+p^nℤ_p, independently of any
+chosen residue representative. Over any normed commutative coefficient ring R,
+restrictResidue is the existing weight operator applied to the fiber's native
+characteristic function. It remains a measure on ℤ_p; the preceding
+restrictClopen gives its intrinsic version on the fiber.
+
+The projectors at fixed depth are orthogonal and sum to the identity. A
+coarse projector is the sum of its fine projectors under the native residue
+transition, with no normalization factor. This includes depth 0 and p=2,
+and requires no inverse of p in R. A restricted measure's mass is its actual
+finiteProjection coefficient, and its depth-n coordinates are concentrated
+at that residue. The measure itself need not be atomic. Translation by b
+pulls the class a back to a−ρ_n(b).
+
+The intrinsic comparison gives weak continuity. With a continuous ℤ_p-algebra
+structure on R, each Amice coefficient is the integral of the corresponding
+Mahler test times the residue indicator. This coefficient statement does not
+establish the p^n-th-root Fourier formula or its convergence and integral
+descent. Those remain explicit L2 targets, alongside multiplication by z^x.
+
+The source was read in the [published RJW article](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf),
+printed 124–128, and compared with arXiv v2 PDF20–21. The source states the
+clopen restriction and Fourier expression; the finite-coordinate API here is
+a worker decomposition using pinned Mathlib and the preceding packet.
+[Open Mathlib PR #23791](https://github.com/leanprover-community/mathlib4/pull/23791)
+was checked: its clopen restriction has the same characteristic-function and
+continuous-dual shape. This addition uses the current native carrier and the
+existing packet's weight map. It adds no second general restriction theory.
+
+## Residue restriction declarations
+
+### Clopen fibers of integer reduction
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-fiber-clopen` — `PadicInt.isClopen_toZModPow_fiber` (lemma).
+
+Every residue fiber C_(n,a) is clopen in Z.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. A singleton is both open and closed in the discrete finite ring ZMod(p^n). Apply native IsClopen.preimage to the existing continuity of ρ_n.
+2. The same proof covers n=0: the target ring has one element, so its unique fiber is all Z.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1/integer-reduction-continuity`, `mathlib:IsClopen.preimage`.
+
+**Acceptance:** No representative for a and no measure-theoretic measurable-set restriction is introduced.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Residue fibers as additive cosets
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-fiber-coset` — `PadicInt.toZModPow_eq_iff_sub_dvd` (lemma).
+
+For x,b∈Z, ρ_n(x)=ρ_n(b) if and only if p^n divides x−b in Z. Thus the fiber at ρ_n(b) is b+p^nZ.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. Because ρ_n is a ring homomorphism, equality of the two residues is equivalent to ρ_n(x−b)=0.
+2. Use the exact native kernel formula kerρ_n=(p^n) and the native membership criterion for a principal ideal. The divisibility witness gives the displayed affine coset.
+
+**Prerequisites:** `mathlib:PadicInt.ker_toZModPow`, `mathlib:Ideal.mem_span_singleton`.
+
+**Acceptance:** The ambient group is additive. At n=0 divisibility by 1 holds for all x,b.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Restriction to a residue class
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction` — `AbstractMeasure.restrictResidue` (construction).
+
+Define P_(n,a):D(Z,R)→ₗ[R]D(Z,R) to be the existing weight(χ_(n,a)).
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. Use residue-fiber-clopen to form the native characteristic function, then its native continuous map.
+2. Apply the existing weight linear map. Addition, zero and R-scalar preservation are inherited from that map; no new bounded-measure carrier is defined.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-fiber-clopen`, `PadicMeasuresIwasawaAlgebras:L2/weight`, `mathlib:LocallyConstant.charFn`, `mathlib:LocallyConstant.toContinuousMap`.
+
+**Acceptance:** This is restriction as an ambient measure. The intrinsic measure on the fiber is supplied by restrictClopen and compared in residue-restriction-intrinsic.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+**Uses:**
+
+- RJW §3.5.3 and Remark 3.31: The defining test formula and intrinsic comparison distinguish ambient restriction from a functional on the clopen fiber.
+- RJW §3.5.4 and the paragraph opening printed 128: The finite partition and refinement laws assemble restrictions from disjoint residue classes; n=1,a=0 recovers the preceding p-multiple projector.
+- PadicMeasuresIwasawaAlgebras:L1/finite-projection and L2 root-average target: The mass and finite-coordinate identities provide the exact integral input to quotient computations and the still-unproved prime-power Fourier comparison.
+
+**API:**
+
+- `AbstractMeasure.restrictResidue_apply` (characterisation): For f∈C(Z,R), (P_(n,a)μ)(f)=μ(χ_(n,a)f). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation.
+- `AbstractMeasure.restrictResidue_dirac` (simp): P_(n,a)(δ_x)=δ_x if ρ_n(x)=a, and zero otherwise. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-dirac.
+- `AbstractMeasure.restrictResidue_comp` (relation): P_(n,a)(P_(n,b)μ)=P_(n,a)μ when a=b, and zero when a≠b. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-composition.
+- `AbstractMeasure.sum_restrictResidue` (relation): For every n, the sum of P_(n,a)μ over all a∈ZMod(p^n) equals μ. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-partition.
+- `AbstractMeasure.restrictResidue_zero_depth` (simp): For every a∈ZMod(p^0), P_(0,a)μ=μ. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-zero-depth.
+- `AbstractMeasure.restrictResidue_refinement` (functoriality): For m≤n and a∈ZMod(p^m), P_(m,a)μ is the sum of P_(n,b)μ over exactly those b with t_(m,n)(b)=a, where t_(m,n) is native ZMod.castHom. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-refinement.
+- `AbstractMeasure.restrictResidue_mass` (compatibility): The total mass (P_(n,a)μ)(1) equals π_n(μ)(a). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-mass.
+- `AbstractMeasure.finiteProjection_restrictResidue` (compatibility): π_n(P_(n,a)μ) is the native finitely supported function single(a,π_n(μ)(a)). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-finite-coordinate.
+- `AbstractMeasure.restrictResidue_map_add` (functoriality): For b∈Z and the native continuous translation τ_b(x)=x+b, P_(n,a)((τ_b)_*μ)=(τ_b)_*(P_(n,a−ρ_n(b))μ). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-translation.
+- `AbstractMeasure.restrictResidue_eq_map_restrictClopen` (compatibility): For the native clopen s=C_(n,a), P_(n,a)μ equals inclusion pushforward of restrictClopen s R μ. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-intrinsic.
+- `AbstractMeasure.continuous_restrictResidue_weak` (relation): For fixed n,a, P_(n,a) is continuous for the native weak topology on D(Z,R). Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-weak-continuity.
+- `AbstractMeasure.restrictResidue_one_zero` (compatibility): P_(1,0)μ equals the preceding restrictMultiples p R μ. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-prime-zero.
+- `AbstractMeasure.coeff_amiceTransform_restrictResidue` (compatibility): If R is also a ℤ_p-algebra with continuous scalar action, coeff_k(A(P_(n,a)μ))=μ(χ_(n,a)·M_(R,k)), where M_(R,k) is the native R-valued Mahler test (mahler k) acting on the constant-one function. Promoted to PadicMeasuresIwasawaAlgebras:L2/residue-restriction-amice-coefficient.
+
+**Unit tests:**
+
+- `ResidueRestrictionTests.depth_zero` (degenerate): At p=2 and R=ℤ, depth 0 restriction is the identity on every measure.
+- `ResidueRestrictionTests.dyadic_inside` (computation): At p=2 and R=ℤ, the class 1 modulo 4 keeps δ_5.
+- `ResidueRestrictionTests.dyadic_outside` (non-example): The same class kills δ_3; it does not keep every odd atom.
+- `ResidueRestrictionTests.signed_atoms` (computation): At p=3 and R=ℤ, the class 1 modulo 9 sends 2δ_1−3δ_10+δ_2 to 2δ_1−3δ_10.
+- `ResidueRestrictionTests.two_distinct_fibers` (characterisation): At p=2 and R=ℤ, restrictions to classes1 and3 modulo 4 have zero composite on every measure.
+- `ResidueRestrictionTests.refine_odd` (compatibility): At p=2 and R=ℤ, odd-class restriction equals the sum of class 1 and class 3 restrictions modulo 4.
+
+### Evaluation of residue restriction
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation` — `AbstractMeasure.restrictResidue_apply` (lemma).
+
+For f∈C(Z,R), (P_(n,a)μ)(f)=μ(χ_(n,a)f).
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. Unfold only the residue-restriction wrapper and apply the existing weight evaluation theorem.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction`, `PadicMeasuresIwasawaAlgebras:L2/weight-evaluation`.
+
+**Acceptance:** There is no averaging or normalization factor.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Residue restriction of a Dirac measure
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-dirac` — `AbstractMeasure.restrictResidue_dirac` (lemma).
+
+P_(n,a)(δ_x)=δ_x if ρ_n(x)=a, and zero otherwise.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. Evaluate both sides at any continuous test f. Native Dirac evaluation gives χ_(n,a)(x)f(x).
+2. Split on the actual residue equality. Native characteristic-function evaluation gives1 in the fiber and 0 outside, including for the zero coefficient ring.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `mathlib:AbstractMeasure.dirac_apply`, `mathlib:LocallyConstant.coe_charFn`.
+
+**Acceptance:** An atom outside the fiber is killed, rather than moved to a chosen representative.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Orthogonal residue projectors
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-composition` — `AbstractMeasure.restrictResidue_comp` (lemma).
+
+P_(n,a)(P_(n,b)μ)=P_(n,a)μ when a=b, and zero when a≠b.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. Evaluation at f gives μ(χ_(n,b)χ_(n,a)f).
+2. At each x at most one residue equality holds. If a=b the product of indicators equals that indicator; if a≠b it vanishes. Apply continuous-dual extensionality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `mathlib:LocallyConstant.coe_charFn`.
+
+**Acceptance:** The equal-index case is idempotence, and distinct indices give zero without a characteristic assumption on R.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Finite residue decomposition of a measure
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-partition` — `AbstractMeasure.sum_restrictResidue` (lemma).
+
+For every n, the sum of P_(n,a)μ over all a∈ZMod(p^n) equals μ.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. At a fixed x exactly the summand indexed by ρ_n(x) has characteristic value 1. Thus the finite sum of χ_(n,a)f equals f pointwise.
+2. Linearity moves this finite sum through μ. Measure extensionality proves the identity; no infinite sum or density theorem is required.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `mathlib:LocallyConstant.coe_charFn`.
+
+**Acceptance:** The partition sum is unnormalized, even if p is a nonunit in R.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Restriction at depth zero
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-zero-depth` — `AbstractMeasure.restrictResidue_zero_depth` (lemma).
+
+For every a∈ZMod(p^0), P_(0,a)μ=μ.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. The native ring ZMod 1 is a subsingleton, so every x has the unique residue a. The characteristic test is constant1.
+2. Apply the evaluation formula and extensionality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `mathlib:LocallyConstant.coe_charFn`.
+
+**Acceptance:** Depth zero is the whole space, not an empty fiber.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Refinement of a residue restriction
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-refinement` — `AbstractMeasure.restrictResidue_refinement` (lemma).
+
+For m≤n and a∈ZMod(p^m), P_(m,a)μ is the sum of P_(n,b)μ over exactly those b with t_(m,n)(b)=a, where t_(m,n) is native ZMod.castHom.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. Use the native identity t_(m,n)∘ρ_n=ρ_m. At x the finite sum of fine indicators has a possible nonzero term only at b=ρ_n(x).
+2. That term is included precisely when ρ_m(x)=a. This proves equality with the coarse indicator, pointwise.
+3. Multiply by any continuous f, move the finite sum through μ by linearity and apply extensionality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `mathlib:LocallyConstant.coe_charFn`, `mathlib:PadicInt.zmod_cast_comp_toZModPow`.
+
+**Acceptance:** Refinement sums the fine restrictions; dividing by the number of fine fibers gives a different operator.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Mass of a residue restriction
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-mass` — `AbstractMeasure.restrictResidue_mass` (lemma).
+
+The total mass (P_(n,a)μ)(1) equals π_n(μ)(a).
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. The restriction evaluation at the constant-one test is μ(χ_(n,a)).
+2. The finiteProjection coefficient formula uses the indicator obtained by pulling the a-coordinate function back along ρ_n. Compare its values inside and outside the fiber with the native characteristic function.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L1/finite-projection-coefficient`, `mathlib:LocallyConstant.coe_charFn`.
+
+**Acceptance:** The equality is in R and uses the actual coefficient map already present in L1.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Finite coordinates of a restricted measure
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-finite-coordinate` — `AbstractMeasure.finiteProjection_restrictResidue` (lemma).
+
+π_n(P_(n,a)μ) is the native finitely supported function single(a,π_n(μ)(a)).
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. For any coordinate b, use the mass comparison to rewrite it as the mass of P_(n,b)(P_(n,a)μ).
+2. Orthogonality makes this zero unless b=a; at b=a it is π_n(μ)(a). Native finitely supported function extensionality gives the equality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-mass`, `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-composition`.
+
+**Acceptance:** It does not claim that P_(n,a)μ itself is a Dirac measure; only its depth-n coordinates are concentrated at a.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Translation covariance of residue restriction
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-translation` — `AbstractMeasure.restrictResidue_map_add` (lemma).
+
+For b∈Z and the native continuous translation τ_b(x)=x+b, P_(n,a)((τ_b)_*μ)=(τ_b)_*(P_(n,a−ρ_n(b))μ).
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. Native pushforward and the evaluation formula reduce the left side at f to μ((χ_(n,a)∘τ_b)(f∘τ_b)).
+2. The ring-homomorphism identity ρ_n(x+b)=ρ_n(x)+ρ_n(b) identifies χ_(n,a)∘τ_b with χ_(n,a−ρ_n(b)). This gives the right side by the same two evaluation formulas.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `mathlib:AbstractMeasure.map_apply`, `mathlib:LocallyConstant.coe_charFn`, `mathlib:PadicInt.toZModPow`.
+
+**Acceptance:** The preimage class is a−ρ_n(b); a plus sign would send the restriction to the wrong fiber.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+**Unit tests:**
+
+- `ResidueRestrictionTests.translation_sign` (computation): At p=3 and R=ℤ, translate δ_1 by 2 and restrict to class 0 modulo 3; the answer is δ_3.
+
+### Intrinsic and ambient residue restriction
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-intrinsic` — `AbstractMeasure.restrictResidue_eq_map_restrictClopen` (comparison).
+
+For the native clopen s=C_(n,a), P_(n,a)μ equals inclusion pushforward of restrictClopen s R μ.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. Both ambient measures evaluate at f as μ(χ_(n,a)f), by the two existing evaluation laws.
+2. Apply continuous-dual extensionality. The right-hand restriction remains a measure on the subtype until native inclusion pushforward is applied.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L0/clopen-projector-evaluation`, `mathlib:ContinuousMap.subtypeVal`.
+
+**Acceptance:** No second intrinsic restriction constructor is needed.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Weak continuity of residue restriction
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-weak-continuity` — `AbstractMeasure.continuous_restrictResidue_weak` (lemma).
+
+For fixed n,a, P_(n,a) is continuous for the native weak topology on D(Z,R).
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. The fiber is a closed subset of compact Z and hence compact.
+2. Use the intrinsic comparison and compose the existing weak continuity of clopen restriction with weak continuity of inclusion pushforward.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-intrinsic`, `PadicMeasuresIwasawaAlgebras:L0/clopen-restriction-weak-continuous`, `PadicMeasuresIwasawaAlgebras:L0/pushforward-weak-continuous`.
+
+**Acceptance:** The topology is explicitly WeakTopology on both measures; no statement equates weak and norm topologies.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### The prime-multiple residue restriction
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-prime-zero` — `AbstractMeasure.restrictResidue_one_zero` (lemma).
+
+P_(1,0)μ equals the preceding restrictMultiples p R μ.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit.
+
+**Proof outline:**
+
+1. Apply the coset criterion with n=1 and b=0: ρ_1(x)=0 exactly when p divides x.
+2. The characteristic tests in the two evaluation formulas are therefore equal. Apply extensionality.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-fiber-coset`, `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `PadicMeasuresIwasawaAlgebras:L2/restriction-evaluation`, `mathlib:LocallyConstant.coe_charFn`.
+
+**Acceptance:** This recovers the existing p-multiple projector and hence its preceding φψ description.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+### Amice coefficients after residue restriction
+
+`PadicMeasuresIwasawaAlgebras:L2/residue-restriction-amice-coefficient` — `AbstractMeasure.coeff_amiceTransform_restrictResidue` (comparison).
+
+If R is also a ℤ_p-algebra with continuous scalar action, coeff_k(A(P_(n,a)μ))=μ(χ_(n,a)·M_(R,k)), where M_(R,k) is the native R-valued Mahler test (mahler k) acting on the constant-one function.
+
+**Hypotheses:** p is any prime, including 2; n,m are natural numbers, including 0. Z=ℤ_p and ρ_n:Z→ZMod(p^n) is the native ring reduction. R is a normed commutative ring, possibly the zero ring. Measures are native D(Z,R). For a∈ZMod(p^n), C_(n,a)={x:ρ_n(x)=a} and χ_(n,a) is its native continuous characteristic function. P_(n,a) denotes restrictResidue p R n a on the ambient measure carrier; π_n is the existing finiteProjection of the continuous ρ_n. No topology on measures is implicit. For this Amice comparison only, R has an algebra structure over Z with continuous scalar action, as in the pinned Amice transform.
+
+**Proof outline:**
+
+1. Apply the pinned coefficient formula to the existing Amice transform of P_(n,a)μ.
+2. Use residue-restriction-evaluation on that fixed R-valued Mahler test. This is one coefficient at a time, with no interchange of an infinite sum and a measure.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L2/residue-restriction-evaluation`, `mathlib:AbstractMeasure.coeff_amiceTransform`.
+
+**Acceptance:** This coefficient identity is not the Fourier expression with p^n-th roots; convergence and integral descent for that expression remain separate targets.
+
+**Source:** Section 3.5.3, Remark 3.31 and equation (3-5), printed 127/PDF28; Section 3.5.4–5, printed 127–128/PDF28–29. Full printed 124–128 freshly read; collated with arXiv v2 PDF20–21. Worker decomposition of residue-fiber restriction and its finite partition laws on the native continuous dual. The normed-ring generality follows from the existing weighting and clopen APIs. This does not establish the prime-power Fourier formula (3-5), which additionally requires root translations, convergence and integral descent.
+
+**Unit tests:**
+
+- `ResidueRestrictionTests.first_moment` (computation): At p=2 and R=ℤ₂, the coefficient of T after restricting δ_5 to class 1 modulo 4 is 5.
+
+## Preceding checkpoint: actual character evaluation
+
+
+**Preceding checkpoint:** 332 unchecked nodes: 2 definitions, 44 constructions,
 208 lemmas, 50 theorems and 28 comparisons. There are 223 API items (220 on
 definitions/constructions), 231 packet tests (160 on definitions/constructions),
 242 typed examples, 17 planets and 319 baseline citations. Eight gaps,
@@ -8526,7 +8908,7 @@ Errata wrapper,whole-object preservation,reader/signature/test parity and
 scope checks pass. The reachable graph contains277 nodes,1125
 acyclic edges and288 native leaves,with no unresolved stage leaves.
 All265 preceding whole nodes,274 baseline records,14 findings,17 planets
-and preceding suggested Lean bytes are preserved. Public bodies stay sorry;
+and preceding suggested Lean bytes are preserved. Public bodies retain proof placeholders;
 all implementation statuses stay unchecked.
 
 The actual unit system now supplies arbitrary locally constant and continuous discrete-valued test descent, dense cylinder tests, and measure separation by finite, joint and diagonal coordinates. Construct the inverse from compatible integral finite coordinates: define evaluation on a finite test by its coordinate pairing, prove independence of the chosen level by refinement, establish a uniform bound and extend continuously, then prove the inverse identities. Compare this with the existing ProfiniteProPGroups Layer9 completed group algebra and establish the joint coefficient/group topological equivalence. General adic-coefficient and finite-extension comparisons remain. The Dirichlet request has its specific-unit separation but still needs the actual measure/completed-algebra equivalence. Retain the RS16 coefficient powers together with finite-group kernels ((1+T)^(p^n)−1), including the integral dyadic case. No completed carrier or general uniform-local-constancy theorem is rebuilt.
