@@ -1,8 +1,9 @@
-# BP-LocalGaloisDeformationRings: R08.1–R08.2 (checkpoint 2)
+# BP-LocalGaloisDeformationRings: R08.1–R08.3 and part of L7 (checkpoint 3)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #770. **Status: partial.**
 - R08.1 and R08.2 are `source_decomposed`.
-- L7, L8 and R08.3–R08.6 are `not_read`.
+- R08.3 and L7 are `partial`.
+- L8 and R08.4–R08.6 are `not_read`.
 
 This works within RS-08, whose review accepted it.
 
@@ -37,9 +38,51 @@ The generic functors and theorems are reused from the GlobalGaloisDeformations p
 
 New sources: CHT08 and Taylor II, both open access on Numdam. The deformation-problem nodes are reused from GlobalGaloisDeformations R04.3 (#3806, merged).
 
+## Checkpoint 3: R08.3 (7 nodes) and L7's height lattices (2 nodes)
+
+The source is Kisin, *Potentially semi-stable deformation rings*, JAMS 21 (2008). The AMS PDF is free, and printed
+page = PDF page + 512.
+
+**L7** (RS-08 makes L7 own the rank-general bounded-height lattices):
+- `finite-height-lattices`. Uniqueness is Kisin 2006, 2.1.12, with the gap repaired in Kisin 2008 Errata (E.4).
+- `height-lattice-moduli` (Kisin 1.3, 1.5.1, 1.6.4, 1.7). It includes the K = ℚ₂ example showing that Θ is not a
+  closed immersion integrally.
+
+**R08.3:**
+- `hodge-and-galois-types`;
+- `semistable-height-quotient` (Theorem 2.5.5);
+- `hodge-type-components` (Corollary 2.6.2);
+- `pst-deformation-ring` (Theorem 2.7.6 and Corollary 2.7.7). The integral ring is the reduced, p-torsion-free
+  closure, as in Gee 3.28, and the ω example shows it can be empty.
+- `filtered-phi-N-deformations` (Kisin 3.1.2–3.3.1);
+- `pst-generic-fibre` (Theorem 3.3.4). Only a dense open is smooth, as Kisin's footnote on Breuil–Mézard (ii) shows.
+- `pcris-generic-smooth` (Theorem 3.3.8, Gee 3.28);
+- `pst-coefficient-change`.
+
+**Reused (other packets' nodes):**
+- PadicHodgeTheory R06.1–R06.3: B_st, D_st, filtered (φ, N, Gal)-modules, weak admissibility, Colmez–Fontaine,
+  D_pst, WD(V), the HT(χ_p) = +1 convention and coefficient change.
+- AdicSpacesPartII F0/grothendieck-algebraization.
+
+**New requests:**
+- FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.4 (Breuil–Kisin modules).
+- AlgebraicModuliForArithmeticGeometry R09.1 (Grassmannians).
+- DeformationAndDerivedPatchingAlgebra R03.3 (dim R = dim R[1/p] + 1).
+
+**Still open:**
+- R08.3: nonemptiness for R24's local types (KW II §3.2's lifts at places above p). This should be planned with R08.6.
+- L7: ordinary full-flag moduli, Fontaine–Laffaille conditions and ordinary functors.
+- Kisin §4 (Hilbert modular forms) is automorphic and not planned here.
+
 ## Suggested Lean file
 
 `suggested/LocalGaloisDeformationRings.lean` imports Mathlib only. It compiles against the pinned Mathlib 082e2d3 oleans with 0 errors and 4 `sorry` warnings. Its two matrix examples are proved by `simp`.
+
+Checkpoint 3 adds two proved items:
+- `flagDim`, the (d² − Σ m²)/2 of Kisin's dimension formula, with four `decide` checks;
+- `X_not_dvd_pow`, which says u ∤ E(u)^h.
+
+The ring-level signatures for L7 and R08.3 are in the comment block.
 
 The ring-level signatures, which use the GlobalGaloisDeformations functors, are in a comment block.
 
@@ -50,11 +93,16 @@ The ring-level signatures, which use the GlobalGaloisDeformations functors, are 
 
 ## What a continuation should do
 
-1. **R08.3:** potentially semistable rings (Kisin, "Potentially semi-stable deformation rings", on arXiv or the author's page).
-2. **R08.4–R08.6, L7 and L8.** For general n away from p, Shotton's explicit GL₂ equations and BLGGT (arXiv:1010.2561) §1.3 are the next free sources.
+1. **R08.4:** instantiate L7's `height-lattice-moduli` with h = 1 in rank two (Kisin's Moduli paper, Annals 2009, and
+   the 2-adic paper). The connectedness and component statements need the image, not just the source.
+2. **R08.3 nonemptiness and R08.6:** KW II §3.2 (the authors' final version is free on Khare's UCLA page; see the
+   GlobalGaloisDeformations packet) constructs the lifts at places above p.
+3. **R08.5, the rest of L7, and L8.** For general n away from p, Shotton's explicit GL₂ equations and BLGGT (arXiv:1010.2561) §1.3 are the next free sources.
 
 ## Sources read
 
 - Gee, arXiv:2202.05818v2, §3.1–3.19.
 - Kisin, Lecture 1.
 - Tung, arXiv:1908.06174v3, §3.2.5.
+- Kisin, JAMS 21 (2008): Introduction, §1, §2.5–2.7, §3 and the Errata for [Ki 2].
+- Gee, §3.27–3.28.
