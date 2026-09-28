@@ -1,13 +1,34 @@
-# BP-GL2ModularityLifting--R22.1: R22.1–R22.2 (checkpoint 1)
+# BP-GL2ModularityLifting--R22.1: R22.1–R22.4 (checkpoint 2)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #735. **Status: partial.**
-- R22.1 and R22.2 are `source_decomposed`.
-- R22.3–R22.6, R32.1 and R32.2 are `not_read`.
+- R22.1–R22.4 are `source_decomposed`.
+- R22.5, R22.6, R32.1 and R32.2 are `not_read`.
 
 This works within RS-08, whose review accepted it. It also follows RS-23 for the split with
 HilbertModularVarietiesAndShimuraCurves R18.3.
 
-## What is planned (11 nodes, 4 planets)
+## Checkpoint 2: R22.3–R22.4 (9 nodes, 6 planets)
+
+**R22.3:**
+- `arithmetic-patching-data`.
+- `patched-ring-and-module`: KW II Proposition 9.2 (I).
+- `patched-support`: the depth count, via R03.6's maximal-depth nodes.
+- `minimal-ring-finite`: Proposition 9.2 (II), minimal level only.
+- `generic-fibre-r-equals-t`: Proposition 9.2 (III), by Auslander–Buchsbaum.
+
+**R22.4:**
+- `ihara-avoidance-comparison`: Gee's 𝒮_Q/𝒮′_Q, using LocalGaloisDeformationRings R08.2.
+- `support-transfer-mod-lambda`: R03.6's nearly-faithful-lift-from-special-fibre and patching descent.
+- `modularity-from-full-support`: Gee Lemma 5.7.
+- `integral-r-equals-t-when-smooth`: KW II §4.2 remarks, with R03.3's free-of-maximal-depth-regular-local.
+
+**New requests:**
+- DeformationAndDerivedPatchingAlgebra R03.5: abstract patching, not yet planned.
+- DeformationAndDerivedPatchingAlgebra R03.3: Auslander–Buchsbaum over R_∞[1/p].
+
+**Lean:** a new `omega` check of the dimension count; still 0 errors, 0 warnings.
+
+## Checkpoint 1: what is planned (11 nodes, 4 planets)
 
 **R22.1 (5 nodes):**
 - `minimal-level-data`: D, U, W_k, ψ and 𝔪 from π fitting the lifting data. This is actual eigenform data, and no R = T
@@ -53,8 +74,8 @@ prebuilt Mathlib 082e2d3 oleans, with 0 errors and 0 warnings.
 
 ## What a continuation should do
 
-1. **R22.3.** Patch the systems of GlobalGaloisDeformations R04.6/taylor-wiles-deformation-system and
-   `taylor-wiles-module-system`.
+1. **Done in checkpoint 2:** R22.3 and R22.4. What follows is kept for reference. R22.3 patches the systems of
+   GlobalGaloisDeformations R04.6/taylor-wiles-deformation-system and `taylor-wiles-module-system`.
    - Use the proof of KW II Proposition 9.2 and Gee's §5.6 patching, with DeformationAndDerivedPatchingAlgebra R03.5 and
      R03.6 (`patched-module-support-theorem`, `r-equals-t-*`).
    - Record the numerical coincidence (GlobalGaloisDeformations R04.6/patching-numerology).

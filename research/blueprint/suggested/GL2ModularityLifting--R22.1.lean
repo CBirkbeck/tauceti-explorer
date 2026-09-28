@@ -5,7 +5,7 @@ import Mathlib.Algebra.Polynomial.Splits
 import Mathlib.Tactic.Ring
 
 /-!
-# Suggested Lean forms: GL₂ modularity lifting, R22.1–R22.2 (GL2ModularityLifting, part R22.1)
+# Suggested Lean forms: GL₂ modularity lifting, R22.1–R22.4 (GL2ModularityLifting, part R22.1)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`GL2ModularityLifting`) is definitive. The statements below suggest Lean forms, so that
@@ -47,5 +47,9 @@ example {R : Type*} [CommRing R] (A B x : R) : (x - A) * (x - B) = x ^ 2 - (A + 
 `(𝔸_F^∞)^×` whenever `Nm z = z²` there. -/
 example {M : Type*} [CommGroup M] (χ z : M) (h : χ ^ 2 = 1) : (χ * z) ^ 2 = z ^ 2 := by
   rw [mul_pow, h, one_mul]
+
+/-- `R22.3/patched-support`: the dimension count `1 + d + (h + j − d) = 1 + h + j` for the power
+series ring over the local ring (with `d ≤ h + j`). -/
+example (d h j : ℕ) (hd : d ≤ h + j) : 1 + d + (h + j - d) = 1 + h + j := by omega
 
 end TauCeti.ModularityLifting.SuggestedTest
