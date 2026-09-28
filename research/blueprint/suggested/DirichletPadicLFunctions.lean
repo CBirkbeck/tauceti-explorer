@@ -4629,3 +4629,70 @@ example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPri
     (twistedSmoothedMeasure p n χ 1 h1).amiceTransform = 0 := sorry
 end SuggestedAdditiveRationalTests
 end DirichletPadic
+
+/-! ## The source two-fraction form of the arithmetic Gauss sum -/
+namespace DirichletPadic
+open scoped AbstractMeasure BigOperators
+open AbstractMeasure PowerSeries
+variable (p : ℕ) [Fact p.Prime]
+variable {K : Type*} [NormedField K] [Algebra ℤ_[p] K]
+  [IsUltrametricDist K] [CompleteSpace K] [IsBoundedSMul ℤ_[p] K]
+
+lemma smoothedAdditiveTwist_root_pow_ne_one (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) (hc : e c ≠ 1) : e c ^ a ≠ 1 := sorry
+
+lemma smoothedAdditiveTwist_amice_fractions (n : ℕ) (e : AddChar (ZMod (p^n)) K)
+    (c : ZMod (p^n)) (a : ℕ) (ha : ¬p∣a) (hc : e c ≠ 1) :
+    (smoothedAdditiveTwist p n e c a ha).amiceTransform =
+      (C (e c)*(1+X)-1)⁻¹ - C (a : K)*((C (e c)*(1+X))^a-1)⁻¹ := sorry
+
+lemma twistedSmoothedMeasure_gauss_fractions (n : ℕ) (hn : 1≤n)
+    (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+    (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+    (a : ℕ) (ha : ¬p∣a) :
+    (twistedSmoothedMeasure p n χ a ha).amiceTransform =
+      (gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one))⁻¹ •
+      ∑ c : ZMod (p^n), χ⁻¹ c •
+        ((C (ε^c.val)*(1+X)-1)⁻¹ -
+          C (a : K)*((C (ε^c.val)*(1+X))^a-1)⁻¹) := sorry
+
+namespace SuggestedGaussFractionTests
+-- nonidentity_root_odd_smoothing
+example : (-1 : ℚ_[2])^3 ≠ 1 := sorry
+-- nonidentity_root_bad_smoothing
+example : (-1 : ℚ_[2])^2 = 1 := sorry
+-- fraction_dyadic_sign
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] (e : AddChar (ZMod 2) ℚ_[2]) (he : e 1 = -1) :
+    (smoothedAdditiveTwist 2 1 e 1 3 (by norm_num)).amiceTransform =
+      (-(1+X)-1)⁻¹ - C (3 : ℚ_[2])*(-(1+X)^3-1)⁻¹ := sorry
+-- fraction_identity_root_failure
+example [IsBoundedSMul ℤ_[2] ℚ_[2]] :
+    (((1+X)-1 : ℚ_[2]⟦X⟧)⁻¹ - C (3 : ℚ_[2])*((1+X)^3-1)⁻¹).coeff 0 ≠
+      (smoothedAdditiveTwist 2 1 (1 : AddChar (ZMod 2) ℚ_[2]) 0 3
+        (by norm_num)).amiceTransform.coeff 0 := sorry
+-- fraction_one_smoothing
+example (n : ℕ) (e : AddChar (ZMod (p^n)) K) (c : ZMod (p^n))
+    (h1 : ¬p∣1) (hc : e c ≠ 1) :
+    (smoothedAdditiveTwist p n e c 1 h1).amiceTransform =
+      (C (e c)*(1+X)-1)⁻¹-(C (e c)*(1+X)-1)⁻¹ := sorry
+-- gauss_fraction_zero_index
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (a : ℕ) :
+    χ⁻¹ (0 : ZMod (p^n)) •
+      ((((1+X)-1 : K⟦X⟧))⁻¹-C (a : K)*((1+X)^a-1)⁻¹) = 0 := sorry
+-- gauss_fraction_total_mass
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+    (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+    (a : ℕ) (ha : ¬p∣a) :
+    twistedSmoothedMeasure p n χ a ha 1 =
+      (gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one))⁻¹ *
+      ∑ c : ZMod (p^n), χ⁻¹ c *
+        ((ε^c.val-1)⁻¹-(a : K)*((ε^c.val)^a-1)⁻¹) := sorry
+-- gauss_fraction_one_smoothing
+example (n : ℕ) (hn : 1≤n) (χ : DirichletCharacter K (p^n)) (hχ : χ.IsPrimitive)
+    (ε : K) (hε : IsPrimitiveRoot ε (p^n))
+    (hG : gaussSum χ⁻¹ (AddChar.zmodChar (p^n) hε.pow_eq_one) ≠ 0)
+    (h1 : ¬p∣1) : (twistedSmoothedMeasure p n χ 1 h1).amiceTransform = 0 := sorry
+end SuggestedGaussFractionTests
+end DirichletPadic
