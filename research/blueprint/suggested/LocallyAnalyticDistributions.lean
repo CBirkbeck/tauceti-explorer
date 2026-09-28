@@ -1,3 +1,7 @@
+import Mathlib.Algebra.Polynomial.Derivative
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.FieldSimp
+import Mathlib.Tactic.Ring
 import Mathlib.RingTheory.PowerSeries.GaussNorm
 import Mathlib.RingTheory.PowerSeries.Restricted
 import Mathlib.Topology.MetricSpace.Cauchy
@@ -2181,3 +2185,44 @@ example (n : ℕ) (B : PowerSeries A) (hB : IsEntire B) (hB0 : B.coeff 0 = 0) :
 end EntireFixedCharacteristic
 end TauCeti.NonarchimedeanFredholm
 end
+
+/-!
+## L0–L2: locally analytic functions, the Amice transform and order-r distributions
+
+Signatures (comment only; the objects are Colmez's `LA_h`, `D(ℤ_p, L)`, `C^r` and `D_r`):
+
+```
+-- L0/locally-analytic-radius, locally-analytic-distributions
+def LAh (h : ℕ) : Type _            -- LA_h(ℤ_p, L), Banach with v_{LA_h}
+def LA : Type _ := lim→ LAh          -- inductive-limit (compact type) topology
+def Dist : Type _ := LA →L[L] L      -- Fréchet dual = lim← (LAh h)′
+theorem amice_mahler_basis (h : ℕ) : IsOrthonormalBasis (fun n ↦ ((n / p ^ h)! : L) • binomial n)
+-- L1/amice-transform
+def amice : Dist ≃L[L] OpenDiscFunctions L   -- μ ↦ Σ Tⁿ ∫ C(x, n) μ
+-- L2/order-r-distributions, amice-velu-vishik
+def DistOrder (r : ℝ≥0) : Submodule L Dist   -- extends continuously to C^r
+theorem amice_velu_vishik (r : ℝ≥0) (N : ℕ∞) (hN : ⌊r⌋₊ ≤ N) (μ : LocPoly N →ₗ[L] L)
+    (hμ : ∃ C, ∀ a k n, k ≤ N → C - r * n ≤ v (μ (ballMonomial a n k))) :
+    ∃! μ' ∈ DistOrder r, ∀ f, μ' f = μ f
+```
+-/
+
+namespace TauCeti.LocallyAnalytic.SuggestedTest
+
+/-- `L0/amice-mahler-basis`: `v_3((3²)!) = (3² − 1)/(3 − 1) = 4`, the size of `C(x, 9)` in `LA₀`. -/
+example : Nat.factorial 9 % 3 ^ 4 = 0 ∧ Nat.factorial 9 % 3 ^ 5 ≠ 0 := by
+  norm_num [Nat.factorial]
+
+/-- `L2/amice-velu-vishik`: `d^{N+1}δ₀` kills every polynomial of degree `≤ N`, so uniqueness fails at
+`r = N + 1`. -/
+example (P : Polynomial ℚ) (N : ℕ) (h : P.natDegree ≤ N) :
+    Polynomial.derivative^[N + 1] P = 0 :=
+  Polynomial.iterate_derivative_eq_zero (by omega)
+
+/-- `L2/order-zero-measures`: the Haar distribution `μ(a + pⁿℤ_p) = p^{−n}` is additive over the `p`
+sub-balls. -/
+example (p : ℚ) (hp : p ≠ 0) (n : ℕ) : (p ^ n)⁻¹ = p * (p ^ (n + 1))⁻¹ := by
+  field_simp
+  ring
+
+end TauCeti.LocallyAnalytic.SuggestedTest

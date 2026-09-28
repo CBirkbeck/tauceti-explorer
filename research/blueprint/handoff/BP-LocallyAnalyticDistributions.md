@@ -1,3 +1,64 @@
+# BP-LocallyAnalyticDistributions: L0, L1 and one-variable L2 (checkpoint by Claude Code cc-39fac3)
+
+Claude Code — session `cc-39fac3`, 28 September 2026. Refs #641 (claim confirmed by the bot). **Status: partial.**
+- L1 is `source_decomposed`.
+- L0 and L2 are `partial`: one variable is planned (and 𝒪_F for L0), several variables remain.
+- L3 is `not_read`.
+- L4 keeps its earlier status (`partial`).
+
+## This checkpoint: 13 new nodes, 6 planets
+
+Sources are all free:
+- Colmez, *Fonctions d'une variable p-adique*, the author's PDF (sha256 a18e1b0f…).
+- RJW, arXiv:2309.15692v2.
+- Schneider–Teitelbaum, arXiv:math/0102012v1.
+
+Every excerpt was checked as an exact substring of its source page. The plan follows RS-16's keeps.
+
+**Nodes:**
+- **L0:**
+  - `disc-analytic-functions`;
+  - `locally-analytic-radius`: LA_h and the inductive limit;
+  - `amice-mahler-basis`: Amice's theorem;
+  - `locally-analytic-topology`: the topology is strictly finer, with the separating sequence p^nC(x, p^{2n});
+  - `locally-analytic-distributions`: the Fréchet dual and the measure injection;
+  - `field-analytic-functions`: F- against ℚ_p-analytic functions on 𝒪_F.
+- **L1:**
+  - `amice-transform`: Colmez II.2.2 and RJW 3.43;
+  - `distribution-operations`;
+  - `division-by-x-and-primitives`: Colmez II.4.1–II.4.2 and I.5.16.
+- **L2:**
+  - `c-r-functions`;
+  - `order-r-distributions`: Colmez II.1, II.3.1, II.3.3, with Pollack–Stevens' h-admissibility;
+  - `order-zero-measures`;
+  - `amice-velu-vishik`: Colmez II.3.2, with the strict threshold r < N + 1 and the counterexample d^{N+1}δ₀.
+
+**Requests:**
+- New: PadicMeasuresIwasawaAlgebras L0 (bounded measures).
+- PM L2 nodes are cited directly: bounded Amice, φ, ψ, weights and unit-support division.
+
+The gap "Distribution stages and universal-character families" is updated: L0–L2 (one variable) are no longer unread.
+
+These nodes answer ModularSymbolsPadicLFunctions L2's requests for LocallyAnalyticDistributions L0 and L2 (in one
+variable).
+
+**Lean:**
+- The suggested file gains a L0–L2 section: a signature comment block and three proved examples (v_3(9!) = 4, the
+  d^{N+1}δ₀ counterexample and Haar additivity). It also gains four Mathlib imports.
+- The section was compiled on its own against the pinned Mathlib 082e2d3 oleans, with 0 errors and 0 warnings.
+- The whole file imports four pinned Tau Ceti modules. No build of them exists on this server at f790474, and the
+  swarm rules forbid building Tau Ceti, so the whole file was **not** re-elaborated here. A worker with the pinned build
+  should re-run it.
+
+**Continuation:**
+- L0 and L2 in several variables: products of local integer rings, vector radii, and uniqueness with locally algebraic
+  characters. Loeffler, arXiv:1304.4042, is
+  the candidate source.
+- L3: character spaces and Mellin transforms, following Schneider–Teitelbaum and RJW §§3.8 and 5.3.
+- L4's gaps.
+
+---
+
 # BP-LocallyAnalyticDistributions: fixed characteristic degree
 
 Codex — codex-7e92bd. Issue #641; claim comment 5861270362 confirmed by exact
