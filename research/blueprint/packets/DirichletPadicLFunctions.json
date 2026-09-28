@@ -10,7 +10,7 @@
     "DirichletPadicLFunctions:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all318 predecessor nodes whole. Eight nodes derive finite polynomial cancellation and translation identities for the arithmetic smoothing measure, its additive rational Amice expression, and the resulting rational Gauss formula. Smoothing denominators are proved nonzero; the Gauss denominator remains explicit. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
+  "summary": "Partial continuation preserving all326 predecessor nodes whole. Three L2 nodes justify the nonidentity-root smoothing power, convert the actual additive transform to two inverse series, and recover the source finite Gauss formula with zero-index weighting handled explicitly. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -2737,6 +2737,13 @@
         "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
         "provides": "Over a field, if Q has nonzero constant coefficient then F=B*Q⁻¹ if and only if F*Q=B, using the native formal-series inverse.",
         "checked": "Complete native statement and ambient ring, monoid, natural-number or field hypotheses read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026. The relevant exact algebraic step is verified in the complete native probe."
+      },
+      {
+        "ref": "mathlib:PowerSeries.constantCoeff_inv",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "provides": "Over a field, the constant coefficient of the native inverse series is the inverse of its constant coefficient, also when that constant is zero.",
+        "checked": "Complete native declaration and ambient field hypothesis read at pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28September2026, alongside the inverse-zero and inverse-cancellation statements."
       }
     ]
   },
@@ -21505,6 +21512,187 @@
       "acceptance": [
         "The two denominator conditions are distinct: smoothing denominators are established here, while G≠0 remains an explicit primitive-Gauss hypothesis."
       ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/smoothed-additive-root-power",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "Nonidentity after a valid smoothing power",
+      "kind": "lemma",
+      "statement": "If ε_c≠1, then ε_c^a≠1.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. Let n≥0, e:AddChar(ZMod(p^n),K), c∈ZMod(p^n), ε_c=e(c), a∈N with p∤a, and U_c=C(ε_c)(1+T) in the actual K[[T]]. Let μ_(n,e,c,a) be the preceding actual additive-weighted smoothing measure and A its native Amice transform.",
+        "For the first two lemmas require ε_c≠1. For the final finite Gauss comparison instead take n≥1, χ primitive at p^n, a primitive p^n-th root ε in K, e=AddChar.zmodChar(p^n,ε), and explicitly G=gaussSum(χ⁻¹,e)≠0. The zero residue is treated by its character weight. Every inverse of a series is the native field-coefficient PowerSeries inverse, whose cancellation law requires a nonzero constant coefficient."
+      ],
+      "proofSteps": [
+        "The preceding smoothed-additive-denominator theorem gives Q_a(ε_c)=Σ_(i<a)ε_c^i≠0 under p∤a.",
+        "The native geom_sum_mul identity says Q_a(ε_c)(ε_c−1)=ε_c^a−1. If ε_c^a=1, a product of the two nonzero field elements Q_a(ε_c) and ε_c−1 would vanish, a contradiction.",
+        "This reuses the previously proved arithmetic denominator rather than introducing a second generic order-of-root theorem. The dyadic controls distinguish the permitted odd smoothing power3 from the excluded even power2."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/smoothed-additive-denominator",
+        "mathlib:geom_sum_mul"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GaussFractions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedAdditiveTwist_root_pow_ne_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and the displayed arithmetic specialization immediately after its proof, published140–141/PDF41–42; complete readings retained from the immediately preceding28September2026 checkpoint.",
+          "excerpt": "Applying the above transformation",
+          "match": "Worker denominator-qualified comparison with the exact source arithmetic two-fraction expression. The preceding actual-measure finite-polynomial identity is converted using native unit-series inverses. Nonidentity roots justify both denominators; at zero residue the multiplicative character vanishes. This neither defines a Laurent inverse at the identity root nor supplies generic primitive Gauss nonvanishing. Existing E1 and E11 remain whole."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGaussFractionTests.nonidentity_root_odd_smoothing",
+          "kind": "computation",
+          "statement": "In Q_2, (−1)^3≠1."
+        },
+        {
+          "name": "SuggestedGaussFractionTests.nonidentity_root_bad_smoothing",
+          "kind": "non-example",
+          "statement": "In Q_2, (−1)^2=1; the even smoothing parameter is excluded."
+        }
+      ],
+      "acceptance": [
+        "The scalar p^n need not be inverted. The only new hypothesis beyond the arithmetic denominator theorem is ε_c≠1."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/smoothed-additive-fractions",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The two-fraction form of an additive twist",
+      "kind": "lemma",
+      "statement": "If ε_c≠1, then A_(μ_(n,e,c,a))=(U_c−1)⁻¹−C(a)(U_c^a−1)⁻¹.",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. Let n≥0, e:AddChar(ZMod(p^n),K), c∈ZMod(p^n), ε_c=e(c), a∈N with p∤a, and U_c=C(ε_c)(1+T) in the actual K[[T]]. Let μ_(n,e,c,a) be the preceding actual additive-weighted smoothing measure and A its native Amice transform.",
+        "For the first two lemmas require ε_c≠1. For the final finite Gauss comparison instead take n≥1, χ primitive at p^n, a primitive p^n-th root ε in K, e=AddChar.zmodChar(p^n,ε), and explicitly G=gaussSum(χ⁻¹,e)≠0. The zero residue is treated by its character weight. Every inverse of a series is the native field-coefficient PowerSeries inverse, whose cancellation law requires a nonzero constant coefficient."
+      ],
+      "proofSteps": [
+        "The constant coefficients of U_c−1 and U_c^a−1 are ε_c−1 and ε_c^a−1. They are nonzero by the hypothesis and smoothed-additive-root-power. Native PowerSeries.mul_inv_cancel therefore applies to both displayed inverse series.",
+        "Write Q=Σ_(i<a)U_c^i and B=Σ_(i<a)Σ_(j<i)U_c^j as finite abbreviations. The preceding actual-measure cancellation gives Q A_μ=B. Native finite geometric summation gives (U_c−1)Q=U_c^a−1 and (U_c−1)B=Q−C(a).",
+        "Multiply the cancellation equation successively by U_c−1. It follows that (U_c−1)(U_c^a−1)A_μ=(U_c^a−1)−C(a)(U_c−1). Cancel the two justified unit series using their native inverse identities. The complete native proof performs this algebra inside K[[T]], without treating that ring as a field.",
+        "At ε_c=1 both displayed denominator series have zero constant coefficient, so their native inverses are zero. The two-fraction expression would have constant coefficient0, whereas the actual a=3,p=2 unweighted twist has constant coefficient1. The explicit failure test explains why the preceding finite-polynomial quotient, which includes the identity root, cannot be replaced indiscriminately."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/smoothed-additive-amice-cancellation",
+        "DirichletPadicLFunctions:L2/smoothed-additive-root-power",
+        "DirichletPadicLFunctions:L2/smoothed-additive-rational",
+        "mathlib:mul_geom_sum",
+        "mathlib:PowerSeries.mul_inv_cancel",
+        "mathlib:PowerSeries.inv_eq_zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GaussFractions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.smoothedAdditiveTwist_amice_fractions"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and the displayed arithmetic specialization immediately after its proof, published140–141/PDF41–42; complete readings retained from the immediately preceding28September2026 checkpoint.",
+          "excerpt": "Applying the above transformation",
+          "match": "Worker denominator-qualified comparison with the exact source arithmetic two-fraction expression. The preceding actual-measure finite-polynomial identity is converted using native unit-series inverses. Nonidentity roots justify both denominators; at zero residue the multiplicative character vanishes. This neither defines a Laurent inverse at the identity root nor supplies generic primitive Gauss nonvanishing. Existing E1 and E11 remain whole."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGaussFractionTests.fraction_dyadic_sign",
+          "kind": "computation",
+          "statement": "For p=2,n=1,a=3,e(1)=−1, A_μ=(−(1+T)−1)⁻¹−3(−(1+T)^3−1)⁻¹."
+        },
+        {
+          "name": "SuggestedGaussFractionTests.fraction_identity_root_failure",
+          "kind": "non-example",
+          "statement": "At the identity additive root for p=2,a=3, the totalized two-fraction expression has constant coefficient0 and differs from the actual additive transform, whose constant coefficient is1."
+        },
+        {
+          "name": "SuggestedGaussFractionTests.fraction_one_smoothing",
+          "kind": "degenerate",
+          "statement": "For a=1 and ε_c≠1, the actual additive transform is the difference of the same two inverse series and is0."
+        }
+      ],
+      "acceptance": [
+        "The factor a in the second term is essential. Both inverse identities are justified separately; no inverse of T or unrestricted formal root substitution is introduced."
+      ]
+    },
+    {
+      "id": "DirichletPadicLFunctions:L2/twisted-smoothed-gauss-fractions",
+      "parentStageId": "DirichletPadicLFunctions:L2",
+      "realises": [
+        "DirichletPadicLFunctions:L2"
+      ],
+      "title": "The source two-fraction Gauss formula",
+      "kind": "comparison",
+      "statement": "For e from the primitive root ε and G≠0, A_(τ_n,χ,a)=G⁻¹ • Σ_(c∈ZMod(p^n)) χ⁻¹(c) • [(C(ε^(c.val))(1+T)−1)⁻¹−C(a)((C(ε^(c.val))(1+T))^a−1)⁻¹].",
+      "hypotheses": [
+        "p is any prime, including2. K is a complete ultrametric normed field with a Z_p-algebra structure and bounded Z_p scalar action. Let n≥0, e:AddChar(ZMod(p^n),K), c∈ZMod(p^n), ε_c=e(c), a∈N with p∤a, and U_c=C(ε_c)(1+T) in the actual K[[T]]. Let μ_(n,e,c,a) be the preceding actual additive-weighted smoothing measure and A its native Amice transform.",
+        "For the first two lemmas require ε_c≠1. For the final finite Gauss comparison instead take n≥1, χ primitive at p^n, a primitive p^n-th root ε in K, e=AddChar.zmodChar(p^n,ε), and explicitly G=gaussSum(χ⁻¹,e)≠0. The zero residue is treated by its character weight. Every inverse of a series is the native field-coefficient PowerSeries inverse, whose cancellation law requires a nonzero constant coefficient."
+      ],
+      "proofSteps": [
+        "Begin with the preceding twisted-smoothed-gauss-amice equality for the actual arithmetic measures, taking the native additive character e associated with ε.",
+        "For c≠0, native ZMod.val_ne_zero and val_lt give0<c.val<p^n. Native IsPrimitiveRoot.pow_ne_one_of_pos_of_lt shows ε^(c.val)≠1, and zmodChar_apply identifies this scalar with e(c). Apply smoothed-additive-fractions to that summand.",
+        "For c=0, n≥1 and primality give p^n>1, so ZMod(p^n) is nontrivial. Native MulChar.map_zero gives χ⁻¹(0)=0. Both weighted summands are therefore zero; no inverse cancellation at the identity root occurs. Nonunit nonzero indices are also harmless because their character coefficient vanishes.",
+        "Finite sum congruence proves the equality. Applying constantCoeff and its native inverse formula gives the total-mass test, including the zero-weight term. At a=1 the two fractions coincide term by term.",
+        "The all-residue notation uses native totalized inverses but agrees with the source sum over units because nonunit character values are zero. The primitive-root hypothesis supplies the required nonidentity values; G≠0 remains an explicit independent condition."
+      ],
+      "prerequisites": [
+        "DirichletPadicLFunctions:L2/twisted-smoothed-gauss-amice",
+        "DirichletPadicLFunctions:L2/smoothed-additive-fractions",
+        "mathlib:AddChar.zmodChar_apply",
+        "mathlib:IsPrimitiveRoot.pow_ne_one_of_pos_of_lt",
+        "mathlib:ZMod.val_ne_zero",
+        "mathlib:ZMod.val_lt",
+        "mathlib:MulChar.map_zero",
+        "mathlib:MulChar.map_nonunit",
+        "mathlib:PowerSeries.constantCoeff_inv",
+        "mathlib:AbstractMeasure.coeff_amiceTransform"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/DirichletPadic/GaussFractions",
+        "namespace": "DirichletPadic",
+        "declaration": "DirichletPadic.twistedSmoothedMeasure_gauss_fractions"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "Lemma5.4 and the displayed arithmetic specialization immediately after its proof, published140–141/PDF41–42; complete readings retained from the immediately preceding28September2026 checkpoint.",
+          "excerpt": "Applying the above transformation",
+          "match": "Worker denominator-qualified comparison with the exact source arithmetic two-fraction expression. The preceding actual-measure finite-polynomial identity is converted using native unit-series inverses. Nonidentity roots justify both denominators; at zero residue the multiplicative character vanishes. This neither defines a Laurent inverse at the identity root nor supplies generic primitive Gauss nonvanishing. Existing E1 and E11 remain whole."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "SuggestedGaussFractionTests.gauss_fraction_zero_index",
+          "kind": "degenerate",
+          "statement": "At every positive p-power level, the zero-residue character weight times the totalized two-fraction expression is0."
+        },
+        {
+          "name": "SuggestedGaussFractionTests.gauss_fraction_total_mass",
+          "kind": "compatibility",
+          "statement": "The total mass is G⁻¹Σ_cχ⁻¹(c)[(ε^(c.val)−1)⁻¹−a((ε^(c.val))^a−1)⁻¹]."
+        },
+        {
+          "name": "SuggestedGaussFractionTests.gauss_fraction_one_smoothing",
+          "kind": "degenerate",
+          "statement": "For a=1 the actual multiplicative twist has zero Amice transform."
+        }
+      ],
+      "acceptance": [
+        "This recovers the exact arithmetic two-fraction expression after Lemma5.4. It does not identify complex and p-adic fields or supply the subsequent L-value formula."
+      ]
     }
   ],
   "requests": [
@@ -21537,7 +21725,7 @@
       "stageId": "DirichletPadicLFunctions:L2",
       "status": "partial",
       "remaining": [
-        "The actual pure p-power arithmetic twist now has an explicit finite Gauss sum of rational power series B_a(ε(1+T))/Q_a(ε(1+T)), with finite polynomials Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Every arithmetic smoothing denominator is proved nonzero at the constant term, including zero index and p=2. Next compare the eligible nonidentity-root terms with the source two-fraction expression, construct and compare the complex smoothed Gauss kernel, and derive the pure p-power Bernoulli and Dirichlet interpolation values. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. No generic higher-root substitution of arbitrary formal series is asserted."
+        "The actual pure p-power smoothed twist now satisfies the source two-fraction Gauss formula under explicit primitive-character, primitive-root and nonzero-Gauss hypotheses. Each nonzero-residue denominator is a unit series; the zero-residue term is removed by its character weight before any cancellation. Next reindex the smoothing factor to compare with the existing formal tameSeries at modulus p^n, which is eligible over a field where p^n is a unit even though the actual tameMeasure requires p-coprime modulus. Then use the existing formal Bernoulli and coefficient-algebra moment interfaces to derive the pure p-power interpolation formula, and compare the complex smoothed Gauss kernel and Mellin normalization. Generic primitive Gauss nonvanishing, analytic p-adic branches, p-adic logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
       ]
     },
     {
@@ -21571,7 +21759,7 @@
     {
       "title": "L2 remaining source decomposition and interfaces",
       "neededBy": [],
-      "detail": "The actual pure p-power arithmetic twist now has an explicit finite Gauss sum of rational power series B_a(ε(1+T))/Q_a(ε(1+T)), with finite polynomials Q_a(U)=Σ_(i<a)U^i and B_a(U)=Σ_(i<a)Σ_(j<i)U^j. Every arithmetic smoothing denominator is proved nonzero at the constant term, including zero index and p=2. Next compare the eligible nonidentity-root terms with the source two-fraction expression, construct and compare the complex smoothed Gauss kernel, and derive the pure p-power Bernoulli and Dirichlet interpolation values. Complete primitive Gauss nonvanishing and conductor/product comparisons through their existing owner, analytic p-adic branches, p-adic logarithmic and degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open. No generic higher-root substitution of arbitrary formal series is asserted."
+      "detail": "The actual pure p-power smoothed twist now satisfies the source two-fraction Gauss formula under explicit primitive-character, primitive-root and nonzero-Gauss hypotheses. Each nonzero-residue denominator is a unit series; the zero-residue term is removed by its character weight before any cancellation. Next reindex the smoothing factor to compare with the existing formal tameSeries at modulus p^n, which is eligible over a field where p^n is a unit even though the actual tameMeasure requires p-coprime modulus. Then use the existing formal Bernoulli and coefficient-algebra moment interfaces to derive the pure p-power interpolation formula, and compare the complex smoothed Gauss kernel and Mellin normalization. Generic primitive Gauss nonvanishing, analytic p-adic branches, p-adic logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open."
     },
     {
       "title": "L3 remaining source decomposition and interfaces",
@@ -21871,41 +22059,41 @@
     "intake": "Exactly four authorized deliverables; zero problems.",
     "sourceIssues": "All16 predecessor source findings and sourceVersions remain whole; no new finding or independent verdict.",
     "validation": {
-      "nodes": 326,
+      "nodes": 329,
       "kinds": {
         "definition": 1,
-        "lemma": 153,
+        "lemma": 155,
         "construction": 33,
         "theorem": 91,
-        "comparison": 48
+        "comparison": 49
       },
       "api": 305,
-      "packetTests": 430,
+      "packetTests": 438,
       "definitionConstructionTests": 163,
-      "typedExamples": 433,
+      "typedExamples": 441,
       "planets": 24,
-      "baseline": 389,
-      "preservedWholeNodes": 318,
-      "preservedBaseline": 383,
+      "baseline": 390,
+      "preservedWholeNodes": 326,
+      "preservedBaseline": 389,
       "preservedSourceIssues": 16,
       "newSourceIssues": 0,
-      "newNodes": 8,
-      "newNamedDeclarations": 8,
-      "newTypedTests": 18,
+      "newNodes": 3,
+      "newNamedDeclarations": 3,
+      "newTypedTests": 8,
       "requests": 1,
       "gaps": 5,
       "closedStages": 0,
-      "reachableNodes": 500,
-      "dependencyEdges": 2358,
+      "reachableNodes": 503,
+      "dependencyEdges": 2376,
       "acyclic": true,
-      "baselineLeaves": 507,
+      "baselineLeaves": 508,
       "stageRequestLeaves": [
         "PadicMeasuresIwasawaAlgebras:L1"
       ],
-      "readerWords": 128621,
+      "readerWords": 130409,
       "scopedMutationCheck": true,
       "compilerErrors": 0,
-      "compilerWarnings": 907,
+      "compilerWarnings": 918,
       "allWarningsPlaceholders": true,
       "supplierNodes": 332,
       "currentSupplierNodes": 332,
@@ -21915,20 +22103,19 @@
       "pinnedTauCetiModules": 21,
       "actualSupplierModules": 1,
       "scratchCompleteDefinitions": 0,
-      "scratchCompleteLemmas": 10,
-      "scratchMathlibModules": 2035,
+      "scratchCompleteLemmas": 4,
+      "scratchMathlibModules": 2620,
       "scratchErrors": 0,
       "scratchWarnings": 0,
       "scratchPlaceholders": 0,
       "finiteControls": {
-        "geometricPolynomialIdentities": 93,
-        "triangularPolynomialIdentities": 93,
-        "denominatorNonzero": 93,
-        "rationalCoefficientChecks": 837,
-        "zeroIndexMoments": 126,
-        "dyadicSignMoments": 21,
-        "badSmoothingDenominators": 6,
-        "dyadicDisplayedCoefficients": 3
+        "nonidentityRootPowers": 75,
+        "denominatorPairs": 75,
+        "twoFractionCoefficients": 675,
+        "identityRootFailures": 12,
+        "zeroIndexWeights": 15,
+        "normalizedGaussCoefficients": 135,
+        "oneParameterCancellations": 25
       },
       "numericalControlsCertified": true,
       "newRoutesStageLeaves": []
@@ -21936,14 +22123,14 @@
     "lean": {
       "status": "compiled with only expected placeholder warnings",
       "errors": 0,
-      "warnings": 907,
-      "sha256": "efea4a3df523e5050016cceddd70278a76b20bf959ebd157ae46a9d405eb77c5",
+      "warnings": 918,
+      "sha256": "8862f2c190a19006c48f90f0888e943db62b065a8719c29ac7f74feb87d7d69c",
       "nativeProbe": {
-        "completeLemmas": 10,
+        "completeLemmas": 4,
         "errors": 0,
         "warnings": 0,
         "placeholders": 0,
-        "sha256": "aebee2c6edc5e771cc601c6c1f92eaea6b24957642e71e40861a5db9f2671608"
+        "sha256": "04038b36280ddac016532ecf0f13cd9f44ef8409dbaa6022088941e1db32b843"
       },
       "artifactReuse": {
         "compiledSupplierNodes": 332,
@@ -22012,16 +22199,16 @@
         "nativeArtifactFileCount": 105,
         "predecessorAgainstCurrentSupplier": {
           "exitCode": 0,
-          "sourceSha256": "4477ce76fd202ad70dadbfa3a56b622a784059ecc39a7345ee979cbf45712d5b",
+          "sourceSha256": "efea4a3df523e5050016cceddd70278a76b20bf959ebd157ae46a9d405eb77c5",
           "modules": 3568,
-          "warnings": 881,
+          "warnings": 907,
           "errors": 0
         },
         "scope": "Actual current332-node supplier artifact reused from preceding PR3303. Both that exact predecessor and this Dirichlet checkpoint compile against it. Existing pinned native artifacts only;21Tau modules in combined source closure,105 artifact files hash-checked. Supplier used an existing two-module native build; main used21 existing native artifacts through one symlink root. Original native build receipt/source pins and zero-warning logs checked, without claiming to reread retired native-src copies. No Lake setup, update, cache fetch or native library build."
       }
     },
     "publication": {
-      "base": "367652bb2a612bc8a7b11f919383d63f664d2e61",
+      "base": "19539f0c74162f5370a70ab1c2aaa94b35e9d36f",
       "unchangedInputs": 54,
       "unchangedOutputs": 4,
       "sameSessionFollowupAfterMerge": true,
@@ -26280,6 +26467,43 @@
         "dyadicDisplayedCoefficients": 3
       },
       "numericalMethod": "Exact rational arithmetic in Q[X]/Phi_(p^n), for conductors2,3,4,5,8,9. Full finite-polynomial geometric and triangular identities are compared coefficientwise; denominator inverses are certified by rational Gaussian elimination, and nine coefficients of each quotient are checked. Independent ordinary-moment controls convert the coefficients using Stirling numbers and compare with the preceding Bernoulli formula at zero index and with raw minus twice unit-restricted moments for the dyadic sign character. Bad smoothing controls remove the p-coprimality hypothesis and produce zero denominators. No numerical approximation or unrestricted substitution of a formal series is used."
+    },
+    "gaussFractions": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "issue": 713,
+      "claimComment": 5854790528,
+      "winningBot": 5854791937,
+      "previousPR": 3308,
+      "previousHead": "aae470916a6887e2f28e189c4ba7ab3006380a09",
+      "previousMerge": "19539f0c74162f5370a70ab1c2aaa94b35e9d36f",
+      "preservedWholeNodes": 326,
+      "preservedBaseline": 389,
+      "preservedFindings": 16,
+      "newNodes": 3,
+      "reading": "The immediately preceding complete readings of published137/PDF38 and140–141/PDF41–42, and the earlier full140–143 reading, remain the source basis. In particular the displayed specialization after Lemma5.4 on published141 fixes the sign and smoothing scalar of the two fractions. Fresh complete native readings cover the actual field-coefficient power-series inverse and its constant coefficient, additive characters from primitive roots, primitive-root nonidentity at bounded positive exponents, native residue bounds, and character vanishing at zero. Four complete native lemmas check the geometric nonvanishing argument, finite triangular identity, cancellation of the two actual unit series and the primitive-root character evaluation. All16 existing source findings remain unchanged.",
+      "boundary": "The actual pure p-power smoothed twist now satisfies the source two-fraction Gauss formula under explicit primitive-character, primitive-root and nonzero-Gauss hypotheses. Each nonzero-residue denominator is a unit series; the zero-residue term is removed by its character weight before any cancellation. Next reindex the smoothing factor to compare with the existing formal tameSeries at modulus p^n, which is eligible over a field where p^n is a unit even though the actual tameMeasure requires p-coprime modulus. Then use the existing formal Bernoulli and coefficient-algebra moment interfaces to derive the pure p-power interpolation formula, and compare the complex smoothed Gauss kernel and Mellin normalization. Generic primitive Gauss nonvanishing, analytic p-adic branches, p-adic logarithmic/degree-zero values, full source extraction and the PMIA L1 completed-algebra comparison remain open.",
+      "inputBase": "19539f0c74162f5370a70ab1c2aaa94b35e9d36f",
+      "sourceBoundary": "All16 source findings and sourceVersions remain whole; no new finding or verdict. The comparison uses native inverses only at justified unit series and removes the identity-root Gauss term by its zero character weight.",
+      "publication": {
+        "base": "19539f0c74162f5370a70ab1c2aaa94b35e9d36f",
+        "unchangedInputs": 54,
+        "unchangedOutputs": 4,
+        "sameSessionFollowupAfterMerge": true,
+        "lastClaimConfirmation": 5854791937,
+        "reviewIssue": 390,
+        "reviewUnclaimed": true
+      },
+      "finiteControls": {
+        "nonidentityRootPowers": 75,
+        "denominatorPairs": 75,
+        "twoFractionCoefficients": 675,
+        "identityRootFailures": 12,
+        "zeroIndexWeights": 15,
+        "normalizedGaussCoefficients": 135,
+        "oneParameterCancellations": 25
+      },
+      "numericalMethod": "Exact arithmetic in Q[X]/Phi_(p^n), for conductors2,3,4,5,8,9. Independently expand the earlier finite-polynomial quotient and each of the two inverses through degree8, certifying constant inverses by rational Gaussian elimination. Check every nonzero residue and three p-coprime smoothing parameters. The identity-root control uses the native totalized power-series inverse convention and records its disagreement with the actual pole-cancelled quotient; the primitive-character Gauss sum removes that term by its zero weight. No analytic approximation or Laurent inversion is used."
     }
   },
   "requestResolutions": [
