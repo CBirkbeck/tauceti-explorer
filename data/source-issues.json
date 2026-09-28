@@ -148099,6 +148099,26 @@
    "reviewReason": null
   },
   {
+   "id": "ProbabilisticAndMetricNumberTheory/E9",
+   "kind": "misprint",
+   "locator": "Exercise 1.1.7, printed p. 9 (PDF p. 17); Exercise 7 of the 2010 blog notes, same wording.",
+   "printed": "The source asserts a decomposition P = P′ + P′′ in which each of P′, P′′ has degree s.",
+   "correction": "'where P′, P′′ are polynomials of degree at most s'.",
+   "reason": "If P is already totally equidistributed on T (e.g. P(n) = n√2 with s = 1), the decomposition has P′′ constant, of degree 0 < s; likewise P′ = 0 when P is periodic. Only 'at most s' is always achievable, and it is what the argument gives.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The maintained errata list (teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 items): not listed.",
+    "The blog post's reader comments and corrections: not raised."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Terence Tao, Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori, Graduate Studies in Mathematics 142, American Mathematical Society, 2012; read in the author's preliminary version of 5 June 2012, 'made available with permission of the publisher', linked from the author's book page. Section 1.1 is the 2010 lecture notes '254B, Notes 1', which were also read.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "QSeriesPartitionsAndMockModularForms/E101",
    "kind": "misprint",
    "locator": "Solution to Exercise 1.91(d), p. 188 of the author's posted PDF of the second edition (printed Cambridge edition p. 166), line 4 of the solution",
