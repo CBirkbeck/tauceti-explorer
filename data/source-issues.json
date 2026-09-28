@@ -136151,6 +136151,25 @@
    "reviewReason": null
   },
   {
+   "id": "GlobalGaloisDeformations/E1",
+   "kind": "misprint",
+   "locator": "Lecture 1, (1.2), p. 1",
+   "printed": "We say that G satisﬁes the condition Φp if for all ﬁnite index subgroups G′ ⊂ G the maximal pro-p quotient of G′ is topologically ﬁnitely generated. This is equivalent to asking that Hom(G, Fp) is ﬁnite dimensional.",
+   "correction": "“This is equivalent to asking that Hom(G′, 𝔽_p) is finite dimensional for every open G′ ⊂ G” (as the same notes' Exercise 1 states).",
+   "reason": "Finiteness of Hom(G, 𝔽_p) for G alone is strictly weaker: for p odd, G = (∏_ℕ ℤ/p) ⋊ ℤ/2 with ℤ/2 acting by inversion has abelianisation ℤ/2 (the commutators a^{-2} fill ∏ ℤ/p since 2 is invertible), so Hom(G, 𝔽_p) = 0, while its open subgroup ∏_ℕ ℤ/p of index 2 has infinite Hom to 𝔽_p and is not topologically finitely generated. Exercise 1 on p. 4 of the same notes states the correct equivalence with all open subgroups.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Kisin's Harvard notes page (people.math.harvard.edu/~kisin/notes/), fetched 2026-09-28: a single 4-page PDF, no revision or errata listed."
+   ],
+   "owner": "GlobalGaloisDeformations",
+   "file": "research/blueprint/packets/GlobalGaloisDeformations.json",
+   "citation": "Mark Kisin, Lectures on deformations of Galois representations (Lecture 1), Lecture notes on the author's Harvard page, 4 pages (Lecture 1: deformations of representations of profinite groups).",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GrossZagierAndArithmeticHeights/E1",
    "kind": "misprint",
    "locator": "§1, 'Some conventions', p. 69 (SLMath PDF p. 4); against §9, p. 119 (PDF p. 54)",
