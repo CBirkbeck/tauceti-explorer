@@ -164,4 +164,19 @@ example {R : Type*} [CommRing R] (x y p w winv : R) (h : w * winv = 1) :
     x * y - p * w = w * ((winv * x) * y - p) := by
   linear_combination (-(x * y)) * h
 
+/-- `L8/determinant-ordinary-ring`, n = 2: a diagonal lift `diag(u, w)` with characters `u`, `w`
+satisfies the ordered-product relation (6.2.8): `(ρ(g₁) − χ₁(g₁))(ρ(g₂) − χ₂(g₂)) = 0`. -/
+example {R : Type*} [CommRing R] (u₁ w₁ u₂ w₂ : R) :
+    (!![u₁, 0; 0, w₁] - u₁ • (1 : Matrix (Fin 2) (Fin 2) R)) *
+      (!![u₂, 0; 0, w₂] - w₂ • (1 : Matrix (Fin 2) (Fin 2) R)) = 0 := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- `L8/determinant-flag-comparison`, the final dimension inequality doubled, with `A = n²`,
+`B = n(n+1)`, `C = n(n+1)[F_v:ℚ_p]` and `m = [F_v:ℚ_p]`: if `B + 4 ≤ 2m` (i.e. `m > n(n+1)/2 + 1`) and `n ≥ 1`,
+then `2(1 + n²) + n(n+1) + n(n+1)m − 2m ≤ 2(n² − 1) + n(n+1)m`. -/
+example (A B C m : ℕ) (hA : 1 ≤ A) (h : B + 4 ≤ 2 * m) :
+    2 * (1 + A) + B + C ≤ 2 * (A - 1) + C + 2 * m := by
+  omega
+
 end TauCeti.GaloisDeformation.Local.SuggestedTest

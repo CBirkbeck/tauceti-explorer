@@ -13,7 +13,7 @@
   "LocalGaloisDeformationRings:R08.6"
  ],
  "status": "partial",
- "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38). Checkpoint 3 plans R08.3 (Kisin's potentially semistable deformation rings: types, the semistable and Hodge-type quotients, pst rings of fixed type with their crystalline loci and reduced p-torsion-free integral rings, filtered (φ, N)-module deformation theory, Kisin's dimension formula with generic smoothness, smoothness for potentially crystalline rings, and change of coefficients). It also plans L7's bounded-height lattice moduli (Kisin, JAMS 2008, §1), which RS-08 makes L7 own. R08.3 and L7 are partial. Checkpoint 4 plans R08.6's exports for KW II §3 (11 nodes): smooth resolutions (Proposition 2.12), the local conditions, the archimedean, Fontaine–Laffaille, weight-two, ordinary (Proposition 3.6), semistable, endpoint and away-from-p rings with their dimensions, the completed tensor product (Proposition 3.2) and local nonemptiness, which also closes R08.3. Checkpoint 5 plans R08.4 (12 nodes): flat deformation rings, the moduli of finite flat models (L7 with height 1), Raynaud's case, the generic fibre, Kisin's resolution with its local structure, components through the special fibre, ordinary types, the rank-two connectedness and component comparison of Kisin's Moduli paper, and Savitt's weight-two rings.",
+ "summary": "Blueprint for local Galois deformation rings, within the RS-08 boundaries (accepted). This first checkpoint plans R08.1 as RS-08 keeps it: the G_K specialisations of GlobalGaloisDeformations R04.1's functors — the local framed deformation ring, its tangent and obstruction description with the dimension bound from local Tate duality and the local Euler characteristic, fixing the determinant, forgetting the framing, the archimedean rings (formally smooth for odd p; the explicit odd ring 𝒪[[·]]/(a² + bc − 1) at p = 2), and change of coefficients. Stages L7, L8 and R08.2–R08.6 remain. Checkpoint 2 adds R08.2 (places away from p): tame splitting, unramified and minimally ramified lifts and rings, unrestricted rings and their components, fixed inertial types, Taylor–Wiles local rings, Steinberg lifts with monodromy, and Ihara-avoidance components (CHT08, Taylor II, Gee §3.29–3.38). Checkpoint 3 plans R08.3 (Kisin's potentially semistable deformation rings: types, the semistable and Hodge-type quotients, pst rings of fixed type with their crystalline loci and reduced p-torsion-free integral rings, filtered (φ, N)-module deformation theory, Kisin's dimension formula with generic smoothness, smoothness for potentially crystalline rings, and change of coefficients). It also plans L7's bounded-height lattice moduli (Kisin, JAMS 2008, §1), which RS-08 makes L7 own. R08.3 and L7 are partial. Checkpoint 4 plans R08.6's exports for KW II §3 (11 nodes): smooth resolutions (Proposition 2.12), the local conditions, the archimedean, Fontaine–Laffaille, weight-two, ordinary (Proposition 3.6), semistable, endpoint and away-from-p rings with their dimensions, the completed tensor product (Proposition 3.2) and local nonemptiness, which also closes R08.3. Checkpoint 5 plans R08.4 (12 nodes): flat deformation rings, the moduli of finite flat models (L7 with height 1), Raynaud's case, the generic fibre, Kisin's resolution with its local structure, components through the special fibre, ordinary types, the rank-two connectedness and component comparison of Kisin's Moduli paper, and Savitt's weight-two rings. Checkpoint 6 plans L8 (source_decomposed) from ACC+ §6.2.6 — Λ_v, the determinant-ordinary rings, Lemmas 6.2.9 and 6.2.11, the point criteria and Proposition 6.2.12 — and adds to L7 the ordinary flag scheme and its image R^△_v, ACC+ Proposition 6.2.10 (source proof a gap: Thorne 2015 not obtained) and Skinner–Wiles' residually split nearly ordinary rings.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -38,6 +38,13 @@
     "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
     "provides": "Continuous H²(G, M).",
     "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits (2026-09-28)"
+   },
+   {
+    "ref": "mathlib:Module.Finite",
+    "kind": "class",
+    "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+    "provides": "Finite modules (Lemma 6.2.9).",
+    "checked": "name, kind and module confirmed in the pinned declaration index"
    }
   ]
  },
@@ -163,6 +170,28 @@
    "readSections": [
     "§1, Conjecture 1.1, Theorems 1.2–1.3 and Remark 1.7, pp. 1–4",
     "§6.6, Theorems 6.22–6.24 and the start of their proof, pp. 41–43"
+   ]
+  },
+  {
+   "id": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+   "title": "Potential automorphy over CM fields",
+   "authors": "Patrick B. Allen, Frank Calegari, Ana Caraiani, Toby Gee, David Helm, Bao V. Le Hung, James Newton, Peter Scholze, Richard Taylor and Jack A. Thorne",
+   "edition": "arXiv:1812.09999v2, 218 pages; published in Ann. of Math. (2) 197 (2023), no. 3, 897–1113. Page numbers are those of the arXiv v2 PDF (printed page = PDF page).",
+   "url": "https://arxiv.org/pdf/1812.09999v2",
+   "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c",
+   "readSections": [
+    "2026-09-28 (cc-39fac3, checkpoint 6): §6.2.5–6.2.6 (ordinary deformations: Λ_v, 𝒢_v, R^△_v, R^{det,ord}_v, Lemma 6.2.9, Proposition 6.2.10, Lemma 6.2.11, Proposition 6.2.12 with proof), pp. 137–141; the bibliography entries [Ger19], [Tho15], [CS19a]."
+   ]
+  },
+  {
+   "id": "SKINNER-WILES-1999",
+   "title": "Residually reducible representations and modular forms",
+   "authors": "C. M. Skinner and A. J. Wiles",
+   "edition": "Publications mathématiques de l'IHÉS 89 (1999), 5–126, DOI 10.1007/BF02698855; Numdam open-access scan (OCR text layer; printed page = PDF page + 3).",
+   "url": "http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf",
+   "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3",
+   "readSections": [
+    "2026-09-28 (cc-39fac3, checkpoint 6): §2.1, Lemma 2.2 and Corollary 2.3 with proofs, pp. 11–13, read on the page images."
    ]
   }
  ],
@@ -2831,6 +2860,572 @@
    "planet": {
     "name": "Height-lattice moduli"
    }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L8/ordinary-coefficient-ring",
+   "parentStageId": "LocalGaloisDeformationRings:L8",
+   "realises": [
+    "LocalGaloisDeformationRings:L8"
+   ],
+   "title": "The universal character coefficient rings Λ_v and Λ̃_v",
+   "kind": "construction",
+   "statement": "Let F_v/ℚ_p be finite, 𝒪 the ring of integers of a finite extension E/ℚ_p with residue field k, and ρ̄ : G_{F_v} → GL_n(k) with a G_{F_v}-stable full flag 0 = Fil⁰ ⊂ ⋯ ⊂ Filⁿ = kⁿ, graded characters χ̃_i : G_{F_v} → k^× and χ̄_i = χ̃_i|_{I_{F_v}}. Let 𝒪_{F_v}^×(p) be the pro-p completion of 𝒪_{F_v}^×, with Art_{F_v} : 𝒪_{F_v}^×(p) ≅ I^{ab}_{F_v}(p). For a nonempty set of minimal primes of 𝒪[[𝒪_{F_v}^×(p)ⁿ]] with intersection 𝔞, Λ_v = 𝒪[[𝒪_{F_v}^×(p)ⁿ]]/𝔞; 𝔞 corresponds to a fixed collection of ordered n-tuples of characters of the torsion subgroup of I^{ab}_{F_v}(p). For each i the universal character χ_i^univ : I_{F_v} → Λ_v^× is the Teichmüller lift of χ̄_i times the map sending I_{F_v} to the i-th copy of 𝒪_{F_v}^×(p) via Art_{F_v}^{−1}. With Λ̃_v = 𝒪[[F_v^×(p)ⁿ]] ⊗_{𝒪[[𝒪_{F_v}^×(p)ⁿ]]} Λ_v, the χ_i^univ extend to χ̃_i^univ : G_{F_v} → Λ̃_v^× lifting χ̃_i.",
+   "hypotheses": [
+    "v | p; the flag on ρ̄ is part of the data."
+   ],
+   "proofSteps": [
+    "𝒪[[𝒪_{F_v}^×(p)ⁿ]] ≅ 𝒪[Δⁿ][[ℤ_p^{n[F_v:ℚ_p]}]] with Δ the torsion; its minimal primes are indexed by Galois orbits of characters of Δⁿ, which gives the description of 𝔞.",
+    "F_v^×(p) ≅ 𝒪_{F_v}^×(p) × ϖ^{ℤ_p}, so Λ̃_v adds one free variable per i for Frobenius, and χ̃_i^univ is χ_i^univ on inertia and the Teichmüller lift of χ̃_i(Frob) times the new variable on ϖ."
+   ],
+   "acceptance": [
+    "The chosen torsion components are part of the data: Λ_v is not a domain in general.",
+    "Λ̃_v, not Λ_v, carries characters of the whole decomposition group."
+   ],
+   "prerequisites": [
+    "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+    "mathlib:MvPowerSeries"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, p. 138 (arXiv v2; printed page = PDF page)",
+     "excerpt": "6.2.6. Ordinary deformations.",
+     "match": "Λ_v, 𝔞 and the universal characters."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:L7/ordinary-flag-scheme",
+     "how": "the inertial characters of the graded pieces."
+    },
+    {
+     "where": "LocalGaloisDeformationRings:L8/determinant-ordinary-ring",
+     "how": "the characters χ̃_i^univ in (6.2.7)–(6.2.8)."
+    },
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+     "how": "local ordinary conditions of the global rings."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.ordinaryWeightRing",
+     "role": "constructor",
+     "statement": "Λ_v = 𝒪[[𝒪_{F_v}^×(p)ⁿ]]/𝔞 for a chosen set of minimal primes."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.universalInertialCharacter",
+     "role": "constructor",
+     "statement": "χ_i^univ : I_{F_v} → Λ_v^×."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.ordinaryWeightRingTilde",
+     "role": "constructor",
+     "statement": "Λ̃_v and χ̃_i^univ : G_{F_v} → Λ̃_v^×."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.universalInertialCharacter_residual",
+     "role": "characterisation",
+     "statement": "χ_i^univ ≡ χ̄_i modulo the maximal ideal."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.minimalPrimes_torsionCharacters",
+     "role": "equivalence",
+     "statement": "Minimal primes ↔ Galois orbits of torsion characters."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ordinaryWeightRing_Qp",
+     "kind": "example",
+     "statement": "F_v = ℚ_p, p odd: 𝒪_{ℚ_p}^×(p) ≅ 1 + pℤ_p ≅ ℤ_p is torsion-free, so Λ_v = 𝒪[[X_1, …, X_n]] with 𝔞 = 0."
+    },
+    {
+     "name": "ordinaryWeightRing_torsion",
+     "kind": "example",
+     "statement": "F_v = ℚ_p(ζ_p): 𝒪_{F_v}^×(p) has torsion μ_p, so 𝒪[[𝒪_{F_v}^×(p)]] has several minimal primes once ζ_p ∈ 𝒪, and 𝔞 selects tuples of characters of μ_pⁿ."
+    },
+    {
+     "name": "ordinaryWeightRing_n_one",
+     "kind": "example",
+     "statement": "n = 1: χ_1^univ is the universal deformation of χ̄_1|_{I_{F_v}} with values in Λ_v, and Λ̃_v adds the Frobenius variable."
+    }
+   ],
+   "planet": {
+    "name": "Universal character coefficient ring Λ_v"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/ordinary-flag-scheme",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "The ordinary flag scheme and its image ring R^△_v",
+   "kind": "construction",
+   "statement": "With Λ_v as in L8/ordinary-coefficient-ring and R^□_v ∈ CNL_{Λ_v} the universal lifting ring of ρ̄ (R08.1), let 𝓕 be the flag variety over 𝒪 of complete flags in 𝒪ⁿ and 𝒢_v ⊂ 𝓕 ×_𝒪 Spec R^□_v the closed subscheme whose A-points (A an R^□_v-algebra) are flags preserved by the universal lifting over A on which I_{F_v} acts on Fil_i/Fil_{i−1} through χ_i^univ. The map 𝒢_v → Spec R^□_v is proper, and R^△_v is the image of R^□_v → H⁰(𝒢_v, 𝒪_{𝒢_v}). For a domain R ∈ CNL_{Λ_v} with K an algebraic closure of Frac R, an R-point of Spec R^□_v factors through R^△_v iff ρ ⊗_R K has a G_{F_v}-stable full flag with I_{F_v} acting on the graded pieces by the push-forwards of the χ_j^univ.",
+   "hypotheses": [
+    "v | p; ρ̄ has a full invariant flag."
+   ],
+   "proofSteps": [
+    "𝒢_v is cut out in the projective 𝓕 × Spec R^□_v by closed conditions (stability of each Fil_i and the inertial action on the graded pieces); properness comes from projectivity of 𝓕 (AlgebraicModuliForArithmeticGeometry R09.1).",
+    "The point criterion: a flag over K gives a K-point of 𝒢_v over the given point; conversely the image of a proper map contains every point lifting to a field-valued point (valuative criterion for the closed image)."
+   ],
+   "acceptance": [
+    "The flag-bearing object is 𝒢_v; R^△_v is its image after forgetting the flag. They are different objects."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "LocalGaloisDeformationRings:L8/ordinary-coefficient-ring",
+    "AlgebraicModuliForArithmeticGeometry:R09.1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, p. 138 (arXiv v2; printed page = PDF page)",
+     "excerpt": "is preserved by the specialization of the universal lifting to A",
+     "match": "𝒢_v and R^△_v (after [Ger19, §3.1])."
+    },
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, p. 139 (arXiv v2; printed page = PDF page)",
+     "excerpt": "Its properties in an important special case are summarized in the following proposition.",
+     "match": "The point criterion for R^△_v, stated just before."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:L8/ordinary-point-criteria",
+     "how": "Spec R^△_v ⊂ Spec R^{det,ord}_v."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G7",
+     "how": "ordinary local conditions in ACC+ §6."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.ordinaryFlagScheme",
+     "role": "constructor",
+     "statement": "𝒢_v ⊂ 𝓕 × Spec R^□_v."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.ordinaryFlagScheme_proper",
+     "role": "characterisation",
+     "statement": "𝒢_v → Spec R^□_v is proper."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.ordinaryFlagImage",
+     "role": "constructor",
+     "statement": "R^△_v = im(R^□_v → H⁰(𝒢_v, 𝒪))."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.ordinaryFlagImage_points",
+     "role": "characterisation",
+     "statement": "The domain point criterion."
+    }
+   ],
+   "tests": [
+    {
+     "name": "ordinaryFlagImage_n_one",
+     "kind": "example",
+     "statement": "n = 1: every line is a flag, and R^△_v = R^□_v/(ρ|_{I_{F_v}} − χ_1^univ)."
+    },
+    {
+     "name": "ordinaryFlagScheme_permuted",
+     "kind": "example",
+     "statement": "Requiring I_{F_v} to act on the i-th piece by χ^univ_{σ(i)} for σ ∈ S_n gives the variant R^{△,σ}_v used in the proof of L8/determinant-flag-comparison."
+    },
+    {
+     "name": "ordinaryFlagImage_not_flag",
+     "kind": "example",
+     "statement": "A point of R^△_v need not carry a flag over R itself, only over the algebraic closure of its fraction field."
+    }
+   ],
+   "planet": {
+    "name": "Ordinary flag scheme and its image ring"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/trivial-residual-flag-ring",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "The flag image ring for trivial residual representation",
+   "kind": "theorem",
+   "statement": "(ACC+ Proposition 6.2.10, from Thorne [Tho15, Proposition 3.14].) If [F_v : ℚ_p] > n(n − 1)/2 + 1 and ρ̄ is trivial, then R^△_v is 𝒪-flat, reduced and equidimensional of dimension 1 + n² + n(n + 1)/2 · [F_v : ℚ_p], and Spec R^△_v → Spec Λ_v is bijective on generic points, hence on irreducible components.",
+   "hypotheses": [
+    "ρ̄ trivial; [F_v : ℚ_p] > n(n − 1)/2 + 1."
+   ],
+   "proofSteps": [
+    "Thorne proves this for Λ_v = 𝒪[[𝒪_{F_v}^×(p)ⁿ]] and shows that minimal primes of Λ_v generate minimal primes of R^△_v; the case of a quotient by an intersection of minimal primes follows.",
+    "Thorne's proof (J. Amer. Math. Soc. 28 (2015)) was not obtained; see the gap."
+   ],
+   "acceptance": [
+    "The dimension counts the framing n², the torus n[F_v:ℚ_p] and the Borel directions n(n − 1)/2·[F_v:ℚ_p]."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L7/ordinary-flag-scheme",
+    "LocalGaloisDeformationRings:R08.1/local-tangent-obstruction"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, Proposition 6.2.10, p. 139 (arXiv v2; printed page = PDF page)",
+     "excerpt": "Its properties in an important special case are summarized in the following proposition.",
+     "match": "Proposition 6.2.10."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:L8/determinant-flag-comparison",
+     "how": "components of R^△_v over U."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L7/residually-split-nearly-ordinary-ring",
+   "parentStageId": "LocalGaloisDeformationRings:L7",
+   "realises": [
+    "LocalGaloisDeformationRings:L7"
+   ],
+   "title": "Nearly ordinary rings of a p-distinguished split residual representation",
+   "kind": "theorem",
+   "statement": "(Skinner–Wiles Lemma 2.2 and Corollary 2.3.) Let n = 2, ρ_0 = χ ⊕ 1 on D = G_{F_v} with χ ≠ 1, d = [F_v : ℚ_p] and ω the mod-p cyclotomic character of D. There are a versal local 𝒪-deformation ρ : D → GL₂(R) of ρ_0 with det = χ̃ and a versal nearly ordinary deformation ρ_ord = (χ̃Ψ *; 0 Ψ^{−1}), Ψ ≡ 1, over R_ord, with R_ord ≅ 𝒪[[x_1, …, x_{2d+2}]]/(f) if χ = ω or ω = 1, and R_ord ≅ 𝒪[[x_1, …, x_{2d+1}]] otherwise. R_ord is a quotient of R by an ideal generated by d + ε elements, ε = 2 if χ = ω = χ^{−1}, ε = 1 if ω = 1, or χ = ω ≠ χ^{−1}, or χ ≠ ω = χ^{−1}, and ε = 0 otherwise.",
+   "hypotheses": [
+    "χ ≠ 1 (p-distinguished); p odd."
+   ],
+   "proofSteps": [
+    "Schlessinger's criteria give versal (not universal: χ ⊕ 1 has automorphisms) rings.",
+    "Tangent space of R_ord: r = dim ker(H¹(D, ad⁰ρ_0) → H¹(D, Hom(k(χ), k))) = 2d + 2 if χ = ω or ω = 1, 2d + 1 otherwise, by local duality and the local Euler characteristic.",
+    "Relations: the obstruction map (I/𝔪I)^* → H²(D, k(χ)) ⊗ … is injective (the Mazur argument with the trivial-character ring 𝒪[[y_1, …, y_s]]/(h)), so I needs at most one generator, and none unless H²(D, k(χ)) ≠ 0, i.e. χ = ω.",
+    "Corollary 2.3: R is a quotient of 𝒪[[y_1, …, y_{r′}]] with r′ = h¹(D, ad⁰ρ_0) = 3d + 1 + [ω = 1] + [χ = ω] + [χ^{−1} = ω]; compare with r."
+   ],
+   "acceptance": [
+    "These are versal rings with fixed determinant χ̃; the global rings of Skinner–Wiles free the determinant afterwards.",
+    "The formula for ε uses χ|_D, not χ globally."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "LocalGaloisDeformationRings:R08.1/local-tangent-obstruction",
+    "DeformationAndDerivedPatchingAlgebra:R03.2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§2.1, Lemma 2.2, p. 11 (Numdam PDF page 8; printed page = PDF page + 3)",
+     "excerpt": "Applying the criteria of Schlessinger as in [M], one sees that there is a versal local",
+     "match": "The versal rings and Lemma 2.2."
+    },
+    {
+     "sourceId": "SKINNER-WILES-1999",
+     "locator": "§2.1, Corollary 2.3, p. 13 (Numdam PDF page 10; printed page = PDF page + 3)",
+     "excerpt": "Combining this with the previous lemma and the fact that",
+     "match": "Corollary 2.3 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "OrdinaryAutomorphicFormsAndModularityLifting:R21.3/global-presentation-bound",
+     "how": "the d + 2t local relations of Skinner–Wiles Proposition 2.4."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L8/determinant-ordinary-ring",
+   "parentStageId": "LocalGaloisDeformationRings:L8",
+   "realises": [
+    "LocalGaloisDeformationRings:L8"
+   ],
+   "title": "The determinant-ordinary rings R̃^{det,ord}_v and R^{det,ord}_v",
+   "kind": "construction",
+   "statement": "Let R̃^□_v = R^□_v ⊗_{Λ_v} Λ̃_v and R̃^{det,ord}_v its maximal quotient on which, for all g, g_1, …, g_n ∈ G_{F_v}, (6.2.7) det(X − ρ^□(g)) = ∏_{i=1}^n (X − χ̃_i^univ(g)) and (6.2.8) (ρ^□(g_1) − χ̃_1^univ(g_1))⋯(ρ^□(g_n) − χ̃_n^univ(g_n)) = 0. R^{det,ord}_v is the image of R^□_v → R̃^{det,ord}_v.",
+   "hypotheses": [
+    "v | p; the flag on ρ̄ gives the residual characters."
+   ],
+   "proofSteps": [
+    "The relations are closed conditions on the matrix coefficients (finitely many generators after continuity), so the maximal quotient exists in CNL."
+   ],
+   "acceptance": [
+    "(6.2.7) alone (equal characteristic polynomials) does not give a full invariant flag over a nonreduced coefficient ring; the ordered product (6.2.8) is part of the definition.",
+    "R^{det,ord}_v is the image in R̃^{det,ord}_v, not R̃^{det,ord}_v itself: the Frobenius variables of Λ̃_v are eliminated."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:R08.1/local-lifting-ring",
+    "LocalGaloisDeformationRings:L8/ordinary-coefficient-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, p. 138 (arXiv v2; printed page = PDF page)",
+     "excerpt": "We now deﬁne two ordinary deformation rings:",
+     "match": "(6.2.7), (6.2.8) and R^{det,ord}_v."
+    },
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, p. 139 (arXiv v2; printed page = PDF page)",
+     "excerpt": "(A ring similar to",
+     "match": "The comparison with Calegari–Specter's ring."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:L8/determinant-flag-comparison",
+     "how": "components of R^{det,ord}_v."
+    },
+    {
+     "where": "GlobalGaloisDeformations:G7",
+     "how": "the ordinary local deformation problem D^{det,ord}_v of ACC+."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.GaloisDeformation.Local.detOrdTilde",
+     "role": "constructor",
+     "statement": "R̃^{det,ord}_v, the quotient by (6.2.7)–(6.2.8)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.detOrd",
+     "role": "constructor",
+     "statement": "R^{det,ord}_v = im(R^□_v → R̃^{det,ord}_v)."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.detOrdTilde_charpoly",
+     "role": "characterisation",
+     "statement": "(6.2.7) holds over R̃^{det,ord}_v."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.detOrdTilde_product",
+     "role": "characterisation",
+     "statement": "(6.2.8) holds over R̃^{det,ord}_v."
+    },
+    {
+     "name": "TauCeti.GaloisDeformation.Local.detOrd_universal",
+     "role": "universal-property",
+     "statement": "R^□_v → R factors through R^{det,ord}_v when R ↪ S carries characters ψ_i with the relations."
+    }
+   ],
+   "tests": [
+    {
+     "name": "detOrd_n_one",
+     "kind": "example",
+     "statement": "n = 1: (6.2.7) says ρ^□ = χ̃_1^univ and (6.2.8) is the same relation."
+    },
+    {
+     "name": "detOrd_diagonal",
+     "kind": "example",
+     "statement": "A diagonal lift diag(χ̃_1, …, χ̃_n) satisfies (6.2.7) and (6.2.8)."
+    },
+    {
+     "name": "detOrd_charpoly_not_enough",
+     "kind": "example",
+     "statement": "Over a field with repeated characters, (6.2.7) holds for any unipotent ρ(g) = 1 + N while (6.2.8) can fail; the product condition is independent."
+    }
+   ],
+   "planet": {
+    "name": "Determinant-ordinary deformation ring"
+   }
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L8/det-ord-finite",
+   "parentStageId": "LocalGaloisDeformationRings:L8",
+   "realises": [
+    "LocalGaloisDeformationRings:L8"
+   ],
+   "title": "R̃^{det,ord}_v is finite over R^{det,ord}_v",
+   "kind": "lemma",
+   "statement": "(ACC+ Lemma 6.2.9.) R̃^{det,ord}_v is a finite R^{det,ord}_v-algebra.",
+   "hypotheses": [],
+   "proofSteps": [
+    "It suffices that R̃^{det,ord}_v is finite over R^□_v, i.e. (complete Nakayama) that R̃^{det,ord}_v/𝔪_{R^□_v} is Artinian.",
+    "(6.2.7) at g = Art_{F_v}(ϖ_v) makes each Frobenius variable of Λ̃_v a root of a monic polynomial over R^□_v."
+   ],
+   "acceptance": [
+    "Finiteness is over R^{det,ord}_v (equivalently R^□_v), not over Λ_v; it is what lets geometric points of R^{det,ord}_v lift to R̃^{det,ord}_v."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L8/determinant-ordinary-ring",
+    "mathlib:Module.Finite"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, Lemma 6.2.9, p. 139 (arXiv v2; printed page = PDF page)",
+     "excerpt": "It is enough to show that",
+     "match": "Lemma 6.2.9 and its proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L8/ordinary-point-criteria",
+   "parentStageId": "LocalGaloisDeformationRings:L8",
+   "realises": [
+    "LocalGaloisDeformationRings:L8"
+   ],
+   "title": "Point criteria and Spec R^△_v ⊂ Spec R^{det,ord}_v",
+   "kind": "lemma",
+   "statement": "If R ↪ S is an injective map of R^□_v-algebras and there are characters ψ_1, …, ψ_n : G_{F_v} → S^× with ψ_i|_{I_{F_v}} the push-forward of χ_i^univ satisfying (6.2.7) and (6.2.8) with the push-forward of the universal lifting, then R^□_v → R factors through R^{det,ord}_v. Consequently Spec R^△_v ⊂ Spec R^{det,ord}_v as topological spaces, and there is a surjection of R^□_v-algebras R^{det,ord}_v ↠ (R^△_v)_red.",
+   "hypotheses": [],
+   "proofSteps": [
+    "The ψ_i define Λ̃_v → S compatible with Λ_v, so R̃^□_v → S factors through R̃^{det,ord}_v; injectivity of R ↪ S transfers the factorisation to R.",
+    "For a minimal prime 𝔭 of R^△_v, take R = R^△_v/𝔭 and S its integral closure in a large finite extension of the fraction field; the flag over K gives the ψ_i, so R^□_v → R^△_v/𝔭 factors through R^{det,ord}_v.",
+    "(R^△_v)_red is the image of R^□_v → ∏_𝔭 R^△_v/𝔭."
+   ],
+   "acceptance": [
+    "Only the reduced quotient of R^△_v is reached: no ring isomorphism between R^△_v and R^{det,ord}_v is asserted."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L8/determinant-ordinary-ring",
+    "LocalGaloisDeformationRings:L7/ordinary-flag-scheme"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, p. 139 (arXiv v2; printed page = PDF page)",
+     "excerpt": "(A ring similar to",
+     "match": "The point criteria and the inclusion Spec R^△_v ⊂ Spec R^{det,ord}_v, which follow this remark."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L8/distinct-characters-flag",
+   "parentStageId": "LocalGaloisDeformationRings:L8",
+   "realises": [
+    "LocalGaloisDeformationRings:L8"
+   ],
+   "title": "Characteristic polynomials and ordered products give a flag",
+   "kind": "lemma",
+   "statement": "(ACC+ Lemma 6.2.11.) Let K be a field, G a group and ρ : G → GL_n(K). If χ_1, …, χ_n : G → K^× are pairwise distinct characters with det(X − ρ(g)) = ∏_i(X − χ_i(g)) for all g and (ρ(g_1) − χ_1(g_1))⋯(ρ(g_n) − χ_n(g_n)) = 0 for all g_1, …, g_n, then there is a G-stable flag 0 = Fil⁰ ⊂ ⋯ ⊂ Filⁿ = Kⁿ with Fil^i/Fil^{i−1} ≅ K(χ_i).",
+   "hypotheses": [
+    "K a field; the χ_i pairwise distinct."
+   ],
+   "proofSteps": [
+    "Define V_i ⊇ V_{i−1} with V_i/V_{i−1} the maximal subspace of V/V_{i−1} on which G acts by χ_i; each V_i is G-stable.",
+    "The ordered-product identity forces V_n = V.",
+    "Each V_i/V_{i−1} ≅ K(χ_i)^{m_i}, and the characteristic-polynomial identity with distinct χ_i forces every m_i = 1."
+   ],
+   "acceptance": [
+    "Distinctness is needed: with χ_1 = χ_2 the multiplicities cannot be separated.",
+    "The lemma is over a field; over nonreduced rings it gives nothing, which is why only (R^△_v)_red is compared."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L8/determinant-ordinary-ring"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, Lemma 6.2.11, p. 140 (arXiv v2; printed page = PDF page)",
+     "excerpt": "Our analysis of the ring",
+     "match": "Lemma 6.2.11."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "LocalGaloisDeformationRings:L8/determinant-flag-comparison",
+     "how": "points over U lie in Spec R^△_v."
+    }
+   ]
+  },
+  {
+   "id": "LocalGaloisDeformationRings:L8/determinant-flag-comparison",
+   "parentStageId": "LocalGaloisDeformationRings:L8",
+   "realises": [
+    "LocalGaloisDeformationRings:L8"
+   ],
+   "title": "Determinant-ordinary versus flag-ordinary components",
+   "kind": "theorem",
+   "statement": "(ACC+ Proposition 6.2.12.) Let U ⊂ Spec Λ_v be the open locus where χ_1^univ, …, χ_n^univ are pairwise distinct, Z its complement, and f : Spec R^△_v → Spec Λ_v, g : Spec R^{det,ord}_v → Spec Λ_v the structure maps. Suppose ρ̄ is trivial and [F_v : ℚ_p] > n(n + 1)/2 + 1. (1) f^{−1}(U) = g^{−1}(U) in Spec R^□_v; hence every irreducible component C of Spec Λ_v is dominated by a unique irreducible component C′ of Spec R^{det,ord}_v, of dimension n² + 1 + n(n + 1)/2 · [F_v : ℚ_p]. (2) Every irreducible component C′ of R^{det,ord}_v not dominating a component of Spec Λ_v lies in g^{−1}(Z) and has dimension ≤ n² − 1 + n(n + 1)/2 · [F_v : ℚ_p].",
+   "hypotheses": [
+    "ρ̄ trivial; [F_v : ℚ_p] > n(n + 1)/2 + 1 (stronger than the n(n − 1)/2 + 1 of trivial-residual-flag-ring)."
+   ],
+   "proofSteps": [
+    "(1) A geometric point of g^{−1}(U) lifts to R̃^{det,ord}_v (det-ord-finite); there the characters are distinct, so distinct-characters-flag gives a flag and the point lies in Spec R^△_v. Proposition 6.2.10 then gives the components and their dimension.",
+    "(2) A component not dominating Λ_v maps into Z. Its generic representation has semisimplification ⊕χ_i^univ on inertia, hence a flag in some order σ ∈ S_n, so C′ ⊆ h^{−1}(Z) ⊆ Spec R^{△,σ}_v.",
+    "dim 𝒢^σ_v ×_{Λ_v} Z ≤ 1 + n² + n(n + 1)/2 + n(n + 1)[F_v:ℚ_p]/2 − [F_v:ℚ_p] by the tangent computation of [Ger19, Lemma 3.7] (over a finite field), which is ≤ n² − 1 + n(n + 1)[F_v:ℚ_p]/2 under the hypothesis."
+   ],
+   "acceptance": [
+    "The comparison is of underlying spaces and components (and of R^{det,ord}_v with (R^△_v)_red), not a ring isomorphism; equality of characteristic polynomials alone gives no flag over nonreduced rings."
+   ],
+   "prerequisites": [
+    "LocalGaloisDeformationRings:L8/ordinary-point-criteria",
+    "LocalGaloisDeformationRings:L8/distinct-characters-flag",
+    "LocalGaloisDeformationRings:L8/det-ord-finite",
+    "LocalGaloisDeformationRings:L7/trivial-residual-flag-ring",
+    "LocalGaloisDeformationRings:R08.1/local-tangent-obstruction"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/GaloisDeformation/Ordinary",
+    "namespace": "TauCeti.GaloisDeformation.Local"
+   },
+   "sources": [
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, Proposition 6.2.12, p. 140 (arXiv v2; printed page = PDF page)",
+     "excerpt": "Let U ⊂Spec Λv be the open subscheme where the characters",
+     "match": "Proposition 6.2.12."
+    },
+    {
+     "sourceId": "ACC-POTENTIAL-AUTOMORPHY-CM-2023",
+     "locator": "§6.2.6, proof of Proposition 6.2.12, p. 141 (arXiv v2; printed page = PDF page)",
+     "excerpt": "We have already observed that there is an inclusion",
+     "match": "The proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "GlobalGaloisDeformations:G7",
+     "how": "component support for ordinary patching (ACC+ §6.3)."
+    },
+    {
+     "where": "DeformationAndDerivedPatchingAlgebra:P9",
+     "how": "dimension bounds of the non-dominating components."
+    }
+   ],
+   "planet": {
+    "name": "Determinant-ordinary versus flag-ordinary components"
+   }
   }
  ],
  "requests": [
@@ -2924,6 +3519,14 @@
    ],
    "status": "open",
    "note": "Savitt extends Breuil–Mézard to the potentially crystalline case."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+   "need": "The local Artin map Art_{F_v} : F_v^× → G_{F_v}^{ab} with its normalisation, restricted to 𝒪_{F_v}^× ≅ I^{ab}_{F_v} and completed to 𝒪_{F_v}^×(p) ≅ I^{ab}_{F_v}(p).",
+   "neededBy": [
+    "LocalGaloisDeformationRings:L8/ordinary-coefficient-ring"
+   ],
+   "status": "open"
   }
  ],
  "coverage": [
@@ -2971,18 +3574,17 @@
    "stageId": "LocalGaloisDeformationRings:L7",
    "status": "partial",
    "remaining": [
-    "Ordinary full-flag moduli, their properness and scheme-theoretic image (RS-08 keep).",
     "Fontaine–Laffaille deformation conditions in the unramified small-weight range, with tangent spaces (the stage text); Gee Theorem 3.28 is quoted in R08.3/pcris-generic-smooth only.",
-    "Ordinary deformation functors with a full invariant flag, and the rank-n interface with R08.2's conditions away from p."
+    "Ordinary deformation functors with a full invariant flag, and the rank-n interface with R08.2's conditions away from p.",
+    "Ordinary deformation functors for nontrivial ρ̄ in rank n > 2 under genericity hypotheses, and Thorne's and Geraghty's proofs behind ACC+ Proposition 6.2.10 (gap)."
    ],
-   "notes": "Checkpoint 3 plans the bounded-height lattice part of L7 that RS-08 assigns to it and R08.3 and R08.4 import (Kisin, JAMS 2008, §1): lattices of finite E-height and the projective moduli 𝓛^{≤h} with its scheme-theoretic image, closed immersion after inverting p and universal module."
+   "notes": "Checkpoint 3 plans the bounded-height lattice part of L7 that RS-08 assigns to it and R08.3 and R08.4 import (Kisin, JAMS 2008, §1): lattices of finite E-height and the projective moduli 𝓛^{≤h} with its scheme-theoretic image, closed immersion after inverting p and universal module. Checkpoint 6 adds the ordinary flag scheme 𝒢_v and its image ring R^△_v (ACC+ §6.2.6), the trivial-residual structure theorem (ACC+ Proposition 6.2.10, with its source proof a gap) and Skinner–Wiles' residually split nearly ordinary rings (Lemma 2.2, Corollary 2.3)."
   },
   {
    "stageId": "LocalGaloisDeformationRings:L8",
-   "status": "not_read",
-   "remaining": [
-    "Ordinary flags versus determinant ordinary conditions."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "Checkpoint 6 plans ACC+ §6.2.6 (6 nodes): the coefficient rings Λ_v and Λ̃_v with their chosen torsion components, the determinant-ordinary rings (6.2.7)–(6.2.8), Lemma 6.2.9, the point criteria and R^{det,ord}_v ↠ (R^△_v)_red, Lemma 6.2.11 and Proposition 6.2.12, at exactly the published level (underlying spaces and components, trivial ρ̄, [F_v : ℚ_p] > n(n + 1)/2 + 1)."
   }
  ],
  "gaps": [
@@ -2992,6 +3594,13 @@
     "LocalGaloisDeformationRings:R08.4/resolution-local-structure"
    ],
    "detail": "Kisin (2.2.2) and (2.2.8) use Pappas–Rapoport, Local models in the ramified case I (J. Algebraic Geom. 12 (2003)), 5.3, 5.8, 5.10: the flat closure M^loc_r of the naive local model M_r is normal and Cohen–Macaulay, its special fibre is reduced and normal with rational singularities and equals the closure of the stratum of the dual partition, and M^loc_r = M_r when the r_φ differ by at most 1 and either r ≤ e or e ≤ 2. No stage of AlgebraicModuliForArithmeticGeometry, HilbertModularVarietiesAndShimuraCurves or any other roadmap in the atlas plans these local models. Only the case v_ψ ∈ {0, 1} (where M^loc = M) is needed for the rank-two Barsotti–Tate application, which narrows what a supplier must provide."
+  },
+  {
+   "title": "Thorne's structure theorem for the flag image ring (ACC+ Proposition 6.2.10)",
+   "neededBy": [
+    "LocalGaloisDeformationRings:L7/trivial-residual-flag-ring"
+   ],
+   "detail": "ACC+ Proposition 6.2.10 is proved by reference to Thorne, Automorphy lifting for residually reducible l-adic Galois representations, J. Amer. Math. Soc. 28 (2015), 785–870, Proposition 3.14 (flatness, reducedness, equidimensionality and the bijection on generic points for trivial ρ̄ and [F_v : ℚ_p] > n(n − 1)/2 + 1). That paper is not on arXiv (only part II, arXiv:1912.11269, is) and was not obtained; Geraghty, Math. Ann. 373 (2019), §3 (the source of R^△_v and of the tangent computation Lemma 3.7) is also still to be read."
   }
  ],
  "sourceIssues": [
@@ -3018,6 +3627,20 @@
    "citation": "Savitt, On a conjecture of Conrad, Diamond, and Taylor, arXiv v3 (2010), the author's corrected version of Duke Math. J. 128 (2005); the published version was not read",
    "read": "2026-09-28",
    "sha256": "e161ac6498c1a75fc8f981c25edd5e9390b19ceb40f174a25a1f6491390c115c"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1812.09999v2",
+   "citation": "Allen et al., Potential automorphy over CM fields, arXiv:1812.09999v2 (Ann. of Math. 197 (2023))",
+   "read": "2026-09-28",
+   "sha256": "7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c"
+  },
+  {
+   "kind": "published",
+   "url": "http://www.numdam.org/item/PMIHES_1999__89__5_0.pdf",
+   "citation": "Skinner and Wiles, Residually reducible representations and modular forms, Publ. Math. IHÉS 89 (1999), 5–126 (Numdam open-access scan)",
+   "read": "2026-09-28",
+   "sha256": "ec0697b3e9c9fa68063b19688f10347d204a8b7b86526384c9ccd6e7fe30e6f3"
   }
  ]
 }
