@@ -6,7 +6,7 @@ import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.RingTheory.PowerSeries.Basic
 
 /-!
-# Suggested Lean forms: local Galois deformation rings (LocalGaloisDeformationRings, R08.1–R08.3, L7)
+# Suggested Lean forms: local Galois deformation rings (LocalGaloisDeformationRings, R08.1–R08.3, R08.6, L7)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`LocalGaloisDeformationRings`) is definitive. The statements below suggest Lean forms, so that
@@ -124,5 +124,13 @@ example : flagDim [1, 1, 1] = 3 := by decide
 
 /-- Parallel weights contribute nothing. -/
 example : flagDim [3] = 0 := by decide
+
+/-- `R08.6/export-archimedean`: KW II's equation `X₁² + X₂X₃ + 2X₁` is `a² + bc − 1` at `a = 1 + X₁`. -/
+example {R : Type*} [CommRing R] (x b c : R) : (1 + x) ^ 2 + b * c - 1 = x ^ 2 + b * c + 2 * x := by
+  ring
+
+/-- `R08.6/export-completed-tensor-product`: `2[F:ℚ] + (3|S_p| + [F:ℚ]) + 3|S′| = 3|S|` with
+`|S| = [F:ℚ] + |S_p| + |S′|` (infinite places, places above `p`, other finite places). -/
+example (n sp s' : ℕ) : 2 * n + (3 * sp + n) + 3 * s' = 3 * (n + sp + s') := by ring
 
 end TauCeti.GaloisDeformation.Local.SuggestedTest
