@@ -9,9 +9,10 @@ import Mathlib.RepresentationTheory.Homological.GroupCohomology.LongExactSequenc
 import Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality
 import Mathlib.NumberTheory.ModularForms.Basic
 import Mathlib.Analysis.SpecialFunctions.Complex.Circle
+import Mathlib.NumberTheory.Padics.PadicIntegers
 
 /-!
-# Suggested Lean forms: modular symbols (ModularSymbolsPadicLFunctions, L0–L1)
+# Suggested Lean forms: modular symbols (ModularSymbolsPadicLFunctions, L0–L2)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`ModularSymbolsPadicLFunctions`) is definitive. The statements below suggest Lean forms, so that
@@ -411,6 +412,59 @@ theorem critical_value_mem (hs : s = (-1) ^ (k - j) * χ (-1)) : … ∈ K_f⟮�
 
 end CriticalValues
 
+section SmallSlope
+
+/-!
+### L2: refinements and small slope
+
+`Σ₀(p)` over `ℤ_p` is stated here as `Sigma0p` (the integral `Sigma0 N` above is L0's Hecke
+monoid). The distribution spaces `A[r]`, `D[r]`, `D(ℤ_p)` are requested from
+LocallyAnalyticDistributions L0, and h-admissibility from its L2, so the remaining signatures
+are comments.
+
+```
+-- L2/p-stabilisation (Tau Ceti `CuspForm.levelRaise` is V_p)
+def pStabilisation (f : Newform N (k + 2)) (α β : ℂ) : CuspForm (Gamma1 (N * p)) (k + 2) :=
+  f - β • CuspForm.levelRaise p _ f
+theorem pStabilisation_Up (hαβ : α + β = a_p f) (hαβ' : α * β = ε p * p ^ (k + 1)) :
+    heckeUCuspNat (k + 2) p _ _ (pStabilisation f α β) = α • pStabilisation f α β
+-- L2/refinement
+structure Refinement (N k p) where
+  f : Newform N (k + 2)
+  α : ℚ̄_p
+  isRoot : if p ∣ N then α = a_p f ∧ α ≠ 0 else α ^ 2 - a_p f * α + ε p * p ^ (k + 1) = 0
+def Refinement.slope (r : Refinement N k p) : ℚ := padicValuation r.α
+-- L2/refined-eigenline
+theorem refinedLine_finrank (r : Refinement N k p) (s : Sign) : finrank K (refinedLine r s) = 1
+-- L2/weight-k-distributions, L2/specialisation-map (D[r] from LocallyAnalyticDistributions L0)
+def distWeight (k : ℕ) (r : ℝ≥0) (hr : r < p) : Representation ℚ_[p] (Sigma0p p)ᵐᵒᵖ (Dist r)
+def specialise (k : ℕ) : Dist 1 →ₗ[ℚ_[p]] Vk ℚ_[p] k    -- μ ↦ ∫ (Y - z X)^k dμ
+theorem specialise_smul (γ : Sigma0p p) (μ) :
+    specialise k (μ ∣ γ) = slashVk _ k γ (specialise k μ)
+-- L2/control-theorem
+theorem control (h : slope < k + 1) :
+    Function.Bijective
+      (specialiseSymb k : SymbSlopeLT (k + 1) (DistAn p) → SymbSlopeLT (k + 1) (Vk _ k))
+-- L2/p-adic-l-function, L2/interpolation-and-uniqueness
+def padicLFunction (r : Refinement N k p) (hr : r.slope < k + 1) (φ : Sign → refinedLine r _) :
+    DistAn (ℤ_[p]ˣ)
+theorem padicLFunction_interpolation (χ) (hχ : conductor χ = p ^ n) (j ≤ k) :
+    padicLFunction r hr φ (z ^ j * χ) =
+      e n j * α⁻¹ ^ n * p ^ (n * j) * gaussSum χ * j ! / (2πi) ^ j *
+        L (f_α) χ⁻¹ (j + 1) / Ω (sign ((-1) ^ j * χ (-1)))
+```
+-/
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-- **`L2/weight-k-distributions`**: `Σ₀(p) = {(a b; c d) ∈ M₂(ℤ_p) : p ∤ a, p ∣ c, det ≠ 0}`. -/
+def Sigma0p : Submonoid (Matrix (Fin 2) (Fin 2) ℤ_[p]) where
+  carrier := {γ | IsUnit (γ 0 0) ∧ γ 1 0 ∈ IsLocalRing.maximalIdeal ℤ_[p] ∧ γ.det ≠ 0}
+  mul_mem' := sorry
+  one_mem' := sorry
+
+end SmallSlope
+
 end TauCeti.ModularSymbol
 
 namespace TauCeti.ModularSymbol.SuggestedTest
@@ -479,5 +533,42 @@ example (j : ℕ) : -(Complex.I ^ (j + 2)) = Complex.I ^ j := by
 example (c : ℂ) (hc : c ≠ 0) (j : ℕ) : -((-c) ^ j / c ^ (j + 1)) = (-1) ^ (j + 1) / c := by
   rw [neg_pow, pow_succ, pow_succ]
   field_simp
+
+/-- `L2/p-stabilisation`: with `α + β = a_p` and `αβ = ε(p)p^{k+1}`, the good-prime recurrence
+`a_{pm} = a_p a_m - ε(p)p^{k+1} a_{m/p}` gives `a_{pm}(f_α) = α a_m(f_α)`. -/
+example {R : Type*} [CommRing R] (α β x y : R) :
+    ((α + β) * x - α * β * y) - β * x = α * (x - β * y) := by ring
+
+/-- `L2/specialisation-map`: `ρ_k` is `Σ₀(p)`-equivariant, since
+`(a + cz)^k (Y - γz X)^k = ((aY - bX) - z(dX - cY))^k`. -/
+example (a b c d z X Y : ℚ) (k : ℕ) (h : a + c * z ≠ 0) :
+    (a + c * z) ^ k * (Y - (b + d * z) / (a + c * z) * X) ^ k =
+      ((a * Y - b * X) - z * (d * X - c * Y)) ^ k := by
+  rw [← mul_pow]
+  congr 1
+  field_simp
+  ring
+
+/-- `L2/overconvergent-lift` (Lemma 5.3): the moments of `μ | β(a, p)` are
+`Σ_r C(j, r) a^{j-r} p^r μ(z^r)`. -/
+example (a p z : ℚ) (j : ℕ) :
+    (p * z + a) ^ j = ∑ r ∈ Finset.range (j + 1), (p * z) ^ r * a ^ (j - r) * (j.choose r) :=
+  add_pow _ _ _
+
+/-- `L2/interpolation-and-uniqueness`, `n = 0`: removing `pℤ_p` multiplies by `1 - p^j/α`. -/
+example (Φ α q : ℂ) : Φ - α⁻¹ * q * Φ = (1 - q / α) * Φ := by ring
+
+/-- Source issue `E4`: Pollack–Stevens (1) over (2) is `χ(-1) S / ((-1)^j S) = (-1)^j χ(-1)`. -/
+example (u e S : ℂ) (hu : u ^ 2 = 1) (hS : S ≠ 0) : (e * S) / (u * S) = u * e := by
+  have hu0 : u ≠ 0 := by
+    rintro rfl
+    norm_num at hu
+  rw [mul_div_mul_right _ _ hS, div_eq_iff hu0]
+  linear_combination -e * hu
+
+/-- Source issue `E8`: `z/(1 + pz)` has a pole at `z = -1/p`, of absolute value `p`. -/
+example (p : ℚ) (hp : p ≠ 0) : 1 + p * (-1 / p) = 0 := by
+  rw [mul_div, mul_neg_one, neg_div, div_self hp]
+  ring
 
 end TauCeti.ModularSymbol.SuggestedTest

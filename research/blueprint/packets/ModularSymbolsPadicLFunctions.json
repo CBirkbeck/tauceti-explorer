@@ -10,7 +10,7 @@
   "ModularSymbolsPadicLFunctions:L4"
  ],
  "status": "partial",
- "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain. Checkpoint 3 plans L1 (6 nodes): period lines and periods after a choice of basis, saturated integral lattices with periods canonical up to 𝒪^×, the twisted Mellin formula (Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j L(f, χ̄, j+1), checked numerically), algebraicity with the parity sign (−1)^{k−j}χ(−1), L-functions of p-stabilized forms, and the exact comparison with RJW Theorem B.1.",
+ "summary": "Blueprint for modular symbols and analytic p-adic L-functions of modular forms. L0 is source-decomposed (checkpoints 1–2): Pollack–Stevens' Hom-side modular symbols Symb_Γ(V) = Hom_Γ(Div⁰(P¹(ℚ)), V) for arbitrary coefficient modules, with Hecke, diamond and involution actions, the Manin and fundamental-domain descriptions, boundary symbols and the integral exact sequence 0 → V^Γ → BSymb → Symb → H¹(Γ, V) → ⊕ H¹(Γ_c, V), parabolic cohomology, descent, symbols with character, the period symbol ψ_f, the Eichler–Shimura isomorphism (Wiese's proof) and one-dimensional newform eigenspaces. Div⁰, Manin's theorem, the homological module 𝕄 and the period-map analysis are imported from Tau Ceti ModularForms Layer 8 rather than re-planned. Pollack–Stevens Theorem 2.6/Corollary 2.7 print the D∞ relation with the wrong sign (sourceIssues E1). Stages L1–L4 remain. Checkpoint 3 plans L1 (6 nodes): period lines and periods after a choice of basis, saturated integral lattices with periods canonical up to 𝒪^×, the twisted Mellin formula (Σχ(a)·2πi∫_{i∞}^{a/m} f(z)(z − a/m)^j dz = τ(χ)j!/(−2πi)^j L(f, χ̄, j+1), checked numerically), algebraicity with the parity sign (−1)^{k−j}χ(−1), L-functions of p-stabilized forms, and the exact comparison with RJW Theorem B.1. Checkpoint 4 plans L2 (12 nodes): p-stabilisations and refinements with the refined eigenline, weight-k distributions and specialisation, overconvergent lifts, the slope decomposition, Stevens' control theorem for h < k + 1, admissibility, the p-adic L-function of a refinement, interpolation fixed to Pollack–Stevens (2) and to RJW B.1, uniqueness, and integral ordinary measures. Pollack–Stevens (1) is off by a sign on the −-part and at n = 0 (sourceIssues E4–E5).",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -289,6 +289,34 @@
     "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
    },
    {
+    "ref": "tauceti:HeckeRing.GL2.heckeTCuspNat_eq_smul_iff_forall_qExpansion_coeff_prime_mul",
+    "kind": "theorem",
+    "module": "TauCeti/NumberTheory/ModularForms/HeckeSlash/Nebentypus/Eigenvector.lean",
+    "provides": "For p ∤ N and F ∈ S_k(N, χ), T_p F = c F iff a_{pm} = c·a_m − χ(p)p^{k−1}a_{m/p} for all m (the last term only when p | m).",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:HeckeRing.GL2.heckeUCuspNat_eq_smul_iff_forall_qExpansion_coeff_prime_mul",
+    "kind": "theorem",
+    "module": "TauCeti/NumberTheory/ModularForms/HeckeSlash/BadPrime/Eigenvector.lean",
+    "provides": "For p | N, U_p F = c F on S_k(Γ₁(N)) iff a_{pm}(F) = c·a_m(F) for all m.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:TauCeti.CuspForm.levelRaise",
+    "kind": "def",
+    "module": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+    "provides": "The level-raising operator V_d on cusp forms, (V_d f)(τ) = f(dτ).",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
+    "ref": "tauceti:TauCeti.CuspForm.qExpansion_levelRaise",
+    "kind": "theorem",
+    "module": "TauCeti/NumberTheory/ModularForms/Degeneracy.lean",
+    "provides": "The q-expansion of V_d f is that of f with q ↦ q^d.",
+    "checked": "name, kind and module confirmed in the pinned declaration index at the baseline commits; signature read in the pinned source (2026-09-28)"
+   },
+   {
     "ref": "tauceti:cuspFormCharSpace",
     "kind": "def",
     "module": "TauCeti/NumberTheory/ModularForms/DiamondOperators.lean",
@@ -325,7 +353,14 @@
     "§2.3 Fundamental domains, §2.4 Solving the Manin relations, §2.5 The case of three-torsion and §2.6 Computing with modular symbols in practice, pp. 9–14 (read on the page images at the displayed relations)",
     "§3.4 Finite-dimensional quotients, p. 17",
     "§5.1 Explicit lifts of classical symbols (Theorem 5.1 and its proof), pp. 21–22",
-    "§6 opening: the interpolation property (1), p. 27 (read on the page image)"
+    "§6 opening: the interpolation property (1), p. 27 (read on the page image)",
+    "§3.1–3.3 (the spaces A[r], D[r], D(ℤ_p), D†, Proposition 3.1, the weight-k action of Σ₀(p)), pp. 15–17",
+    "§4 (Proposition 4.2, Lemmas 4.3–4.4, Theorem 4.5, Remark 4.6), pp. 17–20",
+    "§5 opening and §5.1 after Theorem 5.1 (Remark 5.2, Lemma 5.3, Corollary 5.4), pp. 20–22",
+    "§5.2–5.4 (Lemma 5.5, Propositions 5.6–5.7, Theorem 5.9, Lemma 5.10, Theorem 5.12 and its proof, Remark 5.13, Theorem 5.14, Remark 5.15), pp. 23–26",
+    "§6.1–6.4 (Definition 6.1, Lemma 6.2, (1), (2), Proposition 6.3 and its proof, Definition 6.4, Proposition 6.5), pp. 27–29; the displayed formulas were read on the page images",
+    "§8, the examples for X₀(11) at p = 3 and p = 5 (Example 8.7), pp. 35–36, and the closing remark on μ-invariants, p. 41",
+    "References, p. 42"
    ]
   },
   {
@@ -2564,6 +2599,802 @@
    "planet": {
     "name": "Interpolation dictionary"
    }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/p-stabilisation",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "p-stabilisations of a newform",
+   "kind": "construction",
+   "statement": "Let f° = Σ a_n q^n ∈ S_{k+2}(Γ₁(N), ε) be a newform, p ∤ N a prime, and α a root of X² − a_pX + ε(p)p^{k+1}, with β := a_p − α the other root; α ≠ 0 since αβ = ε(p)p^{k+1}. Then f_α(z) := f°(z) − βf°(pz) lies in S_{k+2}(Γ₁(N) ∩ Γ₀(p), ε) ⊆ S_{k+2}(Γ₁(Np)), has coefficients a_n(f_α) = a_n − βa_{n/p} (with a_{n/p} := 0 for p ∤ n), satisfies U_p f_α = αf_α, and T_ℓ f_α = a_ℓ f_α for primes ℓ ∤ Np. On the span of f°(z) and f°(pz), U_p acts by U_p(f°(pz)) = f° and U_p f° = a_p f° − ε(p)p^{k+1}f°(pz), a companion matrix of X² − a_pX + ε(p)p^{k+1}. So each root has a one-dimensional eigenspace in this span, and U_p is semisimple on it if and only if α ≠ β.",
+   "hypotheses": [
+    "The weight is w = k + 2, so the stage's X² − a_pX + ε(p)p^{w−1} is the polynomial here.",
+    "The change of Euler factor, L(f_α, s) = (1 − βp^{−s})L(f°, s), is L1/p-stabilised-euler-factors, which takes f_α as defined here.",
+    "At p | N there is no stabilisation: the refinement uses the U_p-eigenvalue a_p of the newform itself (refinement)."
+   ],
+   "proofSteps": [
+    "q-expansion: f°(pz) = V_p f° has coefficients a_{n/p} (Tau Ceti CuspForm.qExpansion_levelRaise), so a_n(f_α) = a_n − βa_{n/p}.",
+    "U_p-eigenvalue by coefficients (Tau Ceti heckeUCuspNat_eq_smul_iff_forall_qExpansion_coeff_prime_mul at level Np): a_{pm}(f_α) = a_{pm} − βa_m, while α·a_m(f_α) = αa_m − αβa_{m/p}. These agree because a_{pm} = a_pa_m − ε(p)p^{k+1}a_{m/p} (the good-prime recurrence, heckeTCuspNat_eq_smul_iff_forall_qExpansion_coeff_prime_mul, whose weight k is k + 2 here) and α + β = a_p, αβ = ε(p)p^{k+1}.",
+    "The two displayed U_p-relations are the coefficient identities a_{pm}(V_pf°) = a_m(f°) and the same recurrence. A companion matrix is cyclic, so every eigenvalue has geometric multiplicity one, and it is diagonalizable exactly when its two roots differ.",
+    "T_ℓ for ℓ ∤ Np commutes with V_p, so f_α has the same good eigenvalues as f°."
+   ],
+   "acceptance": [
+    "11a1 (k = 0) at p = 3: a_3 = −1 and X² + X + 3 has roots of 3-adic valuations 0 and 1; Pollack–Stevens §8 use f_α, f_β of level 33 with f_α|U_3 = αf_α and f_β|U_3 = βf_β.",
+    "a_n(f_α) = a_n(f°) for p ∤ n.",
+    "f_α ≠ f_β when α ≠ β (their difference is (α − β)f°(pz) ≠ 0), so f° alone does not determine the stabilised form."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators-gamma1",
+    "tauceti:TauCeti.CuspForm.levelRaise",
+    "tauceti:TauCeti.CuspForm.qExpansion_levelRaise",
+    "tauceti:HeckeRing.GL2.heckeUCuspNat_eq_smul_iff_forall_qExpansion_coeff_prime_mul",
+    "tauceti:HeckeRing.GL2.heckeTCuspNat_eq_smul_iff_forall_qExpansion_coeff_prime_mul"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§8, the example of X₀(11) at p = 3, p. 35",
+     "match": "The two p-stabilizations and their U_p-eigenvalues."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.pStabilisation",
+     "role": "constructor",
+     "statement": "f_α = f° − β·V_p f° in S_{k+2}(Γ₁(Np))."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.pStabilisation_coeff",
+     "role": "characterisation",
+     "statement": "a_n(f_α) = a_n − β·a_{n/p}."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.pStabilisation_Up",
+     "role": "characterisation",
+     "statement": "U_p f_α = α f_α."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.pStabilisation_heckeT",
+     "role": "compatibility",
+     "statement": "T_ℓ f_α = a_ℓ f_α for ℓ ∤ Np."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/refined-eigenline",
+     "how": "the α-eigenvector spanning the refined line."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L1/p-stabilised-euler-factors",
+     "how": "the form whose L-function gains the factor (1 − βp^{−s})."
+    }
+   ],
+   "tests": [
+    {
+     "name": "pStabilisation_coeff_coprime",
+     "kind": "example",
+     "statement": "a_n(f_α) = a_n(f°) for p ∤ n."
+    },
+    {
+     "name": "pStabilisation_Up",
+     "kind": "characterisation",
+     "statement": "U_p f_α = α f_α, from the coefficient recurrence."
+    },
+    {
+     "name": "pStabilisation_ne",
+     "kind": "non-example",
+     "statement": "α ≠ β implies f_α ≠ f_β: the stabilisation depends on the root."
+    }
+   ],
+   "planet": {
+    "name": "p-stabilisation"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/refinement",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "Refinements and their slopes",
+   "kind": "definition",
+   "statement": "A refinement at p of a newform f of weight k + 2, level N and character ε is a pair (f, α) with: if p ∤ N, α a root of X² − a_pX + ε(p)p^{k+1}, with refined form f_α (p-stabilisation); if p | N, α = a_p(f) ≠ 0 and refined form f itself. Its slope is h := v_p(α) for a fixed embedding ℚ̄ ↪ ℚ̄_p. The refinement has small slope if h < k + 1 = w − 1, and critical slope if h = k + 1. A refinement is the chosen root together with its eigenline (refined-eigenline); it is not determined by f alone.",
+   "hypotheses": [
+    "Throughout, Γ₀ := Γ₁(N) ∩ Γ₀(p) when p ∤ N and Γ₀ := Γ₁(N) when p | N. Pollack–Stevens work with Γ₀ = Γ ∩ Γ₀(p) for Γ of level prime to p. Their proofs use only that Γ₀ ⊆ Σ₀(p) has finite index (for Corollary 2.10, here L0/symbols-generator-values) and that U_p = Σ_{a=0}^{p−1}|β(a, p) with β(a, p) = (1 a; 0 p). Both hold for Γ₁(N) with p | N (L0/hecke-operators-gamma1), which is the stage's case of p dividing the level.",
+    "α is an algebraic integer, so h ≥ 0. When p ∤ N, αβ = ε(p)p^{k+1} with β integral gives v_p(α) + v_p(β) = k + 1, so 0 ≤ h ≤ k + 1.",
+    "When p | N and a_p ≠ 0, the slope is k/2 in the case p ‖ N with ε of conductor prime to p (a_p² = ε(p)p^k, the bad-prime eigenvalue milestone of Tau Ceti ModularForms Layer 4). This is used only in examples."
+   ],
+   "proofSteps": [
+    "Well-definedness is immediate; the slope bound is the valuation identity above."
+   ],
+   "acceptance": [
+    "p-ordinary f (a_p a p-adic unit, p ∤ N): one refinement of slope 0 and one of slope k + 1, which is critical.",
+    "11a1 at p = 3: slopes 0 and 1 (Pollack–Stevens §8).",
+    "p | N with a_p = 0 (for example p² | N with ε of conductor prime to p): no refinement."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/p-stabilisation",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators-gamma1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§5.3, p. 24",
+     "match": "Slopes of U_p-eigensymbols lie in [0, k + 1]."
+    },
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§8, the example of X₀(11) at p = 3, p. 35",
+     "match": "The two p-stabilizations and their U_p-eigenvalues."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.Refinement",
+     "role": "structure",
+     "statement": "A newform with a chosen U_p-eigenvalue α at p (a root of the Hecke polynomial, or a_p ≠ 0 at p | N)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.Refinement.slope",
+     "role": "constructor",
+     "statement": "h = v_p(α)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.Refinement.slope_le",
+     "role": "characterisation",
+     "statement": "0 ≤ h ≤ k + 1 when p ∤ N."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/control-theorem",
+     "how": "the small-slope hypothesis h < k + 1."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L3",
+     "how": "critical slope h = k + 1."
+    }
+   ],
+   "tests": [
+    {
+     "name": "refinement_ordinary_slopes",
+     "kind": "example",
+     "statement": "For ordinary f the two slopes are 0 and k + 1."
+    },
+    {
+     "name": "refinement_slope_add",
+     "kind": "characterisation",
+     "statement": "v_p(α) + v_p(β) = k + 1 for p ∤ N."
+    },
+    {
+     "name": "refinement_ap_zero",
+     "kind": "non-example",
+     "statement": "At p | N with a_p = 0 there is no refinement."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/refined-eigenline",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "The refined eigenline",
+   "kind": "lemma",
+   "statement": "Let (f, α) be a refinement, K ⊇ K_f(α) a field, and λ the system of eigenvalues a_ℓ (ℓ ∤ Np) and α (for U_p). For each sign ±, L_{f,α}^± := Symb_{Γ₀}(V_k(K))^±[ε][λ] is one-dimensional over K; after ⊗ℂ it is spanned by (1 ± ι)ψ_{f_α} (with f_α := f when p | N). For p ∤ N it lies in the two-dimensional subspace where only the T_ℓ (ℓ ∤ Np) act by a_ℓ, on which U_p acts by the companion matrix of X² − a_pX + ε(p)p^{k+1}. For p | N, L_{f,α}^± is L1's line L_f^±, on which U_p acts by a_p.",
+   "hypotheses": [
+    "Throughout, Γ₀ := Γ₁(N) ∩ Γ₀(p) when p ∤ N and Γ₀ := Γ₁(N) when p | N. Pollack–Stevens work with Γ₀ = Γ ∩ Γ₀(p) for Γ of level prime to p. Their proofs use only that Γ₀ ⊆ Σ₀(p) has finite index (for Corollary 2.10, here L0/symbols-generator-values) and that U_p = Σ_{a=0}^{p−1}|β(a, p) with β(a, p) = (1 a; 0 p). Both hold for Γ₁(N) with p | N (L0/hecke-operators-gamma1), which is the stage's case of p dividing the level.",
+    "Forms-level input, requested from Tau Ceti ModularForms Layer 4: for p ∤ N, the subspace of S_{k+2}(Γ₁(N) ∩ Γ₀(p), ε) on which T_ℓ acts by a_ℓ(f) for all ℓ ∤ Np is spanned by f(z) and f(pz); for p | N, U_p f = a_p f.",
+    "Eisenstein separation at level Np: no Eisenstein eigensystem of weight k + 2 and level dividing Np equals (a_ℓ(f))_{ℓ ∤ Np} (requested from Layer 5; L0/eigenspace-dimension requests the level-N form)."
+   ],
+   "proofSteps": [
+    "Over ℂ: by L0/eichler-shimura-isomorphism for Γ₀, L0/symbols-mod-eisenstein and the Eisenstein separation, the subspace of Symb_{Γ₀}(V_k(ℂ))^±[ε] where T_ℓ acts by a_ℓ (ℓ ∤ Np) is isomorphic, Hecke-equivariantly including U_p (L0/period-symbol: ψ_{U_p g} = ψ_g|U_p), to the corresponding subspace span(f(z), f(pz)) of S_{k+2}(Γ₀, ε).",
+    "By p-stabilisation, U_p acts on span(f(z), f(pz)) by a cyclic companion matrix, so the α-eigenspace is ℂf_α, and its image under the ±-part of Eichler–Shimura is ℂ(1 ± ι)ψ_{f_α}.",
+    "Rationality: λ is K-valued and Symb_{Γ₀}(V_k(K)) ⊗_K ℂ = Symb_{Γ₀}(V_k(ℂ)) (L0/symbols-base-change), so dim_K = dim_ℂ = 1.",
+    "p | N: L1/period-lines gives the line; U_p commutes with the T_ℓ, so it preserves the line, and it acts there by a_p because U_p f = a_p f and ψ is U_p-equivariant."
+   ],
+   "acceptance": [
+    "11a1 at p = 3: Pollack–Stevens use the symbols φ^±_β at level 33 attached to f_β (§8).",
+    "For p ∤ N the subspace cut out by the T_ℓ (ℓ ∤ Np) alone is two-dimensional: dropping U_p loses the line.",
+    "If α = β the U_p-eigenspace is still a line, but the generalized eigenspace is two-dimensional, and slope decompositions see the generalized eigenspace."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/refinement",
+    "ModularSymbolsPadicLFunctions:L2/p-stabilisation",
+    "ModularSymbolsPadicLFunctions:L1/period-lines",
+    "ModularSymbolsPadicLFunctions:L0/eichler-shimura-isomorphism",
+    "ModularSymbolsPadicLFunctions:L0/symbols-mod-eisenstein",
+    "ModularSymbolsPadicLFunctions:L0/symbols-base-change",
+    "ModularSymbolsPadicLFunctions:L0/period-symbol",
+    "ModularSymbolsPadicLFunctions:L0/plus-minus-decomposition",
+    "ModularSymbolsPadicLFunctions:L0/nebentypus-symbols"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.3, p. 28",
+     "match": "The refined eigenline, for the U_p-eigenform f of level Γ₀."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/weight-k-distributions",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "Distribution modules with the weight-k action",
+   "kind": "definition",
+   "statement": "For r ∈ |ℂ_p^×|, let A[r] be the ℚ_p-Banach algebra of affinoid functions on B[ℤ_p, r] (the points within r of ℤ_p), A(ℤ_p) = lim_{s>0} A[s] and A†(ℤ_p, r) = lim_{s>r} A[s], with continuous duals D(ℤ_p), D[r] and D†(ℤ_p, r); write D = D[1] and D† = D†(ℤ_p, 1). For r < p, Σ₀(p) := {(a b; c d) ∈ M₂(ℤ_p) : p ∤ a, p | c, ad − bc ≠ 0} acts on A[r] by (γ ·_k f)(z) = (a + cz)^k f((b + dz)/(a + cz)), and on distributions on the right by (μ|_kγ)(f) = μ(γ ·_k f). The resulting modules are D_k(ℤ_p), D_k and D†_k. Moments: μ ↦ (μ(z^j))_j identifies D† with the sequences that are O(r^j) for every r > 1, and D, as a Banach space, with the bounded sequences. For r < p, γ ∈ Σ₀(p) with det γ = p^n and μ ∈ D[r], ‖μ|γ‖_{r/p^n} ≤ ‖μ‖_r.",
+   "hypotheses": [
+    "The spaces A[r], D[r], D(ℤ_p) and their topologies are requested from LocallyAnalyticDistributions L0; the weight-k action and the moment description are built here.",
+    "The restriction r < p is needed: for r ≥ p the formula does not preserve A[r] (sourceIssues E8). Every space the stage uses has r ≤ 1 or r slightly above 1."
+   ],
+   "proofSteps": [
+    "Proposition 3.1: |μ(z^j)| ≤ ‖z^j‖_r‖μ‖_r = r^j‖μ‖_r gives the growth; conversely, a sequence of that growth defines μ(Σ a_jz^j) := Σ a_jc_j on A†(ℤ_p, 1), since f ∈ A[r] for some r > 1. On D, ‖μ‖_1 = sup_j |μ(z^j)|.",
+    "Action and contraction: for r < p and z ∈ B[ℤ_p, r], |cz| < 1 when |z| ≤ max(1, r), so a + cz is a unit and (a + cz)^k has absolute value 1. For z₀ ∈ ℤ_p and |w| ≤ r, |γ(z₀ + w) − γz₀| = |det γ|·|w|/|(a + cz₀)(a + c(z₀ + w))| = p^{−n}|w|, and γz₀ ∈ ℤ_p. So γ maps B[ℤ_p, r] into B[ℤ_p, r/p^n], f ↦ γ ·_k f maps A[r/p^n] into A[r] with norm at most 1, and dualising gives the bound used in the proof of Lemma 6.2."
+   ],
+   "acceptance": [
+    "The Dirac distribution δ₀ has moments (1, 0, 0, …) and lies in D.",
+    "c_j = 1/(j + 1) is O(r^j) for every r > 1 but unbounded (|1/p^m|_p = p^m), so it defines an element of D† not in D; such denominators are why Theorem 4.5 needs D† (Remark 4.6).",
+    "c_j = p^{−j} is not O(r^j) for 1 < r < p, so it is the moment sequence of no element of D†."
+   ],
+   "prerequisites": [
+    "LocallyAnalyticDistributions:L0",
+    "ModularSymbolsPadicLFunctions:L0/hecke-monoid"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§3.1–3.3 and Proposition 3.1, pp. 15–17",
+     "match": "The weight-k action; the spaces and Proposition 3.1 precede it."
+    },
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.1, proof of Lemma 6.2, p. 27",
+     "match": "The contraction ‖μ|γ‖_{r/p^n} ≤ ‖μ‖_r for det γ = p^n."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.distWeight",
+     "role": "constructor",
+     "statement": "D_k(ℤ_p), D_k and D†_k with the right weight-k action of Σ₀(p)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.distMoments",
+     "role": "equivalence",
+     "statement": "D ≃ bounded sequences via μ ↦ (μ(z^j))_j, isometrically."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.distWeight_norm_le",
+     "role": "characterisation",
+     "statement": "‖μ|γ‖_{r/p^n} ≤ ‖μ‖_r for r < p and det γ = p^n."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/specialisation-map",
+     "how": "the source of ρ_k."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility",
+     "how": "the contraction bound."
+    },
+    {
+     "where": "PadicFamilies:L2",
+     "how": "the weight-k specialisations of distribution families."
+    }
+   ],
+   "tests": [
+    {
+     "name": "dist_dirac_moments",
+     "kind": "example",
+     "statement": "δ₀ has moments (1, 0, 0, …)."
+    },
+    {
+     "name": "dist_mem_iff_bounded",
+     "kind": "characterisation",
+     "statement": "An element of D† lies in D iff its moments are bounded."
+    },
+    {
+     "name": "dist_inv_succ_not_bounded",
+     "kind": "non-example",
+     "statement": "c_j = 1/(j + 1) gives an element of D† that is not in D."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/specialisation-map",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "Specialisation to polynomial coefficients",
+   "kind": "construction",
+   "statement": "For D_k one of D_k(ℤ_p), D_k, D†_k, the map ρ_k : D_k → V_k(ℚ_p), μ ↦ ∫(Y − zX)^k dμ(z) (coefficientwise), is Σ₀(p)-equivariant for the weight-k action and L0's right action (P|γ)(X, Y) = P(dX − cY, −bX + aY). It induces the specialisation ρ*_k : Symb_{Γ₀}(D_k) → Symb_{Γ₀}(V_k), which commutes with the Hecke operators, including U_p, and with ι. Explicitly ρ_k(μ) = Σ_{j=0}^k C(k, j)(−1)^jμ(z^j)X^jY^{k−j}, so ker ρ_k = {μ : μ(z^j) = 0 for 0 ≤ j ≤ k} and the Y^k-coefficient of ρ_k(μ) is the total mass μ(1).",
+   "hypotheses": [
+    "V_k and its action are L0/polynomial-coefficients; the Hecke operators on Symb_{Γ₀}(V) for a Σ₀(p)-module V are L0/hecke-operators-gamma1."
+   ],
+   "proofSteps": [
+    "Equivariance: ρ_k(μ|γ) = μ((a + cz)^k(Y − ((b + dz)/(a + cz))X)^k) = μ(((aY − bX) − z(dX − cY))^k), which is ρ_k(μ) evaluated at (X, Y) ↦ (dX − cY, −bX + aY), that is ρ_k(μ)|γ.",
+    "Expanding (Y − zX)^k binomially gives the coefficient formula, hence the kernel and the total-mass coefficient.",
+    "Hecke equivariance of ρ*_k follows from Σ₀(p)-equivariance of ρ_k, since the Hecke operators are sums of |δ with δ ∈ Σ₀(p)."
+   ],
+   "acceptance": [
+    "k = 0: ρ_0(μ) = μ(1), the total mass.",
+    "ρ_k(δ₀) = Y^k.",
+    "The distribution with moments ν_{k+1} (1 at z^{k+1}, 0 elsewhere) is nonzero and lies in ker ρ_k: specialisation forgets the moments above k."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/weight-k-distributions",
+    "ModularSymbolsPadicLFunctions:L0/polynomial-coefficients",
+    "ModularSymbolsPadicLFunctions:L0/modular-symbols",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators-gamma1",
+    "ModularSymbolsPadicLFunctions:L0/involution-at-infinity"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§3.4, p. 17",
+     "match": "The map ρ_k."
+    },
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§5, opening, p. 20",
+     "match": "Hecke equivariance of ρ*_k."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.specialise",
+     "role": "constructor",
+     "statement": "ρ_k : D_k → V_k, μ ↦ ∫(Y − zX)^k dμ."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.specialise_smul",
+     "role": "compatibility",
+     "statement": "ρ_k(μ|γ) = ρ_k(μ)|γ for γ ∈ Σ₀(p)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.specialiseSymb",
+     "role": "constructor",
+     "statement": "ρ*_k : Symb_{Γ₀}(D_k) → Symb_{Γ₀}(V_k), Hecke-equivariant."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.specialise_eq_zero_iff",
+     "role": "characterisation",
+     "statement": "ρ_k(μ) = 0 iff μ(z^j) = 0 for all j ≤ k."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/overconvergent-lift",
+     "how": "surjectivity of ρ*_k."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/control-theorem",
+     "how": "the isomorphism in small slope."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/ordinary-integral-measure",
+     "how": "the Y^k-coefficient is the total mass."
+    }
+   ],
+   "tests": [
+    {
+     "name": "specialise_zero_weight",
+     "kind": "example",
+     "statement": "k = 0: ρ_0(μ) = μ(1)."
+    },
+    {
+     "name": "specialise_dirac",
+     "kind": "characterisation",
+     "statement": "ρ_k(δ₀) = Y^k."
+    },
+    {
+     "name": "specialise_not_injective",
+     "kind": "non-example",
+     "statement": "A nonzero distribution supported in degree k + 1 specialises to 0."
+    }
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/overconvergent-lift",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "Lifting classical symbols to overconvergent ones",
+   "kind": "theorem",
+   "statement": "ρ*_k : Symb_{Γ₀}(D†_k) → Symb_{Γ₀}(V_k) is surjective, by an explicit lift of the values on the generators. For μ ∈ D†_k, μ|β(a, p) ∈ D_k, so U_p maps Symb_{Γ₀}(D†_k) into Symb_{Γ₀}(D_k). Hence ρ*_k : Symb_{Γ₀}(D_k) → Symb_{Γ₀}(V_k) is surjective.",
+   "hypotheses": [
+    "Throughout, Γ₀ := Γ₁(N) ∩ Γ₀(p) when p ∤ N and Γ₀ := Γ₁(N) when p | N. Pollack–Stevens work with Γ₀ = Γ ∩ Γ₀(p) for Γ of level prime to p. Their proofs use only that Γ₀ ⊆ Σ₀(p) has finite index (for Corollary 2.10, here L0/symbols-generator-values) and that U_p = Σ_{a=0}^{p−1}|β(a, p) with β(a, p) = (1 a; 0 p). Both hold for Γ₁(N) with p | N (L0/hecke-operators-gamma1), which is the stage's case of p dividing the level.",
+    "The generator-and-relation description is L0/symbols-generator-values, with the D_∞ relation of sourceIssues E1. Pollack–Stevens' proof of Theorem 5.1 uses the printed relation (µ∞|Δ = ν∞); it works verbatim with ν∞ replaced by −ν∞."
+   ],
+   "proofSteps": [
+    "Difference equation (Theorem 4.5): for ν ∈ D†_k of total measure zero, μ := Σ_{j≥1} ν(z^j)/j · η_{j−1}, with η_j(z^r) = C(r, j)b_{r−j} (Bernoulli numbers, Lemma 4.4), is the unique solution of μ|Δ = ν, Δ = (1 1; 0 1) − 1. By von Staudt–Clausen and Proposition 3.1 it lies in D†_k. Uniqueness is Lemma 4.3.",
+    "Theorem 5.1: lift φ(D_i) arbitrarily, lift φ(D′_i) and φ(D″_i) through the idempotents of Proposition 4.1 (2 and 3 are invertible on the ℚ_p-space D†_k), and solve for the value at D_∞ with the difference equation. Its right side has total measure zero because the Y^k-coefficient of every element of Δ(V_k) vanishes (Proposition 4.2). The resulting value can miss φ(D_∞) by cX^k (ker Δ on V_k is ℚ_pX^k); adjusting the lifts of the φ(D_i) corrects the k-th moment.",
+    "Lemma 5.3: (μ|β(a, p))(z^j) = Σ_r C(j, r)a^{j−r}p^rμ(z^r), and (p^rμ(z^r))_r is bounded by Proposition 3.1.",
+    "Corollary 5.4: it suffices to lift φ in a generalized U_p-eigenspace with eigenvalue λ ≠ 0. Write φ = φ′|U_p, lift φ′ to Ψ′ over D†_k, and take Ψ′|U_p."
+   ],
+   "acceptance": [
+    "k = 0, Γ₀(11) (Pollack's §2.6 generators): the lift is explicit on three divisors.",
+    "Without the correction step the D_∞-value can be off by cX^k; Remark 5.2 notes that for a non-Eisenstein eigensymbol, applying T_ℓ − (ℓ^{k+1} + 1) removes the error instead.",
+    "Theorem 4.5 fails in D_k: the solution can have unbounded moments (Remark 4.6)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/specialisation-map",
+    "ModularSymbolsPadicLFunctions:L0/symbols-generator-values"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§4.2 Theorem 4.5, p. 20; §5.1 Theorem 5.1, Lemma 5.3 and Corollary 5.4, pp. 21–22",
+     "match": "Theorem 5.1 (printed label T5.1 in the text layer)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/slope-decomposition-fibre",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "Slope decomposition of the fibre of specialisation",
+   "kind": "lemma",
+   "statement": "Let ϕ ∈ Symb_{Γ₀}(V_k) ⊗ K be a Hecke eigensymbol, K/ℚ_p finite, with U_p-eigenvalue λ of slope h, and X_ϕ := (ρ*_k)^{−1}(K·ϕ) ⊆ Symb_{Γ₀}(D_k) ⊗ K. Then X_ϕ = X_ϕ^{(=h)} ⊕ X_ϕ^{(>h)} uniquely, with u := λ^{−1}U_p topologically nilpotent on X_ϕ^{(>h)}, invertible on X_ϕ^{(=h)} with (u^{−n}) bounded, X_ϕ^{(=h)} finite-dimensional over K, and projection x ↦ lim_n u^{n!}x.",
+   "hypotheses": [
+    "The general statement (Pollack–Stevens Lemma 5.5 and Proposition 5.6: a completely continuous operator preserving a bounded lattice splits the space into a finite-dimensional part where it is invertible and a topologically nilpotent part) is a special case of the Riesz theory of LocallyAnalyticDistributions L4 (finite-slope-summands, riesz-root-projectors); either route may be formalised.",
+    "Complete continuity of U_p on Symb_{Γ₀}(D_k): each |β(a, p) maps D[1] into D[1/p] (weight-k-distributions), and the natural map D[1/p] → D[1] is dual to the completely continuous restriction A[1] → A[1/p] (Pollack–Stevens §3.1)."
+   ],
+   "proofSteps": [
+    "Lattice: Y_ϕ := {Φ in the unit ball of X_ϕ : |Φ(D)(z^j)| ≤ p^{−(h−j)} for 0 ≤ j ≤ ⌊h⌋ and all D ∈ Δ₀}.",
+    "u preserves Y_ϕ: (Φ|u)(D)(z^r) = λ^{−1}Σ_a Σ_j C(r, j)a^{r−j}p^jΦ(D_a)(z^j) with D_a = β(a, p)D, and each |p^jΦ(D_a)(z^j)| ≤ p^{−h} (by the defining bound for j ≤ ⌊h⌋ and because j > h otherwise), so |(Φ|u)(D)(z^r)| ≤ 1. Membership in Y_ϕ depends only on ρ*_k(Φ), and ρ*_k(Φ|u) = ρ*_k(Φ).",
+    "The unit ball itself need not be u-stable (Pollack–Stevens' footnote (3)), which is why Y_ϕ is used.",
+    "Apply the lattice decomposition (Proposition 5.6) to u on X_ϕ."
+   ],
+   "acceptance": [
+    "h = 0: Y_ϕ is the whole unit ball, and the projector is Hida's ordinary projector lim U_p^{n!} up to the unit λ.",
+    "X_ϕ is infinite-dimensional (it contains ker ρ*_k), while X_ϕ^{(=h)} is finite-dimensional.",
+    "For h > 0 the unit ball of X_ϕ need not be preserved by u."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/overconvergent-lift",
+    "ModularSymbolsPadicLFunctions:L2/specialisation-map",
+    "LocallyAnalyticDistributions:L4/finite-slope-summands",
+    "LocallyAnalyticDistributions:L4/completely-continuous"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§5.2–5.3, Lemma 5.5 and Propositions 5.6–5.7, pp. 23–25",
+     "match": "Proposition 5.7."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/control-theorem",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "Stevens' control theorem in small slope",
+   "kind": "theorem",
+   "statement": "Specialisation induces isomorphisms Symb_{Γ₀}(D_k(ℤ_p))^{(<k+1)} ≅ Symb_{Γ₀}(D_k)^{(<k+1)} ≅ Symb_{Γ₀}(V_k)^{(<k+1)} of the subspaces on which U_p acts with slope < k + 1, compatible with the Hecke operators and ι. In particular, for a refinement (f, α) of slope h < k + 1 and each basis φ^± of the refined eigenline, there is a unique Φ^± ∈ Symb_{Γ₀}(D_k(ℤ_p))^± with ρ*_k(Φ^±) = φ^±, and Φ^± is a Hecke eigensymbol with the eigenvalues of f_α.",
+   "hypotheses": [
+    "Throughout, Γ₀ := Γ₁(N) ∩ Γ₀(p) when p ∤ N and Γ₀ := Γ₁(N) when p | N. Pollack–Stevens work with Γ₀ = Γ ∩ Γ₀(p) for Γ of level prime to p. Their proofs use only that Γ₀ ⊆ Σ₀(p) has finite index (for Corollary 2.10, here L0/symbols-generator-values) and that U_p = Σ_{a=0}^{p−1}|β(a, p) with β(a, p) = (1 a; 0 p). Both hold for Γ₁(N) with p | N (L0/hecke-operators-gamma1), which is the stage's case of p dividing the level.",
+    "Pollack–Stevens cite the first isomorphism (independence of the radius on the finite-slope part) to their critical-slope preprint [16, Lemma 5.2], which was not read. Here it is derived from the contraction of weight-k-distributions. For Φ in the finite-slope part of Symb_{Γ₀}(D_k) (finite-dimensional by the Riesz theory), Φ = (Φ|U_p^{−n})|U_p^n with Φ|U_p^{−n} in the same space, and |U_p^n = Σ_{a mod p^n}|β(a, p^n) maps D[1]-valued symbols to D[1/p^n]-valued ones. So Φ takes values in every D[1/p^n], hence in D(ℤ_p) = lim_s D[s] (the maps D[s] → D[1] are injective)."
+   ],
+   "proofSteps": [
+    "Injectivity on slope < k + 1: for Φ ∈ ker ρ*_k, (Φ|U_p)(D)(z^r) = Σ_a Σ_j C(r, j)a^{r−j}p^jΦ(D_a)(z^j), and the terms with j ≤ k vanish, so U_p is divisible by p^{k+1} on ker ρ*_k: its slopes there are ≥ k + 1.",
+    "Surjectivity (Theorem 5.9 with Lemma 5.10): for an eigensymbol ϕ of slope h, ρ*_k maps X_ϕ^{(=h)} onto K·ϕ (overconvergent-lift, slope-decomposition-fibre; ρ*_k kills X_ϕ^{(>h)}). When h < k + 1 this map is also injective, so the eigensymbol it produces lifts a nonzero multiple of ϕ.",
+    "An isomorphism after extending scalars to ℚ̄_p is one before.",
+    "Uniqueness of Φ^± and its eigen-property follow from the Hecke-equivariant isomorphism and the one-dimensionality of the refined eigenline."
+   ],
+   "acceptance": [
+    "h = 0: Hida's ordinary control theorem for Γ₀.",
+    "At h = k + 1 specialisation can fail to be an isomorphism on the f-part: by Theorem 5.14 it fails exactly for f in the image of θ_k, which includes the critical-slope stabilisation of a p-ordinary CM form (Remark 5.15). That is stage L3.",
+    "The threshold is strict: slope k + 1 = w − 1 is excluded."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/overconvergent-lift",
+    "ModularSymbolsPadicLFunctions:L2/slope-decomposition-fibre",
+    "ModularSymbolsPadicLFunctions:L2/weight-k-distributions",
+    "ModularSymbolsPadicLFunctions:L2/refinement",
+    "ModularSymbolsPadicLFunctions:L2/refined-eigenline"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§5.3–5.4, Theorem 5.9, Lemma 5.10, Theorem 5.12 and its proof, pp. 25–26",
+     "match": "Theorem 5.12."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Stevens' control theorem"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "Values of slope-h eigensymbols are h-admissible",
+   "kind": "lemma",
+   "statement": "If Φ ∈ Symb_{Γ₀}(D(ℤ_p)) is a U_p-eigensymbol whose eigenvalue λ has slope h, then every value Φ(D) is h-admissible: ‖Φ(D)‖_r = O(r^{−h}) as r → 0⁺.",
+   "hypotheses": [
+    "h-admissibility (Pollack–Stevens Definition 6.1) and its theory are requested from LocallyAnalyticDistributions L2."
+   ],
+   "proofSteps": [
+    "For 0 < r ≤ 1, n ≥ 1 and D ∈ Δ₀: ‖Φ(D)‖_{r/p^n} = |λ|^{−n}‖(Φ|U_p^n)(D)‖_{r/p^n} ≤ |λ|^{−n} max_a ‖Φ(β(a, p^n)D)|β(a, p^n)‖_{r/p^n} ≤ |λ|^{−n} max_a ‖Φ(β(a, p^n)D)‖_r ≤ |λ|^{−n}‖Φ‖_r, by the contraction of weight-k-distributions.",
+    "|λ|^{−n} = p^{nh} = (r/(r/p^n))^h, so ‖Φ(D)‖_s ≤ (r^h‖Φ‖_r)·s^{−h} for s = r/p^n, which is O(s^{−h})."
+   ],
+   "acceptance": [
+    "h = 0: the values are bounded, that is, measures.",
+    "λ = 0 is not covered (infinite slope).",
+    "At h = k + 1, h-admissibility no longer determines a distribution from its values on locally polynomial functions of degree ≤ k (Pollack–Stevens §6.4; stage L3)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/weight-k-distributions",
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.1, Definition 6.1 and Lemma 6.2, p. 27",
+     "match": "Lemma 6.2."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/p-adic-l-function",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "The p-adic L-function of a small-slope refinement",
+   "kind": "construction",
+   "statement": "Let (f, α) be a refinement of slope h < k + 1, φ^± bases of the refined eigenlines, Φ^± their eigenlifts (control-theorem) and Φ := Φ⁺ + Φ⁻. Define L_p(f, α; φ^±) := Φ({∞} − {0})|_{ℤ_p^×} ∈ D(ℤ_p^×). It is h-admissible, and for every locally analytic g, Φ({∞} − {0})(g·1_{a+p^nℤ_p}) = α^{−n}Φ({∞} − {a/p^n})(g(a + p^nz)) (the distribution relation). Write the bases as Pollack–Stevens do, φ^±({r} − {s}) = (∫_r^s f_α(z)(zX + Y)^k dz ± (−1)^k∫_{−r}^{−s} f_α(z)(zX − Y)^k dz)·πi/Ω^±, which defines Ω^± ∈ ℂ^× from φ^±. Then for p ∤ a and 0 ≤ j ≤ k the ±-part of L_p(z^j·1_{a+p^nℤ_p}) is α^{−n}(∫_∞^{a/p^n}(−p^nz + a)^j f_α(z)dz ± ∫_∞^{−a/p^n}(p^nz + a)^j f_α(z)dz)·πi/Ω^±, which is Pollack–Stevens (2).",
+   "hypotheses": [
+    "The construction depends on the refinement α and on the bases φ^±; rescaling φ^± by c^± ∈ K^× rescales the ±-parts of L_p by c^±.",
+    "In L0's normalization ψ_f({s} − {r}) = 2πi∫_r^s f(z)(zX + Y)^k dz, with ι acting on V_k by P(X, Y) ↦ P(X, −Y), the displayed φ^± is −(1 ± (−1)^kι)ψ_{f_α}/(2Ω^±). So Pollack–Stevens' label ± is the ι-sign times (−1)^k, and Ω^± = −½Ω_{f_α}^{±(−1)^k}(φ^±) in the notation of L1/period-lines.",
+    "Orientation: the divisor is {∞} − {0}; the choice {0} − {∞} changes L_p by −1."
+   ],
+   "proofSteps": [
+    "Distribution relation (proof of Proposition 6.3): Φ({∞} − {0}) = α^{−n}(Φ|U_p^n)({∞} − {0}) = α^{−n}Σ_{a mod p^n}Φ({∞} − {a/p^n})|β(a, p^n), and μ|β(a, p^n) is supported on a + p^nℤ_p, where (μ|β(a, p^n))(g) = μ(g(a + p^nz)).",
+    "For deg Q ≤ k, Φ^±({∞} − {a/p^n})(Q) is read off from ρ*_k(Φ^±) = φ^± through ρ_k; with Q(z) = (p^nz + a)^j this gives (2).",
+    "h-admissibility is eigensymbol-admissibility applied to D = {∞} − {0}.",
+    "The relation with ψ: the first integral is ψ_{f_α}({s} − {r})/(2Ω^±) = −ψ_{f_α}({r} − {s})/(2Ω^±), and (ψ|ι)({r} − {s}) = ψ({−r} − {−s})|ι = −2πi∫_{−r}^{−s} f_α(z)(zX − Y)^k dz."
+   ],
+   "acceptance": [
+    "k = 0: L_p(1_{a+p^nℤ_p}) = α^{−n}φ({∞} − {a/p^n}) for p ∤ a, the Riemann sums of the modular symbol of f_α.",
+    "Replacing φ^+ by 2φ^+ doubles the +-part only.",
+    "The divisor {0} − {∞} gives −L_p: the orientation is part of the definition."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/control-theorem",
+    "ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility",
+    "ModularSymbolsPadicLFunctions:L2/refined-eigenline",
+    "ModularSymbolsPadicLFunctions:L2/specialisation-map",
+    "ModularSymbolsPadicLFunctions:L0/period-symbol",
+    "ModularSymbolsPadicLFunctions:L0/involution-at-infinity"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.3, Proposition 6.3 and its proof, pp. 28–29",
+     "match": "Proposition 6.3: Φ_f({∞} − {0})|_{ℤ_p^×} = μ_f (the restriction bar is lost in the text layer)."
+    },
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.2, (2), p. 27",
+     "match": "Formula (2), read on the page image."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.ModularSymbol.padicLFunction",
+     "role": "constructor",
+     "statement": "L_p(f, α; φ^±) = Φ({∞} − {0})|_{ℤ_p^×} ∈ D(ℤ_p^×)."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.padicLFunction_admissible",
+     "role": "characterisation",
+     "statement": "L_p(f, α; φ^±) is h-admissible."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.padicLFunction_distrib",
+     "role": "characterisation",
+     "statement": "The distribution relation on a + p^nℤ_p."
+    },
+    {
+     "name": "TauCeti.ModularSymbol.padicLFunction_smul",
+     "role": "compatibility",
+     "statement": "Rescaling φ^± rescales the ±-parts."
+    }
+   ],
+   "uses": [
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness",
+     "how": "the interpolated distribution."
+    },
+    {
+     "where": "ModularSymbolsPadicLFunctions:L2/ordinary-integral-measure",
+     "how": "the ordinary case."
+    },
+    {
+     "where": "PadicFamilies:L2",
+     "how": "specialisations of the two-variable p-adic L-function."
+    }
+   ],
+   "tests": [
+    {
+     "name": "padicLFunction_weight_two",
+     "kind": "example",
+     "statement": "k = 0: the value on a + p^nℤ_p is α^{−n}φ({∞} − {a/p^n})."
+    },
+    {
+     "name": "padicLFunction_smul_plus",
+     "kind": "characterisation",
+     "statement": "φ^+ ↦ cφ^+ multiplies the +-part by c."
+    },
+    {
+     "name": "padicLFunction_orientation",
+     "kind": "non-example",
+     "statement": "Using {0} − {∞} gives −L_p."
+    }
+   ],
+   "planet": {
+    "name": "p-adic L-function of a refinement"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "Interpolation and uniqueness of the p-adic L-function",
+   "kind": "theorem",
+   "statement": "Let (f, α) have slope h < k + 1, with φ^± and Ω^± as in p-adic-l-function, 0 ≤ j ≤ k, and χ a character of ℤ_p^× of conductor p^n. With ± := (−1)^jχ(−1), L_p(f, α; φ^±)(z^j·χ) = e·α^{−n}p^{nj}·τ(χ)·j!/(2πi)^j·L(f_α, χ^{−1}, j + 1)/Ω^±, where e = 1 if n ≥ 1 and e = 1 − p^j/α if n = 0 (χ trivial). For p ∤ N and n = 0, L(f_α, j + 1) = (1 − ε(p)p^{k−j}/α)L(f, j + 1) supplies the second Euler factor. In L1's notation I_j(x) = 2πi∫_{i∞}^x f_α(z)(z − x)^j dz, the right side for n ≥ 1 is ±α^{−n}p^{nj}Σ_{a mod p^n}χ(a)I_j(−a/p^n)/Ω^±. This is RJW Theorem B.1 with Ω_{B.1}^± = −Ω^±/(2πi), a j-independent conversion. Moreover, L_p(f, α; φ^±) is the unique h-admissible distribution on ℤ_p^× with these values, because h < k + 1.",
+   "hypotheses": [
+    "Pollack–Stevens (1) prints the formula as α^{−n}p^{n(j+1)}/(−2πi)^j·j!/τ(χ^{−1})·L(f, χ^{−1}, j+1)/Ω^±. It agrees with (2), and hence with Proposition 6.3, only up to the sign ± (sourceIssues E4), and it omits e at n = 0 (sourceIssues E5). The statement here is the one (2) implies.",
+    "Uniqueness of an h-admissible distribution from its values on locally polynomial functions of degree ≤ k when h < k + 1 (Amice–Vélu, Višik) is requested from LocallyAnalyticDistributions L2. At h = k + 1 it fails (stage L3)."
+   ],
+   "proofSteps": [
+    "Case n ≥ 1: sum (2) against χ(a) over a mod p^n with p ∤ a. With (−p^nz + a)^j = (−p^n)^j(z − a/p^n)^j and (p^nz + a)^j = p^{nj}(z + a/p^n)^j, the ±-part is α^{−n}p^{nj}[(−1)^jS ± Σ_aχ(a)I_j(−a/p^n)]/(2Ω^±), where S := Σ_aχ(a)I_j(a/p^n). Substituting a ↦ −a gives Σ_aχ(a)I_j(−a/p^n) = χ(−1)S, so the ±-part vanishes unless ± = (−1)^jχ(−1), and then equals α^{−n}p^{nj}(−1)^jS/Ω^±.",
+    "L1/twisted-mellin-formula: S = τ(χ)·j!/(−2πi)^j·L(f_α, χ̄, j + 1), which gives the formula with e = 1.",
+    "Case n = 0: L_p(z^j) = Φ({∞} − {0})(z^j) − Φ({∞} − {0})(z^j·1_{pℤ_p}), and by the distribution relation with a = 0, n = 1 the second term is α^{−1}p^jΦ({∞} − {0})(z^j). So L_p(z^j) = (1 − p^j/α)·Φ({∞} − {0})(z^j), and the case a = 0, n = 0 of the computation above evaluates Φ({∞} − {0})(z^j). L1/p-stabilised-euler-factors converts L(f_α, j + 1).",
+    "RJW comparison: L1/rjw-b1-comparison writes B.1's right side as −ε(−1)^k/(2πi·Ω_{B.1})·α^{−n}p^{nj}Σ_aχ(a)I_j(−a/p^n) with ε = (−1)^{k−j}χ(−1), so ε(−1)^k = (−1)^jχ(−1) = ±. Comparing with the formula above gives Ω_{B.1}^± = −Ω^±/(2πi).",
+    "Uniqueness: two h-admissible distributions with h < k + 1 that agree on locally polynomial functions of degree ≤ k are equal (LAD L2). The values on z^j·1_{a+p^nℤ_p}, given by (2), determine L_p on such functions."
+   ],
+   "acceptance": [
+    "k = 0, n = 0, p ∤ N, trivial ε: L_p(1) = (1 − 1/α)²·L(f, 1)/Ω^+, the Mazur–Tate–Teitelbaum shape.",
+    "For quadratic χ, and on the +-part, (1) as printed and (2) agree; only the −-part carries the sign of E4.",
+    "Replacing L(f_α, χ^{−1}, j + 1) by L(f_α, χ, j + 1) is wrong for non-real χ (L1's numerical check of the twisted Mellin formula)."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/p-adic-l-function",
+    "ModularSymbolsPadicLFunctions:L1/twisted-mellin-formula",
+    "ModularSymbolsPadicLFunctions:L1/rjw-b1-comparison",
+    "ModularSymbolsPadicLFunctions:L1/p-stabilised-euler-factors",
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.2, (1) and (2), p. 27",
+     "match": "Interpolation and uniqueness; (1) and (2) read on the page image."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Interpolation and uniqueness"
+   }
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions:L2/ordinary-integral-measure",
+   "parentStageId": "ModularSymbolsPadicLFunctions:L2",
+   "realises": [
+    "ModularSymbolsPadicLFunctions:L2"
+   ],
+   "title": "Ordinary p-adic L-functions as integral measures",
+   "kind": "theorem",
+   "statement": "Let (f, α) have slope 0, 𝒪 the integers of a finite extension K of ℚ_p containing K_f(α), and φ^± generators of the saturated lattices L_{f,α}^±(𝒪) := L_{f,α}^± ∩ Symb_{Γ₀}(V_k(𝒪)). Then L_p(f, α; φ^±) is a measure with values in 𝒪: for p ∤ a, L_p(1_{a+p^nℤ_p}) = α^{−n}·[Y^k](φ({∞} − {a/p^n})) ∈ 𝒪, where φ := φ⁺ + φ⁻ and [Y^k] is the Y^k-coefficient. So L_p ∈ 𝒪⟦ℤ_p^×⟧. Boundedness alone, that is h = 0 with arbitrary bases φ^±, gives only an element of 𝒪⟦ℤ_p^×⟧[1/p].",
+   "hypotheses": [
+    "The saturated lattice of a line and its generator, unique up to 𝒪^×, are L1/integral-period-lattices. Its proof uses only that the line lies in Symb_{Γ₀}(V_k(K)) for a finite-index Γ₀, so it applies to the refined eigenline.",
+    "The identification of 0-admissible distributions with bounded measures, K ⊗ 𝒪⟦ℤ_p^×⟧, is requested from LocallyAnalyticDistributions L2 (order zero)."
+   ],
+   "proofSteps": [
+    "Distribution relation with g = 1: L_p(1_{a+p^nℤ_p}) = α^{−n}Φ({∞} − {a/p^n})(1), and Φ(D)(1) is the Y^k-coefficient of ρ_k(Φ(D)) = φ(D) (specialisation-map), with no binomial denominator.",
+    "α ∈ 𝒪^× and φ(D) ∈ V_k(𝒪), so every value on a compact open is in 𝒪. By eigensymbol-admissibility L_p is 0-admissible, hence a bounded measure, and it is determined by its values on compact opens, so it lies in 𝒪⟦ℤ_p^×⟧.",
+    "For bases p^{−m}·(integral generator) the values lie in p^{−m}𝒪."
+   ],
+   "acceptance": [
+    "11a1 at p = 3 with the unit root α ∈ ℤ_3^× of X² + X + 3 (≡ −1 mod 3 by Hensel): L_p ∈ ℤ_3⟦ℤ_3^×⟧ for the integral generators φ^±.",
+    "p^{−1}φ^± in place of φ^± gives a bounded measure in p^{−1}𝒪⟦ℤ_p^×⟧, in general not in 𝒪⟦ℤ_p^×⟧.",
+    "For the moments μ(z^j) with 1 ≤ j ≤ k no integrality follows from φ ∈ V_k(𝒪) alone: ρ_k involves the binomials C(k, j), which can be divisible by p when p ≤ k."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L2/p-adic-l-function",
+    "ModularSymbolsPadicLFunctions:L2/specialisation-map",
+    "ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility",
+    "ModularSymbolsPadicLFunctions:L1/integral-period-lattices",
+    "LocallyAnalyticDistributions:L2"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/ModularSymbols/Overconvergent",
+    "namespace": "TauCeti.ModularSymbol"
+   },
+   "sources": [
+    {
+     "sourceId": "POLLACK-STEVENS-2011",
+     "locator": "§6.3, p. 28",
+     "match": "The integral normalisation of φ^±."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Integral ordinary p-adic L-function"
+   }
   }
  ],
  "requests": [
@@ -2646,6 +3477,44 @@
    ],
    "status": "open",
    "note": "RS-08: L1 imports the classical Mellin/L-function theory of ModularForms 7."
+  },
+  {
+   "supplier": "LocallyAnalyticDistributions:L0",
+   "need": "The ℚ_p-Banach algebras A[r] of affinoid functions on B[ℤ_p, r] with their sup norms, the completely continuous dense restrictions A[r₁] → A[r₂] (r₁ > r₂), A(ℤ_p) = lim_{s>0} A[s] and A†(ℤ_p, r) = lim_{s>r} A[s], and their continuous duals D(ℤ_p), D[r], D†(ℤ_p, r) with the dual norms and projective-limit topologies (Pollack–Stevens §3.1).",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L2/weight-k-distributions"
+   ],
+   "status": "open",
+   "note": "The weight-k action of Σ₀(p) and the moment description are planned here."
+  },
+  {
+   "supplier": "LocallyAnalyticDistributions:L2",
+   "need": "h-admissible distributions (‖μ‖_r = O(r^{−h}) as r → 0⁺) on ℤ_p and ℤ_p^×; uniqueness of an h-admissible distribution from its values on locally polynomial functions of degree ≤ k when h < k + 1 (Amice–Vélu, Višik); and order 0 = bounded measures, K ⊗ 𝒪⟦ℤ_p^×⟧.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L2/eigensymbol-admissibility",
+    "ModularSymbolsPadicLFunctions:L2/interpolation-and-uniqueness",
+    "ModularSymbolsPadicLFunctions:L2/ordinary-integral-measure"
+   ],
+   "status": "open",
+   "note": "Pollack–Stevens Definition 6.1 and the uniqueness quoted after (1)."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+   "need": "For a newform f of weight k + 2, level N and character ε, and a prime p: (i) if p ∤ N, the subspace of S_{k+2}(Γ₁(N) ∩ Γ₀(p), ε) on which T_ℓ acts by a_ℓ(f) for every prime ℓ ∤ Np is spanned by f(z) and f(pz) (the oldspace statement, with the uniqueness part 4B); (ii) if p | N, U_p f = a_p(f)f (the bad-prime eigenvalue milestone).",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L2/refined-eigenline"
+   ],
+   "status": "open",
+   "note": "Needed for the one-dimensionality of the refined eigenline at level Γ₁(N) ∩ Γ₀(p)."
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/ModularForms#layer-5-strong-multiplicity-one-and-the-eigenform-characterization",
+   "need": "The level-Np form of the Eisenstein separation: for a newform f of weight k + 2 and level N and a prime p ∤ N, no Eisenstein eigenform of weight k + 2 and level dividing Np has T_ℓ-eigenvalue a_ℓ(f) for every prime ℓ ∤ Np.",
+   "neededBy": [
+    "ModularSymbolsPadicLFunctions:L2/refined-eigenline"
+   ],
+   "status": "open",
+   "note": "L0/eigenspace-dimension requests the level-N case; the refined eigenline lives at level Np."
   }
  ],
  "coverage": [
@@ -2663,10 +3532,9 @@
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L2",
-   "status": "not_read",
-   "remaining": [
-    "Source-decompose stage L2 (Refinements and small slope)."
-   ]
+   "status": "source_decomposed",
+   "remaining": [],
+   "notes": "All of the stage is planned (12 nodes, Pollack–Stevens §§3–6). p-stabilisations with U_p-eigenvalue and coefficients (the Euler-factor change is L1/p-stabilised-euler-factors); refinements with slopes, including p | N with the actual U_p eigenvalue; the one-dimensional refined eigenline; weight-k distributions and specialisation; explicit overconvergent lifts; the slope decomposition of the fibre (the Riesz theory is LocallyAnalyticDistributions L4); Stevens' control theorem for h < k + 1; h-admissibility of eigensymbol values; the p-adic L-function Φ({∞} − {0})|_{ℤ_p^×} with its distribution relation; interpolation (fixed to Pollack–Stevens (2), equal to RJW B.1 with Ω_{B.1} = −Ω/(2πi)) and uniqueness; and integrality of ordinary measures through the saturated lattices of L1, with boundedness alone giving 𝒪⟦G⟧[1/p]. Pollack–Stevens (1) disagrees with (2) by a sign on the −-part and omits the n = 0 factor (E4, E5); E6–E7 are misprints in §6.4, and E8 restricts the weight-k action to r < p. LocallyAnalyticDistributions L0 and L2 and ModularForms Layers 4–5 are requested."
   },
   {
    "stageId": "ModularSymbolsPadicLFunctions:L3",
@@ -2729,6 +3597,88 @@
    "searched": [
     "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139, checked 2026-09-28: no erratum, correction or update."
    ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E4",
+   "source": "POLLACK-STEVENS-2011",
+   "kind": "misprint",
+   "locator": "§6.2, (1) and (2), p. 27 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "The source gives (1) µf(zj · χ) = 1/αn · pn(j+1)/(−2πi)j · j!/τ(χ−1) · L(f, χ−1, j + 1)/Ω±f, and (2) µ±f(zj · 1a+pnZp) = 1/αn · (∫∞^{a/pn} (−pnz + a)j f(z)dz ± ∫∞^{−a/pn} (pnz + a)j f(z)dz) πi/Ω±f.",
+   "correction": "With the same periods Ω^±, the distribution (2), which Proposition 6.3 identifies with Φ_f({∞} − {0})|_{ℤ_p^×}, satisfies μ_f(z^j·χ) = α^{−n}p^{nj}·τ(χ)·j!/(2πi)^j·L(f, χ^{−1}, j + 1)/Ω^±_f with ± = (−1)^jχ(−1) (n ≥ 1). This is (1) multiplied by ±, so (1) holds for (2) after replacing Ω^−_f by −Ω^−_f.",
+   "reason": "Sum (2) against χ(a): with I_j(x) = 2πi∫_{i∞}^x f(z)(z − x)^j dz and S = Σ_aχ(a)I_j(a/p^n), (2) gives α^{−n}p^{nj}(−1)^jS/Ω^± on the active sign, since Σ_aχ(a)I_j(−a/p^n) = χ(−1)S. The twisted Mellin formula S = τ(χ)j!/(−2πi)^jL(f, χ^{−1}, j+1) (this packet's L1/twisted-mellin-formula, checked numerically with non-real characters) and τ(χ)τ(χ^{−1}) = χ(−1)p^n show that (1) equals χ(−1)α^{−n}p^{nj}S/Ω^±. The ratio (1)/(2) is χ(−1)(−1)^j = ±, which is −1 on the −-part.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "note": "The periods are only said to be 'appropriately chosen', so the mathematics is right after renaming Ω^−; the proof of Proposition 6.3 compares with (2) only. Proposition 6.5 (3) repeats the shape of (1)."
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E5",
+   "source": "POLLACK-STEVENS-2011",
+   "kind": "error",
+   "locator": "§6.2, (1), p. 27 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "The source gives the following for a character χ of Z×p having finite order and conductor pn, with an integer j from 0 to k: (1) µf(zj · χ) = 1/αn · pn(j+1)/(−2πi)j · j!/τ(χ−1) · L(f, χ−1, j + 1)/Ω±f",
+   "correction": "For n = 0 (χ trivial, conductor 1) the right side needs the factor (1 − p^j/α): μ_f(z^j) = (1 − p^j/α)·j!/(2πi)^j·L(f, j + 1)/Ω^± (with E4's sign), where f is the U_p-eigenform of level Γ₀. For f the p-stabilisation of a newform f° of level prime to p, L(f, j + 1) = (1 − ε(p)p^{k−j}/α)L(f°, j + 1) gives the second Euler factor.",
+   "reason": "By the distribution relation in the proof of Proposition 6.3 (with a = 0, n = 1), Φ_f({∞} − {0})(z^j·1_{pℤ_p}) = α^{−1}p^jΦ_f({∞} − {0})(z^j), so restricting to ℤ_p^× multiplies the value on ℤ_p by 1 − p^j/α, and the value on ℤ_p is (2) with n = 0. Since p^j/α ≠ 0, the factor is never 1; for 11a1 at p = 3 with k = j = 0, (1) and the restriction differ by 1 − 1/α while L(f, 1) ≠ 0. RJW Theorem B.1 (this packet's L1/rjw-b1-comparison) carries the factor (1 − χ(p)p^j/α_p), which is 1 − p^j/α_p exactly for n = 0.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "note": "(1) is quoted as the defining property of μ_f; no proof in the paper uses the case n = 0."
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E6",
+   "source": "POLLACK-STEVENS-2011",
+   "kind": "misprint",
+   "locator": "§6.4, Proposition 6.5, (3), p. 29 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "(3) µf(zj · χ) = 1/βn · pn(j+1)/(−2πi)j · j!/τ(χ−1) · L(f, χ−1, 1)/Ω±f",
+   "correction": "L(f, χ^{−1}, j + 1) in place of L(f, χ^{−1}, 1); as for (1), the sign of E4 and the n = 0 factor of E5 also apply.",
+   "reason": "The proposition is said to be 'a formal consequence ... as in Proposition 6.3', whose computation produces the value at s = j + 1, as in (1); the left side varies with j while L(f, χ^{−1}, 1) does not.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E7",
+   "source": "POLLACK-STEVENS-2011",
+   "kind": "misprint",
+   "locator": "§6.4, Definition 6.4, p. 29 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "Definition 6.4 takes an eigenform f in Sk(Γ, Qp), with slope k + 1, and requires f to lie outside the image of θk.",
+   "correction": "f ∈ S_{k+2}(Γ₀, ℚ̄_p).",
+   "reason": "Slope k + 1 is the critical slope for weight k + 2; θ_k takes weight −k to weight k + 2 (the paragraph before Theorem 5.14), and Theorem 5.14 states the hypothesis for 'an eigenform of S_{k+2}(Γ₀, ℚ̄_p) with slope k + 1'.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ]
+  },
+  {
+   "id": "ModularSymbolsPadicLFunctions/E8",
+   "source": "POLLACK-STEVENS-2011",
+   "kind": "error",
+   "locator": "§3.3, pp. 16–17, and the proof of Lemma 6.2, p. 27 (Numdam PDF of the published article; printed page = PDF page − 1)",
+   "printed": "The source defines, for every non-negative integer k, the weight k action on A[r] of Σ0(p) by (γ ·k f)(z) = (a + cz)k · f((b + dz)/(a + cz)). It also claims ||µ|γ|| r/pn ≤||µ||r for all µ ∈D[r] and γ ∈Σ0(p) satisfying det(γ) = pn.",
+   "correction": "Both hold for r < p (every r ∈ |ℂ_p^×| is allowed in §3.1); for r ≥ p the formula does not preserve A[r].",
+   "reason": "For r ≥ 1, B[ℤ_p, r] is the closed disc of radius r about 0. Take γ = (1 0; p 1) ∈ Σ₀(p), k = 0 and f(z) = z: γ ·₀ f = z/(1 + pz) has a pole at −1/p, of absolute value p, which lies in B[ℤ_p, r] when r ≥ p. For r < p, a + cz is a unit on B[ℤ_p, r] and the action and the contraction hold.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item page https://www.numdam.org/item/ASENS_2011_4_44_1_1_0/ and the Crossref record of doi:10.24033/asens.2139 with a filter=updates query, checked 2026-09-28: no erratum, correction or update."
+   ],
+   "note": "The paper only uses r ≤ 1 and r slightly above 1 (D, D† and D(ℤ_p))."
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/10.24033/asens.2139.pdf",
+   "citation": "Pollack and Stevens, Overconvergent modular symbols and p-adic L-functions, Ann. Sci. Éc. Norm. Sup. (4) 44 (2011), 1–42 (Numdam open-access PDF)",
+   "read": "2026-09-28",
+   "sha256": "62e85b8aaa08423ffa58611cdf540c4ed5de44ddd691a9f8e7147d26375275e4"
   }
  ]
 }

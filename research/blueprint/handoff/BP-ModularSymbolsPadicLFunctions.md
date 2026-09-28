@@ -1,6 +1,50 @@
-# BP-ModularSymbolsPadicLFunctions: L0–L1 source-decomposed (checkpoint 3)
+# BP-ModularSymbolsPadicLFunctions: L0–L2 source-decomposed (checkpoint 4)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #777. **Status: partial.** L0 and L1 are `source_decomposed`; L2–L4 are `not_read`.
+Claude Code — session `cc-39fac3`, 28 September 2026. Refs #777. **Status: partial.** L0, L1 and L2 are `source_decomposed`; L3–L4 are `not_read`.
+
+## Checkpoint 4: L2 (12 nodes, 5 planets)
+
+Source: Pollack–Stevens §§3–6, read in full for these sections, with the displayed formulas of §6 read on the page images.
+
+- **`p-stabilisation`, `refinement`, `refined-eigenline`.** f_α = f° − βf°(pz). U_p f_α = αf_α is proved from Tau Ceti's
+  coefficient characterisations (`heckeUCuspNat_…`, `heckeTCuspNat_…`, `CuspForm.qExpansion_levelRaise`). U_p is a
+  companion matrix on span(f°, f°(pz)), so the refined eigenline is a line even when α = β.
+  - At p | N the refinement is (f, a_p) at level Γ₁(N). Pollack–Stevens' proofs need only Γ₀ ⊆ Σ₀(p) and the U_p formula,
+    so they cover this case.
+  - The eigenline needs the p-oldspace (ModularForms Layer 4) and level-Np Eisenstein separation (Layer 5), both requested.
+- **`weight-k-distributions`, `specialisation-map`.** The weight-k action, moments (D = bounded sequences), the contraction
+  ‖μ|γ‖_{r/pⁿ} ≤ ‖μ‖_r (only for r < p, E8), and the equivariance of ρ_k.
+- **`overconvergent-lift`, `slope-decomposition-fibre`, `control-theorem`.** Theorems 4.5 and 5.1, Lemma 5.3,
+  Corollary 5.4, Propositions 5.6–5.7 and Theorems 5.9/5.12. Pollack–Stevens cite the first isomorphism of Theorem 5.12
+  to their unread critical-slope preprint; it is derived here from the contraction bound.
+- **`eigensymbol-admissibility`, `p-adic-l-function`.** Lemma 6.2 and Proposition 6.3 with the distribution relation.
+  Pollack–Stevens' φ^± is −(1 ± (−1)^kι)ψ/(2Ω^±), so their ± label is the ι-sign times (−1)^k.
+- **`interpolation-and-uniqueness`.** Summing (2) against χ with L1's twisted Mellin formula gives
+  L_p(z^jχ) = e·α^{−n}p^{nj}τ(χ)j!/(2πi)^j·L(f_α, χ^{−1}, j+1)/Ω^± with ± = (−1)^jχ(−1) and e = 1 − p^j/α at n = 0.
+  This is RJW B.1 with Ω_{B.1} = −Ω/(2πi), independent of j, which closes the normalization question L1 left open.
+- **`ordinary-integral-measure`.** Values on balls are α^{−n}·[Y^k]φ(…), the total-mass coefficient, which has no binomial
+  denominator. So integral generators give 𝒪⟦ℤ_p^×⟧, and arbitrary bases only 𝒪⟦ℤ_p^×⟧[1/p].
+
+**New source issues (Pollack–Stevens):**
+- **E4 (misprint).** (1) and (2) differ by the sign (−1)^jχ(−1), that is on the −-part.
+- **E5 (error).** (1) omits the factor 1 − p^j/α at n = 0.
+- **E6 (misprint).** Proposition 6.5 (3) prints L(f, χ^{−1}, 1) for L(f, χ^{−1}, j + 1).
+- **E7 (misprint).** Definition 6.4 prints S_k(Γ, ℚ̄_p) for S_{k+2}(Γ₀, ℚ̄_p).
+- **E8 (error).** The action on A[r] and the contraction need r < p.
+
+All reach nothing. `sourceVersions` now records the Numdam PDF read, with its sha256.
+
+**New requests:**
+- LocallyAnalyticDistributions L0 (the spaces) and L2 (admissibility, uniqueness, bounded measures);
+- ModularForms Layer 4 (the p-oldspace, and U_p f = a_p f at p | N);
+- ModularForms Layer 5 (Eisenstein separation at level Np).
+
+**Lean.** Six new proved checks: the p-stabilisation recurrence, ρ_k-equivariance, the Lemma 5.3 binomial expansion, the
+n = 0 factor, the E4 ratio and the E8 pole. There is one new `sorry` declaration, `Sigma0p`, and L2 signatures in a
+comment block. It compiles with 0 errors and 69 `sorry` warnings.
+
+**Totals.** 44 nodes, 76 API items, 60 unit tests, 15 planets, 46 baseline declarations, 12 requests and 8 source
+issues. `check_blueprint.py`: 0 errors, 0 warnings.
 
 ## Checkpoint 3: L1 (6 nodes, 4 planets)
 
@@ -81,7 +125,7 @@ No erratum turned up on Numdam or in the Crossref record.
 
 `suggested/ModularSymbolsPadicLFunctions.lean` imports Mathlib only; there are no Tau Ceti oleans at `f790474` on this server. Tau Ceti declarations (`diamondOp`, `cuspFormCharSpace`, the Petersson and multiplicity-one results) are cited in the packet, not imported.
 
-It was compiled once with the v4.34.0-rc2 `lean` against the prebuilt Mathlib 082e2d3 oleans: **0 errors**, 68 warnings, all `declaration uses 'sorry'`.
+It was compiled with the v4.34.0-rc2 `lean` against the prebuilt Mathlib 082e2d3 oleans: **0 errors**, 69 warnings at checkpoint 4 (68 before), all `declaration uses 'sorry'`.
 
 New signatures:
 - `bsymbols`, `res`, `eisSymbols`;
@@ -92,18 +136,16 @@ New signatures:
 
 ## What a continuation should do
 
-1. **Stage L2.** This covers distributions D_k (which need LocallyAnalyticDistributions), specialization, the control
-   theorem (PS §§3–5) and the p-adic L-function with its interpolation.
-   - `symbols-generator-values` is the input for PS Theorem 5.1.
-   - Normalize the distribution through the cusps −a/pⁿ, so that `rjw-b1-comparison` gives RJW B.1 with periods that
-     depend only on the sign.
+1. **Stage L3 (critical slope).** Start from Pollack–Stevens Theorem 5.14, §6.4 and §8.4, and from Bellaïche's critical
+   p-adic L-functions. The θ exact sequence and the non-θ-critical hypothesis are the core; E6 and E7 already record the
+   misprints in §6.4.
 2. **Integral lattices.** Compare Symb_Γ(V_k(ℤ)) with Hom(𝕄, ℤ) through divided powers. `polynomial-duality` holds only
    after inverting k!, and `integral-period-lattices` records the dependence.
-3. **Stages L3–L4.**
+3. **Stage L4.**
 
 ## Sources read
 
-- Pollack–Stevens 2011 (Numdam), §§2.1–2.6, 3.4, 5.1.
+- Pollack–Stevens 2011 (Numdam), §§2.1–2.6, 3–6, the §8 examples for X₀(11), and the references.
 - Wiese, arXiv:1809.04645v1, §§1.2–1.3, 4.3–4.5, 5, 6, 7.1–7.5.
 - Pollack, AWS 2011 notes, §2.
 - Sage `pollack_stevens` source, only for the sign cross-check.
