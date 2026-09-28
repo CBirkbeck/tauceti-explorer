@@ -124431,6 +124431,25 @@
    "reviewReason": null
   },
   {
+   "id": "AdditiveCombinatorics/E4",
+   "kind": "misprint",
+   "locator": "Lecture notes 2, §6, printed p. 9 (physical p. 35), the sentence introducing the Fourier transform.",
+   "printed": "The source introduces the Fourier transform fˆ(ξ), for a complex-valued f(x) on Z, by a formula, repeating “define” in its introduction.",
+   "correction": "Delete the repeated word: \"if we define the Fourier transform\".",
+   "reason": "A duplicated word; the definition that follows is unaffected.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The compilation itself, which has no errata section; the 254A course archive was not reachable from this server (certificate verification fails, as E1 records)."
+   ],
+   "owner": "AdditiveCombinatorics",
+   "file": "research/blueprint/packets/AdditiveCombinatorics.json",
+   "citation": "Terence Tao, Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation, Undated 118-page compilation hosted by a CMU course page; not identified with Tao–Vu's published book. Recorded here to carry the inherited source findings E1–E3, which the predecessor session codex-hjdg0j raised against §6 and §7 of these notes.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "AdicEtaleGeometry/E1",
    "kind": "misprint",
    "locator": "§9, Example 9.3, pp. 42–43 (arXiv:2405.06435v1)",
@@ -147970,6 +147989,90 @@
    "owner": "ProbabilisticAndMetricNumberTheory",
    "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
    "citation": "Terence Tao, 254A, Notes 2: The central limit theorem, Author web exposition dated 5 January 2010; selected passages accessed 27 September 2026.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E5",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 1.1.6, printed p. 8 (PDF p. 16); the same sentence in the proof of Lemma 4 of the blog notes.",
+   "printed": "The proof says it expands the left-hand side, giving E_{n∈[N]} a_n ≪ (E_{h,h'∈[H]} E_{n∈[N]} a_{n+h} conj(a_{n+h'}))^{1/2} + H/N.",
+   "correction": "'We expand out the right-hand side as'.",
+   "reason": "The display expands the square |E_{h∈[H]} a_{n+h}|² on the right-hand side of the preceding Cauchy–Schwarz display; the left-hand side E a_n is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The maintained errata list for the book (https://teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 corrections, and the older book page it replaces): not listed.",
+    "The reader comments on the 2010 blog post, including every '[Corrected, thanks – T.]' reply: not raised.",
+    "The blog post as it stands on 2026-09-28 and the book's author copy of 5 June 2012: both still print it."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Terence Tao, Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori, Graduate Studies in Mathematics 142, American Mathematical Society, 2012; read in the author's preliminary version of 5 June 2012, 'made available with permission of the publisher', linked from the author's book page. Section 1.1 is the 2010 lecture notes '254B, Notes 1', which were also read.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E6",
+   "kind": "misprint",
+   "locator": "Proof of Corollary 1.1.9, printed p. 9 (PDF p. 17); the same sentence in the proof of Corollary 6 of the blog notes.",
+   "printed": "The source assigns degree s − 1 in n to the polynomial P(n + h) − P(n), and identifies its leading coefficient as shα_s n^{s−1}.",
+   "correction": "'with leading coefficient shα_s' (equivalently, 'with leading term shα_s n^{s−1}').",
+   "reason": "By the binomial theorem the n^{s−1} coefficient of P(n + h) − P(n) is s h α_s; the next sentence treats shα_s as the coefficient, whose irrationality is what the induction uses.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The maintained errata list for the book (https://teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 corrections, and the older book page it replaces): not listed.",
+    "The reader comments on the 2010 blog post, including every '[Corrected, thanks – T.]' reply: not raised.",
+    "The blog post as it stands on 2026-09-28 and the book's author copy of 5 June 2012: both still print it."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Terence Tao, Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori, Graduate Studies in Mathematics 142, American Mathematical Society, 2012; read in the author's preliminary version of 5 June 2012, 'made available with permission of the publisher', linked from the author's book page. Section 1.1 is the 2010 lecture notes '254B, Notes 1', which were also read.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E7",
+   "kind": "misprint",
+   "locator": "Paragraph after the proof of Proposition 1.1.5, printed p. 7 (PDF p. 15); the same sentence after the proof of Proposition 3 of the blog notes.",
+   "printed": "The source considers n ↦ nα + β, a linear sequence on a torus T, and asserts equidistribution over a union of finitely many cosets of a subtorus T′. It then claims that α uniquely determines the torus T.",
+   "correction": "'this torus T′ is uniquely determined by α'.",
+   "reason": "T is the ambient torus, given in advance; the object that α determines is the subtorus T′ of Proposition 1.1.5.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The maintained errata list for the book (https://teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 corrections, and the older book page it replaces): not listed.",
+    "The reader comments on the 2010 blog post, including every '[Corrected, thanks – T.]' reply: not raised.",
+    "The blog post as it stands on 2026-09-28 and the book's author copy of 5 June 2012: both still print it."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Terence Tao, Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori, Graduate Studies in Mathematics 142, American Mathematical Society, 2012; read in the author's preliminary version of 5 June 2012, 'made available with permission of the publisher', linked from the author's book page. Section 1.1 is the 2010 lecture notes '254B, Notes 1', which were also read.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "ProbabilisticAndMetricNumberTheory/E8",
+   "kind": "misprint",
+   "locator": "Remark 1.1.19, printed p. 17 (PDF p. 25); Remark 5 of the blog notes, which says 'Example 7'.",
+   "printed": "The source compares the result to the analogue for asymptotic equidistribution that it locates in Example 1.1.7.",
+   "correction": "'in Exercise 1.1.7' (the blog notes: 'in Exercise 7').",
+   "reason": "There is no Example 1.1.7. The result being compared is the single-scale theorem for abelian polynomial sequences, which the text introduces with 'This gives us the following analogue of Exercise 1.1.7'; Exercise 1.1.7 is the asymptotic equidistribution theorem for abelian polynomial sequences.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "The maintained errata list for the book (https://teorth.github.io/tao-web/higher-order-fourier-analysis.html, 20 corrections, and the older book page it replaces): not listed.",
+    "The reader comments on the 2010 blog post, including every '[Corrected, thanks – T.]' reply: not raised.",
+    "The blog post as it stands on 2026-09-28 and the book's author copy of 5 June 2012: both still print it."
+   ],
+   "owner": "ProbabilisticAndMetricNumberTheory",
+   "file": "research/blueprint/packets/ProbabilisticAndMetricNumberTheory.json",
+   "citation": "Terence Tao, Higher order Fourier analysis, Section 1.1: Equidistribution of polynomial sequences in tori, Graduate Studies in Mathematics 142, American Mathematical Society, 2012; read in the author's preliminary version of 5 June 2012, 'made available with permission of the publisher', linked from the author's book page. Section 1.1 is the 2010 lecture notes '254B, Notes 1', which were also read.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
