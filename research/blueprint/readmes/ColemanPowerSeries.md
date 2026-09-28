@@ -1,6 +1,290 @@
+# Compact compatible unit groups and arithmetic evaluation
+
+**Current checkpoint:** 222 unchecked nodes: 2 definitions, 25 constructions,
+155 lemmas, 27 theorems and 13 comparisons. There are 125 API items (118 on
+definitions/constructions), 171 packet tests (89 on definitions/constructions),
+173 typed examples, 12 planets and 270 baseline citations. Six gaps, twelve
+requests, thirteen inherited source findings and zero closed stages remain.
+Earlier numerical checkpoint summaries below are historical.
+
+For any prime p, including 2, retain the actual cyclotomic fields K_n inside
+the p-adic algebraic closure, their native integral closures O_n and native
+unit groups U_n=O_nˣ. The source's level is n+1. Use the existing continuous
+norm homomorphisms N_n:U_(n+1)→U_n and fixed residue maps red_n:O_n→ZMod p.
+The product V=∏_(n≥0)U_n has its native product topology.
+
+Reduction is continuous: the existing norm description of its kernel says
+that red_n(y)=red_n(x) whenever ‖y−x‖<1. Thus every point has an open ball
+on which the residue is constant. Native local-constancy criteria give
+continuity, without a new local-field structure or residue identification.
+
+Define normCompatibleUnits(p) as the native subgroup of V cut out by the
+adjacent equations N_n(u_(n+1))=u_n. It is the intersection of native subgroup
+equalizers. Its commutative group operations are inherited coordinatewise;
+its topology is the native subtype topology. Coordinate equality gives its
+extensionality API. Every coordinate projection is continuous. A continuous
+monoid homomorphism into V whose coordinates satisfy the norm equations
+corestricts uniquely to a continuous monoid homomorphism into this subgroup.
+This is the required actual sequential limit, with no new general limit functor.
+
+Each equality locus is closed because both sides are continuous and U_n is
+Hausdorff. Their intersection is closed. The O_n are already compact, and
+Mathlib already proves that the unit group of a compact Hausdorff topological
+monoid is compact. Applying this native fact and product compactness makes
+V compact; its closed compatible subgroup is compact. No finite norm map or
+coordinate projection is assumed surjective.
+
+The unit norm preserves the fixed residue. Induction along the compatibility
+equations therefore gives red_n(u_n)=red_0(u_0) for every compatible tower.
+Define normLimitResidue as the continuous monoid homomorphism to (ZMod p)ˣ
+obtained by reducing coordinate 0. It also equals unit reduction at every
+coordinate. A section and surjectivity of this map are not supplied here.
+
+Define principalNormCompatibleUnits as the native kernel subgroup of this
+residue map. It consists precisely of compatible towers with residue 1 at
+every coordinate, hence realizes the limit of the actual residue-one unit
+groups inside the full unit limit. Its topology is inherited again. As the
+closed kernel of a continuous map from a compact group, it is compact. This
+uses the owner's finite-level principal-unit condition and does not rebuild
+general principal-unit theory. Compactness alone supplies neither pro-p
+structure nor ℤ_p-scalars. Full compatible units retain their multiplicative
+group structure; they are not declared ℤ_p-modules.
+
+The preceding arithmetic evaluation square now gives an actual continuous
+monoid homomorphism
+
+normFixedEvaluation : normFixedUnits(p) → normCompatibleUnits(p).
+
+Its nth coordinate is the unit obtained by evaluating the series at ζ_n−1.
+The adjacent compatibility theorem supplies membership. Native continuity
+of unit maps and product/subtype continuity supply continuity of the map.
+The existing finite-level evaluation continuity API is promoted to a separate
+dependency node; its existing suggested declaration is reused unchanged.
+
+The residue of the evaluated tower is toZMod(constantCoeff F). Its image
+therefore lies in the principal subgroup exactly when that constant residue
+is 1. The norm-fixed-series domain is already compact and the target is
+Hausdorff, so the map has closed image. This does not prove injectivity,
+surjectivity or an interpolation inverse. Those require the recorded
+Weierstrass uniqueness and compact approximation arguments.
+
+The twelve typed cases check identity and inverse towers, residues, products,
+principal membership and evaluation. At p=2 the constant −1 tower fails
+compatibility: its relative norm is +1. Every dyadic unit has residue 1, so
+the principal subgroup equals the full compatible group. These two statements
+are compatible and test different conditions. At p=3 the norm-fixed constant
+−1 series evaluates to the stationary −1 tower. No unqualified dyadic root
+norm-compatibility or Tate-module inclusion is inferred.
+
+The full published RJW pages 161–164 and 168–170 were freshly read; the
+intervening norm-square passage retains its immediately preceding full-reading
+provenance. The source assumes p odd. The actual-carrier construction and
+dyadic cases are worker deductions. All thirteen inherited source findings
+and their versions remain unchanged, including the full-unit/module boundary.
+General local-field structures, finite-level principal-unit theory, completed
+actions and general coefficients retain their named owners.
+
+## Declarations, dependencies and acceptance cases
+
+All fourteen new packet nodes below remain unchecked. Thirteen have new
+suggested declarations; the evaluation-continuity node promotes an unchanged
+existing API declaration. The actual product/subtype conventions above apply
+throughout.
+
+### Continuity of cyclotomic reduction
+
+`ColemanCyclotomic.continuous_reduction` (lemma). For every n, red_n:O_n→ZMod p is continuous.
+
+For x,y∈O_n, the ring-homomorphism laws and cyclotomic-reduction-norm-kernel give red_n(y)=red_n(x) whenever ‖y−x‖<1. The open norm ball of radius1 around x therefore lies in the fiber through x. Native IsLocallyConstant.iff_exists_open gives local constancy, and its continuity theorem gives the result for the native finite discrete residue topology.
+
+Prerequisites: `ColemanPowerSeries:L0/cyclotomic-reduction-norm-kernel`, `mathlib:IsLocallyConstant.iff_exists_open`, `mathlib:IsLocallyConstant.continuous`.
+
+Acceptance: This uses the fixed residue identification of the actual integral closure, not a newly chosen local-field structure.
+
+### The actual norm-compatible unit group
+
+`ColemanCyclotomic.normCompatibleUnits` (construction). Define normCompatibleUnits(p) as the native subgroup of V consisting of u with N_n(u_(n+1))=u_n for every n. It has the inherited product-subtype topology.
+
+For each n, form the native equalizer subgroup of N_n composed with the successor coordinate and the nth coordinate projection. Take their infimum in the native complete subgroup lattice. The native equalizer and infimum carrier formulas give exactly the displayed compatibility condition. Multiplication, inversion, identity and all integer powers are inherited coordinatewise. Native subtype extensionality gives equality from equality of every coordinate. Coordinate evaluation is continuous as a product projection after the subtype inclusion. For a continuous monoid homomorphism f:H→V satisfying all adjacent equations, corestrict f to the subgroup; native induced-topology continuity supplies its continuous lift. Coordinate extensionality proves uniqueness. No general inverse-limit functor is rebuilt.
+
+Prerequisites: `ColemanPowerSeries:L0/continuous-unit-norm`, `mathlib:MonoidHom.eqLocus`, `mathlib:Subgroup.coe_iInf`, `mathlib:Subgroup`.
+
+API:
+
+- `mem_normCompatibleUnits`: Membership is equivalent to every adjacent norm equation.
+- `normCompatibleUnits_ext`: Two compatible units are equal when all their coordinates agree.
+- `continuous_normCompatibleUnits_eval`: Every coordinate projection from the compatible-unit subtype is continuous.
+- `normCompatibleUnits_lift_unique`: For any topological monoid H and continuous monoid homomorphism f:H→V satisfying adjacent compatibility, there is a unique continuous monoid homomorphism H→normCompatibleUnits(p) with the given coordinates.
+
+Typed acceptance cases:
+
+- `NormLimitTests.identity_family`: The constant identity family is norm-compatible.
+- `NormLimitTests.inverse_family`: The coordinatewise inverse of any compatible family is compatible.
+- `NormLimitTests.dyadic_minus_one_incompatible`: The constant−1 family is not norm-compatible for p=2, since its relative norm is+1.
+
+Acceptance: Adjacent equations determine the entire sequential norm diagram by iteration. No surjectivity of the finite norm maps or of the coordinate projections is assumed.
+
+### Closedness of the compatible unit locus
+
+`ColemanCyclotomic.isClosed_normCompatibleUnits` (lemma). The subset normCompatibleUnits(p)⊆V is closed.
+
+For each n, the successor coordinate followed by the existing continuous N_n and the nth projection are continuous into the Hausdorff unit group U_n. Native isClosed_eq makes their equality locus closed. The actual carrier is the intersection of those loci. Use the native infimum carrier formula and isClosed_iInter. This argument needs no finite-level norm surjectivity.
+
+Prerequisites: `ColemanPowerSeries:L0/norm-compatible-units`, `ColemanPowerSeries:L0/continuous-unit-norm`, `mathlib:isClosed_eq`, `mathlib:isClosed_iInter`, `mathlib:Subgroup.coe_iInf`.
+
+Acceptance: Closedness is for the actual product of native unit topologies.
+
+### Compactness of the compatible unit group
+
+`ColemanCyclotomic.compact_normCompatibleUnits` (lemma). The actual normCompatibleUnits(p) subtype is a compact space.
+
+Each O_n is compact by the preceding cyclotomic-integers-compact instance. Native Units.isClosedEmbedding_embedProduct and its existing compact-unit-group instance give CompactSpace U_n; this finite-level fact is not replanned. Native Pi.compactSpace makes V compact. Apply IsClosed.isCompact to the preceding compatible-locus closedness theorem and transport to the subtype using isCompact_iff_compactSpace.
+
+Prerequisites: `ColemanPowerSeries:L0/norm-compatible-units-closed`, `ColemanPowerSeries:L0/cyclotomic-integers-compact`, `mathlib:Units.isClosedEmbedding_embedProduct`, `mathlib:Pi.compactSpace`, `mathlib:IsClosed.isCompact`, `mathlib:isCompact_iff_compactSpace`.
+
+Acceptance: The resulting compact commutative topological group is not declared a ℤ_p-module.
+
+### A compatible tower has constant residue
+
+`ColemanCyclotomic.normCompatibleUnits_residue_constant` (lemma). For u∈normCompatibleUnits(p) and every n, red_n(u_n)=red_0(u_0) in ZMod p.
+
+The adjacent norm equation and the preceding unit-norm-residue identity imply red_(n+1)(u_(n+1))=red_n(u_n). Induct on n, starting from the identity at0. The fixed identifications of every residue field with ZMod p are essential to this equality.
+
+Prerequisites: `ColemanPowerSeries:L0/norm-compatible-units`, `ColemanPowerSeries:L0/unit-norm-residue`.
+
+Acceptance: This is residue preservation, not a construction of a norm-compatible Teichmüller section.
+
+### The residue of an infinite compatible unit
+
+`ColemanCyclotomic.normLimitResidue` (construction). Define normLimitResidue(p):normCompatibleUnits(p)→(ZMod p)ˣ as a native continuous monoid homomorphism, by reduction of coordinate0.
+
+Compose coordinate0 with native Units.map of red_0. Continuity follows from continuous_reduction, native Continuous.units_map and continuity of the product-subtype coordinate. The residue-constant lemma identifies the same map with unit reduction of every coordinate n; units extensionality passes from equality in ZMod p to equality of residue units. Native homomorphism laws give multiplicativity and inversion.
+
+Prerequisites: `ColemanPowerSeries:L0/norm-compatible-units`, `ColemanPowerSeries:L0/cyclotomic-reduction-continuity`, `ColemanPowerSeries:L0/norm-compatible-residue-constant`, `mathlib:Units.map`, `mathlib:Continuous.units_map`.
+
+API:
+
+- `normLimitResidue_eq`: For every n the map equals Units.map(red_n)(u_n).
+- `normLimitResidue_coe`: After coercion to ZMod p its value is red_0(u_0).
+- `normLimitResidue_inv`: The residue of the inverse is the inverse residue.
+
+Typed acceptance cases:
+
+- `NormLimitTests.residue_identity`: The identity compatible unit has residue1.
+- `NormLimitTests.residue_inverse`: The residue of u·u⁻¹ is1.
+- `NormLimitTests.dyadic_residue`: Every compatible dyadic unit has residue1 in (ZMod2)ˣ.
+
+Acceptance: The target is the fixed native residue unit group. Surjectivity and a continuous section remain unasserted.
+
+### The principal compatible unit subgroup
+
+`ColemanCyclotomic.principalNormCompatibleUnits` (construction). Define principalNormCompatibleUnits(p) as the native kernel subgroup of normLimitResidue(p), inside normCompatibleUnits(p).
+
+Use native MonoidHom.ker of the residue map. This is the actual residue-one subgroup with the inherited subtype topology and commutative group operations. The residue-constant lemma identifies membership with red_n(u_n)=1 at all levels; this characterization is promoted to the following node. Coordinate equality yields the subtype extensionality API and multiplication remains coordinatewise.
+
+Prerequisites: `ColemanPowerSeries:L0/norm-limit-residue`, `mathlib:MonoidHom.ker`.
+
+API:
+
+- `mem_principalNormCompatibleUnits`: Membership is equivalent to residue1 at every coordinate; promoted to its own lemma.
+- `principalNormCompatibleUnits_ext`: Two principal compatible units are equal if every actual unit coordinate agrees.
+- `principalNormCompatibleUnits_coe_mul`: The nth coordinate of a product is the product of the nth coordinates.
+
+Typed acceptance cases:
+
+- `NormLimitTests.principal_identity`: The identity compatible unit belongs to the principal subgroup.
+- `NormLimitTests.principal_product`: Every coordinate of a product of two principal compatible units has residue1.
+- `NormLimitTests.dyadic_principal_all`: For p=2 the principal subgroup of the full compatible unit group is the whole group.
+
+Acceptance: This realizes the inverse limit of the residue-one unit groups as a subgroup of the full compatible limit; it does not rebuild the owner’s general finite-level principal-unit theory.
+
+### The coordinatewise principal condition
+
+`ColemanCyclotomic.mem_principalNormCompatibleUnits` (lemma). For u∈normCompatibleUnits(p), u belongs to principalNormCompatibleUnits(p) if and only if red_n(u_n)=1 for every n.
+
+Unfold the native kernel condition: the coordinate0 residue unit equals1 if and only if its underlying element of ZMod p equals1. Use the residue-constant lemma for all n; conversely the all-coordinate condition includes n=0. The proof uses the already fixed norm transitions and residue identifications.
+
+Prerequisites: `ColemanPowerSeries:L0/principal-norm-compatible-units`, `ColemanPowerSeries:L0/norm-compatible-residue-constant`.
+
+Acceptance: The principal condition is modulo the actual maximal ideal generated by ζ_n−1, not modulo a new choice of coefficient prime power.
+
+### Compactness of principal compatible units
+
+`ColemanCyclotomic.compact_principalNormCompatibleUnits` (lemma). The actual principalNormCompatibleUnits(p) subtype is compact.
+
+The principal subgroup is the equality locus of the continuous normLimitResidue and the constant1 map into the Hausdorff finite residue unit group. Native isClosed_eq makes it closed. The full compatible unit group is compact. Apply native IsClosed.isCompact and isCompact_iff_compactSpace to its closed kernel subtype.
+
+Prerequisites: `ColemanPowerSeries:L0/principal-norm-compatible-units`, `ColemanPowerSeries:L0/norm-limit-residue`, `ColemanPowerSeries:L0/norm-compatible-units-compact`, `mathlib:isClosed_eq`, `mathlib:IsClosed.isCompact`, `mathlib:isCompact_iff_compactSpace`.
+
+Acceptance: Compactness alone does not supply pro-p or ℤ_p-scalar structure; those hypotheses must be verified separately.
+
+### Continuity of actual cyclotomic series evaluation
+
+`ColemanCyclotomic.continuous_seriesEvaluation` (lemma). For every n, the existing seriesEvaluation_n:B→O_n is continuous for the native coefficientwise p-adic topology on B=ℤ_p⟦T⟧ and inherited norm topology on O_n.
+
+Promote the existing evaluation API statement; its unchanged suggested signature already appears in the predecessor. No new evaluation map or second declaration is introduced. The existing scalar-norm comparison gives continuity of the coefficient map. Compactness makes the inherited uniform target complete; its norm makes it Hausdorff and a uniform topological ring, and its linear topology is supplied. The strict contraction of ζ_n−1 supplies native HasEval. Apply native PowerSeries.continuous_eval₂ and the defining identification of seriesEvaluation with native evaluation.
+
+Prerequisites: `ColemanPowerSeries:L0/cyclotomic-series-evaluation`, `ColemanPowerSeries:L0/cyclotomic-scalar-norm`, `ColemanPowerSeries:L0/cyclotomic-integers-compact`, `ColemanPowerSeries:L0/cyclotomic-integers-linear-topology`, `ColemanPowerSeries:L0/cyclotomic-difference-contraction`, `mathlib:PowerSeries.continuous_eval₂`.
+
+Acceptance: The existing suggested signature is reused byte-for-byte; this promotion gives consuming nodes a precise prerequisite.
+
+### The arithmetic evaluation map into the unit limit
+
+`ColemanCyclotomic.normFixedEvaluation` (construction). Construct normFixedEvaluation(p):normFixedUnits(p)→normCompatibleUnits(p) as a native continuous monoid homomorphism, with nth coordinate Units.map(seriesEvaluation_n)(F).
+
+At each n, apply the existing ring homomorphism seriesEvaluation_n to units. The existing norm-fixed-arithmetic-compatibility lemma supplies every adjacent norm equation, so the family corestricts to the actual compatible subgroup. The existing continuous_seriesEvaluation API and native Continuous.units_map make each unit-valued coordinate continuous; the domain subgroup has its native topology. Native continuity into a product and then its subtype gives continuity of the family. The coordinatewise unit maps are monoid homomorphisms. Bundle their common corestriction as ContinuousMonoidHom. Its coordinate formula, product and inverse laws give the API.
+
+Prerequisites: `ColemanPowerSeries:L0/norm-compatible-units`, `ColemanPowerSeries:L0/cyclotomic-series-evaluation-continuity`, `ColemanPowerSeries:L1/norm-fixed-arithmetic-compatibility`, `mathlib:Units.map`, `mathlib:Continuous.units_map`.
+
+API:
+
+- `normFixedEvaluation_apply`: Its nth coordinate is Units.map(seriesEvaluation_n)(F).
+- `normFixedEvaluation_mul`: Evaluation carries products of norm-fixed units to products of compatible towers.
+- `normFixedEvaluation_inv`: Evaluation carries inverse to inverse.
+
+Typed acceptance cases:
+
+- `NormLimitTests.evaluation_identity`: The norm-fixed identity series evaluates to1 at every coordinate.
+- `NormLimitTests.evaluation_inverse`: The nth coordinate of the inverse-series evaluation is the inverse of the nth evaluated unit.
+- `NormLimitTests.ternary_constant_evaluation`: A norm-fixed constant−1 unit series at p=3 evaluates to the constant−1 tower.
+
+Acceptance: This is the evaluation direction from norm-fixed series to compatible units. No injectivity, surjectivity, inverse or Coleman interpolation bijection is asserted.
+
+### The residue of a norm-fixed evaluation
+
+`ColemanCyclotomic.normFixedEvaluation_residue` (lemma). For a norm-fixed unit series F, the residue of normFixedEvaluation(F), coerced to ZMod p, is toZMod(constantCoeff F).
+
+By the definitions of the residue and evaluation maps, their composite on underlying ring elements is red_0(seriesEvaluation_0(F)). Apply the existing arithmetic-evaluation-reduction lemma. This uses a fixed coordinate only; the preceding residue-constant theorem makes it valid at every coordinate.
+
+Prerequisites: `ColemanPowerSeries:L1/norm-fixed-evaluation-map`, `ColemanPowerSeries:L0/norm-limit-residue`, `ColemanPowerSeries:L0/arithmetic-evaluation-reduction`.
+
+Acceptance: Only the integral constant coefficient modulo p occurs; no Teichmüller section or scalar decomposition is assumed.
+
+### The principal-image criterion
+
+`ColemanCyclotomic.normFixedEvaluation_principal_iff` (lemma). The evaluated tower of a norm-fixed unit series F is principal if and only if toZMod(constantCoeff F)=1.
+
+Unfold the native residue-kernel definition of principalNormCompatibleUnits. Use units extensionality and norm-fixed-evaluation-residue to identify the kernel equation with the stated constant-coefficient condition.
+
+Prerequisites: `ColemanPowerSeries:L0/principal-norm-compatible-units`, `ColemanPowerSeries:L1/norm-fixed-evaluation-residue`.
+
+Acceptance: The criterion characterizes which supplied evaluations are principal; it does not prove that every principal tower is an evaluation.
+
+### Closed image of arithmetic evaluation
+
+`ColemanCyclotomic.isClosed_range_normFixedEvaluation` (theorem). The image of normFixedEvaluation(p) is closed in normCompatibleUnits(p).
+
+Install the preceding compactSpace_normFixedUnits theorem on the existing norm-fixed-series subgroup. The supplied evaluation map is continuous, so the image of the whole compact domain is compact. The target has the native Hausdorff topology as a subgroup of the product of Hausdorff unit groups. Native IsCompact.isClosed makes the image closed. No bijectivity is needed for this step.
+
+Prerequisites: `ColemanPowerSeries:L1/norm-fixed-evaluation-map`, `ColemanPowerSeries:L3/norm-fixed-units-compact`, `mathlib:IsCompact.image`, `mathlib:IsCompact.isClosed`.
+
+Acceptance: Closed image is preparation for the source’s compact interpolation argument, not a replacement for uniqueness or surjectivity.
+
+## Preceding cyclotomic, norm and Coleman-map developments
+
 # Continuous arithmetic norms and the evaluation square
 
-**Current checkpoint:** 208 unchecked nodes: 2 definitions, 21 constructions,
+**Historical checkpoint:** 208 unchecked nodes: 2 definitions, 21 constructions,
 146 lemmas, 26 theorems and 13 comparisons; 112 API items (105 on definitions
 and constructions), 159 packet tests (77 on definitions and constructions),
 161 typed examples, 12 planets and 263 baseline citations. Six gaps, twelve
