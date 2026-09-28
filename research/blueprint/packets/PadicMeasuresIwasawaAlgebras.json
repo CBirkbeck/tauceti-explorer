@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "partial",
-  "summary": "The actual unit-coordinate inverse is decomposed through finite pairings and dense extension on the native integral measure carrier. Partial blueprint including coefficient-algebra ordinary moments and their formal exponential coefficients. Six new L2 adapters generalize the existing integral weighting/Mahler comparison to actual R-valued measures, supplying the coefficient-field request without rebuilding measures or scalar extension. The full roadmap retains eight explicit gaps and all previous mathematical content. The actual integral unit measure space is weakly compact, its integral and joint finite coordinate maps are closed embeddings, and the inverse from compatible coordinates is continuous. Joint and diagonal congruence kernels give the weak neighborhood basis, and the existing convolution ring is a topological ring with a linear topology.",
+  "summary": "Partial actual-unit-moment checkpoint: bundle the actual Dirac homomorphism and character-integral algebra map; decompose integral positive-moment uniqueness, regular Dirac differences, actual positive pseudomoments and their uniqueness. Preserve the corrected infinite-order clearing choice p+1 and the whole-total-quotient obstruction. The completed-algebra comparison, arbitrary coefficient lattices and remaining source coverage stay explicit.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -2160,6 +2160,48 @@
         "module": "Mathlib/Topology/Constructions.lean",
         "provides": "Convergence in a product is equivalent to convergence of every coordinate.",
         "checked": "Full statement and relevant ambient hypotheses read at the pinned Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; generated additive names are justified by the read to_additive annotations."
+      },
+      {
+        "ref": "mathlib:ContinuousMonoidHom",
+        "kind": "structure",
+        "module": "Mathlib/Topology/Algebra/ContinuousMonoidHom.lean",
+        "provides": "The native bundle consisting of a monoid homomorphism and its continuous-map structure.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026. The complete suggested import closure is byte-checked against the pinned source."
+      },
+      {
+        "ref": "mathlib:descPochhammer_ne_zero_eval_zero",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Polynomial/Pochhammer.lean",
+        "provides": "A descending Pochhammer polynomial of nonzero order evaluates to zero at zero.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026. The complete suggested import closure is byte-checked against the pinned source."
+      },
+      {
+        "ref": "mathlib:Polynomial.coeff_zero_eq_eval_zero",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Eval/Coeff.lean",
+        "provides": "The constant coefficient of a polynomial equals its value at zero.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026. The complete suggested import closure is byte-checked against the pinned source."
+      },
+      {
+        "ref": "mathlib:Ring.descPochhammer_eq_factorial_smul_choose",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Binomial.lean",
+        "provides": "In a binomial ring with the specified power laws, descending Pochhammer evaluation equals the factorial natural multiple of the binomial coefficient.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026. The complete suggested import closure is byte-checked against the pinned source."
+      },
+      {
+        "ref": "mathlib:mem_nonZeroDivisors_iff",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/GroupWithZero/NonZeroDivisors.lean",
+        "provides": "Membership in the non-zero-divisor submonoid is the pair of left and right zero-annihilator conditions.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026. The complete suggested import closure is byte-checked against the pinned source."
+      },
+      {
+        "ref": "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+        "provides": "The p-adic norm of a natural cast is one precisely when that natural number is coprime to p.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on28 September2026. The complete suggested import closure is byte-checked against the pinned source."
       }
     ]
   },
@@ -17504,6 +17546,803 @@
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/dirac-hom",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "The actual Dirac monoid homomorphism",
+      "kind": "construction",
+      "statement": "Bundle g↦δ_g as a monoid homomorphism G→D(G,R).",
+      "hypotheses": [
+        "G is a locally compact topological monoid with continuous multiplication. R is a topological commutative ring. Use the preceding right-handed multiplicative convolution and R-algebra structure on the native D(G,R), with identity δ_1. No compactness, field, norm or completeness hypothesis is needed for these algebra maps."
+      ],
+      "proofSteps": [
+        "Use the native Dirac map on the existing measure carrier. The preceding Dirac convolution formula supplies multiplication and the preceding convolution unit is δ_1.",
+        "Its powers follow from monoid-hom functoriality. For a continuous monoid homomorphism h:G→H, native pushforward sends δ_g to δ_(h(g)), giving the displayed naturality API."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-dirac",
+        "mathlib:AbstractMeasure.dirac",
+        "mathlib:AbstractMeasure.map_dirac"
+      ],
+      "acceptance": [
+        "Follow the exact diracHom spelling in the identified post-baseline Mathlib PR41961; its implementation is not copied or treated as pinned."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "diracHom"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.diracHom_apply",
+          "role": "characterisation",
+          "statement": "The value at g is the actual native Dirac measure δ_g."
+        },
+        {
+          "name": "AbstractMeasure.diracHom_pow",
+          "role": "functoriality",
+          "statement": "δ_(g^k)=δ_g^k for every natural k."
+        },
+        {
+          "name": "AbstractMeasure.diracHom_map",
+          "role": "functoriality",
+          "statement": "Pushforward by a continuous monoid homomorphism h sends diracHom(g) to δ_(h(g))."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UnitMomentTests.dirac_hom_one",
+          "kind": "degenerate",
+          "statement": "The image of the monoid identity is the convolution identity."
+        },
+        {
+          "name": "UnitMomentTests.dirac_hom_zero_coefficients",
+          "kind": "degenerate",
+          "statement": "Over ZMod1 every Dirac value is zero."
+        },
+        {
+          "name": "UnitMomentTests.dirac_hom_product",
+          "kind": "compatibility",
+          "statement": "The image of gh is δ_g∗δ_h, preserving the order of factors."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Definition3.34",
+          "how": "Supply the actual δ for the already defined generic pseudomeasure module."
+        },
+        {
+          "where": "L1 finite projections and functoriality",
+          "how": "The same atoms must agree with the actual finite group-algebra basis elements."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L1",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L1"
+      ],
+      "title": "Continuous-character integration as an algebra map",
+      "kind": "construction",
+      "statement": "For a native ContinuousMonoidHom κ:G→R, define the R-algebra homomorphism D(G,R)→R by μ↦μ(κ.toContinuousMap).",
+      "hypotheses": [
+        "G is a locally compact topological monoid with continuous multiplication. R is a topological commutative ring. Use the preceding right-handed multiplicative convolution and R-algebra structure on the native D(G,R), with identity δ_1. No compactness, field, norm or completeness hypothesis is needed for these algebra maps."
+      ],
+      "proofSteps": [
+        "Evaluation of the native continuous dual is additive and R-linear. The convolution identity evaluates κ at1, giving1; scalars evaluate to their own values.",
+        "The preceding right-handed convolution formula evaluates μ∗ν as μ(x↦ν(y↦κ(xy))). Multiplicativity of κ identifies the inner test with κ(x) times κ(y). Pull each scalar through its native R-linear functional to obtain μ(κ)ν(κ). No Fubini theorem or commutativity of G is needed.",
+        "Bundle these identities in the native AlgHom. Dirac evaluation recovers κ(g). The trivial character is the constant-one test, hence gives total mass. Composition with diracHom recovers κ as a monoid homomorphism."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L1/right-convolution-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L1/dirac-hom",
+        "mathlib:ContinuousMonoidHom",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "acceptance": [
+        "This is scalar-valued integration against existing continuous tests. The character-space and locally analytic Mellin theories stay with their owners."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "characterIntegralAlgHom"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.characterIntegralAlgHom_apply",
+          "role": "characterisation",
+          "statement": "The value is evaluation on κ.toContinuousMap."
+        },
+        {
+          "name": "AbstractMeasure.characterIntegralAlgHom_dirac",
+          "role": "simp",
+          "statement": "The value of δ_g is κ(g)."
+        },
+        {
+          "name": "AbstractMeasure.characterIntegralAlgHom_one_character",
+          "role": "compatibility",
+          "statement": "The trivial character gives μ(1), the existing total mass."
+        },
+        {
+          "name": "AbstractMeasure.characterIntegralAlgHom_diracHom",
+          "role": "functoriality",
+          "statement": "Composition with diracHom is κ.toMonoidHom."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UnitMomentTests.character_zero",
+          "kind": "degenerate",
+          "statement": "The zero measure evaluates to zero."
+        },
+        {
+          "name": "UnitMomentTests.character_identity_mass",
+          "kind": "compatibility",
+          "statement": "The convolution identity evaluates to1 for every character."
+        },
+        {
+          "name": "UnitMomentTests.character_scalar_atom",
+          "kind": "computation",
+          "statement": "The value of cδ_g is cκ(g)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Remark3.35 and Lemma3.36(ii)",
+          "how": "Multiplicativity of actual character integrals proves the moment regularity test."
+        },
+        {
+          "where": "L3 admissible evaluation",
+          "how": "Supply the actual scalar ring map before specializing the existing generic clearing-factor evaluation."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/positive-polynomial-vanishing",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Positive moments kill polynomials without a constant term",
+      "kind": "lemma",
+      "statement": "If μ∈D(Z,Z) kills x^k for every k>0, then μ(f)=0 for every f∈Z[X] with constant coefficient zero, evaluated as an actual continuous function.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "Native polynomial evaluation is the finite sum of coefficients times x^k. Regard this as equality of continuous maps by extensionality.",
+        "Pull the finite sum and each Z-scalar through μ. The degree-zero term vanishes by the coefficient hypothesis; every positive-degree term vanishes by the moment hypothesis."
+      ],
+      "prerequisites": [
+        "mathlib:Polynomial.eval_eq_sum_range"
+      ],
+      "acceptance": [
+        "The coefficient ring is integral. There is no claim that positive monomials alone detect the ambient atom δ_0."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "polynomial_apply_eq_zero_of_positive_moments"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitMomentTests.ambient_zero_atom",
+          "kind": "non-example",
+          "statement": "The ambient nonzero measure δ_0 kills every strictly positive moment."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/positive-mahler-vanishing",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Positive moments kill positive Mahler coefficients",
+      "kind": "lemma",
+      "statement": "If μ∈D(Z,Z) kills every strictly positive ordinary moment, then μ(mahler n)=0 for each n>0.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "The native descending Pochhammer polynomial of positive order n has zero constant coefficient. Apply the preceding polynomial-vanishing result after mapping its integer coefficients into Z.",
+        "Native Ring.descPochhammer_eq_factorial_smul_choose and mahler_apply identify its evaluated function with n! times mahler n. Therefore n!·μ(mahler n)=0.",
+        "The natural factorial is nonzero in the characteristic-zero domain Z, so cancel it. It is generally not a unit; neither invert it in Z nor silently use a rational polynomial as an integral test."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/positive-polynomial-vanishing",
+        "mathlib:descPochhammer_ne_zero_eval_zero",
+        "mathlib:Polynomial.coeff_zero_eq_eval_zero",
+        "mathlib:Ring.descPochhammer_eq_factorial_smul_choose",
+        "mathlib:mahler_apply"
+      ],
+      "acceptance": [
+        "The zero Mahler coefficient is not forced to vanish here."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "mahler_apply_eq_zero_of_positive_moments"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/positive-moments-constant-amice",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "The constant Amice transform of positive-moment vanishing",
+      "kind": "comparison",
+      "statement": "If μ∈D(Z,Z) kills every positive ordinary moment, its native Amice transform equals the constant series with value μ(1).",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "Use coefficient extensionality. Each positive coefficient is μ(mahler n), zero by the preceding lemma.",
+        "The zeroth Mahler function is the constant1. Native coeff_amiceTransform therefore gives μ(1) at degree0, exactly the constant series."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/positive-mahler-vanishing",
+        "mathlib:AbstractMeasure.coeff_amiceTransform",
+        "mathlib:mahler_apply"
+      ],
+      "acceptance": [
+        "This is the correct ambient conclusion, exemplified by δ_0. Unit support removes the remaining constant in the next theorem."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "amice_eq_constant_of_positive_moments"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/unit-positive-moment-separation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Positive moments determine integral unit measures",
+      "kind": "theorem",
+      "statement": "If μ∈M satisfies μ(t_k)=0 for every k>0, then μ=0.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "Push μ along the actual inclusion U→Z. Native map_apply identifies every positive ordinary moment of the pushforward with μ(t_k), so its Amice transform is constant by the preceding comparison.",
+        "The existing unitsMeasureAmiceEquiv puts that same Amice transform in kerψ. Since ψ is Z-linear and ψ(1)=1, it fixes constant series. Hence the constant is zero.",
+        "Injectivity of the existing unit-measure Amice equivalence gives μ=0. This is the integral version of RJW Lemma3.36(i), including p=2."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/positive-moments-constant-amice",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-measure-amice-kernel-equivalence",
+        "PadicMeasuresIwasawaAlgebras:L2/psi-series",
+        "mathlib:AbstractMeasure.map_apply"
+      ],
+      "acceptance": [
+        "Both all positive degrees and actual unit support are needed. No arithmetic progression of moments is substituted without a separate density theorem."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "units_eq_zero_of_positive_moments"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitMomentTests.even_moments_insufficient",
+          "kind": "non-example",
+          "statement": "The nonzero measure δ_1−δ_(−1) kills every even moment, including at p=2."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/unit-convolution-moments",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Multiplicativity of ordinary unit moments",
+      "kind": "lemma",
+      "statement": "For μ,ν∈M and every k≥0, (μ∗ν)(t_k)=μ(t_k)ν(t_k).",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "Bundle u↦(u:Z)^k as a native ContinuousMonoidHom, using the native unit inclusion, continuity and the power map in a commutative ring.",
+        "Specialize characterIntegralAlgHom to this character and use its multiplicativity. The degree-zero case recovers the established total-mass formula."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom"
+      ],
+      "acceptance": [
+        "Retain the exact coefficient ring, actual carrier and stated positivity hypotheses."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "units_mul_moment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/unit-moment-regularity",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Nonvanishing positive moments imply regularity",
+      "kind": "theorem",
+      "statement": "If μ∈M has μ(t_k)≠0 for every k>0, then μ belongs to native nonZeroDivisors M.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "If μ∗ν=0, evaluate every positive moment and use the preceding multiplicativity. Since Z is a domain and μ(t_k)≠0, every ν(t_k) is zero. The preceding separation theorem gives ν=0.",
+        "The same argument handles ν∗μ=0, or use the existing commutativity theorem. These are exactly the two native non-zero-divisor conditions. No domain structure on M is assumed."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/unit-convolution-moments",
+        "PadicMeasuresIwasawaAlgebras:L3/unit-positive-moment-separation",
+        "mathlib:mem_nonZeroDivisors_iff"
+      ],
+      "acceptance": [
+        "The group-measure ring has torsion-related zero divisors, so nonzeroness of μ alone is not enough."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "units_regular_of_positive_moments"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "UnitMomentTests.regular_identity",
+          "kind": "degenerate",
+          "statement": "The identity measure is regular."
+        },
+        {
+          "name": "UnitMomentTests.torsion_difference",
+          "kind": "non-example",
+          "statement": "(δ_(−1)−1)(δ_(−1)+1)=0 and δ_(−1)+1 is nonzero; the torsion Dirac difference is not regular, also at p=2."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "The integral unit represented by p plus one",
+      "kind": "lemma",
+      "statement": "There exists a∈U whose underlying p-adic integer is the natural number p+1.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "The consecutive integers p and p+1 are coprime. Native norm_natCast_eq_one_iff gives norm1 for p+1 in Z.",
+        "Native PadicInt.isUnit_iff gives a unit with that value. This is an existence statement in the existing units type."
+      ],
+      "prerequisites": [
+        "mathlib:PadicInt.norm_natCast_eq_one_iff",
+        "mathlib:PadicInt.isUnit_iff"
+      ],
+      "acceptance": [
+        "Retain the exact coefficient ring, actual carrier and stated positivity hypotheses."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "exists_one_add_prime_unit"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "The positive powers of the selected unit are nontrivial",
+      "kind": "lemma",
+      "statement": "For a∈U with underlying value p+1 and every k>0, (a:Z)^k≠1.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "Primality gives p+1>1. Its positive natural powers are strictly greater than1 in ℕ.",
+        "The natural-number map into the characteristic-zero ring Z is injective and preserves powers. Transfer the natural inequality to non-equality in Z."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit"
+      ],
+      "acceptance": [
+        "The unit need not topologically generate U. The argument works for p=2 and never uses a procyclic decomposition."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "one_add_prime_unit_pow_ne_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/regular-dirac-difference",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Regular Dirac differences from infinite-order units",
+      "kind": "theorem",
+      "statement": "If a∈U satisfies (a:Z)^k≠1 for every k>0, then δ_a−1 is regular in M.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "Native Dirac evaluation and the convolution unit formula give the kth moment (a:Z)^k−1. It is nonzero by hypothesis.",
+        "Apply the preceding positive-moment regularity theorem."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/unit-moment-regularity",
+        "PadicMeasuresIwasawaAlgebras:L1/convolution-algebra",
+        "mathlib:AbstractMeasure.dirac_apply"
+      ],
+      "acceptance": [
+        "An arbitrary a≠1 does not suffice: a=−1 fails at every positive even degree. This retains the packet’s existing source correction E3."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "dirac_sub_one_regular"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "A concrete regular clearing factor",
+      "kind": "theorem",
+      "statement": "For any a∈U with underlying value p+1, the actual measure δ_a−1 is regular.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "The preceding nontrivial-power lemma verifies every positive moment hypothesis of regular-dirac-difference.",
+        "Use the existing unit-existence lemma whenever a concrete clearing element is needed. The factor has total mass zero, a useful obstruction to whole-fraction-ring evaluation."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers",
+        "PadicMeasuresIwasawaAlgebras:L3/regular-dirac-difference"
+      ],
+      "acceptance": [
+        "Retain the exact coefficient ring, actual carrier and stated positivity hypotheses."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "one_add_prime_dirac_sub_one_regular"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-positive-pseudomoment",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Positive moments of actual unit pseudomeasures",
+      "kind": "construction",
+      "statement": "For k>0 define positivePseudoMoment(k):P→ℚ_p by the existing admissible evaluation for the power character u↦(u:Z)^k, included into ℚ_p.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "The actual character-integral algebra map, composed with Z→ℚ_p, gives a ring homomorphism f_k:M→ℚ_p. Equip ℚ_p with precisely its induced M-algebra structure inside the construction.",
+        "Choose the unit a with value p+1 supplied above. The image f_k(δ_a−1)=(p+1)^k−1 is nonzero in ℚ_p and hence a unit. Apply the existing Iwasawa.evalAt with that actual δ, native total quotient Q, and this algebra structure.",
+        "The existing clearing-factor independence proves independence of the witness a and of any other admissible clearing element. Its specification gives the quotient formula; its integral law gives ordinary unit moments. Its existing linearity gives additivity and the displayed M-scalar formula.",
+        "The local commutative-ring structure used for FractionRing retains the existing ring operations and the previous commutativity proof. Total disconnectedness of U is transported through the existing unit-locus homeomorphism using the native embedding criterion; it is not an unproved extra field."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/dirac-hom",
+        "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom",
+        "PadicMeasuresIwasawaAlgebras:L1/commutative-convolution",
+        "PadicMeasuresIwasawaAlgebras:L2/unit-domain-homeomorphism",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers",
+        "PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation",
+        "PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation-spec",
+        "PadicMeasuresIwasawaAlgebras:L3/independence-of-clearing-factor",
+        "PadicMeasuresIwasawaAlgebras:L3/evaluation-on-integral-elements",
+        "mathlib:FractionRing",
+        "mathlib:Topology.IsEmbedding.isTotallyDisconnected_range",
+        "mathlib:isTotallyDisconnected_of_totallyDisconnectedSpace"
+      ],
+      "acceptance": [
+        "Only positive integer degrees are supplied. No value at k=0, analytic family, finite-extension coefficient lattice or algebra homeomorphism with the completed group algebra is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "positivePseudoMoment"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AbstractMeasure.positivePseudoMoment_eq",
+          "role": "characterisation",
+          "statement": "For any a with value p+1, the value is the kth numerator moment divided by (a^k−1), interpreted in ℚ_p."
+        },
+        {
+          "name": "AbstractMeasure.positivePseudoMoment_integral",
+          "role": "compatibility",
+          "statement": "On the existing integral inclusion of μ∈M, the value is μ(t_k) included into ℚ_p."
+        },
+        {
+          "name": "AbstractMeasure.positivePseudoMoment_add",
+          "role": "relation",
+          "statement": "Values add under addition in the existing pseudomeasure module."
+        },
+        {
+          "name": "AbstractMeasure.positivePseudoMoment_smul",
+          "role": "relation",
+          "statement": "For μ∈M and z∈P, the value on μ·z is μ(t_k) times the value on z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "UnitMomentTests.pseudomoment_zero",
+          "kind": "degenerate",
+          "statement": "Every positive pseudomoment of zero is zero."
+        },
+        {
+          "name": "UnitMomentTests.pseudomoment_one",
+          "kind": "compatibility",
+          "statement": "The integral identity measure has all positive pseudomoments1."
+        },
+        {
+          "name": "UnitMomentTests.pseudomoment_sign",
+          "kind": "computation",
+          "statement": "The integral atom at−1 has kth positive pseudomoment(−1)^k, including the dyadic case."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJW Lemma3.36(iii)",
+          "how": "Give actual positive evaluations whose vanishing detects a pseudomeasure."
+        },
+        {
+          "where": "DirichletPadicLFunctions:L1",
+          "how": "Provide the actual integral-unit specialization needed for uniqueness after constructing an arithmetic pseudomeasure; general coefficients and completed-algebra comparison remain explicit."
+        }
+      ]
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-numerator",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Positive moments after an arbitrary Dirac clearing factor",
+      "kind": "lemma",
+      "statement": "For z∈P, g∈U and k>0, the kth moment of numerator(g,z), included into ℚ_p, is ((g:Z)^k−1)·positivePseudoMoment(k,z).",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "Choose a with value p+1. The existing cross-multiplied numerator identity is (δ_a−1) numerator(g,z)=(δ_g−1) numerator(a,z).",
+        "Apply the actual kth character-integral ring homomorphism and include into ℚ_p. Its value on δ_a−1 is nonzero, so divide by this factor and use the defining positive-pseudomoment formula.",
+        "The equation is valid even when g^k=1; it does not divide by that possibly zero factor."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/actual-positive-pseudomoment",
+        "PadicMeasuresIwasawaAlgebras:L3/cross-multiplied-numerators",
+        "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-positive-powers"
+      ],
+      "acceptance": [
+        "For g=1 the numerator is zero. Admissibility of g is needed only if this identity is solved for the pseudomoment."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "positivePseudoMoment_numerator"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-separation",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Positive moments determine actual unit pseudomeasures",
+      "kind": "theorem",
+      "statement": "If z∈P has every positivePseudoMoment(k,z)=0 for k>0, then z=0.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "Choose a with value p+1. The numerator-moment identity makes every positive moment of the integral measure numerator(a,z) vanish in ℚ_p, hence in Z by injectivity of the coefficient inclusion.",
+        "The unit-measure separation theorem makes this numerator zero. Its defining equation gives ι(δ_a−1)z=0 in the native total quotient.",
+        "The explicit clearing factor is regular by regular-one-add-prime-difference. Native localization sends it to a unit, so cancel it to obtain the underlying fraction zero; native subtype extensionality proves z=0."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L3/actual-pseudomoment-numerator",
+        "PadicMeasuresIwasawaAlgebras:L3/unit-positive-moment-separation",
+        "PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+        "PadicMeasuresIwasawaAlgebras:L3/cleared-numerator-spec",
+        "mathlib:IsLocalization.map_units"
+      ],
+      "acceptance": [
+        "This realizes the ℤ_p/ℚ_p actual-measure case of Lemma3.36(iii), with the source’s infinite-order correction. The total quotient need not be a field."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "pseudomeasure_eq_zero_of_positive_moments"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicMeasuresIwasawaAlgebras:L3/actual-mass-fraction-obstruction",
+      "parentStageId": "PadicMeasuresIwasawaAlgebras:L3",
+      "realises": [
+        "PadicMeasuresIwasawaAlgebras:L3"
+      ],
+      "title": "Total mass does not extend to the actual total quotient",
+      "kind": "theorem",
+      "statement": "There is no ring homomorphism Q→Z whose restriction to M is the actual total-mass character integral.",
+      "hypotheses": [
+        "Fix any prime p, including2. Put Z=ℤ_p, U=Zˣ and M=D(U,Z), with the native measure carrier and preceding multiplicative convolution. For k≥0 let t_k be the actual continuous test u↦(u:Z)^k. Where total fractions are used, give the existing ring operations their commutativity proof from the previous convolution theorem and use the native Q=FractionRing M. The notation P denotes the already defined Iwasawa.pseudomeasures δ Q specialized to the actual δ=AbstractMeasure.diracHom; it is not a new carrier. No comparison with the completed group algebra is assumed."
+      ],
+      "proofSteps": [
+        "Choose a with value p+1. The regular element δ_a−1 is killed by total mass, since both atoms have mass1.",
+        "Apply the already decomposed generic no_fraction_extension theorem with this actual ring, native total quotient and actual character-integral ring homomorphism. The target Z is nontrivial."
+      ],
+      "prerequisites": [
+        "PadicMeasuresIwasawaAlgebras:L1/character-integral-algebra-hom",
+        "PadicMeasuresIwasawaAlgebras:L3/one-add-prime-unit",
+        "PadicMeasuresIwasawaAlgebras:L3/regular-one-add-prime-difference",
+        "PadicMeasuresIwasawaAlgebras:L3/obstruction-to-fraction-extension"
+      ],
+      "acceptance": [
+        "This concrete obstruction is not a new source finding. It demonstrates why the positive-pseudomoment constructor uses admissible factors, rather than assuming a map on the whole total quotient."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Padics/Measure/UnitMoments",
+        "namespace": "AbstractMeasure",
+        "declaration": "no_totalMass_fraction_extension"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§3.6 Definition3.34, equation(3-11), Remark3.35 and complete Lemma3.36(i)–(iii), published129–131/PDF30–32. Complete published128–132 freshly read28 September2026; the version of record has the packet’s recorded SHA256.",
+          "match": "Worker decomposition on the actual native unit-measure convolution ring and its native total quotient. The positive-moment argument keeps factorial cancellation integral, and chooses the infinite-order unit p+1 in part(iii), as existing E3 requires. Existing E4 retains the obstruction to extension across the entire total quotient. Coefficients here are ℤ_p with moment values in ℚ_p; arbitrary finite-extension lattices and the completed-algebra identification remain separate."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [],
@@ -17545,11 +18384,11 @@
       "stageId": "PadicMeasuresIwasawaAlgebras:L3",
       "status": "partial",
       "remaining": [
-        "Identify this generic algebraic δ with the Dirac homomorphism into the actual completed group algebra supplied by L1/ProfiniteProPGroups:Layer9, and identify the scalar map f with continuous-character integration. The present declarations take those data explicitly.",
+        "The actual Dirac homomorphism and character-integral algebra maps on the existing convolution ring are supplied, and the generic pseudomeasure module and admissible evaluations are instantiated on M=D(ℤ_pˣ,ℤ_p) with Q=FractionRing M. Compare this same ring and its exact Dirac/projection maps with the owned completed-group-algebra carrier. General finite-extension coefficient lattices and character-valued scalar extensions remain to be supplied.",
         "Compare the R-span of all Dirac differences with the completed augmentation kernel, with the required closure and topology stated; do not silently identify algebraic span with a closed ideal.",
-        "Decompose Lemma 3.36(i) positive-moment uniqueness via Mahler/ψ, (ii) moment nonvanishing implies regularity, and (iii) pseudomeasure uniqueness. Choose an infinite-order integer a (e.g. p+1) in the proof, as explained in E3.",
+        "Lemma3.36(i)–(iii) now has exact actual-measure nodes for integral ℤ_p coefficients and positive moments in ℚ_p, including regularity, numerator identities and the concrete infinite-order clearing element p+1. Extend these comparisons to the stipulated finite-extension coefficient lattices and the owned completed algebra; no unrestricted coefficient or whole-source closure is claimed.",
         "Decompose the procyclic augmentation-kernel/principal-generator argument and prove the chosen denominator regular before forming the Lemma 3.38 fraction. Keep the dyadic ℤ₂ˣ ≅ C₂ × ℤ₂ case separate; ℤ₂[C₂] is not an integral product of character components.",
-        "Construct admissible character specializations, including their varying-character loci and any topology actually required by downstream L-functions. The generic algebraic evaluation map alone does not supply analytic families."
+        "Construct admissible continuous-character specializations beyond the supplied positive integer moments, with their varying-character loci and the topology required by downstream L-functions. General analytic families belong to the character/Mellin owners and are not supplied by these algebraic maps."
       ]
     },
     {
@@ -17601,7 +18440,7 @@
         "PadicMeasuresIwasawaAlgebras:L3/pseudomeasures",
         "PadicMeasuresIwasawaAlgebras:L3/admissible-evaluation"
       ],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L3. Identify this generic algebraic δ with the Dirac homomorphism into the actual completed group algebra supplied by L1/ProfiniteProPGroups:Layer9, and identify the scalar map f with continuous-character integration. The present declarations take those data explicitly. Compare the R-span of all Dirac differences with the completed augmentation kernel, with the required closure and topology stated; do not silently identify algebraic span with a closed ideal. Decompose Lemma 3.36(i) positive-moment uniqueness via Mahler/ψ, (ii) moment nonvanishing implies regularity, and (iii) pseudomeasure uniqueness. Choose an infinite-order integer a (e.g. p+1) in the proof, as explained in E3. Decompose the procyclic augmentation-kernel/principal-generator argument and prove the chosen denominator regular before forming the Lemma 3.38 fraction. Keep the dyadic ℤ₂ˣ ≅ C₂ × ℤ₂ case separate; ℤ₂[C₂] is not an integral product of character components. Construct admissible character specializations, including their varying-character loci and any topology actually required by downstream L-functions. The generic algebraic evaluation map alone does not supply analytic families. These are gaps in realizing the roadmap target; the generic conditional algebraic declarations do not assume that these comparisons have already been proved."
+      "detail": "The actual Dirac homomorphism and character-integral algebra maps on the existing convolution ring are supplied, and the generic pseudomeasure module and admissible evaluations are instantiated on M=D(ℤ_pˣ,ℤ_p) with Q=FractionRing M. Compare this same ring and its exact Dirac/projection maps with the owned completed-group-algebra carrier. General finite-extension coefficient lattices and character-valued scalar extensions remain to be supplied. Compare the R-span of all Dirac differences with the completed augmentation kernel, with the required closure and topology stated; do not silently identify algebraic span with a closed ideal. Lemma3.36(i)–(iii) now has exact actual-measure nodes for integral ℤ_p coefficients and positive moments in ℚ_p, including regularity, numerator identities and the concrete infinite-order clearing element p+1. Extend these comparisons to the stipulated finite-extension coefficient lattices and the owned completed algebra; no unrestricted coefficient or whole-source closure is claimed. Decompose the procyclic augmentation-kernel/principal-generator argument and prove the chosen denominator regular before forming the Lemma 3.38 fraction. Keep the dyadic ℤ₂ˣ ≅ C₂ × ℤ₂ case separate; ℤ₂[C₂] is not an integral product of character components. Construct admissible continuous-character specializations beyond the supplied positive integer moments, with their varying-character loci and the topology required by downstream L-functions. General analytic families belong to the character/Mellin owners and are not supplied by these algebraic maps."
     },
     {
       "title": "L4 remaining source and interface decomposition",
@@ -17877,110 +18716,94 @@
     }
   ],
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized files; zero problems.",
-    "sourceIssues": "All fourteen findings and source versions preserved; filename-correct errata wrapper passes.",
+    "agent": "Codex — codex-7e92bd",
+    "date": "2026-09-28",
+    "checkpoint": "actual integral unit moments",
     "validation": {
-      "nodes": 294,
+      "nodes": 320,
       "kinds": {
-        "construction": 40,
-        "lemma": 190,
+        "construction": 43,
+        "lemma": 201,
         "definition": 2,
-        "theorem": 37,
-        "comparison": 25
+        "theorem": 47,
+        "comparison": 27
       },
-      "api": 208,
-      "definitionConstructionAPI": 205,
-      "definitionConstructionTests": 148,
-      "packetTests": 201,
+      "api": 219,
+      "definitionConstructionAPI": 216,
+      "packetTests": 222,
+      "definitionConstructionTests": 157,
+      "typedExamples": 233,
       "planets": 17,
-      "baseline": 297,
-      "preservedWholeNodes": 282,
-      "preservedBaselineObjects": 289,
-      "preservedSourceIssues": 14,
-      "newNodes": 12,
-      "newNamedDeclarations": 19,
-      "newTypedTests": 8,
-      "typedExamples": 212,
-      "reachableNodes": 295,
-      "dependencyEdges": 1194,
+      "baseline": 315,
+      "newNodes": 16,
+      "preservedWholeNodes": 304,
+      "preservedBaseline": 309,
+      "preservedFindings": 14,
+      "newFindings": 0,
+      "reachableNodes": 321,
+      "dependencyEdges": 1311,
+      "baselineLeaves": 316,
+      "stageLeaves": [],
       "acyclic": true,
-      "baselineLeaves": 298,
-      "stageRequestLeaves": [],
-      "compilerErrors": 0,
-      "compilerWarnings": 626,
-      "allWarningsPlaceholders": true,
       "pinnedMathlibModules": 2815,
       "pinnedTauCetiModules": 2,
-      "actualSupplierImports": 0,
-      "nativeBuildsThisJob": 0,
-      "readerWords": 88378,
-      "scopedMutationCheck": true,
-      "capturedInputs": 51,
+      "actualSupplierModules": 0,
+      "nativeModulesBuilt": 0,
       "gaps": 8,
       "requests": 0,
       "closedStages": 0,
-      "arithmetic": {
-        "families": 80,
-        "refinementChecks": 800,
-        "independentPairings": 800,
-        "uniformBounds": 320,
-        "coefficientRecovery": 10060,
-        "totalMass": 320,
-        "jointTransitions": 3200,
-        "primes": [
-          2,
-          3,
-          5,
-          7
-        ],
-        "levels": [
-          0,
-          1,
-          2,
-          3
-        ],
-        "massCollisionChecks": 16,
-        "dyadicDepthOne": {
-          "1": 0
-        },
-        "dyadicDepthTwo": {
-          "1": 1,
-          "3": -1
-        },
-        "scope": "Exact finite integer arithmetic checks the refinement, pairing, ultrametric-bound and recovery conventions. It does not prove dense extension or infinite inverse-limit topology."
-      },
-      "suggestedSha256": "0c8521eae5c2c77b9f83206b05c13d9a4ebf32934b0353439aebc46e16503311",
-      "sourceAuditSha256": "19dadbcd27d06b24056147fb55cf85edd57680943ea830c0b0b7a4442a1fb0bb"
+      "suggestedFileSha256": "d9a5079316a70e82bbe867853129fdda1a3059b11e781e270595de373778dda8",
+      "sourceAuditSha256": "d938c56ef3523607e3b20ba19f84793d0621f6d83cc6c50f42057eaaaaa02778",
+      "compileCompleted": true,
+      "compilerExit": 0,
+      "compileStatus": "full file elaborated at pinned baseline",
+      "compilerErrors": 0,
+      "compilerWarnings": 684,
+      "warningsOnlyPlaceholders": true
     },
+    "arithmetic": {
+      "momentProducts": 312,
+      "finiteCharacterMoments": 1248,
+      "regularClearingValues": 48,
+      "integralNumeratorMoments": 312,
+      "crossNumeratorIdentities": 936,
+      "cyclicFractionComparisons": 288,
+      "positiveAtomicDeterminants": 20,
+      "torsionAnnihilators": 4,
+      "evenMomentCounterexamples": 48,
+      "ambientZeroAtomChecks": 48,
+      "primes": [
+        2,
+        3,
+        5,
+        7
+      ],
+      "atomicFamilies": 24,
+      "scope": "Exact signed atomic measures and multiplicative convolution, coefficient/group reductions, positive powers of p+1, numerator identities, dyadic torsion and positive-moment Vandermonde determinants. The extra cyclic Laurent fraction model checks denominator orientation for positive and negative clearing powers; it does not construct a pseudomeasure on the entire p-adic unit group or prove infinite moment separation.",
+      "scriptSha256": "832b033fe24bf189eba8381ffc45555fcb707eb5a26daa79e282ecd259652559"
+    },
+    "commands": [
+      "python3 scripts/check_blueprint.py research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json --index <pinned-declaration-index>",
+      "python3 research/blueprint/intake.py check-files <four authorized files>",
+      "python3 scripts/check_errata.py <filename-correct packet wrapper>",
+      "git diff --check"
+    ],
+    "status": "Full suggested compilation, indexed packet checker, four-file intake, errata wrapper, whitespace, graph, preservation and parity all passed.",
     "publication": {
-      "base": "6dce6f97c735a9c953c6e1b2125058833159a2ec",
-      "publicationMain": "9b5a58905b564df16b77149a70e64b1d416ab4d6",
-      "capturedInputs": 51,
-      "unchangedInputs": 51,
-      "changedInputs": {},
-      "predecessorOutputBlobs": {
-        "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json": "ebc330cd901e908bcb7468784ec75b78d604c723",
-        "research/blueprint/readmes/PadicMeasuresIwasawaAlgebras.md": "872803572cd5a4f9ee0e2299c2492e0b795c6199",
-        "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean": "2e7cf88d37814e3f18990c2f6649157cdf9e17a5",
-        "research/blueprint/handoff/BP-PadicMeasuresIwasawaAlgebras.md": "0ab33cb51e6168deb4012a97c48d60fba778f311"
+      "base": "f5c4260e92ce037b4f23d4d3640bd7d71e5dca98",
+      "publicationMain": "a2b7622ecf52ce11891aa8347f5272db0c5bcffe",
+      "guardedInputs": 51,
+      "unchangedInputs": 50,
+      "inputChanges": {
+        "research/blueprint/packets/ColemanPowerSeries.json": {
+          "before": "e7c58b467eac5d759ae858f8b7eb7eaf936b34c5",
+          "now": "8d93d33aa57d1e0b484eb6a6aec6a78beb328d90"
+        }
       },
-      "issueBodyUnchanged": true,
-      "winningClaimComment": 5858975945,
-      "exactBot": 5858977458
-    },
-    "lean": {
-      "suggestedFileSha256": "0c8521eae5c2c77b9f83206b05c13d9a4ebf32934b0353439aebc46e16503311",
-      "sourceAuditSha256": "19dadbcd27d06b24056147fb55cf85edd57680943ea830c0b0b7a4442a1fb0bb",
-      "errors": 0,
-      "warnings": 626,
-      "warningsOnlyPlaceholders": true,
-      "mathlibModules": 2815,
-      "tauCetiModules": 2,
-      "actualSupplierImports": 0,
-      "nativeBuildsThisJob": 0
-    },
-    "closure": "Partial; eight gaps, no outgoing requests, zero closed stages. No implementation claim."
+      "predecessorOutputChanges": [],
+      "unchangedIssueBody": true,
+      "claimConfirmation": 5861074947
+    }
   },
   "provenance": {
     "unitInverseFollowup": {
@@ -19583,6 +20406,124 @@
       "ownership": "Supply only the generic coefficient-algebra comparison. Dirichlet arithmetic and Coleman/locally analytic comparisons stay with their owners; no reverse edge is added.",
       "sharedMachine": "Same persistent checkout; existing pinned builds only, no repository snapshot, Lake project, native library rebuild or concurrent own Lean process.",
       "publicationDelta": "Dirichlet204→210: six whole integral tame-zeta nodes freshly read; all204 previous whole nodes unchanged, both requests unchanged. No reverse dependency or change to the generic coefficient-algebra contract."
+    },
+    "actualUnitMoments": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "claimComment": 5861073882,
+      "winningBot": 5861074947,
+      "preservedWholeNodes": 304,
+      "preservedBaseline": 309,
+      "preservedFindings": 14,
+      "newNodes": 16,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized files; zero problems.",
+        "sourceIssues": "All fourteen findings and source versions preserved; filename-correct errata wrapper passes.",
+        "validation": {
+          "nodes": 294,
+          "kinds": {
+            "construction": 40,
+            "lemma": 190,
+            "definition": 2,
+            "theorem": 37,
+            "comparison": 25
+          },
+          "api": 208,
+          "definitionConstructionAPI": 205,
+          "definitionConstructionTests": 148,
+          "packetTests": 201,
+          "planets": 17,
+          "baseline": 297,
+          "preservedWholeNodes": 282,
+          "preservedBaselineObjects": 289,
+          "preservedSourceIssues": 14,
+          "newNodes": 12,
+          "newNamedDeclarations": 19,
+          "newTypedTests": 8,
+          "typedExamples": 212,
+          "reachableNodes": 295,
+          "dependencyEdges": 1194,
+          "acyclic": true,
+          "baselineLeaves": 298,
+          "stageRequestLeaves": [],
+          "compilerErrors": 0,
+          "compilerWarnings": 626,
+          "allWarningsPlaceholders": true,
+          "pinnedMathlibModules": 2815,
+          "pinnedTauCetiModules": 2,
+          "actualSupplierImports": 0,
+          "nativeBuildsThisJob": 0,
+          "readerWords": 88378,
+          "scopedMutationCheck": true,
+          "capturedInputs": 51,
+          "gaps": 8,
+          "requests": 0,
+          "closedStages": 0,
+          "arithmetic": {
+            "families": 80,
+            "refinementChecks": 800,
+            "independentPairings": 800,
+            "uniformBounds": 320,
+            "coefficientRecovery": 10060,
+            "totalMass": 320,
+            "jointTransitions": 3200,
+            "primes": [
+              2,
+              3,
+              5,
+              7
+            ],
+            "levels": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "massCollisionChecks": 16,
+            "dyadicDepthOne": {
+              "1": 0
+            },
+            "dyadicDepthTwo": {
+              "1": 1,
+              "3": -1
+            },
+            "scope": "Exact finite integer arithmetic checks the refinement, pairing, ultrametric-bound and recovery conventions. It does not prove dense extension or infinite inverse-limit topology."
+          },
+          "suggestedSha256": "0c8521eae5c2c77b9f83206b05c13d9a4ebf32934b0353439aebc46e16503311",
+          "sourceAuditSha256": "19dadbcd27d06b24056147fb55cf85edd57680943ea830c0b0b7a4442a1fb0bb"
+        },
+        "publication": {
+          "base": "6dce6f97c735a9c953c6e1b2125058833159a2ec",
+          "publicationMain": "9b5a58905b564df16b77149a70e64b1d416ab4d6",
+          "capturedInputs": 51,
+          "unchangedInputs": 51,
+          "changedInputs": {},
+          "predecessorOutputBlobs": {
+            "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json": "ebc330cd901e908bcb7468784ec75b78d604c723",
+            "research/blueprint/readmes/PadicMeasuresIwasawaAlgebras.md": "872803572cd5a4f9ee0e2299c2492e0b795c6199",
+            "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean": "2e7cf88d37814e3f18990c2f6649157cdf9e17a5",
+            "research/blueprint/handoff/BP-PadicMeasuresIwasawaAlgebras.md": "0ab33cb51e6168deb4012a97c48d60fba778f311"
+          },
+          "issueBodyUnchanged": true,
+          "winningClaimComment": 5858975945,
+          "exactBot": 5858977458
+        },
+        "lean": {
+          "suggestedFileSha256": "0c8521eae5c2c77b9f83206b05c13d9a4ebf32934b0353439aebc46e16503311",
+          "sourceAuditSha256": "19dadbcd27d06b24056147fb55cf85edd57680943ea830c0b0b7a4442a1fb0bb",
+          "errors": 0,
+          "warnings": 626,
+          "warningsOnlyPlaceholders": true,
+          "mathlibModules": 2815,
+          "tauCetiModules": 2,
+          "actualSupplierImports": 0,
+          "nativeBuildsThisJob": 0
+        },
+        "closure": "Partial; eight gaps, no outgoing requests, zero closed stages. No implementation claim."
+      },
+      "sourceBoundary": "Complete published RJW128–132 freshly read; E3 and E4 preserved with corrected statements. Native integral carrier, p+1 clearing element, positive integer moments only.",
+      "upstream": "Full Monoid.lean at PR41961 head7abfb91a8f1dedb3538783e1d6c0df461cdaba05 reread; now merged beyond the pin. Exact diracHom vocabulary adopted, without copying code."
     }
   }
 }
