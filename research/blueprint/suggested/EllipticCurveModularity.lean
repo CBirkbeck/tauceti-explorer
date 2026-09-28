@@ -46,9 +46,11 @@ theorem conductor_residual_eq (h : p ∉ exceptionalPrimes E) : conductor (ρ̄ 
 /-! ## R29.2. Trivial nebentypus by reduction -/
 
 /-- `EllipticCurveModularity:R29.2/trivial-nebentypus-by-reduction`: a root of unity of order prime to p that is ≡ 1
-modulo a prime above p equals 1. -/
+modulo a prime above p equals 1. The primality of `p` is needed: for `p = 4`, `m = 2`, `ζ = -1` and `𝔭 = (2)` in `ℤ`
+all other hypotheses hold (added by REV-EllipticCurveModularity). -/
 theorem eq_one_of_pow_eq_one_of_sub_mem {K : Type*} [Field K] [NumberField K] (ζ : 𝓞 K) {m : ℕ} (hm : ζ ^ m = 1)
-    (𝔭 : Ideal (𝓞 K)) [𝔭.IsPrime] {p : ℕ} (hp : (p : 𝓞 K) ∈ 𝔭) (hpm : ¬ p ∣ m) (h : ζ - 1 ∈ 𝔭) : ζ = 1 := sorry
+    (𝔭 : Ideal (𝓞 K)) [𝔭.IsPrime] {p : ℕ} (hp' : p.Prime) (hp : (p : 𝓞 K) ∈ 𝔭) (hpm : ¬ p ∣ m)
+    (h : ζ - 1 ∈ 𝔭) : ζ = 1 := sorry
 
 /-! ## R29.3. Pigeonhole and the norm argument -/
 
@@ -75,6 +77,8 @@ example : ¬ (3 : ℤ) ∣ 2 := by decide
 R29.3–R29.6 at the level of newforms and Jacobians (owners: Tau Ceti ModularForms Layers 4, 5, 7, 8g;
 ModularCurvesPartII R14.5–R14.6; AutomorphicGaloisRepresentations R19.4, R19.6; ClassicalSerreModularity R27.6):
 
+theorem eq_of_eigenvalue_eq_across_levels (f : Newform M 2) (g : Newform M' 2) (hM : M ∣ N) (hM' : M' ∣ N)
+    (h : ∀ᶠ ℓ in cofinite, a_ℓ f = a_ℓ g) : M = M' ∧ HEq f g                                   -- strong-multiplicity-one-across-levels
 noncomputable def newformOf (E) : HeckeRing.GL2.Newform (conductor E) 2                          -- newform-of-E
 theorem newformOf_coeff_prime (ℓ) (hℓ : ¬ ℓ ∣ conductor E) : a_ℓ (newformOf E) = E.ap ℓ
 theorem newformOf_coeff_int (n) : a_n (newformOf E) ∈ Set.range (Int.cast : ℤ → ℂ)                   -- rational-coefficient-field
