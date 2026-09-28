@@ -125265,6 +125265,25 @@
   },
   {
    "id": "AdicSpacesPartII/E21",
+   "kind": "error",
+   "locator": "§2.8, Definition 2.8.1, p. 59 (arXiv:1301.0792v5)",
+   "printed": "Definition 2.8.1. The following conditions on a Banach ring A are equivalent. (a) The norm on A is equivalent to some power-multiplicative norm. (b) The norm on A is equivalent to its spectral seminorm ... (c) There exists c > 0 such that |x2 | ≥ c |x|2 for all x ∈ A. ... (d) The subring A◦ of A is bounded.",
+   "correction": "(a)-(c) are equivalent and define uniformity; they imply (d), and (d) implies that the spectral norm defines the topology; (d) implies (a)-(c) when A contains a topologically nilpotent unit z with |z|·|z⁻¹| = 1 (for instance for the norms of AdicSpacesPartII:R0/tate-ring-norm), but not in general.",
+   "reason": "On a complete nonarchimedean field K the norm |x| for |x| ≤ 1 and |x|(1 + log|x|) for |x| > 1 is submultiplicative, defines the topology of K (so K° is bounded) and is not equivalent to its spectral norm |·|; so (d) does not imply (b). The authors record this in the errata to the paper.",
+   "affects": "a stated result",
+   "known": "Kedlaya–Liu II (arXiv:1602.06899v3), Appendix A, item on Definition 2.8.1",
+   "searched": [
+    "Kedlaya–Liu II Appendix A (read)"
+   ],
+   "owner": "AdicSpacesPartII",
+   "file": "research/blueprint/packets/AdicSpacesPartII.json",
+   "citation": "Kiran S. Kedlaya, Ruochuan Liu, Relative p-adic Hodge theory: Foundations, arXiv:1301.0792v5 (9 May 2015)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "AdicSpacesPartII/E22",
    "kind": "gap",
    "locator": "item (1), p. 1, in the three-page erratum (SHA-256 3cfa56b9…)",
    "printed": "A similar condition should then also appear in the definition of covers in the pro-étale topology, Definition 3.9, and in the definition of covers in Definition 3.4.",
@@ -125285,7 +125304,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E22",
+   "id": "AdicSpacesPartII/E23",
    "kind": "error",
    "locator": "§3, Proposition 3.7(i), p. 14 (arXiv v2)",
    "printed": "Any continuous open surjective map S → S ′ of profinite sets admits a continuous splitting.",
@@ -125304,7 +125323,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E23",
+   "id": "AdicSpacesPartII/E24",
    "kind": "error",
    "locator": "§3, Corollary 3.8 and the last sentence of Proposition 3.13, pp. 15 and 18 (arXiv v2)",
    "printed": "In particular, Xproét has enough points, given by profinite covers of geometric points.",
@@ -125323,7 +125342,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E24",
+   "id": "AdicSpacesPartII/E25",
    "kind": "misprint",
    "locator": "§3.1, Corollary 3.4, p. 1724 (journal); same wording in arXiv:1902.03985v4, Corollary 3.4",
    "printed": "let Y be a rigid space smooth over a perfectoid extension of L′ /L.",
@@ -125343,7 +125362,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E25",
+   "id": "AdicSpacesPartII/E26",
    "kind": "gap",
    "locator": "§3.1, proof of Corollary 3.4, p. 1725 (journal); same in arXiv v4",
    "printed": "now exists and is sousperfectoid because algebras étale over a sousperfectoid algebra are again sousperfectoid (Proposition 6.3.3.(ii) op. cit.).",
@@ -125364,7 +125383,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E26",
+   "id": "AdicSpacesPartII/E27",
    "kind": "gap",
    "locator": "§3.1, proof of Corollary 3.5, p. 1725 (journal); same in arXiv v4",
    "printed": "The second part follows from the observation that when (An )n∈N is a direct system of Tate algebras ... has dense image by pointwise approximation.",
@@ -125384,7 +125403,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E27",
+   "id": "AdicSpacesPartII/E28",
    "kind": "gap",
    "locator": "§6.3, after Lemma 6.13, p. 51, and proof of Proposition 6.15, p. 52 (arXiv v2)",
    "printed": "Having established this Lemma we now view R as a sheaf of Banach algebras on X by picking the unit ball of R(U ) to be R◦ (U ) = OX◦ (U )⊗R.",
@@ -125398,13 +125417,13 @@
    ],
    "owner": "AdicSpacesPartII",
    "file": "research/blueprint/packets/AdicSpacesPartII.json",
-   "citation": "Przemysław Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2",
+   "citation": "Przemyslaw Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2 (22 Aug 2016), published in Documenta Math. 22 (2017); printed page numbers of the arXiv PDF",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E28",
+   "id": "AdicSpacesPartII/E29",
    "kind": "misprint",
    "locator": "§6.1, Definition 6.3, p. 46 (arXiv v2)",
    "printed": "where (Ii ) runs through any cofinal set of neighbourhoods of 0 consisting of Zp -submodules.",
@@ -125418,13 +125437,13 @@
    ],
    "owner": "AdicSpacesPartII",
    "file": "research/blueprint/packets/AdicSpacesPartII.json",
-   "citation": "Przemysław Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2",
+   "citation": "Przemyslaw Chojecki, David Hansen, Christian Johansson, Overconvergent modular forms and perfectoid Shimura curves, arXiv:1507.04875v2 (22 Aug 2016), published in Documenta Math. 22 (2017); printed page numbers of the arXiv PDF",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E29",
+   "id": "AdicSpacesPartII/E30",
    "kind": "gap",
    "locator": "§4, Lemma 4.7, printed p. 21 (arXiv:1408.3329v1); J. reine angew. Math. 519 (2000), Lemma 4.7",
    "printed": "Published version: 'Let X be a smooth Stein space or a smooth affinoid dagger space. All differentials Ω^i_X(X) → Ω^{i+1}_X(X) are strict and have closed image.' (no hypothesis on k)",
@@ -125444,7 +125463,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E30",
+   "id": "AdicSpacesPartII/E31",
    "kind": "gap",
    "locator": "§4, proof of Lemma 4.7, Stein case, printed p. 21 (arXiv v1)",
    "printed": "'The canonical surjections p_j : Ω^j_{A^n}(A^n) → Ω^j_X(X) are strict, and since we have p_{i+1} ∘ d^i_{A^n} = d^i_X ∘ p_i we are therefore reduced to the case X = A^n.'",
@@ -125464,7 +125483,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E31",
+   "id": "AdicSpacesPartII/E32",
    "kind": "misprint",
    "locator": "§2, proof of Theorem 2.16, printed p. 13 (arXiv v1)",
    "printed": "'A12,ρ = Tn(ρ)<ρ^{-1}.Y1, ρ^{-1}.Y2>/(I + (Y1 − f1) + (Y2 + f2))', with 'f2 = f1^{-1}' and 'Ai,ρ = Tn(ρ)<ρ^{-1}.Y>/(I + (Y − fi))'",
@@ -125483,7 +125502,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E32",
+   "id": "AdicSpacesPartII/E33",
    "kind": "misprint",
    "locator": "§2, Lemma 2.1 (b), printed p. 15 (arXiv:1408.3327v1)",
    "printed": "'(b) Suppose even γi < δi for all 1 ≤ i ≤ r, and ∏_{i=1}^r δi < µ.' with V = {∏_{i≤r}|x_i| > µ, |x_i| < δ_i, |x_i| > γ_i}",
@@ -125502,7 +125521,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E33",
+   "id": "AdicSpacesPartII/E34",
    "kind": "error",
    "locator": "§3.2, Definition 3.2.1 (arXiv:math/0208027v6)",
    "printed": "'We say an affinoid or dagger algebra A is of MW-type ... if A^int/πA^int is a smooth k-algebra. In particular, A is regular, and its reduction coincides with A^int/πA^int.'",
@@ -125522,7 +125541,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E34",
+   "id": "AdicSpacesPartII/E35",
    "kind": "error",
    "locator": "§2.3, Remark 2.3.6 (arXiv:math/0208027v6)",
    "printed": "'The converse of Corollary 2.3.5 does not hold. For instance, if A = Wn, then x1 is topologically nilpotent in each fringe algebra of A but not in the affinoid topology of A.'",
@@ -125542,7 +125561,7 @@
    "reviewReason": null
   },
   {
-   "id": "AdicSpacesPartII/E35",
+   "id": "AdicSpacesPartII/E36",
    "kind": "error",
    "locator": "§2.2, Lemma 2.2.3 and §2.3, Remark 2.3.9 (arXiv:math/0208027v6)",
    "printed": "Lemma 2.2.3 and Remark 2.3.9 (flatness of dagger algebra maps and of A_1 → A_1 ⊗̂ A_2) are stated without a reducedness hypothesis on A, B (resp. A_1, A_2).",
@@ -127231,6 +127250,26 @@
    "status": "confirmed",
    "reviewedBy": "REV-ArithmeticKTheory--N.1",
    "reviewReason": "Found by the review (checker C3) and checked at the locator in the draft read."
+  },
+  {
+   "id": "ArithmeticKTheory/E1",
+   "kind": "error",
+   "locator": "VI.8.1 (Classical Data 8.1), printed p. 513 (PDF p. 521); identical in the chapter file Kbook.VI.pdf of 18 September 2012",
+   "printed": "K1(OS) = OS^× ≅ Z^{r2+|S|−1} ⊕ µ(F)",
+   "correction": "K1(OS) = OS^× ≅ Z^{r1+r2+|S|−1} ⊕ µ(F), for S a finite set of finite places (Dirichlet's S-unit theorem).",
+   "reason": "For F = Q and S = {p}: OS = Z[1/p] has units ±p^n, of rank 1 = r1 + r2 + |S| − 1, while the printed formula gives rank 0. The printed rank is right only when r1 = 0, which is the only case the book uses it in (Theorem 8.4, F totally imaginary).",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Weibel's K-book page (sites.math.rutgers.edu/~weibel/Kbook.html): its 'Errata to the published version' link (Kbook.errata.pdf) returned 404 on 2026-09-28.",
+    "The chapter file Kbook.VI.pdf (18 September 2012) prints the same formula; the published AMS version (GSM 145) was not accessible."
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory--N.7.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "confirmed",
+   "reviewedBy": "REV-ArithmeticKTheory--N.7",
+   "reviewReason": "Raised by the reviewer and checked by the S-unit count at F = Q, S = {p}."
   },
   {
    "id": "ArithmeticStatistics/E101",
@@ -165643,7 +165682,6 @@
  ],
  "older": [],
  "unchecked": [
-  "ArithmeticKTheory",
   "BunGAndNewtonStrata",
   "CohomologyComparisons",
   "DiamondsAndVStacks",
