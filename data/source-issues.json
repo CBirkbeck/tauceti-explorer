@@ -136191,9 +136191,9 @@
    "owner": "GlobalGaloisDeformations",
    "file": "research/blueprint/packets/GlobalGaloisDeformations.json",
    "citation": "Mark Kisin, Lectures on deformations of Galois representations (Lecture 1), Lecture notes on the author's Harvard page, 4 pages (Lecture 1: deformations of representations of profinite groups).",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GlobalGaloisDeformations",
+   "reviewReason": "Confirmed at Kisin, Lecture 1, (1.2), p. 1: the printed sentence says Hom(G, Fp) for G itself, while Φ_p quantifies over all finite-index subgroups; the counterexample (∏_ℕ ℤ/p) ⋊ ℤ/2 (p odd) is correct, since the commutators a^{−2} generate ∏ℤ/p, so Hom(G, 𝔽_p) = 0 while the index-2 subgroup has infinite Hom to 𝔽_p. Exercise 1 on p. 4 states the correct equivalence."
   },
   {
    "id": "GlobalGaloisDeformations/E2",
@@ -136212,9 +136212,30 @@
    "owner": "GlobalGaloisDeformations",
    "file": "research/blueprint/packets/GlobalGaloisDeformations.json",
    "citation": "Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre's modularity conjecture (II), Authors' final version (PDF dated 30 May 2009), 98 pages, on Khare's UCLA page; published as Invent. Math. 178 (2009), 505–586. Printed page = PDF page. Its numbering is the published one cited by RS-08 (Proposition 4.5, Corollary 4.7) and by Newton–Thorne (§2.4, Propositions 2.5 and 9.3, Lemma 5.10); the pagination of the Inventiones article was not compared.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-GlobalGaloisDeformations",
+   "reviewReason": "Confirmed at KW II (final version), §2.1, p. 6: 'The converse is also true, as one sees easily using the surjectivity of SpC(A) → SpB(A) for A = F[ε]'. The converse assumes injectivity of these maps; injectivity at A = 𝔽[ε] makes the cotangent map surjective and complete Nakayama gives B ↠ C. Surjectivity is neither assumed nor true for a proper closed immersion."
+  },
+  {
+   "id": "GlobalGaloisDeformations/E3",
+   "kind": "error",
+   "locator": "§3.23, p. 17 (the claim on H⁰_{S,T}) and the displayed formula for dim H¹_{S,T} at the top of p. 18",
+   "printed": "The source takes ρ to be absolutely irreducible and concludes H0(GF,S, ad ρ) = F and hence H0S,T(GF,S, ad0 ρ) = F. It then gives dimF H1S,T(GF,S, ad0 ρ) = #T − Σv|∞ dimF H0(GFv, ad0 ρ) + Σv∈S∖T (dimF L(Dv) − dimF H0(GFv, ad0 ρ)) + dimF H1S,T(GF,S, ad0 ρ(1)) − dimF H0(GF,S, ad0 ρ(1)).",
+   "correction": "For T ≠ ∅ (the notes assume T contains the places above p), H⁰_{S,T}(G_{F,S}, ad⁰ρ̄) = 0, and the formula reads dim H¹_{S,T} = #T − 1 − Σ_{v|∞} h⁰(G_{F_v}, ad⁰ρ̄) + Σ_{v∈S∖T}(dim L(D_v) − h⁰(G_{F_v}, ad⁰ρ̄)) + h¹_{S,T}(ad⁰ρ̄(1)) − h⁰(G_{F,S}, ad⁰ρ̄(1)).",
+   "reason": "In Gee's complex C⁰_{S,T} = C⁰(G, ad ρ̄) and the differential sends φ to (∂φ, (φ|_{G_v})_{v∈T}); a scalar φ ∈ H⁰(G, ad ρ̄) = 𝔽 with φ|_{G_v} = 0 in C⁰(G_v, ad ρ̄) = ad ρ̄ is 0, so H⁰_{S,T} = 0 when T ≠ ∅ (as CHT08 Lemma 2.3.4 and ACC+ Proposition 6.2.24 state). With h¹ = χ + h⁰ + h² − h³ and Gee's χ_{S,T} = −1 + #T − …, the constant is #T − 1. The notes' own later counts use the corrected value: Proposition 3.24(3) (dimension at least 1 + Σ_v(dim R_v − n²) − …) and Proposition 5.10 (#T − 1 − [F : ℚ] + r generators) follow from #T − 1 and would be off by one with #T.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "arXiv:2202.05818 versions v1 (2022-02-11) and v2 (2022-10-17, the accepted version): v2 read here.",
+    "The published version, Essential Number Theory 1 (2022) 73–126 (msp.org/ent/2022/1-1/ent-v1-n1-p06-s.pdf, sha256 3ffa71fd…): the same sentence and the same displayed formula in §3.23, with Proposition 5.10 still counting #T − 1 − [F : ℚ] + r generators.",
+    "No errata page for these notes was found on Gee's homepage or arXiv."
+   ],
+   "owner": "GlobalGaloisDeformations",
+   "file": "research/blueprint/packets/GlobalGaloisDeformations.json",
+   "citation": "Toby Gee, Modularity lifting theorems, Essential Number Theory 1 (2022), no. 1, 73–126; arXiv:2202.05818v2 (17 October 2022), 45 pages; updated Arizona Winter School 2013 notes. The arXiv version was read; printed page = PDF page.",
+   "status": "confirmed",
+   "reviewedBy": "REV-GlobalGaloisDeformations",
+   "reviewReason": "Added by this review; checked against the complex's definition on p. 16 and the counts of Propositions 3.24(3) and 5.10."
   },
   {
    "id": "GrossZagierAndArithmeticHeights/E1",
