@@ -1,46 +1,47 @@
-# BP-DirichletPadicLFunctions: Even-character logarithmic value
+# BP-DirichletPadicLFunctions: Odd-character canonical-root value
 
-Codex / codex-7e92bd same-worker issue #713 continuation after PR #3292,
-merged 62319b2642d123c2409499d5ceefb94d8d61976d with head
-7a5e41bb16be0095ff6cadd8f8bc9468561460bb. Original claim 5854790528,
+Codex / codex-7e92bd same-worker issue #713 continuation after PR #3294,
+merged 2566939af56e4177dfd642feeb41fa7f4785e279 with head
+e4ac4d2f0d51740f32dcddf63325549d3b7c8c5e. Original claim 5854790528,
 winning bot 5854791937; no additional claim. Review #390 remains unclaimed.
 
 ## Delivered and remaining
 
-Four L3 nodes refine the complex L-value at1 to a finite sum of real log norms for even characters. They verify the principal-log conjugation hypothesis, pair inverse roots, average the finite unit sum and apply the existing classical formula. Complex character coefficients remain unchanged; evenness does not imply real values. The finite-sum identity permits principal even characters, while the L-value statement retains primitive conductor, nonprincipality and a nonzero Gauss sum. Eight typed examples include the quadratic values modulo5 and8 and the full complex coefficient pattern modulo7.
+Six L3 nodes decompose the odd-character value at1 using an explicit canonical root, scalar principal-log phase and odd unit averaging. The API compares directly with the existing native inverse-character L-value at0. E16 records the missing root qualification in Remark6.3, supported by exact modulo4 Gauss/Bernoulli controls; no independent verdict is assigned.
 
-Totals: 266 unchecked nodes (1 definitions, 125 lemmas, 27 constructions, 76 theorems, 37 comparisons), 262 API entries,
-295 packet tests (140 on definitions/constructions),
-298 typed examples, 24 planets and 329 baseline records.
-Fifteen findings, five gaps, one L1 request, zero closed stages.
+Totals: 272 unchecked nodes (1 definitions, 130 lemmas, 27 constructions, 77 theorems, 37 comparisons), 263 API entries,
+307 packet tests (140 on definitions/constructions),
+310 typed examples, 24 planets and 348 baseline records.
+16 findings, five gaps, one L1 request, zero closed stages.
+One new unreviewed finding, E16, records the missing canonical complex-root qualification in Remark6.3; all fifteen prior findings and sourceVersions are preserved whole.
 
-Resume by reading the source root conventions before treating the odd Bernoulli formula of Remark6.3. The p-adic logarithmic/degree-zero value and actual odd/dyadic branches remain open through PMIA L0a and LAD L3, together with pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing and conductor/product comparisons stay with ModularForms. The PMIA L1 actual completed-algebra comparison remains requested.
+The complex logarithmic formula and its even and canonically normalized odd refinements are decomposed. Construct the p-adic logarithmic/degree-zero values, actual odd/dyadic analytic branches through their owners, pure p-power conductor, pole/residue analysis and complete source extraction. Generic Gauss nonvanishing, generalized Bernoulli carriers and conductor/product comparisons remain with ModularForms. The PMIA L1 actual completed-algebra comparison remains requested.
 
 ## Reading and validation
 
-The complete published149–150/PDF50–51 reading from the immediate predecessor is reused for Theorem6.1(i), its proof and Remark6.3. Native complex conjugation, log real part, argument/slit-plane conditions, character evenness and finite reindexing statements were read with their applicable ambient hypotheses at the pin. The indexed Equiv.prod_comp also generates its additive companion, used in the complete native finite-sum probe. Previous source/protocol/audit readings remain recorded. No fresh full-paper reading, new finding or independent review is asserted.
+Remark6.3 and Theorem6.1(i), complete published149–150/PDF50–51; Definition5.2 and extension of Gauss notation, complete published140–145/PDF41–46; corresponding complete arXiv v2 pages29,32,36,37. Read on28 September2026; published140/150 and v2 37 images inspected. Both source digests rechecked. Full native statements and ambient hypotheses for the newly cited declarations read at the pinned Mathlib commit.
 
-All 262 predecessor nodes, 322 baseline records, 15 findings and sourceVersions remain whole. This checkpoint adds 4 nodes, 4 named suggested declarations and 8 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 408 reachable nodes, 1895 edges and 428 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+All 266 predecessor nodes, 329 baseline records, 15 findings and sourceVersions remain whole. This checkpoint adds 6 nodes, 7 named suggested declarations and 12 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 414 reachable nodes, 1929 edges and 447 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
 
-The full suggested module elaborates with zero errors and 676 expected placeholder warnings. Source and artifact audits cover 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and the verified actual 265-node PMIA artifact. The current 320-node PMIA source preserves that artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+The full suggested module elaborates with zero errors and 695 expected placeholder warnings. Source and artifact audits cover 3595 pinned Mathlib modules, 20 pinned Tau Ceti modules and the verified actual 265-node PMIA artifact. The current 320-node PMIA source preserves that artifact's source in order; no new supplier declaration is called and no compilation against the current supplier revision is claimed. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
 
-Four complete native lemmas prove the norm-one real-part gap, conjugation of the logarithm at inverse roots, their log-norm pairing, and finite weighted averaging under an explicit permutation. The last proof retains arbitrary complex weights and needs no freeness of the permutation. The probe elaborates against 1757 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+Four complete native lemmas prove the polar factorization, principal-log phase, its imaginary part and subtraction of its conjugate under0<t<π. The probe elaborates against 1757 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
 
-70-digit numerical controls check14 scalar conjugations and14 pairs,27 even weighted sums including6 nonreal cubic-character cases,14 primitive even L-values,8 root instances of the quadratic5/8 closed forms,8 odd-character negative controls and the fixed-point case D=2. The nonreal even weighted sums have nonzero imaginary part; the odd weighted log-norm sums vanish while their complex-log sums do not. 70-decimal numerical controls with tolerance1e-60, not interval-certified and not general proofs. The largest observed discrepancy is 1.68506211426e-70.
+Controls check21 polar factorizations,19 phases and19 inverse-log differences,24 unit residues,244 character multiplication identities,6 odd weighted sums including2 nonreal and1 imprimitive case,5 primitive L-values and their L(0) comparisons, and18 root-change normalizations. Exact rational-pair arithmetic verifies2 modulo4 Gauss sums and2 Bernoulli sums. Exact Fraction-pair arithmetic in Q(i) for two modulo4 Gauss sums and the modulo4/5 Bernoulli sums; all analytic controls use70 decimal digits and tolerance1e-60, not interval-certified or general proofs. The largest observed discrepancy is 3.82059518884e-70.
 
-The PMIA supplier changed from304 to320 nodes. All16 new nodes,6 added baseline records, the full136-line Lean addition and changed source-scope/check metadata were read. All304 old nodes,309 baseline records,14 findings and sourceVersions remain whole; old Lean remains in order. These additions supply actual positive moments and regularity, but the requested completed-algebra comparison remains open. No current Dirichlet declaration calls them. The two guarded supplier blobs were refreshed after this check.
+The LAD packet changed from174 to186 nodes. All12 added L4 nodes, the complete104-line Lean addition and changed coverage/gap/check/provenance metadata were read; all174 old nodes,228 baseline records,2 findings and sourceVersions remain whole. The fixed-polynomial spectral construction does not supply analytic-character families or L3 Mellin theory. The current Dirichlet file neither imports a LAD artifact nor calls its new declarations. The sole guarded packet blob was refreshed; compiled sources and imported artifacts are unchanged.
 
-The publication guard at e471c4d0ca98fa689e3bc49487c092c5b5fd5371 checks 54 inputs, four
+The publication guard at 6e864402d0548adc7a47e21755ecb1c08277efdb checks 54 inputs, four
 predecessor outputs, unchanged issue text, the original winning claim and
 unclaimed review #390.
-The PMIA supplier changed from304 to320 nodes. All16 new nodes,6 added baseline records, the full136-line Lean addition and changed source-scope/check metadata were read. All304 old nodes,309 baseline records,14 findings and sourceVersions remain whole; old Lean remains in order. These additions supply actual positive moments and regularity, but the requested completed-algebra comparison remains open. No current Dirichlet declaration calls them. The two guarded supplier blobs were refreshed after this check.
-Suggested SHA256: `c0fdb2ddbbe1a8b3ff4f05ce8d39cbb3d2b3fe58e2f7a53aadc63f2beab94f3f`.
-Native probe SHA256: `3750331f9d1ccee42ec29497357d6ebcc2ca5b011e69ba7e1c62344b9c60ee71`.
+The LAD packet changed from174 to186 nodes. All12 added L4 nodes, the complete104-line Lean addition and changed coverage/gap/check/provenance metadata were read; all174 old nodes,228 baseline records,2 findings and sourceVersions remain whole. The fixed-polynomial spectral construction does not supply analytic-character families or L3 Mellin theory. The current Dirichlet file neither imports a LAD artifact nor calls its new declarations. The sole guarded packet blob was refreshed; compiled sources and imported artifacts are unchanged.
+Suggested SHA256: `dc939616c8a798a9fb179ad9231dfc88b07df450990b633cc264a62ceb79e41e`.
+Native probe SHA256: `6867437bee8ef4858fb4d78c54a47e1b6622c540d4353dcdc65388277ad1ebb0`.
 
 One reusable worktree and one Lean process at a time were used. All compiler
 processes have ended. Exactly the four authorized deliverables change.
 
-Retain EvenLogProbe.lean and its compiler/result/source audit, numerical
+Retain OddLogProbe.lean and its compiler/result/source audit, numerical
 control code and results, the full suggested compiler/result/source audit,
 artifact hashes, graph/preservation/API receipts, captured inputs and guard,
 and exact submitted files with remote receipts. Retire scratch after opening
