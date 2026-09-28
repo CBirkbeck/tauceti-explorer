@@ -10477,3 +10477,102 @@ Four complete native lemmas verify the Bernoulli norm from the existing valuatio
 Exact rational controls check127 Bernoulli valuations,127 Euler-factor unit norms,127 exact norm formulas and127 strict integrality obstructions, plus six uniform degree witnesses and five small values. Exact rational Bernoulli recurrence through degree80 and exact numerator/denominator prime-adic valuations. Six primes; all positive even degrees through80 divisible by p−1. The Bernoulli valuation, Euler-factor unit norm, exact quotient norm and strict integral obstruction are separately checked. A uniform degree2(p−1) witness is verified for each prime. These finite calculations do not prove the general nonintegrality theorem or rule out bounded Q_p-valued measures. The largest observed discrepancy is 0 (exact rational norm identities).
 
 All54 captured inputs remain unchanged during this checkpoint.
+
+
+## Unbounded arithmetic moments
+
+Partial continuation preserving all311 predecessor nodes whole. Three L1 theorems give explicit growing arithmetic moments, unboundedness of their norms and nonexistence of a bounded Q_p-valued measure with these moments. Sixteen source findings remain whole. Five gaps, one PMIA L1 request and zero closed stages remain.
+
+Complete published119–121/PDF20–22 and136–139/PDF37–40 readings and the published digest check are retained from the immediately preceding checkpoints. Fresh full native readings cover AbstractMeasure and toCLMEquiv with their ambient module/topology assumptions, the compact-domain supremum norm bound, continuous-linear operator norm bound, native compactness of Z_p and its topological unit group, and the ordered-semiring/Archimedean power-unboundedness theorem. These native statements support the stronger bounded-measure obstruction; no new generic topology or boundedness theorem is planned.
+
+### An explicit sequence of growing arithmetic moments
+
+`DirichletPadicLFunctions:L1/arithmetic-growing-moments` — `DirichletPadic.kubotaLeopoldtPseudomeasure_growing_moments`
+
+For every r≥0, p^(r+1)≤‖M_(n_r)(ζ_p)‖, with n_r=2(p−1)p^r>0.
+
+**Hypotheses:** p is any prime, including2. Let Z=Z_p, U=Z^× and K=Q_p with their native topologies. Let ζ_p be the preceding actual arithmetic pseudomeasure and M_n its existing positivePseudoMoment at n>0. For r≥0 put n_r=2(p−1)p^r, as notation for a natural number, not a new definition. On the native measure carrier D(U,K), t_n is the K-valued continuous function u↦u^n. U is compact by native Z_p compactness and the existing topological-units compactness instance. For μ∈D(U,K), L_μ=AbstractMeasure.toCLMEquiv μ is the existing continuous linear functional with its native operator norm; no norm or topology is imposed on the weak measure carrier itself.
+
+**Proof:**
+
+1. Use the preceding exact moment norm formula at k=(p−1)p^r. Primality gives k>0, and p−1 divides2k, so the norm is p/‖2(p−1)p^r‖.
+2. The native norm of the integer2(p−1) is at most1. Multiplicativity and the native p-power norm give ‖2(p−1)p^r‖≤p^(−r). This denominator norm is strictly positive because the integer is nonzero in K.
+3. Multiply the claimed real inequality by that positive denominator norm. The upper bound makes the left side at most p^(r+1)p^(−r)=p. This proves the stated lower bound. Complete native scratch lemmas verify the denominator estimate and real division step.
+4. The argument retains p=2. There the exact norms are larger because the factor2 itself has norm1/2; for r=1 the degree is4 and the norm is8.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/arithmetic-positive-moment-norm`, `mathlib:Padic.norm_int_le_one`, `mathlib:Padic.norm_p_pow`.
+
+**Tests:**
+
+- `SuggestedUnboundedTests.growing_dyadic_degree_four` (computation): At p=2,r=1, the degree4 moment has norm8, exceeding the lower bound4.
+- `SuggestedUnboundedTests.growing_ternary_degree_twelve` (computation): At p=3,r=1, the degree12 moment has norm9, equal to the lower bound9.
+
+**Acceptance:** The sequence consists of positive even degrees for every prime. No asymptotic Bernoulli estimate is substituted for the preceding exact valuation result.
+
+**Source:** Definitions3.7–3.8 and the bounded continuous-dual discussion, published119–120/PDF20–21; Theorem4.1 and Proposition4.11, published136 and138–139/PDF37 and39–40. Complete readings retained from the28September2026 predecessor checkpoints. Worker consequence of the interpolation formula and the source continuous-dual definition of a field-valued measure. Previous exact norm formulas give a growing sequence, which contradicts the native operator-norm bound. This distinguishes a pseudomeasure from any bounded Q_p-valued measure without asserting a completed-algebra comparison, a value at the trivial character or an analytic-family construction.
+
+### Positive arithmetic moments are unbounded
+
+`DirichletPadicLFunctions:L1/arithmetic-unbounded-moments` — `DirichletPadic.kubotaLeopoldtPseudomeasure_unbounded_moments`
+
+For every B∈R there exist a positive natural n and its positivity proof with B<‖M_n(ζ_p)‖.
+
+**Hypotheses:** p is any prime, including2. Let Z=Z_p, U=Z^× and K=Q_p with their native topologies. Let ζ_p be the preceding actual arithmetic pseudomeasure and M_n its existing positivePseudoMoment at n>0. For r≥0 put n_r=2(p−1)p^r, as notation for a natural number, not a new definition. On the native measure carrier D(U,K), t_n is the K-valued continuous function u↦u^n. U is compact by native Z_p compactness and the existing topological-units compactness instance. For μ∈D(U,K), L_μ=AbstractMeasure.toCLMEquiv μ is the existing continuous linear functional with its native operator norm; no norm or topology is imposed on the weak measure carrier itself.
+
+**Proof:**
+
+1. Primality gives p>1 as a real number. The native ordered-semiring power-unboundedness theorem supplies r with B<p^(r+1), increasing the chosen exponent by one if needed.
+2. Take n=n_r and use the preceding explicit lower bound to obtain B<p^(r+1)≤‖M_n(ζ_p)‖.
+3. This quantifies over every real bound, unlike a finite collection of large norm examples. The complete native power-growth lemma checks the real Archimedean interface; finite controls are only illustrations.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/arithmetic-growing-moments`, `mathlib:pow_unbounded_of_one_lt`.
+
+**Tests:**
+
+- `SuggestedUnboundedTests.dyadic_exceeds_one_hundred` (computation): For p=2 some positive moment has norm greater than100.
+- `SuggestedUnboundedTests.ternary_exceeds_one_hundred` (computation): For p=3 some positive moment has norm greater than100.
+
+**Acceptance:** Unboundedness is asserted for norms of positive admissible evaluations, without choosing or evaluating the trivial character.
+
+**Source:** Definitions3.7–3.8 and the bounded continuous-dual discussion, published119–120/PDF20–21; Theorem4.1 and Proposition4.11, published136 and138–139/PDF37 and39–40. Complete readings retained from the28September2026 predecessor checkpoints. Worker consequence of the interpolation formula and the source continuous-dual definition of a field-valued measure. Previous exact norm formulas give a growing sequence, which contradicts the native operator-norm bound. This distinguishes a pseudomeasure from any bounded Q_p-valued measure without asserting a completed-algebra comparison, a value at the trivial character or an analytic-family construction.
+
+### No bounded field-valued measure has these moments
+
+`DirichletPadicLFunctions:L1/arithmetic-no-field-measure` — `DirichletPadic.kubotaLeopoldtPseudomeasure_no_field_measure`
+
+There is no μ∈D(U,K) such that μ(t_n)=M_n(ζ_p) for every n>0.
+
+**Hypotheses:** p is any prime, including2. Let Z=Z_p, U=Z^× and K=Q_p with their native topologies. Let ζ_p be the preceding actual arithmetic pseudomeasure and M_n its existing positivePseudoMoment at n>0. For r≥0 put n_r=2(p−1)p^r, as notation for a natural number, not a new definition. On the native measure carrier D(U,K), t_n is the K-valued continuous function u↦u^n. U is compact by native Z_p compactness and the existing topological-units compactness instance. For μ∈D(U,K), L_μ=AbstractMeasure.toCLMEquiv μ is the existing continuous linear functional with its native operator norm; no norm or topology is imposed on the weak measure carrier itself.
+
+**Proof:**
+
+1. Suppose such a native field-valued measure exists. For every u∈U the norm of its value in K is at most1, since it comes from Z. Therefore ‖u^n‖≤1 for every n, and native ContinuousMap.norm_le on compact U gives ‖t_n‖≤1.
+2. Use the existing toCLMEquiv to view μ as L_μ. Native ContinuousLinearMap.le_opNorm_of_le gives ‖μ(t_n)‖≤‖L_μ‖·1=‖L_μ‖. The complete scratch proof verifies the bound for every degree, with the native compact-open/supremum-norm structures.
+3. Apply arithmetic moment unboundedness with B=‖L_μ‖. The matching moment at the supplied positive degree simultaneously has norm greater than and at most B, a contradiction.
+4. This excludes every bounded K-valued measure with those moments, including measures whose norm exceeds1. It does not need to identify K-valued measures with scalar extension of integral ones. The witness-degree test is the classical equivalent that every candidate μ fails at some positive degree.
+
+**Prerequisites:** `DirichletPadicLFunctions:L1/arithmetic-unbounded-moments`, `mathlib:AbstractMeasure.toCLMEquiv`, `mathlib:ContinuousMap.norm_le`, `mathlib:ContinuousLinearMap.le_opNorm_of_le`, `mathlib:PadicInt.compactSpace`, `mathlib:PadicInt.norm_le_one`, `mathlib:PadicInt.norm_def`, `mathlib:AbstractMeasure.dirac_apply`, `DirichletPadicLFunctions:L1/arithmetic-positive-bernoulli`.
+
+**Tests:**
+
+- `SuggestedUnboundedTests.no_field_measure_witness_degree` (characterisation): Every native K-valued unit measure disagrees with the arithmetic pseudomoments at some positive degree.
+- `SuggestedUnboundedTests.identity_atom_fails_dyadic_second` (non-example): The K=Q_2-valued identity atom has second moment1, while the arithmetic value is1/12.
+- `SuggestedUnboundedTests.sign_atom_fails_ternary_second` (non-example): The K=Q_3-valued sign atom has second moment1, while the arithmetic value is1/6.
+
+**Acceptance:** The operator norm belongs to the existing continuous linear functional, not to a newly imposed norm topology on the weak measure carrier. No completed-group-algebra or coefficient-extension identification is used.
+
+**Source:** Definitions3.7–3.8 and the bounded continuous-dual discussion, published119–120/PDF20–21; Theorem4.1 and Proposition4.11, published136 and138–139/PDF37 and39–40. Complete readings retained from the28September2026 predecessor checkpoints. Worker consequence of the interpolation formula and the source continuous-dual definition of a field-valued measure. Previous exact norm formulas give a growing sequence, which contradicts the native operator-norm bound. This distinguishes a pseudomeasure from any bounded Q_p-valued measure without asserting a completed-algebra comparison, a value at the trivial character or an analytic-family construction.
+
+**Remaining:** The actual arithmetic pseudomeasure has unbounded positive moment norms along degrees2(p−1)p^r, so no bounded Q_p-valued unit measure can have all its interpolation values. The integral and field-valued obstructions are now distinct explicit results. Next extract pure p-power conductor twists, checking the actual coefficient-valued pseudomeasure/evaluation interfaces before forming any fraction or character twist. Completed-group-algebra comparison still awaits the PMIA L1 request. Analytic branches, p-adic logarithmic values, pole/residue analysis, full source extraction and the complete Eisenstein family remain open.
+
+### Unbounded arithmetic moments validation
+
+All 311 predecessor nodes, 381 baseline records, 16 findings and sourceVersions remain whole. This checkpoint adds 3 nodes, 3 named suggested declarations and 7 typed examples. The indexed blueprint, four-file intake, whitespace, preservation, API/test parity and versioned-source checks pass. The graph has 488 reachable nodes, 2277 edges and 500 native leaves, is acyclic and retains only the PMIA L1 stage request. Each new route has no stage request leaf.
+
+The full suggested module elaborates with zero errors and 861 expected placeholder warnings. Source and artifact audits cover 3596 pinned Mathlib modules, 21 pinned Tau Ceti modules and the verified actual 332-node PMIA artifact. The actual current 332-node PMIA suggested module uses the hash-verified artifact from PR3303, elaborated with zero errors and 707 expected placeholder warnings. Both the exact predecessor and the new Dirichlet module elaborate against this artifact; the supplier remains an unchecked planning interface. Source, olean and original compiler-log hashes were rechecked. Existing builds only were used.
+
+Five complete native lemmas prove the denominator norm estimate, growth of the resulting quotient, the uniform supremum-norm bound for actual unit power tests, the operator-norm bound for native field-valued measures, and real power unboundedness. No generic boundedness declaration is added to the roadmap. The probe elaborates against 1903 pinned Mathlib modules with zero errors, warnings or placeholders. General roadmap declarations remain unchecked.
+
+Exact rational controls check15 growing degrees,15 exact norm formulas,15 power lower bounds, three values exceeding100 and two atom counterexamples for p=2,3,5. Exact rational Bernoulli recurrence through degree324 and exact p-adic norms on the degrees2(p−1)p^r for p=2,3,5. All selected norms agree with the preceding exact formula and exceed the stated powers; the final member for each prime exceeds100. The identity/sign atom second moments are also distinguished from the arithmetic values. Finite checks do not prove unboundedness; the complete native operator-norm and power-growth probe supports the general argument. The largest observed discrepancy is 0 (exact rational identities).
+
+All54 captured inputs remain unchanged during this checkpoint.
