@@ -145375,6 +145375,215 @@
    "reviewReason": null
   },
   {
+   "id": "PadicFamilies/E1",
+   "kind": "misprint",
+   "locator": "Lemma 4.5, proof, pp. 29–30 (author manuscript, 2 August 2006)",
+   "printed": "−log |rn(x)| + log |rd(x)| ≥(n −d)t for d < n < N.",
+   "correction": "−log|r_n(x)| + log|r_d(x)| ≥ (n − d) log t for d < n < N, and likewise (n − d) log t in the reversed inequalities defining W and in the parenthetical 'for all n ≥ N' on p. 30.",
+   "reason": "The preceding sentence proves the bound with (n − d) log(t), and every other quantity in the construction (γ₁, γ₂, δ₁, δ₂, log r) is logarithmic; since t > log t the printed condition is stronger than what holds on V, so V ⊂ X would fail.",
+   "affects": "the proof",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E2",
+   "kind": "misprint",
+   "locator": "Lemma 4.5, proof, p. 30",
+   "printed": "then X ∩W is empty and X ∪V = B.",
+   "correction": "V ∩ W is empty and X ∪ W = B.",
+   "reason": "The definition of strict neighbourhood on p. 28 asks for a finite union of affinoids U with U ∩ S = ∅ and U ∪ T = B, here S = V, T = X, U = W. The printed identities are false in general: X ∩ W contains the boundary points where equality holds, and X ∪ V = X.",
+   "affects": "the proof",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E3",
+   "kind": "error",
+   "locator": "Lemma 4.5, proof, p. 29",
+   "printed": "−log |rn(x)| + log |rd(x)| ≥(n −d)γ1 for 0 < n < d",
+   "correction": "Take 0 ≤ n < d: the n = 0 condition −log|r_d(x)| ≤ dγ₁ (r₀ = 1) is the uniform lower bound for |r_d| on X that the argument needs (equivalently impose δ₂ < dγ₂); then the text's count of N conditions is right.",
+   "reason": "Without it the claim that f_s⁻¹(X) → X has constant degree d fails: for P(T) = 1 + uT over the closed unit disc, V = {|u| = 1}, r = 1, d = 1, the printed X = {|u| ≥ e^{−δ₂}} with δ₂ > γ₂ contains points over which the fibre in the disc of radius s = e^{γ₂} is empty. Found by the R1 review of the integrated decomposition (2026-09-15) and re-checked here.",
+   "affects": "the proof",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E4",
+   "kind": "gap",
+   "locator": "Theorem 4.6, proof, pp. 30–31",
+   "printed": "f −1 r (Ui) ⊆∪n(i) α=1Yα, and ∪n(i) α=1Xα is a strict neighbourhood of Ui in B.",
+   "correction": "Add to H(i) that f_r⁻¹(X_α) ⊆ Y_α for every α (true because s_α > r), and use it to cover the points of U_{i−1} ∖ U_i lying in some old X_α.",
+   "reason": "The induction step covers W ∩ U_{i−1} by new blocks but never checks the points of f_r⁻¹(U_{i−1}) over the old X_α; the printed H(i) does not record the needed inclusion.",
+   "affects": "the proof",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E5",
+   "kind": "gap",
+   "locator": "§5, construction of the slope factor, p. 34",
+   "printed": "we are in a position to invoke Theorem 3.3 to give a decomposition MA = N ⊕F",
+   "correction": "Before invoking Theorem 3.3, prove that Q is coprime to F_A/Q: over each point x, since Y is open and closed in f⁻¹(X), the roots of Q_x are exactly the roots of F_x in Y_x with full multiplicity, so the resultant Res(Q, F_A/Q) has no zero on Max A and is a unit.",
+   "reason": "Theorem 3.3 requires a factorisation F = QS with (Q, S) = 1; the text only shows Q | F_A.",
+   "affects": "the proof",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E6",
+   "kind": "misprint",
+   "locator": "Lemma 5.6, proof, p. 40",
+   "printed": "By Lemma 2.13, Zφ and Z′ φ are equal",
+   "correction": "By Lemma 2.12 (det(1 − Xuv) = det(1 − Xvu)), Z_φ and Z′_φ are equal.",
+   "reason": "Lemma 2.13 is the base-change lemma; the equality of the Fredholm series of φ = αc and φ′ = cα is Lemma 2.12, which p. 39 cites correctly for the same step.",
+   "affects": "the proof",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E7",
+   "kind": "misprint",
+   "locator": "§5, the data of Construction 5.7, p. 41",
+   "printed": "where αij denotes the map MXi → MXi b⊗O(Xi)O(Xj).",
+   "correction": "α_ij : M_{X_i} → M_{X_j} ⊗̂_{O(X_j)} O(X_i) for X_i ⊆ X_j, with α₁₃ = (α₂₃ ⊗̂ 1) ∘ α₁₂.",
+   "reason": "The link for X_i ⊆ X_j compares the module on the smaller affinoid with the base change of the module on the larger one (the sentence before the display defines α : M_Y → M_X ⊗̂ R_Y for Y ⊆ X); the printed target is mis-indexed and the composite law does not typecheck.",
+   "affects": "a stated result",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E8",
+   "kind": "gap",
+   "locator": "Lemma 5.9, proof, p. 42",
+   "printed": "Because Dφ is separated, no pathologies occur when base extending to L and hence we may assume L = K.",
+   "correction": "Justify the reduction by the flat base change of the whole construction along R_X → R_X ⊗̂_K L (Lemmas 5.4–5.5), and prove both directions of the bijection over K, including that an eigenvector with λ(φ) ≠ 0 lies in N ⊗ K.",
+   "reason": "Separatedness alone does not identify L-points of D_φ with eigensystems over L; the reduction to N ⊗ K is asserted without argument.",
+   "affects": "the proof",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E9",
+   "kind": "gap",
+   "locator": "Lemma 5.5, proof, p. 37",
+   "printed": "as they cover the separated space Zφ′, and all the elements of C′ are aﬃnoids so one can use Proposition 9.1.4/2 of [1].",
+   "correction": "The pulled-back blocks form an admissible cover because finitely many of them cover each truncation Z′_r (an affinoid), as in Theorem 4.6; BGR 9.1.4/2 only gives that intersections of affinoids in a separated space are affinoid.",
+   "reason": "Covering a separated rigid space by affinoids does not make the cover admissible.",
+   "affects": "the proof",
+   "known": "new: not corrected in the author's manuscript; the printed edition was not checked",
+   "searched": [
+    "The author's page (last updated 02/08/06): no errata listed and no later version.",
+    "arXiv: no version of Eigenvarieties exists.",
+    "The CUP 2007 edition (LMS Lecture Note Series 320, pp. 59–120) was not obtained, so a silent correction in print cannot be excluded."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Kevin Buzzard, Eigenvarieties, Author manuscript dated 2 August 2006; published 2007; manuscript page numbering",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "PadicFamilies/E10",
+   "kind": "misprint",
+   "locator": "§2.4, Lemma 2.10(2), p. 9, and Lemma 2.11(2), p. 9 (arXiv v2)",
+   "printed": "let T1 ∈EndR(M), T2 ∈EndR(M), and let f ∈HomR(M, N)",
+   "correction": "T₂ ∈ End_R(N) in Lemma 2.10(2), and T₂ ∈ End_R(D•) in Lemma 2.11(2) (printed T₂ ∈ End_R(C•)).",
+   "reason": "f ∈ Hom_R(M, N) intertwines T₁ and T₂ and the conclusion is about N_ord, so T₂ acts on N; the proof uses B(T₂)N_non-ord = 0.",
+   "affects": "a stated result",
+   "known": "new: present in arXiv v1 and v2; the published version was not checked",
+   "searched": [
+    "arXiv 1409.7007 v1 (24 September 2014) and v2 (6 July 2016): both print T₂ ∈ End_R(M).",
+    "No erratum to Amer. J. Math. 139 (2017) was found; the journal text was not obtained."
+   ],
+   "owner": "PadicFamilies",
+   "file": "research/blueprint/packets/PadicFamilies.json",
+   "citation": "Chandrashekhar Khare and Jack A. Thorne, Potential automorphy and the Leopoldt conjecture, arXiv:1409.7007v2 (6 July 2016), 50 pages; published in Amer. J. Math. 139 (2017), no. 5, 1205–1273. Page numbers are those of the arXiv v2 PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "PadicHodgeRegulators/E301",
    "kind": "error",
    "locator": "Published Proposition 5.11, first sentence of proof, p. 1129; compare arXiv:1006.5163v2 Proposition 5.11 and Remark 5.12, p. 25.",
