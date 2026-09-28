@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5675 new mistakes confirmed · 1414 awaiting review · 676 already corrected in print · 88 rejected on review · 18 extractions and packets not yet checked.
+5675 new mistakes confirmed · 1415 awaiting review · 676 already corrected in print · 88 rejected on review · 18 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -10715,6 +10715,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### Mark Kisin, Lectures on deformations of Galois representations (Lecture 1), Lecture notes on the author's Harvard page, 4 pages (Lecture 1: deformations of representations of profinite groups). (`GlobalGaloisDeformations`)
 
 - **Misprint** at Lecture 1, (1.2), p. 1. The source says `The source defines condition Φp for G by requiring the maximal pro-p quotient of each finite index subgroup G′ ⊂ G to have finitely many topological generators. It claims equivalence with finite dimensionality of Hom(G, Fp).`; it should be `“This is equivalent to asking that Hom(G′, 𝔽_p) is finite dimensional for every open G′ ⊂ G” (as the same notes' Exercise 1 states).`. Finiteness of Hom(G, 𝔽_p) for G alone is strictly weaker: for p odd, G = (∏_ℕ ℤ/p) ⋊ ℤ/2 with ℤ/2 acting by inversion has abelianisation ℤ/2 (the commutators a^{-2} fill ∏ ℤ/p since 2 is invertible), so Hom(G, 𝔽_p) = 0, while its open subgroup ∏_ℕ ℤ/p of index 2 has infinite Hom to 𝔽_p and is not topologically finitely generated. Exercise 1 on p. 4 of the same notes states the correct equivalence with all open subgroups. Recorded as `GlobalGaloisDeformations/E1`; looked for an existing correction in: Kisin's Harvard notes page (people.math.harvard.edu/~kisin/notes/), fetched 2026-09-28: a single 4-page PDF, no revision or errata listed..
+
+### Chandrashekhar Khare and Jean-Pierre Wintenberger, Serre's modularity conjecture (II), Authors' final version (PDF dated 30 May 2009), 98 pages, on Khare's UCLA page; published as Invent. Math. 178 (2009), 505–586. Printed page = PDF page. Its numbering is the published one cited by RS-08 (Proposition 4.5, Corollary 4.7) and by Newton–Thorne (§2.4, Propositions 2.5 and 9.3, Lemma 5.10); the pagination of the Inventiones article was not compared. (`GlobalGaloisDeformations`)
+
+- **Misprint** at §2.1, p. 6. The source says `The source says the converse follows readily from SpC(A) → SpB(A) being surjective when A = F[ϵ], citing [45].`; it should be `“… using the injectivity of Sp_C(A) → Sp_B(A) for A = 𝔽[ε]”: injectivity on tangent spaces makes the cotangent map surjective, and complete Nakayama then makes B → C surjective.`. The converse assumes that Sp_C(A) → Sp_B(A) is injective for all A; surjectivity of this map is neither given nor true for a proper closed immersion (for B = 𝒪⟦x⟧ → C = 𝒪, the tangent map t_C = 0 → t_B = 𝔽 is not surjective). The argument that works uses injectivity at A = 𝔽[ε]. Recorded as `GlobalGaloisDeformations/E2`; looked for an existing correction in: Khare's UCLA papers page, 2026-09-28: the final version read here, with no errata file.; The ESI preprint 1892 (2007): the sentence is absent (its §2 has no criterion for closed immersions), so it entered in the final version.; The Inventiones article (Springer, paywalled) was not accessible; whether its §2.1 corrects the word was not checked..
 
 ### Brian Conrad (with an appendix by W. R. Mann), Gross–Zagier revisited, Heegner Points and Rankin L-Series, MSRI Publications 49 (2004) 67–163; SLMath library PDF; printed page = PDF page + 65; accessed 2026-09-28 (`GrossZagierAndArithmeticHeights`)
 
