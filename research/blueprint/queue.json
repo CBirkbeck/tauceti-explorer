@@ -23086,7 +23086,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-AnabelianGeometryAndNonabelianChabauty.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-ArithmeticGaloisDuality",
     "BP-ColemanIntegration",
@@ -23095,7 +23095,8 @@
     "BP-PadicHodgeTheory--P7",
     "BP-PadicHodgeTheory--R06.5",
     "BP-SchemeAndStackFoundations"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1020"
   },
   {
    "id": "REV-AnabelianGeometryAndNonabelianChabauty",
@@ -23682,7 +23683,7 @@
     "REV-RS-03"
    ],
    "prompt": "research/blueprint/prompts/BP-HeightsRationalPointsAndObstructions.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-AbelianSchemesAndArithmeticModuli",
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -23692,7 +23693,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1031"
+   "note": "released on GitHub issue #1031"
   },
   {
    "id": "REV-HeightsRationalPointsAndObstructions",
