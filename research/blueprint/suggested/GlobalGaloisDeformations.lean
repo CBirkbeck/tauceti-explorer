@@ -8,11 +8,13 @@ import Mathlib.GroupTheory.GroupAction.Quotient
 import Mathlib.Data.ZMod.Basic
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.Tactic.LinearCombination
+import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.RingTheory.Polynomial.Basic
 import Mathlib.Data.ZMod.Defs
 
 /-!
-# Suggested Lean forms: global Galois deformations (GlobalGaloisDeformations, R04.1–R04.6)
+# Suggested Lean forms: global Galois deformations (GlobalGaloisDeformations, R04.1–R04.6, G7–G8)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`GlobalGaloisDeformations`) is definitive. The statements below suggest Lean forms, so that
@@ -333,5 +335,20 @@ example (h S : ℤ) : h + (4 * S - 1) + (2 - S + h) - 3 * S = 2 * h + 1 := by ri
 /-- `R04.6/kw-deformation-data`: `3|S_f| + [F : ℚ] + 2[F : ℚ] = 3|S|` for totally real `F`, whose
 infinite places number `[F : ℚ]`. -/
 example (Sf n : ℕ) : 3 * Sf + n + 2 * n = 3 * (Sf + n) := by ring
+
+/-- `G8/fixed-versus-variable-determinant`: in characteristic `3` with `ε² = 0`,
+`(1 + aε)³ = 1`, so `1 + ε` has no cube root of the form `1 + aε`: the splitting needs `p ∤ n`. -/
+example {R : Type*} [CommRing R] (a e : R) (h3 : (3 : R) = 0) (he : e ^ 2 = 0) :
+    (1 + a * e) ^ 3 = 1 := by
+  linear_combination (a * e) * h3 + (3 * a ^ 2 + a ^ 3 * e) * he
+
+/-- `G7/polarized-tangent-obstruction`: for `p = n = 3` the identity matrix has trace `0`, so the
+scalars lie in `𝔤⁰`. -/
+example : Matrix.trace (1 : Matrix (Fin 3) (Fin 3) (ZMod 3)) = 0 := by
+  rw [Matrix.trace_one, Fintype.card_fin]
+  decide
+
+/-- `G7/enormous-taylor-wiles-presentation`: `−n²[F⁺ : ℚ] + q·n = qn − n²[F⁺ : ℚ]`. -/
+example (q n f : ℤ) : -(n ^ 2 * f) + q * n = q * n - n ^ 2 * f := by ring
 
 end TauCeti.GaloisDeformation.SuggestedTest

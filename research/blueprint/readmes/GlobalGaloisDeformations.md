@@ -3,7 +3,8 @@
 This blueprint covers stages R04.1–R04.6, G7 and G8, within the boundaries of the RS-08 restructure (accepted). This
 blueprint now plans **R04.1 (deformation functors)**, **R04.2 (representability and universal representations)**,
 **R04.3 (local conditions and global presentations)**, **R04.4 (restriction, twisting and change of problem)** and
-**R04.5 (Taylor–Wiles auxiliary primes)** and **R04.6 (exports for patching)**, all source-decomposed. The other stages are not yet read.
+**R04.5 (Taylor–Wiles auxiliary primes)**, **R04.6 (exports for patching)**, **G7 (polarized problems)** and **G8
+(variable-determinant problems)**, all source-decomposed.
 
 The sources are all free:
 - Gee, *Modularity lifting theorems* (Essential Number Theory 2022; arXiv:2202.05818v2), §3.
@@ -449,6 +450,66 @@ This is the deformation half of KW II Lemma 9.1.
 - d_n, with d_n(λρ) = λ²d_n(ρ);
 - the free twisting action and the presentation with 2h + 1 generators.
 
+## Layer G8: variable-determinant problems
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/VariableDeterminant`. The source is ACC+ §6.2 (arXiv v2). ρ̄ is
+absolutely irreducible and p ∤ 2n.
+
+**Definition: global deformation problems with variable determinant** (node `variable-determinant-problem`; planet). This
+is ACC+ Definition 6.2.2: coefficients Λ = ⊗̂Λ_v; local problems are quotient-representable and stable under strict
+conjugation; the determinant is not fixed.
+
+**Theorem: representability and framing** (node `variable-determinant-representability`). ACC+ Theorem 6.2.3 and Lemma
+6.2.4. The framed ring has n²|T| − 1 extra variables, because scalars centralise.
+
+**Theorem: presentation** (node `variable-determinant-presentation`; ACC+ Proposition 6.2.24).
+- Over R^{T,loc}_𝒮 in g = h¹_{𝒮,T}(ad ρ̄) variables, for T nonempty.
+- The formula uses ad ρ̄, not ad⁰ρ̄, and includes the term h⁰(F_S/F, ad ρ̄(1)).
+
+**Theorem: fixed against variable determinant** (node `fixed-versus-variable-determinant`).
+- The quotient map R_𝒮 ↠ R_{𝒮_χ} always exists.
+- For p ∤ n and twist-stable local problems, R_𝒮 ≅ R_{𝒮_χ} ⊗̂ 𝒪⟦G_{F,S}^{ab}(p)⟧, which is formally smooth exactly when that
+  group is torsion-free.
+- For Fontaine–Laffaille or level-raising problems only the quotient map holds, and for p | n the n-th roots do not exist.
+
+## Layer G7: polarized problems and Taylor–Wiles primes for enormous image
+
+Library modules: `TauCeti/NumberTheory/GaloisDeformation/Polarized` and `…/VariableDeterminant`. The sources are CHT08 §2
+and ACC+ §6.2.18–6.2.32.
+
+**Definition: polarized deformation problems** (node `polarized-deformation-problem`; planet).
+- CHT's group 𝒢_n = (GL_n × GL_1) ⋊ {1, j} with the fixed multiplier χ = ν ∘ r.
+- Lemma 2.1.1's dictionary with actual pairings: ρ^c ≅ ρ^∨ ⊗ μ, with the sign relations.
+- The Schur condition.
+- The pairing and sign conventions are requested from ArithmeticGaloisRepresentations G7.
+
+**Theorem: representability** (node `polarized-representability`; CHT Proposition 2.2.9). The framing adds n²|T|
+variables. None is removed: the centraliser is trivial, unlike in G8.
+
+**Theorem: tangent and obstruction** (node `polarized-tangent-obstruction`; CHT Lemmas 2.2.11 and 2.3.4).
+- H³ = H⁰(ad(1)), H² = dual Selmer, and the archimedean Euler terms n(n + χ(c_v))/2.
+- For p | n the scalars lie in the trace-zero part, so there is no scalar/trace-zero splitting.
+
+**Theorem: presentations** (node `polarized-presentation`; CHT Corollaries 2.2.12, 2.2.13, 2.3.5). These statements are
+about R^{□_T}_𝒮 itself. They are kept separate from its p-torsion-free quotient and from its reduced generic fibre.
+
+**Lemma: Taylor–Wiles places in rank n** (node `taylor-wiles-local-diamond`; ACC+ Lemma 6.2.19).
+- Lifts at a Taylor–Wiles place split as γ₁ ⊕ ⋯ ⊕ γ_n.
+- 𝒪[Δ_v] → R^□_v is formally smooth of relative dimension n².
+- R^T_{𝒮_Q}/𝔞_Q ≅ R^T_𝒮.
+
+**Theorem: Taylor–Wiles primes for enormous image** (node `enormous-taylor-wiles-primes`; ACC+ Lemma 6.2.31).
+- Hypotheses: F CM, ζ_p ∉ F, and ρ̄(G_{F(ζ_p)}) enormous.
+- The trace-zero part is handled by the enormous conditions, the scalar part by Kummer theory.
+- Enormousness is requested from ArithmeticGaloisRepresentations G7. For n = 2 it holds for images containing SL₂(𝔽_p)
+  when p ≥ 7.
+
+**Theorem: ACC+'s presentation** (node `enormous-taylor-wiles-presentation`; planet; ACC+ Proposition 6.2.32 in arXiv v2,
+6.2.33 in the stage text).
+- F = F⁺F₀, and the primes split in F₀.
+- g = qn − n²[F⁺ : ℚ].
+- Δ_{Q_N} is a product of qn cyclic p-groups, each of order at least p^N.
+
 ## Acceptance for R04.1–R04.2
 
 - **Functors:** the functors are defined without representability.
@@ -475,7 +536,8 @@ cotangent map is surjective, and Nakayama applies.
 
 ## Remaining work
 
-- **G7 and G8:** the polarized and variable-determinant problems of ACC+ §6.2.
+- **G7 and G8 are source-decomposed** (checkpoint 7). They depend on ArithmeticGaloisRepresentations G7 (polarizations,
+  enormous image) and ArithmeticGaloisDuality D7/D8 (duality, dual Selmer counts), which are requested.
 
 ## Sources
 
@@ -487,3 +549,7 @@ cotangent map is surjective, and Nakayama applies.
   (2014), 501–609; arXiv:1010.2561v4.
 - G. Chenevier, *The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over
   arbitrary rings*, in Automorphic Forms and Galois Representations 1, LMS LNS 414 (2014); arXiv:0809.0415v2.
+- P. Allen, F. Calegari, A. Caraiani, T. Gee, D. Helm, B. Le Hung, J. Newton, P. Scholze, R. Taylor and J. Thorne,
+  *Potential automorphy over CM fields*, Ann. of Math. 197 (2023); arXiv:1812.09999v2, §6.2.
+- L. Clozel, M. Harris and R. Taylor, *Automorphy for some l-adic lifts of automorphic mod l Galois representations*,
+  Publ. Math. IHÉS 108 (2008), §2 (Numdam).
