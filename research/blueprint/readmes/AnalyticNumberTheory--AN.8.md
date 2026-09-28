@@ -1,0 +1,559 @@
+# Analytic number theory, Part AN.8–AN.9: several-variable, spectral and arithmetic noncommutative zeta functions
+
+This is the first blueprint checkpoint of the part from AN.8. It covers the Bost–Connes branch of AN.9: the quantum statistical mechanical system whose partition function is the Riemann zeta function. Every declaration is a plan. AN.9 is partial, and AN.8 and the Selberg branch of AN.9 are not read.
+
+## Scope, ownership and conventions
+
+The restructure RS-07 keeps AN.9 whole: 'Retain both the selected Selberg/spectral-zeta and regularized-determinant branch, and the Bost-Connes algebra, time evolution, KMS and arithmetic-action branch.' No other roadmap plans the Bost–Connes system, so it is planned here in full. Its algebra is not built from scratch: it is Tau Ceti's Hecke ring (`HeckeRing`, Shimura's convolution on double cosets, with its `Ring` instance) of the ax+b Hecke pair inside GL₂(ℚ).
+
+Conventions pinned here:
+
+- Γ = P⁺_ℚ = {[1 b; 0 a] : a ∈ ℚ_{>0}, b ∈ ℚ} and Γ₀ = P⁺_ℤ = {[1 n; 0 1] : n ∈ ℤ}, as subgroups of GL₂(ℚ). The (2,2) entry a(g) is a homomorphism to ℚ^×_{>0}, well defined on double cosets.
+- The product is Tau Ceti's: Shimura's multiplicity over left cosets gΓ₀. It is exactly Bost–Connes' convolution (f₁ ∗ f₂)(g) = Σ_{g₁ ∈ Γ/Γ₀} f₁(g₁)f₂(g₁⁻¹g) (their formula (1)), so no opposite ring intervenes.
+- The rational generators are the double cosets themselves: x_n = [class of [1 0; 0 n]], x′_n = [class of [1 0; 0 1/n]] and e(γ) = [class of [1 γ; 0 1]], γ ∈ ℚ/ℤ. Over ℂ, Bost–Connes' generators are μ_n = n^{−1/2}x_n and μ*_n = n^{−1/2}x′_n.
+- Two rational forms. The ℚ-valued functions H_ℚ and Bost–Connes' ℚ-span of the μ_n e(γ) μ*_m are different subsets of the complex algebra. The complexified time evolution σ_{−i/2} carries the second onto the first (AN.9/rational-forms-comparison). 'The rational subalgebra' always means H_ℚ here.
+- The time evolution is σ_z(f)(X) = a(X)^{iz}f(X). For real t it equals Bost–Connes' (L(X)/R(X))^{−it}, since L = den a and R = num a.
+- The KMS condition is the algebraic one on the Hecke algebra: φ(f σ_{iβ}(g)) = φ(gf). Every element is entire for σ, and this is Connes–Marcolli's strip condition on that dense subalgebra.
+- Ẑ^× is Aut(ℚ/ℤ) (Mathlib's AddAut of AddCircle (1 : ℚ)), acting through e(γ) ↦ e(v(γ)).
+
+**Source correction.** Bost–Connes' formula (7) (p. 433) prints the basis element t_{n,m,γ} as a multiple of the class of [1 γ; 0 n/m]; the entry is γ/m. As printed, e(1/2)μ*₂ and μ*₂ would be the same element (AnalyticNumberTheory/E14). The basis used here is x_n e(γ) x′_m = [class of [1 γ/m; 0 n/m]].
+
+## The Bost–Connes system (AN.9)
+
+### The ax+b groups P⁺_ℚ and P⁺_ℤ inside GL₂(ℚ)
+
+Declaration: TauCeti.BostConnes.axbRat (construction). Node: AnalyticNumberTheory:AN.9/ax-plus-b-pair.
+
+Inside G = GL₂(ℚ) (Mathlib's Matrix.GeneralLinearGroup (Fin 2) ℚ), let axbRat = P⁺_ℚ be the subgroup of matrices [1 b; 0 a] with a, b ∈ ℚ and a > 0, and axbInt = P⁺_ℤ the subgroup of matrices [1 n; 0 1] with n ∈ ℤ. The (2,2) entry is a homomorphism axbRat →* ℚ_{>0} (written a(g)); translation b ↦ [1 b; 0 1] and dilation a ↦ [1 0; 0 a] are the two families of named elements. For g = [1 b; 0 a], conjugation gives g [1 n; 0 1] g⁻¹ = [1 n/a; 0 1], so g P⁺_ℤ g⁻¹ is the translation subgroup by (1/a)ℤ.
+
+Hypotheses: None.
+
+Proof or construction:
+
+1. Closure: [1 b; 0 a]·[1 b′; 0 a′] = [1, b′ + b a′; 0, a a′], again with positive (2,2) entry, and the inverse of [1 b; 0 a] is [1, −b/a; 0, 1/a].
+2. P⁺_ℤ ≤ P⁺_ℚ, and the (2,2) entry is multiplicative by the product formula.
+3. Conjugation: [1 b; 0 a][1 n; 0 1] = [1, n + b; 0, a], and multiplying by [1, −b/a; 0, 1/a] gives [1, n/a; 0, 1].
+
+The required uses are:
+
+- AnalyticNumberTheory:AN.9/ax-plus-b-hecke-triple: The pair is a Hecke pair.
+- AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra: Its Hecke ring is the Bost–Connes algebra.
+- AnalyticNumberTheory:AN.9/time-evolution: The (2,2) entry a(g) defines the time evolution.
+- AnalyticNumberTheory:AN.9: The whole Bost–Connes branch is built on this pair.
+
+The API supplies:
+
+- TauCeti.BostConnes.axbRat (constructor): P⁺_ℚ : Subgroup (GL (Fin 2) ℚ), the matrices [1 b; 0 a] with a > 0.
+- TauCeti.BostConnes.axbInt (constructor): P⁺_ℤ : Subgroup (GL (Fin 2) ℚ), the matrices [1 n; 0 1] with n ∈ ℤ.
+- TauCeti.BostConnes.mem_axbRat_iff (characterisation): g ∈ axbRat ↔ g 1 0 = 0 ∧ g 0 0 = 1 ∧ 0 < g 1 1.
+- TauCeti.BostConnes.axbInt_le_axbRat (relation): axbInt ≤ axbRat.
+- TauCeti.BostConnes.diagEntry (projection): The (2,2) entry as a homomorphism axbRat →* ℚˣ with positive values (diagEntry_pos), diagEntry (dilation a) = a and diagEntry (translation b) = 1.
+- TauCeti.BostConnes.translation (constructor): translation b = [1 b; 0 1] ∈ axbRat, a homomorphism from Multiplicative ℚ.
+- TauCeti.BostConnes.dilation (constructor): dilation a = [1 0; 0 a] ∈ axbRat for a > 0.
+- TauCeti.BostConnes.conj_translation (relation): g · translation n · g⁻¹ = translation (n / diagEntry g).
+
+Discriminating tests:
+
+- TauCeti.BostConnes.translation_half_mem_axbRat_not_mem_axbInt (value): translation (1/2) ∈ axbRat and translation (1/2) ∉ axbInt.
+- TauCeti.BostConnes.not_mem_axbRat_neg_diag (non-example): The matrix [1 0; 0 −1] is invertible but not in axbRat: the positivity of a is part of the definition.
+- TauCeti.BostConnes.axbInt_not_normal (non-example): axbInt is not a normal subgroup of axbRat (conjugate translation 1 by dilation 2).
+- TauCeti.BostConnes.diagEntry_mul_example (value): diagEntry ([1 1; 0 2] · [1 1/3; 0 3]) = 6.
+
+Acceptance:
+
+- P⁺_ℤ is not normal in P⁺_ℚ: conjugating [1 1; 0 1] by [1 0; 0 2] gives [1 1/2; 0 1] ∉ P⁺_ℤ.
+
+Library: `Matrix.GeneralLinearGroup`, `Matrix.GeneralLinearGroup.mkOfDetNeZero`, `Subgroup.Normal`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.2, (3.61)–(3.65), p. 460; bost-connes-1995, §4, notations (α), (β), p. 431 (PDF p. 21).
+
+### (P⁺_ℚ, P⁺_ℤ) is a Hecke pair
+
+Declaration: TauCeti.BostConnes.isHeckeTriple_axb (theorem). Node: AnalyticNumberTheory:AN.9/ax-plus-b-hecke-triple.
+
+IsHeckeTriple (axbRat as a submonoid) axbInt axbInt: every g ∈ P⁺_ℚ commensurates P⁺_ℤ. Explicitly, for a(g) = n/m in lowest terms, P⁺_ℤ ∩ g P⁺_ℤ g⁻¹ is the translation group by mℤ, of index m in P⁺_ℤ and index n in g P⁺_ℤ g⁻¹. Equivalently (Bost–Connes' condition), the orbits of P⁺_ℤ on P⁺_ℚ/P⁺_ℤ are finite.
+
+Hypotheses: None.
+
+Proof or construction:
+
+1. By B.9/ax-plus-b-pair, g P⁺_ℤ g⁻¹ is translation by (m/n)ℤ, and ℤ ∩ (m/n)ℤ = mℤ because gcd(m, n) = 1.
+2. The two indices are [ℤ : mℤ] = m and [(m/n)ℤ : mℤ] = n, both finite, so g lies in the commensurator of P⁺_ℤ.
+3. IsHeckeTriple.of_diagonal applies with H = P⁺_ℤ ≤ P⁺_ℚ.
+
+Acceptance:
+
+- For g = dilation 2 the two indices are 1 and 2; for g = dilation (1/2) they are 2 and 1.
+
+Depends on: AnalyticNumberTheory:AN.9/ax-plus-b-pair.
+
+Library: `IsHeckeTriple`, `IsHeckeTriple.of_diagonal`, `Subgroup.Commensurable`, `Subgroup.relIndex`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.2, (3.62), p. 460.
+
+### Double cosets of the ax+b pair and their degrees
+
+Declaration: TauCeti.BostConnes.degree_heckeCoset_eq_den (lemma). Node: AnalyticNumberTheory:AN.9/double-cosets-and-degrees.
+
+For g = [1 b; 0 a] ∈ P⁺_ℚ with a = n/m in lowest terms, the double coset P⁺_ℤ g P⁺_ℤ consists of the [1 b′; 0 a] with b′ ≡ b mod (1/m)ℤ. Hence the (2,2) entry a(X) of a double coset X is well defined, and X ↦ (a(X), b mod (1/m)ℤ) is a bijection from P⁺_ℤ\P⁺_ℚ/P⁺_ℤ onto pairs (a, class of b in ℚ/(1/den a)ℤ). Its degree (Tau Ceti's HeckeCoset.degree, the number of left cosets hP⁺_ℤ in X) is L(X) = den a(X), and the degree of the inverse double coset is R(X) = num a(X), so L(X)/R(X) = a(X)⁻¹.
+
+Hypotheses: None.
+
+Proof or construction:
+
+1. Left multiplication by [1 k; 0 1] sends [1 b; 0 a] to [1, b + ka; 0, a] and right multiplication by [1 j; 0 1] sends it to [1, b + j; 0, a]; so the double coset is b mod ℤ + aℤ = (1/m)ℤ, with a unchanged.
+2. HeckeCoset.degree_eq_relIndex: the degree is the index of P⁺_ℤ ∩ g P⁺_ℤ g⁻¹ in P⁺_ℤ, which is m by B.9/ax-plus-b-hecke-triple; the inverse double coset has (2,2) entry 1/a = m/n, so its degree is n.
+
+Acceptance:
+
+- X_n = class of dilation n has L = 1 and R = n; its inverse class has L = n and R = 1. The class of translation γ has L = R = 1.
+
+Depends on: AnalyticNumberTheory:AN.9/ax-plus-b-hecke-triple.
+
+Library: `HeckeCoset.degree`, `HeckeCoset.degree_eq_relIndex`, `HeckeCoset`, `HeckeCoset.mk`, `Rat.num_div_den`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.2, (3.71)–(3.72), p. 461.
+
+### The Bost–Connes Hecke algebra
+
+Declaration: TauCeti.BostConnes.BCHecke (definition). Node: AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra. Planet: Bost–Connes Hecke algebra.
+
+For a field K of characteristic zero, the Bost–Connes Hecke algebra is BCHecke K = 𝕋 P⁺_ℚ P⁺_ℤ K, Tau Ceti's Hecke ring of the Hecke pair of B.9/ax-plus-b-hecke-triple with coefficients in K: finitely supported K-valued functions on double cosets, with Shimura's convolution product. Its product is the Bost–Connes convolution (f₁ ∗ f₂)(g) = Σ_{g₁ ∈ Γ/Γ₀} f₁(g₁) f₂(g₁⁻¹g) (BC (1)), because Tau Ceti's multiplicity counts pairs of left-coset representatives. K = ℚ gives the rational Hecke algebra H_ℚ(Γ, Γ₀) of ℚ-valued functions, and K = ℂ gives BC's H. The named elements are x_n = [X_n] with X_n the class of dilation n, x′_n = [X_n⁻¹] the class of dilation (1/n), and e(γ) = [class of translation γ] for γ ∈ ℚ/ℤ. For K = ℂ the involution is f*(X) = conj f(X⁻¹), which sends x_n to x′_n and e(γ) to e(−γ).
+
+Hypotheses: K a field of characteristic zero (for the involution, K = ℂ).
+
+Proof or construction:
+
+1. The ring structure is Tau Ceti's HeckeCosetModule.instRingHeckeRing for the Hecke triple of B.9/ax-plus-b-hecke-triple; the K-algebra structure is the coefficientwise scalar action.
+2. Agreement with BC's convolution: for double cosets D₁ = Γ₀gΓ₀ = ⊔ σᵢgΓ₀ and D₂ = Γ₀hΓ₀ = ⊔ τⱼhΓ₀, (1_{D₁} ∗ 1_{D₂})(d) counts the i with d ∈ σᵢ g D₂, and for each such i exactly one j has dΓ₀ = σᵢ g τⱼ h Γ₀; this is Tau Ceti's multiplicity m(g, h; d).
+3. e(γ) depends only on γ mod ℤ, since the class of translation b is b mod ℤ + 1·ℤ (B.9/double-cosets-and-degrees).
+4. The involution: Γ is a group, so X ↦ X⁻¹ is an involution of the double cosets that reverses products (the multiplicity of (h⁻¹, g⁻¹; d⁻¹) equals that of (g, h; d), with degrees exchanged as in BC (2)); with complex conjugation of coefficients it is a conjugate-linear anti-automorphism.
+
+The required uses are:
+
+- AnalyticNumberTheory:AN.9/rational-presentation: Presented by the x_n, x′_n and e(γ).
+- AnalyticNumberTheory:AN.9/time-evolution: The time evolution acts on it.
+- AnalyticNumberTheory:AN.9/regular-representation: It acts on ℓ²(ℕ≥1).
+- AnalyticNumberTheory:AN.9/kms-states: KMS states are states on it.
+- AnalyticNumberTheory:AN.9/galois-action-on-ground-states: Its ℚ-form carries the arithmetic of the ground states.
+
+The API supplies:
+
+- TauCeti.BostConnes.BCHecke (constructor): BCHecke K := HeckeRing axbRat.toSubmonoid axbInt K, with Ring and Algebra K instances.
+- TauCeti.BostConnes.BCHecke.x (constructor): x n = single [X_n] for n : ℕ+, X_n the double coset of dilation n.
+- TauCeti.BostConnes.BCHecke.x' (constructor): x' n = single [X_n⁻¹], the double coset of dilation (1/n).
+- TauCeti.BostConnes.BCHecke.e (constructor): e : ℚ/ℤ → BCHecke K (AddCircle (1 : ℚ) as ℚ/ℤ), e γ = single [class of translation γ].
+- TauCeti.BostConnes.BCHecke.e_zero (simp): e 0 = 1.
+- TauCeti.BostConnes.BCHecke.e_add (relation): e (γ + δ) = e γ * e δ.
+- TauCeti.BostConnes.BCHecke.mul_eq_convolution (compatibility): (f₁ * f₂) evaluated at the class of d is Σ over left cosets g₁Γ₀ of f₁(g₁) f₂(g₁⁻¹d): Tau Ceti's product is Bost–Connes' convolution (1).
+- TauCeti.BostConnes.BCHecke.star (structure): For K = ℂ: a StarRing structure with (star f) X = conj (f X⁻¹), star (x n) = x' n, star (e γ) = e (−γ).
+- TauCeti.BostConnes.BCHecke.map (functoriality): A field map K → L induces BCHecke K →ₐ BCHecke L, compatible with x, x' and e; for ℚ → ℂ it identifies BCHecke ℚ with the ℚ-valued functions in BCHecke ℂ.
+
+Discriminating tests:
+
+- TauCeti.BostConnes.e_half_mul_self (value): e (1/2) * e (1/2) = 1 in BCHecke ℚ.
+- TauCeti.BostConnes.x'_mul_x_two (value): x' 2 * x 2 = 2 in BCHecke ℚ: the two left cosets of X₂⁻¹ both multiply into the identity coset.
+- TauCeti.BostConnes.x_mul_x'_two (value): x 2 * x' 2 = 1 + e (1/2) in BCHecke ℚ, so x 2 is not invertible.
+- TauCeti.BostConnes.not_commute_e_half_x_two (non-example): e (1/2) * x 2 ≠ x 2 * e (1/2): the algebra is not commutative, unlike the GL₂ Hecke rings.
+- TauCeti.BostConnes.x_one (degenerate): x 1 = 1 and x' 1 = 1.
+
+Acceptance:
+
+- BCHecke K is not commutative: e(1/2)·x₂ = x₂ while x₂·e(1/2) ≠ x₂ (B.9/rational-presentation, relation (e′)). So Tau Ceti's commutativity criterion (HeckeCosetModule.commSemiringOfAntiInvolution) must not apply to this pair.
+
+Depends on: AnalyticNumberTheory:AN.9/ax-plus-b-hecke-triple, AnalyticNumberTheory:AN.9/double-cosets-and-degrees.
+
+Library: `HeckeRing`, `HeckeCosetModule`, `HeckeCosetModule.instRingHeckeRing`, `HeckeCosetModule.single`, `HeckeCosetModule.mul_single_single`, `AddCircle`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.2, (3.61)–(3.65), p. 460; bost-connes-1995, §4, proof of Proposition 18, formulas (1)–(2), p. 431 (PDF p. 21); bost-connes-1995, §4, notations (α), (β), p. 431 (PDF p. 21).
+
+### The presentation of the rational Bost–Connes algebra
+
+Declaration: TauCeti.BostConnes.BCHecke.presentation (theorem). Node: AnalyticNumberTheory:AN.9/rational-presentation. Planet: Bost–Connes presentation.
+
+In BCHecke K the elements x_n, x′_n (n ∈ ℕ≥1) and e(γ) (γ ∈ ℚ/ℤ) satisfy: (a′) x′_n x_n = n; (b′) x_{nm} = x_n x_m and x′_{nm} = x′_n x′_m; (c′) x_n x′_m = x′_m x_n when gcd(n, m) = 1; (d′) e(0) = 1 and e(γ₁ + γ₂) = e(γ₁)e(γ₂); (e′) e(γ) x_n = x_n e(nγ); (f′) x_n e(γ) x′_n = Σ_{δ ∈ ℚ/ℤ, nδ = γ} e(δ). For coprime n, m and γ ∈ ℚ/ℤ, x_n e(γ) x′_m = [class of [1 γ/m; 0 n/m]], and these elements form a K-basis. Consequently the K-algebra with generators X_n, X′_n, E_γ and relations (a′)–(f′) maps isomorphically onto BCHecke K. Over ℂ, μ_n := n^{−1/2}x_n and μ*_n := n^{−1/2}x′_n satisfy Bost–Connes' relations (a)–(f) of Proposition 18 with μ*_n the adjoint of μ_n.
+
+Hypotheses: K a field of characteristic zero.
+
+Proof or construction:
+
+1. Each relation is a computation of Tau Ceti multiplicities with the left-coset decompositions of B.9/double-cosets-and-degrees. For (a′): X_n⁻¹ = ⊔_{j<n} [1, j/n; 0, 1/n]P⁺_ℤ and each [1, j/n; 0, 1/n]·[1 0; 0 n] = [1 j; 0 1] ∈ P⁺_ℤ, so the identity coset has multiplicity n.
+2. Basis: e(γ)·x′_m is supported on the single class of [1 γ/m; 0 1/m] with multiplicity one (the products [1 γ; 0 1][1, j/m; 0, 1/m] = [1, (γ + j)/m; 0, 1/m] meet the left coset of [1 γ/m; 0 1/m] only for j = 0), and left multiplication by x_n multiplies the (2,2) entry by n without changing the coset of b; so x_n e(γ) x′_m = [class of [1 γ/m; 0 n/m]].
+3. The map (n, m, γ) ↦ class of [1 γ/m; 0 n/m], over coprime n, m and γ ∈ ℚ/ℤ, is a bijection onto the double cosets (B.9/double-cosets-and-degrees: a = n/m, and γ/m mod (1/m)ℤ determines γ mod ℤ), so these elements are a basis.
+4. Presentation: in the abstract algebra, the relations rewrite every word as a combination of monomials X_n E_γ X′_m with gcd(n, m) = 1 (BC's argument on p. 433, rescaled); the images of these monomials are the basis above, so the surjection is injective.
+5. Rescaling over ℂ: substituting x_n = n^{1/2}μ_n and x′_n = n^{1/2}μ*_n turns (a′)–(f′) into BC (a)–(f).
+
+Acceptance:
+
+- (f′) with γ = 0 gives x_n x′_n = Σ_{nδ=0} e(δ), so π_n = x_n x′_n / n is an idempotent.
+- The printed formula (7) of Bost–Connes, with upper right entry γ instead of γ/m, would make e(1/2)·x′₂ and x′₂ the same basis element, although they differ (AnalyticNumberTheory/E14).
+
+Depends on: AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra, AnalyticNumberTheory:AN.9/double-cosets-and-degrees.
+
+Library: `HeckeCosetModule.single_mul_single`, `HeckeCosetModule.mul_single_single`.
+
+Source: bost-connes-1995, §4, Proposition 18, p. 431 (PDF p. 21); bost-connes-1995, §4, proof of Proposition 18, formula (7), p. 433 (PDF p. 23); corrected as AnalyticNumberTheory/E14; connes-marcolli-2008, Ch. 3, §4, Proposition 3.23, p. 457.
+
+### The two rational forms of the Bost–Connes algebra
+
+Declaration: TauCeti.BostConnes.sigma_neg_half_I_map_rationalForm (comparison). Node: AnalyticNumberTheory:AN.9/rational-forms-comparison.
+
+Inside BCHecke ℂ there are two ℚ-forms. (i) H_ℚ, the ℚ-valued functions (the image of BCHecke ℚ), spanned by the double cosets [X] = x_n e(γ) x′_m. (ii) Bost–Connes' rational algebra A_ℚ, the ℚ-span of the monomials t_{n,m,γ} = μ_n e(γ) μ*_m = (nm)^{−1/2}[X]; this is Connes–Marcolli's A_{1,ℚ}. They are different subsets (μ₂ = 2^{−1/2}x₂ ∉ H_ℚ), and the complexified time evolution at z = −i/2, σ_{−i/2}(f)(X) = a(X)^{1/2} f(X), is a ℂ-algebra automorphism of BCHecke ℂ carrying A_ℚ onto H_ℚ, with μ_n ↦ x_n and μ*_n ↦ x′_n/n. It is not a *-map. Statements about 'the rational subalgebra' are pinned to one of the two forms.
+
+Hypotheses: None.
+
+Proof or construction:
+
+1. t_{n,m,γ} = (nm)^{−1/2}[X] with a(X) = n/m (B.9/rational-presentation), and σ_{−i/2} multiplies [X] by (n/m)^{1/2}; the product is m^{−1}[X], a rational multiple of a basis element, and every basis element arises. So σ_{−i/2}(A_ℚ) = H_ℚ.
+2. σ_{−i/2} is multiplicative because a is multiplicative on the structure constants (B.9/time-evolution).
+
+Acceptance:
+
+- Connes–Marcolli's Proposition 3.25 ('H_Q(Γ, Γ0) is isomorphic to the Q-algebra generated by the e(r) and µn') holds through σ_{−i/2}, not through the inclusion μ_n = n^{−1/2}e_{X_n} of Proposition 18.
+- Ground-state values agree on the two forms: φ_{∞,ρ}(t_{n,m,γ}) and φ_{∞,ρ}([X]) both vanish unless n = m = 1, where both equal ρ(ζ_γ).
+
+Depends on: AnalyticNumberTheory:AN.9/rational-presentation, AnalyticNumberTheory:AN.9/time-evolution.
+
+Source: connes-marcolli-2008, Ch. 3, §4.2, Proposition 3.25, p. 461; bost-connes-1995, §4, after the proof of Proposition 18, p. 433 (PDF p. 23); bost-connes-1995, §4, notations (α), (β), p. 431 (PDF p. 21).
+
+### The Bost–Connes time evolution
+
+Declaration: TauCeti.BostConnes.timeEvolution (construction). Node: AnalyticNumberTheory:AN.9/time-evolution. Planet: Bost–Connes time evolution.
+
+For z ∈ ℂ let σ_z : BCHecke ℂ → BCHecke ℂ be σ_z(f)(X) = a(X)^{iz} f(X), where a(X) ∈ ℚ_{>0} is the (2,2) entry of the double coset (B.9/double-cosets-and-degrees) and a^{iz} = exp(iz log a). Each σ_z is a ℂ-algebra automorphism, σ_0 = id and σ_{z+w} = σ_z σ_w; for real t, σ_t is a *-automorphism. On generators σ_z(x_n) = n^{iz}x_n, σ_z(x′_n) = n^{−iz}x′_n and σ_z(e(γ)) = e(γ). For real t this is Bost–Connes' σ_t(f)(γ) = (L(γ)/R(γ))^{−it} f(γ), because L(X)/R(X) = a(X)⁻¹.
+
+Hypotheses: None.
+
+Proof or construction:
+
+1. a is well defined on double cosets and multiplicative on structure constants: m(g, h; d) ≠ 0 forces a(d) = a(g)a(h), since a is a homomorphism on P⁺_ℚ that is trivial on P⁺_ℤ.
+2. Hence σ_z(f₁f₂) = σ_z(f₁)σ_z(f₂) on basis elements, σ_z is invertible with inverse σ_{−z}, and σ_{z+w} = σ_zσ_w.
+3. For real t, a(X⁻¹) = a(X)⁻¹ and |a^{it}| = 1 give σ_t(f*) = σ_t(f)*.
+4. L(X)/R(X) = den a / num a = a⁻¹ (B.9/double-cosets-and-degrees), so (L/R)^{−it} = a^{it}.
+
+The required uses are:
+
+- AnalyticNumberTheory:AN.9/kms-states: The KMS condition is taken with respect to σ at z = iβ.
+- AnalyticNumberTheory:AN.9/regular-representation: Implemented by the Hamiltonian: π(σ_t f) = e^{itH}π(f)e^{−itH}.
+- AnalyticNumberTheory:AN.9/rational-forms-comparison: σ_{−i/2} exchanges the two rational forms.
+- AnalyticNumberTheory:AN.9/symmetry-action: Commutes with the symmetries.
+
+The API supplies:
+
+- TauCeti.BostConnes.timeEvolution (constructor): timeEvolution (z : ℂ) : BCHecke ℂ ≃ₐ[ℂ] BCHecke ℂ, with (timeEvolution z f) X = (a X : ℂ)^(I * z) * f X.
+- TauCeti.BostConnes.timeEvolution_zero (simp): timeEvolution 0 = AlgEquiv.refl.
+- TauCeti.BostConnes.timeEvolution_add (relation): timeEvolution (z + w) = (timeEvolution z).trans (timeEvolution w).
+- TauCeti.BostConnes.timeEvolution_x (simp): timeEvolution z (x n) = (n : ℂ)^(I * z) • x n.
+- TauCeti.BostConnes.timeEvolution_x' (simp): timeEvolution z (x' n) = (n : ℂ)^(−(I * z)) • x' n.
+- TauCeti.BostConnes.timeEvolution_e (simp): timeEvolution z (e γ) = e γ.
+- TauCeti.BostConnes.timeEvolution_star (compatibility): For real t, timeEvolution t (star f) = star (timeEvolution t f).
+- TauCeti.BostConnes.timeEvolution_eq_LR (characterisation): For real t, (timeEvolution t f) X = ((L X : ℂ) / R X)^(−(I * t)) * f X with L, R the degrees of X and X⁻¹ (Bost–Connes (3.71)).
+
+Discriminating tests:
+
+- TauCeti.BostConnes.timeEvolution_x_two (value): timeEvolution t (x 2) = 2^(I t) • x 2.
+- TauCeti.BostConnes.timeEvolution_x_mul_x' (value): timeEvolution z (x 2 * x' 2) = x 2 * x' 2, as it must be since x 2 * x' 2 = 1 + e (1/2) has a = 1.
+- TauCeti.BostConnes.not_multiplicative_left_degree_only (non-example): f ↦ (X ↦ L(X)^(it) f(X)) is not multiplicative: it fixes x 2 * x' 2 = 1 + e(1/2) (all L = 1) but multiplies x' 2 by 2^(it) and fixes x 2.
+- TauCeti.BostConnes.timeEvolution_neg_half_I (comparison): timeEvolution (−I/2) ((n : ℂ)^(−1/2) • x n) = x n: σ_{−i/2} takes BC's μ_n to x_n (B.9/rational-forms-comparison).
+
+Acceptance:
+
+- Every element of BCHecke ℂ is entire for σ: z ↦ σ_z(f) is a finite sum of exponentials.
+
+Depends on: AnalyticNumberTheory:AN.9/double-cosets-and-degrees, AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra.
+
+Library: `Complex.cpow`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.1, Lemma 3.24, (3.60), p. 459; connes-marcolli-2008, Ch. 3, §4.2, (3.71)–(3.72), p. 461.
+
+### The representation on ℓ²(ℕ≥1) and its Hamiltonian
+
+Declaration: TauCeti.BostConnes.regularRep (construction). Node: AnalyticNumberTheory:AN.9/regular-representation.
+
+Let ℓ² = ℓ²(ℕ≥1) (Mathlib's lp (fun _ : ℕ+ ↦ ℂ) 2) with orthonormal basis (ε_k). For u ∈ Aut(ℚ/ℤ) ≅ Ẑ^× define π_u : BCHecke ℂ → B(ℓ²) by π_u(x_n)ε_k = n^{1/2}ε_{nk}, π_u(x′_n)ε_k = n^{1/2}ε_{k/n} if n | k and 0 otherwise, π_u(e(γ))ε_k = exp(2πi k·u(γ))ε_k. Then π_u is a unital *-representation by bounded operators, with π_u(μ_n)ε_k = ε_{nk} for BC's μ_n = n^{−1/2}x_n. The Hamiltonian H is the self-adjoint operator Hε_k = log(k)ε_k, and π_u(σ_t f) = e^{itH}π_u(f)e^{−itH} for real t.
+
+Hypotheses: u ∈ Aut(ℚ/ℤ); H is unbounded, with domain the k with Σ log(k)²|c_k|² < ∞.
+
+Proof or construction:
+
+1. The operators are bounded: π_u(μ_n) is an isometry, π_u(μ*_n) its adjoint, and π_u(e(γ)) is diagonal unitary.
+2. They satisfy (a′)–(f′) of B.9/rational-presentation. For (f′): π_u(x_n e(γ) x′_n)ε_k = n·[n | k]·exp(2πi (k/n)u(γ))ε_k, and Σ_{nδ=γ} exp(2πi k u(δ)) = n·[n | k]·exp(2πi (k/n)u(γ)) by summing the n-th roots of unity. So the presentation defines π_u as an algebra map.
+3. Implementation: e^{itH}π_u(x_n)e^{−itH}ε_k = n^{1/2}k^{−it}(nk)^{it}ε_{nk} = n^{it}π_u(x_n)ε_k, matching σ_t(x_n) = n^{it}x_n; the e(γ) commute with H.
+
+The required uses are:
+
+- AnalyticNumberTheory:AN.9/partition-function: e^{−βH} gives the partition function ζ(β).
+- AnalyticNumberTheory:AN.9/gibbs-states: The Gibbs states are traces in this representation.
+- AnalyticNumberTheory:AN.9/galois-action-on-ground-states: The ground states are vector states at ε₁.
+
+The API supplies:
+
+- TauCeti.BostConnes.regularRep (constructor): regularRep (u : AddAut (ℚ/ℤ)) : BCHecke ℂ →ₐ[ℂ] (ℓ²(ℕ+) →L[ℂ] ℓ²(ℕ+)).
+- TauCeti.BostConnes.regularRep_x (simp): regularRep u (x n) (single k 1) = (n : ℂ)^(1/2 : ℂ) • single (n * k) 1.
+- TauCeti.BostConnes.regularRep_e (simp): regularRep u (e γ) (single k 1) = exp (2π I k u(γ)) • single k 1.
+- TauCeti.BostConnes.regularRep_star (compatibility): regularRep u (star f) = (regularRep u f)† (adjoint).
+- TauCeti.BostConnes.hamiltonianExp (constructor): hamiltonianExp β hβ = e^{−βH}, the bounded diagonal operator ε_k ↦ k^{−β} ε_k for β > 0; H itself is the unbounded self-adjoint diagonal operator ε_k ↦ log(k) ε_k.
+- TauCeti.BostConnes.regularRep_timeEvolution (compatibility): π_u(σ_t f) = e^{itH} π_u(f) e^{−itH}, stated through matrix coefficients: ⟨ε_j, π_u(σ_t f) ε_k⟩ = (j/k)^{it} ⟨ε_j, π_u(f) ε_k⟩.
+
+Discriminating tests:
+
+- TauCeti.BostConnes.regularRep_x_mul_x'_two (value): regularRep u (x 2 * x' 2) (single k 1) = (if 2 ∣ k then 2 else 0) • single k 1.
+- TauCeti.BostConnes.regularRep_one (degenerate): regularRep u 1 = 1.
+- TauCeti.BostConnes.regularRep_mu_isometry (comparison): The operator 2^(−1/2) • regularRep u (x 2) is an isometry, BC's π(μ₂).
+- TauCeti.BostConnes.regularRep_x'_one_zero (non-example): regularRep u (x' 2) (single 1 1) = 0: x′₂ is not injective in the representation, so it has no inverse.
+
+Acceptance:
+
+- π_u(x₂ x′₂)ε_k = 2ε_k for even k and 0 for odd k, which is π_u(1 + e(1/2)).
+- Changing u to −u gives the complex-conjugate representation on e(γ).
+
+Depends on: AnalyticNumberTheory:AN.9/rational-presentation, AnalyticNumberTheory:AN.9/time-evolution.
+
+Library: `lp`, `HilbertBasis`, `Real.log`, `PNat`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.6, (3.140)–(3.141), p. 475.
+
+### The partition function is the Riemann zeta function
+
+Declaration: TauCeti.BostConnes.tsum_hamiltonian_eq_riemannZeta (theorem). Node: AnalyticNumberTheory:AN.9/partition-function. Planet: Partition function ζ(β).
+
+For real β > 1 the operator e^{−βH} on ℓ²(ℕ≥1) is positive with Σ_k ⟨ε_k, e^{−βH}ε_k⟩ = Σ_{k≥1} k^{−β} = ζ(β) (Mathlib's riemannZeta at β); for β ≤ 1 the sum diverges. So the Bost–Connes system has partition function Z(β) = ζ(β), with its phase transition at the pole β = 1.
+
+Hypotheses: β ∈ ℝ; the trace is taken as the diagonal sum in the basis (ε_k).
+
+Proof or construction:
+
+1. e^{−βH}ε_k = k^{−β}ε_k, so the diagonal sum is Σ k^{−β}.
+2. For β > 1 this is riemannZeta β (zeta_eq_tsum_one_div_nat_cpow); for β ≤ 1 the series diverges by comparison with the harmonic series.
+
+Acceptance:
+
+- The value at β = 2 is π²/6 (riemannZeta_two).
+- The diagonal sum of a positive diagonal operator is its trace in any orthonormal basis; that basis independence is the trace-class statement recorded as a gap, and nothing here uses it.
+
+Depends on: AnalyticNumberTheory:AN.9/regular-representation.
+
+Library: `riemannZeta`, `zeta_eq_tsum_one_div_nat_cpow`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.6, (3.142), p. 476; connes-marcolli-2008, Ch. 3, §4.6, (3.140)–(3.141), p. 475.
+
+### The Gibbs states φ_{β,u}
+
+Declaration: TauCeti.BostConnes.gibbsState (construction). Node: AnalyticNumberTheory:AN.9/gibbs-states.
+
+For real β > 1 and u ∈ Aut(ℚ/ℤ), φ_{β,u}(f) = ζ(β)⁻¹ Σ_{k≥1} k^{−β}⟨ε_k, π_u(f)ε_k⟩ is a state on BCHecke ℂ: linear, φ_{β,u}(1) = 1 and φ_{β,u}(f*f) ≥ 0. On the basis, φ_{β,u}(x_n e(γ) x′_m) = 0 unless n = m, and φ_{β,u}(e(γ)) = ζ(β)⁻¹ Σ_k k^{−β} exp(2πi k u(γ)) = Li_β(exp(2πi u(γ)))/ζ(β), with Li_β(z) = Σ_{k≥1} z^k/k^β.
+
+Hypotheses: β > 1; u ∈ Aut(ℚ/ℤ).
+
+Proof or construction:
+
+1. The series converges absolutely because |⟨ε_k, π_u(f)ε_k⟩| ≤ ‖π_u(f)‖ and Σ k^{−β} = ζ(β) < ∞ (B.9/partition-function).
+2. Positivity: each ⟨ε_k, π_u(f*f)ε_k⟩ = ‖π_u(f)ε_k‖² ≥ 0.
+3. Off-diagonal vanishing: π_u(x_n e(γ) x′_m) sends ε_k to a multiple of ε_{nk/m}, orthogonal to ε_k unless n = m.
+
+The required uses are:
+
+- AnalyticNumberTheory:AN.9/gibbs-states-are-kms: They are KMS_β states.
+- AnalyticNumberTheory:AN.9/kms-classification: They are the extremal KMS_β states for β > 1.
+- AnalyticNumberTheory:AN.9/galois-action-on-ground-states: Their limits as β → ∞ are the ground states.
+
+The API supplies:
+
+- TauCeti.BostConnes.gibbsState (constructor): gibbsState (β : ℝ) (hβ : 1 < β) (u : AddAut (ℚ/ℤ)) : BCHecke ℂ →ₗ[ℂ] ℂ.
+- TauCeti.BostConnes.gibbsState_one (simp): gibbsState β hβ u 1 = 1.
+- TauCeti.BostConnes.gibbsState_star_mul_self_nonneg (other): 0 ≤ gibbsState β hβ u (star f * f) (a nonnegative real).
+- TauCeti.BostConnes.gibbsState_e (characterisation): gibbsState β hβ u (e γ) = (Σ' k : ℕ+, exp (2π I k u(γ)) / k^β) / riemannZeta β.
+- TauCeti.BostConnes.gibbsState_basis_of_ne (other): gibbsState β hβ u (x n * e γ * x' m) = 0 for n ≠ m.
+
+Discriminating tests:
+
+- TauCeti.BostConnes.gibbsState_e_half (value): gibbsState β hβ u (e (1/2)) = 2^(1−β) − 1 for every u (u fixes 1/2).
+- TauCeti.BostConnes.gibbsState_x_mul_x'_two (value): gibbsState β hβ u (x 2 * x' 2) = 2^(1−β).
+- TauCeti.BostConnes.gibbsState_e_zero (degenerate): gibbsState β hβ u (e 0) = 1.
+- TauCeti.BostConnes.gibbsState_x_two (non-example): gibbsState β hβ u (x 2) = 0 while gibbsState β hβ u (x 2 * x' 2) = 2^(1−β) ≠ 0, so the state is not multiplicative.
+
+Acceptance:
+
+- φ_{β,u}(e(1/2)) = ζ(β)⁻¹ Σ (−1)^k k^{−β} = 2^{1−β} − 1, which tends to −1 = exp(2πi·1/2) as β → ∞.
+
+Depends on: AnalyticNumberTheory:AN.9/regular-representation, AnalyticNumberTheory:AN.9/partition-function.
+
+Library: `riemannZeta`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.6, (3.135) and (3.139), p. 475.
+
+### KMS_β states on the Bost–Connes algebra
+
+Declaration: TauCeti.BostConnes.IsKMS (definition). Node: AnalyticNumberTheory:AN.9/kms-states.
+
+For β > 0 a KMS_β state of (BCHecke ℂ, σ) is a linear map φ : BCHecke ℂ → ℂ with φ(1) = 1, φ(f*f) ≥ 0 for all f, and φ(f σ_{iβ}(g)) = φ(g f) for all f, g. Because every element is entire for σ (B.9/time-evolution), this is Connes–Marcolli's strip condition (Definition 3.6) restricted to the dense σ-invariant *-subalgebra, which is how Bost–Connes use it. A KMS_β state is σ-invariant. A ground state at β = ∞ is a state obtained as a weak limit of KMS_β states as β → ∞ (Connes–Marcolli Definition 3.7).
+
+Hypotheses: β > 0.
+
+Proof or construction:
+
+1. σ-invariance: f = 1 in the identity gives φ(σ_{iβ}(g)) = φ(g). On a basis element, σ_{iβ}[X] = a(X)^{−β}[X], so φ([X]) = 0 unless a(X) = 1, and for a(X) = 1 every σ_t fixes [X]; hence φ ∘ σ_t = φ. (Connes–Marcolli derive invariance from the strip condition by Liouville's theorem.)
+2. The strip condition for an entire g is equivalent to the displayed identity: F(z) = φ(f σ_z(g)) is entire, and F(t + iβ) = φ(σ_t(g) f) at t = 0 is the identity.
+
+The required uses are:
+
+- AnalyticNumberTheory:AN.9/gibbs-states-are-kms: The Gibbs states satisfy it.
+- AnalyticNumberTheory:AN.9/kms-classification: The classification describes all of them.
+- AnalyticNumberTheory:AN.9/symmetry-action: The symmetries act on the KMS states.
+
+The API supplies:
+
+- TauCeti.BostConnes.IsKMS (constructor): IsKMS (β : ℝ) (φ : BCHecke ℂ →ₗ[ℂ] ℂ) : Prop := φ 1 = 1 ∧ (∀ f, 0 ≤ φ (star f * f)) ∧ ∀ f g, φ (f * timeEvolution (I * β) g) = φ (g * f).
+- TauCeti.BostConnes.IsKMS.timeEvolution_invariant (other): IsKMS β φ → φ (timeEvolution t f) = φ f for real t.
+- TauCeti.BostConnes.IsKMS.convex (structure): KMS_β states form a convex set.
+- TauCeti.BostConnes.IsKMS.comp_symmetry (functoriality): IsKMS β φ → IsKMS β (φ ∘ symmetry u).
+
+Discriminating tests:
+
+- TauCeti.BostConnes.isKMS_gibbsState (value): IsKMS β (gibbsState β hβ u) for β > 1 (B.9/gibbs-states-are-kms).
+- TauCeti.BostConnes.isKMS_one_iff (non-example): The state f ↦ f(identity coset) satisfies IsKMS β exactly when β = 1.
+- TauCeti.BostConnes.isKMS_sign (non-example): The Gibbs state fails the identity with σ_{−iβ} in place of σ_{iβ}: at f = x′₂, g = x₂ the two sides are 2^{1+β} and 2^{1−β}.
+- TauCeti.BostConnes.isKMS_x_mul_x'_two (value): Every KMS_β state has φ(x 2 * x' 2) = 2^(1−β), hence φ(e (1/2)) = 2^(1−β) − 1.
+
+Acceptance:
+
+- The state φ₁(f) = f(identity coset), Bost–Connes' vector state at the base point (Connes–Marcolli (3.70)), is KMS_β only for β = 1: at f = x′₂, g = x₂ the identity reads 2^{1−β} = 1.
+
+Depends on: AnalyticNumberTheory:AN.9/time-evolution, AnalyticNumberTheory:AN.9/bost-connes-hecke-algebra.
+
+Library: `Complex.cpow`.
+
+Source: connes-marcolli-2008, Ch. 3, §2.2, Definition 3.6, p. 446.
+
+### The Gibbs states are KMS_β states
+
+Declaration: TauCeti.BostConnes.isKMS_gibbsState (theorem). Node: AnalyticNumberTheory:AN.9/gibbs-states-are-kms.
+
+For β > 1 and u ∈ Aut(ℚ/ℤ), φ_{β,u} is a KMS_β state.
+
+Hypotheses: β > 1.
+
+Proof or construction:
+
+1. φ_{β,u}(f) = Z⁻¹ Tr(e^{−βH}π_u(f)) on the finite-rank-approximable operators involved, and π_u(σ_{iβ}(g)) = e^{−βH}π_u(g)e^{βH} on the span of the ε_k (B.9/regular-representation).
+2. Hence Tr(e^{−βH}π_u(f)e^{−βH}π_u(g)e^{βH}) = Tr(π_u(f)e^{−βH}π_u(g)) = Tr(e^{−βH}π_u(g)π_u(f)), computed as absolutely convergent double sums over the basis, since each π_u of a basis element moves each ε_k to a multiple of a single ε_{k′}.
+3. Normalisation and positivity are B.9/gibbs-states.
+
+Acceptance:
+
+- The check on f = x′₂, g = x₂: φ(x′₂ σ_{iβ}(x₂)) = 2^{−β}φ(x′₂x₂) = 2^{1−β} and φ(x₂x′₂) = φ(1 + e(1/2)) = 2^{1−β}.
+
+Depends on: AnalyticNumberTheory:AN.9/gibbs-states, AnalyticNumberTheory:AN.9/kms-states, AnalyticNumberTheory:AN.9/regular-representation.
+
+Source: connes-marcolli-2008, Ch. 3, §4.6, (3.135) and (3.139), p. 475; connes-marcolli-2008, Ch. 3, §2.2, Definition 3.6, p. 446.
+
+### The Bost–Connes phase transition
+
+Declaration: TauCeti.BostConnes.kms_classification (theorem). Node: AnalyticNumberTheory:AN.9/kms-classification. Planet: Bost–Connes phase transition.
+
+Let β > 0. (1) If β ≤ 1 there is exactly one KMS_β state; on e(a/b) with gcd(a, b) = 1 it takes the value b^{−β} ∏_{p | b} (1 − p^{β−1})/(1 − p^{−1}). (2) If β > 1 the extremal KMS_β states are exactly the Gibbs states φ_{β,u}, u ∈ Ẑ^× = Aut(ℚ/ℤ), these are pairwise distinct, and every KMS_β state is a barycentre of them. (3) The symmetries of B.9/symmetry-action act freely and transitively on the extremal KMS_β states for β > 1.
+
+Hypotheses: β > 0; states and KMS condition as in B.9/kms-states.
+
+Proof or construction:
+
+1. A KMS_β state kills the off-diagonal basis elements x_n e(γ) x′_m with n ≠ m, by σ-invariance, and is determined by its values on the commutative subalgebra spanned by the e(γ), i.e. by a probability measure on Ẑ, the dual of ℚ/ℤ.
+2. The KMS identity with f = x′_n, g = x_n e(γ) becomes a scaling condition on that measure: its restriction to nẐ is n^{−β} times its pushforward under multiplication by n.
+3. For β > 1 the measure is concentrated on the orbits of Ẑ^× through the Gibbs formula (Möbius inversion over the divisibility of the nẐ), giving (2) and (3).
+4. For β ≤ 1 uniqueness is an ergodicity statement for the action of ℚ^×_{>0} on the finite adeles (Bost–Connes; a short proof by Neshveyev, arXiv math/0012110); it is the one step not planned in this checkpoint (gap).
+
+Acceptance:
+
+- The β ≤ 1 formula at e(1/2) gives 2^{−β}(1 − 2^{β−1})/(1/2) = 2^{1−β} − 1, the same value as the Gibbs formula, which is consistent at the boundary.
+
+Depends on: AnalyticNumberTheory:AN.9/kms-states, AnalyticNumberTheory:AN.9/gibbs-states, AnalyticNumberTheory:AN.9/gibbs-states-are-kms, AnalyticNumberTheory:AN.9/symmetry-action.
+
+Source: connes-marcolli-2008, Ch. 3, §4.6, Theorem 3.32, pp. 474–475; connes-marcolli-2008, Ch. 3, §4.6, Theorem 3.32, p. 475.
+
+### The symmetry group Ẑ^× = Aut(ℚ/ℤ)
+
+Declaration: TauCeti.BostConnes.symmetry (construction). Node: AnalyticNumberTheory:AN.9/symmetry-action.
+
+For v ∈ Aut(ℚ/ℤ) (≅ Ẑ^×) there is a unique K-algebra automorphism θ_v of BCHecke K with θ_v(x_n) = x_n, θ_v(x′_n) = x′_n and θ_v(e(γ)) = e(v(γ)); on the basis, θ_v[class of [1 γ/m; 0 n/m]] = [class of [1 v(γ)/m; 0 n/m]]. It commutes with the time evolution, θ_vθ_w = θ_{vw}, and for K = ℂ it is a *-automorphism with π_u ∘ θ_v = π_{uv}, so φ_{β,u} ∘ θ_v = φ_{β,uv}.
+
+Hypotheses: v ∈ Aut(ℚ/ℤ).
+
+Proof or construction:
+
+1. The relations (a′)–(f′) are preserved: v is additive and commutes with multiplication by n on ℚ/ℤ, and permutes {δ : nδ = γ} onto {δ : nδ = v(γ)}. By the presentation (B.9/rational-presentation), θ_v is a well-defined algebra endomorphism with inverse θ_{v⁻¹}.
+2. θ_v fixes a(X), so it commutes with σ_z; it preserves the involution because v(−γ) = −v(γ).
+3. π_u(θ_v(e(γ)))ε_k = exp(2πik·u(v(γ)))ε_k.
+
+The required uses are:
+
+- AnalyticNumberTheory:AN.9/kms-classification: Acts freely and transitively on the low-temperature extremal states.
+- AnalyticNumberTheory:AN.9/galois-action-on-ground-states: Intertwines the Galois action on ground-state values.
+
+The API supplies:
+
+- TauCeti.BostConnes.symmetry (constructor): symmetry (v : AddAut (ℚ/ℤ)) : BCHecke K ≃ₐ[K] BCHecke K (AddAut is the additive twin of MulAut).
+- TauCeti.BostConnes.symmetry_e (simp): symmetry v (e γ) = e (v γ).
+- TauCeti.BostConnes.symmetry_x (simp): symmetry v (x n) = x n and symmetry v (x' n) = x' n.
+- TauCeti.BostConnes.symmetry_mul (relation): symmetry (v * w) = (symmetry w).trans (symmetry v).
+- TauCeti.BostConnes.symmetry_timeEvolution (compatibility): symmetry v (timeEvolution z f) = timeEvolution z (symmetry v f).
+
+Discriminating tests:
+
+- TauCeti.BostConnes.symmetry_neg_e (value): symmetry (−1) (e γ) = e (−γ).
+- TauCeti.BostConnes.symmetry_one (degenerate): symmetry 1 = AlgEquiv.refl.
+- TauCeti.BostConnes.symmetry_gibbs (comparison): gibbsState β hβ u ∘ symmetry v = gibbsState β hβ (u * v).
+- TauCeti.BostConnes.no_symmetry_of_double (non-example): Doubling on ℚ/ℤ is not bijective, and e γ ↦ e (2γ), x n ↦ x n is not an algebra map: it would send x 2 * x' 2 = 1 + e (1/2) both to itself and to 1 + e 1 = 2.
+
+Acceptance:
+
+- Only v = ±1 comes from conjugating the pair (by [1 0; 0 ±1]); a general v ∈ Ẑ^× is not rational, so θ_v is defined through the presentation, not by transport of structure.
+
+Depends on: AnalyticNumberTheory:AN.9/rational-presentation, AnalyticNumberTheory:AN.9/time-evolution, AnalyticNumberTheory:AN.9/regular-representation.
+
+Library: `AddCircle`, `MulAut`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.3, (3.75), p. 461.
+
+### Ground states: cyclotomic values and the Galois action
+
+Declaration: TauCeti.BostConnes.groundState_galois (theorem). Node: AnalyticNumberTheory:AN.9/galois-action-on-ground-states. Planet: Galois action on ground states.
+
+For u ∈ Aut(ℚ/ℤ) the ground state φ_{∞,u}(f) = ⟨ε₁, π_u(f)ε₁⟩ is the limit of φ_{β,u} as β → ∞. On the rational form H_ℚ (the ℚ-valued functions), φ_{∞,u}([X]) = exp(2πi u(γ)) if X is the class of translation γ and 0 otherwise; so φ_{∞,u}(H_ℚ) lies in the cyclotomic field ℚ(μ_∞) ⊂ ℂ. For every field automorphism τ of ℂ, τ ∘ φ_{∞,u} = φ_{∞,χ(τ)u} on H_ℚ, where χ(τ) ∈ Aut(ℚ/ℤ) is the automorphism with τ(exp(2πiγ)) = exp(2πi χ(τ)(γ)); that is, τ ∘ φ_{∞,u} = φ_{∞,u} ∘ θ_{χ(τ)}.
+
+Hypotheses: u ∈ Aut(ℚ/ℤ); τ a ring automorphism of ℂ.
+
+Proof or construction:
+
+1. π_u(x_n e(γ) x′_m)ε₁ = 0 unless m = 1, and then it is a multiple of ε_n, orthogonal to ε₁ unless n = 1; so φ_{∞,u} kills every basis element except the classes of translations, where it is exp(2πi u(γ)).
+2. Limit: φ_{β,u}(e(γ)) = ζ(β)⁻¹Σ k^{−β}exp(2πiku(γ)) → exp(2πiu(γ)) as β → ∞, since ζ(β) → 1 and the tail is O(2^{−β}).
+3. τ permutes the roots of unity in ℂ, and the induced map on ℚ/ℤ ≅ μ_∞ is additive and bijective; this defines χ(τ) (the cyclotomic character). Then τ(exp(2πiu(γ))) = exp(2πi χ(τ)(u(γ))), and B.9/symmetry-action gives the intertwining.
+
+Acceptance:
+
+- On BC's form A_ℚ the same values arise (B.9/rational-forms-comparison), so the statement does not depend on the choice of rational form.
+
+Depends on: AnalyticNumberTheory:AN.9/regular-representation, AnalyticNumberTheory:AN.9/gibbs-states, AnalyticNumberTheory:AN.9/symmetry-action, AnalyticNumberTheory:AN.9/rational-forms-comparison.
+
+Library: `IsCyclotomicExtension`.
+
+Source: connes-marcolli-2008, Ch. 3, §4.6, Theorem 3.32, (3.136)–(3.137), p. 475.
+
+## Gaps
+
+- **Uniqueness of the KMS_β state for β ≤ 1.** Bost–Connes prove it through an ergodicity statement for the action of ℚ^×_{>0} on the finite adeles (Neshveyev gives a short proof, arXiv math/0012110). Neither the ergodicity theorem nor a measure on Ẑ = the profinite integers is in the pinned libraries, and this checkpoint does not plan them.
+- **Trace-class operators on ℓ².** Mathlib at the pin has no trace of a positive or trace-class operator on an infinite-dimensional Hilbert space. The partition function and the Gibbs states are therefore stated as diagonal sums in the basis (ε_k), and the KMS computation uses absolutely convergent double sums over that basis, not cyclicity of a trace.
+- **The C*-completion and KMS states on it.** Bost–Connes' C*-algebra C_Q = C*_r(P⁺_Q, P⁺_Z) (the norm closure of π(BCHecke ℂ) in the regular representation) and the equivalence between KMS states on it and the algebraic KMS states on the dense Hecke algebra are not planned here; the statements of this checkpoint are about the Hecke algebra itself.
+
+## Source issues
+
+- **AnalyticNumberTheory/E14** (misprint, §4, proof of Proposition 18, formula (7), p. 433 (PDF p. 23 of the author-hosted scan of the published article)). Printed: t_{n,m,γ} = (nm)^{−1/2} e_X, X = double class of [1 γ; 0 n/m]. Correction: X = double class of [1 γ/m; 0 n/m]. For m = 1 the printed formula is right. By the paper's own formulas (1), (3) and (4), (e(γ) ∗ e_{X_m⁻¹})(g) = e_{X_m⁻¹}([1 −γ; 0 1]g), and for g = [1 b; 0 a] the argument [1, b − γa; 0, a] lies in the double class of [1 0; 0 1/m] exactly when a = 1/m and b ∈ γ/m + (1/m)ℤ. So e(γ)μ*_m = m^{−1/2}e_X with X the class of [1 γ/m; 0 1/m], and left multiplication by μ_n multiplies the (2,2) entry by n. The double class of [1 b; 0 n/m] depends only on b mod (1/m)ℤ, so as printed t_{1,2,1/2} = t_{1,2,0} = μ*_2. But e(1/2)μ*_2 = μ*_2 is impossible: its adjoint μ_2 e(−1/2) = μ_2, multiplied on the left by μ*_2, gives e(−1/2) = 1 by relation (a). With the corrected entry, (n, m, γ) ↦ X is a bijection onto the double cosets, which is the linear independence the proof asserts next.
+
+## Coverage
+
+- AnalyticNumberTheory:AN.8: not_read. Sato–Shintani prehomogeneous zeta integrals and a selected multiple Dirichlet series with local and global functional equations, importing ArithmeticStatistics ST.0–ST.1 orbit data (RS-07). No source has been acquired yet.
+- AnalyticNumberTheory:AN.9: partial. Bost–Connes branch: the C*-completion and its KMS states (gap); uniqueness for β ≤ 1 (gap); the type III₁ factor at β = 1; the arithmetic subalgebra in Connes–Marcolli's form (§4.4, trigonometric Eisenstein functions). Selberg/spectral zeta functions and regularized determinants on a selected compact or finite-volume quotient, with AutomorphicSpectralTheory AS.4/AS.6 as inputs: not read.
+
+## Sources
+
+- Jean-Benoît Bost and Alain Connes, *Hecke algebras, type III factors and phase transitions with spontaneous symmetry breaking in number theory*, Selecta Mathematica (N.S.) 1 (1995), no. 3, 411–457; author-hosted scan of the published article on Connes's site (no text layer, read on page images); journal page = PDF page + 410; accessed 2026-09-28. https://alainconnes.org/wp-content/uploads/bostconnesscan.pdf (SHA-256 376e00d06bef…). Read: §4 'Presentation of the C*-algebra C_Q', pp. 430–433 (PDF pp. 20–23): the notations (α), (β), Proposition 18 and its proof, formulas (1)–(7), and the remark on the rational presentation.
+- Alain Connes and Matilde Marcolli, *Noncommutative Geometry, Quantum Fields and Motives*, AMS Colloquium Publications 55 (2008); author-hosted PDF on Marcolli's page; printed page = PDF page − 19; accessed 2026-09-28. https://www.its.caltech.edu/~matilde/coll-55.pdf (SHA-256 4154ad00fad6…). Read: Chapter 3, §2.2 'The KMS condition' (pp. 445–447), and §4 '1-dimensional Q-lattices' from Proposition 3.23 through §4.6 'KMS states and class field theory' (pp. 457–476): the presentation, the time evolution (Lemma 3.24), the Hecke algebra (Proposition 3.25, (3.61)–(3.72)), the symmetries (3.73)–(3.77), Theorem 3.32 and (3.138)–(3.142).
