@@ -14741,8 +14741,9 @@
    ],
    "avoidAccountOf": "BP-AdicSpacesPartII",
    "prompt": "research/blueprint/prompts/REV-AdicSpacesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #344"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #344",
+   "finishedAt": "2026-09-28T16:41:22Z"
   },
   {
    "id": "BP-AlgebraicModularFormsAndSerreWeights",
