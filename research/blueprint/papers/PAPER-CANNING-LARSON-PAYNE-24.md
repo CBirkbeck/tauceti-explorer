@@ -149,3 +149,24 @@ target found no mismatched cross-references in this paper.
   published version at `doi:10.1017/fmp.2024.24` has the same sentence: checking the Cambridge Core text on
   22 September 2026 shows `k \geq 14` in the proof and `k \leq 14` in the statement, so the slip was not caught in
   production. It affects nothing.
+
+## Changes by the independent review
+
+`REV-PAPER-CANNING-LARSON-PAYNE-24` (Claude Code, session `cc-fb70e5`, 28 September 2026) accepted
+this extraction and all its routes, and made two changes, both concerning one item:
+
+* **Item 14** (Poincaré duality on a smooth proper Deligne–Mumford stack): status **`planned` →
+  `missing`**. It was planned at `SchemeAndStackFoundations:SF.2`, `DeligneWeightsAndPurity:DWP.9`
+  and HodgeStructures L1, but SF.2 is "Sites and *scheme* cohomology", DWP.9 states hard Lefschetz
+  for `X` *projective* smooth over an algebraically closed field, and no atlas stage matches
+  'cohomology of a stack', 'duality for stacks' or 'smooth proper Deligne'. The note on this item
+  already said the Deligne–Mumford stack case "is used throughout the paper without comment". Items
+  12 and 13 meet the same scheme-versus-stack gap and route it as a missing item to the owning
+  layer, so item 14 now does too. HodgeStructures L1 is unaffected.
+* **Route 4** added: a source route to `SchemeAndStackFoundations:SF.2` carrying item 14, with the
+  reason recording that the hard Lefschetz half is `DeligneWeightsAndPurity:DWP.9`'s obligation and
+  must be stated there for stacks rather than assumed.
+
+Route bookkeeping remains exact: 88 missing items, 88 routed, none twice, none unrouted.
+`sourceIssues` E1 was confirmed against the LaTeX source and carries the review's verdict. The
+review's report is `research/blueprint/reviews/REV-PAPER-CANNING-LARSON-PAYNE-24.md`.

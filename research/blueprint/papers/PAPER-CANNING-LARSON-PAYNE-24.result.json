@@ -181,14 +181,9 @@
    "name": "Poincaré duality on a smooth proper Deligne–Mumford stack",
    "statement": "For M̄_{g,n} smooth and proper of dimension d_{g,n}, cup product induces a perfect pairing H^k(M̄_{g,n}) × H^{2d_{g,n}-k}(M̄_{g,n}) → Q identifying H_k(M̄_{g,n}) with H^{2d_{g,n}-k}(M̄_{g,n}) as Q-vector spaces, and compatibly with Hodge structures and Galois actions up to Tate twist; hard Lefschetz gives the injections used for top-heaviness.",
    "locator": "arXiv:2307.08830v3 (25 October 2024), Introduction (the identification H_k = H^{2d−k}) and Sections 6–8",
-   "status": "planned",
+   "status": "missing",
    "library": [],
-   "planned": [
-    "SchemeAndStackFoundations:SF.2",
-    "DeligneWeightsAndPurity:DWP.9",
-    "tauceti:TauCetiRoadmap/HodgeStructures#milestone-l1--polarization--hodgeriemann-semisimplicity-summit-of-the-pure-theory"
-   ],
-   "note": "Sheaf cohomology with compact support and duality on schemes are planned at SF.2; hard Lefschetz at DWP.9; polarisation and Hodge–Riemann on the Hodge side at HodgeStructures L1. The Deligne–Mumford stack case is used throughout the paper without comment."
+   "note": "Poincaré duality, and the hard Lefschetz injections used for top-heaviness, are needed here for a smooth proper Deligne–Mumford stack. SchemeAndStackFoundations:SF.2 is 'Sites and scheme cohomology' and DeligneWeightsAndPurity:DWP.9 states hard Lefschetz for X projective smooth over an algebraically closed field, so neither plans the stack case; searches of all 1968 atlas stages return no hit for 'cohomology of a stack', 'duality for stacks' or 'smooth proper Deligne'. Changed from planned to missing and routed, by REV-PAPER-CANNING-LARSON-PAYNE-24, to match this extraction's own treatment of the same stack/scheme gap in items 12 (Chow groups for stacks, routed to SF.5) and 13 (the cycle class map for a Deligne–Mumford stack, routed to MC.2). HodgeStructures L1 supplies polarisation and Hodge–Riemann semisimplicity on the Hodge side and is unaffected."
   },
   {
    "id": "PAPER-CANNING-LARSON-PAYNE-24/15",
@@ -1270,6 +1265,17 @@
     "PAPER-CANNING-LARSON-PAYNE-24/13"
    ],
    "reason": "MC.2 constructs realisation functors and proves that cycle classes respect composition, cup products, pushforward, trace and Tate twists. The cycle class map this paper needs is the one for a smooth but not necessarily proper variety or Deligne–Mumford stack, landing in the lowest weight part W_{2i}H^{2i}, with the consequence that algebraic classes are of Hodge type (p, p) and Tate on the ℓ-adic side. That is the same map in the generality the moduli application requires, so it belongs to MC.2 and the paper is a source for it."
+  },
+  {
+   "route": "source",
+   "roadmap": "SchemeAndStackFoundations",
+   "stages": [
+    "SchemeAndStackFoundations:SF.2"
+   ],
+   "items": [
+    "PAPER-CANNING-LARSON-PAYNE-24/14"
+   ],
+   "reason": "SF.2 owns sites and cohomology with compact support and duality, so the Poincaré duality this paper uses belongs there — but in the generality the moduli application requires, namely a smooth proper Deligne–Mumford stack rather than a scheme, exactly as item 13's cycle class map is routed to MC.2 in that generality. The paper is a source for the stack case, which it uses throughout without comment. The hard Lefschetz clause of this item is DeligneWeightsAndPurity's: DWP.9 proves it for X projective smooth over an algebraically closed field, and the Deligne–Mumford stack case must be stated there rather than assumed. Added by REV-PAPER-CANNING-LARSON-PAYNE-24."
   }
  ],
  "sourceIssues": [
@@ -1285,7 +1291,19 @@
    "searched": [
     "the arXiv listing and submission history of arXiv:2307.08830, read 22 September 2026: v1 (17 July 2023), v2 and v3 (25 October 2024), the version read, described by the authors as the final version to appear in Forum of Mathematics, Pi; there is no later version",
     "the published version, doi:10.1017/fmp.2024.24 (Forum of Mathematics, Pi 12 (2024), open access on Cambridge Core), read 22 September 2026: the article carries no erratum, and the sentence recorded below appears there in the same form"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in the LaTeX source of arXiv:2307.08830v3, whose source-archive sha256 matches the one this extraction records. Theorem 1.5(3) reads 'H_{k}(\\Mb_{g,n}), for even $k \\leq 14$' (thm:taut, line 236) and the proof opens 'We now show that $H_k(\\Mb_{g,n})$ is tautological for even $k \\geq 14$' (line 1207). The extraction's supporting reasoning also checks out verbatim: two sentences later the proof says 'When $g\\geq 3$, in all of these cases with $k\\leq 14$ we know that $\\M_{g,n}$ has the CKgP' (line 1215), and Conjecture 1.8 does concern 'even $k \\leq 20$' (line 262). A misprint whose intended meaning is clear, affecting nothing.",
+    "by": "independent-review-REV-PAPER-CANNING-LARSON-PAYNE-24"
+   }
   }
- ]
+ ],
+ "review": {
+  "verdict": "accept",
+  "by": "independent-review-REV-PAPER-CANNING-LARSON-PAYNE-24",
+  "agent": "Claude Code",
+  "session": "cc-fb70e5",
+  "reason": "Accept, with one status corrected. Statements, locators and numbering check out against the LaTeX source of the version the extraction names, whose sha256 it records and I reproduced: 83 of the 84 locators carrying a statement number match both environment and number, the one flag being my own regex reading a cross-reference to Canning–Larson. Route bookkeeping was exact. The new roadmap is justified: I re-ran the absence claim over all 1968 stages and chased every near hit. Item 14 asserted Poincaré duality for a smooth proper Deligne–Mumford stack as planned at scheme-level layers; it is now missing and routed. sourceIssues E1 confirmed."
+ }
 }
