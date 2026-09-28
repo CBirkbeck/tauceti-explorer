@@ -165,4 +165,18 @@ def MH (G) := {M : f.g. Λ(G)-module | IsSTorsion S* M}                         
 def SigmaS := {C : perfect complex over Λ(G) | Acyclic (Λ_S ⊗ C)}                                        -- torsion-perfect-complexes
 -/
 
+/-
+NE.2 (checkpoint 2), recorded as signatures because algebraic K-theory of rings is not in the pinned libraries
+(GeneralAlgebraicKTheory K.3, K.5 own it):
+
+theorem localizationSequence (hG : no element of order p) :
+    Exact (K₁ Λ(G) → K₁ Λ(G)_{S*}) (∂_G) ∧ Exact ∂_G (K₀ 𝔐_H(G) → K₀ Λ(G)) ∧ …                    -- localization-sequence
+noncomputable def boundaryMap : K₁ Λ(G)_{S*} →+ K₀ 𝔐_H(G)                                          -- boundary-map
+theorem boundaryMap_unit (s ∈ S*) : boundaryMap [s] = [Λ(G) ⧸ Λ(G) • s]
+theorem boundaryMap_surjective (hG : no element of order p) : Function.Surjective boundaryMap        -- boundary-surjective
+def IsCharacteristicElement (M ∈ 𝔐_H(G)) (ξ : K₁ Λ(G)_{S*}) : Prop := boundaryMap ξ = [M]              -- characteristic-element
+theorem isSemilocal_canonicalLocalization : IsSemilocalRing Λ(G)_S                                    -- canonical-localization-semilocal
+theorem units_surjective_K₁ (hG) : Function.Surjective (Units Λ(G)_{S*} → K₁ Λ(G)_{S*})              -- units-surject-k1
+-/
+
 end TauCeti.NoncommIwasawa
