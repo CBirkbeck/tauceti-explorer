@@ -6,9 +6,12 @@ import Mathlib.RingTheory.Artinian.Ring
 import Mathlib.RingTheory.MvPowerSeries.Basic
 import Mathlib.GroupTheory.GroupAction.Quotient
 import Mathlib.Data.ZMod.Basic
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.RingTheory.Polynomial.Basic
 
 /-!
-# Suggested Lean forms: global Galois deformations (GlobalGaloisDeformations, R04.1–R04.2)
+# Suggested Lean forms: global Galois deformations (GlobalGaloisDeformations, R04.1–R04.4)
 
 **Standard note.** This file is not the roadmap and it is not exhaustive. The roadmap document
 (`GlobalGaloisDeformations`) is definitive. The statements below suggest Lean forms, so that
@@ -175,6 +178,34 @@ theorem framedLocalLift_smul (x : TFramedLift n ρbar π T) (b : strictKernel n 
 
 end Global
 
+section Twisting
+
+variable {A : Type*} [CommRing A] [TopologicalSpace A] (π : A →+* 𝔽)
+
+/-- **`R04.4/twisting-action`**. The twist `χ ⊗ ρ` of a lift by a continuous character `χ`
+that reduces to the trivial character. -/
+def Lift.twist (χ : G →* Aˣ) (hχ : ∀ g, π (χ g) = 1)
+    (hc : Continuous fun g ↦ ((χ g : Aˣ) : A)) (ρ : Lift n ρbar π) : Lift n ρbar π := sorry
+
+/-- API: `χ ⊗ ρ` has matrices `χ(g) • ρ(g)`. -/
+theorem Lift.twist_apply (χ : G →* Aˣ) (hχ : ∀ g, π (χ g) = 1)
+    (hc : Continuous fun g ↦ ((χ g : Aˣ) : A)) (ρ : Lift n ρbar π) (g : G) :
+    ((ρ.twist n ρbar π χ hχ hc).toHom g : Matrix (Fin n) (Fin n) A) =
+      ((χ g : Aˣ) : A) • (ρ.toHom g : Matrix (Fin n) (Fin n) A) := sorry
+
+/-- **`R04.4/twist-action-free`**, the trace step: `tr (χ ⊗ ρ)(g) = χ(g) · tr ρ(g)`. -/
+theorem Lift.trace_twist (χ : G →* Aˣ) (hχ : ∀ g, π (χ g) = 1)
+    (hc : Continuous fun g ↦ ((χ g : Aˣ) : A)) (ρ : Lift n ρbar π) (g : G) :
+    ((ρ.twist n ρbar π χ hχ hc).toHom g : Matrix (Fin n) (Fin n) A).trace =
+      ((χ g : Aˣ) : A) * (ρ.toHom g : Matrix (Fin n) (Fin n) A).trace := sorry
+
+/-- The twist commutes with strict conjugation, so it acts on `Def`. -/
+theorem Lift.twist_smul (χ : G →* Aˣ) (hχ : ∀ g, π (χ g) = 1)
+    (hc : Continuous fun g ↦ ((χ g : Aˣ) : A)) (ρ : Lift n ρbar π) (b : strictKernel n π) :
+    (b • ρ).twist n ρbar π χ hχ hc = b • ρ.twist n ρbar π χ hχ hc := sorry
+
+end Twisting
+
 /-!
 ## Signatures against Tau Ceti and the requested suppliers (comment only)
 
@@ -192,6 +223,21 @@ theorem Def.proRepresentable (hG : PhiP G p) (hS : IsSchur n ρbar) : (Def n ρb
 -- R04.1/determinant-deformation-functor (determinants from IHG.0)
 def DetDef (Dbar : Determinant 𝔽 G n) : ArtO ⥤ Type
 theorem Def.toDetDef_bijective (habs : AbsolutelyIrreducible ρbar) : Function.Bijective (Def.toDetDef …)
+-- R04.4/restriction-ring-map and restriction-finiteness (Σ open in Γ, ρ̄|Σ absolutely irreducible)
+def resRing (ι : Σ →* Γ) : Runiv (ρbar.comp ι) →ₐ[𝒪] Runiv ρbar
+theorem resRing_finite (hΣ : IsOpen (Set.range ι)) (habs : AbsolutelyIrreducible (ρbar.comp ι)) :
+    letI := (resRing ι).toAlgebra; Module.Finite (Runiv (ρbar.comp ι)) (Runiv ρbar)
+-- R04.4/enlarging-ramification
+theorem inflRing_surjective (hS : S ⊆ S') : Function.Surjective (inflRing hS : R□ S' →ₐ[𝒪] R□ S)
+-- R04.4/diagonalizable-groups and free-action-quotient (group functors on C_𝒪 from R03.1)
+def DiagGroup (a : Type*) [AddCommGroup a] : C 𝒪 ⥤ Grp   -- A ↦ Hom(a, 1 + 𝔪_A)
+theorem freeQuotient_smooth (hG : FormallySmooth (A G)) (hfree : IsFreeAction G X) :
+    Algebra.FormallySmooth (invariants G X) (A X)
+-- R04.4/determinant-fixed-on-S and determinant-twist-torsor
+def detMap : Sp (RdetOnS S V) ⟶ DiagGroup (G_V)
+theorem detMap_twist (χ) (x) : detMap (χ • x) = χ ^ 2 * detMap x
+-- R04.4/inertia-rigid-deformations
+theorem inertiaRigid_dim (C : irreducibleComponent (R□φ0fl ρ₀)) : absDim C = d ^ 2
 ```
 -/
 
@@ -214,5 +260,34 @@ example (𝔽 : Type) [Field 𝔽] : IsSchur 1 (1 : Multiplicative ℤ →* GL (
 
 /-- `1 ⊕ 1` is not Schur. -/
 example (𝔽 : Type) [Field 𝔽] : ¬ IsSchur 2 (1 : Multiplicative ℤ →* GL (Fin 2) 𝔽) := sorry
+
+/-- `R04.4/diagonalizable-groups`, the case `p = 2`, `m = 1` of the truncation isomorphism:
+`(1 + X)² − 1 ∈ (2, X)²`. -/
+example : ((1 + Polynomial.X) ^ 2 - 1 : Polynomial ℤ) ∈
+    (Ideal.span {(2 : Polynomial ℤ), Polynomial.X}) ^ 2 := by
+  have h2 : (2 : Polynomial ℤ) ∈ Ideal.span {(2 : Polynomial ℤ), Polynomial.X} :=
+    Ideal.subset_span (by simp)
+  have hX : (Polynomial.X : Polynomial ℤ) ∈ Ideal.span {(2 : Polynomial ℤ), Polynomial.X} :=
+    Ideal.subset_span (by simp)
+  have : ((1 + Polynomial.X) ^ 2 - 1 : Polynomial ℤ) = 2 * Polynomial.X + Polynomial.X * Polynomial.X := by
+    ring
+  rw [this, pow_two]
+  exact Ideal.add_mem _ (Ideal.mul_mem_mul h2 hX) (Ideal.mul_mem_mul hX hX)
+
+/-- `R04.4/twisting-action`: twisting a rank-two lift by `c` multiplies determinants by `c²`. -/
+example {A : Type*} [CommRing A] (c : A) (M : Matrix (Fin 2) (Fin 2) A) :
+    (c • M).det = c ^ 2 * M.det := by
+  simp
+
+/-- `R04.4/twist-action-free`, the dihedral stabiliser: in the induced basis, conjugation by
+`diag(1, −1)` negates the matrix of an element outside the index-two subgroup. -/
+example {A : Type*} [CommRing A] (a : A) :
+    !![1, 0; 0, -1] * !![0, a; 1, 0] * !![1, 0; 0, -1] = -!![(0 : A), a; 1, 0] := by
+  ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- ... and fixes a diagonal matrix, the image of an element of the index-two subgroup. -/
+example {A : Type*} [CommRing A] (x y : A) :
+    !![1, 0; 0, -1] * !![x, 0; 0, y] * !![1, 0; 0, -1] = !![x, 0; 0, y] := by
+  ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
 
 end TauCeti.GaloisDeformation.SuggestedTest
