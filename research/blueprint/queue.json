@@ -31830,7 +31830,8 @@
    "after": [],
    "independentOf": [],
    "prompt": "research/blueprint/prompts/ERRATA-PAPER-LIU-ETAL-22.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3796"
   },
   {
    "id": "REV-ERRATA-PAPER-LIU-ETAL-22",
@@ -44215,10 +44216,11 @@
     "SRC-LocalFieldsRamification"
    ],
    "avoidAccountOf": "SRC-LocalFieldsRamification",
-   "state": "external",
+   "state": "done",
    "timeout": 14400,
    "prompt": "research/blueprint/prompts/REV-SRC-LocalFieldsRamification.md",
-   "note": "claimed on GitHub issue #3777"
+   "note": "deliverables arrived from an external worker on issue #3777",
+   "finishedAt": "2026-09-28T16:49:03Z"
   },
   {
    "id": "SRC-ModularCurves",
