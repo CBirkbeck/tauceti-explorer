@@ -3491,3 +3491,101 @@ example (η : DirichletCharacter ℚ_[2] 3) (hD : IsUnit (3 : ℚ_[2])) (hpD : �
     AnalyticAt ℚ_[2] (fun _ : ℚ_[2] => tameCharacterValue η hD hpD κ) s := by sorry
 end
 end SuggestedCharacterIntegralTests
+
+
+/-! The classical value at one, via the native principal logarithm and an
+absolutely convergent improper integral. All general signatures are unchecked. -/
+namespace DirichletPadic
+open Set Filter MeasureTheory
+open scoped Topology
+noncomputable section
+
+theorem tameLog_argument_re_pos (α : ℂ) (hα : ‖α‖ = 1) (hne : α ≠ 1)
+    (t : ℝ) (ht : 0 ≤ t) : 0 < (1-α*(Real.exp (-t) : ℂ)).re := by sorry
+
+theorem tameLog_kernel_norm_le (α : ℂ) (hα : ‖α‖ = 1) (hne : α ≠ 1)
+    (t : ℝ) (ht : 0 ≤ t) :
+    ‖α/((Real.exp t : ℂ)-α)‖ ≤ (min 1 (1-α.re))⁻¹ * Real.exp (-t) := by sorry
+
+theorem tameLog_kernel_integrable (α : ℂ) (hα : ‖α‖ = 1) (hne : α ≠ 1) :
+    IntegrableOn (fun t : ℝ => α/((Real.exp t : ℂ)-α)) (Ioi 0) := by sorry
+
+theorem tameLog_hasDerivAt (α : ℂ) (hα : ‖α‖ = 1) (hne : α ≠ 1)
+    (t : ℝ) (ht : 0 ≤ t) :
+    HasDerivAt (fun u : ℝ => Complex.log (1-α*(Real.exp (-u) : ℂ)))
+      (α/((Real.exp t : ℂ)-α)) t := by sorry
+
+theorem tameLog_tendsto_zero (α : ℂ) :
+    Tendsto (fun t : ℝ => Complex.log (1-α*(Real.exp (-t) : ℂ))) atTop (𝓝 0) := by sorry
+
+theorem tameLog_integral (α : ℂ) (hα : ‖α‖ = 1) (hne : α ≠ 1) :
+    ∫ t in Ioi (0 : ℝ), α/((Real.exp t : ℂ)-α) = -Complex.log (1-α) := by sorry
+
+section FiniteGauss
+variable {D : ℕ} [NeZero D]
+
+theorem tameComplexKernel_integral_log (η : DirichletCharacter ℂ D)
+    (hη : η.IsPrimitive) (hη0 : η ≠ 1) (hD : 1 < D)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    (∫ t in Ioi (0 : ℝ), tameComplexKernel η t) =
+      η (-1) * (gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ c : (ZMod D)ˣ, η⁻¹ (c : ZMod D) * Complex.log (1-ε^(c : ZMod D).val) := by sorry
+
+theorem LFunction_one_eq_log_sum (η : DirichletCharacter ℂ D)
+    (hη : η.IsPrimitive) (hη0 : η ≠ 1) (hD : 1 < D)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    η.LFunction 1 = -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ c : (ZMod D)ˣ, η⁻¹ (c : ZMod D) * Complex.log (1-ε^(c : ZMod D).val) := by sorry
+
+theorem LFunction_log_sum_root_independent (η : DirichletCharacter ℂ D)
+    (hη : η.IsPrimitive) (hη0 : η ≠ 1) (hD : 1 < D)
+    (ε₁ ε₂ : ℂ) (hε₁ : IsPrimitiveRoot ε₁ D) (hε₂ : IsPrimitiveRoot ε₂ D)
+    (hG₁ : gaussSum η⁻¹ (AddChar.zmodChar D hε₁.pow_eq_one) ≠ 0)
+    (hG₂ : gaussSum η⁻¹ (AddChar.zmodChar D hε₂.pow_eq_one) ≠ 0) :
+    -(gaussSum η⁻¹ (AddChar.zmodChar D hε₁.pow_eq_one))⁻¹ *
+        ∑ c : (ZMod D)ˣ, η⁻¹ (c : ZMod D) * Complex.log (1-ε₁^(c : ZMod D).val) =
+      -(gaussSum η⁻¹ (AddChar.zmodChar D hε₂.pow_eq_one))⁻¹ *
+        ∑ c : (ZMod D)ˣ, η⁻¹ (c : ZMod D) * Complex.log (1-ε₂^(c : ZMod D).val) := by sorry
+end FiniteGauss
+end
+end DirichletPadic
+
+namespace SuggestedComplexLogTests
+open DirichletPadic Set Filter MeasureTheory
+open scoped Topology
+noncomputable section
+-- minus_one_argument
+example : (1-(-1 : ℂ)*(Real.exp (-(0 : ℝ)) : ℂ)).re = 2 := by sorry
+-- excluded_root_one
+example : 1-(1 : ℂ)*(Real.exp (-(0 : ℝ)) : ℂ) ∉ Complex.slitPlane := by sorry
+-- minus_one_bound
+example : ‖(-1 : ℂ)/((Real.exp (0 : ℝ) : ℂ)-(-1))‖ ≤
+    (min 1 (1-(-1 : ℂ).re))⁻¹ * Real.exp (-(0 : ℝ)) := by sorry
+-- imaginary_kernel_integrable
+example : IntegrableOn (fun t : ℝ => Complex.I/((Real.exp t : ℂ)-Complex.I)) (Ioi 0) := by sorry
+-- minus_one_derivative
+example : HasDerivAt (fun t : ℝ => Complex.log (1+(Real.exp (-t) : ℂ)))
+    (-1/2 : ℂ) 0 := by sorry
+-- root_one_limit
+example : Tendsto (fun t : ℝ => Complex.log (1-(Real.exp (-t) : ℂ))) atTop (𝓝 0) := by sorry
+-- minus_one_integral
+example : (∫ t in Ioi (0 : ℝ), (-1 : ℂ)/((Real.exp t : ℂ)+1)) = -Complex.log 2 := by sorry
+-- imaginary_integral
+example : (∫ t in Ioi (0 : ℝ), Complex.I/((Real.exp t : ℂ)-Complex.I)) =
+    -Complex.log (1-Complex.I) := by sorry
+-- quadratic_three_integral
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) :
+    (∫ t in Ioi (0 : ℝ), tameComplexKernel η t) = (Real.pi/(3*Real.sqrt 3) : ℝ) := by sorry
+-- quadratic_three_value
+example (η : DirichletCharacter ℂ 3) (hη : η 2 = -1) :
+    η.LFunction 1 = (Real.pi/(3*Real.sqrt 3) : ℝ) := by sorry
+-- quadratic_four_value
+example (η : DirichletCharacter ℂ 4) (hη : η 3 = -1) :
+    η.LFunction 1 = (Real.pi/4 : ℝ) := by sorry
+-- quadratic_five_value
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1) :
+    η.LFunction 1 = (2*Real.log ((1+Real.sqrt 5)/2)/Real.sqrt 5 : ℝ) := by sorry
+end
+end SuggestedComplexLogTests
