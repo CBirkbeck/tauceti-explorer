@@ -1,7 +1,55 @@
-# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.1–R21.3 partial (checkpoint 2)
+# BP-OrdinaryAutomorphicFormsAndModularityLifting: R21.2 source-decomposed; R21.1, R21.3, R21.4 partial (checkpoint 3)
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #962. **Status: partial.** R21.1, R21.2 and R21.3 are
-`partial`; R21.4–R21.6 are `not_read`.
+Claude Code — session `cc-39fac3`, 28 September 2026. Refs #962. **Status: partial.**
+- R21.2 is `source_decomposed`.
+- R21.1, R21.3 and R21.4 are `partial`.
+- R21.5–R21.6 are `not_read`.
+
+## Checkpoint 3: 14 nodes (R21.2: 8, R21.3: 1, R21.4: 4)
+
+Source: Skinner–Wiles §2.2, §§3.5–3.8, §§4.1–4.3 (with the opening of §4.4) and Appendix A, read on the page images.
+
+**R21.2 (now source_decomposed):**
+- `characteristic-p-primes-auxiliary`: Proposition 3.20.
+- `auxiliary-trace-identity`: Lemma 3.21.
+- `deformation-hecke-rings`: §3.6, U_{𝒟_Q}, T_{𝒟_Q}, T^min and M_{𝒟_Q}.
+- `minimal-hecke-ring-decomposition`: Proposition 3.23, Corollary 3.24 and Lemma 3.25.
+- `hecke-module-duality`: §3.7. Skinner–Wiles quote 𝒪[[G(U)]]-freeness from Proposition 3.3, which is not justified
+  (PadicFamilies E11). The identifications need only Frobenius reciprocity and Λ′-freeness, and the node says so.
+- `ihara-lemma-quaternionic` (planet): Lemma 3.26. The request to R18.3 now also asks for strong approximation for G^D_1
+  and Eichler's norm theorem.
+- `ihara-exact-sequence`: Lemmas 3.27–3.28.
+- `level-raising-congruence-modules`: Lemma 3.29.
+
+**R21.3:** `reducible-locus-dimension` (Lemmas 2.7–2.9).
+
+**R21.4 (partial):**
+- `pro-modular-prime` (planet).
+- `good-pair-and-nice-primes` (planet): (G), nice deformations and primes, (P1) and (P2).
+- `raynaud-connectedness-corollary`: Corollary A.2. Proposition A.1 (Raynaud) is a **gap**: no roadmap plans
+  Grothendieck–Raynaud connectedness.
+- `pro-modularity-key-proposition` (planet): Proposition 4.1.
+
+**New source issues (misprints that reach nothing).**
+- **E5.** The proof of Proposition 4.1 cites "Proposition 2.12" for Corollary 2.12.
+- **E6.** The proof of Proposition 4.2 cites "Proposition 3.14" for Proposition 3.18.
+
+**Lean.** One checked test: the dimension count in the proof of Proposition 4.1 under (G). It compiles with 0 errors,
+0 warnings and no `sorry`.
+
+**Totals.** 48 nodes, 85 API items, 59 unit tests, 19 planets, 11 requests, 1 gap and 6 source issues.
+`check_blueprint.py`: 0 errors, 0 warnings.
+
+## What a continuation should do (after checkpoint 3)
+
+1. **R21.4, remaining:**
+   - §4.4 (Proposition 4.2) and §4.5 (Main Theorem);
+   - §5 formal patching (import DeformationAndDerivedPatchingAlgebra R03.5/R03.6, and keep only the arithmetic here);
+   - §6 cohomology estimates (with GlobalGaloisDeformations R04.5);
+   - §7 nice primes at minimum level;
+   - §8 raising the level, with Proposition 8.4 = (P1).
+2. **R21.5:** Theorems A and B (§4.6); Khare 2006; Dieulefait–Pacetti.
+3. **R21.1 remainder:** Hida's H¹ towers and R18.4.
 
 ## Checkpoint 2: R21.3 (19 nodes, 6 planets)
 
