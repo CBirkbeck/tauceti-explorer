@@ -305,6 +305,17 @@
     "data/blueprints/EllipticRegulators.md"
    ]
   },
+  "research/blueprint/packets/GeneralAlgebraicKTheory--K.6.json": {
+   "promotedAt": "2026-09-28T15:12:31Z",
+   "review": "9bf03ba2712b4422",
+   "reviewDate": "2026-09-28",
+   "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.6",
+   "sha256": "14d13811cf26d920957a5b5791e6eec18d834bf2a991c96e4b781bdcf8a64370",
+   "to": [
+    "data/blueprints/GeneralAlgebraicKTheory--K.6.json",
+    "data/blueprints/GeneralAlgebraicKTheory--K.6.md"
+   ]
+  },
   "research/blueprint/packets/HabiroCyclotomicCompletions.json": {
    "promotedAt": "2026-09-25T14:41:24Z",
    "review": "0e009156d6289d53",
