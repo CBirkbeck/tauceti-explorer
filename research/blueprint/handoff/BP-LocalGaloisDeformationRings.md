@@ -1,9 +1,9 @@
-# BP-LocalGaloisDeformationRings: R08.1–R08.3 and part of L7 (checkpoint 3)
+# BP-LocalGaloisDeformationRings: R08.1–R08.3, part of R08.6 and part of L7 (checkpoint 4)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #770. **Status: partial.**
-- R08.1 and R08.2 are `source_decomposed`.
-- R08.3 and L7 are `partial`.
-- L8 and R08.4–R08.6 are `not_read`.
+- R08.1, R08.2 and R08.3 are `source_decomposed`.
+- R08.6 and L7 are `partial`.
+- L8, R08.4 and R08.5 are `not_read`.
 
 This works within RS-08, whose review accepted it.
 
@@ -37,6 +37,34 @@ The generic functors and theorems are reused from the GlobalGaloisDeformations p
 - `ihara-avoidance-components` (Taylor II Proposition 3.1; Gee 3.36–3.38).
 
 New sources: CHT08 and Taylor II, both open access on Numdam. The deformation-problem nodes are reused from GlobalGaloisDeformations R04.3 (#3806, merged).
+
+## Checkpoint 4: R08.6 exports from KW II §3 (11 nodes, 4 planets)
+
+- `smooth-resolution-criterion` (KW II Proposition 2.12).
+- `kw-local-conditions`, with the choices.
+- Per-case exports:
+  - archimedean;
+  - irreducible Fontaine–Laffaille (L7);
+  - irreducible weight two (Savitt, R08.4);
+  - ordinary (Proposition 3.6, proved here);
+  - semistable weight two at p (R08.5);
+  - endpoint weight p + 1 (R08.5);
+  - away from p (R08.2 Steinberg, and GlobalGaloisDeformations R04.4 inertia-rigid).
+- `export-completed-tensor-product` (Proposition 3.2).
+- `local-nonemptiness`, which closes R08.3's remaining item, so R08.3 is now `source_decomposed`.
+
+These exports are what GlobalGaloisDeformations R04.6 (#3815) and GL2ModularityLifting R22.1 (#3816) request.
+
+**Remaining in R08.6:**
+- KW I Theorem 5.1's lift types.
+- The good-dihedral type.
+- The dyadic weight-two transition.
+- The modern de Rham applications.
+
+The proofs cited to L7, R08.4 and R08.5 are to be planned in those layers: Fontaine–Laffaille, Savitt's weight-two
+computation, and the dyadic/endpoint cases.
+
+**Lean:** two new proved checks, for the archimedean substitution and the 3|S| count; still 4 `sorry` warnings.
 
 ## Checkpoint 3: R08.3 (7 nodes) and L7's height lattices (2 nodes)
 
@@ -93,6 +121,8 @@ The ring-level signatures, which use the GlobalGaloisDeformations functors, are 
 
 ## What a continuation should do
 
+0. **R08.4 now also owes** Savitt's weight-two computation (Duke 2005, Theorems 6.22 and 6.24), which is cited by
+   R08.6/export-weight-two-irreducible.
 1. **R08.4:** instantiate L7's `height-lattice-moduli` with h = 1 in rank two (Kisin's Moduli paper, Annals 2009, and
    the 2-adic paper). The connectedness and component statements need the image, not just the source.
 2. **R08.3 nonemptiness and R08.6:** KW II §3.2 (the authors' final version is free on Khare's UCLA page; see the
