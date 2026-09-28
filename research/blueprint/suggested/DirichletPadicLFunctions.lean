@@ -3589,3 +3589,67 @@ example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1) :
     η.LFunction 1 = (2*Real.log ((1+Real.sqrt 5)/2)/Real.sqrt 5 : ℝ) := by sorry
 end
 end SuggestedComplexLogTests
+
+
+/-! The even-character refinement of the complex logarithmic value.
+The real logarithms are included in ℂ; character coefficients remain complex. -/
+namespace DirichletPadic
+open scoped ComplexConjugate
+noncomputable section
+
+theorem tameLog_inv_eq_conj (α : ℂ) (hα : ‖α‖ = 1) (hne : α ≠ 1) :
+    Complex.log (1-α⁻¹) = conj (Complex.log (1-α)) := by sorry
+
+theorem tameLog_add_inv (α : ℂ) (hα : ‖α‖ = 1) (hne : α ≠ 1) :
+    Complex.log (1-α) + Complex.log (1-α⁻¹) =
+      2 * (Real.log ‖1-α‖ : ℂ) := by sorry
+
+section EvenGauss
+variable {D : ℕ} [NeZero D]
+
+theorem tameLog_sum_even (η : DirichletCharacter ℂ D) (hη : η.Even)
+    (hD : 1 < D) (ε : ℂ) (hε : IsPrimitiveRoot ε D) :
+    (∑ c : (ZMod D)ˣ, η⁻¹ (c : ZMod D) * Complex.log (1-ε^(c : ZMod D).val)) =
+      ∑ c : (ZMod D)ˣ, η⁻¹ (c : ZMod D) * (Real.log ‖1-ε^(c : ZMod D).val‖ : ℂ) := by sorry
+
+theorem LFunction_one_eq_real_log_sum (η : DirichletCharacter ℂ D)
+    (hη : η.IsPrimitive) (hη0 : η ≠ 1) (heven : η.Even) (hD : 1 < D)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε D)
+    (hG : gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one) ≠ 0) :
+    η.LFunction 1 = -(gaussSum η⁻¹ (AddChar.zmodChar D hε.pow_eq_one))⁻¹ *
+      ∑ c : (ZMod D)ˣ, η⁻¹ (c : ZMod D) * (Real.log ‖1-ε^(c : ZMod D).val‖ : ℂ) := by sorry
+end EvenGauss
+end
+end DirichletPadic
+
+namespace SuggestedEvenLogTests
+open DirichletPadic
+open scoped ComplexConjugate
+noncomputable section
+-- imaginary_conjugation
+example : Complex.log (1+Complex.I) = conj (Complex.log (1-Complex.I)) := by sorry
+-- minus_one_conjugation
+example : Complex.log (2 : ℂ) = conj (Complex.log 2) := by sorry
+-- imaginary_pair
+example : Complex.log (1-Complex.I)+Complex.log (1+Complex.I) = (Real.log 2 : ℂ) := by sorry
+-- minus_one_pair
+example : Complex.log (2 : ℂ)+Complex.log 2 = 2*(Real.log 2 : ℂ) := by sorry
+-- quadratic_five_sum
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε 5) :
+    (∑ c : (ZMod 5)ˣ, η⁻¹ (c : ZMod 5) * Complex.log (1-ε^(c : ZMod 5).val)) =
+      2*((Real.log ‖1-ε‖ : ℂ) - (Real.log ‖1-ε^2‖ : ℂ)) := by sorry
+-- nonreal_even_coefficients
+example (η : DirichletCharacter ℂ 7) (heven : η.Even)
+    (ε : ℂ) (hε : IsPrimitiveRoot ε 7) :
+    (∑ c : (ZMod 7)ˣ, η⁻¹ (c : ZMod 7) * Complex.log (1-ε^(c : ZMod 7).val)) =
+      2*((Real.log ‖1-ε‖ : ℂ) + η⁻¹ 2*(Real.log ‖1-ε^2‖ : ℂ) +
+        η⁻¹ 3*(Real.log ‖1-ε^3‖ : ℂ)) := by sorry
+-- quadratic_five_value
+example (η : DirichletCharacter ℂ 5) (hη : η 2 = -1) :
+    η.LFunction 1 = (2*Real.log ((1+Real.sqrt 5)/2)/Real.sqrt 5 : ℝ) := by sorry
+-- quadratic_eight_value
+example (η : DirichletCharacter ℂ 8) (hη3 : η 3 = -1) (hη7 : η 7 = 1) :
+    η.LFunction 1 = (Real.log (1+Real.sqrt 2)/Real.sqrt 2 : ℝ) := by sorry
+end
+end SuggestedEvenLogTests
