@@ -160,7 +160,9 @@ non-split exact sequence the comparison category is not even connected. -/
 theorem ExtCat.split_needed : True := by sorry
 
 /-- K.2:plus/plus-equals-Q. `BGL(A)⁺` is a parameter: it does not exist at the
-pins, and `StableHomotopyKTheory:H.4` owns it. -/
+pins, and `StableHomotopyKTheory:H.4` owns it. The statements are about the LOOP
+SPACE: `ΩBQA ≃ B(S⁻¹S)` and `ΩBQP(R) ≃ K₀(R) × BGL(R)⁺` (Weibel IV.7.1–7.2); `BQA`
+itself is connected with `π₁ = K₀` (review REV-GeneralAlgebraicKTheory--K.1). -/
 variable (BGLplus : Type* → Space)
 
 theorem plus_eq_Q : True := by sorry
