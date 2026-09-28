@@ -1,0 +1,882 @@
+{
+ "roadmapId": "IntegralIwasawaTheory",
+ "protocol": "blueprint-v1",
+ "part": "I.8",
+ "scope": [
+  "IntegralIwasawaTheory:I.8",
+  "IntegralIwasawaTheory:I.9",
+  "IntegralIwasawaTheory:L0",
+  "IntegralIwasawaTheory:L1",
+  "IntegralIwasawaTheory:L2",
+  "IntegralIwasawaTheory:L3",
+  "IntegralIwasawaTheory:L4"
+ ],
+ "status": "partial",
+ "summary": "Part I.8 of the blueprint for arithmetic Iwasawa theory. This first checkpoint plans L0: the cyclotomic tower ℚ(μ_m) ⊆ ℂ with compatible roots, Galois groups and relative norms (the carrier EulerSystemsCyclotomicMainConjecture:L0 requests), the real subfields, the cyclotomic units D_n and D_n^+ of ℚ(μ_{p^n}) with their generators and cyclicity over ℤ[Γ_n^+], the equality of full and real indices, and the index formula h_n^+ = [V_n^+ : D_n^+] with its analytic steps recorded as a gap. The other stages are not yet read.",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:Algebra.norm",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/Norm/Defs.lean",
+    "provides": "The norm of an algebra.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:Algebra.norm_norm",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
+    "provides": "Transitivity of the norm.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:Complex.isPrimitiveRoot_exp",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/RootsOfUnity/Complex.lean",
+    "provides": "exp(2πi/n) is a primitive n-th root of unity.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:DirichletCharacter.LFunction_apply_one_ne_zero",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/LSeries/Nonvanishing.lean",
+    "provides": "L(1, χ) ≠ 0 for χ ≠ 1.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:IntermediateField.extendScalars",
+    "kind": "def",
+    "module": "Mathlib/FieldTheory/IntermediateField/Basic.lean",
+    "provides": "An intermediate field over a smaller intermediate field.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension",
+    "kind": "class",
+    "module": "Mathlib/NumberTheory/Cyclotomic/Basic.lean",
+    "provides": "Cyclotomic extensions.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.Rat.isCMField",
+    "kind": "instance",
+    "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+    "provides": "Cyclotomic fields over ℚ are CM.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:IsCyclotomicExtension.autEquivPow",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Cyclotomic/Gal.lean",
+    "provides": "Gal(L/K) ≃* (ZMod n)ˣ.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+    "provides": "ζ − 1 and ζ^j − 1 are associated.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:IsPrimitiveRoot.geom_sum_isUnit",
+    "kind": "theorem",
+    "module": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
+    "provides": "∑_{i<j} ζ^i is a unit for j coprime to n ≥ 2.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:NumberField.IsCMField.complexConj",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+    "provides": "Complex conjugation on a CM field.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:NumberField.IsCMField.indexRealUnits",
+    "kind": "abbrev",
+    "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+    "provides": "Hasse's unit index of a CM field.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:NumberField.IsCMField.indexRealUnits_eq_one_or_two",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+    "provides": "Hasse's unit index is 1 or 2.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:NumberField.IsCMField.indexRealUnits_eq_two_iff",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
+    "provides": "The criterion for index 2.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:NumberField.RingOfIntegers",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
+    "provides": "The ring of integers.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:NumberField.Units.regulator",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/NumberField/Units/Regulator.lean",
+    "provides": "The regulator of a number field.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/NumberField/DedekindZeta.lean",
+    "provides": "The residue of the Dedekind zeta function at s = 1 (analytic class number formula).",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   },
+   {
+    "ref": "mathlib:ZMod.unitsMap",
+    "kind": "def",
+    "module": "Mathlib/Data/ZMod/Units.lean",
+    "provides": "Reduction (ZMod m)ˣ →* (ZMod n)ˣ for n ∣ m.",
+    "checked": "name confirmed in the pinned declaration index; statement read in the source file"
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "RJW-PADIC-L",
+   "title": "An introduction to p-adic L-functions",
+   "authors": "Joaquín Rodrigues Jacinto; Chris Williams",
+   "edition": "arXiv:2309.15692v2 (19 December 2024); Essential Number Theory 4 (2025) not accessed",
+   "url": "https://arxiv.org/abs/2309.15692v2",
+   "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
+   "readSections": [
+    "§10.2 (pp. 47–48)",
+    "§11.1–11.3 (pp. 54–56)",
+    "§12.3–12.4 (pp. 62–64)"
+   ]
+  }
+ ],
+ "sourceVersions": [
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2309.15692v2",
+   "citation": "J. Rodrigues Jacinto and C. Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2",
+   "read": "2026-09-28",
+   "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4"
+  }
+ ],
+ "nodes": [
+  {
+   "id": "IntegralIwasawaTheory:L0/compatible-cyclotomic-tower",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "The cyclotomic tower in ℂ",
+   "kind": "construction",
+   "statement": "The compatible roots ζ_m = exp(2πi/m) ∈ ℂ (ζ_{mn}^n = ζ_m) and the subfields ℚ(μ_m) = ℚ(ζ_m) ⊆ ℂ, with ℚ(μ_m) ⊆ ℚ(μ_n) for m ∣ n, each an m-th cyclotomic extension of ℚ and a number field, and the relative norms N_{ℚ(μ_n)/ℚ(μ_m)} (Mathlib's Algebra.norm on the extension of scalars).",
+   "hypotheses": [
+    "m ≥ 1 for the cyclotomic-extension instance; ℚ(μ_m) = ℚ(μ_{2m}) for odd m."
+   ],
+   "proofSteps": [
+    "Complex.isPrimitiveRoot_exp gives primitivity; compatibility is exp arithmetic; integrality from being a root of unity; the tower inclusions from ζ_m = ζ_n^{n/m}."
+   ],
+   "acceptance": [
+    "This is the carrier requested by EulerSystemsCyclotomicMainConjecture:L0 and fixed by RS-16 in this layer."
+   ],
+   "prerequisites": [
+    "mathlib:Complex.isPrimitiveRoot_exp",
+    "mathlib:IsCyclotomicExtension",
+    "mathlib:Algebra.norm",
+    "mathlib:IntermediateField.extendScalars"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§11.3, Definition 11.6, printed p. 56 (arXiv v2)",
+     "match": "The fields F_n = ℚ(μ_{p^n}) with the compatible ξ_{p^n}."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicTower.isPrimitiveRoot_zeta",
+     "role": "characterisation",
+     "statement": "ζ_m is a primitive m-th root of unity."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.zeta_mul_pow",
+     "role": "relation",
+     "statement": "ζ_{mn}^n = ζ_m."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.Qmu_mono",
+     "role": "structure",
+     "statement": "ℚ(μ_m) ⊆ ℚ(μ_n) for m ∣ n."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.isCyclotomicExtension_Qmu",
+     "role": "instance",
+     "statement": "IsCyclotomicExtension {m} ℚ ℚ(μ_m)."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.relNorm",
+     "role": "constructor",
+     "statement": "The relative norm between tower levels."
+    }
+   ],
+   "tests": [
+    {
+     "name": "Qmu_one",
+     "kind": "degenerate",
+     "statement": "ℚ(μ_1) = ℚ."
+    },
+    {
+     "name": "Qmu_four",
+     "kind": "value",
+     "statement": "[ℚ(μ_4) : ℚ] = 2."
+    },
+    {
+     "name": "Qmu_three_six",
+     "kind": "value",
+     "statement": "ℚ(μ_3) = ℚ(μ_6)."
+    },
+    {
+     "name": "Qmu_six_le_three",
+     "kind": "non-example",
+     "statement": "ℚ(μ_6) ⊆ ℚ(μ_3) although 6 ∤ 3: the tower order is not divisibility."
+    }
+   ],
+   "uses": [
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L0",
+     "how": "cyclotomic numbers and their norm relations"
+    },
+    {
+     "where": "RJW Definition 11.6",
+     "how": "the fields F_n"
+    },
+    {
+     "where": "ColemanPowerSeries:L4",
+     "how": "global cyclotomic units in the tower"
+    }
+   ],
+   "planet": {
+    "name": "Cyclotomic tower"
+   }
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/tower-galois-compatibility",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "Galois groups and norms along the tower",
+   "kind": "lemma",
+   "statement": "For m ∣ n: relative norms are transitive, N_{ℚ(μ_n)/ℚ(μ_k)} = N_{ℚ(μ_m)/ℚ(μ_k)} ∘ N_{ℚ(μ_n)/ℚ(μ_m)}; and restriction Gal(ℚ(μ_n)/ℚ) → Gal(ℚ(μ_m)/ℚ) is reduction (ℤ/n)^× → (ℤ/m)^× under Mathlib's autEquivPow, so relative norms commute with the Galois action.",
+   "hypotheses": [
+    "k ∣ m ∣ n."
+   ],
+   "proofSteps": [
+    "Algebra.norm_norm for the tower of extensions.",
+    "σ_a(ζ_n) = ζ_n^a restricts to ζ_m ↦ ζ_m^a because ζ_m = ζ_n^{n/m}."
+   ],
+   "acceptance": [
+    "Needed for every norm relation of the Euler system of cyclotomic units."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/compatible-cyclotomic-tower",
+    "mathlib:Algebra.norm_norm",
+    "mathlib:IsCyclotomicExtension.autEquivPow",
+    "mathlib:ZMod.unitsMap"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§12.3, Corollary 12.19 and its proof, p. 63 (arXiv v2)",
+     "match": "The Galois action σ_a on the tower used in the proof."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/real-subfield",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "The real subfields ℚ(μ_m)^+",
+   "kind": "construction",
+   "statement": "ℚ(μ_m)^+ = ℚ(ζ_m + ζ_m^{−1}) ⊆ ℚ(μ_m), the fixed field of complex conjugation, which is Mathlib's maximal real subfield of the CM field ℚ(μ_m) (m > 2), of index 2.",
+   "hypotheses": [
+    "m > 2 for the index-two statement; for m ≤ 2 both fields are ℚ."
+   ],
+   "proofSteps": [
+    "ζ + ζ^{−1} is real; ℚ(μ_m) = ℚ(μ_m)^+(ζ) with ζ² − (ζ + ζ^{−1})ζ + 1 = 0; compare with Mathlib's CM structure (IsCyclotomicExtension.Rat.isCMField, IsCMField.complexConj)."
+   ],
+   "acceptance": [
+    "F_n^+ in RJW."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/compatible-cyclotomic-tower",
+    "mathlib:IsCyclotomicExtension.Rat.isCMField",
+    "mathlib:NumberField.IsCMField.complexConj"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§11.3, Definition 11.6, printed p. 56 (arXiv v2)",
+     "match": "F_n^+ and D_n^+ = D_n ∩ F_n^+."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicTower.QmuPlus_le",
+     "role": "structure",
+     "statement": "ℚ(μ_m)^+ ⊆ ℚ(μ_m)."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.mem_QmuPlus_iff",
+     "role": "characterisation",
+     "statement": "x ∈ ℚ(μ_m)^+ iff x is fixed by complex conjugation."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.finrank_QmuPlus",
+     "role": "simp",
+     "statement": "[ℚ(μ_m) : ℚ(μ_m)^+] = 2 for m > 2."
+    }
+   ],
+   "tests": [
+    {
+     "name": "QmuPlus_five",
+     "kind": "value",
+     "statement": "ℚ(μ_5)^+ = ℚ(√5) has degree 2."
+    },
+    {
+     "name": "QmuPlus_three",
+     "kind": "degenerate",
+     "statement": "ℚ(μ_3)^+ = ℚ."
+    },
+    {
+     "name": "QmuPlus_ne_Qmu",
+     "kind": "non-example",
+     "statement": "ζ_5 ∉ ℚ(μ_5)^+."
+    }
+   ],
+   "uses": [
+    {
+     "where": "RJW Theorem 11.7",
+     "how": "V_n^+, D_n^+ and h_n^+"
+    },
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L0/real-p-extended-number",
+     "how": "the real cyclotomic numbers c̃_m^+"
+    }
+   ]
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/cyclotomic-unit-group",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "Cyclotomic units D_n and D_n^+",
+   "kind": "construction",
+   "statement": "For an odd prime p and n ≥ 1, D_n is the intersection of 𝓞^×_{ℚ(μ_{p^n})} with the subgroup of ℚ(μ_{p^n})^× generated by ±ζ_{p^n} and ζ_{p^n}^a − 1 (1 ≤ a < p^n), and D_n^+ = D_n ∩ ℚ(μ_{p^n})^+.",
+   "hypotheses": [
+    "p odd, n ≥ 1 (RJW assume p odd throughout Part II)."
+   ],
+   "proofSteps": [
+    "Subgroup closure intersected with the integral units."
+   ],
+   "acceptance": [
+    "D_n is a subgroup of the actual units, as the stage requires; its elements need not be products of generators with nonnegative exponents."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/compatible-cyclotomic-tower",
+    "IntegralIwasawaTheory:L0/real-subfield",
+    "mathlib:NumberField.RingOfIntegers"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§11.3, Definition 11.6, printed p. 56 (arXiv v2)",
+     "match": "The definition."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicTower.cyclotomicUnits",
+     "role": "constructor",
+     "statement": "D_n."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.realCyclotomicUnits",
+     "role": "constructor",
+     "statement": "D_n^+."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.cyclotomicUnits_le",
+     "role": "structure",
+     "statement": "D_n ⊆ 𝓞^×."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.cyclotomicUnits_galois",
+     "role": "functoriality",
+     "statement": "D_n is Gal(ℚ(μ_{p^n})/ℚ)-stable."
+    }
+   ],
+   "tests": [
+    {
+     "name": "D1_plus_three",
+     "kind": "value",
+     "statement": "p = 3, n = 1: D_1^+ = {±1}."
+    },
+    {
+     "name": "D1_plus_five",
+     "kind": "value",
+     "statement": "p = 5, n = 1: D_1^+ = ⟨−1, ε⟩ with ε = (1 + √5)/2, index 1 = h(ℚ(√5))."
+    },
+    {
+     "name": "D_nonunit_generator",
+     "kind": "non-example",
+     "statement": "ζ_{p^n} − 1 itself is not in D_n (its norm is p)."
+    }
+   ],
+   "uses": [
+    {
+     "where": "RJW Theorem 11.7",
+     "how": "the index formula"
+    },
+    {
+     "where": "RJW Definition 11.8",
+     "how": "the p-adic closure C_n"
+    },
+    {
+     "where": "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units",
+     "how": "global cyclotomic units"
+    }
+   ],
+   "planet": {
+    "name": "Cyclotomic units"
+   }
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/smoothed-cyclotomic-unit",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "The units c_n(a) and γ_{n,a}",
+   "kind": "construction",
+   "statement": "For (a, p) = 1: c_n(a) = (ζ^a − 1)/(ζ − 1) = ∑_{i<a} ζ^i ∈ D_n, and γ_{n,a} = ζ^{(1−a)/2} c_n(a) = (ζ^{a/2} − ζ^{−a/2})/(ζ^{1/2} − ζ^{−1/2}) ∈ D_n^+, where ζ^{1/2} is the square root of ζ in μ_{p^n} (p odd).",
+   "hypotheses": [
+    "p odd; (a, p) = 1; ζ = ζ_{p^n}."
+   ],
+   "proofSteps": [
+    "c_n(a) is a unit (IsPrimitiveRoot.geom_sum_isUnit); γ_{n,a} is fixed by complex conjugation by the second formula."
+   ],
+   "acceptance": [
+    "γ_{n,−1} = −1."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/cyclotomic-unit-group",
+    "mathlib:IsPrimitiveRoot.geom_sum_isUnit"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§12.3, before Lemma 12.18, printed p. 62 (arXiv v2)",
+     "match": "The definitions."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCeti.CyclotomicTower.cUnit",
+     "role": "constructor",
+     "statement": "c_n(a) = ∑_{i<a} ζ^i."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.isUnit_cUnit",
+     "role": "characterisation",
+     "statement": "c_n(a) is a unit for (a, p) = 1."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.gamma_real",
+     "role": "characterisation",
+     "statement": "γ_{n,a} is real."
+    },
+    {
+     "name": "TauCeti.CyclotomicTower.gamma_galois",
+     "role": "relation",
+     "statement": "σ_b(γ_{n,a}) = γ_{n,ab}/γ_{n,b}."
+    }
+   ],
+   "tests": [
+    {
+     "name": "cUnit_three_two",
+     "kind": "value",
+     "statement": "p = 3, n = 1: c_1(2) = 1 + ζ_3 = −ζ_3²."
+    },
+    {
+     "name": "gamma_five_two",
+     "kind": "value",
+     "statement": "p = 5, n = 1: γ_{1,2} = −(1 + √5)/2."
+    },
+    {
+     "name": "gamma_minus_one",
+     "kind": "degenerate",
+     "statement": "γ_{n,−1} = −1."
+    }
+   ],
+   "uses": [
+    {
+     "where": "IntegralIwasawaTheory:L0/cyclotomic-unit-generators",
+     "how": "generators of D_n^+"
+    },
+    {
+     "where": "RJW §10.2",
+     "how": "c(a) = (c_n(a))_n in the local units, Coleman power series ((1+T)^a − 1)/T"
+    }
+   ]
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/prime-to-p-reduction",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "Reduction to exponents prime to p",
+   "kind": "lemma",
+   "statement": "For p odd, (b, p) = 1 and 1 ≤ m < n: ζ^{bp^m} − 1 = ∏_{j<p^m} (ζ^{b + jp^{n−m}} − 1), with every exponent b + jp^{n−m} prime to p.",
+   "hypotheses": [
+    "p odd (for p = 2 the product carries a sign)."
+   ],
+   "proofSteps": [
+    "∏_{η ∈ μ_{p^m}} (Xη − 1) = (−1)^{p^m+1}(X^{p^m} − 1) = X^{p^m} − 1 for p odd, at X = ζ^b."
+   ],
+   "acceptance": [
+    "So D_n is generated by ±ζ and the ζ^a − 1 with (a, p) = 1."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/cyclotomic-unit-group"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§12.3, proof of Lemma 12.18, p. 63 (arXiv v2)",
+     "match": "The identity."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/valuation-balance",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "Exponent sums of units vanish",
+   "kind": "lemma",
+   "statement": "For (a, p) = 1, ζ^a − 1 is associated to ζ − 1 (so all have the same p-adic valuation 1/((p−1)p^{n−1})); hence if ±ζ^d ∏_a (ζ^a − 1)^{e_a} is a unit then ∑_a e_a = 0.",
+   "hypotheses": [
+    "(a, p) = 1."
+   ],
+   "proofSteps": [
+    "IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime; take the valuation at the unique prime above p."
+   ],
+   "acceptance": [
+    "This is where integrality enters the definition of D_n."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/cyclotomic-unit-group",
+    "mathlib:IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§12.3, proof of Lemma 12.18, p. 63 (arXiv v2)",
+     "match": "The valuation count."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/cyclotomic-unit-generators",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "Generators of the cyclotomic units",
+   "kind": "lemma",
+   "statement": "For p odd and n ≥ 1: D_n^+ is generated by −1 and γ_{n,a} (1 < a < p^n/2, (a, p) = 1), and D_n = ⟨ζ_{p^n}⟩·D_n^+.",
+   "hypotheses": [
+    "p odd."
+   ],
+   "proofSteps": [
+    "prime-to-p-reduction and ζ^a − 1 = −ζ^a(ζ^{−a} − 1) reduce to 1 ≤ a < p^n/2, (a, p) = 1.",
+    "valuation-balance gives ∑ e_a = 0, so the element is ±ζ^e ∏ γ_{n,a}^{e_a} with e = d + ½∑e_a(a − 1).",
+    "γ_{n,a} are real, so the element is in D_n^+ iff e = 0."
+   ],
+   "acceptance": [
+    "The torsion of D_n is μ_{2p^n}."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/prime-to-p-reduction",
+    "IntegralIwasawaTheory:L0/valuation-balance",
+    "IntegralIwasawaTheory:L0/smoothed-cyclotomic-unit"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§12.3, Lemma 12.18, printed pp. 62–63 (arXiv v2)",
+     "match": "The statement."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/cyclic-generation",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "D_n^+ is cyclic over ℤ[Γ_n^+]",
+   "kind": "lemma",
+   "statement": "If a generates (ℤ/p^n)^×, then D_n^+ = ℤ[Γ_n^+]·γ_{n,a}: every γ_{n,b} is ∏_{i<r} σ_a^i(γ_{n,a}) for b ≡ a^r, and −1 = γ_{n,−1} is included.",
+   "hypotheses": [
+    "p odd; a a primitive root modulo p^n."
+   ],
+   "proofSteps": [
+    "σ_a^i(γ_{n,a}) = γ_{n,a^{i+1}}/γ_{n,a^i}; the product telescopes to γ_{n,a^r} = γ_{n,b} (the ζ^{(1−b)/2} factors telescope too).",
+    "−1 = γ_{n,−1} and −1 ≡ a^{φ(p^n)/2}."
+   ],
+   "acceptance": [
+    "Equivalently N_{ℚ(μ_{p^n})^+/ℚ}(γ_{n,a}) = −1, checked numerically for p ≤ 11, n ≤ 3."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/cyclotomic-unit-generators",
+    "IntegralIwasawaTheory:L0/tower-galois-compatibility"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§12.3, Corollary 12.19 and its proof, p. 63 (arXiv v2)",
+     "match": "The statement; the displayed chain is corrected (sourceIssues E1)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/unit-index-real-full",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "Full and real unit indices agree",
+   "kind": "lemma",
+   "statement": "For p odd, [V_n : D_n] = [V_n^+ : D_n^+], where V_n = 𝓞^×_{ℚ(μ_{p^n})}; equivalently Hasse's unit index Q(ℚ(μ_{p^n})) = 1, so V_n = μ_{2p^n}·V_n^+.",
+   "hypotheses": [
+    "p odd, n ≥ 1."
+   ],
+   "proofSteps": [
+    "Hasse's unit index is 1 or 2 (NumberField.IsCMField.indexRealUnits_eq_one_or_two), and it is 2 iff some unit u has u/ū not of the form ζ²ᵏ; for ℚ(μ_{p^n}) every unit is ζ^k times a real unit (NumberField.IsCMField.indexRealUnits_eq_two_iff with the prime (ζ − 1) above p).",
+    "cyclotomic-unit-generators gives D_n = ⟨ζ⟩·D_n^+ with the same torsion; the indices agree."
+   ],
+   "acceptance": [
+    "Fails for general CM fields, where Q = 2 can occur."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/cyclotomic-unit-generators",
+    "mathlib:NumberField.IsCMField.indexRealUnits",
+    "mathlib:NumberField.IsCMField.indexRealUnits_eq_one_or_two",
+    "mathlib:NumberField.IsCMField.indexRealUnits_eq_two_iff"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§11.3, Theorem 11.7, printed p. 56 (arXiv v2)",
+     "match": "The equality [V_n : D_n] = [V_n^+ : D_n^+]."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "IntegralIwasawaTheory:L0/index-formula",
+   "parentStageId": "IntegralIwasawaTheory:L0",
+   "realises": [
+    "IntegralIwasawaTheory:L0"
+   ],
+   "title": "The cyclotomic unit index formula",
+   "kind": "theorem",
+   "statement": "For p odd and n ≥ 1, D_n^+ has finite index in V_n^+ and [V_n^+ : D_n^+] = h_n^+ = #Cl(ℚ(μ_{p^n})^+); hence also [V_n : D_n] = h_n^+.",
+   "hypotheses": [
+    "p odd, n ≥ 1."
+   ],
+   "proofSteps": [
+    "Reg(D_n^+) = [V_n^+ : D_n^+]·Reg(V_n^+) (both of full rank).",
+    "Reg(D_n^+) is a group determinant over Γ_n^+, which factors as ∏_{χ ≠ 1 even} of −½∑_a χ(a) log|1 − ζ^a|.",
+    "For even χ ≠ 1 of conductor f, L(1, χ) = −(τ(χ)/f)∑_a χ̄(a) log|1 − ζ_f^a|; nonvanishing is Mathlib's DirichletCharacter.LFunction_apply_one_ne_zero.",
+    "ζ_{ℚ(μ_{p^n})^+}(s) = ∏_{χ even} L(s, χ) and the analytic class number formula for ℚ(μ_{p^n})^+ (Mathlib's residue of the Dedekind zeta function) combine to h_n^+ Reg(V_n^+) = Reg(D_n^+).",
+    "unit-index-real-full gives the full-field equality."
+   ],
+   "acceptance": [
+    "The analytic steps are not decomposed in this checkpoint; see gaps."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L0/unit-index-real-full",
+    "IntegralIwasawaTheory:L0/cyclic-generation",
+    "mathlib:NumberField.Units.regulator",
+    "mathlib:DirichletCharacter.LFunction_apply_one_ne_zero",
+    "mathlib:NumberField.tendsto_sub_one_mul_dedekindZeta_nhdsGT"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/Cyclotomic/Tower",
+    "namespace": "TauCeti.CyclotomicTower"
+   },
+   "sources": [
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§11.3, Theorem 11.7, printed p. 56 (arXiv v2)",
+     "match": "The statement."
+    },
+    {
+     "sourceId": "RJW-PADIC-L",
+     "locator": "§11.3, proof of Theorem 11.7, printed p. 56 (arXiv v2)",
+     "match": "The route of the proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Cyclotomic unit index formula"
+   }
+  }
+ ],
+ "requests": [],
+ "coverage": [
+  {
+   "stageId": "IntegralIwasawaTheory:I.8",
+   "status": "not_read",
+   "remaining": [
+    "Read Burns–Flach/Kurihara on RΓ_c(O_{F∞,S}, ℤ_p(1)): perfectness, derived limit, H² = S-ramified module, H³ = ℤ_p, real places at p = 2; import generic compact support from ArithmeticGaloisDuality:D7."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:I.9",
+   "status": "not_read",
+   "remaining": [
+    "Read Kurihara, Theorem 4.1 and Lemma 4.2, for the all-prime determinant main conjecture over totally real fields, including p = 2."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L0",
+   "status": "partial",
+   "remaining": [
+    "The analytic steps of the index formula (gap): the even-character L(1, χ) formula, the factorisation of the Dedekind zeta function of ℚ(μ_m)^+, the group determinant and the discriminant of ℚ(μ_{p^n})^+.",
+    "Variants and correction factors for general abelian fields (Sinnott's index), not only prime-power conductor.",
+    "p = 2 cyclotomic units (RJW assume p odd)."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L1",
+   "status": "not_read",
+   "remaining": [
+    "Specialise I.2's class/Galois carriers to ℚ(μ_{p^∞})^+ and prove 0 → E^+/C^+ → U^+/C^+ → X^+ → Y^+ → 0 (RJW §13.2, Proposition 13.13, Corollary 13.14, with the register's corrections)."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L2",
+   "status": "not_read",
+   "remaining": [
+    "RJW Appendix A: control and class-number growth, μ = 0 criteria, general ℤ_p-extensions."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L3",
+   "status": "not_read",
+   "remaining": [
+    "RJW §13.4: Vandiver's condition, Y^+ = 0, E^+ = C^+, the cyclic X^+ isomorphism (Theorem 13.11)."
+   ]
+  },
+  {
+   "stageId": "IntegralIwasawaTheory:L4",
+   "status": "not_read",
+   "remaining": [
+    "Baker–Brumer and abelian Leopoldt; Ferrero–Washington including p = 2; Greenberg's Conjecture A.15."
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "title": "Analytic steps of the index formula",
+   "neededBy": [
+    "IntegralIwasawaTheory:L0/index-formula"
+   ],
+   "detail": "The regulator computation of Washington, Introduction to Cyclotomic Fields, Theorem 8.2 (which RJW cite for Theorem 11.7) was not accessed. Missing as nodes: the formula L(1, χ) = −(τ(χ)/f)∑χ̄(a)log|1 − ζ_f^a| for even χ, the factorisation ζ_{ℚ(μ_m)^+} = ∏_{χ even} L(s, χ), the group determinant over Γ_n^+, and the discriminant of ℚ(μ_{p^n})^+ in the class number formula."
+  }
+ ],
+ "sourceIssues": [
+  {
+   "id": "IntegralIwasawaTheory/E81",
+   "source": "RJW-PADIC-L",
+   "kind": "misprint",
+   "locator": "§12.3, Corollary 12.19 and its proof, p. 63 (arXiv v2)",
+   "printed": "γn,b = (ξ^{a^r}_pn − 1)/(ξpn − 1) = ∏_{i=0}^{r−1} (ξ^{a^{i+1}}_pn − 1)/(ξ^{a^i}_pn − 1) = ∏ (γn,a)^{σ^i_a}.",
+   "correction": "c_n(b) = (ξ^{a^r} − 1)/(ξ − 1) = ∏_{i<r} σ_a^i(c_n(a)); multiplying by ξ^{(1−b)/2} = ∏_{i<r} σ_a^i(ξ^{(1−a)/2}) gives γ_{n,b} = ∏_{i<r} σ_a^i(γ_{n,a}).",
+   "reason": "γ_{n,b} = ξ^{(1−b)/2} c_n(b), so the first equality drops the root-of-unity factor, and the middle product is c_n(a)-quotients, not γ_{n,a}'s. The telescoping of the exponents ∑_{i<r} a^i(1 − a) = 1 − a^r restores the stated conclusion.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "research/errata/REGISTER.md: RJW entries exist, none for Corollary 12.19",
+    "the published version (Essential Number Theory 4, 2025) was not accessed"
+   ]
+  }
+ ]
+}
