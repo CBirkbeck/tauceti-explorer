@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-5678 new mistakes confirmed · 1423 awaiting review · 688 already corrected in print · 88 rejected on review · 19 extractions and packets not yet checked.
+5678 new mistakes confirmed · 1424 awaiting review · 688 already corrected in print · 88 rejected on review · 19 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -10709,6 +10709,10 @@ Both feed Theorem 6.1 and Theorem 7.1, hence the main theorem for every odd b �
 ### René Schoof, Abelian varieties over cyclotomic fields with good reduction everywhere, Math. Ann. 325 (2003), 413–448, author copy; errata note erratacyc.txt checked; accessed 2026-09-28 (`FiniteFlatGroupsAndIntegralPadicHodgeTheory`)
 
 - **Misprint** at Proof of Corollary 2.4, last paragraph, p. 420. The source says `The source takes X over R̂ and X′ over R[1/p], each extending H by G. It then says that Prop.2.3 associates to (X, X′, θ) an R-group scheme extending H by G over R.`; it should be `extensions of G by H (0 → H → X → G → 0), in both places.`. The step proves exactness at Ext¹_R̂(G, H) × Ext¹_{R[1/p]}(G, H), whose elements are extensions of G by H, the convention used earlier in the same proof ('let X be an extension of G by H over R') and in the definition of δ. Extensions of H by G would lie in Ext¹(H, G). Recorded as `FiniteFlatGroupsAndIntegralPadicHodgeTheory/E1`; looked for an existing correction in: https://www.mat.uniroma2.it/~schoof/erratacyc.txt (the author's errata for this article; its entries concern pp. 426–446); https://www.mat.uniroma2.it/~schoof/papers.html.
+
+### Jean-Marc Fontaine and Guy Laffaille, Construction de représentations p-adiques, Ann. Sci. École Norm. Sup. (4) 15 (1982), no. 4, 547–608, Numdam copy (journal page = PDF page + 545); accessed 2026-09-28 (`FiniteFlatGroupsAndIntegralPadicHodgeTheory`)
+
+- **Misprint** at §6.5, first sentence, p. 584. The source says `In §6.5, proving (ii) of Theorem 6.1, the source cites Theorem 4.3 for the exactness and faithfulness of U_S.`; it should be `“D'après le théorème 3.3 …”: exactness and faithfulness of U_S is Theorem 3.3.`. 4.3 is a definition (A-objects of the category of simple p-torsion objects, p. 566), not a theorem; the exactness and faithfulness of U_S is Theorem 3.3 (p. 562), as the introduction (0.6, 'cf. th. 3.3') also says. Checked on the page image of the Numdam scan, not only its OCR. Recorded as `FiniteFlatGroupsAndIntegralPadicHodgeTheory/E2`; looked for an existing correction in: Numdam item ASENS_1982_4_15_4_547_0 (no erratum attached); Annales scientifiques de l'ENS, tome 15 (1982) tables of contents on Numdam (no correction listed).
 
 ### Mark Kisin, Modularity of 2-adic Barsotti–Tate representations, Author's preprint as a DVI file on Kisin's Harvard page (TeX output dated 21 October 2008), read through a text extraction of the DVI; printed page = DVI page (the preprint's own numbering). Published as Invent. Math. 178 (2009), 587–634. (`GL2ModularityLifting`)
 

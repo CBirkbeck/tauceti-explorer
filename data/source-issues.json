@@ -135928,6 +135928,26 @@
    "reviewReason": null
   },
   {
+   "id": "FiniteFlatGroupsAndIntegralPadicHodgeTheory/E2",
+   "kind": "misprint",
+   "locator": "§6.5, first sentence, p. 584",
+   "printed": "In §6.5, proving (ii) of Theorem 6.1, the source cites Theorem 4.3 for the exactness and faithfulness of U_S.",
+   "correction": "“D'après le théorème 3.3 …”: exactness and faithfulness of U_S is Theorem 3.3.",
+   "reason": "4.3 is a definition (A-objects of the category of simple p-torsion objects, p. 566), not a theorem; the exactness and faithfulness of U_S is Theorem 3.3 (p. 562), as the introduction (0.6, 'cf. th. 3.3') also says. Checked on the page image of the Numdam scan, not only its OCR.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Numdam item ASENS_1982_4_15_4_547_0 (no erratum attached)",
+    "Annales scientifiques de l'ENS, tome 15 (1982) tables of contents on Numdam (no correction listed)"
+   ],
+   "owner": "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+   "file": "research/blueprint/packets/FiniteFlatGroupsAndIntegralPadicHodgeTheory.json",
+   "citation": "Jean-Marc Fontaine and Guy Laffaille, Construction de représentations p-adiques, Ann. Sci. École Norm. Sup. (4) 15 (1982), no. 4, 547–608, Numdam copy (journal page = PDF page + 545); accessed 2026-09-28",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GL2ModularityLifting/E1",
    "kind": "misprint",
    "locator": "Theorem (0.9)(2), p. 4, and Theorem (3.3.5)(2), p. 45, in the author's preprint (DVI of 21 October 2008); the published version (Invent. Math. 178 (2009)) was not accessible",
