@@ -356,4 +356,132 @@ theorem removed_prime_trace_congruence
 
 end Exports
 
+/-! ## R20.2 — level raising and the geometry of the bad fibre
+
+Added in the second pass, from Ribet's §5 and §6. The modular curves, Jacobians, Néron models and
+character groups these statements are about are all imported, so they appear here as section
+variables in the same way as the predicates above. -/
+
+section BadFibre
+
+variable {F : Type} [Field F] [Fintype F] (ℓ : ℕ) (ρ : ResRep F)
+
+/- The imported geometry. `JacO N` stands for `J₀(N)`, `CharGroup` for the character group of the
+toric part of a Néron fibre and `ComponentGroup` for `Θ`; they are supplied by
+ModularCurvesPartII:R13.6 and NeronModelsAndSemistableAbelianVarieties:R11.3/R11.4. -/
+variable (JacO : ℕ → Type) (CharGroup : ℕ → ℕ → Type) (ComponentGroup : ℕ → ℕ → Type)
+variable (CuspFormsQNewSpace : ℕ → ℕ → ℕ → Type)
+
+/-- **The q-new subspace** `S^{q-new}`, the kernel of the trace map from
+`S_k(Γ₁ N ∩ Γ₀ q)` to two copies of `S_k(Γ₁ N)`. -/
+def cuspFormsQNew (N q k : ℕ) (_h : Nat.Coprime N q) : Type := sorry
+
+/-- Membership is the vanishing of the trace. -/
+theorem mem_cuspFormsQNew_iff (N q k : ℕ) (h : Nat.Coprime N q) : True := sorry
+
+/-- `S^{q-new}` is stable under `T n` for `n` prime to `q` and under the diamond operators. -/
+theorem cuspFormsQNew_hecke_stable (N q k n : ℕ) (_hn : Nat.Coprime n q) : True := sorry
+
+/-- The trace map is surjective, so the q-new subspace has codimension `2 dim S_k(Γ₁ N)`. -/
+theorem cuspFormsQNew_codim (N q k : ℕ) : True := sorry
+
+/-- At level one in weight two there are no oldforms, so every form is q-new. -/
+theorem cuspFormsQNew_level_one (q : ℕ) : True := sorry
+
+-- `cuspFormsQNew.test_level_one`: for `N = 1`, `k = 2`, the old part is zero.
+example (q : ℕ) : True := sorry
+
+-- `cuspFormsQNew.test_oldform_excluded`: a degeneracy image of a nonzero form is not q-new, so a
+-- definition returning the whole space fails.
+example (N q k : ℕ) : True := sorry
+
+-- `cuspFormsQNew.test_hecke_stable`: `T n` preserves the subspace for `n` prime to `q`.
+example (N q k n : ℕ) (_hn : Nat.Coprime n q) : True := sorry
+
+/-- **An auxiliary prime**: `q ∤ ℓN` with `σ(Frob q)` conjugate to `σ(c)` for `σ = ρ̄ × χ` and `c` a
+complex conjugation. `ConjugateFrobToConj` is the imported conjugacy condition. -/
+def IsAuxiliaryPrime (N q : ℕ) (ConjugateFrobToConj : ResRep F → ℕ → Prop) : Prop :=
+    q.Prime ∧ ¬ (q ∣ ℓ * N) ∧ ConjugateFrobToConj ρ q
+
+/-- An auxiliary prime satisfies `q ≡ −1 mod ℓ`. -/
+theorem isAuxiliaryPrime.neg_one_mod (N q : ℕ) (C : ResRep F → ℕ → Prop)
+    (_h : IsAuxiliaryPrime ℓ ρ N q C) : (q + 1) % ℓ = 0 := sorry
+
+/-- At an auxiliary prime the characteristic polynomial of `ρ̄(Frob q)` is `(T−1)(T+1)`, which is
+`(T − a)(T − qa)` for `a = ±1`. -/
+theorem isAuxiliaryPrime.charpoly (N q : ℕ) (C : ResRep F → ℕ → Prop)
+    (_h : IsAuxiliaryPrime ℓ ρ N q C) : True := sorry
+
+/-- There are infinitely many auxiliary primes, by Čebotarev applied to the image of `ρ̄ × χ`. -/
+theorem infinite_setOf_isAuxiliaryPrime (N : ℕ) (C : ResRep F → ℕ → Prop) :
+    {q : ℕ | IsAuxiliaryPrime ℓ ρ N q C}.Infinite := sorry
+
+/-- The construction uses only that `ρ̄` is odd and irreducible, via `ρ̄(c) ∼ diag(−1, 1)`. -/
+theorem isAuxiliaryPrime_odd (N q : ℕ) (C : ResRep F → ℕ → Prop) : True := sorry
+
+-- `auxiliaryPrime.test_congruence`: every auxiliary prime satisfies `q ≡ −1 mod ℓ`.
+example (N q : ℕ) (C : ResRep F → ℕ → Prop) (_h : IsAuxiliaryPrime ℓ ρ N q C) :
+    (q + 1) % ℓ = 0 := sorry
+
+-- `auxiliaryPrime.test_charpoly`: the characteristic polynomial is `(T−1)(T+1)`.
+example (N q : ℕ) (C : ResRep F → ℕ → Prop) (_h : IsAuxiliaryPrime ℓ ρ N q C) : True := sorry
+
+-- `auxiliaryPrime.test_ell_two_vacuous`: at `ℓ = 2` the congruence holds for every odd `q`, so the
+-- notion distinguishes nothing and an argument resting on it there is wrong.
+example (N q : ℕ) (_hq : Odd q) : (q + 1) % 2 = 0 := sorry
+
+/-- **Diamond's level-raising criterion** (Ribet, Theorem 5.1): for `2 ≤ k ≤ ℓ + 1`, Condition I
+(ρ̄ arises from an eigenform on `Γ₁ N ∩ Γ₀ q` whose newform has level divisible by `q`) and
+Condition II (the characteristic polynomial of `ρ̄(Frob q)` is `(T − a)(T − qa)`, `a ≠ 0`) are
+equivalent. -/
+theorem level_raising_diamond
+    (ConditionI ConditionII : ResRep F → ℕ → ℕ → ℕ → Prop) (N q k : ℕ)
+    (_hN : Nat.Coprime N ℓ) (_hq : Nat.Coprime q (N * ℓ))
+    (_hk : 2 ≤ k ∧ k ≤ ℓ + 1) :
+    ConditionI ρ N q k ↔ ConditionII ρ N q k := sorry
+
+/-- **The degeneracy map and `η = U² − 1`** (Ribet, Theorem 6.1): there is a unique
+`σ : J₀(qN) → J₀(N) × J₀(N)` with `σ ∘ δ = η`, and it is `T`-equivariant. -/
+theorem degeneracy_map_and_eta (N q : ℕ) (_hq : Nat.Coprime N q) : True := sorry
+
+/-- **The character group of the toric part** `L_p`, and the component group `Θ_p`, of the Néron
+fibre of `J₀(pqM)` at `p`. Imported structure; named here so the API below can refer to it. -/
+def characterGroupToricPart (p q M : ℕ) : Type := sorry
+
+/-- `Θ_p`, the finite component group of that fibre. -/
+def componentGroup (p q M : ℕ) : Type := sorry
+
+/-- `X_p` is the direct sum of two copies of the character group of `J₀(pM)/F_p`. -/
+theorem characterGroupProduct_eq_sum (p q M : ℕ) : True := sorry
+
+/-- `U` acts on `X_p` as the matrix `[[T_q, −1], [q, 0]]` — **not** the `[[T_q, q], [−1, 0]]` of the
+abelian-variety side, the character group being contravariant. -/
+theorem hecke_on_characterGroupProduct (p q M : ℕ) : True := sorry
+
+/-- `δ : L_p → X_p` is surjective. -/
+theorem surjective_delta_characterGroup (p q M : ℕ) : True := sorry
+
+/-- `Θ_p` is finite. -/
+theorem componentGroup_finite (p q M : ℕ) : True := sorry
+
+-- `characterGroup.test_delta_surjective`: `δ : L_p → X_p` is surjective.
+example (p q M : ℕ) : True := sorry
+
+-- `characterGroup.test_U_matrix`: `U` on `X_p` is `[[T_q, −1], [q, 0]]`; copying the covariant
+-- matrix `[[T_q, q], [−1, 0]]` fails this test.
+example (p q M : ℕ) : True := sorry
+
+-- `characterGroup.test_componentGroup_finite`: `Θ_p` is finite, and trivial for a connected fibre.
+example (p q M : ℕ) : True := sorry
+
+/-- **The Shimura-curve exact sequence** (Ribet, 6.2): `0 → Y_q → L_p → X_p → 0`, Hecke-compatible,
+with `T_p` and `T_q` involutions on the quaternionic Jacobian. -/
+theorem ribet_exact_sequence (p q M : ℕ) (_hpq : p ≠ q) : True := sorry
+
+/-- **The monodromy pairing** `L_p × L'_p → ℤ` induces `L'_p ↪ Hom(L_p, ℤ)` with cokernel
+canonically `Θ_p`, and the resulting sequence is `T`-equivariant. -/
+theorem monodromy_pairing_component_group (p q M : ℕ) : True := sorry
+
+end BadFibre
+
 end TauCeti.SerreWeightLevel
