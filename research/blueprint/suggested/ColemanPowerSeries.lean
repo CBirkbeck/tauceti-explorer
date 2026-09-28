@@ -1,3 +1,5 @@
+import Mathlib.Topology.Algebra.Valued.NormedValued
+import Mathlib.RingTheory.Localization.Integral
 import Mathlib.Analysis.Normed.Ring.Finite
 import Mathlib.RingTheory.PowerSeries.Evaluation
 import Mathlib.NumberTheory.Padics.Complex
@@ -1534,5 +1536,77 @@ example (n : ℕ) :
 -- CyclotomicTopologyTests.dyadic_constant_evaluation_lift
 example (u : (integralClosure ℤ_[2] (level 2 0))ˣ) :
     ∃ a : ℤ_[2], IsUnit a ∧ seriesEvaluation 2 0 (PowerSeries.C a) = u := sorry
+end ColemanCyclotomic
+end
+
+/-! Cyclotomic comparison with the native norm valuation.
+All results concern the existing spectral norm and integral closure. The owner’s
+normalized local-field valuation and ramification interface remain separate. -/
+noncomputable section
+namespace ColemanCyclotomic
+open scoped Topology
+variable (p : ℕ) [Fact p.Prime]
+local notation "O" => fun n => integralClosure ℤ_[p] (level p n)
+local notation "ϖ" => fun n => integralZeta p n-1
+local notation "m" => fun n => IsLocalRing.maximalIdeal (O n)
+local notation "v" => fun n => NormedField.valuation (K := level p n)
+
+lemma norm_unit_mul_zpow (n : ℕ) (u : (O n)ˣ) (k : ℤ) :
+    ‖algebraMap (O n) (level p n) (u : O n) *
+      (zeta p n-1)^k‖ = ‖ϖ n‖^k := sorry
+
+theorem norm_value_group (n : ℕ) (x : level p n) (hx : x ≠ 0) :
+    ∃! k : ℤ, ‖x‖ = ‖ϖ n‖^k := sorry
+
+theorem isIntegral_iff_norm_le_one (n : ℕ) (x : level p n) :
+    IsIntegral ℤ_[p] x ↔ ‖x‖ ≤ 1 := sorry
+
+theorem integers_norm_valuation (n : ℕ) : (v n).Integers (O n) := sorry
+
+theorem integralClosure_eq_norm_integer (n : ℕ) :
+    (O n).toSubring = (v n).integer := sorry
+
+lemma integers_isUnit_iff_norm_eq_one (n : ℕ) (x : O n) :
+    IsUnit x ↔ ‖x‖ = 1 := sorry
+
+lemma mem_maximalIdeal_iff_norm_lt_one (n : ℕ) (x : O n) :
+    x ∈ m n ↔ ‖x‖ < 1 := sorry
+
+lemma reduction_eq_zero_iff_norm_lt_one (n : ℕ) (x : O n) :
+    reduction p n x = 0 ↔ ‖x‖ < 1 := sorry
+
+lemma mem_maximalIdeal_pow_iff_norm_le (n r : ℕ) (x : O n) :
+    x ∈ (m n)^r ↔ ‖x‖ ≤ ‖ϖ n‖^r := sorry
+
+lemma primeIdeal_eq_maximalIdeal_pow (n : ℕ) :
+    Ideal.span {(p : O n)} = (m n)^(p^n*(p-1)) := sorry
+
+theorem maximalIdeal_pow_nhds_basis (n : ℕ) :
+    (𝓝 (0 : O n)).HasBasis (fun _ : ℕ => True)
+      (fun r => (↑((m n)^r : Ideal (O n)) : Set (O n))) := sorry
+
+-- CyclotomicValuationTests.zero_integral
+example (n : ℕ) : IsIntegral ℤ_[p] (0 : level p n) := sorry
+-- CyclotomicValuationTests.inverse_difference_nonintegral
+example (n : ℕ) : ¬ IsIntegral ℤ_[p] ((zeta p n-1)⁻¹) := sorry
+-- CyclotomicValuationTests.dyadic_signed_norm
+example (k : ℤ) : ‖(zeta 2 0-1)^k‖ = (1/2 : ℝ)^k := sorry
+-- CyclotomicValuationTests.native_valuation_root
+example (n : ℕ) : zeta p n ∈ (v n).integer := sorry
+-- CyclotomicValuationTests.ternary_inverse_prime
+example : ¬ IsIntegral ℤ_[3] ((3 : level 3 0)⁻¹) := sorry
+-- CyclotomicValuationTests.residue_difference
+example (n : ℕ) (x y : O n) :
+    reduction p n x = reduction p n y ↔ ‖x-y‖ < 1 := sorry
+-- CyclotomicValuationTests.power_zero
+example (n : ℕ) (x : O n) : x ∈ (m n)^0 := sorry
+-- CyclotomicValuationTests.uniformizer_boundary
+example (n r : ℕ) : (ϖ n)^r ∈ (m n)^r ∧ (ϖ n)^r ∉ (m n)^(r+1) := sorry
+-- CyclotomicValuationTests.dyadic_primeIdeal
+example : Ideal.span {(2 : integralClosure ℤ_[2] (level 2 0))} =
+    IsLocalRing.maximalIdeal (integralClosure ℤ_[2] (level 2 0)) := sorry
+-- CyclotomicValuationTests.ternary_primeIdeal
+example : Ideal.span {(3 : integralClosure ℤ_[3] (level 3 0))} =
+    (IsLocalRing.maximalIdeal (integralClosure ℤ_[3] (level 3 0)))^2 := sorry
 end ColemanCyclotomic
 end

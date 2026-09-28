@@ -10,7 +10,7 @@
     "ColemanPowerSeries:L4"
   ],
   "status": "partial",
-  "summary": "Partial continuation preserving all98 predecessor nodes. Nine L3 declarations decompose compactness of norm-fixed units, closedness of the actual logarithmic-derivative image, psi-fixed saturation, coefficientwise precision limits, signed precision improvement, arbitrary-precision approximation and conditional surjectivity. Every residue-series unit lifts through the existing norm limit, reducing actual surjectivity precisely to the characteristic-p image assertion of Lemmas12.13–12.14. No stage is closed. Arithmetic interpolation, the remaining image calculation, Coleman factors and local cyclotomic quotients remain required. The characteristic-p logarithmic image is now decomposed through native Euler products, coefficient corrections and the imported residue averaging/fixed-error results, yielding unconditional surjectivity of the actual norm-fixed logarithmic derivative. Seven L1 nodes now give the exact root-product characterization and uniqueness of the actual determinant norm. They include promotion of the already signed scalar-map API, so six new declarations and five typed examples are added. Arithmetic norm/evaluation and interpolation remain gaps. Seventeen L0 declarations now specify the actual local cyclotomic algebraic tower, with a native Eisenstein proof over ℤ_p, compatible roots and included fields, degrees, power basis, minimal polynomial and signed relative norms. Fifteen further L0 declarations supply the algebraic cyclotomic integral closure, integral power basis and explicit difference quotient ZMod p, while retaining the valuation-ring and uniformizer comparison boundary. Thirteen new L0 nodes supply the algebraic local/DVR structure, canonical residue field and exact unit-polynomial lifting at each cyclotomic level. The topological local-field comparison and arithmetic interpolation remain open. The inherited spectral norm makes the actual cyclotomic integral rings compact and linearly topologized, with exact difference norm-power formula; native convergent series evaluation realizes the bounded polynomial lift of every fixed-level unit.",
+  "summary": "Partial cyclotomic norm-valuation checkpoint: eleven new L0 declarations identify the actual integral closure with the native norm unit ball, its valuation-integers certificate, value group, units, maximal ideal, residue kernel, ideal powers and topology, including (p)=m_n^(d_n). Earlier mathematics and source findings are preserved. General normalized local-field comparison and infinite norm-compatible interpolation remain explicit gaps.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -1724,6 +1724,90 @@
         "module": "Mathlib/Topology/Compactness/Compact.lean",
         "provides": "Compactness of the universe is equivalent to the native CompactSpace class.",
         "checked": "Full declaration and applicable section hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174 on27 September2026; the complete suggested import closure is separately byte-checked against the pin."
+      },
+      {
+        "ref": "mathlib:norm_zpow",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Normed/Field/Basic.lean",
+        "provides": "The norm of any integer power in a normed division ring is the corresponding integer power of the norm.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:integralClosure.isFractionRing_of_finite_extension",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Localization/Integral.lean",
+        "provides": "For a finite field extension of the fraction field of a domain, its integral closure has that extension as fraction field, with the specified scalar tower.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:zpow_right_strictAnti₀",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Order/GroupWithZero/Basic.lean",
+        "provides": "For a positive base strictly less than one, integer powers are strictly antitone in the exponent.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:zpow_le_one_iff_right_of_lt_one₀",
+        "kind": "lemma",
+        "module": "Mathlib/Algebra/Order/GroupWithZero/Basic.lean",
+        "provides": "For a positive base strictly less than one, its integer power is at most one exactly when the exponent is nonnegative.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:NormedField.valuation",
+        "kind": "def",
+        "module": "Mathlib/Topology/Algebra/Valued/NormedValued.lean",
+        "provides": "The native multiplicative nonnegative-norm valuation of a field with ultrametric norm.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:Valuation.Integers",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/Valuation/Integers.lean",
+        "provides": "The native certificate that an algebra map is injective, has valuation bounded by one, and contains every element of valuation at most one in its image.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:Valuation.mem_integer_iff",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Valuation/Integers.lean",
+        "provides": "Membership of the native valuation-integer subring is precisely valuation at most one.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:Valuation.Integers.isUnit_iff_valuation_eq_one",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Valuation/Integers.lean",
+        "provides": "For a ring certified as the integers of a valuation on a field, an element is a unit exactly when its image has valuation one.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:Ideal.span_singleton_pow",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Operations.lean",
+        "provides": "Every natural power of a two-sided principal ideal equals the ideal generated by the corresponding power of its generator.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:Valuation.Integers.dvd_iff_le",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Valuation/Integers.lean",
+        "provides": "For a ring certified as the integers of a field valuation, x divides y exactly when the valuation of y is at most that of x.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:Ideal.span_singleton_mul_right_unit",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Multiplying a principal ideal generator on the right by a unit does not change the ideal.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
+      },
+      {
+        "ref": "mathlib:Metric.nhds_basis_closedBall_pow",
+        "kind": "theorem",
+        "module": "Mathlib/Topology/MetricSpace/Pseudo/Defs.lean",
+        "provides": "For any base strictly between zero and one, closed metric balls with radii its natural powers form a neighborhood basis.",
+        "checked": "Full declaration and applicable ambient hypotheses read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174. Import-source byte audit accompanies compilation; no current upstream declaration is treated as pinned without checking."
       }
     ]
   },
@@ -11072,6 +11156,517 @@
           "statement": "At p=2,n=0 every unit is the evaluation of a constant unit in ℤ_2."
         }
       ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-norm-unit-zpow",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Norm of a unit times a signed uniformizer power",
+      "kind": "lemma",
+      "statement": "For u∈O_nˣ and k∈ℤ, ‖ι(u)(ζ_n−1)^k‖=q_n^k, where ι:O_n→K_n is the native inclusion.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "The inclusion preserves the inherited subtype norm. The preceding unit-norm theorem gives ‖ι(u)‖=1.",
+        "Use multiplicativity of the field norm and native norm_zpow, then the preceding equality ι(ϖ_n)=ζ_n−1. This works for all signed powers; no integral inverse of ϖ_n is asserted."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-unit-norm",
+        "ColemanPowerSeries:L0/integral-cyclotomic-root",
+        "mathlib:norm_zpow"
+      ],
+      "acceptance": [
+        "For p=2,n=0 the base of the norm powers is 1/2, even though the algebraic uniformizer is −2."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "norm_unit_mul_zpow"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CyclotomicValuationTests.dyadic_signed_norm",
+          "kind": "computation",
+          "statement": "For every integer k, ‖(ζ_0−1)^k‖=(1/2)^k at p=2,n=0."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-norm-value-group",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The cyclotomic spectral norm value group",
+      "kind": "theorem",
+      "statement": "Every nonzero x∈K_n has a unique integer k with ‖x‖=q_n^k.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "Apply native integralClosure.isFractionRing_of_finite_extension with A=ℤ_p, K=ℚ_p and L=K_n. The existing finite-dimensional level and scalar tower and the native fraction-field structure of ℤ_p supply every hypothesis. Use this theorem locally; do not construct another fraction field.",
+        "Apply native IsDiscreteValuationRing.exists_units_eq_smul_zpow_of_irreducible to the existing DVR O_n and irreducible ϖ_n. Its unit action on K_n is multiplication through the algebra map. The preceding norm formula gives existence.",
+        "Irreducibility gives ϖ_n≠0 and hence q_n>0; the preceding contraction gives q_n<1. Native strict antitonicity of k↦q_n^k gives uniqueness."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/local-cyclotomic-level",
+        "ColemanPowerSeries:L0/integral-cyclotomic-root",
+        "ColemanPowerSeries:L0/cyclotomic-integers-dvr",
+        "ColemanPowerSeries:L0/cyclotomic-difference-irreducible",
+        "ColemanPowerSeries:L0/cyclotomic-difference-contraction",
+        "ColemanPowerSeries:L0/cyclotomic-norm-unit-zpow",
+        "mathlib:integralClosure.isFractionRing_of_finite_extension",
+        "mathlib:IsDiscreteValuationRing.exists_units_eq_smul_zpow_of_irreducible",
+        "mathlib:zpow_right_strictAnti₀"
+      ],
+      "acceptance": [
+        "Zero is excluded because it has no finite integer exponent. This theorem does not define an additive valuation or install local-field instances."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "norm_value_group"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-integral-iff-norm",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Integrality and the cyclotomic norm unit ball",
+      "kind": "theorem",
+      "statement": "For every x∈K_n, x is integral over ℤ_p if and only if ‖x‖≤1.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "For the forward implication regard the integral element as an element of the native integral closure and use the previously established norm bound.",
+        "For the converse handle x=0 directly. Otherwise use the same native fraction-field and DVR signed factorization as in cyclotomic-norm-value-group: x=ι(u)(ζ_n−1)^k. The norm calculation gives q_n^k≤1. Positivity and strict contraction imply k≥0 by the native signed-power inequality.",
+        "Write k as a natural number r. Then uϖ_n^r lies in O_n and maps to x. Membership of the native integral closure is exactly integrality over ℤ_p. No completeness or general local-field extension theorem is used."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integers-norm-bound",
+        "ColemanPowerSeries:L0/cyclotomic-norm-value-group",
+        "ColemanPowerSeries:L0/cyclotomic-norm-unit-zpow",
+        "ColemanPowerSeries:L0/cyclotomic-difference-contraction",
+        "ColemanPowerSeries:L0/cyclotomic-difference-irreducible",
+        "mathlib:integralClosure.isFractionRing_of_finite_extension",
+        "mathlib:IsDiscreteValuationRing.exists_units_eq_smul_zpow_of_irreducible",
+        "mathlib:zpow_le_one_iff_right_of_lt_one₀"
+      ],
+      "acceptance": [
+        "Do not reverse the signed exponent inequality: q_n<1, so negative powers have norm greater than one. The zero case is integral."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "isIntegral_iff_norm_le_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CyclotomicValuationTests.zero_integral",
+          "kind": "degenerate",
+          "statement": "Zero in every K_n is integral over ℤ_p."
+        },
+        {
+          "name": "CyclotomicValuationTests.inverse_difference_nonintegral",
+          "kind": "non-example",
+          "statement": "The inverse of ζ_n−1 is not integral over ℤ_p."
+        },
+        {
+          "name": "CyclotomicValuationTests.ternary_inverse_prime",
+          "kind": "non-example",
+          "statement": "The inverse of 3 in K_0 at p=3 is not integral over ℤ_3."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-norm-integers-certificate",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The native valuation-integers certificate",
+      "kind": "comparison",
+      "statement": "The native norm valuation v_n satisfies Valuation.Integers v_n O_n for the existing inclusion O_n→K_n.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "NormedField.valuation uses the nonnegative spectral norm; the existing inherited norm is ultrametric. Its value is exactly the nonnegative norm.",
+        "The native inclusion is injective, and its values are ≤1 by the earlier norm bound. For an element of valuation≤1 use cyclotomic-integral-iff-norm to regard it as an element of O_n. These are exactly the three fields of the existing native certificate.",
+        "This certificate makes the already available native unit and divisibility valuation API applicable directly to O_n. It is a proved proposition about the existing carrier, not an assumed hypothesis or a second valuation ring."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integral-iff-norm",
+        "ColemanPowerSeries:L0/cyclotomic-integers-norm-bound",
+        "mathlib:NormedField.valuation",
+        "mathlib:Valuation.Integers"
+      ],
+      "acceptance": [
+        "General unit and divisibility facts remain native baseline results. Only the cyclotomic certificate is new."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_norm_valuation"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-norm-integer-equality",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Equality with the native norm valuation ring",
+      "kind": "comparison",
+      "statement": "As subrings of K_n, the underlying subring of O_n equals v_n.integer.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "Apply subring extensionality. Native integral-closure membership is integrality over ℤ_p; native valuation-integer membership is valuation≤1.",
+        "Rewrite the valuation as nonnegative norm, and apply cyclotomic-integral-iff-norm. Both inclusions use the same ambient K_n. No transport to a newly selected carrier or topology is required."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-integral-iff-norm",
+        "mathlib:NormedField.valuation",
+        "mathlib:Valuation.mem_integer_iff"
+      ],
+      "acceptance": [
+        "This equality identifies the norm valuation ring. The owning LocalFieldsRamification comparison with its named normalized local-field structures is still required."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integralClosure_eq_norm_integer"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CyclotomicValuationTests.native_valuation_root",
+          "kind": "compatibility",
+          "statement": "The actual ζ_n belongs to the native norm valuation ring."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-norm-unit-criterion",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Unit detection by the inherited norm",
+      "kind": "lemma",
+      "statement": "For x∈O_n, x is a unit if and only if ‖x‖=1.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "Instantiate native Valuation.Integers.isUnit_iff_valuation_eq_one with the preceding certificate. Rewrite valuation and subtype coercions as the existing norm.",
+        "The native theorem already constructs the integral inverse from the unit valuation. Do not replan its general field argument."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-norm-integers-certificate",
+        "mathlib:Valuation.Integers.isUnit_iff_valuation_eq_one"
+      ],
+      "acceptance": [
+        "The forward direction recovers the earlier integral-unit norm theorem; the new content is the converse for this actual carrier."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "integers_isUnit_iff_norm_eq_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-maximal-ideal-norm",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The maximal ideal and the open unit ball",
+      "kind": "lemma",
+      "statement": "For x∈O_n, x∈m_n if and only if ‖x‖<1.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "Native membership in the maximal ideal of a local ring is nonunit membership. Substitute the preceding unit criterion.",
+        "All elements of O_n have norm≤1. Thus norm not equal to one is equivalent to norm strictly below one."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-norm-unit-criterion",
+        "ColemanPowerSeries:L0/cyclotomic-integers-norm-bound",
+        "mathlib:IsLocalRing.mem_maximalIdeal"
+      ],
+      "acceptance": [
+        "This is an open ball in O_n; equality of norm to one characterizes its complementary unit group."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "mem_maximalIdeal_iff_norm_lt_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-reduction-norm-kernel",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Reduction and strict norm inequalities",
+      "kind": "lemma",
+      "statement": "For x∈O_n, reduction_n(x)=0 if and only if ‖x‖<1.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "The existing reduction kernel is the ideal generated by ϖ_n, and the existing maximal-ideal theorem identifies that ideal with m_n.",
+        "Apply the preceding open-ball criterion. Applying this to x−y gives equality of reductions if and only if ‖x−y‖<1. The actual residueFieldEquiv already factors this same reduction map."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-reduction-kernel",
+        "ColemanPowerSeries:L0/cyclotomic-maximal-ideal",
+        "ColemanPowerSeries:L0/cyclotomic-maximal-ideal-norm",
+        "ColemanPowerSeries:L0/cyclotomic-residue-field"
+      ],
+      "acceptance": [
+        "The existing algebraic residue map and its ZMod p comparison are preserved; no second reduction map is defined."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "reduction_eq_zero_iff_norm_lt_one"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CyclotomicValuationTests.residue_difference",
+          "kind": "compatibility",
+          "statement": "For x,y∈O_n, reduction_n(x)=reduction_n(y) if and only if ‖x−y‖<1."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-ideal-powers-norm",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "Maximal-ideal powers as closed norm balls",
+      "kind": "lemma",
+      "statement": "For every natural r and x∈O_n, x∈m_n^r if and only if ‖x‖≤q_n^r.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "Rewrite m_n as the principal ideal generated by ϖ_n. Native span_singleton_pow identifies its rth power with the principal ideal of ϖ_n^r, so membership is divisibility by that element.",
+        "Instantiate native Valuation.Integers.dvd_iff_le with the norm-integers certificate. Rewrite the two values as norms and use multiplicativity on the natural power.",
+        "For r=0 this says all of O_n has norm≤1; the ideal power is the unit ideal. For r>0 the boundary element ϖ_n^r has equality, so the inequality must be non-strict."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-maximal-ideal",
+        "ColemanPowerSeries:L0/cyclotomic-norm-integers-certificate",
+        "mathlib:Ideal.span_singleton_pow",
+        "mathlib:Valuation.Integers.dvd_iff_le"
+      ],
+      "acceptance": [
+        "This is a specialization of the native divisibility API to the actual cyclotomic maximal ideal, not a new generic classification of valuation-ring ideals."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "mem_maximalIdeal_pow_iff_norm_le"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CyclotomicValuationTests.power_zero",
+          "kind": "degenerate",
+          "statement": "Every x∈O_n belongs to m_n^0."
+        },
+        {
+          "name": "CyclotomicValuationTests.uniformizer_boundary",
+          "kind": "non-example",
+          "statement": "For every r≥0, ϖ_n^r belongs to m_n^r but does not belong to m_n^(r+1)."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-prime-ideal-power",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The rational prime ideal in the cyclotomic integers",
+      "kind": "lemma",
+      "statement": "The principal ideal generated by p in O_n equals m_n^(d_n).",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "Use the preceding exact equation ϖ_n^(d_n)=p·u with u∈O_nˣ. Native span_singleton_mul_right_unit cancels u at the level of principal ideals.",
+        "Rewrite m_n as the principal ideal of ϖ_n, and use native span_singleton_pow. This proves the ideal equality without assuming a normalized valuation or invoking the owner’s intrinsic ramification index."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-difference-power-unit",
+        "ColemanPowerSeries:L0/cyclotomic-maximal-ideal",
+        "mathlib:Ideal.span_singleton_mul_right_unit",
+        "mathlib:Ideal.span_singleton_pow"
+      ],
+      "acceptance": [
+        "Together with the existing residue field ZMod p and field degree d_n this supplies concrete input for the owning ramification comparison; it is not itself a construction of that owner’s e and f."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "primeIdeal_eq_maximalIdeal_pow"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "tests": [
+        {
+          "name": "CyclotomicValuationTests.dyadic_primeIdeal",
+          "kind": "computation",
+          "statement": "At p=2,n=0 the prime ideal (2) equals m_0."
+        },
+        {
+          "name": "CyclotomicValuationTests.ternary_primeIdeal",
+          "kind": "computation",
+          "statement": "At p=3,n=0 the prime ideal (3) equals m_0 squared."
+        }
+      ]
+    },
+    {
+      "id": "ColemanPowerSeries:L0/cyclotomic-maximal-ideal-topology",
+      "parentStageId": "ColemanPowerSeries:L0",
+      "realises": [
+        "ColemanPowerSeries:L0"
+      ],
+      "title": "The maximal-ideal neighborhood basis",
+      "kind": "theorem",
+      "statement": "In the existing norm topology of O_n, the family (m_n^r) indexed by all r≥0 is a neighborhood basis of zero.",
+      "hypotheses": [
+        "Let p be any prime, n≥0, K_n the existing native intermediate field of PadicAlgCl p generated by the selected root ζ_n of order p^(n+1), and O_n=integralClosure ℤ_p K_n. Put ϖ_n=integralZeta(n)−1, d_n=p^n(p−1), q_n=‖ϖ_n‖, and m_n=IsLocalRing.maximalIdeal O_n. Use the existing inherited spectral norms, composite ℤ_p-algebra and local DVR structure. The symbol v_n denotes the existing native NormedField.valuation on K_n, taking values in ℝ≥0. No new field, integer-ring carrier, topology or normalized valuation is assumed."
+      ],
+      "proofSteps": [
+        "Irreducibility of ϖ_n gives q_n>0, and the established contraction gives q_n<1. Native Metric.nhds_basis_closedBall_pow supplies the zero-neighborhood basis of closed balls of radii q_n^r.",
+        "The preceding ideal-power criterion identifies each closed ball with m_n^r, because distance from zero is the inherited norm. Substitute those equal sets in the native basis theorem.",
+        "This compares the existing spectral topology with the actual maximal-ideal filtration; it neither replaces the norm topology nor derives it from an assumed adic topology."
+      ],
+      "prerequisites": [
+        "ColemanPowerSeries:L0/cyclotomic-ideal-powers-norm",
+        "ColemanPowerSeries:L0/cyclotomic-difference-irreducible",
+        "ColemanPowerSeries:L0/cyclotomic-difference-contraction",
+        "mathlib:Metric.nhds_basis_closedBall_pow"
+      ],
+      "acceptance": [
+        "The basis includes r=0, and its positive powers shrink to zero. The ambient algebraic closure need not be complete."
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/LocalCyclotomic/NormValuation",
+        "namespace": "ColemanCyclotomic",
+        "declaration": "maximalIdeal_pow_nhds_basis"
+      },
+      "sources": [
+        {
+          "sourceId": "RJW-published",
+          "locator": "§9, published161–163, and §10.1 Lemma10.1, published164/PDF65. Complete published161–164 read afresh from the hash-verified version of record.",
+          "excerpt": "As u is a unit",
+          "match": "Worker decomposition of the local cyclotomic integer-ring and norm inputs used in the finite-level lift of Lemma10.1. These explicit norm-valuation comparisons, ideal-power topology and the dyadic extension are deductions from the native baseline and preceding cyclotomic nodes; they are not claimed as separately printed statements. The source assumes p odd."
+        }
+      ],
+      "implementationStatus": "unchecked"
     }
   ],
   "requests": [
@@ -11095,7 +11690,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
-      "need": "Eisenstein extensions are totally ramified in the canonical local-field structures. The specific cyclotomic integral closure now has local/DVR structure, irreducible difference, algebraic residue field, inherited spectral norm, compactness, linear topology and exact norm-power equation. Supply the comparison with the canonical valuation ring, normalized valuation and resulting ramification specialization; do not rebuild the cyclotomic constructions or the native finite-level series evaluation.",
+      "need": "Supply the owner’s comparison of the specified cyclotomic normed fields with its named canonical local-field structures and normalized valuation, and interpret the already established (p)=m_n^(d_n), residue field ZMod p and degree d_n as the intrinsic ramification specialization. The cyclotomic native integral closure now equals the native norm valuation ring; its maximal ideal, reduction kernel and ideal-power topology are identified. Do not rebuild these cyclotomic objects or native series evaluation.",
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
@@ -11190,7 +11785,7 @@
       "stageId": "ColemanPowerSeries:L0",
       "status": "partial",
       "remaining": [
-        "The native integral closure O_n now has its inherited spectral norm, compactness, linear topology and convergent power-series evaluation; every unit is the evaluation of a unit polynomial of degree<d_n. Identify this ring with the canonical local-field valuation ring, its maximal ideal and residue map, and interpret the exact equation ‖ϖ_n‖^(d_n)=p⁻¹ in the owner’s normalized valuation and total ramification conventions. Establish continuous relative norm transitions and arithmetic norm/evaluation compatibility before building the actual norm-compatible inverse limits. No converse characterization of integral elements by norm≤1 is asserted here.",
+        "The actual O_n is now identified with the native norm valuation ring, including its units, maximal ideal, reduction kernel and maximal-ideal neighborhood basis; (p)=m_n^(d_n). Compare this concrete norm-valuation data with the owning LocalFieldsRamification named local-field structures, normalized valuation and intrinsic ramification invariants. Establish continuous relative norm transitions and arithmetic norm/evaluation compatibility before constructing the full and principal norm-compatible inverse limits.",
         "Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module.",
         "Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
       ]
@@ -11237,7 +11832,7 @@
       "neededBy": [
         "ColemanPowerSeries:L0"
       ],
-      "detail": "The native integral closure O_n now has its inherited spectral norm, compactness, linear topology and convergent power-series evaluation; every unit is the evaluation of a unit polynomial of degree<d_n. Identify this ring with the canonical local-field valuation ring, its maximal ideal and residue map, and interpret the exact equation ‖ϖ_n‖^(d_n)=p⁻¹ in the owner’s normalized valuation and total ramification conventions. Establish continuous relative norm transitions and arithmetic norm/evaluation compatibility before building the actual norm-compatible inverse limits. No converse characterization of integral elements by norm≤1 is asserted here. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
+      "detail": "The actual O_n is now identified with the native norm valuation ring, including its units, maximal ideal, reduction kernel and maximal-ideal neighborhood basis; (p)=m_n^(d_n). Compare this concrete norm-valuation data with the owning LocalFieldsRamification named local-field structures, normalized valuation and intrinsic ramification invariants. Establish continuous relative norm transitions and arithmetic norm/evaluation compatibility before constructing the full and principal norm-compatible inverse limits. Construct the full and principal norm-compatible unit inverse limits, continuity of transitions, closedness/compactness, G-action, Tate-module inclusion, and the norm-compatible Teichmüller splitting. Prove principal-unit pro-p hypotheses before importing the ℤ_p-module construction; full units are not a ℤ_p-module. Verify completed action hypotheses and source the explicitly unramified/semilocal coefficient extension with Frobenius and norm data. No arbitrary ramified coefficient extension is justified by this checkpoint."
     },
     {
       "title": "L1 continuation boundary",
@@ -13151,136 +13746,385 @@
         },
         "closure": "Partial: six gaps,twelve requests,zero closed stages; every implementation status unchecked."
       }
+    },
+    "cyclotomicNormValuation": {
+      "agent": "Codex",
+      "session": "codex-7e92bd",
+      "claimComment": 5860944077,
+      "winningBot": 5860945083,
+      "newNodes": 11,
+      "preservedWholeNodes": 183,
+      "preservedBaseline": 246,
+      "preservedFindings": 13,
+      "historicalChecks": {
+        "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
+        "intake": "Exactly four authorized deliverables; zero problems.",
+        "sourceIssues": "All13 complete inherited findings preserved; versioned errata wrapper passes.",
+        "validation": {
+          "nodes": 171,
+          "kinds": {
+            "definition": 2,
+            "lemma": 121,
+            "theorem": 21,
+            "comparison": 9,
+            "construction": 18
+          },
+          "api": 98,
+          "definitionConstructionAPI": 91,
+          "packetTests": 132,
+          "definitionConstructionTests": 67,
+          "typedExamples": 134,
+          "planets": 12,
+          "baseline": 223,
+          "newNodes": 13,
+          "newDeclarations": 17,
+          "newTypedTests": 11,
+          "preservedWholeNodes": 158,
+          "preservedBaseline": 203,
+          "preservedFindings": 13,
+          "newFindings": 0,
+          "reachableNodes": 242,
+          "dependencyEdges": 1029,
+          "baselineLeaves": 291,
+          "stageLeaves": [],
+          "acyclic": true,
+          "compilerErrors": 0,
+          "compilerWarnings": 360,
+          "warningsOnlyPlaceholders": true,
+          "pinnedMathlibModules": 2844,
+          "pinnedTauCetiModules": 3,
+          "actualSupplierModules": 1,
+          "actualSupplierSourceUnchanged": true,
+          "nativeModulesBuilt": 0,
+          "readerWords": 56061,
+          "gaps": 6,
+          "requests": 12,
+          "closedStages": 0,
+          "suggestedFileSha256": "62bc750416b1094fd84b0fa1405f6a434766d1d8f23815bb2461b1496d3a3544"
+        },
+        "arithmetic": {
+          "unitComparisons": 370,
+          "reductionMultiplicativityChecks": 100,
+          "cases": [
+            {
+              "prime": 2,
+              "level": 0,
+              "precision": 3,
+              "degree": 1,
+              "shiftedPolynomial": [
+                2,
+                1
+              ],
+              "testedElements": 13
+            },
+            {
+              "prime": 2,
+              "level": 1,
+              "precision": 3,
+              "degree": 2,
+              "shiftedPolynomial": [
+                2,
+                2,
+                1
+              ],
+              "testedElements": 69
+            },
+            {
+              "prime": 3,
+              "level": 0,
+              "precision": 2,
+              "degree": 2,
+              "shiftedPolynomial": [
+                3,
+                3,
+                1
+              ],
+              "testedElements": 86
+            },
+            {
+              "prime": 3,
+              "level": 1,
+              "precision": 2,
+              "degree": 6,
+              "shiftedPolynomial": [
+                3,
+                9,
+                18,
+                21,
+                15,
+                6,
+                1
+              ],
+              "testedElements": 101
+            },
+            {
+              "prime": 5,
+              "level": 0,
+              "precision": 2,
+              "degree": 4,
+              "shiftedPolynomial": [
+                5,
+                10,
+                10,
+                5,
+                1
+              ],
+              "testedElements": 101
+            }
+          ],
+          "scope": "Finite truncated coefficient quotients only; unit tests by determinant of the multiplication matrix, compared with nonzero constant reduction. These checks do not prove infinite integral-ring localness, DVR structure, topology or interpolation.",
+          "scriptSha256": "09873f6b66f73d97b082839998c6a7e4e719eaa0c00e62dc98edcdb63480cb63"
+        },
+        "publication": {
+          "base": "7c415848c13907168cd0cf4da101962df42b2a5e",
+          "publicationMain": "665038ed6b5fba9d8c23a3c435b7fbec4bd73183",
+          "inputChanges": {},
+          "outputChanges": {},
+          "unchangedIssueBody": true,
+          "claimConfirmation": 5858375264
+        },
+        "closure": "Partial: six gaps,twelve requests,zero closed stages; every implementation status unchecked."
+      },
+      "sourceBoundary": "Fresh full published RJW161–164 reading; all eleven comparison nodes are explicit worker deductions. No new source finding.",
+      "supplierBoundary": "Actual PMIA304 supplier authored and checked in this continuous session. Full Dirichlet224→247 delta read, with all224 old nodes and its request unchanged."
     }
   },
   "checks": {
-    "blueprint": "Zero errors and warnings with the unmodified pinned declaration index.",
-    "intake": "Exactly four authorized deliverables; zero problems.",
-    "sourceIssues": "All13 complete inherited findings preserved; versioned errata wrapper passes.",
     "validation": {
-      "nodes": 171,
+      "nodes": 194,
       "kinds": {
         "definition": 2,
-        "lemma": 121,
-        "theorem": 21,
-        "comparison": 9,
-        "construction": 18
+        "lemma": 137,
+        "theorem": 25,
+        "comparison": 11,
+        "construction": 19
       },
-      "api": 98,
-      "definitionConstructionAPI": 91,
-      "packetTests": 132,
-      "definitionConstructionTests": 67,
-      "typedExamples": 134,
+      "api": 106,
+      "definitionConstructionAPI": 99,
+      "packetTests": 150,
+      "definitionConstructionTests": 71,
+      "typedExamples": 152,
       "planets": 12,
-      "baseline": 223,
-      "newNodes": 13,
-      "newDeclarations": 17,
-      "newTypedTests": 11,
-      "preservedWholeNodes": 158,
-      "preservedBaseline": 203,
+      "baseline": 258,
+      "newNodes": 11,
+      "preservedWholeNodes": 183,
+      "preservedBaseline": 246,
       "preservedFindings": 13,
       "newFindings": 0,
-      "reachableNodes": 242,
-      "dependencyEdges": 1029,
-      "baselineLeaves": 291,
+      "reachableNodes": 265,
+      "dependencyEdges": 1142,
+      "baselineLeaves": 320,
       "stageLeaves": [],
       "acyclic": true,
-      "compilerErrors": 0,
-      "compilerWarnings": 360,
-      "warningsOnlyPlaceholders": true,
-      "pinnedMathlibModules": 2844,
+      "pinnedMathlibModules": 2846,
       "pinnedTauCetiModules": 3,
       "actualSupplierModules": 1,
-      "actualSupplierSourceUnchanged": true,
       "nativeModulesBuilt": 0,
-      "readerWords": 56061,
       "gaps": 6,
       "requests": 12,
       "closedStages": 0,
-      "suggestedFileSha256": "62bc750416b1094fd84b0fa1405f6a434766d1d8f23815bb2461b1496d3a3544"
+      "suggestedFileSha256": "8b93ed66f15e815d1eb489869205311716d6be2ba79b62b237316c70cfe1d8dc",
+      "supplierSha256": "ad64bfe94d36581684ae9a29fa5b76dad2dd154b24fb55b420274f6585e45432",
+      "sourceAuditSha256": "d08223d94ec4895f42d1f01fc3566f43e163fc58f5a353cfeeebdd3d8adc4ee8",
+      "compileCompleted": true,
+      "compilerExit": 0,
+      "compileStatus": "full file elaborated at pinned baseline",
+      "compilerErrors": 0,
+      "compilerWarnings": 407,
+      "warningsOnlyPlaceholders": true
     },
     "arithmetic": {
-      "unitComparisons": 370,
-      "reductionMultiplicativityChecks": 100,
+      "inverseIdentities": 2240,
+      "integralityComparisons": 1120,
+      "idealPowerComparisons": 10240,
+      "primeIdealComparisons": 1120,
+      "residueComparisons": 461,
+      "boundaryComparisons": 256,
+      "unitFactorComparisons": 28,
       "cases": [
         {
           "prime": 2,
           "level": 0,
+          "precision": 1,
+          "degree": 1
+        },
+        {
+          "prime": 2,
+          "level": 0,
+          "precision": 2,
+          "degree": 1
+        },
+        {
+          "prime": 2,
+          "level": 0,
           "precision": 3,
-          "degree": 1,
-          "shiftedPolynomial": [
-            2,
-            1
-          ],
-          "testedElements": 13
+          "degree": 1
+        },
+        {
+          "prime": 2,
+          "level": 0,
+          "precision": 4,
+          "degree": 1
+        },
+        {
+          "prime": 2,
+          "level": 1,
+          "precision": 1,
+          "degree": 2
+        },
+        {
+          "prime": 2,
+          "level": 1,
+          "precision": 2,
+          "degree": 2
         },
         {
           "prime": 2,
           "level": 1,
           "precision": 3,
-          "degree": 2,
-          "shiftedPolynomial": [
-            2,
-            2,
-            1
-          ],
-          "testedElements": 69
+          "degree": 2
+        },
+        {
+          "prime": 2,
+          "level": 1,
+          "precision": 4,
+          "degree": 2
+        },
+        {
+          "prime": 2,
+          "level": 2,
+          "precision": 1,
+          "degree": 4
+        },
+        {
+          "prime": 2,
+          "level": 2,
+          "precision": 2,
+          "degree": 4
+        },
+        {
+          "prime": 2,
+          "level": 2,
+          "precision": 3,
+          "degree": 4
+        },
+        {
+          "prime": 2,
+          "level": 2,
+          "precision": 4,
+          "degree": 4
+        },
+        {
+          "prime": 3,
+          "level": 0,
+          "precision": 1,
+          "degree": 2
         },
         {
           "prime": 3,
           "level": 0,
           "precision": 2,
-          "degree": 2,
-          "shiftedPolynomial": [
-            3,
-            3,
-            1
-          ],
-          "testedElements": 86
+          "degree": 2
+        },
+        {
+          "prime": 3,
+          "level": 0,
+          "precision": 3,
+          "degree": 2
+        },
+        {
+          "prime": 3,
+          "level": 0,
+          "precision": 4,
+          "degree": 2
+        },
+        {
+          "prime": 3,
+          "level": 1,
+          "precision": 1,
+          "degree": 6
         },
         {
           "prime": 3,
           "level": 1,
           "precision": 2,
-          "degree": 6,
-          "shiftedPolynomial": [
-            3,
-            9,
-            18,
-            21,
-            15,
-            6,
-            1
-          ],
-          "testedElements": 101
+          "degree": 6
+        },
+        {
+          "prime": 3,
+          "level": 1,
+          "precision": 3,
+          "degree": 6
+        },
+        {
+          "prime": 3,
+          "level": 1,
+          "precision": 4,
+          "degree": 6
+        },
+        {
+          "prime": 5,
+          "level": 0,
+          "precision": 1,
+          "degree": 4
         },
         {
           "prime": 5,
           "level": 0,
           "precision": 2,
-          "degree": 4,
-          "shiftedPolynomial": [
-            5,
-            10,
-            10,
-            5,
-            1
-          ],
-          "testedElements": 101
+          "degree": 4
+        },
+        {
+          "prime": 5,
+          "level": 0,
+          "precision": 3,
+          "degree": 4
+        },
+        {
+          "prime": 5,
+          "level": 0,
+          "precision": 4,
+          "degree": 4
+        },
+        {
+          "prime": 7,
+          "level": 0,
+          "precision": 1,
+          "degree": 6
+        },
+        {
+          "prime": 7,
+          "level": 0,
+          "precision": 2,
+          "degree": 6
+        },
+        {
+          "prime": 7,
+          "level": 0,
+          "precision": 3,
+          "degree": 6
+        },
+        {
+          "prime": 7,
+          "level": 0,
+          "precision": 4,
+          "degree": 6
         }
       ],
-      "scope": "Finite truncated coefficient quotients only; unit tests by determinant of the multiplication matrix, compared with nonzero constant reduction. These checks do not prove infinite integral-ring localness, DVR structure, topology or interpolation.",
-      "scriptSha256": "09873f6b66f73d97b082839998c6a7e4e719eaa0c00e62dc98edcdb63480cb63"
+      "scope": "Exact rational coefficient-lattice checks in Q[X]/E_n. Membership in powers is tested by actual multiplication/division by X, against the distinct coefficient-weight thresholds; prime-ideal equality is compared to division by p. These finite samples verify indexing and boundaries, not spectral norms, completeness or the general theorems.",
+      "scriptSha256": "bd237e721d1b9db537166a1ddb2e4cec1c2d73c1668d52b73384c4b8a471f0d5"
     },
     "publication": {
-      "base": "7c415848c13907168cd0cf4da101962df42b2a5e",
-      "publicationMain": "665038ed6b5fba9d8c23a3c435b7fbec4bd73183",
+      "base": "6babeebf9f4f9421f5069c49ed254bf547ac2acf",
+      "publicationMain": "1412e4956da98b1afe4af5ff80c252bb84d709db",
+      "guardedInputs": 53,
+      "unchangedInputs": 53,
       "inputChanges": {},
-      "outputChanges": {},
+      "predecessorOutputChanges": [],
       "unchangedIssueBody": true,
-      "claimConfirmation": 5858375264
+      "claimConfirmation": 5860945083
     },
-    "closure": "Partial: six gaps,twelve requests,zero closed stages; every implementation status unchecked."
+    "closure": "Partial: six gaps, twelve requests, zero closed stages; every implementation status unchecked."
   },
   "conventions": {
     "normRootProduct": "The equality lives in O[[T]]: iota(phi(N(F))) equals the product of the actual PMIA root translations. The native Vandermonde determinant is nonzero but need not be a unit. The nondiscrete coefficient substitution/evaluation theorem is imported from pinned Tau Ceti. The coefficient/base/receiving scalar maps are kept explicit."
