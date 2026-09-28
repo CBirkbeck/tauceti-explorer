@@ -1,14 +1,14 @@
-# BP-GlobalGaloisDeformations: R04.1–R04.5 (checkpoint 4)
+# BP-GlobalGaloisDeformations: R04.1–R04.6 (checkpoint 5)
 
 Claude Code — session `cc-39fac3`, 28 September 2026. Refs #743. **Status: partial.**
-- R04.1–R04.5 are `source_decomposed`.
-- R04.6, G7 and G8 are `not_read`.
+- R04.1–R04.6 are `source_decomposed`.
+- G7 and G8 are `not_read`.
 
 This works within RS-08, whose review accepted it. It uses RS-08's narrowed `keeps` for R04.1 and R04.2.
 
 ## What is planned
 
-Across R04.1–R04.5 there are 48 nodes (12 definitions, 5 constructions, 12 lemmas, 19 theorems), with 70 API items, 52 unit tests and 20 planets. R04.1–R04.2 account for 20 of the nodes and 8 of the planets (4 per layer).
+Across R04.1–R04.6 there are 54 nodes (13 definitions, 8 constructions, 12 lemmas, 21 theorems), with 85 API items, 64 unit tests and 23 planets. R04.1–R04.2 account for 20 of the nodes and 8 of the planets (4 per layer).
 
 **R04.1.** The deformation functors, with no representability built in:
 - the lifting functor;
@@ -77,6 +77,22 @@ Planets: 6 in R04.4.
 
 **New source issue:** E2, a misprint in KW II §2.1 ("surjectivity" for "injectivity").
 
+## Checkpoint 5: R04.6 (6 nodes, 3 planets)
+
+- `kw-deformation-data`: KW II §9.1.1, including the odd real places at p = 2. The relative dimension is 3|S|.
+- `trace-subring-universal-representation`: KW II Proposition 4.1 and Carayol.
+- `factorization-through-local-conditions`: the deformation half of KW II Lemma 9.1. The Hecke side is R22.1.
+- `taylor-wiles-deformation-system`: KW II (∗∗) with the y-variables, and Gee's version.
+- `patching-numerology`: h + j − d = h + |S| − 1, 2h + 1 = h + j + t − d, and Gee's 4#T + r.
+- `dyadic-patching-data`: KW II Proposition 9.3 at finite level.
+
+Patching itself (R_∞, M_∞) is not planned here: it is GL2ModularityLifting R22.3/R22.6. Global finiteness is
+PotentialModularityAndCompatibleSystems R24.1.
+
+**New request:** LocalGaloisDeformationRings R08.6, the local rings of KW II's lifting data.
+
+**Lean:** three proved numerology checks.
+
 ## Checkpoint 4: R04.5 (8 nodes, 2 planets)
 
 - `taylor-wiles-datum`: the chosen eigenvalue is part of the datum.
@@ -133,9 +149,7 @@ Signatures that need Tau Ceti's continuous cohomology or the R03.1/R03.2 categor
 
 ## What a continuation should do
 
-1. **R04.6:** exports for patching (KW II §9–10 data, including the real-place data at p = 2), using the R04.3
-   presentation and the R04.5 data.
-2. **G7 and G8** from ACC+, arXiv:1812.09999, §6.2 (Definition 6.2.2, Theorem 6.2.3, Lemma 6.2.4, Proposition 6.2.33).
+1. **G7 and G8** from ACC+, arXiv:1812.09999, §6.2 (Definition 6.2.2, Theorem 6.2.3, Lemma 6.2.4, Proposition 6.2.33).
 
 ## Sources read
 

@@ -3,7 +3,7 @@
 This blueprint covers stages R04.1–R04.6, G7 and G8, within the boundaries of the RS-08 restructure (accepted). This
 blueprint now plans **R04.1 (deformation functors)**, **R04.2 (representability and universal representations)**,
 **R04.3 (local conditions and global presentations)**, **R04.4 (restriction, twisting and change of problem)** and
-**R04.5 (Taylor–Wiles auxiliary primes)**, all source-decomposed. The other stages are not yet read.
+**R04.5 (Taylor–Wiles auxiliary primes)** and **R04.6 (exports for patching)**, all source-decomposed. The other stages are not yet read.
 
 The sources are all free:
 - Gee, *Modularity lifting theorems* (Essential Number Theory 2022; arXiv:2202.05818v2), §3.
@@ -412,6 +412,43 @@ apart.
 - Tau Ceti Chebotarev Layer 10.
 - ArithmeticGaloisRepresentations R01.4: Dickson, and H¹(SL_2(𝔽_{2^r}), Ad) = 0.
 
+## Layer R04.6: arithmetic exports for patching
+
+Library module: `TauCeti/NumberTheory/GaloisDeformation/Exports`.
+
+RS-08 keeps the export of the actual global rings and universal representations to the R-to-Hecke maps. Global finiteness
+over 𝒪 stays in PotentialModularityAndCompatibleSystems R24.1. Hecke algebras, the maps to them and patching are
+GL2ModularityLifting R22.1, R22.3 and R22.6. The source is KW II §9 (final version).
+
+**Definition: KW II's deformation data** (node `kw-deformation-data`; planet).
+- S = Σ ∪ {∞} ∪ {p}, with semistable conditions (with γ_v) away from p, odd conditions at ∞ (the explicit ring at p = 2),
+  and types (A), (B) and (C) at p.
+- R̄^{□,loc,ψ}_S is a flat domain of relative dimension 3|S| with regular generic fibre.
+- The local rings are requested from LocalGaloisDeformationRings R08.6.
+
+**Construction: trace subring and universal representation** (node `trace-subring-universal-representation`).
+- R̄^ψ_S is the trace subring, and R̄^{□,ψ}_S = R̄^ψ_S⟦4|S| − 1⟧.
+- ρ̄^univ descends by Carayol.
+
+**Theorem: factorisation through local conditions** (node `factorization-through-local-conditions`; planet). A
+representation over a reduced, 𝒪-flat, finite A whose 𝒪′-points satisfy the local conditions factors through R̄^ψ_S.
+This is the deformation half of KW II Lemma 9.1.
+
+**Construction: the Taylor–Wiles system** (node `taylor-wiles-deformation-system`; planet).
+- B⟦x_1, …, x_{h+j−d}⟧ ↠ R̄^{□,ψ}_{S∪Q_n} ↠ R̄^{□,ψ}_S, with y_i ↦ δ_i − 1 and framing variables.
+- The specialisations recover R̄^{□,ψ}_S and R̄^ψ_S.
+
+**Theorem: patching numerology** (node `patching-numerology`).
+- 1 + d + (h + j − d) = 1 + h + j.
+- For p = 2, 2h + 1 = h + j + t − d.
+- Both identities are checked in Lean.
+
+**Construction: dyadic patching data** (node `dyadic-patching-data`). At level n:
+- R′_n with determinant fixed on S;
+- ℤ^t ↠ G′_n;
+- d_n, with d_n(λρ) = λ²d_n(ρ);
+- the free twisting action and the presentation with 2h + 1 generators.
+
 ## Acceptance for R04.1–R04.2
 
 - **Functors:** the functors are defined without representability.
@@ -438,7 +475,6 @@ cotangent map is surjective, and Nakayama applies.
 
 ## Remaining work
 
-- **R04.6:** exports for patching.
 - **G7 and G8:** the polarized and variable-determinant problems of ACC+ §6.2.
 
 ## Sources
