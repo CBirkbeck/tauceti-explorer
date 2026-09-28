@@ -19930,11 +19930,12 @@
     "REV-RS-08"
    ],
    "prompt": "research/blueprint/prompts/BP-ModularSymbolsPadicLFunctions.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-LocallyAnalyticDistributions",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #777"
   },
   {
    "id": "REV-ModularSymbolsPadicLFunctions",
@@ -22389,12 +22390,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-DrinfeldModulesAndTModules--DM.0.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [
     "BP-FunctionFieldArithmetic",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "claimed on GitHub issue #1008"
+   "note": "released on GitHub issue #1008"
   },
   {
    "id": "REV-DrinfeldModulesAndTModules--DM.0",
@@ -24173,14 +24174,14 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ProbabilisticAndMetricNumberTheory.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
     "BP-ExponentialSumsAndCircleMethod",
     "BP-GeometryOfNumbersAndQuadraticArithmetic"
    ],
-   "note": "released on GitHub issue #1041"
+   "note": "claimed on GitHub issue #1041"
   },
   {
    "id": "REV-ProbabilisticAndMetricNumberTheory",
