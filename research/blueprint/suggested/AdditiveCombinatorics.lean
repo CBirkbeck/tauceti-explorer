@@ -2,6 +2,7 @@
 AC.0 continuation worksheet for issue #1037.
 Original interface: ChatGPT (GPT-6 Astra Pro), gpt6-20260927-qm-7c9e.
 Source, baseline, comparison and elaboration continuation: Codex, codex-a71f92.
+AC.0 packet nodes and the packet test names tagged on the examples: Claude Code, cc-fb70e5.
 Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti pin: f790474821cf4256814db967cb154e7af3d0c369.
 
@@ -180,25 +181,26 @@ lemma fourier_zmod (f : ZMod N → ℂ) (r : ZMod N) :
 
 /-! Definition tests. These are specifications, not executed Lean tests. -/
 
--- F1: a non-real phase distinguishes the sign of the transform.
+-- F1 (`fourier.test_nonreal_phase`): a non-real phase distinguishes the sign of the transform.
 example : fourier (Pi.single (1 : ZMod 4) (1 : ℂ))
     (AddChar.zmodAddEquiv (1 : ZMod 4)) = -Complex.I / 4 := by sorry
 
--- F2: distinct characters have zero pairing.
+-- F2 (`fourier.test_distinct_characters`): distinct characters have zero pairing.
 example : fourier (fun x : ZMod 3 => AddChar.zmodAddEquiv (2 : ZMod 3) x)
     (AddChar.zmodAddEquiv (1 : ZMod 3)) = 0 := by sorry
 
--- F3: a character has coefficient one, not N, at itself.
+-- F3 (`fourier.test_self_coefficient_one`): a character has coefficient one, not N, at itself.
 example (χ : AddChar G ℂ) : fourier (fun x => χ x) χ = 1 := by sorry
 
--- F4: the zero function.
+-- F4 (`fourier.test_zero`): the zero function.
 example (χ : AddChar G ℂ) : fourier (0 : G → ℂ) χ = 0 := by sorry
 
--- F5: the one-element group is included.
+-- F5 (`fourier.test_trivial_group`): the one-element group is included.
 example (f : ZMod 1 → ℂ) (χ : AddChar (ZMod 1) ℂ) :
     fourier f χ = f 0 := by sorry
 
--- F6: a genuinely noncyclic group; the delta mass has coefficient 1/4.
+-- F6 (`fourier.test_noncyclic_delta`): a genuinely noncyclic group; the delta mass has coefficient
+--   1/4.
 example (χ : AddChar (ZMod 2 × ZMod 2) ℂ) :
     fourier (Pi.single (0 : ZMod 2 × ZMod 2) (1 : ℂ)) χ = 1 / 4 := by sorry
 
@@ -215,32 +217,35 @@ example (f : ZMod 4 → ℂ) (x : ZMod 4) :
     ∑ r : ZMod 4, fourier f (AddChar.zmodAddEquiv r) *
       AddChar.zmodAddEquiv r x = f x := by sorry
 
--- F10: conjugate reflection, not just reflection, conjugates the coefficient.
+-- F10 (`fourier.test_conjugate_reflection`): conjugate reflection, not just reflection, conjugates
+--   the coefficient.
 example : fourier (fun x : ZMod 4 =>
     star ((Pi.single (1 : ZMod 4) (1 : ℂ) : ZMod 4 → ℂ) (-x)))
       (AddChar.zmodAddEquiv (1 : ZMod 4)) = Complex.I / 4 := by sorry
 
--- F11: the inner product places the character in its conjugate-linear slot.
+-- F11 (`fourier.test_conjugate_slot`): the inner product places the character in its conjugate-
+--   linear slot.
 example (χ : AddChar G ℂ) :
     fourier (fun x => Complex.I * χ x) χ = Complex.I := by sorry
 
--- C1: a unit delta is not the convolution unit under probability measure.
+-- C1 (`nconv.test_delta_not_unit`): a unit delta is not the convolution unit under probability
+--   measure.
 example : nconv (Pi.single (0 : ZMod 3) (1 : ℂ))
     (Pi.single (0 : ZMod 3) (1 : ℂ)) 0 = 1 / 3 := by sorry
 
--- C2: the correctly scaled delta is the left unit.
+-- C2 (`nconv.test_scaled_unit`): the correctly scaled delta is the left unit.
 example (f : ZMod 4 → ℂ) : nconv (Pi.single 0 (4 : ℂ)) f = f := by sorry
 
 -- C3: the right unit.
 example (f : ZMod 4 → ℂ) : nconv f (Pi.single 0 (4 : ℂ)) = f := by sorry
 
--- C4: the degenerate zero case.
+-- C4 (`nconv.test_zero`): the degenerate zero case.
 example (f : G → ℂ) : nconv 0 f = 0 := by sorry
 
--- C5: probability normalization fixes the convolution of constants.
+-- C5 (`nconv.test_constants`): probability normalization fixes the convolution of constants.
 example : nconv (fun _ : G => (1 : ℂ)) (fun _ => 1) = fun _ => 1 := by sorry
 
--- C6: test the support and the normalization together.
+-- C6 (`nconv.test_support_and_scale`): test the support and the normalization together.
 example : nconv (Pi.single (1 : ZMod 4) (1 : ℂ))
     (Pi.single (1 : ZMod 4) (1 : ℂ)) 2 = 1 / 4 := by sorry
 
@@ -251,7 +256,8 @@ example (f g : ZMod 3 → ℂ) : nconv f g =
 -- C8: convolution on the trivial group is multiplication.
 example (f g : ZMod 1 → ℂ) : nconv f g 0 = f 0 * g 0 := by sorry
 
--- C9: representation multiplicity is retained, not replaced by sumset membership.
+-- C9 (`nconv.test_indicator_multiplicity`): representation multiplicity is retained, not replaced
+--   by sumset membership.
 example : nconv (fun x : ZMod 3 => if x ∈ ({0, 1} : Finset (ZMod 3)) then (1 : ℂ) else 0)
     (fun x : ZMod 3 => if x ∈ ({0, 1} : Finset (ZMod 3)) then (1 : ℂ) else 0) 1 =
       2 / 3 := by sorry

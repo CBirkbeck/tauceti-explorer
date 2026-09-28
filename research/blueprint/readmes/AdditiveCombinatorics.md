@@ -1322,3 +1322,228 @@ For d ≥ 2, ‖·‖_{U^d} is a norm on real-valued functions on Z_N: ‖f‖_{
 - Green–Tao, arXiv:math/0404188v6 — §5, the paragraph following (5.7), printed p. 13. The norm property for d ≥ 2 and the failure at d = 1. Prose verbatim from the LaTeX source.
 - Green–Tao, arXiv:math/0404188v6 — §5, the d = 2 example following (5.5), printed p. 12. The positivity of U^2 on which the d ≥ 2 case rests. Prose verbatim from the LaTeX source.
 
+## AC.0: the packet nodes
+
+The sections above are the worksheet design of the earlier passes. This section records the five AC.0 nodes the packet now carries, under the worksheet's own names: the character-indexed transform and the normalised convolution as definitions, and Parseval–Plancherel, the convolution identity and the Fourier form of additive energy as theorems. They are the targets the reviewed audit names as missing from the pinned Mathlib. Sumsets, additive energy and the Plünnecke–Ruzsa family are already there and stay citations. The source is Tao's 254A lecture notes 2, §6, printed pp. 8–10, read against the file whose sha256 the packet records; prose in the excerpts is verbatim from its text layer and the displayed formulas are transcribed. The source works with a chosen bi-character and names the dual group as the canonical alternative; the nodes take that alternative, as the worksheet's convention already does. Reading it also turned up a duplicated word ("if we define define"), recorded as a misprint under `sourceIssues`.
+
+### `fourier-transform` — The character-indexed Fourier transform on a finite abelian group
+
+*definition* · planet **Fourier transform on a finite abelian group**
+
+For a finite abelian group G of order N and f : G → ℂ, fourier f : AddChar G ℂ → ℂ is fourier f χ = N⁻¹ ∑_{x∈G} f(x) · conj(χ(x)): probability counting measure on G, counting measure on the dual, and indexed by the dual group AddChar G ℂ itself, with no isomorphism G ≅ Ĝ chosen. This is the canonical form of the source's bi-character transform, which the source itself names as the canonical alternative.
+
+**Hypotheses.**
+- G a finite abelian group, written additively, N = |G| > 0
+- f : G → ℂ
+
+**Construction or proof, in steps.**
+1. Define fourier f χ := N⁻¹ ∑_x f(x) conj(χ x); this is RCLike.wInner with the constant weight RCLike.cWeight and the character in the first, conjugated, slot.
+2. Identify it with the coordinate of f in the character basis AddChar.complexBasis, using character orthogonality for the normalised measure.
+3. Derive inversion f(x) = ∑_χ fourier f χ · χ(x) from the basis expansion.
+4. Derive the transformation rules (translation, modulation, negation, conjugation, precomposition with an isomorphism or a surjection) directly from the defining sum.
+5. Compare with Mathlib's ZMod.dft on ZMod N through the explicit isomorphism ZMod N ≅ AddChar (ZMod N) ℂ: fourier f (zmodAddEquiv r) = N⁻¹ · dft f r.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `fourier_apply` | characterisation | fourier f χ = (card G)⁻¹ · ∑ x, f x · star (χ x). |
+| `fourier_zero` | simp | fourier 0 = 0. |
+| `fourier_add` | structure | fourier (f + g) = fourier f + fourier g. |
+| `fourier_smul` | structure | fourier (c • f) = c • fourier f. |
+| `fourier_single` | example | fourier (Pi.single a c) χ = (card G)⁻¹ · c · star (χ a). |
+| `fourier_character` | characterisation | fourier (fun x => ψ x) χ = if χ = ψ then 1 else 0. |
+| `fourier_inversion` | characterisation | ∑ χ, fourier f χ · χ x = f x. |
+| `fourier_inversion_reindex` | compatibility | For any equivalence e : ι ≃ AddChar G ℂ, ∑ i, fourier f (e i) · e i x = f x: inversion through an explicitly supplied indexing of the dual, never an identification of the dual with G. |
+| `fourier_injective` | extensionality | fourier is injective. |
+| `fourier_eq_basis_repr` | compatibility | fourier f χ = (AddChar.complexBasis G).repr f χ. |
+| `fourier_eq_wInner` | compatibility | fourier f χ = RCLike.wInner RCLike.cWeight (fun x => χ x) f; the character sits in the first slot because the library inner product conjugates its first argument. |
+| `fourier_eq_haarIntegral` | compatibility | fourier f χ is the integral of f · star χ against Tau Ceti's Haar probability measure TauCeti.haarProb on Multiplicative G (discrete topology): the one-dimensional case of the Peter–Weyl coefficients. |
+| `fourier_translate` | functoriality | fourier (fun x => f (x − a)) χ = star (χ a) · fourier f χ. |
+| `fourier_modulate` | functoriality | fourier (fun x => ψ x · f x) χ = fourier f (χ / ψ). |
+| `fourier_neg` | functoriality | fourier (fun x => f (−x)) χ = fourier f χ⁻¹. |
+| `fourier_conj` | functoriality | fourier (fun x => star (f x)) χ = star (fourier f χ⁻¹). |
+| `fourier_reflection` | functoriality | fourier (fun x => star (f (−x))) χ = star (fourier f χ): the source's reflection identity. |
+| `fourier_equiv` | functoriality | For e : G ≃+ H, fourier (f ∘ e) (χ ∘ e) = fourier f χ. |
+| `fourier_quotient` | functoriality | For a surjective q : G →+ H, fourier (f ∘ q) (χ ∘ q) = fourier f χ. |
+| `fourier_quotient_zero` | functoriality | For q : G →+ H and χ nontrivial on ker q, fourier (f ∘ q) χ = 0. |
+| `zmod_character_comparison` | compatibility | AddChar.zmodAddEquiv r x = ZMod.stdAddChar (x · r), the explicit isomorphism the cyclic comparison runs through. |
+| `fourier_zmod` | compatibility | On ZMod N, fourier f (AddChar.zmodAddEquiv r) = N⁻¹ · ZMod.dft f r. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `fourier.test_nonreal_phase` (computation) — Worksheet F1: on ZMod 4, fourier (Pi.single 1 1) (zmodAddEquiv 1) = −i/4. A definition that omits the conjugate gives +i/4 and fails.
+- `fourier.test_distinct_characters` (computation) — Worksheet F2: on ZMod 3, the transform of the character zmodAddEquiv 2 vanishes at zmodAddEquiv 1.
+- `fourier.test_self_coefficient_one` (non-example) — Worksheet F3: fourier (fun x => χ x) χ = 1, not N; a definition with counting rather than probability measure on G fails.
+- `fourier.test_zero` (degenerate) — Worksheet F4: fourier 0 χ = 0.
+- `fourier.test_trivial_group` (degenerate) — Worksheet F5: on ZMod 1, fourier f χ = f 0.
+- `fourier.test_noncyclic_delta` (computation) — Worksheet F6: on ZMod 2 × ZMod 2, the unit delta at 0 has coefficient 1/4 at every character, on a group that is not cyclic.
+- `fourier.test_conjugate_reflection` (computation) — Worksheet F10: on ZMod 4, the conjugate reflection of Pi.single 1 1 has coefficient +i/4 at zmodAddEquiv 1, the conjugate of F1; plain reflection would not conjugate.
+- `fourier.test_conjugate_slot` (non-example) — Worksheet F11: fourier (fun x => i · χ x) χ = i. With the character in the linear slot of the inner product the answer would be −i.
+
+**Where it is used.**
+- `normalized-convolution` — The convolution identity is a statement about the transform of the normalised convolution.
+- `fourier-parseval` — Parseval and Plancherel are the transform's isometry statements.
+- `fourier-energy` — Additive energy is expressed through the transforms of the two indicators.
+- `AdditiveCombinatorics:AC.1` — The worksheet's AC.1 large-spectrum interfaces (largeSpectrum and its lemmas) are phrased with this transform.
+
+**Acceptance tests.**
+- fourier of a character χ is the indicator of χ: coefficient one at χ, not N.
+- Inversion reconstructs f exactly, with no stray factor of N.
+- On ZMod N the transform is N⁻¹ times Mathlib's dft, so neither normalisation silently replaces the other.
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:AddChar`, `mathlib:AddChar.complexBasis`, `mathlib:RCLike.wInner`, `mathlib:RCLike.cWeight`, `mathlib:ZMod.dft`, `tauceti:TauCeti.haarProb`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 8 (physical p. 34), the canonical dual-group alternative. The choice of indexing by the dual group AddChar G ℂ rather than by a chosen bi-character. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+- Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 8 (physical p. 34), normalised counting measure. The normalisation N⁻¹ on the position side. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+- Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 9 (physical p. 35), the Fourier transform and inversion. The definition as the inner product against the character, and Fourier inversion. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
+### `normalized-convolution` — Normalised convolution on a finite abelian group
+
+*definition* · planet **Normalised convolution**
+
+For f, g : G → ℂ on a finite abelian group G of order N, nconv f g x = N⁻¹ ∑_{y∈G} f(y) g(x − y): convolution with respect to the probability counting measure. It is N⁻¹ times Mathlib's discrete convolution addRingConvolution, a normalisation adapter and not a new convolution theory.
+
+**Hypotheses.**
+- G a finite abelian group, N = |G| > 0
+- f, g : G → ℂ
+
+**Construction or proof, in steps.**
+1. Define nconv f g := N⁻¹ • DiscreteConvolution.addRingConvolution f g, with nconv_apply giving the explicit sum.
+2. Transfer commutativity, associativity and bilinearity from the discrete convolution, tracking the factor N⁻¹ in associativity.
+3. Compute on indicators: nconv 1_A 1_B x = N⁻¹ · #{(a, b) ∈ A × B : a + b = x}, i.e. N⁻¹ · Finset.addConvolution A B x.
+4. The unit is N·δ₀, not δ₀, because of the normalisation.
+
+**API.**
+
+| name | role | statement |
+|---|---|---|
+| `nconv_apply` | characterisation | nconv f g x = (card G)⁻¹ · ∑ y, f y · g (x − y). |
+| `nconv_eq_addRingConvolution` | compatibility | nconv f g = (card G)⁻¹ • DiscreteConvolution.addRingConvolution f g. |
+| `nconv_indicator` | compatibility | nconv 1_A 1_B x = (card G)⁻¹ · (A.addConvolution B x : ℂ). |
+| `nconv_comm` | structure | nconv f g = nconv g f. |
+| `nconv_assoc` | structure | nconv (nconv f g) h = nconv f (nconv g h). |
+| `nconv_add_left` | structure | nconv (f + g) h = nconv f h + nconv g h. |
+| `nconv_add_right` | structure | nconv f (g + h) = nconv f g + nconv f h. |
+| `nconv_smul_left` | structure | nconv (c • f) g = c • nconv f g. |
+| `nconv_smul_right` | structure | nconv f (c • g) = c • nconv f g. |
+| `nconv_zero_left` | simp | nconv 0 f = 0. |
+| `nconv_zero_right` | simp | nconv f 0 = 0. |
+| `nconv_single` | example | nconv (Pi.single a c) (Pi.single b d) = Pi.single (a + b) ((card G)⁻¹ · c · d). |
+| `nconv_unit_left` | example | nconv (Pi.single 0 (card G)) f = f. |
+| `nconv_unit_right` | example | nconv f (Pi.single 0 (card G)) = f. |
+
+**Unit tests.** A wrong definition fails one of these.
+
+- `nconv.test_delta_not_unit` (non-example) — Worksheet C1: on ZMod 3, nconv δ₀ δ₀ 0 = 1/3, so the unit delta is not the convolution unit under probability measure.
+- `nconv.test_scaled_unit` (computation) — Worksheet C2: on ZMod 4, nconv (Pi.single 0 4) f = f. A definition without the factor N⁻¹ makes δ₀ the unit instead, and fails.
+- `nconv.test_zero` (degenerate) — Worksheet C4: nconv 0 f = 0.
+- `nconv.test_constants` (computation) — Worksheet C5: nconv 1 1 = 1, the constants being fixed by probability normalisation.
+- `nconv.test_support_and_scale` (computation) — Worksheet C6: on ZMod 4, nconv δ₁ δ₁ 2 = 1/4, testing the support a + b and the normalisation together.
+- `nconv.test_indicator_multiplicity` (computation) — Worksheet C9: on ZMod 3 with A = B = {0, 1}, nconv 1_A 1_B 1 = 2/3, the two representations 0 + 1 and 1 + 0 over N = 3; sumset membership alone would give 1/3.
+
+**Where it is used.**
+- `fourier-nconv` — The convolution identity takes nconv to the product of transforms.
+- `fourier-energy` — Energy is N³ times the squared L² norm of the normalised convolution of the indicators, through nconv_indicator.
+
+**Acceptance tests.**
+- nconv (N · δ₀) f = f: the unit carries the factor N.
+- On indicators the value is N⁻¹ times the representation count, linking the Fourier side to Mathlib's finset convolution.
+- Associativity holds with the normalisation, since each convolution carries one factor N⁻¹ and one sum.
+
+**Dependencies.**
+- On the pinned libraries: `mathlib:DiscreteConvolution.ringConvolution`, `mathlib:Finset.convolution`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 9 (physical p. 35), convolution. The definition of convolution against the normalised measure dy. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
+### `fourier-parseval` — Parseval and Plancherel for the character-indexed transform
+
+*theorem* · planet **Parseval and Plancherel**
+
+For f, g : G → ℂ, N⁻¹ ∑_x f(x) conj(g(x)) = ∑_χ fourier f χ · conj(fourier g χ), and in particular N⁻¹ ∑_x |f(x)|² = ∑_χ |fourier f χ|²: the transform is an isometry from L²(G, probability measure) to ℓ²(Ĝ, counting measure).
+
+**Hypotheses.**
+- G a finite abelian group
+- f, g : G → ℂ
+
+**Proof, in steps.**
+1. Expand both sides in the character basis using fourier_inversion.
+2. Use orthogonality of characters for the normalised measure: N⁻¹ ∑_x χ(x) conj(ψ(x)) = [χ = ψ].
+3. Collect terms to obtain Parseval; take g = f for Plancherel.
+
+**Acceptance tests.**
+- The measures differ on the two sides — probability on G, counting on Ĝ — and the identity is false with both normalised or both counting.
+- For f = ⇑χ both sides equal 1.
+- For f = 1_A, Plancherel gives ∑_χ |fourier 1_A χ|² = |A|/N, the density — the source's equation (1).
+
+**Dependencies.**
+- In this packet: `fourier-transform`
+- On the pinned libraries: `mathlib:AddChar.complexBasis`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 9 (physical p. 35), the Parseval relation and Plancherel. The Parseval relation and the Plancherel formula for the transform. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
+### `fourier-nconv` — The transform takes normalised convolution to the product
+
+*theorem* · planet **Convolution to product**
+
+For f, g : G → ℂ and χ ∈ AddChar G ℂ, fourier (nconv f g) χ = fourier f χ · fourier g χ.
+
+**Hypotheses.**
+- G a finite abelian group
+- f, g : G → ℂ
+- χ ∈ AddChar G ℂ
+
+**Proof, in steps.**
+1. Expand fourier (nconv f g) χ = N⁻² ∑_x ∑_y f(y) g(x − y) conj(χ(x)).
+2. Substitute x = y + z and use conj(χ(y + z)) = conj(χ(y)) conj(χ(z)).
+3. The double sum factorises into (N⁻¹ ∑_y f(y) conj χ(y)) · (N⁻¹ ∑_z g(z) conj χ(z)).
+
+**Acceptance tests.**
+- The identity holds with no constant exactly because both the convolution and the transform are taken against the probability measure; with unnormalised convolution a factor N appears.
+- For f = g = ⇑χ it gives 1 · 1 = 1 at χ.
+- It is the audit's named missing identity for AC.0.
+
+**Dependencies.**
+- In this packet: `fourier-transform`, `normalized-convolution`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 9 (physical p. 35), convolution to product. The convolution identity (f ∗ g)ˆ = fˆ ĝ. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
+### `fourier-energy` — Additive energy in Fourier terms
+
+*theorem* · planet **Additive energy via Fourier**
+
+For finsets A, B ⊆ G, E(A, B) = N³ ∑_χ |fourier 1_A χ|² · |fourier 1_B χ|², where E is Mathlib's additive energy Finset.addEnergy.
+
+**Hypotheses.**
+- G a finite abelian group, N = |G|
+- A, B finite subsets of G
+
+**Proof, in steps.**
+1. Write E(A, B) = ∑_x r(x)² with r(x) = #{(a, b) ∈ A × B : a + b = x} = Finset.addConvolution A B x.
+2. By the indicator computation, nconv 1_A 1_B = N⁻¹ · r.
+3. Apply Plancherel to nconv 1_A 1_B: N⁻¹ ∑_x |N⁻¹ r(x)|² = ∑_χ |fourier (nconv 1_A 1_B) χ|².
+4. Apply the convolution identity to the right-hand side and multiply through by N³.
+
+**Acceptance tests.**
+- For A = B = G both sides equal N³: E(G, G) counts all N³ solutions of a + b = a' + b', and fourier 1_G is the indicator of the trivial character.
+- For A = B = {0} both sides equal 1.
+- The factor N³ is forced by the normalisations; this is the check that pins it.
+
+**Dependencies.**
+- In this packet: `fourier-parseval`, `fourier-nconv`, `normalized-convolution`
+- On the pinned libraries: `mathlib:Finset.mulEnergy`, `mathlib:Finset.convolution`
+
+**Sources.**
+- Terence Tao, *Lecture notes 2 for 254A (additive combinatorics), within the CMU-hosted 118-page compilation* — §6, printed p. 10 (physical p. 36), Plancherel applied to χ_A ∗ χ_A. The source uses this identity, in the case A = B, by applying Plancherel to χ_A ∗ χ_A to reach the fourth moment ∑_ξ |χ̂_A(ξ)|⁴; it does not display the energy formula itself, which is the rewriting of ‖χ_A ∗ χ_B‖² as a count. Prose verbatim from the text layer of the compilation; displayed formulas transcribed.
+
+### Remaining in AC.0
+
+- Sumsets, additive energy and the Plünnecke–Ruzsa, Ruzsa triangle and Ruzsa covering inequalities are in the pinned Mathlib, as the reviewed audit records, and are baseline citations rather than nodes; their declarations are not yet listed in the baseline by name.
+- The trivial upper bound E(A, B) ≤ |A|²|B|, which the audit records as not stated in Mathlib, has no node yet.
+- The worksheet's AC.0 quantitative indicator interfaces (fourier_indicator_l2, fourier_norm_le_l1, fourier_indicator_norm_le) are not yet nodes.
+- The checks the handoff lists for AC.0 — quotient fibre-cardinality, the cyclic constructor, the one-dimensional Peter–Weyl identification (fourier_eq_haarIntegral) and the coding/ER.4 specialisations — are not done; the nodes carry those interfaces as the worksheet states them.
