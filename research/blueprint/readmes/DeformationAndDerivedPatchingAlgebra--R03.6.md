@@ -38,11 +38,12 @@ maximal Cohen–Macaulay and not nearly faithful, and it is a test in several mi
   in `Mathlib/RingTheory/Ideal/KrullsHeightTheorem.lean`.
 - **Two precise R03.3 imports remain open:** maximal-depth freeness over a regular local ring (Stacks 00O7),
   and the equivalence between catenarity and the displayed dimension-function condition (Stacks 0ECF).
-  The integrated depth node does not explicitly export these two statements. The packet records both gaps.
-- **Declaration granularity remains partial.** Thirteen inherited theorem/lemma nodes still contain multiple
-  suggested declarations. Each requires a check against the one-declaration rule, separation where the proofs
-  differ, and recursive dependency checks. The framing branch has three separate lemma nodes; support base change now has separate inclusion, finite-module and flat-map nodes. The packet
-  identifies every remaining aggregate in its granularity gap.
+  The integrated depth node does not explicitly export these two statements. The packet files both as requests
+  to R03.3, which the P7 part of the roadmap plans.
+- **One declaration per node.** Every lemma and theorem node carries exactly one suggested declaration. The
+  thirteen former multi-declaration nodes are split into forty nodes. Each retained identifier names one of
+  its former declarations, as listed with the node in Milestones 1–6, and every consumer cites the leaf that
+  its proof actually uses.
 - **Patching data are hypotheses of the assembled theorem.** No construction in R03.5 or P8 is used in its
   proof. In the Calegari–Geraghty application, P8's Theorem 6.3 constructs the perfect complex and supplies
   its top cohomology with those data. This layer proves the conditional implication for any such module.
@@ -160,7 +161,7 @@ Library modules live under `TauCeti/RingTheory/Support/`: `NearlyFaithful`, `Bas
 
 ### Milestone 1: nearly faithful modules and components
 
-**Object: nearly faithful modules** (`Module.NearlyFaithful`, a class; file `NearlyFaithful`). For a commutative ring
+**Object: nearly faithful modules** (`Module.NearlyFaithful`, a class; node `nearly-faithful`; file `NearlyFaithful`). For a commutative ring
 R and an R-module M,
 
 ```text
@@ -185,7 +186,7 @@ faithful is faithful (`nearlyFaithful_test_int`). With S and J as in Stacks 0EGG
 Ann = J is not nilpotent (`nearlyFaithful_test_notNilpotent`); this test is what rejects the nilpotent form as a
 definition.
 
-**Object: modules supported on components** (`Module.IsSupportedOnComponents`, a definition; file `NearlyFaithful`).
+**Object: modules supported on components** (`Module.IsSupportedOnComponents`, a definition; node `supported-on-components`; file `NearlyFaithful`).
 M is supported on components of Spec R if every prime minimal over Ann_R(M) is a minimal prime of R.
 
 *API.* `IsSupportedOnComponents.mem_minimalPrimes`; `isSupportedOnComponents_iff_exists_irreducibleComponents`
@@ -198,16 +199,29 @@ M is supported on components of Spec R if every prime minimal over Ann_R(M) is a
 faithful (`isSupportedOnComponents_test_domain`). Finiteness is needed for the characterisation: ℚ_p/ℤ_p over ℤ_p
 satisfies the definition, and its support {(p)} is not a union of components.
 
-**Lemma: near faithfulness as full support** (`nearlyFaithful_iff_support_eq_univ`,
-`nearlyFaithful_iff_forall_minimalPrimes_mem_support`). For an R-module M consider (i) M nearly faithful,
-(ii) Supp M = Spec R, (iii) every minimal prime of R lies in Supp M. For every M, (ii) ⇔ (iii) ⇒ (i). For finite M
-all three are equivalent, and when Ann_R M is finitely generated they are equivalent to (iv) Ann_R M nilpotent.
-*Proof.* (iii) ⇒ (i) from `Module.mem_support_iff_exists_annihilator` and ⋂ Min(R) = √0 (`Ideal.sInf_minimalPrimes`);
-(ii) ⇔ (iii) because every prime contains a minimal prime and supports are stable under specialisation; (i) ⇒ (ii)
-from `Module.support_eq_zeroLocus` and `PrimeSpectrum.zeroLocus_eq_univ_iff`. *Counterexample.* Over ℤ, ℚ/ℤ is
-faithful and (0) ∉ Supp(ℚ/ℤ): (i) ⇒ (ii) needs finiteness.
+**Lemma: near faithfulness as full support** (`Module.nearlyFaithful_iff_support_eq_univ`; node `nearly-faithful-iff-support-eq-univ`; file `NearlyFaithful`). Let R be a commutative ring and M a finite R-module. Then M is nearly faithful over R if and only if Supp_R M = Spec R. When Ann_R M is finitely generated (for instance R Noetherian), both conditions are also equivalent to Ann_R M being nilpotent; that is the API item `nearlyFaithful_iff_isNilpotent_annihilator_of_fg` of the object, not part of this lemma.
 
-**Lemma: near faithfulness along a surjective ring map** (`nearlyFaithful_iff_annihilator_le_radical_ker`). For
+*Hypotheses.* M is finite over R. There is no Noetherian hypothesis. Finiteness is needed only for ⇒, because Supp M ⊆ V(Ann_R M) for every M.
+
+*Proof.*
+
+1. For finite M, Supp M = V(Ann_R M) (`Module.support_eq_zeroLocus`, Stacks 00L2).
+2. V(Ann_R M) = Spec R if and only if Ann_R M ⊆ √0 (`PrimeSpectrum.zeroLocus_eq_univ_iff`), which is the definition of near faithfulness.
+
+*Acceptance.* Over ℤ, ℚ/ℤ is faithful and (0) ∉ Supp(ℚ/ℤ), since ℚ ⊗ ℚ/ℤ = 0, so ⇒ needs finiteness. The zero module over a nonzero ring has empty support and is not nearly faithful. ACC+ §6.3.5 uses ⇒: the kernel of T∞ → End(H*(C∞)) is nilpotent, so Supp_{T∞}(H*(C∞)) = Spec T∞.
+
+**Lemma: near faithfulness tested on minimal primes** (`Module.nearlyFaithful_iff_forall_minimalPrimes_mem_support`; node `nearly-faithful-iff-minimal-primes-mem-support`; file `NearlyFaithful`). Let R be a commutative ring and M a finite R-module. Then M is nearly faithful over R if and only if every minimal prime of R lies in Supp_R M.
+
+*Hypotheses.* M is finite over R; finiteness is needed only for ⇒. There is no Noetherian hypothesis.
+
+*Proof.*
+
+1. ⇒: by the full-support lemma, Supp M = Spec R.
+2. ⇐: every prime q contains a minimal prime p (`Ideal.exists_minimalPrimes_le`, Stacks 00E0). Since p ∈ Supp M and supports are stable under specialisation (`Module.mem_support_mono`), q ∈ Supp M. So Supp M = Spec R, and the full-support lemma applies.
+
+*Acceptance.* ⇒ needs finiteness: ℚ/ℤ over ℤ is faithful and its support misses (0). One minimal prime is not enough: over the node A = k⟦x,y⟧/(xy), Supp(A/(x)) = V(x) contains (x) but not (y), and A/(x) is not nearly faithful (`nearlyFaithful_test_node`). Calegari–Geraghty test near faithfulness component by component (proof of Theorem 6.4, p. 94).
+
+**Lemma: near faithfulness along a surjective ring map** (`nearlyFaithful_iff_annihilator_le_radical_ker`; node `nearly-faithful-restrict-scalars-surjective`). For
 φ: A ↠ B and a B-module N, Ann_A(N) = φ⁻¹(Ann_B N), and
 
 ```text
@@ -216,12 +230,50 @@ N nearly faithful over B   ⟺   Ann_A(N) ⊆ √(ker φ).
 
 No finiteness is needed. *Proof.* `Module.comap_annihilator` and `Ideal.comap_radical`.
 
-**Lemma: near faithfulness passes to quotients** (`NearlyFaithful.quotient`, `NearlyFaithful.ker_le_radical_of_equiv_quotient`,
-`NearlyFaithful.of_equiv_quotient`; Taylor, Lemma 2.2(1)). Let M be finite and nearly faithful over A and I ⊆ A an
-ideal. Then M/IM is nearly faithful over A/I. If φ: A ↠ B and N is a B-module with an A-linear isomorphism
-M/IM ≅ N, then ker φ ⊆ √I; if moreover I ⊆ √(ker φ), then N is nearly faithful over B. No Noetherian hypothesis.
-*Proof.* Supp(M/IM) = Supp M ∩ V(I) = V(I) (`Module.support_quotient` and full support), so √Ann(M/IM) = √I; then
-the previous lemma. *Counterexample.* Over ℤ_p, ℚ_p is faithful and ℚ_p/pℚ_p = 0 is not nearly faithful over 𝔽_p.
+**Lemma: the annihilator of M/IM has radical √I** (`Module.NearlyFaithful.radical_annihilator_quotient`; node `radical-annihilator-quotient`; file `NearlyFaithful`). Let M be a finite nearly faithful A-module and I ⊆ A an ideal. Then √Ann_A(M/IM) = √I.
+
+*Hypotheses.* M is finite and nearly faithful over A. There is no Noetherian or local hypothesis.
+
+*Proof.*
+
+1. M has full support, so Supp(M/IM) = Supp M ∩ V(I) = V(I) (`Module.support_quotient`, Stacks 00L3).
+2. M/IM is finite, so Supp(M/IM) = V(Ann_A(M/IM)) (`Module.support_eq_zeroLocus`).
+3. V(Ann_A(M/IM)) = V(I) gives I ⊆ √Ann_A(M/IM) and Ann_A(M/IM) ⊆ √I (`PrimeSpectrum.zeroLocus_subset_zeroLocus_iff`).
+
+*Acceptance.* Over ℤ, ℚ/2ℚ = 0 has annihilator ℤ, whose radical is not √(2) = (2): finiteness is needed. For A = ℤ, M = ℤ/2 and I = 0, √Ann M = (2) ≠ √0: near faithfulness is needed. For I = 0 the conclusion is the definition of near faithfulness.
+
+**Lemma: near faithfulness passes to quotients** (`Module.NearlyFaithful.quotient`; node `nearly-faithful-quotient`; file `NearlyFaithful`; Taylor, Lemma 2.2(1)). Let M be finite and nearly faithful over A and I ⊆ A an ideal. Then M/IM is nearly faithful over A/I.
+
+*Hypotheses.* M is finite and nearly faithful over A. There is no Noetherian hypothesis.
+
+*Proof.*
+
+1. I kills M/IM, which gives its A/I-module structure (`Module.isTorsionBySet_quotient_ideal_smul`, `Module.IsTorsionBySet.module`).
+2. The map A → A/I is surjective with kernel I (`Ideal.mk_ker`). By the lemma on surjective ring maps, the claim is Ann_A(M/IM) ⊆ √I, which the radical lemma gives.
+
+*Acceptance.* ℤ acts faithfully on ℚ, and ℚ/2ℚ = 0 is not nearly faithful over 𝔽₂ (`quotient_nearlyFaithful_requires_finite`): finiteness is needed. Taylor's proof of Theorem 4.1 applies the lemma to H_χ/λ over R_χ/λ.
+
+**Lemma: a second action on M/IM has kernel inside √I** (`Module.NearlyFaithful.ker_le_radical_of_equiv_quotient`; node `quotient-action-kernel-bound`; file `NearlyFaithful`). Let M be finite and nearly faithful over A, I ⊆ A an ideal, φ: A → B any map of commutative rings, and N a B-module with the compatible A-action and an A-linear isomorphism M/IM ≅ N. Then ker φ ⊆ √I.
+
+*Hypotheses.* M is finite and nearly faithful over A. φ need not be surjective.
+
+*Proof.*
+
+1. ker φ kills N, so ker φ ⊆ Ann_A(N) = Ann_A(M/IM) (`LinearEquiv.annihilator_eq`).
+2. Ann_A(M/IM) ⊆ √I by the radical lemma.
+
+*Acceptance.* The call-site example `quotient_kernel_bound_without_surjectivity` passes no surjectivity argument. For A = ℤ, M = ℚ, I = (2) and B = N = 0, ker(ℤ → 0) = ℤ ⊄ (2): finiteness is needed. For A = ℤ, M = N = B = ℤ/2 and I = 0, ker φ = (2) ⊄ √0: near faithfulness is needed.
+
+**Lemma: near faithfulness for a second action on M/IM** (`Module.NearlyFaithful.of_equiv_quotient`; node `quotient-action-nearly-faithful`; file `NearlyFaithful`). With M, I and N as in the kernel bound, let φ: A → B be surjective and assume I ⊆ √(ker φ) (for instance I ⊆ ker φ). Then N is nearly faithful over B.
+
+*Hypotheses.* M is finite and nearly faithful over A, φ is surjective and I ⊆ √(ker φ). Neither of the last two follows from the kernel bound.
+
+*Proof.*
+
+1. Ann_A(N) = Ann_A(M/IM) ⊆ √I ⊆ √(ker φ), by `LinearEquiv.annihilator_eq`, the radical lemma and the hypothesis.
+2. The lemma on surjective ring maps turns this into near faithfulness over B.
+
+*Acceptance.* For A = B = ℤ/6, φ = id, M = A and I = (2), ker φ = 0 ⊆ √I, but I ⊄ √0 and N = A/I is killed by the non-nilpotent element 2 (`quotient_action_requires_reverse_radical`). For A = 𝔽₂, B = 𝔽₂ × 𝔽₂ with the diagonal map, I = 0 and N = B/(0 × 𝔽₂) ≅ A, the idempotent (0, 1) kills N, so even an injective flat φ fails (`quotient_action_requires_surjective`). Taylor's case J ⊇ I is I ⊆ J ⊆ √J.
 
 *Sources.* Taylor, Definition 2.1, the remark after it and Lemma 2.2(1) (IHÉS 108, pp. 187–188); ACC+ §6.5, p. 1066;
 Calegari–Geraghty §6.1, Theorem 6.4; Stacks 00IM, 0EGG, 00L2, 00L3, 00E0, 02CE.
@@ -273,21 +325,45 @@ Calegari–Geraghty §6.1, Theorem 6.4; Stacks 00IM, 0EGG, 00L2, 00L3, 00E0, 02C
 
 *Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change-subset, mathlib:Module.support, mathlib:Module.mem_support_iff, mathlib:PrimeSpectrum.comap, mathlib:LocalizedModule.equivTensorProduct, mathlib:Localization.localRingHom, mathlib:Localization.localRingHom_to_map, mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange, mathlib:TensorProduct.AlgebraTensorModule.cancelBaseChange_tmul, mathlib:Module.Flat, mathlib:Localization.flat, mathlib:Module.flat_iff_of_isLocalization, mathlib:Localization.isLocalHom_localRingHom, mathlib:Module.FaithfullyFlat.of_flat_of_isLocalHom, mathlib:Module.FaithfullyFlat.lTensor_nontrivial.
 
-**Lemma: support along a surjective ring map** (`support_eq_image_comap_of_surjective`). For φ: A ↠ B with kernel I
+**Lemma: support along a surjective ring map** (`support_eq_image_comap_of_surjective`; node `support-restrict-scalars-surjective`). For φ: A ↠ B with kernel I
 and any B-module N, Supp_A(N) = (Spec φ)(Supp_B N): 𝔭 ∈ Supp_A N iff I ⊆ 𝔭 and φ(𝔭) ∈ Supp_B N. *Proof.* An element
 of I outside 𝔭 kills N and is invertible on N_𝔭; for I ⊆ 𝔭, A_𝔭 ⊗_A N ≅ B_{φ(𝔭)} ⊗_B N (Stacks 00E5).
 
 The quotient case Supp(M/IM) = Supp M ∩ V(I) for finite M is Mathlib's `Module.support_quotient` and is cited, not
 restated.
 
-**Lemma: near faithfulness under base change and coefficient change** (`NearlyFaithful.baseChange`,
-`NearlyFaithful.of_baseChange`, `nearlyFaithful_baseChange_iff`). Let M be a finite A-module and φ: A → B. (a) M
-nearly faithful ⇒ B ⊗_A M nearly faithful over B. (b) If B ⊗_A M is nearly faithful and every minimal prime of A is
-the contraction of a prime of B (for instance φ faithfully flat), M is nearly faithful. (c) For a faithfully flat
-𝒪 → 𝒪′ and an 𝒪-algebra A, M is nearly faithful over A iff 𝒪′ ⊗_𝒪 M is nearly faithful over A ⊗_𝒪 𝒪′. No
-Noetherian hypothesis. *Proof.* The base-change theorem and full support; for (c), A → A ⊗_𝒪 𝒪′ is faithfully flat
-and surjective on spectra (`PrimeSpectrum.comap_surjective_of_faithfullyFlat`). *Counterexample.* For (b):
-A = k × k → B = k, M = k × 0; B ⊗ M = k is faithful, and Ann_A M = 0 × k ⊄ √0.
+**Lemma: near faithfulness ascends along base change** (`Module.NearlyFaithful.baseChange`; node `nearly-faithful-base-change`; file `BaseChange`). For any map φ: A → B of commutative rings and any finite nearly faithful A-module M, B ⊗_A M is nearly faithful over B.
+
+*Hypotheses.* M is finite over A. There is no hypothesis on φ and no Noetherian hypothesis.
+
+*Proof.*
+
+1. B ⊗_A M is finite over B (`Module.Finite.base_change`).
+2. Full support of M and support-base-change give Supp_B(B ⊗_A M) = (Spec φ)⁻¹(Spec A) = Spec B. Conclude by full support over B.
+
+*Acceptance.* ℚ is faithful over ℤ, but (ℤ/2) ⊗_ℤ ℚ = 0: finiteness is needed. ℤ⟦X⟧ ⊗_ℤ ℤ is nearly faithful over ℤ⟦X⟧.
+
+**Lemma: near faithfulness descends when minimal primes lift** (`Module.NearlyFaithful.of_baseChange`; node `nearly-faithful-of-base-change`; file `BaseChange`). Let φ: A → B be a map of commutative rings and M a finite A-module. If every minimal prime of A is φ⁻¹(q) for a prime q of B, and B ⊗_A M is nearly faithful over B, then M is nearly faithful over A.
+
+*Hypotheses.* M is finite. The minimal primes of A lift to Spec B, for instance when φ is faithfully flat or has a ring retraction. There is no Noetherian hypothesis.
+
+*Proof.*
+
+1. B ⊗_A M is finite and nearly faithful, so Supp_B(B ⊗_A M) = Spec B (full support over B).
+2. For a minimal prime p = φ⁻¹(q), q ∈ Supp_B(B ⊗_A M) ⊆ (Spec φ)⁻¹(Supp_A M) by support-base-change-subset, so p ∈ Supp_A M. Conclude by the minimal-prime test over A.
+
+*Acceptance.* Let A = k × k → B = k be the first projection and M = A/(0 × k) ≅ k × 0. Then B ⊗_A M = k is faithful over B, while Ann_A M = 0 × k ⊄ √0; the minimal prime k × 0 does not lift. Along A → A⟦x_s : s ∈ σ⟧ every prime of A lifts, for any σ.
+
+**Lemma: near faithfulness under faithfully flat base change and coefficient change** (`Module.nearlyFaithful_baseChange_iff`; node `nearly-faithful-base-change-iff`; file `BaseChange`). If B is faithfully flat over A and M is a finite A-module, then B ⊗_A M is nearly faithful over B if and only if M is nearly faithful over A.
+
+*Hypotheses.* B is faithfully flat over A and M is finite. There is no Noetherian hypothesis.
+
+*Proof.*
+
+1. ⇐ is ascent.
+2. ⇒: Spec B → Spec A is surjective (`PrimeSpectrum.comap_surjective_of_faithfullyFlat`, Stacks 00HQ), so descent applies.
+
+*Acceptance.* Coefficient change: for a faithfully flat 𝒪 → 𝒪′ and an 𝒪-algebra A, A → A ⊗_𝒪 𝒪′ is faithfully flat (the base-change instance of `Module.FaithfullyFlat`, Stacks 00HI). So M is nearly faithful over A if and only if (A ⊗_𝒪 𝒪′) ⊗_A M ≅ 𝒪′ ⊗_𝒪 M is nearly faithful over A ⊗_𝒪 𝒪′. The flat projection k × k → k above shows that faithful flatness cannot be weakened to flatness. Over ℤ_p, B = ℤ_p × ℚ_p is faithfully flat and M = ℚ_p/ℤ_p is faithful, while B ⊗ M = M × 0 is killed by (0, 1): finiteness is needed.
 
 **Lemma: kernel of the framing augmentation** (`MvPowerSeries.ker_constantCoeff`; node
 `framing-augmentation-kernel`). Let σ be finite, B = A⟦x_s : s ∈ σ⟧ and J = (x_s : s ∈ σ).
@@ -336,14 +412,38 @@ hypothesis. *Proof.* `Ideal.disjoint_nonZeroDivisors_of_mem_minimalPrimes`, then
 for the zero ideal, whose contraction is 0 because ϖ is a nonzerodivisor. *Counterexample.* R = ℤ_p × 𝔽_p,
 ϖ = (p, 0): the minimal prime ℤ_p × 0 contains ϖ, and R[1/ϖ] = ℚ_p has one minimal prime while R has two.
 
-**Lemma: near faithfulness tested after inverting ϖ** (`nearlyFaithful_iff_localizedModule_away`,
-`nearlyFaithful_iff_forall_minimalPrimes_away_mem_support`, `faithfulSMul_iff_localizedModule_away`). Let ϖ be a
-nonzerodivisor of R and M a finite R-module. Equivalent: (i) M nearly faithful over R; (ii) M[1/ϖ] nearly faithful
-over R[1/ϖ]; (iii) every irreducible component of Spec R[1/ϖ] lies in Supp M[1/ϖ]. If R[1/ϖ] is reduced, R is
-reduced and these are equivalent to (iv) M faithful and (v) M[1/ϖ] faithful. *Proof.* M[1/ϖ] ≅ R[1/ϖ] ⊗_R M, so
-Supp M[1/ϖ] = Supp M ∩ D(ϖ) by the base-change theorem; the minimal primes of R lie in D(ϖ) by the previous lemma;
-then full support over R and over R[1/ϖ]. *Counterexamples.* R = ℤ_p × 𝔽_p, ϖ = (p, 0), M = ℤ_p × 0: M[1/ϖ] is
-faithful and M is not nearly faithful. Over ℤ_p, ℚ_p/ℤ_p is faithful and (ℚ_p/ℤ_p)[1/p] = 0.
+**Lemma: near faithfulness tested on the minimal primes of R[1/ϖ]** (`Module.nearlyFaithful_iff_forall_minimalPrimes_away_mem_support`; node `nearly-faithful-iff-minimal-primes-away-mem-support`; file `Localization`). Let ϖ be a nonzerodivisor of R and M a finite R-module. Then M is nearly faithful over R if and only if every minimal prime of R[1/ϖ] lies in Supp M[1/ϖ]. Equivalently, every irreducible component of Spec R[1/ϖ] lies in Supp M[1/ϖ], since the components are the closures of the minimal primes.
+
+*Hypotheses.* ϖ is a nonzerodivisor and M is finite. There is no Noetherian hypothesis.
+
+*Proof.*
+
+1. M[1/ϖ] ≅ R[1/ϖ] ⊗_R M (`LocalizedModule.equivTensorProduct`, `LinearEquiv.support_eq`). By support-base-change, Supp M[1/ϖ] is the preimage of Supp M.
+2. Contraction maps the minimal primes of R[1/ϖ] onto those of R (the lemma on minimal primes after inverting a nonzerodivisor). Conclude by the minimal-prime test over R.
+
+*Acceptance.* For R = ℤ_p × 𝔽_p, ϖ = (p, 0) and M = ℤ_p × 0, R[1/ϖ] = ℚ_p and its generic point lies in Supp M[1/ϖ], but M is not nearly faithful. Over ℤ_p, ℚ_p/ℤ_p is faithful and (ℚ_p/ℤ_p)[1/p] = 0.
+
+**Lemma: near faithfulness tested after inverting ϖ** (`Module.nearlyFaithful_iff_localizedModule_away`; node `nearly-faithful-after-inverting`; file `Localization`). Let ϖ be a nonzerodivisor of R and M a finite R-module. Then M is nearly faithful over R if and only if M[1/ϖ] is nearly faithful over R[1/ϖ].
+
+*Hypotheses.* ϖ is a nonzerodivisor and M is finite. There is no Noetherian hypothesis.
+
+*Proof.*
+
+1. M[1/ϖ] is finite over R[1/ϖ] (`Module.Finite.of_isLocalizedModule`).
+2. By the minimal-prime test over R[1/ϖ] and the previous lemma, both sides are equivalent to every minimal prime of R[1/ϖ] lying in Supp M[1/ϖ].
+
+*Acceptance.* The two examples of the previous lemma show that ϖ must be a nonzerodivisor and M finite.
+
+**Lemma: faithfulness tested after inverting ϖ** (`Module.faithfulSMul_iff_localizedModule_away`; node `faithful-iff-after-inverting`; file `Localization`). Let ϖ be a nonzerodivisor of R with R[1/ϖ] reduced, and M a finite R-module. Then M is faithful over R if and only if M[1/ϖ] is faithful over R[1/ϖ].
+
+*Hypotheses.* ϖ is a nonzerodivisor, R[1/ϖ] is reduced (for instance regular) and M is finite.
+
+*Proof.*
+
+1. R → R[1/ϖ] is injective (`Submonoid.powers_le`, `IsLocalization.injective`), so R is reduced (`isReduced_of_injective`).
+2. Over a reduced ring, nearly faithful means faithful (`nilradical_eq_bot_iff`, `Module.annihilator_eq_bot`). Apply the previous lemma.
+
+*Acceptance.* For R = ℤ_p × 𝔽_p and ϖ = (p, 0), R[1/ϖ] = ℚ_p is reduced, and M = ℤ_p × 0 becomes faithful after inverting ϖ without being faithful. Khare–Wintenberger II, Lemma 9.6 b), is ⇐ with ϖ = 2. For finite M the equivalence also holds without reducedness, since Ann_{R[1/ϖ]}(M[1/ϖ]) = Ann_R(M)[1/ϖ] and R has no ϖ-torsion; the hypothesis follows the sources.
 
 *Sources.* Calegari–Geraghty, proof of Theorem 6.4, p. 94 ("Since R∞ is p-torsion free, all its minimal primes have
 characteristic 0"); Khare–Wintenberger II, proof of Lemma 9.6 b); Stacks 00EU, 00E3, 00LD.
@@ -351,40 +451,93 @@ characteristic 0"); Khare–Wintenberger II, proof of Lemma 9.6 b); Stacks 00EU,
 
 ### Milestone 4: maximal depth, components and symmetry
 
-**Theorem: modules of maximal depth are supported on top-dimensional components** (`mem_minimalPrimes_of_mem_associatedPrimes_of_isRegular`,
-`ringKrullDim_quotient_eq_of_isRegular`, `isSupportedOnComponents_of_isRegular`; file `Components`). Let (A, 𝔪) be a
-Noetherian local ring and M ≠ 0 a finite A-module with depth_A M ≥ dim A. Then depth_A M = dim A; every associated
-prime 𝔭 of M is a minimal prime of A with dim A/𝔭 = dim A; the primes minimal over Ann M are minimal primes of maximal
-dimension; so M is supported on components and Supp M is a union of irreducible components of dimension dim A.
-*Proof.* For 𝔭 ∈ Ass M, depth M ≤ dim A/𝔭 (Stacks 0BK4, the integrated R03.3 depth node) forces dim A/𝔭 = dim A and 𝔭 minimal; primes minimal
-over Ann M are associated (`Module.associatedPrimes.minimalPrimes_annihilator_subset_associatedPrimes`).
-*Counterexample to full support.* A = k⟦x,y⟧/(xy), M = A/(x): x + y is M-regular, depth M = 1 = dim A, Supp M = V(x),
-and M is not nearly faithful. M = 0 must be excluded, as depth 0 = ∞.
+**Lemma: associated primes of a module of maximal depth** (`Module.mem_minimalPrimes_of_mem_associatedPrimes_of_isRegular`; node `maximal-depth-associated-primes-minimal`; file `Components`). Let (A, 𝔪) be a Noetherian local ring and M a finite A-module with an M-regular sequence r₁, …, r_n in 𝔪 of length n = dim A. Then every associated prime P of M is a minimal prime of A, and dim A/P = dim A.
+
+*Hypotheses.* A is Noetherian and local, and M is finite. The sequence is M-regular in Mathlib's sense (`RingTheory.Sequence.IsRegular`, which includes M/(r₁, …, r_n)M ≠ 0), each rᵢ lies in 𝔪, and n = dim A in WithBot ℕ∞. Together these say M ≠ 0 and depth_A M ≥ dim A.
+
+*Proof.*
+
+1. The sequence gives depth_A M ≥ dim A. The associated-prime bound of the integrated R03.3 depth node (Stacks 0BK4: depth M ≤ dim A/P for P ∈ Ass M) gives dim A ≤ dim A/P, and `ringKrullDim_quotient_le` gives dim A/P ≤ dim A.
+2. dim A is finite (`ringKrullDim_lt_top`, with the Noetherian-local `FiniteRingKrullDim` instance). By `ringKrullDim_quotient` there is a chain of primes of length dim A starting at P. A prime strictly inside P would extend it to a chain of length dim A + 1, so P is a minimal prime of A.
+
+*Acceptance.* Over the node A = k⟦x,y⟧/(xy), M = A/(x) with the M-regular element x + y has the single associated prime (x), a minimal prime with dim A/(x) = 1 = dim A. The length condition is needed: over A = k⟦x,y⟧, M = A/(x) has the M-regular sequence y of length 1 < 2 = dim A, and its associated prime (x) is not minimal. When dim A = 0, the empty sequence is M-regular exactly when M ≠ 0, and 𝔪 is the only prime.
+
+**Lemma: primes minimal over the annihilator have maximal dimension** (`Module.ringKrullDim_quotient_eq_of_isRegular`; node `maximal-depth-annihilator-primes-top-dimensional`; file `Components`). Under the same hypotheses on A, M and r₁, …, r_n, every prime P minimal over Ann_A M satisfies dim A/P = dim A.
+
+*Hypotheses.* As in the previous lemma, and P is a prime minimal over Ann_A M.
+
+*Proof.* P is an associated prime of M (`Module.associatedPrimes.minimalPrimes_annihilator_subset_associatedPrimes`, Stacks 02CE, for A Noetherian and M finite). Apply the dimension clause of `maximal-depth-associated-primes-minimal`.
+
+*Acceptance.* Over the node, Ann M = (x) and dim A/(x) = 1 = dim A. Maximal depth is needed: A = k⟦x,y,z⟧/(xy, xz) has dimension 2, and M = A/(y, z) ≅ k⟦x⟧ has the M-regular sequence x of length 1; the prime (y, z), minimal over Ann M and even a minimal prime of A, has dim A/(y, z) = 1. The equidimensionality lemma below applies this lemma to the minimal primes of A.
+
+**Theorem: modules of maximal depth are supported on components** (`Module.isSupportedOnComponents_of_isRegular`; node `maximal-cm-support-top-components`; file `Components`). Under the same hypotheses, M is supported on components: every prime minimal over Ann_A M is a minimal prime of A. With `isSupportedOnComponents_iff_exists_irreducibleComponents` and the previous lemma, Supp M is a union of irreducible components of Spec A of dimension dim A (Taylor, Lemma 2.3).
+
+*Hypotheses.* As in the first lemma of this milestone. The conclusion is not full support.
+
+*Proof.* A prime minimal over Ann_A M is an associated prime of M (`Module.associatedPrimes.minimalPrimes_annihilator_subset_associatedPrimes`), hence a minimal prime of A by `maximal-depth-associated-primes-minimal`. This is the definition of supported on components.
+
+*Acceptance.* Counterexample to full support: over A = k⟦x,y⟧/(xy), M = A/(x) has the M-regular element x + y, so depth M = 1 = dim A; Supp M = V(x) is one of the two components, and M is not nearly faithful. The length condition is needed: over k⟦x,y⟧, M = A/(x) with the sequence y is not supported on components, since (x) is not a minimal prime. The zero module is supported on components vacuously. M ≠ 0 (depth 0 = ∞) matters for Taylor's "depth M = dim A" and for the irreducible-base lemma below.
 
 **Lemma: a nearly faithful module of maximal depth forces equidimensionality**
-(`NearlyFaithful.ringKrullDim_quotient_eq_of_isRegular`; Calegari–Geraghty, Remark 6.5). If A is Noetherian local and
+(`NearlyFaithful.ringKrullDim_quotient_eq_of_isRegular`; node `nearly-faithful-maximal-depth-equidimensional`; Calegari–Geraghty, Remark 6.5). If A is Noetherian local and
 M is finite, nearly faithful and depth_A M ≥ dim A, then dim A/𝔭 = dim A for every minimal prime 𝔭. *Proof.* Each
-minimal prime lies in Supp M, hence is minimal over Ann M; apply the theorem. *Test.* A = k⟦x,y,z⟧/(xy, xz) has
+minimal prime lies in Supp M (`nearly-faithful-iff-minimal-primes-mem-support`), hence is minimal over Ann M; apply
+`maximal-depth-annihilator-primes-top-dimensional`. *Test.* A = k⟦x,y,z⟧/(xy, xz) has
 components of dimensions 2 and 1, so no finite module of depth 2 is nearly faithful over it.
 
-**Lemma: maximal depth over an irreducible base gives near faithfulness**
-(`nearlyFaithful_of_isRegular_of_subsingleton_minimalPrimes`, `nearlyFaithful_of_isRegular_of_subsingleton_minimalPrimes_away`;
-Taylor, Lemma 2.3). If A is Noetherian local with a unique minimal prime and M ≠ 0 is finite with
-depth_A M ≥ dim A, then Supp M = Spec A and M is nearly faithful. If ϖ is a nonzerodivisor of A and Spec A[1/ϖ] is
-irreducible, A has a unique minimal prime (Milestone 3), which is Calegari–Geraghty, Theorem 6.4(2).
-*Counterexamples.* "A unique minimal prime of maximal dimension" is not enough: over A = k⟦x,y,z⟧/(xy, xz),
-M = A/(x) ≅ k⟦y,z⟧ has depth 2 = dim A and Ann M = (x) is not nilpotent. M ≠ 0 is needed.
+**Lemma: maximal depth over an irreducible base gives near faithfulness** (`Module.nearlyFaithful_of_isRegular_of_subsingleton_minimalPrimes`; node `maximal-cm-nearly-faithful-irreducible`; file `Components`; Taylor, Lemma 2.3). Let (A, 𝔪) be a Noetherian local ring with at most one minimal prime, and M a finite A-module with an M-regular sequence r₁, …, r_n in 𝔪 of length n = dim A. Then M is nearly faithful.
 
-**Lemma: support stable under a group acting transitively on components**
-(`smul_mem_annihilator_of_smulDistribClass`, `comap_mulSemiringAction_mem_support`,
-`nearlyFaithful_of_forall_minimalPrimes_exists_smul`, `faithfulSMul_of_forall_minimalPrimes_exists_smul`). Let a group
-G act on A by ring automorphisms and on M additively with g(a·m) = g(a)·g(m). Then Ann M is G-stable and Supp M is
-stable under 𝔭 ↦ g(𝔭). If G is transitive on the minimal primes of A and one of them lies in Supp M, M is nearly
-faithful, and faithful when A is reduced. No finiteness of G or M and no Noetherian hypothesis. The transitivity is
-an arithmetic input of the consumer (Khare–Wintenberger II, Lemma 9.4). *Counterexample.* A = k × k, G trivial,
-M = k × 0.
+*Hypotheses.* A is Noetherian and local, and its set of minimal primes is a subsingleton; as A ≠ 0, Spec A is irreducible. M is finite, with the regular sequence as in the maximal-depth theorem, which includes M ≠ 0.
 
-**Lemma: lifting near faithfulness from the special fibre** (`NearlyFaithful.of_quotient_of_isSMulRegular`; Taylor,
+*Proof.*
+
+1. M ≠ 0 (`RingTheory.Sequence.IsRegular.nontrivial`), so M has an associated prime Q (`associatedPrimes.nonempty`). Q is the annihilator of an element, so Ann M ⊆ Q, and `Ideal.exists_minimalPrimes_le` gives a prime P ⊆ Q minimal over Ann M.
+2. By the maximal-depth theorem, P is a minimal prime of A, hence the only one.
+3. Ann M ⊆ P, so P ∈ Supp M (`Module.mem_support_iff_of_finite`). Every minimal prime of A lies in Supp M; conclude by `nearlyFaithful_iff_forall_minimalPrimes_mem_support`.
+
+*Acceptance.* "A unique minimal prime of maximal dimension" is not enough: over A = k⟦x,y,z⟧/(xy, xz), M = A/(x) ≅ k⟦y,z⟧ has the M-regular sequence y, z of length 2 = dim A, and Ann M = (x) is not nilpotent. M ≠ 0 is needed, and the regular-sequence hypothesis enforces it; Taylor omits it (source issue E2). Taylor applies the lemma to a patched ring with a unique minimal prime (proof of Theorem 4.1).
+
+**Lemma: maximal depth with an irreducible generic fibre gives near faithfulness** (`Module.nearlyFaithful_of_isRegular_of_subsingleton_minimalPrimes_away`; node `maximal-depth-nearly-faithful-irreducible-away`; file `Components`; Calegari–Geraghty, Theorem 6.4(2)). Let A, M and r₁, …, r_n be as in the maximal-depth theorem, and let ϖ be a nonzerodivisor of A such that A[1/ϖ] has at most one minimal prime. Then M is nearly faithful.
+
+*Hypotheses.* As in the previous lemma, with the condition on minimal primes imposed on A[1/ϖ] (`Localization.Away ϖ`) instead of A, and ϖ ∈ A a nonzerodivisor.
+
+*Proof.* Contraction maps the minimal primes of A[1/ϖ] onto those of A (`IsLocalization.Away.comap_minimalPrimes_eq_of_mem_nonZeroDivisors`, Milestone 3), so A has at most one minimal prime; apply the previous lemma.
+
+*Acceptance.* ϖ must be a nonzerodivisor: A = ℤ_p⟦x⟧/(px) is local of dimension 1 with minimal primes (p) and (x), p kills x, and A[1/p] ≅ ℚ_p has one minimal prime. M = A/(p) ≅ 𝔽_p⟦x⟧ has the M-regular element x, and Ann M = (p) is not nilpotent. Calegari–Geraghty apply the lemma to the p-torsion-free ring R∞ with R∞[1/p] irreducible.
+
+**Lemma: the annihilator is stable under a semilinear action** (`Module.smul_mem_annihilator_of_smulDistribClass`; node `annihilator-group-stable`; file `Components`). Let a group G act on a commutative ring A by ring automorphisms and on an A-module M by additive automorphisms, semilinearly: g(a·m) = g(a)·g(m). If a ∈ Ann M and g ∈ G, then g(a) ∈ Ann M.
+
+*Hypotheses.* `MulSemiringAction G A`, `DistribMulAction G M` and `SMulDistribClass G A M`. No finiteness of G or M and no Noetherian hypothesis.
+
+*Proof.* For m ∈ M, g(a)·m = g(a)·g(g⁻¹m) = g(a·g⁻¹m) = g(0) = 0 (`Module.mem_annihilator`).
+
+*Acceptance.* Semilinearity is needed: let ℤ/2 swap the factors of A = k × k and act trivially on M = k × 0. Then Ann M = 0 × k, and the swap sends (0, 1) to (1, 0), which does not kill M. Khare–Wintenberger II use the lemma for the annihilator of L_{m,n} under 𝔗2(𝒪) (proof of Lemma 9.6 b)).
+
+**Lemma: the support is stable under a semilinear action** (`Module.comap_mulSemiringAction_mem_support`; node `support-group-stable`; file `Components`). In the same setting, if 𝔭 ∈ Supp M and g ∈ G, then the prime {a : g(a) ∈ 𝔭}, the preimage of 𝔭 under a ↦ g(a), lies in Supp M.
+
+*Hypotheses.* As in the previous lemma; M is arbitrary.
+
+*Proof.* Choose m with Ann(A·m) ⊆ 𝔭 (`Module.mem_support_iff_exists_annihilator`). If a·g⁻¹m = 0, then g(a)·m = g(a·g⁻¹m) = 0, so g(a) ∈ 𝔭 (`Submodule.mem_annihilator_span_singleton`). Thus Ann(A·g⁻¹m) lies in the preimage, and the same criterion puts it in Supp M.
+
+*Acceptance.* For the non-semilinear swap action above, Supp M = {0 × k}, and the preimage k × 0 of 0 × k is not in the support. Complex conjugation acts semilinearly on ℤ[i] and on M = ℤ[i]/(5), and exchanges the two primes (2 + i), (2 − i) of Supp M.
+
+**Lemma: near faithfulness from a group transitive on components** (`Module.nearlyFaithful_of_forall_minimalPrimes_exists_smul`; node `support-group-transitive`; file `Components`). In the same setting, suppose that for all minimal primes 𝔭, 𝔮 of A some g ∈ G has {a : g(a) ∈ 𝔭} = 𝔮, and that one minimal prime 𝔭 lies in Supp M. Then M is nearly faithful.
+
+*Hypotheses.* As above. The transitivity is an arithmetic input of the consumer (Khare–Wintenberger II, Lemma 9.4). No finiteness of G or M and no Noetherian hypothesis.
+
+*Proof.* For each minimal prime 𝔮, transitivity and the previous lemma put 𝔮 in Supp M. The constructor `nearlyFaithful_of_forall_minimalPrimes_mem_support` needs no finiteness. If A is Noetherian, `nearlyFaithful_iff_isNilpotent_annihilator` then makes Ann M nilpotent.
+
+*Acceptance.* Transitivity is needed: A = k × k, G trivial, M = k × 0. A minimal prime in the support is needed: M = 0.
+
+**Lemma: faithfulness over a reduced ring** (`Module.faithfulSMul_of_forall_minimalPrimes_exists_smul`; node `faithful-group-transitive`; file `Components`). If moreover A is reduced, M is faithful.
+
+*Hypotheses.* As in the previous lemma, and A reduced.
+
+*Proof.* The previous lemma gives Ann M ⊆ √0, and √0 = 0 (`nilradical_eq_bot_iff`); Ann M = 0 is faithfulness (`Module.annihilator_eq_bot`).
+
+*Acceptance.* Reducedness is needed: over the dual numbers k[ε] with G trivial, M = k is nearly faithful and not faithful. Khare–Wintenberger II, Lemma 9.6 b): 𝔗2(𝒪) ≅ (±1)^t permutes the components of the regular ring R∞[1/2] transitively, so M∞[1/2] is faithful.
+
+**Lemma: lifting near faithfulness from the special fibre** (`NearlyFaithful.of_quotient_of_isSMulRegular`; node `nearly-faithful-lift-from-special-fibre`; Taylor,
 Lemma 2.2(2)). Let (A, 𝔪) be Noetherian local and ϖ ∈ 𝔪. Assume A catenary (in the dimension-function form above) and
 equidimensional, that no minimal prime contains ϖ, and that every prime minimal over ϖA contains exactly one minimal
 prime. If M is finite, ϖ is M-regular and M/ϖM is nearly faithful over A/ϖA, then M is nearly faithful over A.
@@ -405,39 +558,164 @@ Krull dimension; these are not new R03.3 deliverables.
 
 ### Milestone 5: R = T
 
-Throughout, T is a commutative R-algebra acting faithfully on H, compatibly with R, with R → T surjective; then
-ker(R → T) = Ann_R(H). File `ImageInEnd`.
+Throughout, T is a commutative R-algebra acting faithfully on H, compatibly with R, so that
+ker(R → T) = Ann_R(H). Surjectivity of R → T is assumed only where an entry states it. File `ImageInEnd`.
 
-**Theorem: reduced R = T from near faithfulness** (`NearlyFaithful.ker_algebraMap_le_nilradical`,
-`NearlyFaithful.isNilpotent_ker_algebraMap`, `NearlyFaithful.exists_ringEquiv_nilradical`,
-`NearlyFaithful.isReduced_iff_ker_eq_nilradical`, `NearlyFaithful.exists_ringEquiv_of_isReduced`). If H is nearly
-faithful over R, then ker(R → T) ⊆ √0 (nilpotent when R is Noetherian), R_red ≅ T_red, and
+**Lemma: the kernel of R → T is nil** (`Module.NearlyFaithful.ker_algebraMap_le_nilradical`; node `r-to-t-kernel-nil`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. If H is nearly faithful over R, then ker(R → T) ⊆ √0.
 
-```text
-T reduced   ⟺   Ann_R(H) = √0   ⟺   R → T induces R_red ≅ T.
-```
+*Hypotheses.* H nearly faithful over R. R → T need not be surjective; no finiteness or Noetherian hypothesis. The faithful T-action is in the signature, but the proof uses only compatibility of the two actions.
 
-"T reduced" is therefore necessary and sufficient. *Proof.* √Ann_R(H) = √0 and `Ideal.isRadical_iff_quotient_reduced`.
-*Test.* R = T = H = k[ε]: H is faithful, R_red = k and T is not reduced. *Source.* Taylor, Theorem 4.1 ("As T is
-reduced, the theorem follows").
+*Proof.*
 
-**Theorem: torsion-free R = T** (`ker_away_le_ker_algebraMap`, `exists_ringEquiv_torsionFree_iff_faithfulSMul`,
-`NearlyFaithful.ker_away_le_nilradical`, `isReduced_iff_isReduced_away`). Let ϖ be a nonzerodivisor on H. (a)
-R[ϖ^∞] ⊆ Ann_R(H), so R → T factors through R^tf, and ϖ is a nonzerodivisor on T. (b) Ann_{R[1/ϖ]}(H[1/ϖ]) =
-Ann_R(H)[1/ϖ], so
+1. Module.comap_annihilator gives Ann_R(H) = (R → T)⁻¹(Ann_T(H)), which contains (R → T)⁻¹(0) = ker(R → T).
+2. Ann_R(H) ⊆ √0 is the defining property of a nearly faithful module.
+
+*Acceptance.* R = k × k and T = H = k via the first projection: T acts faithfully and ker(R → T) = 0 × k ⊄ √0 = 0, so near faithfulness is needed. For R = T = H = k[ε] the inclusion 0 ⊆ (ε) is strict.
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful, mathlib:Module.comap_annihilator.
+
+**Lemma: over a Noetherian ring the kernel is nilpotent** (`Module.NearlyFaithful.isNilpotent_ker_algebraMap`; node `r-to-t-kernel-nilpotent`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. If R is Noetherian and H is nearly faithful over R, then ker(R → T) is a nilpotent ideal.
+
+*Hypotheses.* R Noetherian; H nearly faithful. No surjectivity; the faithful T-action is unused.
+
+*Proof.*
+
+1. r-to-t-kernel-nil gives ker(R → T) ⊆ √0.
+2. The kernel is finitely generated (IsNoetherian.noetherian), so Ideal.FG.isNilpotent_iff_le_nilradical makes it nilpotent (Stacks 00IM).
+
+*Acceptance.* Stacks 0EGG: S = k[x_0, x_1, …]/(x_n^{n+1}), J = (x_n), T = H = S/J = k. H is nearly faithful over S and ker(S → T) = J is not nilpotent, so the Noetherian hypothesis is needed. Use-site: ACC+ §6.3.5 (the kernel of T∞ → End(H^*(C∞)) is nilpotent).
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/r-to-t-kernel-nil, mathlib:IsNoetherian.noetherian, mathlib:Ideal.FG.isNilpotent_iff_le_nilradical.
+
+**Lemma: R_red ≅ T_red** (`Module.NearlyFaithful.exists_ringEquiv_nilradical`; node `r-red-equals-t-red`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. If H is nearly faithful over R and R → T is surjective, then R/√0 ≅ T/√0 by a ring isomorphism sending [r] to [image of r].
+
+*Hypotheses.* H nearly faithful; R → T surjective. T need not be reduced; the faithful T-action is unused.
+
+*Proof.*
+
+1. Let g: R → T/√0 be R → T followed by the quotient map; g is surjective. By Ideal.Quotient.eq_zero_iff_mem, ker g = √ker(R → T).
+2. r-to-t-kernel-nil gives ker(R → T) ⊆ √0, so √ker(R → T) = √0 and ker g = √0.
+3. RingHom.quotientKerEquivOfSurjective for g, precomposed with Ideal.quotEquivOfEq, gives the isomorphism with the stated values.
+
+*Acceptance.* R = k × k, T = H = k (first projection) shows near faithfulness is needed; R = k, T = H = k × k (diagonal) shows surjectivity is needed; R = T = H = k[ε] has non-reduced T.
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/r-to-t-kernel-nil, mathlib:Ideal.Quotient.eq_zero_iff_mem, mathlib:nilradical, mathlib:Ideal.radical, mathlib:RingHom.quotientKerEquivOfSurjective, mathlib:Ideal.quotEquivOfEq.
+
+**Lemma: T reduced iff ker(R → T) = √0** (`Module.NearlyFaithful.isReduced_iff_ker_eq_nilradical`; node `t-reduced-iff-kernel-nilradical`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. If H is nearly faithful over R and R → T is surjective, then T is reduced iff ker(R → T) = √0.
+
+*Hypotheses.* H nearly faithful; R → T surjective; the faithful T-action is unused.
+
+*Proof.*
+
+1. RingHom.quotientKerEquivOfSurjective identifies T with R/ker(R → T); by isReduced_of_injective in both directions and Ideal.isRadical_iff_quotient_reduced, T is reduced iff ker(R → T) is radical.
+2. r-to-t-kernel-nil gives √ker(R → T) = √0, so ker(R → T) is radical iff it equals √0.
+
+*Acceptance.* R = k × k, T = H = k (first projection): T is reduced and ker(R → T) = 0 × k ≠ 0. R = k, T = H = k[ε]: ker(R → T) = 0 = √0 but T is not reduced, so surjectivity is needed. R = T = H = k[ε]: both sides fail.
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/r-to-t-kernel-nil, mathlib:RingHom.quotientKerEquivOfSurjective, mathlib:isReduced_of_injective, mathlib:Ideal.isRadical_iff_quotient_reduced, mathlib:nilradical, mathlib:Ideal.radical.
+
+**Theorem: reduced R = T from near faithfulness** (`Module.NearlyFaithful.exists_ringEquiv_of_isReduced`; node `r-equals-t-reduced`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. If H is nearly faithful over R, T is reduced and R → T is surjective, then R/√0 ≅ T by a ring isomorphism sending [r] to the image of r. The basic example is T = R/Ann_R(H), the image of R in End(H).
+
+*Hypotheses.* H nearly faithful; T reduced; R → T surjective; the faithful T-action is unused.
+
+*Proof.*
+
+1. t-reduced-iff-kernel-nilradical gives ker(R → T) = √0.
+2. RingHom.quotientKerEquivOfSurjective, precomposed with Ideal.quotEquivOfEq, gives the isomorphism.
+
+*Acceptance.* R = T = H = k[ε]: H is faithful, R_red = k and T is not reduced, so 'T reduced' is needed. R = k × k, T = H = k (first projection): T is reduced but R_red = k × k ≇ k.
+
+*Source.* Taylor, Theorem 4.1 ("As T is reduced, the theorem follows").
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/t-reduced-iff-kernel-nilradical, mathlib:RingHom.quotientKerEquivOfSurjective, mathlib:Ideal.quotEquivOfEq.
+
+**Lemma: ϖ-power torsion lies in the kernel of R → T** (`Module.ker_away_le_ker_algebraMap`; node `torsion-in-kernel`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. If ϖ ∈ R is H-regular, then R[ϖ^∞] = ker(R → R[1/ϖ]) = {r : ϖⁿr = 0 for some n} is contained in ker(R → T), so R → T factors through R^tf = R/R[ϖ^∞].
+
+*Hypotheses.* ϖ H-regular (not necessarily a nonzerodivisor of R); T faithful on H. No surjectivity, no finiteness.
+
+*Proof.*
+
+1. IsLocalization.eq_iff_exists and Submonoid.mem_powers_iff: r ∈ R[ϖ^∞] iff ϖⁿr = 0 for some n.
+2. Then ϖⁿ(rh) = 0 and IsSMulRegular.pow give rh = 0 for every h ∈ H, so r ∈ Ann_R(H).
+3. Module.comap_annihilator and Module.annihilator_eq_bot (T faithful) give Ann_R(H) = ker(R → T).
+
+*Acceptance.* R = T = H = ℤ_p[ε]/(ε², pε), ϖ = p: ε is p-torsion but ε ≠ 0 in T, and p is not H-regular. For ϖ = 0, H-regularity forces H = 0 and T = 0.
+
+*Dependencies.* mathlib:Localization.Away, mathlib:IsSMulRegular, mathlib:IsLocalization.eq_iff_exists, mathlib:Submonoid.mem_powers_iff, mathlib:IsSMulRegular.pow, mathlib:Module.comap_annihilator, mathlib:Module.annihilator_eq_bot.
+
+**Theorem: torsion-free R = T** (`Module.exists_ringEquiv_torsionFree_iff_faithfulSMul`; node `r-equals-t-torsion-free-quotient`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. Let ϖ ∈ R be H-regular and R → T surjective. Then R^tf ≅ T by a ring isomorphism sending [r] to the image of r iff H[1/ϖ] is faithful over R[1/ϖ]:
 
 ```text
 H[1/ϖ] faithful over R[1/ϖ]   ⟺   ker(R → T) = R[ϖ^∞]   ⟺   R^tf ≅ T.
 ```
 
-(c) If H is nearly faithful, R[ϖ^∞] ⊆ √0, and T is reduced iff T[1/ϖ] is. No finiteness of H. *Test.*
-R = H = ℤ_p[ε]/(ε², pε): H[1/p] = ℚ_p is faithful over R[1/p] = ℚ_p, and T = R ≠ R^tf = ℤ_p, since H has
-p-torsion. *Sources.* Kisin (3.3.1) ("isomorphism up to p-torsion"); Khare–Wintenberger II, Propositions 9.2(III)
-and 9.3(III).
+*Hypotheses.* ϖ H-regular; T faithful on H; R → T surjective. No finiteness of H.
 
-**Theorem: integral R = T from faithfulness** (`bijective_algebraMap_iff_faithfulSMul`, `bijective_algebraMap_of_free`).
-R → T is an isomorphism iff H is faithful over R; in particular when H is free of positive rank. *Test.* The zero
-module is free and not faithful. *Source.* Calegari–Geraghty, proof of Theorem 6.4(1) ("R acts freely on H").
+*Proof.*
+
+1. Module.comap_annihilator and Module.annihilator_eq_bot give ker(R → T) = Ann_R(H); torsion-in-kernel gives R[ϖ^∞] ⊆ ker(R → T).
+2. (⇐) An element of ker(R → T) kills H, hence H[1/ϖ] (LocalizedModule.induction_on, algebraMap_smul, LocalizedModule.smul'_mk), so it dies in R[1/ϖ] by faithfulness. Then RingHom.quotientKerEquivOfSurjective and Ideal.quotEquivOfEq give the isomorphism.
+3. (⇒) The compatible isomorphism gives ker(R → T) = R[ϖ^∞] (Ideal.Quotient.eq_zero_iff_mem). If x kills H[1/ϖ], write x·(s/1) = r/1 (IsLocalization.surj); LocalizedModule.mk_eq, Submonoid.mem_powers_iff and IsSMulRegular.pow give r ∈ Ann_R(H) = R[ϖ^∞], so r/1 = 0 and x = 0 (IsLocalization.map_units).
+
+*Acceptance.* R = T = H = ℤ_p[ε]/(ε², pε), ϖ = p: H[1/p] = ℚ_p is faithful over R[1/p] = ℚ_p, and T = R ≠ R^tf = ℤ_p, since H has p-torsion. R = k, T = H = k × k (diagonal), ϖ = 1 shows surjectivity is needed.
+
+*Source.* Kisin (3.3.1) ("isomorphism up to p-torsion"); Khare–Wintenberger II, Propositions 9.2(III) and 9.3(III).
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/torsion-in-kernel, mathlib:FaithfulSMul, mathlib:Localization.Away, mathlib:LocalizedModule.Away, mathlib:IsSMulRegular, mathlib:Module.comap_annihilator, mathlib:Module.annihilator_eq_bot, mathlib:LocalizedModule.induction_on, mathlib:algebraMap_smul, mathlib:LocalizedModule.smul'_mk, mathlib:LocalizedModule.mk_eq, mathlib:Submonoid.mem_powers_iff, mathlib:IsLocalization.surj, mathlib:IsLocalization.map_units, mathlib:IsSMulRegular.pow, mathlib:RingHom.quotientKerEquivOfSurjective, mathlib:Ideal.quotEquivOfEq, mathlib:Ideal.Quotient.eq_zero_iff_mem.
+
+**Lemma: ϖ-power torsion is nil for nearly faithful H** (`Module.NearlyFaithful.ker_away_le_nilradical`; node `torsion-in-nilradical`; file `ImageInEnd`). Let R be a commutative ring, H a nearly faithful R-module and ϖ ∈ R an H-regular element. Then R[ϖ^∞] = ker(R → R[1/ϖ]) ⊆ √0. No ring T appears.
+
+*Hypotheses.* H nearly faithful; ϖ H-regular. No finiteness of H.
+
+*Proof.*
+
+1. IsLocalization.eq_iff_exists, Submonoid.mem_powers_iff and IsSMulRegular.pow give R[ϖ^∞] ⊆ Ann_R(H).
+2. Ann_R(H) ⊆ √0 by near faithfulness.
+
+*Acceptance.* R = ℤ × ℤ, H = ℤ × 0, ϖ = (p, 0): R[ϖ^∞] = 0 × ℤ ⊄ √0 = 0, so near faithfulness is needed. R = H = ℤ/p², ϖ = p: H is faithful but R[p^∞] = R, so H-regularity is needed.
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful, mathlib:Localization.Away, mathlib:IsSMulRegular, mathlib:IsLocalization.eq_iff_exists, mathlib:Submonoid.mem_powers_iff, mathlib:IsSMulRegular.pow.
+
+**Lemma: T reduced iff T[1/ϖ] reduced** (`Module.isReduced_iff_isReduced_away`; node `t-reduced-iff-after-inverting`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. If ϖ ∈ R is H-regular and ϖ_T is its image in T, then T is reduced iff T[1/ϖ_T] is reduced.
+
+*Hypotheses.* ϖ H-regular; T faithful on H. No surjectivity, no finiteness.
+
+*Proof.*
+
+1. isSMulRegular_algebraMap_iff makes ϖ_T H-regular; with Module.annihilator_eq_bot (T faithful), ϖ_T is a nonzerodivisor of T.
+2. Submonoid.powers_le and IsLocalization.injective make T → T[1/ϖ_T] injective; isReduced_of_injective gives one direction and isReduced_localizationPreserves the other.
+
+*Acceptance.* R = T = H = k[ε], ϖ = ε: T[1/ε] = 0 is reduced and T is not. R = ℤ, T = ℤ × 𝔽_p[ε] acting on H = ℤ through the first factor, ϖ = p: T[1/(p, 0)] = ℤ[1/p] is reduced and T is not, so faithfulness of T is needed.
+
+*Dependencies.* mathlib:Localization.Away, mathlib:IsSMulRegular, mathlib:isSMulRegular_algebraMap_iff, mathlib:Module.annihilator_eq_bot, mathlib:nonZeroDivisors, mathlib:Submonoid.powers_le, mathlib:IsLocalization.injective, mathlib:isReduced_of_injective, mathlib:isReduced_localizationPreserves.
+
+**Theorem: integral R = T from faithfulness** (`Module.bijective_algebraMap_iff_faithfulSMul`; node `r-equals-t-free`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. If R → T is surjective, then R → T is an isomorphism iff H is faithful over R.
+
+*Hypotheses.* T faithful on H; R → T surjective (without it, faithfulness only gives injectivity). No finiteness.
+
+*Proof.*
+
+1. Module.comap_annihilator and Module.annihilator_eq_bot give ker(R → T) = Ann_R(H).
+2. RingHom.injective_iff_ker_eq_bot and Module.annihilator_eq_bot: R → T is injective iff Ann_R(H) = 0 iff H is faithful.
+
+*Acceptance.* R = k, T = H = k × k (diagonal): H is faithful over R and T, but R → T is not surjective. R = k[ε], T = H = k: H is nearly faithful, not faithful, and R → T is not injective.
+
+*Dependencies.* mathlib:FaithfulSMul, mathlib:Module.comap_annihilator, mathlib:Module.annihilator_eq_bot, mathlib:RingHom.injective_iff_ker_eq_bot.
+
+**Lemma: integral R = T for a nonzero free module** (`Module.bijective_algebraMap_of_free`; node `r-equals-t-of-free`; file `ImageInEnd`). Let R and T be commutative rings, T an R-algebra, and H an R-module and T-module on which R acts through R → T and T acts faithfully. If H is free and nonzero over R and R → T is surjective, then R → T is bijective.
+
+*Hypotheses.* H free over R and H ≠ 0; T faithful on H; R → T surjective.
+
+*Proof.*
+
+1. Module.Free.instFaithfulSMulOfNontrivial (a basis from Module.Free.chooseBasis with nonempty index set) makes H faithful over R.
+2. Apply r-equals-t-free.
+
+*Acceptance.* The zero module is free and not faithful: R = ℤ, T = H = 0. R = k[ε], T = H = k: H ≠ 0 is not free and R → T is not injective.
+
+*Source.* Calegari–Geraghty, proof of Theorem 6.4(1) ("R acts freely on H").
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-free, mathlib:Module.Free.instFaithfulSMulOfNontrivial, mathlib:Module.Free.chooseBasis.
 
 *Dependencies.* Milestone 1.
 
@@ -452,49 +730,116 @@ M∞/ı(𝔞)M∞ ≅ H with R∞ acting on H through φ (hypothesis (a)). Hypot
 
 that is, the image of 𝔞 in End(M∞) lies in the image of ker φ. It is weaker than ı(𝔞)R∞ ⊆ ker φ. File `Patching`.
 
-**Theorem: near faithfulness descends from the patched ring** (`NearlyFaithful.radical_map_eq_radical_ker`,
-`NearlyFaithful.of_patching`, `NearlyFaithful.exists_ringEquiv_nilradical_of_patching`). Under (a) and (b), if M∞ is
-nearly faithful over R∞ then √(ı(𝔞)R∞) = √(ker φ), (R∞/ı(𝔞)R∞)_red ≅ R_red compatibly with the maps from R∞, and H is
-nearly faithful over R∞/ı(𝔞)R∞ and over R. No Noetherian hypothesis. *Proof.* The quotient lemma gives
-ker φ ⊆ √(ı(𝔞)R∞); (b) and Ann M∞ ⊆ √0 give ı(𝔞) ⊆ √(ker φ); then `Ideal.map_radical_of_surjective`.
-*Counterexample.* R∞ = S = ℤ_p, 𝔞 = (p), M∞ = ℚ_p, R = 0: (a) and (b) hold, and (R∞/p)_red = 𝔽_p ≠ 0 (M∞ must be finite).
+**Lemma: radical comparison for the patched quotient** (`Module.NearlyFaithful.radical_map_eq_radical_ker`; node `patching-radical-comparison`; file `Patching`). Let M∞ be a finite R∞-module that is nearly faithful over R∞, let φ be surjective, and assume (a), (b) and an R∞-linear isomorphism e: M∞/ı(𝔞)M∞ ≅ H. Then √(ı(𝔞)R∞) = √(ker φ).
 
-**Lemma: freeness over a regular patched ring** (`ker_algebraMap_eq_map_of_patching`, `free_of_patching`). Under (a)
-and (b), if R ≠ 0, R∞ is regular local and M∞ ≠ 0 has depth ≥ dim R∞, then M∞ is free of positive rank, ker φ = ı(𝔞)R∞,
-and H is free of positive rank over R. No near-faithfulness hypothesis. *Proof.* Freeness of M∞ is R03.3
-(Stacks 00O7, Auslander–Buchsbaum); then Ann M∞ = 0, (b) gives ı(𝔞) ⊆ ker φ, and Ann_{R∞}(H) = ı(𝔞)R∞ ⊇ ker φ.
-*Counterexamples.* M∞ = 0 satisfies the depth hypothesis and (b), and ker φ is then arbitrary.
-The hypothesis R ≠ 0 is also necessary for the conclusion H ≠ 0: take R∞ = S = M∞ = k, ı = id,
-𝔞 = k, R = H = 0. The empty regular sequence has length dim k = 0 and (a), (b) hold. Freeness
-and the kernel equality still hold, but H is zero. The Lean example `patching_free_zero_quotient` records
-that the zero ring is a free, trivial module over itself.
+*Hypotheses.* S, R∞ and R are commutative rings, 𝔞 is an ideal of S, M∞ is finite and nearly faithful over R∞, and H is an R∞-module and an R-module with R∞ acting through φ. The signature also assumes φ surjective, but the proof does not use it. No Noetherian or local hypothesis.
 
-**Theorem: support and faithfulness of the patched module** (`NearlyFaithful.of_patching_of_subsingleton_minimalPrimes`,
-`NearlyFaithful.of_patching_of_away`, `bijective_algebraMap_of_patching`; Calegari–Geraghty, Theorem 6.4, module form).
-Let M∞ be any finite module over a complete Noetherian local 𝒪-algebra R∞ with the displayed patching
-data: ı, 𝔞, φ∞, the compatible quotient isomorphism, H ≠ 0, the containment
-ı(𝔞) ⊆ ker φ∞ + Ann(M∞), and depth M∞ = dim R∞. Then:
+*Proof.*
 
-- (0) Supp M∞ is a union of irreducible components of Spec R∞ of dimension dim R∞, and if M∞ is nearly faithful,
-  R∞ is equidimensional;
-- (1) if R∞ is regular (formally smooth over 𝒪), ker φ∞ = ı(𝔞)R∞, H is free of positive rank over R, and R ≅ T for
-  every commutative R-algebra T acting faithfully and compatibly on H, with R → T surjective;
-- (2) if R∞ has a unique minimal prime (for instance ϖ a nonzerodivisor and Spec R∞[1/ϖ] irreducible), H is nearly
-  faithful over R and (R∞/ı(𝔞)R∞)_red ≅ R_red;
-- (3) if ϖ is a nonzerodivisor of R∞ and every irreducible component of Spec R∞[1/ϖ] lies in Supp M∞[1/ϖ], the
-  conclusions of (2) hold; this part does not use depth.
+1. `quotient-action-kernel-bound`, applied with A = R∞, I = ı(𝔞)R∞, B = R, N = H and e, gives ker φ ⊆ √(ı(𝔞)R∞). This step needs no surjectivity.
+2. Near faithfulness gives Ann_{R∞}(M∞) ⊆ √0 ⊆ √(ker φ). Since also ker φ ⊆ √(ker φ), hypothesis (b) gives ı(𝔞)R∞ ⊆ √(ker φ).
+3. `Ideal.radical_le_radical_iff` turns these two containments into the two inclusions of radicals.
 
-*Proof.* The hypotheses include (a) and (b). Part (0) is Milestone 4; (1) is the freeness lemma
-(H ≠ 0 forces R ≠ 0) with the integral R = T theorem and the stated surjectivity; (2) is the irreducible-base lemma with descent; (3) is Milestone 3 with descent. *Test.* The node
-A = k⟦x,y⟧/(xy) with M = A/(x) in the roles of R∞ and M∞ satisfies (0) with one component, and (2) and (3) do not
-apply. This theorem is the top-degree case of Calegari–Geraghty's Theorem 6.4; the complex-level statement and
-Proposition 6.6 are P9's. Theorem 6.3 and its proof supply the module data with
-M∞ = H^{l₀}(P∞^□); the complex is constructed in P8, not in R03.5. This is an application of the conditional
-module theorem, not a prerequisite for its proof.
+*Acceptance.* M∞ must be finite: R∞ = S = ℤ_p, ı = id, 𝔞 = (p), M∞ = ℚ_p and R = H = 0 satisfy (a) and (b), but √(pℤ_p) = (p) ≠ ℤ_p = √(ker φ). Hypothesis (b) is needed: for R∞ = R = S = ℤ/6, ı = φ = id, M∞ = ℤ/6, 𝔞 = (2) and H = ℤ/2, (a) holds and √(ı(𝔞)R∞) = (2), but √(ker φ) = 0.
 
-*Surjectivity test.* Put R∞ = R = k, M∞ = H = k × k, S = k, 𝔞 = 0 and φ∞ = id. The depth, quotient and
-freeness hypotheses hold. The ring T = k × k acts faithfully on H, but the diagonal k → T is not surjective.
-Thus faithfulness alone does not give R = T. The Lean example `patching_rt_diagonal_not_surjective` uses k = ZMod 2.
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/quotient-action-kernel-bound, DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful, mathlib:Ideal.radical_le_radical_iff, mathlib:Ideal.radical, mathlib:nilradical.
+
+**Theorem: near faithfulness descends from the patched ring** (`Module.NearlyFaithful.of_patching`; node `patching-nearly-faithful-descends`; file `Patching`). Let M∞ be a finite R∞-module that is nearly faithful over R∞, let φ be surjective, and assume (a), (b) and an R∞-linear isomorphism e: M∞/ı(𝔞)M∞ ≅ H. Then H is nearly faithful over R.
+
+*Hypotheses.* As for the radical comparison; here surjectivity of φ is used. No Noetherian hypothesis.
+
+*Proof.*
+
+1. `patching-radical-comparison` gives ı(𝔞)R∞ ⊆ √(ı(𝔞)R∞) = √(ker φ).
+2. `quotient-action-nearly-faithful`, applied with A = R∞, I = ı(𝔞)R∞, B = R, the surjection φ, e and the containment of step 1, makes H nearly faithful over R.
+
+*Acceptance.* M∞ must be finite: R∞ = S = ℤ, ı = id, 𝔞 = (2), M∞ = ℚ, R = 𝔽₂ and H = ℚ/2ℚ = 0 satisfy (a) and (b), but the zero module is not nearly faithful over 𝔽₂ (Lean example `quotient_nearlyFaithful_requires_finite`). φ must be surjective: R∞ = S = M∞ = 𝔽₂, 𝔞 = 0, R = 𝔽₂ × 𝔽₂ with the diagonal map and H = R/(0,1) satisfy (a) and (b), but the idempotent (0,1) kills H (Lean example `quotient_action_requires_surjective`). Calegari–Geraghty's Theorem 6.3(iv) supplies (a) and (b) for M∞ = H^{l₀}(P∞^□).
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/patching-radical-comparison, DeformationAndDerivedPatchingAlgebra:R03.6/quotient-action-nearly-faithful, DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful.
+
+**Lemma: the reduced patched quotient is the reduced finite-level ring** (`Module.NearlyFaithful.exists_ringEquiv_nilradical_of_patching`; node `patching-reduced-quotient-iso`; file `Patching`). Under the hypotheses of the radical comparison, there is a ring isomorphism f: (R∞/ı(𝔞)R∞)_red ≅ R_red, where B_red = B/nil(B), that sends the class of x to the class of φ(x) for every x ∈ R∞.
+
+*Hypotheses.* As for the radical comparison; here surjectivity of φ is used. No Noetherian hypothesis.
+
+*Proof.*
+
+1. The composite ψ: R∞ → R → R_red is surjective. Its kernel is φ⁻¹(√0) = √(ker φ) by `Ideal.comap_radical`.
+2. The composite χ: R∞ → R∞/ı(𝔞)R∞ → (R∞/ı(𝔞)R∞)_red is surjective. Its kernel is √(ı(𝔞)R∞), by `Ideal.comap_radical` for the quotient map.
+3. `patching-radical-comparison` makes the two kernels equal. Join the isomorphisms that `RingHom.quotientKerEquivOfSurjective` gives for χ and ψ by `Ideal.quotEquivOfEq`; the result sends the class of x to the class of φ(x) by construction.
+
+*Acceptance.* M∞ must be finite: in the ℤ_p example of the radical comparison, (R∞/pR∞)_red = 𝔽_p but R_red = 0. φ must be surjective: R∞ = S = M∞ = H = ℤ, ı = id, 𝔞 = 0 and R = ℤ[x] acting on H with x acting as 0 satisfy (a) and (b), but ℤ is not isomorphic to ℤ[x]. This is Calegari–Geraghty's "(R∞/ı(𝔞))^red ↠ R^red" in the proof of Theorem 6.4(2)–(3).
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/patching-radical-comparison, mathlib:Ideal.comap_radical, mathlib:RingHom.quotientKerEquivOfSurjective, mathlib:Ideal.quotEquivOfEq, mathlib:nilradical.
+
+**Lemma: over a regular patched ring the kernel of φ is the patching ideal** (`Module.ker_algebraMap_eq_map_of_patching`; node `patching-kernel-equals-ideal`; file `Patching`). Let R∞ be a regular local ring and rs an M∞-regular sequence in the maximal ideal of R∞ of length dim R∞, the pinned form of "M∞ ≠ 0 and depth M∞ ≥ dim R∞". Under (a), (b) and an R∞-linear isomorphism e: M∞/ı(𝔞)M∞ ≅ H, ker φ = ı(𝔞)R∞.
+
+*Hypotheses.* M∞ is finite, and the regular sequence includes M∞ ≠ (rs)M∞, so M∞ ≠ 0. φ need not be surjective, R may be zero, and there is no near-faithfulness hypothesis.
+
+*Proof.*
+
+1. By R03.3 (Stacks 00O7 with e = d; the open gap `G-regular-local-freeness`), M∞ is free over R∞. Its basis (`Module.Free.chooseBasis`) is nonempty because M∞ ≠ 0.
+2. A nonzero free module is faithful, so Ann_{R∞}(M∞) = 0 (`Module.annihilator_eq_bot`), and (b) gives ı(𝔞)R∞ ⊆ ker φ.
+3. Let k ∈ ker φ. It acts on H as φ(k) = 0, so k ∈ Ann_{R∞}(H) = Ann_{R∞}(M∞/ı(𝔞)M∞) (`LinearEquiv.annihilator_eq`). For a basis vector b, k·b ∈ ı(𝔞)M∞. By `Submodule.mem_ideal_smul_span_iff_exists_sum`, k·b is a combination of basis vectors with coefficients in ı(𝔞)R∞, and comparing b-coordinates gives k ∈ ı(𝔞)R∞.
+
+*Acceptance.* M∞ ≠ 0 is needed: M∞ = 0 satisfies depth ≥ dim in the Stacks convention and (b) for every φ, and ker φ is then arbitrary; the Lean regular-sequence hypothesis excludes it. Regularity is needed: R∞ = S = k[ε]/(ε²), ı = id, 𝔞 = 0, M∞ = H = k, R = k and φ the augmentation satisfy (a), (b) and the depth condition with the empty sequence (dim R∞ = 0), but ker φ = (ε) ≠ 0.
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.3, mathlib:IsRegularLocalRing, mathlib:RingTheory.Sequence.IsRegular, mathlib:Module.Free.chooseBasis, mathlib:Module.annihilator_eq_bot, mathlib:LinearEquiv.annihilator_eq, mathlib:Submodule.mem_ideal_smul_span_iff_exists_sum.
+
+**Lemma: freeness over a regular patched ring** (`Module.free_of_patching`; node `patching-free-conclusion`; file `Patching`). Let R be nonzero, R∞ regular local, rs an M∞-regular sequence in the maximal ideal of R∞ of length dim R∞, and φ surjective. Under (a), (b) and an R∞-linear isomorphism e: M∞/ı(𝔞)M∞ ≅ H, H is a free R-module and H ≠ 0.
+
+*Hypotheses.* M∞ is finite, and M∞ ≠ 0 comes from the regular sequence. No near-faithfulness hypothesis.
+
+*Proof.*
+
+1. M∞ is free over R∞ (R03.3, as in the kernel lemma). Take a basis (b_i) (`Module.Free.chooseBasis`), nonempty since M∞ ≠ 0, and put h_i = e(b̄_i).
+2. The h_i span H over R: e(Σ x_i b_i mod ı(𝔞)M∞) = Σ x_i·h_i = Σ φ(x_i)·h_i.
+3. The h_i are linearly independent. Write c_i = φ(x_i), using surjectivity. If Σ c_i h_i = 0, then Σ x_i b_i ∈ ı(𝔞)M∞. By `Submodule.mem_ideal_smul_span_iff_exists_sum` and uniqueness of coordinates, each x_i lies in ı(𝔞)R∞, which is ker φ by `patching-kernel-equals-ideal`; so c_i = 0.
+4. `Module.Basis.mk` and `Module.Free.of_basis` make H free. If some h_i were 0, then b_i ∈ ı(𝔞)M∞ and its b_i-coordinate 1 would lie in ker φ, which is impossible because R ≠ 0. So H ≠ 0.
+
+*Acceptance.* R ≠ 0 is needed for H ≠ 0: R∞ = S = M∞ = k, ı = id, 𝔞 = k and R = H = 0 satisfy all other hypotheses (the empty regular sequence has length dim k = 0), but H is zero. The Lean example `patching_free_zero_quotient` records that the zero ring is a free, trivial module over itself. Regularity is needed: R∞ = S = R = k[ε]/(ε²), ı = φ = id, 𝔞 = 0 and M∞ = H = k satisfy the other hypotheses, but k is not free over k[ε]/(ε²). This is Calegari–Geraghty's Theorem 6.4(1), "H is a free R-module", with R∞ ≅ 𝒪⟦x₁, …, x_{q+j−l₀}⟧ (source issue E1).
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/patching-kernel-equals-ideal, DeformationAndDerivedPatchingAlgebra:R03.3, mathlib:Module.Free.chooseBasis, mathlib:Submodule.mem_ideal_smul_span_iff_exists_sum, mathlib:Module.Basis.mk, mathlib:Module.Free.of_basis.
+
+Part (0) of Calegari–Geraghty's module theorem is Milestone 4 applied to M∞: `Module.isSupportedOnComponents_of_isRegular` puts Supp M∞ on irreducible components of dimension dim R∞, and `Module.NearlyFaithful.ringKrullDim_quotient_eq_of_isRegular` makes R∞ equidimensional when M∞ is nearly faithful. It is not restated here. The three declarations below are the module form of Calegari–Geraghty's Theorem 6.4(1)–(3). Each is conditional on the displayed data ı, 𝔞, φ, e and (b); none assumes H ≠ 0, completeness of R∞ or an 𝒪-algebra structure. The complex-level statement and Proposition 6.6 are P9's. Theorem 6.3 and its proof supply the module data with M∞ = H^{l₀}(P∞^□); the complex is constructed in P8, not in R03.5. This is an application of the conditional module theorems, not a prerequisite for their proofs.
+
+**Theorem: near faithfulness of H over an irreducible patched ring** (`Module.NearlyFaithful.of_patching_of_subsingleton_minimalPrimes`; node `patched-module-support-theorem`; file `Patching`; Calegari–Geraghty, Theorem 6.4(2), module form). Let R∞ be a Noetherian local ring with at most one minimal prime, rs an M∞-regular sequence in its maximal ideal of length dim R∞, and φ surjective. Under (a), (b) and an R∞-linear isomorphism e: M∞/ı(𝔞)M∞ ≅ H, H is nearly faithful over R.
+
+*Hypotheses.* R∞ is Noetherian local, so it has exactly one minimal prime. M∞ is finite, and M∞ ≠ 0 comes from the regular sequence.
+
+*Proof.*
+
+1. `maximal-cm-nearly-faithful-irreducible` makes M∞ nearly faithful over R∞.
+2. `patching-nearly-faithful-descends` transfers near faithfulness to H over R.
+
+*Acceptance.* One minimal prime is needed. Take the node A = k⟦x,y⟧/(xy), with minimal primes (x) and (y), and M = A/(x); M carries the regular element x + y and dim A = 1. With R∞ = S = R = A, ı = φ = id, 𝔞 = 0 and M∞ = H = M, (a) and (b) hold, but H is not nearly faithful. If ϖ is a nonzerodivisor of R∞ and Spec R∞[1/ϖ] is irreducible, `minimal-primes-of-torsion-free` gives R∞ exactly one minimal prime; this is Calegari–Geraghty's Theorem 6.4(2).
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/maximal-cm-nearly-faithful-irreducible, DeformationAndDerivedPatchingAlgebra:R03.6/patching-nearly-faithful-descends.
+
+**Theorem: near faithfulness of H from component support after inverting ϖ** (`Module.NearlyFaithful.of_patching_of_away`; node `patched-module-away-support`; file `Patching`; Calegari–Geraghty, Theorem 6.4(3), module form). Let ϖ be a nonzerodivisor of R∞ such that every minimal prime of R∞[1/ϖ] lies in Supp M∞[1/ϖ], and let φ be surjective. Under (a), (b) and e, H is nearly faithful over R.
+
+*Hypotheses.* M∞ is finite. No local, Noetherian or depth hypothesis.
+
+*Proof.*
+
+1. `nearly-faithful-iff-minimal-primes-away-mem-support`, from (iii) to (i), makes M∞ nearly faithful over R∞.
+2. `patching-nearly-faithful-descends` transfers near faithfulness to H over R.
+
+*Acceptance.* Every component is needed. In the node A take ϖ = x + y, a nonzerodivisor, and R∞ = S = R = A, ı = φ = id, 𝔞 = 0 and M∞ = H = A/(x). Then Supp M∞[1/ϖ] contains the minimal prime (x) but not (y), and H is not nearly faithful.
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/nearly-faithful-iff-minimal-primes-away-mem-support, DeformationAndDerivedPatchingAlgebra:R03.6/patching-nearly-faithful-descends.
+
+**Theorem: integral R = T over a regular patched ring** (`Module.bijective_algebraMap_of_patching`; node `patched-module-r-equals-t`; file `Patching`; Calegari–Geraghty, Theorem 6.4(1), module form). Let R∞ be regular local, rs an M∞-regular sequence in its maximal ideal of length dim R∞, and φ surjective, and assume (a), (b) and e. Let T be a commutative R-algebra with a compatible, faithful T-module structure on H, and assume R → T is surjective. Then R → T is bijective.
+
+*Hypotheses.* M∞ is finite. R may be zero; there is no hypothesis H ≠ 0.
+
+*Proof.*
+
+1. If R = 0, then T = 0 because R → T is surjective, and R → T is bijective.
+2. Otherwise `patching-free-conclusion` makes H free and nonzero over R, and `r-equals-t-of-free` gives bijectivity.
+
+*Acceptance.* Surjectivity of R → T cannot be dropped. Put R∞ = R = S = k, M∞ = H = k × k, ı = φ = id and 𝔞 = 0. The depth, quotient and freeness hypotheses hold, and T = k × k acts faithfully on H, but the diagonal k → T is not surjective. Thus faithfulness alone does not give R = T. The Lean example `patching_rt_diagonal_not_surjective` uses k = ZMod 2.
+
+*Dependencies.* DeformationAndDerivedPatchingAlgebra:R03.6/patching-free-conclusion, DeformationAndDerivedPatchingAlgebra:R03.6/r-equals-t-of-free.
 
 *Sources.* Calegari–Geraghty, Theorem 6.3(iv) and Theorem 6.4 with its proof, pp. 91–94; Taylor, end of the proof of
 Theorem 4.1, p. 221; Kisin, Lemma (3.3.4); Stacks 00O7, 090V.
@@ -520,11 +865,12 @@ which its conclusions fail for the zero module; every result here that needs it 
 
 ### Base-change continuation: exact baseline bridges
 
-The retained `support-base-change` identifier denotes finite-module equality. Its two current consumers,
-near-faithful base change and near faithfulness after inverting, both assume that the module is finite,
-so their existing edges remain correct. The two new identifiers isolate inclusion without hypotheses
-and equality for a flat coefficient map without module finiteness. The old broad theorem has no remaining
-multi-declaration node. Other aggregates remain in the packet's explicit granularity gap.
+The retained `support-base-change` identifier denotes finite-module equality. Its two consumers,
+near-faithful ascent under base change (`nearly-faithful-base-change`) and the minimal-prime test after inverting ϖ
+(`nearly-faithful-iff-minimal-primes-away-mem-support`), both assume that the module is finite. Descent under base
+change (`nearly-faithful-of-base-change`) needs only the unconditional inclusion `support-base-change-subset`. The two
+other identifiers isolate inclusion without hypotheses and equality for a flat coefficient map without module
+finiteness. No node of the packet now has more than one declaration.
 
 The three signatures already existed in the suggested file. Four added acceptance examples distinguish
 the hypotheses: full support of ℚ over ℤ, vanishing of (ℤ/2)⊗_ℤℚ, full support for the finite module ℤ/2
