@@ -131949,6 +131949,28 @@
    "reviewReason": null
   },
   {
+   "id": "DirichletPadicLFunctions/E16",
+   "kind": "error",
+   "locator": "Remark6.3, odd-character displayed formula, published150/PDF51; arXiv v2PDF37. Read with Definition5.2 on published140/PDF41 (v2PDF29), extension of Gauss notation on144/PDF45 (v2PDF32), and Theorem6.1 on149/PDF50 (v2PDF36).",
+   "printed": "L(θ,1)=−iπ·G(θ⁻¹)⁻¹·B₁,θ⁻¹",
+   "correction": "Require the canonical complex root ε=exp(2πi/N). If the chosen primitive root is exp(2πik/N), insert the factor θ(k) in the numerator. The canonical formula itself is correct.",
+   "reason": "Definition5.2 permits a compatible root system and parenthetically says one can choose the exponential system after an isomorphism; it does not impose that choice. Theorem6.1 allows a primitive N-th root. For the primitive odd quadratic character modulo4, B₁,θ⁻¹=−1/2 and the canonical Gauss sum at i is2i. At the also allowed root−i the finite Gauss sum is−2i. Exact arithmetic in ℚ(i) makes the displayed right side−π/4, while L(θ,1)=π/4. More generally, reindexing a↦ka gives G(θ⁻¹,ε^k)=θ(k)G(θ⁻¹,ε), so the numerator must change by the same factor.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "28September2026: Remark6.3 and Theorem6.1(i), complete published149–150/PDF50–51; Definition5.2 and extension of Gauss notation, complete published140–145/PDF41–46; corresponding complete arXiv v2 pages29,32,36,37. Read on28 September2026; published140/150 and v2 37 images inspected. Both source digests rechecked. Full native statements and ambient hypotheses for the newly cited declarations read at the pinned Mathlib commit.",
+    "Current arXiv abstract https://arxiv.org/abs/2309.15692 lists v2 of19December2024 as latest. Article entries at https://chriswilliams1404.wixsite.com/website/publications-preprints and https://sites.google.com/site/joaquinrj/home link the article/preprint and showed no separate correction at those entries.",
+    "The request for https://msp.org/ent/2025/4-1/p03.xhtml failed in the current web tool. The cached publication was available and its stored digest was verified before reading. Bounded title+6.3+correction, author+errata+Gauss and2309.15692+erratum searches found no correcting notice; unrelated and older-note results were discarded. This is not an exhaustive absence or priority claim. No authors were contacted.",
+    "The67 relevant Dirichlet/PMIA/ColemanIntegration/ColemanPowerSeries register locators were screened; no root-normalization record for Remark6.3 was found. ColemanIntegration/E23 already records the different boundary Fourier-series proof gap in Theorem6.1(i); that whole record was read and is credited, with no duplicate finding. The preceding integral route avoids that boundary-series step."
+   ],
+   "owner": "DirichletPadicLFunctions",
+   "file": "research/blueprint/packets/DirichletPadicLFunctions.json",
+   "citation": "Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "DrinfeldModulesAndTModules/E-DM8-1",
    "kind": "misprint",
    "locator": "arXiv math/0506078v2 (29 June 2007), Proposition 3.3.14 proof, p.16",
