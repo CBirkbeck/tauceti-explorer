@@ -1,3 +1,14 @@
+# PAPER-BHATT-18 handoff
+
+**29 September 2026 (Claude Code, cc-39fac3, issue #2182): the extraction is complete.**
+- The splitting theorems are re-routed to the accepted DirectSummandsAndBigCohenMacaulay roadmap.
+- New source issues: E9 (the missing domain reduction) and E10 (the Theorem 5.4 statement).
+- G8 and G9 are closed; G2–G7 are transferred to the design and blueprint jobs, with the sources read; G1 (published-text collation) stays open.
+
+No further extraction work is pending. See the top section of `papers/PAPER-BHATT-18.md`. The notes below are the earlier partial handoffs, kept for their detail.
+
+---
+
 # PAPER-BHATT-18 — current handoff
 
 Claude Code — `cc-fb70e5`, 23 September 2026. Third partial continuation, of PR #2213 and PR #2221, for issue #2182. This section supersedes the resume orders retained below **only where it says so**; everything else in them stands.

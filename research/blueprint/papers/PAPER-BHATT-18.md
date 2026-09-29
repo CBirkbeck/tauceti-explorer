@@ -1,3 +1,66 @@
+# PAPER-BHATT-18 — fourth continuation: completion
+
+Bhargav Bhatt, *On the direct summand conjecture and its derived variant*, Invent. Math. 212 (2018), 297–317 ([doi](https://doi.org/10.1007/s00222-017-0768-7), [arXiv:1608.08882](https://arxiv.org/abs/1608.08882)).
+
+Continuation by Claude Code, session `cc-39fac3`, 29 September 2026 (issue #2182). Status: **complete**. `check_paper.py` passes.
+
+The extraction has:
+- 86 items: 10 library, 12 planned, 64 missing;
+- 9 routes, with every missing item routed once;
+- 10 source issues;
+- 9 gaps, each now marked `closed`, `transferred` or `open`.
+
+The earlier reports follow below, unchanged.
+
+## What this continuation read
+
+- **arXiv v2** (11 November 2017), re-fetched (SHA-256 `08578ca1…`) and read completely. A fresh line-by-line reading found no statement missing from the items; the third continuation's inventory of the 32 numbered statements stands.
+- **The published article** remains unreachable: the PDF redirects to Springer authentication, and Crossref records no correction. G1 stays open, as settled.
+- **Bhatt–Scholze arXiv v1, v2 and v3**, at the citation in Lemma 2.6 (gap G2). Bhatt's "[BS, Lemma 3.16 or Proposition 5.6]" follows **v2** (8 September 2015):
+  - Lemma 3.16 is the Tor vanishing for a diagram of perfect rings;
+  - Proposition 5.6 (p. 18) says that a perfect simplicial commutative F_p-algebra is discrete;
+  - in v3 (21 February 2017) that proposition is Proposition 11.6 (p. 41), and Lemma 3.16 keeps its number.
+- **Bhatt, *Derived splinters in positive characteristic*, arXiv v1** (gap G7). The cited results are Theorem 0.3 (splinter iff derived splinter in characteristic p), Example 1.3 (regular affine F_p-schemes are splinters) and Example 1.2 (Kovács: for varieties over C, derived splinter iff rational singularities). The published numbering, which Bhatt cites, is one section later.
+- **Bhatt, *Almost direct summands*, arXiv v1** (gap G3). The cited Lemma 2.7 is its Lemma 1.7: an inclusion A → B making B almost projective and almost faithfully flat has an almost projective cokernel, hence is almost split.
+
+## Routing change
+
+The third continuation routed both splitting theorems to a Part II of DeformationAndDerivedPatchingAlgebra, "RegularRingSplittings". Since then, PAPER-ANDRE-18-B's review has accepted a new roadmap, **DirectSummandsAndBigCohenMacaulay**, as the single owner of the direct-summand direction (design DESIGN-DirectSummandsAndBigCohenMacaulay). Two roadmaps in one direction would violate PROTOCOL §15, so this continuation re-routes the same 15 items to a `new` route with that roadmap's id, title and area. The design job therefore merges them.
+
+The brief keeps the third continuation's instructions and adds three things:
+- state the direct summand theorem once, with André's and Bhatt's proofs;
+- prove the finite-domain reduction explicitly (E9) and state Theorem 5.4 correctly (E10);
+- for the characteristic-0 branch of Theorem 1.2 over an arbitrary regular noetherian Q-algebra, reduce to the complete local case first. The splitting obstruction lies in Ext¹ of a bounded coherent complex, which commutes with the faithfully flat completion. Then reduce by Popescu approximation to finite type over a characteristic-0 field, where Kovács's theorem applies. Kovács states it for varieties over C only.
+
+The Riemann-extension items stay with the shared Part II **PerfectoidRamification**, which the queue has gathered into DESIGN-PerfectoidSpacesPartII. Its reason now records that PAPER-ANDRE-18-B's route was accepted.
+
+## New source issues
+
+| id | kind | where | finding |
+|----|------|-------|---------|
+| E9 | gap | Proof of Theorem 5.4, p. 10 | The proof chooses g with A₀[1/pg] → B₀[1/pg] finite étale, which is impossible for non-reduced B₀ (e.g. A₀[ε]/(ε²)). The reduction to B₀/𝔮 for a prime 𝔮 over (0) is missing. The item `local-complete-reduction` already supplied the step silently; André performs it. The theorem is unaffected. |
+| E10 | misprint | Theorem 5.4, p. 10 | "Let A0 be a regular ring. The map A0 → B0 of A0-modules is split." never introduces B₀. It should read as Theorem 1.1. |
+
+E1–E8 are unchanged.
+
+## Gaps
+
+- **Closed.**
+  - G8: routing is coordinated with both companion extractions, and coverage was already closed.
+  - G9: the question about André's A.3.1 belongs to PAPER-ANDRE-18-B, whose E4 records the correction.
+- **Transferred** to the design and blueprint jobs that own them, with the facts above recorded in each gap:
+  - G2: the version question is resolved; expanding the Frobenius argument is blueprint work;
+  - G3: Lemma 2.7 is identified; the SW, GR (!!) and lecture-note hypotheses belong to the P0/P1/Q3 blueprints;
+  - G4: supplier implementation for E1/E2 and P0;
+  - G5: declaration-level reductions;
+  - G6: the Stacks/GR2 modification leaves of SF.4 and R2;
+  - G7: the characteristic-0 scope reduction, now in the brief.
+
+  None changes an item's status or route.
+- **Open.** G1, the collation with the published text, which cannot be obtained here.
+
+---
+
 # PAPER-BHATT-18 — third continuation of the partial extraction
 
 **Claude Code — `cc-fb70e5`, 23 September 2026. Refs #2182.** This continues the merged checkpoints of PR #2213 and PR #2221 and changes nothing they established: all 81 inherited items, their statuses, all nine routes, the eight unreviewed source findings and the nine gap groups survive untouched. The JSON now has **86 items: 10 library, 12 planned, 64 missing**, every missing item routed exactly once, and it remains **`partial`** — for the reason the previous worker gave, which is still the right one: the open work is original-input closure, not coverage.

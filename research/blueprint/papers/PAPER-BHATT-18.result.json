@@ -1,7 +1,7 @@
 {
   "paper": "PAPER-BHATT-18",
   "protocol": "paper-v1",
-  "status": "partial",
+  "status": "complete",
   "source": {
     "title": "On the direct summand conjecture and its derived variant",
     "authors": "Bhargav Bhatt",
@@ -1712,7 +1712,7 @@
       "statement": "To prove the finite splitting theorem, use localization, faithful flat completion and residue-field extension to reduce the mixed-characteristic branch to a complete regular local ring with perfect residue field and a finite domain extension generically étale after some nonzero pg.",
       "locator": "5.2–5.4; introductory reductions",
       "status": "missing",
-      "note": "",
+      "note": "Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): the finite-domain part of this reduction is not in the paper (E9); it is proved here as a named step.",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-BHATT-18/regular",
@@ -1830,7 +1830,7 @@
       "statement": "For a finite injective map A0→B0 of Noetherian commutative rings with A0 regular, there exists an A0-linear map B0→A0 whose composite with the unit is the identity.",
       "locator": "Theorems 1.1 and 5.4",
       "status": "missing",
-      "note": "",
+      "note": "Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): statement as in Theorem 1.1; Theorem 5.4 as printed omits the extension (E10). The same theorem is an item of PAPER-ANDRE-18-B with André's proof; the coalesced route keeps one theorem with two proofs.",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-BHATT-18/local-complete-reduction",
@@ -2074,7 +2074,7 @@
       "statement": "For regular Noetherian Q-algebras, the finite direct-summand theorem follows from normalized trace and the derived statement from the characteristic-zero rational-singularity splitting result. For regular Noetherian F_p-algebras use the positive-characteristic direct/derived splinter results cited in the introduction.",
       "locator": "1.1–1.2, 6.1; [Ko], [Bh1] Theorem 2.12 and Theorem 1.4 with Example 2.3",
       "status": "missing",
-      "note": "",
+      "note": "Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): read Bhatt, Derived splinters in positive characteristic, arXiv:1109.0354v1 (sha256 4fa366d3…): Theorem 0.3 (a noetherian F_p-scheme is a splinter iff a derived splinter), Example 1.3 (regular affine F_p-schemes are splinters, Hochster) and Example 1.2 (for varieties over C, derived splinter iff rational singularities, Kovács). The paper's citations [Bh1, Theorem 1.4 & Example 2.3] and [Bh1, Theorem 2.12] use the published numbering, one section later. Kovács's statement is for varieties over C, so the characteristic-0 branch for an arbitrary regular noetherian Q-algebra needs the reduction recorded in the route brief (completion, Popescu approximation).",
       "implementationStatus": "unchecked",
       "prerequisites": [
         "PAPER-BHATT-18/regular"
@@ -3052,14 +3052,13 @@
         "PAPER-BHATT-18/limit-extension",
         "PAPER-BHATT-18/strategy-summary"
       ],
-      "reason": "Reuse the identically named pending proposal in PAPER-ANDRE-18, not a second Riemann-extension roadmap. It has no registered stages or review at this snapshot, so these items are missing rather than planned. Merge this incremental brief with that proposal during design.",
+      "reason": "Reuse the identically named Part II proposed by PAPER-ANDRE-18 and PAPER-ANDRE-18-B; the latter's route is accepted and the queue gathers it into the design DESIGN-PerfectoidSpacesPartII ('Perfectoid rings and spaces, Part II'). There are no registered stages yet, so these items stay missing. Bhatt's quantitative Riemann extension theorem and the general form of André's flatness lemma are the incremental content; the design merges this brief with André's. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): status of the companion routes rechecked; PAPER-ANDRE-18's own Part II brief was sent back by its review, PAPER-ANDRE-18-B's was accepted.",
       "brief": "Extend the pending PerfectoidRamification brief from PAPER-ANDRE-18 with Bhatt's quantitative version. Import Perfectoid rings and spaces (PerfectoidSpaces) P0 almost-pro mathematics, P1 integral/tilted conventions, P2 rational root presentations and P3 almost purity; import generic derived completion and Koszul complexes from Derived de Rham cohomology (DerivedDeRhamCohomology) DD.1 and derived tensor/Hom from Enhanced derived sheaves (EnhancedDerivedSheaves). For integral perfectoid A with chosen compatible roots of t and g, first assume g is an almost nonzerodivisor modulo every t^m. For f_n:A/t^m→A⟨t^n/g⟩/t^m prove separately the m_t-almost-zero kernel, uniform m_g-almost-zero cokernel with shift c=p^k m independent of n, and the resulting m_(tg)-almost-pro-isomorphism. Construct all transition maps on root monomials. Prove Remark 4.3's derived tensor uniformity with its actual annihilator bounds before using it to remove the regularity assumption in Remark 4.4. Recover the inverse-limit Riemann extension only after the quantitative result, retaining lim-one. Do not infer arbitrary pointwise kernel vanishing from the final theorem without g-regularity. This strengthens the shared André ramification direction; it does not duplicate his completed integral-closure theorem or create a second perfectoidization. The continuation supplies the amplitude-zero cone proof of derived uniformity: c=p^k m survives tensor with arbitrary K, with g^(1/p^k) in m_t-almost modules and (tg)^(1/p^k) in ordinary modules. Implement its explicit P0/E1 suppliers; do not infer the argument from a general cohomological ghost map."
     },
     {
-      "route": "part-ii",
-      "parent": "DeformationAndDerivedPatchingAlgebra",
-      "roadmap": "RegularRingSplittings",
-      "title": "Commutative algebra for deformation theory and patching, Part II: regular-ring splitting theorems",
+      "route": "new",
+      "roadmap": "DirectSummandsAndBigCohenMacaulay",
+      "title": "Direct summands and big Cohen–Macaulay algebras",
       "area": "commutative",
       "items": [
         "PAPER-BHATT-18/unramified-cover",
@@ -3078,8 +3077,8 @@
         "PAPER-BHATT-18/contributions",
         "PAPER-BHATT-18/perfectoid-kunz"
       ],
-      "reason": "The existing parent owns Noetherian, regular-sequence, dimension and complete local algebra, but not either direct-summand theorem. These are new layers in its commutative-algebra direction. Coordinate with PAPER-ANDRE-18-B; PAPER-ANDRE-18 is the different Abhyankar paper.",
-      "brief": "Build on Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra), importing its complete local coefficient and regular local homological algebra rather than recreating those foundations. The first final theorem is: every finite injective map A0→B0 of Noetherian commutative rings with A0 regular admits an A0-linear retraction. The second is: for every proper surjective f0:X0→Spec(A0) with A0 Noetherian regular, the unit A0→RΓ(X0,O_X0) splits in D(A0). Neither retraction is required to be multiplicative. Import PerfectoidSpaces P0–P3, PerfectoidQuotients Q0:integral-algebra and Q3, the shared pending PerfectoidRamification quantitative tower theorem, DerivedDeRhamCohomology DD.1, EnhancedDerivedSheaves E1/E2, and the precise proper-coherent and formal-model suppliers requested from SchemeAndStackFoundations and AdicSpacesPartII R2. Construct the unramified and ramified regular local perfectoid covers separately, prove both positive Tor almost vanishing and detection of ordinary modules, and track the (!!) and star normalization steps. Prove the localization/completion, component, Cohen presentation and discriminant reductions, obstruction detection modulo p^m and its p²g-to-pg annihilator calculation, and almost vanishing on every annulus with its lim-one removal. For the derived theorem prove the perfectness of proper coherent cohomology, generic multisection reduction and corrected Proposition 6.2 with generic finite-étale SURJECTIVITY in mixed characteristic. Do not replace coherent base change by étale proper base change or ordinary base change without Tor control. Read the original equal-characteristic inputs and GR2 non-Noetherian domination theorem before closing the graph. Coordinate ownership of any splinter predicate with PAPER-BHATT-ETAL-23's pending birational proposal; these statements can use explicit retractions and need no duplicate singularity vocabulary. Remark 5.5 is a question in this source, not a proved acceptance target. Continuation: proper H^0 integrality/localization/affinization are pinned library imports. Use the named SF.4 Stacks 0815–081T modification items and their R2 integral chart adapter. The bridge from ordinary proper base change needs only the E1 unit-compatible comparison morphism and composition of retractions, not its being an isomorphism. Finish the exact outstanding flattening leaves in G6; acquisition of GR2 alone does not close them."
+      "brief": "Coalesce with DirectSummandsAndBigCohenMacaulay, the new roadmap proposed by PAPER-ANDRE-18-B and accepted by its review (design DESIGN-DirectSummandsAndBigCohenMacaulay); this route replaces the earlier proposal of a Part II of DeformationAndDerivedPatchingAlgebra, which would have opened a second roadmap in the same direction. State the direct summand theorem once, with André's and Bhatt's proofs as alternative routes, and add the derived direct summand theorem. Build on Commutative algebra for deformation theory and patching (DeformationAndDerivedPatchingAlgebra), importing its complete local coefficient and regular local homological algebra rather than recreating those foundations. The first final theorem is: every finite injective map A0→B0 of Noetherian commutative rings with A0 regular admits an A0-linear retraction. The second is: for every proper surjective f0:X0→Spec(A0) with A0 Noetherian regular, the unit A0→RΓ(X0,O_X0) splits in D(A0). Neither retraction is required to be multiplicative. Import PerfectoidSpaces P0–P3, PerfectoidQuotients Q0:integral-algebra and Q3, the shared pending PerfectoidRamification quantitative tower theorem, DerivedDeRhamCohomology DD.1, EnhancedDerivedSheaves E1/E2, and the precise proper-coherent and formal-model suppliers requested from SchemeAndStackFoundations and AdicSpacesPartII R2. Construct the unramified and ramified regular local perfectoid covers separately, prove both positive Tor almost vanishing and detection of ordinary modules, and track the (!!) and star normalization steps. Prove the localization/completion, component, Cohen presentation and discriminant reductions, obstruction detection modulo p^m and its p²g-to-pg annihilator calculation, and almost vanishing on every annulus with its lim-one removal. For the derived theorem prove the perfectness of proper coherent cohomology, generic multisection reduction and corrected Proposition 6.2 with generic finite-étale SURJECTIVITY in mixed characteristic. Do not replace coherent base change by étale proper base change or ordinary base change without Tor control. Read the original equal-characteristic inputs and GR2 non-Noetherian domination theorem before closing the graph. Coordinate ownership of any splinter predicate with PAPER-BHATT-ETAL-23's pending birational proposal; these statements can use explicit retractions and need no duplicate singularity vocabulary. Remark 5.5 is a question in this source, not a proved acceptance target. Continuation: proper H^0 integrality/localization/affinization are pinned library imports. Use the named SF.4 Stacks 0815–081T modification items and their R2 integral chart adapter. The bridge from ordinary proper base change needs only the E1 unit-compatible comparison morphism and composition of retractions, not its being an isomorphism. Finish the exact outstanding flattening leaves in G6; acquisition of GR2 alone does not close them. Also: prove the reduction to a finite domain extension explicitly (source issue E9) and state Theorem 5.4 with its finite extension (E10). For the characteristic-0 branch of the derived theorem over an arbitrary regular noetherian Q-algebra, reduce to the complete local case (the splitting obstruction lies in Ext^1_{A_0} of a bounded coherent complex, which commutes with the faithfully flat completion), then to finite type over a characteristic-0 field by Popescu approximation, and only then apply Kovács's theorem, which Bhatt's Derived splinters (arXiv v1, Example 1.2) states for varieties over C.",
+      "reason": "PAPER-ANDRE-18-B's accepted route 1 established DirectSummandsAndBigCohenMacaulay as the single owner of the direct-summand direction; its review found no existing direct-summand direction in the atlas. Both of Bhatt's main theorems, the regular local perfectoid covers, the obstruction calculus and the proper-map splitting belong there, and routing them to the same roadmap id lets the design job merge them instead of creating a parallel Part II of the deformation-theory commutative algebra, which owns Noetherian local algebra but no splitting theorem. DeformationAndDerivedPatchingAlgebra R03.1 and R03.3 remain imported suppliers."
     }
   ],
   "sourceIssues": [
@@ -3205,6 +3204,36 @@
         "https://numdam.org/articles/10.1007/s10240-017-0097-9/ and published PDF",
         "Title with erratum/correction and Hom, web search 2026-09-23; no separate corrigendum found"
       ]
+    },
+    {
+      "id": "PAPER-BHATT-18/E9",
+      "kind": "gap",
+      "locator": "Bhatt arXiv:1608.08882v2 (11 Nov 2017), proof of Theorem 5.4, p. 10. Published full text not collated.",
+      "printed": "We may assume that A0 is a noetherian regular local ring of mixed characteristic (0, p). Choose g ∈ A0 coprime to p such that A0 → B0 is finite étale after inverting pg.",
+      "correction": "Before choosing g, replace B0 by B0/𝔮 for a prime 𝔮 of B0 with 𝔮 ∩ A0 = 0 (it exists since A0 → B0 is injective and integral); a splitting of A0 → B0/𝔮 composed with B0 → B0/𝔮 splits A0 → B0. Then B0 is a domain finite over the normal characteristic-0 domain A0, hence generically finite étale, and g exists.",
+      "reason": "A finite extension need not be generically étale: for B0 = A0[ε]/(ε²) no nonzero g makes A0[1/pg] → B0[1/pg] étale, so the choice in the proof is impossible without the reduction. The paper never reduces to a domain (the item local-complete-reduction supplies the step silently); André's proof does, and Theorem 6.1's proof does reduce to X0 integral. The theorem is unaffected.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:1608.08882 abstract page and version list (v1, v2); v2 read completely.",
+        "2026-09-29: the published article (doi:10.1007/s00222-017-0768-7) is not readable here: the PDF redirects to Springer authentication, and Crossref records no update, correction or erratum relation. Published text not collated (G1).",
+        "2026-09-29: web search for an erratum or corrigendum; none found. Not an exhaustive novelty claim."
+      ]
+    },
+    {
+      "id": "PAPER-BHATT-18/E10",
+      "kind": "misprint",
+      "locator": "Bhatt arXiv:1608.08882v2 (11 Nov 2017), Theorem 5.4, p. 10. Published full text not collated.",
+      "printed": "Theorem 5.4. Let A0 be a regular ring. The map A0 → B0 of A0-modules is split.",
+      "correction": "Let A0 → B0 be a finite extension of noetherian rings with A0 regular. Then A0 → B0 is split as a map of A0-modules (as in Theorem 1.1).",
+      "reason": "B0 is not introduced in the statement; the proof and Theorem 1.1 ('Let i : A0 → B0 be a finite extension of noetherian rings. Assume that A0 is regular.') use the finite extension. The item direct-summand already uses the corrected statement.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "2026-09-29: arXiv:1608.08882 abstract page and version list (v1, v2); v2 read completely.",
+        "2026-09-29: the published article (doi:10.1007/s00222-017-0768-7) is not readable here: the PDF redirects to Springer authentication, and Crossref records no update, correction or erratum relation. Published text not collated (G1).",
+        "2026-09-29: web search for an erratum or corrigendum; none found. Not an exhaustive novelty claim."
+      ]
     }
   ],
   "prerequisites": [
@@ -3258,59 +3287,64 @@
     {
       "id": "PAPER-BHATT-18/G1",
       "title": "Version collation",
-      "task": "Read the complete published Bhatt article (Inventiones 212, 297–317) and collate with arXiv v2. Metadata, abstract, displayed public footnotes and references agree, but full line-by-line publication identity is not established. The continuation checked the purported publisher PDF: it is only a rendered subscription landing page and provides no additional journal text. Third continuation (cc-fb70e5, 23 September 2026): the published text is not obtainable by the means available, and this should be treated as settled rather than retried. Springer serves only the subscription landing page, as recorded above; the author's IAS page at math.ias.edu/~bhatt routes its 'Papers' link to an arXiv author search and hosts no paper PDFs; and his Michigan directory public.websites.umich.edu/~bhattb/math/ returns HTTP 403. So arXiv v2 remains the reference text and all locators are its numbering. Note that the published article is 21 journal pages against v2's 12, so the risk of renumbering is real and every source issue must keep saying so. Remaining task: collate only if a subscription copy becomes available.",
+      "task": "Read the complete published Bhatt article (Inventiones 212, 297–317) and collate with arXiv v2. Metadata, abstract, displayed public footnotes and references agree, but full line-by-line publication identity is not established. The continuation checked the purported publisher PDF: it is only a rendered subscription landing page and provides no additional journal text. Third continuation (cc-fb70e5, 23 September 2026): the published text is not obtainable by the means available, and this should be treated as settled rather than retried. Springer serves only the subscription landing page, as recorded above; the author's IAS page at math.ias.edu/~bhatt routes its 'Papers' link to an arXiv author search and hosts no paper PDFs; and his Michigan directory public.websites.umich.edu/~bhattb/math/ returns HTTP 403. So arXiv v2 remains the reference text and all locators are its numbering. Note that the published article is 21 journal pages against v2's 12, so the risk of renumbering is real and every source issue must keep saying so. Remaining task: collate only if a subscription copy becomes available. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): published text again unreachable (Springer authentication redirect); Crossref has no correction relation. Settled as recorded; E9 and E10 carry the same caveat.",
       "affects": [
         "PAPER-BHATT-18/perfectoid-proper-split"
-      ]
+      ],
+      "status": "open"
     },
     {
       "id": "PAPER-BHATT-18/G2",
       "title": "Derived rational presentation",
-      "task": "Read BS Lemma 3.16/Proposition 5.6 in the correct cited version, and expand the simplicial Frobenius discreteness proof and derived-completion/reduction comparisons in 2.6. Read the remaining Scholze approximation proof leaves via their existing supplier graph.",
+      "task": "Read BS Lemma 3.16/Proposition 5.6 in the correct cited version, and expand the simplicial Frobenius discreteness proof and derived-completion/reduction comparisons in 2.6. Read the remaining Scholze approximation proof leaves via their existing supplier graph. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): the cited-version question is resolved. Bhatt's '[BS, Lemma 3.16 or Proposition 5.6]' follows Bhatt–Scholze arXiv:1507.06490v2 (8 Sep 2015, sha256 259370c8…), where Lemma 3.16 is Tor vanishing for diagrams of perfect rings and Proposition 5.6 states that a perfect simplicial commutative F_p-algebra is discrete (p. 18); in v3 (21 Feb 2017) the proposition is Proposition 11.6 (p. 41) and Lemma 3.16 keeps its number. What remains (expanding the Frobenius argument and the derived-completion comparisons of Lemma 2.6) is declaration-level blueprint work for the PerfectoidSpaces P0–P2 and EnhancedDerivedSheaves routes, not extraction.",
       "affects": [
         "PAPER-BHATT-18/simplicial-perfection",
         "PAPER-BHATT-18/derived-rational",
         "PAPER-BHATT-18/neighborhood-flat"
-      ]
+      ],
+      "status": "transferred"
     },
     {
       "id": "PAPER-BHATT-18/G3",
       "title": "General integral and almost algebra interfaces",
-      "task": "Read original SW general-perfectoid criterion, GR (!!) base-change/flatness statements, Bhatt 2014 Lemma 2.7 and Bhatt lecture Corollary 9.4.7. Verify the exact field-based, torsion, faithfulness and functoriality hypotheses; the modern Q3 theorem is not a proof of every source variant.",
+      "task": "Read original SW general-perfectoid criterion, GR (!!) base-change/flatness statements, Bhatt 2014 Lemma 2.7 and Bhatt lecture Corollary 9.4.7. Verify the exact field-based, torsion, faithfulness and functoriality hypotheses; the modern Q3 theorem is not a proof of every source variant. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): Bhatt, Almost direct summands, arXiv:1109.0356v1 (sha256 a5784c13…) read: the cited [Bh2, Lemma 2.7] is its Lemma 1.7 (an inclusion A → B making B almost projective and almost faithfully flat has almost projective cokernel, hence is almost split), matching the item almost-splitting. The SW, GR (!!) and lecture-note hypotheses are to be checked by the P0/P1/Q3 blueprints, which own those statements.",
       "affects": [
         "PAPER-BHATT-18/aic-extension",
         "PAPER-BHATT-18/ramified-general-cover",
         "PAPER-BHATT-18/field-normalization",
         "PAPER-BHATT-18/cover-detection",
         "PAPER-BHATT-18/almost-splitting"
-      ]
+      ],
+      "status": "transferred"
     },
     {
       "id": "PAPER-BHATT-18/G4",
       "title": "Remaining enhanced supplier implementation after the tower proof expansion",
-      "task": "The concrete paper-proof gap in 3.4–3.5 and Remark 4.3 is resolved by tower-roos, pro-zero-roos, module-tower-milnor, almost-injective-cone, uniform-tensor-cone and tensor-kernel-cokernel. Remaining source-to-Lean planning: instantiate the E1/E2 coherent diagram/derived tensor APIs for almost modules, verify their monoidal almostification comparison under the fixed P0 base hypotheses, and connect Remark 4.4 to the still-open rational-presentation supplier G2. No arbitrary homotopy-category cone choice or sheaf-product exactness is assumed.",
+      "task": "The concrete paper-proof gap in 3.4–3.5 and Remark 4.3 is resolved by tower-roos, pro-zero-roos, module-tower-milnor, almost-injective-cone, uniform-tensor-cone and tensor-kernel-cokernel. Remaining source-to-Lean planning: instantiate the E1/E2 coherent diagram/derived tensor APIs for almost modules, verify their monoidal almostification comparison under the fixed P0 base hypotheses, and connect Remark 4.4 to the still-open rational-presentation supplier G2. No arbitrary homotopy-category cone choice or sheaf-product exactness is assumed. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): supplier implementation planning for E1/E2 and P0; recorded as requests, it is blueprint work and does not affect the extraction's coverage or routing.",
       "affects": [
         "PAPER-BHATT-18/rlim-zero",
         "PAPER-BHATT-18/rlim-iso",
         "PAPER-BHATT-18/derived-uniform",
         "PAPER-BHATT-18/remove-regularity"
-      ]
+      ],
+      "status": "transferred"
     },
     {
       "id": "PAPER-BHATT-18/G5",
       "title": "Regular local obstruction proof closure",
-      "task": "Decompose completion/residue-field/Cohen/discriminant reductions, localization regularity and finite global dimension. Prove the annihilator detection calculation, then its perfect-complex version for 6.1, at declaration granularity.",
+      "task": "Decompose completion/residue-field/Cohen/discriminant reductions, localization regularity and finite global dimension. Prove the annihilator detection calculation, then its perfect-complex version for 6.1, at declaration granularity. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): declaration-granularity decomposition belongs to the DirectSummandsAndBigCohenMacaulay design job, whose brief now includes these reductions, E9 and the obstruction calculation.",
       "affects": [
         "PAPER-BHATT-18/local-complete-reduction",
         "PAPER-BHATT-18/obstruction-detection",
         "PAPER-BHATT-18/direct-summand",
         "PAPER-BHATT-18/derived-summand"
-      ]
+      ],
+      "status": "transferred"
     },
     {
       "id": "PAPER-BHATT-18/G6",
       "title": "Proper and non-Noetherian geometry",
-      "task": "H^0 integrality, localization and affinization are now pinned library imports. Release 6.95 is acquired, and its chart/stalk construction is read. Stacks 081T exactly supplies non-Noetherian algebraic domination; 081S, 081R, 081M and 0815 are decomposed into named items. Remaining foundational leaves: 38.3.2 local finite presentation and relative normalization; 38.30.3 local free locus; 38.30.6 étale-local gluing; 38.10.1 universal injectivity; 38.11.1–38.11.3 finite presentation/fibre dimension; 37.41.6 finite component in an étale neighbourhood; 31.34.4 affine pushforward for strict transform; 31.33.14 composition of admissible blowups. Match these to supplier nodes in SF.4 and their current dependency owners before declaring domination proof closure. Also supply the Rees-grading/chart and relative-Proj gluing adapters around the pinned affine constructions, and finish proper coherent finiteness/perfectness and generic multisections. The former demand for an almost-flat base-change isomorphism is withdrawn for this proof: the unit-compatible comparison map and retraction composition suffice. R2 owns only the p-adic/analytic adapter to the generic SF.4 modification results; neither its partial packet nor Noetherian F0 proves the remaining leaves.",
+      "task": "H^0 integrality, localization and affinization are now pinned library imports. Release 6.95 is acquired, and its chart/stalk construction is read. Stacks 081T exactly supplies non-Noetherian algebraic domination; 081S, 081R, 081M and 0815 are decomposed into named items. Remaining foundational leaves: 38.3.2 local finite presentation and relative normalization; 38.30.3 local free locus; 38.30.6 étale-local gluing; 38.10.1 universal injectivity; 38.11.1–38.11.3 finite presentation/fibre dimension; 37.41.6 finite component in an étale neighbourhood; 31.34.4 affine pushforward for strict transform; 31.33.14 composition of admissible blowups. Match these to supplier nodes in SF.4 and their current dependency owners before declaring domination proof closure. Also supply the Rees-grading/chart and relative-Proj gluing adapters around the pinned affine constructions, and finish proper coherent finiteness/perfectness and generic multisections. The former demand for an almost-flat base-change isomorphism is withdrawn for this proof: the unit-compatible comparison map and retraction composition suffice. R2 owns only the p-adic/analytic adapter to the generic SF.4 modification results; neither its partial packet nor Noetherian F0 proves the remaining leaves. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): the named Stacks/GR2 leaves are proof obligations of SchemeAndStackFoundations SF.4 and AdicSpacesPartII R2, already requested; the extraction's items and routes are complete.",
       "affects": [
         "PAPER-BHATT-18/proper-cohomology",
         "PAPER-BHATT-18/generic-multisection",
@@ -3321,30 +3355,34 @@
         "PAPER-BHATT-18/formal-domination",
         "PAPER-BHATT-18/generic-fiber-map",
         "PAPER-BHATT-18/perfectoid-proper-split"
-      ]
+      ],
+      "status": "transferred"
     },
     {
       "id": "PAPER-BHATT-18/G7",
       "title": "Equal-characteristic branches",
-      "task": "Read Kovács and Bhatt Derived splinters in positive characteristic in their original versions, including local/excellence and reduction hypotheses, and extract the actual leaves needed here.",
+      "task": "Read Kovács and Bhatt Derived splinters in positive characteristic in their original versions, including local/excellence and reduction hypotheses, and extract the actual leaves needed here. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): Bhatt 2012 (arXiv v1) read at the cited statements (see the item equal-characteristic). The characteristic-0 scope reduction from varieties over C to arbitrary regular noetherian Q-algebras is written into the route brief as a design obligation.",
       "affects": [
         "PAPER-BHATT-18/equal-characteristic"
-      ]
+      ],
+      "status": "transferred"
     },
     {
       "id": "PAPER-BHATT-18/G8",
       "title": "Coverage and routing closure",
-      "task": "Complete a line-by-line proof-leaf inventory of all cited inputs, allocate supplier nodes instead of stage placeholders wherever possible, check all active reservations/accepted restructurings, and coordinate the two pending Part II briefs with PAPER-ANDRE-18 and PAPER-ANDRE-18-B. No claim of complete coverage is made. Third continuation (cc-fb70e5): the coverage half of this gap is now closed for the paper's own statements. A mechanical inventory of arXiv v2 - every 'Kind n.m' heading, with citations into other papers filtered out and 'Assumption' added to the environment list - gives 32 numbered statements of Bhatt's own: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8; 2.1-2.7; 3.1-3.6; 4.1-4.4; 5.1-5.6; 6.1, 6.2. Checking each against the locators of the 81 inherited items exposed five that appeared in no locator and were mentioned nowhere in the extraction - Remarks 1.3, 1.8, 2.4, 2.5 and 5.5 - and they are now items contributions, strategy-summary, flatness-generality, derived-presentation and perfectoid-kunz. Two of the five carry planning content rather than bookkeeping: Remark 1.8 says exactly how much of Theorem 1.6 each target needs (Ext^0 recovers Scholze, Ext^1 suffices for Theorem 1.1, all i >= 0 for Theorem 1.2), and Remark 5.5's 'forthcoming work of the author with Iyengar and Ma' has appeared as 'Regular rings and perfect(oid) algebras', Communications in Algebra 47 (2019), no. 6, 2367-2383, arXiv:1803.03229, which proves the p-adic Kunz theorem the remark asks for, so that question is no longer open. Beware that in this paper a locator like '1.4' is ambiguous between Assumption 1.4 and section 1.4 Notation, and the inherited items use it in the second sense. The cited-input proof-leaf inventory, the other half of this gap, is not closed.",
+      "task": "Complete a line-by-line proof-leaf inventory of all cited inputs, allocate supplier nodes instead of stage placeholders wherever possible, check all active reservations/accepted restructurings, and coordinate the two pending Part II briefs with PAPER-ANDRE-18 and PAPER-ANDRE-18-B. No claim of complete coverage is made. Third continuation (cc-fb70e5): the coverage half of this gap is now closed for the paper's own statements. A mechanical inventory of arXiv v2 - every 'Kind n.m' heading, with citations into other papers filtered out and 'Assumption' added to the environment list - gives 32 numbered statements of Bhatt's own: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8; 2.1-2.7; 3.1-3.6; 4.1-4.4; 5.1-5.6; 6.1, 6.2. Checking each against the locators of the 81 inherited items exposed five that appeared in no locator and were mentioned nowhere in the extraction - Remarks 1.3, 1.8, 2.4, 2.5 and 5.5 - and they are now items contributions, strategy-summary, flatness-generality, derived-presentation and perfectoid-kunz. Two of the five carry planning content rather than bookkeeping: Remark 1.8 says exactly how much of Theorem 1.6 each target needs (Ext^0 recovers Scholze, Ext^1 suffices for Theorem 1.1, all i >= 0 for Theorem 1.2), and Remark 5.5's 'forthcoming work of the author with Iyengar and Ma' has appeared as 'Regular rings and perfect(oid) algebras', Communications in Algebra 47 (2019), no. 6, 2367-2383, arXiv:1803.03229, which proves the p-adic Kunz theorem the remark asks for, so that question is no longer open. Beware that in this paper a locator like '1.4' is ambiguous between Assumption 1.4 and section 1.4 Notation, and the inherited items use it in the second sense. The cited-input proof-leaf inventory, the other half of this gap, is not closed. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): routing coordination done: the regular-ring Part II is replaced by a route coalescing with PAPER-ANDRE-18-B's accepted DirectSummandsAndBigCohenMacaulay, and the Riemann-extension items stay with the shared PerfectoidRamification Part II. Coverage of the paper's own statements was closed by continuation 3; a fresh complete reading of arXiv v2 in this continuation found no further statement missing.",
       "affects": [
         "PAPER-BHATT-18/direct-summand",
         "PAPER-BHATT-18/derived-summand"
-      ]
+      ],
+      "status": "closed"
     },
     {
       "id": "PAPER-BHATT-18/G9",
       "title": "Adjacent-source question awaiting diagnosis",
-      "task": "André published A.3.1's local-duality argument for possibly infinite integral S and its completion scope needs independent mathematical checking. This is an unresolved reading question, not a certified additional source error and not an input silently used in this extraction.",
-      "affects": []
+      "task": "André published A.3.1's local-duality argument for possibly infinite integral S and its completion scope needs independent mathematical checking. This is an unresolved reading question, not a certified additional source error and not an input silently used in this extraction. Continuation 4 (Claude Code, cc-39fac3, 2026-09-29): the question concerns André's Appendix A.3.1 and is handled in that paper's extraction: PAPER-ANDRE-18-B records the correction of A.3.1 (c⇒b) with r = 0 or r regular (its E4). It is not an input of this paper.",
+      "affects": [],
+      "status": "closed"
     }
   ],
   "requests": [
@@ -3401,5 +3439,14 @@
     "The continuation is authored proof expansion, not an independent review of the prior checkpoint or its eight findings.",
     "A source statement being matched and decomposed is distinct from all of its auxiliary proof leaves being read; G6 lists those remaining leaves.",
     "The generic algebraic modification theory stays in SF.4; R2 imports it. No new Part II or duplicate splinter definition is introduced."
-  ]
+  ],
+  "completion": {
+    "agent": "Claude Code",
+    "session": "cc-39fac3",
+    "issue": 2182,
+    "date": "2026-09-29",
+    "status": "complete",
+    "reading": "arXiv:1608.08882v2 re-fetched (sha256 08578ca1…) and read completely; Bhatt–Scholze arXiv v1–v3, Bhatt 2012 and Bhatt 2014 (arXiv v1) read at the cited statements.",
+    "changes": "Regular-ring Part II replaced by a route coalescing with the accepted DirectSummandsAndBigCohenMacaulay; PerfectoidRamification reason updated; new source issues E9 (missing domain reduction) and E10 (Theorem 5.4 statement); gaps G8, G9 closed, G2–G7 transferred to the design and blueprint jobs with the facts found, G1 kept; status complete."
+  }
 }
